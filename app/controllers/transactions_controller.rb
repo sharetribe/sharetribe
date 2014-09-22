@@ -36,8 +36,11 @@ class TransactionsController < ApplicationController
     else
       preauthorize_payment_path(:listing_id => transaction[:listing][:id])
     end
-    transaction[:requires_payment] = transaction_type.price_field? && @current_community.payments_in_use?
     transaction[:action_button_label] = transaction_type.action_button_label(I18n.locale)
+
+    not_author = transaction[:listing][:author_id] != @current_user.id
+    requires_payment = transaction_type.price_field? && @current_community.payments_in_use?
+    transaction[:show_call_to_action] = transaction[:status] == "free" && requires_payment && not_author
 
 
     messages_and_actions = TransactionViewUtils::merge_messages_and_transitions(
