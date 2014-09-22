@@ -8,7 +8,8 @@ module MarketplaceService
         :title,
         :author_id,
         :price,
-        :quantity
+        :quantity,
+        :transaction_type_id
       )
 
       Transaction = EntityUtils.define_entity(
