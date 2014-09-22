@@ -31,7 +31,7 @@ class InboxesController < ApplicationController
 
     pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
 
-    inbox_rows = MarketplaceService::Conversation::Query.conversations_and_transactions(
+    inbox_rows = MarketplaceService::Conversation::Query.conversations_and_transactions_for_person_sorted_by_activity(
       @current_user.id,
       @current_community.id,
       pagination_opts[:limit],
