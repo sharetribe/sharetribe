@@ -57,6 +57,19 @@ module PaypalService
         [:fee_currency, :mandatory, :string],
         [:username_to, :mandatory, :string])
 
+      GetExpressCheckoutDetails = EntityUtils.define_builder(
+        [:method, const_value: :get_express_checkout_details],
+        [:token, :mandatory, :string])
+
+      GetExpressCheckoutDetailsResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:token, :mandatory, :string],
+        [:checkout_status, :mandatory, :string],
+        [:billing_agreement_accepted],
+        [:payer, :string],
+        [:order_total, :mandatory, :string],
+        [:order_currency, :mandatory, :string]) # :bool in another branch now
+
 
       module_function
 
@@ -68,6 +81,9 @@ module PaypalService
 
       def create_do_reference_transaction(opts); DoReferenceTransaction.call(opts) end
       def create_do_reference_transaction_response(opts); DoReferenceTransactionResponse.call(opts) end
+
+      def create_get_express_checkout_details(opts); GetExpressCheckoutDetails.call(opts) end
+      def create_get_express_checkout_details_response(opts); GetExpressCheckoutDetailsResponse.call(opts) end
 
     end
 

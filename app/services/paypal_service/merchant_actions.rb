@@ -73,6 +73,23 @@ module PaypalService
             username_to: api.config.subject || api.config.username
           })
         }
+      ),
+
+      get_express_checkout_details: PaypalAction.def_action(
+        input_transformer: -> (req) { { Token: req[:token] } },
+        wrapper_method_name: :build_get_express_checkout_details,
+        action_method_name: :get_express_checkout_details,
+        output_transformer: -> (res, api) {
+          details = res.get_express_checkout_details_response_details
+          DataTypes::Merchant.create_get_express_checkout_details_response({
+            token: details.token,
+            checkout_status: details.checkout_status,
+            billing_agreement_accepted: !!details.billing_agreement_accepted_status,
+            payer: details.payer_info.payer,
+            order_total: details.payment_details[0].order_total.value,
+            order_currency: details.payment_details[0].order_total.currency_id
+          })
+        }
       )
     }
 
