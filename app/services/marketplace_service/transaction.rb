@@ -148,10 +148,13 @@ module MarketplaceService
       def sql_for_transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
         "
           SELECT transactions.* FROM transactions
+
+          # Get 'last_transition_at'
+          # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
           JOIN (
             SELECT tt1.transaction_id, tt1.created_at as last_transition_at, tt1.to_state as last_transition_to
             FROM transaction_transitions tt1
-            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND tt1.created_at < tt2.created_at
+            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND (tt1.created_at < tt2.created_at OR tt1.sort_key < tt2.sort_key)
             WHERE tt2.id IS NULL
           ) AS tt ON (transactions.id = tt.transaction_id)
           LEFT JOIN conversations c ON transactions.conversation_id = c.id
