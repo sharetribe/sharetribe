@@ -107,7 +107,6 @@ module PaypalService
       RequestPermissionsResponse = EntityUtils.define_builder(
         [:success, const_value: true],
         [:username_to, :mandatory, :string],
-        [:scope, :mandatory, :enumerable],
         [:request_token, :mandatory, :string],
         [:redirect_url, :mandatory, :string])
 

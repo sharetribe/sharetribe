@@ -1,54 +1,69 @@
 module PaypalService
   class Permissions
 
-    def initialize(endpoint, api_credentials, logger)
-      @logger = logger
+    include PermissionsActions
 
-      PayPal::SDK.configure({
-         mode: endpoint[:endpoint_name].to_s,
-         username: api_credentials[:username],
-         password: api_credentials[:password],
-         signature: api_credentials[:signature],
-         app_id: api_credentials[:app_id]
-      })
+    def initialize(endpoint, api_credentials, logger, action_handlers = PERMISSIONS_ACTIONS, api_builder = nil)
+      @logger = logger
+      @api_builder = api_builder || self.method(:build_api)
+      @action_handlers = action_handlers
+
+      PayPal::SDK.configure(
+        {
+          mode: endpoint[:endpoint_name].to_s,
+          username: api_credentials[:username],
+          password: api_credentials[:password],
+          signature: api_credentials[:signature],
+          app_id: api_credentials[:app_id]
+        }
+      )
 
       @api = PayPal::SDK::Permissions::API.new
     end
 
     def do_request(request)
-      return do_request_permissions(request) if request[:method] == :request_permissions
+      action_def = @action_handlers[request[:method]]
+      return exec_action(action_def, @api_builder.call(request), request) if action_def
 
-      raise(ArgumentException, "Unknown request method #{request[:method]}")
+      raise(ArgumentException, "Unknown request method #{request.method}")
     end
+
+    def build_api(request)
+      PayPal::SDK::Permissions::API.new
+    end
+
 
     private
 
-    def do_request_permissions(request_permissions)
-      req = @api.build_request_permissions({
-          :scope => request_permissions[:scope],
-          :callback => request_permissions[:callback]
-       })
+    def exec_action(action_def, api, request)
+      input_transformer = action_def[:input_transformer]
+      wrapper_method = api.method(action_def[:wrapper_method_name])
+      action_method = api.method(action_def[:action_method_name])
+      output_transformer = action_def[:output_transformer]
 
-      res = @api.request_permissions(req)
-      @logger.log_response(res)
+      input = input_transformer.call(request)
+      wrapped = wrapper_method.call(input)
+      response = action_method.call(wrapped)
 
-      if (res.success?)
-        DataTypes::Permissions.create_req_perm_response({
-          username_to: @api.config.username,
-          scope: request_permissions[:scope],
-          request_token: res.token,
-          redirect_url: @api.grant_permission_url(res)
-        })
+      @logger.log_response(response)
+      if (response.success?)
+        output_transformer.call(response, api)
       else
-        if (res.error.length > 0)
-          DataTypes.create_failure_response({
-            error_code: res.error[0].error_id,
-            error_msg: res.error[0].message
-          })
-        else
-          DataTypes::Permissions.create_failed_req_perm_response({})
-        end
+        create_failure_response(response)
       end
     end
+
+
+    def create_failure_response(res)
+      if (res.error.length > 0)
+        DataTypes.create_failure_response({
+          error_code: res.error[0].error_id.to_s,
+          error_msg: res.error[0].message
+        })
+      else
+        DataTypes.create_failure_response({})
+      end
+    end
+
   end
 end
