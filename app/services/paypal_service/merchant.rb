@@ -1,29 +1,36 @@
 module PaypalService
   class Merchant
 
-    def initialize(endpoint, api_credentials, logger)
-      @logger = logger
+    include MerchantActions
 
-      PayPal::SDK.configure({
-        mode: endpoint.endpoint_name.to_s,
-        username: api_credentials.username,
-        password: api_credentials.password,
-        signature: api_credentials.signature,
-        app_id: api_credentials.app_id
-      })
+    def initialize(endpoint, api_credentials, logger, action_handlers = MERCHANT_ACTIONS, api_builder = nil)
+      @logger = logger
+      @api_builder = api_builder || self.method(:build_api)
+      @action_handlers = action_handlers
+
+      PayPal::SDK.configure(
+        {
+         mode: endpoint[:endpoint_name].to_s,
+         username: api_credentials[:username],
+         password: api_credentials[:password],
+         signature: api_credentials[:signature],
+         app_id: api_credentials[:app_id]
+        }
+      )
     end
 
     def do_request(request)
-      return do_setup_billing_agreement(request) if request.method == :setup_billing_agreement
-      return do_create_billing_agreement(request) if request.method == :create_billing_agreement
-      return do_do_reference_transaction(request) if request.method == :do_reference_transaction
+      action_def = @action_handlers[request[:method]]
+      return exec_action(action_def, @api_builder.call(request), request) if action_def
 
       raise(ArgumentException, "Unknown request method #{request.method}")
     end
 
-    def build_api(subject = nil)
-      if (subject)
-        PayPal::SDK::Merchant.new(nil, { subject: subject })
+
+    def build_api(request)
+      req = request.to_h
+      if (req[:receiver_username])
+        PayPal::SDK::Merchant.new(nil, { subject: req[:receiver_username] })
       else
         PayPal::SDK::Merchant.new
       end
@@ -32,95 +39,33 @@ module PaypalService
 
     private
 
-    def subject(api)
-      api.config.subject || api.config.username
-    end
+    def exec_action(action_def, api, request)
+      input_transformer = action_def[:input_transformer]
+      wrapper_method = api.method(action_def[:wrapper_method_name])
+      action_method = api.method(action_def[:action_method_name])
+      output_transformer = action_def[:output_transformer]
 
-    def do_setup_billing_agreement(req)
-      api = build_api
-      set_express_checkout = api.build_set_express_checkout({
-        SetExpressCheckoutRequestDetails: {
-          ReturnURL: req.success,
-          CancelURL: req.cancel,
-          ReqConfirmShipping: 0,
-          NoShipping: 1,
-          PaymentDetails: [{
-            OrderTotal: {value: "0.0"},
-            # NotifyURL: "https://paypal-sdk-samples.herokuapp.com/merchant/ipn_notify",
-            PaymentAction: "Authorization"
-          }],
-          BillingAgreementDetails: [{
-            BillingType: "ChannelInitiatedBilling",
-            BillingAgreementDescription: req.description
-          }]
-        }
-      })
+      input = input_transformer.call(request)
+      wrapped = wrapper_method.call(input)
+      response = action_method.call(wrapped)
 
-      res = api.set_express_checkout(set_express_checkout)
-      @logger.log_response(res)
-
-      if (res.success?)
-        DataTypes::Merchant.create_setup_billing_agreement_response(
-          res.token, api.express_checkout_url(res), subject(api))
+      @logger.log_response(response)
+      if (response.success?)
+        output_transformer.call(response, api)
       else
-        create_failure_response(res)
-      end
-    end
-
-    def do_create_billing_agreement(req)
-      api = build_api
-      create_billing_agreement = api.build_create_billing_agreement({Token: req.token})
-
-      res = api.create_billing_agreement(create_billing_agreement)
-      @logger.log_response(res)
-
-      if (res.success?)
-        DataTypes::Merchant.create_create_billing_agreement_response(res.billing_agreement_id)
-      else
-        create_failure_response(res)
-      end
-    end
-
-    def do_do_reference_transaction(req)
-      api = build_api(req.receiver_username)
-      do_ref_tx = api.build_do_reference_transaction({
-        DoReferenceTransactionRequestDetails: {
-          ReferenceID: req.billing_agreement_id,
-          PaymentAction: "Sale",
-          PaymentDetails: {
-            OrderTotal: {
-              currencyID: req.currency,
-              value: req.order_total
-            }
-          }
-        }
-      })
-
-      res = api.do_reference_transaction(do_ref_tx)
-      @logger.log_response(res)
-
-      if (res.success?)
-        details = res.do_reference_transaction_response_details
-        DataTypes::Merchant.create_do_reference_transaction_response(
-          details.billing_agreement_id,
-          details.payment_info.transaction_id,
-          details.payment_info.gross_amount.value,
-          details.payment_info.gross_amount.currency_id,
-          details.payment_info.fee_amount.value,
-          details.payment_info.fee_amount.currency_id,
-          subject(api))
-      else
-        create_failure_response(res)
+        create_failure_response(response)
       end
     end
 
 
     def create_failure_response(res)
       if (res.errors.length > 0)
-        DataTypes.create_failure_response(
-          res.errors[0].error_code, res.errors[0].long_message)
+        DataTypes.create_failure_response({
+          error_code: res.errors[0].error_code,
+          error_msg: res.errors[0].long_message
+        })
       else
-        DataTypes.create_failure_response()
+        DataTypes.create_failure_response({})
       end
     end
   end

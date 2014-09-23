@@ -1,109 +1,80 @@
 module PaypalService
   module DataTypes
-    Endpoint = Struct.new(:endpoint_name) # One of :live or :sandbox
-    APICredentials = Struct.new(:username, :password, :signature, :app_id)
+    Endpoint = EntityUtils.define_builder([:endpoint_name, one_of: [:live, :sandbox]])
+    APICredentials = EntityUtils.define_builder(
+      [:username, :mandatory, :string],
+      [:password, :mandatory, :string],
+      [:signature, :mandatory, :string],
+      [:app_id, :mandatory, :string])
 
-    FailureResponse = Struct.new(:success, :error_code, :error_msg)
+    FailureResponse = EntityUtils.define_builder(
+      [:success, const_value: false],
+      [:error_code, :string],
+      [:error_msg, :string])
+
 
     module_function
 
-    def create_endpoint(type)
-      raise(ArgumentError, "type must be either :live or :sandbox") unless [:live, :sandbox].include?(type)
-      Endpoint.new(type)
-    end
-
-    def create_api_credentials(username, password, signature, app_id)
-      raise(ArgumentError, "username, password, signature and app_id are all mandatory.") unless none_empty?(username, password, signature, app_id)
-      APICredentials.new(username, password, signature, app_id)
-    end
-
-    def none_empty?(*args)
-      args.map(&:to_s).reject(&:empty?).length == args.length
-    end
-
-    def create_failure_response(error_code, error_msg)
-      FailureResponse.new(false, error_code, error_msg)
-    end
-
+    def create_endpoint(opts); Endpoint.call(opts) end
+    def create_api_credentials(opts); APICredentials.call(opts) end
+    def create_failure_response(opts); FailureResponse.call(opts) end
 
     module Merchant
-      SetupBillingAgreement = Struct.new(:method, :description, :success, :cancel)
-      SetupBillingAgreementResponse = Struct.new(:success, :token, :redirect_url, :username_to)
+      SetupBillingAgreement = EntityUtils.define_builder(
+        [:method, const_value: :setup_billing_agreement],
+        [:description, :mandatory, :string],
+        [:success, :mandatory, :string],
+        [:cancel, :mandatory, :string])
 
-      CreateBillingAgreement = Struct.new(:method, :token)
-      CreateBillingAgreementResponse = Struct.new(:success, :billing_agreement_id)
+      SetupBillingAgreementResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:token, :mandatory, :string],
+        [:redirect_url, :mandatory, :string],
+        [:username_to, :mandatory, :string])
 
-      # order_total should be string. Use . as separator. E.g. 1.15
-      DoReferenceTransaction = Struct.new(:method, :receiver_username, :billing_agreement_id, :order_total, :currency)
-      DoReferenceTransactionResponse = Struct.new(:success, :billing_agreement_id, :transaction_id, :gross_amount, :gross_currency, :fee_amount, :fee_currency, :username_to)
+      CreateBillingAgreement = EntityUtils.define_builder(
+        [:method, const_value: :create_billing_agreement],
+        [:token, :mandatory, :string])
+
+      CreateBillingAgreementResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:billing_agreement_id, :mandatory, :string])
+
+      DoReferenceTransaction = EntityUtils.define_builder(
+        [:method, const_value: :do_reference_transaction],
+        [:receiver_username, :mandatory, :string],
+        [:billing_agreement_id, :mandatory, :string],
+        [:order_total, :mandatory, :string], # Use . as separator, e.g. 1.15
+        [:currency, :mandatory, :string])
+
+      DoReferenceTransactionResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:billing_agreement_id, :mandatory, :string],
+        [:transaction_id, :mandatory, :string],
+        [:gross_amount, :mandatory, :string],
+        [:gross_currency, :mandatory, :string],
+        [:fee_amount, :mandatory, :string],
+        [:fee_currency, :mandatory, :string],
+        [:username_to, :mandatory, :string])
 
 
       module_function
 
-      def create_setup_billing_agreement(description, success, cancel)
-        ParamUtils.throw_if_any_empty({description: description, success: success, cancel: cancel})
+      def create_setup_billing_agreement(opts); SetupBillingAgreement.call(opts) end
+      def create_setup_billing_agreement_response(opts); SetupBillingAgreementResponse.call(opts) end
 
-        SetupBillingAgreement.new(
-          :setup_billing_agreement,
-          description,
-          success,
-          cancel)
-      end
+      def create_create_billing_agreement(opts); CreateBillingAgreement.call(opts) end
+      def create_create_billing_agreement_response(opts); CreateBillingAgreementResponse.call(opts) end
 
-      def create_setup_billing_agreement_response(token, redirect_url, username_to)
-        ParamUtils.throw_if_any_empty({token: token, redirect_url: redirect_url})
-        SetupBillingAgreementResponse.new(true, token, redirect_url, username_to)
-      end
+      def create_do_reference_transaction(opts); DoReferenceTransaction.call(opts) end
+      def create_do_reference_transaction_response(opts); DoReferenceTransactionResponse.call(opts) end
 
-      def create_create_billing_agreement(token)
-        ParamUtils.throw_if_any_empty({token: token})
-        CreateBillingAgreement.new(:create_billing_agreement, token)
-      end
-
-      def create_create_billing_agreement_response(billing_agreement_id)
-        ParamUtils.throw_if_any_empty({billing_agreement_id: billing_agreement_id})
-        CreateBillingAgreementResponse.new(true, billing_agreement_id)
-      end
-
-      def create_do_reference_transaction(receiver_username, billing_agreement_id, order_total, currency)
-        ParamUtils.throw_if_any_empty({
-            receiver_username: receiver_username,
-            billing_agreement_id: billing_agreement_id,
-            order_total: order_total,
-            currency: currency
-          })
-        DoReferenceTransaction.new(:do_reference_transaction, receiver_username, billing_agreement_id, order_total, currency)
-      end
-
-
-      def create_do_reference_transaction_response(billing_agreement_id, transaction_id, gross_amount, gross_currency, fee_amount, fee_currency, username_to)
-        ParamUtils.throw_if_any_empty({
-            billing_agreement_id: billing_agreement_id,
-            transaction_id: transaction_id,
-            gross_amount: gross_amount,
-            gross_currency: gross_currency,
-            fee_amount: fee_amount,
-            fee_currency: fee_currency,
-            username_to: username_to
-          })
-
-        DoReferenceTransactionResponse.new(true, billing_agreement_id, transaction_id, gross_amount, gross_currency, fee_amount, fee_currency, username_to)
-      end
     end
 
     module Permissions
-      RequestPermissions = Struct.new(:method, :scope, :callback)
-      RequestPermissionsSuccessResponse = Struct.new(:success, :username_to, :scope, :request_token, :redirect_url)
-      RequestPermissionsFailureResponse = Struct.new(:success, :error_id, :error_msg)
-
-
-      module_function
-
-      def create_req_perm(callback)
-        raise(ArgumentError, "callback is mandatory") unless DataTypes.none_empty?(callback)
-
-        RequestPermissions.new(
-          :request_permissions,
+      RequestPermissions = EntityUtils.define_builder(
+        [:method, const_value: :request_permissions],
+        [:scope, const_value:
           [
             "EXPRESS_CHECKOUT",
             "AUTH_CAPTURE",
@@ -113,21 +84,23 @@ module PaypalService
             "RECURRING_PAYMENTS",
             "SETTLEMENT_REPORTING",
             "RECURRING_PAYMENT_REPORT"
-          ],
-          callback)
-      end
+          ]
+        ],
+        [:callback, :mandatory, :string])
 
-      def create_req_perm_response(username_to, scope, token, redirect_url)
-        unless DataTypes.none_empty?(username_to, scope, token, redirect_url)
-          raise(ArgumentError, "username_to, scope, token and redirect_url are all mandatory")
-        end
+      RequestPermissionsResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:username_to, :mandatory, :string],
+        [:scope, :mandatory, :enumerable],
+        [:request_token, :mandatory, :string],
+        [:redirect_url, :mandatory, :string])
 
-        RequestPermissionsSuccessResponse.new(true, username_to, scope, token, redirect_url)
-      end
 
-      def create_failed_req_perm_response(error_id, error_msg)
-        RequestPermissionsFailureResponse.new(false, error_id, error_msg)
-      end
+      module_function
+
+      def create_req_perm(opts); RequestPermissions.call(opts) end
+      def create_req_perm_response(opts); RequestPermissionsResponse.call(opts) end
+
     end
   end
 end

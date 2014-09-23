@@ -78,4 +78,17 @@ describe EntityUtils do
     expect{Entity.call({say_so: "It ain't so"})}
       .to raise_error
   end
+
+  it "#define builder :enumerable validator" do
+    Entity = EntityUtils.define_builder([:tags, :enumerable])
+
+    expect{Entity.call({tags: [1, 2]})}
+      .to_not raise_error
+
+    expect{Entity.call({tags: nil})}
+      .to_not raise_error
+
+    expect{Entity.call({tags: 2})}
+      .to raise_error
+  end
 end
