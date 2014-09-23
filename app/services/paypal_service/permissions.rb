@@ -29,16 +29,27 @@ module PaypalService
     end
 
     def build_api(request)
-      PayPal::SDK::Permissions::API.new
+      if (request[:token] && request[:token_secret])
+        PayPal::SDK::Permissions::API.new({
+            token: request[:token],
+            token_secret: request[:token_secret]
+        })
+      else
+        PayPal::SDK::Permissions::API.new
+      end
     end
 
 
     private
 
+    def ident(val)
+      val
+    end
+
     def exec_action(action_def, api, request)
       input_transformer = action_def[:input_transformer]
-      wrapper_method = api.method(action_def[:wrapper_method_name])
-      action_method = api.method(action_def[:action_method_name])
+      wrapper_method = action_def[:wrapper_method_name] ? api.method(action_def[:wrapper_method_name]) : method(:ident)
+      action_method = action_def[:action_method_name] ? api.method(action_def[:action_method_name]) : method(:ident)
       output_transformer = action_def[:output_transformer]
 
       input = input_transformer.call(request)
