@@ -93,7 +93,7 @@ class InboxesController < ApplicationController
       end
 
       InboxRowTransaction[conversation_opts.merge({
-        listing_url: listing_path(id: conversation[:transaction][:id]),
+        listing_url: listing_path(id: conversation[:transaction][:listing][:id]),
         listing_title: conversation[:transaction][:listing][:title],
         is_author: conversation[:transaction][:listing][:author_id] == @current_user.id,
         waiting_feedback_from_current: MarketplaceService::Transaction::Entity.waiting_testimonial_from?(conversation[:transaction], @current_user.id),
