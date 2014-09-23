@@ -12,6 +12,7 @@ class PaypalWebhooksController < ApplicationController
   end
 
   DataTypePermissions = PaypalService::DataTypes::Permissions
+  PaypalAccountCommand = MarketplaceService::PaypalAccount::Command
 
   def permissions_hook
 
@@ -69,8 +70,7 @@ class PaypalWebhooksController < ApplicationController
   end
 
   def billing_agreement_cancel_hook
-    MarketplaceService::PaypalAccount::Command
-      .cancel_pending_billing_agreement(@current_user.id, @current_community.id, params[:token])
+    PaypalAccountCommand.cancel_pending_billing_agreement(@current_user.id, @current_community.id, params[:token])
 
     flash[:error] = t("paypal_accounts.new.billing_agreement_canceled")
     redirect_to new_paypal_account_settings_payment_path(@current_user.username)
@@ -79,13 +79,12 @@ class PaypalWebhooksController < ApplicationController
 
   def admin_permissions_hook
     if params[:verification_code].present?
-      MarketplaceService::PaypalAccount::Command
-        .confirm_pending_permissions_request(
-          nil,
-          @current_community.id,
-          params[:request_token],
-          params[:verification_code]
-        )
+      PaypalAccountCommand.confirm_pending_permissions_request(
+        nil,
+        @current_community.id,
+        params[:request_token],
+        params[:verification_code]
+      )
       redirect_to admin_community_paypal_account_path(@current_community.id)
     else
       flash[:error] = t("paypal_accounts.new.permissions_not_granted")
