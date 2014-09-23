@@ -80,7 +80,7 @@ class Conversation < ActiveRecord::Base
   def should_notify?(user)
     # TODO Conversation is now aware of transactions, which is not an optimal solution.
     # Consider moving the logic to Service
-    !read_by?(user) || (transaction.present? && transaction.should_notify?(user))
+    !read_by?(user) || (transaction.present? && MarketplaceService::Transaction::Entity.should_notify?(MarketplaceService::Transaction::Entity.transaction(transaction), user.id))
   end
 
   # Returns last received or sent message
@@ -114,10 +114,6 @@ class Conversation < ActiveRecord::Base
   # Returns all the participants except the message sender
   def recipients(sender)
     participants.reject { |p| p.id == sender.id }
-  end
-
-  def update_is_read(current_user)
-    participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
   end
 
   def starter

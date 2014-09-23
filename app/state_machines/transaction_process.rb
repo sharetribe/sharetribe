@@ -25,7 +25,6 @@ class TransactionProcess
     accepter = transaction.listing.author
     current_community = transaction.community
 
-    transaction.conversation.update_is_read(accepter)
     Delayed::Job.enqueue(TransactionStatusChangedJob.new(transaction.id, accepter.id, current_community.id))
 
     [3, 10].each do |send_interval|
@@ -58,7 +57,6 @@ class TransactionProcess
     rejecter = transaction.listing.author
     current_community = transaction.community
 
-    transaction.conversation.update_is_read(rejecter)
     Delayed::Job.enqueue(TransactionStatusChangedJob.new(transaction.id, rejecter.id, current_community.id))
   end
 

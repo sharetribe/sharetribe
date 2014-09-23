@@ -48,6 +48,8 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     if @listing_conversation.save!
       @listing_conversation.transition_to! params[:listing_conversation][:status]
 
+      MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
+
       redirect_to person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
       block.call
     else

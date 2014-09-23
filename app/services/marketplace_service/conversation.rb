@@ -99,11 +99,17 @@ module MarketplaceService
       module_function
 
       def mark_as_read(conversation_id, person_id)
-        conversation = ParticipationModel
+        get_participation_relation(conversation_id, person_id).update_all({is_read: true})
+      end
+
+      def mark_as_unread(conversation_id, person_id)
+        get_participation_relation(conversation_id, person_id).update_all({is_read: false})
+      end
+
+      def get_participation_relation(conversation_id, person_id)
+        ParticipationModel
           .where({conversation_id: conversation_id })
           .where({ person_id: person_id })
-          .first
-          .update_attributes({is_read: true})
       end
     end
 

@@ -86,13 +86,20 @@ class InboxesController < ApplicationController
     }
 
     if conversation[:transaction]
-      InboxRowTransaction[{
+      is_read = if MarketplaceService::Transaction::Entity.should_notify?(conversation[:transaction], @current_user.id)
+        false
+      else
+        conversation_opts[:is_read]
+      end
+
+      InboxRowTransaction[conversation_opts.merge({
         listing_url: listing_path(id: conversation[:transaction][:id]),
         listing_title: conversation[:transaction][:listing][:title],
         is_author: conversation[:transaction][:listing][:author_id] == @current_user.id,
         waiting_feedback_from_current: MarketplaceService::Transaction::Entity.waiting_testimonial_from?(conversation[:transaction], @current_user.id),
-        transaction_status: conversation[:transaction][:status]
-      }.merge(conversation_opts)]
+        transaction_status: conversation[:transaction][:status],
+        is_read: is_read
+      })]
     else
       InboxRowConversation[conversation_opts]
     end
