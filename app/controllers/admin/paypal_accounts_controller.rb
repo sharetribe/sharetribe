@@ -78,7 +78,7 @@ class Admin::PaypalAccountsController < ApplicationController
 
   def request_paypal_permissions_url
     permission_request = PaypalService::DataTypes::Permissions
-      .create_req_perm(admin_paypal_permissions_hook_url)
+      .create_req_perm({callback: admin_paypal_permissions_hook_url })
 
     response = paypal_permissions.do_request(permission_request)
     if response[:success]
