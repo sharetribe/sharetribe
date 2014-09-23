@@ -682,6 +682,21 @@ function initialize_send_message_form(locale, message_type) {
   });
 }
 
+function initialize_send_person_message_form(locale, message_type) {
+  auto_resize_text_areas("text_area");
+  $('textarea').focus();
+  var form_id = "#new_conversation";
+  $(form_id).validate({
+    rules: {
+      "conversation[message_attributes][content]": {required: true, minlength: 1}
+    },
+    submitHandler: function(form) {
+      disable_and_submit(form_id, form, "false", locale);
+      report_analytics_event(["message", "sent", message_type]);
+    }
+  });
+}
+
 function initialize_reply_form(locale) {
   auto_resize_text_areas("reply_form_text_area");
   $('textarea').focus();
