@@ -77,6 +77,23 @@ class PaypalWebhooksController < ApplicationController
   end
 
 
+  def admin_permissions_hook
+    if params[:verification_code].present?
+      MarketplaceService::PaypalAccount::Command
+        .confirm_pending_permissions_request(
+          nil,
+          @current_community.id,
+          params[:request_token],
+          params[:verification_code]
+        )
+      redirect_to admin_community_paypal_account_path(@current_community.id)
+    else
+      flash[:error] = t("paypal_accounts.new.permissions_not_granted")
+      redirect_to new_admin_community_paypal_account_path(@current_community.id)
+    end
+  end
+
+
   private
 
   def affirm_billing_agreement(token)
