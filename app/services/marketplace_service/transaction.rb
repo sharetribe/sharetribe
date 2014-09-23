@@ -78,7 +78,7 @@ module MarketplaceService
           person_id == transaction[:starter_id]
         elsif status == "paid"
           person_id == transaction[:starter_id]
-        elsif status == "confirmed" || status == "canceled"
+        elsif status == "confirmed"
           waiting_testimonial_from?(transaction, person_id)
         else
           false
