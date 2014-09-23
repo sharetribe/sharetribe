@@ -61,49 +61,73 @@ module TransactionViewUtils
     when "preauthorized"
       {
         sender: starter,
-        content: t("conversations.message.paid", sum: humanized_money_with_symbol(payment_sum)),
         mood: :positive
       }
     when "accepted"
       {
         sender: author,
-        content: t("conversations.message.accepted_#{discussion_type}"),
         mood: :positive
       }
     when "rejected"
       {
         sender: author,
-        content: t("conversations.message.rejected_#{discussion_type}"),
         mood: :negative
       }
     when preauthorize_accepted
       {
         sender: author,
-        content: t("conversations.message.accepted_#{discussion_type}"),
         mood: :positive
       }
     when post_pay_accepted
       {
         sender: starter,
-        content: t("conversations.message.paid", sum: humanized_money_with_symbol(payment_sum)),
         mood: :positive
       }
     when "canceled"
       {
         sender: author,
-        content: t("conversations.message.canceled_#{discussion_type}"),
         mood: :negative
       }
     when "confirmed"
       {
         sender: author,
-        content: t("conversations.message.confirmed_#{discussion_type}"),
         mood: :positive
       }
     else
       raise("Unknown transition to state: #{transition[:to_state]}")
     end
 
-    MessageBubble[message.merge(created_at: transition[:created_at])]
+    MessageBubble[message.merge(
+      created_at: transition[:created_at],
+      content: create_content_from_action(transition[:to_state], old_state, discussion_type, payment_sum)
+    )]
+  end
+
+  def create_content_from_action(state, old_state, discussion_type, payment_sum)
+    preauthorize_accepted = ->(new_state) { new_state == "paid" && old_state == "preauthorized" }
+    post_pay_accepted = ->(new_state) {
+      # The condition here is simply "if new_state is paid", since due to migrations from old system there might be
+      # transitions in "paid" state without previous state.
+      new_state == "paid"
+    }
+
+    message = case state
+    when "preauthorized"
+      t("conversations.message.paid", sum: humanized_money_with_symbol(payment_sum))
+    when "accepted"
+      t("conversations.message.accepted_#{discussion_type}")
+    when "rejected"
+      t("conversations.message.rejected_#{discussion_type}")
+    when preauthorize_accepted
+      t("conversations.message.accepted_#{discussion_type}")
+    when post_pay_accepted
+      t("conversations.message.paid", sum: humanized_money_with_symbol(payment_sum))
+    when "canceled"
+      t("conversations.message.canceled_#{discussion_type}")
+    when "confirmed"
+      t("conversations.message.confirmed_#{discussion_type}")
+    else
+      raise("Unknown transition to state: #{state}")
+    end
   end
 end
