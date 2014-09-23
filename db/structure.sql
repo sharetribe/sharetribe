@@ -13,11 +13,11 @@ CREATE TABLE `auth_tokens` (
 CREATE TABLE `billing_agreements` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `paypal_account_id` int(11) NOT NULL,
-  `billing_agreement_id` varchar(255) DEFAULT NULL,
+  `billing_agreement_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `paypal_username_to` varchar(255) NOT NULL,
-  `request_token` varchar(255) NOT NULL,
+  `paypal_username_to` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `request_token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -839,9 +839,9 @@ CREATE TABLE `transactions` (
   `listing_id` int(11) NOT NULL,
   `conversation_id` int(11) DEFAULT NULL,
   `automatic_confirmation_after_days` int(11) DEFAULT NULL,
+  `community_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `community_id` int(11) NOT NULL,
   `starter_skipped_feedback` tinyint(1) DEFAULT '0',
   `author_skipped_feedback` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
@@ -1848,3 +1848,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140909124605');
 INSERT INTO schema_migrations (version) VALUES ('20140909125012');
 
 INSERT INTO schema_migrations (version) VALUES ('20140912084032');
+
+INSERT INTO schema_migrations (version) VALUES ('20140923064145');
