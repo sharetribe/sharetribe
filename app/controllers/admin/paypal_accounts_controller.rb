@@ -37,14 +37,12 @@ class Admin::PaypalAccountsController < ApplicationController
   end
 
   def create
-    paypal_account_form = build_paypal_account_form(params[:paypal_account_form])
+    paypal_account_form = PaypalAccountForm.new(params[:paypal_account_form])
 
     if paypal_account_form.valid?
-      MarketplaceService::PaypalAccount::Command.create_admin_account(
+      PaypalAccountCommand.create_admin_account(
         @current_community.id,
-        {
-          email: paypal_account_form.paypal_email
-        }
+        { email: paypal_account_form.paypal_email }
       )
 
       permissions_url = request_paypal_permissions_url
@@ -63,10 +61,6 @@ class Admin::PaypalAccountsController < ApplicationController
   end
 
   private
-
-  def build_paypal_account_form(paypal_params = {})
-    PaypalAccountForm.new(paypal_params)
-  end
 
   # Before filter
   def ensure_paypal_enabled
