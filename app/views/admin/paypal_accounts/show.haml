@@ -3,23 +3,18 @@
 
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
-.left-navi-section
-  %h2= t(".marketplace_paypal_integration")
+.left-navi-section.payment-settings
+  %h2= t("admin.paypal_accounts.marketplace_paypal_integration")
 
   .row
-    .col-6
-      = t(".username_or_email_help_text")
-    .col-6
-      = paypal_account[:email]
+    = t("admin.paypal_accounts.show.integration_info_text").html_safe
 
-  .row
-    .col-6
-      = t(".api_password_help_text")
-    .col-6
-      = paypal_account[:api_password]
+  %br/
 
-  .row
-    .col-6
-      = t(".api_signature_help_text")
-    .col-6
-      = paypal_account[:api_signature]
+  .row.paypal-connected-email-row
+    %h3.paypal-account-connected
+      =t("admin.paypal_accounts.show.paypal_account_email_connected")
+    .paypal-connected-email.paypal-account-connected
+      = paypal_account_email
+
+
