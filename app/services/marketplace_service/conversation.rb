@@ -182,7 +182,7 @@ module MarketplaceService
           AND participations.person_id = '#{person_id}'
 
           # Order by 'last_activity', that is last message or last transition
-          # ORDER BY GREATEST(COALESCE(last_transition_at, 0), COALESCE(conversations.last_message_at, 0)) DESC
+          ORDER BY GREATEST(COALESCE(last_transition_at, 0), COALESCE(conversations.last_message_at, 0)) DESC
 
           # Pagination
           LIMIT #{limit} OFFSET #{offset}
