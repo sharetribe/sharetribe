@@ -32,6 +32,25 @@ module MarketplaceService
       Testimonial = TransactionEntity::Testimonial
       PersonEntity = MarketplaceService::Person::Entity
 
+      conversation_fields = [
+        [:title, :string, :mandatory],
+        [:last_update_at, :string, :mandatory],
+        [:path, :string, :mandatory],
+        [:other_party, :hash, :mandatory],
+        [:is_read, :bool, :mandatory]
+      ]
+
+      transasction_fields = [
+        [:listing_title, :string, :mandatory],
+        [:listing_url, :string, :mandatory],
+        [:is_author, :bool, :mandatory],
+        [:waiting_feedback_from_current, :mandatory],
+        [:transaction_status, :string, :mandatory]
+      ]
+
+      InboxRowConversation = EntityUtils.define_builder(*conversation_fields)
+      InboxRowTransaction = EntityUtils.define_builder(*conversation_fields, *transasction_fields)
+
       module_function
 
       def participant_by_id(conversation, person_id)
@@ -155,34 +174,84 @@ module MarketplaceService
         }
       end
 
+      # conversation_fields = [
+      #   [:title, :string, :mandatory],              # Last message content, OR last transaction
+      #   [:last_update_at, :string, :mandatory],     # Last message at, OR last transaction at
+      #   [:other_party, :hash, :mandatory],          # Participant, which is not current user
+      #   [:is_read, :bool, :mandatory]               # select is_read FROM participation where author_id = #{current_user.id}
+      # ]
+
+      # transasction_fields = [
+      #   [:listing_title, :string, :mandatory],          # select title FROM listing
+      #   [:is_author, :bool, :mandatory],                # select author_id FROM listing
+      #   [:waiting_feedback_from_current, :mandatory],   # select author_skipped_feedback, starter_skipped_feedback FROM transaction
+                                                          # select * FROM testimonials WHERE author_id = #{current_user.id}
+      #   [:transaction_status, :string, :mandatory]      # Last from transaction
+      # ]
+
+      def inbox_data(person_id, community_id, limit, offset)
+        sql = sql_for_conversations_for_community_sorted_by_activity(person_id, community_id, limit, offset)
+
+        result_hash = ActiveRecord::Base.connection.execute(sql).each(as: :hash)
+      end
+
       def transactions_count_for_community(community_id)
         TransactionModel.where(:community_id => community_id).count
       end
 
       def sql_for_conversations_for_community_sorted_by_activity(person_id, community_id, limit, offset)
         "
-          SELECT conversations.* FROM conversations
+          SELECT
+            m.last_message_at,
+            m.last_message_content,
+            tt.last_transition_at,
+            tt.last_transition_to_state,
+            GREATEST(COALESCE(tt.last_transition_at, 0), COALESCE(m.last_message_at, 0)) as last_activity_at,
+            listings.id as listing_id,
+            listings.title as listing_title,
+            listings.author_id as author_id,
+            transactions.author_skipped_feedback as author_skipped_feedback,
+            transactions.starter_skipped_feedback as starter_skipped_feedback
+          FROM conversations
 
           # Join transactions and participations
           LEFT JOIN transactions ON transactions.conversation_id = conversations.id
 
-          # Get 'last_transition_at'
+          # Join listing
+          LEFT JOIN listings ON transactions.listing_id = listings.id
+
+          # Join testimonial from current
+          LEFT JOIN testimonials ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = '#{person_id}')
+
+          # Get 'last_transition_at' and 'last_transition_to_state'
           # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
           LEFT JOIN (
-            SELECT tt1.transaction_id, tt1.created_at as last_transition_at, tt1.to_state as last_transition_to
+            SELECT tt1.transaction_id, tt1.created_at as last_transition_at, tt1.to_state as last_transition_to_state
             FROM transaction_transitions tt1
             LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND (tt1.created_at < tt2.created_at OR tt1.sort_key < tt2.sort_key)
             WHERE tt2.id IS NULL
           ) AS tt ON (transactions.id = tt.transaction_id)
 
-          LEFT JOIN participations ON participations.conversation_id = conversations.id
+          # Get 'last_message_at' and 'last_message_content'
+          # (this is done by joining the messages table to itself where created_at < created_at)
+          LEFT JOIN (
+            SELECT m1.conversation_id, m1.created_at as last_message_at, m1.content as last_message_content
+            FROM messages m1
+            LEFT JOIN messages m2 ON m1.conversation_id = m2.conversation_id AND m1.created_at < m2.created_at
+            WHERE m2.id IS NULL
+          ) AS m ON (conversations.id = m.conversation_id)
+
+          LEFT JOIN participations AS starter_participation ON starter_participation.conversation_id = conversations.id AND starter_participation.is_starter = true
+          LEFT JOIN participations AS other_participation ON other_participation.conversation_id = conversations.id AND other_participation.is_starter = false
+          LEFT JOIN people AS starter_person ON starter_person.id = starter_participation.person_id
+          LEFT JOIN people AS other_person ON other_person.id = other_participation.person_id
 
           # Where person and community
-          WHERE conversations.community_id = '#{community_id}'
-          AND participations.person_id = '#{person_id}'
+          WHERE conversations.community_id = #{community_id}
+          AND (starter_participation.person_id = '#{person_id}') OR (other_participation.person_id = '#{person_id}')
 
-          # Order by 'last_activity', that is last message or last transition
-          ORDER BY GREATEST(COALESCE(last_transition_at, 0), COALESCE(conversations.last_message_at, 0)) DESC
+          # Order by 'last_activity_at', that is last message or last transition
+          ORDER BY last_activity_at DESC
 
           # Pagination
           LIMIT #{limit} OFFSET #{offset}
