@@ -1437,7 +1437,7 @@ fi:
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_placeholder: "PayPal-tilisi sähköpostiosoite"
       paypal_account_email_info_text: "Huom.: tarvitset Paypal-liiketoimintatilin vastaanottaaksesi luottokorttimaksuja. Jos sinulla ei ole PayPal.tiliä, voit luoda uuden %{create_paypal_account}. Jos sinulla on PayPal-henkilötili, voit helposti muuttaa tilin tyypin liiketoimintatiliksi ilmaiseksi. %{upgrade_paypal_account}"
-      create_paypal_account: "täällä"
+      create_paypal_account: täällä
       upgrade_paypal_account: "Muuta PayPal-tilin tyyppi."
       connect_paypal_account: "Yhdistä PayPal-tiliin"
       paypal_account_billing_agreement: "2. Anna %{service_name}-palvelulle lupa ottaa välityspalkkio kaupoista."

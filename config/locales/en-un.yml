@@ -1416,6 +1416,7 @@ en-un:
     payout_info_title: ~
     paypal_account_email_connected: ~
     paypal_billing_agreement_made: ~
+    commission: ~
     new:
       payout_info_text: ~
       paypal_account_email: ~
@@ -1425,10 +1426,14 @@ en-un:
       upgrade_paypal_account: ~
       connect_paypal_account: ~
       paypal_account_billing_agreement: ~
+      paypal_account_billing_agreement_info: ~
+      billing_agreement_description: ~
       billing_agreement: ~
       permissions_not_granted: ~
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
+      billing_agreement_canceled: ~
+      billing_agreement_id_missing: ~
   people:
     index:
       loading_more_members: ~
