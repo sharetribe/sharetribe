@@ -1,6 +1,7 @@
 module MarketplaceService
   module Transaction
     TransactionModel = ::Transaction
+    ParticipationModel = ::Participation
 
     module Entity
       Listing = EntityUtils.define_entity(
@@ -68,6 +69,22 @@ module MarketplaceService
         transaction[:testimonials].find { |testimonial| testimonial[:author_id] == person_id }
       end
 
+      def should_notify?(transaction, person_id)
+        status = transaction[:status]
+
+        if status == "pending" || status == "preauthorized"
+          person_id == transaction[:listing][:author_id]
+        elsif status == "accepted"
+          person_id == transaction[:starter_id]
+        elsif status == "paid"
+          person_id == transaction[:starter_id]
+        elsif status == "confirmed" ||
+          waiting_testimonial_from?(transaction, person_id)
+        else
+          false
+        end
+      end
+
       def transaction(transaction_model)
         listing_model = transaction_model.listing
         # TODO Add Listing service
@@ -103,6 +120,26 @@ module MarketplaceService
 
     module Command
       module_function
+
+      # Mark transasction as unseen, i.e. something new (e.g. transition) has happened
+      #
+      # Under the hood, this is stored to conversation, which is not optimal since that ties transaction and
+      # conversation tightly together
+      def mark_as_unseen_by_other(transaction_id, person_id)
+        TransactionModel.find(transaction_id)
+          .conversation
+          .participations
+          .where("person_id != '#{person_id}'")
+          .update_all(is_read: false)
+      end
+
+      def mark_as_seen_by_current(transaction_id, person_id)
+        TransactionModel.find(transaction_id)
+          .conversation
+          .participations
+          .where("person_id = '#{person_id}'")
+          .update_all(is_read: true)
+      end
     end
 
     module Query

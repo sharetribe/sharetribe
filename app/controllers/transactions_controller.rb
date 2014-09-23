@@ -47,7 +47,7 @@ class TransactionsController < ApplicationController
       TransactionViewUtils.conversation_messages(conversation[:messages]),
       TransactionViewUtils.transition_messages(transaction, conversation))
 
-    MarketplaceService::Conversation::Command.mark_as_read(conversation[:id], @current_user.id)
+    MarketplaceService::Transaction::Command.mark_as_seen_by_current(params[:id], @current_user.id)
 
     render "transactions/show", locals: {
       messages: messages_and_actions.reverse,

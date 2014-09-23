@@ -77,7 +77,10 @@ class TestimonialsController < ApplicationController
   end
 
   def ensure_feedback_not_given
-    unless @transaction.waiting_feedback_from?(@current_user)
+    transaction_entity = Marketplace::Transaction::Entity.transaction(@transaction)
+    waiting = MarketplaceService::Transaction::Entity.waiting_testimonial_from?(transaction_entity, @current_user.id)
+
+    unless waiting
       flash[:error] = t("layouts.notifications.you_have_already_given_feedback_about_this_event")
       redirect_to root and return
     end

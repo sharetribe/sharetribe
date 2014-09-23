@@ -30,6 +30,7 @@ class ConfirmConversationsController < ApplicationController
 
     if @listing_conversation.can_transition_to? status
       @listing_conversation.transition_to! status
+      MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
 
       if(params[:message])
         message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_conversation.id }))

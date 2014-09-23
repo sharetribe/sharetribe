@@ -96,10 +96,6 @@ class Transaction < ActiveRecord::Base
     rows.each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
   end
 
-  def should_notify?(user)
-    (status == "pending" || status == "preauthorized") && author == user
-  end
-
   # If listing is an offer, return request, otherwise return offer
   def discussion_type
     listing.transaction_type.is_request? ? "offer" : "request"
@@ -119,18 +115,6 @@ class Transaction < ActiveRecord::Base
     else
       starter_skipped_feedback?
     end
-  end
-
-  def waiting_feedback_from?(person)
-    if author == person
-      testimonial_from_author.blank? && !author_skipped_feedback?
-    else
-      testimonial_from_starter.blank? && !starter_skipped_feedback?
-    end
-  end
-
-  def has_feedback_from_both_participants?
-    testimonial_from_author.present? && testimonial_from_starter.present?
   end
 
   def testimonial_from_author
