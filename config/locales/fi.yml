@@ -282,6 +282,14 @@ fi:
       news_item:
         edit_news_item: Muokkaa
         delete_news_item: Poista
+    paypal_accounts:
+      marketplace_paypal_integration: "PayPal asetukset"
+      new:
+        integration_info_text: "Vastaanottaaksesi rahaa sinun täytyy yhdistää PayPal-tili %{service_name}-palveluun."
+        paypal_account_email: "Yhdistä PayPal-tili"
+      show:
+        integration_info_text: "Vastaanottaaksesi rahaa sinun täytyy yhdistää PayPal-tili %{service_name}-palveluun."
+        paypal_account_email_connected: "Yhdistetty PayPal-tili"
     polls:
       index:
         polls: Kyselyt
