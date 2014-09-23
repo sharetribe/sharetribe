@@ -77,7 +77,7 @@ class TestimonialsController < ApplicationController
   end
 
   def ensure_feedback_not_given
-    transaction_entity = Marketplace::Transaction::Entity.transaction(@transaction)
+    transaction_entity = MarketplaceService::Transaction::Entity.transaction(@transaction)
     waiting = MarketplaceService::Transaction::Entity.waiting_testimonial_from?(transaction_entity, @current_user.id)
 
     unless waiting
