@@ -86,6 +86,7 @@ module PaypalService
             checkout_status: details.checkout_status,
             billing_agreement_accepted: !!details.billing_agreement_accepted_status,
             payer: details.payer_info.payer,
+            payer_id: details.payer_info.payer_id,
             order_total: details.payment_details[0].order_total.value,
             order_currency: details.payment_details[0].order_total.currency_id
           })

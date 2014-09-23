@@ -67,6 +67,7 @@ module PaypalService
         [:checkout_status, :mandatory, :string],
         [:billing_agreement_accepted],
         [:payer, :string],
+        [:payer_id, :string],
         [:order_total, :mandatory, :string],
         [:order_currency, :mandatory, :string]) # :bool in another branch now
 
