@@ -4,21 +4,33 @@ class Admin::PaypalAccountsController < ApplicationController
 
   skip_filter :dashboard_only
 
-  PaypalAccountForm = FormUtils.define_form("PaypalAccountForm", :email, :api_password, :api_signature)
-    .with_validations { validates_presence_of :email, :api_password, :api_signature }
+  PaypalAccountEntity = MarketplaceService::PaypalAccount::Entity
+  PaypalAccountQuery = MarketplaceService::PaypalAccount::Query
+  PaypalAccountForm = FormUtils.define_form("PaypalAccountForm", :paypal_email, :commission_from_seller)
+    .with_validations { validates_presence_of :paypal_email }
+
 
   def show
-    paypal_account = MarketplaceService::PaypalAccount::Query.admin_account(@current_community.id)
+    paypal_account = PaypalAccountQuery.admin_account(@current_community.id)
+    return redirect_to action: :new unless PaypalAccountEntity.order_permission_verified?(paypal_account)
 
-    if paypal_account
-      render locals: { paypal_account: paypal_account }
-    else
-      redirect_to action: :new
-    end
+    @selected_left_navi_link = "paypal_account"
+
+    render locals: {
+      paypal_account_email: Maybe(paypal_account)[:email].or_else("")
+    }
   end
 
   def new
-    render locals: { paypal_account: build_paypal_account_form }
+    paypal_account = PaypalAccountQuery.admin_account(@current_community.id)
+    return redirect_to action: :show if PaypalAccountEntity.order_permission_verified?(paypal_account)
+
+    @selected_left_navi_link = "paypal_account"
+
+    render(locals: {
+      form_action: admin_community_paypal_account_path(@current_community),
+      paypal_account_form: PaypalAccountForm.new
+    })
   end
 
   def create
