@@ -2,6 +2,8 @@ module MarketplaceService
   module Conversation
     ConversationModel = ::Conversation
     ParticipationModel = ::Participation
+    PersonModel = ::Person
+    PersonEntity = MarketplaceService::Person::Entity
 
     module Entity
       Conversation = EntityUtils.define_entity(
@@ -30,28 +32,25 @@ module MarketplaceService
       Transaction = TransactionEntity::Transaction
       Transition = TransactionEntity::Transition
       Testimonial = TransactionEntity::Testimonial
-      PersonEntity = MarketplaceService::Person::Entity
-
-      conversation_fields = [
-        [:title, :string, :mandatory],
-        [:last_update_at, :string, :mandatory],
-        [:path, :string, :mandatory],
-        [:other_party, :hash, :mandatory],
-        [:is_read, :bool, :mandatory]
-      ]
-
-      transasction_fields = [
-        [:listing_title, :string, :mandatory],
-        [:listing_url, :string, :mandatory],
-        [:is_author, :bool, :mandatory],
-        [:waiting_feedback_from_current, :mandatory],
-        [:transaction_status, :string, :mandatory]
-      ]
-
-      InboxRowConversation = EntityUtils.define_builder(*conversation_fields)
-      InboxRowTransaction = EntityUtils.define_builder(*conversation_fields, *transasction_fields)
 
       module_function
+
+      # Move to ListingService
+      def discussion_type(transaction_type)
+        offers = ["Give", "Lend", "Rent", "Sell", "Service", "ShareForFree", "Swap", "Offer"]
+        requests = ["Request"]
+        inqueries = ["Inquiry"]
+
+        if offers.include?(transaction_type)
+          "request" # If listing is offer, the discussion type is opposite, i.e. request
+        elsif requests.include?(transaction_type)
+          "offer"
+        elsif inqueries.include?(transaction_type)
+          "inquiry"
+        else
+          raise("Unknown listing type: #{transaction_type}")
+        end
+      end
 
       def participant_by_id(conversation, person_id)
         conversation[:participants]
@@ -134,6 +133,24 @@ module MarketplaceService
 
     module Query
 
+      conversation_fields = [
+        [:title, :string, :mandatory],
+        [:last_update_at, :string, :mandatory],
+        [:other_party, :hash, :mandatory],
+        [:is_read, :bool, :mandatory]
+      ]
+
+      transasction_fields = [
+        [:listing_title, :string, :mandatory],
+        [:listing_url, :string, :mandatory],
+        [:is_author, :bool, :mandatory],
+        [:waiting_feedback_from_current, :mandatory],
+        [:transaction_status, :string, :mandatory]
+      ]
+
+      InboxRowConversation = EntityUtils.define_builder(*conversation_fields)
+      InboxRowTransaction = EntityUtils.define_builder(*conversation_fields, *transasction_fields)
+
       module_function
 
       def conversation_and_transaction_count(person_id, community_id)
@@ -174,25 +191,48 @@ module MarketplaceService
         }
       end
 
-      # conversation_fields = [
-      #   [:title, :string, :mandatory],              # Last message content, OR last transaction
-      #   [:last_update_at, :string, :mandatory],     # Last message at, OR last transaction at
-      #   [:other_party, :hash, :mandatory],          # Participant, which is not current user
-      #   [:is_read, :bool, :mandatory]               # select is_read FROM participation where author_id = #{current_user.id}
-      # ]
-
-      # transasction_fields = [
-      #   [:listing_title, :string, :mandatory],          # select title FROM listing
-      #   [:is_author, :bool, :mandatory],                # select author_id FROM listing
-      #   [:waiting_feedback_from_current, :mandatory],   # select author_skipped_feedback, starter_skipped_feedback FROM transaction
-                                                          # select * FROM testimonials WHERE author_id = #{current_user.id}
-      #   [:transaction_status, :string, :mandatory]      # Last from transaction
-      # ]
-
       def inbox_data(person_id, community_id, limit, offset)
         sql = sql_for_conversations_for_community_sorted_by_activity(person_id, community_id, limit, offset)
 
-        result_hash = ActiveRecord::Base.connection.execute(sql).each(as: :hash)
+        ActiveRecord::Base.connection.execute(sql).each(as: :hash).map do |result_hash|
+
+          starter = PersonEntity.person(PersonModel.find(result_hash["starter_id"]))
+          other = PersonEntity.person(PersonModel.find(result_hash["other_id"]))
+
+          message_was_last = if result_hash["last_transition_at"].nil?
+            true
+          elsif result_hash["last_message_at"].nil?
+            false
+          elsif result_hash["last_transition_to_state"] != "free" && result_hash["last_transition_to_state"] != "pending"
+            result_hash["last_message_at"] > result_hash["last_transition_at"]
+          else
+            true
+          end
+
+          title = if message_was_last
+            result_hash["last_message_content"]
+          else
+            transitions = TransactionTransition.where(transaction_id: result_hash["transaction_id"]).map do |transition_model|
+              MarketplaceService::Transaction::Entity::Transition[EntityUtils.model_to_hash(transition_model)]
+            end
+            discussion_type = Entity.discussion_type(result_hash["transaction_type"])
+            payment_sum = Money.new(result_hash["sum_cents"], result_hash["currency"])
+            TransactionViewUtils.create_messages_from_actions(transitions, discussion_type, other, starter, payment_sum).last[:content]
+          end
+
+          is_read = if result_hash["starter_id"] == person_id
+            result_hash["starter_is_read"]
+          else
+            result_hash["other_is_read"]
+          end
+
+          InboxRowConversation[{
+            title: title,
+            last_update_at: result_hash["last_activity_at"],
+            other_party: starter[:id] == person_id ? other : starter,
+            is_read: is_read
+          }]
+        end
       end
 
       def transactions_count_for_community(community_id)
@@ -202,6 +242,8 @@ module MarketplaceService
       def sql_for_conversations_for_community_sorted_by_activity(person_id, community_id, limit, offset)
         "
           SELECT
+            transactions.id as transaction_id,
+            conversations.id as conversation_id,
             m.last_message_at,
             m.last_message_content,
             tt.last_transition_at,
@@ -210,8 +252,15 @@ module MarketplaceService
             listings.id as listing_id,
             listings.title as listing_title,
             listings.author_id as author_id,
+            payments.sum_cents as sum_cents,
+            payments.currency as currency,
+            transaction_types.type as transaction_type,
             transactions.author_skipped_feedback as author_skipped_feedback,
-            transactions.starter_skipped_feedback as starter_skipped_feedback
+            transactions.starter_skipped_feedback as starter_skipped_feedback,
+            starter_participation.person_id as starter_id,
+            starter_participation.is_read as starter_is_read,
+            other_participation.person_id as other_id,
+            other_participation.is_read as other_is_read
           FROM conversations
 
           # Join transactions and participations
@@ -220,8 +269,15 @@ module MarketplaceService
           # Join listing
           LEFT JOIN listings ON transactions.listing_id = listings.id
 
+          # Join transaction type
+          LEFT JOIN transaction_types ON listings.transaction_type_id = transaction_types.id
+
+          # Join payment
+          LEFT JOIN payments ON payments.transaction_id = transactions.id
+
           # Join testimonial from current
           LEFT JOIN testimonials ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = '#{person_id}')
+
 
           # Get 'last_transition_at' and 'last_transition_to_state'
           # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
@@ -243,8 +299,6 @@ module MarketplaceService
 
           LEFT JOIN participations AS starter_participation ON starter_participation.conversation_id = conversations.id AND starter_participation.is_starter = true
           LEFT JOIN participations AS other_participation ON other_participation.conversation_id = conversations.id AND other_participation.is_starter = false
-          LEFT JOIN people AS starter_person ON starter_person.id = starter_participation.person_id
-          LEFT JOIN people AS other_person ON other_person.id = other_participation.person_id
 
           # Where person and community
           WHERE conversations.community_id = #{community_id}

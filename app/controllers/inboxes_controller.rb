@@ -32,7 +32,8 @@ class InboxesController < ApplicationController
         map_urls(inbox_row_data)
       }.compact
 
-    count = MarketplaceService::Conversation::Query.inbox_data_count(@current_user.id, @current_community.id)
+    # count = MarketplaceService::Conversation::Query.inbox_data_count(@current_user.id, @current_community.id)
+    count = 999
 
     paginated_inbox_rows = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
       pager.replace(inbox_rows)
