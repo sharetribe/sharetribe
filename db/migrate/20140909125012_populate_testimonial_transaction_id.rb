@@ -10,6 +10,13 @@ class PopulateTestimonialTransactionId < ActiveRecord::Migration
   end
 
   def down
+    execute("UPDATE testimonials
+      INNER JOIN transactions ON (testimonials.transaction_id = transactions.id)
+      INNER JOIN conversations ON (conversations.id = transactions.conversation_id)
+      INNER JOIN participations ON (participations.conversation_id = conversations.id)
+      SET testimonials.participation_id = participations.id
+      WHERE participations.person_id = testimonials.author_id")
+
     execute("UPDATE testimonials SET transaction_id = NULL WHERE transaction_id IS NOT NULL")
   end
 end
