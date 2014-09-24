@@ -65,7 +65,7 @@ module MarketplaceService
 
       module_function
 
-      def create_personal_account(person_id, community_id, account_data)
+      def create_personal_account(person_id, community_id, account_data = {})
         old_account = PaypalAccountModel
           .where(person_id: person_id, community_id: community_id)
           .eager_load(:order_permission)
@@ -76,6 +76,16 @@ module MarketplaceService
         PaypalAccountModel.create!(
           account_data.merge({person_id: person_id, community_id: community_id})
         )
+        Result::Success.new
+      end
+
+      def update_personal_account(person_id, community_id, account_data)
+        paypal_account = PaypalAccountModel
+          .where(person_id: person_id, community_id: community_id)
+          .eager_load(:order_permission)
+          .first
+
+        paypal_account.update_attributes(account_data)
         Result::Success.new
       end
 
@@ -106,8 +116,7 @@ module MarketplaceService
               {
                 paypal_account: paypal_account,
                 request_token: request_token,
-                paypal_username_to: paypal_username_to,
-                scope: permissions_scope.join(',')
+                paypal_username_to: paypal_username_to
               }
             )
             true
@@ -115,7 +124,7 @@ module MarketplaceService
           .or_else(false)
       end
 
-      def confirm_pending_permissions_request(person_id, community_id, request_token, verification_code)
+      def confirm_pending_permissions_request(person_id, community_id, request_token, scope, verification_code)
         # Should this fail silently in case of no matching permission request?
         order_permission =  OrderPermission
           .eager_load(:paypal_account)
@@ -126,6 +135,7 @@ module MarketplaceService
           })
           .first
         if order_permission.present?
+            order_permission[:scope] = scope
             order_permission[:verification_code] = verification_code
             order_permission.save!
             true

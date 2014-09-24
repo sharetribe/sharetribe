@@ -1,13 +1,10 @@
 .row
   = form.label :paypal_email, t("paypal_accounts.new.paypal_account_email"), :class => "input"
 .row
-  .col-6
-    = form.text_field :paypal_email, {class: "required", placeholder: t("paypal_accounts.new.paypal_account_email_placeholder").html_safe}
-  .col-6
-    - create = link_to(t("paypal_accounts.new.create_paypal_account"), "https://www.paypal.com")
-    - upgrade = link_to(t("paypal_accounts.new.upgrade_paypal_account"), "https://www.paypal.com")
-    - text = t("paypal_accounts.new.paypal_account_email_info_text", {create_paypal_account: create, upgrade_paypal_account: upgrade}).html_safe
-    = render :partial => "layouts/info_text", :locals => {text: text}
+  - create = link_to(t("paypal_accounts.new.create_paypal_account"), "https://www.paypal.com")
+  - upgrade = link_to(t("paypal_accounts.new.upgrade_paypal_account"), "https://www.paypal.com")
+  - text = t("paypal_accounts.new.paypal_account_email_info_text", {create_paypal_account: create, upgrade_paypal_account: upgrade}).html_safe
+  = render :partial => "layouts/info_text", :locals => {text: text}
 
 
 .row.send-button-wrapper

@@ -14,8 +14,7 @@ class PaypalAccountsController < ApplicationController
 
   skip_filter :dashboard_only
 
-  PaypalAccountForm = FormUtils.define_form("PaypalAccountForm", :paypal_email)
-    .with_validations { validates_presence_of :paypal_email }
+  PaypalAccountForm = FormUtils.define_form("PaypalAccountForm")
 
   def show
     paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
@@ -69,8 +68,7 @@ class PaypalAccountsController < ApplicationController
     if paypal_account_form.valid?
       PaypalAccountCommand.create_personal_account(
         @current_user.id,
-        @current_community.id,
-        { email: paypal_account_form.paypal_email}
+        @current_community.id
       )
 
       permissions_url = request_paypal_permissions_url

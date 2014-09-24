@@ -17,5 +17,5 @@ class OrderPermission < ActiveRecord::Base
 
   belongs_to :paypal_account, class_name: "PaypalAccount"
 
-  validates_presence_of :paypal_account, :request_token, :paypal_username_to, :scope
+  validates_presence_of :paypal_account, :request_token, :paypal_username_to
 end
