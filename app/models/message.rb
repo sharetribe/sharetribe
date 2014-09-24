@@ -23,7 +23,13 @@ class Message < ActiveRecord::Base
   belongs_to :conversation
 
   validates_presence_of :sender_id
-  validates_presence_of :content
+  validate :content_or_action_present
+
+  # Message must always have either content, action or both
+  # TODO This can be removed, since we don't use message.action anymore
+  def content_or_action_present
+    errors.add(:base, "Message needs to have either action or content.") if content.blank? && action.blank?
+  end
 
   def update_conversation_read_status
     conversation.update_attribute(:last_message_at, created_at)
@@ -31,10 +37,6 @@ class Message < ActiveRecord::Base
       last_at = p.person.eql?(sender) ? :last_sent_at : :last_received_at
       p.update_attributes({ :is_read => p.person.eql?(sender), last_at => created_at})
     end
-  end
-
-  def action
-    throw "Action is not used anymore. Use transaction transitions."
   end
 
   def positive_action?
