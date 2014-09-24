@@ -28,6 +28,8 @@ class MoveListingConversationToTransactions < ActiveRecord::Migration
           conversations.type = 'ListingConversation'
     ")
 
+    execute("UPDATE conversations SET type ='Conversation' WHERE listing_id IS NULL")
+
     execute("DELETE FROM transactions")
   end
 end
