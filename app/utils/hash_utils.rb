@@ -32,6 +32,21 @@ module HashUtils
     end
   end
 
+  # rename keys in given hash (returns a copy) using the renames old_key => new_key mappings
+  def rename_keys(renames, hash)
+    map_keys(hash) { |old_key|
+      renames[old_key] || old_key
+    }
+  end
+
+  def symbolize_keys(h)
+    map_keys(h) { |k| k.to_sym }
+  end
+
+  def map_keys(h, &block)
+    Hash[h.map { |(k, v)| [block.call(k), v] }]
+  end
+
   #
   # deep_contains({a: 1}, {a: 1, b: 2}) => true
   # deep_contains({a: 2}, {a: 1, b: 2}) => false
