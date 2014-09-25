@@ -117,7 +117,7 @@ module MarketplaceService
 
       def query_inbox_data(person_id, community_id, limit, offset)
         sql = construct_sql(person_id, community_id, limit, offset)
-        result_set = ActiveRecord::Base.connection.execute(sql).each(as: :hash).map { |row| EntityUtils.hash_keys_to_symbols(row) }
+        result_set = ActiveRecord::Base.connection.execute(sql).each(as: :hash).map { |row| HashUtils.symbolize_keys(row) }
 
         people_ids = HashUtils.pluck(result_set, :current_id, :other_id).uniq
         people_cache = MarketplaceService::Person::Query.people(people_ids)

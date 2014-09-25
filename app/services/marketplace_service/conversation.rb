@@ -88,12 +88,6 @@ module MarketplaceService
           created_at: message_model.created_at
         }]
       end
-
-      def conversation_with_transaction(conversation_model)
-        conversation_entity = conversation(conversation_model)
-        conversation_entity[:transaction] = TransactionEntity.transaction(conversation_model.transaction) if conversation_model.transaction.present?
-        conversation_entity
-      end
     end
 
     module Command
@@ -118,46 +112,22 @@ module MarketplaceService
 
       module_function
 
-      def conversation_and_transaction_count(person_id, community_id)
-        conversations_and_transaction_relation(person_id, community_id)
-          .count
-      end
-
       def conversation_for_person(conversation_id, person_id, community_id)
         conversation = conversations_for_person(person_id, community_id)
           .where({id: conversation_id})
           .first
 
         if conversation
-          Entity.conversation_with_transaction(conversation)
+          Entity.conversation(conversation)
         else
           nil
         end
-      end
-
-      def conversations_and_transaction_relation(person_id, community_id)
-        conversations_for_person(person_id, community_id)
-          .includes(:transaction)
-          .order("last_message_at DESC")
       end
 
       def conversations_for_person(person_id, community_id)
         ConversationModel.joins(:participations)
           .where( { participations: { person_id: person_id }} )
           .where(community_id: community_id)
-      end
-
-      def conversations_and_transactions_for_person_sorted_by_activity(person_id, community_id, limit, offset)
-        sql = sql_for_conversations_for_community_sorted_by_activity(person_id, community_id, limit, offset)
-        conversations = ConversationModel.find_by_sql(sql)
-
-        conversations.map { |conversation|
-          Entity.conversation_with_transaction(conversation)
-        }
-      end
-
-      def transactions_count_for_community(community_id)
-        TransactionModel.where(:community_id => community_id).count
       end
     end
   end
