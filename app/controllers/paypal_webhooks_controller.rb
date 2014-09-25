@@ -49,7 +49,7 @@ class PaypalWebhooksController < ApplicationController
   def billing_agreement_success_hook
 
     affirm_agreement_res = affirm_billing_agreement(params[:token])
-    flash_error_and_redirect_to_settings unless affirm_agreement_res[:success]
+    return flash_error_and_redirect_to_settings unless affirm_agreement_res[:success]
 
     billing_agreement_id = affirm_agreement_res[:billing_agreement_id]
 
