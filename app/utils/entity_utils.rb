@@ -42,11 +42,9 @@ module EntityUtils
 
   # rename keys in given hash (returns a copy) using the renames old_key => new_key mappings
   def rename_keys(renames, hash)
-    renames.reduce(hash.dup) do |h, (old_key, new_key)|
-      h[new_key] = h[old_key] if h.has_key?(old_key)
-      h.delete(old_key)
-      h
-    end
+    HashUtils.map_keys(hash) { |old_key|
+      renames[old_key] || old_key
+    }
   end
 
 

@@ -32,6 +32,17 @@ module HashUtils
     end
   end
 
+  def symbolize_keys(h)
+    map_keys(h) { |k| k.to_sym }
+  end
+
+  def map_keys(h, &block)
+    h.reduce({}) do |memo, (k, v)|
+      memo[block.call(k)] = v
+      memo
+    end
+  end
+
   #
   # deep_contains({a: 1}, {a: 1, b: 2}) => true
   # deep_contains({a: 2}, {a: 1, b: 2}) => false
