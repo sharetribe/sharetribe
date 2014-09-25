@@ -1,6 +1,7 @@
 module TransactionViewUtils
   extend MoneyRails::ActionViewExtension
   extend ActionView::Helpers::TranslationHelper
+  extend ActionView::Helpers::TagHelper
 
   MessageBubble = EntityUtils.define_builder(
     [:content, :string, :mandatory],
