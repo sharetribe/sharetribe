@@ -1,7 +1,7 @@
 class MoveCheckoutDataToCheckoutAccount < ActiveRecord::Migration
   def up
-    execute("INSERT INTO checkout_accounts (company_id, merchant_id, merchant_key, person_id)
-             (SELECT company_id, checkout_merchant_id, checkout_merchant_key, id
+    execute("INSERT INTO checkout_accounts (company_id, merchant_id, merchant_key, person_id, created_at, updated_at)
+             (SELECT company_id, checkout_merchant_id, checkout_merchant_key, id, now(), now()
              FROM people
              WHERE people.checkout_merchant_key IS NOT NULL)")
   end
