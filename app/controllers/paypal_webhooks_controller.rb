@@ -56,8 +56,10 @@ class PaypalWebhooksController < ApplicationController
     express_checkout_details_req = PaypalService::DataTypes::Merchant.create_get_express_checkout_details({token: params[:token]})
     express_checkout_details_res = paypal_merchant.do_request(express_checkout_details_req)
 
-    # TODO WIP
-    if !express_checkout_details_res[:billing_agreement_accepted] # || express_checkout_details_res[:payer_id] != paypal_account[:payer_id]
+    paypal_account =  MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+    if !express_checkout_details_res[:billing_agreement_accepted] ||
+      express_checkout_details_res[:payer_id] != paypal_account[:payer_id]
+
       return flash_error_and_redirect_to_settings(t("paypal_accounts.new.billing_agreement_not_accepted"))
     end
 

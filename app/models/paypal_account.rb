@@ -12,7 +12,7 @@
 #
 
 class PaypalAccount < ActiveRecord::Base
-  attr_accessible :email, :api_password, :api_signature, :person_id, :community_id
+  attr_accessible :email, :payer_id, :person_id, :community_id
 
   belongs_to :person
   belongs_to :community

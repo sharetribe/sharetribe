@@ -5,8 +5,7 @@ module MarketplaceService
     module Entity
       PaypalAccount = EntityUtils.define_entity(
         :email,
-        :api_password,
-        :api_signature,
+        :payer_id,
         :person_id,
         :community_id,
         :order_permission_state, # one of :not_requested, :pending, :verified
