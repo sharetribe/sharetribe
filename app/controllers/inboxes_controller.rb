@@ -19,37 +19,40 @@ class InboxesController < ApplicationController
 
   def show
     # We use pageless scroll, so the page should be always the first one (1) when request was not AJAX request
-    params[:page] = 1 unless request.xhr?
+    Rails.logger.info("*************************** SHOW INBOX START ***************************")
+    TimingService.log(0, "*************************** SHOW INBOX ***************************") do
+      params[:page] = 1 unless request.xhr?
 
-    pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
+      pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
 
-    inbox_rows = MarketplaceService::Conversation::Query.inbox_data(
-      @current_user.id,
-      @current_community.id,
-      pagination_opts[:limit],
-      pagination_opts[:offset])
-      .map { |inbox_row_data|
-        map_urls(inbox_row_data)
-      }.compact
+      inbox_rows = MarketplaceService::Inbox::Query.inbox_data(
+        @current_user.id,
+        @current_community.id,
+        pagination_opts[:limit],
+        pagination_opts[:offset])
+        .map { |inbox_row_data|
+          map_urls(inbox_row_data)
+        }.compact
 
-    # count = MarketplaceService::Conversation::Query.inbox_data_count(@current_user.id, @current_community.id)
-    count = 999
+      # count = MarketplaceService::Conversation::Query.inbox_data_count(@current_user.id, @current_community.id)
+      count = 999
 
-    paginated_inbox_rows = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
-      pager.replace(inbox_rows)
-    end
+      paginated_inbox_rows = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
+        pager.replace(inbox_rows)
+      end
 
-    if request.xhr?
-      render :partial => "inbox_row",
-        :collection => paginated_inbox_rows, :as => :conversation,
-        locals: {
+      if request.xhr?
+        render :partial => "inbox_row",
+          :collection => paginated_inbox_rows, :as => :conversation,
+          locals: {
+            payments_in_use: @current_community.payments_in_use?
+          }
+      else
+        render locals: {
+          inbox_rows: paginated_inbox_rows,
           payments_in_use: @current_community.payments_in_use?
         }
-    else
-      render locals: {
-        inbox_rows: paginated_inbox_rows,
-        payments_in_use: @current_community.payments_in_use?
-      }
+      end
     end
   end
 
