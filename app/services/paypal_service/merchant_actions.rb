@@ -91,7 +91,96 @@ module PaypalService
             order_currency: details.payment_details[0].order_total.currency_id
           })
         }
-      )
+      ),
+
+      set_express_checkout_order: PaypalAction.def_action(
+        input_transformer: -> (req) {
+          {
+            SetExpressCheckoutRequestDetails: {
+              ReturnURL: req[:success],
+              CancelURL: req[:cancel],
+              ReqConfirmShipping: 0,
+              NoShipping: 1,
+              OrderDescription: req[:description],
+              SolutionType: "Sole",
+              LandingPage: "Billing",
+              PaymentDetails: [{
+                  OrderTotal: {
+                    value: req[:order_total],
+                    currencyID: req[:currency]
+                  },
+                  PaymentAction: "Order"
+                }]
+            }
+          }
+        },
+        wrapper_method_name: :build_set_express_checkout,
+        action_method_name: :set_express_checkout,
+        output_transformer: -> (res, api) {
+          DataTypes::Merchant.create_set_express_checkout_order_response({
+            token: res.token,
+            redirect_url: api.express_checkout_url(res),
+            receiver_username: api.config.subject || api.config.username
+          })
+        }
+      ),
+
+      do_express_checkout_payment: PaypalAction.def_action(
+        input_transformer: -> (req) {
+          {
+            DoExpressCheckoutPaymentRequestDetails: {
+              PaymentAction: "Order",
+              Token: req[:token],
+              PayerID: req[:payer_id],
+              PaymentDetails: [{
+                  OrderTotal: {
+                    currencyID: req[:currency],
+                    value: req[:order_total]
+                  }
+              }]
+            }
+          }
+        },
+        wrapper_method_name: :build_do_express_checkout_payment,
+        action_method_name: :do_express_checkout_payment,
+        output_transformer: -> (res, api) {
+          payment_info = res.do_express_checkout_payment_response_details.payment_info[0]
+          DataTypes::Merchant.create_do_express_checkout_payment_response(
+            {
+              payment_date: payment_info.payment_date.to_s,
+              payment_status: payment_info.payment_status,
+              pending_reason: payment_info.pending_reason,
+              transaction_id: payment_info.transaction_id,
+              order_total: payment_info.gross_amount.value,
+              currency: payment_info.gross_amount.currency_id,
+              secure_merchant_account_id: payment_info.seller_details.secure_merchant_account_id
+            })
+        }
+      ),
+
+      do_authorization: PaypalAction.def_action(
+        input_transformer: -> (req) {
+          {
+            MsgSubID: req[:msg_sub_id],
+            TransactionID: req[:transaction_id],
+            Amount: {
+              value: req[:order_total],
+              currencyID: req[:currency]
+            }
+          }
+        },
+        wrapper_method_name: :build_do_authorization,
+        action_method_name: :do_authorization,
+        output_transformer: -> (res, api) {
+          DataTypes::Merchant.create_do_authorization_response({
+            authorization_id: res.transaction_id,
+            payment_status: res.authorization_info.payment_status,
+            pending_reason: res.authorization_info.pending_reason,
+            order_total: res.amount.value,
+            currency: res.amount.currency_id,
+            msg_sub_id: res.msg_sub_id
+          })
+        })
     }
 
   end

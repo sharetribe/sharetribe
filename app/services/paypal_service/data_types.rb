@@ -59,6 +59,7 @@ module PaypalService
 
       GetExpressCheckoutDetails = EntityUtils.define_builder(
         [:method, const_value: :get_express_checkout_details],
+        [:receiver_username, :optional, :string],
         [:token, :mandatory, :string])
 
       GetExpressCheckoutDetailsResponse = EntityUtils.define_builder(
@@ -70,6 +71,56 @@ module PaypalService
         [:payer_id, :string],
         [:order_total, :mandatory, :string],
         [:order_currency, :mandatory, :string]) # :bool in another branch now
+
+      SetExpressCheckoutOrder = EntityUtils.define_builder(
+        [:method, const_value: :set_express_checkout_order],
+        [:description, :mandatory, :string],
+        [:receiver_username, :mandatory, :string],
+        [:order_total, :mandatory, :string],
+        [:currency, :mandatory, :string], # TODO one_of [list of supported currencies] ?
+        [:success, :mandatory, :string],
+        [:cancel, :mandatory, :string])
+
+      SetExpressCheckoutOrderResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:token, :mandatory, :string],
+        [:redirect_url, :mandatory, :string],
+        [:receiver_username, :mandatory, :string])
+
+      DoExpressCheckoutPayment = EntityUtils.define_builder(
+        [:method, const_value: :do_express_checkout_payment],
+        [:receiver_username, :mandatory, :string],
+        [:token, :mandatory, :string],
+        [:payer_id, :mandatory, :string],
+        [:order_total, :mandatory, :string],
+        [:currency, :mandatory, :string])
+
+      DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:payment_date, :mandatory, transform_with: -> (date_str) { DateTime.parse(date_str) }],
+        [:payment_status, :mandatory, :string],
+        [:pending_reason, :mandatory, :string],
+        [:transaction_id, :mandatory, :string],
+        [:order_total, :mandatory, :string],
+        [:currency, :mandatory, :string],
+        [:secure_merchant_account_id, :mandatory, :string])
+
+      DoAuthorization = EntityUtils.define_builder(
+        [:method, const_value: :do_authorization],
+        [:receiver_username, :mandatory, :string],
+        [:transaction_id, :mandatory, :string],
+        [:order_total, :mandatory, :string],
+        [:currency, :mandatory, :string],
+        [:msg_sub_id, transform_with: -> (_) { SecureRandom.uuid }])
+
+      DoAuthorizationResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:authorization_id, :mandatory, :string],
+        [:payment_status, :mandatory, :string],
+        [:pending_reason, :mandatory, :string],
+        [:order_total, :mandatory, :string],
+        [:currency, :mandatory, :string],
+        [:sub_msg_id, :string])
 
 
       module_function
@@ -85,6 +136,14 @@ module PaypalService
 
       def create_get_express_checkout_details(opts); GetExpressCheckoutDetails.call(opts) end
       def create_get_express_checkout_details_response(opts); GetExpressCheckoutDetailsResponse.call(opts) end
+      def create_set_express_checkout_order(opts); SetExpressCheckoutOrder.call(opts) end
+      def create_set_express_checkout_order_response(opts); SetExpressCheckoutOrderResponse.call(opts) end
+
+      def create_do_express_checkout_payment(opts); DoExpressCheckoutPayment.call(opts) end
+      def create_do_express_checkout_payment_response(opts); DoExpressCheckoutPaymentResponse.call(opts) end
+
+      def create_do_authorization(opts); DoAuthorization.call(opts) end
+      def create_do_authorization_response(opts); DoAuthorizationResponse.call(opts) end
 
     end
 
@@ -146,5 +205,6 @@ module PaypalService
       def create_get_basic_personal_data_response(opts); GetBasicPersonalDataResponse.call(opts) end
 
     end
+
   end
 end

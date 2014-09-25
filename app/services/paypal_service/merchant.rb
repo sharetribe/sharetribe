@@ -3,6 +3,8 @@ module PaypalService
 
     include MerchantActions
 
+    attr_reader :action_handlers
+
     def initialize(endpoint, api_credentials, logger, action_handlers = MERCHANT_ACTIONS, api_builder = nil)
       @logger = logger
       @api_builder = api_builder || self.method(:build_api)
