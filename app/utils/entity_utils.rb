@@ -29,24 +29,11 @@ module EntityUtils
     }
   end
 
-  # Ensure first level keys are all symbols, not strings
-  def hash_keys_to_symbols(hash)
-    Hash[hash.map { |(k, v)| [k.to_sym, v] }]
-  end
-
   # Turn active record model into a hash with string keys replaced with symbols
   def model_to_hash(model)
     return {} if model.nil?
-    hash_keys_to_symbols(model.attributes)
+    HashUtils.symbolize_keys(model.attributes)
   end
-
-  # rename keys in given hash (returns a copy) using the renames old_key => new_key mappings
-  def rename_keys(renames, hash)
-    HashUtils.map_keys(hash) { |old_key|
-      renames[old_key] || old_key
-    }
-  end
-
 
   VALIDATORS = {
     mandatory: -> (_, v, field) {

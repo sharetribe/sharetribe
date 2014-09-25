@@ -21,7 +21,7 @@ module MarketplaceService
       def paypal_account(paypal_acc_model)
         hash = EntityUtils.model_to_hash(paypal_acc_model)
           .merge(order_permission_to_hash(paypal_acc_model.order_permission))
-          .merge(EntityUtils.rename_keys(
+          .merge(HashUtils.rename_keys(
             {request_token: :billing_agreement_request_token},
             billing_agreement_to_hash(paypal_acc_model.billing_agreement)))
         PaypalAccount.call(hash)

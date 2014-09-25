@@ -32,15 +32,19 @@ module HashUtils
     end
   end
 
+  # rename keys in given hash (returns a copy) using the renames old_key => new_key mappings
+  def rename_keys(renames, hash)
+    map_keys(hash) { |old_key|
+      renames[old_key] || old_key
+    }
+  end
+
   def symbolize_keys(h)
     map_keys(h) { |k| k.to_sym }
   end
 
   def map_keys(h, &block)
-    h.reduce({}) do |memo, (k, v)|
-      memo[block.call(k)] = v
-      memo
-    end
+    Hash[h.map { |(k, v)| [block.call(k), v] }]
   end
 
   #
