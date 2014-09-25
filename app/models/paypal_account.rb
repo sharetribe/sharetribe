@@ -5,10 +5,10 @@
 #  id           :integer          not null, primary key
 #  person_id    :string(255)
 #  community_id :integer
-#  email        :string(255)      not null
+#  email        :string(255)
+#  payer_id     :string(255)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  payer_id     :string(255)
 #
 
 class PaypalAccount < ActiveRecord::Base
