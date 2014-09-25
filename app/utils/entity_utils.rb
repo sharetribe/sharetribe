@@ -72,6 +72,11 @@ module EntityUtils
         "#{field}: Value must be an Enumerable. Was: #{v}."
       end
     },
+    money: -> (_, v, field) {
+      unless (v.nil? || v.is_a?(Money))
+        "#{field}: Value must be a Money. Was: #{v}."
+      end
+    },
     validate_with: -> (validator, v, field) {
       unless (validator.call(v))
         "#{field}: Custom validation failed. Was: #{v}."
