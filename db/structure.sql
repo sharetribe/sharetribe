@@ -589,7 +589,7 @@ CREATE TABLE `order_permissions` (
   `updated_at` datetime NOT NULL,
   `request_token` varchar(255) NOT NULL,
   `paypal_username_to` varchar(255) NOT NULL,
-  `scope` varchar(255) NOT NULL,
+  `scope` varchar(255) DEFAULT NULL,
   `verification_code` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1812,3 +1812,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140903120109');
 INSERT INTO schema_migrations (version) VALUES ('20140909074331');
 
 INSERT INTO schema_migrations (version) VALUES ('20140912084032');
+
+INSERT INTO schema_migrations (version) VALUES ('20140925093828');

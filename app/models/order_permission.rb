@@ -8,7 +8,7 @@
 #  updated_at         :datetime         not null
 #  request_token      :string(255)      not null
 #  paypal_username_to :string(255)      not null
-#  scope              :string(255)      not null
+#  scope              :string(255)
 #  verification_code  :string(255)
 #
 
