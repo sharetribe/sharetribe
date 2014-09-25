@@ -82,6 +82,10 @@ module EntityUtils
   TRANSFORMERS = {
     const_value: -> (const, v) { const },
     default: -> (default, v) { v.nil? ? default : v },
+    bool: -> (_, v) { !!v },
+    to_bool: -> (_, v) { !!v },
+    int_to_bool: -> (_, v) { v.present? && v != 0 },
+    str_to_time: -> (_, v) { v.is_a?(Time) ? v : Time.parse(v) },
     transform_with: -> (transformer, v) { transformer.call(v) }
   }
 
