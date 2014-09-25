@@ -669,6 +669,7 @@ CREATE TABLE `paypal_accounts` (
   `person_id` varchar(255) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
+  `payer_id` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -1814,3 +1815,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140912084032');
 INSERT INTO schema_migrations (version) VALUES ('20140925093828');
 
 INSERT INTO schema_migrations (version) VALUES ('20140925095608');
+
+INSERT INTO schema_migrations (version) VALUES ('20140925111706');
