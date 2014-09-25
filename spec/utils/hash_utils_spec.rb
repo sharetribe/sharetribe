@@ -22,4 +22,9 @@ describe HashUtils do
     expect(HashUtils.symbolize_keys({"foo" => 1, :bar => 2}))
       .to eq({foo: 1, bar: 2})
   end
+
+  it "#pluck" do
+    data = [{name: "John", age: 15}, {name: "Joe"}]
+    expect(HashUtils.pluck(data, :name, :age)).to eq(["John", 15, "Joe"])
+  end
 end

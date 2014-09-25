@@ -47,6 +47,16 @@ module HashUtils
     Hash[h.map { |(k, v)| [block.call(k), v] }]
   end
 
+  # Select values by given keys from array of hashes
+  #
+  # Usage:
+  # pluck([{name: "John", age: 15}, {name: "Joe"}], :name, :age) => ["John", "Joe", 15]
+  def pluck(array_of_hashes, *keys)
+    array_of_hashes.map { |h|
+      keys.map { |key| h[key] }
+    }.flatten.compact
+  end
+
   #
   # deep_contains({a: 1}, {a: 1, b: 2}) => true
   # deep_contains({a: 2}, {a: 1, b: 2}) => false
