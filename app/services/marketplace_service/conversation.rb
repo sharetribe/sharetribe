@@ -94,12 +94,16 @@ module MarketplaceService
       module_function
 
       def mark_as_read(conversation_id, person_id)
-        get_participation_relation(conversation_id, person_id).update_all({is_read: true})
+        CommandHelper.get_participation_relation(conversation_id, person_id).update_all({is_read: true})
       end
 
       def mark_as_unread(conversation_id, person_id)
-        get_participation_relation(conversation_id, person_id).update_all({is_read: false})
+        CommandHelper.get_participation_relation(conversation_id, person_id).update_all({is_read: false})
       end
+    end
+
+    module CommandHelper
+      module_function
 
       def get_participation_relation(conversation_id, person_id)
         ParticipationModel
