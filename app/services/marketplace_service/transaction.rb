@@ -4,15 +4,6 @@ module MarketplaceService
     ParticipationModel = ::Participation
 
     module Entity
-      Listing = EntityUtils.define_entity(
-        :id,
-        :title,
-        :author_id,
-        :price,
-        :quantity,
-        :transaction_type_id
-      )
-
       Transaction = EntityUtils.define_entity(
         :id,
         :last_transition,
@@ -46,6 +37,7 @@ module MarketplaceService
       ConversationEntity = MarketplaceService::Conversation::Entity
       Conversation = ConversationEntity::Conversation
       ConversationParticipant = ConversationEntity::ConversationParticipant
+      ListingEntity = MarketplaceService::Listing::Entity
 
       module_function
 
@@ -87,11 +79,7 @@ module MarketplaceService
 
       def transaction(transaction_model)
         listing_model = transaction_model.listing
-        # TODO Add Listing service
-        listing = Listing[
-          EntityUtils.model_to_hash(transaction_model.listing)
-            .merge(author_id: listing_model.author.id)
-            .merge(price: listing_model.price)]
+        listing = ListingEntity.listing(listing_model)
 
         Transaction[EntityUtils.model_to_hash(transaction_model).merge({
           status: transaction_model.transaction_transitions.last.to_state,
