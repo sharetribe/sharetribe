@@ -2,6 +2,8 @@ module MarketplaceService
   module Conversation
     ConversationModel = ::Conversation
     ParticipationModel = ::Participation
+    PersonModel = ::Person
+    PersonEntity = MarketplaceService::Person::Entity
 
     module Entity
       Conversation = EntityUtils.define_entity(
@@ -30,7 +32,6 @@ module MarketplaceService
       Transaction = TransactionEntity::Transaction
       Transition = TransactionEntity::Transition
       Testimonial = TransactionEntity::Testimonial
-      PersonEntity = MarketplaceService::Person::Entity
 
       module_function
 
@@ -87,12 +88,6 @@ module MarketplaceService
           created_at: message_model.created_at
         }]
       end
-
-      def conversation_with_transaction(conversation_model)
-        conversation_entity = conversation(conversation_model)
-        conversation_entity[:transaction] = TransactionEntity.transaction(conversation_model.transaction) if conversation_model.transaction.present?
-        conversation_entity
-      end
     end
 
     module Command
@@ -117,76 +112,22 @@ module MarketplaceService
 
       module_function
 
-      def conversation_and_transaction_count(person_id, community_id)
-        conversations_and_transaction_relation(person_id, community_id)
-          .count
-      end
-
       def conversation_for_person(conversation_id, person_id, community_id)
         conversation = conversations_for_person(person_id, community_id)
           .where({id: conversation_id})
           .first
 
         if conversation
-          Entity.conversation_with_transaction(conversation)
+          Entity.conversation(conversation)
         else
           nil
         end
-      end
-
-      def conversations_and_transaction_relation(person_id, community_id)
-        conversations_for_person(person_id, community_id)
-          .includes(:transaction)
-          .order("last_message_at DESC")
       end
 
       def conversations_for_person(person_id, community_id)
         ConversationModel.joins(:participations)
           .where( { participations: { person_id: person_id }} )
           .where(community_id: community_id)
-      end
-
-      def conversations_and_transactions_for_person_sorted_by_activity(person_id, community_id, limit, offset)
-        sql = sql_for_conversations_for_community_sorted_by_activity(person_id, community_id, limit, offset)
-        conversations = ConversationModel.find_by_sql(sql)
-
-        conversations.map { |conversation|
-          Entity.conversation_with_transaction(conversation)
-        }
-      end
-
-      def transactions_count_for_community(community_id)
-        TransactionModel.where(:community_id => community_id).count
-      end
-
-      def sql_for_conversations_for_community_sorted_by_activity(person_id, community_id, limit, offset)
-        "
-          SELECT conversations.* FROM conversations
-
-          # Join transactions and participations
-          LEFT JOIN transactions ON transactions.conversation_id = conversations.id
-
-          # Get 'last_transition_at'
-          # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
-          LEFT JOIN (
-            SELECT tt1.transaction_id, tt1.created_at as last_transition_at, tt1.to_state as last_transition_to
-            FROM transaction_transitions tt1
-            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND (tt1.created_at < tt2.created_at OR tt1.sort_key < tt2.sort_key)
-            WHERE tt2.id IS NULL
-          ) AS tt ON (transactions.id = tt.transaction_id)
-
-          LEFT JOIN participations ON participations.conversation_id = conversations.id
-
-          # Where person and community
-          WHERE conversations.community_id = '#{community_id}'
-          AND participations.person_id = '#{person_id}'
-
-          # Order by 'last_activity', that is last message or last transition
-          ORDER BY GREATEST(COALESCE(last_transition_at, 0), COALESCE(conversations.last_message_at, 0)) DESC
-
-          # Pagination
-          LIMIT #{limit} OFFSET #{offset}
-        "
       end
     end
   end
