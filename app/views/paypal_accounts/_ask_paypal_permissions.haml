@@ -1,5 +1,5 @@
 .row
-  = form.label :paypal_email, t("paypal_accounts.new.paypal_account_email"), :class => "input"
+  = form.label :paypal_email, title
 .row
   - create = link_to(t("paypal_accounts.new.create_paypal_account"), "https://www.paypal.com")
   - upgrade = link_to(t("paypal_accounts.new.upgrade_paypal_account"), "https://www.paypal.com")
@@ -10,7 +10,3 @@
 .row.send-button-wrapper
   = form.button t("paypal_accounts.new.connect_paypal_account"), :class => "send_button"
 
-%br/
-
-.row
-  = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement", commission: commission_from_seller), :class => "input disabled"

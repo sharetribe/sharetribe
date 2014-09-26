@@ -1,45 +1,21 @@
+- content_for :javascript do
+  ST.initializePayPalAccountForm("paypal_account_form");
+
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
 
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
-.left-navi-section
-  %h2= t(".marketplace_paypal_integration")
+.left-navi-section.payment-settings
+  %h2= t("admin.paypal_accounts.marketplace_paypal_integration")
 
-  = form_for paypal_account, url: admin_community_paypal_account_path do |form|
-    .row
-      .col-12
-        .row
-          .col-12
-            = t(".username_or_email")
-        .row
-          .col-6
-            = t(".username_or_email_help_text")
-          .col-6
-            = form.text_field :email
+  .row
+    = t("admin.paypal_accounts.new.integration_info_text").html_safe
 
-    .row
-      .col-12
-        .row
-          .col-12
-            = t(".api_password")
-        .row
-          .col-6
-            = t(".api_password_help_text")
-          .col-6
-            = form.text_field :api_password
+  %br/
 
-    .row
-      .col-12
-        .row
-          .col-12
-            = t(".api_signature")
-        .row
-          .col-6
-            = t(".api_signature_help_text")
-          .col-6
-            = form.text_field :api_signature
+  = form_for paypal_account_form, url: form_action, html: { :id => "paypal_account_form"} do |form|
 
-    .row
-      .col-12
-        = form.button t(".save")
+    - title = t("admin.paypal_accounts.new.paypal_account_email")
+    = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title}
+

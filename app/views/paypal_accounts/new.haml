@@ -17,4 +17,9 @@
     - if paypal_account_state == :verified
       = render :partial => "ask_paypal_billing_agreement", locals: {paypal_account_email: paypal_account_email, form: form, commission_from_seller: commission_from_seller}
     - else
-      = render :partial => "ask_paypal_permissions", locals: {form: form, commission_from_seller: commission_from_seller}
+      - title = t("paypal_accounts.new.paypal_account_email")
+      = render :partial => "ask_paypal_permissions", locals: {form: form, title: title}
+
+      %br/
+      .row
+        = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement", commission: commission_from_seller), :class => "input disabled"

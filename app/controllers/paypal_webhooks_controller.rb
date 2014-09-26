@@ -12,6 +12,8 @@ class PaypalWebhooksController < ApplicationController
   end
 
   DataTypePermissions = PaypalService::DataTypes::Permissions
+  PaypalAccountCommand = MarketplaceService::PaypalAccount::Command
+  PaypalAccountQuery = MarketplaceService::PaypalAccount::Query
 
   def permissions_hook
 
@@ -25,23 +27,21 @@ class PaypalWebhooksController < ApplicationController
     personal_data_res = fetch_personal_data(access_token_res[:token], access_token_res[:token_secret])
     return flash_error_and_redirect_to_settings unless personal_data_res[:success]
 
-    MarketplaceService::PaypalAccount::Command
-      .update_personal_account(
-        @current_user.id,
-        @current_community.id,
-        {
-          email: personal_data_res[:email],
-          payer_id: personal_data_res[:payer_id]
-        }
-      )
-    MarketplaceService::PaypalAccount::Command
-      .confirm_pending_permissions_request(
-        @current_user.id,
-        @current_community.id,
-        params[:request_token],
-        access_token_res[:scope].join(","),
-        params[:verification_code]
-      )
+    PaypalAccountCommand.update_personal_account(
+      @current_user.id,
+      @current_community.id,
+      {
+        email: personal_data_res[:email],
+        payer_id: personal_data_res[:payer_id]
+      }
+    )
+    PaypalAccountCommand.confirm_pending_permissions_request(
+      @current_user.id,
+      @current_community.id,
+      params[:request_token],
+      access_token_res[:scope].join(","),
+      params[:verification_code]
+    )
     redirect_to new_paypal_account_settings_payment_path(@current_user.username)
 
   end
@@ -56,24 +56,53 @@ class PaypalWebhooksController < ApplicationController
     express_checkout_details_req = PaypalService::DataTypes::Merchant.create_get_express_checkout_details({token: params[:token]})
     express_checkout_details_res = paypal_merchant.do_request(express_checkout_details_req)
 
-    paypal_account =  MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+    paypal_account =  PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
     if !express_checkout_details_res[:billing_agreement_accepted] ||
       express_checkout_details_res[:payer_id] != paypal_account[:payer_id]
 
       return flash_error_and_redirect_to_settings(t("paypal_accounts.new.billing_agreement_not_accepted"))
     end
 
-    success = MarketplaceService::PaypalAccount::Command
-      .confirm_billing_agreement(@current_user.id, @current_community.id, params[:token], billing_agreement_id)
+    success = PaypalAccountCommand.confirm_billing_agreement(@current_user.id, @current_community.id, params[:token], billing_agreement_id)
     redirect_to show_paypal_account_settings_payment_path(@current_user.username)
   end
 
   def billing_agreement_cancel_hook
-    MarketplaceService::PaypalAccount::Command
-      .cancel_pending_billing_agreement(@current_user.id, @current_community.id, params[:token])
+    PaypalAccountCommand.cancel_pending_billing_agreement(@current_user.id, @current_community.id, params[:token])
 
     flash[:error] = t("paypal_accounts.new.billing_agreement_canceled")
     redirect_to new_paypal_account_settings_payment_path(@current_user.username)
+  end
+
+  def admin_permissions_hook
+    if params[:verification_code].present?
+
+      access_token_res = fetch_access_token(params[:request_token], params[:verification_code])
+      return flash_error_and_redirect_to_settings unless access_token_res[:success]
+
+      personal_data_res = fetch_personal_data(access_token_res[:token], access_token_res[:token_secret])
+      return flash_error_and_redirect_to_settings unless personal_data_res[:success]
+
+      PaypalAccountCommand.update_admin_account(
+        @current_community.id,
+        {
+          email: personal_data_res[:email],
+          payer_id: personal_data_res[:payer_id]
+        }
+      )
+      PaypalAccountCommand.confirm_pending_permissions_request(
+        nil,
+        @current_community.id,
+        params[:request_token],
+        access_token_res[:scope].join(","),
+        params[:verification_code]
+      )
+
+      redirect_to admin_community_paypal_account_path(@current_community.id)
+    else
+      flash[:error] = t("paypal_accounts.new.permissions_not_granted")
+      redirect_to new_admin_community_paypal_account_path(@current_community.id)
+    end
   end
 
 
@@ -97,13 +126,12 @@ class PaypalWebhooksController < ApplicationController
   end
 
   def fetch_personal_data(token, token_secret)
-    personal_data_req = PaypalService::DataTypes::Permissions
-      .create_get_basic_personal_data(
-        {
-          token: token,
-          token_secret: token_secret
-        }
-      )
+    personal_data_req = DataTypePermissions.create_get_basic_personal_data(
+      {
+        token: token,
+        token_secret: token_secret
+      }
+    )
     paypal_permissions.do_request(personal_data_req)
   end
 
