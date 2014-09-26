@@ -17,21 +17,6 @@ module HashUtils
     h.select { |key, value| key.to_s.match(regexp) }
   end
 
-  # Usage:
-  # deep_map({foo: {bar: 2}, baz: 3}) { |k, v| v * v } -> {foo: {bar: 4}, baz: 3}
-  #
-  def deep_map(h, &block)
-    h.inject({}) do |memo, (k, v)|
-      memo[k] = if v.is_a?(Hash)
-                  deep_map(v, &block)
-                else
-                  block.call(k, v)
-                end
-
-      memo
-    end
-  end
-
   # rename keys in given hash (returns a copy) using the renames old_key => new_key mappings
   def rename_keys(renames, hash)
     map_keys(hash) { |old_key|
