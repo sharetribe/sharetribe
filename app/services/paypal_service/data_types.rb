@@ -1,6 +1,6 @@
 module PaypalService
   module DataTypes
-    Endpoint = EntityUtils.define_builder([:endpoint_name, one_of: [:live, :sandbox]])
+    Endpoint = EntityUtils.define_builder([:endpoint_name, one_of: ["live", "sandbox"]])
     APICredentials = EntityUtils.define_builder(
       [:username, :mandatory, :string],
       [:password, :mandatory, :string],
