@@ -3,23 +3,6 @@ module MarketplaceService
     module Entity
       module_function
 
-      # Move to ListingService
-      def discussion_type(transaction_type)
-        offers = ["Give", "Lend", "Rent", "Sell", "Service", "ShareForFree", "Swap", "Offer"]
-        requests = ["Request"]
-        inqueries = ["Inquiry"]
-
-        if offers.include?(transaction_type)
-          "request" # If listing is offer, the discussion type is opposite, i.e. request
-        elsif requests.include?(transaction_type)
-          "offer"
-        elsif inqueries.include?(transaction_type)
-          "inquiry"
-        else
-          raise("Unknown listing type: #{transaction_type}")
-        end
-      end
-
       def last_activity_type(inbox_item)
         message_was_last = if inbox_item[:last_transition_at].nil?
           :message
