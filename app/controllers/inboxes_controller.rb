@@ -6,13 +6,13 @@ class InboxesController < ApplicationController
     [:last_update_at, :string, :mandatory],
     [:path, :string, :mandatory],
     [:other_party, :hash, :mandatory],
-    [:is_read, :bool, :mandatory]
+    [:is_read, :to_bool, :mandatory]
   ]
 
   transasction_fields = [
     [:listing_title, :string, :mandatory],
     [:listing_url, :string, :mandatory],
-    [:is_author, :bool, :mandatory],
+    [:is_author, :to_bool, :mandatory],
     [:waiting_feedback_from_current, :mandatory],
     [:transaction_status, :string, :mandatory]
   ]
