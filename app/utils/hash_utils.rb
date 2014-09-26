@@ -17,6 +17,13 @@ module HashUtils
     h.select { |key, value| key.to_s.match(regexp) }
   end
 
+  def map_values(h, &block)
+    h.inject({}) do |memo, (k, v)|
+      memo[k] = block.call(v)
+      memo
+    end
+  end
+
   # rename keys in given hash (returns a copy) using the renames old_key => new_key mappings
   def rename_keys(renames, hash)
     map_keys(hash) { |old_key|
