@@ -63,29 +63,18 @@ class PaypalAccountsController < ApplicationController
   private
 
   def create_paypal_account
-    paypal_account_form = PaypalAccountForm.new(params[:paypal_account_form])
+    PaypalAccountCommand.create_personal_account(
+      @current_user.id,
+      @current_community.id
+    )
 
-    if paypal_account_form.valid?
-      PaypalAccountCommand.create_personal_account(
-        @current_user.id,
-        @current_community.id
-      )
+    permissions_url = request_paypal_permissions_url
 
-      permissions_url = request_paypal_permissions_url
-
-      if permissions_url.blank?
-        flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-        return redirect_to action: :new
-      else
-        return redirect_to permissions_url
-      end
-
+    if permissions_url.blank?
+      flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
+      return redirect_to action: :new
     else
-      flash[:error] = paypal_account_form.errors.full_messages
-      render(:new, locals: {
-        left_hand_navigation_links: settings_links_for(@current_user, @current_community),
-        form_action: person_paypal_account_path(@current_user),
-        paypal_account_form: paypal_account_form })
+      return redirect_to permissions_url
     end
   end
 
