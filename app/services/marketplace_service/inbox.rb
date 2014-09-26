@@ -46,22 +46,26 @@ module MarketplaceService
         !(tiny_int.nil? || tiny_int == 0)
       }
 
-      common_sql_opts = [
+      common_spec = [
         [:conversation_id, :fixnum, :mandatory],
         [:last_activity_at, :str_to_time, :mandatory],
         [:current_is_read, :mandatory, transform_with: tiny_int_to_bool],
         [:current_is_starter, :mandatory, transform_with: tiny_int_to_bool],
         [:current_id, :string, :mandatory],
-        [:other_id, :string, :mandatory]
+        [:other_id, :string, :mandatory],
+
+        [:starter, :hash, :mandatory],
+        [:current, :hash, :mandatory],
+        [:other, :hash, :mandatory]
       ]
 
-      conversation_sql_opts = [
+      conversation_spec = [
         [:type, const_value: :conversation],
         [:last_message_at, :time, :mandatory],
         [:last_message_content, :string, :mandatory]
       ]
 
-      transaction_sql_opts = [
+      transaction_spec = [
         [:type, const_value: :transaction],
         [:transaction_id, :fixnum, :mandatory],
 
@@ -79,26 +83,15 @@ module MarketplaceService
         [:currency, :string, :optional],
 
         [:author_skipped_feedback, :mandatory, transform_with: tiny_int_to_bool],
-        [:starter_skipped_feedback, :mandatory, transform_with: tiny_int_to_bool]
-      ]
+        [:starter_skipped_feedback, :mandatory, transform_with: tiny_int_to_bool],
 
-      SQLResultConversation = EntityUtils.define_builder(*common_sql_opts, *conversation_sql_opts)
-      SQLResultTransaction = EntityUtils.define_builder(*common_sql_opts, *transaction_sql_opts)
-
-      extended_common_opts = [
-        [:starter, :hash, :mandatory],
-        [:current, :hash, :mandatory],
-        [:other, :hash, :mandatory]
-      ]
-
-      extended_transaction_opts = [
         [:author, :hash, :mandatory],
         [:waiting_feedback, :mandatory, transform_with: tiny_int_to_bool],
         [:transitions, :mandatory] # Could add Array validation
       ]
 
-      ExtendedConvesationResult = EntityUtils.define_builder(*common_sql_opts, *conversation_sql_opts, *extended_common_opts)
-      ExtendedTransactionResult = EntityUtils.define_builder(*common_sql_opts, *transaction_sql_opts, *extended_common_opts, *extended_transaction_opts)
+      InboxConvesation = EntityUtils.define_builder(*common_spec, *conversation_spec, *conversation_spec)
+      InboxTransaction = EntityUtils.define_builder(*common_spec, *conversation_spec, *transaction_spec)
 
       module_function
 
@@ -118,9 +111,9 @@ module MarketplaceService
 
         result_set.map do |result|
           if result[:transaction_id].present?
-            ExtendedTransactionResult[extend_transaction(extend_people(SQLResultTransaction[result], people_cache))]
+            InboxTransaction[extend_transaction(extend_people(result, people_cache))]
           else
-            ExtendedConvesationResult[extend_conversation(extend_people(SQLResultConversation[result], people_cache))]
+            InboxConvesation[extend_conversation(extend_people(result, people_cache))]
           end
         end
       end
