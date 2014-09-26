@@ -120,8 +120,15 @@ module MarketplaceService
       module_function
 
       def query_inbox_data(person_id, community_id, limit, offset)
-        sql = construct_sql(person_id, community_id, limit, offset)
-        result_set = ActiveRecord::Base.connection.execute(sql).each(as: :hash).map { |row| HashUtils.symbolize_keys(row) }
+        connection = ActiveRecord::Base.connection
+        sql = SQLUtils.ar_quote(connection, @construct_sql,
+          person_id: person_id,
+          community_id: community_id,
+          limit: limit,
+          offset: offset
+        )
+
+        result_set = connection.execute(sql).each(as: :hash).map { |row| HashUtils.symbolize_keys(row) }
 
         people_ids = HashUtils.pluck(result_set, :current_id, :other_id).uniq
         people_cache = MarketplaceService::Person::Query.people(people_ids)
@@ -136,7 +143,13 @@ module MarketplaceService
       end
 
       def query_inbox_data_count(person_id, community_id)
-        ActiveRecord::Base.connection.select_value(construct_count_sql(person_id, community_id))
+        connection = ActiveRecord::Base.connection
+        sql = SQLUtils.ar_quote(connection, @construct_count_sql,
+          person_id: person_id,
+          community_id: community_id
+        )
+
+        connection.select_value(sql)
       end
 
       def extend_people(common, people)
@@ -176,7 +189,7 @@ module MarketplaceService
       # - community
       # - sorted by last acticity
       # - with pagination
-      def construct_sql(person_id, community_id, limit, offset)
+      @construct_sql = ->(params) {
         "
           SELECT
             transactions.id AS transaction_id,
@@ -206,9 +219,9 @@ module MarketplaceService
           LEFT JOIN listings          ON transactions.listing_id = listings.id
           LEFT JOIN transaction_types ON listings.transaction_type_id = transaction_types.id
           LEFT JOIN payments          ON payments.transaction_id = transactions.id
-          LEFT JOIN testimonials      ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = '#{person_id}')
-          LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = '#{person_id}')
-          LEFT JOIN participations    AS other_participation ON (other_participation.conversation_id = conversations.id AND other_participation.person_id != '#{person_id}')
+          LEFT JOIN testimonials      ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = #{params[:person_id]})
+          LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = #{params[:person_id]})
+          LEFT JOIN participations    AS other_participation ON (other_participation.conversation_id = conversations.id AND other_participation.person_id != #{params[:person_id]})
 
           # Get 'last_transition_at' and 'last_transition_to_state'
           # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
@@ -229,31 +242,30 @@ module MarketplaceService
           ) AS m ON (conversations.id = m.conversation_id)
 
           # Where person and community
-          WHERE conversations.community_id = #{community_id}
-          AND ((current_participation.person_id = '#{person_id}') OR (other_participation.person_id = '#{person_id}'))
+          WHERE conversations.community_id = #{params[:community_id]}
+          AND ((current_participation.person_id = #{params[:person_id]}) OR (other_participation.person_id = #{params[:person_id]}))
 
           # Order by 'last_activity_at', that is last message or last transition
           ORDER BY last_activity_at DESC
 
           # Pagination
-          LIMIT #{limit} OFFSET #{offset}
+          LIMIT #{params[:limit]} OFFSET #{params[:offset]}
         "
-      end
+      }
 
-      def construct_count_sql(person_id, community_id)
+      @construct_count_sql = ->(params) {
         "
           SELECT COUNT(*)
           FROM conversations
 
-          LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = '#{person_id}')
-          LEFT JOIN participations    AS other_participation ON (other_participation.conversation_id = conversations.id AND other_participation.person_id != '#{person_id}')
+          LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = #{params[:person_id]})
+          LEFT JOIN participations    AS other_participation ON (other_participation.conversation_id = conversations.id AND other_participation.person_id != #{params[:person_id]})
 
           # Where person and community
-          WHERE conversations.community_id = #{community_id}
-          AND ((current_participation.person_id = '#{person_id}') OR (other_participation.person_id = '#{person_id}'))
+          WHERE conversations.community_id = #{params[:community_id]}
+          AND ((current_participation.person_id = #{params[:person_id]}) OR (other_participation.person_id = #{params[:person_id]}))
         "
-      end
-
+      }
     end
   end
 end
