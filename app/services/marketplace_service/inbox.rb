@@ -37,6 +37,10 @@ module MarketplaceService
       def inbox_data(person_id, community_id, limit, offset)
         QueryHelper.query_inbox_data(person_id, community_id, limit, offset)
       end
+
+      def notification_count(person_id, community_id)
+        QueryHelper.query_notification_count(person_id, community_id)
+      end
     end
 
     module QueryHelper
@@ -72,7 +76,6 @@ module MarketplaceService
         [:listing_id, :fixnum, :mandatory],
         [:listing_title, :string, :mandatory],
         [:transaction_type, :string, :mandatory],
-        [:current_user_testimonial_id, :fixnum, :optional],
 
         [:last_transition_at, :time, :mandatory],
         [:last_transition_to_state, :string, :mandatory],
@@ -94,6 +97,16 @@ module MarketplaceService
       InboxTransaction = EntityUtils.define_builder(*common_spec, *conversation_spec, *transaction_spec)
 
       module_function
+
+      def query_notification_count(person_id, community_id)
+        connection = ActiveRecord::Base.connection
+        sql = SQLUtils.ar_quote(connection, @construct_notification_count_sql,
+          person_id: person_id,
+          community_id: community_id
+        )
+
+        connection.select_value(sql)
+      end
 
       def query_inbox_data(person_id, community_id, limit, offset)
         connection = ActiveRecord::Base.connection
@@ -159,6 +172,43 @@ module MarketplaceService
           transitions: transitions
         )
       end
+
+      @construct_notification_count_sql = ->(params) {
+        "
+          SELECT COUNT(*) FROM conversations
+
+          LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
+          LEFT JOIN listings          ON transactions.listing_id = listings.id
+          LEFT JOIN testimonials      ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = #{params[:person_id]})
+          LEFT JOIN participations    ON (participations.conversation_id = conversations.id AND participations.person_id = #{params[:person_id]})
+
+          LEFT JOIN (
+            SELECT transaction_id, to_state AS status
+            FROM transaction_transitions tt1
+            LIMIT 1
+            ORDER BY created_at, sort_key DESC
+          ) AS tt ON (transactions.id = tt.transaction_id)
+
+          # Where person and community
+          WHERE conversations.community_id = #{params[:community_id]}
+          AND (participations.person_id = #{params[:person_id]})
+
+          AND (
+            # Is read?
+            (participations.is_read = FALSE) OR
+
+            # Requires actions
+            ((tt.status = 'pending' OR tt.status = 'preauthorized') AND participations.is_starter = FALSE) OR
+            ((tt.status = 'accepted' OR tt.status = 'paid')         AND participations.is_starter = TRUE) OR
+
+            # Waiting feedback
+            ((tt.status = 'confirmed') AND (
+              (participations.is_starter = TRUE AND transactions.starter_skipped_feedback = FALSE AND testimonials.id IS NULL) OR
+              (participations.is_starter = FALSE AND transactions.author_skipped_feedback = FALSE AND testimonials.id IS NULL)
+            ))
+          )
+        "
+      }
 
       # Construct query for
       # - person

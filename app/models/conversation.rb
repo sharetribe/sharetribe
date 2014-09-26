@@ -30,13 +30,6 @@ class Conversation < ActiveRecord::Base
     .where( { participations: { person_id: person }} )
   }
 
-  # TODO This could be moved to Service
-  def self.notification_count_for_person(person)
-      for_person(person).includes(:participations).select do |conversation|
-        conversation.should_notify?(person)
-      end.count
-  end
-
   # Creates a new message to the conversation
   def message_attributes=(attributes)
     if attributes[:content].present? || attributes[:action].present?
@@ -75,12 +68,6 @@ class Conversation < ActiveRecord::Base
       is_starter: false,
       last_received_at: DateTime.now
     )
-  end
-
-  def should_notify?(user)
-    # TODO Conversation is now aware of transactions, which is not an optimal solution.
-    # Consider moving the logic to Service
-    !read_by?(user) || (transaction.present? && MarketplaceService::Transaction::Entity.should_notify?(MarketplaceService::Transaction::Entity.transaction(transaction), user.id))
   end
 
   # Returns last received or sent message
