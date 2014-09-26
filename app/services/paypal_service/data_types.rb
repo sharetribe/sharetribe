@@ -20,6 +20,7 @@ module PaypalService
     def create_failure_response(opts); FailureResponse.call(opts) end
 
     module Merchant
+
       SetupBillingAgreement = EntityUtils.define_builder(
         [:method, const_value: :setup_billing_agreement],
         [:description, :mandatory, :string],
@@ -97,7 +98,7 @@ module PaypalService
 
       DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(
         [:success, const_value: true],
-        [:payment_date, :mandatory, transform_with: -> (date_str) { DateTime.parse(date_str) }],
+        [:payment_date, :mandatory, :str_to_time],
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
         [:transaction_id, :mandatory, :string],
@@ -136,6 +137,7 @@ module PaypalService
 
       def create_get_express_checkout_details(opts); GetExpressCheckoutDetails.call(opts) end
       def create_get_express_checkout_details_response(opts); GetExpressCheckoutDetailsResponse.call(opts) end
+
       def create_set_express_checkout_order(opts); SetExpressCheckoutOrder.call(opts) end
       def create_set_express_checkout_order_response(opts); SetExpressCheckoutOrderResponse.call(opts) end
 
