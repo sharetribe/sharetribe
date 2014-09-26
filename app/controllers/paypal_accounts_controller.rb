@@ -2,10 +2,6 @@ class PaypalAccountsController < ApplicationController
   include PaypalService::PermissionsInjector
   include PaypalService::MerchantInjector
 
-  PaypalAccountEntity = MarketplaceService::PaypalAccount::Entity
-  PaypalAccountQuery = MarketplaceService::PaypalAccount::Query
-  PaypalAccountCommand = MarketplaceService::PaypalAccount::Command
-
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
@@ -15,6 +11,10 @@ class PaypalAccountsController < ApplicationController
   skip_filter :dashboard_only
 
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm")
+  PaypalAccountEntity = MarketplaceService::PaypalAccount::Entity
+  PaypalAccountQuery = MarketplaceService::PaypalAccount::Query
+  PaypalAccountCommand = MarketplaceService::PaypalAccount::Command
+
 
   def show
     paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
