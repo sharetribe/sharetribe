@@ -61,22 +61,6 @@ module MarketplaceService
         transaction[:testimonials].find { |testimonial| testimonial[:author_id] == person_id }
       end
 
-      def should_notify?(transaction, person_id)
-        status = transaction[:status]
-
-        if status == "pending" || status == "preauthorized"
-          person_id == transaction[:listing][:author_id]
-        elsif status == "accepted"
-          person_id == transaction[:starter_id]
-        elsif status == "paid"
-          person_id == transaction[:starter_id]
-        elsif status == "confirmed"
-          waiting_testimonial_from?(transaction, person_id)
-        else
-          false
-        end
-      end
-
       def transaction(transaction_model)
         listing_model = transaction_model.listing
         listing = ListingEntity.listing(listing_model)
