@@ -59,11 +59,15 @@ module MarketplaceService
     module QueryHelper
       PersonModel = ::Person
 
+      tiny_int_to_bool = ->(tiny_int) {
+        !(tiny_int.nil? || tiny_int == 0)
+      }
+
       common_sql_opts = [
         [:conversation_id, :fixnum, :mandatory],
         [:last_activity_at, :str_to_time, :mandatory],
-        [:current_is_read, :int_to_bool, :mandatory],
-        [:current_is_starter, :int_to_bool, :mandatory],
+        [:current_is_read, :mandatory, transform_with: tiny_int_to_bool],
+        [:current_is_starter, :mandatory, transform_with: tiny_int_to_bool],
         [:current_id, :string, :mandatory],
         [:other_id, :string, :mandatory]
       ]
@@ -91,8 +95,8 @@ module MarketplaceService
         [:sum_cents, :fixnum, :optional],
         [:currency, :string, :optional],
 
-        [:author_skipped_feedback, :int_to_bool, :mandatory],
-        [:starter_skipped_feedback, :int_to_bool, :mandatory]
+        [:author_skipped_feedback, :mandatory, transform_with: tiny_int_to_bool],
+        [:starter_skipped_feedback, :mandatory, transform_with: tiny_int_to_bool]
       ]
 
       SQLResultConversation = EntityUtils.define_builder(*common_sql_opts, *conversation_sql_opts)
@@ -106,7 +110,7 @@ module MarketplaceService
 
       extended_transaction_opts = [
         [:author, :hash, :mandatory],
-        [:waiting_feedback, :int_to_bool, :mandatory],
+        [:waiting_feedback, :mandatory, transform_with: tiny_int_to_bool],
         [:transitions, :mandatory] # Could add Array validation
       ]
 
