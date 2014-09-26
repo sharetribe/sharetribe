@@ -195,6 +195,8 @@ en-bl:
         merchant_id: ~
         master_merchant_id: ~
         commission_from_seller: ~
+      paypal_account:
+        paypal_admin_account: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -267,6 +269,14 @@ en-bl:
       news_item:
         edit_news_item: ~
         delete_news_item: ~
+    paypal_accounts:
+      marketplace_paypal_integration: ~
+      new:
+        integration_info_text: ~
+        paypal_account_email: ~
+      show:
+        integration_info_text: ~
+        paypal_account_email_connected: ~
     polls:
       index:
         polls: ~

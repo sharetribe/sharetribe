@@ -210,6 +210,8 @@ fi:
         merchant_id: ~
         master_merchant_id: ~
         commission_from_seller: ~
+      paypal_account:
+        paypal_admin_account: ~
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -283,13 +285,13 @@ fi:
         edit_news_item: Muokkaa
         delete_news_item: Poista
     paypal_accounts:
-      marketplace_paypal_integration: "PayPal asetukset"
+      marketplace_paypal_integration: ~
       new:
-        integration_info_text: "Vastaanottaaksesi rahaa sinun täytyy yhdistää PayPal-tili %{service_name}-palveluun."
-        paypal_account_email: "Yhdistä PayPal-tili"
+        integration_info_text: ~
+        paypal_account_email: ~
       show:
-        integration_info_text: "Vastaanottaaksesi rahaa sinun täytyy yhdistää PayPal-tili %{service_name}-palveluun."
-        paypal_account_email_connected: "Yhdistetty PayPal-tili"
+        integration_info_text: ~
+        paypal_account_email_connected: ~
     polls:
       index:
         polls: Kyselyt
