@@ -95,7 +95,7 @@ module MarketplaceService
           }
       end
 
-      def create_admin_account(community_id, account_data)
+      def create_admin_account(community_id, account_data = {})
         old_account = PaypalAccountModel
           .where(person_id: nil, community_id: community_id)
           .eager_load(:order_permission)
@@ -107,6 +107,16 @@ module MarketplaceService
           account_data.merge({community_id: community_id, person_id: nil})
         )
 
+        Result::Success.new
+      end
+
+      def update_admin_account(community_id, account_data)
+        paypal_account = PaypalAccountModel
+          .where(person_id: nil, community_id: community_id)
+          .eager_load(:order_permission)
+          .first
+
+        paypal_account.update_attributes(account_data)
         Result::Success.new
       end
 

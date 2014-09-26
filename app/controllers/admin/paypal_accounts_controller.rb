@@ -37,27 +37,17 @@ class Admin::PaypalAccountsController < ApplicationController
   end
 
   def create
-    paypal_account_form = PaypalAccountForm.new(params[:paypal_account_form])
+    PaypalAccountCommand.create_admin_account(@current_community.id)
 
-    if paypal_account_form.valid?
-      PaypalAccountCommand.create_admin_account(
-        @current_community.id,
-        { email: paypal_account_form.paypal_email }
-      )
+    permissions_url = request_paypal_permissions_url
 
-      permissions_url = request_paypal_permissions_url
-
-      if permissions_url.blank?
-        flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-        return redirect_to action: :new
-      else
-        return redirect_to permissions_url
-      end
-
-    else
-      flash[:error] = paypal_account_form.errors.full_messages.join(", ")
+    if permissions_url.blank?
+      flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
       return redirect_to action: :new
+    else
+      return redirect_to permissions_url
     end
+
   end
 
   private
