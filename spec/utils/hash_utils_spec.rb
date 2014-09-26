@@ -11,6 +11,15 @@ describe HashUtils do
     expect(HashUtils.map_keys(h) { |k| k.upcase }).to eq({"A" => "a", "B" => "b"})
   end
 
+  it "#map_values" do
+    h = {
+      "a" => "a",
+      "b" => "b"
+    }
+
+    expect(HashUtils.map_values(h) { |v| v.upcase }).to eq({"a" => "A", "b" => "B"})
+  end
+
   it "#rename_keys" do
     expect(HashUtils.rename_keys({foo: :bar}, {foo: 1, doo: 2}))
       .to eq({bar: 1, doo: 2})

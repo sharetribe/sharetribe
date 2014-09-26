@@ -17,17 +17,9 @@ module HashUtils
     h.select { |key, value| key.to_s.match(regexp) }
   end
 
-  # Usage:
-  # deep_map({foo: {bar: 2}, baz: 3}) { |k, v| v * v } -> {foo: {bar: 4}, baz: 3}
-  #
-  def deep_map(h, &block)
+  def map_values(h, &block)
     h.inject({}) do |memo, (k, v)|
-      memo[k] = if v.is_a?(Hash)
-                  deep_map(v, &block)
-                else
-                  block.call(k, v)
-                end
-
+      memo[k] = block.call(v)
       memo
     end
   end
