@@ -111,7 +111,7 @@ module PaypalService
         [:transaction_id, :mandatory, :string],
         [:order_total, :mandatory, :string],
         [:currency, :mandatory, :string],
-        [:msg_sub_id, transform_with: -> (_) { SecureRandom.uuid }])
+        [:msg_sub_id, transform_with: -> (v) { v.nil? ? SecureRandom.uuid : v }])
 
       DoAuthorizationResponse = EntityUtils.define_builder(
         [:success, const_value: true],
@@ -120,7 +120,7 @@ module PaypalService
         [:pending_reason, :mandatory, :string],
         [:order_total, :mandatory, :string],
         [:currency, :mandatory, :string],
-        [:sub_msg_id, :string])
+        [:msg_sub_id, :string])
 
 
       module_function
