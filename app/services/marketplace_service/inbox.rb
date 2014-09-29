@@ -188,7 +188,7 @@ module MarketplaceService
           LEFT JOIN (
             SELECT tt1.transaction_id, tt1.to_state AS status
             FROM transaction_transitions tt1
-            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND (tt1.created_at < tt2.created_at OR tt1.sort_key < tt2.sort_key)
+            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND (tt1.created_at < tt2.created_at OR tt1.sort_key < tt2.sort_key OR tt1.id < tt2.id)
             WHERE tt2.id IS NULL
           ) AS tt ON (transactions.id = tt.transaction_id)
 
@@ -275,7 +275,7 @@ module MarketplaceService
           LEFT JOIN (
             SELECT tt1.transaction_id, tt1.created_at as last_transition_at, tt1.to_state as last_transition_to_state
             FROM transaction_transitions tt1
-            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND (tt1.created_at < tt2.created_at OR tt1.sort_key < tt2.sort_key)
+            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND (tt1.created_at < tt2.created_at OR tt1.sort_key < tt2.sort_key OR tt1.id < tt2.id)
             WHERE tt2.id IS NULL
           ) AS tt ON (transactions.id = tt.transaction_id)
 
@@ -284,7 +284,7 @@ module MarketplaceService
           LEFT JOIN (
             SELECT m1.conversation_id, m1.created_at as last_message_at, m1.content as last_message_content
             FROM messages m1
-            LEFT JOIN messages m2 ON m1.conversation_id = m2.conversation_id AND m1.created_at < m2.created_at
+            LEFT JOIN messages m2 ON m1.conversation_id = m2.conversation_id AND (m1.created_at < m2.created_at OR m1.id < m2.id)
             WHERE m2.id IS NULL
           ) AS m ON (conversations.id = m.conversation_id)
 
