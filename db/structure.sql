@@ -585,10 +585,10 @@ CREATE TABLE `order_permissions` (
   `paypal_account_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `request_token` varchar(255) NOT NULL,
-  `paypal_username_to` varchar(255) NOT NULL,
-  `scope` varchar(255) DEFAULT NULL,
-  `verification_code` varchar(255) DEFAULT NULL,
+  `request_token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `paypal_username_to` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `scope` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `verification_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -666,8 +666,8 @@ CREATE TABLE `paypal_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `payer_id` varchar(255) DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `payer_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -1835,24 +1835,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140909074331');
 
 INSERT INTO schema_migrations (version) VALUES ('20140912084032');
 
-INSERT INTO schema_migrations (version) VALUES ('20140923064120');
-
-INSERT INTO schema_migrations (version) VALUES ('20140923064130');
-
-INSERT INTO schema_migrations (version) VALUES ('20140923064140');
-
-INSERT INTO schema_migrations (version) VALUES ('20140923064150');
-
-INSERT INTO schema_migrations (version) VALUES ('20140923064160');
-
-INSERT INTO schema_migrations (version) VALUES ('20140923064170');
-
-INSERT INTO schema_migrations (version) VALUES ('20140923064180');
-
-INSERT INTO schema_migrations (version) VALUES ('20140923064190');
-
-INSERT INTO schema_migrations (version) VALUES ('20140923064200');
-
 INSERT INTO schema_migrations (version) VALUES ('20140925093828');
 
 INSERT INTO schema_migrations (version) VALUES ('20140925095608');
@@ -1860,3 +1842,21 @@ INSERT INTO schema_migrations (version) VALUES ('20140925095608');
 INSERT INTO schema_migrations (version) VALUES ('20140925111706');
 
 INSERT INTO schema_migrations (version) VALUES ('20140925112419');
+
+INSERT INTO schema_migrations (version) VALUES ('20140929064120');
+
+INSERT INTO schema_migrations (version) VALUES ('20140929064130');
+
+INSERT INTO schema_migrations (version) VALUES ('20140929064140');
+
+INSERT INTO schema_migrations (version) VALUES ('20140929064150');
+
+INSERT INTO schema_migrations (version) VALUES ('20140929064160');
+
+INSERT INTO schema_migrations (version) VALUES ('20140929064170');
+
+INSERT INTO schema_migrations (version) VALUES ('20140929064180');
+
+INSERT INTO schema_migrations (version) VALUES ('20140929064190');
+
+INSERT INTO schema_migrations (version) VALUES ('20140929064200');

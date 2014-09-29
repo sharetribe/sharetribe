@@ -7,9 +7,9 @@
 #  listing_id                        :integer          not null
 #  conversation_id                   :integer
 #  automatic_confirmation_after_days :integer
+#  community_id                      :integer          not null
 #  created_at                        :datetime         not null
 #  updated_at                        :datetime         not null
-#  community_id                      :integer          not null
 #  starter_skipped_feedback          :boolean          default(FALSE)
 #  author_skipped_feedback           :boolean          default(FALSE)
 #
