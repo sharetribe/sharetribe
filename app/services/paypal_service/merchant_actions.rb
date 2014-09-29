@@ -200,6 +200,26 @@ module PaypalService
             }
           )
         }
+      ),
+
+      do_void: PaypalAction.def_action(
+        input_transformer: -> (req) {
+          {
+            AuthorizationID: req[:authorization_id],
+            Note: req[:note],
+            MsgSubID: req[:msg_sub_id]
+          }
+        },
+        wrapper_method_name: :build_do_void,
+        action_method_name: :do_void,
+        output_transformer: -> (res, api) {
+          DataTypes::Merchant.create_do_void_response(
+            {
+              authorization_id: res.authorization_id,
+              msg_sub_id: res.msg_sub_id
+            }
+          )
+        }
       )
     }
 

@@ -130,6 +130,18 @@ module PaypalService
         [:fee, :mandatory, :money],
         [:payment_date, :mandatory, :str_to_time])
 
+      DoVoid = EntityUtils.define_builder(
+        [:method, const_value: :do_void],
+        [:receiver_username, :mandatory, :string],
+        [:authorization_id, :mandatory, :string],
+        [:note, :string],
+        [:msg_sub_id, transform_with: -> (v) { v.nil? ? SecureRandom.uuid : v }])
+
+      DoVoidResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:authorization_id, :mandatory, :string],
+        [:msg_sub_id, :string])
+
 
       module_function
 
@@ -156,6 +168,9 @@ module PaypalService
 
       def create_do_full_capture(opts); DoFullCapture.call(opts) end
       def create_do_full_capture_response(opts); DoFullCaptureResponse.call(opts) end
+
+      def create_do_void(opts); DoVoid.call(opts) end
+      def create_do_void_response(opts); DoVoidResponse.call(opts) end
 
     end
 
