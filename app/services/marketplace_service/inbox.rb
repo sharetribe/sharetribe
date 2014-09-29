@@ -85,11 +85,8 @@ module MarketplaceService
         [:sum_cents, :fixnum, :optional],
         [:currency, :string, :optional],
 
-        [:author_skipped_feedback, :mandatory, transform_with: tiny_int_to_bool],
-        [:starter_skipped_feedback, :mandatory, transform_with: tiny_int_to_bool],
-
         [:author, :hash, :mandatory],
-        [:waiting_feedback, :mandatory, transform_with: tiny_int_to_bool],
+        [:waiting_feedback, :mandatory],
         [:transitions, :mandatory] # Could add Array validation
       ]
 
@@ -159,16 +156,12 @@ module MarketplaceService
       end
 
       def extend_transaction(transaction)
-        current_skipped_feedback = transaction[:current_is_starter] ? transaction[:starter_skipped_feedback] : transaction[:author_skipped_feedback]
-        current_has_given_feedback = transaction[:current_user_testimonial_id].present?
-
         transitions = TransactionTransition.where(transaction_id: transaction[:transaction_id]).map do |transition_model|
           MarketplaceService::Transaction::Entity::Transition[EntityUtils.model_to_hash(transition_model)]
         end
 
         transaction.merge(
           author: transaction[:other],
-          waiting_feedback: !(current_skipped_feedback || current_has_given_feedback),
           transitions: transitions
         )
       end
@@ -182,11 +175,13 @@ module MarketplaceService
           LEFT JOIN testimonials      ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = #{params[:person_id]})
           LEFT JOIN participations    ON (participations.conversation_id = conversations.id AND participations.person_id = #{params[:person_id]})
 
+          # Get 'transaction_id' and 'status'
+          # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
           LEFT JOIN (
-            SELECT transaction_id, to_state AS status
+            SELECT tt1.transaction_id, tt1.to_state AS status
             FROM transaction_transitions tt1
-            LIMIT 1
-            ORDER BY created_at, sort_key DESC
+            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND (tt1.created_at < tt2.created_at OR tt1.sort_key < tt2.sort_key)
+            WHERE tt2.id IS NULL
           ) AS tt ON (transactions.id = tt.transaction_id)
 
           # Where person and community
@@ -220,25 +215,33 @@ module MarketplaceService
           SELECT
             transactions.id AS transaction_id,
             conversations.id AS conversation_id,
+
             m.last_message_at,
             m.last_message_content,
             tt.last_transition_at,
             tt.last_transition_to_state,
             GREATEST(COALESCE(tt.last_transition_at, 0),
               COALESCE(m.last_message_at, 0))                 AS last_activity_at,
+
             listings.id                                       AS listing_id,
             listings.title                                    AS listing_title,
-            listings.author_id                                AS author_id,
+
             payments.sum_cents                                AS sum_cents,
             payments.currency                                 AS currency,
-            transaction_types.type                            AS transaction_type,
-            transactions.author_skipped_feedback              AS author_skipped_feedback,
-            transactions.starter_skipped_feedback             AS starter_skipped_feedback,
-            current_participation.is_read                     AS current_is_read,
-            current_participation.is_starter                  AS current_is_starter,
+
+            listings.author_id                                AS author_id,
             current_participation.person_id                   AS current_id,
             other_participation.person_id                     AS other_id,
-            testimonials.id                                   AS current_user_testimonial_id
+
+            transaction_types.type                            AS transaction_type,
+
+            current_participation.is_read                     AS current_is_read,
+            current_participation.is_starter                  AS current_is_starter,
+
+            ((tt.last_transition_to_state = 'confirmed') AND (
+              (current_participation.is_starter = TRUE AND transactions.starter_skipped_feedback = FALSE AND testimonials.id IS NULL) OR
+              (current_participation.is_starter = FALSE AND transactions.author_skipped_feedback = FALSE AND testimonials.id IS NULL)
+            ))                                                AS waiting_feedback
           FROM conversations
 
           LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
