@@ -201,7 +201,7 @@ end
 
 When /^I fill the payment details form(?: with valid information)?$/ do
   steps %Q{
-    When I fill in "checkout_account_form[company_id]" with "1234567-8"
+    When I fill in "checkout_account_form[company_id_or_personal_id]" with "1234567-8"
     And I fill in "checkout_account_form[organization_address]" with "Startup Sauna, Betonimiehenkuja, Espoo, Finland"
     And I fill in "checkout_account_form[phone_number]" with "555-12345678"
     And I fill in "checkout_account_form[organization_website]" with "http://www.company.com/"
@@ -211,7 +211,7 @@ end
 
 When /^I fill the payment details form with invalid information$/ do
   steps %Q{
-    When I fill in "checkout_account_form[company_id]" with "12345465467484578"
+    When I fill in "checkout_account_form[company_id_or_personal_id]" with "12345465467484578"
     And I fill in "checkout_account_form[organization_address]" with ""
     And I fill in "checkout_account_form[phone_number]" with "555"
     And I fill in "checkout_account_form[organization_website]" with ""
