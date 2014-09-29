@@ -62,14 +62,14 @@ class ListingConversation < Conversation
   end
 
   def initialize_payment
-    payment ||= community.payment_gateway.new_payment
-    payment.payment_gateway ||= community.payment_gateway
-    payment.conversation = self
-    payment.status = "pending"
-    payment.payer = starter
-    payment.recipient = author
-    payment.community = community
-    payment
+    self.payment ||= community.payment_gateway.new_payment
+    self.payment.payment_gateway ||= community.payment_gateway
+    self.payment.conversation = self
+    self.payment.status = "pending"
+    self.payment.payer = starter
+    self.payment.recipient = author
+    self.payment.community = community
+    self.payment
   end
 
   def initialize_braintree_payment!(payment, sum, currency)
