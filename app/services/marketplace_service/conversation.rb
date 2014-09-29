@@ -30,16 +30,6 @@ module MarketplaceService
 
       module_function
 
-      def participant_by_id(conversation, person_id)
-        if(conversation[:starter_person][:id] == person_id)
-          conversation[:starter_person]
-        elsif(conversation[:other_person][:id] == person_id)
-          conversation[:other_person]
-        else
-          nil
-        end
-      end
-
       def conversation(conversation_model)
         Conversation[{
           id: conversation_model.id,

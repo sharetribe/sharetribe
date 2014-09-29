@@ -27,8 +27,8 @@ class Admin::CommunityTransactionsController < ApplicationController
     conversations = conversations.map do |transaction|
       conversation = transaction[:conversation]
       # TODO Embed author and starter to the transaction entity
-      author = MarketplaceService::Conversation::Entity.participant_by_id(conversation, transaction[:listing][:author_id])
-      starter = MarketplaceService::Conversation::Entity.participant_by_id(conversation, transaction[:starter_id])
+      author = conversation[:other_person]
+      starter = conversation[:starter_person]
 
       transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
 

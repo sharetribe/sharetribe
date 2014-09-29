@@ -37,8 +37,8 @@ module TransactionViewUtils
 
   def transition_messages(transaction, conversation)
     if transaction.present?
-      author = MarketplaceService::Conversation::Entity.participant_by_id(conversation, transaction[:listing][:author_id])
-      starter = MarketplaceService::Conversation::Entity.participant_by_id(conversation, transaction[:starter_id])
+      author = conversation[:other_person]
+      starter = conversation[:starter_person]
 
       transitions = transaction[:transitions]
       discussion_type = transaction[:discussion_type]
