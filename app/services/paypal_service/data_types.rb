@@ -114,6 +114,22 @@ module PaypalService
         [:order_total, :mandatory, :money],
         [:msg_sub_id, :string])
 
+      DoFullCapture = EntityUtils.define_builder(
+        [:method, const_value: :do_capture],
+        [:receiver_username, :mandatory, :string],
+        [:authorization_id, :mandatory, :string],
+        [:order_total, :mandatory, :money])
+
+      DoFullCaptureResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:authorization_id, :mandatory, :string],
+        [:transaction_id, :mandatory, :string],
+        [:payment_status, :mandatory, :string],
+        [:pending_reason, :mandatory, :string],
+        [:order_total, :mandatory, :money],
+        [:fee, :mandatory, :money],
+        [:payment_date, :mandatory, :str_to_time])
+
 
       module_function
 
@@ -137,6 +153,9 @@ module PaypalService
 
       def create_do_authorization(opts); DoAuthorization.call(opts) end
       def create_do_authorization_response(opts); DoAuthorizationResponse.call(opts) end
+
+      def create_do_full_capture(opts); DoFullCapture.call(opts) end
+      def create_do_full_capture_response(opts); DoFullCaptureResponse.call(opts) end
 
     end
 

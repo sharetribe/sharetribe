@@ -173,7 +173,34 @@ module PaypalService
             order_total: to_money(res.amount),
             msg_sub_id: res.msg_sub_id
           })
-        })
+        }
+      ),
+
+      do_capture: PaypalAction.def_action(
+        input_transformer: -> (req) {
+          {
+            AuthorizationID: req[:authorization_id],
+            Amount: from_money(req[:order_total]),
+            CompleteType: "Complete"
+          }
+        },
+        wrapper_method_name: :build_do_capture,
+        action_method_name: :do_capture,
+        output_transformer: -> (res, api) {
+          payment_info = res.do_capture_response_details.payment_info
+          DataTypes::Merchant.create_do_full_capture_response(
+            {
+              authorization_id: res.do_capture_response_details.authorization_id,
+              transaction_id: payment_info.transaction_id,
+              payment_status: payment_info.payment_status,
+              pending_reason: payment_info.pending_reason,
+              order_total: to_money(payment_info.gross_amount),
+              fee: to_money(payment_info.fee_amount),
+              payment_date: payment_info.payment_date.to_s
+            }
+          )
+        }
+      )
     }
 
   end
