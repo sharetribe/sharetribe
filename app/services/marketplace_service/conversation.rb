@@ -8,17 +8,12 @@ module MarketplaceService
     module Entity
       Conversation = EntityUtils.define_entity(
         :id,
-        :participants,
         :messages,
         :transaction,
         :listing,
-        :last_message_at
-      )
-
-      ConversationParticipant = EntityUtils.define_entity(
-        :person,
-        :is_read,
-        :is_starter,
+        :last_message_at,
+        :starter_person,
+        :other_person
       )
 
       Message = EntityUtils.define_entity(
@@ -36,38 +31,23 @@ module MarketplaceService
       module_function
 
       def participant_by_id(conversation, person_id)
-        conversation[:participants]
-          .select { |participant| participant[:person][:id] == person_id }
-          .map { |participant| participant[:person] }
-          .first
-      end
-
-      def other_by_id(conversation, person_id)
-        conversation[:participants]
-          .reject { |participant| participant[:person][:id] == person_id }
-          .map { |participant| participant[:person] }
-          .first
+        if(conversation[:starter_person][:id] == person_id)
+          conversation[:starter_person]
+        elsif(conversation[:other_person][:id] == person_id)
+          conversation[:other_person]
+        else
+          nil
+        end
       end
 
       def conversation(conversation_model)
         Conversation[{
           id: conversation_model.id,
-          participants: participations(conversation_model.participations),
           listing: conversation_model.listing,
           messages: messages(conversation_model.messages),
-          last_message_at: conversation_model.last_message_at
-        }]
-      end
-
-      def participations(participation_models)
-        participation_models.map { |participation_model| participation(participation_model) }
-      end
-
-      def participation(participation_model)
-        ConversationParticipant[{
-          person: PersonEntity.person(participation_model.person),
-          is_read: participation_model.is_read,
-          is_starter: participation_model.is_starter
+          last_message_at: conversation_model.last_message_at,
+          starter_person: PersonEntity.person(conversation_model.starter),
+          other_person: PersonEntity.person(conversation_model.other_party(conversation_model.starter))
         }]
       end
 

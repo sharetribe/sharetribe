@@ -24,7 +24,7 @@ class ConversationsController < ApplicationController
 
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: conversation_id})
 
-    other = MarketplaceService::Conversation::Entity.other_by_id(conversation, @current_user.id)
+    other = conversation[:other_person]
     conversation[:other_party] = person_entity_with_url(other)
 
     messages = TransactionViewUtils.conversation_messages(conversation[:messages])

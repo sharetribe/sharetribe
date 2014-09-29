@@ -36,7 +36,6 @@ module MarketplaceService
 
       ConversationEntity = MarketplaceService::Conversation::Entity
       Conversation = ConversationEntity::Conversation
-      ConversationParticipant = ConversationEntity::ConversationParticipant
       ListingEntity = MarketplaceService::Listing::Entity
 
       module_function

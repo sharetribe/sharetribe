@@ -24,7 +24,7 @@ class TransactionsController < ApplicationController
 
     conversation = transaction[:conversation]
 
-    other = MarketplaceService::Conversation::Entity.other_by_id(conversation, @current_user.id)
+    other = conversation[:other_person]
     conversation[:other_party] = person_entity_with_url(other)
     transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
 
