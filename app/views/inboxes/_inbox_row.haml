@@ -1,4 +1,4 @@
-.row-with-divider.without-margin.conversation-row{:class => conversation[:current_is_read] ? "" : "unread"}
+.row-with-divider.without-margin.conversation-row{:class => conversation[:should_notify] ? "unread" : ""}
 
   .col-3
     .conversation-details-container

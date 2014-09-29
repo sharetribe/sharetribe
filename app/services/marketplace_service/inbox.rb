@@ -46,17 +46,18 @@ module MarketplaceService
     module QueryHelper
       PersonModel = ::Person
 
-      tiny_int_to_bool = ->(tiny_int) {
+      @tiny_int_to_bool = ->(tiny_int) {
         !(tiny_int.nil? || tiny_int == 0)
       }
 
       common_spec = [
         [:conversation_id, :fixnum, :mandatory],
         [:last_activity_at, :str_to_time, :mandatory],
-        [:current_is_read, :mandatory, transform_with: tiny_int_to_bool],
-        [:current_is_starter, :mandatory, transform_with: tiny_int_to_bool],
+        [:current_is_starter, :mandatory, transform_with: @tiny_int_to_bool],
         [:current_id, :string, :mandatory],
         [:other_id, :string, :mandatory],
+
+        [:should_notify, :mandatory],
 
         [:starter, :hash, :mandatory],
         [:current, :hash, :mandatory],
@@ -86,7 +87,7 @@ module MarketplaceService
         [:currency, :string, :optional],
 
         [:author, :hash, :mandatory],
-        [:waiting_feedback, :mandatory],
+        [:waiting_feedback, :mandatory, transform_with: @tiny_int_to_bool],
         [:transitions, :mandatory] # Could add Array validation
       ]
 
@@ -151,8 +152,9 @@ module MarketplaceService
       end
 
       def extend_conversation(conversation)
-        # No-op
-        conversation
+        conversation.merge(
+          should_notify: !@tiny_int_to_bool.call(conversation[:current_is_read])
+        )
       end
 
       def extend_transaction(transaction)
@@ -160,9 +162,15 @@ module MarketplaceService
           MarketplaceService::Transaction::Entity::Transition[EntityUtils.model_to_hash(transition_model)]
         end
 
+        should_notify =
+          !@tiny_int_to_bool.call(transaction[:current_is_read]) ||
+          @tiny_int_to_bool.call(transaction[:current_action_required]) ||
+          @tiny_int_to_bool.call(transaction[:waiting_feedback])
+
         transaction.merge(
           author: transaction[:other],
-          transitions: transitions
+          transitions: transitions,
+          should_notify: should_notify
         )
       end
 
@@ -241,6 +249,13 @@ module MarketplaceService
             current_participation.is_read                     AS current_is_read,
             current_participation.is_starter                  AS current_is_starter,
 
+            # Requires actions
+            (
+              ((tt.last_transition_to_state = 'pending' OR tt.last_transition_to_state = 'preauthorized') AND current_participation.is_starter = FALSE) OR
+              ((tt.last_transition_to_state = 'accepted' OR tt.last_transition_to_state = 'paid')         AND current_participation.is_starter = TRUE)
+            )                                                 AS current_action_required,
+
+            # Waiting feedback
             ((tt.last_transition_to_state = 'confirmed') AND (
               (current_participation.is_starter = TRUE AND transactions.starter_skipped_feedback = FALSE AND testimonials.id IS NULL) OR
               (current_participation.is_starter = FALSE AND transactions.author_skipped_feedback = FALSE AND testimonials.id IS NULL)
