@@ -11,18 +11,34 @@ class ConfirmConversationsController < ApplicationController
 
   skip_filter :dashboard_only
 
+  MessageForm = Form::Message
+
   def confirm
     @action = "confirm"
+    render(locals: { message_form: MessageForm.new })
   end
 
   def cancel
     @action = "cancel"
-    render :confirm
+    render(:confirm, locals: { message_form: MessageForm.new })
   end
 
+  # TODO: Separate confirm and cancel form handling to separate actions
   # Handles confirm and cancel forms
   def confirmation
-    if @listing_conversation.update_attributes(params[:listing_conversation])
+    status = params[:transaction][:status]
+
+    if @listing_conversation.can_transition_to? status
+      @listing_conversation.transition_to! status
+      MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
+
+      if(params[:message])
+        message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_conversation.id }))
+        if(message.valid?)
+          @listing_conversation.conversation.messages.create({ content: message.content, sender_id: message.sender_id})
+        end
+      end
+
       give_feedback = Maybe(params)[:give_feedback].select { |v| v == "true" }.or_else { false }
 
       confirmation = ConfirmConversation.new(@listing_conversation, @current_user, @current_community)
@@ -33,7 +49,7 @@ class ConfirmConversationsController < ApplicationController
       redirect_path = if give_feedback
         new_person_message_feedback_path(:person_id => @current_user.id, :message_id => @listing_conversation.id)
       else
-        person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id)
+        person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
       end
 
       redirect_to redirect_path
@@ -57,6 +73,6 @@ class ConfirmConversationsController < ApplicationController
   end
 
   def fetch_conversation
-    @listing_conversation = ListingConversation.find(params[:id])
+    @listing_conversation = @current_community.transactions.find(params[:id])
   end
 end

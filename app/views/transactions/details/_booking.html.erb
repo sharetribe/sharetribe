@@ -1,0 +1,13 @@
+<ul class="no-bullets">
+  <li>
+    <div>
+      <%= l booking.start_on, format: :long_with_abbr_day_name %>
+      -
+      <%= l booking.end_on, format: :long_with_abbr_day_name %>
+      (<%= pluralize(booking.duration, t("conversations.details.day"), t("conversations.details.days")) %>)
+    </div>
+  </li>
+  <li>
+    <div><%= t("conversations.details.price_per_day", price: humanized_money_with_symbol(price_per_day)) %></div>
+  </li>
+</ul>

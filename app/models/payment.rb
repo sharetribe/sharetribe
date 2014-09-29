@@ -6,7 +6,7 @@
 #  payer_id                 :string(255)
 #  recipient_id             :string(255)
 #  organization_id          :string(255)
-#  conversation_id          :integer
+#  transaction_id           :integer
 #  status                   :string(255)
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
@@ -19,7 +19,7 @@
 #
 # Indexes
 #
-#  index_payments_on_conversation_id  (conversation_id)
+#  index_payments_on_conversation_id  (transaction_id)
 #  index_payments_on_payer_id         (payer_id)
 #
 
@@ -29,9 +29,9 @@ class Payment < ActiveRecord::Base
 
   VALID_STATUSES = ["paid", "pending", "disbursed"]
 
-  attr_accessible :conversation_id, :payer_id, :recipient_id
+  attr_accessible :conversation_id, :payer_id, :recipient_id, :community_id, :payment_gateway_id, :status
 
-  belongs_to :conversation
+  belongs_to :transaction
   belongs_to :payer, :class_name => "Person"
   belongs_to :recipient, :class_name => "Person"
 

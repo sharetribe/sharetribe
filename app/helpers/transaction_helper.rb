@@ -1,4 +1,4 @@
-module ListingConversationHelper
+module TransactionHelper
 
   def icon_for(status)
     case status
@@ -22,7 +22,7 @@ module ListingConversationHelper
   end
 
   # Give `status`, `is_author` and `other_party` and get back icon and text for current status
-  def conversation_icon_and_status(status, is_author, other_party, waiting_feedback)
+  def conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback)
     icon_waiting_you = icon_tag("alert", ["icon-fix-rel", "waiting-you"])
     icon_waiting_other = icon_tag("clock", ["icon-fix-rel", "waiting-other"])
 
@@ -41,7 +41,7 @@ module ListingConversationHelper
         },
         starter: {
           icon: icon_waiting_other,
-          text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party.name)
+          text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
         }
       },
 
@@ -52,14 +52,14 @@ module ListingConversationHelper
         },
         starter: {
           icon: icon_waiting_other,
-          text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party.name)
+          text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
         }
       },
 
       accepted: {
         author: {
           icon: icon_waiting_other,
-          text: t("conversations.status.waiting_payment_from_requester", requester_name: other_party.name)
+          text: t("conversations.status.waiting_payment_from_requester", requester_name: other_party_name)
         },
         starter: {
           icon: icon_waiting_you,
@@ -77,7 +77,7 @@ module ListingConversationHelper
       paid: {
         author: {
           icon: icon_waiting_other,
-          text: t("conversations.status.waiting_confirmation_from_requester", requester_name: other_party.name)
+          text: t("conversations.status.waiting_confirmation_from_requester", requester_name: other_party_name)
         },
         starter: {
           icon: icon_waiting_you,
@@ -144,6 +144,7 @@ module ListingConversationHelper
   #   }
   # }
   def get_conversation_statuses(conversation)
+
     statuses = if conversation.listing && !conversation.status.eql?("free")
       case conversation.status
       when "pending"
@@ -231,7 +232,7 @@ module ListingConversationHelper
       status_info(
         t("conversations.status.waiting_for_listing_author_to_deliver_listing",
           :listing_title => link_to(conversation.listing.title, conversation.listing),
-          :listing_author_name => link_to(conversation.author.name, @conversation.author)
+          :listing_author_name => link_to(conversation.author.name, conversation.author)
         ).html_safe,
         icon_classes: "ss-deliveryvan"
       )
