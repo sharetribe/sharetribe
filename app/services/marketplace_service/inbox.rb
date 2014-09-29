@@ -168,7 +168,7 @@ module MarketplaceService
 
       @construct_notification_count_sql = ->(params) {
         "
-          SELECT COUNT(*) FROM conversations
+          SELECT COUNT(conversations.id) FROM conversations
 
           LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
           LEFT JOIN listings          ON transactions.listing_id = listings.id
@@ -188,6 +188,9 @@ module MarketplaceService
           WHERE conversations.community_id = #{params[:community_id]}
           AND (participations.person_id = #{params[:person_id]})
 
+          # This is a bit complicated logic that is now moved from app to SQL.
+          # I'm not complelety sure if it's a good or bad. However, since this query is called once per every page
+          # load, I think it's ok to make some performance optimizations and have this logic in SQL.
           AND (
             # Is read?
             (participations.is_read = FALSE) OR
@@ -284,7 +287,7 @@ module MarketplaceService
 
       @construct_count_sql = ->(params) {
         "
-          SELECT COUNT(*)
+          SELECT COUNT(conversations.id)
           FROM conversations
 
           LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = #{params[:person_id]})
