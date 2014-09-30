@@ -1,80 +1,111 @@
+def build_conversation(community, listing, starter, message)
+  conversation = FactoryGirl.build(:conversation,
+    community: community,
+    listing: listing )
+
+  conversation.participations.build({
+    person_id: starter.id,
+    is_starter: true,
+    is_read: true
+  })
+
+  conversation.participations.build({
+    person_id: listing.author.id,
+    is_starter: false,
+    is_read: false
+  })
+
+  conversation.messages.build({
+    content: message,
+    sender: starter
+  })
+
+  conversation
+end
+
+def create_transaction(community, listing, starter, message)
+  transaction = FactoryGirl.create(:transaction,
+    listing: listing,
+    community: community,
+    starter: starter,
+    conversation: build_conversation(community, listing, starter, message)
+  )
+end
+
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @conversation = ListingConversation.create!(:listing_id => @listing.id,
-                                      :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
-                                      :message_attributes => { :content => message, :sender_id => @people[sender].id },
-                                      :community => @current_community
-                                      )
+  @transaction = create_transaction(@current_community, @listing, @people[sender], message)
+  @conversation = @transaction.conversation
+  @transaction.transition_to! "free"
 end
 
 Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @conversation = ListingConversation.create!(:listing_id => @listing.id,
-                                      :title => message,
-                                      :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
-                                      :message_attributes => { :content => message, :sender_id => @people[sender].id },
-                                      :community => @current_community
-                                      )
-
-  @conversation.status = "pending"
+  @transaction = create_transaction(@current_community, @listing, @people[sender], message)
+  @conversation = @transaction.conversation
+  @transaction.transition_to! "pending"
 end
 
 Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|
-  @message = Message.create!(:conversation_id => @conversation.id,
-                            :sender_id => @people[sender].id,
-                            :content => content
-                           )
+  @conversation.messages.create(
+    sender: @people[sender],
+    content: content
+  )
 end
 
 When /^I try to go to inbox of "([^"]*)"$/ do |person|
-  visit received_person_messages_path(:locale => :en, :person_id => @people[person].id)
+  visit person_inbox_path(:locale => :en, :person_id => @people[person].id)
 end
 
 Then /^the status of the conversation should be "([^"]*)"$/ do |status|
-  @conversation.status.should == status
+  @transaction.status.should == status
 end
 
 Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do |listing_type, status|
-  if listing_type == "request" && @conversation.listing.payment_required_at?(@conversation.community)
+  if listing_type == "request" && @transaction.listing.payment_required_at?(@transaction.community)
     if status == "accepted" || status == "paid"
       # In this case there should be a pending payment done when this got accepted.
-      type = if @conversation.community.payment_gateway.type == "BraintreePaymentGateway"
+      type = if @transaction.community.payment_gateway.type == "BraintreePaymentGateway"
         :braintree_payment
       else
         :checkout_payment
       end
 
-      recipient = @conversation.listing.author
+      recipient = @transaction.listing.author
 
-      if @conversation.payment == nil
-        payment = FactoryGirl.build(type, :conversation => @conversation, :recipient => recipient, :status => "pending", :community => @current_community)
-        payment.default_sum(@conversation.listing, 24)
+      if @transaction.payment == nil
+        payment = FactoryGirl.build(type, :transaction => @transaction, :recipient => recipient, :status => "pending", :community => @current_community)
+        payment.default_sum(@transaction.listing, 24)
         payment.save!
 
-        @conversation.payment = payment
+        @transaction.payment = payment
       end
     end
   end
 
   # TODO Change status step by step
-  if @conversation.status == "pending" && status == "confirmed"
-    @conversation.update_attribute(:status, "accepted")
-    @conversation.payment.update_attribute(:status, "paid") if @conversation.payment
-    @conversation.update_attribute(:status, "paid") if @conversation.payment
-    @conversation.update_attribute(:status, "confirmed")
-  elsif @conversation.status == "pending" && status == "paid"
-    @conversation.update_attribute(:status, "accepted")
-    @conversation.payment.update_attribute(:status, "paid") if @conversation.payment
-    @conversation.update_attribute(:status, "paid") if @conversation.payment
-  elsif @conversation.status == "not_started" && status == "accepted"
-    @conversation.update_attribute(:status, "pending")
-    @conversation.update_attribute(:status, "accepted")
+  if @transaction.status == "pending" && status == "confirmed"
+    @transaction.transition_to!(:accepted)
+    @transaction.payment.update_attribute(:status, "paid") if @transaction.payment
+    @transaction.transition_to!(:paid) if @transaction.payment
+    @transaction.transition_to!(:confirmed)
+  elsif @transaction.status == "pending" && status == "paid"
+    @transaction.transition_to!(:accepted)
+    @transaction.payment.update_attribute(:status, "paid") if @transaction.payment
+    @transaction.transition_to!(:paid) if @transaction.payment
+  elsif @transaction.status == "not_started" && status == "accepted"
+    @transaction.transition_to!(:pending)
+    @transaction.transition_to!(:accepted)
   else
-    @conversation.update_attribute(:status, status)
+    @transaction.transition_to!(status.to_sym)
   end
 end
 
 When /^there is feedback about that event from "([^"]*)" with grade "([^"]*)" and with text "([^"]*)"$/ do |feedback_giver, grade, text|
-  participation = @conversation.participations.find_by_person_id(@people[feedback_giver].id)
-  Testimonial.create!(:grade => grade, :author_id => @people[feedback_giver].id, :text => text, :participation_id => participation.id, :receiver_id => @conversation.other_party(@people[feedback_giver]).id)
+  Testimonial.create!(
+    grade: grade,
+    author_id: @people[feedback_giver].id,
+    text: text,
+    receiver_id: @transaction.other_party(@people[feedback_giver]).id,
+    transaction_id: @transaction.id)
 end
 
 Then /^I should see information about missing payment details$/ do
@@ -88,9 +119,9 @@ When(/^I skip feedback$/) do
   }
 end
 
-Given /^I'm on the conversation page of that conversation$/ do
+Given /^I'm on the transaction page of that transaction$/ do
   steps %Q{
-    Given I am on the conversation page of "#{@conversation.id}"
+    Given I am on the transaction page of "#{@transaction.id}"
   }
 end
 
@@ -103,7 +134,7 @@ Then(/^I should see that the conversation is waiting for confirmation$/) do
 end
 
 Then(/^the requester of that conversation should receive an email with subject "([^"]*)"$/) do |subject|
-  recipient = @conversation.requester
+  recipient = @transaction.requester
   email = recipient.confirmed_notification_email_addresses.first
 
   steps %Q{
@@ -112,7 +143,7 @@ Then(/^the requester of that conversation should receive an email with subject "
 end
 
 Then(/^the offerer of that conversation should receive an email with subject "([^"]*)"$/) do |subject|
-  recipient = @conversation.offerer
+  recipient = @transaction.offerer
   email = recipient.confirmed_notification_email_addresses.first
 
   steps %Q{
@@ -167,13 +198,13 @@ Then(/^I should see that the request is waiting for seller acceptance$/) do
   page.should have_content(/Waiting for (.*) to accept the request/)
 end
 
-def visit_conversation_of_listing(listing)
-  conversation = Conversation.find_by_listing_id(listing.id)
-  visit(single_conversation_path(:person_id => @current_user.id, :conversation_type => "received", :id => conversation.id, :locale => "en"))
+def visit_transaction_of_listing(listing)
+  transaction = Transaction.find_by_listing_id(listing.id)
+  visit(person_transaction_path(:person_id => @current_user.id, :id => transaction.id, :locale => "en"))
 end
 
 When(/^I accepts the request for that listing$/) do
-  visit_conversation_of_listing(@listing)
+  visit_transaction_of_listing(@listing)
   click_link "Accept request"
   click_button "Approve"
 end
@@ -210,7 +241,7 @@ Then(/^I should see that the request is waiting for buyer to pay$/) do
 end
 
 When(/^I pay my request for that listing$/) do
-  visit_conversation_of_listing(@listing)
+  visit_transaction_of_listing(@listing)
   click_link "Pay"
 end
 
@@ -221,7 +252,7 @@ When(/^I buy approved request "(.*)"$/) do |accepted_request|
 end
 
 When(/^I confirm the request for that listing$/) do
-  visit_conversation_of_listing(@listing)
+  visit_transaction_of_listing(@listing)
   click_link "Mark completed"
   choose("Skip feedback")
   click_button "Continue"
@@ -249,11 +280,11 @@ end
 Then /^I should send a message to "(.*?)"$/ do |seller_name|
   find("#new_listing_conversation").visible?.should be_true
   seller = Person.find_by_username(seller_name)
-  expect(find("label[for=listing_conversation_message_attributes_content]")).to have_content("Message to #{seller.given_name}")
+  expect(find("label[for=listing_conversation_content]")).to have_content("Message to #{seller.given_name}")
 end
 
 When /^I send initial message to "(.*?)"$/ do |seller|
-  fill_in "listing_conversation[message_attributes][content]", :with => "I want to buy this item"
+  fill_in "listing_conversation[content]", :with => "I want to buy this item"
   click_button("Buy")
 end
 
@@ -278,4 +309,3 @@ end
 Then /^I should see that the request is completed$/ do
   expect(page.find(".conversation-status")).to have_content("Completed")
 end
-

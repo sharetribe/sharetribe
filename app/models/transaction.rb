@@ -1,30 +1,39 @@
 # == Schema Information
 #
-# Table name: conversations
+# Table name: transactions
 #
 #  id                                :integer          not null, primary key
-#  type                              :string(255)      default("Conversation")
-#  title                             :string(255)
-#  listing_id                        :integer
-#  created_at                        :datetime
-#  updated_at                        :datetime
-#  last_message_at                   :datetime
+#  starter_id                        :string(255)      not null
+#  listing_id                        :integer          not null
+#  conversation_id                   :integer
 #  automatic_confirmation_after_days :integer
-#  community_id                      :integer
-#
-# Indexes
-#
-#  index_conversations_on_listing_id  (listing_id)
+#  community_id                      :integer          not null
+#  created_at                        :datetime         not null
+#  updated_at                        :datetime         not null
+#  starter_skipped_feedback          :boolean          default(FALSE)
+#  author_skipped_feedback           :boolean          default(FALSE)
 #
 
-class ListingConversation < Conversation
+class Transaction < ActiveRecord::Base
+  attr_accessible(
+    :community_id,
+    :starter_id,
+    :listing_id,
+    :automatic_confirmation_after_days,
+    :author_skipped_feedback,
+    :starter_skipped_feedback,
+    :payment_attributes
+  )
   attr_accessor :contract_agreed
 
+  belongs_to :community
   belongs_to :listing
-  has_many :transaction_transitions, dependent: :destroy, foreign_key: :conversation_id
-  has_one :payment, foreign_key: :conversation_id
+  has_many :transaction_transitions, dependent: :destroy, foreign_key: :transaction_id
+  has_one :payment, foreign_key: :transaction_id
   has_one :booking, :dependent => :destroy
-
+  belongs_to :starter, :class_name => "Person", :foreign_key => "starter_id"
+  belongs_to :conversation
+  has_many :testimonials
 
   # Delegate methods to state machine
   delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,
@@ -35,8 +44,13 @@ class ListingConversation < Conversation
 
   accepts_nested_attributes_for :booking
 
+  scope :for_person, -> (person){
+    joins(:listing)
+    .where("listings.author_id = ? OR starter_id = ?", person.id, person.id)
+  }
+
   def state_machine
-    @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
+        @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
   end
 
   def status=(new_status)
@@ -61,10 +75,11 @@ class ListingConversation < Conversation
     payment.save!
   end
 
+  # TODO Remove this
   def initialize_payment
     payment ||= community.payment_gateway.new_payment
     payment.payment_gateway ||= community.payment_gateway
-    payment.conversation = self
+    payment.transaction = self
     payment.status = "pending"
     payment.payer = starter
     payment.recipient = author
@@ -81,43 +96,45 @@ class ListingConversation < Conversation
     rows.each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
   end
 
-  def should_notify?(user)
-    super(user) || (status == "pending" && author == user)
-  end
-
   # If listing is an offer, return request, otherwise return offer
   def discussion_type
     listing.transaction_type.is_request? ? "offer" : "request"
   end
 
-  def can_be_cancelled?
-    participations.each { |p| return false unless p.feedback_can_be_given? }
-    return true
-  end
-
   def has_feedback_from?(person)
-    participations.find_by_person_id(person.id).has_feedback?
+    if author == person
+      testimonial_from_author.present?
+    else
+      testimonial_from_starter.present?
+    end
   end
 
   def feedback_skipped_by?(person)
-    participations.find_by_person_id(person.id).feedback_skipped?
+    if author == person
+      author_skipped_feedback?
+    else
+      starter_skipped_feedback?
+    end
   end
 
-  def waiting_feedback_from?(person)
-    !(has_feedback_from?(person) || feedback_skipped_by?(person))
+  def testimonial_from_author
+    testimonials.find { |testimonial| testimonial.author_id == author.id }
   end
 
-  def has_feedback_from_all_participants?
-    participations.each { |p| return false if p.feedback_can_be_given? }
-    return true
+  def testimonial_from_starter
+    testimonials.find { |testimonial| testimonial.author_id == starter.id }
   end
 
   def offerer
-    participants.find { |p| listing.offerer?(p) }
+    participations.find { |p| listing.offerer?(p) }
   end
 
   def requester
-    participants.find { |p| listing.requester?(p) }
+    participations.find { |p| listing.requester?(p) }
+  end
+
+  def participations
+    [author, starter]
   end
 
   def payer
@@ -154,12 +171,8 @@ class ListingConversation < Conversation
     block.call(:listing_conversation)
   end
 
-  def calculate_total
-    if booking
-      listing.price * booking.duration
-    else
-      listing.price
-    end
+  def latest_activity
+    (transaction_transitions + conversation.messages).max
   end
 
   def preauthorization_expire_at
@@ -170,5 +183,12 @@ class ListingConversation < Conversation
     else
       preauthorization_expires
     end
+  end
+
+  # Give person (starter or listing author) and get back the other
+  #
+  # Note: I'm not sure whether we want to have this method or not but at least it makes refactoring easier.
+  def other_party(person)
+    person == starter ? listing.author : starter
   end
 end
