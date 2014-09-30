@@ -14,8 +14,8 @@ class AutomaticallyRejectPreauthorizedTransactionJob < Struct.new(:conversation_
   def perform
     transaction = Transaction.find(conversation_id)
 
-    if transaction.can_transition_to?(:rejected)
-      transaction.transition_to! :rejected
+    if MarketplaceService::Transaction::Query.can_transition_to?(transaction.id, :rejected)
+      MarketplaceService::Transaction::Command.transition_to(transaction.id, :rejected)
     end
   end
 

@@ -156,7 +156,7 @@ class ListingConversationsController < ApplicationController
 
       if result.success?
         transaction.save!
-        transaction.transition_to! "preauthorized"
+        MarketplaceService::Transaction::Command.transition_to(transaction.id, "preauthorized")
         redirect_to person_transaction_path(:id => transaction.id)
       else
         flash[:error] = result.message
@@ -238,7 +238,7 @@ class ListingConversationsController < ApplicationController
 
       if result.success?
         transaction.save!
-        transaction.transition_to! "preauthorized"
+        MarketplaceService::Transaction::Command.transition_to(transaction.id, "preauthorized")
         redirect_to person_transaction_path(:id => transaction.id)
       else
         flash[:error] = result.message
@@ -286,7 +286,7 @@ class ListingConversationsController < ApplicationController
 
       transaction.save!
 
-      transaction.status = @listing.status_after_reply
+      MarketplaceService::Transaction::Command.transition_to(transaction.id, @listing.status_after_reply)
 
       flash[:notice] = t("layouts.notifications.message_sent")
       Delayed::Job.enqueue(TransactionCreatedJob.new(transaction.id, @current_community.id))
@@ -331,7 +331,8 @@ class ListingConversationsController < ApplicationController
       })
 
       transaction.save!
-      transaction.status = "free"
+
+      MarketplaceService::Transaction::Command.transition_to(transaction.id, "free")
 
       flash[:notice] = t("layouts.notifications.message_sent")
       Delayed::Job.enqueue(MessageSentJob.new(transaction.conversation.messages.last.id, @current_community.id))

@@ -42,10 +42,6 @@ class Transaction < ActiveRecord::Base
   belongs_to :conversation
   has_many :testimonials
 
-  # Delegate methods to state machine
-  delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,
-           to: :state_machine
-
   delegate :author, to: :listing
   delegate :title, to: :listing, prefix: true
 
@@ -60,12 +56,28 @@ class Transaction < ActiveRecord::Base
         @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
   end
 
+  # TODO Remove this! Raise the expection to identify all the placed where this method is called.
   def status=(new_status)
-    transition_to! new_status.to_sym
+    raise("Status is not in use. Please use MarketplaceService::Transaction to change status")
+  end
+
+  # TODO Remove this! Raise the expection to identify all the placed where this method is called.
+  def status=(new_status)
+    raise("status= is not in use. Please use MarketplaceService::Transaction to change status")
+  end
+
+  # TODO Remove this! Raise the expection to identify all the placed where this method is called.
+  def transition_to!(*)
+    raise("transition_to! is not in use. Please use MarketplaceService::Transaction to change status")
+  end
+
+  # TODO Remove this! Raise the expection to identify all the placed where this method is called.
+  def transition_to(*)
+    raise("transition_to is not in use. Please use MarketplaceService::Transaction to change status")
   end
 
   def status
-    current_state
+    state_machine.current_state
   end
 
   def payment_attributes=(attributes)
@@ -166,12 +178,16 @@ class Transaction < ActiveRecord::Base
 
   # Return true if the transaction is in a state that it can be confirmed
   def can_be_confirmed?
-    can_transition_to?(:confirmed)
+    # TODO This is a lazy fix. Remove this method, and make the caller to use the service directly
+    # Models should not know anything about services
+    MarketplaceService::Transaction::Query.can_transition_to?(self.id, :confirmed)
   end
 
   # Return true if the transaction is in a state that it can be canceled
   def can_be_canceled?
-    can_transition_to?(:canceled)
+    # TODO This is a lazy fix. Remove this method, and make the caller to use the service directly
+    # Models should not know anything about services
+    MarketplaceService::Transaction::Query.can_transition_to?(self.id, :canceled)
   end
 
   def with_type(&block)

@@ -39,7 +39,7 @@ class AcceptConversationsController < ApplicationController
         @listing_conversation.conversation.messages.create({content: message.content, sender_id: message.sender_id})
       end
 
-      @listing_conversation.transition_to!(params[:listing_conversation][:status])
+      MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, params[:listing_conversation][:status])
       MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
 
       flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_#{@listing_conversation.status}")

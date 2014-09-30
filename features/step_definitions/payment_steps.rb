@@ -43,8 +43,7 @@ end
 
 Given(/^"(.*?)" has paid for that listing$/) do |username|
   transaction = Transaction.find_by_listing_id(@listing)
-  transaction.status = "paid"
-  transaction.save!
+  MarketplaceService::Transaction::Command.transition_to(transaction.id, "paid")
 end
 
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|

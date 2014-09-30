@@ -35,13 +35,13 @@ end
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
   @transaction = create_transaction(@current_community, @listing, @people[sender], message)
   @conversation = @transaction.conversation
-  @transaction.transition_to! "free"
+  MarketplaceService::Transaction::Command.transition_to(@transaction.id, "free")
 end
 
 Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
   @transaction = create_transaction(@current_community, @listing, @people[sender], message)
   @conversation = @transaction.conversation
-  @transaction.transition_to! "pending"
+  MarketplaceService::Transaction::Command.transition_to(@transaction.id, "pending")
 end
 
 Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|
@@ -83,19 +83,19 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
 
   # TODO Change status step by step
   if @transaction.status == "pending" && status == "confirmed"
-    @transaction.transition_to!(:accepted)
+    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :accepted)
     @transaction.payment.update_attribute(:status, "paid") if @transaction.payment
-    @transaction.transition_to!(:paid) if @transaction.payment
-    @transaction.transition_to!(:confirmed)
+    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :paid) if @transaction.payment
+    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :confirmed)
   elsif @transaction.status == "pending" && status == "paid"
-    @transaction.transition_to!(:accepted)
+    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :accepted)
     @transaction.payment.update_attribute(:status, "paid") if @transaction.payment
-    @transaction.transition_to!(:paid) if @transaction.payment
+    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :paid) if @transaction.payment
   elsif @transaction.status == "not_started" && status == "accepted"
-    @transaction.transition_to!(:pending)
-    @transaction.transition_to!(:accepted)
+    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :pending)
+    MarketplaceService::Transaction::Command.transition_to(@transaction.id, :accepted)
   else
-    @transaction.transition_to!(status.to_sym)
+    MarketplaceService::Transaction::Command.transition_to(@transaction.id, status.to_sym)
   end
 end
 
