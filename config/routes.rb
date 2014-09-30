@@ -28,6 +28,7 @@ Kassi::Application.routes.draw do
   get '/webhooks/admin_paypal_permissions' => 'paypal_webhooks#admin_permissions_hook', as: :admin_paypal_permissions_hook
   get '/webhooks/paypal_billing_agreement_success' => 'paypal_webhooks#billing_agreement_success_hook', as: :paypal_billing_agreement_success_hook
   get '/webhooks/paypal_billing_agreement_cancel' => 'paypal_webhooks#billing_agreement_cancel_hook', as: :paypal_billing_agreement_cancel_hook
+  post '/webhooks/paypal_ipn' => 'paypal_ipn#ipn_hook', as: :paypal_ipn_hook
 
   post '/bounces' => 'amazon_bounces#notification'
 
