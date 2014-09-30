@@ -24,4 +24,12 @@ describe SQLUtils do
 
     expect(SQLUtils.quote(sql, name: "mikko") { |v| "'#{v.upcase}'"}).to eql("SELECT * FROM people WHERE name = 'MIKKO'")
   end
+
+  it "#quote elements in array" do
+    sql = ->(params) {
+      "SELECT * FROM people WHERE id in (#{params[:ids].join(',')})"
+    }
+
+    expect(SQLUtils.quote(sql, ids: [1, 2, 6]) { |v| v += 1 }).to eql("SELECT * FROM people WHERE id in (2,3,7)")
+  end
 end

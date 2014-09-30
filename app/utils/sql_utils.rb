@@ -11,7 +11,13 @@ module SQLUtils
   # quote(sql, name: "Mikko") { |p| "'" + p.upcase + "'" } #=> "SELECT * FROM people WHERE name = 'MIKKO'"
   #
   def quote(sql_lambda, params, &block)
-    sql_lambda.call(HashUtils.map_values(params, &block))
+    sql_lambda.call(HashUtils.map_values(params) { |p|
+        if(p.is_a? Array)
+          p.map { |v| block.call(v) }
+        else
+          block.call(p)
+        end
+      })
   end
 
   # Give ActiveRecord connection, lambda (that constructs the SQL) and params hash and get back quoted SQL.
