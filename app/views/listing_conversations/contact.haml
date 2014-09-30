@@ -10,12 +10,11 @@
       = @listing.transaction_type.action_button_label(I18n.locale)
       = link_to(@listing.title, @listing)
 
-  = form_for @listing_conversation, :url => create_contact_person_listing_listing_conversations_path(:person_id => @current_user.id, :listing_id => @listing.id) do |form|
+  = form_for contact_form, :url => create_contact_person_listing_listing_conversations_path(:person_id => @current_user.id, :listing_id => @listing.id) do |form|
 
-    = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
-      = message_form.label :content, t("conversations.new.message")
-      = message_form.text_area :content, :class => "text_area"
-      = message_form.hidden_field :sender_id, :value => @current_user.id
+    = form.label :content, t("conversations.new.message")
+    = form.text_area :content, :class => "text_area"
+    = form.hidden_field :sender_id, :value => @current_user.id
 
     = form.hidden_field :listing_id, :value => @listing.id
     = form.hidden_field :community_id, :value => @current_community.id

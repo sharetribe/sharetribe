@@ -55,6 +55,7 @@ Kassi::Application.routes.draw do
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
     match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
     match "/listings/:listing_id/preauthorize" => "listing_conversations#preauthorize", :as => :preauthorize_payment
+    match "/listings/:listing_id/book" => "listing_conversations#book", :as => :book
     match "/listings/:listing_id/reply" => "listing_conversations#new", :as => :reply_to_listing
     match "/listings/:listing_id/contact" => "listing_conversations#contact", :as => :contact_to_listing
     match "/listings/new/:type/:category" => "listings#new", :as => :new_request_category
@@ -255,13 +256,19 @@ Kassi::Application.routes.draw do
             collection do
               post :create_contact
               post :preauthorized
+              post :booked
             end
           end
         end
         resources :person_messages
+
+        resource :inbox, :only => [:show]
+
         resources :messages, :controller => :conversations do
           collection do
-            get :received
+            # This is only a redirect from old route, changed 2014-09-11
+            # You can clean up this later
+            get :received, to: 'inboxes#show'
           end
           member do
             get :accept, to: 'accept_conversations#accept'
@@ -289,6 +296,7 @@ Kassi::Application.routes.draw do
           resources :braintree_payments
         end
         resource :paypal_account, only: [:new, :show, :create]
+        resources :transactions, :only => [:show]
         resource :checkout_account, only: [:new, :show, :create]
         resource :settings do
           member do

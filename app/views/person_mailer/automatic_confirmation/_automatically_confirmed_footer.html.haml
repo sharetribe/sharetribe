@@ -1,14 +1,14 @@
-- conversation_url = person_message_url(recipient, url_params.merge({:id => conversation.id.to_s}))
-- url = new_person_message_feedback_url(recipient, url_params.merge({:message_id => conversation.id.to_s}))
+- transaction_url = person_transaction_url(recipient, url_params.merge({:id => transaction.id.to_s}))
+- url = new_person_message_feedback_url(recipient, url_params.merge({:message_id => transaction.id.to_s}))
 
 %tr
   %td{:align => "left", :style => "padding-top: 15px;"}
     %font{body_font}
-      = t("emails.automatically_confirmed_footer.giving_feedback_is_good_idea", :other_party_given_name => conversation.other_party(recipient).given_name_or_username)
+      = t("emails.automatically_confirmed_footer.giving_feedback_is_good_idea", :other_party_given_name => transaction.other_party(recipient).given_name_or_username)
 
-= render :partial => "action_button", :locals => { :text => t("emails.automatically_confirmed_footer.give_feedback_to", :other_party_given_name => conversation.other_party(recipient).given_name_or_username), :url => url}
+= render :partial => "action_button", :locals => { :text => t("emails.automatically_confirmed_footer.give_feedback_to", :other_party_given_name => transaction.other_party(recipient).given_name_or_username), :url => url}
 
 %tr
   %td{:align => "left", :style => "padding-bottom: 25px;"}
     %font{body_font}
-      = link_to t("emails.accept_reminder.show_thread"), conversation_url
+      = link_to t("emails.accept_reminder.show_thread"), transaction_url

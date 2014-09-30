@@ -14,6 +14,7 @@ $message-time-margin: lines(0.25);
 
 .message-sum, .message-price {
   @include big-type;
+  padding-top: lines(0.5);
 }
 
 .message-reply-form {
@@ -106,6 +107,14 @@ $message-time-margin: lines(0.25);
   text-align: right;
 }
 
+.message-type-message {
+  // No-op
+}
+
+.message-type-transition {
+  font-weight: bold;
+}
+
 .message-bubble-arrow-to-left {
   @extend .message-bubble;
 
@@ -115,7 +124,7 @@ $message-time-margin: lines(0.25);
     margin-top: lines(-0.25);
   }
 
-  &.message-action-positive {
+  &.message-mood-positive {
     color: $green;
     background: lighten($green, 40%);
 
@@ -124,7 +133,7 @@ $message-time-margin: lines(0.25);
     }
   }
 
-  &.message-action-negative {
+  &.message-mood-negative {
     color: $red;
     background: lighten($red, 40%);
 
@@ -143,7 +152,7 @@ $message-time-margin: lines(0.25);
     margin-top: lines(-0.25);
   }
 
-  &.message-action-positive {
+  &.message-mood-positive {
     color: $green;
     background: lighten($green, 40%);
 
@@ -152,7 +161,7 @@ $message-time-margin: lines(0.25);
     }
   }
 
-  &.message-action-negative {
+  &.message-mood-negative {
     color: $red;
     background: lighten($red, 40%);
 
@@ -162,12 +171,12 @@ $message-time-margin: lines(0.25);
   }
 }
 
-.message-action-positive {
+.message-mood-positive {
   color: $green;
   background: lighten($green, 40%);
 }
 
-.message-action-negative {
+.message-mood-negative {
   color: $red;
   background: lighten($red, 40%);
 }

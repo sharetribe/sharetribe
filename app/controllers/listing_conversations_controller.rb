@@ -12,37 +12,94 @@ class ListingConversationsController < ApplicationController
 
   skip_filter :dashboard_only
 
+  BookingForm = FormUtils.define_form("BookingForm", :start_on, :end_on)
+    .with_validations do
+      validates :start_on, :end_on, presence: true
+      validates_date :start_on, on_or_after: :today
+      validates_date :end_on, on_or_after: :start_on
+    end
+
+  ContactForm = FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
+    .with_validations { validates_presence_of :content, :listing_id }
+
+  BraintreeForm = Form::Braintree
+
+  PreauthorizeMessageForm = FormUtils.define_form("ListingConversation",
+    :content,
+    :sender_id,
+    :contract_agreed,
+    :listing_id
+  ).with_validations { validates_presence_of :listing_id }
+
+  PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
+
   def new
     use_contact_view = @listing.status_after_reply == "free"
-    @listing_conversation = new_conversation
+    @listing_conversation = new_contact_form
 
     if use_contact_view
-      render :contact, locals: {contact: false}
+      render :contact, locals: {
+        contact: false,
+        contact_form: @listing_conversation
+      }
     else
-      render :new_with_payment
+      render :new_with_payment, locals: {
+        contact_form: @listing_conversation,
+        listing: @listing
+      }
     end
   end
 
-  def preauthorize
-    booking = if @listing.transaction_type.price_per.present?
-      Booking.new({
-        start_on: params[:start_on],
-        end_on: params[:end_on]
+  def book
+    @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
+
+    booking_form = if @listing.transaction_type.price_per.present?
+      BookingForm.new({
+        start_on: parse_booking_date(params[:start_on]),
+        end_on: parse_booking_date(params[:end_on])
       })
     end
 
-    if booking.present? && !booking.valid?
-      flash[:error] = booking.errors.full_messages
+    if booking_form.present? && !booking_form.valid?
+      flash[:error] = booking_form.errors.full_messages
       redirect_to @listing and return
     end
 
+    preauthorize_form = PreauthorizeBookingForm.new({
+      start_on: booking_form.start_on,
+      end_on: booking_form.end_on
+    })
+
+    booking_duration = duration(booking_form.start_on, booking_form.end_on)
+
+    sum = @listing.price * booking_duration
+
+    render :preauthorize, locals: {
+      preauthorize_form: preauthorize_form,
+      braintree_form: BraintreeForm.new,
+      listing: @listing,
+      sum: sum,
+      duration: booking_duration,
+      author: @listing.author,
+      form_action: booked_person_listing_listing_conversations_path(person_id: @current_user.id, listing_id: @listing.id)
+    }
+  end
+
+  def preauthorize
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
-    @listing_conversation = new_conversation()
-    @listing_conversation.booking = booking
-    @payment = @listing_conversation.initialize_payment
+    preauthorize_form = PreauthorizeMessageForm.new
 
-    @payment.sum = @listing_conversation.calculate_total
+    sum = @listing.price
+
+    render locals: {
+      preauthorize_form: preauthorize_form,
+      braintree_form: BraintreeForm.new,
+      listing: @listing,
+      sum: sum,
+      author: @listing.author,
+      form_action: preauthorized_person_listing_listing_conversations_path(person_id: @current_user.id, listing_id: @listing.id)
+    }
   end
 
   def preauthorized
@@ -53,41 +110,191 @@ class ListingConversationsController < ApplicationController
       return redirect_to action: :preauthorize
     end
 
-    @listing_conversation = new_conversation(conversation_params)
-    @payment = @listing_conversation.initialize_payment
+    preauthorize_form = PreauthorizeMessageForm.new(conversation_params.merge({
+      listing_id: @listing.id
+    }))
 
-    @payment.sum = @listing_conversation.calculate_total
+    if preauthorize_form.valid?
+      transaction = Transaction.new({
+        community_id: @current_community.id,
+        listing_id: @listing.id,
+        starter_id: @current_user.id,
+      });
 
-    pay(@current_user, @listing_conversation, @payment)
+      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
+
+      if preauthorize_form.content.present?
+        conversation.messages.build({
+          content: preauthorize_form.content,
+          sender_id: @current_user.id
+        })
+      end
+
+      conversation.participations.build({
+        person_id: @listing.author.id,
+        is_starter: false
+      })
+
+      conversation.participations.build({
+        person_id: @current_user.id,
+        is_starter: true,
+        is_read: true
+      })
+
+      transaction.payment = BraintreePayment.new({
+        community_id: @current_community.id,
+        payment_gateway_id: @current_community.payment_gateway.id,
+        status: "pending",
+        payer_id: @current_user.id,
+        recipient_id: @listing.author.id,
+        currency: "USD",
+        sum: @listing.price
+      })
+
+      braintree_form = BraintreeForm.new(params[:braintree_payment])
+      result = BraintreeSaleService.new(transaction.payment, braintree_form.to_hash).pay(false)
+
+      if result.success?
+        transaction.save!
+        transaction.transition_to! "preauthorized"
+        redirect_to person_transaction_path(:id => transaction.id)
+      else
+        flash[:error] = result.message
+        redirect_to action: :preauthorize
+      end
+    else
+      flash[:error] = preauthorize_form.errors.full_messages.join(", ")
+      return redirect_to action: :preauthorize
+    end
   end
 
-  def pay(payer, listing_conversation, payment)
-    result = BraintreeSaleService.new(payment, params[:braintree_payment]).pay(false)
-    recipient = payment.recipient
+  def booked
+    conversation_params = params[:listing_conversation]
 
-    if result.success?
-      @listing_conversation.save!
-      listing_conversation.status = "preauthorized"
-      redirect_to person_message_path(:id => listing_conversation.id)
+    if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
+      flash[:error] = "Agreement checkbox has to be selected"
+      return redirect_to action: :preauthorize
+    end
+
+    start_on = DateUtils.from_date_select(conversation_params, :start_on)
+    end_on = DateUtils.from_date_select(conversation_params, :end_on)
+
+    preauthorize_form = PreauthorizeBookingForm.new({
+      braintree_cardholder_name: conversation_params[:braintree_cardholder_name],
+      braintree_credit_card_number: conversation_params[:braintree_credit_card_number],
+      braintree_cvv: conversation_params[:braintree_cvv],
+      braintree_credit_card_expiration_month: conversation_params[:braintree_credit_card_expiration_month],
+      braintree_credit_card_expiration_year: conversation_params[:braintree_credit_card_expiration_year],
+      start_on: start_on,
+      end_on: end_on,
+      listing_id: @listing.id
+    })
+
+    if preauthorize_form.valid?
+      transaction = Transaction.new({
+        community_id: @current_community.id,
+        listing_id: @listing.id,
+        starter_id: @current_user.id,
+      });
+
+      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
+
+      if preauthorize_form.content.present?
+        conversation.messages.build({
+          content: preauthorize_form.content,
+          sender_id: @current_user.id
+        })
+      end
+
+      conversation.participations.build({
+        person_id: @listing.author.id,
+        is_starter: false
+      })
+
+      conversation.participations.build({
+        person_id: @current_user.id,
+        is_starter: true,
+        is_read: true
+      })
+
+      transaction.payment = BraintreePayment.new({
+        community_id: @current_community.id,
+        payment_gateway_id: @current_community.payment_gateway.id,
+        status: "pending",
+        payer_id: @current_user.id,
+        recipient_id: @listing.author.id,
+        currency: "USD",
+        sum: @listing.price * duration(preauthorize_form.start_on, preauthorize_form.end_on)
+      })
+
+      booking = transaction.build_booking({
+        start_on: preauthorize_form.start_on,
+        end_on: preauthorize_form.end_on
+      })
+
+      #TODO validations for form
+      braintree_form = BraintreeForm.new(params[:braintree_payment])
+      result = BraintreeSaleService.new(transaction.payment, braintree_form.to_hash).pay(false)
+
+      if result.success?
+        transaction.save!
+        transaction.transition_to! "preauthorized"
+        redirect_to person_transaction_path(:id => transaction.id)
+      else
+        flash[:error] = result.message
+        redirect_to action: :preauthorize
+      end
+
     else
-      flash[:error] = result.message
-      redirect_to action: :preauthorize
+      flash[:error] = preauthorize_form.errors.full_messages.join(", ")
+      return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
     end
   end
 
   def contact
-    @listing_conversation = new_conversation
-    render :contact, locals: {contact: true}
+    @listing_conversation = new_contact_form
+    render :contact, locals: {contact: true, contact_form: @listing_conversation}
   end
 
   def create
-    conversation = save_conversation(params[:listing_conversation])
+    contact_form = new_contact_form(params[:listing_conversation])
 
-    if conversation
-      conversation.status = @listing.status_after_reply
+    if contact_form.valid?
+      transaction = Transaction.new({
+        community_id: @current_community.id,
+        listing_id: @listing.id,
+        starter_id: @current_user.id,
+      });
+
+      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
+
+      conversation.messages.build({
+        content: contact_form.content,
+        sender_id: contact_form.sender_id
+      })
+
+      conversation.participations.build({
+        person_id: @listing.author.id,
+        is_starter: false
+      })
+
+      conversation.participations.build({
+        person_id: @current_user.id,
+        is_starter: true,
+        is_read: true
+      })
+
+      transaction.save!
+
+      transaction.status = @listing.status_after_reply
 
       flash[:notice] = t("layouts.notifications.message_sent")
-      Delayed::Job.enqueue(MessageSentJob.new(@listing_conversation.messages.last.id, @current_community.id))
+      Delayed::Job.enqueue(TransactionCreatedJob.new(transaction.id, @current_community.id))
+
+      [3, 10].each do |send_interval|
+        Delayed::Job.enqueue(AcceptReminderJob.new(transaction.id, transaction.listing.author.id, @current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
+      end
+
       redirect_to session[:return_to_content] || root
     else
       flash[:error] = "Sending the message failed. Please try again."
@@ -96,13 +303,38 @@ class ListingConversationsController < ApplicationController
   end
 
   def create_contact
-    conversation = save_conversation(params[:listing_conversation])
+    contact_form = new_contact_form(params[:listing_conversation])
 
-    if conversation
-      conversation.status = "free"
+    if contact_form.valid?
+      transaction = Transaction.new({
+        community_id: @current_community.id,
+        listing_id: @listing.id,
+        starter_id: @current_user.id,
+      });
+
+      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
+
+      conversation.messages.build({
+        content: contact_form.content,
+        sender_id: contact_form.sender_id
+      })
+
+      conversation.participations.build({
+        person_id: @listing.author.id,
+        is_starter: false
+      })
+
+      conversation.participations.build({
+        person_id: @current_user.id,
+        is_starter: true,
+        is_read: true
+      })
+
+      transaction.save!
+      transaction.status = "free"
 
       flash[:notice] = t("layouts.notifications.message_sent")
-      Delayed::Job.enqueue(MessageSentJob.new(@listing_conversation.messages.last.id, @current_community.id))
+      Delayed::Job.enqueue(MessageSentJob.new(transaction.conversation.messages.last.id, @current_community.id))
       redirect_to session[:return_to_content] || root
     else
       flash[:error] = "Sending the message failed. Please try again."
@@ -148,10 +380,11 @@ class ListingConversationsController < ApplicationController
   end
 
   def new_conversation(conversation_params = {})
-    conversation = ListingConversation.new(conversation_params.merge(community: @current_community, listing: @listing))
-    conversation.build_starter_participation(@current_user)
-    conversation.build_participation(@listing.author)
-    conversation
+    Transaction.new(conversation_params.merge(community: @current_community, listing: @listing, starter: @current_user))
+  end
+
+  def new_contact_form(conversation_params = {})
+    ContactForm.new(conversation_params.merge({sender_id: @current_user.id, listing_id: @listing.id, community_id: @current_community.id}))
   end
 
   def ensure_can_receive_payment
@@ -161,5 +394,17 @@ class ListingConversationsController < ApplicationController
         redirect_to (session[:return_to_content] || root)
       end
     end
+  end
+
+  def duration(start_on, end_on)
+    (end_on - start_on).to_i + 1
+  end
+
+  def parse_booking_date(str)
+    Date.parse(str)
+  end
+
+  def stringify_booking_date(date)
+    date.iso8601
   end
 end

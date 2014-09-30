@@ -1,0 +1,21 @@
+<% if sum %>
+  <p class="message-sum">
+    <%= t("conversations.show.sum", sum: humanized_money_with_symbol(sum)) %>
+  </p>
+<% elsif price %>
+  <p class="message-price">
+    <%= t("conversations.show.price", price: humanized_money_with_symbol(price)) %>
+
+
+    <% if quantity %>
+      / <%= quantity %>
+    <% end %>
+
+    <% if excludes_vat %>
+      <span class="message-price-vat">
+        <%= t("conversations.show.price_excludes_vat") %>
+      </span>
+    <% end %>
+
+  </p>
+<% end %>
