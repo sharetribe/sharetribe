@@ -165,6 +165,12 @@ See [RELEASE_NOTES.md](RELEASE_NOTES.md) for information about what has changed 
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for general contributing guidelines.
 
+NOTE: If you try installing and encounter problems, please report them for example in [Issues](https://github.com/sharetribe/sharetribe/issues) or at [Flowdock](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main). We try to help you and enhance the documentation.
+
+## Translation
+
+We use a tool called WebTranslateIt (WTI) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please use WTI for that. You need an invite to use WTI. To get an invite, email info@sharetribe.com and mention that you would like to become a translator.
+
 ## Known issues
 
 See http://github.com/sharetribe/sharetribe/issues and please report any issues you find
