@@ -84,19 +84,6 @@ class ListingsController < ApplicationController
     else
       [nil, nil]
     end
-
-    form_path = if @listing.transaction_type.preauthorize_payment?
-      # TODO This is copy-paste
-      if @listing.transaction_type.price_per.present?
-        book_path(:listing_id => @listing.id.to_s)
-      else
-        preauthorize_payment_path(:listing_id => @listing.id.to_s)
-      end
-    else
-      reply_to_listing_path(:listing_id => @listing.id.to_s)
-    end
-
-    render locals: {form_path: form_path}
   end
 
   def new

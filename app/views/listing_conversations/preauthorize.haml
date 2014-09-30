@@ -1,5 +1,6 @@
 - content_for :extra_javascript do
   = javascript_include_tag "https://js.braintreegateway.com/v1/braintree.js"
+
 - content_for :extra_javascript do
   :javascript
 
@@ -14,6 +15,8 @@
       braintreePaymentForm.show();
     });
 
+- listing = @listing_conversation.listing
+
 - content_for :javascript do
   initialize_send_message_form('#{I18n.locale}', '#{Listing.opposite_type(listing.direction)}');
 
@@ -26,7 +29,7 @@
 
 #new_message_form.centered-section
 
-  - author_link = link_to(author.name, author)
+  - author_link = link_to(@listing_conversation.author.name, @listing_conversation.author)
 
   .preauthorize-section
     %h2.preauthorize-details-title
@@ -35,50 +38,68 @@
     %ul.no-bullets
       %li
         %div
-          = t(".by", listing: link_to("#{listing.title}", listing), author: author_link).html_safe
+          = t(".by", listing: link_to("#{@listing_conversation.listing.title}", @listing_conversation.listing), author: author_link).html_safe
 
-      -# TODO Fix this, no respond_to?
-      - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
+      - Maybe(@listing_conversation).booking.each do |booking|
         %li
           %div
-            = l preauthorize_form.start_on, format: :long_with_abbr_day_name
+            = l booking.start_on, format: :long_with_abbr_day_name
             = "-"
-            = l preauthorize_form.end_on, format: :long_with_abbr_day_name
-            = "(#{pluralize(duration, t(".day"), t(".days"))})"
+            = l booking.end_on, format: :long_with_abbr_day_name
+            = "(#{pluralize(booking.duration, t(".day"), t(".days"))})"
 
         %li
           %div
-            = t(".price_per_day", price: humanized_money_with_symbol(listing.price))
+            = t(".price_per_day", price: humanized_money_with_symbol(@listing_conversation.listing.price))
 
       %li
         %div
           %strong
-            = t("conversations.show.total", total: humanized_money_with_symbol(sum))
+            = t("conversations.show.total", total: humanized_money_with_symbol(@payment.sum))
 
-  = form_for preauthorize_form,
-    :url => form_action,
+  = form_for @listing_conversation,
+    :url => preauthorized_person_listing_listing_conversations_path(@current_user.id,
+      @listing_conversation.listing.id),
       :method => "post",
       :html => { :id => "braintree-payment-form", :class => "hidden" } do |form|
 
-    -# TODO Fix this, no respond_to?
-    - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
-      = form.date_select :start_on, discard_day: true, discard_month: true, discard_year: true, default: preauthorize_form.start_on
-      = form.date_select :end_on, discard_day: true, discard_month: true, discard_year: true, default: preauthorize_form.end_on
+    - Maybe(@listing_conversation).booking.each do |booking|
+      = form.fields_for :booking_attributes do |booking_form|
+        = booking_form.date_select :start_on, discard_day: true, discard_month: true, discard_year: true, default: @listing_conversation.booking.start_on
+        = booking_form.date_select :end_on, discard_day: true, discard_month: true, discard_year: true, default: @listing_conversation.booking.end_on
 
     .preauthorize-section
       %h2
         = t(".payment")
 
-      = render partial: "payments/braintree/credit_card_info", locals: {braintree_form: braintree_form}
+      = fields_for :braintree_payment do |payment_form|
+        .row
+          .col-12
+            = payment_form.text_field :cardholder_name, :class => :text_field, :placeholder => t("braintree_payments.edit.cardholder_name"), :data => { :'encrypted-name' => "braintree_payment[cardholder_name]" }
+
+        .row
+          .col-9
+            = payment_form.text_field :credit_card_number, :class => :text_field, :placeholder => t("braintree_payments.edit.credit_card_number"), :data => { :'encrypted-name' => "braintree_payment[credit_card_number]"}
+
+          .col-3
+            = payment_form.text_field :cvv, :class => :text_field, :maxlength => 4, :placeholder => t("braintree_payments.edit.cvv"), :data => { :'encrypted-name' => "braintree_payment[cvv]"}
+
+        .row
+          .col-12
+            = payment_form.label :credit_card_expiration_month, t(".exp"), :class => "preauthorize-exp"
+            = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_month_options), :data => { :'encrypted-name' => "braintree_payment[credit_card_expiration_month]" }
+            = " / "
+            = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_year_options), :data => { :'encrypted-name' => "braintree_payment[credit_card_expiration_year]" }
 
     .preauthorize-section
       %h2
         = t("conversations.new.optional_message_to", author_name: link_to(listing.author.name, listing.author)).html_safe
 
-      .row
-        .col-12
-          = form.text_area :content, :class => "text_area"
-          = form.hidden_field :sender_id, :value => @current_user.id
+      = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
+        .row
+          .col-12
+            = message_form.text_area :content, :class => "text_area"
+            = message_form.hidden_field :sender_id, :value => @current_user.id
 
       - if @current_community.transaction_agreement_in_use
         = render :partial => "transaction_agreement_checkbox", locals: { form: form }

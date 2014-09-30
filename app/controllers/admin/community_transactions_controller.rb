@@ -1,48 +1,19 @@
 class Admin::CommunityTransactionsController < ApplicationController
-  TransactionQuery = MarketplaceService::Transaction::Query
   before_filter :ensure_is_admin
   skip_filter :dashboard_only
 
   def index
-    pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
-
-    conversations = if params[:sort].nil? || params[:sort] == "last_activity"
-      TransactionQuery.transactions_for_community_sorted_by_activity(
-        @current_community.id,
-        sort_direction,
-        pagination_opts[:limit],
-        pagination_opts[:offset])
-    else
-      TransactionQuery.transactions_for_community_sorted_by_column(
-        @current_community.id,
-        simple_sort_column(params[:sort]),
-        sort_direction,
-        pagination_opts[:limit],
-        pagination_opts[:offset])
-    end
-
-    count = TransactionQuery.transactions_count_for_community(@current_community.id)
-
-    # TODO THIS IS COPY-PASTE
-    conversations = conversations.map do |transaction|
-      conversation = transaction[:conversation]
-      # TODO Embed author and starter to the transaction entity
-      author = conversation[:other_person]
-      starter = conversation[:starter_person]
-
-      transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
-
-      transaction.merge({author: author, starter: starter})
-    end
-
-    conversations = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
-      pager.replace(conversations)
-    end
+    community = @current_community
+    conversations = ListingConversation
+      .where(:community_id => @current_community.id)
+      .includes(:listing)
+      .paginate(:page => params[:page], :per_page => 50)
+      .order("#{sort_column} #{sort_direction}")
 
     render("index",
       { locals: {
-        show_status_and_sum: @current_community.payments_in_use?,
-        community: @current_community,
+        show_status_and_sum: community.payments_in_use?,
+        community: community,
         conversations: conversations
       }}
     )
@@ -50,12 +21,16 @@ class Admin::CommunityTransactionsController < ApplicationController
 
   private
 
-  def simple_sort_column(sort_column)
-    case sort_column
+  def sort_column
+    case params[:sort]
     when "listing"
       "listings.title"
     when "started"
       "created_at"
+    when "last_activity"
+      "last_message_at"
+    else
+      "last_message_at"
     end
   end
 

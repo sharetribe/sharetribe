@@ -1,6 +1,0 @@
-= render :partial => "conversations/conversation_header", locals: {other_party: transaction_data[:conversation][:other_party]}
-
-.centered-section-wide
-  = render :partial => "transactions/details", locals: {transaction: transaction_data}
-
-  = render :partial => "conversations/messages_and_form", locals: {message_form: message_form, message_form_action: message_form_action, messages: messages}

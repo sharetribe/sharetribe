@@ -56,7 +56,7 @@ module MailViewTestData
     )
 
     # Avoid infinite loop, set conversation here
-    @payment.transaction = transaction
+    @payment.conversation = conversation
     @payment
   end
 
@@ -88,21 +88,12 @@ module MailViewTestData
     ]
   end
 
-  def transaction
-    @transaction ||= FactoryGirl.build(:transaction,
+  def conversation
+    @conversation ||= FactoryGirl.build(:listing_conversation,
       id: 99,
       community: community,
       listing: listing,
       payment: payment,
-      conversation: conversation
-    )
-  end
-
-  def conversation
-    @conversation ||= FactoryGirl.build(:conversation,
-      id: 99,
-      community: community,
-      listing: listing,
       participations: participations,
       participants: [author, starter],
       messages: [message]

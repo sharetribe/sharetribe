@@ -7,49 +7,31 @@ module AdminTransactionSteps
       .each { |person| yield person }
   end
 
-  def build_transaction(transaction_data)
-    last_message = eval(transaction_data[:latest_activity].gsub(' ', '.'))
-
-    message = FactoryGirl.build(:message, created_at: last_message)
-    conversation = FactoryGirl.build(:conversation, created_at: last_message, messages: [message])
-
-    author = Person.find_by_username(transaction_data[:other_party])
-    starter = Person.find_by_username(transaction_data[:starter])
-
-    # TODO This is almost copy-paste from conversation_steps
-    conversation.participations.build({
-      person_id: starter.id,
-      is_starter: true,
-      is_read: true
-    })
-
-    conversation.participations.build({
-      person_id: author.id,
-      is_starter: false,
-      is_read: false
-    })
-
+  def build_transaction(transaction)
     transaction_opts = {
-      created_at: eval(transaction_data[:started_at].gsub(' ', '.')),
+      title: transaction[:conversation_thread],
+      created_at: eval(transaction[:started_at].gsub(' ', '.')),
+      last_message_at: eval(transaction[:latest_activity].gsub(' ', '.')),
       community: Community.first
     }
-    sum = transaction_data[:sum].to_i * 100 unless transaction_data[:sum].empty?
+    sum = transaction[:sum].to_i * 100 unless transaction[:sum].empty?
 
-    transaction = FactoryGirl.build(
-      :transaction,
+    conversation = FactoryGirl.build(
+      :listing_conversation,
       transaction_opts.merge({
-          listing: FactoryGirl.build(:listing, title: transaction_data[:listing], author: author),
-          payment: sum ? FactoryGirl.build(:braintree_payment, { sum_cents: sum, currency: transaction_data[:currency] }) : nil,
-          conversation: conversation,
-          starter: starter
+          transaction_transitions: [ FactoryGirl.build(:transaction_transition, { to_state: transaction[:status].to_sym }) ],
+          listing: Maybe(transaction[:listing])
+            .select { |title| title != "nil" }
+            .map { |title| FactoryGirl.build(:listing, { title: title }) }
+            .or_else(nil),
+          payment: sum ? FactoryGirl.build(:braintree_payment, { sum_cents: sum, currency: transaction[:currency] }) : nil
         })
       )
 
-    transaction.transaction_transitions.build({
-      to_state: transaction_data[:status].to_sym
-    })
+    do_with_person(transaction[:starter]) { |p| conversation.build_starter_participation(p) }
+    do_with_person(transaction[:other_party]) { |p| conversation.build_participation(p) }
 
-    transaction
+    conversation
   end
 
   def to_title(name)

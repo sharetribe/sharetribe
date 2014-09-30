@@ -1,6 +1,6 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.booking_transaction_automatically_confirmed.we_have_marked_request_as_confirmed", :request => @transaction.listing.title)
+      = t("emails.booking_transaction_automatically_confirmed.we_have_marked_request_as_confirmed", :request => @conversation.listing.title)
 
-= render partial: "person_mailer/automatic_confirmation/automatically_confirmed_footer", :locals => { transaction: @transaction, recipient: @recipient, url_params: @url_params }
+= render partial: "person_mailer/automatic_confirmation/automatically_confirmed_footer", :locals => { conversation: @conversation, recipient: @recipient, url_params: @url_params }

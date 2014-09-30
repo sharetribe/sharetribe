@@ -31,9 +31,11 @@
       .conversation-action-description
         = t("conversations.confirm.cancel_payed_description")
 
-      = fields_for :message, message_form do |message_form|
+      = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
         = message_form.label :content, t("conversations.new.message"), :class => "input"
         = message_form.text_area :content, :class => "text_area", :placeholder => t("conversations.accept.optional_message")
+        = message_form.hidden_field :sender_id, :value => @current_user.id
+        = message_form.hidden_field :action, :value => "cancel"
 
       = form.hidden_field :status, :value => "canceled"
 

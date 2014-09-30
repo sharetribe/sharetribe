@@ -1,9 +1,10 @@
 - content_for :javascript do
   initialize_give_feedback_form("#{I18n.locale}","#{t('error_messages.testimonials.you_must_select_a_grade')}","#{t('error_messages.testimonials.you_must_explain_not_neutral_feedback')}");
+
 .centered-section.testimonial-form
-  %h2= t(".give_feedback_to", :person => transaction.other_party(@current_user).name)
-  %p= t(".this_will_be_shown_in_profile", :person => transaction.other_party(@current_user).given_name_or_username)
-  = form_for testimonial, :url => person_message_feedbacks_path(:person_id => @current_user.id, :message_id => transaction.id) do |form|
+  %h2= t(".give_feedback_to", :person => @conversation.other_party(@current_user).name)
+  %p= t(".this_will_be_shown_in_profile", :person => @conversation.other_party(@current_user).given_name_or_username)
+  = form_for @testimonial, :url => person_message_feedbacks_path(:person_id => @current_user.id, :message_id => @conversation.id) do |form|
     = form.error_messages
     = form.label :text, t('.textual_feedback')
     = form.text_area :text, :placeholder => t(".default_textual_feedback")
@@ -16,5 +17,6 @@
           = icon_tag(grade[1][:icon], ["link-icon"])
           .link-text{:id => "#{grade[0]}-grade-link"}= t(".#{grade[0]}")
     = form.hidden_field :author_id, :value => @current_user.id
-    = form.hidden_field :receiver_id, :value => transaction.other_party(@current_user).id
+    = form.hidden_field :receiver_id, :value => @conversation.other_party(@current_user).id
+    = form.hidden_field :participation_id, :value => @participation.id
     = form.button t(".send_feedback"), :class => "send_button", :id => "send_testimonial_button"

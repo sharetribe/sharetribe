@@ -74,18 +74,14 @@ class MailPreview < MailView
     PersonMailer.welcome_email(member, community)
   end
 
-  def transaction_created
-    TransactionMailer.transaction_created(transaction)
-  end
-
   def transaction_preauthorized
     change_conversation_status_to!("preauthorized")
-    TransactionMailer.transaction_preauthorized(transaction)
+    TransactionMailer.transaction_preauthorized(conversation)
   end
 
   def transaction_preauthorized_reminder
     change_conversation_status_to!("preauthorized")
-    TransactionMailer.transaction_preauthorized_reminder(transaction)
+    TransactionMailer.transaction_preauthorized_reminder(conversation)
   end
 
   def new_listing_by_followed_person
@@ -97,6 +93,6 @@ class MailPreview < MailView
   # Private methods to make modifications to default test data
 
   def change_conversation_status_to!(status)
-    transaction.transaction_transitions << FactoryGirl.build(:transaction_transition, to_state: status)
+    conversation.transaction_transitions << FactoryGirl.build(:transaction_transition, to_state: status)
   end
 end

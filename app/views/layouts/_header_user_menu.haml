@@ -1,7 +1,7 @@
 
 #header-user-toggle-menu.toggle-menu.header-toggle-menu-user.hidden
 
-  = link_to person_inbox_path(@current_user) do
+  = link_to received_person_messages_path(@current_user) do
     = icon_tag("mail", ["icon-with-text"])
     = t("layouts.conversations.messages")
     - if unread_count > 0

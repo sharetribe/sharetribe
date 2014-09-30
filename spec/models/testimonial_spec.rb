@@ -7,7 +7,6 @@
 #  text             :text
 #  author_id        :string(255)
 #  participation_id :integer
-#  transaction_id   :integer
 #  created_at       :datetime
 #  updated_at       :datetime
 #  receiver_id      :string(255)

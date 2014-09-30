@@ -9,7 +9,7 @@
 
     - Maybe(@current_user).each do |user|
       - conversations = @current_community.conversations.for_person(user)
-      - unread_count = MarketplaceService::Inbox::Query.notification_count(user.id, @current_community.id)
+      - unread_count = conversations.notification_count_for_person(user)
 
       .header-right
         = render :partial => "layouts/header_anchors", locals: {user: user}

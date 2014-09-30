@@ -11,7 +11,7 @@ class PaymentsController < ApplicationController
   skip_filter :dashboard_only
 
   def new
-    @conversation = Transaction.find(params[:message_id])
+    @conversation = Conversation.find(params[:message_id])
     @payment = @conversation.payment  #This expects that each conversation already has a (pending) payment at this point
 
     @payment_gateway = @current_community.payment_gateway
@@ -42,7 +42,7 @@ class PaymentsController < ApplicationController
       flash[:error] = t("layouts.notifications.error_in_payment")
     elsif check[:status] == "paid"
       @payment.paid!
-      @payment.transaction.transition_to!("paid")
+      @payment.conversation.status = "paid"
       @payment_gateway.handle_paid_payment(@payment)
       flash[:notice] = check[:notice]
     else # not yet paid
@@ -51,13 +51,13 @@ class PaymentsController < ApplicationController
       flash[:error] = check[:error]
     end
 
-    redirect_to person_transaction_path(:id => params[:message_id])
+    redirect_to person_message_path(:id => params[:message_id])
   end
 
   private
 
   def payment_can_be_conducted
-    @conversation = Transaction.find(params[:message_id])
+    @conversation = Conversation.find(params[:message_id])
     redirect_to person_message_path(@current_user, @conversation) unless @conversation.requires_payment?(@current_community)
   end
 

@@ -11,10 +11,10 @@ class AcceptReminderJob < Struct.new(:conversation_id, :recipient_id, :community
   end
 
   def perform
-    transaction = Transaction.find(conversation_id)
+    conversation = Conversation.find(conversation_id)
     community = Community.find(community_id)
-    if transaction.status.eql?("pending")
-      PersonMailer.send("accept_reminder", transaction, transaction.listing.author, community).deliver
+    if conversation.status.eql?("pending")
+      PersonMailer.send("accept_reminder", conversation, conversation.listing.author, community).deliver
     end
   end
 

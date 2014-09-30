@@ -2,12 +2,12 @@
 #
 # Table name: bookings
 #
-#  id             :integer          not null, primary key
-#  transaction_id :integer
-#  start_on       :date
-#  end_on         :date
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id                      :integer          not null, primary key
+#  listing_conversation_id :integer
+#  start_on                :date
+#  end_on                  :date
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
 #
 
 require 'spec_helper'

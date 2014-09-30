@@ -6,7 +6,7 @@
 #  payer_id                 :string(255)
 #  recipient_id             :string(255)
 #  organization_id          :string(255)
-#  transaction_id           :integer
+#  conversation_id          :integer
 #  status                   :string(255)
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
@@ -19,12 +19,13 @@
 #
 # Indexes
 #
-#  index_payments_on_conversation_id  (transaction_id)
+#  index_payments_on_conversation_id  (conversation_id)
 #  index_payments_on_payer_id         (payer_id)
 #
 
 class BraintreePayment < Payment
-  attr_accessible :braintree_transaction_id, :currency, :sum
+  attr_accessor :credit_card_number, :credit_card_expiration_date, :cardholder_name, :cvv
+  attr_accessible :braintree_transaction_id
 
   monetize :sum_cents, :allow_nil => true
 

@@ -39,22 +39,12 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   # Update listing status and call success block. In the block you can e.g. set flash notices.
   def update_listing_status(&block)
-    @listing_conversation.conversation.messages.build({
-      content: params[:listing_conversation][:message_attributes][:content],
-      sender_id: @current_user.id,
-      action: params[:listing_conversation][:action]
-    })
-
-    if @listing_conversation.save!
-      @listing_conversation.transition_to! params[:listing_conversation][:status]
-
-      MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
-
-      redirect_to person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
+    if @listing_conversation.update_attributes(params[:listing_conversation])
+      redirect_to person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id)
       block.call
     else
       flash[:error] = t("layouts.notifications.something_went_wrong")
-      redirect_to person_transaction_path(@current_user, @listing_conversation)
+      redirect_to person_message_path(@current_user, @listing_conversation)
     end
   end
 
@@ -70,6 +60,6 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def fetch_conversation
-    @listing_conversation = @current_community.transactions.find(params[:id])
+    @listing_conversation = ListingConversation.find(params[:id])
   end
 end

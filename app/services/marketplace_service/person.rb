@@ -3,25 +3,7 @@ module MarketplaceService
     PersonModel = ::Person
 
     module Entity
-      Person = EntityUtils.define_entity(
-        :id,
-        :username,
-        :name,
-        :full_name,
-        :avatar
-      )
-
-      module_function
-
-      def person(person_model)
-        Person[
-          id: person_model.id,
-          username: person_model.username,
-          name: person_model.name,
-          full_name: person_model.full_name,
-          avatar: person_model.image.url(:thumb)
-        ]
-      end
+      # module_function
     end
 
     module Command

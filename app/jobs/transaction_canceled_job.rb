@@ -12,9 +12,9 @@ class TransactionCanceledJob < Struct.new(:conversation_id, :community_id)
 
   def perform
     begin
-      transaction = Transaction.find(conversation_id)
+      conversation = Conversation.find(conversation_id)
       community = Community.find(community_id)
-      PersonMailer.transaction_confirmed(transaction, community).deliver
+      PersonMailer.transaction_confirmed(conversation, community).deliver
     rescue => ex
       puts ex.message
       puts ex.backtrace.join("\n")

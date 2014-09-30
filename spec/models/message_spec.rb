@@ -27,11 +27,16 @@ describe Message do
     @message.should be_valid
   end
 
-  it "is not valid with content" do
+  it "is not valid with both content and action missing" do
     @message.content = nil
     @message.should_not be_valid
     @message.content = ""
     @message.should_not be_valid
+    @message.action = ""
+    @message.should_not be_valid
+    @message.action = "accept"
+    @message.should be_valid
+    @message.action = nil
     @message.content = "test"
     @message.should be_valid
   end

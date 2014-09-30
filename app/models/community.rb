@@ -119,7 +119,6 @@ class Community < ActiveRecord::Base
   has_many :subcategories, :class_name => "Category", :conditions => ["parent_id IS NOT NULL"], :order => "sort_priority"
 
   has_many :conversations
-  has_many :transactions
   has_many :payments
   has_many :statistics, :dependent => :destroy
   has_many :transaction_types, :dependent => :destroy, :order => "sort_priority"

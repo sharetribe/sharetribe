@@ -6,7 +6,7 @@
 .left-navi-section
   %h2= t("admin.communities.transactions.transactions", community_name: community.name(I18n.locale))
 
-  %span#admin_transactions_count= page_entries_info(conversations, :model => "Transaction")
+  %span#admin_transactions_count= page_entries_info(conversations, :model => "ListingConversation")
 
   %table#admin_transactions
     %thead
@@ -23,21 +23,14 @@
     %tbody
       - conversations.each do |conversation|
         %tr
-          %td=Maybe(conversation[:listing]).map { |listing| link_to(listing[:title], conversation[:listing_url]) }.or_else("")
+          %td=Maybe(conversation.listing).map { |listing| link_to(listing.title, listing) }.or_else("")
           - if show_status_and_sum
-            %td=t("admin.communities.transactions.status.#{conversation[:status]}")
-            %td=conversation[:payment_sum] ? humanized_money_with_symbol(conversation[:payment_sum]) : ""
-          %td=l(conversation[:created_at], format: :short_date)
-          - last_activity_at = 0
-          - if conversation[:conversation][:last_message_at].nil?
-            - last_activity_at = conversation[:last_transition_at]
-          - elsif conversation[:last_transition_at].nil?
-            - last_activity_at = conversation[:conversation][:last_message_at]
-          - else
-            - last_activity_at = [conversation[:last_transition_at], conversation[:conversation][:last_message_at]].max
-          %td=l(last_activity_at, format: :short_date)
-          %td=Maybe(conversation[:starter]).map { |p| link_to(p[:full_name], p[:url]) }.or_else("")
-          %td=Maybe(conversation[:author]).map { |p| link_to(p[:full_name], p[:url]) }.or_else("")
+            %td=t("admin.communities.transactions.status.#{conversation.status}")
+            %td=conversation.payment ? humanized_money_with_symbol(conversation.payment.total_sum) : ""
+          %td=l(conversation.created_at, format: :short_date)
+          %td=l(conversation.last_message_at, format: :short_date)
+          %td=Maybe(conversation.starter).map { |p| link_to(p.full_name, p) }.or_else("")
+          %td=Maybe(conversation.starter).map { |starter| conversation.other_party(starter) }.map { |p| link_to(p.full_name, p) }.or_else("")
   .row
     .col-12
       = will_paginate conversations

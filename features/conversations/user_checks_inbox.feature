@@ -24,8 +24,8 @@ Feature: User checks inbox
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
-    And I follow "Test message"
-    Then I should see "Inbox | Conversation with Kassi T" within "h1"
+    And I follow "Massage"
+    Then I should see "Massage" within "h1"
 
   Scenario: Viewing received messages when there are multiple messages from different senders
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
@@ -97,3 +97,15 @@ Feature: User checks inbox
     When I try to go to inbox of "kassi_testperson1"
     Then I should see "You must log in to Sharetribe to view your inbox." within ".flash-notifications"
     And I should see "Log in to Sharetribe" within "h1"
+
+  Scenario: Trying to view somebody else's inbox
+    And I am logged in as "kassi_testperson2"
+    When I try to go to inbox of "kassi_testperson1"
+    Then I should see "You are not authorized to view this content" within ".flash-notifications"
+
+  Scenario: Trying to view somebody else's single conversation
+    And there is a listing with title "Massage" from "kassi_testperson2" with category "Services" and with transaction type "Requesting"
+    And there is a message "Reply to massage" from "kassi_testperson3" about that listing
+    And I am logged in as "kassi_testperson1"
+    When I go to the conversation path of "kassi_testperson1"
+    Then I should see "You are not authorized to view this content" within ".flash-notifications"

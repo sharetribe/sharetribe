@@ -1,5 +1,5 @@
 - view_url = person_url(@recipient, @url_params) + "#testimonial#{@testimonial.id.to_s}"
-- give_url = new_person_message_feedback_url(@recipient, @url_params.merge({:message_id => @testimonial.transaction.id}))
+- give_url = new_person_message_feedback_url(@recipient, @url_params.merge({:message_id => @testimonial.participation.conversation.id}))
 
 %tr
   %td{:align => "left"}
@@ -8,8 +8,7 @@
 
 = render :partial => "action_button", :locals => { :text => t("emails.new_testimonial.view_feedback"), :url => view_url}
 
--# TODO Move to Mailer, and pass as locals
-- if MarketplaceService::Transaction::Entity.waiting_testimonial_from?(MarketplaceService::Transaction::Entity.transaction(@testimonial.transaction), @testimonial.receiver.id)
+- if @testimonial.receiver.can_give_feedback_on?(@testimonial.participation.conversation)
   %tr
     %td{:align => "left"}
       %font{body_font}

@@ -49,37 +49,33 @@ describe PersonMailer do
 
   describe "status changed" do
 
-    let(:author) { FactoryGirl.build(:person) }
-    let(:listing) { FactoryGirl.build(:listing, author: author) }
-    let(:starter) { FactoryGirl.build(:person, given_name: "Teppo", family_name: "Testaaja") }
-    let(:conversation) { FactoryGirl.build(:conversation) }
-    let(:transaction) { FactoryGirl.create(:transaction, listing: listing, starter: starter, conversation: conversation) }
-    let(:community) { FactoryGirl.create(:community) }
-
     before(:each) do
-      conversation.messages.build({
-        sender: starter,
-        content: "Test"
-      })
+      @conversation = FactoryGirl.create(:listing_conversation)
+      @conversation.participants = [@conversation.listing.author, @test_person2]
+      @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
+
+      message = FactoryGirl.create(:message)
+      @conversation.messages << message
+      @conversation.messages.inspect
     end
 
     it "should send email about an accepted offer or request" do
-      transaction.transaction_transitions = [FactoryGirl.create(:transaction_transition, to_state: "accepted")]
-      transaction.save!
-      transaction.reload
-      email = PersonMailer.conversation_status_changed(transaction, community).deliver
+      @conversation.transaction_transitions = [FactoryGirl.create(:transaction_transition, to_state: "accepted")]
+      @conversation.save!
+      @conversation.reload
+      email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
       assert !ActionMailer::Base.deliveries.empty?
-      assert_equal starter.confirmed_notification_email_addresses, email.to
+      assert_equal @test_person2.confirmed_notification_email_addresses, email.to
       assert_equal "Your request was accepted", email.subject
     end
 
     it "should send email about a rejected offer or request" do
-      transaction.transaction_transitions = [FactoryGirl.create(:transaction_transition, to_state: "rejected")]
-      transaction.save!
-      transaction.reload
-      email = PersonMailer.conversation_status_changed(transaction, community).deliver
+      @conversation.transaction_transitions = [FactoryGirl.create(:transaction_transition, to_state: "rejected")]
+      @conversation.save!
+      @conversation.reload
+      email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
       assert !ActionMailer::Base.deliveries.empty?
-      assert_equal starter.confirmed_notification_email_addresses, email.to
+      assert_equal @test_person2.confirmed_notification_email_addresses, email.to
       assert_equal "Your request was rejected", email.subject
     end
 
@@ -100,41 +96,42 @@ describe PersonMailer do
 
   it "should send email about a new testimonial" do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
-
-    transition = FactoryGirl.build(:transaction_transition, to_state: "confirmed")
-    listing = FactoryGirl.build(:listing, author: @test_person)
-    transaction = FactoryGirl.create(:transaction, starter: @test_person2, listing: listing, transaction_transitions: [transition])
-    testimonial = FactoryGirl.create(:testimonial, :grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :transaction => transaction)
-
-    email = PersonMailer.new_testimonial(testimonial, @community).deliver
+    @conversation = FactoryGirl.create(:conversation)
+    @conversation.participants << @test_person
+    @conversation.participants << @test_person2
+    @participation = Participation.find_by_person_id_and_conversation_id(@test_person.id, @conversation.id)
+    @testimonial = Testimonial.new(:grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :participation_id => @participation.id)
+    email = PersonMailer.new_testimonial(@testimonial, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal @test_person2.confirmed_notification_email_addresses, email.to
     assert_equal "Teppo T has given you feedback in Sharetribe", email.subject
   end
 
   it "should remind about testimonial" do
-    author = FactoryGirl.build(:person)
-    starter = FactoryGirl.build(:person, given_name: "Teppo", family_name: "Testaaja")
-    listing = FactoryGirl.build(:listing, author: author)
-    # Create is needed here, not exactly sure why
-    conversation = FactoryGirl.create(:transaction, starter: starter, listing: listing)
-
-    email = PersonMailer.testimonial_reminder(conversation, author, @community).deliver
+    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
+    @test_person.save
+    Person.find(@test_person.id).update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
+    @conversation = FactoryGirl.create(:listing_conversation)
+    @conversation.participants << @test_person
+    @conversation.participants << @test_person2
+    @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
+    email = PersonMailer.testimonial_reminder(@conversation, @test_person2, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal author.confirmed_notification_email_addresses, email.to
+    assert_equal @test_person2.confirmed_notification_email_addresses, email.to
     assert_equal "Reminder: remember to give feedback to Teppo T", email.subject
   end
 
   it "should remind to accept or reject" do
-    starter = FactoryGirl.build(:person, given_name: "Jack", family_name: "Dexter")
-    author = FactoryGirl.build(:person)
-    listing = FactoryGirl.build(:listing, :author => author)
-    conversation = FactoryGirl.create(:transaction, starter: starter, listing: listing)
+    @test_person2.update_attributes({ "given_name" => "Jack", "family_name" => "Dexter" })
+    @listing = FactoryGirl.create(:listing, :author => @test_person)
+    @conversation = FactoryGirl.create(:listing_conversation, :listing => @listing)
+    @conversation.participants << @test_person
+    @conversation.participants << @test_person2
 
-    email = PersonMailer.accept_reminder(conversation, "this_can_be_anything", @community).deliver
+    email = PersonMailer.accept_reminder(@conversation, "this_can_be_anything", @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
 
-    assert_equal author.confirmed_notification_email_addresses, email.to
+    assert_equal @test_person.confirmed_notification_email_addresses, email.to
     assert_equal "Remember to accept or reject a request from Jack D", email.subject
   end
 

@@ -1,5 +1,5 @@
 /* Update conversation status label */
-$("#transaction_status").html("<%= escape_javascript(render(:partial => 'transactions/status/status', :locals => { :__transaction_model => @transaction })) %>");
+$("#conversation_<%= @conversation.id.to_s %>_status").html("<%= escape_javascript(render(:partial => 'conversations/status', :locals => { :conversation => @conversation })) %>");
 
 /* Highlight the changed status */
-$("#transaction_status").effect("highlight", {}, 2000);
+$("#conversation_<%= @conversation.id.to_s %>_status").effect("highlight", {}, 2000);

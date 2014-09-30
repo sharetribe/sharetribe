@@ -18,7 +18,9 @@
 
   - unless is_author
 
-    = form_tag form_path, :method => :get, :id => "booking-dates" do
+    - link_path = @listing.transaction_type.preauthorize_payment? ? preauthorize_payment_path(:listing_id => @listing.id.to_s) : reply_to_listing_path(:listing_id => @listing.id.to_s)
+
+    = form_tag link_path, :method => :get, :id => "booking-dates" do
 
       - if @listing.transaction_type.price_per
         - days = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]

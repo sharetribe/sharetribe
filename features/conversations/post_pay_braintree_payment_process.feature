@@ -47,7 +47,7 @@ Feature: Post pay Braintree payment process
 
 
     When I log in as "buyer_bob"
-     And I buy approved request "accepted the request"
+     And I buy approved request "Accepted the request"
     Then I should see payment details form for Braintree
 
     When I fill in my payment details for Braintree

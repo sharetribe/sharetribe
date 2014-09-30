@@ -1,9 +1,9 @@
 - Maybe(listing).map do |listing|
   %p
     - price = Maybe(listing).price.or_else(nil)
-    - sum = Maybe(transaction).payment.total_sum.or_else(nil)
+    - sum = Maybe(listing_conversation).payment.total_sum.or_else(nil)
 
-    - Maybe(transaction).booking.each do |booking|
+    - Maybe(listing_conversation).booking.each do |booking|
       %ul.no-bullets
         %li
           %div
@@ -14,7 +14,7 @@
 
         %li
           %div
-            = t(".price_per_day", price: humanized_money_with_symbol(listing.price))
+            = t(".price_per_day", price: humanized_money_with_symbol(listing_conversation.listing.price))
 
     - if sum
       %p.message-sum

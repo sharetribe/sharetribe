@@ -1,5 +1,5 @@
 .testimonial{:class => "light_#{testimonial.displayed_grade > 2 ? 'green' : 'red' }", :id => "testimonial#{testimonial.id.to_s}"}
-  - listing = testimonial.transaction.listing
+  - listing = testimonial.participation.conversation.listing
   .testimonial-avatar
     = small_avatar_thumb(testimonial.author)
   .testimonial-details

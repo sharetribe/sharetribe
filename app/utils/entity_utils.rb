@@ -7,7 +7,7 @@ module EntityUtils
   #
   # -- in some service / Entity --
   #
-  # Person = EntityUtils.define_entity(
+  # Person = MarketplaceService::EntityUtils.define_entity(
   #   :username,
   #   :password)
   #
@@ -49,27 +49,17 @@ module EntityUtils
     },
     string: -> (_, v, field) {
       unless (v.nil? || v.is_a?(String))
-        "#{field}: Value must be a String. Was: #{v} (#{v.class.name})."
-      end
-    },
-    time: -> (_, v, field) {
-      unless (v.nil? || v.is_a?(Time))
-        "#{field}: Value must be a Time. Was: #{v} (#{v.class.name})."
+        "#{field}: Value must be a String. Was: #{v}."
       end
     },
     fixnum: -> (_, v, field) {
       unless (v.nil? || v.is_a?(Fixnum))
-        "#{field}: Value must be a Fixnum. Was: #{v} (#{v.class.name})."
+        "#{field}: Value must be a Fixnum. Was: #{v}."
       end
     },
     symbol: -> (_, v, field) {
       unless (v.nil? || v.is_a?(Symbol))
-        "#{field}: Value must be a Symbol. Was: #{v} (#{v.class.name})."
-      end
-    },
-    hash: -> (_, v, field) {
-      unless (v.nil? || v.is_a?(Hash))
-        "#{field}: Value must be a Hash. Was: #{v} (#{v.class.name})."
+        "#{field}: Value must be a Symbol. Was: #{v}."
       end
     },
     callable: -> (_, v, field) {

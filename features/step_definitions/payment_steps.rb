@@ -32,19 +32,19 @@ Given(/^"(.*?)" has an? (active) Braintree account$/) do |username, status|
 end
 
 Given /^there is a payment for that request from "(.*?)" with price "(.*?)"$/ do |payer_username, price|
-  listing = @transaction.listing
+  listing = @conversation.listing
   payer = Person.find_by_username(payer_username)
-  @payment = FactoryGirl.create(:braintree_payment, payer: payer, recipient: listing.author, community: @current_community, sum_cents: price.to_i * 100, transaction: @transaction)
+  @payment = FactoryGirl.create(:braintree_payment, payer: payer, recipient: listing.author, community: @current_community, sum_cents: price.to_i * 100, conversation: @conversation)
 end
 
 Given /^that payment is (pending|paid)$/ do |status|
-  @transaction.payment.update_attribute(:status, status)
+  @conversation.payment.update_attribute(:status, status)
 end
 
 Given(/^"(.*?)" has paid for that listing$/) do |username|
-  transaction = Transaction.find_by_listing_id(@listing)
-  transaction.status = "paid"
-  transaction.save!
+  conversation = @listing.conversations.find { |c| c.requester.username == username }
+  conversation.status = "paid"
+  conversation.save!
 end
 
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|

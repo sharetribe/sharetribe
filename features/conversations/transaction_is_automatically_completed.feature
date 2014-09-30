@@ -5,9 +5,9 @@ Feature: Automatic transaction completition
 
   Background:
     Given there are following users:
-      | person | email              |
-      | paula  | paula@example.com  |
-      | jeremy | jeremy@example.com |
+      | person |
+      | paula  |
+      | jeremy |
     And the community has payments in use via BraintreePaymentGateway
     And Braintree escrow release is mocked
     And there is a listing with title "Snowboard" from "jeremy"
@@ -17,7 +17,7 @@ Feature: Automatic transaction completition
 
     Given I am logged in as "jeremy"
     # Using "I'm" because I don't want to hit the "I am on" step
-    And I'm on the transaction page of that transaction
+    And I'm on the conversation page of that conversation
 
   @javascript
   Scenario: Transaction is automatically closed

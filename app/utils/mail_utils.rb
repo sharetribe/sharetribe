@@ -1,8 +1,5 @@
 module MailUtils
   # Refactoring needed. This is an ugly method that sets
-  #
-  # DEPRECATED! Do not use this anymore! See TransactionMailer.transaction_created how you can live without calling
-  # this method
   def set_up_urls(recipient, community, ref="email")
     @community = community
     @current_community = community

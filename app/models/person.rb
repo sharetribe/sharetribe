@@ -421,6 +421,11 @@ class Person < ActiveRecord::Base
     return grade_amounts
   end
 
+  def can_give_feedback_on?(conversation)
+    participation = Participation.find_by_person_id_and_conversation_id(id, conversation.id)
+    participation.feedback_can_be_given?
+  end
+
   def consent(community)
     community_memberships.find_by_community_id(community.id).consent
   end
