@@ -12,8 +12,8 @@
 
     = hidden_field_tag :payment_settings, true
 
-    = form.label :company_id, t("organizations.form.company_id", locale: :fi), :class => "input"
-    = form.text_field :company_id, :class => :text_field, :maxlenght => "9"
+    = form.label :company_id_or_personal_id, t("organizations.form.company_id_or_personal_id", locale: :fi), :class => "input"
+    = form.text_field :company_id_or_personal_id, :class => :text_field, :maxlenght => "11"
 
     = form.label :organization_address, t("organizations.form.organization_address", locale: :fi), :class => "input"
     = form.text_field :organization_address, :class => :text_field

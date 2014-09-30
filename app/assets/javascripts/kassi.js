@@ -333,10 +333,10 @@ function initialize_payments_form(locale) {
   var form_id = "#payment_settings_form";
   $(form_id).validate({
     rules: {
-      "checkout_account_form[company_id]": {minlength: 9, maxlength: 9},
-      "checkout_account_form[phone_number]": {maxlength: 25},
-      "checkout_account_form[organization_address]": {minlength: 6},
-      "checkout_account_form[organization_website]": {minlength: 5}
+      // regex validation here kept failing always, so relying on backend validation for the ID
+      "checkout_account_form[company_id_or_personal_id]": {required: true, minlength: 9, maxlength: 11},
+      "checkout_account_form[phone_number]": {required: true, maxlength: 25},
+      "checkout_account_form[organization_address]": {required: true, minlength: 6}
     },
     messages: {
     },

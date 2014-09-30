@@ -1,0 +1,31 @@
+fi:
+  organizations:
+    index:
+      organizations_that_are_on_board: "Materiaalipankissa mukana olevat organisaatiot"
+      here_are_the_organizations: "Seuraavat %{count} organisaatiota ovat mukana Materiaalipankissa."
+      loading_more_organizations: "Ladataan lisää organisaatioita"
+    form:
+      logo: "Logo"
+      logo_instructions: "Neliönmuotoinen kuvatiedosto toimii parhaiten."
+      merhcant_registration: "Organisaation rekisteröityminen myyjäksi"
+      merhcant_registration_instructions: "Jos et rekisteröi organisaatiotasi tässä vaiheessa myyjäksi, voit ainoastaan ostaa, ottaa vastaan tai antaa pois tavaraa. Halutessasi voit rekisteröidä organisaatiosi myyjäksi myös myöhemmin."
+      merhcant_registration_detailed_instructions: "Täytä vähintään tähdellä merkityt kohdat. Niiden perusteella luodaan tunnus <a href=\"http://checkout.fi/\" target=\"_blank\">Checkout</a>-maksupalveluun, jonka kautta maksut välitetään. Lomakkeen täytön jälkeen saat Checkout Finlandilta sähköpostitse ohjeet siitä, kuinka varmentaa rekisteröityminen ja vastaanottaa tilitykset saapuvista maksuista. Jos olet yksityishenkilö, käytä y-tunnuksen sijaan henkilötunnusta myös Checkout-palvelun lomakkeissa."
+      merhcant_registration_done: "Myyjäksi rekisteröityminen on suoritettu."
+      merhcant_registration_done_instructions: "Olet saanut Checkoutilta sähköpostia, jossa on tarkemmat ohjeet Checkout-tunnuksestasi. Jos haluat muuttaa jotain maksuihin liittyviä tietojasi, voit tehdä sen suoraan <a href=\"http://checkout.fi/\" target=\"_blank\">Checkout</a>-palvelussa. Saamassasi sähköpostissa on ohjeet tähän. Jos kaipaat apua, <a href='/fi/user_feedbacks/new'>ota yhteyttä</a>."
+      skip_merchant_registration: "ohita myyjäksi rekisteröityminen tässä vaiheessa"
+      register_as_merchant: "rekisteröi tämä organisaatio myyjäksi"
+      company_id_or_personal_id: "Y-tunnus tai henkilötunnus *"
+      email: "Sähköposti, johon ohjeet lähetetään"
+      phone_number: "Puhelinnumero *"
+      organization_address: "Postiosoite *"
+      organization_website: "Verkkosivun osoite"
+      not_valid_company_id_or_personal_id: "Tunnus ei ole oikean muotoinen, esim. 1234567-8 tai 311274-123A"
+      fill_in_all_details: "Sinun täytyy täyttää kaikki myyjärekisteröinnin kentät"
+      changes_saved: "Muutokset tallennettu"
+      error_with_organization_registration: "Ennakoimaton virhe myyjäksi rekisteröitymisessä, ota yhteyttä ylläpitoon."
+    profile_organization:
+      edit: "Muokkaa"
+    seller_registration_needed:
+      seller_registration_needed: "Myyjäksi rekisteröityminen suorittamatta"
+      seller_registration_instructions: "Ennen kuin voit tehdä myynti-ilmoituksen ja vastaanottaa maksuja, sinun täytyy rekisteröidä edustamasi organisaatio myyjäksi. Voit tehdä sen %{link_to_profile_page} olevan organisaatiolistan kautta."
+      profile_page_link: "profiilisivullasi"

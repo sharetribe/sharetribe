@@ -18,13 +18,13 @@ Feature: User adds payment information
   Scenario: user does not add required information
     When I browse to Checkout account settings
     And I press submit
-    Then I should see flash error
+    Then I should see 2 validation errors
 
   @javascript
   Scenario: user adds invalid information
     When I browse to Checkout account settings
     And I fill the payment details form with invalid information
-    Then I should see validation error
+    Then I should see flash error
 
   @javascript
   Scenario: user views payment information

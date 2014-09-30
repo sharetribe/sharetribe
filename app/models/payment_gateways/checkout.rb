@@ -123,14 +123,14 @@ class Checkout < PaymentGateway
 
     api_params = {
       "company" => person.name,
-      "vat_id"  => checkout_account_params.company_id,
+      "vat_id"  => checkout_account_params.company_id_or_personal_id,
       "name"    => person.name,
       "email"   => person.confirmed_notification_email_to,
       "gsm"     => checkout_account_params.phone_number,
       "type"    => type,
-      "info"    => "Materiaalipankki",
+      "info"    => "",
       "address" => checkout_account_params.organization_address,
-      "url"     => checkout_account_params.organization_website,
+      "url"     => checkout_account_params.organization_website || person_url(person),
       "kkhinta" => "0",
     }
 
@@ -146,7 +146,7 @@ class Checkout < PaymentGateway
         person_id: person,
         merchant_id: response[/<id>([^<]+)<\/id>/, 1],
         merchant_key: response[/<secret>([^<]+)<\/secret>/, 1],
-        company_id: checkout_account_params.company_id
+        company_id_or_personal_id: checkout_account_params.company_id_or_personal_id
       })
     checkout_account.save!
   end
