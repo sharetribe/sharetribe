@@ -163,6 +163,7 @@ module MarketplaceService
         TransactionModel.find(transaction_id).state_machine.can_transition_to?(new_status)
       end
 
+      # TODO Consider removing to inbox service, since this is more like inbox than transaction stuff.
       def sql_for_transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
         "
           SELECT transactions.* FROM transactions
