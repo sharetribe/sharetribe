@@ -211,8 +211,8 @@ end
 
 When /^I fill the payment details form with invalid information$/ do
   steps %Q{
-    When I fill in "checkout_account_form[company_id_or_personal_id]" with "12345465467484578"
-    And I fill in "checkout_account_form[organization_address]" with ""
+    When I fill in "checkout_account_form[company_id_or_personal_id]" with "12345465467"
+    And I fill in "checkout_account_form[organization_address]" with "kepponen"
     And I fill in "checkout_account_form[phone_number]" with "555"
     And I fill in "checkout_account_form[organization_website]" with ""
     And I press submit

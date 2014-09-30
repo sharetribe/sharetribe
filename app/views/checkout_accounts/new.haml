@@ -1,7 +1,7 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
 
 - content_for :javascript do
-  initialize_payments_form("#{I18n.locale}", "#{t("organizations.form.not_valid_company_id_or_personal_id")}");
+  initialize_payments_form("#{I18n.locale}");
 
 .left-navi-section.settings-section
 

@@ -329,7 +329,7 @@ function initialize_login_form(password_forgotten) {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_payments_form(locale, id_format_validation_message) {
+function initialize_payments_form(locale) {
   var form_id = "#payment_settings_form";
   $(form_id).validate({
     rules: {
@@ -339,7 +339,6 @@ function initialize_payments_form(locale, id_format_validation_message) {
       "checkout_account_form[organization_address]": {required: true, minlength: 6}
     },
     messages: {
-      "checkout_account_form[company_id_or_personal_id]": {regex: id_format_validation_message}
     },
     onkeyup: false, //Only do validations when form focus changes
     submitHandler: function(form) {
