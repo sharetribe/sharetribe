@@ -120,13 +120,52 @@ module MarketplaceService
         people_ids = HashUtils.pluck(result_set, :current_id, :other_id).uniq
         people_cache = MarketplaceService::Person::Query.people(people_ids)
 
+        last_message_conv_ids, last_transition_transaction_ids = reduce_transaction_and_conv_ids(result_set)
+
+        message_sql = SQLUtils.ar_quote(connection, @construct_last_message_content_sql, conversation_ids: last_message_conv_ids)
+        message_store = connection.execute(message_sql)
+
+        last_messages = message_store.reduce({}) { |memo, (conversation_id, content, created_at)|
+          _, memo_at = memo[conversation_id]
+          if( memo_at.nil? || memo_at < created_at)
+            memo[conversation_id] = [content, created_at]
+          end
+          memo
+        }
+
+        transition_sql = SQLUtils.ar_quote(connection, @construct_last_transition_to_sql, transaction_ids: last_transition_transaction_ids)
+        transition_store = connection.execute(transition_sql)
+
+        last_transitions = transition_store.reduce({}) { |memo, (transaction_id, transition_to, created_at)|
+          _, memo_at = memo[transaction_id]
+          if(memo_at.nil? || (memo_at < created_at) )
+            memo[transaction_id] = [transition_to, created_at]
+          end
+          memo
+        }
+
         result_set.map do |result|
           if result[:transaction_id].present?
-            InboxTransaction[extend_transaction(extend_people(result, people_cache))]
+            InboxTransaction[extend_transaction(extend_people(result, people_cache), last_messages[result[:conversation_id]],last_transitions[result[:transaction_id]])]
           else
-            InboxConvesation[extend_conversation(extend_people(result, people_cache))]
+            InboxConvesation[extend_conversation(extend_people(result, people_cache), last_messages[result[:conversation_id]])]
           end
         end
+      end
+
+      def reduce_transaction_and_conv_ids(result_set)
+        result_set.reduce([[],[]]) { |(last_message_memo, last_transition_memo), row|
+          if row[:last_message_at].nil?
+            last_transition_memo << row[:conversation_id]
+          elsif row[:last_transition_at].nil?
+            last_message_memo << row[:conversation_id]
+          elsif (row[:last_message_at] > row[:last_transition_at])
+            last_message_memo << row[:conversation_id]
+          else
+            last_transition_memo << row[:conversation_id]
+          end
+          [last_message_memo, last_transition_memo]
+        }
       end
 
       def query_inbox_data_count(person_id, community_id)
@@ -151,13 +190,15 @@ module MarketplaceService
         )
       end
 
-      def extend_conversation(conversation)
+      def extend_conversation(conversation, (content, created_at))
         conversation.merge(
-          should_notify: !@tiny_int_to_bool.call(conversation[:current_is_read])
+          should_notify: !@tiny_int_to_bool.call(conversation[:current_is_read]),
+          last_message_content: content,
+          last_message_at: created_at
         )
       end
 
-      def extend_transaction(transaction)
+      def extend_transaction(transaction, (content, conv_created_at), (transition_to, trans_created_at))
         transitions = TransactionTransition.where(transaction_id: transaction[:transaction_id]).map do |transition_model|
           MarketplaceService::Transaction::Entity::Transition[EntityUtils.model_to_hash(transition_model)]
         end
@@ -170,7 +211,11 @@ module MarketplaceService
         transaction.merge(
           author: transaction[:other],
           transitions: transitions,
-          should_notify: should_notify
+          should_notify: should_notify,
+          last_transition_to_state: transition_to,
+          last_transition_at: trans_created_at,
+          last_message_content: content,
+          last_message_at: conv_created_at
         )
       end
 
@@ -227,12 +272,11 @@ module MarketplaceService
             transactions.id AS transaction_id,
             conversations.id AS conversation_id,
 
-            m.last_message_at,
-            m.last_message_content,
-            tt.last_transition_at,
-            tt.last_transition_to_state,
-            GREATEST(COALESCE(tt.last_transition_at, 0),
-              COALESCE(m.last_message_at, 0))                 AS last_activity_at,
+            GREATEST(COALESCE(transactions.last_transition_at, 0),
+              COALESCE(conversations.last_message_at, 0))     AS last_activity_at,
+
+            transactions.last_transition_at                   AS last_transition_at,
+            conversations.last_message_at                     AS last_message_at,
 
             listings.id                                       AS listing_id,
             listings.title                                    AS listing_title,
@@ -247,19 +291,19 @@ module MarketplaceService
             transaction_types.type                            AS transaction_type,
 
             current_participation.is_read                     AS current_is_read,
-            current_participation.is_starter                  AS current_is_starter,
+            current_participation.is_starter                  AS current_is_starter
 
             # Requires actions
-            (
-              ((tt.last_transition_to_state = 'pending' OR tt.last_transition_to_state = 'preauthorized') AND current_participation.is_starter = FALSE) OR
-              ((tt.last_transition_to_state = 'accepted' OR tt.last_transition_to_state = 'paid')         AND current_participation.is_starter = TRUE)
-            )                                                 AS current_action_required,
+            #(
+            #  ((tt.last_transition_to_state = 'pending' OR tt.last_transition_to_state = 'preauthorized') AND current_participation.is_starter = FALSE) OR
+            #  ((tt.last_transition_to_state = 'accepted' OR tt.last_transition_to_state = 'paid')         AND current_participation.is_starter = TRUE)
+            #)                                                 AS current_action_required,
 
             # Waiting feedback
-            ((tt.last_transition_to_state = 'confirmed') AND (
-              (current_participation.is_starter = TRUE AND transactions.starter_skipped_feedback = FALSE AND testimonials.id IS NULL) OR
-              (current_participation.is_starter = FALSE AND transactions.author_skipped_feedback = FALSE AND testimonials.id IS NULL)
-            ))                                                AS waiting_feedback
+            #((tt.last_transition_to_state = 'confirmed') AND (
+            #  (current_participation.is_starter = TRUE AND transactions.starter_skipped_feedback = FALSE AND testimonials.id IS NULL) OR
+            #  (current_participation.is_starter = FALSE AND transactions.author_skipped_feedback = FALSE AND testimonials.id IS NULL)
+            #))                                                AS waiting_feedback
           FROM conversations
 
           LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
@@ -269,24 +313,6 @@ module MarketplaceService
           LEFT JOIN testimonials      ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = #{params[:person_id]})
           LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = #{params[:person_id]})
           LEFT JOIN participations    AS other_participation ON (other_participation.conversation_id = conversations.id AND other_participation.person_id != #{params[:person_id]})
-
-          # Get 'last_transition_at' and 'last_transition_to_state'
-          # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
-          LEFT JOIN (
-            SELECT tt1.transaction_id, tt1.created_at as last_transition_at, tt1.to_state as last_transition_to_state
-            FROM transaction_transitions tt1
-            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND (tt1.created_at < tt2.created_at OR tt1.sort_key < tt2.sort_key OR tt1.id < tt2.id)
-            WHERE tt2.id IS NULL
-          ) AS tt ON (transactions.id = tt.transaction_id)
-
-          # Get 'last_message_at' and 'last_message_content'
-          # (this is done by joining the messages table to itself where created_at < created_at)
-          LEFT JOIN (
-            SELECT m1.conversation_id, m1.created_at as last_message_at, m1.content as last_message_content
-            FROM messages m1
-            LEFT JOIN messages m2 ON m1.conversation_id = m2.conversation_id AND (m1.created_at < m2.created_at OR m1.id < m2.id)
-            WHERE m2.id IS NULL
-          ) AS m ON (conversations.id = m.conversation_id)
 
           # Where person and community
           WHERE conversations.community_id = #{params[:community_id]}
@@ -298,6 +324,18 @@ module MarketplaceService
           # Pagination
           LIMIT #{params[:limit]} OFFSET #{params[:offset]}
         "
+      }
+
+      @construct_last_message_content_sql = ->(params){
+      "
+        SELECT conversation_id, content, created_at FROM messages WHERE conversation_id in (#{params[:conversation_ids].join(',')})
+      "
+      }
+
+      @construct_last_transition_to_sql = ->(params){
+      "
+        SELECT transaction_id, to_state, created_at FROM transaction_transitions WHERE transaction_id in (#{params[:transaction_ids].join(',')})
+      "
       }
 
       @construct_count_sql = ->(params) {
