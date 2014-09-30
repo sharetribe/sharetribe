@@ -16,7 +16,7 @@ nb:
       locked: "Brukeren din er låst."
       invalid: "Ugyldig e-post eller passord."
       invalid_token: "Ugyldig aktiveringskode."
-      timeout: "Økten har løpt ut, logg inn igjen for å fortsette."
+      timeout: "Økten har løpt ut, vennligst logg inn igjen for å fortsette."
       inactive: "Brukeren din er ikke aktivert ennå."
     passwords:
       updated_not_active: "Endring av passord var vellykket."
@@ -24,7 +24,7 @@ nb:
       send_instructions: "Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt på noen få minutter."
       updated: "Endring av passord var vellykket. Du er nå innlogget."
     sessions:
-      signed_in: "Innlogging var vellykka."
+      signed_in: "Innlogging var vellykket."
       signed_out: "Utlogginga var vellykket."
     confirmations:
       send_paranoid_instructions: "Hvis e-post finnes på vår database, vil du motta en e-post med instruksjoner om hvordan du bekrefter kontoen din i løpet av få minutter."

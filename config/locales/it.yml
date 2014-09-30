@@ -196,7 +196,7 @@ it:
         master_merchant_id: ~
         commission_from_seller: ~
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: "conto per il pagamento con PayPal"
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -270,13 +270,13 @@ it:
         edit_news_item: Modifica
         delete_news_item: Cancella
     paypal_accounts:
-      marketplace_paypal_integration: ~
+      marketplace_paypal_integration: "Integrazione PayPal"
       new:
-        integration_info_text: ~
-        paypal_account_email: ~
+        integration_info_text: "Per ricevere i soldi devi connettere il conto PayPal del tuo business con %{service_name}."
+        paypal_account_email: "Connetti il conto PayPal del tuo business"
       show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
+        integration_info_text: "Per ricevere i soldi devi connettere il conto PayPal del tuo business con %{service_name}."
+        paypal_account_email_connected: "Conto PayPal connesso"
     polls:
       index:
         polls: Sondaggi
@@ -1487,6 +1487,7 @@ it:
       invalid_invitation_code: "Questo codice di invito non è valido."
       invitation_code: "Codice di invito"
       not_required: ", non richiesto"
+      organization_name: ~
       password_again: "Conferma password"
       show_my_name_to_others: "Mostra il mio vero nome agli altri utenti di %{service_name}"
       sign_up: "Crea un nuovo account per %{service_name}"
