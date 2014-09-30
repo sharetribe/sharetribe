@@ -289,7 +289,8 @@ CREATE TABLE `conversations` (
   `last_message_at` datetime DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_conversations_on_listing_id` (`listing_id`)
+  KEY `index_conversations_on_listing_id` (`listing_id`),
+  KEY `index_conversations_on_community_id` (`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `country_managers` (
@@ -516,7 +517,8 @@ CREATE TABLE `listings` (
   KEY `index_listings_on_open` (`open`),
   KEY `index_listings_on_visibility` (`visibility`),
   KEY `index_listings_on_category_id` (`old_category_id`),
-  KEY `index_listings_on_share_type_id` (`share_type_id`)
+  KEY `index_listings_on_share_type_id` (`share_type_id`),
+  KEY `index_listings_on_transaction_type_id` (`transaction_type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `locations` (
@@ -787,7 +789,9 @@ CREATE TABLE `testimonials` (
   `updated_at` datetime DEFAULT NULL,
   `receiver_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_testimonials_on_receiver_id` (`receiver_id`)
+  KEY `index_testimonials_on_receiver_id` (`receiver_id`),
+  KEY `index_testimonials_on_transaction_id` (`transaction_id`),
+  KEY `index_testimonials_on_author_id` (`author_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `transaction_transitions` (
@@ -844,7 +848,10 @@ CREATE TABLE `transactions` (
   `updated_at` datetime NOT NULL,
   `starter_skipped_feedback` tinyint(1) DEFAULT '0',
   `author_skipped_feedback` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `index_transactions_on_listing_id` (`listing_id`),
+  KEY `index_transactions_on_conversation_id` (`conversation_id`),
+  KEY `index_transactions_on_community_id` (`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
@@ -1848,6 +1855,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140929064160');
 INSERT INTO schema_migrations (version) VALUES ('20140929064170');
 
 INSERT INTO schema_migrations (version) VALUES ('20140929064180');
+
+INSERT INTO schema_migrations (version) VALUES ('20140929064185');
 
 INSERT INTO schema_migrations (version) VALUES ('20140929064190');
 

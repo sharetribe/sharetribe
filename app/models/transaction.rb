@@ -12,6 +12,13 @@
 #  updated_at                        :datetime         not null
 #  starter_skipped_feedback          :boolean          default(FALSE)
 #  author_skipped_feedback           :boolean          default(FALSE)
+#  last_activity_at                  :datetime
+#
+# Indexes
+#
+#  index_transactions_on_community_id     (community_id)
+#  index_transactions_on_conversation_id  (conversation_id)
+#  index_transactions_on_listing_id       (listing_id)
 #
 
 class Transaction < ActiveRecord::Base

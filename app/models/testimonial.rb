@@ -14,7 +14,9 @@
 #
 # Indexes
 #
-#  index_testimonials_on_receiver_id  (receiver_id)
+#  index_testimonials_on_author_id       (author_id)
+#  index_testimonials_on_receiver_id     (receiver_id)
+#  index_testimonials_on_transaction_id  (transaction_id)
 #
 
 class Testimonial < ActiveRecord::Base
