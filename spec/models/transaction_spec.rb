@@ -12,7 +12,7 @@
 #  updated_at                        :datetime         not null
 #  starter_skipped_feedback          :boolean          default(FALSE)
 #  author_skipped_feedback           :boolean          default(FALSE)
-#  last_activity_at                  :datetime
+#  last_transition_at                :datetime
 #
 # Indexes
 #
