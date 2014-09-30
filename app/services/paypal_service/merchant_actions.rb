@@ -3,6 +3,9 @@ module PaypalService
 
     module_function
 
+    # Convert between a Money instance and corresponding Paypal API presentation
+    # pp API present amounts as hash-like objects, e.g. : { value: "17.12", currencyID: "EUR" }
+
     def from_money(m)
       { value: m.to_s, currencyID: m.currency.iso_code }
     end
@@ -10,6 +13,7 @@ module PaypalService
     def to_money(pp_amount)
       pp_amount.value.to_money(pp_amount.currency_id)
     end
+
 
     MERCHANT_ACTIONS = {
       setup_billing_agreement: PaypalAction.def_action(
