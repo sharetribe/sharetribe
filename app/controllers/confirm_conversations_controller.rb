@@ -28,8 +28,8 @@ class ConfirmConversationsController < ApplicationController
   def confirmation
     status = params[:transaction][:status]
 
-    if @listing_conversation.can_transition_to? status
-      @listing_conversation.transition_to! status
+    if MarketplaceService::Transaction::Query.can_transition_to?(@listing_conversation.id, status)
+      MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, status)
       MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
 
       if(params[:message])

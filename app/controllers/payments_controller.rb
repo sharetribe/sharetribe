@@ -42,7 +42,7 @@ class PaymentsController < ApplicationController
       flash[:error] = t("layouts.notifications.error_in_payment")
     elsif check[:status] == "paid"
       @payment.paid!
-      @payment.transaction.transition_to!("paid")
+      MarketplaceService::Transaction::Command.transition_to(@payment.transaction.id, "paid")
       @payment_gateway.handle_paid_payment(@payment)
       flash[:notice] = check[:notice]
     else # not yet paid

@@ -111,6 +111,12 @@ module MarketplaceService
           .where("person_id = '#{person_id}'")
           .update_all(is_read: true)
       end
+
+      def transition_to(transaction_id, new_status)
+        transaction = TransactionModel.find(transaction_id)
+        transaction.state_machine.transition_to!(new_status)
+        transaction.touch(:last_transition_at)
+      end
     end
 
     module Query
@@ -151,6 +157,10 @@ module MarketplaceService
 
       def transactions_count_for_community(community_id)
         TransactionModel.where(:community_id => community_id).count
+      end
+
+      def can_transition_to?(transaction_id, new_status)
+        TransactionModel.find(transaction_id).state_machine.can_transition_to?(new_status)
       end
 
       def sql_for_transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)

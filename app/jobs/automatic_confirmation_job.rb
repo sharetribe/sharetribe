@@ -15,8 +15,8 @@ class AutomaticConfirmationJob < Struct.new(:conversation_id, :current_user_id, 
     transaction = Transaction.find(conversation_id)
     user = Person.find(current_user_id)
 
-    if transaction.can_transition_to?(:confirmed)
-      transaction.transition_to! :confirmed
+    if MarketplaceService::Transaction::Query.can_transition_to?(transaction.id, :confirmed)
+      MarketplaceService::Transaction::Command.transition_to(transaction.id, :confirmed)
       Delayed::Job.enqueue(TransactionAutomaticallyConfirmedJob.new(transaction.id, community.id)) # sent to requester
     end
   end

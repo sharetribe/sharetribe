@@ -28,7 +28,7 @@ class BraintreePaymentsController < ApplicationController
 
     recipient = payment.recipient
     if result.success?
-      @conversation.status = "paid"
+      MarketplaceService::Transaction::Command.transition_to(@conversation.id, "paid")
       redirect_to person_transaction_path(:id => params[:message_id])
     else
       flash[:error] = result.message
