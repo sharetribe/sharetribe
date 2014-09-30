@@ -56,26 +56,6 @@ class Transaction < ActiveRecord::Base
         @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
   end
 
-  # TODO Remove this! Raise the expection to identify all the placed where this method is called.
-  def status=(new_status)
-    raise("Status is not in use. Please use MarketplaceService::Transaction to change status")
-  end
-
-  # TODO Remove this! Raise the expection to identify all the placed where this method is called.
-  def status=(new_status)
-    raise("status= is not in use. Please use MarketplaceService::Transaction to change status")
-  end
-
-  # TODO Remove this! Raise the expection to identify all the placed where this method is called.
-  def transition_to!(*)
-    raise("transition_to! is not in use. Please use MarketplaceService::Transaction to change status")
-  end
-
-  # TODO Remove this! Raise the expection to identify all the placed where this method is called.
-  def transition_to(*)
-    raise("transition_to is not in use. Please use MarketplaceService::Transaction to change status")
-  end
-
   def status
     state_machine.current_state
   end
