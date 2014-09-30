@@ -848,7 +848,7 @@ CREATE TABLE `transactions` (
   `updated_at` datetime NOT NULL,
   `starter_skipped_feedback` tinyint(1) DEFAULT '0',
   `author_skipped_feedback` tinyint(1) DEFAULT '0',
-  `last_activity_at` datetime DEFAULT NULL,
+  `last_transition_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_transactions_on_listing_id` (`listing_id`),
   KEY `index_transactions_on_conversation_id` (`conversation_id`),
