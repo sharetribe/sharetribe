@@ -1,7 +1,7 @@
 class MoveLastTransitionDataToTransactions < ActiveRecord::Migration
   def up
     execute(<<-EOQ)
-      # Get 'last_transition_at' and 'last_transition_to_state'
+      # Get 'last_transition_at'
       # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
       UPDATE transactions t
       INNER JOIN (
