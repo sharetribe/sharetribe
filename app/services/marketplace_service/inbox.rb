@@ -206,8 +206,7 @@ module MarketplaceService
           transitions: transitions,
           should_notify: should_notify,
           last_transition_to_state: transition_to,
-          last_transition_at: transition_at,
-          waiting_feedback: false #FIX ME
+          last_transition_at: transition_at
         )
       end
 
