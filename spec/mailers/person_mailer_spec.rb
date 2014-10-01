@@ -65,6 +65,7 @@ describe PersonMailer do
 
     it "should send email about an accepted offer or request" do
       transaction.transaction_transitions = [FactoryGirl.create(:transaction_transition, to_state: "accepted")]
+      transaction.current_state = "accepted"
       transaction.save!
       transaction.reload
       email = PersonMailer.conversation_status_changed(transaction, community).deliver
@@ -75,6 +76,7 @@ describe PersonMailer do
 
     it "should send email about a rejected offer or request" do
       transaction.transaction_transitions = [FactoryGirl.create(:transaction_transition, to_state: "rejected")]
+      transaction.current_state = "rejected"
       transaction.save!
       transaction.reload
       email = PersonMailer.conversation_status_changed(transaction, community).deliver
