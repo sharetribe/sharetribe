@@ -109,18 +109,20 @@ module MarketplaceService
         connection = ActiveRecord::Base.connection
 
         message_sql = SQLUtils.ar_quote(connection, @construct_last_message_content_sql, conversation_ids: conversation_ids)
-        connection.execute(message_sql).reduce({}) { |memo, (conversation_id, content, created_at)|
-          _, memo_at = memo[conversation_id]
-          if( memo_at.nil? || memo_at < created_at)
-            memo[conversation_id] = [content, created_at]
+        latest_messages = connection.execute(message_sql).reduce({}) { |memo, (id, conversation_id, content, created_at)|
+          _, memo_id, memo_at = memo[conversation_id]
+          if( memo_at.nil? || memo_at < created_at || memo_id < id)
+            memo[conversation_id] = [content, id, created_at]
           end
           memo
         }
+
+        HashUtils.map_values(latest_messages) { |(content, _, at)| [content, at] }
       end
 
       @construct_last_message_content_sql = ->(params){
         "
-          SELECT conversation_id, content, created_at FROM messages WHERE conversation_id in (#{params[:conversation_ids].join(',')})
+          SELECT id, conversation_id, content, created_at FROM messages WHERE conversation_id in (#{params[:conversation_ids].join(',')})
         "
       }
     end

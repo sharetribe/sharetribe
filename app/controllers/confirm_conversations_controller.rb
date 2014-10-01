@@ -44,7 +44,7 @@ class ConfirmConversationsController < ApplicationController
       confirmation = ConfirmConversation.new(@listing_conversation, @current_user, @current_community)
       confirmation.update_participation(give_feedback)
 
-      flash[:notice] = t("layouts.notifications.#{@listing_conversation.listing.direction}_#{@listing_conversation.status}")
+      flash[:notice] = t("layouts.notifications.#{@listing_conversation.listing.direction}_#{status}")
 
       redirect_path = if give_feedback
         new_person_message_feedback_path(:person_id => @current_user.id, :message_id => @listing_conversation.id)
