@@ -118,37 +118,26 @@ module MarketplaceService
         result_set = connection.execute(sql).each(as: :hash).map { |row| HashUtils.symbolize_keys(row) }
 
         people_ids = HashUtils.pluck(result_set, :current_id, :other_id).uniq
-        people_cache = MarketplaceService::Person::Query.people(people_ids)
+        people_store = MarketplaceService::Person::Query.people(people_ids)
 
         last_message_conv_ids, last_transition_transaction_ids = reduce_transaction_and_conv_ids(result_set)
-
-        message_sql = SQLUtils.ar_quote(connection, @construct_last_message_content_sql, conversation_ids: last_message_conv_ids)
-        message_store = connection.execute(message_sql)
-
-        last_messages = message_store.reduce({}) { |memo, (conversation_id, content, created_at)|
-          _, memo_at = memo[conversation_id]
-          if( memo_at.nil? || memo_at < created_at)
-            memo[conversation_id] = [content, created_at]
-          end
-          memo
-        }
-
-        transition_sql = SQLUtils.ar_quote(connection, @construct_last_transition_to_sql, transaction_ids: last_transition_transaction_ids)
-        transition_store = connection.execute(transition_sql)
-
-        last_transitions = transition_store.reduce({}) { |memo, (transaction_id, transition_to, created_at)|
-          _, memo_at = memo[transaction_id]
-          if(memo_at.nil? || (memo_at < created_at) )
-            memo[transaction_id] = [transition_to, created_at]
-          end
-          memo
-        }
+        message_store = MarketplaceService::Conversation::Query.latest_messages_for_conversations(last_message_conv_ids)
+        transition_store = MarketplaceService::Transaction::Query.latest_transition_for_transaction(last_transition_transaction_ids)
 
         result_set.map do |result|
           if result[:transaction_id].present?
-            InboxTransaction[extend_transaction(extend_people(result, people_cache), last_messages[result[:conversation_id]],last_transitions[result[:transaction_id]])]
+            InboxTransaction[
+              extend_transaction(
+                extend_common(result, people_store, message_store),
+                transition_store
+              )
+            ]
           else
-            InboxConvesation[extend_conversation(extend_people(result, people_cache), last_messages[result[:conversation_id]])]
+            InboxConvesation[
+              extend_conversation(
+                extend_common(result, people_store, message_store)
+              )
+            ]
           end
         end
       end
@@ -156,13 +145,13 @@ module MarketplaceService
       def reduce_transaction_and_conv_ids(result_set)
         result_set.reduce([[],[]]) { |(last_message_memo, last_transition_memo), row|
           if row[:last_message_at].nil?
-            last_transition_memo << row[:conversation_id]
+            last_transition_memo << row[:transaction_id]
           elsif row[:last_transition_at].nil?
             last_message_memo << row[:conversation_id]
           elsif (row[:last_message_at] > row[:last_transition_at])
             last_message_memo << row[:conversation_id]
           else
-            last_transition_memo << row[:conversation_id]
+            last_transition_memo << row[:transaction_id]
           end
           [last_message_memo, last_transition_memo]
         }
@@ -178,30 +167,34 @@ module MarketplaceService
         connection.select_value(sql)
       end
 
-      def extend_people(common, people)
+      def extend_common(common, people, message_store)
         current_id = common[:current_id]
         other_id   = common[:other_id]
         starter_id = common[:current_is_starter] ? common[:current_id] : common[:other_id]
 
+        content, message_at = message_store[common[:conversation_id]]
+
         common.merge(
           starter: people[starter_id],
           other: people[other_id],
-          current: people[current_id]
-        )
-      end
-
-      def extend_conversation(conversation, (content, created_at))
-        conversation.merge(
-          should_notify: !@tiny_int_to_bool.call(conversation[:current_is_read]),
+          current: people[current_id],
           last_message_content: content,
-          last_message_at: created_at
+          last_message_at: message_at
         )
       end
 
-      def extend_transaction(transaction, (content, conv_created_at), (transition_to, trans_created_at))
+      def extend_conversation(conversation)
+        conversation.merge(
+          should_notify: !@tiny_int_to_bool.call(conversation[:current_is_read])
+        )
+      end
+
+      def extend_transaction(transaction, transition_store)
         transitions = TransactionTransition.where(transaction_id: transaction[:transaction_id]).map do |transition_model|
           MarketplaceService::Transaction::Entity::Transition[EntityUtils.model_to_hash(transition_model)]
         end
+
+        transition_to, transition_at = transition_store[transaction[:transaction_id]]
 
         should_notify =
           !@tiny_int_to_bool.call(transaction[:current_is_read]) ||
@@ -213,9 +206,8 @@ module MarketplaceService
           transitions: transitions,
           should_notify: should_notify,
           last_transition_to_state: transition_to,
-          last_transition_at: trans_created_at,
-          last_message_content: content,
-          last_message_at: conv_created_at
+          last_transition_at: transition_at,
+          waiting_feedback: false #FIX ME
         )
       end
 
@@ -324,18 +316,6 @@ module MarketplaceService
           # Pagination
           LIMIT #{params[:limit]} OFFSET #{params[:offset]}
         "
-      }
-
-      @construct_last_message_content_sql = ->(params){
-      "
-        SELECT conversation_id, content, created_at FROM messages WHERE conversation_id in (#{params[:conversation_ids].join(',')})
-      "
-      }
-
-      @construct_last_transition_to_sql = ->(params){
-      "
-        SELECT transaction_id, to_state, created_at FROM transaction_transitions WHERE transaction_id in (#{params[:transaction_ids].join(',')})
-      "
       }
 
       @construct_count_sql = ->(params) {

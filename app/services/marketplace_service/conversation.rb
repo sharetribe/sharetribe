@@ -23,7 +23,6 @@ module MarketplaceService
       )
 
       TransactionEntity = MarketplaceService::Transaction::Entity
-      Listing = TransactionEntity::Listing
       Transaction = TransactionEntity::Transaction
       Transition = TransactionEntity::Transition
       Testimonial = TransactionEntity::Testimonial
@@ -103,6 +102,27 @@ module MarketplaceService
           .where( { participations: { person_id: person_id }} )
           .where(community_id: community_id)
       end
+
+      def latest_messages_for_conversations(conversation_ids)
+        return [] if conversation_ids.empty?
+
+        connection = ActiveRecord::Base.connection
+
+        message_sql = SQLUtils.ar_quote(connection, @construct_last_message_content_sql, conversation_ids: conversation_ids)
+        connection.execute(message_sql).reduce({}) { |memo, (conversation_id, content, created_at)|
+          _, memo_at = memo[conversation_id]
+          if( memo_at.nil? || memo_at < created_at)
+            memo[conversation_id] = [content, created_at]
+          end
+          memo
+        }
+      end
+
+      @construct_last_message_content_sql = ->(params){
+        "
+          SELECT conversation_id, content, created_at FROM messages WHERE conversation_id in (#{params[:conversation_ids].join(',')})
+        "
+      }
     end
   end
 end
