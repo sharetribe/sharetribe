@@ -108,11 +108,13 @@ module MarketplaceService
 
       def query_inbox_data(person_id, community_id, limit, offset)
         connection = ActiveRecord::Base.connection
+        conversation_ids = Participation.where(person_id: person_id).pluck(:conversation_id)
         sql = SQLUtils.ar_quote(connection, @construct_sql,
           person_id: person_id,
           community_id: community_id,
           limit: limit,
-          offset: offset
+          offset: offset,
+          conversation_ids: conversation_ids
         )
 
         result_set = connection.execute(sql).each(as: :hash).map { |row| HashUtils.symbolize_keys(row) }
@@ -298,7 +300,7 @@ module MarketplaceService
 
           # Where person and community
           WHERE conversations.community_id = #{params[:community_id]}
-          AND ((current_participation.person_id = #{params[:person_id]}) OR (other_participation.person_id = #{params[:person_id]}))
+          AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
           # Order by 'last_activity_at', that is last message or last transition
           ORDER BY last_activity_at DESC
