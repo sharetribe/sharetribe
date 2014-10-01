@@ -849,6 +849,7 @@ CREATE TABLE `transactions` (
   `starter_skipped_feedback` tinyint(1) DEFAULT '0',
   `author_skipped_feedback` tinyint(1) DEFAULT '0',
   `last_transition_at` datetime DEFAULT NULL,
+  `current_state` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_transactions_on_listing_id` (`listing_id`),
   KEY `index_transactions_on_conversation_id` (`conversation_id`),
@@ -1866,3 +1867,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140929064200');
 INSERT INTO schema_migrations (version) VALUES ('20140930074731');
 
 INSERT INTO schema_migrations (version) VALUES ('20140930083026');
+
+INSERT INTO schema_migrations (version) VALUES ('20141001065955');
