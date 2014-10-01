@@ -17,9 +17,10 @@
 #
 # Indexes
 #
-#  index_transactions_on_community_id     (community_id)
-#  index_transactions_on_conversation_id  (conversation_id)
-#  index_transactions_on_listing_id       (listing_id)
+#  index_transactions_on_community_id        (community_id)
+#  index_transactions_on_conversation_id     (conversation_id)
+#  index_transactions_on_last_transition_at  (last_transition_at)
+#  index_transactions_on_listing_id          (listing_id)
 #
 
 class Transaction < ActiveRecord::Base

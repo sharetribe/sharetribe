@@ -12,8 +12,9 @@
 #
 # Indexes
 #
-#  index_conversations_on_community_id  (community_id)
-#  index_conversations_on_listing_id    (listing_id)
+#  index_conversations_on_community_id     (community_id)
+#  index_conversations_on_last_message_at  (last_message_at)
+#  index_conversations_on_listing_id       (listing_id)
 #
 
 class Conversation < ActiveRecord::Base

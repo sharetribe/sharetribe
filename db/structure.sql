@@ -290,7 +290,8 @@ CREATE TABLE `conversations` (
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_conversations_on_listing_id` (`listing_id`),
-  KEY `index_conversations_on_community_id` (`community_id`)
+  KEY `index_conversations_on_community_id` (`community_id`),
+  KEY `index_conversations_on_last_message_at` (`last_message_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `country_managers` (
@@ -839,7 +840,7 @@ CREATE TABLE `transaction_types` (
 
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `starter_id` varchar(255) NOT NULL,
+  `starter_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `listing_id` int(11) NOT NULL,
   `conversation_id` int(11) DEFAULT NULL,
   `automatic_confirmation_after_days` int(11) DEFAULT NULL,
@@ -849,12 +850,13 @@ CREATE TABLE `transactions` (
   `starter_skipped_feedback` tinyint(1) DEFAULT '0',
   `author_skipped_feedback` tinyint(1) DEFAULT '0',
   `last_transition_at` datetime DEFAULT NULL,
-  `current_state` varchar(255) DEFAULT NULL,
+  `current_state` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_transactions_on_listing_id` (`listing_id`),
   KEY `index_transactions_on_conversation_id` (`conversation_id`),
-  KEY `index_transactions_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `index_transactions_on_community_id` (`community_id`),
+  KEY `index_transactions_on_last_transition_at` (`last_transition_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
@@ -1842,27 +1844,27 @@ INSERT INTO schema_migrations (version) VALUES ('20140925111706');
 
 INSERT INTO schema_migrations (version) VALUES ('20140925112419');
 
-INSERT INTO schema_migrations (version) VALUES ('20140929064120');
-
-INSERT INTO schema_migrations (version) VALUES ('20140929064130');
-
-INSERT INTO schema_migrations (version) VALUES ('20140929064140');
-
-INSERT INTO schema_migrations (version) VALUES ('20140929064150');
-
-INSERT INTO schema_migrations (version) VALUES ('20140929064160');
-
-INSERT INTO schema_migrations (version) VALUES ('20140929064170');
-
-INSERT INTO schema_migrations (version) VALUES ('20140929064180');
-
-INSERT INTO schema_migrations (version) VALUES ('20140929064185');
-
-INSERT INTO schema_migrations (version) VALUES ('20140929064190');
-
-INSERT INTO schema_migrations (version) VALUES ('20140929064200');
-
 INSERT INTO schema_migrations (version) VALUES ('20140929090537');
+
+INSERT INTO schema_migrations (version) VALUES ('20140930064120');
+
+INSERT INTO schema_migrations (version) VALUES ('20140930064130');
+
+INSERT INTO schema_migrations (version) VALUES ('20140930064140');
+
+INSERT INTO schema_migrations (version) VALUES ('20140930064150');
+
+INSERT INTO schema_migrations (version) VALUES ('20140930064160');
+
+INSERT INTO schema_migrations (version) VALUES ('20140930064170');
+
+INSERT INTO schema_migrations (version) VALUES ('20140930064180');
+
+INSERT INTO schema_migrations (version) VALUES ('20140930064185');
+
+INSERT INTO schema_migrations (version) VALUES ('20140930064190');
+
+INSERT INTO schema_migrations (version) VALUES ('20140930064200');
 
 INSERT INTO schema_migrations (version) VALUES ('20140930074731');
 
@@ -1871,3 +1873,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140930083026');
 INSERT INTO schema_migrations (version) VALUES ('20141001065955');
 
 INSERT INTO schema_migrations (version) VALUES ('20141001070716');
+
+INSERT INTO schema_migrations (version) VALUES ('20141001113744');
