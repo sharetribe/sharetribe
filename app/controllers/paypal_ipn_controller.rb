@@ -9,7 +9,7 @@ class PaypalIpnController < ApplicationController
     api = paypal_merchant.build_api(nil)
 
     if api.ipn_valid?(request.raw_post)  # return true or false
-      binding.pry
+      # binding.pry
       # params contains the data
     end
 

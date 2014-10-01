@@ -65,7 +65,12 @@ default: &default_settings
   paypal_signature: xxxxxxxxxxxxx
   paypal_app_id: APP-80W284485P519543T # Global test id
   # Paypal environment to use. Either :sandbox or :live
-  paypal_endpoint: :sandbox
+  paypal_endpoint: sandbox
+  # The domain that we want Paypal to send IPN notifications to
+  # Note! You must also add the hook url for your production deployment
+  # manually to your production paypal account profile.
+  paypal_ipn_domain: 
+  paypal_ipn_protocol: https
 
   # If you want to force all use to be SSL secured (https://) you can set this to true
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
