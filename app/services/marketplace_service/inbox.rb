@@ -220,15 +220,6 @@ module MarketplaceService
           LEFT JOIN testimonials      ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = #{params[:person_id]})
           LEFT JOIN participations    ON (participations.conversation_id = conversations.id AND participations.person_id = #{params[:person_id]})
 
-          # Get 'transaction_id' and 'status'
-          # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
-          LEFT JOIN (
-            SELECT tt1.transaction_id, tt1.to_state AS status
-            FROM transaction_transitions tt1
-            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND (tt1.created_at < tt2.created_at OR tt1.sort_key < tt2.sort_key OR tt1.id < tt2.id)
-            WHERE tt2.id IS NULL
-          ) AS tt ON (transactions.id = tt.transaction_id)
-
           # Where person and community
           WHERE conversations.community_id = #{params[:community_id]}
           AND (participations.person_id = #{params[:person_id]})
@@ -241,11 +232,11 @@ module MarketplaceService
             (participations.is_read = FALSE) OR
 
             # Requires actions
-            ((tt.status = 'pending' OR tt.status = 'preauthorized') AND participations.is_starter = FALSE) OR
-            ((tt.status = 'accepted' OR tt.status = 'paid')         AND participations.is_starter = TRUE) OR
+            ((transactions.current_state = 'pending' OR transactions.current_state = 'preauthorized') AND participations.is_starter = FALSE) OR
+            ((transactions.current_state = 'accepted' OR transactions.current_state = 'paid')         AND participations.is_starter = TRUE) OR
 
             # Waiting feedback
-            ((tt.status = 'confirmed') AND (
+            ((transactions.current_state = 'confirmed') AND (
               (participations.is_starter = TRUE AND transactions.starter_skipped_feedback = FALSE AND testimonials.id IS NULL) OR
               (participations.is_starter = FALSE AND transactions.author_skipped_feedback = FALSE AND testimonials.id IS NULL)
             ))
@@ -283,19 +274,19 @@ module MarketplaceService
             transaction_types.type                            AS transaction_type,
 
             current_participation.is_read                     AS current_is_read,
-            current_participation.is_starter                  AS current_is_starter
+            current_participation.is_starter                  AS current_is_starter,
 
             # Requires actions
-            #(
-            #  ((tt.last_transition_to_state = 'pending' OR tt.last_transition_to_state = 'preauthorized') AND current_participation.is_starter = FALSE) OR
-            #  ((tt.last_transition_to_state = 'accepted' OR tt.last_transition_to_state = 'paid')         AND current_participation.is_starter = TRUE)
-            #)                                                 AS current_action_required,
+            (
+             ((transactions.current_state = 'pending' OR transactions.current_state = 'preauthorized') AND current_participation.is_starter = FALSE) OR
+             ((transactions.current_state = 'accepted' OR transactions.current_state = 'paid')         AND current_participation.is_starter = TRUE)
+            )                                                 AS current_action_required,
 
             # Waiting feedback
-            #((tt.last_transition_to_state = 'confirmed') AND (
-            #  (current_participation.is_starter = TRUE AND transactions.starter_skipped_feedback = FALSE AND testimonials.id IS NULL) OR
-            #  (current_participation.is_starter = FALSE AND transactions.author_skipped_feedback = FALSE AND testimonials.id IS NULL)
-            #))                                                AS waiting_feedback
+            ((transactions.current_state = 'confirmed') AND (
+             (current_participation.is_starter = TRUE AND transactions.starter_skipped_feedback = FALSE AND testimonials.id IS NULL) OR
+             (current_participation.is_starter = FALSE AND transactions.author_skipped_feedback = FALSE AND testimonials.id IS NULL)
+            ))                                                AS waiting_feedback
           FROM conversations
 
           LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
