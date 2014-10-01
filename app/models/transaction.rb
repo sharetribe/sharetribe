@@ -53,12 +53,8 @@ class Transaction < ActiveRecord::Base
     .where("listings.author_id = ? OR starter_id = ?", person.id, person.id)
   }
 
-  def state_machine
-        @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
-  end
-
   def status
-    state_machine.current_state
+    current_state
   end
 
   def payment_attributes=(attributes)

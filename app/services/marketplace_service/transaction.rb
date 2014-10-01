@@ -114,7 +114,11 @@ module MarketplaceService
 
       def transition_to(transaction_id, new_status)
         transaction = TransactionModel.find(transaction_id)
-        transaction.state_machine.transition_to!(new_status)
+        transaction.update_attributes({current_state: new_status})
+
+        state_machine = TransactionProcess.new(transaction, transition_class: TransactionTransition)
+        state_machine.transition_to!(new_status)
+
         transaction.touch(:last_transition_at)
       end
     end
@@ -160,7 +164,9 @@ module MarketplaceService
       end
 
       def can_transition_to?(transaction_id, new_status)
-        TransactionModel.find(transaction_id).state_machine.can_transition_to?(new_status)
+        transaction = TransactionModel.find(transaction_id)
+        state_machine = TransactionProcess.new(transaction, transition_class: TransactionTransition)
+        state_machine.can_transition_to?(new_status)
       end
 
       # TODO Consider removing to inbox service, since this is more like inbox than transaction stuff.
