@@ -13,7 +13,7 @@
 #  starter_skipped_feedback          :boolean          default(FALSE)
 #  author_skipped_feedback           :boolean          default(FALSE)
 #  last_transition_at                :datetime
-#  current_state                     :string(255)      not null
+#  current_state                     :string(255)
 #
 # Indexes
 #
