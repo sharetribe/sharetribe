@@ -144,15 +144,15 @@ module MarketplaceService
 
       def reduce_transaction_and_conv_ids(result_set)
         result_set.reduce([[],[]]) { |(last_message_memo, last_transition_memo), row|
-          if row[:last_message_at].nil?
-            last_transition_memo << row[:transaction_id]
-          elsif row[:last_transition_at].nil?
+
+          if row[:last_message_at].present?
             last_message_memo << row[:conversation_id]
-          elsif (row[:last_message_at] > row[:last_transition_at])
-            last_message_memo << row[:conversation_id]
-          else
+          end
+
+          if row[:last_transition_at].present?
             last_transition_memo << row[:transaction_id]
           end
+
           [last_message_memo, last_transition_memo]
         }
       end

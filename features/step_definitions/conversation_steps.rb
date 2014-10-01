@@ -36,12 +36,14 @@ Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |mes
   @transaction = create_transaction(@current_community, @listing, @people[sender], message)
   @conversation = @transaction.conversation
   MarketplaceService::Transaction::Command.transition_to(@transaction.id, "free")
+  @transaction.reload
 end
 
 Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
   @transaction = create_transaction(@current_community, @listing, @people[sender], message)
   @conversation = @transaction.conversation
   MarketplaceService::Transaction::Command.transition_to(@transaction.id, "pending")
+  @transaction.reload
 end
 
 Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|
@@ -97,6 +99,8 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
   else
     MarketplaceService::Transaction::Command.transition_to(@transaction.id, status.to_sym)
   end
+
+  @transaction.reload
 end
 
 When /^there is feedback about that event from "([^"]*)" with grade "([^"]*)" and with text "([^"]*)"$/ do |feedback_giver, grade, text|
