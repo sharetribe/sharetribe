@@ -54,7 +54,7 @@ describe EntityUtils do
         .to raise_error
   end
 
-  it "#define_builder :callabla validator" do
+  it "#define_builder :callable validator" do
     Entity = EntityUtils.define_builder([:say_so, :callable])
 
     expect{Entity.call({say_so: -> () { "Yes, that's the way it is." }})}
@@ -78,5 +78,13 @@ describe EntityUtils do
 
     expect{Entity.call({tags: 2})}
       .to raise_error
+  end
+
+  it "define builder :str_to_time transformer" do
+    expect(EntityUtils.define_builder([:time, :str_to_time]).call({time: "2004-12-12 13:00:05"}))
+      .to eq({time: Time.parse("2004-12-12 13:00:05") })
+
+    expect(EntityUtils.define_builder([:time, str_to_time: "%H:%M:%S %b %e, %Y %Z"]).call({time: "23:01:12 Sep 30, 2014 PDT"}))
+      .to eq({time: Time.strptime("23:01:12 Sep 30, 2014 PDT", "%H:%M:%S %b %e, %Y %Z") })
   end
 end
