@@ -15,7 +15,7 @@ class Admin::CustomFieldsController < ApplicationController
   def new
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
-    @custom_field = params[:field_type].constantize.new
+    @custom_field = params[:field_type].constantize.new #before filter checks valid field types and prevents code injection
 
     if params[:field_type] == "CheckboxField"
       @min_option_count = 1
@@ -34,7 +34,7 @@ class Admin::CustomFieldsController < ApplicationController
     params[:custom_field][:min] = ParamsService.parse_float(params[:custom_field][:min]) if params[:custom_field][:min].present?
     params[:custom_field][:max] = ParamsService.parse_float(params[:custom_field][:max]) if params[:custom_field][:max].present?
 
-    @custom_field = params[:field_type].constantize.new(params[:custom_field])
+    @custom_field = params[:field_type].constantize.new(params[:custom_field]) #before filter checks valid field types and prevents code injection
     @custom_field.community = @current_community
 
     success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
