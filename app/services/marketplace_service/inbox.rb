@@ -50,7 +50,7 @@ module MarketplaceService
         !(tiny_int.nil? || tiny_int == 0)
       }
 
-      common_spec = [
+      inbox_row_common_spec = [
         [:conversation_id, :fixnum, :mandatory],
         [:last_activity_at, :str_to_time, :mandatory],
         [:current_is_starter, :mandatory, transform_with: @tiny_int_to_bool],
@@ -91,8 +91,8 @@ module MarketplaceService
         [:transitions, :mandatory] # Could add Array validation
       ]
 
-      InboxConversation = EntityUtils.define_builder(*common_spec, *conversation_spec)
-      InboxTransaction = EntityUtils.define_builder(*common_spec, *conversation_spec, *transaction_spec)
+      InboxConversation = EntityUtils.define_builder(*inbox_row_common_spec, *conversation_spec)
+      InboxTransaction = EntityUtils.define_builder(*inbox_row_common_spec, *conversation_spec, *transaction_spec)
 
       module_function
 
