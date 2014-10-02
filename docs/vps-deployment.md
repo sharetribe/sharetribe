@@ -103,7 +103,7 @@ usermod -a -G deploy sphinxsearch //lets add sphinxsearch to deploy group in ord
 cd sharetribe/current
 
 RAILS_ENV=production bundle exec rake db:create
-RAILS_ENV=production bundle exec rake db:structure:load
+RAILS_ENV=production bundle exec rake db:schema:load
 RAILS_ENV=production bundle exec rails console
 
 c = Community.create(:name => "your_chosen_name_here", :domain => "your_chosen_subdomain_here")
