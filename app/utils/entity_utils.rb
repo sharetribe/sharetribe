@@ -98,7 +98,15 @@ module EntityUtils
     const_value: -> (const, v) { const },
     default: -> (default, v) { v.nil? ? default : v },
     to_bool: -> (_, v) { !!v },
-    str_to_time: -> (_, v) { v.is_a?(Time) ? v : Time.parse(v) },
+    str_to_time: -> (format, v) {
+      if v.is_a?(Time)
+        v
+      elsif format.nil?
+        Time.parse(v)
+      else
+        Time.strptime(v, format)
+      end
+    },
     transform_with: -> (transformer, v) { transformer.call(v) }
   }
 
