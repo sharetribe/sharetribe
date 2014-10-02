@@ -97,18 +97,24 @@ module MarketplaceService
       module_function
 
       def query_notification_count(person_id, community_id)
+        conversation_ids = Participation.where(person_id: person_id).pluck(:conversation_id)
+        return 0 if conversation_ids.empty?
+
         connection = ActiveRecord::Base.connection
         sql = SQLUtils.ar_quote(connection, @construct_notification_count_sql,
           person_id: person_id,
-          community_id: community_id
+          community_id: community_id,
+          conversation_ids: conversation_ids
         )
 
         connection.select_value(sql)
       end
 
       def query_inbox_data(person_id, community_id, limit, offset)
-        connection = ActiveRecord::Base.connection
         conversation_ids = Participation.where(person_id: person_id).pluck(:conversation_id)
+        return [] if conversation_ids.empty?
+
+        connection = ActiveRecord::Base.connection
         sql = SQLUtils.ar_quote(connection, @construct_sql,
           person_id: person_id,
           community_id: community_id,
@@ -158,10 +164,14 @@ module MarketplaceService
       end
 
       def query_inbox_data_count(person_id, community_id)
+        conversation_ids = Participation.where(person_id: person_id).pluck(:conversation_id)
+        return 0 if conversation_ids.empty?
+
         connection = ActiveRecord::Base.connection
         sql = SQLUtils.ar_quote(connection, @construct_inbox_row_count_sql,
           person_id: person_id,
-          community_id: community_id
+          community_id: community_id,
+          conversation_ids: conversation_ids
         )
 
         connection.select_value(sql)
@@ -218,7 +228,7 @@ module MarketplaceService
 
           # Where person and community
           WHERE conversations.community_id = #{params[:community_id]}
-          AND (participations.person_id = #{params[:person_id]})
+          AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
           # This is a bit complicated logic that is now moved from app to SQL.
           # I'm not complelety sure if it's a good or bad. However, since this query is called once per every page
@@ -311,12 +321,9 @@ module MarketplaceService
           SELECT COUNT(conversations.id)
           FROM conversations
 
-          LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = #{params[:person_id]})
-          LEFT JOIN participations    AS other_participation ON (other_participation.conversation_id = conversations.id AND other_participation.person_id != #{params[:person_id]})
-
           # Where person and community
           WHERE conversations.community_id = #{params[:community_id]}
-          AND ((current_participation.person_id = #{params[:person_id]}) OR (other_participation.person_id = #{params[:person_id]}))
+          AND conversations.id IN (#{params[:conversation_ids].join(',')})
         "
       }
     end
