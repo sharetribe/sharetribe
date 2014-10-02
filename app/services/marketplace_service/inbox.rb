@@ -91,7 +91,7 @@ module MarketplaceService
         [:transitions, :mandatory] # Could add Array validation
       ]
 
-      InboxConvesation = EntityUtils.define_builder(*common_spec, *conversation_spec, *conversation_spec)
+      InboxConversation = EntityUtils.define_builder(*common_spec, *conversation_spec)
       InboxTransaction = EntityUtils.define_builder(*common_spec, *conversation_spec, *transaction_spec)
 
       module_function
@@ -133,7 +133,7 @@ module MarketplaceService
               )
             ]
           else
-            InboxConvesation[
+            InboxConversation[
               extend_conversation(
                 extend_common(result, people_store, message_store)
               )
