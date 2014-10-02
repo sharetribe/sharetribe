@@ -186,25 +186,6 @@ module MarketplaceService
         "
       end
 
-      def latest_transition_for_transaction(transaction_ids)
-        return [] if transaction_ids.empty?
-
-        connection = ActiveRecord::Base.connection
-
-        transition_sql = SQLUtils.ar_quote(connection, @construct_last_transition_to_sql, transaction_ids: transaction_ids)
-        transition_store = connection.execute(transition_sql).each(as: :array)
-
-        last_transitions = transition_store.reduce({}) { |memo, (id, transaction_id, transition_to, created_at)|
-          _, memo_id, memo_at = memo[transaction_id]
-          if(memo_at.nil? || (memo_at < created_at || memo_id < id) )
-            memo[transaction_id] = [transition_to, id, created_at]
-          end
-          memo
-        }
-
-        HashUtils.map_values(last_transitions) { |(to, _, at)| [to, at] }
-      end
-
       @construct_last_transition_to_sql = ->(params){
       "
         SELECT id, transaction_id, to_state, created_at FROM transaction_transitions WHERE transaction_id in (#{params[:transaction_ids].join(',')})

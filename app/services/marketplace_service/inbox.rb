@@ -124,14 +124,12 @@ module MarketplaceService
 
         last_message_conv_ids, last_transition_transaction_ids = reduce_transaction_and_conv_ids(result_set)
         message_store = MarketplaceService::Conversation::Query.latest_messages_for_conversations(last_message_conv_ids)
-        transition_store = MarketplaceService::Transaction::Query.latest_transition_for_transaction(last_transition_transaction_ids)
 
         result_set.map do |result|
           if result[:transaction_id].present?
             InboxTransaction[
               extend_transaction(
-                extend_common(result, people_store, message_store),
-                transition_store
+                extend_common(result, people_store, message_store)
               )
             ]
           else
@@ -191,12 +189,10 @@ module MarketplaceService
         )
       end
 
-      def extend_transaction(transaction, transition_store)
+      def extend_transaction(transaction)
         transitions = TransactionTransition.where(transaction_id: transaction[:transaction_id]).map do |transition_model|
           MarketplaceService::Transaction::Entity::Transition[EntityUtils.model_to_hash(transition_model)]
         end
-
-        transition_to, transition_at = transition_store[transaction[:transaction_id]]
 
         should_notify =
           !@tiny_int_to_bool.call(transaction[:current_is_read]) ||
@@ -207,8 +203,7 @@ module MarketplaceService
           author: transaction[:other],
           transitions: transitions,
           should_notify: should_notify,
-          last_transition_to_state: transition_to,
-          last_transition_at: transition_at
+          last_transition_at: transaction[:last_transition_at]
         )
       end
 
@@ -260,6 +255,7 @@ module MarketplaceService
               COALESCE(conversations.last_message_at, 0))     AS last_activity_at,
 
             transactions.last_transition_at                   AS last_transition_at,
+            transactions.current_state                        AS last_transition_to_state,
             conversations.last_message_at                     AS last_message_at,
 
             listings.id                                       AS listing_id,
