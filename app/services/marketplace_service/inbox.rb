@@ -108,13 +108,12 @@ module MarketplaceService
 
       def query_inbox_data(person_id, community_id, limit, offset)
         connection = ActiveRecord::Base.connection
-        conversation_ids = Participation.where(person_id: person_id).pluck(:conversation_id)
+
         sql = SQLUtils.ar_quote(connection, @construct_sql,
           person_id: person_id,
           community_id: community_id,
           limit: limit,
-          offset: offset,
-          conversation_ids: conversation_ids
+          offset: offset
         )
 
         result_set = connection.execute(sql).each(as: :hash).map { |row| HashUtils.symbolize_keys(row) }
@@ -291,12 +290,13 @@ module MarketplaceService
           LEFT JOIN transaction_types ON listings.transaction_type_id = transaction_types.id
           LEFT JOIN payments          ON payments.transaction_id = transactions.id
           LEFT JOIN testimonials      ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = #{params[:person_id]})
+          LEFT JOIN participations    ON (participations.conversation_id = conversations.id AND participations.person_id = #{params[:person_id]})
           LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = #{params[:person_id]})
           LEFT JOIN participations    AS other_participation ON (other_participation.conversation_id = conversations.id AND other_participation.person_id != #{params[:person_id]})
 
           # Where person and community
           WHERE conversations.community_id = #{params[:community_id]}
-          AND conversations.id IN (#{params[:conversation_ids].join(',')})
+          AND participations.person_id = #{params[:person_id]}
 
           # Order by 'last_activity_at', that is last message or last transition
           ORDER BY last_activity_at DESC
@@ -311,12 +311,11 @@ module MarketplaceService
           SELECT COUNT(conversations.id)
           FROM conversations
 
-          LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = #{params[:person_id]})
-          LEFT JOIN participations    AS other_participation ON (other_participation.conversation_id = conversations.id AND other_participation.person_id != #{params[:person_id]})
+          LEFT JOIN participations ON (participations.conversation_id = conversations.id AND participations.person_id != #{params[:person_id]})
 
           # Where person and community
           WHERE conversations.community_id = #{params[:community_id]}
-          AND ((current_participation.person_id = #{params[:person_id]}) OR (other_participation.person_id = #{params[:person_id]}))
+          AND participations.person_id = #{params[:person_id]}
         "
       }
     end
