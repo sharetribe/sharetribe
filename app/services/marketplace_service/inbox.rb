@@ -161,7 +161,7 @@ module MarketplaceService
 
       def query_inbox_data_count(person_id, community_id)
         connection = ActiveRecord::Base.connection
-        sql = SQLUtils.ar_quote(connection, @construct_count_sql,
+        sql = SQLUtils.ar_quote(connection, @construct_inbox_row_count_sql,
           person_id: person_id,
           community_id: community_id
         )
@@ -310,7 +310,7 @@ module MarketplaceService
         "
       }
 
-      @construct_count_sql = ->(params) {
+      @construct_inbox_row_count_sql = ->(params) {
         "
           SELECT COUNT(conversations.id)
           FROM conversations
