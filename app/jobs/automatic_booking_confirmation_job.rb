@@ -1,4 +1,5 @@
 class AutomaticBookingConfirmationJob < Struct.new(:conversation_id, :current_user_id, :community_id)
+  # :conversation_id should be :transaction_id, but can not be easily migrated due to existing job descriptions in DB
 
   include DelayedAirbrakeNotification
 
@@ -12,11 +13,11 @@ class AutomaticBookingConfirmationJob < Struct.new(:conversation_id, :current_us
 
   def perform
     community = Community.find(community_id)
-    conversation = Conversation.find(conversation_id)
+    transaction = Transaction.find(conversation_id)
 
-    if conversation.can_be_confirmed?
-      conversation.update_attributes(:status => "confirmed")
-      PersonMailer.booking_transaction_automatically_confirmed(conversation, community).deliver
+    if MarketplaceService::Transaction::Query.can_transition_to?(transaction.id, :confirmed)
+      MarketplaceService::Transaction::Command.transition_to(transaction.id, :confirmed)
+      PersonMailer.booking_transaction_automatically_confirmed(transaction, community).deliver
     end
   end
 

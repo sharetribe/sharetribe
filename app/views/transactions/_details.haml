@@ -1,0 +1,24 @@
+- listing = transaction[:listing]
+
+.message-avatar-padding
+  .row
+    .col-12
+
+      %h2
+        = link_to listing[:title], transaction[:listing_url]
+
+      - Maybe(transaction)[:booking].each do |booking|
+        = render partial: "transactions/details/booking", locals: { booking: booking, price_per_day: listing[:price] }
+
+      = render partial: "transactions/details/sum_or_price", locals: { sum: transaction[:payment_sum], price: listing[:price], quantity: listing[:quantity], excludes_vat: @current_community.vat.present? }
+
+      - if transaction[:show_call_to_action]
+        -# Show Call to Action button for free conversations
+
+        = link_to transaction[:new_transaction_path], :class => "message-book-button" do
+          .content
+            = transaction[:action_button_label]
+
+      - else
+        %div{:id => "transaction_status"}
+          = render :partial => "transactions/status/status", :locals => { :__transaction_model => transaction[:__model] }

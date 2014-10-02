@@ -1,3 +1,4 @@
+# conversation_id should be transaction_id, but hard to migrate due to existing job descriptions in DB
 class PaymentReminderJob < Struct.new(:conversation_id, :recipient_id, :community_id)
 
   include DelayedAirbrakeNotification
@@ -11,10 +12,10 @@ class PaymentReminderJob < Struct.new(:conversation_id, :recipient_id, :communit
   end
 
   def perform
-    conversation = Conversation.find(conversation_id)
+    transaction = Transaction.find(conversation_id)
     community = Community.find(community_id)
-    if conversation.payment.status.eql?("pending")
-      PersonMailer.send("payment_reminder", conversation, conversation.payment.payer, community).deliver
+    if transaction.payment.status.eql?("pending")
+      PersonMailer.send("payment_reminder", transaction, transaction.payment.payer, community).deliver
     end
   end
 

@@ -1,0 +1,9 @@
+.conversation-status
+  - get_conversation_statuses(__transaction_model).each do |status|
+    - if status[:type] == :status_info
+      .inbox-horizontally-aligned-status
+        = render :partial => "transactions/status/status_text", :locals => { :status_info => status[:content]}
+    - else
+      .status-links
+        - status[:content].each do |status_link|
+          = render :partial => "transactions/status/status_link", :locals => { :conversation => __transaction_model, :status_link => status_link }

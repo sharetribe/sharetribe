@@ -1,31 +1,15 @@
-- me = message.sender == @current_user
-- avatar_side = me ? "left" : "right"
-- action_class = message.positive_action? ? "positive" : (message.negative_action? ? "negative" : "")
-- contents = []
+- avatar_side = message_or_action[:sender][:id] == @current_user.id ? "left" : "right"
 
-- if message.action.present?
-  - contents << capture do
-    %div{class: "message-bubble-arrow-to-#{avatar_side} message-action-#{action_class}"}
-      %div
-        - if message.action.eql?("pay")
-          %b= t(".paid", :sum => sum_with_currency(message.conversation.payment.total_sum, message.conversation.payment.currency))
-        - else
-          %b= t(".#{message.action}ed_#{message.conversation.discussion_type}")
+.row.message-row
+  .col-12.message-container
+    %div{class: "message-avatar-#{avatar_side}"}
+      = image_tag(message_or_action[:sender][:avatar], :class => "message-avatar-image")
+    %div{class: "message-content-container-#{avatar_side}"}
+      %div{class: "message-time-ago-#{avatar_side}"}
+        = link_to message_or_action[:sender][:name], message_or_action[:sender][:name]
+        = time_ago(message_or_action[:created_at])
 
-- if message.content.present?
-  - contents << capture do
-    %div{class: "message-bubble-arrow-to-#{avatar_side}"}
-      %div
-        - text_with_line_breaks do
-          = message.content
-
-- contents.each do |content|
-  .row.message-row
-    .col-12.message-container
-      %div{class: "message-avatar-#{avatar_side}"}
-        = small_avatar_thumb(message.sender, :class => "message-avatar-image")
-      %div{class: "message-content-container-#{avatar_side}"}
-        %div{class: "message-time-ago-#{avatar_side}"}
-          = link_to message.sender.name, message.sender
-          = time_ago(message.created_at)
-        = content
+      %div{class: "message-bubble-arrow-to-#{avatar_side} message-type-#{message_or_action[:type]} message-mood-#{message_or_action[:mood]}"}
+        %div
+          - text_with_line_breaks do
+            = message_or_action[:content]

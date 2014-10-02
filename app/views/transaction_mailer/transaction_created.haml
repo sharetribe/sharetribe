@@ -1,0 +1,7 @@
+%tr
+  %td{:align => "left"}
+    %font{body_font}
+
+      = t("emails.new_message.has_sent_you_a_message_in_kassi", :sender => sender_name)
+
+= render :partial => "person_mailer/action_button", :locals => { :text => t("emails.new_message.view_message"), :url => reply_url}

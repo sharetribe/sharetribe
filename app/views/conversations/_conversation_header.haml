@@ -1,0 +1,6 @@
+- content_for :title_header do
+  %h1
+    = link_to person_inbox_path(@current_user) do
+      = t("layouts.no_tribe.inbox")
+    |
+    = t("conversations.show.conversation_with", person: link_to(other_party[:name], other_party[:url])).html_safe

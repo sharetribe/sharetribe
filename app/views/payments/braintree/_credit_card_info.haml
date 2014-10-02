@@ -1,0 +1,18 @@
+= fields_for :braintree_payment, braintree_form do |form|
+  .row
+    .col-12
+      = form.text_field :cardholder_name, :class => :text_field, :placeholder => t("braintree_payments.edit.cardholder_name"), :data => { :'encrypted-name' => "braintree_payment[cardholder_name]" }
+
+  .row
+    .col-9
+      = form.text_field :credit_card_number, :class => :text_field, :placeholder => t("braintree_payments.edit.credit_card_number"), :data => { :'encrypted-name' => "braintree_payment[credit_card_number]"}
+
+    .col-3
+      = form.text_field :cvv, :class => :text_field, :maxlength => 4, :placeholder => t("braintree_payments.edit.cvv"), :data => { :'encrypted-name' => "braintree_payment[cvv]"}
+
+  .row
+    .col-12
+      = form.label :credit_card_expiration_month, t("braintree_payments.edit.exp"), :class => "preauthorize-exp"
+      = form.select(:credit_card_expiration_month, options_for_select(credit_card_expiration_month_options.map{|(show, value)| [show, value, {"data-encrypted-name" => "braintree_payment[credit_card_expiration_month]"}]}))
+      = " / "
+      = form.select(:credit_card_expiration_year, options_for_select(credit_card_expiration_year_options.map{|(show, value)| [show, value, {"data-encrypted-name" => "braintree_payment[credit_card_expiration_year]"}]}))

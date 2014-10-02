@@ -20,7 +20,9 @@ class FactoryGirl::DefinitionProxy
     # after_build is where you add instances to the factory-built collection.
     # Typically you'll want to Factory.build() these instances.
     after (:build) do |instance, evaluator|
-      count.times { instance.send(collection) << yield(instance, evaluator) } if instance.send(collection).empty?
+      if instance.send(collection).blank?
+        count.times { instance.send(collection) << yield(instance, evaluator) } if instance.send(collection).empty?
+      end
     end
 
     # after_create will be called after after_build if the build strategy is Factory.create()
@@ -100,12 +102,18 @@ FactoryGirl.define do
     end
   end
 
+  factory :transaction do
+    build_association(:person, as: :starter)
+    build_association(:listing)
+    build_association(:community)
+  end
+
   factory :conversation do
     title "Item offer: Sledgehammer"
     build_association(:community)
 
-    factory :listing_conversation, class: 'ListingConversation' do
-      build_association(:listing)
+    has_many(:messages, 0) do |conversation|
+      FactoryGirl.build(:message, conversation: conversation)
     end
 
     created_at DateTime.now
@@ -113,7 +121,7 @@ FactoryGirl.define do
   end
 
   factory :booking do
-    build_association(:listing_conversation, as: :conversation)
+    build_association(:transaction)
     start_on 1.day.from_now
     end_on 2.days.from_now
   end
@@ -133,7 +141,8 @@ FactoryGirl.define do
 
   factory :testimonial do
     build_association(:author)
-    build_association(:participation)
+    build_association(:receiver)
+    build_association(:transaction)
     grade 0.5
     text "Test text"
   end
@@ -311,11 +320,12 @@ FactoryGirl.define do
 
   factory :transaction_transition do
     to_state "not_started"
+    build_association(:transaction)
   end
 
   factory :payment do
     build_association(:community)
-    build_association(:conversation)
+    build_association(:transaction)
 
     factory :braintree_payment, class: 'BraintreePayment' do
       build_association(:payer)

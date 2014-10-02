@@ -26,6 +26,7 @@ class Message < ActiveRecord::Base
   validate :content_or_action_present
 
   # Message must always have either content, action or both
+  # TODO This can be removed, since we don't use message.action anymore
   def content_or_action_present
     errors.add(:base, "Message needs to have either action or content.") if content.blank? && action.blank?
   end

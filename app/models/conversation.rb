@@ -2,19 +2,19 @@
 #
 # Table name: conversations
 #
-#  id                                :integer          not null, primary key
-#  type                              :string(255)      default("Conversation")
-#  title                             :string(255)
-#  listing_id                        :integer
-#  created_at                        :datetime
-#  updated_at                        :datetime
-#  last_message_at                   :datetime
-#  automatic_confirmation_after_days :integer
-#  community_id                      :integer
+#  id              :integer          not null, primary key
+#  title           :string(255)
+#  listing_id      :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#  last_message_at :datetime
+#  community_id    :integer
 #
 # Indexes
 #
-#  index_conversations_on_listing_id  (listing_id)
+#  index_conversations_on_community_id     (community_id)
+#  index_conversations_on_last_message_at  (last_message_at)
+#  index_conversations_on_listing_id       (listing_id)
 #
 
 class Conversation < ActiveRecord::Base
@@ -23,18 +23,14 @@ class Conversation < ActiveRecord::Base
 
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
+  belongs_to :listing
+  has_one :transaction
   belongs_to :community
 
   scope :for_person, -> (person){
     joins(:participations)
     .where( { participations: { person_id: person }} )
   }
-
-  def self.notification_count_for_person(person)
-      for_person(person).includes(:participations).select do |conversation|
-        conversation.should_notify?(person)
-      end.count
-  end
 
   # Creates a new message to the conversation
   def message_attributes=(attributes)
@@ -76,10 +72,6 @@ class Conversation < ActiveRecord::Base
     )
   end
 
-  def should_notify?(user)
-    !read_by?(user)
-  end
-
   # Returns last received or sent message
   def last_message
     return messages.last
@@ -98,6 +90,8 @@ class Conversation < ActiveRecord::Base
   end
 
   # Send email notification to message receivers and returns the receivers
+  #
+  # TODO This should be removed. It's not model's resp to send emails.
   def send_email_to_participants(community)
     recipients(messages.last.sender).each do |recipient|
       if recipient.should_receive?("email_about_new_messages")
@@ -109,14 +103,6 @@ class Conversation < ActiveRecord::Base
   # Returns all the participants except the message sender
   def recipients(sender)
     participants.reject { |p| p.id == sender.id }
-  end
-
-  def update_is_read(current_user)
-    # TODO
-    # What does this actually do? What happens if requester.eql? current_user?
-    if offerer.eql?(current_user)
-      participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
-    end
   end
 
   def starter

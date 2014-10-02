@@ -673,7 +673,22 @@ function initialize_send_message_form(locale, message_type) {
   $(form_id).validate({
     rules: {
       "listing_conversation[title]": {required: true, minlength: 1, maxlength: 120},
-      "listing_conversation[message_attributes][content]": {required: true, minlength: 1}
+      "listing_conversation[content]": {required: true, minlength: 1}
+    },
+    submitHandler: function(form) {
+      disable_and_submit(form_id, form, "false", locale);
+      report_analytics_event(["message", "sent", message_type]);
+    }
+  });
+}
+
+function initialize_send_person_message_form(locale, message_type) {
+  auto_resize_text_areas("text_area");
+  $('textarea').focus();
+  var form_id = "#new_conversation";
+  $(form_id).validate({
+    rules: {
+      "conversation[message_attributes][content]": {required: true, minlength: 1}
     },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
@@ -1355,7 +1370,6 @@ function validateBraintreeForm(locale, beforeSubmit, opts) {
       "braintree_payment[cardholder_name]": {required: true, minlength: 2, maxlength: 50},
       "braintree_payment[credit_card_number]": {required: true, creditcard: true},
       "braintree_payment[cvv]": {required: true, digits: true, minlength: 3, maxlength: 4},
-      "braintree_payment[credit_card_expiration_date]": {required: true, minlength: 5}
     },
     submitHandler: function(form) {
       beforeSubmit(function() {
