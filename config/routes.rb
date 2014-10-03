@@ -54,10 +54,18 @@ Kassi::Application.routes.draw do
 
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
     match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
-    match "/listings/:listing_id/preauthorize" => "listing_conversations#preauthorize", :as => :preauthorize_payment
-    match "/listings/:listing_id/book" => "listing_conversations#book", :as => :book
-    match "/listings/:listing_id/reply" => "listing_conversations#new", :as => :reply_to_listing
-    match "/listings/:listing_id/contact" => "listing_conversations#contact", :as => :contact_to_listing
+
+    #braintree flow
+    match "/listings/:listing_id/braintree_preauthorize" => "braintree_transactions#preauthorize", :as => :braintree_preauthorize_payment
+    match "/listings/:listing_id/braintree_preauthorized" => "braintree_transactions#preauthorized", :as => :braintree_preauthorized_payment
+    match "/listings/:listing_id/braintree_book" => "braintree_transactions#book", :as => :braintree_book
+    match "/listings/:listing_id/braintree_booked" => "braintree_transactions#booked", :as => :braintree_booked
+
+    #free flow
+    match "/listings/:listing_id/reply" => "free_transactions#new", :as => :reply_to_listing
+    match "/listings/:listing_id/create_contact" => "free_transactions#create_contact", :as => :create_contact
+    match "/listings/:listing_id/contact" => "free_transactions#contact", :as => :contact_to_listing
+
     match "/listings/new/:type/:category" => "listings#new", :as => :new_request_category
     match "/listings/new/:type" => "listings#new", :as => :new_request
     match "/logout" => "sessions#destroy", :as => :logout, :method => :delete
@@ -251,13 +259,6 @@ Kassi::Application.routes.draw do
             put :close
             put :move_to_top
             put :show_in_updates_email
-          end
-          resources :listing_conversations do
-            collection do
-              post :create_contact
-              post :preauthorized
-              post :booked
-            end
           end
         end
         resources :person_messages

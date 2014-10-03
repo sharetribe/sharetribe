@@ -88,9 +88,9 @@ class ListingsController < ApplicationController
     form_path = if @listing.transaction_type.preauthorize_payment?
       # TODO This is copy-paste
       if @listing.transaction_type.price_per.present?
-        book_path(:listing_id => @listing.id.to_s)
+        braintree_book_path(:listing_id => @listing.id.to_s)
       else
-        preauthorize_payment_path(:listing_id => @listing.id.to_s)
+        braintree_preauthorize_payment_path(:listing_id => @listing.id.to_s)
       end
     else
       reply_to_listing_path(:listing_id => @listing.id.to_s)
