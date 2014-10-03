@@ -30,20 +30,25 @@ class FreeTransactionsController < ApplicationController
     if use_contact_view
       render "listing_conversations/contact", locals: {
         contact: false,
-        contact_form: @listing_conversation
+        contact_form: @listing_conversation,
+        create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
       }
     else
       render "listing_conversations/new_with_payment", locals: {
         contact_form: @listing_conversation,
+        contact_to_listing: contact_to_listing_path(:person_id => @current_user.id, :listing_id => @listing.id),
         listing: @listing
       }
     end
   end
 
-
   def contact
     @listing_conversation = new_contact_form
-    render "listing_conversations/contact", locals: {contact: true, contact_form: @listing_conversation}
+    render "listing_conversations/contact", locals: {
+      contact: true,
+      contact_form: @listing_conversation,
+      create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
+    }
   end
 
   def create
@@ -99,7 +104,7 @@ class FreeTransactionsController < ApplicationController
       transaction = Transaction.new({
         community_id: @current_community.id,
         listing_id: @listing.id,
-        starter_id: @current_user.id,
+        starter_id: @current_user.id
       });
 
       conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
