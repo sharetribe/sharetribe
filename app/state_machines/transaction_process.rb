@@ -3,6 +3,7 @@ class TransactionProcess
 
   state :not_started, initial: true
   state :free
+  state :initiated
   state :pending
   state :preauthorized
   state :accepted
@@ -11,7 +12,8 @@ class TransactionProcess
   state :confirmed
   state :canceled
 
-  transition from: :not_started,               to: [:free, :pending, :preauthorized]
+  transition from: :not_started,               to: [:free, :pending, :preauthorized, :initiated]
+  transition from: :initiated,                 to: [:preauthorized]
   transition from: :pending,                   to: [:accepted, :rejected]
   transition from: :preauthorized,             to: [:paid, :rejected]
   transition from: :accepted,                  to: [:paid, :canceled]
