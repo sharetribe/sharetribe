@@ -121,6 +121,11 @@ module MarketplaceService
         state_machine.transition_to!(new_status)
 
         transaction.touch(:last_transition_at)
+
+        case new_status
+          when "preauthorized"
+          Events.preauthorized(transaction)
+          end
       end
     end
 
@@ -191,6 +196,32 @@ module MarketplaceService
         SELECT id, transaction_id, to_state, created_at FROM transaction_transitions WHERE transaction_id in (#{params[:transaction_ids].join(',')})
       "
       }
+    end
+
+    module Events
+      module_function
+
+      def preauthorized(transaction)
+        expire_at = transaction.preauthorization_expire_at
+
+        Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction.id), :priority => 10)
+        Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(transaction.id), priority: 7, run_at: expire_at)
+
+        setup_preauthorize_reminder(transaction.id, expire_at)
+      end
+
+      # "private" helpers
+
+      def setup_preauthorize_reminder(transaction_id, expire_at)
+        reminder_days_before = 1
+
+        reminder_at = expire_at - reminder_days_before.day
+        send_reminder = reminder_at > DateTime.now
+
+        if send_reminder
+          Delayed::Job.enqueue(TransactionPreauthorizedReminderJob.new(transaction_id), :priority => 10, :run_at => reminder_at)
+        end
+      end
     end
   end
 end
