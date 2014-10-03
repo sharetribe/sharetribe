@@ -3,3 +3,8 @@ inherit_from: rubocop-todo.yml
 # Double negation is the most convenient way in Ruby to convert any value to boolean. Allow the use of it.
 DoubleNegation:
   Enabled: false
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'

@@ -7,7 +7,7 @@ if [ "$SUITE" = "rspec" ]
 then
 	cp config/database.example.yml config/database.yml
 	mysql -e 'create database sharetribe_test;'
-	mysql sharetribe_test < db/structure.sql
+	bundle exec rake db:test:load
 	exit
 elif [ "$SUITE" = "rubocop" ]
 then
@@ -16,7 +16,7 @@ elif [ "$SUITE" = "cucumber" ]
 then
 	cp config/database.example.yml config/database.yml
 	mysql -e 'create database sharetribe_test;'
-	mysql sharetribe_test < db/structure.sql
+	bundle exec rake db:test:load
 	exit
 elif [ "$SUITE" = "mocha" ]
 then
