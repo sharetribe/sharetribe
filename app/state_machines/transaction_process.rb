@@ -83,22 +83,6 @@ class TransactionProcess
     end
   end
 
-  after_transition(to: :preauthorized) do |transaction|
-    expire_at = transaction.preauthorization_expire_at
-    reminder_days_before = 1
-    reminder_at = expire_at - reminder_days_before.day
-    send_reminder = reminder_at > DateTime.now
-
-    payment = transaction.payment
-    payer = payment.payer
-
-    Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction.id), :priority => 10)
-    if send_reminder
-      Delayed::Job.enqueue(TransactionPreauthorizedReminderJob.new(transaction.id), :priority => 10, :run_at => reminder_at)
-    end
-    Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(transaction.id), priority: 7, run_at: expire_at)
-  end
-
   before_transition(from: :preauthorized, to: :paid) do |conversation|
     transaction_id = conversation.payment.braintree_transaction_id
 
