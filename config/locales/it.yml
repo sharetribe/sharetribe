@@ -54,7 +54,7 @@ it:
         edit_info: ~
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: ~
-        verification_to_post_listings_info_content_description: ~
+        verification_to_post_listings_info_content_description: "Questo marketplace richiede l'amministratore verifichi manualmente ogni persona prima che questa possa pubblicare un annuncio. Qui puoi impostare il testo predefinito che verrà mostrato agli utenti non verificati quando proveranno a pubblicare un nuovo annuncio."
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
         save: ~
@@ -556,6 +556,7 @@ it:
       cvv: ~
       credit_card_expiration_date: ~
       confirm_payment: ~
+      exp: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -708,7 +709,7 @@ it:
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      post_a_new_listing: ~
+      post_a_new_listing: "Inserisci un nuovo spazio!"
       reduce_email_footer_text: ~
       settings_link_text: ~
       unsubscribe_link_text: ~
@@ -884,7 +885,7 @@ it:
       is: è
       are: ~
       what_do_you_need: "Di cosa hai bisogno?"
-      post_new_listing: ~
+      post_new_listing: "Inserisci un nuovo spazio"
       are_offering: offerta
       add_news_item: "Aggiungi un articolo"
       inform_others_about_events: ~
@@ -1310,7 +1311,7 @@ it:
       booking_from: ~
       booking_to: ~
     new:
-      post_a_new_listing: ~
+      post_a_new_listing: "Inserisci un nuovo spazio"
       listing: ~
       selected_category: ~
       selected_subcategory: ~
@@ -1487,7 +1488,7 @@ it:
       invalid_invitation_code: "Questo codice di invito non è valido."
       invitation_code: "Codice di invito"
       not_required: ", non richiesto"
-      organization_name: ~
+      organization_name: "Nome attività"
       password_again: "Conferma password"
       show_my_name_to_others: "Mostra il mio vero nome agli altri utenti di %{service_name}"
       sign_up: "Crea un nuovo account per %{service_name}"
