@@ -37,7 +37,6 @@ class TransactionProcess
   after_transition(from: :accepted, to: :paid) do |transaction|
     payment = transaction.payment
     payer = payment.payer
-    transaction.conversation.messages.create(:sender_id => payer.id, :action => "pay")
   end
 
   after_transition(to: :paid) do |transaction|
@@ -92,7 +91,6 @@ class TransactionProcess
 
     payment = transaction.payment
     payer = payment.payer
-    transaction.conversation.messages.create(:sender_id => payer.id, :action => "pay")
 
     Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction.id), :priority => 10)
     if send_reminder
