@@ -1,5 +1,5 @@
 class CreatePaypalAccounts < ActiveRecord::Migration
-  def change
+  def up
     create_table :paypal_accounts do |t|
       t.string :person_id, null: false
       t.integer :community_id, null: false
