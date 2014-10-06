@@ -88,16 +88,12 @@ class ListingsController < ApplicationController
     form_path = if @listing.transaction_type.preauthorize_payment?
       # TODO This is copy-paste
       if @listing.transaction_type.price_per.present?
-        braintree_book_path(:listing_id => @listing.id.to_s)
+        book_path(:listing_id => @listing.id.to_s)
       else
-        braintree_preauthorize_payment_path(:listing_id => @listing.id.to_s)
+        preauthorize_payment_path(:listing_id => @listing.id.to_s)
       end
     else
-      if MarketplaceService::Community::Query.payment_type(@current_community.id) == :braintree
-        braintree_reply_to_listing_path(:listing_id => @listing.id.to_s)
-      else
-        reply_to_listing_path(:listing_id => @listing.id.to_s)
-      end
+      reply_to_listing_path(:listing_id => @listing.id.to_s)
     end
 
     render locals: {form_path: form_path}

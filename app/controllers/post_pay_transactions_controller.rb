@@ -1,4 +1,4 @@
-class FreeAndCheckoutTransactionsController < ApplicationController
+class PostPayTransactionsController < ApplicationController
   include PaypalService::MerchantInjector
 
   before_filter do |controller|

@@ -32,9 +32,9 @@ class TransactionsController < ApplicationController
     # Move to service
     transaction_type = TransactionType.find(transaction[:listing][:transaction_type_id])
     transaction[:new_transaction_path] = if transaction_type.price_per.present?
-      braintree_book_path(:listing_id => transaction[:listing][:id])
+      book_path(:listing_id => transaction[:listing][:id])
     else
-      braintree_preauthorize_payment_path(:listing_id => transaction[:listing][:id])
+      preauthorize_payment_path(:listing_id => transaction[:listing][:id])
     end
     transaction[:action_button_label] = transaction_type.action_button_label(I18n.locale)
 
