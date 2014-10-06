@@ -138,7 +138,7 @@ class Listing < ActiveRecord::Base
 
   # Filter out listings that current user cannot see
   def self.visible_to(current_user, current_community, ids=nil)
-    id_list = ids ? ids : Listing.joins(:communities).where(communities: {id: current_community.id }).pluck(:id)
+    id_list = ids ? ids : current_community.listings.pluck(:id)
     if current_user && current_user.member_of?(current_community)
       where("listings.id IN (?)", id_list)
     else
