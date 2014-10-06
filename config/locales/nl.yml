@@ -556,6 +556,7 @@ nl:
       cvv: ~
       credit_card_expiration_date: ~
       confirm_payment: ~
+      exp: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -1486,6 +1487,7 @@ nl:
       invalid_invitation_code: "Deze code is niet geldig"
       invitation_code: ~
       not_required: "niet vereist"
+      organization_name: ~
       password_again: "Bevestig wachtwoord:"
       show_my_name_to_others: ~
       sign_up: "Creeer een nieuw account in%{service_name}"

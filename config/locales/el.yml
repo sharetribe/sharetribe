@@ -556,6 +556,7 @@ el:
       cvv: CVV
       credit_card_expiration_date: "Ημερομηνία λήξης πιστωτικής κάρτας"
       confirm_payment: ~
+      exp: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -1488,6 +1489,7 @@ el:
       invalid_invitation_code: "Ο κωδικός της πρόσκλησης δεν είναι έγκυρος."
       invitation_code: "Κωδικός πρόσκλησης"
       not_required: ", δεν απαιτείται"
+      organization_name: ~
       password_again: Επιβεβαίωση
       show_my_name_to_others: "Να εμφανίζεται το πραγματικό μου όνομα στους άλλους χρήστες του %{service_name}"
       sign_up: "Δημιουργήστε λογαριασμό στο %{service_name}"

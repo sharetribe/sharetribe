@@ -211,7 +211,7 @@ fr:
         master_merchant_id: "Identifiant master marchand"
         commission_from_seller: "Commission (pourcentage) pour le vendeur"
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: "Compte de paiement PayPal"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -285,13 +285,13 @@ fr:
         edit_news_item: Editer
         delete_news_item: Supprimer
     paypal_accounts:
-      marketplace_paypal_integration: ~
+      marketplace_paypal_integration: "Intégration PayPal"
       new:
-        integration_info_text: ~
-        paypal_account_email: ~
+        integration_info_text: "Pour recevoir de l'argent vous devez connecter votre compte PayPal business avec %{service_name}."
+        paypal_account_email: "Connecter votre compte PayPal business"
       show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
+        integration_info_text: "Pour recevoir de l'argent vous devez connecter votre compte PayPal business avec %{service_name}."
+        paypal_account_email_connected: "Compte PayPal connecté"
     polls:
       index:
         polls: Sondages
@@ -571,6 +571,7 @@ fr:
       cvv: Cryptogramme
       credit_card_expiration_date: "Date d'expiration"
       confirm_payment: "Confirmer le paiement"
+      exp: "Exp :"
   community_memberships:
     access_denied:
       access_denied: "Accès refusé"
@@ -1503,6 +1504,7 @@ fr:
       invalid_invitation_code: "Le code d'invitation n'est pas valide."
       invitation_code: "Code d'invitation"
       not_required: ", pas demandé"
+      organization_name: "Nom de l'organisation"
       password_again: "Confirmer le mot de passe"
       show_my_name_to_others: "Montrer mon nom complet aux autres utilisateurs de %{service_name}"
       sign_up: "Créer un nouveau compte sur %{service_name}"
