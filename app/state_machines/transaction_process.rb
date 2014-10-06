@@ -70,16 +70,4 @@ class TransactionProcess
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.cancel!
   end
-
-  before_transition(from: :preauthorized, to: :rejected) do |conversation|
-    transaction_id = conversation.payment.braintree_transaction_id
-
-    result = BraintreeApi.void_transaction(conversation.community, transaction_id)
-
-    if result
-      BTLog.info("Voided transaction #{transaction_id}")
-    else
-      BTLog.error("Could not void transaction #{transaction_id}")
-    end
-  end
 end
