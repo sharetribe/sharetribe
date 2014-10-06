@@ -66,7 +66,7 @@ class ConfirmConversation
   end
 
   def release_escrow
-    BraintreeService.release_from_escrow(@community, @payment.braintree_transaction_id)
+    BraintreeEscrowReleaseHelper.release_from_escrow(@community, @payment.braintree_transaction_id)
   end
 
   def cancel_escrow

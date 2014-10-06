@@ -1,4 +1,4 @@
-class BraintreeService
+class BraintreeEscrowReleaseHelper
   extend Braintree::Transaction::EscrowStatus
 
   class << self
