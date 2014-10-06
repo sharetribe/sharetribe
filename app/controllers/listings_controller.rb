@@ -93,7 +93,11 @@ class ListingsController < ApplicationController
         braintree_preauthorize_payment_path(:listing_id => @listing.id.to_s)
       end
     else
-      reply_to_listing_path(:listing_id => @listing.id.to_s)
+      if MarketplaceService::Community::Query.payment_type(@current_community.id) == :braintree
+        braintree_reply_to_listing_path(:listing_id => @listing.id.to_s)
+      else
+        reply_to_listing_path(:listing_id => @listing.id.to_s)
+      end
     end
 
     render locals: {form_path: form_path}
