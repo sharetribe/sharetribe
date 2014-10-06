@@ -54,6 +54,10 @@ module Kassi
     # Read the config from the config.yml
     APP_CONFIG = ConfigLoader.load_app_config
 
+    #Disable ip spoofing check to get rid of false alarms because of wrong configs in some proxies before our service
+    #Consider enabling, and other actions described in http://blog.gingerlime.com/2012/rails-ip-spoofing-vulnerabilities-and-protection
+    config.action_dispatch.ip_spoofing_check = false
+
     # enable custom domain cookies rack middleware
     config.middleware.use "CustomDomainCookie", APP_CONFIG.domain
 
