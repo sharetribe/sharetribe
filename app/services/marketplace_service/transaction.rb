@@ -118,14 +118,17 @@ module MarketplaceService
 
         # TODO pass settings as parameter
         settings = {}
-        settings.payment_type = MarketplaceService::Community::Query(transaction.community_id)
+        settings[:payment_type] = MarketplaceService::Community::Query.payment_type(transaction.community_id)
         # TODO pass settings as parameter
 
         save_transition(transaction, new_status)
 
-        case new_status
-        when "preauthorized"
-          Events.preauthorized(transaction, settings)
+        binding.pry
+
+        if new_status == "preauthorized"
+          Events.preauthorized(transaction)
+        elsif (old_status == "preauthorized" && new_status == "paid")
+          Events.preauthorized_to_paid(transaction, settings)
         end
       end
 
@@ -213,18 +216,11 @@ module MarketplaceService
     module Events
       module_function
 
-      def paid(transaction, settings)
-        case settings.payment_type
+      def preauthorized_to_paid(transaction, settings)
+        binding.pry
+        case settings[:payment_type]
         when :braintree
-          braintree_transaction_id = transaction.payment.braintree_transaction_id
-
-          result = BraintreeApi.submit_to_settlement(transaction.community, braintree_transaction_id)
-
-          if result
-            BTLog.info("Submitted authorized payment #{transaction_id} to settlement")
-          else
-            BTLog.error("Could not submit authorized payment #{transaction_id} to settlement")
-          end
+          BraintreeService::Payments.submit_to_settlement(transaction.id, transaction.community_id)
         end
       end
 
