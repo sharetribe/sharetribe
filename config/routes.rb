@@ -56,15 +56,18 @@ Kassi::Application.routes.draw do
     match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
 
     #braintree flow
+    match "/listings/:listing_id/braintree_reply" => "braintree_transactions#new", :as => :braintree_reply_to_listing
+    match "/listings/:listing_id/braintree_create_transaction" => "braintree_transactions#create", :as => :braintree_create_transaction, :method => :post
     match "/listings/:listing_id/braintree_preauthorize" => "braintree_transactions#preauthorize", :as => :braintree_preauthorize_payment
     match "/listings/:listing_id/braintree_preauthorized" => "braintree_transactions#preauthorized", :as => :braintree_preauthorized_payment
     match "/listings/:listing_id/braintree_book" => "braintree_transactions#book", :as => :braintree_book
     match "/listings/:listing_id/braintree_booked" => "braintree_transactions#booked", :as => :braintree_booked
 
-    #free flow
-    match "/listings/:listing_id/reply" => "free_transactions#new", :as => :reply_to_listing
-    match "/listings/:listing_id/create_contact" => "free_transactions#create_contact", :as => :create_contact
-    match "/listings/:listing_id/contact" => "free_transactions#contact", :as => :contact_to_listing
+    #post pay flow
+    match "/listings/:listing_id/reply" => "free_and_checkout_transactions#new", :as => :reply_to_listing
+    match "/listings/:listing_id/create_transaction" => "free_and_checkout_transactions#create", :as => :create_transaction, :method => :post
+    match "/listings/:listing_id/create_contact" => "free_and_checkout_transactions#create_contact", :as => :create_contact
+    match "/listings/:listing_id/contact" => "free_and_checkout_transactions#contact", :as => :contact_to_listing
 
     match "/listings/new/:type/:category" => "listings#new", :as => :new_request_category
     match "/listings/new/:type" => "listings#new", :as => :new_request

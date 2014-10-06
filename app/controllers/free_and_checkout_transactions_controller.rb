@@ -1,4 +1,4 @@
-class FreeTransactionsController < ApplicationController
+class FreeAndCheckoutTransactionsController < ApplicationController
   include PaypalService::MerchantInjector
 
   before_filter do |controller|
@@ -36,7 +36,7 @@ class FreeTransactionsController < ApplicationController
     else
       render "listing_conversations/new_with_payment", locals: {
         contact_form: @listing_conversation,
-        contact_to_listing: contact_to_listing_path(:person_id => @current_user.id, :listing_id => @listing.id),
+        contact_to_listing: create_transaction_path(:person_id => @current_user.id, :listing_id => @listing.id),
         listing: @listing
       }
     end
