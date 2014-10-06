@@ -82,16 +82,4 @@ class TransactionProcess
       BTLog.error("Could not void transaction #{transaction_id}")
     end
   end
-
-  before_transition(from: :preauthorized, to: :paid) do |conversation|
-    transaction_id = conversation.payment.braintree_transaction_id
-
-    result = BraintreeApi.submit_to_settlement(conversation.community, transaction_id)
-
-    if result
-      BTLog.info("Submitted authorized payment #{transaction_id} to settlement")
-    else
-      BTLog.error("Could not submit authorized payment #{transaction_id} to settlement")
-    end
-  end
 end

@@ -20,8 +20,10 @@ module MarketplaceService
           .map { |community|
             if community.paypal_enabled
               :paypal
-            else
+            elsif community.payment_gateway.present?
               community.payment_gateway.gateway_type
+            else
+              nil
             end
           }
           .or_else(nil)

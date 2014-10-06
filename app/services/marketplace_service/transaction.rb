@@ -114,6 +114,22 @@ module MarketplaceService
 
       def transition_to(transaction_id, new_status)
         transaction = TransactionModel.find(transaction_id)
+        old_status = transaction.current_state
+
+        # TODO pass settings as parameter
+        settings = {}
+        settings.payment_type = MarketplaceService::Community::Query(transaction.community_id)
+        # TODO pass settings as parameter
+
+        save_transition(transaction, new_status)
+
+        case new_status
+        when "preauthorized"
+          Events.preauthorized(transaction, settings)
+        end
+      end
+
+      def save_transition(transaction, new_status)
         transaction.current_state = new_status
         transaction.save!
 
@@ -121,12 +137,8 @@ module MarketplaceService
         state_machine.transition_to!(new_status)
 
         transaction.touch(:last_transition_at)
-
-        case new_status
-          when "preauthorized"
-          Events.preauthorized(transaction)
-          end
       end
+
     end
 
     module Query
@@ -200,6 +212,21 @@ module MarketplaceService
 
     module Events
       module_function
+
+      def paid(transaction, settings)
+        case settings.payment_type
+        when :braintree
+          braintree_transaction_id = transaction.payment.braintree_transaction_id
+
+          result = BraintreeApi.submit_to_settlement(transaction.community, braintree_transaction_id)
+
+          if result
+            BTLog.info("Submitted authorized payment #{transaction_id} to settlement")
+          else
+            BTLog.error("Could not submit authorized payment #{transaction_id} to settlement")
+          end
+        end
+      end
 
       def preauthorized(transaction)
         expire_at = transaction.preauthorization_expire_at
