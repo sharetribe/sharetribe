@@ -1,6 +1,12 @@
 module StringUtils
   module_function
 
+  def trim_and_hide(str_to_hide, num_visible=2)
+    trimmed = (str_to_hide || "").strip
+    asterisks = (trimmed.length - 1) - num_visible
+    (0..asterisks).inject("") { |a, _| a + "*" } + trimmed.last(num_visible)
+  end
+
   def first_words(str, word_count=15)
     str.split(" ").take(word_count).join(" ")
   end
