@@ -26,7 +26,7 @@ class Email < ActiveRecord::Base
   validates_uniqueness_of :address
   validates_length_of :address, :maximum => 255
   validates_format_of :address,
-                       :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
+                       :with => /\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}\z/i
 
   before_save do
     #force email to be lower case

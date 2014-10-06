@@ -159,7 +159,7 @@ class Person < ActiveRecord::Base
   validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
 
   validates_format_of :username,
-                       :with => /^[A-Z0-9_]*$/i
+                       :with => /\A[A-Z0-9_]*\z/i
 
   USERNAME_BLACKLIST = YAML.load_file("#{Rails.root}/config/username_blacklist.yml")
 
