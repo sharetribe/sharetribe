@@ -458,7 +458,7 @@ class Community < ActiveRecord::Base
 
   def self.find_by_allowed_email(email)
     email_ending = "@#{email.split('@')[1]}"
-    where("allowed_emails LIKE '%#{email_ending}%'")
+    where("allowed_emails LIKE ?", "%#{email_ending}%")
   end
 
   # Find community by domain, which can be full domain or just subdomain
