@@ -1,4 +1,4 @@
-module MarketplaceService
+module PaypalService
   module PaypalAccount
     PaypalAccountModel = ::PaypalAccount
 
@@ -245,4 +245,5 @@ module MarketplaceService
       end
     end
   end
+  
 end

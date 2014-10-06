@@ -11,9 +11,9 @@ class PaypalAccountsController < ApplicationController
   skip_filter :dashboard_only
 
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm")
-  PaypalAccountEntity = MarketplaceService::PaypalAccount::Entity
-  PaypalAccountQuery = MarketplaceService::PaypalAccount::Query
-  PaypalAccountCommand = MarketplaceService::PaypalAccount::Command
+  PaypalAccountEntity = PaypalService::PaypalAccount::Entity
+  PaypalAccountQuery = PaypalService::PaypalAccount::Query
+  PaypalAccountCommand = PaypalService::PaypalAccount::Command
 
 
   def show
