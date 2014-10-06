@@ -166,10 +166,6 @@ class FreeTransactionsController < ApplicationController
     @listing = Listing.find(params[:listing_id] || params[:id])
   end
 
-  def new_conversation(conversation_params = {})
-    Transaction.new(conversation_params.merge(community: @current_community, listing: @listing, starter: @current_user))
-  end
-
   def new_contact_form(conversation_params = {})
     ContactForm.new(conversation_params.merge({sender_id: @current_user.id, listing_id: @listing.id, community_id: @current_community.id}))
   end
