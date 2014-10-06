@@ -127,6 +127,7 @@ class ApplicationController < ActionController::Base
       # Otherwise pick the domain normally from the request subdomain or custom domain
       if @current_community = block.call
         # Store to thread the service_name used by current community, so that it can be included in all translations
+        @community_settings = MarketplaceService::Community::Query.settings(@current_community.id)
         ApplicationHelper.store_community_service_name_to_thread(service_name)
       else
         # No community found with this domain, so redirecting to dashboard.
