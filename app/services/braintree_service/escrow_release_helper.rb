@@ -1,7 +1,9 @@
-class BraintreeEscrowReleaseHelper
-  extend Braintree::Transaction::EscrowStatus
+module BraintreeService
+  module EscrowReleaseHelper
+    include Braintree::Transaction::EscrowStatus
 
-  class << self
+    module_function
+
     # Get back the next escrow release time
     def next_escrow_release_time(now=Time.now, buffer_hours=2)
       # Let's add 1 hour buffer to give the settlement batch processor some time.
@@ -28,7 +30,7 @@ class BraintreeEscrowReleaseHelper
       end
     end
 
-    private
+    # privates
 
     def release_from_escrow_by_community_id(community_id, transaction_id)
       release_from_escrow(Community.find_by_id(community_id), transaction_id)

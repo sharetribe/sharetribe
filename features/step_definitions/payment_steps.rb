@@ -86,7 +86,7 @@ Given /^Braintree submit to settlement is mocked$/ do
 end
 
 Given /^Braintree escrow release is mocked$/ do
-  BraintreeEscrowReleaseHelper.should_receive(:release_from_escrow).at_least(1).times.and_return(true)
+  BraintreeService::EscrowReleaseHelper.should_receive(:release_from_escrow).at_least(1).times.and_return(true)
 end
 
 Given /^Braintree void transaction is mocked$/ do
