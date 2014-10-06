@@ -33,6 +33,69 @@ class BraintreeTransactionsController < ApplicationController
 
   PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
 
+
+  def new
+    use_contact_view = @listing.status_after_reply != "free"
+    @listing_conversation = new_contact_form
+
+    if use_contact_view
+      render "listing_conversations/new_with_payment", locals: {
+        contact_form: @listing_conversation,
+        contact_to_listing: braintree_create_transaction_path(:person_id => @current_user.id, :listing_id => @listing.id),
+        listing: @listing
+      }
+    end
+  end
+
+  def create
+    contact_form = new_contact_form(params[:listing_conversation])
+
+    if contact_form.valid?
+      transaction = Transaction.new({
+        community_id: @current_community.id,
+        listing_id: @listing.id,
+        starter_id: @current_user.id,
+      });
+
+      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
+
+      conversation.messages.build({
+        content: contact_form.content,
+        sender_id: contact_form.sender_id
+      })
+
+      conversation.participations.build({
+        person_id: @listing.author.id,
+        is_starter: false
+      })
+
+      conversation.participations.build({
+        person_id: @current_user.id,
+        is_starter: true,
+        is_read: true
+      })
+
+      transaction.save!
+
+      MarketplaceService::Transaction::Command.transition_to(transaction.id, @listing.status_after_reply)
+
+      flash[:notice] = t("layouts.notifications.message_sent")
+      Delayed::Job.enqueue(TransactionCreatedJob.new(transaction.id, @current_community.id))
+
+      [3, 10].each do |send_interval|
+        Delayed::Job.enqueue(AcceptReminderJob.new(transaction.id, transaction.listing.author.id, @current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
+      end
+
+      redirect_to session[:return_to_content] || root
+    else
+      flash[:error] = "Sending the message failed. Please try again."
+      redirect_to root
+    end
+  end
+
+
+
+
   def book
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
@@ -233,52 +296,6 @@ class BraintreeTransactionsController < ApplicationController
     else
       flash[:error] = preauthorize_form.errors.full_messages.join(", ")
       return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
-    end
-  end
-
-  def create
-    contact_form = new_contact_form(params[:listing_conversation])
-
-    if contact_form.valid?
-      transaction = Transaction.new({
-        community_id: @current_community.id,
-        listing_id: @listing.id,
-        starter_id: @current_user.id,
-      });
-
-      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
-
-      conversation.messages.build({
-        content: contact_form.content,
-        sender_id: contact_form.sender_id
-      })
-
-      conversation.participations.build({
-        person_id: @listing.author.id,
-        is_starter: false
-      })
-
-      conversation.participations.build({
-        person_id: @current_user.id,
-        is_starter: true,
-        is_read: true
-      })
-
-      transaction.save!
-
-      MarketplaceService::Transaction::Command.transition_to(transaction.id, @listing.status_after_reply)
-
-      flash[:notice] = t("layouts.notifications.message_sent")
-      Delayed::Job.enqueue(TransactionCreatedJob.new(transaction.id, @current_community.id))
-
-      [3, 10].each do |send_interval|
-        Delayed::Job.enqueue(AcceptReminderJob.new(transaction.id, transaction.listing.author.id, @current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
-      end
-
-      redirect_to session[:return_to_content] || root
-    else
-      flash[:error] = "Sending the message failed. Please try again."
-      redirect_to root
     end
   end
 
