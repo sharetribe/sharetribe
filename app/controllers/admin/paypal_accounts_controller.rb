@@ -6,9 +6,9 @@ class Admin::PaypalAccountsController < ApplicationController
 
   skip_filter :dashboard_only
 
-  PaypalAccountEntity = MarketplaceService::PaypalAccount::Entity
-  PaypalAccountQuery = MarketplaceService::PaypalAccount::Query
-  PaypalAccountCommand = MarketplaceService::PaypalAccount::Command
+  PaypalAccountEntity = PaypalService::PaypalAccount::Entity
+  PaypalAccountQuery = PaypalService::PaypalAccount::Query
+  PaypalAccountCommand = PaypalService::PaypalAccount::Command
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm", :paypal_email, :commission_from_seller)
     .with_validations { validates_presence_of :paypal_email }
 

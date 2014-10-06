@@ -12,8 +12,8 @@ class PaypalWebhooksController < ApplicationController
   end
 
   DataTypePermissions = PaypalService::DataTypes::Permissions
-  PaypalAccountCommand = MarketplaceService::PaypalAccount::Command
-  PaypalAccountQuery = MarketplaceService::PaypalAccount::Query
+  PaypalAccountCommand = PaypalService::PaypalAccount::Command
+  PaypalAccountQuery = PaypalService::PaypalAccount::Query
 
   def permissions_hook
 
