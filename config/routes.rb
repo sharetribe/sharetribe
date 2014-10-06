@@ -209,7 +209,6 @@ Kassi::Application.routes.draw do
     resource :sms do
       get :message_arrived
     end
-    resources :statistics
 
     devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'}
     devise_scope :person do

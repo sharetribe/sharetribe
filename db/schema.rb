@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141001113744) do
+ActiveRecord::Schema.define(:version => 20141006114330) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -693,48 +693,6 @@ ActiveRecord::Schema.define(:version => 20141001113744) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
-
-  create_table "statistics", :force => true do |t|
-    t.integer  "community_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "users_count"
-    t.float    "two_week_content_activation_percentage"
-    t.float    "four_week_transaction_activation_percentage"
-    t.float    "mau_g1"
-    t.float    "wau_g1"
-    t.float    "dau_g1"
-    t.float    "mau_g2"
-    t.float    "wau_g2"
-    t.float    "dau_g2"
-    t.float    "mau_g3"
-    t.float    "wau_g3"
-    t.float    "dau_g3"
-    t.float    "invitations_sent_per_user"
-    t.float    "invitations_accepted_per_user"
-    t.float    "revenue_per_mau_g1"
-    t.text     "extra_data"
-    t.integer  "mau_g1_count"
-    t.integer  "wau_g1_count"
-    t.integer  "listings_count"
-    t.integer  "new_listings_last_week"
-    t.integer  "new_listings_last_month"
-    t.integer  "conversations_count"
-    t.integer  "new_conversations_last_week"
-    t.integer  "new_conversations_last_month"
-    t.integer  "messages_count"
-    t.integer  "new_messages_last_week"
-    t.integer  "new_messages_last_month"
-    t.integer  "transactions_count"
-    t.integer  "new_transactions_last_week"
-    t.integer  "new_transactions_last_month"
-    t.integer  "new_users_last_week"
-    t.integer  "new_users_last_month"
-    t.float    "user_count_weekly_growth"
-    t.float    "wau_weekly_growth"
-  end
-
-  add_index "statistics", ["community_id"], :name => "index_statistics_on_community_id"
 
   create_table "testimonials", :force => true do |t|
     t.float    "grade"
