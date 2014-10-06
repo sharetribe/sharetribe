@@ -2,12 +2,6 @@ class BraintreeService
   extend Braintree::Transaction::EscrowStatus
 
   class << self
-    def hide_account_number(account_number, nums_visible=2)
-      stripped_account_number = (account_number || "").strip
-      asterisks = (stripped_account_number.length - 1) - nums_visible
-      (0..asterisks).inject("") { |a, _| a + "*" } + stripped_account_number.last(nums_visible)
-    end
-
     # Get back the next escrow release time
     def next_escrow_release_time(now=Time.now, buffer_hours=2)
       # Let's add 1 hour buffer to give the settlement batch processor some time.
