@@ -36,4 +36,9 @@ describe HashUtils do
     data = [{name: "John", age: 15}, {name: "Joe"}]
     expect(HashUtils.pluck(data, :name, :age)).to eq(["John", 15, "Joe"])
   end
+
+  it "#sub" do
+    expect(HashUtils.sub({first: "First", last: "Last", age: 55}, :first, :age, :sex))
+      .to eq({first: "First", age: 55})
+  end
 end
