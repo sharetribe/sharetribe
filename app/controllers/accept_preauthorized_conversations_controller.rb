@@ -41,8 +41,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   def update_listing_status(&block)
     @listing_conversation.conversation.messages.build({
       content: params[:listing_conversation][:message_attributes][:content],
-      sender_id: @current_user.id,
-      action: params[:listing_conversation][:action]
+      sender_id: @current_user.id
     })
 
     if @listing_conversation.save!
