@@ -56,8 +56,6 @@ Kassi::Application.routes.draw do
     match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
 
     # preauthorize flow
-    # match "/listings/:listing_id/braintree_reply" => "braintree_transactions#new", :as => :braintree_reply_to_listing
-    # match "/listings/:listing_id/braintree_create_transaction" => "braintree_transactions#create", :as => :braintree_create_transaction, :method => :post
     match "/listings/:listing_id/preauthorize" => "preauthorize_transactions#preauthorize", :as => :preauthorize_payment
     match "/listings/:listing_id/preauthorized" => "preauthorize_transactions#preauthorized", :as => :preauthorized_payment
     match "/listings/:listing_id/book" => "preauthorize_transactions#book", :as => :book
