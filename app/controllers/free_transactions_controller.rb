@@ -40,33 +40,17 @@ class FreeTransactionsController < ApplicationController
     contact_form = new_contact_form(params[:listing_conversation])
 
     if contact_form.valid?
-      transaction = Transaction.new({
-        community_id: @current_community.id,
-        listing_id: @listing.id,
-        starter_id: @current_user.id
-      });
+      transaction_id = MarketplaceService::Transaction::Command.create({
+          community_id: @current_community.id,
+          listing_id: contact_form.listing_id,
+          starter_id: @current_user.id,
+          author_id: @listing.author.id,
+          content: contact_form.content})
 
-      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
+      MarketplaceService::Transaction::Command.transition_to(transaction_id, "free")
 
-      conversation.messages.build({
-        content: contact_form.content,
-        sender_id: contact_form.sender_id
-      })
-
-      conversation.participations.build({
-        person_id: @listing.author.id,
-        is_starter: false
-      })
-
-      conversation.participations.build({
-        person_id: @current_user.id,
-        is_starter: true,
-        is_read: true
-      })
-
-      transaction.save!
-
-      MarketplaceService::Transaction::Command.transition_to(transaction.id, "free")
+      # TODO
+      transaction = Transaction.find(transaction_id)
 
       flash[:notice] = t("layouts.notifications.message_sent")
       Delayed::Job.enqueue(MessageSentJob.new(transaction.conversation.messages.last.id, @current_community.id))

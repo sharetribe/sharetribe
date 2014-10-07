@@ -90,7 +90,48 @@ module MarketplaceService
     end
 
     module Command
+      NewTransactionOptions = EntityUtils.define_builder(
+        [:community_id, :fixnum, :mandatory],
+        [:listing_id, :fixnum, :mandatory],
+        [:starter_id, :string, :mandatory],
+        [:author_id, :string, :mandatory],
+        [:content, :string, :optional]
+      )
       module_function
+
+      def create(transaction_opts)
+        opts = NewTransactionOptions[transaction_opts]
+
+        transaction = TransactionModel.new({
+            community_id: opts[:community_id],
+            listing_id: opts[:listing_id],
+            starter_id: opts[:starter_id]})
+
+        conversation = transaction.build_conversation(
+          community_id: opts[:community_id],
+          listing_id: opts[:listing_id])
+
+        conversation.participations.build({
+            person_id: opts[:author_id],
+            is_starter: false,
+            is_read: false})
+
+        conversation.participations.build({
+            person_id: opts[:starter_id],
+            is_starter: true,
+            is_read: true})
+
+        if opts[:content].present?
+          conversation.messages.build({
+              content: opts[:content],
+              sender_id: opts[:starter_id]})
+        end
+
+        transaction.save!
+
+        # Should we return ID, or entity?
+        transaction.id
+      end
 
       # Mark transasction as unseen, i.e. something new (e.g. transition) has happened
       #
