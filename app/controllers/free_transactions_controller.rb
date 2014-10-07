@@ -1,4 +1,4 @@
-class PostPayTransactionsController < ApplicationController
+class FreeTransactionsController < ApplicationController
 
   before_filter do |controller|
    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
@@ -8,7 +8,6 @@ class PostPayTransactionsController < ApplicationController
   before_filter :ensure_listing_is_open
   before_filter :ensure_listing_author_is_not_current_user
   before_filter :ensure_authorized_to_reply
-  before_filter :ensure_can_receive_payment, only: [:preauthorize, :preauthorized]
 
   skip_filter :dashboard_only
 
@@ -16,23 +15,35 @@ class PostPayTransactionsController < ApplicationController
     .with_validations { validates_presence_of :content, :listing_id }
 
   def new
+    use_contact_view = @listing.status_after_reply == "free"
     @listing_conversation = new_contact_form
 
-    render "listing_conversations/new_with_payment", locals: {
+    if use_contact_view
+      render "listing_conversations/contact", locals: {
+        contact: false,
+        contact_form: @listing_conversation,
+        create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
+      }
+    end
+  end
+
+  def contact
+    @listing_conversation = new_contact_form
+    render "listing_conversations/contact", locals: {
+      contact: true,
       contact_form: @listing_conversation,
-      contact_to_listing: create_transaction_path(:person_id => @current_user.id, :listing_id => @listing.id),
-      listing: @listing
+      create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
     }
   end
 
-  def create
+  def create_contact
     contact_form = new_contact_form(params[:listing_conversation])
 
     if contact_form.valid?
       transaction = Transaction.new({
         community_id: @current_community.id,
         listing_id: @listing.id,
-        starter_id: @current_user.id,
+        starter_id: @current_user.id
       });
 
       conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
@@ -55,15 +66,10 @@ class PostPayTransactionsController < ApplicationController
 
       transaction.save!
 
-      MarketplaceService::Transaction::Command.transition_to(transaction.id, @listing.status_after_reply)
+      MarketplaceService::Transaction::Command.transition_to(transaction.id, "free")
 
       flash[:notice] = t("layouts.notifications.message_sent")
-      Delayed::Job.enqueue(TransactionCreatedJob.new(transaction.id, @current_community.id))
-
-      [3, 10].each do |send_interval|
-        Delayed::Job.enqueue(AcceptReminderJob.new(transaction.id, transaction.listing.author.id, @current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
-      end
-
+      Delayed::Job.enqueue(MessageSentJob.new(transaction.conversation.messages.last.id, @current_community.id))
       redirect_to session[:return_to_content] || root
     else
       flash[:error] = "Sending the message failed. Please try again."
@@ -103,12 +109,4 @@ class PostPayTransactionsController < ApplicationController
     ContactForm.new(conversation_params.merge({sender_id: @current_user.id, listing_id: @listing.id, community_id: @current_community.id}))
   end
 
-  def ensure_can_receive_payment
-    Maybe(@current_community).payment_gateway.each do |gateway|
-      unless gateway.can_receive_payments?(@listing.author)
-        flash[:error] = t("layouts.notifications.listing_author_payment_details_missing")
-        redirect_to (session[:return_to_content] || root)
-      end
-    end
-  end
 end

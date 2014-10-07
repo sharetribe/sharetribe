@@ -64,10 +64,13 @@ Kassi::Application.routes.draw do
     match "/listings/:listing_id/booked" => "preauthorize_transactions#booked", :as => :booked
 
     # post pay flow
-    match "/listings/:listing_id/reply" => "post_pay_transactions#new", :as => :reply_to_listing
+    match "/listings/:listing_id/post_pay" => "post_pay_transactions#new", :as => :post_pay_listing
     match "/listings/:listing_id/create_transaction" => "post_pay_transactions#create", :as => :create_transaction, :method => :post
-    match "/listings/:listing_id/create_contact" => "post_pay_transactions#create_contact", :as => :create_contact
-    match "/listings/:listing_id/contact" => "post_pay_transactions#contact", :as => :contact_to_listing
+
+    # free flow
+    match "/listings/:listing_id/reply" => "free_transactions#new", :as => :reply_to_listing
+    match "/listings/:listing_id/create_contact" => "free_transactions#create_contact", :as => :create_contact
+    match "/listings/:listing_id/contact" => "free_transactions#contact", :as => :contact_to_listing
 
     match "/listings/new/:type/:category" => "listings#new", :as => :new_request_category
     match "/listings/new/:type" => "listings#new", :as => :new_request
