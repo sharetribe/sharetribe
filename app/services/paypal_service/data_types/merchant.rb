@@ -49,7 +49,7 @@ module PaypalService
         [:billing_agreement_accepted],
         [:payer, :string],
         [:payer_id, :string],
-        [:order_total, :mandatory, :money]) # :bool in another branch now
+        [:order_total, :mandatory, :money])
 
       SetExpressCheckoutOrder = EntityUtils.define_builder(
         [:method, const_value: :set_express_checkout_order],
