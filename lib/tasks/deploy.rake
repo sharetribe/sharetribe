@@ -105,7 +105,7 @@ end
 def airbrake_trigger_deploy(destination)
   puts ""
   puts "Triggering airbrake deploy..."
-  ENV['use_airbrake'] = true
+  ENV['use_airbrake'] = "true"
   ENV['TO'] = destination
   Rake::Task['airbrake:deploy'].invoke
   puts "Done."
