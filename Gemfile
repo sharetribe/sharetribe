@@ -77,12 +77,12 @@ gem 'stringex', '~> 2.5.2'
 gem 'validates_timeliness', '~> 3.0'
 gem 'paypal-sdk-permissions'
 gem 'paypal-sdk-merchant'
+gem 'airbrake', '~>4.1.0'
 
 #ouisharelabs
 gem 'rdf-turtle'
 
 group :staging, :production do
-  gem "airbrake", "~>4.0.0"
   gem 'newrelic_rpm', '~> 3.9.1.236'
 end
 
