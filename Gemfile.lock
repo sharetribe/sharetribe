@@ -41,7 +41,7 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     addressable (2.3.5)
-    airbrake (4.0.0)
+    airbrake (4.1.0)
       builder
       multi_json
     annotate (2.6.5)
@@ -489,7 +489,7 @@ PLATFORMS
 
 DEPENDENCIES
   action_mailer_cache_delivery
-  airbrake (~> 4.0.0)
+  airbrake (~> 4.1.0)
   annotate
   asset_sync
   aws-sdk
