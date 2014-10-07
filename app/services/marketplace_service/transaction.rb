@@ -113,7 +113,24 @@ module MarketplaceService
       end
 
       def transition_to(transaction_id, new_status)
+        new_status = new_status.to_sym
         transaction = TransactionModel.find(transaction_id)
+        old_status = transaction.current_state.to_sym if transaction.current_state.present?
+
+        save_transition(transaction, new_status)
+
+        payment_type = MarketplaceService::Community::Query.payment_type(transaction.community_id)
+
+        if new_status == :preauthorized
+          Events.preauthorized(transaction)
+        elsif (old_status == :preauthorized && new_status == :paid)
+          Events.preauthorized_to_paid(transaction, payment_type)
+        elsif (old_status == :preauthorized && new_status == :rejected)
+          Events.preauthorized_to_rejected(transaction, payment_type)
+        end
+      end
+
+      def save_transition(transaction, new_status)
         transaction.current_state = new_status
         transaction.save!
 
@@ -122,6 +139,7 @@ module MarketplaceService
 
         transaction.touch(:last_transition_at)
       end
+
     end
 
     module Query
@@ -191,6 +209,46 @@ module MarketplaceService
         SELECT id, transaction_id, to_state, created_at FROM transaction_transitions WHERE transaction_id in (#{params[:transaction_ids].join(',')})
       "
       }
+    end
+
+    module Events
+      module_function
+
+      def preauthorized_to_rejected(transaction, payment_type)
+        case payment_type
+        when :braintree
+          BraintreeService::Payments::Command.void_transaction(transaction.id, transaction.community_id)
+        end
+      end
+
+      def preauthorized_to_paid(transaction, payment_type)
+        case payment_type
+        when :braintree
+          BraintreeService::Payments::Command.submit_to_settlement(transaction.id, transaction.community_id)
+        end
+      end
+
+      def preauthorized(transaction)
+        expire_at = transaction.preauthorization_expire_at
+
+        Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction.id), :priority => 10)
+        Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(transaction.id), priority: 7, run_at: expire_at)
+
+        setup_preauthorize_reminder(transaction.id, expire_at)
+      end
+
+      # "private" helpers
+
+      def setup_preauthorize_reminder(transaction_id, expire_at)
+        reminder_days_before = 1
+
+        reminder_at = expire_at - reminder_days_before.day
+        send_reminder = reminder_at > DateTime.now
+
+        if send_reminder
+          Delayed::Job.enqueue(TransactionPreauthorizedReminderJob.new(transaction_id), :priority => 10, :run_at => reminder_at)
+        end
+      end
     end
   end
 end
