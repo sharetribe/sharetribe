@@ -6,6 +6,7 @@ class PaypalIpnController < ApplicationController
   skip_filter :check_email_confirmation, :dashboard_only
 
   IPNDataTypes = PaypalService::DataTypes::IPN
+  IPNService = PaypalService::IPN
 
   def ipn_hook
     logger = PaypalService.Logger.new
@@ -17,7 +18,7 @@ class PaypalIpnController < ApplicationController
       if (msg[:type] == :unknown)
         logger.warn("Unknown IPN message type: #{params}")
       else
-        queue_msg(msg)
+        IPNService.handle_msg(msg)
       end
     else
       logger.warn("Fake IPN message received: #{request.raw_post}")
@@ -25,13 +26,6 @@ class PaypalIpnController < ApplicationController
 
     # Send back 200 OK with empty body
     render nothing: true
-  end
-
-
-  private
-
-  def queue_msg(msg)
-    # TODO Implement me
   end
 
 end
