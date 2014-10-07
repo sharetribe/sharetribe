@@ -93,7 +93,11 @@ class ListingsController < ApplicationController
         preauthorize_payment_path(:listing_id => @listing.id.to_s)
       end
     else
-      reply_to_listing_path(:listing_id => @listing.id.to_s)
+      if @listing.status_after_reply == "free"
+        reply_to_listing_path(:listing_id => @listing.id.to_s)
+      else
+        post_pay_listing_path(:listing_id => @listing.id.to_s)
+      end
     end
 
     render locals: {form_path: form_path}

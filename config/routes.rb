@@ -54,10 +54,22 @@ Kassi::Application.routes.draw do
 
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
     match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
-    match "/listings/:listing_id/preauthorize" => "listing_conversations#preauthorize", :as => :preauthorize_payment
-    match "/listings/:listing_id/book" => "listing_conversations#book", :as => :book
-    match "/listings/:listing_id/reply" => "listing_conversations#new", :as => :reply_to_listing
-    match "/listings/:listing_id/contact" => "listing_conversations#contact", :as => :contact_to_listing
+
+    # preauthorize flow
+    match "/listings/:listing_id/preauthorize" => "preauthorize_transactions#preauthorize", :as => :preauthorize_payment
+    match "/listings/:listing_id/preauthorized" => "preauthorize_transactions#preauthorized", :as => :preauthorized_payment
+    match "/listings/:listing_id/book" => "preauthorize_transactions#book", :as => :book
+    match "/listings/:listing_id/booked" => "preauthorize_transactions#booked", :as => :booked
+
+    # post pay flow
+    match "/listings/:listing_id/post_pay" => "post_pay_transactions#new", :as => :post_pay_listing
+    match "/listings/:listing_id/create_transaction" => "post_pay_transactions#create", :as => :create_transaction, :method => :post
+
+    # free flow
+    match "/listings/:listing_id/reply" => "free_transactions#new", :as => :reply_to_listing
+    match "/listings/:listing_id/create_contact" => "free_transactions#create_contact", :as => :create_contact
+    match "/listings/:listing_id/contact" => "free_transactions#contact", :as => :contact_to_listing
+
     match "/listings/new/:type/:category" => "listings#new", :as => :new_request_category
     match "/listings/new/:type" => "listings#new", :as => :new_request
     match "/logout" => "sessions#destroy", :as => :logout, :method => :delete
@@ -250,13 +262,6 @@ Kassi::Application.routes.draw do
             put :close
             put :move_to_top
             put :show_in_updates_email
-          end
-          resources :listing_conversations do
-            collection do
-              post :create_contact
-              post :preauthorized
-              post :booked
-            end
           end
         end
         resources :person_messages

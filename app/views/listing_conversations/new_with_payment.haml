@@ -12,7 +12,7 @@
 
   = render partial: "conversations/details", locals: { listing_conversation: @listing_conversation, listing: listing, transaction: nil }
 
-  = form_for contact_form, :url => person_listing_listing_conversations_path(:person_id => @current_user.id, :listing_id => @listing.id) do |form|
+  = form_for contact_form, :url => contact_to_listing do |form|
 
     = form.label :content, t("conversations.new.message_to", author_name: link_to(listing.author.name, listing.author)).html_safe
     = form.text_area :content, :class => "text_area"

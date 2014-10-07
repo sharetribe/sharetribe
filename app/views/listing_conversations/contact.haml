@@ -10,7 +10,7 @@
       = @listing.transaction_type.action_button_label(I18n.locale)
       = link_to(@listing.title, @listing)
 
-  = form_for contact_form, :url => create_contact_person_listing_listing_conversations_path(:person_id => @current_user.id, :listing_id => @listing.id) do |form|
+  = form_for contact_form, :url => create_contact do |form|
 
     = form.label :content, t("conversations.new.message")
     = form.text_area :content, :class => "text_area"
