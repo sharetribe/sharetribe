@@ -61,7 +61,12 @@ class Admin::CommunityMembershipsController < ApplicationController
   end
 
   def sort_direction
-    params[:direction] || "desc"
+    #prevents sql injection
+    if params[:direction] == "asc"
+      "asc"
+    else
+      "desc" #default
+    end
   end
 
 end
