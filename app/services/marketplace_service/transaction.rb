@@ -129,7 +129,8 @@ module MarketplaceService
 
         transaction.save!
 
-        # Should we return ID, or entity?
+        # TODO
+        # We should return Entity, without expanding all the relations
         transaction.id
       end
 
