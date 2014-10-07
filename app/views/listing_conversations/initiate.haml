@@ -1,0 +1,75 @@
+- content_for :javascript do
+  initialize_send_message_form('#{I18n.locale}', '#{Listing.opposite_type(listing.direction)}');
+
+- action_button_label = listing.transaction_type.action_button_label(I18n.locale)
+
+- content_for :title_header do
+  %h1
+    = action_button_label
+    = link_to(listing.title, listing)
+
+#new_message_form.centered-section
+
+  - author_link = link_to(author.name, author)
+
+  .preauthorize-section
+    %h2.preauthorize-details-title
+      = t(".details")
+
+    %ul.no-bullets
+      %li
+        %div
+          = t(".by", listing: link_to("#{listing.title}", listing), author: author_link).html_safe
+
+      -# TODO Fix this, no respond_to?
+      - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
+        %li
+          %div
+            = l preauthorize_form.start_on, format: :long_with_abbr_day_name
+            = "-"
+            = l preauthorize_form.end_on, format: :long_with_abbr_day_name
+            = "(#{pluralize(duration, t(".day"), t(".days"))})"
+
+        %li
+          %div
+            = t(".price_per_day", price: humanized_money_with_symbol(listing.price))
+
+      %li
+        %div
+          %strong
+            = t("conversations.show.total", total: humanized_money_with_symbol(sum))
+
+  = form_for preauthorize_form,
+    :url => form_action,
+      :method => "post",
+      :html => { :id => "transaction-form" } do |form|
+
+    -# TODO Fix this, no respond_to?
+    - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
+      = form.date_select :start_on, discard_day: true, discard_month: true, discard_year: true, default: preauthorize_form.start_on
+      = form.date_select :end_on, discard_day: true, discard_month: true, discard_year: true, default: preauthorize_form.end_on
+
+    .preauthorize-section
+      %h2
+        = t("conversations.new.optional_message_to", author_name: link_to(listing.author.name, listing.author)).html_safe
+
+      .row
+        .col-12
+          = form.text_area :content, :class => "text_area"
+          = form.hidden_field :sender_id, :value => @current_user.id
+
+      - if @current_community.transaction_agreement_in_use
+        = render :partial => "transaction_agreement_checkbox", locals: { form: form }
+
+      .row
+        .col-12
+          = form.button t("preauthorize_payments.edit.confirm_payment"), :class => "send_button"
+
+      .row
+        .col-12
+          - automatic_confirmation = @current_community.automatic_confirmation_after_days
+          %p
+            = t(".you_will_be_charged", author: author_link).html_safe
+
+  %noscript
+    = "For security reasons JavaScript has to be enabled"
