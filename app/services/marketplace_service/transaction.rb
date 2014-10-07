@@ -271,7 +271,16 @@ module MarketplaceService
       end
 
       def preauthorized(transaction)
-        expire_at = transaction.preauthorization_expire_at
+        # TODO THIS DOESN'T WORK WITH PAYPAL
+        # FIXME
+        expire_at =
+          if transaction.community.paypal_enabled
+            binding.pry
+            3.days.from_now
+          else
+            transaction.preauthorization_expire_at
+          end
+
 
         Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction.id), :priority => 10)
         Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(transaction.id), priority: 7, run_at: expire_at)
