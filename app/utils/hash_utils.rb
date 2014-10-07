@@ -49,6 +49,20 @@ module HashUtils
     }.flatten.compact
   end
 
+
+  # Select a subset of the hash h using given set of keys.
+  # Only include keys that are present in h.
+  #
+  # Usage:
+  #   sub({first: "First", last: "Last", age: 55}, :first, :age, :sex)
+  #   => {first: "First", age: 55}
+  def sub(h, *keys)
+    keys.reduce({}) do |sub_hash, k|
+      sub_hash[k] = h[k] if h.has_key?(k)
+      sub_hash
+    end
+  end
+
   #
   # deep_contains({a: 1}, {a: 1, b: 2}) => true
   # deep_contains({a: 2}, {a: 1, b: 2}) => false
