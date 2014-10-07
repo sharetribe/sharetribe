@@ -1,5 +1,9 @@
 #header-menu-toggle-menu.toggle-menu.header-toggle-menu-menu.hidden
 
+  = link_to "/" do
+    = icon_tag("home", ["icon-with-text"])
+    = t("header.home")
+
   = link_to new_listing_path, :class => "hidden-tablet" do
     = icon_tag("new_listing", ["icon-with-text"])
     = t("homepage.index.post_new_listing")
