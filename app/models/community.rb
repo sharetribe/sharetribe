@@ -146,11 +146,11 @@ class Community < ActiveRecord::Base
 
   validates_length_of :name, :in => 2..50
   validates_length_of :domain, :in => 2..50
-  validates_format_of :domain, :with => /^[A-Z0-9_\-\.]*$/i
+  validates_format_of :domain, :with => /\A[A-Z0-9_\-\.]*\z/i
   validates_uniqueness_of :domain
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
-  validates_format_of :custom_color1, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true
-  validates_format_of :custom_color2, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true
+  validates_format_of :custom_color1, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
+  validates_format_of :custom_color2, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
 
   VALID_BROWSE_TYPES = %{grid map list}
   validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES
@@ -254,12 +254,12 @@ class Community < ActiveRecord::Base
                                                       "image/x-icon",
                                                       "image/vnd.microsoft.icon"]
 
-  validates_format_of :twitter_handle, with: /^[A-Za-z0-9_]{1,15}$/, allow_nil: true
+  validates_format_of :twitter_handle, with: /\A[A-Za-z0-9_]{1,15}\z/, allow_nil: true
 
   validates :facebook_connect_id, numericality: { only_integer: true }, allow_nil: true
   validates :facebook_connect_id, length: {maximum: 16}, allow_nil: true
 
-  validates_format_of :facebook_connect_secret, with: /^[a-f0-9]{32}$/, allow_nil: true
+  validates_format_of :facebook_connect_secret, with: /\A[a-f0-9]{32}\z/, allow_nil: true
 
   attr_accessor :terms
 
