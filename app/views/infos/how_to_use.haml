@@ -10,7 +10,7 @@
     - if @community_customization && !@community_customization.how_to_use_page_content.blank?
       - content = @community_customization.how_to_use_page_content.html_safe
 
-    - content_for :meta_description, StringUtils.first_words(strip_tags(content))
-    - content_for :keywords, StringUtils.keywords(strip_tags(content))
+      - content_for :meta_description, StringUtils.first_words(strip_tags(content))
+      - content_for :keywords, StringUtils.keywords(strip_tags(content))
 
-    - content
+      - content
