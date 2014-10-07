@@ -31,7 +31,7 @@
 
 class PaypalPayment < ActiveRecord::Base
   attr_accessible(
-    :transaction,
+    :transaction_id,
     :payer_id,
     :receiver_id,
     :order_id,

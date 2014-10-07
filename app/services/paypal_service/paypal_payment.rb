@@ -23,11 +23,11 @@ module PaypalService
         :pending_reason
       ]
 
-      def valid?(payment_update)
+      def update_valid?(payment_update)
         payment_update[:order_id] || payment_update[:authorization_id]
       end
 
-      def from_order(order)
+      def update(order)
         cent_totals = [:authorization_total, :fee_total, :payment_total]
           .reduce({}) do |cent_totals, m_key|
             m = order[m_key]
@@ -37,17 +37,75 @@ module PaypalService
 
         payment_update = PaymentUpdate.call(order.merge({payment_status: order[:payment_status].downcase.to_sym}))
         payment_update = payment_update.merge(HashUtils.sub(order, *OPT_UPDATE_FIELDS)).merge(cent_totals)
-        raise ArgumentError.new("Must have either order_id or authorization_id") unless valid?(payment_update)
+        raise ArgumentError.new("Must have either order_id or authorization_id") unless update_valid?(payment_update)
 
         return payment_update
       end
+
+
+      InitialPaymentData = EntityUtils.define_builder(
+        [:transaction_id, :mandatory, :fixnum],
+        [:payer_id, :mandatory, :string],
+        [:receiver_id, :mandatory, :string],
+        [:payment_status, const_value: :pending],
+        [:order_id, :mandatory, :string],
+        [:order_date, :mandatory, :time],
+        [:currency, :mandatory, :string],
+        [:order_total_cents, :mandatory, :fixnum])
+
+      def initial(order)
+        order_total = order[:order_total]
+        InitialPaymentData.call(
+          order.merge({order_total_cents: order_total.cents, currency: order_total.currency.iso_code}))
+      end
+
+
+      PaypalPayment = EntityUtils.define_builder(
+        [:transaction_id, :mandatory, :fixnum],
+        [:payer_id, :mandatory, :string],
+        [:receiver_id, :mandatory, :string],
+        [:payment_status, one_of: [:pending, :completed, :refunded]],
+        [:pending_reason, :string],
+        [:order_id, :mandatory, :string],
+        [:order_date, :mandatory, :time],
+        [:order_total, :mandatory, :money],
+        [:authorization_id, :string],
+        [:authorization_date, :time],
+        [:authorization_total, :money],
+        [:payment_id, :string],
+        [:payment_date, :time],
+        [:payment_total, :money],
+        [:fee_total, :money])
+
+      def to_money(cents, currency)
+        Money.new(cents, currency) unless cents.nil?
+      end
+
+      def from_model(paypal_payment)
+        hash = HashUtils.compact(
+          EntityUtils.model_to_hash(paypal_payment).merge({
+              order_total: to_money(paypal_payment[:order_total_cents], paypal_payment[:currency]),
+              authorization_total: to_money(paypal_payment[:authorization_total_cents], paypal_payment[:currency]),
+              fee_total: to_money(paypal_payment[:fee_total_cents], paypal_payment[:currency]),
+              payment_total: to_money(paypal_payment[:payment_total_cents], paypal_payment[:currency]),
+              payment_status: paypal_payment[:payment_status].to_sym
+            }))
+
+        PaypalPayment.call(hash)
+      end
+
     end
 
     module Command
       module_function
 
-      def update_from_order(order)
-        payment_entity = Entity.from_order(order)
+      def create(transaction_id, order)
+        model = PaypalPaymentModel.create!(Entity.initial(order.merge({transaction_id: transaction_id})))
+        Entity.from_model(model)
+      end
+
+      def update(order)
+        payment_entity = Entity.update(order)
 
         payment = find_payment(payment_entity)
         if payment.nil?
@@ -57,7 +115,7 @@ module PaypalService
 
         payment.update_attributes!(payment_entity)
 
-        Result::Success.new # TODO Should return a hash of the updated account instead
+        Entity.from_model(payment.reload)
       end
 
 
@@ -75,6 +133,15 @@ module PaypalService
         end
 
         return nil
+      end
+    end
+
+    module Query
+      module_function
+
+      def for_transaction(transaction_id)
+        model = PaypalPaymentModel.where(transaction_id: transaction_id).first
+        Entity.from_model(model)
       end
     end
   end

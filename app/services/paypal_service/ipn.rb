@@ -7,7 +7,7 @@ module PaypalService
 
     def handle_msg(ipn_msg)
       if (ORDER_UPDATE_TYPES.include?(ipn_msg[:type]))
-        PaypalService::PaypalPayment::Command.update_from_order(ipn_msg)
+        PaypalService::PaypalPayment::Command.update(ipn_msg)
       else
         # billing agreement cancelled, payment refunded
         raise NoMethodError
