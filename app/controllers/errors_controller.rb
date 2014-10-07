@@ -5,6 +5,10 @@ class ErrorsController < ActionController::Base
     render "500", layout: false, status: 500, :formats => [:html]
   end
 
+  def not_found
+    render "404", layouts: false, status: 404, :formats => [:html]
+  end
+
   def exception
     env["action_dispatch.exception"]
   end

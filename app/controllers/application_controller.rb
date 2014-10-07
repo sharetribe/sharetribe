@@ -203,9 +203,9 @@ class ApplicationController < ActionController::Base
 
   def person_belongs_to_current_community
     @person = Person.find(params[:person_id] || params[:id])
-    return if @person.nil? #in case there was no real person, on need to stop activity
-    redirect_to not_member_people_path and return unless @person.communities.include?(@current_community)
+    raise Activercord::RecordNotFound.new('Not Found') unless @person.communities.include?(@current_community)
   end
+
 
   private
 
