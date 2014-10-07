@@ -8,7 +8,6 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #  conversation_id :integer
-#  action          :string(255)
 #
 # Indexes
 #

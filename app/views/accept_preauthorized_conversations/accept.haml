@@ -35,6 +35,5 @@
         = message_form.label :content, t("conversations.new.message"), :class => "input"
         = message_form.text_area :content, :class => "text_area", :placeholder => t("conversations.accept.optional_message")
         = message_form.hidden_field :sender_id, :value => @current_user.id
-        = message_form.hidden_field :action, :value => @action
 
       = form.button t("conversations.accept.approve"), :class => "send_button", :id => "send_testimonial_button"
