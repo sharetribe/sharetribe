@@ -101,31 +101,15 @@ class PreauthorizeTransactionsController < ApplicationController
     }))
 
     if preauthorize_form.valid?
-      transaction = Transaction.new({
-        community_id: @current_community.id,
-        listing_id: @listing.id,
-        starter_id: @current_user.id,
-      });
+      transaction_id = MarketplaceService::Transaction::Command.create({
+          community_id: @current_community.id,
+          listing_id: preauthorize_form.listing_id,
+          starter_id: @current_user.id,
+          author_id: @listing.author.id,
+          content: preauthorize_form.content})
 
-      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
-
-      if preauthorize_form.content.present?
-        conversation.messages.build({
-          content: preauthorize_form.content,
-          sender_id: @current_user.id
-        })
-      end
-
-      conversation.participations.build({
-        person_id: @listing.author.id,
-        is_starter: false
-      })
-
-      conversation.participations.build({
-        person_id: @current_user.id,
-        is_starter: true,
-        is_read: true
-      })
+      # TODO
+      transaction = Transaction.find(transaction_id)
 
       transaction.payment = BraintreePayment.new({
         community_id: @current_community.id,
@@ -142,8 +126,8 @@ class PreauthorizeTransactionsController < ApplicationController
 
       if result.success?
         transaction.save!
-        MarketplaceService::Transaction::Command.transition_to(transaction.id, "preauthorized")
-        redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction.id)
+        MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
+        redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
       else
         flash[:error] = result.message
         redirect_to action: :preauthorize

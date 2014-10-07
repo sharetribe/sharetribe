@@ -29,39 +29,24 @@ class PostPayTransactionsController < ApplicationController
     contact_form = new_contact_form(params[:listing_conversation])
 
     if contact_form.valid?
-      transaction = Transaction.new({
-        community_id: @current_community.id,
-        listing_id: @listing.id,
-        starter_id: @current_user.id,
-      });
+      transaction_id = MarketplaceService::Transaction::Command.create({
+          community_id: @current_community.id,
+          listing_id: contact_form.listing_id,
+          starter_id: @current_user.id,
+          author_id: @listing.author.id,
+          content: contact_form.content})
 
-      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
-
-      conversation.messages.build({
-        content: contact_form.content,
-        sender_id: contact_form.sender_id
-      })
-
-      conversation.participations.build({
-        person_id: @listing.author.id,
-        is_starter: false
-      })
-
-      conversation.participations.build({
-        person_id: @current_user.id,
-        is_starter: true,
-        is_read: true
-      })
-
-      transaction.save!
-
-      MarketplaceService::Transaction::Command.transition_to(transaction.id, "pending")
+      MarketplaceService::Transaction::Command.transition_to(transaction_id, "pending")
 
       flash[:notice] = t("layouts.notifications.message_sent")
-      Delayed::Job.enqueue(TransactionCreatedJob.new(transaction.id, @current_community.id))
+      Delayed::Job.enqueue(TransactionCreatedJob.new(transaction_id, @current_community.id))
 
       [3, 10].each do |send_interval|
-        Delayed::Job.enqueue(AcceptReminderJob.new(transaction.id, transaction.listing.author.id, @current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
+        Delayed::Job.enqueue(
+          AcceptReminderJob.new(
+            transaction_id,
+            @listing.author.id, @current_community.id),
+          :priority => 10, :run_at => send_interval.days.from_now)
       end
 
       redirect_to session[:return_to_content] || root
