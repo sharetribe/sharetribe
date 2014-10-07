@@ -47,8 +47,38 @@ class Admin::PaypalAccountsController < ApplicationController
     else
       return redirect_to permissions_url
     end
-
   end
+
+  def permissions_verified
+    unless params[:verification_code].present?
+      flash[:error] = t("paypal_accounts.new.permissions_not_granted")
+      return redirect_to new_admin_community_paypal_account_path(@current_community.id)
+    end
+
+    access_token_res = fetch_access_token(params[:request_token], params[:verification_code])
+    return flash_error_and_redirect_to_settings unless access_token_res[:success]
+
+    personal_data_res = fetch_personal_data(access_token_res[:token], access_token_res[:token_secret])
+    return flash_error_and_redirect_to_settings unless personal_data_res[:success]
+
+    PaypalAccountCommand.update_admin_account(
+      @current_community.id,
+      {
+        email: personal_data_res[:email],
+        payer_id: personal_data_res[:payer_id]
+      }
+    )
+    PaypalAccountCommand.confirm_pending_permissions_request(
+      nil,
+      @current_community.id,
+      params[:request_token],
+      access_token_res[:scope].join(","),
+      params[:verification_code]
+    )
+
+    redirect_to admin_community_paypal_account_path(@current_community.id)
+  end
+
 
   private
 
@@ -62,7 +92,7 @@ class Admin::PaypalAccountsController < ApplicationController
 
   def request_paypal_permissions_url
     permission_request = PaypalService::DataTypes::Permissions
-      .create_req_perm({callback: admin_paypal_permissions_hook_url })
+      .create_req_perm({callback: permissions_verified_admin_community_paypal_account_url })
 
     response = paypal_permissions.do_request(permission_request)
     if response[:success]
@@ -77,6 +107,11 @@ class Admin::PaypalAccountsController < ApplicationController
     else
       nil
     end
+  end
+
+  def flash_error_and_redirect_to_settings(error = t("paypal_accounts.new.something_went_wrong"))
+    flash[:error] = error
+    redirect_to new_admin_community_paypal_account_path(@current_user.username)
   end
 
 end
