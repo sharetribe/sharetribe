@@ -116,19 +116,16 @@ module MarketplaceService
         transaction = TransactionModel.find(transaction_id)
         old_status = transaction.current_state
 
-        # TODO pass settings as parameter
-        settings = {}
-        settings[:payment_type] = MarketplaceService::Community::Query.payment_type(transaction.community_id)
-        # TODO pass settings as parameter
-
         save_transition(transaction, new_status)
+
+        payment_type = MarketplaceService::Community::Query.payment_type(transaction.community_id)
 
         if new_status == "preauthorized"
           Events.preauthorized(transaction)
         elsif (old_status == "preauthorized" && new_status == "paid")
-          Events.preauthorized_to_paid(transaction, settings)
+          Events.preauthorized_to_paid(transaction, payment_type)
         elsif (old_status == "preauthorized" && new_status == "rejected")
-          Events.preauthorized_to_rejected(transaction, settings)
+          Events.preauthorized_to_rejected(transaction, payment_type)
         end
       end
 
@@ -216,15 +213,15 @@ module MarketplaceService
     module Events
       module_function
 
-      def preauthorized_to_rejected(transaction, settings)
-        case settings[:payment_type]
+      def preauthorized_to_rejected(transaction, payment_type)
+        case payment_type
         when :braintree
           BraintreeService::Payments::Command.void(transaction.id, transaction.community_id)
         end
       end
 
-      def preauthorized_to_paid(transaction, settings)
-        case settings[:payment_type]
+      def preauthorized_to_paid(transaction, payment_type)
+        case payment_type
         when :braintree
           BraintreeService::Payments::Command.submit_to_settlement(transaction.id, transaction.community_id)
         end
