@@ -59,6 +59,11 @@ Kassi::Application.routes.draw do
     match "/listings/:listing_id/preauthorized" => "preauthorize_transactions#preauthorized", :as => :preauthorized_payment
     match "/listings/:listing_id/book" => "preauthorize_transactions#book", :as => :book
     match "/listings/:listing_id/booked" => "preauthorize_transactions#booked", :as => :booked
+    match "/listings/:listing_id/initiate" => "preauthorize_transactions#initiate", :as => :initiate_order
+    match "/listings/:listing_id/initiated" => "preauthorize_transactions#initiated", :as => :initiated_order
+    match "/listings/:listing_id/paypal_checkout_order_success" => "paypal_transactions#paypal_checkout_order_success", as: :paypal_checkout_order_success
+    match "/listings/:listing_id/paypal_checkout_order_cancel" => "paypal_transactions#paypal_checkout_order_cancel", as: :paypal_checkout_order_cancel
+
 
     # post pay flow
     match "/listings/:listing_id/post_pay" => "post_pay_transactions#new", :as => :post_pay_listing

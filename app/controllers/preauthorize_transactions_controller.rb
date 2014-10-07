@@ -1,4 +1,5 @@
 class PreauthorizeTransactionsController < ApplicationController
+  include PaypalService::MerchantInjector # injects variable: paypal_merchant
 
   before_filter do |controller|
    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
@@ -33,6 +34,68 @@ class PreauthorizeTransactionsController < ApplicationController
 
   PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
 
+  def initiate
+    preauthorize_form = PreauthorizeMessageForm.new
+
+    sum = @listing.price
+
+    # TODO listing_conversations view (folder) needs some brainstorming
+    render "listing_conversations/initiate", locals: {
+      preauthorize_form: preauthorize_form,
+      listing: @listing,
+      sum: sum,
+      author: @listing.author,
+      form_action: initiated_order_path(person_id: @current_user.id, listing_id: @listing.id)
+    }
+
+  end
+
+  def initiated
+    conversation_params = params[:listing_conversation]
+
+    preauthorize_form = PreauthorizeMessageForm.new(conversation_params.merge({
+      listing_id: @listing.id
+    }))
+
+    unless preauthorize_form.valid?
+      flash[:error] = preauthorize_form.errors.full_messages.join(", ")
+      return redirect_to action: :initiate
+    end
+
+    transaction_id = MarketplaceService::Transaction::Command.create({
+        community_id: @current_community.id,
+        listing_id: preauthorize_form.listing_id,
+        starter_id: @current_user.id,
+        author_id: @listing.author.id,
+        content: preauthorize_form.content})
+
+    transaction = Transaction.find(transaction_id)
+    #TODO NULL in transaction.payment crashes cuz preauthorization_expiration_days
+    transaction.save!
+
+    paypal_receiver = PaypalService::PaypalAccount::Query.personal_account(@listing.author.id, @current_community.id)
+
+    set_ec_order_req = PaypalService::DataTypes::Merchant.create_set_express_checkout_order({
+      description: t("paypal_set_order_description"),
+      receiver_username: paypal_receiver[:email],
+      order_total: @listing.price,
+      success: paypal_checkout_order_success_url(transaction_id: transaction_id),
+      cancel: paypal_checkout_order_cancel_url(transaction_id: transaction_id)
+    })
+    set_ec_order_res = paypal_merchant.do_request(set_ec_order_req)
+
+    # TODO save token => transaction_id map
+
+    if set_ec_order_res[:success]
+      # TODO initiated is not something to be shown to users in inbox / conversations...
+      # MarketplaceService::Transaction::Command.transition_to(transaction.id, "initiated")
+      redirect_to set_ec_order_res[:redirect_url]
+
+    else
+      flash[:error] = "TODO"
+      return redirect_to action: :initiate
+    end
+  end
 
   def book
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
