@@ -113,18 +113,19 @@ module MarketplaceService
       end
 
       def transition_to(transaction_id, new_status)
+        new_status = new_status.to_sym
         transaction = TransactionModel.find(transaction_id)
-        old_status = transaction.current_state
+        old_status = transaction.current_state.to_sym if transaction.current_state.present?
 
         save_transition(transaction, new_status)
 
         payment_type = MarketplaceService::Community::Query.payment_type(transaction.community_id)
 
-        if new_status == "preauthorized"
+        if new_status == :preauthorized
           Events.preauthorized(transaction)
-        elsif (old_status == "preauthorized" && new_status == "paid")
+        elsif (old_status == :preauthorized && new_status == :paid)
           Events.preauthorized_to_paid(transaction, payment_type)
-        elsif (old_status == "preauthorized" && new_status == "rejected")
+        elsif (old_status == :preauthorized && new_status == :rejected)
           Events.preauthorized_to_rejected(transaction, payment_type)
         end
       end
@@ -216,7 +217,7 @@ module MarketplaceService
       def preauthorized_to_rejected(transaction, payment_type)
         case payment_type
         when :braintree
-          BraintreeService::Payments::Command.void(transaction.id, transaction.community_id)
+          BraintreeService::Payments::Command.void_transaction(transaction.id, transaction.community_id)
         end
       end
 
