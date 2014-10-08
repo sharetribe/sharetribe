@@ -597,6 +597,7 @@ class Community < ActiveRecord::Base
   end
 
   def payments_in_use?
+    # Deprecated, use Service
     payment_gateway.present? && payment_gateway.configured?
   end
 
