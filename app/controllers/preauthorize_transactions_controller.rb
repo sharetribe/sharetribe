@@ -34,20 +34,19 @@ class PreauthorizeTransactionsController < ApplicationController
 
   PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
 
+  ListingQuery = MarketplaceService::Listing::Query
+  PersonQuery = MarketplaceService::Person::Query
+
   def initiate
-    preauthorize_form = PreauthorizeMessageForm.new
+    listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
 
-    sum = @listing.price
-
-    # TODO listing_conversations view (folder) needs some brainstorming
     render "listing_conversations/initiate", locals: {
-      preauthorize_form: preauthorize_form,
-      listing: @listing,
-      sum: sum,
-      author: @listing.author,
-      form_action: initiated_order_path(person_id: @current_user.id, listing_id: @listing.id)
+      preauthorize_form: PreauthorizeMessageForm.new,
+      listing: listing,
+      sum: listing[:price],
+      author:PersonQuery.person(listing[:author_id]),
+      form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
     }
-
   end
 
   def initiated
@@ -84,8 +83,6 @@ class PreauthorizeTransactionsController < ApplicationController
     })
     set_ec_order_res = paypal_merchant.do_request(set_ec_order_req)
 
-    # TODO save token => transaction_id map
-
     if set_ec_order_res[:success]
       MarketplaceService::Transaction::Command.transition_to(transaction.id, "initiated")
 
@@ -100,55 +97,57 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def book
+    listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
+    booking_data = verified_booking_data(params[:start_on], params[:end_on], listing)
 
-    booking_form = if @listing.transaction_type.price_per.present?
-      BookingForm.new({
-        start_on: parse_booking_date(params[:start_on]),
-        end_on: parse_booking_date(params[:end_on])
-      })
+    if booking_data[:error].present?
+      flash[:error] = booking_data[:error]
+      return redirect_to listing_path(listing[:id])
     end
 
-    if booking_form.present? && !booking_form.valid?
-      flash[:error] = booking_form.errors.full_messages
-      redirect_to @listing and return
-    end
-
-    preauthorize_form = PreauthorizeBookingForm.new({
-      start_on: booking_form.start_on,
-      end_on: booking_form.end_on
-    })
-
-    booking_duration = duration(booking_form.start_on, booking_form.end_on)
+    if @current_community.paypal_enabled?
+      render "listing_conversations/initiate", locals: {
+        preauthorize_form: PreauthorizeBookingForm.new({
+          start_on: booking_data[:start_on],
+          end_on: booking_data[:end_on]
+        }),
+        listing: listing,
+        sum: listing[:price] * booking_data[:duration],
+        duration: booking_data[:duration],
+        author: PersonQuery.person(listing[:author_id]),
+        form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
+      }
+    else
+      render "listing_conversations/preauthorize", locals: {
+        preauthorize_form: PreauthorizeBookingForm.new({
+          start_on: booking_data[:start_on],
+          end_on: booking_data[:end_on]
+        }),
+        listing: listing,
+        sum: listing[:price] * booking_data[:duration],
+        duration: booking_data[:duration],
+        author: PersonQuery.person(listing[:author_id]),
         braintree_client_side_encryption_key: @current_community.payment_gateway.braintree_client_side_encryption_key,
+        braintree_form: BraintreeForm.new,
+        form_action: booked_path(person_id: @current_user.id, listing_id: listing[:id])
+      }
 
-    sum = @listing.price * booking_duration
+    end
 
-    # TODO listing_conversations view (folder) needs some brainstorming
-    render "listing_conversations/preauthorize", locals: {
-      preauthorize_form: preauthorize_form,
-      braintree_form: BraintreeForm.new,
-      listing: @listing,
-      sum: sum,
-      duration: booking_duration,
-      author: @listing.author,
-      form_action: booked_path(person_id: @current_user.id, listing_id: @listing.id)
-    }
   end
 
   def preauthorize
-    preauthorize_form = PreauthorizeMessageForm.new
-
-    sum = @listing.price
+    listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
 
     # TODO listing_conversations view (folder) needs some brainstorming
     render "listing_conversations/preauthorize", locals: {
-      preauthorize_form: preauthorize_form,
+      preauthorize_form: PreauthorizeMessageForm.new,
       braintree_client_side_encryption_key: @current_community.payment_gateway.braintree_client_side_encryption_key,
       braintree_form: BraintreeForm.new,
-      listing: @listing,
-      sum: sum,
-      author: @listing.author,
-      form_action: preauthorized_payment_path(person_id: @current_user.id, listing_id: @listing.id)
+      listing: listing,
+      sum: listing[:price],
+      author: PersonQuery.person(listing[:author_id]),
+      form_action: preauthorized_payment_path(person_id: @current_user.id, listing_id: listing[:id])
     }
   end
 
@@ -336,5 +335,28 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def stringify_booking_date(date)
     date.iso8601
+  end
+
+  def verified_booking_data(start_on, end_on, listing)
+    booking_form = create_booking_form(start_on, end_on, listing)
+
+    if booking_form.present? && !booking_form.valid?
+      { error: booking_data[:form].errors.full_messages }
+    else
+      booking_form.to_hash.merge({
+        duration: duration(booking_form.start_on, booking_form.end_on)
+      })
+    end
+  end
+
+  def create_booking_form(start_on, end_on, listing)
+    if listing[:transaction_type][:price_per].present?
+      BookingForm.new({
+        start_on: parse_booking_date(start_on),
+        end_on: parse_booking_date(end_on)
+      })
+    else
+      nil
+    end
   end
 end

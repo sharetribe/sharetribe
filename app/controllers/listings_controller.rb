@@ -88,11 +88,7 @@ class ListingsController < ApplicationController
     form_path = if @listing.transaction_type.preauthorize_payment?
       # TODO This is copy-paste
       if @listing.transaction_type.price_per.present?
-        if @current_community.paypal_enabled?
-          book_path(:listing_id => @listing.id.to_s)
-        else
-          book_path(:listing_id => @listing.id.to_s)
-        end
+        book_path(:listing_id => @listing.id.to_s)
       else
         if @current_community.paypal_enabled?
           initiate_order_path(:listing_id => @listing.id.to_s)
