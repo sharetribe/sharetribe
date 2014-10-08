@@ -60,7 +60,7 @@ module PaypalService
         else
           create_failure_response(response)
         end
-      rescue Exception => e
+      rescue
         @logger.error("Paypal merchant service failed to respond.")
         DataTypes.create_failure_response({error_msg: "Paypal merchant service failed to respond."})
       end
