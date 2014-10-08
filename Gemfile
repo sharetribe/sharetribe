@@ -45,7 +45,7 @@ gem 'ts-delayed-delta', "~>2.0.2",
   :git    => 'git://github.com/pat/ts-delayed-delta.git',
   :branch => 'master',
   :ref    => '839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d'
-gem 'possibly', '~> 0.1.1'
+gem 'possibly', '~> 0.2.0'
 gem 'recaptcha'
 gem 'delayed_job', "~>3.0.5"
 gem 'delayed_job_active_record'
