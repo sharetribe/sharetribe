@@ -8,7 +8,7 @@ class CreatePaypalTokensTable < ActiveRecord::Migration
       # Rows do not get updated, so no need for `updated_at` column
     end
 
-    add_index :paypal_tokens, :token
+    add_index :paypal_tokens, :token, unique: true
     # We do not do searches based on `transaction_id` so no need to add index for that
   end
 end
