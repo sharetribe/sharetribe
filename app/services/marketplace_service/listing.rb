@@ -1,5 +1,7 @@
 module MarketplaceService
   module Listing
+    ListingModel = ::Listing
+
     module Entity
       Listing = EntityUtils.define_builder(
         [:id, :mandatory, :fixnum],
@@ -8,6 +10,15 @@ module MarketplaceService
         [:price, :optional, :money],
         [:quantity, :optional, :string],
         [:transaction_type_id, :mandatory, :fixnum])
+
+      TransactionType = EntityUtils.define_builder(
+        [:id, :mandatory, :fixnum],
+        [:type, :mandatory, :string],
+        [:price_per, :optional, :string],
+        [:price_field, :optional, :to_bool],
+        [:preauthorize_payment, :optional, :to_bool],
+        [:action_button_label, :optional, :string],
+        [:url, :optional, :to_bool])
 
       module_function
 
@@ -41,6 +52,31 @@ module MarketplaceService
       def listing(listing_model)
         Listing.call(EntityUtils.model_to_hash(listing_model).merge(price: listing_model.price))
       end
+
+      def transaction_type(transaction_type_model)
+        TransactionType.call(EntityUtils
+          .model_to_hash(transaction_type_model)
+          .merge(action_button_label: TranslationCache.new(transaction_type_model, :translations).translate(I18n.locale, :action_button_label))
+        )
+      end
+    end
+
+    module Query
+
+      module_function
+
+      def listing(listing_id)
+        listing_model = ListingModel.find(listing_id)
+        MarketplaceService::Listing::Entity.listing(listing_model)
+      end
+
+      def listing_with_transaction_type(listing_id)
+        listing_model = ListingModel.find(listing_id)
+        listing = MarketplaceService::Listing::Entity.listing(listing_model)
+        listing.delete(:transaction_type_id)
+        listing.merge(transaction_type: MarketplaceService::Listing::Entity.transaction_type(listing_model.transaction_type))
+      end
+
     end
   end
 end
