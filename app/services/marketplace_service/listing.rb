@@ -9,6 +9,7 @@ module MarketplaceService
         [:author_id, :mandatory, :string],
         [:price, :optional, :money],
         [:quantity, :optional, :string],
+        [:opposite_type, :optional, :string],
         [:transaction_type_id, :mandatory, :fixnum])
 
       TransactionType = EntityUtils.define_builder(
@@ -50,7 +51,7 @@ module MarketplaceService
       end
 
       def listing(listing_model)
-        Listing.call(EntityUtils.model_to_hash(listing_model).merge(price: listing_model.price))
+        Listing.call(EntityUtils.model_to_hash(listing_model).merge(price: listing_model.price, opposite_type: ListingModel.opposite_type(listing_model.direction)))
       end
 
       def transaction_type(transaction_type_model)
