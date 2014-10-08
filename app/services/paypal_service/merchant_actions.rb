@@ -14,6 +14,10 @@ module PaypalService
       pp_amount.value.to_money(pp_amount.currency_id)
     end
 
+    def hook_url(ipn_hook)
+      ipn_hook[:url] unless ipn_hook.nil?
+    end
+
 
     MERCHANT_ACTIONS = {
       setup_billing_agreement: PaypalAction.def_action(
@@ -26,7 +30,7 @@ module PaypalService
               NoShipping: 1,
               PaymentDetails: [{
                   OrderTotal: { value: "0.0" },
-                  NotifyURL: config[:ipn_hook][:url],
+                  NotifyURL: hook_url(config[:ipn_hook]),
                   PaymentAction: "Authorization"
                 }],
               BillingAgreementDetails: [{
@@ -65,7 +69,7 @@ module PaypalService
               ReferenceID: req[:billing_agreement_id],
               PaymentAction: "Sale",
               PaymentDetails: {
-                NotifyURL: config[:ipn_hook][:url],
+                NotifyURL: hook_url(config[:ipn_hook]),
                 OrderTotal: from_money(req[:order_total])
               }
             }
@@ -116,7 +120,7 @@ module PaypalService
               SolutionType: "Sole",
               LandingPage: "Billing",
               PaymentDetails: [{
-                  NotifyURL: config[:ipn_hook][:url],
+                  NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total]),
                   PaymentAction: "Order"
                 }]
@@ -142,7 +146,7 @@ module PaypalService
               Token: req[:token],
               PayerID: req[:payer_id],
               PaymentDetails: [{
-                  NotifyURL: config[:ipn_hook][:url],
+                  NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total])
               }]
             }

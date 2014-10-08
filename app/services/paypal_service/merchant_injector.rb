@@ -20,11 +20,16 @@ module PaypalService
 
 
     def build_ipn_hook(app_config)
-      hook_url = Rails.application.routes.url_helpers.paypal_ipn_hook_url(
-        host: app_config.paypal_ipn_domain,
-        protocol: app_config.paypal_ipn_protocol)
+      if (app_config.paypal_ipn_domain)
+        hook_url = Rails.application.routes.url_helpers.paypal_ipn_hook_url(
+          host: app_config.paypal_ipn_domain,
+          protocol: app_config.paypal_ipn_protocol)
 
-      DataTypes.create_ipn_hook({ url: hook_url })
+        DataTypes.create_ipn_hook({ url: hook_url })
+      else
+        PaypalService::Logger.new.warn("Paypal IPN host not defined. You will not receive IPN notifications!")
+        nil
+      end
     end
 
     def build_endpoint(app_config)

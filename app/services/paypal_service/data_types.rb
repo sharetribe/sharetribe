@@ -20,7 +20,7 @@ module PaypalService
     Config = EntityUtils.define_builder(
       [:endpoint, :mandatory],
       [:api_credentials, :mandatory],
-      [:ipn_hook, :mandatory])
+      [:ipn_hook])
 
 
     module_function
