@@ -12,8 +12,10 @@ class PaypalTransactionsController < ApplicationController
   end
 
   DataTypePermissions = PaypalService::DataTypes::Permissions
+  DataTypeMerchant = PaypalService::DataTypes::Merchant
   PaypalAccountCommand = PaypalService::PaypalAccount::Command
   PaypalAccountQuery = PaypalService::PaypalAccount::Query
+  TokenQuery = PaypalService::Token::Query
 
 
   def paypal_checkout_order_success
@@ -23,7 +25,7 @@ class PaypalTransactionsController < ApplicationController
       return redirect_to root
     end
 
-    paypal_token = PaypalService::Token::Query.for_token(params[:token])
+    paypal_token = TokenQuery.for_token(params[:token])
     transaction_id = paypal_token[:transaction_id]
 
     if transaction_id.blank?
@@ -34,10 +36,10 @@ class PaypalTransactionsController < ApplicationController
 
     listing_author_id = Transaction.find(transaction_id).author.id
 
-    paypal_receiver = PaypalService::PaypalAccount::Query.personal_account(listing_author_id, @current_community.id)
+    paypal_receiver = PaypalAccountQuery.personal_account(listing_author_id, @current_community.id)
 
     # get_express_checkout_details
-    express_checkout_details_req = PaypalService::DataTypes::Merchant.create_get_express_checkout_details({
+    express_checkout_details_req = DataTypesMerchant.create_get_express_checkout_details({
         receiver_username: paypal_receiver[:email],
         token: params[:token]
       })
@@ -46,7 +48,7 @@ class PaypalTransactionsController < ApplicationController
 
 
     # do_express_checkout_payment
-    do_express_checkout_payment_req = PaypalService::DataTypes::Merchant.create_do_express_checkout_payment({
+    do_express_checkout_payment_req = DataTypesMerchant.create_do_express_checkout_payment({
         receiver_username: paypal_receiver[:email],
         token: params[:token],
         payer_id: express_checkout_details_res[:payer_id],
@@ -56,7 +58,7 @@ class PaypalTransactionsController < ApplicationController
     puts do_express_checkout_payment_res
 
     # do_authorization
-    do_authorization_req = PaypalService::DataTypes::Merchant.create_do_authorization({
+    do_authorization_req = DataTypeMerchant.create_do_authorization({
         receiver_username: paypal_receiver[:email],
         transaction_id: do_express_checkout_payment_res[:transaction_id],
         order_total: express_checkout_details_res[:order_total]
