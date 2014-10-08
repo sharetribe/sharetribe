@@ -3,7 +3,7 @@
 # Table name: paypal_tokens
 #
 #  id             :integer          not null, primary key
-#  token          :string(255)
+#  token          :string(64)
 #  transaction_id :integer
 #  created_at     :datetime
 #

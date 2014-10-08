@@ -664,7 +664,7 @@ ActiveRecord::Schema.define(:version => 20141007144442) do
   add_index "paypal_payments", ["transaction_id"], :name => "index_paypal_payments_on_transaction_id", :unique => true
 
   create_table "paypal_tokens", :force => true do |t|
-    t.string   "token"
+    t.string   "token",          :limit => 64
     t.integer  "transaction_id"
     t.datetime "created_at"
   end
