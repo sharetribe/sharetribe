@@ -342,4 +342,7 @@ Kassi::Application.routes.draw do
 
   match "(/:locale)/people/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher, :person_id => /[a-zA-Z0-9_-]{20,}/ }
 
+  #keep this matcher last
+  #catches all non matched routes, shows 404 and logs more reasonably than the alternative RoutingError + stacktrace
+  match "*path" => "errors#not_found"
 end
