@@ -88,6 +88,9 @@ class PreauthorizeTransactionsController < ApplicationController
 
     if set_ec_order_res[:success]
       MarketplaceService::Transaction::Command.transition_to(transaction.id, "initiated")
+
+      # Redirect to PayPal
+      PaypalService::Token::Command.create(set_ec_order_res[:token], transaction_id)
       redirect_to set_ec_order_res[:redirect_url]
 
     else
