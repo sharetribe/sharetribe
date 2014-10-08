@@ -245,5 +245,5 @@ module PaypalService
       end
     end
   end
-  
+
 end

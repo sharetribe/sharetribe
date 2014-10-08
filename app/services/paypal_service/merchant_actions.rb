@@ -14,10 +14,14 @@ module PaypalService
       pp_amount.value.to_money(pp_amount.currency_id)
     end
 
+    def hook_url(ipn_hook)
+      ipn_hook[:url] unless ipn_hook.nil?
+    end
+
 
     MERCHANT_ACTIONS = {
       setup_billing_agreement: PaypalAction.def_action(
-        input_transformer: -> (req) {
+        input_transformer: -> (req, config) {
           {
             SetExpressCheckoutRequestDetails: {
               ReturnURL: req[:success],
@@ -26,7 +30,7 @@ module PaypalService
               NoShipping: 1,
               PaymentDetails: [{
                   OrderTotal: { value: "0.0" },
-                  # NotifyURL: "https://paypal-sdk-samples.herokuapp.com/merchant/ipn_notify",
+                  NotifyURL: hook_url(config[:ipn_hook]),
                   PaymentAction: "Authorization"
                 }],
               BillingAgreementDetails: [{
@@ -48,7 +52,7 @@ module PaypalService
       ),
 
       create_billing_agreement: PaypalAction.def_action(
-        input_transformer: -> (req) { { Token: req[:token] } },
+        input_transformer: -> (req, _) { { Token: req[:token] } },
         wrapper_method_name: :build_create_billing_agreement,
         action_method_name: :create_billing_agreement,
         output_transformer: -> (res, _) {
@@ -59,12 +63,15 @@ module PaypalService
       ),
 
       do_reference_transaction: PaypalAction.def_action(
-        input_transformer: -> (req) {
+        input_transformer: -> (req, config) {
           {
             DoReferenceTransactionRequestDetails: {
               ReferenceID: req[:billing_agreement_id],
               PaymentAction: "Sale",
-              PaymentDetails: { OrderTotal: from_money(req[:order_total]) }
+              PaymentDetails: {
+                NotifyURL: hook_url(config[:ipn_hook]),
+                OrderTotal: from_money(req[:order_total])
+              }
             }
           }
         },
@@ -83,7 +90,7 @@ module PaypalService
       ),
 
       get_express_checkout_details: PaypalAction.def_action(
-        input_transformer: -> (req) { { Token: req[:token] } },
+        input_transformer: -> (req, _) { { Token: req[:token] } },
         wrapper_method_name: :build_get_express_checkout_details,
         action_method_name: :get_express_checkout_details,
         output_transformer: -> (res, api) {
@@ -102,7 +109,7 @@ module PaypalService
       ),
 
       set_express_checkout_order: PaypalAction.def_action(
-        input_transformer: -> (req) {
+        input_transformer: -> (req, config) {
           {
             SetExpressCheckoutRequestDetails: {
               ReturnURL: req[:success],
@@ -113,6 +120,7 @@ module PaypalService
               SolutionType: "Sole",
               LandingPage: "Billing",
               PaymentDetails: [{
+                  NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total]),
                   PaymentAction: "Order"
                 }]
@@ -131,13 +139,14 @@ module PaypalService
       ),
 
       do_express_checkout_payment: PaypalAction.def_action(
-        input_transformer: -> (req) {
+        input_transformer: -> (req, config) {
           {
             DoExpressCheckoutPaymentRequestDetails: {
               PaymentAction: "Order",
               Token: req[:token],
               PayerID: req[:payer_id],
               PaymentDetails: [{
+                  NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total])
               }]
             }
@@ -160,7 +169,7 @@ module PaypalService
       ),
 
       do_authorization: PaypalAction.def_action(
-        input_transformer: -> (req) {
+        input_transformer: -> (req, _) {
           {
             MsgSubID: req[:msg_sub_id],
             TransactionID: req[:transaction_id],
@@ -181,7 +190,7 @@ module PaypalService
       ),
 
       do_capture: PaypalAction.def_action(
-        input_transformer: -> (req) {
+        input_transformer: -> (req, _) {
           {
             AuthorizationID: req[:authorization_id],
             Amount: from_money(req[:order_total]),
@@ -207,7 +216,7 @@ module PaypalService
       ),
 
       do_void: PaypalAction.def_action(
-        input_transformer: -> (req) {
+        input_transformer: -> (req, _) {
           {
             AuthorizationID: req[:authorization_id],
             Note: req[:note],
