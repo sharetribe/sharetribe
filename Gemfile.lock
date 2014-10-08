@@ -302,7 +302,7 @@ GEM
       cucumber (>= 0.8)
       rake
     polyglot (0.3.5)
-    possibly (0.1.1)
+    possibly (0.2.0)
     postmark (0.9.15)
       json
       rake
@@ -536,7 +536,7 @@ DEPENDENCIES
   paypal-sdk-merchant
   paypal-sdk-permissions
   pickle
-  possibly (~> 0.1.1)
+  possibly (~> 0.2.0)
   postmark-rails
   premailer
   pry
