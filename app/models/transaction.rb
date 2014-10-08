@@ -177,13 +177,12 @@ class Transaction < ActiveRecord::Base
   end
 
   def preauthorization_expire_at
-    preauthorization_expires = payment.preauthorization_expiration_days.days.from_now.to_date
-
-    if booking.present?
-      booking.end_on < preauthorization_expires ? booking.end_on : preauthorization_expires
-    else
-      preauthorization_expires
-    end
+    # DEPRECATED
+    # Use the Service directly
+    max_date = booking.present? ? booking.end_on : nil
+    MarketplaceService::Transaction::Entity.preauth_expires_at(
+      payment.preauthorization_expiration_days.days.from_now,
+      max_date)
   end
 
   # Give person (starter or listing author) and get back the other
