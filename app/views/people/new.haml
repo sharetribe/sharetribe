@@ -44,9 +44,13 @@
     - elsif params[:code]
       = hidden_field_tag "invitation_code", params[:code]
 
-    -# Username
-    = form.label :username, username_label
-    = form.text_field :username, :class => :text_field, :maxlength => "20", :id => "person_username1"
+    -# Honey pot: hidden field to detect spammers
+    = form.label :input_again, "You should not see this field, if CSS is working. If you see this, please send feedback!", :class => "unwanted_text_field"
+    = form.text_field :input_again, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2", :autocomplete => "off"
+
+    -# Email
+    = form.label :email, t('.email')
+    = form.text_field :email, :class => :text_field, :maxlenght => "255"
 
     -# Name
     - if @current_community.only_organizations
@@ -58,13 +62,9 @@
       = form.label :family_name, t('.family_name')
       = form.text_field :family_name, :class => :text_field, :maxlength => "30"
 
-    -# Email
-    = form.label :email, t('.email')
-    = form.text_field :email, :class => :text_field, :maxlenght => "255"
-
-    -# Honey pot: hidden field to detect spammers
-    = form.label :input_again, "You should not see this field, if CSS is working. If you see this, please send feedback!", :class => "unwanted_text_field"
-    = form.text_field :input_again, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2", :autocomplete => "off"
+    -# Username
+    = form.label :username, username_label
+    = form.text_field :username, :class => :text_field, :maxlength => "20", :id => "person_username1"
 
     -# Password
     = form.label :password, t('common.password')
