@@ -87,8 +87,7 @@ class PreauthorizeTransactionsController < ApplicationController
     # TODO save token => transaction_id map
 
     if set_ec_order_res[:success]
-      # TODO initiated is not something to be shown to users in inbox / conversations...
-      # MarketplaceService::Transaction::Command.transition_to(transaction.id, "initiated")
+      MarketplaceService::Transaction::Command.transition_to(transaction.id, "initiated")
       redirect_to set_ec_order_res[:redirect_url]
 
     else
