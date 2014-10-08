@@ -79,8 +79,8 @@ class PreauthorizeTransactionsController < ApplicationController
       description: t("paypal_set_order_description"),
       receiver_username: paypal_receiver[:email],
       order_total: @listing.price,
-      success: paypal_checkout_order_success_url(transaction_id: transaction_id),
-      cancel: paypal_checkout_order_cancel_url(transaction_id: transaction_id)
+      success: paypal_checkout_order_success_url,
+      cancel: paypal_checkout_order_cancel_url
     })
     set_ec_order_res = paypal_merchant.do_request(set_ec_order_req)
 
