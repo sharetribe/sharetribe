@@ -6,7 +6,7 @@
     $(document).ready(function() {
       var braintreePaymentForm = $("#braintree-payment-form");
       initialize_braintree_preauthorize_form("#{I18n.locale}", function beforeSubmit(next) {
-        var braintree = Braintree.create("#{@braintree_client_side_encryption_key}");
+        var braintree = Braintree.create("#{braintree_client_side_encryption_key}");
         braintree.encryptForm(braintreePaymentForm);
         next();
       });

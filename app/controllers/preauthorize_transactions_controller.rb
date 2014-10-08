@@ -100,7 +100,6 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def book
-    @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
     booking_form = if @listing.transaction_type.price_per.present?
       BookingForm.new({
@@ -120,6 +119,7 @@ class PreauthorizeTransactionsController < ApplicationController
     })
 
     booking_duration = duration(booking_form.start_on, booking_form.end_on)
+        braintree_client_side_encryption_key: @current_community.payment_gateway.braintree_client_side_encryption_key,
 
     sum = @listing.price * booking_duration
 
@@ -136,8 +136,6 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def preauthorize
-    @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
-
     preauthorize_form = PreauthorizeMessageForm.new
 
     sum = @listing.price
@@ -145,6 +143,7 @@ class PreauthorizeTransactionsController < ApplicationController
     # TODO listing_conversations view (folder) needs some brainstorming
     render "listing_conversations/preauthorize", locals: {
       preauthorize_form: preauthorize_form,
+      braintree_client_side_encryption_key: @current_community.payment_gateway.braintree_client_side_encryption_key,
       braintree_form: BraintreeForm.new,
       listing: @listing,
       sum: sum,
