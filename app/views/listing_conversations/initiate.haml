@@ -1,25 +1,25 @@
 - content_for :javascript do
-  initialize_send_message_form('#{I18n.locale}', '#{Listing.opposite_type(listing.direction)}');
+  initialize_send_message_form('#{I18n.locale}', '#{Listing.opposite_type(listing[:direction])}');
 
-- action_button_label = listing.transaction_type.action_button_label(I18n.locale)
+- action_button_label = listing[:transaction_type][:action_button_label]
 
 - content_for :title_header do
   %h1
     = action_button_label
-    = link_to(listing.title, listing)
+    = link_to(listing[:title], listing_path(listing[:id]))
 
 #new_message_form.centered-section
 
-  - author_link = link_to(author.name, author)
+  - author_link = link_to(author[:name], person_path(id: author[:username]))
 
   .preauthorize-section
     %h2.preauthorize-details-title
-      = t(".details")
+      = t("listing_conversations.preauthorize.details")
 
     %ul.no-bullets
       %li
         %div
-          = t(".by", listing: link_to("#{listing.title}", listing), author: author_link).html_safe
+          = t("listing_conversations.preauthorize.by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
 
       -# TODO Fix this, no respond_to?
       - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
@@ -28,11 +28,11 @@
             = l preauthorize_form.start_on, format: :long_with_abbr_day_name
             = "-"
             = l preauthorize_form.end_on, format: :long_with_abbr_day_name
-            = "(#{pluralize(duration, t(".day"), t(".days"))})"
+            = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
 
         %li
           %div
-            = t(".price_per_day", price: humanized_money_with_symbol(listing.price))
+            = t("listing_conversations.preauthorize.price_per_day", price: humanized_money_with_symbol(listing[:price]))
 
       %li
         %div
@@ -51,7 +51,7 @@
 
     .preauthorize-section
       %h2
-        = t("conversations.new.optional_message_to", author_name: link_to(listing.author.name, listing.author)).html_safe
+        = t("conversations.new.optional_message_to", author_name: link_to(author[:name], person_path(id: author[:username]))).html_safe
 
       .row
         .col-12
@@ -69,7 +69,7 @@
         .col-12
           - automatic_confirmation = @current_community.automatic_confirmation_after_days
           %p
-            = t(".you_will_be_charged", author: author_link).html_safe
+            = t("listing_conversations.preauthorize.you_will_be_charged", author: author_link).html_safe
 
   %noscript
     = "For security reasons JavaScript has to be enabled"
