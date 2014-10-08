@@ -14,7 +14,17 @@ module PaypalService
     end
 
     def log_response(resp)
-      info("paypal response: #{resp.to_json}") unless resp.nil?
+      info("paypal response: #{response_to_log_str(resp)}") unless resp.nil?
+    end
+
+    def response_to_log_str(resp)
+      if (resp.respond_to? :to_json)
+        resp.to_json
+      elsif (res.respond_to? :to_s)
+        resp.to_s
+      else
+        ""
+      end
     end
   end
 end
