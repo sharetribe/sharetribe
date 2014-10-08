@@ -122,10 +122,10 @@ module PaypalService
       ## Privates
 
       def find_payment(payment_entity)
-        if (payment_entity[:order_id])
-          payment = PaypalPaymentModel.where(order_id: payment_entity[:order_id]).first
+        payment = if (payment_entity[:order_id])
+          PaypalPaymentModel.where(order_id: payment_entity[:order_id]).first
         else
-          payment = PaypalPaymentModel.where(authorization_id: payment_entity[:authorization_id]).first
+          PaypalPaymentModel.where(authorization_id: payment_entity[:authorization_id]).first
         end
 
         if (payment && payment_entity[:receiver_id] == payment.receiver_id && payment_entity[:payer_id] == payment.payer_id)
