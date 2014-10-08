@@ -9,7 +9,7 @@
 #
 # Indexes
 #
-#  index_paypal_tokens_on_token  (token)
+#  index_paypal_tokens_on_token  (token) UNIQUE
 #
 
 class PaypalToken < ActiveRecord::Base

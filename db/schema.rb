@@ -669,7 +669,7 @@ ActiveRecord::Schema.define(:version => 20141007144442) do
     t.datetime "created_at"
   end
 
-  add_index "paypal_tokens", ["token"], :name => "index_paypal_tokens_on_token"
+  add_index "paypal_tokens", ["token"], :name => "index_paypal_tokens_on_token", :unique => true
 
   create_table "people", :id => false, :force => true do |t|
     t.string   "id",                                 :limit => 22,                   :null => false
