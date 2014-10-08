@@ -54,14 +54,20 @@ module PaypalService
 
       input = input_transformer.call(request)
       wrapped = wrapper_method.call(input)
-      response = action_method.call(wrapped)
 
-      @logger.log_response(response)
-      if (response.success?)
-        output_transformer.call(response, api)
-      else
-        create_failure_response(response)
+      begin
+        response = action_method.call(wrapped)
+        @logger.log_response(response)
+        if (response.success?)
+          output_transformer.call(response, api)
+        else
+          create_failure_response(response)
+        end
+      rescue Exception => e
+        @logger.error("Paypal permission service failed to respond.")
+        DataTypes.create_failure_response({error_msg: "Paypal permission service failed to respond."})
       end
+
     end
 
 
