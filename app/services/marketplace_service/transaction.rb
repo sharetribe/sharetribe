@@ -171,17 +171,12 @@ module MarketplaceService
       end
 
       def transition_to(transaction_id, new_status)
-        new_status, old_status, transaction = save_transition(transaction_id, new_status)
+        old_status, new_status = save_transition(transaction_id, new_status)
 
+        transaction = Query.transaction(transaction_id)
         payment_type = MarketplaceService::Community::Query.payment_type(transaction.community_id)
 
-        if new_status == :preauthorized
-          Events.preauthorized(transaction, payment_type)
-        elsif (old_status == :preauthorized && new_status == :paid)
-          Events.preauthorized_to_paid(transaction, payment_type)
-        elsif (old_status == :preauthorized && new_status == :rejected)
-          Events.preauthorized_to_rejected(transaction, payment_type)
-        end
+        Events.handle_transition(transaction, payment_type, old_status, new_status)
       end
 
       def save_transition(transaction_id, new_status)
@@ -197,7 +192,7 @@ module MarketplaceService
 
         transaction.touch(:last_transition_at)
 
-        [new_status, old_status, Entity.transaction(transaction)]
+        [old_status, new_status]
       end
 
     end
@@ -205,6 +200,10 @@ module MarketplaceService
     module Query
 
       module_function
+
+      def transaction(transaction_id)
+        Entity.transaction(TransactionModel.find(transaction_id))
+      end
 
       def transaction_with_conversation(transaction_id, person_id, community_id)
         transaction_model = TransactionModel.joins(:listing)
@@ -274,6 +273,18 @@ module MarketplaceService
     module Events
       module_function
 
+      def handle_transition(transaction, payment_type, old_status, new_status)
+        if new_status == :preauthorized
+          preauthorized(transaction, payment_type)
+        elsif (old_status == :preauthorized && new_status == :paid)
+          preauthorized_to_paid(transaction, payment_type)
+        elsif (old_status == :preauthorized && new_status == :rejected)
+          preauthorized_to_rejected(transaction, payment_type)
+        end
+      end
+
+      # privates
+
       def preauthorized_to_rejected(transaction, payment_type)
         case payment_type
         when :braintree
@@ -284,7 +295,7 @@ module MarketplaceService
 
           api_params = {
             receiver_username: paypal_account[:email],
-            authorization_id: paypal_payment[:authorization_id]
+            authorization_id: paypal_payment[:authorization_id],
             note: "Automatic void: Not responded to a request after 3 days"
           }
 
@@ -299,7 +310,7 @@ module MarketplaceService
       def preauthorized_to_paid(transaction, payment_type)
         case payment_type
         when :braintree
-          BraintreeService::Payments::Command.submit_to_settlementu(transaction[:id], transaction[:community_id])
+          BraintreeService::Payments::Command.submit_to_settlement(transaction[:id], transaction[:community_id])
         end
       end
 
