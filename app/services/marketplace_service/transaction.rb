@@ -6,6 +6,7 @@ module MarketplaceService
     module Entity
       Transaction = EntityUtils.define_entity(
         :id,
+        :community_id,
         :last_transition,
         :last_transition_at,
         :listing,
@@ -170,16 +171,12 @@ module MarketplaceService
       end
 
       def transition_to(transaction_id, new_status)
-        new_status = new_status.to_sym
-        transaction = TransactionModel.find(transaction_id)
-        old_status = transaction.current_state.to_sym if transaction.current_state.present?
-
-        save_transition(transaction, new_status)
+        new_status, old_status, transaction = save_transition(transaction_id, new_status)
 
         payment_type = MarketplaceService::Community::Query.payment_type(transaction.community_id)
 
         if new_status == :preauthorized
-          Events.preauthorized(transaction)
+          Events.preauthorized(transaction, payment_type)
         elsif (old_status == :preauthorized && new_status == :paid)
           Events.preauthorized_to_paid(transaction, payment_type)
         elsif (old_status == :preauthorized && new_status == :rejected)
@@ -187,7 +184,11 @@ module MarketplaceService
         end
       end
 
-      def save_transition(transaction, new_status)
+      def save_transition(transaction_id, new_status)
+        new_status = new_status.to_sym
+        transaction = TransactionModel.find(transaction_id)
+        old_status = transaction.current_state.to_sym if transaction.current_state.present?
+
         transaction.current_state = new_status
         transaction.save!
 
@@ -195,6 +196,8 @@ module MarketplaceService
         state_machine.transition_to!(new_status)
 
         transaction.touch(:last_transition_at)
+
+        [new_status, old_status, Entity.transaction(transaction)]
       end
 
     end
@@ -274,33 +277,51 @@ module MarketplaceService
       def preauthorized_to_rejected(transaction, payment_type)
         case payment_type
         when :braintree
-          BraintreeService::Payments::Command.void_transaction(transaction.id, transaction.community_id)
+          BraintreeService::Payments::Command.void_transaction(transaction[:id], transaction[:community_id])
+        when :paypal
+          paypal_account = PaypalService::PaypalAccount::Query.personal_account(transaction[:listing][:author_id], transaction[:community_id])
+          paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
+
+          api_params = {
+            receiver_username: paypal_account[:email],
+            authorization_id: paypal_payment[:authorization_id]
+            note: "Automatic void: Not responded to a request after 3 days"
+          }
+
+          void_response = PaypalService::DataTypes::Merchant.create_do_void(api_params)
+
+          if !void_response.success
+            # TODO Use Paypal logger
+          end
         end
       end
 
       def preauthorized_to_paid(transaction, payment_type)
         case payment_type
         when :braintree
-          BraintreeService::Payments::Command.submit_to_settlement(transaction.id, transaction.community_id)
+          BraintreeService::Payments::Command.submit_to_settlementu(transaction[:id], transaction[:community_id])
         end
       end
 
-      def preauthorized(transaction)
-        # TODO THIS DOESN'T WORK WITH PAYPAL
-        # FIXME
-        expire_at =
-          if transaction.community.paypal_enabled
-            binding.pry
-            3.days.from_now
-          else
-            transaction.preauthorization_expire_at
-          end
+      def preauthorized(transaction, payment_type)
+        gateway_expires_at = case payment_type
+                             when :braintree
+                               5.days.from_now
+                             when :paypal
+                               # 3 days is an estimate, which should be quite accurate. We can get
+                               # the exact time from Paypal through IPN notification. In this case,
+                               # we take the 3 days estimate and add 10 minute buffer
+                               3.days.from_now - 10.minutes
+                             end
 
+        booking_ends_on = Maybe(transaction)[:booking][:end_on].or_else(nil)
 
-        Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction.id), :priority => 10)
-        Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(transaction.id), priority: 7, run_at: expire_at)
+        expire_at = Entity.preauth_expires_at(gateway_expires_at, booking_ends_on)
 
-        setup_preauthorize_reminder(transaction.id, expire_at)
+        Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction[:id]), :priority => 10)
+        Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(transaction[:id]), priority: 7, run_at: expire_at)
+
+        setup_preauthorize_reminder(transaction[:id], expire_at)
       end
 
       # "private" helpers
