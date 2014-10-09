@@ -65,14 +65,6 @@ module PaypalService
         DataTypes.create_failure_response({error_msg: "Paypal merchant service failed to respond."})
       end
 
-      response = action_method.call(wrapped)
-
-      @logger.log_response(response)
-      if (response.success?)
-        output_transformer.call(response, api)
-      else
-        create_failure_response(response)
-      end
     end
 
 

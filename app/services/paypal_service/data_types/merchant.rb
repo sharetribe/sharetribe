@@ -49,7 +49,8 @@ module PaypalService
         [:billing_agreement_accepted],
         [:payer, :string],
         [:payer_id, :string],
-        [:order_total, :mandatory, :money])
+        [:order_total, :mandatory, :money],
+        [:note_to_seller, :string])
 
       SetExpressCheckoutOrder = EntityUtils.define_builder(
         [:method, const_value: :set_express_checkout_order],
@@ -77,15 +78,15 @@ module PaypalService
         [:payment_date, :mandatory, :str_to_time],
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
-        [:transaction_id, :mandatory, :string],
+        [:order_id, :mandatory, :string],
         [:order_total, :mandatory, :money],
-        [:secure_merchant_account_id, :mandatory, :string])
+        [:receiver_id, :mandatory, :string])
 
       DoAuthorization = EntityUtils.define_builder(
         [:method, const_value: :do_authorization],
         [:receiver_username, :mandatory, :string],
-        [:transaction_id, :mandatory, :string],
-        [:order_total, :mandatory, :money],
+        [:order_id, :mandatory, :string],
+        [:authorization_total, :mandatory, :money],
         [:msg_sub_id, transform_with: -> (v) { v.nil? ? SecureRandom.uuid : v }])
 
       DoAuthorizationResponse = EntityUtils.define_builder(
@@ -93,35 +94,36 @@ module PaypalService
         [:authorization_id, :mandatory, :string],
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
-        [:order_total, :mandatory, :money],
+        [:authorization_total, :mandatory, :money],
         [:msg_sub_id, :string])
 
       DoFullCapture = EntityUtils.define_builder(
         [:method, const_value: :do_capture],
         [:receiver_username, :mandatory, :string],
         [:authorization_id, :mandatory, :string],
-        [:order_total, :mandatory, :money])
+        [:payment_total, :mandatory, :money])
 
       DoFullCaptureResponse = EntityUtils.define_builder(
         [:success, const_value: true],
         [:authorization_id, :mandatory, :string],
-        [:transaction_id, :mandatory, :string],
+        [:payment_id, :mandatory, :string],
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
-        [:order_total, :mandatory, :money],
-        [:fee, :mandatory, :money],
+        [:payment_total, :mandatory, :money],
+        [:fee_total, :mandatory, :money],
         [:payment_date, :mandatory, :str_to_time])
 
       DoVoid = EntityUtils.define_builder(
         [:method, const_value: :do_void],
         [:receiver_username, :mandatory, :string],
-        [:authorization_id, :mandatory, :string],
+        [:authorization_id, :string], # Must have either authorization_id or order_id
+        [:order_id, :string],
         [:note, :string],
         [:msg_sub_id, transform_with: -> (v) { v.nil? ? SecureRandom.uuid : v }])
 
       DoVoidResponse = EntityUtils.define_builder(
         [:success, const_value: true],
-        [:authorization_id, :mandatory, :string],
+        [:voided_id, :mandatory, :string],
         [:msg_sub_id, :string])
 
 

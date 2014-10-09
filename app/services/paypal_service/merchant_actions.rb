@@ -103,6 +103,7 @@ module PaypalService
               payer: details.payer_info.payer,
               payer_id: details.payer_info.payer_id,
               order_total: to_money(details.payment_details[0].order_total),
+              note_to_seller: details.payment_details[0].note_text
             }
           )
         }
@@ -161,9 +162,9 @@ module PaypalService
               payment_date: payment_info.payment_date.to_s,
               payment_status: payment_info.payment_status,
               pending_reason: payment_info.pending_reason,
-              transaction_id: payment_info.transaction_id,
+              order_id: payment_info.transaction_id,
               order_total: to_money(payment_info.gross_amount),
-              secure_merchant_account_id: payment_info.seller_details.secure_merchant_account_id
+              receiver_id: payment_info.seller_details.secure_merchant_account_id
             })
         }
       ),
@@ -172,8 +173,8 @@ module PaypalService
         input_transformer: -> (req, _) {
           {
             MsgSubID: req[:msg_sub_id],
-            TransactionID: req[:transaction_id],
-            Amount: from_money(req[:order_total]),
+            TransactionID: req[:order_id],
+            Amount: from_money(req[:authorization_total]),
           }
         },
         wrapper_method_name: :build_do_authorization,
@@ -183,7 +184,7 @@ module PaypalService
             authorization_id: res.transaction_id,
             payment_status: res.authorization_info.payment_status,
             pending_reason: res.authorization_info.pending_reason,
-            order_total: to_money(res.amount),
+            authorization_total: to_money(res.amount),
             msg_sub_id: res.msg_sub_id
           })
         }
@@ -193,7 +194,7 @@ module PaypalService
         input_transformer: -> (req, _) {
           {
             AuthorizationID: req[:authorization_id],
-            Amount: from_money(req[:order_total]),
+            Amount: from_money(req[:payment_total]),
             CompleteType: "Complete"
           }
         },
@@ -204,10 +205,10 @@ module PaypalService
           DataTypes::Merchant.create_do_full_capture_response(
             {
               authorization_id: res.do_capture_response_details.authorization_id,
-              transaction_id: payment_info.transaction_id,
+              payment_id: payment_info.transaction_id,
               payment_status: payment_info.payment_status,
               pending_reason: payment_info.pending_reason,
-              order_total: to_money(payment_info.gross_amount),
+              payment_total: to_money(payment_info.gross_amount),
               fee: to_money(payment_info.fee_amount),
               payment_date: payment_info.payment_date.to_s
             }
@@ -218,7 +219,7 @@ module PaypalService
       do_void: PaypalAction.def_action(
         input_transformer: -> (req, _) {
           {
-            AuthorizationID: req[:authorization_id],
+            AuthorizationID: req[:authorization_id] || req[:order_id],
             Note: req[:note],
             MsgSubID: req[:msg_sub_id]
           }
@@ -228,7 +229,7 @@ module PaypalService
         output_transformer: -> (res, api) {
           DataTypes::Merchant.create_do_void_response(
             {
-              authorization_id: res.authorization_id,
+              voided_id: res.authorization_id,
               msg_sub_id: res.msg_sub_id
             }
           )
