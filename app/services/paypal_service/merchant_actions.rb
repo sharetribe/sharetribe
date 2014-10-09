@@ -234,6 +234,31 @@ module PaypalService
             }
           )
         }
+      ),
+
+      refund_transaction: PaypalAction.def_action(
+        input_transformer: -> (req, _) {
+          {
+            TransactionID: req[:payment_id],
+            RefundType: "Full",
+            RefundSource: "default",
+            MsgSubID: req[:msg_sub_id]
+          }
+        },
+        wrapper_method_name: :build_refund_transaction,
+        action_method_name: :refund_transaction,
+        output_transformer: -> (res, api) {
+          DataTypes::Merchant.create_refund_transaction_response(
+            {
+              refunded_id: res.RefundTransactionID,
+              refunded_fee_total: to_money(res.FeeRefundAmount),
+              refunded_net_total: to_money(res.NetRefundAmount),
+              refunded_gross_total: to_money(res.GrossRefundAmount),
+              refunded_total: to_money(res.TotalRefundedAmount),
+              msg_sub_id: res.MsgSubID
+            }
+          )
+        }
       )
     }
 

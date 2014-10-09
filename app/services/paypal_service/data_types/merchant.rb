@@ -126,6 +126,20 @@ module PaypalService
         [:voided_id, :mandatory, :string],
         [:msg_sub_id, :string])
 
+      RefundTransaction = EntityUtils.define_builder(
+        [:method, const_value: :refund_transaction],
+        [:receiver_username, :mandatory, :string],
+        [:payment_id, :string, :mandatory],
+        [:msg_sub_id, transform_with: -> (v ) { v.nil? ? SecureRandom.uuid : v }])
+
+      RefundTransactionResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:refunded_id, :mandatory, :string],
+        [:refunded_fee_total, :mandatory, :money],
+        [:refunded_net_total, :mandatory, :money],
+        [:refunded_gross_total, :mandatory, :money],
+        [:refunded_total, :mandatory, :money],
+        [:msg_sub_id, :string])
 
       module_function
 
@@ -156,6 +170,8 @@ module PaypalService
       def create_do_void(opts); DoVoid.call(opts) end
       def create_do_void_response(opts); DoVoidResponse.call(opts) end
 
+      def create_refund_transaction(opts); RefundTransaction.call(opts) end
+      def create_refund_transaction_response(opts); RefundTransactionResponse.call(opts) end
     end
 
   end
