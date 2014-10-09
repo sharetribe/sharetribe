@@ -36,6 +36,8 @@ class PreauthorizeTransactionsController < ApplicationController
 
   ListingQuery = MarketplaceService::Listing::Query
   PersonQuery = MarketplaceService::Person::Query
+  BraintreePaymentQuery = BraintreeService::Payments::Query
+
 
   def initiate
     listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
@@ -128,6 +130,8 @@ class PreauthorizeTransactionsController < ApplicationController
         form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
       }
     else
+      braintree_settings = BraintreePaymentQuery.braintree_settings(@current_community.id)
+
       render "listing_conversations/preauthorize", locals: {
         preauthorize_form: PreauthorizeBookingForm.new({
           start_on: booking_data[:start_on],
@@ -137,8 +141,8 @@ class PreauthorizeTransactionsController < ApplicationController
         sum: listing[:price] * booking_data[:duration],
         duration: booking_data[:duration],
         author: PersonQuery.person(listing[:author_id]),
-        braintree_client_side_encryption_key: @current_community.payment_gateway.braintree_client_side_encryption_key,
         action_button_label: action_button_label,
+        braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
         braintree_form: BraintreeForm.new,
         form_action: booked_path(person_id: @current_user.id, listing_id: listing[:id])
       }
@@ -153,10 +157,12 @@ class PreauthorizeTransactionsController < ApplicationController
       .select {|translation| translation[:locale] == I18n.locale}
       .first
 
+    braintree_settings = BraintreePaymentQuery.braintree_settings(@current_community.id)
+
     # TODO listing_conversations view (folder) needs some brainstorming
     render "listing_conversations/preauthorize", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
-      braintree_client_side_encryption_key: @current_community.payment_gateway.braintree_client_side_encryption_key,
+      braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
       braintree_form: BraintreeForm.new,
       listing: listing,
       sum: listing[:price],
