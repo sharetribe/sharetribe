@@ -18,8 +18,8 @@ module MarketplaceService
         [:price_per, :optional, :string],
         [:price_field, :optional, :to_bool],
         [:preauthorize_payment, :optional, :to_bool],
-        [:action_button_label, :optional, :string],
-        [:url, :optional, :to_bool])
+        [:url, :optional, :to_bool],
+        [:action_button_label_translations, :optional])
 
       module_function
 
@@ -55,9 +55,17 @@ module MarketplaceService
       end
 
       def transaction_type(transaction_type_model)
+        translations = transaction_type_model.translations
+          .map { |translation|
+            {
+              locale: translation.locale,
+              action_button_label: translation.action_button_label
+            }
+          }
+
         TransactionType.call(EntityUtils
           .model_to_hash(transaction_type_model)
-          .merge(action_button_label: TranslationCache.new(transaction_type_model, :translations).translate(I18n.locale, :action_button_label))
+          .merge(action_button_label_translations: translations)
         )
       end
     end
