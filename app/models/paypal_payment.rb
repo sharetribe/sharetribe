@@ -2,25 +2,26 @@
 #
 # Table name: paypal_payments
 #
-#  id                        :integer          not null, primary key
-#  transaction_id            :integer          not null
-#  payer_id                  :string(64)       not null
-#  receiver_id               :string(64)       not null
-#  order_id                  :string(64)       not null
-#  order_date                :datetime         not null
-#  currency                  :string(8)        not null
-#  order_total_cents         :integer          not null
-#  authorization_id          :string(64)
-#  authorization_date        :datetime
-#  authorization_total_cents :integer
-#  payment_id                :string(64)
-#  payment_date              :datetime
-#  payment_total_cents       :integer
-#  fee_total_cents           :integer
-#  payment_status            :string(64)       not null
-#  pending_reason            :string(64)
-#  created_at                :datetime         not null
-#  updated_at                :datetime         not null
+#  id                         :integer          not null, primary key
+#  transaction_id             :integer          not null
+#  payer_id                   :string(64)       not null
+#  receiver_id                :string(64)       not null
+#  order_id                   :string(64)       not null
+#  order_date                 :datetime         not null
+#  currency                   :string(8)        not null
+#  order_total_cents          :integer          not null
+#  authorization_id           :string(64)
+#  authorization_date         :datetime
+#  authorization_expires_date :datetime
+#  authorization_total_cents  :integer
+#  payment_id                 :string(64)
+#  payment_date               :datetime
+#  payment_total_cents        :integer
+#  fee_total_cents            :integer
+#  payment_status             :string(64)       not null
+#  pending_reason             :string(64)
+#  created_at                 :datetime         not null
+#  updated_at                 :datetime         not null
 #
 # Indexes
 #
@@ -40,6 +41,7 @@ class PaypalPayment < ActiveRecord::Base
     :order_total_cents,
     :authorization_id,
     :authorization_date,
+    :authorization_expires_date,
     :authorization_total_cents,
     :payment_id,
     :payment_date,
