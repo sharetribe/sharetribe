@@ -40,11 +40,16 @@ class PreauthorizeTransactionsController < ApplicationController
   def initiate
     listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
 
+    action_button_label = listing[:transaction_type][:action_button_label_translations]
+      .select {|translation| translation[:locale] == I18n.locale}
+      .first
+
     render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: listing,
       sum: listing[:price],
       author:PersonQuery.person(listing[:author_id]),
+      action_button_label: action_button_label,
       form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
     }
   end
@@ -105,6 +110,10 @@ class PreauthorizeTransactionsController < ApplicationController
       return redirect_to listing_path(listing[:id])
     end
 
+    action_button_label = listing[:transaction_type][:action_button_label_translations]
+      .select {|translation| translation[:locale] == I18n.locale}
+      .first
+
     if @current_community.paypal_enabled?
       render "listing_conversations/initiate", locals: {
         preauthorize_form: PreauthorizeBookingForm.new({
@@ -115,6 +124,7 @@ class PreauthorizeTransactionsController < ApplicationController
         sum: listing[:price] * booking_data[:duration],
         duration: booking_data[:duration],
         author: PersonQuery.person(listing[:author_id]),
+        action_button_label: action_button_label,
         form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
       }
     else
@@ -128,6 +138,7 @@ class PreauthorizeTransactionsController < ApplicationController
         duration: booking_data[:duration],
         author: PersonQuery.person(listing[:author_id]),
         braintree_client_side_encryption_key: @current_community.payment_gateway.braintree_client_side_encryption_key,
+        action_button_label: action_button_label,
         braintree_form: BraintreeForm.new,
         form_action: booked_path(person_id: @current_user.id, listing_id: listing[:id])
       }
@@ -138,6 +149,9 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def preauthorize
     listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
+    action_button_label = listing[:transaction_type][:action_button_label_translations]
+      .select {|translation| translation[:locale] == I18n.locale}
+      .first
 
     # TODO listing_conversations view (folder) needs some brainstorming
     render "listing_conversations/preauthorize", locals: {
@@ -147,6 +161,7 @@ class PreauthorizeTransactionsController < ApplicationController
       listing: listing,
       sum: listing[:price],
       author: PersonQuery.person(listing[:author_id]),
+      action_button_label: action_button_label,
       form_action: preauthorized_payment_path(person_id: @current_user.id, listing_id: listing[:id])
     }
   end
