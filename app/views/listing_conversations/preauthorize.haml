@@ -83,13 +83,13 @@
 
       .row
         .col-12
-          = form.button t("braintree_payments.edit.confirm_payment"), :class => "send_button"
+          = form.button t("preauthorize_payments.edit.confirm_payment"), :class => "send_button"
 
       .row
         .col-12
           - automatic_confirmation = @current_community.automatic_confirmation_after_days
           %p
-            = t(".you_will_be_charged", author: author_link).html_safe
+            = t(".you_will_be_charged", author: author_link, expiration_period: 5 ).html_safe
 
   %noscript
     = "For security reasons JavaScript has to be enabled"

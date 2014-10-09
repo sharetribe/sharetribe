@@ -67,7 +67,7 @@
         .col-12
           - automatic_confirmation = @current_community.automatic_confirmation_after_days
           %p
-            = t("listing_conversations.preauthorize.you_will_be_charged", author: author_link).html_safe
+            = t("listing_conversations.preauthorize.you_will_be_charged", author: author_link, expiration_period: 3 ).html_safe
 
   %noscript
     = "For security reasons JavaScript has to be enabled"
