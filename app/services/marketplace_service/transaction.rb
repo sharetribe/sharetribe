@@ -174,7 +174,7 @@ module MarketplaceService
         old_status, new_status = save_transition(transaction_id, new_status)
 
         transaction = Query.transaction(transaction_id)
-        payment_type = MarketplaceService::Community::Query.payment_type(transaction.community_id)
+        payment_type = MarketplaceService::Community::Query.payment_type(transaction[:community_id])
 
         Events.handle_transition(transaction, payment_type, old_status, new_status)
       end
@@ -299,9 +299,11 @@ module MarketplaceService
             note: "Automatic void: Not responded to a request after 3 days"
           }
 
-          void_response = PaypalService::DataTypes::Merchant.create_do_void(api_params)
+          merchant = PaypalService::MerchantInjector.build_paypal_merchant
+          void_request = PaypalService::DataTypes::Merchant.create_do_void(api_params)
+          void_response = merchant.do_request(void_request)
 
-          if !void_response.success
+          if !void_response[:success]
             # TODO Use Paypal logger
           end
         end

@@ -39,32 +39,49 @@ class PaypalTransactionsController < ApplicationController
     paypal_receiver = PaypalAccountQuery.personal_account(listing_author_id, @current_community.id)
 
     # get_express_checkout_details
-    express_checkout_details_req = DataTypesMerchant.create_get_express_checkout_details({
+    express_checkout_details_req = DataTypeMerchant.create_get_express_checkout_details({
         receiver_username: paypal_receiver[:email],
         token: params[:token]
       })
     express_checkout_details_res = paypal_merchant.do_request(express_checkout_details_req)
-    puts express_checkout_details_res
 
+    if !express_checkout_details_res[:success]
+      return #TODO LOG THIS and RETRY?
+    end
 
     # do_express_checkout_payment
-    do_express_checkout_payment_req = DataTypesMerchant.create_do_express_checkout_payment({
+    do_express_checkout_payment_req = DataTypeMerchant.create_do_express_checkout_payment({
         receiver_username: paypal_receiver[:email],
         token: params[:token],
         payer_id: express_checkout_details_res[:payer_id],
         order_total: express_checkout_details_res[:order_total]
       })
     do_express_checkout_payment_res = paypal_merchant.do_request(do_express_checkout_payment_req)
-    puts do_express_checkout_payment_res
+
+    if !do_express_checkout_payment_res[:success]
+      return #TODO LOG THIS and RETRY?
+    end
+
+    PaypalService::PaypalPayment::Command.create(
+      transaction_id,
+      express_checkout_details_res.merge(do_express_checkout_payment_res).merge(order_date: Time.now) # TODO What's the correct value for order date?
+    )
 
     # do_authorization
     do_authorization_req = DataTypeMerchant.create_do_authorization({
         receiver_username: paypal_receiver[:email],
-        transaction_id: do_express_checkout_payment_res[:transaction_id],
-        order_total: express_checkout_details_res[:order_total]
+        order_id: do_express_checkout_payment_res[:order_id],
+        authorization_total: express_checkout_details_res[:order_total]
       })
     do_authorization_res = paypal_merchant.do_request(do_authorization_req)
-    puts do_authorization_res
+
+    if !do_authorization_res[:success]
+      return #TODO LOG THIS and RETRY?
+    end
+
+    PaypalService::PaypalPayment::Command.update(
+      express_checkout_details_res.merge(do_express_checkout_payment_res).merge(do_authorization_res)
+    )
 
     # TODO: think this throug!
     MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
