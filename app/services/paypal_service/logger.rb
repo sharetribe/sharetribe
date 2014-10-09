@@ -2,7 +2,8 @@ module PaypalService
   class Logger
 
     def info(msg)
-      Rails.logger.info "[Paypal] #{msg}"
+      #TODO: Fix logging totally
+      Rails.logger.warn "[Paypal] #{msg}"
     end
 
     def warn(msg)
