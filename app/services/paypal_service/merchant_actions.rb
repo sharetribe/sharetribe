@@ -209,7 +209,7 @@ module PaypalService
               payment_status: payment_info.payment_status,
               pending_reason: payment_info.pending_reason,
               payment_total: to_money(payment_info.gross_amount),
-              fee: to_money(payment_info.fee_amount),
+              fee_total: to_money(payment_info.fee_amount),
               payment_date: payment_info.payment_date.to_s
             }
           )
