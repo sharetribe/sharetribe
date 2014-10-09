@@ -105,7 +105,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def book
     listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
-    booking_data = verified_booking_data(params[:start_on], params[:end_on], listing)
+    booking_data = verified_booking_data(params[:start_on], params[:end_on])
 
     if booking_data[:error].present?
       flash[:error] = booking_data[:error]
@@ -358,8 +358,11 @@ class PreauthorizeTransactionsController < ApplicationController
     date.iso8601
   end
 
-  def verified_booking_data(start_on, end_on, listing)
-    booking_form = create_booking_form(start_on, end_on, listing)
+  def verified_booking_data(start_on, end_on)
+    booking_form = BookingForm.new({
+      start_on: parse_booking_date(start_on),
+      end_on: parse_booking_date(end_on)
+    })
 
     if booking_form.present? && !booking_form.valid?
       { error: booking_data[:form].errors.full_messages }
@@ -367,17 +370,6 @@ class PreauthorizeTransactionsController < ApplicationController
       booking_form.to_hash.merge({
         duration: duration(booking_form.start_on, booking_form.end_on)
       })
-    end
-  end
-
-  def create_booking_form(start_on, end_on, listing)
-    if listing[:transaction_type][:price_per].present?
-      BookingForm.new({
-        start_on: parse_booking_date(start_on),
-        end_on: parse_booking_date(end_on)
-      })
-    else
-      nil
     end
   end
 end
