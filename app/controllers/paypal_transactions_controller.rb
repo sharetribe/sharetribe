@@ -83,6 +83,9 @@ class PaypalTransactionsController < ApplicationController
       express_checkout_details_res.merge(do_express_checkout_payment_res).merge(do_authorization_res)
     )
 
+    # Everything ok! Cleanup token
+    PaypalService::Token::Command.delete(params[:token])
+
     # TODO: think this throug!
     MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
     return redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
