@@ -176,16 +176,6 @@ class Transaction < ActiveRecord::Base
     (transaction_transitions + conversation.messages).max
   end
 
-  def preauthorization_expire_at
-    preauthorization_expires = payment.preauthorization_expiration_days.days.from_now.to_date
-
-    if booking.present?
-      booking.end_on < preauthorization_expires ? booking.end_on : preauthorization_expires
-    else
-      preauthorization_expires
-    end
-  end
-
   # Give person (starter or listing author) and get back the other
   #
   # Note: I'm not sure whether we want to have this method or not but at least it makes refactoring easier.
