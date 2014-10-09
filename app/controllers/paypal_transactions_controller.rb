@@ -64,7 +64,7 @@ class PaypalTransactionsController < ApplicationController
 
     PaypalService::PaypalPayment::Command.create(
       transaction_id,
-      express_checkout_details_res.merge(do_express_checkout_payment_res).merge(order_date: Time.now) # TODO What's the correct value for order date?
+      express_checkout_details_res.merge(do_express_checkout_payment_res)
     )
 
     # do_authorization
