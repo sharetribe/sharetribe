@@ -75,7 +75,7 @@ module PaypalService
 
       DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(
         [:success, const_value: true],
-        [:payment_date, :mandatory, :str_to_time],
+        [:order_date, :mandatory, :str_to_time],
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
         [:order_id, :mandatory, :string],

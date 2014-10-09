@@ -159,7 +159,7 @@ module PaypalService
           payment_info = res.do_express_checkout_payment_response_details.payment_info[0]
           DataTypes::Merchant.create_do_express_checkout_payment_response(
             {
-              payment_date: payment_info.payment_date.to_s,
+              order_date: payment_info.payment_date.to_s,
               payment_status: payment_info.payment_status,
               pending_reason: payment_info.pending_reason,
               order_id: payment_info.transaction_id,
