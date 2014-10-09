@@ -50,7 +50,7 @@ class PreauthorizeTransactionsController < ApplicationController
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: listing,
       sum: listing[:price],
-      author:PersonQuery.person(listing[:author_id]),
+      author: PersonQuery.person(listing[:author_id]),
       action_button_label: action_button_label,
       form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
     }
