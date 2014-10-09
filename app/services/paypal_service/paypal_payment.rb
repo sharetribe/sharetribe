@@ -9,12 +9,15 @@ module PaypalService
       PaymentUpdate = EntityUtils.define_builder(
         [:payer_id, :string, :mandatory],
         [:receiver_id, :string, :mandatory],
-        [:payment_status, one_of: [:pending, :completed, :refunded]]) # Might have to handle :initiated / nil?
+        [:payment_status, one_of: [:pending, :completed, :refunded]])
 
       OPT_UPDATE_FIELDS = [
         :order_id,
+        :order_date,
+        :order_total_cents,
         :authorization_id,
         :authorization_date,
+        :authorization_expires_date,
         :authorization_total_cents,
         :payment_id,
         :payment_date,
@@ -28,7 +31,7 @@ module PaypalService
       end
 
       def update(order)
-        cent_totals = [:authorization_total, :fee_total, :payment_total]
+        cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total]
           .reduce({}) do |cent_totals, m_key|
             m = order[m_key]
             cent_totals["#{m_key}_cents".to_sym] = m.cents unless m.nil?
@@ -71,6 +74,7 @@ module PaypalService
         [:order_total, :mandatory, :money],
         [:authorization_id, :string],
         [:authorization_date, :time],
+        [:authorization_expires_date, :time],
         [:authorization_total, :money],
         [:payment_id, :string],
         [:payment_date, :time],
@@ -105,15 +109,15 @@ module PaypalService
       end
 
       def update(order)
-        payment_entity = Entity.update(order)
+        payment_update = Entity.update(order)
 
-        payment = find_payment(payment_entity)
+        payment = find_payment(payment_update)
         if payment.nil?
           raise ArgumentError.new("Order doesn't match an existing payment.")
           # Or just log a warning if we have a valid path to order update before initial recording?
         end
 
-        payment.update_attributes!(payment_entity)
+        payment.update_attributes!(payment_update)
 
         Entity.from_model(payment.reload)
       end
@@ -140,8 +144,9 @@ module PaypalService
       module_function
 
       def for_transaction(transaction_id)
-        model = PaypalPaymentModel.where(transaction_id: transaction_id).first
-        Entity.from_model(model)
+        Maybe(PaypalPaymentModel.where(transaction_id: transaction_id).first)
+        .map { |model| Entity.from_model(model) }
+        .or_else(nil)
       end
     end
   end
