@@ -15,12 +15,11 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def accept
-    @action = "accept"
+    render_accept_form("accept")
   end
 
   def reject
-    @action = "reject"
-    render :accept
+    render_accept_form("reject")
   end
 
   def accepted
@@ -69,5 +68,20 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   def fetch_conversation
     @listing_conversation = @current_community.transactions.find(params[:id])
+  end
+
+  def render_accept_form(preselected_action)
+    render locals: {
+      discussion_type: @listing_conversation.discussion_type,
+      sum: @listing_conversation.payment.total_sum,
+      fee: @listing_conversation.payment.total_commission,
+      seller_gets: @listing_conversation.payment.seller_gets,
+      form: @listing_conversation,
+      form_action: acceptance_preauthorized_person_message_path(
+        person_id: @current_user.id,
+        id: @listing_conversation.id
+      ),
+      preselected_action: preselected_action
+    }
   end
 end
