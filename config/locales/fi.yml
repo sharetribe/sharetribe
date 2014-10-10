@@ -119,7 +119,7 @@ fi:
         edit_message: "Muokkaa viestiä"
         send_test_message: "Lähetä testiviesti"
       settings:
-        settings: Asetukset
+        settings: Yleisasetukset
         general: Yleiset
         users_can_review_each_other_after_transaction: "Käyttäjät voivat antaa palautetta toisilleen"
         access: Pääsyoikeudet
@@ -211,7 +211,7 @@ fi:
         master_merchant_id: ~
         commission_from_seller: ~
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: "Maksuasetukset"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -285,13 +285,13 @@ fi:
         edit_news_item: Muokkaa
         delete_news_item: Poista
     paypal_accounts:
-      marketplace_paypal_integration: ~
+      marketplace_paypal_integration: "Maksuasetukset"
       new:
-        integration_info_text: ~
-        paypal_account_email: ~
+        integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus."
+        paypal_account_email: "Yhdistä PayPal-tilisi"
       show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
+        integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus."
+        paypal_account_email_connected: "<del>Yhdistä PayPal-tilisi</del> Tehty!"
     polls:
       index:
         polls: Kyselyt
@@ -1439,27 +1439,30 @@ fi:
         braintree_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä Braintree-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."
         terms_link_text: "Braintreen käyttöehdot"
   paypal_accounts:
-    payout_info_title: "Payout information"
-    paypal_account_email_connected: "1. Yhdistä Paypal-tiliin"
-    paypal_billing_agreement_made: "2. %{service_name} ottaa välityspalkkion (%{commission}) jokaisesta kaupasta."
+    payout_info_title: "Maksujen vastaanotto"
+    paypal_account_email_connected: "<del>1. Yhdistä Paypal-tilisi</del> Tehty!"
+    paypal_billing_agreement_made: "<del>2. Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista.</del> Tehty!"
+    you_are_ready_to_accept_payments: "Olet nyt valmis ottamaan rahaa vastaan."
     commission: "%{commission} %"
+    connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
     new:
       payout_info_text: "Vastaanottaaksesi maksuja sinun täyttyy yhdistää PayPal-tilisi %{service_name}-palveluun.<br /> Se onnistuu seuraavien kahden vaiheen avulla."
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_placeholder: "PayPal-tilisi sähköpostiosoite"
-      paypal_account_email_info_text: "Huom.: tarvitset Paypal-liiketoimintatilin vastaanottaaksesi luottokorttimaksuja. Jos sinulla ei ole PayPal.tiliä, voit luoda uuden %{create_paypal_account}. Jos sinulla on PayPal-henkilötili, voit helposti muuttaa tilin tyypin liiketoimintatiliksi ilmaiseksi. %{upgrade_paypal_account}"
-      create_paypal_account: täällä
-      upgrade_paypal_account: "Muuta PayPal-tilin tyyppi."
-      connect_paypal_account: "Yhdistä PayPal-tiliin"
-      paypal_account_billing_agreement: "2. Anna %{service_name}-palvelulle lupa ottaa välityspalkkio kaupoista."
-      paypal_account_billing_agreement_info: "%{service_name} ottaa välityspalkkion (%{commission} pyöristettynä lähimpään kokonaislukuun) jokaisesta kaupasta. Käyttääksesi %{service_name}-palvelua sinun tätyy antaa palvelulle lupa ottaa välityspalkkio PayPal-maksuista."
+      paypal_account_email_info_text: "Huom! Tarvitset PayPalin 'business'-tilin vastaanottaaksesi luottokorttimaksuja. Jos sinulla on PayPalin 'personal'-tili, voit helposti muuttaa tilin tyypin 'business'-tiliksi. %{upgrade_paypal_account} Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}."
+      create_paypal_account: tästä
+      upgrade_paypal_account: "Muuta PayPal-tilin tyyppi tästä."
+      connect_paypal_account: "Yhdistä PayPal-tili"
+      paypal_account_billing_agreement: "2. Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista."
+      paypal_account_billing_agreement_info: "%{service_name} veloittaa %{commission} välityspalkkion jokaisesta kaupasta. Käyttääksesi %{service_name}-palvelua sinun tätyy antaa palvelulle lupa ottaa välityspalkkio PayPal-maksuista."
       billing_agreement_description: "Anna %{service_name}-palvelulle lupa ottaa välityspalkkio kaupoista."
-      billing_agreement: "Anna lupa ottaa välityspalkkiota."
+      billing_agreement: "Anna lupa veloittaa välityspalkkio"
       permissions_not_granted: "Lupaa PayPal-tilin yhdistämiseen ei annettu."
       could_not_fetch_redirect_url: "Uudelleenohjaus PayPal-tiliin ei onnistunut."
       paypal_not_enabled: "PayPal maksut eivät ole käytössä."
       billing_agreement_canceled: "Laskutussopimus jäi kesken."
       billing_agreement_id_missing: "PayPal asetuksissa ilmeni teknisiä ongelmia."
+      something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"

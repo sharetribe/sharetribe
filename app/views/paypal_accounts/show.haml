@@ -11,10 +11,12 @@
 
   .row.paypal-connected-email-row
     %h3.paypal-account-connected
-      =t("paypal_accounts.paypal_account_email_connected")
+      = t("paypal_accounts.paypal_account_email_connected").html_safe
     .paypal-connected-email.paypal-account-connected
-      = paypal_account_email
+      = t("paypal_accounts.connected_account", :email => paypal_account_email)
 
   .row.paypal-billing-agreement-row
     %h3.paypal-billing-agreement-made
-      =t("paypal_accounts.paypal_billing_agreement_made", commission: commission_from_seller)
+      = t("paypal_accounts.paypal_billing_agreement_made").html_safe
+    .paypal-billing-agreement-made.paypal-ready-to-accept-payments
+      = t("paypal_accounts.you_are_ready_to_accept_payments").html_safe
