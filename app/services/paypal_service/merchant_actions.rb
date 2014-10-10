@@ -35,6 +35,7 @@ module PaypalService
               CancelURL: req[:cancel],
               ReqConfirmShipping: 0,
               NoShipping: 1,
+              AllowNote: 0,
               PaymentDetails: [{
                   OrderTotal: { value: "0.0" },
                   NotifyURL: hook_url(config[:ipn_hook]),
