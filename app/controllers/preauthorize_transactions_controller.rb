@@ -41,6 +41,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def initiate
     listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
     action_button_label = listing[:transaction_type][:action_button_label_translations]
       .select {|translation| translation[:locale] == I18n.locale}
@@ -52,6 +53,7 @@ class PreauthorizeTransactionsController < ApplicationController
       sum: listing[:price],
       author: PersonQuery.person(listing[:author_id]),
       action_button_label: action_button_label,
+      expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
       form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
     }
   end
@@ -105,6 +107,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def book
     listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
     booking_data = verified_booking_data(params[:start_on], params[:end_on])
 
     if booking_data[:error].present?
@@ -127,6 +130,7 @@ class PreauthorizeTransactionsController < ApplicationController
         duration: booking_data[:duration],
         author: PersonQuery.person(listing[:author_id]),
         action_button_label: action_button_label,
+        expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
         form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
       }
     else
@@ -142,6 +146,7 @@ class PreauthorizeTransactionsController < ApplicationController
         duration: booking_data[:duration],
         author: PersonQuery.person(listing[:author_id]),
         action_button_label: action_button_label,
+        expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
         braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
         braintree_form: BraintreeForm.new,
         form_action: booked_path(person_id: @current_user.id, listing_id: listing[:id])
@@ -153,6 +158,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def preauthorize
     listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
     action_button_label = listing[:transaction_type][:action_button_label_translations]
       .select {|translation| translation[:locale] == I18n.locale}
       .first
@@ -168,6 +174,7 @@ class PreauthorizeTransactionsController < ApplicationController
       sum: listing[:price],
       author: PersonQuery.person(listing[:author_id]),
       action_button_label: action_button_label,
+      expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
       form_action: preauthorized_payment_path(person_id: @current_user.id, listing_id: listing[:id])
     }
   end

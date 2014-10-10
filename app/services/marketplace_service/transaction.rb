@@ -72,6 +72,15 @@ module MarketplaceService
         end
       end
 
+      def authorization_expiration_period(payment_type)
+        case payment_type
+        when :braintree
+          APP_CONFIG.braintree_expiration_period.to_i
+        when :paypal
+          APP_CONFIG.paypal_expiration_period.to_i
+        end
+      end
+
       def testimonial_from(transaction, person_id)
         transaction[:testimonials].find { |testimonial| testimonial[:author_id] == person_id }
       end
@@ -337,15 +346,17 @@ module MarketplaceService
       end
 
       def preauthorized(transaction, payment_type)
+        expiration_period = Entity.authorization_expiration_period(payment_type)
         gateway_expires_at = case payment_type
-                             when :braintree
-                               5.days.from_now
-                             when :paypal
-                               # 3 days is an estimate, which should be quite accurate. We can get
-                               # the exact time from Paypal through IPN notification. In this case,
-                               # we take the 3 days estimate and add 10 minute buffer
-                               3.days.from_now - 10.minutes
-                             end
+                              when :braintree
+                                expiration_period.days.from_now
+                              when :paypal
+                                # expiration period in PayPal is an estimate,
+                                # which should be quite accurate. We can get
+                                # the exact time from Paypal through IPN notification. In this case,
+                                # we take the 3 days estimate and add 10 minute buffer
+                                expiration_period.days.from_now - 10.minutes
+                              end
 
         booking_ends_on = Maybe(transaction)[:booking][:end_on].or_else(nil)
 
