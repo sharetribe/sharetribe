@@ -313,6 +313,23 @@ module MarketplaceService
         case payment_type
         when :braintree
           BraintreeService::Payments::Command.submit_to_settlement(transaction[:id], transaction[:community_id])
+        when :paypal
+          paypal_account = PaypalService::PaypalAccount::Query.personal_account(transaction[:listing][:author_id], transaction[:community_id])
+          paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
+
+          api_params = {
+            receiver_username: paypal_account[:email],
+            authorization_id: paypal_payment[:authorization_id],
+            payment_total: paypal_payment[:authorization_total]
+          }
+
+          merchant = PaypalService::MerchantInjector.build_paypal_merchant
+          capture_request = PaypalService::DataTypes::Merchant.create_do_full_capture(api_params)
+          caprure_response = merchant.do_request(capture_request)
+
+          if !capture_response[:success]
+            # TODO Use Paypal logger
+          end
         end
       end
 
