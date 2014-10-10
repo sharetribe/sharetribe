@@ -6,6 +6,9 @@ class MessagesController < ApplicationController
 
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
+  end
+
+  before_filter do |controller|
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_do_this")
   end
 
