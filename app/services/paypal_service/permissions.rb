@@ -1,7 +1,10 @@
+require 'paypal_service/log_subscriber'
+
 module PaypalService
   class Permissions
 
     include PermissionsActions
+    prepend Instrumentation
 
     def initialize(endpoint, api_credentials, logger, action_handlers = PERMISSIONS_ACTIONS, api_builder = nil)
       @logger = logger
@@ -57,14 +60,12 @@ module PaypalService
 
       begin
         response = action_method.call(wrapped)
-        @logger.log_response(response)
         if (response.success?)
           output_transformer.call(response, api)
         else
           create_failure_response(response)
         end
       rescue
-        @logger.error("Paypal permission service failed to respond.")
         DataTypes.create_failure_response({error_msg: "Paypal permission service failed to respond."})
       end
 
