@@ -18,6 +18,13 @@ module PaypalService
       ipn_hook[:url] unless ipn_hook.nil?
     end
 
+    def append_useraction_commit(url_str)
+      uri = URI(url_str)
+      args = URI.decode_www_form(uri.query || "") << ["useraction", "commit"]
+      uri.query = URI.encode_www_form(args)
+      uri.to_s
+    end
+
 
     MERCHANT_ACTIONS = {
       setup_billing_agreement: PaypalAction.def_action(
@@ -102,8 +109,7 @@ module PaypalService
               billing_agreement_accepted: !!details.billing_agreement_accepted_status,
               payer: details.payer_info.payer,
               payer_id: details.payer_info.payer_id,
-              order_total: to_money(details.payment_details[0].order_total),
-              note_to_seller: details.payment_details[0].note_text
+              order_total: to_money(details.payment_details[0].order_total)
             }
           )
         }
@@ -117,14 +123,19 @@ module PaypalService
               CancelURL: req[:cancel],
               ReqConfirmShipping: 0,
               NoShipping: 1,
-              OrderDescription: req[:description],
               SolutionType: "Sole",
               LandingPage: "Billing",
+              AllowNote: 0,
               PaymentDetails: [{
                   NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total]),
-                  PaymentAction: "Order"
-                }]
+                  PaymentAction: "Order",
+                  PaymentDetailsItem: [{
+                      Name: req[:item_name],
+                      Quantity: req[:item_quantity],
+                      Amount: from_money(req[:item_price] || req[:order_total])
+                  }]
+              }]
             }
           }
         },
@@ -133,7 +144,7 @@ module PaypalService
         output_transformer: -> (res, api) {
           DataTypes::Merchant.create_set_express_checkout_order_response({
             token: res.token,
-            redirect_url: api.express_checkout_url(res),
+            redirect_url: append_useraction_commit(api.express_checkout_url(res)),
             receiver_username: api.config.subject || api.config.username
           })
         }
