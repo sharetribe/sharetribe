@@ -323,7 +323,6 @@ module MarketplaceService
         when :braintree
           BraintreeService::Payments::Command.submit_to_settlement(transaction[:id], transaction[:community_id])
         when :paypal
-          binding.pry
           paypal_account = PaypalService::PaypalAccount::Query.personal_account(transaction[:listing][:author_id], transaction[:community_id])
           paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
 
@@ -338,7 +337,7 @@ module MarketplaceService
           capture_response = merchant.do_request(capture_request)
 
           if capture_response[:success]
-            PaypalService::PaypalPayment.update(capture_response)
+            PaypalService::PaypalPayment::Command.update(paypal_payment.merge(capture_response))
           else
             # TODO Use Paypal logger
           end
