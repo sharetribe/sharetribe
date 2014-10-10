@@ -49,12 +49,16 @@ module PaypalService
         [:billing_agreement_accepted],
         [:payer, :string],
         [:payer_id, :string],
-        [:order_total, :mandatory, :money],
-        [:note_to_seller, :string])
+        [:order_total, :mandatory, :money])
 
       SetExpressCheckoutOrder = EntityUtils.define_builder(
         [:method, const_value: :set_express_checkout_order],
-        [:description, :mandatory, :string],
+        [:item_name, :mandatory, :string],
+        [:item_quantity, :fixnum, default: 1],
+
+        # If not specified, defaults to order_total. If specifed, quantity * item_price must match order_total
+        [:item_price, :optional, :money],
+
         [:receiver_username, :mandatory, :string],
         [:order_total, :mandatory, :money],
         [:success, :mandatory, :string],
