@@ -2,7 +2,7 @@
   = form.label :paypal_email, title
 .row
   - create = link_to(t("paypal_accounts.new.create_paypal_account"), "https://www.paypal.com/signup")
-  - upgrade = link_to(t("paypal_accounts.new.upgrade_paypal_account"), "https://www.paypal.com/UPGRADE")
+  - upgrade = link_to(t("paypal_accounts.new.upgrade_paypal_account"), "https://www.paypal.com/upgrade")
   - text = t("paypal_accounts.new.paypal_account_email_info_text", {create_paypal_account: create, upgrade_paypal_account: upgrade}).html_safe
   = render :partial => "layouts/info_text", :locals => {text: text}
 
