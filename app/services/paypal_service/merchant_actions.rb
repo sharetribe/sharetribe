@@ -53,7 +53,7 @@ module PaypalService
         output_transformer: -> (res, api) {
           DataTypes::Merchant.create_setup_billing_agreement_response({
             token: res.token,
-            redirect_url: append_useraction_commit(api.express_checkout_url(res)),
+            redirect_url: api.express_checkout_url(res),
             username_to: api.config.subject || api.config.username
           })
         }
