@@ -15,11 +15,29 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def accept
-    render_accept_form("accept")
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+
+    case payment_type
+    when :braintree
+      render_braintree_form("accept")
+    when :paypal
+      render_paypal_form("accept")
+    else
+      raise "Unknown payment type: #{payment_type}"
+    end
   end
 
   def reject
-    render_accept_form("reject")
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+
+    case payment_type
+    when :braintree
+      render_braintree_form("reject")
+    when :paypal
+      render_paypal_form("reject")
+    else
+      raise "Unknown payment type: #{payment_type}"
+    end
   end
 
   def accepted
@@ -70,7 +88,25 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     @listing_conversation = @current_community.transactions.find(params[:id])
   end
 
-  def render_accept_form(preselected_action)
+  def render_paypal_form(preselected_action)
+    transaction = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
+    paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
+
+    render locals: {
+      discussion_type: transaction[:discussion_type],
+      sum: paypal_payment[:authorization_total],
+      fee: 0, # TODO FIXME
+      seller_gets: paypal_payment[:authorization_total], # TODO FIXME - FEE
+      form: @listing_conversation, # TODO FIX ME DONT USE MODEL
+      form_action: acceptance_preauthorized_person_message_path(
+        person_id: @current_user.id,
+        id: @listing_conversation.id
+      ),
+      preselected_action: preselected_action
+    }
+  end
+
+  def render_braintree_form(preselected_action)
     render locals: {
       discussion_type: @listing_conversation.discussion_type,
       sum: @listing_conversation.payment.total_sum,
