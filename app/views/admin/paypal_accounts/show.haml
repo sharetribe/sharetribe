@@ -13,7 +13,7 @@
 
   .row.paypal-connected-email-row
     %h3.paypal-account-connected
-      = t("admin.paypal_accounts.show.paypal_account_email_connected")
+      = t("admin.paypal_accounts.show.paypal_account_email_connected").html_safe
     .paypal-connected-email.paypal-account-connected
       = t("paypal_accounts.connected_account", :email => paypal_account_email)
 

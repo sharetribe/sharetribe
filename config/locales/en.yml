@@ -211,7 +211,7 @@ en:
         master_merchant_id: "Master Merchant ID"
         commission_from_seller: "Commission percentage from seller"
       paypal_account:
-        paypal_admin_account: "PayPal Payment account"
+        paypal_admin_account: "Payment preferences"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -285,13 +285,13 @@ en:
         edit_news_item: Edit
         delete_news_item: Delete
     paypal_accounts:
-      marketplace_paypal_integration: "PayPal integration"
+      marketplace_paypal_integration: "Payment preferences"
       new:
-        integration_info_text: "To receive money you need to connect your PayPal business account with %{service_name}."
-        paypal_account_email: "Connect your Paypal business account"
+        integration_info_text: "The payment system of %{service_name} is powered by PayPal. If you want to enable your users to make payments through your marketplace, you must connect your PayPal account and decide the fee you want to take from each transaction."
+        paypal_account_email: "Connect your Paypal account"
       show:
-        integration_info_text: "To receive money you need to connect your PayPal business account with %{service_name}."
-        paypal_account_email_connected: "Connected PayPal account"
+        integration_info_text: "The payment system of %{service_name} is powered by PayPal. If you want to enable your users to make payments through your marketplace, you must connect your PayPal account and decide the fee you want to take from each transaction."
+        paypal_account_email_connected: "<del>Connect your Paypal account</del> Completed!"
     polls:
       index:
         polls: Polls
@@ -1453,7 +1453,7 @@ en:
       upgrade_paypal_account: "Upgrade your account here."
       connect_paypal_account: "Connect PayPal account"
       paypal_account_billing_agreement: "2. Grant %{service_name} permission to charge a transaction fee"
-      paypal_account_billing_agreement_info: "When you make a sale on %{service_name}, a transaction fee of %{commission} of the item price (rounded to the next whole number) will be charged. To use %{service_name} you need to allow it to charge this fee."
+      paypal_account_billing_agreement_info: "When you make a sale on %{service_name}, a transaction fee of %{commission} of the item price will be charged. To use %{service_name} you need to allow it to charge this fee."
       billing_agreement_description: "Grant %{service_name} permission to charge a transaction fee."
       billing_agreement: "Grant permission"
       permissions_not_granted: "Permissions to connect with PayPal account are not granted."
