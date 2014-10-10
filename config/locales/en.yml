@@ -1441,11 +1441,12 @@ en:
   paypal_accounts:
     payout_info_title: "Payout information"
     paypal_account_email_connected: "<del>1. Connect PayPal account</del> Completed!"
-    paypal_billing_agreement_made: "<del>2. Grant %{service_name} permission to charge a transaction fee</del> Completed! You're all set to receive money!"
+    paypal_billing_agreement_made: "<del>2. Grant %{service_name} permission to charge a transaction fee</del> Completed!"
+    you_are_ready_to_accept_payments: "You're all set to accept payments!"
     commission: "%{commission} %"
     connected_account: "PayPal account '%{email}' connected successfully."
     new:
-      payout_info_text: "To receive money you need to connect your PayPal account with %{service_name}.<br /> Please complete the following two steps to connect your account."
+      payout_info_text: "To accept payments you need to connect your PayPal account with %{service_name}.<br /> Please complete the following two steps to connect your account."
       paypal_account_email: "1. Connect your PayPal account"
       paypal_account_email_placeholder: "Your PayPal email address"
       paypal_account_email_info_text: "Note: you need a PayPal business account to accept payments. If you have a PayPal personal account, you can upgrade your account. It's free and only takes a minute. %{upgrade_paypal_account} If you don't have a PayPal account yet, you can create a new business account %{create_paypal_account}." 

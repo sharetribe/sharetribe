@@ -1441,7 +1441,8 @@ fi:
   paypal_accounts:
     payout_info_title: "Maksujen vastaanotto"
     paypal_account_email_connected: "<del>1. Yhdistä Paypal-tilisi</del> Tehty!"
-    paypal_billing_agreement_made: "<del>2. Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista.</del> Tehty! Olet nyt valmis ottamaan rahaa vastaan."
+    paypal_billing_agreement_made: "<del>2. Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista.</del> Tehty!"
+    you_are_ready_to_accept_payments: "Olet nyt valmis ottamaan rahaa vastaan."
     commission: "%{commission} %"
     connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
     new:
