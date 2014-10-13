@@ -63,7 +63,7 @@ module PaypalService
         else
           create_failure_response(response)
         end
-      rescue
+      rescue PayPal::SDK::Core::Exceptions::ConnectionError => e
         @logger.error("Paypal permission service failed to respond.")
         DataTypes.create_failure_response({error_msg: "Paypal permission service failed to respond."})
       end
