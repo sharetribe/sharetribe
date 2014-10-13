@@ -1,10 +1,11 @@
+require 'paypal_service/log_subscriber'
+
 module PaypalService
   class Permissions
 
     include PermissionsActions
 
-    def initialize(endpoint, api_credentials, logger, action_handlers = PERMISSIONS_ACTIONS, api_builder = nil)
-      @logger = logger
+    def initialize(endpoint, api_credentials, action_handlers = PERMISSIONS_ACTIONS, api_builder = nil)
       @api_builder = api_builder || self.method(:build_api)
       @action_handlers = action_handlers
 
@@ -23,7 +24,9 @@ module PaypalService
 
     def do_request(request)
       action_def = @action_handlers[request[:method]]
-      return exec_action(action_def, @api_builder.call(request), request) if action_def
+      if action_def
+        return Instrumentation.log_action("Create permissions") { exec_action(action_def, @api_builder.call(request), request) }
+      end
 
       raise(ArgumentException, "Unknown request method #{request.method}")
     end
@@ -57,14 +60,12 @@ module PaypalService
 
       begin
         response = action_method.call(wrapped)
-        @logger.log_response(response)
         if (response.success?)
           output_transformer.call(response, api)
         else
           create_failure_response(response)
         end
       rescue
-        @logger.error("Paypal permission service failed to respond.")
         DataTypes.create_failure_response({error_msg: "Paypal permission service failed to respond."})
       end
 
