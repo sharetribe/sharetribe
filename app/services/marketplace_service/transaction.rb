@@ -60,7 +60,6 @@ module MarketplaceService
       # Params:
       # - gateway_expires_at (how long the payment authorization is valid)
       # - max_date_at (max date, e.g. booking ending)
-      # - today, optional, but useful for testing
       def preauth_expires_at(gateway_expires_at, max_date_at=nil)
         gateway_expires_at = gateway_expires_at.to_time
         max_date_at = max_date_at.to_time if max_date_at.present?

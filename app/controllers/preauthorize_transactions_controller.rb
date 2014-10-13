@@ -371,7 +371,7 @@ class PreauthorizeTransactionsController < ApplicationController
       end_on: parse_booking_date(end_on)
     })
 
-    if booking_form.present? && !booking_form.valid?
+    if !booking_form.valid?
       { error: booking_data[:form].errors.full_messages }
     else
       booking_form.to_hash.merge({

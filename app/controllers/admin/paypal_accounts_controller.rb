@@ -79,7 +79,6 @@ class Admin::PaypalAccountsController < ApplicationController
     redirect_to admin_community_paypal_account_path(@current_community.id)
   end
 
-
   private
 
   # Before filter

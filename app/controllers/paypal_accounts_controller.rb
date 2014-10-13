@@ -17,7 +17,6 @@ class PaypalAccountsController < ApplicationController
 
   DataTypePermissions = PaypalService::DataTypes::Permissions
 
-
   def show
     paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
     return redirect_to action: :new unless PaypalAccountEntity.paypal_account_prepared?(paypal_account)

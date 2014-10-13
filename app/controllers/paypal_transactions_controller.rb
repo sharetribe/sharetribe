@@ -1,6 +1,6 @@
 class PaypalTransactionsController < ApplicationController
-  include PaypalService::PermissionsInjector
-  include PaypalService::MerchantInjector
+  include PaypalService::PermissionsInjector # includes `paypal_permissions`
+  include PaypalService::MerchantInjector # includes `paypal_merchant`
 
   skip_before_filter :verify_authenticity_token
   skip_filter :check_email_confirmation, :dashboard_only
@@ -92,6 +92,7 @@ class PaypalTransactionsController < ApplicationController
   end
 
   def paypal_checkout_order_cancel
+    # TODO Implementation missing
     binding.pry
   end
 
