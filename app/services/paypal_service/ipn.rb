@@ -6,10 +6,13 @@ module PaypalService
     ORDER_UPDATE_TYPES = [:order_created, :authorization_created, :payment_completed]
 
     def handle_msg(ipn_msg)
-      if (ORDER_UPDATE_TYPES.include?(ipn_msg[:type]))
+      case(ipn_msg[:type])
+      when *ORDER_UPDATE_TYPES
         PaypalService::PaypalPayment::Command.update(ipn_msg)
+      when :billing_agreement_cancelled
+        PaypalService::PaypalAccount::Command.delete_cancelled_billing_agreement(ipn_msg[:payer_id], ipn_msg[:billing_agreement_id])
       else
-        # billing agreement cancelled, payment refunded
+        #payment refunded
         raise NoMethodError
       end
     end
