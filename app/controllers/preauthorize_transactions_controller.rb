@@ -84,9 +84,11 @@ class PreauthorizeTransactionsController < ApplicationController
     paypal_receiver = PaypalService::PaypalAccount::Query.personal_account(@listing.author.id, @current_community.id)
 
     set_ec_order_req = PaypalService::DataTypes::Merchant.create_set_express_checkout_order({
-      description: t("paypal_set_order_description"),
+      item_name: @listing.title,
+      item_quantity: 1, # FIXME Use booking days as quantity
+      item_price: @listing.price,
       receiver_username: paypal_receiver[:email],
-      order_total: @listing.price,
+      order_total: @listing.price, # FIXME The price is not correct for booking
       success: paypal_checkout_order_success_url,
       cancel: paypal_checkout_order_cancel_url
     })
