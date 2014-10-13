@@ -17,7 +17,7 @@ class Booking < ActiveRecord::Base
   attr_accessible :transaction_id, :end_on, :start_on
 
   validates :start_on, :end_on, presence: true
-  validates_date :start_on, on_or_after: :today
+  validates_date :start_on, on: :create, on_or_after: :today
   validates_date :end_on, on_or_after: :start_on
 
   ## TODO REMOVE THIS
