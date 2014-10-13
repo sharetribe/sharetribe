@@ -1,9 +1,9 @@
 When(/^(\d+) days? have|has passed$/) do |number_of_days|
-  Timecop.travel(DateTime.now + number_of_days.to_i)
+  Timecop.travel(number_of_days.to_i.days.from_now)
 end
 
-When(/^(\d+) second? have|has passed$/) do |number_of_seconds|
-  Timecop.travel(DateTime.now + number_of_seconds.to_i.seconds)
+When(/^(\d+) seconds? have|has passed$/) do |number_of_seconds|
+  Timecop.travel(number_of_seconds.to_i.seconds.from_now)
 end
 
 # Deprecated!
