@@ -179,18 +179,19 @@ module MarketplaceService
       end
 
       def transition_to(transaction_id, new_status)
-        old_status, new_status = save_transition(transaction_id, new_status)
-
-        transaction = Query.transaction(transaction_id)
-        payment_type = MarketplaceService::Community::Query.payment_type(transaction[:community_id])
-
-        Events.handle_transition(transaction, payment_type, old_status, new_status)
-      end
-
-      def save_transition(transaction_id, new_status)
         new_status = new_status.to_sym
         transaction = TransactionModel.find(transaction_id)
         old_status = transaction.current_state.to_sym if transaction.current_state.present?
+
+        transaction_entity = Entity.transaction(transaction)
+        payment_type = MarketplaceService::Community::Query.payment_type(transaction_entity[:community_id])
+
+        Events.handle_transition(transaction_entity, payment_type, old_status, new_status)
+
+        save_transition(transaction, new_status)
+      end
+
+      def save_transition(transaction_id, new_status)
 
         transaction.current_state = new_status
         transaction.save!
@@ -208,10 +209,6 @@ module MarketplaceService
     module Query
 
       module_function
-
-      def transaction(transaction_id)
-        Entity.transaction(TransactionModel.find(transaction_id))
-      end
 
       def transaction_with_conversation(transaction_id, person_id, community_id)
         transaction_model = TransactionModel.joins(:listing)
