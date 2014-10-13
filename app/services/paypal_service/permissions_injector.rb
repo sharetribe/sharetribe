@@ -9,8 +9,7 @@ module PaypalService
     def build_paypal_permissions
       PaypalService::Permissions.new(
         build_endpoint(APP_CONFIG),
-        build_api_credentials(APP_CONFIG),
-        PaypalService::Logger.new)
+        build_api_credentials(APP_CONFIG))
     end
 
     def build_endpoint(config)

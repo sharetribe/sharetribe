@@ -5,8 +5,7 @@ module PaypalService
 
     include PermissionsActions
 
-    def initialize(endpoint, api_credentials, logger, action_handlers = PERMISSIONS_ACTIONS, api_builder = nil)
-      @logger = logger
+    def initialize(endpoint, api_credentials, action_handlers = PERMISSIONS_ACTIONS, api_builder = nil)
       @api_builder = api_builder || self.method(:build_api)
       @action_handlers = action_handlers
 
