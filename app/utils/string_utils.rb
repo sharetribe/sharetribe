@@ -8,7 +8,7 @@ module StringUtils
   end
 
   def first_words(str, word_count=15)
-    str.split(" ").take(word_count).join(" ")
+    str.nil? ? "" : str.split(" ").take(word_count).join(" ")
   end
 
   # this is a text -> this text (letter_count: 2)
