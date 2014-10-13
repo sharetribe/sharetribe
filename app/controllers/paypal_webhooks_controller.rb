@@ -78,10 +78,10 @@ class PaypalWebhooksController < ApplicationController
     if params[:verification_code].present?
 
       access_token_res = fetch_access_token(params[:request_token], params[:verification_code])
-      return flash_error_and_redirect_to_settings unless access_token_res[:success]
+      return flash_error_and_redirect_to_community_settings unless access_token_res[:success]
 
       personal_data_res = fetch_personal_data(access_token_res[:token], access_token_res[:token_secret])
-      return flash_error_and_redirect_to_settings unless personal_data_res[:success]
+      return flash_error_and_redirect_to_community_settings unless personal_data_res[:success]
 
       PaypalAccountCommand.update_admin_account(
         @current_community.id,
@@ -135,6 +135,10 @@ class PaypalWebhooksController < ApplicationController
     paypal_permissions.do_request(personal_data_req)
   end
 
+  def flash_error_and_redirect_to_community_settings(error = t("paypal_accounts.new.something_went_wrong"))
+    flash[:error] = error
+    redirect_to new_admin_community_paypal_account_path(@current_user.username)
+  end
 
   def flash_error_and_redirect_to_settings(error = t("paypal_accounts.new.something_went_wrong"))
     flash[:error] = error
