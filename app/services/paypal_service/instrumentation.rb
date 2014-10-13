@@ -1,12 +1,15 @@
 module PaypalService
   module Instrumentation
-    def exec_action(*args)
+
+    module_function
+
+    def log_action(action = "", &block)
       raw_payload = {
-        api: self.class.name
+        action: action
       }
 
       ActiveSupport::Notifications.instrument("exec_action.paypal", raw_payload) do |payload|
-        result = super
+        result = yield
         payload[:response] = result
         result
       end

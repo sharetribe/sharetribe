@@ -4,7 +4,6 @@ module PaypalService
   class Permissions
 
     include PermissionsActions
-    prepend Instrumentation
 
     def initialize(endpoint, api_credentials, logger, action_handlers = PERMISSIONS_ACTIONS, api_builder = nil)
       @logger = logger
@@ -26,7 +25,9 @@ module PaypalService
 
     def do_request(request)
       action_def = @action_handlers[request[:method]]
-      return exec_action(action_def, @api_builder.call(request), request) if action_def
+      if action_def
+        return Instrumentation.log_action("Create permissions") { exec_action(action_def, @api_builder.call(request), request) }
+      end
 
       raise(ArgumentException, "Unknown request method #{request.method}")
     end
