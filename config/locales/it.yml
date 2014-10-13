@@ -85,9 +85,9 @@ it:
         custom_color2_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
-        grid: ~
+        grid: Griglia
         list: ~
-        map: ~
+        map: Mappa
         name_display_type: ~
         name_display_type_instructions_text: ~
         full_name: ~
@@ -391,9 +391,9 @@ it:
       give_feedback_to: ~
       do_not_give_feedback: ~
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: giorno
+      days: giorni
+      price_per_day: "Prezzo al giorno: %{price}"
     index:
       loading_more_messages: "Caricamento di altri messaggi"
       message_partitive: messaggio
@@ -461,7 +461,7 @@ it:
       about_listing: ~
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: ~
+      in_response_to_listing: "Dettagli inserzione"
       message_sent_by: ~
       message_sent_to: ~
       send_reply: "Invia risposta"
@@ -522,12 +522,12 @@ it:
       add_payout_details: ~
       first_name: ~
       last_name: ~
-      email: ~
+      email: "Indirizzo email"
       phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
+      address_street_address: Indirizzo
+      address_postal_code: "CAP/Codice Postale"
+      address_locality: Città
+      address_region: Reggione
       date_of_birth: ~
       ssn: ~
       routing_number: ~
@@ -537,12 +537,12 @@ it:
       payout_details: ~
       first_name: ~
       last_name: ~
-      email: ~
+      email: "Indirizzo email"
       phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
+      address_street_address: Indirizzo
+      address_postal_code: "CAP/Codice Postale"
+      address_locality: Città
+      address_region: Reggione
       date_of_birth: ~
       ssn: ~
       routing_number: ~
@@ -669,11 +669,11 @@ it:
       join_now: ~
       invitation_code: ~
     new_comment:
-      has_commented_your_listing_in_kassi: ~
+      has_commented_your_listing_in_kassi: "%{author} ha lasciato un commento sulla tua inserzione '%{listing}'."
       view_comment: ~
       you_have_a_new_comment: "%{author} ha commentato la tua offerta in %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} ha commentato un annuncio che stai seguendo su %{service_name}"
-      has_commented_listing_you_follow_in_kassi: ~
+      listing_you_follow_has_a_new_comment: "%{author} ha commentato una inserzione che stai seguendo su %{service_name}"
+      has_commented_listing_you_follow_in_kassi: "%{author} ha lasciato un commento sull'inserzione '%{listing}' che stai seguendo su %{service_name}."
     new_message:
       view_message: ~
       has_sent_you_a_message_in_kassi: "%{sender} ti ha inviato un messaggio in %{service_name}"
@@ -698,12 +698,12 @@ it:
       you_can_give_feedback_to: "non hai ancora lasciato un feedback a %{name}"
       view_feedback: ~
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "L'annuncio che stai seguendo è stato aggiornato"
-      has_updated_listing_you_follow_in_kassi: ~
+      listing_you_follow_has_been_updated: "L'inserzione che stai seguendo è stata aggiornato"
+      has_updated_listing_you_follow_in_kassi: "%{author} ha aggiornato l'inserzione '%{listing}' che stai seguendo su %{service_name}."
       view_changes: ~
     community_updates:
-      added_offer: ~
-      added_request: ~
+      added_offer: "%{name_link} ha aggiunto una inserzione"
+      added_request: "%{name_link} ha aggiunto una nuova inserzione"
       added_listing: ~
       update_mail_title: ~
       title_link_text: ~
@@ -756,7 +756,7 @@ it:
       share_type: "Devi selezionarne uno."
       valid_until: "Questa data deve essere compresa tra l'orario attuale e 6 mesi da adesso"
       price: ~
-      minimum_price: ~
+      minimum_price: "Il prezzo minimo è %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "Se vuoi dare feedback non neutrali, devi spiegarne il motivo."
       you_must_select_a_grade: "Ricordati di raccontare se la tua esperienza è stata positiva o negativa"
@@ -821,7 +821,7 @@ it:
     about: About
     home: Home
     members: ~
-    new_listing: ~
+    new_listing: "Nuova inserzione"
     mobile_version: "Versione Mobile"
     offers: Offerte
     requests: Richieste
@@ -866,7 +866,7 @@ it:
       some_private_offers_exist: "Ci sono già <b>%{number_of_listings} offerte</b>,"
       some_private_requests_exist: "Ci sono già <b>%{number_of_listings} richieste</b>,"
     custom_filters:
-      update_view: ~
+      update_view: Aggiorna
       min: ~
       max: ~
     event_feed:
@@ -874,18 +874,18 @@ it:
     grid_item:
       processing_uploaded_image: ~
     index:
-      no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
-      add_listing_link_text: ~
+      no_listings_with_your_search_criteria: "Non abbiamo trovato nessun risultato che corrisponde ai tuoi criteri di ricerca"
+      no_listings_notification: "No inserzioni. %{add_listing_link}."
+      add_listing_link_text: "Aggiungi una nuova inserzione"
       available_on_the_app_store: "Disponibile su app store"
       private_listing_notification: ~
-      open_listing: ~
-      open_listings: ~
+      open_listing: "inserzione aperta"
+      open_listings: "inserzioni aperte"
       private_listing_notification_log_in: ~
       is: è
       are: ~
       what_do_you_need: "Di cosa hai bisogno?"
-      post_new_listing: "Inserisci un nuovo spazio"
+      post_new_listing: "Aggiungi una nuova inserzione"
       are_offering: offerta
       add_news_item: "Aggiungi un articolo"
       inform_others_about_events: ~
@@ -919,8 +919,8 @@ it:
       invitation_message_field_placeholder: ~
       errors_in_emails: "Controlla che siano email alide, separate da virgola."
     list_item:
-      review: ~
-      reviews: ~
+      review: recensione
+      reviews: recensioni
     news_item:
       show_less: ~
       show_more: ~
@@ -933,7 +933,7 @@ it:
       poll_answers: risposte
     profile_info_empty_notification:
       add_your_info: "Aggiungi le tue informazioni per essere contattato"
-      add_a_profile_picture: ~
+      add_a_profile_picture: "Aggiungi una foto per il profilo"
       you_have_not_added_your_info: ~
       add_your_info_link: "Aggiungi le tue informazioni ora"
     recent_listing:
@@ -945,9 +945,9 @@ it:
       search: Cerca
       map: "Mostra mappa"
       list: "Mostra elenco"
-      map_button: ~
-      grid_button: ~
-      list_button: ~
+      map_button: Mappa
+      grid_button: Griglia
+      list_button: Lista
       all_listing_types: ~
       all_categories: "Tutte le categorie"
   infos:
@@ -1041,7 +1041,7 @@ it:
       confirmation_link_is_wrong_or_used: "Il link di conferma è già stato utilizzato o altrimenti è compromesso. Prova ad accedere nuovamente, o inviaci un'email se il problema persiste."
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
-      create_new_listing: ~
+      create_new_listing: "Crea una nuova inserzione"
       create_one_here: "creane uno qui"
       email_confirmation_sent_to_new_address: ~
       email_not_found: "L'email che hai fornito non è stato trovato nel database %{service_name}."
@@ -1071,7 +1071,7 @@ it:
       listing_created_successfully: ~
       offer_rejected: "Offerta rifiutata"
       offer_canceled: ~
-      listing_updated_successfully: ~
+      listing_updated_successfully: "L'inserzione è stata aggiornata con successo"
       only_kassi_administrators_can_access_this_area: "Solo gli amministratori di %{service_name} possono accedere a questa area"
       only_listing_author_can_close_a_listing: "Solo l'autore della lista può chiudere una lista"
       only_listing_author_can_edit_a_listing: "Solo l'autore della lista può modificare una lista"
@@ -1112,7 +1112,7 @@ it:
       you_cannot_reply_to_a_closed_offer: "Non puoi rispondere ad un'offerta chiusa"
       you_cannot_reply_to_a_closed_request: "Non puoi rispondere ad una richiesta chiusa"
       you_cannot_send_message_to_yourself: "Non puoi inviare un messaggio a te stesso"
-      you_followed_listing: ~
+      you_followed_listing: "Ora stai seguendo questo annuncio"
       you_have_already_given_feedback_about_this_event: "Hai già fornito feedback su questo evento"
       you_are_now_member: ~
       you_are_already_member: ~
@@ -1133,7 +1133,7 @@ it:
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Devi prima confermare la tua email."
       you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: "Non stai più seguendo questo annuncio"
+      you_unfollowed_listing: "Non stai più seguendo questa inserzione"
       joining_community_failed: ~
       can_not_login_with_private_user: ~
       can_not_delete_email: ~
@@ -1152,10 +1152,10 @@ it:
     bubble_listing_not_visible:
       listing_not_visible: "Non hai il permesso per visualizzare questo annuncio."
     comment:
-      wrote: ~
+      wrote: scritto
       send_private_message: "Invia un messaggio privato a %{person}"
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "Lascia un commento su questo annuncio o richiedi maggiori dettagli. Tutti gli altri utenti saranno in grado di vedere il tuo commento"
       log_in: Accedi
       send_comment: "Invia un commento"
       to_send_a_comment: "per inviare un nuovo commento"
@@ -1164,11 +1164,11 @@ it:
       you_must: Devi
       subscribe_to_comments: "Inviami una notifica per ogni nuovo commento o aggiornamento"
     edit:
-      edit_listing: ~
+      edit_listing: "Modifica l'inserzione"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: "Chiudi l'inserzione"
+      edit_listing: "Modifica l'inserzione"
+      reopen_listing: "Riapri un'inserzione"
       move_to_top: ~
       show_in_updates_email: ~
       show_in_updates_email_loading: ~
@@ -1197,8 +1197,8 @@ it:
         offer_something: "Offri qualcosa"
         request_something: "Richiedi qualcosa"
         rideshare: "un passaggio"
-        i_want_to_offer: ~
-        i_want_to_request: ~
+        i_want_to_offer: "Voglio offrire..."
+        i_want_to_request: "Ho bisogno..."
       googlemap:
         googlemap_copy: "Punti terminali dalla mappa"
         googlemap_description: "Visione della mappa"
@@ -1221,20 +1221,20 @@ it:
       price:
         price: ~
         per: ~
-        per_day: ~
+        per_day: "al giorno"
         mass: ~
-        time: ~
-        long_time: ~
+        time: "ora, giorno, mese, ..."
+        long_time: "settimana, mese, ..."
         after_service_fee_you_will_get: ~
         after_service_fee_you_will_get_vat: ~
-        price_excludes_vat: ~
+        price_excludes_vat: "Il prezzo non include l'IVA"
       origin:
         location: Luogo
         origin: Origine
       send_button:
-        save_listing: ~
+        save_listing: "Salva l'inserzione"
       share_type:
-        select: ~
+        select: Seleziona
         borrow: "Prendere in prestito"
         buy: Acquistare
         give_away: "Dare via"
@@ -1252,7 +1252,7 @@ it:
         comma_separate: (virgola)
         tags: Tag
       title:
-        listing_title: ~
+        listing_title: "Titolo dell'inserzione"
       valid_until:
         valid_until: "Data scadenza"
       valid_until_radio_buttons:
@@ -1279,7 +1279,7 @@ it:
       housing: Spazi
       items: Articoli
       list_view: "Vista elenco"
-      listings: ~
+      listings: Inserzioni
       map_view: "Vista della mappa"
       offer_something: "Falla conoscere agli altri!"
       offer_type: "Tipo di offerta"
@@ -1312,35 +1312,35 @@ it:
       booking_to: ~
     new:
       post_a_new_listing: "Inserisci un nuovo spazio"
-      listing: ~
-      selected_category: ~
-      selected_subcategory: ~
+      listing: inserzione
+      selected_category: "Categoria: %{category}"
+      selected_subcategory: "Sottocategoria: %{subcategory}"
       selected_transaction_type: ~
-      select_category: ~
+      select_category: "Seleziona una categoria"
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
     please_comment: Commenta
     reply_link:
-      listing_closed: ~
+      listing_closed: "L'inserzione è chiusa"
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
+      add_your_phone_number: "Aggiungi il tuo numero di telefono"
+      add_profile_picture: "Aggiungi una foto per il profilo"
       comments: "Discussione pubblica"
-      contact_by_phone: ~
-      contact: ~
+      contact_by_phone: "Contatta via telefono:"
+      contact: Contatto
       favor_offer: "Offerta di servizio"
       favor_request: "Richiesta di servizio"
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
       no_description: "Nessuna descrizione"
-      no_image: ~
-      no_reviews: ~
+      no_image: "Nessuna immagine"
+      no_reviews: "Nessuna recensione è stata ricevuta"
       offer: Offerta
-      listing_created: ~
-      open_until: ~
+      listing_created: Create
+      open_until: "Aperto fino %{date}"
       feedback: ~
       qr_code: "codice QR"
       request: Richiesta
@@ -1355,11 +1355,11 @@ it:
       times: volte
       times_viewed: Visto
       processing_uploaded_image: ~
-      price_excludes_vat: ~
+      price_excludes_vat: "(esclude IVA)"
       listing_created_at: ~
       price:
         per_quantity_unit: ~
-        per_day: ~
+        per_day: "al giorno"
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1369,9 +1369,9 @@ it:
       payment: ~
       exp: ~
       you_will_be_charged: ~
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: giorno
+      days: giorni
+      price_per_day: "Prezzo al giorno: %{price}"
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1429,11 +1429,13 @@ it:
     payout_info_title: ~
     paypal_account_email_connected: ~
     paypal_billing_agreement_made: ~
+    you_are_ready_to_accept_payments: "Ora sei pronto per accettare i pagamenti!"
     commission: ~
+    connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
     new:
       payout_info_text: ~
       paypal_account_email: ~
-      paypal_account_email_placeholder: ~
+      paypal_account_email_placeholder: "Il tuo indirizzo email di PayPal"
       paypal_account_email_info_text: ~
       create_paypal_account: ~
       upgrade_paypal_account: ~
@@ -1447,6 +1449,7 @@ it:
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
+      something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
   people:
     index:
       loading_more_members: ~
@@ -1513,13 +1516,13 @@ it:
       slightly_better_than_expected: "Leggermente meglio del previsto"
       slightly_less_than_expected: "Leggermente peggio del previsto"
     profile_listings:
-      show_also_closed: "Mostra anche quelli chiusi"
+      show_also_closed: "Mostra anche quelle chiuse"
       show_only_open: "Mostra solo quelli aperti"
-      no_image: ~
+      no_image: "Nessuna immagine"
     show:
       contact: ~
       about_me: "Su di me:"
-      add_description: ~
+      add_description: "Racconta qualcosa di te"
       add_location: ~
       add_phone_number: "Aggiungi numero di telefono"
       address: "Luogo:"
@@ -1541,15 +1544,15 @@ it:
       what_are_these: "Cosa sono?"
       review: ~
       reviews: ~
-      listing: ~
-      listings: ~
-      open_listing: ~
-      open_listings: ~
-      no_listings: ~
-      no_open_listings: ~
+      listing: inserzione
+      listings: inserzioni
+      open_listing: "inserzione aperta"
+      open_listings: "inserzioni aperte"
+      no_listings: "Nessuna inserzione"
+      no_open_listings: "non ci sono inserzioni aperte"
       no_reviews: ~
-      show_all_listings: ~
-      show_all_open_listings: ~
+      show_all_listings: "Mostra tutte le inserzioni"
+      show_all_open_listings: "Mostra tutte le inserzioni aperte"
       show_all_reviews: ~
       trustcloud: ~
     followed_people:
@@ -1558,7 +1561,7 @@ it:
       they_follow_plural: ~
       they_follow_singular: ~
       show_all_followed_people: ~
-      no_followed_people: ~
+      no_followed_people: "Non stai seguendo nessuno"
     follow_button:
       following: ~
       follow: ~
@@ -1599,7 +1602,7 @@ it:
       check_your_email: "Controlla la tua casella di posta elettronica"
       resend_confirmation_instructions: "Invia nuovamente le informazioni per la conferma"
       your_current_email_is: "La tua email è %{email}."
-      change_email: ~
+      change_email: Cambia
       confirm_your_email: "Conferma la tua email"
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
@@ -1608,27 +1611,27 @@ it:
       change: Cambia
       confirm_new_password: "Conferma la nuova password"
       delete_account: "Elimina account"
-      delete_account_button: ~
-      delete_account_confirmation_popup: ~
-      email_addresses: ~
+      delete_account_button: "Eliminare definitivamente il mio account"
+      delete_account_confirmation_popup: "Sei sicuro di voler eliminare il tuo account e permanentemente perdere tutte le informazioni in esso contenute? La cancellazione dell'account non può essere revocata."
+      email_addresses: "Indirizzi email"
       new_email: "Nuovo indirizzo email"
-      instructions_to_delete_account: ~
+      instructions_to_delete_account: "Se cancelli il tuo account tutte le informazioni in esso contenute saranno rimosse: i dettagli del tuo profilo, annunci, commenti, messaggi, commenti etc."
       contact_admin: ~
       new_password: "Nuova password"
       save: Salva
       these_fields_are_shown_only_to_you: "Lo username è mostrato nel tuo profilo a meno che non abbia fornito il tuo nome. Altre informazioni sono mostrate solo a te."
       email:
-        address_title: ~
+        address_title: "Indirizzo email"
         remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
+        remove_confirmation: "Sei sicuro di voler rimuovere questo indirizzo email?"
+        receive_notifications_title_desktop: "Ricevi notifiche"
+        receive_notifications_title_mobile: "Ricevi notifiche"
+        receive_notifications_new_title_mobile: "Ricevi notifiche"
+        add_new_with_plus: "+ Aggiungi un nuovo indirizzo email"
         add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
+        confirmation_title_mobile: "Conferma:"
+        confirmation_title_desktop: Conferma
+        confirmation_resend: "Invia di nuovo"
         status_confirmed: ~
         status_pending: ~
     notifications:
@@ -1666,7 +1669,7 @@ it:
       first_name_only: ~
       location_description: ~
       phone_number: "Numero di telefono"
-      profile_picture: ~
+      profile_picture: "Foto per il profilo"
       postal_code: CAP
       profile_page: "nella pagina del tuo profilo"
       profilemap: "Visione della mappa"
@@ -1713,7 +1716,7 @@ it:
       negative: Negativo
       default_textual_feedback: ~
     testimonial:
-      about_listing: ~
+      about_listing: "Dettagli inserzione"
   date:
     formats:
       long_with_abbr_day_name: ~
@@ -1793,8 +1796,8 @@ it:
       one: "%{count} giorno"
       other: "%{count} giorni"
   unit:
-    day: ~
-    days: ~
+    day: giorno
+    days: giorni
   will_paginate:
     previous_label: ~
     next_label: ~

@@ -127,13 +127,13 @@ fr:
         users_can_invite_new_users: "Tous les utilisateurs peuvent inviter des nouveaux utilisateurs dans cette tribu"
         private: "Cette tribu est privée (seuls les utilisateurs connectés peuvent en voir le contenu)"
         require_verification_to_post_listings: "Seuls les utilisateurs validés par un administrateur peuvent poster de nouvelles annonces"
-        listing_preferences: "Réglages d'annonces"
+        listing_preferences: "Paramètres d'annonces"
         transaction_preferences: "Paramètres de transactions"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
         show_category_in_listing_list: "Afficher les types de transaction dans la vue liste"
         hide_expiration_date: "Ne pas demander de date d'expiration pour les annonces"
         listing_comments_in_use: "Autoriser les utilisateurs à commenter les annonces (visibles par tous les utilisateurs)"
-        email_preferences: "Réglages d'email"
+        email_preferences: "Paramètres d'email"
         automatic_newsletters: "Envoyer l'email quotidien/hebdomadaire automatique à tous les utilisateurs (sauf s'ils se désabonnent)"
         email_admins_about_new_members: "Envoyer aux administrateurs un email à chaque fois qu'un nouvel utilisateur s'inscrit"
         integrations: Intégrations
@@ -211,7 +211,7 @@ fr:
         master_merchant_id: "Identifiant master marchand"
         commission_from_seller: "Commission (pourcentage) pour le vendeur"
       paypal_account:
-        paypal_admin_account: "Compte de paiement PayPal"
+        paypal_admin_account: "Paramètres de paiement"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -285,13 +285,13 @@ fr:
         edit_news_item: Editer
         delete_news_item: Supprimer
     paypal_accounts:
-      marketplace_paypal_integration: "Intégration PayPal"
+      marketplace_paypal_integration: "Paramètres de paiement"
       new:
-        integration_info_text: "Pour recevoir de l'argent vous devez connecter votre compte PayPal business avec %{service_name}."
-        paypal_account_email: "Connecter votre compte PayPal business"
+        integration_info_text: "Le système de paiement de %{service_name} est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir quelle commission vous prélever sur chaque transaction."
+        paypal_account_email: "Connecter votre compte PayPal"
       show:
-        integration_info_text: "Pour recevoir de l'argent vous devez connecter votre compte PayPal business avec %{service_name}."
-        paypal_account_email_connected: "Compte PayPal connecté"
+        integration_info_text: "Le système de paiement de %{service_name} est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir quelle commission vous prélever sur chaque transaction."
+        paypal_account_email_connected: "<del>Connecter le compte PayPal</del> Connecté !"
     polls:
       index:
         polls: Sondages
@@ -1440,26 +1440,29 @@ fr:
         terms_link_text: "Conditions d'utilisation de Braintree"
   paypal_accounts:
     payout_info_title: "Information de paiement"
-    paypal_account_email_connected: "1. Compte PayPal connecté"
-    paypal_billing_agreement_made: "2. %{service_name} prélève une commission de %{commission} sur chaque transaction."
+    paypal_account_email_connected: "<del>1. Connecter le compte PayPal</del> Connecté !"
+    paypal_billing_agreement_made: "<del>2. Autoriser %{service_name} à prélèver une commission sur chaque transaction.</del> Autorisé !"
+    you_are_ready_to_accept_payments: "Vous pouvez désormais recevoir des paiements !"
     commission: "%{commission} %"
+    connected_account: "Le compte PayPal '%{email}' est désormais connecté."
     new:
-      payout_info_text: "Pour recevoir l'argent vous devez connecter votre compte PayPal à %{service_name}.<br /> Veuillez réaliser les deux actions suivantes pour connecter votre compte."
+      payout_info_text: "Pour recevoir des paiements vous devez connecter votre compte PayPal à %{service_name}.<br /> Veuillez réaliser les deux actions suivantes pour connecter votre compte."
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_placeholder: "Votre adresse email PayPal"
-      paypal_account_email_info_text: "Note : vous devez avoir un compte PayPal business pour accepter les paiements par carte de crédit. Si vous n'avez pas de compte PayPal, vous pouvez en créer un %{create_paypal_account}. Si vous avez un compte PayPal personnel, vous pouvez facilement et gratuitement le mettre à jour vers un compte business. %{upgrade_paypal_account}"
+      paypal_account_email_info_text: "Note : vous devez avoir un compte PayPal business pour accepter les paiements. Si vous avez un compte PayPal personnel, vous pouvez le mettre à jour. C'est gratuit et ne prend que quelques instants. %{upgrade_paypal_account} Si vous n'avez pas encore de compte PayPal, vous pouvez créer un compte business %{create_paypal_account}."
       create_paypal_account: ici
       upgrade_paypal_account: "Mettre à jour votre compte ici."
       connect_paypal_account: "Connecter le compte PayPal"
       paypal_account_billing_agreement: "2. Autoriser %{service_name} à prélever une commission sur les transactions"
-      paypal_account_billing_agreement_info: "%{service_name} prélève une commission de %{commission} (arrondie à l'entier supérieur) sur chaque transaction. Pour utiliser %{service_name} vous devez l'autoriser à prélever cette commission sur vos transactions PayPal."
+      paypal_account_billing_agreement_info: "Lorsque vous réaliser une transaction sur %{service_name}, une commission de %{commission} sera prélevée. Pour utiliser %{service_name} vous devez l'autoriser à prélever cette commission."
       billing_agreement_description: "Autoriser %{service_name} à prélever une commission sur les transactions."
-      billing_agreement: "Autoriser le prélèvement d'une commission"
+      billing_agreement: Autoriser
       permissions_not_granted: "La connexion avec le compte PayPal n'a pas été permise."
       could_not_fetch_redirect_url: "L'url de redirection avec PayPal n'a pas pu être récupérée."
       paypal_not_enabled: "Les paiements PayPal ne sont pas activés."
       billing_agreement_canceled: "L'accord de facturation a été annulé"
       billing_agreement_id_missing: "Il y a eu des problèmes techniques lors de l'intégration avec PayPal"
+      something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter les administrateurs."
   people:
     index:
       loading_more_members: "Chargement des autres membres"

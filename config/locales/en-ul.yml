@@ -1488,7 +1488,9 @@ en-ul:
     payout_info_title: ~
     paypal_account_email_connected: ~
     paypal_billing_agreement_made: ~
+    you_are_ready_to_accept_payments: ~
     commission: ~
+    connected_account: ~
     new:
       payout_info_text: ~
       paypal_account_email: ~
@@ -1506,6 +1508,7 @@ en-ul:
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
+      something_went_wrong: ~
   people:
     index:
       loading_more_members: ~

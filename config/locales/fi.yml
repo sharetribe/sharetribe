@@ -211,7 +211,7 @@ fi:
         master_merchant_id: ~
         commission_from_seller: ~
       paypal_account:
-        paypal_admin_account: "Maksuasetukset"
+        paypal_admin_account: Maksuasetukset
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -285,7 +285,7 @@ fi:
         edit_news_item: Muokkaa
         delete_news_item: Poista
     paypal_accounts:
-      marketplace_paypal_integration: "Maksuasetukset"
+      marketplace_paypal_integration: Maksuasetukset
       new:
         integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus."
         paypal_account_email: "Yhdistä PayPal-tilisi"
