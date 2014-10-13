@@ -70,7 +70,7 @@ GEM
       xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
-    childprocess (0.5.2)
+    childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.2.6)
     climate_control (0.0.3)
@@ -402,7 +402,7 @@ GEM
     ruby-ole (1.2.11.6)
     ruby-prof (0.14.2)
     ruby-progressbar (1.4.2)
-    rubyzip (1.1.3)
+    rubyzip (1.1.6)
     russian (0.6.0)
       i18n (>= 0.5.0)
     sass (3.2.10)
@@ -410,11 +410,11 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    selenium-webdriver (2.41.0)
-      childprocess (>= 0.5.0)
+    selenium-webdriver (2.43.0)
+      childprocess (~> 0.5)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
-      websocket (~> 1.0.4)
+      websocket (~> 1.0)
     simplecov (0.8.2)
       docile (~> 1.1.0)
       multi_json
@@ -559,7 +559,7 @@ DEPENDENCIES
   russian
   sass (~> 3.2.9)
   sass-rails
-  selenium-webdriver (~> 2.41.0)
+  selenium-webdriver (~> 2.43.0)
   spreadsheet
   statesman (~> 0.5.0)
   stringex (~> 2.5.2)
