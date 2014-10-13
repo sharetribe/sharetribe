@@ -197,10 +197,23 @@ module PaypalService
             .first
           )
           .map {|billing_agreement|
-            billing_agreement.destroy
-            true
-          }
+          billing_agreement.destroy
+          true
+        }
           .or_else(false)
+      end
+
+      def delete_cancelled_billing_agreement(payer_id, billing_agreement_id)
+        billing_agreement = Maybe(BillingAgreement
+          .eager_load(:paypal_account)
+          .where({
+            "paypal_accounts.payer_id"  => payer_id,
+            :billing_agreement_id  => billing_agreement_id
+          }).first)
+
+       billing_agreement.each {|ba| ba.destroy }
+
+       billing_agreement.is_some?
       end
 
       def confirm_billing_agreement(person_id, community_id, request_token, billing_agreement_id)

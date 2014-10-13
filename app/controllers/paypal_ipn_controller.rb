@@ -9,7 +9,7 @@ class PaypalIpnController < ApplicationController
   IPNService = PaypalService::IPN
 
   def ipn_hook
-    logger = PaypalService.Logger.new
+    logger = PaypalService::Logger.new
     api = paypal_merchant.build_api(nil)
 
     if api.ipn_valid?(request.raw_post)  # return true if PP backend verifies the msg
