@@ -41,7 +41,8 @@ module AdminTransactionSteps
           listing: FactoryGirl.build(:listing, title: transaction_data[:listing], author: author),
           payment: sum ? FactoryGirl.build(:braintree_payment, { sum_cents: sum, currency: transaction_data[:currency] }) : nil,
           conversation: conversation,
-          starter: starter
+          starter: starter,
+          current_state: transaction_data[:status]
         })
       )
 
