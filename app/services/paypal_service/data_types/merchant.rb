@@ -113,9 +113,9 @@ module PaypalService
         [:payment_id, :mandatory, :string],
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
-        [:payment_total, :mandatory, :money],
-        [:fee_total, :mandatory, :money],
-        [:payment_date, :mandatory, :str_to_time])
+        [:payment_total, :money],
+        [:fee_total, :money],
+        [:payment_date, :str_to_time])
 
       DoVoid = EntityUtils.define_builder(
         [:method, const_value: :do_void],
