@@ -89,8 +89,8 @@ module MarketplaceService
         listing = ListingEntity.listing(listing_model)
 
         Transaction[EntityUtils.model_to_hash(transaction_model).merge({
-          status: transaction_model.transaction_transitions.last.to_state,
-          last_transition_at: transaction_model.transaction_transitions.last.created_at,
+          status: transaction_model.current_state,
+          last_transition_at: Maybe(transaction_model.transaction_transitions.last).created_at.or_else(nil),
           listing: listing,
           testimonials: transaction_model.testimonials.map { |testimonial|
             Testimonial[EntityUtils.model_to_hash(testimonial)]
@@ -191,8 +191,7 @@ module MarketplaceService
         save_transition(transaction, new_status)
       end
 
-      def save_transition(transaction_id, new_status)
-
+      def save_transition(transaction, new_status)
         transaction.current_state = new_status
         transaction.save!
 
@@ -200,8 +199,6 @@ module MarketplaceService
         state_machine.transition_to!(new_status)
 
         transaction.touch(:last_transition_at)
-
-        [old_status, new_status]
       end
 
     end
@@ -209,6 +206,10 @@ module MarketplaceService
     module Query
 
       module_function
+
+      def transaction(transaction_id)
+        Entity.transaction(TransactionModel.find(transaction_id))
+      end
 
       def transaction_with_conversation(transaction_id, person_id, community_id)
         transaction_model = TransactionModel.joins(:listing)
