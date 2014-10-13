@@ -58,6 +58,8 @@ default: &default_settings
   braintree_test_public_key: xxxxxxxxxxxxxxxx
   braintree_test_private_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   braintree_client_side_encryption_key: xxxxxxxxxxxxxxxx
+  # after preauthorization there is 5 day period before expiration
+  braintree_expiration_period: 5
 
   # Paypal credentials for the platform owner.
   paypal_username: xxxxxxxxxxxxx
@@ -66,10 +68,12 @@ default: &default_settings
   paypal_app_id: APP-80W284485P519543T # Global test id
   # Paypal environment to use. Either :sandbox or :live
   paypal_endpoint: sandbox
+  # after authorization there is 3 day period before expiration
+  paypal_expiration_period: 3
   # The domain that we want Paypal to send IPN notifications to
   # Note! You must also add the hook url for your production deployment
   # manually to your production paypal account profile.
-  paypal_ipn_domain: 
+  paypal_ipn_domain:
   paypal_ipn_protocol: https
 
   # If you want to force all use to be SSL secured (https://) you can set this to true
