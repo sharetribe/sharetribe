@@ -54,6 +54,10 @@ module MarketplaceService
 
       module_function
 
+      def person(id)
+        MarketplaceService::Person::Entity.person(PersonModel.where({id: id}).first)
+      end
+
       def people(ids)
         PersonModel.where({id: ids}).inject({}) do |memo, person_model|
           memo[person_model.id] = MarketplaceService::Person::Entity.person(person_model)

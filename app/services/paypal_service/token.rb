@@ -21,6 +21,10 @@ module PaypalService
       def create(token, transaction_id)
         PaypalToken.create!({token: token, transaction_id: transaction_id})
       end
+
+      def delete(token)
+        PaypalToken.where(token: token).destroy_all
+      end
     end
 
     module Query

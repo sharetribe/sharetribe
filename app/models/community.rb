@@ -597,7 +597,10 @@ class Community < ActiveRecord::Base
   end
 
   def payments_in_use?
-    payment_gateway.present? && payment_gateway.configured?
+    # Deprecated
+    #
+    # There is a method `payment_type` is community service. Use that instead.
+    paypal_enabled? || (payment_gateway.present? && payment_gateway.configured?)
   end
 
   # Testimonials can be used only if payments are used and `testimonials_in_use` value

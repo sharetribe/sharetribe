@@ -1,4 +1,5 @@
 class PreauthorizeTransactionsController < ApplicationController
+  include PaypalService::MerchantInjector # includes method paypal_merchant
 
   before_filter do |controller|
    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
@@ -33,58 +34,150 @@ class PreauthorizeTransactionsController < ApplicationController
 
   PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
 
+  ListingQuery = MarketplaceService::Listing::Query
+  PersonQuery = MarketplaceService::Person::Query
+  BraintreePaymentQuery = BraintreeService::Payments::Query
 
-  def book
-    @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
-    booking_form = if @listing.transaction_type.price_per.present?
-      BookingForm.new({
-        start_on: parse_booking_date(params[:start_on]),
-        end_on: parse_booking_date(params[:end_on])
-      })
-    end
+  def initiate
+    listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
-    if booking_form.present? && !booking_form.valid?
-      flash[:error] = booking_form.errors.full_messages
-      redirect_to @listing and return
-    end
+    action_button_label = listing[:transaction_type][:action_button_label_translations]
+      .select {|translation| translation[:locale] == I18n.locale}
+      .first
 
-    preauthorize_form = PreauthorizeBookingForm.new({
-      start_on: booking_form.start_on,
-      end_on: booking_form.end_on
-    })
-
-    booking_duration = duration(booking_form.start_on, booking_form.end_on)
-
-    sum = @listing.price * booking_duration
-
-    # TODO listing_conversations view (folder) needs some brainstorming
-    render "listing_conversations/preauthorize", locals: {
-      preauthorize_form: preauthorize_form,
-      braintree_form: BraintreeForm.new,
-      listing: @listing,
-      sum: sum,
-      duration: booking_duration,
-      author: @listing.author,
-      form_action: booked_path(person_id: @current_user.id, listing_id: @listing.id)
+    render "listing_conversations/initiate", locals: {
+      preauthorize_form: PreauthorizeMessageForm.new,
+      listing: listing,
+      sum: listing[:price],
+      author: PersonQuery.person(listing[:author_id]),
+      action_button_label: action_button_label,
+      expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
+      form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
     }
   end
 
+  def initiated
+    conversation_params = params[:listing_conversation]
+
+    preauthorize_form = PreauthorizeMessageForm.new(conversation_params.merge({
+      listing_id: @listing.id
+    }))
+
+    unless preauthorize_form.valid?
+      flash[:error] = preauthorize_form.errors.full_messages.join(", ")
+      return redirect_to action: :initiate
+    end
+
+    transaction_id = MarketplaceService::Transaction::Command.create({
+        community_id: @current_community.id,
+        listing_id: preauthorize_form.listing_id,
+        starter_id: @current_user.id,
+        author_id: @listing.author.id,
+        content: preauthorize_form.content})
+
+    transaction = Transaction.find(transaction_id)
+    #TODO NULL in transaction.payment crashes cuz preauthorization_expiration_days
+    transaction.save!
+
+    paypal_receiver = PaypalService::PaypalAccount::Query.personal_account(@listing.author.id, @current_community.id)
+
+    set_ec_order_req = PaypalService::DataTypes::Merchant.create_set_express_checkout_order({
+      item_name: @listing.title,
+      item_quantity: 1, # FIXME Use booking days as quantity
+      item_price: @listing.price,
+      receiver_username: paypal_receiver[:email],
+      order_total: @listing.price, # FIXME The price is not correct for booking
+      success: paypal_checkout_order_success_url,
+      cancel: paypal_checkout_order_cancel_url
+    })
+    set_ec_order_res = paypal_merchant.do_request(set_ec_order_req)
+
+    if set_ec_order_res[:success]
+      MarketplaceService::Transaction::Command.transition_to(transaction.id, "initiated")
+
+      # Redirect to PayPal
+      PaypalService::Token::Command.create(set_ec_order_res[:token], transaction_id)
+      redirect_to set_ec_order_res[:redirect_url]
+
+    else
+      flash[:error] = "TODO"
+      return redirect_to action: :initiate
+    end
+  end
+
+  def book
+    listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    booking_data = verified_booking_data(params[:start_on], params[:end_on])
+
+    if booking_data[:error].present?
+      flash[:error] = booking_data[:error]
+      return redirect_to listing_path(listing[:id])
+    end
+
+    action_button_label = listing[:transaction_type][:action_button_label_translations]
+      .select {|translation| translation[:locale] == I18n.locale}
+      .first
+
+    if @current_community.paypal_enabled?
+      render "listing_conversations/initiate", locals: {
+        preauthorize_form: PreauthorizeBookingForm.new({
+          start_on: booking_data[:start_on],
+          end_on: booking_data[:end_on]
+        }),
+        listing: listing,
+        sum: listing[:price] * booking_data[:duration],
+        duration: booking_data[:duration],
+        author: PersonQuery.person(listing[:author_id]),
+        action_button_label: action_button_label,
+        expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
+        form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
+      }
+    else
+      braintree_settings = BraintreePaymentQuery.braintree_settings(@current_community.id)
+
+      render "listing_conversations/preauthorize", locals: {
+        preauthorize_form: PreauthorizeBookingForm.new({
+          start_on: booking_data[:start_on],
+          end_on: booking_data[:end_on]
+        }),
+        listing: listing,
+        sum: listing[:price] * booking_data[:duration],
+        duration: booking_data[:duration],
+        author: PersonQuery.person(listing[:author_id]),
+        action_button_label: action_button_label,
+        expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
+        braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
+        braintree_form: BraintreeForm.new,
+        form_action: booked_path(person_id: @current_user.id, listing_id: listing[:id])
+      }
+
+    end
+
+  end
+
   def preauthorize
-    @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
+    listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    action_button_label = listing[:transaction_type][:action_button_label_translations]
+      .select {|translation| translation[:locale] == I18n.locale}
+      .first
 
-    preauthorize_form = PreauthorizeMessageForm.new
-
-    sum = @listing.price
+    braintree_settings = BraintreePaymentQuery.braintree_settings(@current_community.id)
 
     # TODO listing_conversations view (folder) needs some brainstorming
     render "listing_conversations/preauthorize", locals: {
-      preauthorize_form: preauthorize_form,
+      preauthorize_form: PreauthorizeMessageForm.new,
+      braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
       braintree_form: BraintreeForm.new,
-      listing: @listing,
-      sum: sum,
-      author: @listing.author,
-      form_action: preauthorized_payment_path(person_id: @current_user.id, listing_id: @listing.id)
+      listing: listing,
+      sum: listing[:price],
+      author: PersonQuery.person(listing[:author_id]),
+      action_button_label: action_button_label,
+      expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
+      form_action: preauthorized_payment_path(person_id: @current_user.id, listing_id: listing[:id])
     }
   end
 
@@ -272,5 +365,20 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def stringify_booking_date(date)
     date.iso8601
+  end
+
+  def verified_booking_data(start_on, end_on)
+    booking_form = BookingForm.new({
+      start_on: parse_booking_date(start_on),
+      end_on: parse_booking_date(end_on)
+    })
+
+    if !booking_form.valid?
+      { error: booking_data[:form].errors.full_messages }
+    else
+      booking_form.to_hash.merge({
+        duration: duration(booking_form.start_on, booking_form.end_on)
+      })
+    end
   end
 end

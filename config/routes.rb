@@ -24,10 +24,6 @@ Kassi::Application.routes.draw do
   # Some non-RESTful mappings
   get '/webhooks/braintree' => 'braintree_webhooks#challenge'
   post '/webhooks/braintree' => 'braintree_webhooks#hooks'
-  get '/webhooks/paypal_permissions' => 'paypal_webhooks#permissions_hook', as: :paypal_permissions_hook
-  get '/webhooks/admin_paypal_permissions' => 'paypal_webhooks#admin_permissions_hook', as: :admin_paypal_permissions_hook
-  get '/webhooks/paypal_billing_agreement_success' => 'paypal_webhooks#billing_agreement_success_hook', as: :paypal_billing_agreement_success_hook
-  get '/webhooks/paypal_billing_agreement_cancel' => 'paypal_webhooks#billing_agreement_cancel_hook', as: :paypal_billing_agreement_cancel_hook
   post '/webhooks/paypal_ipn' => 'paypal_ipn#ipn_hook', as: :paypal_ipn_hook
 
   post '/bounces' => 'amazon_bounces#notification'
@@ -63,6 +59,11 @@ Kassi::Application.routes.draw do
     match "/listings/:listing_id/preauthorized" => "preauthorize_transactions#preauthorized", :as => :preauthorized_payment
     match "/listings/:listing_id/book" => "preauthorize_transactions#book", :as => :book
     match "/listings/:listing_id/booked" => "preauthorize_transactions#booked", :as => :booked
+    match "/listings/:listing_id/initiate" => "preauthorize_transactions#initiate", :as => :initiate_order
+    match "/listings/:listing_id/initiated" => "preauthorize_transactions#initiated", :as => :initiated_order
+    match "/listings/:listing_id/paypal_checkout_order_success" => "paypal_transactions#paypal_checkout_order_success", as: :paypal_checkout_order_success
+    match "/listings/:listing_id/paypal_checkout_order_cancel" => "paypal_transactions#paypal_checkout_order_cancel", as: :paypal_checkout_order_cancel
+
 
     # post pay flow
     match "/listings/:listing_id/post_pay" => "post_pay_transactions#new", :as => :post_pay_listing
@@ -131,7 +132,11 @@ Kassi::Application.routes.draw do
             post :posting_allowed
           end
         end
-        resource :paypal_account, controller: :paypal_accounts, only: [:new, :show, :create]
+        resource :paypal_account, controller: :paypal_accounts, only: [:new, :show, :create] do
+          member do
+            get :permissions_verified
+          end
+        end
       end
       resources :custom_fields do
         collection do
@@ -302,7 +307,13 @@ Kassi::Application.routes.draw do
           end
           resources :braintree_payments
         end
-        resource :paypal_account, only: [:new, :show, :create]
+        resource :paypal_account, only: [:new, :show, :create] do
+          member do
+            get :permissions_verified
+            get :billing_agreement_success
+            get :billing_agreement_cancel
+          end
+        end
         resources :transactions, :only => [:show]
         resource :checkout_account, only: [:new, :show, :create]
         resource :settings do

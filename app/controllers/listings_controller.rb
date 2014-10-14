@@ -90,7 +90,11 @@ class ListingsController < ApplicationController
       if @listing.transaction_type.price_per.present?
         book_path(:listing_id => @listing.id.to_s)
       else
-        preauthorize_payment_path(:listing_id => @listing.id.to_s)
+        if @current_community.paypal_enabled?
+          initiate_order_path(:listing_id => @listing.id.to_s)
+        else
+          preauthorize_payment_path(:listing_id => @listing.id.to_s)
+        end
       end
     else
       if @listing.status_after_reply == "free"

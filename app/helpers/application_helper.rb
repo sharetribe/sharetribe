@@ -703,9 +703,12 @@ module ApplicationHelper
         :name => "notifications"
       }
     ]
-    if community && community.payments_in_use?
 
-      path = payment_settings_path(MarketplaceService::Community::Query.payment_type(@current_community.id), @current_user)
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+
+    if payment_type.present?
+
+      path = payment_settings_path(payment_type, @current_user)
 
       links << {
         :id => "settings-tab-payments",

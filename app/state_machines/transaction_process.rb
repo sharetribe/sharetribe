@@ -41,7 +41,7 @@ class TransactionProcess
 
   after_transition(to: :paid) do |transaction|
     payment = transaction.payment
-    payer = payment.payer
+    payer = transaction.starter
     current_community = transaction.community
 
     if transaction.booking.present?
@@ -51,7 +51,11 @@ class TransactionProcess
       transaction.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_confirmation!
     end
-    Delayed::Job.enqueue(PaymentCreatedJob.new(payment.id, transaction.community.id))
+
+    if payment
+      # TODO FIX THIS
+      Delayed::Job.enqueue(PaymentCreatedJob.new(payment.id, transaction.community.id))
+    end
   end
 
   after_transition(to: :rejected) do |transaction|

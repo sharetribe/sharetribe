@@ -572,6 +572,9 @@ fi:
       credit_card_expiration_date: ~
       confirm_payment: ~
       exp: ~
+  preauthorize_payments:
+    edit:
+      confirm_payment: "Vahvista maksu"
   community_memberships:
     access_denied:
       access_denied: "Pääsy estetty"
@@ -1377,14 +1380,14 @@ fi:
       verification_required: ~
   listing_conversations:
     preauthorize:
-      details: ~
-      by: ~
-      payment: ~
-      exp: ~
-      you_will_be_charged: ~
-      day: ~
-      days: ~
-      price_per_day: ~
+      details: Erittely
+      by: "%{listing} käyttäjältä %{author}"
+      payment: maksu
+      exp: "Erääntyy:"
+      you_will_be_charged: "Maksu veloitetaan mikäli myyjä %{author} hyväksyy oston. Myyjän täytyy hyväksyä maksu %{expiration_period} päivän kuluessa. Sinua ei veloiteta, jos %{author} ei hyväksy ostoa tai ei vastaa ostopyyntöön."
+      day: päivä
+      days: päivää
+      price_per_day: "Päivähinta: %{price}"
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
   mapview:
