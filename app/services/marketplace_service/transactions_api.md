@@ -62,7 +62,7 @@ Response:
   , created_at: <Time>
   , updated_at: <Time>
   , last_transition_at: <Time>
-  , current_state: :free"      # or :initiated for Paypal
+  , current_state: :free       # or :initiated for Paypal
                                # or :preauthorized for preauthorized Braintree
                                # or :pending for postpay Braintree and Checkout
   }
