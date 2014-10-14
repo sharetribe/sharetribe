@@ -6,11 +6,11 @@
 Example request body:
 
 ```js
-{ transaction_id: 123456789 // External transaction id
+{ transaction_id: 123456789           // External transaction id
 , item_name: "A green lantern"
 , item_quantity: 1
 , item_price: Money.new(120, "GBP")
-, receiver_username: "dev-1@paypal.com" // Or merchant user id?
+, merchant_id: "merchant_id_1"        // External user id, must match to an existing paypal account
 , order_total: Money.new(120, "GBP")
 , success: "http://alpha.sharetribe.com/transaction/create"
 , cancel: "http://alpha.sharetribe.com/transactin/cancel"
@@ -23,7 +23,7 @@ Example response body:
 
 ```js
 { redirect_url: "https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&token=EC-7XU83376C70426719&useraction=commit"
-, token: EC-7XU83376c70426719
+, token: "EC-7XU83376c70426719"
 , transaction_id: 123456789
 }
 ```
@@ -43,10 +43,11 @@ Example response body:
 
 ```js
 { transaction_id: 123456789
-, payer_id: "6M39X6RCYVUD6"
-, receiver_id: "URAPMR7WHFAWY"
-, payment_status: "pending"
-, pending_reason: "order"
+, payer_id: "6M39X6RCYVUD6"      // Paypal internal id, do we need to expose it?
+, receiver_id: "URAPMR7WHFAWY"   // Paypal internal id, do we need to expose it?
+, merchant_id: "merchant_id_1"   // External merchant user id, linked with the receiver_id
+, payment_status: :pending
+, pending_reason: :order
 , order_id: "O-8VG2704956180171B"
 , order_date: Time.new(...)
 , order_total: Money.new(120, "GBP")
@@ -73,10 +74,11 @@ Response 200 OK, Payment body:
 
 ```js
 { transaction_id: 123456789
-, payer_id: "6M39X6RCYVUD6"
-, receiver_id: "URAPMR7WHFAWY"
-, payment_status: "pending"
-, pending_reason: "authorization"
+, payer_id: "6M39X6RCYVUD6"      // Paypal internal id, do we need to expose it?
+, receiver_id: "URAPMR7WHFAWY"   // Paypal internal id, do we need to expose it?
+, merchant_id: "merchant_id_1"   // External merchant user id, linked with the receiver_id
+, payment_status: :pending
+, pending_reason: :authorization
 , order_id: "O-8VG2704956180171B"
 , order_date: Time.new(...)
 , order_total: Money.new(120, "GBP")
@@ -104,10 +106,11 @@ Response 200 OK, Payment body:
 
 ```js
 { transaction_id: 123456789
-, payer_id: "6M39X6RCYVUD6"
-, receiver_id: "URAPMR7WHFAWY"
-, payment_status: "completed"
-, pending_reason: ""
+, payer_id: "6M39X6RCYVUD6"      // Paypal internal id, do we need to expose it?
+, receiver_id: "URAPMR7WHFAWY"   // Paypal internal id, do we need to expose it?
+, merchant_id: "merchant_id_1"   // External merchant user id, linked with the receiver_id
+, payment_status: :completed
+, pending_reason: null / nil
 , order_id: "O-8VG2704956180171B"
 , order_date: Time.new(...)
 , order_total: Money.new(120, "GBP")
@@ -138,10 +141,11 @@ Response 200 OK, Payment body
 
 ```js
 { transaction_id: 123456789
-, payer_id: "6M39X6RCYVUD6"
-, receiver_id: "URAPMR7WHFAWY"
-, payment_status: "refunded"
-, pending_reason: ""
+, payer_id: "6M39X6RCYVUD6"      // Paypal internal id, do we need to expose it?
+, receiver_id: "URAPMR7WHFAWY"   // Paypal internal id, do we need to expose it?
+, merchant_id: "merchant_id_1"   // External merchant user id, linked with the receiver_id
+, payment_status: :refunded
+, pending_reason: null / nil
 , order_id: "O-8VG2704956180171B"
 , order_date: Time.new(...)
 , order_total: Money.new(120, "GBP") // ? - refunded_net_total?
@@ -158,7 +162,5 @@ Response 200 OK, Payment body
 
 # Open questions / TODO
 
-* All requests have header community_id so that it's enough to have unique transaction ids within a community?
-* Should we expose a payment id and have the interface use that instead?
+* All requests have header community_id so that it's enough to have unique transaction ids within a community? (future extension)
 * No error scenarios here
-* Do same for paypal accounts and billing agreements
