@@ -557,6 +557,9 @@ it:
       credit_card_expiration_date: ~
       confirm_payment: ~
       exp: ~
+  preauthorize_payments:
+    edit:
+      confirm_payment: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -760,6 +763,8 @@ it:
     testimonials:
       you_must_explain_not_neutral_feedback: "Se vuoi dare feedback non neutrali, devi spiegarne il motivo."
       you_must_select_a_grade: "Ricordati di raccontare se la tua esperienza è stata positiva o negativa"
+    paypal:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Indietro alla front page"
     error_404:
@@ -885,7 +890,7 @@ it:
       is: è
       are: ~
       what_do_you_need: "Di cosa hai bisogno?"
-      post_new_listing: "Aggiungi una nuova inserzione"
+      post_new_listing: "Aggiungi il tuo spazio"
       are_offering: offerta
       add_news_item: "Aggiungi un articolo"
       inform_others_about_events: ~

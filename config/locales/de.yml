@@ -572,6 +572,9 @@ de:
       credit_card_expiration_date: "Ablaufdatum der Kreditkarte"
       confirm_payment: "Zahlung bestätigen"
       exp: ~
+  preauthorize_payments:
+    edit:
+      confirm_payment: ~
   community_memberships:
     access_denied:
       access_denied: "Zugriff verweigert"
@@ -775,6 +778,8 @@ de:
     testimonials:
       you_must_explain_not_neutral_feedback: "Falls du kein neutrales Feedback abgeben willst, must du erklären warum."
       you_must_select_a_grade: "War deine Erfahrung positiv oder negativ?"
+    paypal:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Zurück zur Startseite"
     error_404:

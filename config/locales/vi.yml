@@ -557,6 +557,9 @@ vi:
       credit_card_expiration_date: ~
       confirm_payment: ~
       exp: ~
+  preauthorize_payments:
+    edit:
+      confirm_payment: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -760,6 +763,8 @@ vi:
     testimonials:
       you_must_explain_not_neutral_feedback: "Nếu bạn muốn đưa ra thông tin phản hồi không trung lập, bạn phải giải thích tại sao."
       you_must_select_a_grade: "Nhớ chấm điểm người dùng bằng cách nhấp chuột vào một trong những biểu tượng ở trên (bạn có thể xem lời giải thích của các biểu tượng bằng cách giữ con trỏ chuột trên chúng)"
+    paypal:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Quay lại %{service_name} đầu trang"
     error_404:

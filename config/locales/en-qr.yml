@@ -557,6 +557,9 @@ en-qr:
       credit_card_expiration_date: ~
       confirm_payment: ~
       exp: ~
+  preauthorize_payments:
+    edit:
+      confirm_payment: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -760,6 +763,8 @@ en-qr:
     testimonials:
       you_must_explain_not_neutral_feedback: ~
       you_must_select_a_grade: ~
+    paypal:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: ~
     error_404:

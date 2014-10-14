@@ -557,6 +557,9 @@ pt-BR:
       credit_card_expiration_date: Validade
       confirm_payment: "Confirmar pagamento"
       exp: ~
+  preauthorize_payments:
+    edit:
+      confirm_payment: ~
   community_memberships:
     access_denied:
       access_denied: "Acesso negado"
@@ -760,6 +763,8 @@ pt-BR:
     testimonials:
       you_must_explain_not_neutral_feedback: "Se você quiser dar um feedback não neutro, você deverá explicar porque."
       you_must_select_a_grade: "Lembre de dizer se sua experiencia foi positiva ou negativa."
+    paypal:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Voltar para pagina inicial"
     error_404:
