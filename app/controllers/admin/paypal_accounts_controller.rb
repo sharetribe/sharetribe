@@ -119,6 +119,17 @@ class Admin::PaypalAccountsController < ApplicationController
     access_token_res = paypal_permissions.do_request(access_token_req)
   end
 
+  # TODO This is copy-paste
+  def fetch_personal_data(token, token_secret)
+    personal_data_req = PaypalService::DataTypes::Persmissions.create_get_basic_personal_data(
+      {
+        token: token,
+        token_secret: token_secret
+      }
+    )
+    paypal_permissions.do_request(personal_data_req)
+  end
+
   def flash_error_and_redirect_to_settings(error = t("paypal_accounts.new.something_went_wrong"))
     flash[:error] = error
     redirect_to new_admin_community_paypal_account_path(@current_user.username)
