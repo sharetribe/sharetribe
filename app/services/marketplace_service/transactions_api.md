@@ -2,8 +2,6 @@
 
 ## POST /:conversation\_id/messages/
 
-TODO Move to messaging api
-
 Example request body:
 
 ```ruby
@@ -64,9 +62,9 @@ Response:
   , created_at: <Time>
   , updated_at: <Time>
   , last_transition_at: <Time>
-  , current_state: "free"      # or "initiated" for Paypal
-                               # or "preauthorized" for preauthorized Braintree
-                               # or "pending" for postpay Braintree and Checkout
+  , current_state: :free"      # or :initiated for Paypal
+                               # or :preauthorized for preauthorized Braintree
+                               # or :pending for postpay Braintree and Checkout
   }
 
 , paypal:
@@ -106,7 +104,7 @@ Response:
   , created_at: <Time>
   , updated_at: <Time>
   , last_transition_at: <Time>
-  , current_state: "preauthorized"
+  , current_state: :preauthorized
 }
 ```
 
@@ -133,7 +131,7 @@ Response:
   , created_at: <Time>
   , updated_at: <Time>
   , last_transition_at: <Time>
-  , current_state: "rejected"
+  , current_state: :rejected
 }
 ```
 
@@ -162,7 +160,7 @@ Response:
   , created_at: <Time>
   , updated_at: <Time>
   , last_transition_at: <Time>
-  , current_state: "rejected"
+  , current_state: :rejected
   }
   
 , paypal: { pending_reason: :multicurrency }
@@ -206,7 +204,7 @@ Response:
   , created_at: <Time>
   , updated_at: <Time>
   , last_transition_at: <Time>
-  , current_state: "accepted"
+  , current_state: :accepted
   }
 }
 ```
@@ -251,7 +249,7 @@ Response:
   , created_at: <Time>
   , updated_at: <Time>
   , last_transition_at: <Time>
-  , current_state: "paid"
+  , current_state: :paid
   }
 }
 ```
@@ -279,12 +277,12 @@ Response:
   , created_at: <Time>
   , updated_at: <Time>
   , last_transition_at: <Time>
-  , current_state: "completed"
+  , current_state: :completed
   }
 }
 ```
 
-## PUT /transaction/:transaction/state/cancel
+## POST /:transaction_id/cancel
 
 Request: Empty
 
@@ -307,7 +305,7 @@ Response:
   , created_at: <Time>
   , updated_at: <Time>
   , last_transition_at: <Time>
-  , current_state: "canceled"
+  , current_state: :canceled
   }
 }
 ```
