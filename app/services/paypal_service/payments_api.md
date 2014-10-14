@@ -8,7 +8,8 @@ Request body CreatePaymentRequest
 Example request body:
 
 ```ruby
-{ transaction_id: 123456789           # External transaction id
+{ community_id: 10
+, transaction_id: 123456789           # External transaction id
 , item_name: "A green lantern"
 , item_quantity: 1
 , item_price: <Money>
