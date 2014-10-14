@@ -26,12 +26,22 @@ Response 201 OK, body:
 
 ## POST /accounts/request/cancel?token=AAAAAAAbDq-HJDXerDtj
 
-Reponse 204 No Content
+```js
+{ community_id: 121212
+, person_id: "person_id_1"
+}
+```
+
+Response 204 No Content
 
 
 ## POST /accounts/create?token=AAAAAAAbDq-HJDXerDtj
 
-No request body
+```js
+{ community_id: 121212
+, person_id: "person_id_1"
+}
+```
 
 Response 201 Created, with PaypalAccount body
 

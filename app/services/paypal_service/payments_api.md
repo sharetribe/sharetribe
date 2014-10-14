@@ -30,12 +30,15 @@ Example response body:
 
 ## POST /payments/request/cancel?token=EC-7XU83376C70426719
 
-Response 204 No Content
-
+```js
+{ transaction_id: 123456789 }
+```
 
 ## POST /payments/create?token=EC-7XU83376C70426719
 
-No request body
+```js
+{ transaction_id: 123456789 }
+```
 
 Response 201 Created, with Payment body
 
