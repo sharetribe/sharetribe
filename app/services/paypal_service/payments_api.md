@@ -9,9 +9,9 @@ Example request body:
 { transaction_id: 123456789           # External transaction id
 , item_name: "A green lantern"
 , item_quantity: 1
-, item_price: Money.new(120, "GBP")
+, item_price: <Money>
 , merchant_id: "merchant_id_1"        # External user id, must match to an existing paypal account
-, order_total: Money.new(120, "GBP")
+, order_total: <Money>
 , success: "http://alpha.sharetribe.com/transaction/create"
 , cancel: "http://alpha.sharetribe.com/transactin/cancel"
 }
@@ -53,7 +53,7 @@ Example response body:
 , pending_reason: :order
 , order_id: "O-8VG2704956180171B"
 , order_date: <Time>
-, order_total: Money.new(120, "GBP")
+, order_total: <Money>
 , commission_status: :not_charged
 }
 ```
@@ -63,7 +63,7 @@ Example response body:
 Example request body:
 
 ```ruby
-{ authorization_total: Money.new(120, "GBP") }
+{ authorization_total: <Money> }
 ```
 
 Response 200 OK, Payment body:
@@ -77,11 +77,11 @@ Response 200 OK, Payment body:
 , pending_reason: :authorization
 , order_id: "O-8VG2704956180171B"
 , order_date: <Time>
-, order_total: Money.new(120, "GBP")
+, order_total: <Money>
 , authorization_id: "0L584749FU2628910"
 , authorization_date: <Time>
 , authorization_expires_date: <Time>
-, authorization_total: Money.new(120, "GBP")
+, authorization_total: <Money>
 , commission_status: :not_charged
 }
 ```
@@ -92,7 +92,7 @@ Response 200 OK, Payment body:
 Example request body:
 
 ```ruby
-{ payment_total: Money.new(120, "GBP") }
+{ payment_total: <Money> }
 ```
 
 Response 200 OK, Payment body:
@@ -106,15 +106,15 @@ Response 200 OK, Payment body:
 , pending_reason: nil
 , order_id: "O-8VG2704956180171B"
 , order_date: <Time>
-, order_total: Money.new(120, "GBP")
+, order_total: <Money>
 , authorization_id: "0L584749FU2628910"
 , authorization_date: <Time>
 , authorization_expires_date: <Time>
-, authorization_total: Money.new(120, "GBP")
+, authorization_total: <Money>
 , payment_id: "092834KH234J"
 , payment_date: <Time>
-, payment_total: Money.new(120, "GBP")
-, fee_total: Money.new(48, "GBP")
+, payment_total: <Money>
+, fee_total: <Money>
 , commission_status: :not_charged
 }
 ```
@@ -135,22 +135,22 @@ Response 200 OK, Payment body
 
 ```ruby
 { transaction_id: 123456789
-, payer_id: "6M39X6RCYVUD6"               # Paypal internal id, do we need to expose it?
-, receiver_id: "URAPMR7WHFAWY"            # Paypal internal id, do we need to expose it?
-, merchant_id: "merchant_id_1"            # External merchant user id, linked with the receiver_id
+, payer_id: "6M39X6RCYVUD6"              # Paypal internal id, do we need to expose it?
+, receiver_id: "URAPMR7WHFAWY"           # Paypal internal id, do we need to expose it?
+, merchant_id: "merchant_id_1"           # External merchant user id, linked with the receiver_id
 , payment_status: :refunded
 , pending_reason: nil
 , order_id: "O-8VG2704956180171B"
 , order_date: <Time>
-, order_total: Money.new(120, "GBP")      # ? - refunded_net_total?
+, order_total: <Money>                   # ? - refunded_net_total?
 , authorization_id: "0L584749FU2628910"
 , authorization_date: <Time>
 , authorization_expires_date: <Time>
-, authorization_total: Money.new(120, "GBP")
+, authorization_total: <Money>
 , payment_id: "092834KH234J"
 , payment_date: <Time>
-, payment_total: Money.new(120, "GBP")
-, fee_total: Money.new(48, "GBP")         # ? - refunded_fee_total
+, payment_total: <Money>
+, fee_total: <Money>                     # ? - refunded_fee_total
 , commission_status: :not_charged
 }
 ```
