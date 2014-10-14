@@ -162,6 +162,30 @@ describe PaypalService::DataTypes::IPN do
     "ipn_track_id"=>"be492945b2622"
   }
 
+  billing_agreement_created = {
+    "txn_type"=>"mp_signup",
+    "last_name"=>"Account",
+    "mp_currency"=>"USD",
+    "residence_country"=>"US",
+    "mp_status"=>"0",
+    "mp_custom"=>"",
+    "mp_pay_type"=>"instant",
+    "verify_sign"=>"Ai1GUBsAVJLTrgWjhBLUx4LnD5C4ASJgGq5Jhwo7k-eq6ymSzkNPce3s",
+    "payer_status"=>"verified",
+    "test_ipn"=>"1",
+    "payer_email"=>"dev+paypal_us@sharetribe.com",
+    "first_name"=>"SandboxTest",
+    "payer_id"=>"P6S3ZMLQ25AYU",
+    "reason_code"=>"mp_2001",
+    "payer_business_name"=>"SandboxTest Account's Test Store",
+    "mp_id"=>"B-80N6310848330024M",
+    "charset"=>"windows-1252",
+    "notify_version"=>"3.8",
+    "mp_desc"=>"Grant Sharetribe permission to charge a transaction fee.",
+    "mp_cycle_start"=>"14",
+    "ipn_track_id"=>"8eb38a4d6fac0"
+  }
+
   billing_agreement_cancelled = {
     "txn_type"=>"mp_cancel",
     "last_name"=>"Account",
