@@ -5,7 +5,7 @@
 
 Request body:
 
-```js
+```ruby
 { community_id: 121212
 , person_id: "person_id_1"
 , description: "Permission to charge commissions."
@@ -16,7 +16,7 @@ Request body:
 
 Response 201 Created, body:
 
-```js
+```ruby
 { community_id: 121212
 , person_id: "person_id_1"
 , token: "EC-3TH127556H844745T"
@@ -30,7 +30,7 @@ Response 201 Created, body:
 
 Request body:
 
-```js
+```ruby
 { community_id: 121212
 , person_id: "person_id_1"
 }
@@ -43,7 +43,7 @@ Response 204 No Content
 
 Request body:
 
-```js
+```ruby
 { community_id: 121212
 , person_id: "person_id_1"
 }
@@ -51,7 +51,7 @@ Request body:
 
 Response 201 Created, body:
 
-```js
+```ruby
 { community_id: 121212
 , person_id: "person_id_1"
 , billing_agreement_state: :verified
@@ -64,27 +64,52 @@ Response 201 Created, body:
 
 Response 200 OK, body:
 
-```js
+```ruby
 { community_id: 121212
 , person_id: "person_id_1"
-, billing_agreement_state: :verified // Could also be :pending, but :not_requested is returned as 404
+, billing_agreement_state: :verified # Could also be :pending, but :not_requested is returned as 404
 , billing_agreement_id: "B-6LN09317DE8098150"
 }
 ```
 
 ## POST /billing_agreements/:community_id/:person_id/charge
 
-TODO
-* How to link this to transaction?
-* How to record it at paypal service, as another payment linked to same transaction? as additional fields in payment?
-
 Request body:
 
-```js
-{ community_admin_id: "community_admin_1" // External person, community admin receiving the commissions, must match to existing paypal admin account
+```ruby
+{ community_admin_id: "community_admin_1" # External person, community admin receiving the commissions, must match to existing paypal admin account
+, commissioned_transaction_id: 123456789
 , commission_total: Money.new(120, "GBP")
 }
 ```
+
+Response 200 OK, Payment body:
+
+```ruby
+{ transaction_id: 123456789
+, payer_id: "6M39X6RCYVUD6"      # Paypal internal id, do we need to expose it?
+, receiver_id: "URAPMR7WHFAWY"   # Paypal internal id, do we need to expose it?
+, merchant_id: "merchant_id_1"   # External merchant user id, linked with the receiver_id
+, payment_status: :completed
+, pending_reason: nil
+, order_id: "O-8VG2704956180171B"
+, order_date: <Time>
+, order_total: Money.new(120, "GBP")
+, authorization_id: "0L584749FU2628910"
+, authorization_date: <Time>
+, authorization_expires_date: <Time>
+, authorization_total: Money.new(120, "GBP")
+, payment_id: "092834KH234J"
+, payment_date: <Time>
+, payment_total: Money.new(120, "GBP")
+, fee_total: Money.new(48, "GBP")
+, commission_payment_id: "08387GJK384"
+, commission_payment_date: <Time>
+, commission_status: :charged
+, commission_total: Monew.new(50, "GBP")
+}
+```
+
 
 
 Response 201, Body wut?
