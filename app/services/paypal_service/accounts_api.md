@@ -13,7 +13,7 @@ Request body:
 }
 ```
 
-Response 201 OK, body:
+Response 201 Created, body:
 
 ```js
 { community_id: 121212
@@ -59,7 +59,7 @@ Response 201 Created, with PaypalAccount body
 
 No request body
 
-Reponse 200 OK, with PaypalAccount body
+Response 200 OK, with PaypalAccount body
 
 ```js
 { type: :community
@@ -67,6 +67,7 @@ Reponse 200 OK, with PaypalAccount body
 , paypal_email: "dev+mpadmin1@sharetribe.com"
 , payer_id: "2387SHSDJH82"
 , order_permission_state: :verified
+, billing_agreement_state: :not_requested // :not_requested, :pending, :verified ?
 }
 ```
 
