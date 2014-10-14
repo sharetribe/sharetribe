@@ -121,7 +121,7 @@ class Admin::PaypalAccountsController < ApplicationController
 
   # TODO This is copy-paste
   def fetch_personal_data(token, token_secret)
-    personal_data_req = PaypalService::DataTypes::Persmissions.create_get_basic_personal_data(
+    personal_data_req = PaypalService::DataTypes::Permissions.create_get_basic_personal_data(
       {
         token: token,
         token_secret: token_secret
