@@ -3,6 +3,8 @@
 
 ## POST /payments/request
 
+Request body CreatePaymentRequest
+
 Example request body:
 
 ```ruby
@@ -30,11 +32,15 @@ Example response body:
 
 ## POST /payments/request/cancel?token=EC-7XU83376C70426719
 
+Response body TokenVerificationinfo
+
 ```ruby
 { transaction_id: 123456789 }
 ```
 
 ## POST /payments/create?token=EC-7XU83376C70426719
+
+Response body TokenVerificationinfo
 
 ```ruby
 { transaction_id: 123456789 }
@@ -59,6 +65,8 @@ Example response body:
 ```
 
 ## POST /payments/:transaction_id/authorize
+
+Request body AuthorizationInfo
 
 Example request body:
 
@@ -88,6 +96,8 @@ Response 200 OK, Payment body:
 
 
 ## POST /payments/:transaction_id/full_capture
+
+Request body PaymentInfo
 
 Example request body:
 
