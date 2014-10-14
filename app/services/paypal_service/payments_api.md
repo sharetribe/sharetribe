@@ -122,6 +122,11 @@ Response 200 OK, Payment body:
 }
 ```
 
+## GET /payments/:transaction_id
+
+Response 200 OK, Payment body (example as above)
+
+
 ## POST /payments/:transaction_id/void
 
 Response 204 No Content
