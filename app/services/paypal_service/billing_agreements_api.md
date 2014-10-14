@@ -77,9 +77,9 @@ Response 200 OK, body:
 Request body:
 
 ```ruby
-{ community_admin_id: "community_admin_1" # External person, community admin receiving the commissions, must match to existing paypal admin account
+{ community_admin_id: "community_admin_1" # External person id, community admin receiving the commission, must match to existing paypal admin account
 , commissioned_transaction_id: 123456789
-, commission_total: Money.new(120, "GBP")
+, commission_total: <Money>
 }
 ```
 
@@ -94,22 +94,18 @@ Response 200 OK, Payment body:
 , pending_reason: nil
 , order_id: "O-8VG2704956180171B"
 , order_date: <Time>
-, order_total: Money.new(120, "GBP")
+, order_total: <Money>
 , authorization_id: "0L584749FU2628910"
 , authorization_date: <Time>
 , authorization_expires_date: <Time>
-, authorization_total: Money.new(120, "GBP")
+, authorization_total: <Money>
 , payment_id: "092834KH234J"
 , payment_date: <Time>
-, payment_total: Money.new(120, "GBP")
-, fee_total: Money.new(48, "GBP")
+, payment_total: <Money>
+, fee_total: <Money>
 , commission_payment_id: "08387GJK384"
 , commission_payment_date: <Time>
 , commission_status: :charged
-, commission_total: Monew.new(50, "GBP")
+, commission_total: <Money>
 }
 ```
-
-
-
-Response 201, Body wut?
