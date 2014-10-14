@@ -62,7 +62,12 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     })
 
     if @listing_conversation.save!
-      MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, params[:listing_conversation][:status])
+      case params[:listing_conversation][:status]
+      when "paid"
+        response = TransactionService::Transaction::Command.complete_preauthorization(@listing_conversation.id)
+      when "rejected"
+        MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, params[:listing_conversation][:status])
+      end
       MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
 
       redirect_to person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
