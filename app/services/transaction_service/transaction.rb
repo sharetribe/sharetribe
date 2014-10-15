@@ -22,6 +22,7 @@ module TransactionService
         case payment_type
         when :braintree
           BraintreeService::Payments::Command.submit_to_settlement(transaction[:id], transaction[:community_id])
+          MarketplaceService::Transaction::Command.transition_to(transaction[:id], :paid)
         when :paypal
           paypal_account = PaypalService::PaypalAccount::Query.personal_account(transaction[:listing][:author_id], transaction[:community_id])
           paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
@@ -46,7 +47,7 @@ module TransactionService
                   gateway_fields: { pending_reason: capture_response[:pending_reason] }})
 
             else
-              MarketplaceService::Transaction::Command.transition_to(transaction[:id], :preauthorized)
+              MarketplaceService::Transaction::Command.transition_to(transaction[:id], :paid)
               DataTypes::Transaction.create_complete_preauthorization_response({
                   transaction: transaction.merge(current_state: :preauthorized) # FIXME, contains fields that are not updated, e.g. last transition at,
                   })

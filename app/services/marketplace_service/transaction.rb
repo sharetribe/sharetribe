@@ -282,8 +282,6 @@ module MarketplaceService
       def handle_transition(transaction, payment_type, old_status, new_status)
         if new_status == :preauthorized
           preauthorized(transaction, payment_type)
-        elsif (old_status == :preauthorized && new_status == :paid)
-          preauthorized_to_paid(transaction, payment_type)
         elsif (old_status == :preauthorized && new_status == :rejected)
           preauthorized_to_rejected(transaction, payment_type)
         end
@@ -310,32 +308,6 @@ module MarketplaceService
           void_response = merchant.do_request(void_request)
 
           if !void_response[:success]
-            # TODO Use Paypal logger
-          end
-        end
-      end
-
-      def preauthorized_to_paid(transaction, payment_type)
-        case payment_type
-        when :braintree
-          BraintreeService::Payments::Command.submit_to_settlement(transaction[:id], transaction[:community_id])
-        when :paypal
-          paypal_account = PaypalService::PaypalAccount::Query.personal_account(transaction[:listing][:author_id], transaction[:community_id])
-          paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
-
-          api_params = {
-            receiver_username: paypal_account[:email],
-            authorization_id: paypal_payment[:authorization_id],
-            payment_total: paypal_payment[:authorization_total]
-          }
-
-          merchant = PaypalService::MerchantInjector.build_paypal_merchant
-          capture_request = PaypalService::DataTypes::Merchant.create_do_full_capture(api_params)
-          capture_response = merchant.do_request(capture_request)
-
-          if capture_response[:success]
-            PaypalService::PaypalPayment::Command.update(paypal_payment.merge(capture_response))
-          else
             # TODO Use Paypal logger
           end
         end
