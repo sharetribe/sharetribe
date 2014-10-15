@@ -11,12 +11,7 @@ class Superadmin::CommunitiesController < ApplicationController
     p = Maybe(params)
 
     defaults = {
-      consent: "SHARETRIBE1.0",
-      feedback_to_admin: 1,
-      terms_change_allowed: 1,
-      privacy_policy_change_allowed: 1,
-      custom_fields_allowed: 1,
-      category_change_allowed: 1
+      consent: "SHARETRIBE1.0"
     }
 
     language = p["language"].or_else("en")

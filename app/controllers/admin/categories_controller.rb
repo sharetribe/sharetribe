@@ -1,7 +1,6 @@
 class Admin::CategoriesController < ApplicationController
 
   before_filter :ensure_is_admin
-  before_filter :ensure_category_editing_allowed
 
   skip_filter :dashboard_only
 
@@ -96,12 +95,6 @@ class Admin::CategoriesController < ApplicationController
     @category.destroy
 
     redirect_to admin_categories_path
-  end
-
-  private
-
-  def ensure_category_editing_allowed
-    redirect_to root and return unless category_editing_allowed?
   end
 
 end

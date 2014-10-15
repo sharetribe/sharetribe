@@ -644,23 +644,19 @@ module ApplicationHelper
       }
     end
 
-    if category_editing_allowed?
-      links << {
-        :text => t("admin.categories.index.listing_categories"),
-        :icon_class => icon_class("list"),
-        :path => admin_categories_path,
-        :name => "listing_categories"
-      }
-    end
+    links << {
+      :text => t("admin.categories.index.listing_categories"),
+      :icon_class => icon_class("list"),
+      :path => admin_categories_path,
+      :name => "listing_categories"
+    }
 
-    if @current_community.custom_fields_allowed
-      links << {
-        :text => t("admin.custom_fields.index.listing_fields"),
-        :icon_class => icon_class("list"),
-        :path => admin_custom_fields_path,
-        :name => "listing_fields"
-      }
-    end
+    links << {
+      :text => t("admin.custom_fields.index.listing_fields"),
+      :icon_class => icon_class("list"),
+      :path => admin_custom_fields_path,
+      :name => "listing_fields"
+    }
 
     links << {
         :text => t("admin.communities.manage_members.manage_members"),
@@ -870,21 +866,6 @@ module ApplicationHelper
 
   def sum_with_currency(sum, currency)
     humanized_money_with_symbol(Money.new(sum*100, (currency || "EUR")))
-  end
-
-  def category_editing_allowed?
-    if @current_user
-      if @current_user.is_admin?
-        logger.info ""
-        return true
-      elsif @current_community.category_change_allowed? && @current_user.has_admin_rights_in?(@current_community)
-        return true
-      else
-        return false
-      end
-    else
-      return false
-    end
   end
 
   def sort_link_direction(column)

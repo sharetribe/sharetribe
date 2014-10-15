@@ -5,8 +5,7 @@ Feature: Custom field filters
   I want to be able to easily select which listings are shown
 
   Background:
-    Given community "test" has custom fields enabled
-    And there is a dropdown field "House type" for category "Spaces" in community "test" with options:
+    Given there is a dropdown field "House type" for category "Spaces" in community "test" with options:
       | title |
       | condo |
       | house |

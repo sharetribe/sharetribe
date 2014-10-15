@@ -122,7 +122,6 @@ Feature: User creates a new listing
   @javascript
   Scenario: User creates a new listing with custom dropdown fields
     Given I am logged in
-    And community "test" has custom fields enabled
     And there is a custom dropdown field "House type" in community "test" in category "Spaces" with options:
       | en             | fi                   |
       | Big house      | Iso talo             |
@@ -161,7 +160,6 @@ Feature: User creates a new listing
   @javascript @sphinx @no-transaction
   Scenario: User creates a new listing with custom text field
     Given I am logged in
-    And community "test" has custom fields enabled
     And there is a custom text field "Details" in community "test" in category "Spaces"
     When I follow "new-listing-link"
     And I follow "Spaces"
@@ -178,7 +176,6 @@ Feature: User creates a new listing
   @javascript @sphinx @no-transaction
   Scenario: User creates a new listing with numeric field
     Given I am logged in
-    And community "test" has custom fields enabled
     And there is a custom numeric field "Area" in that community in category "Spaces" with min value 100 and with max value 2000
     When I follow "new-listing-link"
     And I follow "Spaces"
@@ -194,7 +191,6 @@ Feature: User creates a new listing
 @javascript @sphinx @no-transaction
 Scenario: User creates a new listing with date field
   Given I am logged in
-  And community "test" has custom fields enabled
   And there is a custom date field "building_date_test" in that community in category "Spaces"
   When I follow "new-listing-link"
   And I follow "Spaces"
@@ -207,7 +203,6 @@ Scenario: User creates a new listing with date field
   @javascript @sphinx @no-transaction
   Scenario: User creates a new listing with checkbox field
     Given I am logged in
-    And community "test" has custom fields enabled
     And there is a custom checkbox field "Amenities" in that community in category "Spaces" with options:
       | title             |
       | Internet          |

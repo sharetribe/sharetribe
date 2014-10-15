@@ -238,7 +238,3 @@ When /^I try to remove all transaction types from category "(.*?)"$/ do |categor
     And I press submit
   }
 end
-
-Given /^admin can edit categories in current community$/ do
-  @current_community.update_attribute(:category_change_allowed, true)
-end

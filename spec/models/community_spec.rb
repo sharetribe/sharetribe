@@ -14,7 +14,7 @@
 #  email_admins_about_new_members             :boolean          default(FALSE)
 #  use_fb_like                                :boolean          default(FALSE)
 #  real_name_required                         :boolean          default(TRUE)
-#  feedback_to_admin                          :boolean          default(FALSE)
+#  feedback_to_admin                          :boolean          default(TRUE)
 #  automatic_newsletters                      :boolean          default(TRUE)
 #  join_with_invite_only                      :boolean          default(FALSE)
 #  use_captcha                                :boolean          default(FALSE)
@@ -73,12 +73,8 @@
 #  wide_logo_file_size                        :integer
 #  wide_logo_updated_at                       :datetime
 #  only_organizations                         :boolean
-#  terms_change_allowed                       :boolean          default(FALSE)
-#  privacy_policy_change_allowed              :boolean          default(FALSE)
-#  custom_fields_allowed                      :boolean          default(FALSE)
 #  listing_comments_in_use                    :boolean          default(FALSE)
 #  show_listing_publishing_date               :boolean          default(FALSE)
-#  category_change_allowed                    :boolean          default(FALSE)
 #  require_verification_to_post_listings      :boolean          default(FALSE)
 #  show_price_filter                          :boolean          default(FALSE)
 #  price_filter_min                           :integer          default(0)

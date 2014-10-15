@@ -14,8 +14,8 @@ describe Admin::CustomFieldsController do
     end
 
     before(:each) do
-      @community = FactoryGirl.create(:community, :custom_fields_allowed => true)
-      @another_community = FactoryGirl.create(:community, :custom_fields_allowed => true)
+      @community = FactoryGirl.create(:community)
+      @another_community = FactoryGirl.create(:community)
 
       @request.host = "#{@community.domain}.lvh.me"
 
