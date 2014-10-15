@@ -64,7 +64,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     if @listing_conversation.save!
       case params[:listing_conversation][:status]
       when "paid"
-        response = TransactionService::Transaction::Command.complete_preauthorization(@listing_conversation.id)
+        response = TransactionService::Transaction.complete_preauthorization(@listing_conversation.id)
       when "rejected"
         MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, params[:listing_conversation][:status])
       end

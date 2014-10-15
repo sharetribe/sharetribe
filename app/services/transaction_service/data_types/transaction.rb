@@ -2,9 +2,9 @@ module TransactionService
   module DataTypes
     module Transaction
 
-      CompeletePreauthorizationPaypalResponse = EntityUtils.define_builder(
+      CompletePreauthorizationPaypalResponse = EntityUtils.define_builder(
         [:payment_gateway, const_value: :paypal],
-        [:pending_reason, one_of: [:multicurrency, nil]])
+        [:pending_reason, :symbol, :optional])
 
       # Common response format:
 
@@ -14,7 +14,11 @@ module TransactionService
 
       module_function
 
-      def create_complete_preauthorization_response(transaction, gateway_fields); TransactionResponse.call(opts) end
+      def create_complete_preauthorization_response(transaction, gateway_opts = {})
+        TransactionResponse.call({
+            transaction: transaction,
+            gateway_fields: CompletePreauthorizationPaypalResponse.call(gateway_opts)})
+      end
     end
   end
 end
