@@ -12,7 +12,7 @@ module PaypalService
         [:receiver_id, :string, :mandatory],
         [:payment_status, :string, :mandatory],
         [:pending_reason, :string],
-        [:receipt_id, :string, :mandatory],
+        [:receipt_id, :string],
         [:order_total, :money, :mandatory]
       )
 
@@ -28,7 +28,7 @@ module PaypalService
         [:receiver_id, :string, :mandatory],
         [:payment_status, :string, :mandatory],
         [:pending_reason, :string],
-        [:receipt_id, :string, :mandatory],
+        [:receipt_id, :string],
         [:order_total, :money, :mandatory],
         [:authorization_total, :money, :mandatory]
       )
@@ -45,7 +45,7 @@ module PaypalService
         [:receiver_id, :string, :mandatory],
         [:payment_status, :string, :mandatory],
         [:pending_reason, :string],
-        [:receipt_id, :string, :mandatory],
+        [:receipt_id, :string],
         [:authorization_total, :money, :mandatory],
         [:payment_total, :money, :mandatory],
         [:fee_total, :money, :mandatory]
@@ -64,7 +64,7 @@ module PaypalService
         [:receiver_id, :string, :mandatory],
         [:payment_status, :string, :mandatory],
         [:pending_reason, :string],
-        [:receipt_id, :string, :mandatory],
+        [:receipt_id, :string],
         [:authorization_total, :money, :mandatory],
         [:payment_total, :money, :mandatory],
         [:fee_total, :money, :mandatory]

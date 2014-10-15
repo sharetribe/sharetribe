@@ -10,4 +10,9 @@ module MoneyUtil
     cents = normalized.to_f * 100
     cents.to_i
   end
+
+  def to_money(cents, currency)
+    Money.new(cents, currency) unless cents.nil?
+  end
+
 end
