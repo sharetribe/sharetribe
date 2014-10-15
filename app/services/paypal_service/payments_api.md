@@ -72,13 +72,14 @@ Request body AuthorizationInfo
 Example request body:
 
 ```ruby
-{ authorization_total: <Money> }
+{ community_id: 10, authorization_total: <Money> }
 ```
 
 Response 200 OK, Payment body:
 
 ```ruby
-{ transaction_id: 123456789
+{ community_id: 10
+, transaction_id: 123456789
 , payer_id: "6M39X6RCYVUD6"      # Paypal internal id, do we need to expose it?
 , receiver_id: "URAPMR7WHFAWY"   # Paypal internal id, do we need to expose it?
 , merchant_id: "merchant_id_1"   # External merchant user id, linked with the receiver_id
@@ -103,13 +104,14 @@ Request body PaymentInfo
 Example request body:
 
 ```ruby
-{ payment_total: <Money> }
+{ community_id: 10, payment_total: <Money> }
 ```
 
 Response 200 OK, Payment body:
 
 ```ruby
-{ transaction_id: 123456789
+{ community_id: 10
+, transaction_id: 123456789
 , payer_id: "6M39X6RCYVUD6"      # Paypal internal id, do we need to expose it?
 , receiver_id: "URAPMR7WHFAWY"   # Paypal internal id, do we need to expose it?
 , merchant_id: "merchant_id_1"   # External merchant user id, linked with the receiver_id
@@ -130,22 +132,35 @@ Response 200 OK, Payment body:
 }
 ```
 
-## GET /payments/:transaction_id
+## GET /payments/:transaction_id?community_id=10
 
 Response 200 OK, Payment body (example as above)
 
 
 ## POST /payments/:transaction_id/void
 
+Request body CommunityVerification
+
+```ruby
+{ community_id: 10 }
+```
+
 Response 204 No Content
 
 
 ## POST /payments/:transaction_id/refund
 
+Request body CommunityVerification
+
+```ruby
+{ community_id: 10 }
+```
+
 Response 200 OK, Payment body
 
 ```ruby
-{ transaction_id: 123456789
+{ community_id: 10
+, transaction_id: 123456789
 , payer_id: "6M39X6RCYVUD6"              # Paypal internal id, do we need to expose it?
 , receiver_id: "URAPMR7WHFAWY"           # Paypal internal id, do we need to expose it?
 , merchant_id: "merchant_id_1"           # External merchant user id, linked with the receiver_id

@@ -77,7 +77,8 @@ Response 200 OK, body:
 Request body:
 
 ```ruby
-{ community_admin_id: "community_admin_1" # External person id, community admin receiving the commission, must match to existing paypal admin account
+{ community_id: 121212
+, community_admin_id: "community_admin_1" # External person id, community admin receiving the commission, must match to existing paypal admin account
 , commissioned_transaction_id: 123456789
 , commission_total: <Money>
 }
@@ -86,7 +87,8 @@ Request body:
 Response 200 OK, Payment body:
 
 ```ruby
-{ transaction_id: 123456789
+{ community_id: 121212
+, transaction_id: 123456789
 , payer_id: "6M39X6RCYVUD6"      # Paypal internal id, do we need to expose it?
 , receiver_id: "URAPMR7WHFAWY"   # Paypal internal id, do we need to expose it?
 , merchant_id: "merchant_id_1"   # External merchant user id, linked with the receiver_id
