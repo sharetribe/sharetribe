@@ -8,16 +8,16 @@ module PaypalService::API
     TokenStore = PaypalService::Store::Token
 
     ## POST /payments/request
-    def request(create_payment)
+    def request(community_id, create_payment)
       with_account(
-        create_payment[:community_id], create_payment[:merchant_id]
+        community_id, create_payment[:merchant_id]
       ) do |m_acc|
 
         with_success(MerchantData.create_set_express_checkout_order(
           create_payment.merge({ receiver_username: m_acc[:email] })
         )) do |response|
           TokenStore.create(
-            create_payment[:community_id],
+            community_id,
             response[:token],
             create_payment[:transaction_id],
             m_acc[:person_id])
@@ -32,15 +32,15 @@ module PaypalService::API
     end
 
     ## POST /payments/request/cancel?token=EC-7XU83376C70426719
-    def request_cancel(token, info)
-      TokenStore.delete(info[:community_id], token)
+    def request_cancel(community_id, token)
+      TokenStore.delete(community_id, token)
       Result::Success.new
     end
 
     ## POST /payments/create?token=EC-7XU83376C70426719
-    def create(token, info)
-      with_token(info[:community_id], token) do |token|
-        with_account(info[:community_id], token[:merchant_id]) do |m_acc| # TODO Missing merchant_id in token
+    def create(community_id, token)
+      with_token(community_id, token) do |token|
+        with_account(community_id, token[:merchant_id]) do |m_acc|
           with_success(MerchantData.create_get_express_checkout_details(
             { receiver_username: m_acc[:email], token: token[:token] }
           )) do |ec_details|
@@ -62,7 +62,7 @@ module PaypalService::API
               payment = PaypalService::PaypalPayment::Command.create(token[:transaction_id], ec_details.merge(payment_res))
 
               # Delete the token, we have now completed the payment request
-              TokenStore.delete(info[:community_id], token[:token])
+              TokenStore.delete(community_id, token[:token])
 
               # Return as payment entity
               Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
@@ -72,28 +72,28 @@ module PaypalService::API
       end
     end
 
-    ## POST /payments/:transaction_id/authorize
-    def authorize(transaction_id, authorization_info)
+    ## POST /payments/:community_id/:transaction_id/authorize
+    def authorize(community_id, transaction_id, authorization_info)
       raise NoMethodError.new("Not implemented")
     end
 
-    ## POST /payments/:transaction_id/full_capture
-    def full_capture(transaction_id, payment_info)
+    ## POST /payments/:community_id/:transaction_id/full_capture
+    def full_capture(community_id, transaction_id, payment_info)
       raise NoMethodError.new("Not implemented")
     end
 
-    ## GET /payments/:transaction_id
-    def get_payment(transaction_id)
+    ## GET /payments/:community_id/:transaction_id
+    def get_payment(community_id, transaction_id)
       raise NoMethodError.new("Not implemented")
     end
 
-    ## POST /payments/:transaction_id/void
-    def void(transaction_id)
+    ## POST /payments/:community_id/:transaction_id/void
+    def void(community_id, transaction_id)
       raise NoMethodError.new("Not implemented")
     end
 
-    ## POST /payments/:transaction_id/refund
-    def refund(transaction_id)
+    ## POST /payments/:community_id/:transaction_id/refund
+    def refund(community_id, transaction_id)
       raise NoMethodError.new("Not implemented")
     end
 

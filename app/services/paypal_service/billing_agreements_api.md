@@ -1,13 +1,12 @@
 
 # paypal/v1/
 
-## POST /billing_agreements/request
+## POST /billing_agreements/:community_id/request
 
 Request body:
 
 ```ruby
-{ community_id: 121212
-, person_id: "person_id_1"
+{ person_id: "person_id_1"
 , description: "Permission to charge commissions."
 , success: "https://alpha.sharetribe.com/billing_agreement/success"
 , cancel: "https://alpha.sharetribe.com/billing_agreement/cancel"
@@ -26,27 +25,23 @@ Response 201 Created, body:
 ```
 
 
-## POST /billing_agreements/cancel?token=EC-3TH127556H844745T
+## POST /billing_agreements/:community_id/cancel?token=EC-3TH127556H844745T
 
 Request body:
 
 ```ruby
-{ community_id: 121212
-, person_id: "person_id_1"
-}
+{ person_id: "person_id_1" }
 ```
 
 Response 204 No Content
 
 
-## POST /billing_agreements/create?token=EC-3TH127556H844745T
+## POST /billing_agreements/:community_id/create?token=EC-3TH127556H844745T
 
 Request body:
 
 ```ruby
-{ community_id: 121212
-, person_id: "person_id_1"
-}
+{ person_id: "person_id_1" }
 ```
 
 Response 201 Created, body:

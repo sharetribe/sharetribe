@@ -81,8 +81,8 @@ class PreauthorizeTransactionsController < ApplicationController
     transaction.save!
 
     pp_result = paypal_payments_service.request(
+      transaction.community_id,
       PaypalService::API::DataTypes.create_create_payment_request({
-        community_id: transaction.community_id,
         transaction_id: transaction.id,
         item_name: @listing.title,
         item_quantity: 1, # FIXME Use booking days as quantity

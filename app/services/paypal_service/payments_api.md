@@ -1,15 +1,14 @@
 
 # paypal/v1/
 
-## POST /payments/request
+## POST /payments/:community_id/request
 
 Request body CreatePaymentRequest
 
 Example request body:
 
 ```ruby
-{ community_id: 10
-, transaction_id: 123456789           # External transaction id
+{ transaction_id: 123456789           # External transaction id
 , item_name: "A green lantern"
 , item_quantity: 1
 , item_price: <Money>
@@ -31,28 +30,20 @@ Example response body:
 }
 ```
 
-## POST /payments/request/cancel?token=EC-7XU83376C70426719
+## POST /payments/:community_id/request/cancel?token=EC-7XU83376C70426719
 
-Response body TokenVerificationinfo
+Response 204 No Content
 
-```ruby
-{ community_id: 10 }
-```
 
-## POST /payments/create?token=EC-7XU83376C70426719
-
-Response body TokenVerificationinfo
-
-```ruby
-{ community_id: 10 }
-```
+## POST /payments/:community_id/create?token=EC-7XU83376C70426719
 
 Response 201 Created, with Payment body
 
 Example response body:
 
 ```ruby
-{ transaction_id: 123456789
+{ community_id: 10
+, transaction_id: 123456789
 , payer_id: "6M39X6RCYVUD6"      # Paypal internal id, do we need to expose it?
 , receiver_id: "URAPMR7WHFAWY"   # Paypal internal id, do we need to expose it?
 , merchant_id: "merchant_id_1"   # External merchant user id, linked with the receiver_id
@@ -65,14 +56,14 @@ Example response body:
 }
 ```
 
-## POST /payments/:transaction_id/authorize
+## POST /payments/:community_id/:transaction_id/authorize
 
 Request body AuthorizationInfo
 
 Example request body:
 
 ```ruby
-{ community_id: 10, authorization_total: <Money> }
+{ authorization_total: <Money> }
 ```
 
 Response 200 OK, Payment body:
@@ -97,14 +88,14 @@ Response 200 OK, Payment body:
 ```
 
 
-## POST /payments/:transaction_id/full_capture
+## POST /payments/:community_id/:transaction_id/full_capture
 
 Request body PaymentInfo
 
 Example request body:
 
 ```ruby
-{ community_id: 10, payment_total: <Money> }
+{ payment_total: <Money> }
 ```
 
 Response 200 OK, Payment body:
@@ -132,29 +123,21 @@ Response 200 OK, Payment body:
 }
 ```
 
-## GET /payments/:transaction_id?community_id=10
+## GET /payments/:community_id/:transaction_id
 
 Response 200 OK, Payment body (example as above)
 
 
-## POST /payments/:transaction_id/void
+## POST /payments/:community_id/:transaction_id/void
 
-Request body CommunityVerification
+Request no body
 
-```ruby
-{ community_id: 10 }
-```
-
-Response 204 No Content
+Response 204 No Content or voided payment body?
 
 
-## POST /payments/:transaction_id/refund
+## POST /payments/:community_id/:transaction_id/refund
 
-Request body CommunityVerification
-
-```ruby
-{ community_id: 10 }
-```
+Request no body
 
 Response 200 OK, Payment body
 

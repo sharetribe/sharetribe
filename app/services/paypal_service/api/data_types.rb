@@ -1,7 +1,6 @@
 module PaypalService::API::DataTypes
 
   CreatePaymentRequest = EntityUtils.define_builder(
-    [:community_id, :mandatory, :fixnum],
     [:transaction_id, :mandatory, :fixnum],
     [:item_name, :string],
     [:item_quantity, :fixnum, default: 1],
@@ -16,10 +15,6 @@ module PaypalService::API::DataTypes
     [:transaction_id, :mandatory, :fixnum],
     [:token, :mandatory, :string],
     [:redirect_url, :mandatory, :string]
-  )
-
-  TokenVerificationInfo = EntityUtils.define_builder(
-    [:community_id, :mandatory, :fixnum]
   )
 
   Payment = EntityUtils.define_builder(

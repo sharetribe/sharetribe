@@ -16,9 +16,7 @@ class PaypalTransactionsController < ApplicationController
       return redirect_to root
     end
 
-    pp_response = paypal_payments_service.create(
-      params[:token],
-      PaypalService::API::DataTypes.create_token_verification_info({community_id: @current_community.id}))
+    pp_response = paypal_payments_service.create(@current_community.id, params[:token])
 
     if !pp_response[:success]
       redirect_to root
