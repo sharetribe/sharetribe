@@ -1,5 +1,4 @@
 class PreauthorizeTransactionsController < ApplicationController
-  include PaypalService::MerchantInjector # includes method paypal_merchant
 
   before_filter do |controller|
    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
@@ -81,26 +80,23 @@ class PreauthorizeTransactionsController < ApplicationController
     #TODO NULL in transaction.payment crashes cuz preauthorization_expiration_days
     transaction.save!
 
-    paypal_receiver = PaypalService::PaypalAccount::Query.personal_account(@listing.author.id, @current_community.id)
+    pp_result = paypal_payments_service.request(
+      PaypalService::API::DataTypes.create_create_payment_request({
+        community_id: transaction.community_id,
+        transaction_id: transaction.id,
+        item_name: @listing.title,
+        item_quantity: 1, # FIXME Use booking days as quantity
+        item_price: @listing.price,
+        merchant_id: @listing.author.id,
+        order_total: @listing.price, # FIXME The price is not correct for booking
+        success: paypal_checkout_order_success_url,
+        cancel: paypal_checkout_order_cancel_url
+      })
+    )
 
-    set_ec_order_req = PaypalService::DataTypes::Merchant.create_set_express_checkout_order({
-      item_name: @listing.title,
-      item_quantity: 1, # FIXME Use booking days as quantity
-      item_price: @listing.price,
-      receiver_username: paypal_receiver[:email],
-      order_total: @listing.price, # FIXME The price is not correct for booking
-      success: paypal_checkout_order_success_url,
-      cancel: paypal_checkout_order_cancel_url
-    })
-    set_ec_order_res = paypal_merchant.do_request(set_ec_order_req)
-
-    if set_ec_order_res[:success]
+    if pp_result[:success]
       MarketplaceService::Transaction::Command.transition_to(transaction.id, "initiated")
-
-      # Redirect to PayPal
-      PaypalService::Token::Command.create(set_ec_order_res[:token], transaction_id)
-      redirect_to set_ec_order_res[:redirect_url]
-
+      redirect_to pp_result[:data][:redirect_url]
     else
       flash[:error] = "TODO"
       return redirect_to action: :initiate
@@ -315,6 +311,10 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   private
+
+  def paypal_payments_service
+    PaypalService::API::Payments.new
+  end
 
   def ensure_listing_author_is_not_current_user
     if @listing.author == @current_user
