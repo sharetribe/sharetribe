@@ -1,58 +1,11 @@
 module TransactionService::Transaction
 
-  module Entity
-    Transaction = EntityUtils.define_builder(
-      [:payment_process, one_of: [:none, :postpay, :preauthorize]],
-      [:payment_gateway, one_of: [:paypal, :checkout, :braintree, nil]],
-      [:community_id, :fixnum, :mandatory],
-      [:starter_id, :string, :mandatory],
-      [:listing_id, :fixnum, :mandatory],
-      [:listing_title, :string, :mandatory],
-      [:listing_price, :money, :optional],
-      [:listing_author_id, :string, :mandatory],
-      [:listing_quantity, :fixnum, default: 1],
-      [:automatic_confirmation_after_days, :fixnum],
-      [:last_transition_at, :time],
-      [:current_state, :symbol])
-
-    module_function
-
-    def transaction(model)
-      payment_process =
-        if !model.listing.transaction_type.price_field?
-          :none
-        else
-          if model.listing.transaction_type.preauthorize_payment?
-            :preauthorize
-          else
-            :postpay
-          end
-        end
-
-      payment_gateway = MarketplaceService::Community::Query.payment_type(model.community_id)
-
-      Transaction.call({
-          payment_process: payment_process,
-          payment_gateway: payment_gateway,
-          community_id: model.community_id,
-          starter_id: model.starter.id,
-          listing_id: model.listing.id,
-          listing_title: model.listing.title,
-          listing_price: model.listing.price,
-          listing_author_id: model.listing.author.id,
-          listing_quantity: 1,
-          automatic_confirmation_after_days: model.automatic_confirmation_after_days,
-          last_transition_at: model.last_transition_at,
-          current_state: model.current_state.to_sym})
-    end
-  end
-
   DataTypes = TransactionService::DataTypes::Transaction
 
   module_function
 
   def query(transaction_id)
-    Entity.transaction(Transaction.find(transaction_id))
+    model_to_entity(Transaction.find(transaction_id))
   end
 
   def create
@@ -128,5 +81,42 @@ module TransactionService::Transaction
 
   def cancel
     raise "Not implemented"
+  end
+
+  # private
+
+  # Warning!
+  # This is only an intermediate solution. Ideally, we would store all the required
+  # transaction data in transaction service, but now we have to fetch the data from here and there.
+  # However, this method is only used to get the API interface right, even though the data model
+  # doesn't match the interface.
+  #
+  def model_to_entity(model)
+    payment_process =
+      if !model.listing.transaction_type.price_field?
+        :none
+      else
+        if model.listing.transaction_type.preauthorize_payment?
+          :preauthorize
+        else
+          :postpay
+        end
+      end
+
+    payment_gateway = MarketplaceService::Community::Query.payment_type(model.community_id)
+
+    DataTypes.create_transaction({
+        payment_process: payment_process,
+        payment_gateway: payment_gateway,
+        community_id: model.community_id,
+        starter_id: model.starter.id,
+        listing_id: model.listing.id,
+        listing_title: model.listing.title,
+        listing_price: model.listing.price,
+        listing_author_id: model.listing.author.id,
+        listing_quantity: 1,
+        automatic_confirmation_after_days: model.automatic_confirmation_after_days,
+        last_transition_at: model.last_transition_at,
+        current_state: model.current_state.to_sym})
   end
 end
