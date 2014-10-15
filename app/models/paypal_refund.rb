@@ -18,4 +18,7 @@
 
 class PaypalRefund < ActiveRecord::Base
   attr_accessible :paypal_payment_id, :currency, :payment_total_cents, :fee_total_cents, :refunding_id
+
+  validates_presence_of :paypal_payment_id
+  validates_uniqueness_of :refunding_id
 end
