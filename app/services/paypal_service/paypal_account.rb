@@ -256,6 +256,14 @@ module PaypalService
           .map { |model| Entity.paypal_account(model) }
           .or_else(nil)
       end
+
+      def for_payer_id(community_id, payer_id)
+        Maybe(PaypalAccountModel.where(community_id: community_id, payer_id: payer_id)
+            .eager_load([:order_permission, :billing_agreement])
+            .first)
+        .map { |model| Entity.paypal_account(model) }
+        .or_else(nil)
+      end
     end
   end
 

@@ -59,7 +59,10 @@ module PaypalService::API
               }
             )) do |payment_res|
               # Save payment
-              payment = PaypalService::PaypalPayment::Command.create(token[:transaction_id], ec_details.merge(payment_res))
+              payment = PaypalService::PaypalPayment::Command.create(
+                community_id,
+                token[:transaction_id],
+                ec_details.merge(payment_res))
 
               # Delete the token, we have now completed the payment request
               TokenStore.delete(community_id, token[:token])
@@ -73,8 +76,24 @@ module PaypalService::API
     end
 
     ## POST /payments/:community_id/:transaction_id/authorize
-    def authorize(community_id, transaction_id, authorization_info)
-      raise NoMethodError.new("Not implemented")
+    def authorize(community_id, transaction_id, info)
+      with_payment(community_id, transaction_id) do |payment, m_acc|
+        with_success(MerchantData.create_do_authorization({
+          receiver_username: m_acc[:email],
+          order_id: payment[:order_id],
+          authorization_total: info[:authorization_total]
+            })) do |auth_res|
+
+          # Save authorization data to payment
+          payment = PaypalService::PaypalPayment::Command.update(
+            community_id,
+            transaction_id,
+            auth_res)
+
+          # Return as payment entity
+          Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
+        end
+      end
     end
 
     ## POST /payments/:community_id/:transaction_id/full_capture
@@ -118,13 +137,27 @@ module PaypalService::API
       end
     end
 
+    def with_payment(cid, txid)
+      payment = PaypalService::PaypalPayment::Query.get(cid, txid)
+      if (payment.nil?)
+        return Result::Error.new("No matching payment for community_id: #{cid} and transaction_id: #{txid}.")
+      end
+
+      m_acc = PaypalService::PaypalAccount::Query.for_payer_id(cid, payment[:receiver_id])
+      if m_acc.nil?
+        return Result::Error.new("No matching merchant account for community_id: #{cid} and transaction_id: #{txid}.")
+      end
+
+      yield payment, m_acc
+    end
+
     def with_success(request)
       response = paypal_merchant.do_request(request)
 
       if (response[:success])
         yield response
       else
-        Result::Error.new("Failed response from Paypal. Code: #{response[:error_code]}, msg:#{respose[:error_msg]}")
+        Result::Error.new("Failed response from Paypal. Code: #{response[:error_code]}, msg:#{response[:error_msg]}")
       end
     end
 

@@ -16,32 +16,21 @@ class PaypalTransactionsController < ApplicationController
       return redirect_to root
     end
 
+    # Create a new payment using the token form param
     pp_response = paypal_payments_service.create(@current_community.id, params[:token])
+    redirect_to root and return if !pp_response[:success]
+    payment = pp_response[:data]
 
-    if !pp_response[:success]
-      redirect_to root
-    end
+    # Authorize the payment
+    auth_response = paypal_payments_service.authorize(
+      @current_community.id,
+      payment[:transaction_id],
+      PaypalService::API::DataTypes.create_authorization_info({ authorization_total: payment[:order_total] }))
+    redirect_to root and return if !auth_response[:success]
 
-    # do_authorization
-    # do_authorization_req = DataTypeMerchant.create_do_authorization({
-    #     receiver_username: paypal_receiver[:email],
-    #     order_id: do_express_checkout_payment_res[:order_id],
-    #     authorization_total: express_checkout_details_res[:order_total]
-    #   })
-    # do_authorization_res = paypal_merchant.do_request(do_authorization_req)
+    MarketplaceService::Transaction::Command.transition_to(payment[:transaction_id], "preauthorized")
 
-    # if !do_authorization_res[:success]
-    #   return #TODO LOG THIS and RETRY?
-    # end
-
-    # PaypalService::PaypalPayment::Command.update(
-    #   express_checkout_details_res.merge(do_express_checkout_payment_res).merge(do_authorization_res)
-    # )
-
-    transaction_id = pp_response[:data][:transaction_id]
-    MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
-
-    return redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
+    return redirect_to person_transaction_path(:person_id => @current_user.id, :id => payment[:transaction_id])
   end
 
   def paypal_checkout_order_cancel
