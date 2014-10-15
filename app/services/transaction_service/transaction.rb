@@ -26,7 +26,7 @@ module TransactionService::Transaction
       transaction = MarketplaceService::Transaction::Command.transition_to(transaction[:id], :paid)
 
       Result::Success.new(
-        DataTypes.create_complete_preauthorization_response(transaction))
+        DataTypes.create_transaction_response(transaction))
     when :paypal
       paypal_account = PaypalService::PaypalAccount::Query.personal_account(transaction[:listing][:author_id], transaction[:community_id])
       paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
@@ -47,11 +47,11 @@ module TransactionService::Transaction
         if capture_response[:payment_status] != "completed"
           transaction = MarketplaceService::Transaction::Command.transition_to(transaction[:id], :pending_ext)
           Result::Success.new(
-            DataTypes.create_complete_preauthorization_response(transaction, pending_reason: capture_response[:pending_reason]))
+            DataTypes.create_transaction_response(transaction, DataTypes.create_paypal_complete_preauthorization_fields(pending_reason: capture_response[:pending_reason])))
         else
           transaction = MarketplaceService::Transaction::Command.transition_to(transaction[:id], :paid)
           Result::Success.new(
-            DataTypes.create_complete_preauthorization_response(transaction))
+            DataTypes.create_transaction_response(transaction))
         end
       else
         Result::Error.new("An error occured while trying to complete preauthorized Paypal payment")

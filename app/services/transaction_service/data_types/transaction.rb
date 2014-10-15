@@ -2,7 +2,7 @@ module TransactionService
   module DataTypes
     module Transaction
 
-      CompletePreauthorizationPaypalResponse = EntityUtils.define_builder(
+      PaypalCompletePreauthorizationFields = EntityUtils.define_builder(
         [:payment_gateway, const_value: :paypal],
         [:pending_reason, :symbol, :optional])
 
@@ -14,10 +14,13 @@ module TransactionService
 
       module_function
 
-      def create_complete_preauthorization_response(transaction, gateway_opts = {})
+      def create_paypal_complete_preauthorization_fields(fields); PaypalCompletePreauthorizationFields.call(fields) end
+
+      def create_transaction_response(transaction, gateway_fields = {})
         TransactionResponse.call({
             transaction: transaction,
-            gateway_fields: CompletePreauthorizationPaypalResponse.call(gateway_opts)})
+            gateway_fields: gateway_fields
+          })
       end
     end
   end
