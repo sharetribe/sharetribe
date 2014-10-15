@@ -79,7 +79,8 @@ module PaypalService
         [:payment_id, :string],
         [:payment_date, :time],
         [:payment_total, :money],
-        [:fee_total, :money])
+        [:fee_total, :money],
+        [:commission_status, const_value: :not_charged])
 
       def from_model(paypal_payment)
         hash = HashUtils.compact(

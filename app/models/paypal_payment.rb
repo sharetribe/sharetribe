@@ -3,6 +3,7 @@
 # Table name: paypal_payments
 #
 #  id                         :integer          not null, primary key
+#  community_id               :integer          not null
 #  transaction_id             :integer          not null
 #  payer_id                   :string(64)       not null
 #  receiver_id                :string(64)       not null
