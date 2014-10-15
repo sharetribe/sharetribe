@@ -9,18 +9,17 @@
 #new_news_item_form.left-navi-section
   %h2= t(".edit_community_look_and_feel", :community_name => @community.name(I18n.locale))
   = form_for @community, :url => edit_look_and_feel_admin_community_path(@community), :method => :put do |form|
-    - if @current_community.logo_change_allowed || @current_user.is_admin? # global admin
-      .row
-        .col-12
-          = form.label :wide_logo, t(".community_logo"), :class => "input"
-          = render :partial => "layouts/info_text", :locals => { :text =>t(".logo_instructions_text_with_dimensions", :width => 336, :height => 80)}
-          = form.file_field(:wide_logo, :class => "file_field")
+    .row
+      .col-12
+        = form.label :wide_logo, t(".community_logo"), :class => "input"
+        = render :partial => "layouts/info_text", :locals => { :text =>t(".logo_instructions_text_with_dimensions", :width => 336, :height => 80)}
+        = form.file_field(:wide_logo, :class => "file_field")
 
-      .row
-        .col-12
-          = form.label :logo, t(".community_logo_icon"), :class => "input"
-          = render :partial => "layouts/info_text", :locals => { :text => t(".logo_icon_instructions_text_with_dimensions", :width => 300, :height => 300)}
-          = form.file_field(:logo, :class => "file_field")
+    .row
+      .col-12
+        = form.label :logo, t(".community_logo_icon"), :class => "input"
+        = render :partial => "layouts/info_text", :locals => { :text => t(".logo_icon_instructions_text_with_dimensions", :width => 300, :height => 300)}
+        = form.file_field(:logo, :class => "file_field")
 
     .row
       .col-12

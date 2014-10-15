@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141009083833) do
+ActiveRecord::Schema.define(:version => 20141015135601) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -191,7 +191,6 @@ ActiveRecord::Schema.define(:version => 20141009083833) do
     t.string   "wide_logo_content_type"
     t.integer  "wide_logo_file_size"
     t.datetime "wide_logo_updated_at"
-    t.boolean  "logo_change_allowed"
     t.boolean  "only_organizations"
     t.boolean  "terms_change_allowed",                       :default => false
     t.boolean  "privacy_policy_change_allowed",              :default => false

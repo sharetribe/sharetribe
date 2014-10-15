@@ -13,7 +13,6 @@ class Superadmin::CommunitiesController < ApplicationController
     defaults = {
       consent: "SHARETRIBE1.0",
       feedback_to_admin: 1,
-      logo_change_allowed: 1,
       terms_change_allowed: 1,
       privacy_policy_change_allowed: 1,
       custom_fields_allowed: 1,

@@ -17,7 +17,6 @@ Make yourself a super admin by setting your `people.is_admin` to `true` (int val
 * Custom listing fields (`communities.custom_fields_allowed`): Change to `true` (int value 1). This will enable Admin > Listing fields.
 * Privacy policy (`communities.privacy_policy_change_allowed`): Change to `true` (int value 1). This will enable editing content of About > Privacy page
 * Terms: (`communities.terms_change_allowed`): Change to `true` (int value 1). This will enable editing content of About > Terms of use page
-* Logo (`communities.logo_change_allowed`): Change to `true` (int value 1). This will enable logo change in Admin > Community look and feel
 
 ## Customize transaction types
 
