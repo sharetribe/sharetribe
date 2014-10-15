@@ -203,8 +203,8 @@ it:
       edit_price:
         edit_price_field: ~
         show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        price_min: "Prezzo minimo"
+        price_max: "Prezzo massimo"
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
@@ -375,10 +375,10 @@ it:
       close_listing: ~
       update_later: ~
       optional_message: ~
-      price_to_pay: ~
+      price_to_pay: "Prezzo totale da pagare"
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
-      minimum_price_error_message: ~
+      minimum_price_error_message: "Il prezzo non può essere inferiore a %{amount}."
       approve: ~
     confirm:
       confirm_description: ~
@@ -470,7 +470,7 @@ it:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: "(ultimo messaggio %{time})"
-      price: ~
+      price: "Prezzo: %{price}"
       sum: ~
       price_excludes_vat: ~
       total: ~
@@ -559,7 +559,7 @@ it:
       exp: ~
   preauthorize_payments:
     edit:
-      confirm_payment: ~
+      confirm_payment: "Conferma il pagamento"
   community_memberships:
     access_denied:
       access_denied: ~
@@ -686,7 +686,7 @@ it:
       you_have_received_new_payment: ~
     braintree_new_payment:
       product: ~
-      price_payer_paid: ~
+      price_payer_paid: "Prezzo %{payer_full_name} pagato:"
       service_fee: ~
       you_will_get: ~
     receipt_to_payer:
@@ -694,7 +694,7 @@ it:
       you_have_made_new_payment: ~
       product: ~
       total: ~
-      price: ~
+      price: Prezzo
       service_fee: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ti ha lasciato un feedback in %{service_name}"
@@ -758,13 +758,13 @@ it:
       departure_time: "L'orario di partenza deve essere compreso tra l'orario attuale e un anno da adesso."
       share_type: "Devi selezionarne uno."
       valid_until: "Questa data deve essere compresa tra l'orario attuale e 6 mesi da adesso"
-      price: ~
+      price: "Il prezzo deve essere un numero intero."
       minimum_price: "Il prezzo minimo è %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "Se vuoi dare feedback non neutrali, devi spiegarne il motivo."
       you_must_select_a_grade: "Ricordati di raccontare se la tua esperienza è stata positiva o negativa"
     paypal:
-      generic_error: ~
+      generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento di PayPal."
   error_pages:
     back_to_kassi_front_page: "Indietro alla front page"
     error_404:
@@ -834,7 +834,7 @@ it:
     create_new_marketplace: ~
     contact_us: Contattaci
     profile: Profilo
-    invite: ~
+    invite: "Invita nuovi utenti"
     login: ~
     signup: ~
     menu: ~
@@ -881,7 +881,7 @@ it:
     index:
       no_listings_with_your_search_criteria: "Non abbiamo trovato nessun risultato che corrisponde ai tuoi criteri di ricerca"
       no_listings_notification: "No inserzioni. %{add_listing_link}."
-      add_listing_link_text: "Aggiungi una nuova inserzione"
+      add_listing_link_text: "Aggiungi il tuo spazio"
       available_on_the_app_store: "Disponibile su app store"
       private_listing_notification: ~
       open_listing: "inserzione aperta"
@@ -1224,7 +1224,7 @@ it:
       location:
         location: Luogo
       price:
-        price: ~
+        price: Prezzo
         per: ~
         per_day: "al giorno"
         mass: ~
@@ -1421,7 +1421,7 @@ it:
       service_charge: ~
       product: ~
       price: ~
-      price_for: ~
+      price_for: "Prezzo per %{payer_given_name}:"
       continue_to_pay: ~
       invoice: ~
       service_fee: ~
@@ -1595,7 +1595,7 @@ it:
       cancle_facebook_connect: ~
       facebook_cancel_link_text: annulla
       log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
+      or_sign_up_with_your_username: "o con la tua username e password"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: Email

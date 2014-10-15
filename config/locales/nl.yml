@@ -557,6 +557,9 @@ nl:
       credit_card_expiration_date: ~
       confirm_payment: ~
       exp: ~
+  preauthorize_payments:
+    edit:
+      confirm_payment: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -760,6 +763,8 @@ nl:
     testimonials:
       you_must_explain_not_neutral_feedback: "Als je positieve of negatieve feedback wilt geven, moet je uitleggen waarom."
       you_must_select_a_grade: "Vergeet niet om je ervaring positief of negatief te waarderen."
+    paypal:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Terug naar de voorpagina"
     error_404:

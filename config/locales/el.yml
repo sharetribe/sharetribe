@@ -557,6 +557,9 @@ el:
       credit_card_expiration_date: "Ημερομηνία λήξης πιστωτικής κάρτας"
       confirm_payment: ~
       exp: ~
+  preauthorize_payments:
+    edit:
+      confirm_payment: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -760,6 +763,8 @@ el:
     testimonials:
       you_must_explain_not_neutral_feedback: "Αν θέλεις να κάνεις μη-ουδέτερη κριτική, πρέπει να εξηγήσεις γιατί."
       you_must_select_a_grade: "Μην ξεχνάτε να πείτε αν η εμπειρία σας ήταν καλή ή όχι."
+    paypal:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Επιστροφή στην αρχική σελίδα"
     error_404:

@@ -557,6 +557,9 @@ es-ES:
       credit_card_expiration_date: ~
       confirm_payment: ~
       exp: ~
+  preauthorize_payments:
+    edit:
+      confirm_payment: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -762,6 +765,8 @@ es-ES:
     testimonials:
       you_must_explain_not_neutral_feedback: "Si deseas dar una sugerencia no neutral, debes explicar por qué."
       you_must_select_a_grade: "Recuerda evaluar a los usuarios clickeando en uno de los iconos de más arriba (pueder ver las explicaciones de cada icono deslizando el mouse sobre ellos)"
+    paypal:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Volver a la página principal de %{service_name}"
     error_404:
