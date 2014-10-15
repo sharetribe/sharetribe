@@ -21,7 +21,6 @@ class PaypalTransactionsController < ApplicationController
       PaypalService::API::DataTypes.create_token_verification_info({community_id: @current_community.id}))
 
     if !pp_response[:success]
-      # TODO Log
       redirect_to root
     end
 
