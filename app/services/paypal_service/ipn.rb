@@ -11,8 +11,10 @@ module PaypalService
         PaypalService::PaypalPayment::Command.update(ipn_msg)
       when :billing_agreement_cancelled
         PaypalService::PaypalAccount::Command.delete_cancelled_billing_agreement(ipn_msg[:payer_id], ipn_msg[:billing_agreement_id])
+      when :payment_refunded
+        PaypalService::PaypalRefund::Command.create(ipn_msg)
       else
-        #payment refunded
+        #partial refund?, pending?
         raise NoMethodError
       end
     end

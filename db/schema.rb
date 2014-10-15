@@ -669,6 +669,7 @@ ActiveRecord::Schema.define(:version => 20141015071419) do
     t.string   "currency"
     t.integer  "payment_total_cents"
     t.integer  "fee_total_cents"
+    t.string   "refunding_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

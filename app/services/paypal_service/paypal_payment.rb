@@ -81,17 +81,13 @@ module PaypalService
         [:payment_total, :money],
         [:fee_total, :money])
 
-      def to_money(cents, currency)
-        Money.new(cents, currency) unless cents.nil?
-      end
-
       def from_model(paypal_payment)
         hash = HashUtils.compact(
           EntityUtils.model_to_hash(paypal_payment).merge({
-              order_total: to_money(paypal_payment[:order_total_cents], paypal_payment[:currency]),
-              authorization_total: to_money(paypal_payment[:authorization_total_cents], paypal_payment[:currency]),
-              fee_total: to_money(paypal_payment[:fee_total_cents], paypal_payment[:currency]),
-              payment_total: to_money(paypal_payment[:payment_total_cents], paypal_payment[:currency]),
+              order_total: MoneyUtil.to_money(paypal_payment[:order_total_cents], paypal_payment[:currency]),
+              authorization_total: MoneyUtil.to_money(paypal_payment[:authorization_total_cents], paypal_payment[:currency]),
+              fee_total: MoneyUtil.to_money(paypal_payment[:fee_total_cents], paypal_payment[:currency]),
+              payment_total: MoneyUtil.to_money(paypal_payment[:payment_total_cents], paypal_payment[:currency]),
               payment_status: paypal_payment[:payment_status].to_sym
             }))
 
