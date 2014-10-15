@@ -317,7 +317,7 @@ class PersonMailer < ActionMailer::Base
 
     @current_community = community
     subject = "New #unanswered #feedback from #{@current_community.name('en')} community from user #{feedback.author.try(:name)} "
-    mail_to = APP_CONFIG.feedback_mailer_recipients + (@current_community.feedback_to_admin? ? ", #{@current_community.admin_emails.join(",")}" : "")
+    mail_to = @current_community.feedback_to_admin? ? @current_community.admin_emails.join(",") : APP_CONFIG.feedback_mailer_recipients
     premailer_mail(:to => mail_to,
          :from => community_specific_sender(community),
          :subject => subject,

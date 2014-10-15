@@ -155,7 +155,7 @@ describe PersonMailer do
     m.update_attribute(:admin, true)
     email = PersonMailer.new_feedback(@feedback, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [APP_CONFIG.feedback_mailer_recipients].concat(@test_person.confirmed_notification_email_addresses) , email.to
+    assert_equal @test_person.confirmed_notification_email_addresses, email.to
   end
 
   it "should send email to community admins of new member if wanted" do
