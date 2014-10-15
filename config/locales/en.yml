@@ -288,7 +288,7 @@ en:
       marketplace_paypal_integration: "Payment preferences"
       new:
         integration_info_text: "The payment system of %{service_name} is powered by PayPal. If you want to enable your users to make payments through your marketplace, you must connect your PayPal account and decide the fee you want to take from each transaction."
-        paypal_account_email: "Connect your Paypal account"
+        paypal_account_email: "Connect your PayPal account"
       show:
         integration_info_text: "The payment system of %{service_name} is powered by PayPal. If you want to enable your users to make payments through your marketplace, you must connect your PayPal account and decide the fee you want to take from each transaction."
         paypal_account_email_connected: "<del>Connect your Paypal account</del> Completed!"
@@ -1454,7 +1454,7 @@ en:
       payout_info_text: "To accept payments you need to connect your PayPal account with %{service_name}.<br /> Please complete the following two steps to connect your account."
       paypal_account_email: "1. Connect your PayPal account"
       paypal_account_email_placeholder: "Your PayPal email address"
-      paypal_account_email_info_text: "Note: you need a PayPal business account to accept payments. If you have a PayPal personal account, you can upgrade your account. It's free and only takes a minute. %{upgrade_paypal_account} If you don't have a PayPal account yet, you can create a new business account %{create_paypal_account}." 
+      paypal_account_email_info_text: "Note: you need a PayPal premier account (for individuals) or business account (for companies) to accept payments. If you have a PayPal personal account, you can upgrade your account. It's free and only takes a minute. %{upgrade_paypal_account} If you don't have a PayPal account yet, you can create a new account %{create_paypal_account}." 
       create_paypal_account: here
       upgrade_paypal_account: "Upgrade your account here."
       connect_paypal_account: "Connect PayPal account"
