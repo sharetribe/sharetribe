@@ -1,37 +1,34 @@
 module PaypalService::API
 
   class Payments
+    # Injects a configured instance of the merchant client as paypal_merchant
     include MerchantInjector
 
     MerchantData = PaypalService::DataTypes::Merchant
 
     ## POST /payments/request
-    def request(create_payment_request)
-      merchant_account = PaypalService::PaypalAccount::Query.personal_account(
-        create_payment_request[:merchant_id],
-        create_payment_request[:community_id])
-      if merchant_account.nil?
-        return Result::Error.new("Cannot find paypal account for the given merchant id: #{create_payment_request[:merchant_id]}")
-      end
+    def request(create_payment)
+      with_account(
+        create_payment[:community_id], create_payment[:merchant_id]
+        ) do |merchant_account|
 
-      request = MerchantData.create_set_express_checkout_order(
-        create_payment_request.merge(
-          { receiver_username: merchant_account[:email]}))
+        request = MerchantData.create_set_express_checkout_order(
+          create_payment.merge(
+            { receiver_username: merchant_account[:email]}
+          )
+        )
 
-      response = paypal_merchant.do_request(request)
+        with_success(paypal_merchant.do_request(request)) do |response|
+          Token::Command.create(
+            response[:token],
+            create_payment_request[:transaction_id])
 
-      if (response[:success])
-        Token::Command.create(
-          response[:token],
-          create_payment_request[:transaction_id])
-
-        Result::Success.new(
-          DataTypes.create_payment_request({
-              transaction_id: create_payment_request[:transaction_id],
-              token: response[:token],
-              redirect_url: response[:redirect_url]}))
-      else
-        Result::Error.new("#{response[:error_code]}: #{response[:error_msg]}")
+          Result::Success.new(
+            DataTypes.create_payment_request({
+                transaction_id: create_payment_request[:transaction_id],
+                token: response[:token],
+                redirect_url: response[:redirect_url]}))
+        end
       end
     end
 
@@ -68,6 +65,25 @@ module PaypalService::API
     ## POST /payments/:transaction_id/refund
     def refund(transaction_id)
       raise NoMethodError.new("Not implemented")
+    end
+
+    private
+
+    def with_account(cid, pid)
+       m_acc = PaypalService::PaypalAccount::Query.personal_account(pid, cid)
+      if m_acc.nil?
+        Result::Error.new("Cannot find paypal account for the given community and person: community_id: #{cid}, person_id: #{pid}.")
+      else
+        yield m_acc
+      end
+    end
+
+    def with_success(response)
+      if (response[:success])
+        yield response
+      else
+        Result::Error.new("Failed response from Paypal. Code: #{response[:error_code]}, msg:#{respose[:error_msg]}")
+      end
     end
 
   end
