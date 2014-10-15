@@ -4,10 +4,10 @@
 #
 #  id                  :integer          not null, primary key
 #  paypal_payment_id   :integer
-#  currency            :string(255)
+#  currency            :string(8)
 #  payment_total_cents :integer
 #  fee_total_cents     :integer
-#  refunding_id        :string(255)
+#  refunding_id        :string(64)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #

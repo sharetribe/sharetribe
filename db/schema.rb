@@ -666,12 +666,12 @@ ActiveRecord::Schema.define(:version => 20141015071419) do
 
   create_table "paypal_refunds", :force => true do |t|
     t.integer  "paypal_payment_id"
-    t.string   "currency"
+    t.string   "currency",            :limit => 8
     t.integer  "payment_total_cents"
     t.integer  "fee_total_cents"
-    t.string   "refunding_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.string   "refunding_id",        :limit => 64
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "paypal_refunds", ["refunding_id"], :name => "index_paypal_refunds_on_refunding_id", :unique => true
