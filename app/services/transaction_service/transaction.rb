@@ -41,15 +41,15 @@ module TransactionService
             PaypalService::PaypalPayment::Command.update(paypal_payment.merge(capture_response))
 
             if capture_response[:payment_status] != "completed"
-              MarketplaceService::Transaction::Command.transition_to(transaction[:id], :pending_ext)
+              transaction = MarketplaceService::Transaction::Command.transition_to(transaction[:id], :pending_ext)
               DataTypes::Transaction.create_complete_preauthorization_response({
-                  transaction: transaction.merge(current_state: :pending_ext), # FIXME, contains fields that are not updated, e.g. last transition at,
+                  transaction: transaction,
                   gateway_fields: { pending_reason: capture_response[:pending_reason] }})
 
             else
-              MarketplaceService::Transaction::Command.transition_to(transaction[:id], :paid)
+              transaction = MarketplaceService::Transaction::Command.transition_to(transaction[:id], :paid)
               DataTypes::Transaction.create_complete_preauthorization_response({
-                  transaction: transaction.merge(current_state: :preauthorized) # FIXME, contains fields that are not updated, e.g. last transition at,
+                  transaction: transaction
                   })
             end
           else

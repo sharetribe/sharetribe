@@ -188,7 +188,7 @@ module MarketplaceService
 
         Events.handle_transition(transaction_entity, payment_type, old_status, new_status)
 
-        save_transition(transaction, new_status)
+        Entity.transaction(save_transition(transaction, new_status))
       end
 
       def save_transition(transaction, new_status)
@@ -199,6 +199,8 @@ module MarketplaceService
         state_machine.transition_to!(new_status)
 
         transaction.touch(:last_transition_at)
+
+        transaction.reload
       end
 
     end
