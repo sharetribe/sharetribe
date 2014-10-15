@@ -51,6 +51,7 @@ module PaypalService
         [:payer_id, :mandatory, :string],
         [:receiver_id, :mandatory, :string],
         [:payment_status, const_value: :pending],
+        [:pending_reason, :string],
         [:order_id, :mandatory, :string],
         [:order_date, :mandatory, :time],
         [:currency, :mandatory, :string],

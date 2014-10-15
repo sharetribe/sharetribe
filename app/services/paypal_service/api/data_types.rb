@@ -19,8 +19,7 @@ module PaypalService::API::DataTypes
   )
 
   TokenVerificationInfo = EntityUtils.define_builder(
-    [:community_id, :mandatory, :fixnum],
-    [:transaction_id, :mandatory, :fixnum]
+    [:community_id, :mandatory, :fixnum]
   )
 
   Payment = EntityUtils.define_builder(
@@ -29,7 +28,7 @@ module PaypalService::API::DataTypes
     [:receiver_id, :mandatory, :string],
     [:merchant_id, :mandatory, :string],
     [:payment_status, one_of: [:pending, :completed, :refunded]],
-    [:pending_reason, :symbol],
+    [:pending_reason, :to_symbol],
     [:order_id, :mandatory, :string],
     [:order_date, :mandatory, :time],
     [:order_total, :mandatory, :money],
