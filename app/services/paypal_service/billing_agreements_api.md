@@ -107,5 +107,6 @@ Response 200 OK, Payment body:
 , commission_payment_date: <Time>
 , commission_status: :charged
 , commission_total: <Money>
+, commission_fee_total: <Money>
 }
 ```

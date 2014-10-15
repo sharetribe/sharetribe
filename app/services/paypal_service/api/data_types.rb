@@ -19,7 +19,8 @@ module PaypalService::API::DataTypes
   )
 
   TokenVerificationInfo = EntityUtils.define_builder(
-    [:transaction_id, :mandatory, :string]
+    [:community_id, :mandatory, :fixnum],
+    [:transaction_id, :mandatory, :fixnum]
   )
 
   Payment = EntityUtils.define_builder(
@@ -39,8 +40,9 @@ module PaypalService::API::DataTypes
     [:payment_id, :string],
     [:payment_date, :time],
     [:payment_total, :money],
-    [:commission_status, one_of: [:not_charged, :charged]],
-    [:fee_total, :money])
+    [:fee_total, :money],
+    [:commission_status, one_of: [:not_charged, :charged]]
+  )
 
   AuthorizationInfo = EntityUtils.define_builder(
     [:authorization_total, :mandatory, :money]

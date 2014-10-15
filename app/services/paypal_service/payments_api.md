@@ -36,7 +36,7 @@ Example response body:
 Response body TokenVerificationinfo
 
 ```ruby
-{ transaction_id: 123456789 }
+{ community_id: 10, transaction_id: 123456789 }
 ```
 
 ## POST /payments/create?token=EC-7XU83376C70426719
@@ -44,7 +44,7 @@ Response body TokenVerificationinfo
 Response body TokenVerificationinfo
 
 ```ruby
-{ transaction_id: 123456789 }
+{ community_id: 10, transaction_id: 123456789 }
 ```
 
 Response 201 Created, with Payment body
