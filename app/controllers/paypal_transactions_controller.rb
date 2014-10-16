@@ -35,7 +35,6 @@ class PaypalTransactionsController < ApplicationController
 
   def paypal_checkout_order_cancel
     # TODO Implementation missing
-    binding.pry
   end
 
   private
