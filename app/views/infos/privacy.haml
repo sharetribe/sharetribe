@@ -6,7 +6,7 @@
   %h1= t("layouts.infos.info_about_kassi")
 
 .left-navi-section.about-section
-  = render :layout => "layouts/mercury_editable_page", :locals => { :content_type => "privacy_page_content", :editing_allowed => true } do
+  = render :layout => "layouts/mercury_editable_page", :locals => { :content_type => "privacy_page_content" } do
     - if @community_customization && @community_customization.privacy_page_content
       - content = @community_customization.privacy_page_content.html_safe
     - elsif File.exists?("app/views/infos/localized_privacy_policy/privacy_policy.#{I18n.locale}.haml")

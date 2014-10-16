@@ -1,4 +1,4 @@
-- if @current_user && @current_user.has_admin_rights_in?(@current_community) && editing_allowed
+- if @current_user && @current_user.has_admin_rights_in?(@current_community)
   %p
     %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_path }}
       .icon-with-text-container

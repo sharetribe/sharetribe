@@ -18,8 +18,3 @@ Feature: Admin views categories
     When I go to the categories admin page
     Then I should see that there is a top level category "Items"
     And I should see that there is a subcategory "Assembly"
-
-  @javascript  
-  Scenario: Admin tries to view category list when changing categories is not allowed
-    When I go to the categories admin page
-    Then I should not see "Items"

@@ -28,7 +28,6 @@ Feature: Admin edits info pages
     Given I am logged in as "kassi_testperson1"
     And I am on the terms page
     Then I should not have editor open
-    And I should not see "Edit page"
     When I go to the terms page
     And I follow "Edit page"
     Then I should have editor open
@@ -44,7 +43,6 @@ Feature: Admin edits info pages
     Given I am logged in as "kassi_testperson1"
     And I am on the privacy policy page
     Then I should not have editor open
-    And I should not see "Edit page"
     When I go to the privacy policy page
     And I follow "Edit page"
     Then I should have editor open
