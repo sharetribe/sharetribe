@@ -25,4 +25,6 @@ ADD . /opt/sharetribe
 
 RUN /bin/bash -l -c "cp /opt/sharetribe/config/database.docker.yml /opt/sharetribe/config/database.yml"
 
+RUN apt-get -yqq install sphinxsearch
+
 EXPOSE 3000

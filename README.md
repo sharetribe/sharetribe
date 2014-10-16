@@ -85,7 +85,7 @@ Prerequisite: You have to have docker installed. If you are on a non-linux OS, y
 
 4. Run Rails server
 
-  `docker run -i -t --link=mysql:mysql -p 3000:3000 sharetribe/server /bin/bash -l -c "bundle exec rails server"`
+  `docker run -i -t --link=mysql:mysql -p 3000:3000 sharetribe/server /bin/bash -l -c "bundle exec rake ts:index ; bundle exec rake ts:start ; bundle exec rails server"`
 
 5. Run worker
 
@@ -101,7 +101,8 @@ Please note, that Docker installation is experimental and it's missing some impo
 
 - [x] Run MySQL
 - [x] Run Rails and worker
-- [ ] Run Sphinx
+- [x] Run Sphinx
+- [ ] Run Sphinx in its own container
 - [ ] Running server on production mode
 - [ ] Volume share (for sharing code in development work flow)
 - [ ] ImageMagick
