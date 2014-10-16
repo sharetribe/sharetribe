@@ -1,5 +1,5 @@
 .conversation-status
-  - get_conversation_statuses(__transaction_model).each do |status|
+  - get_conversation_statuses(__transaction_model, is_author).each do |status|
     - if status[:type] == :status_info
       .inbox-horizontally-aligned-status
         = render :partial => "transactions/status/status_text", :locals => { :status_info => status[:content]}

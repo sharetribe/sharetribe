@@ -52,6 +52,7 @@ class TransactionsController < ApplicationController
     render "transactions/show", locals: {
       messages: messages_and_actions.reverse,
       transaction_data: transaction,
+      is_author: transaction[:listing][:author_id] == @current_user.id,
       message_form: MessageForm.new({sender_id: @current_user.id, conversation_id: conversation[:id]}),
       message_form_action: person_message_messages_path(@current_user, :message_id => conversation[:id])
     }

@@ -4,19 +4,26 @@ module MarketplaceService
       module_function
 
       def last_activity_type(inbox_item)
-        message_was_last = if inbox_item[:last_transition_at].nil?
-          :message
+        if inbox_item[:last_transition_at].nil?
+          return :message
         elsif inbox_item[:last_message_at].nil?
-          :transition
-        elsif inbox_item[:last_transition_to_state] == "free" || inbox_item[:last_transition_to_state] == "pending"
-          # Ignore "free" and "pending" transitions
+          return :transition
+        end
+
+        ignored_transitions = ["free", "pending", "pending_ext"] # Transitions that should not be visible in inbox row title
+
+        last_visible_transition = inbox_item[:transitions].reject { |transition|
+          ignored_transitions.include? transition[:to_state]
+        }.last
+
+        if last_visible_transition.nil?
+          return :message
+        end
+
+        if inbox_item[:last_message_at] > last_visible_transition[:created_at]
           :message
         else
-          if inbox_item[:last_message_at] > inbox_item[:last_transition_at]
-            :message
-          else
-            :transition
-          end
+          :transition
         end
       end
     end
@@ -80,6 +87,7 @@ module MarketplaceService
 
         [:last_transition_at, :time, :mandatory],
         [:last_transition_to_state, :string, :mandatory],
+        [:last_transition_metadata, :hash, :optional],
         [:last_message_at, :time, :optional],
         [:last_message_content, :string, :optional],
 
@@ -201,7 +209,7 @@ module MarketplaceService
 
       def extend_transaction(transaction)
         transitions = TransactionTransition.where(transaction_id: transaction[:transaction_id]).map do |transition_model|
-          MarketplaceService::Transaction::Entity::Transition[EntityUtils.model_to_hash(transition_model)]
+          MarketplaceService::Transaction::Entity.transition(transition_model)
         end
 
         should_notify =

@@ -504,6 +504,9 @@ fi:
       pay: "Suorita maksu"
       preauthorized: ~
       paid: "Maksu suoritettu"
+      pending_external:
+        paypal:
+          multicurrency: "PayPal-maksua ei voitu suorittaa, koska PayPal-tiliäsi ei ole asetettu hyväksymään rahayksikköä %{currency}. Mene osoitteeseen %{paypal_url} ja kirjaudu sisään hyväksyäsi tai hylätäksesi maksun."
       waiting_for_current_user_to_deliver_listing: "Odottaa että %{listing_title} on toimitettu"
       waiting_for_listing_author_to_deliver_listing: "Odottaa että %{listing_title} on toimitettu"
       request_accepted: "Pyyntö hyväksytty"
@@ -521,6 +524,7 @@ fi:
       waiting_payment_from_requester: "Odottaa että %{requester_name} suorittaa maksun"
       waiting_payment_from_you: "Odottaa että suoritat maksun"
       waiting_feedback_from_you: "Odottaa että annat palautetta"
+      waiting_for_you_to_accept_paypal_payment: "Odottaa että hyväksyt PayPal-maksun"
     status_link:
       accept_offer: "Hyväksy tarjous"
       accept_request: "Hyväksy pyyntö"

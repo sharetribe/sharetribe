@@ -21,4 +21,4 @@
 
       - else
         %div{:id => "transaction_status"}
-          = render :partial => "transactions/status/status", :locals => { :__transaction_model => transaction[:__model] }
+          = render :partial => "transactions/status/status", :locals => { :__transaction_model => transaction[:__model], is_author: is_author }
