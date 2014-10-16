@@ -13,6 +13,10 @@
   margin-right: lines(1);
 }
 
+.listing-tweet-button {
+  padding-top: 4px; // Extra top padding to align with fb like button
+}
+
 // Listing price
 .listing-price {
   clear: both; // Price floats to left
@@ -72,6 +76,8 @@ $listing-author-avatar-height: 108;
   padding-left: em($listing-author-avatar-width);
   min-height: em($listing-author-avatar-height);
   padding-left: em($listing-author-avatar-width) + lines(0.75);
+  margin-top: lines(0.25); // Author box looks a bit better when given a bit more room
+  margin-bottom: lines(0.75); // Author box looks a bit better when given a bit more room
 }
 
 .listing-author-name {
@@ -122,7 +128,7 @@ $listing-author-avatar-height: 108;
 }
 
 .listing-view-admin-links {
-  margin-top: lines(0.5);
+  margin: lines(0.5) 0; // Some top & bottom margin to give links some space
 }
 
 // Transaction action button
