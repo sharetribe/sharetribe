@@ -1187,11 +1187,11 @@ fi:
       close_listing: "Sulje ilmoitus"
       edit_listing: "Muokkaa ilmoitusta"
       reopen_listing: "Avaa ilmoitus uudelleen"
-      move_to_top: ~
-      show_in_updates_email: ~
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
-      show_in_updates_email_success: ~
+      move_to_top: "Nosta ilmoitus etusivun ylälaitaan"
+      show_in_updates_email: "Näytä ilmoitus seuraavassa tapahtumapäivityssähköpostissa"
+      show_in_updates_email_loading: Ladataan...
+      show_in_updates_email_error: "Palveluun ei saatu yhteyttä. Päivitä sivu ja yritä uudestaan."
+      show_in_updates_email_success: "Tämä ilmoitus näytetään seuraavassa tapahtumapäivityssähköpostissa"
     follow_links:
       follow: "Seuraa ilmoitusta"
       unfollow: "Lopeta ilmoituksen seuraaminen"
