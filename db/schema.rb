@@ -634,6 +634,7 @@ ActiveRecord::Schema.define(:version => 20141015150328) do
   end
 
   create_table "paypal_payments", :force => true do |t|
+    t.integer  "community_id",                             :null => false
     t.integer  "transaction_id",                           :null => false
     t.string   "payer_id",                   :limit => 64, :null => false
     t.string   "receiver_id",                :limit => 64, :null => false
@@ -672,8 +673,10 @@ ActiveRecord::Schema.define(:version => 20141015150328) do
   add_index "paypal_refunds", ["refunding_id"], :name => "index_paypal_refunds_on_refunding_id", :unique => true
 
   create_table "paypal_tokens", :force => true do |t|
+    t.integer  "community_id",                 :null => false
     t.string   "token",          :limit => 64
     t.integer  "transaction_id"
+    t.string   "merchant_id",                  :null => false
     t.datetime "created_at"
   end
 

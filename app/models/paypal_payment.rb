@@ -3,6 +3,7 @@
 # Table name: paypal_payments
 #
 #  id                         :integer          not null, primary key
+#  community_id               :integer          not null
 #  transaction_id             :integer          not null
 #  payer_id                   :string(64)       not null
 #  receiver_id                :string(64)       not null
@@ -32,6 +33,7 @@
 
 class PaypalPayment < ActiveRecord::Base
   attr_accessible(
+    :community_id,
     :transaction_id,
     :payer_id,
     :receiver_id,
@@ -53,7 +55,8 @@ class PaypalPayment < ActiveRecord::Base
   belongs_to :transaction
 
   validates_presence_of(
-    :transaction,
+    :community_id,
+    :transaction_id,
     :payer_id,
     :receiver_id,
     :order_id,

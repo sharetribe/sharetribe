@@ -7,8 +7,6 @@ module PaypalService
       module_function
 
       PaymentUpdate = EntityUtils.define_builder(
-        [:payer_id, :string, :mandatory],
-        [:receiver_id, :string, :mandatory],
         [:payment_status, one_of: [:pending, :completed, :refunded]])
 
       OPT_UPDATE_FIELDS = [
@@ -47,10 +45,12 @@ module PaypalService
 
 
       InitialPaymentData = EntityUtils.define_builder(
+        [:community_id, :mandatory, :fixnum],
         [:transaction_id, :mandatory, :fixnum],
         [:payer_id, :mandatory, :string],
         [:receiver_id, :mandatory, :string],
         [:payment_status, const_value: :pending],
+        [:pending_reason, :string],
         [:order_id, :mandatory, :string],
         [:order_date, :mandatory, :time],
         [:currency, :mandatory, :string],
@@ -64,6 +64,7 @@ module PaypalService
 
 
       PaypalPayment = EntityUtils.define_builder(
+        [:community_id, :mandatory, :fixnum],
         [:transaction_id, :mandatory, :fixnum],
         [:payer_id, :mandatory, :string],
         [:receiver_id, :mandatory, :string],
@@ -79,7 +80,8 @@ module PaypalService
         [:payment_id, :string],
         [:payment_date, :time],
         [:payment_total, :money],
-        [:fee_total, :money])
+        [:fee_total, :money],
+        [:commission_status, const_value: :not_charged]) # This is temporarily a fixed const before we have real commission handling
 
       def from_model(paypal_payment)
         hash = HashUtils.compact(
@@ -99,11 +101,16 @@ module PaypalService
     module Command
       module_function
 
-      def create(transaction_id, order)
-        model = PaypalPaymentModel.create!(Entity.initial(order.merge({transaction_id: transaction_id})))
+      def create(community_id, transaction_id, order)
+        model = PaypalPaymentModel.create!(
+          Entity.initial(
+            order
+              .merge({community_id: community_id, transaction_id: transaction_id})
+        ))
         Entity.from_model(model)
       end
 
+      # TODO Add community_id
       def update(order)
         payment_update = Entity.update(order)
 
@@ -111,6 +118,22 @@ module PaypalService
         if payment.nil?
           raise ArgumentError.new("Order doesn't match an existing payment.")
           # Or just log a warning if we have a valid path to order update before initial recording?
+        end
+
+        payment.update_attributes!(payment_update)
+
+        Entity.from_model(payment.reload)
+      end
+
+      def update(community_id, transaction_id, order)
+        payment_update = Entity.update(order)
+        payment = PaypalPaymentModel.where(
+            community_id: community_id,
+            transaction_id: transaction_id
+         ).first
+
+        if payment.nil?
+          raise ArgumentError.new("No matching payment to update.")
         end
 
         payment.update_attributes!(payment_update)
@@ -134,11 +157,22 @@ module PaypalService
 
         return nil
       end
+
     end
 
     module Query
       module_function
 
+      def get(community_id, transaction_id)
+        Maybe(PaypalPaymentModel.where(
+            community_id: community_id,
+            transaction_id: transaction_id
+         ).first)
+        .map { |model| Entity.from_model(model) }
+        .or_else(nil)
+      end
+
+      ### DEPRECATED! ###
       def for_transaction(transaction_id)
         Maybe(PaypalPaymentModel.where(transaction_id: transaction_id).first)
         .map { |model| Entity.from_model(model) }
