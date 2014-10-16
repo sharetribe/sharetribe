@@ -26,5 +26,6 @@ ADD . /opt/sharetribe
 RUN /bin/bash -l -c "cp /opt/sharetribe/config/database.docker.yml /opt/sharetribe/config/database.yml"
 
 RUN apt-get -yqq install sphinxsearch
+RUN apt-get -yqq install imagemagick
 
 EXPOSE 3000
