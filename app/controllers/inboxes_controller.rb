@@ -30,7 +30,7 @@ class InboxesController < ApplicationController
 
       if inbox_row[:type] == :transaction
         extended_inbox.merge(
-          listing_url: listing_path(id: inbox_row[:transaction_id])
+          listing_url: listing_path(id: inbox_row[:listing_id])
         )
       else
         extended_inbox
