@@ -2,7 +2,7 @@ module PaypalService::API
 
   class Payments
     # Injects a configured instance of the merchant client as paypal_merchant
-    include MerchantInjector
+    include PaypalService::MerchantInjector
 
     MerchantData = PaypalService::DataTypes::Merchant
     TokenStore = PaypalService::Store::Token
