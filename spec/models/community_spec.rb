@@ -14,7 +14,7 @@
 #  email_admins_about_new_members             :boolean          default(FALSE)
 #  use_fb_like                                :boolean          default(FALSE)
 #  real_name_required                         :boolean          default(TRUE)
-#  feedback_to_admin                          :boolean          default(FALSE)
+#  feedback_to_admin                          :boolean          default(TRUE)
 #  automatic_newsletters                      :boolean          default(TRUE)
 #  join_with_invite_only                      :boolean          default(FALSE)
 #  use_captcha                                :boolean          default(FALSE)
@@ -22,8 +22,8 @@
 #  users_can_invite_new_users                 :boolean          default(TRUE)
 #  private                                    :boolean          default(FALSE)
 #  label                                      :string(255)
-#  all_users_can_add_news                     :boolean          default(TRUE)
 #  show_date_in_listings_list                 :boolean          default(FALSE)
+#  all_users_can_add_news                     :boolean          default(TRUE)
 #  custom_frontpage_sidebar                   :boolean          default(FALSE)
 #  event_feed_enabled                         :boolean          default(TRUE)
 #  slogan                                     :string(255)
@@ -51,10 +51,10 @@
 #  service_logo_style                         :string(255)      default("full-logo")
 #  available_currencies                       :text
 #  facebook_connect_enabled                   :boolean          default(TRUE)
-#  vat                                        :integer
-#  commission_from_seller                     :integer
 #  only_public_listings                       :boolean          default(TRUE)
 #  custom_email_from_address                  :string(255)
+#  vat                                        :integer
+#  commission_from_seller                     :integer
 #  minimum_price_cents                        :integer
 #  testimonials_in_use                        :boolean          default(TRUE)
 #  hide_expiration_date                       :boolean          default(FALSE)
@@ -64,22 +64,17 @@
 #  name_display_type                          :string(255)      default("first_name_with_initial")
 #  twitter_handle                             :string(255)
 #  use_community_location_as_default          :boolean          default(FALSE)
+#  domain_alias                               :string(255)
+#  preproduction_stylesheet_url               :string(255)
 #  show_category_in_listing_list              :boolean          default(FALSE)
 #  default_browse_view                        :string(255)      default("grid")
 #  wide_logo_file_name                        :string(255)
 #  wide_logo_content_type                     :string(255)
 #  wide_logo_file_size                        :integer
 #  wide_logo_updated_at                       :datetime
-#  domain_alias                               :string(255)
-#  preproduction_stylesheet_url               :string(255)
 #  only_organizations                         :boolean
-#  logo_change_allowed                        :boolean
-#  terms_change_allowed                       :boolean          default(FALSE)
-#  privacy_policy_change_allowed              :boolean          default(FALSE)
-#  custom_fields_allowed                      :boolean          default(FALSE)
 #  listing_comments_in_use                    :boolean          default(FALSE)
 #  show_listing_publishing_date               :boolean          default(FALSE)
-#  category_change_allowed                    :boolean          default(FALSE)
 #  require_verification_to_post_listings      :boolean          default(FALSE)
 #  show_price_filter                          :boolean          default(FALSE)
 #  price_filter_min                           :integer          default(0)

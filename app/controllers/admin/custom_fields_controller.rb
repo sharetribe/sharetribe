@@ -1,7 +1,6 @@
 class Admin::CustomFieldsController < ApplicationController
 
   before_filter :ensure_is_admin
-  before_filter :custom_fields_allowed
   before_filter :field_type_is_valid, :only => [:new, :create]
 
   skip_filter :dashboard_only
@@ -148,14 +147,6 @@ class Admin::CustomFieldsController < ApplicationController
     end
 
     is_community_category.all?
-  end
-
-  # Before filter
-  def custom_fields_allowed
-    unless @current_community.custom_fields_allowed?
-      flash[:error] = "Custom listing fields are not enabled for this community"
-      redirect_to edit_details_admin_community_path(@current_community)
-    end
   end
 
   def custom_field_belongs_to_community?(custom_field, community)

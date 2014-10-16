@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141015071419) do
+ActiveRecord::Schema.define(:version => 20141015150328) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(:version => 20141015071419) do
     t.boolean  "email_admins_about_new_members",             :default => false
     t.boolean  "use_fb_like",                                :default => false
     t.boolean  "real_name_required",                         :default => true
-    t.boolean  "feedback_to_admin",                          :default => false
+    t.boolean  "feedback_to_admin",                          :default => true
     t.boolean  "automatic_newsletters",                      :default => true
     t.boolean  "join_with_invite_only",                      :default => false
     t.boolean  "use_captcha",                                :default => false
@@ -191,14 +191,9 @@ ActiveRecord::Schema.define(:version => 20141015071419) do
     t.string   "wide_logo_content_type"
     t.integer  "wide_logo_file_size"
     t.datetime "wide_logo_updated_at"
-    t.boolean  "logo_change_allowed"
     t.boolean  "only_organizations"
-    t.boolean  "terms_change_allowed",                       :default => false
-    t.boolean  "privacy_policy_change_allowed",              :default => false
-    t.boolean  "custom_fields_allowed",                      :default => false
     t.boolean  "listing_comments_in_use",                    :default => false
     t.boolean  "show_listing_publishing_date",               :default => false
-    t.boolean  "category_change_allowed",                    :default => false
     t.boolean  "require_verification_to_post_listings",      :default => false
     t.boolean  "show_price_filter",                          :default => false
     t.integer  "price_filter_min",                           :default => 0

@@ -28,9 +28,7 @@ Feature: Admin edits info pages
     Given I am logged in as "kassi_testperson1"
     And I am on the terms page
     Then I should not have editor open
-    And I should not see "Edit page"
-    When editing "terms" page is allowed in community "test"
-    And I go to the terms page
+    When I go to the terms page
     And I follow "Edit page"
     Then I should have editor open
     When I send keys "This is a new line to terms text" to editor
@@ -45,9 +43,7 @@ Feature: Admin edits info pages
     Given I am logged in as "kassi_testperson1"
     And I am on the privacy policy page
     Then I should not have editor open
-    And I should not see "Edit page"
-    When editing "privacy policy" page is allowed in community "test"
-    And I go to the privacy policy page
+    When I go to the privacy policy page
     And I follow "Edit page"
     Then I should have editor open
     When I send keys "This is a new line to privacy policy text" to editor
