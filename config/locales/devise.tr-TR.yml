@@ -1,55 +1,57 @@
 tr-TR:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "süresi doldu, lütfen yeni bir tane isteyiniz"
+      not_found: bulunamadı
+      already_confirmed: "daha önce teyit edilmişti, lütfen hesabınıza girmeyi deneyiniz"
+      not_locked: kilitlenmedi
+      not_saved:
+        other: "%{count} hata %{resource}'un kaydedilmesini engelledi. "
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: "Hesabınıza girmişsiniz."
+      unauthenticated: "Devam etmeden önce bir hesap açtırmalı veya hesabınıza giriş yapmalısınız."
+      unconfirmed: "Devam etmeden önce hesabınızı doğrulamalısınız."
+      locked: "Hesabınız kilitlenmiştir."
+      invalid: "Hatalı giriş ya da şifre."
+      invalid_token: "Yanlış doğrulama kodu."
+      timeout: "Zaman aşımı oldu, devam etmek için lütfen tekrar giriş yapın."
+      inactive: "Hesabınız henüz etkinleştirilmemiştir."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Parolanız başarıyla değiştirilmiştir."
+      send_paranoid_instructions: "Eğer e-posta adresiniz veritabanımızda kayıtlıysa parolanızı tekrar belirlemenize dair bir link içeren bir e-posta alacaksınız."
+      send_instructions: "Birkaç dakika içinde parolanızı tekrar nasıl oluşturacağınıza ilişkin talimatlar içeren bir e-posta alacaksınız."
+      updated: "Parolanız başarıyla değiştirilmiştir. Şu anda giriş yapmış bulunuyorsunuz."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Başarıyla giriş yaptınız."
+      signed_out: "Başarıyla çıkış yaptınız."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Eğer e-posta adresiniz veritabanımızda kayıtlıysa bir kaç dakika içinde hesabınızı doğrulamanıza dair talimatlar içeren bir e-posta alacaksınız."
+      send_instructions: "Bir kaç dakika içerisinde hesabınızı nasıl doğrulayacağınıza dair bir e-posta alacaksınız."
+      confirmed: "Hesabınız başarıyla doğrulanmıştır."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Doğrulama linki içeren bir mesaj e-posta adresinize iletilmiştir. Hesabınızı etkinleştirmek için lütfen bu linke tıklayınız."
+      signed_up_but_inactive: "Başarıyla kayıt yaptınız. Fakat henüz hesabınız etkinleştirilmediğinden dolayı girişiniz gerçekleşmedi."
+      signed_up_but_locked: "Başarıyla kayıt yaptınız. Fakat hesabınız kilitlendiğinden dolayı girişiniz gerçekleşmedi."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: "etkin değil"
+        unconfirmed: doğrulanmadı
+        locked: kilitli
+      update_needs_confirmation: "Hesabınızı başarıyla güncellediniz. Fakat e-posta adresinizin doğrulanması gerekmektedir. Lütfen e-posta adresinizi kontrol ediniz ve size iletilen doğrulama linkine tıklayarak e-posta adresinizi doğrulayınız."
+      signed_up: "Hoşgeldiniz! Başarıyla giriş yaptınız."
+      updated: "Hesabınızı başarıyla güncellediniz."
+      destroyed: "Hoşçakalın! Hesabınız iptal edildi. Umarız sizi yakında tekrar görürüz."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Eğer mevcut bir hesabınız varsa bir kaç dakika içerisinde hesabınızdaki kilidi kaldırmanıza dair talimatlar içeren bir e-posta alacaksınız."
+      send_instructions: "Bir kaç dakika içerisinde hesabınızdaki kilidi nasıl kaldırabileceğinize dair bir e-posta alacaksınız."
+      unlocked: "Hesabınızdaki kilit başarıyla kaldırılmıştır. Devam etmek için lütfen giriş yapınız."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "%{kind} hesabı tarafından başarıyla yetkilendirilmiştir."
+      failure: "Sizi %{kind} konusunda yetkilendiremedik çünkü \"%{reason}\""
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Doğrulama talimatları"
       reset_password_instructions:
-        subject: ~
+        subject: "Parola yenileme talimatları"
       unlock_instructions:
-        subject: ~
+        subject: "Kilidi kaldırma talimatları"
