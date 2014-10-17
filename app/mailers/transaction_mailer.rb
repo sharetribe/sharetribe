@@ -45,11 +45,20 @@ class TransactionMailer < ActionMailer::Base
 
     set_up_urls(conversation.author, conversation.community)
 
+    payment_type = MarketplaceService::Community::Query.payment_type(@community.id)
+    gateway_expires = MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type)
+
     premailer_mail(
       mail_params(
         @recipient,
         @community,
-        t("emails.transaction_preauthorized.subject", requester: conversation.starter.name, listing_title: conversation.listing.title)))
+        t("emails.transaction_preauthorized.subject", requester: conversation.starter.name, listing_title: conversation.listing.title))) do |format|
+      format.html {
+        render locals: {
+          payment_expires_in_days: gateway_expires
+        }
+      }
+    end
   end
 
   def transaction_preauthorized_reminder(conversation)

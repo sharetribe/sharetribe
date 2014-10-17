@@ -81,10 +81,4 @@ class Payment < ActiveRecord::Base
     vat = Maybe(community).vat.or_else(0).to_f / 100.to_f
     total_commission / (1 + vat)
   end
-
-  # How many days until the preauthorized payment is automatically
-  # rejected
-  def preauthorization_expiration_days
-    5
-  end
 end
