@@ -65,13 +65,39 @@ module TransactionHelper
             author: {
               icon: icon_waiting_you,
               # Make this aware of the reason
-              text: t("conversations.status.waiting_for_you_to_accept_paypal_payment")
+              text: t("conversations.status.pending_external_inbox.paypal.multicurrency")
             },
             starter: {
               icon: icon_waiting_other,
               text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
             }
           }
+        when "intl"
+          {
+            author: {
+              icon: icon_waiting_you,
+              # Make this aware of the reason
+              text: t("conversations.status.pending_external_inbox.paypal.intl")
+            },
+            starter: {
+              icon: icon_waiting_other,
+              text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
+            }
+          }
+        when "verify"
+          {
+            author: {
+              icon: icon_waiting_you,
+              # Make this aware of the reason
+              text: t("conversations.status.pending_external_inbox.paypal.verify")
+            },
+            starter: {
+              icon: icon_waiting_other,
+              text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
+            }
+          }
+        when "other"
+
         end
       },
 
@@ -202,6 +228,26 @@ module TransactionHelper
             {
               author: [
                 status_info(t("conversations.status.pending_external.paypal.multicurrency", currency: paypal_payment[:payment_total].currency, paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))
+              ],
+              starter: [
+                status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),
+                preauthorized_status(conversation)
+              ]
+            }
+          when "intl"
+            {
+              author: [
+                status_info(t("conversations.status.pending_external.paypal.intl", paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))
+              ],
+              starter: [
+                status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),
+                preauthorized_status(conversation)
+              ]
+            }
+          when "verify"
+            {
+              author: [
+                status_info(t("conversations.status.pending_external.paypal.verify", paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))
               ],
               starter: [
                 status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),

@@ -507,6 +507,8 @@ en:
       pending_external:
         paypal:
           multicurrency: "We couldn't process the PayPal payment because your PayPal account has not been set up to receive money in %{currency}. Go to %{paypal_url} and log in to your account to manually accept or reject the payment."
+          verify: "You cannot accept this transaction because you haven't verified your PayPal account. Go to %{paypal_url} to verify your account."
+          intl: "We couldn't process the PayPal payment because your PayPal account does not have a withdrawal mechanism. Go to %{paypal_url} and log in to your account to manually accept or reject the payment."
       waiting_for_current_user_to_deliver_listing: "Waiting for you to deliver %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Waiting for %{listing_author_name} to deliver %{listing_title}"
       request_accepted: Accepted
@@ -524,7 +526,11 @@ en:
       waiting_payment_from_requester: "Waiting for %{requester_name} to pay"
       waiting_payment_from_you: "Waiting for you to pay"
       waiting_feedback_from_you: "Waiting for you to give feedback"
-      waiting_for_you_to_accept_paypal_payment: "Waiting for you to accept the PayPal payment"
+      pending_external_inbox:
+        paypal:
+          multicurrency: "Waiting for you to accept the PayPal payment"
+          intl: "Waiting for you to accept the PayPal payment"
+          verify: "Waiting for you to verify your PayPal account"
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
