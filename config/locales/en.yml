@@ -953,6 +953,8 @@ en:
       default_about_text: "This marketplace is powered by Sharetribe platform. With Sharetribe you can easily create your own marketplace website. It's free and only takes a minute. %{click_here_link} to learn more!"
       click_here_link_text: "Click here"
   layouts:
+    admin:
+      admin: "Admin"
     no_tribe:
       inbox: Inbox
       settings: Settings
