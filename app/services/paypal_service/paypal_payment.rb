@@ -110,21 +110,6 @@ module PaypalService
         Entity.from_model(model)
       end
 
-      # TODO Add community_id
-      def update(order)
-        payment_update = Entity.update(order)
-
-        payment = find_payment(payment_update)
-        if payment.nil?
-          raise ArgumentError.new("Order doesn't match an existing payment.")
-          # Or just log a warning if we have a valid path to order update before initial recording?
-        end
-
-        payment.update_attributes!(payment_update)
-
-        Entity.from_model(payment.reload)
-      end
-
       def update(community_id, transaction_id, order)
         payment_update = Entity.update(order)
         payment = PaypalPaymentModel.where(
