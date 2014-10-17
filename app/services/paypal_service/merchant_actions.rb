@@ -197,6 +197,7 @@ module PaypalService
             payment_status: res.authorization_info.payment_status,
             pending_reason: res.authorization_info.pending_reason,
             authorization_total: to_money(res.amount),
+            authorization_date: res.timestamp.to_s,
             msg_sub_id: res.msg_sub_id
           })
         }

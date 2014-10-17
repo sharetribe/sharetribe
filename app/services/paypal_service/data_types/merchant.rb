@@ -99,6 +99,7 @@ module PaypalService
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
         [:authorization_total, :mandatory, :money],
+        [:authorization_date, :str_to_time],
         [:msg_sub_id, :string])
 
       DoFullCapture = EntityUtils.define_builder(
