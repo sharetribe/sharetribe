@@ -53,6 +53,11 @@ def deploy(params)
   puts "  css:        #{params[:css]}"
   puts "  migrations: #{params[:migrations]} "
 
+  puts ""
+  puts "Did you remember WTI pull? (y/n)"
+  response = STDIN.gets.strip
+  exit if response != 'y' && response != 'Y'
+
   if params[:migrations] == false
     puts ""
     puts "Skipping migrations, really? (y/n)"
