@@ -22,7 +22,7 @@ module PaypalService::API::DataTypes
     [:payer_id, :mandatory, :string],
     [:receiver_id, :mandatory, :string],
     [:merchant_id, :mandatory, :string],
-    [:payment_status, one_of: [:pending, :completed, :refunded]],
+    [:payment_status, one_of: [:pending, :completed, :refunded, :voided]],
     [:pending_reason, transform_with: -> (v) { (v.is_a? String) ? v.downcase.gsub("-", "").to_sym : v }],
     [:order_id, :mandatory, :string],
     [:order_date, :mandatory, :time],
@@ -46,6 +46,8 @@ module PaypalService::API::DataTypes
     [:payment_total, :mandatory, :money]
   )
 
+  VoidingInfo = EntityUtils.define_builder([:note, :string])
+
   module_function
 
   def create_create_payment_request(opts); CreatePaymentRequest.call(opts) end
@@ -54,5 +56,6 @@ module PaypalService::API::DataTypes
   def create_payment(opts); Payment.call(opts) end
   def create_authorization_info(opts); AuthorizationInfo.call(opts) end
   def create_payment_info(opts); PaymentInfo.call(opts) end
+  def create_voiding_info(opts); VoidingInfo.call(opts) end
 
 end

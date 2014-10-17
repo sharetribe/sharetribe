@@ -126,8 +126,28 @@ module PaypalService::API
     end
 
     ## POST /payments/:community_id/:transaction_id/void
-    def void(community_id, transaction_id)
-      raise NoMethodError.new("Not implemented")
+    def void(community_id, transaction_id, info)
+      with_payment(community_id, transaction_id) do |payment, m_acc|
+        with_success(MerchantData.create_do_void({
+          receiver_username: m_acc[:email],
+          # Always void the order, it automatically voids any authorization connected to the payment
+          transaction_id: payment[:order_id],
+          note: info[:note]
+        })) do |void_res|
+          with_success(MerchantData.create_get_transaction_details({
+            receiver_username: m_acc[:email],
+            transaction_id: payment[:order_id],
+          })) do |payment_res|
+            payment = PaypalService::PaypalPayment::Command.update(
+              community_id,
+              transaction_id,
+              payment_res)
+
+            # Return as payment entity
+            Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
+          end
+        end
+      end
     end
 
     ## POST /payments/:community_id/:transaction_id/refund

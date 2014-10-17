@@ -7,7 +7,7 @@ module PaypalService
       module_function
 
       PaymentUpdate = EntityUtils.define_builder(
-        [:payment_status, one_of: [:pending, :completed, :refunded]])
+        [:payment_status, :mandatory, :symbol])
 
       OPT_UPDATE_FIELDS = [
         :order_id,
@@ -24,10 +24,6 @@ module PaypalService
         :pending_reason
       ]
 
-      def update_valid?(payment_update)
-        payment_update[:order_id] || payment_update[:authorization_id]
-      end
-
       def update(order)
         cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total]
           .reduce({}) do |cent_totals, m_key|
@@ -38,7 +34,6 @@ module PaypalService
 
         payment_update = PaymentUpdate.call(order.merge({payment_status: order[:payment_status].downcase.to_sym}))
         payment_update = payment_update.merge(HashUtils.sub(order, *OPT_UPDATE_FIELDS)).merge(cent_totals)
-        raise ArgumentError.new("Must have either order_id or authorization_id") unless update_valid?(payment_update)
 
         return payment_update
       end
@@ -68,7 +63,7 @@ module PaypalService
         [:transaction_id, :mandatory, :fixnum],
         [:payer_id, :mandatory, :string],
         [:receiver_id, :mandatory, :string],
-        [:payment_status, one_of: [:pending, :completed, :refunded]],
+        [:payment_status, :mandatory, :symbol],
         [:pending_reason, :string],
         [:order_id, :mandatory, :string],
         [:order_date, :mandatory, :time],
@@ -111,7 +106,8 @@ module PaypalService
       end
 
       def update(community_id, transaction_id, order)
-        payment_update = Entity.update(order)
+        payment_update = Entity.update(
+          order.merge({community_id: community_id, transaction_id: transaction_id }))
         payment = PaypalPaymentModel.where(
             community_id: community_id,
             transaction_id: transaction_id
