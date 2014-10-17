@@ -48,7 +48,7 @@ module TransactionService::Transaction
       capture_response = merchant.do_request(capture_request)
 
       if capture_response[:success]
-        PaypalService::PaypalPayment::Command.update(paypal_payment.merge(capture_response))
+        PaypalService::PaypalPayment::Command.update(transaction[:community_id], transaction[:id], paypal_payment.merge(capture_response))
 
         if capture_response[:payment_status] != "completed"
           MarketplaceService::Transaction::Command.transition_to(transaction[:id], :pending_ext)
