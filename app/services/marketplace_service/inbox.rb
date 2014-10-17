@@ -10,7 +10,7 @@ module MarketplaceService
           return :transition
         end
 
-        ignored_transitions = ["free", "pending", "pending_ext"] # Transitions that should not be visible in inbox row title
+        ignored_transitions = ["free", "pending", "initiated", "pending_ext"] # Transitions that should not be visible in inbox row title
 
         last_visible_transition = inbox_item[:transitions].reject { |transition|
           ignored_transitions.include? transition[:to_state]

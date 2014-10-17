@@ -192,7 +192,6 @@ module TransactionHelper
   def get_conversation_statuses(conversation, is_author)
 
     statuses = if conversation.listing && !conversation.status.eql?("free")
-      # Argh... the hash construction must be lazy to avoid crash. Wrap all in lambdas.
       status_hash = {
         pending: ->() { {
           both: [
