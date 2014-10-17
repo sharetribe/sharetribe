@@ -106,8 +106,7 @@ module PaypalService
       end
 
       def update(community_id, transaction_id, order)
-        payment_update = Entity.update(
-          order.merge({community_id: community_id, transaction_id: transaction_id }))
+        payment_update = Entity.update(order)
         payment = PaypalPaymentModel.where(
             community_id: community_id,
             transaction_id: transaction_id
