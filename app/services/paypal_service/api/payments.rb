@@ -97,13 +97,32 @@ module PaypalService::API
     end
 
     ## POST /payments/:community_id/:transaction_id/full_capture
-    def full_capture(community_id, transaction_id, payment_info)
-      raise NoMethodError.new("Not implemented")
+    def full_capture(community_id, transaction_id, info)
+      with_payment(community_id, transaction_id) do |payment, m_acc|
+        with_success(MerchantData.create_do_full_capture({
+          receiver_username: m_acc[:email],
+          authorization_id: payment[:authorization_id],
+          payment_total: info[:payment_total]
+        })) do |payment_res|
+
+          # Save payment data to payment
+          payment = PaypalService::PaypalPayment::Command.update(
+            community_id,
+            transaction_id,
+            payment_res
+          )
+
+          # Return as payment entity
+          Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
+        end
+      end
     end
 
     ## GET /payments/:community_id/:transaction_id
     def get_payment(community_id, transaction_id)
-      raise NoMethodError.new("Not implemented")
+      with_payment(community_id, transaction_id) do |payment, m_acc|
+        Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
+      end
     end
 
     ## POST /payments/:community_id/:transaction_id/void

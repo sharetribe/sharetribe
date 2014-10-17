@@ -23,7 +23,7 @@ module PaypalService::API::DataTypes
     [:receiver_id, :mandatory, :string],
     [:merchant_id, :mandatory, :string],
     [:payment_status, one_of: [:pending, :completed, :refunded]],
-    [:pending_reason, :to_symbol],
+    [:pending_reason, transform_with: -> (v) { (v.is_a? String) ? v.downcase.gsub("-", "").to_sym : v }],
     [:order_id, :mandatory, :string],
     [:order_date, :mandatory, :time],
     [:order_total, :mandatory, :money],
