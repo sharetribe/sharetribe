@@ -197,6 +197,7 @@ module PaypalService
             payment_status: res.authorization_info.payment_status,
             pending_reason: res.authorization_info.pending_reason,
             authorization_total: to_money(res.amount),
+            authorization_date: res.timestamp.to_s,
             msg_sub_id: res.msg_sub_id
           })
         }
@@ -231,7 +232,7 @@ module PaypalService
       do_void: PaypalAction.def_action(
         input_transformer: -> (req, _) {
           {
-            AuthorizationID: req[:authorization_id] || req[:order_id],
+            AuthorizationID: req[:transaction_id],
             Note: req[:note],
             MsgSubID: req[:msg_sub_id]
           }
@@ -268,6 +269,27 @@ module PaypalService
               refunded_gross_total: to_money(res.GrossRefundAmount),
               refunded_total: to_money(res.TotalRefundedAmount),
               msg_sub_id: res.MsgSubID
+            }
+          )
+        }
+      ),
+
+      get_transaction_details: PaypalAction.def_action(
+        input_transformer: -> (req, _) {
+          {
+            TransactionID: req[:transaction_id],
+          }
+        },
+        wrapper_method_name: :build_get_transaction_details,
+        action_method_name: :get_transaction_details,
+        output_transformer: -> (res, api) {
+          payment_info = res.payment_transaction_details.payment_info
+          DataTypes::Merchant.create_get_transaction_details_response(
+            {
+              transaction_id: payment_info.transaction_id,
+              payment_status: payment_info.payment_status,
+              pending_reason: payment_info.pending_reason,
+              transaction_total: to_money(payment_info.gross_amount)
             }
           )
         }

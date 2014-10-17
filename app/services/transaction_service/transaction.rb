@@ -34,36 +34,34 @@ module TransactionService::Transaction
       Result::Success.new(
         DataTypes.create_transaction_response(transaction))
     when :paypal
-      paypal_account = PaypalService::PaypalAccount::Query.personal_account(transaction[:listing][:author_id], transaction[:community_id])
-      paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
+      paypal_payments = PaypalService::API::Payments.new
 
-      api_params = {
-        receiver_username: paypal_account[:email],
-        authorization_id: paypal_payment[:authorization_id],
-        payment_total: paypal_payment[:authorization_total]
-      }
+      payment_response = paypal_payments.get_payment(transaction[:community_id], transaction[:id])
+      if payment_response[:success]
+        payment = payment_response[:data]
+        capture_response = paypal_payments.full_capture(
+          transaction[:community_id],
+          transaction[:id],
+          PaypalService::API::DataTypes.create_payment_info({ payment_total: payment[:authorization_total] }))
 
-      merchant = PaypalService::MerchantInjector.build_paypal_merchant
-      capture_request = PaypalService::DataTypes::Merchant.create_do_full_capture(api_params)
-      capture_response = merchant.do_request(capture_request)
+        if capture_response[:success]
+          next_state =
+            if capture_response[:payment_status] == :completed
+              :paid
+            else
+              :pending_ext
+            end
 
-      if capture_response[:success]
-        PaypalService::PaypalPayment::Command.update(transaction[:community_id], transaction[:id], paypal_payment.merge(capture_response))
+          MarketplaceService::Transaction::Command.transition_to(transaction[:id], next_state)
 
-        if capture_response[:payment_status] != "completed"
-          MarketplaceService::Transaction::Command.transition_to(transaction[:id], :pending_ext)
           transaction = query(transaction[:id])
           Result::Success.new(
             DataTypes.create_transaction_response(transaction, DataTypes.create_paypal_complete_preauthorization_fields(pending_reason: capture_response[:pending_reason])))
         else
-          MarketplaceService::Transaction::Command.transition_to(transaction[:id], :paid)
-          transaction = query(transaction[:id])
-          Result::Success.new(
-            DataTypes.create_transaction_response(transaction))
+          Result::Error.new("An error occured while trying to complete preauthorized Paypal payment")
         end
-      else
-        Result::Error.new("An error occured while trying to complete preauthorized Paypal payment")
       end
+
     end
   end
 

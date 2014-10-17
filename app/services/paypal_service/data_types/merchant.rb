@@ -99,6 +99,7 @@ module PaypalService
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
         [:authorization_total, :mandatory, :money],
+        [:authorization_date, :str_to_time],
         [:msg_sub_id, :string])
 
       DoFullCapture = EntityUtils.define_builder(
@@ -120,8 +121,7 @@ module PaypalService
       DoVoid = EntityUtils.define_builder(
         [:method, const_value: :do_void],
         [:receiver_username, :mandatory, :string],
-        [:authorization_id, :string], # Must have either authorization_id or order_id
-        [:order_id, :string],
+        [:transaction_id, :mandatory, :string], # To void an order pass order_id. To void an authorization pass authorization_id
         [:note, :string],
         [:msg_sub_id, transform_with: -> (v) { v.nil? ? SecureRandom.uuid : v }])
 
@@ -144,6 +144,19 @@ module PaypalService
         [:refunded_gross_total, :mandatory, :money],
         [:refunded_total, :mandatory, :money],
         [:msg_sub_id, :string])
+
+      GetTransactionDetails = EntityUtils.define_builder(
+        [:method, const_value: :get_transaction_details],
+        [:receiver_username, :mandatory, :string],
+        [:transaction_id, :mandatory, :string])
+
+      GetTransactionDetailsResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:transaction_id, :mandatory, :string],
+        [:payment_status, :mandatory, :string],
+        [:pending_reason, :string],
+        [:transaction_total, :money])
+
 
       module_function
 
@@ -176,6 +189,10 @@ module PaypalService
 
       def create_refund_transaction(opts); RefundTransaction.call(opts) end
       def create_refund_transaction_response(opts); RefundTransactionResponse.call(opts) end
+
+      def create_get_transaction_details(opts); GetTransactionDetails.call(opts) end
+      def create_get_transaction_details_response(opts); GetTransactionDetailsResponse.call(opts) end
+
     end
 
   end

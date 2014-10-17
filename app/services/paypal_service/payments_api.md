@@ -107,7 +107,7 @@ Response 200 OK, Payment body:
 , receiver_id: "URAPMR7WHFAWY"   # Paypal internal id, do we need to expose it?
 , merchant_id: "merchant_id_1"   # External merchant user id, linked with the receiver_id
 , payment_status: :completed
-, pending_reason: nil
+, pending_reason: :none
 , order_id: "O-8VG2704956180171B"
 , order_date: <Time>
 , order_total: <Money>
@@ -130,10 +130,37 @@ Response 200 OK, Payment body (example as above)
 
 ## POST /payments/:community_id/:transaction_id/void
 
-Request no body
+Request body VoidingInfo
 
-Response 204 No Content or voided payment body?
+Example request body:
 
+```ruby
+{ note: "The reason why the transaction was voided." }
+```
+
+Response 200, voided payment body
+
+```ruby
+{ community_id: 10
+, transaction_id: 123456789
+, payer_id: "6M39X6RCYVUD6"      # Paypal internal id, do we need to expose it?
+, receiver_id: "URAPMR7WHFAWY"   # Paypal internal id, do we need to expose it?
+, merchant_id: "merchant_id_1"   # External merchant user id, linked with the receiver_id
+, payment_status: :voided
+, pending_reason: :none
+, order_id: "O-8VG2704956180171B"
+, order_date: <Time>
+, order_total: <Money>
+, authorization_id: "0L584749FU2628910"
+, authorization_date: <Time>
+, authorization_expires_date: <Time>
+, authorization_total: <Money>
+, payment_id:
+, payment_date:
+, payment_total:
+, fee_total:
+, commission_status: :not_charged
+```
 
 ## POST /payments/:community_id/:transaction_id/refund
 
