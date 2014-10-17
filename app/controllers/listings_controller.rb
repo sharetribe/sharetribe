@@ -128,9 +128,21 @@ class ListingsController < ApplicationController
       @listing.transaction_type = @current_community.transaction_types.find(params[:transaction_type])
       logger.info "Category: #{@listing.category.inspect}"
 
-      if PaymentRegistrationGuard.new(@current_community, @current_user, @listing).requires_registration_before_posting?
-        payment_settings_path = payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)
-        render :partial => "listings/payout_registration_before_posting", locals: {payment_settings_path: payment_settings_path}
+      payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+
+      payment_setup_missing, payment_setup_path =
+        if payment_type == :braintree
+          missing = PaymentRegistrationGuard.new(@current_community, @current_user, @listing).requires_registration_before_posting?
+          [missing, payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)]
+        elsif payment_type == :paypal
+          missing = PaypalService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id).blank?
+          [missing, new_paypal_account_settings_payment_path(@current_user.username)]
+        else
+          [false, nil]
+        end
+
+      if payment_setup_missing
+        render :partial => "listings/payout_registration_before_posting", locals: {payment_settings_path: payment_setup_path }
       else
         render :partial => "listings/form/form_content"
       end
