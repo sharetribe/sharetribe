@@ -61,7 +61,7 @@ en:
         community_search_placeholder: "Search help text"
         edit_community_search_placeholder_description: "This is shown on the home page of the marketplace as a placeholder text in the search bar. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private marketplace homepage content"
-        edit_private_community_homepage_content_description: "This content is shown to unlogged users on the home page of private communities. Here you can describe your marketplace and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
+        edit_private_community_homepage_content_description: "This content is shown to unlogged users on the home page of private marketplaces. Here you can describe your marketplace and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
         update_information: "Save settings"
         invite_people: "Invite users"
         edit_signup_info: "Signup info"
@@ -69,8 +69,8 @@ en:
         edit_info: "Edit information"
         see_how_it_looks_like: "See how it looks"
         verification_to_post_listings_info_content: "Info text to non-verified users"
-        verification_to_post_listings_info_content_description: "This marketplace requires people to be verified manually by admin before they can post listings. Here you can set the default text that is shown to non-verified users when they try to post a new listing."
-        verification_to_post_listings_info_content_default: "This marketplace requires people to be verified manually by admin before they can post listings. You have not yet been verified. Please %{contact_admin_link} to be verified."
+        verification_to_post_listings_info_content_description: "You currently require your users to be verified manually by you before they can post listings. Here you can set the default text that is shown to non-verified users when they try to post a new listing."
+        verification_to_post_listings_info_content_default: " requires people to be verified manually by admin before they can post listings. You have not yet been verified. Please %{contact_admin_link} to be verified."
         contact_admin_link_text: "contact the admin"
         save: "Save settings"
         transaction_agreement: "Transaction agreement"
@@ -237,7 +237,6 @@ en:
         field_title: "Field title"
         field_type: "Field type"
         categories: "Listing categories where the field is used"
-        no_custom_listing_fields: "No marketplace specific listing fields."
         options: Options
         add_option: "+ Add option"
         saving_order: "Saving field order"
@@ -268,22 +267,6 @@ en:
         send_email: "Send the email"
         message_will_be_sent_only_to_people_with_this_language: "Note: the email will be sent only to the members who are using %{service_name} in the language you choose."
         email_sent: "Email sent."
-    news_items:
-      index:
-        news_items: "Newest articles"
-        create_news_item: "Create an article"
-        no_news: "No news"
-        loading_more_news: "Loading more news"
-      new:
-        new_news_item: "Create an article"
-        edit_news_item: "Edit article"
-        index_news_item: "Create an article"
-        title: "Title:"
-        content: "Content:"
-        save_news_item: "Save article"
-      news_item:
-        edit_news_item: Edit
-        delete_news_item: Delete
     paypal_accounts:
       marketplace_paypal_integration: "Payment preferences"
       new:
@@ -578,7 +561,7 @@ en:
   community_memberships:
     access_denied:
       access_denied: "Access denied"
-      you_are_banned_in_this_community: "The admin of this marketplace has prevented you from accessing the site. If you want to contact the admin, you can send %{link_to_contact_page}."
+      you_are_banned_in_this_community: "The administrator has prevented you from accessing %{service_name}. If you want to contact the admin, you can send %{link_to_contact_page}."
       contact_page_link: feedback
     new:
       welcome_fb_user: "Welcome to %{service_name}, %{name}!"
@@ -897,8 +880,6 @@ en:
       no_listings_with_your_search_criteria: "We couldn't find any results that matched your search criteria."
       no_listings_notification: "No listings. %{add_listing_link}."
       add_listing_link_text: "Add new listing"
-      available_on_the_app_store: "Available on the app store"
-      private_listing_notification: "There are %{listing_count} in this marketplace. %{private_listing_count} of them %{be_verb} visible only to the members of the marketplace. If you want to see also the listings that are visible only to the members, you need to %{log_in_link}."
       open_listing: "open listing"
       open_listings: "open listings"
       private_listing_notification_log_in: "log in"
@@ -908,7 +889,6 @@ en:
       post_new_listing: "Post a new listing"
       are_offering: offer
       add_news_item: "Add an article"
-      inform_others_about_events: "Latest news and events in the marketplace."
       lend_rent_help_carpool: "Sell, lend, help, share rides"
       loading_more_content: "Loading more content"
       more_events: "More events..."
@@ -919,7 +899,6 @@ en:
       or_see_what_the_others: "...or see what the others"
       recent_events: "Recent events"
       requesting: need
-      teaser_text: "In %{service_name} you can lend, rent, give away and sell stuff, give and get help or share rides. Could you lend something to others or help them?"
       tell_it_here: "Tell it here!"
       welcome_to_new_kassi: "Welcome to new %{service_name}!"
       no_reviews: "No reviews"
@@ -978,11 +957,6 @@ en:
       inbox: Inbox
       settings: Settings
       feedback: "Contact us"
-    admin:
-      admin: "%{service_name} admin panel"
-      back_to_kassi: "Back to %{service_name}"
-      tribe_info: "Basic information"
-      polls: Polls
     application:
       join_this_community: "Join marketplace"
       read_more: "Read more"
@@ -1009,8 +983,6 @@ en:
       notifications: Notifications
       received: Received
       sent: Sent
-    dashboard:
-      title: "%{service_name} - share goods, services and rides in your local marketplace!"
     global-header:
       select_language: "Select language"
     infos:
@@ -1121,7 +1093,6 @@ en:
       this_content_is_not_available_in_this_community: "This content is not available."
       unknown_error: "Unknown error. Please use the Contact us link to send details about what happened."
       update_error: "An error occurred when trying to update your information, please try again"
-      welcome_message: "Welcome to %{service_name}! %{service_name} helps people to sell and lend items to each other, organize car pooling and help each other in many other ways."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "You are not authorized to give feedback on this event"
       you_are_not_authorized_to_do_this: "You are not authorized to do this"
       you_are_not_authorized_to_view_this_content: "You are not authorized to view this content"
@@ -1131,7 +1102,7 @@ en:
       you_cannot_send_message_to_yourself: "You cannot send a message to yourself"
       you_followed_listing: "You are now following this listing"
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event"
-      you_are_now_member: "You have successfully joined this marketplace. Welcome!"
+      you_are_now_member: "Welcome to %{service_name}!"
       you_are_already_member: "You are already a member of %{service_name}. Welcome back!"
       you_must_log_in_to_create_new_listing: "You must log in to %{service_name} to create a new listing. If you don't have an account you can %{sign_up_link}."
       additional_email_confirmed_dashboard: "Your email is now confirmed."
@@ -1275,7 +1246,7 @@ en:
       valid_until_radio_buttons:
         for_the_time_being: "For the time being"
       visibility:
-        all_communities: "All my %{service_name} communities"
+        all_communities: "All my Sharetribe marketplaces"
         this_community: "Only members of this site"
         visibility: Visibility
       privacy:
@@ -1413,11 +1384,6 @@ en:
       search_verb: Search
       you_have_something_others_do_not: "Have something to offer?"
     please_comment: Comment
-  news_items:
-    index:
-      news_from_community: "Latest news from %{service_name}"
-    news_item:
-      delete_news_item: "Remove article"
   okl:
     member_id: "Member id"
     member_id_or_email: "Member id or email"
@@ -1551,9 +1517,6 @@ en:
       exceeded_expectations: "Exceeded expectations"
       positive: positive
       hide_description: "Show less"
-      joined_this_community: "Joined %{time_ago}"
-      was_last_seen: "Last seen %{time_ago}"
-      was_invited_by: "Invited by %{inviter_name}"
       less_than_expected: "Worse than expected"
       phone_number: "Phone number:"
       show_all_feedback: "Show all feedback"

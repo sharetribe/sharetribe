@@ -60,7 +60,7 @@ Feature: User logging in and out
     When I fill in "main_person_login" with "kassi_testperson1"
     And I fill in "main_person_password" with "testi"
     And I click "#main_log_in_button"
-    Then I should see "You can not login to this community with your personal account"
+    Then I should see "You can not log in with your personal account"
     Then I should not be logged in
 
   

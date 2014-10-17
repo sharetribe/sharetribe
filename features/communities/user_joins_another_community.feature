@@ -1,11 +1,11 @@
-Feature: User joins another community
+Feature: User joins another marketplace
   In order to be able to post listings simultaneously to multiple communities
   As a user
-  I want to be able to join more than one Sharetribe community with my user account
+  I want to be able to join more than one Sharetribe marketplace with my user account
 
   @move_to_subdomain2
   @javascript
-  Scenario: User joins another community
+  Scenario: User joins another marketplace
     Given there are following users:
       | person |
       | kassi_testperson3 |
@@ -13,17 +13,17 @@ Feature: User joins another community
     And I move to community "test2"
     And I am on the home page
     And I log in as "kassi_testperson3"
-    Then I should see "Join community"
-    When I press "Join community"
+    Then I should see "Join Sharetribe"
+    When I press "Join Sharetribe"
     Then I should see "This field is required"
     When I check "community_membership_consent"
-    And I press "Join community"
-    Then I should see "You have successfully joined this community"
+    And I press "Join Sharetribe"
+    Then I should see "Welcome to Sharetribe!"
     And I should see "Post a new listing"
 
   @move_to_subdomain2
   @javascript
-  Scenario: User joins another community that is invitation-only
+  Scenario: User joins another marketplace that is invitation-only
     Given there are following users:
       | person |
       | kassi_testperson3 |
@@ -37,17 +37,17 @@ Feature: User joins another community
     And I should see "Invitation code"
     When I check "community_membership_consent"
     And I fill in "Invitation code" with "random"
-    And I press "Join community"
+    And I press "Join Sharetribe"
     Then I should see "The invitation code is not valid."
     When I fill in "Invitation code" with "GH1JX8"
-    And I press "Join community"
-    Then I should see "You have successfully joined this community"
+    And I press "Join Sharetribe"
+    Then I should see "Welcome to Sharetribe!"
     And I should see "Post a new listing"
     And Invitation with code "GH1JX8" should have 0 usages_left
 
   @move_to_subdomain2
   @javascript
-  Scenario: User joins another community that accepts only certain email addresses
+  Scenario: User joins another marketplace that accepts only certain email addresses
     Given there are following users:
       | person            | email     | given_name | family_name |
       | kassi_testperson3 | k3@lvh.me | Tester     | Person      |
@@ -56,31 +56,31 @@ Feature: User joins another community
     And community "test2" requires users to have an email address of type "@example.com"
     When I move to community "test2"
     And I am on the home page
-    Then I should see "Join community"
+    Then I should see "Join Sharetribe"
     And I should see "Email address"
     When I check "community_membership_consent"
-    And I press "Join community"
+    And I press "Join Sharetribe"
     Then I should see "This field is required."
 
     # Try address that is already occupied by other user
     When I fill in "Email address" with "kassi_testperson1@example.com"
     And I check "community_membership_consent"
-    And I press "Join community"
-    Then I should see "This email is not allowed for this community or it is already in use."
+    And I press "Join Sharetribe"
+    Then I should see "This email is not allowed or it is already in use."
 
     #try address that doesn't match the requirement
     When I fill in "Email address" with "random@gmail.com"
     And I check "community_membership_consent"
-    And I press "Join community"
-    Then I should see "This email is not allowed for this community or it is already in use."
+    And I press "Join Sharetribe"
+    Then I should see "This email is not allowed or it is already in use."
     And "random@gmail.com" should have no emails
     And "random@example.com" should have no emails
 
     # Try good address
     When I fill in "Email address" with "random@example.com"
     And I check "community_membership_consent"
-    And I press "Join community"
-    Then I should not see "This email is not allowed for this community or it is already in use."
+    And I press "Join Sharetribe"
+    Then I should not see "This email is not allowed or it is already in use."
 
     Then I should see "Confirm your email"
     And "random@example.com" should receive an email
@@ -98,7 +98,7 @@ Feature: User joins another community
     And the "person_email" field should contain "random@example.com"
     When I fill in "person_email" with "other.email@wrong.com"
     And I press "Change"
-    Then I should see "This email is not allowed for this community or it is already in use."
+    Then I should see "This email is not allowed or it is already in use."
     When I fill in "person_email" with "other.email@example.com"
     And I press "Change"
     Then I should see "Your email is other.email@example.com"
@@ -112,4 +112,4 @@ Feature: User joins another community
     And I should not see "Email address"
     Then I should see "Tester P"
     And "other.email@example.com" should have 2 emails
-    And I should receive an email with subject "Welcome to Sharetribe Test2"
+    And I should receive an email with subject "Welcome to Sharetribe"

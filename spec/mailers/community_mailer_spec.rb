@@ -35,7 +35,7 @@ describe "CommunityMailer" do
 
     it "should have correct address and subject" do
       @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("Sharetribe #{@c1.name} community update")
+      @email.should have_subject("Sharetribe update")
     end
 
     it "should have correct links" do

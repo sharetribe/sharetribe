@@ -180,7 +180,7 @@ describe PersonMailer do
     it "should welcome a regular member" do
       @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
       @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("Welcome to #{@c1.full_name('en')}")
+      @email.should have_subject("Welcome to Sharetribe")
       @email.should have_body_text "Welcome to Sharetribe! Glad to have you on board."
       @email.should_not have_body_text "You have now admin rights in this community."
     end

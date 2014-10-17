@@ -6,11 +6,11 @@ Feature: Admin edits text instructions with WYWISYG editor
     And I am logged in as "kassi_testperson1"
     And I am on the text instructions admin page
 
-  Scenario: Admin user can edit private community homepage content
-    Then I should not see "Private community homepage content"
+  Scenario: Admin user can edit private marketplace homepage content
+    Then I should not see "Private marketplace homepage content"
     When community "test" is private
     And I refresh the page
-    Then I should see "Private community homepage content"
+    Then I should see "Private marketplace homepage content"
     When I follow "Edit information"
     And I change the contents of "private_community_homepage_content" to "Private homepage info"
     And I click save on the editor

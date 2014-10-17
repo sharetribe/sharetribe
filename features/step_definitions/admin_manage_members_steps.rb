@@ -93,7 +93,7 @@ end
 
 Then(/^I should see a message that I have been banned$/) do
   steps %Q{
-    Then I should see "The admin of this community has prevented you from accessing the site."
+    Then I should see "The administrator has prevented you from accessing"
   }
 end
 

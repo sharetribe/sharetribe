@@ -21,7 +21,7 @@ Feature: Admin edits menu link
     And I change field "Homepage link" to "Sharetribe Homepage"
     And I change field "Kotisivu" to "Sharetriben Kotisivu"
     And I press submit
-    Then I should see "Tribe details updated"
+    Then I should see "Details updated"
     When I open the menu
     Then I should see "Sharetribe Blog" on the menu
     Then I should see "Sharetribe Homepage" on the menu
@@ -29,7 +29,7 @@ Feature: Admin edits menu link
   Scenario: Admin edits menu link order
     When I click up for menu link "Homepage link"
     And I press submit
-    Then I should see "Tribe details updated"
+    Then I should see "Details updated"
     When I open the menu
     Then I should see "Blog link" on the menu
     And I should see "Homepage link" on the menu
@@ -41,7 +41,7 @@ Feature: Admin edits menu link
 
     When I remove menu link with title "Blog link"
     And I press submit
-    Then I should see "Tribe details updated"
+    Then I should see "Details updated"
 
     When I open the menu
     Then I should not see "Blog link" on the menu
