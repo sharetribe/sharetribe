@@ -1386,7 +1386,7 @@ fr:
       by: "%{listing} par %{author}"
       payment: Paiement
       exp: "Exp : "
-      you_will_be_charged: "Vous ne serez prélevé que si %{author} accepte la transaction. %{author} doit accepter la transaction sous 5 jours. Si %{author} refuse ou ne répond pas, aucun prélèvement ne sera effectué."
+      you_will_be_charged: "Vous ne serez prélevé que si %{author} accepte la transaction. %{author} doit accepter la transaction sous %{expiration_period} jours. Si %{author} refuse ou ne répond pas, aucun prélèvement ne sera effectué."
       day: jour
       days: jours
       price_per_day: "Prix par jour : %{price}"
@@ -1454,7 +1454,7 @@ fr:
       payout_info_text: "Pour recevoir des paiements vous devez connecter votre compte PayPal à %{service_name}.<br /> Veuillez réaliser les deux actions suivantes pour connecter votre compte."
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_placeholder: "Votre adresse email PayPal"
-      paypal_account_email_info_text: "Note : vous devez avoir un compte PayPal business pour accepter les paiements. Si vous avez un compte PayPal personnel, vous pouvez le mettre à jour. C'est gratuit et ne prend que quelques instants. %{upgrade_paypal_account} Si vous n'avez pas encore de compte PayPal, vous pouvez créer un compte business %{create_paypal_account}."
+      paypal_account_email_info_text: "Note : vous devez avoir un compte PayPal Premier (pour les particuliers) ou Business (pour les entreprises) pour accepter les paiements. Si vous avez un compte PayPal personnel, vous pouvez le mettre à jour. C'est gratuit et ne prend que quelques instants. %{upgrade_paypal_account} Si vous n'avez pas encore de compte PayPal, vous pouvez créer un compte %{create_paypal_account}."
       create_paypal_account: ici
       upgrade_paypal_account: "Mettre à jour votre compte ici."
       connect_paypal_account: "Connecter le compte PayPal"

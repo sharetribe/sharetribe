@@ -321,22 +321,22 @@ tr-TR:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: İptal
+    fields_that_are_mandatory: "Yanında yıldız (*) işareti bulunan alanların doldurulması zorunludur."
+    or: "ya da"
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
+      borrow: "ödünç almak"
+      buy: "satın almak"
+      give_away: "hediye etmek"
+      lend: "ödünç vermek"
+      receive: "ücretsiz almak"
+      rent: kiralamak
+      rent_out: "kiraya vermek"
+      sell: satmak
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -363,7 +363,7 @@ tr-TR:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: ~
+    what_is_this: "Bu nedir?"
   conversations:
     accept:
       respond_to_offer: ~
@@ -395,11 +395,11 @@ tr-TR:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "Daha fazla mesaj yükleniyor"
+      message_partitive: mesaj
+      messages_partitive: mesajlar
+      no_received_messages: "Alınan mesaj yok"
+      no_sent_messages: "Gönderilen mesaj yok"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -425,10 +425,10 @@ tr-TR:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: ~
-      favor_request_message_form_title: ~
-      housing_offer_message_form_title: ~
-      housing_request_message_form_title: ~
+      favor_offer_message_form_title: "%{person}'den yardım iste"
+      favor_request_message_form_title: "%{person}'ne yardım teklif et"
+      housing_offer_message_form_title: "%{person}'ne süre tanı"
+      housing_request_message_form_title: "%{person}'den süre iste"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -445,18 +445,18 @@ tr-TR:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: ~
-      message: ~
+      item_request_message_form_title: "%{person}'ne ürün öner"
+      message: Mesaj
       message_to: ~
       optional_message_to: ~
-      rideshare_offer_message_form_title: ~
-      rideshare_request_message_form_title: ~
+      rideshare_offer_message_form_title: "%{person}'den seni bir yere götürmesini iste"
+      rideshare_request_message_form_title: "%{person}'ne onu bir yere götürmeyi teklif et"
       send_message: ~
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: Başlık
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -464,8 +464,8 @@ tr-TR:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: Yanıtla
+      write_a_reply: "Yanıt yaz:"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -476,11 +476,11 @@ tr-TR:
       total: ~
     status:
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: "Verilen geri bildirim"
+      feedback_skipped: "Atlanan geri bildirim"
+      give_feedback: "Geri bildirim ver"
+      offer_accepted: "Kabul edildi"
+      offer_rejected: Reddedildi
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -491,13 +491,13 @@ tr-TR:
       paid: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: "Kabul edildi"
+      request_rejected: Reddedildi
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "Geri bildirimi atla"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -507,10 +507,10 @@ tr-TR:
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "Teklifi kabul et"
+      accept_request: "Talebi kabul et"
+      reject_offer: "Bu sefer değil"
+      reject_request: "Bu sefer değil"
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -579,12 +579,12 @@ tr-TR:
       join_community_button: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "%{sender_name}'in teklifini kabul veya reddetmeyi hatırla"
+      remember_to_accept_request: "%{sender_name}'den gelen bir talebi kabul veya reddetmeyi hatırla"
+      you_can_accept_or_reject_offer_at: "Teklifi kabul veya reddedebilirsiniz"
+      you_can_accept_or_reject_request_at: "Talebi kabul veya reddebilirsiniz"
+      you_have_not_yet_accepted_or_rejected_offer: "%{date} tarihinde aldığınız %{title} teklifini henüz kabul veya reddetmediniz."
+      you_have_not_yet_accepted_or_rejected_request: "%{date}tarihinde aldığınız %{title} talebini henüz kabul veya reddetmediniz."
       show_thread: ~
     braintree_account_approved:
       account_ready: ~
@@ -639,11 +639,11 @@ tr-TR:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      check_your_settings: ~
-      hey: ~
-      kassi_team: ~
-      thanks: ~
-      want_to_control_emails: ~
+      check_your_settings: "Ayarlarınızı kontrol ediniz"
+      hey: "Merhaba %{name}"
+      kassi_team: "%{service_name} Takımı"
+      thanks: "Teşekkürler,"
+      want_to_control_emails: "%{service_name}'den gelen e-postaları kontrol etmek ister misiniz?"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -653,15 +653,15 @@ tr-TR:
     community_starter_email:
       subject: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter}, %{listing} teklifini kabul etti."
+      has_accepted_your_request: "%{accepter}, %{listing} talebini kabul etti."
+      has_rejected_your_offer: "%{accepter}, %{listing} teklifini reddetti."
+      has_rejected_your_request: "%{accepter}, %{listing} talebini reddetti."
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "Teklifin kabul edildi"
+      your_offer_was_rejected: "Teklifin reddedildi"
+      your_request_was_accepted: "Talebin kabul edildi"
+      your_request_was_rejected: "Talebin reddedildi"
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~
@@ -674,13 +674,13 @@ tr-TR:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "%{author} ilanına %{service_name} altında yorum yaptı"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} sana %{service_name} altında bir mesaj gönderdi."
+      you_have_a_new_message: "%{service_name} altında %{sender_name}'den yeni bir mesaj var"
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
@@ -697,8 +697,8 @@ tr-TR:
       price: ~
       service_fee: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name}, %{service_name} altında sana bir geri bildirimde bulundu"
+      you_can_give_feedback_to: "%{name} kullanıcısına henüz bir geri bildirim vermedin."
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -722,12 +722,12 @@ tr-TR:
       newest_requests: ~
       text_version_text: ~
     reply_to_contact_request:
-      thank_you_for_your_interest: ~
+      thank_you_for_your_interest: "%{service_name} konusunda ilgine teşekkürler!"
     reset_password_instructions:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      feedback_is_public_and_is_shown: ~
+      feedback_is_public_and_is_shown: "Geri bildirimler açık olarak yayınlanmakta olup tüm diğer üyeler tarafından görüntülenebilmektedir. Diğer kullanıcılar geri bildirimleri dikkate alarak %{name} kullanıcısının güvenilir ve temasa geçmek isteyecekleri bir kişi olup olmadığına karar verebilirler. Bu nedenle başınıza gelenlerle ilgili geri bildirim vermenin her zaman iyi bir şey olduğunu akılda tutmakta ve karşı taraflara da hatırlatmakta fayda var. Ayrıca başarılı olabilmek için olumlu geri bildirimler almanız çok gerekli."
       remember_to_give_feedback_to: ~
       you_have_not_given_feedback_yet: ~
     transaction_preauthorized:
