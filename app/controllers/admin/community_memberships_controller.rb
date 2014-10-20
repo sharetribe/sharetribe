@@ -24,8 +24,8 @@ class Admin::CommunityMembershipsController < ApplicationController
     if removes_itself?(params[:remove_admin], @current_user, @current_community)
       render nothing: true, status: 405
     else
-      CommunityMembership.where(:person_id => params[:add_admin]).update_all("admin = 1")
-      CommunityMembership.where(:person_id => params[:remove_admin]).update_all("admin = 0")
+      @current_community.community_memberships.where(:person_id => params[:add_admin]).update_all("admin = 1")
+      @current_community.community_memberships.where(:person_id => params[:remove_admin]).update_all("admin = 0")
 
       render nothing: true, status: 200
     end
