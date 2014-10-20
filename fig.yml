@@ -13,10 +13,14 @@ worker:
   command: '/bin/bash -l -c "bundle exec rake jobs:work"'
   links:
     - db:mysql
+  volumes:
+     - .:/opt/sharetribe
 
 web:
   build: .
   command: '/bin/bash -l -c "bundle exec rails server"'
+  volumes:
+     - .:/opt/sharetribe
   ports:
     - "3000:3000"
   links:
