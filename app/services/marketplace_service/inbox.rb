@@ -320,7 +320,10 @@ module MarketplaceService
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
           # Ignore initiated
-          AND transactions.current_state != 'initiated'
+          AND (
+            transactions.id IS NULL
+            OR transactions.current_state != 'initiated'
+          )
 
           # Order by 'last_activity_at', that is last message or last transition
           ORDER BY last_activity_at DESC
