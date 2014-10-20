@@ -40,16 +40,21 @@ class FreeTransactionsController < ApplicationController
     contact_form = new_contact_form(params[:listing_conversation])
 
     if contact_form.valid?
-      transaction_id = MarketplaceService::Transaction::Command.create({
-          community_id: @current_community.id,
-          listing_id: contact_form.listing_id,
-          starter_id: @current_user.id,
-          author_id: @listing.author.id,
-          content: contact_form.content})
+      transaction_response = TransactionService::Transaction.create(
+        {
+          transaction: {
+            community_id: @current_community.id,
+            listing_id: contact_form.listing_id,
+            starter_id: @current_user.id,
+            listing_author_id: @listing.author.id,
+            content: contact_form.content,
+            payment_gateway: :none}
+        })
 
+      transaction_id = transaction_response[:transaction][:id]
       MarketplaceService::Transaction::Command.transition_to(transaction_id, "free")
 
-      # TODO
+      # TODO: remove references to transaction model
       transaction = Transaction.find(transaction_id)
 
       flash[:notice] = t("layouts.notifications.message_sent")

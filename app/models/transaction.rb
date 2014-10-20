@@ -14,6 +14,7 @@
 #  author_skipped_feedback           :boolean          default(FALSE)
 #  last_transition_at                :datetime
 #  current_state                     :string(255)
+#  payment_gateway                   :string(255)      default("none"), not null
 #
 # Indexes
 #
@@ -31,8 +32,10 @@ class Transaction < ActiveRecord::Base
     :automatic_confirmation_after_days,
     :author_skipped_feedback,
     :starter_skipped_feedback,
-    :payment_attributes
-  )
+    :payment_attributes,
+    :payment_gateway
+    )
+
   attr_accessor :contract_agreed
 
   belongs_to :community
@@ -48,6 +51,8 @@ class Transaction < ActiveRecord::Base
   delegate :title, to: :listing, prefix: true
 
   accepts_nested_attributes_for :booking
+
+  validates_presence_of :payment_gateway
 
   scope :for_person, -> (person){
     joins(:listing)
