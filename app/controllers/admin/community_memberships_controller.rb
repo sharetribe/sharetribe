@@ -32,8 +32,8 @@ class Admin::CommunityMembershipsController < ApplicationController
   end
 
   def posting_allowed
-    CommunityMembership.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
-    CommunityMembership.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
+    @current_community.community_memberships.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
+    @current_community.community_memberships.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
 
     render nothing: true, status: 200
   end
