@@ -31,10 +31,15 @@ Example request body:
   , automatic_confirmation_after_days: 7
   }
 
-, paypal: {} # No additional fields for Paypal needed
-  
-, braintree: # Only for :preauthorize
-  { cardholder_name: "Mikko Koski"
+  # Paypal
+, gateway_fields:
+  { payment_gateway: :paypal
+  } # No additional fields for Paypal needed
+
+  # Braintree
+, gateway_fields: # Only for :preauthorize
+  { payment_gateway: :braintree,
+  , cardholder_name: "Mikko Koski"
   , credit_card_number: "4000 5000 6000 7000 9"
   , cvv: "1234"
   , credit_card_expiration_month: 12
@@ -67,11 +72,17 @@ Response:
                                # or :pending for postpay Braintree and Checkout
   }
 
-, paypal:
-  { redirect_url: "https://paypal.com/token?EJAHGOSKLGAHSG" }
+  # PayPal
+, gateway_fields:
+  { payment_gateway: :paypal
+  , redirect_url: "https://paypal.com/token?EJAHGOSKLGAHSG"
+  }
 
-, braintree: {} # No additional fields for Braintree
-  
+  # Braintree
+, gateway_fields:
+  { payment_gateway: :braintree
+  } # No additional fields for Braintree
+
 }
 ```
 
@@ -162,10 +173,17 @@ Response:
   , last_transition_at: <Time>
   , current_state: :rejected
   }
-  
-, paypal: { pending_reason: :multicurrency }
-  
-, braintree: {} # No additional fields
+
+  # PayPal
+, gateway_fields:
+  { payment_gateway: :paypal
+  , pending_reason: :multicurrency
+  }
+
+  # Braintree
+, gateway_fields:
+  { payment_gateway: :braintree
+  } # No additional fields
 }
 ```
 
@@ -177,11 +195,17 @@ Request:
 
 ```ruby
 {
-  checkout:
-  { payment_rows: [] # Some payment row stuff here }
-  
-, braintree: 
-  { total_sum: Money.new(5000, "EUR") }
+  # Checkout
+  gateway_fields:
+  { payment_gateway: :checkout
+  , payment_rows: [] # Some payment row stuff here
+  }
+
+  # Braintree
+, gateway_fields
+  { payment_gateway: :braintree
+  , total_sum: Money.new(5000, "EUR")
+  }
 }
 ```
 
@@ -217,11 +241,15 @@ Request:
 
 ```ruby
 {
-  checkout:
-  { ??? }
+  # Checkout
+  gateway_fields:
+  { payment_gateway: :checkout,
+  ???
+  }
 
-, braintree:
-  { cardholder_name: "Mikko Koski"
+, gateway_fields
+  { payment_gateway: :braintree
+  , cardholder_name: "Mikko Koski"
   , credit_card_number: "4000 5000 6000 7000 9"
   , cvv: "1234"
   , credit_card_expiration_month: 12
