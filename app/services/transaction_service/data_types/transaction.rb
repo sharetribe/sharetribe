@@ -2,7 +2,7 @@ module TransactionService::DataTypes::Transaction
 
   PaypalCompletePreauthorizationFields = EntityUtils.define_builder(
     [:payment_gateway, const_value: :paypal],
-    [:pending_reason, :string, :optional])
+    [:pending_reason, :symbol, :optional])
 
   # Common response format:
 

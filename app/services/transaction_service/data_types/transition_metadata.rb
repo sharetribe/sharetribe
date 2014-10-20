@@ -8,11 +8,5 @@ module TransactionService::DataTypes::TransitionMetadata
 
   module_function
 
-  def create_metadata(state, data = nil)
-    if data
-      TransitionMetadata.call(data)
-    else
-      nil
-    end
-  end
+  def create_metadata(data); TransitionMetadata.call(data) end
 end

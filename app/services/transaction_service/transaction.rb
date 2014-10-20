@@ -52,7 +52,7 @@ module TransactionService::Transaction
               :pending_ext
             end
 
-          MarketplaceService::Transaction::Command.transition_to(transaction[:id], next_state)
+          MarketplaceService::Transaction::Command.transition_to(transaction[:id], next_state, pending_reason: capture_response[:data][:pending_reason])
 
           transaction = query(transaction[:id])
           Result::Success.new(
