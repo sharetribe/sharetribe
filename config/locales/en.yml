@@ -49,28 +49,28 @@ en:
           cancel: Cancel
     communities:
       edit_details:
-        community_details: "Community details"
-        community_look_and_feel: "Community look and feel"
-        edit_community: "Edit community \"%{community_name}\" details"
-        community_name: "Community name"
-        edit_community_name_description: "The name of your community. This is shown to users in emails and various other places."
-        community_slogan: "Community slogan"
-        edit_community_slogan_description: "This is shown on the home page of the community for the users who are not logged in. %{see_how_it_looks_like}."
-        community_description: "Community description"
-        edit_community_description_description: "This is shown on the home page of the community for the users who are not logged in. %{see_how_it_looks_like}."
+        community_details: "Basic details"
+        community_look_and_feel: "Design"
+        edit_community: "Basic details"
+        community_name: "Marketplace name"
+        edit_community_name_description: "The name of your marketplace. This is shown to users in emails and various other places."
+        community_slogan: "Marketplace slogan"
+        edit_community_slogan_description: "This is shown on the home page of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
+        community_description: "Marketplace description"
+        edit_community_description_description: "This is shown on the home page of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         community_search_placeholder: "Search help text"
-        edit_community_search_placeholder_description: "This is shown on the home page of the community as a placeholder text in the search bar. %{see_how_it_looks_like}."
-        private_community_homepage_content: "Private community homepage content"
-        edit_private_community_homepage_content_description: "This content is shown to unlogged users on the home page of private communities. Here you can describe your community and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
+        edit_community_search_placeholder_description: "This is shown on the home page of the marketplace as a placeholder text in the search bar. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Private marketplace homepage content"
+        edit_private_community_homepage_content_description: "This content is shown to unlogged users on the home page of private marketplaces. Here you can describe your marketplace and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
         update_information: "Save settings"
-        invite_people: "Invite people to this community"
+        invite_people: "Invite users"
         edit_signup_info: "Signup info"
         edit_signup_info_description: "This is an info text that can be shown to users in the signup page. There you can give the users instructions for signing up, information like where to get an invite, etc. By default there are no instructions."
         edit_info: "Edit information"
         see_how_it_looks_like: "See how it looks"
         verification_to_post_listings_info_content: "Info text to non-verified users"
-        verification_to_post_listings_info_content_description: "This marketplace requires people to be verified manually by admin before they can post listings. Here you can set the default text that is shown to non-verified users when they try to post a new listing."
-        verification_to_post_listings_info_content_default: "This marketplace requires people to be verified manually by admin before they can post listings. You have not yet been verified. Please %{contact_admin_link} to be verified."
+        verification_to_post_listings_info_content_description: "You currently require your users to be verified manually by you before they can post listings. Here you can set the default text that is shown to non-verified users when they try to post a new listing."
+        verification_to_post_listings_info_content_default: " requires people to be verified manually by admin before they can post listings. You have not yet been verified. Please %{contact_admin_link} to be verified."
         contact_admin_link_text: "contact the admin"
         save: "Save settings"
         transaction_agreement: "Transaction agreement"
@@ -80,7 +80,7 @@ en:
         transaction_agreement_text_header: "Agreement text"
         transaction_agreement_description: "This is the content of the actual agreement that the user needs to accept. The agreement content is displayed when the user clicks the \"%{read_more}\" link next to the agreement label."
       edit_look_and_feel:
-        edit_community_look_and_feel: "Edit community \"%{community_name}\" look and feel"
+        edit_community_look_and_feel: "Edit marketplace \"%{community_name}\" look and feel"
         community_logo: "Desktop logo"
         community_logo_icon: "Mobile logo"
         community_cover_photo: "Cover photo"
@@ -96,8 +96,8 @@ en:
         small_cover_photo_visibility: "Small cover photo is shown in all pages expect in the homepage for unlogged users."
         small_cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle."
         main_content_width: "When choosing cover photos please note that the page main content is %{main_width} pixels wide at most. Remember to also check how your cover photo looks on the smaller screens (e.g. by using a more narrow browser window)."
-        custom_color1_instructions_text: "You can change the main color of the user interface of this community by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
-        custom_color2_instructions_text: "You can change the second color of the user interface of this community by entering a hex color value."
+        custom_color1_instructions_text: "You can change the main color of the user interface of this marketplace by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
+        custom_color2_instructions_text: "You can change the second color of the user interface of this marketplace by entering a hex color value."
         default_browse_view: "Default browse view"
         default_browse_view_instructions_text: "Default browse view is used on the homepage to set how the listings are displayed by default."
         grid: Grid
@@ -115,7 +115,7 @@ en:
         edit_text_instructions: "Text instructions"
       edit_welcome_email:
         welcome_email_content: "Welcome email content"
-        welcome_email_content_description: "The message below will be sent to every new member when they join. You can customize the message to fit your community. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."
+        welcome_email_content_description: "The message below will be sent to every new member when they join. You can customize the message to fit your marketplace. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."
         edit_message: "Edit message"
         send_test_message: "Send test message"
       settings:
@@ -123,9 +123,9 @@ en:
         general: General
         users_can_review_each_other_after_transaction: "Users can review each other after transaction"
         access: Access
-        join_with_invite_only: "Users can only join this community with an invite from another user"
-        users_can_invite_new_users: "All users can invite new users to this community"
-        private: "This community is private (only registered users can see the content)"
+        join_with_invite_only: "Users can only join this marketplace with an invite from another user"
+        users_can_invite_new_users: "All users can invite new users to this marketplace"
+        private: "This marketplace is private (only registered users can see the content)"
         require_verification_to_post_listings: "Only users verified by admin can post new listings"
         listing_preferences: "Listing preferences"
         transaction_preferences: "Transaction preferences"
@@ -155,7 +155,7 @@ en:
         saving_user_status: Saving...
         save_user_status_successful: Saved
         save_user_status_error: "Saving failed. Please refresh the page and try again."
-        ban_user_confirmation: "This removes the user from the community and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
+        ban_user_confirmation: "This removes the user from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
       integrations:
         integrations: Integrations
         twitter_handle: "Twitter handle"
@@ -237,7 +237,6 @@ en:
         field_title: "Field title"
         field_type: "Field type"
         categories: "Listing categories where the field is used"
-        no_custom_listing_fields: "No marketplace specific listing fields."
         options: Options
         add_option: "+ Add option"
         saving_order: "Saving field order"
@@ -259,7 +258,7 @@ en:
     emails:
       new:
         send_email_to_members: "Send an email to members"
-        send_email_to_members_title: "Send an email to all the members of this community"
+        send_email_to_members_title: "Send an email to all the members of this marketplace"
         email_subject: "Email subject"
         email_content: "Email content"
         email_content_placeholder: "What do you want to say to the members?"
@@ -268,22 +267,6 @@ en:
         send_email: "Send the email"
         message_will_be_sent_only_to_people_with_this_language: "Note: the email will be sent only to the members who are using %{service_name} in the language you choose."
         email_sent: "Email sent."
-    news_items:
-      index:
-        news_items: "Newest articles"
-        create_news_item: "Create an article"
-        no_news: "No news"
-        loading_more_news: "Loading more news"
-      new:
-        new_news_item: "Create an article"
-        edit_news_item: "Edit article"
-        index_news_item: "Create an article"
-        title: "Title:"
-        content: "Content:"
-        save_news_item: "Save article"
-      news_item:
-        edit_news_item: Edit
-        delete_news_item: Delete
     paypal_accounts:
       marketplace_paypal_integration: "Payment preferences"
       new:
@@ -335,7 +318,7 @@ en:
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"
-    default_community_description: "This is a place to sell, rent, swap and share goods and services with the other members of the community."
+    default_community_description: "This is a place to sell, rent, swap and share goods and services with the other members of the marketplace."
     cancel: Cancel
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     or: or
@@ -588,20 +571,20 @@ en:
   community_memberships:
     access_denied:
       access_denied: "Access denied"
-      you_are_banned_in_this_community: "The admin of this community has prevented you from accessing the site. If you want to contact the admin, you can send %{link_to_contact_page}."
+      you_are_banned_in_this_community: "The administrator has prevented you from accessing %{service_name}. If you want to contact the admin, you can send %{link_to_contact_page}."
       contact_page_link: feedback
     new:
       welcome_fb_user: "Welcome to %{service_name}, %{name}!"
-      fb_join_accept_terms: "There's one more step to join this community: you need to accept its terms of use."
-      join_community: "Join community '%{community}'"
-      you_are_not_a_member_of_this_community: "You have a user account in %{service_name}, but you are not yet a member of %{service_name} community '%{community}'."
-      you_can_join: "You can join this community by accepting the terms of use and clicking 'Join community' below."
-      you_can_join_email_confirmation: "To join this community you need to have a valid email address that ends with %{email_ending}. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join community' below, and confirming your email."
-      you_can_join_email_confirmation_multiple_addresses: "This community has email restrictions. You can only join if you have an email address of an organization that the admin of this site has allowed to join. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join community' below."
-      you_can_join_with_invite_only: "You have to have an invitation from another member to join this community. If you have an invitation code, you can join this community by typing the code to the field below, accepting the terms of use of this community and clicking 'Join community' below."
-      if_want_to_view_content: "If you want to view the content in this community without joining it you need to"
+      fb_join_accept_terms: "There's one more step to join %{service_name}: you need to accept the terms of use."
+      join_community: "Join %{service_name}"
+      you_are_not_a_member_of_this_community: "You have a user account in the Sharetribe marketplace platform, but you are not yet joined %{service_name}."
+      you_can_join: "You can join %{service_name} by accepting the terms of use and clicking 'Join %{service_name}' below."
+      you_can_join_email_confirmation: "To join %{service_name} you need to have a valid email address that ends with %{email_ending}. You can join by filling in your email address, accepting the terms of use of this marketplace and clicking 'Join %{service_name}' below, and confirming your email."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name} has email restrictions. You can only join if you have an allowed email address. You can join by filling in your email address, accepting the terms of use of %{service_name} and clicking 'Join %{service_name}' below."
+      you_can_join_with_invite_only: "You have to have an invitation from another member to join %{service_name}. If you have an invitation code, you can join by typing the code to the field below, accepting the terms of use and clicking 'Join %{service_name}' below."
+      if_want_to_view_content: "If you want to view the content in %{service_name} without joining it as a member you need to"
       log_out: "log out"
-      join_community_button: "Join community"
+      join_community_button: "Join %{service_name}"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Remember to accept or reject an offer from %{sender_name}"
@@ -662,7 +645,7 @@ en:
       need_to_confirm: "You need to confirm your email address."
       confirmation_link_text: "Confirm my email"
       or_paste_link: "Alternatively you can copy the following link to the address bar of your browser:"
-      turning_on_confirmations_in_this_community: "We are starting to use email confirmations in this %{service_name} community."
+      turning_on_confirmations_in_this_community: "We are starting to use email confirmations in this %{service_name} marketplace."
     common:
       check_your_settings: "Check your settings"
       hey: "Hello %{name},"
@@ -692,7 +675,7 @@ en:
       remember_to_confirm: "When the request is fulfilled, remember to mark it as completed. If the request is not fulfilled your have %{days_to_automatic_confirmation} days to cancel it. Otherwise it will be automatically marked as completed."
     invitation_to_kassi:
       hi: Hi!
-      you_have_been_invited_to_kassi: "%{inviter} has invited you to the %{community} community."
+      you_have_been_invited_to_kassi: "%{inviter} has invited you to %{service_name}."
       here_is_a_message_from: "Here is a personal message from %{inviter}:"
       join_now: "Join now"
       invitation_code: "Invitation code: %{code}"
@@ -733,10 +716,10 @@ en:
       added_offer: "%{name_link} added a listing:"
       added_request: "%{name_link} added a listing:"
       added_listing: "%{name_link} added a listing:"
-      update_mail_title: "%{title_link} community update"
-      title_link_text: "%{community_name}"
+      update_mail_title: "%{title_link} update"
+      title_link_text: "%{service_name}"
       intro_paragraph: "Here are some of the things that happened in %{community_link} during the past %{time_since_last_update}."
-      intro_paragraph_link_text: "%{community_name}"
+      intro_paragraph_link_text: "%{service_name}"
       post_a_new_listing: "Post a new listing!"
       reduce_email_footer_text: "Too much email? %{settings_link} or %{unsubscribe_link}."
       settings_link_text: "Edit your email settings here"
@@ -766,7 +749,7 @@ en:
       one_day_left: "If you don't accept the request within one day the request will be automatically rejected and you will not get paid."
       click_here_to_reply: "Click here to respond to the request"
     welcome_email:
-      welcome_email_subject: "Welcome to %{community}"
+      welcome_email_subject: "Welcome to %{service_name}"
       welcome_to_marketplace: "Welcome to %{service_name}! Glad to have you on board."
       love_marketplace_crew: "Love,<br /><i>%{service_name} crew</i>"
       p_s_did_you_know: "P.S. Would you like to create your own marketplace website just like %{service_name}? It's easy and requires no programming knowledge. %{click_here_link} to find out more!"
@@ -840,7 +823,7 @@ en:
       has_accepted_favor: "%{offerer_name} agreed to offer %{listing_title} to %{requester_name} %{time_ago}."
       has_accepted_rideshare: "%{offerer_name} agreed on sharing a ride %{listing_title} with %{requester_name} %{time_ago}."
     join:
-      joined_kassi: "%{name} joined %{community_name} %{service_name} %{time_ago}."
+      joined_kassi: "%{name} joined %{service_name} %{time_ago}."
     login:
       logged_in_to_kassi: "%{name} logged in to %{service_name} %{time_ago}."
     comment:
@@ -907,8 +890,6 @@ en:
       no_listings_with_your_search_criteria: "We couldn't find any results that matched your search criteria."
       no_listings_notification: "No listings. %{add_listing_link}."
       add_listing_link_text: "Add new listing"
-      available_on_the_app_store: "Available on the app store"
-      private_listing_notification: "There are %{listing_count} in this community. %{private_listing_count} of them %{be_verb} visible only to the members of the community. If you want to see also the listings that are visible only to the members, you need to %{log_in_link}."
       open_listing: "open listing"
       open_listings: "open listings"
       private_listing_notification_log_in: "log in"
@@ -918,7 +899,6 @@ en:
       post_new_listing: "Post a new listing"
       are_offering: offer
       add_news_item: "Add an article"
-      inform_others_about_events: "Latest news and events in the community."
       lend_rent_help_carpool: "Sell, lend, help, share rides"
       loading_more_content: "Loading more content"
       more_events: "More events..."
@@ -929,7 +909,6 @@ en:
       or_see_what_the_others: "...or see what the others"
       recent_events: "Recent events"
       requesting: need
-      teaser_text: "%{service_name} is a service for the %{community} community. Here you can lend, rent, give away and sell stuff, give and get help or share rides. Could you lend something to others or help them?"
       tell_it_here: "Tell it here!"
       welcome_to_new_kassi: "Welcome to new %{service_name}!"
       no_reviews: "No reviews"
@@ -944,7 +923,7 @@ en:
       send_invitation: "Send invitation"
       add_as_many_emails_as_you_want: "Add the email addresses of the people you are inviting to the field below. If you add multiple email addresses, separate them with comma."
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
-      invitation_message_field_placeholder: "I joined this amazing community. You should too!"
+      invitation_message_field_placeholder: "I joined this amazing marketplace. You should too!"
       errors_in_emails: "Check that the email addresses you added are valid. If you added multiple addresses, make sure they are separated with comma."
     list_item:
       review: review
@@ -984,26 +963,22 @@ en:
       default_about_text: "This marketplace is powered by Sharetribe platform. With Sharetribe you can easily create your own marketplace website. It's free and only takes a minute. %{click_here_link} to learn more!"
       click_here_link_text: "Click here"
   layouts:
+    admin:
+      admin: "Admin"
     no_tribe:
       inbox: Inbox
       settings: Settings
       feedback: "Contact us"
-    admin:
-      admin: "%{service_name} admin panel"
-      back_to_kassi: "Back to %{service_name}"
-      tribe_info: "Basic tribe information"
-      news_items: "News articles"
-      polls: Polls
     application:
-      join_this_community: "Join community"
+      join_this_community: "Join marketplace"
       read_more: "Read more"
       feedback: "What would you like to tell us?"
       default_feedback: "Did you encounter a problem with %{service_name}? Have a suggestion for improving the service? Noticed some suspicious content? Or just have something you want to discuss with us? Let us know!"
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Contact us"
-      keywords: "%{service_name}, Kassi, share resources in a community, borrow items, service, favor, item, rideshare, space, car pooling, housing, accommodation, help, helping, offer, request, rent, swap, exchange, buying, selling, buy, sell, giving, give, ecological, community, online community, local"
-      meta_description: "Sharetribe is a service that allows you to easily create a marketplace online and let your community sell, rent, swap and share goods and services."
+      keywords: "%{service_name}, Kassi, share resources in a marketplace, borrow items, service, favor, item, rideshare, space, car pooling, housing, accommodation, help, helping, offer, request, rent, swap, exchange, buying, selling, buy, sell, giving, give, ecological, marketplace, online marketplace, local"
+      meta_description: "Sharetribe allows you to easily create a marketplace online and let the members of your community sell and rent goods, services and spaces."
       or_check_our: "...or check our"
       send_feedback_to_admin: "Send feedback"
       to_see_what_others_have_suggested: "to see what other users have suggested, and vote for the ideas there."
@@ -1012,7 +987,7 @@ en:
       invite_your_friends: "Invite friends!"
       invite_your_neighbors: "Invite neighbors!"
       invite_your_friends_description: "The more people there are in %{service_name}, the more useful it is."
-      invite_your_friends_invite_only_description: "People cannot join this community unless they are invited."
+      invite_your_friends_invite_only_description: "People cannot join this marketplace unless they are invited."
       join_without_facebook: "...or alternatively %{join_without_facebook_link}"
       join_without_facebook_link: "sign up without using Facebook"
     conversations:
@@ -1020,8 +995,6 @@ en:
       notifications: Notifications
       received: Received
       sent: Sent
-    dashboard:
-      title: "%{service_name} - share goods, services and rides in your local community!"
     global-header:
       select_language: "Select language"
     infos:
@@ -1060,10 +1033,10 @@ en:
       contact_admin_link_text: "contact the admin"
       test_welcome_email_delivered_to: "A test email was sent to %{email}."
       something_went_wrong: "Something went wrong"
-      community_updated: "Tribe details updated."
-      community_update_failed: "Tribe detail update failed."
+      community_updated: "Details updated."
+      community_update_failed: "Detail update failed."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Account created successfully. Next you need to confirm your email address."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "You are now a member of this community. Next you need to confirm your email address."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "You are now a member of this marketplace. Next you need to confirm your email address."
       comment_cannot_be_empty: "Comment cannot be empty"
       comment_sent: "Comment sent"
       confirmation_link_is_wrong_or_used: "The confirmation link is already used or otherwise broken. Try logging in, or send feedback if the problem persists."
@@ -1081,7 +1054,7 @@ en:
       feedback_skipped: "Feedback skipped"
       invitation_cannot_be_sent: "Invitation could not be sent"
       invitation_sent: "Invitation sent successfully"
-      inviting_new_users_is_not_allowed_in_this_community: "Inviting new users is not allowed in this %{service_name} community"
+      inviting_new_users_is_not_allowed_in_this_community: "Inviting new users is not allowed."
       login_again: "Please, log in again."
       login_failed: "Login failed. Please enter correct credentials."
       account_creation_successful: "Welcome to %{service_name}, %{person_name}!"
@@ -1129,10 +1102,9 @@ en:
       request_rejected: "Request rejected"
       request_canceled: "Request canceled"
       message_sent: "Message sent"
-      this_content_is_not_available_in_this_community: "This content is not available in this community."
+      this_content_is_not_available_in_this_community: "This content is not available."
       unknown_error: "Unknown error. Please use the Contact us link to send details about what happened."
       update_error: "An error occurred when trying to update your information, please try again"
-      welcome_message: "Welcome to %{service_name}! %{service_name} is a service that helps the members of the %{community} community to sell and lend items to each other, organize car pooling and help each other in many other ways."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "You are not authorized to give feedback on this event"
       you_are_not_authorized_to_do_this: "You are not authorized to do this"
       you_are_not_authorized_to_view_this_content: "You are not authorized to view this content"
@@ -1142,8 +1114,8 @@ en:
       you_cannot_send_message_to_yourself: "You cannot send a message to yourself"
       you_followed_listing: "You are now following this listing"
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event"
-      you_are_now_member: "You have successfully joined this community. Welcome!"
-      you_are_already_member: "You are already a member of this %{service_name} community. Welcome back!"
+      you_are_now_member: "Welcome to %{service_name}!"
+      you_are_already_member: "You are already a member of %{service_name}. Welcome back!"
       you_must_log_in_to_create_new_listing: "You must log in to %{service_name} to create a new listing. If you don't have an account you can %{sign_up_link}."
       additional_email_confirmed_dashboard: "Your email is now confirmed."
       you_must_log_in_to_give_feedback: "You must log in to give feedback"
@@ -1162,8 +1134,8 @@ en:
       you_need_to_confirm_your_account_first: "You need to confirm your email."
       you_must_fill_all_the_fields: "You must fill all the fields"
       you_unfollowed_listing: "You are no longer following this listing"
-      joining_community_failed: "Joining this community failed"
-      can_not_login_with_private_user: "You can not login to this community with your personal account. Log in with organization account or create a new account."
+      joining_community_failed: "Joining failed"
+      can_not_login_with_private_user: "You can not log in with your personal account. Log in with organization account or create a new account."
       can_not_delete_email: "You can not remove the email address"
       user_does_not_have_email_to_delete: "You don't have the email address you're trying to remove"
       email_deleted: "Email removed"
@@ -1198,10 +1170,10 @@ en:
       edit_listing: "Edit listing"
       reopen_listing: "Reopen listing"
       move_to_top: "Move to top of homepage"
-      show_in_updates_email: "Show in next community update email"
+      show_in_updates_email: "Show in next member update email"
       show_in_updates_email_loading: Loading...
       show_in_updates_email_error: "Couldn't reach server. Try again after page refresh."
-      show_in_updates_email_success: "This listing will be shown in the next automatic community update email sent to the members"
+      show_in_updates_email_success: "This listing will be shown in the next automatic update email sent to the members"
     follow_links:
       follow: "Get emails about new comments"
       unfollow: "Don't get emails about new comments"
@@ -1286,8 +1258,8 @@ en:
       valid_until_radio_buttons:
         for_the_time_being: "For the time being"
       visibility:
-        all_communities: "All my %{service_name} communities"
-        this_community: "Only members of this tribe"
+        all_communities: "All my Sharetribe marketplaces"
+        this_community: "Only members of this site"
         visibility: Visibility
       privacy:
         privacy: Privacy
@@ -1318,7 +1290,7 @@ en:
       rideshare: Rideshare
       search_verb: Search
       you_have_something_others_do_not: "Have something to offer?"
-      feed_title: "%{listing_type} in %{community_name} %{service_name} %{optional_category}"
+      feed_title: "%{listing_type} in %{service_name} %{optional_category}"
     left_panel_link:
       borrows: Borrowing
       buys: Buying
@@ -1424,11 +1396,6 @@ en:
       search_verb: Search
       you_have_something_others_do_not: "Have something to offer?"
     please_comment: Comment
-  news_items:
-    index:
-      news_from_community: "Latest news from %{community} community"
-    news_item:
-      delete_news_item: "Remove article"
   okl:
     member_id: "Member id"
     member_id_or_email: "Member id or email"
@@ -1482,11 +1449,11 @@ en:
     index:
       loading_more_members: "Loading more members"
       meet_the_people: "Meet the people"
-      you_are_the_only_member: "You are the only member of the %{community_name} community."
-      here_are_the_members: "Here are the %{count} members of the %{community_name} community."
+      you_are_the_only_member: "You are the only member of %{service_name}."
+      here_are_the_members: "Here are the %{count} members of %{service_name}."
       wanna_see_more_folks: "Wanna see some more folks here?"
       invite_people_you_know: "Invite the people you know!"
-      there_are_x_members: "There are %{count} members in the %{community_name} community."
+      there_are_x_members: "There are %{count} members in %{service_name}."
       to_see_the_list_log_in: "To see the full list of all the members you need to %{log_in_link}."
       log_in_link: "log in"
     edit_links:
@@ -1498,9 +1465,9 @@ en:
       help_invitation_code_title: "You need an invite to join"
       terms_title: "%{service_name} terms of use"
       trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this community.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
-      invite_only_help_text: "Select this option if you want that new members can join only if they are invited by an existing member of the tribe."
-      invite_only_help_text_title: "Invite-only tribe"
+      trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this marketplace.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
+      invite_only_help_text: "Select this option if you want that new members can join only if they are invited by an existing member of the site."
+      invite_only_help_text_title: "Invite-only"
     inactive_notification:
       this_person_is_not_active_in_kassi: "This user is no longer active in %{service_name}"
       inactive_description: "This user has stopped using %{service_name}. You cannot contact this user, give feedback to them or comment their listings."
@@ -1510,11 +1477,11 @@ en:
       create_new_account: "Create account"
       email: "Email address"
       email_is_in_use: "The email you gave is already in use."
-      email_is_in_use_or_not_allowed: "This email is not allowed for this community or it is already in use. Please use an address that is associated with this community (see instructions above). If you still cannot get in, send us feedback."
-      email_not_allowed: "This email is not allowed for this community. Please use an address that is associated with this community. If you still cannot get in, send us feedback."
+      email_is_in_use_or_not_allowed: "This email is not allowed or it is already in use. If you can't get in, contact us."
+      email_not_allowed: "This email is not allowed in this site. Please use an email address that is allowed. If you still cannot get in, send us feedback."
       email_restriction_instructions:
-        one: "This community is only for %{community_name}. To join you need a '%{allowed_emails}' email address."
-        other: "This community is only for %{community_name}. To join you need an email address that proves you to be entitled to join here."
+        one: "The access to this site is restricted. To join you need a '%{allowed_emails}' email address."
+        other: "The access to this site is restricted. To join you need an email address that proves you to be entitled to join this site."
       enter_captcha: "I'm a human:"
       family_name: "Last name"
       given_name: "First name"
@@ -1529,15 +1496,15 @@ en:
       terms: "terms of use"
       username_is_in_use: "This username is already in use."
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
-      visible_only_to_you: "visible only to you and community admin"
+      visible_only_to_you: "visible only to you and the marketplace admin"
       visible_to_everybody: "visible to everybody"
       create_account_with_facebook: "Sign up with Facebook"
       OR: OR
       signup_with_email: "Sign up with email"
     not_member:
-      explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another Sharetribe community. You cannot access this profile through %{community} community."
-      read_more_about_kassi_communities: "Read more about Sharetribe communities"
-      this_user_does_not_belong_to_this_community: "This user does not belong to %{community} community"
+      explanation_text: "You are currently browsing %{community}. You tried to view the profile of a user that is a member of another marketplace created with the Sharetribe platform. You cannot access this user's profile in %{community}."
+      read_more_about_kassi_communities: "Read more about Sharetribe marketplaces"
+      this_user_does_not_belong_to_this_community: "This user is not a member of %{community}."
     profile_feedback:
       as_expected: "As expected"
       exceeded_expectations: "Much better than expected"
@@ -1562,9 +1529,6 @@ en:
       exceeded_expectations: "Exceeded expectations"
       positive: positive
       hide_description: "Show less"
-      joined_this_community: "Joined %{time_ago}"
-      was_last_seen: "Last seen %{time_ago}"
-      was_invited_by: "Invited by %{inviter_name}"
       less_than_expected: "Worse than expected"
       phone_number: "Phone number:"
       show_all_feedback: "Show all feedback"
@@ -1635,7 +1599,7 @@ en:
       your_current_email_is: "Your email is %{email}."
       change_email: Change
       confirm_your_email: "Confirm your email"
-      account_confirmation_instructions: "You will soon receive an email with a link that you need to click to confirm the email address you entered. After confirming your email you can join this community."
+      account_confirmation_instructions: "You will soon receive an email with a link that you need to click to confirm the email address you entered. After confirming your email you can join this site."
       account_confirmation_instructions_dashboard: "You will soon receive an email with a link that you need to click to confirm the email address you entered."
   settings:
     account:
@@ -1666,10 +1630,10 @@ en:
         status_confirmed: Confirmed
         status_pending: Pending
     notifications:
-      email_from_admins: "I'm willing to receive occasional updates from the administrator(s) of this community"
+      email_from_admins: "I'm willing to receive occasional updates from the administrator(s)."
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
       newsletters: Newsletters
-      community_updates: "Community updates"
+      community_updates: "Update emails"
       email_about_accept_reminders: "...I have forgotten to accept an offer or a request"
       email_about_confirm_reminders: "...I have forgotten to confirm a request as completed"
       email_about_new_comments_to_own_listing: "...somebody comments my offer or request"
@@ -1742,7 +1706,7 @@ en:
       slightly_better_than_expected: "Slightly better than expected"
       slightly_less_than_expected: "Slightly worse than expected"
       textual_feedback: "How did things go?"
-      this_will_be_shown_in_profile: "The feedback you give will be visible to other users in the profile page of %{person}. It helps other members of this tribe to evaluate whether %{person} is a trustworthy person."
+      this_will_be_shown_in_profile: "The feedback you give will be visible to other members in the profile page of %{person}. It helps them to evaluate whether %{person} is a trustworthy person."
       positive: Positive
       negative: Negative
       default_textual_feedback: "Everything went smoothly, thanks a lot!"

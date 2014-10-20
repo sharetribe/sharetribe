@@ -64,7 +64,7 @@ Feature: User views a single listing
     And that listing belongs to community "test"
     And I am on the home page
     When I go to the listing page
-    Then I should see "This content is not available in this community."
+    Then I should see "This content is not available."
 
   Scenario: User belongs to multiple communities, adds listing in one and sees it in another
     Given I am not logged in

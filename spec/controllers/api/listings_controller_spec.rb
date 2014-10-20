@@ -52,7 +52,7 @@ describe Api::ListingsController do
       doc = Nokogiri::XML::Document.parse(response.body)
       doc.at('feed/logo').text.should == "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"
 
-      doc.at("feed/title").text.should =~ /Listings in sharetribe-testcommunity-\d+ Sharetribe/
+      doc.at("feed/title").text.should =~ /Listings in Sharetribe /
       doc.search("feed/entry").count.should == 2
       doc.search("feed/entry/title")[0].text.should == "Sell: hammer"
       doc.search("feed/entry/title")[1].text.should == "Request: bike"

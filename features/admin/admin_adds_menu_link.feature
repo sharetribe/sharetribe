@@ -13,6 +13,6 @@ Feature: Admin adds menu link
     And I fill in "menu_links[menu_link_attributes][jsnew-1][translation_attributes][fi][title]" with "Sharetribe Blogi"
     And I fill in "menu_links[menu_link_attributes][jsnew-1][translation_attributes][fi][url]" with "http://blog.sharetribe.com"
     And I press submit
-    Then I should see "Tribe details updated"
+    Then I should see "Details updated"
     When I open the menu
     Then I should see "Sharetribe Blog" on the menu

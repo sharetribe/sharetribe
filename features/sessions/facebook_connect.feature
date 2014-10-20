@@ -26,10 +26,10 @@ Feature: Facebook connect
     Given I am on the home page
     When I follow log in link
     And I follow "fb-login"
-    Then I should see "Welcome to Sharetribe, Markus! There's one more step to join this community"
+    Then I should see "Welcome to Sharetribe, Markus! There's one more step to join"
     When I check "community_membership_consent"
-    And I press "Join community"
-    Then I should see "successfully joined this community"
+    And I press "Join Sharetribe"
+    Then I should see "Welcome to Sharetribe!"
     And I should see "Markus"
     And user "markus_sharer_123" should have "given_name" with value "Markus"
     And user "markus_sharer_123" should have "family_name" with value "Sugarberg"
@@ -42,10 +42,10 @@ Feature: Facebook connect
     Given I am on the home page
     When I follow log in link
     And I follow "fb-login"
-    Then I should see "Welcome to Sharetribe, Markus! There's one more step to join this community"
+    Then I should see "Welcome to Sharetribe, Markus! There's one more step to join"
     When I check "community_membership_consent"
-    And I press "Join community"
-    Then I should see "successfully joined this community"
+    And I press "Join Sharetribe"
+    Then I should see "Welcome to Sharetribe!"
     And I should see "Markus"
     And user "markus_sharer_123" should have "given_name" with value "Markus"
     And user "markus_sharer_123" should have "family_name" with value "Sugarberg"
@@ -83,8 +83,8 @@ Feature: Facebook connect
       And I should see "I accept the terms of use"
 
      When I check "community_membership_consent"
-      And I press "Join community"
-     Then I should see "successfully joined this community"
+      And I press "Join Sharetribe"
+     Then I should see "Welcome to Sharetribe!"
 
   @javascript
   Scenario: User gets invitation to an invitation-only community and creates an account with FB
@@ -96,10 +96,10 @@ Feature: Facebook connect
     And there is an invitation for community "test" with code "GH1JX8"
     When I arrive to sign up page with the link in the invitation email with code "GH1JX8"
     And I follow "Sign up with Facebook"
-    Then I should see "Welcome to Sharetribe, Markus! There's one more step to join this community"
+    Then I should see "Welcome to Sharetribe, Markus! There's one more step to join"
     When I check "community_membership_consent"
-    And I press "Join community"
-    Then I should see "successfully joined this community"
+    And I press "Join Sharetribe"
+    Then I should see "Welcome to Sharetribe!"
     And I should see "Markus"
 
   @javascript

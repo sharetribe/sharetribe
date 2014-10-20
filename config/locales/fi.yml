@@ -49,27 +49,27 @@ fi:
           cancel: Cancel
     communities:
       edit_details:
-        community_details: "Yhteisön tiedot"
-        community_look_and_feel: "Yhteisön ulkoasu"
-        edit_community: "Muokkaa yhteisön \"%{community_name}\" tietoja"
-        community_name: "Yhteisön nimi"
-        edit_community_name_description: "Yhteisön nimi näytetään käyttäjille lähetettävissä sähköposteissa ja useissa muissa paikoissa."
-        community_slogan: "Yhteisön slogan"
+        community_details: "Perustiedot"
+        community_look_and_feel: "Ulkoasu"
+        edit_community: "Perustiedot"
+        community_name: "Kauppapaikan nimi"
+        edit_community_name_description: "Kauppapaikan nimi näytetään käyttäjille lähetettävissä sähköposteissa ja useissa muissa paikoissa."
+        community_slogan: "Kauppapaikan slogan"
         edit_community_slogan_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
-        community_description: "Yhteisön kuvaus"
+        community_description: "Kauppapaikan kuvaus"
         edit_community_description_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
         community_search_placeholder: "Haun ohjeteksti"
         edit_community_search_placeholder_description: "Näytetään etusivulla hakupalkin ohjetekstinä. %{see_how_it_looks_like}."
-        private_community_homepage_content: "Suljetun yhteisön etusivun sisältö"
-        edit_private_community_homepage_content_description: "Tämä sisältö näytetään kirjautumattomille käyttäjille suljettujen yhteisöjen etusivulla. Tässä voit kertoa tarkemmin yhteisön tarkoituksesta sekä siitä, miten yhteisöön voi liittyä. Voit lisätä kuvaukseen halutessasi myös kuvia, videoita tai HTML-muotoista sisältöä. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Suljetun kauppapaikan etusivun sisältö"
+        edit_private_community_homepage_content_description: "Tämä sisältö näytetään kirjautumattomille käyttäjille suljettujen kauppapaikkojen etusivulla. Tässä voit kertoa tarkemmin kauppapaikan tarkoituksesta sekä siitä, miten palveluun voi liittyä. Voit lisätä kuvaukseen halutessasi myös kuvia, videoita tai HTML-muotoista sisältöä. %{see_how_it_looks_like}."
         update_information: Tallenna
-        invite_people: "Kutsu ihmisiä yhteisöön"
+        invite_people: "Kutsu käyttäjiä"
         edit_signup_info: Liittymisohjeet
         edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä."
         edit_info: "Muokkaa tietoja"
         see_how_it_looks_like: Näytä
         verification_to_post_listings_info_content: "Ohjeteksti vahvistamattomille käyttäjille"
-        verification_to_post_listings_info_content_description: "Tässä yhteisössä ylläpitäjän on annettava käyttäjille postausoikeudet, jotta nämä voivat postata uusia ilmoituksia. Tästä voit asettaa tekstin, joka näytetään käyttäjille, joille ei ole vielä annettu näitä oikeuksia, kun he yrittävät lisätä uutta ilmoitusta."
+        verification_to_post_listings_info_content_description: "Olet määrittänyt kauppapaikan asetuksissa, että ylläpitäjän on annettava käyttäjille postausoikeudet, jotta nämä voivat postata uusia ilmoituksia. Tästä voit asettaa tekstin, joka näytetään käyttäjille, joille ei ole vielä annettu näitä oikeuksia, kun he yrittävät lisätä uutta ilmoitusta."
         verification_to_post_listings_info_content_default: "Sinun pitää saada hyväksyntä ylläpitäjiltä, ennen kuin voit lisätä uuden ilmoituksen. %{contact_admin_link} saadaksesi hyväksynnän."
         contact_admin_link_text: "Ota yhteyttä ylläpitoon"
         save: Tallenna
@@ -80,7 +80,7 @@ fi:
         transaction_agreement_text_header: Sopimusteksti
         transaction_agreement_description: "Tämä on sopimustekstin sisältö kokonaisuudessaan. Teksti näytetään käyttäjälle kun hän klikkaa \"%{read_more}\" linkkiä."
       edit_look_and_feel:
-        edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
+        edit_community_look_and_feel: "Ulkoasu"
         community_logo: Peruslogo
         community_logo_icon: Mobiililogo
         community_cover_photo: Kansikuva
@@ -115,7 +115,7 @@ fi:
         edit_text_instructions: "Muokkaa ohjetekstejä"
       edit_welcome_email:
         welcome_email_content: "Tervetulosähköpostin sisältö"
-        welcome_email_content_description: "Alla oleva viesti lähetetään automaattisesti kaikille uusille käyttäjille näiden liittyessä. Voit muokata viestin sisältöä vastaamaan yhteisösi kuvausta. Klikkaamalla '%{send_test_message_link}' -linkkiä voit lähettää viestin omaan sähköpostiosoitteeseesi."
+        welcome_email_content_description: "Alla oleva viesti lähetetään automaattisesti kaikille uusille käyttäjille näiden liittyessä. Voit muokata viestin sisältöä vastaamaan sivustosi kuvausta. Klikkaamalla '%{send_test_message_link}' -linkkiä voit lähettää viestin omaan sähköpostiosoitteeseesi."
         edit_message: "Muokkaa viestiä"
         send_test_message: "Lähetä testiviesti"
       settings:
@@ -123,9 +123,9 @@ fi:
         general: Yleiset
         users_can_review_each_other_after_transaction: "Käyttäjät voivat antaa palautetta toisilleen"
         access: Pääsyoikeudet
-        join_with_invite_only: "Käyttäjät voivat liittyä yhteisöön ainoastaan saatuaan kutsun toiselta käyttäjältä"
-        users_can_invite_new_users: "Käyttäjillä on oikeus kutsua muita käyttäjiä yhteisöön"
-        private: "Yksityinen yhteisö (vain kirjautuneet käyttäjät näkevät sisällön)"
+        join_with_invite_only: "Käyttäjät voivat liittyä palveluun ainoastaan saatuaan kutsun toiselta käyttäjältä"
+        users_can_invite_new_users: "Käyttäjillä on oikeus kutsua muita käyttäjiä palveluun."
+        private: "Yksityinen kauppapaikka (vain kirjautuneet käyttäjät näkevät sisällön)"
         require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
         listing_preferences: Ilmoitusasetukset
         transaction_preferences: "Transaktioprosessin asetukset"
@@ -135,7 +135,7 @@ fi:
         listing_comments_in_use: "Käyttäjät voivat kommentoida ilmoituksia (kommentit näkyvät muille käyttäjille)"
         email_preferences: Sähköpostiasetukset
         automatic_newsletters: "Lähetä automaattinen uutiskirje kaikille käyttäjille (paitsi jos he lopettavat tilauksen)"
-        email_admins_about_new_members: "Lähetä sähköpostia ylläpitäjälle aina kun uusi käyttäjä liittyy yhteisöön"
+        email_admins_about_new_members: "Lähetä sähköpostia ylläpitäjälle aina kun uusi käyttäjä liittyy palveluun"
         integrations: "Kolmansien osapuolten sovellukset"
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
@@ -155,7 +155,7 @@ fi:
         saving_user_status: Tallennetaan...
         save_user_status_successful: "Tallennus onnistui"
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
-        ban_user_confirmation: "Olet poistamassa käyttäjää yhteisöstä ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
+        ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
       integrations:
         integrations: Integraatiot
         twitter_handle: Twitter-tili
@@ -237,7 +237,6 @@ fi:
         field_title: "Kentän nimi"
         field_type: "Kentän tyyppi"
         categories: "Ilmoituskategoriat joihin kenttä liittyy"
-        no_custom_listing_fields: "Yhteisöllä ei ole yhtään yhteisökohtaista listauskenttää."
         options: Vastausvaihtoehdot
         add_option: "+ Lisää vastausvaihtoehto"
         saving_order: "Tallennetaan kenttien järjestystä"
@@ -259,7 +258,7 @@ fi:
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"
-        send_email_to_members_title: "Lähetä sähköpostiviesti kaikille tämän yhteisön jäsenille"
+        send_email_to_members_title: "Lähetä sähköpostiviesti kaikille palvelun käyttäjille"
         email_subject: "Viestin otsikko"
         email_content: "Viestin sisältö"
         email_content_placeholder: "Mitä haluat kertoa jäsenille?"
@@ -268,22 +267,6 @@ fi:
         send_email: "Lähetä viesti"
         message_will_be_sent_only_to_people_with_this_language: "Tämä viesti lähetetään vain niille jäsenille, jotka käyttävät %{service_name}-palvelua valitsemallasi kielellä."
         email_sent: "Viesti lähetetty."
-    news_items:
-      index:
-        news_items: "Uusimmat uutiset"
-        create_news_item: "Lisää uutinen"
-        no_news: "Ei uutisia"
-        loading_more_news: "Ladataan lisää uutisia"
-      new:
-        new_news_item: "Uutisen lisäys"
-        edit_news_item: "Uutisen muokkaus"
-        index_news_item: "Uutisen lisäys"
-        title: "Otsikko:"
-        content: "Teksti:"
-        save_news_item: "Tallenna uutinen"
-      news_item:
-        edit_news_item: Muokkaa
-        delete_news_item: Poista
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       new:
@@ -335,7 +318,7 @@ fi:
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"
-    default_community_description: "%{service_name} on verkkotori, jossa yhteisön jäsenet voivat jakaa tavaroita, palveluita, kyytejä ja tiloja."
+    default_community_description: "%{service_name} on kauppapaikka, jossa palvelun käyttäjät voivat myydä tai vuokrata tavaroita, palveluita tai tiloja."
     cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
     or: tai
@@ -592,16 +575,16 @@ fi:
       contact_page_link: palautetta
     new:
       welcome_fb_user: "Tervetuloa, %{name}!"
-      fb_join_accept_terms: "Liittyäksesi tähän yhteisöön sinun tulee vielä hyväksyä sen käyttöehdot."
-      join_community: "Liittyminen yhteisöön '%{community}'"
+      fb_join_accept_terms: "Liittyäksesi sinun tulee vielä hyväksyä palvelun käyttöehdot."
+      join_community: "Liittyminen '%{service_name}'-palveluun"
       you_are_not_a_member_of_this_community: "Sinulla on käyttäjätunnus %{service_name}-palveluun, mutta et vielä ole %{service_name}-palvelun jäsen."
-      you_can_join: "Voit liittyä yhteisöön hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
-      you_can_join_email_confirmation: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on %{email_ending}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot, klikkaamalla alareunasta 'Liity yhteisöön' -nappia ja klikkaamalla saapuvassa sähköpostissa olevaa vahvistuslinkkiä."
-      you_can_join_email_confirmation_multiple_addresses: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla jonkin sellaisen organisaation sähköpostiosoite, jonka jäsenille tämän yhteisön ylläpitäjä on sallinut liittymisen. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
-      you_can_join_with_invite_only: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla kutsu joltakin toiselta yhteisön jäseneltä. Jos sinulla on kutsukoodi, voit liittyä tähän yhteisöön kirjoittamalla koodin alla olevaan kenttään, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
-      if_want_to_view_content: "Jos haluat nähdä mitä yhteisössä tapahtuu liittymättä siihen sinun täytyy"
+      you_can_join: "Voit liittyä hyväksymällä palvelun käyttöehdot ja klikkaamalla alareunasta 'Liity palveluun' -nappia."
+      you_can_join_email_confirmation: "Jotta voisit liittyä tähän palveluun, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on %{email_ending}. Voit liittyä palveluun täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä palvelun käyttöehdot, klikkaamalla alareunasta 'Liity palveluun' -nappia ja klikkaamalla saapuvassa sähköpostissa olevaa vahvistuslinkkiä."
+      you_can_join_email_confirmation_multiple_addresses: "Tähän palveluun liittyminen on rajattua. Liittyäksesi sinulla pitää olla sallittu sähköpostiosoite. Voit liittyä palveluun täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä palvelun käyttöehdot ja klikkaamalla alareunasta 'Liity palveluun' -nappia."
+      you_can_join_with_invite_only: "Jotta voisit liittyä tähän palvelun, sinulla pitää olla kutsu joltakin toiselta palvelun käyttäjältä. Jos sinulla on kutsukoodi, voit liittyä tähän palveluun kirjoittamalla koodin alla olevaan kenttään, hyväksymällä palvelun käyttöehdot ja klikkaamalla alareunasta 'Liity palveluun' -nappia."
+      if_want_to_view_content: "Jos haluat nähdä mitä palvelussa tapahtuu liittymättä siihen sinun täytyy"
       log_out: "kirjautua ulos"
-      join_community_button: Liity
+      join_community_button: "Liity palveluun"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Muistutus: hyväksy/hylkää käyttäjän %{sender_name} tarjous"
@@ -613,7 +596,7 @@ fi:
       show_thread: "Näytä viestiketju"
     braintree_account_approved:
       account_ready: "Voit nyt vastaanottaa maksuja"
-      message: "Maksutietosi on nyt tarkistettu ja hyväksytty. Voit tästä lähetien vastaanottaa maksuja yhteisössä %{service_name}"
+      message: "Maksutietosi on nyt tarkistettu ja hyväksytty. Voit tästä lähtien vastaanottaa maksuja %{service_name}-palvelussa"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä, jotta voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
@@ -662,7 +645,7 @@ fi:
       need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla alla olevaa linkkiä"
       confirmation_link_text: "Vahvista sähköpostini"
       or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan linkin selaimesi osoitepalkkiin:"
-      turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset tässä %{service_name}-yhteisössä."
+      turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset %{service_name}-palvelussa."
     common:
       check_your_settings: "Tarkista asetuksesi"
       hey: "Hei %{name},"
@@ -676,7 +659,7 @@ fi:
       or: tai
       unsubscribe_from_these_emails: "lopeta tällaisten viestien vastaanotto kokonaan"
     community_starter_email:
-      subject: "Sharetriben uusi ilme - käyttäjämääräraja poistettu, yhteisön ilmeen muokkaus ja paljon muuta"
+      subject: "Sharetriben uusi ilme - käyttäjämääräraja poistettu, kauppapaikan ilmeen muokkaus ja paljon muuta"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi '%{listing}'."
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi '%{listing}'."
@@ -692,9 +675,9 @@ fi:
       remember_to_confirm: "Muista merkitä pyyntö toteutuneeksi, kun olet saanut haluamasi. Jos vastapuoli ei pysty täyttämään lupaustaan, sinulla on %{days_to_automatic_confirmation} päivää aikaa peruuttaa pyyntö, ennen kuin se merkitään toteutuneeksi automaattisesti."
     invitation_to_kassi:
       hi: Hei!
-      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut %{community} -yhteisöön."
+      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut %{service_name}-palveluun."
       here_is_a_message_from: "%{inviter} lähetti sinulle seuraavan saateviestin:"
-      join_now: "Liity yhteisöön"
+      join_now: "Liity palveluun"
       invitation_code: "Kutsukoodi: %{code}"
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} on kommentoinut ilmoitustasi '%{listing}'"
@@ -735,8 +718,8 @@ fi:
       added_listing: "%{name_link} lisäsi ilmoituksen:"
       update_mail_title: "%{title_link} - uusimmat kuulumiset"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Tässä poimintoja siitä, mitä yhteisössä %{community_link} on tapahtunut viimeisen %{time_since_last_update} aikana."
-      intro_paragraph_link_text: "%{community_name}"
+      intro_paragraph: "Tässä poimintoja siitä, mitä %{service_name}-palvelussa on tapahtunut viimeisen %{time_since_last_update} aikana."
+      intro_paragraph_link_text: "%{service_name}"
       post_a_new_listing: "Lisää uusi ilmoitus!"
       reduce_email_footer_text: "Liikaa sähköpostia? %{settings_link} tai %{unsubscribe_link}."
       settings_link_text: "Säädä sähköpostit harvemmaksi"
@@ -766,15 +749,15 @@ fi:
       one_day_left: ~
       click_here_to_reply: ~
     welcome_email:
-      welcome_email_subject: "Tervetuloa yhteisöön %{community}"
-      welcome_to_marketplace: "Tervetuloa %{service_name}-markkinapaikkasivuston jäseneksi! Mukavaa kun liityit."
+      welcome_email_subject: "Tervetuloa %{community}-palveluun"
+      welcome_to_marketplace: "Tervetuloa %{service_name}-palvelun jäseneksi! Mukavaa kun liityit."
       love_marketplace_crew: "Terveisin,<br /><i>%{service_name}-tiimi</i>"
       p_s_did_you_know: "P.S. Haluaisitko perustaa itse vastaavanlaisen markkinapaikkasivuston kuin %{service_name}? Se on helppoa eikä sinulta vaadita lainkaan ohjelmointiosaamista. %{click_here_link} kuullaksesi lisää!"
       click_here_link_text: "Klikkaa tästä"
       welcome_email_footer_text: "Millaisia sähköpostiviestejä haluat saada %{service_name}-palvelusta? %{settings_link}"
       settings_link_text: "Tarkista sähköpostiasetuksesi"
     new_listing_by_followed_person:
-      subject: "%{author_name} lisäsi ilmoituksen yhteisöön %{service_name}"
+      subject: "%{author_name} lisäsi ilmoituksen %{service_name}-palveluun"
       has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
       you_are_receiving_this_because: "Sait tämän viestin, koska seuraat käyttäjää %{author_name}."
       view_listing: "Näytä ilmoitus"
@@ -907,8 +890,6 @@ fi:
       no_listings_with_your_search_criteria: "Antamillasi hakuehdoilla ei löytynyt yhtään ilmoitusta."
       no_listings_notification: "Ei ilmoituksia. %{add_listing_link}."
       add_listing_link_text: "Lisää uusi ilmoitus"
-      available_on_the_app_store: "Saatavilla App Storesta"
-      private_listing_notification: "Tässä yhteisössä on yhteensä %{listing_count}. Näistä %{private_listing_count} näkyy ainoastaan yhteisön jäsenille. Jos haluat nähdä myös vain yhteisön jäsenille näkyvät ilmoitukset, sinun pitää %{log_in_link}."
       open_listing: "avoin ilmoitus"
       open_listings: "avointa ilmoitusta"
       private_listing_notification_log_in: "kirjautua sisään"
@@ -918,7 +899,6 @@ fi:
       post_new_listing: "Lisää uusi ilmoitus!"
       are_offering: tarjoavat
       add_news_item: "Lisää uutinen"
-      inform_others_about_events: "Yhteisön uusimmat uutiset ja tapahtumat."
       lend_rent_help_carpool: "Myy, lainaa, auta, kyyditse"
       loading_more_content: "Ladataan lisää"
       more_events: "Lisää tapahtumia..."
@@ -929,13 +909,12 @@ fi:
       or_see_what_the_others: "...tai katso mitä muut"
       recent_events: "Uusimmat tapahtumat"
       requesting: tarvitsevat
-      teaser_text: "%{service_name} on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
       tell_it_here: "Kerro se täällä!"
       welcome_to_new_kassi: "%{service_name} on uudistunut!"
       no_reviews: "Ei palautteita"
       no_image: "Ei kuvaa"
       filter: Suodata
-      this_is_private_community: "Sinun täytyy liittyä yhteisöön nähdäksesi sen sisällön."
+      this_is_private_community: "Sinun täytyy liittyä palveluun nähdäksesi sen sisällön."
     invitation_form:
       invite_your_friends: "Kutsu kaverisi %{service_name}-palveluun!"
       invite_your_neighbors: "Kutsu naapurisi %{service_name}-palveluun!"
@@ -981,19 +960,15 @@ fi:
   infos:
     about:
       default_about_text_title: "Mikä on Sharetribe?"
-      default_about_text: "Tämä sivusto on luotu Sharetribe-alustalla. Sharetriben avulla kuka tahansa voi perustaa oman verkkotorin. Haluaisitko perustaa tällaisen sivuston omalle yhteisöllesi? Se on ilmaista ja onnistuu minuutissa. %{click_here_link}"
+      default_about_text: "Tämä sivusto on luotu Sharetribe-alustalla. Sharetriben avulla kuka tahansa voi perustaa oman verkkotorin. Haluaisitko perustaa tällaisen sivuston? Se on ilmaista ja onnistuu minuutissa. %{click_here_link}"
       click_here_link_text: "Lue lisää!"
   layouts:
+    admin:
+      admin: "Ylläpito"
     no_tribe:
       inbox: Postilaatikko
       settings: Asetukset
       feedback: "Ota yhteyttä"
-    admin:
-      admin: "%{service_name}-palvelun ylläpitonäkymä"
-      back_to_kassi: "Takaisin %{service_name}-palveluun"
-      tribe_info: "Yhteisön perustiedot"
-      news_items: Uutiset
-      polls: Kyselyt
     application:
       join_this_community: Liity
       read_more: "Lue lisää"
@@ -1002,7 +977,7 @@ fi:
       feedback_forum: "palautefoorumiltamme,"
       feedback_handle: Palaute
       give_feedback: "Anna palautetta %{service_name}-palvelusta"
-      keywords: "%{service_name}, Kassi, palvelus, tavara, kimppakyyti, asuminen, pyydetään, tarjotaan, lainataan, vuokrataan, vaihdetaan, ostetaan, myydään, annetaa, lahjoitetaan, annetaan, ekologisuus, yhteisö, verkkoyhteisö"
+      keywords: "%{service_name}, Kassi, palvelus, tavara, kimppakyyti, asuminen, pyydetään, tarjotaan, lainataan, vuokrataan, vaihdetaan, ostetaan, myydään, annetaa, lahjoitetaan, annetaan, ekologisuus, yhteisö, verkkoyhteisö, markkinapaikka, kauppapaikka"
       meta_description: "%{service_name} on verkkopalvelu, jonka avulla yhdistysten ja muiden yhteisöjen jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
       or_check_our: "...tai tarkista"
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
@@ -1012,7 +987,7 @@ fi:
       invite_your_friends: "Kutsu kaverisi!"
       invite_your_neighbors: "Kutsu naapurisi!"
       invite_your_friends_description: "Mitä enemmän ihmisiä on mukana, sitä hyödyllisempi %{service_name} on."
-      invite_your_friends_invite_only_description: "Tähän yhteisöön voi liittyä vain jos saa kutsun toiselta jäseneltä."
+      invite_your_friends_invite_only_description: "Tähän palveluun voi liittyä vain jos saa kutsun toiselta jäseneltä."
       join_without_facebook: "...tai vaihtoehtoisesti %{join_without_facebook_link}"
       join_without_facebook_link: "liity käyttämättä Facebook-tunnuksia"
     conversations:
@@ -1020,8 +995,6 @@ fi:
       notifications: Tiedotteet
       received: Saapuneet
       sent: Lähetetyt
-    dashboard:
-      title: "%{service_name} - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
     global-header:
       select_language: "Valitse kieli"
     infos:
@@ -1060,10 +1033,10 @@ fi:
       contact_admin_link_text: "ota yhteyttä ylläpitoon"
       test_welcome_email_delivered_to: "Testisähköposti lähetettiin osoitteeseen %{email}."
       something_went_wrong: "Jotain meni vikaan"
-      community_updated: "Yhteisön tiedot päivitetty."
-      community_update_failed: "Yhteisön tietojen päivittäminen epäonnistui."
+      community_updated: "Tiedot päivitetty."
+      community_update_failed: "Tietojen päivittäminen epäonnistui."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Käyttäjätunnus luotu. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "Yhteisöön liittyminen onnistui. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Palveluun liittyminen onnistui. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
       comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
       comment_sent: "Kommentti lähetetty"
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
@@ -1081,7 +1054,7 @@ fi:
       feedback_skipped: "Palaute ohitettu"
       invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
       invitation_sent: "Kutsu lähetetty"
-      inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua tässä %{service_name}-yhteisössä"
+      inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua."
       login_again: "Kirjaudu uudestaan."
       login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
       account_creation_successful: "Tervetuloa %{service_name}-palveluun, %{person_name}!"
@@ -1129,10 +1102,9 @@ fi:
       request_rejected: "Pyyntö hylätty"
       request_canceled: "Pyyntö peruttu"
       message_sent: "Viesti lähetetty"
-      this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy tästä %{service_name}-yhteisöstä."
+      this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy."
       unknown_error: "Tuntematon virhe. Voit auttaa selvittämisessä lähettämällä palautetta siitä mitä tapahtui."
       update_error: "Tietojen päivitys ei onnistunut, yritä uudelleen hetken kuluttua"
-      welcome_message: "Tervetuloa! %{service_name} on palvelu, jonka avulla %{community}-yhteisön jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Sinulla ei ole oikeuksia antaa palautetta tästä tapahtumasta"
       you_are_not_authorized_to_do_this: "Sinulla ei ole oikeuksia tähän operaatioon"
       you_are_not_authorized_to_view_this_content: "Sinulla ei ole oikeuksia tähän sisältöön"
@@ -1142,8 +1114,8 @@ fi:
       you_cannot_send_message_to_yourself: "Et voi lähettää viestiä itsellesi"
       you_followed_listing: "Aloit seurata ilmoitusta"
       you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
-      you_are_now_member: "Yhteisöön liittyminen onnistui. Tervetuloa!"
-      you_are_already_member: "Olet liittynyt tähän %{service_name}-yhteisöön jo aiemmin. Tervetuloa takaisin!"
+      you_are_now_member: "Liittyminen onnistui. Tervetuloa!"
+      you_are_already_member: "Olet jo tämän sivuston jäsen. Tervetuloa takaisin!"
       you_must_log_in_to_create_new_listing: "Sinun pitää kirjautua sisään %{service_name}-palveluun, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit %{sign_up_link}."
       additional_email_confirmed_dashboard: "Sähköpostiosoitteesi on nyt vahvistettu."
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
@@ -1162,7 +1134,7 @@ fi:
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
       you_must_fill_all_the_fields: "Kaikki kentät täytyy täyttää"
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
-      joining_community_failed: "Yhteisöön liittyminen epäonnistui"
+      joining_community_failed: "Liittyminen epäonnistui"
       can_not_login_with_private_user: "Et voi kirjautua tähän yksityishenkilön tunnuksilla. Kirjaudu organisaatiotunnuksella tai luo uusi tunnus."
       can_not_delete_email: "Et voi poistaa valitsemaasi sähköpostiosoitetta."
       user_does_not_have_email_to_delete: "Et omista sähköpostiosoitetta, jota yrität poistaa."
@@ -1286,8 +1258,8 @@ fi:
       valid_until_radio_buttons:
         for_the_time_being: Toistaiseksi
       visibility:
-        all_communities: "Kaikille %{service_name}-yhteisöilleni"
-        this_community: "Vain tämän yhteisön jäsenille"
+        all_communities: "Kaikille Sharetribe-kauppapaikoilleni"
+        this_community: "Vain tämän sivuston jäsenille"
         visibility: Näkyvyys
       privacy:
         privacy: Yksityisyys
@@ -1424,11 +1396,6 @@ fi:
       search_verb: Hae
       you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
     please_comment: Kommentoi
-  news_items:
-    index:
-      news_from_community: "Uusimmat %{community}-yhteisön uutiset"
-    news_item:
-      delete_news_item: "Poista uutinen"
   okl:
     member_id: Jäsennumero
     member_id_or_email: "Jäsennumero tai sähköposti"
@@ -1482,11 +1449,11 @@ fi:
     index:
       loading_more_members: "Ladataan lisää jäseniä"
       meet_the_people: Ihmiset
-      you_are_the_only_member: "Olet tämän yhteisön ainoa jäsen."
-      here_are_the_members: "Tässä ovat yhteisön %{community_name} %{count} jäsentä."
+      you_are_the_only_member: "Olet tämän sivuston ainoa jäsen."
+      here_are_the_members: "Tässä ovat sivuston %{service_name} %{count} jäsentä."
       wanna_see_more_folks: "Haluaisitko, että täällä olisi enemmän väkeä?"
       invite_people_you_know: "Kutsu tuntemasi ihmiset mukaan!"
-      there_are_x_members: "Tässä yhteisössä on %{count} jäsentä."
+      there_are_x_members: "Tälllä sivustolla on %{count} jäsentä."
       to_see_the_list_log_in: "Nähdäksesi listan kaikista jäsenistä sinun pitää %{log_in_link}."
       log_in_link: "kirjautua sisään"
     edit_links:
@@ -1500,7 +1467,7 @@ fi:
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p>TrustCloud on Internet-palvelu, joka auttaa mittaamaan henkilöiden luotettavuutta erilaisissa jakamispalveluissa. TrustCloud antaa pistemäärän (1-1000) perustuen henkilön toimintaan eri palveluissa. Pistemäärä kasvattaa muilta saatu hyvä palaute, omien tietojen kertominen avoimesti, sekä suuri määrä yhteyksiä esim. Facebookissa. TrustCard-korttia klikkaamalla näet lisätietoja kustakin kortista.</p><p>TrustCloud on käytössä %{service_name}-palvelussa tuomassa lisävarmistusta sille, että henkilö esiintyy omana itsenään, ei piiloudu tekaistun identiteetin taakse.</p><p>Voit rekisteröidä oman TrustCard-kortin, jos haluat, <a href='https://trustcloud.com/claim'>rekisteröitymällä TrustCloudiin</a> ja vahvistamalla siellä saman email osoitteen, joka sinulla on käytössä %{service_name}-palvelussa. TrustCloudin käyttö on täysin vapaaehtoista, mutta suosittelemme rekisteröitymistä, sillä se lisää luotettavuuttasi muiden silmissä, ja todennäköisesti siten helpottaa avun löytämistä.</p><p>Toimintasi %{service_name}-palvelussa ei vielä vaikuta TrustCloud-pisteisiisi, mutta tulevaisuudessa on tarkoitus, että %{service_name}-palautteetkin vaikuttavat.</p>"
       invite_only_help_text: "Valitse tämä, jos haluat, että uudet jäsenet voivat liittyä vain, jos he ovat saaneet kutsun olemassaolevalta jäseneltä."
-      invite_only_help_text_title: "Kutsun vaativa yhteisö"
+      invite_only_help_text_title: "Kutsun vaativa sivusto"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Tämä käyttäjä ei ole enää aktiivinen %{service_name}-palvelussa"
       inactive_description: "Tämä käyttäjä on lopettanut %{service_name}-palvelun käytön. Et voi enää lähettää hänelle viestejä, antaa hänelle palautetta tai kommentoida hänen ilmoituksiaan."
@@ -1510,11 +1477,11 @@ fi:
       create_new_account: "Luo tunnus"
       email: Sähköpostiosoite
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
-      email_is_in_use_or_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön (tai se on jo käytössä). Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön (kts. ylälaidan ohjeteksti). Jos et silti pääse sisään, lähetä palautetta ylälaidan valikon kautta."
-      email_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön. Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön. Jos et silti pääse sisään, lähetä palautetta ylälaidan valikon kautta."
+      email_is_in_use_or_not_allowed: "Antamasi osoite ei kelpaa (tai se on jo käytössä). Jos et pääse sisään, ole yhteydessä ylläpitoon."
+      email_not_allowed: "Antamasi osoite ei kelpaa. Jos et pääse sisään, lähetä palautetta ylälaidan valikon kautta."
       email_restriction_instructions:
-        one: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
-        other: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset sellaisen organisaation sähköpostiosoitteen, jolle on myönnetty mahdollisuus liittyä tähän yhteisöön."
+        one: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
+        other: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset sellaisen organisaation sähköpostiosoitteen, jolle on myönnetty mahdollisuus liittyä tähän palveluun."
       enter_captcha: "Olen ihminen"
       family_name: Sukunimi
       given_name: Etunimi
@@ -1562,9 +1529,6 @@ fi:
       exceeded_expectations: "Ylitti odotukset"
       positive: positiivista
       hide_description: "Vähemmän tekstiä"
-      joined_this_community: "Liittyi tähän yhteisöön %{time_ago}"
-      was_last_seen: "Viimeksi aktiivinen %{time_ago}"
-      was_invited_by: "Liittyi yhteisöön käyttäjän %{inviter_name} kutsumana"
       less_than_expected: "Ei vastannut odotuksia"
       phone_number: "Puhelinnumero:"
       show_all_feedback: "Näytä kaikki palautteet"
@@ -1635,7 +1599,7 @@ fi:
       your_current_email_is: "Nykyinen osoitteesi: <strong>%{email}</strong>"
       change_email: Vaihda?
       confirm_your_email: "Ole hyvä ja vahvista sähköpostiosoitteesi"
-      account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava varmistaaksesi sähköpostiosoitteesi. Varmistuksen jälkeen voit liittyä tähän yhteisöön."
+      account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava varmistaaksesi sähköpostiosoitteesi. Varmistuksen jälkeen voit liittyä palveluun."
       account_confirmation_instructions_dashboard: "Saat pian sähköpostin, jossa linkki, jolla voit vahvistaa syöttämäsi sähköpostiosoitteen."
   settings:
     account:
@@ -1666,7 +1630,7 @@ fi:
         status_confirmed: Vahvistettu
         status_pending: Odottaa
     notifications:
-      email_from_admins: "Tämän yhteisön ylläpitäjä voi lähettää minulle sähköpostia"
+      email_from_admins: "Sivuston ylläpitäjä voi lähettää minulle sähköpostia"
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       newsletters: Uutiskirjeet
       community_updates: Tapahtumapäivitykset
@@ -1676,8 +1640,8 @@ fi:
       email_about_new_messages: "...joku lähettää minulle viestin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
       email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
-      email_daily_community_updates: "Lähetä viesti <b>päivittäin</b>, jos yhteisöissäni on uusia ilmoituksia"
-      email_weekly_community_updates: "Lähetä viesti <b>viikoittain</b>, jos yhteisöissäni on uusia ilmoituksia"
+      email_daily_community_updates: "Lähetä viesti <b>päivittäin</b>, jos sivustolla on uusia ilmoituksia"
+      email_weekly_community_updates: "Lähetä viesti <b>viikoittain</b>, jos sivustolla on uusia ilmoituksia"
       do_not_email_community_updates: "Älä lähetä minulle sähköpostia uusimmista ilmoituksista"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
@@ -1742,7 +1706,7 @@ fi:
       slightly_better_than_expected: "Ylitti osin odotukset"
       slightly_less_than_expected: "Ei täysin vastannut odotuksia"
       textual_feedback: "Miten tapahtuma sujui?"
-      this_will_be_shown_in_profile: "Antamasi palaute näkyy muille yhteisön jäsenille käyttäjän %{person} profiilisivulla. Palautteen avulla muut jäsenet voivat arvoida käyttäjän %{person} luotettavuutta."
+      this_will_be_shown_in_profile: "Antamasi palaute näkyy muille palvelun käyttäjille käyttäjän %{person} profiilisivulla. Palautteen avulla muut jäsenet voivat arvoida käyttäjän %{person} luotettavuutta."
       positive: Positiivinen
       negative: Negatiivinen
       default_textual_feedback: "Kaikki meni hienosti, paljon kiitoksia!"
