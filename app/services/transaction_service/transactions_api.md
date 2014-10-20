@@ -68,6 +68,7 @@ Response:
   , current_state: :free       # or :initiated for Paypal
                                # or :preauthorized for preauthorized Braintree
                                # or :pending for postpay Braintree and Checkout
+  , payment_total: Money.new(50, "USD") # only for Braintree if :preauthorized
   }
 
   # PayPal
@@ -86,7 +87,10 @@ Only for **preauthorize** and **paypal**
 
 ```ruby
 {
-  token: "ECJHGOAGIHADG"
+  gateway_fields:
+  { payment_gateway: paypal
+  , token: "ECJHGOAGIHADG"
+  }
 }
 ```
 
@@ -110,6 +114,8 @@ Response:
   , updated_at: <Time>
   , last_transition_at: <Time>
   , current_state: :preauthorized
+  , payment_total: Money.new(50, "USD")
+  }
 }
 ```
 
@@ -137,6 +143,8 @@ Response:
   , updated_at: <Time>
   , last_transition_at: <Time>
   , current_state: :rejected
+  , payment_total: Money.new(50, "USD")
+  }
 }
 ```
 
@@ -166,6 +174,7 @@ Response:
   , updated_at: <Time>
   , last_transition_at: <Time>
   , current_state: :rejected
+  , payment_total: Money.new(50, "USD")
   }
 
   # PayPal
@@ -218,6 +227,7 @@ Response:
   , updated_at: <Time>
   , last_transition_at: <Time>
   , current_state: :accepted
+  , payment_total: Money.new(50, "USD")
   }
 }
 ```
@@ -264,6 +274,7 @@ Response:
   , updated_at: <Time>
   , last_transition_at: <Time>
   , current_state: :paid
+  , payment_total: Money.new(50, "USD")
   }
 }
 ```
@@ -292,6 +303,7 @@ Response:
   , updated_at: <Time>
   , last_transition_at: <Time>
   , current_state: :completed
+  , payment_total: Money.new(50, "USD")
   }
 }
 ```
@@ -320,6 +332,7 @@ Response:
   , updated_at: <Time>
   , last_transition_at: <Time>
   , current_state: :canceled
+  , payment_total: Money.new(50, "USD")
   }
 }
 ```
