@@ -24,12 +24,13 @@
 
       -# Only for transactions
       - status = conversation[:last_transition_to_state]
+      - status_meta = conversation[:transitions].last[:metadata]
       - if status.present? && status != "free"
         - is_author = !conversation[:current_is_starter]
         - waiting_feedback = conversation[:waiting_feedback]
         - other_name = conversation[:other][:name]
 
-        - icon, status_description = conversation_icon_and_status(status, is_author, other_name, waiting_feedback)
+        - icon, status_description = conversation_icon_and_status(status, is_author, other_name, waiting_feedback, status_meta)
 
         .conversation-list-status-container
           .conversation-list-status-icon

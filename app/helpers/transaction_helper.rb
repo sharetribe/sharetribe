@@ -14,6 +14,8 @@ module TransactionHelper
       "ss-check"
     when "preauthorized"
       "ss-check"
+    when "pending_ext"
+      "ss-alert"
     when "accept_preauthorized"
       "ss-check"
     when "reject_preauthorized"
@@ -22,7 +24,7 @@ module TransactionHelper
   end
 
   # Give `status`, `is_author` and `other_party` and get back icon and text for current status
-  def conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback)
+  def conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback, status_meta)
     icon_waiting_you = icon_tag("alert", ["icon-fix-rel", "waiting-you"])
     icon_waiting_other = icon_tag("clock", ["icon-fix-rel", "waiting-other"])
 
@@ -34,7 +36,7 @@ module TransactionHelper
     end if status == "confirmed"
 
     status_hash = {
-      pending: {
+      pending: ->() { {
         author: {
           icon: icon_waiting_you,
           text: t("conversations.status.waiting_for_you_to_accept_request")
@@ -43,9 +45,9 @@ module TransactionHelper
           icon: icon_waiting_other,
           text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
         }
-      },
+      } },
 
-      preauthorized: {
+      preauthorized: ->() { {
         author: {
           icon: icon_waiting_you,
           text: t("conversations.status.waiting_for_you_to_accept_request")
@@ -54,9 +56,52 @@ module TransactionHelper
           icon: icon_waiting_other,
           text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
         }
+      } },
+
+      pending_ext: ->() {
+        case status_meta[:pending_reason]
+        when "multi-currency"
+          {
+            author: {
+              icon: icon_waiting_you,
+              # Make this aware of the reason
+              text: t("conversations.status.pending_external_inbox.paypal.multicurrency")
+            },
+            starter: {
+              icon: icon_waiting_other,
+              text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
+            }
+          }
+        when "intl"
+          {
+            author: {
+              icon: icon_waiting_you,
+              # Make this aware of the reason
+              text: t("conversations.status.pending_external_inbox.paypal.intl")
+            },
+            starter: {
+              icon: icon_waiting_other,
+              text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
+            }
+          }
+        when "verify"
+          {
+            author: {
+              icon: icon_waiting_you,
+              # Make this aware of the reason
+              text: t("conversations.status.pending_external_inbox.paypal.verify")
+            },
+            starter: {
+              icon: icon_waiting_other,
+              text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
+            }
+          }
+        when "other"
+
+        end
       },
 
-      accepted: {
+      accepted: ->() { {
         author: {
           icon: icon_waiting_other,
           text: t("conversations.status.waiting_payment_from_requester", requester_name: other_party_name)
@@ -65,16 +110,16 @@ module TransactionHelper
           icon: icon_waiting_you,
           text: t("conversations.status.waiting_payment_from_you")
         }
-      },
+      } },
 
-      rejected: {
+      rejected: -> () { {
         both: {
           icon: icon_tag("cross", ["icon-fix-rel", "rejected"]),
           text: t("conversations.status.request_rejected")
         }
-      },
+      } },
 
-      paid: {
+      paid: ->() { {
         author: {
           icon: icon_waiting_other,
           text: t("conversations.status.waiting_confirmation_from_requester", requester_name: other_party_name)
@@ -83,31 +128,32 @@ module TransactionHelper
           icon: icon_waiting_you,
           text: t("conversations.status.waiting_confirmation_from_you")
         }
-      },
+      } },
 
-      waiting_feedback: {
+      waiting_feedback: ->() { {
         both: {
           icon: icon_waiting_you,
           text: t("conversations.status.waiting_feedback_from_you")
         }
-      },
+      } },
 
-      completed: {
+      completed: ->() { {
         both: {
           icon: icon_tag("check", ["icon-fix-rel", "confirmed"]),
           text: t("conversations.status.request_confirmed")
         }
-      },
+      } },
 
-      canceled: {
+      canceled: ->() { {
         both: {
           icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
           text: t("conversations.status.request_canceled")
         }
-      }
+      } }
     }
 
     Maybe(status_hash)[status.to_sym]
+      .map { |s| s.call }
       .map { |s| Maybe(is_author ? s[:author] : s[:starter]).or_else { s[:both] } }
       .values
       .get
@@ -143,48 +189,95 @@ module TransactionHelper
   #     ]
   #   }
   # }
-  def get_conversation_statuses(conversation)
+  def get_conversation_statuses(conversation, is_author)
 
     statuses = if conversation.listing && !conversation.status.eql?("free")
-      case conversation.status
-      when "pending"
-        [
-          pending_status(conversation)
-        ]
-      when "accepted"
-        [
-          status_info(t("conversations.status.#{conversation.discussion_type}_accepted"), icon_classes: icon_for("accepted")),
-          accepted_status(conversation)
-        ]
-      when "paid"
-        [
-          status_info(t("conversations.status.#{conversation.discussion_type}_paid"), icon_classes: icon_for("paid")),
-          delivery_status(conversation),
-          paid_status(conversation, @current_community.testimonials_in_use)
-        ]
-      when "preauthorized"
-        [
-          status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),
-          preauthorized_status(conversation)
-        ]
-      when "confirmed"
-        [
-          status_info(t("conversations.status.#{conversation.discussion_type}_confirmed"), icon_classes: icon_for("confirmed")),
-          feedback_status(conversation, @current_community.testimonials_in_use)
-        ]
-      when "canceled"
-        [
-          status_info(t("conversations.status.#{conversation.discussion_type}_canceled"), icon_classes: icon_for("canceled")),
-          feedback_status(conversation, @current_community.testimonials_in_use)
-        ]
-      when "rejected"
-        [
-          status_info(t("conversations.status.#{conversation.discussion_type}_rejected"), icon_classes: icon_for(conversation.status))
-        ]
-      else
-        # We should never go here...
-        []
-      end
+      status_hash = {
+        pending: ->() { {
+          both: [
+            pending_status(conversation)
+          ]
+        } },
+        accepted: ->() { {
+          both: [
+            status_info(t("conversations.status.#{conversation.discussion_type}_accepted"), icon_classes: icon_for("accepted")),
+            accepted_status(conversation)
+          ]
+        } },
+        paid: ->() { {
+          both: [
+            status_info(t("conversations.status.#{conversation.discussion_type}_paid"), icon_classes: icon_for("paid")),
+            delivery_status(conversation),
+            paid_status(conversation, @current_community.testimonials_in_use)
+          ]
+        } },
+        preauthorized: ->() { {
+          both: [
+            status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),
+            preauthorized_status(conversation)
+          ]
+        } },
+        pending_ext: ->() {
+          ## This is so wrong place to call services...
+          paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(conversation.id)
+          reason = conversation.transaction_transitions.last.metadata["pending_reason"]
+
+          case reason
+          when "multi-currency"
+            {
+              author: [
+                status_info(t("conversations.status.pending_external.paypal.multicurrency", currency: paypal_payment[:payment_total].currency, paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))
+              ],
+              starter: [
+                status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),
+                preauthorized_status(conversation)
+              ]
+            }
+          when "intl"
+            {
+              author: [
+                status_info(t("conversations.status.pending_external.paypal.intl", paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))
+              ],
+              starter: [
+                status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),
+                preauthorized_status(conversation)
+              ]
+            }
+          when "verify"
+            {
+              author: [
+                status_info(t("conversations.status.pending_external.paypal.verify", paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))
+              ],
+              starter: [
+                status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),
+                preauthorized_status(conversation)
+              ]
+            }
+          end
+        },
+        confirmed: ->() { {
+          both: [
+            status_info(t("conversations.status.#{conversation.discussion_type}_confirmed"), icon_classes: icon_for("confirmed")),
+            feedback_status(conversation, @current_community.testimonials_in_use)
+          ]
+        } },
+        canceled: ->() { {
+          both: [
+            status_info(t("conversations.status.#{conversation.discussion_type}_canceled"), icon_classes: icon_for("canceled")),
+            feedback_status(conversation, @current_community.testimonials_in_use)
+          ]
+        } },
+        rejected: ->() { {
+          both: [
+            status_info(t("conversations.status.#{conversation.discussion_type}_rejected"), icon_classes: icon_for(conversation.status))
+          ]
+        } }
+      }
+
+      Maybe(status_hash)[conversation.status.to_sym]
+        .map { |s| s.call }
+        .map { |s| Maybe(is_author ? s[:author] : s[:starter]).or_else { s[:both] } }
+        .or_else([])
     else
       []
     end

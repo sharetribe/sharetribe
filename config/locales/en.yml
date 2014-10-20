@@ -504,6 +504,11 @@ en:
       pay: Pay
       preauthorized: "Payment successful"
       paid: "Payment successful"
+      pending_external:
+        paypal:
+          multicurrency: "We couldn't process the PayPal payment because your PayPal account has not been set up to receive money in %{currency}. Go to %{paypal_url} and log in to your account to manually accept or reject the payment."
+          verify: "You cannot accept this transaction because you haven't verified your PayPal account. Go to %{paypal_url} to verify your account."
+          intl: "We couldn't process the PayPal payment because your PayPal account does not have a withdrawal mechanism. Go to %{paypal_url} and log in to your account to manually accept or reject the payment."
       waiting_for_current_user_to_deliver_listing: "Waiting for you to deliver %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Waiting for %{listing_author_name} to deliver %{listing_title}"
       request_accepted: Accepted
@@ -521,6 +526,11 @@ en:
       waiting_payment_from_requester: "Waiting for %{requester_name} to pay"
       waiting_payment_from_you: "Waiting for you to pay"
       waiting_feedback_from_you: "Waiting for you to give feedback"
+      pending_external_inbox:
+        paypal:
+          multicurrency: "Waiting for you to accept the PayPal payment"
+          intl: "Waiting for you to accept the PayPal payment"
+          verify: "Waiting for you to verify your PayPal account"
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
@@ -1454,7 +1464,7 @@ en:
       payout_info_text: "To accept payments you need to connect your PayPal account with %{service_name}.<br /> Please complete the following two steps to connect your account."
       paypal_account_email: "1. Connect your PayPal account"
       paypal_account_email_placeholder: "Your PayPal email address"
-      paypal_account_email_info_text: "Note: you need a PayPal premier account (for individuals) or business account (for companies) to accept payments. If you have a PayPal personal account, you can upgrade your account. It's free and only takes a minute. %{upgrade_paypal_account} If you don't have a PayPal account yet, you can create a new account %{create_paypal_account}." 
+      paypal_account_email_info_text: "Note: you need a PayPal premier account (for individuals) or business account (for companies) to accept payments. If you have a PayPal personal account, you can upgrade your account. It's free and only takes a minute. %{upgrade_paypal_account} If you don't have a PayPal account yet, you can create a new account %{create_paypal_account}."
       create_paypal_account: here
       upgrade_paypal_account: "Upgrade your account here."
       connect_paypal_account: "Connect PayPal account"

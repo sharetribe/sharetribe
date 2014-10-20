@@ -41,7 +41,9 @@ class TestimonialsController < ApplicationController
   end
 
   def skip
-    if @transaction.author == @current_user
+    is_author = @transaction.author == @current_user
+
+    if is_author
       @transaction.update_attributes(author_skipped_feedback: true)
     else
       @transaction.update_attributes(starter_skipped_feedback: true)
@@ -52,7 +54,7 @@ class TestimonialsController < ApplicationController
         flash[:notice] = t("layouts.notifications.feedback_skipped")
         redirect_to single_conversation_path(:conversation_type => "received", :person_id => @current_user.id, :id => @transaction.id)
       }
-      format.js { render :layout => false }
+      format.js { render :layout => false, locals: {is_author: is_author} }
     end
   end
 
