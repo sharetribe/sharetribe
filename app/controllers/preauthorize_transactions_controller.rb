@@ -69,13 +69,19 @@ class PreauthorizeTransactionsController < ApplicationController
       return redirect_to action: :initiate
     end
 
-    transaction_id = MarketplaceService::Transaction::Command.create({
-        community_id: @current_community.id,
-        listing_id: preauthorize_form.listing_id,
-        starter_id: @current_user.id,
-        author_id: @listing.author.id,
-        content: preauthorize_form.content})
+    transaction_response = TransactionService::Transaction.create({
+        transaction: {
+          community_id: @current_community.id,
+          listing_id: preauthorize_form.listing_id,
+          starter_id: @current_user.id,
+          listing_author_id: @listing.author.id,
+          content: preauthorize_form.content,
+          payment_gateway: :paypal
+        }
+      })
 
+    transaction_id = transaction_response[:transaction][:id]
+    #TODO Remove references to transaction model
     transaction = Transaction.find(transaction_id)
     #TODO NULL in transaction.payment crashes cuz preauthorization_expiration_days
     transaction.save!
@@ -190,14 +196,19 @@ class PreauthorizeTransactionsController < ApplicationController
     }))
 
     if preauthorize_form.valid?
-      transaction_id = MarketplaceService::Transaction::Command.create({
-          community_id: @current_community.id,
-          listing_id: preauthorize_form.listing_id,
-          starter_id: @current_user.id,
-          author_id: @listing.author.id,
-          content: preauthorize_form.content})
+      transaction_response = TransactionService::Transaction.create({
+          transaction: {
+            community_id: @current_community.id,
+            listing_id: preauthorize_form.listing_id,
+            starter_id: @current_user.id,
+            listing_author_id: @listing.author.id,
+            content: preauthorize_form.content,
+            payment_gateway: :braintree
+          }
+        })
 
-      # TODO
+      transaction_id = transaction_response[:transaction][:id]
+      # TODO: use only response from service
       transaction = Transaction.find(transaction_id)
 
       transaction.payment = BraintreePayment.new({
@@ -250,6 +261,7 @@ class PreauthorizeTransactionsController < ApplicationController
     })
 
     if preauthorize_form.valid?
+      #TODO: change to use TransactionService::Transaction
       transaction = Transaction.new({
         community_id: @current_community.id,
         listing_id: @listing.id,

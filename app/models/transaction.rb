@@ -52,8 +52,6 @@ class Transaction < ActiveRecord::Base
 
   accepts_nested_attributes_for :booking
 
-  VALID_PAYMENT_GATEWAYS = [:none, :paypal, :checkout, :braintree]
-  validates :payment_gateway, inclusion: { in: VALID_PAYMENT_GATEWAYS }
   validates_presence_of :payment_gateway
 
   scope :for_person, -> (person){

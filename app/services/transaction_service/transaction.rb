@@ -1,15 +1,54 @@
 module TransactionService::Transaction
 
   DataTypes = TransactionService::DataTypes::Transaction
+  TransactionModel = ::Transaction
 
   module_function
 
   def query(transaction_id)
-    model_to_entity(Transaction.find(transaction_id))
+    model_to_entity(TransactionModel.find(transaction_id))
   end
 
-  def create
-    raise "Not implemented"
+  def create(transaction_opts)
+    opts = transaction_opts[:transaction]
+
+    transaction = TransactionModel.new(
+      community_id: opts[:community_id],
+      listing_id: opts[:listing_id],
+      starter_id: opts[:starter_id],
+      payment_gateway: opts[:payment_gateway])
+
+    conversation = transaction.build_conversation(
+      community_id: opts[:community_id],
+      listing_id: opts[:listing_id])
+
+    conversation.participations.build(
+      person_id: opts[:listing_author_id],
+      is_starter: false,
+      is_read: false)
+
+    conversation.participations.build(
+      person_id: opts[:starter_id],
+      is_starter: true,
+      is_read: true)
+
+    #TODO: check this one out, how to handle pts[:content]?, it's missing from documentation
+    if opts[:content].present?
+      conversation.messages.build({
+          content: opts[:content],
+          sender_id: opts[:starter_id]})
+    end
+
+    transaction.save!
+
+    #TODO: Fix to more sustainable solution (use model_to_entity, and add paypal and braintree relevant fields)
+    #transition info is now added in controllers
+    DataTypes.create_transaction_response(opts.merge({
+          id: transaction.id,
+          conversation_id: conversation.id,
+          created_at: transaction.created_at,
+          updated_at: transaction.updated_at
+        }))
   end
 
   def preauthorize
@@ -101,11 +140,9 @@ module TransactionService::Transaction
         end
       end
 
-    payment_gateway = MarketplaceService::Community::Query.payment_type(model.community_id)
-
     DataTypes.create_transaction({
         payment_process: payment_process,
-        payment_gateway: payment_gateway,
+        payment_gateway: model.payment_gateway.to_sym,
         community_id: model.community_id,
         starter_id: model.starter.id,
         listing_id: model.listing.id,

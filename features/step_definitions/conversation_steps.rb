@@ -23,12 +23,13 @@ def build_conversation(community, listing, starter, message)
   conversation
 end
 
-def create_transaction(community, listing, starter, message)
+def create_transaction(community, listing, starter, message, payment_gateway = :none)
   transaction = FactoryGirl.create(:transaction,
     listing: listing,
     community: community,
     starter: starter,
-    conversation: build_conversation(community, listing, starter, message)
+    conversation: build_conversation(community, listing, starter, message),
+    payment_gateway: payment_gateway
   )
 end
 
@@ -40,7 +41,7 @@ Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |mes
 end
 
 Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @transaction = create_transaction(@current_community, @listing, @people[sender], message)
+  @transaction = create_transaction(@current_community, @listing, @people[sender], message, @current_community.payment_gateway.gateway_type)
   @conversation = @transaction.conversation
   MarketplaceService::Transaction::Command.transition_to(@transaction.id, "pending")
   @transaction.reload
