@@ -6,8 +6,9 @@ module PaypalService
     # Convert between a Money instance and corresponding Paypal API presentation
     # pp API present amounts as hash-like objects, e.g. : { value: "17.12", currencyID: "EUR" }
 
+
     def from_money(m)
-      { value: m.to_s, currencyID: m.currency.iso_code }
+      { value: m.cents.abs.divmod(m.currency.subunit_to_unit).join("."), currencyID: m.currency.iso_code }
     end
 
     def to_money(pp_amount)

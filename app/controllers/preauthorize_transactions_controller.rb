@@ -98,7 +98,7 @@ class PreauthorizeTransactionsController < ApplicationController
       MarketplaceService::Transaction::Command.transition_to(transaction.id, "initiated")
       redirect_to pp_result[:data][:redirect_url]
     else
-      flash[:error] = "TODO"
+      flash[:error] = t("error_messages.paypal.generic_error")
       return redirect_to action: :initiate
     end
   end

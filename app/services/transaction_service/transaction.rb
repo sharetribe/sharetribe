@@ -46,7 +46,7 @@ module TransactionService::Transaction
 
         if capture_response[:success]
           next_state =
-            if capture_response[:payment_status] == :completed
+            if capture_response[:data][:payment_status] == :completed
               :paid
             else
               :pending_ext
@@ -56,7 +56,7 @@ module TransactionService::Transaction
 
           transaction = query(transaction[:id])
           Result::Success.new(
-            DataTypes.create_transaction_response(transaction, DataTypes.create_paypal_complete_preauthorization_fields(pending_reason: capture_response[:pending_reason])))
+            DataTypes.create_transaction_response(transaction, DataTypes.create_paypal_complete_preauthorization_fields(pending_reason: capture_response[:data][:pending_reason])))
         else
           Result::Error.new("An error occured while trying to complete preauthorized Paypal payment")
         end
