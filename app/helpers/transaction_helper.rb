@@ -59,7 +59,7 @@ module TransactionHelper
       } },
 
       pending_ext: ->() {
-        case status_meta[:pending_reason]
+        case status_meta[:paypal_pending_reason]
         when "multicurrency"
           {
             author: {
@@ -221,7 +221,7 @@ module TransactionHelper
           ## This is so wrong place to call services...
           paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(conversation.id)
 
-          reason = Maybe(conversation).transaction_transitions.last.metadata["pending_reason"]
+          reason = Maybe(conversation).transaction_transitions.last.metadata["paypal_pending_reason"]
 
           case reason
           when Some("multicurrency")
