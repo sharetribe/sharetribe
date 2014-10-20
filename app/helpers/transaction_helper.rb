@@ -60,7 +60,7 @@ module TransactionHelper
 
       pending_ext: ->() {
         case status_meta[:pending_reason]
-        when "multi-currency"
+        when "multicurrency"
           {
             author: {
               icon: icon_waiting_you,
@@ -220,10 +220,11 @@ module TransactionHelper
         pending_ext: ->() {
           ## This is so wrong place to call services...
           paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(conversation.id)
-          reason = conversation.transaction_transitions.last.metadata["pending_reason"]
+
+          reason = Maybe(conversation).transaction_transitions.last.metadata["pending_reason"]
 
           case reason
-          when "multi-currency"
+          when Some("multicurrency")
             {
               author: [
                 status_info(t("conversations.status.pending_external.paypal.multicurrency", currency: paypal_payment[:payment_total].currency, paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))
@@ -233,7 +234,7 @@ module TransactionHelper
                 preauthorized_status(conversation)
               ]
             }
-          when "intl"
+          when Some("intl")
             {
               author: [
                 status_info(t("conversations.status.pending_external.paypal.intl", paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))
@@ -243,7 +244,7 @@ module TransactionHelper
                 preauthorized_status(conversation)
               ]
             }
-          when "verify"
+          when Some("verify")
             {
               author: [
                 status_info(t("conversations.status.pending_external.paypal.verify", paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))

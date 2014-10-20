@@ -204,8 +204,12 @@ module MarketplaceService
         transaction.current_state = new_status
         transaction.save!
 
+        metadata_hash = Maybe(metadata)
+          .map { |data| TransactionService::DataTypes::TransitionMetadata.create_metadata(data) }
+          .or_else(nil)
+
         state_machine = TransactionProcess.new(transaction, transition_class: TransactionTransition)
-        state_machine.transition_to!(new_status, TransactionService::DataTypes::TransitionMetadata.create_metadata(new_status, metadata))
+        state_machine.transition_to!(new_status, metadata_hash)
 
         transaction.touch(:last_transition_at)
 
