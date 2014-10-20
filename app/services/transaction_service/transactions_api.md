@@ -32,14 +32,11 @@ Example request body:
   }
 
   # Paypal
-, gateway_fields:
-  { payment_gateway: :paypal
-  } # No additional fields for Paypal needed
+, gateway_fields: {} # No additional fields for Paypal needed
 
   # Braintree
 , gateway_fields: # Only for :preauthorize
-  { payment_gateway: :braintree,
-  , cardholder_name: "Mikko Koski"
+  { cardholder_name: "Mikko Koski"
   , credit_card_number: "4000 5000 6000 7000 9"
   , cvv: "1234"
   , credit_card_expiration_month: 12
@@ -74,14 +71,11 @@ Response:
 
   # PayPal
 , gateway_fields:
-  { payment_gateway: :paypal
-  , redirect_url: "https://paypal.com/token?EJAHGOSKLGAHSG"
+  { redirect_url: "https://paypal.com/token?EJAHGOSKLGAHSG"
   }
 
   # Braintree
-, gateway_fields:
-  { payment_gateway: :braintree
-  } # No additional fields for Braintree
+, gateway_fields: {} # No additional fields for Braintree
 
 }
 ```
@@ -176,14 +170,11 @@ Response:
 
   # PayPal
 , gateway_fields:
-  { payment_gateway: :paypal
-  , pending_reason: :multicurrency
+  { pending_reason: :multicurrency
   }
 
   # Braintree
-, gateway_fields:
-  { payment_gateway: :braintree
-  } # No additional fields
+, gateway_fields: {} # No additional fields
 }
 ```
 
@@ -197,14 +188,12 @@ Request:
 {
   # Checkout
   gateway_fields:
-  { payment_gateway: :checkout
-  , payment_rows: [] # Some payment row stuff here
+  { payment_rows: [] # Some payment row stuff here
   }
 
   # Braintree
 , gateway_fields
-  { payment_gateway: :braintree
-  , total_sum: Money.new(5000, "EUR")
+  { total_sum: Money.new(5000, "EUR")
   }
 }
 ```
@@ -243,13 +232,10 @@ Request:
 {
   # Checkout
   gateway_fields:
-  { payment_gateway: :checkout,
-  ???
-  }
+  { ??? }
 
 , gateway_fields
-  { payment_gateway: :braintree
-  , cardholder_name: "Mikko Koski"
+  { cardholder_name: "Mikko Koski"
   , credit_card_number: "4000 5000 6000 7000 9"
   , cvv: "1234"
   , credit_card_expiration_month: 12
