@@ -222,7 +222,6 @@ it:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,22 +252,6 @@ it:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
-    news_items:
-      index:
-        news_items: "Nuovi articoli"
-        create_news_item: "Crea un articolo"
-        no_news: ~
-        loading_more_news: ~
-      new:
-        new_news_item: "Crea un articolo"
-        edit_news_item: "Modifica articolo"
-        index_news_item: "Crea un articolo"
-        title: "Titolo:"
-        content: "Contenuto:"
-        save_news_item: "Salva articolo"
-      news_item:
-        edit_news_item: Modifica
-        delete_news_item: Cancella
     paypal_accounts:
       marketplace_paypal_integration: "Integrazione PayPal"
       new:
@@ -892,8 +875,6 @@ it:
       no_listings_with_your_search_criteria: "Non abbiamo trovato nessun risultato che corrisponde ai tuoi criteri di ricerca"
       no_listings_notification: "No inserzioni. %{add_listing_link}."
       add_listing_link_text: "Aggiungi il tuo spazio"
-      available_on_the_app_store: "Disponibile su app store"
-      private_listing_notification: ~
       open_listing: "inserzione aperta"
       open_listings: "inserzioni aperte"
       private_listing_notification_log_in: ~
@@ -903,7 +884,6 @@ it:
       post_new_listing: "Aggiungi il tuo spazio"
       are_offering: offerta
       add_news_item: "Aggiungi un articolo"
-      inform_others_about_events: ~
       lend_rent_help_carpool: "Vendere, prestare, aiutare, condividere passaggi"
       loading_more_content: "Carica maggiori informazioni"
       more_events: "Più eventi..."
@@ -914,9 +894,6 @@ it:
       or_see_what_the_others: "...o guarda cosa gli altri"
       recent_events: "Eventi recenti"
       requesting: bisogno
-      teaser_text: |-
-          %{service_name} è un servizio per la comunità di %{community}.
-          Qui puoi prestare, noleggiare, regalare e vendere oggetti, fornire e ottenere aiuti o passaggi. Puoi prestare qualcosa agli altri o aiutarli in qualche modo?
       tell_it_here: "Dillo qui!"
       welcome_to_new_kassi: "Benvenuto al nuovo %{service_name}!"
       no_reviews: ~
@@ -971,16 +948,12 @@ it:
       default_about_text: ~
       click_here_link_text: ~
   layouts:
+    admin:
+      admin: "%{service_name} pannello dell'amministratore."
     no_tribe:
       inbox: ~
       settings: Impostazioni
       feedback: Contattaci
-    admin:
-      admin: "%{service_name} pannello dell'amministratore."
-      back_to_kassi: "Indietro a %{service_name}"
-      tribe_info: ~
-      news_items: ~
-      polls: Sondaggi
     application:
       join_this_community: ~
       read_more: ~
@@ -1007,8 +980,6 @@ it:
       notifications: Notifiche
       received: Ricevuta
       sent: Inviata
-    dashboard:
-      title: "%{service_name} - condividi beni, servizi e passaggi nella tua comunità locale!"
     global-header:
       select_language: ~
     infos:
@@ -1119,7 +1090,6 @@ it:
       this_content_is_not_available_in_this_community: "Questo contenuto non è disponibile in questa comunità."
       unknown_error: "Errore sconosciuto. Usa il link Contattaci per inviarci i dettagli di quanto accaduto."
       update_error: "È avvenuto un errore mentre stavi aggiornando le tue informazioni, prova nuovamente"
-      welcome_message: "Benvenuto in %{service_name}! %{service_name} è un servizio che aiuta i membri della comunità %{community} a vendere e noleggiare beni l'un l'altro, organizzare passaggi auto ed aiutarsi in molti altri modi."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Non sei autorizzato a fornire feedback su questo evento"
       you_are_not_authorized_to_do_this: "Non sei autorizzato a farlo"
       you_are_not_authorized_to_view_this_content: "Non sei autorizzato a vedere questo commento"
@@ -1411,11 +1381,6 @@ it:
       search_verb: Cerca
       you_have_something_others_do_not: "Hai qualcosa da offrire?"
     please_comment: Commenta
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: "Rimuovi articolo"
   okl:
     member_id: ~
     member_id_or_email: ~
@@ -1546,9 +1511,6 @@ it:
       exceeded_expectations: "Oltre le aspettative"
       positive: ~
       hide_description: "Mostra di meno"
-      joined_this_community: "Iscritto %{time_ago}"
-      was_last_seen: "Visto l'ultima volta %{time_ago}"
-      was_invited_by: "Invitato da %{inviter_name}"
       less_than_expected: "Peggio del previsto"
       phone_number: "Numero di telefono:"
       show_all_feedback: "Mostra tutti i feedback"

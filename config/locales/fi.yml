@@ -49,9 +49,9 @@ fi:
           cancel: Cancel
     communities:
       edit_details:
-        community_details: "Perustiedot"
-        community_look_and_feel: "Ulkoasu"
-        edit_community: "Perustiedot"
+        community_details: Perustiedot
+        community_look_and_feel: Ulkoasu
+        edit_community: Perustiedot
         community_name: "Kauppapaikan nimi"
         edit_community_name_description: "Kauppapaikan nimi näytetään käyttäjille lähetettävissä sähköposteissa ja useissa muissa paikoissa."
         community_slogan: "Kauppapaikan slogan"
@@ -80,7 +80,7 @@ fi:
         transaction_agreement_text_header: Sopimusteksti
         transaction_agreement_description: "Tämä on sopimustekstin sisältö kokonaisuudessaan. Teksti näytetään käyttäjälle kun hän klikkaa \"%{read_more}\" linkkiä."
       edit_look_and_feel:
-        edit_community_look_and_feel: "Ulkoasu"
+        edit_community_look_and_feel: Ulkoasu
         community_logo: Peruslogo
         community_logo_icon: Mobiililogo
         community_cover_photo: Kansikuva
@@ -964,7 +964,7 @@ fi:
       click_here_link_text: "Lue lisää!"
   layouts:
     admin:
-      admin: "Ylläpito"
+      admin: Ylläpito
     no_tribe:
       inbox: Postilaatikko
       settings: Asetukset

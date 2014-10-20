@@ -222,7 +222,6 @@ vi:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,22 +252,6 @@ vi:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
-    news_items:
-      index:
-        news_items: "Những bài viết mới nhất"
-        create_news_item: "Tạo một bài viết"
-        no_news: "Không có tin tức"
-        loading_more_news: "Nạp thêm tin tức"
-      new:
-        new_news_item: "Tạo một bài viết"
-        edit_news_item: "Chỉnh sửa bài viết"
-        index_news_item: "Tạo một bài viết"
-        title: "Tựa đề:"
-        content: "Nội dung:"
-        save_news_item: "Lưu bài viết"
-      news_item:
-        edit_news_item: Sửa
-        delete_news_item: Xoá
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -892,8 +875,6 @@ vi:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
       add_listing_link_text: ~
-      available_on_the_app_store: ~
-      private_listing_notification: ~
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: ~
@@ -903,7 +884,6 @@ vi:
       post_new_listing: ~
       are_offering: "hỗ trợ"
       add_news_item: "Thêm một bài viết"
-      inform_others_about_events: "Tin tức và sự kiện mới nhất trong cộng đồng."
       lend_rent_help_carpool: "Bán, cho vay, giúp đỡ, chia sẻ cuốc xe"
       loading_more_content: "Tải thêm nội dung"
       more_events: "Thêm sự kiện..."
@@ -914,7 +894,6 @@ vi:
       or_see_what_the_others: "...hoặc xem những gì người khác"
       recent_events: "Những sự kiện gần đây"
       requesting: cần
-      teaser_text: "%{service_name} là một dịch vụ cho cộng đồng %{community}. Ở đây bạn có thể cho vay, cho thuê, cho đi và bán đồ đạc, cho và nhận giúp đỡ hoặc cho quá giang xe. Bạn có thể cho người khác mượn một thứ gì đó hoặc giúp đỡ họ không?"
       tell_it_here: "Cho nó biết ở đây!"
       welcome_to_new_kassi: "Chào mừng %{service_name} mới!"
       no_reviews: ~
@@ -969,16 +948,12 @@ vi:
       default_about_text: ~
       click_here_link_text: ~
   layouts:
+    admin:
+      admin: "ban quản trị %{service_name}"
     no_tribe:
       inbox: ~
       settings: ~
       feedback: ~
-    admin:
-      admin: "ban quản trị %{service_name}"
-      back_to_kassi: "Trở về %{service_name}"
-      tribe_info: ~
-      news_items: "Tin bài"
-      polls: "Thăm dò ý kiến"
     application:
       join_this_community: ~
       read_more: ~
@@ -1005,8 +980,6 @@ vi:
       notifications: "Các thông báo"
       received: "Đã nhận"
       sent: "Đã gửi"
-    dashboard:
-      title: "%{service_name} - chia sẻ hàng hóa, dịch vụ và chuyến đi trong cộng đồng địa phương của bạn!"
     global-header:
       select_language: ~
     infos:
@@ -1117,7 +1090,6 @@ vi:
       this_content_is_not_available_in_this_community: "Nội dung này là không có sẵn trong cộng đồng này."
       unknown_error: "Lỗi không xác định. Xin vui lòng sử dụng liên kết phản hồi để gửi chi tiết những gì đã xảy ra."
       update_error: "Có lỗi xảy ra khi cố cập nhật thông tin của bạn, vui lòng thử lại"
-      welcome_message: "Chao mừng đến với %{service_name}! %{service_name} là một dịch vụ giúp đỡ những thành viên của cộng đồng %{community} bán và cho vay đồ vật đối với thành viên khác, sắp xếp thông tin xe hơi và giúp đỡ lẫn nhau trong nhiều cách khác."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Bạn không được phân quyền để đưa ra thông tin phản hồi về sự kiện này"
       you_are_not_authorized_to_do_this: "Bạn không được phân quyền để làm việc này"
       you_are_not_authorized_to_view_this_content: "Bạn không được phân quyền để xem nội dung này"
@@ -1409,11 +1381,6 @@ vi:
       search_verb: "Tìm kiếm"
       you_have_something_others_do_not: "Có thứ gì để hỗ trợ không?"
     please_comment: "Bình luận"
-  news_items:
-    index:
-      news_from_community: "Tin tức mới nhất từ cộng đồng %{community}"
-    news_item:
-      delete_news_item: "Loại bỏ bài viết"
   okl:
     member_id: "ID thành viên"
     member_id_or_email: "Định danh hoặc email của thành viên"
@@ -1545,9 +1512,6 @@ vi:
       exceeded_expectations: "Vượt quá mong đợi"
       positive: "tích cực"
       hide_description: "Hiển thị ít hơn"
-      joined_this_community: "...tham gia cộng đồng này %{time_ago}"
-      was_last_seen: "...được xem lần cuối %{time_ago}"
-      was_invited_by: "...đã được mời bởi %{inviter_name}"
       less_than_expected: "Tệ hơn so với dự kiến"
       phone_number: "Số điện thoại:"
       show_all_feedback: "Hiển thị tất cả các thông tin phản hồi"

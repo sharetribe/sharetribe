@@ -237,7 +237,6 @@ de:
         field_title: "Name des Feldes"
         field_type: "Art des Feldes"
         categories: "Kategorien, in denen das Feld angewendet wird"
-        no_custom_listing_fields: "Keine marktplatzspezifischen Filter"
         options: Optionen
         add_option: "+ Auswahl hinzufügen"
         saving_order: "Feldreihenfolge speichern"
@@ -268,22 +267,6 @@ de:
         send_email: "E-Mail senden"
         message_will_be_sent_only_to_people_with_this_language: "Merke: Die E-Mail wird nur an Mitglieder von %{service_name} verschickt, die die Sprache sprechen, die du gewählt hast."
         email_sent: "E-Mail gesendet."
-    news_items:
-      index:
-        news_items: "Neueste Artikel"
-        create_news_item: "Einen Artikel erstellen"
-        no_news: "Keine News"
-        loading_more_news: "Weitere Nachrichten laden"
-      new:
-        new_news_item: "Einen Artikel erstellen"
-        edit_news_item: "Artikel bearbeiten"
-        index_news_item: "Einen Artikel erstellen"
-        title: Titel
-        content: "Inhalt:"
-        save_news_item: "Artikel speichern"
-      news_item:
-        edit_news_item: Bearbeiten
-        delete_news_item: Löschen
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -907,8 +890,6 @@ de:
       no_listings_with_your_search_criteria: "Wir konnten keine passenden Suchergebnisse finden."
       no_listings_notification: "Keine Einträge. %{add_listing_link}."
       add_listing_link_text: "Neuen Eintrag hinzufügen"
-      available_on_the_app_store: "Im App Store erhältlich"
-      private_listing_notification: "Es gibt %{listing_count} in der Community. %{private_listing_count} davon sind %{be_verb} nur für Mitglieder der Community sichtbar. Wenn du auch die Einträge sehen willst, die nur für Mitglieder sichtbar sind, muss du dich %{log_in_link}"
       open_listing: "aktiver Eintrag"
       open_listings: "aktive Einträge"
       private_listing_notification_log_in: Einloggen
@@ -918,7 +899,6 @@ de:
       post_new_listing: "Neuen Eintrag erstellen"
       are_offering: Angebot
       add_news_item: "Einen Artikel hinzufügen"
-      inform_others_about_events: "Neuigkeiten und Veranstaltungen der Community."
       lend_rent_help_carpool: "Verkaufen, verleihen, helfen, Fahrtmöglichkeit bieten"
       loading_more_content: "Weitere Inhalte laden"
       more_events: "Mehr Ereignisse..."
@@ -929,7 +909,6 @@ de:
       or_see_what_the_others: "....oder zu sehen was Andere"
       recent_events: "Jüngste Ereignisse"
       requesting: brauchen
-      teaser_text: "%{service_name} ist ein Dienst für die %{community} Community. Hier kannst du Dinge verleihen, vermieten, verschenken oder verkaufen und Hilfe bekommen oder Mifahrgelegenheiten anbieten. Kannst du etwas verleihen oder jemandem helfen?"
       tell_it_here: "Sag es hier!"
       welcome_to_new_kassi: "Willkommen bei dem neuen %{service_name}!"
       no_reviews: "Keine Bewertungen"
@@ -984,16 +963,12 @@ de:
       default_about_text: "Diese Website wurde mit Hilfe der Sharetribe-Plattform angelegt. Jeder kann mit Sharetribe seinen eigenen Community-Marktplatz erstellen. Möchtest du so eine Seite für deine Community erstellen? Es ist kostenlos und dauert nur eine Minute. Klicke hier, um mehr zu erfahren %{click_here_link}!"
       click_here_link_text: "Hier klicken"
   layouts:
+    admin:
+      admin: "%{service_name} Verwaltung"
     no_tribe:
       inbox: Posteingang
       settings: Einstellungen
       feedback: "Kontaktiere uns"
-    admin:
-      admin: "%{service_name} Verwaltung"
-      back_to_kassi: "Zurück zu %{service_name}"
-      tribe_info: "Allgemeine Infos zum Tribe"
-      news_items: "News Artikel"
-      polls: Umfragen
     application:
       join_this_community: "Community beitreten"
       read_more: "Mehr lesen"
@@ -1020,8 +995,6 @@ de:
       notifications: Benachrichtigungen
       received: Empfangen
       sent: Gesendet
-    dashboard:
-      title: "%{service_name} - Teile Waren, Dienstleistungen und Mitfahrgelegenheiten in deiner lokalen Community!"
     global-header:
       select_language: "Sprache auswählen"
     infos:
@@ -1132,7 +1105,6 @@ de:
       this_content_is_not_available_in_this_community: "Dieser Inhalt ist in dieser Community nicht verfügbar."
       unknown_error: "Unbekannter Fehler. Bitte benutze den Kontakt-Link, um uns über Details zum Vorfall zu informieren."
       update_error: "Ein Fehler ist beim Aktualisieren deiner Informationen aufgetreten. Bitte versuche es erneut."
-      welcome_message: "Willkommen bei %{service_name}! %{service_name} ist ein Service, der es den Mitgliedern der %{community} Community ermöglicht, Gegenstände an andere zu verleihen und zu verkaufen sowie Mitfahrgelegenheiten und viele andere hilfreiche Dinge zu organisieren."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Du bist nicht berechtigt, Feedback zu dieser Transaktion zu geben"
       you_are_not_authorized_to_do_this: "Du bist nicht berechtigt, dies zu tun"
       you_are_not_authorized_to_view_this_content: "Du bist nicht berechtigt, diesen Inhalt zu sehen"
@@ -1424,11 +1396,6 @@ de:
       search_verb: Suche
       you_have_something_others_do_not: "Hast du etwas anzubieten?"
     please_comment: Kommentar
-  news_items:
-    index:
-      news_from_community: "Aktuelle News der %{community} Community"
-    news_item:
-      delete_news_item: "Artikel entfernen"
   okl:
     member_id: "Mitglieds ID"
     member_id_or_email: "Mitglieds-ID oder E-Mail-Adresse"
@@ -1565,9 +1532,6 @@ de:
       exceeded_expectations: "Erwartungen übertroffen"
       positive: positiv
       hide_description: "Weniger anzeigen"
-      joined_this_community: "Dieser Community vor %{time_ago} beigetreten"
-      was_last_seen: "Zuletzt gesehen von %{time_ago}"
-      was_invited_by: "Eingeladen von %{inviter_name}"
       less_than_expected: "Schlechter als erwartet"
       phone_number: "Telefonnummer:"
       show_all_feedback: "Alle Feedbacks anzeigen"

@@ -222,7 +222,6 @@ zh:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,22 +252,6 @@ zh:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
-    news_items:
-      index:
-        news_items: 最新的文章
-        create_news_item: 创建一个文章
-        no_news: 没有新闻
-        loading_more_news: ~
-      new:
-        new_news_item: ~
-        edit_news_item: "编辑文章\n"
-        index_news_item: ~
-        title: 标题：
-        content: "目录：\n"
-        save_news_item: ~
-      news_item:
-        edit_news_item: 编辑
-        delete_news_item: 删除
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -892,8 +875,6 @@ zh:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
       add_listing_link_text: ~
-      available_on_the_app_store: ~
-      private_listing_notification: ~
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: ~
@@ -903,7 +884,6 @@ zh:
       post_new_listing: ~
       are_offering: 提议
       add_news_item: ~
-      inform_others_about_events: ~
       lend_rent_help_carpool: 出售，出租，帮助，拼车
       loading_more_content: 正在加载更多内容
       more_events: 更多事件…
@@ -914,7 +894,6 @@ zh:
       or_see_what_the_others: 或者看看其他的……
       recent_events: 最近的事件
       requesting: 需求
-      teaser_text: "Kassi是针对 %{community} 社区的服务。在这里您可以租售或赠送物品，提供或请求帮助，拼车。您能出借某些东西或者帮助他人么？"
       tell_it_here: 在这里说出来！
       welcome_to_new_kassi: 欢迎来到新Kassi!
       no_reviews: ~
@@ -969,16 +948,12 @@ zh:
       default_about_text: ~
       click_here_link_text: ~
   layouts:
+    admin:
+      admin: Kassi控制面板
     no_tribe:
       inbox: ~
       settings: ~
       feedback: ~
-    admin:
-      admin: Kassi控制面板
-      back_to_kassi: 回到Kassi
-      tribe_info: ~
-      news_items: 新文章
-      polls: ~
     application:
       join_this_community: ~
       read_more: ~
@@ -1005,8 +980,6 @@ zh:
       notifications: 通知
       received: 已接收
       sent: 已发送
-    dashboard:
-      title: Kassi—在您的当地社区中分享物品，互相帮助以及拼车@
     global-header:
       select_language: ~
     infos:
@@ -1117,7 +1090,6 @@ zh:
       this_content_is_not_available_in_this_community: 此内容在此社区中不可用
       unknown_error: 发生未知错误。请使用反馈链接向我们提供细节。
       update_error: 更新您的信息时发生错误，请重试
-      welcome_message: "欢迎来到Kassi！Kassi给来自%{community}社区的人们提供了一个网上社区平台服务。用户可以通过Kassi买卖物品，合用汽车，或者以各种方式彼此帮助。"
       you_are_not_allowed_to_give_feedback_on_this_transaction: 您没有对此事件发表评价的权限
       you_are_not_authorized_to_do_this: 您没有权限进行此操作
       you_are_not_authorized_to_view_this_content: 您没有查看此内容的权限
@@ -1409,11 +1381,6 @@ zh:
       search_verb: 搜索
       you_have_something_others_do_not: 想卖点什么？
     please_comment: 评论
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: 移除文章
   okl:
     member_id: "会员号\n"
     member_id_or_email: ~
@@ -1544,9 +1511,6 @@ zh:
       exceeded_expectations: 超过预期
       positive: ~
       hide_description: 显示更少
-      joined_this_community: "已加入这个社区 %{time_ago}"
-      was_last_seen: 被看见
-      was_invited_by: "被邀请 %{time_ago}"
       less_than_expected: 比期望的差
       phone_number: 电话号码：
       show_all_feedback: 显示所有评价

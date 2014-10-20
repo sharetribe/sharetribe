@@ -222,7 +222,6 @@ nl:
         field_title: ~
         field_type: ~
         categories: "Lijst categorieën waar het veld is gebruikt"
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,22 +252,6 @@ nl:
         send_email: "Verstuur email"
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
-    news_items:
-      index:
-        news_items: "Nieuwste artikelen"
-        create_news_item: "Schrijf een nieuwsitem"
-        no_news: "Geen nieuws"
-        loading_more_news: "Meer nieuws aan het laden"
-      new:
-        new_news_item: "Schrijf een nieuwsitem"
-        edit_news_item: "Nieuwsitem bewerken"
-        index_news_item: "Schrijf een nieuwsitem"
-        title: "Titel:"
-        content: "Bericht:"
-        save_news_item: "Nieuwsitem opslaan"
-      news_item:
-        edit_news_item: Bewerken
-        delete_news_item: Verwijder
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -489,6 +472,11 @@ nl:
       pay: ~
       preauthorized: ~
       paid: ~
+      pending_external:
+        paypal:
+          multicurrency: ~
+          verify: ~
+          intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Vraag geaccepteerd"
@@ -506,6 +494,11 @@ nl:
       waiting_payment_from_requester: ~
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
+      pending_external_inbox:
+        paypal:
+          multicurrency: ~
+          intl: ~
+          verify: ~
     status_link:
       accept_offer: "Accepteer aanbod"
       accept_request: "Accepteer verzoek"
@@ -882,8 +875,6 @@ nl:
       no_listings_with_your_search_criteria: "We slaagden er niet in om resultaten te vinden die voldoen aan de door jou opgegeven criteria (indien je iets hebt toegevoegd duurt het ongeveer 10 minuten voordat dit verschijnt in de zoekfunctie)."
       no_listings_notification: "Geen lijsten. %{add_listing_link}."
       add_listing_link_text: "Voeg een nieuw item toe"
-      available_on_the_app_store: "Beschikbaar in de app store"
-      private_listing_notification: "Er zijn %{listing_count} in deze gemeenschap. %{private_listing_count} van hun %{be_verb} zichtbaar enkel door de andere leden van de gemeenschap. Indien je ook de listings zichtbaar enkel voor leden wil zien, moet je %{log_in_link}"
       open_listing: "Open item"
       open_listings: "Open item"
       private_listing_notification_log_in: "Log in"
@@ -893,7 +884,6 @@ nl:
       post_new_listing: "Plaats een nieuw item"
       are_offering: aanbod
       add_news_item: "Voeg een item toe"
-      inform_others_about_events: "Laatste nieuws en events in de gemeenschap"
       lend_rent_help_carpool: "Verkoop,leen, help, deel ritten"
       loading_more_content: "Meer inhoud aan het laden"
       more_events: "Meer evenementen..."
@@ -904,7 +894,6 @@ nl:
       or_see_what_the_others: "...of kijk wat de anderen"
       recent_events: "Recente evenementen"
       requesting: gezocht
-      teaser_text: "%{service_name}is een service voor de %{community} gemeenschap. Hier kan je lenen, huren, weggeven en spullen verkopen, geef en krijg hulp of deel ritten. Kan jij iemand iets lenen of helpen?"
       tell_it_here: "Vertel het hier!"
       welcome_to_new_kassi: "Welkom bij%{service_name}!"
       no_reviews: ~
@@ -959,16 +948,12 @@ nl:
       default_about_text: "Deze marktplaats wordt ondersteund door het Sharetribe platform. Met Sharetribe kan je eenvoudig je eigen marktplaats creëren. Het is gratis en duurt maar een minuut. %{click_here_link} om hier meer over te weten!"
       click_here_link_text: ~
   layouts:
+    admin:
+      admin: "%{service_name}admin dashboard"
     no_tribe:
       inbox: ~
       settings: ~
       feedback: "Neem contact op"
-    admin:
-      admin: "%{service_name}admin dashboard"
-      back_to_kassi: "Terug naar%{service_name}"
-      tribe_info: ~
-      news_items: ~
-      polls: ~
     application:
       join_this_community: ~
       read_more: ~
@@ -995,8 +980,6 @@ nl:
       notifications: Notificaties
       received: Ontvangen
       sent: Verstuurd
-    dashboard:
-      title: "%{service_name}- deel spullen, diensten en ritten in jouw gemeenschap!"
     global-header:
       select_language: ~
     infos:
@@ -1107,7 +1090,6 @@ nl:
       this_content_is_not_available_in_this_community: "Deze inhoud is niet beschikbaar voor deze community"
       unknown_error: "Onbekende error. Gebruik alstublieft de feedback link om error details te verzenden."
       update_error: "Er is een fout opgetreden bij het bijwerken van jouw informatie, probeer opnieuw"
-      welcome_message: "Welkom bij%{service_name}!%{service_name} is een service die leden van de %{community} gemeenschap helpt om elkaar te helpen met gunsten, verkopen en lenen aan anderen, organiseren van carpoolen en op vele anderen manieren."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Je hebt geen toestemming om feedback te geven over dit evenement"
       you_are_not_authorized_to_do_this: "Je hebt geen toestemming om dit te doen"
       you_are_not_authorized_to_view_this_content: "Je hebt geen toestemming om deze inhoud te zien"
@@ -1399,11 +1381,6 @@ nl:
       search_verb: Zoek
       you_have_something_others_do_not: "Heb je iets aan te bieden?"
     please_comment: Reactie
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: ~
   okl:
     member_id: ~
     member_id_or_email: ~
@@ -1535,9 +1512,6 @@ nl:
       exceeded_expectations: "Verwachtingen overtroffen"
       positive: ~
       hide_description: "Laat minder zien"
-      joined_this_community: ~
-      was_last_seen: ~
-      was_invited_by: ~
       less_than_expected: "Minder dan verwacht"
       phone_number: "Telefoon nummer:"
       show_all_feedback: "Laat alle feedback zien"

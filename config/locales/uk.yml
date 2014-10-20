@@ -222,7 +222,6 @@ uk:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,22 +252,6 @@ uk:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
-    news_items:
-      index:
-        news_items: ~
-        create_news_item: ~
-        no_news: ~
-        loading_more_news: ~
-      new:
-        new_news_item: ~
-        edit_news_item: ~
-        index_news_item: ~
-        title: ~
-        content: ~
-        save_news_item: ~
-      news_item:
-        edit_news_item: ~
-        delete_news_item: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -892,8 +875,6 @@ uk:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
       add_listing_link_text: ~
-      available_on_the_app_store: ~
-      private_listing_notification: ~
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: ~
@@ -903,7 +884,6 @@ uk:
       post_new_listing: ~
       are_offering: ~
       add_news_item: ~
-      inform_others_about_events: ~
       lend_rent_help_carpool: ~
       loading_more_content: ~
       more_events: ~
@@ -914,7 +894,6 @@ uk:
       or_see_what_the_others: ~
       recent_events: ~
       requesting: ~
-      teaser_text: ~
       tell_it_here: ~
       welcome_to_new_kassi: ~
       no_reviews: ~
@@ -969,16 +948,12 @@ uk:
       default_about_text: ~
       click_here_link_text: ~
   layouts:
+    admin:
+      admin: ~
     no_tribe:
       inbox: ~
       settings: ~
       feedback: ~
-    admin:
-      admin: ~
-      back_to_kassi: ~
-      tribe_info: ~
-      news_items: ~
-      polls: ~
     application:
       join_this_community: ~
       read_more: ~
@@ -1005,8 +980,6 @@ uk:
       notifications: ~
       received: ~
       sent: ~
-    dashboard:
-      title: ~
     global-header:
       select_language: ~
     infos:
@@ -1117,7 +1090,6 @@ uk:
       this_content_is_not_available_in_this_community: ~
       unknown_error: ~
       update_error: ~
-      welcome_message: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: ~
       you_are_not_authorized_to_do_this: ~
       you_are_not_authorized_to_view_this_content: ~
@@ -1409,11 +1381,6 @@ uk:
       search_verb: ~
       you_have_something_others_do_not: ~
     please_comment: ~
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: ~
   okl:
     member_id: ~
     member_id_or_email: ~
@@ -1544,9 +1511,6 @@ uk:
       exceeded_expectations: ~
       positive: ~
       hide_description: ~
-      joined_this_community: ~
-      was_last_seen: ~
-      was_invited_by: ~
       less_than_expected: ~
       phone_number: ~
       show_all_feedback: ~

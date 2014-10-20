@@ -222,7 +222,6 @@ es:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,22 +252,6 @@ es:
         send_email: "Enviar mensaje"
         message_will_be_sent_only_to_people_with_this_language: "Nota: el mensaje será enviado unicamente a los miembros que usan %{service_name} en el idioma que eligio."
         email_sent: "Mensaje enviado"
-    news_items:
-      index:
-        news_items: "Artículos más recientes"
-        create_news_item: "Crea un artículo"
-        no_news: "No hay novedades"
-        loading_more_news: "Cargando más noticias"
-      new:
-        new_news_item: "Crea un artículo"
-        edit_news_item: "Editar artículo"
-        index_news_item: "Crear un artículo"
-        title: "Título:"
-        content: "Contenido:"
-        save_news_item: "Guardar artículo"
-      news_item:
-        edit_news_item: Editar
-        delete_news_item: Borrar
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -899,8 +882,6 @@ es:
       no_listings_with_your_search_criteria: "No pudimos encontrar ningún resultado con su criterio de búsqueda."
       no_listings_notification: "No hay listados. %{add_listing_link}."
       add_listing_link_text: "Agregar nuevo listado"
-      available_on_the_app_store: "Disponible en la App Store"
-      private_listing_notification: "Hay %{listing_count} publicaciones abiertas en esta comunidad. %{private_listing_count} de ellas %{be_verb} visibles sólo para los miembros de la comunidad. Si quieres ver esas publicaciones, necesitas %{log_in_link}."
       open_listing: "publicación abierta"
       open_listings: "publicaciones abiertas"
       private_listing_notification_log_in: "inicia sesión"
@@ -910,7 +891,6 @@ es:
       post_new_listing: "Nueva publicación"
       are_offering: Ofertar
       add_news_item: "Añadir un artículo"
-      inform_others_about_events: "Últimos eventos y noticias en la comunidad"
       lend_rent_help_carpool: "Vende, regala, ayuda o comparte lo que quieras!"
       loading_more_content: "Cargando más contenidos"
       more_events: "Más eventos..."
@@ -921,7 +901,6 @@ es:
       or_see_what_the_others: "...o revisa lo que publicaron los demás en"
       recent_events: "Eventos recientes"
       requesting: Solicitudes
-      teaser_text: "%{service_name} es un servicio para la comunidad %{community}. Aquí podrás prestar, arrendar, regalar y vender cosas, dar y hacer favores o compartir trayectos de traslado. ¿Puedes prestarle algo a alguien o ayudarlo con algo?"
       tell_it_here: "Dilo aquí!"
       welcome_to_new_kassi: "Bienvenido al nuevo %{service_name}!"
       no_reviews: "Sin feedbacks"
@@ -976,16 +955,12 @@ es:
       default_about_text: ~
       click_here_link_text: "Haz clic aquí"
   layouts:
+    admin:
+      admin: "Panel de administración de %{service_name}"
     no_tribe:
       inbox: "Buzón de entrada"
       settings: Configuración
       feedback: Contáctenos
-    admin:
-      admin: "Panel de administración de %{service_name}"
-      back_to_kassi: "Volver a %{service_name}"
-      tribe_info: "Información básica de la tribu"
-      news_items: "Nuevos artículos"
-      polls: Encuestas
     application:
       join_this_community: "Únete a la comunidad"
       read_more: "Leer más"
@@ -1012,8 +987,6 @@ es:
       notifications: Notificaciones
       received: Recibido
       sent: Enviado
-    dashboard:
-      title: "%{service_name} - Comparte bienes, servicios y viajes en tu comunidad local!"
     global-header:
       select_language: ~
     infos:
@@ -1124,7 +1097,6 @@ es:
       this_content_is_not_available_in_this_community: "Este contenido no está disponible en esta comunidad."
       unknown_error: "Error desconocido. Por favor utiliza el link de sugerencias para darnos detalles de lo sucedido."
       update_error: "Un error ha ocurrido mientras se actualizaba la información, por favor inténtalo de nuevo."
-      welcome_message: "Bienvenido a %{service_name}! %{service_name} es un servicio que ayuda a los miembros de la comunidad %{community} a vender y prestarse artículos entre ellos, organizar trayectos de viaje compartidos y a cooperar mutuamente de diferentes formas."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "No estás autorizado para dar sugerencias en este evento."
       you_are_not_authorized_to_do_this: "No estás autorizado para realizar esta acción."
       you_are_not_authorized_to_view_this_content: "No estás autorizado para ver este contenido"
@@ -1416,11 +1388,6 @@ es:
       search_verb: Buscar
       you_have_something_others_do_not: "¿Tienes algo para ofrecer?"
     please_comment: Comentario
-  news_items:
-    index:
-      news_from_community: "Últimas novedades de la comunidad %{community}"
-    news_item:
-      delete_news_item: "Eliminar artículo"
   okl:
     member_id: "Número de identificación"
     member_id_or_email: "Identificación de usuario o email"
@@ -1554,9 +1521,6 @@ es:
       exceeded_expectations: "Superó las expectativas"
       positive: positivo
       hide_description: "Mostrar menos"
-      joined_this_community: "...se sumó a esta comunidad %{time_ago}"
-      was_last_seen: "...fue visto por última vez %{time_ago}"
-      was_invited_by: "...fue invitado por"
       less_than_expected: "Peor de lo esperado"
       phone_number: "Número de teléfono:"
       show_all_feedback: "Mostrar todos los comentarios"

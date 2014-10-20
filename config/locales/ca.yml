@@ -222,7 +222,6 @@ ca:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,22 +252,6 @@ ca:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
-    news_items:
-      index:
-        news_items: "Articles més recents"
-        create_news_item: "Crea un article"
-        no_news: "No hi ha cap notícia"
-        loading_more_news: "Carregant més notícies"
-      new:
-        new_news_item: "Crea un article"
-        edit_news_item: "Edita l'article"
-        index_news_item: "Crea un article"
-        title: "Títol:"
-        content: "Contingut:"
-        save_news_item: "Desa l'article"
-      news_item:
-        edit_news_item: Edita
-        delete_news_item: Neteja
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -894,8 +877,6 @@ ca:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
       add_listing_link_text: ~
-      available_on_the_app_store: ~
-      private_listing_notification: ~
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: ~
@@ -905,7 +886,6 @@ ca:
       post_new_listing: ~
       are_offering: ofereixen
       add_news_item: "Afegeix un article"
-      inform_others_about_events: "Últims esdeveniments i notícies de la comunitat"
       lend_rent_help_carpool: "Ven, regala o ajuda a altres! Comparteix els teus viatges!"
       loading_more_content: "S'estan carregant més continguts"
       more_events: "Més esdeveniments"
@@ -916,7 +896,6 @@ ca:
       or_see_what_the_others: "...o mira el que la resta"
       recent_events: "Esdeveniments recents"
       requesting: necessiten
-      teaser_text: "%{service_name} és un servei per a la comunitat de %{community}. Pots prestar, llogar, regalar i vendre coses, fer i demanar favors o compartir viatges amb cotxe. Pots prestar alguna cosa a algú o ajudar-lo?"
       tell_it_here: "Diga-ho aquí!"
       welcome_to_new_kassi: "Benvingut al nou %{service_name}!"
       no_reviews: ~
@@ -971,16 +950,12 @@ ca:
       default_about_text: ~
       click_here_link_text: ~
   layouts:
+    admin:
+      admin: "Panell d'administració de %{service_name}"
     no_tribe:
       inbox: ~
       settings: ~
       feedback: ~
-    admin:
-      admin: "Panell d'administració de %{service_name}"
-      back_to_kassi: "Tornar a %{service_name}"
-      tribe_info: ~
-      news_items: "Nous articles"
-      polls: Enquestes
     application:
       join_this_community: ~
       read_more: ~
@@ -1007,8 +982,6 @@ ca:
       notifications: Notificacions
       received: Rebut
       sent: Enviat
-    dashboard:
-      title: "Kassi - comparteix bens, serveis i viatges dins de la teva comunitat!"
     global-header:
       select_language: ~
     infos:
@@ -1119,7 +1092,6 @@ ca:
       this_content_is_not_available_in_this_community: "Aquest contingut no està disponible en aquesta comunitat."
       unknown_error: "Error desconegut. Si us plau utilitza l'enllaç de suggeriments per donar-nos detalls del que ha succeït."
       update_error: "S'ha produït un error quan durant l'actualització de la informació, si us plau intenta-ho de nou."
-      welcome_message: "Benvingut a Kassi! Un servei que ajuda als membres de la comunitat %{community} a vendre i prestar-se articles entre ells, organitzar trajectes compartits i ajudar-se mútuament de diverses formes!"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "No tens autorització per donar suggeriments en aquest esdeveniment."
       you_are_not_authorized_to_do_this: "No tens autorització per dur a terme aquesta acció."
       you_are_not_authorized_to_view_this_content: "No tens autorització per veure aquest contingut"
@@ -1411,11 +1383,6 @@ ca:
       search_verb: Cerca
       you_have_something_others_do_not: "Tens alguna cosa per oferir?"
     please_comment: Comentari
-  news_items:
-    index:
-      news_from_community: "Últimes notícies de la comunitat %{community}"
-    news_item:
-      delete_news_item: "Suprimeix l'article"
   okl:
     member_id: "Número d'identificació"
     member_id_or_email: ~
@@ -1546,9 +1513,6 @@ ca:
       exceeded_expectations: "Expectatives superades"
       positive: ~
       hide_description: "Mostrar menys"
-      joined_this_community: "...es va unir a la comunitat %{time_ago}"
-      was_last_seen: "...va ser vist per última vegada %{time_ago}"
-      was_invited_by: "...va ser convidat per"
       less_than_expected: "Pitjor de l'esperat"
       phone_number: "Número de telèfon"
       show_all_feedback: "Mostra tots els comentaris"

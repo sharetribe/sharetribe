@@ -222,7 +222,6 @@ el:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,22 +252,6 @@ el:
         send_email: Αποστολή
         message_will_be_sent_only_to_people_with_this_language: "Σημείωση: Το μήνυμα θα σταλεί μόνο στα μηνύματα που χρησιμοποιούν το %{service_name} στη γλώσσα που επιλέξατε."
         email_sent: "Το μήνυμα στάλθηκε."
-    news_items:
-      index:
-        news_items: "Νεότερα άρθρα"
-        create_news_item: "Δημιούργησε ένα άρθρο"
-        no_news: "Κανένα νέο"
-        loading_more_news: "Εμφάνιση περισσότερων ειδήσεων"
-      new:
-        new_news_item: "Δημιουργία άρθρου"
-        edit_news_item: "Επεξεργασία άρθρου"
-        index_news_item: "Δημιούργησε ένα άρθρο"
-        title: "Τίτλος:"
-        content: "Περιεχόμενο:"
-        save_news_item: Αποθήκευση
-      news_item:
-        edit_news_item: Επεξεργασία
-        delete_news_item: Διαγραφή
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -892,8 +875,6 @@ el:
       no_listings_with_your_search_criteria: "Δεν βρήκαμε αποτελέσματα με αυτά τα κριτήρια."
       no_listings_notification: "Καμία καταχώρηση. %{add_listing_link}."
       add_listing_link_text: "Προσθέστε κάτι"
-      available_on_the_app_store: "Διατίθεται στο app store"
-      private_listing_notification: "Υπάρχουν %{listing_count} καταχωρήσεις σε αυτή την κοινότητα. %{private_listing_count} από αυτές %{be_verb} ορατές μόνο σε μέλη της κοινότητας. Αν θέλετε να τις δείτε, πρέπει να %{log_in_link}."
       open_listing: "ενεργή καταχώρηση"
       open_listings: "ενεργές καταχωρήσεις"
       private_listing_notification_log_in: συνδεθείς
@@ -903,7 +884,6 @@ el:
       post_new_listing: "Νέα καταχώρηση"
       are_offering: προσφέρουν
       add_news_item: "Προσθήκη άρθρου"
-      inform_others_about_events: "Τελευταία νέα και γεγονότα στην κοινότητα"
       lend_rent_help_carpool: "Δάνεισε, νοίκιασε, βοήθα κάποιον, βρες συνταξιδιώτες"
       loading_more_content: "Εμφάνιση περισσότερων καταχωρήσεων"
       more_events: Περισσότερα...
@@ -914,7 +894,6 @@ el:
       or_see_what_the_others: "ή δες οι άλλοι τι"
       recent_events: Πρόσφατα
       requesting: χρειάζονται
-      teaser_text: "Το %{service_name} είναι μια υπηρεσία για την κοινότητα \"%{community}\". Εδώ μπορείς να δανείσεις, να νοικιάσεις, να χαρίσεις και να πουλήσεις πράγματα, να προσφέρεις και να ζητήσεις βοήθεια ή να βρεις συνταξιδιώτες. Έχεις κάτι που μπορείς να δανείσεις; Μπορείς να προσφέρεις βοήθεια;"
       tell_it_here: "Πες το!"
       welcome_to_new_kassi: "Καλώς ήρθες στο καινούριο %{service_name}!"
       no_reviews: "Δεν υπάρχουν κριτικές"
@@ -969,16 +948,12 @@ el:
       default_about_text: "Αυτή η αγορά βασίζεται στην πλατφόρμα Sharetribe. Με το Sharetribe μπορείτε κι εσείς να δημιουργήσετε την δική σας αγορά online. Είναι εύκολο και δωρεάν. %{click_here_link} για να μάθετε περισσότερα!"
       click_here_link_text: "Πατήστε εδώ"
   layouts:
+    admin:
+      admin: "Διαχείριση του %{service_name}"
     no_tribe:
       inbox: Εισερχόμενα
       settings: Ρυθμίσεις
       feedback: "Επικοινωνήστε μαζί μας"
-    admin:
-      admin: "Διαχείριση του %{service_name}"
-      back_to_kassi: "Επιστροφή στο %{service_name}"
-      tribe_info: "Πληροφορίες του tribe"
-      news_items: Άρθρα
-      polls: Δημοσκοπήσεις
     application:
       join_this_community: "Εγγραφή στην κοινότητα"
       read_more: "Διαβάστε περισσότερα"
@@ -1005,8 +980,6 @@ el:
       notifications: Ειδοποιήσεις
       received: Εισερχόμενα
       sent: Απεσταλμένα
-    dashboard:
-      title: "%{service_name} - μοιράσου αγαθά, πρόσφερε βοήθεια και συνταξίδεψε με άλλους στην κοινότητά σου!"
     global-header:
       select_language: "Επιλέξτε γλώσσα"
     infos:
@@ -1117,7 +1090,6 @@ el:
       this_content_is_not_available_in_this_community: "Αυτό το περιεχόμενο δεν είναι διαθέσιμο σε αυτή την κοινότητα."
       unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε επικοινωνήστε μαζί μας και πείτε μας τι συνέβη."
       update_error: "Παρουσιάστηκε σφάλμα κατά την προσπάθεια ενημέρωσης των στοιχείων σας. Παρακαλούμε προσπαθήστε ξανά"
-      welcome_message: "Καλωσήρθατε στο %{service_name}! Το %{service_name} είναι μια υπηρεσία που βοηθά τα μέλη της κοινότητας \"%{community}\" να ανταλλάσουν χάρες, να πωλούν και να δανείζουν αντικείμενα μεταξύ τους, να κανονίζουν να ταξιδέψουν μαζί και να βοηθούν ο ένας τον άλλο με πολλούς και διαφορετικούς τρόπους."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Δεν έχεις δικαίωμα να κάνεις κριτική για αυτό το συμβάν"
       you_are_not_authorized_to_do_this: "Δεν έχεις δικαίωμα να το κάνεις αυτό"
       you_are_not_authorized_to_view_this_content: "Δεν έχεις δικαίωμα να δεις αυτό το περιεχόμενο"
@@ -1409,11 +1381,6 @@ el:
       search_verb: Ψάξε
       you_have_something_others_do_not: "Έχεις κάτι να προσφέρεις;"
     please_comment: Σχολίασε
-  news_items:
-    index:
-      news_from_community: "Τελευταία νέα από την κοινότητα %{community}"
-    news_item:
-      delete_news_item: "Αφαίρεση άρθρου"
   okl:
     member_id: ~
     member_id_or_email: "ID μέλους ή email"
@@ -1547,9 +1514,6 @@ el:
       exceeded_expectations: "Ξεπέρασε τις προσδοκίες"
       positive: θετική
       hide_description: Απόκρυψη
-      joined_this_community: "Γράφτηκε %{time_ago}"
-      was_last_seen: "Ήταν εδώ τελευταία φορά %{time_ago}"
-      was_invited_by: "Προσκλήθηκε από τον/την %{inviter_name}"
       less_than_expected: "Χειρότερα από το αναμενόμενο"
       phone_number: "Τηλέφωνο:"
       show_all_feedback: "Εμφάνιση όλων των σχολίων"

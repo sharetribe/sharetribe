@@ -237,7 +237,6 @@ fr:
         field_title: "Nom du champ"
         field_type: "Type de champ"
         categories: "Catégories d'annonces pour lequel le champ est utilisé"
-        no_custom_listing_fields: "Aucun champ d'annonce propre à votre place de marché."
         options: Choix
         add_option: "+ Ajouter une option"
         saving_order: "Sauvegarder l'ordre des champs"
@@ -268,22 +267,6 @@ fr:
         send_email: "Envoyez l'email"
         message_will_be_sent_only_to_people_with_this_language: "Note : cette email ne sera envoyé qu'aux membres qui utilisent %{service_name} dans la langue que vous avez sélectionnée."
         email_sent: "Email envoyé."
-    news_items:
-      index:
-        news_items: "Articles les plus récents"
-        create_news_item: "Créer un article"
-        no_news: "Pas d'actualité"
-        loading_more_news: "Chargement d'autres actualités"
-      new:
-        new_news_item: "Créer un article"
-        edit_news_item: "Éditer l'article"
-        index_news_item: "Créer un article"
-        title: "Titre :"
-        content: "Contenu :"
-        save_news_item: "Sauvegarder l'article"
-      news_item:
-        edit_news_item: Editer
-        delete_news_item: Supprimer
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       new:
@@ -907,8 +890,6 @@ fr:
       no_listings_with_your_search_criteria: "Nous n'avons pas trouvé de résultats correspondants à votre requête."
       no_listings_notification: "Aucune annonce. %{add_listing_link}."
       add_listing_link_text: "Ajouter une annonce"
-      available_on_the_app_store: "Disponible sur l'app store"
-      private_listing_notification: "Il y a %{listing_count} annonces disponibles dans cette tribu. %{private_listing_count} d'entre elles ne %{be_verb} visible(s) qu'aux membres de la tribu. Si vous voulez les voir visibles uniquement par les membres, vous devez vous %{log_in_link}."
       open_listing: "annonce en ligne"
       open_listings: "annonces en lignes"
       private_listing_notification_log_in: connecter
@@ -918,7 +899,6 @@ fr:
       post_new_listing: "Déposer une annonce"
       are_offering: offrent
       add_news_item: "Ajouter un article"
-      inform_others_about_events: "Dernières actualités et évènements dans la tribu."
       lend_rent_help_carpool: "Vendre, prêter, aider, faire du covoiturage"
       loading_more_content: "Chargement de plus de contenu"
       more_events: "Plus d'événements ..."
@@ -929,7 +909,6 @@ fr:
       or_see_what_the_others: "...ou regardez ce que les autres"
       recent_events: "Evénements les plus récents"
       requesting: demandent
-      teaser_text: "%{service_name} est un service pour la tribu %{community}. Ici vous pouvez prêter, louer, donner et vendre des objets, donner et recevoir de l'aide ou organiser des covoiturages. Y a-t-il quelque chose que vous pourriez prêter aux autres ou avec quoi vous pourriez les aider ?"
       tell_it_here: "Dites-le ici !"
       welcome_to_new_kassi: "Bienvenue sur la nouvelle version de %{service_name} !"
       no_reviews: "Aucun avis"
@@ -984,16 +963,12 @@ fr:
       default_about_text: "Cette place de marché a été créé grâce à la plate-forme Sharetribe. Avec Sharetribe, vous pouvez facilement créer votre place de marché en ligne. C'est gratuit et ne prend que quelques minutes ! %{click_here_link} pour en savoir plus !"
       click_here_link_text: "Cliquez ici"
   layouts:
+    admin:
+      admin: "Panneau administrateur %{service_name}"
     no_tribe:
       inbox: "Boîte de réception"
       settings: Paramètres
       feedback: "Nous contacter"
-    admin:
-      admin: "Panneau administrateur %{service_name}"
-      back_to_kassi: "Retour à la page d'accueil de %{service_name}"
-      tribe_info: "Informations de base de la tribu"
-      news_items: Actualités
-      polls: Sondages
     application:
       join_this_community: "Rejoindre la tribu"
       read_more: "Lire la suite"
@@ -1020,8 +995,6 @@ fr:
       notifications: Notifications
       received: Reçus
       sent: Envoyés
-    dashboard:
-      title: "%{service_name} - Partagez des objets, des services et des transports avec votre tribu locale !"
     global-header:
       select_language: "Choisir la langue"
     infos:
@@ -1132,7 +1105,6 @@ fr:
       this_content_is_not_available_in_this_community: "Ce contenu n'est pas accessible dans cette tribu."
       unknown_error: "Erreur inconnue. S'il vous plait, contactez-nous pour nous envoyer plus de détails sur ce qu'il s'est passé."
       update_error: "Une erreur s'est produite lors de la réactualisation de vos informations, veuillez réessayer ultérieurement"
-      welcome_message: "Bienvenue sur %{service_name} ! %{service_name} est un service qui aide les membres de la tribu %{community} à se rendre service, à se vendre et prêter des objets, à organiser des covoiturages et à s'entraider de beaucoup d'autres façons."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Vous n'êtes pas autorisé à donner un avis sur cet événement"
       you_are_not_authorized_to_do_this: "Vous n'êtes pas autorisé à faire ceci"
       you_are_not_authorized_to_view_this_content: "Vous n'êtes pas autorisé à voir ce contenu"
@@ -1424,11 +1396,6 @@ fr:
       search_verb: Chercher
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
     please_comment: Commentaire
-  news_items:
-    index:
-      news_from_community: "Dernières actualités de la tribu %{community}"
-    news_item:
-      delete_news_item: "Supprimer l'article"
   okl:
     member_id: "Member id"
     member_id_or_email: "Identifiant ou email"
@@ -1562,9 +1529,6 @@ fr:
       exceeded_expectations: "Dépassait mes attentes"
       positive: positif
       hide_description: Réduire
-      joined_this_community: "a rejoint la tribu %{time_ago}"
-      was_last_seen: "était connecté pour la dernière fois %{time_ago}"
-      was_invited_by: "a été invité par %{inviter_name}"
       less_than_expected: "Ne correspondait pas à mes attentes"
       phone_number: "Numéro de téléphone : "
       show_all_feedback: "Montrer tous les avis"

@@ -222,7 +222,6 @@ hr:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,22 +252,6 @@ hr:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
-    news_items:
-      index:
-        news_items: ~
-        create_news_item: ~
-        no_news: ~
-        loading_more_news: ~
-      new:
-        new_news_item: ~
-        edit_news_item: ~
-        index_news_item: ~
-        title: ~
-        content: ~
-        save_news_item: ~
-      news_item:
-        edit_news_item: ~
-        delete_news_item: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -892,8 +875,6 @@ hr:
       no_listings_with_your_search_criteria: "Ne možemo naći niti jedan rezultat koji odgovara postavljenim uvjetima. (Ako ste tek nešto dodali, potrebno je 10 minuta prije nego se pojavi na tražilici.)"
       no_listings_notification: "Nema oglasa. %{add_listing_link}."
       add_listing_link_text: "Dodaj novi oglas"
-      available_on_the_app_store: "Dostupno u app storeu"
-      private_listing_notification: "Ova zajednica ima %{listing_count}. %{private_listing_count} njih %{be_verb} vidljivi samo članovima zajednice. Ako želite vidjeti i oglase koje mogu vidjeti samo članovi, morate se %{log_in_link}."
       open_listing: "otvori oglas"
       open_listings: "otvori oglase"
       private_listing_notification_log_in: "prijavi se"
@@ -903,7 +884,6 @@ hr:
       post_new_listing: "Napiši oglas!"
       are_offering: ponuda
       add_news_item: "Dodaj članak"
-      inform_others_about_events: "Posljednje novosti u zajednici"
       lend_rent_help_carpool: "Prodaj, posudi, pomozi, podijeli mjesto u autu"
       loading_more_content: "Učitavam još sadržaja"
       more_events: "Više događanja..."
@@ -914,7 +894,6 @@ hr:
       or_see_what_the_others: "... ili vidi što ostali"
       recent_events: "Nedavna događanja"
       requesting: potreba
-      teaser_text: "%{service_name} je usluga %{community} zajednice. Ovdje možete posuđivati, iznajmljivati, poklanjati i prodavati stvari, pomoći nekome i zatražiti pomoć ili podijeliti mjesto u autu. Imate li nešto za posuditi drugima ili im možete pomoći na neki drugi način?"
       tell_it_here: "Reci ovdje!"
       welcome_to_new_kassi: "Dobrodošli u novi %{service_name}!"
       no_reviews: ~
@@ -969,16 +948,12 @@ hr:
       default_about_text: ~
       click_here_link_text: ~
   layouts:
+    admin:
+      admin: ~
     no_tribe:
       inbox: ~
       settings: ~
       feedback: ~
-    admin:
-      admin: ~
-      back_to_kassi: ~
-      tribe_info: ~
-      news_items: ~
-      polls: ~
     application:
       join_this_community: ~
       read_more: ~
@@ -1005,8 +980,6 @@ hr:
       notifications: ~
       received: ~
       sent: ~
-    dashboard:
-      title: ~
     global-header:
       select_language: ~
     infos:
@@ -1117,7 +1090,6 @@ hr:
       this_content_is_not_available_in_this_community: ~
       unknown_error: ~
       update_error: ~
-      welcome_message: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: ~
       you_are_not_authorized_to_do_this: ~
       you_are_not_authorized_to_view_this_content: ~
@@ -1409,11 +1381,6 @@ hr:
       search_verb: ~
       you_have_something_others_do_not: ~
     please_comment: ~
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: ~
   okl:
     member_id: ~
     member_id_or_email: ~
@@ -1544,9 +1511,6 @@ hr:
       exceeded_expectations: ~
       positive: ~
       hide_description: ~
-      joined_this_community: ~
-      was_last_seen: ~
-      was_invited_by: ~
       less_than_expected: ~
       phone_number: ~
       show_all_feedback: ~

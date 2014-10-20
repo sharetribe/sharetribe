@@ -222,7 +222,6 @@ ru:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,22 +252,6 @@ ru:
         send_email: "Отправить письмо"
         message_will_be_sent_only_to_people_with_this_language: "Примечание: письмо будет отправлено только тем членам сообщества, которые пользуются %{service_name} на выбранном вами языке"
         email_sent: "Письмо отправлено"
-    news_items:
-      index:
-        news_items: "Новые статьи"
-        create_news_item: "Создание статьи"
-        no_news: "Пока нет новостей."
-        loading_more_news: "Загрузить больше новостей"
-      new:
-        new_news_item: "Создание статьи"
-        edit_news_item: "Редактирование статьи"
-        index_news_item: "Создание статьи"
-        title: "Заголовок:"
-        content: "Содержимое:"
-        save_news_item: "Сохранить статью"
-      news_item:
-        edit_news_item: Изменить
-        delete_news_item: Удалить
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -892,8 +875,6 @@ ru:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
       add_listing_link_text: ~
-      available_on_the_app_store: "Доступно в AppStore"
-      private_listing_notification: "В этом сообществе содержится %{listing_count} открытых листингов. Из них %{private_listing_count}%{be_verb}видимы только для членов сообщества. Если вы хотите их увидеть, вам нужно %{log_in_link}."
       open_listing: "открытое объявление"
       open_listings: "открытые объявления"
       private_listing_notification_log_in: Войти
@@ -903,7 +884,6 @@ ru:
       post_new_listing: "Разместить новый листинг!"
       are_offering: "что предлагают"
       add_news_item: "Добавить статью"
-      inform_others_about_events: "Последние новости и события в сообществе."
       lend_rent_help_carpool: "Прокат, обмен, помощь, совместные поездки"
       loading_more_content: "Загрузить больше"
       more_events: Больше...
@@ -914,7 +894,6 @@ ru:
       or_see_what_the_others: "...или посмотрите,"
       recent_events: "Недавние события"
       requesting: "запрашивают другие"
-      teaser_text: "%{service_name} — сервис для сообщества %{community}. С помощью него вы можете обмениваться вещами, продавать, покупать, отдавать и брать их на прокат, получить или оказать помощь, либо договориться о совместном использовании транспорта. У вас есть что предложить другим?"
       tell_it_here: "Расскажите об этом здесь!"
       welcome_to_new_kassi: "Добро пожаловать в новый %{service_name}!"
       no_reviews: ~
@@ -969,16 +948,12 @@ ru:
       default_about_text: ~
       click_here_link_text: ~
   layouts:
+    admin:
+      admin: "Администрирование %{service_name}"
     no_tribe:
       inbox: Входящие
       settings: Настройки
       feedback: "Обратная связь"
-    admin:
-      admin: "Администрирование %{service_name}"
-      back_to_kassi: "Вернуться в %{service_name}"
-      tribe_info: "Основная информация о сообществе"
-      news_items: "Новостные статьи"
-      polls: Опросы
     application:
       join_this_community: "Присоединиться к сообществу"
       read_more: Подробнее
@@ -1005,8 +980,6 @@ ru:
       notifications: Оповещения
       received: Полученные
       sent: Отправленые
-    dashboard:
-      title: "%{service_name} - делитесь вещами и услугами в вашем местном сообществе!"
     global-header:
       select_language: ~
     infos:
@@ -1117,7 +1090,6 @@ ru:
       this_content_is_not_available_in_this_community: "Эта информация не доступна в этом сообществе."
       unknown_error: "Неизвестная ошибка. Используйте ссылку отзыва для отправки деталей о том, как это произошло."
       update_error: "Произошла ошибка при сохранении данных. Попробуйте снова."
-      welcome_message: "Добро пожаловать в %{service_name}! %{service_name} - это сервис, который помогает членам сообщества %{community} обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Для того, чтобы оставить отзыв об этом событии, требуется авторизация"
       you_are_not_authorized_to_do_this: "У вас не хватает прав для этого действия"
       you_are_not_authorized_to_view_this_content: "У вас не хватает прав для просмотра этой информации"
@@ -1409,11 +1381,6 @@ ru:
       search_verb: Поиск
       you_have_something_others_do_not: "Можете предложить что-нибудь?"
     please_comment: Комментарий
-  news_items:
-    index:
-      news_from_community: "Последние новости сообщества %{community}"
-    news_item:
-      delete_news_item: "Удалить статью"
   okl:
     member_id: Идентификатор
     member_id_or_email: "ID пользователя или электронная почта"
@@ -1547,9 +1514,6 @@ ru:
       exceeded_expectations: "Намного лучше, чем ожидалось"
       positive: позитивн.
       hide_description: Меньше
-      joined_this_community: "…зарегистрирован с %{time_ago}"
-      was_last_seen: "…последний раз заходил %{time_ago}"
-      was_invited_by: "...был приглашён %{inviter_name}"
       less_than_expected: "Хуже чем ожидалось"
       phone_number: "Телефон:"
       show_all_feedback: "Показать все отзывы"

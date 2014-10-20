@@ -222,7 +222,6 @@ pt-BR:
         field_title: Nome
         field_type: "Especificar tipo de campo"
         categories: ~
-        no_custom_listing_fields: ~
         options: Opção
         add_option: "+ Adicionar opção"
         saving_order: Salvar
@@ -253,22 +252,6 @@ pt-BR:
         send_email: "Enviar o email"
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: "E-mail enviado."
-    news_items:
-      index:
-        news_items: "Artigos recentes"
-        create_news_item: "Criar um artigo"
-        no_news: "Nenhuma notícia"
-        loading_more_news: "Carregar mais notícias"
-      new:
-        new_news_item: "Criar um artigo"
-        edit_news_item: "Editar item"
-        index_news_item: "Criar um artigo"
-        title: "Título:"
-        content: "Conteúdo:"
-        save_news_item: "Salvar item"
-      news_item:
-        edit_news_item: Editar
-        delete_news_item: Apagar
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -892,8 +875,6 @@ pt-BR:
       no_listings_with_your_search_criteria: "Nós não encontramos nenhum resultado que corresponde à sua pesquisa."
       no_listings_notification: "Nenhum anúncio. %{add_listing_link}."
       add_listing_link_text: "Adicionar nova lista"
-      available_on_the_app_store: "Disponível na App Store"
-      private_listing_notification: ~
       open_listing: "anúncio on line"
       open_listings: "anúncios ativos"
       private_listing_notification_log_in: entrar
@@ -903,7 +884,6 @@ pt-BR:
       post_new_listing: "Postar um novo anúncio"
       are_offering: oferta
       add_news_item: "Adicionar um artigo"
-      inform_others_about_events: "Últimas notícias e eventos da comunidade."
       lend_rent_help_carpool: "Venda, empreste, ajude, compartilhe caronas"
       loading_more_content: "Carregando mais conteúdo"
       more_events: "Mais eventos..."
@@ -914,7 +894,6 @@ pt-BR:
       or_see_what_the_others: "...ou veja o que os outros"
       recent_events: "Eventos recentes"
       requesting: precisa
-      teaser_text: "%{service_name} é um serviço para comunidade %{community}. Aqui você pode emprestar, alugar, dar, vender coisas, ajudar ou compartilhar caronas. Você poderia dar algo aos outros ou ajudá-los?"
       tell_it_here: "Conte isso aqui!"
       welcome_to_new_kassi: "Bem vindo ao novo %{service_name}!"
       no_reviews: "nenhum comentário"
@@ -969,16 +948,12 @@ pt-BR:
       default_about_text: "Este mercado é alimentado pela plataforma Sharetribe. Com Sharetribe você pode facilmente criar o seu próprio site de mercado. É gratuito e leva apenas um minuto. %{click_here_link} para saber mais!"
       click_here_link_text: "Clique aqui"
   layouts:
+    admin:
+      admin: "Painel de administração do %{service_name}"
     no_tribe:
       inbox: "caixa de entrada"
       settings: Configurações
       feedback: Contato
-    admin:
-      admin: "Painel de administração do %{service_name}"
-      back_to_kassi: "Volte para %{service_name}"
-      tribe_info: "Informações básicas da tribo"
-      news_items: "Novos artigos"
-      polls: Sondagens
     application:
       join_this_community: "Ingressar a comunidade"
       read_more: "Ler o seguinte"
@@ -1005,8 +980,6 @@ pt-BR:
       notifications: Notificações
       received: Recebida
       sent: Enviada
-    dashboard:
-      title: "%{service_name} - compartilhe coisas, serviços e caronas em sua comunidade!"
     global-header:
       select_language: "Selecionar idioma"
     infos:
@@ -1117,7 +1090,6 @@ pt-BR:
       this_content_is_not_available_in_this_community: "Este conteúdo não está disponível nesta comunidade."
       unknown_error: "Erro desconhecido. Por favor use o link Fale conosco para enviar detalhes sobre o que aconteceu."
       update_error: "Ocorreu um erro ao tentar atualizar as suas informações, por favor, tente novamente"
-      welcome_message: "Bem-vindo a %{service_name}! %{service_name} é um serviço que ajuda os membros da comunidade %{community} para vender e emprestar itens para o outro e ajudar uns aos outros de muitas outras maneiras."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Você não está autorizado a fazer comentários sobre este evento"
       you_are_not_authorized_to_do_this: "Você não está autorizado a fazer isso"
       you_are_not_authorized_to_view_this_content: "Você não está autorizado a visualizar este conteúdo"
@@ -1409,11 +1381,6 @@ pt-BR:
       search_verb: Buscar
       you_have_something_others_do_not: "Tem algo a oferecer?"
     please_comment: Comentar
-  news_items:
-    index:
-      news_from_community: "Últimas notícias de %{community} comunidade"
-    news_item:
-      delete_news_item: "Remover artigo"
   okl:
     member_id: "ID de Membro"
     member_id_or_email: "Nome de usuário ou email"
@@ -1547,9 +1514,6 @@ pt-BR:
       exceeded_expectations: "Excedeu as expectativas"
       positive: positivo
       hide_description: "mostrar menos"
-      joined_this_community: "Cadastrado %{time_ago}"
-      was_last_seen: "Visto pela última vez %{time_ago}"
-      was_invited_by: "Convidado por %{inviter_name}"
       less_than_expected: "Pior do que o esperado"
       phone_number: "Telefone:"
       show_all_feedback: "Mostrar todos os comentários"
