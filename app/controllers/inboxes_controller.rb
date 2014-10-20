@@ -75,11 +75,7 @@ class InboxesController < ApplicationController
   end
 
   def inbox_payment(inbox_item)
-    if inbox_item[:sum_cents].present? && inbox_item[:currency].present?
-      Money.new(inbox_item[:sum_cents], inbox_item[:currency])
-    else
-      nil
-    end
+    Maybe(inbox_item)[:payment_total].or_else(nil)
   end
 
   def path_to_conversation_or_transaction(inbox_item)

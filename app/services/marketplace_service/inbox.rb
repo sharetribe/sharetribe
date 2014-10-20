@@ -91,8 +91,7 @@ module MarketplaceService
         [:last_message_at, :time, :optional],
         [:last_message_content, :string, :optional],
 
-        [:sum_cents, :fixnum, :optional],
-        [:currency, :string, :optional],
+        [:payment_total, :money, :optional],
 
         [:author, :hash, :mandatory],
         [:waiting_feedback, :mandatory, transform_with: @tiny_int_to_bool],
@@ -212,6 +211,18 @@ module MarketplaceService
           MarketplaceService::Transaction::Entity.transition(transition_model)
         end
 
+        payment_gateway = MarketplaceService::Community::Query.payment_type(transaction[:community_id])
+
+        payment_total =
+          case payment_gateway
+          when :checkout, :braintree
+            # Use Maybe, since payment may not exists yet, if postpay flow
+            Maybe(Payments.where(id: transaction[:payment_id]).first).total_sum.or_else(nil)
+          when :paypal
+            paypal_payments = PaypalService::API::Payments.new
+            paypal_payments.get_payment(transaction[:community_id], transaction[:transaction_id])[:data][:authorization_total]
+          end
+
         should_notify =
           !@tiny_int_to_bool.call(transaction[:current_is_read]) ||
           @tiny_int_to_bool.call(transaction[:current_action_required]) ||
@@ -221,7 +232,8 @@ module MarketplaceService
           author: transaction[:other],
           transitions: transitions,
           should_notify: should_notify,
-          last_transition_at: transaction[:last_transition_at]
+          last_transition_at: transaction[:last_transition_at],
+          payment_total: payment_total
         )
       end
 
@@ -279,8 +291,7 @@ module MarketplaceService
             listings.id                                       AS listing_id,
             listings.title                                    AS listing_title,
 
-            payments.sum_cents                                AS sum_cents,
-            payments.currency                                 AS currency,
+            payments.id                                       AS payment_id,
 
             listings.author_id                                AS author_id,
             current_participation.person_id                   AS current_id,
@@ -290,6 +301,8 @@ module MarketplaceService
 
             current_participation.is_read                     AS current_is_read,
             current_participation.is_starter                  AS current_is_starter,
+
+            transactions.community_id                         AS community_id,
 
             # Requires actions
             (

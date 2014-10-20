@@ -17,7 +17,7 @@ module MarketplaceService
         :starter_id,
         :testimonials,
         :transitions,
-        :payment_sum,
+        :payment_total,
         :conversation,
         :booking,
         :created_at,
@@ -90,6 +90,18 @@ module MarketplaceService
         listing_model = transaction_model.listing
         listing = ListingEntity.listing(listing_model)
 
+        payment_gateway = MarketplaceService::Community::Query.payment_type(transaction_model.community_id)
+
+        payment_total =
+          case payment_gateway
+          when :checkout, :braintree
+            # Use Maybe, since payment may not exists yet, if postpay flow
+            Maybe(transaction_model).payment.total_sum.or_else { nil }
+          when :paypal
+            paypal_payments = PaypalService::API::Payments.new
+            paypal_payments.get_payment(transaction_model.community_id, transaction_model.id)[:data][:authorization_total]
+          end
+
         Transaction[EntityUtils.model_to_hash(transaction_model).merge({
           status: transaction_model.current_state,
           last_transition_at: Maybe(transaction_model.transaction_transitions.last).created_at.or_else(nil),
@@ -102,7 +114,7 @@ module MarketplaceService
             Transition[EntityUtils.model_to_hash(transition)]
           },
           discussion_type: listing_model.discussion_type.to_sym,
-          payment_sum: Maybe(transaction_model).payment.total_sum.or_else { nil },
+          payment_total: payment_total,
           booking: transaction_model.booking,
           __model: transaction_model
         })]

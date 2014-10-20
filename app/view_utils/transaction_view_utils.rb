@@ -47,7 +47,7 @@ module TransactionViewUtils
 
       transitions = transaction[:transitions]
       discussion_type = transaction[:discussion_type]
-      payment_sum = transaction[:payment_sum]
+      payment_sum = transaction[:payment_total]
 
       create_messages_from_actions(transitions, discussion_type, author, starter, payment_sum)
     else
