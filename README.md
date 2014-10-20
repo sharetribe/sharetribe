@@ -67,35 +67,25 @@ See also:
 
 ### Experimental: Docker container installation
 
-Prerequisite: You have to have docker installed. If you are on a non-linux OS, you need to have boot2docker or something similar. If you can successfully run `docker info`, then you should be ok to go.
+Prerequisite: You have to have _docker_ and _fig_ installed. If you are on a non-linux OS, you need to have _boot2docker_ or something similar. If you can successfully run `docker info`, then you should be ok to go.
 
-1. Build and run MySQL container
+1. Load schema (only on the first run)
 
-  `docker run --name mysql -p 3306:3306 -e MYSQL_USER=sharetribe -e MYSQL_PASSWORD=secret -e MYSQL_DATABASE=sharetribe_development -e MYSQL_ROOT_PASSWORD=secret mysql`
+  `fig run web /bin/bash -l -c "bundle exec rake db:schema:load"`
 
-2. Build Sharetribe Rails container
+1. Create a marketplace (only on the first run)
 
-  `docker build -t="sharetribe/server" .`
+  `fig run web /bin/bash -l -c 'rails runner "Community.create(name: \"docker\", domain: \"docker\")"'`
 
-  (Installing gem bundle will take a while. Please be patient.)
+1. Run the app
 
-3. Load database schema
+  `fig up`
 
-  `docker run -i -t --link=mysql:mysql sharetribe/server /bin/bash -l -c "bundle exec rake db:schema:load"`
+1. Set lvh.me to point to docker IP
 
-4. Run Rails server
+  Modify your `/etc/hosts` file. If you're in Linux, point 127.0.0.1 to docker.lvh.me. If you are on OSX (or Windows), point the result of running `boot2docker ip` to docker.lvh.me
 
-  `docker run -i -t --link=mysql:mysql -p 3000:3000 sharetribe/server /bin/bash -l -c "bundle exec rake ts:index ; bundle exec rake ts:start ; bundle exec rails server"`
-
-5. Run worker
-
-  `docker run -i -t --link=mysql:mysql sharetribe/server /bin/bash -l -c "bundle exec rake jobs:work"`
-
-6. Set lvh.me to point to docker IP
-
-  Modify your `/etc/hosts` file. If you're in Linux, point 127.0.0.1 to lvh.me. If you are on OSX (or Windows), point the result of running `boot2docker ip` to lvh.me
-
-7. All done! Open your browser and URL http://lvh.me:3000
+1. All done! Open your browser and URL http://docker.lvh.me:3000
 
 Please note, that Docker installation is experimental and it's missing some important parts:
 
@@ -107,7 +97,7 @@ Please note, that Docker installation is experimental and it's missing some impo
 - [ ] Volume share (for sharing code in development work flow)
 - [ ] ImageMagick
 - [ ] Default configurations
-- [ ] Use fig to setup all containers
+- [x] Use fig to setup all containers
 
 Contributions are highly appreciated.
 
