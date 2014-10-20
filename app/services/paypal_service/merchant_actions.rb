@@ -8,7 +8,7 @@ module PaypalService
 
 
     def from_money(m)
-      { value: m.cents.abs.divmod(m.currency.subunit_to_unit).join("."), currencyID: m.currency.iso_code }
+      { value: MoneyUtil.to_dot_separated_str(m), currencyID: m.currency.iso_code }
     end
 
     def to_money(pp_amount)
@@ -128,6 +128,7 @@ module PaypalService
               SolutionType: "Sole",
               LandingPage: "Billing",
               AllowNote: 0,
+              MaxAmount: from_money(req[:order_total]),
               PaymentDetails: [{
                   NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total]),
