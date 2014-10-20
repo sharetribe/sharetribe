@@ -489,6 +489,11 @@ el:
       pay: Πληρωμή
       preauthorized: ~
       paid: "Επιτυχής πληρωμή"
+      pending_external:
+        paypal:
+          multicurrency: ~
+          verify: ~
+          intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Το αίτημα έγινε δεκτό"
@@ -506,6 +511,11 @@ el:
       waiting_payment_from_requester: "Αναμονή πληρωμής από τον/την %{requester_name}"
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
+      pending_external_inbox:
+        paypal:
+          multicurrency: ~
+          intl: ~
+          verify: ~
     status_link:
       accept_offer: "Αποδοχή προσφοράς"
       accept_request: "Αποδοχή αιτήματος"

@@ -504,6 +504,11 @@ de:
       pay: Zahlen
       preauthorized: "Zahlung erfolgreich"
       paid: "erfolgreiche Bezahlung"
+      pending_external:
+        paypal:
+          multicurrency: ~
+          verify: ~
+          intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Anfrage akzeptiert"
@@ -521,6 +526,11 @@ de:
       waiting_payment_from_requester: "Warte bis %{requester_name} bezahlt"
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
+      pending_external_inbox:
+        paypal:
+          multicurrency: ~
+          intl: ~
+          verify: ~
     status_link:
       accept_offer: "Angebot annehmen"
       accept_request: "Anfrage annehmen"

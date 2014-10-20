@@ -489,6 +489,11 @@ pt-BR:
       pay: Pagar
       preauthorized: "Pagamento efetuado com sucesso"
       paid: "Pagamento efetuado com sucesso"
+      pending_external:
+        paypal:
+          multicurrency: ~
+          verify: ~
+          intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: Aceito
@@ -506,6 +511,11 @@ pt-BR:
       waiting_payment_from_requester: "Aguardando %{requester_name} para pagar"
       waiting_payment_from_you: "Esperando você pagar"
       waiting_feedback_from_you: "Esperando você dar feedback"
+      pending_external_inbox:
+        paypal:
+          multicurrency: ~
+          intl: ~
+          verify: ~
     status_link:
       accept_offer: "Aceitar oferta"
       accept_request: "Aceitar requisição"

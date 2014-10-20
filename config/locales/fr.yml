@@ -504,6 +504,11 @@ fr:
       pay: Payer
       preauthorized: "Paiement réussi"
       paid: "Paiement réussi"
+      pending_external:
+        paypal:
+          multicurrency: ~
+          verify: ~
+          intl: ~
       waiting_for_current_user_to_deliver_listing: "En attente de votre réalisation de %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "En attente de %{listing_author_name} de la réalisation de %{listing_title}"
       request_accepted: Acceptée
@@ -521,6 +526,11 @@ fr:
       waiting_payment_from_requester: "En attente du paiement par %{requester_name}"
       waiting_payment_from_you: "En attente de votre paiement"
       waiting_feedback_from_you: "En attente de votre avis"
+      pending_external_inbox:
+        paypal:
+          multicurrency: ~
+          intl: ~
+          verify: ~
     status_link:
       accept_offer: "Accepter l'offre"
       accept_request: "Accepter demande"

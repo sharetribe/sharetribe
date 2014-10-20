@@ -489,6 +489,11 @@ nb:
       pay: ~
       preauthorized: ~
       paid: ~
+      pending_external:
+        paypal:
+          multicurrency: ~
+          verify: ~
+          intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: ~
@@ -506,6 +511,11 @@ nb:
       waiting_payment_from_requester: ~
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
+      pending_external_inbox:
+        paypal:
+          multicurrency: ~
+          intl: ~
+          verify: ~
     status_link:
       accept_offer: ~
       accept_request: ~

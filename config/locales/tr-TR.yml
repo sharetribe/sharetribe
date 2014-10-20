@@ -489,6 +489,11 @@ tr-TR:
       pay: ~
       preauthorized: ~
       paid: ~
+      pending_external:
+        paypal:
+          multicurrency: ~
+          verify: ~
+          intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Kabul edildi"
@@ -506,6 +511,11 @@ tr-TR:
       waiting_payment_from_requester: ~
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
+      pending_external_inbox:
+        paypal:
+          multicurrency: ~
+          intl: ~
+          verify: ~
     status_link:
       accept_offer: "Teklifi kabul et"
       accept_request: "Talebi kabul et"
@@ -728,7 +738,7 @@ tr-TR:
       reset_password_instructions: ~
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Geri bildirimler açık olarak yayınlanmakta olup tüm diğer üyeler tarafından görüntülenebilmektedir. Diğer kullanıcılar geri bildirimleri dikkate alarak %{name} kullanıcısının güvenilir ve temasa geçmek isteyecekleri bir kişi olup olmadığına karar verebilirler. Bu nedenle başınıza gelenlerle ilgili geri bildirim vermenin her zaman iyi bir şey olduğunu akılda tutmakta ve karşı taraflara da hatırlatmakta fayda var. Ayrıca başarılı olabilmek için olumlu geri bildirimler almanız çok gerekli."
-      remember_to_give_feedback_to: ~
+      remember_to_give_feedback_to: "Hatırlatma: Lütfen %{name} kullanıcına geri bildirim vermeyi unutmayınız"
       you_have_not_given_feedback_yet: ~
     transaction_preauthorized:
       subject: ~
@@ -756,8 +766,8 @@ tr-TR:
   error_messages:
     listings:
       departure_time: ~
-      share_type: ~
-      valid_until: ~
+      share_type: "Bir tanesini seçmeniz gerekmektedir."
+      valid_until: "Bu tarih bugün ile bundan 6 ay sonrası arasında bir tarih olmalıdır."
       price: ~
       minimum_price: ~
     testimonials:
@@ -766,15 +776,15 @@ tr-TR:
     paypal:
       generic_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "Önceki sayfaya dönüş"
     error_404:
       if_you_believe: ~
-      page_can_not_be_found: ~
+      page_can_not_be_found: "Sayfa bulunamadı!"
       page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+    error_404_title: "sayfa bulunamadı"
     error_500:
       help_us_find_the_problem: ~
-      page_loading_failed: ~
+      page_loading_failed: "Sayfa yüklenemedi!"
       reload_refresh: ~
     error_500_title: ~
     error_description: ~
@@ -783,10 +793,10 @@ tr-TR:
       kassi_does_not_currently_work_without_javascript: ~
       kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      send_feedback: "Geri bildirim gönder"
+      your_feedback_to_admins: "Admin kullanıcılara geri bildiriminiz"
+    send: Gönder
+    your_email_address: "E-posta adresiniz"
   errors:
     messages:
       invalid_date: ~
@@ -823,14 +833,14 @@ tr-TR:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
+    about: Hakkında
+    home: "Ana sayfa"
     members: ~
     new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
+    mobile_version: "Mobil versiyon"
+    offers: Teklifler
+    requests: Talepler
+    search_kassi: "%{service_name} Ara"
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
@@ -845,10 +855,10 @@ tr-TR:
       additionally_some_private_offers_exist: ~
       additionally_some_private_requests_exist: ~
     blank_slate:
-      add_first: ~
+      add_first: "Yeni bir tane ekle!"
       but_that_is_visible_only_to_registered_members: ~
       but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
+      create_new_account_for_yourself: "Kendiniz için yeni bir hesap oluşturun"
       examples_of_what_you_could_offer_to_others: ~
       examples_of_what_you_could_request_to_others: ~
       favor_offer_list: ~
