@@ -474,9 +474,9 @@ it:
       paid: ~
       pending_external:
         paypal:
-          multicurrency: ~
-          verify: ~
-          intl: ~
+          multicurrency: "Non siamo stati in grado di processare il pagamento PayPal perché il tuo conto PayPal non è stato impostato per ricevere fondi in %{currency}. Apri %{paypal_url} e accedi al tuo account per accettare o rifiutare manualmente il pagamento."
+          verify: "Non puoi accettare questa transazione in quanto il tuo conto PayPal non è stato ancora verificato. Apri %{paypal_url} per verificare il tuo conto."
+          intl: "Non siamo stati in grado di processare il pagamento PayPal in quanto il tuo conto PayPal non ha abilitato un meccanismo di prelievo. Apri %{paypal_url} e accedi al tuo conto per accettare o rifiutare manualmente il pagamento."
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Richiesta accettata"
@@ -496,9 +496,9 @@ it:
       waiting_feedback_from_you: ~
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
-          verify: ~
+          multicurrency: "In attesa che tu accetti il pagamento PayPal"
+          intl: "In attesa che tu accetti il pagamento PayPal"
+          verify: "In attesa che tu verifichi il tuo conto PayPal"
     status_link:
       accept_offer: "Accetta offerta"
       accept_request: "Accetta richiesta"
