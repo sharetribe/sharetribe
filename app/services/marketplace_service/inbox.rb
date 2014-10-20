@@ -52,6 +52,7 @@ module MarketplaceService
 
     module QueryHelper
       PersonModel = ::Person
+      PaymentModel = ::Payment
 
       @tiny_int_to_bool = ->(tiny_int) {
         !(tiny_int.nil? || tiny_int == 0)
@@ -217,7 +218,7 @@ module MarketplaceService
           case payment_gateway
           when :checkout, :braintree
             # Use Maybe, since payment may not exists yet, if postpay flow
-            Maybe(Payments.where(id: transaction[:payment_id]).first).total_sum.or_else(nil)
+            Maybe(PaymentModel.where(id: transaction[:payment_id]).first).total_sum.or_else(nil)
           when :paypal
             paypal_payments = PaypalService::API::Payments.new
             paypal_payments.get_payment(transaction[:community_id], transaction[:transaction_id])[:data][:authorization_total]
