@@ -40,7 +40,8 @@ class PaypalTransactionsController < ApplicationController
   private
 
   def paypal_payments_service
-    PaypalService::API::Payments.new
+    api = PaypalService::API.new
+    api.payments
   end
 
 end
