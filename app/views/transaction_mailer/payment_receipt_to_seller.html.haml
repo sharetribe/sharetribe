@@ -25,9 +25,10 @@
             %b= t("emails.braintree_new_payment.you_will_get")
           %td= payment_seller_gets
 
-%tr
-  %td{:align => "left"}
-    %font{body_font}
-      = t("emails.braintree_new_payment.money_will_be_transferred", payer_name: payer_full_name, automatic_confirmation_days: automatic_confirmation_days)
+- if show_money_will_be_transferred_note
+  %tr
+    %td{:align => "left"}
+      %font{body_font}
+        = t("emails.braintree_new_payment.money_will_be_transferred", payer_name: payer_full_name, automatic_confirmation_days: automatic_confirmation_days)
 
 = render :partial => "person_mailer/action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}

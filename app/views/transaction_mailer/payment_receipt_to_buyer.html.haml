@@ -25,11 +25,11 @@
               =t("emails.receipt_to_payer.total")
           %td
             %b= payment_total
-
-%tr
-  %td{:align => "left"}
-    %font{body_font}
-      = t("emails.receipt_to_payer.money_will_be_transferred", recipient_name: recipient_full_name, automatic_confirmation_days: automatic_confirmation_days)
+- if show_money_will_be_transferred_note
+  %tr
+    %td{:align => "left"}
+      %font{body_font}
+        = t("emails.receipt_to_payer.money_will_be_transferred", recipient_name: recipient_full_name, automatic_confirmation_days: automatic_confirmation_days)
 
 
 = render :partial => "person_mailer/action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}
