@@ -71,33 +71,14 @@ describe Admin::CommunitiesController do
     it "should not allow changing the plan level" do
       attempt_to_change_plan_level_with(:update_look_and_feel)
     end
-    
-    context "when custom head scripts are allowed" do
       
-      before { Community.any_instance.stub(:custom_head_script_in_use?).and_return(true) }
-      
-      it "should allow changing custom_head_script" do
-        script = "<script/>"
-        put :update_look_and_feel, id: @community.id, community: { custom_head_script: script }
-        @community.reload
-        @community.custom_head_script.should eql(script)
-      end
-      
-      after { Community.any_instance.unstub(:custom_head_script_in_use?) }
+    it "should allow changing custom_head_script" do
+      script = "<script/>"
+      put :update_look_and_feel, id: @community.id, community: { custom_head_script: script }
+      @community.reload
+      @community.custom_head_script.should eql(script)
     end
-    
-    context "when custom head scripts are not allowed" do
-      
-      before { Community.any_instance.stub(:custom_head_script_in_use?).and_return(false) }
-      
-      it "should not allow changing custom_head_script" do
-        expect {
-          put :update_look_and_feel, id: @community.id, community: { custom_head_script: "foo" }
-        }.to raise_error ActionController::UnpermittedParameters
-      end
-      
-      after { Community.any_instance.unstub(:custom_head_script_in_use?) }
-    end
+ 
   end
   
   def attempt_to_update_different_community_with(action, params)

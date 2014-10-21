@@ -100,7 +100,7 @@ class Admin::CommunitiesController < ApplicationController
       :wide_logo, :logo,:cover_photo, :small_cover_photo, :favicon, :custom_color1,
       :custom_color2, :default_browse_view, :name_display_type
     ]
-    permitted_params << :custom_head_script if @current_community.custom_head_script_in_use?
+    permitted_params << :custom_head_script
     params.require(:community).permit(*permitted_params)
 
     needs_stylesheet_recompile = regenerate_css?(params, @current_community)

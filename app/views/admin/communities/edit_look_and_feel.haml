@@ -66,12 +66,11 @@
         = render :partial => "layouts/info_text", :locals => { :text => t(".name_display_type_instructions_text") }
         = form.select :name_display_type, [[t(".full_name"), ""], [t(".first_name_with_initial"), "first_name_with_initial"], [t(".first_name_only"), "first_name_only"]]
 
-    - if @community.custom_head_script_in_use?
-      .row
-        .col-12
-          = form.label :custom_head_script, t(".custom_head_script")
-          = render :partial => "layouts/info_text", :locals => { :text => t(".custom_head_script_instructions_text") }
-          = form.text_area :custom_head_script, class: "text_area_code", placeholder: "<script src=\"http://example.com/analytics.js\"></script>"
+    .row
+      .col-12
+        = form.label :custom_head_script, t(".custom_head_script")
+        = render :partial => "layouts/info_text", :locals => { :text => t(".custom_head_script_instructions_text") }
+        = form.text_area :custom_head_script, class: "text_area_code", placeholder: "<script src=\"http://example.com/analytics.js\"></script>"
 
     .row
       .col-12
