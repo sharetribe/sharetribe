@@ -4,6 +4,7 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
 
   def perform
     transaction = TransactionService::Transaction.query(transaction_id)
+    set_service_name!(transaction[:community_id])
     receipt_to_seller = seller_should_receive_receipt(transaction[:listing_author_id])
 
     receipts =
@@ -15,7 +16,7 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
 
         receipts = []
         receipts << TransactionMailer.braintree_new_payment(payment, community) if receipt_to_seller
-        receipts << PersonMailer.braintree_receipt_to_payer(payment, community)
+        receipts << TransactionMailer.braintree_receipt_to_payer(payment, community)
         receipts
       when :checkout
         community = Community.find(transaction[:community_id])
@@ -40,7 +41,7 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
     Person.find(seller_id).should_receive?("email_about_new_payments")
   end
 
-  def set_service_name(community_id)
+  def set_service_name!(community_id)
     # Set the correct service name to thread for I18n to pick it
     ApplicationHelper.store_community_service_name_to_thread_from_community_id(community_id)
   end
