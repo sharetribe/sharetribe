@@ -24,8 +24,8 @@
 
       -# Only for transactions
       - status = conversation[:last_transition_to_state]
-      - status_meta = conversation[:transitions].last[:metadata]
       - if status.present? && status != "free"
+        - status_meta = conversation[:transitions].last[:metadata]
         - is_author = !conversation[:current_is_starter]
         - waiting_feedback = conversation[:waiting_feedback]
         - other_name = conversation[:other][:name]
