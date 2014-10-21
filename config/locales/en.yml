@@ -707,6 +707,7 @@ en:
       total: Total
       price: Price
       service_fee: "Service fee"
+      money_will_be_transferred: "The money will be transferred to #{recipient_name} when a) you have marked the request completed or b) #{automatic_confirmation_days} days have passed since you paid."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
       you_can_give_feedback_to: "You haven't yet given feedback to %{name}."

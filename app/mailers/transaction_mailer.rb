@@ -101,6 +101,25 @@ class TransactionMailer < ActionMailer::Base
     }
   end
 
+  def braintree_receipt_to_payer(payment, community)
+    prepare_template(community, payment.payer, "email_about_new_payments")
+
+    premailer_mail(:to => payment.payer.confirmed_notification_emails_to,
+         :from => community_specific_sender(community),
+         :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
+      format.html {
+        render locals: {
+          conversation_url: person_message_url(payment.payer, @url_params.merge({:id => payment.transaction.id.to_s})),
+          listing_title: payment.transaction.listing.title,
+          payment_total: sum_with_currency(payment.total_sum, payment.currency),
+          recipient_full_name: payment.recipient.name(community),
+          recipient_given_name: payment.recipient.given_name_or_username,
+          automatic_confirmation_days: payment.transaction.automatic_confirmation_after_days
+        }
+      }
+    }
+  end
+
   private
 
   def premailer_mail(opts, &block)

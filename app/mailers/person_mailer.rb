@@ -61,15 +61,6 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.receipt_to_payer.receipt_of_payment"))
   end
 
-  def braintree_receipt_to_payer(payment, community)
-    @email_type =  "email_about_new_payments"
-    @payment = payment
-    set_up_urls(@payment.payer, community, @email_type)
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.receipt_to_payer.receipt_of_payment"))
-  end
-
   def transaction_confirmed(conversation, community)
     @email_type =  "email_about_completed_transactions"
     @conversation = conversation

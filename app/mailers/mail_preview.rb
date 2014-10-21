@@ -20,7 +20,7 @@ class MailPreview < MailView
   end
 
   def braintree_receipt_to_payer
-    PersonMailer.braintree_receipt_to_payer(payment, community)
+    TransactionMailer.braintree_receipt_to_payer(payment, community)
   end
 
   def braintree_new_payment
