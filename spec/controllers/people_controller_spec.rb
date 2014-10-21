@@ -105,7 +105,7 @@ describe PeopleController do
       post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => community.domain}
 
       Person.find_by_username(username).should be_nil
-      flash[:error].to_s.should include("This email is not allowed in this site")
+      flash[:error].to_s.should include("This email is not allowed")
     end
   end
 
