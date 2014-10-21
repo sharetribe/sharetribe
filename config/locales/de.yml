@@ -201,6 +201,8 @@ de:
           paid: ~
           confirmed: ~
           canceled: ~
+          initiated: ~
+          pending_ext: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: Umgebung

@@ -49,28 +49,28 @@ fr:
           cancel: Annuler
     communities:
       edit_details:
-        community_details: "Détails de la tribu"
-        community_look_and_feel: "Présentation et aspect de la tribu"
-        edit_community: "Modifier les détails de la tribu \"%{community_name}\""
-        community_name: "Nom de la tribu"
-        edit_community_name_description: "Le nom de votre tribu. Ceci est visible par les utilisateurs dans les emails et plusieurs autres endroits."
-        community_slogan: "Slogan de la tribu"
-        edit_community_slogan_description: "Ceci est affiché sur la page d'accueil de votre tribu aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
-        community_description: "Description de la tribu"
-        edit_community_description_description: "Ceci est affiché sur la page d'accueil de votre tribu aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
+        community_details: "Détails de base"
+        community_look_and_feel: Design
+        edit_community: "Détails de base"
+        community_name: "Nom de la place de marché"
+        edit_community_name_description: "Le nom de votre place de marché. Ceci est visible par les utilisateurs dans les emails et plusieurs autres endroits."
+        community_slogan: "Slogan de la place de marché"
+        edit_community_slogan_description: "Ceci est affiché sur la page d'accueil de votre place de marché aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
+        community_description: "Description de la place de marché"
+        edit_community_description_description: "Ceci est affiché sur la page d'accueil de votre place de marché aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
         community_search_placeholder: "Texte d'aide à la recherche"
-        edit_community_search_placeholder_description: "Ceci est affiché sur la page d'accueil de la tribu, dans la barre de recherche. %{see_how_it_looks_like}."
-        private_community_homepage_content: "Page d'accueil d'une tribu privée"
-        edit_private_community_homepage_content_description: "Ce contenu n'est visible qu'aux utilisateurs non connectés, sur la page d'accueil de tribus privées. Vous pouvez décrire ici votre tribu et comment la rejoindre. Vous pouvez aussi ajouter des images, des vidéos et du contenu HTML. %{see_how_it_looks_like}."
+        edit_community_search_placeholder_description: "Ceci est affiché sur la page d'accueil de la place de marché dans la barre de recherche. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Page d'accueil de la place de marché privée"
+        edit_private_community_homepage_content_description: "Ce contenu n'est visible qu'aux utilisateurs non connectés, sur la page d'accueil de la place de marché privée. Vous pouvez décrire ici votre place de marché et comment la rejoindre. Vous pouvez aussi ajouter des images, des vidéos et du contenu HTML. %{see_how_it_looks_like}."
         update_information: "Sauvegarder les paramètres"
-        invite_people: "Inviter des gens dans cette tribu"
+        invite_people: "Inviter des utilisateurs"
         edit_signup_info: "Informations lors de l'inscription"
         edit_signup_info_description: "Ce texte peut être affiché aux utilisateurs sur la page d'inscription. Vous pouvez y donner des instructions à propos de l'inscription, des conseils pour obtenir une invitation, etc. Par défaut, il n'y a pas d'instructions."
         edit_info: "Modifier les informations"
         see_how_it_looks_like: "Voir un aperçu"
         verification_to_post_listings_info_content: "Texte affiché aux utilisateurs non validés"
-        verification_to_post_listings_info_content_description: "Cette place de marché nécessite que les utilisateurs soient validés par un administrateur avant qu'ils ne puissent poster une annonce. Ici, vous pouvez définir le texte qui est affiché aux utilisateurs non encore validés lorsqu'ils essaient de poster une nouvelle annonce."
-        verification_to_post_listings_info_content_default: "Cette place de marché nécessite que les utilisateurs soient validés par un administrateur avant qu'ils ne puissent poster une annonce. Vous n'avez pas encore été validé. Veuillez %{contact_admin_link} pour lui demander."
+        verification_to_post_listings_info_content_description: "Vous demandez à vos utilisateurs d'être validés manuellement par un administrateur avant qu'ils ne puissent poster une annonce. Ici, vous pouvez définir le texte qui est affiché aux utilisateurs non encore validés lorsqu'ils essaient de poster une nouvelle annonce."
+        verification_to_post_listings_info_content_default: " nécessite que les utilisateurs soient validés par un administrateur avant qu'ils ne puissent poster une annonce. Vous n'avez pas encore été validé. Veuillez %{contact_admin_link} pour lui demander."
         contact_admin_link_text: "contacter l'administrateur"
         save: "Sauvegarder les paramètres"
         transaction_agreement: "Accord de transaction"
@@ -80,7 +80,7 @@ fr:
         transaction_agreement_text_header: "Texte de l'accord"
         transaction_agreement_description: "Ceci est le contenu de l'accord que l'utilisateur doit accepter. Le contenu de cet accord est affiché lorsque l'utilisateur clique sur le lien \"%{read_more}\" à côté du libellé de l'accord."
       edit_look_and_feel:
-        edit_community_look_and_feel: "Modifier la présentation et l'aspect de la tribu \"%{community_name}\""
+        edit_community_look_and_feel: "Modifier la présentation et l'aspect de la place de marché \"%{community_name}\""
         community_logo: "Logo large"
         community_logo_icon: "Logo sur mobile"
         community_cover_photo: "Photo de couverture"
@@ -96,8 +96,8 @@ fr:
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté pour les visiteurs non connectés sur la page d'accueil."
         small_cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre."
         main_content_width: "Lorsque vous choisissez les photos de couverture, gardez à l'esprit que la page principale a une largeur maximale de %{main_width} pixels. N'oubliez pas non plus de vérifier comment s'affiche votre photo de couverture sur des petits écrans (par exemple en réduisant la taille de la fenêtre de votre navigateur)."
-        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette tribu en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier."
-        custom_color2_instructions_text: "Vous pouvez changer la couleur secondaire de l'interface de cette tribu en entrant une valeur hexadécimale."
+        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette place de marché en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier."
+        custom_color2_instructions_text: "Vous pouvez changer la couleur secondaire de l'interface de cette place de marché en entrant une valeur hexadécimale."
         default_browse_view: "Vue par défaut"
         default_browse_view_instructions_text: "La vue par défaut est utilisée sur la page d'accueil pour définir comment sont affichées les annonces par défaut."
         grid: Grille
@@ -115,7 +115,7 @@ fr:
         edit_text_instructions: "Instructions textuelles"
       edit_welcome_email:
         welcome_email_content: "Contenu du message de bienvenue"
-        welcome_email_content_description: "Le message ci-dessous sera envoyé à chaque nouveau membre de la tribu, quand il la rejoindra. Vous pouvez le modifier pour l'adapter à vos envies. En cliquant sur \"%{send_test_message_link}\" vous pouvez pré-visualiser le message en l'envoyant à votre adresse personnelle pour voir à quoi cela ressemblera exactement."
+        welcome_email_content_description: "Le message ci-dessous sera envoyé à chaque nouveau membre à leur inscription. Vous pouvez le modifier pour l'adapter à votre place de marché. En cliquant sur '%{send_test_message_link}' vous pouvez pré-visualiser le message en l'envoyant à votre adresse personnelle pour voir à quoi cela ressemblera exactement."
         edit_message: "Modifier le message"
         send_test_message: "Envoyer un message de test"
       settings:
@@ -123,9 +123,9 @@ fr:
         general: Général
         users_can_review_each_other_after_transaction: "Les utilisateurs peuvent s'évaluer mutuellement après une transaction"
         access: Accès
-        join_with_invite_only: "Les utilisateurs doivent être invités par un autre utilisateur pour rejoindre cette tribu"
-        users_can_invite_new_users: "Tous les utilisateurs peuvent inviter des nouveaux utilisateurs dans cette tribu"
-        private: "Cette tribu est privée (seuls les utilisateurs connectés peuvent en voir le contenu)"
+        join_with_invite_only: "Les utilisateurs doivent être invités par un autre utilisateur pour rejoindre cette place de marché"
+        users_can_invite_new_users: "Tous les utilisateurs peuvent inviter des nouveaux utilisateurs dans cette place de marché"
+        private: "Cette place de marché est privée (seuls les utilisateurs connectés peuvent en voir le contenu)"
         require_verification_to_post_listings: "Seuls les utilisateurs validés par un administrateur peuvent poster de nouvelles annonces"
         listing_preferences: "Paramètres d'annonces"
         transaction_preferences: "Paramètres de transactions"
@@ -155,7 +155,7 @@ fr:
         saving_user_status: Sauvegarde...
         save_user_status_successful: Sauvegardé
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
-        ban_user_confirmation: "Ceci supprime l'utilisateur de cette tribu et l'empêche d’y accéder de nouveau avec ce compte. Êtes-vous sûr de vouloir faire cela ?"
+        ban_user_confirmation: "Ceci supprime l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Êtes-vous sûr de vouloir faire cela ?"
       integrations:
         integrations: Intégrations
         twitter_handle: "Nom Twitter"
@@ -201,6 +201,8 @@ fr:
           paid: Payée
           confirmed: Confirmée
           canceled: Annulée
+          initiated: ~
+          pending_ext: ~
       braintree_payment_gateway:
         braintree_payment_gateway: "Clé d'API pour Braintree Payment"
         environment: Environnement
@@ -258,7 +260,7 @@ fr:
     emails:
       new:
         send_email_to_members: "Envoyer un email aux membres"
-        send_email_to_members_title: "Envoyez un email à tous les membres de cette tribu"
+        send_email_to_members_title: "Envoyer un email à tous les membres de cette place de marché"
         email_subject: "Objet de l'email"
         email_content: "Contenu de l'email"
         email_content_placeholder: "Que souhaitez vous dire aux autres membres ?"
@@ -318,7 +320,7 @@ fr:
   common:
     edit_page: "Modifier la page"
     default_community_slogan: "Votre place de marché"
-    default_community_description: "Ce lieu vous permet de vendre, louer, échanger et partager des biens et services avec les autres membres de cette tribu."
+    default_community_description: "C'est l'endroit où vendre, louer, échanger et partager des biens et services avec les autres membres de la place de marché."
     cancel: Annuler
     fields_that_are_mandatory: "Les champs marqués d'un astérisque (*) sont obligatoires."
     or: ou
@@ -489,9 +491,9 @@ fr:
       paid: "Paiement réussi"
       pending_external:
         paypal:
-          multicurrency: ~
-          verify: ~
-          intl: ~
+          multicurrency: "Nous n'avons pu traiter votre paiement PayPal car votre compte PayPal n'est pas configuré pour recevoir de l'argent en %{currency}. Rendez-vous sur %{paypal_url} et connectez-vous à votre compte pour accepter ou rejeter manuellement le paiement."
+          verify: "Vous ne pouvez accepter cette transaction car vous n'avez pas vérifié votre compte PayPal. Rendez-vous sur %{paypal_url} pour vérifier votre compte."
+          intl: "Nous n'avons pu traiter votre paiement PayPal car votre compte PayPal ne dispose pas d'un système d'annulation. Rendez-vous sur %{paypal_url} et connectez-vous à votre compte pour accepter ou rejeter manuellement le paiement."
       waiting_for_current_user_to_deliver_listing: "En attente de votre réalisation de %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "En attente de %{listing_author_name} de la réalisation de %{listing_title}"
       request_accepted: Acceptée
@@ -511,9 +513,9 @@ fr:
       waiting_feedback_from_you: "En attente de votre avis"
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
-          verify: ~
+          multicurrency: "En attente de votre acceptation du paiement PayPal"
+          intl: "En attente de votre acceptation du paiement PayPal"
+          verify: "En attente de votre vérification de votre compte PayPal"
     status_link:
       accept_offer: "Accepter l'offre"
       accept_request: "Accepter demande"
@@ -571,20 +573,20 @@ fr:
   community_memberships:
     access_denied:
       access_denied: "Accès refusé"
-      you_are_banned_in_this_community: "L'administrateur de cette tribu vous a interdit de rejoindre ce site. Si vous voulez contacter l'administrateur, vous pouvez lui envoyer un %{link_to_contact_page}"
+      you_are_banned_in_this_community: "L'administrateur vous a interdit de rejoindre %{service_name}. Si vous voulez contacter l'administrateur, vous pouvez lui envoyer un %{link_to_contact_page}"
       contact_page_link: feedback
     new:
       welcome_fb_user: "Bienvenue sur %{service_name}, %{name} !"
-      fb_join_accept_terms: "Il ne reste plus qu'une étape avant de rejoindre cette tribu : vous devez accepter les conditions d'utilisation."
-      join_community: "Rejoindre la tribu '%{community}'"
-      you_are_not_a_member_of_this_community: "Vous avez un compte sur %{service_name}, mais vous n'êtes pas encore membre de la tribu %{service_name} '%{community}'."
-      you_can_join: "Vous pouvez rejoindre cette tribu en acceptant les conditions d'utilisation et en cliquant sur 'Rejoindre la tribu' ci-dessous."
-      you_can_join_email_confirmation: "Pour rejoindre cette tribu, vous devez avoir une adresse email valide qui se termine par %{email_ending}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette tribu puis cliquez sur 'Rejoignez la tribu' ci-dessous."
-      you_can_join_email_confirmation_multiple_addresses: "Cette tribu a un accès restreint selon l'email. Vous ne pouvez la rejoindre que si vous avez un email que l'administrateur de ce site a autorisé. Vous pouvez rejoindre la tribu en saisissant votre email, en acceptant les conditions d'utilisation de cette tribu puis en cliquant sur 'Rejoignez la tribu' ci-dessous."
-      you_can_join_with_invite_only: "Vous devez être invité par un autre membre pour rejoindre cette tribu. Si vous avez un code d'invitation, entrez le ci-dessous, acceptez les conditions d'utilisation de cette tribu puis cliquez sur 'Rejoignez la tribu' ci-dessous."
-      if_want_to_view_content: "Pour voir le contenu de cette tribu sans la rejoindre, vous devez"
+      fb_join_accept_terms: "Il ne reste plus qu'une étape avant de rejoindre %{service_name} : vous devez accepter les conditions d'utilisation."
+      join_community: "Rejoindre %{service_name}"
+      you_are_not_a_member_of_this_community: "Vous avez un compte sur une place de marché Sharetribe mais vous n'avez pas encore rejoint %{service_name}."
+      you_can_join: "Vous pouvez rejoindre %{service_name} en acceptant les conditions d'utilisation et en cliquant sur 'Rejoindre %{service_name}' ci-dessous."
+      you_can_join_email_confirmation: "Pour rejoindre %{service_name} vous devez avoir une adresse email valide se terminant par %{email_ending}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette place de marché puis cliquez sur 'Rejoindre %{service_name}' ci-dessous."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name} a un accès restreint selon l'email. Complétez votre adresse email, acceptez les conditions d'utilisation de %{service_name} puis cliquez sur 'Rejoindre %{service_name}' ci-dessous."
+      you_can_join_with_invite_only: "Vous devez être invité par un autre membre pour rejoindre %{service_name}. Si vous avez un code d'invitation, entrez le ci-dessous, acceptez les conditions d'utilisation puis cliquez sur 'Rejoindre %{service_name}' ci-dessous."
+      if_want_to_view_content: "Pour voir le contenu de %{service_name} sans la rejoindre en tant que membre, vous devez"
       log_out: "vous déconnecter"
-      join_community_button: "Rejoindre la tribu"
+      join_community_button: "Rejoindre %{service_name}"
   emails:
     accept_reminder:
       remember_to_accept_offer: "N'oubliez pas d'accepter ou de refuser l'offre de %{sender_name}"
@@ -645,7 +647,7 @@ fr:
       need_to_confirm: "Vous devez confirmer votre adresse email."
       confirmation_link_text: "Confirmer mon email"
       or_paste_link: "Vous pouvez également copier le lien suivant dans la barre d'adresse de votre navigateur : "
-      turning_on_confirmations_in_this_community: "Nous commençons à utiliser les email de confirmation dans cette tribu %{service_name}."
+      turning_on_confirmations_in_this_community: "Nous commençons à utiliser les email de confirmation dans cette place de marché %{service_name}."
     common:
       check_your_settings: "Vérifiez vos paramètres"
       hey: "Bonjour %{name},"
@@ -675,7 +677,7 @@ fr:
       remember_to_confirm: "Quand la demande est réalisée, n'oubliez pas de la signaler comme terminée. Si la demande n'est pas réalisée vous avez %{days_to_automatic_confirmation} pour l'annuler. Autrement, elle sera automatiquement signalée comme terminée."
     invitation_to_kassi:
       hi: "Bonjour !"
-      you_have_been_invited_to_kassi: "%{inviter} vous a invité à rejoindre la tribu %{community}."
+      you_have_been_invited_to_kassi: "%{inviter} vous a invité à rejoindre %{service_name}."
       here_is_a_message_from: "Voici un message personnel de %{inviter} :"
       join_now: Rejoindre
       invitation_code: "Code d'invitation : %{code}"
@@ -716,10 +718,10 @@ fr:
       added_offer: "%{name_link} a ajouté une annonce : "
       added_request: "%{name_link} a ajouté une annonce : "
       added_listing: "%{name_link} a ajouté une annonce : "
-      update_mail_title: "Actualités de la tribu %{title_link}"
-      title_link_text: "%{community_name}"
+      update_mail_title: "Actualités de %{title_link}"
+      title_link_text: "%{service_name}"
       intro_paragraph: "Voici une partie de ce qu'il s'est passé dans la tribu %{community_link} depuis %{time_since_last_update}."
-      intro_paragraph_link_text: "%{community_name}"
+      intro_paragraph_link_text: "%{service_name}"
       post_a_new_listing: "Déposez une annonce !"
       reduce_email_footer_text: "Trop d'emails ? %{settings_link} ou %{unsubscribe_link}."
       settings_link_text: "Gérez vos paramètres d'email"
@@ -749,7 +751,7 @@ fr:
       one_day_left: "Si vous n'acceptez pas la demande sous une journée la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     welcome_email:
-      welcome_email_subject: "Bienvenue sur %{community}"
+      welcome_email_subject: "Bienvenue sur %{service_name}"
       welcome_to_marketplace: "Bienvenue sur %{service_name} ! Ravi que vous nous ayez rejoint."
       love_marketplace_crew: "Love,<br /><i>L'équipe de %{service_name}</i>"
       p_s_did_you_know: "PS : souhaitez-vous créer votre propre place de marché comme %{service_name} ? C'est simple et ne demande pas de compétences techniques. %{click_here_link} pour en savoir plus !"
@@ -823,7 +825,7 @@ fr:
       has_accepted_favor: "%{offerer_name} a accepté d'offrir %{listing_title} à %{requester_name} %{time_ago}."
       has_accepted_rideshare: "%{offerer_name} a accepté de partager un covoiturage %{listing_title} avec %{requester_name} %{time_ago}."
     join:
-      joined_kassi: "%{name} a rejoint %{community_name} %{service_name} %{time_ago}."
+      joined_kassi: "%{name} a rejoint %{service_name} %{time_ago}."
     login:
       logged_in_to_kassi: "%{name} s'est connecté à %{service_name} %{time_ago}."
     comment:
@@ -923,7 +925,7 @@ fr:
       send_invitation: "Envoyer l' (les) invitation(s)"
       add_as_many_emails_as_you_want: "Ajoutez la ou les adresse(s) des gens que vous souhaitez inviter, ci-dessous. Si vous ajoutez plusieurs adresses, séparez les par une virgule."
       invitation_emails_field_placeholder: "ami1@exemple.fr, ami2@exemple.fr, ..."
-      invitation_message_field_placeholder: "J'ai rejoint cette super tribu. Tu devrais aussi !"
+      invitation_message_field_placeholder: "J'ai rejoint cette super place de marché. Tu devrais aussi !"
       errors_in_emails: "Vérifiiez que les adresses email que vous ajoutez sont valides. Si vous ajoutez plusieurs adresses, assurez-vous qu'elles soient séparées par une virgule."
     list_item:
       review: avis
@@ -964,21 +966,21 @@ fr:
       click_here_link_text: "Cliquez ici"
   layouts:
     admin:
-      admin: "Panneau administrateur %{service_name}"
+      admin: Admin
     no_tribe:
       inbox: "Boîte de réception"
       settings: Paramètres
       feedback: "Nous contacter"
     application:
-      join_this_community: "Rejoindre la tribu"
+      join_this_community: "Rejoindre la place de marché"
       read_more: "Lire la suite"
       feedback: "Vos commentaires pour l'équipe de %{service_name}"
       default_feedback: "Vous avez rencontré un problème sur %{service_name} ? Vous souhaitez proposer une nouvelle fonctionnalité ? Vous avez remarqué une annonce suspecte ? Ou vous voulez juste discuter avec nous ? Dites le nous !"
       feedback_forum: "forum de discussion"
       feedback_handle: Commentaire
       give_feedback: "Nous contacter"
-      keywords: "%{service_name}, service, article, objet, transport, covoiturage, logement, hébergement, aide, aide, offre, demande, location, affaires, échange, achat, vente, acheter, vendre, don, donner, Kassi, écologique, communauté, communauté en , tribu"
-      meta_description: "Sharetribe est un service qui vous permet de créer facilement une place de marché en ligne et permet à votre communauté ou tribu de vendre, louer, échanger et partager des biens et services."
+      keywords: "%{service_name}, partage de ressources dans une place de marché, emprunter des objets, service, aide, objet, covoiturage, espace, logement, aide, aider, offre, demande, location, troc, échange, acheter, vendre, achat, vente, donner, don, écologique, place de marché, place de marché en ligne, local"
+      meta_description: "Sharetribe vous permet de créer facilement une place de marché en ligne et permet aux membres de votre communauté de vendre et louer des biens, des services et des lieux."
       or_check_our: "... ou consultez notre"
       send_feedback_to_admin: "Envoyer votre commentaire"
       to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré et votez pour vos fonctionnalités préférées."
@@ -987,7 +989,7 @@ fr:
       invite_your_friends: "Invitez des amis !"
       invite_your_neighbors: "Invitez vos voisins !"
       invite_your_friends_description: "Plus il y a de gens sur %{service_name}, plus cela est utile et efficace."
-      invite_your_friends_invite_only_description: "Les utilisateurs ne peuvent rejoindre cette tribu sans y avoir été invité."
+      invite_your_friends_invite_only_description: "Les utilisateurs ne peuvent rejoindre cette place de marché sans y avoir été invité."
       join_without_facebook: "...ou bien %{join_without_facebook_link}"
       join_without_facebook_link: "inscrivez-vous sans Facebook"
     conversations:
@@ -1033,10 +1035,10 @@ fr:
       contact_admin_link_text: "contacter l'administrateur"
       test_welcome_email_delivered_to: "Un email de test a été envoyé à %{email}."
       something_went_wrong: "Quelque chose s'est mal passé."
-      community_updated: "La mise à jour des informations de la tribu a réussi."
-      community_update_failed: "La mise à jour des informations de la tribu a échoué."
+      community_updated: "Détails mis à jour."
+      community_update_failed: "La mise à jour des détails a échoué"
       account_creation_succesful_you_still_need_to_confirm_your_email: "Compte créé avec succès. Vous devez à présent confirmer votre adresse email."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "Vous êtes désormais membre de cette tribu. Il vous reste à confirmer votre adresse email."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Vous êtes désormais membre de cette place de marché. Il vous reste à confirmer votre adresse email."
       comment_cannot_be_empty: "Commentaire ne peut pas être vide"
       comment_sent: "Commentaire envoyé"
       confirmation_link_is_wrong_or_used: "Le lien de confirmation a déjà été utilisé ou est erroné. Essayez de vous connecter ou contactez-nous si le problème persiste."
@@ -1054,7 +1056,7 @@ fr:
       feedback_skipped: "Pas d'avis donné"
       invitation_cannot_be_sent: "L' (les) invitation(s) n'a (n'ont) pas pu être envoyée(s)"
       invitation_sent: "L' (les) invitation(s) a (ont) été envoyée(s)"
-      inviting_new_users_is_not_allowed_in_this_community: "Inviter de nouveaux utilisateurs n'est pas autorisé dans la tribu %{service_name}"
+      inviting_new_users_is_not_allowed_in_this_community: "Inviter de nouveaux utilisateurs n'est pas autorisé."
       login_again: "Merci de vous reconnecter."
       login_failed: "La connexion a échoué. Veuillez saisir vos identifiants."
       account_creation_successful: "Bienvenue sur %{service_name}, %{person_name} !"
@@ -1102,7 +1104,7 @@ fr:
       request_rejected: "Demande refusée"
       request_canceled: "Demande annulée"
       message_sent: "Message envoyé"
-      this_content_is_not_available_in_this_community: "Ce contenu n'est pas accessible dans cette tribu."
+      this_content_is_not_available_in_this_community: "Ce contenu n'est pas accessible."
       unknown_error: "Erreur inconnue. S'il vous plait, contactez-nous pour nous envoyer plus de détails sur ce qu'il s'est passé."
       update_error: "Une erreur s'est produite lors de la réactualisation de vos informations, veuillez réessayer ultérieurement"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Vous n'êtes pas autorisé à donner un avis sur cet événement"
@@ -1114,8 +1116,8 @@ fr:
       you_cannot_send_message_to_yourself: "Vous ne pouvez pas vous envoyer un message à vous-même"
       you_followed_listing: "Vous suivez désormais cette annonce"
       you_have_already_given_feedback_about_this_event: "Vous avez déjà donné un avis sur cet événement"
-      you_are_now_member: "Vous avez rejoint cette tribu. Bienvenue !"
-      you_are_already_member: "Vous êtes déjà membre de la tribu %{service_name}. Bon retour !"
+      you_are_now_member: "Bienvenue sur %{service_name} !"
+      you_are_already_member: "Vous êtes déjà membre de %{service_name}. Bienvenue de nouveau !"
       you_must_log_in_to_create_new_listing: "Vous devez vous connecter à %{service_name} pour créer une nouvelle annonce. Si vous n'avez pas encore de compte vous pouvez %{sign_up_link}."
       additional_email_confirmed_dashboard: "Votre adresse email est confirmée."
       you_must_log_in_to_give_feedback: "Vous devez vous connecter pour donner un avis"
@@ -1134,8 +1136,8 @@ fr:
       you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre email."
       you_must_fill_all_the_fields: "Vous devez compléter tous les champs"
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
-      joining_community_failed: "Rejoindre cette tribu a échoué."
-      can_not_login_with_private_user: "Vous ne pouvez pas vous connecter à cette tribu avec votre compte personnel. Connectez vous avec le compte de votre organisation ou créez en un nouveau."
+      joining_community_failed: "Rejoindre cette place de marché a échoué."
+      can_not_login_with_private_user: "Vous ne pouvez pas vous connecter avec votre compte personnel. Connectez vous avec le compte de votre organisation ou créez en un nouveau."
       can_not_delete_email: "Vous ne pouvez pas supprimer cette adresse email"
       user_does_not_have_email_to_delete: "Vous n'avez pas l'adresse email que vous essayez de supprimer"
       email_deleted: "Email supprimé"
@@ -1170,10 +1172,10 @@ fr:
       edit_listing: "Editer l'annonce"
       reopen_listing: "Ré-ouvrir l'annonce"
       move_to_top: "Remonter en tête de liste"
-      show_in_updates_email: "Afficher dans la prochaine newsletter"
+      show_in_updates_email: "Afficher dans le prochain email d'actualité"
       show_in_updates_email_loading: Chargement...
       show_in_updates_email_error: "Impossible de se connecter au serveur. Veuillez essayer de nouveau après avoir rafraîchi la page."
-      show_in_updates_email_success: "Cette annonce sera diffusée dans la prochaine newsletter, automatiquement envoyée au membre de la tribu"
+      show_in_updates_email_success: "Cette annonce sera diffusée dans le prochain email d'actualité, automatiquement envoyée aux membres"
     follow_links:
       follow: "Recevoir les nouveaux commentaires par email."
       unfollow: "Ne pas recevoir les nouveaux commentaires par email."
@@ -1258,8 +1260,8 @@ fr:
       valid_until_radio_buttons:
         for_the_time_being: "Pas de date d'expiration"
       visibility:
-        all_communities: "Toutes mes tribus %{service_name}"
-        this_community: "Seuls les membres de cette tribu"
+        all_communities: "Toutes mes places de marché Sharetribe"
+        this_community: "Seuls les membres de ce site"
         visibility: Visibilité
       privacy:
         privacy: Visibilité
@@ -1290,7 +1292,7 @@ fr:
       rideshare: Covoiturage
       search_verb: Chercher
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
-      feed_title: "%{listing_type} de %{community_name} %{service_name} %{optional_category}"
+      feed_title: "%{listing_type} sur %{service_name} %{optional_category}"
     left_panel_link:
       borrows: Emprunt
       buys: Achat
@@ -1449,11 +1451,11 @@ fr:
     index:
       loading_more_members: "Chargement des autres membres"
       meet_the_people: "Découvrez les membres"
-      you_are_the_only_member: "Vous êtes le seul membre de la tribu %{community_name}."
-      here_are_the_members: "Voici les %{count} membres de la tribu %{community_name}."
+      you_are_the_only_member: "Vous êtes le seul membre de %{service_name}."
+      here_are_the_members: "Voici les %{count} membres de %{service_name}."
       wanna_see_more_folks: "Vous voulez voir plus de monde ici ?"
       invite_people_you_know: "Invitez des gens que vous connaissez !"
-      there_are_x_members: "Il y a %{count} membres dans la tribu %{community_name}."
+      there_are_x_members: "Il y a %{count} membres sur %{service_name}."
       to_see_the_list_log_in: "Pour voir la liste complète des membres, vous devez %{log_in_link}."
       log_in_link: "vous connecter"
     edit_links:
@@ -1465,9 +1467,9 @@ fr:
       help_invitation_code_title: "Il vous faut une invitation pour participer"
       terms_title: "Conditions d'utilisation de %{service_name}"
       trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloud est un service en ligne qui aide à quantifier le niveau de confiance d'une personne parmi différents sites web. Il donne un score (de 1 à 1000) calculé sur l'activité en ligne d'une personne. Ce score augmente par exemple en ayant de bons avis sur eBay ou en ayant de nombreuses relations sur Facebook. Vous pouvez cliquer sur chaque carte pour en savoir plus.</p><p>TrustCloud est utilisé pour apporter aider à certifier que quelqu'un derrière un profil est bien celui qu'il dit être et non un autre.</p><p>Vous pouvez demander votre TrustCard si vous le souhaitez en <a href='https://trustcloud.com/claim'>vous inscrivant sur TrustCloud</a> avec la même adresse email que vous avez utilisé sur %{service_name}. Ce n'est pas obligatoire, mais nous vous le recommandons puisque cela va améliorer votre crédibilité et faciliter votre rencontre dans la communauté.</p><p>Pour le moment, les actions dans %{service_name} n'affecte pas votre TrustScore, mais nous allons le rendre possible très bientôt.</p>"
-      invite_only_help_text: "Choisissez cette option si vous souhaitez que les nouveaux membres ne puissent rejoindre la tribu que s'ils ont été invités par un utilisateur déjà membre de la tribu."
-      invite_only_help_text_title: "Tribu sur invitation"
+      trustcloud_description_text: "<p>TrustCloud est un service en ligne qui aide à quantifier le niveau de confiance d'une personne parmi différents sites web. Il donne un score (de 1 à 1000) calculé sur l'activité en ligne d'une personne. Ce score augmente par exemple en ayant de bons avis sur eBay ou en ayant de nombreuses relations sur Facebook. Vous pouvez cliquer sur chaque carte pour en savoir plus.</p><p>TrustCloud est utilisé pour apporter aider à certifier que quelqu'un derrière un profil est bien celui qu'il dit être et non un autre.</p><p>Vous pouvez demander votre TrustCard si vous le souhaitez en <a href='https://trustcloud.com/claim'>vous inscrivant sur TrustCloud</a> avec la même adresse email que vous avez utilisé sur %{service_name}. Ce n'est pas obligatoire, mais nous vous le recommandons puisque cela va améliorer votre crédibilité et faciliter votre rencontre dans la place de marché.</p><p>Pour le moment, les actions sur %{service_name} n'affecte pas votre TrustScore, mais nous allons le rendre possible très bientôt.</p>"
+      invite_only_help_text: "Choisissez cette option si vous souhaitez que les nouveaux membres ne puissent rejoindre la place de marché que s'ils ont été invités par un utilisateur déjà membre."
+      invite_only_help_text_title: "Sur invitation"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Cet utilisateur n'est plus actif sur %{service_name}"
       inactive_description: "Cet utilisateur a arrêté d'utiliser %{service_name}. Vous ne pouvez plus le contacter, l'évaluer ni commenter ses annonces."
@@ -1477,11 +1479,11 @@ fr:
       create_new_account: "Créer un compte"
       email: "Adresse email"
       email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
-      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette tribu ou est déjà utilisée. Veuillez utiliser une adresse associée à cette tribu (voir les instructions ci-dessous). Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
-      email_not_allowed: "Cette adresse email n'est pas autorisée pour cette tribu. Veuillez utiliser une adresse associée à cette tribu. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
+      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas autorisée ou est déjà utilisée. Si vous n'arrivez pas à vous connecter, contactez-nous."
+      email_not_allowed: "Cette adresse email n'est pas autorisée pour ce site. Veuillez utiliser une adresse autorisée. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
       email_restriction_instructions:
-        one: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse email du type %{allowed_emails}."
-        other: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse email autorisée."
+        one: "L'accès à cette place de marché est limité. Pour la rejoindre, vous devez avoir une adresse email du type %{allowed_emails}."
+        other: "L'accès à cette place de marché est limité. Pour la rejoindre, vous devez avoir une adresse email autorisée."
       enter_captcha: "Je suis un être humain :"
       family_name: Nom
       given_name: Prénom
@@ -1496,15 +1498,15 @@ fr:
       terms: "conditions d'utilisation"
       username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
       username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
-      visible_only_to_you: "visible uniquement à vous et à l'administrateur de la tribu"
+      visible_only_to_you: "visible uniquement par vous et l'administrateur de la place de marché"
       visible_to_everybody: "visible à tout le monde"
       create_account_with_facebook: "S'inscrire avec Facebook"
       OR: OU
       signup_with_email: "S'inscrire avec un email"
     not_member:
-      explanation_text: "Vous faites actuellement parti de la tribu %{community}. Vous avez essayé de voir le profil d'un utilisateur appartenant à une autre tribu. Vous ne pouvez pas accéder à ce profil via la tribu %{community}."
-      read_more_about_kassi_communities: "En savoir plus sur les tribus %{service_name}"
-      this_user_does_not_belong_to_this_community: "Cet utilisateur ne fait pas partie de la tribu %{community}"
+      explanation_text: "Vous naviguez sur %{community}. Vous avez essayé de voir le profil d'un utilisateur membre d'une autre place de marché créée avec l'outil Sharetribe. Vous ne pouvez pas accéder à ce profil utilisateur au sein de %{community}."
+      read_more_about_kassi_communities: "En savoir plus sur les places de marché Sharetribe"
+      this_user_does_not_belong_to_this_community: "Cet utilisateur ne fait pas partie de %{community}"
     profile_feedback:
       as_expected: "Correspondait à mes attentes"
       exceeded_expectations: "Dépassait complètement mes attentes"
@@ -1599,7 +1601,7 @@ fr:
       your_current_email_is: "Votre email est : %{email}."
       change_email: Modifier
       confirm_your_email: "Confirmer votre adresse email"
-      account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse. Dès que vous l'aurez confirmée, vous pourrez rejoindre cette tribu."
+      account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse email. Dès que vous l'aurez confirmée, vous pourrez rejoindre ce site."
       account_confirmation_instructions_dashboard: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous nous avez fournie."
   settings:
     account:
@@ -1630,10 +1632,10 @@ fr:
         status_confirmed: Confirmé
         status_pending: "En attente"
     notifications:
-      email_from_admins: "J'accepte de recevoir des informations occasionnelles des administrateurs de cette tribu"
+      email_from_admins: "J'accepte de recevoir des informations occasionnelles des administrateurs"
       i_want_to_get_email_notification_when: "Je souhaite recevoir un email de notification lorsque..."
       newsletters: "Bulletins d'information"
-      community_updates: "Mises à jour de la tribu"
+      community_updates: "Emails d'actualité"
       email_about_accept_reminders: "...j'ai oublié d'accepter une offre ou une demande"
       email_about_confirm_reminders: "...j'ai oublié de confirmer une demande comme réalisée"
       email_about_new_comments_to_own_listing: "...quelqu'un dépose un commentaire sur une de mes offres ou de mes demandes"
@@ -1706,7 +1708,7 @@ fr:
       slightly_better_than_expected: "Dépassait partiellement mes attentes"
       slightly_less_than_expected: "Ne correspondait pas tout à fait à mes attentes"
       textual_feedback: "Comment les choses se sont elles déroulées ?"
-      this_will_be_shown_in_profile: "L'avis que vous donnez sera visible par les autres utilisateurs dans le profil de %{person}. Cela permet aux membres de la tribu de savoir si %{person} est une personne de confiance."
+      this_will_be_shown_in_profile: "L'avis que vous donnez sera visible par les autres utilisateurs dans le profil de %{person}. Cela permet de savoir si %{person} est une personne de confiance."
       positive: Positif
       negative: Négatif
       default_textual_feedback: "Tout s'est bien passé, merci !"
