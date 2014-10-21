@@ -87,7 +87,7 @@ class TransactionMailer < ActionMailer::Base
          :from => community_specific_sender(community),
          :subject => t("emails.new_payment.new_payment")) { |format|
       format.html {
-        render locals: {
+        render "payment_receipt_to_seller", locals: {
           conversation_url: person_message_url(payment.recipient, @url_params.merge({:id => payment.transaction.id.to_s})),
           listing_title: payment.transaction.listing.title,
           payment_total: sum_with_currency(payment.total_sum, payment.currency),
@@ -108,7 +108,7 @@ class TransactionMailer < ActionMailer::Base
          :from => community_specific_sender(community),
          :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
       format.html {
-        render locals: {
+        render "payment_receipt_to_buyer", locals: {
           conversation_url: person_message_url(payment.payer, @url_params.merge({:id => payment.transaction.id.to_s})),
           listing_title: payment.transaction.listing.title,
           payment_total: sum_with_currency(payment.total_sum, payment.currency),
