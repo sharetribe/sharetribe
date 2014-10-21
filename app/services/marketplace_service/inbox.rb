@@ -251,6 +251,12 @@ module MarketplaceService
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
+          # Ignore initiated
+          AND (
+            transactions.id IS NULL
+            OR transactions.current_state != 'initiated'
+          )
+
           # This is a bit complicated logic that is now moved from app to SQL.
           # I'm not complelety sure if it's a good or bad. However, since this query is called once per every page
           # load, I think it's ok to make some performance optimizations and have this logic in SQL.
@@ -330,6 +336,12 @@ module MarketplaceService
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
+          # Ignore initiated
+          AND (
+            transactions.id IS NULL
+            OR transactions.current_state != 'initiated'
+          )
+
           # Order by 'last_activity_at', that is last message or last transition
           ORDER BY last_activity_at DESC
 
@@ -343,9 +355,18 @@ module MarketplaceService
           SELECT COUNT(conversations.id)
           FROM conversations
 
+          LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
+
           # Where person and community
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
+
+          # Ignore initiated
+          AND (
+            transactions.id IS NULL
+            OR transactions.current_state != 'initiated'
+          )
+
         "
       }
     end
