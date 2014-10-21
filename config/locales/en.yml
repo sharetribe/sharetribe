@@ -63,7 +63,7 @@ en:
         private_community_homepage_content: "Private marketplace homepage content"
         edit_private_community_homepage_content_description: "This content is shown to unlogged users on the home page of private marketplaces. Here you can describe your marketplace and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
         update_information: "Save settings"
-        invite_people: "Invite users"
+        invite_people: "Invite new users"
         edit_signup_info: "Signup info"
         edit_signup_info_description: "This is an info text that can be shown to users in the signup page. There you can give the users instructions for signing up, information like where to get an invite, etc. By default there are no instructions."
         edit_info: "Edit information"
@@ -259,15 +259,15 @@ en:
         date: Date
     emails:
       new:
-        send_email_to_members: "Send an email to users"
-        send_email_to_members_title: "Send an email to all your users"
+        send_email_to_members: "Send email to users"
+        send_email_to_members_title: "Send email to all your users"
         email_subject: "Email subject"
         email_content: "Email content"
-        email_content_placeholder: "What do you want to say to the members?"
+        email_content_placeholder: "What do you want to say to your users?"
         email_language: "Language of the email receivers"
         any_language: "Any language"
         send_email: "Send the email"
-        message_will_be_sent_only_to_people_with_this_language: "Note: the email will be sent only to the members who are using %{service_name} in the language you choose."
+        message_will_be_sent_only_to_people_with_this_language: "Note: the email will be sent only to the users who are using %{service_name} in the language you choose."
         email_sent: "Email sent."
     paypal_accounts:
       marketplace_paypal_integration: "Payment preferences"
