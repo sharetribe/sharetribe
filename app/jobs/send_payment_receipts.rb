@@ -14,7 +14,7 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
         payment = braintree_payment_for(transaction_id)
 
         receipts = []
-        receipts << PersonMailer.braintree_new_payment(payment, community) if receipt_to_seller
+        receipts << TransactionMailer.braintree_new_payment(payment, community) if receipt_to_seller
         receipts << PersonMailer.braintree_receipt_to_payer(payment, community)
         receipts
       when :checkout

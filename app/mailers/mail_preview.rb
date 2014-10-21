@@ -24,7 +24,7 @@ class MailPreview < MailView
   end
 
   def braintree_new_payment
-    PersonMailer.braintree_new_payment(conversation.payment, community)
+    TransactionMailer.braintree_new_payment(transaction.payment, community)
   end
 
   def escrow_canceled

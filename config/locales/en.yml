@@ -699,6 +699,7 @@ en:
       price_payer_paid: "Price %{payer_full_name} paid:"
       service_fee: "%{service_name} service fee:"
       you_will_get: "You will get:"
+      money_will_be_transferred: "The money will be transferred to your account when a) %{payer_name} has marked the request completed or b) %{automatic_confirmation_days} days have passed since %{payer_name} paid."
     receipt_to_payer:
       receipt_of_payment: "Receipt of payment"
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."

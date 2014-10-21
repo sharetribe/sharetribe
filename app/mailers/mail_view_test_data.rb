@@ -94,7 +94,8 @@ module MailViewTestData
       community: community,
       listing: listing,
       payment: payment,
-      conversation: conversation
+      conversation: conversation,
+      automatic_confirmation_after_days: 5
     )
   end
 

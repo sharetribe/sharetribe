@@ -11,6 +11,9 @@ class TransactionMailer < ActionMailer::Base
   default :from => APP_CONFIG.sharetribe_mail_from_address
   layout 'email'
 
+  include ApplicationHelper
+  include MoneyRails::ActionViewExtension # this is for humanized_money_with_symbol
+
   add_template_helper(EmailTemplateHelper)
 
   def transaction_created(transaction)
@@ -74,6 +77,30 @@ class TransactionMailer < ActionMailer::Base
         t("emails.transaction_preauthorized_reminder.subject", requester: conversation.starter.name, listing_title: conversation.listing.title)))
   end
 
+  def braintree_new_payment(payment, community)
+    prepare_template(community, payment.recipient, "email_about_new_payments")
+
+    service_fee = payment.total_commission.cents.to_f / 100
+    you_get = payment.seller_gets.cents.to_f / 100
+
+    premailer_mail(:to => payment.recipient.confirmed_notification_emails_to,
+         :from => community_specific_sender(community),
+         :subject => t("emails.new_payment.new_payment")) { |format|
+      format.html {
+        render locals: {
+          conversation_url: person_message_url(payment.recipient, @url_params.merge({:id => payment.transaction.id.to_s})),
+          listing_title: payment.transaction.listing.title,
+          payment_total: sum_with_currency(payment.total_sum, payment.currency),
+          payment_service_fee: sum_with_currency(service_fee, payment.currency),
+          payment_seller_gets: sum_with_currency(you_get, payment.currency),
+          payer_full_name: payment.payer.name(community),
+          payer_given_name: payment.payer.given_name_or_username,
+          automatic_confirmation_days: payment.transaction.automatic_confirmation_after_days
+        }
+      }
+    }
+  end
+
   private
 
   def premailer_mail(opts, &block)
@@ -81,7 +108,8 @@ class TransactionMailer < ActionMailer::Base
   end
 
   # TODO Get rid of this method. Pass all data in local variables, not instance variables.
-  def prepare_template(community, recipient)
+  def prepare_template(community, recipient, email_type = nil)
+    @email_type = email_type
     @community = community
     @current_community = community
     @recipient = recipient
