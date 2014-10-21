@@ -96,8 +96,8 @@ en:
         small_cover_photo_visibility: "Small cover photo is shown in all pages expect in the homepage for unlogged users."
         small_cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle."
         main_content_width: "When choosing cover photos please note that the page main content is %{main_width} pixels wide at most. Remember to also check how your cover photo looks on the smaller screens (e.g. by using a more narrow browser window)."
-        custom_color1_instructions_text: "You can change the main color of the user interface of this marketplace by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
-        custom_color2_instructions_text: "You can change the second color of the user interface of this marketplace by entering a hex color value."
+        custom_color1_instructions_text: "You can change the main color of the user interface by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
+        custom_color2_instructions_text: "You can change the second color of the user interface by entering a hex color value."
         default_browse_view: "Default browse view"
         default_browse_view_instructions_text: "Default browse view is used on the homepage to set how the listings are displayed by default."
         grid: Grid
@@ -257,8 +257,8 @@ en:
         date: Date
     emails:
       new:
-        send_email_to_members: "Send an email to members"
-        send_email_to_members_title: "Send an email to all the members of this marketplace"
+        send_email_to_members: "Send an email to users"
+        send_email_to_members_title: "Send an email to all your users"
         email_subject: "Email subject"
         email_content: "Email content"
         email_content_placeholder: "What do you want to say to the members?"
@@ -579,7 +579,7 @@ en:
       join_community: "Join %{service_name}"
       you_are_not_a_member_of_this_community: "You have a user account in the Sharetribe marketplace platform, but you are not yet joined %{service_name}."
       you_can_join: "You can join %{service_name} by accepting the terms of use and clicking 'Join %{service_name}' below."
-      you_can_join_email_confirmation: "To join %{service_name} you need to have a valid email address that ends with %{email_ending}. You can join by filling in your email address, accepting the terms of use of this marketplace and clicking 'Join %{service_name}' below, and confirming your email."
+      you_can_join_email_confirmation: "To join %{service_name} you need to have a valid email address that ends with %{email_ending}. You can join by filling in your email address, accepting the terms of use and clicking 'Join %{service_name}' below, and confirming your email."
       you_can_join_email_confirmation_multiple_addresses: "%{service_name} has email restrictions. You can only join if you have an allowed email address. You can join by filling in your email address, accepting the terms of use of %{service_name} and clicking 'Join %{service_name}' below."
       you_can_join_with_invite_only: "You have to have an invitation from another member to join %{service_name}. If you have an invitation code, you can join by typing the code to the field below, accepting the terms of use and clicking 'Join %{service_name}' below."
       if_want_to_view_content: "If you want to view the content in %{service_name} without joining it as a member you need to"
@@ -987,7 +987,7 @@ en:
       invite_your_friends: "Invite friends!"
       invite_your_neighbors: "Invite neighbors!"
       invite_your_friends_description: "The more people there are in %{service_name}, the more useful it is."
-      invite_your_friends_invite_only_description: "People cannot join this marketplace unless they are invited."
+      invite_your_friends_invite_only_description: "People cannot join %{service_name} unless they are invited."
       join_without_facebook: "...or alternatively %{join_without_facebook_link}"
       join_without_facebook_link: "sign up without using Facebook"
     conversations:
@@ -1035,8 +1035,8 @@ en:
       something_went_wrong: "Something went wrong"
       community_updated: "Details updated."
       community_update_failed: "Detail update failed."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Account created successfully. Next you need to confirm your email address."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "You are now a member of this marketplace. Next you need to confirm your email address."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Your account was created successfully. Now you need to confirm your email address."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Thanks for joining %{service_name}. Now you need to confirm your email address."
       comment_cannot_be_empty: "Comment cannot be empty"
       comment_sent: "Comment sent"
       confirmation_link_is_wrong_or_used: "The confirmation link is already used or otherwise broken. Try logging in, or send feedback if the problem persists."
@@ -1259,7 +1259,7 @@ en:
         for_the_time_being: "For the time being"
       visibility:
         all_communities: "All my Sharetribe marketplaces"
-        this_community: "Only members of this site"
+        this_community: "Only members of %{service_name}"
         visibility: Visibility
       privacy:
         privacy: Privacy
@@ -1478,10 +1478,10 @@ en:
       email: "Email address"
       email_is_in_use: "The email you gave is already in use."
       email_is_in_use_or_not_allowed: "This email is not allowed or it is already in use. If you can't get in, contact us."
-      email_not_allowed: "This email is not allowed in this site. Please use an email address that is allowed. If you still cannot get in, send us feedback."
+      email_not_allowed: "This email is not allowed in %{service_name}. Please use an email address that is allowed. If you still cannot get in, send us feedback."
       email_restriction_instructions:
-        one: "The access to this site is restricted. To join you need a '%{allowed_emails}' email address."
-        other: "The access to this site is restricted. To join you need an email address that proves you to be entitled to join this site."
+        one: "The access to %{service_name} is restricted. To join you need a '%{allowed_emails}' email address."
+        other: "The access to %{service_name} is restricted. You need an email address that proves that you are entitled to join."
       enter_captcha: "I'm a human:"
       family_name: "Last name"
       given_name: "First name"
@@ -1599,7 +1599,7 @@ en:
       your_current_email_is: "Your email is %{email}."
       change_email: Change
       confirm_your_email: "Confirm your email"
-      account_confirmation_instructions: "You will soon receive an email with a link that you need to click to confirm the email address you entered. After confirming your email you can join this site."
+      account_confirmation_instructions: "You will soon receive an email with a link that you need to click to confirm the email address you entered. After confirming your email you can join %{service_name}."
       account_confirmation_instructions_dashboard: "You will soon receive an email with a link that you need to click to confirm the email address you entered."
   settings:
     account:
