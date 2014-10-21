@@ -15,4 +15,9 @@ module MoneyUtil
     Money.new(cents, currency) unless cents.nil?
   end
 
+  def to_dot_separated_str(m)
+    units, subs = m.cents.abs.divmod(m.currency.subunit_to_unit).map(&:to_s)
+    [units, subs.rjust(2, "0")].join(".")
+  end
+
 end
