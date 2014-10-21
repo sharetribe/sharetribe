@@ -238,8 +238,11 @@ module MarketplaceService
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
-          # Ignore 'initiated' status
-          AND transactions.current_state != 'initiated'
+          # Ignore initiated
+          AND (
+            transactions.id IS NULL
+            OR transactions.current_state != 'initiated'
+          )
 
           # This is a bit complicated logic that is now moved from app to SQL.
           # I'm not complelety sure if it's a good or bad. However, since this query is called once per every page
@@ -345,7 +348,11 @@ module MarketplaceService
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
           # Ignore initiated
-          AND transactions.current_state != 'initiated'
+          AND (
+            transactions.id IS NULL
+            OR transactions.current_state != 'initiated'
+          )
+
         "
       }
     end
