@@ -640,10 +640,6 @@ class Community < ActiveRecord::Base
     payment_possible_for?(listing) && payments_in_use? ? payment_gateway.invoice_form_type : "no_form"
   end
 
-  def integrations_in_use?
-    plan_level >= BASIC_PLAN
-  end
-
   def email_notification_types
     valid_types = Person::EMAIL_NOTIFICATION_TYPES.dup
     if !follow_in_use?

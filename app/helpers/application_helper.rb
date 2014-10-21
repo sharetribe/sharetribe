@@ -61,7 +61,10 @@ module ApplicationHelper
       "loading" => "ss-loading",
       "connect" => "ss-connection",
       "reply" => "ss-reply",
-      "" => "",
+      "coins" => "ss-coins",
+      "send" => "ss-send",
+      "form" => "ss-form",
+      "link" => "ss-link",
 
       # Default category & share type icons
       "offer" => "ss-share",
@@ -567,6 +570,30 @@ module ApplicationHelper
   def admin_links_for(community)
     links = [
       {
+        :text => t("admin.communities.manage_members.manage_members"),
+        :icon_class => icon_class("community"),
+        :path => admin_community_community_memberships_path(@current_community, sort: "join_date", direction: "desc"),
+        :name => "manage_members"
+      },
+      {
+        :text => t("admin.emails.new.send_email_to_members"),
+        :icon_class => icon_class("send"),
+        :path => new_admin_community_email_path(:community_id => @current_community.id),
+        :name => "email_members"
+      },
+      {
+        :text => t("admin.communities.edit_details.invite_people"),
+        :icon_class => "ss-adduser",
+        :path => new_invitation_path,
+        :name => "invite_people"
+      },
+      {
+        :text => t("admin.communities.transactions.transactions"),
+        :icon_class => icon_class("coins"),
+        :path => admin_community_transactions_path(@current_community, sort: "last_activity", direction: "desc"),
+        :name => "transactions"
+      },
+      {
         :text => t("admin.communities.edit_details.community_details"),
         :icon_class => "ss-page",
         :path => edit_details_admin_community_path(@current_community),
@@ -579,61 +606,24 @@ module ApplicationHelper
         :name => "tribe_look_and_feel"
       },
       {
-        :text => t("admin.emails.new.send_email_to_members"),
-        :icon_class => icon_class("mail"),
-        :path => new_admin_community_email_path(:community_id => @current_community.id),
-        :name => "email_members"
+        :text => t("admin.communities.menu_links.menu_links"),
+        :icon_class => icon_class("link"),
+        :path => menu_links_admin_community_path(@current_community),
+        :name => "menu_links"
       },
       {
-        :text => t("admin.communities.edit_details.invite_people"),
-        :icon_class => "ss-adduser",
-        :path => new_invitation_path,
-        :name => "invite_people"
+        :text => t("admin.categories.index.listing_categories"),
+        :icon_class => icon_class("list"),
+        :path => admin_categories_path,
+        :name => "listing_categories"
       },
       {
-        :text => t("admin.communities.edit_text_instructions.edit_text_instructions"),
-        :icon_class => icon_class("edit"),
-        :path => edit_text_instructions_admin_community_path(@current_community),
-        :name => "text_instructions"
-      },
-      {
-        :text => t("admin.communities.edit_welcome_email.welcome_email_content"),
-        :icon_class => icon_class("edit"),
-        :path => edit_welcome_email_admin_community_path(@current_community),
-        :name => "welcome_email"
-      },
-      {
-        :text => t("admin.communities.settings.settings"),
-        :icon_class => icon_class("settings"),
-        :path => settings_admin_community_path(@current_community),
-        :name => "admin_settings"
+        :text => t("admin.custom_fields.index.listing_fields"),
+        :icon_class => icon_class("form"),
+        :path => admin_custom_fields_path,
+        :name => "listing_fields"
       }
     ]
-
-    if @current_community.integrations_in_use?
-      links << {
-        :text => t("admin.communities.integrations.integrations"),
-        :icon_class => icon_class("connect"),
-        :path => integrations_admin_community_path(@current_community),
-        :name => "integrations"
-      }
-    end
-
-    links << {
-      :text => t("admin.communities.menu_links.menu_links"),
-      :icon_class => icon_class("redirect"),
-      :path => menu_links_admin_community_path(@current_community),
-      :name => "menu_links"
-    }
-
-    if Maybe(@current_user).is_admin?.or_else { false }
-      links << {
-        :text => t("admin.communities.braintree_payment_gateway.braintree_payment_gateway"),
-        :icon_class => icon_class("payments"),
-        :path => payment_gateways_admin_community_path(@current_community),
-        :name => "payment_gateways"
-      }
-    end
 
     if @current_community.paypal_enabled
       links << {
@@ -644,31 +634,39 @@ module ApplicationHelper
       }
     end
 
+    if Maybe(@current_user).is_admin?.or_else { false }
+      links << {
+        :text => t("admin.communities.braintree_payment_gateway.braintree_payment_gateway"),
+        :icon_class => icon_class("payments"),
+        :path => payment_gateways_admin_community_path(@current_community),
+        :name => "payment_gateways"
+      }
+    end
+
     links << {
-      :text => t("admin.categories.index.listing_categories"),
-      :icon_class => icon_class("list"),
-      :path => admin_categories_path,
-      :name => "listing_categories"
+      :text => t("admin.communities.integrations.integrations"),
+      :icon_class => icon_class("connect"),
+      :path => integrations_admin_community_path(@current_community),
+      :name => "integrations"
     }
 
     links << {
-      :text => t("admin.custom_fields.index.listing_fields"),
-      :icon_class => icon_class("list"),
-      :path => admin_custom_fields_path,
-      :name => "listing_fields"
+      :text => t("admin.communities.edit_text_instructions.edit_text_instructions"),
+      :icon_class => icon_class("edit"),
+      :path => edit_text_instructions_admin_community_path(@current_community),
+      :name => "text_instructions"
     }
-
     links << {
-        :text => t("admin.communities.manage_members.manage_members"),
-        :icon_class => icon_class("community"),
-        :path => admin_community_community_memberships_path(@current_community, sort: "join_date", direction: "desc"),
-        :name => "manage_members"
+      :text => t("admin.left_hand_navigation.emails_title"),
+      :icon_class => icon_class("mail"),
+      :path => edit_welcome_email_admin_community_path(@current_community),
+      :name => "welcome_email"
     }
-    links <<  {
-        :text => t("admin.communities.transactions.transactions"),
-        :icon_class => icon_class("information"),
-        :path => admin_community_transactions_path(@current_community, sort: "last_activity", direction: "desc"),
-        :name => "transactions"
+    links << {
+      :text => t("admin.communities.settings.settings"),
+      :icon_class => icon_class("settings"),
+      :path => settings_admin_community_path(@current_community),
+      :name => "admin_settings"
     }
 
     links
