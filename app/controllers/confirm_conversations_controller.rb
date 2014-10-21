@@ -51,8 +51,13 @@ class ConfirmConversationsController < ApplicationController
     status = params[:transaction][:status]
 
     if MarketplaceService::Transaction::Query.can_transition_to?(@listing_transaction.id, status)
-      MarketplaceService::Transaction::Command.transition_to(@listing_transaction.id, status)
-      MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_transaction.id, @current_user.id)
+
+      transaction =
+        if status.to_sym == :confirmed
+          TransactionService::Transaction.complete(@listing_transaction.id)
+        else
+          TransactionService::Transaction.cancel(@listing_transaction.id)
+        end
 
       if(params[:message])
         message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_transaction.conversation.id }))

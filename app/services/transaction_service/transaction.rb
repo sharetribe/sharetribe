@@ -113,12 +113,41 @@ module TransactionService::Transaction
     raise "Not implemented"
   end
 
-  def complete
-    raise "Not implemented"
+  def complete(transaction_id)
+    MarketplaceService::Transaction::Command.transition_to(transaction_id, :confirmed)
+    transaction = MarketplaceService::Transaction::Query.transaction(transaction_id)
+
+    payment_type = MarketplaceService::Community::Query.payment_type(transaction[:community_id])
+
+    case payment_type
+    when :paypal
+      paypal_payments = PaypalService::API::Payments.new
+
+      MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id, transaction[:listing][:author_id])
+      paypal_admin_account = PaypalService::PaypalAccount::Query.admin_account(transaction[:community_id])
+
+
+      payment = paypal_payments.get_payment(transaction[:community_id], transaction_id)
+      commission_total = payment[:data][:payment_total] * (transaction[:commission_from_seller] / 100.0)
+      charge_request =
+        {
+          community_admin_id: paypal_admin_account[:email], #TODO paypal admin id?
+          commissioned_transaction_id: transaction_id,
+          commission_total: commission_total
+        }
+
+      billing_agreement = PaypalService::API::BillingAgreements.new
+      billing_agreement.charge(transaction[:community_id], transaction[:listing][:author_id], charge_request) #TODO not implemented
+    end
+
+    model_to_entity(transaction)
   end
 
-  def cancel
-    raise "Not implemented"
+  def cancel(transaction_id)
+    MarketplaceService::Transaction::Command.transition_to(transaction_id, :cancelled)
+    transaction = MarketplaceService::Transaction::Query.transaction(transaction_id)
+    MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id,transaction[:listing][:author_id])
+    model_to_entity(transaction)
   end
 
   def token_cancelled(token)

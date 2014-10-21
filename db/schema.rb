@@ -634,14 +634,14 @@ ActiveRecord::Schema.define(:version => 20141023150700) do
   end
 
   create_table "paypal_payments", :force => true do |t|
-    t.integer  "community_id",                             :null => false
-    t.integer  "transaction_id",                           :null => false
-    t.string   "payer_id",                   :limit => 64, :null => false
-    t.string   "receiver_id",                :limit => 64, :null => false
-    t.string   "order_id",                   :limit => 64, :null => false
-    t.datetime "order_date",                               :null => false
-    t.string   "currency",                   :limit => 8,  :null => false
-    t.integer  "order_total_cents",                        :null => false
+    t.integer  "community_id",                                                        :null => false
+    t.integer  "transaction_id",                                                      :null => false
+    t.string   "payer_id",                   :limit => 64,                            :null => false
+    t.string   "receiver_id",                :limit => 64,                            :null => false
+    t.string   "order_id",                   :limit => 64,                            :null => false
+    t.datetime "order_date",                                                          :null => false
+    t.string   "currency",                   :limit => 8,                             :null => false
+    t.integer  "order_total_cents",                                                   :null => false
     t.string   "authorization_id",           :limit => 64
     t.datetime "authorization_date"
     t.datetime "authorization_expires_date"
@@ -650,10 +650,16 @@ ActiveRecord::Schema.define(:version => 20141023150700) do
     t.datetime "payment_date"
     t.integer  "payment_total_cents"
     t.integer  "fee_total_cents"
-    t.string   "payment_status",             :limit => 64, :null => false
+    t.string   "payment_status",             :limit => 64,                            :null => false
     t.string   "pending_reason",             :limit => 64
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at",                                                          :null => false
+    t.datetime "updated_at",                                                          :null => false
+    t.string   "commission_payment_id",      :limit => 64
+    t.datetime "commission_payment_date"
+    t.string   "commission_status",          :limit => 64, :default => "not_charged", :null => false
+    t.string   "commission_pending_reason",  :limit => 64
+    t.integer  "commission_total_cents"
+    t.integer  "commission_fee_total_cents"
   end
 
   add_index "paypal_payments", ["authorization_id"], :name => "index_paypal_payments_on_authorization_id", :unique => true
