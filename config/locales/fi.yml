@@ -63,7 +63,7 @@ fi:
         private_community_homepage_content: "Suljetun kauppapaikan etusivun sisältö"
         edit_private_community_homepage_content_description: "Tämä sisältö näytetään kirjautumattomille käyttäjille suljettujen kauppapaikkojen etusivulla. Tässä voit kertoa tarkemmin kauppapaikan tarkoituksesta sekä siitä, miten palveluun voi liittyä. Voit lisätä kuvaukseen halutessasi myös kuvia, videoita tai HTML-muotoista sisältöä. %{see_how_it_looks_like}."
         update_information: Tallenna
-        invite_people: "Kutsu käyttäjiä"
+        invite_people: "Kutsu uusia käyttäjiä"
         edit_signup_info: Liittymisohjeet
         edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä."
         edit_info: "Muokkaa tietoja"
@@ -112,7 +112,7 @@ fi:
         custom_head_script: Head-skripti
         custom_head_script_instructions_text: "Tämä skripti lisätään joka sivun <head>-tagin sisään. Voit käyttää sitä lisätäksesi omaa CSS-, JavaScript- tai HTML-koodia. Huomaa, että Sharetriben kehittyessä skripti saattaa lakata toimimasta."
       edit_text_instructions:
-        edit_text_instructions: "Muokkaa ohjetekstejä"
+        edit_text_instructions: "Ohjetekstit"
       edit_welcome_email:
         welcome_email_content: "Tervetulosähköpostin sisältö"
         welcome_email_content_description: "Alla oleva viesti lähetetään automaattisesti kaikille uusille käyttäjille näiden liittyessä. Voit muokata viestin sisältöä vastaamaan sivustosi kuvausta. Klikkaamalla '%{send_test_message_link}' -linkkiä voit lähettää viestin omaan sähköpostiosoitteeseesi."
@@ -259,7 +259,7 @@ fi:
         date: Päivämäärä
     emails:
       new:
-        send_email_to_members: "Lähetä sähköpostia jäsenille"
+        send_email_to_members: "Lähetä viesti käyttäjille"
         send_email_to_members_title: "Lähetä sähköpostiviesti kaikille palvelun käyttäjille"
         email_subject: "Viestin otsikko"
         email_content: "Viestin sisältö"
