@@ -145,11 +145,14 @@ module TransactionService::Transaction
       when :checkout, :braintree
         Maybe(model).payment.total_sum.or_else(nil)
       when :paypal
-        paypal_payments = PaypalService::API::Payments.new
-        paypal_payments.get_payment(model.community_id, model.id)
+        payments_api = PaypalService::API::Payments.new
+        payment = payments_api.get_payment(model.community_id, model.id)
+
+        Maybe(payment).select { |p| p[:success] }[:data][:payment_total].or_else(nil)
       end
 
     DataTypes.create_transaction({
+        id: model.id,
         payment_process: payment_process,
         payment_gateway: model.payment_gateway.to_sym,
         community_id: model.community_id,

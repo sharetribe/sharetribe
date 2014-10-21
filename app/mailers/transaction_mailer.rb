@@ -153,6 +153,10 @@ class TransactionMailer < ActionMailer::Base
 
   # seller_model, buyer_model and community can be passed as params for testing purposes
   def paypal_receipt_to_payer(transaction, service_fee, seller_model = nil, buyer_model = nil, community = nil)
+    seller_model ||= Person.find(transaction[:listing_author_id])
+    buyer_model ||= Person.find(transaction[:starter_id])
+    community ||= Community.find(transaction[:community_id])
+
     prepare_template(community, buyer_model, "email_about_new_payments")
 
     premailer_mail(:to => buyer_model.confirmed_notification_emails_to,

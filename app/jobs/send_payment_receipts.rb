@@ -18,6 +18,7 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
         receipts << TransactionMailer.braintree_new_payment(payment, community) if receipt_to_seller
         receipts << TransactionMailer.braintree_receipt_to_payer(payment, community)
         receipts
+
       when :checkout
         community = Community.find(transaction[:community_id])
         payment = checkout_payment_for(transaction_id)
@@ -26,7 +27,13 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
         receipts << PersonMailer.new_payment(payment, community) if receipt_to_seller
         receipts << PersonMailer.receipt_to_payer(payment, community)
         receipts
+
       when :paypal
+        receipts = []
+        service_fee = Money.new(500, transaction[:payment_total].currency) # FIXME Vesa is working for a solution
+        receipts << TransactionMailer.paypal_new_payment(transaction, service_fee) if receipt_to_seller
+        receipts << TransactionMailer.paypal_receipt_to_payer(transaction, service_fee)
+        receipts
 
       else
         []
