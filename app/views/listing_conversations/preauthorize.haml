@@ -79,7 +79,7 @@
           = form.hidden_field :sender_id, :value => @current_user.id
 
       - if @current_community.transaction_agreement_in_use
-        = render :partial => "transaction_agreement_checkbox", locals: { form: form }
+        = render :partial => "listing_conversations/transaction_agreement_checkbox", locals: { form: form }
 
       .row
         .col-12
