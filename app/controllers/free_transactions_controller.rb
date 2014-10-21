@@ -48,7 +48,8 @@ class FreeTransactionsController < ApplicationController
             starter_id: @current_user.id,
             listing_author_id: @listing.author.id,
             content: contact_form.content,
-            payment_gateway: :none}
+            payment_gateway: :none,
+            commission_from_seller: @current_community.commission_from_seller}
         })
 
       transaction_id = transaction_response[:transaction][:id]

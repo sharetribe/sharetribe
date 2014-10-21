@@ -34,7 +34,8 @@ class Transaction < ActiveRecord::Base
     :author_skipped_feedback,
     :starter_skipped_feedback,
     :payment_attributes,
-    :payment_gateway
+    :payment_gateway,
+    :commission_from_seller
     )
 
   attr_accessor :contract_agreed

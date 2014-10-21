@@ -36,7 +36,8 @@ class PostPayTransactionsController < ApplicationController
             starter_id: @current_user.id,
             listing_author_id: @listing.author.id,
             content: contact_form.content,
-            payment_gateway: @current_community.payment_gateway.gateway_type
+            payment_gateway: @current_community.payment_gateway.gateway_type,
+            commission_from_seller: @current_community.commission_from_seller
           }
         })
 

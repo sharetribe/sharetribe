@@ -16,7 +16,8 @@ module TransactionService::Transaction
       community_id: opts[:community_id],
       listing_id: opts[:listing_id],
       starter_id: opts[:starter_id],
-      payment_gateway: opts[:payment_gateway])
+      payment_gateway: opts[:payment_gateway],
+      commission_from_seller: opts[:commission_from_seller])
 
     conversation = transaction.build_conversation(
       community_id: opts[:community_id],

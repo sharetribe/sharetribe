@@ -18,6 +18,7 @@ module MarketplaceService
         :testimonials,
         :transitions,
         :payment_total,
+        :commission_from_seller,
         :conversation,
         :booking,
         :created_at,
@@ -146,7 +147,8 @@ module MarketplaceService
         [:listing_id, :fixnum, :mandatory],
         [:starter_id, :string, :mandatory],
         [:author_id, :string, :mandatory],
-        [:content, :string, :optional]
+        [:content, :string, :optional],
+        [:commission_from_seller, :fixnum, :optional]
       )
       module_function
 
@@ -156,7 +158,8 @@ module MarketplaceService
         transaction = TransactionModel.new({
             community_id: opts[:community_id],
             listing_id: opts[:listing_id],
-            starter_id: opts[:starter_id]})
+            starter_id: opts[:starter_id],
+            commission_from_seller: opts[:commission_from_seller]})
 
         conversation = transaction.build_conversation(
           community_id: opts[:community_id],
