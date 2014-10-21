@@ -14,13 +14,35 @@ class ConfirmConversationsController < ApplicationController
   MessageForm = Form::Message
 
   def confirm
-    @action = "confirm"
-    render(locals: { message_form: MessageForm.new })
+    conversation = MarketplaceService::Conversation::Query.conversation_for_person(@listing_transaction.conversation.id, @current_user.id, @current_community.id)
+    can_be_confirmed = @listing_transaction.can_be_confirmed?
+    other_person = MarketplaceService::Person::Query.person(@listing_transaction.other_party(@current_user))
+
+    render(locals: {
+      action_type: "confirm",
+      message_form: MessageForm.new,
+      listing_conversation: conversation,
+      can_be_confirmed: can_be_confirmed,
+      other_person: other_person,
+      status: @listing_transaction.status,
+      form: @listing_transaction # TODO fix me, don't pass objects
+    })
   end
 
   def cancel
-    @action = "cancel"
-    render(:confirm, locals: { message_form: MessageForm.new })
+    conversation = MarketplaceService::Conversation::Query.conversation_for_person(@listing_transaction.conversation.id, @current_user.id, @current_community.id)
+    can_be_confirmed = @listing_transaction.can_be_confirmed?
+    other_person = MarketplaceService::Person::Query.person(@listing_transaction.other_party(@current_user))
+
+    render(:confirm, locals: {
+      action_type: "cancel",
+      message_form: MessageForm.new,
+      listing_conversation: conversation,
+      can_be_confirmed: can_be_confirmed,
+      other_person: other_person,
+      status: @listing_transaction.status,
+      form: @listing_transaction # TODO fix me, don't pass objects
+    })
   end
 
   # TODO: Separate confirm and cancel form handling to separate actions
