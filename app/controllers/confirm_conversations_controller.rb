@@ -28,29 +28,30 @@ class ConfirmConversationsController < ApplicationController
   def confirmation
     status = params[:transaction][:status]
 
-    if MarketplaceService::Transaction::Query.can_transition_to?(@listing_conversation.id, status)
-      MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, status)
-      MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
+    if MarketplaceService::Transaction::Query.can_transition_to?(@listing_transaction.id, status)
+      MarketplaceService::Transaction::Command.transition_to(@listing_transaction.id, status)
+      MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_transaction.id, @current_user.id)
 
       if(params[:message])
-        message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_conversation.id }))
+        message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_transaction.conversation.id }))
         if(message.valid?)
-          @listing_conversation.conversation.messages.create({ content: message.content, sender_id: message.sender_id})
+          @listing_transaction.conversation.messages.create({ content: message.content, sender_id: message.sender_id})
         end
       end
 
       give_feedback = Maybe(params)[:give_feedback].select { |v| v == "true" }.or_else { false }
 
-      confirmation = ConfirmConversation.new(@listing_conversation, @current_user, @current_community)
+      confirmation = ConfirmConversation.new(@listing_transaction, @current_user, @current_community)
       confirmation.update_participation(give_feedback)
 
-      flash[:notice] = t("layouts.notifications.#{@listing_conversation.listing.direction}_#{status}")
+      flash[:notice] = t("layouts.notifications.#{@listing_transaction.listing.direction}_#{status}")
 
-      redirect_path = if give_feedback
-        new_person_message_feedback_path(:person_id => @current_user.id, :message_id => @listing_conversation.id)
-      else
-        person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
-      end
+      redirect_path =
+        if give_feedback
+          new_person_message_feedback_path(:person_id => @current_user.id, :message_id => @listing_transaction.id)
+        else
+          person_transaction_path(:person_id => @current_user.id, :id => @listing_transaction.id)
+        end
 
       redirect_to redirect_path
     else
@@ -62,17 +63,17 @@ class ConfirmConversationsController < ApplicationController
   private
 
   def ensure_is_starter
-    unless @listing_conversation.starter == @current_user
+    unless @listing_transaction.starter == @current_user
       flash[:error] = "Only listing starter can perform the requested action"
       redirect_to (session[:return_to_content] || root)
     end
   end
 
   def fetch_listing
-    @listing = @listing_conversation.listing
+    @listing = @listing_transaction.listing
   end
 
   def fetch_conversation
-    @listing_conversation = @current_community.transactions.find(params[:id])
+    @listing_transaction = @current_community.transactions.find(params[:id])
   end
 end
