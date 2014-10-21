@@ -809,6 +809,7 @@ ActiveRecord::Schema.define(:version => 20141023150700) do
     t.boolean  "author_skipped_feedback",           :default => false
     t.datetime "last_transition_at"
     t.string   "current_state"
+    t.integer  "commission_from_seller"
     t.string   "payment_gateway",                   :default => "none", :null => false
   end
 

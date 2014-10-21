@@ -14,6 +14,7 @@
 #  author_skipped_feedback           :boolean          default(FALSE)
 #  last_transition_at                :datetime
 #  current_state                     :string(255)
+#  commission_from_seller            :integer
 #  payment_gateway                   :string(255)      default("none"), not null
 #
 # Indexes
