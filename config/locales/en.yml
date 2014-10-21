@@ -50,7 +50,7 @@ en:
     communities:
       edit_details:
         community_details: "Basic details"
-        community_look_and_feel: "Design"
+        community_look_and_feel: Design
         edit_community: "Basic details"
         community_name: "Marketplace name"
         edit_community_name_description: "The name of your marketplace. This is shown to users in emails and various other places."
@@ -964,7 +964,7 @@ en:
       click_here_link_text: "Click here"
   layouts:
     admin:
-      admin: "Admin"
+      admin: Admin
     no_tribe:
       inbox: Inbox
       settings: Settings
@@ -1467,7 +1467,7 @@ en:
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this marketplace.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
       invite_only_help_text: "Select this option if you want that new members can join only if they are invited by an existing member of the site."
-      invite_only_help_text_title: "Invite-only"
+      invite_only_help_text_title: Invite-only
     inactive_notification:
       this_person_is_not_active_in_kassi: "This user is no longer active in %{service_name}"
       inactive_description: "This user has stopped using %{service_name}. You cannot contact this user, give feedback to them or comment their listings."
