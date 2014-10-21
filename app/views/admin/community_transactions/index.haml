@@ -26,7 +26,7 @@
           %td=Maybe(conversation[:listing]).map { |listing| link_to(listing[:title], conversation[:listing_url]) }.or_else("")
           - if show_status_and_sum
             %td=t("admin.communities.transactions.status.#{conversation[:status]}")
-            %td=conversation[:payment_sum] ? humanized_money_with_symbol(conversation[:payment_sum]) : ""
+            %td=conversation[:payment_total] ? humanized_money_with_symbol(conversation[:payment_total]) : ""
           %td=l(conversation[:created_at], format: :short_date)
           - last_activity_at = 0
           - if conversation[:conversation][:last_message_at].nil?

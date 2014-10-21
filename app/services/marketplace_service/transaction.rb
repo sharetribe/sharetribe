@@ -99,7 +99,13 @@ module MarketplaceService
             Maybe(transaction_model).payment.total_sum.or_else { nil }
           when :paypal
             paypal_payments = PaypalService::API::Payments.new
-            paypal_payments.get_payment(transaction_model.community_id, transaction_model.id)[:data][:authorization_total]
+            payment = paypal_payments.get_payment(transaction_model.community_id, transaction_model.id)
+
+            if payment[:success]
+              payment[:data][:authorization_total]
+            else
+              nil
+            end
           end
 
         Transaction[EntityUtils.model_to_hash(transaction_model).merge({
