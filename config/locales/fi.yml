@@ -201,8 +201,8 @@ fi:
           paid: Maksettu
           confirmed: Hyväksytty
           canceled: Peruutettu
-          initiated: "Odottaa PayPal-maksua"
-          pending_ext: "Odottaa PayPal-maksua"
+          initiated: "Odottaa maksua"
+          pending_ext: "Odottaa maksun hyväksyntää"
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
