@@ -61,7 +61,7 @@
 
       .row
         .col-12
-          = form.button t("preauthorize_payments.edit.confirm_payment"), :class => "send_button"
+          = form.submit t("paypal.checkout_with_paypal"), type: :image, src: t("paypal.checkout_button_url"), alt: t("paypal.checkout_with_paypal"), class: "checkout-with-paypal-button"
 
       .row
         .col-12
