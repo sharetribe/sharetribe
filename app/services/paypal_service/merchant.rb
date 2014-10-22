@@ -62,7 +62,20 @@ module PaypalService
         end
       rescue PayPal::SDK::Core::Exceptions::ConnectionError => e
         @logger.error("Paypal merchant service failed to respond.")
-        DataTypes.create_failure_response({error_msg: "Paypal merchant service failed to respond."})
+
+        error_code =
+          if (e.is_a? PayPal::SDK::Core::Exceptions::TimeoutError)
+            "x-timeout"
+          elsif (e.is_a? PayPal::SDK::Core::Exceptions::ServerError)
+            "x-servererror"
+          else
+            "x-unknown-paypalerror"
+          end
+
+        DataTypes.create_failure_response({
+          error_code: error_code,
+          error_msg: "Paypal merchant service failed to respond."
+        })
       end
 
     end
