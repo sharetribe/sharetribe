@@ -193,16 +193,16 @@ module PaypalService::API
 
     private
 
-    def with_account(cid, pid)
+    def with_account(cid, pid, &block)
        m_acc = PaypalService::PaypalAccount::Query.personal_account(pid, cid)
       if m_acc.nil?
         Result::Error.new("Cannot find paypal account for the given community and person: community_id: #{cid}, person_id: #{pid}.")
       else
-        yield m_acc
+        block.call(m_acc)
       end
     end
 
-    def with_token(cid, t)
+    def with_token(cid, t, &block)
       token = TokenStore.get(cid, t)
       if (token.nil?)
         return Result::Error.new("No matching token for community_id: #{cid} and token: #{t}")
@@ -213,10 +213,10 @@ module PaypalService::API
         return Result::Error.new("No matching merchant account for community_id: #{cid} and person_id: #{token[:merchant_id]}.")
       end
 
-      yield token, m_acc
+      block.call(token, m_acc)
     end
 
-    def with_payment(cid, txid)
+    def with_payment(cid, txid, &block)
       payment = PaypalService::PaypalPayment::Query.get(cid, txid)
       if (payment.nil?)
         return Result::Error.new("No matching payment for community_id: #{cid} and transaction_id: #{txid}.")
@@ -227,15 +227,15 @@ module PaypalService::API
         return Result::Error.new("No matching merchant account for community_id: #{cid} and transaction_id: #{txid}.")
       end
 
-      yield payment, m_acc
+      block.call(payment, m_acc)
     end
 
-    def with_success(request, opts = { error_policy: {} })
+    def with_success(request, opts = { error_policy: {} }, &block)
       retry_codes, try_max, finally = parse_policy(opts[:error_policy])
       response = try_operation(retry_codes, try_max) { paypal_merchant.do_request(request) }
 
       if (response[:success])
-        yield response
+        block.call(response)
       else
         finally.call(request, response)
       end
