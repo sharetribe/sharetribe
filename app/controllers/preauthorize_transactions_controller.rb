@@ -96,7 +96,8 @@ class PreauthorizeTransactionsController < ApplicationController
         merchant_id: @listing.author.id,
         order_total: @listing.price, # FIXME The price is not correct for booking
         success: paypal_checkout_order_success_url,
-        cancel: paypal_checkout_order_cancel_url
+        cancel: paypal_checkout_order_cancel_url,
+        merchant_brand_logo_url: @current_community.wide_logo.url(:paypal, timestamp: false) # PayPal doesn't like images with cache buster in the URL
       })
     )
 
