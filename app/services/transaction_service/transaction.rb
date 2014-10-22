@@ -120,6 +120,10 @@ module TransactionService::Transaction
     raise "Not implemented"
   end
 
+  def token_cancelled(id)
+    Transaction.destroy(id) #error handling, nil checks?
+  end
+
   # private
 
   # Warning!

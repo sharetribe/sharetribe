@@ -1,7 +1,9 @@
 module PaypalService
   class Api
-    def payments
-      PaypalService::API::Payments.new
+    extend PaypalService::PaypalServiceInjector
+
+    def self.payments
+      payments #PaypalServiceInjector provides readily configured payments api
     end
   end
 end

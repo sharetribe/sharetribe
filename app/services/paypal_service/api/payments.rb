@@ -7,8 +7,9 @@ module PaypalService::API
     MerchantData = PaypalService::DataTypes::Merchant
     TokenStore = PaypalService::Store::Token
 
-    def initialize(logger = PaypalService::Logger.new)
+    def initialize(config, logger = PaypalService::Logger.new)
       @logger = logger
+      @config = config
     end
 
     ## POST /payments/request
@@ -44,6 +45,11 @@ module PaypalService::API
 
     ## POST /payments/request/cancel?token=EC-7XU83376C70426719
     def request_cancel(community_id, token)
+      #trigger callback for payment cancelled
+      @config[:request_cancel].call(
+        TokenStore.transaction_id_for(community_id, token)
+      )
+
       TokenStore.delete(community_id, token)
       Result::Success.new
     end
