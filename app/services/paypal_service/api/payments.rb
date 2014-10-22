@@ -97,17 +97,21 @@ module PaypalService::API
     ## POST /payments/:community_id/:transaction_id/authorize
     def authorize(community_id, transaction_id, info)
       with_payment(community_id, transaction_id) do |payment, m_acc|
-        with_success(MerchantData.create_do_authorization({
-          receiver_username: m_acc[:email],
-          order_id: payment[:order_id],
-          authorization_total: info[:authorization_total]
-            })) do |auth_res|
+        with_success(
+          MerchantData.create_do_authorization({
+              receiver_username: m_acc[:email],
+              order_id: payment[:order_id],
+              authorization_total: info[:authorization_total]
+          }),
+          error_policy: {
+            codes_to_retry: ["10001", "x-timeout", "x-servererror"],
+            try_max: 5,
+            finally: (method :void_failed_payment).call(payment, m_acc)
+          }
+        ) do |auth_res|
 
           # Save authorization data to payment
-          payment = PaypalService::PaypalPayment::Command.update(
-            community_id,
-            transaction_id,
-            auth_res)
+          payment = PaypalService::PaypalPayment::Command.update(community_id, transaction_id, auth_res)
 
           # Return as payment entity
           Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
@@ -245,6 +249,41 @@ module PaypalService::API
     def log_and_return(request, err_response)
       @logger.warn("PayPal operation #{request[:method]} failed. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
       Result::Error.new("Failed response from Paypal. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
+    end
+
+    def void_failed_payment(payment, m_acc)
+      -> (request, err_response) do
+        with_success(
+          MerchantData.create_do_void({
+              receiver_username: m_acc[:email],
+              # Always void the order, it automatically voids any authorization connected to the payment
+              transaction_id: payment[:order_id]
+            }),
+          error_policy: {
+            retry_codes: ["10001", "x-timeout", "x-servererror"],
+            try_max: 3
+          }
+          ) do |void_res|
+          with_success(
+            MerchantData.create_get_transaction_details({
+                receiver_username: m_acc[:email],
+                transaction_id: payment[:order_id],
+              }),
+            error_policy: {
+              retry_codes: ["10001", "x-timeout", "x-servererror"],
+              try_max: 3
+            }
+            ) do |payment_res|
+            payment = PaypalService::PaypalPayment::Command.update(
+              payment[:community_id],
+              payment[:transaction_id],
+              payment_res)
+
+            # Return original error
+            log_and_return(request, err_response)
+          end
+        end
+      end
     end
 
   end
