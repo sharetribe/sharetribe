@@ -201,8 +201,8 @@ en:
           paid: Paid
           confirmed: Confirmed
           canceled: Canceled
-          initiated: Waiting PayPal payment
-          pending_ext: Waiting PayPal payment
+          initiated: "Waiting PayPal payment"
+          pending_ext: "Waiting PayPal payment"
       braintree_payment_gateway:
         braintree_payment_gateway: "Braintree Payment API keys"
         environment: Environment
