@@ -73,7 +73,7 @@ module TransactionService::Transaction
       Result::Success.new(
         DataTypes.create_transaction_response(transaction))
     when :paypal
-      paypal_payments = PaypalService::API::Payments.new
+      paypal_payments = PaypalService::Api.payments
 
       payment_response = paypal_payments.get_payment(transaction[:community_id], transaction[:id])
       if payment_response[:success]
@@ -149,7 +149,7 @@ module TransactionService::Transaction
       when :checkout, :braintree
         Maybe(model).payment.total_sum.or_else(nil)
       when :paypal
-        payments_api = PaypalService::API::Payments.new
+        payments_api = PaypalService::Api.payments
         payment = payments_api.get_payment(model.community_id, model.id)
 
         Maybe(payment).select { |p| p[:success] }[:data][:payment_total].or_else(nil)

@@ -326,7 +326,7 @@ class PreauthorizeTransactionsController < ApplicationController
   private
 
   def paypal_payments_service
-    PaypalService::API::Payments.new
+    PaypalService::Api.payments
   end
 
   def ensure_listing_author_is_not_current_user
