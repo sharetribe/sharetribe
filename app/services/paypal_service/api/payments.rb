@@ -158,12 +158,18 @@ module PaypalService::API
     ## POST /payments/:community_id/:transaction_id/void
     def void(community_id, transaction_id, info)
       with_payment(community_id, transaction_id) do |payment, m_acc|
-        with_success(MerchantData.create_do_void({
-          receiver_username: m_acc[:email],
-          # Always void the order, it automatically voids any authorization connected to the payment
-          transaction_id: payment[:order_id],
-          note: info[:note]
-        })) do |void_res|
+        with_success(
+          MerchantData.create_do_void({
+              receiver_username: m_acc[:email],
+              # Always void the order, it automatically voids any authorization connected to the payment
+              transaction_id: payment[:order_id],
+              note: info[:note]
+          }),
+          error_policy: {
+            codes_to_retry: ["10001", "x-timeout", "x-servererror"],
+            try_max: 5
+          }
+        ) do |void_res|
           with_success(MerchantData.create_get_transaction_details({
             receiver_username: m_acc[:email],
             transaction_id: payment[:order_id],
