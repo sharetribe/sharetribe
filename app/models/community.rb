@@ -187,8 +187,13 @@ class Community < ActiveRecord::Base
   has_attached_file :wide_logo,
                     :styles => {
                       :header => "168x40#",
+                      :paypal => "190x60>", # This logo is shown in PayPal checkout page. It has to be 190x60 according to PayPal docs.
                       :header_highres => "336x80#",
                       :original => "600x600>"
+                    },
+                    :convert_options => {
+                      # The size for paypal logo will be exactly 190x60. No cropping, instead the canvas is extended with white background
+                      :paypal => "-background white -gravity center -extent 190x60"
                     },
                     :default_url => DEFAULT_WIDE_LOGO
 
