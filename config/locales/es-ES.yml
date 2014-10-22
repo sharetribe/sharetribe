@@ -684,6 +684,7 @@ es-ES:
       price_payer_paid: ~
       service_fee: ~
       you_will_get: ~
+      money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -691,6 +692,7 @@ es-ES:
       total: ~
       price: ~
       service_fee: ~
+      money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado una sugerencia en %{service_name}"
       you_can_give_feedback_to: "Puedes darle una sugerencia a %{name} en"

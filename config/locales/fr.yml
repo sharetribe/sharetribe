@@ -96,8 +96,8 @@ fr:
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté pour les visiteurs non connectés sur la page d'accueil."
         small_cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre."
         main_content_width: "Lorsque vous choisissez les photos de couverture, gardez à l'esprit que la page principale a une largeur maximale de %{main_width} pixels. N'oubliez pas non plus de vérifier comment s'affiche votre photo de couverture sur des petits écrans (par exemple en réduisant la taille de la fenêtre de votre navigateur)."
-        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette place de marché en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier."
-        custom_color2_instructions_text: "Vous pouvez changer la couleur secondaire de l'interface de cette place de marché en entrant une valeur hexadécimale."
+        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier ici."
+        custom_color2_instructions_text: "Vous pouvez changer la couleur secondaire de l'interface en entrant une valeur hexadécimale."
         default_browse_view: "Vue par défaut"
         default_browse_view_instructions_text: "La vue par défaut est utilisée sur la page d'accueil pour définir comment sont affichées les annonces par défaut."
         grid: Grille
@@ -201,8 +201,8 @@ fr:
           paid: Payée
           confirmed: Confirmée
           canceled: Annulée
-          initiated: ~
-          pending_ext: ~
+          initiated: "En attente du paiement PayPal"
+          pending_ext: "En attente du paiement PayPal"
       braintree_payment_gateway:
         braintree_payment_gateway: "Clé d'API pour Braintree Payment"
         environment: Environnement
@@ -259,8 +259,8 @@ fr:
         date: Date
     emails:
       new:
-        send_email_to_members: "Envoyer un email aux membres"
-        send_email_to_members_title: "Envoyer un email à tous les membres de cette place de marché"
+        send_email_to_members: "Envoyer un email aux utilisateurs"
+        send_email_to_members_title: "Envoyer un email à tous les utilisateurs"
         email_subject: "Objet de l'email"
         email_content: "Contenu de l'email"
         email_content_placeholder: "Que souhaitez vous dire aux autres membres ?"
@@ -581,7 +581,7 @@ fr:
       join_community: "Rejoindre %{service_name}"
       you_are_not_a_member_of_this_community: "Vous avez un compte sur une place de marché Sharetribe mais vous n'avez pas encore rejoint %{service_name}."
       you_can_join: "Vous pouvez rejoindre %{service_name} en acceptant les conditions d'utilisation et en cliquant sur 'Rejoindre %{service_name}' ci-dessous."
-      you_can_join_email_confirmation: "Pour rejoindre %{service_name} vous devez avoir une adresse email valide se terminant par %{email_ending}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette place de marché puis cliquez sur 'Rejoindre %{service_name}' ci-dessous."
+      you_can_join_email_confirmation: "Pour rejoindre %{service_name} vous devez avoir une adresse email valide se terminant par %{email_ending}. Complétez votre adresse email, acceptez les conditions d'utilisation puis cliquez sur 'Rejoindre %{service_name}' ci-dessous et confirmez votre email."
       you_can_join_email_confirmation_multiple_addresses: "%{service_name} a un accès restreint selon l'email. Complétez votre adresse email, acceptez les conditions d'utilisation de %{service_name} puis cliquez sur 'Rejoindre %{service_name}' ci-dessous."
       you_can_join_with_invite_only: "Vous devez être invité par un autre membre pour rejoindre %{service_name}. Si vous avez un code d'invitation, entrez le ci-dessous, acceptez les conditions d'utilisation puis cliquez sur 'Rejoindre %{service_name}' ci-dessous."
       if_want_to_view_content: "Pour voir le contenu de %{service_name} sans la rejoindre en tant que membre, vous devez"
@@ -699,6 +699,7 @@ fr:
       price_payer_paid: "Prix payé par %{payer_full_name} : "
       service_fee: "Commission de %{service_name} : "
       you_will_get: "Vous recevrez : "
+      money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Reçu du paiement"
       you_have_made_new_payment: "Vous avez payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> à %{recipient_full_name}. Voici un reçu du paiement."
@@ -706,6 +707,7 @@ fr:
       total: Total
       price: Prix
       service_fee: "Frais de service"
+      money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} vous a donné un avis sur %{service_name}"
       you_can_give_feedback_to: "Vous n'avez pas encore donné un avis sur %{name}."
@@ -989,7 +991,7 @@ fr:
       invite_your_friends: "Invitez des amis !"
       invite_your_neighbors: "Invitez vos voisins !"
       invite_your_friends_description: "Plus il y a de gens sur %{service_name}, plus cela est utile et efficace."
-      invite_your_friends_invite_only_description: "Les utilisateurs ne peuvent rejoindre cette place de marché sans y avoir été invité."
+      invite_your_friends_invite_only_description: "Les utilisateurs ne peuvent rejoindre %{service_name} sans y avoir été invité."
       join_without_facebook: "...ou bien %{join_without_facebook_link}"
       join_without_facebook_link: "inscrivez-vous sans Facebook"
     conversations:
@@ -1037,8 +1039,8 @@ fr:
       something_went_wrong: "Quelque chose s'est mal passé."
       community_updated: "Détails mis à jour."
       community_update_failed: "La mise à jour des détails a échoué"
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Compte créé avec succès. Vous devez à présent confirmer votre adresse email."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "Vous êtes désormais membre de cette place de marché. Il vous reste à confirmer votre adresse email."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Votre compte a bien été créé. Vous devez à présent confirmer votre adresse email."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Vous êtes désormais membre de %{service_name}. Il vous reste à confirmer votre adresse email."
       comment_cannot_be_empty: "Commentaire ne peut pas être vide"
       comment_sent: "Commentaire envoyé"
       confirmation_link_is_wrong_or_used: "Le lien de confirmation a déjà été utilisé ou est erroné. Essayez de vous connecter ou contactez-nous si le problème persiste."
@@ -1261,7 +1263,7 @@ fr:
         for_the_time_being: "Pas de date d'expiration"
       visibility:
         all_communities: "Toutes mes places de marché Sharetribe"
-        this_community: "Seuls les membres de ce site"
+        this_community: "Seuls les membres de %{service_name}"
         visibility: Visibilité
       privacy:
         privacy: Visibilité
@@ -1480,10 +1482,10 @@ fr:
       email: "Adresse email"
       email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
       email_is_in_use_or_not_allowed: "Cette adresse email n'est pas autorisée ou est déjà utilisée. Si vous n'arrivez pas à vous connecter, contactez-nous."
-      email_not_allowed: "Cette adresse email n'est pas autorisée pour ce site. Veuillez utiliser une adresse autorisée. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
+      email_not_allowed: "Cette adresse email n'est pas autorisée sur %{service_name}. Veuillez utiliser une adresse autorisée. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
       email_restriction_instructions:
-        one: "L'accès à cette place de marché est limité. Pour la rejoindre, vous devez avoir une adresse email du type %{allowed_emails}."
-        other: "L'accès à cette place de marché est limité. Pour la rejoindre, vous devez avoir une adresse email autorisée."
+        one: "L'accès à %{service_name} est limité. Pour en être membre, vous devez avoir une adresse email du type %{allowed_emails}."
+        other: "L'accès à %{service_name} est limité. Pour en être membre, vous devez avoir une adresse email autorisée."
       enter_captcha: "Je suis un être humain :"
       family_name: Nom
       given_name: Prénom
@@ -1601,7 +1603,7 @@ fr:
       your_current_email_is: "Votre email est : %{email}."
       change_email: Modifier
       confirm_your_email: "Confirmer votre adresse email"
-      account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse email. Dès que vous l'aurez confirmée, vous pourrez rejoindre ce site."
+      account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse email. Dès que vous l'aurez confirmée, vous pourrez rejoindre %{service_name}."
       account_confirmation_instructions_dashboard: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous nous avez fournie."
   settings:
     account:

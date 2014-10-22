@@ -689,6 +689,7 @@ es:
       price_payer_paid: "Precio que %{payer_full_name} pagó"
       service_fee: ~
       you_will_get: ~
+      money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: "Le has pagado <b>%{payment_sum}</b> a  %{recipient_full_name}  por <b>%{listing_title}</b>. Aquí está el comprobante."
@@ -696,6 +697,7 @@ es:
       total: ~
       price: Precio
       service_fee: ~
+      money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado un feedback en %{service_name}"
       you_can_give_feedback_to: "Te falta dar feedback a %{name}."

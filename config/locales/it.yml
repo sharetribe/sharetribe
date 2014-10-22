@@ -186,8 +186,8 @@ it:
           paid: ~
           confirmed: ~
           canceled: ~
-          initiated: ~
-          pending_ext: ~
+          initiated: "In attesa del pagamento di PayPal"
+          pending_ext: "In attesa del pagamento di PayPal"
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -684,6 +684,7 @@ it:
       price_payer_paid: "Prezzo %{payer_full_name} pagato:"
       service_fee: ~
       you_will_get: ~
+      money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -691,6 +692,7 @@ it:
       total: ~
       price: Prezzo
       service_fee: ~
+      money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ti ha lasciato un feedback in %{service_name}"
       you_can_give_feedback_to: "non hai ancora lasciato un feedback a %{name}"

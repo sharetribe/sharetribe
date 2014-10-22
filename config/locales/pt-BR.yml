@@ -684,6 +684,7 @@ pt-BR:
       price_payer_paid: "Preço pago pelo %{payer_full_name} :"
       service_fee: "Comissão de %{service_name} :"
       you_will_get: "Você terá:"
+      money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Recibo do pagamento"
       you_have_made_new_payment: "Você pagou <b>%{payment_sum}</b> por <b>%{listing_title}</b> à %{recipient_full_name}. Veja o recibo."
@@ -691,6 +692,7 @@ pt-BR:
       total: Total
       price: Preço
       service_fee: "Despesas de serviço"
+      money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te deu um feedback em %{service_name}"
       you_can_give_feedback_to: "Você ainda não deu um feedback para %{name}"
