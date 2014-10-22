@@ -723,7 +723,7 @@ fi:
       update_mail_title: "%{title_link} - uusimmat kuulumiset"
       title_link_text: "%{community_name}"
       intro_paragraph: "Tässä poimintoja siitä, mitä %{service_name}-palvelussa on tapahtunut viimeisen %{time_since_last_update} aikana."
-      intro_paragraph_link_text: "%{service_name}"
+      intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Lisää uusi ilmoitus!"
       reduce_email_footer_text: "Liikaa sähköpostia? %{settings_link} tai %{unsubscribe_link}."
       settings_link_text: "Säädä sähköpostit harvemmaksi"
