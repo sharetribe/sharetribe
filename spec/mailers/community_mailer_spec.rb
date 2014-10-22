@@ -16,6 +16,8 @@ describe "CommunityMailer" do
 
     before(:each) do
       @c1 = FactoryGirl.create(:community)
+      @c1.update_attribute(:settings, @c1.settings.merge({"service_name" => "MarketTestPlace"}))
+
       @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
       @p1.communities << @c1
       @l2 = FactoryGirl.create(:listing,
@@ -35,7 +37,7 @@ describe "CommunityMailer" do
 
     it "should have correct address and subject" do
       @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("Sharetribe update")
+      @email.should have_subject("MarketTestPlace update")
     end
 
     it "should have correct links" do
@@ -45,6 +47,10 @@ describe "CommunityMailer" do
     it "should include valid auth_token in links" do
       token = @p1.auth_tokens.last.token
       @email.should have_body_text("?auth=#{token}")
+    end
+
+    it "should contain correct service name in the link" do
+      @email.should have_body_text(/that happened in <a href.+\">MarketTestPlace/)
     end
   end
 
