@@ -29,12 +29,13 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
         receipts
 
       when :paypal
+        community = Community.find(transaction[:community_id])
+
         receipts = []
-        service_fee = Money.new(500, transaction[:payment_total].currency) # FIXME Vesa is working for a solution
+        service_fee = transaction[:payment_total] * (community.commission_from_seller || 0) / 100 # TODO Take the commission_from_seller from the transaction
         receipts << TransactionMailer.paypal_new_payment(transaction, service_fee) if receipt_to_seller
         receipts << TransactionMailer.paypal_receipt_to_payer(transaction, service_fee)
         receipts
-
       else
         []
       end
