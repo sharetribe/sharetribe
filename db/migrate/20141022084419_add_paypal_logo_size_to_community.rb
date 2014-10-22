@@ -4,13 +4,13 @@ class AddPaypalLogoSizeToCommunity < ActiveRecord::Migration
   include LoggingHelper
 
   def up
-    with_logo { |logo|
+    each_wide_logo { |logo|
       logo.reprocess! :paypal
     }
   end
 
   def down
-    with_logo { |logo|
+    each_wide_logo { |logo|
       logo.clear(:paypal)
       logo.save
     }
@@ -18,7 +18,7 @@ class AddPaypalLogoSizeToCommunity < ActiveRecord::Migration
 
   private
 
-  def with_logo(&block)
+  def each_wide_logo(&block)
     communities_with_logo = Community.where("wide_logo_file_name IS NOT NULL")
 
     progress = ProgressReporter.new(communities_with_logo.count, 20)
