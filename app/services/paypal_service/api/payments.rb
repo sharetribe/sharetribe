@@ -122,11 +122,18 @@ module PaypalService::API
     ## POST /payments/:community_id/:transaction_id/full_capture
     def full_capture(community_id, transaction_id, info)
       with_payment(community_id, transaction_id) do |payment, m_acc|
-        with_success(MerchantData.create_do_full_capture({
-          receiver_username: m_acc[:email],
-          authorization_id: payment[:authorization_id],
-          payment_total: info[:payment_total]
-        })) do |payment_res|
+        with_success(
+          MerchantData.create_do_full_capture({
+              receiver_username: m_acc[:email],
+              authorization_id: payment[:authorization_id],
+              payment_total: info[:payment_total]
+          }),
+          error_policy: {
+            codes_to_retry: ["10001", "x-timeout", "x-servererror"],
+            try_max: 5,
+            finally: (method :void_failed_payment).call(payment, m_acc)
+          }
+        ) do |payment_res|
 
           # Save payment data to payment
           payment = PaypalService::PaypalPayment::Command.update(
