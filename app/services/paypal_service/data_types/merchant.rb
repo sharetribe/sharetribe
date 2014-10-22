@@ -27,14 +27,21 @@ module PaypalService
         [:method, const_value: :do_reference_transaction],
         [:receiver_username, :mandatory, :string],
         [:billing_agreement_id, :mandatory, :string],
-        [:order_total, :mandatory, :money])
+        [:payment_total, :mandatory, :money],
+        [:name, :string, :mandatory],
+        [:desc, :string],
+        [:invnum, :string, :mandatory], # Unique tx id on our side
+        [:msg_sub_id, transform_with: -> (v) { v.nil? ? SecureRandom.uuid : v }])
 
       DoReferenceTransactionResponse = EntityUtils.define_builder(
         [:success, const_value: true],
         [:billing_agreement_id, :mandatory, :string],
-        [:transaction_id, :mandatory, :string],
-        [:order_total, :mandatory, :money],
-        [:fee, :mandatory, :money],
+        [:payment_status, :mandatory, :string],
+        [:pending_reason, :string],
+        [:payment_id, :mandatory, :string],
+        [:payment_total, :mandatory, :money],
+        [:payment_date, :str_to_time],
+        [:fee, :money],
         [:username_to, :mandatory, :string])
 
       GetExpressCheckoutDetails = EntityUtils.define_builder(

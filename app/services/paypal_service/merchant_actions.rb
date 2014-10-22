@@ -74,10 +74,20 @@ module PaypalService
             DoReferenceTransactionRequestDetails: {
               ReferenceID: req[:billing_agreement_id],
               PaymentAction: "Sale",
+              PaymentType: "InstantOnly",
               PaymentDetails: {
                 NotifyURL: hook_url(config[:ipn_hook]),
-                OrderTotal: from_money(req[:order_total])
-              }
+                OrderTotal: from_money(req[:payment_total]),
+                InvoiceID: req[:invnum],
+                PaymentDetailsItem: [{
+                    Name: req[:name],
+                    Description: req[:desc],
+                    Number: 0,
+                    Quantity: 1,
+                    Amount: from_money(req[:payment_total])
+                }]
+              },
+              MsgSubID: req[:msg_sub_id]
             }
           }
         },
@@ -87,9 +97,12 @@ module PaypalService
           details = res.do_reference_transaction_response_details
           DataTypes::Merchant.create_do_reference_transaction_response({
             billing_agreement_id: details.billing_agreement_id,
-            transaction_id: details.payment_info.transaction_id,
-            order_total: to_money(details.payment_info.gross_amount),
+            payment_id: details.payment_info.transaction_id,
+            payment_total: to_money(details.payment_info.gross_amount),
+            payment_date: details.payment_info.payment_date.to_s,
             fee: to_money(details.payment_info.fee_amount),
+            payment_status: details.payment_info.payment_status,
+            pending_reason: details.payment_info.pending_reason,
             username_to: api.config.subject || api.config.username
           })
         }
