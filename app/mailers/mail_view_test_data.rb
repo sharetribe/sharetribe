@@ -94,8 +94,27 @@ module MailViewTestData
       community: community,
       listing: listing,
       payment: payment,
-      conversation: conversation
+      conversation: conversation,
+      automatic_confirmation_after_days: 5
     )
+  end
+
+  def paypal_transaction
+    @paypal_transaction ||= FactoryGirl.build(:transaction,
+      id: 100,
+      community: paypal_community,
+      listing: listing,
+      conversation: conversation,
+      payment_gateway: :paypal,
+      current_state: :paid
+      )
+  end
+
+  def paypal_community
+    @paypal_community ||= FactoryGirl.build(:community,
+      custom_color1: "00FF99",
+      id: 999
+      )
   end
 
   def conversation

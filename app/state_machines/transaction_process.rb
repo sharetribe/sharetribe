@@ -42,7 +42,6 @@ class TransactionProcess
   end
 
   after_transition(to: :paid) do |transaction|
-    payment = transaction.payment
     payer = transaction.starter
     current_community = transaction.community
 
@@ -54,10 +53,7 @@ class TransactionProcess
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_confirmation!
     end
 
-    if payment
-      # TODO FIX THIS
-      Delayed::Job.enqueue(PaymentCreatedJob.new(payment.id, transaction.community.id))
-    end
+    Delayed::Job.enqueue(SendPaymentReceipts.new(transaction.id))
   end
 
   after_transition(to: :rejected) do |transaction|

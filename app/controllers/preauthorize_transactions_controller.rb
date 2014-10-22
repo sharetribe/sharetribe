@@ -261,11 +261,12 @@ class PreauthorizeTransactionsController < ApplicationController
     })
 
     if preauthorize_form.valid?
-      #TODO: change to use TransactionService::Transaction
+      #TODO: change to use TransactionService::Transaction.create
       transaction = Transaction.new({
         community_id: @current_community.id,
         listing_id: @listing.id,
         starter_id: @current_user.id,
+        payment_gateway: MarketplaceService::Community::Query.payment_type(@current_community.id) || :none
       });
 
       conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)

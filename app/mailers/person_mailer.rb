@@ -52,29 +52,7 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.new_payment.new_payment"))
   end
 
-  def braintree_new_payment(payment, community)
-    @email_type =  "email_about_new_payments"
-    @payment = payment
-
-    @service_fee = payment.total_commission.cents.to_f / 100
-    @you_get = payment.seller_gets.cents.to_f / 100
-
-    set_up_urls(@payment.recipient, community, @email_type)
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.new_payment.new_payment"))
-  end
-
   def receipt_to_payer(payment, community)
-    @email_type =  "email_about_new_payments"
-    @payment = payment
-    set_up_urls(@payment.payer, community, @email_type)
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.receipt_to_payer.receipt_of_payment"))
-  end
-
-  def braintree_receipt_to_payer(payment, community)
     @email_type =  "email_about_new_payments"
     @payment = payment
     set_up_urls(@payment.payer, community, @email_type)

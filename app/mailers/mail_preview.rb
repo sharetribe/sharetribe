@@ -20,11 +20,61 @@ class MailPreview < MailView
   end
 
   def braintree_receipt_to_payer
-    PersonMailer.braintree_receipt_to_payer(payment, community)
+    TransactionMailer.braintree_receipt_to_payer(payment, community)
   end
 
   def braintree_new_payment
-    PersonMailer.braintree_new_payment(conversation.payment, community)
+    TransactionMailer.braintree_new_payment(transaction.payment, community)
+  end
+
+  def paypal_receipt_to_payer
+    transaction = TransactionService::DataTypes::Transaction.create_transaction({
+        id: 999,
+        payment_process: :preauthorize,
+        payment_gateway: :paypal,
+        community_id: 999,
+        starter_id: paypal_transaction.starter.id,
+        listing_id: paypal_transaction.listing.id,
+        listing_title: paypal_transaction.listing.title,
+        listing_price: paypal_transaction.listing.price,
+        listing_author_id: paypal_transaction.listing.author.id,
+        listing_quantity: 1,
+        last_transition_at: Time.now,
+        current_state: :paid,
+        payment_total: Money.new(2000, "USD")
+      })
+
+    seller_model = paypal_transaction.listing.author
+    buyer_model = paypal_transaction.starter
+    community = paypal_transaction.community
+    service_fee = Money.new(500, "USD")
+
+    TransactionMailer.paypal_receipt_to_payer(transaction, service_fee, seller_model, buyer_model, community)
+  end
+
+  def paypal_new_payment
+    transaction = TransactionService::DataTypes::Transaction.create_transaction({
+        id: 999,
+        payment_process: :preauthorize,
+        payment_gateway: :paypal,
+        community_id: 999,
+        starter_id: paypal_transaction.starter.id,
+        listing_id: paypal_transaction.listing.id,
+        listing_title: paypal_transaction.listing.title,
+        listing_price: paypal_transaction.listing.price,
+        listing_author_id: paypal_transaction.listing.author.id,
+        listing_quantity: 1,
+        last_transition_at: Time.now,
+        current_state: :paid,
+        payment_total: Money.new(2000, "USD")
+      })
+
+    seller_model = paypal_transaction.listing.author
+    buyer_model = paypal_transaction.starter
+    community = paypal_transaction.community
+    service_fee = Money.new(500, "USD")
+
+    TransactionMailer.paypal_new_payment(transaction, service_fee, seller_model, buyer_model, community)
   end
 
   def escrow_canceled
