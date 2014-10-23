@@ -15,6 +15,8 @@
 #  last_transition_at                :datetime
 #  current_state                     :string(255)
 #  commission_from_seller            :integer
+#  minimum_commission_cents          :integer          default(0)
+#  minimum_commission_currency       :string(255)
 #  payment_gateway                   :string(255)      default("none"), not null
 #
 # Indexes
@@ -55,6 +57,8 @@ class Transaction < ActiveRecord::Base
   accepts_nested_attributes_for :booking
 
   validates_presence_of :payment_gateway
+
+  monetize :minimum_commission_cents
 
   scope :for_person, -> (person){
     joins(:listing)

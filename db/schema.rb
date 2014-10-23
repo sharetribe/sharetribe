@@ -816,6 +816,8 @@ ActiveRecord::Schema.define(:version => 20141023150700) do
     t.datetime "last_transition_at"
     t.string   "current_state"
     t.integer  "commission_from_seller"
+    t.integer  "minimum_commission_cents",          :default => 0
+    t.string   "minimum_commission_currency"
     t.string   "payment_gateway",                   :default => "none", :null => false
   end
 
