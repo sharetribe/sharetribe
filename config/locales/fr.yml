@@ -699,7 +699,7 @@ fr:
       price_payer_paid: "Prix payé par %{payer_full_name} : "
       service_fee: "Commission de %{service_name} : "
       you_will_get: "Vous recevrez : "
-      money_will_be_transferred: ~
+      money_will_be_transferred: "L'argent sera transféré sur votre compte quand a) %{payer_name} aura marqué la demande comme réalisée ou quand b) %{automatic_confirmation_days} jours auront passé après le paiement de %{payer_name}."
     receipt_to_payer:
       receipt_of_payment: "Reçu du paiement"
       you_have_made_new_payment: "Vous avez payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> à %{recipient_full_name}. Voici un reçu du paiement."
@@ -707,7 +707,7 @@ fr:
       total: Total
       price: Prix
       service_fee: "Frais de service"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "L'argent sera transféré à %{recipient_name} quand a) vous aurez marqué la demande comme réalisée ou quand b) %{automatic_confirmation_days} jours auront passé après votre paiement."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} vous a donné un avis sur %{service_name}"
       you_can_give_feedback_to: "Vous n'avez pas encore donné un avis sur %{name}."
@@ -721,9 +721,9 @@ fr:
       added_request: "%{name_link} a ajouté une annonce : "
       added_listing: "%{name_link} a ajouté une annonce : "
       update_mail_title: "Actualités de %{title_link}"
-      title_link_text: "%{service_name}"
+      title_link_text: "%{community_name}"
       intro_paragraph: "Voici une partie de ce qu'il s'est passé dans la tribu %{community_link} depuis %{time_since_last_update}."
-      intro_paragraph_link_text: "%{service_name}"
+      intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Déposez une annonce !"
       reduce_email_footer_text: "Trop d'emails ? %{settings_link} ou %{unsubscribe_link}."
       settings_link_text: "Gérez vos paramètres d'email"
