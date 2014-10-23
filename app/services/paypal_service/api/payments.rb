@@ -19,7 +19,9 @@ module PaypalService::API
       ) do |m_acc|
 
         request = MerchantData.create_set_express_checkout_order(
-          create_payment.merge({ receiver_username: m_acc[:email] }))
+          create_payment.merge({
+              receiver_username: m_acc[:email],
+              invnum: invnum(community_id, create_payment[:transaction_id])}))
 
         with_success(
           request,
@@ -82,7 +84,8 @@ module PaypalService::API
               receiver_username: m_acc[:email],
               token: token[:token],
               payer_id: ec_details[:payer_id],
-              order_total: ec_details[:order_total]
+              order_total: ec_details[:order_total],
+              invnum: invnum(community_id, token[:transaction_id])
             }),
             error_policy: {
               codes_to_retry: ["10001", "x-timeout", "x-servererror"],
@@ -137,7 +140,8 @@ module PaypalService::API
           MerchantData.create_do_full_capture({
               receiver_username: m_acc[:email],
               authorization_id: payment[:authorization_id],
-              payment_total: info[:payment_total]
+              payment_total: info[:payment_total],
+              invnum: invnum(community_id, transaction_id)
           }),
           error_policy: {
             codes_to_retry: ["10001", "x-timeout", "x-servererror"],
@@ -308,6 +312,10 @@ module PaypalService::API
           end
         end
       end
+    end
+
+    def invnum(community_id, transaction_id)
+      "#{community_id}-#{transaction_id}"
     end
 
   end
