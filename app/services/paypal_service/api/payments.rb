@@ -7,8 +7,9 @@ module PaypalService::API
     MerchantData = PaypalService::DataTypes::Merchant
     TokenStore = PaypalService::Store::Token
 
-    def initialize(logger = PaypalService::Logger.new)
+    def initialize(config, logger = PaypalService::Logger.new)
       @logger = logger
+      @config = config
     end
 
     ## POST /payments/request
@@ -43,9 +44,18 @@ module PaypalService::API
     end
 
     ## POST /payments/request/cancel?token=EC-7XU83376C70426719
-    def request_cancel(community_id, token)
-      TokenStore.delete(community_id, token)
-      Result::Success.new
+    def request_cancel(community_id, token_id)
+      token = TokenStore.get(community_id, token_id)
+      if(token.present?)
+        #trigger callback for payment cancelled
+        @config[:request_cancel].call(token)
+
+        TokenStore.delete(community_id, token_id)
+        Result::Success.new
+      else
+        #Handle errors by logging, because request cancellations are async (direct cancels + scheduling)
+        logger.warn("Tried to cancel non-existent request: [token: #{token_id}, community: #{community_id}]")
+      end
     end
 
     ## POST /payments/create?token=EC-7XU83376C70426719
