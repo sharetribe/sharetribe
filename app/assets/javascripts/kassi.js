@@ -1186,7 +1186,7 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
    });
 }
 
-function initialize_admin_integrations_form(locale, community_id, invalid_twitter_handle_message, invalid_facebook_connect_id_message, invalid_facebook_connect_secret_message) {
+function initialize_admin_social_media_form(locale, community_id, invalid_twitter_handle_message, invalid_facebook_connect_id_message, invalid_facebook_connect_secret_message) {
   translate_validation_messages(locale);
   var form_id = "#edit_community_" + community_id;
   $(form_id).validate({

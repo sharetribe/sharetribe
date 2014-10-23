@@ -82,8 +82,10 @@ module NavigationHelpers
       edit_look_and_feel_admin_community_path(:id => @current_community.id)
     when /the text instructions admin page/
       edit_text_instructions_admin_community_path(:id => @current_community.id)
-    when /the integrations admin page/
-      integrations_admin_community_path(:id => @current_community.id)
+    when /the social media admin page/
+      social_media_admin_community_path(:id => @current_community.id)
+    when /the analytics admin page/
+      analytics_admin_community_path(:id => @current_community.id)
     when /the menu links admin page/
       menu_links_admin_community_path(:id => @current_community.id)
     when /the transactions admin page/

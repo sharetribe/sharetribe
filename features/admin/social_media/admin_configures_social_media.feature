@@ -1,8 +1,8 @@
-Feature: Admin manages integration details
+Feature: Admin configures social media details
 
-  In order to promote my marketplace, get analytics and easier log in
+  In order to promote my marketplace and help people to log in easier
   As an admin
-  I want to integrate my service to different apps
+  I want to integrate my service to social media applications
 
   Background:
     Given there are following users:
@@ -12,20 +12,13 @@ Feature: Admin manages integration details
       | kassi_testperson2 | jane       | doe         | test1@example.com   | 2012-03-01 00:00:00 +0200 |
     And I am logged in as "manager"
     And "manager" has admin rights in community "test"
-    And current community has basic plan
-    And I am on the integrations admin page
+    And I am on the social media admin page
 
   Scenario: Admin adds a twitter handle
   When I add "mycommunity" to the Twitter handle field
   And I press submit
   And I refresh the page
   Then I should see "mycommunity" in the Twitter handle field
-
-  Scenario: Admin adds a google analytics key
-  When I add "UA-12345-12" to the Google analytics key field
-  And I press submit
-  And I refresh the page
-  Then I should see "UA-12345-12" in the Google analytics key field
 
   Scenario: Admin adds facebook credentials
   When I fill in "Facebook client id" with "1234567890123456"

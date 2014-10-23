@@ -63,7 +63,7 @@ en:
         private_community_homepage_content: "Private marketplace homepage content"
         edit_private_community_homepage_content_description: "This content is shown to unlogged users on the home page of private marketplaces. Here you can describe your marketplace and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
         update_information: "Save settings"
-        invite_people: "Invite users"
+        invite_people: "Invite new users"
         edit_signup_info: "Signup info"
         edit_signup_info_description: "This is an info text that can be shown to users in the signup page. There you can give the users instructions for signing up, information like where to get an invite, etc. By default there are no instructions."
         edit_info: "Edit information"
@@ -112,10 +112,10 @@ en:
         custom_head_script: "Custom script"
         custom_head_script_instructions_text: "This script is injected inside the <head> tag of every page and can be used to insert custom CSS, JavaScript or HTML. Please note that future changes to Sharetribe may render your script incompatible."
       edit_text_instructions:
-        edit_text_instructions: "Text instructions"
+        edit_text_instructions: "Instruction texts"
       edit_welcome_email:
         welcome_email_content: "Welcome email content"
-        welcome_email_content_description: "The message below will be sent to every new member when they join. You can customize the message to fit your marketplace. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."
+        welcome_email_content_description: "The message below will be sent to every new user when they join. You can customize the message to fit your marketplace. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."
         edit_message: "Edit message"
         send_test_message: "Send test message"
       settings:
@@ -136,7 +136,6 @@ en:
         email_preferences: "Email preferences"
         automatic_newsletters: "Send automatic daily / weekly newsletters to all users (unless they opt out)"
         email_admins_about_new_members: "Send admins an email whenever a new user signs up"
-        integrations: Integrations
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
         update_settings: "Save settings"
@@ -156,20 +155,23 @@ en:
         save_user_status_successful: Saved
         save_user_status_error: "Saving failed. Please refresh the page and try again."
         ban_user_confirmation: "This removes the user from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
-      integrations:
-        integrations: Integrations
+      social_media:
+        social_media: Social media
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_placeholder: username
         invalid_twitter_handle: "Twitter handle should contain only at maximum 15 alphanumeric (letters A-Z and numbers 0-9) characters."
-        google_analytics_key: "Google Analytics tracking ID"
-        google_analytics_key_info_text: "Tracking ID of your Google Analytics account."
         facebook_connect: Facebook
         facebook_connect_info_text: "In order to enable Facebook login, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here."
         facebook_connect_id: "Facebook client id"
         invalid_facebook_connect_id: "Client id should contain only numbers."
         facebook_connect_secret: "Facebook client secret"
         invalid_facebook_connect_secret: "Client secret should contain only numbers and letters from a to f."
+        save: "Save settings"
+      analytics:
+        analytics: "Analytics"
+        google_analytics_key: "Google Analytics tracking ID"
+        google_analytics_key_info_text: "Tracking ID of your Google Analytics account."
         save: "Save settings"
       menu_links:
         menu_links: "Menu links"
@@ -213,7 +215,7 @@ en:
         master_merchant_id: "Master Merchant ID"
         commission_from_seller: "Commission percentage from seller"
       paypal_account:
-        paypal_admin_account: "Payment preferences"
+        paypal_admin_account: "Payments"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -230,7 +232,7 @@ en:
           this_field_is_required: "This field is required"
           this_field_is_required_checkbox: "This field is required (User has to select at least one option)"
       index:
-        listing_fields: "Listing fields"
+        listing_fields: "Listing fields & filters"
         listing_fields_help: "Here you can edit the fields that users have to fill in when they create a new listing. Please note that some fields are predefined and can not be edited."
         add_new_field: "Add new field:"
         remove_field_confirmation: "Are you sure you want to remove field '%{field_name}'?"
@@ -259,16 +261,20 @@ en:
         date: Date
     emails:
       new:
-        send_email_to_members: "Send an email to users"
-        send_email_to_members_title: "Send an email to all your users"
+        send_email_to_members: "Send email to users"
+        send_email_to_members_title: "Send email to all your users"
         email_subject: "Email subject"
         email_content: "Email content"
-        email_content_placeholder: "What do you want to say to the members?"
+        email_content_placeholder: "What do you want to say to your users?"
         email_language: "Language of the email receivers"
         any_language: "Any language"
         send_email: "Send the email"
-        message_will_be_sent_only_to_people_with_this_language: "Note: the email will be sent only to the members who are using %{service_name} in the language you choose."
+        message_will_be_sent_only_to_people_with_this_language: "Note: the email will be sent only to the users who are using %{service_name} in the language you choose."
         email_sent: "Email sent."
+    left_hand_navigation:
+      users_and_transactions: "Users & transactions"
+      configure: "Configure"
+      emails_title: "Emails"
     paypal_accounts:
       marketplace_paypal_integration: "Payment preferences"
       new:
@@ -277,30 +283,6 @@ en:
       show:
         integration_info_text: "The payment system of %{service_name} is powered by PayPal. If you want to enable your users to make payments through your marketplace, you must connect your PayPal account and decide the fee you want to take from each transaction."
         paypal_account_email_connected: "<del>Connect your Paypal account</del> Completed!"
-    polls:
-      index:
-        polls: Polls
-        create_poll: "Create a poll"
-        no_polls: "No polls"
-      edit_poll_links:
-        close_poll: Close
-        open_poll: Open
-        edit_poll: Edit
-        delete_poll: Delete
-      new:
-        add_option: "Add option"
-        new_poll: "Create a poll"
-        edit_poll: "Edit poll"
-        title: "Title:"
-        save_poll: "Save poll"
-      new_option:
-        option: Option
-        remove_option: "Remove option"
-      show:
-        edit_poll: "Edit poll"
-      poll_status:
-        open: Open
-        closed: Closed
     transaction_types:
       sell: Selling
       rent: "Renting out"
@@ -935,13 +917,6 @@ en:
     news_item:
       show_less: "Show less"
       show_more: "Show more"
-    poll_form:
-      poll: "Poll:"
-      comment: "Comment:"
-      answer: Answer
-      results: Results
-      poll_answer: answer
-      poll_answers: answers
     profile_info_empty_notification:
       add_your_info: "Add your contact info"
       add_a_profile_picture: "Add a profile picture"
@@ -1174,10 +1149,10 @@ en:
       edit_listing: "Edit listing"
       reopen_listing: "Reopen listing"
       move_to_top: "Move to top of homepage"
-      show_in_updates_email: "Show in next member update email"
+      show_in_updates_email: "Show in the next automatic email"
       show_in_updates_email_loading: Loading...
       show_in_updates_email_error: "Couldn't reach server. Try again after page refresh."
-      show_in_updates_email_success: "This listing will be shown in the next automatic update email sent to the members"
+      show_in_updates_email_success: "This listing will be shown in the next automatic update email sent to the users"
     follow_links:
       follow: "Get emails about new comments"
       unfollow: "Don't get emails about new comments"
@@ -1474,7 +1449,7 @@ en:
       terms_title: "%{service_name} terms of use"
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this marketplace.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
-      invite_only_help_text: "Select this option if you want that new members can join only if they are invited by an existing member of the site."
+      invite_only_help_text: "Select this option if you want that new members can join only if they are invited by an existing user."
       invite_only_help_text_title: Invite-only
     inactive_notification:
       this_person_is_not_active_in_kassi: "This user is no longer active in %{service_name}"
