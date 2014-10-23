@@ -121,7 +121,8 @@ module PaypalService
         input_transformer: -> (req, config) {
           {
             SetExpressCheckoutRequestDetails: {
-              cpplogoimage: req[:merchant_brand_logo_url],
+              cppcartbordercolor: "FFFFFF",
+              cpplogoimage: req[:merchant_brand_logo_url] || "",
               ReturnURL: req[:success],
               CancelURL: req[:cancel],
               ReqConfirmShipping: 0,

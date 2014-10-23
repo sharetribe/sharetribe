@@ -86,6 +86,13 @@ class PreauthorizeTransactionsController < ApplicationController
     #TODO NULL in transaction.payment crashes cuz preauthorization_expiration_days
     transaction.save!
 
+    # PayPal doesn't like images with cache buster in the URL
+    logo_url = Maybe(@current_community)
+      .wide_logo
+      .select { |wl| wl.present? }
+      .url(:paypal, timestamp: false)
+      .or_else(nil)
+
     pp_result = paypal_payments_service.request(
       transaction.community_id,
       PaypalService::API::DataTypes.create_create_payment_request({
@@ -97,7 +104,7 @@ class PreauthorizeTransactionsController < ApplicationController
         order_total: @listing.price, # FIXME The price is not correct for booking
         success: paypal_checkout_order_success_url,
         cancel: paypal_checkout_order_cancel_url,
-        merchant_brand_logo_url: @current_community.wide_logo.url(:paypal, timestamp: false) # PayPal doesn't like images with cache buster in the URL
+        merchant_brand_logo_url: logo_url
       })
     )
 
