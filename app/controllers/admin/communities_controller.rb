@@ -27,8 +27,13 @@ class Admin::CommunitiesController < ApplicationController
     }
   end
 
-  def integrations
-    @selected_left_navi_link = "integrations"
+  def social_media
+    @selected_left_navi_link = "social_media"
+    @community = @current_community
+  end
+
+  def analytics
+    @selected_left_navi_link = "analytics"
     @community = @current_community
   end
 
@@ -111,22 +116,30 @@ class Admin::CommunitiesController < ApplicationController
     }
   end
 
-  def update_integrations
+  def update_social_media
     [:twitter_handle,
-     :google_analytics_key,
      :facebook_connect_id,
      :facebook_connect_secret].each do |param|
       params[:community][param] = nil if params[:community][param] == ""
     end
 
     params.require(:community).permit(
-      :twitter_handle, :google_analytics_key, :facebook_connect_id, :facebook_connect_secret
+      :twitter_handle, :facebook_connect_id, :facebook_connect_secret
     )
 
     update(@current_community,
             params[:community],
-            integrations_admin_community_path(@current_community),
-            :integrations)
+            social_media_admin_community_path(@current_community),
+            :social_media)
+  end
+
+  def update_analytics
+    params[:community][:google_analytics_key] = nil if params[:community][:google_analytics_key] == ""
+    params.require(:community).permit(:google_analytics_key)
+    update(@current_community,
+            params[:community],
+            analytics_admin_community_path(@current_community),
+            :analytics)
   end
 
   def update_settings

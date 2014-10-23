@@ -65,6 +65,8 @@ module ApplicationHelper
       "send" => "ss-send",
       "form" => "ss-form",
       "link" => "ss-link",
+      "social_media" => "ss-share",
+      "analytics" => "ss-analytics",
 
       # Default category & share type icons
       "offer" => "ss-share",
@@ -644,10 +646,17 @@ module ApplicationHelper
     end
 
     links << {
-      :text => t("admin.communities.integrations.integrations"),
-      :icon_class => icon_class("connect"),
-      :path => integrations_admin_community_path(@current_community),
-      :name => "integrations"
+      :text => t("admin.communities.social_media.social_media"),
+      :icon_class => icon_class("social_media"),
+      :path => social_media_admin_community_path(@current_community),
+      :name => "social_media"
+    }
+
+    links << {
+      :text => t("admin.communities.analytics.analytics"),
+      :icon_class => icon_class("analytics"),
+      :path => analytics_admin_community_path(@current_community),
+      :name => "analytics"
     }
 
     links << {

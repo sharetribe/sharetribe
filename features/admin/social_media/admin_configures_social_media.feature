@@ -1,4 +1,4 @@
-Feature: Admin manages social media details
+Feature: Admin configures social media details
 
   In order to promote my marketplace and help people to log in easier
   As an admin
@@ -19,12 +19,6 @@ Feature: Admin manages social media details
   And I press submit
   And I refresh the page
   Then I should see "mycommunity" in the Twitter handle field
-
-  Scenario: Admin adds a google analytics key
-  When I add "UA-12345-12" to the Google analytics key field
-  And I press submit
-  And I refresh the page
-  Then I should see "UA-12345-12" in the Google analytics key field
 
   Scenario: Admin adds facebook credentials
   When I fill in "Facebook client id" with "1234567890123456"

@@ -10,15 +10,15 @@ describe Admin::CommunitiesController do
   
   describe "#update_integrations" do
     it "should allow changing twitter_handle" do
-      update_community_with(:update_integrations, twitter_handle: "sharetribe")
+      update_community_with(:update_social_media, twitter_handle: "sharetribe")
     end
     
     it "should not allow changes to a different community" do
-      attempt_to_update_different_community_with(:update_integrations, twitter_handle: "sharetribe")
+      attempt_to_update_different_community_with(:update_social_media, twitter_handle: "sharetribe")
     end
     
     it "should not allow changing the plan level" do
-      attempt_to_change_plan_level_with(:update_integrations)
+      attempt_to_change_plan_level_with(:update_social_media)
     end
   end
 

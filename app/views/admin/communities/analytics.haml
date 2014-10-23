@@ -1,0 +1,17 @@
+- content_for :title_header do
+  %h1= t("layouts.admin.admin")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h2= t(".analytics", :community_name => @community.name(I18n.locale))
+  = form_for @community, :url => analytics_admin_community_path(@community), :method => :put do |form|
+    .row
+      %h3= t(".google_analytics_key")
+    .row
+      .col-6
+        = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text")}
+      .col-6
+        =form.text_field :google_analytics_key, :maxlength => "15", :class => "text_field", :placeholder => "UA-12345-12"
+    .row
+      = form.button t("admin.communities.analytics.save")

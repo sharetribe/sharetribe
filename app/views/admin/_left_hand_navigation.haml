@@ -16,7 +16,7 @@
   .admin-left-navi-link-group-title
     = t("admin.left_hand_navigation.configure")
 
-  .admin-left-navi-link-group
+  .admin-left-navi-link-group.admin-left-navi-link-group-last
     - links_configure.each do |link|
       %a{:id => link[:id], :href => link[:path], :title => link[:text], :class => (link[:name].eql?(@selected_left_navi_link) ? "selected left-navi-link" : "left-navi-link")}
         .left-navi-link-icon{:class => link[:icon_class]}

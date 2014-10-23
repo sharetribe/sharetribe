@@ -136,7 +136,6 @@ fi:
         email_preferences: Sähköpostiasetukset
         automatic_newsletters: "Lähetä automaattinen uutiskirje kaikille käyttäjille (paitsi jos he lopettavat tilauksen)"
         email_admins_about_new_members: "Lähetä sähköpostia ylläpitäjälle aina kun uusi käyttäjä liittyy palveluun"
-        integrations: "Kolmansien osapuolten sovellukset"
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
         update_settings: Tallenna
@@ -156,14 +155,12 @@ fi:
         save_user_status_successful: "Tallennus onnistui"
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
         ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
-      integrations:
-        integrations: Integraatiot
+      social_media:
+        social_media: Sosiaalinen media
         twitter_handle: Twitter-tili
         twitter_handle_info_text: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia."
         twitter_handle_placeholder: tunnus
         invalid_twitter_handle: "Twitter-tilin tunnus voi olla enintään 15 merkkiä pitkä sekä sisältää vain kirjaimia (A-Z) ja numeroita (0-9)."
-        google_analytics_key: "Google Analytics tracking ID ('classic'-tili)"
-        google_analytics_key_info_text: "Google Analytics -tilisi tracking ID. Sinulla tulee olla 'classic'-tyyppinen tili."
         facebook_connect: Facebook
         facebook_connect_info_text: "Luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta."
         facebook_connect_id: "Facebook - sovellustunnus"
@@ -171,6 +168,11 @@ fi:
         facebook_connect_secret: "Facebook - salainen avain"
         invalid_facebook_connect_secret: "Salainen avain muodostuu voi sisältää vain kirjaimia väliltä a-f ja numeroita väliltä 0-9."
         save: Tallenna
+      analytics:
+        analytics: "Analytiikka"
+        google_analytics_key: "Google Analytics tracking ID ('classic'-tili)"
+        google_analytics_key_info_text: "Google Analytics -tilisi tracking ID. Sinulla tulee olla 'classic'-tyyppinen tili."
+        save: "Tallenna"
       menu_links:
         menu_links: Valikkolinkit
         save: Tallenna
