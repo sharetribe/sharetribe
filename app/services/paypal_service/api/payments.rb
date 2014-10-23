@@ -4,6 +4,11 @@ module PaypalService::API
     # Injects a configured instance of the merchant client as paypal_merchant
     include PaypalService::MerchantInjector
 
+    # Include with_success for wrapping requests and responses
+    include RequestWrapper
+
+    attr_reader :logger
+
     MerchantData = PaypalService::DataTypes::Merchant
     TokenStore = PaypalService::Store::Token
 
@@ -164,6 +169,7 @@ module PaypalService::API
 
     private
 
+
     def with_account(cid, pid, &block)
        m_acc = PaypalService::PaypalAccount::Query.personal_account(pid, cid)
       if m_acc.nil?
@@ -209,7 +215,6 @@ module PaypalService::API
       block.call(payment, m_acc)
     end
 
-
     def payment_in_accepted_state?(payment, accepted_states)
       accepted_states.empty? ||
         accepted_states.any? do |(status, reason)|
@@ -220,43 +225,6 @@ module PaypalService::API
             payment[:pending_reason] == reason
         end
       end
-    end
-
-    def with_success(request, opts = { error_policy: {} }, &block)
-      retry_codes, try_max, finally = parse_policy(opts[:error_policy])
-      response = try_operation(retry_codes, try_max) { paypal_merchant.do_request(request) }
-
-      if (response[:success])
-        block.call(response)
-      else
-        finally.call(request, response)
-      end
-    end
-
-    def parse_policy(policy)
-      [ policy.include?(:codes_to_retry) ? policy[:codes_to_retry] : [],
-        policy.include?(:try_max) ? policy[:try_max] : 1,
-        policy.include?(:finally) ? policy[:finally] : (method :log_and_return) ]
-    end
-
-    def try_operation(retry_codes, try_max, &op)
-      result = op.call()
-      attempts = 1
-
-      while (!result[:success] && attempts < try_max && retry_codes.include?(result[:error_code]))
-        result = op.call()
-        attempts = attempts + 1
-      end
-
-      result
-    end
-
-    def log_and_return(request, err_response, data = {})
-      @logger.warn("PayPal operation #{request[:method]} failed. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
-      Result::Error.new(
-        "Failed response from Paypal. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}",
-        {paypal_error_code: err_response[:error_code]}.merge(data)
-        )
     end
 
     def void_failed_authorization(payment, m_acc)

@@ -4,15 +4,22 @@ module PaypalService::API
     # Injects a configured instance of the merchant client as paypal_merchant
     include PaypalService::MerchantInjector
 
+    # Include with_success for wrapping requests and responses
+    include RequestWrapper
+
+    attr_reader :logger
+
     MerchantData = PaypalService::DataTypes::Merchant
     TokenStore = PaypalService::Store::Token
 
+    def initialize(logger = PaypalService::Logger.new)
+      @logger = logger
+    end
 
     # GET /billing_agreements/:community_id/:person_id
     def get_billing_agreement(community_id, person_id)
       raise NoMethodError.new("Not implemented")
     end
-
 
     # POST /billing_agreements/:community_id/:person_id/charge_commission
     def charge_commission(community_id, person_id, info)
@@ -78,17 +85,6 @@ module PaypalService::API
 
       block.call(payment)
     end
-
-    def with_success(request)
-      response = paypal_merchant.do_request(request)
-
-      if (response[:success])
-        yield response
-      else
-        Result::Error.new("Failed response from Paypal. Code: #{response[:error_code]}, msg:#{response[:error_msg]}")
-      end
-    end
-
 
   end
 end
