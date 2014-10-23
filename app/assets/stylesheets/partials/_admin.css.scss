@@ -8,5 +8,10 @@
 .admin-left-navi-link-group-title {
   color: $aside;
   text-transform: uppercase;
-  padding: lines(0.5) 0 lines(0.25) 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.admin-left-navi-link-group {
+  padding-bottom: 10px;
 }

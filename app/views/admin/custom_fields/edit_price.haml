@@ -8,7 +8,7 @@
   :javascript
     initialize_admin_edit_price($("#edit_community"), "community[price_filter_min]", "community[price_filter_max]", "#{I18n.locale}");
 
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
 .left-navi-section
   = form_for @community, :as => :community, :url => update_price_admin_custom_fields_path, :method => :put do |form|

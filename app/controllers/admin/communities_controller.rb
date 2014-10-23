@@ -28,7 +28,6 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def integrations
-    redirect_to edit_details_admin_community_path(@current_community)
     @selected_left_navi_link = "integrations"
     @community = @current_community
   end
