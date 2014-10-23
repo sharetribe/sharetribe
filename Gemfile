@@ -75,8 +75,11 @@ gem 'statesman', '~> 0.5.0'
 gem "premailer"
 gem 'stringex', '~> 2.5.2'
 gem 'validates_timeliness', '~> 3.0'
-gem 'paypal-sdk-permissions'
-gem 'paypal-sdk-merchant'
+gem 'paypal-sdk-permissions',
+  :git    => 'git://github.com/sharetribe/permissions-sdk-ruby.git',
+  :branch => 'master',
+  :ref    => '1d06ca680fb24bd8384f97db00e5158b2907d525'
+gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~>4.1.0'
 
 #ouisharelabs
