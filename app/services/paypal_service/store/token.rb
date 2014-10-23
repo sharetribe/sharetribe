@@ -9,7 +9,8 @@ module PaypalService::Store::Token
       [:merchant_id, :string, :mandatory],
       [:item_name, :string],
       [:item_quantity, :fixnum],
-      [:item_price, :money]
+      [:item_price, :money],
+      [:express_checkout_url, :string, :mandatory]
     )
 
     module_function
@@ -33,21 +34,29 @@ module PaypalService::Store::Token
         merchant_id: opts[:merchant_id],
         item_name: opts[:item_name],
         item_quantity: opts[:item_quantity],
-        item_price: opts[:item_price]
+        item_price: opts[:item_price],
+        express_checkout_url: opts[:express_checkout_url]
     })
   end
 
-  def delete(community_id, token)
-    PaypalToken.where(community_id: community_id, token: token).destroy_all
+  def delete(community_id, transaction_id)
+    PaypalTokenModel.where(community_id: community_id, transaction_id: transaction_id).destroy_all
   end
 
   def get(community_id, token)
-    Maybe(PaypalToken.where(token: token, community_id: community_id).first)
+    Maybe(PaypalTokenModel.where(token: token, community_id: community_id).first)
+      .map { |model| Entity.from_model(model) }
+      .or_else(nil)
+  end
+
+  def get_for_transaction(community_id, transaction_id)
+    Maybe(PaypalTokenModel.where(community_id: community_id, transaction_id: transaction_id).first)
       .map { |model| Entity.from_model(model) }
       .or_else(nil)
   end
 
   def transaction_id_for(community_id, token)
-    PaypalToken.where(token: token, community_id: community_id).pluck(:transaction_id).first
+    PaypalTokenModel.where(token: token, community_id: community_id).pluck(:transaction_id).first
   end
+
 end

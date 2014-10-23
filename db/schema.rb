@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141023141235) do
+ActiveRecord::Schema.define(:version => 20141023150700) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -682,6 +682,7 @@ ActiveRecord::Schema.define(:version => 20141023141235) do
     t.integer  "item_quantity"
     t.integer  "item_price_cents"
     t.string   "currency",         :limit => 8
+    t.string   "express_checkout_url"
   end
 
   add_index "paypal_tokens", ["token"], :name => "index_paypal_tokens_on_token", :unique => true

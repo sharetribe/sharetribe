@@ -12,6 +12,7 @@
 #  item_quantity    :integer
 #  item_price_cents :integer
 #  currency         :string(8)
+#  express_checkout_url :string(255)
 #
 # Indexes
 #
@@ -19,8 +20,8 @@
 #
 
 class PaypalToken < ActiveRecord::Base
-  validates_presence_of :community_id, :token, :transaction_id, :merchant_id
-  attr_accessible :community_id, :token, :transaction_id, :merchant_id, :item_name, :item_quantity, :item_price, :currency
+  validates_presence_of :community_id, :token, :transaction_id, :merchant_id, :express_checkout_url
+  attr_accessible :community_id, :token, :transaction_id, :merchant_id, :item_name, :item_quantity, :item_price, :currency, :express_checkout_url
 
   monetize :item_price_cents, with_model_currency: :currency, allow_nil: true
 end
