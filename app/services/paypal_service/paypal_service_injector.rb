@@ -10,6 +10,9 @@ module PaypalService
       config = { #define builder here - add a datatype?
         request_cancel: ->(token) {
           TransactionService::Transaction.token_cancelled(token)
+        },
+        authorize: -> (transaction_id) {
+          MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
         }
       }
 

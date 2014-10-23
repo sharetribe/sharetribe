@@ -135,6 +135,9 @@ module PaypalService::API
           # Save authorization data to payment
           payment = PaypalService::PaypalPayment::Command.update(community_id, transaction_id, auth_res)
 
+          # Trigger callback for authorized
+          @config[:authorize].call(transaction_id)
+
           # Return as payment entity
           Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
         end

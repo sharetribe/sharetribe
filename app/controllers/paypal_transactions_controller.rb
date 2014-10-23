@@ -28,8 +28,6 @@ class PaypalTransactionsController < ApplicationController
       PaypalService::API::DataTypes.create_authorization_info({ authorization_total: payment[:order_total] }))
     redirect_to root and return if !auth_response[:success]
 
-    MarketplaceService::Transaction::Command.transition_to(payment[:transaction_id], "preauthorized")
-
     return redirect_to person_transaction_path(:person_id => @current_user.id, :id => payment[:transaction_id])
   end
 
