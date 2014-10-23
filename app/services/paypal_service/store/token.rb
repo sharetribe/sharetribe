@@ -54,9 +54,4 @@ module PaypalService::Store::Token
       .map { |model| Entity.from_model(model) }
       .or_else(nil)
   end
-
-  def transaction_id_for(community_id, token)
-    PaypalTokenModel.where(token: token, community_id: community_id).pluck(:transaction_id).first
-  end
-
 end
