@@ -166,7 +166,9 @@ class SessionsController < ApplicationController
 
   # This is used if user has not confirmed her email address
   def confirmation_pending
-
+    if @current_user.blank?
+      redirect_to root
+    end
   end
 
 end
