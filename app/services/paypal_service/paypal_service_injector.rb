@@ -8,8 +8,8 @@ module PaypalService
 
     def build_paypal_payment
       config = { #define builder here - add a datatype?
-        request_cancel: ->(id) {
-          TransactionService::Transaction.token_cancelled(id)
+        request_cancel: ->(token) {
+          TransactionService::Transaction.token_cancelled(token)
         }
       }
 

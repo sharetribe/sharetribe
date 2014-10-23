@@ -120,8 +120,8 @@ module TransactionService::Transaction
     raise "Not implemented"
   end
 
-  def token_cancelled(id)
-    Transaction.destroy(id) #error handling, nil checks?
+  def token_cancelled(token)
+    Transaction.where(community_id: token[:community_id], id: token[:transaction_id]).destroy_all
   end
 
   # private
