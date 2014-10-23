@@ -34,7 +34,14 @@ class PaypalTransactionsController < ApplicationController
   end
 
   def paypal_checkout_order_cancel
-    # TODO Implementation missing
+    pp_result = paypal_payments_service.request_cancel(@current_community.id, params[:token])
+    if(!pp_result[:success])
+      flash[:error] = t("error_messages.paypal.cancel_error")
+      return redirect_to root
+    end
+
+    flash[:notice] = t("paypal.cancel_succesful")
+    return redirect_to person_listing_path(person_id: @current_user.id, :id => params[:listing_id])
   end
 
   private
