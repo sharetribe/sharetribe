@@ -221,7 +221,14 @@ module PaypalService::API
     def retry_and_clean_tokens(clean_time_limit)
       TokenStore.get_all.each do |token|
         response = create(token.community_id, token.token)
-        if(!response[:success] && token.created_at < clean_time_limit)
+
+        if(response[:success])
+          payment = response[:data]
+          authorize(
+            token.community_id,
+            payment[:transaction_id],
+            PaypalService::API::DataTypes.create_authorization_info({ authorization_total: payment[:order_total] }))
+        elsif(token.created_at < clean_time_limit)
           request_cancel(token.community_id, token.token)
         end
       end
