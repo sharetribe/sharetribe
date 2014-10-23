@@ -1,4 +1,4 @@
-module PaypalService
+module PaypalService::API
   class Api
     extend PaypalService::PaypalServiceInjector
 

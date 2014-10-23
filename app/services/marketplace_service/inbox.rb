@@ -220,7 +220,7 @@ module MarketplaceService
             # Use Maybe, since payment may not exists yet, if postpay flow
             Maybe(PaymentModel.where(id: transaction[:payment_id]).first).total_sum.or_else(nil)
           when :paypal
-            paypal_payments = PaypalService::Api.payments
+            paypal_payments = PaypalService::API::Api.payments
             paypal_payments.get_payment(transaction[:community_id], transaction[:transaction_id])[:data][:authorization_total]
           end
 
