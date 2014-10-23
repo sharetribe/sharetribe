@@ -1434,6 +1434,8 @@ it:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
+  paypal:
+    checkout_with_paypal: ~
   people:
     index:
       loading_more_members: ~
