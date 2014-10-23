@@ -121,7 +121,6 @@ el:
         email_preferences: ~
         automatic_newsletters: ~
         email_admins_about_new_members: ~
-        integrations: ~
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
@@ -141,20 +140,23 @@ el:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
-      integrations:
-        integrations: ~
+      social_media:
+        social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -254,6 +256,10 @@ el:
         send_email: Αποστολή
         message_will_be_sent_only_to_people_with_this_language: "Σημείωση: Το μήνυμα θα σταλεί μόνο στα μηνύματα που χρησιμοποιούν το %{service_name} στη γλώσσα που επιλέξατε."
         email_sent: "Το μήνυμα στάλθηκε."
+    left_hand_navigation:
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -262,30 +268,6 @@ el:
       show:
         integration_info_text: ~
         paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: Δημοσκοπήσεις
-        create_poll: "Δημιούργησε μια δημοσκόπηση"
-        no_polls: "Καμία δημοσκόπηση"
-      edit_poll_links:
-        close_poll: Κλείσιμο
-        open_poll: Άνοιγμα
-        edit_poll: Επεξεργασία
-        delete_poll: Διαγραφή
-      new:
-        add_option: "Προσθήκη επιλογής"
-        new_poll: "Δημιουργία δημοσκόπησης"
-        edit_poll: Επεξεργασία
-        title: "Τίτλος:"
-        save_poll: Αποθήκευση
-      new_option:
-        option: Επιλογή
-        remove_option: "Κατάργηση επιλογής"
-      show:
-        edit_poll: Επεξεργασία
-      poll_status:
-        open: Ανοιχτή
-        closed: Κλειστή
     transaction_types:
       sell: πώληση
       rent: ενοικίαση
@@ -920,13 +902,6 @@ el:
     news_item:
       show_less: "Εμφάνιση λιγότερων"
       show_more: "Εμφάνιση περισσότερων"
-    poll_form:
-      poll: "Δημοσκόπηση:"
-      comment: "Σχόλιο:"
-      answer: Απάντηση
-      results: Αποτελέσματα
-      poll_answer: απάντησε
-      poll_answers: απαντήσεις
     profile_info_empty_notification:
       add_your_info: "Γράψτε τα στοιχεία επικοινωνίας σας"
       add_a_profile_picture: "Προσθήκη φωτογραφίας προφίλ"
@@ -1417,7 +1392,9 @@ el:
     commission: ~
     connected_account: ~
     new:
+      payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
       paypal_account_email_info_text: ~
@@ -1434,6 +1411,8 @@ el:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: ~
+  paypal:
+    checkout_with_paypal: ~
   people:
     index:
       loading_more_members: "Εμφάνιση περισσότερων μελών"

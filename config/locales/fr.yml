@@ -136,8 +136,8 @@ fr:
         email_preferences: "Paramètres d'email"
         automatic_newsletters: "Envoyer l'email quotidien/hebdomadaire automatique à tous les utilisateurs (sauf s'ils se désabonnent)"
         email_admins_about_new_members: "Envoyer aux administrateurs un email à chaque fois qu'un nouvel utilisateur s'inscrit"
-        integrations: Intégrations
         google_analytics_key: "Google Analytics tracking ID"
+        integrations: Intégrations
         twitter_handle: "Nom Twitter (utilisé dans le bouton \"Tweeter\" sur les pages des annonces)"
         update_settings: "Sauvegarder les paramètres"
         automatically_confirmed: "Les annonces seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement. Si le système de dépôt est utilisé, l'argent sera transmis au vendeur à ce moment."
@@ -156,6 +156,19 @@ fr:
         save_user_status_successful: Sauvegardé
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
         ban_user_confirmation: "Ceci supprime l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Êtes-vous sûr de vouloir faire cela ?"
+      social_media:
+        social_media: ~
+        twitter_handle: ~
+        twitter_handle_info_text: ~
+        twitter_handle_placeholder: ~
+        invalid_twitter_handle: ~
+        facebook_connect: ~
+        facebook_connect_info_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
+        save: ~
       integrations:
         integrations: Intégrations
         twitter_handle: "Nom Twitter"
@@ -171,6 +184,11 @@ fr:
         facebook_connect_secret: "Clé secrète Facebook"
         invalid_facebook_connect_secret: "La clé secrète ne doit contenir que des nombres et des lettres de a à f."
         save: "Sauvegarder les paramètres"
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        save: ~
       menu_links:
         menu_links: "Liens du menu"
         save: "Sauvegarder les paramètres"
@@ -269,6 +287,10 @@ fr:
         send_email: "Envoyez l'email"
         message_will_be_sent_only_to_people_with_this_language: "Note : cette email ne sera envoyé qu'aux membres qui utilisent %{service_name} dans la langue que vous avez sélectionnée."
         email_sent: "Email envoyé."
+    left_hand_navigation:
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       new:
@@ -1432,7 +1454,9 @@ fr:
     commission: "%{commission} %"
     connected_account: "Le compte PayPal '%{email}' est désormais connecté."
     new:
+      payout_info_you_need_to_connect: ~
       payout_info_text: "Pour recevoir des paiements vous devez connecter votre compte PayPal à %{service_name}.<br /> Veuillez réaliser les deux actions suivantes pour connecter votre compte."
+      admin_account_not_connected: ~
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_placeholder: "Votre adresse email PayPal"
       paypal_account_email_info_text: "Note : vous devez avoir un compte PayPal Premier (pour les particuliers) ou Business (pour les entreprises) pour accepter les paiements. Si vous avez un compte PayPal personnel, vous pouvez le mettre à jour. C'est gratuit et ne prend que quelques instants. %{upgrade_paypal_account} Si vous n'avez pas encore de compte PayPal, vous pouvez créer un compte %{create_paypal_account}."
@@ -1449,6 +1473,8 @@ fr:
       billing_agreement_canceled: "L'accord de facturation a été annulé"
       billing_agreement_id_missing: "Il y a eu des problèmes techniques lors de l'intégration avec PayPal"
       something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter les administrateurs."
+  paypal:
+    checkout_with_paypal: ~
   people:
     index:
       loading_more_members: "Chargement des autres membres"

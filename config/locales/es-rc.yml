@@ -1449,7 +1449,9 @@ es-rc:
     commission: ~
     connected_account: ~
     new:
+      payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
       paypal_account_email_info_text: ~

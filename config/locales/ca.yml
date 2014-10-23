@@ -121,7 +121,6 @@ ca:
         email_preferences: ~
         automatic_newsletters: ~
         email_admins_about_new_members: ~
-        integrations: ~
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
@@ -141,20 +140,23 @@ ca:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
-      integrations:
-        integrations: ~
+      social_media:
+        social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -254,6 +256,10 @@ ca:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
+    left_hand_navigation:
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -262,30 +268,6 @@ ca:
       show:
         integration_info_text: ~
         paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: Enquestes
-        create_poll: "Crea una enquesta"
-        no_polls: "No hi ha cap enquesta"
-      edit_poll_links:
-        close_poll: Tanca
-        open_poll: Obre
-        edit_poll: Edita
-        delete_poll: Neteja
-      new:
-        add_option: "Afegeix opció"
-        new_poll: "Crea una enquesta"
-        edit_poll: "Edita l'enquesta"
-        title: "Títol:"
-        save_poll: "Desa l'enquesta"
-      new_option:
-        option: Opció
-        remove_option: "Esborra l'opció"
-      show:
-        edit_poll: "Edita l'enquesta"
-      poll_status:
-        open: Obre
-        closed: Tancat
     transaction_types:
       sell: ~
       rent: ~
@@ -922,13 +904,6 @@ ca:
     news_item:
       show_less: "Menys de"
       show_more: "Més de"
-    poll_form:
-      poll: "Enquesta:"
-      comment: "Comentari:"
-      answer: Resposta
-      results: Resultats
-      poll_answer: resposta
-      poll_answers: respostes
     profile_info_empty_notification:
       add_your_info: "Afegeix la teva informació de contacte"
       add_a_profile_picture: "Afegeix una fotografia de perfil"
@@ -1419,7 +1394,9 @@ ca:
     commission: ~
     connected_account: ~
     new:
+      payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
       paypal_account_email_info_text: ~

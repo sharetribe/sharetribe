@@ -136,7 +136,6 @@ de:
         email_preferences: E-Mail-Einstellungen
         automatic_newsletters: "Automatisch tägliche / wöchentliche Newsletter an alle Benutzer versenden (es sei denn, sie melden sich ab)"
         email_admins_about_new_members: "Den Administratoren eine E-Mail schicken, wenn sich ein neuer Benutzer anmeldet"
-        integrations: Integrationen
         google_analytics_key: "Google Analytics Tracking ID (klassisches Konto)"
         twitter_handle: ~
         update_settings: "Einstellungen speichern"
@@ -156,21 +155,24 @@ de:
         save_user_status_successful: Gespeichert
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
         ban_user_confirmation: ~
-      integrations:
-        integrations: Integrationen
+      social_media:
+        social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
-        twitter_handle_placeholder: Benutzername
+        twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        facebook_connect: Facebook
+        facebook_connect: ~
         facebook_connect_info_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
-        save: "Einstellungen speichern"
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        save: ~
       menu_links:
         menu_links: ~
         save: "Einstellungen speichern"
@@ -269,6 +271,10 @@ de:
         send_email: "E-Mail senden"
         message_will_be_sent_only_to_people_with_this_language: "Merke: Die E-Mail wird nur an Mitglieder von %{service_name} verschickt, die die Sprache sprechen, die du gewählt hast."
         email_sent: "E-Mail gesendet."
+    left_hand_navigation:
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -277,30 +283,6 @@ de:
       show:
         integration_info_text: ~
         paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: Umfragen
-        create_poll: "Eine Umfrage erstellen"
-        no_polls: "Keine Umfragen"
-      edit_poll_links:
-        close_poll: Schließen
-        open_poll: Öffnen
-        edit_poll: Bearbeiten
-        delete_poll: Löschen
-      new:
-        add_option: "Option hinzufügen"
-        new_poll: "Eine Umfrage erstellen"
-        edit_poll: "Umfrage bearbeiten"
-        title: Titel
-        save_poll: "Umfrage speichern"
-      new_option:
-        option: Option
-        remove_option: "Option entfernen"
-      show:
-        edit_poll: "Umfrage bearbeiten"
-      poll_status:
-        open: Offen
-        closed: Beendet
     transaction_types:
       sell: Verkaufen
       rent: Vermieten
@@ -935,13 +917,6 @@ de:
     news_item:
       show_less: "Weniger anzeigen"
       show_more: "Mehr anzeigen"
-    poll_form:
-      poll: "Umfrage:"
-      comment: "Kommentar:"
-      answer: Antwort
-      results: Ergebnisse
-      poll_answer: antworten
-      poll_answers: Antworten
     profile_info_empty_notification:
       add_your_info: "Kontaktinformationen hinzufügen"
       add_a_profile_picture: "Ein Profilbild hinzufügen"
@@ -1432,7 +1407,9 @@ de:
     commission: ~
     connected_account: ~
     new:
+      payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
       paypal_account_email_info_text: ~

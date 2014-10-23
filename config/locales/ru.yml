@@ -121,8 +121,8 @@ ru:
         email_preferences: ~
         automatic_newsletters: ~
         email_admins_about_new_members: ~
-        integrations: ~
         google_analytics_key: ~
+        integrations: ~
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
@@ -141,6 +141,19 @@ ru:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
+      social_media:
+        social_media: ~
+        twitter_handle: ~
+        twitter_handle_info_text: ~
+        twitter_handle_placeholder: ~
+        invalid_twitter_handle: ~
+        facebook_connect: ~
+        facebook_connect_info_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
+        save: ~
       integrations:
         integrations: ~
         twitter_handle: ~
@@ -155,6 +168,11 @@ ru:
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -1417,7 +1435,9 @@ ru:
     commission: ~
     connected_account: ~
     new:
+      payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
       paypal_account_email_info_text: ~
@@ -1434,6 +1454,8 @@ ru:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: ~
+  paypal:
+    checkout_with_paypal: ~
   people:
     index:
       loading_more_members: ~
