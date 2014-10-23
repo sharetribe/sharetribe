@@ -4,6 +4,7 @@ class Admin::CommunityTransactionsController < ApplicationController
   skip_filter :dashboard_only
 
   def index
+    @selected_left_navi_link = "transactions"
     pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
 
     conversations = if params[:sort].nil? || params[:sort] == "last_activity"
