@@ -1,7 +1,7 @@
 
 # marketplace/v1/
 
-## POST /communities
+## POST /marketplaces
 
 Request body:
 
@@ -20,6 +20,6 @@ Request body:
 Response 201 Created, body:
 
 ```ruby
-{ community_url: "https://imaginationtraders.sharetribe.com"
+{ marketplace_url: "https://imaginationtraders.sharetribe.com"
 }
 ```
