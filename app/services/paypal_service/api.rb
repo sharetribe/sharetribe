@@ -3,7 +3,7 @@ module PaypalService
     extend PaypalService::PaypalServiceInjector
 
     def self.payments
-      payments #PaypalServiceInjector provides readily configured payments api
+      payments_api #PaypalServiceInjector provides readily configured payments api
     end
   end
 end
