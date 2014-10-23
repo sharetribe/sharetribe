@@ -783,6 +783,7 @@ fi:
       you_must_select_a_grade: "Muistathan kertoa, oliko kokemuksesi positiivinen vai negatiivinen."
     paypal:
       generic_error: ~
+      cancel_error: "Maksun perumisen yhteydessä tapahtui virhe."
   error_pages:
     back_to_kassi_front_page: "Takaisin etusivulle"
     error_404:
@@ -1459,6 +1460,7 @@ fi:
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
   paypal:
     checkout_with_paypal: ~
+    cancel_succesful: "PayPal maksu onnistuneesti peruttu."
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"
