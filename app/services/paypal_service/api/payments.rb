@@ -217,6 +217,16 @@ module PaypalService::API
       raise NoMethodError.new("Not implemented")
     end
 
+    ## Not part of public api, used by rake task to retry and clean unfinished orders
+    def retry_and_clean_tokens(clean_time_limit)
+      TokenStore.get_all.each do |token|
+        response = create(token.community_id, token.token)
+        if(!response[:success] && token.created_at < clean_time_limit)
+          request_cancel(token.community_id, token.token)
+        end
+      end
+    end
+
     private
 
     def with_account(cid, pid, &block)

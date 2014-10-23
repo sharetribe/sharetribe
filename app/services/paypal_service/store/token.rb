@@ -54,4 +54,8 @@ module PaypalService::Store::Token
       .map { |model| Entity.from_model(model) }
       .or_else(nil)
   end
+
+  def get_all
+    PaypalToken.all
+  end
 end
