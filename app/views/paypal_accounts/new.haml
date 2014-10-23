@@ -8,18 +8,22 @@
   %h2= t("paypal_accounts.payout_info_title")
 
   .row
-    = t("paypal_accounts.new.payout_info_text").html_safe
+    = t("paypal_accounts.new.payout_info_you_need_to_connect")
 
-  %br/
+  - if admin_account_present
+    .row
+      = t("paypal_accounts.new.payout_info_text").html_safe
 
-  = form_for paypal_account_form, :url => form_action, :html => { :id => "paypal_account_form"} do |form|
+    %br/
 
-    - if paypal_account_state == :verified
-      = render :partial => "ask_paypal_billing_agreement", locals: {paypal_account_email: paypal_account_email, form: form, commission_from_seller: commission_from_seller}
-    - else
-      - title = t("paypal_accounts.new.paypal_account_email")
-      = render :partial => "ask_paypal_permissions", locals: {form: form, title: title}
+    = form_for paypal_account_form, :url => form_action, :html => { :id => "paypal_account_form"} do |form|
 
-      %br/
-      .row
-        = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement", commission: commission_from_seller), :class => "input disabled"
+      - if paypal_account_state == :verified
+        = render :partial => "ask_paypal_billing_agreement", locals: {paypal_account_email: paypal_account_email, form: form, commission_from_seller: commission_from_seller}
+      - else
+        - title = t("paypal_accounts.new.paypal_account_email")
+        = render :partial => "ask_paypal_permissions", locals: {form: form, title: title}
+
+        %br/
+        .row
+          = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement", commission: commission_from_seller), :class => "input disabled"

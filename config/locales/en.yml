@@ -1432,7 +1432,9 @@ en:
     commission: "%{commission} %"
     connected_account: "PayPal account '%{email}' connected successfully."
     new:
-      payout_info_text: "To accept payments you need to connect your PayPal account with %{service_name}.<br /> Please complete the following two steps to connect your account."
+      payout_info_you_need_to_connect: "To accept payments you need to connect your PayPal account with %{service_name}."
+      payout_info_text: "Please complete the following two steps to connect your account."
+      admin_account_not_connected: "You can not connect your PayPal account because the marketplace administrator has not finalized required PayPal configurations."
       paypal_account_email: "1. Connect your PayPal account"
       paypal_account_email_placeholder: "Your PayPal email address"
       paypal_account_email_info_text: "Note: you need a PayPal premier account (for individuals) or business account (for companies) to accept payments. If you have a PayPal personal account, you can upgrade your account. It's free and only takes a minute. %{upgrade_paypal_account} If you don't have a PayPal account yet, you can create a new account %{create_paypal_account}."

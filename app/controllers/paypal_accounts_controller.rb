@@ -38,8 +38,14 @@ class PaypalAccountsController < ApplicationController
 
     @selected_left_navi_link = "payments"
     commission_from_seller = @current_community.commission_from_seller ? @current_community.commission_from_seller : 0
+    admin_account = PaypalAccountQuery.admin_account(@current_community.id)
+
+    if admin_account.blank?
+      flash.now[:error] = t("paypal_accounts.new.admin_account_not_connected")
+    end
 
     render(locals: {
+      admin_account_present: admin_account.present?,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       form_action: person_paypal_account_path(@current_user),
       paypal_account_form: PaypalAccountForm.new,
@@ -50,6 +56,9 @@ class PaypalAccountsController < ApplicationController
   end
 
   def create
+    admin_account = PaypalAccountQuery.admin_account(@current_community.id)
+    return redirect_to action: :new if admin_account.blank?
+
     paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
     order_permission_verified = PaypalAccountEntity.order_permission_verified?(paypal_account)
 

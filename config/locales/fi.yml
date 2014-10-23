@@ -1432,7 +1432,9 @@ fi:
     commission: "%{commission} %"
     connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
     new:
-      payout_info_text: "Vastaanottaaksesi maksuja sinun täyttyy yhdistää PayPal-tilisi %{service_name}-palveluun.<br /> Se onnistuu seuraavien kahden vaiheen avulla."
+      payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täyttyy yhdistää PayPal-tilisi %{service_name}-palveluun."
+      payout_info_text: "Se onnistuu seuraavien kahden vaiheen avulla."
+      admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska markkinapaikan ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_placeholder: "PayPal-tilisi sähköpostiosoite"
       paypal_account_email_info_text: "Huom! Tarvitset PayPalin 'Premier'-tilin (yksityishenkilöille) tai 'Business'-tilin (yrityksille) vastaanottaaksesi luottokorttimaksuja. Jos sinulla on PayPalin 'Personal'-tili, voit muuttaa tilin tyyppiä (se on helppoa ja ilmaista). %{upgrade_paypal_account} Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}."
