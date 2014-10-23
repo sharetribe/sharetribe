@@ -37,7 +37,9 @@ class Transaction < ActiveRecord::Base
     :starter_skipped_feedback,
     :payment_attributes,
     :payment_gateway,
-    :commission_from_seller
+    :commission_from_seller,
+    :minimum_commission_cents,
+    :minimum_commission_currency
     )
 
   attr_accessor :contract_agreed
@@ -58,7 +60,7 @@ class Transaction < ActiveRecord::Base
 
   validates_presence_of :payment_gateway
 
-  monetize :minimum_commission_cents
+  monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
 
   scope :for_person, -> (person){
     joins(:listing)

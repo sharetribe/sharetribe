@@ -12,12 +12,17 @@ module TransactionService::Transaction
   def create(transaction_opts)
     opts = transaction_opts[:transaction]
 
+    #TODO this thing should come through transaction_opts
+    listing = Listing.find(opts[:listing_id])
+
     transaction = TransactionModel.new(
       community_id: opts[:community_id],
       listing_id: opts[:listing_id],
       starter_id: opts[:starter_id],
       payment_gateway: opts[:payment_gateway],
-      commission_from_seller: opts[:commission_from_seller])
+      commission_from_seller: opts[:commission_from_seller],
+      minimum_commission_cents: Maybe(opts[:minimum_commission_cents]).or_else(0),
+      minimum_commission_currency: listing.currency)
 
     conversation = transaction.build_conversation(
       community_id: opts[:community_id],
@@ -121,13 +126,13 @@ module TransactionService::Transaction
 
     case payment_type
     when :paypal
-      paypal_payments = PaypalService::API::Payments.new
+      payments_api = PaypalService::API::Api.payments
 
       MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id, transaction[:listing][:author_id])
       paypal_admin_account = PaypalService::PaypalAccount::Query.admin_account(transaction[:community_id])
 
 
-      payment = paypal_payments.get_payment(transaction[:community_id], transaction_id)
+      payment = payments_api.get_payment(transaction[:community_id], transaction_id)
       commission_total = payment[:data][:payment_total] * (transaction[:commission_from_seller] / 100.0)
       charge_request =
         {
@@ -185,6 +190,7 @@ module TransactionService::Transaction
         Maybe(payment).select { |p| p[:success] }[:data][:payment_total].or_else(nil)
       end
 
+    checkout_details = checkout_details(model)
     DataTypes.create_transaction({
         id: model.id,
         payment_process: payment_process,
@@ -195,10 +201,40 @@ module TransactionService::Transaction
         listing_title: model.listing.title,
         listing_price: model.listing.price,
         listing_author_id: model.listing.author.id,
-        listing_quantity: 1,
+        listing_quantity: 1, #TODO fixme for booking
         automatic_confirmation_after_days: model.automatic_confirmation_after_days,
         last_transition_at: model.last_transition_at,
         current_state: model.current_state.to_sym,
-        payment_total: payment_total })
+        payment_total: payment_total,
+        minimum_commission: model.minimum_commission,
+        commission_from_seller: model.commission_from_seller,
+        checkout_total:   checkout_details[:total_price],
+        commission_total: checkout_details[:commission_total]})
+  end
+
+  def checkout_details(model)
+
+    case model.payment_gateway.to_sym
+    when :paypal
+      payments_api = PaypalService::API::Api.payments
+      payment = payments_api.get_payment(model.community.id, model.id)
+      total =
+        if payment[:data][:payment_total].present?
+          payment[:data][:payment_total]
+        elsif payment[:data][:authorization_total].present?
+          payment[:data][:authorization_total]
+        else
+          model.listing_price * model.listing_quantity
+        end
+      {total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission)}
+    else
+      total = model.listing.price * model.listing_quantity
+      { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission)}
+    end
+  end
+
+  def calculate_commission(total_price, commission_from_seller, commission_from_seller_min)
+    commission_by_percentage = total_price * (commission_from_seller / 100.0)
+    (commission_by_percentage > commission_from_seller_min) ? commission_by_percentage : commission_from_seller_min
   end
 end
