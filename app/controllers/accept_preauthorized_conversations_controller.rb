@@ -94,17 +94,14 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def render_paypal_form(preselected_action)
-    transaction = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
-    paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
-
-    #TODO should this be in a service?
-    service_fee = paypal_payment[:authorization_total] * (transaction[:commission_from_seller] / 100.0)
+    transaction_conversation = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
+    transaction = TransactionService::Transaction.query(@listing_conversation.id)
 
     render locals: {
-      discussion_type: transaction[:discussion_type],
-      sum: paypal_payment[:authorization_total],
-      fee: service_fee,
-      seller_gets: paypal_payment[:order_total] - service_fee,
+      discussion_type: transaction_conversation[:discussion_type],
+      sum: transaction[:checkout_total],
+      fee: transaction[:commission_total],
+      seller_gets: transaction[:checkout_total] - transaction[:commission_total],
       form: @listing_conversation, # TODO FIX ME, DONT USE MODEL
       form_action: acceptance_preauthorized_person_message_path(
         person_id: @current_user.id,
