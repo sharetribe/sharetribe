@@ -276,6 +276,9 @@ class PreauthorizeTransactionsController < ApplicationController
         community_id: @current_community.id,
         listing_id: @listing.id,
         starter_id: @current_user.id,
+        commission_from_seller: @current_community.commission_from_seller,
+        minimum_commission_cents: 0,
+        minimum_commission_currency: @listing.currency,
         payment_gateway: MarketplaceService::Community::Query.payment_type(@current_community.id) || :none
       });
 

@@ -3,6 +3,9 @@ module PaypalService
     def payments_api
       @payment ||= build_paypal_payments
     end
+    def billing_agreement_api
+      @billing_agreement ||= PaypalService::API::BillingAgreements.new
+    end
 
     module_function
 

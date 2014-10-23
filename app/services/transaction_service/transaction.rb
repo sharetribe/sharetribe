@@ -120,39 +120,45 @@ module TransactionService::Transaction
 
   def complete(transaction_id)
     MarketplaceService::Transaction::Command.transition_to(transaction_id, :confirmed)
-    transaction = MarketplaceService::Transaction::Query.transaction(transaction_id)
 
+    transaction = query(transaction_id)
+    MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id, transaction[:listing_author_id])
     payment_type = MarketplaceService::Community::Query.payment_type(transaction[:community_id])
 
     case payment_type
     when :paypal
       payments_api = PaypalService::API::Api.payments
 
-      MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id, transaction[:listing][:author_id])
-      paypal_admin_account = PaypalService::PaypalAccount::Query.admin_account(transaction[:community_id])
-
-
       payment = payments_api.get_payment(transaction[:community_id], transaction_id)
-      commission_total = payment[:data][:payment_total] * (transaction[:commission_from_seller] / 100.0)
+      commission_total = transaction[:commission_total]
       charge_request =
         {
-          community_admin_id: paypal_admin_account[:email], #TODO paypal admin id?
-          commissioned_transaction_id: transaction_id,
-          commission_total: commission_total
+          transaction_id: transaction_id,
+          commission_total: commission_total,
+          payment_name: I18n.t("paypal.transaction.commission_payment_name", transaction[:listing_title]),
+          payment_desc: I18n.t("paypal.transaction.commission_payment_description", transaction[:listing_title])
         }
 
-      billing_agreement = PaypalService::API::BillingAgreements.new
-      billing_agreement.charge(transaction[:community_id], transaction[:listing][:author_id], charge_request) #TODO not implemented
-    end
+      billing_agreement_api = PaypalService::API::Api.billing_agreements
 
-    model_to_entity(transaction)
+      charge_commission_res = billing_agreement_api.charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
+      if charge_commission_res.success
+        Result::Success.new(charge_commission_res[:data])
+      else
+        Result::Error.new("An error occured while trying to complete Paypal commission payment")
+      end
+    else
+      Result::Success.new(transaction)
+    end
   end
 
   def cancel(transaction_id)
-    MarketplaceService::Transaction::Command.transition_to(transaction_id, :cancelled)
-    transaction = MarketplaceService::Transaction::Query.transaction(transaction_id)
-    MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id,transaction[:listing][:author_id])
-    model_to_entity(transaction)
+    MarketplaceService::Transaction::Command.transition_to(transaction_id, :canceled)
+
+    transaction = query(transaction_id)
+    MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id,transaction[:listing_author_id])
+
+    Result::Success.new(transaction)
   end
 
   def token_cancelled(token)
@@ -207,7 +213,7 @@ module TransactionService::Transaction
         current_state: model.current_state.to_sym,
         payment_total: payment_total,
         minimum_commission: model.minimum_commission,
-        commission_from_seller: model.commission_from_seller,
+        commission_from_seller: Maybe(model.commission_from_seller).or_else(0),
         checkout_total:   checkout_details[:total_price],
         commission_total: checkout_details[:commission_total]})
   end
@@ -224,17 +230,21 @@ module TransactionService::Transaction
         elsif payment[:data][:authorization_total].present?
           payment[:data][:authorization_total]
         else
-          model.listing_price * model.listing_quantity
+          model.listing_price * 1 #TODO fixme for booking (model.listing_quantity)
         end
-      {total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission)}
+      { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
     else
-      total = model.listing.price * model.listing_quantity
-      { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission)}
+      total = model.listing.price * 1 #TODO fixme for booking (model.listing_quantity)
+      { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
     end
   end
 
-  def calculate_commission(total_price, commission_from_seller, commission_from_seller_min)
-    commission_by_percentage = total_price * (commission_from_seller / 100.0)
-    (commission_by_percentage > commission_from_seller_min) ? commission_by_percentage : commission_from_seller_min
+  def calculate_commission(total_price, commission_from_seller, minimum_commission)
+    if commission_from_seller.blank? || commission_from_seller == 0
+      Money.new(0, minimum_commission.currency)
+    else
+      commission_by_percentage = total_price * (commission_from_seller / 100.0)
+      (commission_by_percentage > minimum_commission) ? commission_by_percentage : minimum_commission
+    end
   end
 end
