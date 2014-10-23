@@ -62,7 +62,8 @@ module PaypalService
         [:receiver_username, :mandatory, :string],
         [:order_total, :mandatory, :money],
         [:success, :mandatory, :string],
-        [:cancel, :mandatory, :string])
+        [:cancel, :mandatory, :string],
+        [:merchant_brand_logo_url, :optional, :string])
 
       SetExpressCheckoutOrderResponse = EntityUtils.define_builder(
         [:success, const_value: true],

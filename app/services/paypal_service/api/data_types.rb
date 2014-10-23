@@ -7,6 +7,7 @@ module PaypalService::API::DataTypes
     [:item_price, :money],
     [:merchant_id, :mandatory, :string],
     [:order_total, :mandatory, :money],
+    [:merchant_brand_logo_url, :string, :optional],
     [:success, :mandatory, :string],
     [:cancel, :mandatory, :string]
   )
