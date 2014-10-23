@@ -33,7 +33,11 @@ module PaypalService::API
                 name: info[:payment_name],
                 desc: info[:payment_desc] || info[:payment_name],
                 invnum: "#{info[:transaction_id].to_s}-com"
-            })
+            }),
+            error_policy: {
+              codes_to_retry: ["10001", "x-timeout", "x-servererror"],
+              try_max: 5
+            }
           ) do |ref_tx_res|
 
             # Update payment
@@ -81,6 +85,10 @@ module PaypalService::API
 
       if (payment[:payment_status] != :completed)
         return Result::Error.new("Payment is not in :completed state. State was: #{payment[:payment_status]}.")
+      end
+
+      if (payment[:commission_status] != :not_charged)
+        return Result::Error.new("Commission already charged. Commission status was: #{payment[:commission_status]}")
       end
 
       block.call(payment)
