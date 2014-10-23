@@ -6,25 +6,34 @@ module PaypalService::Store::Token
       [:community_id, :mandatory, :fixnum],
       [:token, :string, :mandatory],
       [:transaction_id, :fixnum, :mandatory],
-      [:merchant_id, :string, :mandatory]
+      [:merchant_id, :string, :mandatory],
+      [:item_name, :string],
+      [:item_quantity, :fixnum],
+      [:item_price, :money]
     )
 
     module_function
 
     def from_model(model)
-      Token.call(EntityUtils.model_to_hash(model))
+      Token.call(
+        EntityUtils.model_to_hash(model).merge({
+            item_price: model.item_price
+        }))
     end
   end
 
 
   module_function
 
-  def create(community_id, token, transaction_id, merchant_id)
+  def create(opts)
     PaypalToken.create!({
-        community_id: community_id,
-        token: token,
-        transaction_id: transaction_id,
-        merchant_id: merchant_id
+        community_id: opts[:community_id],
+        token: opts[:token],
+        transaction_id: opts[:transaction_id],
+        merchant_id: opts[:merchant_id],
+        item_name: opts[:item_name],
+        item_quantity: opts[:item_quantity],
+        item_price: opts[:item_price]
     })
   end
 

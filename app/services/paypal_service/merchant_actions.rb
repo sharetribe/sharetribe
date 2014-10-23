@@ -166,7 +166,12 @@ module PaypalService
               PaymentDetails: [{
                   InvoiceID: req[:invnum],
                   NotifyURL: hook_url(config[:ipn_hook]),
-                  OrderTotal: from_money(req[:order_total])
+                  OrderTotal: from_money(req[:order_total]),
+                  PaymentDetailsItem: [{
+                      Name: req[:item_name],
+                      Quantity: req[:item_quantity],
+                      Amount: from_money(req[:item_price] || req[:order_total])
+                  }]
               }]
             }
           }

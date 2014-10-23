@@ -30,11 +30,15 @@ module PaypalService::API
             try_max: 3
           }
         ) do |response|
-          TokenStore.create(
-            community_id,
-            response[:token],
-            create_payment[:transaction_id],
-            m_acc[:person_id])
+          TokenStore.create({
+            community_id: community_id,
+            token: response[:token],
+            transaction_id: create_payment[:transaction_id],
+            merchant_id: m_acc[:person_id],
+            item_name: create_payment[:item_name],
+            item_quantity: create_payment[:item_quantity],
+            item_price: create_payment[:item_price] || create_payment[:order_total]
+          })
 
           Result::Success.new(
             DataTypes.create_payment_request({
@@ -85,6 +89,9 @@ module PaypalService::API
               token: token[:token],
               payer_id: ec_details[:payer_id],
               order_total: ec_details[:order_total],
+              item_name: token[:item_name],
+              item_quantity: token[:item_quantity],
+              item_price: token[:item_price],
               invnum: invnum(community_id, token[:transaction_id])
             }),
             error_policy: {

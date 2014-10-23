@@ -78,6 +78,9 @@ module PaypalService
         [:token, :mandatory, :string],
         [:payer_id, :mandatory, :string],
         [:order_total, :mandatory, :money],
+        [:item_name, :mandatory, :string],
+        [:item_quantity, :mandatory, :fixnum],
+        [:item_price, :mandatory, :money],
         [:invnum, :mandatory, :string])
 
       DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(
