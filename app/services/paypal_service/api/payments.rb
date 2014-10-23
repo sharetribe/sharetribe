@@ -54,7 +54,7 @@ module PaypalService::API
         Result::Success.new
       else
         #Handle errors by logging, because request cancellations are async (direct cancels + scheduling)
-        logger.warn("Tried to cancel non-existent request: [token: #{token_id}, community: #{community_id}]")
+        @logger.warn("Tried to cancel non-existent request: [token: #{token_id}, community: #{community_id}]")
       end
     end
 
