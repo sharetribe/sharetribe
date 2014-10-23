@@ -122,7 +122,6 @@ ru:
         automatic_newsletters: ~
         email_admins_about_new_members: ~
         google_analytics_key: ~
-        integrations: ~
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
@@ -147,21 +146,6 @@ ru:
         twitter_handle_info_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        facebook_connect: ~
-        facebook_connect_info_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        save: ~
-      integrations:
-        integrations: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
         facebook_connect_id: ~
@@ -272,6 +256,10 @@ ru:
         send_email: "Отправить письмо"
         message_will_be_sent_only_to_people_with_this_language: "Примечание: письмо будет отправлено только тем членам сообщества, которые пользуются %{service_name} на выбранном вами языке"
         email_sent: "Письмо отправлено"
+    left_hand_navigation:
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -280,30 +268,6 @@ ru:
       show:
         integration_info_text: ~
         paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: Опросы
-        create_poll: "Создайте новый опрос"
-        no_polls: "Нет опросов"
-      edit_poll_links:
-        close_poll: Закрыть
-        open_poll: Открыть
-        edit_poll: Изменить
-        delete_poll: Удалить
-      new:
-        add_option: "Добавить вариант"
-        new_poll: "Создать опрос"
-        edit_poll: "Редактировать опрос"
-        title: "Название:"
-        save_poll: "Сохранить опрос"
-      new_option:
-        option: Вариант
-        remove_option: "Удалить вариант"
-      show:
-        edit_poll: "Редактировать опрос"
-      poll_status:
-        open: Открытый
-        closed: Закрытый
     transaction_types:
       sell: ~
       rent: ~
@@ -938,13 +902,6 @@ ru:
     news_item:
       show_less: Меньше
       show_more: Больше
-    poll_form:
-      poll: "Опрос:"
-      comment: "Комментарий:"
-      answer: Ответ
-      results: Результаты
-      poll_answer: ответ
-      poll_answers: ответов
     profile_info_empty_notification:
       add_your_info: "Добавьте контактную информацию"
       add_a_profile_picture: "Добавьте изображение профиля"

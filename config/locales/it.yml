@@ -121,7 +121,6 @@ it:
         email_preferences: ~
         automatic_newsletters: ~
         email_admins_about_new_members: ~
-        integrations: ~
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
@@ -141,20 +140,23 @@ it:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
-      integrations:
-        integrations: ~
+      social_media:
+        social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -254,6 +256,10 @@ it:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
+    left_hand_navigation:
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: "Integrazione PayPal"
       new:
@@ -262,30 +268,6 @@ it:
       show:
         integration_info_text: "Per ricevere i soldi devi connettere il conto PayPal del tuo business con %{service_name}."
         paypal_account_email_connected: "Conto PayPal connesso"
-    polls:
-      index:
-        polls: Sondaggi
-        create_poll: "Crea un sondaggio"
-        no_polls: "Nessun sondaggio"
-      edit_poll_links:
-        close_poll: Chiudi
-        open_poll: Apri
-        edit_poll: Modifica
-        delete_poll: Cancella
-      new:
-        add_option: "Aggiungi opzione"
-        new_poll: "Crea un sondaggio"
-        edit_poll: "Modifica sondaggio"
-        title: "Titolo:"
-        save_poll: "Salva sondaggio"
-      new_option:
-        option: Opzione
-        remove_option: "Rimuovi opzione"
-      show:
-        edit_poll: "Modifica sondaggio"
-      poll_status:
-        open: Aperto
-        closed: Chiuso
     transaction_types:
       sell: ~
       rent: ~
@@ -920,13 +902,6 @@ it:
     news_item:
       show_less: ~
       show_more: ~
-    poll_form:
-      poll: "Sondaggio:"
-      comment: "Commento:"
-      answer: Risposta
-      results: Risultati
-      poll_answer: risposta
-      poll_answers: risposte
     profile_info_empty_notification:
       add_your_info: "Aggiungi le tue informazioni per essere contattato"
       add_a_profile_picture: "Aggiungi una foto per il profilo"

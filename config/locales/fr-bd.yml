@@ -121,7 +121,6 @@ fr-bd:
         email_preferences: ~
         automatic_newsletters: ~
         email_admins_about_new_members: ~
-        integrations: ~
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
@@ -141,20 +140,23 @@ fr-bd:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
-      integrations:
-        integrations: ~
+      social_media:
+        social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -254,6 +256,10 @@ fr-bd:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
+    left_hand_navigation:
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -262,30 +268,6 @@ fr-bd:
       show:
         integration_info_text: ~
         paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: ~
-        create_poll: ~
-        no_polls: ~
-      edit_poll_links:
-        close_poll: ~
-        open_poll: ~
-        edit_poll: ~
-        delete_poll: ~
-      new:
-        add_option: ~
-        new_poll: ~
-        edit_poll: ~
-        title: ~
-        save_poll: ~
-      new_option:
-        option: ~
-        remove_option: ~
-      show:
-        edit_poll: ~
-      poll_status:
-        open: ~
-        closed: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -920,13 +902,6 @@ fr-bd:
     news_item:
       show_less: ~
       show_more: ~
-    poll_form:
-      poll: ~
-      comment: ~
-      answer: ~
-      results: ~
-      poll_answer: ~
-      poll_answers: ~
     profile_info_empty_notification:
       add_your_info: ~
       add_a_profile_picture: ~

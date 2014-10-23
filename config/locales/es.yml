@@ -122,7 +122,6 @@ es:
         automatic_newsletters: ~
         email_admins_about_new_members: ~
         google_analytics_key: ~
-        integrations: ~
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
@@ -147,21 +146,6 @@ es:
         twitter_handle_info_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        facebook_connect: ~
-        facebook_connect_info_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        save: ~
-      integrations:
-        integrations: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
         facebook_connect_id: ~
@@ -250,8 +234,8 @@ es:
         select_one: ~
         continue: ~
         minimum_value: ~
-        allow_decimals: ~
         maximum_value: ~
+        allow_decimals: ~
       new:
         new_listing_field: ~
       field_types:
@@ -272,6 +256,10 @@ es:
         send_email: "Enviar mensaje"
         message_will_be_sent_only_to_people_with_this_language: "Nota: el mensaje será enviado unicamente a los miembros que usan %{service_name} en el idioma que eligio."
         email_sent: "Mensaje enviado"
+    left_hand_navigation:
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -280,30 +268,6 @@ es:
       show:
         integration_info_text: ~
         paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: Encuestas
-        create_poll: "Crea una encuesta"
-        no_polls: "No hay encuestas"
-      edit_poll_links:
-        close_poll: Cerrar
-        open_poll: Abrir
-        edit_poll: Editar
-        delete_poll: Borrar
-      new:
-        add_option: "Añadir opción"
-        new_poll: "Crear una encuesta"
-        edit_poll: "Editar encuesta"
-        title: "Título:"
-        save_poll: "Guardar encuesta"
-      new_option:
-        option: Opción
-        remove_option: "Quitar la opción"
-      show:
-        edit_poll: "Editar encuesta"
-      poll_status:
-        open: Abrir
-        closed: Cerrado
     transaction_types:
       sell: Venta
       rent: Alquilando
@@ -945,13 +909,6 @@ es:
     news_item:
       show_less: "Mostrar menos"
       show_more: "Mostrar más"
-    poll_form:
-      poll: "Encuesta:"
-      comment: "Comentario:"
-      answer: Respuesta
-      results: Resultados
-      poll_answer: respuesta
-      poll_answers: respuestas
     profile_info_empty_notification:
       add_your_info: "Agrega tu información de contacto"
       add_a_profile_picture: "Añade una imagen de perfil"

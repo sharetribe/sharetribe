@@ -121,7 +121,6 @@ pt-BR:
         email_preferences: "Preferências de E-mail"
         automatic_newsletters: "Enviar automáticamente boletins diários / semanais para todos os usuários (a menos que optar por sair)"
         email_admins_about_new_members: "Envie um e-mail sempre para adminstrador quando um novo usuário se cadastrar"
-        integrations: Integrações
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter handle (usado com botão Tweet em página de listagem)"
         update_settings: "Salvar configurações"
@@ -141,21 +140,24 @@ pt-BR:
         save_user_status_successful: Salvo
         save_user_status_error: "Erro ao gravar. Por favor, atualize a página e tente novamente"
         ban_user_confirmation: "Deseja remove o usuário da comunidade e os impedir de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
-      integrations:
-        integrations: Integrações
-        twitter_handle: "Nome Twitter"
+      social_media:
+        social_media: ~
+        twitter_handle: ~
         twitter_handle_info_text: ~
-        twitter_handle_placeholder: usuário
+        twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        google_analytics_key: "Google Analytics tracking ID (conta classic)"
-        google_analytics_key_info_text: "ID de rastreamento de sua conta do Google Analytics. Você precisa ter uma conta de \"clássico\"."
-        facebook_connect: Facebook
+        facebook_connect: ~
         facebook_connect_info_text: ~
-        facebook_connect_id: "Facebook ID Cliente"
-        invalid_facebook_connect_id: "ID de cliente deve conter apenas números."
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
-        save: "Salvar configurações"
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        save: ~
       menu_links:
         menu_links: "Menu links"
         save: "Salvar configurações"
@@ -254,6 +256,10 @@ pt-BR:
         send_email: "Enviar o email"
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: "E-mail enviado."
+    left_hand_navigation:
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       new:
@@ -262,30 +268,6 @@ pt-BR:
       show:
         integration_info_text: ~
         paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: Sondagens
-        create_poll: "Criar uma enquete"
-        no_polls: "Sem enquetes"
-      edit_poll_links:
-        close_poll: Fechar
-        open_poll: Abrir
-        edit_poll: Editar
-        delete_poll: Apagar
-      new:
-        add_option: "Adicionar opção"
-        new_poll: "Criar uma enquete"
-        edit_poll: "Editar a sondagem"
-        title: "Título:"
-        save_poll: "Salvar a sondagem"
-      new_option:
-        option: Opção
-        remove_option: "Remover opção"
-      show:
-        edit_poll: "Editar a sondagem"
-      poll_status:
-        open: Abrir
-        closed: Fechado
     transaction_types:
       sell: Vendendo
       rent: Alugando
@@ -920,13 +902,6 @@ pt-BR:
     news_item:
       show_less: "Mostrar menos"
       show_more: Programar
-    poll_form:
-      poll: "Sondagem :"
-      comment: "Comentário:"
-      answer: Atender
-      results: Resultados
-      poll_answer: Atender
-      poll_answers: respostas
     profile_info_empty_notification:
       add_your_info: "Adicione sua informação de contato"
       add_a_profile_picture: "Adicionar uma imagem no perfil"

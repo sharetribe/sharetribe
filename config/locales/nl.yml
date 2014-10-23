@@ -122,7 +122,6 @@ nl:
         automatic_newsletters: ~
         email_admins_about_new_members: ~
         google_analytics_key: ~
-        integrations: ~
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
@@ -147,21 +146,6 @@ nl:
         twitter_handle_info_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        facebook_connect: ~
-        facebook_connect_info_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        save: ~
-      integrations:
-        integrations: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
         facebook_connect_id: ~
@@ -284,30 +268,6 @@ nl:
       show:
         integration_info_text: ~
         paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: ~
-        create_poll: ~
-        no_polls: ~
-      edit_poll_links:
-        close_poll: ~
-        open_poll: ~
-        edit_poll: ~
-        delete_poll: ~
-      new:
-        add_option: ~
-        new_poll: ~
-        edit_poll: ~
-        title: ~
-        save_poll: ~
-      new_option:
-        option: ~
-        remove_option: ~
-      show:
-        edit_poll: ~
-      poll_status:
-        open: ~
-        closed: ~
     transaction_types:
       sell: Verkopen
       rent: Verhuren
@@ -942,13 +902,6 @@ nl:
     news_item:
       show_less: "Toon minder"
       show_more: "Toon meer"
-    poll_form:
-      poll: Poll
-      comment: Reactie
-      answer: Antwoord
-      results: Resultaten
-      poll_answer: Antwoord
-      poll_answers: Antwoorden
     profile_info_empty_notification:
       add_your_info: "Voeg je contact informatie toe"
       add_a_profile_picture: "Voeg je profielfoto toe"
