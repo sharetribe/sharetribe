@@ -19,16 +19,8 @@ class PaypalTransactionsController < ApplicationController
     # Create a new payment using the token form param
     pp_response = paypal_payments_service.create(@current_community.id, params[:token])
     redirect_to root and return if !pp_response[:success]
-    payment = pp_response[:data]
 
-    # Authorize the payment
-    auth_response = paypal_payments_service.authorize(
-      @current_community.id,
-      payment[:transaction_id],
-      PaypalService::API::DataTypes.create_authorization_info({ authorization_total: payment[:order_total] }))
-    redirect_to root and return if !auth_response[:success]
-
-    return redirect_to person_transaction_path(:person_id => @current_user.id, :id => payment[:transaction_id])
+    return redirect_to person_transaction_path(:person_id => @current_user.id, :id => pp_response[:data][:transaction_id])
   end
 
   def paypal_checkout_order_cancel

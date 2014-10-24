@@ -673,15 +673,15 @@ ActiveRecord::Schema.define(:version => 20141023150700) do
   add_index "paypal_refunds", ["refunding_id"], :name => "index_paypal_refunds_on_refunding_id", :unique => true
 
   create_table "paypal_tokens", :force => true do |t|
-    t.integer  "community_id",                   :null => false
-    t.string   "token",            :limit => 64
+    t.integer  "community_id",                       :null => false
+    t.string   "token",                :limit => 64
     t.integer  "transaction_id"
-    t.string   "merchant_id",                    :null => false
+    t.string   "merchant_id",                        :null => false
     t.datetime "created_at"
     t.string   "item_name"
     t.integer  "item_quantity"
     t.integer  "item_price_cents"
-    t.string   "currency",         :limit => 8
+    t.string   "currency",             :limit => 8
     t.string   "express_checkout_url"
   end
 
