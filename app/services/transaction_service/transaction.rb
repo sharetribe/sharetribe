@@ -20,7 +20,7 @@ module TransactionService::Transaction
       listing_id: opts[:listing_id],
       starter_id: opts[:starter_id],
       payment_gateway: opts[:payment_gateway],
-      commission_from_seller: opts[:commission_from_seller],
+      commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
       minimum_commission_cents: Maybe(opts[:minimum_commission_cents]).or_else(0),
       minimum_commission_currency: listing.currency)
 
