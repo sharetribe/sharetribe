@@ -1,6 +1,27 @@
 
 # paypal/v1/
 
+## Common message types
+
+All messages have the following structure. Body describes data contents.
+
+Example success message:
+
+```ruby
+{ success: true
+, data: <body>
+}
+```
+
+Example error message:
+
+```ruby
+{ success: false
+, error_msg: "Error message"
+' data: <body>
+}
+```
+
 ## POST /payments/:community_id/request
 
 Request body CreatePaymentRequest
@@ -34,31 +55,7 @@ Example response body:
 
 Response 204 No Content
 
-
 ## POST /payments/:community_id/create?token=EC-7XU83376C70426719
-
-Response 201 Created, with Payment body
-
-Example response body:
-
-```ruby
-{ community_id: 10
-, transaction_id: 123456789
-, payer_id: "6M39X6RCYVUD6"      # Paypal internal id, do we need to expose it?
-, receiver_id: "URAPMR7WHFAWY"   # Paypal internal id, do we need to expose it?
-, merchant_id: "merchant_id_1"   # External merchant user id, linked with the receiver_id
-, payment_status: :pending
-, pending_reason: :order
-, order_id: "O-8VG2704956180171B"
-, order_date: <Time>
-, order_total: <Money>
-, commission_status: :not_charged
-}
-```
-
-## POST /payments/:community_id/:transaction_id/authorize
-
-Request body AuthorizationInfo
 
 Example request body:
 
@@ -87,7 +84,6 @@ Response 200 OK, Payment body:
 }
 ```
 
-
 ## POST /payments/:community_id/:transaction_id/full_capture
 
 Request body PaymentInfo
@@ -98,7 +94,7 @@ Example request body:
 { payment_total: <Money> }
 ```
 
-Response 200 OK, Payment body:
+Response 201 Created, Payment body:
 
 ```ruby
 { community_id: 10
@@ -120,6 +116,14 @@ Response 200 OK, Payment body:
 , payment_total: <Money>
 , fee_total: <Money>
 , commission_status: :not_charged
+}
+```
+
+Response 200 OK, Error body:
+
+```ruby
+{ paypal_error_code: 10486
+, redirect_url: "https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-ABCDE12345"
 }
 ```
 
