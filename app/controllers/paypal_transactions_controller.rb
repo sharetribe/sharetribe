@@ -17,7 +17,6 @@ class PaypalTransactionsController < ApplicationController
     end
 
     # Create a new payment using the token form param
-    binding.pry
     pp_response = paypal_payments_service.create(@current_community.id, params[:token])
 
     if !pp_response[:success]

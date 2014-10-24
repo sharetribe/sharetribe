@@ -227,13 +227,27 @@ module PaypalService::API
       end
     end
 
-    def void_failed_authorization(payment, m_acc)
+    def handle_failed_create_payment(token)
+      -> (request, err_response) do
+        data =
+          if err_response[:error_code] == "10486"
+            {redirect_url: token[:express_checkout_url]}
+          else
+            nil
+          end
+
+        log_and_return(request, err_response, data)
+      end
+    end
+
+    def handle_failed_authorization(payment)
       -> (request, err_response) do
         if err_response[:error_code] == "10486"
           # Special handling for 10486 error. Return error response and do NOT void.
           token = PaypalService::Store::Token.get_for_transaction(payment[:community_id], payment[:transaction_id])
-          redirect_url = append_order_id(token[:express_checkout_url], payment[:order_id])
-          log_and_return(request, err_response, {redirect_url: "#{redirect_url}"})
+          redirect_url_without_token = remove_token(token[:express_checkout_url])
+          redirect_url_with_order = append_order_id(redirect_url_without_token, payment[:order_id])
+          log_and_return(request, err_response, {redirect_url: "#{redirect_url_with_order}"})
         else
           void_failed_payment(payment, m_acc).call(request, err_response)
         end
@@ -283,6 +297,10 @@ module PaypalService::API
       URLUtils.append_query_param(url_str, "order_id", order_id)
     end
 
+    def remove_token(url_str, token)
+      URLUtils.remove_query_param(url_str, "token")
+    end
+
     def with_payment_from_token(token, &block)
       existing_payment = PaypalService::PaypalPayment::Query.get(token[:community_id], token[:transaction_id])
 
@@ -328,7 +346,8 @@ module PaypalService::API
             }),
             error_policy: {
               codes_to_retry: ["10001", "x-timeout", "x-servererror"],
-              try_max: 3
+              try_max: 3,
+              finally: (method :handle_failed_create_payment).call(token)
             }
           ) do |payment_res|
             # Save payment
@@ -355,7 +374,7 @@ module PaypalService::API
           error_policy: {
             codes_to_retry: ["10001", "x-timeout", "x-servererror"],
             try_max: 5,
-            finally: (method :void_failed_authorization).call(payment, m_acc)
+            finally: (method :handle_failed_authorization).call(payment)
           }
         ) do |auth_res|
 
