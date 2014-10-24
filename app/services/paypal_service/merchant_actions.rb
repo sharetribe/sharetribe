@@ -20,10 +20,7 @@ module PaypalService
     end
 
     def append_useraction_commit(url_str)
-      uri = URI(url_str)
-      args = URI.decode_www_form(uri.query || "") << ["useraction", "commit"]
-      uri.query = URI.encode_www_form(args)
-      uri.to_s
+      URLUtils.append_query_param(url_str, "useraction", "commit")
     end
 
 
