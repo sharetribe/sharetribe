@@ -343,7 +343,7 @@ module PaypalService::API
     end
 
     def append_order_id(url_str, order_id)
-      URLUtils.append_query_params(url_str, "order_id", order_id)
+      URLUtils.append_query_param(url_str, "order_id", order_id)
     end
 
   end
