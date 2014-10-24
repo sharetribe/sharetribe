@@ -13,12 +13,14 @@ module Result
 
   Error = Struct.new(
     :success,
-    :error_msg
+    :error_msg,
+    :data
   ) do
 
-    def initialize(error_msg)
+    def initialize(error_msg, data = nil)
       self.success = false
       self.error_msg = error_msg
+      self.data = data
     end
   end
 

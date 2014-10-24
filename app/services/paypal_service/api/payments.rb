@@ -37,7 +37,8 @@ module PaypalService::API
             merchant_id: m_acc[:person_id],
             item_name: create_payment[:item_name],
             item_quantity: create_payment[:item_quantity],
-            item_price: create_payment[:item_price] || create_payment[:order_total]
+            item_price: create_payment[:item_price] || create_payment[:order_total],
+            express_checkout_url: response[:redirect_url]
           })
 
           Result::Success.new(
@@ -105,9 +106,6 @@ module PaypalService::API
               token[:transaction_id],
               ec_details.merge(payment_res))
 
-            # Delete the token, we have now completed the payment request
-            TokenStore.delete(community_id, token[:token])
-
             # Return as payment entity
             Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
           end
@@ -127,9 +125,12 @@ module PaypalService::API
           error_policy: {
             codes_to_retry: ["10001", "x-timeout", "x-servererror"],
             try_max: 5,
-            finally: (method :void_failed_payment).call(payment, m_acc)
+            finally: (method :void_failed_authorization).call(payment, m_acc)
           }
         ) do |auth_res|
+
+          # Delete the token, we have now completed the payment request
+          TokenStore.delete(community_id, transaction_id)
 
           # Save authorization data to payment
           payment = PaypalService::PaypalPayment::Command.update(community_id, transaction_id, auth_res)
@@ -281,9 +282,25 @@ module PaypalService::API
       result
     end
 
-    def log_and_return(request, err_response)
+    def log_and_return(request, err_response, data = {})
       @logger.warn("PayPal operation #{request[:method]} failed. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
-      Result::Error.new("Failed response from Paypal. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
+      Result::Error.new(
+        "Failed response from Paypal. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}",
+        {paypal_error_code: err_response[:error_code]}.merge(data)
+        )
+    end
+
+    def void_failed_authorization(payment, m_acc)
+      -> (request, err_response) do
+        if err_response[:error_code] == "10486"
+          # Special handling for 10486 error. Return error response and do NOT void.
+          token = PaypalService::Store::Token.get_for_transaction(payment[:community_id], payment[:transaction_id])
+          redirect_url = append_order_id(token[:express_checkout_url], payment[:order_id])
+          log_and_return(request, err_response, {redirect_url: "#{redirect_url}"})
+        else
+          void_failed_payment(payment, m_acc).call(request, err_response)
+        end
+      end
     end
 
     def void_failed_payment(payment, m_acc)
@@ -323,6 +340,10 @@ module PaypalService::API
 
     def invnum(community_id, transaction_id)
       "#{community_id}-#{transaction_id}"
+    end
+
+    def append_order_id(url_str, order_id)
+      URLUtils.append_query_params(url_str, "order_id", order_id)
     end
 
   end
