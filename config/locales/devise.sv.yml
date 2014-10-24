@@ -1,8 +1,8 @@
 sv:
   errors:
     messages:
-      expired: ~
-      not_found: "Hittades inte"
+      expired: "har utgått, vänligen begär ett nytt"
+      not_found: "hittades inte"
       already_confirmed: "har redan bekräftats, försök att logga in"
       not_locked: "låstes inte"
   devise:
@@ -12,7 +12,7 @@ sv:
       unconfirmed: "Du måste verifiera ditt konto innan du kan fortsätta."
       locked: "Ditt konto är låst."
       invalid: "Ogiltig e-post eller lösenord"
-      invalid_token: ~
+      invalid_token: "Ogiltig identifiering."
       timeout: "Din session är avslutad, var vänlig logga in igen."
       inactive: "Ditt konto är inte aktiverat."
     passwords:
@@ -25,31 +25,31 @@ sv:
       signed_out: "Utloggningen lyckades"
     confirmations:
       send_paranoid_instructions: "Om din e-postadress finns i vår databas kommer du snart att få ett e-postmeddelande med instruktioner om hur du bekräftar ditt konto."
-      send_instructions: ~
-      confirmed: ~
+      send_instructions: "Du kommer att få ett e-post med instruktioner för att verifiera ditt konto inom några minuter."
+      confirmed: "Ditt konto har bekräftats."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Vänligen öppna länken för att aktivera ditt konto."
+      signed_up_but_inactive: "Registreringen lyckades. Vi kunde tyvärr inte logga in dig eftersom ditt konto inte är aktiverat än."
+      signed_up_but_locked: "Registreringen lyckades. Vi kunde tyvärr inte logga in dig eftersom ditt konto har blivit låst."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: inaktiv
+        unconfirmed: obekräftad
+        locked: låst
+      update_needs_confirmation: "Du har uppdaterat ditt konto, men vi behöver verifiera din nya e-postadress. Vänligen kolla din e-post och klicka på bekräftelselänken för att slutföra ändringen av din e-postadress."
+      signed_up: "Välkommen! Din registrering lyckades."
+      updated: "Uppdateringen av ditt konto lyckades."
+      destroyed: "Hejdå! Ditt konto har tagits bort. Vi hoppas att vi ses snart igen."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Om ditt konto finns så kommer du att få ett e-post om några minuter om hur du låser upp ditt konto."
+      send_instructions: "Du kommer att få ett e-post med instruktioner för att låsa upp ditt konto inom några minuter."
+      unlocked: "Ditt konto har låsts upp. Vänligen logga in igen för att gå vidare."
     omniauth_callbacks:
       success: ~
       failure: ~
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Instruktioner för bekräftelse"
       reset_password_instructions:
-        subject: ~
+        subject: "Instruktioner för nollställning av lösenord"
       unlock_instructions:
-        subject: ~
+        subject: Upplåsningsinstruktioner

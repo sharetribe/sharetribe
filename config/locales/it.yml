@@ -744,6 +744,7 @@ it:
       you_must_select_a_grade: "Ricordati di raccontare se la tua esperienza è stata positiva o negativa"
     paypal:
       generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento di PayPal."
+      cancel_error: ~
   error_pages:
     back_to_kassi_front_page: "Indietro alla front page"
     error_404:
@@ -1392,7 +1393,7 @@ it:
     commission: ~
     connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
     new:
-      payout_info_you_need_to_connect: ~
+      payout_info_you_need_to_connect: "Per accettare i pagamenti devi connettere il tuo conto PayPal con %{service_name}."
       payout_info_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
@@ -1413,6 +1414,7 @@ it:
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
   paypal:
     checkout_with_paypal: ~
+    cancel_succesful: ~
   people:
     index:
       loading_more_members: ~

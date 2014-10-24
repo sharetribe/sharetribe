@@ -744,6 +744,7 @@ tr-TR:
       you_must_select_a_grade: ~
     paypal:
       generic_error: ~
+      cancel_error: ~
   error_pages:
     back_to_kassi_front_page: "Önceki sayfaya dönüş"
     error_404:
@@ -1413,6 +1414,7 @@ tr-TR:
       something_went_wrong: ~
   paypal:
     checkout_with_paypal: ~
+    cancel_succesful: ~
   people:
     index:
       loading_more_members: ~

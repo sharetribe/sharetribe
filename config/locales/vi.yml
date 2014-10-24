@@ -744,6 +744,7 @@ vi:
       you_must_select_a_grade: "Nhớ chấm điểm người dùng bằng cách nhấp chuột vào một trong những biểu tượng ở trên (bạn có thể xem lời giải thích của các biểu tượng bằng cách giữ con trỏ chuột trên chúng)"
     paypal:
       generic_error: ~
+      cancel_error: ~
   error_pages:
     back_to_kassi_front_page: "Quay lại %{service_name} đầu trang"
     error_404:
@@ -1413,6 +1414,7 @@ vi:
       something_went_wrong: ~
   paypal:
     checkout_with_paypal: ~
+    cancel_succesful: ~
   people:
     index:
       loading_more_members: ~
