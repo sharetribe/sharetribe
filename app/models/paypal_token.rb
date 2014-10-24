@@ -2,16 +2,16 @@
 #
 # Table name: paypal_tokens
 #
-#  id               :integer          not null, primary key
-#  community_id     :integer          not null
-#  token            :string(64)
-#  transaction_id   :integer
-#  merchant_id      :string(255)      not null
-#  created_at       :datetime
-#  item_name        :string(255)
-#  item_quantity    :integer
-#  item_price_cents :integer
-#  currency         :string(8)
+#  id                   :integer          not null, primary key
+#  community_id         :integer          not null
+#  token                :string(64)
+#  transaction_id       :integer
+#  merchant_id          :string(255)      not null
+#  created_at           :datetime
+#  item_name            :string(255)
+#  item_quantity        :integer
+#  item_price_cents     :integer
+#  currency             :string(8)
 #  express_checkout_url :string(255)
 #
 # Indexes

@@ -66,77 +66,14 @@ module PaypalService::API
       end
     end
 
-    ## POST /payments/create?token=EC-7XU83376C70426719
+    ## POST /payments/:community_id/create?token=EC-7XU83376C70426719
     def create(community_id, token)
-      with_token(community_id, token) do |token, m_acc|
-        with_success(
-          MerchantData.create_get_express_checkout_details(
-            { receiver_username: m_acc[:email], token: token[:token] }
-          ),
-          error_policy: {
-            codes_to_retry: ["10001", "x-timeout", "x-servererror"],
-            try_max: 3
-          }
-        ) do |ec_details|
-
-          # Validate that the buyer accepted and we have a payer_id now
-          if (ec_details[:payer_id].nil?)
-            return Result::Error.new("Payment has not been accepted by the buyer.")
-          end
-
-          with_success(
-            MerchantData.create_do_express_checkout_payment({
-              receiver_username: m_acc[:email],
-              token: token[:token],
-              payer_id: ec_details[:payer_id],
-              order_total: ec_details[:order_total],
-              item_name: token[:item_name],
-              item_quantity: token[:item_quantity],
-              item_price: token[:item_price],
-              invnum: invnum(community_id, token[:transaction_id])
-            }),
-            error_policy: {
-              codes_to_retry: ["10001", "x-timeout", "x-servererror"],
-              try_max: 3
-            }
-          ) do |payment_res|
-            # Save payment
-            payment = PaypalService::PaypalPayment::Command.create(
-              community_id,
-              token[:transaction_id],
-              ec_details.merge(payment_res))
-
-            # Return as payment entity
-            Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
-          end
-        end
-      end
-    end
-
-    ## POST /payments/:community_id/:transaction_id/authorize
-    def authorize(community_id, transaction_id, info)
-      with_payment(community_id, transaction_id) do |payment, m_acc|
-        with_success(
-          MerchantData.create_do_authorization({
-              receiver_username: m_acc[:email],
-              order_id: payment[:order_id],
-              authorization_total: info[:authorization_total]
-          }),
-          error_policy: {
-            codes_to_retry: ["10001", "x-timeout", "x-servererror"],
-            try_max: 5,
-            finally: (method :void_failed_authorization).call(payment, m_acc)
-          }
-        ) do |auth_res|
-
-          # Delete the token, we have now completed the payment request
-          TokenStore.delete(community_id, transaction_id)
-
-          # Save authorization data to payment
-          payment = PaypalService::PaypalPayment::Command.update(community_id, transaction_id, auth_res)
-
-          # Return as payment entity
-          Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
+      with_token(community_id, token) do |token|
+        with_payment_from_token(token) do |payment|
+          authorize(
+            community_id,
+            payment[:transaction_id],
+            PaypalService::API::DataTypes.create_authorization_info({ authorization_total: payment[:order_total] }))
         end
       end
     end
@@ -214,6 +151,17 @@ module PaypalService::API
       raise NoMethodError.new("Not implemented")
     end
 
+    ## Not part of public api, used by rake task to retry and clean unfinished orders
+    def retry_and_clean_tokens(clean_time_limit)
+      TokenStore.get_all.each do |token|
+        response = create(token.community_id, token.token)
+
+        if(!response[:success] && token.created_at < clean_time_limit)
+          request_cancel(token.community_id, token.token)
+        end
+      end
+    end
+
     private
 
     def with_account(cid, pid, &block)
@@ -231,12 +179,16 @@ module PaypalService::API
         return Result::Error.new("No matching token for community_id: #{cid} and token: #{t}")
       end
 
+      block.call(token)
+    end
+
+    def with_merchant_account(cid, token, &block)
       m_acc = PaypalService::PaypalAccount::Query.personal_account(token[:merchant_id], cid)
       if m_acc.nil?
         return Result::Error.new("No matching merchant account for community_id: #{cid} and person_id: #{token[:merchant_id]}.")
       end
 
-      block.call(token, m_acc)
+      block.call(m_acc)
     end
 
     def with_payment(cid, txid, &block)
@@ -344,6 +296,97 @@ module PaypalService::API
 
     def append_order_id(url_str, order_id)
       URLUtils.append_query_param(url_str, "order_id", order_id)
+    end
+
+    def with_payment_from_token(token, &block)
+      existing_payment = PaypalService::PaypalPayment::Query.get(token[:community_id], token[:transaction_id])
+
+      if existing_payment
+        block.call(existing_payment)
+      else
+        response = create_payment(token)
+        if(response[:success])
+          block.call(response[:data])
+        else
+          response
+        end
+      end
+    end
+
+    def create_payment(token)
+      with_merchant_account(token[:community_id], token) do |m_acc|
+        with_success(
+          MerchantData.create_get_express_checkout_details(
+            { receiver_username: m_acc[:email], token: token[:token] }
+          ),
+          error_policy: {
+            codes_to_retry: ["10001", "x-timeout", "x-servererror"],
+            try_max: 3
+          }
+        ) do |ec_details|
+
+          # Validate that the buyer accepted and we have a payer_id now
+          if (ec_details[:payer_id].nil?)
+            return Result::Error.new("Payment has not been accepted by the buyer.")
+          end
+
+          with_success(
+            MerchantData.create_do_express_checkout_payment({
+              receiver_username: m_acc[:email],
+              token: token[:token],
+              payer_id: ec_details[:payer_id],
+              order_total: ec_details[:order_total],
+              item_name: token[:item_name],
+              item_quantity: token[:item_quantity],
+              item_price: token[:item_price],
+              invnum: invnum(token[:community_id], token[:transaction_id])
+            }),
+            error_policy: {
+              codes_to_retry: ["10001", "x-timeout", "x-servererror"],
+              try_max: 3
+            }
+          ) do |payment_res|
+            # Save payment
+            payment = PaypalService::PaypalPayment::Command.create(
+              token[:community_id],
+              token[:transaction_id],
+              ec_details.merge(payment_res))
+
+            # Return as payment entity
+            Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
+          end
+        end
+      end
+    end
+
+    def authorize(community_id, transaction_id, info)
+      with_payment(community_id, transaction_id) do |payment, m_acc|
+        with_success(
+          MerchantData.create_do_authorization({
+              receiver_username: m_acc[:email],
+              order_id: payment[:order_id],
+              authorization_total: info[:authorization_total]
+          }),
+          error_policy: {
+            codes_to_retry: ["10001", "x-timeout", "x-servererror"],
+            try_max: 5,
+            finally: (method :void_failed_authorization).call(payment, m_acc)
+          }
+        ) do |auth_res|
+
+          # Delete the token, we have now completed the payment request
+          TokenStore.delete(community_id, transaction_id)
+
+          # Save authorization data to payment
+          payment = PaypalService::PaypalPayment::Command.update(community_id, transaction_id, auth_res)
+
+          # Trigger callback for authorized
+          @config[:authorize].call(transaction_id)
+
+          # Return as payment entity
+          Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
+        end
+      end
     end
 
   end

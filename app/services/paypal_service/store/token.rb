@@ -55,8 +55,7 @@ module PaypalService::Store::Token
       .or_else(nil)
   end
 
-  def transaction_id_for(community_id, token)
-    PaypalTokenModel.where(token: token, community_id: community_id).pluck(:transaction_id).first
+  def get_all
+    PaypalToken.all
   end
-
 end
