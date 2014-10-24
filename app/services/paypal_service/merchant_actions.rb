@@ -129,6 +129,7 @@ module PaypalService
               NoShipping: 1,
               SolutionType: "Sole",
               LandingPage: "Billing",
+              InvoiceID: req[:invnum],
               AllowNote: 0,
               MaxAmount: from_money(req[:order_total]),
               PaymentDetails: [{
@@ -163,8 +164,14 @@ module PaypalService
               Token: req[:token],
               PayerID: req[:payer_id],
               PaymentDetails: [{
+                  InvoiceID: req[:invnum],
                   NotifyURL: hook_url(config[:ipn_hook]),
-                  OrderTotal: from_money(req[:order_total])
+                  OrderTotal: from_money(req[:order_total]),
+                  PaymentDetailsItem: [{
+                      Name: req[:item_name],
+                      Quantity: req[:item_quantity],
+                      Amount: from_money(req[:item_price] || req[:order_total])
+                  }]
               }]
             }
           }
@@ -212,6 +219,7 @@ module PaypalService
           {
             AuthorizationID: req[:authorization_id],
             Amount: from_money(req[:payment_total]),
+            InvoiceID: req[:invnum],
             CompleteType: "Complete"
           }
         },

@@ -63,6 +63,7 @@ module PaypalService
         [:order_total, :mandatory, :money],
         [:success, :mandatory, :string],
         [:cancel, :mandatory, :string],
+        [:invnum, :mandatory, :string],
         [:merchant_brand_logo_url, :optional, :string])
 
       SetExpressCheckoutOrderResponse = EntityUtils.define_builder(
@@ -76,7 +77,11 @@ module PaypalService
         [:receiver_username, :mandatory, :string],
         [:token, :mandatory, :string],
         [:payer_id, :mandatory, :string],
-        [:order_total, :mandatory, :money])
+        [:order_total, :mandatory, :money],
+        [:item_name, :mandatory, :string],
+        [:item_quantity, :mandatory, :fixnum],
+        [:item_price, :mandatory, :money],
+        [:invnum, :mandatory, :string])
 
       DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(
         [:success, const_value: true],
@@ -107,7 +112,8 @@ module PaypalService
         [:method, const_value: :do_capture],
         [:receiver_username, :mandatory, :string],
         [:authorization_id, :mandatory, :string],
-        [:payment_total, :mandatory, :money])
+        [:payment_total, :mandatory, :money],
+        [:invnum, :mandatory, :string])
 
       DoFullCaptureResponse = EntityUtils.define_builder(
         [:success, const_value: true],
