@@ -684,6 +684,7 @@ ActiveRecord::Schema.define(:version => 20141023150700) do
     t.integer  "transaction_id"
     t.string   "merchant_id",                        :null => false
     t.datetime "created_at"
+    t.string   "express_checkout_url"
     t.string   "item_name"
     t.integer  "item_quantity"
     t.integer  "item_price_cents"

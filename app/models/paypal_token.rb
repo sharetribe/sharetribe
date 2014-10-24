@@ -8,11 +8,11 @@
 #  transaction_id       :integer
 #  merchant_id          :string(255)      not null
 #  created_at           :datetime
+#  express_checkout_url :string(255)
 #  item_name            :string(255)
 #  item_quantity        :integer
 #  item_price_cents     :integer
 #  currency             :string(8)
-#  express_checkout_url :string(255)
 #
 # Indexes
 #

@@ -17,10 +17,19 @@ class PaypalTransactionsController < ApplicationController
     end
 
     # Create a new payment using the token form param
+    binding.pry
     pp_response = paypal_payments_service.create(@current_community.id, params[:token])
-    redirect_to root and return if !pp_response[:success]
 
-    return redirect_to person_transaction_path(:person_id => @current_user.id, :id => pp_response[:data][:transaction_id])
+    if !pp_response[:success]
+      response_data = pp_response[:data] || {}
+      if response_data[:paypal_error_code] == "10486"
+        redirect_to response_data[:redirect_url]
+      else
+        redirect_to root # Is root the right place?
+      end
+    else
+      redirect_to person_transaction_path(:person_id => @current_user.id, :id => pp_response[:transaction_id])
+    end
   end
 
   def paypal_checkout_order_cancel
