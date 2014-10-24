@@ -18,7 +18,7 @@ Example error message:
 ```ruby
 { success: false
 , error_msg: "Error message"
-' data: <body>
+  data: <body>
 }
 ```
 
