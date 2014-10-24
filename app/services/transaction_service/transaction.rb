@@ -100,6 +100,11 @@ module TransactionService::Transaction
           MarketplaceService::Transaction::Command.transition_to(transaction[:id], next_state, pending_reason: capture_response[:data][:pending_reason])
 
           transaction = query(transaction[:id])
+          if transaction[:current_state] == :paid
+            #TODO handle commission in pending_ext situation
+            charge_commission(transaction[:id])
+          end
+
           Result::Success.new(
             DataTypes.create_transaction_response(transaction, DataTypes.create_paypal_complete_preauthorization_fields(pending_reason: capture_response[:data][:pending_reason])))
         else
@@ -123,33 +128,8 @@ module TransactionService::Transaction
 
     transaction = query(transaction_id)
     MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id, transaction[:listing_author_id])
-    payment_type = MarketplaceService::Community::Query.payment_type(transaction[:community_id])
 
-    case payment_type
-    when :paypal
-      payments_api = PaypalService::API::Api.payments
-
-      payment = payments_api.get_payment(transaction[:community_id], transaction_id)
-      commission_total = transaction[:commission_total]
-      charge_request =
-        {
-          transaction_id: transaction_id,
-          commission_total: commission_total,
-          payment_name: I18n.t("paypal.transaction.commission_payment_name", transaction[:listing_title]),
-          payment_desc: I18n.t("paypal.transaction.commission_payment_description", transaction[:listing_title])
-        }
-
-      billing_agreement_api = PaypalService::API::Api.billing_agreements
-
-      charge_commission_res = billing_agreement_api.charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
-      if charge_commission_res.success
-        Result::Success.new(charge_commission_res[:data])
-      else
-        Result::Error.new("An error occured while trying to complete Paypal commission payment")
-      end
-    else
-      Result::Success.new(transaction)
-    end
+    Result::Success.new(transaction)
   end
 
   def cancel(transaction_id)
@@ -216,6 +196,21 @@ module TransactionService::Transaction
         commission_from_seller: Maybe(model.commission_from_seller).or_else(0),
         checkout_total:   checkout_details[:total_price],
         commission_total: checkout_details[:commission_total]})
+  end
+
+  def charge_commission(transaction_id)
+    transaction = query(transaction_id)
+    commission_total = transaction[:commission_total]
+    charge_request =
+      {
+        transaction_id: transaction_id,
+        commission_total: commission_total,
+        payment_name: I18n.t("paypal.transaction.commission_payment_name", transaction[:listing_title]),
+        payment_desc: I18n.t("paypal.transaction.commission_payment_description", transaction[:listing_title])
+      }
+
+    billing_agreement_api = PaypalService::API::Api.billing_agreements
+    billing_agreement_api.charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
   end
 
   def checkout_details(model)
