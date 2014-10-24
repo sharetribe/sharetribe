@@ -76,9 +76,9 @@ gem "premailer"
 gem 'stringex', '~> 2.5.2'
 gem 'validates_timeliness', '~> 3.0'
 gem 'paypal-sdk-permissions',
-  :git    => 'git://github.com/sharetribe/permissions-sdk-ruby.git',
+  :git    => 'git://github.com/paypal/permissions-sdk-ruby.git',
   :branch => 'master',
-  :ref    => '1d06ca680fb24bd8384f97db00e5158b2907d525'
+  :ref    => 'c0240bee9f94fe6338d67b4f754e1a11ce81619a'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~>4.1.0'
 

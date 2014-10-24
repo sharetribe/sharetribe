@@ -9,9 +9,9 @@ GIT
       thinking-sphinx (>= 1.5.0)
 
 GIT
-  remote: git://github.com/sharetribe/permissions-sdk-ruby.git
-  revision: 1d06ca680fb24bd8384f97db00e5158b2907d525
-  ref: 1d06ca680fb24bd8384f97db00e5158b2907d525
+  remote: git://github.com/paypal/permissions-sdk-ruby.git
+  revision: c0240bee9f94fe6338d67b4f754e1a11ce81619a
+  ref: c0240bee9f94fe6338d67b4f754e1a11ce81619a
   branch: master
   specs:
     paypal-sdk-permissions (1.96.3)
