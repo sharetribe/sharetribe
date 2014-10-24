@@ -79,8 +79,7 @@ module TransactionService::Transaction
       Result::Success.new(
         DataTypes.create_transaction_response(transaction))
     when :paypal
-      paypal_payments = PaypalService::API::Api.payments
-
+      paypal_payments = paypal_payment_api
       payment_response = paypal_payments.get_payment(transaction[:community_id], transaction[:id])
       if payment_response[:success]
         payment = payment_response[:data]
@@ -129,7 +128,7 @@ module TransactionService::Transaction
     transaction = query(transaction_id)
     MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id, transaction[:listing_author_id])
 
-    Result::Success.new(transaction)
+    Result::Success.new(DataTypes.create_transaction_response(transaction))
   end
 
   def cancel(transaction_id)
@@ -138,7 +137,7 @@ module TransactionService::Transaction
     transaction = query(transaction_id)
     MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id,transaction[:listing_author_id])
 
-    Result::Success.new(transaction)
+    Result::Success.new(DataTypes.create_transaction_response(transaction))
   end
 
   def token_cancelled(token)
@@ -170,9 +169,7 @@ module TransactionService::Transaction
       when :checkout, :braintree
         Maybe(model).payment.total_sum.or_else(nil)
       when :paypal
-        payments_api = PaypalService::API::Api.payments
-        payment = payments_api.get_payment(model.community_id, model.id)
-
+        payment = paypal_payment_api().get_payment(model.community_id, model.id)
         Maybe(payment).select { |p| p[:success] }[:data][:payment_total].or_else(nil)
       end
 
@@ -209,16 +206,14 @@ module TransactionService::Transaction
         payment_desc: I18n.t("paypal.transaction.commission_payment_description", transaction[:listing_title])
       }
 
-    billing_agreement_api = PaypalService::API::Api.billing_agreements
-    billing_agreement_api.charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
+    paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
   end
 
   def checkout_details(model)
 
     case model.payment_gateway.to_sym
     when :paypal
-      payments_api = PaypalService::API::Api.payments
-      payment = payments_api.get_payment(model.community.id, model.id)
+      payment = paypal_payment_api().get_payment(model.community.id, model.id)
       total =
         if payment[:data][:payment_total].present?
           payment[:data][:payment_total]
@@ -241,5 +236,13 @@ module TransactionService::Transaction
       commission_by_percentage = total_price * (commission_from_seller / 100.0)
       (commission_by_percentage > minimum_commission) ? commission_by_percentage : minimum_commission
     end
+  end
+
+  def paypal_payment_api
+    PaypalService::API::Api.payments
+  end
+
+  def paypal_billing_agreement_api
+    PaypalService::API::Api.billing_agreements
   end
 end
