@@ -57,10 +57,6 @@ module TransactionService::Transaction
         }))
   end
 
-  def preauthorize
-    raise "Not implemented"
-  end
-
   def reject
     raise "Not implemented"
   end
