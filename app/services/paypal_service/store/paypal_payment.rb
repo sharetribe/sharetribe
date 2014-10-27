@@ -63,6 +63,8 @@ module PaypalService::Store::PaypalPayment
     :commission_pending_reason
   ]
 
+  module_function
+
   def update(community_id, transaction_id, order)
     payment_update = create_payment_update(order)
     payment = PaypalPaymentModel.where(
