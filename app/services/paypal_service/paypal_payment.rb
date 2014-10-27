@@ -20,8 +20,7 @@ module PaypalService
         :payment_id,
         :payment_date,
         :payment_total_cents,
-        :fee_total_cents,
-        :pending_reason
+        :fee_total_cents
       ]
 
       def update(order)
@@ -33,6 +32,7 @@ module PaypalService
           end
 
         payment_update = PaymentUpdate.call(order.merge({payment_status: order[:payment_status].downcase.to_sym}))
+        payment_update[:pending_reason] = order[:pending_reason].downcase.gsub("-", "").to_sym if order[:pending_reason]
         payment_update = payment_update.merge(HashUtils.sub(order, *OPT_UPDATE_FIELDS)).merge(cent_totals)
 
         return payment_update
@@ -64,7 +64,7 @@ module PaypalService
         [:payer_id, :mandatory, :string],
         [:receiver_id, :mandatory, :string],
         [:payment_status, :mandatory, :symbol],
-        [:pending_reason, :string],
+        [:pending_reason, :to_symbol],
         [:order_id, :mandatory, :string],
         [:order_date, :mandatory, :time],
         [:order_total, :mandatory, :money],
