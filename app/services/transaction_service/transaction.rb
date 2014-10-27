@@ -57,8 +57,22 @@ module TransactionService::Transaction
         }))
   end
 
-  def preauthorize
-    raise "Not implemented"
+  def preauthorize(transaction_id, gateway_fields)
+    transaction = query(transaction_id)
+
+    case transaction[:payment_gateway]
+    when :paypal
+      response = PaypalService::API::Api.payments.create(transaction[:community_id], gateway_fields[:token])
+
+      if response[:success]
+        Result::Success.new(
+          DataTypes.create_transaction_response(transaction))
+      else
+        Result::Error.new(
+          response[:error_msg],
+          DataTypes.create_transaction_response(transaction, response[:data]))
+      end
+    end
   end
 
   def reject

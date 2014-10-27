@@ -1,5 +1,26 @@
 # conversations/v1/
 
+## Common message types
+
+All messages have the following structure. Body describes data contents.
+
+Example success message:
+
+```ruby
+{ success: true
+, data: <body>
+}
+```
+
+Example error message:
+
+```ruby
+{ success: false
+, error_msg: "Error message"
+, data: <body>
+}
+```
+
 ## POST /:conversation\_id/messages/
 
 Example request body:
@@ -115,6 +136,36 @@ Response:
   , last_transition_at: <Time>
   , current_state: :preauthorized
   , payment_total: Money.new(50, "USD")
+  }
+}
+```
+
+Response 200 OK, Error body:
+
+```ruby
+{ transaction:
+  { id: 1234
+  , conversation_id: 3344,
+  , payment_process: :preauthorize
+  , payment_gateway: :paypal
+  , community_id: 501
+  , starter_id: "5678dcba"
+  , listing_id: 1234
+  , listing_title: "Old city-bike"
+  , listing_price: Money.new(50, "USD")
+  , listing_author_id: "1234abcd"
+  , listing_quantity: 1
+  , automatic_confirmation_after_days: 7
+  , created_at: <Time>
+  , updated_at: <Time>
+  , last_transition_at: <Time>
+  , current_state: :initiated
+  , payment_total: Money.new(50, "USD")
+  },
+
+  gateway_fields:
+  { paypal_error_code: 10486
+  , redirect_url: "https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-ABCDE12345"
   }
 }
 ```
