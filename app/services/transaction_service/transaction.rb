@@ -93,7 +93,7 @@ module TransactionService::Transaction
               :pending_ext
             end
 
-          MarketplaceService::Transaction::Command.transition_to(transaction[:id], next_state, pending_reason: capture_response[:data][:pending_reason])
+          MarketplaceService::Transaction::Command.transition_to(transaction[:id], next_state, paypal_pending_reason: capture_response[:data][:pending_reason])
 
           transaction = query(transaction[:id])
           if transaction[:current_state] == :paid
@@ -102,7 +102,7 @@ module TransactionService::Transaction
           end
 
           Result::Success.new(
-            DataTypes.create_transaction_response(transaction, DataTypes.create_paypal_complete_preauthorization_fields(pending_reason: capture_response[:data][:pending_reason])))
+            DataTypes.create_transaction_response(transaction, DataTypes.create_paypal_complete_preauthorization_fields(paypal_pending_reason: capture_response[:data][:pending_reason])))
         else
           Result::Error.new("An error occured while trying to complete preauthorized Paypal payment")
         end

@@ -3,7 +3,7 @@
 module TransactionService::DataTypes::TransitionMetadata
 
   TransitionMetadata= EntityUtils.define_builder(
-    [:paypal_pending_reason, :string]
+    [:paypal_pending_reason, :symbol]
     )
 
   module_function
