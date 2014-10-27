@@ -101,7 +101,7 @@ module PaypalService::API
         ) do |payment_res|
 
           # Save payment data to payment
-          payment = PaypalService::PaypalPayment::Command.update(
+          payment = PaypalService::Store::PaypalPayment.update(
             community_id,
             transaction_id,
             payment_res
@@ -139,7 +139,7 @@ module PaypalService::API
             receiver_username: m_acc[:email],
             transaction_id: payment[:order_id],
           })) do |payment_res|
-            payment = PaypalService::PaypalPayment::Command.update(
+            payment = PaypalService::Store::PaypalPayment.update(
               community_id,
               transaction_id,
               payment_res)
@@ -198,7 +198,8 @@ module PaypalService::API
     end
 
     def with_payment(cid, txid, accepted_states = [], &block)
-      payment = PaypalService::PaypalPayment::Query.get(cid, txid)
+      payment = PaypalService::Store::PaypalPayment.get(cid, txid)
+
       if (payment.nil?)
         return Result::Error.new("No matching payment for community_id: #{cid} and transaction_id: #{txid}.")
       end
@@ -277,7 +278,7 @@ module PaypalService::API
               try_max: 3
             }
             ) do |payment_res|
-            payment = PaypalService::PaypalPayment::Command.update(
+            payment = PaypalService::Store::PaypalPayment.update(
               payment[:community_id],
               payment[:transaction_id],
               payment_res)
@@ -302,7 +303,7 @@ module PaypalService::API
     end
 
     def with_payment_from_token(token, &block)
-      existing_payment = PaypalService::PaypalPayment::Query.get(token[:community_id], token[:transaction_id])
+      existing_payment = PaypalService::Store::PaypalPayment.get(token[:community_id], token[:transaction_id])
 
       if existing_payment
         block.call(existing_payment)
@@ -351,7 +352,7 @@ module PaypalService::API
             }
           ) do |payment_res|
             # Save payment
-            payment = PaypalService::PaypalPayment::Command.create(
+            payment = PaypalService::Store::PaypalPayment.create(
               token[:community_id],
               token[:transaction_id],
               ec_details.merge(payment_res))
@@ -382,7 +383,7 @@ module PaypalService::API
           TokenStore.delete(community_id, transaction_id)
 
           # Save authorization data to payment
-          payment = PaypalService::PaypalPayment::Command.update(community_id, transaction_id, auth_res)
+          payment = PaypalService::Store::PaypalPayment.update(community_id, transaction_id, auth_res)
 
           # Trigger callback for authorized
           @config[:authorize].call(transaction_id)
