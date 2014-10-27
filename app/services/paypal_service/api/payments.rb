@@ -117,7 +117,7 @@ module PaypalService::API
 
     ## POST /payments/:community_id/:transaction_id/void
     def void(community_id, transaction_id, info)
-      with_payment(community_id, transaction_id) do |payment, m_acc|
+      with_payment(community_id, transaction_id, [[:pending, nil]]) do |payment, m_acc|
         with_success(
           MerchantData.create_do_void({
               receiver_username: m_acc[:email],
