@@ -63,20 +63,35 @@ module PaypalService::Store::PaypalPayment
     :commission_pending_reason
   ]
 
-  def update(order)
-    cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total, :comission_total, :comission_fee_total]
-      .reduce({}) do |cent_totals, m_key|
-      m = order[m_key]
-      cent_totals["#{m_key}_cents".to_sym] = m.cents unless m.nil?
-      cent_totals
+  def update(community_id, transaction_id, order)
+    payment_update = create_payment_update(order)
+    payment = PaypalPaymentModel.where(
+      community_id: community_id,
+      transaction_id: transaction_id
+      ).first
+
+    if payment.nil?
+      raise ArgumentError.new("No matching payment to update.")
     end
 
-    payment_update = PaymentUpdate.call(order.merge({payment_status: order[:payment_status].downcase.to_sym}))
-    payment_update[:pending_reason] = order[:pending_reason].downcase.gsub("-", "").to_sym if order[:pending_reason]
-    payment_update[:commission_status] = order[:commission_status].downcase.to_sym if order[:commission_status]
-    payment_update = payment_update.merge(HashUtils.sub(order, *OPT_UPDATE_FIELDS)).merge(cent_totals)
+    payment.update_attributes!(payment_update)
 
-    return payment_update
+    from_model(payment.reload)
+  end
+
+  def ipn_update(ipn_entity)
+    payment_update = create_payment_update(ipn_entity)
+    payment = PaypalPaymentModel.where(
+      "authorization_id = ? or order_id = ?", ipn_entity[:authorization_id], ipn_entity[:order_id]
+      ).first
+
+    if payment.nil?
+      raise ArgumentError.new("No matching payment to update.")
+    end
+
+    payment.update_attributes!(payment_update)
+
+    from_model(payment.reload)
   end
 
   def initial(order)
@@ -110,21 +125,6 @@ module PaypalService::Store::PaypalPayment
     from_model(model)
   end
 
-  def update(community_id, transaction_id, order)
-    payment_update = update(order)
-    payment = PaypalPaymentModel.where(
-      community_id: community_id,
-      transaction_id: transaction_id
-      ).first
-
-    if payment.nil?
-      raise ArgumentError.new("No matching payment to update.")
-    end
-
-    payment.update_attributes!(payment_update)
-
-    from_model(payment.reload)
-  end
 
 
   ## Privates
@@ -151,6 +151,22 @@ module PaypalService::Store::PaypalPayment
         ).first)
       .map { |model| from_model(model) }
       .or_else(nil)
+  end
+
+  def create_payment_update(order)
+    cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total, :comission_total, :comission_fee_total]
+      .reduce({}) do |cent_totals, m_key|
+      m = order[m_key]
+      cent_totals["#{m_key}_cents".to_sym] = m.cents unless m.nil?
+      cent_totals
+    end
+
+    payment_update = PaymentUpdate.call(order.merge({payment_status: order[:payment_status].downcase.to_sym}))
+    payment_update[:pending_reason] = order[:pending_reason].downcase.gsub("-", "").to_sym if order[:pending_reason]
+    payment_update[:commission_status] = order[:commission_status].downcase.to_sym if order[:commission_status]
+    payment_update = payment_update.merge(HashUtils.sub(order, *OPT_UPDATE_FIELDS)).merge(cent_totals)
+
+    return payment_update
   end
 
   ### DEPRECATED! ###
