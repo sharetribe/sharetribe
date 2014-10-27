@@ -21,7 +21,7 @@ class ConfirmConversationsController < ApplicationController
     render(locals: {
       action_type: "confirm",
       message_form: MessageForm.new,
-      listing_conversation: conversation,
+      listing_transaction: @listing_transaction,
       can_be_confirmed: can_be_confirmed,
       other_person: other_person,
       status: @listing_transaction.status,
@@ -37,7 +37,7 @@ class ConfirmConversationsController < ApplicationController
     render(:confirm, locals: {
       action_type: "cancel",
       message_form: MessageForm.new,
-      listing_conversation: conversation,
+      listing_transaction: @listing_transaction,
       can_be_confirmed: can_be_confirmed,
       other_person: other_person,
       status: @listing_transaction.status,

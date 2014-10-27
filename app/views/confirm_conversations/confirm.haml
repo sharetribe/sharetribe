@@ -5,7 +5,7 @@
   %h1= t("layouts.no_tribe.inbox")
 
 .centered-section.conversation-status-form
-  = form_for form, :url => confirmation_person_message_path(:person_id => @current_user.id, :id => listing_conversation[:id]), :html => { :method => "put" } do |form|
+  = form_for form, :url => confirmation_person_message_path(:person_id => @current_user.id, :id => listing_transaction[:id]), :html => { :method => "put" } do |form|
     - if can_be_confirmed
 
       .conversation-action
