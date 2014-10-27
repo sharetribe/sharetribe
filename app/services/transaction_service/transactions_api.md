@@ -33,7 +33,7 @@ Example request body:
 
 , gateway_fields: # Only for :paypal
   { success_url: "http://bikes.sharetribe.com/paypal_service/checkout_orders/success"
-  , cancel_url: "http://bikes.sharetribe.com/paypal_service/checkout_orders/cancel"
+  , cancel_url: "http://bikes.sharetribe.com/paypal_service/checkout_orders/cancel?listing_id=1234"
   }
 
 , gateway_fields: # Only for :braintree and :preauthorize
