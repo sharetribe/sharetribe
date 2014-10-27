@@ -16,26 +16,20 @@ class PaypalTransactionsController < ApplicationController
       return redirect_to root
     end
 
-    token = PaypalService::Store::Token.get(@current_community.id, params[:token])
+    pp_response = paypal_payments_service.create(@current_community.id, params[:token])
 
-    # Create a new payment using the token form param
-    response = transaction_service.preauthorize(
-      token[:transaction_id],
-      TransactionService::DataTypes::Transaction.create_paypal_preauthorize_fields(
-        token: params[:token]))
+    if !pp_response[:success]
+      response_data = pp_response[:data]
 
-    if !response[:success]
-      transaction_response = response[:data][:transaction]
-      gateway_response = response[:data][:gateway_fields]
-
-      if gateway_response[:paypal_error_code] == "10486"
-        redirect_to gateway_response[:redirect_url]
+      if response_data[:paypal_error_code] == "10486"
+        redirect_to response_data[:redirect_url]
       else
         flash[:error] = t("paypal.generic_error")
-        redirect_to person_listing_path(person_id: @current_user.id, :id => transaction_response[:listing_id])
+        transaction = TransactionService::Transaction.query(response_data[:transaction_id])
+        redirect_to person_listing_path(person_id: @current_user.id, id: transaction[:listing_id])
       end
     else
-      redirect_to person_transaction_path(:person_id => @current_user.id, :id => response[:data][:transacton][:id])
+      redirect_to person_transaction_path(person_id: @current_user.id, id: pp_response[:data][:transacton][:id])
     end
   end
 

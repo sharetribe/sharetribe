@@ -3,14 +3,14 @@ module PaypalService::API::RequestWrapper
   # Depends on including class to define logger getter
 
 
-  def with_success(request, opts = { error_policy: {} }, &block)
+  def with_success(cid, txid, request, opts = { error_policy: {} }, &block)
     retry_codes, try_max, finally = parse_policy(opts[:error_policy])
     response = try_operation(retry_codes, try_max) { paypal_merchant.do_request(request) }
 
     if (response[:success])
       block.call(response)
     else
-      finally.call(request, response)
+      finally.call(cid, txid, request, response)
     end
   end
 
@@ -32,11 +32,15 @@ module PaypalService::API::RequestWrapper
     result
   end
 
-  def log_and_return(request, err_response, data = {})
+  def log_and_return(cid, txid, request, err_response, data = {})
     @logger.warn("PayPal operation #{request[:method]} failed. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
     Result::Error.new(
       "Failed response from Paypal. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}",
-      {paypal_error_code: err_response[:error_code]}.merge(data)
-      )
+      {
+        community_id: cid,
+        transaction_id: txid,
+        paypal_error_code: err_response[:error_code]
+      }.merge(data)
+    )
   end
 end
