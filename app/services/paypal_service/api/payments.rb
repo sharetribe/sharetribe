@@ -80,7 +80,7 @@ module PaypalService::API
 
     ## POST /payments/:community_id/:transaction_id/full_capture
     def full_capture(community_id, transaction_id, info)
-      with_payment(community_id, transaction_id) do |payment, m_acc|
+      with_payment(community_id, transaction_id, [[:pending, :authorization]]) do |payment, m_acc|
         with_success(
           MerchantData.create_do_full_capture({
               receiver_username: m_acc[:email],
@@ -191,10 +191,14 @@ module PaypalService::API
       block.call(m_acc)
     end
 
-    def with_payment(cid, txid, &block)
+    def with_payment(cid, txid, accepted_states = [], &block)
       payment = PaypalService::PaypalPayment::Query.get(cid, txid)
       if (payment.nil?)
         return Result::Error.new("No matching payment for community_id: #{cid} and transaction_id: #{txid}.")
+      end
+
+      if (!payment_in_accepted_state?(payment, accepted_states))
+        return Result::Error.new("Payment was not in accepted precondition state for the requested operation. Expected one of: #{accepted_states}, was: :#{payment[:payment_status]}, :#{payment[:pending_reason]}")
       end
 
       m_acc = PaypalService::PaypalAccount::Query.for_payer_id(cid, payment[:receiver_id])
@@ -203,6 +207,19 @@ module PaypalService::API
       end
 
       block.call(payment, m_acc)
+    end
+
+
+    def payment_in_accepted_state?(payment, accepted_states)
+      accepted_states.empty? ||
+        accepted_states.any? do |(status, reason)|
+        if reason.nil?
+          payment[:payment_status] == status
+        else
+          payment[:payment_status] == status &&
+            payment[:pending_reason] == reason
+        end
+      end
     end
 
     def with_success(request, opts = { error_policy: {} }, &block)
