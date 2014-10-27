@@ -32,8 +32,8 @@ Example request body:
   }
 
 , gateway_fields: # Only for :paypal
-  { success_url: "http://bikes.sharetribe.com/en/listings/1234/paypal_checkout_order_success"
-  , cancel_url: "http://bikes.sharetribe.com/en/listings/1234/paypal_checkout_order_cancel"
+  { success_url: "http://bikes.sharetribe.com/paypal_service/checkout_orders/success"
+  , cancel_url: "http://bikes.sharetribe.com/paypal_service/checkout_orders/cancel"
   }
 
 , gateway_fields: # Only for :braintree and :preauthorize

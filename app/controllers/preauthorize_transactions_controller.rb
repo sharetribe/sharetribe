@@ -103,8 +103,8 @@ class PreauthorizeTransactionsController < ApplicationController
         item_price: @listing.price,
         merchant_id: @listing.author.id,
         order_total: @listing.price, # FIXME The price is not correct for booking
-        success: paypal_checkout_order_success_url,
-        cancel: paypal_checkout_order_cancel_url,
+        success: success_paypal_service_checkout_orders_url,
+        cancel: cancel_paypal_service_checkout_orders_url(listing_id: @listing.id),
         merchant_brand_logo_url: logo_url
       })
     )
