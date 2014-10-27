@@ -1427,6 +1427,7 @@ en:
       billing_agreement_canceled: "Billing agreement was canceled"
       billing_agreement_id_missing: "There was technical difficulties with PayPal integration"
       something_went_wrong: "Something went wrong. Please try again. If the problem persists, please contact the site administrators."
+      need_to_have_currency_balance: "Note: You need to have PayPal currency balance in %{currency} in order to receive payments."
   paypal:
     checkout_with_paypal: "Checkout with PayPal"
     cancel_succesful: "PayPal payment succesfully canceled"

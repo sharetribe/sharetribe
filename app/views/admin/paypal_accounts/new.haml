@@ -17,5 +17,5 @@
   = form_for paypal_account_form, url: form_action, html: { :id => "paypal_account_form"} do |form|
 
     - title = t("admin.paypal_accounts.new.paypal_account_email")
-    = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title}
+    = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title, currency: currency}
 
