@@ -76,7 +76,8 @@ class PreauthorizeTransactionsController < ApplicationController
           starter_id: @current_user.id,
           listing_author_id: @listing.author.id,
           content: preauthorize_form.content,
-          payment_gateway: :paypal
+          payment_gateway: :paypal,
+          commission_from_seller: @current_community.commission_from_seller
         }
       })
 
@@ -211,7 +212,8 @@ class PreauthorizeTransactionsController < ApplicationController
             starter_id: @current_user.id,
             listing_author_id: @listing.author.id,
             content: preauthorize_form.content,
-            payment_gateway: :braintree
+            payment_gateway: :braintree,
+            commission_from_seller: @current_community.commission_from_seller
           }
         })
 
@@ -274,6 +276,9 @@ class PreauthorizeTransactionsController < ApplicationController
         community_id: @current_community.id,
         listing_id: @listing.id,
         starter_id: @current_user.id,
+        commission_from_seller: @current_community.commission_from_seller,
+        minimum_commission_cents: 0,
+        minimum_commission_currency: @listing.currency,
         payment_gateway: MarketplaceService::Community::Query.payment_type(@current_community.id) || :none
       });
 

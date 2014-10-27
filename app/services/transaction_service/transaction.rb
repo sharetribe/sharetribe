@@ -12,11 +12,17 @@ module TransactionService::Transaction
   def create(transaction_opts)
     opts = transaction_opts[:transaction]
 
+    #TODO this thing should come through transaction_opts
+    listing = Listing.find(opts[:listing_id])
+
     transaction = TransactionModel.new(
       community_id: opts[:community_id],
       listing_id: opts[:listing_id],
       starter_id: opts[:starter_id],
-      payment_gateway: opts[:payment_gateway])
+      payment_gateway: opts[:payment_gateway],
+      commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
+      minimum_commission_cents: Maybe(opts[:minimum_commission_cents]).or_else(0),
+      minimum_commission_currency: listing.currency)
 
     conversation = transaction.build_conversation(
       community_id: opts[:community_id],
@@ -73,8 +79,7 @@ module TransactionService::Transaction
       Result::Success.new(
         DataTypes.create_transaction_response(transaction))
     when :paypal
-      paypal_payments = PaypalService::API::Api.payments
-
+      paypal_payments = paypal_payment_api
       payment_response = paypal_payments.get_payment(transaction[:community_id], transaction[:id])
       if payment_response[:success]
         payment = payment_response[:data]
@@ -94,6 +99,11 @@ module TransactionService::Transaction
           MarketplaceService::Transaction::Command.transition_to(transaction[:id], next_state, pending_reason: capture_response[:data][:pending_reason])
 
           transaction = query(transaction[:id])
+          if transaction[:current_state] == :paid
+            #TODO handle commission in pending_ext situation
+            charge_commission(transaction[:id])
+          end
+
           Result::Success.new(
             DataTypes.create_transaction_response(transaction, DataTypes.create_paypal_complete_preauthorization_fields(pending_reason: capture_response[:data][:pending_reason])))
         else
@@ -112,12 +122,22 @@ module TransactionService::Transaction
     raise "Not implemented"
   end
 
-  def complete
-    raise "Not implemented"
+  def complete(transaction_id)
+    MarketplaceService::Transaction::Command.transition_to(transaction_id, :confirmed)
+
+    transaction = query(transaction_id)
+    MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id, transaction[:listing_author_id])
+
+    Result::Success.new(DataTypes.create_transaction_response(transaction))
   end
 
-  def cancel
-    raise "Not implemented"
+  def cancel(transaction_id)
+    MarketplaceService::Transaction::Command.transition_to(transaction_id, :canceled)
+
+    transaction = query(transaction_id)
+    MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id,transaction[:listing_author_id])
+
+    Result::Success.new(DataTypes.create_transaction_response(transaction))
   end
 
   def token_cancelled(token)
@@ -149,12 +169,11 @@ module TransactionService::Transaction
       when :checkout, :braintree
         Maybe(model).payment.total_sum.or_else(nil)
       when :paypal
-        payments_api = PaypalService::API::Api.payments
-        payment = payments_api.get_payment(model.community_id, model.id)
-
+        payment = paypal_payment_api().get_payment(model.community_id, model.id)
         Maybe(payment).select { |p| p[:success] }[:data][:payment_total].or_else(nil)
       end
 
+    checkout_details = checkout_details(model)
     DataTypes.create_transaction({
         id: model.id,
         payment_process: payment_process,
@@ -165,10 +184,65 @@ module TransactionService::Transaction
         listing_title: model.listing.title,
         listing_price: model.listing.price,
         listing_author_id: model.listing.author.id,
-        listing_quantity: 1,
+        listing_quantity: 1, #TODO fixme for booking
         automatic_confirmation_after_days: model.automatic_confirmation_after_days,
         last_transition_at: model.last_transition_at,
         current_state: model.current_state.to_sym,
-        payment_total: payment_total })
+        payment_total: payment_total,
+        minimum_commission: model.minimum_commission,
+        commission_from_seller: Maybe(model.commission_from_seller).or_else(0),
+        checkout_total:   checkout_details[:total_price],
+        commission_total: checkout_details[:commission_total]})
+  end
+
+  def charge_commission(transaction_id)
+    transaction = query(transaction_id)
+    commission_total = transaction[:commission_total]
+    charge_request =
+      {
+        transaction_id: transaction_id,
+        commission_total: commission_total,
+        payment_name: I18n.t("paypal.transaction.commission_payment_name", transaction[:listing_title]),
+        payment_desc: I18n.t("paypal.transaction.commission_payment_description", transaction[:listing_title])
+      }
+
+    paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
+  end
+
+  def checkout_details(model)
+
+    case model.payment_gateway.to_sym
+    when :paypal
+      payment = paypal_payment_api().get_payment(model.community.id, model.id)
+      total =
+        if payment[:data][:payment_total].present?
+          payment[:data][:payment_total]
+        elsif payment[:data][:authorization_total].present?
+          payment[:data][:authorization_total]
+        else
+          model.listing_price * 1 #TODO fixme for booking (model.listing_quantity)
+        end
+      { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
+    else
+      total = model.listing.price * 1 #TODO fixme for booking (model.listing_quantity)
+      { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
+    end
+  end
+
+  def calculate_commission(total_price, commission_from_seller, minimum_commission)
+    if commission_from_seller.blank? || commission_from_seller == 0
+      Money.new(0, minimum_commission.currency)
+    else
+      commission_by_percentage = total_price * (commission_from_seller / 100.0)
+      (commission_by_percentage > minimum_commission) ? commission_by_percentage : minimum_commission
+    end
+  end
+
+  def paypal_payment_api
+    PaypalService::API::Api.payments
+  end
+
+  def paypal_billing_agreement_api
+    PaypalService::API::Api.billing_agreements
   end
 end

@@ -20,11 +20,17 @@ module PaypalService
         :payment_id,
         :payment_date,
         :payment_total_cents,
-        :fee_total_cents
+        :fee_total_cents,
+        :pending_reason,
+        :commission_payment_id,
+        :commission_payment_date,
+        :commission_total_cents,
+        :commission_fee_total_cents,
+        :commission_pending_reason
       ]
 
       def update(order)
-        cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total]
+        cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total, :commission_total, :commission_fee_total]
           .reduce({}) do |cent_totals, m_key|
             m = order[m_key]
             cent_totals["#{m_key}_cents".to_sym] = m.cents unless m.nil?
@@ -33,6 +39,7 @@ module PaypalService
 
         payment_update = PaymentUpdate.call(order.merge({payment_status: order[:payment_status].downcase.to_sym}))
         payment_update[:pending_reason] = order[:pending_reason].downcase.gsub("-", "").to_sym if order[:pending_reason]
+        payment_update[:commission_status] = order[:commission_status].downcase.to_sym if order[:commission_status]
         payment_update = payment_update.merge(HashUtils.sub(order, *OPT_UPDATE_FIELDS)).merge(cent_totals)
 
         return payment_update
@@ -49,7 +56,8 @@ module PaypalService
         [:order_id, :mandatory, :string],
         [:order_date, :mandatory, :time],
         [:currency, :mandatory, :string],
-        [:order_total_cents, :mandatory, :fixnum])
+        [:order_total_cents, :mandatory, :fixnum],
+        [:commission_status, const_value: :not_charged])
 
       def initial(order)
         order_total = order[:order_total]
@@ -76,16 +84,24 @@ module PaypalService
         [:payment_date, :time],
         [:payment_total, :money],
         [:fee_total, :money],
-        [:commission_status, const_value: :not_charged]) # This is temporarily a fixed const before we have real commission handling
+        [:commission_payment_id, :string],
+        [:commission_payment_date, :time],
+        [:commission_total, :money],
+        [:commission_fee_total, :money],
+        [:commission_status, :mandatory, :symbol],
+        [:commission_pending_reason, :string])
 
       def from_model(paypal_payment)
         hash = HashUtils.compact(
           EntityUtils.model_to_hash(paypal_payment).merge({
-              order_total: MoneyUtil.to_money(paypal_payment[:order_total_cents], paypal_payment[:currency]),
-              authorization_total: MoneyUtil.to_money(paypal_payment[:authorization_total_cents], paypal_payment[:currency]),
-              fee_total: MoneyUtil.to_money(paypal_payment[:fee_total_cents], paypal_payment[:currency]),
-              payment_total: MoneyUtil.to_money(paypal_payment[:payment_total_cents], paypal_payment[:currency]),
-              payment_status: paypal_payment[:payment_status].to_sym
+              order_total: paypal_payment.order_total,
+              authorization_total: paypal_payment.authorization_total,
+              fee_total: paypal_payment.fee_total,
+              payment_total: paypal_payment.payment_total,
+              payment_status: paypal_payment[:payment_status].to_sym,
+              commission_total: paypal_payment.commission_total,
+              commission_fee_total: paypal_payment.commission_fee_total,
+              commission_status: paypal_payment[:commission_status].to_sym,
             }))
 
         PaypalPayment.call(hash)

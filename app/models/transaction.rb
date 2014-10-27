@@ -14,6 +14,9 @@
 #  author_skipped_feedback           :boolean          default(FALSE)
 #  last_transition_at                :datetime
 #  current_state                     :string(255)
+#  commission_from_seller            :integer
+#  minimum_commission_cents          :integer          default(0)
+#  minimum_commission_currency       :string(255)
 #  payment_gateway                   :string(255)      default("none"), not null
 #
 # Indexes
@@ -33,7 +36,10 @@ class Transaction < ActiveRecord::Base
     :author_skipped_feedback,
     :starter_skipped_feedback,
     :payment_attributes,
-    :payment_gateway
+    :payment_gateway,
+    :commission_from_seller,
+    :minimum_commission_cents,
+    :minimum_commission_currency
     )
 
   attr_accessor :contract_agreed
@@ -53,6 +59,8 @@ class Transaction < ActiveRecord::Base
   accepts_nested_attributes_for :booking
 
   validates_presence_of :payment_gateway
+
+  monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
 
   scope :for_person, -> (person){
     joins(:listing)

@@ -1459,8 +1459,11 @@ fi:
       billing_agreement_id_missing: "PayPal asetuksissa ilmeni teknisiä ongelmia."
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
   paypal:
-    checkout_with_paypal: ~
     cancel_succesful: "PayPal maksu onnistuneesti peruttu."
+    checkout_with_paypal: "Maksa PayPal-tilillä"
+    transaction:
+      commission_payment_name: "Välityspalkkio tuotteelle %{listing_title}"
+      commission_payment_description: "Markkinapaikka, %{service_name}, veloitti tämän välityspalkkion ostosta."
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"
