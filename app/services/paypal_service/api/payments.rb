@@ -377,7 +377,7 @@ module PaypalService::API
     end
 
     def authorize(community_id, transaction_id, info)
-      with_payment(community_id, transaction_id) do |payment, m_acc|
+      with_payment(community_id, transaction_id, [[:pending, :order]]) do |payment, m_acc|
         with_success(
           MerchantData.create_do_authorization({
               receiver_username: m_acc[:email],
