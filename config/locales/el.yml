@@ -744,6 +744,7 @@ el:
       you_must_select_a_grade: "Μην ξεχνάτε να πείτε αν η εμπειρία σας ήταν καλή ή όχι."
     paypal:
       generic_error: ~
+      cancel_error: ~
   error_pages:
     back_to_kassi_front_page: "Επιστροφή στην αρχική σελίδα"
     error_404:
@@ -1413,6 +1414,10 @@ el:
       something_went_wrong: ~
   paypal:
     checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
   people:
     index:
       loading_more_members: "Εμφάνιση περισσότερων μελών"

@@ -5,6 +5,9 @@ sv:
       not_found: "hittades inte"
       already_confirmed: "har redan bekräftats, försök att logga in"
       not_locked: "låstes inte"
+      not_saved:
+        one: "1 fel förbjöd denna %{resource} från att bli sparad:"
+        other: "%{count} fel förbjöd denna %{resource} från att bli sparad:"
   devise:
     failure:
       already_authenticated: "Du är redan inloggad."
@@ -44,8 +47,8 @@ sv:
       send_instructions: "Du kommer att få ett e-post med instruktioner för att låsa upp ditt konto inom några minuter."
       unlocked: "Ditt konto har låsts upp. Vänligen logga in igen för att gå vidare."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Auktorisering lyckades från %{kind} kontot."
+      failure: "Det gick inte att auktorisera dig från %{kind} eftersom %{reason}."
     mailer:
       confirmation_instructions:
         subject: "Instruktioner för bekräftelse"

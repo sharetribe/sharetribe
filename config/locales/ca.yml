@@ -1417,6 +1417,9 @@ ca:
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
   people:
     index:
       loading_more_members: ~

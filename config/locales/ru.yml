@@ -744,6 +744,7 @@ ru:
       you_must_select_a_grade: "Не забывайте оценивать пользователей, путём выбора одного из значков сверху (вы можете посмотреть, что они значат, наведя на них указатель мыши)"
     paypal:
       generic_error: ~
+      cancel_error: ~
   error_pages:
     back_to_kassi_front_page: "На главную страницу Kassi"
     error_404:
@@ -1413,6 +1414,10 @@ ru:
       something_went_wrong: ~
   paypal:
     checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
   people:
     index:
       loading_more_members: ~

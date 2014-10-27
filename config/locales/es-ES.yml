@@ -746,6 +746,7 @@ es-ES:
       you_must_select_a_grade: "Recuerda evaluar a los usuarios clickeando en uno de los iconos de más arriba (pueder ver las explicaciones de cada icono deslizando el mouse sobre ellos)"
     paypal:
       generic_error: ~
+      cancel_error: ~
   error_pages:
     back_to_kassi_front_page: "Volver a la página principal de %{service_name}"
     error_404:
@@ -1415,6 +1416,10 @@ es-ES:
       something_went_wrong: ~
   paypal:
     checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
   people:
     index:
       loading_more_members: "Cargando más miembros"
