@@ -2,9 +2,6 @@ module PaypalService::Store::PaypalPayment
 
   PaypalPaymentModel = ::PaypalPayment
 
-  PaymentUpdate = EntityUtils.define_builder(
-    [:payment_status, :mandatory, :symbol])
-
   InitialPaymentData = EntityUtils.define_builder(
     [:community_id, :mandatory, :fixnum],
     [:transaction_id, :mandatory, :fixnum],
@@ -66,34 +63,18 @@ module PaypalService::Store::PaypalPayment
   module_function
 
   def update(community_id, transaction_id, order)
-    payment_update = create_payment_update(order)
     payment = PaypalPaymentModel.where(
       community_id: community_id,
       transaction_id: transaction_id
       ).first
-
-    if payment.nil?
-      raise ArgumentError.new("No matching payment to update.")
-    end
-
-    payment.update_attributes!(payment_update)
-
-    from_model(payment.reload)
+    update_payment(payment, order)
   end
 
   def ipn_update(ipn_entity)
-    payment_update = create_payment_update(ipn_entity)
     payment = PaypalPaymentModel.where(
       "authorization_id = ? or order_id = ?", ipn_entity[:authorization_id], ipn_entity[:order_id]
       ).first
-
-    if payment.nil?
-      raise ArgumentError.new("No matching payment to update.")
-    end
-
-    payment.update_attributes!(payment_update)
-
-    from_model(payment.reload)
+    update_payment(payment, ipn_entity)
   end
 
   def initial(order)
@@ -163,12 +144,25 @@ module PaypalService::Store::PaypalPayment
       cent_totals
     end
 
-    payment_update = PaymentUpdate.call(order.merge({payment_status: order[:payment_status].downcase.to_sym}))
-    payment_update[:pending_reason] = order[:pending_reason].downcase.gsub(/[-_]/, "").to_sym if order[:pending_reason]
+    payment_update = {}
+    payment_update[:payment_status] = order[:payment_status].downcase.to_sym
+    payment_update[:pending_reason] = order[:pending_reason] ? order[:pending_reason].downcase.gsub(/[-_]/, "").to_sym : :none
     payment_update[:commission_status] = order[:commission_status].downcase.to_sym if order[:commission_status]
     payment_update = HashUtils.sub(order, *OPT_UPDATE_FIELDS).merge(cent_totals).merge(payment_update)
 
     return payment_update
+  end
+
+  def update_payment(payment, data)
+    payment_update = create_payment_update(data)
+
+    if payment.nil?
+      raise ArgumentError.new("No matching payment to update.")
+    end
+
+    payment.update_attributes!(payment_update)
+
+    from_model(payment.reload)
   end
 
   ### DEPRECATED! ###
