@@ -271,62 +271,47 @@ class PreauthorizeTransactionsController < ApplicationController
     })
 
     if preauthorize_form.valid?
-      #TODO: change to use TransactionService::Transaction.create
-      transaction = Transaction.new({
-        community_id: @current_community.id,
-        listing_id: @listing.id,
-        starter_id: @current_user.id,
-        commission_from_seller: @current_community.commission_from_seller,
-        listing_quantity: duration(preauthorize_form.start_on, preauthorize_form.end_on),
-        minimum_commission_cents: 0,
-        minimum_commission_currency: @listing.currency,
-        payment_gateway: MarketplaceService::Community::Query.payment_type(@current_community.id) || :none
-      });
-
-      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
-
-      if preauthorize_form.content.present?
-        conversation.messages.build({
-          content: preauthorize_form.content,
-          sender_id: @current_user.id
+      transaction = TransactionService::Transaction.create({
+          transaction: {
+            community_id: @current_community.id,
+            listing_id: @listing.id,
+            starter_id: @current_user.id,
+            listing_author_id: @listing.author.id,
+            listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on),
+            payment_gateway: MarketplaceService::Community::Query.payment_type(@current_community.id) || :none,
+            commission_from_seller: @current_community.commission_from_seller,
+            minimum_commission_cents: 0,
+            minimum_commission_currency: @listing.currency,
+            content: preauthorize_form.content,
+            booking_fields: {
+              start_on: preauthorize_form.start_on,
+              end_on: preauthorize_form.end_on
+            }
+          }
         })
-      end
 
-      conversation.participations.build({
-        person_id: @listing.author.id,
-        is_starter: false
-      })
+      transaction_model = Transaction.find(transaction[:transaction][:id])
 
-      conversation.participations.build({
-        person_id: @current_user.id,
-        is_starter: true,
-        is_read: true
-      })
-
-      transaction.payment = BraintreePayment.new({
+      transaction_model.payment = BraintreePayment.new({
         community_id: @current_community.id,
         payment_gateway_id: @current_community.payment_gateway.id,
         status: "pending",
         payer_id: @current_user.id,
         recipient_id: @listing.author.id,
         currency: "USD",
-        sum: @listing.price * transaction.listing_quantity
-      })
-
-      booking = transaction.build_booking({
-        start_on: preauthorize_form.start_on,
-        end_on: preauthorize_form.end_on
+        sum: @listing.price * transaction_model.listing_quantity
       })
 
       #TODO validations for form
       braintree_form = BraintreeForm.new(params[:braintree_payment])
-      result = BraintreeSaleService.new(transaction.payment, braintree_form.to_hash).pay(false)
+      result = BraintreeSaleService.new(transaction_model.payment, braintree_form.to_hash).pay(false)
 
       if result.success?
-        transaction.save!
-        MarketplaceService::Transaction::Command.transition_to(transaction.id, "preauthorized")
-        redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction.id)
+        transaction_model.save!
+        MarketplaceService::Transaction::Command.transition_to(transaction_model.id, "preauthorized")
+        redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_model.id)
       else
+        transaction_model.destroy
         flash[:error] = result.message
         redirect_to action: :preauthorize
       end
@@ -404,7 +389,7 @@ class PreauthorizeTransactionsController < ApplicationController
       { error: booking_data[:form].errors.full_messages }
     else
       booking_form.to_hash.merge({
-        duration: duration(booking_form.start_on, booking_form.end_on)
+        duration: DateUtils.duration_days(booking_form.start_on, booking_form.end_on)
       })
     end
   end

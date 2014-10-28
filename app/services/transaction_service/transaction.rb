@@ -46,10 +46,26 @@ module TransactionService::Transaction
           sender_id: opts[:starter_id]})
     end
 
+    if opts[:booking_fields].present?
+      start_on = opts[:booking_fields][:start_on]
+      end_on = opts[:booking_fields][:end_on]
+      duration = DateUtils.duration_days(start_on, end_on)
+
+      # Make sure listing_quantity equals duration
+      if duration != transaction.listing_quantity
+        return Result::Error.new("Listing quantity (#{transaction.listing_quantity}) must be equal to booking duration in days (#{duration})")
+      end
+
+      transaction.build_booking({
+          start_on: start_on,
+          end_on: end_on})
+    end
+
     transaction.save!
 
     #TODO: Fix to more sustainable solution (use model_to_entity, and add paypal and braintree relevant fields)
     #transition info is now added in controllers
+    #TODO: Return Result::Success.new
     DataTypes.create_transaction_response(opts.merge({
           id: transaction.id,
           conversation_id: conversation.id,
