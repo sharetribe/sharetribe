@@ -16,7 +16,9 @@
 #
 # Indexes
 #
-#  index_paypal_tokens_on_token  (token) UNIQUE
+#  index_paypal_tokens_on_community_id    (community_id)
+#  index_paypal_tokens_on_token           (token) UNIQUE
+#  index_paypal_tokens_on_transaction_id  (transaction_id)
 #
 
 class PaypalToken < ActiveRecord::Base
