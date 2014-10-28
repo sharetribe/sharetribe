@@ -104,7 +104,9 @@ class ListingsController < ApplicationController
       end
     end
 
-    render locals: {form_path: form_path}
+    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
+
+    render locals: {form_path: form_path, payment_gateway: payment_gateway}
   end
 
   def new
@@ -220,13 +222,15 @@ class ListingsController < ApplicationController
   end
 
   def close
+    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
+
     @listing.update_attribute(:open, false)
     respond_to do |format|
       format.html {
         redirect_to @listing
       }
       format.js {
-        render :layout => false
+        render :layout => false, locals: {payment_gateway: payment_gateway}
       }
     end
   end
