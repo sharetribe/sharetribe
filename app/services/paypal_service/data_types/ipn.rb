@@ -132,25 +132,23 @@ module PaypalService
 
       def msg_type(txn_type, payment_status, pending_reason)
         txn_type = txn_type.to_s.downcase
+        status, reason = payment_status.to_s.downcase, pending_reason.to_s.downcase
 
-        if (txn_type == "mp_cancel")
+        if txn_type == "mp_cancel"
           return :billing_agreement_cancelled
+        elsif status == "pending" && reason == "order"
+          return :order_created
+        elsif status == "pending" && reason == "authorization"
+          return :authorization_created
+        elsif status == "pending"
+          return :payment_pending_ext
+        elsif status == "completed"
+          return :payment_completed
+        elsif status == "refunded"
+          return :payment_refunded
         else
-          case [payment_status.to_s.downcase, pending_reason.to_s.downcase]
-          when ["pending", "order"]
-            return :order_created
-          when ["pending", "authorization"]
-            return :authorization_created
-          when ["pending", "multi_currency"]
-            return :payment_pending_ext
-          when ["completed", ""]
-            return :payment_completed
-          when ["refunded", ""]
-            return :payment_refunded
-          end
+          return :unknown
         end
-
-        return :unknown
       end
       private_class_method :msg_type
 
