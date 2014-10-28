@@ -166,17 +166,22 @@ module TransactionService::Transaction
   # However, this method is only used to get the API interface right, even though the data model
   # doesn't match the interface.
   #
-  def model_to_entity(model)
-    payment_process =
-      if !model.listing.transaction_type.price_field?
-        :none
+
+  # DEPRECATED
+  def payment_process_from_model(model)
+    if !model.listing.transaction_type.price_field?
+      :none
+    else
+      if model.listing.transaction_type.preauthorize_payment?
+        :preauthorize
       else
-        if model.listing.transaction_type.preauthorize_payment?
-          :preauthorize
-        else
-          :postpay
-        end
+        :postpay
       end
+    end
+  end
+
+  def model_to_entity(model)
+    payment_process = payment_process_from_model(model)
 
     payment_total =
       case model.payment_gateway.to_sym
