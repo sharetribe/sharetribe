@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141023150700) do
+ActiveRecord::Schema.define(:version => 20141028104537) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -820,6 +820,7 @@ ActiveRecord::Schema.define(:version => 20141023150700) do
     t.integer  "minimum_commission_cents",          :default => 0
     t.string   "minimum_commission_currency"
     t.string   "payment_gateway",                   :default => "none", :null => false
+    t.integer  "listing_quantity",                  :default => 1
   end
 
   add_index "transactions", ["community_id"], :name => "index_transactions_on_community_id"

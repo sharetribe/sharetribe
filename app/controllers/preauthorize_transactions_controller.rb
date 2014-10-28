@@ -277,6 +277,7 @@ class PreauthorizeTransactionsController < ApplicationController
         listing_id: @listing.id,
         starter_id: @current_user.id,
         commission_from_seller: @current_community.commission_from_seller,
+        listing_quantity: duration(preauthorize_form.start_on, preauthorize_form.end_on),
         minimum_commission_cents: 0,
         minimum_commission_currency: @listing.currency,
         payment_gateway: MarketplaceService::Community::Query.payment_type(@current_community.id) || :none
@@ -309,7 +310,7 @@ class PreauthorizeTransactionsController < ApplicationController
         payer_id: @current_user.id,
         recipient_id: @listing.author.id,
         currency: "USD",
-        sum: @listing.price * duration(preauthorize_form.start_on, preauthorize_form.end_on)
+        sum: @listing.price * transaction.listing_quantity
       })
 
       booking = transaction.build_booking({

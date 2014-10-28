@@ -19,6 +19,7 @@ module TransactionService::Transaction
       community_id: opts[:community_id],
       listing_id: opts[:listing_id],
       starter_id: opts[:starter_id],
+      listing_quantity: Maybe(opts)[:listing_quantity].or_else(1),
       payment_gateway: opts[:payment_gateway],
       commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
       minimum_commission_cents: Maybe(opts[:minimum_commission_cents]).or_else(0),
@@ -180,7 +181,7 @@ module TransactionService::Transaction
         listing_title: model.listing.title,
         listing_price: model.listing.price,
         listing_author_id: model.listing.author.id,
-        listing_quantity: 1, #TODO fixme for booking
+        listing_quantity: model.listing_quantity,
         automatic_confirmation_after_days: model.automatic_confirmation_after_days,
         last_transition_at: model.last_transition_at,
         current_state: model.current_state.to_sym,
