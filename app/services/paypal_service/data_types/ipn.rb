@@ -70,6 +70,22 @@ module PaypalService
         [:fee_total, :money, :mandatory]
       )
 
+      PaymentPendingExt = EntityUtils.define_builder(
+        [:type, const_value: :payment_pending_ext],
+        [:pending_ext_id, :string, :mandatory],
+        [:authorization_expires_date, :mandatory, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
+        [:authorization_id, :string, :mandatory],
+        [:payer_email, :string],
+        [:payer_id, :string, :mandatory],
+        [:receiver_email, :string, :mandatory],
+        [:receiver_id, :string, :mandatory],
+        [:payment_status, :string, :mandatory],
+        [:pending_reason, :string],
+        [:receipt_id, :string],
+        [:authorization_total, :money, :mandatory],
+        [:payment_total, :money, :mandatory]
+      )
+
       BillingAgreementCancelled = EntityUtils.define_builder(
         [:type, const_value: :billing_agreement_cancelled],
         [:payer_email, :string],
@@ -86,6 +102,7 @@ module PaypalService
       def create_payment_completed(opts); PaymentCompleted.call(opts) end
       def create_payment_refunded(opts); PaymentRefunded.call(opts) end
       def create_billing_agreement_cancelled(opts); BillingAgreementCancelled.call(opts) end
+      def create_payment_pending_ext(opts); PaymentPendingExt.call(opts) end
 
       def from_params(params)
         p = HashUtils.symbolize_keys(params)
@@ -102,6 +119,8 @@ module PaypalService
           to_payment_refunded(p)
         when :billing_agreement_cancelled
           to_billing_agreement_cancelled(p)
+        when :payment_pending_ext
+          to_payment_pending_ext(p)
         else
           { type: type }
         end
@@ -122,6 +141,8 @@ module PaypalService
             return :order_created
           when ["pending", "authorization"]
             return :authorization_created
+          when ["pending", "multi_currency"]
+            return :payment_pending_ext
           when ["completed", ""]
             return :payment_completed
           when ["refunded", ""]
@@ -199,6 +220,24 @@ module PaypalService
               authorization_total: to_money(p[:auth_amount], p[:mc_currency])}))
       end
       private_class_method :to_payment_refunded
+
+
+      def to_payment_pending_ext(params)
+        p = HashUtils.rename_keys(
+          {
+            txn_id: :pending_ext_id,
+            auth_id: :authorization_id,
+            auth_exp: :authorization_expires_date,
+          },
+          params
+        )
+
+        create_payment_pending_ext(
+          p.merge({
+              payment_total: to_money(p[:mc_gross], p[:mc_currency]),
+              authorization_total: to_money(p[:auth_amount], p[:mc_currency]) }))
+      end
+      private_class_method :to_payment_pending_ext
 
       def to_billing_agreement_cancelled(params)
         p = HashUtils.rename_keys(
