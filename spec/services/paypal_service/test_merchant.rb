@@ -1,5 +1,11 @@
 module PaypalService
 
+  module TestMerchant
+    def self.build
+      PaypalService::Merchant.new(nil, TestLogger.new, TestActions.new.default_test_actions, TestApi.api_builder)
+    end
+  end
+
   class TestApi
     attr_reader :config
     WrappedResponse = Struct.new(:success?, :value)
@@ -20,266 +26,222 @@ module PaypalService
     end
   end
 
-  class TestMerchant
+  class TestActions
+    attr_reader :default_test_actions
 
-    def self.build
-      PaypalService::Merchant.new(nil, TestLogger.new, DEFAULT_TEST_ACTIONS, TestApi.api_builder)
+    def initialize
+      @tokens = {}
+      @payments_by_order_id = {}
+      @payments_by_auth_id = {}
+      @default_test_actions = build_default_test_actions
     end
 
+    def save_token(token)
+      @tokens[token[:token]] = token
+      token
+    end
 
-    identity = -> (val, _) { val }
+    def get_token(token)
+      @tokens[token]
+    end
 
-    DEFAULT_TEST_ACTIONS = {
-      # setup_billing_agreement: PaypalAction.def_action(
-      #   input_transformer: identity,
-      #   wrapper_method_name: :build_set_express_checkout,
-      #   action_method_name: :set_express_checkout,
-      #   output_transformer: -> (res, api) {
-      #     token = SecureRandom.uuid
-      #     DataTypes::Merchant.create_setup_billing_agreement_response({
-      #       token: token,
-      #       redirect_url: "https://testurl/#{token}",
-      #       username_to: api.config.subject || api.config.username
-      #     })
-      #   }
-      # ),
+    def create_and_save_payment(token)
+      payment = {
+        order_date: Time.now,
+        payment_status: "pending",
+        pending_reason: "order",
+        order_id: SecureRandom.uuid,
+        order_total: token[:order_total],
+        receiver_id: token[:receiver_id]
+      }
 
-      # create_billing_agreement: PaypalAction.def_action(
-      #   input_transformer: identity,
-      #   wrapper_method_name: :build_create_billing_agreement,
-      #   action_method_name: :create_billing_agreement,
-      #   output_transformer: -> (res, _) {
-      #     DataTypes::Merchant.create_create_billing_agreement_response({
-      #       billing_agreement_id: SecureRandom.uuid
-      #     })
-      #   }
-      # ),
+      @payments_by_order_id[payment[:order_id]] = payment
+      payment
+    end
 
-      # do_reference_transaction: PaypalAction.def_action(
-      #   input_transformer: -> (req, config) {
-      #     {
-      #       DoReferenceTransactionRequestDetails: {
-      #         ReferenceID: req[:billing_agreement_id],
-      #         PaymentAction: "Sale",
-      #         PaymentType: "InstantOnly",
-      #         PaymentDetails: {
-      #           NotifyURL: hook_url(config[:ipn_hook]),
-      #           OrderTotal: from_money(req[:payment_total]),
-      #           InvoiceID: req[:invnum],
-      #           PaymentDetailsItem: [{
-      #               Name: req[:name],
-      #               Description: req[:desc],
-      #               Number: 0,
-      #               Quantity: 1,
-      #               Amount: from_money(req[:payment_total])
-      #           }]
-      #         },
-      #         MsgSubID: req[:msg_sub_id]
-      #       }
-      #     }
-      #   },
-      #   wrapper_method_name: :build_do_reference_transaction,
-      #   action_method_name: :do_reference_transaction,
-      #   output_transformer: -> (res, api) {
-      #     details = res.do_reference_transaction_response_details
-      #     DataTypes::Merchant.create_do_reference_transaction_response({
-      #       billing_agreement_id: details.billing_agreement_id,
-      #       payment_id: details.payment_info.transaction_id,
-      #       payment_total: to_money(details.payment_info.gross_amount),
-      #       payment_date: details.payment_info.payment_date.to_s,
-      #       fee: to_money(details.payment_info.fee_amount),
-      #       payment_status: details.payment_info.payment_status,
-      #       pending_reason: details.payment_info.pending_reason,
-      #       username_to: api.config.subject || api.config.username
-      #     })
-      #   }
-      # ),
+    def authorize_payment(order_id, authorization_total)
+      payment = @payments_by_order_id[order_id]
+      raise "No order with order id: #{order_id}" if payment.nil?
+      raise "Cannot authorize more than order_total" if authorization_total.cents > payment[:order_total].cents
 
-      # get_express_checkout_details: PaypalAction.def_action(
-      #   input_transformer: -> (req, _) { { Token: req[:token] } },
-      #   wrapper_method_name: :build_get_express_checkout_details,
-      #   action_method_name: :get_express_checkout_details,
-      #   output_transformer: -> (res, api) {
-      #     details = res.get_express_checkout_details_response_details
-      #     DataTypes::Merchant.create_get_express_checkout_details_response(
-      #       {
-      #         token: details.token,
-      #         checkout_status: details.checkout_status,
-      #         billing_agreement_accepted: !!details.billing_agreement_accepted_status,
-      #         payer: details.payer_info.payer,
-      #         payer_id: details.payer_info.payer_id,
-      #         order_total: to_money(details.payment_details[0].order_total)
-      #       }
-      #     )
-      #   }
-      # ),
+      auth_id = SecureRandom.uuid
+      auth_payment = payment.merge({
+        authorization_date: Time.now,
+        authorization_total: authorization_total,
+        authorization_id: auth_id,
+        payment_status: "pending",
+        pending_reason: "authorization",
+        })
 
-      set_express_checkout_order: PaypalAction.def_action(
-        input_transformer: identity,
-        wrapper_method_name: :do_nothing,
-        action_method_name: :wrap_success,
-        output_transformer: -> (req, api) {
-          token = SecureRandom.uuid
-          DataTypes::Merchant.create_set_express_checkout_order_response({
-            token: token,
-            redirect_url: "https://paypaltest.com/#{token}",
-            receiver_username: api.config.subject || api.config.username
-          })
-        }
-      )#,
+      @payments_by_order_id[order_id] = auth_payment
+      @payments_by_auth_id[auth_id] = auth_payment
+      auth_payment
+    end
 
-      # do_express_checkout_payment: PaypalAction.def_action(
-      #   input_transformer: -> (req, config) {
-      #     {
-      #       DoExpressCheckoutPaymentRequestDetails: {
-      #         PaymentAction: "Order",
-      #         Token: req[:token],
-      #         PayerID: req[:payer_id],
-      #         PaymentDetails: [{
-      #             InvoiceID: req[:invnum],
-      #             NotifyURL: hook_url(config[:ipn_hook]),
-      #             OrderTotal: from_money(req[:order_total]),
-      #             PaymentDetailsItem: [{
-      #                 Name: req[:item_name],
-      #                 Quantity: req[:item_quantity],
-      #                 Amount: from_money(req[:item_price] || req[:order_total])
-      #             }]
-      #         }]
-      #       }
-      #     }
-      #   },
-      #   wrapper_method_name: :build_do_express_checkout_payment,
-      #   action_method_name: :do_express_checkout_payment,
-      #   output_transformer: -> (res, api) {
-      #     payment_info = res.do_express_checkout_payment_response_details.payment_info[0]
-      #     DataTypes::Merchant.create_do_express_checkout_payment_response(
-      #       {
-      #         order_date: payment_info.payment_date.to_s,
-      #         payment_status: payment_info.payment_status,
-      #         pending_reason: payment_info.pending_reason,
-      #         order_id: payment_info.transaction_id,
-      #         order_total: to_money(payment_info.gross_amount),
-      #         receiver_id: payment_info.seller_details.secure_merchant_account_id
-      #       })
-      #   }
-      # ),
+    def build_default_test_actions
+      identity = -> (val, _) { val }
 
-      # do_authorization: PaypalAction.def_action(
-      #   input_transformer: -> (req, _) {
-      #     {
-      #       MsgSubID: req[:msg_sub_id],
-      #       TransactionID: req[:order_id],
-      #       Amount: from_money(req[:authorization_total]),
-      #     }
-      #   },
-      #   wrapper_method_name: :build_do_authorization,
-      #   action_method_name: :do_authorization,
-      #   output_transformer: -> (res, api) {
-      #     DataTypes::Merchant.create_do_authorization_response({
-      #       authorization_id: res.transaction_id,
-      #       payment_status: res.authorization_info.payment_status,
-      #       pending_reason: res.authorization_info.pending_reason,
-      #       authorization_total: to_money(res.amount),
-      #       authorization_date: res.timestamp.to_s,
-      #       msg_sub_id: res.msg_sub_id
-      #     })
-      #   }
-      # ),
+      {
+        get_express_checkout_details: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap_success,
+          output_transformer: -> (res, api) {
+            req = res[:value]
+            token = get_token(req[:token])
 
-      # do_capture: PaypalAction.def_action(
-      #   input_transformer: -> (req, _) {
-      #     {
-      #       AuthorizationID: req[:authorization_id],
-      #       Amount: from_money(req[:payment_total]),
-      #       InvoiceID: req[:invnum],
-      #       CompleteType: "Complete"
-      #     }
-      #   },
-      #   wrapper_method_name: :build_do_capture,
-      #   action_method_name: :do_capture,
-      #   output_transformer: -> (res, api) {
-      #     payment_info = res.do_capture_response_details.payment_info
-      #     DataTypes::Merchant.create_do_full_capture_response(
-      #       {
-      #         authorization_id: res.do_capture_response_details.authorization_id,
-      #         payment_id: payment_info.transaction_id,
-      #         payment_status: payment_info.payment_status,
-      #         pending_reason: payment_info.pending_reason,
-      #         payment_total: to_money(payment_info.gross_amount),
-      #         fee_total: to_money(payment_info.fee_amount),
-      #         payment_date: payment_info.payment_date.to_s
-      #       }
-      #     )
-      #   }
-      # ),
+            if (!token.nil?)
+              DataTypes::Merchant.create_get_express_checkout_details_response(
+                {
+                  token: token[:token],
+                  checkout_status: "not_used_in_tests",
+                  billing_agreement_accepted: true,
+                  payer: token[:email],
+                  payer_id: "payer_id",
+                  order_total: token[:order_total]
+                })
+            else
+              PaypalService::DataTypes::FailureResponse.call()
+            end
+          }
+          ),
 
-      # do_void: PaypalAction.def_action(
-      #   input_transformer: -> (req, _) {
-      #     {
-      #       AuthorizationID: req[:transaction_id],
-      #       Note: req[:note],
-      #       MsgSubID: req[:msg_sub_id]
-      #     }
-      #   },
-      #   wrapper_method_name: :build_do_void,
-      #   action_method_name: :do_void,
-      #   output_transformer: -> (res, api) {
-      #     DataTypes::Merchant.create_do_void_response(
-      #       {
-      #         voided_id: res.authorization_id,
-      #         msg_sub_id: res.msg_sub_id
-      #       }
-      #     )
-      #   }
-      # ),
+        set_express_checkout_order: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap_success,
+          output_transformer: -> (res, api) {
+            req = res[:value]
 
-      # refund_transaction: PaypalAction.def_action(
-      #   input_transformer: -> (req, _) {
-      #     {
-      #       TransactionID: req[:payment_id],
-      #       RefundType: "Full",
-      #       RefundSource: "default",
-      #       MsgSubID: req[:msg_sub_id]
-      #     }
-      #   },
-      #   wrapper_method_name: :build_refund_transaction,
-      #   action_method_name: :refund_transaction,
-      #   output_transformer: -> (res, api) {
-      #     DataTypes::Merchant.create_refund_transaction_response(
-      #       {
-      #         refunded_id: res.RefundTransactionID,
-      #         refunded_fee_total: to_money(res.FeeRefundAmount),
-      #         refunded_net_total: to_money(res.NetRefundAmount),
-      #         refunded_gross_total: to_money(res.GrossRefundAmount),
-      #         refunded_total: to_money(res.TotalRefundedAmount),
-      #         msg_sub_id: res.MsgSubID
-      #       }
-      #     )
-      #   }
-      # ),
+            token = save_token({
+                token: SecureRandom.uuid,
+                item_name: req[:item_name],
+                item_quantity: req[:item_quantity],
+                item_price: req[:item_price],
+                order_total: req[:order_total],
+                receiver_id: req[:receiver_username]
+              })
 
-      # get_transaction_details: PaypalAction.def_action(
-      #   input_transformer: -> (req, _) {
-      #     {
-      #       TransactionID: req[:transaction_id],
-      #     }
-      #   },
-      #   wrapper_method_name: :build_get_transaction_details,
-      #   action_method_name: :get_transaction_details,
-      #   output_transformer: -> (res, api) {
-      #     payment_info = res.payment_transaction_details.payment_info
-      #     DataTypes::Merchant.create_get_transaction_details_response(
-      #       {
-      #         transaction_id: payment_info.transaction_id,
-      #         payment_status: payment_info.payment_status,
-      #         pending_reason: payment_info.pending_reason,
-      #         transaction_total: to_money(payment_info.gross_amount)
-      #       }
-      #     )
-      #   }
-      # )
-    }
+            DataTypes::Merchant.create_set_express_checkout_order_response({
+                token: token[:token],
+                redirect_url: "https://paypaltest.com/#{token[:token]}",
+                receiver_username: api.config.subject || api.config.username
+              })
+          }
+        ),
+
+        do_express_checkout_payment: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap_success,
+          output_transformer: -> (res, api) {
+            req = res[:value]
+            token = get_token(req[:token])
+
+            if (!token.nil?)
+              payment = create_and_save_payment(token)
+              DataTypes::Merchant.create_do_express_checkout_payment_response(
+                {
+                  order_date: payment[:order_date],
+                  payment_status: payment[:payment_status],
+                  pending_reason: payment[:pending_reason],
+                  order_id: payment[:order_id],
+                  order_total: payment[:order_total],
+                  receiver_id: payment[:receiver_id]
+                })
+            else
+              PaypalService::DataTypes::FailureResponse.call()
+            end
+          }
+        ),
+
+        do_authorization: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap_success,
+          output_transformer: -> (res, api) {
+            req = res[:value]
+            payment = authorize_payment(req[:order_id], req[:authorization_total])
+            DataTypes::Merchant.create_do_authorization_response({
+              authorization_id: payment[:authorization_id],
+              payment_status: payment[:payment_status],
+              pending_reason: payment[:pending_reason],
+              authorization_total: payment[:authorization_total],
+              authorization_date: payment[:authorization_date],
+              msg_sub_id: req[:msg_sub_id]
+            })
+          }
+        )#,
+
+        # do_capture: PaypalAction.def_action(
+        #   input_transformer: -> (req, _) {
+        #     {
+        #       AuthorizationID: req[:authorization_id],
+        #       Amount: from_money(req[:payment_total]),
+        #       InvoiceID: req[:invnum],
+        #       CompleteType: "Complete"
+        #     }
+        #   },
+        #   wrapper_method_name: :build_do_capture,
+        #   action_method_name: :do_capture,
+        #   output_transformer: -> (res, api) {
+        #     payment_info = res.do_capture_response_details.payment_info
+        #     DataTypes::Merchant.create_do_full_capture_response(
+        #       {
+        #         authorization_id: res.do_capture_response_details.authorization_id,
+        #         payment_id: payment_info.transaction_id,
+        #         payment_status: payment_info.payment_status,
+        #         pending_reason: payment_info.pending_reason,
+        #         payment_total: to_money(payment_info.gross_amount),
+        #         fee_total: to_money(payment_info.fee_amount),
+        #         payment_date: payment_info.payment_date.to_s
+        #       }
+        #     )
+        #   }
+        # ),
+
+        # do_void: PaypalAction.def_action(
+        #   input_transformer: -> (req, _) {
+        #     {
+        #       AuthorizationID: req[:transaction_id],
+        #       Note: req[:note],
+        #       MsgSubID: req[:msg_sub_id]
+        #     }
+        #   },
+        #   wrapper_method_name: :build_do_void,
+        #   action_method_name: :do_void,
+        #   output_transformer: -> (res, api) {
+        #     DataTypes::Merchant.create_do_void_response(
+        #       {
+        #         voided_id: res.authorization_id,
+        #         msg_sub_id: res.msg_sub_id
+        #       }
+        #     )
+        #   }
+        # ),
+
+        # get_transaction_details: PaypalAction.def_action(
+        #   input_transformer: -> (req, _) {
+        #     {
+        #       TransactionID: req[:transaction_id],
+        #     }
+        #   },
+        #   wrapper_method_name: :build_get_transaction_details,
+        #   action_method_name: :get_transaction_details,
+        #   output_transformer: -> (res, api) {
+        #     payment_info = res.payment_transaction_details.payment_info
+        #     DataTypes::Merchant.create_get_transaction_details_response(
+        #       {
+        #         transaction_id: payment_info.transaction_id,
+        #         payment_status: payment_info.payment_status,
+        #         pending_reason: payment_info.pending_reason,
+        #         transaction_total: to_money(payment_info.gross_amount)
+        #       }
+        #     )
+        #   }
+        # )
+      }
+    end
 
   end
-
 end

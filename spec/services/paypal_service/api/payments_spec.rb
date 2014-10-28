@@ -7,6 +7,7 @@ require_relative '../test_merchant'
 describe PaypalService::API::Payments do
 
   TokenStore = PaypalService::Store::Token
+  PaymentStore = PaypalService::Store::PaypalPayment
 
   before(:each) do
     @events = PaypalService::TestEvents.new
@@ -69,5 +70,21 @@ describe PaypalService::API::Payments do
     expect(result[:success]).to eq false
     expect(PaypalToken.count).to eq 0
     expect(@events.received_events[:request_cancelled].length).to eq 0
+  end
+
+  it "#create - Saves new payment" do
+    token = @payments.request(@cid, @req_info)[:data]
+
+    payment_res = @payments.create(@cid, token[:token])
+
+    payment = PaymentStore.get(@cid, @tx_id)
+    expect(payment_res.success).to eq(true)
+    expect(payment).not_to be_nil
+    expect(payment[:payment_status]).to eq(:pending)
+    expect(payment[:pending_reason]).to eq(:authorization)
+    expect(payment[:order_id]).not_to be_nil
+    expect(payment[:order_total]).to eq(@req_info[:order_total])
+    expect(payment[:authorization_id]).not_to be_nil
+    expect(payment[:authorization_total]).to eq(@req_info[:order_total])
   end
 end
