@@ -65,13 +65,14 @@ module TransactionService::Transaction
 
     #TODO: Fix to more sustainable solution (use model_to_entity, and add paypal and braintree relevant fields)
     #transition info is now added in controllers
-    #TODO: Return Result::Success.new
-    DataTypes.create_transaction_response(opts.merge({
-          id: transaction.id,
-          conversation_id: conversation.id,
-          created_at: transaction.created_at,
-          updated_at: transaction.updated_at
-        }))
+    Result::Success.new(
+      DataTypes.create_transaction_response(opts.merge({
+            id: transaction.id,
+            conversation_id: conversation.id,
+            created_at: transaction.created_at,
+            updated_at: transaction.updated_at
+          }))
+      )
   end
 
   def reject

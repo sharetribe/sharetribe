@@ -81,7 +81,12 @@ class PreauthorizeTransactionsController < ApplicationController
         }
       })
 
-    transaction_id = transaction_response[:transaction][:id]
+    unless transaction_response[:success]
+      flash[:error] = t("error_messages.paypal.generic_error")
+      return redirect_to action: :initiate
+    end
+
+    transaction_id = transaction_response[:data][:transaction][:id]
     #TODO Remove references to transaction model
     transaction = Transaction.find(transaction_id)
     #TODO NULL in transaction.payment crashes cuz preauthorization_expiration_days
@@ -217,7 +222,12 @@ class PreauthorizeTransactionsController < ApplicationController
           }
         })
 
-      transaction_id = transaction_response[:transaction][:id]
+      unless transaction_response[:success]
+        flash[:error] = "An error occured while trying to create a new transaction"
+        return redirect_to action: :preauthorize
+      end
+
+      transaction_id = transaction_response[:data][:transaction][:id]
       # TODO: use only response from service
       transaction = Transaction.find(transaction_id)
 
@@ -290,7 +300,12 @@ class PreauthorizeTransactionsController < ApplicationController
           }
         })
 
-      transaction_model = Transaction.find(transaction[:transaction][:id])
+      unless transaction[:success]
+        flash[:error] = "An error occured while trying to create a new transaction"
+        return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
+      end
+
+      transaction_model = Transaction.find(transaction[:data][:transaction][:id])
 
       transaction_model.payment = BraintreePayment.new({
         community_id: @current_community.id,
