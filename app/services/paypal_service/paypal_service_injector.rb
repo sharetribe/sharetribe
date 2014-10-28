@@ -10,16 +10,16 @@ module PaypalService
     module_function
 
     def build_paypal_payments
-      config = { #define builder here - add a datatype?
+      events = Events.new({
         request_cancel: ->(token) {
           TransactionService::Transaction.token_cancelled(token)
         },
         authorize: -> (transaction_id) {
           MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
         }
-      }
+      })
 
-      PaypalService::API::Payments.new(config)
+      PaypalService::API::Payments.new(events)
     end
   end
 end
