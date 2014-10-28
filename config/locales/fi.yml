@@ -1427,7 +1427,7 @@ fi:
       billing_agreement_canceled: "Laskutussopimus jäi kesken."
       billing_agreement_id_missing: "PayPal asetuksissa ilmeni teknisiä ongelmia."
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
-      need_to_have_currency_balance: "Huom! Sinulla tulee olla PayPal-valuuttatili valuutalle %{currency}, jotta voit vastaanottaa maksuja."
+      need_to_have_currency_balance: "Huom! PayPal-tilisi tulee pystyä ottamaan vastaan %{currency}-valuuttaa."
   paypal:
     checkout_with_paypal: "Maksa PayPal-tilillä"
     cancel_succesful: "PayPal maksu onnistuneesti peruttu."
