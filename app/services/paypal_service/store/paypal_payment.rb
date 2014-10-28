@@ -164,9 +164,9 @@ module PaypalService::Store::PaypalPayment
     end
 
     payment_update = PaymentUpdate.call(order.merge({payment_status: order[:payment_status].downcase.to_sym}))
-    payment_update[:pending_reason] = order[:pending_reason].downcase.gsub("-", "").to_sym if order[:pending_reason]
+    payment_update[:pending_reason] = order[:pending_reason].downcase.gsub(/[-_]/, "").to_sym if order[:pending_reason]
     payment_update[:commission_status] = order[:commission_status].downcase.to_sym if order[:commission_status]
-    payment_update = payment_update.merge(HashUtils.sub(order, *OPT_UPDATE_FIELDS)).merge(cent_totals)
+    payment_update = HashUtils.sub(order, *OPT_UPDATE_FIELDS).merge(cent_totals).merge(payment_update)
 
     return payment_update
   end
