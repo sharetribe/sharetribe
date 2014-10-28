@@ -6,9 +6,12 @@ require_relative '../test_merchant'
 
 describe PaypalService::API::Payments do
 
+  TokenStore = PaypalService::Store::Token
+
   before(:each) do
+    @events = PaypalService::TestEvents.new
     @payments = PaypalService::API::Payments.new(
-      PaypalService::TestEvents.new,
+      @events,
       PaypalService::TestMerchant.build,
       PaypalService::TestLogger.new)
 
@@ -47,5 +50,24 @@ describe PaypalService::API::Payments do
     expect(token[:item_name]).to eq @req_info[:item_name]
     expect(token[:item_quantity]).to eq @req_info[:item_quantity]
     expect(token[:item_price]).to eq @req_info[:item_price]
+  end
+
+  it "#request_cancel - deletes token and fires request_cancelled event" do
+    @payments.request(@cid, @req_info)
+    token = PaypalService::Store::Token.get_for_transaction(@cid, @tx_id)
+
+    @payments.request_cancel(@cid, token[:token])
+
+    expect(PaypalToken.count).to eq 0
+    expect(@events.received_events[:request_cancelled].length).to eq 1
+    expect(@events.received_events[:request_cancelled].first).to eq token
+  end
+
+  it "#request_cancel - Fires no events for non-existent token" do
+    result = @payments.request_cancel(@cid, "foo_bar_token")
+
+    expect(result[:success]).to eq false
+    expect(PaypalToken.count).to eq 0
+    expect(@events.received_events[:request_cancelled].length).to eq 0
   end
 end

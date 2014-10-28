@@ -65,11 +65,11 @@ module PaypalService::API
     ## POST /payments/request/cancel?token=EC-7XU83376C70426719
     def request_cancel(community_id, token_id)
       token = TokenStore.get(community_id, token_id)
-      if(token.present?)
-        #trigger callback for payment cancelled
-        @events.send(:request_cancel, token)
+      unless (token.nil?)
+        #trigger callback for request cancelled
+        @events.send(:request_cancelled, token)
 
-        TokenStore.delete(community_id, token_id)
+        TokenStore.delete(community_id, token[:transaction_id])
         Result::Success.new
       else
         #Handle errors by logging, because request cancellations are async (direct cancels + scheduling)
