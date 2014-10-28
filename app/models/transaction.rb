@@ -18,6 +18,7 @@
 #  minimum_commission_cents          :integer          default(0)
 #  minimum_commission_currency       :string(255)
 #  payment_gateway                   :string(255)      default("none"), not null
+#  listing_quantity                  :integer          default(1)
 #
 # Indexes
 #
@@ -39,7 +40,8 @@ class Transaction < ActiveRecord::Base
     :payment_gateway,
     :commission_from_seller,
     :minimum_commission_cents,
-    :minimum_commission_currency
+    :minimum_commission_currency,
+    :listing_quantity
     )
 
   attr_accessor :contract_agreed
