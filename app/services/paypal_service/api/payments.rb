@@ -2,7 +2,7 @@ module PaypalService::API
 
   class Payments
     # Injects a configured instance of the merchant client as paypal_merchant
-    include PaypalService::MerchantInjector
+    # include PaypalService::MerchantInjector
 
     # Include with_success for wrapping requests and responses
     include RequestWrapper
@@ -13,9 +13,15 @@ module PaypalService::API
     TokenStore = PaypalService::Store::Token
     PaymentStore = PaypalService::Store::PaypalPayment
 
-    def initialize(events, logger = PaypalService::Logger.new)
+    def initialize(events, merchant, logger = PaypalService::Logger.new)
       @logger = logger
       @events = events
+      @merchant = merchant
+    end
+
+    # For RequestWrapper mixin
+    def paypal_merchant
+      @merchant
     end
 
     ## POST /payments/request

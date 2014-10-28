@@ -1,6 +1,7 @@
 module PaypalService::API::RequestWrapper
 
   # Depends on including class to define logger getter
+  # Depends on including class to define paypal_merchant getter
 
 
   def with_success(cid, txid, request, opts = { error_policy: {} }, &block)
