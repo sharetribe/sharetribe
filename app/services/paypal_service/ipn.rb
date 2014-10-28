@@ -3,7 +3,7 @@ module PaypalService
 
     module_function
 
-    ORDER_UPDATE_TYPES = [:order_created, :authorization_created, :payment_completed]
+    ORDER_UPDATE_TYPES = [:order_created, :authorization_created, :payment_completed, :payment_pending_ext]
 
     def handle_msg(ipn_msg)
       case(ipn_msg[:type])
