@@ -29,7 +29,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
         redirect_to person_listing_path(person_id: @current_user.id, id: transaction[:listing_id])
       end
     else
-      redirect_to person_transaction_path(person_id: @current_user.id, id: pp_response[:data][:transacton][:id])
+      redirect_to person_transaction_path(person_id: @current_user.id, id: pp_response[:data][:transaction_id])
     end
   end
 
