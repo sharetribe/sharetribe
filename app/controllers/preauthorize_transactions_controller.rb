@@ -210,6 +210,8 @@ class PreauthorizeTransactionsController < ApplicationController
     }))
 
     if preauthorize_form.valid?
+      braintree_form = BraintreeForm.new(params[:braintree_payment])
+
       transaction_response = TransactionService::Transaction.create({
           transaction: {
             community_id: @current_community.id,
@@ -219,39 +221,19 @@ class PreauthorizeTransactionsController < ApplicationController
             content: preauthorize_form.content,
             payment_gateway: :braintree,
             commission_from_seller: @current_community.commission_from_seller
-          }
+          },
+          gateway_fields: braintree_form.to_hash
         })
 
       unless transaction_response[:success]
-        flash[:error] = "An error occured while trying to create a new transaction"
+        flash[:error] = "An error occured while trying to create a new transaction: #{transaction_response[:error_msg]}"
         return redirect_to action: :preauthorize
       end
 
       transaction_id = transaction_response[:data][:transaction][:id]
-      # TODO: use only response from service
-      transaction = Transaction.find(transaction_id)
 
-      transaction.payment = BraintreePayment.new({
-        community_id: @current_community.id,
-        payment_gateway_id: @current_community.payment_gateway.id,
-        status: "pending",
-        payer_id: @current_user.id,
-        recipient_id: @listing.author.id,
-        currency: "USD",
-        sum: @listing.price
-      })
-
-      braintree_form = BraintreeForm.new(params[:braintree_payment])
-      result = BraintreeSaleService.new(transaction.payment, braintree_form.to_hash).pay(false)
-
-      if result.success?
-        transaction.save!
-        MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
-        redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
-      else
-        flash[:error] = result.message
-        redirect_to action: :preauthorize
-      end
+      MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
+      redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
     else
       flash[:error] = preauthorize_form.errors.full_messages.join(", ")
       return redirect_to action: :preauthorize
@@ -281,7 +263,9 @@ class PreauthorizeTransactionsController < ApplicationController
     })
 
     if preauthorize_form.valid?
-      transaction = TransactionService::Transaction.create({
+      braintree_form = BraintreeForm.new(params[:braintree_payment])
+
+      transaction_response = TransactionService::Transaction.create({
           transaction: {
             community_id: @current_community.id,
             listing_id: @listing.id,
@@ -297,40 +281,19 @@ class PreauthorizeTransactionsController < ApplicationController
               start_on: preauthorize_form.start_on,
               end_on: preauthorize_form.end_on
             }
-          }
+          },
+          gateway_fields: braintree_form.to_hash
         })
 
-      unless transaction[:success]
-        flash[:error] = "An error occured while trying to create a new transaction"
+      unless transaction_response[:success]
+        flash[:error] = "An error occured while trying to create a new transaction: #{transaction_response[:error_msg]}"
         return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
       end
 
-      transaction_model = Transaction.find(transaction[:data][:transaction][:id])
+      transaction_id = transaction_response[:data][:transaction][:id]
 
-      transaction_model.payment = BraintreePayment.new({
-        community_id: @current_community.id,
-        payment_gateway_id: @current_community.payment_gateway.id,
-        status: "pending",
-        payer_id: @current_user.id,
-        recipient_id: @listing.author.id,
-        currency: "USD",
-        sum: @listing.price * transaction_model.listing_quantity
-      })
-
-      #TODO validations for form
-      braintree_form = BraintreeForm.new(params[:braintree_payment])
-      result = BraintreeSaleService.new(transaction_model.payment, braintree_form.to_hash).pay(false)
-
-      if result.success?
-        transaction_model.save!
-        MarketplaceService::Transaction::Command.transition_to(transaction_model.id, "preauthorized")
-        redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_model.id)
-      else
-        transaction_model.destroy
-        flash[:error] = result.message
-        redirect_to action: :preauthorize
-      end
-
+      MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
+      redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
     else
       flash[:error] = preauthorize_form.errors.full_messages.join(", ")
       return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)

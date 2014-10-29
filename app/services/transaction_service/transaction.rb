@@ -61,6 +61,30 @@ module TransactionService::Transaction
           end_on: end_on})
     end
 
+    payment_process = payment_process_from_model(transaction)
+
+    case [opts[:payment_gateway], payment_process]
+    when [:braintree, :preauthorize]
+      payment_gateway_id = BraintreePaymentGateway.where(community_id: opts[:community_id]).pluck(:id).first
+      transaction.payment = BraintreePayment.new({
+          community_id: opts[:community_id],
+          payment_gateway_id: payment_gateway_id,
+          status: "pending",
+          payer_id: opts[:starter_id],
+          recipient_id: opts[:listing_author_id],
+          currency: "USD",
+          sum: listing.price * transaction.listing_quantity
+        })
+
+      result = BraintreeSaleService.new(transaction.payment, opts[:gateway_fields]).pay(false)
+
+      unless result.success?
+        Result::Error.new(result.message)
+      end
+    else
+      # TODO Implement
+    end
+
     transaction.save!
 
     #TODO: Fix to more sustainable solution (use model_to_entity, and add paypal and braintree relevant fields)
