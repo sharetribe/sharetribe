@@ -255,8 +255,6 @@ class PreauthorizeTransactionsController < ApplicationController
             listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on),
             payment_gateway: MarketplaceService::Community::Query.payment_type(@current_community.id) || :none,
             commission_from_seller: @current_community.commission_from_seller,
-            minimum_commission_cents: 0,
-            minimum_commission_currency: @listing.currency,
             content: preauthorize_form.content,
             booking_fields: {
               start_on: preauthorize_form.start_on,

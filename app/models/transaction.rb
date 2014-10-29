@@ -39,8 +39,7 @@ class Transaction < ActiveRecord::Base
     :payment_attributes,
     :payment_gateway,
     :commission_from_seller,
-    :minimum_commission_cents,
-    :minimum_commission_currency,
+    :minimum_commission,
     :listing_quantity
     )
 

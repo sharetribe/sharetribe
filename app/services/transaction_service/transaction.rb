@@ -22,8 +22,7 @@ module TransactionService::Transaction
       listing_quantity: Maybe(opts)[:listing_quantity].or_else(1),
       payment_gateway: opts[:payment_gateway],
       commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
-      minimum_commission_cents: Maybe(opts[:minimum_commission_cents]).or_else(0),
-      minimum_commission_currency: listing.currency)
+      minimum_commission: Maybe(opts[:minimum_commission]).or_else(Money.new(0, listing.price.currency)))
 
     conversation = transaction.build_conversation(
       community_id: opts[:community_id],
