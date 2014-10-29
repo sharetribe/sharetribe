@@ -143,6 +143,16 @@ describe PaypalService::API::Payments do
       expect(PaypalToken.count).to eq(0)
     end
 
+    it "keeps token and returns redirect_url in error data upon 10486 error" do
+      token = @payments.request(@cid, @req_info)[:data]
+      @api_builder.will_fail(1, "10486")
+      payment_res = @payments.create(@cid, token[:token])
+
+      expect(payment_res.success).to eq(false)
+      expect(payment_res[:data][:redirect_url]).not_to be_nil
+      expect(PaypalToken.count).to eq(1)
+    end
+
   end
 
   context "#full_capture" do
@@ -170,7 +180,7 @@ describe PaypalService::API::Payments do
       expect(@events.received_events[:payment_updated].last).to eq(payment_res[:data])
     end
 
-    it "will retry at least 5 times" do
+    it "will retry at least 5 times in case of 10001" do
       @api_builder.will_fail(4, "10001")
       payment_res = @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
 
@@ -194,7 +204,7 @@ describe PaypalService::API::Payments do
       expect(@events.received_events[:payment_updated].length).to eq(0)
     end
 
-    it "voids payment and fires payment_updated when paypal api fails 5 times" do
+    it "voids payment and fires payment_updated after 5 paypal api fails" do
       @api_builder.will_fail(5, "x-timeout")
       payment_res = @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
 
