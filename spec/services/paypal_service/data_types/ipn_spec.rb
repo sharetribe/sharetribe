@@ -209,13 +209,61 @@ describe PaypalService::DataTypes::IPN do
     "ipn_track_id"=>"67e92d1e16ac5"
   }
 
+  #This one captured in multi-currency situation
+  #If some other pending reason is captured, compare fields
+  payment_pending_ext = {
+    "mc_gross"=>"100.00",
+    "invoice"=>"2-41",
+    "auth_exp"=>"23:50:00 Oct 30, 2014 PDT",
+    "protection_eligibility"=>"Ineligible",
+    "item_number1"=>"",
+    "payer_id"=>"7LFUVCDKGARH4",
+    "tax"=>"0.00",
+    "payment_date"=>"07:05:21 Oct 27, 2014 PDT",
+    "payment_status"=>"Pending",
+    "charset"=>"windows-1252",
+    "mc_shipping"=>"0.00",
+    "mc_handling"=>"0.00",
+    "first_name"=>"SandboxTest",
+    "transaction_entity"=>"payment",
+    "notify_version"=>"3.8",
+    "custom"=>"",
+    "payer_status"=>"verified",
+    "num_cart_items"=>"1",
+    "verify_sign"=>"Arsl7-LMI7rFwHLn2AZcRGMd.BLwAJFH7WGQjWjJjDuIVjPXV4-qgzMZ",
+    "payer_email"=>"dev+paypal-user2@sharetribe.com",
+    "parent_txn_id"=>"999243345J942435W",
+    "txn_id"=>"60J56194US3230833",
+    "payment_type"=>"instant",
+    "remaining_settle"=>"9",
+    "auth_id"=>"999243345J942435W",
+    "payer_business_name"=>"SandboxTest Account's Test Store",
+    "last_name"=>"Account",
+    "item_name1"=>"Testing",
+    "receiver_email"=>"dev+paypal-user1@sharetribe.com",
+    "auth_amount"=>"100.00",
+    "quantity1"=>"1",
+    "receiver_id"=>"URAPMR7WHFAWY",
+    "pending_reason"=>"multi_currency",
+    "txn_type"=>"cart",
+    "mc_gross_1"=>"100.00",
+    "mc_currency"=>"USD",
+    "residence_country"=>"GB",
+    "test_ipn"=>"1",
+    "transaction_subject"=>"",
+    "payment_gross"=>"100.00",
+    "auth_status"=>"Completed",
+    "ipn_track_id"=>"7119fe92afd3c"
+  }
+
   it "#from_params" do
     input_with_expected_type = [
       [payment_refunded, :payment_refunded],
       [order_created, :order_created],
       [auth_created, :authorization_created],
       [payment_completed, :payment_completed],
-      [payment_refunded, :payment_refunded]
+      [payment_refunded, :payment_refunded],
+      [payment_pending_ext, :payment_pending_ext]
     ]
 
     input_with_expected_type.each do |(input, type)|

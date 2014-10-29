@@ -331,7 +331,8 @@ module MarketplaceService
           BraintreeService::Payments::Command.void_transaction(transaction[:id], transaction[:community_id])
         when :paypal
           paypal_account = PaypalService::PaypalAccount::Query.personal_account(transaction[:listing][:author_id], transaction[:community_id])
-          paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
+          #TODO Deprecated call, update to use PaypalService::API:Api.payments.get_payment
+          paypal_payment = PaypalService::Store::PaypalPayment.for_transaction(transaction[:id])
 
           api_params = {
             receiver_username: paypal_account[:email],

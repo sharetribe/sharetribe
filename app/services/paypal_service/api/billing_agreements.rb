@@ -41,7 +41,7 @@ module PaypalService::API
           ) do |ref_tx_res|
 
             # Update payment
-            updated_payment = PaypalService::PaypalPayment::Command.update(
+            updated_payment = PaypalService::Store::PaypalPayment.update(
               community_id,
               info[:transaction_id],
               payment.merge({
@@ -78,7 +78,7 @@ module PaypalService::API
     end
 
     def with_completed_payment(cid, txid, &block)
-      payment = PaypalService::PaypalPayment::Query.get(cid, txid)
+      payment = PaypalService::Store::PaypalPayment.get(cid, txid)
       if (payment.nil?)
         return Result::Error.new("No matching payment for community_id: #{cid} and transaction_id: #{txid}.")
       end

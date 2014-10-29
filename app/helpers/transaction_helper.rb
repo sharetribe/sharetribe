@@ -219,7 +219,8 @@ module TransactionHelper
         } },
         pending_ext: ->() {
           ## This is so wrong place to call services...
-          paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(conversation.id)
+          #TODO Deprecated call, update to use PaypalService::API:Api.payments.get_payment
+          paypal_payment = PaypalService::Store::PaypalPayment.for_transaction(conversation.id)
 
           reason = Maybe(conversation).transaction_transitions.last.metadata["paypal_pending_reason"]
 
