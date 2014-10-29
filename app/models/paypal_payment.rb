@@ -33,6 +33,7 @@
 # Indexes
 #
 #  index_paypal_payments_on_authorization_id  (authorization_id) UNIQUE
+#  index_paypal_payments_on_community_id      (community_id)
 #  index_paypal_payments_on_order_id          (order_id) UNIQUE
 #  index_paypal_payments_on_transaction_id    (transaction_id) UNIQUE
 #
