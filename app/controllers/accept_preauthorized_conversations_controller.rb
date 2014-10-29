@@ -72,12 +72,12 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   private
 
   def with_optional_message(listing_conversation, message, sender_id, &block)
-    message = listing_conversation.conversation.messages.build({
+    msg = listing_conversation.conversation.messages.build({
         content: message,
         sender_id: sender_id
       })
 
-    if(message.save)
+    if(!message || msg.save)
       block.call(listing_conversation)
     else
       flash[:error] = t("layouts.notifications.something_went_wrong")
