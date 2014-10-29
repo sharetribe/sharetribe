@@ -32,6 +32,7 @@ Example request body:
   }
 
 # If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
 , booking_fields:
   { start_on: <Date>
   , end_on: <Date>
@@ -78,6 +79,7 @@ Response:
   }
 
 # If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
 , booking_fields:
   { start_on: <Date>
   , end_on: <Date>
@@ -121,6 +123,7 @@ Response:
   }
 
 # If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
 , booking_fields:
   { start_on: <Date>
   , end_on: <Date>
@@ -158,6 +161,7 @@ Response:
   }
 
 # If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
 , booking_fields:
   { start_on: <Date>
   , end_on: <Date>
@@ -293,6 +297,7 @@ Response:
   }
 
 # If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
 , booking_fields:
   { start_on: <Date>
   , end_on: <Date>
@@ -328,6 +333,7 @@ Response:
   }
 
 # If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
 , booking_fields:
   { start_on: <Date>
   , end_on: <Date>
