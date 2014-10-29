@@ -15,6 +15,12 @@ module TransactionService::Transaction
     #TODO this thing should come through transaction_opts
     listing = Listing.find(opts[:listing_id])
 
+    minimum_commission = Maybe(opts[:minimum_commission]).or_else {
+      Maybe(listing).price.currency.map { |currency|
+        Money.new(0, currency)
+      }.or_else(nil)
+    }
+
     transaction = TransactionModel.new(
       community_id: opts[:community_id],
       listing_id: opts[:listing_id],
@@ -22,7 +28,7 @@ module TransactionService::Transaction
       listing_quantity: Maybe(opts)[:listing_quantity].or_else(1),
       payment_gateway: opts[:payment_gateway],
       commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
-      minimum_commission: Maybe(opts[:minimum_commission]).or_else(Money.new(0, listing.price.currency)))
+      minimum_commission: minimum_commission)
 
     conversation = transaction.build_conversation(
       community_id: opts[:community_id],
