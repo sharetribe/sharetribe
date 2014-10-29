@@ -77,11 +77,25 @@ module PaypalService::Store::PaypalPayment
     update_payment(payment, ipn_entity)
   end
 
-  def initial(order)
-    order_total = order[:order_total]
-    InitialPaymentData.call(
-      order.merge({order_total_cents: order_total.cents, currency: order_total.currency.iso_code}))
+  def create(community_id, transaction_id, order)
+    model = PaypalPaymentModel.create!(
+      initial(
+        order
+          .merge({community_id: community_id, transaction_id: transaction_id})
+        ))
+    from_model(model)
   end
+
+  def get(community_id, transaction_id)
+    Maybe(PaypalPaymentModel.where(
+        community_id: community_id,
+        transaction_id: transaction_id
+        ).first)
+      .map { |model| from_model(model) }
+      .or_else(nil)
+  end
+
+  ## Privates
 
   def from_model(paypal_payment)
     hash = HashUtils.compact(
@@ -99,18 +113,11 @@ module PaypalService::Store::PaypalPayment
     PaypalPayment.call(hash)
   end
 
-  def create(community_id, transaction_id, order)
-    model = PaypalPaymentModel.create!(
-      initial(
-        order
-          .merge({community_id: community_id, transaction_id: transaction_id})
-        ))
-    from_model(model)
+  def initial(order)
+    order_total = order[:order_total]
+    InitialPaymentData.call(
+      order.merge({order_total_cents: order_total.cents, currency: order_total.currency.iso_code}))
   end
-
-
-
-  ## Privates
 
   def find_payment(payment_entity)
     payment = if (payment_entity[:order_id])
@@ -126,15 +133,6 @@ module PaypalService::Store::PaypalPayment
     return nil
   end
 
-
-  def get(community_id, transaction_id)
-    Maybe(PaypalPaymentModel.where(
-        community_id: community_id,
-        transaction_id: transaction_id
-        ).first)
-      .map { |model| from_model(model) }
-      .or_else(nil)
-  end
 
   def create_payment_update(order)
     cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total, :comission_total, :comission_fee_total]
