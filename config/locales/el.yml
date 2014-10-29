@@ -1275,6 +1275,7 @@ el:
     listing_actions:
       booking_from: ~
       booking_to: ~
+      how_paypal_works: ~
     new:
       post_a_new_listing: "Νέα καταχώρηση"
       listing: καταχώρηση
@@ -1412,6 +1413,7 @@ el:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: ~
+      need_to_have_currency_balance: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~
