@@ -41,6 +41,7 @@ Example request body:
 , gateway_fields: # Only for :paypal
   { success_url: "http://bikes.sharetribe.com/paypal_service/checkout_orders/success"
   , cancel_url: "http://bikes.sharetribe.com/paypal_service/checkout_orders/cancel?listing_id=1234"
+  , merchant_brand_logo_url: "https://sharetribe.s3.amazonaws.com/images/communities/wide_logos/123/paypal/Marketplace_Logo.png"
   }
 
 , gateway_fields: # Only for :braintree and :preauthorize
