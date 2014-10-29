@@ -48,7 +48,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     with_updated_listing_status(@listing_conversation, status, sender_id) do |lc|
       with_optional_message(lc, message, sender_id) do |lc|
         MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
-        flash[:notice] = t("layouts.notifications.#{@lc.discussion_type}_accepted")
+        flash[:notice] = t("layouts.notifications.#{lc.discussion_type}_accepted")
         redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
       end
     end
@@ -63,7 +63,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     with_updated_listing_status(@listing_conversation, status, sender_id) do |lc|
       with_optional_message(lc, message, sender_id) do |lc|
         MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
-        flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_rejected")
+        flash[:notice] = t("layouts.notifications.#{lc.discussion_type}_rejected")
         redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
       end
     end
