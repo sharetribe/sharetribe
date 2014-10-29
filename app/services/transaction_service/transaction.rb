@@ -22,8 +22,7 @@ module TransactionService::Transaction
       listing_quantity: Maybe(opts)[:listing_quantity].or_else(1),
       payment_gateway: opts[:payment_gateway],
       commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
-      minimum_commission_cents: Maybe(opts[:minimum_commission_cents]).or_else(0),
-      minimum_commission_currency: listing.currency)
+      minimum_commission: Maybe(opts[:minimum_commission]).or_else(Money.new(0, listing.price.currency)))
 
     conversation = transaction.build_conversation(
       community_id: opts[:community_id],
@@ -46,16 +45,87 @@ module TransactionService::Transaction
           sender_id: opts[:starter_id]})
     end
 
-    transaction.save!
+    if opts[:booking_fields].present?
+      start_on = opts[:booking_fields][:start_on]
+      end_on = opts[:booking_fields][:end_on]
+      duration = DateUtils.duration_days(start_on, end_on)
+
+      # Make sure listing_quantity equals duration
+      if duration != transaction.listing_quantity
+        return Result::Error.new("Listing quantity (#{transaction.listing_quantity}) must be equal to booking duration in days (#{duration})")
+      end
+
+      transaction.build_booking({
+          start_on: start_on,
+          end_on: end_on})
+    end
+
+    payment_process = payment_process_from_model(transaction)
+
+    gateway_fields_response =
+      case [opts[:payment_gateway], payment_process]
+      when [:braintree, :preauthorize]
+        payment_gateway_id = BraintreePaymentGateway.where(community_id: opts[:community_id]).pluck(:id).first
+        transaction.payment = BraintreePayment.new({
+          community_id: opts[:community_id],
+          payment_gateway_id: payment_gateway_id,
+          status: "pending",
+          payer_id: opts[:starter_id],
+          recipient_id: opts[:listing_author_id],
+          currency: "USD",
+          sum: listing.price * transaction.listing_quantity
+        })
+
+        result = BraintreeSaleService.new(transaction.payment, opts[:gateway_fields]).pay(false)
+
+        unless result.success?
+          return Result::Error.new(result.message)
+        end
+
+        transaction.save!
+
+        {}
+      when [:paypal, :preauthorize]
+        transaction.save!
+
+        result = PaypalService::API::Api.payments.request(
+        opts[:community_id],
+        PaypalService::API::DataTypes.create_create_payment_request({
+            transaction_id: transaction.id,
+            item_name: listing.title,
+            item_quantity: transaction.listing_quantity,
+            item_price: listing.price,
+            merchant_id: opts[:listing_author_id],
+            order_total: listing.price * transaction.listing_quantity,
+            success: transaction_opts[:gateway_fields][:success_url],
+            cancel: transaction_opts[:gateway_fields][:cancel_url],
+            merchant_brand_logo_url: transaction_opts[:gateway_fields][:merchant_brand_logo_url]
+          })
+        )
+
+        unless result[:success]
+          return Result::Error.new(result[:error_msg])
+        end
+
+        {redirect_url: result[:data][:redirect_url]}
+      else
+        # TODO Implement
+        transaction.save!
+        {}
+      end
 
     #TODO: Fix to more sustainable solution (use model_to_entity, and add paypal and braintree relevant fields)
     #transition info is now added in controllers
-    DataTypes.create_transaction_response(opts.merge({
-          id: transaction.id,
-          conversation_id: conversation.id,
-          created_at: transaction.created_at,
-          updated_at: transaction.updated_at
-        }))
+    Result::Success.new(
+      DataTypes.create_transaction_response(opts.merge({
+            id: transaction.id,
+            conversation_id: conversation.id,
+            created_at: transaction.created_at,
+            updated_at: transaction.updated_at
+          }),
+        gateway_fields_response
+        )
+      )
   end
 
   def reject
@@ -149,17 +219,22 @@ module TransactionService::Transaction
   # However, this method is only used to get the API interface right, even though the data model
   # doesn't match the interface.
   #
-  def model_to_entity(model)
-    payment_process =
-      if !model.listing.transaction_type.price_field?
-        :none
+
+  # DEPRECATED
+  def payment_process_from_model(model)
+    if !model.listing.transaction_type.price_field?
+      :none
+    else
+      if model.listing.transaction_type.preauthorize_payment?
+        :preauthorize
       else
-        if model.listing.transaction_type.preauthorize_payment?
-          :preauthorize
-        else
-          :postpay
-        end
+        :postpay
       end
+    end
+  end
+
+  def model_to_entity(model)
+    payment_process = payment_process_from_model(model)
 
     payment_total =
       case model.payment_gateway.to_sym
