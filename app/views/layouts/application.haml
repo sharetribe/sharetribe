@@ -36,7 +36,7 @@
     pressing send from either search bar of filter list will send all the form fields
 
   - if params[:controller] == "homepage" && params[:action] == "index"
-    = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
+    %form{method: "get", id: "homepage-filters"}
       - params.except("action", "controller", "q", "view", "utf8").each do |param, value|
         - unless param.match(/^filter_option/) || param.match(/^checkbox_filter_option/) || param.match(/^nf_/) || param.match(/^price_/)
           = hidden_field_tag param, value
