@@ -26,6 +26,6 @@ class PopulatePaymentProcess < ActiveRecord::Migration
   end
 
   def down
-    execute("DELETE payment_process FROM transactions")
+    execute("UPDATE transactions SET payment_process = 'none'")
   end
 end

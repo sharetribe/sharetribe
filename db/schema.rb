@@ -827,7 +827,7 @@ ActiveRecord::Schema.define(:version => 20141029121945) do
     t.string   "minimum_commission_currency"
     t.string   "payment_gateway",                                 :default => "none", :null => false
     t.integer  "listing_quantity",                                :default => 1
-    t.string   "payment_process",                   :limit => 31
+    t.string   "payment_process",                   :limit => 31, :default => "none"
   end
 
   add_index "transactions", ["community_id"], :name => "index_transactions_on_community_id"
