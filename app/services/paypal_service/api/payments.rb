@@ -364,8 +364,13 @@ module PaypalService::API
               token[:transaction_id],
               ec_details.merge(payment_res))
 
+            payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
+
+            # Send event payment_crated
+            @events.send(:payment_created, payment_entity)
+
             # Return as payment entity
-            Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
+            Result::Success.new(payment_entity)
           end
         end
       end
@@ -391,12 +396,13 @@ module PaypalService::API
 
           # Save authorization data to payment
           payment = PaymentStore.update(community_id, transaction_id, auth_res)
+          payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
           # Trigger callback for authorized
-          # @events.send(:authorize, transaction_id)
+          @events.send(:payment_updated, payment_entity)
 
           # Return as payment entity
-          Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
+          Result::Success.new(payment_entity)
         end
       end
     end

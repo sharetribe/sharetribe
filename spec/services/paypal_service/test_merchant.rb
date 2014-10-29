@@ -26,17 +26,23 @@ module PaypalService
     end
   end
 
-  class TestActions
-    attr_reader :default_test_actions
-
+  class FakePal
     def initialize
       @tokens = {}
       @payments_by_order_id = {}
       @payments_by_auth_id = {}
-      @default_test_actions = build_default_test_actions
     end
 
-    def save_token(token)
+    def save_token(req)
+      token = {
+        token: SecureRandom.uuid,
+        item_name: req[:item_name],
+        item_quantity: req[:item_quantity],
+        item_price: req[:item_price],
+        order_total: req[:order_total],
+        receiver_id: req[:receiver_username]
+      }
+
       @tokens[token[:token]] = token
       token
     end
@@ -77,6 +83,15 @@ module PaypalService
       @payments_by_auth_id[auth_id] = auth_payment
       auth_payment
     end
+  end
+
+  class TestActions
+    attr_reader :default_test_actions
+
+    def initialize
+      @fake_pal = FakePal.new
+      @default_test_actions = build_default_test_actions
+    end
 
     def build_default_test_actions
       identity = -> (val, _) { val }
@@ -88,7 +103,7 @@ module PaypalService
           action_method_name: :wrap_success,
           output_transformer: -> (res, api) {
             req = res[:value]
-            token = get_token(req[:token])
+            token = @fake_pal.get_token(req[:token])
 
             if (!token.nil?)
               DataTypes::Merchant.create_get_express_checkout_details_response(
@@ -112,15 +127,7 @@ module PaypalService
           action_method_name: :wrap_success,
           output_transformer: -> (res, api) {
             req = res[:value]
-
-            token = save_token({
-                token: SecureRandom.uuid,
-                item_name: req[:item_name],
-                item_quantity: req[:item_quantity],
-                item_price: req[:item_price],
-                order_total: req[:order_total],
-                receiver_id: req[:receiver_username]
-              })
+            token = @fake_pal.save_token(req)
 
             DataTypes::Merchant.create_set_express_checkout_order_response({
                 token: token[:token],
@@ -136,10 +143,10 @@ module PaypalService
           action_method_name: :wrap_success,
           output_transformer: -> (res, api) {
             req = res[:value]
-            token = get_token(req[:token])
+            token = @fake_pal.get_token(req[:token])
 
             if (!token.nil?)
-              payment = create_and_save_payment(token)
+              payment = @fake_pal.create_and_save_payment(token)
               DataTypes::Merchant.create_do_express_checkout_payment_response(
                 {
                   order_date: payment[:order_date],
@@ -161,7 +168,7 @@ module PaypalService
           action_method_name: :wrap_success,
           output_transformer: -> (res, api) {
             req = res[:value]
-            payment = authorize_payment(req[:order_id], req[:authorization_total])
+            payment = @fake_pal.authorize_payment(req[:order_id], req[:authorization_total])
             DataTypes::Merchant.create_do_authorization_response({
               authorization_id: payment[:authorization_id],
               payment_status: payment[:payment_status],
