@@ -83,6 +83,22 @@ module PaypalService
       @payments_by_auth_id[auth_id] = auth_payment
       auth_payment
     end
+
+    def capture_payment(auth_id, payment_total)
+      payment = @payments_by_auth_id[auth_id]
+      raise "No payment for auth id: #{auth_id}" if payment.nil?
+      raise "Cannot capture more than authorization_total" if payment_total.cents > payment[:authorization_total].cents
+
+      payment_id = SecureRandom.uuid
+      captured_payment = payment.merge({
+          payment_id: payment_id,
+          payment_total: payment_total,
+          fee_total: Money.new((payment_total.cents*0.1).to_i, payment_total.currency.iso_code),
+          payment_date: Time.now,
+          payment_status: "completed",
+          pending_reason: "none"
+        })
+    end
   end
 
   class TestActions
@@ -178,34 +194,29 @@ module PaypalService
               msg_sub_id: req[:msg_sub_id]
             })
           }
-        )#,
+        ),
 
-        # do_capture: PaypalAction.def_action(
-        #   input_transformer: -> (req, _) {
-        #     {
-        #       AuthorizationID: req[:authorization_id],
-        #       Amount: from_money(req[:payment_total]),
-        #       InvoiceID: req[:invnum],
-        #       CompleteType: "Complete"
-        #     }
-        #   },
-        #   wrapper_method_name: :build_do_capture,
-        #   action_method_name: :do_capture,
-        #   output_transformer: -> (res, api) {
-        #     payment_info = res.do_capture_response_details.payment_info
-        #     DataTypes::Merchant.create_do_full_capture_response(
-        #       {
-        #         authorization_id: res.do_capture_response_details.authorization_id,
-        #         payment_id: payment_info.transaction_id,
-        #         payment_status: payment_info.payment_status,
-        #         pending_reason: payment_info.pending_reason,
-        #         payment_total: to_money(payment_info.gross_amount),
-        #         fee_total: to_money(payment_info.fee_amount),
-        #         payment_date: payment_info.payment_date.to_s
-        #       }
-        #     )
-        #   }
-        # ),
+        do_capture: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap_success,
+          output_transformer: -> (res, api) {
+            req = res[:value]
+            payment = @fake_pal.capture_payment(req[:authorization_id], req[:payment_total])
+
+            DataTypes::Merchant.create_do_full_capture_response(
+              {
+                authorization_id: payment[:authorization_id],
+                payment_id: payment[:payment_id],
+                payment_status: payment[:payment_status],
+                pending_reason: payment[:pending_reason],
+                payment_total: payment[:payment_total],
+                fee_total: payment[:fee_total],
+                payment_date: payment[:payment_date]
+              }
+            )
+          }
+        )#,
 
         # do_void: PaypalAction.def_action(
         #   input_transformer: -> (req, _) {

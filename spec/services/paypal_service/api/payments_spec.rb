@@ -117,4 +117,47 @@ describe PaypalService::API::Payments do
     end
   end
 
+  context "#full_capture" do
+    before(:each) do
+      @payment_total = Money.new(1200, "EUR")
+      token = @payments.request(@cid, @req_info)[:data]
+      @payments.create(@cid, token[:token])[:data]
+      @events.clear
+    end
+
+    it "completes the payment with given payment_total" do
+      payment_res = @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
+
+      expect(payment_res.success).to eq(true)
+      expect(payment_res[:data][:payment_status]).to eq(:completed)
+      expect(payment_res[:data][:pending_reason]).to eq(:none)
+      expect(payment_res[:data][:payment_id]).not_to be_nil
+      expect(payment_res[:data][:payment_total]).to eq(@payment_total)
+    end
+
+    it "fires payment_updated event" do
+      payment_res = @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
+
+      expect(@events.received_events[:payment_updated].length).to eq(1)
+      expect(@events.received_events[:payment_updated].last).to eq(payment_res[:data])
+    end
+
+    it "returns failure and fires no events if called for non-existent payment" do
+      payment_res = @payments.full_capture(@cid, 987654321, { payment_total: @payment_total })
+
+      expect(payment_res.success).to eq(false)
+      expect(@events.received_events[:payment_updated].length).to eq(0)
+    end
+
+    it "only captures a payment once, second time returns failure" do
+      @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
+      @events.clear
+
+      payment_res = @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
+
+      expect(payment_res.success).to eq(false)
+      expect(@events.received_events[:payment_updated].length).to eq(0)
+    end
+  end
+
 end

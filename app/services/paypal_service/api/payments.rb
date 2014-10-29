@@ -114,8 +114,13 @@ module PaypalService::API
             payment_res
           )
 
+          payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
+
+          # Trigger payment_updated event
+          @events.send(:payment_updated, payment_entity)
+
           # Return as payment entity
-          Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
+          Result::Success.new(payment_entity)
         end
       end
     end
