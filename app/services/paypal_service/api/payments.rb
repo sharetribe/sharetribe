@@ -251,10 +251,11 @@ module PaypalService::API
           if err_response[:error_code] == "10486"
             {redirect_url: token[:express_checkout_url]}
           else
+            request_cancel(cid, token[:token])
             nil
           end
 
-        log_and_return(cid, txid, request, err_response, data)
+        log_and_return(cid, txid, request, err_response, data || {})
       end
     end
 
@@ -342,7 +343,8 @@ module PaypalService::API
           ),
           error_policy: {
             codes_to_retry: ["10001", "x-timeout", "x-servererror"],
-            try_max: 3
+            try_max: 3,
+            finally: method(:handle_failed_create_payment).call(token),
           }
         ) do |ec_details|
 

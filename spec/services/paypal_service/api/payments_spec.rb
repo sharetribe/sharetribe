@@ -131,6 +131,18 @@ describe PaypalService::API::Payments do
       expect(@events.received_events[:payment_created].length).to eq(0)
       expect(@events.received_events[:payment_updated].length).to eq(0)
     end
+
+    it "deletes token and fires request_cancelled after 3 paypal api failures" do
+      token = @payments.request(@cid, @req_info)[:data]
+      @api_builder.will_fail(3, "10001")
+      payment_res = @payments.create(@cid, token[:token])
+
+      expect(payment_res.success).to eq(false)
+      expect(@events.received_events[:request_cancelled].length).to eq(1)
+      expect(@events.received_events[:request_cancelled].first[:transaction_id]).to eq(@tx_id)
+      expect(PaypalToken.count).to eq(0)
+    end
+
   end
 
   context "#full_capture" do
