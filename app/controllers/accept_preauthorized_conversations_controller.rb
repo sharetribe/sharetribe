@@ -43,22 +43,25 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   def accepted
     message = params[:listing_conversation][:message_attributes][:content]
     sender_id = @current_user.id
+    status = params[:listing_conversation][:status]
 
-    with_optional_message(@listing_conversation, message, sender_id) do |lc|
-      with_updated_listing_status(lc, status) do |lc|
+    with_updated_listing_status(@listing_conversation, status, sender_id) do |lc|
+      with_optional_message(lc, message, sender_id) do |lc|
         MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
         flash[:notice] = t("layouts.notifications.#{@lc.discussion_type}_accepted")
         redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
       end
     end
+
   end
 
   def rejected
     message = params[:listing_conversation][:message_attributes][:content]
     sender_id = @current_user.id
+    status = params[:listing_conversation][:status]
 
-    with_optional_message(@listing_conversation, message, sender_id) do |lc|
-      with_updated_listing_status(lc, status) do |lc|
+    with_updated_listing_status(@listing_conversation, status, sender_id) do |lc|
+      with_optional_message(lc, message, sender_id) do |lc|
         MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
         flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_rejected")
         redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
@@ -68,17 +71,17 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   private
 
-  def with_optional_message(listing_conversation, message, &block)
-    lc = listing_conversation.conversation.messages.build({
-        content: params[:listing_conversation][:message_attributes][:content],
-        sender_id: @current_user.id
+  def with_optional_message(listing_conversation, message, sender_id, &block)
+    listing_conversation.conversation.messages.build({
+        content: message,
+        sender_id: sender_id
       })
 
-    if(lc.save)
-      block.call(lc.reload)
+    if(listing_conversation.save)
+      block.call(listing_conversation.reload)
     else
       flash[:error] = t("layouts.notifications.something_went_wrong")
-      redirect_to person_transaction_path(@current_user, @listing_conversation)
+      redirect_to person_transaction_path(person_id: sender_id, id: listing_conversation.id)
     end
   end
 
@@ -96,7 +99,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       block.call(listing_conversation.reload)
     else
       flash[:error] = t("error_messages.paypal.accept_authorization_error")
-      redirect_to person_transaction_path(person_id: sender_id , id: listing_conversation.id)
+      redirect_to accept_preauthorized_person_message_path(person_id: sender_id , id: listing_conversation.id)
     end
   end
 
