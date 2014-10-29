@@ -63,10 +63,11 @@ module TransactionService::Transaction
 
     payment_process = payment_process_from_model(transaction)
 
-    case [opts[:payment_gateway], payment_process]
-    when [:braintree, :preauthorize]
-      payment_gateway_id = BraintreePaymentGateway.where(community_id: opts[:community_id]).pluck(:id).first
-      transaction.payment = BraintreePayment.new({
+    gateway_fields_response =
+      case [opts[:payment_gateway], payment_process]
+      when [:braintree, :preauthorize]
+        payment_gateway_id = BraintreePaymentGateway.where(community_id: opts[:community_id]).pluck(:id).first
+        transaction.payment = BraintreePayment.new({
           community_id: opts[:community_id],
           payment_gateway_id: payment_gateway_id,
           status: "pending",
@@ -76,16 +77,43 @@ module TransactionService::Transaction
           sum: listing.price * transaction.listing_quantity
         })
 
-      result = BraintreeSaleService.new(transaction.payment, opts[:gateway_fields]).pay(false)
+        result = BraintreeSaleService.new(transaction.payment, opts[:gateway_fields]).pay(false)
 
-      unless result.success?
-        Result::Error.new(result.message)
+        unless result.success?
+          return Result::Error.new(result.message)
+        end
+
+        transaction.save!
+
+        {}
+      when [:paypal, :preauthorize]
+        transaction.save!
+
+        result = PaypalService::API::Api.payments.request(
+        opts[:community_id],
+        PaypalService::API::DataTypes.create_create_payment_request({
+            transaction_id: transaction.id,
+            item_name: listing.title,
+            item_quantity: transaction.listing_quantity,
+            item_price: listing.price,
+            merchant_id: opts[:listing_author_id],
+            order_total: listing.price * transaction.listing_quantity,
+            success: transaction_opts[:gateway_fields][:success_url],
+            cancel: transaction_opts[:gateway_fields][:cancel_url],
+            merchant_brand_logo_url: transaction_opts[:gateway_fields][:merchant_brand_logo_url]
+          })
+        )
+
+        unless result[:success]
+          return Result::Error.new(result[:error_msg])
+        end
+
+        {redirect_url: result[:data][:redirect_url]}
+      else
+        # TODO Implement
+        transaction.save!
+        {}
       end
-    else
-      # TODO Implement
-    end
-
-    transaction.save!
 
     #TODO: Fix to more sustainable solution (use model_to_entity, and add paypal and braintree relevant fields)
     #transition info is now added in controllers
@@ -95,7 +123,9 @@ module TransactionService::Transaction
             conversation_id: conversation.id,
             created_at: transaction.created_at,
             updated_at: transaction.updated_at
-          }))
+          }),
+        gateway_fields_response
+        )
       )
   end
 

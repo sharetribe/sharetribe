@@ -69,6 +69,13 @@ class PreauthorizeTransactionsController < ApplicationController
       return redirect_to action: :initiate
     end
 
+    # PayPal doesn't like images with cache buster in the URL
+    logo_url = Maybe(@current_community)
+      .wide_logo
+      .select { |wl| wl.present? }
+      .url(:paypal, timestamp: false)
+      .or_else(nil)
+
     transaction_response = TransactionService::Transaction.create({
         transaction: {
           community_id: @current_community.id,
@@ -78,6 +85,11 @@ class PreauthorizeTransactionsController < ApplicationController
           content: preauthorize_form.content,
           payment_gateway: :paypal,
           commission_from_seller: @current_community.commission_from_seller
+        },
+        gateway_fields: {
+          merchant_brand_logo_url: logo_url,
+          success_url: success_paypal_service_checkout_orders_url,
+          cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: @listing.id)
         }
       })
 
@@ -87,40 +99,9 @@ class PreauthorizeTransactionsController < ApplicationController
     end
 
     transaction_id = transaction_response[:data][:transaction][:id]
-    #TODO Remove references to transaction model
-    transaction = Transaction.find(transaction_id)
-    #TODO NULL in transaction.payment crashes cuz preauthorization_expiration_days
-    transaction.save!
 
-    # PayPal doesn't like images with cache buster in the URL
-    logo_url = Maybe(@current_community)
-      .wide_logo
-      .select { |wl| wl.present? }
-      .url(:paypal, timestamp: false)
-      .or_else(nil)
-
-    pp_result = paypal_payments_service.request(
-      transaction.community_id,
-      PaypalService::API::DataTypes.create_create_payment_request({
-        transaction_id: transaction.id,
-        item_name: @listing.title,
-        item_quantity: 1, # FIXME Use booking days as quantity
-        item_price: @listing.price,
-        merchant_id: @listing.author.id,
-        order_total: @listing.price, # FIXME The price is not correct for booking
-        success: success_paypal_service_checkout_orders_url,
-        cancel: cancel_paypal_service_checkout_orders_url(listing_id: @listing.id),
-        merchant_brand_logo_url: logo_url
-      })
-    )
-
-    if pp_result[:success]
-      MarketplaceService::Transaction::Command.transition_to(transaction.id, "initiated")
-      redirect_to pp_result[:data][:redirect_url]
-    else
-      flash[:error] = t("error_messages.paypal.generic_error")
-      return redirect_to action: :initiate
-    end
+    MarketplaceService::Transaction::Command.transition_to(transaction_id, "initiated")
+    redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
   end
 
   def book
@@ -301,10 +282,6 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   private
-
-  def paypal_payments_service
-    PaypalService::API::Api.payments
-  end
 
   def ensure_listing_author_is_not_current_user
     if @listing.author == @current_user
