@@ -193,6 +193,15 @@ describe PaypalService::API::Payments do
       expect(payment_res.success).to eq(false)
       expect(@events.received_events[:payment_updated].length).to eq(0)
     end
+
+    it "voids payment and fires payment_updated when paypal api fails 5 times" do
+      @api_builder.will_fail(5, "x-timeout")
+      payment_res = @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
+
+      expect(payment_res.success).to eq(false)
+      expect(@events.received_events[:payment_updated].length).to eq(1)
+      expect(@events.received_events[:payment_updated].first[:payment_status]).to eq(:voided)
+    end
   end
 
   context "#void" do
