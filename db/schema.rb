@@ -633,6 +633,10 @@ ActiveRecord::Schema.define(:version => 20141028104537) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "paypal_accounts", ["community_id"], :name => "index_paypal_accounts_on_community_id"
+  add_index "paypal_accounts", ["payer_id"], :name => "index_paypal_accounts_on_payer_id"
+  add_index "paypal_accounts", ["person_id"], :name => "index_paypal_accounts_on_person_id"
+
   create_table "paypal_payments", :force => true do |t|
     t.integer  "community_id",                                                        :null => false
     t.integer  "transaction_id",                                                      :null => false
@@ -663,6 +667,7 @@ ActiveRecord::Schema.define(:version => 20141028104537) do
   end
 
   add_index "paypal_payments", ["authorization_id"], :name => "index_paypal_payments_on_authorization_id", :unique => true
+  add_index "paypal_payments", ["community_id"], :name => "index_paypal_payments_on_community_id"
   add_index "paypal_payments", ["order_id"], :name => "index_paypal_payments_on_order_id", :unique => true
   add_index "paypal_payments", ["transaction_id"], :name => "index_paypal_payments_on_transaction_id", :unique => true
 
@@ -689,10 +694,11 @@ ActiveRecord::Schema.define(:version => 20141028104537) do
     t.integer  "item_quantity"
     t.integer  "item_price_cents"
     t.string   "currency",             :limit => 8
-    t.string   "express_checkout_url"
   end
 
+  add_index "paypal_tokens", ["community_id"], :name => "index_paypal_tokens_on_community_id"
   add_index "paypal_tokens", ["token"], :name => "index_paypal_tokens_on_token", :unique => true
+  add_index "paypal_tokens", ["transaction_id"], :name => "index_paypal_tokens_on_transaction_id"
 
   create_table "people", :id => false, :force => true do |t|
     t.string   "id",                                 :limit => 22,                   :null => false
