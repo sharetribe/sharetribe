@@ -29,6 +29,8 @@ Example request body:
   , listing_author_id: "1234abcd"
   , listing_quantity: 1
   , automatic_confirmation_after_days: 7
+  , commission_from_seller: 10
+  , minimum_commission: Money.new(20, "USD")
   }
 
 # If booking is used
