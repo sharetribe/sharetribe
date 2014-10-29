@@ -41,41 +41,62 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def accepted
-    update_listing_status do
-      flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_accepted")
+    message = params[:listing_conversation][:message_attributes][:content]
+    sender_id = @current_user.id
+
+    with_optional_message(@listing_conversation, message, sender_id) do |lc|
+      with_updated_listing_status(lc, status) do |lc|
+        MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
+        flash[:notice] = t("layouts.notifications.#{@lc.discussion_type}_accepted")
+        redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
+      end
     end
   end
 
   def rejected
-    update_listing_status do
-      flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_rejected")
+    message = params[:listing_conversation][:message_attributes][:content]
+    sender_id = @current_user.id
+
+    with_optional_message(@listing_conversation, message, sender_id) do |lc|
+      with_updated_listing_status(lc, status) do |lc|
+        MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
+        flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_rejected")
+        redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
+      end
     end
   end
 
   private
 
-  # Update listing status and call success block. In the block you can e.g. set flash notices.
-  def update_listing_status(&block)
-    @listing_conversation.conversation.messages.build({
-      content: params[:listing_conversation][:message_attributes][:content],
-      sender_id: @current_user.id
-    })
+  def with_optional_message(listing_conversation, message, &block)
+    lc = listing_conversation.conversation.messages.build({
+        content: params[:listing_conversation][:message_attributes][:content],
+        sender_id: @current_user.id
+      })
 
-    if @listing_conversation.save!
-      case params[:listing_conversation][:status]
-      when "paid"
-        response = TransactionService::Transaction.complete_preauthorization(@listing_conversation.id)
-        raise "Preauthorization failed: #{response[:error_msg]}" unless response[:success]
-      when "rejected"
-        MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, params[:listing_conversation][:status])
-      end
-      MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
-
-      redirect_to person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
-      block.call
+    if(lc.save)
+      block.call(lc.reload)
     else
       flash[:error] = t("layouts.notifications.something_went_wrong")
       redirect_to person_transaction_path(@current_user, @listing_conversation)
+    end
+  end
+
+  def with_updated_listing_status(listing_conversation, status, sender_id, &block)
+    success =
+      if(status == "paid")
+        response = TransactionService::Transaction.complete_preauthorization(listing_conversation.id)
+        response[:success]
+      elsif(status == "rejected")
+        #is truthy, or raises, which should happen only on programmer error
+        MarketplaceService::Transaction::Command.transition_to(listing_conversation.id, status)
+      end
+
+    if(success)
+      block.call(listing_conversation.reload)
+    else
+      flash[:error] = t("error_messages.paypal.accept_authorization_error")
+      redirect_to person_transaction_path(person_id: sender_id , id: listing_conversation.id)
     end
   end
 
