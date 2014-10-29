@@ -122,7 +122,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     transaction_conversation = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
     transaction = TransactionService::Transaction.query(@listing_conversation.id)
 
-    render locals: {
+    render "accept", locals: {
       discussion_type: transaction_conversation[:discussion_type],
       sum: transaction[:checkout_total],
       fee: transaction[:commission_total],
