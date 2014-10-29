@@ -31,6 +31,13 @@ Example request body:
   , automatic_confirmation_after_days: 7
   }
 
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
+  }
+
 , gateway_fields: # Only for :paypal
   { success_url: "http://bikes.sharetribe.com/paypal_service/checkout_orders/success"
   , cancel_url: "http://bikes.sharetribe.com/paypal_service/checkout_orders/cancel?listing_id=1234"
@@ -71,6 +78,13 @@ Response:
   , payment_total: Money.new(50, "USD") # only for Braintree if :preauthorized
   }
 
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
+  }
+
   # PayPal
 , gateway_fields:
   { redirect_url: "https://paypal.com/token?EJAHGOSKLGAHSG"
@@ -107,6 +121,13 @@ Response:
   , current_state: :rejected
   , payment_total: Money.new(50, "USD")
   }
+
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
+  }
 }
 ```
 
@@ -137,6 +158,13 @@ Response:
   , last_transition_at: <Time>
   , current_state: :rejected
   , payment_total: Money.new(50, "USD")
+  }
+
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
   }
 
   # PayPal
@@ -267,6 +295,13 @@ Response:
   , current_state: :completed
   , payment_total: Money.new(50, "USD")
   }
+
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
+  }
 }
 ```
 
@@ -295,6 +330,13 @@ Response:
   , last_transition_at: <Time>
   , current_state: :canceled
   , payment_total: Money.new(50, "USD")
+  }
+
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
   }
 }
 ```
