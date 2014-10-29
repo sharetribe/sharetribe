@@ -1412,12 +1412,13 @@ it:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
+      need_to_have_currency_balance: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: "Il pagamento di PayPal è stato cancellato con successo"
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
+      commission_payment_name: "Pagamento della commissione per %{listing_title}"
+      commission_payment_description: "La piattaforma %{service_name} ha preso questa commissione dalla transazione riguardante %{listing_title}"
   people:
     index:
       loading_more_members: ~
