@@ -1,28 +1,57 @@
 module PaypalService
 
   module TestMerchant
-    def self.build
-      PaypalService::Merchant.new(nil, TestLogger.new, TestActions.new.default_test_actions, TestApi.api_builder)
+    def self.build(api_builder)
+      PaypalService::Merchant.new(nil, TestLogger.new, TestActions.new.default_test_actions, api_builder)
     end
   end
 
   class TestApi
     attr_reader :config
-    WrappedResponse = Struct.new(:success?, :value)
+    SuccessResponse = Struct.new(:success?, :value)
+    ErrorResponse = Struct.new(:success?, :errors)
+    Error = Struct.new(:error_code, :long_message)
+
     Config = Struct.new(:subject)
 
-    def initialize(subject)
+    def initialize(subject, should_fail = false, error_code = nil)
       @config = Config.new(subject || "test_username")
+      @should_fail = should_fail
+      @error_code = error_code
     end
 
-    def wrap_success(val); WrappedResponse.new(true, val) end
-    def wrap_failure(val); WrappedResponse.new(false, val) end
-    def do_nothing(val); val end
+    def wrap(val)
+      unless @should_fail
+        SuccessResponse.new(true, val)
+      else
+        ErrorResponse.new(false, [Error.new(@error_code, "error msg")])
+      end
+    end
 
-    def self.api_builder
-      -> (req) {
+    def do_nothing(val)
+      val
+    end
+  end
+
+  class TestApiBuilder
+    def initialize()
+      @fail_count = 0
+      @error_code = nil
+    end
+
+    def will_fail(times, error_code)
+      @fail_count = times
+      @error_code = error_code
+    end
+
+    def call(req)
+      if @fail_count <= 0
         TestApi.new(req[:receiver_username])
-      }
+      else
+        @fail_count = @fail_count - 1
+        TestApi.new(req[:receiver_username], true, @error_code)
+      end
+
     end
   end
 
@@ -134,7 +163,7 @@ module PaypalService
         get_express_checkout_details: PaypalAction.def_action(
           input_transformer: identity,
           wrapper_method_name: :do_nothing,
-          action_method_name: :wrap_success,
+          action_method_name: :wrap,
           output_transformer: -> (res, api) {
             req = res[:value]
             token = @fake_pal.get_token(req[:token])
@@ -158,7 +187,7 @@ module PaypalService
         set_express_checkout_order: PaypalAction.def_action(
           input_transformer: identity,
           wrapper_method_name: :do_nothing,
-          action_method_name: :wrap_success,
+          action_method_name: :wrap,
           output_transformer: -> (res, api) {
             req = res[:value]
             token = @fake_pal.save_token(req)
@@ -174,7 +203,7 @@ module PaypalService
         do_express_checkout_payment: PaypalAction.def_action(
           input_transformer: identity,
           wrapper_method_name: :do_nothing,
-          action_method_name: :wrap_success,
+          action_method_name: :wrap,
           output_transformer: -> (res, api) {
             req = res[:value]
             token = @fake_pal.get_token(req[:token])
@@ -199,7 +228,7 @@ module PaypalService
         do_authorization: PaypalAction.def_action(
           input_transformer: identity,
           wrapper_method_name: :do_nothing,
-          action_method_name: :wrap_success,
+          action_method_name: :wrap,
           output_transformer: -> (res, api) {
             req = res[:value]
             payment = @fake_pal.authorize_payment(req[:order_id], req[:authorization_total])
@@ -217,7 +246,7 @@ module PaypalService
         do_capture: PaypalAction.def_action(
           input_transformer: identity,
           wrapper_method_name: :do_nothing,
-          action_method_name: :wrap_success,
+          action_method_name: :wrap,
           output_transformer: -> (res, api) {
             req = res[:value]
             payment = @fake_pal.capture_payment(req[:authorization_id], req[:payment_total])
@@ -239,7 +268,7 @@ module PaypalService
         do_void: PaypalAction.def_action(
           input_transformer: identity,
           wrapper_method_name: :do_nothing,
-          action_method_name: :wrap_success,
+          action_method_name: :wrap,
           output_transformer: -> (res, api) {
             req = res[:value]
             payment = @fake_pal.void(req[:transaction_id])
@@ -255,7 +284,7 @@ module PaypalService
         get_transaction_details: PaypalAction.def_action(
           input_transformer: identity,
           wrapper_method_name: :do_nothing,
-          action_method_name: :wrap_success,
+          action_method_name: :wrap,
           output_transformer: -> (res, api) {
             req = res[:value]
             payment = @fake_pal.get_payment(req[:transaction_id])

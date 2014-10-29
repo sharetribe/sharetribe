@@ -11,9 +11,10 @@ describe PaypalService::API::Payments do
 
   before(:each) do
     @events = PaypalService::TestEvents.new
+    @api_builder = PaypalService::TestApiBuilder.new
     @payments = PaypalService::API::Payments.new(
       @events,
-      PaypalService::TestMerchant.build,
+      PaypalService::TestMerchant.build(@api_builder),
       PaypalService::TestLogger.new)
 
     @cid = 10
@@ -54,6 +55,13 @@ describe PaypalService::API::Payments do
       expect(token[:item_price]).to eq @req_info[:item_price]
     end
 
+    it "tries the paypal api call at least 3 times in case of 10001" do
+      @api_builder.will_fail(2, "10001")
+      response = @payments.request(@cid, @req_info)
+
+      expect(response.success).to eq(true)
+    end
+
     it "cancel deletes token and fires request_cancelled event" do
       @payments.request(@cid, @req_info)
       token = PaypalService::Store::Token.get_for_transaction(@cid, @tx_id)
@@ -91,7 +99,7 @@ describe PaypalService::API::Payments do
       expect(payment_res[:data][:authorization_total]).to eq(@req_info[:order_total])
     end
 
-    it "raises payment_created event followed by payment_updated" do
+    it "triggers payment_created event followed by payment_updated" do
       token = @payments.request(@cid, @req_info)[:data]
       payment_res = @payments.create(@cid, token[:token])
 
@@ -101,7 +109,15 @@ describe PaypalService::API::Payments do
       expect(@events.received_events[:payment_updated].first).to eq(payment_res[:data])
     end
 
-    it "deletes request token" do
+    it "will retry at least 3 times" do
+      token = @payments.request(@cid, @req_info)[:data]
+      @api_builder.will_fail(2, "10001")
+      payment_res = @payments.create(@cid, token[:token])
+
+      expect(payment_res.success).to eq(true)
+    end
+
+    it "deletes request token when payment created" do
       token = @payments.request(@cid, @req_info)[:data]
       @payments.create(@cid, token[:token])
 
@@ -140,6 +156,13 @@ describe PaypalService::API::Payments do
 
       expect(@events.received_events[:payment_updated].length).to eq(1)
       expect(@events.received_events[:payment_updated].last).to eq(payment_res[:data])
+    end
+
+    it "will retry at least 5 times" do
+      @api_builder.will_fail(4, "10001")
+      payment_res = @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
+
+      expect(payment_res.success).to eq(true)
     end
 
     it "returns failure and fires no events if called for non-existent payment" do
@@ -183,7 +206,14 @@ describe PaypalService::API::Payments do
       expect(@events.received_events[:payment_updated].first).to eq(payment_res[:data])
     end
 
-    it "cannot void same payment twice" do
+    it "will retry at least 5 times" do
+      @api_builder.will_fail(4, "x-servererror")
+      payment_res = @payments.void(@cid, @tx_id, { note: "Voided for testing purposes." })
+
+      expect(payment_res.success).to eq(true)
+    end
+
+    it "cannot void the same payment twice" do
       @payments.void(@cid, @tx_id, { note: "Voided for testing purposes." })
       @events.clear
       payment_res = @payments.void(@cid, @tx_id, { note: "Voided for testing purposes." })
@@ -192,7 +222,7 @@ describe PaypalService::API::Payments do
       expect(@events.received_events[:payment_updated].length).to eq(0)
     end
 
-    it "cannot void captured payment" do
+    it "cannot void a captured payment" do
       @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
       @events.clear
       payment_res = @payments.void(@cid, @tx_id, { note: "Voided for testing purposes." })
