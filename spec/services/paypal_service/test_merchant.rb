@@ -99,6 +99,24 @@ module PaypalService
           pending_reason: "none"
         })
     end
+
+    def get_payment(auth_or_order_id)
+      @payments_by_auth_id[auth_or_order_id] || @payments_by_order_id[auth_or_order_id]
+    end
+
+    def void(auth_or_order_id)
+      payment = get_payment(auth_or_order_id)
+      raise "No payment with order or auth id: #{auth_or_order_id}" if payment.nil?
+
+      voided_payment = payment.merge({
+          payment_status: "voided",
+          pending_reason: "none"
+        })
+
+      @payments_by_order_id[voided_payment[:order_id]] = voided_payment
+      @payments_by_auth_id[voided_payment[:authorization_id]] = voided_payment unless voided_payment[:authorization_id].nil?
+      voided_payment
+    end
   end
 
   class TestActions
@@ -216,48 +234,42 @@ module PaypalService
               }
             )
           }
-        )#,
+        ),
 
-        # do_void: PaypalAction.def_action(
-        #   input_transformer: -> (req, _) {
-        #     {
-        #       AuthorizationID: req[:transaction_id],
-        #       Note: req[:note],
-        #       MsgSubID: req[:msg_sub_id]
-        #     }
-        #   },
-        #   wrapper_method_name: :build_do_void,
-        #   action_method_name: :do_void,
-        #   output_transformer: -> (res, api) {
-        #     DataTypes::Merchant.create_do_void_response(
-        #       {
-        #         voided_id: res.authorization_id,
-        #         msg_sub_id: res.msg_sub_id
-        #       }
-        #     )
-        #   }
-        # ),
+        do_void: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap_success,
+          output_transformer: -> (res, api) {
+            req = res[:value]
+            payment = @fake_pal.void(req[:transaction_id])
+            DataTypes::Merchant.create_do_void_response(
+              {
+                voided_id: req[:transaction_id],
+                msg_sub_id: req[:msg_sub_id]
+              }
+            )
+          }
+        ),
 
-        # get_transaction_details: PaypalAction.def_action(
-        #   input_transformer: -> (req, _) {
-        #     {
-        #       TransactionID: req[:transaction_id],
-        #     }
-        #   },
-        #   wrapper_method_name: :build_get_transaction_details,
-        #   action_method_name: :get_transaction_details,
-        #   output_transformer: -> (res, api) {
-        #     payment_info = res.payment_transaction_details.payment_info
-        #     DataTypes::Merchant.create_get_transaction_details_response(
-        #       {
-        #         transaction_id: payment_info.transaction_id,
-        #         payment_status: payment_info.payment_status,
-        #         pending_reason: payment_info.pending_reason,
-        #         transaction_total: to_money(payment_info.gross_amount)
-        #       }
-        #     )
-        #   }
-        # )
+        get_transaction_details: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap_success,
+          output_transformer: -> (res, api) {
+            req = res[:value]
+            payment = @fake_pal.get_payment(req[:transaction_id])
+
+            DataTypes::Merchant.create_get_transaction_details_response(
+              {
+                transaction_id: req[:transaction_id],
+                payment_status: payment[:payment_status],
+                pending_reason: payment[:pending_reason],
+                transaction_total: payment[:order_total]
+              }
+            )
+          }
+        )
       }
     end
 

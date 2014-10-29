@@ -160,4 +160,67 @@ describe PaypalService::API::Payments do
     end
   end
 
+  context "#void" do
+    before(:each) do
+      @payment_total = Money.new(1200, "EUR")
+      token = @payments.request(@cid, @req_info)[:data]
+      @payments.create(@cid, token[:token])[:data]
+      @events.clear
+    end
+
+    it "voids an authorized payment" do
+      payment_res = @payments.void(@cid, @tx_id, { note: "Voided for testing purposes." })
+
+      expect(payment_res.success).to eq(true)
+      expect(payment_res[:data][:payment_status]).to eq(:voided)
+      expect(payment_res[:data][:pending_reason]).to eq(:none)
+    end
+
+    it "triggers a payment updated event" do
+      payment_res = @payments.void(@cid, @tx_id, { note: "Voided for testing purposes." })
+
+      expect(@events.received_events[:payment_updated].length).to eq(1)
+      expect(@events.received_events[:payment_updated].first).to eq(payment_res[:data])
+    end
+
+    it "cannot void same payment twice" do
+      @payments.void(@cid, @tx_id, { note: "Voided for testing purposes." })
+      @events.clear
+      payment_res = @payments.void(@cid, @tx_id, { note: "Voided for testing purposes." })
+
+      expect(payment_res.success).to eq(false)
+      expect(@events.received_events[:payment_updated].length).to eq(0)
+    end
+
+    it "cannot void captured payment" do
+      @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
+      @events.clear
+      payment_res = @payments.void(@cid, @tx_id, { note: "Voided for testing purposes." })
+
+      expect(payment_res.success).to eq(false)
+      expect(@events.received_events[:payment_updated].length).to eq(0)
+      expect(PaymentStore.get(@cid, @tx_id)[:payment_status]).to eq(:completed)
+    end
+
+    it "does nothing if called for non-existent payment" do
+      payment_res = @payments.void(@cid, 987654321, { note: "Voided for testing purposes." })
+
+      expect(payment_res.success).to eq(false)
+      expect(@events.received_events[:payment_updated].length).to eq(0)
+    end
+  end
+
+  context "#get_payment" do
+    it "returns payment for given commmunity_id and transaction_id" do
+      token = @payments.request(@cid, @req_info)[:data]
+      expect(@payments.get_payment(@cid, @tx_id).success).to eq(false)
+
+      payment_res = @payments.create(@cid, token[:token])
+      expect(@payments.get_payment(@cid, @tx_id)[:data]).to eq(payment_res[:data])
+
+      payment_res = @payments.full_capture(@cid, @tx_id, { payment_total: Money.new(1200, "EUR") })
+      expect(@payments.get_payment(@cid, @tx_id)[:data]).to eq(payment_res[:data])
+    end
+  end
+
 end
