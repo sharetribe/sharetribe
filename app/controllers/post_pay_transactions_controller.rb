@@ -37,6 +37,7 @@ class PostPayTransactionsController < ApplicationController
             listing_author_id: @listing.author.id,
             content: contact_form.content,
             payment_gateway: @current_community.payment_gateway.gateway_type,
+            payment_process: :postpay,
             commission_from_seller: @current_community.commission_from_seller
           }
         })

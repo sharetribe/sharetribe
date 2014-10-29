@@ -39,6 +39,7 @@ class Transaction < ActiveRecord::Base
     :starter_skipped_feedback,
     :payment_attributes,
     :payment_gateway,
+    :payment_process,
     :commission_from_seller,
     :minimum_commission,
     :listing_quantity

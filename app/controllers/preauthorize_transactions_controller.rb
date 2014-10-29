@@ -84,6 +84,7 @@ class PreauthorizeTransactionsController < ApplicationController
           listing_author_id: @listing.author.id,
           content: preauthorize_form.content,
           payment_gateway: :paypal,
+          payment_process: :preauthorize,
           commission_from_seller: @current_community.commission_from_seller
         },
         gateway_fields: {
@@ -201,6 +202,7 @@ class PreauthorizeTransactionsController < ApplicationController
             listing_author_id: @listing.author.id,
             content: preauthorize_form.content,
             payment_gateway: :braintree,
+            payment_process: :preauthorize,
             commission_from_seller: @current_community.commission_from_seller
           },
           gateway_fields: braintree_form.to_hash
@@ -254,6 +256,7 @@ class PreauthorizeTransactionsController < ApplicationController
             listing_author_id: @listing.author.id,
             listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on),
             payment_gateway: MarketplaceService::Community::Query.payment_type(@current_community.id) || :none,
+            payment_process: :preauthorize,
             commission_from_seller: @current_community.commission_from_seller,
             content: preauthorize_form.content,
             booking_fields: {

@@ -27,6 +27,7 @@ module TransactionService::Transaction
       starter_id: opts[:starter_id],
       listing_quantity: Maybe(opts)[:listing_quantity].or_else(1),
       payment_gateway: opts[:payment_gateway],
+      payment_process: opts[:payment_process],
       commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
       minimum_commission: minimum_commission)
 
@@ -66,10 +67,8 @@ module TransactionService::Transaction
           end_on: end_on})
     end
 
-    payment_process = payment_process_from_model(transaction)
-
     gateway_fields_response =
-      case [opts[:payment_gateway], payment_process]
+      case [opts[:payment_gateway], opts[:payment_process]]
       when [:braintree, :preauthorize]
         payment_gateway_id = BraintreePaymentGateway.where(community_id: opts[:community_id]).pluck(:id).first
         transaction.payment = BraintreePayment.new({
@@ -225,23 +224,7 @@ module TransactionService::Transaction
   # However, this method is only used to get the API interface right, even though the data model
   # doesn't match the interface.
   #
-
-  # DEPRECATED
-  def payment_process_from_model(model)
-    if !model.listing.transaction_type.price_field?
-      :none
-    else
-      if model.listing.transaction_type.preauthorize_payment?
-        :preauthorize
-      else
-        :postpay
-      end
-    end
-  end
-
   def model_to_entity(model)
-    payment_process = payment_process_from_model(model)
-
     payment_total =
       case model.payment_gateway.to_sym
       when :checkout, :braintree
@@ -254,7 +237,7 @@ module TransactionService::Transaction
     checkout_details = checkout_details(model)
     DataTypes.create_transaction({
         id: model.id,
-        payment_process: payment_process,
+        payment_process: model.payment_process.to_sym,
         payment_gateway: model.payment_gateway.to_sym,
         community_id: model.community_id,
         starter_id: model.starter.id,
