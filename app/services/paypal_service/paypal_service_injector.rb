@@ -1,8 +1,10 @@
 module PaypalService
   module PaypalServiceInjector
+
     def payments_api
       @payment ||= build_paypal_payments
     end
+
     def billing_agreement_api
       @billing_agreement ||= PaypalService::API::BillingAgreements.new
     end
@@ -15,10 +17,10 @@ module PaypalService
       }
 
       events = Events.new({
-          request_cancelled: ->(token) {
-            TransactionService::Transaction.token_cancelled(token)
+          request_cancelled: -> (token) {
+            TransactionService::PaypalEvents.request_cancelled(token)
           },
-          payment_created: print_event_dummy.curry.call(:payment_created),
+          payment_created: [],
           payment_updated: print_event_dummy.curry.call(:payment_updated)
           # authorize: -> (transaction_id) {
           #   MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
