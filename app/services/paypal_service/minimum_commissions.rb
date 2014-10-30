@@ -4,16 +4,21 @@ module PaypalService::MinimumCommissions
   module_function
 
   def get(currency)
-    get_all()[currency.to_s.upcase]
+    currency_code = currency.to_s.upcase
+    get_all()[currency_code]
   end
 
   def get_all
-    @@mnimum_commissions ||= Maybe(load_yaml).or_else({})
+    @@mnimum_commissions ||= Maybe(load_yaml).or_else({}).reduce({}) { |min_commissions, (k, v)|
+      min_commissions[k] = Money.new(v, k)
+    }
   end
 
   def load_yaml
     if File.exists? path
       YAML.load_file(path)
+    else
+      {}
     end
   end
 
