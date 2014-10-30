@@ -760,6 +760,7 @@ fi:
     paypal:
       generic_error: ~
       cancel_error: "Maksun perumisen yhteydessä tapahtui virhe."
+      accept_authorization_error: "Maksun vastaanotto epäonnistui. Yritä uudelleen."
   error_pages:
     back_to_kassi_front_page: "Takaisin etusivulle"
     error_404:

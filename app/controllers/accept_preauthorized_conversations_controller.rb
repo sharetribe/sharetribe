@@ -89,6 +89,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
         response[:success]
       elsif(status == "rejected")
         #is truthy, or raises, which should happen only on programmer error
+        #TODO: Move to TransactionService, and make it return uniform response entity
         MarketplaceService::Transaction::Command.transition_to(listing_conversation.id, status)
       end
 
