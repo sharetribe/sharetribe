@@ -42,7 +42,6 @@ class Payment < ActiveRecord::Base
   validate :validate_sum
 
   delegate :commission_from_seller, to: :community
-  delegate :gateway_commission_percentage, :gateway_commission_fixed, :no_fixed_commission, to: :payment_gateway
 
   def validate_sum
     unless sum_exists?
@@ -60,16 +59,11 @@ class Payment < ActiveRecord::Base
   end
 
   def total_commission_percentage
-    (Maybe(commission_from_seller).or_else(0) + Maybe(gateway_commission_percentage).or_else(0)).to_f / 100.to_f
-  end
-
-  def total_commission_fixed
-    # Currently no marketplace specific fixed part
-    gateway_commission_fixed || no_fixed_commission
+    Maybe(commission_from_seller).or_else(0).to_f / 100.to_f
   end
 
   def total_commission
-    commission = total_sum * total_commission_percentage + total_commission_fixed
+    commission = total_sum * total_commission_percentage
     Money.new(PaymentMath.ceil_cents(commission.cents), commission.currency)
   end
 

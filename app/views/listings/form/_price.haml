@@ -23,7 +23,6 @@
     %small
       = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat
       - if seller_commission_in_use
-        - gateway = @current_community.payment_gateway
         - content_for :seller_commission_js do
           :javascript
             $(function() {
@@ -31,9 +30,7 @@
                 "#listing_price",
                 "#you-will-get",
                 "#listing_currency",
-                #{gateway.community_commission_percentage},
-                #{Maybe(gateway).gateway_commission_percentage.or_else(0)},
-                #{Maybe(gateway).gateway_commission_fixed.amount.or_else(0)});
+                #{Maybe(@current_community).commission_from_seller.or_else(0)});
             });
         - if run_js_immediately
           = yield :seller_commission_js

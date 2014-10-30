@@ -27,8 +27,6 @@ class PaymentGateway < ActiveRecord::Base
   belongs_to :community
   has_many :payments
 
-  monetize :gateway_commission_fixed_cents, :allow_nil => true
-
   # methods that must be defined in subclasses, but are not defined here as
   # this model is never directly used, only via subclasses
 
@@ -76,9 +74,5 @@ class PaymentGateway < ActiveRecord::Base
 
   def hold_in_escrow
     false
-  end
-
-  def community_commission_percentage
-    Maybe(community).commission_from_seller.or_else(0)
   end
 end

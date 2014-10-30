@@ -163,10 +163,6 @@ class Checkout < PaymentGateway
     payment
   end
 
-  def no_fixed_commission
-    Money.new(0, "EUR")
-  end
-
   def configured?
     if checkout_environment == "stub"
       true

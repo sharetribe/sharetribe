@@ -65,10 +65,6 @@ class BraintreePaymentGateway < PaymentGateway
     payment
   end
 
-  def no_fixed_commission
-    Money.new(0, "USD")
-  end
-
   def hold_in_escrow
     true
   end
