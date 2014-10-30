@@ -1,0 +1,22 @@
+@import "mixins/all";
+
+.paypal-horizontal-input-label {
+  @include media(tablet) {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 42px;
+    line-height: 42px;
+  }
+  font-weight: normal;
+  display: inline;
+}
+
+.paypal-horizontal-input-label-unit {
+  @extend .paypal-horizontal-input-label;
+  margin-left: 1em;
+}
+
+.paypal-preferences-input {
+  max-width: 5em;
+}
+

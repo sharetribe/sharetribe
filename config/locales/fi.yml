@@ -1415,7 +1415,7 @@ fi:
       admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska markkinapaikan ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_placeholder: "PayPal-tilisi sähköpostiosoite"
-      paypal_account_email_info_text: "Huom! Tarvitset PayPalin 'Premier'-tilin (yksityishenkilöille) tai 'Business'-tilin (yrityksille) vastaanottaaksesi luottokorttimaksuja. Jos sinulla on PayPalin 'Personal'-tili, voit muuttaa tilin tyyppiä (se on helppoa ja ilmaista). %{upgrade_paypal_account} Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}."
+      paypal_account_email_info_text: "Huom! Tarvitset PayPalin 'Premier'-tilin (yksityishenkilöille) tai 'Business'-tilin (yrityksille) vastaanottaaksesi luottokorttimaksuja. Jos sinulla on PayPalin 'Personal'-tili, voit muuttaa tilin tyyppiä (se on helppoa ja ilmaista). %{upgrade_paypal_account} Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}. Huom! PayPal-tilisi tulee pystyä ottamaan vastaan %{currency}-valuuttaa."
       create_paypal_account: tästä
       upgrade_paypal_account: "Muuta PayPal-tilin tyyppi tästä."
       connect_paypal_account: "Yhdistä PayPal-tili"
@@ -1429,7 +1429,6 @@ fi:
       billing_agreement_canceled: "Laskutussopimus jäi kesken."
       billing_agreement_id_missing: "PayPal asetuksissa ilmeni teknisiä ongelmia."
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
-      need_to_have_currency_balance: "Huom! PayPal-tilisi tulee pystyä ottamaan vastaan %{currency}-valuuttaa."
   paypal:
     checkout_with_paypal: "Maksa PayPal-tilillä"
     cancel_succesful: "PayPal maksu onnistuneesti peruttu."

@@ -1,0 +1,59 @@
+- content_for :javascript do
+  ST.initializePayPalAccountForm("paypal_account_form");
+
+- content_for :title_header do
+  %h1= t("layouts.admin.admin")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section.payment-settings
+  %h2= t("admin.paypal_accounts.marketplace_paypal_integration")
+
+  .row
+    = t("admin.paypal_accounts.new.integration_info_text").html_safe
+
+  .row
+
+  - if paypal_account_email.present?
+    .row.paypal-connected-email-row
+      %h3.paypal-account-connected
+        %del
+          = t("admin.paypal_accounts.show.paypal_account_email_connected")
+        = t("admin.paypal_accounts.show.paypal_account_email_connected_completed")
+      .paypal-connected-email.paypal-account-connected
+        = t("paypal_accounts.connected_account", :email => paypal_account_email)
+  - else
+
+    = form_for paypal_account_form, url: paypal_form_action, html: { :id => "paypal_account_form"} do |form|
+
+      - title = t("admin.paypal_accounts.new.paypal_account_email")
+      = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title, currency: currency}
+
+  = form_for paypal_prefs_form, url: paypal_prefs_form_action do |form|
+
+    .row
+      .col-12
+        %label="2. Set minimum price & transaction fee"
+
+    .row
+      .col-6
+        = form.label :commission_from_seller, "Transaction fee:", class: "paypal-horizontal-input-label"
+      .col-3
+        = form.text_field :commission_from_seller, class: "paypal-preferences-input"
+        %label.paypal-horizontal-input-label-unit
+          = "%"
+
+    .row
+      .col-6
+        = form.label :commission_from_seller, "Minimum listing price:", class: "paypal-horizontal-input-label"
+      .col-3
+        = form.text_field :minimum_listing_price, class: "paypal-preferences-input"
+        %label.paypal-horizontal-input-label-unit
+          = currency
+
+    .row
+      .col-12
+        = form.button "Save payment preferences"
+
+
+

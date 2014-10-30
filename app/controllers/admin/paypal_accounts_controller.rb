@@ -12,40 +12,65 @@ class Admin::PaypalAccountsController < ApplicationController
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm", :paypal_email, :commission_from_seller)
     .with_validations { validates_presence_of :paypal_email }
 
+  PaypalPreferencesForm = FormUtils.define_form("PaypalPreferencesForm",
+    :commission_from_seller,
+    :minimum_listing_price,
+    :minimum_commission
+    ).with_validations do
+      validates_numericality_of(
+        :commission_from_seller,
+        :only_integer => true,
+        :allow_nil => false,
+        :greater_than_or_equal_to => 5,
+        :less_than_or_equal_to => 100)
+      validate do |prefs|
+        if minimum_listing_price.to_i < minimum_commission
+          prefs.errors[:minimum_listing_price] << "Minimum listing price has to be greater than minimum commission ()"
+        end
+      end
+    end
 
-  def show
-    paypal_account = PaypalAccountQuery.admin_account(@current_community.id)
-    return redirect_to action: :new unless PaypalAccountEntity.order_permission_verified?(paypal_account)
-
+  def index
     @selected_left_navi_link = "paypal_account"
+    paypal_account = PaypalAccountQuery.admin_account(@current_community.id)
+    currency = @current_community.default_currency
+    minimum_commission = PaypalService::MinimumCommissions.get(currency)
 
-    render locals: {
-      paypal_account_email: Maybe(paypal_account)[:email].or_else("")
-    }
+    paypal_prefs_form = PaypalPreferencesForm.new(minimum_commission: minimum_commission, commission_from_seller: @current_community.commission_from_seller, minimum_listing_price: @current_community.minimum_price)
+
+    render("index", locals: {
+        paypal_account_email: Maybe(paypal_account)[:email].or_else(nil),
+        paypal_form_action: admin_community_paypal_accounts_path(@current_community),
+        paypal_account_form: PaypalAccountForm.new,
+        paypal_prefs_form: paypal_prefs_form,
+        paypal_prefs_form_action: preferences_update_admin_community_paypal_accounts_path(@current_community.id),
+        currency: currency
+      })
   end
 
-  def new
-    paypal_account = PaypalAccountQuery.admin_account(@current_community.id)
-    return redirect_to action: :show if PaypalAccountEntity.order_permission_verified?(paypal_account)
-
+  def preferences_update
     @selected_left_navi_link = "paypal_account"
-    community_currency = @current_community.default_currency
+    paypal_account = PaypalAccountQuery.admin_account(@current_community.id)
+    currency = @current_community.default_currency
+    minimum_commission = PaypalService::MinimumCommissions.get(currency)
 
-    render(locals: {
-      form_action: admin_community_paypal_account_path(@current_community),
-      paypal_account_form: PaypalAccountForm.new,
-      currency: community_currency
-    })
+    paypal_prefs_form = PaypalPreferencesForm.new(params[:paypal_preferences_form].merge(minimum_commission: minimum_commission))
+
+    unless paypal_prefs_form.valid?
+      flash[:error] = paypal_prefs_form.errors.full_messages.join(", ")
+    end
+
+    redirect_to action: :index
   end
 
-  def create
+  def account_create
     PaypalAccountCommand.create_admin_account(@current_community.id)
 
     permissions_url = request_paypal_permissions_url
 
     if permissions_url.blank?
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-      return redirect_to action: :new
+      return redirect_to action: :index
     else
       return redirect_to permissions_url
     end
@@ -78,7 +103,7 @@ class Admin::PaypalAccountsController < ApplicationController
       params[:verification_code]
     )
 
-    redirect_to admin_community_paypal_account_path(@current_community.id)
+    redirect_to action: :index
   end
 
   private
