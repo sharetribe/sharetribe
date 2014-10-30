@@ -25,7 +25,7 @@ module PaypalService::API
     def charge_commission(community_id, person_id, info)
       with_accounts(community_id, person_id) do |m_acc, admin_acc|
         with_completed_payment(community_id, info[:transaction_id]) do |payment|
-          with_success(
+          with_success(community_id, info[:transaction_id],
             MerchantData.create_do_reference_transaction({
                 receiver_username: admin_acc[:email],
                 billing_agreement_id: m_acc[:billing_agreement_id],

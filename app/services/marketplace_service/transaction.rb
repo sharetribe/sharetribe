@@ -336,7 +336,7 @@ module MarketplaceService
 
           api_params = {
             receiver_username: paypal_account[:email],
-            authorization_id: paypal_payment[:authorization_id],
+            transaction_id: paypal_payment[:authorization_id],
             note: "Automatic void: Not responded to a request after 3 days"
           }
 
