@@ -1275,7 +1275,7 @@ it:
     listing_actions:
       booking_from: ~
       booking_to: ~
-      how_paypal_works: ~
+      how_paypal_works: "Come funziona PayPal"
     new:
       post_a_new_listing: "Inserisci un nuovo spazio"
       listing: inserzione
@@ -1413,7 +1413,7 @@ it:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
-      need_to_have_currency_balance: ~
+      need_to_have_currency_balance: "Nota: Il tuo conto PayPal deve essere configurato per ricevere %{currency}."
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: "Il pagamento di PayPal è stato cancellato con successo"

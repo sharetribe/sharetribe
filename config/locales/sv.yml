@@ -80,7 +80,7 @@ sv:
         transaction_agreement_text_header: Avtalstext
         transaction_agreement_description: "Detta är innehållet av avtalet som användarna måste acceptera. Avtalets innehåll syns när användaren klickar på %{read_more} länken."
       edit_look_and_feel:
-        edit_community_look_and_feel: "Redigera marknadsplats \"%{community_name}\" kläm och känn"
+        edit_community_look_and_feel: "Redigera marknadsplatsen \"%{community_name}\""
         community_logo: Logotyp
         community_logo_icon: Mobillogotyp
         community_cover_photo: Omslagsbild
@@ -89,7 +89,7 @@ sv:
         favicon_info_text: "Favicon kommer att ersätta Sharetribes standardlogotyp. Dimensionerna ska vara 32x32 pixlar och den uppladdade bilden kommer att skalas till den dimensionen."
         community_custom_color1: Huvudfärg
         community_custom_color2: "Den andra färgen"
-        logo_instructions_text_with_dimensions: "Dekstoplogotypens storlek ska vara %{width}x%{height}px. Den kommer att visas för användare med större skärm."
+        logo_instructions_text_with_dimensions: "Desktoplogotypens storlek ska vara %{width}x%{height}px. Den kommer att visas för användare med större skärm."
         logo_icon_instructions_text_with_dimensions: "Mobillogotypen ska vara fyrkantig, gärna storleken %{width}x%{height}px. Den kommer att visas för användare med mindre skärm."
         cover_photo_visibility: "Omslagsbild visas på startsidan för ej inloggade användare."
         cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten. %{see_how_it_looks_like}."
@@ -273,7 +273,7 @@ sv:
         email_sent: "Meddelandet skickat."
     left_hand_navigation:
       users_and_transactions: "Användare & transaktioner"
-      configure: "Ställ in"
+      configure: Inställningar
       emails_title: E-post
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
@@ -955,7 +955,7 @@ sv:
       join_this_community: "Gå med marknadsplatsen"
       read_more: "Läs mer"
       feedback: "Vad skulle du vilja berätta för oss?"
-      default_feedback: "Har du stött på något problem med %{service_name}? Har du ett förslag hur vi förbättrar servicen? Märkt något misstänksamt innehåll? Eller bara har något du vill diskutera med oss? Låt oss veta!"
+      default_feedback: "Har du stött på något problem med %{service_name}? Har du ett förslag hur vi förbättrar tjänsten? Märkt något misstänksamt innehåll? Eller har du bara något du vill diskutera med oss? Låt oss veta!"
       feedback_forum: "forum för feedback"
       feedback_handle: Feedback
       give_feedback: "Kontakta oss"
@@ -1038,7 +1038,7 @@ sv:
       invitation_sent: "Inbjudan skickades"
       inviting_new_users_is_not_allowed_in_this_community: "Bjuda in nya användare är inte tillåtet."
       login_again: "Var vänlig logga in igen."
-      login_failed: "Inloggning misslyckades. Ange korrekta referenser."
+      login_failed: "Inloggning misslyckades. Försök igen."
       account_creation_successful: "Välkommen till %{service_name}, %{person_name}!"
       account_deleted: "Ditt konto är nu borttaget."
       login_successful: "Välkommen, %{person_name}!"
@@ -1292,7 +1292,7 @@ sv:
     listing_actions:
       booking_from: Från
       booking_to: Till
-      how_paypal_works: ~
+      how_paypal_works: "Hur PayPal fungerar"
     new:
       post_a_new_listing: "Skapa annons"
       listing: annons
@@ -1430,13 +1430,13 @@ sv:
       billing_agreement_canceled: "Betalningen avbröts"
       billing_agreement_id_missing: "Det uppstod ett tekniskt fel med PayPal integrationen"
       something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
-      need_to_have_currency_balance: ~
+      need_to_have_currency_balance: "Notera: Ditt PayPal konto måste vara konfigurerat för att kunna ta emot %{currency}."
   paypal:
     checkout_with_paypal: "Gå till kassan med PayPal"
     cancel_succesful: "PayPal betalning avbruten"
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
+      commission_payment_name: "Provisionsbetalning för %{listing_title}"
+      commission_payment_description: "Marknadsplatsen %{service_name} tog denna provion från transaktionen avseende %{listing_title}"
   people:
     index:
       loading_more_members: "Laddar fler medlemmar"
@@ -1477,7 +1477,7 @@ sv:
       enter_captcha: "Jag är en människa:"
       family_name: Efternamn
       given_name: Förnamn
-      i_accept_the: "Jag accepterar de"
+      i_accept_the: "Jag accepterar"
       invalid_invitation_code: "Inbjudningskoden är inte korrekt."
       invitation_code: Inbjudningskod
       not_required: ", krävs inte"
@@ -1548,7 +1548,7 @@ sv:
       they_follow_plural: "%{count} följande personer"
       they_follow_singular: "%{count} följande personer"
       show_all_followed_people: "Visa alla följande personer"
-      no_followed_people: "Inga följande personer"
+      no_followed_people: "Inga personer följer dig"
     follow_button:
       following: Följer
       follow: Följ
@@ -1622,24 +1622,24 @@ sv:
         status_confirmed: Bekräftad
         status_pending: Väntar
     notifications:
-      email_from_admins: "Jag är villig att ta emot uppdateringar från administratören."
+      email_from_admins: "Jag är villig att ta emot sporadiska uppdateringar från administratören."
       i_want_to_get_email_notification_when: "Jag vill få e-post aviseringar när..."
       newsletters: Nyhetsbrev
-      community_updates: "Uppdatera e-postmeddelanden"
-      email_about_accept_reminders: "... Jag har glömt att acceptera ett erbjudande eller efterfrågan"
-      email_about_confirm_reminders: "... Jag har glömt att bekräfta en förfrågan som avslutad"
+      community_updates: "E-post om uppdateringar"
+      email_about_accept_reminders: "... jag har glömt att acceptera ett erbjudande eller efterfrågan"
+      email_about_confirm_reminders: "... jag har glömt att bekräfta en förfrågan som avslutad"
       email_about_new_comments_to_own_listing: "... någon har kommenterat mitt erbjudande eller efterfrågan"
       email_about_new_messages: "... någon skickar mig ett meddelande"
       email_about_new_received_testimonials: "... någon ger mig feedback"
-      email_about_testimonial_reminders: "... Jag har glömt att ge feedback på en händelse"
+      email_about_testimonial_reminders: "... jag har glömt att ge feedback på en händelse"
       email_daily_community_updates: "Skicka mig ett nyhetsbrev <b>dagligen</b> om det kommer nya annonser"
       email_weekly_community_updates: "Skicka mig ett nyhetsbrev <b>veckovis</b> om det kommer nya annonser"
       do_not_email_community_updates: "Skicka inte e-post om uppdateringar"
       email_when_conversation_accepted: "... någon accepterar mitt erbjudande eller efterfrågan"
       email_when_conversation_rejected: "... någon avböjer mitt erbjudande eller min efterfrågan"
       email_about_completed_transactions: "... när någon markerat mitt erbjudande som klar"
-      email_about_new_payments: "...Jag har fått en ny betalning"
-      email_about_payment_reminders: "... Jag har glömt att betala"
+      email_about_new_payments: "...jag har fått en ny betalning"
+      email_about_payment_reminders: "... jag har glömt att betala"
       email_about_new_listings_by_followed_people: "... någon jag följer har skapat en annons"
       unsubscribe_succesful: "Avprenumeration lyckades"
       unsubscribe_info_text: "Du kommer inte längre att få dessa e-post. Kontrollera dina %{settings_link} för att välja vilka e-postmeddelanden du vill ha från %{service_name} eller gå tillbaka till %{homepage_link}."
