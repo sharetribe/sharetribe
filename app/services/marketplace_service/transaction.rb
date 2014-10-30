@@ -244,7 +244,9 @@ module MarketplaceService
       module_function
 
       def transaction(transaction_id)
-        Entity.transaction(TransactionModel.find(transaction_id))
+        Maybe(TransactionModel.where(id: transaction_id).first)
+          .map { |m| Entity.transaction(m) }
+          .or_else(nil)
       end
 
       def transaction_with_conversation(transaction_id, person_id, community_id)

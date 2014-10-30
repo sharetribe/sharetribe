@@ -9,14 +9,15 @@ module TransactionService::PaypalEvents
 
   def payment_updated(payment)
     tx = MarketplaceService::Transaction::Query.transaction(payment[:transaction_id])
-
-    case transition_type(tx, payment)
-    when :initiated_to_preauthorized
-      initiated_to_preauthorized(tx)
-    when :initiated_to_voided
-      delete_transaction(tx)
-    else
-      # No handler yet, should log but how to get a logger?
+    if (tx)
+      case transition_type(tx, payment)
+      when :initiated_to_preauthorized
+        initiated_to_preauthorized(tx)
+      when :initiated_to_voided
+        delete_transaction(tx)
+      else
+        # No handler yet, should log but how to get a logger?
+      end
     end
   end
 

@@ -41,7 +41,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     end
 
     flash[:notice] = t("paypal.cancel_succesful")
-    return redirect_to person_listing_path(person_id: @current_user.id, :id => params[:listing_id])
+    return redirect_to person_listing_path(person_id: @current_user.id, id: params[:listing_id])
   end
 
   private

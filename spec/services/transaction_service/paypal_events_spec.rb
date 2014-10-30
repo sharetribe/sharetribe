@@ -58,6 +58,46 @@ describe TransactionService::PaypalEvents do
       tx = MarketplaceService::Transaction::Query.transaction(@transaction.id)
       expect(tx[:status]).to eq("preauthorized")
     end
+
+    it "is safe to call for non-existent transaction" do
+      no_matching_tx = @authorized_payment.merge({transaction_id: 987654321 })
+      TransactionService::PaypalEvents.payment_updated(no_matching_tx)
+
+      tx = MarketplaceService::Transaction::Query.transaction(@transaction.id)
+      expect(tx[:status]).to eq("initiated")
+    end
   end
 
+  context "#payment_updated - initiated => voided" do
+    before(:each) do
+      @cid = 4
+      @transaction = FactoryGirl.create(:transaction, community_id: 4, current_state: "initiated", payment_gateway: "paypal")
+
+      PaymentStore.create(@cid, @transaction.id, {
+          payer_id: "sduyfsudf",
+          receiver_id: "98ysdf98ysdf",
+          pending_reason: "authorization",
+          order_id: SecureRandom.uuid,
+          order_date: Time.now,
+          order_total: Money.new(22000, "EUR"),
+        })
+      @voided_payment = PaymentStore.update(@cid, @transaction.id,  {
+          pending_reason: :none,
+          payment_status: :voided
+        })
+    end
+
+    it "removes the associated transaction" do
+      TransactionService::PaypalEvents.payment_updated(@voided_payment)
+
+      expect(Transaction.count).to eq(0)
+    end
+
+    it "is safe to call for non-existent transaction" do
+      no_matching_tx = @voided_payment.merge({transaction_id: 987654321 })
+      TransactionService::PaypalEvents.payment_updated(no_matching_tx)
+
+      expect(Transaction.count).to eq(1)
+    end
+  end
 end
