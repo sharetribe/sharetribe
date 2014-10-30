@@ -148,6 +148,7 @@ module PaypalService
     end
   end
 
+  # rubocop:disable all
   class TestActions
     attr_reader :default_test_actions
 
@@ -301,6 +302,7 @@ module PaypalService
         )
       }
     end
-
   end
+  # rubocop:enable all
+
 end
