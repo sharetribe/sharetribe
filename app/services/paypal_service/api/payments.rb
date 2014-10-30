@@ -1,8 +1,6 @@
 module PaypalService::API
 
   class Payments
-    # Injects a configured instance of the merchant client as paypal_merchant
-    # include PaypalService::MerchantInjector
 
     # Include with_success for wrapping requests and responses
     include RequestWrapper
@@ -66,10 +64,11 @@ module PaypalService::API
     def request_cancel(community_id, token_id)
       token = TokenStore.get(community_id, token_id)
       unless (token.nil?)
+        TokenStore.delete(community_id, token[:transaction_id])
+
         #trigger callback for request cancelled
         @events.send(:request_cancelled, token)
 
-        TokenStore.delete(community_id, token[:transaction_id])
         Result::Success.new
       else
         #Handle errors by logging, because request cancellations are async (direct cancels + scheduling)
