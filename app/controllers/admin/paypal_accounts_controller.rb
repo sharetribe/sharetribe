@@ -49,8 +49,6 @@ class Admin::PaypalAccountsController < ApplicationController
   end
 
   def preferences_update
-    @selected_left_navi_link = "paypal_account"
-    paypal_account = PaypalAccountQuery.admin_account(@current_community.id)
     currency = @current_community.default_currency
     minimum_commission = PaypalService::MinimumCommissions.get(currency)
 
@@ -59,6 +57,11 @@ class Admin::PaypalAccountsController < ApplicationController
     unless paypal_prefs_form.valid?
       flash[:error] = paypal_prefs_form.errors.full_messages.join(", ")
     end
+
+    @current_community.update_attributes(
+      commission_from_seller: paypal_prefs_form.commission_from_seller,
+      minimum_price: paypal_prefs_form.minimum_listing_price
+      )
 
     redirect_to action: :index
   end
