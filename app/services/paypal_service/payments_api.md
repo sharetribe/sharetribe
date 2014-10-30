@@ -122,7 +122,9 @@ Response 201 Created, Payment body:
 Response 200 OK, Error body:
 
 ```ruby
-{ paypal_error_code: 10486
+{ community_id: 501,
+  transaction_id: 999,
+  paypal_error_code: 10486
 , redirect_url: "https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-ABCDE12345"
 }
 ```

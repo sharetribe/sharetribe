@@ -19,6 +19,7 @@ module PaypalService::API::DataTypes
   )
 
   Payment = EntityUtils.define_builder(
+    [:community_id, :mandatory, :fixnum],
     [:transaction_id, :mandatory, :fixnum],
     [:payer_id, :mandatory, :string],
     [:receiver_id, :mandatory, :string],
@@ -36,7 +37,12 @@ module PaypalService::API::DataTypes
     [:payment_date, :time],
     [:payment_total, :money],
     [:fee_total, :money],
-    [:commission_status, one_of: [:not_charged, :charged]]
+    [:commission_payment_id, :string],
+    [:commission_payment_date, :time],
+    [:commission_total, :money],
+    [:commission_fee_total, :money],
+    [:commission_status, one_of: [:not_charged, :completed, :pending]],
+    [:commission_pending_reason, transform_with: -> (v) { (v.is_a? String) ? v.downcase.gsub("-", "").to_sym : v }]
   )
 
   AuthorizationInfo = EntityUtils.define_builder(
@@ -49,6 +55,12 @@ module PaypalService::API::DataTypes
 
   VoidingInfo = EntityUtils.define_builder([:note, :string])
 
+  CommissionInfo = EntityUtils.define_builder(
+    [:transaction_id, :mandatory, :fixnum],
+    [:commission_total, :mandatory, :money],
+    [:payment_name, :mandatory, :string],
+    [:payment_desc, :string])
+
   module_function
 
   def create_create_payment_request(opts); CreatePaymentRequest.call(opts) end
@@ -58,5 +70,6 @@ module PaypalService::API::DataTypes
   def create_authorization_info(opts); AuthorizationInfo.call(opts) end
   def create_payment_info(opts); PaymentInfo.call(opts) end
   def create_voiding_info(opts); VoidingInfo.call(opts) end
+  def create_commission_info(opts); CommissionInfo.call(opts) end
 
 end

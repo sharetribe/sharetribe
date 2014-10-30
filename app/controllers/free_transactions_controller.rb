@@ -48,10 +48,16 @@ class FreeTransactionsController < ApplicationController
             starter_id: @current_user.id,
             listing_author_id: @listing.author.id,
             content: contact_form.content,
-            payment_gateway: :none}
+            payment_gateway: :none,
+            payment_process: :none}
         })
 
-      transaction_id = transaction_response[:transaction][:id]
+      unless transaction_response[:success]
+        flash[:error] = "Sending the message failed. Please try again."
+        return redirect_to root
+      end
+
+      transaction_id = transaction_response[:data][:transaction][:id]
       MarketplaceService::Transaction::Command.transition_to(transaction_id, "free")
 
       # TODO: remove references to transaction model

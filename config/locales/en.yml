@@ -156,7 +156,7 @@ en:
         save_user_status_error: "Saving failed. Please refresh the page and try again."
         ban_user_confirmation: "This removes the user from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
       social_media:
-        social_media: Social media
+        social_media: "Social media"
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_placeholder: username
@@ -169,7 +169,7 @@ en:
         invalid_facebook_connect_secret: "Client secret should contain only numbers and letters from a to f."
         save: "Save settings"
       analytics:
-        analytics: "Analytics"
+        analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "Tracking ID of your Google Analytics account."
         save: "Save settings"
@@ -215,7 +215,7 @@ en:
         master_merchant_id: "Master Merchant ID"
         commission_from_seller: "Commission percentage from seller"
       paypal_account:
-        paypal_admin_account: "Payments"
+        paypal_admin_account: Payments
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -1290,6 +1290,7 @@ en:
     listing_actions:
       booking_from: From
       booking_to: To
+      how_paypal_works: "How PayPal Works"
     new:
       post_a_new_listing: "Post a new listing"
       listing: listing
@@ -1427,9 +1428,13 @@ en:
       billing_agreement_canceled: "Billing agreement was canceled"
       billing_agreement_id_missing: "There was technical difficulties with PayPal integration"
       something_went_wrong: "Something went wrong. Please try again. If the problem persists, please contact the site administrators."
+      need_to_have_currency_balance: "Note: Your PayPal account should be configured to receive %{currency}."
   paypal:
     checkout_with_paypal: "Checkout with PayPal"
     cancel_succesful: "PayPal payment succesfully canceled"
+    transaction:
+      commission_payment_name: "Commission payment for %{listing_title}"
+      commission_payment_description: "Marketplace %{service_name} took this commission from transaction regarding %{listing_title}"
   people:
     index:
       loading_more_members: "Loading more members"

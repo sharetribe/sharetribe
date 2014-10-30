@@ -744,6 +744,7 @@ ru:
       you_must_select_a_grade: "Не забывайте оценивать пользователей, путём выбора одного из значков сверху (вы можете посмотреть, что они значат, наведя на них указатель мыши)"
     paypal:
       generic_error: ~
+      cancel_error: ~
   error_pages:
     back_to_kassi_front_page: "На главную страницу Kassi"
     error_404:
@@ -1274,6 +1275,7 @@ ru:
     listing_actions:
       booking_from: ~
       booking_to: ~
+      how_paypal_works: ~
     new:
       post_a_new_listing: ~
       listing: ~
@@ -1411,8 +1413,13 @@ ru:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: ~
+      need_to_have_currency_balance: ~
   paypal:
     checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
   people:
     index:
       loading_more_members: ~

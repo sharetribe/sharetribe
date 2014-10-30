@@ -6,6 +6,8 @@
   - text = t("paypal_accounts.new.paypal_account_email_info_text", {create_paypal_account: create, upgrade_paypal_account: upgrade}).html_safe
   = render :partial => "layouts/info_text", :locals => {text: text}
 
+.row
+  = render partial: "layouts/info_text", locals: {text: t("paypal_accounts.new.need_to_have_currency_balance", currency: "<strong>#{currency}</strong>").html_safe }
 
 .row.send-button-wrapper
   = form.button t("paypal_accounts.new.connect_paypal_account"), :class => "send_button"

@@ -29,10 +29,12 @@ class Admin::PaypalAccountsController < ApplicationController
     return redirect_to action: :show if PaypalAccountEntity.order_permission_verified?(paypal_account)
 
     @selected_left_navi_link = "paypal_account"
+    community_currency = @current_community.default_currency
 
     render(locals: {
       form_action: admin_community_paypal_account_path(@current_community),
-      paypal_account_form: PaypalAccountForm.new
+      paypal_account_form: PaypalAccountForm.new,
+      currency: community_currency
     })
   end
 

@@ -23,10 +23,17 @@
 #  pending_reason             :string(64)
 #  created_at                 :datetime         not null
 #  updated_at                 :datetime         not null
+#  commission_payment_id      :string(64)
+#  commission_payment_date    :datetime
+#  commission_status          :string(64)       default("not_charged"), not null
+#  commission_pending_reason  :string(64)
+#  commission_total_cents     :integer
+#  commission_fee_total_cents :integer
 #
 # Indexes
 #
 #  index_paypal_payments_on_authorization_id  (authorization_id) UNIQUE
+#  index_paypal_payments_on_community_id      (community_id)
 #  index_paypal_payments_on_order_id          (order_id) UNIQUE
 #  index_paypal_payments_on_transaction_id    (transaction_id) UNIQUE
 #
@@ -50,9 +57,13 @@ class PaypalPayment < ActiveRecord::Base
     :payment_total_cents,
     :fee_total_cents,
     :payment_status,
-    :pending_reason)
-
-  belongs_to :transaction
+    :pending_reason,
+    :commission_payment_id,
+    :commission_payment_date,
+    :commission_total_cents,
+    :commission_fee_total_cents,
+    :commission_status,
+    :commission_pending_reason)
 
   validates_presence_of(
     :community_id,
@@ -63,5 +74,14 @@ class PaypalPayment < ActiveRecord::Base
     :order_date,
     :currency,
     :order_total_cents,
-    :payment_status)
+    :payment_status,
+    :commission_status)
+
+  monetize :order_total_cents,          with_model_currency: :currency
+  monetize :authorization_total_cents,  with_model_currency: :currency, allow_nil: true
+  monetize :payment_total_cents,        with_model_currency: :currency, allow_nil: true
+  monetize :fee_total_cents,            with_model_currency: :currency, allow_nil: true
+  monetize :commission_total_cents,     with_model_currency: :currency, allow_nil: true
+  monetize :commission_fee_total_cents, with_model_currency: :currency, allow_nil: true
+
 end

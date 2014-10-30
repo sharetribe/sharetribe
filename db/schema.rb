@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141023150700) do
+ActiveRecord::Schema.define(:version => 20141029121945) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -633,15 +633,19 @@ ActiveRecord::Schema.define(:version => 20141023150700) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "paypal_accounts", ["community_id"], :name => "index_paypal_accounts_on_community_id"
+  add_index "paypal_accounts", ["payer_id"], :name => "index_paypal_accounts_on_payer_id"
+  add_index "paypal_accounts", ["person_id"], :name => "index_paypal_accounts_on_person_id"
+
   create_table "paypal_payments", :force => true do |t|
-    t.integer  "community_id",                             :null => false
-    t.integer  "transaction_id",                           :null => false
-    t.string   "payer_id",                   :limit => 64, :null => false
-    t.string   "receiver_id",                :limit => 64, :null => false
-    t.string   "order_id",                   :limit => 64, :null => false
-    t.datetime "order_date",                               :null => false
-    t.string   "currency",                   :limit => 8,  :null => false
-    t.integer  "order_total_cents",                        :null => false
+    t.integer  "community_id",                                                        :null => false
+    t.integer  "transaction_id",                                                      :null => false
+    t.string   "payer_id",                   :limit => 64,                            :null => false
+    t.string   "receiver_id",                :limit => 64,                            :null => false
+    t.string   "order_id",                   :limit => 64,                            :null => false
+    t.datetime "order_date",                                                          :null => false
+    t.string   "currency",                   :limit => 8,                             :null => false
+    t.integer  "order_total_cents",                                                   :null => false
     t.string   "authorization_id",           :limit => 64
     t.datetime "authorization_date"
     t.datetime "authorization_expires_date"
@@ -650,13 +654,20 @@ ActiveRecord::Schema.define(:version => 20141023150700) do
     t.datetime "payment_date"
     t.integer  "payment_total_cents"
     t.integer  "fee_total_cents"
-    t.string   "payment_status",             :limit => 64, :null => false
+    t.string   "payment_status",             :limit => 64,                            :null => false
     t.string   "pending_reason",             :limit => 64
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at",                                                          :null => false
+    t.datetime "updated_at",                                                          :null => false
+    t.string   "commission_payment_id",      :limit => 64
+    t.datetime "commission_payment_date"
+    t.string   "commission_status",          :limit => 64, :default => "not_charged", :null => false
+    t.string   "commission_pending_reason",  :limit => 64
+    t.integer  "commission_total_cents"
+    t.integer  "commission_fee_total_cents"
   end
 
   add_index "paypal_payments", ["authorization_id"], :name => "index_paypal_payments_on_authorization_id", :unique => true
+  add_index "paypal_payments", ["community_id"], :name => "index_paypal_payments_on_community_id"
   add_index "paypal_payments", ["order_id"], :name => "index_paypal_payments_on_order_id", :unique => true
   add_index "paypal_payments", ["transaction_id"], :name => "index_paypal_payments_on_transaction_id", :unique => true
 
@@ -685,7 +696,9 @@ ActiveRecord::Schema.define(:version => 20141023150700) do
     t.string   "express_checkout_url"
   end
 
+  add_index "paypal_tokens", ["community_id"], :name => "index_paypal_tokens_on_community_id"
   add_index "paypal_tokens", ["token"], :name => "index_paypal_tokens_on_token", :unique => true
+  add_index "paypal_tokens", ["transaction_id"], :name => "index_paypal_tokens_on_transaction_id"
 
   create_table "people", :id => false, :force => true do |t|
     t.string   "id",                                 :limit => 22,                   :null => false
@@ -798,18 +811,23 @@ ActiveRecord::Schema.define(:version => 20141023150700) do
   add_index "transaction_types", ["url"], :name => "index_transaction_types_on_url"
 
   create_table "transactions", :force => true do |t|
-    t.string   "starter_id",                                            :null => false
-    t.integer  "listing_id",                                            :null => false
+    t.string   "starter_id",                                                          :null => false
+    t.integer  "listing_id",                                                          :null => false
     t.integer  "conversation_id"
     t.integer  "automatic_confirmation_after_days"
-    t.integer  "community_id",                                          :null => false
-    t.datetime "created_at",                                            :null => false
-    t.datetime "updated_at",                                            :null => false
-    t.boolean  "starter_skipped_feedback",          :default => false
-    t.boolean  "author_skipped_feedback",           :default => false
+    t.integer  "community_id",                                                        :null => false
+    t.datetime "created_at",                                                          :null => false
+    t.datetime "updated_at",                                                          :null => false
+    t.boolean  "starter_skipped_feedback",                        :default => false
+    t.boolean  "author_skipped_feedback",                         :default => false
     t.datetime "last_transition_at"
     t.string   "current_state"
-    t.string   "payment_gateway",                   :default => "none", :null => false
+    t.integer  "commission_from_seller"
+    t.integer  "minimum_commission_cents",                        :default => 0
+    t.string   "minimum_commission_currency"
+    t.string   "payment_gateway",                                 :default => "none", :null => false
+    t.integer  "listing_quantity",                                :default => 1
+    t.string   "payment_process",                   :limit => 31, :default => "none"
   end
 
   add_index "transactions", ["community_id"], :name => "index_transactions_on_community_id"

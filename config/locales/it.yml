@@ -142,10 +142,10 @@ it:
         ban_user_confirmation: ~
       social_media:
         social_media: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
+        twitter_handle: "Nome utente di Twitter"
+        twitter_handle_info_text: "Il nominativo del profilo Twitter del tuo negozio online (se ne hai uno). Sarà menzionato quando le persone premeranno il bottone di Twitter nella pagina dell'annuncio."
+        twitter_handle_placeholder: "nome utente"
+        invalid_twitter_handle: "Il nome utente di Twitter può contenere un massimo di 15 caratteri alfanumerici (lettere A-Z e numero 0-9)."
         facebook_connect: ~
         facebook_connect_info_text: ~
         facebook_connect_id: ~
@@ -157,7 +157,7 @@ it:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
-        save: ~
+        save: "Salva le impostazioni"
       menu_links:
         menu_links: ~
         save: ~
@@ -257,8 +257,8 @@ it:
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
     left_hand_navigation:
-      users_and_transactions: ~
-      configure: ~
+      users_and_transactions: "Utenti & transazioni"
+      configure: Configura
       emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: "Integrazione PayPal"
@@ -744,7 +744,7 @@ it:
       you_must_select_a_grade: "Ricordati di raccontare se la tua esperienza è stata positiva o negativa"
     paypal:
       generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento di PayPal."
-      cancel_error: ~
+      cancel_error: "Si è verificato un errore durante la cancellazione. Non è stato possibile completare la cancellazione."
   error_pages:
     back_to_kassi_front_page: "Indietro alla front page"
     error_404:
@@ -964,7 +964,7 @@ it:
       select_language: ~
     infos:
       about: Info
-      how_to_use: Aiuto
+      how_to_use: FAQ
       info_about_kassi: "Informazioni su %{service_name}"
       news: ~
       register_details: Privacy
@@ -1275,6 +1275,7 @@ it:
     listing_actions:
       booking_from: ~
       booking_to: ~
+      how_paypal_works: "Come funziona PayPal"
     new:
       post_a_new_listing: "Inserisci un nuovo spazio"
       listing: inserzione
@@ -1395,7 +1396,7 @@ it:
     new:
       payout_info_you_need_to_connect: "Per accettare i pagamenti devi connettere il tuo conto PayPal con %{service_name}."
       payout_info_text: ~
-      admin_account_not_connected: ~
+      admin_account_not_connected: "Non puoi connettere il tuo conto PayPal perchè l'amministratore della piattaforma non ha terminato la configurazione di PayPal."
       paypal_account_email: ~
       paypal_account_email_placeholder: "Il tuo indirizzo email di PayPal"
       paypal_account_email_info_text: ~
@@ -1412,9 +1413,13 @@ it:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
+      need_to_have_currency_balance: "Nota: Il tuo conto PayPal deve essere configurato per ricevere %{currency}."
   paypal:
     checkout_with_paypal: ~
-    cancel_succesful: ~
+    cancel_succesful: "Il pagamento di PayPal è stato cancellato con successo"
+    transaction:
+      commission_payment_name: "Pagamento della commissione per %{listing_title}"
+      commission_payment_description: "La piattaforma %{service_name} ha preso questa commissione dalla transazione riguardante %{listing_title}"
   people:
     index:
       loading_more_members: ~

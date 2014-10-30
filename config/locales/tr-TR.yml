@@ -708,7 +708,7 @@ tr-TR:
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Geri bildirimler açık olarak yayınlanmakta olup tüm diğer üyeler tarafından görüntülenebilmektedir. Diğer kullanıcılar geri bildirimleri dikkate alarak %{name} kullanıcısının güvenilir ve temasa geçmek isteyecekleri bir kişi olup olmadığına karar verebilirler. Bu nedenle başınıza gelenlerle ilgili geri bildirim vermenin her zaman iyi bir şey olduğunu akılda tutmakta ve karşı taraflara da hatırlatmakta fayda var. Ayrıca başarılı olabilmek için olumlu geri bildirimler almanız çok gerekli."
       remember_to_give_feedback_to: "Hatırlatma: Lütfen %{name} kullanıcına geri bildirim vermeyi unutmayınız"
-      you_have_not_given_feedback_yet: ~
+      you_have_not_given_feedback_yet: "%{name} kullanıcısına %{event} hakkında geri bildirim vermediniz. %{given_name} kullanıcısının bu konuda nasıl bir performans sergilediğine ilişkin geri bildirim vermeyi unutmayınız."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -734,33 +734,33 @@ tr-TR:
       view_listing: ~
   error_messages:
     listings:
-      departure_time: ~
+      departure_time: "Hareket saati şimdiyle bir yıl sonra arasında olmalıdır."
       share_type: "Bir tanesini seçmeniz gerekmektedir."
       valid_until: "Bu tarih bugün ile bundan 6 ay sonrası arasında bir tarih olmalıdır."
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "Eğer nötr bir geri bildirim vermek istemiyorsanız nedenini açıklamalısınız."
+      you_must_select_a_grade: "Deneyiminizin olumlu veya olumsuz olduğunu belirtmeyi unutmayınız."
     paypal:
       generic_error: ~
       cancel_error: ~
   error_pages:
     back_to_kassi_front_page: "Önceki sayfaya dönüş"
     error_404:
-      if_you_believe: ~
+      if_you_believe: "Eğer adresin doğru olduğunu ve bir sorun olmaması gerektiğini düşünüyorsanız, hangi adresin hataya yol açtığını ve aşağıdaki formu içeren sayfada ne olması gerektiğini bize ileterek hatayı tanımlamamıza lütfen yardım ediniz."
       page_can_not_be_found: "Sayfa bulunamadı!"
-      page_you_requested_can_not_be_found: ~
+      page_you_requested_can_not_be_found: "Talep ettiğiniz sayfa bulunamıyor. Adresi doğru yazdığınıza emin misiniz?"
     error_404_title: "sayfa bulunamadı"
     error_500:
-      help_us_find_the_problem: ~
+      help_us_find_the_problem: "Aşağıdaki kutuda problemi kısaca açıklayarak problemin ne olduğunu bulmamıza yardımcı olabilirsiniz."
       page_loading_failed: "Sayfa yüklenemedi!"
-      reload_refresh: ~
-    error_500_title: ~
-    error_description: ~
+      reload_refresh: "Sayfayı tekrar yüklemek veya yenilemek ulaşmak istediğiniz sayfaya girmenize çoğunlukla yardımcı olabilir. Problemi yaratan hatayı tespit edip problemi mümkün olduğu kadar hızlı bir şekilde çözmeye çalışıyoruz."
+    error_500_title: "sayfa yüklenemedi"
+    error_description: "Hata tanımı"
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
-      kassi_does_not_currently_work_without_javascript: ~
+      javascript_is_disabled_in_your_browser: "Javascript tarayıcınızda engellenmiş"
+      kassi_does_not_currently_work_without_javascript: "%{service_name} javascript olmadan olması gerektiği gibi çalışmaz. Tarayıcınızın seçenekler bölümünden javascript'in çalışmasına izin veriniz ve sonra bu sayfayı tekrar yükleyiniz."
       kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: ~
       send_feedback: "Geri bildirim gönder"
@@ -820,9 +820,9 @@ tr-TR:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
+      additionally_one_private_offer_exists: "Ek olarak bir diğer teklif var,"
+      additionally_one_private_request_exists: "Ek olarak bir diğer talep var,"
+      additionally_some_private_offers_exist: "Ek olarak diğer teklifler %{number_of_listings}"
       additionally_some_private_requests_exist: ~
     blank_slate:
       add_first: "Yeni bir tane ekle!"
@@ -1275,6 +1275,7 @@ tr-TR:
     listing_actions:
       booking_from: ~
       booking_to: ~
+      how_paypal_works: ~
     new:
       post_a_new_listing: ~
       listing: ~
@@ -1412,9 +1413,13 @@ tr-TR:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: ~
+      need_to_have_currency_balance: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
   people:
     index:
       loading_more_members: ~

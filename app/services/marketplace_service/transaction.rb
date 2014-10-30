@@ -18,6 +18,7 @@ module MarketplaceService
         :testimonials,
         :transitions,
         :payment_total,
+        :commission_from_seller,
         :conversation,
         :booking,
         :created_at,
@@ -146,7 +147,8 @@ module MarketplaceService
         [:listing_id, :fixnum, :mandatory],
         [:starter_id, :string, :mandatory],
         [:author_id, :string, :mandatory],
-        [:content, :string, :optional]
+        [:content, :string, :optional],
+        [:commission_from_seller, :fixnum, :optional]
       )
       module_function
 
@@ -156,7 +158,8 @@ module MarketplaceService
         transaction = TransactionModel.new({
             community_id: opts[:community_id],
             listing_id: opts[:listing_id],
-            starter_id: opts[:starter_id]})
+            starter_id: opts[:starter_id],
+            commission_from_seller: opts[:commission_from_seller]})
 
         conversation = transaction.build_conversation(
           community_id: opts[:community_id],
@@ -328,7 +331,8 @@ module MarketplaceService
           BraintreeService::Payments::Command.void_transaction(transaction[:id], transaction[:community_id])
         when :paypal
           paypal_account = PaypalService::PaypalAccount::Query.personal_account(transaction[:listing][:author_id], transaction[:community_id])
-          paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
+          #TODO Deprecated call, update to use PaypalService::API:Api.payments.get_payment
+          paypal_payment = PaypalService::Store::PaypalPayment.for_transaction(transaction[:id])
 
           api_params = {
             receiver_username: paypal_account[:email],

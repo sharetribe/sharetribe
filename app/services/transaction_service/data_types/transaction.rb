@@ -20,7 +20,11 @@ module TransactionService::DataTypes::Transaction
     [:automatic_confirmation_after_days, :fixnum],
     [:last_transition_at, :time],
     [:current_state, :symbol],
-    [:payment_total, :money])
+    [:payment_total, :money],
+    [:minimum_commission, :money],
+    [:commission_from_seller, :fixnum],
+    [:commission_total, :money],
+    [:checkout_total, :money])
 
   TransactionResponse = EntityUtils.define_builder(
     [:transaction, :hash, :mandatory],

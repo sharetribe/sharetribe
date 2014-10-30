@@ -67,15 +67,15 @@ Response 200 OK, body:
 }
 ```
 
-## POST /billing_agreements/:community_id/:person_id/charge
+## POST /billing_agreements/:community_id/:person_id/charge_commission
 
-Request body:
+Request body CommissionInfo:
 
 ```ruby
-{ community_id: 121212
-, community_admin_id: "community_admin_1" # External person id, community admin receiving the commission, must match to existing paypal admin account
-, commissioned_transaction_id: 123456789
+{ transaction_id: 123456789
 , commission_total: <Money>
+, payment_name: "commission payment name"
+, payment_desc: "commission payment desc"
 }
 ```
 
@@ -102,7 +102,8 @@ Response 200 OK, Payment body:
 , fee_total: <Money>
 , commission_payment_id: "08387GJK384"
 , commission_payment_date: <Time>
-, commission_status: :charged
+, commission_status: :charged    # :not_charged, :charged, or :pending
+, commissions_pending_reason     # :none, :multicurrency, etc
 , commission_total: <Money>
 , commission_fee_total: <Money>
 }

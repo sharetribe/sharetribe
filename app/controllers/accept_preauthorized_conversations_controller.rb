@@ -65,6 +65,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       case params[:listing_conversation][:status]
       when "paid"
         response = TransactionService::Transaction.complete_preauthorization(@listing_conversation.id)
+        raise "Preauthorization failed: #{response[:error_msg]}" unless response[:success]
       when "rejected"
         MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, params[:listing_conversation][:status])
       end
@@ -94,15 +95,15 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def render_paypal_form(preselected_action)
-    transaction = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
-    paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
+    transaction_conversation = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
+    transaction = TransactionService::Transaction.query(@listing_conversation.id)
 
     render locals: {
-      discussion_type: transaction[:discussion_type],
-      sum: paypal_payment[:authorization_total],
-      fee: 0, # TODO FIXME
-      seller_gets: paypal_payment[:authorization_total], # TODO FIXME - FEE
-      form: @listing_conversation, # TODO FIX ME DONT USE MODEL
+      discussion_type: transaction_conversation[:discussion_type],
+      sum: transaction[:checkout_total],
+      fee: transaction[:commission_total],
+      seller_gets: transaction[:checkout_total] - transaction[:commission_total],
+      form: @listing_conversation, # TODO FIX ME, DONT USE MODEL
       form_action: acceptance_preauthorized_person_message_path(
         person_id: @current_user.id,
         id: @listing_conversation.id

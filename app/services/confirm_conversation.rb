@@ -10,7 +10,9 @@ class ConfirmConversation
     @offerer = transaction.offerer
     @requester = transaction.requester
     @community = community
-    @hold_in_escrow = community.payment_gateway && community.payment_gateway.hold_in_escrow
+    @hold_in_escrow = Maybe(TransactionService::Transaction.query(transaction.id))
+      .map {|transaction| transaction[:payment_gateway] == :braintree }
+      .or_else(false)
     @payment = transaction.payment
   end
 

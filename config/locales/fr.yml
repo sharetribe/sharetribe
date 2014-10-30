@@ -63,7 +63,7 @@ fr:
         private_community_homepage_content: "Page d'accueil de la place de marché privée"
         edit_private_community_homepage_content_description: "Ce contenu n'est visible qu'aux utilisateurs non connectés, sur la page d'accueil de la place de marché privée. Vous pouvez décrire ici votre place de marché et comment la rejoindre. Vous pouvez aussi ajouter des images, des vidéos et du contenu HTML. %{see_how_it_looks_like}."
         update_information: "Sauvegarder les paramètres"
-        invite_people: "Inviter des utilisateurs"
+        invite_people: "Inviter des nouveaux utilisateurs"
         edit_signup_info: "Informations lors de l'inscription"
         edit_signup_info_description: "Ce texte peut être affiché aux utilisateurs sur la page d'inscription. Vous pouvez y donner des instructions à propos de l'inscription, des conseils pour obtenir une invitation, etc. Par défaut, il n'y a pas d'instructions."
         edit_info: "Modifier les informations"
@@ -115,7 +115,7 @@ fr:
         edit_text_instructions: "Instructions textuelles"
       edit_welcome_email:
         welcome_email_content: "Contenu du message de bienvenue"
-        welcome_email_content_description: "Le message ci-dessous sera envoyé à chaque nouveau membre à leur inscription. Vous pouvez le modifier pour l'adapter à votre place de marché. En cliquant sur '%{send_test_message_link}' vous pouvez pré-visualiser le message en l'envoyant à votre adresse personnelle pour voir à quoi cela ressemblera exactement."
+        welcome_email_content_description: "Le message ci-dessous sera envoyé à chaque nouvel utilisateur lors de leur inscription. Vous pouvez le modifier pour l'adapter à votre place de marché. En cliquant sur '%{send_test_message_link}' vous pouvez pré-visualiser le message en l'envoyant à votre adresse personnelle pour voir à quoi cela ressemblera exactement."
         edit_message: "Modifier le message"
         send_test_message: "Envoyer un message de test"
       settings:
@@ -156,23 +156,23 @@ fr:
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
         ban_user_confirmation: "Ceci supprime l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Êtes-vous sûr de vouloir faire cela ?"
       social_media:
-        social_media: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        facebook_connect: ~
-        facebook_connect_info_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        save: ~
+        social_media: "Réseaux sociaux"
+        twitter_handle: "Nom Twitter"
+        twitter_handle_info_text: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partager Twitter sur les pages d'annonces."
+        twitter_handle_placeholder: nomtwitter
+        invalid_twitter_handle: "Le nom Twitter ne peut contenir qu'au maximum 15 caractères alpha-numériques (lettres A-Z et chiffre 0-9)."
+        facebook_connect: Facebook
+        facebook_connect_info_text: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici."
+        facebook_connect_id: "Facebook client id"
+        invalid_facebook_connect_id: "L'id client ne devrait contenir que des chiffres"
+        facebook_connect_secret: "Clé secrète Facebook"
+        invalid_facebook_connect_secret: "La clé secrète ne devrait contenir que des chiffres et des lettre de a à f."
+        save: "Sauvegarder les paramètres"
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        save: ~
+        analytics: Analyses
+        google_analytics_key: "Code de suivi Google Analytics"
+        google_analytics_key_info_text: "Identifiant du code de suivi de votre compte Google Analytics."
+        save: "Sauvegarder les paramètres"
       menu_links:
         menu_links: "Liens du menu"
         save: "Sauvegarder les paramètres"
@@ -215,7 +215,7 @@ fr:
         master_merchant_id: "Identifiant master marchand"
         commission_from_seller: "Commission (pourcentage) pour le vendeur"
       paypal_account:
-        paypal_admin_account: "Paramètres de paiement"
+        paypal_admin_account: Paiements
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -232,7 +232,7 @@ fr:
           this_field_is_required: "Ce champ est obligatoire"
           this_field_is_required_checkbox: "Ce champ est obligatoire (l'utilisateur doit sélectionner au moins un choix)"
       index:
-        listing_fields: "Champs d'annonces"
+        listing_fields: "Champs d'annonces & filtres"
         listing_fields_help: "Vous pouvez ici modifier les champs qu'un utilisateur doit compléter lors de la création d'une annonce. Notez que certains champs sont prédéfinis et ne peuvent être modifiés."
         add_new_field: "Ajouter un nouveau champ : "
         remove_field_confirmation: "Voulez-vous vraiment supprimer le champ '%{field_name}' ?"
@@ -265,16 +265,16 @@ fr:
         send_email_to_members_title: "Envoyer un email à tous les utilisateurs"
         email_subject: "Objet de l'email"
         email_content: "Contenu de l'email"
-        email_content_placeholder: "Que souhaitez vous dire aux autres membres ?"
+        email_content_placeholder: "Que souhaitez-vous dire à vos utilisateurs ?"
         email_language: "Langue des destinataires de l'email"
         any_language: "Toutes les langues"
         send_email: "Envoyez l'email"
-        message_will_be_sent_only_to_people_with_this_language: "Note : cette email ne sera envoyé qu'aux membres qui utilisent %{service_name} dans la langue que vous avez sélectionnée."
+        message_will_be_sent_only_to_people_with_this_language: "Note : cette email ne sera envoyé qu'aux utilisateurs de %{service_name} utilisant la langue que vous avez sélectionnée."
         email_sent: "Email envoyé."
     left_hand_navigation:
-      users_and_transactions: ~
-      configure: ~
-      emails_title: ~
+      users_and_transactions: "Utilisateurs et transactions"
+      configure: Configuration
+      emails_title: Emails
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       new:
@@ -759,6 +759,7 @@ fr:
       you_must_select_a_grade: "Pensez à évaluer l'utilisateur en cliquant sur l'une des icônes ci-dessus (pour voir les explications des icônes, déplacer la souris sur elles)"
     paypal:
       generic_error: "Une erreur s'est produite durant le processus de paiement. Le paiement PayPal n'a pas pu être réalisé."
+      cancel_error: "Une erreur s'est produite durant l'annulation. Celle-ci n'a pas pu être réalisée."
   error_pages:
     back_to_kassi_front_page: "Retourner sur la page d'accueil"
     error_404:
@@ -1152,7 +1153,7 @@ fr:
       show_in_updates_email: "Afficher dans le prochain email d'actualité"
       show_in_updates_email_loading: Chargement...
       show_in_updates_email_error: "Impossible de se connecter au serveur. Veuillez essayer de nouveau après avoir rafraîchi la page."
-      show_in_updates_email_success: "Cette annonce sera diffusée dans le prochain email d'actualité, automatiquement envoyée aux membres"
+      show_in_updates_email_success: "Cette annonce sera diffusée dans le prochain email d'actualité, automatiquement envoyée aux utilisateurs"
     follow_links:
       follow: "Recevoir les nouveaux commentaires par email."
       unfollow: "Ne pas recevoir les nouveaux commentaires par email."
@@ -1289,6 +1290,7 @@ fr:
     listing_actions:
       booking_from: Du
       booking_to: Au
+      how_paypal_works: ~
     new:
       post_a_new_listing: "Déposer une annonce"
       listing: annonce
@@ -1407,9 +1409,9 @@ fr:
     commission: "%{commission} %"
     connected_account: "Le compte PayPal '%{email}' est désormais connecté."
     new:
-      payout_info_you_need_to_connect: ~
-      payout_info_text: "Pour recevoir des paiements vous devez connecter votre compte PayPal à %{service_name}.<br /> Veuillez réaliser les deux actions suivantes pour connecter votre compte."
-      admin_account_not_connected: ~
+      payout_info_you_need_to_connect: "Pour accepter les paiements vous devez connecter votre compte PayPal à %{service_name}"
+      payout_info_text: "Veuillez réaliser les deux actions suivantes pour connecter votre compte."
+      admin_account_not_connected: "Vous ne pouvez pas connecter votre compte PayPal car l'administrateur de la place de marché n'a pas terminé la configuration de PayPal."
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_placeholder: "Votre adresse email PayPal"
       paypal_account_email_info_text: "Note : vous devez avoir un compte PayPal Premier (pour les particuliers) ou Business (pour les entreprises) pour accepter les paiements. Si vous avez un compte PayPal personnel, vous pouvez le mettre à jour. C'est gratuit et ne prend que quelques instants. %{upgrade_paypal_account} Si vous n'avez pas encore de compte PayPal, vous pouvez créer un compte %{create_paypal_account}."
@@ -1426,8 +1428,13 @@ fr:
       billing_agreement_canceled: "L'accord de facturation a été annulé"
       billing_agreement_id_missing: "Il y a eu des problèmes techniques lors de l'intégration avec PayPal"
       something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter les administrateurs."
+      need_to_have_currency_balance: ~
   paypal:
-    checkout_with_paypal: ~
+    checkout_with_paypal: "Payer avec PayPal"
+    cancel_succesful: "Paiement PayPal correctement annulé"
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
   people:
     index:
       loading_more_members: "Chargement des autres membres"

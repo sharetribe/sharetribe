@@ -29,11 +29,21 @@ Example request body:
   , listing_author_id: "1234abcd"
   , listing_quantity: 1
   , automatic_confirmation_after_days: 7
+  , commission_from_seller: 10
+  , minimum_commission: Money.new(20, "USD")
+  }
+
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
   }
 
 , gateway_fields: # Only for :paypal
-  { success_url: "http://bikes.sharetribe.com/en/listings/1234/paypal_checkout_order_success"
-  , cancel_url: "http://bikes.sharetribe.com/en/listings/1234/paypal_checkout_order_cancel"
+  { success_url: "http://bikes.sharetribe.com/paypal_service/checkout_orders/success"
+  , cancel_url: "http://bikes.sharetribe.com/paypal_service/checkout_orders/cancel?listing_id=1234"
+  , merchant_brand_logo_url: "https://sharetribe.s3.amazonaws.com/images/communities/wide_logos/123/paypal/Marketplace_Logo.png"
   }
 
 , gateway_fields: # Only for :braintree and :preauthorize
@@ -71,6 +81,13 @@ Response:
   , payment_total: Money.new(50, "USD") # only for Braintree if :preauthorized
   }
 
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
+  }
+
   # PayPal
 , gateway_fields:
   { redirect_url: "https://paypal.com/token?EJAHGOSKLGAHSG"
@@ -78,44 +95,6 @@ Response:
 
   # Braintree
 , gateway_fields: {} # No additional fields for Braintree
-}
-```
-
-## POST /:transaction_id/preauthorize
-
-Only for **preauthorize** and **paypal**
-
-```ruby
-{
-  gateway_fields:
-  { payment_gateway: paypal
-  , token: "ECJHGOAGIHADG"
-  }
-}
-```
-
-Response:
-
-```ruby
-{ transaction:
-  { id: 1234
-  , conversation_id: 3344,
-  , payment_process: :preauthorize
-  , payment_gateway: :paypal
-  , community_id: 501
-  , starter_id: "5678dcba"
-  , listing_id: 1234
-  , listing_title: "Old city-bike"
-  , listing_price: Money.new(50, "USD")
-  , listing_author_id: "1234abcd"
-  , listing_quantity: 1
-  , automatic_confirmation_after_days: 7
-  , created_at: <Time>
-  , updated_at: <Time>
-  , last_transition_at: <Time>
-  , current_state: :preauthorized
-  , payment_total: Money.new(50, "USD")
-  }
 }
 ```
 
@@ -144,6 +123,13 @@ Response:
   , last_transition_at: <Time>
   , current_state: :rejected
   , payment_total: Money.new(50, "USD")
+  }
+
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
   }
 }
 ```
@@ -175,6 +161,13 @@ Response:
   , last_transition_at: <Time>
   , current_state: :rejected
   , payment_total: Money.new(50, "USD")
+  }
+
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
   }
 
   # PayPal
@@ -305,6 +298,13 @@ Response:
   , current_state: :completed
   , payment_total: Money.new(50, "USD")
   }
+
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
+  }
 }
 ```
 
@@ -333,6 +333,13 @@ Response:
   , last_transition_at: <Time>
   , current_state: :canceled
   , payment_total: Money.new(50, "USD")
+  }
+
+# If booking is used
+# Note: end_on is included, i.e. 28.10. - 28.10. is a 1 day booking
+, booking_fields:
+  { start_on: <Date>
+  , end_on: <Date>
   }
 }
 ```

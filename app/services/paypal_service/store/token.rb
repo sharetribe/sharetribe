@@ -27,7 +27,7 @@ module PaypalService::Store::Token
   module_function
 
   def create(opts)
-    PaypalToken.create!({
+    PaypalTokenModel.create!({
         community_id: opts[:community_id],
         token: opts[:token],
         transaction_id: opts[:transaction_id],

@@ -751,6 +751,7 @@ es:
       you_must_select_a_grade: "Recuerda evaluar a los usuarios haciendo click en uno de los íconos de más arriba (pueder ver las explicaciones de cada ícono deslizando el mouse sobre ellos)"
     paypal:
       generic_error: ~
+      cancel_error: ~
   error_pages:
     back_to_kassi_front_page: "Volver a la página principal de %{service_name}"
     error_404:
@@ -1281,6 +1282,7 @@ es:
     listing_actions:
       booking_from: ~
       booking_to: ~
+      how_paypal_works: ~
     new:
       post_a_new_listing: "Publica un nuevo listado"
       listing: listado
@@ -1418,8 +1420,13 @@ es:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: ~
+      need_to_have_currency_balance: ~
   paypal:
     checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
   people:
     index:
       loading_more_members: "Cargando más miembros"

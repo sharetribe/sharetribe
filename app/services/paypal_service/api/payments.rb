@@ -4,6 +4,11 @@ module PaypalService::API
     # Injects a configured instance of the merchant client as paypal_merchant
     include PaypalService::MerchantInjector
 
+    # Include with_success for wrapping requests and responses
+    include RequestWrapper
+
+    attr_reader :logger
+
     MerchantData = PaypalService::DataTypes::Merchant
     TokenStore = PaypalService::Store::Token
 
@@ -23,7 +28,7 @@ module PaypalService::API
               receiver_username: m_acc[:email],
               invnum: invnum(community_id, create_payment[:transaction_id])}))
 
-        with_success(
+        with_success(community_id, create_payment[:transaction_id],
           request,
           error_policy: {
             codes_to_retry: ["10001", "x-timeout", "x-servererror"],
@@ -80,8 +85,8 @@ module PaypalService::API
 
     ## POST /payments/:community_id/:transaction_id/full_capture
     def full_capture(community_id, transaction_id, info)
-      with_payment(community_id, transaction_id) do |payment, m_acc|
-        with_success(
+      with_payment(community_id, transaction_id, [[:pending, :authorization]]) do |payment, m_acc|
+        with_success(community_id, transaction_id,
           MerchantData.create_do_full_capture({
               receiver_username: m_acc[:email],
               authorization_id: payment[:authorization_id],
@@ -96,7 +101,7 @@ module PaypalService::API
         ) do |payment_res|
 
           # Save payment data to payment
-          payment = PaypalService::PaypalPayment::Command.update(
+          payment = PaypalService::Store::PaypalPayment.update(
             community_id,
             transaction_id,
             payment_res
@@ -117,8 +122,8 @@ module PaypalService::API
 
     ## POST /payments/:community_id/:transaction_id/void
     def void(community_id, transaction_id, info)
-      with_payment(community_id, transaction_id) do |payment, m_acc|
-        with_success(
+      with_payment(community_id, transaction_id, [[:pending, nil]]) do |payment, m_acc|
+        with_success(community_id, transaction_id,
           MerchantData.create_do_void({
               receiver_username: m_acc[:email],
               # Always void the order, it automatically voids any authorization connected to the payment
@@ -130,11 +135,11 @@ module PaypalService::API
             try_max: 5
           }
         ) do |void_res|
-          with_success(MerchantData.create_get_transaction_details({
+          with_success(community_id, transaction_id, MerchantData.create_get_transaction_details({
             receiver_username: m_acc[:email],
             transaction_id: payment[:order_id],
           })) do |payment_res|
-            payment = PaypalService::PaypalPayment::Command.update(
+            payment = PaypalService::Store::PaypalPayment.update(
               community_id,
               transaction_id,
               payment_res)
@@ -164,6 +169,7 @@ module PaypalService::API
 
     private
 
+
     def with_account(cid, pid, &block)
        m_acc = PaypalService::PaypalAccount::Query.personal_account(pid, cid)
       if m_acc.nil?
@@ -191,10 +197,15 @@ module PaypalService::API
       block.call(m_acc)
     end
 
-    def with_payment(cid, txid, &block)
-      payment = PaypalService::PaypalPayment::Query.get(cid, txid)
+    def with_payment(cid, txid, accepted_states = [], &block)
+      payment = PaypalService::Store::PaypalPayment.get(cid, txid)
+
       if (payment.nil?)
         return Result::Error.new("No matching payment for community_id: #{cid} and transaction_id: #{txid}.")
+      end
+
+      if (!payment_in_accepted_state?(payment, accepted_states))
+        return Result::Error.new("Payment was not in accepted precondition state for the requested operation. Expected one of: #{accepted_states}, was: :#{payment[:payment_status]}, :#{payment[:pending_reason]}")
       end
 
       m_acc = PaypalService::PaypalAccount::Query.for_payer_id(cid, payment[:receiver_id])
@@ -205,59 +216,48 @@ module PaypalService::API
       block.call(payment, m_acc)
     end
 
-    def with_success(request, opts = { error_policy: {} }, &block)
-      retry_codes, try_max, finally = parse_policy(opts[:error_policy])
-      response = try_operation(retry_codes, try_max) { paypal_merchant.do_request(request) }
-
-      if (response[:success])
-        block.call(response)
-      else
-        finally.call(request, response)
+    def payment_in_accepted_state?(payment, accepted_states)
+      accepted_states.empty? ||
+        accepted_states.any? do |(status, reason)|
+        if reason.nil?
+          payment[:payment_status] == status
+        else
+          payment[:payment_status] == status &&
+            payment[:pending_reason] == reason
+        end
       end
     end
 
-    def parse_policy(policy)
-      [ policy.include?(:codes_to_retry) ? policy[:codes_to_retry] : [],
-        policy.include?(:try_max) ? policy[:try_max] : 1,
-        policy.include?(:finally) ? policy[:finally] : (method :log_and_return) ]
-    end
+    def handle_failed_create_payment(token)
+      -> (cid, txid, request, err_response) do
+        data =
+          if err_response[:error_code] == "10486"
+            {redirect_url: token[:express_checkout_url]}
+          else
+            nil
+          end
 
-    def try_operation(retry_codes, try_max, &op)
-      result = op.call()
-      attempts = 1
-
-      while (!result[:success] && attempts < try_max && retry_codes.include?(result[:error_code]))
-        result = op.call()
-        attempts = attempts + 1
+        log_and_return(cid, txid, request, err_response, data)
       end
-
-      result
     end
 
-    def log_and_return(request, err_response, data = {})
-      @logger.warn("PayPal operation #{request[:method]} failed. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
-      Result::Error.new(
-        "Failed response from Paypal. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}",
-        {paypal_error_code: err_response[:error_code]}.merge(data)
-        )
-    end
-
-    def void_failed_authorization(payment, m_acc)
-      -> (request, err_response) do
+    def handle_failed_authorization(payment)
+      -> (cid, txid, request, err_response) do
         if err_response[:error_code] == "10486"
           # Special handling for 10486 error. Return error response and do NOT void.
           token = PaypalService::Store::Token.get_for_transaction(payment[:community_id], payment[:transaction_id])
-          redirect_url = append_order_id(token[:express_checkout_url], payment[:order_id])
-          log_and_return(request, err_response, {redirect_url: "#{redirect_url}"})
+          redirect_url_without_token = remove_token(token[:express_checkout_url])
+          redirect_url_with_order = append_order_id(redirect_url_without_token, payment[:order_id])
+          log_and_return(cid, txid, request, err_response, {redirect_url: "#{redirect_url_with_order}"})
         else
-          void_failed_payment(payment, m_acc).call(request, err_response)
+          void_failed_payment(payment, m_acc).call(payment[:community_id], payment[:transaction_id], request, err_response)
         end
       end
     end
 
     def void_failed_payment(payment, m_acc)
-      -> (request, err_response) do
-        with_success(
+      -> (cid, txid, request, err_response) do
+        with_success(cid, txid,
           MerchantData.create_do_void({
               receiver_username: m_acc[:email],
               # Always void the order, it automatically voids any authorization connected to the payment
@@ -268,7 +268,7 @@ module PaypalService::API
             try_max: 3
           }
           ) do |void_res|
-          with_success(
+          with_success(cid, txid,
             MerchantData.create_get_transaction_details({
                 receiver_username: m_acc[:email],
                 transaction_id: payment[:order_id],
@@ -278,13 +278,13 @@ module PaypalService::API
               try_max: 3
             }
             ) do |payment_res|
-            payment = PaypalService::PaypalPayment::Command.update(
+            payment = PaypalService::Store::PaypalPayment.update(
               payment[:community_id],
               payment[:transaction_id],
               payment_res)
 
             # Return original error
-            log_and_return(request, err_response)
+            log_and_return(cid, txid, request, err_response)
           end
         end
       end
@@ -298,8 +298,12 @@ module PaypalService::API
       URLUtils.append_query_param(url_str, "order_id", order_id)
     end
 
+    def remove_token(url_str, token)
+      URLUtils.remove_query_param(url_str, "token")
+    end
+
     def with_payment_from_token(token, &block)
-      existing_payment = PaypalService::PaypalPayment::Query.get(token[:community_id], token[:transaction_id])
+      existing_payment = PaypalService::Store::PaypalPayment.get(token[:community_id], token[:transaction_id])
 
       if existing_payment
         block.call(existing_payment)
@@ -315,7 +319,7 @@ module PaypalService::API
 
     def create_payment(token)
       with_merchant_account(token[:community_id], token) do |m_acc|
-        with_success(
+        with_success(token[:community_id], token[:transaction_id],
           MerchantData.create_get_express_checkout_details(
             { receiver_username: m_acc[:email], token: token[:token] }
           ),
@@ -330,7 +334,7 @@ module PaypalService::API
             return Result::Error.new("Payment has not been accepted by the buyer.")
           end
 
-          with_success(
+          with_success(token[:community_id], token[:transaction_id],
             MerchantData.create_do_express_checkout_payment({
               receiver_username: m_acc[:email],
               token: token[:token],
@@ -343,11 +347,12 @@ module PaypalService::API
             }),
             error_policy: {
               codes_to_retry: ["10001", "x-timeout", "x-servererror"],
-              try_max: 3
+              try_max: 3,
+              finally: (method :handle_failed_create_payment).call(token)
             }
           ) do |payment_res|
             # Save payment
-            payment = PaypalService::PaypalPayment::Command.create(
+            payment = PaypalService::Store::PaypalPayment.create(
               token[:community_id],
               token[:transaction_id],
               ec_details.merge(payment_res))
@@ -360,8 +365,8 @@ module PaypalService::API
     end
 
     def authorize(community_id, transaction_id, info)
-      with_payment(community_id, transaction_id) do |payment, m_acc|
-        with_success(
+      with_payment(community_id, transaction_id, [[:pending, :order]]) do |payment, m_acc|
+        with_success(community_id, transaction_id,
           MerchantData.create_do_authorization({
               receiver_username: m_acc[:email],
               order_id: payment[:order_id],
@@ -370,7 +375,7 @@ module PaypalService::API
           error_policy: {
             codes_to_retry: ["10001", "x-timeout", "x-servererror"],
             try_max: 5,
-            finally: (method :void_failed_authorization).call(payment, m_acc)
+            finally: (method :handle_failed_authorization).call(payment)
           }
         ) do |auth_res|
 
@@ -378,7 +383,7 @@ module PaypalService::API
           TokenStore.delete(community_id, transaction_id)
 
           # Save authorization data to payment
-          payment = PaypalService::PaypalPayment::Command.update(community_id, transaction_id, auth_res)
+          payment = PaypalService::Store::PaypalPayment.update(community_id, transaction_id, auth_res)
 
           # Trigger callback for authorized
           @config[:authorize].call(transaction_id)

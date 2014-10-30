@@ -38,6 +38,7 @@ class PaypalAccountsController < ApplicationController
 
     @selected_left_navi_link = "payments"
     commission_from_seller = @current_community.commission_from_seller ? @current_community.commission_from_seller : 0
+    community_currency = @current_community.default_currency
     admin_account = PaypalAccountQuery.admin_account(@current_community.id)
 
     if admin_account.blank?
@@ -51,7 +52,8 @@ class PaypalAccountsController < ApplicationController
       paypal_account_form: PaypalAccountForm.new,
       paypal_account_state: Maybe(paypal_account)[:order_permission_state].or_else(""),
       paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
-      commission_from_seller: t("paypal_accounts.commission", commission: commission_from_seller)
+      commission_from_seller: t("paypal_accounts.commission", commission: commission_from_seller),
+      currency: community_currency
     })
   end
 

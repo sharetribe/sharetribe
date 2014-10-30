@@ -36,11 +36,18 @@ class PostPayTransactionsController < ApplicationController
             starter_id: @current_user.id,
             listing_author_id: @listing.author.id,
             content: contact_form.content,
-            payment_gateway: @current_community.payment_gateway.gateway_type
+            payment_gateway: @current_community.payment_gateway.gateway_type,
+            payment_process: :postpay,
+            commission_from_seller: @current_community.commission_from_seller
           }
         })
 
-      transaction_id = transaction_response[:transaction][:id]
+      unless transaction_response[:success]
+        flash[:error] = "Sending the message failed. Please try again."
+        return redirect_to root
+      end
+
+      transaction_id = transaction_response[:data][:transaction][:id]
       MarketplaceService::Transaction::Command.transition_to(transaction_id, "pending")
 
       flash[:notice] = t("layouts.notifications.message_sent")

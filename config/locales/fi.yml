@@ -274,7 +274,7 @@ fi:
     left_hand_navigation:
       users_and_transactions: "Käyttäjät ja transaktiot"
       configure: "Sivuston muokkaus"
-      emails_title: "Sähköpostit"
+      emails_title: Sähköpostit
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       new:
@@ -283,30 +283,6 @@ fi:
       show:
         integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus."
         paypal_account_email_connected: "<del>Yhdistä PayPal-tilisi</del> Tehty!"
-    polls:
-      index:
-        polls: Kyselyt
-        create_poll: "Luo uusi kysely"
-        no_polls: "Ei kyselyitä"
-      edit_poll_links:
-        close_poll: Sulje
-        open_poll: Avaa
-        edit_poll: Muokkaa
-        delete_poll: Poista
-      new:
-        add_option: "Lisää vastausvaihtoehto"
-        new_poll: "Kyselyn luonti"
-        edit_poll: "Kyselyn muokkaus"
-        title: "Otsikko:"
-        save_poll: "Tallenna kysely"
-      new_option:
-        option: Vastausvaihtoehto
-        remove_option: "Poista vastausvaihtoehto"
-      show:
-        edit_poll: "Muokkaa kyselyä"
-      poll_status:
-        open: Avoinna
-        closed: Suljettu
     transaction_types:
       sell: Myydään
       rent: "Annetaan vuokralle"
@@ -942,13 +918,6 @@ fi:
     news_item:
       show_less: "Näytä vähemmän"
       show_more: "Näytä lisää"
-    poll_form:
-      poll: "Kysely:"
-      comment: "Kommentti:"
-      answer: Vastaa
-      results: Tulokset
-      poll_answer: vastaus
-      poll_answers: vastausta
     profile_info_empty_notification:
       add_your_info: "Lisää tietosi"
       add_a_profile_picture: "Lisää profiilikuva"
@@ -1321,6 +1290,7 @@ fi:
     listing_actions:
       booking_from: Alkaa
       booking_to: Loppuu
+      how_paypal_works: "Miten PayPal toimii"
     new:
       post_a_new_listing: "Lisää uusi ilmoitus"
       listing: ilmoitus
@@ -1458,9 +1428,13 @@ fi:
       billing_agreement_canceled: "Laskutussopimus jäi kesken."
       billing_agreement_id_missing: "PayPal asetuksissa ilmeni teknisiä ongelmia."
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
+      need_to_have_currency_balance: "Huom! PayPal-tilisi tulee pystyä ottamaan vastaan %{currency}-valuuttaa."
   paypal:
-    checkout_with_paypal: ~
+    checkout_with_paypal: "Maksa PayPal-tilillä"
     cancel_succesful: "PayPal maksu onnistuneesti peruttu."
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"
