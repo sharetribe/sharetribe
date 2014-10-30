@@ -91,7 +91,7 @@ module MarketplaceService
         listing_model = transaction_model.listing
         listing = ListingEntity.listing(listing_model)
 
-        payment_gateway = MarketplaceService::Community::Query.payment_type(transaction_model.community_id)
+        payment_gateway = transaction_model.payment_gateway.to_sym
 
         payment_total =
           case payment_gateway
@@ -214,7 +214,7 @@ module MarketplaceService
         old_status = transaction.current_state.to_sym if transaction.current_state.present?
 
         transaction_entity = Entity.transaction(transaction)
-        payment_type = MarketplaceService::Community::Query.payment_type(transaction_entity[:community_id])
+        payment_type = transaction.payment_gateway.to_sym
 
         Events.handle_transition(transaction_entity, payment_type, old_status, new_status)
 

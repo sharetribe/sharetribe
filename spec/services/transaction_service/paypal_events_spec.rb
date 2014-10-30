@@ -3,6 +3,7 @@ require 'spec_helper'
 describe TransactionService::PaypalEvents do
 
   TokenStore = PaypalService::Store::Token
+  PaymentStore = PaypalService::Store::PaypalPayment
 
   context "#request_cancelled" do
     before(:each) do
@@ -35,4 +36,28 @@ describe TransactionService::PaypalEvents do
       expect(Transaction.count).to eq(1)
     end
   end
+
+  context "#payment_updated - initiated => authorized" do
+    before(:each) do
+      @cid = 4
+      @transaction = FactoryGirl.create(:transaction, community_id: 4, current_state: "initiated", payment_gateway: "paypal")
+
+      @authorized_payment = PaymentStore.create(@cid, @transaction.id, {
+          payer_id: "sduyfsudf",
+          receiver_id: "98ysdf98ysdf",
+          pending_reason: "authorization",
+          order_id: SecureRandom.uuid,
+          order_date: Time.now,
+          order_total: Money.new(22000, "EUR"),
+        })
+    end
+
+    it "transitions transaction to preauthorized state" do
+      TransactionService::PaypalEvents.payment_updated(@authorized_payment)
+
+      tx = MarketplaceService::Transaction::Query.transaction(@transaction.id)
+      expect(tx[:status]).to eq("preauthorized")
+    end
+  end
+
 end
