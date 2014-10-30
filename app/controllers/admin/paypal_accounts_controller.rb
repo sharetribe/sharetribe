@@ -15,7 +15,8 @@ class Admin::PaypalAccountsController < ApplicationController
   PaypalPreferencesForm = FormUtils.define_form("PaypalPreferencesForm",
     :commission_from_seller,
     :minimum_listing_price,
-    :minimum_commission
+    :minimum_commission,
+    :currency
     ).with_validations do
       validates_numericality_of(
         :commission_from_seller,
@@ -24,8 +25,10 @@ class Admin::PaypalAccountsController < ApplicationController
         :greater_than_or_equal_to => 5,
         :less_than_or_equal_to => 100)
       validate do |prefs|
-        if minimum_listing_price.to_i < minimum_commission
-          prefs.errors[:minimum_listing_price] << "Minimum listing price has to be greater than minimum commission ()"
+        min_price_money = MoneyUtil.parse_str_to_money(minimum_listing_price, currency)
+
+        if min_price_money < minimum_commission
+          prefs.errors[:minimum_listing_price] << "Minimum listing price has to be greater than minimum commission XXX"
         end
       end
     end
@@ -36,7 +39,7 @@ class Admin::PaypalAccountsController < ApplicationController
     currency = @current_community.default_currency
     minimum_commission = PaypalService::MinimumCommissions.get(currency)
 
-    paypal_prefs_form = PaypalPreferencesForm.new(minimum_commission: minimum_commission, commission_from_seller: @current_community.commission_from_seller, minimum_listing_price: @current_community.minimum_price)
+    paypal_prefs_form = PaypalPreferencesForm.new(minimum_commission: minimum_commission, commission_from_seller: @current_community.commission_from_seller, minimum_listing_price: @current_community.minimum_price, currency: currency)
 
     render("index", locals: {
         paypal_account_email: Maybe(paypal_account)[:email].or_else(nil),
@@ -52,7 +55,7 @@ class Admin::PaypalAccountsController < ApplicationController
     currency = @current_community.default_currency
     minimum_commission = PaypalService::MinimumCommissions.get(currency)
 
-    paypal_prefs_form = PaypalPreferencesForm.new(params[:paypal_preferences_form].merge(minimum_commission: minimum_commission))
+    paypal_prefs_form = PaypalPreferencesForm.new(params[:paypal_preferences_form].merge(minimum_commission: minimum_commission, currency: currency))
 
     unless paypal_prefs_form.valid?
       flash[:error] = paypal_prefs_form.errors.full_messages.join(", ")

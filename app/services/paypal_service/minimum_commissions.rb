@@ -11,6 +11,7 @@ module PaypalService::MinimumCommissions
   def get_all
     @@mnimum_commissions ||= Maybe(load_yaml).or_else({}).reduce({}) { |min_commissions, (k, v)|
       min_commissions[k] = Money.new(v, k)
+      min_commissions
     }
   end
 
