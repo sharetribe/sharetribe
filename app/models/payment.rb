@@ -63,8 +63,7 @@ class Payment < ActiveRecord::Base
   end
 
   def total_commission
-    commission = total_sum * total_commission_percentage
-    Money.new(PaymentMath.ceil_cents(commission.cents), commission.currency)
+    total_sum * total_commission_percentage
   end
 
   def seller_gets

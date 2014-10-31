@@ -146,10 +146,10 @@ class ListingsController < ApplicationController
       if payment_setup_missing
         render :partial => "listings/payout_registration_before_posting", locals: {payment_settings_path: payment_setup_path }
       else
-        render :partial => "listings/form/form_content"
+        render :partial => "listings/form/form_content", locals: {minimum_commission: minimum_commission}
       end
     else
-      render
+      render locals: {minimum_commission: minimum_commission}
     end
   end
 
@@ -195,6 +195,8 @@ class ListingsController < ApplicationController
 
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
+
+    render locals: {minimum_commission: minimum_commission}
   end
 
   def update
@@ -293,6 +295,18 @@ class ListingsController < ApplicationController
   end
 
   private
+
+  def minimum_commission
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    currency = @current_community.default_currency
+
+    case payment_type
+    when :paypal
+      PaypalService::MinimumCommissions.get(currency)
+    else
+      Money.new(0, currency)
+    end
+  end
 
   # Ensure that only users with appropriate visibility settings can view the listing
   def ensure_authorized_to_view
