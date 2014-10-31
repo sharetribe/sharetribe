@@ -277,12 +277,16 @@ fi:
       emails_title: Sähköpostit
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
-      new:
-        integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus."
-        paypal_account_email: "Yhdistä PayPal-tilisi"
-      show:
-        integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus."
-        paypal_account_email_connected: "<del>Yhdistä PayPal-tilisi</del> Tehty!"
+      preferences_updated: "Maksuasetukset päivitetty"
+      integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
+      paypal_account_email: "1. Yhdistä PayPal-tilisi"
+      paypal_account_email_completed: "Tehty!"
+      set_minimum_price_and_fee: "2. Aseta minimihinta ja välityspalkkioprosentti"
+      set_minimum_price_and_fee_completed: "Tehty!"
+      minimum_listing_price_label: "Ilmoituksen minimihinta:"
+      transaction_fee_label: "Välityspalkkioprosentti:"
+      save_settings: "Tallenna asetukset"
+      note_about_transaction_fee: "Huom! Välityspalkkioon sisältyy PayPal-palvelun välityspalkkio, jonka suuruus riippuu valuutasta ja myyjän myyntimääristä. Tästä syystä välityspalkkio on vähintään %{min_paypal_commission}. Ennen välityspalkkion maksamista markkinapaikan ylläpitäjälle, välityspalkkiosta vähennetään PayPal-palvelun välityspalkkio. Loppuosa siirretään siirretään ylläpitäjälle."
     transaction_types:
       sell: Myydään
       rent: "Annetaan vuokralle"

@@ -15,7 +15,7 @@
   %h2= t("admin.paypal_accounts.marketplace_paypal_integration")
 
   .row
-    = t("admin.paypal_accounts.new.integration_info_text").html_safe
+    = t("admin.paypal_accounts.integration_info_text").html_safe
 
   .row
 
@@ -23,8 +23,8 @@
     .row.paypal-connected-email-row
       %h3.paypal-account-connected
         %del
-          = t("admin.paypal_accounts.show.paypal_account_email_connected")
-        = t("admin.paypal_accounts.show.paypal_account_email_connected_completed")
+          = t("admin.paypal_accounts.paypal_account_email")
+        = t("admin.paypal_accounts.paypal_account_email_completed")
       .paypal-connected-email.paypal-account-connected
         = t("paypal_accounts.connected_account", :email => paypal_account_email)
   - else
@@ -35,7 +35,7 @@
 
     = form_for paypal_account_form, url: paypal_form_action, html: { id: "paypal_account_form"} do |form|
 
-      - title = t("admin.paypal_accounts.new.paypal_account_email")
+      - title = t("admin.paypal_accounts.paypal_account_email")
       = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title, currency: currency}
 
   = form_for paypal_prefs_form, url: paypal_prefs_form_action, html: { id: "paypal_preferences_form" } do |form|
@@ -44,14 +44,14 @@
       .col-12
         - if paypal_prefs_valid
           %h3.paypal-preferences-valid
-            %del= t("admin.paypal_accounts.set_minimum_price")
-            = t("admin.paypal_accounts.preferences_completed")
+            %del= t("admin.paypal_accounts.set_minimum_price_and_fee")
+            = t("admin.paypal_accounts.set_minimum_price_and_fee_completed")
         - else
-          %h3= t("admin.paypal_accounts.set_minimum_price")
+          %h3= t("admin.paypal_accounts.set_minimum_price_and_fee")
 
     .row
       .col-6
-        = form.label :commission_from_seller, t("admin.paypal_accounts.minimum_listing_price"), class: "paypal-horizontal-input-label"
+        = form.label :commission_from_seller, t("admin.paypal_accounts.minimum_listing_price_label"), class: "paypal-horizontal-input-label"
       .col-6
         = form.text_field :minimum_listing_price, class: "paypal-preferences-input"
         %label.paypal-horizontal-input-label-unit
@@ -59,7 +59,7 @@
 
     .row
       .col-6
-        = form.label :commission_from_seller, t("admin.paypal_accounts.transaction_fee"), class: "paypal-horizontal-input-label"
+        = form.label :commission_from_seller, t("admin.paypal_accounts.transaction_fee_label"), class: "paypal-horizontal-input-label"
       .col-6
         = form.text_field :commission_from_seller, class: "paypal-preferences-input"
         %label.paypal-horizontal-input-label-unit
