@@ -745,6 +745,7 @@ sw:
     paypal:
       generic_error: ~
       cancel_error: ~
+      accept_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: ~
     error_404:

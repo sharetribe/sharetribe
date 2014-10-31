@@ -760,6 +760,7 @@ fr:
     paypal:
       generic_error: "Une erreur s'est produite durant le processus de paiement. Le paiement PayPal n'a pas pu être réalisé."
       cancel_error: "Une erreur s'est produite durant l'annulation. Celle-ci n'a pas pu être réalisée."
+      accept_authorization_error: "Une erreur s'est produite lors de la validation de la pré-autorisation du paiement PayPal. Merci d'essayer de nouveau."
   error_pages:
     back_to_kassi_front_page: "Retourner sur la page d'accueil"
     error_404:
@@ -1290,7 +1291,7 @@ fr:
     listing_actions:
       booking_from: Du
       booking_to: Au
-      how_paypal_works: ~
+      how_paypal_works: "Comment fonctionne PayPal"
     new:
       post_a_new_listing: "Déposer une annonce"
       listing: annonce
@@ -1428,13 +1429,13 @@ fr:
       billing_agreement_canceled: "L'accord de facturation a été annulé"
       billing_agreement_id_missing: "Il y a eu des problèmes techniques lors de l'intégration avec PayPal"
       something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter les administrateurs."
-      need_to_have_currency_balance: ~
+      need_to_have_currency_balance: "Note : votre compte PayPal doit être configuré pour recevoir %{currency}."
   paypal:
     checkout_with_paypal: "Payer avec PayPal"
     cancel_succesful: "Paiement PayPal correctement annulé"
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
+      commission_payment_name: "Paiement de la commission pour %{listing_title}"
+      commission_payment_description: "La place de marché %{service_name} prélève cette commission sur une transaction de %{listing_title}"
   people:
     index:
       loading_more_members: "Chargement des autres membres"

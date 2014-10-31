@@ -273,7 +273,7 @@ sv:
         email_sent: "Meddelandet skickat."
     left_hand_navigation:
       users_and_transactions: "Användare & transaktioner"
-      configure: Inställningar
+      configure: Konfiguration
       emails_title: E-post
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
@@ -628,12 +628,12 @@ sv:
       welcome_to_kassi: "Välkommen till %{service_name}!"
       need_to_confirm: "Du behöver bekräfta din e-postadress."
       confirmation_link_text: "Bekräfta min e-postadress"
-      or_paste_link: "Alternativ så kan du kopiera följande länk till adressfältet i din webbläsare:"
+      or_paste_link: "Alternativt så kan du kopiera följande länk till adressfältet i din webbläsare:"
       turning_on_confirmations_in_this_community: "Vi har börjat med att använda e-postverifiering på denna %{service_name} marknadsplats."
     common:
       check_your_settings: "Kontrollera dina inställningar"
       hey: "Hej %{name},"
-      kassi_team: "%{service_name} teamet"
+      kassi_team: "%{service_name}gänget"
       thanks: "Tack,"
       want_to_control_emails: "Vill du kontrollera vilka mejl du har fått från %{service_name}?"
       dont_want_to_receive_these_emails: "Vill du inte ta emot dessa mail?"
@@ -702,9 +702,9 @@ sv:
       added_offer: "%{name_link} skapade en annons:"
       added_request: "%{name_link} skapade en annons:"
       added_listing: "%{name_link} skapade en annons:"
-      update_mail_title: "%{title_link} uppdatera"
+      update_mail_title: "%{title_link} nyheter"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Här är några saker som har hänt på %{community_link} under den senaste %{time_since_last_update}"
+      intro_paragraph: "Här är några saker som har hänt på %{community_link} under senaste %{time_since_last_update}"
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Skapa annons!"
       reduce_email_footer_text: "För många e-postmeddelanden? %{settings_link} eller %{unsubscribe_link}"
@@ -762,6 +762,7 @@ sv:
     paypal:
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din PayPal betalning."
       cancel_error: "Ett fel inträffade. Det gick ej att slutföra."
+      accept_authorization_error: "Ett fel uppstod vid försök att acceptera PayPal betalningen. Försök igen."
   error_pages:
     back_to_kassi_front_page: "Tillbaka till startsidan"
     error_404:
@@ -1781,7 +1782,7 @@ sv:
     years_ago: "%{count} år sedan"
     days_since:
       one: "%{count} dag"
-      other: "%{count} dagar"
+      other: "%{count} dagarna"
   unit:
     day: dag
     days: dagar
