@@ -43,11 +43,11 @@
     .row
       .col-12
         - if paypal_prefs_valid
-          %h3.paypal-preferences-valid
+          %label.paypal-preferences-valid
             %del= t("admin.paypal_accounts.set_minimum_price_and_fee")
             = t("admin.paypal_accounts.set_minimum_price_and_fee_completed")
         - else
-          %h3= t("admin.paypal_accounts.set_minimum_price_and_fee")
+          %label= t("admin.paypal_accounts.set_minimum_price_and_fee")
 
     .row
       .col-6
