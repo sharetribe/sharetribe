@@ -14,9 +14,22 @@ worker:
   links:
     - db:mysql
   volumes:
-     - .:/opt/sharetribe
+    - .:/opt/sharetribe
   environment:
     RAILS_ENV:
+
+search:
+  build: .
+  command: '/bin/bash -l -c "bundle exec rake ts:configure ts:index; searchd --nodetach --pidfile --config config/development.sphinx.conf"'
+  links:
+    - db:mysql
+  volumes:
+    - .:/opt/sharetribe
+  ports:
+    - "3563:3563"
+  environment:
+    RAILS_ENV:
+    SPHINX_HOST: ""
 
 web:
   build: .
@@ -27,5 +40,7 @@ web:
     - "3000:3000"
   links:
     - db:mysql
+    - search:search
   environment:
     RAILS_ENV:
+    SPHINX_HOST: search
