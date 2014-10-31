@@ -24,14 +24,14 @@ describe TransactionService::PaypalEvents do
     end
 
     it "removes transaction associated with the cancelled token" do
-      TransactionService::PaypalEvents.request_cancelled(@token)
+      TransactionService::PaypalEvents.request_cancelled(:api, @token)
 
       expect(Transaction.count).to eq(0)
     end
 
     it "calling with token that doesn't match a transaction is a no-op" do
       already_removed = @token.merge({transaction_id: 987654321})
-      TransactionService::PaypalEvents.request_cancelled(already_removed)
+      TransactionService::PaypalEvents.request_cancelled(:api, already_removed)
 
       expect(Transaction.count).to eq(1)
     end
@@ -53,7 +53,7 @@ describe TransactionService::PaypalEvents do
     end
 
     it "transitions transaction to preauthorized state" do
-      TransactionService::PaypalEvents.payment_updated(@authorized_payment)
+      TransactionService::PaypalEvents.payment_updated(:api, @authorized_payment)
 
       tx = MarketplaceService::Transaction::Query.transaction(@transaction.id)
       expect(tx[:status]).to eq("preauthorized")
@@ -61,7 +61,7 @@ describe TransactionService::PaypalEvents do
 
     it "is safe to call for non-existent transaction" do
       no_matching_tx = @authorized_payment.merge({transaction_id: 987654321 })
-      TransactionService::PaypalEvents.payment_updated(no_matching_tx)
+      TransactionService::PaypalEvents.payment_updated(:api, no_matching_tx)
 
       tx = MarketplaceService::Transaction::Query.transaction(@transaction.id)
       expect(tx[:status]).to eq("initiated")
@@ -88,14 +88,14 @@ describe TransactionService::PaypalEvents do
     end
 
     it "removes the associated transaction" do
-      TransactionService::PaypalEvents.payment_updated(@voided_payment)
+      TransactionService::PaypalEvents.payment_updated(:api, @voided_payment)
 
       expect(Transaction.count).to eq(0)
     end
 
     it "is safe to call for non-existent transaction" do
       no_matching_tx = @voided_payment.merge({transaction_id: 987654321 })
-      TransactionService::PaypalEvents.payment_updated(no_matching_tx)
+      TransactionService::PaypalEvents.payment_updated(:api, no_matching_tx)
 
       expect(Transaction.count).to eq(1)
     end

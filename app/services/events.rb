@@ -4,8 +4,8 @@ class Events
     @callbacks = callbacks.map { |(ev, cbs)| [ev, Array(cbs)] }.to_h
   end
 
-  def send(event, payload)
-    cbs_for_event(event).each { |cb| cb.call(payload) }
+  def send(event, *payload)
+    cbs_for_event(event).each { |cb| cb.call(*payload) }
   end
 
 

@@ -70,7 +70,7 @@ describe PaypalService::API::Payments do
 
       expect(PaypalToken.count).to eq 0
       expect(@events.received_events[:request_cancelled].length).to eq 1
-      expect(@events.received_events[:request_cancelled].first).to eq token
+      expect(@events.received_events[:request_cancelled].first).to eq([:api, token])
     end
 
     it "cancel fires no events for non-existent token" do
@@ -106,7 +106,7 @@ describe PaypalService::API::Payments do
       payment = PaymentStore.get(@cid, @tx_id)
       expect(@events.received_events[:payment_created].length).to eq(1)
       expect(@events.received_events[:payment_updated].length).to eq(1)
-      expect(@events.received_events[:payment_updated].first).to eq(payment_res[:data])
+      expect(@events.received_events[:payment_updated].first).to eq([:api, payment_res[:data]])
     end
 
     it "will retry at least 3 times" do
@@ -139,7 +139,7 @@ describe PaypalService::API::Payments do
 
       expect(payment_res.success).to eq(false)
       expect(@events.received_events[:request_cancelled].length).to eq(1)
-      expect(@events.received_events[:request_cancelled].first[:transaction_id]).to eq(@tx_id)
+      expect(@events.received_events[:request_cancelled].first.second[:transaction_id]).to eq(@tx_id)
       expect(PaypalToken.count).to eq(0)
     end
 
@@ -177,7 +177,7 @@ describe PaypalService::API::Payments do
       payment_res = @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
 
       expect(@events.received_events[:payment_updated].length).to eq(1)
-      expect(@events.received_events[:payment_updated].last).to eq(payment_res[:data])
+      expect(@events.received_events[:payment_updated].last).to eq([:api, payment_res[:data]])
     end
 
     it "will retry at least 5 times in case of 10001" do
@@ -210,7 +210,7 @@ describe PaypalService::API::Payments do
 
       expect(payment_res.success).to eq(false)
       expect(@events.received_events[:payment_updated].length).to eq(1)
-      expect(@events.received_events[:payment_updated].first[:payment_status]).to eq(:voided)
+      expect(@events.received_events[:payment_updated].first.second[:payment_status]).to eq(:voided)
     end
   end
 
@@ -234,7 +234,7 @@ describe PaypalService::API::Payments do
       payment_res = @payments.void(@cid, @tx_id, { note: "Voided for testing purposes." })
 
       expect(@events.received_events[:payment_updated].length).to eq(1)
-      expect(@events.received_events[:payment_updated].first).to eq(payment_res[:data])
+      expect(@events.received_events[:payment_updated].first).to eq([:api, payment_res[:data]])
     end
 
     it "will retry at least 5 times" do

@@ -3,11 +3,11 @@ module TransactionService::PaypalEvents
   module_function
 
   # Paypal payment request was cancelled, remove the associated transaction
-  def request_cancelled(token)
+  def request_cancelled(source, token)
     Transaction.where(community_id: token[:community_id], id: token[:transaction_id]).destroy_all
   end
 
-  def payment_updated(payment)
+  def payment_updated(source, payment)
     tx = MarketplaceService::Transaction::Query.transaction(payment[:transaction_id])
     if (tx)
       case transition_type(tx, payment)
@@ -24,6 +24,7 @@ module TransactionService::PaypalEvents
 
   ## Privates
 
+  # TODO source not yet passed here, add when needed
   def transition_type(tx, payment)
     payment_status = payment[:payment_status]
     pending_reason = payment[:pending_reason]
@@ -34,6 +35,7 @@ module TransactionService::PaypalEvents
       :initiated_to_preauthorized
     when ["initiated", :voided, :none]
       :initiated_to_voided
+    when ["preauthorized", :voided, :none]
     else
       :unknown_transition
     end
