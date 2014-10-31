@@ -130,7 +130,7 @@ class Community < ActiveRecord::Base
 
   after_create :initialize_settings
 
-  monetize :minimum_price_cents, :allow_nil => true
+  monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :default_currency
 
   # Plan levels
   FREE_PLAN = 0

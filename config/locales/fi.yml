@@ -286,7 +286,7 @@ fi:
       minimum_listing_price_label: "Ilmoituksen minimihinta:"
       transaction_fee_label: "Välityspalkkioprosentti:"
       save_settings: "Tallenna asetukset"
-      note_about_transaction_fee: "Huom! Välityspalkkioon sisältyy PayPal-palvelun välityspalkkio, jonka suuruus riippuu valuutasta ja myyjän myyntimääristä. Tästä syystä välityspalkkio on vähintään %{min_paypal_commission}. Ennen välityspalkkion maksamista markkinapaikan ylläpitäjälle, välityspalkkiosta vähennetään PayPal-palvelun välityspalkkio. Loppuosa siirretään siirretään ylläpitäjälle."
+      note_about_transaction_fee: "Huom! Välityspalkkioon sisältyy PayPal-palvelun palvelumaksu, jonka suuruus riippuu valuutasta ja myyjän myyntimääristä. Tästä syystä välityspalkkio on vähintään %{min_paypal_commission}. PayPal-palvelun palvelumaksu vähennetään välityspalkkiosta automaattisesti, minkä jälkeen loppuosa välityspalkkiosta siirretään sinun PayPal-tilillesi."
     transaction_types:
       sell: Myydään
       rent: "Annetaan vuokralle"

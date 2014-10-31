@@ -28,7 +28,7 @@ class Admin::PaypalPreferencesController < ApplicationController
         less_than_or_equal_to: MAX_COMMISSION_PERCENTAGE)
 
       validate do |prefs|
-        if minimum_listing_price < minimum_commission
+        if minimum_listing_price.nil? || minimum_listing_price < minimum_commission
           prefs.errors[:minimum_listing_price] << "Minimum listing price has to be greater than minimum commission #{minimum_commission}"
         end
       end
