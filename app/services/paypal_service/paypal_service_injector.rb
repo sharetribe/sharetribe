@@ -21,10 +21,7 @@ module PaypalService
             TransactionService::PaypalEvents.request_cancelled(token)
           },
           payment_created: [],
-          payment_updated: print_event_dummy.curry.call(:payment_updated)
-          # authorize: -> (transaction_id) {
-          #   MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
-          # }
+          payment_updated: -> (payment) { TransactionService::PaypalEvents.payment_updated(payment) }
       })
 
       PaypalService::API::Payments.new(events, PaypalService::MerchantInjector.build_paypal_merchant)
