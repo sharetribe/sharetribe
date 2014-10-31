@@ -7,15 +7,15 @@ describe Events do
     bar_c = 0
 
     events = Events.new({
-        foo: -> (inc) { foo_c += inc },
+        foo: -> (inc1, inc2) { foo_c += (inc1 + inc2) },
         bar: [-> (inc) { bar_c += inc}, -> (inc) { bar_c += inc }]
       })
 
-    events.send(:foo, 2)
+    events.send(:foo, 2, 3)
     events.send(:bar, 1)
     events.send(:bar, 1)
 
-    expect(foo_c).to eq 2
+    expect(foo_c).to eq 5
     expect(bar_c).to eq 4
   end
 
