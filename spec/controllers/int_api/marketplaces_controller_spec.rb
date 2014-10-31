@@ -25,6 +25,7 @@ describe IntApi::MarketplacesController do
       p.family_name.should == "Admin"
 
 
+
     end
   end
 end

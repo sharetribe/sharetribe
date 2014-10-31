@@ -7,8 +7,19 @@ class IntApi::MarketplacesController < ApplicationController
   def create
 
 
-    MarketplaceService::API::Marketplaces::create(params.slice(:marketplace_name, :marketplace_type, :marketplace_country, :marketplace_language))
-    #UserService::API::Users::create_user(params.slice(:admin_email, :admin_first_name, :admin_last_name, :admin_password))
+    community = MarketplaceService::API::Marketplaces::create(params.slice(:marketplace_name, :marketplace_type, :marketplace_country, :marketplace_language))
+
+    person_hash = {person: {
+      given_name: params[:admin_first_name],
+      family_name: params[:admin_last_name],
+      email: params[:admin_email],
+      password: params[:admin_password]
+      },
+      locale: :marketplace_language
+    }
+    user = UserService::API::Users::create_user(person_hash, community)
+
+    MarketplaceService::API::Memberships::make_user_a_member_of_community(user, community)
 
     # MUST VALIDATE USER INPUT HERE AS IT COULD BE ANYTHING
     # actually for user enough to see if command passed
