@@ -17,12 +17,8 @@ window.ST.paymentMath = (function() {
     return typeof sum === "number" && !isNaN(sum) ? sum.toFixed(2) : "-";
   }
 
-  function totalCommission(totalSum, communityCommissionPercentage, gatewayCommissionPercentage, gatewayCommissionFixed) {
-    var communityCommission = totalSum * communityCommissionPercentage / 100;
-    var gatewayCommission = totalSum * gatewayCommissionPercentage / 100;
-    var commission = communityCommission + gatewayCommission + gatewayCommissionFixed;
-
-    return Math.ceil(commission);
+  function totalCommission(totalSum, communityCommissionPercentage) {
+    return Math.ceil(totalSum * communityCommissionPercentage / 100);
   }
 
   return {

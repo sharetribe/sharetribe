@@ -722,7 +722,7 @@ function initialize_listing_view(locale) {
   });
 }
 
-function initialize_accept_transaction_form(commission_percentage, gatewayCommissionPercentage, gatewayCommissionFixed, service_fee_vat, form_type, form_id, minimum_price, minimum_price_message) {
+function initialize_accept_transaction_form(commission_percentage, service_fee_vat, form_type, form_id, minimum_price, minimum_price_message) {
 	auto_resize_text_areas("text_area");
 	style_action_selectors();
 
@@ -741,7 +741,7 @@ function initialize_accept_transaction_form(commission_percentage, gatewayCommis
 	    });
 	  } else {
       function update() {
-        update_complex_form_price_fields(commission_percentage, gatewayCommissionPercentage, gatewayCommissionFixed, service_fee_vat);
+        update_complex_form_price_fields(commission_percentage, service_fee_vat);
       }
 
 	    $(".trigger-focusout").focusout(update);
@@ -751,14 +751,14 @@ function initialize_accept_transaction_form(commission_percentage, gatewayCommis
   }
 }
 
-function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencySelector, communityCommissionPercentage, gatewayCommissionPercentage, gatewayCommissionFixed) {
+function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencySelector, communityCommissionPercentage) {
   $display = $(youWillGetSelector);
   $input = $(priceInputSelector);
   $currency = $(currencySelector);
 
   function updateYouWillGet() {
     var sum = ST.paymentMath.parseFloatFromFieldValue($input.val());
-    var sellerGets = sum - ST.paymentMath.totalCommission(sum, communityCommissionPercentage, gatewayCommissionPercentage, gatewayCommissionFixed);
+    var sellerGets = sum - ST.paymentMath.totalCommission(sum, communityCommissionPercentage);
     var currency = $currency.val();
     sellerGets = sellerGets < 0 ? 0 : sellerGets;
     $display.text([ST.paymentMath.displayMoney(sellerGets), currency].join(" "));
@@ -779,7 +779,7 @@ function update_simple_form_price_fields(commission_percentage) {
   $("#payment-to-seller").text(ST.paymentMath.displayMoney(seller_sum));
 }
 
-function update_complex_form_price_fields(commissionPercentage, gatewayCommissionPercentage, gatewasCommissionFixed, serviceFeeVat) {
+function update_complex_form_price_fields(commissionPercentage, serviceFeeVat) {
   var euro = '\u20AC'
 
   var rows = $(".field-row").toArray().map(function(row) {
@@ -803,7 +803,7 @@ function update_complex_form_price_fields(commissionPercentage, gatewayCommissio
     return total + rowObj.sumWithVat;
   }, 0);
 
-  var totalFee = ST.paymentMath.totalCommission(total, commissionPercentage, gatewayCommissionPercentage, gatewasCommissionFixed);
+  var totalFee = ST.paymentMath.totalCommission(total, commissionPercentage);
   var totalFeeWithoutVat = totalFee / (1 + serviceFeeVat / 100);
   var youWillGet = total - totalFee;
 
