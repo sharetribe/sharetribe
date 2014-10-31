@@ -11,22 +11,24 @@ module PaypalService
       @action_handlers = action_handlers
       @config = config
 
-      PayPal::SDK.configure(
-        {
-          mode: config[:endpoint][:endpoint_name],
-          username: config[:api_credentials][:username],
-          password: config[:api_credentials][:password],
-          signature: config[:api_credentials][:signature],
-          app_id: config[:api_credentials][:app_id],
-        }
-      )
+      unless (config.nil?)
+        PayPal::SDK.configure(
+          {
+            mode: config[:endpoint][:endpoint_name],
+            username: config[:api_credentials][:username],
+            password: config[:api_credentials][:password],
+            signature: config[:api_credentials][:signature],
+            app_id: config[:api_credentials][:app_id],
+          }
+          )
+      end
     end
 
     def do_request(request)
       action_def = @action_handlers[request[:method]]
       return exec_action(action_def, @api_builder.call(request), @config, request) if action_def
 
-      raise(ArgumentException, "Unknown request method #{request.method}")
+      raise ArgumentError.new("Unknown request method #{request.method}")
     end
 
 
