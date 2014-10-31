@@ -1,7 +1,7 @@
 
 # marketplace/v1/
 
-## POST /marketplaces
+## POST /int_api/marketplaces
 
 Request body:
 
@@ -10,10 +10,10 @@ Request body:
 , admin_first_name: "Eddie"
 , admin_last_name: "Admin"
 , admin_password: "secret_word"
-, marketplace_country: "Finland"
+, marketplace_country: "FI"
 , marketplace_language: "fi"
 , marketplace_name: "ImaginationTraders"
-, marketplace_type: :product    # or :rental or :service
+, marketplace_type: "product"    # or "rental" or "service"
 }
 ```
 
