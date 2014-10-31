@@ -47,6 +47,9 @@ class Admin::PaypalAccountsController < ApplicationController
         paypal_account_form: PaypalAccountForm.new,
         paypal_prefs_form: paypal_prefs_form,
         paypal_prefs_form_action: preferences_update_admin_community_paypal_accounts_path(@current_community.id),
+        min_commission: minimum_commission,
+        min_commission_percentage: 5,
+        max_commission_percentage: 100,
         currency: currency
       })
   end

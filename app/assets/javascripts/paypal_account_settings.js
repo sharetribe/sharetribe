@@ -21,4 +21,25 @@ window.ST = window.ST || {};
     });
   };
 
+  module.initializePayPalPreferencesForm = function(formId, commissionRange, minCommission) {
+    var form = $('#' + formId);
+
+    form.validate({
+      errorPlacement: function(error, element) {
+        error.appendTo(element.parent());
+      },
+      rules: {
+        "paypal_preferences_form[commission_from_seller]": {
+	  required: true,
+          number_min: commissionRange[0],
+          number_max: commissionRange[1]
+        },
+        "paypal_preferences_form[minimum_listing_price]": {
+	  required: true,
+          number_min: minCommission
+        }
+      }
+    })
+  };
+
 })(window.ST);
