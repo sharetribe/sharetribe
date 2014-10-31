@@ -42,11 +42,24 @@
 
     .row
       .col-12
-        %label="2. Set minimum price & transaction fee"
+        - if paypal_prefs_valid
+          %h3.paypal-preferences-valid
+            %del= t("admin.paypal_accounts.set_minimum_price")
+            = t("admin.paypal_accounts.preferences_completed")
+        - else
+          %h3= t("admin.paypal_accounts.set_minimum_price")
 
     .row
       .col-6
-        = form.label :commission_from_seller, "Transaction fee:", class: "paypal-horizontal-input-label"
+        = form.label :commission_from_seller, t("admin.paypal_accounts.minimum_listing_price"), class: "paypal-horizontal-input-label"
+      .col-6
+        = form.text_field :minimum_listing_price, class: "paypal-preferences-input"
+        %label.paypal-horizontal-input-label-unit
+          = currency
+
+    .row
+      .col-6
+        = form.label :commission_from_seller, t("admin.paypal_accounts.transaction_fee"), class: "paypal-horizontal-input-label"
       .col-6
         = form.text_field :commission_from_seller, class: "paypal-preferences-input"
         %label.paypal-horizontal-input-label-unit
@@ -54,16 +67,11 @@
 
 
     .row
-      .col-6
-        = form.label :commission_from_seller, "Minimum listing price:", class: "paypal-horizontal-input-label"
-      .col-6
-        = form.text_field :minimum_listing_price, class: "paypal-preferences-input"
-        %label.paypal-horizontal-input-label-unit
-          = currency
+      .col-12
+        = form.button t("admin.paypal_accounts.save_settings")
 
     .row
       .col-12
-        = form.button "Save payment preferences"
-
+        = render partial: "layouts/info_text", locals: { text: t("admin.paypal_accounts.note_about_transaction_fee", min_paypal_commission: humanized_money_with_symbol(min_commission)) }
 
 

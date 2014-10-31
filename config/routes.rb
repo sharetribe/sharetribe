@@ -140,7 +140,7 @@ Kassi::Application.routes.draw do
             post :posting_allowed
           end
         end
-        resource :paypal_accounts do
+        resource :paypal_preferences, only: :index do
           member do
             get :index
             post :preferences_update
