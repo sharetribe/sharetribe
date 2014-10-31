@@ -11,6 +11,8 @@ module PaypalService::API
     TokenStore = PaypalService::Store::Token
     PaymentStore = PaypalService::Store::PaypalPayment
 
+    EVENT_SOURCE = :api
+
     def initialize(events, merchant, logger = PaypalService::Logger.new)
       @logger = logger
       @events = events
@@ -67,7 +69,7 @@ module PaypalService::API
         TokenStore.delete(community_id, token[:transaction_id])
 
         #trigger callback for request cancelled
-        @events.send(:request_cancelled, token)
+        @events.send(:request_cancelled, EVENT_SOURCE, token)
 
         Result::Success.new
       else
@@ -116,7 +118,7 @@ module PaypalService::API
           payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
           # Trigger payment_updated event
-          @events.send(:payment_updated, payment_entity)
+          @events.send(:payment_updated, EVENT_SOURCE, payment_entity)
 
           # Return as payment entity
           Result::Success.new(payment_entity)
@@ -331,7 +333,7 @@ module PaypalService::API
             payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
             # Send event payment_crated
-            @events.send(:payment_created, payment_entity)
+            @events.send(:payment_created, EVENT_SOURCE, payment_entity)
 
             # Return as payment entity
             Result::Success.new(payment_entity)
@@ -363,7 +365,7 @@ module PaypalService::API
           payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
           # Trigger callback for authorized
-          @events.send(:payment_updated, payment_entity)
+          @events.send(:payment_updated, EVENT_SOURCE, payment_entity)
 
           # Return as payment entity
           Result::Success.new(payment_entity)
@@ -396,7 +398,7 @@ module PaypalService::API
           payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
           # Trigger payment_updated
-          @events.send(:payment_updated, payment_entity)
+          @events.send(:payment_updated, EVENT_SOURCE, payment_entity)
 
           payment_entity
         end

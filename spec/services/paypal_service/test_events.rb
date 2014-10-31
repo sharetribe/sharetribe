@@ -8,7 +8,7 @@ module PaypalService
       clear
     end
 
-    def send(event, payload)
+    def send(event, *payload)
       raise "Illegal event type: #{event}" unless ALLOWED_EVENTS.include? event
 
       @received_events[event].push(payload)

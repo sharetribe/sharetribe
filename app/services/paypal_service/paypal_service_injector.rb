@@ -17,11 +17,11 @@ module PaypalService
       }
 
       events = Events.new({
-          request_cancelled: -> (token) {
-            TransactionService::PaypalEvents.request_cancelled(token)
+          request_cancelled: -> (source, token) {
+            TransactionService::PaypalEvents.request_cancelled(source, token)
           },
           payment_created: [],
-          payment_updated: -> (payment) { TransactionService::PaypalEvents.payment_updated(payment) }
+          payment_updated: -> (source, payment) { TransactionService::PaypalEvents.payment_updated(source, payment) }
       })
 
       PaypalService::API::Payments.new(events, PaypalService::MerchantInjector.build_paypal_merchant)
