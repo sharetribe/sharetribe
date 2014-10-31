@@ -143,7 +143,13 @@ module PaypalService::Store::PaypalPayment
     end
 
     payment_update = {}
-    payment_update[:payment_status] = order[:payment_status].downcase.to_sym
+    payment_update[:payment_status] =
+      if (order[:payment_status].is_a? Symbol)
+        order[:payment_status]
+      else
+        order[:payment_status].downcase.to_sym
+      end
+
     payment_update[:pending_reason] =
       if (order[:pending_reason].nil?)
         :none
@@ -152,6 +158,7 @@ module PaypalService::Store::PaypalPayment
       else
         order[:pending_reason].downcase.gsub(/[-_]/, "").to_sym
       end
+
     payment_update[:commission_status] = order[:commission_status].downcase.to_sym if order[:commission_status]
     payment_update = HashUtils.sub(order, *OPT_UPDATE_FIELDS).merge(cent_totals).merge(payment_update)
 
