@@ -16,9 +16,6 @@
 #  checkout_password                    :string(255)
 #  created_at                           :datetime         not null
 #  updated_at                           :datetime         not null
-#  gateway_commission_percentage        :integer
-#  gateway_commission_fixed_cents       :integer
-#  gateway_commission_fixed_currency    :string(255)
 #
 
 require 'spec_helper'
