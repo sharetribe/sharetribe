@@ -239,7 +239,7 @@ module PaypalService::API
       end
     end
 
-    def handle_failed_authorization(payment)
+    def handle_failed_authorization(payment, m_acc)
       -> (cid, txid, request, err_response) do
         if err_response[:error_code] == "10486"
           # Special handling for 10486 error. Return error response and do NOT void.
@@ -353,7 +353,7 @@ module PaypalService::API
           error_policy: {
             codes_to_retry: ["10001", "x-timeout", "x-servererror"],
             try_max: 5,
-            finally: (method :handle_failed_authorization).call(payment)
+            finally: (method :handle_failed_authorization).call(payment, m_acc)
           }
         ) do |auth_res|
 

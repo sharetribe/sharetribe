@@ -35,23 +35,26 @@ module PaypalService
 
   class TestApiBuilder
     def initialize()
-      @fail_count = 0
-      @error_code = nil
+      # We maintain a queue of next response type, elems are :ok or "error_code".
+      # Empty queue implicitly means :ok
+      @next_responses = []
+    end
+
+    def will_respond_with(response_types)
+      @next_responses = response_types
     end
 
     def will_fail(times, error_code)
-      @fail_count = times
-      @error_code = error_code
+      will_respond_with(times.times.map { error_code })
     end
 
     def call(req)
-      if @fail_count <= 0
-        TestApi.new(req[:receiver_username])
+      res_type = @next_responses.shift
+      if (res_type.is_a? String)
+        TestApi.new(req[:receiver_username], true, res_type)
       else
-        @fail_count = @fail_count - 1
-        TestApi.new(req[:receiver_username], true, @error_code)
+        TestApi.new(req[:receiver_username])
       end
-
     end
   end
 
