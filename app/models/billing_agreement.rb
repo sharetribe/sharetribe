@@ -7,8 +7,8 @@
 #  billing_agreement_id :string(255)
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
-#  paypal_username_to   :string(255)      default(""), not null
-#  request_token        :string(255)      default(""), not null
+#  paypal_username_to   :string(255)      not null
+#  request_token        :string(255)      not null
 #
 
 class BillingAgreement < ActiveRecord::Base

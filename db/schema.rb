@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(:version => 20141030140809) do
     t.string   "billing_agreement_id"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
-    t.string   "paypal_username_to",   :default => "", :null => false
-    t.string   "request_token",        :default => "", :null => false
+    t.string   "paypal_username_to",                   :null => false
+    t.string   "request_token",                        :null => false
   end
 
   create_table "bookings", :force => true do |t|
@@ -104,9 +104,9 @@ ActiveRecord::Schema.define(:version => 20141030140809) do
 
   create_table "checkout_accounts", :force => true do |t|
     t.string   "company_id_or_personal_id"
-    t.string   "merchant_id",               :default => "", :null => false
-    t.string   "merchant_key",              :default => "", :null => false
-    t.string   "person_id",                 :default => "", :null => false
+    t.string   "merchant_id",                               :null => false
+    t.string   "merchant_key",                              :null => false
+    t.string   "person_id",                                 :null => false
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
   end
@@ -553,8 +553,8 @@ ActiveRecord::Schema.define(:version => 20141030140809) do
     t.integer  "paypal_account_id",                  :null => false
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
-    t.string   "request_token",      :default => "", :null => false
-    t.string   "paypal_username_to", :default => "", :null => false
+    t.string   "request_token",                      :null => false
+    t.string   "paypal_username_to",                 :null => false
     t.string   "scope"
     t.string   "verification_code"
   end

@@ -28,7 +28,7 @@ module MarketplaceService
         module_function
 
         def name_display_style(community_id)
-          Community.find(community_id).name_display_type
+          ::Community.find(community_id).name_display_type
         end
       end
     end
