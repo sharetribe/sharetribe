@@ -16,11 +16,11 @@ module PaypalService
       [:error_code, :string],
       [:error_msg, :string])
 
-    # TODO Needs nested builders + rules for builder idempotence
     Config = EntityUtils.define_builder(
       [:endpoint, :mandatory],
       [:api_credentials, :mandatory],
-      [:ipn_hook])
+      [:ipn_hook],
+      [:button_source, :string])
 
 
     module_function
