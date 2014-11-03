@@ -78,12 +78,16 @@ module PaypalService::Store::PaypalPayment
   end
 
   def create(community_id, transaction_id, order)
-    model = PaypalPaymentModel.create!(
-      initial(
-        order
-          .merge({community_id: community_id, transaction_id: transaction_id})
-        ))
-    from_model(model)
+    begin
+      model = PaypalPaymentModel.create!(
+        initial(
+          order
+            .merge({community_id: community_id, transaction_id: transaction_id})
+          ))
+      from_model(model)
+    rescue ActiveRecord::RecordNotUnique => rnu
+      get(community_id, transaction_id)
+    end
   end
 
   def get(community_id, transaction_id)
