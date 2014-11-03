@@ -50,7 +50,7 @@ class PreauthorizeTransactionsController < ApplicationController
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: listing,
       sum: listing[:price],
-      author: PersonQuery.person(listing[:author_id]),
+      author: PersonQuery.person(listing[:author_id], @current_community.id),
       action_button_label: action_button_label,
       expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
       form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
@@ -128,7 +128,7 @@ class PreauthorizeTransactionsController < ApplicationController
         listing: listing,
         sum: listing[:price] * booking_data[:duration],
         duration: booking_data[:duration],
-        author: PersonQuery.person(listing[:author_id]),
+        author: PersonQuery.person(listing[:author_id], @current_community.id),
         action_button_label: action_button_label,
         expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
         form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
@@ -144,7 +144,7 @@ class PreauthorizeTransactionsController < ApplicationController
         listing: listing,
         sum: listing[:price] * booking_data[:duration],
         duration: booking_data[:duration],
-        author: PersonQuery.person(listing[:author_id]),
+        author: PersonQuery.person(listing[:author_id], @current_community.id),
         action_button_label: action_button_label,
         expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
         braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
@@ -172,7 +172,7 @@ class PreauthorizeTransactionsController < ApplicationController
       braintree_form: BraintreeForm.new,
       listing: listing,
       sum: listing[:price],
-      author: PersonQuery.person(listing[:author_id]),
+      author: PersonQuery.person(listing[:author_id], @current_community.id),
       action_button_label: action_button_label,
       expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
       form_action: preauthorized_payment_path(person_id: @current_user.id, listing_id: listing[:id])
