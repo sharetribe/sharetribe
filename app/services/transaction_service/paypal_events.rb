@@ -48,8 +48,11 @@ module TransactionService::PaypalEvents
 
   def delete_transaction(cid:, tx_id:)
     tx = Transaction.where(community_id: cid, id: tx_id).first
-    tx.conversation.destroy if Maybe(tx).conversation.map { |c| c.messages.empty? }.or_else(false)
-    tx.destroy if tx
+
+    if tx
+      tx.conversation.destroy
+      tx.destroy
+    end
   end
 
 end

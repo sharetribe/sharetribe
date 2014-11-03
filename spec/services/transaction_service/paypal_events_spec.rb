@@ -106,10 +106,9 @@ describe TransactionService::PaypalEvents do
 
       # Both transactions are deleted
       expect(TransactionModel.count).to eq(0)
-      # and so is the empty conversation
+      # and so are the conversations
       expect(Conversation.where(id: @conversation_no_msg).first).to be_nil
-      # but the conversation with a message is left there
-      expect(Conversation.where(id: @conversation_with_msg).first).not_to be_nil
+      expect(Conversation.where(id: @conversation_with_msg).first).to be_nil
     end
 
     it "calling with token that doesn't match a transaction is a no-op" do
@@ -183,10 +182,9 @@ describe TransactionService::PaypalEvents do
 
       # Both transactions are deleted
       expect(TransactionModel.count).to eq(0)
-      # and so is the empty conversation
+      # and so are the conversations
       expect(Conversation.where(id: @conversation_no_msg).first).to be_nil
-      # but the conversation with a message is left there
-      expect(Conversation.where(id: @conversation_with_msg).first).not_to be_nil
+      expect(Conversation.where(id: @conversation_with_msg).first).to be_nil
     end
 
     it "is safe to call for non-existent transaction" do
