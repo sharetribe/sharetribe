@@ -824,31 +824,31 @@ tr-TR:
       additionally_one_private_offer_exists: "Ek olarak bir diğer teklif var,"
       additionally_one_private_request_exists: "Ek olarak bir diğer talep var,"
       additionally_some_private_offers_exist: "Ek olarak diğer teklifler %{number_of_listings}"
-      additionally_some_private_requests_exist: ~
+      additionally_some_private_requests_exist: "Ek olarak diğer %{number_of_listings} talep var,"
     blank_slate:
       add_first: "Yeni bir tane ekle!"
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
+      but_that_is_visible_only_to_registered_members: "fakat bu sadece kayıtlı üyeler tarafından görülebilir."
+      but_those_are_visible_only_to_registered_members: "fakat bunlar sadece kayıtlı üyeler tarafından görülebilir."
       create_new_account_for_yourself: "Kendiniz için yeni bir hesap oluşturun"
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
+      examples_of_what_you_could_offer_to_others: "Diğerlerine ne teklif edebilirsin"
+      examples_of_what_you_could_request_to_others: "Diğerlerinden ne talep edebilirsin"
       favor_offer_list: ~
-      favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
-      item_offer_list: ~
-      item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
-      log_in: ~
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
+      favor_request_list: "bebek bakıcılığı, piyano dersleri, köpek gezdirme, çim biçme"
+      favors_to_offer: "Yardım: "
+      favors_to_request: "Yardım: "
+      item_offer_list: "araçlar, spor malzemeleri, kostümler, kamp malzemeleri"
+      item_request_list: "araçlar, spor malzemeleri, kostümler, kamp malzemeleri"
+      items_to_offer: "Ödünç verilecek ürünler: "
+      items_to_request: "Ödünç alınacak ürünler: "
+      log_in: "Giriş yap!"
+      no_offers_visible_unless_logged_in: "Hiç bir ürün, hizmet veya yolculuk paylaşımı teklifi siteye giriş yapmamış kullanıcılardan tarafından görülebilir değildir."
+      no_open_offers_currently: "Geçerli bir ürün, hizmet veya yolculuk paylaşımı teklifi yok."
+      no_open_requests_currently: "Geçerli bir ürün, hizmet veya yolculuk paylaşımı talebi yok."
+      no_requests_visible_unless_logged_in: "Geçerli bir ürün, hizmet veya yolculuk paylaşımı talebi siteye giriş yapmamış kullanıcılar tarafından görülebilir değildir."
+      one_private_offer_exists: "Zaten bir teklif var,"
+      one_private_request_exists: "Zaten bir talep var,"
+      ride_offer: "Başkalarının çocuklarını hobi/kurslara bırakmak"
+      ride_request: "İşe yolculuk"
       some_private_offers_exist: ~
       some_private_requests_exist: ~
     custom_filters:
