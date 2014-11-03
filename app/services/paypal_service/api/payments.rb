@@ -11,8 +11,6 @@ module PaypalService::API
     TokenStore = PaypalService::Store::Token
     PaymentStore = PaypalService::Store::PaypalPayment
 
-    EVENT_SOURCE = :api
-
     def initialize(events, merchant, logger = PaypalService::Logger.new)
       @logger = logger
       @events = events
@@ -69,7 +67,7 @@ module PaypalService::API
         TokenStore.delete(community_id, token[:transaction_id])
 
         #trigger callback for request cancelled
-        @events.send(:request_cancelled, EVENT_SOURCE, token)
+        @events.send(:request_cancelled, :success, SOURCE, token)
 
         Result::Success.new
       else
@@ -118,7 +116,7 @@ module PaypalService::API
           payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
           # Trigger payment_updated event
-          @events.send(:payment_updated, EVENT_SOURCE, payment_entity)
+          @events.send(:payment_updated, :success, payment_entity)
 
           # Return as payment entity
           Result::Success.new(payment_entity)
@@ -141,6 +139,7 @@ module PaypalService::API
           transaction_id,
           payment,
           m_acc,
+          :success,
           info[:note])
 
         # Return as payment entity
@@ -255,7 +254,7 @@ module PaypalService::API
 
     def void_failed_payment(payment, m_acc)
       -> (cid, txid, request, err_response) do
-        void_payment(cid, txid, payment, m_acc)
+        void_payment(cid, txid, payment, :error, m_acc)
 
         # Return original error
         log_and_return(cid, txid, request, err_response)
@@ -333,7 +332,7 @@ module PaypalService::API
             payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
             # Send event payment_crated
-            @events.send(:payment_created, EVENT_SOURCE, payment_entity)
+            @events.send(:payment_created, :success, payment_entity)
 
             # Return as payment entity
             Result::Success.new(payment_entity)
@@ -365,7 +364,7 @@ module PaypalService::API
           payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
           # Trigger callback for authorized
-          @events.send(:payment_updated, EVENT_SOURCE, payment_entity)
+          @events.send(:payment_updated, :success, payment_entity)
 
           # Return as payment entity
           Result::Success.new(payment_entity)
@@ -373,7 +372,7 @@ module PaypalService::API
       end
     end
 
-    def void_payment(community_id, transaction_id, payment, m_acc, note = nil)
+    def void_payment(community_id, transaction_id, payment, m_acc, flow, note = nil)
       with_success(community_id, transaction_id,
         MerchantData.create_do_void({
             receiver_username: m_acc[:payer_id],
@@ -398,7 +397,7 @@ module PaypalService::API
           payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
           # Trigger payment_updated
-          @events.send(:payment_updated, EVENT_SOURCE, payment_entity)
+          @events.send(:payment_updated, flow, payment_entity)
 
           payment_entity
         end

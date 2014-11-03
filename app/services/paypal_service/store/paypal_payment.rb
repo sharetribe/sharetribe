@@ -90,6 +90,13 @@ module PaypalService::Store::PaypalPayment
     end
   end
 
+  def ipn_void(ipn_entity)
+    payment = PaypalPaymentModel.where(
+      "authorization_id = ? or order_id = ?", ipn_entity[:voiding_id], ipn_entity[:voiding_id]
+    )
+    update_payment(payment, ipn_entity)
+  end
+
   def get(community_id, transaction_id)
     Maybe(PaypalPaymentModel.where(
         community_id: community_id,
