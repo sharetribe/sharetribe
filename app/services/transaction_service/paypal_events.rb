@@ -4,7 +4,7 @@ module TransactionService::PaypalEvents
 
   # Paypal payment request was cancelled, remove the associated transaction
   def request_cancelled(source, token)
-    Transaction.where(community_id: token[:community_id], id: token[:transaction_id]).destroy_all
+    delete_transaction(cid: token[:community_id], tx_id: token[:transaction_id])
   end
 
   def payment_updated(source, payment)
@@ -14,7 +14,7 @@ module TransactionService::PaypalEvents
       when :initiated_to_preauthorized
         initiated_to_preauthorized(tx)
       when :initiated_to_voided
-        delete_transaction(tx)
+        delete_transaction(cid: tx[:community_id], tx_id: tx[:id])
       else
         # No handler yet, should log but how to get a logger?
       end
@@ -46,8 +46,10 @@ module TransactionService::PaypalEvents
     MarketplaceService::Transaction::Command.transition_to(tx[:id], "preauthorized")
   end
 
-  def delete_transaction(tx)
-    Transaction.where(community_id: tx[:community_id], id: tx[:id]).destroy_all
+  def delete_transaction(cid:, tx_id:)
+    tx = Transaction.where(community_id: cid, id: tx_id).first
+    tx.conversation.destroy if Maybe(tx).conversation.map { |c| c.messages.empty? }.or_else(false)
+    tx.destroy if tx
   end
 
 end

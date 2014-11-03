@@ -4,45 +4,125 @@ describe TransactionService::PaypalEvents do
 
   TokenStore = PaypalService::Store::Token
   PaymentStore = PaypalService::Store::PaypalPayment
+  TransactionModel = ::Transaction
 
-  context "#request_cancelled" do
-    before(:each) do
-      @cid = 4
-      @transaction = FactoryGirl.create(:transaction, community_id: 4, current_state: "initiated")
-      @token_code = SecureRandom.uuid
-      TokenStore.create({
-          community_id: @cid,
-          token: @token_code,
-          transaction_id: @transaction.id,
-          merchant_id: @transaction.starter_id,
-          item_name: "item name",
-          item_quantity: 1,
-          item_price: Money.new(22000, "EUR"),
-          express_checkout_url: "htts://test.com/#{@token_code}"
-        })
-      @token = TokenStore.get(@cid, @token_code)
+  # Simulate TransactionService::Transactions.create but without calling to paypal payments API
+  def create_test_transaction(opts)
+    transaction = TransactionModel.new(
+      community_id: opts[:community_id],
+      listing_id: opts[:listing_id],
+      starter_id: opts[:starter_id],
+      listing_quantity: Maybe(opts)[:listing_quantity].or_else(1),
+      payment_gateway: opts[:payment_gateway],
+      payment_process: opts[:payment_process],
+      commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
+      minimum_commission: opts[:minimum_commission])
+
+    conversation = transaction.build_conversation(
+      community_id: opts[:community_id],
+      listing_id: opts[:listing_id])
+
+    conversation.participations.build(
+      person_id: opts[:listing_author_id],
+      is_starter: false,
+      is_read: false)
+
+    conversation.participations.build(
+      person_id: opts[:starter_id],
+      is_starter: true,
+      is_read: true)
+
+    if opts[:content].present?
+      conversation.messages.build({
+          content: opts[:content],
+          sender_id: opts[:starter_id]})
     end
 
-    it "removes transaction associated with the cancelled token" do
-      TransactionService::PaypalEvents.request_cancelled(:api, @token)
+    transaction.save!
+    transaction.reload
+  end
 
-      expect(Transaction.count).to eq(0)
+  before(:each) do
+    @cid = 4
+    @payer = FactoryGirl.create(:payer)
+    @listing = FactoryGirl.create(:listing, price: Money.new(45000, "EUR"))
+
+    @transaction_info = {
+      payment_process: :preauthorize,
+      payment_gateway: :paypal,
+      community_id: @cid,
+      starter_id: @payer.id,
+      listing_id: @listing.id,
+      listing_title: @listing.title,
+      listing_price: @listing.price,
+      listing_author_id: @listing.author_id,
+      listing_quantity: 1,
+      automatic_confirmation_after_days: 3,
+      commission_from_seller: 10,
+      minimum_commission: Money.new(20, "EUR")
+    }
+
+    @transaction_no_msg = create_test_transaction(@transaction_info)
+    MarketplaceService::Transaction::Command.transition_to(@transaction_no_msg, "initiated")
+    @conversation_no_msg = @transaction_no_msg.conversation
+
+    @transaction_with_msg = create_test_transaction(@transaction_info.merge(content: "A test message"))
+    MarketplaceService::Transaction::Command.transition_to(@transaction_with_msg, "initiated")
+    @conversation_with_msg = @transaction_with_msg.conversation
+
+    token_code_no_msg = SecureRandom.uuid
+    TokenStore.create({
+        community_id: @cid,
+        token: token_code_no_msg,
+        transaction_id: @transaction_no_msg.id,
+        merchant_id: @transaction_no_msg.starter_id,
+        item_name: @listing.title,
+        item_quantity: 1,
+        item_price: Money.new(45000, "EUR"),
+        express_checkout_url: "htts://test.com/#{token_code_no_msg}"
+      })
+
+    token_code_with_msg = SecureRandom.uuid
+    TokenStore.create({
+        community_id: @cid,
+        token: token_code_with_msg,
+        transaction_id: @transaction_with_msg.id,
+        merchant_id: @transaction_with_msg.starter_id,
+        item_name: @listing.title,
+        item_quantity: 1,
+        item_price: Money.new(45000, "EUR"),
+        express_checkout_url: "htts://test.com/#{token_code_with_msg}"
+      })
+
+    @token_no_msg = TokenStore.get(@cid, token_code_no_msg)
+    @token_with_msg = TokenStore.get(@cid, token_code_with_msg)
+  end
+
+
+  context "#request_cancelled" do
+    it "removes transaction associated with the cancelled token" do
+      TransactionService::PaypalEvents.request_cancelled(:api, @token_no_msg)
+      TransactionService::PaypalEvents.request_cancelled(:api, @token_with_msg)
+
+      # Both transactions are deleted
+      expect(TransactionModel.count).to eq(0)
+      # and so is the empty conversation
+      expect(Conversation.where(id: @conversation_no_msg).first).to be_nil
+      # but the conversation with a message is left there
+      expect(Conversation.where(id: @conversation_with_msg).first).not_to be_nil
     end
 
     it "calling with token that doesn't match a transaction is a no-op" do
-      already_removed = @token.merge({transaction_id: 987654321})
+      already_removed = @token_no_msg.merge({transaction_id: 987654321})
       TransactionService::PaypalEvents.request_cancelled(:api, already_removed)
 
-      expect(Transaction.count).to eq(1)
+      expect(Transaction.count).to eq(2)
     end
   end
 
   context "#payment_updated - initiated => authorized" do
     before(:each) do
-      @cid = 4
-      @transaction = FactoryGirl.create(:transaction, community_id: 4, current_state: "initiated", payment_gateway: "paypal")
-
-      @authorized_payment = PaymentStore.create(@cid, @transaction.id, {
+      @authorized_payment = PaymentStore.create(@cid, @transaction_with_msg.id, {
           payer_id: "sduyfsudf",
           receiver_id: "98ysdf98ysdf",
           pending_reason: "authorization",
@@ -55,7 +135,7 @@ describe TransactionService::PaypalEvents do
     it "transitions transaction to preauthorized state" do
       TransactionService::PaypalEvents.payment_updated(:api, @authorized_payment)
 
-      tx = MarketplaceService::Transaction::Query.transaction(@transaction.id)
+      tx = MarketplaceService::Transaction::Query.transaction(@transaction_with_msg.id)
       expect(tx[:status]).to eq("preauthorized")
     end
 
@@ -63,17 +143,14 @@ describe TransactionService::PaypalEvents do
       no_matching_tx = @authorized_payment.merge({transaction_id: 987654321 })
       TransactionService::PaypalEvents.payment_updated(:api, no_matching_tx)
 
-      tx = MarketplaceService::Transaction::Query.transaction(@transaction.id)
+      tx = MarketplaceService::Transaction::Query.transaction(@transaction_with_msg.id)
       expect(tx[:status]).to eq("initiated")
     end
   end
 
   context "#payment_updated - initiated => voided" do
     before(:each) do
-      @cid = 4
-      @transaction = FactoryGirl.create(:transaction, community_id: 4, current_state: "initiated", payment_gateway: "paypal")
-
-      PaymentStore.create(@cid, @transaction.id, {
+      PaymentStore.create(@cid, @transaction_no_msg.id, {
           payer_id: "sduyfsudf",
           receiver_id: "98ysdf98ysdf",
           pending_reason: "authorization",
@@ -81,23 +158,42 @@ describe TransactionService::PaypalEvents do
           order_date: Time.now,
           order_total: Money.new(22000, "EUR"),
         })
-      @voided_payment = PaymentStore.update(@cid, @transaction.id,  {
+      @voided_payment_no_msg = PaymentStore.update(@cid, @transaction_no_msg.id,  {
+          pending_reason: :none,
+          payment_status: :voided
+        })
+
+      PaymentStore.create(@cid, @transaction_with_msg.id, {
+          payer_id: "sduyfsudf",
+          receiver_id: "98ysdf98ysdf",
+          pending_reason: "authorization",
+          order_id: SecureRandom.uuid,
+          order_date: Time.now,
+          order_total: Money.new(22000, "EUR"),
+        })
+      @voided_payment_with_msg = PaymentStore.update(@cid, @transaction_with_msg.id,  {
           pending_reason: :none,
           payment_status: :voided
         })
     end
 
     it "removes the associated transaction" do
-      TransactionService::PaypalEvents.payment_updated(:api, @voided_payment)
+      TransactionService::PaypalEvents.payment_updated(:api, @voided_payment_no_msg)
+      TransactionService::PaypalEvents.payment_updated(:api, @voided_payment_with_msg)
 
-      expect(Transaction.count).to eq(0)
+      # Both transactions are deleted
+      expect(TransactionModel.count).to eq(0)
+      # and so is the empty conversation
+      expect(Conversation.where(id: @conversation_no_msg).first).to be_nil
+      # but the conversation with a message is left there
+      expect(Conversation.where(id: @conversation_with_msg).first).not_to be_nil
     end
 
     it "is safe to call for non-existent transaction" do
-      no_matching_tx = @voided_payment.merge({transaction_id: 987654321 })
+      no_matching_tx = @voided_payment_with_msg.merge({transaction_id: 987654321 })
       TransactionService::PaypalEvents.payment_updated(:api, no_matching_tx)
 
-      expect(Transaction.count).to eq(1)
+      expect(Transaction.count).to eq(2)
     end
   end
 end
