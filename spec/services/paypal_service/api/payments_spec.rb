@@ -143,6 +143,20 @@ describe PaypalService::API::Payments do
       expect(PaypalToken.count).to eq(0)
     end
 
+    it "voids payment after 5 authorization failures" do
+      token = @payments.request(@cid, @req_info)[:data]
+      @api_builder.will_respond_with([:ok, :ok, "10001", "10001", "10001", "10001", "10001", :ok])
+      payment_res = @payments.create(@cid, token[:token])
+      payment = @payments.get_payment(@cid, @tx_id)[:data]
+
+      expect(payment_res.success).to eq(false)
+      expect(payment[:payment_status]).to eq(:voided)
+      expect(payment[:pending_reason]).to eq(:none)
+      expect(@events.received_events[:payment_created].length).to eq(1)
+      expect(@events.received_events[:payment_updated].first.second[:payment_status]).to eq(:voided)
+      expect(@events.received_events[:payment_updated].first.second[:pending_reason]).to eq(:none)
+    end
+
     it "keeps token and returns redirect_url in error data upon 10486 error" do
       token = @payments.request(@cid, @req_info)[:data]
       @api_builder.will_fail(1, "10486")
