@@ -20,7 +20,7 @@ window.ST.paymentMath = (function() {
   function totalCommission(totalSum, communityCommissionPercentage, minCommission) {
     minCommission = minCommission || 0;
     var commission = totalSum * communityCommissionPercentage / 100;
-    return Math.max(commission, minCommission)
+    return Math.max(commission, minCommission);
   }
 
   return {
