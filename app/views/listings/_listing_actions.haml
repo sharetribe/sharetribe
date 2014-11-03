@@ -70,18 +70,20 @@
           = @listing.transaction_type.action_button_label(I18n.locale)
 
     - if payment_gateway == :paypal
-      %a#how-paypal-works-popup-link{title: t("listings.listing_actions.how_paypal_works"), href: "https://www.paypal.com/webapps/mpp/paypal-popup"}
-        = image_tag "https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg", style: "max-width: 100%"
-        - content_for :extra_javascript do
-          :javascript
-            $("#how-paypal-works-popup-link").click(function() {
-              window.open(
-                'https://www.paypal.com/webapps/mpp/paypal-popup',
-                'WIPaypal',
-                'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'
-              );
-              return false;
-            });
+      .row
+        .col-12
+          %a#how-paypal-works-popup-link{title: t("listings.listing_actions.how_paypal_works"), href: "https://www.paypal.com/webapps/mpp/paypal-popup"}
+            = image_tag "https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png", style: "max-width: 100%"
+            - content_for :extra_javascript do
+              :javascript
+                $("#how-paypal-works-popup-link").click(function() {
+                  window.open(
+                    'https://www.paypal.com/webapps/mpp/paypal-popup',
+                    'WIPaypal',
+                    'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'
+                  );
+                  return false;
+                });
 
   - if is_authorized
     .listing-view-admin-links
