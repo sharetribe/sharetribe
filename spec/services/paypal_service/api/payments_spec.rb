@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 require_relative '../test_events'
 require_relative '../test_logger'
 require_relative '../test_merchant'
@@ -17,6 +15,7 @@ describe PaypalService::API::Payments do
       PaypalService::TestMerchant.build(@api_builder),
       PaypalService::TestLogger.new)
 
+    @process = PaypalService::API::Process.new
     @cid = 10
     @mid = "merchant_id_1"
     @paypal_email = "merchant_1@test.com"
@@ -39,6 +38,13 @@ describe PaypalService::API::Payments do
       success: "https://www.test.com/success",
       cancel: "https://www.test.com/cancel"
     }
+
+    SyncDelayedJobObserver.reset!
+  end
+
+  after(:each) do
+    # Do not leave before an active synchronous delayed job runner
+    SyncDelayedJobObserver.reset!
   end
 
   context "#request and #request_cancel" do
@@ -80,6 +86,27 @@ describe PaypalService::API::Payments do
       expect(PaypalToken.count).to eq 0
       expect(@events.received_events[:request_cancelled].length).to eq 0
     end
+
+    it "supports async running" do
+      # SyncDelayedJobObserver.enable!
+
+      response = @payments.request(@cid, @req_info, async: true)
+      process_status_res = @process.get_process(response[:data][:process_token])
+      process_status = process_status_res[:data]
+
+      expect(process_status_res[:success]).to eq(true)
+      expect(process_status[:completed]).to eq(false)
+      expect(process_status[:result]).to be_nil
+
+      # expect(process_status)
+      # payment_res = @payments.get_result(response[:process_token])
+
+      # expect(payment_res[:complete]).to eq(true)
+      # expect(payment_res[:data][:community_id]).to eq @cid
+      # expect(payment_res[:data][:token]).not_to be_nil
+      # expect(payment_res[:data][:transaction_id]).to eq(@req_info[:transaction_id])
+    end
+
   end
 
   context "#create" do

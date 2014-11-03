@@ -23,12 +23,34 @@ module PaypalService::API
       @merchant
     end
 
+
+    # The API implementation
+    #
+
     ## POST /payments/request
-    def request(community_id, create_payment)
+    def request(community_id, create_payment, async: false)
       Lookup.with_account(
         community_id, create_payment[:merchant_id]
       ) do |m_acc|
+        if (async)
+          proc_token = PaymentsWorker.enqueue_op(
+            community_id: community_id,
+            transaction_id: create_payment[:transaction_id],
+            op_name: :do_request,
+            op_input: [community_id, create_payment, m_acc])
+          Result::Success.new(
+            DataTypes.create_process_status({
+                process_token: proc_token[:process_token],
+                completed: proc_token[:op_completed],
+                result: proc_token[:op_output]
+              }))
+        else
+          do_request(community_id, create_payment, m_acc)
+        end
+      end
+    end
 
+    def do_request(community_id, create_payment, m_acc)
         request = MerchantData.create_set_express_checkout_order(
           create_payment.merge({
               receiver_username: m_acc[:payer_id],
@@ -58,7 +80,6 @@ module PaypalService::API
                 token: response[:token],
                 redirect_url: response[:redirect_url]}))
         end
-      end
     end
 
     ## POST /payments/request/cancel?token=EC-7XU83376C70426719
@@ -79,58 +100,65 @@ module PaypalService::API
     end
 
     ## POST /payments/:community_id/create?token=EC-7XU83376C70426719
-    def create(community_id, token)
+    def create(community_id, token, async: false)
       Lookup.with_token(community_id, token) do |token|
-        payment = Lookup.get_payment_by_token(token)
+        do_create(community_id, token)
+      end
+    end
 
-        # The process either starts by creating a new payment...
-        if (payment.nil?)
-          payment_res = create_payment(token)
-          if (payment_res[:success])
-            authorize_payment(community_id, payment_res[:data])
-          else
-            payment_res
-          end
-        # ... or continues from a previously created but not yet authorized payment
+    def do_create(community_id, token)
+      payment = Lookup.get_payment_by_token(token)
+
+      # The process either starts by creating a new payment...
+      if (payment.nil?)
+        payment_res = create_payment(token)
+        if (payment_res[:success])
+          authorize_payment(community_id, payment_res[:data])
         else
-          authorize_payment(community_id, payment)
+          payment_res
         end
-
+        # ... or continues from a previously created but not yet authorized payment
+      else
+        authorize_payment(community_id, payment)
       end
     end
 
     ## POST /payments/:community_id/:transaction_id/full_capture
-    def full_capture(community_id, transaction_id, info)
+    def full_capture(community_id, transaction_id, info, async: false)
       Lookup.with_payment(community_id, transaction_id, [[:pending, :authorization]]) do |payment, m_acc|
-        with_success(community_id, transaction_id,
-          MerchantData.create_do_full_capture({
-              receiver_username: m_acc[:payer_id],
-              authorization_id: payment[:authorization_id],
-              payment_total: info[:payment_total],
-              invnum: invnum(community_id, transaction_id)
+        do_full_capture(community_id, transaction_id, info, payment, m_acc)
+      end
+    end
+
+    def do_full_capture(community_id, transaction_id, info, payment, m_acc)
+      with_success(community_id, transaction_id,
+        MerchantData.create_do_full_capture({
+            receiver_username: m_acc[:payer_id],
+            authorization_id: payment[:authorization_id],
+            payment_total: info[:payment_total],
+            invnum: invnum(community_id, transaction_id)
           }),
-          error_policy: {
-            codes_to_retry: ["10001", "x-timeout", "x-servererror"],
-            try_max: 5,
-            finally: (method :void_failed_payment).call(payment, m_acc)
-          }
+        error_policy: {
+          codes_to_retry: ["10001", "x-timeout", "x-servererror"],
+          try_max: 5,
+          finally: (method :void_failed_payment).call(payment, m_acc)
+        }
         ) do |payment_res|
 
-          # Save payment data to payment
-          payment = PaymentStore.update(
-            community_id,
-            transaction_id,
-            payment_res
+        # Save payment data to payment
+        payment = PaymentStore.update(
+          community_id,
+          transaction_id,
+          payment_res
           )
 
-          payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
+        payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
-          # Trigger payment_updated event
-          @events.send(:payment_updated, :success, payment_entity)
+        # Trigger payment_updated event
+        @events.send(:payment_updated, :success, payment_entity)
 
-          # Return as payment entity
-          Result::Success.new(payment_entity)
-        end
+        # Return as payment entity
+        Result::Success.new(payment_entity)
       end
     end
 
@@ -142,19 +170,23 @@ module PaypalService::API
     end
 
     ## POST /payments/:community_id/:transaction_id/void
-    def void(community_id, transaction_id, info)
+    def void(community_id, transaction_id, info, async: false)
       Lookup.with_payment(community_id, transaction_id, [[:pending, nil]]) do |payment, m_acc|
-        payment_entity = void_payment(
-          community_id,
-          transaction_id,
-          payment,
-          :success,
-          m_acc,
-          info[:note])
-
-        # Return as payment entity
-        Result::Success.new(payment_entity)
+        do_void(community_id, transaction_id, info, payment, m_acc)
       end
+    end
+
+    def do_void(community_id, transaction_id, info, payment, m_acc)
+      payment_entity = void_payment(
+        community_id,
+        transaction_id,
+        payment,
+        :success,
+        m_acc,
+        info[:note])
+
+      # Return as payment entity
+      Result::Success.new(payment_entity)
     end
 
     ## POST /payments/:community_id/:transaction_id/refund
