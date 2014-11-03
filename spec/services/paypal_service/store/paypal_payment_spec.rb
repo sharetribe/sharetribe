@@ -36,4 +36,10 @@ describe PaypalService::Store::PaypalPayment do
     PaypalService::Store::PaypalPayment.create(1, 1, order)
     expect(PaypalService::Store::PaypalPayment.ipn_update(auth_created)[:pending_reason]).to eq(:authorization)
   end
+
+  it "should create only one payment on duplicate create call" do
+    PaypalService::Store::PaypalPayment.create(1,1, order)
+    PaypalService::Store::PaypalPayment.create(1,1, order)
+    expect(PaypalPayment.count).to eq(1)
+  end
 end
