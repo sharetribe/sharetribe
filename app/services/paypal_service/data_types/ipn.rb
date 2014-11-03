@@ -114,6 +114,7 @@ module PaypalService
       def create_payment_refunded(opts); PaymentRefunded.call(opts) end
       def create_billing_agreement_cancelled(opts); BillingAgreementCancelled.call(opts) end
       def create_payment_pending_ext(opts); PaymentPendingExt.call(opts) end
+      def create_payment_voided(opts); PaymentVoided.call(opts) end
 
       def from_params(params)
         p = HashUtils.symbolize_keys(params)
@@ -132,11 +133,12 @@ module PaypalService
           to_billing_agreement_cancelled(p)
         when :payment_pending_ext
           to_payment_pending_ext(p)
+        when :payment_voided
+          to_payment_voided(p)
         else
           { type: type }
         end
       end
-
 
       ## Privates
       #

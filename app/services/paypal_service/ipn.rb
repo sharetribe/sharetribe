@@ -1,7 +1,11 @@
 module PaypalService
-  module IPN
+  class IPN
 
-    module_function
+    extend PaypalService::IPNInjector
+
+    def initialize(events)
+      @events = events
+    end
 
     ORDER_UPDATE_TYPES = [:order_created, :authorization_created, :payment_completed, :payment_pending_ext, :payment_voided]
 
