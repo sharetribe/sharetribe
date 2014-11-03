@@ -1,7 +1,4 @@
-- if service_name.casecmp(@current_community.name(I18n.locale)) != 0
-  - title_service_name = "#{service_name} - #{@current_community.name(I18n.locale)}"
-- else
-  - title_service_name = service_name
+- title_service_name = "#{@current_community.full_name(I18n.locale)}"
 
 - if content_for?(:title)
   - title = "#{content_for(:title)} - #{title_service_name}"
