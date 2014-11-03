@@ -127,9 +127,9 @@ module MarketplaceService
         })]
       end
 
-      def transaction_with_conversation(transaction_model)
+      def transaction_with_conversation(transaction_model, community_id)
         transaction = Entity.transaction(transaction_model)
-        transaction[:conversation] = ConversationEntity.conversation(transaction_model.conversation)
+        transaction[:conversation] = ConversationEntity.conversation(transaction_model.conversation, community_id)
         transaction
       end
 
@@ -257,7 +257,7 @@ module MarketplaceService
           .where("starter_id = ? OR listings.author_id = ?", person_id, person_id)
           .first
 
-        Entity.transaction_with_conversation(transaction_model)
+        Entity.transaction_with_conversation(transaction_model, community_id)
       end
 
       def transactions_for_community_sorted_by_column(community_id, sort_column, sort_direction, limit, offset)
@@ -268,7 +268,7 @@ module MarketplaceService
           .order("#{sort_column} #{sort_direction}")
 
         transactions = transactions.map { |txn|
-          Entity.transaction_with_conversation(txn)
+          Entity.transaction_with_conversation(txn, community_id)
         }
       end
 
@@ -277,7 +277,7 @@ module MarketplaceService
         transactions = TransactionModel.find_by_sql(sql)
 
         transactions = transactions.map { |txn|
-          Entity.transaction_with_conversation(txn)
+          Entity.transaction_with_conversation(txn, community_id)
         }
       end
 

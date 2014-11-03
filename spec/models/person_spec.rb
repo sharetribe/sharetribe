@@ -133,6 +133,13 @@ describe Person do
         @test_person.family_name.should == "Riuska"
       end
 
+      it "returns the name in desired format" do
+        @test_person.name("first_name_with_initial").should == "Ripa R"
+        @test_person.name("first_name_only").should == "Ripa"
+        @test_person.name("full_name").should == "Ripa Riuska"
+      end
+
+
       describe "#given_name" do
 
         it "should return the given name" do

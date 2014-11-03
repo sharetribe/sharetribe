@@ -16,7 +16,7 @@ class ConfirmConversationsController < ApplicationController
   def confirm
     conversation =      MarketplaceService::Conversation::Query.conversation_for_person(@listing_transaction.conversation.id, @current_user.id, @current_community.id)
     can_be_confirmed =  MarketplaceService::Transaction::Query.can_transition_to?(@listing_transaction, :confirmed)
-    other_person =      MarketplaceService::Person::Query.person(@listing_transaction.other_party(@current_user))
+    other_person =      MarketplaceService::Person::Query.person(@listing_transaction.other_party(@current_user), @current_community.id)
 
     render(locals: {
       action_type: "confirm",
@@ -32,7 +32,7 @@ class ConfirmConversationsController < ApplicationController
   def cancel
     conversation =      MarketplaceService::Conversation::Query.conversation_for_person(@listing_transaction.conversation.id, @current_user.id, @current_community.id)
     can_be_confirmed =  MarketplaceService::Transaction::Query.can_transition_to?(@listing_transaction.id, :confirmed)
-    other_person =      MarketplaceService::Person::Query.person(@listing_transaction.other_party(@current_user))
+    other_person =      MarketplaceService::Person::Query.person(@listing_transaction.other_party(@current_user), @current_community.id)
 
     render(:confirm, locals: {
       action_type: "cancel",

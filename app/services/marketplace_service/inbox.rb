@@ -134,7 +134,7 @@ module MarketplaceService
         result_set = connection.execute(sql).each(as: :hash).map { |row| HashUtils.symbolize_keys(row) }
 
         people_ids = HashUtils.pluck(result_set, :current_id, :other_id).uniq
-        people_store = MarketplaceService::Person::Query.people(people_ids)
+        people_store = MarketplaceService::Person::Query.people(people_ids, community_id)
 
         last_message_conv_ids, last_transition_transaction_ids = reduce_transaction_and_conv_ids(result_set)
         message_store = MarketplaceService::Conversation::Query.latest_messages_for_conversations(last_message_conv_ids)

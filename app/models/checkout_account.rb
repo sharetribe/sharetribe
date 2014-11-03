@@ -4,9 +4,9 @@
 #
 #  id                        :integer          not null, primary key
 #  company_id_or_personal_id :string(255)
-#  merchant_id               :string(255)      not null
-#  merchant_key              :string(255)      not null
-#  person_id                 :string(255)      not null
+#  merchant_id               :string(255)      default(""), not null
+#  merchant_key              :string(255)      default(""), not null
+#  person_id                 :string(255)      default(""), not null
 #  created_at                :datetime         not null
 #  updated_at                :datetime         not null
 #
