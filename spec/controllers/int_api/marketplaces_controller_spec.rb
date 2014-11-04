@@ -9,7 +9,7 @@ describe IntApi::MarketplacesController do
                      admin_first_name: "Eddie",
                      admin_last_name: "Admin",
                      admin_password: "secret_word",
-                     marketplace_country: "fi",
+                     marketplace_country: "FI",
                      marketplace_language: "fi",
                      marketplace_name: "ImaginationTraders",
                      marketplace_type: "product"}
@@ -18,7 +18,7 @@ describe IntApi::MarketplacesController do
 
       c = Community.find_by_name("ImaginationTraders")
       expect(c).to_not be_nil
-      #expect(c.country).to eql "fi"
+      expect(c.country).to eql "fi"
       expect(c.locales.first).to eql "fi"
       expect(c.name).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"

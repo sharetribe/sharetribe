@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141102192640) do
+ActiveRecord::Schema.define(:version => 20141104213501) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20141102192640) do
     t.string   "slogan"
     t.text     "description"
     t.string   "category",                                   :default => "other"
+    t.string   "country"
     t.integer  "members_count",                              :default => 0
     t.integer  "user_limit"
     t.float    "monthly_price_in_euros"

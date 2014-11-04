@@ -19,12 +19,15 @@ module MarketplaceService::API
           "Sell"
         end
 
+        puts "HARAOSKJD #{params.to_yaml}"
+
       community_params = {
         consent: "SHARETRIBE1.0",
         domain: Helper.available_domain_based_on(params[:marketplace_name]),
         settings: {"locales" => [locale]},
         name: p[:marketplace_name].or_else("Trial Marketplace"),
-        available_currencies: Helper.available_currencies_based_on(p[:marketplace_contry].or_else("us"))
+        available_currencies: Helper.available_currencies_based_on(p[:marketplace_country].or_else("us")),
+        country: params[:marketplace_country] ? params[:marketplace_country].downcase : nil
       }
 
       community = ::Community.create(community_params)
