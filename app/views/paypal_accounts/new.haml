@@ -10,7 +10,7 @@
   .row
     = t("paypal_accounts.new.payout_info_you_need_to_connect")
 
-  - if admin_account_present
+  - if community_ready_for_payments
     .row
       = t("paypal_accounts.new.payout_info_text").html_safe
 
