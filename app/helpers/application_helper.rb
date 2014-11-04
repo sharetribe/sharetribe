@@ -631,7 +631,7 @@ module ApplicationHelper
       links << {
         :text => t("admin.communities.paypal_account.paypal_admin_account"),
         :icon_class => icon_class("payments"),
-        :path => admin_community_paypal_account_path(@current_community),
+        :path => admin_community_paypal_preferences_path(@current_community),
         :name => "paypal_account"
       }
     end

@@ -140,8 +140,11 @@ Kassi::Application.routes.draw do
             post :posting_allowed
           end
         end
-        resource :paypal_account, controller: :paypal_accounts, only: [:new, :show, :create] do
+        resource :paypal_preferences, only: :index do
           member do
+            get :index
+            post :preferences_update
+            post :account_create
             get :permissions_verified
           end
         end

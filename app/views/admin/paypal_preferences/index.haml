@@ -1,0 +1,77 @@
+- content_for :extra_javascript do
+  :javascript
+    ST.initializePayPalPreferencesForm(
+      "paypal_preferences_form",
+      [#{min_commission_percentage}, #{max_commission_percentage}],
+      #{min_commission.amount}
+    )
+
+- content_for :title_header do
+  %h1= t("layouts.admin.admin")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section.payment-settings
+  %h2= t("admin.paypal_accounts.marketplace_paypal_integration")
+
+  .row
+    = t("admin.paypal_accounts.integration_info_text").html_safe
+
+  .row
+
+  - if paypal_account_email.present?
+    .row.paypal-connected-email-row
+      %h3.paypal-account-connected
+        %del
+          = t("admin.paypal_accounts.paypal_account_email")
+        = t("admin.paypal_accounts.paypal_account_email_completed")
+      .paypal-connected-email.paypal-account-connected
+        = t("paypal_accounts.connected_account", :email => paypal_account_email)
+  - else
+
+    - content_for :extra_javascript do
+      :javascript
+        ST.initializePayPalAccountForm("paypal_account_form");
+
+    = form_for paypal_account_form, url: paypal_form_action, html: { id: "paypal_account_form"} do |form|
+
+      - title = t("admin.paypal_accounts.paypal_account_email")
+      = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title, currency: currency}
+
+  = form_for paypal_prefs_form, url: paypal_prefs_form_action, html: { id: "paypal_preferences_form" } do |form|
+
+    .row
+      .col-12
+        - if paypal_prefs_valid
+          %label.paypal-preferences-valid
+            %del= t("admin.paypal_accounts.set_minimum_price_and_fee")
+            = t("admin.paypal_accounts.set_minimum_price_and_fee_completed")
+        - else
+          %label= t("admin.paypal_accounts.set_minimum_price_and_fee")
+
+    .row
+      .col-6
+        = form.label :commission_from_seller, t("admin.paypal_accounts.minimum_listing_price_label"), class: "paypal-horizontal-input-label"
+      .col-6
+        = form.text_field :minimum_listing_price, class: "paypal-preferences-input"
+        %label.paypal-horizontal-input-label-unit
+          = currency
+
+    .row
+      .col-6
+        = form.label :commission_from_seller, t("admin.paypal_accounts.transaction_fee_label"), class: "paypal-horizontal-input-label"
+      .col-6
+        = form.text_field :commission_from_seller, class: "paypal-preferences-input"
+        %label.paypal-horizontal-input-label-unit
+          = "%"
+
+
+    .row
+      .col-12
+        = form.button t("admin.paypal_accounts.save_settings")
+
+    .row
+      .col-12
+        = render partial: "layouts/info_text", locals: { text: t("admin.paypal_accounts.note_about_transaction_fee", min_paypal_commission: humanized_money_with_symbol(min_commission)) }
+
+

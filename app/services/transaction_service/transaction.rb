@@ -15,11 +15,11 @@ module TransactionService::Transaction
     #TODO this thing should come through transaction_opts
     listing = Listing.find(opts[:listing_id])
 
-    minimum_commission = Maybe(opts[:minimum_commission]).or_else {
-      Maybe(listing).price.currency.map { |currency|
-        Money.new(0, currency)
-      }.or_else(nil)
-    }
+    transaction_currency = Maybe(listing).price.currency.or_else(nil)
+
+    minimum_commission = Maybe(transaction_currency).map { |currency|
+      get_minimum_commission(opts[:payment_gateway], currency)
+    }.or_else(nil)
 
     transaction = TransactionModel.new(
       community_id: opts[:community_id],
@@ -297,11 +297,26 @@ module TransactionService::Transaction
     end
   end
 
+  def get_minimum_commission(payment_gateway, currency)
+    case payment_gateway
+    when :paypal
+      Maybe(paypal_minimum_commissions_api.get(currency)).or_else {
+        raise "Couldn't find PayPal minimum commissions for currency #{currency}"
+      }
+    else
+      Money.new(0, currency)
+    end
+  end
+
   def paypal_payment_api
     PaypalService::API::Api.payments
   end
 
   def paypal_billing_agreement_api
     PaypalService::API::Api.billing_agreements
+  end
+
+  def paypal_minimum_commissions_api
+    PaypalService::API::Api.minimum_commissions
   end
 end

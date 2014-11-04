@@ -30,7 +30,8 @@
                 "#listing_price",
                 "#you-will-get",
                 "#listing_currency",
-                #{Maybe(@current_community).commission_from_seller.or_else(0)});
+                #{Maybe(@current_community).commission_from_seller.or_else(0)},
+                #{minimum_commission});
             });
         - if run_js_immediately
           = yield :seller_commission_js

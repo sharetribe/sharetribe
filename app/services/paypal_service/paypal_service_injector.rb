@@ -9,7 +9,16 @@ module PaypalService
       @billing_agreement ||= PaypalService::API::BillingAgreements.new
     end
 
+    def minimum_commissions_api
+      @minimum_commissions ||= PaypalService::API::MinimumCommissions.new(load_minimum_commissions)
+    end
+
     module_function
+
+    def load_minimum_commissions
+      path = "#{Rails.root}/app/services/paypal_service/minimum_commissions.yml"
+      YAML.load_file(path)
+    end
 
     def build_paypal_payments
       print_event_dummy = -> (event, payload) {

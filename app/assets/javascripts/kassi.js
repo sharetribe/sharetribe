@@ -751,14 +751,14 @@ function initialize_accept_transaction_form(commission_percentage, service_fee_v
   }
 }
 
-function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencySelector, communityCommissionPercentage) {
+function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencySelector, communityCommissionPercentage, minCommission) {
   $display = $(youWillGetSelector);
   $input = $(priceInputSelector);
   $currency = $(currencySelector);
 
   function updateYouWillGet() {
     var sum = ST.paymentMath.parseFloatFromFieldValue($input.val());
-    var sellerGets = sum - ST.paymentMath.totalCommission(sum, communityCommissionPercentage);
+    var sellerGets = sum - ST.paymentMath.totalCommission(sum, communityCommissionPercentage, minCommission);
     var currency = $currency.val();
     sellerGets = sellerGets < 0 ? 0 : sellerGets;
     $display.text([ST.paymentMath.displayMoney(sellerGets), currency].join(" "));

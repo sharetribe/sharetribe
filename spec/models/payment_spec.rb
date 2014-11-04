@@ -39,7 +39,7 @@ describe Payment do
       payment.total_commission.cents.should == 1200
 
       payment2.total_sum = Money.new(2900, "EUR")
-      payment2.total_commission.cents.should == 300
+      payment2.total_commission.cents.should == 290
     end
   end
 
@@ -49,7 +49,7 @@ describe Payment do
       payment.seller_gets.cents.should == 8800
 
       payment2.total_sum = Money.new(2900, "EUR")
-      payment2.seller_gets.cents.should == 2600
+      payment2.seller_gets.cents.should == 2610
     end
   end
 end

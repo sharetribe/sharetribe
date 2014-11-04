@@ -277,12 +277,16 @@ fi:
       emails_title: Sähköpostit
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
-      new:
-        integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus."
-        paypal_account_email: "Yhdistä PayPal-tilisi"
-      show:
-        integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus."
-        paypal_account_email_connected: "<del>Yhdistä PayPal-tilisi</del> Tehty!"
+      preferences_updated: "Maksuasetukset päivitetty"
+      integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
+      paypal_account_email: "1. Yhdistä PayPal-tilisi"
+      paypal_account_email_completed: "Tehty!"
+      set_minimum_price_and_fee: "2. Aseta minimihinta ja välityspalkkioprosentti"
+      set_minimum_price_and_fee_completed: "Tehty!"
+      minimum_listing_price_label: "Ilmoituksen minimihinta:"
+      transaction_fee_label: "Välityspalkkioprosentti:"
+      save_settings: "Tallenna asetukset"
+      note_about_transaction_fee: "Huom! Välityspalkkioon sisältyy PayPal-palvelun palvelumaksu, jonka suuruus riippuu valuutasta ja myyjän myyntimääristä. Tästä syystä välityspalkkio on vähintään %{min_paypal_commission}. PayPal-palvelun palvelumaksu vähennetään välityspalkkiosta automaattisesti, minkä jälkeen loppuosa välityspalkkiosta siirretään sinun PayPal-tilillesi."
     transaction_types:
       sell: Myydään
       rent: "Annetaan vuokralle"
@@ -1415,7 +1419,7 @@ fi:
       admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska markkinapaikan ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_placeholder: "PayPal-tilisi sähköpostiosoite"
-      paypal_account_email_info_text: "Huom! Tarvitset PayPalin 'Premier'-tilin (yksityishenkilöille) tai 'Business'-tilin (yrityksille) vastaanottaaksesi luottokorttimaksuja. Jos sinulla on PayPalin 'Personal'-tili, voit muuttaa tilin tyyppiä (se on helppoa ja ilmaista). %{upgrade_paypal_account} Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}."
+      paypal_account_email_info_text: "Huom! Tarvitset PayPalin 'Premier'-tilin (yksityishenkilöille) tai 'Business'-tilin (yrityksille) vastaanottaaksesi luottokorttimaksuja. Jos sinulla on PayPalin 'Personal'-tili, voit muuttaa tilin tyyppiä (se on helppoa ja ilmaista). %{upgrade_paypal_account} Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}. Huom! PayPal-tilisi tulee pystyä ottamaan vastaan %{currency}-valuuttaa."
       create_paypal_account: tästä
       upgrade_paypal_account: "Muuta PayPal-tilin tyyppi tästä."
       connect_paypal_account: "Yhdistä PayPal-tili"
@@ -1429,7 +1433,6 @@ fi:
       billing_agreement_canceled: "Laskutussopimus jäi kesken."
       billing_agreement_id_missing: "PayPal asetuksissa ilmeni teknisiä ongelmia."
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
-      need_to_have_currency_balance: "Huom! PayPal-tilisi tulee pystyä ottamaan vastaan %{currency}-valuuttaa."
   paypal:
     checkout_with_paypal: "Maksa PayPal-tilillä"
     cancel_succesful: "PayPal maksu onnistuneesti peruttu."

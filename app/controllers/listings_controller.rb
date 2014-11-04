@@ -146,10 +146,10 @@ class ListingsController < ApplicationController
       if payment_setup_missing
         render :partial => "listings/payout_registration_before_posting", locals: {payment_settings_path: payment_setup_path }
       else
-        render :partial => "listings/form/form_content"
+        render :partial => "listings/form/form_content", locals: {minimum_commission: minimum_commission}
       end
     else
-      render
+      render locals: {minimum_commission: minimum_commission}
     end
   end
 
@@ -195,6 +195,8 @@ class ListingsController < ApplicationController
 
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
+
+    render locals: {minimum_commission: minimum_commission}
   end
 
   def update
@@ -293,6 +295,22 @@ class ListingsController < ApplicationController
   end
 
   private
+
+  def minimum_commission
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    currency = @current_community.default_currency
+
+    case payment_type
+    when :paypal
+      paypal_minimum_commissions_api.get(currency)
+    else
+      Money.new(0, currency)
+    end
+  end
+
+  def paypal_minimum_commissions_api
+    PaypalService::API::Api.minimum_commissions_api
+  end
 
   # Ensure that only users with appropriate visibility settings can view the listing
   def ensure_authorized_to_view
@@ -403,7 +421,7 @@ class ListingsController < ApplicationController
 
   def normalize_price_param(listing_params)
     if listing_params[:price] then
-      listing_params.except(:price).merge(price_cents: MoneyUtil.parse_money_to_cents(listing_params[:price]))
+      listing_params.except(:price).merge(price_cents: MoneyUtil.parse_str_to_cents(listing_params[:price]))
     else
       listing_params
     end
