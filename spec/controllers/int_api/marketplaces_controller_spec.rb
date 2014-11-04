@@ -22,6 +22,7 @@ describe IntApi::MarketplacesController do
       expect(c.locales.first).to eql "fi"
       expect(c.name).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
+      expect(c.transaction_types.first.class).to eql Sell
 
       p = c.admins.first
       expect(p).to_not be_nil

@@ -5,25 +5,18 @@ module UserService::API
 
     def create_user_and_make_a_member_of_community(user_hash, community, invitation = nil)
 
+      user = UserService::API::Users::create_user(user_hash, community)
 
-       # TODO Check that email is not taken
-    # unless Email.email_available?(params[:person][:email])
-    #   flash[:error] = t("people.new.email_is_in_use")
-    #   redirect_to error_redirect_path and return
-    # end
+      # The first member will be made admin
+      MarketplaceService::API::Memberships::make_user_a_member_of_community(user, community, invitation)
 
-    user = UserService::API::Users::create_user(user_hash, community)
-
-    # The first member will be made admin
-    MarketplaceService::API::Memberships::make_user_a_member_of_community(user, community, invitation)
-
-    # TODO send email confirmation
-    # # (unless disabled for testing environment)
-    # if APP_CONFIG.skip_email_confirmation
-    #   email.confirm!
-    # else
-    #   Email.send_confirmation(email, request.host_with_port, @current_community)
-    # end
+      # TODO send email confirmation
+      # # (unless disabled for testing environment)
+      # if APP_CONFIG.skip_email_confirmation
+      #   email.confirm!
+      # else
+      #   Email.send_confirmation(email, request.host_with_port, @current_community)
+      # end
 
       return user
     end
@@ -37,7 +30,7 @@ module UserService::API
     #
     # Create a new user by params and optional current community
     def create_user(params, current_community = nil)
-
+      raise "Email #{params[:person][:email]} is already in use." if Email.find_by_address(params[:person][:email])
 
       params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
       params[:person][:test_group_number] = 1 + rand(4)

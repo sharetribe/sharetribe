@@ -1,14 +1,27 @@
 describe UserService::API::Users do
   include UserService::API::Users
 
-  describe "#create" do
+  describe "#create_user" do
+    before (:all) do
+      @person_hash = {person: {
+          given_name: "Raymond",
+          family_name: "Xperiment",
+          email: "Ray@example.com",
+          password: "test"
+        },
+        locale: "fr"
+      }
+    end
+
     it "should create a user" do
-      pending
+      u = create_user(@person_hash)
+      expect(u.given_name).to eql "Raymond"
+      expect(Person.find_by_username("ray").family_name).to eql "Xperiment"
     end
 
     it "should fail if email is taken" do
-      pending
-      #expect()
+      u1 = create_user(@person_hash)
+      expect{create_user(@person_hash)}.to raise_error(RuntimeError, /Email Ray@example.com is already in use/)
     end
 
   end

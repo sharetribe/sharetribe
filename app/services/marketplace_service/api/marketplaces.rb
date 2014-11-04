@@ -8,6 +8,8 @@ module MarketplaceService::API
 
       p = Maybe(params)
 
+      locale = p[:marketplace_language].or_else("en")
+
       transaction_type_name = case p[:marketplace_type].or_else("product")
         when "rental"
           "Rent"
@@ -20,20 +22,17 @@ module MarketplaceService::API
       community_params = {
         consent: "SHARETRIBE1.0",
         domain: Helper.available_domain_based_on(params[:marketplace_name]),
-        settings: {"locales" => [p[:marketplace_language].or_else("en")]},
+        settings: {"locales" => [locale]},
         name: p[:marketplace_name].or_else("Trial Marketplace"),
         available_currencies: Helper.available_currencies_based_on(p[:marketplace_contry].or_else("us"))
       }
 
+      community = ::Community.create(community_params)
 
+      TransactionTypeCreator.create(community, transaction_type_name)
+      Helper.create_category!("Default", community, locale)
 
-      c = ::Community.create(community_params)
-
-      # TODO
-      # trans type
-      # category
-
-      return c
+      return community
     end
 
     module Helper
@@ -62,6 +61,12 @@ module MarketplaceService::API
 
       def available_currencies_based_on(country_code)
         Maybe(MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[country_code.upcase]).or_else("USD")
+      end
+
+      def create_category!(category_name, community, locale)
+        category = Category.create!(:community_id => community.id, :url => category_name.downcase)
+        CategoryTranslation.create!(:category_id => category.id, :locale => locale, :name => category_name)
+
       end
 
     end
