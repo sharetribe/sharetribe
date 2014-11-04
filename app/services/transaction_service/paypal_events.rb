@@ -13,7 +13,6 @@ module TransactionService::PaypalEvents
     tx = MarketplaceService::Transaction::Query.transaction(payment[:transaction_id])
     if (tx)
       case transition_type(tx, payment)
-
       when :initiated_to_preauthorized
         initiated_to_preauthorized(tx)
       when :initiated_to_voided
@@ -42,7 +41,8 @@ module TransactionService::PaypalEvents
     [:initiated_to_voided,          [:initiated, :voided]],
     [:preauthorized_to_paid,        [:preauthorized, :completed]],
     [:preauthorized_to_pending_ext, [:preauthorized, :pending]],
-    [:pending_ext_to_paid,          [:pending_ext, :completed]]
+    [:pending_ext_to_paid,          [:pending_ext, :completed]],
+    [:preauthorized_to_voided,      [:preauthorized, :voided]]
   ]
 
   def transition_type(tx, payment)
