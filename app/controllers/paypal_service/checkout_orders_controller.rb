@@ -19,7 +19,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     pp_response = paypal_payments_service.create(@current_community.id, params[:token])
 
     if !pp_response[:success]
-      response_data = pp_response[:data]
+      response_data = pp_response[:data] || {}
 
       if response_data[:paypal_error_code] == "10486"
         redirect_to response_data[:redirect_url]
