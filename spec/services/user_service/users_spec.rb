@@ -8,15 +8,15 @@ describe UserService::API::Users do
 
     it "should fail if email is taken" do
       pending
-      #expect(preauth_expires_at(five_days, three_days)).to eq(three_days)
+      #expect()
     end
 
   end
 
-  describe "#set_user_as_admin" do
+  describe "#create_user_and_make_a_member_of_community" do
 
 
-    it "should set the user as admin of the given community" do
+    it "should send the confirmation email" do
       pending
     end
 

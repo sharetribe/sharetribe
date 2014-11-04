@@ -5,8 +5,6 @@ class IntApi::MarketplacesController < ApplicationController
 
   # Creates a marketplace and an admin user for that marketplace
   def create
-
-
     community = MarketplaceService::API::Marketplaces::create(params.slice(:marketplace_name, :marketplace_type, :marketplace_country, :marketplace_language))
 
     person_hash = {person: {
@@ -15,15 +13,10 @@ class IntApi::MarketplacesController < ApplicationController
       email: params[:admin_email],
       password: params[:admin_password]
       },
-      locale: :marketplace_language
+      locale: params[:marketplace_language]
     }
-    user = UserService::API::Users::create_user(person_hash, community)
 
-    MarketplaceService::API::Memberships::make_user_a_member_of_community(user, community)
-
-    # MUST VALIDATE USER INPUT HERE AS IT COULD BE ANYTHING
-    # actually for user enough to see if command passed
-    # and for marketplace too
+    user = UserService::API::Users::create_user_and_make_a_member_of_community(person_hash, community)
 
     # create auth token for the new admin and return that with the link
 

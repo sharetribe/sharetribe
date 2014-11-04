@@ -32,6 +32,12 @@ Kassi::Application.routes.draw do
   match "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
   match "/change_locale" => "i18n#change_locale", :as => :change_locale
 
+
+  # Internal API
+  namespace :int_api do
+    post "/create_trial_marketplace" => "marketplaces#create"
+  end
+
   locale_matcher = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
 
   # Inside this constraits are the routes that are used when request has subdomain other than www
