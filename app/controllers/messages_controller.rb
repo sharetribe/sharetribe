@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
     end
 
     # TODO This is somewhat copy-paste
-    message = MessageEntity[@message].merge({mood: :neutral}).merge(sender: PersonEntity.person(@current_user))
+    message = MessageEntity[@message].merge({mood: :neutral}).merge(sender: PersonEntity.person(@current_user, @current_community.id))
 
     respond_to do |format|
       format.html { redirect_to single_conversation_path(:conversation_type => "received", :person_id => @current_user.id, :id => params[:message][:conversation_id]) }

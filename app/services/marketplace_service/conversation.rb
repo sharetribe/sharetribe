@@ -29,30 +29,30 @@ module MarketplaceService
 
       module_function
 
-      def conversation(conversation_model)
+      def conversation(conversation_model, community_id)
         Conversation[{
           id: conversation_model.id,
           listing: conversation_model.listing,
-          messages: messages(conversation_model.messages),
+          messages: messages(conversation_model.messages, community_id),
           last_message_at: conversation_model.last_message_at,
-          starter_person: PersonEntity.person(conversation_model.starter),
-          other_person: PersonEntity.person(conversation_model.other_party(conversation_model.starter))
+          starter_person: PersonEntity.person(conversation_model.starter, community_id),
+          other_person: PersonEntity.person(conversation_model.other_party(conversation_model.starter), community_id)
         }]
       end
 
-      def messages(message_models)
+      def messages(message_models, community_id)
         message_models
           .reject { |msg|
             # We should be able to get rid of this soon. Previously, blank content meant that the message was abount a
             # transaction transition. However, currently the transitions are separated from messages
             msg.content.blank?
           }
-          .map { |msg| message(msg) }
+          .map { |msg| message(msg, community_id) }
       end
 
-      def message(message_model)
+      def message(message_model, community_id)
         Message[{
-          sender: PersonEntity.person(message_model.sender),
+          sender: PersonEntity.person(message_model.sender, community_id),
           content: message_model.content,
           created_at: message_model.created_at
         }]
@@ -91,7 +91,7 @@ module MarketplaceService
           .first
 
         if conversation
-          Entity.conversation(conversation)
+          Entity.conversation(conversation, community_id)
         else
           nil
         end

@@ -232,12 +232,17 @@ class Person < ActiveRecord::Base
      !Person.find_by_username(username).present? && !username.in?(USERNAME_BLACKLIST)
    end
 
-  def name_or_username(community=nil)
+  def name_or_username(community_or_display_type=nil)
+    if community_or_display_type.present? && community_or_display_type.class == Community
+      display_type = community_or_display_type.name_display_type
+    else
+      display_type = community_or_display_type
+    end
     if is_organization
       return organization_name
     elsif given_name.present?
-      if community
-        case community.name_display_type
+      if display_type
+        case display_type
         when "first_name_with_initial"
           return first_name_with_initial
         when "first_name_only"
@@ -266,8 +271,8 @@ class Person < ActiveRecord::Base
     "#{given_name} #{initial}"
   end
 
-  def name(community=nil)
-    return name_or_username(community)
+  def name(community_or_display_type=nil)
+    return name_or_username(community_or_display_type)
   end
 
   def given_name_or_username
