@@ -156,6 +156,65 @@ class PreauthorizeTransactionsController < ApplicationController
 
   end
 
+  def booked
+    conversation_params = params[:listing_conversation]
+
+    if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
+      flash[:error] = "Agreement checkbox has to be selected"
+      return redirect_to action: :preauthorize
+    end
+
+    start_on = DateUtils.from_date_select(conversation_params, :start_on)
+    end_on = DateUtils.from_date_select(conversation_params, :end_on)
+
+    preauthorize_form = PreauthorizeBookingForm.new({
+      braintree_cardholder_name: conversation_params[:braintree_cardholder_name],
+      braintree_credit_card_number: conversation_params[:braintree_credit_card_number],
+      braintree_cvv: conversation_params[:braintree_cvv],
+      braintree_credit_card_expiration_month: conversation_params[:braintree_credit_card_expiration_month],
+      braintree_credit_card_expiration_year: conversation_params[:braintree_credit_card_expiration_year],
+      start_on: start_on,
+      end_on: end_on,
+      listing_id: @listing.id
+    })
+
+    if preauthorize_form.valid?
+      braintree_form = BraintreeForm.new(params[:braintree_payment])
+
+      transaction_response = TransactionService::Transaction.create({
+          transaction: {
+            community_id: @current_community.id,
+            listing_id: @listing.id,
+            starter_id: @current_user.id,
+            listing_author_id: @listing.author.id,
+            listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on),
+            payment_gateway: MarketplaceService::Community::Query.payment_type(@current_community.id) || :none,
+            payment_process: :preauthorize,
+            commission_from_seller: @current_community.commission_from_seller,
+            content: preauthorize_form.content,
+            booking_fields: {
+              start_on: preauthorize_form.start_on,
+              end_on: preauthorize_form.end_on
+            }
+          },
+          gateway_fields: braintree_form.to_hash
+        })
+
+      unless transaction_response[:success]
+        flash[:error] = "An error occured while trying to create a new transaction: #{transaction_response[:error_msg]}"
+        return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
+      end
+
+      transaction_id = transaction_response[:data][:transaction][:id]
+
+      MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
+      redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
+    else
+      flash[:error] = preauthorize_form.errors.full_messages.join(", ")
+      return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
+    end
+  end
+
   def preauthorize
     listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
     payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
@@ -220,65 +279,6 @@ class PreauthorizeTransactionsController < ApplicationController
     else
       flash[:error] = preauthorize_form.errors.full_messages.join(", ")
       return redirect_to action: :preauthorize
-    end
-  end
-
-  def booked
-    conversation_params = params[:listing_conversation]
-
-    if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
-      flash[:error] = "Agreement checkbox has to be selected"
-      return redirect_to action: :preauthorize
-    end
-
-    start_on = DateUtils.from_date_select(conversation_params, :start_on)
-    end_on = DateUtils.from_date_select(conversation_params, :end_on)
-
-    preauthorize_form = PreauthorizeBookingForm.new({
-      braintree_cardholder_name: conversation_params[:braintree_cardholder_name],
-      braintree_credit_card_number: conversation_params[:braintree_credit_card_number],
-      braintree_cvv: conversation_params[:braintree_cvv],
-      braintree_credit_card_expiration_month: conversation_params[:braintree_credit_card_expiration_month],
-      braintree_credit_card_expiration_year: conversation_params[:braintree_credit_card_expiration_year],
-      start_on: start_on,
-      end_on: end_on,
-      listing_id: @listing.id
-    })
-
-    if preauthorize_form.valid?
-      braintree_form = BraintreeForm.new(params[:braintree_payment])
-
-      transaction_response = TransactionService::Transaction.create({
-          transaction: {
-            community_id: @current_community.id,
-            listing_id: @listing.id,
-            starter_id: @current_user.id,
-            listing_author_id: @listing.author.id,
-            listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on),
-            payment_gateway: MarketplaceService::Community::Query.payment_type(@current_community.id) || :none,
-            payment_process: :preauthorize,
-            commission_from_seller: @current_community.commission_from_seller,
-            content: preauthorize_form.content,
-            booking_fields: {
-              start_on: preauthorize_form.start_on,
-              end_on: preauthorize_form.end_on
-            }
-          },
-          gateway_fields: braintree_form.to_hash
-        })
-
-      unless transaction_response[:success]
-        flash[:error] = "An error occured while trying to create a new transaction: #{transaction_response[:error_msg]}"
-        return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
-      end
-
-      transaction_id = transaction_response[:data][:transaction][:id]
-
-      MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
-      redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
-    else
-      flash[:error] = preauthorize_form.errors.full_messages.join(", ")
-      return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
     end
   end
 
