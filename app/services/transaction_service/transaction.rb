@@ -302,9 +302,7 @@ module TransactionService::Transaction
   def get_minimum_commission(payment_gateway, currency)
     case payment_gateway
     when :paypal
-      Maybe(PaypalService::MinimumCommissions.get(currency)).map { |min_cents|
-        Money.new(min_cents, currency)
-      }.or_else {
+      Maybe(PaypalService::MinimumCommissions.new().get(currency)).or_else {
         raise "Couldn't find PayPal minimum commissions for currency #{currency}"
       }
     else

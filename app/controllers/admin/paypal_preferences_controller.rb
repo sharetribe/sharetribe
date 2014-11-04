@@ -38,7 +38,7 @@ class Admin::PaypalPreferencesController < ApplicationController
     @selected_left_navi_link = "paypal_account"
     paypal_account = PaypalAccountQuery.admin_account(@current_community.id)
     currency = @current_community.default_currency
-    minimum_commission = PaypalService::MinimumCommissions.get(currency)
+    minimum_commission = PaypalService::MinimumCommissions.new().get(currency)
 
     paypal_prefs_form = PaypalPreferencesForm.new(
       minimum_commission: minimum_commission,
@@ -61,7 +61,7 @@ class Admin::PaypalPreferencesController < ApplicationController
 
   def preferences_update
     currency = @current_community.default_currency
-    minimum_commission = PaypalService::MinimumCommissions.get(currency)
+    minimum_commission = PaypalService::MinimumCommissions.new().get(currency)
 
     paypal_prefs_form = PaypalPreferencesForm.new(
       parse_preferences(params[:paypal_preferences_form], currency).merge(minimum_commission: minimum_commission))

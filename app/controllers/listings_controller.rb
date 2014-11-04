@@ -302,7 +302,7 @@ class ListingsController < ApplicationController
 
     case payment_type
     when :paypal
-      PaypalService::MinimumCommissions.get(currency)
+      PaypalService::MinimumCommissions.new().get(currency)
     else
       Money.new(0, currency)
     end
