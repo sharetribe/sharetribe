@@ -74,7 +74,8 @@ module PaypalService::Store::PaypalPayment
     payment = PaypalPaymentModel.where(
       "authorization_id = ? or order_id = ?", ipn_entity[:authorization_id], ipn_entity[:order_id]
       ).first
-    update_payment(payment, ipn_entity)
+
+    update_payment(payment, ipn_entity) if payment_changed?(payment, ipn_entity)
   end
 
   def create(community_id, transaction_id, order)
@@ -100,6 +101,12 @@ module PaypalService::Store::PaypalPayment
   end
 
   ## Privates
+
+  def payment_changed?(payment, hash)
+    hash.reduce(false) { |memo, (key, value)|
+      payment.respond_to?(key) ? payment.send(key) != value : memo
+    }
+  end
 
   def from_model(paypal_payment)
     hash = HashUtils.compact(
