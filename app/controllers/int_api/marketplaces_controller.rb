@@ -3,6 +3,8 @@ class IntApi::MarketplacesController < ApplicationController
   skip_filter :single_community_only
   skip_filter :dashboard_only
 
+  before_filter :set_access_control_headers
+
   # Creates a marketplace and an admin user for that marketplace
   def create
     community = MarketplaceService::API::Marketplaces::create(params.slice(:marketplace_name, :marketplace_type, :marketplace_country, :marketplace_language))
@@ -33,7 +35,14 @@ class IntApi::MarketplacesController < ApplicationController
     render :json => ["email parameter missing"], :status => 400 and return if email.blank?
 
     response.status = 200
-    render :json => {:email => email, :available => Email.email_available?(email)} and return
+    render :json => {:email => email, :available => (Email.email_available?(email)).to_s} and return
+  end
+
+  private
+
+  def set_access_control_headers
+    # TODO change this to more strict setting when done testing
+    headers['Access-Control-Allow-Origin'] = '*'
   end
 
 end
