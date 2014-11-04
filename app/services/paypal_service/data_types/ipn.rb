@@ -86,6 +86,17 @@ module PaypalService
         [:payment_total, :money, :mandatory]
       )
 
+      PaymentVoided = EntityUtils.define_builder(
+        [:type, const_value: :payment_voided],
+        [:authorization_id, :string],
+        [:order_id, :string],
+        [:payer_id, :string, :mandatory],
+        [:payer_email, :string],
+        [:receiver_id, :string, :mandatory],
+        [:receiver_email, :string, :mandatory],
+        [:payment_status, :string, :mandatory]
+      )
+
       BillingAgreementCancelled = EntityUtils.define_builder(
         [:type, const_value: :billing_agreement_cancelled],
         [:payer_email, :string],
@@ -146,6 +157,8 @@ module PaypalService
           return :payment_completed
         elsif status == "refunded"
           return :payment_refunded
+        elsif status == "voided"
+          return :payment_voided
         else
           return :unknown
         end
@@ -236,6 +249,19 @@ module PaypalService
               authorization_total: to_money(p[:auth_amount], p[:mc_currency]) }))
       end
       private_class_method :to_payment_pending_ext
+
+      def to_payment_voided(params)
+        p = HashUtils.rename_keys(
+          {
+            auth_id: :authorization_id,
+            parent_txn_id: :order_id
+          },
+          params
+        )
+
+        create_payment_voided(p)
+      end
+      private_class_method :to_payment_voided
 
       def to_billing_agreement_cancelled(params)
         p = HashUtils.rename_keys(

@@ -310,7 +310,8 @@ describe PaypalService::DataTypes::IPN do
       [auth_created, :authorization_created],
       [payment_completed, :payment_completed],
       [payment_refunded, :payment_refunded],
-      [payment_pending_ext, :payment_pending_ext]
+      [payment_pending_ext, :payment_pending_ext],
+      [payment_voided, :payment_voided]
     ]
 
     input_with_expected_type.each do |(input, type)|
