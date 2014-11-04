@@ -321,36 +321,11 @@ module MarketplaceService
         if new_status == :preauthorized
           preauthorized(transaction, payment_type)
         elsif (old_status == :preauthorized && new_status == :rejected)
-          preauthorized_to_rejected(transaction, payment_type)
+          #no op, functionality moved to transaction_service#reject
         end
       end
 
       # privates
-
-      def preauthorized_to_rejected(transaction, payment_type)
-        case payment_type
-        when :braintree
-          BraintreeService::Payments::Command.void_transaction(transaction[:id], transaction[:community_id])
-        when :paypal
-          paypal_account = PaypalService::PaypalAccount::Query.personal_account(transaction[:listing][:author_id], transaction[:community_id])
-          #TODO Deprecated call, update to use PaypalService::API:Api.payments.get_payment
-          paypal_payment = PaypalService::Store::PaypalPayment.for_transaction(transaction[:id])
-
-          api_params = {
-            receiver_username: paypal_account[:email],
-            transaction_id: paypal_payment[:authorization_id],
-            note: "Automatic void: Not responded to a request after 3 days"
-          }
-
-          merchant = PaypalService::MerchantInjector.build_paypal_merchant
-          void_request = PaypalService::DataTypes::Merchant.create_do_void(api_params)
-          void_response = merchant.do_request(void_request)
-
-          if !void_response[:success]
-            # TODO Use Paypal logger
-          end
-        end
-      end
 
       def preauthorized(transaction, payment_type)
         expiration_period = Entity.authorization_expiration_period(payment_type)

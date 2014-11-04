@@ -67,7 +67,7 @@ module PaypalService::API
         TokenStore.delete(community_id, token[:transaction_id])
 
         #trigger callback for request cancelled
-        @events.send(:request_cancelled, :success, SOURCE, token)
+        @events.send(:request_cancelled, :success, token)
 
         Result::Success.new
       else
@@ -138,8 +138,8 @@ module PaypalService::API
           community_id,
           transaction_id,
           payment,
-          m_acc,
           :success,
+          m_acc,
           info[:note])
 
         # Return as payment entity
@@ -372,7 +372,7 @@ module PaypalService::API
       end
     end
 
-    def void_payment(community_id, transaction_id, payment, m_acc, flow, note = nil)
+    def void_payment(community_id, transaction_id, payment, flow, m_acc, note = nil)
       with_success(community_id, transaction_id,
         MerchantData.create_do_void({
             receiver_username: m_acc[:payer_id],

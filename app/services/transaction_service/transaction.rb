@@ -162,8 +162,19 @@ module TransactionService::Transaction
       )
   end
 
-  def reject
-    raise "Not implemented"
+  def reject(community_id, transaction_id)
+    payment_type = TransactionModel.where(id: transaction_id, community_id: community_id).pluck(:payment_gateway).first
+
+    case(payment_type)
+    when "braintree"
+      BraintreeService::Payments::Command.void_transaction(transaction_id, transaction.community_id)
+    when "paypal"
+      paypal_payment_api.void(community_id, transaction_id, {note: "Automatic void: Not responded to a request after 3 days"})
+    end
+
+    transaction = query(transaction_id)
+
+    Result::Success.new(DataTypes.create_transaction_response(transaction))
   end
 
 

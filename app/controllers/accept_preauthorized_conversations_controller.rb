@@ -83,17 +83,14 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def with_updated_listing_status(listing_conversation, status, sender_id, &block)
-    success =
+    response =
       if(status == "paid")
-        response = TransactionService::Transaction.complete_preauthorization(listing_conversation.id)
-        response[:success]
+        TransactionService::Transaction.complete_preauthorization(listing_conversation.id)
       elsif(status == "rejected")
-        #is truthy, or raises, which should happen only on programmer error
-        #TODO: Move to TransactionService, and make it return uniform response entity
-        MarketplaceService::Transaction::Command.transition_to(listing_conversation.id, status)
+        TransactionService::Transaction.reject(@current_community.id, listing_conversation.id)
       end
 
-    if(success)
+    if(response[:success])
       block.call(listing_conversation.reload)
     else
       flash[:error] = t("error_messages.paypal.accept_authorization_error")
