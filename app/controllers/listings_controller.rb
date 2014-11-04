@@ -302,10 +302,14 @@ class ListingsController < ApplicationController
 
     case payment_type
     when :paypal
-      PaypalService::MinimumCommissions.new().get(currency)
+      paypal_minimum_commissions_api.get(currency)
     else
       Money.new(0, currency)
     end
+  end
+
+  def paypal_minimum_commissions_api
+    PaypalService::API::Api.minimum_commissions_api
   end
 
   # Ensure that only users with appropriate visibility settings can view the listing
