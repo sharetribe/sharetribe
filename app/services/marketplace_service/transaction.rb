@@ -320,8 +320,6 @@ module MarketplaceService
       def handle_transition(transaction, payment_type, old_status, new_status)
         if new_status == :preauthorized
           preauthorized(transaction, payment_type)
-        elsif (old_status == :preauthorized && new_status == :rejected)
-          #no op, functionality moved to transaction_service#reject
         end
       end
 
