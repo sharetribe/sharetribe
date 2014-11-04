@@ -26,4 +26,14 @@ class IntApi::MarketplacesController < ApplicationController
     render :json => ["Marketplace created."] and return
   end
 
+  # This could be more logical in different controller, but as implementing
+  # at this point only tiny int-api with 2 methods, using one controller
+  def check_email_availability
+    email = params[:email]
+    render :json => ["email parameter missing"], :status => 400 and return if email.blank?
+
+    response.status = 200
+    render :json => {:email => email, :available => Email.email_available?(email)} and return
+  end
+
 end

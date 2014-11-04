@@ -30,7 +30,7 @@ module UserService::API
     #
     # Create a new user by params and optional current community
     def create_user(params, current_community = nil)
-      raise "Email #{params[:person][:email]} is already in use." if Email.find_by_address(params[:person][:email])
+      raise "Email #{params[:person][:email]} is already in use." if Email.email_available?(params[:person][:email])
 
       params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
       params[:person][:test_group_number] = 1 + rand(4)

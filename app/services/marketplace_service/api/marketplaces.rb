@@ -19,7 +19,6 @@ module MarketplaceService::API
           "Sell"
         end
 
-        puts "HARAOSKJD #{params.to_yaml}"
 
       community_params = {
         consent: "SHARETRIBE1.0",
