@@ -137,54 +137,52 @@ module TransactionService::Transaction
     raise "Not implemented"
   end
 
+
   def complete_preauthorization(transaction_id)
     transaction = MarketplaceService::Transaction::Query.transaction(transaction_id)
     payment_type = MarketplaceService::Community::Query.payment_type(transaction[:community_id])
 
     case payment_type
     when :braintree
-      BraintreeService::Payments::Command.submit_to_settlement(transaction[:id], transaction[:community_id])
-      MarketplaceService::Transaction::Command.transition_to(transaction[:id], :paid)
-
-      transaction = query(transaction[:id])
-
-      Result::Success.new(
-        DataTypes.create_transaction_response(transaction))
+      complete_preauthorization_braintree(transaction)
     when :paypal
-      paypal_payments = paypal_payment_api
-      payment_response = paypal_payments.get_payment(transaction[:community_id], transaction[:id])
-      if payment_response[:success]
-        payment = payment_response[:data]
-        capture_response = paypal_payments.full_capture(
-          transaction[:community_id],
-          transaction[:id],
-          PaypalService::API::DataTypes.create_payment_info({ payment_total: payment[:authorization_total] }))
+      complete_preauthorization_paypal(transaction)
+    end
 
-        if capture_response[:success]
-          next_state =
-            if capture_response[:data][:payment_status] == :completed
-              :paid
-            else
-              :pending_ext
-            end
+  end
 
-          MarketplaceService::Transaction::Command.transition_to(transaction[:id], next_state, paypal_pending_reason: capture_response[:data][:pending_reason])
+  def complete_preauthorization_braintree(transaction)
+    BraintreeService::Payments::Command.submit_to_settlement(transaction[:id], transaction[:community_id])
+    MarketplaceService::Transaction::Command.transition_to(transaction[:id], :paid)
 
-          transaction = query(transaction[:id])
-          if transaction[:current_state] == :paid
-            #TODO handle commission in pending_ext situation
-            charge_commission(transaction[:id])
-          end
+    transaction = query(transaction[:id])
+    Result::Success.new(DataTypes.create_transaction_response(transaction))
+  end
 
-          Result::Success.new(
-            DataTypes.create_transaction_response(transaction, DataTypes.create_paypal_complete_preauthorization_fields(paypal_pending_reason: capture_response[:data][:pending_reason])))
-        else
-          Result::Error.new("An error occured while trying to complete preauthorized Paypal payment")
-        end
+  def complete_preauthorization_paypal(transaction)
+    paypal_payments = paypal_payment_api
+    payment_response = paypal_payments.get_payment(transaction[:community_id], transaction[:id])
+
+    if payment_response[:success]
+      payment = payment_response[:data]
+      capture_response = paypal_payments.full_capture(
+        transaction[:community_id],
+        transaction[:id],
+        PaypalService::API::DataTypes.create_payment_info({ payment_total: payment[:authorization_total] }))
+
+      if capture_response[:success]
+        Result::Success.new(
+          DataTypes.create_transaction_response(
+            transaction,
+            DataTypes.create_paypal_complete_preauthorization_fields(paypal_pending_reason: capture_response[:data][:pending_reason])))
+      else
+        Result::Error.new("An error occured while trying to complete preauthorized PayPal payment")
       end
-
+    else
+      Result::Error.new("No payment found for community_id: #{transaction[:community_id]} and transaction_id: #{transaction[:id]}")
     end
   end
+
 
   def invoice
     raise "Not implemented"

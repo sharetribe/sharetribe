@@ -2,19 +2,31 @@ module TransactionService::PaypalEvents
 
   module_function
 
-  # Paypal payment request was cancelled, remove the associated transaction
+  # Public event API
+
+
+  ## Paypal payment request was cancelled, remove the associated transaction
   def request_cancelled(source, token)
     delete_transaction(cid: token[:community_id], tx_id: token[:transaction_id])
   end
 
+  ## Paypal payment was updated, figure out the correct transition
+  ## and mirror to the associated transaction.
   def payment_updated(source, payment)
     tx = MarketplaceService::Transaction::Query.transaction(payment[:transaction_id])
     if (tx)
       case transition_type(tx, payment)
+
       when :initiated_to_preauthorized
         initiated_to_preauthorized(tx)
       when :initiated_to_voided
         delete_transaction(cid: tx[:community_id], tx_id: tx[:id])
+      when :preauthorized_to_paid
+        preauthorized_to_paid(tx)
+      when :preauthorized_to_pending_ext
+        preauthorized_to_pending_ext(tx, payment[:pending_reason])
+      when :pending_ext_to_paid
+        pending_ext_to_paid(tx)
       else
         # No handler yet, should log but how to get a logger?
       end
@@ -22,28 +34,52 @@ module TransactionService::PaypalEvents
   end
 
 
-  ## Privates
 
-  # TODO source not yet passed here, add when needed
+  # Privates
+
+
+  ## Mapping from payment transition to transaction transition
+
+  TRANSITIONS = [
+    [:initiated_to_preauthorized,   [:initiated, :pending, :authorization]],
+    [:initiated_to_voided,          [:initiated, :voided]],
+    [:preauthorized_to_paid,        [:preauthorized, :completed]],
+    [:preauthorized_to_pending_ext, [:preauthorized, :pending]],
+    [:pending_ext_to_paid,          [:pending_ext, :completed]]
+  ]
+
   def transition_type(tx, payment)
     payment_status = payment[:payment_status]
     pending_reason = payment[:pending_reason]
-    tx_state = tx[:status]
+    tx_state = tx[:status].to_sym
 
-    case [tx_state, payment_status, pending_reason]
-    when ["initiated", :pending, :authorization]
-      :initiated_to_preauthorized
-    when ["initiated", :voided, :none]
-      :initiated_to_voided
-    when ["preauthorized", :voided, :none]
-    else
-      :unknown_transition
-    end
+    transition_key, _ = first_matching_transition(TRANSITIONS, [tx_state, payment_status, pending_reason])
+    Maybe(transition_key).or_else(:unknown_transition)
+  end
+
+  def first_matching_transition(transitions, val)
+    transitions.find { |(_, match)| match.zip(val).all? { |(p1, p2)| p1 == p2 } }
   end
 
 
+  ## Transaction transition handlers
+
   def initiated_to_preauthorized(tx)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], "preauthorized")
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :preauthorized)
+  end
+
+  def preauthorized_to_paid(tx)
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
+    TransactionService::Transaction.charge_commission(tx[:id])
+  end
+
+  def preauthorized_to_pending_ext(tx, pending_reason)
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :pending_ext, paypal_pending_reason: pending_reason)
+  end
+
+  def pending_ext_to_paid(tx)
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
+    TransactionService::Transaction.charge_commission(tx[:id])
   end
 
   def delete_transaction(cid:, tx_id:)

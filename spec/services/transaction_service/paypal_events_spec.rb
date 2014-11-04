@@ -43,7 +43,7 @@ describe TransactionService::PaypalEvents do
   end
 
   before(:each) do
-    @cid = 4
+    @cid = 3
     @payer = FactoryGirl.create(:payer)
     @listing = FactoryGirl.create(:listing, price: Money.new(45000, "EUR"))
 
@@ -128,6 +128,9 @@ describe TransactionService::PaypalEvents do
           order_id: SecureRandom.uuid,
           order_date: Time.now,
           order_total: Money.new(22000, "EUR"),
+          authorization_id: SecureRandom.uuid,
+          authorization_date: Time.now,
+          authorization_total: Money.new(22000, "EUR"),
         })
     end
 
@@ -194,4 +197,5 @@ describe TransactionService::PaypalEvents do
       expect(Transaction.count).to eq(2)
     end
   end
+
 end
