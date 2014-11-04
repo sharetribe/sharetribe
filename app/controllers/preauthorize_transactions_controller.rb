@@ -339,18 +339,13 @@ class PreauthorizeTransactionsController < ApplicationController
   def ensure_can_receive_payment
     payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
-    ready =
-      case payment_type
-        when :paypal
-          paypal_account = PaypalService::PaypalAccount::Query.personal_account(@listing.author.id, @current_community.id)
-          PaypalService::PaypalAccount::Entity.paypal_account_prepared?(paypal_account)
-        when :braintree, :checkout
-          @current_community.payment_gateway.can_receive_payments?(@listing.author)
-        else
-          false
-        end
+    ready = TransactionService::Transaction.can_start_transaction(transaction: {
+        payment_gateway: payment_type,
+        community_id: @current_community.id,
+        listing_author_id: @listing.author.id
+      })
 
-    unless ready
+    unless ready[:data][:result]
       flash[:error] = t("layouts.notifications.listing_author_payment_details_missing")
       return redirect_to listing_path(@listing)
     end

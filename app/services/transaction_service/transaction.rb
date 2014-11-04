@@ -9,6 +9,30 @@ module TransactionService::Transaction
     model_to_entity(TransactionModel.find(transaction_id))
   end
 
+  def can_start_transaction(opts)
+    transaction_opts = opts[:transaction]
+    author_id = transaction_opts[:listing_author_id]
+    community_id = transaction_opts[:community_id]
+
+    result =
+      case transaction_opts[:payment_gateway]
+      when :paypal
+        paypal_account = PaypalService::PaypalAccount::Query.personal_account(author_id, community_id)
+        PaypalService::PaypalAccount::Entity.paypal_account_prepared?(paypal_account)
+      when :braintree
+        Community.find(community_id).payment_gateway.can_receive_payments?(Person.find(author_id))
+      when :checkout
+        # TODO Implement
+        true
+      when :none
+        true
+      else
+        raise "Unknown payment gateway #{payment_gateway}"
+      end
+
+    Result::Success.new(result: result)
+  end
+
   def create(transaction_opts)
     opts = transaction_opts[:transaction]
 
