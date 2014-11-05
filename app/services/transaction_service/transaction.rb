@@ -93,15 +93,20 @@ module TransactionService::Transaction
       when [:paypal, :preauthorize]
         transaction.save!
 
+        # Note: Quantity may be confusing in Paypal Checkout page, thus, we don't use separated unit price and quantity,
+        # only the total price.
+        quantity = 1
+        total = listing.price * transaction.listing_quantity
+
         result = PaypalService::API::Api.payments.request(
         opts[:community_id],
         PaypalService::API::DataTypes.create_create_payment_request({
             transaction_id: transaction.id,
             item_name: listing.title,
-            item_quantity: transaction.listing_quantity,
-            item_price: listing.price,
+            item_quantity: quantity,
+            item_price: total,
             merchant_id: opts[:listing_author_id],
-            order_total: listing.price * transaction.listing_quantity,
+            order_total: total,
             success: transaction_opts[:gateway_fields][:success_url],
             cancel: transaction_opts[:gateway_fields][:cancel_url],
             merchant_brand_logo_url: transaction_opts[:gateway_fields][:merchant_brand_logo_url]
