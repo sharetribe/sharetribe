@@ -81,7 +81,7 @@ module TransactionService::PaypalEvents
   end
 
   def pending_ext?(pending_reason)
-    pending_reason != "order" && pending_reason != "authorized"
+    pending_reason != :order && pending_reason != :authorized
   end
 
   def pending_ext_to_paid(tx)
