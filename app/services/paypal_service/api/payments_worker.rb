@@ -25,7 +25,7 @@ module PaypalService::API::PaymentsWorker
   # Privates
 
   def schedule_job(proc_token)
-    # TODO
+    Delayed::Job.enqueue(PaypalService::Jobs::ProcessPaymentCommand.new(proc_token[:process_token]))
   end
 
 end

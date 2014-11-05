@@ -9,7 +9,7 @@ module PaypalService::API
     #
 
     ## GET /process/:process_token
-    def get_process(process_token)
+    def get_status(process_token)
       proc_token = ProcessTokenStore.get_by_process_token(process_token)
 
       if (proc_token.nil?)
