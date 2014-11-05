@@ -8,7 +8,7 @@ module PaypalService::IPNInjector
 
   def build_ipn_handler
     events = Events.new({
-        payment_voided: -> (flow, ipn_entity) { TransactionService::PaypalEvents.payment_updated(flow, ipn_entity) }
+        payment_updated: -> (flow, payment) { TransactionService::PaypalEvents.payment_updated(flow, payment) }
       })
 
     PaypalService::IPN.new(events)

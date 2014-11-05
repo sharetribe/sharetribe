@@ -67,7 +67,7 @@ module PaypalService::Store::PaypalPayment
       community_id: community_id,
       transaction_id: transaction_id
       ).first
-    update_payment(payment, order)
+    update_payment(payment, create_payment_update(order))
   end
 
   def ipn_update(ipn_entity)
@@ -75,7 +75,8 @@ module PaypalService::Store::PaypalPayment
       "authorization_id = ? or order_id = ?", ipn_entity[:authorization_id], ipn_entity[:order_id]
       ).first
 
-    update_payment(payment, ipn_entity) if payment_changed?(payment, ipn_entity)
+    payment_update = create_payment_update(ipn_entity)
+    update_payment(payment, payment_update) if payment_changed?(payment, payment_update)
   end
 
   def create(community_id, transaction_id, order)
@@ -104,7 +105,7 @@ module PaypalService::Store::PaypalPayment
 
   def payment_changed?(payment, hash)
     hash.reduce(false) { |memo, (key, value)|
-      payment.respond_to?(key) ? payment.send(key) != value : memo
+      payment.respond_to?(key) && !memo ? payment.send(key).to_s != value.to_s : memo
     }
   end
 
@@ -176,14 +177,12 @@ module PaypalService::Store::PaypalPayment
     return payment_update
   end
 
-  def update_payment(payment, data)
-    payment_update = create_payment_update(data)
-
+  def update_payment(payment, update_data)
     if payment.nil?
       raise ArgumentError.new("No matching payment to update.")
     end
 
-    payment.update_attributes!(payment_update)
+    payment.update_attributes!(update_data)
 
     from_model(payment.reload)
   end
