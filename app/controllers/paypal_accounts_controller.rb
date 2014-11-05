@@ -41,8 +41,6 @@ class PaypalAccountsController < ApplicationController
     @selected_left_navi_link = "payments"
     commission_from_seller = @current_community.commission_from_seller ? @current_community.commission_from_seller : 0
     community_currency = @current_community.default_currency
-    admin_account = PaypalAccountQuery.admin_account(@current_community.id)
-    admin_account_ready = PaypalAccountEntity.order_permission_verified?(admin_account)
 
     unless community_ready_for_payments?
       flash.now[:error] = t("paypal_accounts.new.admin_account_not_connected")
