@@ -67,16 +67,16 @@ module PaypalService::Store::PaypalPayment
       community_id: community_id,
       transaction_id: transaction_id
       ).first
-    update_payment(payment, create_payment_update(order))
+    update_payment(payment, order)
   end
 
   def ipn_update(ipn_entity)
     payment = PaypalPaymentModel.where(
-      "authorization_id = ? or order_id = ?", ipn_entity[:authorization_id], ipn_entity[:order_id]
-      ).first
+      "authorization_id = ? or order_id = ?", ipn_entity[:authorization_id], ipn_entity[:order_id]).first
 
-    payment_update = create_payment_update(ipn_entity)
-    update_payment(payment, payment_update) if payment_changed?(payment, payment_update)
+    old_data = from_model(payment)
+    new_data = update_payment(payment, ipn_entity)
+    new_data if old_data != new_data
   end
 
   def create(community_id, transaction_id, order)
@@ -102,13 +102,6 @@ module PaypalService::Store::PaypalPayment
   end
 
   ## Privates
-
-  def payment_changed?(payment, hash)
-    hash.reduce(false) { |memo, (key, value)|
-      payment.respond_to?(key) && !memo ? payment.send(key).to_s != value.to_s : memo
-    }
-  end
-
   def from_model(paypal_payment)
     hash = HashUtils.compact(
       EntityUtils.model_to_hash(paypal_payment).merge({
@@ -177,12 +170,14 @@ module PaypalService::Store::PaypalPayment
     return payment_update
   end
 
-  def update_payment(payment, update_data)
+  def update_payment(payment, data)
+    payment_update = create_payment_update(data)
+
     if payment.nil?
       raise ArgumentError.new("No matching payment to update.")
     end
 
-    payment.update_attributes!(update_data)
+    payment.update_attributes!(payment_update)
 
     from_model(payment.reload)
   end
