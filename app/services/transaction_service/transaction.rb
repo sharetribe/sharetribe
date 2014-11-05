@@ -167,7 +167,9 @@ module TransactionService::Transaction
 
     case(payment_type)
     when "braintree"
-      BraintreeService::Payments::Command.void_transaction(transaction_id, transaction.community_id)
+      BraintreeService::Payments::Command.void_transaction(transaction_id, community_id)
+      #TODO: Event handling also to braintree service?
+      MarketplaceService::Transaction::Command.transition_to(transaction_id, "rejected")
     when "paypal"
       paypal_payment_api.void(community_id, transaction_id, {note: "Automatic void: Not responded to a request after 3 days"})
     end
