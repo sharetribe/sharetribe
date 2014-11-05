@@ -132,7 +132,17 @@ module PaypalService::API
     ## POST /payments/:community_id/:transaction_id/full_capture
     def full_capture(community_id, transaction_id, info, async: false)
       Lookup.with_payment(community_id, transaction_id, [[:pending, :authorization]]) do |payment, m_acc|
-        do_full_capture(community_id, transaction_id, info, payment, m_acc)
+        if (async)
+          proc_token = PaymentsWorker.enqueue_op(
+            community_id: community_id,
+            transaction_id: transaction_id,
+            op_name: :do_full_capture,
+            op_input: [community_id, transaction_id, info, payment, m_acc])
+
+          proc_status_response(proc_token)
+        else
+          do_full_capture(community_id, transaction_id, info, payment, m_acc)
+        end
       end
     end
 
@@ -178,7 +188,17 @@ module PaypalService::API
     ## POST /payments/:community_id/:transaction_id/void
     def void(community_id, transaction_id, info, async: false)
       Lookup.with_payment(community_id, transaction_id, [[:pending, nil]]) do |payment, m_acc|
-        do_void(community_id, transaction_id, info, payment, m_acc)
+        if (async)
+          proc_token = PaymentsWorker.enqueue_op(
+            community_id: community_id,
+            transaction_id: transaction_id,
+            op_name: :do_void,
+            op_input: [community_id, transaction_id, info, payment, m_acc])
+
+          proc_status_response(proc_token)
+        else
+          do_void(community_id, transaction_id, info, payment, m_acc)
+        end
       end
     end
 
