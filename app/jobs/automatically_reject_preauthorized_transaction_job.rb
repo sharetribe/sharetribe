@@ -13,7 +13,10 @@ class AutomaticallyRejectPreauthorizedTransactionJob < Struct.new(:conversation_
 
   def perform
     transaction = Transaction.find(conversation_id)
-    TransactionService::Transaction.reject(transaction.community_id, transaction.id)
+
+    if(transaction.current_state == "preauthorized")
+      TransactionService::Transaction.reject(transaction.community_id, transaction.id)
+    end
   end
 
 end
