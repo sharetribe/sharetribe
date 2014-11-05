@@ -38,12 +38,8 @@ module PaypalService::API
             transaction_id: create_payment[:transaction_id],
             op_name: :do_request,
             op_input: [community_id, create_payment, m_acc])
-          Result::Success.new(
-            DataTypes.create_process_status({
-                process_token: proc_token[:process_token],
-                completed: proc_token[:op_completed],
-                result: proc_token[:op_output]
-              }))
+
+          proc_status_response(proc_token)
         else
           do_request(community_id, create_payment, m_acc)
         end
@@ -102,7 +98,17 @@ module PaypalService::API
     ## POST /payments/:community_id/create?token=EC-7XU83376C70426719
     def create(community_id, token, async: false)
       Lookup.with_token(community_id, token) do |token|
-        do_create(community_id, token)
+        if (async)
+          proc_token = PaymentsWorker.enqueue_op(
+            community_id: community_id,
+            transaction_id: token[:transaction_id],
+            op_name: :do_create,
+            op_input: [community_id, token])
+
+          proc_status_response(proc_token)
+        else
+          do_create(community_id, token)
+        end
       end
     end
 
@@ -330,6 +336,14 @@ module PaypalService::API
 
     def invnum(community_id, transaction_id)
       "#{community_id}-#{transaction_id}"
+    end
+
+    def proc_status_response(proc_token)
+      Result::Success.new(
+        DataTypes.create_process_status({
+            process_token: proc_token[:process_token],
+            completed: proc_token[:op_completed],
+            result: proc_token[:op_output]}))
     end
 
 

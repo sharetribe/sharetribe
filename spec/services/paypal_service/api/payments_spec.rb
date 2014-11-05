@@ -229,6 +229,29 @@ describe PaypalService::API::Payments do
       expect(PaypalToken.count).to eq(1)
     end
 
+    it "supports async running" do
+      SyncDelayedJobObserver.collect!
+
+      token = @payments.request(@cid, @req_info)[:data]
+
+      process_status = @payments.create(@cid, token[:token], async: true)[:data]
+      expect(process_status[:completed]).to eq(false)
+      expect(PaymentStore.get(@cid, @tx_id)).to be_nil
+
+      SyncDelayedJobObserver.process_queue!
+
+      process_status = @process.get_status(process_status[:process_token])[:data]
+      payment_res = process_status[:result]
+
+      expect(process_status[:completed]).to eq(true)
+      expect(payment_res[:data][:payment_status]).to eq(:pending)
+      expect(payment_res[:data][:pending_reason]).to eq(:authorization)
+      expect(payment_res[:data][:order_id]).not_to be_nil
+      expect(payment_res[:data][:order_total]).to eq(@req_info[:order_total])
+      expect(payment_res[:data][:authorization_id]).not_to be_nil
+      expect(payment_res[:data][:authorization_total]).to eq(@req_info[:order_total])
+    end
+
   end
 
   context "#full_capture" do
