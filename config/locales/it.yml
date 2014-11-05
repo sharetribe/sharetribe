@@ -262,12 +262,16 @@ it:
       emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: "Integrazione PayPal"
-      new:
-        integration_info_text: "Per ricevere i soldi devi connettere il conto PayPal del tuo business con %{service_name}."
-        paypal_account_email: "Connetti il conto PayPal del tuo business"
-      show:
-        integration_info_text: "Per ricevere i soldi devi connettere il conto PayPal del tuo business con %{service_name}."
-        paypal_account_email_connected: "Conto PayPal connesso"
+      preferences_updated: ~
+      integration_info_text: ~
+      paypal_account_email: ~
+      paypal_account_email_completed: ~
+      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee_completed: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      save_settings: ~
+      note_about_transaction_fee: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -1414,7 +1418,6 @@ it:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
-      need_to_have_currency_balance: "Nota: Il tuo conto PayPal deve essere configurato per ricevere %{currency}."
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: "Il pagamento di PayPal è stato cancellato con successo"

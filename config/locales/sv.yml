@@ -277,12 +277,16 @@ sv:
       emails_title: E-post
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
-      new:
-        integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera att användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal konto och välja vilken avgift du ska ta för varje transaktion."
-        paypal_account_email: "Koppla ditt PayPal konto"
-      show:
-        integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar via din marknadsplats så måste du koppla ditt PayPal konto och bestämma vilken avgift du ska ta för varje transaktion."
-        paypal_account_email_connected: "<del>Koppla ditt Paypal konto</del> är klart!"
+      preferences_updated: ~
+      integration_info_text: ~
+      paypal_account_email: ~
+      paypal_account_email_completed: ~
+      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee_completed: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      save_settings: ~
+      note_about_transaction_fee: ~
     transaction_types:
       sell: Säljer
       rent: "Hyr ut"
@@ -1431,7 +1435,6 @@ sv:
       billing_agreement_canceled: "Betalningen avbröts"
       billing_agreement_id_missing: "Det uppstod ett tekniskt fel med PayPal integrationen"
       something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
-      need_to_have_currency_balance: "Notera: Ditt PayPal konto måste vara konfigurerat för att kunna ta emot %{currency}."
   paypal:
     checkout_with_paypal: "Gå till kassan med PayPal"
     cancel_succesful: "PayPal betalning avbruten"
