@@ -1,8 +1,6 @@
 module PaypalService
   class IPN
 
-    extend PaypalService::IPNInjector
-
     def initialize(events)
       @events = events
     end

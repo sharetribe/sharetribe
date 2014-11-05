@@ -1,6 +1,7 @@
 class PaypalIpnController < ApplicationController
 
   include PaypalService::MerchantInjector
+  include PaypalService::IPNInjector
 
   skip_before_filter :verify_authenticity_token, :fetch_logged_in_user, :fetch_community, :fetch_community_membership
   skip_filter :check_email_confirmation, :dashboard_only
@@ -26,9 +27,4 @@ class PaypalIpnController < ApplicationController
     # Send back 200 OK with empty body
     render nothing: true
   end
-
-  def ipn_service
-    PaypalService::IPN.ipn_service
-  end
-
 end
