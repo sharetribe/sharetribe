@@ -22,7 +22,7 @@ module TransactionViewUtils
   def create_messages_from_actions(transitions, discussion_type, author, starter, payment_sum)
     return [] if transitions.blank?
 
-    ignored_transitions = ["free", "pending", "initiated", "pending_ext"] # Transitions that should not generate auto-message
+    ignored_transitions = ["free", "pending", "initiated", "pending_ext", "errored"] # Transitions that should not generate auto-message
 
     previous_states = [nil] + transitions.map { |transition| transition[:to_state] }
 

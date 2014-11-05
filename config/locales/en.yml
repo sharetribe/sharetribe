@@ -461,6 +461,9 @@ en:
       price_excludes_vat: "(excludes VAT)"
       total: "Total: %{total}"
     status:
+      payment_errored: "Payment failed. Please try again."
+      payment_errored_starter: "Payment failed. Please try again. If the problem continues, please contact our support."
+      payment_errored_author: "Payment failed. Please contact %{starter_name} and ask him to try the payment again."
       cancel_payed_transaction: Cancel
       feedback_given: "Feedback given"
       feedback_skipped: "Feedback skipped"

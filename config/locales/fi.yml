@@ -461,6 +461,9 @@ fi:
       price_excludes_vat: "(alv 0)"
       total: "Yhteensä: %{total}"
     status:
+      payment_errored: "Maksu epäonnistui"
+      payment_errored_starter: "Maksu epäonnistui. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
+      payment_errored_author: "Maksu epäonnistui. Ota yhteyttä käyttäjään %{starter_name} ja pyydä häntä yrittämään maksua uudestaan."
       cancel_payed_transaction: Peruuta
       feedback_given: "Palaute annettu"
       feedback_skipped: "Palaute ohitettu"
