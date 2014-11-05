@@ -8,7 +8,7 @@ class PreauthorizeTransactionsController < ApplicationController
   before_filter :ensure_listing_is_open
   before_filter :ensure_listing_author_is_not_current_user
   before_filter :ensure_authorized_to_reply
-  before_filter :ensure_can_receive_payment, only: [:preauthorize, :preauthorized]
+  before_filter :ensure_can_receive_payment
 
   skip_filter :dashboard_only
 
@@ -337,11 +337,17 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def ensure_can_receive_payment
-    Maybe(@current_community).payment_gateway.each do |gateway|
-      unless gateway.can_receive_payments?(@listing.author)
-        flash[:error] = t("layouts.notifications.listing_author_payment_details_missing")
-        redirect_to (session[:return_to_content] || root)
-      end
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+
+    ready = TransactionService::Transaction.can_start_transaction(transaction: {
+        payment_gateway: payment_type,
+        community_id: @current_community.id,
+        listing_author_id: @listing.author.id
+      })
+
+    unless ready[:data][:result]
+      flash[:error] = t("layouts.notifications.listing_author_payment_details_missing")
+      return redirect_to listing_path(@listing)
     end
   end
 

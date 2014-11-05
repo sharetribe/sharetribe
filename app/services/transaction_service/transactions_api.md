@@ -13,6 +13,26 @@ Example request body:
 
 # transactions/v1/
 
+## GET /can_start_transaction
+
+Example request body:
+
+```ruby
+{ transaction:
+  { payment_gateway: :none, # :paypal, :checkout or :braintree
+  , community_id: 501
+  , listing_author_id: "1234abcd"
+  }
+}
+```
+
+Response:
+
+```ruby
+{ result: true / false
+}
+```
+
 ## POST /create
 
 Example request body:
