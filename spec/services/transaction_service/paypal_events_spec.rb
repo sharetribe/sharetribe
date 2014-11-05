@@ -104,8 +104,8 @@ describe TransactionService::PaypalEvents do
 
   context "#request_cancelled" do
     it "removes transaction associated with the cancelled token" do
-      TransactionService::PaypalEvents.request_cancelled(:api, @token_no_msg)
-      TransactionService::PaypalEvents.request_cancelled(:api, @token_with_msg)
+      TransactionService::PaypalEvents.request_cancelled(:success, @token_no_msg)
+      TransactionService::PaypalEvents.request_cancelled(:success, @token_with_msg)
 
       # Both transactions are deleted
       expect(TransactionModel.count).to eq(0)
@@ -116,7 +116,7 @@ describe TransactionService::PaypalEvents do
 
     it "calling with token that doesn't match a transaction is a no-op" do
       already_removed = @token_no_msg.merge({transaction_id: 987654321})
-      TransactionService::PaypalEvents.request_cancelled(:api, already_removed)
+      TransactionService::PaypalEvents.request_cancelled(:success, already_removed)
 
       expect(Transaction.count).to eq(2)
     end
@@ -138,7 +138,7 @@ describe TransactionService::PaypalEvents do
     end
 
     it "transitions transaction to preauthorized state" do
-      TransactionService::PaypalEvents.payment_updated(:api, @authorized_payment)
+      TransactionService::PaypalEvents.payment_updated(:success, @authorized_payment)
 
       tx = MarketplaceService::Transaction::Query.transaction(@transaction_with_msg.id)
       expect(tx[:status]).to eq("preauthorized")
@@ -146,7 +146,7 @@ describe TransactionService::PaypalEvents do
 
     it "is safe to call for non-existent transaction" do
       no_matching_tx = @authorized_payment.merge({transaction_id: 987654321 })
-      TransactionService::PaypalEvents.payment_updated(:api, no_matching_tx)
+      TransactionService::PaypalEvents.payment_updated(:success, no_matching_tx)
 
       tx = MarketplaceService::Transaction::Query.transaction(@transaction_with_msg.id)
       expect(tx[:status]).to eq("initiated")
