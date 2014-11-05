@@ -77,7 +77,11 @@ module TransactionService::PaypalEvents
   end
 
   def preauthorized_to_pending_ext(tx, pending_reason)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :pending_ext, paypal_pending_reason: pending_reason)
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :pending_ext, paypal_pending_reason: pending_reason) if pending_ext?(pending_reason)
+  end
+
+  def pending_ext?(pending_reason)
+    pending_reason != "order" && pending_reason != "authorized"
   end
 
   def pending_ext_to_paid(tx)
