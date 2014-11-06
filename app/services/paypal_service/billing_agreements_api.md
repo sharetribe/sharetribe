@@ -102,7 +102,7 @@ Response 200 OK, Payment body:
 , fee_total: <Money>
 , commission_payment_id: "08387GJK384"
 , commission_payment_date: <Time>
-, commission_status: :charged    # :not_charged, :charged, or :pending
+, commission_status: :completed  # :not_charged, :completed, or :pending
 , commissions_pending_reason     # :none, :multicurrency, etc
 , commission_total: <Money>
 , commission_fee_total: <Money>

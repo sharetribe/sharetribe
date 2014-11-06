@@ -1,37 +1,4 @@
-require_relative '../test_events'
-require_relative '../test_logger'
-require_relative '../test_merchant'
-
-# Rewrite PaypalService::API::Api to inject test paypal client
-module PaypalService::API
-  class Api
-    def self.payments
-      @payments ||= build_test_payments
-    end
-
-    def self.events
-      @events ||= PaypalService::TestEvents.new
-    end
-
-    def self.api_builder
-      @api_builder ||= PaypalService::TestApiBuilder.new
-    end
-
-    def self.reset!
-      @payments = nil
-      @events = nil
-      @api_builder = nil
-    end
-
-    def self.build_test_payments
-      payments = PaypalService::API::Payments.new(
-        events,
-        PaypalService::TestMerchant.build(api_builder),
-        PaypalService::TestLogger.new)
-    end
-  end
-end
-
+require_relative '../api'
 
 describe PaypalService::API::Payments do
 

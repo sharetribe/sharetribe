@@ -6,7 +6,7 @@ module PaypalService
     end
 
     def billing_agreement_api
-      @billing_agreement ||= PaypalService::API::BillingAgreements.new
+      @billing_agreement ||= build_billing_agreements
     end
 
     def minimum_commissions_api
@@ -22,6 +22,10 @@ module PaypalService
     def load_minimum_commissions
       path = "#{Rails.root}/app/services/paypal_service/minimum_commissions.yml"
       YAML.load_file(path)
+    end
+
+    def build_billing_agreements
+      PaypalService::API::BillingAgreements.new(PaypalService::MerchantInjector.build_paypal_merchant)
     end
 
     def build_paypal_payments

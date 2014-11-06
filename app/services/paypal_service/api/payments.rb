@@ -414,6 +414,5 @@ module PaypalService::API
       URLUtils.remove_query_param(url_str, "token")
     end
 
-
   end
 end

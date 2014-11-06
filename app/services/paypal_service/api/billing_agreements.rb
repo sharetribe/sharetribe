@@ -1,8 +1,6 @@
 module PaypalService::API
 
   class BillingAgreements
-    # Injects a configured instance of the merchant client as paypal_merchant
-    include PaypalService::MerchantInjector
 
     # Include with_success for wrapping requests and responses
     include RequestWrapper
@@ -12,9 +10,19 @@ module PaypalService::API
     MerchantData = PaypalService::DataTypes::Merchant
     TokenStore = PaypalService::Store::Token
 
-    def initialize(logger = PaypalService::Logger.new)
+    def initialize(merchant, logger = PaypalService::Logger.new)
       @logger = logger
+      @merchant = merchant
     end
+
+    # For RequestWrapper mixin
+    def paypal_merchant
+      @merchant
+    end
+
+
+    # Public API implementation
+    #
 
     # GET /billing_agreements/:community_id/:person_id
     def get_billing_agreement(community_id, person_id)
@@ -84,9 +92,12 @@ module PaypalService::API
         return Result::Error.new("No matching admin account for community_id: #{cid} and transaction_id: #{txid}.")
       end
 
+
       m_acc = PaypalService::PaypalAccount::Query.personal_account(pid, cid)
       if m_acc.nil?
         return Result::Error.new("Cannot find paypal account for the given community and person: community_id: #{cid}, person_id: #{pid}.")
+      elsif m_acc[:billing_agreement_id].nil?
+        return Result::Error.new("Merchant account has no billing agreement setup.")
       end
 
       block.call(m_acc, admin_acc)

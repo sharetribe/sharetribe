@@ -302,7 +302,27 @@ module PaypalService
               }
             )
           }
-        )
+        ),
+
+        do_reference_transaction: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap,
+          output_transformer: -> (res, api) {
+            req = res[:value]
+
+            DataTypes::Merchant.create_do_reference_transaction_response({
+              billing_agreement_id: req[:billing_agreement_id],
+              payment_id: SecureRandom.uuid,
+              payment_total: req[:payment_total],
+              payment_date: Time.now,
+              fee: Money.new((req[:payment_total].cents*0.1).to_i, req[:payment_total].currency.iso_code),
+              payment_status: "completed",
+              pending_reason: "none",
+              username_to: api.config.subject || api.config.username
+            })
+          }
+        ),
       }
     end
   end
