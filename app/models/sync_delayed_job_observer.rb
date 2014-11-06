@@ -60,5 +60,3 @@ class SyncDelayedJobObserver < ActiveRecord::Observer
   end
 
 end
-
-SyncDelayedJobObserver.reset!

@@ -1,17 +1,17 @@
 module PaypalService::Jobs
   class ProcessPaymentCommand < Struct.new(:process_token)
 
-    ProcessTokenStore = PaypalService::Store::ProcessToken
-
     def perform
-      proc_token = ProcessTokenStore.get_by_process_token(self.process_token)
+      ProcessCommand.run(
+        process_token: process_token,
+        resolve_cmd: (method :resolve_payment_cmd))
+    end
 
-      payment_cmd = payments_api.method(proc_token[:op_name])
-      op_output = payment_cmd.call(*proc_token[:op_input])
 
-      ProcessTokenStore.update_to_completed(
-        process_token: proc_token[:process_token],
-        op_output: op_output)
+    private
+
+    def resolve_payment_cmd(op_name)
+      payments_api.method(op_name)
     end
 
     def payments_api

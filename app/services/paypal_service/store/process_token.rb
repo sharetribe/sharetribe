@@ -15,8 +15,21 @@ module PaypalService::Store::ProcessToken
 
   module_function
 
+  def create_or_get(community_id:, transaction_id:, op_name:, op_input: [])
+    Maybe(
+      create(
+        community_id: community_id,
+        transaction_id: transaction_id,
+        op_name: op_name,
+        op_input: op_input))
+      .or_else(get_by_transaction(
+        community_id: community_id,
+        transaction_id: transaction_id,
+        op_name: op_name))
+  end
+
   def create(community_id:, transaction_id:, op_name:, op_input: [])
-    create({
+    create_unique({
         community_id: community_id,
         transaction_id: transaction_id,
         op_name: op_name,
@@ -52,7 +65,7 @@ module PaypalService::Store::ProcessToken
     SecureRandom.uuid
   end
 
-  def create(info)
+  def create_unique(info)
     model =
       begin
         ProcessTokenModel.create!(
