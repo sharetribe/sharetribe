@@ -72,9 +72,11 @@ module PaypalService::Store::PaypalPayment
 
   def ipn_update(ipn_entity)
     payment = PaypalPaymentModel.where(
-      "authorization_id = ? or order_id = ?", ipn_entity[:authorization_id], ipn_entity[:order_id]
-      ).first
-    update_payment(payment, ipn_entity)
+      "authorization_id = ? or order_id = ?", ipn_entity[:authorization_id], ipn_entity[:order_id]).first
+
+    old_data = from_model(payment)
+    new_data = update_payment(payment, ipn_entity)
+    new_data if old_data != new_data
   end
 
   def create(community_id, transaction_id, order)
@@ -100,7 +102,6 @@ module PaypalService::Store::PaypalPayment
   end
 
   ## Privates
-
   def from_model(paypal_payment)
     hash = HashUtils.compact(
       EntityUtils.model_to_hash(paypal_payment).merge({

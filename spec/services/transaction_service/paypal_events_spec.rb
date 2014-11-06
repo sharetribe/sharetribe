@@ -5,6 +5,7 @@ describe TransactionService::PaypalEvents do
   TokenStore = PaypalService::Store::Token
   PaymentStore = PaypalService::Store::PaypalPayment
   TransactionModel = ::Transaction
+  PaypalAccountModel = ::PaypalAccount
 
   # Simulate TransactionService::Transactions.create but without calling to paypal payments API
   def create_test_transaction(opts)
@@ -46,6 +47,8 @@ describe TransactionService::PaypalEvents do
     @cid = 3
     @payer = FactoryGirl.create(:payer)
     @listing = FactoryGirl.create(:listing, price: Money.new(45000, "EUR"))
+
+    @paypal_account = PaypalAccountModel.create(person_id: @listing.author, community_id: @cid, email: "author@sharetribe.com", payer_id: "abcdabcd")
 
     @transaction_info = {
       payment_process: :preauthorize,
@@ -101,8 +104,8 @@ describe TransactionService::PaypalEvents do
 
   context "#request_cancelled" do
     it "removes transaction associated with the cancelled token" do
-      TransactionService::PaypalEvents.request_cancelled(:api, @token_no_msg)
-      TransactionService::PaypalEvents.request_cancelled(:api, @token_with_msg)
+      TransactionService::PaypalEvents.request_cancelled(:success, @token_no_msg)
+      TransactionService::PaypalEvents.request_cancelled(:success, @token_with_msg)
 
       # Both transactions are deleted
       expect(TransactionModel.count).to eq(0)
@@ -113,7 +116,7 @@ describe TransactionService::PaypalEvents do
 
     it "calling with token that doesn't match a transaction is a no-op" do
       already_removed = @token_no_msg.merge({transaction_id: 987654321})
-      TransactionService::PaypalEvents.request_cancelled(:api, already_removed)
+      TransactionService::PaypalEvents.request_cancelled(:success, already_removed)
 
       expect(Transaction.count).to eq(2)
     end
@@ -135,7 +138,7 @@ describe TransactionService::PaypalEvents do
     end
 
     it "transitions transaction to preauthorized state" do
-      TransactionService::PaypalEvents.payment_updated(:api, @authorized_payment)
+      TransactionService::PaypalEvents.payment_updated(:success, @authorized_payment)
 
       tx = MarketplaceService::Transaction::Query.transaction(@transaction_with_msg.id)
       expect(tx[:status]).to eq("preauthorized")
@@ -143,7 +146,7 @@ describe TransactionService::PaypalEvents do
 
     it "is safe to call for non-existent transaction" do
       no_matching_tx = @authorized_payment.merge({transaction_id: 987654321 })
-      TransactionService::PaypalEvents.payment_updated(:api, no_matching_tx)
+      TransactionService::PaypalEvents.payment_updated(:success, no_matching_tx)
 
       tx = MarketplaceService::Transaction::Query.transaction(@transaction_with_msg.id)
       expect(tx[:status]).to eq("initiated")
@@ -180,8 +183,8 @@ describe TransactionService::PaypalEvents do
     end
 
     it "removes the associated transaction" do
-      TransactionService::PaypalEvents.payment_updated(:api, @voided_payment_no_msg)
-      TransactionService::PaypalEvents.payment_updated(:api, @voided_payment_with_msg)
+      TransactionService::PaypalEvents.payment_updated(:success, @voided_payment_no_msg)
+      TransactionService::PaypalEvents.payment_updated(:success, @voided_payment_with_msg)
 
       # Both transactions are deleted
       expect(TransactionModel.count).to eq(0)
@@ -192,10 +195,42 @@ describe TransactionService::PaypalEvents do
 
     it "is safe to call for non-existent transaction" do
       no_matching_tx = @voided_payment_with_msg.merge({transaction_id: 987654321 })
-      TransactionService::PaypalEvents.payment_updated(:api, no_matching_tx)
+      TransactionService::PaypalEvents.payment_updated(:success, no_matching_tx)
 
       expect(Transaction.count).to eq(2)
     end
   end
 
+  context "#payment_updated - preauthorized => voided" do
+    before(:each) do
+      PaymentStore.create(@cid, @transaction_with_msg.id, {
+          payer_id: "sduyfsudf",
+          receiver_id: "98ysdf98ysdf",
+          pending_reason: "authorization",
+          order_id: SecureRandom.uuid,
+          order_date: Time.now,
+          order_total: Money.new(22000, "EUR"),
+        })
+
+      @authorized_payment = PaymentStore.update(@cid, @transaction_with_msg.id, {
+          payment_status: "pending",
+          pending_reason: "authorization",
+          authorization_id: "12345678",
+          authorization_date: Time.now,
+          authorization_total: Money.new(22000, "EUR")
+        })
+
+      TransactionService::PaypalEvents.payment_updated(:success, @authorized_payment)
+
+      @voided_payment_with_msg = PaymentStore.update(@cid, @transaction_with_msg.id, {
+          pending_reason: :none,
+          payment_status: :voided
+        })
+    end
+
+    it "on error transitions the associated transaction to errored" do
+      TransactionService::PaypalEvents.payment_updated(:error, @voided_payment_with_msg)
+      expect(TransactionModel.where(id: @transaction_with_msg.id).pluck(:current_state).first).to eq "errored"
+    end
+  end
 end

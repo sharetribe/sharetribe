@@ -20,10 +20,13 @@ module TransactionHelper
       "ss-check"
     when "reject_preauthorized"
       "ss-delete"
+    when "errored"
+      "ss-delete"
     end
   end
 
   # Give `status`, `is_author` and `other_party` and get back icon and text for current status
+  # rubocop:disable all
   def conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback, status_meta)
     icon_waiting_you = icon_tag("alert", ["icon-fix-rel", "waiting-you"])
     icon_waiting_other = icon_tag("clock", ["icon-fix-rel", "waiting-other"])
@@ -149,7 +152,14 @@ module TransactionHelper
           icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
           text: t("conversations.status.request_canceled")
         }
-      } }
+      } },
+
+      errored: ->() { {
+        both: {
+          icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
+          text: t("conversations.status.payment_errored")
+         }
+      } },
     }
 
     Maybe(status_hash)[status.to_sym]
@@ -158,6 +168,7 @@ module TransactionHelper
       .values
       .get
   end
+  # rubocop:enable all
 
   #
   # Returns statuses in Hash format
@@ -190,7 +201,6 @@ module TransactionHelper
   #   }
   # }
   def get_conversation_statuses(conversation, is_author)
-
     statuses = if conversation.listing && !conversation.status.eql?("free")
       status_hash = {
         pending: ->() { {
@@ -272,6 +282,14 @@ module TransactionHelper
         rejected: ->() { {
           both: [
             status_info(t("conversations.status.#{conversation.discussion_type}_rejected"), icon_classes: icon_for(conversation.status))
+          ]
+        } },
+        errored: ->() { {
+          author: [
+            status_info(t("conversations.status.payment_errored_author", starter_name: conversation.starter.name), icon_classes: icon_for("errored"))
+          ],
+          starter: [
+            status_info(t("conversations.status.payment_errored_starter"), icon_classes: icon_for("errored"))
           ]
         } }
       }
