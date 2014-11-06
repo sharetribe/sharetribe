@@ -262,16 +262,16 @@ it:
       emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: "Integrazione PayPal"
-      preferences_updated: ~
-      integration_info_text: ~
-      paypal_account_email: ~
-      paypal_account_email_completed: ~
-      set_minimum_price_and_fee: ~
-      set_minimum_price_and_fee_completed: ~
-      minimum_listing_price_label: ~
-      transaction_fee_label: ~
-      save_settings: ~
-      note_about_transaction_fee: ~
+      preferences_updated: "Preferenze di pagamento aggiornate"
+      integration_info_text: "Il sistema di pagamento di %{service_name} è gestito da PayPal. Se vuoi consentire ai tuoi utenti di effettuare pagamenti sulla tua piattaforma, è necessario collegare il tuo conto PayPal e decidere il prezzo minimo del tuo spazio e la quota che vuoi trattenere per ogni transazione."
+      paypal_account_email: "1. Collega il tuo conto PayPal"
+      paypal_account_email_completed: Completato!
+      set_minimum_price_and_fee: "2. Inserisci un prezzo minimo e una tariffa di transazione"
+      set_minimum_price_and_fee_completed: Completato!
+      minimum_listing_price_label: "Prezzo minimo per lo spazio:"
+      transaction_fee_label: "Tariffa di transazione:"
+      save_settings: "Salva le impostazioni"
+      note_about_transaction_fee: "Nota: la quota di transazione include la percentuale di PayPal che dipende dalla valuta e dal volume delle vendite del venditore. Per questo motivo, la quota  è sempre almeno %{min_paypal_commission}. Quando la quota viene imposta da parte del venditore, PayPal detrarrà prima le sue spese , e il resto sarà trasferito al tuo conto PayPal."
     transaction_types:
       sell: ~
       rent: ~
@@ -284,7 +284,7 @@ it:
       share_for_free: ~
       default_action_button_labels:
         sell: ~
-        rent: ~
+        rent: Affitta
         request: ~
         offer: ~
         inquiry: ~

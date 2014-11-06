@@ -461,6 +461,9 @@ de:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: Abbruch
       feedback_given: "gegebenes Feedback"
       feedback_skipped: "übersprungene Feedbacks"

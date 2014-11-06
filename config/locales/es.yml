@@ -262,12 +262,16 @@ es:
       emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
-      new:
-        integration_info_text: ~
-        paypal_account_email: ~
-      show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
+      preferences_updated: ~
+      integration_info_text: ~
+      paypal_account_email: ~
+      paypal_account_email_completed: ~
+      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee_completed: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      save_settings: ~
+      note_about_transaction_fee: ~
     transaction_types:
       sell: Venta
       rent: Alquilando
@@ -442,6 +446,9 @@ es:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: Cancelar
       feedback_given: "feedback dado"
       feedback_skipped: "Feedback omitido"
@@ -1084,11 +1091,11 @@ es:
       send_instructions: "Recibirás un e-mail con las instrucciones para cambiar tu contraseña en unos pocos minutos."
       you_cannot_reply_to_a_closed_offer: "No puedes responder a una oferta cerrada"
       you_cannot_reply_to_a_closed_request: "No puedes responder a una solicitud cerrada"
+      you_are_now_member: "Te has unido exitosamente a esta comunidad"
       you_cannot_send_message_to_yourself: "No puedes enviar un mensaje a ti mismo"
+      you_are_already_member: "Ya eres miembro de esta %{service_name} comunidad. Bienvenido otra vez!"
       you_followed_listing: "Ahora estás siguiendo este listado"
       you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
-      you_are_now_member: "Te has unido exitosamente a esta comunidad"
-      you_are_already_member: "Ya eres miembro de esta %{service_name} comunidad. Bienvenido otra vez!"
       you_must_log_in_to_create_new_listing: "Tienes que iniciar sesión en %{service_name} para crear un nuevo listado. Si no tienes una cuenta, puedes %{sign_up_link}."
       additional_email_confirmed_dashboard: "Tu e-mail ahora está confirmado."
       you_must_log_in_to_give_feedback: "Debes iniciar tu sesión para dar una sugerencia"
@@ -1421,7 +1428,6 @@ es:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: ~
-      need_to_have_currency_balance: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~

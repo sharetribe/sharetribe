@@ -262,12 +262,16 @@ nl:
       emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
-      new:
-        integration_info_text: ~
-        paypal_account_email: ~
-      show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
+      preferences_updated: ~
+      integration_info_text: ~
+      paypal_account_email: ~
+      paypal_account_email_completed: ~
+      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee_completed: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      save_settings: ~
+      note_about_transaction_fee: ~
     transaction_types:
       sell: Verkopen
       rent: Verhuren
@@ -442,6 +446,9 @@ nl:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: ~
       feedback_given: "Feedback gegeven"
       feedback_skipped: "Feedback overgeslagen"
@@ -1135,10 +1142,10 @@ nl:
       close_listing: "Sluit item"
       edit_listing: "Bewerk item"
       reopen_listing: "Heropen item"
-      move_to_top: ~
-      show_in_updates_email: ~
       show_in_updates_email_loading: ~
+      move_to_top: ~
       show_in_updates_email_error: ~
+      show_in_updates_email: ~
       show_in_updates_email_success: ~
     follow_links:
       follow: "Ontvang e-mail wanneer er een reactie is geplaatst"
@@ -1414,7 +1421,6 @@ nl:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: ~
-      need_to_have_currency_balance: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~

@@ -277,16 +277,16 @@ sv:
       emails_title: E-post
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
-      preferences_updated: ~
-      integration_info_text: ~
-      paypal_account_email: ~
-      paypal_account_email_completed: ~
-      set_minimum_price_and_fee: ~
-      set_minimum_price_and_fee_completed: ~
-      minimum_listing_price_label: ~
-      transaction_fee_label: ~
-      save_settings: ~
-      note_about_transaction_fee: ~
+      preferences_updated: "Betalningsinställningarna uppdaterade"
+      integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal-konto och välja minsta annonspriset och avgiften som du ska ta i provision från varje transaktion."
+      paypal_account_email: "1. Koppla ditt PayPal konto"
+      paypal_account_email_completed: Klart!
+      set_minimum_price_and_fee: "Ställ in lägsta pris och transaktionskonstnad"
+      set_minimum_price_and_fee_completed: Klart!
+      minimum_listing_price_label: "Lägsta annonspris:"
+      transaction_fee_label: "Transaktionsavgift:"
+      save_settings: "Spara inställningar"
+      note_about_transaction_fee: "Notera: i transaktionsavgiften ingår PayPals avgifter som beror på din valuta och försäljningsvolymen på säljaren. Av denna anledning är avgiften alltid minst %{min_paypal_commission}. När avgiften tas ut från säljaren, kommer PayPal att ta sina arvoden först, och resten kommer att flyttas till ditt PayPal-konto."
     transaction_types:
       sell: Säljer
       rent: "Hyr ut"

@@ -262,12 +262,16 @@ ru:
       emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
-      new:
-        integration_info_text: ~
-        paypal_account_email: ~
-      show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
+      preferences_updated: ~
+      integration_info_text: ~
+      paypal_account_email: ~
+      paypal_account_email_completed: ~
+      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee_completed: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      save_settings: ~
+      note_about_transaction_fee: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -442,6 +446,9 @@ ru:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: Отменить
       feedback_given: "Отзыв отправлен"
       feedback_skipped: "Отзыв отменён"
@@ -1414,7 +1421,6 @@ ru:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: ~
-      need_to_have_currency_balance: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~
@@ -1432,9 +1438,6 @@ ru:
       there_are_x_members: "Количество участников сообщества %{community_name}: %{count} чел."
       to_see_the_list_log_in: "Чтобы увидеть полный список участников, необходимо %{log_in_link}."
       log_in_link: авторизоваться
-    edit_links:
-      activate: Активировать
-      deactivate: Отключить
     help_texts:
       feedback_description_title: Отзывы
       help_captcha_title: "Вы человек?"
@@ -1444,6 +1447,9 @@ ru:
       trustcloud_description_text: "<p>TrustCloud является онлайн-сервисом, который помогает \"измерить\"  надёжность пользователя с помощью других сервисов. В зависимости от активности пользователя в интернете, ему присваивается рейтинг TrustScore (1-1000). Рейтинг увеличивается, например, при получении положительных отзывов на аукционе eBay, либо при наличии множества связей в Facebook. Щёлкните каждую карточку для получения более подробной информации.</p><p>TrustCloud используется для получения  большей уверенности, в том, что человек за учётной записью является реальным и не прячется за выдуманной личностью.</p><p>Вы можете получить свою карточку TrustCard, <a href='https://trustcloud.com/claim'>зарегистрировавшись на TrustCloud</a> с тем же адресом электронной почты, который вы использовали при регистрации на %{service_name}. Это совершенно необязательно, но мы рекомендуем получить свою учётную запись TrustCard, так как это повысит ваш авторитет и скорее всего упростит общение с другими членами сообщества.</p><p>Ваши действия в %{service_name} пока ещё не влияют на ваш рейтинг TrustScore, но мы планируем сделать это возможным в будущем.</p>"
       invite_only_help_text: "Выберите этот вариант, если вы хотите, чтобы новые пользователи могли вступать в сообщество только по приглашению от существующих пользователей."
       invite_only_help_text_title: "Сообщество только по приглашениям"
+    edit_links:
+      activate: Активировать
+      deactivate: Отключить
     inactive_notification:
       this_person_is_not_active_in_kassi: "Этот пользователь больше не использует %{service_name}"
       inactive_description: "Пользователь прекратил использовать %{service_name}. Вы не можете связаться с этим пользователем, поставить ему оценку или комментировать его листинги."

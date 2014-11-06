@@ -277,12 +277,16 @@ fr:
       emails_title: Emails
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
-      new:
-        integration_info_text: "Le système de paiement de %{service_name} est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir quelle commission vous prélever sur chaque transaction."
-        paypal_account_email: "Connecter votre compte PayPal"
-      show:
-        integration_info_text: "Le système de paiement de %{service_name} est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir quelle commission vous prélever sur chaque transaction."
-        paypal_account_email_connected: "<del>Connecter le compte PayPal</del> Connecté !"
+      preferences_updated: "Préférences de paiement mises à jour"
+      integration_info_text: "Le système de paiement de %{service_name} est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimum pour les annonces ainsi que la commission que vous souhaitez prélever sur chaque transaction."
+      paypal_account_email: "1. Connecter votre compte PayPal"
+      paypal_account_email_completed: "Terminé !"
+      set_minimum_price_and_fee: "2. Définir un montant minimum et la commission"
+      set_minimum_price_and_fee_completed: "Terminé !"
+      minimum_listing_price_label: "Montant minimum : "
+      transaction_fee_label: "Commission : "
+      save_settings: "Sauvegarder les paramètres"
+      note_about_transaction_fee: "Note : la commission inclut les frais PayPal qui dépendent de la monnaie et du volume des ventes du vendeur. Pour cette raison, la commission est d'au minimum %{min_paypal_commission}. Lorsque la commission est facturée au vendeur, PayPal prélève d'abord ses frais puis le restant est viré sur votre propre compte PayPal."
     transaction_types:
       sell: Vente
       rent: Location
@@ -457,6 +461,9 @@ fr:
       price_excludes_vat: "(hors TVA)"
       total: "Total : %{total}"
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: Annuler
       feedback_given: "Avis donné"
       feedback_skipped: "Pas d'avis donné"
@@ -1415,7 +1422,7 @@ fr:
       admin_account_not_connected: "Vous ne pouvez pas connecter votre compte PayPal car l'administrateur de la place de marché n'a pas terminé la configuration de PayPal."
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_placeholder: "Votre adresse email PayPal"
-      paypal_account_email_info_text: "Note : vous devez avoir un compte PayPal Premier (pour les particuliers) ou Business (pour les entreprises) pour accepter les paiements. Si vous avez un compte PayPal personnel, vous pouvez le mettre à jour. C'est gratuit et ne prend que quelques instants. %{upgrade_paypal_account} Si vous n'avez pas encore de compte PayPal, vous pouvez créer un compte %{create_paypal_account}."
+      paypal_account_email_info_text: "Note : vous devez avoir un compte PayPal Premier (pour les particuliers) ou Business (pour les entreprises) pour accepter les paiements. Si vous avez un compte PayPal personnel, vous pouvez le mettre à jour. C'est gratuit et ne prend que quelques instants. %{upgrade_paypal_account} Si vous n'avez pas encore de compte PayPal, vous pouvez créer un compte %{create_paypal_account}. Votre compte PayPal doit être configuré pour recevoir %{currency}."
       create_paypal_account: ici
       upgrade_paypal_account: "Mettre à jour votre compte ici."
       connect_paypal_account: "Connecter le compte PayPal"
@@ -1429,7 +1436,6 @@ fr:
       billing_agreement_canceled: "L'accord de facturation a été annulé"
       billing_agreement_id_missing: "Il y a eu des problèmes techniques lors de l'intégration avec PayPal"
       something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter les administrateurs."
-      need_to_have_currency_balance: "Note : votre compte PayPal doit être configuré pour recevoir %{currency}."
   paypal:
     checkout_with_paypal: "Payer avec PayPal"
     cancel_succesful: "Paiement PayPal correctement annulé"
@@ -1485,11 +1491,11 @@ fr:
       show_my_name_to_others: "Montrer mon nom complet aux autres utilisateurs de %{service_name}"
       sign_up: "Créer un nouveau compte sur %{service_name}"
       terms: "conditions d'utilisation"
-      username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
-      username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
       visible_only_to_you: "visible uniquement par vous et l'administrateur de la place de marché"
+      username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
       visible_to_everybody: "visible à tout le monde"
       create_account_with_facebook: "S'inscrire avec Facebook"
+      username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
       OR: OU
       signup_with_email: "S'inscrire avec un email"
     not_member:

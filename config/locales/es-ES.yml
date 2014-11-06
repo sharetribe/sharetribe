@@ -262,12 +262,16 @@ es-ES:
       emails_title: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
-      new:
-        integration_info_text: ~
-        paypal_account_email: ~
-      show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
+      preferences_updated: ~
+      integration_info_text: ~
+      paypal_account_email: ~
+      paypal_account_email_completed: ~
+      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee_completed: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      save_settings: ~
+      note_about_transaction_fee: ~
     transaction_types:
       sell: Venta
       rent: Alquilando
@@ -442,6 +446,9 @@ es-ES:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: ~
       feedback_given: "Sugerencia dada"
       feedback_skipped: "Sugerencia omitida"
@@ -966,7 +973,7 @@ es-ES:
     global-header:
       select_language: ~
     infos:
-      about: "¿Qué es %{service_name}?"
+      about: "Acerca de"
       how_to_use: "Cómo usar"
       info_about_kassi: "Información acerca de %{service_name}"
       news: Novedades
@@ -1416,7 +1423,6 @@ es-ES:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: ~
-      need_to_have_currency_balance: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~
@@ -1454,12 +1460,12 @@ es-ES:
       captcha_was_wrong: "Texto captcha incorrecto."
       create_new_account: "Crear una cuenta"
       email: "Dirección de correo electrónico:"
-      email_is_in_use: "El mail ingresado ya se encuentra registrado."
-      email_is_in_use_or_not_allowed: "El e-mail ingresado no está autorizado para entrar a esta comunidad o ya está siendo utilizado. Por favor usa una dirección de correo electrónico que esté asociada con esta comunidad (ver instrucciones más arriba). Si todavía tienes problemas para ingresar, envíanos un comentario usando el link de \"Feedback\" a la izquierda."
       email_not_allowed: "Este e-mail no esta habilitado para esta comunidad. Por favor usa una dirección que esté asociada con esta comunidad. Si todavía no puedes ingresar, envíanos un comentario haciendo clic en el botón de la izquierda."
+      email_is_in_use: "El mail ingresado ya se encuentra registrado."
       email_restriction_instructions:
         one: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas una dirección de email %{allowed_emails}."
         other: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas un email que tenga una de los siguientes direcciones: %{allowed_emails}."
+      email_is_in_use_or_not_allowed: "El e-mail ingresado no está autorizado para entrar a esta comunidad o ya está siendo utilizado. Por favor usa una dirección de correo electrónico que esté asociada con esta comunidad (ver instrucciones más arriba). Si todavía tienes problemas para ingresar, envíanos un comentario usando el link de \"Feedback\" a la izquierda."
       enter_captcha: "Soy un ser humano:"
       family_name: "Apellido:"
       given_name: "Nombre:"
