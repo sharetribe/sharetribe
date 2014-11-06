@@ -118,6 +118,36 @@ fi:
         welcome_email_content_description: "Alla oleva viesti lähetetään automaattisesti kaikille uusille käyttäjille näiden liittyessä. Voit muokata viestin sisältöä vastaamaan sivustosi kuvausta. Klikkaamalla '%{send_test_message_link}' -linkkiä voit lähettää viestin omaan sähköpostiosoitteeseesi."
         edit_message: "Muokkaa viestiä"
         send_test_message: "Lähetä testiviesti"
+      getting_started:
+        getting_started: "Aloitusohjeet"
+        welcome_to_your_marketplace: "Tervetuloa omalle markkinapaikkasivustollesi, %{name}!"
+        intro: "Tämän ohjeen avulla sivustosi muokkaus ja hallinta onnistuu vaivatta."
+        look_and_feel: "Ennen kuin avaat sivustosi kaikelle kansalle, kannattaa tehdä muutamia muutoksia. Voit esimerkiksi %{logo_link} ja vaihtaa sivuston kansikuvan ja värimaailman mieleisiksisi."
+        logo_link_text: "lisätä oman logosi"
+        custom_domain: "Saatat myös haluta vaihtaa sivustolle mieleisesi verkko-osoitteen (esimerkiksi www.omamarkkinapaikka.fi). Tätä toimenpidettä varten sinun on syytä olla yhteydessä meihin sähköpostilla (hello@sharetribe.com), sillä osoitteen käyttöönotto vaatii muutamia toimenpiteitä meidän puoleltamme."
+        categories_and_custom_fields: "Seuraavaksi voit määritellä, millaista sisältöä käyttäjäsi pystyvät sivustollesi lisäämään. Voit lisätä %{categories_link}, %{custom_fields_link} sekä päättää, millaisten hakusuodattimien avulla %{filters_link} käyttäjäsi pystyvät ilmoituksia etsimään."
+        categories_link_text: "ilmoituskategorioita ja niille alakategorioita"
+        custom_fields_link_text: "muokata ilmoituskenttiä"
+        filters_link_text: "hakusuodattimien"
+        payments: "Jos haluat tarjota käyttäjillesi mahdollisuuden maksaa ostoksistaan suoraan markkinapaikkasi maksujärjestelmän kautta, jolloin voit itse ottaa provision kustakin myyntitapahtumasta, sinun on syytä %{payments_link}."
+        payments_link_text: "muokata maksuasetuksiasi"
+        info_texts: "Muista myös muokata infosivuja ja muita ohjetekstejä, joiden avulla voit antaa käyttäjillesi lisätietoa sivustosi toiminnasta. Tarkista esimerkiksi %{about_page_link}, %{terms_of_use_link} (sinun kannattaa määritellä itse - voit käyttää apuna valmista pohjaamme), %{privacy_policy_link} (tämäkin sinun on syytä määritellä itse - tälle sivulle voit laittaa esimerkiksi rekisteriselosteeseen vaadittavat tiedot), sekä %{welcome_email_link} joka lähetetään kaikille uusille käyttäjille. Muut ohjetekstit löydät %{instruction_texts_link}."
+        about_page_link_text: "tietoa-sivu"
+        terms_of_use_link_text: "sivustosi käyttöehdot"
+        privacy_policy_link_text: "dokumentti yksityisyydensuojasta"
+        welcome_email_link_text: "tervetulosähköposti"
+        instruction_texts_link_text: "täältä"
+        social_media: "Sosiaalisen median hyödyntäminen on hyvä tapa yhteisöllisyyden lisäämiseen. Voit %{facebook_link}, jotta käyttäjäsi voivat kirjautua sivustollesi Facebook-tunnuksillaan, sekä %{twitter_link} saadaksesi lisää näkyvyytta, kun käyttäjäsi twiittaavat luomistaan ilmoituksista."
+        facebook_link_text: "yhdistää oman Facebook-applikaatiosi"
+        twitter_link_text: "lisätä Twitter-tilisi"
+        analytics: "Kannatta myös %{analytics_link} to your marketplace. This way it's easy for you to see what's happening in your marketplace, how many visitors you have, and so on."
+        analytics_link_text: "yhdistää Google Analytics -tili markkinapaikkaasi, jotta näet helpommin, mitä sivustollasi tapahtuu, kuinka paljon sivustolla on kävijöitä ja niin edelleen."
+        settings: "Tarjolla on myös paljon muita asetuksia. Voit esimerkiksi vaatia kaikilta käyttäjiltä kutsun, ennen kuin he pääsevät liittymään sivustollesi, ja tehdä sivustostasi ei-julkisen, jolloin ainoastaan kirjautuneet käyttäjät näkevät sivuston sisällöt. %{settings_link}."
+        settings_link_text: "Muuta sivustosi asetuksia täältä"
+        final_words: "Siinä kaikki! Kun kaikki on valmiina julkaisua varten, voit %{invite_link} sivustollesi. %{view_users_link} näet kaikki sivustolle liittyneet käyttäjät, ja %{view_transactions_link} puolestaan kaikki toteutuneet maksutapahtumat. Pystyt myös muokkaamaan käyttäjien lisäämiä ilmoituksia: kun menet yksittäisen ilmoituksen sivulle, näet siellä muokkausnapit ilmoituksen muokkausta ja sulkemista varten. Jos tarvitset lisäohjeita, ota yhteys ylläpitoon - olemme täällä sinua varten!"
+        invite_link_text: "kutsua käyttäjiä"
+        view_users_link_text: "Tältä sivulta"
+        view_transactions_link_text: "täältä"
       settings:
         settings: Yleisasetukset
         general: Yleiset
@@ -952,7 +982,7 @@ fi:
       click_here_link_text: "Lue lisää!"
   layouts:
     admin:
-      admin: Ylläpito
+      admin: Ylläpitonäkymä
     no_tribe:
       inbox: Postilaatikko
       settings: Asetukset

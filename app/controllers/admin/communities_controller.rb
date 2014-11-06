@@ -6,6 +6,11 @@ class Admin::CommunitiesController < ApplicationController
 
   skip_filter :dashboard_only
 
+  def getting_started
+    @selected_left_navi_link = "getting_started"
+    @community = @current_community
+  end
+
   def edit_look_and_feel
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community

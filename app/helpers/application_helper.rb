@@ -67,6 +67,7 @@ module ApplicationHelper
       "link" => "ss-link",
       "social_media" => "ss-share",
       "analytics" => "ss-analytics",
+      "openbook" => "ss-openbook",
 
       # Default category & share type icons
       "offer" => "ss-share",
@@ -571,6 +572,12 @@ module ApplicationHelper
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
+      {
+        :text => t("admin.communities.getting_started.getting_started"),
+        :icon_class => icon_class("openbook"),
+        :path => getting_started_admin_community_path(@current_community),
+        :name => "getting_started"
+      },
       {
         :text => t("admin.communities.manage_members.manage_members"),
         :icon_class => icon_class("community"),
