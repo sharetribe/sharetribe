@@ -26,6 +26,7 @@ module TransactionHelper
   end
 
   # Give `status`, `is_author` and `other_party` and get back icon and text for current status
+  # rubocop:disable all
   def conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback, status_meta)
     icon_waiting_you = icon_tag("alert", ["icon-fix-rel", "waiting-you"])
     icon_waiting_other = icon_tag("clock", ["icon-fix-rel", "waiting-other"])
@@ -167,6 +168,7 @@ module TransactionHelper
       .values
       .get
   end
+  # rubocop:enable all
 
   #
   # Returns statuses in Hash format
