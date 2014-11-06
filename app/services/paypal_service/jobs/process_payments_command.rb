@@ -1,5 +1,5 @@
 module PaypalService::Jobs
-  class ProcessPaymentCommand < Struct.new(:process_token)
+  class ProcessPaymentsCommand < Struct.new(:process_token)
 
     def perform
       ProcessCommand.run(

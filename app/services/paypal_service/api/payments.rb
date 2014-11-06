@@ -11,6 +11,7 @@ module PaypalService::API
     TokenStore = PaypalService::Store::Token
     PaymentStore = PaypalService::Store::PaypalPayment
     Lookup = PaypalService::API::Lookup
+    Worker = PaypalService::API::Worker
 
     def initialize(events, merchant, logger = PaypalService::Logger.new)
       @logger = logger
@@ -33,7 +34,7 @@ module PaypalService::API
         community_id, create_payment[:merchant_id]
       ) do |m_acc|
         if (async)
-          proc_token = PaymentsWorker.enqueue_op(
+          proc_token = Worker.enqueue_payments_op(
             community_id: community_id,
             transaction_id: create_payment[:transaction_id],
             op_name: :do_request,
@@ -99,7 +100,7 @@ module PaypalService::API
     def create(community_id, token, async: false)
       Lookup.with_token(community_id, token) do |token|
         if (async)
-          proc_token = PaymentsWorker.enqueue_op(
+          proc_token = Worker.enqueue_payments_op(
             community_id: community_id,
             transaction_id: token[:transaction_id],
             op_name: :do_create,
@@ -133,7 +134,7 @@ module PaypalService::API
     def full_capture(community_id, transaction_id, info, async: false)
       Lookup.with_payment(community_id, transaction_id, [[:pending, :authorization]]) do |payment, m_acc|
         if (async)
-          proc_token = PaymentsWorker.enqueue_op(
+          proc_token = Worker.enqueue_payments_op(
             community_id: community_id,
             transaction_id: transaction_id,
             op_name: :do_full_capture,
@@ -189,7 +190,7 @@ module PaypalService::API
     def void(community_id, transaction_id, info, async: false)
       Lookup.with_payment(community_id, transaction_id, [[:pending, nil]]) do |payment, m_acc|
         if (async)
-          proc_token = PaymentsWorker.enqueue_op(
+          proc_token = Worker.enqueue_payments_op(
             community_id: community_id,
             transaction_id: transaction_id,
             op_name: :do_void,
