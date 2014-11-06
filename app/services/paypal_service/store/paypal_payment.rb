@@ -140,7 +140,7 @@ module PaypalService::Store::PaypalPayment
 
 
   def create_payment_update(order)
-    cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total, :comission_total, :comission_fee_total]
+    cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total, :commission_total, :commission_fee_total]
       .reduce({}) do |cent_totals, m_key|
       m = order[m_key]
       cent_totals["#{m_key}_cents".to_sym] = m.cents unless m.nil?
