@@ -461,9 +461,9 @@ sv:
       price_excludes_vat: "(utan moms)"
       total: "Totalt: %{total}"
     status:
-      payment_errored: ~
-      payment_errored_starter: ~
-      payment_errored_author: ~
+      payment_errored: "Betalning misslyckades. Vänligen försök igen."
+      payment_errored_starter: "Betalning misslyckades. Vänligen försök igen. Om problemet kvarstår, vänligen kontakta vår support."
+      payment_errored_author: "Betalningen misslyckades. Vänligen kontakta %{starter_name} och be honom att försöka betala igen."
       cancel_payed_transaction: Avbryt
       feedback_given: "Feedback skickat"
       feedback_skipped: "Ingen feedback"
@@ -1424,7 +1424,7 @@ sv:
       admin_account_not_connected: "Du kan inte koppla ditt PayPalkonto eftersom marknadsplatsens administratör har inte slutfört PayPalinställningarna."
       paypal_account_email: "1. Koppla ditt PayPal konto"
       paypal_account_email_placeholder: "Din PayPal e-postadress"
-      paypal_account_email_info_text: "Notering: Du behöver PayPal premiumkonto (för privatpersoner) eller businesskonto (för företag) för att acceptera betalning. Om du har ett personligt PayPal konto så kan du uppgradera ditt konto. Det är gratis och tar bara några minuter. %{upgrade_paypal_account}. Om du inte har ett PayPal konto än så kan du skapa ett nytt %{create_paypal_account}."
+      paypal_account_email_info_text: "Notera: Du behöver PayPal premiumkonto (för privatpersoner) eller businesskonto (för företag) för att ta emot betalning. Om du har ett personligt PayPal-konto så kan du uppgradera ditt konto till premium. Det är gratis och tar bara några minuter. %{upgrade_paypal_account}. Om du inte har ett PayPal-konto än så kan du skapa ett nytt %{create_paypal_account}. Ditt PayPal-konto måste vara konfigurerat att kunna ta emot %{currency}."
       create_paypal_account: här
       upgrade_paypal_account: "Uppgradera ditt konto här."
       connect_paypal_account: "Koppla ditt PayPal konto"
