@@ -41,7 +41,7 @@ module PaypalService::API::DataTypes
     [:commission_payment_date, :time],
     [:commission_total, :money],
     [:commission_fee_total, :money],
-    [:commission_status, one_of: [:not_charged, :completed, :pending]],
+    [:commission_status, one_of: [:not_charged, :completed, :pending, :not_applicable]],
     [:commission_pending_reason, transform_with: -> (v) { (v.is_a? String) ? v.downcase.gsub("-", "").to_sym : v }]
   )
 
