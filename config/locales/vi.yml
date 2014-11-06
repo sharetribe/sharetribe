@@ -446,6 +446,9 @@ vi:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: ~
       feedback_given: "Phản hồi được cho"
       feedback_skipped: "Phản hồi bị bỏ qua"

@@ -446,6 +446,9 @@ it:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: ~
       feedback_given: "Feedback rilasciato"
       feedback_skipped: "Feedback saltato"

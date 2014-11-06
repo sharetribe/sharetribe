@@ -446,6 +446,9 @@ pt-BR:
       price_excludes_vat: "(exclui VAT)"
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: Cancelar
       feedback_given: "Feedback enviado"
       feedback_skipped: "Feedback descartado"

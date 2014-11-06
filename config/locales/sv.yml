@@ -461,6 +461,9 @@ sv:
       price_excludes_vat: "(utan moms)"
       total: "Totalt: %{total}"
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: Avbryt
       feedback_given: "Feedback skickat"
       feedback_skipped: "Ingen feedback"
