@@ -3,12 +3,12 @@ module UserService::API
 
     module_function
 
-    def create_user_and_make_a_member_of_community(user_hash, community, invitation = nil)
+    def create_user_and_make_a_member_of_community(user_hash, community_id, invitation_id = nil)
 
-      user = UserService::API::Users::create_user(user_hash, community)
+      user = UserService::API::Users::create_user(user_hash, community_id)
 
       # The first member will be made admin
-      MarketplaceService::API::Memberships::make_user_a_member_of_community(user, community, invitation)
+      MarketplaceService::API::Memberships::make_user_a_member_of_community(user.id, community_id, invitation_id)
 
       # TODO send email confirmation
       # # (unless disabled for testing environment)
@@ -29,7 +29,7 @@ module UserService::API
     # The challenge for that is the devise connections
     #
     # Create a new user by params and optional current community
-    def create_user(params, current_community = nil)
+    def create_user(params, community_id = nil)
       raise "Email #{params[:person][:email]} is already in use." if Email.email_available?(params[:person][:email])
 
       params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
@@ -47,7 +47,7 @@ module UserService::API
 
       person.emails << email
 
-      person.inherit_settings_from(current_community) if current_community
+      person.inherit_settings_from(Community.find(community_id)) if community_id
 
       person.save!
 
