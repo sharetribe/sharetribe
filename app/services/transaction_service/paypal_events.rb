@@ -1,5 +1,7 @@
 module TransactionService::PaypalEvents
 
+  TransactionModel = ::Transaction
+
   module_function
 
   # Public event API
@@ -90,7 +92,7 @@ module TransactionService::PaypalEvents
   end
 
   def delete_transaction(cid:, tx_id:)
-    tx = Transaction.where(community_id: cid, id: tx_id).first
+    tx = TransactionModel.where(community_id: cid, id: tx_id).first
 
     if tx
       tx.conversation.destroy
