@@ -118,6 +118,36 @@ sv:
         welcome_email_content_description: "Detta meddelande nedan kommer att skickas till alla nya medlemmar när de går med. Du kan skräddarsy meddelandet så att det passar din marknadsplats. Genom att klicka '%{send_test_message_link}' så kan du förhandsgranska meddelandet till din e-postadress så du kan se hur det ser ut."
         edit_message: "Redigera meddelande"
         send_test_message: "Skicka testmeddelande"
+      getting_started:
+        getting_started: ~
+        welcome_to_your_marketplace: ~
+        intro: ~
+        look_and_feel: ~
+        logo_link_text: ~
+        custom_domain: ~
+        categories_and_custom_fields: ~
+        categories_link_text: ~
+        custom_fields_link_text: ~
+        filters_link_text: ~
+        payments: ~
+        payments_link_text: ~
+        info_texts: ~
+        about_page_link_text: ~
+        terms_of_use_link_text: ~
+        privacy_policy_link_text: ~
+        welcome_email_link_text: ~
+        instruction_texts_link_text: ~
+        social_media: ~
+        facebook_link_text: ~
+        twitter_link_text: ~
+        analytics: ~
+        analytics_link_text: ~
+        settings: ~
+        settings_link_text: ~
+        final_words: ~
+        invite_link_text: ~
+        view_users_link_text: ~
+        view_transactions_link_text: ~
       settings:
         settings: Inställningar
         general: Allmän
@@ -272,6 +302,7 @@ sv:
         message_will_be_sent_only_to_people_with_this_language: "Notera: e-postameddelandet skickas bara till de användare som använder %{service_name} på det språk du valt."
         email_sent: "Meddelandet skickat."
     left_hand_navigation:
+      general: ~
       users_and_transactions: "Användare & transaktioner"
       configure: Konfiguration
       emails_title: E-post

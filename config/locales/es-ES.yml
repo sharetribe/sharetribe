@@ -103,6 +103,36 @@ es-ES:
         welcome_email_content_description: ~
         edit_message: ~
         send_test_message: ~
+      getting_started:
+        getting_started: ~
+        welcome_to_your_marketplace: ~
+        intro: ~
+        look_and_feel: ~
+        logo_link_text: ~
+        custom_domain: ~
+        categories_and_custom_fields: ~
+        categories_link_text: ~
+        custom_fields_link_text: ~
+        filters_link_text: ~
+        payments: ~
+        payments_link_text: ~
+        info_texts: ~
+        about_page_link_text: ~
+        terms_of_use_link_text: ~
+        privacy_policy_link_text: ~
+        welcome_email_link_text: ~
+        instruction_texts_link_text: ~
+        social_media: ~
+        facebook_link_text: ~
+        twitter_link_text: ~
+        analytics: ~
+        analytics_link_text: ~
+        settings: ~
+        settings_link_text: ~
+        final_words: ~
+        invite_link_text: ~
+        view_users_link_text: ~
+        view_transactions_link_text: ~
       settings:
         settings: ~
         general: ~
@@ -257,6 +287,7 @@ es-ES:
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
     left_hand_navigation:
+      general: ~
       users_and_transactions: ~
       configure: ~
       emails_title: ~
@@ -1460,12 +1491,12 @@ es-ES:
       captcha_was_wrong: "Texto captcha incorrecto."
       create_new_account: "Crear una cuenta"
       email: "Dirección de correo electrónico:"
-      email_not_allowed: "Este e-mail no esta habilitado para esta comunidad. Por favor usa una dirección que esté asociada con esta comunidad. Si todavía no puedes ingresar, envíanos un comentario haciendo clic en el botón de la izquierda."
       email_is_in_use: "El mail ingresado ya se encuentra registrado."
+      email_is_in_use_or_not_allowed: "El e-mail ingresado no está autorizado para entrar a esta comunidad o ya está siendo utilizado. Por favor usa una dirección de correo electrónico que esté asociada con esta comunidad (ver instrucciones más arriba). Si todavía tienes problemas para ingresar, envíanos un comentario usando el link de \"Feedback\" a la izquierda."
+      email_not_allowed: "Este e-mail no esta habilitado para esta comunidad. Por favor usa una dirección que esté asociada con esta comunidad. Si todavía no puedes ingresar, envíanos un comentario haciendo clic en el botón de la izquierda."
       email_restriction_instructions:
         one: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas una dirección de email %{allowed_emails}."
         other: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas un email que tenga una de los siguientes direcciones: %{allowed_emails}."
-      email_is_in_use_or_not_allowed: "El e-mail ingresado no está autorizado para entrar a esta comunidad o ya está siendo utilizado. Por favor usa una dirección de correo electrónico que esté asociada con esta comunidad (ver instrucciones más arriba). Si todavía tienes problemas para ingresar, envíanos un comentario usando el link de \"Feedback\" a la izquierda."
       enter_captcha: "Soy un ser humano:"
       family_name: "Apellido:"
       given_name: "Nombre:"

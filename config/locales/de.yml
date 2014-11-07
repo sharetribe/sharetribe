@@ -118,6 +118,36 @@ de:
         welcome_email_content_description: "Die folgende Nachricht wird zur Begrüßung an jedes neue Mitglied gesendet. Du kannst die Nachricht so bearbeiten, dass sie zu deiner Community passt. Indem du auf '%{send_test_message_link}' klickst, kannst du sehen, wie sie in einem E-Mail-Client aussieht."
         edit_message: "Nachricht bearbeiten"
         send_test_message: "Test-Nachricht senden"
+      getting_started:
+        getting_started: ~
+        welcome_to_your_marketplace: ~
+        intro: ~
+        look_and_feel: ~
+        logo_link_text: ~
+        custom_domain: ~
+        categories_and_custom_fields: ~
+        categories_link_text: ~
+        custom_fields_link_text: ~
+        filters_link_text: ~
+        payments: ~
+        payments_link_text: ~
+        info_texts: ~
+        about_page_link_text: ~
+        terms_of_use_link_text: ~
+        privacy_policy_link_text: ~
+        welcome_email_link_text: ~
+        instruction_texts_link_text: ~
+        social_media: ~
+        facebook_link_text: ~
+        twitter_link_text: ~
+        analytics: ~
+        analytics_link_text: ~
+        settings: ~
+        settings_link_text: ~
+        final_words: ~
+        invite_link_text: ~
+        view_users_link_text: ~
+        view_transactions_link_text: ~
       settings:
         settings: Einstellungen
         general: Allgemein
@@ -272,6 +302,7 @@ de:
         message_will_be_sent_only_to_people_with_this_language: "Merke: Die E-Mail wird nur an Mitglieder von %{service_name} verschickt, die die Sprache sprechen, die du gewählt hast."
         email_sent: "E-Mail gesendet."
     left_hand_navigation:
+      general: ~
       users_and_transactions: ~
       configure: ~
       emails_title: ~
