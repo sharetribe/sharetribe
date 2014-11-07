@@ -11,26 +11,16 @@ module UserService::API
       MarketplaceService::API::Memberships::make_user_a_member_of_community(user.id, community_id, invitation_id)
 
       # TODO send email confirmation
-      # # (unless disabled for testing environment)
-      # if APP_CONFIG.skip_email_confirmation
-      #   email.confirm!
-      # else
-      #   Email.send_confirmation(email, request.host_with_port, @current_community)
-      # end
 
       return user
     end
 
-
-
-
-    # TODO change to accept pure hash data as params
     # TODO make people controller use this method too
     # The challenge for that is the devise connections
     #
     # Create a new user by params and optional current community
     def create_user(params, community_id = nil)
-      raise "Email #{params[:person][:email]} is already in use." if Email.email_available?(params[:person][:email])
+      raise "Email #{params[:person][:email]} is already in use." unless Email.email_available?(params[:person][:email])
 
       params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
       params[:person][:test_group_number] = 1 + rand(4)

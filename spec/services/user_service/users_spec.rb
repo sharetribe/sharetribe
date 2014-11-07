@@ -17,6 +17,7 @@ describe UserService::API::Users do
       u = create_user(@person_hash)
       expect(u.given_name).to eql "Raymond"
       expect(Person.find_by_username("ray").family_name).to eql "Xperiment"
+      expect(u.locale).to eql "fr"
     end
 
     it "should fail if email is taken" do

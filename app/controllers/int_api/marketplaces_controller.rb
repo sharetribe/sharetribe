@@ -20,9 +20,11 @@ class IntApi::MarketplacesController < ApplicationController
 
     user = UserService::API::Users::create_user_and_make_a_member_of_community(person_hash, community.id)
 
-    # create auth token for the new admin and return that with the link
+    # TODO create auth token for the new admin and return that with the link
 
-    # Add user to mailchimp list
+    # TODO Add user to mailchimp list
+
+    # TODO handle error cases with proper response
 
     response.status = 201
     render :json => ["Marketplace created."] and return
@@ -35,7 +37,7 @@ class IntApi::MarketplacesController < ApplicationController
     render :json => ["email parameter missing"], :status => 400 and return if email.blank?
 
     response.status = 200
-    render :json => {:email => email, :available => (Email.email_available?(email)).to_s} and return
+    render :json => {:email => email, :available => (Email.email_available?(email))} and return
   end
 
   private

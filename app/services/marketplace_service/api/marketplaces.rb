@@ -8,7 +8,7 @@ module MarketplaceService::API
 
       p = Maybe(params)
 
-      locale = p[:marketplace_language].or_else("en")
+      locale = p[:marketplace_language].or_else("en").downcase
 
       transaction_type_name = case p[:marketplace_type].or_else("product")
         when "rental"
@@ -43,7 +43,7 @@ module MarketplaceService::API
 
       def available_domain_based_on(initial_domain)
 
-        #TODO should we have some names reserved for internal use?
+        # TODO should we have some names reserved for internal use?
 
         if initial_domain.blank?
           initial_domain = "trial_site"
@@ -52,9 +52,12 @@ module MarketplaceService::API
         current_domain = initial_domain.gsub(/[^A-Z0-9_]/i,"-").downcase
         current_domain = current_domain[0..29] #truncate to 30 chars or less
 
+        # use basedomain as basis on new variations if current domain is not available
+        base_domain = current_domain
+
         i = 1
         while ::Community.find_by_domain(current_domain) do
-          current_domain = "#{initial_domain}#{i}"
+          current_domain = "#{base_domain}#{i}"
           i += 1
         end
 

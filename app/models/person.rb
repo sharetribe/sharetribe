@@ -543,9 +543,12 @@ class Person < ActiveRecord::Base
     end
     current_name = initial_name.gsub(/[^A-Z0-9_]/i,"_")
     current_name = current_name[0..17] #truncate to 18 chars or less (max is 20)
+
+    # use base_name as basis on new variations if current_name is not available
+    base_name = current_name
     i = 1
     while self.find_by_username(current_name) do
-      current_name = "#{initial_name}#{i}"
+      current_name = "#{base_name}#{i}"
       i += 1
     end
     return current_name
