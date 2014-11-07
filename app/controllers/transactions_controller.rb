@@ -58,7 +58,27 @@ class TransactionsController < ApplicationController
     }
   end
 
+  def op_status
+    process_token = params[:process_token]
+
+    resp = Maybe(process_token)
+      .map { |ptok| paypal_process.get_status(ptok) }
+      .select(&:success)
+      .data
+      .or_else(nil)
+
+    if resp
+      render :json => resp
+    else
+      redirect_to error_not_found_path
+    end
+  end
+
   def person_entity_with_url(person_entity)
     person_entity.merge({url: person_path(id: person_entity[:username])})
+  end
+
+  def paypal_process
+    PaypalService::API::Api.process
   end
 end
