@@ -31,27 +31,25 @@ module PaypalService::API
 
 
     # POST /billing_agreements/:community_id/:person_id/charge_commission
-    def charge_commission(community_id, person_id, info, async: false)
+    def charge_commission(community_id, person_id, payment, info, async: false)
       with_accounts(community_id, person_id) do |m_acc, admin_acc|
-        with_completed_payment(community_id, info[:transaction_id]) do |payment|
-          if(admin_is_merchant?(m_acc, admin_acc) || commission_below_minimum?(info[:commission_total], info[:commission_minimum]))
-            commission_not_applicable(community_id, info[:transaction_id], m_acc[:person_id], payment)
-          elsif async
-            proc_token = Worker.enqueue_billing_agreements_op(
-              community_id: community_id,
-              transaction_id: info[:transaction_id],
-              op_name: :do_charge_commission,
-              op_input: [community_id, info, m_acc, admin_acc, payment])
+        if(admin_is_merchant?(m_acc, admin_acc) || commission_below_minimum?(info[:commission_to_admin], info[:minimum_commission]))
+          commission_not_applicable(community_id, info[:transaction_id], m_acc[:person_id], payment)
+        elsif async
+          proc_token = Worker.enqueue_billing_agreements_op(
+            community_id: community_id,
+            transaction_id: info[:transaction_id],
+            op_name: :do_charge_commission,
+            op_input: [community_id, info, m_acc, admin_acc, payment])
 
-            Result::Success.new(
-              DataTypes.create_process_status({
-                  process_token: proc_token[:process_token],
-                  completed: proc_token[:op_completed],
-                  result: proc_token[:op_output],
-                }))
-          else
-            do_charge_commission(community_id, info, m_acc, admin_acc, payment)
-          end
+          Result::Success.new(
+            DataTypes.create_process_status({
+                process_token: proc_token[:process_token],
+                completed: proc_token[:op_completed],
+                result: proc_token[:op_output],
+              }))
+        else
+          do_charge_commission(community_id, info, m_acc, admin_acc, payment)
         end
       end
     end
@@ -63,8 +61,8 @@ module PaypalService::API
       m_acc[:payer_id] == admin_acc[:payer_id]
     end
 
-    def commission_below_minimum?(commission_total, commission_minimum)
-      commission_total < commission_minimum
+    def commission_below_minimum?(commission, commission_minimum)
+      commission < commission_minimum
     end
 
     def commission_not_applicable(community_id, transaction_id, merchant_id, payment)
@@ -82,7 +80,7 @@ module PaypalService::API
         MerchantData.create_do_reference_transaction({
             receiver_username: admin_acc[:email],
             billing_agreement_id: m_acc[:billing_agreement_id],
-            payment_total: info[:commission_total],
+            payment_total: info[:commission_to_admin],
             name: info[:payment_name],
             desc: info[:payment_desc] || info[:payment_name],
             invnum: "#{info[:transaction_id].to_s}-com"
@@ -123,22 +121,6 @@ module PaypalService::API
       block.call(m_acc, admin_acc)
     end
 
-    def with_completed_payment(cid, txid, &block)
-      payment = PaypalService::Store::PaypalPayment.get(cid, txid)
-      if (payment.nil?)
-        return Result::Error.new("No matching payment for community_id: #{cid} and transaction_id: #{txid}.")
-      end
-
-      if (payment[:payment_status] != :completed)
-        return Result::Error.new("Payment is not in :completed state. State was: #{payment[:payment_status]}.")
-      end
-
-      if (payment[:commission_status] != :not_charged)
-        return Result::Error.new("Commission already charged. Commission status was: #{payment[:commission_status]}")
-      end
-
-      block.call(payment)
-    end
 
   end
 end

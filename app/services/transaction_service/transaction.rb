@@ -298,17 +298,19 @@ module TransactionService::Transaction
 
   def charge_commission(transaction_id)
     transaction = query(transaction_id)
-    commission_total = transaction[:commission_total]
-    charge_request =
-      {
+
+    with_completed_payment(transaction[:community_id], transaction[:id]) do |payment|
+      charge_request =
+        {
         transaction_id: transaction_id,
-        commission_total: commission_total,
         payment_name: I18n.t("paypal.transaction.commission_payment_name", transaction[:listing_title]),
         payment_desc: I18n.t("paypal.transaction.commission_payment_description", transaction[:listing_title]),
-        minimum_commission: transaction[:minimum_commission]
+        minimum_commission: transaction[:minimum_commission],
+        commission_to_admin: calculate_commission_to_admin(transaction[:commission_total], payment[:fee_total])
       }
 
-    paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
+      paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], payment, charge_request)
+    end
   end
 
   def checkout_details(model)
@@ -340,6 +342,10 @@ module TransactionService::Transaction
     end
   end
 
+  def calculate_commission_to_admin(commission_total, fee_total)
+    commission_total - fee_total #we charge from admin, only the sum after paypal fees
+  end
+
   def get_minimum_commission(payment_gateway, currency)
     case payment_gateway
     when :paypal
@@ -361,5 +367,22 @@ module TransactionService::Transaction
 
   def paypal_minimum_commissions_api
     PaypalService::API::Api.minimum_commissions
+  end
+
+  def with_completed_payment(cid, txid, &block)
+    payment = paypal_payment_api.get_payment(cid, txid)[:data]
+    if (payment.nil?)
+      return Result::Error.new("No matching payment for community_id: #{cid} and transaction_id: #{txid}.")
+    end
+
+    if (payment[:payment_status] != :completed)
+      return Result::Error.new("Payment is not in :completed state. State was: #{payment[:payment_status]}.")
+    end
+
+    if (payment[:commission_status] != :not_charged)
+      return Result::Error.new("Commission already charged. Commission status was: #{payment[:commission_status]}")
+    end
+
+    block.call(payment)
   end
 end
