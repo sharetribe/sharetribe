@@ -304,7 +304,8 @@ module TransactionService::Transaction
         transaction_id: transaction_id,
         commission_total: commission_total,
         payment_name: I18n.t("paypal.transaction.commission_payment_name", transaction[:listing_title]),
-        payment_desc: I18n.t("paypal.transaction.commission_payment_description", transaction[:listing_title])
+        payment_desc: I18n.t("paypal.transaction.commission_payment_description", transaction[:listing_title]),
+        minimum_commission: transaction[:minimum_commission]
       }
 
     paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)

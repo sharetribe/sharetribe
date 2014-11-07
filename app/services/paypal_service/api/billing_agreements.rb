@@ -34,7 +34,7 @@ module PaypalService::API
     def charge_commission(community_id, person_id, info, async: false)
       with_accounts(community_id, person_id) do |m_acc, admin_acc|
         with_completed_payment(community_id, info[:transaction_id]) do |payment|
-          if(m_acc[:payer_id] == admin_acc[:payer_id])
+          if(admin_is_merchant?(m_acc, admin_acc) || commission_below_minimum?(info[:commission_total], info[:commission_minimum]))
             commission_not_applicable(community_id, info[:transaction_id], m_acc[:person_id], payment)
           elsif async
             proc_token = Worker.enqueue_billing_agreements_op(
@@ -58,6 +58,14 @@ module PaypalService::API
 
 
     private
+
+    def admin_is_merchant?(m_acc, admin_acc)
+      m_acc[:payer_id] == admin_acc[:payer_id]
+    end
+
+    def commission_below_minimum?(commission_total, commission_minimum)
+      commission_total < commission_minimum
+    end
 
     def commission_not_applicable(community_id, transaction_id, merchant_id, payment)
       updated_payment = PaypalService::Store::PaypalPayment.update(
