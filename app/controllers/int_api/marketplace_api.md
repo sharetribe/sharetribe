@@ -1,7 +1,7 @@
 
 # marketplace/v1/
 
-## POST /int_api/marketplaces
+## POST /int_api/create_trial_marketplace
 
 Request body:
 
@@ -23,3 +23,25 @@ Response 201 Created, body:
 { marketplace_url: "https://imaginationtraders.sharetribe.com"
 }
 ```
+
+
+
+## GET /int_api/check_email_availability
+
+Temporary side effect is that the asked email is
+
+Request body:
+
+```ruby
+{ email: "eddie.ejemplo@example.com"
+}
+```
+
+Response 200 Ok, body:
+
+```ruby
+{ email: "eddie.ejemplo@example.com",
+  available: false
+}
+```
+
