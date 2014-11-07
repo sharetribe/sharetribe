@@ -15,19 +15,6 @@ module PaypalService::Store::ProcessToken
 
   module_function
 
-  def create_or_get(community_id:, transaction_id:, op_name:, op_input: [])
-    Maybe(
-      create(
-        community_id: community_id,
-        transaction_id: transaction_id,
-        op_name: op_name,
-        op_input: op_input))
-      .or_else(get_by_transaction(
-        community_id: community_id,
-        transaction_id: transaction_id,
-        op_name: op_name))
-  end
-
   def create(community_id:, transaction_id:, op_name:, op_input: [])
     create_unique({
         community_id: community_id,
@@ -73,7 +60,7 @@ module PaypalService::Store::ProcessToken
             process_token: gen_process_token_uuid,
             op_input: YAML::dump(info[:op_input])
           }))
-      rescue
+      rescue ActiveRecord::RecordNotUnique
         nil
       end
 
