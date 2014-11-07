@@ -50,7 +50,7 @@ describe "CommunityMailer" do
     end
 
     it "should contain correct service name in the link" do
-      @email.should have_body_text(/that happened in <a href.+\">MarketTestPlace/)
+      @email.should have_body_text(/that happened on <a href.+\">MarketTestPlace/)
     end
   end
 
