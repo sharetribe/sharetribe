@@ -56,7 +56,6 @@ describe IntApi::MarketplacesController do
 
       expect(response.status).to eql 200
       r = JSON.parse(response.body)
-      puts r.to_yaml
       expect(r["email"]).to eql "occupied@email.com"
       expect(r["available"]).to eql false
     end
