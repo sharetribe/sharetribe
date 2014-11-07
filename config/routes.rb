@@ -110,6 +110,7 @@ Kassi::Application.routes.draw do
     namespace :admin do
       resources :communities do
         member do
+          get :getting_started, to: 'communities#getting_started'
           get :edit_details, to: 'community_customizations#edit_details'
           put :update_details, to: 'community_customizations#update_details'
           get :edit_look_and_feel

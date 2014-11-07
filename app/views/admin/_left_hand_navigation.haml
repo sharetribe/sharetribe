@@ -1,8 +1,18 @@
 -# Admin navigation is split into link groups.
-- links_manage = links[0..3]
-- links_configure = links[4..20]
+- links_general = links[0..0]
+- links_manage = links[1..4]
+- links_configure = links[5..20]
 
 .left-navi
+
+  .admin-left-navi-link-group-title
+    = t("admin.left_hand_navigation.general")
+
+  .admin-left-navi-link-group
+    - links_general.each do |link|
+      %a{:id => link[:id], :href => link[:path], :title => link[:text], :class => (link[:name].eql?(@selected_left_navi_link) ? "selected left-navi-link" : "left-navi-link")}
+        .left-navi-link-icon{:class => link[:icon_class]}
+        .left-navi-link-text= link[:text]
   
   .admin-left-navi-link-group-title
     = t("admin.left_hand_navigation.users_and_transactions")
