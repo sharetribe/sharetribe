@@ -76,6 +76,8 @@ class PreauthorizeTransactionsController < ApplicationController
       .url(:paypal, timestamp: false)
       .or_else(nil)
 
+    use_async_paypal_op = request.xhr?
+
     transaction_response = TransactionService::Transaction.create({
         transaction: {
           community_id: @current_community.id,
@@ -92,7 +94,8 @@ class PreauthorizeTransactionsController < ApplicationController
           success_url: success_paypal_service_checkout_orders_url,
           cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: @listing.id)
         }
-      })
+      },
+      paypal_async: use_async_paypal_op)
 
     unless transaction_response[:success]
       flash[:error] = t("error_messages.paypal.generic_error")
@@ -102,7 +105,12 @@ class PreauthorizeTransactionsController < ApplicationController
     transaction_id = transaction_response[:data][:transaction][:id]
 
     MarketplaceService::Transaction::Command.transition_to(transaction_id, "initiated")
-    redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
+
+    if (transaction_response[:data][:gateway_fields][:redirect_url])
+      redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
+    else
+      render json: { op_status_url: transaction_op_status_path(transaction_response[:data][:gateway_fields][:process_token]) }
+    end
   end
 
   def book
