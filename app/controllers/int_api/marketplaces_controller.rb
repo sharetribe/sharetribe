@@ -27,7 +27,7 @@ class IntApi::MarketplacesController < ApplicationController
     # TODO handle error cases with proper response
 
     response.status = 201
-    render :json => ["Marketplace created."] and return
+    render :json => {"marketplace_url" => community.full_domain({with_protocol: true})} and return
   end
 
   # This could be more logical in different controller, but as implementing
