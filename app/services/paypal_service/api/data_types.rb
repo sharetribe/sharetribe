@@ -61,6 +61,11 @@ module PaypalService::API::DataTypes
     [:payment_name, :mandatory, :string],
     [:payment_desc, :string])
 
+  ProcessStatus = EntityUtils.define_builder(
+    [:process_token, :mandatory, :string],
+    [:completed, :mandatory, :to_bool],
+    [:result])
+
   module_function
 
   def create_create_payment_request(opts); CreatePaymentRequest.call(opts) end
@@ -71,5 +76,6 @@ module PaypalService::API::DataTypes
   def create_payment_info(opts); PaymentInfo.call(opts) end
   def create_voiding_info(opts); VoidingInfo.call(opts) end
   def create_commission_info(opts); CommissionInfo.call(opts) end
+  def create_process_status(opts); ProcessStatus.call(opts) end
 
 end

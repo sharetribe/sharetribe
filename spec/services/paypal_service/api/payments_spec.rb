@@ -1,8 +1,4 @@
-require 'spec_helper'
-
-require_relative '../test_events'
-require_relative '../test_logger'
-require_relative '../test_merchant'
+require_relative '../api'
 
 describe PaypalService::API::Payments do
 
@@ -10,12 +6,16 @@ describe PaypalService::API::Payments do
   PaymentStore = PaypalService::Store::PaypalPayment
 
   before(:each) do
-    @events = PaypalService::TestEvents.new
-    @api_builder = PaypalService::TestApiBuilder.new
-    @payments = PaypalService::API::Payments.new(
-      @events,
-      PaypalService::TestMerchant.build(@api_builder),
-      PaypalService::TestLogger.new)
+    # Test version of merchant client
+    PaypalService::API::Api.reset!
+    @events = PaypalService::API::Api.events
+    @api_builder = PaypalService::API::Api.api_builder
+    @payments = PaypalService::API::Api.payments
+
+    @process = PaypalService::API::Process.new
+
+
+    # Test data
 
     @cid = 10
     @mid = "merchant_id_1"
@@ -39,6 +39,13 @@ describe PaypalService::API::Payments do
       success: "https://www.test.com/success",
       cancel: "https://www.test.com/cancel"
     }
+
+    SyncDelayedJobObserver.reset!
+  end
+
+  after(:each) do
+    # Do not leave before an active synchronous delayed job runner
+    SyncDelayedJobObserver.reset!
   end
 
   context "#request and #request_cancel" do
@@ -80,6 +87,27 @@ describe PaypalService::API::Payments do
       expect(PaypalToken.count).to eq 0
       expect(@events.received_events[:request_cancelled].length).to eq 0
     end
+
+    it "supports async running" do
+      SyncDelayedJobObserver.collect!
+
+      response = @payments.request(@cid, @req_info, async: true)
+      process_status_res = @process.get_status(response[:data][:process_token])
+      process_status = process_status_res[:data]
+
+      expect(process_status_res[:success]).to eq(true)
+      expect(process_status[:completed]).to eq(false)
+      expect(process_status[:result]).to be_nil
+
+      SyncDelayedJobObserver.process_queue!
+
+      process_status = @process.get_status(response[:data][:process_token])[:data]
+      payment_res = process_status[:result][:data]
+
+      expect(payment_res[:token]).not_to be_nil
+      expect(payment_res[:transaction_id]).to eq(@req_info[:transaction_id])
+    end
+
   end
 
   context "#create" do
@@ -168,6 +196,29 @@ describe PaypalService::API::Payments do
       expect(PaypalToken.count).to eq(1)
     end
 
+    it "supports async running" do
+      SyncDelayedJobObserver.collect!
+
+      token = @payments.request(@cid, @req_info)[:data]
+
+      process_status = @payments.create(@cid, token[:token], async: true)[:data]
+      expect(process_status[:completed]).to eq(false)
+      expect(PaymentStore.get(@cid, @tx_id)).to be_nil
+
+      SyncDelayedJobObserver.process_queue!
+
+      process_status = @process.get_status(process_status[:process_token])[:data]
+      payment_res = process_status[:result]
+
+      expect(process_status[:completed]).to eq(true)
+      expect(payment_res[:data][:payment_status]).to eq(:pending)
+      expect(payment_res[:data][:pending_reason]).to eq(:authorization)
+      expect(payment_res[:data][:order_id]).not_to be_nil
+      expect(payment_res[:data][:order_total]).to eq(@req_info[:order_total])
+      expect(payment_res[:data][:authorization_id]).not_to be_nil
+      expect(payment_res[:data][:authorization_total]).to eq(@req_info[:order_total])
+    end
+
   end
 
   context "#full_capture" do
@@ -227,6 +278,23 @@ describe PaypalService::API::Payments do
       expect(@events.received_events[:payment_updated].length).to eq(1)
       expect(@events.received_events[:payment_updated].first.second[:payment_status]).to eq(:voided)
     end
+
+    it "supports async running" do
+      SyncDelayedJobObserver.collect!
+      process_status = @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total }, async: true)[:data]
+      expect(process_status[:completed]).to eq(false)
+
+      SyncDelayedJobObserver.process_queue!
+
+      process_status = @process.get_status(process_status[:process_token])[:data]
+      payment_res = process_status[:result]
+
+      expect(process_status[:completed]).to eq(true)
+      expect(payment_res[:data][:payment_status]).to eq(:completed)
+      expect(payment_res[:data][:pending_reason]).to eq(:none)
+      expect(payment_res[:data][:payment_id]).not_to be_nil
+      expect(payment_res[:data][:payment_total]).to eq(@payment_total)
+    end
   end
 
   context "#void" do
@@ -283,6 +351,21 @@ describe PaypalService::API::Payments do
 
       expect(payment_res.success).to eq(false)
       expect(@events.received_events[:payment_updated].length).to eq(0)
+    end
+
+    it "support async running" do
+      SyncDelayedJobObserver.collect!
+      process_status = @payments.void(@cid, @tx_id, { note: "Voided for testing purposes." }, async: true)[:data]
+      expect(process_status[:completed]).to eq(false)
+
+      SyncDelayedJobObserver.process_queue!
+
+      process_status = @process.get_status(process_status[:process_token])[:data]
+      payment_res = process_status[:result]
+
+      expect(process_status[:completed]).to eq(true)
+      expect(payment_res[:data][:payment_status]).to eq(:voided)
+      expect(payment_res[:data][:pending_reason]).to eq(:none)
     end
   end
 

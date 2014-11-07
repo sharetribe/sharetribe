@@ -1,8 +1,6 @@
 module PaypalService::API
 
   class BillingAgreements
-    # Injects a configured instance of the merchant client as paypal_merchant
-    include PaypalService::MerchantInjector
 
     # Include with_success for wrapping requests and responses
     include RequestWrapper
@@ -12,9 +10,19 @@ module PaypalService::API
     MerchantData = PaypalService::DataTypes::Merchant
     TokenStore = PaypalService::Store::Token
 
-    def initialize(logger = PaypalService::Logger.new)
+    def initialize(merchant, logger = PaypalService::Logger.new)
       @logger = logger
+      @merchant = merchant
     end
+
+    # For RequestWrapper mixin
+    def paypal_merchant
+      @merchant
+    end
+
+
+    # Public API implementation
+    #
 
     # GET /billing_agreements/:community_id/:person_id
     def get_billing_agreement(community_id, person_id)
@@ -23,13 +31,26 @@ module PaypalService::API
 
 
     # POST /billing_agreements/:community_id/:person_id/charge_commission
-    def charge_commission(community_id, person_id, info)
+    def charge_commission(community_id, person_id, info, async: false)
       with_accounts(community_id, person_id) do |m_acc, admin_acc|
         with_completed_payment(community_id, info[:transaction_id]) do |payment|
           if(m_acc[:payer_id] == admin_acc[:payer_id])
             commission_not_applicable(community_id, info[:transaction_id], m_acc[:person_id], payment)
+          elsif async
+            proc_token = Worker.enqueue_billing_agreements_op(
+              community_id: community_id,
+              transaction_id: info[:transaction_id],
+              op_name: :do_charge_commission,
+              op_input: [community_id, info, m_acc, admin_acc, payment])
+
+            Result::Success.new(
+              DataTypes.create_process_status({
+                  process_token: proc_token[:process_token],
+                  completed: proc_token[:op_completed],
+                  result: proc_token[:op_output],
+                }))
           else
-            apply_commission(community_id, info, m_acc, admin_acc, payment)
+            do_charge_commission(community_id, info, m_acc, admin_acc, payment)
           end
         end
       end
@@ -48,7 +69,7 @@ module PaypalService::API
       Result::Success.new(DataTypes.create_payment(updated_payment.merge({ merchant_id: merchant_id })))
     end
 
-    def apply_commission(community_id, info, m_acc, admin_acc, payment)
+    def do_charge_commission(community_id, info, m_acc, admin_acc, payment)
       with_success(community_id, info[:transaction_id],
         MerchantData.create_do_reference_transaction({
             receiver_username: admin_acc[:email],
@@ -87,6 +108,8 @@ module PaypalService::API
       m_acc = PaypalService::PaypalAccount::Query.personal_account(pid, cid)
       if m_acc.nil?
         return Result::Error.new("Cannot find paypal account for the given community and person: community_id: #{cid}, person_id: #{pid}.")
+      elsif m_acc[:billing_agreement_id].nil?
+        return Result::Error.new("Merchant account has no billing agreement setup.")
       end
 
       block.call(m_acc, admin_acc)

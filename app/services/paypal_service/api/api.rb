@@ -13,5 +13,9 @@ module PaypalService::API
     def self.minimum_commissions
       minimum_commissions_api
     end
+
+    def self.process
+      process_api
+    end
   end
 end

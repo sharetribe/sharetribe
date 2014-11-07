@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141030140809) do
+ActiveRecord::Schema.define(:version => 20141102192640) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(:version => 20141030140809) do
   add_index "auth_tokens", ["token"], :name => "index_auth_tokens_on_token", :unique => true
 
   create_table "billing_agreements", :force => true do |t|
-    t.integer  "paypal_account_id",                    :null => false
+    t.integer  "paypal_account_id",    :null => false
     t.string   "billing_agreement_id"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.string   "paypal_username_to",                   :null => false
-    t.string   "request_token",                        :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "paypal_username_to",   :null => false
+    t.string   "request_token",        :null => false
   end
 
   create_table "bookings", :force => true do |t|
@@ -104,11 +104,11 @@ ActiveRecord::Schema.define(:version => 20141030140809) do
 
   create_table "checkout_accounts", :force => true do |t|
     t.string   "company_id_or_personal_id"
-    t.string   "merchant_id",                               :null => false
-    t.string   "merchant_key",                              :null => false
-    t.string   "person_id",                                 :null => false
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.string   "merchant_id",               :null => false
+    t.string   "merchant_key",              :null => false
+    t.string   "person_id",                 :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "comments", :force => true do |t|
@@ -550,11 +550,11 @@ ActiveRecord::Schema.define(:version => 20141030140809) do
   add_index "messages", ["conversation_id"], :name => "index_messages_on_conversation_id"
 
   create_table "order_permissions", :force => true do |t|
-    t.integer  "paypal_account_id",                  :null => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.string   "request_token",                      :null => false
-    t.string   "paypal_username_to",                 :null => false
+    t.integer  "paypal_account_id",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "request_token",      :null => false
+    t.string   "paypal_username_to", :null => false
     t.string   "scope"
     t.string   "verification_code"
   end
@@ -667,6 +667,21 @@ ActiveRecord::Schema.define(:version => 20141030140809) do
   add_index "paypal_payments", ["community_id"], :name => "index_paypal_payments_on_community_id"
   add_index "paypal_payments", ["order_id"], :name => "index_paypal_payments_on_order_id", :unique => true
   add_index "paypal_payments", ["transaction_id"], :name => "index_paypal_payments_on_transaction_id", :unique => true
+
+  create_table "paypal_process_tokens", :force => true do |t|
+    t.string   "process_token",  :limit => 64,                    :null => false
+    t.integer  "community_id",                                    :null => false
+    t.integer  "transaction_id",                                  :null => false
+    t.boolean  "op_completed",                 :default => false, :null => false
+    t.string   "op_name",        :limit => 64,                    :null => false
+    t.text     "op_input"
+    t.text     "op_output"
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+  end
+
+  add_index "paypal_process_tokens", ["process_token"], :name => "index_paypal_process_tokens_on_process_token", :unique => true
+  add_index "paypal_process_tokens", ["transaction_id", "community_id", "op_name"], :name => "index_paypal_process_tokens_on_transaction", :unique => true
 
   create_table "paypal_refunds", :force => true do |t|
     t.integer  "paypal_payment_id"
