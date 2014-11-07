@@ -711,7 +711,7 @@ sv:
       added_listing: "%{name_link} skapade en annons:"
       update_mail_title: "%{title_link} nyheter"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Här är några saker som har hänt på %{community_link} under senaste %{time_since_last_update}"
+      intro_paragraph: "Här är några saker som har hänt på %{community_link} under de senaste %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Skapa annons!"
       reduce_email_footer_text: "För många e-postmeddelanden? %{settings_link} eller %{unsubscribe_link}"

@@ -461,9 +461,9 @@ fr:
       price_excludes_vat: "(hors TVA)"
       total: "Total : %{total}"
     status:
-      payment_errored: ~
-      payment_errored_starter: ~
-      payment_errored_author: ~
+      payment_errored: "Le paiement a échoué. Veuillez essayer de nouveau."
+      payment_errored_starter: "Le paiement a échoué. Veuillez essayer de nouveau. Si le problème se reproduit, veuillez contacter le support."
+      payment_errored_author: "Le paiement a échoué. Veuillez contacter %{starter_name} et lui demander d'effectuer le paiement de nouveau."
       cancel_payed_transaction: Annuler
       feedback_given: "Avis donné"
       feedback_skipped: "Pas d'avis donné"
@@ -1491,11 +1491,11 @@ fr:
       show_my_name_to_others: "Montrer mon nom complet aux autres utilisateurs de %{service_name}"
       sign_up: "Créer un nouveau compte sur %{service_name}"
       terms: "conditions d'utilisation"
-      visible_only_to_you: "visible uniquement par vous et l'administrateur de la place de marché"
       username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
+      username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
+      visible_only_to_you: "visible uniquement par vous et l'administrateur de la place de marché"
       visible_to_everybody: "visible à tout le monde"
       create_account_with_facebook: "S'inscrire avec Facebook"
-      username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
       OR: OU
       signup_with_email: "S'inscrire avec un email"
     not_member:

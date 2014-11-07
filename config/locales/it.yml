@@ -446,9 +446,9 @@ it:
       price_excludes_vat: ~
       total: ~
     status:
-      payment_errored: ~
-      payment_errored_starter: ~
-      payment_errored_author: ~
+      payment_errored: "Il pagamento non è riuscito. Riprova grazie."
+      payment_errored_starter: "Il pagamento non è riuscito. Riprova grazie. Se il problema persiste, si prega di contattare il nostro supporto."
+      payment_errored_author: "Il pagamento non è riuscito. Contatta %{starter_name} e chiedigli di inviare nuovamente il pagamento."
       cancel_payed_transaction: ~
       feedback_given: "Feedback rilasciato"
       feedback_skipped: "Feedback saltato"
