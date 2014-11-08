@@ -7,7 +7,7 @@ describe MarketplaceService::API::Marketplaces do
         :marketplace_name => "LocalFoodGarden",
         :marketplace_type => "product",
         :marketplace_country => "ES",
-        :marketplace_language => "ES"
+        :marketplace_language => "es"
       }
     end
 
@@ -17,7 +17,7 @@ describe MarketplaceService::API::Marketplaces do
 
       expect(c.domain).to eql "localfoodgarden"
       expect(c.locales.first).to eql "es"
-      expect(c.country).to eql "es"
+      expect(c.country).to eql "ES"
 
 
     end

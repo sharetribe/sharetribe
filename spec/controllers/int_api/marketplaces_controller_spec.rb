@@ -21,7 +21,7 @@ describe IntApi::MarketplacesController do
 
       c = Community.find_by_name("ImaginationTraders")
       expect(c).to_not be_nil
-      expect(c.country).to eql "fi"
+      expect(c.country).to eql "FI"
       expect(c.locales.first).to eql "fi"
       expect(c.name).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
