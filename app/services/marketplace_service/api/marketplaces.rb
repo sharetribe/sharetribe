@@ -8,7 +8,7 @@ module MarketplaceService::API
 
       p = Maybe(params)
 
-      locale = p[:marketplace_language].or_else("en").downcase
+      locale = p[:marketplace_language].or_else("en")
 
       transaction_type_name = case p[:marketplace_type].or_else("product")
         when "rental"
@@ -26,7 +26,7 @@ module MarketplaceService::API
         settings: {"locales" => [locale]},
         name: p[:marketplace_name].or_else("Trial Marketplace"),
         available_currencies: Helper.available_currencies_based_on(p[:marketplace_country].or_else("us")),
-        country: params[:marketplace_country] ? params[:marketplace_country].downcase : nil
+        country: params[:marketplace_country] ? params[:marketplace_country].upcase : nil
       }
 
       community = ::Community.create(community_params)
