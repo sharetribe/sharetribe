@@ -25,6 +25,7 @@ default: &default_settings
     - ''
     - 'www'
     - 'dashboardtranslate'
+    - "catch"
 
   # Sharetribe can allow accessing data from external applications by RESTful API
   # You can enable the API by setting this value true
