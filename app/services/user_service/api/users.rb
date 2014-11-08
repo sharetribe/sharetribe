@@ -10,7 +10,15 @@ module UserService::API
       # The first member will be made admin
       MarketplaceService::API::Memberships::make_user_a_member_of_community(user.id, community_id, invitation_id)
 
-      # TODO send email confirmation
+      email = user.emails.first
+      community = Community.find(community_id)
+
+      # send email confirmation (unless disabled for testing environment)
+      if APP_CONFIG.skip_email_confirmation
+        email.confirm!
+      else
+        Email.send_confirmation(email, community.full_domain, community)
+      end
 
       return user
     end
