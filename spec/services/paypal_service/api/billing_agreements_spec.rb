@@ -105,7 +105,7 @@ describe PaypalService::API::BillingAgreements do
       expect(payment_res[:data][:commission_status]).to eq(:not_applicable)
     end
 
-    it "marks the commission to not applicable when admin is merchant" do
+    it "marks the commission to not applicable when commission smaller than minimum" do
       @payments.full_capture(@cid, @tx_id, { payment_total: Money.new(2, "EUR") })
 
       commission_info = {
