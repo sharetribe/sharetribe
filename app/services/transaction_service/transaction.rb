@@ -298,10 +298,10 @@ module TransactionService::Transaction
 
   def charge_commission(transaction_id)
     transaction = query(transaction_id)
+    payment = paypal_payment_api.get_payment(transaction[:community_id], transaction[:id])[:data]
 
-    with_completed_payment(transaction[:community_id], transaction[:id]) do |payment|
-      charge_request =
-        {
+    charge_request =
+      {
         transaction_id: transaction_id,
         payment_name: I18n.t("paypal.transaction.commission_payment_name", transaction[:listing_title]),
         payment_desc: I18n.t("paypal.transaction.commission_payment_description", transaction[:listing_title]),
@@ -309,8 +309,7 @@ module TransactionService::Transaction
         commission_to_admin: calculate_commission_to_admin(transaction[:commission_total], payment[:fee_total])
       }
 
-      paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], payment, charge_request)
-    end
+    paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
   end
 
   def checkout_details(model)
@@ -367,22 +366,5 @@ module TransactionService::Transaction
 
   def paypal_minimum_commissions_api
     PaypalService::API::Api.minimum_commissions
-  end
-
-  def with_completed_payment(cid, txid, &block)
-    payment = paypal_payment_api.get_payment(cid, txid)[:data]
-    if (payment.nil?)
-      return Result::Error.new("No matching payment for community_id: #{cid} and transaction_id: #{txid}.")
-    end
-
-    if (payment[:payment_status] != :completed)
-      return Result::Error.new("Payment is not in :completed state. State was: #{payment[:payment_status]}.")
-    end
-
-    if (payment[:commission_status] != :not_charged)
-      return Result::Error.new("Commission already charged. Commission status was: #{payment[:commission_status]}")
-    end
-
-    block.call(payment)
   end
 end
