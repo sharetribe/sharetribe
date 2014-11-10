@@ -51,6 +51,23 @@ describe PaypalService::IPN do
       order_total: Money.new(120, "GBP")
     }
 
+    @pending_ext_msg = {
+      type: :payment_pending_ext,
+      pending_ext_id: "12345679",
+      authorization_date: "2014-10-01 09:04:07 +0300",
+      authorization_expires_date: "2014-10-04 09:50:00 +0300",
+      authorization_id: "0L584749FU2628910",
+      payer_email: "foobar@barfoo.com",
+      payer_id: "7LFUVCDKGARH4",
+      receiver_email: "dev+paypal-user1@sharetribe.com",
+      receiver_id: "URAPMR7WHFAWY",
+      payment_status: "Pending",
+      pending_reason: "multi-currency",
+      receipt_id: "3609-0935-6989-4532",
+      authorization_total: Money.new(120, "GBP"),
+      payment_total: Money.new(120, "GBP")
+    }
+
     @cid = 1
     @txid = 1
 
@@ -69,6 +86,13 @@ describe PaypalService::IPN do
       expect(PaypalPayment.first.pending_reason).to eql "authorization"
       @ipn_service.handle_msg(@order_created_msg)
       expect(PaypalPayment.first.pending_reason).to eql "authorization"
+    end
+
+    it "should update to pending ext from authorization" do
+      @ipn_service.handle_msg(@auth_created_msg)
+      expect(PaypalPayment.first.pending_reason).to eql "authorization"
+      @ipn_service.handle_msg(@pending_ext_msg)
+      expect(PaypalPayment.first.pending_reason).to eql "multicurrency"
     end
   end
 end
