@@ -63,8 +63,8 @@ module PaypalService::API
       m_acc[:payer_id] == admin_acc[:payer_id]
     end
 
-    def commission_below_minimum?(commission, commission_minimum)
-      commission < commission_minimum
+    def commission_below_minimum?(commission, minimum_commission)
+      commission < minimum_commission
     end
 
     def commission_not_applicable(community_id, transaction_id, merchant_id, payment)
