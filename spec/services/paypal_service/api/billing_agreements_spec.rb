@@ -68,7 +68,8 @@ describe PaypalService::API::BillingAgreements do
 
       @commission_info = {
         transaction_id: @tx_id,
-        commission_total: Money.new(120, "EUR"),
+        commission_to_admin: Money.new(10, "EUR"),
+        minimum_commission: Money.new(0.50, "EUR"),
         payment_name: "commission payment",
         payment_desc: "commission payment desc"
       }
@@ -84,7 +85,7 @@ describe PaypalService::API::BillingAgreements do
       expect(payment_res[:data][:commission_status]).to eq(:completed)
       expect(payment_res[:data][:commission_pending_reason]).to eq(:none)
 
-      expect(payment_res[:data][:commission_total]).to eq(Money.new(120, "EUR"))
+      expect(payment_res[:data][:commission_total]).to eq(Money.new(10, "EUR"))
       expect(payment_res[:data][:commission_fee_total]).not_to be_nil
     end
 
