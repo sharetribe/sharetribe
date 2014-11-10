@@ -81,6 +81,7 @@ module PaypalService
                 OrderTotal: from_money(req[:payment_total]),
                 InvoiceID: req[:invnum],
                 PaymentDetailsItem: [{
+                    ItemCategory: "Digital", #Commissions are always digital goods, enables also micropayments
                     Name: req[:name],
                     Description: req[:desc],
                     Number: 0,

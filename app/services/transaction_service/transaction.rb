@@ -298,13 +298,15 @@ module TransactionService::Transaction
 
   def charge_commission(transaction_id)
     transaction = query(transaction_id)
-    commission_total = transaction[:commission_total]
+    payment = paypal_payment_api.get_payment(transaction[:community_id], transaction[:id])[:data]
+
     charge_request =
       {
         transaction_id: transaction_id,
-        commission_total: commission_total,
         payment_name: I18n.t("paypal.transaction.commission_payment_name", transaction[:listing_title]),
-        payment_desc: I18n.t("paypal.transaction.commission_payment_description", transaction[:listing_title])
+        payment_desc: I18n.t("paypal.transaction.commission_payment_description", transaction[:listing_title]),
+        minimum_commission: transaction[:minimum_commission],
+        commission_to_admin: calculate_commission_to_admin(transaction[:commission_total], payment[:fee_total])
       }
 
     paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
@@ -337,6 +339,10 @@ module TransactionService::Transaction
       commission_by_percentage = total_price * (commission_from_seller / 100.0)
       (commission_by_percentage > minimum_commission) ? commission_by_percentage : minimum_commission
     end
+  end
+
+  def calculate_commission_to_admin(commission_total, fee_total)
+    commission_total - fee_total #we charge from admin, only the sum after paypal fees
   end
 
   def get_minimum_commission(payment_gateway, currency)

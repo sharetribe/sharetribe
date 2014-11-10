@@ -34,7 +34,7 @@ module PaypalService::API
     def charge_commission(community_id, person_id, info, async: false)
       with_accounts(community_id, person_id) do |m_acc, admin_acc|
         with_completed_payment(community_id, info[:transaction_id]) do |payment|
-          if(m_acc[:payer_id] == admin_acc[:payer_id])
+          if(admin_is_merchant?(m_acc, admin_acc) || commission_below_minimum?(info[:commission_to_admin], info[:minimum_commission]))
             commission_not_applicable(community_id, info[:transaction_id], m_acc[:person_id], payment)
           elsif async
             proc_token = Worker.enqueue_billing_agreements_op(
@@ -59,6 +59,14 @@ module PaypalService::API
 
     private
 
+    def admin_is_merchant?(m_acc, admin_acc)
+      m_acc[:payer_id] == admin_acc[:payer_id]
+    end
+
+    def commission_below_minimum?(commission, minimum_commission)
+      commission < minimum_commission
+    end
+
     def commission_not_applicable(community_id, transaction_id, merchant_id, payment)
       updated_payment = PaypalService::Store::PaypalPayment.update(
         community_id,
@@ -74,7 +82,7 @@ module PaypalService::API
         MerchantData.create_do_reference_transaction({
             receiver_username: admin_acc[:email],
             billing_agreement_id: m_acc[:billing_agreement_id],
-            payment_total: info[:commission_total],
+            payment_total: info[:commission_to_admin],
             name: info[:payment_name],
             desc: info[:payment_desc] || info[:payment_name],
             invnum: "#{info[:transaction_id].to_s}-com"
@@ -115,7 +123,7 @@ module PaypalService::API
       block.call(m_acc, admin_acc)
     end
 
-    def with_completed_payment(cid, txid, &block)
+def with_completed_payment(cid, txid, &block)
       payment = PaypalService::Store::PaypalPayment.get(cid, txid)
       if (payment.nil?)
         return Result::Error.new("No matching payment for community_id: #{cid} and transaction_id: #{txid}.")
@@ -131,6 +139,5 @@ module PaypalService::API
 
       block.call(payment)
     end
-
   end
 end
