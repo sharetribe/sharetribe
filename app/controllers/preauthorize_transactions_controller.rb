@@ -109,7 +109,10 @@ class PreauthorizeTransactionsController < ApplicationController
     if (transaction_response[:data][:gateway_fields][:redirect_url])
       redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
     else
-      render json: { op_status_url: transaction_op_status_path(transaction_response[:data][:gateway_fields][:process_token]) }
+      render json: {
+        op_status_url: transaction_op_status_path(transaction_response[:data][:gateway_fields][:process_token]),
+        error_msg: t("error_messages.paypal.generic_error")
+      }
     end
   end
 
