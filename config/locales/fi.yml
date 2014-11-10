@@ -119,7 +119,7 @@ fi:
         edit_message: "Muokkaa viestiä"
         send_test_message: "Lähetä testiviesti"
       getting_started:
-        getting_started: "Aloitusohjeet"
+        getting_started: Aloitusohjeet
         welcome_to_your_marketplace: "Tervetuloa omalle markkinapaikkasivustollesi, %{name}!"
         intro: "Tämän ohjeen avulla sivustosi muokkaus ja hallinta onnistuu vaivatta."
         look_and_feel: "Ennen kuin avaat sivustosi kaikelle kansalle, kannattaa tehdä muutamia muutoksia. Voit esimerkiksi %{logo_link} ja vaihtaa sivuston kansikuvan ja värimaailman mieleisiksisi."
@@ -128,15 +128,15 @@ fi:
         categories_and_custom_fields: "Seuraavaksi voit määritellä, millaista sisältöä käyttäjäsi pystyvät sivustollesi lisäämään. Voit lisätä %{categories_link}, %{custom_fields_link} sekä päättää, millaisten hakusuodattimien avulla %{filters_link} käyttäjäsi pystyvät ilmoituksia etsimään."
         categories_link_text: "ilmoituskategorioita ja niille alakategorioita"
         custom_fields_link_text: "muokata ilmoituskenttiä"
-        filters_link_text: "hakusuodattimien"
+        filters_link_text: hakusuodattimien
         payments: "Jos haluat tarjota käyttäjillesi mahdollisuuden maksaa ostoksistaan suoraan markkinapaikkasi maksujärjestelmän kautta, jolloin voit itse ottaa provision kustakin myyntitapahtumasta, sinun on syytä %{payments_link}."
         payments_link_text: "muokata maksuasetuksiasi"
         info_texts: "Muista myös muokata infosivuja ja muita ohjetekstejä, joiden avulla voit antaa käyttäjillesi lisätietoa sivustosi toiminnasta. Tarkista esimerkiksi %{about_page_link}, %{terms_of_use_link} (sinun kannattaa määritellä itse - voit käyttää apuna valmista pohjaamme), %{privacy_policy_link} (tämäkin sinun on syytä määritellä itse - tälle sivulle voit laittaa esimerkiksi rekisteriselosteeseen vaadittavat tiedot), sekä %{welcome_email_link} joka lähetetään kaikille uusille käyttäjille. Muut ohjetekstit löydät %{instruction_texts_link}."
-        about_page_link_text: "tietoa-sivu"
+        about_page_link_text: tietoa-sivu
         terms_of_use_link_text: "sivustosi käyttöehdot"
         privacy_policy_link_text: "dokumentti yksityisyydensuojasta"
-        welcome_email_link_text: "tervetulosähköposti"
-        instruction_texts_link_text: "täältä"
+        welcome_email_link_text: tervetulosähköposti
+        instruction_texts_link_text: täältä
         social_media: "Sosiaalisen median hyödyntäminen on hyvä tapa yhteisöllisyyden lisäämiseen. Voit %{facebook_link}, jotta käyttäjäsi voivat kirjautua sivustollesi Facebook-tunnuksillaan, sekä %{twitter_link} saadaksesi lisää näkyvyytta, kun käyttäjäsi twiittaavat luomistaan ilmoituksista."
         facebook_link_text: "yhdistää oman Facebook-applikaatiosi"
         twitter_link_text: "lisätä Twitter-tilisi"
@@ -147,7 +147,7 @@ fi:
         final_words: "Siinä kaikki! Kun kaikki on valmiina julkaisua varten, voit %{invite_link} sivustollesi. %{view_users_link} näet kaikki sivustolle liittyneet käyttäjät, ja %{view_transactions_link} puolestaan kaikki toteutuneet maksutapahtumat. Pystyt myös muokkaamaan käyttäjien lisäämiä ilmoituksia: kun menet yksittäisen ilmoituksen sivulle, näet siellä muokkausnapit ilmoituksen muokkausta ja sulkemista varten. Jos tarvitset lisäohjeita, ota yhteys ylläpitoon - olemme täällä sinua varten!"
         invite_link_text: "kutsua käyttäjiä"
         view_users_link_text: "Tältä sivulta"
-        view_transactions_link_text: "täältä"
+        view_transactions_link_text: täältä
       settings:
         settings: Yleisasetukset
         general: Yleiset
@@ -302,6 +302,7 @@ fi:
         message_will_be_sent_only_to_people_with_this_language: "Tämä viesti lähetetään vain niille jäsenille, jotka käyttävät %{service_name}-palvelua valitsemallasi kielellä."
         email_sent: "Viesti lähetetty."
     left_hand_navigation:
+      general: ~
       users_and_transactions: "Käyttäjät ja transaktiot"
       configure: "Sivuston muokkaus"
       emails_title: Sähköpostit

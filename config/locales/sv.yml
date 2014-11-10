@@ -70,7 +70,7 @@ sv:
         see_how_it_looks_like: "Se hur det fungerar"
         verification_to_post_listings_info_content: "Info text till ej verifierade användare"
         verification_to_post_listings_info_content_description: "Du kräver just nu att användarna ska godkännas manuellt av dig innan de kan skapa annonser. Här kan du ändra standardtexten som visas för icke-verifierade medlemmar när de försöker skapa en annons."
-        verification_to_post_listings_info_content_default: " kräver att man godkänns manuellt av admin innan man kan skapa en annons. Du har ännu inte blivit verifierad. Vänligen %{contact_admin_link} för att bli verifierad."
+        verification_to_post_listings_info_content_default: "%{service_name} kräver att man godkänns manuellt av admin innan man kan skapa en annons. Du har ännu inte blivit verifierad. Vänligen %{contact_admin_link} för att bli verifierad."
         contact_admin_link_text: "Kontakta admin"
         save: "Spara inställningar"
         transaction_agreement: Transaktionsavtal
@@ -119,35 +119,35 @@ sv:
         edit_message: "Redigera meddelande"
         send_test_message: "Skicka testmeddelande"
       getting_started:
-        getting_started: ~
-        welcome_to_your_marketplace: ~
-        intro: ~
-        look_and_feel: ~
-        logo_link_text: ~
-        custom_domain: ~
-        categories_and_custom_fields: ~
-        categories_link_text: ~
-        custom_fields_link_text: ~
-        filters_link_text: ~
-        payments: ~
-        payments_link_text: ~
-        info_texts: ~
-        about_page_link_text: ~
-        terms_of_use_link_text: ~
-        privacy_policy_link_text: ~
-        welcome_email_link_text: ~
-        instruction_texts_link_text: ~
-        social_media: ~
-        facebook_link_text: ~
-        twitter_link_text: ~
-        analytics: ~
-        analytics_link_text: ~
-        settings: ~
-        settings_link_text: ~
-        final_words: ~
-        invite_link_text: ~
-        view_users_link_text: ~
-        view_transactions_link_text: ~
+        getting_started: "Komma igång-guide"
+        welcome_to_your_marketplace: "Välkommen till din marknadsplats, %{name}!"
+        intro: "Detta är en snabb-guide hur du ställer in och hanterar din marknadsplats."
+        look_and_feel: "Innan du lanserar din sida så kanske du vill ställa in vissa saker. Som t ex kanske du vill %{logo_link} och byta omslagsbild och färger för att det ska passa ditt märke."
+        logo_link_text: "lägg till din logotyp"
+        custom_domain: "Du kanske också vill lägga till en egen webbadress (t ex: www.dinmarknadsplats.com). För att göra detta så bör du kontakta vårt team på hello@sharetribe.com, eftersom att ordna detta kräver några manuella steg från vår sida."
+        categories_and_custom_fields: "Nästa sak att bestämma är vilken typ av innehåll som dina användare kan lägga ut på din sida. Du kan %{categories_link}, %{custom_fields_link} som själva annonsen innehåller och bestämma %{filters_link} som används när folk bläddrar bland annonser."
+        categories_link_text: "lägg till kategorier och underkategorier"
+        custom_fields_link_text: "konfigurera formulärfälten"
+        filters_link_text: "vilken typ av filter"
+        payments: "Om du vill att folk ska kunna betala för sina inköp via din marknadsplats, så att du kan ta ut en avgift för varje inköp, så ska du %{payments_link}."
+        payments_link_text: "konfigurera betalningsmetod"
+        info_texts: "Glöm inte att skräddarsy informationssidorna och annan text där du kan tala om för dina användare om din marknadsplats. Bra ställen att kolla in är din %{about_page_link}, din %{terms_of_use_link} (du borde lägga till dina egna användarvillkor här, antingen genom att ändra mallen eller skapa ett helt nytt dokument), dina %{privacy_policy_link}, och %{welcome_email_link} som skickas till alla nya användare. Det är också några %{instruction_texts_link} som du kan ändra."
+        about_page_link_text: "om sidan"
+        terms_of_use_link_text: användarvillkor
+        privacy_policy_link_text: sekretesspolicy
+        welcome_email_link_text: välkomstmail
+        instruction_texts_link_text: "andra instruktionstexter"
+        social_media: "Att använda sociala medier är ett bra sätt att bygga upp en community. Du kan %{facebook_link} för att göra det enklare för folk att logga in på din marknadsplats, och %{twitter_link} för att se när folk twittrar om produkter på din marknadsplats."
+        facebook_link_text: "koppla din Facebook app"
+        twitter_link_text: "lägg till ditt Twitterkonto"
+        analytics: "Det också en bra idé att %{analytics_link} till din marknadsplats. På så sätt är det lätt för dig att se vad som händer på din marknadsplats, hur många besökare du har m.m."
+        analytics_link_text: "koppla ett Google Analytics konto"
+        settings: "Det finns en hel del andra inställningar som du kan leka runt med. Som ett exempel så kan du kräva att alla måste ha en inbjudan från en annan användare innan de kan gå med i din marknadsplats, du kan göra din marknadsplats privat så bara de som är inloggade kan se ditt innehåll. %{settings_link}."
+        settings_link_text: "Visa inställningar för din marknadsplats här"
+        final_words: "Det var det! Om allt är redo så kan du börja %{invite_link} till din marknadsplats. Du kan se alla användare som har gått med %{view_users_link}, och alla transaktioner som är klara %{view_transactions_link}. Du kan också lätt hantera annonser: gå till annonssidan och du kommer att se adminlänkar för att redigera och att stänga annonser. Om du behöver hjälp så kan du kontakta vår support, vi finns här för dig!"
+        invite_link_text: "bjud in användare"
+        view_users_link_text: här
+        view_transactions_link_text: här
       settings:
         settings: Inställningar
         general: Allmän
@@ -302,7 +302,7 @@ sv:
         message_will_be_sent_only_to_people_with_this_language: "Notera: e-postameddelandet skickas bara till de användare som använder %{service_name} på det språk du valt."
         email_sent: "Meddelandet skickat."
     left_hand_navigation:
-      general: ~
+      general: Allmän
       users_and_transactions: "Användare & transaktioner"
       configure: Konfiguration
       emails_title: E-post
@@ -985,7 +985,7 @@ sv:
       click_here_link_text: "Klicka här"
   layouts:
     admin:
-      admin: Admin
+      admin: "%{service_name} admin panel"
     no_tribe:
       inbox: Inkorg
       settings: Inställningar
@@ -1000,7 +1000,7 @@ sv:
       give_feedback: "Kontakta oss"
       keywords: "%{service_name}, Kassi, dela resurser på en marknadsplats, låna saker, tjänster, saker, samåkning, utrymmen, biltvätt, boende, logi, hjälp, erbjudande, förfrågan, hyra, byta ut, köpa, sälja, ge, ekologiskt, marknadsplats, online, marknad, lokal"
       meta_description: "Sharetribe gör att du enkelt kan skapa en marknadsplats online och låta medlemmarna sälja, hyra ut tjänster, varor och utrymmen."
-      or_check_our: "... eller kolla vår"
+      or_check_our: "...eller kolla vår"
       send_feedback_to_admin: "Skicka feedback"
       to_see_what_others_have_suggested: "för att se vad andra användare har föreslagit, rösta på idéerna där."
       your_email_address: "Din e-postadress (för att kontakta dig)"
@@ -1009,7 +1009,7 @@ sv:
       invite_your_neighbors: "Bjud in grannar!"
       invite_your_friends_description: "Ju fler personer det är på %{service_name}, destu mer användbart är det."
       invite_your_friends_invite_only_description: "Folk kan inte gå med %{service_name} om de inte är inbjudna."
-      join_without_facebook: "... eller alternativt %{join_without_facebook_link}"
+      join_without_facebook: "...eller alternativt %{join_without_facebook_link}"
       join_without_facebook_link: "registrera dig utan att använda Facebook"
     conversations:
       messages: Meddelanden
@@ -1615,7 +1615,7 @@ sv:
       cancle_facebook_connect: "Om du inte vill länka detta konto så kan du %{cancel_link}."
       facebook_cancel_link_text: avbryt
       log_in_with_your_facebook_account: "Logga in via Facebook"
-      or_sign_up_with_your_username: "... eller med användarnamn och e-post:"
+      or_sign_up_with_your_username: "...eller med användarnamn och e-post:"
       we_will_not_post_without_asking_you: "Vi kommer aldrig att lägga ut något på Facebook utan att fråga dig."
     password_forgotten:
       email: E-post
@@ -1664,21 +1664,21 @@ sv:
       i_want_to_get_email_notification_when: "Jag vill få e-post aviseringar när..."
       newsletters: Nyhetsbrev
       community_updates: "E-post om uppdateringar"
-      email_about_accept_reminders: "... jag har glömt att acceptera ett erbjudande eller efterfrågan"
-      email_about_confirm_reminders: "... jag har glömt att bekräfta en förfrågan som avslutad"
-      email_about_new_comments_to_own_listing: "... någon har kommenterat mitt erbjudande eller efterfrågan"
-      email_about_new_messages: "... någon skickar mig ett meddelande"
-      email_about_new_received_testimonials: "... någon ger mig feedback"
-      email_about_testimonial_reminders: "... jag har glömt att ge feedback på en händelse"
+      email_about_accept_reminders: "...jag har glömt att acceptera ett erbjudande eller efterfrågan"
+      email_about_confirm_reminders: "...jag har glömt att bekräfta en förfrågan som avslutad"
+      email_about_new_comments_to_own_listing: "...någon har kommenterat mitt erbjudande eller efterfrågan"
+      email_about_new_messages: "...någon skickar mig ett meddelande"
+      email_about_new_received_testimonials: "...någon ger mig feedback"
+      email_about_testimonial_reminders: "...jag har glömt att ge feedback på en händelse"
       email_daily_community_updates: "Skicka mig ett nyhetsbrev <b>dagligen</b> om det kommer nya annonser"
       email_weekly_community_updates: "Skicka mig ett nyhetsbrev <b>veckovis</b> om det kommer nya annonser"
       do_not_email_community_updates: "Skicka inte e-post om uppdateringar"
-      email_when_conversation_accepted: "... någon accepterar mitt erbjudande eller efterfrågan"
-      email_when_conversation_rejected: "... någon avböjer mitt erbjudande eller min efterfrågan"
-      email_about_completed_transactions: "... när någon markerat mitt erbjudande som klar"
+      email_when_conversation_accepted: "...någon accepterar mitt erbjudande eller efterfrågan"
+      email_when_conversation_rejected: "...någon avböjer mitt erbjudande eller min efterfrågan"
+      email_about_completed_transactions: "...när någon markerat mitt erbjudande som klar"
       email_about_new_payments: "...jag har fått en ny betalning"
-      email_about_payment_reminders: "... jag har glömt att betala"
-      email_about_new_listings_by_followed_people: "... någon jag följer har skapat en annons"
+      email_about_payment_reminders: "...jag har glömt att betala"
+      email_about_new_listings_by_followed_people: "...någon jag följer har skapat en annons"
       unsubscribe_succesful: "Avprenumeration lyckades"
       unsubscribe_info_text: "Du kommer inte längre att få dessa e-post. Kontrollera dina %{settings_link} för att välja vilka e-postmeddelanden du vill ha från %{service_name} eller gå tillbaka till %{homepage_link}."
       settings_link: inställningar
