@@ -912,16 +912,16 @@ tr-TR:
       add_news_item: ~
       lend_rent_help_carpool: ~
       loading_more_content: "Daha fazla içerik yükleniyor"
-      more_events: ~
-      news: ~
+      more_events: "Daha fazla etkinlikler..."
+      news: Haberler
       no_news: ~
       more_news: ~
-      or: ~
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
+      or: ve
+      or_see_what_the_others: "... veya diğerlerinin ne yaptığına bak"
+      recent_events: "Son etkinlikler"
+      requesting: ihtiyaç
+      tell_it_here: "Burada bahset!"
+      welcome_to_new_kassi: "Yeni %{service_name}'e hoş geldin!"
       no_reviews: ~
       no_image: ~
       filter: ~
@@ -948,7 +948,7 @@ tr-TR:
       you_have_not_added_your_info: ~
       add_your_info_link: ~
     recent_listing:
-      please_offer: ~
+      please_offer: teklif
       comment: ~
       comments: ~
     filters:
@@ -968,7 +968,7 @@ tr-TR:
       click_here_link_text: ~
   layouts:
     admin:
-      admin: ~
+      admin: "%{service_name} yönetici paneli"
     no_tribe:
       inbox: ~
       settings: ~
@@ -976,11 +976,11 @@ tr-TR:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
-      default_feedback: ~
-      feedback_forum: ~
-      feedback_handle: ~
-      give_feedback: ~
+      feedback: "Neden bahsetmek istiyorsunuz?"
+      default_feedback: "%{service_name} ile ilgili bir problemle mi karşılaştınız? Hizmeti iyileştirmek için bir öneriniz mi var? Şüpheli içerik mi fark ettiniz? Ya da sadece bizimle görüşmek istediğiniz bir konu mu var? Lütfen bize bildirin!"
+      feedback_forum: "geribildirim forumu"
+      feedback_handle: Geribildirim
+      give_feedback: "Bize Ulaşın"
       keywords: ~
       meta_description: ~
       or_check_our: ~
@@ -1009,7 +1009,7 @@ tr-TR:
       register_details: ~
       terms: ~
     logged_in:
-      admin: ~
+      admin: Yönetici
       go_to_your_profile_page: ~
       hi: ~
       login: ~
