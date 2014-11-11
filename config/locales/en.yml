@@ -146,8 +146,8 @@ en:
         settings_link_text: "View the settings of your marketplace here"
         final_words: "That's about it! If everything's ready, you can start %{invite_link} to your marketplace. You can see all the users who have joined %{view_users_link}, and all the transactions they have completed %{view_transactions_link}. You can also easily manage listings: simply go to the page of the listing and you'll see the admin links for editing and closing there. If you need any help, you can contact our support - we are here for you!"
         invite_link_text: "inviting users"
-        view_users_link_text: "here"
-        view_transactions_link_text: "here"
+        view_users_link_text: here
+        view_transactions_link_text: here
       settings:
         settings: Settings
         general: General
@@ -302,7 +302,7 @@ en:
         message_will_be_sent_only_to_people_with_this_language: "Note: the email will be sent only to the users who are using %{service_name} in the language you choose."
         email_sent: "Email sent."
     left_hand_navigation:
-      general: "General"
+      general: General
       users_and_transactions: "Users & transactions"
       configure: Configuration
       emails_title: Emails
@@ -311,9 +311,9 @@ en:
       preferences_updated: "Payment preferences updated"
       integration_info_text: "The payment system of %{service_name} is powered by PayPal. If you want to enable your users to make payments through your marketplace, you must connect your PayPal account and decide the minimum listing price and the fee you want to take from each transaction."
       paypal_account_email: "1. Connect your PayPal account"
-      paypal_account_email_completed: "Completed!"
+      paypal_account_email_completed: Completed!
       set_minimum_price_and_fee: "2. Set minimum price & transaction fee"
-      set_minimum_price_and_fee_completed: "Completed!"
+      set_minimum_price_and_fee_completed: Completed!
       minimum_listing_price_label: "Minimum listing price:"
       transaction_fee_label: "Transaction fee:"
       save_settings: "Save settings"

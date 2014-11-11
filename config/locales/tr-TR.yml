@@ -870,7 +870,7 @@ tr-TR:
       create_new_account_for_yourself: "Kendiniz için yeni bir hesap oluşturun"
       examples_of_what_you_could_offer_to_others: "Diğerlerine ne teklif edebilirsin"
       examples_of_what_you_could_request_to_others: "Diğerlerinden ne talep edebilirsin"
-      favor_offer_list: ~
+      favor_offer_list: "bilgisayar yardımı, kıyafet tamiri, pişirme, bisiklet tamiri"
       favor_request_list: "bebek bakıcılığı, piyano dersleri, köpek gezdirme, çim biçme"
       favors_to_offer: "Yardım: "
       favors_to_request: "Yardım: "
@@ -887,8 +887,8 @@ tr-TR:
       one_private_request_exists: "Zaten bir talep var,"
       ride_offer: "Başkalarının çocuklarını hobi/kurslara bırakmak"
       ride_request: "İşe yolculuk"
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      some_private_offers_exist: "Mevcut <b>%{number_of_listings} adet teklif </b> var,"
+      some_private_requests_exist: "Mevcut <b>%{number_of_listings} istem</b> var,"
     custom_filters:
       update_view: ~
       min: ~
@@ -908,10 +908,10 @@ tr-TR:
       are: ~
       what_do_you_need: ~
       post_new_listing: ~
-      are_offering: ~
+      are_offering: teklif
       add_news_item: ~
       lend_rent_help_carpool: ~
-      loading_more_content: ~
+      loading_more_content: "Daha fazla içerik yükleniyor"
       more_events: ~
       news: ~
       no_news: ~
