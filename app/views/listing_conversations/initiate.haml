@@ -1,8 +1,6 @@
 - content_for :javascript do
   initialize_send_message_form('#{I18n.locale}', null);
-
-- content_for :javascript do
-  ST.transaction.initializePayPalBuyForm("transaction-form")
+  ST.transaction.initializePayPalBuyForm("transaction-form");
 
 - content_for :title_header do
   %h1

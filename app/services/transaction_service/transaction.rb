@@ -133,18 +133,10 @@ module TransactionService::Transaction
           merchant_brand_logo_url: transaction_opts[:gateway_fields][:merchant_brand_logo_url]
         })
 
-        result =
-          if paypal_async
-            PaypalService::API::Api.payments.request(
-              opts[:community_id],
-              create_payment_info,
-              async: true)
-          else
-            PaypalService::API::Api.payments.request(
-              opts[:community_id],
-              create_payment_info,
-              async: false)
-          end
+        result = PaypalService::API::Api.payments.request(
+          opts[:community_id],
+          create_payment_info,
+          async: paypal_async)
 
         return Result::Error.new(result[:error_msg]) unless result[:success]
 
