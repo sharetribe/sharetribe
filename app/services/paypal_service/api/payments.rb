@@ -79,6 +79,12 @@ module PaypalService::API
         end
     end
 
+    def get_request_token(community_id, token)
+      Lookup.with_token(community_id, token) do |token|
+        Result::Success.new(token)
+      end
+    end
+
     ## POST /payments/request/cancel?token=EC-7XU83376C70426719
     def request_cancel(community_id, token_id)
       token = TokenStore.get(community_id, token_id)
@@ -204,16 +210,13 @@ module PaypalService::API
     end
 
     def do_void(community_id, transaction_id, info, payment, m_acc)
-      payment_entity = void_payment(
+      void_payment(
         community_id,
         transaction_id,
         payment,
         :success,
         m_acc,
         info[:note])
-
-      # Return as payment entity
-      Result::Success.new(payment_entity)
     end
 
     ## POST /payments/:community_id/:transaction_id/refund
@@ -350,7 +353,7 @@ module PaypalService::API
           # Trigger payment_updated
           @events.send(:payment_updated, flow, payment_entity)
 
-          payment_entity
+          Result::Success.new(payment_entity)
         end
       end
     end

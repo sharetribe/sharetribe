@@ -1,0 +1,7 @@
+= render :partial => 'layouts/head'
+
+%body
+  = javascript_include_tag 'application'
+
+  :javascript
+    ST.transaction.initializeCreatePaymentPoller('#{op_status_url}', '#{redirect_url}');

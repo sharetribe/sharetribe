@@ -33,7 +33,7 @@ module TransactionService::Transaction
     Result::Success.new(result: result)
   end
 
-  def create(transaction_opts)
+  def create(transaction_opts, paypal_async: false)
     opts = transaction_opts[:transaction]
 
     #TODO this thing should come through transaction_opts
@@ -69,7 +69,6 @@ module TransactionService::Transaction
       is_starter: true,
       is_read: true)
 
-    #TODO: check this one out, how to handle pts[:content]?, it's missing from documentation
     if opts[:content].present?
       conversation.messages.build({
           content: opts[:content],
@@ -113,7 +112,7 @@ module TransactionService::Transaction
 
         transaction.save!
 
-        {}
+        {} # No gateway fields
       when [:paypal, :preauthorize]
         transaction.save!
 
@@ -122,28 +121,33 @@ module TransactionService::Transaction
         quantity = 1
         total = listing.price * transaction.listing_quantity
 
-        result = PaypalService::API::Api.payments.request(
-        opts[:community_id],
-        PaypalService::API::DataTypes.create_create_payment_request({
-            transaction_id: transaction.id,
-            item_name: listing.title,
-            item_quantity: quantity,
-            item_price: total,
-            merchant_id: opts[:listing_author_id],
-            order_total: total,
-            success: transaction_opts[:gateway_fields][:success_url],
-            cancel: transaction_opts[:gateway_fields][:cancel_url],
-            merchant_brand_logo_url: transaction_opts[:gateway_fields][:merchant_brand_logo_url]
-          })
-        )
+        create_payment_info = PaypalService::API::DataTypes.create_create_payment_request({
+          transaction_id: transaction.id,
+          item_name: listing.title,
+          item_quantity: quantity,
+          item_price: total,
+          merchant_id: opts[:listing_author_id],
+          order_total: total,
+          success: transaction_opts[:gateway_fields][:success_url],
+          cancel: transaction_opts[:gateway_fields][:cancel_url],
+          merchant_brand_logo_url: transaction_opts[:gateway_fields][:merchant_brand_logo_url]
+        })
 
-        unless result[:success]
-          return Result::Error.new(result[:error_msg])
+        result = PaypalService::API::Api.payments.request(
+          opts[:community_id],
+          create_payment_info,
+          async: paypal_async)
+
+        return Result::Error.new(result[:error_msg]) unless result[:success]
+
+        if paypal_async
+          { process_token: result[:data][:process_token] }
+        else
+          { redirect_url: result[:data][:redirect_url] }
         end
 
-        {redirect_url: result[:data][:redirect_url]}
       else
-        # TODO Implement
+        # Other payment gateway type
         transaction.save!
         {}
       end
@@ -170,13 +174,18 @@ module TransactionService::Transaction
       BraintreeService::Payments::Command.void_transaction(transaction_id, community_id)
       #TODO: Event handling also to braintree service?
       MarketplaceService::Transaction::Command.transition_to(transaction_id, "rejected")
+
+      transaction = query(transaction_id)
+      Result::Success.new(DataTypes.create_transaction_response(transaction))
     when "paypal"
-      paypal_payment_api.void(community_id, transaction_id, {note: "Automatic void: Not responded to a request after 3 days"})
+      result = paypal_payment_api.void(community_id, transaction_id, {note: ""})
+      if result[:success]
+        transaction = query(transaction_id)
+        Result::Success.new(DataTypes.create_transaction_response(transaction))
+      else
+        result
+      end
     end
-
-    transaction = query(transaction_id)
-
-    Result::Success.new(DataTypes.create_transaction_response(transaction))
   end
 
 
@@ -318,12 +327,12 @@ module TransactionService::Transaction
     when :paypal
       payment = paypal_payment_api().get_payment(model.community.id, model.id)
       total =
-        if payment[:data][:payment_total].present?
+        if payment[:success] && payment[:data][:payment_total].present?
           payment[:data][:payment_total]
-        elsif payment[:data][:authorization_total].present?
+        elsif payment[:success] && payment[:data][:authorization_total].present?
           payment[:data][:authorization_total]
         else
-          model.listing_price * 1 #TODO fixme for booking (model.listing_quantity)
+          model.listing.price * 1 #TODO fixme for booking (model.listing_quantity)
         end
       { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
     else

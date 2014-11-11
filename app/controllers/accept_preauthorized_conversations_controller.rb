@@ -93,7 +93,12 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     if(response[:success])
       block.call(listing_conversation.reload)
     else
-      flash[:error] = t("error_messages.paypal.accept_authorization_error")
+      if (status == "paid")
+        flash[:error] = t("error_messages.paypal.accept_authorization_error")
+      else
+        flash[:error] = t("error_messages.paypal.reject_authorization_error")
+      end
+
       redirect_to accept_preauthorized_person_message_path(person_id: sender_id , id: listing_conversation.id)
     end
   end

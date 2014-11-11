@@ -64,4 +64,5 @@
 //= require datepicker
 //= require follow
 //= require paypal_account_settings
+//= require transaction
 //= require_self

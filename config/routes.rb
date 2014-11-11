@@ -46,13 +46,15 @@ Kassi::Application.routes.draw do
 
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
   match '/500' => 'errors#server_error'
-  match '/404' => 'errors#not_found'
+  match '/404' => 'errors#not_found', :as => :error_not_found
 
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do
 
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
     match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
+
+    match "/transactions/op_status/:process_token" => "transactions#op_status", :as => :transaction_op_status
 
     # preauthorize flow
     match "/listings/:listing_id/preauthorize" => "preauthorize_transactions#preauthorize", :as => :preauthorize_payment
@@ -103,6 +105,7 @@ Kassi::Application.routes.draw do
         collection do
           get :success
           get :cancel
+          get :success_processed
         end
       end
     end

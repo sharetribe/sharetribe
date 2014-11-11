@@ -1,5 +1,6 @@
 - content_for :javascript do
   initialize_send_message_form('#{I18n.locale}', null);
+  ST.transaction.initializePayPalBuyForm("transaction-form");
 
 - content_for :title_header do
   %h1
@@ -60,7 +61,7 @@
         = render :partial => "listing_conversations/transaction_agreement_checkbox", locals: { form: form }
 
       .row
-        .col-12
+        .col-12.paypal-button-wrapper
           = form.submit t("paypal.checkout_with_paypal"), type: :image, src: t("paypal.buy_now_with_paypal_button_url"), alt: t("paypal.checkout_with_paypal"), class: "checkout-with-paypal-button"
 
       .row

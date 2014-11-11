@@ -12,6 +12,8 @@ module PaypalService::API::DataTypes
     [:cancel, :mandatory, :string]
   )
 
+  # Reponse for get_request_token is a PaypalService::Store::Token::Entity.Token
+
   PaymentRequest = EntityUtils.define_builder(
     [:transaction_id, :mandatory, :fixnum],
     [:token, :mandatory, :string],
