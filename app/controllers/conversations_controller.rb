@@ -22,6 +22,15 @@ class ConversationsController < ApplicationController
       return redirect_to root
     end
 
+    transaction = Transaction.find_by_conversation_id(conversation[:id])
+
+    if transaction.present?
+      # We do not want to use this controller to show conversations with transactions
+      # as the transaction controller shows not only the messages, but also the actions
+      # so redirect there.
+      redirect_to person_transaction_url(@current_user, {:id => transaction.id}) and return
+    end
+
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: conversation_id})
 
     other = conversation[:other_person]
