@@ -182,13 +182,18 @@ module TransactionService::Transaction
       BraintreeService::Payments::Command.void_transaction(transaction_id, community_id)
       #TODO: Event handling also to braintree service?
       MarketplaceService::Transaction::Command.transition_to(transaction_id, "rejected")
+
+      transaction = query(transaction_id)
+      Result::Success.new(DataTypes.create_transaction_response(transaction))
     when "paypal"
-      paypal_payment_api.void(community_id, transaction_id, {note: "Automatic void: Not responded to a request after 3 days"})
+      result = paypal_payment_api.void(community_id, transaction_id, {note: ""})
+      if result[:success]
+        transaction = query(transaction_id)
+        Result::Success.new(DataTypes.create_transaction_response(transaction))
+      else
+        result
+      end
     end
-
-    transaction = query(transaction_id)
-
-    Result::Success.new(DataTypes.create_transaction_response(transaction))
   end
 
 

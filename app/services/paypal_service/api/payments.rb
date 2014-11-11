@@ -210,16 +210,13 @@ module PaypalService::API
     end
 
     def do_void(community_id, transaction_id, info, payment, m_acc)
-      payment_entity = void_payment(
+      void_payment(
         community_id,
         transaction_id,
         payment,
         :success,
         m_acc,
         info[:note])
-
-      # Return as payment entity
-      Result::Success.new(payment_entity)
     end
 
     ## POST /payments/:community_id/:transaction_id/refund
@@ -356,7 +353,7 @@ module PaypalService::API
           # Trigger payment_updated
           @events.send(:payment_updated, flow, payment_entity)
 
-          payment_entity
+          Result::Success.new(payment_entity)
         end
       end
     end

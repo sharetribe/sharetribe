@@ -799,6 +799,7 @@ en:
       generic_error: "An error occured during the payment process. Could not finalize your PayPal payment."
       cancel_error: "An error occured during cancellation. Could not finalize cancel."
       accept_authorization_error: "An error occured while trying to accept preauthorized Paypal payment. Please, try again."
+      reject_authorization_error: "An error occured while trying to reject preauthorized Paypal payment. Please, try again."
   error_pages:
     back_to_kassi_front_page: "Back to the front page"
     error_404:
