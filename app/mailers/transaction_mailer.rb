@@ -88,7 +88,7 @@ class TransactionMailer < ActionMailer::Base
          :subject => t("emails.new_payment.new_payment")) { |format|
       format.html {
         render "payment_receipt_to_seller", locals: {
-          conversation_url: person_message_url(payment.recipient, @url_params.merge({:id => payment.transaction.id.to_s})),
+          conversation_url: person_transaction_url(payment.recipient, @url_params.merge({:id => payment.transaction.id.to_s})),
           listing_title: payment.transaction.listing.title,
           payment_total: sum_with_currency(payment.total_sum, payment.currency),
           payment_service_fee: sum_with_currency(service_fee, payment.currency),
@@ -110,7 +110,7 @@ class TransactionMailer < ActionMailer::Base
          :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
       format.html {
         render "payment_receipt_to_buyer", locals: {
-          conversation_url: person_message_url(payment.payer, @url_params.merge({:id => payment.transaction.id.to_s})),
+          conversation_url: person_transaction_url(payment.payer, @url_params.merge({:id => payment.transaction.id.to_s})),
           listing_title: payment.transaction.listing.title,
           payment_total: sum_with_currency(payment.total_sum, payment.currency),
           recipient_full_name: payment.recipient.name(community),
@@ -137,7 +137,7 @@ class TransactionMailer < ActionMailer::Base
          :subject => t("emails.new_payment.new_payment")) do |format|
       format.html {
         render "payment_receipt_to_seller", locals: {
-          conversation_url: person_message_url(seller_model, @url_params.merge(id: transaction[:id])),
+          conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction[:id])),
           listing_title: transaction[:listing_title],
           payment_total: humanized_money_with_symbol(transaction[:payment_total]),
           payment_service_fee: humanized_money_with_symbol(service_fee),
@@ -164,7 +164,7 @@ class TransactionMailer < ActionMailer::Base
          :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
       format.html {
         render "payment_receipt_to_buyer", locals: {
-          conversation_url: person_message_url(buyer_model, @url_params.merge({:id => transaction[:id]})),
+          conversation_url: person_transaction_url(buyer_model, @url_params.merge({:id => transaction[:id]})),
           listing_title: transaction[:listing_title],
           payment_total: humanized_money_with_symbol(transaction[:payment_total]),
           recipient_full_name: seller_model.name(community),
