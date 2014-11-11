@@ -9,11 +9,13 @@ ST.transaction = (function(_) {
         return pollingResult.completed;
       }
     ).flatMap(function (pollingResult) {
-      opResult = pollingResult.result;
-      if (opResult.success)
+      var opResult = pollingResult.result;
+      if (opResult.success) {
         return opResult;
-      else
+      }
+      else {
         return new Bacon.Error({ errorMsg: submitResponse.error_msg, errorResult: opResult });
+      }
     });
   }
 
@@ -22,7 +24,7 @@ ST.transaction = (function(_) {
     var spinner = new Image();
     spinner.src = "https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif";
     spinner.className = "paypal-button-loading-img";
-    $spinner = $(spinner);
+    var $spinner = $(spinner);
     $form.find(".paypal-button-wrapper").append(spinner);
     $spinner.hide();
 
@@ -53,7 +55,7 @@ ST.transaction = (function(_) {
     var $spinner = setupSpinner($form);
 
     // EventStream of true/false
-    var submitInProgress = new Bacon.Bus()
+    var submitInProgress = new Bacon.Bus();
 
     var formSubmitWithData = $form.asEventStream('submit', function(ev) {
       ev.preventDefault();
