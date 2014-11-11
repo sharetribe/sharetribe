@@ -138,7 +138,6 @@ module PaypalService::Store::PaypalPayment
     return nil
   end
 
-
   def create_payment_update(order)
     cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total, :commission_total, :commission_fee_total]
       .reduce({}) do |cent_totals, m_key|
@@ -177,9 +176,48 @@ module PaypalService::Store::PaypalPayment
       raise ArgumentError.new("No matching payment to update.")
     end
 
+    #update status and reason only on valid transition
+    unless(valid_transition?(payment, payment_update))
+      payment_update.delete(:payment_status)
+      payment_update.delete(:pending_reason)
+    end
+
     payment.update_attributes!(payment_update)
 
     from_model(payment.reload)
+  end
+
+  STATES = {
+    order: [:pending, :order],
+    authorized: [:pending, :authorization],
+    pending_ext: [:pending, :ext],
+    completed: [:completed, :none],
+    voided: [:voided, :none]
+  }
+
+  INTERNAL_REASONS = [:none, :authorization, :order]
+
+  STATE_HIERARCHY = {
+    order: 0,
+    authorized: 1,
+    pending_ext: 2,
+    completed: 3,
+    voided: 4
+  }
+
+  def valid_transition?(payment, payment_update)
+    current_state = to_state(payment.payment_status.to_sym, payment.pending_reason.to_sym)
+    transition_state = to_state(payment_update[:payment_status], payment_update[:pending_reason])
+
+    STATE_HIERARCHY[current_state] < STATE_HIERARCHY[transition_state]
+  end
+
+  def to_state(status, reason)
+    STATES.find { |state, arr| arr == [status, pending_ext_or_internal(reason)] }.first
+  end
+
+  def pending_ext_or_internal(reason)
+    INTERNAL_REASONS.include?(reason) ? reason : :ext
   end
 
   ### DEPRECATED! ###
