@@ -330,12 +330,12 @@ module TransactionService::Transaction
     when :paypal
       payment = paypal_payment_api().get_payment(model.community.id, model.id)
       total =
-        if payment[:data][:payment_total].present?
+        if payment[:success] && payment[:data][:payment_total].present?
           payment[:data][:payment_total]
-        elsif payment[:data][:authorization_total].present?
+        elsif payment[:success] && payment[:data][:authorization_total].present?
           payment[:data][:authorization_total]
         else
-          model.listing_price * 1 #TODO fixme for booking (model.listing_quantity)
+          model.listing.price * 1 #TODO fixme for booking (model.listing_quantity)
         end
       { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
     else

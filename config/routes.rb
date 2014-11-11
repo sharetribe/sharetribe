@@ -105,6 +105,7 @@ Kassi::Application.routes.draw do
         collection do
           get :success
           get :cancel
+          get :success_processed
         end
       end
     end

@@ -74,6 +74,18 @@ ST.transaction = (function(_) {
     opResult.onError(showErrorFromOpResult);
   }
 
-  return { initializePayPalBuyForm: initializePayPalBuyForm };
+  function initializeCreatePaymentPoller(opStatusUrl, redirectUrl) {
+    ST.utils.baconStreamFromAjaxPolling(
+      { url: opStatusUrl },
+      function(pollingResult) {
+        return pollingResult.completed;
+      }
+    ).onValue(function () { window.location = redirectUrl; });
+  }
+
+  return {
+    initializePayPalBuyForm: initializePayPalBuyForm,
+    initializeCreatePaymentPoller: initializeCreatePaymentPoller
+  };
 
 })(_);

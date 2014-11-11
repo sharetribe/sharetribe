@@ -10,26 +10,53 @@ class PaypalService::CheckoutOrdersController < ApplicationController
 
 
   def success
-    if params[:token].blank?
+    return redirect_to error_not_found_path if params[:token].blank?
+
+    token = paypal_payments_service.get_request_token(@current_community.id, params[:token])
+    return redirect_to error_not_found_path if !token[:success]
+
+    transaction = transaction_service.query(token[:data][:transaction_id])
+
+    proc_status = paypal_payments_service.create(
+      @current_community.id,
+      token[:data][:token],
+      async: true)
+
+
+    if !proc_status[:success]
       flash[:error] = t("error_messages.paypal.generic_error")
-      # TODO Log?
       return redirect_to root
     end
 
-    pp_response = paypal_payments_service.create(@current_community.id, params[:token])
+    render "paypal_service/success", layout: false, locals: {
+      op_status_url: transaction_op_status_path(proc_status[:data][:process_token]),
+      redirect_url: success_processed_paypal_service_checkout_orders_path(
+        process_token: proc_status[:data][:process_token],
+        listing_id: transaction[:listing_id])
+    }
 
-    if !pp_response[:success]
-      response_data = pp_response[:data] || {}
+  end
 
+  def success_processed
+    process_token = params[:process_token]
+    listing_id = params[:listing_id]
+
+    proc_status = paypal_process_api.get_status(process_token)
+    unless (proc_status[:success] && proc_status[:data][:completed])
+      return redirect_to error_not_found_path
+    end
+
+    response_data = proc_status[:data][:result][:data] || {}
+
+    if proc_status[:data][:result][:success]
+      redirect_to person_transaction_path(person_id: @current_user.id, id: response_data[:transaction_id])
+    else
       if response_data[:paypal_error_code] == "10486"
         redirect_to response_data[:redirect_url]
       else
-        flash[:error] = t("paypal.generic_error")
-        transaction = transaction_service.query(response_data[:transaction_id])
-        redirect_to person_listing_path(person_id: @current_user.id, id: transaction[:listing_id])
+        flash[:error] = t("error_messages.paypal.generic_error")
+        redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       end
-    else
-      redirect_to person_transaction_path(person_id: @current_user.id, id: pp_response[:data][:transaction_id])
     end
   end
 
@@ -52,6 +79,10 @@ class PaypalService::CheckoutOrdersController < ApplicationController
 
   def paypal_payments_service
     PaypalService::API::Api.payments
+  end
+
+  def paypal_process_api
+    PaypalService::API::Api.process
   end
 
 end
