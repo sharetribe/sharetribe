@@ -801,6 +801,7 @@ sv:
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din PayPal betalning."
       cancel_error: "Ett fel inträffade. Det gick ej att slutföra."
       accept_authorization_error: "Ett fel uppstod vid försök att acceptera PayPal betalningen. Försök igen."
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Tillbaka till startsidan"
     error_404:

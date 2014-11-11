@@ -784,6 +784,7 @@ it:
       generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento di PayPal."
       cancel_error: "Si è verificato un errore durante la cancellazione. Non è stato possibile completare la cancellazione."
       accept_authorization_error: "Si è verificato un errore durante il tentativo di accettare un pagamento pre autorizzato di Paypal. Per favore, riprova nuovamente."
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Indietro alla front page"
     error_404:

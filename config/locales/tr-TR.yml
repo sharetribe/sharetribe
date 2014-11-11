@@ -784,6 +784,7 @@ tr-TR:
       generic_error: ~
       cancel_error: ~
       accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Önceki sayfaya dönüş"
     error_404:
@@ -910,7 +911,7 @@ tr-TR:
       post_new_listing: ~
       are_offering: teklif
       add_news_item: ~
-      lend_rent_help_carpool: ~
+      lend_rent_help_carpool: "sat, ödünç ver, yardım et, bisiklet paylaş"
       loading_more_content: "Daha fazla içerik yükleniyor"
       more_events: "Daha fazla etkinlikler..."
       news: Haberler
