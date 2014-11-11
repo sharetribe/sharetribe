@@ -19,6 +19,7 @@ module Sharetribe
     ["Hrvatski", "hr"],
     ["Português do Brasil", "pt-BR"],
     ["Dansk", "da-DK"],
+    ["Turkish", "tr-TR"],
 
     # Customization languages
     ["English", "en-rc"],
