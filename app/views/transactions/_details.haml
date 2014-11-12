@@ -14,9 +14,10 @@
       - if transaction[:show_call_to_action]
         -# Show Call to Action button for free conversations
 
-        = link_to transaction[:new_transaction_path], :class => "message-book-button" do
-          .content
-            = transaction[:action_button_label]
+        / -# Hide the button temporarily as no support for Booking of Paypal
+        / = link_to transaction[:new_transaction_path], :class => "message-book-button" do
+        /   .content
+        /     = transaction[:action_button_label]
 
       - else
         %div{:id => "transaction_status"}
