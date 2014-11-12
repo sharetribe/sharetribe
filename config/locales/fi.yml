@@ -795,6 +795,8 @@ fi:
     testimonials:
       you_must_explain_not_neutral_feedback: "Jos haluat antaa jonkin muun arvosanan kuin odotusten mukaan, sinun pitää perustella arvosanasi."
       you_must_select_a_grade: "Muistathan kertoa, oliko kokemuksesi positiivinen vai negatiivinen."
+    transaction_agreement:
+      required_error: "Sinun pitää hyväksyä ehdot"
     paypal:
       generic_error: ~
       cancel_error: "Maksun perumisen yhteydessä tapahtui virhe."

@@ -56,14 +56,14 @@ class PreauthorizeTransactionsController < ApplicationController
     conversation_params = params[:listing_conversation]
 
     if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
-      return render_error_response(request.xhr?, "Agreement checkbox has to be selected", :initiate)
+      return render_error_response(request.xhr?, t("error_messages.transaction_agreement.required_error"), action: :initiate)
     end
 
     preauthorize_form = PreauthorizeMessageForm.new(conversation_params.merge({
       listing_id: @listing.id
     }))
     unless preauthorize_form.valid?
-      return render_error_response(request.xhr?, preauthorize_form.errors.full_messages.join(", "), :initiate)
+      return render_error_response(request.xhr?, preauthorize_form.errors.full_messages.join(", "), action: :initiate)
     end
 
     transaction_response = create_preauth_transaction(
@@ -75,7 +75,7 @@ class PreauthorizeTransactionsController < ApplicationController
       use_async: request.xhr?)
 
     unless transaction_response[:success]
-      return render_error_response(request.xhr?, t("error_messages.paypal.generic_error"), :initiate) unless transaction_response[:success]
+      return render_error_response(request.xhr?, t("error_messages.paypal.generic_error"), action: :initiate) unless transaction_response[:success]
     end
 
     transaction_id = transaction_response[:data][:transaction][:id]
@@ -136,67 +136,49 @@ class PreauthorizeTransactionsController < ApplicationController
     payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
     conversation_params = params[:listing_conversation]
 
-    if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
-      flash[:error] = "Agreement checkbox has to be selected"
-      return redirect_to action: :preauthorize
-    end
-
     start_on = DateUtils.from_date_select(conversation_params, :start_on)
     end_on = DateUtils.from_date_select(conversation_params, :end_on)
-
     preauthorize_form = PreauthorizeBookingForm.new(conversation_params.merge({
       start_on: start_on,
       end_on: end_on,
       listing_id: @listing.id
     }))
 
-    unless preauthorize_form.valid?
-      flash[:error] = preauthorize_form.errors.full_messages.join(", ")
-      return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
+    if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
+      return render_error_response(request.xhr?,
+        t("error_messages.transaction_agreement.required_error"),
+        { Action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on) })
     end
 
-    # Create transaction
-    gateway_fields =
-      if @current_community.paypal_enabled?
-      # PayPal doesn't like images with cache buster in the URL
-        logo_url = Maybe(@current_community)
-          .wide_logo
-          .select { |wl| wl.present? }
-          .url(:paypal, timestamp: false)
-          .or_else(nil)
+    unless preauthorize_form.valid?
+      return render_error_response(request.xhr?,
+        preauthorize_form.errors.full_messages.join(", "),
+       { action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on) })
+    end
 
-        {
-          merchant_brand_logo_url: logo_url,
-          success_url: success_paypal_service_checkout_orders_url,
-          cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: @listing.id)
-        }
-
-      else
-        BraintreeForm.new(params[:braintree_payment]).to_hash
-      end
-
-    transaction_response = TransactionService::Transaction.create({
-        transaction: {
-          community_id: @current_community.id,
-          listing_id: @listing.id,
-          starter_id: @current_user.id,
-          listing_author_id: @listing.author.id,
-          listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on),
-          payment_gateway: payment_type,
-          payment_process: :preauthorize,
-          commission_from_seller: @current_community.commission_from_seller,
-          content: preauthorize_form.content,
-          booking_fields: {
-            start_on: preauthorize_form.start_on,
-            end_on: preauthorize_form.end_on
-          }
-        },
-        gateway_fields: gateway_fields
+    transaction_response = create_preauth_transaction(
+      payment_type: payment_type,
+      community: @current_community,
+      listing: @listing,
+      user: @current_user,
+      listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on),
+      content: preauthorize_form.content,
+      use_async: request.xhr?,
+      bt_payment_params: params[:braintree_payment],
+      booking_fields: {
+        start_on: preauthorize_form.start_on,
+        end_on: preauthorize_form.end_on
       })
 
     unless transaction_response[:success]
-      flash[:error] = "An error occured while trying to create a new transaction: #{transaction_response[:error_msg]}"
-      return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
+      error =
+        if (payment_type == :paypal)
+          t("error_messages.paypal.generic_error")
+        else
+          "An error occured while trying to create a new transaction: #{transaction_response[:error_msg]}"
+        end
+
+      return render_error_response(request.xhr?, error, { action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on) })
     end
 
     transaction_id = transaction_response[:data][:transaction][:id]
@@ -204,10 +186,17 @@ class PreauthorizeTransactionsController < ApplicationController
     case payment_type
     when :paypal
       MarketplaceService::Transaction::Command.transition_to(transaction_id, "initiated")
-      redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
+      if (transaction_response[:data][:gateway_fields][:redirect_url])
+        return redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
+      else
+        return render json: {
+          op_status_url: transaction_op_status_path(transaction_response[:data][:gateway_fields][:process_token]),
+          op_error_msg: t("error_messages.paypal.generic_error")
+        }
+      end
     when :braintree
       MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
-      redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
+      return redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
     end
 
   end
@@ -233,7 +222,7 @@ class PreauthorizeTransactionsController < ApplicationController
     conversation_params = params[:listing_conversation]
 
     if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
-      flash[:error] = "Agreement checkbox has to be selected"
+      flash[:error] = t("error_messages.transaction_agreement.required_error")
       return redirect_to action: :preauthorize
     end
 
@@ -287,12 +276,12 @@ class PreauthorizeTransactionsController < ApplicationController
     { listing: listing, payment_type: payment_type, action_button_label: action_button_label }
   end
 
-  def render_error_response(isXhr, error_msg, action)
+  def render_error_response(isXhr, error_msg, redirect_params)
     if isXhr
       render json: { error_msg: error_msg }
     else
       flash[:error] = error_msg
-      redirect_to action: action
+      redirect_to(redirect_params)
     end
   end
 
@@ -377,7 +366,7 @@ class PreauthorizeTransactionsController < ApplicationController
     }
   end
 
-  def create_preauth_transaction(payment_type:, community:, listing:, user:, content:, use_async:)
+  def create_preauth_transaction(payment_type:, community:, listing:, user:, content:, use_async:, bt_payment_params: {}, booking_fields: nil, listing_quantity: nil)
     gateway_fields =
       if (payment_type == :paypal)
         # PayPal doesn't like images with cache buster in the URL
@@ -393,7 +382,7 @@ class PreauthorizeTransactionsController < ApplicationController
           cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: listing.id)
         }
       else
-        {}
+        BraintreeForm.new(bt_payment_params).to_hash
       end
 
     TransactionService::Transaction.create({
@@ -402,10 +391,12 @@ class PreauthorizeTransactionsController < ApplicationController
           listing_id: listing.id,
           starter_id: user.id,
           listing_author_id: listing.author.id,
+          listing_quantity: listing_quantity,
           content: content,
           payment_gateway: payment_type,
           payment_process: :preauthorize,
-          commission_from_seller: community.commission_from_seller
+          commission_from_seller: community.commission_from_seller,
+          booking_fields: booking_fields
         },
         gateway_fields: gateway_fields
       },

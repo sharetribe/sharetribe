@@ -795,6 +795,8 @@ en:
     testimonials:
       you_must_explain_not_neutral_feedback: "If you want to give non-neutral feedback, you must explain why."
       you_must_select_a_grade: "Remember to tell whether your experience was positive or negative."
+    transaction_agreement:
+      required_error: "You need to accept the agreement"
     paypal:
       generic_error: "An error occured during the payment process. Could not finalize your PayPal payment."
       cancel_error: "An error occured during cancellation. Could not finalize cancel."
