@@ -22,12 +22,14 @@ module TransactionService::PaypalEvents
       when :preauthorized_to_paid
         preauthorized_to_paid(tx)
       when :preauthorized_to_pending_ext
-        preauthorized_to_pending_ext(tx, payment[:pending_reason])
+        preauthorized_to_pending_ext(tx, payment[:payment_status])
       when :pending_ext_to_paid
         pending_ext_to_paid(tx)
       when :preauthorized_to_voided
         preauthorized_to_rejected(tx) if(flow == :success)
         preauthorized_to_errored(tx) if(flow == :error)
+      when :preauthorized_to_denied
+        preauthorized_to_denied(tx, payment[:payment_status])
       else
         # No handler yet, should log but how to get a logger?
       end
@@ -44,7 +46,8 @@ module TransactionService::PaypalEvents
     [:preauthorized_to_paid,        [:preauthorized, :completed]],
     [:preauthorized_to_pending_ext, [:preauthorized, :pending]],
     [:pending_ext_to_paid,          [:pending_ext, :completed]],
-    [:preauthorized_to_voided,      [:preauthorized, :voided]]
+    [:preauthorized_to_voided,      [:preauthorized, :voided]],
+    [:preauthorized_to_denied,      [:preauthorized, :denied]]
   ]
 
   def transition_type(tx, payment)
@@ -67,6 +70,10 @@ module TransactionService::PaypalEvents
 
   def preauthorized_to_rejected(tx)
     MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected")
+  end
+
+  def preauthorized_to_denied(tx, payment_status)
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected", paypal_payment_status: payment_status)
   end
 
   def initiated_to_preauthorized(tx)
