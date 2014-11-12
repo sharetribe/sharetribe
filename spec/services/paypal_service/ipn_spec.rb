@@ -68,6 +68,26 @@ describe PaypalService::IPN do
       payment_total: Money.new(120, "GBP")
     }
 
+    @payment_completed = {
+      type: :payment_completed,
+      payment_date: "2014-11-10 15:32:02 +0200",
+      payment_id: "0J90171846752303G",
+      authorization_expires_date: "2014-11-14 09:50:02 +0200",
+      authorization_id: "0L584749FU2628910",
+      payer_email: "payper@ex.com",
+      payer_id: "HTLEEXWH2GJ5H",
+      receiver_email: "receiver@ex.com",
+      receiver_id: "XAOENU6KNJRCWC",
+      payment_status: "Completed",
+      pending_reason: :none,
+      receipt_id:  nil,
+      authorization_total:  Money.new(120, "GBP"),
+      payment_total:  Money.new(120, "GBP"),
+      fee_total: nil
+   }
+
+
+
     @cid = 1
     @txid = 1
 
@@ -93,6 +113,14 @@ describe PaypalService::IPN do
       expect(PaypalPayment.first.pending_reason).to eql "authorization"
       @ipn_service.handle_msg(@pending_ext_msg)
       expect(PaypalPayment.first.pending_reason).to eql "multicurrency"
+    end
+
+    it "should keep the fee_total even if ipn completed does not have it" do
+      @ipn_service.handle_msg(@auth_created_msg)
+      #at this point, our own service would complete payment and get fee in response
+      PaypalPayment.first.update_attribute(:fee_total, Money.new(100, "GBP"))
+      @ipn_service.handle_msg(@payment_completed)
+      expect(PaypalPayment.first.fee_total).to eql Money.new(100, "GBP")
     end
   end
 end
