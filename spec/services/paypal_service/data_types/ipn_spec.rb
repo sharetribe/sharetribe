@@ -169,6 +169,47 @@ describe PaypalService::DataTypes::IPN do
     "ipn_track_id"=>"cf5793483cf91"
   }
 
+  payment_completed_2 = {
+    "auth_amount" => "10.00",
+    "auth_exp" => "23:50:02 Nov 13, 2014 PST",
+    "auth_id" => "0J90174816752303G",
+    "auth_status" => "Completed",
+    "charset" => "windows-1252",
+    "controller" => "paypal_ipn",
+    "custom" => "",
+    "first_name" => "Payer",
+    "handling_amount" => "0.00",
+    "invoice" => "1809-56123",
+    "ipn_track_id" => "eecc20fabc404",
+    "item_name" => "",
+    "item_number" => "",
+    "last_name" => "PayerS",
+    "mc_currency" => "EUR",
+    "mc_gross" => "10.00",
+    "notify_version" => "3.8",
+    "parent_txn_id" => "O-4677591372287434H",
+    "payer_email" => "payper@ex.com",
+    "payer_id" => "HTLEEXWH2GJ5H",
+    "payer_status" => "verified",
+    "payment_date" => "05:32:02 Nov 10, 2014 PST",
+    "payment_gross" => "",
+    "payment_status" => "Completed",
+    "payment_type" => "instant",
+    "pending_reason" => "authorization",
+    "protection_eligibility" => "Ineligible",
+    "quantity" => "1",
+    "receiver_email" => "receiver@ex.com",
+    "receiver_id" => "XAOENU6KNJRCWC",
+    "remaining_settle" => "9",
+    "residence_country" => "FI",
+    "shipping" => "0.00",
+    "tax" => "0.00",
+    "transaction_entity" => "auth",
+    "transaction_subject" => "",
+    "txn_id" => "0J90171846752303G",
+    "txn_type" => "cart",
+  }
+
   payment_refunded = {
     "mc_gross"=>"-1.20",
     "auth_exp"=>"23:50:00 Oct 03, 2014 PDT",
@@ -311,7 +352,8 @@ describe PaypalService::DataTypes::IPN do
       [payment_completed, :payment_completed],
       [payment_refunded, :payment_refunded],
       [payment_pending_ext, :payment_pending_ext],
-      [payment_voided, :payment_voided]
+      [payment_voided, :payment_voided],
+      [payment_completed_2, :payment_completed]
     ]
 
     input_with_expected_type.each do |(input, type)|

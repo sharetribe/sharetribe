@@ -48,7 +48,7 @@ module PaypalService
         [:receipt_id, :string],
         [:authorization_total, :money, :mandatory],
         [:payment_total, :money, :mandatory],
-        [:fee_total, :money, :mandatory]
+        [:fee_total, :money]
       )
 
       PaymentRefunded = EntityUtils.define_builder(
@@ -207,10 +207,12 @@ module PaypalService
           },
           params)
 
+        #convert fee if present
+        with_fee = p[:mc_fee] ? p.merge({ fee_total: to_money(p[:mc_fee], p[:mc_currency]) }) : p
+
         create_payment_completed(
-          p.merge({
+          with_fee.merge({
               payment_total: to_money(p[:mc_gross], p[:mc_currency]),
-              fee_total: to_money(p[:mc_fee], p[:mc_currency]),
               authorization_total: to_money(p[:auth_amount], p[:mc_currency])}))
       end
       private_class_method :to_payment_completed
