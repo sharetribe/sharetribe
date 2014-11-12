@@ -2,6 +2,10 @@
   initialize_send_message_form('#{I18n.locale}', null);
   ST.transaction.initializePayPalBuyForm("transaction-form");
 
+- content_for :extra_javascript do
+  :javascript
+    $('#transaction-agreement-read-more').click(function() { $('#transaction-agreement-content').lightbox_me({centered: true, zIndex: 1000000}); });
+
 - content_for :title_header do
   %h1
     = action_button_label
