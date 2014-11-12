@@ -96,7 +96,7 @@ module TransactionViewUtils
       }
     when "confirmed"
       {
-        sender: author,
+        sender: starter,
         mood: :positive
       }
     else
