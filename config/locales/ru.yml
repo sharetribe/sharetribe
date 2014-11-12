@@ -780,10 +780,13 @@ ru:
     testimonials:
       you_must_explain_not_neutral_feedback: "Если вы хотите оставить отзыв, отличный от нейтрального, объясните причину."
       you_must_select_a_grade: "Не забывайте оценивать пользователей, путём выбора одного из значков сверху (вы можете посмотреть, что они значат, наведя на них указатель мыши)"
+    transaction_agreement:
+      required_error: ~
     paypal:
       generic_error: ~
       cancel_error: ~
       accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "На главную страницу Kassi"
     error_404:

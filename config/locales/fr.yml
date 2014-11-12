@@ -681,7 +681,7 @@ fr:
       or: ou
       unsubscribe_from_these_emails: "désabonnez-vous de ces emails"
     community_starter_email:
-      subject: "Découvrez le nouveau Sharetribe - fin de la limite en nombre de membres, présentation et aspect des tribus modifiables et bien d'autres choses"
+      subject: "Découvrez le nouveau Sharetribe - fin de la limite en nombre de membres, présentation et aspect des places de marché modifiables et bien d'autres choses"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} a accepté votre offre %{listing}"
       has_accepted_your_request: "%{accepter} a accepté votre demande %{listing}"
@@ -742,7 +742,7 @@ fr:
       added_listing: "%{name_link} a ajouté une annonce : "
       update_mail_title: "Actualités de %{title_link}"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Voici une partie de ce qu'il s'est passé dans la tribu %{community_link} depuis %{time_since_last_update}."
+      intro_paragraph: "Voici une partie de ce qu'il s'est passé sur %{community_link} depuis %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Déposez une annonce !"
       reduce_email_footer_text: "Trop d'emails ? %{settings_link} ou %{unsubscribe_link}."
@@ -795,6 +795,8 @@ fr:
     testimonials:
       you_must_explain_not_neutral_feedback: "Si vous souhaitez donner un avis non-neutre, veuillez expliquer pourquoi."
       you_must_select_a_grade: "Pensez à évaluer l'utilisateur en cliquant sur l'une des icônes ci-dessus (pour voir les explications des icônes, déplacer la souris sur elles)"
+    transaction_agreement:
+      required_error: ~
     paypal:
       generic_error: "Une erreur s'est produite durant le processus de paiement. Le paiement PayPal n'a pas pu être réalisé."
       cancel_error: "Une erreur s'est produite durant l'annulation. Celle-ci n'a pas pu être réalisée."
@@ -860,13 +862,13 @@ fr:
   header:
     about: "A propos"
     home: Accueil
-    members: Tribu
+    members: "Place de marché"
     new_listing: "Nouvelle annonce"
     mobile_version: "Version mobile"
     offers: Offres
     requests: Demandes
     search_kassi: "Chercher sur %{service_name}"
-    create_new_marketplace: "Créer une nouvelle tribu"
+    create_new_marketplace: "Créer une nouvelle place de marché"
     contact_us: "Nous contacter"
     profile: Profil
     invite: "Inviter des nouveaux membres"

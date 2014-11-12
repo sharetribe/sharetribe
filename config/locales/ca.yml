@@ -782,6 +782,8 @@ ca:
     testimonials:
       you_must_explain_not_neutral_feedback: "Si desitges fer un suggeriment no neutral has de raonar-lo"
       you_must_select_a_grade: "Recorda avaluar als usuaris clicant en una de les icones de sobre (pot veure les explicacions de cada icona passant el ratolí per sobre d'elles)"
+    transaction_agreement:
+      required_error: ~
     paypal:
       generic_error: ~
       cancel_error: ~

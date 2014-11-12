@@ -780,6 +780,8 @@ it:
     testimonials:
       you_must_explain_not_neutral_feedback: "Se vuoi dare feedback non neutrali, devi spiegarne il motivo."
       you_must_select_a_grade: "Ricordati di raccontare se la tua esperienza è stata positiva o negativa"
+    transaction_agreement:
+      required_error: ~
     paypal:
       generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento di PayPal."
       cancel_error: "Si è verificato un errore durante la cancellazione. Non è stato possibile completare la cancellazione."

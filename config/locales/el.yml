@@ -780,6 +780,8 @@ el:
     testimonials:
       you_must_explain_not_neutral_feedback: "Αν θέλεις να κάνεις μη-ουδέτερη κριτική, πρέπει να εξηγήσεις γιατί."
       you_must_select_a_grade: "Μην ξεχνάτε να πείτε αν η εμπειρία σας ήταν καλή ή όχι."
+    transaction_agreement:
+      required_error: ~
     paypal:
       generic_error: ~
       cancel_error: ~

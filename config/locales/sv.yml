@@ -430,7 +430,7 @@ sv:
       about_listing: "Angående annons %{listing_title}"
       free_message: "Gratis meddelande"
     message:
-      accepted_request: "acceptera förfrågan"
+      accepted_request: "Acceptera förfrågan"
       accepted_offer: "acceptera erbjudandet"
       rejected_request: "avslagit förfrågan"
       rejected_offer: "avslagit erbjudandet"
@@ -463,7 +463,7 @@ sv:
       housing_request_buy_message_form_title: "Sälj %{listing} till %{person}"
       housing_request_rent_message_form_title: "Hyr ut %{listing} till %{person}"
       item_request_message_form_title: "Prylar skänkes till %{person}"
-      message: Meddelanden
+      message: Meddelande
       message_to: "Meddelande till %{author_name}"
       optional_message_to: "Valfritt meddelande till %{author_name}"
       rideshare_offer_message_form_title: "Fråga %{person} om skjuts"
@@ -797,6 +797,8 @@ sv:
     testimonials:
       you_must_explain_not_neutral_feedback: "Om du vill ge en icke-neutral feedback, måste du förklara varför."
       you_must_select_a_grade: "Kom ihåg att berätta om din erfarenhet var positiv eller negativ."
+    transaction_agreement:
+      required_error: ~
     paypal:
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din PayPal betalning."
       cancel_error: "Ett fel inträffade. Det gick ej att slutföra."
