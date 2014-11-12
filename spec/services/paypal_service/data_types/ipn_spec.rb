@@ -388,6 +388,51 @@ describe PaypalService::DataTypes::IPN do
     "ipn_track_id"=>"7119fe92afd3c"
   }
 
+  payment_denied = {
+    "mc_gross"=>"23.00",
+    "invoice"=>"1816-56274",
+    "auth_exp"=>"23:50:02 Nov 13, 2014 PST",
+    "protection_eligibility"=>"Ineligible",
+    "item_number1"=>"",
+    "payer_id"=>"XXXSNUI6KNJRCWC",
+    "tax"=>"0.00",
+    "payment_date"=>"04:46:57 Nov 10, 2014 PST",
+    "payment_status"=>"Denied",
+    "charset"=>"windows-1252",
+    "mc_shipping"=>"0.00",
+    "mc_handling"=>"0.00",
+    "first_name"=>"Payer",
+    "transaction_entity"=>"payment",
+    "notify_version"=>"3.8",
+    "custom"=>"",
+    "payer_status"=>"verified",
+    "num_cart_items"=>"1",
+    "mc_handling1"=>"0.00",
+    "verify_sign"=>"AU-csK8ARzBek50hhiQq3LGyRaZJAVBhODYeBFjL3FdAK5LW3DmMUZ6D",
+    "payer_email"=>"payer@sharetribe.com",
+    "mc_shipping1"=>"0.00",
+    "tax1"=>"0.00",
+    "parent_txn_id"=>"00000ABCDECEC",
+    "txn_id"=>"4BASUNHUSNH",
+    "payment_type"=>"instant",
+    "remaining_settle"=>"9",
+    "auth_id"=>"0ASUNH5413802",
+    "last_name"=>"Last",
+    "item_name1"=>"Svenks Rally Car",
+    "receiver_email"=>"receiver@sharetribe.com",
+    "auth_amount"=>"23.00",
+    "quantity1"=>"1",
+    "receiver_id"=>"HTLXESTNHJ5W",
+    "txn_type"=>"cart",
+    "mc_gross_1"=>"23.00",
+    "mc_currency"=>"SEK",
+    "residence_country"=>"FI",
+    "transaction_subject"=>"",
+    "payment_gross"=>"",
+    "auth_status"=>"Completed",
+    "ipn_track_id"=>"1239845790gdaho"
+  }
+
   it "#from_params" do
     input_with_expected_type = [
       [payment_refunded, :payment_refunded],
@@ -397,7 +442,8 @@ describe PaypalService::DataTypes::IPN do
       [payment_pending_ext, :payment_pending_ext],
       [payment_voided, :payment_voided],
       [payment_completed_2, :payment_completed],
-      [payment_refunded_2, :payment_refunded]
+      [payment_refunded_2, :payment_refunded],
+      [payment_denied, :payment_denied]
     ]
 
     input_with_expected_type.each do |(input, type)|
