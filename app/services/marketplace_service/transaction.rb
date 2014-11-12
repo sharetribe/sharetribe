@@ -18,6 +18,7 @@ module MarketplaceService
         :testimonials,
         :transitions,
         :payment_total,
+        :payment_gateway,
         :commission_from_seller,
         :conversation,
         :booking,

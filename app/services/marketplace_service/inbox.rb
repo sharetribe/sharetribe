@@ -215,7 +215,7 @@ module MarketplaceService
         payment_gateway = transaction[:payment_gateway]
 
         payment_total =
-          case payment_gateway
+          case payment_gateway.to_sym
           when :checkout, :braintree
             # Use Maybe, since payment may not exists yet, if postpay flow
             Maybe(PaymentModel.where(id: transaction[:payment_id]).first).total_sum.or_else(nil)
@@ -293,6 +293,7 @@ module MarketplaceService
 
             transactions.last_transition_at                   AS last_transition_at,
             transactions.current_state                        AS last_transition_to_state,
+            transactions.payment_gateway                      AS payment_gateway,
             conversations.last_message_at                     AS last_message_at,
 
             listings.id                                       AS listing_id,
