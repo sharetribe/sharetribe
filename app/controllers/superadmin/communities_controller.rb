@@ -24,7 +24,7 @@ class Superadmin::CommunitiesController < ApplicationController
       transaction_type = create_transaction_type!(p, @community)
 
       link = view_context.link_to "#{@community.domain}.#{APP_CONFIG.domain}", "//#{@community.domain}.#{APP_CONFIG.domain}"
-      flash[:notice] = "Successfully created new community '#{@community.name(I18N.locale)}' (#{link})".html_safe
+      flash[:notice] = "Successfully created new community '#{@community.name(I18n.locale)}' (#{link})".html_safe
 
       redirect_to :superadmin_communities
     else
