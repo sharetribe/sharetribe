@@ -20,14 +20,15 @@ class IntApi::MarketplacesController < ApplicationController
 
     user = UserService::API::Users::create_user_with_membership(person_hash, marketplace[:id])
 
-    # TODO create auth token for the new admin and return that with the link
+    auth_token = AuthToken.create(:person => user, :expires_at => 10.minutes.from_now)
+    url = marketplace[:url] + "?auth=" + auth_token.token
 
     # TODO Add user to mailchimp list
 
     # TODO handle error cases with proper response
 
     response.status = 201
-    render :json => {"marketplace_url" => marketplace[:url]} and return
+    render :json => {"marketplace_url" => url} and return
   end
 
   # This could be more logical in different controller, but as implementing

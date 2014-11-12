@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   before_filter :show_maintenance_page
 
   before_filter :force_ssl,
+    :check_auth_token,
     :fetch_logged_in_user,
     :dashboard_only,
     :single_community_only,
@@ -262,6 +263,34 @@ class ApplicationController < ActionController::Base
 
   def fetch_translations
     WebTranslateIt.fetch_translations
+  end
+
+  def check_auth_token
+    if params[:auth]
+      unless person_signed_in?  #if cookie and session already set up, ignore auth token
+        if t = AuthToken.find_by_token(params[:auth])
+          t.last_use_attempt = Time.now # record the usage attempt to see how people use tokens
+          if t.expires_at > Time.now && t.usages_left > 0
+            # Token is valid, sign the person in
+            sign_in(t.person)
+            @current_user = t.person
+            t.usages_left = t.usages_left - 1
+          else
+            # no flash now, just silently ignore invalid tokens
+            #flash.now[:warning] = "auth_token_expired"
+          end
+          t.save
+        else
+          # no flash now, just silently ignore invalid tokens
+          #flash.now[:warning] = "auth_token_not_found"
+        end
+      end
+
+      #if url had auth param, remove it.
+      path_without_auth_token = request.fullpath.gsub(/auth=[^\&]*(\&?)/,"")
+      redirect_to path_without_auth_token
+    end
+
   end
 
   def force_ssl

@@ -9,6 +9,7 @@
 #  last_use_attempt :datetime
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  usages_left      :integer
 #
 # Indexes
 #
@@ -27,6 +28,7 @@ class AuthToken < ActiveRecord::Base
 
   def defaults
     self.token ||= SecureRandom.urlsafe_base64(8)
+    self.usages_left ||= 1
   end
 
   def self.delete_expired
