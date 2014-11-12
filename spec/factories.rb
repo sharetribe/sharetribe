@@ -167,6 +167,16 @@ FactoryGirl.define do
     slogan "Test slogan"
     description "Test description"
     category "other"
+
+    has_many(:community_customizations) do |community|
+      FactoryGirl.build(:community_customization, community: community)
+    end
+  end
+
+  factory :community_customization do
+    build_association(:community)
+    name "Sharetribe"
+    locale "en"
   end
 
   factory :community_membership do
