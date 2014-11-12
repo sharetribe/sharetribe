@@ -107,6 +107,8 @@ module PaypalService
 
       PaymentDenied = EntityUtils.define_builder(
         [:type, const_value: :payment_denied],
+        [:payment_status, const_value: :denied],
+        [:pending_reason, const_value: :none],
         [:payer_email, :string],
         [:payer_id, :string, :mandatory],
         [:receiver_id, :string, :mandatory],
@@ -298,7 +300,7 @@ module PaypalService
         p = HashUtils.rename_keys(
           {
             auth_id: :authorization_id,
-            txn_id: :payment_id
+            parent_txn_id: :payment_id
           },
           params
         )

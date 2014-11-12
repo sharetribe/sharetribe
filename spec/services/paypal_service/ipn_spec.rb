@@ -104,6 +104,18 @@ describe PaypalService::IPN do
       fee_total: Money.new(4, "GBP")
     }
 
+    @payment_denied_msg = {
+      type: :payment_denied,
+      payer_email: "payer@sharetribe.com",
+      payer_id: "XXXSNUI6KNJRCWC",
+      receiver_id: "HTLXESTNHJ5W",
+      receiver_email: "receiver@sharetribe.com",
+      authorization_id: "0L584749FU2628910",
+      payment_id: "0J90171846752303G",
+      payment_status: :denied,
+      pending_reason: :none
+    }
+
     @cid = 1
     @txid = 1
 
@@ -144,6 +156,15 @@ describe PaypalService::IPN do
       @ipn_service.handle_msg(@payment_completed_msg)
       @ipn_service.handle_msg(@payment_refunded_msg)
       expect(PaypalRefund.count).to eql 1
+    end
+
+    it "should deny payment" do
+      @ipn_service.handle_msg(@auth_created_msg)
+      @ipn_service.handle_msg(@payment_denied_msg)
+
+      payment = PaypalPayment.first
+      expect(payment.pending_reason).to eql "none"
+      expect(payment.payment_status).to eql "denied"
     end
   end
 end
