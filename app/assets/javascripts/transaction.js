@@ -19,7 +19,7 @@ ST.transaction = (function(_) {
         }
       });
     } else {
-      return new Bacon.Error({ errorMsg: submitResponse.error_msg })
+      return new Bacon.Error({ errorMsg: submitResponse.error_msg });
     }
   }
 

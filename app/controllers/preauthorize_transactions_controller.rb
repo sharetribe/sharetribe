@@ -366,11 +366,12 @@ class PreauthorizeTransactionsController < ApplicationController
     }
   end
 
-  def create_preauth_transaction(payment_type:, community:, listing:, user:, content:, use_async:, bt_payment_params: {}, booking_fields: nil, listing_quantity: nil)
+
+  def create_preauth_transaction(opts)
     gateway_fields =
-      if (payment_type == :paypal)
+      if (opts[:payment_type] == :paypal)
         # PayPal doesn't like images with cache buster in the URL
-        logo_url = Maybe(community)
+        logo_url = Maybe(opts[:community])
           .wide_logo
           .select { |wl| wl.present? }
           .url(:paypal, timestamp: false)
@@ -379,28 +380,28 @@ class PreauthorizeTransactionsController < ApplicationController
         {
           merchant_brand_logo_url: logo_url,
           success_url: success_paypal_service_checkout_orders_url,
-          cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: listing.id)
+          cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: opts[:listing].id)
         }
       else
-        BraintreeForm.new(bt_payment_params).to_hash
+        BraintreeForm.new(opts[:bt_payment_params]).to_hash
       end
 
     TransactionService::Transaction.create({
         transaction: {
-          community_id: community.id,
-          listing_id: listing.id,
-          starter_id: user.id,
-          listing_author_id: listing.author.id,
-          listing_quantity: listing_quantity,
-          content: content,
-          payment_gateway: payment_type,
+          community_id: opts[:community].id,
+          listing_id: opts[:listing].id,
+          starter_id: opts[:user].id,
+          listing_author_id: opts[:listing].author.id,
+          listing_quantity: opts[:listing_quantity],
+          content: opts[:content],
+          payment_gateway: opts[:payment_type],
           payment_process: :preauthorize,
-          commission_from_seller: community.commission_from_seller,
-          booking_fields: booking_fields
+          commission_from_seller: opts[:community].commission_from_seller,
+          booking_fields: opts[:booking_fields]
         },
         gateway_fields: gateway_fields
       },
-      paypal_async: use_async)
+      paypal_async: opts[:use_async])
   end
 
 end
