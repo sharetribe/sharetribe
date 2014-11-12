@@ -3,20 +3,24 @@ window.ST = window.ST || {};
 ST.transaction = (function(_) {
 
   function toOpResult(submitResponse) {
-    return ST.utils.baconStreamFromAjaxPolling(
-      { url: submitResponse.op_status_url },
-      function(pollingResult) {
-        return pollingResult.completed;
-      }
-    ).flatMap(function (pollingResult) {
-      var opResult = pollingResult.result;
-      if (opResult.success) {
-        return opResult;
-      }
-      else {
-        return new Bacon.Error({ errorMsg: submitResponse.error_msg, errorResult: opResult });
-      }
-    });
+    if (submitResponse.op_status_url) {
+      return ST.utils.baconStreamFromAjaxPolling(
+        { url: submitResponse.op_status_url },
+        function(pollingResult) {
+          return pollingResult.completed;
+        }
+      ).flatMap(function (pollingResult) {
+        var opResult = pollingResult.result;
+        if (opResult.success) {
+          return opResult;
+        }
+        else {
+          return new Bacon.Error({ errorMsg: submitResponse.op_error_msg });
+        }
+      });
+    } else {
+      return new Bacon.Error({ errorMsg: submitResponse.error_msg })
+    }
   }
 
 
