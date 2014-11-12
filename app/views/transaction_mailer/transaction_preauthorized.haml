@@ -1,9 +1,9 @@
-- reply_url = person_message_url(@conversation.author, @url_params.merge({:id => @conversation.id.to_s}))
+- reply_url = person_transaction_url(@transaction.author, @url_params.merge({:id => @transaction.id.to_s}))
 
 %tr
   %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 25px;"}
     %font{body_font}
-      = t("emails.transaction_preauthorized.transaction_requested_by_user", :listing_title => @conversation.listing.title, :requester => @conversation.starter.name)
+      = t("emails.transaction_preauthorized.transaction_requested_by_user", :listing_title => @transaction.listing.title, :requester => @transaction.starter.name)
 
 %tr
   %td{:align => "left", :style => "padding-bottom: 15px;"}

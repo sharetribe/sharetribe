@@ -42,11 +42,11 @@ class TransactionMailer < ActionMailer::Base
     end
   end
 
-  def transaction_preauthorized(conversation)
-    @conversation = conversation
-    @community = conversation.community
+  def transaction_preauthorized(transaction)
+    @transaction = transaction
+    @community = @transaction.community
 
-    set_up_urls(conversation.author, conversation.community)
+    set_up_urls(@transaction.author, @transaction.community)
 
     payment_type = MarketplaceService::Community::Query.payment_type(@community.id)
     gateway_expires = MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type)
@@ -55,7 +55,7 @@ class TransactionMailer < ActionMailer::Base
       mail_params(
         @recipient,
         @community,
-        t("emails.transaction_preauthorized.subject", requester: conversation.starter.name, listing_title: conversation.listing.title))) do |format|
+        t("emails.transaction_preauthorized.subject", requester: @transaction.starter.name, listing_title: @transaction.listing.title))) do |format|
       format.html {
         render locals: {
           payment_expires_in_days: gateway_expires
@@ -64,17 +64,17 @@ class TransactionMailer < ActionMailer::Base
     end
   end
 
-  def transaction_preauthorized_reminder(conversation)
-    @conversation = conversation
-    @community = conversation.community
+  def transaction_preauthorized_reminder(transaction)
+    @transaction = transaction
+    @community = @transaction.community
 
-    set_up_urls(conversation.author, conversation.community)
+    set_up_urls(@transaction.author, @transaction.community)
 
     premailer_mail(
       mail_params(
         @recipient,
         @community,
-        t("emails.transaction_preauthorized_reminder.subject", requester: conversation.starter.name, listing_title: conversation.listing.title)))
+        t("emails.transaction_preauthorized_reminder.subject", requester: @transaction.starter.name, listing_title: @transaction.listing.title)))
   end
 
   def braintree_new_payment(payment, community)
