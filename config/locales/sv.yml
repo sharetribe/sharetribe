@@ -150,7 +150,7 @@ sv:
         view_transactions_link_text: här
       settings:
         settings: Inställningar
-        general: Allmän
+        general: Allmänt
         users_can_review_each_other_after_transaction: "Användare kan recensera varandra efter transaktion"
         access: Åtkomst
         join_with_invite_only: "Användare kan bara gå med denna marknadsplats med en inbjudan från en annan användare"
@@ -302,7 +302,7 @@ sv:
         message_will_be_sent_only_to_people_with_this_language: "Notera: e-postameddelandet skickas bara till de användare som använder %{service_name} på det språk du valt."
         email_sent: "Meddelandet skickat."
     left_hand_navigation:
-      general: Allmän
+      general: Allmänt
       users_and_transactions: "Användare & transaktioner"
       configure: Konfiguration
       emails_title: E-post
@@ -393,7 +393,7 @@ sv:
       update_later: "Lämna annonsen öppen"
       optional_message: "Valfritt meddelande"
       price_to_pay: "Totalt pris att betala"
-      you_need_to_fill_payout_details_before_accepting: "Du måste fylla i betalningsdetaljerna innan du kan acceptera förfrågan och ta emot betalning. Gå till %{payment_settings_link} för att fylla i detaljerna."
+      you_need_to_fill_payout_details_before_accepting: "Du måste fylla i utbetalningsdetaljerna innan du kan acceptera förfrågan och ta emot betalning. Gå till %{payment_settings_link} för att fylla i detaljerna."
       payment_settings_link: betalningsinställningar
       minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
       approve: Godkänn
@@ -427,7 +427,7 @@ sv:
       canceled_request: "Förfrågan avbruten."
       canceled_offer: "Erbjudande avbrutet."
       message_from: "Meddelande från %{person}"
-      about_listing: "Om annons %{listing_title}"
+      about_listing: "Angående annons %{listing_title}"
       free_message: "Gratis meddelande"
     message:
       accepted_request: "acceptera förfrågan"
@@ -475,10 +475,10 @@ sv:
       you_will_get_notified: "Du kommer att få en e-postavisering när %{person} svarar dig."
       title: Namn
       send_message_to_user: "Skicka meddelande till %{person}"
-      about_listing: "Om annons %{listing_title}"
+      about_listing: "Angående annons %{listing_title}"
       author_has_to_accept_request: "%{author_name} måste acceptera förfrågan innan du kan betala"
     show:
-      in_response_to_listing: "om annonsen"
+      in_response_to_listing: "angående annonsen"
       message_sent_by: "Meddelande skickades av"
       message_sent_to: "Meddelandet har skickats till"
       send_reply: "Skicka svar"
@@ -538,11 +538,11 @@ sv:
           verify: "Väntar på att du ska verifiera ditt PayPal konto"
     status_link:
       accept_offer: "Anta erbjudande"
-      accept_request: "Anta förfrågan"
+      accept_request: "Acceptera begäran"
       reject_offer: "Inte den här gången"
       reject_request: "Inte den här gången"
       accept_preauthorized_offer: "Anta erbjudande"
-      accept_preauthorized_request: "Anta förfrågan"
+      accept_preauthorized_request: "Acceptera begäran"
       reject_preauthorized_offer: "Inte den här gången"
       reject_preauthorized_request: "Inte den här gången"
       confirm: "Markera klar"
@@ -768,8 +768,8 @@ sv:
       you_have_days_to_accept: "DU måste acceptera eller avböja förfrågan inom %{payment_expires_in_days} dagar. Om du inte acceptera detta inom tidsramen så kommer automatiskt förfrågan avböjas och du kommer inte att få någon betalning."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
     transaction_preauthorized_reminder:
-      subject: "Kom ihåg att acceptera förfrågan från %{requester} om annonsen %{listing_title}"
-      remember_to_accept: "Kom ihåg att acceptera förfrågan från %{requester} om annonsen %{listing_title}. %{requester} har redan betalat för annonsen. Du måste acceptera förfrågan för att få betalt.."
+      subject: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}"
+      remember_to_accept: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}. %{requester} har redan betalat för annonsen. Du måste acceptera förfrågan för att få betalt.."
       one_day_left: "Om du inte accepterar förfrågan inom en dag så kommer den automatiskt att avslås och du får inte någon betalning."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
     welcome_email:
@@ -801,7 +801,7 @@ sv:
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din PayPal betalning."
       cancel_error: "Ett fel inträffade. Det gick ej att slutföra."
       accept_authorization_error: "Ett fel uppstod vid försök att acceptera PayPal betalningen. Försök igen."
-      reject_authorization_error: ~
+      reject_authorization_error: "Ett fel uppstod vid försök att avbryta PayPal betalningen. Vänligen försök igen."
   error_pages:
     back_to_kassi_front_page: "Tillbaka till startsidan"
     error_404:
@@ -919,8 +919,8 @@ sv:
       no_listings_with_your_search_criteria: "Vi kunde inte hitta några resultat som matchade dina sökkriterier."
       no_listings_notification: "Inga annonser %{add_listing_link}"
       add_listing_link_text: "Lägg till annons"
-      open_listing: "öppna annons"
-      open_listings: "öppna annonser"
+      open_listing: "öppnad annons"
+      open_listings: "öppnade annonser"
       private_listing_notification_log_in: "logga in"
       is: är
       are: är
@@ -1247,7 +1247,7 @@ sv:
         mass: "längd, kg, m2 ..."
         time: "timme, dag, månad, ..."
         long_time: "vecka, månad, ..."
-        after_service_fee_you_will_get: "Efter %{service_name} serviceavgift så kommer du att få %{sum_with_currency}"
+        after_service_fee_you_will_get: "Efter %{service_name} serviceavgift så kommer du att få %{sum_with_currency} när du sålt varan"
         after_service_fee_you_will_get_vat: "Efter %{service_name} serviceavgift så kommer du att få ca. %{sum_with_currency} (moms 0%)"
         price_excludes_vat: "Priset inkluderar inte moms."
       origin:
@@ -1342,7 +1342,7 @@ sv:
       select_category: "Välj kategori"
       select_subcategory: "Välj underkategori"
       select_transaction_type: "Välj annonstyp"
-      you_need_to_fill_payout_details_before_accepting: "Du måste fylla i betalningsdetaljerna innan du kan acceptera förfrågan och ta emot betalning. Gå till %{payment_settings_link} för att fylla i detaljerna."
+      you_need_to_fill_payout_details_before_accepting: "Du måste fylla i dina utbetalningsdetaljer innan du kan lägga ut en annons. Gå till %{payment_settings_link} för att fylla i detaljerna."
       payment_settings_link: betalningsinställningar
     please_comment: Kommentar
     reply_link:
@@ -1391,7 +1391,7 @@ sv:
       by: "%{listing} av %{author}"
       payment: Betalning
       exp: "Exp:"
-      you_will_be_charged: "Du debiteras endast om %{author} accepterar transaktionen. %{author} behöver acceptera transaktionen inom %{expiration_period} dagar. Om %{author} avvisar eller inte svarar så sker ingen debitering."
+      you_will_be_charged: "OBS! Du debiteras endast om %{author} accepterar ditt köp. %{author} behöver acceptera köpet inom %{expiration_period} dagar. Om %{author} avvisar eller inte svarar så sker ingen debitering."
       day: dag
       days: dagar
       price_per_day: "Pris per dag: %{price}"
@@ -1451,7 +1451,7 @@ sv:
     commission: "%{commission} %"
     connected_account: "PayPal konto %{email} kopplades korrekt."
     new:
-      payout_info_you_need_to_connect: "För att acceptera betalningen så måste du koppla ditt PayPal konto med %{service_name}."
+      payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal konto med %{service_name}."
       payout_info_text: "Vänligen slutför dessa två steg för att koppla ditt konto."
       admin_account_not_connected: "Du kan inte koppla ditt PayPalkonto eftersom marknadsplatsens administratör har inte slutfört PayPalinställningarna."
       paypal_account_email: "1. Koppla ditt PayPal konto"
@@ -1572,8 +1572,8 @@ sv:
       reviews: "mottagna recensioner"
       listing: annons
       listings: annonser
-      open_listing: "öppna annons"
-      open_listings: "öppna annonser"
+      open_listing: "öppnad annons"
+      open_listings: "öppnade annonser"
       no_listings: "Inga annonser"
       no_open_listings: "Inga öppna annonser"
       no_reviews: "Inga recensioner"
@@ -1742,7 +1742,7 @@ sv:
       negative: Negativ
       default_textual_feedback: "Allt gick smidigt, tack så mycket!"
     testimonial:
-      about_listing: "om annonsen"
+      about_listing: "angående annonsen"
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
