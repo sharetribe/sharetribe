@@ -312,8 +312,8 @@ module TransactionService::Transaction
     charge_request =
       {
         transaction_id: transaction_id,
-        payment_name: I18n.t("paypal.transaction.commission_payment_name", { listing_title: transaction[:listing_title] }),
-        payment_desc: I18n.t("paypal.transaction.commission_payment_description", { listing_title: transaction[:listing_title] }),
+        payment_name: I18n.translate_with_service_name("paypal.transaction.commission_payment_name", { listing_title: transaction[:listing_title] }),
+        payment_desc: I18n.translate_with_service_name("paypal.transaction.commission_payment_description", { listing_title: transaction[:listing_title] }),
         minimum_commission: transaction[:minimum_commission],
         commission_to_admin: calculate_commission_to_admin(transaction[:commission_total], payment[:fee_total])
       }
