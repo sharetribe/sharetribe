@@ -742,7 +742,7 @@ en:
       added_listing: "%{name_link} added a listing:"
       update_mail_title: "%{title_link} update"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Here are some of the things that happened in %{community_link} during the past %{time_since_last_update}."
+      intro_paragraph: "Here are some of the things that happened on %{community_link} during the past %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Post a new listing!"
       reduce_email_footer_text: "Too much email? %{settings_link} or %{unsubscribe_link}."
