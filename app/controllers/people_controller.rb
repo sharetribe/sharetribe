@@ -141,7 +141,7 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def create_facebook_based
-    username = Person.available_username_based_on(session["devise.facebook_data"]["username"])
+    username = UserService::API::Users::available_username_based_on(session["devise.facebook_data"]["username"])
 
     person_hash = {
       :username => username,

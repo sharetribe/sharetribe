@@ -1,7 +1,9 @@
 describe UserService::API::Users do
+
   include UserService::API::Users
-  include(EmailSpec::Helpers)
-  include(EmailSpec::Matchers)
+
+  include EmailSpec::Helpers
+  include EmailSpec::Matchers
 
   before (:each) do
     @person_hash = {person: {
@@ -30,7 +32,7 @@ describe UserService::API::Users do
 
   end
 
-  describe "#create_user_and_make_a_member_of_community" do
+  describe "#create_user_with_membership" do
 
     before { ActionMailer::Base.deliveries = [] }
 
@@ -38,7 +40,7 @@ describe UserService::API::Users do
       expect(ActionMailer::Base.deliveries).to be_empty
 
       c = FactoryGirl.create(:community)
-      u = create_user_and_make_a_member_of_community(@person_hash, c.id)
+      u = create_user_with_membership(@person_hash, c.id)
       expect(ActionMailer::Base.deliveries).not_to be_empty
 
       email = ActionMailer::Base.deliveries.first

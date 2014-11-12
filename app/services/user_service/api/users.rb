@@ -3,9 +3,9 @@ module UserService::API
 
     module_function
 
-    def create_user_and_make_a_member_of_community(user_hash, community_id, invitation_id = nil)
+    def create_user_with_membership(user_hash, community_id, invitation_id = nil)
 
-      user = UserService::API::Users::create_user(user_hash, community_id)
+      user = create_user(user_hash, community_id)
 
       # The first member will be made admin
       MarketplaceService::API::Memberships::make_user_a_member_of_community(user.id, community_id, invitation_id)
@@ -33,9 +33,7 @@ module UserService::API
       params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
       params[:person][:test_group_number] = 1 + rand(4)
 
-      # TODO use code inside service only. (move this method to service and call
-      # that from earlier usage places too)
-      params[:person][:username] = Person.available_username_based_on(params[:person][:email].split("@").first)
+      params[:person][:username] = available_username_based_on(params[:person][:email].split("@").first)
 
       person = Person.new(params[:person].except(:email))
       email = Email.new(:person => person, :address => params[:person][:email].downcase, :send_notifications => true)
@@ -52,6 +50,25 @@ module UserService::API
       person.set_default_preferences
 
       return person
+    end
+
+    # returns the same if its available, otherwise "same1", "same2" etc.
+    # Changes most special characters to _ to match with current validations
+    def available_username_based_on(initial_name)
+      if initial_name.blank?
+        initial_name = "fb_name_missing"
+      end
+      current_name = initial_name.gsub(/[^A-Z0-9_]/i,"_")
+      current_name = current_name[0..17] #truncate to 18 chars or less (max is 20)
+
+      # use base_name as basis on new variations if current_name is not available
+      base_name = current_name
+      i = 1
+      while Person.find_by_username(current_name) do
+        current_name = "#{base_name}#{i}"
+        i += 1
+      end
+      return current_name
     end
 
   end

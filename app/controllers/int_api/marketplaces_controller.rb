@@ -18,7 +18,7 @@ class IntApi::MarketplacesController < ApplicationController
       locale: params[:marketplace_language]
     }
 
-    user = UserService::API::Users::create_user_and_make_a_member_of_community(person_hash, community.id)
+    user = UserService::API::Users::create_user_with_membership(person_hash, community.id)
 
     # TODO create auth token for the new admin and return that with the link
 

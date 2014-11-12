@@ -535,25 +535,6 @@ class Person < ActiveRecord::Base
     generate_reset_password_token! if should_generate_reset_token?
   end
 
-  # returns the same if its available, otherwise "same1", "same2" etc.
-  # Changes most special characters to _ to match with current validations
-  def self.available_username_based_on(initial_name)
-    if initial_name.blank?
-      initial_name = "fb_name_missing"
-    end
-    current_name = initial_name.gsub(/[^A-Z0-9_]/i,"_")
-    current_name = current_name[0..17] #truncate to 18 chars or less (max is 20)
-
-    # use base_name as basis on new variations if current_name is not available
-    base_name = current_name
-    i = 1
-    while self.find_by_username(current_name) do
-      current_name = "#{base_name}#{i}"
-      i += 1
-    end
-    return current_name
-  end
-
   # If image_file_name is null, it means the user
   # does not have a profile picture.
   def has_profile_picture?

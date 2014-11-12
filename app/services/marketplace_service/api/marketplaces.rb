@@ -1,6 +1,9 @@
 module MarketplaceService::API
 
   module Marketplaces
+    CommunityModel = ::Community
+
+    RESERVED_DOMAINS = %w(www home sharetribe login blog catch webhooks dashboard dashboardtranslate translate community wiki mail secure host feed feeds app)
 
     module_function
 
@@ -29,7 +32,7 @@ module MarketplaceService::API
         country: params[:marketplace_country] ? params[:marketplace_country].upcase : nil
       }
 
-      community = ::Community.create(community_params)
+      community = CommunityModel.create(community_params)
 
       TransactionTypeCreator.create(community, transaction_type_name)
       Helper.create_category!("Default", community, locale)
@@ -43,8 +46,6 @@ module MarketplaceService::API
 
       def available_domain_based_on(initial_domain)
 
-        # TODO should we have some names reserved for internal use?
-
         if initial_domain.blank?
           initial_domain = "trial_site"
         end
@@ -56,7 +57,7 @@ module MarketplaceService::API
         base_domain = current_domain
 
         i = 1
-        while ::Community.find_by_domain(current_domain) do
+        while CommunityModel.find_by_domain(current_domain) || RESERVED_DOMAINS.include?(current_domain) do
           current_domain = "#{base_domain}#{i}"
           i += 1
         end
