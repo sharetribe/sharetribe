@@ -169,6 +169,47 @@ describe PaypalService::DataTypes::IPN do
     "ipn_track_id"=>"cf5793483cf91"
   }
 
+  payment_completed_2 = {
+    "auth_amount" => "10.00",
+    "auth_exp" => "23:50:02 Nov 13, 2014 PST",
+    "auth_id" => "0J90174816752303G",
+    "auth_status" => "Completed",
+    "charset" => "windows-1252",
+    "controller" => "paypal_ipn",
+    "custom" => "",
+    "first_name" => "Payer",
+    "handling_amount" => "0.00",
+    "invoice" => "1809-56123",
+    "ipn_track_id" => "eecc20fabc404",
+    "item_name" => "",
+    "item_number" => "",
+    "last_name" => "PayerS",
+    "mc_currency" => "EUR",
+    "mc_gross" => "10.00",
+    "notify_version" => "3.8",
+    "parent_txn_id" => "O-4677591372287434H",
+    "payer_email" => "payper@ex.com",
+    "payer_id" => "HTLEEXWH2GJ5H",
+    "payer_status" => "verified",
+    "payment_date" => "05:32:02 Nov 10, 2014 PST",
+    "payment_gross" => "",
+    "payment_status" => "Completed",
+    "payment_type" => "instant",
+    "pending_reason" => "authorization",
+    "protection_eligibility" => "Ineligible",
+    "quantity" => "1",
+    "receiver_email" => "receiver@ex.com",
+    "receiver_id" => "XAOENU6KNJRCWC",
+    "remaining_settle" => "9",
+    "residence_country" => "FI",
+    "shipping" => "0.00",
+    "tax" => "0.00",
+    "transaction_entity" => "auth",
+    "transaction_subject" => "",
+    "txn_id" => "0J90171846752303G",
+    "txn_type" => "cart",
+  }
+
   payment_refunded = {
     "mc_gross"=>"-1.20",
     "auth_exp"=>"23:50:00 Oct 03, 2014 PDT",
@@ -208,6 +249,50 @@ describe PaypalService::DataTypes::IPN do
     "auth_status"=>"Completed",
     "ipn_track_id"=>"be492945b2622"
   }
+
+  payment_refunded_2 = {
+    "mp_custom"=>"",
+    "mc_gross"=>"-0.64",
+    "invoice"=>"56276-com",
+    "mp_currency"=>"EUR",
+    "protection_eligibility"=>"Ineligible",
+    "item_number1"=>"0",
+    "payer_id"=>"XW9NUKKUJACWC",
+    "payment_date"=>"05:25:00 Nov 10, 2014 PST",
+    "mp_id"=>"B-AOUSH3A4979771B",
+    "payment_status" => "Refunded",
+    "charset"=>"windows-1252",
+    "mc_shipping"=>"0.00",
+    "mc_handling"=>"0.00",
+    "first_name"=>"Payer",
+    "mp_status"=>"0",
+    "mc_fee"=>"-0.37",
+    "notify_version"=>"3.8",
+    "reason_code"=>"refund",
+    "custom"=>"",
+    "business"=>"business@sharetribe.com",
+    "mc_handling1"=>"0.00",
+    "verify_sign"=>"AAh-gjasoneuth1123345BYSjRRxpMh.TZTW6.sXma",
+    "payer_email"=>"payer@ex.com",
+    "mc_shipping1"=>"0.00",
+    "tax1"=>"0.00",
+    "parent_txn_id"=>"47AOU05AUAOU349131H",
+    "txn_id"=>"12344567",
+    "payment_type"=>"instant",
+    "last_name"=>"PayerS",
+    "mp_desc"=>"Grant RealMoneyPaypalMarketplace permission to charge a transaction fee.",
+    "item_name1"=>"Commission payment for %{listing_title}",
+    "receiver_email"=>"res@ex.com",
+    "payment_fee"=>"",
+    "mp_cycle_start"=>"10",
+    "quantity1"=>"1",
+    "receiver_id"=>"ABCDEC10FE",
+    "mc_gross_1"=>"0.64",
+    "mc_currency"=>"EUR",
+    "residence_country"=>"FI",
+    "transaction_subject"=>"Marketplace %{service_name} took this commission from transaction regarding %{listing_title}",
+    "payment_gross"=>"",
+    "ipn_track_id"=>"baf19293942b40"}
 
   billing_agreement_created = {
     "txn_type"=>"mp_signup",
@@ -309,9 +394,10 @@ describe PaypalService::DataTypes::IPN do
       [order_created, :order_created],
       [auth_created, :authorization_created],
       [payment_completed, :payment_completed],
-      [payment_refunded, :payment_refunded],
       [payment_pending_ext, :payment_pending_ext],
-      [payment_voided, :payment_voided]
+      [payment_voided, :payment_voided],
+      [payment_completed_2, :payment_completed],
+      [payment_refunded_2, :payment_refunded]
     ]
 
     input_with_expected_type.each do |(input, type)|
