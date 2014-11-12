@@ -62,7 +62,7 @@ module PaypalService
         [:receiver_email, :string, :mandatory],
         [:receiver_id, :string, :mandatory],
         [:payment_status, :string, :mandatory],
-        [:pending_reason, :string],
+        [:pending_reason, :none],
         [:receipt_id, :string],
         [:authorization_total, :money],
         [:payment_total, :money, :mandatory],
