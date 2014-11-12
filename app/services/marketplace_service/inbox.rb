@@ -212,7 +212,7 @@ module MarketplaceService
           MarketplaceService::Transaction::Entity.transition(transition_model)
         end
 
-        payment_gateway = MarketplaceService::Community::Query.payment_type(transaction[:community_id])
+        payment_gateway = transaction[:payment_gateway]
 
         payment_total =
           case payment_gateway
