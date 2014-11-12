@@ -264,17 +264,12 @@ class Community < ActiveRecord::Base
 
   attr_accessor :terms
 
-  def name(locale=nil)
-    if locale
-      cc = community_customizations.find_by_locale(locale)
-      (cc && cc.name) ? cc.name : super()
-    else
-      super()
-    end
+  def name(locale)
+    community_customizations.find_by_locale(locale).name
   end
 
   def full_name(locale)
-    settings["service_name"] ? settings["service_name"] : "Sharetribe #{name(locale)}"
+    name(locale)
   end
 
   # If community name has several words, add an extra space

@@ -12,7 +12,7 @@
   - elsif @current_community.allowed_emails
     %p
       = t('.email_restriction_instructions',
-            :community_name => @current_community.name,
+            :community_name => @current_community.name(I18n.locale),
             :allowed_emails => @current_community.allowed_emails,
             :count => (@current_community.allowed_emails.split(",").count))
 

@@ -435,7 +435,7 @@ module ApplicationHelper
 
   def service_name
     if @current_community
-      service_name = @current_community.service_name
+      service_name = @current_community.name(I18n.locale)
     else
       service_name = APP_CONFIG.global_service_name || "Sharetribe"
     end
@@ -469,7 +469,6 @@ module ApplicationHelper
     community = nil
     if community_id.present?
       community = Community.find_by_id(community_id)
-
     end
     store_community_service_name_to_thread_from_community(community)
   end
@@ -478,8 +477,11 @@ module ApplicationHelper
     ser_name = APP_CONFIG.global_service_name || "Sharetribe"
 
     # if community has it's own setting, dig it out here
-    if community && community.settings && community.settings["service_name"].present?
-      ser_name = community.settings["service_name"]
+    if community 
+      # TODO: To make sure that we always show the community name in correct locale,
+      # we should pass the right locale instead of using the first locale. An alternative
+      # fix would be to stop supporting having community name in multiple locales.
+      ser_name = community.name(community.locales.first)
     end
 
     store_community_service_name_to_thread(ser_name)

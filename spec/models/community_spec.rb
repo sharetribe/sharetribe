@@ -110,11 +110,11 @@ describe Community do
   end
 
   it "is not valid without proper name" do
-    @community.name = nil
+    @community.name('en') = nil
     @community.should_not be_valid
-    @community.name = "a"
+    @community.name('en') = "a"
     @community.should_not be_valid
-    @community.name = "a" * 51
+    @community.name('en') = "a" * 51
     @community.should_not be_valid
   end
 
