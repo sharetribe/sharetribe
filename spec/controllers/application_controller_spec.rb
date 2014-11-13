@@ -84,6 +84,17 @@ describe ApplicationController do
     end
   end
 
+  describe "#check_auth_token" do
+    it "logs person in when auth_token is valid" do
+      p1 = FactoryGirl.create(:person)
+      t = AuthToken.create!(:person_id => p1.id, :expires_at => 10.minutes.from_now, :token_type => "login")
+      get :index, {:auth => t.token}
+      response.status.should == 302 #redirection to url withouth token in query string
+      assigns("current_user").id.should == p1.id
+    end
+
+  end
+
   describe "#fetch_community" do
 
     controller do
