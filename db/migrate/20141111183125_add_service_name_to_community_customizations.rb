@@ -19,8 +19,8 @@ class AddServiceNameToCommunityCustomizations < ActiveRecord::Migration
       return community.settings["service_name"]
     elsif community_customization.name
       return community_customization.name
-    elsif community.read_attribute(name) 
-      return community.read_attribute(name)
+    elsif community.read_attribute(:name) 
+      return community.read_attribute(:name)
     else
       return APP_CONFIG.global_service_name || "Sharetribe"
     end
