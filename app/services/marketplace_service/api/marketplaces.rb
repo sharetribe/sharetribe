@@ -29,7 +29,8 @@ module MarketplaceService::API
         settings: {"locales" => [locale]},
         name: p[:marketplace_name].or_else("Trial Marketplace"),
         available_currencies: Helper.available_currencies_based_on(p[:marketplace_country].or_else("us")),
-        country: params[:marketplace_country] ? params[:marketplace_country].upcase : nil
+        country: params[:marketplace_country] ? params[:marketplace_country].upcase : nil,
+        paypal_enabled: true
       }
 
       community = CommunityModel.create(community_params)

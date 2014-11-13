@@ -54,6 +54,14 @@ describe MarketplaceService::API::Marketplaces do
       expect(c.transaction_types.first.class).to eql Service
     end
 
+    it "should have paypal and preauthorize_payments enabled by default" do
+      community_hash = create(@community_params)
+      c = Community.find(community_hash[:id])
+
+      expect(c.paypal_enabled).to be true
+      expect(c.transaction_types.pluck(:preauthorize_payment).all?).to be true
+    end
+
   end
 
 
