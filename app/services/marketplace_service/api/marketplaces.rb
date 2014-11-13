@@ -40,6 +40,7 @@ module MarketplaceService::API
       return from_model(community)
     end
 
+    # Create a Marketplace hash from Community model
     def from_model(community)
       hash = HashUtils.compact(
         EntityUtils.model_to_hash(community).merge({

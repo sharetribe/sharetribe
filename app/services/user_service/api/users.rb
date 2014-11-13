@@ -8,9 +8,9 @@ module UserService::API
       user = create_user(user_hash, community_id)
 
       # The first member will be made admin
-      MarketplaceService::API::Memberships::make_user_a_member_of_community(user.id, community_id, invitation_id)
+      MarketplaceService::API::Memberships::make_user_a_member_of_community(user[:id], community_id, invitation_id)
 
-      email = user.emails.first
+      email = Email.find_by_person_id!(user[:id])
       community = Community.find(community_id)
 
       # send email confirmation (unless disabled for testing environment)
@@ -49,7 +49,16 @@ module UserService::API
 
       person.set_default_preferences
 
-      return person
+      return from_model(person)
+    end
+
+    # Create a User hash from Person model
+    def from_model(person)
+      hash = HashUtils.compact(
+        EntityUtils.model_to_hash(person).merge({
+          # This is a spot to modify hash contents if needed
+          }))
+      return hash
     end
 
     # returns the same if its available, otherwise "same1", "same2" etc.

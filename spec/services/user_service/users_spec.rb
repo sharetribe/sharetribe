@@ -20,9 +20,9 @@ describe UserService::API::Users do
 
     it "should create a user" do
       u = create_user(@person_hash)
-      expect(u.given_name).to eql "Raymond"
+      expect(u[:given_name]).to eql "Raymond"
       expect(Person.find_by_username("ray").family_name).to eql "Xperiment"
-      expect(u.locale).to eql "fr"
+      expect(u[:locale]).to eql "fr"
     end
 
     it "should fail if email is taken" do
