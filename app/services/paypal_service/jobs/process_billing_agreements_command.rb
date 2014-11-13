@@ -1,6 +1,8 @@
 module PaypalService::Jobs
   class ProcessBillingAgreementsCommand < Struct.new(:process_token)
 
+    include DelayedAirbrakeNotification
+
     def perform
       ProcessCommand.run(
         process_token: process_token,

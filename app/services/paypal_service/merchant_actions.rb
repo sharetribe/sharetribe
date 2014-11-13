@@ -24,6 +24,20 @@ module PaypalService
     end
 
 
+    SANDBOX_EC_URL = "https://www.sandbox.paypal.com/checkoutnow"
+    LIVE_EC_URL = "https://www.paypal.com/checkoutnow"
+    TOKEN_PARAM = "token"
+
+    def express_checkout_url(api, token)
+      endpoint = api.config.mode.to_sym
+      if (endpoint == :sandbox)
+        URLUtils.append_query_param(SANDBOX_EC_URL, TOKEN_PARAM, token)
+      else
+        URLUtils.append_query_param(LIVE_EC_URL, TOKEN_PARAM, token)
+      end
+    end
+
+
     MERCHANT_ACTIONS = {
       setup_billing_agreement: PaypalAction.def_action(
         input_transformer: -> (req, config) {
@@ -52,7 +66,7 @@ module PaypalService
         output_transformer: -> (res, api) {
           DataTypes::Merchant.create_setup_billing_agreement_response({
             token: res.token,
-            redirect_url: api.express_checkout_url(res),
+            redirect_url: express_checkout_url(api, res.token),
             username_to: api.config.subject || api.config.username
           })
         }
@@ -163,7 +177,7 @@ module PaypalService
         output_transformer: -> (res, api) {
           DataTypes::Merchant.create_set_express_checkout_order_response({
             token: res.token,
-            redirect_url: append_useraction_commit(api.express_checkout_url(res)),
+            redirect_url: append_useraction_commit(express_checkout_url(api, res.token)),
             receiver_username: api.config.subject || api.config.username
           })
         }
