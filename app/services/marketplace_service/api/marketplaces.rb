@@ -49,7 +49,7 @@ module MarketplaceService::API
           }))
       # remove locale from settings as it's in the root level of the hash
       hash[:settings].delete("locales")
-      return hash
+      return MarketplaceService::API::DataTypes::create_marketplace(hash)
     end
 
     module Helper

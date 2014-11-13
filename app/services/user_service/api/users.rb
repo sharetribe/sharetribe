@@ -58,7 +58,7 @@ module UserService::API
         EntityUtils.model_to_hash(person).merge({
           # This is a spot to modify hash contents if needed
           }))
-      return hash
+      return UserService::API::DataTypes::create_user(hash)
     end
 
     # returns the same if its available, otherwise "same1", "same2" etc.
