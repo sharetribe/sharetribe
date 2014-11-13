@@ -37,7 +37,18 @@ module MarketplaceService::API
       TransactionTypeCreator.create(community, transaction_type_name)
       Helper.create_category!("Default", community, locale)
 
-      return community
+      return from_model(community)
+    end
+
+    def from_model(community)
+      hash = HashUtils.compact(
+        EntityUtils.model_to_hash(community).merge({
+            url: community.full_domain({with_protocol: true}),
+            locales: community.locales
+          }))
+      # remove locale from settings as it's in the root level of the hash
+      hash[:settings].delete("locales")
+      return hash
     end
 
     module Helper

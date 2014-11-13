@@ -7,7 +7,7 @@ class IntApi::MarketplacesController < ApplicationController
 
   # Creates a marketplace and an admin user for that marketplace
   def create
-    community = MarketplaceService::API::Marketplaces::create(params.slice(:marketplace_name, :marketplace_type, :marketplace_country, :marketplace_language))
+    marketplace = MarketplaceService::API::Marketplaces::create(params.slice(:marketplace_name, :marketplace_type, :marketplace_country, :marketplace_language))
 
     person_hash = {person: {
       given_name: params[:admin_first_name],
@@ -18,7 +18,7 @@ class IntApi::MarketplacesController < ApplicationController
       locale: params[:marketplace_language]
     }
 
-    user = UserService::API::Users::create_user_with_membership(person_hash, community.id)
+    user = UserService::API::Users::create_user_with_membership(person_hash, marketplace[:id])
 
     # TODO create auth token for the new admin and return that with the link
 
@@ -27,7 +27,7 @@ class IntApi::MarketplacesController < ApplicationController
     # TODO handle error cases with proper response
 
     response.status = 201
-    render :json => {"marketplace_url" => community.full_domain({with_protocol: true})} and return
+    render :json => {"marketplace_url" => marketplace[:url]} and return
   end
 
   # This could be more logical in different controller, but as implementing
