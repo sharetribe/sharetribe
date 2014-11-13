@@ -62,9 +62,11 @@ class ConfirmationsController < Devise::ConfirmationsController
       end
       flash[:notice] = t("layouts.notifications.additional_email_confirmed")
 
-      if @current_user
+      if @current_user && @current_user.has_admin_rights_in?(@current_community) #admins
+        redirect_to getting_started_admin_community_path(:id => @current_community.id) and return
+      elsif @current_user # normal logged in user
         redirect_to root and return
-      else
+      else # no logged in session
         redirect_to login_path and return
       end
     end

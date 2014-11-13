@@ -18,7 +18,7 @@
 #
 
 class Category < ActiveRecord::Base
-  attr_accessible :community_id, :parent_id, :translation_attributes, :transaction_type_attributes, :sort_priority
+  attr_accessible :community_id, :parent_id, :translation_attributes, :transaction_type_attributes, :sort_priority, :url
 
   has_many :subcategories, :class_name => "Category", :foreign_key => "parent_id", :dependent => :destroy, :order => "sort_priority"
   # children is a more generic alias for sub categories, used in classification.rb

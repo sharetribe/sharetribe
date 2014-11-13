@@ -28,6 +28,7 @@
 #  slogan                                     :string(255)
 #  description                                :text
 #  category                                   :string(255)      default("other")
+#  country                                    :string(255)
 #  members_count                              :integer          default(0)
 #  user_limit                                 :integer
 #  monthly_price_in_euros                     :float
