@@ -9,8 +9,6 @@ module TransactionService::DataTypes::TransitionMetadata
 
   module_function
 
-  def create_metadata(data)
-    TransitionMetadata.call(data).reject { |_, value| value.nil? }
-  end
+  def create_metadata(data); TransitionMetadata.call(data) end
 
 end
