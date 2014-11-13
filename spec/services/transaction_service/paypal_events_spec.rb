@@ -255,6 +255,14 @@ describe TransactionService::PaypalEvents do
 
       TransactionService::PaypalEvents.payment_updated(:success, @authorized_payment)
 
+      @pending_ext_payment = PaymentStore.update(@cid, @transaction_with_msg.id, {
+          payment_status: "pending",
+          pending_reason: "multicurrency",
+          authorization_id: "12345678"
+        })
+
+      TransactionService::PaypalEvents.payment_updated(:success, @pending_ext_payment)
+
       @denied_payment_with_msg = PaymentStore.update(@cid, @transaction_with_msg.id, {
           pending_reason: :none,
           payment_status: :denied
