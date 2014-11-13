@@ -201,10 +201,10 @@ module PaypalService::Store::PaypalPayment
   STATE_HIERARCHY = {
     order: 0,
     authorized: 1,
+    voided: 2,
     pending_ext: 2,
     completed: 3,
     denied: 4,
-    voided: 5
   }
 
   def valid_transition?(payment, payment_update)
