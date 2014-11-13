@@ -13,6 +13,7 @@ describe Api::ListingsController do
     Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
 
     @c1 = FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]})
+    @c1.community_customizations << FactoryGirl.create(:community_customization, :locale => "fi")
     @c2 = FactoryGirl.create(:community)
 
     @p1 = FactoryGirl.create(:person)

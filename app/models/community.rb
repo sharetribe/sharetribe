@@ -266,7 +266,11 @@ class Community < ActiveRecord::Base
 
   def name(locale=nil)
     if locale
-      community_customizations.find_by_locale(locale).name
+      if cc = community_customizations.find_by_locale(locale)
+        cc.name
+      else
+        community_customizations.find_by_locale(locales.first).name
+      end
     else
       # TODO: this is not required any more when we remove "name" column,
       # from community, this should be removed after that.
