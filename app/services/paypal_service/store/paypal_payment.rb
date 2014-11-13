@@ -192,7 +192,8 @@ module PaypalService::Store::PaypalPayment
     authorized: [:pending, :authorization],
     pending_ext: [:pending, :ext],
     completed: [:completed, :none],
-    voided: [:voided, :none]
+    voided: [:voided, :none],
+    denied: [:denied, :none]
   }
 
   INTERNAL_REASONS = [:none, :authorization, :order]
@@ -200,9 +201,10 @@ module PaypalService::Store::PaypalPayment
   STATE_HIERARCHY = {
     order: 0,
     authorized: 1,
+    voided: 2,
     pending_ext: 2,
     completed: 3,
-    voided: 4
+    denied: 4,
   }
 
   def valid_transition?(payment, payment_update)
@@ -213,7 +215,13 @@ module PaypalService::Store::PaypalPayment
   end
 
   def to_state(status, reason)
-    STATES.find { |state, arr| arr == [status, pending_ext_or_internal(reason)] }.first
+    state = STATES.find { |_, arr| arr == [status, pending_ext_or_internal(reason)] }
+
+    unless state.nil?
+      state.first
+    else
+      raise ArgumentError.new("No matching state for status: #{status} and reason: #{reason}.")
+    end
   end
 
   def pending_ext_or_internal(reason)

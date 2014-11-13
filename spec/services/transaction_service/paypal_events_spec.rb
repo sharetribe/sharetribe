@@ -233,4 +233,46 @@ describe TransactionService::PaypalEvents do
       expect(TransactionModel.where(id: @transaction_with_msg.id).pluck(:current_state).first).to eq "errored"
     end
   end
+
+  context "#payment_updated preauthorized -> denied" do
+    before(:each) do
+      PaymentStore.create(@cid, @transaction_with_msg.id, {
+          payer_id: "sduyfsudf",
+          receiver_id: "98ysdf98ysdf",
+          pending_reason: "authorization",
+          order_id: SecureRandom.uuid,
+          order_date: Time.now,
+          order_total: Money.new(22000, "EUR"),
+        })
+
+      @authorized_payment = PaymentStore.update(@cid, @transaction_with_msg.id, {
+          payment_status: "pending",
+          pending_reason: "authorization",
+          authorization_id: "12345678",
+          authorization_date: Time.now,
+          authorization_total: Money.new(22000, "EUR")
+        })
+
+      TransactionService::PaypalEvents.payment_updated(:success, @authorized_payment)
+
+      @pending_ext_payment = PaymentStore.update(@cid, @transaction_with_msg.id, {
+          payment_status: "pending",
+          pending_reason: "multicurrency",
+          authorization_id: "12345678"
+        })
+
+      TransactionService::PaypalEvents.payment_updated(:success, @pending_ext_payment)
+
+      @denied_payment_with_msg = PaymentStore.update(@cid, @transaction_with_msg.id, {
+          pending_reason: :none,
+          payment_status: :denied
+      })
+    end
+
+    it "on payment deny transitions the associated transaction to rejected" do
+      TransactionService::PaypalEvents.payment_updated(:success, @denied_payment_with_msg)
+      expect(TransactionModel.where(id: @transaction_with_msg.id).pluck(:current_state).first).to eq "rejected"
+      expect(TransactionTransition.where(transaction_id: @transaction_with_msg.id).pluck(:metadata)).to include({ "paypal_payment_status" => "denied" })
+    end
+  end
 end

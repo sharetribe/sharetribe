@@ -105,6 +105,18 @@ module PaypalService
         [:reason_code, :string]
       )
 
+      PaymentDenied = EntityUtils.define_builder(
+        [:type, const_value: :payment_denied],
+        [:payment_status, const_value: :denied],
+        [:pending_reason, const_value: :none],
+        [:payer_email, :string],
+        [:payer_id, :string, :mandatory],
+        [:receiver_id, :string, :mandatory],
+        [:receiver_email, :string, :mandatory],
+        [:authorization_id, :string, :mandatory],
+        [:payment_id, :string, :mandatory]
+      )
+
       module_function
 
       def create_order_created(opts); OrderCreated.call(opts) end
@@ -114,6 +126,7 @@ module PaypalService
       def create_billing_agreement_cancelled(opts); BillingAgreementCancelled.call(opts) end
       def create_payment_pending_ext(opts); PaymentPendingExt.call(opts) end
       def create_payment_voided(opts); PaymentVoided.call(opts) end
+      def create_payment_denied(opts); PaymentDenied.call(opts) end
 
       def from_params(params)
         p = HashUtils.symbolize_keys(params)
@@ -134,6 +147,8 @@ module PaypalService
           to_payment_pending_ext(p)
         when :payment_voided
           to_payment_voided(p)
+        when :payment_denied
+          to_payment_denied(p)
         else
           { type: type }
         end
@@ -160,6 +175,8 @@ module PaypalService
           return :payment_refunded
         elsif status == "voided"
           return :payment_voided
+        elsif status == "denied"
+          return :payment_denied
         else
           return :unknown
         end
@@ -278,6 +295,19 @@ module PaypalService
         create_billing_agreement_cancelled(p)
       end
       private_class_method :to_billing_agreement_cancelled
+
+      def to_payment_denied(params)
+        p = HashUtils.rename_keys(
+          {
+            auth_id: :authorization_id,
+            parent_txn_id: :payment_id
+          },
+          params
+        )
+
+        create_payment_denied(p)
+      end
+      private_class_method :to_payment_denied
 
     end
   end

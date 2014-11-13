@@ -228,6 +228,7 @@ module MarketplaceService
 
         metadata_hash = Maybe(metadata)
           .map { |data| TransactionService::DataTypes::TransitionMetadata.create_metadata(data) }
+          .map { |data| HashUtils.compact(data) }
           .or_else(nil)
 
         state_machine = TransactionProcess.new(transaction, transition_class: TransactionTransition)
