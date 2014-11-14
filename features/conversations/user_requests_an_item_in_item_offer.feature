@@ -15,6 +15,7 @@ Feature: User requests an item in item offer
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
+    And I fill rent time for 7 days
     And I press "Rent this item"
     And I fill in "Message" with "I want to borrow this item"
     And I press "Rent this item"

@@ -48,6 +48,8 @@ describe MarketplaceService::API::Marketplaces do
       community_hash = create(@community_params.merge({:marketplace_type => "rental"}))
       c = Community.find(community_hash[:id])
       expect(c.transaction_types.first.class).to eql Rent
+      expect(c.transaction_types.first.price_per).to eql "day"
+      expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
 
       community_hash = create(@community_params.merge({:marketplace_type => "service"}))
       c = Community.find(community_hash[:id])
