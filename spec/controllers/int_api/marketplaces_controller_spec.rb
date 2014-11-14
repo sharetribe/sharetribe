@@ -17,7 +17,7 @@ describe IntApi::MarketplacesController do
       response.status.should == 201
 
       r = JSON.parse(response.body)
-      expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}"
+      expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
 
       c = Community.find_by_name("ImaginationTraders")
       expect(c).to_not be_nil

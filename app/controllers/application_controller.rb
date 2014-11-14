@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   before_filter :show_maintenance_page
 
   before_filter :force_ssl,
+    :check_auth_token,
     :fetch_logged_in_user,
     :dashboard_only,
     :single_community_only,
@@ -262,6 +263,21 @@ class ApplicationController < ActionController::Base
 
   def fetch_translations
     WebTranslateIt.fetch_translations
+  end
+
+  def check_auth_token
+    user_to_log_in = UserService::API::AuthTokens::use_token_for_login(params[:auth])
+    person = Person.find(user_to_log_in[:id]) if user_to_log_in
+
+    if person
+      sign_in(person)
+      @current_user = person
+
+      # Clean the URL from the used token
+      path_without_auth_token = URLUtils.remove_query_param(request.fullpath, "auth")
+      redirect_to path_without_auth_token
+    end
+
   end
 
   def force_ssl
