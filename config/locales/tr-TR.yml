@@ -969,6 +969,9 @@ tr-TR:
       default_about_text_title: ~
       default_about_text: ~
       click_here_link_text: ~
+    how_to_use:
+      default_title: ~
+      default_content: ~
   layouts:
     admin:
       admin: "%{service_name} yönetici paneli"
@@ -1014,7 +1017,7 @@ tr-TR:
     logged_in:
       admin: Yönetici
       go_to_your_profile_page: Profil
-      hi: Selam
+      hi: Merhaba
       login: "Oturum aç"
       logout: "Oturumu kapat"
       notifications: Bildirimler

@@ -986,6 +986,9 @@ sv:
       default_about_text_title: "Vad är Sharetribe?"
       default_about_text: "Denna marknadsplats drivs av Sharetribe. Med Sharetribe så kan du enkelt skapa din egen marknadsplatssida. Det är gratis och det tar bara några minuter. %{click_here_link} för att läsa mer!"
       click_here_link_text: "Klicka här"
+    how_to_use:
+      default_title: ~
+      default_content: ~
   layouts:
     admin:
       admin: "%{service_name} admin panel"

@@ -28,13 +28,13 @@ da-DK:
         remove_category: "Fjern kategori"
         remove_category_name: "Slet kategorien '%{category_name}'"
         warning_remove_effects: "Advarsel! Hvis du sletter kategorien '%{category_name}' vil det have følgende konsekvenser:"
+        warning_listing_will_be_moved:
+          one: "Der er %{count} annonce i denne kategorien. De vil blive flyttet til den valgte kategori."
+          other: "Der er %{count} annoncer i denne kategorien. De vil blive flyttet til den valgte kategori."
         select_new_category: ~
         buttons:
           remove: ~
           cancel: ~
-        warning_listing_will_be_moved:
-          one: "Der er %{count} annonce i denne kategorien. De vil blive flyttet til den valgte kategori."
-          other: "Der er %{count} annoncer i denne kategorien. De vil blive flyttet til den valgte kategori."
     communities:
       edit_details:
         community_details: ~
@@ -972,6 +972,9 @@ da-DK:
       default_about_text_title: "What er Sharetribe?"
       default_about_text: "Denne markedsplads er drevet af Sharetribe's platform. Med Sharetribe kan du nemt oprette din egen markedsplads. Det er gratis og tager kun enkelte minutter at komme i gang. %{click_here_link} for at høre nærmere!"
       click_here_link_text: "Klik her"
+    how_to_use:
+      default_title: ~
+      default_content: ~
   layouts:
     admin:
       admin: "%{service_name} administrator panel"
@@ -1498,6 +1501,9 @@ da-DK:
       email_is_in_use: "Den e-mail, du gav, er allerede i brug."
       email_is_in_use_or_not_allowed: "Denne e-mail er ikke tilladt, eller det er allerede i brug. Hvis du ikke kan få i, så kontakt os."
       email_not_allowed: ~
+      email_restriction_instructions:
+        one: "Du har ikke adgang til serveren %{service_name}. For at få adgang skal du bruge en %{allowed_emails} email adresse."
+        other: "Du har ikke adgang til serveren %{service_name}. For at få adgang skal du bruge en godkendt emailadresse."
       enter_captcha: "Jeg er et menneske:"
       family_name: efternavn
       given_name: Fornavn
@@ -1517,9 +1523,6 @@ da-DK:
       create_account_with_facebook: "Tilmeld dig med Facebook"
       OR: ~
       signup_with_email: ~
-      email_restriction_instructions:
-        one: "Du har ikke adgang til serveren %{service_name}. For at få adgang skal du bruge en %{allowed_emails} email adresse."
-        other: "Du har ikke adgang til serveren %{service_name}. For at få adgang skal du bruge en godkendt emailadresse."
     not_member:
       explanation_text: "Du kigger i øjeblikket %{community}. Du har forsøgt at se profilen for en bruger, der er medlem af en anden markedsplads oprettet med Sharetribe platform. Du kan ikke få adgang til denne brugers profil i %{community}."
       read_more_about_kassi_communities: "Læs mere om Sharetribe markedspladser"

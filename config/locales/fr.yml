@@ -984,6 +984,9 @@ fr:
       default_about_text_title: "Qu'est ce que Sharetribe ?"
       default_about_text: "Cette place de marché a été créé grâce à la plate-forme Sharetribe. Avec Sharetribe, vous pouvez facilement créer votre place de marché en ligne. C'est gratuit et ne prend que quelques minutes ! %{click_here_link} pour en savoir plus !"
       click_here_link_text: "Cliquez ici"
+    how_to_use:
+      default_title: ~
+      default_content: ~
   layouts:
     admin:
       admin: "Panneau d'administration %{service_name}"

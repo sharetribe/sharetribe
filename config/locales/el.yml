@@ -969,6 +969,9 @@ el:
       default_about_text_title: "Τι είναι το Sharetribe;"
       default_about_text: "Αυτή η αγορά βασίζεται στην πλατφόρμα Sharetribe. Με το Sharetribe μπορείτε κι εσείς να δημιουργήσετε την δική σας αγορά online. Είναι εύκολο και δωρεάν. %{click_here_link} για να μάθετε περισσότερα!"
       click_here_link_text: "Πατήστε εδώ"
+    how_to_use:
+      default_title: ~
+      default_content: ~
   layouts:
     admin:
       admin: "Διαχείριση του %{service_name}"
