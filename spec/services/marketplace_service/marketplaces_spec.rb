@@ -64,6 +64,14 @@ describe MarketplaceService::API::Marketplaces do
       expect(c.transaction_types.pluck(:preauthorize_payment).all?).to be true
     end
 
+    it "should have community customizations" do
+      community_hash = create(@community_params)
+      c = Community.find(community_hash[:id])
+
+      expect(c.community_customizations.count).to eql 1
+      expect(c.community_customizations.pluck(:locale).first).to eql "es"
+    end
+
   end
 
 
