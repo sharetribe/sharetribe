@@ -798,7 +798,7 @@ sv:
       you_must_explain_not_neutral_feedback: "Om du vill ge en icke-neutral feedback, måste du förklara varför."
       you_must_select_a_grade: "Kom ihåg att berätta om din erfarenhet var positiv eller negativ."
     transaction_agreement:
-      required_error: ~
+      required_error: "Du behöver acceptera avtalet"
     paypal:
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din PayPal betalning."
       cancel_error: "Ett fel inträffade. Det gick ej att slutföra."
@@ -1067,7 +1067,7 @@ sv:
       additional_email_confirmed: "E-postadressen du skrev in är nu bekräftad."
       could_not_get_email_from_facebook: "Kunde inte hitta någon e-postadress från Facebook. Det går inte att skapa ett konto utan e-postadress."
       create_new_listing: "Skapa en ny annons"
-      create_one_here: "skapa en här"
+      create_one_here: "skapa ett här"
       email_confirmation_sent_to_new_address: "E-postbekräftelse har nu skickats till den nya adressen."
       email_not_found: "Den e-postadress du gav oss hittades inte från %{service_name} databasen."
       error_with_session: "Fel med session."
