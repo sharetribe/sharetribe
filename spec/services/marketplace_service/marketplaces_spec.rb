@@ -54,6 +54,9 @@ describe MarketplaceService::API::Marketplaces do
       community_hash = create(@community_params.merge({:marketplace_type => "service"}))
       c = Community.find(community_hash[:id])
       expect(c.transaction_types.first.class).to eql Service
+
+      # check that category and transaction type are linked
+      expect(c.transaction_types.first.categories.first).to eql c.categories.first
     end
 
     it "should have paypal and preauthorize_payments enabled by default" do

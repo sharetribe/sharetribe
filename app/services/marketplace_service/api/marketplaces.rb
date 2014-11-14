@@ -16,8 +16,8 @@ module MarketplaceService::API
       community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
 
       Helper.create_community_customization!(community, marketplace_name, locale)
-      Helper.create_transaction_type!(community, p[:marketplace_type])
-      Helper.create_category!("Default", community, locale)
+      t = Helper.create_transaction_type!(community, p[:marketplace_type])
+      Helper.create_category!("Default", community, locale, t.id)
 
       return from_model(community)
     end
@@ -107,10 +107,13 @@ module MarketplaceService::API
         Maybe(MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[country_code.upcase]).or_else("USD")
       end
 
-      def create_category!(category_name, community, locale)
+      def create_category!(category_name, community, locale, transaction_type_id=nil)
         category = Category.create!(:community_id => community.id, :url => category_name.downcase)
         CategoryTranslation.create!(:category_id => category.id, :locale => locale, :name => category_name)
 
+        if transaction_type_id
+          CategoryTransactionType.create!(:category_id => category.id, :transaction_type_id => transaction_type_id)
+        end
       end
 
     end
