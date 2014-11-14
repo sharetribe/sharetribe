@@ -22,18 +22,24 @@ module MarketplaceService::API
           "Sell"
         end
 
+      marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
 
       community_params = {
         consent: "SHARETRIBE1.0",
         domain: Helper.available_domain_based_on(params[:marketplace_name]),
         settings: {"locales" => [locale]},
-        name: p[:marketplace_name].or_else("Trial Marketplace"),
+        name: marketplace_name,
         available_currencies: Helper.available_currencies_based_on(p[:marketplace_country].or_else("us")),
         country: params[:marketplace_country] ? params[:marketplace_country].upcase : nil,
         paypal_enabled: true
       }
-
       community = CommunityModel.create(community_params)
+
+      customization_params = {
+        name: marketplace_name,
+        locale: locale
+      }
+      community.community_customizations.create(customization_params)
 
       TransactionTypeCreator.create(community, transaction_type_name)
       Helper.create_category!("Default", community, locale)
