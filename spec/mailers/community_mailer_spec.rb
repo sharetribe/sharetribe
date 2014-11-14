@@ -16,7 +16,7 @@ describe "CommunityMailer" do
 
     before(:each) do
       @c1 = FactoryGirl.create(:community)
-      @c1.update_attribute(:settings, @c1.settings.merge({"service_name" => "MarketTestPlace"}))
+      @c1.community_customizations.first.update_attribute(:name, "MarketTestPlace")
 
       @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
       @p1.communities << @c1

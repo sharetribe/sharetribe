@@ -54,7 +54,7 @@ class MoveCustomHeadScriptToCommunity < ActiveRecord::Migration
 
 Different custom head scripts for different locales are no longer supported.
 
-Community #{community.name} (id=#{community.id}) has two custom head scripts that differ:
+This community (id=#{community.id}) has two custom head scripts that differ:
 END
     
     differing_scripts.each do |script|

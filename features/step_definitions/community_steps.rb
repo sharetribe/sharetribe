@@ -36,7 +36,13 @@ Given /^the test community has following available locales:$/ do |locale_table|
   end
 
   #here is expected that the first community is the test community where the subdomain is pointing by default
-  Community.first.update_attributes({:settings => { "locales" => @locales }})
+  community = Community.first
+  community.update_attributes({:settings => { "locales" => @locales }})
+  community.locales.each do |locale|
+    unless community.community_customizations.find_by_locale(locale)
+      community.community_customizations.create(:locale => locale, :name => "Sharetribe")
+    end
+  end
 end
 
 Given /^the terms of community "([^"]*)" are changed to "([^"]*)"$/ do |community, terms|

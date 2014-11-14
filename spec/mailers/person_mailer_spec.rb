@@ -186,7 +186,7 @@ describe PersonMailer do
     end
 
     it "should contain custom content if that is defined for the community" do
-      @c1.community_customizations.create(:locale => "en", :welcome_email_content => "Custom email")
+      @c1.community_customizations.first.update_attribute(:welcome_email_content, "Custom email")
       @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
       @email.should have_body_text "Custom email"
       @email.should_not have_body_text "Add something you could offer to others."

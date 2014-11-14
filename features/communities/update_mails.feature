@@ -12,7 +12,7 @@ Feature: Community members receive email updates
     And community updates get delivered
     Then I should have 1 email
     When I open the email
-    Then I should see "Sharetribe Test update" in the email subject
+    Then I should see "Sharetribe update" in the email subject
     And I should see the email delivered from "marketplace@example.com"
 
   Scenario: Community member does not receive email updates if community does not send them

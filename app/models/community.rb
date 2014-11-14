@@ -266,15 +266,20 @@ class Community < ActiveRecord::Base
 
   def name(locale=nil)
     if locale
-      cc = community_customizations.find_by_locale(locale)
-      (cc && cc.name) ? cc.name : super()
+      if cc = community_customizations.find_by_locale(locale)
+        cc.name
+      else
+        community_customizations.find_by_locale(locales.first).name
+      end
     else
-      super()
+      # TODO: this is not required any more when we remove "name" column,
+      # from community, this should be removed after that.
+      read_attribute(:name)
     end
   end
 
   def full_name(locale)
-    settings["service_name"] ? settings["service_name"] : "Sharetribe #{name(locale)}"
+    name(locale)
   end
 
   # If community name has several words, add an extra space
