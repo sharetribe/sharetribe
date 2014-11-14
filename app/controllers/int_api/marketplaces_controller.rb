@@ -21,8 +21,8 @@ class IntApi::MarketplacesController < ApplicationController
 
     user = UserService::API::Users::create_user_with_membership(person_hash, marketplace[:id])
 
-    auth_token = AuthToken.create(:person_id => user[:id], :expires_at => 10.minutes.from_now, :token_type => "login")
-    url = marketplace[:url] + "?auth=" + auth_token.token
+    auth_token = UserService::API::AuthTokens::create_login_token(user[:id])
+    url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])
 
     # TODO Add user to mailchimp list
 

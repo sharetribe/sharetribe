@@ -266,29 +266,16 @@ class ApplicationController < ActionController::Base
   end
 
   def check_auth_token
-    if params[:auth]
-      unless person_signed_in?  #if cookie and session already set up, ignore auth token
-        if t = AuthToken.find_by_token(params[:auth])
-          t.last_use_attempt = Time.now # record the usage attempt to see how people use tokens
-          if t.expires_at > Time.now && t.usages_left > 0 && t.token_type == "login"
-            # Token is valid for login
-            sign_in(t.person)
-            @current_user = t.person
-            t.usages_left = t.usages_left - 1
+    user_to_log_in = UserService::API::AuthTokens::use_token_for_login(params[:auth])
+    person = Person.find(user_to_log_in[:id]) if user_to_log_in
 
-            #if url had a working auth param, remove it.
-            path_without_auth_token = request.fullpath.gsub(/auth=[^\&]*(\&?)/,"")
-            redirect_to path_without_auth_token
-          else
-            # no flash now, just silently ignore invalid tokens
-            #flash.now[:warning] = "auth_token_expired"
-          end
-          t.save
-        else
-          # no flash now, just silently ignore invalid tokens
-          #flash.now[:warning] = "auth_token_not_found"
-        end
-      end
+    if person
+      sign_in(person)
+      @current_user = person
+
+      # Clean the URL from the used token
+      path_without_auth_token = URLUtils.remove_query_param(request.fullpath, "auth")
+      redirect_to path_without_auth_token
     end
 
   end
