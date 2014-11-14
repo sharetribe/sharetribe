@@ -54,7 +54,7 @@ module MarketplaceService::API
         {
           name: marketplace_name,
           locale: locale,
-          how_to_use_page_content: how_to_use_page_content(locale)
+          how_to_use_page_content: how_to_use_page_default_content(locale, marketplace_name)
         }
       end
 
@@ -78,8 +78,8 @@ module MarketplaceService::API
         end
       end
 
-      def how_to_use_page_content(locale)
-        "<h1>#{I18n.translate_with_service_name("infos.how_to_use.default_title", locale: locale)}</h1><div>#{I18n.translate_with_service_name("infos.how_to_use.default_content", locale: locale)}</div>"
+      def how_to_use_page_default_content(locale, marketplace_name)
+        "<h1>#{I18n.t("infos.how_to_use.default_title", locale: locale)}</h1><div>#{I18n.t("infos.how_to_use.default_content", locale: locale, :marketplace_name => marketplace_name)}</div>"
       end
 
       def available_domain_based_on(initial_domain)
