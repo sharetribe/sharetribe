@@ -3,7 +3,7 @@ module MarketplaceService::API
   module Marketplaces
     CommunityModel = ::Community
 
-    RESERVED_DOMAINS = %w(www home sharetribe login blog catch webhooks dashboard dashboardtranslate translate community wiki mail secure host feed feeds app)
+    RESERVED_DOMAINS = %w(www home sharetribe login blog catch webhooks dashboard dashboardtranslate translate community wiki mail secure host feed feeds app beta-site)
 
     module_function
 
