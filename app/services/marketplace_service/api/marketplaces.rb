@@ -8,41 +8,15 @@ module MarketplaceService::API
     module_function
 
     def create(params)
-
       p = Maybe(params)
 
       locale = p[:marketplace_language].or_else("en")
-
-      transaction_type_name = case p[:marketplace_type].or_else("product")
-        when "rental"
-          "Rent"
-        when "service"
-          "Service"
-        else # also "product" goes to this default
-          "Sell"
-        end
-
       marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
 
-      community_params = {
-        consent: "SHARETRIBE1.0",
-        domain: Helper.available_domain_based_on(params[:marketplace_name]),
-        settings: {"locales" => [locale]},
-        name: marketplace_name,
-        available_currencies: Helper.available_currencies_based_on(p[:marketplace_country].or_else("us")),
-        country: params[:marketplace_country] ? params[:marketplace_country].upcase : nil,
-        paypal_enabled: true
-      }
-      community = CommunityModel.create(community_params)
+      community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
 
-      customization_params = {
-        name: marketplace_name,
-        locale: locale,
-        how_to_use_page_content: Helper.how_to_use_page_content(locale)
-      }
-      community.community_customizations.create(customization_params)
-
-      TransactionTypeCreator.create(community, transaction_type_name)
+      Helper.create_community_customization!(community, marketplace_name, locale)
+      Helper.create_transaction_type!(community, p[:marketplace_type])
       Helper.create_category!("Default", community, locale)
 
       return from_model(community)
@@ -63,6 +37,46 @@ module MarketplaceService::API
     module Helper
 
       module_function
+
+      def community_params(params, marketplace_name, locale)
+        {
+          consent: "SHARETRIBE1.0",
+          domain: available_domain_based_on(params[:marketplace_name].get),
+          settings: {"locales" => [locale]},
+          name: marketplace_name,
+          available_currencies: available_currencies_based_on(params[:marketplace_country].or_else("us")),
+          country: params[:marketplace_country].upcase.or_else(nil),
+          paypal_enabled: true
+        }
+      end
+
+      def customization_params(marketplace_name, locale)
+        {
+          name: marketplace_name,
+          locale: locale,
+          how_to_use_page_content: how_to_use_page_content(locale)
+        }
+      end
+
+      def create_transaction_type!(community, marketplace_type)
+        transaction_type_name = transaction_type_name(marketplace_type)
+        TransactionTypeCreator.create(community, transaction_type_name)
+      end
+
+      def create_community_customization!(community, marketplace_name, locale)
+        community.community_customizations.create(customization_params(marketplace_name, locale))
+      end
+
+      def transaction_type_name(type)
+       case type.or_else("product")
+        when "rental"
+          "Rent"
+        when "service"
+          "Service"
+        else # also "product" goes to this default
+          "Sell"
+        end
+      end
 
       def how_to_use_page_content(locale)
         "<h1>#{I18n.translate_with_service_name("infos.how_to_use.default_title", locale: locale)}</h1><div>#{I18n.translate_with_service_name("infos.how_to_use.default_content", locale: locale)}</div>"
