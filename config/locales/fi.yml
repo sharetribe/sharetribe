@@ -984,6 +984,9 @@ fi:
       default_about_text_title: "Mikä on Sharetribe?"
       default_about_text: "Tämä sivusto on luotu Sharetribe-alustalla. Sharetriben avulla kuka tahansa voi perustaa oman verkkotorin. Haluaisitko perustaa tällaisen sivuston? Se on ilmaista ja onnistuu minuutissa. %{click_here_link}"
       click_here_link_text: "Lue lisää!"
+    how_to_use:
+      default_title: "Miten palvelu toimii"
+      default_content: "Tällä sivulla kerrotaan, miten %{service_name}-palvelu toimii."
   layouts:
     admin:
       admin: Ylläpitonäkymä

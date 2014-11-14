@@ -984,6 +984,9 @@ en:
       default_about_text_title: "What is Sharetribe?"
       default_about_text: "This marketplace is powered by Sharetribe platform. With Sharetribe you can easily create your own marketplace website. It's free and only takes a minute. %{click_here_link} to learn more!"
       click_here_link_text: "Click here"
+    how_to_use:
+      default_title: "How it works"
+      default_content: "Here you can find information about how %{service_name} works."
   layouts:
     admin:
       admin: "%{service_name} admin panel"

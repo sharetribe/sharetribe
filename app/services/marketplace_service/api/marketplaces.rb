@@ -37,7 +37,8 @@ module MarketplaceService::API
 
       customization_params = {
         name: marketplace_name,
-        locale: locale
+        locale: locale,
+        how_to_use_page_content: Helper.how_to_use_page_content(locale)
       }
       community.community_customizations.create(customization_params)
 
@@ -62,6 +63,10 @@ module MarketplaceService::API
     module Helper
 
       module_function
+
+      def how_to_use_page_content(locale)
+        "<h1>#{I18n.translate_with_service_name("infos.how_to_use.default_title", locale: locale)}</h1><div>#{I18n.translate_with_service_name("infos.how_to_use.default_content", locale: locale)}</div>"
+      end
 
       def available_domain_based_on(initial_domain)
 
