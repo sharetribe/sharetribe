@@ -450,7 +450,7 @@ class PersonMailer < ActionMailer::Base
 
   end
 
-  def welcome_email(person, community, regular_email=nil)
+  def welcome_email(person, community, regular_email=nil, test_email=false)
     @recipient = person
     set_locale @recipient.locale
     @current_community = community
@@ -460,8 +460,13 @@ class PersonMailer < ActionMailer::Base
     @url_params[:locale] = @recipient.locale
     @url_params[:ref] = "welcome_email"
     @url_params.freeze # to avoid accidental modifications later
+    @test_email = test_email
 
-    subject = t("emails.welcome_email.welcome_email_subject", :community => @current_community.full_name(@recipient.locale), :person => person.given_name_or_username)
+    if @recipient.has_admin_rights_in?(@current_community) && !@test_email
+      subject = t("emails.welcome_email.welcome_email_subject_for_marketplace_creator")
+    else
+      subject = t("emails.welcome_email.welcome_email_subject", :community => @current_community.full_name(@recipient.locale), :person => person.given_name_or_username)
+    end
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => subject) do |format|

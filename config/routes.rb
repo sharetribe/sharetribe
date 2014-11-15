@@ -33,6 +33,11 @@ Kassi::Application.routes.draw do
   match "/change_locale" => "i18n#change_locale", :as => :change_locale
 
 
+  # Prettier link for admin panel
+  namespace :admin do
+    match '' => "communities#getting_started"
+  end
+
   # Internal API
   namespace :int_api do
     post "/create_trial_marketplace" => "marketplaces#create"
@@ -118,6 +123,7 @@ Kassi::Application.routes.draw do
     end
 
     namespace :admin do
+
       resources :communities do
         member do
           get :getting_started, to: 'communities#getting_started'
