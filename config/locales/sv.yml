@@ -987,8 +987,8 @@ sv:
       default_about_text: "Denna marknadsplats drivs av Sharetribe. Med Sharetribe så kan du enkelt skapa din egen marknadsplatssida. Det är gratis och det tar bara några minuter. %{click_here_link} för att läsa mer!"
       click_here_link_text: "Klicka här"
     how_to_use:
-      default_title: ~
-      default_content: ~
+      default_title: "Hur det fungerar"
+      default_content: "Här hittar du information om hur %{service_name} fungerar."
   layouts:
     admin:
       admin: "%{service_name} admin panel"
@@ -1456,12 +1456,12 @@ sv:
     commission: "%{commission} %"
     connected_account: "PayPal konto %{email} kopplades korrekt."
     new:
-      payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal konto med %{service_name}."
+      payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal-konto med %{service_name}."
       payout_info_text: "Vänligen slutför dessa två steg för att koppla ditt konto."
       admin_account_not_connected: "Du kan inte koppla ditt PayPalkonto eftersom marknadsplatsens administratör har inte slutfört PayPalinställningarna."
       paypal_account_email: "1. Koppla ditt PayPal konto"
       paypal_account_email_placeholder: "Din PayPal e-postadress"
-      paypal_account_email_info_text: "Notera: Du behöver PayPal premiumkonto (för privatpersoner) eller businesskonto (för företag) för att ta emot betalning. Om du har ett personligt PayPal-konto så kan du uppgradera ditt konto till premium. Det är gratis och tar bara några minuter. %{upgrade_paypal_account}. Om du inte har ett PayPal-konto än så kan du skapa ett nytt %{create_paypal_account}. Ditt PayPal-konto måste vara konfigurerat att kunna ta emot %{currency}."
+      paypal_account_email_info_text: "Notera: du behöver ett PayPal premiumkonto (för privatpersoner) eller företagskonto (för företag) för att du ska kunna ta emot betalning. Om du har ett personligt PayPal-konto så kan du uppgradera ditt konto. Det är gratis och tar bara någon minut. %{upgrade_paypal_account} Om du inte har ett PayPal-konto än så kan du skapa ett nytt %{create_paypal_account}. Ditt PayPal-konto måste vara konfigurerat att kunna ta emot %{currency}."
       create_paypal_account: här
       upgrade_paypal_account: "Uppgradera ditt konto här."
       connect_paypal_account: "Koppla ditt PayPal konto"
