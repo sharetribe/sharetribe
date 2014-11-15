@@ -520,6 +520,7 @@ it:
         paypal:
           multicurrency: "In attesa che tu accetti il pagamento PayPal"
           intl: "In attesa che tu accetti il pagamento PayPal"
+          unknown_reason: ~
           verify: "In attesa che tu verifichi il tuo conto PayPal"
     status_link:
       accept_offer: "Accetta offerta"
