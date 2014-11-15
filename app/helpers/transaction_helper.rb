@@ -99,8 +99,17 @@ module TransactionHelper
               text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
             }
           }
-        when "other"
-
+        else # some pending_ext reason we don't have special message for
+          {
+            author: {
+              icon: icon_waiting_you,
+              text: t("conversations.status.pending_external_inbox.paypal.unknown_reason")
+            },
+            starter: {
+              icon: icon_waiting_other,
+              text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
+            }
+          }
         end
       },
 

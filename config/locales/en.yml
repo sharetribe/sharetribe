@@ -535,6 +535,7 @@ en:
         paypal:
           multicurrency: "Waiting for you to accept the PayPal payment"
           intl: "Waiting for you to accept the PayPal payment"
+          unknown_reason: "Payment is pending. Log in to your PayPal account to see more details."
           verify: "Waiting for you to verify your PayPal account"
     status_link:
       accept_offer: "Accept offer"

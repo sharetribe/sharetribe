@@ -535,6 +535,7 @@ fi:
         paypal:
           multicurrency: "Odottaa että hyväksyt PayPal-maksun"
           intl: "Odottaa että hyväksyt PayPal-maksun"
+          unknown_reason: "Maksu odottaa. Voit kirjautua Paypal-tilillesi nähdäksesi lisätietoja"
           verify: "Odottaa että vahvistat PayPal-tilisi"
     status_link:
       accept_offer: "Hyväksy tarjous"
