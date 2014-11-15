@@ -520,6 +520,7 @@ el:
         paypal:
           multicurrency: ~
           intl: ~
+          unknown_reason: ~
           verify: ~
     status_link:
       accept_offer: "Αποδοχή προσφοράς"
@@ -1619,7 +1620,9 @@ el:
       change_email: Αλλαγή
       confirm_your_email: "Επιβεβαιώστε την ηλεκτρονική σας διεύθυνση"
       account_confirmation_instructions: "Σύντομα θα λάβετε ένα email με ένα σύνδεσμο τον οποίο πρέπει να ακολουθήσετε για να επιβεβαιώσετε τη διεύθυνση email σας. Μετά την επιβεβαίωση θα μπορείτε να εγγραφείτε σε αυτή την κοινότητα."
-      account_confirmation_instructions_dashboard: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες."
+      account_confirmation_instructions_title_admin: ~
+      your_marketplace_has_now_been_created: ~
+      account_confirmation_instructions_admin: ~
   settings:
     account:
       change: Αλλαγή
