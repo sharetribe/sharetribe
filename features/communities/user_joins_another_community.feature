@@ -82,7 +82,7 @@ Feature: User joins another marketplace
     And I press "Join Sharetribe"
     Then I should not see "This email is not allowed or it is already in use."
 
-    Then I should see "Confirm your email"
+    Then I should see "Please confirm your email"
     And "random@example.com" should receive an email
     And user "kassi_testperson3" should have unconfirmed email "random@example.com"
 

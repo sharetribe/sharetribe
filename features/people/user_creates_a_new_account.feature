@@ -18,7 +18,7 @@ Feature: User creates a new account
     And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
-    Then I should see "Confirm your email"
+    Then I should see "Please confirm your email"
     When wait for 1 seconds
     Then I should receive 1 email
     When I open the email

@@ -3,11 +3,14 @@
 
 - email_to_confirm = @current_user.latest_pending_email_address(@current_community)
 
-%p
-  - if @current_community
-    = t("sessions.confirmation_pending.account_confirmation_instructions").html_safe
-  - else
-    = t("sessions.confirmation_pending.account_confirmation_instructions_dashboard").html_safe
+- if @current_user.has_admin_rights_in?(@current_community)
+  %h2= t("sessions.confirmation_pending.account_confirmation_instructions_title_admin")
+  %p= t("sessions.confirmation_pending.your_marketplace_has_now_been_created") 
+  %p= t("sessions.confirmation_pending.account_confirmation_instructions_admin") 
+- else
+  %p= t("sessions.confirmation_pending.account_confirmation_instructions")
+
+%br/
 
 %p
   = form_for(Person, :as => "person", :url => confirmation_path(:locale => I18n.locale), :html => { :method => :post, :id => "change_mistyped_email_form"} ) do |form|

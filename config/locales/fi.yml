@@ -1633,9 +1633,11 @@ fi:
       resend_confirmation_instructions: "Lähetä uusi varmistusähköposti"
       your_current_email_is: "Nykyinen osoitteesi: <strong>%{email}</strong>"
       change_email: Vaihda?
-      confirm_your_email: "Ole hyvä ja vahvista sähköpostiosoitteesi"
+      confirm_your_email: "Vahvista sähköpostiosoitteesi"
       account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava varmistaaksesi sähköpostiosoitteesi. Varmistuksen jälkeen voit liittyä palveluun."
-      account_confirmation_instructions_dashboard: "Saat pian sähköpostin, jossa linkki, jolla voit vahvistaa syöttämäsi sähköpostiosoitteen."
+      account_confirmation_instructions_title_admin: "Tervetuloa markkinapaikkasivustollesi!"
+      your_marketplace_has_now_been_created: "Sivustosi on nyt luotu. Se oli helppoa, eikö vain? Jäljellä on enää yksi vaihe, ennen kuin pääset katsomaan, miltä sivustosi näyttää: sinun pitää varmistaa sähköpostiosoitteesi."
+      account_confirmation_instructions_admin: "Saat pian sähköpostiisi linkin, jota sinun tulee klikata varmistaaksesi sähköpostiosoitteesi. Tämän jälkeen voit aloittaa sivustosi muokkaamisen."
   settings:
     account:
       change: Vaihda

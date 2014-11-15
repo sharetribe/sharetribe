@@ -1633,9 +1633,11 @@ en:
       resend_confirmation_instructions: "Resend confirmation instructions"
       your_current_email_is: "Your email is %{email}."
       change_email: Change
-      confirm_your_email: "Confirm your email"
+      confirm_your_email: "Please confirm your email"
       account_confirmation_instructions: "You will soon receive an email with a link that you need to click to confirm the email address you entered. After confirming your email you can join %{service_name}."
-      account_confirmation_instructions_dashboard: "You will soon receive an email with a link that you need to click to confirm the email address you entered."
+      account_confirmation_instructions_title_admin: "Welcome to your marketplace!"
+      your_marketplace_has_now_been_created: "Your marketplace site has now been created. That was easy, wasn't it? There's just one more step before you can access your site: you need to confirm your email address."
+      account_confirmation_instructions_admin: "You will soon receive an email with a link that you need to click to confirm the email address you entered. After confirming your email you can start configuring your marketplace."
   settings:
     account:
       change: Change

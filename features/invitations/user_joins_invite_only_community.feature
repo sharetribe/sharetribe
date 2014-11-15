@@ -97,7 +97,7 @@ Feature: User joins invite only community
     And I press "Create account"
     Then I should not see "The invitation code is not valid."
     And I should not see "This field is required."
-    And I should see "Confirm your email"
+    And I should see "Please confirm your email"
     And I should receive 1 email
     When I open the email
     And I follow "confirmation" in the email
