@@ -52,7 +52,7 @@ Feature: User joins invite only community
     Given there are following users:
       | person |
       | kassi_testperson1 |
-    And community "test" requires invite to joinon
+    And community "test" requires invite to join
     And I am not logged in
     And I am on the signup page
     And there is an invitation for community "test" with code "GH1JX8" with 0 usages left
