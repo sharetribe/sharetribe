@@ -16,8 +16,8 @@ module MarketplaceService::API
       community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
 
       Helper.create_community_customization!(community, marketplace_name, locale)
-      Helper.create_transaction_type!(community, p[:marketplace_type])
-      Helper.create_category!("Default", community, locale)
+      t = Helper.create_transaction_type!(community, p[:marketplace_type])
+      Helper.create_category!("Default", community, locale, t.id)
 
       return from_model(community)
     end
@@ -54,7 +54,7 @@ module MarketplaceService::API
         {
           name: marketplace_name,
           locale: locale,
-          how_to_use_page_content: how_to_use_page_content(locale)
+          how_to_use_page_content: how_to_use_page_default_content(locale, marketplace_name)
         }
       end
 
@@ -78,8 +78,8 @@ module MarketplaceService::API
         end
       end
 
-      def how_to_use_page_content(locale)
-        "<h1>#{I18n.translate_with_service_name("infos.how_to_use.default_title", locale: locale)}</h1><div>#{I18n.translate_with_service_name("infos.how_to_use.default_content", locale: locale)}</div>"
+      def how_to_use_page_default_content(locale, marketplace_name)
+        "<h1>#{I18n.t("infos.how_to_use.default_title", locale: locale)}</h1><div>#{I18n.t("infos.how_to_use.default_content", locale: locale, :marketplace_name => marketplace_name)}</div>"
       end
 
       def available_domain_based_on(initial_domain)
@@ -107,10 +107,13 @@ module MarketplaceService::API
         Maybe(MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[country_code.upcase]).or_else("USD")
       end
 
-      def create_category!(category_name, community, locale)
+      def create_category!(category_name, community, locale, transaction_type_id=nil)
         category = Category.create!(:community_id => community.id, :url => category_name.downcase)
         CategoryTranslation.create!(:category_id => category.id, :locale => locale, :name => category_name)
 
+        if transaction_type_id
+          CategoryTransactionType.create!(:category_id => category.id, :transaction_type_id => transaction_type_id)
+        end
       end
 
     end
