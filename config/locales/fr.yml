@@ -535,7 +535,7 @@ fr:
         paypal:
           multicurrency: "En attente de votre acceptation du paiement PayPal"
           intl: "En attente de votre acceptation du paiement PayPal"
-          unknown_reason: ~
+          unknown_reason: "Le paiement est en cours. Connectez-vous à votre compte PayPal pour obtenir plus de détails."
           verify: "En attente de votre vérification de votre compte PayPal"
     status_link:
       accept_offer: "Accepter l'offre"
@@ -781,6 +781,21 @@ fr:
       click_here_link_text: "Cliquez ici"
       welcome_email_footer_text: "Quels types d'emails souhaitez vous recevoir de la part de %{service_name} ? %{settings_link}"
       settings_link_text: "Vérifiez vos paramètres"
+      welcome_email_subject_for_marketplace_creator: "Bienvenue sur Sharetribe"
+      welcome_to_marketplace_creator: "Bienvenue sur Sharetribe, %{name} !"
+      congrats_for_creating_your_marketplace: "Félicitations pour la création de votre place de marché ! C'était simple, non ?"
+      here_is_your_account_information: "Voici les informations sur votre compte."
+      your_email_address: "L'adresse email que vous avez utilisée pour vous connecter : "
+      your_marketplace_address: "L'adresse de votre place de marché : "
+      your_marketplace_admin_area: "Le panneau d'administration de votre place de marché : "
+      just_follow_details: "Suivez ces liens et vous aurez plus de détails sur comment configurer votre place de marché !"
+      we_will_guide_you_along_the_way: "Nous vous guiderons tout au long de ces étapes."
+      are_you_new_to_online_marketplaces: "Vous vous demandez comment faire de votre place de marché un succès ? Pas d'inquiétude, nous sommes là pour vous aider ! Nous allons vous envoyer plusieurs emails pour vous aider à utiliser Sharetribe au maximum et à construire une place de marché qui soit une réussite. Nous vous enverrons la première partie très bientôt."
+      have_questions: "Vous avez des questions ?"
+      our_happiness_team_is_here_to_help: "L'équipe chargée de votre bonheur est là pour vous ! Vous pouvez %{knowledge_base_link} ou contacter notre support."
+      love: "Love,"
+      sharetribe_crew: "l'équipe Sharetribe"
+      knowledge_base_link_text: "parcourir notre base de connaissance"
     new_listing_by_followed_person:
       subject: "%{author_name} a publié une nouvelle annonce sur %{service_name}"
       has_posted_a_new_listing: "%{author_name} a publié une nouvelle annonce : "
@@ -987,7 +1002,7 @@ fr:
       click_here_link_text: "Cliquez ici"
     how_to_use:
       default_title: "Comment ça marche"
-      default_content: "Ici vous pouvez trouver des informations sur le fonctionnement de %{service_name}."
+      default_content: "Ici vous pouvez trouver des informations sur le fonctionnement de %{marketplace_name}."
   layouts:
     admin:
       admin: "Panneau d'administration %{service_name}"
@@ -1633,11 +1648,11 @@ fr:
       resend_confirmation_instructions: "Renvoyer les instructions de confirmation"
       your_current_email_is: "Votre email est : %{email}."
       change_email: Modifier
-      confirm_your_email: "Confirmer votre adresse email"
+      confirm_your_email: "Veuillez confirmer votre adresse email"
       account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse email. Dès que vous l'aurez confirmée, vous pourrez rejoindre %{service_name}."
-      account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_title_admin: "Bienvenue sur votre place de marché !"
+      your_marketplace_has_now_been_created: "Votre place de marché a été créée. C'était simple, non ? Il ne reste qu'une étape pour que vous puissiez y accéder : vous devez confirmer votre adresse email."
+      account_confirmation_instructions_admin: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous avez saisie. Après cette confirmation vous pourrez commencer à configurer votre place de marché."
   settings:
     account:
       change: Changer

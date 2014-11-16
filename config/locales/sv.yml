@@ -535,7 +535,7 @@ sv:
         paypal:
           multicurrency: "Väntar på att du ska acceptera PayPal betalningen"
           intl: "Väntar på att du ska acceptera PayPal betalningen"
-          unknown_reason: ~
+          unknown_reason: "Betalning väntar. Logga in till ditt PayPal-konto för att se mer information."
           verify: "Väntar på att du ska verifiera ditt PayPal konto"
     status_link:
       accept_offer: "Anta erbjudande"
@@ -783,6 +783,21 @@ sv:
           Vilken typ av e-postmeddelanden vill du få från %{service_name}?
           %{settings_link}
       settings_link_text: "Kontrollera dina inställningar"
+      welcome_email_subject_for_marketplace_creator: "Välkommen till Sharetribe"
+      welcome_to_marketplace_creator: "Välkommen till Sharetribe, %{name}!"
+      congrats_for_creating_your_marketplace: "Grattis till skapandet av din marknadsplats! Det var enkelt, var det inte?"
+      here_is_your_account_information: "Här är din kontoinformation."
+      your_email_address: "E-postadressen du använder för att logga in:"
+      your_marketplace_address: "Din marknadsplatsadress:"
+      your_marketplace_admin_area: "Adminområdet på din marknadsplats:"
+      just_follow_details: "Följ bara dessa länkar och du kommer att få mer information hur du bygger din marknadsplats!"
+      we_will_guide_you_along_the_way: "Vi kommer att guida dig på vägen."
+      are_you_new_to_online_marketplaces: "Är online marknadsplatser något nytt för dig? Inga problem, vi är här för att hjälpa dig! Vi kommer att skicka dig några e-postmeddelanden som kommer att hjälpa dig att få reda på det mesta om Sharetribe och hur du bygger en lyckad marknadsplats. Vi kommer snart att skicka Del 1."
+      have_questions: "Har du några frågor?"
+      our_happiness_team_is_here_to_help: "Vårt glada gäng är här för dig! Antingen%{knowledge_base_link} eller kontakta supporten."
+      love: "Varma hälsningar,"
+      sharetribe_crew: Sharetribe-gänget
+      knowledge_base_link_text: "kolla vår kunskapsbas"
     new_listing_by_followed_person:
       subject: "%{author_name} har skapat en ny annons på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har skapat en ny annons:"
@@ -1637,9 +1652,9 @@ sv:
       change_email: Ändra
       confirm_your_email: "Bekräfta din e-post"
       account_confirmation_instructions: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så kan du gå med %{service_name}."
-      account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_title_admin: "Välkommen till din marknadsplats!"
+      your_marketplace_has_now_been_created: "Din marknadsplats sida har nu skapats. Det var enkelt, var det inte? Det är bara ett till steg innan du kan komma åt sidan, du behöver bekräfta din e-postadress."
+      account_confirmation_instructions_admin: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så ´kan du böja konfigurera din marknadsplats."
   settings:
     account:
       change: Ändra

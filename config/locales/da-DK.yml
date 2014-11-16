@@ -523,7 +523,7 @@ da-DK:
         paypal:
           multicurrency: ~
           intl: ~
-          unknown_reason: ~
+          unknown_reason: "Din betaling er undervejs. Log ind på din PayPal konto for at se flere detaljer."
           verify: ~
     status_link:
       accept_offer: "Accepter tilbud"
@@ -726,17 +726,17 @@ da-DK:
       has_updated_listing_you_follow_in_kassi: "%{author} har opdateret annoncen '%{listing}' som du følger på %{service_name}."
       view_changes: "Se ændringer"
     community_updates:
-      added_offer: "%{name_link} tilføjede et nyt opslag:"
-      added_request: "%{name_link} tilføjede et nyt opslag:"
-      added_listing: "%{name_link} tilføjet til annoncen:"
-      update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
-      intro_paragraph_link_text: ~
-      post_a_new_listing: "Tilføj et opslag!"
+      added_offer: "%{name_link} tilføjede en annonce:"
+      added_request: "%{name_link} tilføjede en annonce:"
+      added_listing: "%{name_link} tilføjede en ny annonce:"
+      update_mail_title: "%{title_link} opdatering"
+      title_link_text: "%{community_name}"
+      intro_paragraph: "Her er en lille opdaterings email med nye produkter fra %{community_link} fra de seneste %{time_since_last_update}."
+      intro_paragraph_link_text: "%{community_name}"
+      post_a_new_listing: "Opret ny annonce!"
       reduce_email_footer_text: "For mange emails? %{settings_link} eller %{unsubscribe_link}."
       settings_link_text: "Skift dine email indstillinger her"
-      unsubscribe_link_text: "Afmeld emails"
+      unsubscribe_link_text: "afmeld emails"
     newsletter:
       hi: "Hej %{name},"
       newest_offers: "Hvad folk i øjeblikket tilbyder andre"
@@ -769,6 +769,21 @@ da-DK:
       click_here_link_text: "Klik her"
       welcome_email_footer_text: "Hvilken slags email ønsker du at modtage fra %{service_name}? %{settings_link}"
       settings_link_text: "Tjek dine indstillinger"
+      welcome_email_subject_for_marketplace_creator: "Velkommen til Sharetribe"
+      welcome_to_marketplace_creator: "Velkommen til Sharetribe, %{name}!"
+      congrats_for_creating_your_marketplace: "Tillykke med din nye markedsplads! Det var nemt, ikke?"
+      here_is_your_account_information: "Her er dine konto informationer."
+      your_email_address: "Din email som du brugte til at logge ind:"
+      your_marketplace_address: "Link til din markedsplads:"
+      your_marketplace_admin_area: "Administrationspanel til din markedsplads:"
+      just_follow_details: "Du skal blot følge disse links for at få mere information til hvordan du starter med at bygge din egen markedsplads!"
+      we_will_guide_you_along_the_way: "Vi guider dig hele vejen i mål."
+      are_you_new_to_online_marketplaces: "Er vi din første markedsplads? Intet problem, vi er her for at hjælpe dig hele vejen i mål! Vi vil sende dig en serie emails som skal hjælpe dig gennem Sharetribe's funktioner og hjælpe dig med at bygge en succesfuld markedsplads. Vi sender din første email om et øjeblik."
+      have_questions: "Nogen spørgsmål?"
+      our_happiness_team_is_here_to_help: "Vores tilfredshedsteam er her for din skyld. Enten %{knowledge_base_link} eller kontakt vores support."
+      love: "Kærlig hilsen,"
+      sharetribe_crew: "Holdet bag Sharetribe"
+      knowledge_base_link_text: "tjek vores support side"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1293,7 +1308,7 @@ da-DK:
       housing: Rum
       items: Ting
       list_view: Listevisning
-      listings: Opslag
+      listings: Annonce
       map_view: "Vis kort"
       offer_something: "Spred budskabet!"
       offer_type: Tilbudstype
@@ -1623,9 +1638,9 @@ da-DK:
       change_email: Ret
       confirm_your_email: "Bekræft din mail"
       account_confirmation_instructions: ~
-      account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_title_admin: "Velkommen til din markedsplads!"
+      your_marketplace_has_now_been_created: "Din markedsplads er nu blevet oprettet. Det var nemt, var det ikke? Der er kun et step tilbage før du kan få adgang til din markedsplads: du skal godkende din email adresse."
+      account_confirmation_instructions_admin: "Du vil nu modtage en mail med et link som du skal klikke på for at bekræfte din indtastede mailadresse. Efter at have godkendt din email, kan du starte med at foretage ændringer på din nye markedsplads."
   settings:
     account:
       change: Ret
@@ -1635,7 +1650,7 @@ da-DK:
       delete_account_confirmation_popup: "Er du helt sikker på at du vil slette din konto og permanent slette alt data? Dit valg kan ikke fortrydes."
       email_addresses: "Email adresser"
       new_email: "Ny e-mailadresse:"
-      instructions_to_delete_account: "Hvis du sletter din konto, vil alt din data blive slettet fra serveren: din profiloplysninger, opslag, kommentarer, beskeder, feedback osv."
+      instructions_to_delete_account: "Hvis du sletter din konto, vil alt din data blive slettet fra serveren: din profiloplysninger, annoncer, kommentarer, beskeder, feedback osv."
       contact_admin: "kontakt venligst administratoren"
       new_password: "Nyt kodeord"
       save: Gem
@@ -1658,15 +1673,15 @@ da-DK:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Jeg ønsker at få en e-mail meddelelse, når ..."
       newsletters: Nyhedsbrev
-      community_updates: ~
+      community_updates: Nyhedsbreve
       email_about_accept_reminders: "... Jeg har glemt at acceptere et tilbud eller en anmodning"
       email_about_confirm_reminders: "...jeg har glemt at markere anmodningen som godkendt"
       email_about_new_comments_to_own_listing: "... nogen kommenterer mit tilbud eller anmodning"
       email_about_new_messages: "... nogen sender mig en besked"
       email_about_new_received_testimonials: "... nogen giver mig feedback"
       email_about_testimonial_reminders: "... Jeg har glemt at give feedback på en begivenhed"
-      email_daily_community_updates: "Send mig en <b>daglig</b> email med opdateringer om opslag"
-      email_weekly_community_updates: "Send mig en <b>ugentlig</b> email med opdateringer om opslag"
+      email_daily_community_updates: "Send mig en <b>daglig</b> email med opdateringer om nye annoncer"
+      email_weekly_community_updates: "Send mig en <b>ugentlig</b> email med opdateringer om nye annoncer"
       do_not_email_community_updates: "Send ingen opdaterings emails"
       email_when_conversation_accepted: "... somebody accepterer mit tilbud eller anmodning"
       email_when_conversation_rejected: "... nogen afviser mit tilbud eller anmodning"
