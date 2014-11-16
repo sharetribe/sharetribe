@@ -90,7 +90,7 @@ module MarketplaceService
 
       def transaction(transaction_model)
         listing_model = transaction_model.listing
-        listing = ListingEntity.listing(listing_model)
+        listing = ListingEntity.listing(listing_model) if listing_model
 
         payment_gateway = transaction_model.payment_gateway.to_sym
 
@@ -117,11 +117,11 @@ module MarketplaceService
           testimonials: transaction_model.testimonials.map { |testimonial|
             Testimonial[EntityUtils.model_to_hash(testimonial)]
           },
-          starter_id: transaction_model.starter.id,
+          starter_id: transaction_model.starter_id,
           transitions: transaction_model.transaction_transitions.map { |transition|
             Transition[EntityUtils.model_to_hash(transition)]
           },
-          discussion_type: listing_model.discussion_type.to_sym,
+          discussion_type: Maybe(listing_model).discussion_type.to_sym.or_else("not available"),
           payment_total: payment_total,
           booking: transaction_model.booking,
           __model: transaction_model
@@ -130,7 +130,12 @@ module MarketplaceService
 
       def transaction_with_conversation(transaction_model, community_id)
         transaction = Entity.transaction(transaction_model)
-        transaction[:conversation] = ConversationEntity.conversation(transaction_model.conversation, community_id)
+        if transaction_model.conversation
+          transaction[:conversation] = ConversationEntity.conversation(transaction_model.conversation, community_id)
+        else
+          #placeholder for deleted conversation to keep transaction list working
+          transaction[:conversation] = ConversationEntity.deleted_conversation_placeholder
+        end
         transaction
       end
 

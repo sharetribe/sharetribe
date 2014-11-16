@@ -31,7 +31,11 @@ class Admin::CommunityTransactionsController < ApplicationController
       author = conversation[:other_person]
       starter = conversation[:starter_person]
 
-      transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
+      if transaction[:listing].present?
+        # This if was added to tolerate cases where listing has been deleted
+        # due the author deleting his/her account completely
+        transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
+      end
 
       transaction.merge({author: author, starter: starter})
     end
