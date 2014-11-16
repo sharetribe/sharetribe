@@ -8,12 +8,12 @@
   %h2= t("conversations.accept.respond_to_#{discussion_type}")
 
   %p
-    = "Sum: #{humanized_money_with_symbol(sum)}"
+    = t("conversations.accept.sum", :sum => humanized_money_with_symbol(sum))
   %p
-    = "Service fee: #{humanized_money_with_symbol(fee)}"
+    = t("conversations.accept.service_fee", :service_fee => humanized_money_with_symbol(fee))
   %p
     %strong
-      = "You will get: #{humanized_money_with_symbol(seller_gets)}"
+      = t("conversations.accept.you_will_get", :seller_gets => humanized_money_with_symbol(seller_gets))
 
   = form_for form, :url => form_action, :html => { :method => "put" } do |form|
 

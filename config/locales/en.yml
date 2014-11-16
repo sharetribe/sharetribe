@@ -397,6 +397,9 @@ en:
       payment_settings_link: "payment settings"
       minimum_price_error_message: "The price cannot be lower than %{amount}."
       approve: Approve
+      sum: "Sum: %{sum}"
+      service_fee: "Service fee: %{service_fee}"
+      you_will_get: "You will get: %{seller_gets}"
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
