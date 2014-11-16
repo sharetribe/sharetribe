@@ -61,7 +61,9 @@ class ApplicationController < ActionController::Base
     @return_to = new_path
 
     if @current_community
-      @community_customization = @current_community.community_customizations.find_by_locale(I18n.locale)
+      unless @community_customization = @current_community.community_customizations.find_by_locale(I18n.locale)
+        @community_customization = @current_community.community_customizations.find_by_locale(@current_community.locales.first)
+      end
     end
   end
 
