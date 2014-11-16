@@ -63,7 +63,7 @@ class ApplicationController < ActionController::Base
     if @current_community
       unless @community_customization = @current_community.community_customizations.find_by_locale(I18n.locale)
         @community_customization = @current_community.community_customizations.find_by_locale(@current_community.locales.first)
-      else
+      end
     end
   end
 
