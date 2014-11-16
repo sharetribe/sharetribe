@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(:version => 20141113204444) do
     t.datetime "expires_at"
     t.integer  "usages_left"
     t.datetime "last_use_attempt"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   add_index "auth_tokens", ["token"], :name => "index_auth_tokens_on_token", :unique => true

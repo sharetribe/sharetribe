@@ -221,7 +221,7 @@ module MarketplaceService
             Maybe(PaymentModel.where(id: transaction[:payment_id]).first).total_sum.or_else(nil)
           when :paypal
             paypal_payments = PaypalService::API::Api.payments
-            paypal_payments.get_payment(transaction[:community_id], transaction[:transaction_id])[:data][:authorization_total]
+            Maybe(paypal_payments.get_payment(transaction[:community_id], transaction[:transaction_id]))[:data][:authorization_total].or_else(nil)
           end
 
         should_notify =
