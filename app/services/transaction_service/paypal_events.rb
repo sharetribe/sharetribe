@@ -22,7 +22,7 @@ module TransactionService::PaypalEvents
       when :preauthorized_to_paid
         preauthorized_to_paid(tx)
       when :preauthorized_to_pending_ext
-        preauthorized_to_pending_ext(tx, payment[:payment_status])
+        preauthorized_to_pending_ext(tx, payment[:pending_reason])
       when :pending_ext_to_paid
         pending_ext_to_paid(tx)
       when :preauthorized_to_voided
