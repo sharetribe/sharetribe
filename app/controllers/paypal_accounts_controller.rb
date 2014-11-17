@@ -57,6 +57,7 @@ class PaypalAccountsController < ApplicationController
       paypal_account_state: Maybe(paypal_account)[:order_permission_state].or_else(""),
       paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
       commission_from_seller: t("paypal_accounts.commission", commission: commission_from_seller),
+      minimum_commission: minimum_commission,
       currency: community_currency
     })
   end
@@ -262,5 +263,20 @@ class PaypalAccountsController < ApplicationController
     redirect_to new_paypal_account_settings_payment_path(@current_user.username)
   end
 
+  def minimum_commission
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    currency = @current_community.default_currency
+
+    case payment_type
+    when :paypal
+      paypal_minimum_commissions_api.get(currency)
+    else
+      Money.new(0, currency)
+    end
+  end
+
+  def paypal_minimum_commissions_api
+    PaypalService::API::Api.minimum_commissions_api
+  end
 
 end

@@ -29,7 +29,7 @@
   %b
     = t("emails.welcome_email.have_questions")
   %br/
-  = t("emails.welcome_email.our_happiness_team_is_here_to_help", :knowledge_base_link => link_to(t("emails.welcome_email.knowledge_base_link_text"), "http://support.sharetribe.com/knowledgebase")).html_safe
+  = t("emails.welcome_email.our_happiness_team_is_here_to_help", :knowledge_base_link => link_to(t("emails.welcome_email.knowledge_base_link_text"), "#{APP_CONFIG.knowledge_base_url}"), :contact_support_link => link_to(t("emails.welcome_email.contact_support_link_text"), "mailto:#{APP_CONFIG.support_email}")).html_safe
 
 %p
   = t("emails.welcome_email.love")

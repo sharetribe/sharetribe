@@ -121,10 +121,12 @@ fi:
       getting_started:
         getting_started: Aloitusohjeet
         welcome_to_your_marketplace: "Tervetuloa omalle markkinapaikkasivustollesi, %{name}!"
-        intro: "Tämän ohjeen avulla sivustosi muokkaus ja hallinta onnistuu vaivatta."
+        intro: "Tämän ohjeen avulla sivustosi muokkaus ja hallinta onnistuu vaivatta. Varsinaisen sivustosi näet %{live_site_link}."
+        live_site_link_text: "tästä"
         look_and_feel: "Ennen kuin avaat sivustosi kaikelle kansalle, kannattaa tehdä muutamia muutoksia. Voit esimerkiksi %{logo_link} ja vaihtaa sivuston kansikuvan ja värimaailman mieleisiksisi."
         logo_link_text: "lisätä oman logosi"
-        custom_domain: "Saatat myös haluta vaihtaa sivustolle mieleisesi verkko-osoitteen (esimerkiksi www.omamarkkinapaikka.fi). Tätä toimenpidettä varten sinun on syytä olla yhteydessä meihin sähköpostilla (hello@sharetribe.com), sillä osoitteen käyttöönotto vaatii muutamia toimenpiteitä meidän puoleltamme."
+        custom_domain: "Saatat myös haluta vaihtaa sivustolle mieleisesi verkko-osoitteen (esimerkiksi www.omamarkkinapaikka.fi). Tätä toimenpidettä varten sinun on syytä %{contact_team_link}, sillä osoitteen käyttöönotto vaatii muutamia toimenpiteitä meidän puoleltamme."
+        contact_team_link_text: "olla yhteydessä meihin sähköpostilla"
         categories_and_custom_fields: "Seuraavaksi voit määritellä, millaista sisältöä käyttäjäsi pystyvät sivustollesi lisäämään. Voit lisätä %{categories_link}, %{custom_fields_link} sekä päättää, millaisten hakusuodattimien avulla %{filters_link} käyttäjäsi pystyvät ilmoituksia etsimään."
         categories_link_text: "ilmoituskategorioita ja niille alakategorioita"
         custom_fields_link_text: "muokata ilmoituskenttiä"
@@ -144,10 +146,11 @@ fi:
         analytics_link_text: "yhdistää Google Analytics -tili markkinapaikkaasi, jotta näet helpommin, mitä sivustollasi tapahtuu, kuinka paljon sivustolla on kävijöitä ja niin edelleen."
         settings: "Tarjolla on myös paljon muita asetuksia. Voit esimerkiksi vaatia kaikilta käyttäjiltä kutsun, ennen kuin he pääsevät liittymään sivustollesi, ja tehdä sivustostasi ei-julkisen, jolloin ainoastaan kirjautuneet käyttäjät näkevät sivuston sisällöt. %{settings_link}."
         settings_link_text: "Muuta sivustosi asetuksia täältä"
-        final_words: "Siinä kaikki! Kun kaikki on valmiina julkaisua varten, voit %{invite_link} sivustollesi. %{view_users_link} näet kaikki sivustolle liittyneet käyttäjät, ja %{view_transactions_link} puolestaan kaikki toteutuneet maksutapahtumat. Pystyt myös muokkaamaan käyttäjien lisäämiä ilmoituksia: kun menet yksittäisen ilmoituksen sivulle, näet siellä muokkausnapit ilmoituksen muokkausta ja sulkemista varten. Jos tarvitset lisäohjeita, ota yhteys ylläpitoon - olemme täällä sinua varten!"
+        final_words: "Siinä kaikki! Kun kaikki on valmiina julkaisua varten, voit %{invite_link} sivustollesi. %{view_users_link} näet kaikki sivustolle liittyneet käyttäjät, ja %{view_transactions_link} puolestaan kaikki toteutuneet maksutapahtumat. Pystyt myös muokkaamaan käyttäjien lisäämiä ilmoituksia: kun menet yksittäisen ilmoituksen sivulle, näet siellä muokkausnapit ilmoituksen muokkausta ja sulkemista varten. Jos tarvitset lisäohjeita, %{contact_support_link} - olemme täällä sinua varten!"
         invite_link_text: "kutsua käyttäjiä"
         view_users_link_text: "Tältä sivulta"
         view_transactions_link_text: täältä
+        contact_support_link_text: "ota yhteys ylläpitoon"
       settings:
         settings: Yleisasetukset
         general: Yleiset
@@ -396,7 +399,10 @@ fi:
       you_need_to_fill_payout_details_before_accepting: "Sinun pitää täyttää maksutietosi ennen kuin voit hyväksyä pyynnön ja vastaanottaa maksun. Täytä maksutietosi %{payment_settings_link}."
       payment_settings_link: täällä
       minimum_price_error_message: "Hinta ei voi olla pienempi kuin %{amount}."
-      approve: ~
+      approve: "Hyväksy"
+      sum: "Kokonaissumma: %{sum}"
+      service_fee: "Palvelumaksu: %{service_fee}"
+      you_will_get: "Sinä saat: %{seller_gets}"
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
@@ -415,7 +421,7 @@ fi:
       loading_more_messages: "Ladataan lisää viestejä"
       message_partitive: viesti
       messages_partitive: viestiä
-      no_received_messages: "Ei vastaanotettuja viestejä"
+      no_received_messages: "Ei viestejä"
       no_sent_messages: "Ei lähetettyjä viestejä"
     conversation:
       accepted_request: "Pyyntö hyväksytty."
@@ -503,11 +509,11 @@ fi:
       offer_rejected: "Tarjous hylätty"
       offer_canceled: "Tarjous peruutettu"
       offer_confirmed: "Tarjous toteutunut"
-      offer_paid: ~
-      offer_preauthorized: ~
+      offer_paid: "Maksu suoritettu"
+      offer_preauthorized: "Maksu suoritettu"
       offer_waiting_for_payment: ~
       pay: "Suorita maksu"
-      preauthorized: ~
+      preauthorized: "Maksu suoritettu"
       paid: "Maksu suoritettu"
       pending_external:
         paypal:
@@ -520,8 +526,8 @@ fi:
       request_rejected: "Pyyntö hylätty"
       request_confirmed: "Pyyntö toteutunut"
       request_canceled: "Pyyntö peruutettu"
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: "Maksu suoritettu"
+      request_preauthorized: "Maksu suoritettu"
       skip_feedback: "Ohita palaute"
       waiting_for_listing_author_to_accept_offer: "Odottaa että %{listing_author_name} hyväksyy tarjouksen"
       waiting_for_listing_author_to_accept_request: "Odottaa että %{listing_author_name} hyväksyy pyynnön"
@@ -542,10 +548,10 @@ fi:
       accept_request: "Hyväksy pyyntö"
       reject_offer: "Hylkää tarjous"
       reject_request: "Ei tällä kertaa"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      accept_preauthorized_offer: "Hyväksy tarjous"
+      accept_preauthorized_request: "Hyväksy pyyntö"
+      reject_preauthorized_offer: "Hylkää tarjous"
+      reject_preauthorized_request: "Ei tällä kertaa"
       confirm: "Merkitse toteutuneeksi"
       cancel: "Ei toteutunut"
   braintree_accounts:
@@ -790,12 +796,13 @@ fi:
       your_marketplace_admin_area: "Sivustosi ylläpitonäkymä:"
       just_follow_details: "Näitä linkkejä seuraamalla löydät lisätietoa sivustosi muokkauksesta."
       we_will_guide_you_along_the_way: "Me opastamme sinua."
-      are_you_new_to_online_marketplaces: "Eikö sinulla ole aiempaa kokemusta markkinapaikoista? Ei hätää, me autamme! Lähipäivinä tulemme lähettämään sinulle sarjan ohjeviestejä, joista saat lisätietoa siitä, miten markkinapaikkasivustot toimivat, ja opit hyödyntämään Sharetriben ominaisuuksia parhaalla mahdollisella tavalla. Ensimmäinen osa lähetetään sinulle pian."
+      are_you_new_to_online_marketplaces: "Tarvitset lisäohjeita päästäksesi alkuun? Ei hätää, me autamme! Lähipäivinä tulemme lähettämään sinulle sarjan tietopaketteja, joista kerrotaan, miten markkinapaikkasivustot toimivat, ja autetaan sinua hyödyntämään Sharetriben ominaisuuksia parhaalla mahdollisella tavalla. Ensimmäinen osa lähetetään sinulle pian."
       have_questions: "Heräsikö sinulle kysymyksiä?"
-      our_happiness_team_is_here_to_help: "Autamme mielellämme! Voit joko %{knowledge_base_link} tai olla suoraan yhteydessä asiakaspalveluumme."
+      our_happiness_team_is_here_to_help: "Autamme mielellämme! Voit joko %{knowledge_base_link} tai %{contact_support_link}."
       love: "Terveisin,"
       sharetribe_crew: "Sharetriben tiimi"
       knowledge_base_link_text: "katsoa vastauksia yleisimpiin kysymyksiin"
+      contact_support_link_text: "olla yhteydessä asiakaspalveluumme"
     new_listing_by_followed_person:
       subject: "%{author_name} lisäsi ilmoituksen %{service_name}-palveluun"
       has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
@@ -1480,7 +1487,7 @@ fi:
       upgrade_paypal_account: "Muuta PayPal-tilin tyyppi tästä."
       connect_paypal_account: "Yhdistä PayPal-tili"
       paypal_account_billing_agreement: "2. Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista."
-      paypal_account_billing_agreement_info: "%{service_name} veloittaa %{commission} välityspalkkion jokaisesta kaupasta. Käyttääksesi %{service_name}-palvelua sinun tätyy antaa palvelulle lupa ottaa välityspalkkio PayPal-maksuista."
+      paypal_account_billing_agreement_info: "%{service_name} veloittaa %{commission} välityspalkkion jokaisesta kaupasta (huom! välityspalkkio on aina vähintään %{minimum_commission}. Hinta sisältää PayPalin veloittamat maksut. Käyttääksesi %{service_name}-palvelua sinun tätyy antaa palvelulle lupa ottaa välityspalkkio PayPal-maksuista."
       billing_agreement_description: "Anna %{service_name}-palvelulle lupa ottaa välityspalkkio kaupoista."
       billing_agreement: "Anna lupa veloittaa välityspalkkio"
       permissions_not_granted: "Lupaa PayPal-tilin yhdistämiseen ei annettu."

@@ -19,7 +19,7 @@
     = form_for paypal_account_form, :url => form_action, :html => { :id => "paypal_account_form"} do |form|
 
       - if paypal_account_state == :verified
-        = render :partial => "ask_paypal_billing_agreement", locals: {paypal_account_email: paypal_account_email, form: form, commission_from_seller: commission_from_seller}
+        = render :partial => "ask_paypal_billing_agreement", locals: {paypal_account_email: paypal_account_email, form: form, commission_from_seller: commission_from_seller, minimum_commission: minimum_commission}
       - else
         - title = t("paypal_accounts.new.paypal_account_email")
         = render :partial => "ask_paypal_permissions", locals: {form: form, title: title, currency: currency}
