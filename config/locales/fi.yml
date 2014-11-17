@@ -1483,7 +1483,7 @@ fi:
       upgrade_paypal_account: "Muuta PayPal-tilin tyyppi tästä."
       connect_paypal_account: "Yhdistä PayPal-tili"
       paypal_account_billing_agreement: "2. Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista."
-      paypal_account_billing_agreement_info: "%{service_name} veloittaa %{commission} välityspalkkion jokaisesta kaupasta. Käyttääksesi %{service_name}-palvelua sinun tätyy antaa palvelulle lupa ottaa välityspalkkio PayPal-maksuista."
+      paypal_account_billing_agreement_info: "%{service_name} veloittaa %{commission} välityspalkkion jokaisesta kaupasta (huom! välityspalkkio on aina vähintään %{minimum_commission}. Hinta sisältää PayPalin veloittamat maksut. Käyttääksesi %{service_name}-palvelua sinun tätyy antaa palvelulle lupa ottaa välityspalkkio PayPal-maksuista."
       billing_agreement_description: "Anna %{service_name}-palvelulle lupa ottaa välityspalkkio kaupoista."
       billing_agreement: "Anna lupa veloittaa välityspalkkio"
       permissions_not_granted: "Lupaa PayPal-tilin yhdistämiseen ei annettu."

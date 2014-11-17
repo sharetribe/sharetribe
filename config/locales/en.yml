@@ -1483,7 +1483,7 @@ en:
       upgrade_paypal_account: "Upgrade your account here."
       connect_paypal_account: "Connect PayPal account"
       paypal_account_billing_agreement: "2. Grant %{service_name} permission to charge a transaction fee"
-      paypal_account_billing_agreement_info: "When you make a sale on %{service_name}, a transaction fee of %{commission} of the item price will be charged. To use %{service_name} you need to allow it to charge this fee."
+      paypal_account_billing_agreement_info: "When you make a sale on %{service_name}, a transaction fee of %{commission} of the item price will be charged (note: minimum fee is %{minimum_commission}). The fee includes PayPal's fees. To use %{service_name} you need to allow it to charge this fee."
       billing_agreement_description: "Grant %{service_name} permission to charge a transaction fee."
       billing_agreement: "Grant permission"
       permissions_not_granted: "Permissions to connect with PayPal account are not granted."
