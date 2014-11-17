@@ -2,19 +2,16 @@
 
 [![Build Status](https://travis-ci.org/sharetribe/sharetribe.svg?branch=master)](https://travis-ci.org/sharetribe/sharetribe) [![Dependency Status](https://gemnasium.com/sharetribe/sharetribe.png)](https://gemnasium.com/sharetribe/sharetribe) [![Code Climate](https://codeclimate.com/github/sharetribe/sharetribe.png)](https://codeclimate.com/github/sharetribe/sharetribe) [![Coverage Status](https://coveralls.io/repos/sharetribe/sharetribe/badge.png)](https://coveralls.io/r/sharetribe/sharetribe)
 
-Sharetribe is a peer-to-peer marketplace platform built with Ruby on Rails.
+Sharetribe is an open source platform you can use to create your own peer-to-peer marketplace. 
 
-See www.sharetribe.com for more info and links to example communities
+Would you like to set up your marketplace in a minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
-NOTE: The open source community of Sharetribe is still young and some things like installation may not yet be the smoothest you've encountered. However, we're eager to welcome new people to use the open source Sharetribe, and if you decide to install it yourself, feel free to ask for support at the [Sharetribe Developers Flowdock](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main)
+Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
+
 
 ## Installation
 
-NOTE: If you try installing and encounter problems, please report them for example in [Issues](https://github.com/sharetribe/sharetribe/issues) or at [Flowdock](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main). We try to help you and enhance the documentation.
-
-
-Below the installation instructions there is space for Operating system-specific tips, so if you have problems, check there, and if you get your problem solved, add instructions to the tips section.
-
+Note: If you encounter problems with the installation, you can ask for help from the developer community in our [developer chatroom](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main).
 
 * Before you get started, you need to have or install the following:
   * Ruby (we use currently version 2.1.2 and don't guarantee everything working with others. If you need multiple versions of Ruby, [RVM](https://rvm.io//) can help.)
@@ -65,7 +62,7 @@ CategoryTransactionType.create(:category_id => ca.id, :transaction_type_id => tt
 
 ```
 
-* go to your selected community address (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and register as a user. The first registered user will be automatically made as an admin in that community.
+* Go to the marketplace you created (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and register as a user. The first registered user will be automatically made as an admin in that community.
 
 Congrats! You should be now able to access your marketplace.
 
@@ -73,99 +70,32 @@ See also:
 
 * [How to customize your marketplace?](docs/customize-marketplace.md)
 
+
 ### Advanced settings
 
 * Default configurations are in `config/config.default.yml`. If you need to change these configs, it's recommended to create a file `config/config.yml`. The configurations in user-specific configuration file will override the default configurations. You can also set configurations to environment variables.
 * It's not recommended to server static assets from Rails server in production. Instead, you should serve assets from Amazon S3 or use Apache/Nginx server in from. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false`
 
-### Tips for different platforms and OS
+## Payments
 
-#### Windows
-
-* The core team is doing development on macs and running servers on linux, so we don't have experience on running Sharetribe on Windows. It is possible, but with guidance you might have to rely on the community support.
-  * There is a (bit outdated) [separate guide for windows installation](https://github.com/tlsalmin/kassi/wiki/HOW-TO-install-kassi-in-Windows-(for-Development-only)) written by [vbtdung](https://github.com/vbtdung)
-* Note that the installation instructions on this page are written for *nix-based systems so you need to change the commands a little to make them work in windows (e.g. `cp` becomes `copy` in Windows)
-* You may need to add few windows specific gems to Gemfile. Versions prior to 2.3.0 included these, but because they caused trouble running Sharetribe on Heroku, we decided to remove them from the default Gemfile. You can just add these lines to Gemfile and run `bundle install`.
-
-```bash
-gem 'win32console', :platforms => [:mswin, :mingw]
-gem 'win32-process', :platforms => [:mswin, :mingw]
-```
-
-#### Mac Os X
-
-* If you are using MySQL, please note that Mac OS X 10.6 requires a 64-bit version of MySQL.
-* RVM requires both Xcode and Command Line Tools for Xcode to be installed
-  * Install Xcode from App Store
-  * To install Command Line Tools for Xcode, open Xcode and from the application menu, select Xcode > Open Developer Tools > More Developer Tools...
-
-#### Ubuntu (and Linux in general)
-
-* If, during precompile, you face an error like `Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes.`, you have to install nodejs. Execute `sudo apt-get install nodejs` and run precompile again.
-
-* These are the bash commands I used to install Sharetribe on a fresh Ubuntu 12.10 box:
-
-```bash
-- sudo aptitude install ruby2.1.1
-- sudo gem install bundler
-- sudo aptitude install git
-- git clone git://github.com/sharetribe/sharetribe.git
-- cd sharetribe
-- cp config/database.example.yml config/database.yml
-- sudo aptitude install mysql-server-5.5
-- sudo mysql_secure_installation
-- <execute 2 production SQL commands>
-- emacs config/database.yml
-	- edit the pw of "sharetribe_production"
-- cp config/config.example.yml config/config.yml
-- emacs config/config.yml
-	- check all once
-- sudo aptitude install sphinxsearch
-- sudo aptitude install imagemagick
-- sudo aptitude install build-essential mysql-client libmysql-ruby libmysqlclient-dev
-- sudo gem install mysql2 -v 0.2.7
-- sudo aptitude install libxml2-dev libxslt-dev
-- emacs Gemfile.lock
-	- change money-rails (0.8.0) to money-rails (0.8.1)
-- bundle install
-- rake RAILS_ENV=production db:schema:load
-- (note: if you ever want to uninstall all ruby gems)
-	- sudo su
-	- gem list | cut -d" " -f1 | xargs gem uninstall -aIx
-- sudo aptitude install nodejs
-- rake RAILS_ENV=production db:seed
-- rake RAILS_ENV=production ts:index
-- rake RAILS_ENV=production ts:start
-- emacs app/assets/stylesheets/application.scss.erb
-	- prepend this to the <% %> block at the top:
-		require "#{Rails.root}/app/helpers/scss_helper.rb"
-- rake assets:precompile
-- to enable logs in production (Passenger+Apache)
-	- emacs config/application.rb
-	- comment out the lines:
-		if Rails.env.production? || Rails.env.staging?
-			config.logger = Logger.new(STDOUT)
-			config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
-		end
-- emacs app/views/layouts/application.haml
-	- delete the last include IE9 javascript imports
-- sudo aptitude install apache2 libapache2-mod-passenger
-- sudo gem install passenger
-- edit the apache site config file
-- rake RAILS_ENV=production jobs:work
-```
-
-See [New guide for deployment using capistrano from scratch to VPS](docs/vps-deployment.md)
+Sharetribe's open source version supports payments using [Braintree Marketplace](https://www.braintreepayments.com/features/marketplace). To enable payments with Braintree you need to have a legal business in The United States. You can sign up for Braintree [here](https://signups.braintreepayments.com/). Then you need to create a new row to the payment gateways table with your Braintree merchant_id, master_merchant_id, public_key, private_key and client_side_encryption_key.
 
 ## Updating
 
-See [RELEASE_NOTES.md](RELEASE_NOTES.md) for information about what has changed and if special tasks are needed to update.
+See [release notes](RELEASE_NOTES.md) for information about what has changed and if special tasks are needed to update.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for general contributing guidelines.
+Would you like to make Sharetribe better? Here's a basic guide.
 
-NOTE: If you try installing and encounter problems, please report them for example in [Issues](https://github.com/sharetribe/sharetribe/issues) or at [Flowdock](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main). We try to help you and enhance the documentation.
+1. Fork the code
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Write your code
+4. [Open a Pull Request from your fork to master as early as possible.](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) Pull Requests are great way to start conversation of a feature. If the Pull Request is work in progress and not yet ready to be reviewed, add a \[WIP\] prefix to the title.
+5. Be sure to add automated tests. That's the best way to guarantee that other developers won't accidentally break your feature.
+6. When you are ready, rebase (or merge) your branch to include the latest changes from `master`
+7. Make sure all the tests pass
+8. Remove the \[WIP\] prefix and ping us at info@sharetribe.com.
 
 ## Translation
 
