@@ -122,7 +122,7 @@ fi:
         getting_started: Aloitusohjeet
         welcome_to_your_marketplace: "Tervetuloa omalle markkinapaikkasivustollesi, %{name}!"
         intro: "Tämän ohjeen avulla sivustosi muokkaus ja hallinta onnistuu vaivatta. Varsinaisen sivustosi näet %{live_site_link}."
-        live_site_link_text: "tästä"
+        live_site_link_text: tästä
         look_and_feel: "Ennen kuin avaat sivustosi kaikelle kansalle, kannattaa tehdä muutamia muutoksia. Voit esimerkiksi %{logo_link} ja vaihtaa sivuston kansikuvan ja värimaailman mieleisiksisi."
         logo_link_text: "lisätä oman logosi"
         custom_domain: "Saatat myös haluta vaihtaa sivustolle mieleisesi verkko-osoitteen (esimerkiksi www.omamarkkinapaikka.fi). Tätä toimenpidettä varten sinun on syytä %{contact_team_link}, sillä osoitteen käyttöönotto vaatii muutamia toimenpiteitä meidän puoleltamme."
@@ -309,7 +309,7 @@ fi:
       users_and_transactions: "Käyttäjät ja transaktiot"
       configure: "Sivuston muokkaus"
       emails_title: Sähköpostit
-      support: "Asiakastuki"
+      support: Asiakastuki
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"
@@ -400,7 +400,7 @@ fi:
       you_need_to_fill_payout_details_before_accepting: "Sinun pitää täyttää maksutietosi ennen kuin voit hyväksyä pyynnön ja vastaanottaa maksun. Täytä maksutietosi %{payment_settings_link}."
       payment_settings_link: täällä
       minimum_price_error_message: "Hinta ei voi olla pienempi kuin %{amount}."
-      approve: "Hyväksy"
+      approve: Hyväksy
       sum: "Kokonaissumma: %{sum}"
       service_fee: "Palvelumaksu: %{service_fee}"
       you_will_get: "Sinä saat: %{seller_gets}"

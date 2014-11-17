@@ -107,9 +107,11 @@ pt-BR:
         getting_started: ~
         welcome_to_your_marketplace: ~
         intro: ~
+        live_site_link_text: ~
         look_and_feel: ~
         logo_link_text: ~
         custom_domain: ~
+        contact_team_link_text: ~
         categories_and_custom_fields: ~
         categories_link_text: ~
         custom_fields_link_text: ~
@@ -133,6 +135,7 @@ pt-BR:
         invite_link_text: ~
         view_users_link_text: ~
         view_transactions_link_text: ~
+        contact_support_link_text: ~
       settings:
         settings: Opções
         general: Geral
@@ -291,6 +294,7 @@ pt-BR:
       users_and_transactions: ~
       configure: ~
       emails_title: ~
+      support: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
@@ -382,6 +386,9 @@ pt-BR:
       payment_settings_link: "configurações de pagamento"
       minimum_price_error_message: "O preço não pode ser inferior %{amount}"
       approve: Aprovar
+      sum: ~
+      service_fee: ~
+      you_will_get: ~
     confirm:
       confirm_description: "Se o seu pedido foi aceito, você deve confirmá-lo como concluído. Então você pode dar um feedback para a outra parte."
       cancel_description: "Se o seu pedido não foi efetuado, você pode marcá-lo como \"não efeutado\". Você ainda pode dar um feedback para a outra parte e descrever o que aconteceu."
@@ -781,6 +788,7 @@ pt-BR:
       love: ~
       sharetribe_crew: ~
       knowledge_base_link_text: ~
+      contact_support_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} publicou um novo anúncio no(a) %{community}"
       has_posted_a_new_listing: ~

@@ -122,9 +122,11 @@ sv:
         getting_started: Kom-igång-guide
         welcome_to_your_marketplace: "Välkommen till din marknadsplats, %{name}!"
         intro: "Detta är en snabb-guide hur du ställer in och hanterar din marknadsplats."
+        live_site_link_text: ~
         look_and_feel: "Innan du lanserar din sida så kanske du vill ändra vissa saker. Du kanske vill  %{logo_link} och byta omslagsbild och färger för att det ska passa in."
         logo_link_text: "lägga till din logotyp"
         custom_domain: "Du kanske också vill lägga till en egen webbadress (t ex: www.dinmarknadsplats.com). För att göra detta så bör du kontakta vårt team på hello@sharetribe.com, eftersom att ordna detta kräver några manuella steg från vår sida."
+        contact_team_link_text: ~
         categories_and_custom_fields: "Nästa sak att bestämma är vilken typ av innehåll som dina användare kan lägga ut på din sida. Du kan %{categories_link}, %{custom_fields_link} som själva annonsen innehåller och bestämma %{filters_link} som används när folk bläddrar bland annonser."
         categories_link_text: "lägg till kategorier och underkategorier"
         custom_fields_link_text: "konfigurera formulärfälten"
@@ -148,6 +150,7 @@ sv:
         invite_link_text: "bjud in användare"
         view_users_link_text: här
         view_transactions_link_text: här
+        contact_support_link_text: ~
       settings:
         settings: Inställningar
         general: Allmänt
@@ -306,6 +309,7 @@ sv:
       users_and_transactions: "Användare & transaktioner"
       configure: Konfiguration
       emails_title: E-post
+      support: ~
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"
@@ -397,6 +401,9 @@ sv:
       payment_settings_link: betalningsinställningar
       minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
       approve: Godkänn
+      sum: ~
+      service_fee: ~
+      you_will_get: ~
     confirm:
       confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som klar. Då kan du ge din feedback till den andra parten."
       cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"hände inte\". Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
@@ -798,6 +805,7 @@ sv:
       love: "Varma hälsningar,"
       sharetribe_crew: Sharetribe-gänget
       knowledge_base_link_text: "kolla vår kunskapsbas"
+      contact_support_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} har skapat en ny annons på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har skapat en ny annons:"
