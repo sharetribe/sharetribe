@@ -86,7 +86,7 @@ See [release notes](RELEASE_NOTES.md) for information about what has changed and
 
 ## Contributing
 
-Would you like to make Sharetribe better? [Here's a basic guide](CONTRIBUTING.MD).
+Would you like to make Sharetribe better? [Here's a basic guide](CONTRIBUTING.md).
 
 ## Translation
 
