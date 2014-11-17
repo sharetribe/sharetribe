@@ -4,19 +4,20 @@
 
   %h2= t("paypal_accounts.payout_info_title")
 
-  .row
-    = t("paypal_accounts.new.payout_info_text").html_safe
+  - if community_ready_for_payments
+    .row
+      = t("paypal_accounts.new.payout_info_text").html_safe
 
-  %br/
+    %br/
 
-  .row.paypal-connected-email-row
-    %h3.paypal-account-connected
-      = t("paypal_accounts.paypal_account_email_connected").html_safe
-    .paypal-connected-email.paypal-account-connected
-      = t("paypal_accounts.connected_account", :email => paypal_account_email)
+    .row.paypal-connected-email-row
+      %h3.paypal-account-connected
+        = t("paypal_accounts.paypal_account_email_connected").html_safe
+      .paypal-connected-email.paypal-account-connected
+        = t("paypal_accounts.connected_account", :email => paypal_account_email)
 
-  .row.paypal-billing-agreement-row
-    %h3.paypal-billing-agreement-made
-      = t("paypal_accounts.paypal_billing_agreement_made").html_safe
-    .paypal-billing-agreement-made.paypal-ready-to-accept-payments
-      = t("paypal_accounts.you_are_ready_to_accept_payments").html_safe
+    .row.paypal-billing-agreement-row
+      %h3.paypal-billing-agreement-made
+        = t("paypal_accounts.paypal_billing_agreement_made").html_safe
+      .paypal-billing-agreement-made.paypal-ready-to-accept-payments
+        = t("paypal_accounts.you_are_ready_to_accept_payments").html_safe
