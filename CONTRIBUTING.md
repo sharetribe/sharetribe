@@ -7,4 +7,4 @@ Sharetribe contribution instructions
 5. Be sure to add automated tests. That's the best way to guarantee that other developers won't accidentally break your feature.
 6. When you are ready, rebase (or merge) your branch to include the latest changes from `master`
 7. Make sure all the tests pass
-8. Remove the \[WIP\] prefix and ping us at info@sharetribe.com.
+8. Remove the \[WIP\] prefix.
