@@ -224,6 +224,10 @@ default: &default_settings
   original_image_width: 1600
   original_image_height: 1600
 
+  # Email addresses for sales & support. Will be shown to the administrator.
+  sales_email: hello@example.com
+  support_email: support@example.com
+
 production: &production_settings
   <<: *default_settings
 

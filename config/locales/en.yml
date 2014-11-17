@@ -121,17 +121,19 @@ en:
       getting_started:
         getting_started: "Getting started guide"
         welcome_to_your_marketplace: "Welcome to your marketplace, %{name}!"
-        intro: "This is a quick guide for configuring and managing your marketplace site."
-        look_and_feel: "Before you launch your site to the public, you probably want to configure some things. For instance, you might want to %{logo_link} and change the cover photo and colors to match with the look and feel of your brand."
+        intro: "This is a quick guide for configuring and managing your marketplace site. You can view the live site %{live_site_link}."
+        live_site_link_text: "here"
+        look_and_feel: "Before you launch your site to the public, you probably want to configure some things. For instance, you might want to %{logo_link} and change the cover photo and colors to match the look and feel of your brand."
         logo_link_text: "add your logo"
-        custom_domain: "You might also want to add a custom web address (an example: www.yourmarketplace.com). To do that you should contact our team at hello@sharetribe.com, because setting it up requires some manual steps from our side."
+        custom_domain: "You might also want to add a custom web address (an example: www.yourmarketplace.com). To do that you should %{contact_team_link}, because setting it up requires some manual steps from our side."
+        contact_team_link_text: "contact our team"
         categories_and_custom_fields: "The next thing is to decide what kind of content people can post to your site. You can %{categories_link}, %{custom_fields_link} that the actual listing form contains, and decide %{filters_link} are in use when people browse the listings."
         categories_link_text: "add categories and subcategories"
-        custom_fields_link_text: "configure the form fields"
+        custom_fields_link_text: "configure form fields"
         filters_link_text: "what kind of filters"
-        payments: "If you want people to be able to pay for their purchases through your marketplace, so you can charge a fee from each transaction, you should %{payments_link}."
+        payments: "If you want people to be able to pay for their purchases through your marketplace, so that you can charge a fee from each transaction, you should %{payments_link}."
         payments_link_text: "configure a payment method"
-        info_texts: "Don't forget to customize the info pages and other texts where you can tell your users about your marketplace. Good places to check are your %{about_page_link}, your %{terms_of_use_link} (you should add your own terms of use here, either by modifying the current template or creating a completely new document), your %{privacy_policy_link}, and the %{welcome_email_link} that is sent to each new user. There are also some %{instruction_texts_link} you can configure."
+        info_texts: "Don't forget to customize info pages and other texts where you can tell your users about your marketplace. Good places to check are your %{about_page_link}, your %{terms_of_use_link} (you should add your own terms of use here, either by modifying the current template or creating a completely new document), your %{privacy_policy_link}, and the %{welcome_email_link} that is sent to each new user. There are also some %{instruction_texts_link} you can configure."
         about_page_link_text: "about page"
         terms_of_use_link_text: "terms of use"
         privacy_policy_link_text: "privacy policy"
@@ -140,14 +142,15 @@ en:
         social_media: "Using social media is a good way to build the community. You can %{facebook_link} to make it easier for people to log in to your marketplace, and %{twitter_link} to get viral visibility when people tweet about products on your marketplace."
         facebook_link_text: "connect your custom Facebook app"
         twitter_link_text: "add your Twitter account"
-        analytics: "It's also a good idea to %{analytics_link} to your marketplace. This way it's easy for you to see what's happening in your marketplace, how many visitors you have, and so on."
+        analytics: "It's also a good idea to %{analytics_link}. This way it's easy for you to see what's happening in your marketplace, how many visitors you have, and so on."
         analytics_link_text: "connect a Google Analytics account"
-        settings: "There are a bunch of other settings too that you can play around with. For instance, you can require everyone to have an invite from other users before they can join your marketplace, and make your marketplace private, so only the users who are logged in, can see the content. %{settings_link}."
-        settings_link_text: "View the settings of your marketplace here"
-        final_words: "That's about it! If everything's ready, you can start %{invite_link} to your marketplace. You can see all the users who have joined %{view_users_link}, and all the transactions they have completed %{view_transactions_link}. You can also easily manage listings: simply go to the page of the listing and you'll see the admin links for editing and closing there. If you need any help, you can contact our support - we are here for you!"
+        settings: "There are a bunch of other settings that you can play around with. For instance, you can require everyone to have an invite from other users before they can join and make your marketplace private, so only the users who are logged in, can see the content. %{settings_link}."
+        settings_link_text: "View your marketplace settings here"
+        final_words: "That's about it! If everything's ready, you can start %{invite_link} to your marketplace. You can see all the users who have joined %{view_users_link}, and all the transactions they have completed %{view_transactions_link}. You can also easily manage listings: simply go to the listing page and you'll see the admin links for editing and closing there. If you need any help, you can %{contact_support_link} - we are here for you!"
         invite_link_text: "inviting users"
         view_users_link_text: here
         view_transactions_link_text: here
+        contact_support_link_text: "contact our support"
       settings:
         settings: Settings
         general: General
@@ -418,7 +421,7 @@ en:
       loading_more_messages: "Loading more messages"
       message_partitive: message
       messages_partitive: messages
-      no_received_messages: "No received messages"
+      no_received_messages: "No messages"
       no_sent_messages: "No sent messages"
     conversation:
       accepted_request: "Request accepted."
@@ -793,7 +796,7 @@ en:
       your_marketplace_admin_area: "Your marketplace admin area:"
       just_follow_details: "Just follow these links and you’ll get more details on how to start building your marketplace!"
       we_will_guide_you_along_the_way: "We will guide you along the way."
-      are_you_new_to_online_marketplaces: "Are you new to online marketplaces? No worries, we're here to help you out! We will be sending you a series of emails that will help you get the most out of Sharetribe and to build a successful marketplace business. We will be sending Part 1 to you soon."
+      are_you_new_to_online_marketplaces: "Need assistance with your marketplace? No worries, we're here to help you out! We will be sending you a series of emails that will help you get the most out of Sharetribe and to build a successful marketplace business. We will be sending Part 1 to you soon."
       have_questions: "Have questions?"
       our_happiness_team_is_here_to_help: "Our happiness team is here for you! Either %{knowledge_base_link} or contact our support."
       love: "Love,"
