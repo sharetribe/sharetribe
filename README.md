@@ -80,7 +80,7 @@ See also:
 
 Sharetribe's open source version supports payments using [Braintree Marketplace](https://www.braintreepayments.com/features/marketplace). To enable payments with Braintree you need to have a legal business in The United States. You can sign up for Braintree [here](https://signups.braintreepayments.com/). Then you need to create a new row to the payment gateways table with your Braintree merchant_id, master_merchant_id, public_key, private_key and client_side_encryption_key. 
 
-Right now PayPal payments are only available in marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com), because they require special permissions from PayPal. We aim to bring support for PayPal payments also to the open source version of Sharetribe in the future.
+Right now PayPal payments are only available in marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com), because they require special permissions from PayPal. We hope to bring support for PayPal payments also to the open source version of Sharetribe in the future.
 
 ## Updating
 
