@@ -433,6 +433,57 @@ describe PaypalService::DataTypes::IPN do
     "ipn_track_id"=>"1239845790gdaho"
   }
 
+  payment_completed_3 = {
+    "action" => "ipn_hook",
+    "address_city" => "Roma",
+    "address_country" => "Italy",
+    "address_country_code" => "IT",
+    "address_name" => "giovanni foglietta",
+    "address_state" => "Roma",
+    "address_status" => "unconfirmed",
+    "address_street" => "via gregorio VII 111\nint. 12b",
+    "address_zip" => "00165",
+    "business" => "sharetribe@sharetribe.com",
+    "charset" => "windows-1252",
+    "controller" => "paypal_ipn",
+    "custom" => "",
+    "first_name" => "giovanni",
+    "invoice" => "INV2-7V4J-HMJT-VD2G-5L2J",
+    "invoice_id" => "INV2-7V4J-HMJT-VD2G-5L2J",
+    "invoice_number" => "0028",
+    "ipn_track_id" => "1cc4a49ba25c",
+    "item_name1" => "Payment to Sharetribe for invoice 0028",
+    "item_number1" => "",
+    "last_name" => "foglietta",
+    "mc_currency" => "EUR",
+    "mc_fee" => "3.72",
+    "mc_gross" => "99.00",
+    "mc_gross_1" => "99.00",
+    "mc_handling1" => "0.00",
+    "mc_shipping" => "0.00",
+    "mc_shipping1" => "0.00",
+    "notify_version" => "3.8",
+    "num_cart_items" => "1",
+    "payer_email" => "giovannifoglietta@gmail.com",
+    "payer_id" => "4RE3YRHNKV2SL",
+    "payer_status" => "unverified",
+    "payment_date" => "05:21:07 Nov 14, 2014 PST",
+    "payment_fee" => "",
+    "payment_gross" => "",
+    "payment_status" => "Completed",
+    "payment_type" => "instant",
+    "protection_eligibility" => "Eligible",
+    "quantity1" => "1",
+    "receiver_email" => "info@sharetribe.com",
+    "receiver_id" => "3H3LLRNQZ5Q2G",
+    "residence_country" => "IT",
+    "tax1" => "0.00",
+    "transaction_subject" => "",
+    "txn_id" => "9FA319797P8261059",
+    "txn_type" => "invoice_payment",
+    "verify_sign" => "AH1pol-O9H-rvd9mM0ld1W1mHNV0AFUqtkq16DTx..JHU9WOSdPL9xy5"
+  }
+
   it "#from_params" do
     input_with_expected_type = [
       [payment_refunded, :payment_refunded],
@@ -443,7 +494,8 @@ describe PaypalService::DataTypes::IPN do
       [payment_voided, :payment_voided],
       [payment_completed_2, :payment_completed],
       [payment_refunded_2, :payment_refunded],
-      [payment_denied, :payment_denied]
+      [payment_denied, :payment_denied],
+      [payment_completed_3, :payment_completed]
     ]
 
     input_with_expected_type.each do |(input, type)|

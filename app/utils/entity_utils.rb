@@ -100,7 +100,9 @@ module EntityUtils
     to_bool: -> (_, v) { !!v },
     to_symbol: -> (_, v) { v.to_sym },
     str_to_time: -> (format, v) {
-      if v.is_a?(Time)
+      if v.nil?
+        nil
+      elsif v.is_a?(Time)
         v
       elsif format.nil?
         Time.parse(v)

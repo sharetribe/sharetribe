@@ -37,8 +37,8 @@ module PaypalService
         [:type, const_value: :payment_completed],
         [:payment_date, :mandatory, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
         [:payment_id, :string, :mandatory],
-        [:authorization_expires_date, :mandatory, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
-        [:authorization_id, :string, :mandatory],
+        [:authorization_expires_date, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
+        [:authorization_id, :string],
         [:payer_email, :string],
         [:payer_id, :string, :mandatory],
         [:receiver_email, :string, :mandatory],
@@ -46,7 +46,7 @@ module PaypalService
         [:payment_status, :string, :mandatory],
         [:pending_reason, const_value: :none],
         [:receipt_id, :string],
-        [:authorization_total, :money, :mandatory],
+        [:authorization_total, :money],
         [:payment_total, :money, :mandatory],
         [:fee_total, :money]
       )
@@ -223,13 +223,13 @@ module PaypalService
           },
           params)
 
-        #convert fee if present
-        with_fee = p[:mc_fee] ? p.merge({ fee_total: to_money(p[:mc_fee], p[:mc_currency]) }) : p
+        p[:fee_total] = p[:mc_fee] ? to_money(p[:mc_fee], p[:mc_currency]) : nil
+        p[:authorization_total] = p[:auth_amount] ? to_money(p[:auth_amount], p[:mc_currency]) : nil
 
         create_payment_completed(
-          with_fee.merge({
-              payment_total: to_money(p[:mc_gross], p[:mc_currency]),
-              authorization_total: to_money(p[:auth_amount], p[:mc_currency])}))
+          p.merge({
+              payment_total: to_money(p[:mc_gross], p[:mc_currency])
+          }))
       end
       private_class_method :to_payment_completed
 
