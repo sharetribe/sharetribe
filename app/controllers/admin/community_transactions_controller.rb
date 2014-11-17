@@ -40,6 +40,8 @@ class Admin::CommunityTransactionsController < ApplicationController
       transaction.merge({author: author, starter: starter})
     end
 
+    conversations = conversations.reject { |c| c[:discussion_type] == :not_available }
+
     conversations = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
       pager.replace(conversations)
     end

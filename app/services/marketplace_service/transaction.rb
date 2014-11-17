@@ -121,7 +121,7 @@ module MarketplaceService
           transitions: transaction_model.transaction_transitions.map { |transition|
             Transition[EntityUtils.model_to_hash(transition)]
           },
-          discussion_type: Maybe(listing_model).discussion_type.to_sym.or_else("not available"),
+          discussion_type: Maybe(listing_model).discussion_type.to_sym.or_else(:not_available),
           payment_total: payment_total,
           booking: transaction_model.booking,
           __model: transaction_model
@@ -133,7 +133,7 @@ module MarketplaceService
         if transaction_model.conversation
           transaction[:conversation] = ConversationEntity.conversation(transaction_model.conversation, community_id)
         else
-          #placeholder for deleted conversation to keep transaction list working
+          # placeholder for deleted conversation to keep transaction list working
           transaction[:conversation] = ConversationEntity.deleted_conversation_placeholder
         end
         transaction

@@ -42,10 +42,8 @@ module MarketplaceService
 
       def deleted_conversation_placeholder
         Conversation[{
-          last_transition_at: "not available",
+          last_transition_at: :not_available,
           metadata: "this is a placeholder for conversation that was deleted, probably due a participant deleting his profile."
-          #starter_person: "not available",
-          #other_person: "not available"
         }]
       end
 
