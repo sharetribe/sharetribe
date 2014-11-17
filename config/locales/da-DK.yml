@@ -122,9 +122,11 @@ da-DK:
         getting_started: "Kom i gang guide"
         welcome_to_your_marketplace: "Velkommen til din markedsplads, %{name}!"
         intro: "Dette er en hurtig guide til hvordan du kommer i gang med din nye markedsplads."
+        live_site_link_text: ~
         look_and_feel: ~
         logo_link_text: "tilføj et logo"
         custom_domain: ~
+        contact_team_link_text: ~
         categories_and_custom_fields: ~
         categories_link_text: "tilføj kategorier og underkategorier"
         custom_fields_link_text: ~
@@ -148,6 +150,7 @@ da-DK:
         invite_link_text: "inviter brugere"
         view_users_link_text: her
         view_transactions_link_text: her
+        contact_support_link_text: ~
       settings:
         settings: Indstillinger
         general: Generelt
@@ -397,6 +400,9 @@ da-DK:
       payment_settings_link: "betalings indstillinger"
       minimum_price_error_message: "Prisen kan ikke være lavere end %{amount}."
       approve: Godkend
+      sum: ~
+      service_fee: ~
+      you_will_get: ~
     confirm:
       confirm_description: "Hvis din ansøgning er godkendt, bør du markerer den som en success. Så kan I give feedback til hinanden."
       cancel_description: "Hvis din ansøgning ikke er godkendt, kan du markere den som 'ikke godkendt'. Du kan stadig give feedback til den anden part."
@@ -796,6 +802,7 @@ da-DK:
       love: "Kærlig hilsen,"
       sharetribe_crew: "Holdet bag Sharetribe"
       knowledge_base_link_text: "tjek vores support side"
+      contact_support_link_text: ~
     new_listing_by_followed_person:
       subject: "%{author_name} har oprettet en ny annonce på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har oprettet en ny annonce:"

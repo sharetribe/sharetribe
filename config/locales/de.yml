@@ -122,9 +122,11 @@ de:
         getting_started: ~
         welcome_to_your_marketplace: ~
         intro: ~
+        live_site_link_text: ~
         look_and_feel: ~
         logo_link_text: ~
         custom_domain: ~
+        contact_team_link_text: ~
         categories_and_custom_fields: ~
         categories_link_text: ~
         custom_fields_link_text: ~
@@ -148,6 +150,7 @@ de:
         invite_link_text: ~
         view_users_link_text: ~
         view_transactions_link_text: ~
+        contact_support_link_text: ~
       settings:
         settings: Einstellungen
         general: Allgemein
@@ -397,6 +400,9 @@ de:
       payment_settings_link: Zahlungseinstellungen
       minimum_price_error_message: "Der Preis kann nicht niedriger sein als %{amount}."
       approve: ~
+      sum: ~
+      service_fee: ~
+      you_will_get: ~
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem anderen Feedback geben."
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
@@ -796,6 +802,7 @@ de:
       love: ~
       sharetribe_crew: ~
       knowledge_base_link_text: ~
+      contact_support_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
