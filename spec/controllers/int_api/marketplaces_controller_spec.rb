@@ -47,6 +47,8 @@ describe IntApi::MarketplacesController do
 
       expect(r["email"]).to eql "something.not.used@example.com"
       expect(r["available"]).to eql true
+
+      expect(ProspectEmail.last.email).to eql "something.not.used@example.com"
     end
 
     it "should return correct availability info when email is not available" do
@@ -58,6 +60,8 @@ describe IntApi::MarketplacesController do
       r = JSON.parse(response.body)
       expect(r["email"]).to eql "occupied@email.com"
       expect(r["available"]).to eql false
+
+      expect(ProspectEmail.last.email).to eql "occupied@email.com"
     end
 
   end
