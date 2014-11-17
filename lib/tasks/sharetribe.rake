@@ -293,6 +293,6 @@ namespace :sharetribe do
 
   desc "Retries set express checkouts"
   task :retry_and_clean_paypal_tokens => :environment do
-    PaypalService::API::Api.payments.retry_and_clean_tokens(1.hour.ago)
+    Delayed::Job.enqueue(PaypalService::Jobs::RetryAndCleanTokens.new(1.hour.ago))
   end
 end
