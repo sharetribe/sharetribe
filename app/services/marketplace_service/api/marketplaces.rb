@@ -13,7 +13,7 @@ module MarketplaceService::API
       locale = p[:marketplace_language].or_else("en")
       marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
 
-      community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
+      community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale, p[:paypal_enabled].or_else(false)))
 
       Helper.create_community_customization!(community, marketplace_name, locale)
       t = Helper.create_transaction_type!(community, p[:marketplace_type])
@@ -38,7 +38,7 @@ module MarketplaceService::API
 
       module_function
 
-      def community_params(params, marketplace_name, locale)
+      def community_params(params, marketplace_name, locale, paypal_enabled)
         {
           consent: "SHARETRIBE1.0",
           domain: available_domain_based_on(params[:marketplace_name].get),
@@ -46,7 +46,7 @@ module MarketplaceService::API
           name: marketplace_name,
           available_currencies: available_currencies_based_on(params[:marketplace_country].or_else("us")),
           country: params[:marketplace_country].upcase.or_else(nil),
-          paypal_enabled: true
+          paypal_enabled: paypal_enabled
         }
       end
 

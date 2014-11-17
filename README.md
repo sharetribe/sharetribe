@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/sharetribe/sharetribe.svg?branch=master)](https://travis-ci.org/sharetribe/sharetribe) [![Dependency Status](https://gemnasium.com/sharetribe/sharetribe.png)](https://gemnasium.com/sharetribe/sharetribe) [![Code Climate](https://codeclimate.com/github/sharetribe/sharetribe.png)](https://codeclimate.com/github/sharetribe/sharetribe) [![Coverage Status](https://coveralls.io/repos/sharetribe/sharetribe/badge.png)](https://coveralls.io/r/sharetribe/sharetribe)
 
-Sharetribe is an open source platform you can use to create your own peer-to-peer marketplace. 
+Sharetribe is an open source platform you can use to create your own peer-to-peer marketplace.
 
 Would you like to set up your marketplace in a minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
@@ -39,28 +39,23 @@ Note: If you encounter problems with the installation, you can try asking for he
 * If you want to run Sharetribe in production mode (i.e. you are not developing the software) you'll need to precompile the assets. This puts the Javascript and CSS files in right places. Use command: `rake assets:precompile`
 * If you want to enable Sharetribe to send email locally (in the development environment), you might want to change the email settings in the config file. There is an example of configuring settings using a gmail account, but you can also use any other SMTP server. If you do not touch the settings, the development version works otherwise normally but might crash in instances where it tries to send email (like when sending a message to another user).
 * Invoke the delayed job worker on your local machine: `rake RAILS_ENV=production jobs:work`. You should see "Starting job worker" and then the process stays open. The worker processes tasks that are done in the background, like processing images and sending email notifications. To exit the worker, press ctrl+c.
-* Start the server. The simplest way is to use command `rails server` which will start it on Webrick, which is good option for development use.
-  * To start the server in production environment, use command `rails server -e production`
-* Sharetribe server can serve multiple Sharetribe marketplaces (tribes) that are separated by subdomains. You need at least one community to use Sharetribe. To create a community and add some default transaction type and category there, start the Rails Console: `rails console production` and choose the name and subdomain for your community and insert them in the following commands:
+* Create your marketplace. Quickest way is to open console and run the commands below. Before running, choose your marketplace subdomain, type (product, rental or service), languge and country and modify the command below to include your choices. Then run `rails console production` and run the commands with your values:
 
 ```ruby
-c = Community.create(:name => "your_chosen_name_here", :domain => "your_chosen_subdomain_here")
+marketplace_parameters = {
+ marketplace_name: "your_chosen_subdomain_here",
+ marketplace_type: "product",
+ marketplace_country: "US",
+ marketplace_language: "en"
+}
 
-tt = c.transaction_types.create(:type => "Sell",
- :price_field => 1,
- :price_quantity_placeholder => nil);
-
-tt_trans = TransactionTypeTranslation.create(:transaction_type_id => tt.id,
- :locale => "en",
- :name => "Sell",
- :action_button_label => "Buy");
-ca = c.categories.create;
-ca_trans = CategoryTranslation.create(:category_id => ca.id,
- :locale => "en",
-  :name => "Items");
-CategoryTransactionType.create(:category_id => ca.id, :transaction_type_id => tt.id)
+MarketplaceService::API::Marketplaces::create(marketplace_parameters)
 
 ```
+* Start the server. The simplest way is to use command `rails server` which will start it on Webrick, which is good option for development use.
+  * To start the server in production environment, use command `rails server -e production`
+
+
 
 * Go to the marketplace you created (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and sign up as a new user. The first registered user will automatically become an administrator of that marketplace.
 
@@ -78,7 +73,7 @@ See also:
 
 ## Payments
 
-Sharetribe's open source version supports payments using [Braintree Marketplace](https://www.braintreepayments.com/features/marketplace). To enable payments with Braintree you need to have a legal business in The United States. You can sign up for Braintree [here](https://signups.braintreepayments.com/). Then you need to create a new row to the payment gateways table with your Braintree merchant_id, master_merchant_id, public_key, private_key and client_side_encryption_key. 
+Sharetribe's open source version supports payments using [Braintree Marketplace](https://www.braintreepayments.com/features/marketplace). To enable payments with Braintree you need to have a legal business in The United States. You can sign up for Braintree [here](https://signups.braintreepayments.com/). Then you need to create a new row to the payment gateways table with your Braintree merchant_id, master_merchant_id, public_key, private_key and client_side_encryption_key.
 
 Right now PayPal payments are only available in marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com), because they require special permissions from PayPal. We hope to bring support for PayPal payments also to the open source version of Sharetribe in the future.
 
