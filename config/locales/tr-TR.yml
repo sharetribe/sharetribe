@@ -1484,7 +1484,7 @@ tr-TR:
       billing_agreement_canceled: "Faturalandırma sözleşmesi iptal edildi"
       billing_agreement_id_missing: "PayPal entegrasyonunda teknik sorunlar yaşandı"
       something_went_wrong: "Bir şeyler ters gitti. Lütfen tekrar deneyin. Eğer sorun devam ederse, lütfen site yöneticilerine ulaşın."
-      account_not_verified: ~
+      account_not_verified: "PayPal hesabınızı doğrulamadınız. Devam etmeden önce paypal.com adresini ziyaret edip hesabınızı doğrulamanız gerekmektedir."
   paypal:
     checkout_with_paypal: "PayPal ile öde"
     cancel_succesful: "PayPal ödemesi başarıyla iptal edildi"
