@@ -40,6 +40,13 @@ module MarketplaceService
         }]
       end
 
+      def deleted_conversation_placeholder
+        Conversation[{
+          last_transition_at: :not_available,
+          metadata: "this is a placeholder for conversation that was deleted, probably due a participant deleting his profile."
+        }]
+      end
+
       def messages(message_models, community_id)
         message_models
           .reject { |msg|

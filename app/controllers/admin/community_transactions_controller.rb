@@ -31,10 +31,16 @@ class Admin::CommunityTransactionsController < ApplicationController
       author = conversation[:other_person]
       starter = conversation[:starter_person]
 
-      transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
+      if transaction[:listing].present?
+        # This if was added to tolerate cases where listing has been deleted
+        # due the author deleting his/her account completely
+        transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
+      end
 
       transaction.merge({author: author, starter: starter})
     end
+
+    conversations = conversations.reject { |c| c[:discussion_type] == :not_available }
 
     conversations = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
       pager.replace(conversations)
