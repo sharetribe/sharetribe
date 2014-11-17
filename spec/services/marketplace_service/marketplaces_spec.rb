@@ -61,13 +61,21 @@ describe MarketplaceService::API::Marketplaces do
       expect(c.transaction_types.first.categories.first).to eql c.categories.first
     end
 
-    it "should have paypal and preauthorize_payments enabled by default" do
-      community_hash = create(@community_params)
+    it "should have paypal and preauthorize_payments enabled if passed in params" do
+      community_hash = create(@community_params.merge(paypal_enabled: true))
       c = Community.find(community_hash[:id])
 
       expect(c.paypal_enabled).to be true
       expect(c.transaction_types.pluck(:preauthorize_payment).all?).to be true
     end
+
+    it "should not have paypal_enabled by default" do
+      community_hash = create(@community_params)
+      c = Community.find(community_hash[:id])
+
+      expect(c.paypal_enabled).to be false
+    end
+
 
     it "should have community customizations" do
       community_hash = create(@community_params)
