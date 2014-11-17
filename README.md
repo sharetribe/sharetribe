@@ -11,7 +11,7 @@ Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 
 ## Installation
 
-Note: If you encounter problems with the installation, you can ask for help from the developer community in our [developer chatroom](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main).
+Note: If you encounter problems with the installation, you can try asking for help from the developer community in our [developer chatroom](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main).
 
 * Before you get started, you need to have or install the following:
   * Ruby (we use currently version 2.1.2 and don't guarantee everything working with others. If you need multiple versions of Ruby, [RVM](https://rvm.io//) can help.)
