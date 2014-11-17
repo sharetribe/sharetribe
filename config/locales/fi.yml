@@ -396,7 +396,10 @@ fi:
       you_need_to_fill_payout_details_before_accepting: "Sinun pitää täyttää maksutietosi ennen kuin voit hyväksyä pyynnön ja vastaanottaa maksun. Täytä maksutietosi %{payment_settings_link}."
       payment_settings_link: täällä
       minimum_price_error_message: "Hinta ei voi olla pienempi kuin %{amount}."
-      approve: ~
+      approve: "Hyväksy"
+      sum: "Kokonaissumma: %{sum}"
+      service_fee: "Palvelumaksu: %{service_fee}"
+      you_will_get: "Sinä saat: %{seller_gets}"
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
@@ -503,11 +506,11 @@ fi:
       offer_rejected: "Tarjous hylätty"
       offer_canceled: "Tarjous peruutettu"
       offer_confirmed: "Tarjous toteutunut"
-      offer_paid: ~
-      offer_preauthorized: ~
+      offer_paid: "Maksu suoritettu"
+      offer_preauthorized: "Maksu suoritettu"
       offer_waiting_for_payment: ~
       pay: "Suorita maksu"
-      preauthorized: ~
+      preauthorized: "Maksu suoritettu"
       paid: "Maksu suoritettu"
       pending_external:
         paypal:
@@ -520,8 +523,8 @@ fi:
       request_rejected: "Pyyntö hylätty"
       request_confirmed: "Pyyntö toteutunut"
       request_canceled: "Pyyntö peruutettu"
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: "Maksu suoritettu"
+      request_preauthorized: "Maksu suoritettu"
       skip_feedback: "Ohita palaute"
       waiting_for_listing_author_to_accept_offer: "Odottaa että %{listing_author_name} hyväksyy tarjouksen"
       waiting_for_listing_author_to_accept_request: "Odottaa että %{listing_author_name} hyväksyy pyynnön"
@@ -542,10 +545,10 @@ fi:
       accept_request: "Hyväksy pyyntö"
       reject_offer: "Hylkää tarjous"
       reject_request: "Ei tällä kertaa"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      accept_preauthorized_offer: "Hyväksy tarjous"
+      accept_preauthorized_request: "Hyväksy pyyntö"
+      reject_preauthorized_offer: "Hylkää tarjous"
+      reject_preauthorized_request: "Ei tällä kertaa"
       confirm: "Merkitse toteutuneeksi"
       cancel: "Ei toteutunut"
   braintree_accounts:
