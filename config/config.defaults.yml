@@ -228,6 +228,9 @@ default: &default_settings
   sales_email: hello@example.com
   support_email: support@example.com
 
+  # Knowledge base URL
+  knowledge_base_url: http://www.example.com/knowledgebase
+
 production: &production_settings
   <<: *default_settings
 

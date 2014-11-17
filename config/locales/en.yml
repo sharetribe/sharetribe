@@ -798,10 +798,11 @@ en:
       we_will_guide_you_along_the_way: "We will guide you along the way."
       are_you_new_to_online_marketplaces: "Need assistance with your marketplace? No worries, we're here to help you out! We will be sending you a series of emails that will help you get the most out of Sharetribe and to build a successful marketplace business. We will be sending Part 1 to you soon."
       have_questions: "Have questions?"
-      our_happiness_team_is_here_to_help: "Our happiness team is here for you! Either %{knowledge_base_link} or contact our support."
+      our_happiness_team_is_here_to_help: "Our happiness team is here for you! Either %{knowledge_base_link} or %{contact_support_link}."
       love: "Love,"
       sharetribe_crew: "The Sharetribe crew"
       knowledge_base_link_text: "check out our knowledge base"
+      contact_support_link_text: "contact our support"
     new_listing_by_followed_person:
       subject: "%{author_name} has posted a new listing in %{service_name}"
       has_posted_a_new_listing: "%{author_name} has posted a new listing:"
