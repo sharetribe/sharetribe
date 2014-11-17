@@ -62,9 +62,9 @@ CategoryTransactionType.create(:category_id => ca.id, :transaction_type_id => tt
 
 ```
 
-* Go to the marketplace you created (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and register as a user. The first registered user will be automatically made as an admin in that community.
+* Go to the marketplace you created (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and sign up as a new user. The first registered user will automatically become an administrator of that marketplace.
 
-Congrats! You should be now able to access your marketplace.
+Congrats! You should be now able to access your marketplace and modify it from the admin area.
 
 See also:
 
