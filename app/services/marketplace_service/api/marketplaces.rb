@@ -88,7 +88,7 @@ module MarketplaceService::API
           initial_domain = "trial_site"
         end
 
-        current_domain = initial_domain.gsub(/[^A-Z0-9_]/i,"-").downcase
+        current_domain = initial_domain.to_url
         current_domain = current_domain[0..29] #truncate to 30 chars or less
 
         # use basedomain as basis on new variations if current domain is not available
