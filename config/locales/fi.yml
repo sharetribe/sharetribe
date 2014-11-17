@@ -305,10 +305,11 @@ fi:
         message_will_be_sent_only_to_people_with_this_language: "Tämä viesti lähetetään vain niille jäsenille, jotka käyttävät %{service_name}-palvelua valitsemallasi kielellä."
         email_sent: "Viesti lähetetty."
     left_hand_navigation:
-      general: ~
+      general: Yleistä
       users_and_transactions: "Käyttäjät ja transaktiot"
       configure: "Sivuston muokkaus"
       emails_title: Sähköpostit
+      support: "Asiakastuki"
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"
