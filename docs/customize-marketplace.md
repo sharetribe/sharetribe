@@ -25,7 +25,7 @@ The transaction types are defined in `transaction_types` table. The translations
 
 `transaction_types` table have a following customization columns:
 
-* `price_field`: Is price field available or not. Only offer's can have price field.
+* `price_field`: Is price field available or not. Only offers can have price field.
 * `price_quantity_placeholder`: A placeholder text for price quantity, e.g. price $10 per hour. Possible values: 
   * `mass`: "piece, kg, l, m2, ..."
   * `time`: "hour, day, month, ..."
