@@ -38,6 +38,9 @@ class IntApi::MarketplacesController < ApplicationController
     email = params[:email]
     render :json => ["email parameter missing"], :status => 400 and return if email.blank?
 
+    # When email availability has been asked, store that email to DB
+    ProspectEmail.create(:email => params[:email])
+
     response.status = 200
     render :json => {:email => email, :available => (Email.email_available?(email))} and return
   end
