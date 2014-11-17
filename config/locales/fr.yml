@@ -1489,6 +1489,7 @@ fr:
       billing_agreement_canceled: "L'accord de facturation a été annulé"
       billing_agreement_id_missing: "Il y a eu des problèmes techniques lors de l'intégration avec PayPal"
       something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter les administrateurs."
+      account_not_verified: ~
   paypal:
     checkout_with_paypal: "Payer avec PayPal"
     cancel_succesful: "Paiement PayPal correctement annulé"

@@ -1474,6 +1474,7 @@ it:
       billing_agreement_canceled: ~
       billing_agreement_id_missing: ~
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
+      account_not_verified: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: "Il pagamento di PayPal è stato cancellato con successo"

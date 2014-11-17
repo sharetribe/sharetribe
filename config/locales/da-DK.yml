@@ -31,10 +31,6 @@ da-DK:
         warning_listing_will_be_moved:
           one: "Der er %{count} annonce i denne kategorien. De vil blive flyttet til den valgte kategori."
           other: "Der er %{count} annoncer i denne kategorien. De vil blive flyttet til den valgte kategori."
-        select_new_category: "Vælg en ny kategori som annoncerne vil blive flyttet til:"
-        buttons:
-          remove: Slet
-          cancel: Annuller
         warning_custom_field_will_be_moved:
           one: "Der er %{count} brugerdefineret felt i denne kategori. Den vil blive flyttet til den valgte kategori."
           other: "Der er %{count} brugerdefinerede felter i denne kategori. De vil blive flyttet til den valgte kategori."
@@ -47,6 +43,10 @@ da-DK:
         warning_with_subcategories_custom_field_will_be_moved:
           one: "Der er %{count} brugerdefineret felt i denne kategori og underkategori. Den vil blive flyttet til den valgte kategori."
           other: "Der er %{count} brugerdefinerede felter i denne kategori og underkategori. De vil blive flyttet til den valgte kategori."
+        select_new_category: "Vælg en ny kategori som annoncerne vil blive flyttet til:"
+        buttons:
+          remove: Slet
+          cancel: Annuller
     communities:
       edit_details:
         community_details: ~
@@ -1489,6 +1489,7 @@ da-DK:
       billing_agreement_canceled: "Betalingsaftale er annulleret"
       billing_agreement_id_missing: "Der skete en teknisk fejl ved tilknytningen af din PayPal konto"
       something_went_wrong: "Noget gik galt. Prøv venligst igen. Hvis problemer fortsætter, så kontakt os gerne."
+      account_not_verified: ~
   paypal:
     checkout_with_paypal: "Betal med PayPal"
     cancel_succesful: "PayPal betalingen blev annulleret med success."
@@ -1846,20 +1847,6 @@ da-DK:
     day: dag
     days: dage
   will_paginate:
-    previous_label: "&#8592; <- Før"
-    next_label: "Næste &#8594;"
-    page_gap: "&hellip;"
-    page_entries_info:
-      multi_page: "Viser %{model} %{from} - %{to} af %{count} i alt"
-      multi_page_html: "Viser %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> af <b>%{count}</b> i alt"
-      single_page:
-        zero: "Ingen %{model} fundet"
-        one: "Viser 1 %{model}"
-        other: "Viser alle %{count} %{model}"
-      single_page_html:
-        zero: "Ingen %{model} fundet"
-        one: "Viser <b>1</b> %{model}"
-        other: "Viser <b>all&nbsp;%{count}</b> %{model}"
     models:
       person:
         zero: brugere
@@ -1869,3 +1856,17 @@ da-DK:
         zero: transaktioner
         one: transaktion
         other: transaktioner
+    previous_label: "&#8592; <- Før"
+    next_label: "Næste &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero: "Ingen %{model} fundet"
+        one: "Viser 1 %{model}"
+        other: "Viser alle %{count} %{model}"
+      single_page_html:
+        zero: "Ingen %{model} fundet"
+        one: "Viser <b>1</b> %{model}"
+        other: "Viser <b>all&nbsp;%{count}</b> %{model}"
+      multi_page: "Viser %{model} %{from} - %{to} af %{count} i alt"
+      multi_page_html: "Viser %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> af <b>%{count}</b> i alt"

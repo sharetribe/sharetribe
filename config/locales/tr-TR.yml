@@ -28,10 +28,6 @@ tr-TR:
         remove_category: "Kategoriyi kaldır"
         remove_category_name: "'%{category_name}' kategorisini kaldır"
         warning_remove_effects: "Uyarı! '%{category_name}' kategorisini kaldırmak aşağıdakilere sebep olacaktır:"
-        select_new_category: "Yukarıda seçilen öğelerin taşınacağı yeni kategoriyi seçin:"
-        buttons:
-          remove: Kaldır
-          cancel: İptal
         warning_listing_will_be_moved:
           other: "Kategoride %{count} listeleme bulunmaktadır. Bunlar seçilen kategoriye taşınacaktır."
         warning_custom_field_will_be_moved:
@@ -42,6 +38,10 @@ tr-TR:
           other: "Kategori ve alt kategorilerde %{count} listeleme bulunmaktadır. Bunlar seçilen kategoriye taşınacaktır."
         warning_with_subcategories_custom_field_will_be_moved:
           other: "Kategori ve alt kategorilerde %{count} kişiselleştirilmiş alan bulunmaktadır. Bunlar seçilen kategoriye taşınacaktır."
+        select_new_category: "Yukarıda seçilen öğelerin taşınacağı yeni kategoriyi seçin:"
+        buttons:
+          remove: Kaldır
+          cancel: İptal
     communities:
       edit_details:
         community_details: "Temel detaylar"
@@ -1484,6 +1484,7 @@ tr-TR:
       billing_agreement_canceled: "Faturalandırma sözleşmesi iptal edildi"
       billing_agreement_id_missing: "PayPal entegrasyonunda teknik sorunlar yaşandı"
       something_went_wrong: "Bir şeyler ters gitti. Lütfen tekrar deneyin. Eğer sorun devam ederse, lütfen site yöneticilerine ulaşın."
+      account_not_verified: ~
   paypal:
     checkout_with_paypal: "PayPal ile öde"
     cancel_succesful: "PayPal ödemesi başarıyla iptal edildi"
@@ -1524,6 +1525,8 @@ tr-TR:
       email_is_in_use: "Girdiğiniz e-posta adresi kullanımda."
       email_is_in_use_or_not_allowed: "E-posta adresi tanınmıyor veya kullanımda. Giriş yapamıyorsanız, bize ulaşın."
       email_not_allowed: "Bu e-mail adresine %{service_name}'de izin verilmemektedir. Lütfen izin verilen bir e-posta adresi kullanın. Yine de giriş yapamıyorsanız, bize ulaşın."
+      email_restriction_instructions:
+        other: "%{service_name}'e erişim sınırlandırılmıştır. Katılım izniniz olduğunu gösteren bir e-posta adresine sahip olmalısınız."
       enter_captcha: "Gerçek bir insanım:"
       family_name: Soyad
       given_name: Ad
@@ -1543,8 +1546,6 @@ tr-TR:
       create_account_with_facebook: "Facebook hesabınla kaydol"
       OR: "YA DA"
       signup_with_email: "E-posta ile kaydol"
-      email_restriction_instructions:
-        other: "%{service_name}'e erişim sınırlandırılmıştır. Katılım izniniz olduğunu gösteren bir e-posta adresine sahip olmalısınız."
     not_member:
       explanation_text: "%{community}'yi görüntülemektesiniz. Sharetribe platformunda oluşturulmuş başka bir pazarın üyesi olan bir kullanıcının profilini görüntülemeye çalıştınız. Bu kullanıcınının profiline %{community}'den ulaşamazsınız."
       read_more_about_kassi_communities: "Sharetribe pazarları hakkında daha fazla bilgi edinin"
@@ -1839,18 +1840,6 @@ tr-TR:
     day: gün
     days: günler
   will_paginate:
-    previous_label: "&#8592; Önceki"
-    next_label: "Sonraki &#8594;"
-    page_gap: "&hellip;"
-    page_entries_info:
-      multi_page: "Toplam %{count} %{model}'den %{from} - %{to} arası görüntüleniyor"
-      multi_page_html: "Toplam %{count} %{model}'den %{from} &nbsp;-&nbsp;% %{to} arası görüntüleniyor"
-      single_page:
-        zero: "%{model} bulunamadı"
-        other: "%{count}%{model} görüntüleniyor"
-      single_page_html:
-        zero: "%{model} bulunamadı"
-        other: "%{count} %{model} görüntüleniyor"
     models:
       person:
         zero: kullanıcı
@@ -1858,3 +1847,15 @@ tr-TR:
       listing_conversation:
         zero: işlem
         other: işlem
+    previous_label: "&#8592; Önceki"
+    next_label: "Sonraki &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero: "%{model} bulunamadı"
+        other: "%{count}%{model} görüntüleniyor"
+      single_page_html:
+        zero: "%{model} bulunamadı"
+        other: "%{count} %{model} görüntüleniyor"
+      multi_page: "Toplam %{count} %{model}'den %{from} - %{to} arası görüntüleniyor"
+      multi_page_html: "Toplam %{count} %{model}'den %{from} &nbsp;-&nbsp;% %{to} arası görüntüleniyor"

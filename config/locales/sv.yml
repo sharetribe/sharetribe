@@ -1491,6 +1491,7 @@ sv:
       billing_agreement_canceled: "Betalningen avbröts"
       billing_agreement_id_missing: "Det uppstod ett tekniskt fel med PayPal integrationen"
       something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
+      account_not_verified: ~
   paypal:
     checkout_with_paypal: "Gå till kassan med PayPal"
     cancel_succesful: "PayPal betalning avbruten"
