@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141113204444) do
+ActiveRecord::Schema.define(:version => 20141117165348) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -759,6 +759,12 @@ ActiveRecord::Schema.define(:version => 20141113204444) do
   add_index "people", ["id"], :name => "index_people_on_id"
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
   add_index "people", ["username"], :name => "index_people_on_username", :unique => true
+
+  create_table "prospect_emails", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
