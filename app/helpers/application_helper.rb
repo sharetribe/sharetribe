@@ -581,6 +581,12 @@ module ApplicationHelper
         :name => "getting_started"
       },
       {
+        :text => t("admin.left_hand_navigation.support"),
+        :icon_class => icon_class("help"),
+        :path => "mailto:#{APP_CONFIG.support_email}",
+        :name => "support"
+      },
+      {
         :text => t("admin.communities.manage_members.manage_members"),
         :icon_class => icon_class("community"),
         :path => admin_community_community_memberships_path(@current_community, sort: "join_date", direction: "desc"),
