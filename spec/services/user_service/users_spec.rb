@@ -44,7 +44,7 @@ describe UserService::API::Users do
       expect(ActionMailer::Base.deliveries).not_to be_empty
 
       email = ActionMailer::Base.deliveries.first
-      expect(email).to have_subject "Confirmation instructions"
+      expect(email).to have_subject "Instructions de confirmation"
       # simple check that link to right community exists
       expect(email.body).to match c.full_domain
 

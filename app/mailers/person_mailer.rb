@@ -348,6 +348,7 @@ class PersonMailer < ActionMailer::Base
     @resource = email.person
     @confirmation_token = email.confirmation_token
     @host = host
+    set_locale(email.person.locale)
     email.update_attribute(:confirmation_sent_at, Time.now)
     premailer_mail(:to => email.address,
          :from => community_specific_sender(com),
