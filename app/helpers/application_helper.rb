@@ -477,7 +477,7 @@ module ApplicationHelper
     ser_name = APP_CONFIG.global_service_name || "Sharetribe"
 
     # if community has it's own setting, dig it out here
-    if community 
+    if community
       # TODO: To make sure that we always show the community name in correct locale,
       # we should pass the right locale instead of using the first locale. An alternative
       # fix would be to stop supporting having community name in multiple locales.
@@ -862,7 +862,7 @@ module ApplicationHelper
   end
 
   def with_stylesheet_url(community, &block)
-    stylesheet_url = if community.has_customizations?
+    stylesheet_url = if community.has_custom_stylesheet?
       stylesheet = community.custom_stylesheet_url
       is_uri?(stylesheet)  ? stylesheet : "/assets/#{stylesheet}"
     else
