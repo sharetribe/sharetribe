@@ -36,18 +36,28 @@ describe UserService::API::Users do
 
     before { ActionMailer::Base.deliveries = [] }
 
-    it "should send the confirmation email" do
+    before (:each) do
       expect(ActionMailer::Base.deliveries).to be_empty
+      @community = FactoryGirl.create(:community)
+    end
 
-      c = FactoryGirl.create(:community)
-      u = create_user_with_membership(@person_hash, c.id)
+    it "should send the confirmation email" do
+      u = create_user_with_membership(@person_hash.merge({:locale => "en"}), @community.id)
+      expect(ActionMailer::Base.deliveries).not_to be_empty
+
+      email = ActionMailer::Base.deliveries.first
+      expect(email).to have_subject "Confirmation instructions"
+      # simple check that link to right community exists
+      expect(email.body).to match @community.full_domain
+      expect(email.body).to match "Sharetribe Team"
+    end
+
+    it "should send the confirmation email in right language" do
+      u = create_user_with_membership(@person_hash.merge({:locale => "fr"}), @community.id)
       expect(ActionMailer::Base.deliveries).not_to be_empty
 
       email = ActionMailer::Base.deliveries.first
       expect(email).to have_subject "Instructions de confirmation"
-      # simple check that link to right community exists
-      expect(email.body).to match c.full_domain
-
     end
 
   end
