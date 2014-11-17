@@ -99,10 +99,10 @@ class Admin::PaypalPreferencesController < ApplicationController
     end
 
     access_token_res = fetch_access_token(params[:request_token], params[:verification_code])
-    return flash_error_and_redirect_to_settings unless access_token_res[:success]
+    return flash_error_and_redirect_to_settings(error_response: access_token_res) unless access_token_res[:success]
 
     personal_data_res = fetch_personal_data(access_token_res[:token], access_token_res[:token_secret])
-    return flash_error_and_redirect_to_settings unless personal_data_res[:success]
+    return flash_error_and_redirect_to_settings(error_response: personal_data_res) unless personal_data_res[:success]
 
     PaypalAccountCommand.update_admin_account(
       @current_community.id,
@@ -181,7 +181,14 @@ class Admin::PaypalPreferencesController < ApplicationController
     paypal_permissions.do_request(personal_data_req)
   end
 
-  def flash_error_and_redirect_to_settings(error = t("paypal_accounts.new.something_went_wrong"))
+  def flash_error_and_redirect_to_settings(error_response: nil)
+    error =
+      if (error_response && error_response[:error_code] == "570058")
+        t("paypal_accounts.new.account_not_verified")
+      else
+        t("paypal_accounts.new.something_went_wrong")
+      end
+
     flash[:error] = error
     redirect_to action: :index
   end

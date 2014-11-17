@@ -1489,6 +1489,7 @@ en:
       billing_agreement_canceled: "Billing agreement was canceled"
       billing_agreement_id_missing: "There was technical difficulties with PayPal integration"
       something_went_wrong: "Something went wrong. Please try again. If the problem persists, please contact the site administrators."
+      account_not_verified: "You haven't verified your PayPal account. You need to go to paypal.com and verify your account before you can continue."
   paypal:
     checkout_with_paypal: "Checkout with PayPal"
     cancel_succesful: "PayPal payment succesfully canceled"

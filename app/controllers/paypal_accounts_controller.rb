@@ -18,15 +18,18 @@ class PaypalAccountsController < ApplicationController
   DataTypePermissions = PaypalService::DataTypes::Permissions
 
   def show
-    return redirect_to action: :new unless community_ready_for_payments?
-
     paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
     return redirect_to action: :new unless PaypalAccountEntity.paypal_account_prepared?(paypal_account)
 
     @selected_left_navi_link = "payments"
     commission_from_seller = @current_community.commission_from_seller ? @current_community.commission_from_seller : 0
 
+    unless community_ready_for_payments?
+      flash.now[:error] = t("paypal_accounts.new.admin_account_not_connected")
+    end
+
     render(locals: {
+      community_ready_for_payments: community_ready_for_payments?,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       paypal_account: paypal_account,
       paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
@@ -74,14 +77,14 @@ class PaypalAccountsController < ApplicationController
   def permissions_verified
 
     unless params[:verification_code].present?
-      return flash_error_and_redirect_to_settings(t("paypal_accounts.new.permissions_not_granted"))
+      return flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.permissions_not_granted"))
     end
 
     access_token_res = fetch_access_token(params[:request_token], params[:verification_code])
-    return flash_error_and_redirect_to_settings unless access_token_res[:success]
+    return flash_error_and_redirect_to_settings(error_response: access_token_res) unless access_token_res[:success]
 
     personal_data_res = fetch_personal_data(access_token_res[:token], access_token_res[:token_secret])
-    return flash_error_and_redirect_to_settings unless personal_data_res[:success]
+    return flash_error_and_redirect_to_settings(error_response: personal_data_res) unless personal_data_res[:success]
 
     PaypalAccountCommand.update_personal_account(
       @current_user.id,
@@ -103,7 +106,7 @@ class PaypalAccountsController < ApplicationController
 
   def billing_agreement_success
     affirm_agreement_res = affirm_billing_agreement(params[:token])
-    return flash_error_and_redirect_to_settings unless affirm_agreement_res[:success]
+    return flash_error_and_redirect_to_settings(error_response: affirm_agreement_res) unless affirm_agreement_res[:success]
 
     billing_agreement_id = affirm_agreement_res[:billing_agreement_id]
 
@@ -114,7 +117,7 @@ class PaypalAccountsController < ApplicationController
     if !express_checkout_details_res[:billing_agreement_accepted] ||
       express_checkout_details_res[:payer_id] != paypal_account[:payer_id]
 
-      return flash_error_and_redirect_to_settings(t("paypal_accounts.new.billing_agreement_not_accepted"))
+      return flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_not_accepted"))
     end
 
     success = PaypalAccountCommand.confirm_billing_agreement(@current_user.id, @current_community.id, params[:token], billing_agreement_id)
@@ -245,8 +248,17 @@ class PaypalAccountsController < ApplicationController
     paypal_permissions.do_request(personal_data_req)
   end
 
-  def flash_error_and_redirect_to_settings(error = t("paypal_accounts.new.something_went_wrong"))
-    flash[:error] = error
+  def flash_error_and_redirect_to_settings(error_response: nil, error_msg: nil)
+    error_msg =
+      if (error_msg)
+        error_msg
+      elsif (error_response && error_response[:error_code] == "570058")
+        t("paypal_accounts.new.account_not_verified")
+      else
+        t("paypal_accounts.new.something_went_wrong")
+      end
+
+    flash[:error] = error_msg
     redirect_to new_paypal_account_settings_payment_path(@current_user.username)
   end
 
