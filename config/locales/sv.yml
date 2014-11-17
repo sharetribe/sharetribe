@@ -714,7 +714,7 @@ sv:
       you_have_a_new_message: "Du har ett nytt meddelande i %{service_name} från %{sender_name}"
     new_payment:
       new_payment: "Du har fått en ny inbetalning"
-      you_have_received_new_payment: "Du har betalat<b>%{payment_sum}</b> för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
+      you_have_received_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{payer_full_name}. Här är ditt kvitto."
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Pris %{payer_full_name} betalt:"
