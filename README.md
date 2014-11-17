@@ -96,7 +96,7 @@ We use a tool called WebTranslateIt (WTI) for translations. If you'd like to tra
 
 ## Known issues
 
-See http://github.com/sharetribe/sharetribe/issues and please report any issues you find
+See http://github.com/sharetribe/sharetribe/issues and please report any issues you find.
 
 ## Developer docs
 
