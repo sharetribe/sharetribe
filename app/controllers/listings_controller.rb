@@ -168,21 +168,24 @@ class ListingsController < ApplicationController
     if @listing.save
       listing_image_ids = params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
       ListingImage.where(id: listing_image_ids, author_id: @current_user.id).update_all(listing_id: @listing.id)
-    else
-      redirect_to new_listing_path and return
-    end
 
-    if @listing.new_record?
-      Rails.logger.error "Errors in creating listing: #{@listing.errors.full_messages.inspect}"
-      flash[:error] = t("layouts.notifications.listing_could_not_be_saved", :contact_admin_link => view_context.link_to(t("layouts.notifications.contact_admin_link_text"), new_user_feedback_path, :class => "flash-error-link")).html_safe
-      redirect_to new_listing_path
-    else
-      flash[:notice] = t("layouts.notifications.listing_created_successfully", :new_listing_link => view_context.link_to(t("layouts.notifications.create_new_listing"), new_listing_path)).html_safe
       Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community.id))
       if @current_community.follow_in_use?
         Delayed::Job.enqueue(NotifyFollowersJob.new(@listing.id, @current_community.id), :run_at => NotifyFollowersJob::DELAY.from_now)
       end
-      redirect_to @listing, status: 303
+
+      flash[:notice] = t(
+        "layouts.notifications.listing_created_successfully",
+        :new_listing_link => view_context.link_to(t("layouts.notifications.create_new_listing"),new_listing_path)
+        ).html_safe
+      redirect_to @listing, status: 303 and return
+    else
+      Rails.logger.error "Errors in creating listing: #{@listing.errors.full_messages.inspect}"
+      flash[:error] = t(
+        "layouts.notifications.listing_could_not_be_saved",
+        :contact_admin_link => view_context.link_to(t("layouts.notifications.contact_admin_link_text"), new_user_feedback_path, :class => "flash-error-link")
+        ).html_safe
+      redirect_to new_listing_path and return
     end
   end
 
