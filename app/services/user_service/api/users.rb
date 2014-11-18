@@ -63,10 +63,22 @@ module UserService::API
     end
 
     def generate_username(given_name:, family_name:)
-      base = (given_name.strip + family_name.strip[0]).to_url.gsub(/-/, "")
-      taken = Person.where("username LIKE :prefix", prefix: "#{base}%").pluck(:username)
-      blacklist = Person.username_blacklist.concat(taken)
+      base = (given_name.strip + family_name.strip[0]).to_url.gsub(/-/, "")[0..17]
+      gen_free_name(base, fetch_blacklist(base))
+    end
 
+    def pad_username(username:)
+      base = username.strip.to_url.gsub(/-/, "")[0..17]
+      gen_free_name(base, fetch_blacklist(base))
+    end
+
+
+    def fetch_blacklist(base)
+      taken = Person.where("username LIKE :prefix", prefix: "#{base}%").pluck(:username)
+      Person.username_blacklist.concat(taken)
+    end
+
+    def gen_free_name(base, blacklist)
       (1..10000).reduce([base, ""]) do |(base_name, postfix), next_postfix|
         return (base_name + postfix) unless blacklist.include?(base_name + postfix)
         [base_name, next_postfix.to_s]
