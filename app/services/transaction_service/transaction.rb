@@ -19,11 +19,8 @@ module TransactionService::Transaction
       when :paypal
         paypal_account = PaypalService::PaypalAccount::Query.personal_account(author_id, community_id)
         PaypalService::PaypalAccount::Entity.paypal_account_prepared?(paypal_account)
-      when :braintree
+      when :braintree, :checkout
         Community.find(community_id).payment_gateway.can_receive_payments?(Person.find(author_id))
-      when :checkout
-        # TODO Implement
-        true
       when :none
         true
       else
