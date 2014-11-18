@@ -122,11 +122,11 @@ sv:
         getting_started: Kom-igång-guide
         welcome_to_your_marketplace: "Välkommen till din marknadsplats, %{name}!"
         intro: "Detta är en snabb-guide hur du ställer in och hanterar din marknadsplats."
-        live_site_link_text: ~
-        look_and_feel: "Innan du lanserar din sida så kanske du vill ändra vissa saker. Du kanske vill  %{logo_link} och byta omslagsbild och färger för att det ska passa in."
+        live_site_link_text: här
+        look_and_feel: "Innan du lanserar din sida så kanske du vill ändra vissa saker. Du kanske vill  %{logo_link} och byta omslagsbild och färger för att det ska passa ditt märke."
         logo_link_text: "lägga till din logotyp"
         custom_domain: "Du kanske också vill lägga till en egen webbadress (t ex: www.dinmarknadsplats.com). För att göra detta så bör du kontakta vårt team på hello@sharetribe.com, eftersom att ordna detta kräver några manuella steg från vår sida."
-        contact_team_link_text: ~
+        contact_team_link_text: "kontakta vårt team"
         categories_and_custom_fields: "Nästa sak att bestämma är vilken typ av innehåll som dina användare kan lägga ut på din sida. Du kan %{categories_link}, %{custom_fields_link} som själva annonsen innehåller och bestämma %{filters_link} som används när folk bläddrar bland annonser."
         categories_link_text: "lägg till kategorier och underkategorier"
         custom_fields_link_text: "konfigurera formulärfälten"
@@ -150,7 +150,7 @@ sv:
         invite_link_text: "bjud in användare"
         view_users_link_text: här
         view_transactions_link_text: här
-        contact_support_link_text: ~
+        contact_support_link_text: "kontakta vår support"
       settings:
         settings: Inställningar
         general: Allmänt
@@ -309,7 +309,7 @@ sv:
       users_and_transactions: "Användare & transaktioner"
       configure: Konfiguration
       emails_title: E-post
-      support: ~
+      support: Support
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"
@@ -401,9 +401,9 @@ sv:
       payment_settings_link: betalningsinställningar
       minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
       approve: Godkänn
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      sum: "Summa: %{sum}"
+      service_fee: "Serviceavgift: %{service_fee}"
+      you_will_get: "Du kommer att få: %{seller_gets}"
     confirm:
       confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som klar. Då kan du ge din feedback till den andra parten."
       cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"hände inte\". Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
@@ -799,13 +799,13 @@ sv:
       your_marketplace_admin_area: "Adminområdet på din marknadsplats:"
       just_follow_details: "Följ bara dessa länkar och du kommer att få mer information hur du bygger din marknadsplats!"
       we_will_guide_you_along_the_way: "Vi kommer att guida dig på vägen."
-      are_you_new_to_online_marketplaces: "Är online marknadsplatser något nytt för dig? Inga problem, vi är här för att hjälpa dig! Vi kommer att skicka dig några e-postmeddelanden som kommer att hjälpa dig att få reda på det mesta om Sharetribe och hur du bygger en lyckad marknadsplats. Vi kommer snart att skicka Del 1."
+      are_you_new_to_online_marketplaces: "Behöver du hjälp med din marknadsplats? Inga problem, vi är här för att hjälpa dig! Vi kommer att skicka dig några e-postmeddelanden som kommer att hjälpa dig att få reda på det mesta om Sharetribe och hur du bygger en lyckad marknadsplats. Vi kommer snart att skicka Del 1."
       have_questions: "Har du några frågor?"
-      our_happiness_team_is_here_to_help: "Vårt glada gäng är här för dig! Antingen%{knowledge_base_link} eller kontakta supporten."
+      our_happiness_team_is_here_to_help: "Vårt glada gäng är här för dig! Antingen%{knowledge_base_link} eller kontakta supporten %{contact_support_link}."
       love: "Varma hälsningar,"
       sharetribe_crew: Sharetribe-gänget
       knowledge_base_link_text: "kolla vår kunskapsbas"
-      contact_support_link_text: ~
+      contact_support_link_text: "kontakta vår support"
     new_listing_by_followed_person:
       subject: "%{author_name} har skapat en ny annons på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har skapat en ny annons:"
@@ -1499,7 +1499,7 @@ sv:
       billing_agreement_canceled: "Betalningen avbröts"
       billing_agreement_id_missing: "Det uppstod ett tekniskt fel med PayPal integrationen"
       something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
-      account_not_verified: ~
+      account_not_verified: "Du har inte verifierat ditt PayPal-konto. Du behöver gå till www.paypal.com och verifiera ditt konto innan du kan gå vidare."
   paypal:
     checkout_with_paypal: "Gå till kassan med PayPal"
     cancel_succesful: "PayPal betalning avbruten"
