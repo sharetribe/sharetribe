@@ -1,3 +1,5 @@
+class TransactionMailer; end
+
 describe UserService::API::Users do
 
   include UserService::API::Users
@@ -5,29 +7,26 @@ describe UserService::API::Users do
   include EmailSpec::Helpers
   include EmailSpec::Matchers
 
-  before (:each) do
-    @person_hash = {person: {
-        given_name: "Raymond",
-        family_name: "Xperiment",
-        email: "Ray@example.com",
-        password: "test"
-      },
-      locale: "fr"
-    }
-  end
+  PERSON_HASH = {
+    given_name: "Raymond",
+    family_name: "Xperiment",
+    email: "Ray@example.com",
+    password: "test",
+    locale: "fr"
+  }
 
   describe "#create_user" do
 
     it "should create a user" do
-      u = create_user(@person_hash)
+      u = create_user(PERSON_HASH)
       expect(u[:given_name]).to eql "Raymond"
-      expect(Person.find_by_username("ray").family_name).to eql "Xperiment"
+      expect(Person.find_by_username("raymondx").family_name).to eql "Xperiment"
       expect(u[:locale]).to eql "fr"
     end
 
     it "should fail if email is taken" do
-      u1 = create_user(@person_hash)
-      expect{create_user(@person_hash)}.to raise_error(RuntimeError, /Email Ray@example.com is already in use/)
+      u1 = create_user(PERSON_HASH)
+      expect{create_user(PERSON_HASH)}.to raise_error(ArgumentError, /Email Ray@example.com is already in use/)
     end
 
   end
@@ -42,7 +41,7 @@ describe UserService::API::Users do
     end
 
     it "should send the confirmation email" do
-      u = create_user_with_membership(@person_hash.merge({:locale => "en"}), @community.id)
+      u = create_user_with_membership(PERSON_HASH.merge({:locale => "en"}), @community.id)
       expect(ActionMailer::Base.deliveries).not_to be_empty
 
       email = ActionMailer::Base.deliveries.first
@@ -53,7 +52,7 @@ describe UserService::API::Users do
     end
 
     it "should send the confirmation email in right language" do
-      u = create_user_with_membership(@person_hash.merge({:locale => "fr"}), @community.id)
+      u = create_user_with_membership(PERSON_HASH.merge({:locale => "fr"}), @community.id)
       expect(ActionMailer::Base.deliveries).not_to be_empty
 
       email = ActionMailer::Base.deliveries.first

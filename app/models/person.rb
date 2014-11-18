@@ -228,6 +228,10 @@ class Person < ActiveRecord::Base
     community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago
   end
 
+  def self.username_blacklist
+    USERNAME_BLACKLIST
+  end
+
   def self.username_available?(username)
      !Person.find_by_username(username).present? && !username.in?(USERNAME_BLACKLIST)
    end
