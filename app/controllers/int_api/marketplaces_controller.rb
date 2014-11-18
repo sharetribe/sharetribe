@@ -13,35 +13,29 @@ class IntApi::MarketplacesController < ApplicationController
     # of the just created marketplace's name
     ApplicationHelper.store_community_service_name_to_thread(APP_CONFIG.global_service_name)
 
-    marketplace = MarketplaceService::API::Marketplaces::create(
+    marketplace = MarketplaceService::API::Marketplaces.create(
       params.slice(:marketplace_name,
                    :marketplace_type,
                    :marketplace_country,
                    :marketplace_language).merge(paypal_enabled: true)
-    )
+      )
 
-    person_hash = {person: {
-      given_name: params[:admin_first_name],
-      family_name: params[:admin_last_name],
-      email: params[:admin_email],
-      password: params[:admin_password]
-      },
-      locale: params[:marketplace_language]
-    }
+    user = UserService::API::Users.create_user_with_membership({
+        given_name: params[:admin_first_name],
+        family_name: params[:admin_last_name],
+        email: params[:admin_email],
+        password: params[:admin_password],
+        locale: params[:marketplace_language]},
+      marketplace[:id])
 
-
-
-    user = UserService::API::Users::create_user_with_membership(person_hash, marketplace[:id])
-
-    auth_token = UserService::API::AuthTokens::create_login_token(user[:id])
+    auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
     url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])
 
     # TODO Add user to mailchimp list
 
     # TODO handle error cases with proper response
 
-    response.status = 201
-    render :json => {"marketplace_url" => url} and return
+    render status: 201, json: {"marketplace_url" => url}
   end
 
   # This could be more logical in different controller, but as implementing

@@ -2,6 +2,9 @@
 
 require 'spec_helper'
 
+
+class TransactionMailer; end
+
 describe IntApi::MarketplacesController do
   describe "#create" do
     it "should creat a marketplace and an admin user" do
@@ -32,11 +35,77 @@ describe IntApi::MarketplacesController do
       expect(p).to_not be_nil
       expect(p.given_name).to eql "Eddie"
       expect(p.family_name).to eql "Admin"
+      expect(p.username).to eql "eddiea"
       expect(p.locale).to eql "fi"
       expect(p.emails.first.address).to eql "eddie.admin@example.com"
-
-
     end
+
+    it "should handle emails starting with info@" do
+      post :create, {admin_email: "info@example.com",
+                     admin_first_name: "Eddiè",
+                     admin_last_name: "Admin",
+                     admin_password: "secret_word",
+                     marketplace_country: "FI",
+                     marketplace_language: "fi",
+                     marketplace_name: "ImaginationTraders",
+                     marketplace_type: "product"}
+
+      response.status.should == 201
+
+      r = JSON.parse(response.body)
+      expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
+
+      c = Community.find_by_name("ImaginationTraders")
+      expect(c).to_not be_nil
+      expect(c.country).to eql "FI"
+      expect(c.locales.first).to eql "fi"
+      expect(c.name).to eql "ImaginationTraders"
+      expect(c.domain).to eql "imaginationtraders"
+      expect(c.transaction_types.first.class).to eql Sell
+      expect(c.paypal_enabled).to be_true
+
+      p = c.admins.first
+      expect(p).to_not be_nil
+      expect(p.given_name).to eql "Eddiè"
+      expect(p.family_name).to eql "Admin"
+      expect(p.username).to eql "eddiea"
+      expect(p.locale).to eql "fi"
+      expect(p.emails.first.address).to eql "info@example.com"
+    end
+
+    it "should handle short emails like fo@barbar.com" do
+      post :create, {admin_email: "fo@example.com",
+                     admin_first_name: "Eddie_",
+                     admin_last_name: "Admin",
+                     admin_password: "secret_word",
+                     marketplace_country: "FI",
+                     marketplace_language: "fi",
+                     marketplace_name: "ImaginationTraders",
+                     marketplace_type: "product"}
+
+      response.status.should == 201
+
+      r = JSON.parse(response.body)
+      expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
+
+      c = Community.find_by_name("ImaginationTraders")
+      expect(c).to_not be_nil
+      expect(c.country).to eql "FI"
+      expect(c.locales.first).to eql "fi"
+      expect(c.name).to eql "ImaginationTraders"
+      expect(c.domain).to eql "imaginationtraders"
+      expect(c.transaction_types.first.class).to eql Sell
+      expect(c.paypal_enabled).to be_true
+
+      p = c.admins.first
+      expect(p).to_not be_nil
+      expect(p.given_name).to eql "Eddie_"
+      expect(p.family_name).to eql "Admin"
+      expect(p.username).to eql "eddiea"
+      expect(p.locale).to eql "fi"
+      expect(p.emails.first.address).to eql "fo@example.com"
+    end
+
   end
 
   describe "#check_email_availability" do

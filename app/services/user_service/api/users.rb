@@ -26,33 +26,34 @@ module UserService::API
     # TODO make people controller use this method too
     # The challenge for that is the devise connections
     #
-    # Create a new user by params and optional current community
-    def create_user(params, community_id = nil)
-      raise "Email #{params[:person][:email]} is already in use." unless Email.email_available?(params[:person][:email])
+    # Create a new user by opts and optional current community
+    def create_user(opts, community_id = nil)
+      raise ArgumentError.new("Email #{opts[:email]} is already in use.") unless Email.email_available?(opts[:email])
 
-      params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
-      params[:person][:test_group_number] = 1 + rand(4)
+      username = generate_username(given_name: opts[:given_name], family_name: opts[:family_name])
+      locale = opts[:locale] || APP_CONFIG.default_locale # don't access config like this, require to be passed in in ctor
 
-      params[:person][:username] = available_username_based_on(params[:person][:email].split("@").first)
+      person = Person.new(
+        given_name: opts[:given_name],
+        family_name: opts[:family_name],
+        password: opts[:password],
+        username: username,
+        locale: locale,
+        test_group_number: 1 + rand(4))
 
-      person = Person.new(params[:person].except(:email))
-      email = Email.new(:person => person, :address => params[:person][:email].downcase, :send_notifications => true)
-
-      # TODO check if this is necessary
-      #person = build_devise_resource_from_person(person)
+      email = Email.new(person: person, address: opts[:email].downcase, send_notifications: true)
 
       person.emails << email
-
       person.inherit_settings_from(Community.find(community_id)) if community_id
-
       person.save!
-
       person.set_default_preferences
 
       return from_model(person)
     end
 
-    # Create a User hash from Person model
+
+    # Privates
+
     def from_model(person)
       hash = HashUtils.compact(
         EntityUtils.model_to_hash(person).merge({
@@ -61,23 +62,15 @@ module UserService::API
       return UserService::API::DataTypes::create_user(hash)
     end
 
-    # returns the same if its available, otherwise "same1", "same2" etc.
-    # Changes most special characters to _ to match with current validations
-    def available_username_based_on(initial_name)
-      if initial_name.blank?
-        initial_name = "fb_name_missing"
-      end
-      current_name = initial_name.gsub(/[^A-Z0-9_]/i,"_")
-      current_name = current_name[0..17] #truncate to 18 chars or less (max is 20)
+    def generate_username(given_name:, family_name:)
+      base = (given_name.strip + family_name.strip[0]).to_url.gsub(/-/, "")
+      taken = Person.where("username LIKE :prefix", prefix: "#{base}%").pluck(:username)
+      blacklist = Person.username_blacklist.concat(taken)
 
-      # use base_name as basis on new variations if current_name is not available
-      base_name = current_name
-      i = 1
-      while Person.find_by_username(current_name) do
-        current_name = "#{base_name}#{i}"
-        i += 1
+      (1..10000).reduce([base, ""]) do |(base_name, postfix), next_postfix|
+        return (base_name + postfix) unless blacklist.include?(base_name + postfix)
+        [base_name, next_postfix.to_s]
       end
-      return current_name
     end
 
   end
