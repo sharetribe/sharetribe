@@ -67,6 +67,23 @@ module MarketplaceService
           .merge(action_button_label_translations: translations)
         )
       end
+
+      def send_payment_settings_reminder?(listing_id, community_id)
+        listing = ListingModel.find(listing_id)
+        payment_type = MarketplaceService::Community::Query.payment_type(community_id)
+
+        query_info = {
+          transaction: {
+            payment_gateway: payment_type,
+            listing_author_id: listing.author.id,
+            community_id: community_id
+          }
+        }
+
+        payment_type &&
+        listing.transaction_type.is_offer? &&
+        !TransactionService::Transaction.can_start_transaction(query_info).data[:result]
+      end
     end
 
     module Query
