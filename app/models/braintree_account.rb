@@ -31,7 +31,7 @@ class BraintreeAccount < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
   validates_presence_of :email
-  validates_format_of :email, :with => /\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}\z/i
+  validates_format_of   :email, :with => /\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]+\z/i
   validates_presence_of :address_street_address
   validates_presence_of :address_postal_code
   validates_presence_of :address_locality
