@@ -26,12 +26,12 @@ class IntApi::MarketplacesController < ApplicationController
     validates_length_of   :admin_password, minimum: 8
     validates             :marketplace_type, inclusion: { in: %w(product rental service) }
     validates_length_of   :marketplace_country, is: 2
-    validates_length_of   :marketplace_language, is: 2
+    validates_length_of   :marketplace_language, minimum: 2
   end
 
   # Creates a marketplace and an admin user for that marketplace
   def create
-    form = NewMarketplaceForm.new(params[:marketplace])
+    form = NewMarketplaceForm.new(params)
     return render status: 400, json: form.errors unless form.valid?
 
     # As there's no community yet, we store the global service name to thread
