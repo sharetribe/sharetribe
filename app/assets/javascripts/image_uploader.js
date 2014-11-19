@@ -308,8 +308,26 @@ window.ST.imageUploader = function(listings, opts) {
       $(this).removeClass('hover');
     });
 
-    var fileAdded = $element.fileupload.asEventStream('fileuploadadd', function(e, data) { return data; });
-    return {element: $element, stream: fileAdded};
+    var fileAdded = $element.fileupload.asEventStream('fileuploadadd', function(e, data) {
+      return [$(this), data];
+    });
+    var fileValidated = fileAdded.flatMap(function(inputAndData) {
+      var input = inputAndData[0];
+      var data = inputAndData[1];
+
+      return Bacon.fromPromise(input.fileupload('process', data));
+    });
+
+    fileValidated.onError(function(data) {
+      $element.showMessage(data.files[0].error);
+    });
+
+    fileValidated.onValue(function() {
+      // Remove the error message by showing the default message
+      $element.showMessage(ST.t("listings.form.images.select_file"));
+    });
+
+    return {element: $element, stream: fileValidated};
   }
 
   function renderUploading(data) {
