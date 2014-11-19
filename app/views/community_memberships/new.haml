@@ -10,9 +10,6 @@
   - session[:fb_join] = "analytics_reported"
 
 .centered-section
-  - unless session[:fb_join]
-    %p
-      = t('.you_are_not_a_member_of_this_community', :community => @current_community.name(I18n.locale))
   %p
     - if @current_community.join_with_invite_only? && session[:invitation_code].blank?
       = t('.you_can_join_with_invite_only')
