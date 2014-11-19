@@ -63,12 +63,19 @@ module UserService::API
     end
 
     def generate_username(given_name:, family_name:)
-      base = (given_name.strip + family_name.strip[0]).to_url.gsub(/-/, "")[0..17]
+      base = (given_name.strip + family_name.strip[0]).to_url.gsub(/-/, "")[0...18]
       gen_free_name(base, fetch_blacklist(base))
     end
 
-    def pad_username(username:)
-      base = username.strip.to_url.gsub(/-/, "")[0..17]
+    def username_from_fb_data(username:, given_name:, family_name:)
+      base = Maybe(
+          Maybe(username)
+          .or_else(Maybe(given_name).strip.or_else("") + Maybe(family_name).strip()[0].or_else(""))
+        )
+        .to_url
+        .gsub(/-/, "")
+        .or_else("fb_name_missing")[0...18]
+
       gen_free_name(base, fetch_blacklist(base))
     end
 
@@ -79,7 +86,7 @@ module UserService::API
     end
 
     def gen_free_name(base, blacklist)
-      (1..10000).reduce([base, ""]) do |(base_name, postfix), next_postfix|
+      (1..100000).reduce([base, ""]) do |(base_name, postfix), next_postfix|
         return (base_name + postfix) unless blacklist.include?(base_name + postfix)
         [base_name, next_postfix.to_s]
       end
