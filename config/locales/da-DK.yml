@@ -422,7 +422,7 @@ da-DK:
       loading_more_messages: "Indlæser flere beskeder"
       message_partitive: besked
       messages_partitive: beskeder
-      no_received_messages: "Ingen beskeder modtaget"
+      no_received_messages: "Din indbakke er tom"
       no_sent_messages: "Ingen beskeder sendt"
     conversation:
       accepted_request: "Anmodning accepteret"
@@ -520,7 +520,7 @@ da-DK:
         paypal:
           multicurrency: "Vi kunne ikke godkende din betaling, da din PayPal konto ikke kan modtage vores valuta: %{currency}. Besøg %{paypal_url} og log ind på din konto for manuelt at godkende eller afvise din betaling."
           verify: "Du kan ikke modtage transaktioner da du ikke har bekræftet din PayPal konto. Gå til %{paypal_url} for at bekræfte din konto."
-          intl: ~
+          intl: "Vi kunne ikke modtage din betaling via PayPal da din PayPal konto ikke tilader os at hæve penge fra dit betalingskort. Gå til %{paypal_url} og log ind på din konto for manuelt at acceptere eller afvise betalingen."
       waiting_for_current_user_to_deliver_listing: "Venter på din levering af %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Venter på at %{listing_author_name} leverer %{listing_title}"
       request_accepted: accepteret
@@ -1053,7 +1053,7 @@ da-DK:
       register_details: Privatlivspolitik
       terms: Brugsvilkår
     logged_in:
-      admin: Sideadmin
+      admin: Administration
       go_to_your_profile_page: Profil
       hi: Hej
       login: "Log ind"
@@ -1217,8 +1217,8 @@ da-DK:
       close_listing: "Luk annoncen"
       edit_listing: "Ret annoncen"
       reopen_listing: "Gen åben annocen"
-      move_to_top: "Gå til toppen"
-      show_in_updates_email: ~
+      move_to_top: "Vis på forsiden"
+      show_in_updates_email: "Vis i næste automatiske nyhedsbrev"
       show_in_updates_email_loading: Venter...
       show_in_updates_email_error: "Serveren kunne ikke findes. Prøv at genindlæse siden."
       show_in_updates_email_success: ~
@@ -1496,7 +1496,7 @@ da-DK:
       billing_agreement_canceled: "Betalingsaftale er annulleret"
       billing_agreement_id_missing: "Der skete en teknisk fejl ved tilknytningen af din PayPal konto"
       something_went_wrong: "Noget gik galt. Prøv venligst igen. Hvis problemer fortsætter, så kontakt os gerne."
-      account_not_verified: ~
+      account_not_verified: "Du har ikke godkendt din PayPal konto. Du skal gå til paypal.com og godkende din konto før du kan fortsætte."
   paypal:
     checkout_with_paypal: "Betal med PayPal"
     cancel_succesful: "PayPal betalingen blev annulleret med success."
@@ -1572,13 +1572,13 @@ da-DK:
       slightly_better_than_expected: "Lidt bedre end forventet"
       slightly_less_than_expected: "Lidt værrere end forventet"
     profile_listings:
-      show_also_closed: "Vis også lukket"
-      show_only_open: "Vis kun åben"
+      show_also_closed: "Vis lukkede annoncer"
+      show_only_open: "Vis kun åbne annoncer"
       no_image: "Intet billede"
     show:
       contact: "Kontakt %{person}"
       about_me: "Om mig:"
-      add_description: "Tell something about yourself"
+      add_description: "Fortæl lidt om dig selv"
       add_location: "Tilføj sted"
       add_phone_number: "Tilføj telefonnummer"
       address: "Sted:"
@@ -1618,7 +1618,7 @@ da-DK:
     follow_button:
       following: Følger
       follow: Følg
-      unfollow: "Følg ikke længere"
+      unfollow: "Stop med at følge"
   search:
     show:
       all_results: "Vis resultater"
@@ -1690,20 +1690,20 @@ da-DK:
         status_confirmed: Bekræftet
         status_pending: Venter
     notifications:
-      email_from_admins: ~
+      email_from_admins: "Jeg vil gerne modtage nyhedsbreve på min email"
       i_want_to_get_email_notification_when: "Jeg ønsker at få en e-mail meddelelse, når ..."
       newsletters: Nyhedsbrev
-      community_updates: Nyhedsbreve
-      email_about_accept_reminders: "... Jeg har glemt at acceptere et tilbud eller en anmodning"
+      community_updates: Opdateringer
+      email_about_accept_reminders: "...jeg har glemt at acceptere et tilbud eller en anmodning"
       email_about_confirm_reminders: "...jeg har glemt at markere anmodningen som godkendt"
       email_about_new_comments_to_own_listing: "... nogen kommenterer mit tilbud eller anmodning"
       email_about_new_messages: "... nogen sender mig en besked"
       email_about_new_received_testimonials: "... nogen giver mig feedback"
-      email_about_testimonial_reminders: "... Jeg har glemt at give feedback på en begivenhed"
+      email_about_testimonial_reminders: "...jeg har glemt at give feedback på en begivenhed"
       email_daily_community_updates: "Send mig en <b>daglig</b> email med opdateringer om nye annoncer"
       email_weekly_community_updates: "Send mig en <b>ugentlig</b> email med opdateringer om nye annoncer"
       do_not_email_community_updates: "Send ingen opdaterings emails"
-      email_when_conversation_accepted: "... somebody accepterer mit tilbud eller anmodning"
+      email_when_conversation_accepted: "... nogen accepterer mit tilbud eller anmodning"
       email_when_conversation_rejected: "... nogen afviser mit tilbud eller anmodning"
       email_about_completed_transactions: "...nogen har markeret dit tilbud eller anmodning som godkendt"
       email_about_new_payments: "...jeg modtager en ny betaling"
@@ -1726,7 +1726,7 @@ da-DK:
       phone_number: Telefonnnummer
       profile_picture: Profilbillede
       postal_code: Postnummer
-      profile_page: "i din profil side"
+      profile_page: "på din profil side"
       profilemap: Kort
       street_address: Sted
       these_fields_are_shown_in_your: "Disse informationer er synlig for alle %{service_name} brugere"
