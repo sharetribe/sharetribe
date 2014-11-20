@@ -116,6 +116,14 @@ describe PaypalService::IPN do
       pending_reason: :none
     }
 
+    @commission_paid_msg = {
+      type: :commission_paid,
+      commission_status: :completed,
+      commission_total: Money.new(174, "GBP"),
+      commission_fee_total: Money.new(10, "GBP"),
+      invnum: "1-1-commission"
+    }
+
     @cid = 1
     @txid = 1
 
@@ -165,6 +173,16 @@ describe PaypalService::IPN do
       payment = PaypalPayment.first
       expect(payment.pending_reason).to eql "none"
       expect(payment.payment_status).to eql "denied"
+    end
+
+    it "should handle commission" do
+      @ipn_service.handle_msg(@auth_created_msg)
+      @ipn_service.handle_msg(@payment_completed_msg)
+      @ipn_service.handle_msg(@commission_paid_msg)
+
+      payment = PaypalPayment.first
+      expect(payment.commission_total).to eql Money.new(174, "GBP")
+      expect(payment.commission_fee_total).to eql Money.new(1, "GBP")
     end
   end
 

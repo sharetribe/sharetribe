@@ -10,6 +10,7 @@ module PaypalService::API
     MerchantData = PaypalService::DataTypes::Merchant
     TokenStore = PaypalService::Store::Token
     Lookup = PaypalService::API::Lookup
+    Invnum = PaypalService::API::Invnum
 
     def initialize(merchant, logger = PaypalService::Logger.new)
       @logger = logger
@@ -87,7 +88,7 @@ module PaypalService::API
             payment_total: info[:commission_to_admin],
             name: info[:payment_name],
             desc: info[:payment_desc] || info[:payment_name],
-            invnum: "#{info[:transaction_id].to_s}-com"
+            invnum: Invnum.create(community_id, info[:transaction_id], :commission)
           }),
         error_policy: {
           codes_to_retry: ["10001", "x-timeout", "x-servererror"],
