@@ -101,7 +101,7 @@ module TransactionService::Transaction
           sum: listing.price * transaction.listing_quantity
         })
 
-        result = BraintreeSaleService.new(transaction.payment, opts[:gateway_fields]).pay(false)
+        result = BraintreeSaleService.new(transaction.payment, transaction_opts[:gateway_fields]).pay(false)
 
         unless result.success?
           return Result::Error.new(result.message)
