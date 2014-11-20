@@ -97,7 +97,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
     if booking_data[:error].present?
       flash[:error] = booking_data[:error]
-      return redirect_to listing_path(listing[:id])
+      return redirect_to listing_path(vprms[:listing][:id])
     end
 
     gateway_locals =
@@ -349,7 +349,7 @@ class PreauthorizeTransactionsController < ApplicationController
     })
 
     if !booking_form.valid?
-      { error: booking_data[:form].errors.full_messages }
+      { error: booking_form.errors.full_messages }
     else
       booking_form.to_hash.merge({
         duration: DateUtils.duration_days(booking_form.start_on, booking_form.end_on)
