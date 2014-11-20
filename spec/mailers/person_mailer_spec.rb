@@ -97,7 +97,7 @@ describe PersonMailer do
     assert_equal "You are ready to receive payments", email.subject
     assert_equal "You are ready to receive payments", email.subject
 
-    email.body.include?("Your payment information has been confirmed and you are now ready").should be_true
+    email.body.include?("Your payment information has been confirmed and you are now ready").should be_truthy
   end
 
   it "should send email about a new testimonial" do
@@ -209,12 +209,12 @@ describe PersonMailer do
 
       ActionMailer::Base.deliveries.size.should == 2
 
-      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_true
-      include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_true
+      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_truthy
+      include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_truthy
       ActionMailer::Base.deliveries[0].subject.should == "News"
       ActionMailer::Base.deliveries[1].subject.should == "News"
-      ActionMailer::Base.deliveries[0].body.include?("check it out").should be_true
-      ActionMailer::Base.deliveries[1].body.include?("http://example.com").should be_true
+      ActionMailer::Base.deliveries[0].body.include?("check it out").should be_truthy
+      ActionMailer::Base.deliveries[1].body.include?("http://example.com").should be_truthy
     end
 
     it "uses right recipient locale if content is an array" do
@@ -234,15 +234,15 @@ describe PersonMailer do
       PersonMailer.deliver_open_content_messages(people, "SHOULD NOT BE SEEN", content, "en")
 
       ActionMailer::Base.deliveries.size.should == 3
-      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_true
-      include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_true
-      include_all?(ActionMailer::Base.deliveries[2].to, @test_person3.confirmed_notification_email_addresses).should be_true
+      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_truthy
+      include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_truthy
+      include_all?(ActionMailer::Base.deliveries[2].to, @test_person3.confirmed_notification_email_addresses).should be_truthy
       ActionMailer::Base.deliveries[0].subject.should == "changes coming"
       ActionMailer::Base.deliveries[1].subject.should == "uudistuksia"
       ActionMailer::Base.deliveries[2].subject.should == "changes coming"
-      ActionMailer::Base.deliveries[0].body.include?("Check it out").should be_true
-      ActionMailer::Base.deliveries[1].body.include?("uutta tulossa").should be_true
-      ActionMailer::Base.deliveries[2].body.include?("new stuff").should be_true
+      ActionMailer::Base.deliveries[0].body.include?("Check it out").should be_truthy
+      ActionMailer::Base.deliveries[1].body.include?("uutta tulossa").should be_truthy
+      ActionMailer::Base.deliveries[2].body.include?("new stuff").should be_truthy
 
     end
 
@@ -255,9 +255,9 @@ describe PersonMailer do
 
       ActionMailer::Base.deliveries.size.should == 1
 
-      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_true
+      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_truthy
       ActionMailer::Base.deliveries[0].subject.should == "News"
-      ActionMailer::Base.deliveries[0].body.include?("Just a short email").should be_true
+      ActionMailer::Base.deliveries[0].body.include?("Just a short email").should be_truthy
     end
 
     it "falls back to spanish from catalonian locale" do
@@ -278,15 +278,15 @@ describe PersonMailer do
         PersonMailer.deliver_open_content_messages(people, "SHOULD NOT BE SEEN", content, "en")
 
         ActionMailer::Base.deliveries.size.should == 3
-        include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_true
-        include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_true
-        include_all?(ActionMailer::Base.deliveries[2].to, @test_person3.confirmed_notification_email_addresses).should be_true
+        include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_truthy
+        include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_truthy
+        include_all?(ActionMailer::Base.deliveries[2].to, @test_person3.confirmed_notification_email_addresses).should be_truthy
         ActionMailer::Base.deliveries[0].subject.should == "changes coming"
         ActionMailer::Base.deliveries[1].subject.should == "Ahorro ahora!"
         ActionMailer::Base.deliveries[2].subject.should == "Ahorro ahora!"
-        ActionMailer::Base.deliveries[0].body.include?("Check it out").should be_true
-        ActionMailer::Base.deliveries[1].body.include?("nuevas cosas").should be_true
-        ActionMailer::Base.deliveries[2].body.include?("muy buenas").should be_true
+        ActionMailer::Base.deliveries[0].body.include?("Check it out").should be_truthy
+        ActionMailer::Base.deliveries[1].body.include?("nuevas cosas").should be_truthy
+        ActionMailer::Base.deliveries[2].body.include?("muy buenas").should be_truthy
 
     end
 

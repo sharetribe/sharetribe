@@ -17,7 +17,7 @@ describe PaypalService::Store::ProcessToken do
 
       expect(proc_token[:community_id]).to eq(CID)
       expect(proc_token[:transaction_id]).to eq(TX_ID)
-      expect(proc_token[:op_completed]).to be_false
+      expect(proc_token[:op_completed]).to be_falsey
     end
 
     it "prevents creating token for same community id, transaction id and op_name twice" do
@@ -85,7 +85,7 @@ describe PaypalService::Store::ProcessToken do
         op_output: {})
 
       proc_token = ProcessTokenStore.get_by_process_token(@proc_token[:process_token])
-      expect(proc_token[:op_completed]).to be_true
+      expect(proc_token[:op_completed]).to be_truthy
     end
 
     it "serializes op_output" do

@@ -108,39 +108,39 @@ describe Listing do
     let(:listing) { FactoryGirl.create(:listing, communities: [community]) }
 
     it "is not visible, if the listing doesn't belong to the given community" do
-      listing.visible_to?(person, community2).should be_false
+      listing.visible_to?(person, community2).should be_falsey
     end
 
     it "is visible, if user is a member of the given community in which the listing belongs" do
-      listing.visible_to?(person, community).should be_true
+      listing.visible_to?(person, community).should be_truthy
     end
 
     it "is visible, if user is not logged in and the listing and community are public" do
       community.update_attribute(:private, false)
       listing.update_attribute(:privacy, "public")
 
-      listing.visible_to?(nil, community).should be_true
+      listing.visible_to?(nil, community).should be_truthy
     end
 
     it "is not visible, if user is not logged in but the listing is private" do
       community.update_attribute(:private, false)
       listing.update_attribute(:privacy, "private")
 
-      listing.visible_to?(nil, community).should be_false
+      listing.visible_to?(nil, community).should be_falsey
     end
 
     it "is not visible, if user is not logged in but the community is private" do
       community.update_attribute(:private, true)
       listing.update_attribute(:privacy, "public")
 
-      listing.visible_to?(nil, community).should be_false
+      listing.visible_to?(nil, community).should be_falsey
     end
 
     it "is not visible, if the listing is closed" do
       listing.update_attribute(:open, false)
 
-      listing.visible_to?(person, community).should be_false
-      listing.visible_to?(nil, community).should be_false
+      listing.visible_to?(person, community).should be_falsey
+      listing.visible_to?(nil, community).should be_falsey
     end
   end
 

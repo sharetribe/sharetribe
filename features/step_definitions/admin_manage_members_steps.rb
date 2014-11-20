@@ -121,9 +121,9 @@ When(/^I promote "(.*?)" to admin$/) do |full_name|
 end
 
 Then(/^I should see that I can not remove admin rights of "(.*?)"$/) do |full_name|
-  find_admin_checkbox_for_person(full_name)['disabled'].should be_true
+  find_admin_checkbox_for_person(full_name)['disabled'].should be_truthy
 end
 
 Then(/^I should see that I can remove admin rights of "(.*?)"$/) do |full_name|
-  find_admin_checkbox_for_person(full_name)['disabled'].should be_false
+  find_admin_checkbox_for_person(full_name)['disabled'].should be_falsey
 end
