@@ -14,6 +14,10 @@ class ConfirmConversationsController < ApplicationController
   MessageForm = Form::Message
 
   def confirm
+    unless in_valid_pre_state(@listing_transaction)
+      return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
+    end
+
     conversation =      MarketplaceService::Conversation::Query.conversation_for_person(@listing_transaction.conversation.id, @current_user.id, @current_community.id)
     can_be_confirmed =  MarketplaceService::Transaction::Query.can_transition_to?(@listing_transaction, :confirmed)
     other_person =      MarketplaceService::Person::Query.person(@listing_transaction.other_party(@current_user), @current_community.id)
@@ -30,6 +34,10 @@ class ConfirmConversationsController < ApplicationController
   end
 
   def cancel
+    unless in_valid_pre_state(@listing_transaction)
+      return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
+    end
+
     conversation =      MarketplaceService::Conversation::Query.conversation_for_person(@listing_transaction.conversation.id, @current_user.id, @current_community.id)
     can_be_confirmed =  MarketplaceService::Transaction::Query.can_transition_to?(@listing_transaction.id, :confirmed)
     other_person =      MarketplaceService::Person::Query.person(@listing_transaction.other_party(@current_user), @current_community.id)
@@ -82,8 +90,8 @@ class ConfirmConversationsController < ApplicationController
 
       redirect_to redirect_path
     else
-      flash.now[:error] = t("layouts.notifications.something_went_wrong")
-      render :edit
+      flash[:error] = t("layouts.notifications.something_went_wrong")
+      redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
     end
   end
 
@@ -102,5 +110,9 @@ class ConfirmConversationsController < ApplicationController
 
   def fetch_conversation
     @listing_transaction = @current_community.transactions.find(params[:id])
+  end
+
+  def in_valid_pre_state(transaction)
+    transaction.can_be_confirmed? || transaction.can_be_canceled?
   end
 end
