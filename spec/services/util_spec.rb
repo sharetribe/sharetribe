@@ -50,11 +50,11 @@ describe HashUtils do
   end
 
   it "#deep_contains" do
-    HashUtils.deep_contains({a: 1}, {a: 1, b: 2}).should be_true
-    HashUtils.deep_contains({a: 2}, {a: 1, b: 2}).should be_false
-    HashUtils.deep_contains({a: 1, b: 1}, {a: 1, b: 2}).should be_false
-    HashUtils.deep_contains({a: 1, b: 2}, {a: 1, b: 2}).should be_true
-    HashUtils.deep_contains({c: 3}, {a: 1, b: 2}).should be_false
+    HashUtils.deep_contains({a: 1}, {a: 1, b: 2}).should be_truthy
+    HashUtils.deep_contains({a: 2}, {a: 1, b: 2}).should be_falsey
+    HashUtils.deep_contains({a: 1, b: 1}, {a: 1, b: 2}).should be_falsey
+    HashUtils.deep_contains({a: 1, b: 2}, {a: 1, b: 2}).should be_truthy
+    HashUtils.deep_contains({c: 3}, {a: 1, b: 2}).should be_falsey
   end
 end
 

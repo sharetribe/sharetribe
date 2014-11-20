@@ -230,7 +230,7 @@ Given /^"(.*?)" does not have Checkout account$/ do |org_username|
 end
 
 Then /^I should see information about existing Checkout account$/ do
-  find("#payment-help-checkout-exists").visible?.should be_true
+  find("#payment-help-checkout-exists").visible?.should be_truthy
   steps %Q{
     And I should not see payment setting fields
   }

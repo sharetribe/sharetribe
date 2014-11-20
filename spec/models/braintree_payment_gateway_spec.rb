@@ -33,7 +33,7 @@ describe BraintreePaymentGateway do
       gateway.braintree_private_key = nil
       gateway.braintree_client_side_encryption_key = "xxx"
 
-      gateway.configured?.should be_false
+      gateway.configured?.should be_falsey
     end
 
     it "is configured" do
@@ -44,7 +44,7 @@ describe BraintreePaymentGateway do
       gateway.braintree_private_key = "1252384a99cdb1"
       gateway.braintree_client_side_encryption_key = "xxx"
 
-      gateway.configured?.should be_true
+      gateway.configured?.should be_truthy
     end
   end
 end

@@ -168,8 +168,8 @@ describe Person do
 
       describe "devise valid_password?" do
         it "Test that the hashing works. (makes more sense to test this if ASI digest is used)" do
-          FactoryGirl.build(:person).valid_password?('testi').should be_true
-          FactoryGirl.build(:person).valid_password?('something_else').should_not be_true
+          FactoryGirl.build(:person).valid_password?('testi').should be_truthy
+          FactoryGirl.build(:person).valid_password?('something_else').should_not be_truthy
         end
       end
 
@@ -229,7 +229,7 @@ describe Person do
     it "inherits_settings_from" do
       person.inherit_settings_from(community)
 
-      person.is_organization.should be_true
+      person.is_organization.should be_truthy
       person.min_days_between_community_updates.should eql(30)
     end
 

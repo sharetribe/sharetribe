@@ -23,37 +23,37 @@ describe Admin::CategoryService do
   describe "#move_custom_fields" do
 
     it "removing moves custom fields to new category" do
-      include_by_id?(@category2.custom_fields, @custom_field).should be_false
+      include_by_id?(@category2.custom_fields, @custom_field).should be_falsey
 
       Admin::CategoryService.move_custom_fields!(@category, @category2)
       @category2.reload
 
-      include_by_id?(@category2.custom_fields, @custom_field).should be_true
+      include_by_id?(@category2.custom_fields, @custom_field).should be_truthy
     end
 
     it "removing moves custom fields from subcategories to new category" do
-      include_by_id?(@category2.custom_fields, @custom_field).should be_false
-      include_by_id?(@category2.custom_fields, @subcustom_field).should be_false
+      include_by_id?(@category2.custom_fields, @custom_field).should be_falsey
+      include_by_id?(@category2.custom_fields, @subcustom_field).should be_falsey
 
       Admin::CategoryService.move_custom_fields!(@category, @category2)
       @category2.reload
 
-      include_by_id?(@category2.custom_fields, @custom_field).should be_true
-      include_by_id?(@category2.custom_fields, @subcustom_field).should be_true
+      include_by_id?(@category2.custom_fields, @custom_field).should be_truthy
+      include_by_id?(@category2.custom_fields, @subcustom_field).should be_truthy
     end
 
     it "moving custom fields does not create duplicates" do
       @custom_field.categories << @category2
 
-      include_by_id?(@category2.custom_fields, @custom_field).should be_true
-      include_by_id?(@category2.custom_fields, @subcustom_field).should_not be_true
+      include_by_id?(@category2.custom_fields, @custom_field).should be_truthy
+      include_by_id?(@category2.custom_fields, @subcustom_field).should_not be_truthy
       @category2.custom_fields.count.should == 1
 
       Admin::CategoryService.move_custom_fields!(@category, @category2)
       @category2.reload
 
-      include_by_id?(@category2.custom_fields, @custom_field).should be_true
-      include_by_id?(@category2.custom_fields, @subcustom_field).should be_true
+      include_by_id?(@category2.custom_fields, @custom_field).should be_truthy
+      include_by_id?(@category2.custom_fields, @subcustom_field).should be_truthy
       @category2.custom_fields.count.should == 2
     end
   end

@@ -127,11 +127,11 @@ Given /^show me existing community$/ do
 end
 
 Then /^community "(.*?)" should require invite to join$/ do |community|
-   Community.find_by_domain(community).join_with_invite_only.should be_true
+   Community.find_by_domain(community).join_with_invite_only.should be_truthy
 end
 
 Then /^community "(.*?)" should not require invite to join$/ do |community|
-   Community.find_by_domain(community).join_with_invite_only.should_not be_true
+   Community.find_by_domain(community).join_with_invite_only.should_not be_truthy
 end
 
 Given /^community "(.*?)" is private$/ do |community_domain|

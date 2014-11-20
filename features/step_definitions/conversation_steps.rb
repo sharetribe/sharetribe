@@ -283,7 +283,7 @@ Then /^I should see that the price of a listing is "(.*?)"$/ do |price_string|
 end
 
 Then /^I should send a message to "(.*?)"$/ do |seller_name|
-  find("#new_listing_conversation").visible?.should be_true
+  find("#new_listing_conversation").visible?.should be_truthy
   seller = Person.find_by_username(seller_name)
   expect(find("label[for=listing_conversation_content]")).to have_content("Message to #{seller.given_name}")
 end

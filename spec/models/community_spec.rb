@@ -204,7 +204,7 @@ describe Community do
         end
       end
 
-      correct_order.should be_true
+      correct_order.should be_truthy
     end
 
     it "should include just picked listings" do

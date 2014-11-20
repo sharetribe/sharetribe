@@ -9,7 +9,7 @@ describe BraintreeWebhooksController do
     @community.reload
 
     # Guard assert
-    @community.braintree_in_use?.should be_true
+    @community.braintree_in_use?.should be_truthy
   end
 
   describe "#hooks" do

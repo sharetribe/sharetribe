@@ -33,12 +33,12 @@ describe Category do
   end
 
   it "has listings?" do
-    @category.has_own_or_subcategory_listings?.should be_false
+    @category.has_own_or_subcategory_listings?.should be_falsey
 
     @listing = FactoryGirl.create(:listing, {category: @category})
     @category.reload
 
-    @category.has_own_or_subcategory_listings?.should be_true
+    @category.has_own_or_subcategory_listings?.should be_truthy
   end
 
   it "can not be deleted if it's the only top level category" do

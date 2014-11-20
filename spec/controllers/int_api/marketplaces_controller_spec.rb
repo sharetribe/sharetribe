@@ -29,7 +29,7 @@ describe IntApi::MarketplacesController do
       expect(c.name).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
       expect(c.transaction_types.first.class).to eql Sell
-      expect(c.paypal_enabled).to be_true
+      expect(c.paypal_enabled).to be_truthy
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -62,7 +62,7 @@ describe IntApi::MarketplacesController do
       expect(c.name).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
       expect(c.transaction_types.first.class).to eql Sell
-      expect(c.paypal_enabled).to be_true
+      expect(c.paypal_enabled).to be_truthy
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -95,7 +95,7 @@ describe IntApi::MarketplacesController do
       expect(c.name).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
       expect(c.transaction_types.first.class).to eql Sell
-      expect(c.paypal_enabled).to be_true
+      expect(c.paypal_enabled).to be_truthy
 
       p = c.admins.first
       expect(p).to_not be_nil
