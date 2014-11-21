@@ -50,7 +50,8 @@ module TransactionService::Transaction
       payment_gateway: opts[:payment_gateway],
       payment_process: opts[:payment_process],
       commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
-      minimum_commission: minimum_commission)
+      minimum_commission: minimum_commission,
+      automatic_confirmation_after_days: opts[:automatic_confirmation_after_days])
 
     conversation = transaction.build_conversation(
       community_id: opts[:community_id],
