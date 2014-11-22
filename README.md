@@ -67,7 +67,18 @@ See also:
 
 ### Experimental: Docker container installation
 
-Prerequisite: You have to have _docker_ and _fig_ installed. If you are on a non-linux OS, you need to have _boot2docker_ or something similar. If you can successfully run `docker info`, then you should be ok to go.
+Prerequisite: You have to have _docker_ and _fig_ installed. If you are on a non-linux OS, you need to have _vagrant_. If you can successfully run `docker info`, then you should be ok to go.
+
+#### OSX Vagrant setup
+
+Run:
+
+```bash
+vagrant up
+export DOCKER_HOST=tcp://192.168.33.10   # Set Docker CLI to connect to Vagrant box. This IP is set in Vagrantfile
+export DOCKER_TLS_VERIFY=                # disable TLS
+docker info                              # this should run ok now
+```
 
 1. Load schema (only on the first run)
 
@@ -83,23 +94,9 @@ Prerequisite: You have to have _docker_ and _fig_ installed. If you are on a non
 
 1. Set lvh.me to point to docker IP
 
-  Modify your `/etc/hosts` file. If you're in Linux, point 127.0.0.1 to docker.lvh.me. If you are on OSX (or Windows), point the result of running `boot2docker ip` to docker.lvh.me
+  Modify your `/etc/hosts` file. If you're in Linux, point 127.0.0.1 to docker.lvh.me. If you are on OSX (or Windows), point 192.168.33.10 to docker.lvh.me
 
 1. All done! Open your browser and URL http://docker.lvh.me:3000
-
-Please note, that Docker installation is experimental and it's missing some important parts:
-
-- [x] Run MySQL
-- [x] Run Rails and worker
-- [x] Run Sphinx
-- [ ] Run Sphinx in its own container
-- [ ] Running server on production mode
-- [ ] Volume share (for sharing code in development work flow)
-- [ ] ImageMagick
-- [ ] Default configurations
-- [x] Use fig to setup all containers
-
-Contributions are highly appreciated.
 
 ### Advanced settings
 
