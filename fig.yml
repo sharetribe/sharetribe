@@ -16,7 +16,7 @@ worker:
   volumes:
     - .:/opt/sharetribe
   environment:
-    RAILS_ENV:
+    RAILS_ENV: development
 
 search:
   build: .
@@ -28,7 +28,7 @@ search:
   ports:
     - "3563:3563"
   environment:
-    RAILS_ENV:
+    RAILS_ENV: development
     SPHINX_HOST: ""
 
 web:
@@ -42,5 +42,5 @@ web:
     - db:mysql
     - search:search
   environment:
-    RAILS_ENV:
+    RAILS_ENV: development
     SPHINX_HOST: search
