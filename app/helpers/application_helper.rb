@@ -756,6 +756,8 @@ module ApplicationHelper
       show_braintree_settings_payment_url(person, url_params.merge(locale: person.locale))
     elsif gateway_type == :checkout
       person_checkout_account_url(person, url_params.merge(locale: person.locale))
+    elsif gateway_type == :paypal
+      show_paypal_account_settings_payment_url(person, url_params.merge(locale: person.locale))
     end
   end
 
