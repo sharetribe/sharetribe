@@ -20,7 +20,10 @@
 
     = form_tag form_path, :method => :get, :id => "booking-dates" do
 
-      - if @listing.transaction_type.price_per
+      - # Only show booking datepickers if price_per & payments in use.
+      - # If booking dates are made visible for receiver also without payments
+      - # that condition can be removed.
+      - if @listing.transaction_type.price_per && MarketplaceService::Community::Query::payment_type(@current_community.id).present?
         - days = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
         - months = [:january, :february, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]
         - translated_days = days.map { |day_symbol| t("datepicker.days.#{day_symbol}") }.to_json
