@@ -3,28 +3,44 @@ module TransactionService::Transaction
   DataTypes = TransactionService::DataTypes::Transaction
   TransactionModel = ::Transaction
 
+  PaypalAccountEntity = PaypalService::PaypalAccount::Entity
+  PaypalAccountQuery = PaypalService::PaypalAccount::Query
+
   module_function
 
   def query(transaction_id)
     model_to_entity(TransactionModel.find(transaction_id))
   end
 
+  # FIXME This code is duplicate from PaypalHelper. We need to check
+  # things with community because Transaction service does not own the
+  # transaction settings. This is an error in data modelling. Actually
+  # PaypalHelper shouldn't even exist.
+  def community_ready_for_paypal_payments?(community)
+    admin_account = PaypalAccountQuery.admin_account(community.id)
+    community.commission_from_seller.present? &&
+      community.minimum_price.present? &&
+      PaypalAccountEntity.order_permission_verified?(admin_account)
+  end
+
   def can_start_transaction(opts)
     transaction_opts = opts[:transaction]
     author_id = transaction_opts[:listing_author_id]
     community_id = transaction_opts[:community_id]
+    community = Community.find(community_id)
 
     result =
       case transaction_opts[:payment_gateway]
       when :paypal
         paypal_account = PaypalService::PaypalAccount::Query.personal_account(author_id, community_id)
-        PaypalService::PaypalAccount::Entity.paypal_account_prepared?(paypal_account)
+        PaypalService::PaypalAccount::Entity.paypal_account_prepared?(paypal_account) &&
+          community_ready_for_paypal_payments?(community)
       when :braintree, :checkout
-        Community.find(community_id).payment_gateway.can_receive_payments?(Person.find(author_id))
+        community.payment_gateway.can_receive_payments?(Person.find(author_id))
       when :none
         true
       else
-        raise "Unknown payment gateway #{payment_gateway}"
+        raise "Unknown payment gateway #{transaction_opts[:payment_gateway]}"
       end
 
     Result::Success.new(result: result)

@@ -132,24 +132,19 @@ class ListingsController < ApplicationController
 
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
-      payment_setup_missing, payment_setup_path =
-        if payment_type == :braintree
-          missing = PaymentRegistrationGuard.new(@current_community, @current_user, @listing).requires_registration_before_posting?
-          [missing, payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)]
-        elsif payment_type == :paypal
-          missing = PaypalService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id).blank?
-          [missing, new_paypal_account_settings_payment_path(@current_user.username)]
-        else
-          [false, nil]
-        end
+      payment_setup_missing, payment_setup_path = payment_setup_status(
+        community: @current_community,
+        user: @current_user,
+        listing: @listing,
+        payment_type: payment_type)
 
       if payment_setup_missing
-        render :partial => "listings/payout_registration_before_posting", locals: {payment_settings_path: payment_setup_path }
+        render :partial => "listings/payout_registration_before_posting", locals: { payment_settings_path: payment_setup_path }
       else
-        render :partial => "listings/form/form_content", locals: {minimum_commission: minimum_commission}
+        render :partial => "listings/form/form_content", locals: { minimum_commission: minimum_commission }
       end
     else
-      render locals: {minimum_commission: minimum_commission}
+      render locals: { minimum_commission: minimum_commission }
     end
   end
 
@@ -427,6 +422,18 @@ class ListingsController < ApplicationController
       listing_params.except(:price).merge(price_cents: MoneyUtil.parse_str_to_cents(listing_params[:price]))
     else
       listing_params
+    end
+  end
+
+  def payment_setup_status(community:, user:, listing:, payment_type:)
+    if payment_type == :braintree
+      missing = PaymentRegistrationGuard.new(community, user, listing).requires_registration_before_posting?
+      [missing, payment_settings_path(community.payment_gateway.gateway_type, user)]
+    elsif payment_type == :paypal
+      missing = !PaypalHelper.user_and_community_ready_for_payments?(user, community)
+      [missing, new_paypal_account_settings_payment_path(user.username)]
+    else
+      [false, nil]
     end
   end
 end
