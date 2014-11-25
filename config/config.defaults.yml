@@ -49,16 +49,6 @@ default: &default_settings
   # and subscribe an url (https://yourdomain.com/bounces?sns_notification_token=[this_token])
   sns_notification_token:
 
-  # Braintree credentials to be used in tests. In production, each
-  # community have their own credentials.
-  # Ask for shared Braintree credentials if you don't want to create
-  # new Braintree account
-  braintree_environment: sandbox
-  braintree_test_merchant_id: xxxxxxxxxxxxxxxx
-  braintree_test_master_merchant_id: xxxxxxxxxxxxxxxx
-  braintree_test_public_key: xxxxxxxxxxxxxxxx
-  braintree_test_private_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-  braintree_client_side_encryption_key: MIIBCgKCAQEArIfLwPsGtsJ5ELsvaFrdww/vEcBBiS3ViPoMg0mmV67nM3RqkFuWu7JQ1bln12PVQgyU7Bn6O7OLUjAdaO35kunmRfwLNb/SStyGfd5JIFOFP2Pu4CRnKr2tTR+OkitqXTwoa9den8RmMFJlQyadozcpWvAIGtAa21r0RWNaSoHS9gkbmhiEa/94gvxVuPlEQTrlKWHp3pnOuTwST/xEcDI73q7Ug4nVhFgtqqU0Kck6HOBnF5Gby+tIfI5blih64sxPGKVGuExopcWNos4lV7x7fKxYT07vOCeRUIFUSYhfxRs8hZ/tLfXxzNsInOnaddFJpM8Mda8jKWs+aFhPiwIDAQAB
   # after preauthorization there is 5 day period before expiration
   braintree_expiration_period: 5
 
@@ -295,3 +285,14 @@ test:
 
   # easier to run tests without SSL
   always_use_ssl: false
+
+  # Braintree credentials to be used in tests. In production, each
+  # community have their own credentials.
+  # Ask for shared Braintree credentials if you don't want to create
+  # new Braintree account
+  braintree_environment: sandbox
+  braintree_test_merchant_id: xxxxxxxxxxxxxxxx
+  braintree_test_master_merchant_id: xxxxxxxxxxxxxxxx
+  braintree_test_public_key: xxxxxxxxxxxxxxxx
+  braintree_test_private_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  braintree_client_side_encryption_key: MIIBCgKCAQEArIfLwPsGtsJ5ELsvaFrdww/vEcBBiS3ViPoMg0mmV67nM3RqkFuWu7JQ1bln12PVQgyU7Bn6O7OLUjAdaO35kunmRfwLNb/SStyGfd5JIFOFP2Pu4CRnKr2tTR+OkitqXTwoa9den8RmMFJlQyadozcpWvAIGtAa21r0RWNaSoHS9gkbmhiEa/94gvxVuPlEQTrlKWHp3pnOuTwST/xEcDI73q7Ug4nVhFgtqqU0Kck6HOBnF5Gby+tIfI5blih64sxPGKVGuExopcWNos4lV7x7fKxYT07vOCeRUIFUSYhfxRs8hZ/tLfXxzNsInOnaddFJpM8Mda8jKWs+aFhPiwIDAQAB
