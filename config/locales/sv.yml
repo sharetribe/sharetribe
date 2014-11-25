@@ -441,11 +441,11 @@ sv:
       accepted_offer: "acceptera erbjudandet"
       rejected_request: "avslagit förfrågan"
       rejected_offer: "avslagit erbjudandet"
-      confirmed_request: "markerat förfrågan som klar"
+      confirmed_request: "Markerat förfrågan som klar"
       confirmed_offer: "markerat erbjudandet som klar"
       canceled_request: "avbröt förfrågan"
       canceled_offer: "avbröt erbjudandet"
-      paid: "betalt %{sum}"
+      paid: "Betalt %{sum}"
     new:
       offer_message_form_title: "Erbjud %{listing} till %{person}"
       request_message_form_title: "Förfrågan %{listing} från %{person}"
@@ -720,7 +720,7 @@ sv:
       you_have_a_new_message: "Du har ett nytt meddelande i %{service_name} från %{sender_name}"
     new_payment:
       new_payment: "Du har fått en ny inbetalning"
-      you_have_received_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{payer_full_name}. Här är ditt kvitto."
+      you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Pris %{payer_full_name} betalt:"
@@ -770,9 +770,9 @@ sv:
       remember_to_give_feedback_to: "Kom ihåg att lämna feedback till %{name}"
       you_have_not_given_feedback_yet: "Du har ännu inte lämnat någon feedback till %{name} angående händelsen '%{event}'. Kom ihåg att ge feedback om hur %{given_name} utfört händelsen."
     transaction_preauthorized:
-      subject: "%{requester} har begärt och betalat för %{listing_title}"
-      transaction_requested_by_user: "%{requester} har begärt och betalat för \"%{listing_title}\""
-      you_have_days_to_accept: "DU måste acceptera eller avböja förfrågan inom %{payment_expires_in_days} dagar. Om du inte acceptera detta inom tidsramen så kommer automatiskt förfrågan avböjas och du kommer inte att få någon betalning."
+      subject: "%{requester} har efterfrågat och betalat för %{listing_title}"
+      transaction_requested_by_user: "%{requester} har efterfrågat och betalat för \"%{listing_title}\""
+      you_have_days_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in_days} dagar. Om du inte accepterar detta inom tidsramen så kommer automatiskt förfrågan att avböjas och du kommer inte att få någon betalning."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
     transaction_preauthorized_reminder:
       subject: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}"
@@ -1587,7 +1587,7 @@ sv:
       as_expected: "Som förväntat"
       edit_profile_info: "Redigera profil"
       exceeded_expectations: "Över förväntan"
-      positive: positiv
+      positive: positiva
       hide_description: "Visa mindre"
       less_than_expected: "Värre än väntat"
       phone_number: "Telefonnummer:"
@@ -1611,7 +1611,7 @@ sv:
       show_all_reviews: "Visa alla recensioner"
       trustcloud: TrustCard
     followed_people:
-      you_follow_plural: "Du följer %{count} personer"
+      you_follow_plural: "Du följer %{count} person"
       you_follow_singular: "Du följer %{count} personer"
       they_follow_plural: "%{count} följande personer"
       they_follow_singular: "%{count} följande personer"
@@ -1656,7 +1656,7 @@ sv:
       welcome_to_kassi: "Välkommen till %{service_name}!"
       check_your_email: "Kolla din inkorg"
       resend_confirmation_instructions: "Skicka instruktioner för att bekräfta kontot igen"
-      your_current_email_is: "Din e-post är %{email}l"
+      your_current_email_is: "Din e-post är %{email}."
       change_email: Ändra
       confirm_your_email: "Bekräfta din e-post"
       account_confirmation_instructions: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så kan du gå med %{service_name}."
