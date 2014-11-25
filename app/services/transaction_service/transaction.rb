@@ -16,7 +16,7 @@ module TransactionService::Transaction
   # things with community because Transaction service does not own the
   # transaction settings. This is an error in data modelling. Actually
   # PaypalHelper shouldn't even exist.
-  def community_ready_for_payments?(community)
+  def community_ready_for_paypal_payments?(community)
     admin_account = PaypalAccountQuery.admin_account(community.id)
     community.commission_from_seller.present? &&
       community.minimum_price.present? &&
@@ -34,7 +34,7 @@ module TransactionService::Transaction
       when :paypal
         paypal_account = PaypalService::PaypalAccount::Query.personal_account(author_id, community_id)
         PaypalService::PaypalAccount::Entity.paypal_account_prepared?(paypal_account) &&
-          community_ready_for_payments?(community)
+          community_ready_for_paypal_payments?(community)
       when :braintree, :checkout
         community.payment_gateway.can_receive_payments?(Person.find(author_id))
       when :none
