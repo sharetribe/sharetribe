@@ -13,6 +13,6 @@
   .row
     .col-12
       = form.label :credit_card_expiration_month, t("braintree_payments.edit.exp"), :class => "preauthorize-exp"
-      = form.select(:credit_card_expiration_month, options_for_select(credit_card_expiration_month_options.map{|(show, value)| [show, value, {"data-encrypted-name" => "braintree_payment[credit_card_expiration_month]"}]}))
+      = form.select :credit_card_expiration_month, options_for_select(credit_card_expiration_month_options), {}, data: { "encrypted-name" => "braintree_payment[credit_card_expiration_month]" }
       = " / "
-      = form.select(:credit_card_expiration_year, options_for_select(credit_card_expiration_year_options.map{|(show, value)| [show, value, {"data-encrypted-name" => "braintree_payment[credit_card_expiration_year]"}]}))
+      = form.select :credit_card_expiration_year, options_for_select(credit_card_expiration_year_options), {}, data: { "encrypted-name" => "braintree_payment[credit_card_expiration_year]" }
