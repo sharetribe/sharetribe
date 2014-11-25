@@ -1360,8 +1360,8 @@ function initialize_braintree_payment_form(locale, beforeSubmit) {
 }
 
 function validateBraintreeForm(locale, beforeSubmit, opts) {
-  opts = opts || {};
-  beforeSubmit = beforeSubmit || function(callback) { callback() };
+  opts = opts || {};
+  beforeSubmit = beforeSubmit || function(callback) { callback() };
 
   var form_id = "#braintree-payment-form";
 
