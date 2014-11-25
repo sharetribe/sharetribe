@@ -69,8 +69,15 @@ class TransactionProcess
     confirmation.confirm!
   end
 
-  after_transition(to: :canceled) do |conversation|
+  after_transition(from: :accepted, to: :canceled) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.cancel!
   end
+
+  after_transition(from: :paid, to: :canceled) do |conversation|
+    confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
+    confirmation.cancel!
+    confirmation.cancel_escrow!
+  end
+
 end
