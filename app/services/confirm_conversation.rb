@@ -28,7 +28,12 @@ class ConfirmConversation
   # Listing canceled by user
   def cancel!
     Delayed::Job.enqueue(TransactionCanceledJob.new(@transaction.id, @community.id))
-    cancel_escrow if @hold_in_escrow
+  end
+
+  def cancel_escrow!
+    return unless @hold_in_escrow
+    Delayed::Job.enqueue(EscrowCanceledJob.new(@transaction.id, @community.id))
+    BTLog.info("Escrow canceled by user #{@user.id}, transaction #{@transaction.id}, community #{@community.id}")
   end
 
   def update_participation(feedback_given)
@@ -69,10 +74,5 @@ class ConfirmConversation
 
   def release_escrow
     BraintreeService::EscrowReleaseHelper.release_from_escrow(@community, @payment.braintree_transaction_id)
-  end
-
-  def cancel_escrow
-    Delayed::Job.enqueue(EscrowCanceledJob.new(@transaction.id, @community.id))
-    BTLog.info("Escrow canceled by user #{@user.id}, transaction #{@transaction.id}, community #{@community.id}")
   end
 end
