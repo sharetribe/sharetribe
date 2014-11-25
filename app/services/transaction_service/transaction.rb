@@ -40,7 +40,7 @@ module TransactionService::Transaction
       when :none
         true
       else
-        raise "Unknown payment gateway #{payment_gateway}"
+        raise "Unknown payment gateway #{transaction_opts[:payment_gateway]}"
       end
 
     Result::Success.new(result: result)
