@@ -137,7 +137,8 @@ class ListingsController < ApplicationController
           missing = PaymentRegistrationGuard.new(@current_community, @current_user, @listing).requires_registration_before_posting?
           [missing, payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)]
         elsif payment_type == :paypal
-          missing = PaypalService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id).blank?
+          paypal_account = PaypalService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+          missing = !PaypalService::PaypalAccount::Entity.paypal_account_prepared?(paypal_account)
           [missing, new_paypal_account_settings_payment_path(@current_user.username)]
         else
           [false, nil]
