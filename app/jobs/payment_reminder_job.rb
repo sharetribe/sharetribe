@@ -14,7 +14,9 @@ class PaymentReminderJob < Struct.new(:conversation_id, :recipient_id, :communit
   def perform
     transaction = Transaction.find(conversation_id)
     community = Community.find(community_id)
-    if transaction.payment.status.eql?("pending")
+    can_transition_to_paid = MarketplaceService::Transaction::Query.can_transition_to?(transaction.id, :paid)
+
+    if can_transition_to_paid && transaction.payment.status.eql?("pending")
       PersonMailer.send("payment_reminder", transaction, transaction.payment.payer, community).deliver
     end
   end
