@@ -91,7 +91,7 @@ module TransactionViewUtils
       }
     when "canceled"
       {
-        sender: author,
+        sender: starter,
         mood: :negative
       }
     when "confirmed"
