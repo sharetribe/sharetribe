@@ -26,8 +26,6 @@
 - view_transactions_link = link_to t("admin.communities.getting_started.view_transactions_link_text"), admin_community_transactions_path(@current_community, sort: "last_activity", direction: "desc")
 - contact_support_link = link_to t("admin.communities.getting_started.contact_support_link_text"), "mailto:#{APP_CONFIG.support_email}"
 
-= render :partial => "admin/uservoice_widget"
-
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
 #new_news_item_form.left-navi-section
