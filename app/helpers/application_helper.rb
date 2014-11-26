@@ -584,7 +584,8 @@ module ApplicationHelper
         :text => t("admin.left_hand_navigation.support"),
         :icon_class => icon_class("help"),
         :path => "mailto:#{APP_CONFIG.support_email}",
-        :name => "support"
+        :name => "support",
+        :data_uv_trigger => "contact"
       },
       {
         :text => t("admin.communities.manage_members.manage_members"),

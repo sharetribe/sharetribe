@@ -12,13 +12,13 @@
 
   .admin-left-navi-link-group
     - links_general.each do |link|
-      %a{:id => link[:id], :href => link[:path], :title => link[:text], :class => (link[:name].eql?(@selected_left_navi_link) ? "selected left-navi-link" : "left-navi-link")}
+      %a{:id => link[:id], :href => link[:path], :title => link[:text], :class => (link[:name].eql?(@selected_left_navi_link) ? "selected left-navi-link" : "left-navi-link"), "data-uv-trigger" => link[:data_uv_trigger]}
         .left-navi-link-icon{:class => link[:icon_class]}
         .left-navi-link-text= link[:text]
-  
+
   .admin-left-navi-link-group-title
     = t("admin.left_hand_navigation.users_and_transactions")
-  
+
   .admin-left-navi-link-group
     - links_manage.each do |link|
       %a{:id => link[:id], :href => link[:path], :title => link[:text], :class => (link[:name].eql?(@selected_left_navi_link) ? "selected left-navi-link" : "left-navi-link")}
