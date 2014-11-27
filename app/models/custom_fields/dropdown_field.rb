@@ -24,4 +24,8 @@ class DropdownField < OptionField
   def with_type(&block)
     block.call(:dropdown)
   end
+
+  def can_filter?
+    true
+  end
 end

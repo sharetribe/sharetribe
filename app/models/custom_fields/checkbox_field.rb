@@ -24,4 +24,8 @@ class CheckboxField < OptionField
   def with_type(&block)
     block.call(:checkbox)
   end
+
+  def can_filter?
+    true
+  end
 end
