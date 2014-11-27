@@ -985,7 +985,7 @@ it:
       map_button: Mappa
       grid_button: Griglia
       list_button: Lista
-      all_listing_types: ~
+      all_listing_types: "Tutti i tipi di annuncio"
       all_categories: "Tutte le categorie"
   infos:
     about:
@@ -1349,11 +1349,11 @@ it:
       listing: inserzione
       selected_category: "Categoria: %{category}"
       selected_subcategory: "Sottocategoria: %{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Tipo di annuncio: %{transaction_type}"
       select_category: "Seleziona una categoria"
       select_subcategory: ~
-      select_transaction_type: ~
-      you_need_to_fill_payout_details_before_accepting: ~
+      select_transaction_type: "Seleziona il tipo di annuncio"
+      you_need_to_fill_payout_details_before_accepting: "È necessario compilare i dettagli di pagamento prima di poter postare il tuo spazio. Vai al %{payment_settings_link} e inserisci le informazioni."
       payment_settings_link: ~
     please_comment: Commenta
     reply_link:

@@ -472,7 +472,7 @@ fr:
       item_request_message_form_title: "Proposer un objet à %{person}"
       message: Message
       message_to: "Message à %{author_name}"
-      optional_message_to: "Message optionnel à %{author_name}"
+      optional_message_to: "Message optionnel pour %{author_name}"
       rideshare_offer_message_form_title: "Demander un covoiturage à %{person}"
       rideshare_request_message_form_title: "Proposer un covoiturage à %{person}"
       send_message: "Envoyer le message"
@@ -1422,7 +1422,7 @@ fr:
       days: jours
       price_per_day: "Prix par jour : %{price}"
     transaction_agreement_checkbox:
-      read_more: Voir.
+      read_more: Lire.
   mapview:
     index:
       all_categories: "Toutes les catégories"
