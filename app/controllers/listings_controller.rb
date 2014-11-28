@@ -57,9 +57,15 @@ class ListingsController < ApplicationController
     end
   end
 
+  # "2,3,4, 563" => [2, 3, 4, 563]
+  def numbers_str_to_array(str)
+    str.split(",").map { |num| num.to_i }
+  end
+
   # Used to show multiple listings in one bubble
   def listing_bubble_multiple
-    @listings = Listing.visible_to(@current_user, @current_community, params[:ids]).order("id DESC")
+    ids = numbers_str_to_array(params[:ids])
+    @listings = Listing.visible_to(@current_user, @current_community, ids).order("id DESC")
     if @listings.size > 0
       render :partial => "homepage/listing_bubble_multiple"
     else
