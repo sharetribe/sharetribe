@@ -6,6 +6,8 @@
       Sharetribe -
       = t("error_pages.error_#{status}_title")
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
+    - if @favicon
+      %link{:rel => "shortcut icon", :href => @favicon }
     <link href="/assets/application.css" media="screen" rel="stylesheet" type="text/css" />
 
   %body

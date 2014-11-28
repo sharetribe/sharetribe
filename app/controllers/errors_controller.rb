@@ -1,11 +1,13 @@
 class ErrorsController < ActionController::Base
 
   def server_error
+    @favicon = favicon # Rails makes it very hard to pass locals to layout...
     @airbrake_url = nofity_airbrake
     render "500", layout: false, status: 500, :formats => [:html]
   end
 
   def not_found
+    @favicon = favicon # Rails makes it very hard to pass locals to layout...
     render "404", layouts: false, status: 404, :formats => [:html]
   end
 
@@ -24,5 +26,11 @@ class ErrorsController < ActionController::Base
 
   def use_airbrake
     APP_CONFIG && APP_CONFIG.use_airbrake
+  end
+
+  private
+
+  def favicon
+    Maybe(Community.find_by_domain(request.host)).favicon.or_else(nil)
   end
 end
