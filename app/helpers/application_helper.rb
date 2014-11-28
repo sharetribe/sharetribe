@@ -414,6 +414,10 @@ module ApplicationHelper
     APP_CONFIG.dashboard_subdomains.include?(request.subdomain) && APP_CONFIG.domain.include?(request.domain)
   end
 
+  def on_admin?
+    controller.class.name.split("::").first=="Admin"
+  end
+
   def facebook_like(recommend=false)
     "<div class=\"fb-like\" data-send=\"true\" data-layout=\"button_count\" data-width=\"200\" data-show-faces=\"false\" #{recommend ? 'data-action="recommend"' : ''}></div>".html_safe
   end

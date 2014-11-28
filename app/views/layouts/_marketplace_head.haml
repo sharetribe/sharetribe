@@ -82,4 +82,5 @@
 
 = auto_discovery_link_tag(:atom, atom_feed_url )
 
-= @current_community.custom_head_script.try(:html_safe)
+- unless on_admin?
+  = @current_community.custom_head_script.try(:html_safe)

@@ -1,6 +1,14 @@
 <script>
 // Include the UserVoice JavaScript SDK (only needed once on a page)
-UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/5cNrCs3yhlo0sZ5xd9Btgw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+UserVoice=window.UserVoice||[];
+(function(){
+  var uv=document.createElement('script');
+  uv.type='text/javascript';
+  uv.async=true;
+  uv.src='//widget.uservoice.com/5cNrCs3yhlo0sZ5xd9Btgw.js';
+  var s=document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(uv,s)
+})();
 
 //
 // UserVoice Javascript SDK developer documentation:
@@ -18,6 +26,9 @@ UserVoice.push(['set', {
 // To enable, replace sample data with actual user traits and uncomment the line
 UserVoice.push(['identify', {
   email:      '<%= @current_user.confirmed_notification_email_to %>', // User’s email address
+  name:       '<%= @current_user.full_name %>',//'<%= @current_user.full_name %>', // User’s real name
+  id:         '<%= @current_user.id %>',
+  type:       'adminwidget' // Optional: segment your users by type
   //name:       'John Doe', // User’s real name
   //created_at: 1364406966, // Unix timestamp for the date the user signed up
   //id:         123, // Optional: Unique id of the user (if set, this should not change)
@@ -32,12 +43,6 @@ UserVoice.push(['identify', {
   //}
 }]);
 
-// Add default trigger to the bottom-right corner of the window:
-// UserVoice.push(['addTrigger', { mode: 'contact', trigger_position: 'bottom-right' }]);
-
-// Or, use your own custom trigger:
-//UserVoice.push(['addTrigger', '#id', { mode: 'contact' }]);
-
 // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
-UserVoice.push(['autoprompt', {}]);
+//UserVoice.push(['autoprompt', {}]);
 </script>
