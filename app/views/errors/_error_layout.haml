@@ -3,7 +3,6 @@
 %html{html_attrs(I18n.locale).merge({"xmlns:og"=>"http://ogp.me/ns#"})}
   %head
     %title
-      Sharetribe -
       = t("error_pages.error_#{status}_title")
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
     - if @favicon
