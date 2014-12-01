@@ -2,17 +2,32 @@ class ErrorsController < ActionController::Base
 
   layout 'error_layout'
   before_filter :current_community
-  before_filter :favicon
+  before_filter :set_locale
 
   def server_error
-    @favicon = favicon # Rails makes it very hard to pass locals to layout...
-    @airbrake_url = nofity_airbrake
-    render "status_500", status: 500, locals: { status: 500 }
+    error_id = nofity_airbrake
+    # error_id = 12341234153 # uncomment this to test the last text paragraph
+    render "status_500", status: 500, locals: { status: 500, title: title(500), error_id: error_id }
   end
 
   def not_found
-    @favicon = favicon # Rails makes it very hard to pass locals to layout...
-    render "status_404", status: 404, locals: { status: 404 }
+    render "status_404", status: 404, locals: { status: 404, title: title(404) }
+  end
+
+  private
+
+  def current_community
+    @current_community ||= Community.find_by_domain(request.host)
+  end
+
+  def title(status)
+    community_name = Maybe(@current_community).name.or_else(nil)
+
+    [community_name, t("error_pages.error_#{status}_title")].uniq.join(' - ')
+  end
+
+  def set_locale
+    I18n.locale = Maybe(@current_community).default_locale.or_else("en")
   end
 
   def exception
@@ -20,8 +35,7 @@ class ErrorsController < ActionController::Base
   end
 
   def nofity_airbrake
-    env["airbrake.error_id"] = Airbrake.notify(exception) if can_notify_airbrake && use_airbrake
-    "https://airbrake.io/locate/#{env["airbrake.error_id"]}" if env["airbrake.error_id"]
+    Airbrake.notify(exception) if can_notify_airbrake && use_airbrake
   end
 
   def can_notify_airbrake
@@ -32,13 +46,4 @@ class ErrorsController < ActionController::Base
     APP_CONFIG && APP_CONFIG.use_airbrake
   end
 
-  private
-
-  def current_community
-    @current_community ||= Community.find_by_domain(request.host)
-  end
-
-  def favicon
-    @favicon ||= Maybe(@current_community).favicon.or_else(nil)
-  end
 end
