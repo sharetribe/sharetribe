@@ -798,11 +798,12 @@ fi:
       we_will_guide_you_along_the_way: "Me opastamme sinua."
       are_you_new_to_online_marketplaces: "Tarvitset lisäohjeita päästäksesi alkuun? Ei hätää, me autamme! Lähipäivinä tulemme lähettämään sinulle sarjan tietopaketteja, joista kerrotaan, miten markkinapaikkasivustot toimivat, ja autetaan sinua hyödyntämään Sharetriben ominaisuuksia parhaalla mahdollisella tavalla. Ensimmäinen osa lähetetään sinulle pian."
       have_questions: "Heräsikö sinulle kysymyksiä?"
-      our_happiness_team_is_here_to_help: "Autamme mielellämme! Voit joko %{knowledge_base_link} tai %{contact_support_link}."
+      our_happiness_team_is_here_to_help: "Autamme mielellämme! Voit joko %{knowledge_base_link} tai olla yhteydessä asiakapalveluumme %{admin_panel_link}."
       love: "Terveisin,"
       sharetribe_crew: "Sharetriben tiimi"
       knowledge_base_link_text: "katsoa vastauksia yleisimpiin kysymyksiin"
       contact_support_link_text: "olla yhteydessä asiakaspalveluumme"
+      admin_panel_link_text: "ylläpitonäkymän kautta"
     new_listing_by_followed_person:
       subject: "%{author_name} lisäsi ilmoituksen %{service_name}-palveluun"
       has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
