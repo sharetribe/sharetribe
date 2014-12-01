@@ -414,6 +414,10 @@ module ApplicationHelper
     APP_CONFIG.dashboard_subdomains.include?(request.subdomain) && APP_CONFIG.domain.include?(request.domain)
   end
 
+  def on_admin?
+    controller.class.name.split("::").first=="Admin"
+  end
+
   def facebook_like(recommend=false)
     "<div class=\"fb-like\" data-send=\"true\" data-layout=\"button_count\" data-width=\"200\" data-show-faces=\"false\" #{recommend ? 'data-action="recommend"' : ''}></div>".html_safe
   end
@@ -584,7 +588,8 @@ module ApplicationHelper
         :text => t("admin.left_hand_navigation.support"),
         :icon_class => icon_class("help"),
         :path => "mailto:#{APP_CONFIG.support_email}",
-        :name => "support"
+        :name => "support",
+        :data_uv_trigger => "contact"
       },
       {
         :text => t("admin.communities.manage_members.manage_members"),

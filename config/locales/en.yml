@@ -125,7 +125,7 @@ en:
         live_site_link_text: here
         look_and_feel: "Before you launch your site to the public, you probably want to configure some things. For instance, you might want to %{logo_link} and change the cover photo and colors to match the look and feel of your brand."
         logo_link_text: "add your logo"
-        custom_domain: "You might also want to add a custom web address (an example: www.yourmarketplace.com). To do that you should %{contact_team_link}, because setting it up requires some manual steps from our side."
+        custom_domain: "You might also want to add a custom web address (an example: www.yourmarketplace.com). To do that you should contact us through the support link on the left, because setting it up requires some manual steps from our side."
         contact_team_link_text: "contact our team"
         categories_and_custom_fields: "The next thing is to decide what kind of content people can post to your site. You can %{categories_link}, %{custom_fields_link} that the actual listing form contains, and decide %{filters_link} are in use when people browse the listings."
         categories_link_text: "add categories and subcategories"
@@ -798,11 +798,12 @@ en:
       we_will_guide_you_along_the_way: "We will guide you along the way."
       are_you_new_to_online_marketplaces: "Need assistance with your marketplace? No worries, we're here to help you out! We will be sending you a series of emails that will help you get the most out of Sharetribe and to build a successful marketplace business. We will be sending Part 1 to you soon."
       have_questions: "Have questions?"
-      our_happiness_team_is_here_to_help: "Our happiness team is here for you! Either %{knowledge_base_link} or %{contact_support_link}."
+      our_happiness_team_is_here_to_help: "Our happiness team is here for you! Either %{knowledge_base_link} or contact our support through %{admin_panel_link}."
       love: "Love,"
       sharetribe_crew: "The Sharetribe crew"
       knowledge_base_link_text: "check out our knowledge base"
       contact_support_link_text: "contact our support"
+      admin_panel_link_text: "admin panel"
     new_listing_by_followed_person:
       subject: "%{author_name} has posted a new listing in %{service_name}"
       has_posted_a_new_listing: "%{author_name} has posted a new listing:"
