@@ -17,7 +17,7 @@ class FeedbacksController < ApplicationController
       render :action => :new and return
     elsif @feedback.save
       flash[:notice] = t("layouts.notifications.feedback_saved")
-      PersonMailer.new_feedback(@feedback, @current_community, params[:airbrake_url]).deliver
+      PersonMailer.new_feedback(@feedback, @current_community).deliver
     else
       flash[:error] = t("layouts.notifications.feedback_not_saved")
       render :action => :new and return
