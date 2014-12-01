@@ -818,9 +818,10 @@ zh:
       page_you_requested_can_not_be_found: 您请求的页面不存在。您确定地址拼写正确？
     error_404_title: 未找到页面
     error_500:
-      help_us_find_the_problem: 您可以在下面的对话框中描述遇到的问题以便帮助我们解决。
-      page_loading_failed: 页面加载失败！
-      reload_refresh: 请刷新页面再尝试访问您所需求的页面。我们会尽快找出并修复错误。
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: 页面加载失败
     error_description: 错误描述
     no_javascript:

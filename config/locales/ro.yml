@@ -818,9 +818,10 @@ ro:
       page_you_requested_can_not_be_found: ~
     error_404_title: ~
     error_500:
-      help_us_find_the_problem: ~
-      page_loading_failed: ~
-      reload_refresh: ~
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: ~
     error_description: ~
     no_javascript:

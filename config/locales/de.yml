@@ -833,9 +833,10 @@ de:
       page_you_requested_can_not_be_found: "Die gewünschte Seite kann nicht gefunden werden. Bist du sicher, dass du die Adresse richtig geschrieben hast?"
     error_404_title: "Seite nicht gefunden"
     error_500:
-      help_us_find_the_problem: "Du kannst uns helfen, das Problem zu finden, indem du eine kleine Beschreibung des Problems unten in das Feld schreibst."
-      page_loading_failed: "Laden der Seite fehlgeschlagen!"
-      reload_refresh: "Das erneute Laden/Aktualiseren der Seite hilft oftmals, die eigentlich gewünschte Seite zu erreichen. Wir versuchen, das Problem, dass zu diesem Fehler führte, schnellstmöglich ausfindig zu machen und zu beheben."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "Laden der Seite fehlgeschlagen!"
     error_description: Fehlerbeschreibung
     no_javascript:

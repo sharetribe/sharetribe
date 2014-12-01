@@ -833,9 +833,10 @@ fr:
       page_you_requested_can_not_be_found: "L'adresse que vous demandez n'existe pas sur %{service_name}. Etes-vous sûr d'avoir saisi l'adresse correctement ?"
     error_404_title: "page introuvable"
     error_500:
-      help_us_find_the_problem: "Vous pouvez nous aider à détecter le problème en décrivant brièvement sur le formulaire ci-dessous ce qui s'est passé."
-      page_loading_failed: "Impossible de charger la page !"
-      reload_refresh: "Essayez de recharger/rafraîchir la page afin d'accéder à la page souhaitée. Nous nous efforçons de localiser et de résoudre le problème ayant causé l'erreur dans les meilleurs délais."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "impossible de charger la page"
     error_description: "Description d'erreur"
     no_javascript:

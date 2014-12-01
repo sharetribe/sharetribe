@@ -820,9 +820,10 @@ ca:
       page_you_requested_can_not_be_found: "Pàgina no trobada. Esteu segurs de que està correctament escrita?"
     error_404_title: "Pàgina no trobada"
     error_500:
-      help_us_find_the_problem: "Pots ajudar-nos a trobar el problema escrivint una breu descripció del mateix al quadre de sota."
-      page_loading_failed: "La pàgina no s'ha carregat"
-      reload_refresh: "Actualitzar la pàgina pot solucionar el problema. Intentarem localitzar i solucionar el problema que ha ocasionat l'error el més aviat possible."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "La pàgina no s'ha carregat"
     error_description: "Descripció de l'error"
     no_javascript:

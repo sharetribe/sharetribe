@@ -835,9 +835,10 @@ sv:
       page_you_requested_can_not_be_found: "Sidan som du efterfrågade hittades inte. Är du säker på att du skrev adressen korrekt?"
     error_404_title: "sidan hittades inte"
     error_500:
-      help_us_find_the_problem: "Du kan hjälpa oss att hitta problemet genom att skriva en kort beskrivning av problemet i rutan nedan."
-      page_loading_failed: "Sidan laddades inte!"
-      reload_refresh: "Att ladda om sidan hjälper dig oftast att nå den sidan du försökte komma åt. Vi försöker att hitta och fixa felet så snart vi bara kan."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "sidan laddades inte"
     error_description: Felbeskrivning
     no_javascript:

@@ -74,8 +74,8 @@ pt-BR:
         favicon_info_text: "Favicon irá substituir o logotipo Sharetribe padrão. As dimensões devem ser 32x32 pixels e a imagem carregada será redimensionado para essas dimensões."
         community_custom_color1: "Cor Principal"
         community_custom_color2: "Cor secundaria"
-        logo_instructions_text_with_dimensions: ~
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "Área de Trabalho tamanho do logotipo deve ser %{width}x%{height} px. Ele será exibido para os usuários com telas maiores."
+        logo_icon_instructions_text_with_dimensions: "Logotipo móvel deve ser quadrado, de preferência %{width}x%{height} px de tamanho. Ele será exibido para os usuários com telas menores."
         cover_photo_visibility: "Foto da capa apresentada na página inicial para usuários não registrados."
         cover_photo_instructions_text_with_dimensions: "A foto será redimensionada para %{width} x %{height} pixel e imagens mais altas serão cortadas no meio. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "Foto pequena da capa mostrado para usuários não registrados."
@@ -104,38 +104,38 @@ pt-BR:
         edit_message: "Editar mensagem"
         send_test_message: "Enviar mensagem de teste"
       getting_started:
-        getting_started: ~
-        welcome_to_your_marketplace: ~
-        intro: ~
-        live_site_link_text: ~
-        look_and_feel: ~
-        logo_link_text: ~
+        getting_started: "Guia dos primeiros passos"
+        welcome_to_your_marketplace: "Bem-vindo ao seu mercado, %{name}"
+        intro: "Este é um guia rápido para configurar e gerenciar o seu site mercado. Você pode visualizar o site ao vivo %{live_site_link}"
+        live_site_link_text: aqui
+        look_and_feel: "Antes de lançar o seu site para o público, você provavelmente vai querer configurar algumas coisas. Por exemplo, você pode querer alterar %{logo_link} e mudar a foto da capa e cores para combinar com o look and feel da sua marca."
+        logo_link_text: "adicionar o seu logotipo"
         custom_domain: ~
-        contact_team_link_text: ~
+        contact_team_link_text: "entre em contato com nossa equipe"
         categories_and_custom_fields: ~
-        categories_link_text: ~
-        custom_fields_link_text: ~
-        filters_link_text: ~
+        categories_link_text: "adicionar categorias e subcategorias"
+        custom_fields_link_text: "configurar os campos do formulário"
+        filters_link_text: "que tipo de filtros"
         payments: ~
-        payments_link_text: ~
+        payments_link_text: "configurar um método de pagamento"
         info_texts: ~
-        about_page_link_text: ~
-        terms_of_use_link_text: ~
-        privacy_policy_link_text: ~
-        welcome_email_link_text: ~
-        instruction_texts_link_text: ~
+        about_page_link_text: "sobre a página"
+        terms_of_use_link_text: "termos de uso"
+        privacy_policy_link_text: "Política de Privacidade"
+        welcome_email_link_text: "Conteúdo do e-mail de boas-vindas"
+        instruction_texts_link_text: "outros textos de instrução"
         social_media: ~
         facebook_link_text: ~
         twitter_link_text: ~
         analytics: ~
-        analytics_link_text: ~
+        analytics_link_text: "conectar uma conta do Google Analytics"
         settings: ~
-        settings_link_text: ~
+        settings_link_text: "Ver as suas definições de mercado aqui"
         final_words: ~
-        invite_link_text: ~
-        view_users_link_text: ~
-        view_transactions_link_text: ~
-        contact_support_link_text: ~
+        invite_link_text: "Convidar outros usuários"
+        view_users_link_text: aqui
+        view_transactions_link_text: aqui
+        contact_support_link_text: "entre em contato com o nosso suporte"
       settings:
         settings: Opções
         general: Geral
@@ -187,10 +187,10 @@ pt-BR:
         invalid_facebook_connect_secret: ~
         save: ~
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        save: ~
+        analytics: Analytics
+        google_analytics_key: "Google Analytics tracking ID"
+        google_analytics_key_info_text: "ID de rastreamento de sua conta do Google Analytics."
+        save: "Salvar configurações"
       menu_links:
         menu_links: "Menu links"
         save: "Salvar configurações"
@@ -251,7 +251,7 @@ pt-BR:
           this_field_is_required_checkbox: ~
       index:
         listing_fields: "Listar campos"
-        listing_fields_help: ~
+        listing_fields_help: "Aqui você pode editar os campos que os usuários têm de preencher ao criar uma nova listagem. Por favor, note que alguns campos são predefinidos e não podem ser editados."
         add_new_field: "Adicionar novo campo:"
         remove_field_confirmation: ~
         cancel: Anular
@@ -290,7 +290,7 @@ pt-BR:
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: "E-mail enviado."
     left_hand_navigation:
-      general: ~
+      general: Geral
       users_and_transactions: ~
       configure: ~
       emails_title: ~
@@ -818,9 +818,10 @@ pt-BR:
       page_you_requested_can_not_be_found: "A pagina solicitada não foi encontrada. Você tem certeza que digitou o endereço corretamente?"
     error_404_title: "pagina não encontrada"
     error_500:
-      help_us_find_the_problem: "Você pode nos ajudar a detectar o problema descrevendo brevemente o que aconteceu no formulário abaixo."
-      page_loading_failed: "Carregamento da pagina falhou!"
-      reload_refresh: "Recarregar / Atualizar a pagina, muitas vezes ajuda você a alcançar a pagina que estava tentando. Nós tentaremos encontrar o corrigir o problema que causou o erro o mais rápido possível."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "falha ao carregar a pagina"
     error_description: "Descrição do erro"
     no_javascript:

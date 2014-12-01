@@ -818,9 +818,10 @@ ru:
       page_you_requested_can_not_be_found: "Запрашиваемая вами страница отсутствует на сервере. Проверьте правильность адреса."
     error_404_title: "страница не найдена"
     error_500:
-      help_us_find_the_problem: "Вы можете помочь нам найти проблему, отправив её краткое описание через форму, расположенную ниже."
-      page_loading_failed: "Ошибка сервера!"
-      reload_refresh: "Попробуйте обновить/перезагрузить страницу. В большинстве случаев это помогает. Мы делаем всё возможное, чтобы устранить причину этой ошибки как можно скорее."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "ошибка сервера"
     error_description: "Описание ошибки"
     no_javascript:
@@ -981,7 +982,7 @@ ru:
       show: "Показать:"
       search: Поиск
       map: "Показать карту"
-      list: ~
+      list: "Показать список"
       map_button: ~
       grid_button: ~
       list_button: ~
@@ -1490,7 +1491,7 @@ ru:
       commission_payment_description: ~
   people:
     index:
-      loading_more_members: ~
+      loading_more_members: "Загружаю больше участников"
       meet_the_people: ~
       you_are_the_only_member: "Вы — единственный участник сообщества %{community_name}."
       here_are_the_members: "Количество участников сообщества %{community_name}: %{count} чел."

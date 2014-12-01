@@ -828,9 +828,10 @@ tr-TR:
       page_you_requested_can_not_be_found: "Talep ettiğiniz sayfa bulunamıyor. Adresi doğru yazdığınıza emin misiniz?"
     error_404_title: "sayfa bulunamadı"
     error_500:
-      help_us_find_the_problem: "Aşağıdaki kutuda problemi kısaca açıklayarak problemin ne olduğunu bulmamıza yardımcı olabilirsiniz."
-      page_loading_failed: "Sayfa yüklenemedi!"
-      reload_refresh: "Sayfayı tekrar yüklemek veya yenilemek ulaşmak istediğiniz sayfaya girmenize çoğunlukla yardımcı olabilir. Problemi yaratan hatayı tespit edip problemi mümkün olduğu kadar hızlı bir şekilde çözmeye çalışıyoruz."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "sayfa yüklenemedi"
     error_description: "Hata tanımı"
     no_javascript:

@@ -820,9 +820,10 @@ es-ES:
       page_you_requested_can_not_be_found: "La página solicitada no puede encontrarse. Está seguro de que escribió correctamente la dirección?"
     error_404_title: "Página no encontrada"
     error_500:
-      help_us_find_the_problem: "Puedes ayudarnos a encontrar el problema escribiendo una breve descripción del mismo en el recuadro a continuación."
-      page_loading_failed: "Falló la carga de la página!"
-      reload_refresh: "Actualizar la página a menudo ayuda a encontrar lo que estabas buscando en ella. Intentaremos localizar y arreglar el problema que ocasionó el error lo antes posible."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "Falló la carga de la página"
     error_description: "Descripción del error"
     no_javascript:

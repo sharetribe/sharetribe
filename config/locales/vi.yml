@@ -818,9 +818,10 @@ vi:
       page_you_requested_can_not_be_found: "Không tim thấy trang bạn yêu cầu. Bạn có chắc viết địa chỉ chính xác không?"
     error_404_title: "Trang không tim thấy"
     error_500:
-      help_us_find_the_problem: "Bạn có thể giúp chúng tôi tìm ra vấn đề bằng cách viết một mô tả ngắn về vấn đề này trong hộp dưới đây."
-      page_loading_failed: "Trang tải bị hỏng!"
-      reload_refresh: "Tải lại/làm mới trang thường xuyên sẽ giúp bạn có được trang đúng yêu cầu. Chúng tôi cố xác định vị trí và sửa chữa vấn đề gây ra lỗi càng sớm càng tốt."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "trang tải bị hỏng"
     error_description: "Mô tả lỗi"
     no_javascript:

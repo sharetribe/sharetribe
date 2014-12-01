@@ -828,14 +828,15 @@ fi:
   error_pages:
     back_to_kassi_front_page: "Takaisin etusivulle"
     error_404:
+      if_you_believe: "Jos arvelet, että osoite on oikein ja sillä pitäisi saada näkyviin sisältöä, auta meitä paikallistamaan virhe kertomalla alla olevalla lomakkeella, mikä osoite on kyseessä, ja mitä kyseisellä sivulla pitäisi näkyä."
       page_can_not_be_found: "Sivua ei löydy!"
       page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy. Oletko varma, että kirjoitit osoitteen oikein?"
     error_404_title: "sivua ei löydy"
     error_500:
-      temporary_unavailable: "Markkinapaikka on tilapaisesti poissa käytöstä"
-      unable_to_process: "Pyyntöösi vastaaminen epäonnistui. Ole hyvä ja yritä hetken kuluttua uudestaan."
-      we_hate_this: "Olemme saaneet ilmoituksen tilanteesta ja korjaamme sitä."
-      refer_to_error_id: "Jos haluat ottaa yhteyttä ylläpitoon, liitä viestiisi virhekoodi \"%{error_id}\"."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "sivun lataus ei onnistunut"
     error_description: "Virheen kuvaus"
     no_javascript:
