@@ -4,9 +4,3 @@
       = "#{@feedback.author_name_and_email} has sent the following feedback from #{service_name} community '#{@current_community.name(I18n.locale)}':"
 
 = render :partial => "quote", :locals => { :quote => @feedback.content }
-
-- if @airbrake_url.present?
-  %tr
-    %td{:align => "left", :style => "padding-top: 15px;"}
-      %font{body_font}
-        = link_to "See the error in Airbrake", @airbrake_url
