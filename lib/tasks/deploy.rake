@@ -77,9 +77,6 @@ def deploy(params)
     puts "MAKE SURE THE DETAILS ARE CORRECT! Are you sure you want to continue? (y/n)"
     response = STDIN.gets.strip
     exit if response != 'y' && response != 'Y'
-  else
-    #update_error_page_translations
-    Rake::Task["i18n:write_error_pages"].invoke
   end
 
   set_app(@destination)
