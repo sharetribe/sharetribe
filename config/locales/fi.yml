@@ -832,9 +832,9 @@ fi:
       page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy. Oletko varma, että kirjoitit osoitteen oikein?"
     error_404_title: "sivua ei löydy"
     error_500:
-      temporary_unavailable: "Markkinapaikka on väliaikaisesti alhaalla"
-      unable_to_process: "Palvelu ei pystynyt toteuttamaan pyyntöäsi. Ole hyvä ja yritä hetken kuluttua uudestaan."
-      we_hate_this: "Meitä harmittaa kun näin käy! Olemme saaneet ilmoituksen tilanteesta ja korjaamme sitä."
+      temporary_unavailable: "Markkinapaikka on tilapaisesti poissa käytöstä"
+      unable_to_process: "Pyyntöösi vastaaminen epäonnistui. Ole hyvä ja yritä hetken kuluttua uudestaan."
+      we_hate_this: "Olemme saaneet ilmoituksen tilanteesta ja korjaamme sitä."
       refer_to_error_id: "Jos haluat ottaa yhteyttä ylläpitoon, liitä viestiisi virhekoodi \"%{error_id}\"."
     error_500_title: "sivun lataus ei onnistunut"
     error_description: "Virheen kuvaus"
