@@ -1,6 +1,8 @@
 class ErrorsController < ActionController::Base
 
   layout 'error_layout'
+  before_filter :current_community
+  before_filter :favicon
 
   def server_error
     @favicon = favicon # Rails makes it very hard to pass locals to layout...
@@ -32,7 +34,11 @@ class ErrorsController < ActionController::Base
 
   private
 
+  def current_community
+    @current_community ||= Community.find_by_domain(request.host)
+  end
+
   def favicon
-    Maybe(Community.find_by_domain(request.host)).favicon.or_else(nil)
+    @favicon ||= Maybe(@current_community).favicon.or_else(nil)
   end
 end
