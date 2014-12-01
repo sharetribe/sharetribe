@@ -1,14 +1,16 @@
 class ErrorsController < ActionController::Base
 
+  layout 'error_layout'
+
   def server_error
     @favicon = favicon # Rails makes it very hard to pass locals to layout...
     @airbrake_url = nofity_airbrake
-    render "500", layout: false, status: 500, :formats => [:html]
+    render "status_500", status: 500, locals: { status: 500 }
   end
 
   def not_found
     @favicon = favicon # Rails makes it very hard to pass locals to layout...
-    render "404", layouts: false, status: 404, :formats => [:html]
+    render "status_404", status: 404, locals: { status: 404 }
   end
 
   def exception
