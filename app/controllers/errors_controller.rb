@@ -23,7 +23,7 @@ class ErrorsController < ActionController::Base
   def title(status)
     community_name = Maybe(@current_community).name.or_else(nil)
 
-    [community_name, t("error_pages.error_#{status}_title")].uniq.join(' - ')
+    [community_name, t("error_pages.error_#{status}_title")].compact.join(' - ')
   end
 
   def set_locale
