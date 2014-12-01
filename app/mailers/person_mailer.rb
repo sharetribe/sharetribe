@@ -282,7 +282,7 @@ class PersonMailer < ActionMailer::Base
 
   # Used to send notification to Sharetribe admins when somebody
   # gives feedback on Sharetribe
-  def new_feedback(feedback, community, airbrake_url = nil)
+  def new_feedback(feedback, community)
     @feedback = feedback
 
     @feedback.email = if feedback.author then
@@ -290,8 +290,6 @@ class PersonMailer < ActionMailer::Base
     else
       @feedback.email
     end
-
-    @airbrake_url = airbrake_url;
 
     @current_community = community
     subject = "New #unanswered #feedback from #{@current_community.name('en')} community from user #{feedback.author.try(:name)} "
