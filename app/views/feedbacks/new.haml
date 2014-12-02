@@ -5,8 +5,8 @@
   %h1= t("layouts.no_tribe.feedback")
 
 .new-feedback-form.centered-section
-  = form_for @feedback, :url => user_feedbacks_path do |form|
-    - unless logged_in?
+  = form_for feedback_form, :url => user_feedbacks_path do |form|
+    - unless email_present
       = form.label :email, t("layouts.application.your_email_address")
       = form.text_field :email
     = form.label :title, "You should not see this field, if CSS is working.", :class => "unwanted_text_field"

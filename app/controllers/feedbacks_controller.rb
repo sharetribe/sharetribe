@@ -4,47 +4,82 @@ class FeedbacksController < ApplicationController
   skip_filter :dashboard_only
   skip_filter :cannot_access_without_joining
 
+  FeedbackForm = FormUtils.define_form("Feedback",
+                                       :content,
+                                       :title,
+                                       :url, # referrer
+                                       :email
+  ).with_validations {
+    validates_presence_of :content
+  }
+
   def new
-    ensure_confirmed_admin_email!
-    @feedback = Feedback.new
+    render_form
   end
 
   def create
-    ensure_confirmed_admin_email!
-    @feedback = Feedback.new(params[:feedback].except(:title))
+    feedback_form = FeedbackForm.new(params[:feedback])
+    return if ensure_not_spam!(params[:feedback], feedback_form)
 
-    # Detect most usual spam messages
-    if (@feedback.content && (@feedback.content.include?("[url=") || @feedback.content.include?("<a href=")) || params[:feedback][:title].present? || @feedback.content.scan("http://").count > 10)
-      flash[:error] = t("layouts.notifications.feedback_considered_spam")
-      render :action => :new and return
-    elsif @feedback.save
-      flash[:notice] = t("layouts.notifications.feedback_saved")
-      PersonMailer.new_feedback(@feedback, @current_community).deliver
-    else
-      flash[:error] = t("layouts.notifications.feedback_not_saved")
-      render :action => :new and return
+    unless feedback_form.valid?
+      flash[:error] = t("layouts.notifications.feedback_not_saved") # feedback_form.errors.full_messages.join(", ")
+      return render_form(feedback_form)
     end
-    respond_to do |format|
-      format.html { redirect_to root }
-    end
+
+    author_id = Maybe(@current_user).id.or_else("Anonymous")
+    email = current_user_email || feedback_form.email
+
+    @feedback = Feedback.new(
+      feedback_form.to_hash.merge({
+                                    community_id: @current_community.id,
+                                    author_id: author_id,
+                                    email: email
+                                  }))
+
+    @feedback.save
+    PersonMailer.new_feedback(@feedback, @current_community).deliver
+
+    flash[:notice] = t("layouts.notifications.feedback_saved")
+    redirect_to root
   end
 
   private
 
-  def ensure_confirmed_admin_email!
-    unless confirmed_admin_emails?
-      flash[:error] = t("layouts.notifications.no_confirmed_admin_email");
-      redirect_to_back
+  def render_form(form = nil)
+    render action: :new, locals: feedback_locals(form)
+  end
+
+  def feedback_locals(feedback_form)
+    {
+      email_present: current_user_email.present?,
+      feedback_form: feedback_form || FeedbackForm.new(title: nil) # title is honeypot
+    }
+  end
+
+  def current_user_email
+    Maybe(@current_user).confirmed_notification_email_to.or_else(nil)
+  end
+
+  # Return truthy if is spam
+  def ensure_not_spam!(params, feedback_form)
+    if spam?(params[:content], params[:title])
+      flash[:error] = t("layouts.notifications.feedback_considered_spam")
+      return render_form(feedback_form)
+    else
+      false
     end
   end
 
-  def confirmed_admin_emails?
-    @current_community.admin_emails.length > 0
+  def link_tags?(str)
+    str.include?("[url=") || str.include?("<a href=")
   end
 
-  # Redirect to previous page (back) or root, if no previous page,
-  # e.g. page accessed with direct URL
-  def redirect_to_back
-    redirect_to(request.env['HTTP_REFERER'] || root_path)
+  def too_many_urls?(str)
+    str.scan("http://").count > 10
+  end
+
+  # Detect most usual spam messages
+  def spam?(content, honeypot)
+    honeypot.present? || link_tags?(content) || too_many_urls?(content)
   end
 end
