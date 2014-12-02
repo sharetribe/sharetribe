@@ -155,8 +155,8 @@ class Person < ActiveRecord::Base
 #  validates_uniqueness_of :username
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :username, :within => 3..20
-  validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
-  validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
+  validates_length_of :given_name, :within => 1..255, :allow_nil => true, :allow_blank => true
+  validates_length_of :family_name, :within => 1..255, :allow_nil => true, :allow_blank => true
 
   validates_format_of :username,
                        :with => /\A[A-Z0-9_]*\z/i
