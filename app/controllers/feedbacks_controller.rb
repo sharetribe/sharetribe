@@ -29,15 +29,14 @@ class FeedbacksController < ApplicationController
     author_id = Maybe(@current_user).id.or_else("Anonymous")
     email = current_user_email || feedback_form.email
 
-    @feedback = Feedback.new(
+    feedback = Feedback.create(
       feedback_form.to_hash.merge({
                                     community_id: @current_community.id,
                                     author_id: author_id,
                                     email: email
                                   }))
 
-    @feedback.save
-    PersonMailer.new_feedback(@feedback, @current_community).deliver
+    PersonMailer.new_feedback(feedback, @current_community).deliver
 
     flash[:notice] = t("layouts.notifications.feedback_saved")
     redirect_to root
