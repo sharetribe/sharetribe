@@ -125,7 +125,7 @@ sv:
         live_site_link_text: här
         look_and_feel: "Innan du lanserar din sida så kanske du vill ändra vissa saker. Du kanske vill  %{logo_link} och byta omslagsbild och färger för att det ska passa ditt märke."
         logo_link_text: "lägga till din logotyp"
-        custom_domain: "Du kanske också vill lägga till en egen webbadress (t ex: www.dinmarknadsplats.com). För att göra detta så bör du kontakta vårt team på hello@sharetribe.com, eftersom att ordna detta kräver några manuella steg från vår sida."
+        custom_domain: "Du kanske också vill lägga till en egen webbadress (t ex: www.dinmarknadsplats.com). För att göra detta så bör du kontakta vårt team via supportknappen till vänster, eftersom detta kräver några manuella steg från vår sida."
         contact_team_link_text: "kontakta vårt team"
         categories_and_custom_fields: "Nästa sak att bestämma är vilken typ av innehåll som dina användare kan lägga ut på din sida. Du kan %{categories_link}, %{custom_fields_link} som själva annonsen innehåller och bestämma %{filters_link} som används när folk bläddrar bland annonser."
         categories_link_text: "lägg till kategorier och underkategorier"
@@ -800,12 +800,12 @@ sv:
       we_will_guide_you_along_the_way: "Vi kommer att guida dig på vägen."
       are_you_new_to_online_marketplaces: "Behöver du hjälp med din marknadsplats? Inga problem, vi är här för att hjälpa dig! Vi kommer att skicka dig några e-postmeddelanden som kommer att hjälpa dig att få reda på det mesta om Sharetribe och hur du bygger en lyckad marknadsplats. Vi kommer snart att skicka Del 1."
       have_questions: "Har du några frågor?"
-      our_happiness_team_is_here_to_help: "Vårt glada gäng är här för dig! Antingen%{knowledge_base_link} eller kontakta supporten %{contact_support_link}."
+      our_happiness_team_is_here_to_help: "Vårt glada gäng är här för dig! Antingen %{knowledge_base_link} eller kontakta supporten via %{admin_panel_link}."
       love: "Varma hälsningar,"
       sharetribe_crew: Sharetribe-gänget
       knowledge_base_link_text: "kolla vår kunskapsbas"
       contact_support_link_text: "kontakta vår support"
-      admin_panel_link_text: ~
+      admin_panel_link_text: adminpanel
     new_listing_by_followed_person:
       subject: "%{author_name} har skapat en ny annons på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har skapat en ny annons:"
@@ -836,10 +836,10 @@ sv:
       page_you_requested_can_not_be_found: "Sidan som du efterfrågade hittades inte. Är du säker på att du skrev adressen korrekt?"
     error_404_title: "sidan hittades inte"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      temporary_unavailable: "Marknadsplatsen är inte tillgänglig för tillfället"
+      unable_to_process: "Tjänsten kan inte behandla din begäran just nu. Försök igen senare."
+      we_hate_this: "Vi gillar inte när detta händer! Vi har blivit informerade om situationen och vi åtgärdar det."
+      refer_to_error_id: "Om du vill kontakta supporten om det här problemet, vänligen inkludera fel-ID %{error_id} i ditt meddelande."
     error_500_title: "sidan laddades inte"
     error_description: Felbeskrivning
     no_javascript:
@@ -1194,6 +1194,7 @@ sv:
       payment_details_add_successful: "Betalningsinformation tillagd"
       payment_details_add_error: "Det gick inte att lägga till betalningsdetaljer"
       listing_author_payment_details_missing: "Ägaren av annonsen har inte lagt till betalningsdetaljer så de kan inte ta emot betalning just nu. Vänligen kontakta ägaren av annonsen."
+      no_confirmed_admin_email: ~
     settings:
       account: Konto
       notifications: Aviseringar
@@ -1277,7 +1278,7 @@ sv:
         mass: "längd, kg, m2 ..."
         time: "timme, dag, månad, ..."
         long_time: "vecka, månad, ..."
-        after_service_fee_you_will_get: "Efter %{service_name} serviceavgift så kommer du att få %{sum_with_currency} när du sålt varan"
+        after_service_fee_you_will_get: "Efter %{service_name}s serviceavgift så kommer du att få %{sum_with_currency} när du har sålt produkten."
         after_service_fee_you_will_get_vat: "Efter %{service_name} serviceavgift så kommer du att få ca. %{sum_with_currency} (moms 0%)"
         price_excludes_vat: "Priset inkluderar inte moms."
       origin:
