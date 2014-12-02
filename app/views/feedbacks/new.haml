@@ -13,7 +13,5 @@
     = form.text_field :title, :class => "unwanted_text_field", :id => "error_feedback_unwanted_title"
     = form.label :content, t("layouts.application.feedback")
     = form.text_area :content, :placeholder => t("layouts.application.default_feedback")
-    = form.hidden_field :author_id, :value => (logged_in? ? @current_user.id : "Anonymous")
     = form.hidden_field :url, :value => request.headers["HTTP_REFERER"] || request.original_url
-    = form.hidden_field :community_id, :value => @current_community.id
     = form.button t("layouts.application.send_feedback_to_admin")
