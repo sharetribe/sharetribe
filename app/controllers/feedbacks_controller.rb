@@ -5,10 +5,12 @@ class FeedbacksController < ApplicationController
   skip_filter :cannot_access_without_joining
 
   def new
+    ensure_confirmed_admin_email!
     @feedback = Feedback.new
   end
 
   def create
+    ensure_confirmed_admin_email!
     @feedback = Feedback.new(params[:feedback].except(:title))
 
     # Detect most usual spam messages
@@ -27,4 +29,22 @@ class FeedbacksController < ApplicationController
     end
   end
 
+  private
+
+  def ensure_confirmed_admin_email!
+    unless confirmed_admin_emails?
+      flash[:error] = t("layouts.notifications.no_confirmed_admin_email");
+      redirect_to_back
+    end
+  end
+
+  def confirmed_admin_emails?
+    @current_community.admin_emails.length > 0
+  end
+
+  # Redirect to previous page (back) or root, if no previous page,
+  # e.g. page accessed with direct URL
+  def redirect_to_back
+    redirect_to(request.env['HTTP_REFERER'] || root_path)
+  end
 end
