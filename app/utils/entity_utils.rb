@@ -105,7 +105,9 @@ module EntityUtils
       elsif v.is_a?(Time)
         v
       elsif format.nil?
-        Time.parse(v)
+        raise "Can not transform string #{v} to time. Format missing."
+      elsif !format.match(/z/i)
+        raise "Format #{format} does not contain timezone information. I don't know in which timezone the string time is"
       else
         Time.strptime(v, format)
       end
