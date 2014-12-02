@@ -27,6 +27,8 @@ class IntApi::MarketplacesController < ApplicationController
     validates             :marketplace_type, inclusion: { in: %w(product rental service) }
     validates_length_of   :marketplace_country, is: 2
     validates_length_of   :marketplace_language, minimum: 2
+    validates_length_of   :admin_first_name, in: 1..255
+    validates_length_of   :admin_last_name, in: 1..255
   end
 
   # Creates a marketplace and an admin user for that marketplace
