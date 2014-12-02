@@ -60,7 +60,7 @@ module MarketplaceService
 
       inbox_row_common_spec = [
         [:conversation_id, :fixnum, :mandatory],
-        [:last_activity_at, :str_to_time, :mandatory],
+        [:last_activity_at, :sql_to_time, :mandatory],
         [:current_is_starter, :mandatory, transform_with: @tiny_int_to_bool],
         [:current_id, :string, :mandatory],
         [:other_id, :string, :mandatory],
