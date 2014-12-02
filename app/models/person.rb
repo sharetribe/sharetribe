@@ -495,7 +495,10 @@ class Person < ActiveRecord::Base
   # method returns the first confirmed emails
   def confirmed_notification_email_to
     send_message_to = EmailService.emails_to_send_message(emails).first
-    EmailService.emails_to_smtp_addresses([send_message_to])
+
+    Maybe(send_message_to).map { |email|
+      EmailService.emails_to_smtp_addresses([email])
+    }.or_else(nil)
   end
 
   # Returns true if the address given as a parameter is confirmed

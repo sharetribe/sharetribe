@@ -283,25 +283,29 @@ class PersonMailer < ActionMailer::Base
   # Used to send notification to Sharetribe admins when somebody
   # gives feedback on Sharetribe
   def new_feedback(feedback, community)
-    @feedback = feedback
+    subject = "New #unanswered #feedback from #{community.name('en')} community from user #{feedback.author.try(:name)} "
 
-    @feedback.email = if feedback.author then
-      feedback.author.confirmed_notification_email_to
-    else
-      @feedback.email
+    premailer_mail(
+      :to => mail_feedback_to(community, APP_CONFIG.feedback_mailer_recipients),
+      :from => community_specific_sender(community),
+      :subject => subject,
+      :reply_to => feedback.email) do |format|
+        format.html {
+          render locals: {
+                   author_name_and_email: feedback.author_name_and_email,
+                   community_name: community.name(I18n.locale),
+                   content: feedback.content
+                 }
+      }
     end
+  end
 
-    @current_community = community
-    subject = "New #unanswered #feedback from #{@current_community.name('en')} community from user #{feedback.author.try(:name)} "
-    if @current_community.feedback_to_admin? && @current_community.admin_emails.any?
-      mail_to = @current_community.admin_emails.join(",")
+  def mail_feedback_to(community, platform_admin_email)
+    if community.feedback_to_admin? && community.admin_emails.any?
+      community.admin_emails.join(",")
     else
-      mail_to = APP_CONFIG.feedback_mailer_recipients
+      platform_admin_email
     end
-    premailer_mail(:to => mail_to,
-         :from => community_specific_sender(community),
-         :subject => subject,
-         :reply_to => @feedback.email)
   end
 
   # Used to send notification to admins when somebody
