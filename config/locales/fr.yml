@@ -125,7 +125,7 @@ fr:
         live_site_link_text: ici
         look_and_feel: "Avant de rendre votre site public, vous souhaitez probablement configurer quelques éléments. Par exemple, vous pouvez %{logo_link}, modifier l'image de couverture et les couleurs pour que cela corresponde à l'esprit de votre marque."
         logo_link_text: "ajouter votre logo"
-        custom_domain: "Vous pourriez également souhaiter utiliser votre propre adresse (par exemple www.votreplacedemarche.com). Pour cela, vous pouvez %{contact_team_link} car cela nécessite quelques étapes manuelles de notre côté."
+        custom_domain: "Vous pourriez également souhaiter utiliser votre propre adresse (par exemple www.votreplacedemarche.com). Pour cela, vous pouvez nous contacter en utilisant le lien de support sur la gauche car cela nécessite quelques étapes manuelles de notre côté."
         contact_team_link_text: "contacter notre équipe"
         categories_and_custom_fields: "Le point suivant concerne le type de contenu que les utilisateurs pourront diffuser sur votre site. Vous pouvez %{categories_link}, %{custom_fields_link} que le formulaire comporte déjà et choisir %{filters_link} doivent être utilisés lorsque les utilisateurs parcourent les annonces."
         categories_link_text: "ajouter des catégories et sous-catégories"
@@ -798,11 +798,12 @@ fr:
       we_will_guide_you_along_the_way: "Nous vous guiderons tout au long de ces étapes."
       are_you_new_to_online_marketplaces: "Besoin d'un coup de main avec votre place de marché ? Pas d'inquiétude, nous sommes là pour vous aider ! Nous allons vous envoyer plusieurs emails pour vous aider à utiliser Sharetribe au maximum et à construire une place de marché qui soit une réussite. Nous vous enverrons la première partie très bientôt."
       have_questions: "Vous avez des questions ?"
-      our_happiness_team_is_here_to_help: "L'équipe chargée de votre bonheur est là pour vous ! Vous pouvez %{knowledge_base_link} ou %{contact_support_link}."
+      our_happiness_team_is_here_to_help: "L'équipe chargée de votre bonheur est là pour vous ! Vous pouvez %{knowledge_base_link} ou contacter notre support depuis le %{admin_panel_link}."
       love: "Love,"
       sharetribe_crew: "l'équipe Sharetribe"
       knowledge_base_link_text: "parcourir notre base de connaissance"
       contact_support_link_text: "contacter notre support"
+      admin_panel_link_text: "panneau d'administration"
     new_listing_by_followed_person:
       subject: "%{author_name} a publié une nouvelle annonce sur %{service_name}"
       has_posted_a_new_listing: "%{author_name} a publié une nouvelle annonce : "
@@ -833,10 +834,10 @@ fr:
       page_you_requested_can_not_be_found: "L'adresse que vous demandez n'existe pas sur %{service_name}. Etes-vous sûr d'avoir saisi l'adresse correctement ?"
     error_404_title: "page introuvable"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      temporary_unavailable: "La place de marché est temporairement indisponible"
+      unable_to_process: "Le système n'est pour le moment pas en mesure de traiter votre demande. Veuillez essayer de nouveau dans quelques instants."
+      we_hate_this: "Nous détestons quand cela se produit ! Nous avons été informé de la situation et nous sommes en train de la résoudre."
+      refer_to_error_id: "Si vous souhaitez contacter le support à propos de ce problème, veuillez mentionner l'identifiant de l'erreur \"%{error_id}\" dans votre message."
     error_500_title: "impossible de charger la page"
     error_description: "Description d'erreur"
     no_javascript:

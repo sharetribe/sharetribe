@@ -788,6 +788,7 @@ ru:
       sharetribe_crew: ~
       knowledge_base_link_text: ~
       contact_support_link_text: ~
+      admin_panel_link_text: "Панель администратора"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -818,9 +819,9 @@ ru:
       page_you_requested_can_not_be_found: "Запрашиваемая вами страница отсутствует на сервере. Проверьте правильность адреса."
     error_404_title: "страница не найдена"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
+      temporary_unavailable: "Рынок временно недоступен"
+      unable_to_process: "Сервис не может обработать ваш запрос прямо сейчас. Пожалуйста, попробуйте через некоторое время снова."
+      we_hate_this: "Мы терпеть не можем когда это происходит! Мы уже оповещены о ситуации и исправляем ее."
       refer_to_error_id: ~
     error_500_title: "ошибка сервера"
     error_description: "Описание ошибки"
@@ -877,7 +878,7 @@ ru:
     offers: Предложения
     requests: Запросы
     search_kassi: "Поиск в %{service_name}"
-    create_new_marketplace: ~
+    create_new_marketplace: "Создать новый рынок"
     contact_us: "Обратная связь"
     profile: Профиль
     invite: ~
@@ -931,7 +932,7 @@ ru:
       open_listing: "открытое объявление"
       open_listings: "открытые объявления"
       private_listing_notification_log_in: Войти
-      is: ~
+      is: является
       are: ~
       what_do_you_need: ~
       post_new_listing: "Разместить новый листинг!"
@@ -1017,7 +1018,7 @@ ru:
       send_feedback_to_admin: "Отправить отзыв"
       to_see_what_others_have_suggested: "чтобы увидеть, что предлагают другие пользователи."
       your_email_address: "Ваш адрес email (необязательно)"
-      connect: ~
+      connect: Регистрация
       invite_your_friends: "Приглашайте друзей!"
       invite_your_neighbors: "Пригласите соседей!"
       invite_your_friends_description: "Чем больше людей вступит в сообщество %{service_name}, тем более полезным оно будет."
@@ -1347,7 +1348,7 @@ ru:
       how_paypal_works: ~
     new:
       post_a_new_listing: ~
-      listing: ~
+      listing: список
       selected_category: "Категория: %{category}"
       selected_subcategory: "Подкатегория: %{subcategory}"
       selected_transaction_type: ~
