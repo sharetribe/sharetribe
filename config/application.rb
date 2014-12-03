@@ -110,7 +110,9 @@ module Kassi
     config.filter_parameters += [:password, :password2, :account_number, :routing_number, :address_street_address,
                                  :"date_of_birth(3i)", :"date_of_birth(2i)", :"date_of_birth(1i)"]
 
-    config.time_zone = 'Helsinki'
+    # ActiveRecord should be in UTC timezone.
+    config.time_zone = 'UTC'
+
     if APP_CONFIG.use_recaptcha
       ENV['RECAPTCHA_PUBLIC_KEY']  = APP_CONFIG.recaptcha_public_key
       ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG.recaptcha_private_key
