@@ -174,20 +174,39 @@ module EntityUtils
     end
   end
 
-  def validate_and_transform(fields, opts)
-    fields.reduce({errors: [], value: {}}) do |res, (name, spec)|
-      res[:errors] = res[:errors].concat(validate(spec[:validators], opts[name], name))
-      res[:value][name] = transform(spec[:transformers], opts[name])
-      res
+  def transform_and_validate(fields, input)
+    output = fields.reduce({}) do |out, (name, spec)|
+      out[name] = transform(spec[:transformers], input[name])
+      out
     end
+
+    errors = fields.reduce([]) do |errs, (name, spec)|
+      errs.concat(validate(spec[:validators], output[name], name))
+    end
+
+    {value: output, errors: errors}
   end
 
-  # Define a builder function that constructs a new hash form an input hash.
+  # Define a builder function that constructs a new hash from an input
+  # hash.
   #
-  # Builders require you to define a set of fields with (optional) sets of per field validators and transformers.
+  # Builders require you to define a set of fields with (optional)
+  # sets of per field validators and transformers.
   #
-  # Validators are applied to incoming field value and an exception (with a helpful error msg of course)
-  # is thrown if the validation fails. Transformers allow you to manipulate the input value to produce the final output value for each field.
+  # The main purpose of validators is to document the format that the
+  # entity builder produces.  The other thing is to catch programmer
+  # mistakes that would have led to values not matching the documented
+  # behavior. This is done by validating the output of the builder and
+  # throwing a helpful error msg in case there's a mismatch.
+  #
+  # You can additionally specify transformers, which are mainly useful
+  # for coercing the incoming data to match the desired output
+  # format. You can e.g. provide default values, convert to bool or
+  # convert a string to a time. Every transformer must be idempotent,
+  # which is a fancy way of saying that tx(x) == tx(tx(x)), which is a
+  # math-like expression meaning we can apply the transformer to a
+  # value an arbitrary number of times and will always get the same
+  # result no matter how many times (> 0) we did it.
   #
   # Here's an example:
   #
@@ -199,7 +218,7 @@ module EntityUtils
   #   [:name, :string, :mandatory],
   #
   #   # :default transformer sets value if it's nil
-  #   [:age, :optional, :fixnum, default: 8],
+  #   [:age, :fixnum, default: 8],
   #
   #   # accepts only :m, :f and :in_between
   #   [:sex, one_of: [:m, :f, :in_between]],
@@ -218,7 +237,7 @@ module EntityUtils
     -> (opts = {}) do
       raise(TypeError, "Expecting an input hash. You gave: #{opts}") unless opts.is_a? Hash
 
-      result = validate_and_transform(fields, opts)
+      result = transform_and_validate(fields, opts)
 
       unless (result[:errors].empty?)
         loc = caller_locations(2, 1).first
