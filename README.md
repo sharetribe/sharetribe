@@ -80,13 +80,32 @@ export DOCKER_TLS_VERIFY=                # disable TLS
 docker info                              # this should run ok now
 ```
 
+1. Modify `config/database.yml`. The easiest way is to use `database.docker.yml`
+
+  `cp config/database.docker.yml config/database.yml`
+
 1. Load schema (only on the first run)
 
-  `fig run web /bin/bash -l -c "bundle exec rake db:schema:load"`
+  `fig run web /bin/bash -l -c 'bundle exec rake db:schema:load'`
 
 1. Create a marketplace (only on the first run)
 
-  `fig run web /bin/bash -l -c 'rails runner "Community.create(name: \"docker\", domain: \"docker\")"'`
+  `fig run web /bin/bash -l -c 'rails console'`
+
+  Type this to console:
+
+  ```ruby
+  marketplace_parameters = {
+  marketplace_name: "docker",
+  marketplace_type: "product",
+  marketplace_country: "US",
+  marketplace_language: "en"
+  }
+
+  MarketplaceService::API::Marketplaces::create(marketplace_parameters)
+  ```
+
+  Exit the console, type `exit`
 
 1. Run the app
 
