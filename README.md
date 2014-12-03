@@ -65,6 +65,57 @@ See also:
 
 * [How to customize your marketplace?](docs/customize-marketplace.md)
 
+### Experimental: Docker container installation
+
+Prerequisite: You have to have _docker_ and _fig_ installed. If you are on a non-linux OS, you need to have _vagrant_. If you can successfully run `docker info`, then you should be ok to go.
+
+#### OSX Vagrant setup
+
+Run:
+
+```bash
+vagrant up
+export DOCKER_HOST=tcp://192.168.33.10   # Set Docker CLI to connect to Vagrant box. This IP is set in Vagrantfile
+export DOCKER_TLS_VERIFY=                # disable TLS
+docker info                              # this should run ok now
+```
+
+1. Modify `config/database.yml`. The easiest way is to use `database.docker.yml`
+
+  `cp config/database.docker.yml config/database.yml`
+
+1. Load schema (only on the first run)
+
+  `fig run web /bin/bash -l -c 'bundle exec rake db:schema:load'`
+
+1. Create a marketplace (only on the first run)
+
+  `fig run web /bin/bash -l -c 'rails console'`
+
+  Type this to console:
+
+  ```ruby
+  marketplace_parameters = {
+  marketplace_name: "docker",
+  marketplace_type: "product",
+  marketplace_country: "US",
+  marketplace_language: "en"
+  }
+
+  MarketplaceService::API::Marketplaces::create(marketplace_parameters)
+  ```
+
+  Exit the console, type `exit`
+
+1. Run the app
+
+  `fig up`
+
+1. Set lvh.me to point to docker IP
+
+  Modify your `/etc/hosts` file. If you're in Linux, point 127.0.0.1 to docker.lvh.me. If you are on OSX (or Windows), point 192.168.33.10 to docker.lvh.me
+
+1. All done! Open your browser and URL http://docker.lvh.me:3000
 
 ### Advanced settings
 
