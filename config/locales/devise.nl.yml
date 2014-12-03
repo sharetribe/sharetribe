@@ -5,9 +5,6 @@ nl:
       not_found: "niet gevonden"
       already_confirmed: "is reeds bevestigd"
       not_locked: "is niet gesloten"
-      not_saved:
-        one: ~
-        other: ~
   devise:
     failure:
       already_authenticated: ~
