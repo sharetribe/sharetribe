@@ -85,10 +85,10 @@ describe EntityUtils do
       .to eq({time: Time.strptime("23:01:12 Sep 30, 2014 PDT", "%H:%M:%S %b %e, %Y %Z") })
   end
 
-  it "define builder :sql_to_time transformer" do
+  it "define builder :utc_str_to_time transformer" do
     timestamp = 1102856405 # 2004 12 12 13 00 05 UTC
 
-    expect(EntityUtils.define_builder([:time, :sql_to_time]).call({time: "2004-12-12 13:00:05"}))
+    expect(EntityUtils.define_builder([:time, :utc_str_to_time]).call({time: "2004-12-12 13:00:05"}))
       .to eq({time: Time.at(timestamp) })
   end
 end

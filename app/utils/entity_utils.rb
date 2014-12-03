@@ -112,7 +112,7 @@ module EntityUtils
         Time.strptime(v, format)
       end
     },
-    sql_to_time: -> (_, v) {
+    utc_str_to_time: -> (_, v) {
       if v.nil?
         nil
       elsif v.is_a?(Time)
