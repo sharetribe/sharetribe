@@ -751,7 +751,7 @@ da-DK:
       title_link_text: "%{community_name}"
       intro_paragraph: "Her er en lille opdaterings email med nye produkter fra %{community_link} fra de seneste %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Opret ny annonce!"
+      post_a_new_listing: "Opret annonce!"
       reduce_email_footer_text: "For mange emails? %{settings_link} eller %{unsubscribe_link}."
       settings_link_text: "Skift dine email indstillinger"
       unsubscribe_link_text: "afmeld emails"
@@ -898,7 +898,7 @@ da-DK:
     profile: Profil
     invite: "Inviter nye medlemmer"
     login: "Log ind"
-    signup: "Opret dig gratis"
+    signup: "Opret profil﻿"
     menu: Menu
   homepage:
     additional_private_listings_slate:
@@ -968,7 +968,7 @@ da-DK:
       no_reviews: "Ingen anmeldelser"
       no_image: "Intet billede"
       filter: Filter
-      this_is_private_community: "Du skal oprette en konto før du kan se dette indhold."
+      this_is_private_community: "Du skal opret profil﻿ før du kan se dette indhold."
     invitation_form:
       invite_your_friends: "Inviter dine venner til %{service_name}!"
       invite_your_neighbors: "Inviter dem du kender til %{service_name}!"
@@ -1033,13 +1033,13 @@ da-DK:
       send_feedback_to_admin: Send
       to_see_what_others_have_suggested: "at se, hvad andre brugere har foreslået, og stemme for de idéer der."
       your_email_address: "Din email adresse (for at kontakte dig)"
-      connect: "Opret en gratis konto"
+      connect: "Opret profil﻿"
       invite_your_friends: "Send en invitation!"
       invite_your_neighbors: "Inviter nu!"
       invite_your_friends_description: "Destro flere mennesker der er i %{service_name}, destro mere anvendeligt bliver det."
       invite_your_friends_invite_only_description: ~
       join_without_facebook: "...eller alternativt %{join_without_facebook_link}"
-      join_without_facebook_link: "opret dig uden at bruge Facebook"
+      join_without_facebook_link: "Opret profil﻿ uden at bruge Facebook"
     conversations:
       messages: Beskeder
       notifications: Notifikationer
@@ -1077,7 +1077,7 @@ da-DK:
       notifications: Notifikationer
       requests: Venneanmodninger
       settings: Indstillinger
-      sign_up: Tilmeld
+      sign_up: "Opret profil﻿"
     notifications:
       listing_could_not_be_saved: "Annoncen kunne ikke gemmes. Prøv venligst igen. Hvis problemet fortsætter, så %{contact_admin_link}."
       contact_admin_link_text: "kontakt os gerne"
@@ -1558,9 +1558,9 @@ da-DK:
       username_is_invalid: "Brugernavn er ugyldig. Tilladte tegn er bogstaver, tal og understregning."
       visible_only_to_you: "kun synlige for dig og markedspladsens admin"
       visible_to_everybody: "Synlig for alle"
-      create_account_with_facebook: "Tilmeld dig med Facebook"
+      create_account_with_facebook: "Opret profil﻿ med Facebook"
       OR: ELLER
-      signup_with_email: "Opret dig med din email adresse"
+      signup_with_email: "Opret profil﻿ med din email adresse"
     not_member:
       explanation_text: "Du kigger i øjeblikket %{community}. Du har forsøgt at se profilen for en bruger, der er medlem af en anden markedsplads oprettet med Sharetribe platform. Du kan ikke få adgang til denne brugers profil i %{community}."
       read_more_about_kassi_communities: "Læs mere om Sharetribe markedspladser"

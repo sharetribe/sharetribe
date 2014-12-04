@@ -1277,8 +1277,8 @@ sv:
         mass: "längd, kg, m2 ..."
         time: "timme, dag, månad, ..."
         long_time: "vecka, månad, ..."
-        after_service_fee_you_will_get: "Efter %{service_name}s serviceavgift så kommer du att få %{sum_with_currency} när du har sålt produkten."
-        after_service_fee_you_will_get_vat: "Efter %{service_name} serviceavgift så kommer du att få ca. %{sum_with_currency} (moms 0%)"
+        after_service_fee_you_will_get: "Efter %{service_name}s serviceavgift så kommer du att få %{sum_with_currency} när du har sålt produkten. OBS! Om produkten ska skickas, glöm inte att inkludera fraktkostnad i priset."
+        after_service_fee_you_will_get_vat: "Efter %{service_name} och betalningsavgifter kommer du att få ca. %{sum_with_currency} (moms 0%)"
         price_excludes_vat: "Priset inkluderar inte moms."
       origin:
         location: Plats
