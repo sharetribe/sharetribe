@@ -20,7 +20,7 @@
 
 class PaymentSettings < ActiveRecord::Base
 
-  attr_accessible(:active, :community_id, :payment_gateway, :payment_process, :commission_from_seller, :minimum_price, :confirmation_after_days)
+  attr_accessible(:active, :community_id, :payment_gateway, :payment_process, :commission_from_seller, :minimum_price_cents, :confirmation_after_days)
 
   validates_presence_of(:community_id)
 end
