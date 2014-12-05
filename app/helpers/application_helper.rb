@@ -911,4 +911,5 @@ module ApplicationHelper
       content_for :extra_javascript do js end
     end
   end
+
 end
