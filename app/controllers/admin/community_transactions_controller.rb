@@ -31,6 +31,10 @@ class Admin::CommunityTransactionsController < ApplicationController
       author = conversation[:other_person]
       starter = conversation[:starter_person]
 
+      [author, starter].each { |p|
+        p[:url] = person_path(p[:username])
+      }
+
       if transaction[:listing].present?
         # This if was added to tolerate cases where listing has been deleted
         # due the author deleting his/her account completely
