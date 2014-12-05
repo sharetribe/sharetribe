@@ -912,12 +912,4 @@ module ApplicationHelper
     end
   end
 
-  def country_code(country)
-    unless country.blank?
-      CountrySelect.countries.select{|key, hash|
-        return key if hash.downcase == country.downcase
-      }
-    end
-    return nil
-  end
 end
