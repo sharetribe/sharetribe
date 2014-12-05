@@ -72,11 +72,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 
     flash[:error] = t("layouts.notifications.confirmation_link_is_wrong_or_used")
     if @current_user
-      if on_dashboard?
-        redirect_to new_tribe_path
-      else
-        redirect_to :controller => "sessions", :action => "confirmation_pending"
-      end
+      redirect_to :controller => "sessions", :action => "confirmation_pending"
     else
       redirect_to :root
     end

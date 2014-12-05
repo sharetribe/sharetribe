@@ -114,20 +114,18 @@ class ApplicationController < ActionController::Base
   # Before filter for actions that are only allowed on a single community
   def single_community_only
     return if controller_name.eql?("passwords")
-    redirect_to root and return if on_dashboard?
+    redirect_to root and return if false
   end
 
   # Before filter to get the current community
   def fetch_community_by_strategy(&block)
-    unless on_dashboard?
-      # Otherwise pick the domain normally from the request subdomain or custom domain
-      if @current_community = block.call
-        # Store to thread the service_name used by current community, so that it can be included in all translations
-        ApplicationHelper.store_community_service_name_to_thread(service_name)
-      else
-        # No community found with this domain, so redirecting to dashboard.
-        redirect_to "http://www.#{APP_CONFIG.domain}"
-      end
+    # Otherwise pick the domain normally from the request subdomain or custom domain
+    if @current_community = block.call
+      # Store to thread the service_name used by current community, so that it can be included in all translations
+      ApplicationHelper.store_community_service_name_to_thread(service_name)
+    else
+      # No community found with this domain, so redirecting to dashboard.
+      redirect_to "http://www.#{APP_CONFIG.domain}"
     end
   end
 
@@ -156,7 +154,7 @@ class ApplicationController < ActionController::Base
 
   # Before filter to direct a logged-in non-member to join tribe form
   def cannot_access_without_joining
-    if @current_user && ! (on_dashboard? || @current_community_membership || @current_user.is_admin?)
+    if @current_user && ! (@current_community_membership || @current_user.is_admin?)
 
       # Check if banned
       if @current_community && @current_user && @current_user.banned_at?(@current_community)

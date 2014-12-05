@@ -110,11 +110,7 @@ class SessionsController < ApplicationController
       flash[:error] = t("layouts.notifications.email_not_found")
     end
 
-    if on_dashboard?
-      redirect_to dashboard_login_path
-    else
-      redirect_to login_path
-    end
+    redirect_to login_path
   end
 
   def facebook

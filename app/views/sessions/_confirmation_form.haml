@@ -5,8 +5,8 @@
 
 - if @current_user.has_admin_rights_in?(@current_community)
   %h2= t("sessions.confirmation_pending.account_confirmation_instructions_title_admin")
-  %p= t("sessions.confirmation_pending.your_marketplace_has_now_been_created") 
-  %p= t("sessions.confirmation_pending.account_confirmation_instructions_admin") 
+  %p= t("sessions.confirmation_pending.your_marketplace_has_now_been_created")
+  %p= t("sessions.confirmation_pending.account_confirmation_instructions_admin")
 - else
   %p= t("sessions.confirmation_pending.account_confirmation_instructions")
 
@@ -17,9 +17,8 @@
     .form_field_container
       = form.hidden_field :id, :value => @current_user.id
       = form.button t("sessions.confirmation_pending.resend_confirmation_instructions"), :class => "resend_email_confirmation_button send_button"
-    - unless on_dashboard?
-      %p
-        = t("sessions.confirmation_pending.your_current_email_is", :email => email_to_confirm).html_safe
-        = link_to t('sessions.confirmation_pending.change_email'), "#", :id => "mistyped_email_link", :class => "green_part_link"
+    %p
+      = t("sessions.confirmation_pending.your_current_email_is", :email => email_to_confirm).html_safe
+      = link_to t('sessions.confirmation_pending.change_email'), "#", :id => "mistyped_email_link", :class => "green_part_link"
       #password_forgotten
         = render :partial => "sessions/change_mistyped_email", :locals => {:email_to_confirm => email_to_confirm}
