@@ -64,7 +64,6 @@ Kassi::Application.routes.draw do
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do
 
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
-    match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
 
     match "/transactions/op_status/:process_token" => "transactions#op_status", :as => :transaction_op_status
 
