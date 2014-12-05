@@ -11,9 +11,6 @@ module PaypalService
             "REFUND",
             "TRANSACTION_DETAILS",
             "EXPRESS_CHECKOUT",
-            "RECURRING_PAYMENTS",
-            "SETTLEMENT_REPORTING",
-            "RECURRING_PAYMENT_REPORT",
             "ACCESS_BASIC_PERSONAL_DATA"
           ]
         ],
