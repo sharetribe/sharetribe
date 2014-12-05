@@ -19,14 +19,6 @@ default: &default_settings
   # If this is empty, will use the same domain for login
   login_domain:
 
-  # Fill here the subdomains which will be running the main dashboard of your application.
-  # The subdomains which are not listed here are expected to be communities.
-  dashboard_subdomains:
-    - ''
-    - 'www'
-    - 'dashboardtranslate'
-    - "catch"
-
   # Sharetribe can allow accessing data from external applications by RESTful API
   # You can enable the API by setting this value true
   api_enabled: false

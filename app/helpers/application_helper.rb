@@ -411,7 +411,7 @@ module ApplicationHelper
   # If we are not in a single community defined by a subdomain,
   # we are on dashboard
   def on_dashboard?
-    APP_CONFIG.dashboard_subdomains.include?(request.subdomain) && APP_CONFIG.domain.include?(request.domain)
+    APP_CONFIG.domain.include?(request.host)
   end
 
   def on_admin?
