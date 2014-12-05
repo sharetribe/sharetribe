@@ -6,8 +6,6 @@ class EmailsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_change_profile_settings")
   end
 
-  skip_filter :dashboard_only
-
   def send_confirmation
     @email = Email.find_by_id_and_person_id(params[:id], @current_user.id)
     Email.send_confirmation(@email, request.host_with_port, @current_community)

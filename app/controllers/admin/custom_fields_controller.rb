@@ -3,8 +3,6 @@ class Admin::CustomFieldsController < ApplicationController
   before_filter :ensure_is_admin
   before_filter :field_type_is_valid, :only => [:new, :create]
 
-  skip_filter :dashboard_only
-
   def index
     @selected_left_navi_link = "listing_fields"
     @community = @current_community

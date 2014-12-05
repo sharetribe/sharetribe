@@ -4,8 +4,6 @@ class Admin::PaypalPreferencesController < ApplicationController
   before_filter :ensure_is_admin
   before_filter :ensure_paypal_enabled
 
-  skip_filter :dashboard_only
-
   PaypalAccountEntity = PaypalService::PaypalAccount::Entity
   PaypalAccountQuery = PaypalService::PaypalAccount::Query
   PaypalAccountCommand = PaypalService::PaypalAccount::Command

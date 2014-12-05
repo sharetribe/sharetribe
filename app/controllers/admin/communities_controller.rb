@@ -4,8 +4,6 @@ class Admin::CommunitiesController < ApplicationController
   before_filter :ensure_is_admin
   before_filter :ensure_is_superadmin, :only => [:payment_gateways, :update_payment_gateway, :create_payment_gateway]
 
-  skip_filter :dashboard_only
-
   def getting_started
     @selected_left_navi_link = "getting_started"
     @community = @current_community
@@ -104,7 +102,7 @@ class Admin::CommunitiesController < ApplicationController
   def update_look_and_feel
     @community = @current_community
     @selected_left_navi_link = "tribe_look_and_feel"
-    
+
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
 
@@ -127,7 +125,7 @@ class Admin::CommunitiesController < ApplicationController
   def update_social_media
     @community = @current_community
     @selected_left_navi_link = "social_media"
-    
+
     [:twitter_handle,
      :facebook_connect_id,
      :facebook_connect_secret].each do |param|
@@ -147,7 +145,7 @@ class Admin::CommunitiesController < ApplicationController
   def update_analytics
     @community = @current_community
     @selected_left_navi_link = "analytics"
-    
+
     params[:community][:google_analytics_key] = nil if params[:community][:google_analytics_key] == ""
     params.require(:community).permit(:google_analytics_key)
     update(@current_community,

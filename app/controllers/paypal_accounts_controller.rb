@@ -8,8 +8,6 @@ class PaypalAccountsController < ApplicationController
 
   before_filter :ensure_paypal_enabled
 
-  skip_filter :dashboard_only
-
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm")
   PaypalAccountEntity = PaypalService::PaypalAccount::Entity
   PaypalAccountQuery = PaypalService::PaypalAccount::Query

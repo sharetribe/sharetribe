@@ -1,7 +1,6 @@
 class Admin::CommunityTransactionsController < ApplicationController
   TransactionQuery = MarketplaceService::Transaction::Query
   before_filter :ensure_is_admin
-  skip_filter :dashboard_only
 
   def index
     @selected_left_navi_link = "transactions"

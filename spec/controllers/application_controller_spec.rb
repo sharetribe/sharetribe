@@ -98,7 +98,6 @@ describe ApplicationController do
   describe "#fetch_community" do
 
     controller do
-      skip_filter :dashboard_only
       def index
         # do nothing as we are testing the filters here only
         # just return a dummy json

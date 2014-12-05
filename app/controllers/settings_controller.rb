@@ -8,8 +8,6 @@ class SettingsController < ApplicationController
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
 
-  skip_filter :dashboard_only
-
   def show
     @selected_left_navi_link = "profile"
     add_location_to_person

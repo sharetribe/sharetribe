@@ -3,8 +3,6 @@ class HomepageController < ApplicationController
 
   before_filter :save_current_path, :except => :sign_in
 
-  skip_filter :dashboard_only
-
   APP_DEFAULT_VIEW_TYPE = "grid"
   VIEW_TYPES = ["grid", "list", "map"]
 

@@ -10,8 +10,6 @@ class PreauthorizeTransactionsController < ApplicationController
   before_filter :ensure_authorized_to_reply
   before_filter :ensure_can_receive_payment
 
-  skip_filter :dashboard_only
-
   BookingForm = FormUtils.define_form("BookingForm", :start_on, :end_on)
     .with_validations do
       validates :start_on, :end_on, presence: true

@@ -1,5 +1,5 @@
 class PasswordsController < Devise::PasswordsController
-  skip_filter :dashboard_only, :single_community_only
+  skip_filter :single_community_only
 
   layout :choose_layout
 
