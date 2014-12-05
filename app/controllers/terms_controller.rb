@@ -2,8 +2,6 @@ class TermsController < ApplicationController
 
   layout :choose_layout
 
-  skip_filter :single_community_only, :only => :create
-
   def show
     redirect_to root_path and return unless session[:temp_cookie]
     @current_community = Community.find(session[:temp_community_id])

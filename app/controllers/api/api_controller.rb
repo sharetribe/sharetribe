@@ -1,7 +1,6 @@
 class Api::ApiController < ApplicationController
   include ApiHelper
 
-  skip_filter :single_community_only
   skip_filter :fetch_community
   skip_filter :cannot_access_without_joining
 

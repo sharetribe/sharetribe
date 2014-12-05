@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
   before_filter :force_ssl,
     :check_auth_token,
     :fetch_logged_in_user,
-    :single_community_only,
     :fetch_community,
     :fetch_community_membership,
     :set_locale,
@@ -109,12 +108,6 @@ class ApplicationController < ActionController::Base
   # redirected back to that path when needed.
   def save_current_path
     session[:return_to_content] = request.fullpath
-  end
-
-  # Before filter for actions that are only allowed on a single community
-  def single_community_only
-    return if controller_name.eql?("passwords")
-    redirect_to root and return if false
   end
 
   # Before filter to get the current community

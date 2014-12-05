@@ -1,7 +1,5 @@
 class ContactRequestsController < ApplicationController
 
-  skip_filter :single_community_only
-
   def create
     @contact_request = ContactRequest.new(params[:contact_request])
     session[:contact_request_sent] = @contact_request.id if @contact_request.save
