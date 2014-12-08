@@ -14,4 +14,10 @@ describe URLUtils do
     expect(URLUtils.remove_query_param("http://www.google.com?q=how+to+create+a+marketplace&start=10", "start"))
       .to eql("http://www.google.com?q=how+to+create+a+marketplace")
   end
+
+  it "#extract_locale_from_url" do
+    expect(URLUtils.extract_locale_from_url('http://www.sharetribe.com/')).to eql(nil)
+    expect(URLUtils.extract_locale_from_url('http://www.sharetribe.com/en/people')).to eql('en')
+    expect(URLUtils.extract_locale_from_url('http://www.sharetribe.com/en-US/people')).to eql('en-US')
+  end
 end
