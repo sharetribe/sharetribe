@@ -105,7 +105,7 @@ class Admin::CommunitiesController < ApplicationController
   def update_look_and_feel
     @community = @current_community
     @selected_left_navi_link = "tribe_look_and_feel"
-    
+
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
 
@@ -115,7 +115,6 @@ class Admin::CommunitiesController < ApplicationController
     ]
     permitted_params << :custom_head_script
     params.require(:community).permit(*permitted_params)
-
     update(@current_community,
            params[:community].merge(stylesheet_needs_recompile: regenerate_css?(params, @current_community)),
            edit_look_and_feel_admin_community_path(@current_community),
@@ -127,7 +126,7 @@ class Admin::CommunitiesController < ApplicationController
   def update_social_media
     @community = @current_community
     @selected_left_navi_link = "social_media"
-    
+
     [:twitter_handle,
      :facebook_connect_id,
      :facebook_connect_secret].each do |param|
@@ -147,7 +146,7 @@ class Admin::CommunitiesController < ApplicationController
   def update_analytics
     @community = @current_community
     @selected_left_navi_link = "analytics"
-    
+
     params[:community][:google_analytics_key] = nil if params[:community][:google_analytics_key] == ""
     params.require(:community).permit(:google_analytics_key)
     update(@current_community,
@@ -182,10 +181,10 @@ class Admin::CommunitiesController < ApplicationController
   def regenerate_css?(params, community)
     params[:community][:custom_color1] != community.custom_color1 ||
     params[:community][:custom_color2] != community.custom_color2 ||
-    params[:community][:cover_photo] ||
-    params[:community][:small_cover_photo] ||
-    params[:community][:wide_logo] ||
-    params[:community][:logo]
+    !params[:community][:cover_photo].nil? ||
+    !params[:community][:small_cover_photo].nil? ||
+    !params[:community][:wide_logo].nil? ||
+    !params[:community][:logo].nil?
   end
 
   def update(model, params, path, action, &block)
