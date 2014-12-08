@@ -713,7 +713,7 @@ es-ES:
       you_will_get: ~
       money_will_be_transferred: ~
     receipt_to_payer:
-      receipt_of_payment: ~
+      receipt_of_payment: "Recibo del pago."
       you_have_made_new_payment: ~
       product: ~
       total: ~
@@ -802,7 +802,7 @@ es-ES:
       share_type: "Deber chequear al menos uno de los recuadros anteriores."
       valid_until: "Esta fecha debe encontrarse entre la fecha actual y un año desde ahora."
       price: ~
-      minimum_price: ~
+      minimum_price: "El precio mínimo es %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "Si deseas dar una sugerencia no neutral, debes explicar por qué."
       you_must_select_a_grade: "Recuerda evaluar a los usuarios clickeando en uno de los iconos de más arriba (pueder ver las explicaciones de cada icono deslizando el mouse sobre ellos)"
@@ -930,7 +930,7 @@ es-ES:
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
-      add_listing_link_text: ~
+      add_listing_link_text: "Crear una nueva publicación"
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: "inicia sesión"
@@ -1114,10 +1114,10 @@ es-ES:
       only_listing_author_can_close_a_listing: "Solo el creador de una lista puede cerrarla"
       only_listing_author_can_edit_a_listing: "Solo el creador de una lista puede editarla"
       payment_successful: ~
-      payment_canceled: ~
-      error_in_payment: ~
+      payment_canceled: "Pago cancelado."
+      error_in_payment: "Ha habido un error en el pago. Si no completaste el proceso todavía, prueba de nuevo. Si ya lo completaste, por favor, contáctanos."
       cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      payment_waiting_for_later_accomplishment: "Cuando hayas pagado, se lo notificaremos al vendedor y recibirás un recibo por correo electrónico"
       password_recovery_sent: "Las instrucciones para modificar su contraseña han sido enviadas a su correo electrónico."
       person_activated: "Usuario activado"
       person_deactivated: "Usuario desactivado"
@@ -1179,6 +1179,7 @@ es-ES:
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: Cuenta
       notifications: Notificaciones
@@ -1264,7 +1265,7 @@ es-ES:
         long_time: ~
         after_service_fee_you_will_get: ~
         after_service_fee_you_will_get_vat: ~
-        price_excludes_vat: ~
+        price_excludes_vat: "El precio no incluye IVA."
       origin:
         location: Lugar
         origin: Origen
@@ -1392,7 +1393,7 @@ es-ES:
       time: Hora
       times: veces
       times_viewed: Visto
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Procesando la imagen subida...)"
       price_excludes_vat: ~
       listing_created_at: ~
       price:

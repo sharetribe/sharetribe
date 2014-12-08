@@ -874,7 +874,7 @@ tr-TR:
     join:
       joined_kassi: "%{name}%{time_ago}%{service_name}'e katıldı."
     login:
-      logged_in_to_kassi: "%{name}%{time_ago}%{service_name}'e giriş yaptı."
+      logged_in_to_kassi: "%{name}%{time_ago}%{service_name}'a giriş yaptı."
     comment:
       commented: "%{commenter_name}%{time_ago}%{listing_title} listelemesine yorum yaptı."
       offer_partitive: teklif
@@ -1105,7 +1105,7 @@ tr-TR:
       account_creation_successful: "%{person_name}, %{service_name}'e hoş geldin!"
       account_deleted: "Hesabınız silindi."
       login_successful: "Hoş geldin, %{person_name}!"
-      logout_successful: "%{service_name} 'dan başarıyla çıkış yaptın. Yeniden bekleriz!"
+      logout_successful: "%{service_name} 'tan başarıyla çıkış yaptın. Yeniden bekleriz!"
       news_item_created: "Metin oluşturuldu"
       news_item_creation_failed: "Metin oluşturma başarısız oldu"
       news_item_update_failed: "Metin güncellemesi başarısız oldu"
@@ -1161,7 +1161,7 @@ tr-TR:
       you_have_already_given_feedback_about_this_event: "Bu etkinlik hakkında geri bildirim vermişsiniz."
       you_are_now_member: "%{service_name}'e hoş geldiniz!"
       you_are_already_member: "Zaten %{service_name} üyesisiniz. Yeniden hoş geldiniz!"
-      you_must_log_in_to_create_new_listing: "Yeni listeleme oluşturmak için %{service_name}'e giriş yapmalısınız. Eğer hesabınız yoksa, buradan %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Yeni listeleme oluşturmak için %{service_name}'a giriş yapmalısınız. Eğer hesabınız yoksa, buradan %{sign_up_link}."
       additional_email_confirmed_dashboard: "E-posta adresiniz doğrulandı."
       you_must_log_in_to_give_feedback: "Geri bildirim vermek için oturum açmanız gerekmektedir."
       you_must_log_in_to_invite_new_users: "Yeni kullanıcıları %{service_name}'e davet etmek için oturum açmalısınız"
@@ -1171,9 +1171,9 @@ tr-TR:
       you_must_log_in_to_view_this_page: "Bu sayfayı görüntülemek için oturum açmalısınız"
       you_must_log_in_to_view_your_inbox: "Gelen kutunuzu görmek için %{service_name}'de oturum açmanız gerekmektedir."
       you_must_log_in_to_view_your_settings: "Ayarlarınızı görüntülemek için %{service_name}'de oturum açmanız gerekmektedir."
-      you_must_log_in_to_add_news_item: "Yeni bir metin eklemek için %{service_name}'e giriş yapın."
-      you_must_log_in_to_change_profile_settings: "Profil ayarlarını değiştirmek için %{service_name}'e giriş yapmalısınız"
-      you_must_log_in_to_change_payment_settings: "Ödeme ayarlarını değiştirmek için %{service_name}'e giriş yapmalısınız"
+      you_must_log_in_to_add_news_item: "Yeni bir metin eklemek için %{service_name}'a giriş yapın."
+      you_must_log_in_to_change_profile_settings: "Profil ayarlarını değiştirmek için %{service_name}'a giriş yapmalısınız"
+      you_must_log_in_to_change_payment_settings: "Ödeme ayarlarını değiştirmek için %{service_name}'a giriş yapmalısınız"
       you_must_log_in_to_accept_or_reject: "Bu işlemi kabul ya da reddetmek için giriş yapmalısınız"
       you_must_log_in_to_confirm_or_cancel: "İşlemi iptal etmek ya da onaylamak için giriş yapmalısınız"
       you_need_to_confirm_your_account_first: "E-posta adresinizi doğrulamanız gerekmektedir."
@@ -1187,6 +1187,7 @@ tr-TR:
       payment_details_add_successful: "Ödeme bilgileri başarıyla eklendi"
       payment_details_add_error: "Ödeme bilgileri eklenemedi"
       listing_author_payment_details_missing: "Bu listelemenin yazarı ödeme bilgilerini eklemediği için şu an ödeme alamıyor. Lütfen yazara ulaşın."
+      stylesheet_needs_recompiling: ~
     settings:
       account: Hesap
       notifications: Bildirimler
@@ -1533,7 +1534,7 @@ tr-TR:
       email: "E-posta adresi"
       email_is_in_use: "Girdiğiniz e-posta adresi kullanımda."
       email_is_in_use_or_not_allowed: "E-posta adresi tanınmıyor veya kullanımda. Giriş yapamıyorsanız, bize ulaşın."
-      email_not_allowed: "Bu e-mail adresine %{service_name}'de izin verilmemektedir. Lütfen izin verilen bir e-posta adresi kullanın. Yine de giriş yapamıyorsanız, bize ulaşın."
+      email_not_allowed: "Bu e-mail adresine %{service_name}'ta izin verilmemektedir. Lütfen izin verilen bir e-posta adresi kullanın. Yine de giriş yapamıyorsanız, bize ulaşın."
       email_restriction_instructions:
         other: "%{service_name}'e erişim sınırlandırılmıştır. Katılım izniniz olduğunu gösteren bir e-posta adresine sahip olmalısınız."
       enter_captcha: "Gerçek bir insanım:"
@@ -1744,7 +1745,7 @@ tr-TR:
       terms: "%{service_name} kullanım koşulları"
       terms_have_changed: "Kullanım koşullarında değişiklik yapıldı"
       you_can_view_the_new_terms: "Yeni koşulları burada görüntüleyebilirsiniz"
-      you_need_to_accept: "%{service_name}'e hoş geldiniz. Bu hizmeti ilk defa kullanıyormuş gibi görünmektesiniz. başlamadan önce, kullanım koşullarını kabul etmeniz gerekmektedir."
+      you_need_to_accept: "%{service_name}'a hoş geldiniz. Bu hizmeti ilk defa kullanıyormuş gibi görünmektesiniz. başlamadan önce, kullanım koşullarını kabul etmeniz gerekmektedir."
       you_need_to_accept_new_terms: "%{service_name} kullanım koşullarında değişiklik yapıldı. %{service_name}'i kullanmaya devam etmek için yeni koşullarını kabul etmelisiniz. Yeni kullanım koşulları araştırma projesi sona erdikten sonra da hizmetin devamlılığını sağlamayı amaçlamaktadır."
   testimonials:
     index:
