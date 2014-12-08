@@ -346,6 +346,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack-timeout (0.1.1)
     rails (3.2.19)
       actionmailer (= 3.2.19)
       actionpack (= 3.2.19)
@@ -553,6 +554,7 @@ DEPENDENCIES
   rabl
   rack-livereload
   rack-test
+  rack-timeout
   rails (= 3.2.19)
   rails-i18n
   rake
