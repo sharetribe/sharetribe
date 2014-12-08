@@ -1,9 +1,21 @@
 - content_for :title_header do
   %h1= t("layouts.no_tribe.inbox")
 
-- content_for :javascript do
-  style_action_selectors();
+- content_for :extra_javascript do
+  :javascript
+    (function() {
+      var btn = $('#send_testimonial_button');
 
+      var updateSendButtonLabel = function(action) {
+        if (action == "accept") {
+          btn.text('#{t("conversations.accept.accept")}')
+        } else {
+          btn.text('#{t("conversations.accept.decline")}')
+        }
+      };
+
+      style_action_selectors(updateSendButtonLabel);
+    })();
 .conversation-status-form.centered-section
   %h2= t("conversations.accept.respond_to_#{discussion_type}")
 
@@ -36,4 +48,5 @@
         = message_form.text_area :content, :class => "text_area", :placeholder => t("conversations.accept.optional_message")
         = message_form.hidden_field :sender_id, :value => @current_user.id
 
-      = form.button t("conversations.accept.approve"), :class => "send_button", :id => "send_testimonial_button"
+      - initial_send_label = preselected_action == "accept" ? t('conversations.accept.accept') : t('conversations.accept.decline')
+      = form.button initial_send_label, :class => "send_button", :id => "send_testimonial_button"

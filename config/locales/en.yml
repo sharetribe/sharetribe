@@ -400,7 +400,8 @@ en:
       you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can accept the request and receive the payment. Go to %{payment_settings_link} to fill in the details."
       payment_settings_link: "payment settings"
       minimum_price_error_message: "The price cannot be lower than %{amount}."
-      approve: Approve
+      accept: Accept
+      decline: Decline
       sum: "Sum: %{sum}"
       service_fee: "Service fee: %{service_fee}"
       you_will_get: "You will get: %{seller_gets}"
