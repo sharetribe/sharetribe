@@ -1718,7 +1718,7 @@ tr-TR:
       family_name: Soyad
       given_name: Ad
       first_name_with_initial: "(sadece ilk harf diğer kullanıcılara gösterilir)"
-      first_name_only: "(diğer kullanıcılara gösterilmez)"
+      first_name_only: "(Diğer kullanıcılara gösterilmez.)"
       location_description: "Açık adresinizi ya da sadece örneğin posta kodunuzu girebilirsiniz. Lütfen en azından posta kodunuzu ekleyin. Ya da aşağıdaki haritadan konumunuzu işaretleyebilirsiniz."
       phone_number: "Telefon numarası"
       profile_picture: "Profil resmi"
@@ -1729,8 +1729,8 @@ tr-TR:
       these_fields_are_shown_in_your: "Bu bilgiyi tüm %{service_name} kullanıcıları görebilir"
       visible_to_everybody: "herkes görebilir"
       visible_to_registered_users: "(oturum açmış kullanıcılar görebilir)"
-      default_in_listing: "(sadece yeni listeleme oluşturulurken default olarak kullanılır)"
-      invisible: "(diğer kullanıcılara gösterilmez)"
+      default_in_listing: "(Sadece yeni listeleme oluşturulurken default olarak kullanılır.)"
+      invisible: "(Diğer kullanıcılara gösterilmez.)"
     save_information: "Bu bilgiyi kaydet"
   tag_cloud:
     tag_used:
