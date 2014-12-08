@@ -121,7 +121,7 @@ class SessionsController < ApplicationController
   def facebook
     @person = Person.find_for_facebook_oauth(request.env["omniauth.auth"], @current_user)
 
-    I18n.locale = exctract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
+    I18n.locale = URLUtils.extract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
 
     if @person
       flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Facebook")
@@ -157,7 +157,7 @@ class SessionsController < ApplicationController
 
   # Callback from Omniauth failures
   def failure
-    I18n.locale = exctract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
+    I18n.locale = URLUtils.extract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
     error_message = params[:error_reason] || "login error"
     kind = env["omniauth.error.strategy"].name.to_s || "Facebook"
     flash[:error] = t("devise.omniauth_callbacks.failure",:kind => kind.humanize, :reason => error_message.humanize)

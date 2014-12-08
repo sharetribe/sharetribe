@@ -495,12 +495,6 @@ module ApplicationHelper
     Thread.current[:current_community_service_name] || APP_CONFIG.global_service_name || "Sharetribe"
   end
 
-  # returns the locale part from url.
-  # e.g. from "kassi.eu/es/listings" returns es
-  def exctract_locale_from_url(url)
-    url[/^([^\/]*\/\/)?[^\/]+\/(\w{2})(\/.*)?/,2]
-  end
-
   # Helper method for javascript. Return "undefined"
   # if tribe has no location.
   def tribe_latitude
