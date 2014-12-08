@@ -821,8 +821,7 @@ function initialize_confirm_transaction_form() {
   style_action_selectors();
 }
 
-function style_action_selectors(callback) {
-  callback = callback || function() {};
+function style_action_selectors() {
   $(".conversation-action").each(function() {
     $(this).find('label').hide();
     $(this).find('.conversation-action').each(
@@ -850,8 +849,6 @@ function style_action_selectors(callback) {
             $(".conversation-action").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
             $("#conversation_message_attributes_action").val(action);
             $("#conversation_status").val(action + 'ed');
-
-            callback(action)
           }
         );
       }

@@ -6,15 +6,15 @@
     (function() {
       var btn = $('#send_testimonial_button');
 
-      var updateSendButtonLabel = function(action) {
-        if (action == "accept") {
-          btn.text('#{t("conversations.accept.accept")}')
-        } else {
-          btn.text('#{t("conversations.accept.decline")}')
-        }
-      };
+      $('#accept').click(function() {
+        btn.text('#{t("conversations.accept.accept")}');
+      });
 
-      style_action_selectors(updateSendButtonLabel);
+      $('#reject').click(function() {
+        btn.text('#{t("conversations.accept.decline")}');
+      });
+
+      style_action_selectors();
     })();
 .conversation-status-form.centered-section
   %h2= t("conversations.accept.respond_to_#{discussion_type}")
