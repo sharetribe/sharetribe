@@ -1,7 +1,7 @@
 .row
   = form.label :paypal_email, title
 .row
-  - community_country_code = LocalizationUtils.is_valid_country_code?(@current_community.country) ? @current_community.country.downcase : 'us' # default should not happen in production
+  - community_country_code = LocalizationUtils.country_code_valid?(@current_community.country) ? @current_community.country.downcase : 'us' # default should not happen in production
   - create = link_to(t("paypal_accounts.new.create_paypal_account"), "https://www.paypal.com/#{community_country_code}/signup")
   - upgrade = link_to(t("paypal_accounts.new.upgrade_paypal_account"), "https://www.paypal.com/#{community_country_code}/upgrade")
   - text = t("paypal_accounts.new.paypal_account_email_info_text", {create_paypal_account: create, upgrade_paypal_account: upgrade, currency: "<strong>#{currency}</strong>"}).html_safe
