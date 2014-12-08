@@ -211,7 +211,7 @@ end
 When(/^I accepts the request for that listing$/) do
   visit_transaction_of_listing(@listing)
   click_link "Accept request"
-  click_button "Approve"
+  click_button "Accept"
 end
 
 

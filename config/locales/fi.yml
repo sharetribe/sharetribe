@@ -400,7 +400,8 @@ fi:
       you_need_to_fill_payout_details_before_accepting: "Sinun pitää täyttää maksutietosi ennen kuin voit hyväksyä pyynnön ja vastaanottaa maksun. Täytä maksutietosi %{payment_settings_link}."
       payment_settings_link: täällä
       minimum_price_error_message: "Hinta ei voi olla pienempi kuin %{amount}."
-      approve: Hyväksy
+      accept: Hyväksy
+      decline: Hylkää
       sum: "Kokonaissumma: %{sum}"
       service_fee: "Palvelumaksu: %{service_fee}"
       you_will_get: "Sinä saat: %{seller_gets}"
