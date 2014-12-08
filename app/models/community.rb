@@ -90,6 +90,11 @@
 #  custom_head_script                         :text
 #  follow_in_use                              :boolean          default(TRUE), not null
 #  paypal_enabled                             :boolean          default(FALSE), not null
+#  logo_processing                            :boolean
+#  wide_logo_processing                       :boolean
+#  cover_photo_processing                     :boolean
+#  small_cover_photo_processing               :boolean
+#  favicon_processing                         :boolean
 #
 # Indexes
 #
@@ -184,6 +189,7 @@ class Community < ActiveRecord::Base
                                                       "image/gif",
                                                       "image/pjpeg",
                                                       "image/x-png"]
+  process_in_background :logo
 
   has_attached_file :wide_logo,
                     :styles => {
@@ -204,6 +210,7 @@ class Community < ActiveRecord::Base
                                                       "image/gif",
                                                       "image/pjpeg",
                                                       "image/x-png"]
+  process_in_background :wide_logo
 
   has_attached_file :cover_photo,
                     :styles => {
@@ -220,6 +227,7 @@ class Community < ActiveRecord::Base
                                                       "image/gif",
                                                       "image/pjpeg",
                                                       "image/x-png"]
+  process_in_background :cover_photo
 
   has_attached_file :small_cover_photo,
                     :styles => {
@@ -236,6 +244,7 @@ class Community < ActiveRecord::Base
                                                       "image/gif",
                                                       "image/pjpeg",
                                                       "image/x-png"]
+  process_in_background :small_cover_photo
 
   has_attached_file :favicon,
                     :styles => {
@@ -254,6 +263,7 @@ class Community < ActiveRecord::Base
                                                       "image/gif",
                                                       "image/x-icon",
                                                       "image/vnd.microsoft.icon"]
+  process_in_background :favicon
 
   validates_format_of :twitter_handle, with: /\A[A-Za-z0-9_]{1,15}\z/, allow_nil: true
 
@@ -661,6 +671,14 @@ class Community < ActiveRecord::Base
 
   def close_listings_by_author(author)
     listings.where(:author_id => author.id).update_all(:open => false)
+  end
+
+  def images_processing?
+    logo.processing? &&
+    wide_logo.processing? &&
+    cover_photo.processing? &&
+    small_cover_photo.processing? &&
+    favicon.processing?
   end
 
   private
