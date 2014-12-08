@@ -43,7 +43,7 @@ function add_validator_methods() {
     addMethod("email_list",
       function(value, element, param) {
         var emails = value.split(',');
-        var re = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/i);
+        var re = new RegExp(/^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]+$/i);
         for (var i = 0; i < emails.length; i++) {
           if (!re.test($.trim(emails[i]))) {
             return false;
