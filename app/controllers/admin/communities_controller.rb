@@ -184,7 +184,8 @@ class Admin::CommunitiesController < ApplicationController
     !params[:community][:cover_photo].nil? ||
     !params[:community][:small_cover_photo].nil? ||
     !params[:community][:wide_logo].nil? ||
-    !params[:community][:logo].nil?
+    !params[:community][:logo].nil? ||
+    !params[:community][:favicon].nil?
   end
 
   def update(model, params, path, action, &block)
