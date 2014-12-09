@@ -308,29 +308,6 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  # Used to send notification to admins when somebody
-  # wants to contact them through the form in the network page
-  def contact_request_notification(contact_request)
-    @contact_request = contact_request
-    subject = "New contact request by #{@contact_request.email}"
-    recipient = APP_CONFIG.contact_request_mailer_recipients || APP_CONFIG.feedback_mailer_recipients
-    premailer_mail(:to => recipient, :subject => subject) do |format|
-      format.html {render :layout => false }
-    end
-  end
-
-  # Automatic reply to people who try to contact us via Dashboard
-  def reply_to_contact_request(contact_request)
-    @contact_request = contact_request
-    @country_manager = CountryManager.find_by_country(@contact_request.country) || CountryManager.find_by_country("global")
-    #@country_manager ||= CountryManager.find_by_country("global")
-    set_locale @country_manager.locale
-    email_from = "#{@country_manager.given_name} #{@country_manager.family_name} <#{@country_manager.email}>"
-    premailer_mail(:to => @contact_request.email, :subject => "#{@country_manager.subject_line}, #{@contact_request.email.split('@')[0]}", :from => email_from) do |format|
-      format.html { render :layout => false }
-    end
-  end
-
   # Old layout
 
   def new_member_notification(person, community_domain, email)
