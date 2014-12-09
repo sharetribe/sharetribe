@@ -19,11 +19,6 @@ describe ApplicationController do
       end
     end
 
-    it "redirects to the home page" do
-      get :index
-      response.should redirect_to("/")
-    end
-
     it "logs the user out from Sharetribe" do
       get :index
       session[:person_id].should be_nil
