@@ -1,25 +1,6 @@
-- content_for :javascript do
-  - if session[:contact_request_sent]
-    initialize_update_contact_request_form("You need to select a country.","You need to select the marketplace type.");
-  - else
-    initialize_contact_request_form("Oops! You forgot to give your email address.","It seems the email you gave is not valid, please double check.");
-
 %section.lander
   .coverimage
     %figure.network-cover.fluidratio
-  .wrapper
-    .lander-content-container
-      - if session[:contact_request_sent] || session[:contact_request_completed]
-        .lander-content.lander-contact-form
-          = render :partial => "contact_request_form", :locals => { :prefix => "top" }
-      - else
-        .lander-content.network-lander-content
-          %h1 Create a marketplace.
-          %p.lander-description
-            Let your community sell, rent, swap and
-            %br/
-            share goods and services online.
-          = render :partial => "contact_request_form", :locals => { :prefix => "top" }
 
 %section.about{:id => "about"}
   .wrapper
@@ -66,9 +47,6 @@
               %br/
               each transaction.
 
-      / .view-demo
-      /   = link_to "View demo", "http://demo.sharetribe.com", :class => "action-button"
-
 %section.how-it-works{:id => "how-it-works"}
   .wrapper
     .how-it-works-content
@@ -77,11 +55,5 @@
         %iframe{:width => "853", :height => "480", :src => "//www.youtube.com/embed/mC4Cmjbxk7k", :frameborder => 0}
 
 %section.create-now
-  .wrapper
-    .create-now-content
-      - unless session[:contact_request_sent]
-        %h2 Contact us now to create your own marketplace.
-      .create-now-form
-        = render :partial => "contact_request_form", :locals => { :prefix => "bottom" }
 
 = render :partial => "layouts/google_analytics_script"

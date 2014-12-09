@@ -2102,77 +2102,6 @@ section.lander, section.create-now {
     @include text-shadow(2px, 2px, 3px, rgba(black, 0.5));
   }
 
-  .contact-form-container {
-    h3 {
-      @include big-type;
-      margin-bottom: lines(0.5);
-    }
-  }
-
-  .contact-form {
-    margin-top: lines(2.5);
-  }
-
-  .lander-contact-form {
-    top: lines(-23);
-  }
-
-  .contact-form-input {
-    vertical-align: top;
-    display: inline;
-  }
-
-  .contact-request-completed-notification {
-    background: rgba($background, 0.75);
-    padding: lines(1) lines(2) lines(0.5) lines(2);
-    width: auto;
-    display: inline-block;
-    @include border-radius(em(5));
-    h3 {
-      color: $body;
-    }
-    margin: lines(2) 0 lines(2) 0;
-
-    @include media(tablet) {
-      width: auto;
-      margin: lines(8) 0 lines(2) 0;
-    }
-  }
-
-  .complete-contact-request-form {
-    background: rgba($background, 0.75);
-    padding: lines(0.5) lines(0.75);
-    width: auto;
-    display: inline-block;
-    @include border-radius(em(5));
-    text-align: left;
-    h3 {
-      color: $body;
-      text-align: left;
-      @include normal-type;
-    }
-    p {
-      text-align: left;
-      @include small-type;
-    }
-    label, input, select, button {
-      @include small-type;
-    }
-
-    margin: lines(1) 0 lines(2) 0;
-
-    @include media(tablet) {
-      padding: lines(1.25) lines(1.5);
-      max-width: lines(16);
-      h3 {
-        @include big-type;
-      }
-      p, label, input, select, button {
-        @include normal-type;
-      }
-    }
-  }
-
   input[type=text] {
     @include normal-type;
     padding: 0;
@@ -2230,28 +2159,11 @@ section.lander, section.create-now {
       width: lines(10);
     }
 
-    .contact-form-text-field {
-      width: lines(10);
-    }
-
     label.error {
       width: lines(21);
       margin: lines(0.5) auto;
       padding: em(10) em(15) em(15) em(15);
     }
-
-    .complete-contact-request-form {
-      label.error {
-        width: 100%;
-        font-weight: normal;
-        padding: em(5) em(10) em(10) em(10);
-      }
-
-      select {
-        width: 100%;
-      }
-    }
-
   }
 
 }

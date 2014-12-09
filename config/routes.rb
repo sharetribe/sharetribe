@@ -182,7 +182,6 @@ Kassi::Application.routes.draw do
       end
     end
 
-    resources :contact_requests
     resources :invitations
     resources :user_feedbacks, :controller => :feedbacks
     resources :homepage do

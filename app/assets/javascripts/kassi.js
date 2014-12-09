@@ -248,48 +248,6 @@ function initialize_admin_edit_price($form, min_name, max_name, locale) {
   $form.validate({rules: rules})
 }
 
-function initialize_contact_request_form(required_message, email_message) {
-  var validation = {
-    rules: {
-      "contact_request[email]": {required: true, email: true}
-    },
-    messages: {
-      "contact_request[email]": {required: required_message, email: email_message}
-    },
-    errorPlacement: function(error, element) {
-      error.appendTo(element.parent().parent());
-    },
-    onkeyup: false,
-    onclick: false,
-    onfocusout: false,
-    onsubmit: true
-  }
-  $("#new_contact_request_top").validate(validation);
-  $("#new_contact_request_bottom").validate(validation);
-}
-
-function initialize_update_contact_request_form(country_message, marketplace_type_message) {
-  var validation = {
-    rules: {
-      "contact_request[country]": {required: true},
-      "contact_request[marketplace_type]": {required: true}
-    },
-    messages: {
-      "contact_request[country]": {required: country_message},
-      "contact_request[marketplace_type]": {required: marketplace_type_message}
-    },
-    errorPlacement: function(error, element) {
-      error.insertAfter(element);
-    },
-    onkeyup: false,
-    onclick: false,
-    onfocusout: false,
-    onsubmit: true
-  }
-  $("#new_contact_request_top").validate(validation);
-  $("#new_contact_request_bottom").validate(validation);
-}
-
 var hideNotice = function() {
   $('.flash-notifications').fadeOut('slow');
 }
