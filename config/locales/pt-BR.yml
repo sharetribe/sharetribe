@@ -385,7 +385,8 @@ pt-BR:
       you_need_to_fill_payout_details_before_accepting: "Você precisa preencher os detalhes de pagamento antes de aceitar o pedido e receber o pagamento. Vá para %{payment_settings_link}para preencher os detalhes."
       payment_settings_link: "configurações de pagamento"
       minimum_price_error_message: "O preço não pode ser inferior %{amount}"
-      approve: Aprovar
+      accept: ~
+      decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~

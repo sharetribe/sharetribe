@@ -385,7 +385,8 @@ el:
       you_need_to_fill_payout_details_before_accepting: "Πριν αποδεχτείτε το αίτημα και λάβετε την πληρωμή πρέπει να συμπληρώσετε τα στοιχεία για την πληρωμή σας. Πηγαίνετε στις %{payment_settings_link} για να τα συμπληρώσετε."
       payment_settings_link: "ρυθμίσεις πληρωμών"
       minimum_price_error_message: "Η τιμή δεν μπορεί να είναι μικρότερη από %{amount}."
-      approve: ~
+      accept: ~
+      decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~

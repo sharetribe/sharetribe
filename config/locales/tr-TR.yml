@@ -395,7 +395,8 @@ tr-TR:
       you_need_to_fill_payout_details_before_accepting: "Talebi kabul edip ödemeyi almadan önce, ödeme ayrıntılarını girmeniz gerekmektedir. %{payment_settings_link} sayfasına gidip bilgilerinizi girin."
       payment_settings_link: "ödeme ayarları"
       minimum_price_error_message: "Fiyat %{amount}'den az olamaz."
-      approve: Onayla
+      accept: ~
+      decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~

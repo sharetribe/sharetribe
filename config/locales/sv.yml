@@ -400,7 +400,8 @@ sv:
       you_need_to_fill_payout_details_before_accepting: "Du måste fylla i utbetalningsdetaljerna innan du kan acceptera förfrågan och ta emot betalning. Gå till %{payment_settings_link} för att fylla i detaljerna."
       payment_settings_link: betalningsinställningar
       minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
-      approve: Godkänn
+      accept: ~
+      decline: ~
       sum: "Summa: %{sum}"
       service_fee: "Serviceavgift: %{service_fee}"
       you_will_get: "Du kommer att få: %{seller_gets}"

@@ -400,7 +400,8 @@ de:
       you_need_to_fill_payout_details_before_accepting: "Du musst deine Auszahlungsinformationen eintragen, bevor du die Anfrage akzeptieren und die Zahlung erhalten kannst. Gehe zu %{payment_settings_link} und fülle die Details aus."
       payment_settings_link: Zahlungseinstellungen
       minimum_price_error_message: "Der Preis kann nicht niedriger sein als %{amount}."
-      approve: ~
+      accept: ~
+      decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~

@@ -400,7 +400,8 @@ fr:
       you_need_to_fill_payout_details_before_accepting: "Vous devez compléter les détails de paiements avant de pouvoir accepter la demande et recevoir le paiement. Allez aux %{payment_settings_link} pour compléter les détails."
       payment_settings_link: "paramètres de paiement"
       minimum_price_error_message: "Le prix ne peut pas être plus bas que %{amount}."
-      approve: Approuver
+      accept: ~
+      decline: ~
       sum: "Total : %{sum}"
       service_fee: "Commission : %{service_fee}"
       you_will_get: "Vous recevrez : %{seller_gets}"

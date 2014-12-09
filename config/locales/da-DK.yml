@@ -400,7 +400,8 @@ da-DK:
       you_need_to_fill_payout_details_before_accepting: "Du skal udfylde dine udbetalingsoplysninger, før du kan acceptere en betaling og modtage dine penge. Gå til %{payment_settings_link} og udfylde dine oplysninger."
       payment_settings_link: "betalings indstillinger"
       minimum_price_error_message: "Prisen kan ikke være lavere end %{amount}."
-      approve: Godkend
+      accept: ~
+      decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~
