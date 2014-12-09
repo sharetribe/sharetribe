@@ -674,10 +674,10 @@ class Community < ActiveRecord::Base
   end
 
   def images_processing?
-    logo.processing? &&
-    wide_logo.processing? &&
-    cover_photo.processing? &&
-    small_cover_photo.processing? &&
+    logo.processing? ||
+    wide_logo.processing? ||
+    cover_photo.processing? ||
+    small_cover_photo.processing? ||
     favicon.processing?
   end
 
