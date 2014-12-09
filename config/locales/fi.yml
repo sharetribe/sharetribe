@@ -842,7 +842,6 @@ fi:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
       kassi_does_not_currently_work_without_javascript: "%{service_name} ei toimi oikein ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan."
-      kassi_does_not_currently_work_without_javascript_dashboard: "%{service_name} ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja ladata tämä sivu uudestaan."
       contact_us: "ota yhteyttä"
       send_feedback: "Lähetä palaute"
       your_feedback_to_admins: "Palautteesi ylläpidolle"
