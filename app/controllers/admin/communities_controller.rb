@@ -4,8 +4,6 @@ class Admin::CommunitiesController < ApplicationController
   before_filter :ensure_is_admin
   before_filter :ensure_is_superadmin, :only => [:payment_gateways, :update_payment_gateway, :create_payment_gateway]
 
-  skip_filter :dashboard_only
-
   def getting_started
     @selected_left_navi_link = "getting_started"
     @community = @current_community

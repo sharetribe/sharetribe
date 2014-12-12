@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
   before_filter :force_ssl,
     :check_auth_token,
     :fetch_logged_in_user,
-    :dashboard_only,
     :single_community_only,
     :fetch_community,
     :fetch_community_membership,
@@ -110,12 +109,6 @@ class ApplicationController < ActionController::Base
   # redirected back to that path when needed.
   def save_current_path
     session[:return_to_content] = request.fullpath
-  end
-
-  # Before filter for actions that are only allowed on dashboard
-  def dashboard_only
-    return if controller_name.eql?("passwords")
-    redirect_to root and return unless on_dashboard?
   end
 
   # Before filter for actions that are only allowed on a single community

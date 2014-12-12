@@ -1,6 +1,5 @@
 class Admin::CommunityMembershipsController < ApplicationController
   before_filter :ensure_is_admin
-  skip_filter :dashboard_only
 
   def index
     @selected_left_navi_link = "manage_members"

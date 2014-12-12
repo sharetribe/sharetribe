@@ -7,8 +7,6 @@ class TransactionsController < ApplicationController
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
 
-  skip_filter :dashboard_only
-
   MessageForm = Form::Message
 
   def show

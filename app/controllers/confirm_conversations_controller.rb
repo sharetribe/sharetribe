@@ -9,8 +9,6 @@ class ConfirmConversationsController < ApplicationController
 
   before_filter :ensure_is_starter
 
-  skip_filter :dashboard_only
-
   MessageForm = Form::Message
 
   def confirm

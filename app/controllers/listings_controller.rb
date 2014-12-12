@@ -28,8 +28,6 @@ class ListingsController < ApplicationController
 
   before_filter :is_authorized_to_post, :only => [ :new, :create ]
 
-  skip_filter :dashboard_only
-
   def index
     if params[:format] == "atom" # API request for feed
       redirect_to :controller => "Api::ListingsController", :action => :index

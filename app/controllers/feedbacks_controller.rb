@@ -1,7 +1,6 @@
 class FeedbacksController < ApplicationController
 
   skip_filter :check_email_confirmation
-  skip_filter :dashboard_only
   skip_filter :cannot_access_without_joining
 
   FeedbackForm = FormUtils.define_form("Feedback",

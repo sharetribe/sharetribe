@@ -8,8 +8,6 @@ class ListingImagesController < ApplicationController
 
   before_filter :"listing_authorized?", :only => [:add_from_file]
 
-  skip_filter :dashboard_only
-
   def destroy
     @listing_image_id = @listing_image.id.to_s
     if @listing_image.destroy

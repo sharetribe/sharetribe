@@ -1,6 +1,5 @@
 class Superadmin::CommunitiesController < ApplicationController
   before_filter :ensure_is_superadmin
-  skip_filter :dashboard_only
 
   def new
     @new_community = Community.new

@@ -2,8 +2,6 @@ class MessagesController < ApplicationController
   MessageEntity = MarketplaceService::Conversation::Entity::Message
   PersonEntity = MarketplaceService::Person::Entity
 
-  skip_filter :dashboard_only
-
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
   end

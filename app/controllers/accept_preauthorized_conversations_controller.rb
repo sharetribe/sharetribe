@@ -9,8 +9,6 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   before_filter :ensure_is_author
 
-  skip_filter :dashboard_only
-
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token
 
