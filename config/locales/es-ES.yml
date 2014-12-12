@@ -385,8 +385,8 @@ es-ES:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
-      accept: ~
-      decline: ~
+      accept: Aceptar
+      decline: Declinar
       sum: ~
       service_fee: ~
       you_will_get: ~
@@ -1180,7 +1180,7 @@ es-ES:
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
-      stylesheet_needs_recompiling: ~
+      stylesheet_needs_recompiling: "La hoja de estilos se está recompilando. Por favor, vuelva a cargar la página en unos instantes."
     settings:
       account: Cuenta
       notifications: Notificaciones

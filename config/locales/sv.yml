@@ -400,8 +400,8 @@ sv:
       you_need_to_fill_payout_details_before_accepting: "Du måste fylla i utbetalningsdetaljerna innan du kan acceptera förfrågan och ta emot betalning. Gå till %{payment_settings_link} för att fylla i detaljerna."
       payment_settings_link: betalningsinställningar
       minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
-      accept: ~
-      decline: ~
+      accept: Acceptera
+      decline: Avböj
       sum: "Summa: %{sum}"
       service_fee: "Serviceavgift: %{service_fee}"
       you_will_get: "Du kommer att få: %{seller_gets}"
@@ -1195,7 +1195,7 @@ sv:
       payment_details_add_successful: "Betalningsinformation tillagd"
       payment_details_add_error: "Det gick inte att lägga till betalningsdetaljer"
       listing_author_payment_details_missing: "Ägaren av annonsen har inte lagt till betalningsdetaljer så de kan inte ta emot betalning just nu. Vänligen kontakta ägaren av annonsen."
-      stylesheet_needs_recompiling: ~
+      stylesheet_needs_recompiling: "Formatmallen kompilerar. Vänligen ladda om sidan efter ett tag."
     settings:
       account: Konto
       notifications: Aviseringar
