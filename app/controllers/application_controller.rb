@@ -118,7 +118,9 @@ class ApplicationController < ActionController::Base
       ApplicationHelper.store_community_service_name_to_thread(service_name)
     else
       # No community found with this domain, so redirecting to dashboard.
-      redirect_to "http://www.#{APP_CONFIG.domain}"
+      redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else {
+        :community_not_found
+      }
     end
   end
 
@@ -128,8 +130,30 @@ class ApplicationController < ActionController::Base
     @current_host_with_port = request.host_with_port
 
     fetch_community_by_strategy {
-      Community.find_by_domain(request.host)
+      ApplicationController.default_community_fetch_strategy(request.host)
     }
+  end
+
+  # Fetch community
+  #
+  # 1. Try to find by domain
+  # 2. If there is only on community, use it
+  # 3. Otherwise nil
+  #
+  def self.default_community_fetch_strategy(domain)
+    by_domain = Community.find_by_domain(domain)
+
+    if by_domain.present?
+      by_domain
+    else
+      count = Community.count
+
+      if count == 1
+        Community.first
+      else
+        nil
+      end
+    end
   end
 
   # Before filter to check if current user is the member of this community

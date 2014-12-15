@@ -47,18 +47,14 @@ Kassi::Application.routes.draw do
   locale_matcher = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
 
   # Inside this constraits are the routes that are used when request has subdomain other than www
-  constraints(CommunityDomain) do
-    match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }
-    match '/' => 'homepage#index'
-  end
-
-  # Below are the routes that are matched if didn't match inside subdomain constraints
-  match '(/:locale)' => 'dashboard#index', :constraints => { :locale => locale_matcher }
-  root :to => 'dashboard#index'
+  match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }
+  match '/' => 'homepage#index'
+  root :to => 'homepage#index'
 
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
   match '/500' => 'errors#server_error'
   match '/404' => 'errors#not_found', :as => :error_not_found
+  match '/community_not_found' => 'errors#community_not_found', as: :community_not_found
 
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do

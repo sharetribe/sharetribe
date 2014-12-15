@@ -13,6 +13,14 @@ default: &default_settings
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
   session_domain:
 
+  # Redirect to this URL if community can not be found. For example, if user is trying to access community
+  # http://nonexisting.sharetribe.com and there's no community named "nonexisting", then the user is redirected
+  # to the URL that given here:
+  #
+  # Example value: http://mydomain.com
+  #
+  community_not_found_redirect:
+
   # Login url. This can be a separate address for loggin in. For example
   # a subdomain with https. It's recommended to use https here, so passwords
   # are submited in encrypted form. e.g. "https://login.sharetribe.com"

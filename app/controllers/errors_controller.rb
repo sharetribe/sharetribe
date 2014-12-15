@@ -14,6 +14,10 @@ class ErrorsController < ActionController::Base
     render "status_404", status: 404, locals: { status: 404, title: title(404) }
   end
 
+  def community_not_found
+    render status: 404, locals: { status: 404, title: "Community not found", host: request.host }
+  end
+
   private
 
   def current_community
