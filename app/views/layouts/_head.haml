@@ -18,11 +18,7 @@
 
   / Additional meta tags for SEO, etc.
   = content_for :head
-
-  - if @current_community
-    = render :partial => "layouts/marketplace_head"
-  - else
-    = render :partial => "layouts/network_head"
+  = render :partial => "layouts/marketplace_head"
 
   -# A tag for google webmaster site verification
   %meta{ name: "google-site-verification", content: "JUqB3tYmezYEJNAkw8MUdmIocAGztY85eaoNKBD5j0Q"}

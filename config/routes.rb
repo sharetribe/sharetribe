@@ -99,7 +99,6 @@ Kassi::Application.routes.draw do
       resources :listings, :only => :index
 
       match 'api_version' => "api#version_check"
-      match '/' => 'dashboard#api'
     end
 
     namespace :superadmin do
@@ -182,7 +181,6 @@ Kassi::Application.routes.draw do
       end
     end
 
-    resources :contact_requests
     resources :invitations
     resources :user_feedbacks, :controller => :feedbacks
     resources :homepage do

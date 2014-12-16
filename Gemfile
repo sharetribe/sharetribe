@@ -69,7 +69,6 @@ gem 'money-rails'
 gem 'mercury-rails'
 gem 'fb-channel-file'
 gem 'country_select', '> 1.2.0'
-gem 'localized_country_select', '>= 0.9.3'
 gem 'braintree'
 gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 0.5.0'

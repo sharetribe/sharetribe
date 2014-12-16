@@ -761,8 +761,6 @@ en:
       newest_offers: "What people currently offer to others"
       newest_requests: "What people currently need"
       text_version_text: "Could you share something that others might need? Or do you need something that others might have? Add an offer or a request or check everything that the others are offering or requesting at %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Thank you for your interest in %{service_name}!"
     reset_password_instructions:
       change_my_password: "Change my password"
       reset_password_instructions: "<p>You have indicated that you have forgotten either your password or username in the %{service_name} service.</p><p>Your username is: %{username}</p><p>If you need to reset your password, click the following link: %{password_reset_link}</p><br/><p>If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one.</p>"
@@ -844,7 +842,6 @@ en:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript is disabled in your browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} does not work properly without javascript. Try to enable javascript from your browser's preferences and then reload this page again."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Unfortunately %{service_name} does not currently work without javascript. Try to enable javascript from your browser's preferences and then reload this page again. If you'd like to use %{service_name} without javascript, please %{contact_us}."
       contact_us: "contact us"
       send_feedback: "Send feedback"
       your_feedback_to_admins: "Your feedback to admins"
@@ -1028,8 +1025,6 @@ en:
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Contact us"
-      keywords: "%{service_name}, Kassi, share resources in a marketplace, borrow items, service, favor, item, rideshare, space, car pooling, housing, accommodation, help, helping, offer, request, rent, swap, exchange, buying, selling, buy, sell, giving, give, ecological, marketplace, online marketplace, local"
-      meta_description: "Sharetribe allows you to easily create a marketplace online and let the members of your community sell and rent goods, services and spaces."
       or_check_our: "...or check our"
       send_feedback_to_admin: "Send feedback"
       to_see_what_others_have_suggested: "to see what other users have suggested, and vote for the ideas there."

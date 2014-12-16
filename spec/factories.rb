@@ -187,12 +187,6 @@ FactoryGirl.define do
     status "accepted"
   end
 
-  factory :contact_request do
-    email "test@example.com"
-    country "AO"
-    marketplace_type "Service marketplace"
-  end
-
   factory :invitation do
     community_id 1
   end
