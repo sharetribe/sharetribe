@@ -38,10 +38,16 @@ class Admin::PaypalPreferencesController < ApplicationController
     currency = @current_community.default_currency
     minimum_commission = paypal_minimum_commissions_api.get(currency)
 
+    tx_settings =
+      Maybe(tx_settings_api.get(community_id: @current_community.id, payment_gateway: :paypal, payment_process: :preauthorize))
+      .select { |result| result[:success] }
+      .map { |result| result[:data] }
+      .or_else({})
+
     paypal_prefs_form = PaypalPreferencesForm.new(
       minimum_commission: minimum_commission,
-      commission_from_seller: @current_community.commission_from_seller,
-      minimum_listing_price: @current_community.minimum_price)
+      commission_from_seller: tx_settings[:commission_from_seller],
+      minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], @current_community.default_currency))
 
     render("index", locals: {
         paypal_account_email: Maybe(paypal_account)[:email].or_else(nil),
@@ -68,10 +74,11 @@ class Admin::PaypalPreferencesController < ApplicationController
       flash[:error] = paypal_prefs_form.errors.full_messages.join(", ")
     end
 
-    @current_community.update_attributes(
-      commission_from_seller: paypal_prefs_form.commission_from_seller,
-      minimum_price: paypal_prefs_form.minimum_listing_price
-      )
+    tx_settings_api.update({community_id: @current_community.id,
+                            payment_gateway: :paypal,
+                            payment_process: :preauthorize,
+                            commission_from_seller: paypal_prefs_form.commission_from_seller.to_i,
+                            minimum_price_cents: paypal_prefs_form.minimum_listing_price.cents})
 
     flash[:notice] = t("admin.paypal_accounts.preferences_updated")
     redirect_to action: :index
@@ -132,7 +139,15 @@ class Admin::PaypalPreferencesController < ApplicationController
 
   # Before filter
   def ensure_paypal_enabled
-    unless @current_community.paypal_enabled?
+    settings = Maybe(tx_settings_api.get(
+                      community_id: @current_community.id,
+                      payment_gateway: :paypal,
+                      payment_process: :preauthorize))
+      .select { |result| result[:success] }
+      .map { |result| result[:data] }
+      .or_else(nil)
+
+    unless settings && settings[:payment_gateway] == :paypal
       flash[:error] = t("paypal_accounts.new.paypal_not_enabled")
       redirect_to edit_details_admin_community_path(@current_community)
     end
@@ -194,4 +209,9 @@ class Admin::PaypalPreferencesController < ApplicationController
   def paypal_minimum_commissions_api
     PaypalService::API::Api.minimum_commissions_api
   end
+
+  def tx_settings_api
+    TransactionService::API::Api.settings
+  end
+
 end
