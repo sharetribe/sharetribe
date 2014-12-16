@@ -15,7 +15,7 @@ class ErrorsController < ActionController::Base
   end
 
   def community_not_found
-    render status: 404, locals: { status: 404, title: "Community not found", host: request.host }
+    render status: 404, locals: { status: 404, title: "Marketplace not found", host: request.host }
   end
 
   private

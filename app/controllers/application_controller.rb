@@ -112,12 +112,12 @@ class ApplicationController < ActionController::Base
 
   # Before filter to get the current community
   def fetch_community_by_strategy(&block)
-    # Otherwise pick the domain normally from the request subdomain or custom domain
+    # Pick the community according to the given strategy
     if @current_community = block.call
       # Store to thread the service_name used by current community, so that it can be included in all translations
       ApplicationHelper.store_community_service_name_to_thread(service_name)
     else
-      # No community found with this domain, so redirecting to dashboard.
+      # No community found with the strategy, so redirecting to redirect url, or error page.
       redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else {
         :community_not_found
       }
@@ -137,7 +137,7 @@ class ApplicationController < ActionController::Base
   # Fetch community
   #
   # 1. Try to find by domain
-  # 2. If there is only on community, use it
+  # 2. If there is only one community, use it
   # 3. Otherwise nil
   #
   def self.default_community_fetch_strategy(domain)
