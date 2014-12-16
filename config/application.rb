@@ -64,9 +64,6 @@ module Kassi
     # This is the list of all possible locales. Part of the translations may be unfinished.
     config.AVAILABLE_LOCALES = Sharetribe::AVAILABLE_LOCALES
 
-    # This is the list o locales avaible for the dashboard and newly created tribes in UI
-    config.AVAILABLE_DASHBOARD_LOCALES = Sharetribe::AVAILABLE_DASHBOARD_LOCALES
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

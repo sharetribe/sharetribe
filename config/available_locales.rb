@@ -40,14 +40,4 @@ module Sharetribe
     ["English", "en-at"],
     ["French", "fr-at"],
   ]
-
-  AVAILABLE_DASHBOARD_LOCALES = [
-    ["English", "en"],
-    ["Suomi", "fi"],
-    ["Español", "es"],
-    ["Français", "fr"],
-    ["Deutsch", "de"],
-    ["Pусский", "ru"],
-    ["Ελληνικά", "el"]
-  ]
 end

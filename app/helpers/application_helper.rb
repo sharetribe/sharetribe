@@ -754,17 +754,6 @@ module ApplicationHelper
     end
   end
 
-  def dashboard_link(args)
-    locale_part = ""
-    selected_locale = args[:locale].to_s
-    if selected_locale.present? && selected_locale != "en"
-      Kassi::Application.config.AVAILABLE_DASHBOARD_LOCALES.each do |name, loc|
-        locale_part = "/#{selected_locale}" and break if loc == selected_locale
-      end
-    end
-    return "#{default_protocol}www.#{APP_CONFIG.domain}#{locale_part}#{args[:ref] ? "?ref=#{args[:ref]}" : ""}"
-  end
-
   # returns either "http://" or "https://" based on configuration settings
   def default_protocol
     APP_CONFIG.always_use_ssl ? "https://" : "http://"
