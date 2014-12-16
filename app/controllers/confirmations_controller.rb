@@ -1,7 +1,6 @@
 class ConfirmationsController < Devise::ConfirmationsController
 
   skip_filter :check_email_confirmation, :cannot_access_without_joining
-  skip_filter :single_community_only
 
   # This is directly copied from Devise::ConfirmationsController
   # to be able to handle better the situations of resending confirmation and
@@ -72,11 +71,7 @@ class ConfirmationsController < Devise::ConfirmationsController
 
     flash[:error] = t("layouts.notifications.confirmation_link_is_wrong_or_used")
     if @current_user
-      if on_dashboard?
-        redirect_to new_tribe_path
-      else
-        redirect_to :controller => "sessions", :action => "confirmation_pending"
-      end
+      redirect_to :controller => "sessions", :action => "confirmation_pending"
     else
       redirect_to :root
     end

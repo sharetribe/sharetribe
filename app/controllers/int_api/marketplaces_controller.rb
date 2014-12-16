@@ -1,6 +1,5 @@
 class IntApi::MarketplacesController < ApplicationController
 
-  skip_filter :single_community_only
   skip_filter :fetch_community
 
   before_filter :set_access_control_headers

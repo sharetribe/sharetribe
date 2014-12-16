@@ -4,7 +4,6 @@ class CommunityMembershipsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_page")
   end
 
-  skip_filter :single_community_only, :only => :create
   skip_filter :cannot_access_without_joining
   skip_filter :check_email_confirmation, :only => [:new, :create]
 

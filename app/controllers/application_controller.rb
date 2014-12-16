@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
   before_filter :force_ssl,
     :check_auth_token,
     :fetch_logged_in_user,
-    :single_community_only,
     :fetch_community,
     :fetch_community_membership,
     :set_locale,
@@ -111,23 +110,17 @@ class ApplicationController < ActionController::Base
     session[:return_to_content] = request.fullpath
   end
 
-  # Before filter for actions that are only allowed on a single community
-  def single_community_only
-    return if controller_name.eql?("passwords")
-    redirect_to root and return if on_dashboard?
-  end
-
   # Before filter to get the current community
   def fetch_community_by_strategy(&block)
-    unless on_dashboard?
-      # Otherwise pick the domain normally from the request subdomain or custom domain
-      if @current_community = block.call
-        # Store to thread the service_name used by current community, so that it can be included in all translations
-        ApplicationHelper.store_community_service_name_to_thread(service_name)
-      else
-        # No community found with this domain, so redirecting to dashboard.
-        redirect_to "http://www.#{APP_CONFIG.domain}"
-      end
+    # Pick the community according to the given strategy
+    if @current_community = block.call
+      # Store to thread the service_name used by current community, so that it can be included in all translations
+      ApplicationHelper.store_community_service_name_to_thread(service_name)
+    else
+      # No community found with the strategy, so redirecting to redirect url, or error page.
+      redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else {
+        :community_not_found
+      }
     end
   end
 
@@ -137,8 +130,30 @@ class ApplicationController < ActionController::Base
     @current_host_with_port = request.host_with_port
 
     fetch_community_by_strategy {
-      Community.find_by_domain(request.host)
+      ApplicationController.default_community_fetch_strategy(request.host)
     }
+  end
+
+  # Fetch community
+  #
+  # 1. Try to find by domain
+  # 2. If there is only one community, use it
+  # 3. Otherwise nil
+  #
+  def self.default_community_fetch_strategy(domain)
+    by_domain = Community.find_by_domain(domain)
+
+    if by_domain.present?
+      by_domain
+    else
+      count = Community.count
+
+      if count == 1
+        Community.first
+      else
+        nil
+      end
+    end
   end
 
   # Before filter to check if current user is the member of this community
@@ -156,7 +171,7 @@ class ApplicationController < ActionController::Base
 
   # Before filter to direct a logged-in non-member to join tribe form
   def cannot_access_without_joining
-    if @current_user && ! (on_dashboard? || @current_community_membership || @current_user.is_admin?)
+    if @current_user && ! (@current_community_membership || @current_user.is_admin?)
 
       # Check if banned
       if @current_community && @current_user && @current_user.banned_at?(@current_community)

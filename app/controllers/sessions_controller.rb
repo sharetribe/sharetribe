@@ -3,7 +3,6 @@ require 'rest_client'
 class SessionsController < ApplicationController
 
   skip_filter :check_email_confirmation
-  skip_filter :single_community_only, :only => [ :create, :request_new_password ]
   skip_filter :cannot_access_without_joining, :only => [ :destroy, :confirmation_pending ]
 
   # For security purposes, Devise just authenticates an user
@@ -110,11 +109,7 @@ class SessionsController < ApplicationController
       flash[:error] = t("layouts.notifications.email_not_found")
     end
 
-    if on_dashboard?
-      redirect_to dashboard_login_path
-    else
-      redirect_to login_path
-    end
+    redirect_to login_path
   end
 
   def facebook
