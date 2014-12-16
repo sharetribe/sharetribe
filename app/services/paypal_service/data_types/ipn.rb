@@ -163,6 +163,9 @@ module PaypalService
 
         if txn_type == "mp_cancel"
           return :billing_agreement_cancelled
+        elsif txn_type == "invoice_payment"
+          # This is related to othe invoicing activity on same Paypal account
+          return :manual_invoicing
         elsif status == "pending" && reason == "order"
           return :order_created
         elsif status == "pending" && reason == "authorization"

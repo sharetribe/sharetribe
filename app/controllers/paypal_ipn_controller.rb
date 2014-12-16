@@ -17,6 +17,8 @@ class PaypalIpnController < ApplicationController
 
       if (msg[:type] == :unknown)
         logger.warn("Unknown IPN message type: #{params}")
+      elsif (msg[:type] == :manual_invoicing)
+        logger.warn("Recived IPN message related to manual invoicing, no action taken: #{params}")
       else
         ipn_service.handle_msg(msg)
       end
