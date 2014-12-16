@@ -221,8 +221,8 @@ es-ES:
           paid: ~
           confirmed: ~
           canceled: ~
-          initiated: ~
-          pending_ext: ~
+          initiated: "Esperando al pago de PayPal"
+          pending_ext: "Esperando al pago de PayPal"
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -233,7 +233,7 @@ es-ES:
         master_merchant_id: ~
         commission_from_seller: ~
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: Pagos
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -296,17 +296,17 @@ es-ES:
       emails_title: ~
       support: ~
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      preferences_updated: ~
-      integration_info_text: ~
-      paypal_account_email: ~
-      paypal_account_email_completed: ~
-      set_minimum_price_and_fee: ~
-      set_minimum_price_and_fee_completed: ~
-      minimum_listing_price_label: ~
-      transaction_fee_label: ~
-      save_settings: ~
-      note_about_transaction_fee: ~
+      marketplace_paypal_integration: "Preferencias de pago"
+      preferences_updated: "Preferencias de pago actualizadas"
+      integration_info_text: "El sistema de pago de %{service_name} se basa en PayPal. Si quieres permitir a tus usuarios hacer pagos a través del marketplace, debes conectar tu cuenta de PayPal y decidir el precio mínimo para cada anuncio así como la comisión por transacción que quieres recibir."
+      paypal_account_email: "Conecta tu cuenta de PayPal"
+      paypal_account_email_completed: ¡Completado!
+      set_minimum_price_and_fee: "Configura un precio mínimo y una comisión por transacción"
+      set_minimum_price_and_fee_completed: ¡Completado!
+      minimum_listing_price_label: "Precio mínimo para anuncio:"
+      transaction_fee_label: "Comisión por transacción:"
+      save_settings: "Guardar configuración"
+      note_about_transaction_fee: "Nota: la comisión por transacción incluye las tasas de PayPal que dependen de tu moneda y del volumen de ventas del vendedor. Por esta razón, la comisión siempre es al menos %{min_paypal_commission}. Cuando se carga la comisión al vendedor, Paypal cobra su comisión primero y el resto del dinero se moverá a tu cuenta de PayPal."
     transaction_types:
       sell: Venta
       rent: Alquilando
@@ -504,9 +504,9 @@ es-ES:
       paid: ~
       pending_external:
         paypal:
-          multicurrency: ~
-          verify: ~
-          intl: ~
+          multicurrency: "No hemos podido procesar el pago a través de PayPal porque tu cuenta en PayPal no está configurada para recibir dinero en %{currency}. Ve a %{paypal_url} y conéctate a tu cuenta para aceptar o rechazar el pago manualmente."
+          verify: "No puedes aceptar esta transacción porque no has verificado tu cuenta en PayPal. Ve a %{paypal_url} y verifica tu cuenta."
+          intl: "No hemos podido procesar el pago en PayPal porque tu cuenta no tiene configurado ningún método para sacar el dinero. Ve a %{paypal_url} y conéctate a tu cuenta para aceptar o rechazar el pago manualmente."
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Solicitud aceptada"
@@ -526,10 +526,10 @@ es-ES:
       waiting_feedback_from_you: ~
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
-          unknown_reason: ~
-          verify: ~
+          multicurrency: "Estamos esperando a que aceptes el pago de PayPal"
+          intl: "Estamos esperando a que aceptes el pago de PayPal"
+          unknown_reason: "El pago está pendiente. Conéctate a tu cuenta de PayPal para ver más detalles."
+          verify: "Estamos esperando a que verifiques tu cuenta de PayPal"
     status_link:
       accept_offer: "Aceptar oferta"
       accept_request: "Aceptar solicitud"
@@ -810,10 +810,10 @@ es-ES:
     transaction_agreement:
       required_error: ~
     paypal:
-      generic_error: ~
-      cancel_error: ~
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      generic_error: "Ha ocurrido un error durante el proceso de pago. No se pudo finalizar el pago a través de PayPal."
+      cancel_error: "Ha ocurrido un error durante la cancelación. No se ha podido finalizar la cancelación"
+      accept_authorization_error: "Ha ocurrido un error mientras intentábamos aceptar el pago preautorizado con PayPal. Por favor, inténtalo de nuevo."
+      reject_authorization_error: "Ha ocurrido un error cuando intentábamos rechazar el pago preautorizado de PayPal. Por favor, inténtalo de nuevo."
   error_pages:
     back_to_kassi_front_page: "Volver a la página principal de %{service_name}"
     error_404:
@@ -1349,7 +1349,7 @@ es-ES:
     listing_actions:
       booking_from: ~
       booking_to: ~
-      how_paypal_works: ~
+      how_paypal_works: "Cómo funciona PayPal"
     new:
       post_a_new_listing: ~
       listing: aviso
@@ -1461,39 +1461,39 @@ es-ES:
         braintree_terms_also_included: ~
         terms_link_text: ~
   paypal_accounts:
-    payout_info_title: ~
+    payout_info_title: "Información de pago"
     paypal_account_email_connected: ~
     paypal_billing_agreement_made: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
-    connected_account: ~
+    you_are_ready_to_accept_payments: "¡Estás listo para aceptar pagos!"
+    commission: "%{commission} %"
+    connected_account: "La cuenta de PayPal '%{email}' se ha conectado con éxito."
     new:
-      payout_info_you_need_to_connect: ~
-      payout_info_text: ~
-      admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
+      payout_info_you_need_to_connect: "Para aceptar pagos necesitar conectar tu cuenta de PayPal con %{service_name}."
+      payout_info_text: "Por favor, completa estos dos pasos para conectar tu cuenta."
+      admin_account_not_connected: "No puedes conectar tu cuenta de PayPal porque el administrador del marketplace no ha finalizado las configuraciones necesarias para usar PayPal."
+      paypal_account_email: "Conecta tu cuenta de Paypal"
+      paypal_account_email_placeholder: "Tu dirección de email en Paypal"
       paypal_account_email_info_text: ~
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
-      connect_paypal_account: ~
-      paypal_account_billing_agreement: ~
-      paypal_account_billing_agreement_info: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
+      create_paypal_account: aquí
+      upgrade_paypal_account: "Actualiza tu cuenta aquí."
+      connect_paypal_account: "Conecta tu cuenta de Paypal"
+      paypal_account_billing_agreement: "Concede permisos a %{service_name} para cargar la comisión por transferencia"
+      paypal_account_billing_agreement_info: "Cuando haces una venta en %{service_name}, se cargará una comisión del %{commission} % sobre precio del producto (nota: la comisión mínima es del %{minimum_commission} %). La comisión incluye las tasas de Paypal. Para usar %{service_name} necesitas permitir el cargo de esta comisión."
+      billing_agreement_description: "Concede permisos a %{service_name} para cargar una comisión por transferencia."
+      billing_agreement: "Concede permiso"
+      permissions_not_granted: "El permiso para conectar la cuenta de Paypal no está concedido."
       could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
-      something_went_wrong: ~
-      account_not_verified: ~
+      paypal_not_enabled: "Los pagos a través de Paypal no están habilitados."
+      billing_agreement_canceled: "El acuerdo de facturación ha sido cancelado"
+      billing_agreement_id_missing: "Hubo problemas técnicos con la integración de PayPal"
+      something_went_wrong: "Algo fue mal. Por favor, prueba de nuevo. Si el problema persiste, ponte en contacto con los administradores."
+      account_not_verified: "No has verificado tu cuenta de PayPal. Necesitas ir a paypal.com y verificar tu cuenta antes de continuar."
   paypal:
-    checkout_with_paypal: ~
-    cancel_succesful: ~
+    checkout_with_paypal: "Pago con PayPal"
+    cancel_succesful: "Pago en PayPal cancelado con éxito."
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
+      commission_payment_name: "Pago de comisión para %{listing_title}"
+      commission_payment_description: "El marketplace %{service_name} cobró esta comisión por la transacción sobre %{listing_title}"
   people:
     index:
       loading_more_members: "Cargando más miembros"
