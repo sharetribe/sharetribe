@@ -1,4 +1,3 @@
-require 'routes/community_domain'
 require 'routes/api_request'
 
 Kassi::Application.routes.draw do
