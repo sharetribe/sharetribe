@@ -9,6 +9,7 @@ module PaypalService
             "EXPRESS_CHECKOUT",
             "AUTH_CAPTURE",
             "REFUND",
+            "REFERENCE_TRANSACTION",
             "TRANSACTION_DETAILS",
             "EXPRESS_CHECKOUT",
             "ACCESS_BASIC_PERSONAL_DATA"
