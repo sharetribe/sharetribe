@@ -761,8 +761,6 @@ fi:
       newest_offers: "Muun muassa näitä tarjotaan:"
       newest_requests: "Muun muassa näitä tarvitaan"
       text_version_text: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota? Lisää tarjous tai pyyntö tai katso mitä muut tarjoavat tai pyytävät osoitteessa %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Kiitos kiinnostuksestasi %{service_name}-palvelua kohtaan!"
     reset_password_instructions:
       change_my_password: "Vaihda salasanani"
       reset_password_instructions: "<p>Olet ilmeisesti unohtanut käyttäjätunnuksesi tai salasanasi %{service_name}-palveluun. Tämä viesti auttaa sinua kirjautumaan jälleen sisään.</p><p>Käyttäjätunuksesi on: %{username}</p><p>Jos et muista salasanaasi, voit uusia sen klikkaamalla linkkiä: %{password_reset_link}</p><br/><p>Jos et itse pyytänyt tätä viestiä %{service_name}-palvelussa, sinun ei tarvitse reagoida tähän mitenkään. Salasanasi ei vaihdu, ellet itse vaihda sitä ylläolevan linkin kautta.</p>"
@@ -844,7 +842,6 @@ fi:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
       kassi_does_not_currently_work_without_javascript: "%{service_name} ei toimi oikein ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan."
-      kassi_does_not_currently_work_without_javascript_dashboard: "%{service_name} ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja ladata tämä sivu uudestaan."
       contact_us: "ota yhteyttä"
       send_feedback: "Lähetä palaute"
       your_feedback_to_admins: "Palautteesi ylläpidolle"
@@ -1028,8 +1025,6 @@ fi:
       feedback_forum: "palautefoorumiltamme,"
       feedback_handle: Palaute
       give_feedback: "Anna palautetta %{service_name}-palvelusta"
-      keywords: "%{service_name}, Kassi, palvelus, tavara, kimppakyyti, asuminen, pyydetään, tarjotaan, lainataan, vuokrataan, vaihdetaan, ostetaan, myydään, annetaa, lahjoitetaan, annetaan, ekologisuus, yhteisö, verkkoyhteisö, markkinapaikka, kauppapaikka"
-      meta_description: "%{service_name} on verkkopalvelu, jonka avulla yhdistysten ja muiden yhteisöjen jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
       or_check_our: "...tai tarkista"
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
       to_see_what_others_have_suggested: "mitä muut ovat sanoneet."

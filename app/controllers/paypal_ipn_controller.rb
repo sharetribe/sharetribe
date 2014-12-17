@@ -4,7 +4,7 @@ class PaypalIpnController < ApplicationController
   include PaypalService::IPNInjector
 
   skip_before_filter :verify_authenticity_token, :fetch_logged_in_user, :fetch_community, :fetch_community_membership
-  skip_filter :check_email_confirmation, :dashboard_only
+  skip_filter :check_email_confirmation
 
   IPNDataTypes = PaypalService::DataTypes::IPN
 
