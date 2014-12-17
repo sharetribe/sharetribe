@@ -1,6 +1,6 @@
 class ErrorsController < ActionController::Base
 
-  layout 'error_layout'
+  layout 'blank_layout'
   before_filter :current_community
   before_filter :set_locale
 
