@@ -29,6 +29,21 @@ module MarketplaceService
           .or_else(nil)
       end
 
+      def current_plan(community_id)
+        CommunityPlan
+          .where(:community_id => community_id)
+          .order("created_at DESC")
+          .first
+      end
+
+      def is_plan_expired(community_id)
+        Maybe(current_plan(community_id))
+          .map { |plan|
+            plan.expires_at < DateTime.now
+          }
+          .or_else(false)
+      end
+
     end
   end
 end
