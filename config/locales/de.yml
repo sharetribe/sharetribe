@@ -761,8 +761,6 @@ de:
       newest_offers: "Was Leute derzeit anderen anbieten"
       newest_requests: "Was Leute derzeit benötigen"
       text_version_text: "Könntest du etwas teilen, das andere möglicherweise brauchen? Oder benötigst du etwas, das andere vielleicht haben? Füge ein Angebot oder eine Anfrage hinzu oder sieh nach, was andere anbieten oder benötigen bei %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Danke für dein Interesse an %{service_name}!"
     reset_password_instructions:
       change_my_password: "Mein Passwort ändern"
       reset_password_instructions: "<p>Du hast angegeben, dein Passwort oder den Benutzernamen im %{service_name} Dienst vergessen zu haben.</p><p>Dein Benutzername ist: %{username}</p><p>Um dein Passwort zurückzusetzen, klicke auf den folgenden Link: %{password_reset_link}</p><br/><p> Falls du das Zurücksetzen des Passworts nicht angefordert hast, ignoriere diese E-Mail. Dein Passwort wird nicht zurückgesetzt, solange du den oberen Link nicht anklickst und ein neues Passwort erstellst.</p>"
@@ -844,7 +842,6 @@ de:
     no_javascript:
       javascript_is_disabled_in_your_browser: "JavaScript ist in deinem Browser deaktiviert."
       kassi_does_not_currently_work_without_javascript: "Leider funktioniert %{service_name} derzeit nicht ohne javascript. Versuche javascript in deinen Browser-Einstellungen zu aktivieren und lade diese Seite dann noch einmal."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Leider funktioniert %{service_name} derzeit nicht ohne javascript. Versuche, javascript in deinen Browser-Einstellungen zu aktivieren und lade die Seite dann noch einmal. Falls du %{service_name} ohne javascript nutzen willst, dann %{contact_us} bitte."
       contact_us: Kontakt
       send_feedback: "Feedback senden"
       your_feedback_to_admins: "Dein Feedback an die Administratoren"
@@ -1028,8 +1025,6 @@ de:
       feedback_forum: Feedback-Forum
       feedback_handle: Feedback
       give_feedback: "Kontaktiere uns"
-      keywords: "%{service_name}, Kassi, teile Ressourcen in einer Community, Gegenstände ausleihen, Service, Gefallen, Mitfahrgelegenheit, Räumlichkeit, Unterkunft, Unterbringung, Hilfe, helfen, Angebot, anbieten, Anfrage, anfragen, vermieten, Austausch, Umtausch, kaufen, verkaufen, Kauf, Verkauf, geben, verschenken, ökologisch, Community, Online Community, lokal"
-      meta_description: "Sharetribe ist ein Service, der es dir ermöglicht, einfach einen Online-Marktplatz zu erschaffen, sodass die Mitglieder deiner Community sich gegenseitig Dienstleistungen und Dinge anbieten können - zum Verkauf, zur Miete, zum Tausch oder auch zum Teilen."
       or_check_our: "...oder überprüfe unser"
       send_feedback_to_admin: "Feedback senden"
       to_see_what_others_have_suggested: "um zu sehen, was andere Benutzer vorgeschlagen haben und um die für die Ideen zu stimmen."

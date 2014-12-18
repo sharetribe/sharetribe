@@ -761,8 +761,6 @@ fr:
       newest_offers: "Ce que les membres proposent aux autres en ce moment"
       newest_requests: "Ce dont les membres ont besoin en ce moment"
       text_version_text: "Et si vous partagiez quelque chose dont les autres ont besoin ? Ou peut être avez-vous besoin de quelque chose que d'autres pourraient avoir ? Ajoutez une offre ou une demande ou jetez un oeil aux offres et demandes des autres membres sur %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Nous vous remercions pour l'intérêt que vous portez à %{service_name} !"
     reset_password_instructions:
       change_my_password: "Changer mon mot de passe"
       reset_password_instructions: "<p>Vous avez déclaré avoir oublié votre nom d'utilisateur et/ou votre mot de passe pour %{service_name}.</p><p>Votre nom d'utilisateur est : %{username}</p><p>Si vous souhaitez réinitialiser votre mot de passe, cliquez ici : %{password_reset_link}</p><br/><p>Si vous n'avez fait aucune demande, ignorez simplement cet email. Votre mot de passe ne sera pas modifié tant que vous ne cliquez pas sur le lien ci-dessus et en créez un nouveau.</p>"
@@ -844,7 +842,6 @@ fr:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript est désactivé dans votre navigateur"
       kassi_does_not_currently_work_without_javascript: "%{service_name} ne fonctionne pas correctement sans JavaScript. Essayez d'activer javascript à partir des préférences de votre navigateur puis rechargez cette page."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Malheureusement, %{service_name} ne fonctionne pas sans Javascript. Activez Javascript dans les réglages de votre navigateur et rechargez la page. Si vous souhaitez utiliser %{service_name} sans Javascript, %{contact_us}."
       contact_us: "nous contacter"
       send_feedback: "Envoyer votre commentaire"
       your_feedback_to_admins: "Vos commentaires aux administrateurs"
@@ -1028,8 +1025,6 @@ fr:
       feedback_forum: "forum de discussion"
       feedback_handle: Commentaire
       give_feedback: "Nous contacter"
-      keywords: "%{service_name}, partage de ressources dans une place de marché, emprunter des objets, service, aide, objet, covoiturage, espace, logement, aide, aider, offre, demande, location, troc, échange, acheter, vendre, achat, vente, donner, don, écologique, place de marché, place de marché en ligne, local"
-      meta_description: "Sharetribe vous permet de créer facilement une place de marché en ligne et permet aux membres de votre communauté de vendre et louer des biens, des services et des lieux."
       or_check_our: "... ou consultez notre"
       send_feedback_to_admin: "Envoyer votre commentaire"
       to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré et votez pour vos fonctionnalités préférées."

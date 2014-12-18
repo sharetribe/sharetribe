@@ -746,8 +746,6 @@ pt-BR:
       newest_offers: "O que as pessoas oferecem atualmente aos outros"
       newest_requests: "O que as pessoas precisam atualmente"
       text_version_text: ~
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Obrigado pelo seu interesse no %{service_name}!"
     reset_password_instructions:
       change_my_password: "Alterar minha senha"
       reset_password_instructions: ~
@@ -829,7 +827,6 @@ pt-BR:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript está desabilitado no seu navegador"
       kassi_does_not_currently_work_without_javascript: "%{service_name} não funciona corretamente sem javascript. Tente habilitar o javascript nas configurações de seu navegador e recarregar a pagina novamente."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Infelizmente, %{service_name} não funciona sem Javascript. Ative Javascript no seu navegador e recarregue a página. Se você quiser utilizar %{service_name} sem Javascript, %{contact_us}."
       contact_us: Contato
       send_feedback: "Enviar feedback"
       your_feedback_to_admins: "Seu feedback para os administradores"
@@ -1013,8 +1010,6 @@ pt-BR:
       feedback_forum: "fórum de respostas"
       feedback_handle: Reposta
       give_feedback: Contato
-      keywords: "%{service_name}, Kassi, compartilhar recursos em uma comunidade, emprestar itens, serviços, favor, item rideshare, espaço, car pooling, habitação, alojamento, ajuda, oferta, solicitação, aluguel, troca, compra, venda, compra, venda, doação, dê, ecológico, comunidade, comunidade on-line, locais"
-      meta_description: "Sharetribe é um serviço que permite você criar facilmente um mercado online e permitir sua comunidade vender, emprestar, trocar e compartilhar coisas e serviços."
       or_check_our: "...ou verifique nosso"
       send_feedback_to_admin: "Enviar feedback"
       to_see_what_others_have_suggested: "para ver o que outros usuários sugeriram, e votar para novas idéias."

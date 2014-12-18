@@ -746,8 +746,6 @@ ca:
       newest_offers: "Que ofereix la gent?"
       newest_requests: "Que necessita la gent?"
       text_version_text: "Tens alguna cosa que la resta puguin necessitar? O necessites alguna cosa que altra gent pugui tenir? Afegeix una oferta o sol·licitud, o revisa tot allò que s'ofereix a %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Gràcies pel teu interès amb %{service_name}!"
     reset_password_instructions:
       change_my_password: ~
       reset_password_instructions: ~
@@ -831,7 +829,6 @@ ca:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript està inhabilitat al teu navegador"
       kassi_does_not_currently_work_without_javascript: "Malauradament %{service_name} no funciona sense javascript. Intenta activar javascript en els opcions del navegador i torna a carregar la pàgina. Si desitges utilitzar Kassi sense javascript, siusplau, envia'ns un suggeriment utilitzant el formulari que apareix a continuació."
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: ~
       send_feedback: "Enviar suggeriment"
       your_feedback_to_admins: "Enviar el suggeriment a l'administrador"
@@ -1015,8 +1012,6 @@ ca:
       feedback_forum: "Fòrum de suggeriments"
       feedback_handle: Suggeriment
       give_feedback: "Fes un suggeriment"
-      keywords: "Servei, favor, article, trajecte compartit, allotjament, ajuda, ajudant, oferta, sol·licitud, llogar, comerciar, intercanviar, comprant, venent, comprar, vendre, regalant, donar, Kassi, ecològic, comunitat, comunitat en línia"
-      meta_description: "Kassi és un servei que ajuda als membres d'associacions i altres comunitats a vendre i prestar-se articles entre ells, organitzar trajectes compartits o ajudar-los de diverses formes."
       or_check_our: "...o comprova el nostre"
       send_feedback_to_admin: "Enviar suggeriment"
       to_see_what_others_have_suggested: "per veure els suggeriments d'altres usuaris."

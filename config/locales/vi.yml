@@ -746,8 +746,6 @@ vi:
       newest_offers: "Hiện tại người nào hỗ trợ những người khác"
       newest_requests: "Hiện tại người nào cần"
       text_version_text: "Bạn có thể chia sẻ thứ gì đó người khác cần không? Hoặc bạn cần thứ gì đó mà người khác có không? Thêm một đề nghị hoặc một yêu cầu hoặc kiểm tra mọi thứ mà những người khác đang hỗ trợ hoặc yêu cầu tại %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Cảm ơn bạn đã quan tâm đến %{service_name}!"
     reset_password_instructions:
       change_my_password: "Đổi mật khẩu của tôi"
       reset_password_instructions: "<p>Bạn đã chỉ ra rằng bạn đã quên mật khẩu hoặc tên người dùng của bạn tại dịch vụ %{service_name}.</p><p>Tên người dùng của bạn là: %{username}</p><p>Nếu bạn cần phải đặt lại mật khẩu của bạn, nhấp vào liên kết sau đây: %{password_reset_link}</p><br><p>Nếu bạn không yêu cầu, xin vui lòng bỏ qua email này. Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo ra một mật khẩu mới.</p>"
@@ -829,7 +827,6 @@ vi:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript bị vô hiệu hóa trên trình duyệt của bạn"
       kassi_does_not_currently_work_without_javascript: "Thật không may %{service_name} hiện tại không làm việc nếu javascript không hoạt động. Hãy thử kích hoạt javascript từ tùy chọn của trình duyệt của bạn và sau đó tải lại trang này. Nếu bạn muốn sử dụng %{service_name} mà không cần javascript, vui lòng gửi cho chúng tôi thông tin phản hồi bằng cách sử dụng mẫu dưới đây."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Không may, %{service_name} không thực hiện nếu không có javascript. Thử kích hoạt javascript từ tùy chọn của trình duyệt và nạp lại trang này. Nếu bạn muốn sử dụng %{service_name} mà không cần javascript, vui lòng liên hệ với chúng tôi %{contact_us}."
       contact_us: "liên hệ với chúng tôi"
       send_feedback: "Gửi thông tin phản hồi"
       your_feedback_to_admins: "Thông tin phản hồi của bạn đến các quản trị viên"
@@ -1013,8 +1010,6 @@ vi:
       feedback_forum: "diễn đàn thông tin phản hồi"
       feedback_handle: "Thông tin phản hồi"
       give_feedback: "Cho ý kiến phản hồi đối với %{service_name}"
-      keywords: "%{service_name}, Kassi, chia sẻ tài nguyên trong một cộng đồng, mượn đồ vật, dịch vụ, thiện ý, tin tức, chia sẻ chuyến đi, không gian, thông tin xe hơi, nhà ở, chỗ ở, sự giúp đỡ, giúp đỡ, hỗ trợ, yêu cầu, thuê mướn, đổi, trao đổi, việc mua, việc bán, bán, mua, việc cho, cho, sinh thái, cộng đồng, cộng đồng trực tuyến, địa phương"
-      meta_description: "%{service_name} là một dịch vụ giúp đỡ các thành viên của các hiệp hội và các cộng đồng khác để bán và cho mượn các đồ vật với nhau, sắp xếp thông tin về xe hơi và giúp đỡ lẫn nhau trong nhiều cách khác."
       or_check_our: "...hoặc kiểm tra"
       send_feedback_to_admin: "Gửi ý kiến phản hồi"
       to_see_what_others_have_suggested: "để xem những gì người dùng khác đề nghị"
@@ -1526,7 +1521,6 @@ vi:
       email_is_in_use: "Email bạn cho đang được sử dụng."
       email_is_in_use_or_not_allowed: "Email này không được phép đối với cộng đồng này hoặc nó vừa được sử dụng. Vui lòng sử dụng một địa chỉ tương thích với cộng đồng này (xem hướng dẫn ở trên). Nếu bạn vẫn không thể vào được, gửi cho chúng tôi phản hồi bằng cách nhấp vào liên kết ở phía bên trái."
       email_not_allowed: "Email này không được phép trong cộng đồng này. Xin vui lòng sử dụng một địa chỉ đó là liên kết với cộng đồng này. Nếu bạn vẫn không thể nhận được trong, gửi cho chúng tôi thông tin phản hồi bằng cách nhấp vào liên kết ở bên trái."
-      email_restriction_instructions: ~
       enter_captcha: "Tôi là con người:"
       family_name: "Họ:"
       given_name: "Tên:"

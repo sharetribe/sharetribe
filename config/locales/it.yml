@@ -746,8 +746,6 @@ it:
       newest_offers: "Quello che le persone attualmente offrono agli altri"
       newest_requests: "Quello che le persone attualmente necessitano"
       text_version_text: "Potresti condividere qualcosa di cui gli altri potrebbero avere bisogno? Oppure hai bisogno di qualcosa che altri potrebbero avere? Aggiungi un'offerta o una richiesta o controllare tutto ciò che gli altri stanno offrendo o stanno richiedendo a %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Grazie per il tuo interesse in %{service_name}!"
     reset_password_instructions:
       change_my_password: "Cambia la mia password"
       reset_password_instructions: ~
@@ -829,7 +827,6 @@ it:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript è disabilitato nel tuo browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} non funziona bene senza javascript. Prova ad abilitare javascript nelle preferenze del tuo browser e dopo ricarica nuovamente la pagina."
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: contattaci
       send_feedback: "Invia feedback"
       your_feedback_to_admins: "I tuoi feedback agli amministratori"
@@ -1013,8 +1010,6 @@ it:
       feedback_forum: "forum dei feedback"
       feedback_handle: Feedback
       give_feedback: Contattaci
-      keywords: ~
-      meta_description: "Sharetribe è un servizio che ti consente di creare facilmente un marketplace on line per permettere alla tua comunità di vendere, noleggiare, scambiare e condividere beni e servizi."
       or_check_our: "...o controlla i nostri"
       send_feedback_to_admin: "Invia feedback"
       to_see_what_others_have_suggested: "vedere cosa gli altri utenti hanno suggerito, e votare le  idee."

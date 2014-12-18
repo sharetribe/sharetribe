@@ -751,8 +751,6 @@ es:
       newest_offers: "Lo que la gente actualmente ofrece a los demás"
       newest_requests: "Lo que las personas actualmente necesitan"
       text_version_text: "¿Tienes algo para compartir que los demás podrían necesitar? ¿O necesitas algo que los otros podrían tener? Añade una oferta o solicitud o revisa todo lo que otros están ofreciendo o están pidiendo en %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Gracias por tu interés en %{service_name}!"
     reset_password_instructions:
       change_my_password: "Cambiar mi contraseña"
       reset_password_instructions: "<p>Has indicado que has olvidado tu contraseña o tu nombre de usuario en el %{service_name} servicio.</p><p>Tu nombre de usuario es: %{username}</p><p>Si necesitas restablecer tu contraseña, haz click en el siguiente enlace: %{password_reset_link}</p><br/><p>Si no solicitaste esto, por favor ignora este e-mail. Tu contraseña no cambiará hasta que accedas al enlace de más arriba y crees una nueva.</p>"
@@ -836,7 +834,6 @@ es:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript está desactivado en tu buscador"
       kassi_does_not_currently_work_without_javascript: "Desafortunadamente en la actualidad %{service_name} no funciona sin javascript. Intenta activar javascript en las preferencias de tu buscador y vuelva a cargar la página. Si deseas utilizar %{service_name} sin javascript, por favor envíanos una sugerencia utilizando el formulario que aparece a continuación."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Lamentablemente por ahora %{service_name} no funciona sin javascript. Intenta habilitar javascript desde las preferencias de tu buscador y luego carga esta página nuevamente. Si quisieras usar %{service_name} sin javascript, por favor %{contact_us}."
       contact_us: contáctenos
       send_feedback: "Enviar feedback"
       your_feedback_to_admins: "Envía tu sugerencia al administrador"
@@ -1020,8 +1017,6 @@ es:
       feedback_forum: "Forum de sugerencias"
       feedback_handle: Feedback
       give_feedback: Contáctenos
-      keywords: "%{service_name}, Servicio, favor, artículo, trayecto compartido, autos prestados, hospedaje, alojamiento, ayuda, ayudando, oferta, solicitud, arrendar, comerciar, intercambiar, comprando, vendiendo, comprar, vender, regalando, dar, Kassi, ecológico, comunidad, comunidad online"
-      meta_description: "%{service_name} es un servicio que ayuda a los miembros de agrupaciones y otras comunidades a vender y prestarse artículos entre ellos, organizar trayectos de traslado compartidos o a cooperarse mutuamente de múltiples formas."
       or_check_our: "...o revisa nuestro"
       send_feedback_to_admin: "Enviar sugerencia"
       to_see_what_others_have_suggested: "Ver lo que otros usuarios han sugerido."

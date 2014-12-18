@@ -761,8 +761,6 @@ sv:
       newest_offers: "Vad folk har att erbjuda andra"
       newest_requests: "Vad folk behöver just nu"
       text_version_text: "Kan du dela med dig något som andra kanske behöver? Eller behöver du något som andra har? Lägg ett erbjudande eller förfrågan eller kolla vad de andra har att erbjuda %{url}."
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Tack för ditt intresse för %{service_name}!"
     reset_password_instructions:
       change_my_password: "Ändra mitt lösenord"
       reset_password_instructions: "<p>Du har angett att du antingen har glömt ditt lösenord eller användarnamn på %{service_name}.</p><p>Ditt användarnamn är: %{username}</p><p>Om du behöver återställa ditt lösenord, klicka här: %{password_reset_link}</p><br/><p>Om du inte begärde detta, vänligen ignorera detta e-postmeddelande. Ditt lösenord kommer ej att bytas om du inte klickar på länken ovan och väljer ett nytt.</p>"
@@ -846,7 +844,6 @@ sv:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript har avaktiverats i din webbläsare"
       kassi_does_not_currently_work_without_javascript: "Tyvärr %{service_name} fungerar inte utan Javascript. Försök att aktivera Javascript i din webbläsare och ladda om sidan."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Tyvärr %{service_name} fungerar inte utan Javascript. Försök att aktivera Javascript i din webbläsare och ladda om sidan. Om du vill använda %{service_name} utan Javascript, vänligen %{contact_us}."
       contact_us: "kontakta oss"
       send_feedback: "Skicka feedback"
       your_feedback_to_admins: "Din feedback till admin."
@@ -1030,8 +1027,6 @@ sv:
       feedback_forum: "forum för feedback"
       feedback_handle: Feedback
       give_feedback: "Kontakta oss"
-      keywords: "%{service_name}, Kassi, dela resurser på en marknadsplats, låna saker, tjänster, saker, samåkning, utrymmen, biltvätt, boende, logi, hjälp, erbjudande, förfrågan, hyra, byta ut, köpa, sälja, ge, ekologiskt, marknadsplats, online, marknad, lokal"
-      meta_description: "Sharetribe gör att du enkelt kan skapa en marknadsplats online och låta medlemmarna sälja, hyra ut tjänster, varor och utrymmen."
       or_check_our: "...eller kolla vår"
       send_feedback_to_admin: "Skicka feedback"
       to_see_what_others_have_suggested: "för att se vad andra användare har föreslagit, rösta på idéerna där."

@@ -756,8 +756,6 @@ tr-TR:
       newest_offers: "Kullanıcıların şu anda teklif ettikleri"
       newest_requests: "Kullanıcıların şu anda aradıkları"
       text_version_text: "Başkalarının isteyebileceği bir şeylere mi sahipsiniz? Ya da başkalarının sahip olabileceği bir şeylere mi ihtiyacınız var? Bir teklif ya da talep ekleyin veya diğer kullanıcıların teklif ve taleplerini görüntülemek için %{url} adresine gidin."
-    reply_to_contact_request:
-      thank_you_for_your_interest: "%{service_name} konusunda ilgine teşekkürler!"
     reset_password_instructions:
       change_my_password: "Parolamı değiştir"
       reset_password_instructions: "%{service_name} şifre ya da kullanıcı adınızı unuttuğunuzu belirttiniz. Kullanıcı adınız: %{username} Şifrenizi sıfırlamak istiyorsanız, linke tıklayın: %{password_reset_link} Eğer böyle bir şey talep etmediyseniz, bu e-postayı görmezden gelin. Aşağıdaki linke tıklayıp yeni bir şifre oluşturmadan, geçerli şifreniz değişmeyecektir."
@@ -839,7 +837,6 @@ tr-TR:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript tarayıcınızda engellenmiş"
       kassi_does_not_currently_work_without_javascript: "%{service_name} javascript olmadan olması gerektiği gibi çalışmaz. Tarayıcınızın seçenekler bölümünden javascript'in çalışmasına izin veriniz ve sonra bu sayfayı tekrar yükleyiniz."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Ne yazık ki %{service_name} javascript olmadan olması gerektiği gibi çalışmaz. Tarayıcınızın seçenekler bölümünden javascript'in çalışmasına izin veriniz ve sonra bu sayfayı tekrar yükleyiniz. %{service_name} hizmetini javascript olmadan kullanmak istiyorsanız, bize ulaşın %{contact_us}."
       contact_us: "bize ulaşın"
       send_feedback: "Geri bildirim gönder"
       your_feedback_to_admins: "Admin kullanıcılara geri bildiriminiz"
@@ -1023,8 +1020,6 @@ tr-TR:
       feedback_forum: "geribildirim forumu"
       feedback_handle: Geribildirim
       give_feedback: "Bize Ulaşın"
-      keywords: "%{service_name}, Kassi, kaynakları bir pazarda paylaşın, eşya ödünç al, hizmet, iyilik, eşya, paylaşımlı sürüş, alan, ortaklaşa otomotiv kullanımı, konut, konaklama, yardım, yardım etme, teklif, istek, kiralama, takas, el değiştirme, satın alma, satma, verme, vermek, ekolojik, pazar, o9nline pazar, yerel"
-      meta_description: "Sharetribe kolaylıkla çevrimiçi bir pazar oluşturmanıza yardım eder ve topluluğunuzun üyerlerinin mal, hizmet ve alan satma ve kiralamalarına olanak sağlar."
       or_check_our: "...ya da bizimkine göz atın."
       send_feedback_to_admin: "Geri bildirim gönder"
       to_see_what_others_have_suggested: "Başka kullanıcıların önerilerini görmek ve farklı fikirler üzerinde oylama yapmak için."

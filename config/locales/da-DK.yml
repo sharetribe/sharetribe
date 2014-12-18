@@ -761,8 +761,6 @@ da-DK:
       newest_offers: "Hvad folk i øjeblikket tilbyder andre"
       newest_requests: "Hvad folk i øjeblikket har brug"
       text_version_text: "Could you share something that others might need? Or do you need something that others might have? Add an offer or a request or check everything that the others are offering or requesting at %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Tak for din interesse i %{service_name}!"
     reset_password_instructions:
       change_my_password: "Skift min adgangskode"
       reset_password_instructions: "<p> Du har angivet, at du har glemt enten dit kodeord eller brugernavn i %{service_name} tjeneste </ p> <p> Dit brugernavn er:. %{username} </ p> <p> Hvis du har brug for at nulstille dit kodeord, klik på følgende link: %{password_reset_link} </ p> <br/> <p> Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail. Din adgangskode vil ikke ændre sig, før du får adgang til linket ovenfor og oprette en ny. </ P>"
@@ -844,7 +842,6 @@ da-DK:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript er deaktiveret i din browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} virker ikke korrekt uden javascript. Prøv at aktivere javascript fra din browsers indstillinger og derefter genindlæse denne side igen."
-      kassi_does_not_currently_work_without_javascript_dashboard: "%{service_name} virker ikke korrekt uden javascript. Prøv at aktivere javascript fra din browsers indstillinger og derefter genindlæs siden. Hvis du ønsker at bruge %{service_name} uden javascript, så %{contact_us}"
       contact_us: "kontakt os"
       send_feedback: Send
       your_feedback_to_admins: "Din feedback til administrator"
@@ -1028,8 +1025,6 @@ da-DK:
       feedback_forum: "fællesskabets diskussionsforum"
       feedback_handle: Feedback
       give_feedback: "Kontakt os"
-      keywords: "%{service_name}, Kassi, dele ressourcer på en markedsplads, låne elementer, service, favor, elementet rideshare, plads- samkørsel, boliger, indkvartering, hjælp, hjælper, tilbud, anmodning leje, swap, udveksling, køb, salg, købe, sælge , give, giver, økologiske, markedsplads, online markedsplads, lokal"
-      meta_description: "Sharetribe giver dig mulighed for nemt at oprette en markedsplads online, og lad medlemmerne af dit fællesskab sælge og leje varer, tjenester og rum."
       or_check_our: "...eller tjek vores"
       send_feedback_to_admin: Send
       to_see_what_others_have_suggested: "at se, hvad andre brugere har foreslået, og stemme for de idéer der."
@@ -1111,7 +1106,7 @@ da-DK:
       account_creation_successful: "Velkommen til %{service_name}, %{person_name}!"
       account_deleted: "Din konto er nu slettet."
       login_successful: "Velkommen, %{person_name}"
-      logout_successful: "Du er nu logget ud af %{service_name}. Se dig snart!"
+      logout_successful: "Du er nu logget ud af %{service_name}. På gensyn!"
       news_item_created: "Artikel oprettet"
       news_item_creation_failed: "Artikel skabelse mislykkedes"
       news_item_update_failed: "Artikel opdatering mislykkedes"
