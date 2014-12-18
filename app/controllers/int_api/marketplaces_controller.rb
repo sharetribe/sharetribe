@@ -4,27 +4,7 @@ class IntApi::MarketplacesController < ApplicationController
 
   before_filter :set_access_control_headers
 
-  class EmailAvailableValidator < ActiveModel::Validator
-    def validate(form)
-      options[:fields].each do |f|
-        email_address = form.send(f)
-        form.errors.add(f, "Email address #{email_address} is not available.") unless Email.email_available?(email_address)
-      end
-    end
-  end
-
-  NewAdminForm = FormUtils.define_form("NewAdminForm",
-    :admin_email, :admin_first_name, :admin_last_name, :admin_password
-  ).with_validations do
-    validates_presence_of :admin_email, :admin_first_name, :admin_last_name, :admin_password
-    validates_format_of   :admin_email, with: /\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]+\z/i
-    validates_with        EmailAvailableValidator, fields: [:admin_email]
-    validates_length_of   :admin_password, minimum: 8
-    validates_length_of   :admin_first_name, in: 1..255
-    validates_length_of   :admin_last_name, in: 1..255
-  end
-
-  NewMarketplaceForm = FormUtils.merge("NewMarketplaceForm", Form::NewMarketplace, NewAdminForm)
+  NewMarketplaceForm = Form::NewMarketplace
 
   # Creates a marketplace and an admin user for that marketplace
   def create

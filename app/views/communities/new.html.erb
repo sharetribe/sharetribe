@@ -2,17 +2,38 @@
 <p>The platform does not have any marketplaces.<br />Fill the form to create a new one.</p>
 
 <% if errors.present? %>
-<p class="new-marketplace-errors"><%= errors %></p>
+<p class="new-marketplace-errors"><%= errors.join('<br />').html_safe %></p>
 <% end %>
 
 <form action="<%= form_action %>" method="POST">
+
+  <div class="new-marketplace-form-row">
+    <label class="new-marketplace-label">Admin email</label>
+    <input class="new-marketplace-input" name="admin_email"/>
+  </div>
+
+  <div class="new-marketplace-form-row">
+    <label class="new-marketplace-label">Admin password</label>
+    <input class="new-marketplace-input" name="admin_password" type="password"/>
+  </div>
+
+  <div class="new-marketplace-form-row">
+    <label class="new-marketplace-label">Admin first name</label>
+    <input class="new-marketplace-input" name="admin_first_name"/>
+  </div>
+
+  <div class="new-marketplace-form-row">
+    <label class="new-marketplace-label">Admin last name</label>
+    <input class="new-marketplace-input" name="admin_last_name"/>
+  </div>
+
   <div class="new-marketplace-form-row">
     <label class="new-marketplace-label">Marketplace name</label>
     <input class="new-marketplace-input" name="marketplace_name"/>
   </div>
 
   <div class="new-marketplace-form-row">
-    <label class="new-marketplace-label">Type</label>
+    <label class="new-marketplace-label">Marketplace type</label>
     <select class="new-marketplace-select" name="marketplace_type">
       <option value="product">Product marketplace</option>
       <option value="rental">Rental marketplace</option>
@@ -21,7 +42,7 @@
   </div>
 
   <div class="new-marketplace-form-row">
-    <label class="new-marketplace-label">Country</label>
+    <label class="new-marketplace-label">Marketplace country</label>
     <select class="new-marketplace-select" name="marketplace_country">
       <option value="AC">Ascension Island</option>
       <option value="AD">Andorra</option>
@@ -295,7 +316,7 @@
   </div>
 
   <div class="new-marketplace-form-row">
-    <label class="new-marketplace-label">Language</label>
+    <label class="new-marketplace-label">Marketplace language</label>
     <select class="new-marketplace-select" name="marketplace_language">
       <option value="en">English</option>
       <option value="fr">French</option>
