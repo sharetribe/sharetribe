@@ -270,6 +270,14 @@ ActiveRecord::Schema.define(:version => 20141222130455) do
   add_index "community_memberships", ["community_id"], :name => "index_community_memberships_on_community_id"
   add_index "community_memberships", ["person_id", "community_id"], :name => "memberships"
 
+  create_table "community_plans", :force => true do |t|
+    t.string   "community_id",                :null => false
+    t.integer  "plan_level",   :default => 0, :null => false
+    t.datetime "expires_at"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
   create_table "contact_requests", :force => true do |t|
     t.string   "email"
     t.datetime "created_at"
