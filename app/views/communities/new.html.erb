@@ -1,5 +1,4 @@
-<h2>Create a new marketplace</h2>
-<p>The platform does not have any marketplaces.<br />Fill the form to create a new one.</p>
+<h2>Set up your marketplace</h2>
 
 <% if errors.present? %>
 <p class="new-marketplace-errors"><%= errors.join('<br />').html_safe %></p>
@@ -8,22 +7,22 @@
 <form action="<%= form_action %>" method="POST">
 
   <div class="new-marketplace-form-row">
-    <label class="new-marketplace-label">Admin email</label>
+    <label class="new-marketplace-label">Admin user email</label>
     <input class="new-marketplace-input" name="admin_email"/>
   </div>
 
   <div class="new-marketplace-form-row">
-    <label class="new-marketplace-label">Admin password</label>
+    <label class="new-marketplace-label">Admin user password</label>
     <input class="new-marketplace-input" name="admin_password" type="password"/>
   </div>
 
   <div class="new-marketplace-form-row">
-    <label class="new-marketplace-label">Admin first name</label>
+    <label class="new-marketplace-label">Admin user first name</label>
     <input class="new-marketplace-input" name="admin_first_name"/>
   </div>
 
   <div class="new-marketplace-form-row">
-    <label class="new-marketplace-label">Admin last name</label>
+    <label class="new-marketplace-label">Admin user last name</label>
     <input class="new-marketplace-input" name="admin_last_name"/>
   </div>
 
@@ -331,6 +330,6 @@
   </div>
 
   <div class="new-marketplace-form-row">
-    <input class="new-marketplace-submit" type="submit" value="Create!">
+    <input class="new-marketplace-submit" type="submit" value="Save changes">
   </div>
 </form>
