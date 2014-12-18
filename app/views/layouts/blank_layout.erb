@@ -15,16 +15,21 @@
       color: #333;
     }
 
+    html {
+      box-sizing: border-box;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
     h2 {
-      padding: 0px 20px 10px;
+      padding-bottom: 10px;
       font-size: 26px;
     }
 
     p {
-      padding: 0px;
       font-size: 18px;
       line-height: 28px;
-      padding-bottom: 10px;
     }
 
     .box {
@@ -32,8 +37,8 @@
       width: 90%;
       background-color: #ffffff;
       border-radius: 5px;
-      margin: 10% auto 0;
-      padding: 50px 0px;
+      margin: 10% auto;
+      padding: 50px 5%;
     }
 
     .new-marketplace-form-row {
@@ -47,13 +52,13 @@
     }
 
     .new-marketplace-input {
-      width: 40%;
+      width: 60%;
       height: 20px;
       font-size: 14px;
     }
 
     .new-marketplace-select {
-      width: 40%;
+      width: 60%;
       font-size: 14px;
       height: 20px;
     }
@@ -63,7 +68,6 @@
     }
 
     .new-marketplace-errors {
-      width: 60%;
       margin: auto;
       color: red;
     }
