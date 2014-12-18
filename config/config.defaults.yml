@@ -238,6 +238,9 @@ development:
   # Usually it's easier to run development without SSL
   always_use_ssl: false
 
+  # Skip email confirmation
+  skip_email_confirmation: true
+
 test:
   <<: *default_settings
   # The locale should be "en" for test environment
