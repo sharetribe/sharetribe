@@ -2,6 +2,8 @@ class CommunitiesController < ApplicationController
   skip_filter :fetch_community,
               :cannot_access_without_joining
 
+  before_filter :ensure_no_communities
+
   layout 'blank_layout'
 
   NewMarketplaceForm = Form::NewMarketplace
@@ -29,5 +31,13 @@ class CommunitiesController < ApplicationController
              form_action: communities_path,
              errors: error_msg
            }
+  end
+
+  def ensure_no_communities
+    redirect_to root if communities_exist?
+  end
+
+  def communities_exist?
+    Community.count > 0
   end
 end
