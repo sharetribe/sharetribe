@@ -79,11 +79,11 @@ docker info                              # this should run ok now
 
   `fig up`
 
-1. Set lvh.me to point to docker IP
+1. Set docker.lvh.me to point to docker IP
 
-  Modify your `/etc/hosts` file. If you're in Linux, point 127.0.0.1 to docker.lvh.me. If you are on OSX (or Windows), point 192.168.33.10 to lvh.me
+  Modify your `/etc/hosts` file. If you're in Linux, point 127.0.0.1 to docker.lvh.me. If you are on OSX (or Windows), point 192.168.33.10 to docker.lvh.me
 
-1. All done! Open your browser and URL http://lvh.me:3000
+1. All done! Open your browser and URL http://docker.lvh.me:3000 and create a new marketplace with name `docker`
 
 ### Advanced settings
 
