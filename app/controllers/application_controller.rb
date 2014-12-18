@@ -119,7 +119,13 @@ class ApplicationController < ActionController::Base
     else
       # No community found with the strategy, so redirecting to redirect url, or error page.
       redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else {
-        :community_not_found
+        no_communities = Community.count == 0
+
+        if no_communities
+          new_community_path
+        else
+          :community_not_found
+        end
       }
     end
   end

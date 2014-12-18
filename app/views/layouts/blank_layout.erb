@@ -15,16 +15,21 @@
       color: #333;
     }
 
+    html {
+      box-sizing: border-box;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
     h2 {
-      padding: 60px 20px 10px;
+      padding-bottom: 10px;
       font-size: 26px;
     }
 
     p {
-      padding: 0 50px;
       font-size: 18px;
       line-height: 28px;
-      padding-bottom: 60px;
     }
 
     .box {
@@ -32,9 +37,40 @@
       width: 90%;
       background-color: #ffffff;
       border-radius: 5px;
-      margin: 10% auto 0;
+      margin: 10% auto;
+      padding: 50px 5%;
     }
 
+    .new-marketplace-form-row {
+      margin-bottom: 20px;
+    }
+
+    .new-marketplace-label {
+      margin-bottom: 5px;
+      display: block;
+      font-size: 18px;
+    }
+
+    .new-marketplace-input {
+      width: 60%;
+      height: 20px;
+      font-size: 14px;
+    }
+
+    .new-marketplace-select {
+      width: 60%;
+      font-size: 14px;
+      height: 20px;
+    }
+
+    .new-marketplace-submit {
+      font-size: 18px;
+    }
+
+    .new-marketplace-errors {
+      margin: auto;
+      color: red;
+    }
 
   </style>
 

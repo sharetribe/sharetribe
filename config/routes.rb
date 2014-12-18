@@ -55,6 +55,8 @@ Kassi::Application.routes.draw do
   match '/404' => 'errors#not_found', :as => :error_not_found
   match '/community_not_found' => 'errors#community_not_found', as: :community_not_found
 
+  resources :communities, only: [:new, :create]
+
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do
 
