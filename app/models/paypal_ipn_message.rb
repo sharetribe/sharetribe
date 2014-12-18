@@ -11,4 +11,6 @@
 
 class PaypalIpnMessage < ActiveRecord::Base
   validates_presence_of :body
+
+  serialize :body, Hash
 end

@@ -21,5 +21,13 @@ module PaypalService
         raise NoMethodError
       end
     end
+
+    def store_and_create_handler(params)
+      # PayPal api sends us ipn messages with charset dependent on sellers settings that we cannot control
+      converted = HashUtils.map_values(params) { |val| val.force_encoding(params[:charset]).encode("utf-8", invalid: :replace, replace: "") }
+
+      msg = PaypalIpnMessage.create(body: converted)
+      Delayed::Job.enqueue(HandlePaypalIpnMessageJob.new(msg.id))
+    end
   end
 end
