@@ -75,9 +75,9 @@ Run:
 
 ```bash
 vagrant up
-export DOCKER_HOST=tcp://192.168.33.10   # Set Docker CLI to connect to Vagrant box. This IP is set in Vagrantfile
-export DOCKER_TLS_VERIFY=                # disable TLS
-docker info                              # this should run ok now
+export DOCKER_HOST=tcp://192.168.33.10:2375   # Set Docker CLI to connect to Vagrant box. This IP is set in Vagrantfile
+export DOCKER_TLS_VERIFY=                     # disable TLS
+docker info                                   # this should run ok now
 ```
 
 1. Modify `config/database.yml`. The easiest way is to use `database.docker.yml`
