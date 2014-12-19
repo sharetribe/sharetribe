@@ -24,15 +24,6 @@
 
     %h3=t(".signup_with_email")
 
-  -# Experimental feature for importing profiledata via RDF
-  - if @current_community.uses_rdf_profile_import?
-    = form_tag("/people/fetch_rdf_profile", :method => "get") do
-      %p
-        You can prefill your account information easily if you have an existing profile somewhere online and you can get an URL to the RDF version of your info.
-      = label_tag(:rdf_profile_url, t("Your RDF profile URL:"))
-      = text_field_tag(:rdf_profile_url, params[:rdf_profile_url],:placeholder => "e.g. https://my-profile.eu/people/gnomet/card#me")
-      = button_tag("Prefill the from")
-
   = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form|
 
     -# Invite code
