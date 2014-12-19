@@ -102,11 +102,6 @@ Kassi::Application.routes.draw do
       match 'api_version' => "api#version_check"
     end
 
-    namespace :superadmin do
-      resources :communities do
-      end
-    end
-
     namespace :paypal_service do
       resources :checkout_orders do
         collection do
