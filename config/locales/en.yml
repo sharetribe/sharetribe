@@ -832,6 +832,11 @@ en:
       page_can_not_be_found: "Page can not be found!"
       page_you_requested_can_not_be_found: "The page you requested can not be found. Are you sure you spelled the address correctly?"
     error_404_title: "page not found"
+    error_410:
+      page_removed: "Page removed"
+      page_you_requested_has_been_removed: "The page you requested has been removed."
+      page_removed_reason: "There are a few possible reasons for this. For example, user might have removed his or her account or a listing might have been removed."
+    error_410_title: "page removed"
     error_500:
       temporary_unavailable: "Marketplace temporarily unavailable"
       unable_to_process: "The service is unable to process your request right now. Please try again in few moments."

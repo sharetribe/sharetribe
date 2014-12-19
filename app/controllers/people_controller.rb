@@ -10,6 +10,7 @@ class PeopleController < Devise::RegistrationsController
   end
 
   before_filter :person_belongs_to_current_community, :only => [:show]
+  before_filter :person_is_not_deleted, only: [:show]
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
 
   skip_filter :check_email_confirmation, :only => [ :update]
@@ -365,6 +366,10 @@ class PeopleController < Devise::RegistrationsController
         render :layout => false
       }
     end
+  end
+
+  def person_is_not_deleted
+    redirect_to :error_gone if @person.deleted?
   end
 
 end
