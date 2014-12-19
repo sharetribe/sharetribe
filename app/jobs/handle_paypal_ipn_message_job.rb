@@ -15,7 +15,7 @@ class HandlePaypalIpnMessageJob < Struct.new(:msg_id)
       ipn_msg = IPNDataTypes.from_params(raw_msg.body)
 
       if(ipn_msg[:type] == :unknown)
-        logger.warn("Unknown IPN message type: #{params}")
+        logger.warn("Unknown IPN message type: #{raw_msg.body}")
         raw_msg.update_attribute(:status, :unknown)
       else
         ipn_service.handle_msg(ipn_msg)
