@@ -1,10 +1,6 @@
-require 'rdf'
-require 'rdf/ntriples'
-
 class PeopleController < Devise::RegistrationsController
 
   include PeopleHelper
-  include RDF
 
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   skip_before_filter :require_no_authentication, :only => [:new]
@@ -297,20 +293,6 @@ class PeopleController < Devise::RegistrationsController
     change_active_status("deactivated")
   end
 
-  def fetch_rdf_profile
-    graph = RDF::Graph.load(params[:rdf_profile_url])
-
-    fetched_data = {}
-    name = query_graph(graph, "name")
-    given_name = query_graph(graph, "givenName")
-    fetched_data["given_name"] = given_name || name
-    fetched_data["family_name"] = query_graph(graph, "familyName")
-    fetched_data["username"] = query_graph(graph, "nick") || given_name
-    fetched_data["email"] = query_graph(graph, "mbox").to_s.sub("mailto:","")
-
-    redirect_to new_person_path :person => fetched_data, :rdf_profile_url => params[:rdf_profile_url]
-  end
-
   private
 
   # Create a new person by params and current community
@@ -353,19 +335,6 @@ class PeopleController < Devise::RegistrationsController
 
     respond_to do |format|
       format.json { render :json => available }
-    end
-  end
-
-  def query_graph(graph, field)
-    solutions = RDF::Query.execute(graph) do
-      pattern [:person, RDF.type, FOAF.Person]
-      pattern [:person, FOAF.send(field), :result]
-    end
-
-    if solutions.present?
-      return solutions.first.result
-    else
-      return nil
     end
   end
 

@@ -519,10 +519,6 @@ class Community < ActiveRecord::Base
     return false
   end
 
-  def uses_rdf_profile_import?
-    settings["use_rdf_profile_import"] == true
-  end
-
   # Returns an array that contains the hierarchy of categories and transaction types
   #
   # An xample of a returned tree:

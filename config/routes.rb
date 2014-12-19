@@ -273,7 +273,6 @@ Kassi::Application.routes.draw do
           get :not_member
           get :cancel
           get :create_facebook_based
-          get :fetch_rdf_profile
         end
       end
 

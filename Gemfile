@@ -82,9 +82,6 @@ gem 'paypal-sdk-permissions',
 gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~>4.1.0'
 
-#ouisharelabs
-gem 'rdf-turtle'
-
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
 end
