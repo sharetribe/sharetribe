@@ -1493,7 +1493,8 @@ en:
       could_not_fetch_redirect_url: "Could not fetch redirect url to connect with PayPal."
       paypal_not_enabled: "PayPal payments are not enabled."
       billing_agreement_canceled: "Billing agreement was canceled"
-      billing_agreement_id_missing: "There was technical difficulties with PayPal integration"
+      billing_agreement_not_accepted: "You didn't accept the billing agreement at PayPal."
+      billing_agreement_wrong_account: "PayPal accounts did not match. Please use the same PayPal account that you connected in the first step."
       something_went_wrong: "Something went wrong. Please try again. If the problem persists, please contact the site administrators."
       account_not_verified: "You haven't verified your PayPal account. You need to go to paypal.com and verify your account before you can continue."
   paypal:

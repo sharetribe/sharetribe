@@ -111,10 +111,10 @@ class PaypalAccountsController < ApplicationController
     express_checkout_details_res = paypal_merchant.do_request(express_checkout_details_req)
 
     paypal_account =  PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
-    if !express_checkout_details_res[:billing_agreement_accepted] ||
-      express_checkout_details_res[:payer_id] != paypal_account[:payer_id]
-
+    if !express_checkout_details_res[:billing_agreement_accepted]
       return flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_not_accepted"))
+    elsif express_checkout_details_res[:payer_id] != paypal_account[:payer_id]
+      return flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_wrong_account"))
     end
 
     success = PaypalAccountCommand.confirm_billing_agreement(@current_user.id, @current_community.id, params[:token], billing_agreement_id)
