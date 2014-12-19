@@ -1493,7 +1493,8 @@ fi:
       could_not_fetch_redirect_url: "Uudelleenohjaus PayPal-tiliin ei onnistunut."
       paypal_not_enabled: "PayPal maksut eivät ole käytössä."
       billing_agreement_canceled: "Laskutussopimus jäi kesken."
-      billing_agreement_id_missing: "PayPal asetuksissa ilmeni teknisiä ongelmia."
+      billing_agreement_not_accepted: "Et hyväksynyt laskutussopimusta PayPal-sivustolla."
+      billing_agreement_wrong_account: "PayPal käyttäjätilit eivät täsmää. Käytä samaa käyttäjitiliä, jonka yhdistit ensimmäisessä vaiheessa."
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
       account_not_verified: "Et ole vahvistanut PayPal-tiliäsi. Sinun on vahvistettava tilisi ennen kuin voit jatkaa."
   paypal:
