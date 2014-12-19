@@ -484,6 +484,7 @@ ActiveRecord::Schema.define(:version => 20141222130455) do
     t.integer  "price_cents"
     t.string   "currency"
     t.string   "quantity"
+    t.boolean  "deleted",             :default => false
   end
 
   add_index "listings", ["listing_type_old"], :name => "index_listings_on_listing_type"
