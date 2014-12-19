@@ -86,6 +86,29 @@ module MarketplaceService
       end
     end
 
+    module Command
+      module_function
+
+      #
+      # DELETE /listings/:author_id
+      def delete_listings(author_id)
+        listings = ListingModel.where(author_id: author_id)
+        listings.update_all(
+          # Delete listing info
+          description: nil,
+          origin: nil,
+          open: false,
+
+          deleted: true
+        )
+
+        ids = listings.pluck(:id)
+        ListingImage.where(listing_id: ids).destroy_all
+
+        Result::Success.new
+      end
+    end
+
     module Query
 
       module_function
