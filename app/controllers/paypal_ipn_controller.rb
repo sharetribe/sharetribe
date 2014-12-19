@@ -13,18 +13,12 @@ class PaypalIpnController < ApplicationController
     api = paypal_merchant.build_api(nil)
 
     if api.ipn_valid?(request.raw_post)  # return true if PP backend verifies the msg
-      msg = IPNDataTypes.from_params(params)
-
-      if (msg[:type] == :unknown)
-        logger.warn("Unknown IPN message type: #{params}")
-      else
-        ipn_service.handle_msg(msg)
-      end
+      ipn_service.store_and_create_handler(params)
     else
       logger.warn("Fake IPN message received: #{request.raw_post}")
     end
 
-    # Send back 200 OK with empty body
+    # We received the message ok, so send back 200 OK with empty body
     render nothing: true
   end
 end
