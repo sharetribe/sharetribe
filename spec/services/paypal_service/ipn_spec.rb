@@ -167,4 +167,72 @@ describe PaypalService::IPN do
       expect(payment.payment_status).to eql "denied"
     end
   end
+
+  context "async handling" do
+    before(:each) do
+      @auth_created_params = {
+        "mc_gross"=>"1.20",
+        "auth_exp"=>"23:50:00 Oct 03, 2014 PDT",
+        "protection_eligibility"=>"Ineligible",
+        "payer_id"=>"7LFUVCDKGARH",
+        "tax"=>"0.00",
+        "payment_date"=>"23:04:07 Sep 30, 2014 PDT",
+        "payment_status"=>"Pending",
+        "charset"=>"windows-1252",
+        "first_name"=>"ljkh",
+        "transaction_entity"=>"auth",
+        "notify_version"=>"3.8",
+        "custom"=>"",
+        "payer_status"=>"unverified",
+        "quantity"=>"1",
+        "verify_sign"=>"A2S1fniRGsoquzRDbs4f5rc383f8A9BZtlhOnNThbBpkIOUsU.U6RJlP",
+        "payer_email"=>"foobar@barfoo.com",
+        "parent_txn_id"=>"O-2ES620817J8424036",
+        "txn_id"=>"0L584749FU2628910",
+        "payment_type"=>"instant",
+        "remaining_settle"=>"10",
+        "auth_id"=>"0L584749FU2628910",
+        "last_name"=>"kjh",
+        "receiver_email"=>"dev+paypal-user1@sharetribe.com",
+        "auth_amount"=>"1.20",
+        "receiver_id"=>"URAPMR7WHFAWY",
+        "pending_reason"=>"authorization",
+        "txn_type"=>"express_checkout",
+        "item_name"=>"desc",
+        "mc_currency"=>"GBP",
+        "item_number"=>"",
+        "residence_country"=>"GB",
+        "test_ipn"=>"1",
+        "receipt_id"=>"3609-0935-6989-4532",
+        "handling_amount"=>"0.00",
+        "transaction_subject"=>"",
+        "payment_gross"=>"",
+        "auth_status"=>"Pending",
+        "shipping"=>"0.00",
+        "ipn_track_id"=>"35b2bed5966"
+      }.with_indifferent_access
+
+      SyncDelayedJobObserver.reset!
+    end
+
+    after(:each) do
+      SyncDelayedJobObserver.reset!
+    end
+
+    it "should store and handle ipn messages asynchronously" do
+      SyncDelayedJobObserver.collect!
+
+      @ipn_service.store_and_create_handler(@auth_created_params)
+
+      expect(PaypalIpnMessage.count).to eql 1
+      expect(PaypalIpnMessage.first.status).to eql nil
+
+      SyncDelayedJobObserver.process_queue!
+
+      expect(SyncDelayedJobObserver.total_processed).to eql 1
+
+      expect(PaypalIpnMessage.first.status).to eql :success
+    end
+
+  end
 end
