@@ -1495,7 +1495,8 @@ sv:
       could_not_fetch_redirect_url: "Det gick inte att hämta omdirigerings-URL för att ansluta till PayPal."
       paypal_not_enabled: "PayPal betalningar är inte aktiverad."
       billing_agreement_canceled: "Betalningen avbröts"
-      billing_agreement_id_missing: "Det uppstod ett tekniskt fel med PayPal integrationen"
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
       account_not_verified: "Du har inte verifierat ditt PayPal-konto. Du behöver gå till www.paypal.com och verifiera ditt konto innan du kan gå vidare."
   paypal:

@@ -1493,7 +1493,8 @@ da-DK:
       could_not_fetch_redirect_url: "Vi kunne ikke tilknytte din PayPal konto."
       paypal_not_enabled: "PayPal betalinger er ikke godkendt."
       billing_agreement_canceled: "Betalingsaftale er annulleret"
-      billing_agreement_id_missing: "Der skete en teknisk fejl ved tilknytningen af din PayPal konto"
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: "Noget gik galt. Prøv venligst igen. Hvis problemer fortsætter, så kontakt os gerne."
       account_not_verified: "Du har ikke godkendt din PayPal konto. Du skal gå til paypal.com og godkende din konto før du kan fortsætte."
   paypal:

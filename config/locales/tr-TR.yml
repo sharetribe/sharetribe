@@ -1488,7 +1488,8 @@ tr-TR:
       could_not_fetch_redirect_url: "PayPal ile bağlanmak için yönlendirme bağlantısı alınamadı."
       paypal_not_enabled: "PayPal ödemelerine izin verilmedi."
       billing_agreement_canceled: "Faturalandırma sözleşmesi iptal edildi"
-      billing_agreement_id_missing: "PayPal entegrasyonunda teknik sorunlar yaşandı"
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: "Bir şeyler ters gitti. Lütfen tekrar deneyin. Eğer sorun devam ederse, lütfen site yöneticilerine ulaşın."
       account_not_verified: "PayPal hesabınızı doğrulamadınız. Devam etmeden önce paypal.com adresini ziyaret edip hesabınızı doğrulamanız gerekmektedir."
   paypal:
