@@ -19,7 +19,7 @@ es-ES:
       timeout: "Tu sesión ha expirado, por favor accede de nuevo para continuar."
       inactive: "Tu cuenta no ha sido activada."
     passwords:
-      updated_not_active: "Tu contraseña ha sido modificada con éxito."
+      updated_not_active: ~
       send_paranoid_instructions: "Si tu email ya existe en nuestra base de datos, recibirás un enlace para recuperar tu contraseña en tu correo"
       send_instructions: "Recibirás un email con instrucciones para cambiar tu contraseña en poco minutos."
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
@@ -31,14 +31,14 @@ es-ES:
       send_instructions: "Recibirás un email con instrucciones para confirmar tu cuenta en poco minutos."
       confirmed: "Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta."
     registrations:
-      signed_up_but_unconfirmed: "Hemos enviado un mensaje de confirmación a tu correo electrónico. Por favor, ábrelo y haz clic en el enlace para activar tu cuenta."
-      signed_up_but_inactive: "Te has registrado correctamente, pero debes activar tu cuenta primero para poder acceder a ella."
-      signed_up_but_locked: "Te has registrado correctamente, pero no has podido entrar porque tu cuenta está bloqueada."
+      signed_up_but_unconfirmed: ~
+      signed_up_but_inactive: ~
+      signed_up_but_locked: ~
       reasons:
-        inactive: desactivada
-        unconfirmed: "sin confirmar"
-        locked: bloqueada
-      update_needs_confirmation: "Has actualizado tu cuenta correctamente pero necesitas verificar tu email. Por favor, abre el mensaje que te hemos enviado y haz clic en el enlace que verás en él para confirmar tu dirección de email."
+        inactive: ~
+        unconfirmed: ~
+        locked: ~
+      update_needs_confirmation: ~
       signed_up: "¡Bienvenido! Te has registrado correctamente."
       updated: "Has actualizado tu cuenta correctamente."
       destroyed: "!Adiós! Tu cuenta ha sido cancelada. Esperamos verte pronto."
@@ -48,7 +48,7 @@ es-ES:
       unlocked: "Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta."
     omniauth_callbacks:
       success: ~
-      failure: "No hemos podido autorizar tu petición %{kind} porque tu cuenta está  \"%{reason}\"."
+      failure: ~
     mailer:
       confirmation_instructions:
         subject: "Instrucciones de confirmación"

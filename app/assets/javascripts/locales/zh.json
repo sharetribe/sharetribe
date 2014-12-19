@@ -18,11 +18,11 @@
     "remote": "请修正此处。",
     "required": "此项必填。",
     "url": "请输入有效的URL。",
-    "address_validator": "The location was not found.",
-    "money": "You need to insert a valid monetary value.",
-    "min_bound": "Please enter a value less than max value ({0})",
-    "max_bound": "Please enter a value more than min value ({0})",
-    "number_no_decimals": "Please enter a whole number",
+    "address_validator": "没找到您输入的地址。",
+    "money": "您需要输入有效的金额。",
+    "min_bound": "请输入小于{0}的数值",
+    "max_bound": "请输入大于{0}的数值",
+    "number_no_decimals": "请输入数字",
     "number_decimals": "Please enter a valid number with either dot (.) or comma (,) as a decimal separator"
   }
 }
