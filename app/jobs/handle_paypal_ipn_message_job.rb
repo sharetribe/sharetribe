@@ -8,6 +8,7 @@ class HandlePaypalIpnMessageJob < Struct.new(:msg_id)
   IPNDataTypes = PaypalService::DataTypes::IPN
 
   def perform
+    logger = PaypalService::Logger.new
     raw_msg = PaypalIpnMessage.find(msg_id)
 
     begin
