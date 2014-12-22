@@ -49,5 +49,20 @@ web:
     - db:mysql
     - dbtest:mysqltest
     - search:search
+    - worker:worker
+  environment:
+    SPHINX_HOST: search
+
+zeus:
+  build: .
+  command: '/bin/bash -l -c "zeus start"'
+  volumes:
+     - .:/opt/sharetribe
+  ports:
+    - "3000:3000"
+  links:
+    - db:mysql
+    - dbtest:mysqltest
+    - search:search
   environment:
     SPHINX_HOST: search
