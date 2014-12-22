@@ -54,9 +54,16 @@ See also:
 
 ### Experimental: Docker container installation
 
+#### Prerequisite
+
 Prerequisite: You have to have _docker_ and _fig_ installed. If you are on a non-linux OS, you need to have _vagrant_. If you can successfully run `docker info`, then you should be ok to go.
 
-#### OSX Vagrant setup
+```bash
+brew cask install virtualbox
+brew cask install vagrant
+brew install docker
+brew install fig
+```
 
 Run:
 
@@ -66,6 +73,8 @@ export DOCKER_HOST=tcp://192.168.33.10:2375   # Set Docker CLI to connect to Vag
 export DOCKER_TLS_VERIFY=                     # disable TLS
 docker info                                   # this should run ok now
 ```
+
+#### Sharetribe installation
 
 1. Modify `config/database.yml`. The easiest way is to use `database.docker.yml`
 
@@ -84,6 +93,56 @@ docker info                                   # this should run ok now
   Modify your `/etc/hosts` file. If you're in Linux, point 127.0.0.1 to docker.lvh.me. If you are on OSX (or Windows), point 192.168.33.10 to docker.lvh.me
 
 1. All done! Open your browser and URL http://docker.lvh.me:3000 and create a new marketplace with name `docker`
+
+#### Development tips and tricks
+
+If your planning to use Docker for development, here are some tips and tricks to make development workflow smoother.
+
+1. Add `figrun` function to your zsh/bash config.
+
+  Here is an example for ZSH:
+
+  ```zsh
+  figrun() {
+    PARAMS="$*"
+    CMD="bundle exec ${PARAMS}"
+    fig run web /bin/bash -l -c "$CMD"
+  }
+  ```
+
+  With this function, you can run commands on the web container like this:
+
+  ```
+  figrun rake routes
+  ```
+
+1. Use Zeus
+
+  First, add `figzeus` helper function to your zsh/bash config.
+
+  Here is an example for ZSH:
+
+  ```zsh
+  figzeus() {
+    PARAMS="$*"
+    CMD="zeus ${PARAMS}"
+    fig run web /bin/bash -l -c "$CMD"
+  }
+  ```
+
+  To use Zeus, do not start server by saying `fig up`! Do this instead:
+
+  Start Zeus server in one terminal tab:
+
+  ```zsh
+  figzeus start
+  ```
+
+  In another tab, start rails server:
+
+  ```zsh
+  figzeus s
+  ```
 
 ### Advanced settings
 
