@@ -8,6 +8,16 @@ db:
     MYSQL_DATABASE: sharetribe_development
     MYSQL_ROOT_PASSWORD: secret
 
+dbtest:
+  image: mysql
+  ports:
+    - "3307:3306"
+  environment:
+    MYSQL_USER: sharetribe
+    MYSQL_PASSWORD: secret
+    MYSQL_DATABASE: sharetribe_test
+    MYSQL_ROOT_PASSWORD: secret
+
 worker:
   build: .
   command: '/bin/bash -l -c "bundle exec rake jobs:work"'
@@ -15,8 +25,6 @@ worker:
     - db:mysql
   volumes:
     - .:/opt/sharetribe
-  environment:
-    RAILS_ENV: development
 
 search:
   build: .
@@ -28,7 +36,6 @@ search:
   ports:
     - "3563:3563"
   environment:
-    RAILS_ENV: development
     SPHINX_HOST: ""
 
 web:
@@ -40,7 +47,7 @@ web:
     - "3000:3000"
   links:
     - db:mysql
+    - dbtest:mysqltest
     - search:search
   environment:
-    RAILS_ENV: development
     SPHINX_HOST: search
