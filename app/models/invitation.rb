@@ -67,16 +67,4 @@ class Invitation < ActiveRecord::Base
     invitation.use_once!
     return true
   end
-
-  # Can be used to invite many users with a list of emails
-  # The invitation language is the language of the inviter user
-  def self.invite_many_users(email_array, community_host, community_id, inviter_id, message=nil, information=nil)
-    email_array.each do |email|
-      inv = Invitation.new(:email => email, :community_id => community_id, :inviter_id => inviter_id, :message => message, :information => information)
-      inv.save
-      Delayed::Job.enqueue(InvitationCreatedJob.new(inv.id, community_host))
-    end
-
-  end
-
 end
