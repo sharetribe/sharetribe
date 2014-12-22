@@ -18,7 +18,7 @@ class InvitationsController < ApplicationController
     invitation_emails.each do |email|
       invitation = Invitation.new(params[:invitation].merge!({:email => email.strip, :inviter => @current_user}))
       if invitation.save
-        Delayed::Job.enqueue(InvitationCreatedJob.new(invitation.id, request.host))
+        Delayed::Job.enqueue(InvitationCreatedJob.new(invitation.id, @current_community.id))
       else
         sending_problems = true
       end
