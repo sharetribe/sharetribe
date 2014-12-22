@@ -452,17 +452,6 @@ module ApplicationHelper
     Thread.current[:current_community_service_name] = name
   end
 
-  # Class methods to access the service_name stored in the thread to work with I18N and DelayedJob etc async stuff.
-  # If called without host information, set's the server default
-  def self.store_community_service_name_to_thread_from_host(host=nil)
-    community = nil
-    if host.present?
-      community_domain = host.split(".")[0] #pick the subdomain part to search primarily with that
-      community = Community.find_by_domain(community_domain) || Community.find_by_domain(host)
-    end
-    store_community_service_name_to_thread_from_community(community)
-  end
-
   def self.store_community_service_name_to_thread_from_community_id(community_id=nil)
     community = nil
     if community_id.present?
