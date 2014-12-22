@@ -86,7 +86,7 @@ docker info                                   # this should run ok now
 
 1. Run the app
 
-  `fig up`
+  `fig up web`
 
 1. Set docker.lvh.me to point to docker IP
 
@@ -130,12 +130,12 @@ If you are planning to use Docker for development, here are some tips and tricks
   }
   ```
 
-  To use Zeus, do not start server by saying `fig up`! Do this instead:
+  To use Zeus, do not start server by saying `fig up web`! Do this instead:
 
   Start Zeus server in one terminal tab:
 
   ```zsh
-  figzeus start
+  fig up zeus
   ```
 
   In another tab, start rails server:
