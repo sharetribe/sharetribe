@@ -149,9 +149,6 @@ GEM
       json
       thread
       thread_safe
-    ebnf (0.3.1)
-      rdf
-      sxp
     em-websocket (0.5.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
@@ -366,11 +363,6 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rdf (1.0.8)
-      addressable (>= 2.2)
-    rdf-turtle (1.0.9)
-      ebnf (>= 0.3.0)
-      rdf (>= 1.0.7)
     rdoc (3.12.2)
       json (~> 1.4)
     recaptcha (0.3.4)
@@ -438,8 +430,6 @@ GEM
       actionpack (~> 3.0)
       activemodel (~> 3.0)
       railties (~> 3.0)
-    sxp (0.1.3)
-      json (>= 1.1.1)
     term-ansicolor (1.3.0)
       tins (~> 1.0)
     terminal-table (1.4.5)
@@ -554,7 +544,6 @@ DEPENDENCIES
   rails-i18n
   rake
   rb-fsevent
-  rdf-turtle
   recaptcha
   rest-client (>= 1.6.0)
   rspec-rails (~> 2.99.0)
