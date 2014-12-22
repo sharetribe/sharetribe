@@ -51,6 +51,51 @@ module UserService::API
       return from_model(person)
     end
 
+    def delete_user(id)
+      person = Person.where(id: id).first
+
+      if person.nil?
+        Result::Error.new("Person with id '#{id}' not found")
+      else
+        # Delete personal information
+        person.update_attributes(
+          given_name: nil,
+          family_name: nil,
+          phone_number: nil,
+          description: nil,
+          facebook_id: nil,
+          encrypted_password: "",
+          deleted: true # Flag deleted
+        )
+
+        # Delete emails
+        person.emails.destroy_all
+
+        # Delete avatar
+        person.image.destroy
+        person.image.clear
+        person.image = nil
+        person.save(validate: false)
+
+        # Delete follower relations, both way
+        person.follower_relationships.destroy_all
+        person.inverse_follower_relationships.destroy_all
+
+        # Delete memberships
+        person.community_memberships.destroy_all
+
+        # Delte auth tokens
+        person.auth_tokens.destroy_all
+
+        # Delete Braintree and Checkout accounts
+        # Please note: This is a bit wrong place for this. Braintree and Checkout should be in their own services,
+        # but we don't have those services currently
+        Maybe(person.braintree_account).each { |relation| relation.destroy }
+        Maybe(person.checkout_account).each { |relation| relation.destroy }
+
+        Result::Success.new
+      end
+    end
 
     # Privates
 
