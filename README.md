@@ -96,7 +96,7 @@ docker info                                   # this should run ok now
 
 #### Development tips and tricks
 
-If your planning to use Docker for development, here are some tips and tricks to make development workflow smoother.
+If you are planning to use Docker for development, here are some tips and tricks to make development workflow smoother.
 
 1. Add `figrun` function to your zsh/bash config.
 
