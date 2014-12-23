@@ -164,8 +164,8 @@ class Community < ActiveRecord::Base
 
   serialize :settings, Hash
 
-  DEFAULT_LOGO = "/assets/logos/mobile/default.png"
-  DEFAULT_WIDE_LOGO = "/assets/logos/full/default.png"
+  DEFAULT_LOGO = ActionController::Base.helpers.asset_path("logos/mobile/default.png")
+  DEFAULT_WIDE_LOGO = ActionController::Base.helpers.asset_path("logos/full/default.png")
 
   has_attached_file :logo,
                     :styles => {
@@ -218,7 +218,7 @@ class Community < ActiveRecord::Base
                       :hd_header => "1920x450#",
                       :original => "3840x3840>"
                     },
-                    :default_url => "/assets/cover_photos/header/default.jpg",
+                    :default_url => ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg"),
                     :keep_old_files => true # Temporarily to make preprod work aside production
 
   validates_attachment_content_type :cover_photo,
@@ -235,7 +235,7 @@ class Community < ActiveRecord::Base
                       :hd_header => "1920x96#",
                       :original => "3840x3840>"
                     },
-                    :default_url => "/assets/cover_photos/header/default.jpg",
+                    :default_url => ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg"),
                     :keep_old_files => true # Temporarily to make preprod work aside production
 
   validates_attachment_content_type :small_cover_photo,
@@ -255,7 +255,7 @@ class Community < ActiveRecord::Base
                       :favicon => "-depth 32",
                       :favicon => "-strip"
                     },
-                    :default_url => "/assets/favicon.ico"
+                    :default_url => ActionController::Base.helpers.asset_path("favicon.ico")
 
   validates_attachment_content_type :favicon,
                                     :content_type => ["image/jpeg",

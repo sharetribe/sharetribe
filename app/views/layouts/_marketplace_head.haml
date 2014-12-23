@@ -28,7 +28,7 @@
   - if @current_community.logo?
     - meta_image = @current_community.logo.url(:original)
   - else
-    - meta_image = "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
+    - meta_image = image_path("sharetribe_icon.png")
 
 %title= title
 %meta{ :property => "og:title", :content => title}
@@ -74,11 +74,11 @@
 
 = csrf_meta_tag
 
-%link{:rel => "image_src", :href => "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"}
+%link{:rel => "image_src", :href => image_path("sharetribe_icon.png")}
 
 %link{:rel => "shortcut icon", :href => @current_community.favicon }
 
-%link{:rel => "apple-touch-icon-precomposed",:href => @current_community.logo.url(:apple_touch) || "https://s3.amazonaws.com/sharetribe/assets/images/icon_144.png"}
+%link{:rel => "apple-touch-icon-precomposed",:href => @current_community.logo.url(:apple_touch)}
 
 = auto_discovery_link_tag(:atom, atom_feed_url )
 
