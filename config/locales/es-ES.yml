@@ -73,12 +73,12 @@ es-ES:
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: "Contactar al administrador"
         save: "Guardar opciones"
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
-        transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        transaction_agreement: "Acuerdo de transacción"
+        transaction_agreement_checkbox: "Pedir a los usuarios que acepten el acuerdo antes de realizar una transacción."
+        transaction_agreement_checkbox_header: "Aceptar acuerdo"
+        transaction_agreement_checkbox_label_description: "Este texto se mostrará junto a una casilla de verificación en el formulario. El usuario debe marcar la casilla de verificación antes de poder proceder con la transacción. Un ejemplo sería algo como \"Al marcar esta casilla aceptas el presente acuerdo y los términos de uso.\""
+        transaction_agreement_text_header: "Texto del acuerdo"
+        transaction_agreement_description: "Este el contenido del texto del acuerdo que los usuarios han de aceptar. El texto del presente acuerdo se mostrará cuando los usuarios hagan clic en el enlace %{read_more} ."
       edit_look_and_feel:
         edit_community_look_and_feel: "Editar apariencia de la comunidad %{community_name}"
         community_logo: Logo
@@ -119,38 +119,38 @@ es-ES:
         edit_message: "Editar mensaje"
         send_test_message: "Enviar mensaje de prueba"
       getting_started:
-        getting_started: ~
-        welcome_to_your_marketplace: ~
+        getting_started: "Guía para comenzar"
+        welcome_to_your_marketplace: "Bienvenido a tu marketplace, %{name}!"
         intro: ~
-        live_site_link_text: ~
+        live_site_link_text: aquí
         look_and_feel: ~
-        logo_link_text: ~
+        logo_link_text: "añadir logo"
         custom_domain: ~
-        contact_team_link_text: ~
-        categories_and_custom_fields: ~
-        categories_link_text: ~
+        contact_team_link_text: "contacta con nuestro equipo"
+        categories_and_custom_fields: "El siguiente paso es elegir qué tipo de contenido podrán publicar los usuarios de tu web. Puedes %{categories_link}, %{custom_fields_link} en los anuncios, y decidir qué %{filters_link} estarán disponibles durante una búsqueda."
+        categories_link_text: "añadir categorías y subcategorías"
         custom_fields_link_text: ~
-        filters_link_text: ~
+        filters_link_text: "tipos de filtros"
         payments: ~
-        payments_link_text: ~
+        payments_link_text: "configurar una forma de pago"
         info_texts: ~
-        about_page_link_text: ~
-        terms_of_use_link_text: ~
-        privacy_policy_link_text: ~
-        welcome_email_link_text: ~
-        instruction_texts_link_text: ~
-        social_media: ~
-        facebook_link_text: ~
-        twitter_link_text: ~
+        about_page_link_text: "sobre nosotros"
+        terms_of_use_link_text: "términos y condiciones de uso"
+        privacy_policy_link_text: "política de privacidad"
+        welcome_email_link_text: "email de bienvenida"
+        instruction_texts_link_text: "Otros textos con instrucciones"
+        social_media: "Es recomendable utilizar Social media para hacer crecer tu comunidad. Puedes %{facebook_link} para hacer más fácil que los usuarios se registren en tu marketplace y además puedes %{twitter_link} para conseguir que tu contenido tenga un mayor alcance."
+        facebook_link_text: "integrar tu propia Facebook app"
+        twitter_link_text: "añadir tu cuenta de Twitter"
         analytics: ~
-        analytics_link_text: ~
+        analytics_link_text: "conectar tu cuenta de Google Analytics"
         settings: ~
         settings_link_text: ~
         final_words: ~
-        invite_link_text: ~
-        view_users_link_text: ~
-        view_transactions_link_text: ~
-        contact_support_link_text: ~
+        invite_link_text: "invitar a otros usuarios"
+        view_users_link_text: aquí
+        view_transactions_link_text: aquí
+        contact_support_link_text: "contacta con soporte"
       settings:
         settings: Configuración
         general: General
@@ -189,23 +189,25 @@ es-ES:
         save_user_status_error: "No se han guardado los cambios. Por favor, actualiza la página y vuelve a intentarlo."
         ban_user_confirmation: ~
       social_media:
-        social_media: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        facebook_connect: ~
-        facebook_connect_info_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        save: ~
+        social_media: "Social media"
+        twitter_handle: Twitter
+        twitter_handle_info_text: "El nombre de usuario de tu cuenta de Twitter en tu marketplace (si es que tienes uno). Será mencionado cuando alguien publique su anuncio en Twitter."
+        twitter_handle_placeholder: Usuario
+        invalid_twitter_handle: "Twitter handle debe tener un máximo de 15 caracteres alfanuméricos (letras de la A-Z y números del 0-9)."
+        facebook_connect: Facebook
+        facebook_connect_info_text: |-
+            Para que el login a través de Facebook funcione, debes crear una aplicación para tu marketplace en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. 
+            Añade el ID y secret key que se haya generado aquí.
+        facebook_connect_id: "ID de cliente de Facebook"
+        invalid_facebook_connect_id: "La ID de cliente debe incluir sólo números"
+        facebook_connect_secret: "Facebook client secret"
+        invalid_facebook_connect_secret: "Client secret debe incluir sólo números y letras desde la A a la F."
+        save: "Guardar configuración"
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        save: ~
+        analytics: Analytics
+        google_analytics_key: "Google Analytics tracking ID"
+        google_analytics_key_info_text: "Tracking ID de tu cuenta de Google Analytics."
+        save: "Guardar configuración"
       menu_links:
         menu_links: "Menú de enlaces"
         save: ~
@@ -246,7 +248,7 @@ es-ES:
         client_side_encryption_key: "Encriptación (Client-Side Encryption (CSE) Key)"
         merchant_id: "Merchant ID"
         master_merchant_id: "Master Merchant ID"
-        commission_from_seller: ~
+        commission_from_seller: "Porcentaje de comisión del vendedor:"
       paypal_account:
         paypal_admin_account: Pagos
     custom_fields:
@@ -305,11 +307,11 @@ es-ES:
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
     left_hand_navigation:
-      general: ~
-      users_and_transactions: ~
+      general: General
+      users_and_transactions: "Usuarios y transacciones"
       configure: ~
-      emails_title: ~
-      support: ~
+      emails_title: Emails
+      support: Soporte
     paypal_accounts:
       marketplace_paypal_integration: "Preferencias de pago"
       preferences_updated: "Preferencias de pago actualizadas"
@@ -393,8 +395,8 @@ es-ES:
       accept_request: "Aceptar el pedido"
       reject_offer: "Rechazar pedido"
       reject_request: "Rechazar pedido"
-      close_listing: "Quitar el aviso %{listing_title_link}"
-      update_later: "Dejar el aviso abierto"
+      close_listing: "Borrar el anuncio %{listing_title_link}"
+      update_later: "Dejar el anuncio abierto"
       optional_message: ~
       price_to_pay: ~
       you_need_to_fill_payout_details_before_accepting: "Tienes que completar los datos de pago antes de poder aceptar la solicitud y recibir el pago. Ve a %{payment_settings_link} para añadir toda la información."
@@ -402,9 +404,9 @@ es-ES:
       minimum_price_error_message: "El precio no puede ser menor de %{amount}."
       accept: Aceptar
       decline: Declinar
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      sum: "Total: %{sum}"
+      service_fee: "Gastos de servicio: %{service_fee}"
+      you_will_get: "Obtendrás: %{seller_gets}"
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -500,9 +502,9 @@ es-ES:
       price_excludes_vat: "(Impuestos no incluídos)"
       total: "Total: %{total}"
     status:
-      payment_errored: ~
-      payment_errored_starter: ~
-      payment_errored_author: ~
+      payment_errored: "No se ha procesado el pago. Por favor, vuelve a intentarlo."
+      payment_errored_starter: "No se ha procesado el pago. Por favor, vuelve a intentarlo y si el problema continúa, contacta con nuestro equipo de soporte."
+      payment_errored_author: "El pago ha fallado. Por favor, contacta a %{starter_name} y pídele que vuelva a intentarlo de nuevo."
       cancel_payed_transaction: ~
       feedback_given: "Sugerencia dada"
       feedback_skipped: "Sugerencia omitida"
@@ -511,9 +513,9 @@ es-ES:
       offer_rejected: rechazada
       offer_canceled: ~
       offer_confirmed: ~
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
+      offer_paid: "Pago realizado con éxito"
+      offer_preauthorized: "El pago se ha realizado con éxito"
+      offer_waiting_for_payment: "Esperando a que %{requester_name} realice el pago."
       pay: ~
       preauthorized: "Pago realizado con éxito"
       paid: ~
@@ -522,14 +524,14 @@ es-ES:
           multicurrency: "No hemos podido procesar el pago a través de PayPal porque tu cuenta en PayPal no está configurada para recibir dinero en %{currency}. Ve a %{paypal_url} y conéctate a tu cuenta para aceptar o rechazar el pago manualmente."
           verify: "No puedes aceptar esta transacción porque no has verificado tu cuenta en PayPal. Ve a %{paypal_url} y verifica tu cuenta."
           intl: "No hemos podido procesar el pago en PayPal porque tu cuenta no tiene configurado ningún método para sacar el dinero. Ve a %{paypal_url} y conéctate a tu cuenta para aceptar o rechazar el pago manualmente."
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: "Esperando a que proceses %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "Esperando a que %{listing_author_name} procese %{listing_title}"
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
       request_confirmed: ~
       request_canceled: ~
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: "Pago realizado con éxito"
+      request_preauthorized: "Pago realizado con éxito"
       skip_feedback: "Omitir sugerencia"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: "Esperando que %{listing_author_name} acepte el pedido"
@@ -569,7 +571,7 @@ es-ES:
       address_region: Estado
       date_of_birth: "Fecha de nacimiento"
       ssn: SSN
-      routing_number: ~
+      routing_number: "Routing number del banco"
       account_number: "Número de cuenta"
       save: Guardar
     show:
@@ -584,7 +586,7 @@ es-ES:
       address_region: Estado
       date_of_birth: "Fecha de nacimiento"
       ssn: SSN
-      routing_number: ~
+      routing_number: "Routing number del banco"
       account_number: "Número de cuenta"
   braintree_payments:
     edit:
@@ -595,10 +597,10 @@ es-ES:
       cvv: "Código de seguridad (CVV)"
       credit_card_expiration_date: "Fecha de caducidad de la tarjeta"
       confirm_payment: "Confirmar pago"
-      exp: ~
+      exp: "Exp:"
   preauthorize_payments:
     edit:
-      confirm_payment: ~
+      confirm_payment: "Confirmar pago"
   community_memberships:
     access_denied:
       access_denied: "Acceso denegado"
@@ -727,7 +729,7 @@ es-ES:
       price_payer_paid: "Importe pagado por %{payer_full_name} :"
       service_fee: "Gastos del servicio de %{service_name}"
       you_will_get: "Recibirás:"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "El dinero será transferido a tu cuenta cuand a) %{payer_name} haya marcado la solicitud como completada, o b) Cuando %{automatic_confirmation_days} días hayan pasado desde que %{payer_name} efectuase el pago."
     receipt_to_payer:
       receipt_of_payment: "Recibo del pago."
       you_have_made_new_payment: "Has pagado <b>%{payment_sum}</b> por <b>%{listing_title}</b> a %{recipient_full_name}. Aquí está el recibo del pago."
@@ -735,7 +737,7 @@ es-ES:
       total: Total
       price: Precio
       service_fee: "Gastos del servicio"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "El dinero será transferido a %{recipient_name} cuando a) hayas marcado la solicitud como completada o b) %{automatic_confirmation_days} días hayan pasado desde que hiciste el pago."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado una sugerencia en %{service_name}"
       you_can_give_feedback_to: "Puedes darle una sugerencia a %{name} en"
@@ -752,7 +754,7 @@ es-ES:
       title_link_text: ~
       intro_paragraph: "Aquí están algunos de los sucesos que han ocurrido en la %{community_link} durante el pasado %{time_since_last_update}."
       intro_paragraph_link_text: ~
-      post_a_new_listing: "Publica un nuevo aviso!"
+      post_a_new_listing: "Publica un nuevo anuncio"
       reduce_email_footer_text: "¿Demasiados email? %{settings_link} o %{unsubscribe_link}."
       settings_link_text: "Edita tu configuración de email aquí"
       unsubscribe_link_text: "cancelar suscripción"
@@ -788,23 +790,23 @@ es-ES:
       click_here_link_text: "Haz clic aquí"
       welcome_email_footer_text: ~
       settings_link_text: "Revisa tu configuración"
-      welcome_email_subject_for_marketplace_creator: ~
-      welcome_to_marketplace_creator: ~
-      congrats_for_creating_your_marketplace: ~
-      here_is_your_account_information: ~
-      your_email_address: ~
-      your_marketplace_address: ~
-      your_marketplace_admin_area: ~
-      just_follow_details: ~
-      we_will_guide_you_along_the_way: ~
+      welcome_email_subject_for_marketplace_creator: "Bienvenido a Sharetribe"
+      welcome_to_marketplace_creator: "¡Bienvenido a Sharetribe, %{name}!"
+      congrats_for_creating_your_marketplace: "¡Enhorabuena! Ya has creado tu marketplace, ha sido fácil ¿verdad?"
+      here_is_your_account_information: "Aquí está la información de tu cuenta."
+      your_email_address: "La dirección de email con la que te has registrado:"
+      your_marketplace_address: "La dirección de tu marketplace:"
+      your_marketplace_admin_area: "El área de administración de tu marketplace"
+      just_follow_details: "Sólo necesitas seguir los enlaces siguientes para obtener más información sobre cómo empezar a construir tu marketplace."
+      we_will_guide_you_along_the_way: "Te guiaremos a lo largo del proceso."
       are_you_new_to_online_marketplaces: ~
-      have_questions: ~
+      have_questions: "¿Tienes alguna pregunta?"
       our_happiness_team_is_here_to_help: ~
-      love: ~
-      sharetribe_crew: ~
-      knowledge_base_link_text: ~
-      contact_support_link_text: ~
-      admin_panel_link_text: ~
+      love: "Love,"
+      sharetribe_crew: "El equipo de Sharetribe."
+      knowledge_base_link_text: "revisa nuestros recursos"
+      contact_support_link_text: "contacta con soporte"
+      admin_panel_link_text: "panel de control"
     new_listing_by_followed_person:
       subject: "%{author_name} ha publicado un nuevo anuncio en %{service_name}"
       has_posted_a_new_listing: "%{author_name} ha publicado un nuevo anuncio"
@@ -821,7 +823,7 @@ es-ES:
       you_must_explain_not_neutral_feedback: "Si deseas dar una sugerencia no neutral, debes explicar por qué."
       you_must_select_a_grade: "Recuerda evaluar a los usuarios clickeando en uno de los iconos de más arriba (pueder ver las explicaciones de cada icono deslizando el mouse sobre ellos)"
     transaction_agreement:
-      required_error: ~
+      required_error: "Debes aceptar el acuerdo"
     paypal:
       generic_error: "Ha ocurrido un error durante el proceso de pago. No se pudo finalizar el pago a través de PayPal."
       cancel_error: "Ha ocurrido un error durante la cancelación. No se ha podido finalizar la cancelación"
@@ -835,10 +837,10 @@ es-ES:
       page_you_requested_can_not_be_found: "La página solicitada no puede encontrarse. Está seguro de que escribió correctamente la dirección?"
     error_404_title: "Página no encontrada"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      temporary_unavailable: "Marketplace temporalmente fuera de servicio"
+      unable_to_process: "Nuestro servicio no puede procesar tu solicitud en éste momento. Por favor, inténtalo de nuevo más tarde."
+      we_hate_this: "No nos gusta cuando pasa ésto... Nuestro equipo está trabajando para arreglar el problema lo antes posible."
+      refer_to_error_id: "Si quieres contactar con nuestro equipo de soporte, por favor, indica la ID del error: \"%{error_id}\" en el mensaje."
     error_500_title: "Falló la carga de la página"
     error_description: "Descripción del error"
     no_javascript:
@@ -851,14 +853,14 @@ es-ES:
     your_email_address: "Tu dirección email"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
+      invalid_date: "La fecha no es válida"
+      invalid_time: "La hora no es válida"
+      invalid_datetime: "La fecha y hora no son válidas"
+      is_at: "Debe ser a las %{restriction}"
+      before: "Debe ser antes de %{restriction}"
+      on_or_before: "Debe ser a las %{restriction} o antes"
+      after: "Debe ser después de %{restriction}"
+      on_or_after: "Debe ser a las %{restriction} o después"
   event_feed_events:
     accept:
       has_accepted_lend_item: ~
@@ -888,7 +890,7 @@ es-ES:
     about: "Acerca de"
     home: Inicio
     members: Comunidad
-    new_listing: "Nueva publicación"
+    new_listing: "Publicar anuncio"
     mobile_version: "Versión móvil"
     offers: Ofertas
     requests: Solicitudes
@@ -943,14 +945,14 @@ es-ES:
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
-      add_listing_link_text: "Crear una nueva publicación"
+      add_listing_link_text: "Añadir nuevo anuncio"
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: "inicia sesión"
       is: es
       are: son
       what_do_you_need: "¿Qué necesitas?"
-      post_new_listing: "Nueva publicación"
+      post_new_listing: "Publicar anuncio"
       are_offering: oferta
       add_news_item: "Añadir un artículo"
       lend_rent_help_carpool: "Vende, regala o ayuda a otros! Comparte trayectos!"
@@ -1002,7 +1004,7 @@ es-ES:
       map_button: Mapa
       grid_button: "Vista resumida"
       list_button: "Vista listado"
-      all_listing_types: "Todos los tipos de listado"
+      all_listing_types: "Todos los tipos de anuncio"
       all_categories: "Todas las categorías"
   infos:
     about:
@@ -1010,7 +1012,7 @@ es-ES:
       default_about_text: ~
       click_here_link_text: ~
     how_to_use:
-      default_title: ~
+      default_title: "Cómo funciona"
       default_content: ~
   layouts:
     admin:
@@ -1164,7 +1166,7 @@ es-ES:
       you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
       you_are_now_member: ~
       you_are_already_member: "Ya eres miembro de esta %{service_name} comunidad. Bienvenido otra vez!"
-      you_must_log_in_to_create_new_listing: "Tienes que iniciar sesión en %{service_name} para crear un nuevo aviso. Si no tienes una cuenta, puedes %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Tienes que iniciar sesión en %{service_name} para crear un nuevo anuncio. Si no tienes una cuenta, puedes crear una gratis %{sign_up_link}."
       additional_email_confirmed_dashboard: "Tu e-mail ahora está confirmado."
       you_must_log_in_to_give_feedback: "Debe iniciar su sesión para dar una sugerencia"
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a %{service_name}"
@@ -1189,7 +1191,7 @@ es-ES:
       email_deleted: "Email eliminado"
       payment_details_add_successful: "Datos de pago añadidos correctamente"
       payment_details_add_error: "No se han podido añadir tus datos de pago"
-      listing_author_payment_details_missing: ~
+      listing_author_payment_details_missing: "El autor del anuncio no ha añadido sus datos de pago por lo que no puede recibir pagos todavía. Por favor contacta con él."
       stylesheet_needs_recompiling: "La hoja de estilos se está recompilando. Por favor, vuelva a cargar la página en unos instantes."
     settings:
       account: Cuenta
@@ -1204,7 +1206,7 @@ es-ES:
       wrote: escrito
       send_private_message: "Enviar mensaje privado a %{person}"
     comment_form:
-      ask_a_question: "Comenta en el aviso o pregunta por más detalles. Todos los otros usuarios podrán ver tu comentario."
+      ask_a_question: "Escribe un comentario o pregunta por más detalles. Todos los demás usuarios podrán verlo."
       log_in: Registrarse
       send_comment: "Enviar comentario"
       to_send_a_comment: "Enviar un nuevo comentario"
@@ -1357,12 +1359,12 @@ es-ES:
       accept_for_frees: "Aceptando gratis"
       trades: Intercambio
     listing_actions:
-      booking_from: ~
-      booking_to: ~
+      booking_from: De
+      booking_to: a
       how_paypal_works: "Cómo funciona PayPal"
     new:
       post_a_new_listing: "Publicar un anuncio"
-      listing: aviso
+      listing: anuncio
       selected_category: "Categoría: %{category}"
       selected_subcategory: "Subcategoría: %{subcategory}"
       selected_transaction_type: "Tipo de anuncio: %{transaction_type}"
@@ -1406,9 +1408,9 @@ es-ES:
       times_viewed: Visto
       processing_uploaded_image: "(Procesando la imagen subida...)"
       price_excludes_vat: "(Impuestos no incluídos)"
-      listing_created_at: "Anuncio creado"
+      listing_created_at: "Anuncio creado el"
       price:
-        per_quantity_unit: ~
+        per_quantity_unit: "por %{quantity_unit}"
         per_day: "por día"
     verification_required:
       verification_required: "Verificación requerida"
@@ -1423,7 +1425,7 @@ es-ES:
       days: días
       price_per_day: "Precio por día: %{price}"
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Ver
   mapview:
     index:
       all_categories: "Todas las categorías"
@@ -1492,10 +1494,11 @@ es-ES:
       billing_agreement_description: "Concede permisos a %{service_name} para cargar una comisión por transferencia."
       billing_agreement: "Concede permiso"
       permissions_not_granted: "El permiso para conectar la cuenta de Paypal no está concedido."
-      could_not_fetch_redirect_url: ~
+      could_not_fetch_redirect_url: "No hemos podido establecer conexión con Paypal"
       paypal_not_enabled: "Los pagos a través de Paypal no están habilitados."
       billing_agreement_canceled: "El acuerdo de facturación ha sido cancelado"
-      billing_agreement_id_missing: "Hubo problemas técnicos con la integración de PayPal"
+      billing_agreement_not_accepted: "No has aceptado el acuerdo de facturación de Paypal"
+      billing_agreement_wrong_account: "Las cuentas de Paypal no coinciden. Por favor, usa la misma cuenta de Paypal con la que has conectado en el primer paso."
       something_went_wrong: "Algo fue mal. Por favor, prueba de nuevo. Si el problema persiste, ponte en contacto con los administradores."
       account_not_verified: "No has verificado tu cuenta de PayPal. Necesitas ir a paypal.com y verificar tu cuenta antes de continuar."
   paypal:
@@ -1548,7 +1551,7 @@ es-ES:
       invalid_invitation_code: "El código de invitación no es válido."
       invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
-      organization_name: ~
+      organization_name: "Nombre de la empresa"
       password_again: "Confirme contraseña:"
       show_my_name_to_others: "Mostrar mi nombre real a otros usuarios de %{service_name}"
       sign_up: "Crear una nueva cuenta en %{service_name}"
@@ -1659,9 +1662,9 @@ es-ES:
       change_email: Cambiar
       confirm_your_email: "Confirma tu e-mail"
       account_confirmation_instructions: ~
-      account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_title_admin: "¡Bienvenido a tu marketplace!"
+      your_marketplace_has_now_been_created: "Tu marketplace ha sido creado. ¿Ha sido fácil, verdad? Sólo hay un paso más antes de que puedas entrar a tu sitio web: Debes confirmar tu dirección de email."
+      account_confirmation_instructions_admin: "Pronto recibirás un e-mail con un enlace en el que que deberás hacer clic para confirmar la cuenta de e-mail con la que te has registrado."
   settings:
     account:
       change: Cambiar
@@ -1775,7 +1778,7 @@ es-ES:
       about_listing: "acerca de"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %b %d, %Y"
   datepicker:
     days:
       sunday: Domingo
@@ -1802,34 +1805,34 @@ es-ES:
       friday: Vi
       saturday: Sa
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: Enero
+      february: Febrero
+      march: Marzo
+      april: Abril
+      may: Mayo
+      june: Junio
+      july: Julio
+      august: Agosto
+      september: Septiembre
+      october: Octubre
+      november: Noviembre
+      december: Diciembre
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: Ene
+      february: Feb
+      march: Mar
+      april: Abr
+      may: May
+      june: Jun
+      july: Jul
+      august: Ago
+      september: Sep
+      october: Oct
+      november: Nov
+      december: Dic
     today: Hoy
-    clear: ~
-    format: ~
+    clear: Reiniciar
+    format: mm/dd/aaaa
   time:
     formats:
       short: "%e %b %Y al %H:%M"

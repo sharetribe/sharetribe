@@ -1493,7 +1493,8 @@ fr:
       could_not_fetch_redirect_url: "L'url de redirection avec PayPal n'a pas pu être récupérée."
       paypal_not_enabled: "Les paiements PayPal ne sont pas activés."
       billing_agreement_canceled: "L'accord de facturation a été annulé"
-      billing_agreement_id_missing: "Il y a eu des problèmes techniques lors de l'intégration avec PayPal"
+      billing_agreement_not_accepted: "Vous n'avez pas accepté l'accord de facturation sur PayPal"
+      billing_agreement_wrong_account: "Les comptes PayPal ne correspondent pas. Veuillez utiliser le même compte PayPal que celui utilisé lors de la première étape."
       something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter les administrateurs."
       account_not_verified: "Vous n'avez pas vérifié votre compte PayPal. Vous devez vous connecter sur paypal.com et vérifier votre compte avant de pouvoir poursuivre."
   paypal:
