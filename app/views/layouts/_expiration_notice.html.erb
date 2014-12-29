@@ -4,41 +4,41 @@
 <div class="expiration-lightbox lightbox" id="<%= id %>" >
   <div class="expiration-content">
     <div class="expiration-head-panel">
-      <h1 class="expiration-title">Your Sharetribe trial has expired.</h1>
-      <h2 class="expiration-subtitle" >Don't worry, your data has not been deleted. To continue using your marketplace, please subscribe to our Pro plan below.</h2>
+      <h1 class="expiration-title"><%= t("expiration.title") %></h1>
+      <h2 class="expiration-subtitle" ><%= t("expiration.sub_title") %></h2>
     </div>
     <div class="expiration-plans-panel">
       <div class="expiration-plans-wrapper">
-        <h1 class="expiration-plan-title">Pro plan features</h1>
-        <p class="expiration-plan-desc">Custom web address (eg. www.yourdomain.com)</p>
-        <p class="expiration-plan-desc">Up to 1000 members</p>
-        <p class="expiration-plan-desc">Our most popular plan</p>
+        <h1 class="expiration-plan-title"><%= t("expiration.plans_feature_title") %></h1>
+        <p class="expiration-plan-desc"><%= t("expiration.plans_feature_domain") %></p>
+        <p class="expiration-plan-desc"><%= t("expiration.plans_feature_size") %></p>
+        <p class="expiration-plan-desc"><%= t("expiration.plans_feature_popular") %></p>
 
         <div class="expiration-plan-select">
 
-          <div class="expiration-plan-wrapper-right">
+          <a href="<%= APP_CONFIG.chargebee_pro_biannual_link %>" class="expiration-plan-wrapper-right">
             <div class="expiration-plan-biannual">
-              <p class="expiration-subscribe-title">Subscribe</p>
-              <p class="expiration-subscribe-price-per"><span class="expiration-subscribe-price">$119</span><br />
-                <span class="expiration-subscribe-per">per month <span class="plan-price-disclaimer">*</span></span></p>
+              <p class="expiration-subscribe-title"><%= t("expiration.subscribe") %></p>
+              <p class="expiration-subscribe-price-per"><span class="expiration-subscribe-price"><%= APP_CONFIG.chargebee_pro_biannual_price %></span><br />
+                <span class="expiration-subscribe-per"><%= t("expiration.per_month") %>&nbsp;<span class="plan-price-disclaimer">*</span></span></p>
             </div>
-              <p class="plan-price-disclaimer-desc">* 6 month commitment required.</p>
-          </div>
+              <p class="plan-price-disclaimer-desc">*&nbsp;<%= t("expiration.commitment_required") %></p>
+          </a>
 
-          <div class="expiration-plan-wrapper-left">
+          <a href="<%= APP_CONFIG.chargebee_pro_monthly_link %>" class="expiration-plan-wrapper-left">
             <div class="expiration-plan-monthly">
-              <p class="expiration-subscribe-title">Subscribe</p>
-              <p class="expiration-subscribe-price-per"><span class="expiration-subscribe-price">$149</span><br />
-              <span class="expiration-subscribe-per">per month</span></p>
+              <p class="expiration-subscribe-title"><%= t("expiration.subscribe") %></p>
+              <p class="expiration-subscribe-price-per"><span class="expiration-subscribe-price"><%= APP_CONFIG.chargebee_pro_monthly_price %></span><br />
+              <span class="expiration-subscribe-per"><%= t("expiration.per_month") %></span></p>
             </div>
-          </div>
+          </a>
 
         </div>
 
       </div>
     </div>
     <div class="expiration-footer">
-      <p class="expiration-alternative-plans">Want another plan? Need more information? <a href="mailto:sales@sharetribe.com">Contact us</a>.</p>
+      <p class="expiration-alternative-plans"><%= t("expiration.alternative_plans") %> <a href="mailto:sales@sharetribe.com"><%= t("expiration.contact_us") %></a></p>
     </div>
   </div>
 </div>
