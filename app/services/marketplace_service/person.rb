@@ -6,9 +6,10 @@ module MarketplaceService
       Person = EntityUtils.define_entity(
         :id,
         :username,
-        :name,
-        :full_name,
-        :avatar
+        :first_name,
+        :last_name,
+        :avatar,
+        :is_deleted
       )
 
       module_function
@@ -17,19 +18,11 @@ module MarketplaceService
         Person[
           id: person_model.id,
           username: person_model.username,
-          name: person_model.name(Helper::name_display_style(community_id)),
-          full_name: person_model.full_name,
-          avatar: person_model.image.url(:thumb)
+          first_name: person_model.given_name,
+          last_name: person_model.family_name,
+          avatar: person_model.image.url(:thumb),
+          is_deleted: person_model.deleted?
         ]
-      end
-
-
-      module Helper
-        module_function
-
-        def name_display_style(community_id)
-          ::Community.find(community_id).name_display_type
-        end
       end
     end
 

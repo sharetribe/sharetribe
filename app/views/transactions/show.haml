@@ -1,4 +1,4 @@
-= render :partial => "conversations/conversation_header", locals: {other_party: transaction_data[:conversation][:other_party]}
+= render :partial => "conversations/conversation_header", locals: {other_person: transaction_data[:conversation][:other_party]}
 
 .centered-section-wide
   = render :partial => "transactions/details", locals: {transaction: transaction_data, is_author: is_author}

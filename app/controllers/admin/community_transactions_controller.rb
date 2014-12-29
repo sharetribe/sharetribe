@@ -32,6 +32,7 @@ class Admin::CommunityTransactionsController < ApplicationController
 
       [author, starter].each { |p|
         p[:url] = person_path(p[:username])
+        p[:display_name] = PersonViewUtils.person_entity_display_name(p, nil) # nil for 'fullname type'
       }
 
       if transaction[:listing].present?

@@ -36,8 +36,12 @@ module TransactionViewUtils
       }
   end
 
-  def conversation_messages(message_entities)
-    message_entities.map { |message_entity| message_entity.merge(mood: :neutral) }
+  def conversation_messages(message_entities, name_display_type)
+    message_entities.map { |message_entity|
+      sender = message_entity[:sender].merge(
+        display_name: PersonViewUtils.person_entity_display_name(message_entity[:sender], name_display_type))
+      message_entity.merge(mood: :neutral, sender: sender)
+    }
   end
 
   def transition_messages(transaction, conversation)
