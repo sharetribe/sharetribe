@@ -692,8 +692,7 @@ a.lightbox-x {
 }
 .expiration-plans-wrapper {
   margin: 0 auto;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px 15px;
 }
 .expiration-plan-title {
   font-size: 26px;
@@ -714,14 +713,21 @@ a.lightbox-x {
 
 .expiration-plan-wrapper {
   width: 185px;
+  margin: 10px auto;
 }
 .expiration-plan-wrapper-left {
   @extend .expiration-plan-wrapper;
-  float: left;
+  @include media(small-tablet) {
+    float: left;
+    margin: 0;
+  }
 }
 .expiration-plan-wrapper-right {
   @extend .expiration-plan-wrapper;
-  float: right;
+  @include media(small-tablet) {
+    float: right;
+    margin: 0;
+  }
 }
 .expiration-plan-monthly,
 .expiration-plan-biannual {
