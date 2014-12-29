@@ -1,0 +1,44 @@
+<% content_for :javascript do %>
+  window.ST.initializeExpirationNotice('<%= id %>');
+<% end %>
+<div class="expiration-lightbox lightbox" id="<%= id %>" >
+  <div class="expiration-content">
+    <div class="expiration-head-panel">
+      <h1 class="expiration-title">Your Sharetribe trial has expired.</h1>
+      <h2 class="expiration-subtitle" >Don't worry, your data has not been deleted. To continue using your marketplace, please subscribe to our Pro plan below.</h2>
+    </div>
+    <div class="expiration-plans-panel">
+      <div class="expiration-plans-wrapper">
+        <h1 class="expiration-plan-title">Pro plan features</h1>
+        <p class="expiration-plan-desc">Custom web address (eg. www.yourdomain.com)</p>
+        <p class="expiration-plan-desc">Up to 1000 members</p>
+        <p class="expiration-plan-desc">Our most popular plan</p>
+
+        <div class="expiration-plan-select">
+
+          <div class="expiration-plan-wrapper-left">
+            <div class="expiration-plan-monthly">
+              <p class="expiration-subscribe-title">Subscribe</p>
+              <p class="expiration-subscribe-price-per"><span class="expiration-subscribe-price">$149</span><br />
+              <span class="expiration-subscribe-per">per month</span></p>
+            </div>
+          </div>
+
+          <div class="expiration-plan-wrapper-right">
+            <div class="expiration-plan-biannual">
+              <p class="expiration-subscribe-title">Subscribe</p>
+              <p class="expiration-subscribe-price-per"><span class="expiration-subscribe-price">$119</span><br />
+                <span class="expiration-subscribe-per">per month <span class="plan-price-disclaimer">*</span></span></p>
+            </div>
+              <p class="plan-price-disclaimer-desc">* 6 month commitment required.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="expiration-footer">
+      <p class="expiration-alternative-plans">Want another plan? Need more information? <a href="mailto:sales@sharetribe.com">Contact us</a>.</p>
+    </div>
+  </div>
+</div>

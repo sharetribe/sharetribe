@@ -22,7 +22,9 @@ class ApplicationController < ActionController::Base
     :fetch_community_membership,
     :set_locale,
     :generate_event_id,
-    :set_default_url_for_mailer
+    :set_default_url_for_mailer,
+    :fetch_community_admin_status,
+    :fetch_community_plan_expiration_status
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
@@ -223,6 +225,13 @@ class ApplicationController < ActionController::Base
     raise ActiveRecord::RecordNotFound.new('Not Found') unless @person.communities.include?(@current_community)
   end
 
+  def fetch_community_admin_status
+    @is_current_community_admin = @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+  end
+
+  def fetch_community_plan_expiration_status
+    @is_community_plan_expired = MarketplaceService::Community::Query.is_plan_expired(@current_community)
+  end
 
   private
 
