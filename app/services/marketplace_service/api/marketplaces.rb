@@ -18,6 +18,7 @@ module MarketplaceService::API
       Helper.create_community_customization!(community, marketplace_name, locale)
       t = Helper.create_transaction_type!(community, p[:marketplace_type])
       Helper.create_category!("Default", community, locale, t.id)
+      Helper.create_community_plan!(community);
 
       return from_model(community)
     end
@@ -65,6 +66,14 @@ module MarketplaceService::API
 
       def create_community_customization!(community, marketplace_name, locale)
         community.community_customizations.create(customization_params(marketplace_name, locale))
+      end
+
+      def create_community_plan!(community, options={})
+        community.community_plans.create({
+          community_id: community.id,
+          plan_level:   Maybe(options[:plan_level]).or_else(0),
+          expires_at:   Maybe(options[:expires_at]).or_else(DateTime.now + 30.days)
+        })
       end
 
       def transaction_type_name(type)
