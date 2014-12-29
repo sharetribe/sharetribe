@@ -44,10 +44,12 @@ module TransactionViewUtils
     }
   end
 
-  def transition_messages(transaction, conversation)
+  def transition_messages(transaction, conversation, name_display_type)
     if transaction.present?
-      author = conversation[:other_person]
-      starter = conversation[:starter_person]
+      author = conversation[:other_person].merge(
+        display_name: PersonViewUtils.person_entity_display_name(conversation[:other_person], name_display_type))
+      starter = conversation[:starter_person].merge(
+        display_name: PersonViewUtils.person_entity_display_name(conversation[:starter_person], name_display_type))
 
       transitions = transaction[:transitions]
       discussion_type = transaction[:discussion_type]
