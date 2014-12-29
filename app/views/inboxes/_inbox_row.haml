@@ -6,7 +6,7 @@
         = image_tag conversation[:other][:avatar], :class => "conversation-avatar"
       .conversation-details
         .conversation-other-party-name
-          = link_to conversation[:other][:name], conversation[:other][:url]
+          = link_to_unless conversation[:other][:is_deleted], conversation[:other][:display_name], conversation[:other][:url]
         .conversation-last-message-at
           = conversation[:last_activity_ago]
 
@@ -28,7 +28,7 @@
         - status_meta = conversation[:transitions].last[:metadata]
         - is_author = !conversation[:current_is_starter]
         - waiting_feedback = conversation[:waiting_feedback]
-        - other_name = conversation[:other][:name]
+        - other_name = conversation[:other][:display_name]
 
         - icon, status_description = conversation_icon_and_status(status, is_author, other_name, waiting_feedback, status_meta)
 
