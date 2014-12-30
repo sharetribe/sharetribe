@@ -1672,6 +1672,7 @@ fi:
       delete_personal_information: "Jos poistat käyttäjätunnuksesi, kaikki henkilokohtaiset tietosi (nimi, puhelinnumero, osoite, sähköpostiosoite, profiilikuva, jne.) poistetaan pysyvästi. Tietojen palauttaminen ei ole mahdollista. Kaikki ilmoituksesi poistetaan tältä sivulta. Et voi aktivoida tunnustasi uudelleen poiston jälkeen."
       delete_information_others_involved: "Tapahtumat, joissa mukana on ollut muita osapuolia (esimerkiksi keskustelut, transaktiot, antamasi palautteet, jne.) eivät poistu tunnustesi poiston yhteydessä. Nimeäsi ei kuitenkaan enää näytetä näiden tapahtumien yhteydessä."
       delete_all_memberships: "Jos poistat käyttäjätunnuksesi, et pysty enää käyttämään sitä seuraavissa markkinapaikkoissa: %{marketplaces}"
+      unfinished_transactions: "Et voi poistaa tunnustasi, koska sinulla on keskeneräisiä transaktioita. Päätä transaktiot ennen tunnuksen poistoa."
       email_addresses: Sähköpostiosoitteet
       new_email: "Uusi sähköpostiosoite"
       new_password: "Uusi salasana"

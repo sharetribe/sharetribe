@@ -129,4 +129,8 @@
       = t("settings.account.delete_information_others_involved")
 
     = form_tag url_for(:controller => :people, :action => :destroy, :id => @current_user.id), :method => :delete do
-      = button_tag t('.delete_account_button'), :id => "delete_account_button", :data => {:confirm => t('.delete_account_confirmation_popup')}
+      = button_tag t('.delete_account_button'), :class => (has_unfinished ? 'disabled-button' : ''), :disabled => has_unfinished, :id => "delete_account_button", :data => {:confirm => t('.delete_account_confirmation_popup')}
+
+    - if has_unfinished
+      %p
+        = t('settings.account.unfinished_transactions')

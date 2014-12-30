@@ -89,9 +89,9 @@ module PaypalService
       end
 
       def destroy_personal_account(person_id, community_id)
-        Maybe(PaypalAccountModel.where(person_id: person_id, community_id: community_id))
-          .map { |paypal_account|
-            paypal_account.destroy ? true : false;
+        PaypalAccountModel.where(person_id: person_id, community_id: community_id)
+          .each { |paypal_account|
+            paypal_account.destroy
           }
       end
 
