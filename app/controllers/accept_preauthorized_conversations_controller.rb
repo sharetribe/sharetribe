@@ -135,7 +135,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def render_braintree_form(preselected_action)
-    render locals: {
+    render action: :accept, locals: {
       discussion_type: @listing_conversation.discussion_type,
       sum: @listing_conversation.payment.total_sum,
       fee: @listing_conversation.payment.total_commission,
