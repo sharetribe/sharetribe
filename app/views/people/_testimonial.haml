@@ -7,7 +7,7 @@
       - text_with_line_breaks do
         #{testimonial.text}
     .testimonial-author
-      = link_to testimonial.author.given_name_or_username, testimonial.author
+      = link_to_unless testimonial.author.deleted?, PersonViewUtils.person_display_name(testimonial.author, @current_community), testimonial.author
       = t("testimonials.testimonial.about_listing")
       - if listing.visibility.eql?("disabled")
         &ldquo;#{listing.title}&rdquo;
