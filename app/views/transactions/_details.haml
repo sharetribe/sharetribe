@@ -5,7 +5,7 @@
     .col-12
 
       %h2
-        = link_to listing[:title], transaction[:listing_url]
+        = link_to_unless listing[:deleted], listing[:title], transaction[:listing_url]
 
       - Maybe(transaction)[:booking].each do |booking|
         = render partial: "transactions/details/booking", locals: { booking: booking, price_per_day: listing[:price] }
