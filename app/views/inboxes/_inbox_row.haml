@@ -15,7 +15,7 @@
       = conversation[:title]
     .conversation-context
       - if conversation[:listing_url].present?
-        = t("conversations.conversation.about_listing", listing_title: link_to(conversation[:listing_title], conversation[:listing_url])).html_safe
+        = t("conversations.conversation.about_listing", listing_title: link_to_unless(conversation[:listing_deleted], conversation[:listing_title], conversation[:listing_url])).html_safe
       - else
         = t("conversations.conversation.free_message")
 
