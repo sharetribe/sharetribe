@@ -9,7 +9,9 @@ module MarketplaceService
         [:author_id, :mandatory, :string],
         [:price, :optional, :money],
         [:quantity, :optional, :string],
-        [:transaction_type_id, :mandatory, :fixnum])
+        [:transaction_type_id, :mandatory, :fixnum],
+        [:deleted, :to_bool]
+      )
 
       TransactionType = EntityUtils.define_builder(
         [:id, :mandatory, :fixnum],
