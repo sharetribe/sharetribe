@@ -39,7 +39,7 @@ module MarketplaceService
       def is_plan_expired(community_id)
         Maybe(current_plan(community_id))
           .map { |plan|
-            plan.expires_at < DateTime.now
+            plan.expires_at.present? && plan.expires_at < DateTime.now
           }
           .or_else(false)
       end

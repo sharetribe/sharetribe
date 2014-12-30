@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
     :set_locale,
     :generate_event_id,
     :set_default_url_for_mailer,
+    :fetch_chargebee_plan_data,
     :fetch_community_admin_status,
     :fetch_community_plan_expiration_status
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
@@ -226,11 +227,18 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_community_admin_status
-    @is_current_community_admin = @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+    @is_current_community_admin = @current_user && @current_user.has_admin_rights_in?(@current_community)
   end
 
   def fetch_community_plan_expiration_status
     @is_community_plan_expired = MarketplaceService::Community::Query.is_plan_expired(@current_community)
+  end
+
+  def fetch_chargebee_plan_data
+    @pro_biannual_link = APP_CONFIG.chargebee_pro_biannual_link
+    @pro_biannual_price = APP_CONFIG.chargebee_pro_biannual_price
+    @pro_monthly_link = APP_CONFIG.chargebee_pro_monthly_link
+    @pro_monthly_price = APP_CONFIG.chargebee_pro_monthly_price
   end
 
   private
@@ -256,7 +264,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_is_admin
-    unless @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+    unless @is_current_community_admin
       flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
       redirect_to root and return
     end

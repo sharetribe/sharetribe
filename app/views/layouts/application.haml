@@ -7,8 +7,7 @@
   = render :partial => 'layouts/global-header'
 
   - if @is_current_community_admin && @is_community_plan_expired
-    = render partial: "layouts/expiration_notice", locals: { id: "expiration-notice"}
-
+    = render partial: "layouts/expiration_notice"
 
   - content_for(:page_content) do
     %section.marketplace-lander
