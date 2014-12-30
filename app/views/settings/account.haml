@@ -119,6 +119,10 @@
     .account-settings-text
       %b
         = t("settings.account.delete_account")
+
+    - if marketplaces.length > 1
+      %p
+        = t("settings.account.delete_all_memberships", marketplaces: marketplaces.join(', '))
     %p
       = t("settings.account.delete_personal_information")
     %p

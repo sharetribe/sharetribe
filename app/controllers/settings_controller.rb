@@ -24,6 +24,11 @@ class SettingsController < ApplicationController
   def account
     @selected_left_navi_link = "account"
     @person.emails.build
+    marketplaces = @person.community_memberships.map do |membership|
+      membership.community.name(I18n.locale)
+    end
+
+    render locals: {marketplaces: marketplaces}
   end
 
   def notifications
