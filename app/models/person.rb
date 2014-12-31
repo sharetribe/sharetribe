@@ -237,6 +237,8 @@ class Person < ActiveRecord::Base
      !Person.find_by_username(username).present? && !username.in?(USERNAME_BLACKLIST)
    end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def name_or_username(community_or_display_type=nil)
     if community_or_display_type.present? && community_or_display_type.class == Community
       display_type = community_or_display_type.name_display_type
@@ -263,10 +265,14 @@ class Person < ActiveRecord::Base
     end
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def full_name
     "#{given_name} #{family_name}"
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def first_name_with_initial
     if family_name
       initial = family_name[0,1]
@@ -276,10 +282,14 @@ class Person < ActiveRecord::Base
     "#{given_name} #{initial}"
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def name(community_or_display_type=nil)
     return name_or_username(community_or_display_type)
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def given_name_or_username
     if is_organization
       # Quick and somewhat dirty solution. `given_name_or_username`
