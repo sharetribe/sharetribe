@@ -55,8 +55,10 @@ module PersonViewUtils
       first_name_with_initial(first_name, last_name)
     when matches([__, __, true, "first_name_only"])
       first_name
-    when matches([__, __, true, __])
+    when matches([__, __, true, "fullname"])
       full_name(first_name, last_name)
+    when matches([__, __, true])
+      first_name_with_initial(first_name, last_name)
     else
       username
     end

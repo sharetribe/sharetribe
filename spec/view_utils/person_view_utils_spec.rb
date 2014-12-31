@@ -47,10 +47,20 @@ describe PersonViewUtils do
       last_name: "Doe",
       organization_name: "John D Inc.",
       username: "johnd",
-      name_display_type: nil,
+      name_display_type: "fullname",
       is_organization: false,
       is_deleted: false,
       deleted_user_text: "Deleted user")).to eql("John Doe")
+
+    expect(PersonViewUtils.display_name(
+      first_name: "John",
+      last_name: "Doe",
+      organization_name: "John D Inc.",
+      username: "johnd",
+      name_display_type: nil,
+      is_organization: false,
+      is_deleted: false,
+      deleted_user_text: "Deleted user")).to eql("John D")
 
     expect(PersonViewUtils.display_name(
       first_name: nil,
