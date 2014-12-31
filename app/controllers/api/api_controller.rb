@@ -3,6 +3,8 @@ class Api::ApiController < ApplicationController
 
   skip_filter :fetch_community
   skip_filter :cannot_access_without_joining
+  skip_filter :fetch_community_admin_status
+  skip_filter :fetch_community_plan_expiration_status
 
   skip_before_filter :verify_authenticity_token
 
