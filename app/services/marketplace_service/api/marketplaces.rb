@@ -69,7 +69,7 @@ module MarketplaceService::API
       end
 
       def create_community_plan!(community, options={})
-        community.community_plans.create({
+        CommunityPlan.create({
           community_id: community.id,
           plan_level:   Maybe(options[:plan_level]).or_else(0),
           expires_at:   Maybe(options[:expires_at]).or_else(DateTime.now + 30.days)
