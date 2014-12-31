@@ -385,6 +385,7 @@ sv:
     username: Användarnamn
     username_or_email: "E-postadress eller användarnamn"
     what_is_this: "Vad är detta?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Svara på ett erbjudande"
@@ -834,6 +835,11 @@ sv:
       page_can_not_be_found: "Sidan hittades inte!"
       page_you_requested_can_not_be_found: "Sidan som du efterfrågade hittades inte. Är du säker på att du skrev adressen korrekt?"
     error_404_title: "sidan hittades inte"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: "Marknadsplatsen är inte tillgänglig för tillfället"
       unable_to_process: "Tjänsten kan inte behandla din begäran just nu. Försök igen senare."
@@ -1672,8 +1678,10 @@ sv:
       delete_account_confirmation_popup: "Är du helt säker på att du vill radera ditt användarkonto och permanent förlora alla uppgifter relaterade till kontot. Borttagning av ditt konto går ej att ångra."
       email_addresses: E-postadresser
       new_email: "Ny e-postadress"
-      instructions_to_delete_account: "Om du tar bort ditt konto så kommer all data relaterad till ditt konto försvinna: dina profildetaljer, annonser, kommentarer, meddelanden, feedback osv."
-      contact_admin: "vänligen kontakta administratören"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Nytt lösenord"
       save: Spara
       these_fields_are_shown_only_to_you: "Användarnamn visas i din profil om du inte har angett ditt namn. Annan information syns enbart för dig."

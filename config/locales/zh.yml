@@ -370,6 +370,7 @@ zh:
     username: 用户名
     username_or_email: Email或用户名
     what_is_this: 这是什么？
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -817,6 +818,11 @@ zh:
       page_can_not_be_found: 页面没找到或不存在
       page_you_requested_can_not_be_found: 您请求的页面不存在。您确定地址拼写正确？
     error_404_title: 未找到页面
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -1652,8 +1658,10 @@ zh:
       delete_account_confirmation_popup: ~
       email_addresses: ~
       new_email: 新Email地址
-      instructions_to_delete_account: ~
-      contact_admin: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: 新密码
       save: 保存
       these_fields_are_shown_only_to_you: 除非提供了您的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对您可见。

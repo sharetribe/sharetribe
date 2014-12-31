@@ -385,6 +385,7 @@ de:
     username: Benutzername
     username_or_email: "E-Mail oder Benutzername"
     what_is_this: "Was ist das?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Beantworte ein Angebot"
@@ -832,6 +833,11 @@ de:
       page_can_not_be_found: "Seite kann nicht gefunden werden!"
       page_you_requested_can_not_be_found: "Die gewünschte Seite kann nicht gefunden werden. Bist du sicher, dass du die Adresse richtig geschrieben hast?"
     error_404_title: "Seite nicht gefunden"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -1673,8 +1679,10 @@ de:
       delete_account_confirmation_popup: "Bist du sicher, dass du dein Benutzerkonto und alle damit verbundenen Daten endgültig löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden."
       email_addresses: E-Mail-Adressen
       new_email: "Neue E-Mail-Adresse"
-      instructions_to_delete_account: "Wenn du dein Konto löscht, werden auch alle damit verbundenen Daten entfernt: deine Profil-Details, Einträge, Kommentare, Nachrichten, Feedbacks etc."
-      contact_admin: "Bitte kontaktiere die Administratoren"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Neues Passwort"
       save: Speichern
       these_fields_are_shown_only_to_you: "Dein Benutzername wird dir in deinem Profil angezeigt, es sei denn, du hast deinen Namen angegeben. Andere Informationen sind nur für dich sichtbar."

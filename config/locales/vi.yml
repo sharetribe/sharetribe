@@ -370,6 +370,7 @@ vi:
     username: "Tên đăng nhập"
     username_or_email: "Tên người dùng hoặc email"
     what_is_this: "Đây là gì?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -817,6 +818,11 @@ vi:
       page_can_not_be_found: "Không thể tim thấy trang!"
       page_you_requested_can_not_be_found: "Không tim thấy trang bạn yêu cầu. Bạn có chắc viết địa chỉ chính xác không?"
     error_404_title: "Trang không tim thấy"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -1652,8 +1658,10 @@ vi:
       delete_account_confirmation_popup: ~
       email_addresses: ~
       new_email: "Địa chỉ email mới"
-      instructions_to_delete_account: "Nếu bạn muốn xóa tài khoản của bạn, liên hệ với chúng tôi bằng cách sử dụng nút phản hồi bên trái."
-      contact_admin: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Mật khẩu mới"
       save: Lưu
       these_fields_are_shown_only_to_you: "Tên người dùng được hiển thị trong tiểu sử của bạn trừ khi bạn đưa ra tên của bạn. Các thông tin khác chỉ hiện thị đối với bạn."

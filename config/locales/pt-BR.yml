@@ -370,6 +370,7 @@ pt-BR:
     username: Usuário
     username_or_email: "E-mail ou nome de usuário"
     what_is_this: "O que é isso?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Responder a uma oferta"
@@ -817,6 +818,11 @@ pt-BR:
       page_can_not_be_found: "Pagina não pode ser encontrada"
       page_you_requested_can_not_be_found: "A pagina solicitada não foi encontrada. Você tem certeza que digitou o endereço corretamente?"
     error_404_title: "pagina não encontrada"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -1655,8 +1661,10 @@ pt-BR:
       delete_account_confirmation_popup: ~
       email_addresses: "Endereço de email"
       new_email: "Novo endereço de email"
-      instructions_to_delete_account: "Se você excluir sua conta todos os dados relacionados a ele serão removidos: os seus dados de perfil, listas, comentários, mensagens, feedbacks etc."
-      contact_admin: "entre em contato com os administradores"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Nova senha"
       save: Salvar
       these_fields_are_shown_only_to_you: "Seu nome de usuário é mostrado no seu perfil a menos que você tenha dado o seu nome. Outras informações só é mostrado a você."

@@ -370,6 +370,7 @@ cs:
     username: ~
     username_or_email: ~
     what_is_this: ~
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -817,6 +818,11 @@ cs:
       page_can_not_be_found: ~
       page_you_requested_can_not_be_found: ~
     error_404_title: ~
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -1652,8 +1658,10 @@ cs:
       delete_account_confirmation_popup: ~
       email_addresses: ~
       new_email: ~
-      instructions_to_delete_account: ~
-      contact_admin: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: ~
       save: ~
       these_fields_are_shown_only_to_you: ~

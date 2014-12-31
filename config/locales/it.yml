@@ -370,6 +370,7 @@ it:
     username: ~
     username_or_email: "Email o username"
     what_is_this: "Cos'è questo?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -817,6 +818,11 @@ it:
       page_can_not_be_found: "La pagina non può essere trovata!"
       page_you_requested_can_not_be_found: "La pagina richiesta non è stata trovata. Sei sicuro che hai digitato l'indirizzo correttamente?"
     error_404_title: "pagina non trovata"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -1652,8 +1658,10 @@ it:
       delete_account_confirmation_popup: "Sei sicuro di voler eliminare il tuo account e permanentemente perdere tutte le informazioni in esso contenute? La cancellazione dell'account non può essere revocata."
       email_addresses: "Indirizzi email"
       new_email: "Nuovo indirizzo email"
-      instructions_to_delete_account: "Se cancelli il tuo account tutte le informazioni in esso contenute saranno rimosse: i dettagli del tuo profilo, annunci, commenti, messaggi, commenti etc."
-      contact_admin: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Nuova password"
       save: Salva
       these_fields_are_shown_only_to_you: "Lo username è mostrato nel tuo profilo a meno che non abbia fornito il tuo nome. Altre informazioni sono mostrate solo a te."

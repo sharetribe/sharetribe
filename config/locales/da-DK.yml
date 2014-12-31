@@ -385,6 +385,7 @@ da-DK:
     username: Brugernavn
     username_or_email: "Email eller brugernavn"
     what_is_this: "Hvad er dette?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Svar på et tilbud"
@@ -832,6 +833,11 @@ da-DK:
       page_can_not_be_found: "Siden blev ikke fundet!"
       page_you_requested_can_not_be_found: "Den ønskede side kan ikke findes. Er du sikker på at du har stavet adressen korrekt?"
     error_404_title: "Siden blev ikke fundet"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -1670,8 +1676,10 @@ da-DK:
       delete_account_confirmation_popup: "Er du helt sikker på at du vil slette din konto og permanent slette alt data? Dit valg kan ikke fortrydes."
       email_addresses: "Email adresser"
       new_email: "Ny e-mailadresse:"
-      instructions_to_delete_account: "Hvis du sletter din konto, vil alt din data blive slettet fra serveren: din profiloplysninger, annoncer, kommentarer, beskeder, feedback osv."
-      contact_admin: "kontakt venligst administratoren"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Nyt kodeord"
       save: Gem
       these_fields_are_shown_only_to_you: "Brugernavn er vist i din profil, medmindre du har givet dit navn. Andre oplysninger vises kun til dig."

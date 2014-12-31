@@ -380,6 +380,7 @@ tr-TR:
     username: "Kullanıcı adı"
     username_or_email: "E-posta ya da kullanıcı adı"
     what_is_this: "Bu nedir?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Teklife cevap ver"
@@ -827,6 +828,11 @@ tr-TR:
       page_can_not_be_found: "Sayfa bulunamadı!"
       page_you_requested_can_not_be_found: "Talep ettiğiniz sayfa bulunamıyor. Adresi doğru yazdığınıza emin misiniz?"
     error_404_title: "sayfa bulunamadı"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -1664,8 +1670,10 @@ tr-TR:
       delete_account_confirmation_popup: "Hesabınızı tamamen silmek ve hesapla ilgili tüm verileri kaldırmak istediğinize emin misiniz? Hesap silme işlemi geri alınamaz."
       email_addresses: "E-posta adresleri"
       new_email: "Yeni e-posta adresi"
-      instructions_to_delete_account: "Eğer hesabınızı silerseniz hesabınıza ilişkin tüm veriler silinecektir: profil bilgileriniz, listelemeler, yorumlar, mesajlar, geri bildirimler, vb."
-      contact_admin: "lütfen yöneticilerle iletişime geçin"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Yeni şifre"
       save: Kaydet
       these_fields_are_shown_only_to_you: "Adınızı vermediyseniz profilinizde kullanıcı adınız görünür. Diğer bilgilerinizi yalnızca siz görüntüleyebilirsiniz."

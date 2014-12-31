@@ -370,6 +370,7 @@ ca:
     username: Usuari
     username_or_email: ~
     what_is_this: "Què és això?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -819,6 +820,11 @@ ca:
       page_can_not_be_found: "Pàgina no trobada."
       page_you_requested_can_not_be_found: "Pàgina no trobada. Esteu segurs de que està correctament escrita?"
     error_404_title: "Pàgina no trobada"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -1654,8 +1660,10 @@ ca:
       delete_account_confirmation_popup: ~
       email_addresses: ~
       new_email: "Nou correu electrònic:"
-      instructions_to_delete_account: ~
-      contact_admin: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Nova contrasenya"
       save: Desa
       these_fields_are_shown_only_to_you: "El nom de l'usuari es mostra en el teu perfil a no ser que hagis donat el teu nom. Qualsevol altra informació està només disponible per a tu."
