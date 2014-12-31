@@ -572,7 +572,7 @@ label.error {
   -----------
 */
 
-.lightbox {
+.lightbox, .expiration-notice {
   display: none;
   position: relative;
   margin: lines(10) auto;
@@ -649,6 +649,133 @@ a.lightbox-x {
     padding: em(7);
   }
 }
+
+/*
+  ------------------------
+  Expiration
+  ------------------------
+*/
+
+.expiration-lightbox {
+  max-width: 675px;
+  width: 95%;
+}
+.expiration-content {
+  position: relative;
+  width: 100%;
+  background: $background;
+  @include border-radius(em(5));
+}
+.expiration-head-panel {
+  width: 90%;
+  margin: 0 auto 30px auto;
+}
+.expiration-title {
+  font-size: 38px;
+  line-height: 38px;
+  font-weight: normal;
+  text-align: center;
+  margin: 0px;
+  padding: 30px 0;
+}
+
+.expiration-subtitle {
+  font-size: 17px;
+  line-height: 30px;
+  font-weight: normal;
+  text-align: center;
+  margin: 0px;
+}
+
+.expiration-plans-panel {
+  background-color: $expiration-background;
+}
+.expiration-plans-wrapper {
+  margin: 0 auto;
+  padding: 30px 15px;
+}
+.expiration-plan-title {
+  font-size: 26px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+.expiration-plan-desc {
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+}
+.expiration-plan-select {
+  max-width: 400px;
+  margin: 30px auto 0 auto;
+  @include clearfix();
+}
+
+.expiration-plan-wrapper {
+  width: 185px;
+  margin: 10px auto;
+}
+.expiration-plan-wrapper-left {
+  @extend .expiration-plan-wrapper;
+  @include media(small-tablet) {
+    float: left;
+    margin: 0;
+  }
+}
+.expiration-plan-wrapper-right {
+  @extend .expiration-plan-wrapper;
+  @include media(small-tablet) {
+    float: right;
+    margin: 0;
+  }
+}
+.expiration-plan-monthly,
+.expiration-plan-biannual {
+  @include border-radius(em(5));
+  background-color: white;
+  color: black;
+  padding: 30px 0;
+  border: solid 1px #ccc;
+}
+.expiration-plan-biannual {
+  background-color: $sharetribe-color;
+  border: solid 1px $sharetribe-color;
+  color: white;
+}
+.expiration-subscribe-title {
+  text-align: center;
+  font-size: 21px;
+  line-height: 21px;
+}
+.expiration-subscribe-price-per {
+  display: block;
+  margin: 10px auto 0 auto;
+  width: 92px;
+}
+.expiration-subscribe-price {
+  text-align: center;
+  font-size: 46px;
+  line-height: 48px;
+}
+.expiration-subscribe-per {
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+}
+.plan-price-disclaimer-desc {
+  font-size: 13px;
+  color: #999;
+  margin-top: 10px;
+}
+.expiration-footer {
+  padding: 30px 10px;
+}
+.expiration-alternative-plans {
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+}
+
 
 /*
   ------------------------
