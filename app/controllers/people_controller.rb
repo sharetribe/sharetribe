@@ -219,8 +219,6 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def destroy
-    return redirect_to root unless (@person && @current_user && @person == @current_user)
-
     has_unfinished = TransactionService::Transaction.has_unfinished_transactions(@current_user.id)
     return redirect_to root if has_unfinished
 
