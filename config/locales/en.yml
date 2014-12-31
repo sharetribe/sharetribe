@@ -385,6 +385,7 @@ en:
     username: Username
     username_or_email: "Email or username"
     what_is_this: "What's this?"
+    removed_user: "Removed user"
   conversations:
     accept:
       respond_to_offer: "Respond to an offer"
@@ -832,6 +833,11 @@ en:
       page_can_not_be_found: "Page can not be found!"
       page_you_requested_can_not_be_found: "The page you requested can not be found. Are you sure you spelled the address correctly?"
     error_404_title: "page not found"
+    error_410:
+      page_removed: "Page removed"
+      page_you_requested_has_been_removed: "The page you requested has been removed."
+      page_removed_reason: "There are a few possible reasons for this. For example, a user might have removed their account or a listing might have been removed."
+    error_410_title: "page removed"
     error_500:
       temporary_unavailable: "Marketplace temporarily unavailable"
       unable_to_process: "The service is unable to process your request right now. Please try again in few moments."
@@ -1670,8 +1676,10 @@ en:
       delete_account_confirmation_popup: "Are you sure you really want to delete your user account and permanently lose all data related to it? Account deletion can not be reversed."
       email_addresses: "Email addresses"
       new_email: "New email address"
-      instructions_to_delete_account: "If you delete your account all the data related to it will be removed: your profile details, listings, comments, messages, feedbacks etc."
-      contact_admin: "please contact the administrators"
+      delete_all_memberships: "If you delete your account, you will not be able to use it any more in the following marketplaces: %{marketplaces}"
+      delete_personal_information: "If you delete your account, your personal information (name, phone number, address, email, profile picture, etc.) will be deleted permanently and can't be recovered. All the listings you have created will be removed from the site. You won't be able to reactivate your account."
+      delete_information_others_involved: "Information where other members are involved (conversations with other people, transactions you've made, reviews you've given to others, etc) is not removed when you delete your account. However, your name will no longer be displayed next to this information."
+      unfinished_transactions: "Your account can't be deleted because you have ongoing transactions. Please complete all transactions before deleting your account."
       new_password: "New password"
       save: Save
       these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."

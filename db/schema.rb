@@ -484,6 +484,7 @@ ActiveRecord::Schema.define(:version => 20141222130455) do
     t.integer  "price_cents"
     t.string   "currency"
     t.string   "quantity"
+    t.boolean  "deleted",             :default => false
   end
 
   add_index "listings", ["listing_type_old"], :name => "index_listings_on_listing_type"
@@ -716,7 +717,7 @@ ActiveRecord::Schema.define(:version => 20141222130455) do
   add_index "paypal_tokens", ["transaction_id"], :name => "index_paypal_tokens_on_transaction_id"
 
   create_table "people", :id => false, :force => true do |t|
-    t.string   "id",                                 :limit => 22,                   :null => false
+    t.string   "id",                                 :limit => 22,                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "is_admin",                                         :default => 0
@@ -728,7 +729,7 @@ ActiveRecord::Schema.define(:version => 20141222130455) do
     t.boolean  "active",                                           :default => true
     t.string   "username"
     t.string   "email"
-    t.string   "encrypted_password",                               :default => "",   :null => false
+    t.string   "encrypted_password",                               :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -752,6 +753,7 @@ ActiveRecord::Schema.define(:version => 20141222130455) do
     t.integer  "min_days_between_community_updates",               :default => 1
     t.boolean  "is_organization"
     t.string   "organization_name"
+    t.boolean  "deleted",                                          :default => false
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true

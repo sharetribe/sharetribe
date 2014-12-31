@@ -84,6 +84,7 @@ module MarketplaceService
 
         [:listing_id, :fixnum, :mandatory],
         [:listing_title, :string, :mandatory],
+        [:listing_deleted, transform_with: @tiny_int_to_bool],
         [:transaction_type, :string, :mandatory],
 
         [:last_transition_at, :time, :mandatory],
@@ -298,6 +299,7 @@ module MarketplaceService
 
             listings.id                                       AS listing_id,
             listings.title                                    AS listing_title,
+            listings.deleted                                  AS listing_deleted,
 
             payments.id                                       AS payment_id,
 

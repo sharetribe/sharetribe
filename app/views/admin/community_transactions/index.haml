@@ -23,7 +23,7 @@
     %tbody
       - conversations.each do |conversation|
         %tr
-          %td=Maybe(conversation[:listing]).map { |listing| link_to(listing[:title], conversation[:listing_url]) }.or_else("")
+          %td=Maybe(conversation[:listing]).map { |listing| link_to_unless(listing[:deleted], listing[:title], conversation[:listing_url]) }.or_else("")
           - if show_status_and_sum
             %td=t("admin.communities.transactions.status.#{conversation[:status]}")
             %td=conversation[:payment_total] ? humanized_money_with_symbol(conversation[:payment_total]) : ""
@@ -36,8 +36,8 @@
           - else
             - last_activity_at = [conversation[:last_transition_at], conversation[:conversation][:last_message_at]].max
           %td=l(last_activity_at, format: :short_date)
-          %td=Maybe(conversation[:starter]).map { |p| link_to(p[:full_name], p[:url]) }.or_else("")
-          %td=Maybe(conversation[:author]).map { |p| link_to(p[:full_name], p[:url]) }.or_else("")
+          %td=Maybe(conversation[:starter]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
+          %td=Maybe(conversation[:author]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
   .row
     .col-12
       = will_paginate conversations

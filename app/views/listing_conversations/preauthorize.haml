@@ -24,7 +24,7 @@
 
 #new_message_form.centered-section
 
-  - author_link = link_to(author[:name], person_path(id: author[:username]))
+  - author_link = link_to(author[:display_name], person_path(id: author[:username]))
 
   .preauthorize-section
     %h2.preauthorize-details-title
@@ -71,7 +71,7 @@
 
     .preauthorize-section
       %h2
-        = t("conversations.new.optional_message_to", author_name: link_to(author[:name], person_path(id: author[:username]))).html_safe
+        = t("conversations.new.optional_message_to", author_name: link_to(author[:display_name], person_path(id: author[:username]))).html_safe
 
       .row
         .col-12

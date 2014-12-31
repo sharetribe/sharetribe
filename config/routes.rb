@@ -53,6 +53,7 @@ Kassi::Application.routes.draw do
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
   match '/500' => 'errors#server_error'
   match '/404' => 'errors#not_found', :as => :error_not_found
+  match '/410' => 'errors#gone', as: :error_gone
   match '/community_not_found' => 'errors#community_not_found', as: :community_not_found
 
   resources :communities, only: [:new, :create]

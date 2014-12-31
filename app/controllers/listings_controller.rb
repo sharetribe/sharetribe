@@ -317,6 +317,9 @@ class ListingsController < ApplicationController
   # Ensure that only users with appropriate visibility settings can view the listing
   def ensure_authorized_to_view
     @listing = Listing.find(params[:id])
+
+    redirect_to :error_gone if @listing.deleted?
+
     unless @listing.visible_to?(@current_user, @current_community) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
       if @listing.public?
         # This situation occurs when the user tries to access a listing

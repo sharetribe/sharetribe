@@ -33,6 +33,7 @@
 #  price_cents         :integer
 #  currency            :string(255)
 #  quantity            :string(255)
+#  deleted             :boolean          default(FALSE)
 #
 # Indexes
 #

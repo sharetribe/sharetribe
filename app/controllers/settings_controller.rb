@@ -24,6 +24,12 @@ class SettingsController < ApplicationController
   def account
     @selected_left_navi_link = "account"
     @person.emails.build
+    marketplaces = @person.community_memberships.map do |membership|
+      membership.community.name(I18n.locale)
+    end
+    has_unfinished = TransactionService::Transaction.has_unfinished_transactions(@current_user.id)
+
+    render locals: {marketplaces: marketplaces, has_unfinished: has_unfinished}
   end
 
   def notifications

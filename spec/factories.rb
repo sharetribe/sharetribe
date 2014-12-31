@@ -69,6 +69,17 @@ FactoryGirl.define do
     "sharetribe-testcommunity-#{n}"
   end
 
+  sequence :token do |n|
+    "token-#{n}"
+  end
+
+  factory :auth_token do
+    build_association(:person)
+    expires_at 30.days.from_now
+    token
+    token_type "unsubscribe"
+  end
+
   factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender, :follower] do
     id
     is_admin 0
@@ -356,6 +367,12 @@ FactoryGirl.define do
   factory :payment_row do
     currency "EUR"
     sum_cents 2000
+  end
+
+  factory :checkout_account do
+    build_association(:person)
+    merchant_id "12345678-9"
+    merchant_key "abcdef12345"
   end
 
   factory :braintree_account do

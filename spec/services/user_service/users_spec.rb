@@ -61,5 +61,48 @@ describe UserService::API::Users do
 
   end
 
+  describe "#delete_user" do
+    let(:user) { FactoryGirl.create(:person) }
+    let!(:membership) { FactoryGirl.create(:community_membership, person: user) }
+    let!(:braintree_account) { FactoryGirl.create(:braintree_account, person: user) }
+    let!(:checkout_account) { FactoryGirl.create(:checkout_account, person: user) }
+    let!(:auth_token) { FactoryGirl.create(:auth_token, person: user) }
+    let!(:follower) { FactoryGirl.create(:person) }
+    let!(:followed) { FactoryGirl.create(:person) }
+    let!(:follower_relationship) { FactoryGirl.create(:follower_relationship, person: user, follower: follower) }
+    let!(:followed_relationship) { FactoryGirl.create(:follower_relationship, person: followed, follower: user) }
+
+    it "removes user data and adds deleted flag" do
+      new_user = Person.find(user.id)
+
+      expect(new_user.given_name).not_to be_nil
+      expect(new_user.family_name).not_to be_nil
+      expect(new_user.emails).not_to be_empty
+      expect(new_user.community_memberships).not_to be_empty
+      expect(new_user.braintree_account).not_to be_nil
+      expect(new_user.checkout_account).not_to be_nil
+      expect(new_user.auth_tokens).not_to be_nil
+      expect(new_user.follower_relationships.length).to eql(1)
+      expect(new_user.inverse_follower_relationships.length).to eql(1)
+
+      # flag
+      expect(new_user.deleted).not_to eql(true)
+
+      delete_user(user.id)
+
+      deleted_user = Person.find(user.id)
+      expect(deleted_user.given_name).to be_nil
+      expect(deleted_user.family_name).to be_nil
+      expect(deleted_user.emails).to be_empty
+      expect(deleted_user.community_memberships).to be_empty
+      expect(deleted_user.braintree_account).to be_nil
+      expect(deleted_user.checkout_account).to be_nil
+      expect(deleted_user.auth_tokens).to be_empty
+      expect(deleted_user.follower_relationships.length).to eql(0)
+      expect(deleted_user.inverse_follower_relationships.length).to eql(0)
+
+      expect(deleted_user.deleted).to eql(true)
+    end
+  end
 
 end

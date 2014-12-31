@@ -32,11 +32,15 @@ class Admin::CommunityTransactionsController < ApplicationController
 
       [author, starter].each { |p|
         p[:url] = person_path(p[:username])
+        p[:display_name] = PersonViewUtils.person_entity_display_name(p, "fullname")
       }
 
       if transaction[:listing].present?
         # This if was added to tolerate cases where listing has been deleted
         # due the author deleting his/her account completely
+        # UPDATE: December 2014, we did an update which keeps the listing row even if user is deleted.
+        # So, we do not need to tolerate this anymore. However, there are transactions with deleted
+        # listings in DB, so those have to be handled.
         transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
       end
 

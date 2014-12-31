@@ -12,6 +12,19 @@ module TransactionService::Transaction
     model_to_entity(TransactionModel.find(transaction_id))
   end
 
+  def has_unfinished_transactions(person_id)
+    finished_states = ["free", "rejected", "confirmed", "canceled", "errored"]
+                      .map { |state| "'#{state}'"}
+                      .join(",")
+
+    unfinished = TransactionModel
+                 .joins(:listing)
+                 .where("starter_id = ? OR listings.author_id = ?", person_id, person_id)
+                 .where("current_state NOT IN (#{finished_states})")
+
+    unfinished.length > 0
+  end
+
   # FIXME This code is duplicate from PaypalHelper. We need to check
   # things with community because Transaction service does not own the
   # transaction settings. This is an error in data modelling. Actually

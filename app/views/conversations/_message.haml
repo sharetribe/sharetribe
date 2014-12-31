@@ -6,7 +6,7 @@
       = image_tag(message_or_action[:sender][:avatar], :class => "message-avatar-image")
     %div{class: "message-content-container-#{avatar_side}"}
       %div{class: "message-time-ago-#{avatar_side}"}
-        = link_to message_or_action[:sender][:name], person_path(id: message_or_action[:sender][:username])
+        = link_to_unless message_or_action[:sender][:is_deleted], message_or_action[:sender][:display_name], person_path(id: message_or_action[:sender][:username])
         = time_ago(message_or_action[:created_at])
 
       %div{class: "message-bubble-arrow-to-#{avatar_side} message-type-#{message_or_action[:type]} message-mood-#{message_or_action[:mood]}"}
