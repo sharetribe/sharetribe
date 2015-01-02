@@ -20,6 +20,7 @@ module Sharetribe
     ["Português do Brasil", "pt-BR"],
     ["Dansk", "da-DK"],
     ["Turkish", "tr-TR"],
+    ["Japanese", "ja"],
 
     # Customization languages
     ["English", "en-rc"],
