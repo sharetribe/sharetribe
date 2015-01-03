@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141222130455) do
+ActiveRecord::Schema.define(:version => 20150103143459) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -271,7 +271,7 @@ ActiveRecord::Schema.define(:version => 20141222130455) do
   add_index "community_memberships", ["person_id", "community_id"], :name => "memberships"
 
   create_table "community_plans", :force => true do |t|
-    t.string   "community_id",                :null => false
+    t.integer  "community_id",                :null => false
     t.integer  "plan_level",   :default => 0, :null => false
     t.datetime "expires_at"
     t.datetime "created_at",                  :null => false
