@@ -3,7 +3,7 @@
 # Table name: community_plans
 #
 #  id           :integer          not null, primary key
-#  community_id :string(255)      not null
+#  community_id :integer          not null
 #  plan_level   :integer          default(0), not null
 #  expires_at   :datetime
 #  created_at   :datetime         not null
