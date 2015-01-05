@@ -1182,9 +1182,9 @@ ja:
       stylesheet_needs_recompiling: ~
     settings:
       account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
+      notifications: お知らせ
+      profile: プロフィール
+      settings: 設定
       payments: ~
   listings:
     bubble_listing_not_visible:
@@ -1194,12 +1194,12 @@ ja:
       send_private_message: ~
     comment_form:
       ask_a_question: ~
-      log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
+      log_in: ログイン
+      send_comment: コメントの送信
+      to_send_a_comment: 新しいコメントを送信。
+      write_comment: 新しいコメントを書く：
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
+      you_must: が必要です
       subscribe_to_comments: ~
     edit:
       edit_listing: ~
@@ -1220,32 +1220,32 @@ ja:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: 時に
+        departure_time: 出発時間
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: 詳細
       destination:
-        destination: ~
+        destination: 行き先
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
+        favor: サービス
+        housing: スペース
+        item: もの
+        offer_something: 何かを投稿する
+        request_something: 何かをリクエストする
+        rideshare: ライド
         i_want_to_offer: ~
         i_want_to_request: ~
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_copy: 地図の終点
+        googlemap_description: 地図で見る
+        googlemap_updatemap: 地図を更新
       images:
-        image: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        image: 画像
+        no_file_selected: ファイルが選択されていません
+        remove_image: 画像を削除する
+        select_file: ファイルを選択
         removing: ~
         processing: ~
         loading_image: ~
@@ -1255,7 +1255,7 @@ ja:
         file_too_large: ~
         accepted_formats: ~
       location:
-        location: ~
+        location: 場所
       price:
         price: ~
         per: ~
@@ -1267,28 +1267,28 @@ ja:
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
       origin:
-        location: ~
-        origin: ~
+        location: 場所
+        origin: 起点となる場所
       send_button:
         save_listing: ~
       share_type:
         select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
+        borrow: 借りる
+        buy: 購入する
+        give_away: 「ご自由にどうぞ」
+        lend: 貸す
+        offer_type: オファーの種類
+        receive: 無料で受け入れます
+        rent: レンタルする
+        rent_out: 貸し出す
+        request_type: リクエストの種類
+        sell: 販売する
         share_for_free: ~
         accept_for_free: ~
-        trade: ~
+        trade: 交換する
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: 、
+        tags: タグ
       title:
         listing_title: ~
       valid_until:

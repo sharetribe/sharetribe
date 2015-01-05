@@ -385,7 +385,7 @@ sv:
     username: Användarnamn
     username_or_email: "E-postadress eller användarnamn"
     what_is_this: "Vad är detta?"
-    removed_user: ~
+    removed_user: "Borttagen användare"
   conversations:
     accept:
       respond_to_offer: "Svara på ett erbjudande"
@@ -836,10 +836,10 @@ sv:
       page_you_requested_can_not_be_found: "Sidan som du efterfrågade hittades inte. Är du säker på att du skrev adressen korrekt?"
     error_404_title: "sidan hittades inte"
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
-    error_410_title: ~
+      page_removed: "Sida borttagen"
+      page_you_requested_has_been_removed: "Sidan du sökte har blivit borttagen."
+      page_removed_reason: "Det finns några anledningar till detta. T ex, en användare har kanske tagit bort sitt konto eller annonsen har tagits bort."
+    error_410_title: "sidan borttagen"
     error_500:
       temporary_unavailable: "Marknadsplatsen är inte tillgänglig för tillfället"
       unable_to_process: "Tjänsten kan inte behandla din begäran just nu. Försök igen senare."
@@ -1678,10 +1678,10 @@ sv:
       delete_account_confirmation_popup: "Är du helt säker på att du vill radera ditt användarkonto och permanent förlora alla uppgifter relaterade till kontot. Borttagning av ditt konto går ej att ångra."
       email_addresses: E-postadresser
       new_email: "Ny e-postadress"
-      delete_all_memberships: ~
-      delete_personal_information: ~
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
+      delete_all_memberships: "Om du tar bort ditt konto så kommer du inte längre att kunna använda det på följande marknadsplatser: %{marketplaces}"
+      delete_personal_information: "Om du tar bort ditt konto så kommer din personliga information (namn, telefonnummer, adress, e-post, profilbild osv.) att tas bort permanent och går inte att återskapa. Alla annonser som du har skapat kommer också att tas bort från sidan. Du kommer inte att kunna återaktivera kontot."
+      delete_information_others_involved: "Information där andra medlemmar är involverade (konversationer med andra personer, transaktioner du gjort, recensioner du har gett till andra, m.m.) kommer inte att tas bort när du raderar ditt konto. Ditt namn kommer inte att visas vid denna information."
+      unfinished_transactions: "Ditt konto kan inte tas bort eftersom du har pågående transaktioner. Vänligen slutför alla transaktioner innan du tar bort ditt konto."
       new_password: "Nytt lösenord"
       save: Spara
       these_fields_are_shown_only_to_you: "Användarnamn visas i din profil om du inte har angett ditt namn. Annan information syns enbart för dig."

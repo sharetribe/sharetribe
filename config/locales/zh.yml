@@ -436,10 +436,10 @@ zh:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: 向...请求帮助
-      favor_request_message_form_title: 向...提供帮助
-      housing_offer_message_form_title: 向...提供空间
-      housing_request_message_form_title: 回复
+      favor_offer_message_form_title: "向%{person}请求帮助"
+      favor_request_message_form_title: "向%{person}提供帮助"
+      housing_offer_message_form_title: "向%{person}提供住处"
+      housing_request_message_form_title: "向%{person}请求住处"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -456,12 +456,12 @@ zh:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: 向...提供一个物品
+      item_request_message_form_title: "向%{person}提供一个物品"
       message: 消息
       message_to: ~
       optional_message_to: ~
-      rideshare_offer_message_form_title: 想要搭顺风车
-      rideshare_request_message_form_title: 提供顺风车
+      rideshare_offer_message_form_title: "想要搭%{person}的顺风车"
+      rideshare_request_message_form_title: "向%{person}提供顺风车"
       send_message: 发送信息
       send: ~
       this_message_is_private: "此消息为您和%{person}之间的悄悄话"
@@ -534,8 +534,8 @@ zh:
     status_link:
       accept_offer: 接受提议
       accept_request: 接受请求
-      reject_offer: 拒绝提议
-      reject_request: 拒绝请求
+      reject_offer: 这次不行。
+      reject_request: 这次不行。
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~

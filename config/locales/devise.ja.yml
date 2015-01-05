@@ -1,55 +1,58 @@
 ja:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: ご登録の有効期限は終了しましたので、再登録をお願いします。
+      not_found: ページが見つかりません
+      already_confirmed: 認証済みです。再度、ログインしてください。
+      not_locked: ロックされていません。
+      not_saved:
+        other: "%{count}箇所のエラーにより、この%{resource}は保存されませんでした："
+        zero: "エラーは%{count}箇所でしたが、この%{resource}は保存されませんでした："
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: 既にサインインしています。
+      unauthenticated: ご利用を続けるには、サインインか新規登録をする必要があります。
+      unconfirmed: ご利用を続けるには、あなたのアカウントを承認する必要があります。
+      locked: アカウントがロックされています。
+      invalid: メールアドレスまたはパスワードが正しくありません。
+      invalid_token: 無効な認証トークン（一時的なパスワード）です。
+      timeout: セッション切れになりました。ご利用を続けるにはもう一度サインインしてください。
+      inactive: アカウントはまだ承認されていません。
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: パスワードが正常に変更されました。
+      send_paranoid_instructions: あなたのメールアドレスがデータベースに存在する場合、パスワードを回復させるためのリンクを記載したメールがまもなく届きます。
+      send_instructions: あなたのパスワードのリセット方法が記載されたメールが、まもなく届きます。
+      updated: パスワードが正常に変更されました。あなたは今サインイン済です。
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: 正常にサインインしました。
+      signed_out: 正常にサインアウトしました。
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: あなたのメールアドレスがデータベースに存在する場合、承認手順を記載したメールがまもなく届きます。
+      send_instructions: アカウント認証方法が記載されたメールが、まもなく届きます。
+      confirmed: アカウントの認証に成功しました。
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: あなたのメールアドレスに認証リンクの記載されたメッセージが送信されています。あなたのアカウントを有効にするリンクを開いてください。
+      signed_up_but_inactive: ご登録手続きが完了しています。しかし、アカウントがまだ有効になっておりませんので、サインインが出来ませんでした。
+      signed_up_but_locked: ご登録手続きが完了しています。しかし、アカウントがロックされているため、サインインが出来ませんでした。
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: 停止中
+        unconfirmed: 未承認
+        locked: アカウントがロックされています。
+      update_needs_confirmation: アカウントが正常に更新されました。ただしこのお手続きを完了するには、メールアドレスを、確認する必要があります。お届けしたメールを確認し、アカウントのご登録完了のための承認リンクをクリックしてください。
+      signed_up: "ようこそ ！正常にサインアップしました。"
+      updated: アカウントは正常に更新されました。
+      destroyed: アカウントが正常にキャンセルされました。またのご利用をお待ちしております。
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: あなたのアカウントが存在する場合、ロックを解除する方法についての手順を記載したメールがまもなく届きます。
+      send_instructions: アカウントロック解除の手続きメールがまもなく届きます。
+      unlocked: あなたのアカウントが、正常にロック解除されました。続けるには、サインインしてください。
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "%{kind}のアカウントが正常に認可されました。"
+      failure: "「%{reason}」のため%{kind}のアカウントのご利用を許可することができませんでした。"
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: 認証手続き
       reset_password_instructions:
-        subject: ~
+        subject: パスワード再設定手続き
       unlock_instructions:
-        subject: ~
+        subject: ロック解除手続き
