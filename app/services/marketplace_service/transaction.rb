@@ -64,14 +64,9 @@ module MarketplaceService
       # - gateway_expires_at (how long the payment authorization is valid)
       # - max_date_at (max date, e.g. booking ending)
       def preauth_expires_at(gateway_expires_at, max_date_at=nil)
-        gateway_expires_at = gateway_expires_at.to_time
-        max_date_at = max_date_at.to_time if max_date_at.present?
-
-        if max_date_at.present?
-          max_date_at < gateway_expires_at ? max_date_at : gateway_expires_at
-        else
-          gateway_expires_at
-        end
+        [gateway_expires_at,
+         Maybe(max_date_at).map {|d| (d + 1.day).to_time}.or_else(nil)
+        ].compact.min
       end
 
       def authorization_expiration_period(payment_type)
@@ -346,7 +341,6 @@ module MarketplaceService
                               end
 
         booking_ends_on = Maybe(transaction)[:booking][:end_on].or_else(nil)
-
         expire_at = Entity.preauth_expires_at(gateway_expires_at, booking_ends_on)
 
         Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction[:id]), :priority => 10)
