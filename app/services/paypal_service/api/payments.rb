@@ -17,6 +17,7 @@ module PaypalService::API
       @logger = logger
       @events = events
       @merchant = merchant
+      @lookup = Lookup.new(logger)
     end
 
     # For RequestWrapper mixin
@@ -30,7 +31,7 @@ module PaypalService::API
 
     ## POST /payments/request
     def request(community_id, create_payment, async: false)
-      Lookup.with_account(
+      @lookup.with_account(
         community_id, create_payment[:merchant_id]
       ) do |m_acc|
         if (async)
@@ -80,7 +81,7 @@ module PaypalService::API
     end
 
     def get_request_token(community_id, token)
-      Lookup.with_token(community_id, token) do |token|
+      @lookup.with_token(community_id, token) do |token|
         Result::Success.new(token)
       end
     end
@@ -104,7 +105,7 @@ module PaypalService::API
 
     ## POST /payments/:community_id/create?token=EC-7XU83376C70426719
     def create(community_id, token, async: false)
-      Lookup.with_token(community_id, token) do |token|
+      @lookup.with_token(community_id, token) do |token|
         if (async)
           proc_token = Worker.enqueue_payments_op(
             community_id: community_id,
@@ -120,7 +121,7 @@ module PaypalService::API
     end
 
     def do_create(community_id, token)
-      payment = Lookup.get_payment_by_token(token)
+      payment = @lookup.get_payment_by_token(token)
 
       # The process either starts by creating a new payment...
       if (payment.nil?)
@@ -138,7 +139,7 @@ module PaypalService::API
 
     ## POST /payments/:community_id/:transaction_id/full_capture
     def full_capture(community_id, transaction_id, info, async: false)
-      Lookup.with_payment(community_id, transaction_id, [[:pending, :authorization]]) do |payment, m_acc|
+      @lookup.with_payment(community_id, transaction_id, [[:pending, :authorization]]) do |payment, m_acc|
         if (async)
           proc_token = Worker.enqueue_payments_op(
             community_id: community_id,
@@ -187,14 +188,14 @@ module PaypalService::API
 
     ## GET /payments/:community_id/:transaction_id
     def get_payment(community_id, transaction_id)
-      Lookup.with_payment(community_id, transaction_id) do |payment, m_acc|
+      @lookup.with_payment(community_id, transaction_id) do |payment, m_acc|
         Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
       end
     end
 
     ## POST /payments/:community_id/:transaction_id/void
     def void(community_id, transaction_id, info, async: false)
-      Lookup.with_payment(community_id, transaction_id, [[:pending, nil]]) do |payment, m_acc|
+      @lookup.with_payment(community_id, transaction_id, [[:pending, nil]]) do |payment, m_acc|
         if (async)
           proc_token = Worker.enqueue_payments_op(
             community_id: community_id,
@@ -243,7 +244,7 @@ module PaypalService::API
     #
 
     def create_payment(token)
-      Lookup.with_merchant_account(token[:community_id], token) do |m_acc|
+      @lookup.with_merchant_account(token[:community_id], token) do |m_acc|
         with_success(token[:community_id], token[:transaction_id],
           MerchantData.create_get_express_checkout_details(
             { receiver_username: m_acc[:payer_id], token: token[:token] }
@@ -296,7 +297,7 @@ module PaypalService::API
     end
 
     def authorize_payment(community_id, payment)
-      Lookup.with_payment(community_id, payment[:transaction_id], [[:pending, :order]]) do |payment, m_acc|
+      @lookup.with_payment(community_id, payment[:transaction_id], [[:pending, :order]]) do |payment, m_acc|
         with_success(community_id, payment[:transaction_id],
           MerchantData.create_do_authorization({
               receiver_username: m_acc[:payer_id],
