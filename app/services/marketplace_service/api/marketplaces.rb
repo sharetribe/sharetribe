@@ -72,7 +72,7 @@ module MarketplaceService::API
         CommunityPlan.create({
           community_id: community.id,
           plan_level:   Maybe(options[:plan_level]).or_else(0),
-          expires_at:   Maybe(options[:expires_at]).or_else(DateTime.now + 30.days)
+          expires_at:   Maybe(options[:expires_at]).or_else(DateTime.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days)
         })
       end
 
