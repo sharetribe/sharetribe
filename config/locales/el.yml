@@ -370,6 +370,7 @@ el:
     username: "Όνομα χρήστη"
     username_or_email: "Ηλεκτρονική διεύθυνση ή όνομα χρήστη"
     what_is_this: "Τι είναι αυτό;"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Απαντήστε σε μια προσφορά"
@@ -817,6 +818,11 @@ el:
       page_can_not_be_found: "Ωχ! Η σελίδα δεν μπορεί να βρεθεί!"
       page_you_requested_can_not_be_found: "Η σελίδα που ζήτησες δεν μπορεί να βρεθεί. Είσαι σίγουρος ότι έγραψες σωστά τη διεύθυνση;"
     error_404_title: "η σελίδα δεν βρέθηκε"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -1655,8 +1661,10 @@ el:
       delete_account_confirmation_popup: "Είστε σίγουροι ότι θέλετε να διαγράψετε το λογαριασμό σας και να διαγραφούν όλα τα δεδομένα που σχετίζονται με αυτόν; Η διαγραφή λογαριασμού είναι μη αναστρέψιμη."
       email_addresses: "Διευθύνσεις email"
       new_email: "Νέα διεύθυνση email"
-      instructions_to_delete_account: "Αν διαγράψετε το λογαριασμό σας, όλα τα δεδομένα που σχετίζονται με αυτόν θα διαγραφτούν: το προφίλ σας, οι καταχωρήσεις σας, τα μηνύματά σας, η κριτική που έχετε λάβει κλπ."
-      contact_admin: "παρακαλούμε επικοινωνήστε με τους διαχειριστές"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Νέος κωδικός"
       save: Αποθήκευση
       these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σας εκτός αν έχετε δώσει το πραγματικό σας όνομα. Οι υπόλοιπες πληροφορίες είναι ορατές μόνο σε σας."

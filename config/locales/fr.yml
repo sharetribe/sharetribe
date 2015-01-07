@@ -385,6 +385,7 @@ fr:
     username: "Nom d'utilisateur "
     username_or_email: "Email ou nom d'utilisateur "
     what_is_this: "Qu'est-ce que c'est ?"
+    removed_user: "Utilisateur supprimé"
   conversations:
     accept:
       respond_to_offer: "Répondre à une offre"
@@ -832,6 +833,11 @@ fr:
       page_can_not_be_found: "Page introuvable !"
       page_you_requested_can_not_be_found: "L'adresse que vous demandez n'existe pas sur %{service_name}. Etes-vous sûr d'avoir saisi l'adresse correctement ?"
     error_404_title: "page introuvable"
+    error_410:
+      page_removed: "Page supprimée"
+      page_you_requested_has_been_removed: "La page que vous cherchez a été supprimée"
+      page_removed_reason: "Il y a plusieurs raisons potentielles à cela. Par exemple, un utilisateur peut avoir supprimé son compte ou bien une annonce a pu être clôturée."
+    error_410_title: "page supprimée"
     error_500:
       temporary_unavailable: "La place de marché est temporairement indisponible"
       unable_to_process: "Le système n'est pour le moment pas en mesure de traiter votre demande. Veuillez essayer de nouveau dans quelques instants."
@@ -1670,8 +1676,10 @@ fr:
       delete_account_confirmation_popup: "Etes-vous bien sûr(e) de vouloir supprimer votre compte et de perdre toutes ses données ? La suppression d'un compte est irréversible."
       email_addresses: "Adresses email"
       new_email: "Nouvelle adresse email"
-      instructions_to_delete_account: "Si vous supprimez votre compte, toutes ses données seront perdues : vos informations de profil, vos annonces, vos commentaires, vos avis, vos messages, vos avis etc."
-      contact_admin: "merci de contacter les administrateurs"
+      delete_all_memberships: "Si vous supprimez votre compte, vous ne serez plus en mesure de l'utiliser dans les places de marché suivantes : %{marketplaces}"
+      delete_personal_information: "Si vous supprimez votre compte, vos informations personnelles (nom, numéro de téléphone, adresse, email, photo de profil, etc...) seront supprimées définitivement et ne pourront être récupérées. Toutes les annonces que vous avez créées seront supprimées du site. Vous ne pourrez pas réactiver votre compte."
+      delete_information_others_involved: "Les informations impliquant d'autres membres (conversations avec d'autres personnes, transactions que vous avez réalisées, avis que vous avez donné à d'autres, etc...) ne sont pas supprimés quand vous supprimez votre compte. Cependant, votre nom n'apparaîtra pas à côté de ces informations."
+      unfinished_transactions: "Votre compte ne peut être supprimé car vous avez des transactions en cours. Veuillez terminer vos transactions avant de supprimer votre compte."
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
       these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Il n'y a que vous qui voyez les autres informations."

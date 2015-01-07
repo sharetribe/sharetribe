@@ -357,8 +357,8 @@ es-ES:
       give_away: donando
       lend: prestando
       receive: regalar
-      rent: arrendando
-      rent_out: Arrienda
+      rent: Alquiler
+      rent_out: Alquilar
       sell: Vender
       offer_to_swap: Intercambio
       request_to_swap: Intercambio
@@ -387,6 +387,7 @@ es-ES:
     username: "Nombre de usuario"
     username_or_email: ~
     what_is_this: "¿Qué es esto?"
+    removed_user: "Usuario eliminado"
   conversations:
     accept:
       respond_to_offer: ~
@@ -480,7 +481,7 @@ es-ES:
       rideshare_request_message_form_title: "Ofrécele un traslado a"
       send_message: "Enviar mensaje"
       send: Enviar
-      this_message_is_private: "Este mensaje es privado entre usted y %{person}."
+      this_message_is_private: "Este mensaje es privado entre tú y %{person}."
       you_will_get_notified_of_acceptance: "Recibirás una notificación por email cuando %{person} acepte o rechace tu propuesta."
       you_will_get_notified: "Recibirás una notificación por email cuando %{person} te conteste."
       title: Título
@@ -488,7 +489,7 @@ es-ES:
       about_listing: "sobre el anuncio %{listing_title}"
       author_has_to_accept_request: "%{author_name} debe aceptar la solicitud antes de que puedas pagar"
     show:
-      in_response_to_listing: "acerca de"
+      in_response_to_listing: "en respuesta al anuncio"
       message_sent_by: "Mensaje enviado por"
       message_sent_to: ~
       send_reply: "Enviar respuesta"
@@ -815,7 +816,7 @@ es-ES:
   error_messages:
     listings:
       departure_time: "La hora de salida debe entontrarse entre la fecha actual y un año a partir de ahora."
-      share_type: "Deber chequear al menos uno de los recuadros anteriores."
+      share_type: "Debes seleccionar al menos una opción"
       valid_until: "Esta fecha debe encontrarse entre la fecha actual y un año desde ahora."
       price: ~
       minimum_price: "El precio mínimo es %{minimum_price} %{currency}."
@@ -836,6 +837,11 @@ es-ES:
       page_can_not_be_found: "La página no puede ser encontrada!"
       page_you_requested_can_not_be_found: "La página solicitada no puede encontrarse. Está seguro de que escribió correctamente la dirección?"
     error_404_title: "Página no encontrada"
+    error_410:
+      page_removed: "Página eliminada"
+      page_you_requested_has_been_removed: "La página que has seleccionado ha sido eliminada."
+      page_removed_reason: "Hay unas pocas razones posibles para esto. Por ejemplo, un usuario puede haber eliminado su cuenta o la publicación puede haberse eliminado."
+    error_410_title: "página eliminada"
     error_500:
       temporary_unavailable: "Marketplace temporalmente fuera de servicio"
       unable_to_process: "Nuestro servicio no puede procesar tu solicitud en éste momento. Por favor, inténtalo de nuevo más tarde."
@@ -904,10 +910,10 @@ es-ES:
     menu: Menú
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "Adicionalmente existe <b>y esta otra oferta</b>,"
-      additionally_one_private_request_exists: "Adicionalmente  existe <b>y esta otra solicitiud</b>,"
-      additionally_some_private_offers_exist: "Adicionalmente existen <b>%{number_of_listings} otras ofertas</b>,"
-      additionally_some_private_requests_exist: "Adicionalmente existen <b>%{number_of_listings} otras solicitudes</b>,"
+      additionally_one_private_offer_exists: "Existe <b>otra oferta</b>,"
+      additionally_one_private_request_exists: "Existe <b>otra solicitiud</b>,"
+      additionally_some_private_offers_exist: "Existen <b> otras %{number_of_listings} ofertas</b>,"
+      additionally_some_private_requests_exist: "Adicionalmente existen otras <b>%{number_of_listings} solicitudes</b>,"
     blank_slate:
       add_first: "Agregar uno!"
       but_that_is_visible_only_to_registered_members: "Sólo está disponible para usuarios registrados."
@@ -944,7 +950,7 @@ es-ES:
       processing_uploaded_image: "(Procesando imagen...)"
     index:
       no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
+      no_listings_notification: "Todavía no hay anuncios en ésta zona. Añade el tuyo aquí %{add_listing_link}."
       add_listing_link_text: "Añadir nuevo anuncio"
       open_listing: ~
       open_listings: ~
@@ -989,9 +995,9 @@ es-ES:
       show_more: "Más de"
     profile_info_empty_notification:
       add_your_info: "Agregar su información de contacto"
-      add_a_profile_picture: "Añade una imagen de perfil"
-      you_have_not_added_your_info: "No has añadido tu información de contacto. Por favor házlo, de modo que otros puedan ponerse más fácilmente en contacto con usted."
-      add_your_info_link: "Agregar su información ahora"
+      add_a_profile_picture: "Añade una foto de perfil"
+      you_have_not_added_your_info: "No has añadido tu información de contacto. Por favor, inclúyela para que otros usuarios puedan contactar contigo fácilmente."
+      add_your_info_link: "Añade tus datos ahora"
     recent_listing:
       please_offer: Oferta
       comment: comentario
@@ -1004,7 +1010,7 @@ es-ES:
       map_button: Mapa
       grid_button: "Vista resumida"
       list_button: "Vista listado"
-      all_listing_types: "Todos los tipos de anuncio"
+      all_listing_types: "Todos los tipos de anuncios"
       all_categories: "Todas las categorías"
   infos:
     about:
@@ -1049,7 +1055,7 @@ es-ES:
       select_language: "Selecciona un idioma"
     infos:
       about: "Acerca de"
-      how_to_use: "Cómo usar"
+      how_to_use: "Cómo funciona"
       info_about_kassi: "Información acerca de %{service_name}"
       news: Novedades
       register_details: "Detalles de registro"
@@ -1092,7 +1098,7 @@ es-ES:
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto en el enlace. Intenta iniciar sesión o escríbenos si el problema persiste."
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: "No pudimos acceder a tu dirección de email en Facebook. Sin ella no podemos crearte una cuenta en nuestro servicio."
-      create_new_listing: ~
+      create_new_listing: "Crear otro anuncio"
       create_one_here: "Crea uno aquí"
       email_confirmation_sent_to_new_address: "El e-mail de confirmación ya fue enviado a la nueva dirección."
       email_not_found: "No se encontró la dirección de correo en la base de datos de %{service_name}."
@@ -1119,13 +1125,13 @@ es-ES:
       offer_accepted: "Oferta aceptada"
       offer_confirmed: ~
       offer_closed: "Oferta cerrada"
-      listing_created_successfully: ~
+      listing_created_successfully: "Anuncio creado con éxito. %{new_listing_link}"
       offer_rejected: "Oferta rechazada"
       offer_canceled: ~
-      listing_updated_successfully: ~
+      listing_updated_successfully: "Anuncio actualizado"
       only_kassi_administrators_can_access_this_area: "Sólo los administradores de %{service_name} pueden acceder a esta área"
-      only_listing_author_can_close_a_listing: "Solo el creador de una lista puede cerrarla"
-      only_listing_author_can_edit_a_listing: "Solo el creador de una lista puede editarla"
+      only_listing_author_can_close_a_listing: "Sólo el autor del anuncio puede cerrarlo"
+      only_listing_author_can_edit_a_listing: "Sólo el autor del anuncio puede editarlo"
       payment_successful: ~
       payment_canceled: "Pago cancelado."
       error_in_payment: "Ha habido un error en el pago. Si no completaste el proceso todavía, prueba de nuevo. Si ya lo completaste, por favor, contáctanos."
@@ -1201,25 +1207,25 @@ es-ES:
       payments: Pagos
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "Usted no está autorizado para ver este anuncio."
+      listing_not_visible: "No está autorizado para ver este anuncio."
     comment:
       wrote: escrito
       send_private_message: "Enviar mensaje privado a %{person}"
     comment_form:
-      ask_a_question: "Escribe un comentario o pregunta por más detalles. Todos los demás usuarios podrán verlo."
-      log_in: Registrarse
+      ask_a_question: "Escribe un comentario o pregunta para solicitar más detalles sobre el anuncio. Todos los demás usuarios podrán verlo."
+      log_in: entrar
       send_comment: "Enviar comentario"
-      to_send_a_comment: "Enviar un nuevo comentario"
+      to_send_a_comment: "para publicar un nuevo comentario."
       write_comment: "Escribir un nuevo comentario:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: "Usted debería"
-      subscribe_to_comments: "Notifícame los nuevos comentarios y actualizaciones"
+      you_cannot_send_a_new_comment_because_listing_is_closed: "No se pueden enviar nuevos comentarios ya que el anuncio ha sido desactivado."
+      you_must: "Es necesario"
+      subscribe_to_comments: "Recibir notificaciones con los nuevos comentarios y actualizaciones de éste anuncio."
     edit:
-      edit_listing: ~
+      edit_listing: "Editar anuncio"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: "Desactivar anuncio"
+      edit_listing: "Editar anuncio"
+      reopen_listing: "Reactivar anuncio"
       move_to_top: "Mover a la parte superior de la página principal"
       show_in_updates_email: ~
       show_in_updates_email_loading: Cargando...
@@ -1255,7 +1261,7 @@ es-ES:
         googlemap_description: MapView
         googlemap_updatemap: "Actualizar mapa"
       images:
-        image: Imagen
+        image: Fotos
         no_file_selected: "No hay archivos seleccionados"
         remove_image: "Quitar imagen"
         select_file: "Eligir Archivo"
@@ -1268,7 +1274,7 @@ es-ES:
         file_too_large: "El archivo es demasiado grande"
         accepted_formats: "El archivo de imagen debe estar en formato GIF, JPG o PNG."
       location:
-        location: Lugar
+        location: "Dirección (Calle, Código postal, Ciudad...)"
       price:
         price: ~
         per: ~
@@ -1283,7 +1289,7 @@ es-ES:
         location: Lugar
         origin: Origen
       send_button:
-        save_listing: ~
+        save_listing: "Guardar anuncio"
       share_type:
         select: Seleccionar
         borrow: Prestar
@@ -1293,7 +1299,7 @@ es-ES:
         offer_type: "Tipo de oferta"
         receive: "Tomar gratis"
         rent: Alquiler
-        rent_out: Arrienda
+        rent_out: Alquilar
         request_type: "Tipo de solicitud"
         sell: Vender
         share_for_free: "Compartir gratuitamente"
@@ -1303,7 +1309,7 @@ es-ES:
         comma_separate: "(separado por comas)"
         tags: Etiquetas
       title:
-        listing_title: ~
+        listing_title: "Título del anuncio"
       valid_until:
         valid_until: "Fecha de caducidad"
       valid_until_radio_buttons:
@@ -1340,7 +1346,7 @@ es-ES:
       requests: Solicitudes
       rideshare: "Traslado compartido"
       search_verb: Buscar
-      you_have_something_others_do_not: "Tienes algo que ofecer?"
+      you_have_something_others_do_not: "¿Tienes algo que ofecer?"
       feed_title: "%{listing_type} en %{community_name} de %{service_name}%{optional_category}"
     left_panel_link:
       borrows: préstamos
@@ -1351,8 +1357,8 @@ es-ES:
       items: Productos
       lends: Prestando
       receives: "Tomar gratis"
-      rent_outs: Arrienda
-      rents: arrendando
+      rent_outs: Alquilar
+      rents: Alquilando
       rideshares: "Traslado compartido"
       sells: Vender
       share_for_frees: "Compartir gratuitamente"
@@ -1375,10 +1381,10 @@ es-ES:
       payment_settings_link: "Configuración de los pagos"
     please_comment: Comentario
     reply_link:
-      listing_closed: ~
+      listing_closed: "Anuncio desactivado"
     show:
       add_your_phone_number: "Añade tu número de teléfono"
-      add_profile_picture: "Añada una imagen de perfil"
+      add_profile_picture: "Añada una foto de perfil"
       comments: Comentarios
       contact_by_phone: "Contactar por teléfono:"
       contact: Contacto
@@ -1547,7 +1553,7 @@ es-ES:
       enter_captcha: "Soy un ser humano:"
       family_name: "Apellido:"
       given_name: "Nombre:"
-      i_accept_the: "Acepto la"
+      i_accept_the: "Acepto los"
       invalid_invitation_code: "El código de invitación no es válido."
       invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
@@ -1558,7 +1564,7 @@ es-ES:
       terms: "Términos de uso"
       username_is_in_use: "El nombre de usuario ingresado ya está en uso."
       username_is_invalid: "Nombre de usuario no es válido. Los carácteres permitidos son letras, números y guión bajo."
-      visible_only_to_you: "visible solamente a usted y al administrador de la comunidad"
+      visible_only_to_you: "visible solamente para tí y el administrador de la comunidad"
       visible_to_everybody: "Visible para todos"
       create_account_with_facebook: "Crea una cuenta con Facebook"
       OR: O
@@ -1601,7 +1607,7 @@ es-ES:
       what_are_these: "Qué son estos?"
       review: "reseña recibida"
       reviews: "reseñas recibidas"
-      listing: anuncio
+      listing: Anuncio
       listings: anuncios
       open_listing: "publicación abierta"
       open_listings: "publicaciones abiertas"
@@ -1674,8 +1680,10 @@ es-ES:
       delete_account_confirmation_popup: "¿Seguro que quieres eliminar tu cuenta de forma permanente? Si lo haces, ya no podrás volver atrás."
       email_addresses: "Direcciones de email"
       new_email: "Nieva Dirección de Correo Electrónico"
-      instructions_to_delete_account: "Si quieres eliminar tu cuenta, haz clic en el siguiente botón"
-      contact_admin: "por favor contacta a los administradores"
+      delete_all_memberships: "Si eliminas tu cuenta, no serás capaz de usarla más para los siguientes marketplaces: %{marketplaces}"
+      delete_personal_information: "Si eliminas tu cuenta, tu información personal (nombre, número de teléfono, dirección, email, imagen de perfil, etc.) se eliminará permanentemente y no podrá ser recuperada. Todas las publicaciones que has creado se eliminarán del portal. No serás capaz de reactivar tu cuenta."
+      delete_information_others_involved: "La información en la que están involucrados otros miembros (conversaciones con otra gente, transacciones que has realizado, revisiones que has dado a otros, etc) no se eliminarán cuando canceles tu cuenta. No obstante, tu nombre no aparecerá visualizado en esa información."
+      unfinished_transactions: "Tu cuenta no puede ser eliminada porque tienes transacciones en marcha. Por favor, completa todas las transacciones antes de eliminar tu cuenta."
       new_password: "Nueva contraseña"
       save: Guardar
       these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas dado tu nombre. Cualquier otra información sólo está disponible para ti."
@@ -1751,7 +1759,7 @@ es-ES:
       i_accept_terms: "Acepto los términos"
       terms: "Términos de uso de %{service_name}"
       terms_have_changed: "Los términos de uso han cambiado"
-      you_can_view_the_new_terms: "Usted puede ver los nuevos términos"
+      you_can_view_the_new_terms: "Puedes ver los nuevos términos"
       you_need_to_accept: "Bienvenido a %{service_name}! Al parecer esta es la primera vez que utilizas el servicio. Antes de comenzar primero debes aceptar los"
       you_need_to_accept_new_terms: "Los términos de uso de %{service_name} han cambiado. Es necesario que aceptes los nuevos términos para poder continuar utilizando %{service_name}."
   testimonials:
@@ -1775,7 +1783,7 @@ es-ES:
       negative: Negativo
       default_textual_feedback: "Todo fue sin problemas, muchas gracias!"
     testimonial:
-      about_listing: "acerca de"
+      about_listing: "sobre el anuncio"
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"

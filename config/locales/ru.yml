@@ -370,6 +370,7 @@ ru:
     username: "Имя пользователя"
     username_or_email: "Имя пользователя или электронная почта"
     what_is_this: "Что это?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Ответить на предложение"
@@ -817,6 +818,11 @@ ru:
       page_can_not_be_found: "Такой страницы нет!"
       page_you_requested_can_not_be_found: "Запрашиваемая вами страница отсутствует на сервере. Проверьте правильность адреса."
     error_404_title: "страница не найдена"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: "Рынок временно недоступен"
       unable_to_process: "Сервис не может обработать ваш запрос прямо сейчас. Пожалуйста, попробуйте через некоторое время снова."
@@ -1655,8 +1661,10 @@ ru:
       delete_account_confirmation_popup: ~
       email_addresses: ~
       new_email: "Новый адрес электронной почты"
-      instructions_to_delete_account: "Если вы хотите удалить свою учётную запись, используйте форму связи слева."
-      contact_admin: "свяжитесь с администратором"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Новый пароль"
       save: Сохранить
       these_fields_are_shown_only_to_you: "Если вы не сообщили ваше реальное имя, в вашем профиле будет отображаться выбранное вами имя пользователя. Остальная информация будет доступна только вам."

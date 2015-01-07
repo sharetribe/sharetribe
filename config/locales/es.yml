@@ -370,6 +370,7 @@ es:
     username: "Nombre de usuario"
     username_or_email: "Usuario o email"
     what_is_this: "Qué es esto?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Responder a una oferta"
@@ -824,6 +825,11 @@ es:
       page_can_not_be_found: "No se ha podido encontrar la página!"
       page_you_requested_can_not_be_found: "La página solicitada no pudo encontrarse. ¿Estás seguro de que escribiste correctamente la dirección?"
     error_404_title: "Página no encontrada"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -1662,8 +1668,10 @@ es:
       delete_account_confirmation_popup: "¿Estás seguro de que quieres eliminar tu cuenta de usuario y perder todos los datos asociados a ella de forma permanente? Si lo haces, no podrás volver atrás."
       email_addresses: ~
       new_email: "Nieva Dirección de Correo Electrónico"
-      instructions_to_delete_account: "Si quieres eliminar tu cuenta, contáctanos usando el botón de feedback a la izquierda"
-      contact_admin: "por favor contacta a los administradores"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Nueva contraseña"
       save: Guardar
       these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas dado tu nombre. Cualquier otra información sólo está disponible para ti."
