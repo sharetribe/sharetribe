@@ -9,10 +9,12 @@ module PaypalService::API
 
     MerchantData = PaypalService::DataTypes::Merchant
     TokenStore = PaypalService::Store::Token
+    Lookup = PaypalService::API::Lookup
 
     def initialize(merchant, logger = PaypalService::Logger.new)
       @logger = logger
       @merchant = merchant
+      @lookup = Lookup.new(logger)
     end
 
     # For RequestWrapper mixin
@@ -32,8 +34,8 @@ module PaypalService::API
 
     # POST /billing_agreements/:community_id/:person_id/charge_commission
     def charge_commission(community_id, person_id, info, async: false)
-      with_accounts(community_id, person_id) do |m_acc, admin_acc|
-        with_completed_payment(community_id, info[:transaction_id]) do |payment|
+      @lookup.with_accounts(community_id, person_id) do |m_acc, admin_acc|
+        @lookup.with_completed_payment(community_id, info[:transaction_id]) do |payment|
           if(admin_is_merchant?(m_acc, admin_acc) || commission_below_minimum?(info[:commission_to_admin], info[:minimum_commission]))
             commission_not_applicable(community_id, info[:transaction_id], m_acc[:person_id], payment)
           elsif async
@@ -107,37 +109,5 @@ module PaypalService::API
       end
     end
 
-    def with_accounts(cid, pid, &block)
-      admin_acc = PaypalService::PaypalAccount::Query.admin_account(cid)
-      if admin_acc.nil?
-        return Result::Error.new("No matching admin account for community_id: #{cid} and transaction_id: #{txid}.")
-      end
-
-      m_acc = PaypalService::PaypalAccount::Query.personal_account(pid, cid)
-      if m_acc.nil?
-        return Result::Error.new("Cannot find paypal account for the given community and person: community_id: #{cid}, person_id: #{pid}.")
-      elsif m_acc[:billing_agreement_id].nil?
-        return Result::Error.new("Merchant account has no billing agreement setup.")
-      end
-
-      block.call(m_acc, admin_acc)
-    end
-
-def with_completed_payment(cid, txid, &block)
-      payment = PaypalService::Store::PaypalPayment.get(cid, txid)
-      if (payment.nil?)
-        return Result::Error.new("No matching payment for community_id: #{cid} and transaction_id: #{txid}.")
-      end
-
-      if (payment[:payment_status] != :completed)
-        return Result::Error.new("Payment is not in :completed state. State was: #{payment[:payment_status]}.")
-      end
-
-      if (payment[:commission_status] != :not_charged)
-        return Result::Error.new("Commission already charged. Commission status was: #{payment[:commission_status]}")
-      end
-
-      block.call(payment)
-    end
   end
 end

@@ -53,6 +53,7 @@ module PaypalService
       output_transformer = action_def[:output_transformer]
 
       input = input_transformer.call(request)
+      @logger.log_request_input(request, input)
       wrapped = wrapper_method.call(input)
 
       begin
