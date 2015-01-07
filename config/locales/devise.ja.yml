@@ -20,14 +20,14 @@ ja:
       inactive: アカウントはまだ承認されていません。
     passwords:
       updated_not_active: パスワードが正常に変更されました。
-      send_paranoid_instructions: あなたのメールアドレスがデータベースに存在する場合、パスワードを回復させるためのリンクを記載したメールがまもなく届きます。
+      send_paranoid_instructions: あなたのメールアドレスがデータベースに存在する場合、パスワードリセットのためのリンクを記載したメールがまもなく届きます。
       send_instructions: あなたのパスワードのリセット方法が記載されたメールが、まもなく届きます。
       updated: パスワードが正常に変更されました。あなたは今サインイン済です。
     sessions:
       signed_in: 正常にサインインしました。
-      signed_out: 正常にサインアウトしました。
+      signed_out: 正常にログアウトしました。
     confirmations:
-      send_paranoid_instructions: あなたのメールアドレスがデータベースに存在する場合、承認手順を記載したメールがまもなく届きます。
+      send_paranoid_instructions: あなたのメールアドレスがデータベースに存在する場合、メール認証手続き手順を記載したメールがまもなく届きます。
       send_instructions: アカウント認証方法が記載されたメールが、まもなく届きます。
       confirmed: アカウントの認証に成功しました。
     registrations:
