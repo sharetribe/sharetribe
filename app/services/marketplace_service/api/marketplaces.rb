@@ -18,7 +18,9 @@ module MarketplaceService::API
       Helper.create_community_customization!(community, marketplace_name, locale)
       t = Helper.create_transaction_type!(community, p[:marketplace_type])
       Helper.create_category!("Default", community, locale, t.id)
-      Helper.create_community_plan!(community);
+
+      plan_level = p[:plan_level].or_else(CommunityModel::FREE_PLAN)
+      Helper.create_community_plan!(community, {plan_level: plan_level});
 
       return from_model(community)
     end

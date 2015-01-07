@@ -227,7 +227,8 @@ Given /^current community has (free|starter|basic|growth|scale) plan$/ do |plan|
   when "scale"
     plan_level = 4
   end
-  @current_community.update_attribute(:plan_level, plan_level)
+  # N.B. community_plans are changed manually atm.
+  MarketplaceService::API::Marketplaces.Helper.create_community_plan(@current_community, {plan_level: plan_level})
 end
 
 When /^community updates get delivered$/ do
