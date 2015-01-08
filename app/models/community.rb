@@ -137,13 +137,6 @@ class Community < ActiveRecord::Base
 
   monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :default_currency
 
-  # Plan levels
-  FREE_PLAN = 0
-  STARTER_PLAN = 1
-  BASIC_PLAN = 2
-  GROWTH_PLAN = 3
-  SCALE_PLAN = 4
-
   validates_length_of :name, :in => 2..50
   validates_length_of :domain, :in => 2..50
   validates_format_of :domain, :with => /\A[A-Z0-9_\-\.]*\z/i

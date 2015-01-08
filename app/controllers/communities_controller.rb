@@ -21,7 +21,7 @@ class CommunitiesController < ApplicationController
         form_hash.slice(:marketplace_name,
                            :marketplace_type,
                            :marketplace_country,
-                           :marketplace_language).merge(plan_level: Community::SCALE_PLAN)
+                           :marketplace_language).merge(plan_level: CommunityPlan::SCALE_PLAN)
       )
 
       user = UserService::API::Users.create_user_with_membership({
