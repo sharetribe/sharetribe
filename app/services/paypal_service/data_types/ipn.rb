@@ -122,7 +122,7 @@ module PaypalService
 
       CommissionPaid = EntityUtils.define_builder(
         [:type, const_value: :commission_paid],
-        [:commission_status, const_value: :completed],
+        [:commission_status, :string, :mandatory],
         [:commission_payment_id, :string, :mandatory],
         [:commission_total, :money, :mandatory],
         [:commission_fee_total, :money, :mandatory],
@@ -330,7 +330,8 @@ module PaypalService
         p = HashUtils.rename_keys(
           {
             invoice: :invnum,
-            txn_id: :commission_payment_id
+            txn_id: :commission_payment_id,
+            payment_status: :commission_status
           },
           params
         )

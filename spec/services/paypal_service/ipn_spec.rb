@@ -182,7 +182,7 @@ describe PaypalService::IPN do
 
       payment = PaypalPayment.first
       expect(payment.commission_total).to eql Money.new(174, "GBP")
-      expect(payment.commission_fee_total).to eql Money.new(1, "GBP")
+      expect(payment.commission_fee_total).to eql Money.new(10, "GBP")
     end
   end
 

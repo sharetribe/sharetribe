@@ -1,6 +1,7 @@
 module PaypalService::Store::PaypalPayment
 
   PaypalPaymentModel = ::PaypalPayment
+  Invnum = PaypalService::API::Invnum
 
   InitialPaymentData = EntityUtils.define_builder(
     [:community_id, :mandatory, :fixnum],
@@ -71,9 +72,7 @@ module PaypalService::Store::PaypalPayment
   end
 
   def ipn_update(ipn_entity)
-    payment = PaypalPaymentModel.where(
-      "authorization_id = ? or order_id = ?", ipn_entity[:authorization_id], ipn_entity[:order_id]).first
-
+    payment = find_payment_by_ipn_entity(ipn_entity)
     old_data = from_model(payment)
     new_data = update_payment(payment, ipn_entity)
     new_data if old_data != new_data
@@ -118,6 +117,17 @@ module PaypalService::Store::PaypalPayment
     PaypalPayment.call(hash)
   end
 
+  def find_payment_by_ipn_entity(ipn_entity)
+    if(ipn_entity[:type] == :commission_paid)
+      PaypalPaymentModel.where(
+        transaction_id: Invnum.transaction_id(ipn_entity[:invnum]),
+        community_id: Invnum.community_id(ipn_entity[:invnum])
+      ).first
+    else
+      PaypalPaymentModel.where("authorization_id = ? or order_id = ?", ipn_entity[:authorization_id], ipn_entity[:order_id]).first
+    end
+  end
+
   def initial(order)
     order_total = order[:order_total]
     InitialPaymentData.call(
@@ -147,23 +157,30 @@ module PaypalService::Store::PaypalPayment
     end
 
     payment_update = {}
-    payment_update[:payment_status] =
-      if (order[:payment_status].is_a? Symbol)
-        order[:payment_status]
-      else
-        order[:payment_status].downcase.to_sym
-      end
 
-    payment_update[:pending_reason] =
-      if (order[:pending_reason].nil?)
-        :none
-      elsif (order[:pending_reason].is_a? Symbol)
-        order[:pending_reason]
-      else
-        order[:pending_reason].downcase.gsub(/[-_]/, "").to_sym
-      end
+    if(order[:type] == :commission_paid)
+      payment_update[:commission_status] = order[:commission_status].downcase.to_sym if order[:commission_status]
+    else
 
-    payment_update[:commission_status] = order[:commission_status].downcase.to_sym if order[:commission_status]
+      payment_update[:payment_status] =
+        if (order[:payment_status].is_a? Symbol)
+          order[:payment_status]
+        else
+          order[:payment_status].downcase.to_sym
+        end
+
+      payment_update[:pending_reason] =
+        if (order[:pending_reason].nil?)
+          :none
+        elsif (order[:pending_reason].is_a? Symbol)
+          order[:pending_reason]
+        else
+          order[:pending_reason].downcase.gsub(/[-_]/, "").to_sym
+        end
+
+
+    end
+
     payment_update = HashUtils.sub(order, *OPT_UPDATE_FIELDS).merge(cent_totals).merge(payment_update)
 
     return payment_update
@@ -177,7 +194,7 @@ module PaypalService::Store::PaypalPayment
     end
 
     #update status and reason only on valid transition
-    unless(valid_transition?(payment, payment_update))
+    unless(payment_update[:payment_status] && payment_update[:pending_reason] && valid_transition?(payment, payment_update))
       payment_update.delete(:payment_status)
       payment_update.delete(:pending_reason)
     end
