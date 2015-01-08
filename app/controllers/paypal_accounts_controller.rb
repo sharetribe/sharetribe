@@ -162,15 +162,7 @@ class PaypalAccountsController < ApplicationController
 
   # Before filter
   def ensure_paypal_enabled
-    settings = Maybe(tx_settings_api.get(
-                      community_id: @current_community.id,
-                      payment_gateway: :paypal,
-                      payment_process: :preauthorize))
-      .select { |result| result[:success] }
-      .map { |result| result[:data] }
-      .or_else(nil)
-
-    unless settings && settings[:payment_gateway] == :paypal
+    unless PaypalHelper.paypal_active?(@current_community.id)
       flash[:error] = t("paypal_accounts.new.paypal_not_enabled")
       redirect_to person_settings_path(@current_user)
     end
@@ -273,10 +265,6 @@ class PaypalAccountsController < ApplicationController
 
   def paypal_minimum_commissions_api
     PaypalService::API::Api.minimum_commissions
-  end
-
-  def tx_settings_api
-    TransactionService::API::Api.settings
   end
 
 end

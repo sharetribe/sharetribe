@@ -2,7 +2,7 @@ class Admin::PaypalPreferencesController < ApplicationController
   include PaypalService::PermissionsInjector
 
   before_filter :ensure_is_admin
-  before_filter :ensure_paypal_enabled
+  before_filter :ensure_paypal_provisioned
 
   PaypalAccountEntity = PaypalService::PaypalAccount::Entity
   PaypalAccountQuery = PaypalService::PaypalAccount::Query
@@ -138,16 +138,8 @@ class Admin::PaypalPreferencesController < ApplicationController
   end
 
   # Before filter
-  def ensure_paypal_enabled
-    settings = Maybe(tx_settings_api.get(
-                      community_id: @current_community.id,
-                      payment_gateway: :paypal,
-                      payment_process: :preauthorize))
-      .select { |result| result[:success] }
-      .map { |result| result[:data] }
-      .or_else(nil)
-
-    unless settings && settings[:payment_gateway] == :paypal
+  def ensure_paypal_provisioned
+    unless PaypalHelper.paypal_provisioned?(@current_community.id)
       flash[:error] = t("paypal_accounts.new.paypal_not_enabled")
       redirect_to edit_details_admin_community_path(@current_community)
     end

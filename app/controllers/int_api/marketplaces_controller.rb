@@ -20,8 +20,16 @@ class IntApi::MarketplacesController < ApplicationController
       params.slice(:marketplace_name,
                    :marketplace_type,
                    :marketplace_country,
-                   :marketplace_language).merge(paypal_enabled: true)
+                   :marketplace_language)
       )
+
+    unless marketplace.nil?
+      TransactionService::API::Api.settings.provision(
+        community_id: marketplace[:id],
+        payment_gateway: :paypal,
+        payment_process: :preauthorize,
+        active: true)
+    end
 
     user = UserService::API::Users.create_user_with_membership({
         given_name: params[:admin_first_name],
