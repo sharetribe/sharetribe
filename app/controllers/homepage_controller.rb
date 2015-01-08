@@ -35,10 +35,10 @@ class HomepageController < ApplicationController
        @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg"
     end
 
-    listings_per_page = 24
+    listings_per_page = APP_CONFIG.grid_listings_limit
 
     @listings = if @view_type == "map"
-      find_listings(params, 100)
+      find_listings(params, APP_CONFIG.map_listings_limit)
     else
       find_listings(params, listings_per_page)
     end

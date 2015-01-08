@@ -122,6 +122,9 @@ default: &default_settings
   # The address where the notifications of feedbacks from Sharetribe UI are sent
   feedback_mailer_recipients:  'admins@example.com'
 
+  grid_listings_limit: 24
+  map_listings_limit: 150
+
   # Google Analytics can be used to track traffic on the site
   # If set to true you need to obtain your own API key for analytics
   # and enter it below
