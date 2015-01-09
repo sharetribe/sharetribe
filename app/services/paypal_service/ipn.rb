@@ -21,7 +21,7 @@ module PaypalService
       case(ipn_msg[:type])
       when *PAYMENT_ROW_UPDATE_TYPES
         payment = handle_payment_update(ipn_msg)
-        @events.send(:payment_updated, :success, payment) unless payment
+        @events.send(:payment_updated, :success, payment) unless payment.nil?
       when :billing_agreement_cancelled
         PaypalService::PaypalAccount::Command.delete_cancelled_billing_agreement(ipn_msg[:payer_id], ipn_msg[:billing_agreement_id])
       when :payment_refunded

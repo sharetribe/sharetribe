@@ -73,7 +73,7 @@ module PaypalService::Store::PaypalPayment
 
     payment = find_payment(opts)
     old_data = from_model(payment)
-    new_data = update_payment(payment, opts[:data])
+    new_data = update_payment!(payment, opts[:data])
 
     new_data if data_changed?(old_data, new_data)
   end
@@ -137,18 +137,18 @@ module PaypalService::Store::PaypalPayment
       order.merge({order_total_cents: order_total.cents, currency: order_total.currency.iso_code}))
   end
 
-  def create_payment_update(data, current_state)
+  def create_payment_update(update, current_state)
     cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total, :commission_total, :commission_fee_total]
       .reduce({}) do |cent_totals, m_key|
-      m = data[m_key]
+      m = update[m_key]
       cent_totals["#{m_key}_cents".to_sym] = m.cents unless m.nil?
       cent_totals
     end
 
     payment_update = {}
 
-    new_status = transform_status(data[:payment_status]) if data[:payment_status]
-    new_pending_reason = transform_pending_reason(data[:pending_reason]) if data[:pending_reason]
+    new_status = transform_status(update[:payment_status]) if update[:payment_status]
+    new_pending_reason = transform_pending_reason(update[:pending_reason]) if update[:pending_reason]
     new_state = to_state(new_status, new_pending_reason) if new_status
 
     if(new_state && valid_transition?(current_state, new_state))
@@ -156,9 +156,9 @@ module PaypalService::Store::PaypalPayment
       payment_update[:pending_reason] = new_pending_reason
     end
 
-    payment_update[:commission_status] = transform_status(data[:commission_status]) if data[:commission_status]
+    payment_update[:commission_status] = transform_status(update[:commission_status]) if update[:commission_status]
 
-    payment_update = HashUtils.sub(data, *OPT_UPDATE_FIELDS).merge(cent_totals).merge(payment_update)
+    payment_update = HashUtils.sub(update, *OPT_UPDATE_FIELDS).merge(cent_totals).merge(payment_update)
 
     return payment_update
   end
@@ -177,7 +177,7 @@ module PaypalService::Store::PaypalPayment
     end
   end
 
-  def update_payment(payment, data)
+  def update_payment!(payment, data)
     current_state = to_state(payment.payment_status.to_sym, payment.pending_reason.to_sym)
     payment_update = create_payment_update(data, current_state)
 
@@ -209,10 +209,6 @@ module PaypalService::Store::PaypalPayment
     completed: 3,
     denied: 4,
   }
-
-  def state_present?(data)
-    data[:payment_status] && data[:pending_reason]
-  end
 
   def valid_transition?(current_state, new_state)
     STATE_HIERARCHY[current_state] < STATE_HIERARCHY[new_state]
