@@ -8,8 +8,8 @@ ja:
         create_a_new_category: ~
         remove_category_confirmation: ~
         saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
+        save_order_successful: 正常にカテゴリの順番を保存しました
+        save_order_error: カテゴリの順番を保存する際にエラーが発生しました。ページを更新して再実行してください。
       new:
         new_listing_category: ~
       form:
@@ -22,42 +22,50 @@ ja:
           transaction_types: ~
           transaction_types_description: ~
         buttons:
-          save: ~
+          save: 保存する
           cancel: ~
       remove:
         remove_category: ~
         remove_category_name: ~
         warning_remove_effects: ~
-        select_new_category: ~
+        select_new_category: 新しいカテゴリを選択すると上記のリストはそちらへ移動されます：
         buttons:
           remove: ~
           cancel: ~
+        warning_with_subcategories_listing_will_be_moved:
+          other: "%{count}個のリストが、そのカテゴリーとサブカテゴリにあります。選択れたカテゴリの方へ移動します。"
+        warning_with_subcategories_custom_field_will_be_moved:
+          other: "%{count}個のリストが、そのカテゴリーとサブカテゴリにあります。選択れたカテゴリの方へ移動します。"
+        warning_custom_field_will_be_moved:
+          other: "%{count}個のカスタム項目が、そのカテゴリーとサブカテゴリにあります。選択れたカスタム項目の方へ移動します。"
+        warning_listing_will_be_moved:
+          other: "%{count}個のリストが、そのカテゴリーにあります。選択れたカスタム項目の方へ移動します。"
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
-        community_name: ~
+        community_details: 基本情報
+        community_look_and_feel: デザイン
+        edit_community: 基本情報
+        community_name: マーケットプレイスの名前
         edit_community_name_description: ~
-        community_slogan: ~
+        community_slogan: マーケットプレイスのスローガン
         edit_community_slogan_description: ~
-        community_description: ~
+        community_description: マーケットプレイスの詳細内容
         edit_community_description_description: ~
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
-        invite_people: ~
+        update_information: 設定を保存する
+        invite_people: 新しいユーザを招待する
         edit_signup_info: ~
         edit_signup_info_description: ~
-        edit_info: ~
-        see_how_it_looks_like: ~
-        verification_to_post_listings_info_content: ~
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
+        edit_info: 情報を編集する
+        see_how_it_looks_like: 見え方を確認
+        verification_to_post_listings_info_content: 確認が取れていないユーザへの文章
+        verification_to_post_listings_info_content_description: 現在、あなたのユーザがリストを投稿するには、その前にあなたによって手動で承認する必要があります。もし彼らが新規投稿する際、確認が取れていないユーザに見せるための文章を、ここで用意しておくことが出来ます。
+        verification_to_post_listings_info_content_default: "リストを投稿するには、その前に%{service_name}のサイト管理者によって手動で承認される必要があります。あなたはまだ確認が取れていません。%{contact_admin_link}で承認申請してください。"
         contact_admin_link_text: ~
-        save: ~
+        save: 設定を保存する
         transaction_agreement: ~
         transaction_agreement_checkbox: ~
         transaction_agreement_checkbox_header: ~
@@ -65,15 +73,15 @@ ja:
         transaction_agreement_text_header: ~
         transaction_agreement_description: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
-        community_logo_icon: ~
-        community_cover_photo: ~
+        edit_community_look_and_feel: "%{community_name}のマーケットプレイスを見て感じながら編集"
+        community_logo: デスクトップロゴ
+        community_logo_icon: モバイル用ロゴ
+        community_cover_photo: カバー写真
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
-        community_custom_color2: ~
+        community_custom_color1: 第一カラー
+        community_custom_color2: 第二カラー
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
@@ -85,24 +93,24 @@ ja:
         custom_color2_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
-        grid: ~
+        grid: 画像表示
         list: ~
-        map: ~
+        map: 地図表示
         name_display_type: ~
         name_display_type_instructions_text: ~
         full_name: ~
         first_name_with_initial: ~
         first_name_only: ~
-        invalid_color_code: ~
+        invalid_color_code: "カラーコードは6つの数字とアルファベットA-Fで構成されます、例 D96E21"
         custom_head_script: ~
         custom_head_script_instructions_text: ~
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: 新規ユーザへメールの内容
         welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        edit_message: メッセージを編集する
+        send_test_message: テストメッセージを送信する
       getting_started:
         getting_started: ~
         welcome_to_your_marketplace: ~
@@ -112,7 +120,7 @@ ja:
         logo_link_text: ~
         custom_domain: ~
         contact_team_link_text: ~
-        categories_and_custom_fields: ~
+        categories_and_custom_fields: "次に決めるのことは、あなたのサイトで、どのような種類の投稿をしてもらうかです。%{categories_link}%{custom_fields_link}から、実際のリストの形式が構成されます。%{filters_link}を決定すると、人々がリストをブラウザするときに用いられます。"
         categories_link_text: ~
         custom_fields_link_text: ~
         filters_link_text: ~
@@ -125,53 +133,53 @@ ja:
         welcome_email_link_text: ~
         instruction_texts_link_text: ~
         social_media: ~
-        facebook_link_text: ~
+        facebook_link_text: フェイスブックアプリと接続する
         twitter_link_text: ~
         analytics: ~
         analytics_link_text: ~
         settings: ~
-        settings_link_text: ~
+        settings_link_text: こちらからマーケットプレイスの設定を確認する
         final_words: ~
         invite_link_text: ~
         view_users_link_text: ~
         view_transactions_link_text: ~
         contact_support_link_text: ~
       settings:
-        settings: ~
-        general: ~
-        users_can_review_each_other_after_transaction: ~
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
-        listing_preferences: ~
-        transaction_preferences: ~
-        show_listing_publishing_date: ~
-        show_category_in_listing_list: ~
-        hide_expiration_date: ~
-        listing_comments_in_use: ~
-        email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
-        google_analytics_key: ~
-        twitter_handle: ~
-        update_settings: ~
+        settings: 設定
+        general: 一般
+        users_can_review_each_other_after_transaction: ユーザはお互いに取引後見直しが出来ます
+        access: アクセス
+        join_with_invite_only: 他のユーザより招待されたユーザのみ、このマーケットプレイスに参加可能です
+        users_can_invite_new_users: 全てのユーザはこのマーケットプレイスに招待できます
+        private: このマーケットプレイスはプライベートです（登録済みユーザのみこの情報を閲覧できます）
+        require_verification_to_post_listings: サイト管理者によって承認されたユーザのみが新しいリストを投稿できます
+        listing_preferences: 優先リスト
+        transaction_preferences: トランザクションの設定
+        show_listing_publishing_date: リストページのリストの掲載日の日付を表示
+        show_category_in_listing_list: リストの種類を一覧にする
+        hide_expiration_date: 有効期限の設定は必要ありません
+        listing_comments_in_use: リストに対するコメントの投稿を許可してください（すべてのユーザに表示されます）
+        email_preferences: 優先メールアドレス
+        automatic_newsletters: 毎日・毎週、自動メールを全てのユーザに送信する（ユーザが拒否しない限り）
+        email_admins_about_new_members: 新規ユーザが登録したとき、メールアドレスを管理者に送信する
+        google_analytics_key: "Google アナリティクス トラッキング コード"
+        twitter_handle: "Twitter ハンドルネーム （リストページのtweetボタンを使用します）"
+        update_settings: 設定を保存
         automatically_confirmed: ~
-        automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        automatic_newsletter_frequency: "%{frequency_dropdown}の☆速報☆を自動で送信する"
+        newsletter_daily: 毎日
+        newsletter_weekly: 毎週
       manage_members:
         manage_members: ~
         email: ~
         name: ~
         join_date: ~
         admin: ~
-        posting_allowed: ~
+        posting_allowed: 投稿は許可されました
         ban_user: ~
         saving_user_status: ~
-        save_user_status_successful: ~
-        save_user_status_error: ~
+        save_user_status_successful: 保存しました
+        save_user_status_error: 保存に失敗しました。ページを再読込してもう一度試してください
         ban_user_confirmation: これはマーケットプレイスのユーザを削除するものであり、このアカウントに戻れないようになります。本当にこの削除手続きを実行してもよろしいですか。
       social_media:
         social_media: ~
@@ -179,26 +187,26 @@ ja:
         twitter_handle_info_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        facebook_connect: ~
+        facebook_connect: フェイスブック
         facebook_connect_info_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
+        facebook_connect_id: フェイスプックのユーザーID
+        invalid_facebook_connect_id: ユーザーIDは数字のみで構成されています
+        facebook_connect_secret: フェイスプックユーザーの秘密
+        invalid_facebook_connect_secret: フェイスプックユーザーの秘密は、数字とアルファベットaからｆを含むものです。
         save: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
-        save: ~
+        save: 設定を保存する
       menu_links:
-        menu_links: ~
-        save: ~
-        add_menu_link: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        title: ~
-        language: ~
+        menu_links: メニューにリンクを追加
+        save: 設定を保存する
+        add_menu_link: メニューにリンクを追加する
+        title_placeholder: リンクタイトル
+        url_placeholder: "http://example.com/ja"
+        title: タイトル
+        language: 言語
         url: ~
         empty: ~
       transactions:
@@ -238,33 +246,33 @@ ja:
       edit:
         edit_listing_field: ~
       edit_price:
-        edit_price_field: ~
-        show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        edit_price_field: 価格項目の編集
+        show_price_filter_homepage: ホームページに価格の検索フィルターを設置
+        price_min: 最低価格
+        price_max: 最高価格
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
       form:
         field_required:
           this_field_is_required: ~
-          this_field_is_required_checkbox: ~
+          this_field_is_required_checkbox: この項目は必須です（ユーザは少なくてもひとつ選択しなければなりません）
       index:
-        listing_fields: ~
+        listing_fields: リストの項目とフィルターの設定
         listing_fields_help: ~
-        add_new_field: ~
+        add_new_field: 新しい項目を追加
         remove_field_confirmation: ~
         cancel: ~
-        save: ~
-        field_title: ~
-        field_type: ~
-        categories: ~
+        save: 保存する
+        field_title: 項目のタイトル
+        field_type: 項目の種類
+        categories: 項目が使用されるリストのカテゴリ
         options: ~
         add_option: ~
         saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
-        select_one: ~
+        save_order_successful: 項目の順番を保存しました
+        save_order_error: 項目の順番を保存する際にエラーが発生しました。ページを再読込して再実行してください。
+        select_one: 項目のタイプを選択...
         continue: ~
         minimum_value: ~
         maximum_value: ~
@@ -279,16 +287,16 @@ ja:
         date: ~
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
-        email_subject: ~
-        email_content: ~
-        email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        send_email: ~
+        send_email_to_members: ユーザにメールを送信する
+        send_email_to_members_title: ユーザに一斉メールを送信する
+        email_subject: メール件名
+        email_content: メール内容
+        email_content_placeholder: ユーザ様に何をお伝えしたいですか。
+        email_language: メール受信者の主要言語
+        any_language: 全ての言語
+        send_email: メールを送信する
         message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        email_sent: メールを送信しました。
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
@@ -297,24 +305,24 @@ ja:
       support: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
-      preferences_updated: ~
+      preferences_updated: お支払い情報は更新されました
       integration_info_text: ~
       paypal_account_email: ~
       paypal_account_email_completed: ~
-      set_minimum_price_and_fee: ~
-      set_minimum_price_and_fee_completed: ~
-      minimum_listing_price_label: ~
+      set_minimum_price_and_fee: 最低価格とお支払い手数料の設定
+      set_minimum_price_and_fee_completed: 完了しました！
+      minimum_listing_price_label: 最低価格：
       transaction_fee_label: ~
-      save_settings: ~
+      save_settings: 設定を保存する
       note_about_transaction_fee: ~
     transaction_types:
-      sell: ~
+      sell: 売ります
       rent: ~
-      give: ~
+      give: 「ご自由にどうぞ」
       lend: ~
       swap: ~
       service: ~
-      request: ~
+      request: リクエストします
       inquiry: ~
       share_for_free: ~
       default_action_button_labels:
@@ -337,7 +345,7 @@ ja:
       offer: ~
       borrow: 無料で借ります
       buy: 買います
-      give_away: あげます
+      give_away: 「ご自由にどうぞ」
       lend: 無料で貸します
       receive: 「ご自由にどうぞ」
       rent: 借ります
@@ -368,7 +376,7 @@ ja:
       travel: ~
       other: ~
     username: ユーザ名
-    username_or_email: ~
+    username_or_email: "メールアドレス or ユーザ名"
     what_is_this: これは何ですか。
     removed_user: ~
   conversations:
@@ -380,12 +388,12 @@ ja:
       reject_offer: ~
       reject_request: ~
       close_listing: ~
-      update_later: ~
+      update_later: このリストを再開する
       optional_message: ~
-      price_to_pay: ~
+      price_to_pay: 支払われる合計金額
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
-      minimum_price_error_message: ~
+      minimum_price_error_message: "価格は%{amount}より低く設定できません。"
       accept: ~
       decline: ~
       sum: ~
@@ -399,12 +407,12 @@ ja:
       confirm: ~
       cancel: ~
       continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      give_feedback_to: "%{person_link}さんにレビューを書く"
+      do_not_give_feedback: レビューを書くのをスキップする
     details:
       day: ~
       days: ~
-      price_per_day: ~
+      price_per_day: "1日あたり： %{price}"
     index:
       loading_more_messages: メッセージをロードしています
       message_partitive: メッセージ
@@ -483,16 +491,16 @@ ja:
       last_message_at: ~
       price: ~
       sum: ~
-      price_excludes_vat: ~
+      price_excludes_vat: （外税）
       total: ~
     status:
       payment_errored: ~
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: フィードバックされています
-      feedback_skipped: フィードバックをスキップしました
-      give_feedback: フィードバックをお願いします
+      feedback_given: レビューされています
+      feedback_skipped: レビューを書くのをスキップしました
+      give_feedback: レビューを書く
       offer_accepted: 承認されました
       offer_rejected: 却下されました
       offer_canceled: ~
@@ -516,7 +524,7 @@ ja:
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: フィードバックをスキップする
+      skip_feedback: レビューを書くのをスキップする
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -524,12 +532,12 @@ ja:
       waiting_confirmation_from_you: ~
       waiting_payment_from_requester: ~
       waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_feedback_from_you: レビューを書くまで待っています
       pending_external_inbox:
         paypal:
           multicurrency: ~
           intl: ~
-          unknown_reason: ~
+          unknown_reason: お支払いは承認待ちの状態です。今一度、PayPal口座にログインして詳細をご確認ください。
           verify: ~
     status_link:
       accept_offer: オファーを承諾する
@@ -550,14 +558,14 @@ ja:
       email: ~
       phone: ~
       address_street_address: ~
-      address_postal_code: ~
+      address_postal_code: 郵便番号
       address_locality: ~
       address_region: ~
       date_of_birth: ~
       ssn: ~
       routing_number: ~
       account_number: ~
-      save: ~
+      save: 保存する
     show:
       payout_details: ~
       first_name: ~
@@ -565,7 +573,7 @@ ja:
       email: ~
       phone: ~
       address_street_address: ~
-      address_postal_code: ~
+      address_postal_code: 郵便番号
       address_locality: ~
       address_region: ~
       date_of_birth: ~
@@ -589,7 +597,7 @@ ja:
     access_denied:
       access_denied: ~
       you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      contact_page_link: お問い合わせする
     new:
       welcome_fb_user: ~
       fb_join_accept_terms: ~
@@ -631,24 +639,24 @@ ja:
       remember_to_add_payment_details: ~
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      payment_settings_link: お支払い設定
     transaction_confirmed:
       here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
+      request_marked_as_confirmed: "リクエストは完了しました - レビューを書くのを忘れないでください"
       request_marked_as_canceled: ~
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "%{other_party_given_name}さんへレビューを書く"
     transaction_automatically_confirmed:
-      subject: ~
+      subject: "リクエストは自動的に完了しました - レビューを書くのを忘れないでください"
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed:
-      subject: ~
+      subject: "リクエストは自動的に完了しました - レビューを書くのを忘れないでください"
       we_have_marked_request_as_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "%{other_party_given_name}さんへレビューを書く"
       show_thread: ~
     escrow_canceled:
       subject: ~
@@ -669,7 +677,7 @@ ja:
       thanks: ありがとうございます、
       want_to_control_emails: "%{service_name}から受信するメールを管理したい"
       dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
+      edit_your_email_settings_here: ここからメール設定を編集
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
       or: ~
@@ -710,7 +718,7 @@ ja:
       you_have_received_new_payment: ~
     braintree_new_payment:
       product: ~
-      price_payer_paid: ~
+      price_payer_paid: "価格 %{payer_full_name}さん 支払い済み："
       service_fee: ~
       you_will_get: ~
       money_will_be_transferred: ~
@@ -719,29 +727,29 @@ ja:
       you_have_made_new_payment: ~
       product: ~
       total: ~
-      price: ~
+      price: 価格
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name}さんは%{service_name}であなたにフィードバックを残しました"
-      you_can_give_feedback_to: "%{name}さんにまだフィードバックを残していません。"
-      view_feedback: ~
+      has_given_you_feedback_in_kassi: "%{name}さんは%{service_name}であなたにレビューを書きました"
+      you_can_give_feedback_to: "%{name}さんにまだレビューを書いていません。"
+      view_feedback: レビューを表示
     new_update_to_listing:
       listing_you_follow_has_been_updated: あなたがフォローしているリストが更新されました
-      has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      has_updated_listing_you_follow_in_kassi: "あなたが%{service_name}でフォロー中の%{author}さんは、「%{listing}」のリストを更新しました。"
+      view_changes: 変更箇所を見る
     community_updates:
-      added_offer: ~
-      added_request: ~
-      added_listing: ~
-      update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
-      intro_paragraph_link_text: ~
-      post_a_new_listing: 新規上場を投稿
-      reduce_email_footer_text: ~
-      settings_link_text: ~
-      unsubscribe_link_text: ~
+      added_offer: "%{name_link}さんはリストを追加しました："
+      added_request: "%{name_link}さんはリストを追加しました："
+      added_listing: "%{name_link}がリストに追加されました："
+      update_mail_title: "%{title_link}の更新"
+      title_link_text: "%{community_name}"
+      intro_paragraph: "こちらは%{time_since_last_update}の間に、%{community_link}で更新された情報です。"
+      intro_paragraph_link_text: "%{community_name}"
+      post_a_new_listing: 新規リストを投稿！
+      reduce_email_footer_text: "メールが多すぎますか。%{settings_link} or %{unsubscribe_link}"
+      settings_link_text: ここからメール設定を編集
+      unsubscribe_link_text: 購読を解除する
     newsletter:
       hi: "%{name}さん、こんにちは"
       newest_offers: 他の人が何をオファーしているのか見てみましょう
@@ -751,9 +759,9 @@ ja:
       change_my_password: パスワードの変更
       reset_password_instructions: "<p>あなたは%{service_name}のサービスにおいて、パスワードかユーザ名を忘れたことを示しました。</p><p>あなたのユーザ名は、以下の通りです：%{username}</p><p>もしパスワードのリセットが必要な場合は、以下をクリックします：%{password_reset_link}</p><br><p>もしそれをしない場合は、このメールを無視してください。パスワードは上記のリンクをクリックしない限り変更されることはありません。<p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "フィードバックはすべてのユーザに表示されます。他のユーザは%{name}さんが信頼できる人かどうかそして、互いに影響を与えても良いか判断が出来ます。従ってフィードバックを残すことを忘れないでください。また、他の人があなたに関してフィードバックを残すことに注意してください。多くのバッチをもらうにはポジティブなフィードバックが必要です。"
-      remember_to_give_feedback_to: "ご注意：%{name}さんにフィードバックを残すのを忘れないでください"
-      you_have_not_given_feedback_yet: "%{name}さんに「%{event}」の件でまだフィードバックされていないようです。%{given_name}さんのフィードバックを是非お願いします。"
+      feedback_is_public_and_is_shown: "レビューはすべてのユーザに表示されます。他のユーザは%{name}さんが信頼できる人かどうかそして、互いに影響を与えても良いか判断が出来ます。従ってレビューを書くことを忘れないでください。また、他の人にあなたに関してレビューを書かれることに注意してください。多くのバッチをもらうにはポジティブなレビューが必要です。"
+      remember_to_give_feedback_to: "ご注意：%{name}さんにレビューを書くのを忘れないでください"
+      you_have_not_given_feedback_yet: "%{name}さんに「%{event}」の件でまだレビューを書いていないようです。この際に、%{given_name}さんのレビューを是非お願いします。"
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -771,12 +779,12 @@ ja:
       p_s_did_you_know: ~
       click_here_link_text: ~
       welcome_email_footer_text: ~
-      settings_link_text: ~
+      settings_link_text: 設定を確認する
       welcome_email_subject_for_marketplace_creator: ~
       welcome_to_marketplace_creator: ~
       congrats_for_creating_your_marketplace: ~
       here_is_your_account_information: ~
-      your_email_address: ~
+      your_email_address: 以前こちらでログインしたことがあるメールアドレスでログイン：
       your_marketplace_address: ~
       your_marketplace_admin_area: ~
       just_follow_details: ~
@@ -790,8 +798,8 @@ ja:
       contact_support_link_text: ~
       admin_panel_link_text: ~
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
+      subject: "%{service_name}で%{author_name}さんが新しいリストを投稿しました"
+      has_posted_a_new_listing: "%{author_name}さんが新しいリストを投稿をしました："
       you_are_receiving_this_because: ~
       view_listing: ~
   error_messages:
@@ -799,18 +807,18 @@ ja:
       departure_time: 出発時間は、現在から１年後の間にしてください。
       share_type: どれか選択してください。
       valid_until: 日付は、今から半年後の間にしてください。
-      price: ~
-      minimum_price: ~
+      price: 価格は半角数字で記入してください。
+      minimum_price: "%{minimum_price}%{currency}以上の値段を設定してください。"
     testimonials:
-      you_must_explain_not_neutral_feedback: 非中立フィードバックを残す場合は理由のご説明をお願いします。
+      you_must_explain_not_neutral_feedback: 「普通（1-5の数字のレベルでは3）」以外の回答、すなわち良かった場合、あるいは期待以下だった場合は、その理由のご説明をお願いします。
       you_must_select_a_grade: この経験が良かったか、あるいはそうでなかったかを教えてください。
     transaction_agreement:
-      required_error: ~
+      required_error: 同意する必要があります
     paypal:
-      generic_error: ~
-      cancel_error: ~
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      generic_error: お支払い手続き中にエラーが発生しました。PayPalのお支払いが完了できませんでした。
+      cancel_error: キャンセル手続き中にエラーが発生しました。キャンセルが完了できませんでした。
+      accept_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
+      reject_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
   error_pages:
     back_to_kassi_front_page: 一番手前のページに戻る
     error_404:
@@ -833,21 +841,21 @@ ja:
     no_javascript:
       javascript_is_disabled_in_your_browser: Javascriptがあなたのブラウザで無効になっています
       kassi_does_not_currently_work_without_javascript: "%{service_name}ではjavascriptなしでは正しく機能しません。お使いのブラウザのjavascriptを有効にして、再度ロードしてみてください。"
-      contact_us: ~
-      send_feedback: フィードバックを送信
+      contact_us: サイト管理者に、メニューの「お問い合わせ」より、ご連絡下さい。
+      send_feedback: レビューを送信
       your_feedback_to_admins: サイト管理者へ何か意見する
     send: 送信する
     your_email_address: あなたのメールアドレス
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
+      invalid_date: は、有効な日付ではありません
+      invalid_time: は、有効な時間ではありません
+      invalid_datetime: は、有効な日時ではありません
+      is_at: "%{restriction}でなければなりません"
+      before: "%{restriction}以前でなければなりません"
+      on_or_before: "%{restriction}以前でなければなりません"
+      after: "%{restriction}より後でなければなりません"
+      on_or_after: "%{restriction}以後でなければなりません"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{time_ago}に%{offerer_name}さんは%{requester_name}さんに%{listing_title}を貸すことに同意しました。"
@@ -883,12 +891,12 @@ ja:
     requests: リクエスト
     search_kassi: "%{service_name}で検索"
     create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
-    invite: ~
-    login: ~
-    signup: ~
-    menu: ~
+    contact_us: お問い合わせ
+    profile: プロフィール
+    invite: メンバーを招待する
+    login: ログイン
+    signup: 新規登録
+    menu: メニュー
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: さらに<b>もうひとつのオファー</b>があります、
@@ -922,24 +930,24 @@ ja:
       some_private_offers_exist: "既に<b>%{number_of_listings}件のオファーが</b>あります、"
       some_private_requests_exist: "既に<b>%{number_of_listings}件のリクエストが</b>あります、"
     custom_filters:
-      update_view: ~
+      update_view: 表示を更新する
       min: ~
       max: ~
     event_feed:
       latest_events: どうしましたか
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: （画像をアップロード中です...）
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
       add_listing_link_text: ~
       open_listing: ~
       open_listings: ~
-      private_listing_notification_log_in: ~
+      private_listing_notification_log_in: ログイン
       is: ~
       are: ~
       what_do_you_need: ~
-      post_new_listing: 新規上場を投稿
+      post_new_listing: 新規リストを投稿！
       are_offering: オファー
       add_news_item: 記事を追加する
       lend_rent_help_carpool: 売ります、無料で貸します、お手伝いします、ライドシェア
@@ -951,22 +959,22 @@ ja:
       or: ~
       or_see_what_the_others: ~
       recent_events: 最近の取引
-      requesting: ~
+      requesting: 必要です
       tell_it_here: ~
       welcome_to_new_kassi: ~
       no_reviews: ~
       no_image: ~
       filter: ~
-      this_is_private_community: ~
+      this_is_private_community: コンテンツ閲覧には登録の必要があります。
     invitation_form:
       invite_your_friends: "%{service_name}にお友達を招待する！"
       invite_your_neighbors: ~
       email: メールアドレス
       message: パーソナル･メッセージを書いて下さい
       send_invitation: 招待状を送る
-      add_as_many_emails_as_you_want: ~
-      invitation_emails_field_placeholder: ~
-      invitation_message_field_placeholder: ~
+      add_as_many_emails_as_you_want: 下の欄に招待したい方のメールアドレスを追加してください。メールアドレスが複数ある場合は、コンマで区切ってください。
+      invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
+      invitation_message_field_placeholder: "〇〇ちゃん、このマーケットプレイス知ってる？ とりあえず見てみてよ。"
       errors_in_emails: ~
     list_item:
       review: ~
@@ -986,12 +994,12 @@ ja:
     filters:
       show: ~
       search: ~
-      map: ~
+      map: 地図で場所を限定する
       list: ~
-      map_button: ~
-      grid_button: ~
+      map_button: 地図
+      grid_button: 画像
       list_button: ~
-      all_listing_types: ~
+      all_listing_types: 全てのリストの種類
       all_categories: ~
   infos:
     about:
@@ -1003,37 +1011,37 @@ ja:
       default_content: ~
   layouts:
     admin:
-      admin: ~
+      admin: "%{service_name}のサイト管理パネル"
     no_tribe:
       inbox: ~
-      settings: ~
-      feedback: ~
+      settings: 設定
+      feedback: お問い合わせ
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
-      default_feedback: ~
-      feedback_forum: ~
-      feedback_handle: ~
-      give_feedback: ~
+      feedback: ご用件をどうぞ。
+      default_feedback: "%{service_name}の問題を発見してしまいましたか。サイトの向上のためのご提案がありますか。あやしい投稿を見つけてしまいましたか。あるいは私たちと何かを議論してみたいですか。お気軽にお知らせください！"
+      feedback_forum: レビューフォーラム
+      feedback_handle: レビューを書く
+      give_feedback: お問い合わせ
       or_check_our: ~
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: ご意見を送信する
       to_see_what_others_have_suggested: ~
       your_email_address: ~
-      connect: ~
+      connect: 新規登録
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
       invite_your_friends_invite_only_description: ~
-      join_without_facebook: ~
-      join_without_facebook_link: ~
+      join_without_facebook: "or 代わりに %{join_without_facebook_link}"
+      join_without_facebook_link: フェイスブックなしで登録する
     conversations:
-      messages: ~
+      messages: メッセージ
       notifications: メール通知
       received: ~
       sent: ~
     global-header:
-      select_language: ~
+      select_language: 言語を選択
     infos:
       about: ~
       how_to_use: ~
@@ -1043,59 +1051,59 @@ ja:
       terms: ~
     logged_in:
       admin: ~
-      go_to_your_profile_page: ~
+      go_to_your_profile_page: プロフィール
       hi: ~
-      login: ~
-      logout: ~
+      login: ログイン
+      logout: ログアウト
       notifications: 通知
       requests: ~
-      settings: ~
+      settings: 設定
       sign_up: ~
     logged_in_messages_icon:
-      messages: ~
+      messages: メッセージ
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: メール通知
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
+      admin: サイト管理
+      go_to_your_profile_page: プロフィール
       hi: ~
       login: ~
       logout: ~
       notifications: メール通知
       requests: ~
       settings: 設定
-      sign_up: ~
+      sign_up: 新規登録
     notifications:
-      listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
+      listing_could_not_be_saved: "リストは保存できませんでした。もう一度お試しください。問題が続くようでしたら、%{contact_admin_link}。"
+      contact_admin_link_text: サイト管理者にお問い合わせ
+      test_welcome_email_delivered_to: "テストメールを%{email}へお送りしました。"
+      something_went_wrong: 何かがうまくいかなかったようです。
       community_updated: 詳細は更新されました。
       community_update_failed: 詳細の更新は失敗しました。
       account_creation_succesful_you_still_need_to_confirm_your_email: アカウントが正常に作成されました。メールアドレスの認証手続きをしてください。
       community_joined_succesfully_you_still_need_to_confirm_your_email: "%{service_name}へのご参加ありがとうございます。メールアドレスを確認し認証手続きを行ってください。"
       comment_cannot_be_empty: 空欄でコメントできません
       comment_sent: コメントを送信
-      confirmation_link_is_wrong_or_used: 認証リンクがすでに使用されていたか、壊れていたようです。ログインを試してみて、問題が解決しない場合はフィードバックを送ってください。
+      confirmation_link_is_wrong_or_used: 認証リンクがすでに使用されていたか、壊れていたようです。ログインを試してみて、問題が解決しない場合はサイト管理者にお問い合わせください。
       additional_email_confirmed: 入力したメールアドレスは承認されました。
-      could_not_get_email_from_facebook: ~
-      create_new_listing: ~
+      could_not_get_email_from_facebook: フェイスブックからメールアドレスを取得出来ませんでした。メールアドレスなしでアカウント作成が出来ません
+      create_new_listing: もうひとつリストを作成する
       create_one_here: ここに作成します
       email_confirmation_sent_to_new_address: 新しいメールアドレスへ認証メールを送りました。
       email_not_found: "ご記入いただいたメールアドレスは、%{service_name}に存在しません。"
       error_with_session: セッション中にエラーが起こりました
-      feedback_considered_spam: 初期化によりフィードバックは保存されませんでした。フィードバックフォーラムを使用して再試行してください。
-      feedback_not_saved: フィードバックは送信できませんでした。
-      feedback_saved: フィードバック送信、ありがとうございます！なるべく早く返信したいと思います。
-      feedback_sent_to: "%{target_person}さんにフィードバックを送信しました。"
-      feedback_skipped: フィードバックをスキップしました
+      feedback_considered_spam: 初期化により内容は保存されませんでした。フィードバックフォーラムを使用して再試行してください。
+      feedback_not_saved: レビューは送信できませんでした。
+      feedback_saved: レビュー送信、ありがとうございます！なるべく早くご返信したいと思います。
+      feedback_sent_to: "%{target_person}さんにお問い合わせを送信しました。"
+      feedback_skipped: レビューをスキップしました
       invitation_cannot_be_sent: 招待状は送られませんでした
       invitation_sent: 招待状は正常に送信されました
       inviting_new_users_is_not_allowed_in_this_community: 新しいユーザを招待することは許可されていません。
       login_again: もう一度ログインしてください。
       login_failed: ログインに失敗しました。正確にご入力願います。
       account_creation_successful: "%{person_name}さん、ようこそ%{service_name}へ！"
-      account_deleted: ~
+      account_deleted: あなたのアカウントは削除されました。
       login_successful: "ようこそ、%{person_name}さん！"
       logout_successful: "%{service_name}からログアウトしました。またよろしくお願いします！"
       news_item_created: 記事が作成されました
@@ -1104,20 +1112,20 @@ ja:
       news_item_updated: 記事を更新しました
       news_item_deleted: 記事を削除しました
       offer_accepted: オファーを受諾しました
-      offer_confirmed: ~
+      offer_confirmed: オファーは確定しました
       offer_closed: オファーはクローズしました
-      listing_created_successfully: ~
+      listing_created_successfully: "リストは掲載されました。%{new_listing_link}"
       offer_rejected: オファーは却下されました
-      offer_canceled: ~
-      listing_updated_successfully: ~
+      offer_canceled: オファーはキャンセルされました
+      listing_updated_successfully: リストは更新されました
       only_kassi_administrators_can_access_this_area: "こちらは%{service_name}の管理者だけがアクセス出来ます"
-      only_listing_author_can_close_a_listing: ~
+      only_listing_author_can_close_a_listing: リストの作成者のみがリストをクローズ出来ます
       only_listing_author_can_edit_a_listing: このリストの作成者のみがこのリストを編集出来ます
-      payment_successful: ~
-      payment_canceled: ~
-      error_in_payment: ~
-      cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      payment_successful: お支払いは完了しました
+      payment_canceled: お支払いはキャンセルされました
+      error_in_payment: お支払い時にエラー発生。お支払いを完了していない場合、再試行してください。完了している場合は、お問い合わせにご連絡ください。
+      cannot_receive_payment: 何かのエラーによりお支払いを受領できませんでした。状況を明確にするため、サイト管理者にお問い合わせください。
+      payment_waiting_for_later_accomplishment: お支払いが完了している場合は、メールで売り手側にお知らせし、メールであなた宛に領収書をお送りします。
       password_recovery_sent: パスワード再設定手続きメールを、あなたのメールアドレスに送信しました。
       person_activated: ユーザになりました
       person_deactivated: 無効なユーザになりました
@@ -1130,32 +1138,32 @@ ja:
       poll_updated: アンケートは更新されました
       poll_deleted: アンケートは削除されました
       read_more: もっと読む
-      registration_considered_spam: "ご登録が出来ないようです、サイトの上部のヘッダーメニューより、「email2 error」とご明記の上、フィードバックを送信してください。"
+      registration_considered_spam: "ご登録が出来ないようです、サイトの上部のヘッダーメニューより、「email2 error」とご明記の上、サイト管理者にお問い合わせください。"
       reply_cannot_be_empty: 空のメッセージを送れません
       reply_sent: 送信しました
       request_accepted: リクエストは受諾されました
-      request_confirmed: ~
+      request_confirmed: リクエストは完了しました
       request_closed: リクエストはクローズしました
       request_rejected: リクエストは却下されました
-      request_canceled: ~
+      request_canceled: リクエストはキャンセルされました
       message_sent: メッセージを送信しました
       this_content_is_not_available_in_this_community: この内容は利用できません。
       unknown_error: 不明なエラーが発生しました。先ほど何が起きていたかの詳細と、ページの場所のリンクをお知らせください。
       update_error: 情報を更新中にエラーが発生しました、再度お試しください。
-      you_are_not_allowed_to_give_feedback_on_this_transaction: この取引のフィードバックを残すことが認められませんでした
-      you_are_not_authorized_to_do_this: ~
+      you_are_not_allowed_to_give_feedback_on_this_transaction: この取引のレビューを書くことが認められませんでした
+      you_are_not_authorized_to_do_this: これを実行する権利がありません
       you_are_not_authorized_to_view_this_content: このコンテンツを閲覧することは認められませんでした
       send_instructions: あなたのパスワードのリセット方法が記載されたメールが、まもなく届きます。
       you_cannot_reply_to_a_closed_offer: クローズ済みのオファーに対し返信できません
       you_cannot_reply_to_a_closed_request: クローズ済みのリクエストに対し返信できません
       you_cannot_send_message_to_yourself: あなた自身へメッセージを送れません
       you_followed_listing: このリスティングをフォロー中です
-      you_have_already_given_feedback_about_this_event: 既にこの取引に関してフィードバックしています
+      you_have_already_given_feedback_about_this_event: 既にこの取引に関してレビューを書いています
       you_are_now_member: "%{service_name}へようこそ！"
       you_are_already_member: "あなたはすでに%{service_name}のメンバーです。おかえりなさい！"
       you_must_log_in_to_create_new_listing: "新しいリストを投稿するには%{service_name}へログインしてください。アカウントをお持ちでない場合は、%{sign_up_link}してください。"
       additional_email_confirmed_dashboard: メールアドレスが認証されました。
-      you_must_log_in_to_give_feedback: フィードバックを残すにはログインをしてください
+      you_must_log_in_to_give_feedback: レビューを書くにはログインをしてください
       you_must_log_in_to_invite_new_users: "%{service_name}に新しいユーザを招待するにはログインしていなければなりません"
       you_must_log_in_to_send_a_comment: 新しいコメントを送信するにはログインしてください
       you_must_log_in_to_send_a_message: "他のユーザにメッセージを送信するには%{service_name}にログインしてください。"
@@ -1164,28 +1172,28 @@ ja:
       you_must_log_in_to_view_your_inbox: "メール受信箱を閲覧するには%{service_name}にログインしてください"
       you_must_log_in_to_view_your_settings: "設定を見るには%{service_name}にログインしてください"
       you_must_log_in_to_add_news_item: "新しい記事を追加するには%{service_name}にログインしている必要があります。"
-      you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_change_payment_settings: ~
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_change_profile_settings: "プロフィールの設定を変更するには、%{service_name}にログインしてください。"
+      you_must_log_in_to_change_payment_settings: "お支払い設定を変更するには、%{service_name}にログインしてください。"
+      you_must_log_in_to_accept_or_reject: お取引を受諾か却下するにはログインしてください
+      you_must_log_in_to_confirm_or_cancel: お取引をキャンセルか、承認するにはログインしてください
       you_need_to_confirm_your_account_first: メールアドレスを認証してください。
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: 空欄を埋めてください
       you_unfollowed_listing: あなたは今後このリストのフォローをしません
       joining_community_failed: 参加失敗
-      can_not_login_with_private_user: ~
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
-      listing_author_payment_details_missing: ~
-      stylesheet_needs_recompiling: ~
+      can_not_login_with_private_user: あなたの個人アドレスでログインできませんでした。組織のアカウントでログインするか、新規登録をしてください。
+      can_not_delete_email: メールアドレスを削除できません
+      user_does_not_have_email_to_delete: 削除しようとしていたメールアドレスは、正しくありません。
+      email_deleted: メールアドレスは削除されました
+      payment_details_add_successful: お支払い情報を正常に追加できました
+      payment_details_add_error: お支払い情報を追加できませんでした
+      listing_author_payment_details_missing: このリストの作成者はお支払い詳細を追加していないので、現在のところお支払いを受け取れません。このリストの作者に直接連絡を取ってください。作成者
+      stylesheet_needs_recompiling: スタイルシートをコンパイルしています。しばらくしてからページをリロードしてください。
     settings:
-      account: ~
+      account: ご登録情報
       notifications: メール通知
       profile: プロフィール
       settings: 設定
-      payments: ~
+      payments: お支払い
   listings:
     bubble_listing_not_visible:
       listing_not_visible: あなたはこのリストを閲覧する権限がありません。
@@ -1208,17 +1216,17 @@ ja:
       edit_listing: ~
       reopen_listing: ~
       move_to_top: ~
-      show_in_updates_email: ~
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
-      show_in_updates_email_success: ~
+      show_in_updates_email: 次の自動メールを表示
+      show_in_updates_email_loading: 読み込み中...
+      show_in_updates_email_error: サーバに接続できませんでした。ページを読み込んだ後、再度お試しください。
+      show_in_updates_email_success: このリストはユーザに送信される、次回の自動お知らせメールに掲載されます。
     follow_links:
       follow: 新しいコメントについてのメールを受けとります
       unfollow: 新しいコメントについてのメールを受けとりません
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: どれかを選択
       departure_time:
         at: 時に
         departure_time: 出発時間
@@ -1257,20 +1265,20 @@ ja:
       location:
         location: 場所
       price:
-        price: ~
-        per: ~
-        per_day: ~
-        mass: ~
-        time: ~
-        long_time: ~
-        after_service_fee_you_will_get: ~
-        after_service_fee_you_will_get_vat: ~
-        price_excludes_vat: ~
+        price: 価格
+        per: につき
+        per_day: 1日あたり
+        mass: 個、キロ、リットル、坪
+        time: 時間、日、ヶ月
+        long_time: 週、ヶ月、...
+        after_service_fee_you_will_get: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます"
+        after_service_fee_you_will_get_vat: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたにおよそ%{sum_with_currency}が支払われます（税 0%）"
+        price_excludes_vat: 価格は外税です。
       origin:
         location: 場所
         origin: 起点となる場所
       send_button:
-        save_listing: ~
+        save_listing: リストを保存する
       share_type:
         select: 選択
         borrow: 借りる
@@ -1282,7 +1290,7 @@ ja:
         rent: レンタルする
         rent_out: 貸し出す
         request_type: リクエストの種類
-        sell: 販売する
+        sell: 売ります
         share_for_free: ~
         accept_for_free: ~
         trade: 交換する
@@ -1290,7 +1298,7 @@ ja:
         comma_separate: 、
         tags: タグ
       title:
-        listing_title: ~
+        listing_title: リストのタイトル
       valid_until:
         valid_until: 有効期限
       valid_until_radio_buttons:
@@ -1304,7 +1312,7 @@ ja:
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: 取引やリクエストの種類
+      help_share_type_title: オファーやリクエストの種類
       help_tags_title: タグ
       help_valid_until_title: 有効期限
     index:
@@ -1318,7 +1326,7 @@ ja:
       items: 品目
       list_view: ~
       listings: ~
-      map_view: ~
+      map_view: 地図表示
       offer_something: ~
       offer_type: ~
       offers: ~
@@ -1333,7 +1341,7 @@ ja:
       borrows: ~
       buys: ~
       favors: ~
-      give_aways: ~
+      give_aways: 「ご自由にどうぞ」
       housings: ~
       items: ~
       lends: ~
@@ -1341,7 +1349,7 @@ ja:
       rent_outs: ~
       rents: ~
       rideshares: ~
-      sells: ~
+      sells: 売ります
       share_for_frees: ~
       accept_for_frees: ~
       trades: ~
@@ -1350,22 +1358,22 @@ ja:
       booking_to: ~
       how_paypal_works: ~
     new:
-      post_a_new_listing: 新規上場を投稿
+      post_a_new_listing: 新規リストを投稿！
       listing: ~
-      selected_category: ~
-      selected_subcategory: ~
-      selected_transaction_type: ~
-      select_category: ~
-      select_subcategory: ~
-      select_transaction_type: ~
-      you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
+      selected_category: "カテゴリ： %{category}"
+      selected_subcategory: "サブカテゴリ： %{subcategory}"
+      selected_transaction_type: "リストの種類： %{transaction_type}"
+      select_category: カテゴリを選択
+      select_subcategory: サブカテゴリーを選択
+      select_transaction_type: リストの種類を選択
+      you_need_to_fill_payout_details_before_accepting: "リストを投稿する前に、お支払い情報の入力を完了している必要があります。%{payment_settings_link}で、情報入力をお願いします。"
+      payment_settings_link: お支払い設定
     please_comment: ~
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
-      add_profile_picture: ~
+      add_profile_picture: プロフィール写真を追加
       comments: ~
       contact_by_phone: ~
       contact: ~
@@ -1380,7 +1388,7 @@ ja:
       offer: ~
       listing_created: ~
       open_until: ~
-      feedback: ~
+      feedback: レビュー
       qr_code: QRコード
       request: ~
       rideshare_offer: ~
@@ -1393,12 +1401,12 @@ ja:
       time: ~
       times: ~
       times_viewed: ~
-      processing_uploaded_image: ~
-      price_excludes_vat: ~
+      processing_uploaded_image: （画像をアップロード中です...）
+      price_excludes_vat: （外税）
       listing_created_at: ~
       price:
-        per_quantity_unit: ~
-        per_day: ~
+        per_quantity_unit: "あたり： %{quantity_unit}"
+        per_day: 1日あたり
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1410,7 +1418,7 @@ ja:
       you_will_be_charged: ~
       day: ~
       days: ~
-      price_per_day: ~
+      price_per_day: "1日あたりの価格： %{price}"
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1418,7 +1426,7 @@ ja:
       all_categories: ~
       all_offer_types: ~
       all_request_types: ~
-      category: ~
+      category: カテゴリ
       did_not_found_what_you_were_looking_for: ~
       favors: ~
       housing: ~
@@ -1434,7 +1442,7 @@ ja:
       rideshare: ~
       search_verb: ~
       you_have_something_others_do_not: ~
-    please_comment: ~
+    please_comment: コメント
   okl:
     member_id: メンバーID
     member_id_or_email: ~
@@ -1449,8 +1457,8 @@ ja:
       total: ~
       service_charge: ~
       product: ~
-      price: ~
-      price_for: ~
+      price: 合計：
+      price_for: "%{payer_given_name}さんのための価格"
       continue_to_pay: ~
       invoice: ~
       service_fee: ~
@@ -1504,30 +1512,30 @@ ja:
       invite_people_you_know: ~
       there_are_x_members: ~
       to_see_the_list_log_in: ~
-      log_in_link: ~
+      log_in_link: ログイン
     edit_links:
       activate: 使用可能にする
       deactivate: 使用不可にする
     help_texts:
-      feedback_description_title: ~
+      feedback_description_title: レビューを書く
       help_captcha_title: あなたは人間ですか。
       help_invitation_code_title: 参加には招待が必要です
       terms_title: "%{service_name}のご利用規約"
       trustcloud_description_title: ~
       trustcloud_description_text: ~
-      invite_only_help_text: ~
+      invite_only_help_text: 既存のユーザからの招待のみで新規メンバーを獲得したい場合はこちらのオプションをご利用ください。
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "今後もこのユーザは%{service_name}でアクティブではありません"
-      inactive_description: "このユーザは、%{service_name}の使用を停止しました。あなたはこのユーザと連絡をとることや、フィードバックやコメントを残すことが出来ません。"
+      inactive_description: "このユーザは、%{service_name}の使用を停止しました。あなたはこのユーザと連絡をとることや、レビューやコメントを残すことが出来ません。"
     new:
       captcha_incorrect: キャプチャの確認が出来ませんでした。下記のボックス内の画像の文字を入力してください。
       captcha_was_wrong: キャプチャのテキストが正しくありませんでした。
       create_new_account: 新規登録
       email: メールアドレス
       email_is_in_use: そのメールアドレスはすでに使用されています。
-      email_is_in_use_or_not_allowed: ~
-      email_not_allowed: "このメールアドレスは%{service_name}での使用を認められていません。他のメールアドレを使用してください。もしまだ入れないようでしたら、お問い合わせからお知らせください。"
+      email_is_in_use_or_not_allowed: このメールアドレスは有効でないか、既に使用されています。もし理由不明の場合はお問い合わせください。
+      email_not_allowed: "このメールアドレスは%{service_name}での使用を認められていません。他のメールアドレを使用してください。もしまだ入れないようでしたら、サイト管理者にお問い合わせください。"
       enter_captcha: 私は人間です。
       family_name: 姓
       given_name: 名
@@ -1544,9 +1552,9 @@ ja:
       username_is_invalid: 無効なユーザ名です。文字と数字とアンダーバーが使用可能です。
       visible_only_to_you: あなただけに表示されるマーケットプレイスの管理ページ
       visible_to_everybody: 全員に表示
-      create_account_with_facebook: ~
+      create_account_with_facebook: フェイスブックで登録する
       OR: ~
-      signup_with_email: ~
+      signup_with_email: メールアドレスで新規登録する
     not_member:
       explanation_text: "現在あなたは%{community}を閲覧中です。他のSharetribeのプラットフォームで制作されたマーケットプレイスのユーザのプロフィールを閲覧を試みました。%{community}内のこのユーザへのアクセスは出来ません。"
       read_more_about_kassi_communities: Sharetribeマーケットプレイスについてもっと読む
@@ -1555,14 +1563,14 @@ ja:
       as_expected: 期待通り
       exceeded_expectations: 期待以上に良い
       grade: 評価：
-      and_gave_following_feedback: ~
+      and_gave_following_feedback: 次のレビューを書く
       less_than_expected: 期待以下
       slightly_better_than_expected: 期待よりまあまあ良い
       slightly_less_than_expected: 期待より少しだけ悪い
     profile_listings:
       show_also_closed: クローズ済のリストも表示
       show_only_open: 現在進行のリストのみ表示
-      no_image: ~
+      no_image: 写真なし
     show:
       contact: ~
       about_me: 私について：
@@ -1577,8 +1585,8 @@ ja:
       hide_description: 表示を少なくする
       less_than_expected: 期待以下
       phone_number: 電話番号：
-      show_all_feedback: すべてのフィードバックを表示
-      show_all_testimonials: すべてのフィードバックを表示
+      show_all_feedback: すべてのレビューを表示
+      show_all_testimonials: すべてのレビューを表示
       show_full_description: もっと見る
       slightly_better_than_expected: 期待を超えました
       slightly_less_than_expected: 期待以下
@@ -1630,9 +1638,9 @@ ja:
       account_creation_link_text: ここをクリック
       cancle_facebook_connect: "もしこのアカウントをリンクしたくない場合は、%{cancel_link}が出来ます。"
       facebook_cancel_link_text: キャンセル
-      log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
-      we_will_not_post_without_asking_you: ~
+      log_in_with_your_facebook_account: フェイスブックのアカウントでログインする
+      or_sign_up_with_your_username: "...それともユーザ名 or メールアドレス："
+      we_will_not_post_without_asking_you: あなたに断りなくフェイスブックに投稿することは、決してありません。
     password_forgotten:
       email: メールアドレス
       password_recovery_instructions: メールアドレスとユーザ名の情報を入力して、パスワード再設定を行います。
@@ -1653,10 +1661,10 @@ ja:
     account:
       change: 変更
       confirm_new_password: パスワードを承認する
-      delete_account: ~
-      delete_account_button: ~
+      delete_account: アカウントを削除する
+      delete_account_button: この登録永久に抹消してください
       delete_account_confirmation_popup: ~
-      email_addresses: ~
+      email_addresses: メールアドレス
       new_email: 新しいメールアドレス
       delete_all_memberships: ~
       delete_personal_information: ~
@@ -1664,41 +1672,41 @@ ja:
       unfinished_transactions: ~
       new_password: 新しいパスワード
       save: 保存
-      these_fields_are_shown_only_to_you: ~
+      these_fields_are_shown_only_to_you: ユーザ名はあなたの名前を公表している場合を除いて、あなたのプロフィールに表示されます。他の情報はあなただけに表示されています。
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        address_title: メールアドレス
+        remove_title: 削除する
+        remove_confirmation: このメールアドレスの削除を本当に実行しますか。
+        receive_notifications_title_desktop: 通知を受信する
+        receive_notifications_title_mobile: 通知を受信する
+        receive_notifications_new_title_mobile: 通知を受信する
+        add_new_with_plus: "+ 新しいメールアドレスを追加する"
+        add_new_cancel: キャンセル
+        confirmation_title_mobile: 認証：
+        confirmation_title_desktop: 認証
+        confirmation_resend: 再送する
+        status_confirmed: 確定済み
+        status_pending: 保留中
     notifications:
       email_from_admins: 臨時の更新がある場合に、管理者より通知を希望します。
       i_want_to_get_email_notification_when: 以下のタイミングでメールの通知を希望します
-      newsletters: ニュースをお届け
+      newsletters: ☆速報☆
       community_updates: メールを更新
       email_about_accept_reminders: "...オファーまたはリクエストを承認するのを忘れました"
-      email_about_confirm_reminders: ~
+      email_about_confirm_reminders: リクエスト完了処理をし忘れました
       email_about_new_comments_to_own_listing: "...オファーまたはリクエストに対し誰かがコメントしました"
       email_about_new_messages: "...誰かがメッセージを送信しました"
-      email_about_new_received_testimonials: "...誰かがフィードバックしました"
-      email_about_testimonial_reminders: "...フィードバックを残すのを忘れました"
+      email_about_new_received_testimonials: "...誰かがレビューを書きました"
+      email_about_testimonial_reminders: "...レビュー書くのを忘れました"
       email_daily_community_updates: サイトに新しいリストが投稿された場合、<b>毎日</b>最新情報を記載したメールを受け取る
       email_weekly_community_updates: サイトに新しいリストが投稿された場合、<b>毎週</b>最新情報を記載したメールを受け取る
       do_not_email_community_updates: 最新情報メールを受け取らない
       email_when_conversation_accepted: "...誰かが私のオファーあるいはリクエストを受け入れました"
       email_when_conversation_rejected: "...誰かが私のオファーあるいはリクエストを受け入れませんでした"
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
-      email_about_payment_reminders: ~
-      email_about_new_listings_by_followed_people: ~
+      email_about_completed_transactions: 誰かが私のオファーかリクエストが完了しているとマークしました
+      email_about_new_payments: 新しいお支払いを受けました
+      email_about_payment_reminders: 支払い忘れました
+      email_about_new_listings_by_followed_people: "...フォロー中の誰かが新しいリストを投稿しました"
       unsubscribe_succesful: 購読をやめる
       unsubscribe_info_text: "これらのメールを今後受け取りません。今一度%{settings_link}から、%{service_name}より受け取りたい種類のメールを選んでください。もしくは%{homepage_link}に戻ります。"
       settings_link: 各種設定
@@ -1710,20 +1718,20 @@ ja:
       city: 市
       family_name: 姓
       given_name: 名
-      first_name_with_initial: ~
-      first_name_only: ~
+      first_name_with_initial: （他のユーザには最初の一文字だけ表示しています）
+      first_name_only: （他のユーザに表示していません）
       location_description: たとえば郵便番号だけなど大体の場所だけを掲載する方法もあります。いずれにしましても郵便番号は追加してください。また、地図で選択することも出来ます。
       phone_number: 電話番号
-      profile_picture: ~
+      profile_picture: プロフィール写真
       postal_code: 郵便番号
-      profile_page: あなたのプロフィールページで
+      profile_page: プロフィール情報を設定
       profilemap: 地図で見る
       street_address: 場所
       these_fields_are_shown_in_your: "この情報は%{service_name}のユーザすべてに表示されます"
       visible_to_everybody: 全員に表示
       visible_to_registered_users: （ログイン済みユーザに表示）
-      default_in_listing: ~
-      invisible: ~
+      default_in_listing: （これは新規リストを作成時用の初期設定です）
+      invisible: （他のユーザに表示していません）
     save_information: 情報を保存する
   tag_cloud:
     tag_used:
@@ -1742,24 +1750,24 @@ ja:
       you_need_to_accept_new_terms: ~
   testimonials:
     index:
-      all_testimonials: すべてのフィードバック
-      feedback_altogether: "フィードバック： "
+      all_testimonials: すべてのレビュー
+      feedback_altogether: "全てのレビューを書く： "
       loading_more_testimonials: 証言をロードしています
-      no_testimonials: フィードバックを受け取っていません
+      no_testimonials: レビューを受け取っていません
     new:
       as_expected: 期待通り
       exceeded_expectations: 期待以上に良い
-      give_feedback_to: "%{person}さんにフィードバックする"
+      give_feedback_to: "%{person}さんにレビューを書く"
       grade: 総合的にどんな感じですか。
       less_than_expected: 期待以下
-      send_feedback: フィードバックを送信
+      send_feedback: レビューを送信
       slightly_better_than_expected: 期待よりまあまあ良い
       slightly_less_than_expected: 期待より少しだけ悪い
-      textual_feedback: ~
+      textual_feedback: 実際、いかがでしたか。
       this_will_be_shown_in_profile: ~
       positive: ~
       negative: ~
-      default_textual_feedback: ~
+      default_textual_feedback: すべてはスムーズに進行しました、誠にありがとうございます！
     testimonial:
       about_listing: ~
   date:

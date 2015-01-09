@@ -656,18 +656,18 @@ zh:
       if_this_was_error: ~
       please_contant_admin_link: ~
     confirmation_instructions:
-      confirmation_instructions_signature: 此致敬礼，<br/>Kassi团队
-      welcome_to_kassi: 欢迎来到Kassi！
-      need_to_confirm: 开始使用Kassi前，您必须通过以下链接确认您的Email地址：
+      confirmation_instructions_signature: "此致敬礼，<br/>%{service_name}团队"
+      welcome_to_kassi: "欢迎来到%{service_name}！"
+      need_to_confirm: 您需要确认您的Email地址。
       confirmation_link_text: 确认账号
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: 查看您的设置
       hey: "Hi %{name},"
-      kassi_team: Kassi团队
+      kassi_team: "%{service_name} 团队"
       thanks: 谢谢！
-      want_to_control_emails: 想要管理来自Kassi的邮件？
+      want_to_control_emails: "想要管理来自%{service_name} 的邮件？"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: 编辑你的邮箱设定
       message_not_displaying_correctly: ~
@@ -690,8 +690,8 @@ zh:
       pay_now: ~
       remember_to_confirm: ~
     invitation_to_kassi:
-      hi: Hi！
-      you_have_been_invited_to_kassi: "%{inviter}邀请您使用%{community}社区的Kassi服务"
+      hi: 你好！
+      you_have_been_invited_to_kassi: "%{inviter}邀请您使用%{service_name}"
       here_is_a_message_from: "这是一条来自%{inviter}的私人信息："
       join_now: ~
       invitation_code: ~
@@ -703,7 +703,7 @@ zh:
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: "%{sender} 在Kassi向您发送一条消息"
+      has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 向您发送一条消息"
       you_have_a_new_message: 收到一条新消息
     new_payment:
       new_payment: ~
@@ -723,7 +723,7 @@ zh:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name}在Kassi给您了反馈"
+      has_given_you_feedback_in_kassi: "%{name}在%{service_name}给您了反馈"
       you_can_give_feedback_to: "您可以在此给%{name}反馈"
       view_feedback: ~
     new_update_to_listing:
@@ -812,7 +812,7 @@ zh:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: 回到Kassi主页
+    back_to_kassi_front_page: 回到主页
     error_404:
       if_you_believe: 如果您认为地址是正确并有效的。请完成下面的表格以便我们了解什么地址造成了错误。
       page_can_not_be_found: 页面没找到或不存在
@@ -832,7 +832,7 @@ zh:
     error_description: 错误描述
     no_javascript:
       javascript_is_disabled_in_your_browser: 您的浏览器已禁用Javascript
-      kassi_does_not_currently_work_without_javascript: 抱歉，Kassi目前不能在无javascript环境下工作。请在浏览器首选项中打开javascript，然后刷新页面。如果您想在无javascript环境下使用Kassi，请填写下面的表格已让我们知道。
+      kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在无javascript环境下工作。请在浏览器首选项中打开javascript，然后刷新页面。"
       contact_us: ~
       send_feedback: 发送反馈
       your_feedback_to_admins: 给管理员发送反馈
@@ -874,14 +874,14 @@ zh:
       offer_partitive: 录取通知书
       request_partitive: 要求
   header:
-    about: 关于Kassi
+    about: 关于我们
     home: 主页
     members: ~
     new_listing: ~
     mobile_version: 移动版
     offers: 提议
     requests: 请求
-    search_kassi: 搜索Kassi
+    search_kassi: "搜索%{service_name}"
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
@@ -953,13 +953,13 @@ zh:
       recent_events: 最近的事件
       requesting: 需求
       tell_it_here: 在这里说出来！
-      welcome_to_new_kassi: 欢迎来到新Kassi!
+      welcome_to_new_kassi: "欢迎来到新%{service_name}!"
       no_reviews: ~
       no_image: ~
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      invite_your_friends: 邀请您的朋友加入Kassi！
+      invite_your_friends: "邀请您的朋友加入%{service_name}！"
       invite_your_neighbors: ~
       email: 朋友的Email地址
       message: 一条私人消息：
@@ -1003,7 +1003,7 @@ zh:
       default_content: ~
   layouts:
     admin:
-      admin: Kassi控制面板
+      admin: "%{service_name}控制面板"
     no_tribe:
       inbox: ~
       settings: ~
@@ -1011,11 +1011,11 @@ zh:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: 向Kassi员工发送反馈
+      feedback: 给我们提供反馈？
       default_feedback: 有任何意见，建议，或者程序漏洞需要提交
       feedback_forum: 反馈论坛
       feedback_handle: 反馈
-      give_feedback: 给Kassi反馈
+      give_feedback: 联系我们
       or_check_our: ……或者查看我们的
       send_feedback_to_admin: 发送反馈
       to_see_what_others_have_suggested: 看看其他用户的推荐
@@ -1035,9 +1035,9 @@ zh:
     global-header:
       select_language: ~
     infos:
-      about: 什么是Kassi？
-      how_to_use: 如何使用Kassi
-      info_about_kassi: 关于Kassi
+      about: 关于我们
+      how_to_use: 如何使用
+      info_about_kassi: "关于%{service_name}"
       news: 新闻
       register_details: 注册详细信息
       terms: 使用条款
@@ -1082,7 +1082,7 @@ zh:
       create_new_listing: ~
       create_one_here: 在此创建
       email_confirmation_sent_to_new_address: 电子邮件确认信已经送往你的新地址。
-      email_not_found: 无法在Kassi中找到您所提供的邮箱地址
+      email_not_found: "无法在%{service_name}中找到您所提供的邮箱地址。"
       error_with_session: 内容错误
       feedback_considered_spam: 格式错误，评价失败。请重试或者使用论坛评价。
       feedback_not_saved: 评价发送失败。
@@ -1096,8 +1096,8 @@ zh:
       login_failed: 登录失败，请输入正确的用户凭证
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: "欢迎来到Kassi, "
-      logout_successful: 您已登出Kassi，欢迎再次使用！
+      login_successful: "欢迎你，%{person_name}！"
+      logout_successful: "您已登出%{service_name}，欢迎再次使用！"
       news_item_created: 创建文章
       news_item_creation_failed: "文章创立失败\n"
       news_item_update_failed: 文章更新失败
@@ -1110,7 +1110,7 @@ zh:
       offer_rejected: 已拒绝的提议
       offer_canceled: ~
       listing_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: 只有Kassi管理员有权限进入此区域
+      only_kassi_administrators_can_access_this_area: "只有%{service_name}管理员有权限进入此区域"
       only_listing_author_can_close_a_listing: 仅作者可以关闭列表
       only_listing_author_can_edit_a_listing: 仅作者可以编辑列表
       payment_successful: ~
@@ -1158,11 +1158,11 @@ zh:
       you_must_log_in_to_give_feedback: 您必须登录以评价
       you_must_log_in_to_invite_new_users: 您必须登录以邀请新用户
       you_must_log_in_to_send_a_comment: 您必须登录才能发表评论
-      you_must_log_in_to_send_a_message: 您必须登录Kassi以向其他用户发送信息
+      you_must_log_in_to_send_a_message: "您必须先登录%{service_name}，然后才可以向其他用户发送信息。"
       you_must_log_in_to_view_this_content: 您必须登录以查看此内容
       you_must_log_in_to_view_this_page: 你必须登录才能查看此页面
-      you_must_log_in_to_view_your_inbox: 您必须登录Kassi以查看您的收件箱
-      you_must_log_in_to_view_your_settings: 您必须登录Kassi以查看您的设置
+      you_must_log_in_to_view_your_inbox: "您必须登录%{service_name}以查看您的收件箱。"
+      you_must_log_in_to_view_your_settings: "您必须登录%{service_name}以查看您的设置。"
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
@@ -1512,13 +1512,13 @@ zh:
       feedback_description_title: 反馈
       help_captcha_title: 你是人类么？
       help_invitation_code_title: 您需要被邀请才能加入
-      terms_title: Kassi使用条款
+      terms_title: "%{service_name}的使用条款"
       trustcloud_description_title: ~
       trustcloud_description_text: ~
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
-      this_person_is_not_active_in_kassi: 此用户处于冻结状态
+      this_person_is_not_active_in_kassi: "此用户在%{service_name}网站上处于冻结状态"
       inactive_description: 此用户已停用。您不能联系此用户或评价他们的商品列表。
     new:
       captcha_incorrect: 验证码错误。请输入下图中显示的单词
@@ -1537,8 +1537,8 @@ zh:
       not_required: ，不要求
       organization_name: ~
       password_again: 确认密码：
-      show_my_name_to_others: 对其他Kassi用户显示真实姓名
-      sign_up: 在Kassi新建账户
+      show_my_name_to_others: "对其他%{service_name}用户显示真实姓名"
+      sign_up: "在%{service_name}新建账户"
       terms: 使用条款
       username_is_in_use: 此用户名已被使用。
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
@@ -1548,8 +1548,8 @@ zh:
       OR: ~
       signup_with_email: ~
     not_member:
-      explanation_text: "您现在属于%{community} 社区。您试图查看另一个社区的用户资料。Kassi现在并不支持多重社区身份，所以您可以通过%{community} 社区查看这个用户的资料。我们正在努力实现多重社区身份，以后的更新将会完善这个功能。"
-      read_more_about_kassi_communities: 阅读更多关于Kassi社区
+      explanation_text: "您正在浏览%{community} 社区。您试图查看另一个社区的用户资料。所以您不可以在%{community}社区查看这个用户的资料。"
+      read_more_about_kassi_communities: 阅读更多关于这个网站
       this_user_does_not_belong_to_this_community: "此用户不属于%{community} 社区"
     profile_feedback:
       as_expected: 符合期望
@@ -1622,7 +1622,7 @@ zh:
       create_new_account: 创建新账户
       i_forgot_my_password: 忘记用户名或密码
       login: 登录
-      login_to_kassi: 登录
+      login_to_kassi: "登录%{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -1639,7 +1639,7 @@ zh:
       request_new_password: 请求新密码
       change_your_password: 更改你的密码
     confirmation_pending:
-      welcome_to_kassi: 欢迎来到Kassi！
+      welcome_to_kassi: "欢迎来到%{service_name}！"
       check_your_email: 查看您的收件箱
       resend_confirmation_instructions: 再次发送确认信
       your_current_email_is: "你的的电子邮箱是%{email}。"
@@ -1719,7 +1719,7 @@ zh:
       profile_page: 在您的个人信息页面
       profilemap: 地图
       street_address: 地点：
-      these_fields_are_shown_in_your: 此信息对所有Kassi用户可见
+      these_fields_are_shown_in_your: "此信息对所有%{service_name}用户可见"
       visible_to_everybody: 对所有人可见
       visible_to_registered_users: 对已登录用户可见
       default_in_listing: ~
@@ -1731,15 +1731,15 @@ zh:
       without_tag: 无标签
   terms:
     show:
-      accept_terms: 接受Kassi的使用条款
+      accept_terms: "接受%{service_name}的使用条款"
       here: 这里
       i_accept_new_terms: 我接受新的条款
       i_accept_terms: 我接受条款
-      terms: Kassi使用条款
+      terms: "%{service_name}的使用条款"
       terms_have_changed: 使用条款发生改变
       you_can_view_the_new_terms: 您可以查看新的条款
-      you_need_to_accept: 欢迎来到Kassi！这是您第一次使用此服务。在开始前您必须接受
-      you_need_to_accept_new_terms: Kassi使用条款以改变。您必须接受新条款以继续使用Kassi。新条款诣在在研究项目结束后继续保持服务。
+      you_need_to_accept: "欢迎来到%{service_name}！这是您第一次使用此服务。在开始前您必须接受"
+      you_need_to_accept_new_terms: "%{service_name}使用条款以改变。您必须接受新条款以继续使用%{service_name}。新条款诣在在研究项目结束后继续保持服务。"
   testimonials:
     index:
       all_testimonials: 所有评价

@@ -70,7 +70,7 @@ es-ES:
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: "Texto de información para usuarios no verificados"
         verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
+        verification_to_post_listings_info_content_default: "Antes de poder publicar un anuncio en %{service_name} necesitamos verificar tu cuenta. En breve tu cuenta estará disponible. Si lo deseas puedes %{contact_admin_link} para que verifiquemos tu cuenta antes si es urgente."
         contact_admin_link_text: "Contactar al administrador"
         save: "Guardar opciones"
         transaction_agreement: "Acuerdo de transacción"
@@ -96,7 +96,7 @@ es-ES:
         small_cover_photo_visibility: "La imagen de cabecera pequeña se muestra en todas las páginas (excepto en la home) a todos los usuarios."
         small_cover_photo_instructions_text_with_dimensions: "La imagen será recortada a %{width}x%{height} pixels. Las imágenes más grandes serán recortadas desde el centro."
         main_content_width: ~
-        custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad ingresando un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
+        custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad introduciendo un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
         custom_color2_instructions_text: ~
         default_browse_view: "Vista por defecto del buscador"
         default_browse_view_instructions_text: "La vista por defecto del buscador se usa en la página principal para elegir cómo se muestran los resultados por defecto."
@@ -677,13 +677,13 @@ es-ES:
       welcome_to_kassi: "Bienvenido a %{service_name}!"
       need_to_confirm: "Antes de empezar a utilizar %{service_name}, deberás confirmar tu dirección de correo electrónico con el siguiente link:"
       confirmation_link_text: "Confirmar mi cuenta"
-      or_paste_link: "Si no funciona, puedes copiar el siguiente link en la barra de tu navegador."
+      or_paste_link: "Si no funciona, puedes copiar el siguiente enlace y pegarlo directamente en la barra de tu navegador web."
       turning_on_confirmations_in_this_community: "Comenzamos a utilizar e-mails de confirmación en la comunidad %{service_name}."
     common:
       check_your_settings: "Revisa tu configuración"
       hey: "Hola %{name},"
-      kassi_team: "El equipo %{service_name}"
-      thanks: "Gracias,"
+      kassi_team: "El equipo de %{service_name}"
+      thanks: "Muchas gracias por tu confianza,"
       want_to_control_emails: "¿Quieres controlar qué correos recibes de %{service_name}?"
       dont_want_to_receive_these_emails: "¿Quieres recibir estos emails?"
       edit_your_email_settings_here: "Edita tu configuración de email aquí"
@@ -700,7 +700,7 @@ es-ES:
       has_rejected_your_request: "%{accepter} ha rechazado tu solicitud considerando la oferta %{listing}"
       view_thread: ~
       your_offer_was_accepted: "¡Felicitaciones! Tu oferta ha sido aceptada"
-      your_offer_was_rejected: "¡Oh! Tu oferta fue rechazada. ¡Gracias de todos modos!"
+      your_offer_was_rejected: "Lo sentimos, tu oferta fue rechazada. ¡Gracias de todos modos!"
       your_request_was_accepted: "Tu solicitud fue aceptada"
       your_request_was_rejected: "Tu solicitud fue rechazada"
       you_can_now_pay_to: ~
@@ -766,7 +766,7 @@ es-ES:
       text_version_text: "¿Tienes algo para compartir que los demás podrían necesitar? ¿O necesitas algo que los otros podrían tener? Añade una oferta o solicitud o revisa todo lo que otros están ofreciendo o están pidiendo en %{url}"
     reset_password_instructions:
       change_my_password: "Cambiar mi contraseña"
-      reset_password_instructions: "<p>Has indicado que has olvidado tu contraseña o tu nombre de usuario en el %{service_name} servicio.</p><p>Tu nombre de usuario es: %{username}</p><p>Si necesitas restablecer tu contraseña, haz click en el siguiente enlace: %{password_reset_link}</p><br/><p>Si no solicitaste esto, por favor ignora este e-mail. Tu contraseña no cambiará hasta que accedas al enlace de más arriba y crees una nueva.</p>"
+      reset_password_instructions: "<p>Has indicado que has olvidado tu contraseña o tu nombre de usuario de %{service_name} .</p><p>Tu nombre de usuario es: %{username}</p><p>Si necesitas restablecer tu contraseña, haz click en el siguiente enlace: %{password_reset_link}</p><br/><p>Si no has solicitado este cambio, por favor ignora este e-mail. Tu contraseña no cambiará hasta que accedas al enlace que aparece más arriba arriba y crees una nueva.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Las sugerencias son públicas y están a disposición de todos los usuarios. Basándose en los comentarios y sugerencias los usuarios pueden juzgar, o saber si is %{name} es una persona confiable y con quién se desean contactar. Entonces, siempre recuerda dar tu sugerencia o comentarios en los eventos, ya que esto recuerda a los demás hacerte sugerencias a ti. Recuerda que también es necesario recibir comentarios positivos para obtener medallas."
       remember_to_give_feedback_to: "Recordatorio: Recuerda hacer una sugerencia a %{name}"
@@ -1059,7 +1059,7 @@ es-ES:
       info_about_kassi: "Información acerca de %{service_name}"
       news: Novedades
       register_details: "Detalles de registro"
-      terms: "Término de uso"
+      terms: "Términos de uso"
     logged_in:
       admin: Administrador
       go_to_your_profile_page: Perfil
@@ -1099,13 +1099,13 @@ es-ES:
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: "No pudimos acceder a tu dirección de email en Facebook. Sin ella no podemos crearte una cuenta en nuestro servicio."
       create_new_listing: "Crear otro anuncio"
-      create_one_here: "Crea uno aquí"
+      create_one_here: "Crea una aquí"
       email_confirmation_sent_to_new_address: "El e-mail de confirmación ya fue enviado a la nueva dirección."
       email_not_found: "No se encontró la dirección de correo en la base de datos de %{service_name}."
       error_with_session: "Error con la sesión."
       feedback_considered_spam: "Sugerencia no enviada debido a su formato. Inténtelo de nuevo o utilice el foro para sugerencias."
       feedback_not_saved: "Sugerencia no puedo ser enviada."
-      feedback_saved: "Gracias por sus comentarios!"
+      feedback_saved: "¡Gracias por tus comentarios! Nos pondremos en contacto contigo lo antes posible."
       feedback_sent_to: "Comentario enviado a"
       feedback_skipped: "Sugerencia omitida"
       invitation_cannot_be_sent: "No se pudo enviar la invitación"
@@ -1177,7 +1177,7 @@ es-ES:
       you_must_log_in_to_give_feedback: "Debe iniciar su sesión para dar una sugerencia"
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a %{service_name}"
       you_must_log_in_to_send_a_comment: "Debe iniciar su sesión para enviar un nuevo comentario"
-      you_must_log_in_to_send_a_message: "Debes iniciar tu sesión en %{service_name} para enviar un mensaje a otro usuario"
+      you_must_log_in_to_send_a_message: "Debes iniciar tu sesión en %{service_name} o crear una nueva cuenta gratuita para enviar un mensaje a otro usuario"
       you_must_log_in_to_view_this_content: "Debe iniciar su sesión para ver este contenido"
       you_must_log_in_to_view_this_page: "Tienes que iniciar sesión para ver esta página"
       you_must_log_in_to_view_your_inbox: "Debes iniciar tu sesión en %{service_name} para revisar tu bandeja de entrada"
@@ -1568,7 +1568,7 @@ es-ES:
       visible_to_everybody: "Visible para todos"
       create_account_with_facebook: "Crea una cuenta con Facebook"
       OR: O
-      signup_with_email: "Registro con correo electrónico"
+      signup_with_email: "Regístrate con tu correo electrónico"
     not_member:
       explanation_text: "Actualmente perteneces a la comunidad %{community}. Intentaste ver el perfil de un usuario que pertenece a otra comunidad Sharetribe. No puedes acceder a ese perfil a través de la comunidad %{community}."
       read_more_about_kassi_communities: "Lee más sobre las comunidades de %{service_name}"
@@ -1670,7 +1670,7 @@ es-ES:
       account_confirmation_instructions: ~
       account_confirmation_instructions_title_admin: "¡Bienvenido a tu marketplace!"
       your_marketplace_has_now_been_created: "Tu marketplace ha sido creado. ¿Ha sido fácil, verdad? Sólo hay un paso más antes de que puedas entrar a tu sitio web: Debes confirmar tu dirección de email."
-      account_confirmation_instructions_admin: "Pronto recibirás un e-mail con un enlace en el que que deberás hacer clic para confirmar la cuenta de e-mail con la que te has registrado."
+      account_confirmation_instructions_admin: "En breve recibirás un email con un enlace en el que que deberás hacer clic para  confirmar la dirección de email que has usado para registrarte."
   settings:
     account:
       change: Cambiar
@@ -1781,7 +1781,7 @@ es-ES:
       this_will_be_shown_in_profile: "El feedback que tú des será visible para los otros usuarios en la página del perfil de %{person}. Esto ayudará a los otros miembros de esta tribu para evaluar si %{person} es una persona confiable."
       positive: Positivo
       negative: Negativo
-      default_textual_feedback: "Todo fue sin problemas, muchas gracias!"
+      default_textual_feedback: "Recibido sin problemas, muchas gracias."
     testimonial:
       about_listing: "sobre el anuncio"
   date:
