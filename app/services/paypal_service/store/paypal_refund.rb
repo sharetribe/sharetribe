@@ -20,8 +20,14 @@ module PaypalService::Store::PaypalRefund
   end
 
   def create(refund)
+    payment_id = paypal_payment_id(refund[:payment_id])
+
+    if(payment_id.nil?)
+      raise ArgumentError.new("No corresponding payment found for payment or commission id: #{refund[:payment_id]}")
+    end
+
     init_data = {
-      paypal_payment_id: paypal_payment_id(refund[:payment_id]),
+      paypal_payment_id: payment_id,
       currency: refund[:payment_total].currency.iso_code,
       payment_total_cents: refund[:payment_total].fractional,
       fee_total_cents: refund[:fee_total].fractional,
@@ -34,7 +40,7 @@ module PaypalService::Store::PaypalRefund
 
   #private
   def paypal_payment_id(payment_id)
-    PaypalPaymentModel.where(payment_id: payment_id).pluck(:id).first
+    PaypalPaymentModel.where("payment_id = ? or commission_payment_id = ?", payment_id, payment_id).pluck(:id).first
   end
 end
 

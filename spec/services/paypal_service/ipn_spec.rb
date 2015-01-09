@@ -104,6 +104,24 @@ describe PaypalService::IPN do
       fee_total: Money.new(4, "GBP")
     }
 
+    @commission_refunded_msg = {
+      type: :payment_refunded,
+      refunding_id: "7HX881531H984174B",
+      refunded_date: "2014-10-01 09:24:36 +0300",
+      payment_id: "5SB7123462UR2969339",
+      authorization_id: nil,
+      payer_email: "foobar@barfoo.com",
+      payer_id: "6M39X6RCYVUD6",
+      receiver_email: "dev+paypal-user1@sharetribe.com",
+      receiver_id: "URAPMR7WHFAWY",
+      payment_status: "Refunded",
+      pending_reason: :none,
+      receipt_id: nil,
+      authorization_total: nil,
+      payment_total: Money.new(120, "GBP"),
+      fee_total: Money.new(4, "GBP")
+    }
+
     @payment_denied_msg = {
       type: :payment_denied,
       payer_email: "payer@sharetribe.com",
@@ -118,7 +136,8 @@ describe PaypalService::IPN do
 
     @commission_paid_msg = {
       type: :commission_paid,
-      commission_status: :completed,
+      commission_status: "Completed",
+      commission_payment_id: "5SB7123462UR2969339",
       commission_total: Money.new(174, "GBP"),
       commission_fee_total: Money.new(10, "GBP"),
       invnum: "1-1-commission"
@@ -183,6 +202,15 @@ describe PaypalService::IPN do
       payment = PaypalPayment.first
       expect(payment.commission_total).to eql Money.new(174, "GBP")
       expect(payment.commission_fee_total).to eql Money.new(10, "GBP")
+    end
+
+    it "should handle commission refunded" do
+      @ipn_service.handle_msg(@auth_created_msg)
+      @ipn_service.handle_msg(@payment_completed_msg)
+      @ipn_service.handle_msg(@commission_paid_msg)
+      @ipn_service.handle_msg(@commission_refunded_msg)
+
+      expect(PaypalRefund.count).to eql 1
     end
   end
 
