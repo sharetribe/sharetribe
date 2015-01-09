@@ -237,7 +237,6 @@ class PreauthorizeTransactionsController < ApplicationController
             content: preauthorize_form.content,
             payment_gateway: :braintree,
             payment_process: :preauthorize,
-            commission_from_seller: @current_community.commission_from_seller
           },
           gateway_fields: braintree_form.to_hash
         })
@@ -390,7 +389,6 @@ class PreauthorizeTransactionsController < ApplicationController
           content: opts[:content],
           payment_gateway: opts[:payment_type],
           payment_process: :preauthorize,
-          commission_from_seller: opts[:community].commission_from_seller,
           booking_fields: opts[:booking_fields]
         },
         gateway_fields: gateway_fields

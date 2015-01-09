@@ -3,6 +3,8 @@ module TransactionService::Transaction
   DataTypes = TransactionService::DataTypes::Transaction
   TransactionModel = ::Transaction
 
+  PaymentSettingsStore = TransactionService::Store::PaymentSettings
+
   PaypalAccountEntity = PaypalService::PaypalAccount::Entity
   PaypalAccountQuery = PaypalService::PaypalAccount::Query
 
@@ -66,15 +68,16 @@ module TransactionService::Transaction
 
     #TODO this thing should come through transaction_opts
     listing = Listing.find(opts_tx[:listing_id])
-
-    transaction_currency = Maybe(listing).price.currency.or_else(nil)
-
-    minimum_commission = Maybe(transaction_currency).map { |currency|
-      get_minimum_commission(opts_tx[:payment_gateway], currency)
-    }.or_else(nil)
+    minimum_commission, commission_from_seller =
+      case opts_tx[:payment_gateway]
+      when :braintree
+        commission_infos_braintree(listing, opts_tx)
+      when :paypal
+        commission_infos_paypal(listing, opts_tx)
+      end
 
     transaction, conversation = TxUtil.build_tx_model_with_conversation(
-      opts_tx.merge({minimum_commission: minimum_commission}))
+      opts_tx.merge({minimum_commission: minimum_commission, commission_from_seller: commission_from_seller}))
 
     # TODO Move quantity calculation to tx service to get rid of this silly check
     if opts_tx[:booking_fields].present?
@@ -119,6 +122,15 @@ module TransactionService::Transaction
 
   end
 
+  # Private
+  def commission_infos_braintree(listing, opts_tx)
+    currency = listing.price.currency
+    commission_from_seller = Community.find(opts_tx[:community_id]).commission_from_seller
+
+    [Money.new(0, currency), commission_from_seller]
+  end
+
+  # Private
   def create_tx_braintree(transaction:, listing:, opts:, async:)
     payment_gateway_id = BraintreePaymentGateway.where(community_id: opts[:transaction][:community_id]).pluck(:id).first
     transaction.payment = BraintreePayment.new({
@@ -139,6 +151,19 @@ module TransactionService::Transaction
     Result::Success.new({})
   end
 
+  # Private
+  def commission_infos_paypal(listing, opts_tx)
+    currency = listing.price.currency
+    minimum_commission = Maybe(paypal_minimum_commissions_api.get(currency)).or_else {
+        raise ArgumentError.new("No PayPal minimum commissions for currency #{currency} defined.")
+      }
+
+    commission_from_seller = PaymentSettingsStore.get_active(community_id: opts_tx[:community_id])[:commission_from_seller]
+
+    [minimum_commission, commission_from_seller]
+  end
+
+  # Private
   def create_tx_paypal(transaction:, listing:, opts:, async:)
     # Note: Quantity may be confusing in Paypal Checkout page, thus, we don't use separated unit price and quantity,
     # only the total price.
@@ -356,17 +381,6 @@ module TransactionService::Transaction
 
   def calculate_commission_to_admin(commission_total, fee_total)
     commission_total - fee_total #we charge from admin, only the sum after paypal fees
-  end
-
-  def get_minimum_commission(payment_gateway, currency)
-    case payment_gateway
-    when :paypal
-      Maybe(paypal_minimum_commissions_api.get(currency)).or_else {
-        raise "Couldn't find PayPal minimum commissions for currency #{currency}"
-      }
-    else
-      Money.new(0, currency)
-    end
   end
 
   def paypal_payment_api
