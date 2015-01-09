@@ -127,49 +127,6 @@ describe PaypalService::DataTypes::IPN do
   }
 
   payment_completed = {
-    "mc_gross"=>"1.20",
-    "auth_exp"=>"23:50:00 Oct 03, 2014 PDT",
-    "protection_eligibility"=>"Ineligible",
-    "payer_id"=>"6M39X6RCYVUD6",
-    "tax"=>"0.00",
-    "payment_date"=>"23:06:08 Sep 30, 2014 PDT",
-    "payment_status"=>"Completed",
-    "charset"=>"windows-1252",
-    "first_name"=>"ljkh",
-    "transaction_entity"=>"payment",
-    "mc_fee"=>"0.24",
-    "notify_version"=>"3.8",
-    "custom"=>"",
-    "payer_status"=>"unverified",
-    "quantity"=>"1",
-    "verify_sign"=>"AI36sk2Aln3iC.t.mla1wMizPRcQABXSTKSHu4uUNy3eGMDpl0JESlHN",
-    "payer_email"=>"foobar@barfoo.com",
-    "parent_txn_id"=>"0L584749FU2628910",
-    "txn_id"=>"4BV77412CY217203L",
-    "payment_type"=>"instant",
-    "remaining_settle"=>"9",
-    "auth_id"=>"0L584749FU2628910",
-    "last_name"=>"kjh",
-    "receiver_email"=>"dev+paypal-user1@sharetribe.com",
-    "auth_amount"=>"1.20",
-    "payment_fee"=>"",
-    "receiver_id"=>"URAPMR7WHFAWY",
-    "txn_type"=>"express_checkout",
-    "item_name"=>"desc",
-    "mc_currency"=>"GBP",
-    "item_number"=>"",
-    "residence_country"=>"GB",
-    "test_ipn"=>"1",
-    "receipt_id"=>"3609-0935-6989-4532",
-    "handling_amount"=>"0.00",
-    "transaction_subject"=>"",
-    "payment_gross"=>"",
-    "auth_status"=>"Completed",
-    "shipping"=>"0.00",
-    "ipn_track_id"=>"cf5793483cf91"
-  }
-
-  payment_completed_2 = {
     "auth_amount" => "10.00",
     "auth_exp" => "23:50:02 Nov 13, 2014 PST",
     "auth_id" => "0J90174816752303G",
@@ -179,7 +136,7 @@ describe PaypalService::DataTypes::IPN do
     "custom" => "",
     "first_name" => "Payer",
     "handling_amount" => "0.00",
-    "invoice" => "1809-56123",
+    "invoice" => "1809-56123-payment",
     "ipn_track_id" => "eecc20fabc404",
     "item_name" => "",
     "item_number" => "",
@@ -482,7 +439,7 @@ describe PaypalService::DataTypes::IPN do
     "ipn_track_id"=>"1239845790gdaho"
   }
 
-  payment_completed_3 = {
+  payment_completed_2 = {
     "action" => "ipn_hook",
     "address_city" => "Hel",
     "address_country" => "Sinki",
@@ -497,7 +454,7 @@ describe PaypalService::DataTypes::IPN do
     "controller" => "paypal_ipn",
     "custom" => "",
     "first_name" => "test",
-    "invoice" => "I242-744J-HM5T-VD2G-5L2J",
+    "invoice" => "I242-744J-HM5T-VD2G-5L2J-payment",
     "invoice_id" => "I3V2-645J-HMJT-1DKG-5L2J",
     "invoice_number" => "0028",
     "ipn_track_id" => "1dhdc3a49ba25c",
@@ -544,7 +501,6 @@ describe PaypalService::DataTypes::IPN do
       [payment_completed_2, :payment_completed],
       [payment_refunded_2, :payment_refunded],
       [payment_denied, :payment_denied],
-      [payment_completed_3, :payment_completed],
       [commission_paid, :commission_paid]
     ]
 

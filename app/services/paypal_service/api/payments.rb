@@ -172,10 +172,10 @@ module PaypalService::API
 
         # Save payment data to payment
         payment = PaymentStore.update(
-          community_id,
-          transaction_id,
-          payment_res
-          )
+          data: payment_res,
+          community_id: community_id,
+          transaction_id: transaction_id
+         )
 
         payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
@@ -316,7 +316,7 @@ module PaypalService::API
           TokenStore.delete(community_id, payment[:transaction_id])
 
           # Save authorization data to payment
-          payment = PaymentStore.update(community_id, payment[:transaction_id], auth_res)
+          payment = PaymentStore.update(data: auth_res, community_id: community_id , transaction_id: payment[:transaction_id])
           payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
           # Trigger callback for authorized
@@ -346,9 +346,9 @@ module PaypalService::API
               transaction_id: payment[:order_id],
             })) do |payment_res|
           payment = PaymentStore.update(
-            community_id,
-            transaction_id,
-            payment_res)
+            data: payment_res,
+            community_id: community_id,
+            transaction_id: transaction_id)
 
           payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 

@@ -42,7 +42,7 @@ module PaypalService
 
     def handle_payment_update(ipn_msg)
       opts = identity_opts(ipn_msg)
-      PaypalService::Store::PaypalPayment.update_tmp(ipn_msg, opts)
+      PaypalService::Store::PaypalPayment.update(opts.merge(data: ipn_msg))
     end
 
     def identity_opts(ipn_msg)

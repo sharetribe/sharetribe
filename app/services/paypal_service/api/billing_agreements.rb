@@ -72,11 +72,12 @@ module PaypalService::API
 
     def commission_not_applicable(community_id, transaction_id, merchant_id, payment)
       updated_payment = PaypalService::Store::PaypalPayment.update(
-        community_id,
-        transaction_id,
-        payment.merge({
-            commission_status: :not_applicable
-          }))
+        data: payment.merge({
+          commission_status: :not_applicable
+        }),
+        community_id: community_id,
+        transaction_id: transaction_id
+      )
       Result::Success.new(DataTypes.create_payment(updated_payment.merge({ merchant_id: merchant_id })))
     end
 
@@ -96,16 +97,17 @@ module PaypalService::API
         }
         ) do |ref_tx_res|              # Update payment
         updated_payment = PaypalService::Store::PaypalPayment.update(
-          community_id,
-          info[:transaction_id],
-          payment.merge({
+          data: payment.merge({
               commission_payment_id: ref_tx_res[:payment_id],
               commission_payment_date: ref_tx_res[:payment_date],
               commission_total: ref_tx_res[:payment_total],
               commission_fee_total: ref_tx_res[:fee],
               commission_status: ref_tx_res[:payment_status],
               commission_pending_reason: ref_tx_res[:pending_reason]
-            }))              # Return as payment entity
+          }),
+          community_id: community_id,
+          transaction_id: info[:transaction_id])
+        # Return as payment entity
         Result::Success.new(DataTypes.create_payment(updated_payment.merge({ merchant_id: m_acc[:person_id] })))
       end
     end

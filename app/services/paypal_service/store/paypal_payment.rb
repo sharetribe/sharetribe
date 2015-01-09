@@ -62,22 +62,21 @@ module PaypalService::Store::PaypalPayment
 
   module_function
 
-  def update(community_id, transaction_id, data)
-    payment = PaypalPaymentModel.where(
-      community_id: community_id,
-      transaction_id: transaction_id
-      ).first
-    update_payment(payment, data)
-  end
-
+  # Arguments:
+  # Opts with mandatory key :data and optional keys :transaction_id, :community_id, :order_id, :authorization_id
+  # Optional keys identify paypal payment row
+  #
   # Return updated data or if no change, return nil
-  def update_tmp(data, opts)
+  def update(opts)
+    if(opts[:data].nil?)
+      raise ArgumentError.new("No data provided")
+    end
+
     payment = find_payment(opts)
-
     old_data = from_model(payment)
-    new_data = update_payment(payment, data)
+    new_data = update_payment(payment, opts[:data])
 
-    new_data if data_changed?(old_data,new_data)
+    new_data if data_changed?(old_data, new_data)
   end
 
   def create(community_id, transaction_id, order)
