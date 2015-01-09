@@ -29,38 +29,39 @@ module TransactionService::Transaction
     unfinished.length > 0
   end
 
-  # FIXME This code is duplicate from PaypalHelper. We need to check
-  # things with community because Transaction service does not own the
-  # transaction settings. This is an error in data modelling. Actually
-  # PaypalHelper shouldn't even exist.
-  def community_ready_for_paypal_payments?(community)
-    admin_account = PaypalAccountQuery.admin_account(community.id)
-    community.commission_from_seller.present? &&
-      community.minimum_price.present? &&
-      PaypalAccountEntity.order_permission_verified?(admin_account)
-  end
-
   def can_start_transaction(opts)
-    transaction_opts = opts[:transaction]
-    author_id = transaction_opts[:listing_author_id]
-    community_id = transaction_opts[:community_id]
-    community = Community.find(community_id)
+    author_id = opts[:transaction][:listing_author_id]
+    community_id = opts[:transaction][:community_id]
 
     result =
-      case transaction_opts[:payment_gateway]
+      case opts[:transaction][:payment_gateway]
       when :paypal
-        paypal_account = PaypalService::PaypalAccount::Query.personal_account(author_id, community_id)
-        PaypalService::PaypalAccount::Entity.paypal_account_prepared?(paypal_account) &&
-          community_ready_for_paypal_payments?(community)
+        can_start_transaction_paypal(community_id: community_id, author_id: author_id)
       when :braintree, :checkout
-        community.payment_gateway.can_receive_payments?(Person.find(author_id))
+        can_start_transaction_braintree(community_id: community_id, author_id: author_id)
       when :none
         true
       else
-        raise "Unknown payment gateway #{transaction_opts[:payment_gateway]}"
+        raise ArgumentError.new("Unknown payment gateway #{opts[:transaction][:payment_gateway]}")
       end
 
     Result::Success.new(result: result)
+  end
+
+  def can_start_transaction_braintree(community_id:, author_id:)
+    Community.find(community_id).payment_gateway.can_receive_payments?(Person.find(author_id))
+  end
+
+  def can_start_transaction_paypal(community_id:, author_id:)
+    paypal_account = PaypalService::PaypalAccount::Query.personal_account(author_id, community_id)
+    admin_account = PaypalAccountQuery.admin_account(community_id)
+
+    PaypalAccountEntity.paypal_account_prepared?(paypal_account) &&
+      PaypalAccountEntity.order_permission_verified?(admin_account) &&
+      Maybe(PaymentSettingsStore.get_active(community_id: community_id))
+      .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
+      .map {|_| true}
+      .or_else(false)
   end
 
   def create(opts, paypal_async: false)
