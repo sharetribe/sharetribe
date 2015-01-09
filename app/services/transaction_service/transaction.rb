@@ -6,6 +6,8 @@ module TransactionService::Transaction
   PaypalAccountEntity = PaypalService::PaypalAccount::Entity
   PaypalAccountQuery = PaypalService::PaypalAccount::Query
 
+  TxUtil = TransactionService::Util
+
   module_function
 
   def query(transaction_id)
@@ -59,138 +61,113 @@ module TransactionService::Transaction
     Result::Success.new(result: result)
   end
 
-  def create(transaction_opts, paypal_async: false)
-    opts = transaction_opts[:transaction]
+  def create(opts, paypal_async: false)
+    opts_tx = opts[:transaction]
 
     #TODO this thing should come through transaction_opts
-    listing = Listing.find(opts[:listing_id])
+    listing = Listing.find(opts_tx[:listing_id])
 
     transaction_currency = Maybe(listing).price.currency.or_else(nil)
 
     minimum_commission = Maybe(transaction_currency).map { |currency|
-      get_minimum_commission(opts[:payment_gateway], currency)
+      get_minimum_commission(opts_tx[:payment_gateway], currency)
     }.or_else(nil)
 
-    transaction = TransactionModel.new(
-      community_id: opts[:community_id],
-      listing_id: opts[:listing_id],
-      starter_id: opts[:starter_id],
-      listing_quantity: Maybe(opts)[:listing_quantity].or_else(1),
-      payment_gateway: opts[:payment_gateway],
-      payment_process: opts[:payment_process],
-      commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
-      minimum_commission: minimum_commission,
-      automatic_confirmation_after_days: opts[:automatic_confirmation_after_days])
+    transaction, conversation = TxUtil.build_tx_model_with_conversation(
+      opts_tx.merge({minimum_commission: minimum_commission}))
 
-    conversation = transaction.build_conversation(
-      community_id: opts[:community_id],
-      listing_id: opts[:listing_id])
-
-    conversation.participations.build(
-      person_id: opts[:listing_author_id],
-      is_starter: false,
-      is_read: false)
-
-    conversation.participations.build(
-      person_id: opts[:starter_id],
-      is_starter: true,
-      is_read: true)
-
-    if opts[:content].present?
-      conversation.messages.build({
-          content: opts[:content],
-          sender_id: opts[:starter_id]})
-    end
-
-    if opts[:booking_fields].present?
-      start_on = opts[:booking_fields][:start_on]
-      end_on = opts[:booking_fields][:end_on]
+    # TODO Move quantity calculation to tx service to get rid of this silly check
+    if opts_tx[:booking_fields].present?
+      start_on = opts_tx[:booking_fields][:start_on]
+      end_on = opts_tx[:booking_fields][:end_on]
       duration = DateUtils.duration_days(start_on, end_on)
 
       # Make sure listing_quantity equals duration
       if duration != transaction.listing_quantity
         return Result::Error.new("Listing quantity (#{transaction.listing_quantity}) must be equal to booking duration in days (#{duration})")
       end
-
-      transaction.build_booking({
-          start_on: start_on,
-          end_on: end_on})
     end
 
+    transaction.save!
+
     gateway_fields_response =
-      case [opts[:payment_gateway], opts[:payment_process]]
+      case [opts_tx[:payment_gateway], opts_tx[:payment_process]]
       when [:braintree, :preauthorize]
-        payment_gateway_id = BraintreePaymentGateway.where(community_id: opts[:community_id]).pluck(:id).first
-        transaction.payment = BraintreePayment.new({
-          community_id: opts[:community_id],
-          payment_gateway_id: payment_gateway_id,
-          status: "pending",
-          payer_id: opts[:starter_id],
-          recipient_id: opts[:listing_author_id],
-          currency: "USD",
-          sum: listing.price * transaction.listing_quantity
-        })
-
-        result = BraintreeSaleService.new(transaction.payment, transaction_opts[:gateway_fields]).pay(false)
-
-        unless result.success?
-          return Result::Error.new(result.message)
-        end
-
-        transaction.save!
-
-        {} # No gateway fields
+        create_tx_braintree(transaction: transaction, listing: listing, opts: opts, async: false)
       when [:paypal, :preauthorize]
-        transaction.save!
-
-        # Note: Quantity may be confusing in Paypal Checkout page, thus, we don't use separated unit price and quantity,
-        # only the total price.
-        quantity = 1
-        total = listing.price * transaction.listing_quantity
-
-        create_payment_info = PaypalService::API::DataTypes.create_create_payment_request({
-          transaction_id: transaction.id,
-          item_name: listing.title,
-          item_quantity: quantity,
-          item_price: total,
-          merchant_id: opts[:listing_author_id],
-          order_total: total,
-          success: transaction_opts[:gateway_fields][:success_url],
-          cancel: transaction_opts[:gateway_fields][:cancel_url],
-          merchant_brand_logo_url: transaction_opts[:gateway_fields][:merchant_brand_logo_url]
-        })
-
-        result = PaypalService::API::Api.payments.request(
-          opts[:community_id],
-          create_payment_info,
-          async: paypal_async)
-
-        return Result::Error.new(result[:error_msg]) unless result[:success]
-
-        if paypal_async
-          { process_token: result[:data][:process_token] }
-        else
-          { redirect_url: result[:data][:redirect_url] }
-        end
-
+        create_tx_paypal(transaction: transaction, listing: listing, opts: opts, async: paypal_async)
       else
-        # Other payment gateway type
-        transaction.save!
-        {}
+        # Braintree Postpay (/ Other payment type?)
+        Result::Success.new({})
       end
 
-    #TODO: Fix to more sustainable solution (use model_to_entity, and add paypal and braintree relevant fields)
-    #transition info is now added in controllers
-    Result::Success.new(
-      DataTypes.create_transaction_response(opts.merge({
-            id: transaction.id,
-            conversation_id: conversation.id,
-            created_at: transaction.created_at,
-            updated_at: transaction.updated_at
-          }),
-        gateway_fields_response
-        )
-      )
+    if gateway_fields_response[:success]
+      transaction.save!
+      #TODO: Fix to more sustainable solution (use model_to_entity, and add paypal and braintree relevant fields)
+      #transition info is now added in controllers
+      Result::Success.new(
+        DataTypes.create_transaction_response(opts_tx.merge({
+          id: transaction.id,
+          conversation_id: conversation.id,
+          created_at: transaction.created_at,
+          updated_at: transaction.updated_at
+        }),
+        gateway_fields_response[:data]))
+    else
+      gateway_fields_response
+    end
+
+  end
+
+  def create_tx_braintree(transaction:, listing:, opts:, async:)
+    payment_gateway_id = BraintreePaymentGateway.where(community_id: opts[:transaction][:community_id]).pluck(:id).first
+    transaction.payment = BraintreePayment.new({
+      community_id: opts[:transaction][:community_id],
+      payment_gateway_id: payment_gateway_id,
+      status: "pending",
+      payer_id: opts[:transaction][:starter_id],
+      recipient_id: opts[:transaction][:listing_author_id],
+      currency: "USD",
+      sum: listing.price * transaction.listing_quantity})
+
+    result = BraintreeSaleService.new(transaction.payment, opts[:gateway_fields]).pay(false)
+
+    unless result.success?
+      return Result::Error.new(result.message)
+    end
+
+    Result::Success.new({})
+  end
+
+  def create_tx_paypal(transaction:, listing:, opts:, async:)
+    # Note: Quantity may be confusing in Paypal Checkout page, thus, we don't use separated unit price and quantity,
+    # only the total price.
+    quantity = 1
+    total = listing.price * transaction.listing_quantity
+
+    create_payment_info = PaypalService::API::DataTypes.create_create_payment_request({
+      transaction_id: transaction.id,
+      item_name: listing.title,
+      item_quantity: quantity,
+      item_price: total,
+      merchant_id: opts[:transaction][:listing_author_id],
+      order_total: total,
+      success: opts[:gateway_fields][:success_url],
+      cancel: opts[:gateway_fields][:cancel_url],
+      merchant_brand_logo_url: opts[:gateway_fields][:merchant_brand_logo_url]})
+
+    result = PaypalService::API::Api.payments.request(
+      opts[:transaction][:community_id],
+      create_payment_info,
+      async: async)
+
+    return Result::Error.new(result[:error_msg]) unless result[:success]
+
+    if async
+      Result::Success.new({ process_token: result[:data][:process_token] })
+    else
+      Result::Success.new({ redirect_url: result[:data][:redirect_url] })
+    end
   end
 
   def reject(community_id, transaction_id)
