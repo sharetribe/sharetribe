@@ -55,13 +55,13 @@ en:
         community_name: "Marketplace name"
         edit_community_name_description: "The name of your marketplace. This is shown to users in emails and various other places."
         community_slogan: "Marketplace slogan"
-        edit_community_slogan_description: "This is shown on the home page of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
+        edit_community_slogan_description: "This is shown on the home page of the marketplace for the users who are not signed in. %{see_how_it_looks_like}."
         community_description: "Marketplace description"
-        edit_community_description_description: "This is shown on the home page of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
+        edit_community_description_description: "This is shown on the home page of the marketplace for the users who are not signed in. %{see_how_it_looks_like}."
         community_search_placeholder: "Search help text"
         edit_community_search_placeholder_description: "This is shown on the home page of the marketplace as a placeholder text in the search bar. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private marketplace homepage content"
-        edit_private_community_homepage_content_description: "This content is shown to unlogged users on the home page of private marketplaces. Here you can describe your marketplace and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
+        edit_private_community_homepage_content_description: "This content is shown to non-signed-in users on the home page of private marketplaces. Here you can describe your marketplace and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
         update_information: "Save settings"
         invite_people: "Invite new users"
         edit_signup_info: "Signup info"
@@ -91,9 +91,9 @@ en:
         community_custom_color2: "Second color"
         logo_instructions_text_with_dimensions: "Desktop logo size should be %{width}x%{height}px. It will be shown to users with bigger screens."
         logo_icon_instructions_text_with_dimensions: "Mobile logo should be square, preferably %{width}x%{height}px in size. It will be shown to users with smaller screens."
-        cover_photo_visibility: "Cover photo is shown in the homepage for unlogged users."
+        cover_photo_visibility: "Cover photo is shown in the homepage for non-signed-in users."
         cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle. %{see_how_it_looks_like}."
-        small_cover_photo_visibility: "Small cover photo is shown in all pages expect in the homepage for unlogged users."
+        small_cover_photo_visibility: "Small cover photo is shown in all pages expect in the homepage for non-signed-in users."
         small_cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle."
         main_content_width: "When choosing cover photos please note that the page main content is %{main_width} pixels wide at most. Remember to also check how your cover photo looks on the smaller screens (e.g. by using a more narrow browser window)."
         custom_color1_instructions_text: "You can change the main color of the user interface by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
@@ -139,12 +139,12 @@ en:
         privacy_policy_link_text: "privacy policy"
         welcome_email_link_text: "welcome email"
         instruction_texts_link_text: "other instruction texts"
-        social_media: "Using social media is a good way to build the community. You can %{facebook_link} to make it easier for people to log in to your marketplace, and %{twitter_link} to get viral visibility when people tweet about products on your marketplace."
+        social_media: "Using social media is a good way to build the community. You can %{facebook_link} to make it easier for people to sign in to your marketplace, and %{twitter_link} to get viral visibility when people tweet about products on your marketplace."
         facebook_link_text: "connect your custom Facebook app"
         twitter_link_text: "add your Twitter account"
         analytics: "It's also a good idea to %{analytics_link}. This way it's easy for you to see what's happening in your marketplace, how many visitors you have, and so on."
         analytics_link_text: "connect a Google Analytics account"
-        settings: "There are a bunch of other settings that you can play around with. For instance, you can require everyone to have an invite from other users before they can join and make your marketplace private, so only the users who are logged in, can see the content. %{settings_link}."
+        settings: "There are a bunch of other settings that you can play around with. For instance, you can require everyone to have an invite from other users before they can join and make your marketplace private, so only the users who are signed in, can see the content. %{settings_link}."
         settings_link_text: "View your marketplace settings here"
         final_words: "That's about it! If everything's ready, you can start %{invite_link} to your marketplace. You can see all the users who have joined %{view_users_link}, and all the transactions they have completed %{view_transactions_link}. You can also easily manage listings: simply go to the listing page and you'll see the admin links for editing and closing there. If you need any help, you can %{contact_support_link} - we are here for you!"
         invite_link_text: "inviting users"
@@ -195,7 +195,7 @@ en:
         twitter_handle_placeholder: username
         invalid_twitter_handle: "Twitter handle should contain only at maximum 15 alphanumeric (letters A-Z and numbers 0-9) characters."
         facebook_connect: Facebook
-        facebook_connect_info_text: "In order to enable Facebook login, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here."
+        facebook_connect_info_text: "In order to enable Facebook sign in, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here."
         facebook_connect_id: "Facebook client id"
         invalid_facebook_connect_id: "Client id should contain only numbers."
         facebook_connect_secret: "Facebook client secret"
@@ -520,9 +520,9 @@ en:
       paid: "Payment successful"
       pending_external:
         paypal:
-          multicurrency: "We couldn't process the PayPal payment because your PayPal account has not been set up to receive money in %{currency}. Go to %{paypal_url} and log in to your account to manually accept or reject the payment."
+          multicurrency: "We couldn't process the PayPal payment because your PayPal account has not been set up to receive money in %{currency}. Go to %{paypal_url} and sign in to your account to manually accept or reject the payment."
           verify: "You cannot accept this transaction because you haven't verified your PayPal account. Go to %{paypal_url} to verify your account."
-          intl: "We couldn't process the PayPal payment because your PayPal account does not have a withdrawal mechanism. Go to %{paypal_url} and log in to your account to manually accept or reject the payment."
+          intl: "We couldn't process the PayPal payment because your PayPal account does not have a withdrawal mechanism. Go to %{paypal_url} and sign in to your account to manually accept or reject the payment."
       waiting_for_current_user_to_deliver_listing: "Waiting for you to deliver %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Waiting for %{listing_author_name} to deliver %{listing_title}"
       request_accepted: Accepted
@@ -544,7 +544,7 @@ en:
         paypal:
           multicurrency: "Waiting for you to accept the PayPal payment"
           intl: "Waiting for you to accept the PayPal payment"
-          unknown_reason: "Payment is pending. Log in to your PayPal account to see more details."
+          unknown_reason: "Payment is pending. Sign in to your PayPal account to see more details."
           verify: "Waiting for you to verify your PayPal account"
     status_link:
       accept_offer: "Accept offer"
@@ -614,7 +614,7 @@ en:
       you_can_join_email_confirmation_multiple_addresses: "%{service_name} has email restrictions. You can only join if you have an allowed email address. You can join by filling in your email address, accepting the terms of use of %{service_name} and clicking 'Join %{service_name}' below."
       you_can_join_with_invite_only: "You have to have an invitation from another member to join %{service_name}. If you have an invitation code, you can join by typing the code to the field below, accepting the terms of use and clicking 'Join %{service_name}' below."
       if_want_to_view_content: "If you want to view the content in %{service_name} without joining it as a member you need to"
-      log_out: "log out"
+      log_out: "sign out"
       join_community_button: "Join %{service_name}"
   emails:
     accept_reminder:
@@ -791,7 +791,7 @@ en:
       welcome_to_marketplace_creator: "Welcome to Sharetribe, %{name}!"
       congrats_for_creating_your_marketplace: "Congrats for creating your marketplace! That was easy, wasn't it?"
       here_is_your_account_information: "Here is your account information."
-      your_email_address: "The email address you used to log in:"
+      your_email_address: "The email address you used to sign in:"
       your_marketplace_address: "Your marketplace address:"
       your_marketplace_admin_area: "Your marketplace admin area:"
       just_follow_details: "Just follow these links and you’ll get more details on how to start building your marketplace!"
@@ -883,7 +883,7 @@ en:
     join:
       joined_kassi: "%{name} joined %{service_name} %{time_ago}."
     login:
-      logged_in_to_kassi: "%{name} logged in to %{service_name} %{time_ago}."
+      logged_in_to_kassi: "%{name} signed in to %{service_name} %{time_ago}."
     comment:
       commented: "%{commenter_name} commented on listing %{listing_title} %{time_ago}."
       offer_partitive: offer
@@ -901,7 +901,7 @@ en:
     contact_us: "Contact us"
     profile: Profile
     invite: "Invite new members"
-    login: "Log in"
+    login: "Sign in"
     signup: "Sign up"
     menu: Menu
   homepage:
@@ -925,11 +925,11 @@ en:
       item_request_list: "tools, sports equipment, costumes, camping equipment"
       items_to_offer: "Goods to lend: "
       items_to_request: "Goods to borrow: "
-      log_in: "log in!"
-      no_offers_visible_unless_logged_in: "No item, service or rideshare offers visible to non-logged-in users."
+      log_in: "sign in!"
+      no_offers_visible_unless_logged_in: "No item, service or rideshare offers visible to non-signed-in users."
       no_open_offers_currently: "No open item, service or rideshare offers."
       no_open_requests_currently: "No open item, service or rideshare requests."
-      no_requests_visible_unless_logged_in: "No item, service or rideshare requests visible to non-logged-in users."
+      no_requests_visible_unless_logged_in: "No item, service or rideshare requests visible to non-signed-in users."
       one_private_offer_exists: "There is already <b>one offer</b>,"
       one_private_request_exists: "There is already <b>one request</b>,"
       ride_offer: "Take others' kids to their hobbies"
@@ -950,7 +950,7 @@ en:
       add_listing_link_text: "Add new listing"
       open_listing: "open listing"
       open_listings: "open listings"
-      private_listing_notification_log_in: "log in"
+      private_listing_notification_log_in: "sign in"
       is: is
       are: are
       what_do_you_need: "What are you looking for?"
@@ -1060,8 +1060,8 @@ en:
       admin: Admin
       go_to_your_profile_page: Profile
       hi: Hi
-      login: "Log in"
-      logout: "Log out"
+      login: "Sign in"
+      logout: "Sign out"
       notifications: Notifications
       requests: "Friend requests"
       settings: Settings
@@ -1074,8 +1074,8 @@ en:
       admin: Admin
       go_to_your_profile_page: Profile
       hi: Hi
-      login: Login
-      logout: Logout
+      login: Sign in
+      logout: Sign out
       notifications: Notifications
       requests: "Friend requests"
       settings: Settings
@@ -1091,7 +1091,7 @@ en:
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Thanks for joining %{service_name}. Now you need to confirm your email address."
       comment_cannot_be_empty: "Comment cannot be empty"
       comment_sent: "Comment sent"
-      confirmation_link_is_wrong_or_used: "The confirmation link is already used or otherwise broken. Try logging in, or send feedback if the problem persists."
+      confirmation_link_is_wrong_or_used: "The confirmation link is already used or otherwise broken. Try signing in, or send feedback if the problem persists."
       additional_email_confirmed: "The email you entered is now confirmed."
       could_not_get_email_from_facebook: "Could not get email address from Facebook and can't create an account without email."
       create_new_listing: "Create another listing"
@@ -1107,12 +1107,12 @@ en:
       invitation_cannot_be_sent: "Invitation could not be sent"
       invitation_sent: "Invitation sent successfully"
       inviting_new_users_is_not_allowed_in_this_community: "Inviting new users is not allowed."
-      login_again: "Please, log in again."
-      login_failed: "Login failed. Please enter correct credentials."
+      login_again: "Please, sign in again."
+      login_failed: "Sign in failed. Please enter correct credentials."
       account_creation_successful: "Welcome to %{service_name}, %{person_name}!"
       account_deleted: "Your account is now deleted."
       login_successful: "Welcome, %{person_name}!"
-      logout_successful: "You have now been logged out of %{service_name}. See you soon!"
+      logout_successful: "You have now been signed out of %{service_name}. See you soon!"
       news_item_created: "Article created"
       news_item_creation_failed: "Article creation failed"
       news_item_update_failed: "Article update failed"
@@ -1168,26 +1168,26 @@ en:
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event"
       you_are_now_member: "Welcome to %{service_name}!"
       you_are_already_member: "You are already a member of %{service_name}. Welcome back!"
-      you_must_log_in_to_create_new_listing: "You must log in to %{service_name} to create a new listing. If you don't have an account you can %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "You must sign in to %{service_name} to create a new listing. If you don't have an account you can %{sign_up_link}."
       additional_email_confirmed_dashboard: "Your email is now confirmed."
-      you_must_log_in_to_give_feedback: "You must log in to give feedback"
-      you_must_log_in_to_invite_new_users: "You must log in to invite new users to %{service_name}"
-      you_must_log_in_to_send_a_comment: "You must log in to send a new comment"
-      you_must_log_in_to_send_a_message: "You must log in to %{service_name} to send a message to another user."
-      you_must_log_in_to_view_this_content: "You must log in to view this content"
-      you_must_log_in_to_view_this_page: "You must log in to view this page"
-      you_must_log_in_to_view_your_inbox: "You must log in to %{service_name} to view your inbox."
-      you_must_log_in_to_view_your_settings: "You must log in to %{service_name} to view your settings."
-      you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
-      you_must_log_in_to_change_profile_settings: "You must log in to %{service_name} to change profile settings"
-      you_must_log_in_to_change_payment_settings: "You must log in to %{service_name} to change payment settings"
-      you_must_log_in_to_accept_or_reject: "You must log in to accept or reject the transaction"
-      you_must_log_in_to_confirm_or_cancel: "You must log in to cancel or confirm the transaction"
+      you_must_log_in_to_give_feedback: "You must sign in to give feedback"
+      you_must_log_in_to_invite_new_users: "You must sign in to invite new users to %{service_name}"
+      you_must_log_in_to_send_a_comment: "You must sign in to send a new comment"
+      you_must_log_in_to_send_a_message: "You must sign in to %{service_name} to send a message to another user."
+      you_must_log_in_to_view_this_content: "You must sign in to view this content"
+      you_must_log_in_to_view_this_page: "You must sign in to view this page"
+      you_must_log_in_to_view_your_inbox: "You must sign in to %{service_name} to view your inbox."
+      you_must_log_in_to_view_your_settings: "You must sign in to %{service_name} to view your settings."
+      you_must_log_in_to_add_news_item: "You must sign in to %{service_name} to add a new article."
+      you_must_log_in_to_change_profile_settings: "You must sign in to %{service_name} to change profile settings"
+      you_must_log_in_to_change_payment_settings: "You must sign in to %{service_name} to change payment settings"
+      you_must_log_in_to_accept_or_reject: "You must sign in to accept or reject the transaction"
+      you_must_log_in_to_confirm_or_cancel: "You must sign in to cancel or confirm the transaction"
       you_need_to_confirm_your_account_first: "You need to confirm your email."
       you_must_fill_all_the_fields: "You must fill all the fields"
       you_unfollowed_listing: "You are no longer following this listing"
       joining_community_failed: "Joining failed"
-      can_not_login_with_private_user: "You can not log in with your personal account. Log in with organization account or create a new account."
+      can_not_login_with_private_user: "You can not sign in with your personal account. Sign in with organization account or create a new account."
       can_not_delete_email: "You can not remove the email address"
       user_does_not_have_email_to_delete: "You don't have the email address you're trying to remove"
       email_deleted: "Email removed"
@@ -1209,7 +1209,7 @@ en:
       send_private_message: "Send private message to %{person}"
     comment_form:
       ask_a_question: "Comment on the listing or ask for more details. All the other users will be able to see your comment."
-      log_in: "log in"
+      log_in: "sign in"
       send_comment: "Send comment"
       to_send_a_comment: "to send a new comment."
       write_comment: "Write a new comment:"
@@ -1316,8 +1316,8 @@ en:
         visibility: Visibility
       privacy:
         privacy: Privacy
-        private: "Private (only logged-in users can see)"
-        public: "Public (visible to non-logged-in users)"
+        private: "Private (only signed-in users can see)"
+        public: "Public (visible to non-signed-in users)"
     help_texts:
       help_share_type_title: "Type of the offer or request"
       help_tags_title: Tags
@@ -1519,7 +1519,7 @@ en:
       invite_people_you_know: "Invite the people you know!"
       there_are_x_members: "There are %{count} members in %{service_name}."
       to_see_the_list_log_in: "To see the full list of all the members you need to %{log_in_link}."
-      log_in_link: "log in"
+      log_in_link: "sign in"
     edit_links:
       activate: Activate
       deactivate: Deactivate
@@ -1639,16 +1639,16 @@ en:
     new:
       create_new_account: "Create a new account"
       i_forgot_my_password: "Username or password forgotten"
-      login: "Log in"
-      login_to_kassi: "Log in to %{service_name}"
+      login: "Sign in"
+      login_to_kassi: "Sign in to %{service_name}"
       connect_your_facebook_to_kassi: "Connect your Facebook account to %{service_name}"
       facebook_account: "Facebook account:"
-      log_in_to_link_account: "If you already have a %{service_name} account, log in to link it with your Facebook account."
+      log_in_to_link_account: "If you already have a %{service_name} account, sign in to link it with your Facebook account."
       you_can_also_create_new_account: "If you don't have an account in %{service_name}, %{accont_creation_link} to create one with your Facebook login."
       account_creation_link_text: "click here"
       cancle_facebook_connect: "If you don't want to link this account, you can %{cancel_link}."
       facebook_cancel_link_text: cancel
-      log_in_with_your_facebook_account: "Log in with Facebook"
+      log_in_with_your_facebook_account: "Sign in with Facebook"
       or_sign_up_with_your_username: "...or with your username or email:"
       we_will_not_post_without_asking_you: "We will never post to Facebook without asking you."
     password_forgotten:
@@ -1722,7 +1722,7 @@ en:
       settings_link: settings
       homepage_link: "home page"
       unsubscribe_unsuccesful: "Error in unsubscribing"
-      unsuccessful_unsubscribe_info_text: "The reason might that the unsubscribe link you clicked was old or otherwise broken. Contact us via feedback button on the left and we can unsubscribe you, or log in to change your email settings."
+      unsuccessful_unsubscribe_info_text: "The reason might that the unsubscribe link you clicked was old or otherwise broken. Contact us via feedback button on the left and we can unsubscribe you, or sign in to change your email settings."
     profile:
       about_you: "About you"
       city: City
@@ -1739,7 +1739,7 @@ en:
       street_address: Location
       these_fields_are_shown_in_your: "This information is visible to all %{service_name} users"
       visible_to_everybody: "visible to everybody"
-      visible_to_registered_users: "(visible to users that have logged in)"
+      visible_to_registered_users: "(visible to users that have signed in)"
       default_in_listing: "(used only as a default when creating a new listing)"
       invisible: "(not shown to other users)"
     save_information: "Save information"
