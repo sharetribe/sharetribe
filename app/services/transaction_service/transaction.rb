@@ -220,9 +220,8 @@ module TransactionService::Transaction
 
   def complete_preauthorization(transaction_id)
     transaction = MarketplaceService::Transaction::Query.transaction(transaction_id)
-    payment_type = MarketplaceService::Community::Query.payment_type(transaction[:community_id])
 
-    case payment_type
+    case transaction[:payment_gateway].to_sym
     when :braintree
       complete_preauthorization_braintree(transaction)
     when :paypal
@@ -265,11 +264,11 @@ module TransactionService::Transaction
 
 
   def invoice
-    raise "Not implemented"
+    raise NoMethodError.new("Not implemented")
   end
 
   def pay_invoice
-    raise "Not implemented"
+    raise NoMethodError.new("Not implemented")
   end
 
   def complete(transaction_id)
