@@ -49,4 +49,14 @@ module TransactionService::Util
     return [tx, conversation]
   end
 
+
+  def is_booking?(opts_tx)
+    opts_tx[:booking_fields] && opts_tx[:booking_fields][:start_on] && opts_tx[:booking_fields][:end_on]
+  end
+
+  def booking_duration(opts_tx)
+    start_on = opts_tx[:booking_fields][:start_on]
+    end_on = opts_tx[:booking_fields][:end_on]
+    duration = DateUtils.duration_days(start_on, end_on)
+  end
 end

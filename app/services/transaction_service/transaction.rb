@@ -83,13 +83,10 @@ module TransactionService::Transaction
                      automatic_confirmation_after_days: auto_confirm_days}))
 
     # TODO Move quantity calculation to tx service to get rid of this silly check
-    if opts_tx[:booking_fields].present?
-      start_on = opts_tx[:booking_fields][:start_on]
-      end_on = opts_tx[:booking_fields][:end_on]
-      duration = DateUtils.duration_days(start_on, end_on)
+    if TxUtil.is_booking?(opts_tx)
 
       # Make sure listing_quantity equals duration
-      if duration != transaction.listing_quantity
+      if TxUtil.booking_duration(opts_tx) != transaction.listing_quantity
         return Result::Error.new("Listing quantity (#{transaction.listing_quantity}) must be equal to booking duration in days (#{duration})")
       end
     end
