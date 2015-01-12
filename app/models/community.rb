@@ -80,7 +80,6 @@
 #  price_filter_min                           :integer          default(0)
 #  price_filter_max                           :integer          default(100000)
 #  automatic_confirmation_after_days          :integer          default(14)
-#  plan_level                                 :integer          default(0)
 #  favicon_file_name                          :string(255)
 #  favicon_content_type                       :string(255)
 #  favicon_file_size                          :integer
@@ -137,13 +136,6 @@ class Community < ActiveRecord::Base
   after_create :initialize_settings
 
   monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :default_currency
-
-  # Plan levels
-  FREE_PLAN = 0
-  STARTER_PLAN = 1
-  BASIC_PLAN = 2
-  GROWTH_PLAN = 3
-  SCALE_PLAN = 4
 
   validates_length_of :name, :in => 2..50
   validates_length_of :domain, :in => 2..50

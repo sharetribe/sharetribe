@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150103143459) do
+ActiveRecord::Schema.define(:version => 20150107155205) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -202,7 +202,6 @@ ActiveRecord::Schema.define(:version => 20150103143459) do
     t.integer  "price_filter_min",                           :default => 0
     t.integer  "price_filter_max",                           :default => 100000
     t.integer  "automatic_confirmation_after_days",          :default => 14
-    t.integer  "plan_level",                                 :default => 0
     t.string   "favicon_file_name"
     t.string   "favicon_content_type"
     t.integer  "favicon_file_size"

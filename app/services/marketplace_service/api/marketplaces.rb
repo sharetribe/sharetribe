@@ -18,7 +18,9 @@ module MarketplaceService::API
       Helper.create_community_customization!(community, marketplace_name, locale)
       t = Helper.create_transaction_type!(community, p[:marketplace_type])
       Helper.create_category!("Default", community, locale, t.id)
-      Helper.create_community_plan!(community);
+
+      plan_level = p[:plan_level].or_else(CommunityPlan::FREE_PLAN)
+      Helper.create_community_plan!(community, {plan_level: plan_level});
 
       return from_model(community)
     end
@@ -72,7 +74,7 @@ module MarketplaceService::API
         CommunityPlan.create({
           community_id: community.id,
           plan_level:   Maybe(options[:plan_level]).or_else(0),
-          expires_at:   Maybe(options[:expires_at]).or_else(DateTime.now + 30.days)
+          expires_at:   Maybe(options[:expires_at]).or_else(DateTime.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days)
         })
       end
 
