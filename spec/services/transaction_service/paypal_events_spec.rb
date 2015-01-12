@@ -163,7 +163,7 @@ describe TransactionService::PaypalEvents do
           order_date: Time.now,
           order_total: Money.new(22000, "EUR"),
         })
-      @voided_payment_no_msg = PaymentStore.update(@cid, @transaction_no_msg.id,  {
+      @voided_payment_no_msg = PaymentStore.update(community_id: @cid, transaction_id: @transaction_no_msg.id, data: {
           pending_reason: :none,
           payment_status: :voided
         })
@@ -176,7 +176,7 @@ describe TransactionService::PaypalEvents do
           order_date: Time.now,
           order_total: Money.new(22000, "EUR"),
         })
-      @voided_payment_with_msg = PaymentStore.update(@cid, @transaction_with_msg.id,  {
+      @voided_payment_with_msg = PaymentStore.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {
           pending_reason: :none,
           payment_status: :voided
         })
@@ -212,7 +212,7 @@ describe TransactionService::PaypalEvents do
           order_total: Money.new(22000, "EUR"),
         })
 
-      @authorized_payment = PaymentStore.update(@cid, @transaction_with_msg.id, {
+      @authorized_payment = PaymentStore.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {
           payment_status: "pending",
           pending_reason: "authorization",
           authorization_id: "12345678",
@@ -222,7 +222,7 @@ describe TransactionService::PaypalEvents do
 
       TransactionService::PaypalEvents.payment_updated(:success, @authorized_payment)
 
-      @voided_payment_with_msg = PaymentStore.update(@cid, @transaction_with_msg.id, {
+      @voided_payment_with_msg = PaymentStore.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {
           pending_reason: :none,
           payment_status: :voided
         })
@@ -245,7 +245,7 @@ describe TransactionService::PaypalEvents do
           order_total: Money.new(22000, "EUR"),
         })
 
-      @authorized_payment = PaymentStore.update(@cid, @transaction_with_msg.id, {
+      @authorized_payment = PaymentStore.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {
           payment_status: "pending",
           pending_reason: "authorization",
           authorization_id: "12345678",
@@ -255,7 +255,7 @@ describe TransactionService::PaypalEvents do
 
       TransactionService::PaypalEvents.payment_updated(:success, @authorized_payment)
 
-      @pending_ext_payment = PaymentStore.update(@cid, @transaction_with_msg.id, {
+      @pending_ext_payment = PaymentStore.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {
           payment_status: "pending",
           pending_reason: "multicurrency",
           authorization_id: "12345678"
@@ -263,7 +263,7 @@ describe TransactionService::PaypalEvents do
 
       TransactionService::PaypalEvents.payment_updated(:success, @pending_ext_payment)
 
-      @denied_payment_with_msg = PaymentStore.update(@cid, @transaction_with_msg.id, {
+      @denied_payment_with_msg = PaymentStore.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {
           pending_reason: :none,
           payment_status: :denied
       })

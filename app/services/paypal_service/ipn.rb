@@ -1,16 +1,26 @@
 module PaypalService
   class IPN
 
+    Invnum = PaypalService::API::Invnum
+
     def initialize(events)
       @events = events
     end
 
-    ORDER_UPDATE_TYPES = [:order_created, :authorization_created, :payment_completed, :payment_pending_ext, :payment_voided, :payment_denied]
+    PAYMENT_ROW_UPDATE_TYPES = [
+      :order_created,
+      :authorization_created,
+      :payment_completed,
+      :payment_pending_ext,
+      :payment_voided,
+      :payment_denied,
+      :commission_paid
+    ]
 
     def handle_msg(ipn_msg)
       case(ipn_msg[:type])
-      when *ORDER_UPDATE_TYPES
-        payment = PaypalService::Store::PaypalPayment.ipn_update(ipn_msg)
+      when *PAYMENT_ROW_UPDATE_TYPES
+        payment = handle_payment_update(ipn_msg)
         @events.send(:payment_updated, :success, payment) unless payment.nil?
       when :billing_agreement_cancelled
         PaypalService::PaypalAccount::Command.delete_cancelled_billing_agreement(ipn_msg[:payer_id], ipn_msg[:billing_agreement_id])
@@ -28,6 +38,19 @@ module PaypalService
 
       msg = PaypalIpnMessage.create(body: converted)
       Delayed::Job.enqueue(HandlePaypalIpnMessageJob.new(msg.id))
+    end
+
+    def handle_payment_update(ipn_msg)
+      opts = identity_opts(ipn_msg)
+      PaypalService::Store::PaypalPayment.update(opts.merge(data: ipn_msg))
+    end
+
+    def identity_opts(ipn_msg)
+      if ipn_msg[:type] == :commission_paid
+        { community_id: Invnum.community_id(ipn_msg[:invnum]), transaction_id: Invnum.transaction_id(ipn_msg[:invnum]) }
+      else
+        { authorization_id: ipn_msg[:authorization_id], order_id: ipn_msg[:order_id] }
+      end
     end
   end
 end

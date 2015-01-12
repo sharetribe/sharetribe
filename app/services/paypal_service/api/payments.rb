@@ -12,6 +12,7 @@ module PaypalService::API
     PaymentStore = PaypalService::Store::PaypalPayment
     Lookup = PaypalService::API::Lookup
     Worker = PaypalService::API::Worker
+    Invnum = PaypalService::API::Invnum
 
     def initialize(events, merchant, logger = PaypalService::Logger.new)
       @logger = logger
@@ -52,7 +53,7 @@ module PaypalService::API
         request = MerchantData.create_set_express_checkout_order(
           create_payment.merge({
               receiver_username: m_acc[:payer_id],
-              invnum: invnum(community_id, create_payment[:transaction_id])}))
+              invnum: Invnum.create(community_id, create_payment[:transaction_id], :payment)}))
 
         with_success(community_id, create_payment[:transaction_id],
           request,
@@ -160,7 +161,7 @@ module PaypalService::API
             receiver_username: m_acc[:payer_id],
             authorization_id: payment[:authorization_id],
             payment_total: info[:payment_total],
-            invnum: invnum(community_id, transaction_id)
+            invnum: Invnum.create(community_id, transaction_id, :payment)
           }),
         error_policy: {
           codes_to_retry: ["10001", "x-timeout", "x-servererror"],
@@ -171,10 +172,10 @@ module PaypalService::API
 
         # Save payment data to payment
         payment = PaymentStore.update(
-          community_id,
-          transaction_id,
-          payment_res
-          )
+          data: payment_res,
+          community_id: community_id,
+          transaction_id: transaction_id
+         )
 
         payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
@@ -270,7 +271,7 @@ module PaypalService::API
               item_name: token[:item_name],
               item_quantity: token[:item_quantity],
               item_price: token[:item_price],
-              invnum: invnum(token[:community_id], token[:transaction_id])
+              invnum: Invnum.create(token[:community_id], token[:transaction_id], :payment)
             }),
             error_policy: {
               codes_to_retry: ["10001", "x-timeout", "x-servererror"],
@@ -315,7 +316,7 @@ module PaypalService::API
           TokenStore.delete(community_id, payment[:transaction_id])
 
           # Save authorization data to payment
-          payment = PaymentStore.update(community_id, payment[:transaction_id], auth_res)
+          payment = PaymentStore.update(data: auth_res, community_id: community_id , transaction_id: payment[:transaction_id])
           payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
           # Trigger callback for authorized
@@ -345,9 +346,9 @@ module PaypalService::API
               transaction_id: payment[:order_id],
             })) do |payment_res|
           payment = PaymentStore.update(
-            community_id,
-            transaction_id,
-            payment_res)
+            data: payment_res,
+            community_id: community_id,
+            transaction_id: transaction_id)
 
           payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
 
@@ -357,10 +358,6 @@ module PaypalService::API
           Result::Success.new(payment_entity)
         end
       end
-    end
-
-    def invnum(community_id, transaction_id)
-      "#{community_id}-#{transaction_id}"
     end
 
     def proc_status_response(proc_token)
