@@ -69,16 +69,18 @@ module TransactionService::Transaction
 
     #TODO this thing should come through transaction_opts
     listing = Listing.find(opts_tx[:listing_id])
-    minimum_commission, commission_from_seller =
+    minimum_commission, commission_from_seller, auto_confirm_days =
       case opts_tx[:payment_gateway]
       when :braintree
-        commission_infos_braintree(listing, opts_tx)
+        tx_data_braintree(listing, opts_tx)
       when :paypal
-        commission_infos_paypal(listing, opts_tx)
+        tx_data_paypal(listing, opts_tx)
       end
 
     transaction, conversation = TxUtil.build_tx_model_with_conversation(
-      opts_tx.merge({minimum_commission: minimum_commission, commission_from_seller: commission_from_seller}))
+      opts_tx.merge({minimum_commission: minimum_commission,
+                     commission_from_seller: commission_from_seller,
+                     automatic_confirmation_after_days: auto_confirm_days}))
 
     # TODO Move quantity calculation to tx service to get rid of this silly check
     if opts_tx[:booking_fields].present?
@@ -124,11 +126,11 @@ module TransactionService::Transaction
   end
 
   # Private
-  def commission_infos_braintree(listing, opts_tx)
+  def tx_data_braintree(listing, opts_tx)
     currency = listing.price.currency
-    commission_from_seller = Community.find(opts_tx[:community_id]).commission_from_seller
+    c = Community.find(opts_tx[:community_id])
 
-    [Money.new(0, currency), commission_from_seller]
+    [Money.new(0, currency), c.commission_from_seller, c.automatic_confirmation_after_days]
   end
 
   # Private
@@ -153,15 +155,15 @@ module TransactionService::Transaction
   end
 
   # Private
-  def commission_infos_paypal(listing, opts_tx)
+  def tx_data_paypal(listing, opts_tx)
     currency = listing.price.currency
     minimum_commission = Maybe(paypal_minimum_commissions_api.get(currency)).or_else {
         raise ArgumentError.new("No PayPal minimum commissions for currency #{currency} defined.")
       }
 
-    commission_from_seller = PaymentSettingsStore.get_active(community_id: opts_tx[:community_id])[:commission_from_seller]
+    p_set = PaymentSettingsStore.get_active(community_id: opts_tx[:community_id])
 
-    [minimum_commission, commission_from_seller]
+    [minimum_commission, p_set[:commission_from_seller], p_set[:confirmation_after_days]]
   end
 
   # Private

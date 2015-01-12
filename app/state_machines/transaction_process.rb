@@ -50,7 +50,6 @@ class TransactionProcess
       automatic_booking_confirmation_at = transaction.booking.end_on + 1.day
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_booking_confirmation_at!(automatic_booking_confirmation_at)
     else
-      transaction.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_confirmation!
     end
 

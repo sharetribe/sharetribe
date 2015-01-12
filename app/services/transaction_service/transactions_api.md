@@ -48,8 +48,6 @@ Example request body:
   , listing_price: Money.new(50, "USD")
   , listing_author_id: "1234abcd"
   , listing_quantity: 1
-  , automatic_confirmation_after_days: 7
-  , commission_from_seller: 10
   }
 
 # If booking is used

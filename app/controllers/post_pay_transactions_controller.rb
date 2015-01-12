@@ -36,7 +36,6 @@ class PostPayTransactionsController < ApplicationController
             content: contact_form.content,
             payment_gateway: @current_community.payment_gateway.gateway_type,
             payment_process: :postpay,
-            automatic_confirmation_after_days: @current_community.automatic_confirmation_after_days
           }
         })
 
