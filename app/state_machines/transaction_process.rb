@@ -37,11 +37,6 @@ class TransactionProcess
     end
   end
 
-  after_transition(from: :accepted, to: :paid) do |transaction|
-    payment = transaction.payment
-    payer = payment.payer
-  end
-
   after_transition(to: :paid) do |transaction|
     payer = transaction.starter
     current_community = transaction.community
