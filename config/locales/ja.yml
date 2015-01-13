@@ -44,21 +44,21 @@ ja:
           other: "%{count}個のサブカテゴリが、カテゴリにあります。それらは削除されます。"
     communities:
       edit_details:
-        community_details: <b>基本情報</b>
+        community_details: 基本情報
         community_look_and_feel: デザイン
-        edit_community: 基本情報
+        edit_community: <b>基本情報</b>
         community_name: マーケットプレイスの名前
-        edit_community_name_description: マーケットプレイスの名前、これはユーザへのメールや色々な場所で表示されます。
+        edit_community_name_description: これはユーザへのメールや色々な場所で表示されます。
         community_slogan: マーケットプレイスのスローガン
-        edit_community_slogan_description: "これはログインしていないユーザのマーケットプレイスのホームページに表示されます。%{see_how_it_looks_like}"
+        edit_community_slogan_description: "これはログインしていないユーザのマーケットプレイスのトップページに表示されます。%{see_how_it_looks_like}"
         community_description: マーケットプレイスの詳細内容
-        edit_community_description_description: "これはログインしていないユーザのマーケットプレイスのホームページに表示されます。%{see_how_it_looks_like}"
+        edit_community_description_description: "これはログインしていないユーザのマーケットプレイスのトップページに表示されます。%{see_how_it_looks_like}"
         community_search_placeholder: ヘルプを検索
-        edit_community_search_placeholder_description: ~
+        edit_community_search_placeholder_description: "これはマーケットプレイスのトップページに表示される検索バーの中にとりあえず入れておくテキストです。%{see_how_it_looks_like}"
         private_community_homepage_content: プライベートマーケットプレイスホームページコンテンツ
         edit_private_community_homepage_content_description: ~
         update_information: 設定を保存する
-        invite_people: 新しいユーザを招待する
+        invite_people: 新しいユーザを招待
         edit_signup_info: ご登録情報
         edit_signup_info_description: これはユーザが新規登録するときに表示されます。登録のための説明を提示できます。情報は、どこで招待を受けられるか...などです。初期設定では説明がありません。
         edit_info: 情報を編集する
@@ -75,26 +75,26 @@ ja:
         transaction_agreement_text_header: ~
         transaction_agreement_description: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: "%{community_name}のマーケットプレイスを見て感じながら編集"
+        edit_community_look_and_feel: "%{community_name}のカスタマイズ"
         community_logo: デスクトップロゴ
         community_logo_icon: モバイル用ロゴ
         community_cover_photo: カバー写真
         small_community_cover_photo: 小さいカバー写真
         favicon: ファビコン
-        favicon_info_text: ~
+        favicon_info_text: ファビコンは初期ではSharetribeロゴに置き換えられています。32x32ピクセルにしてアップロードしていない場合は、リサイズされます
         community_custom_color1: 第一カラー
         community_custom_color2: 第二カラー
-        logo_instructions_text_with_dimensions: ~
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "デスクトップロゴは%{width}ｘ%{height}ピクセルにしてください。それは特に大きいスクリーンを使用しているユーザに表示されます。"
+        logo_icon_instructions_text_with_dimensions: "モバイルロゴは出来れば、%{width}ｘ%{height}ピクセルの正方形にしてください。それは特に小さいスクリーンを使用しているユーザに表示されます。"
         cover_photo_visibility: カバー写真はログイン前のユーザに表示されます
-        cover_photo_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: "写真は%{width}ｘ%{height}ピクセルにリサイズされます。縦長のイメージ画像の場合中心を使用する形でカットされます%{see_how_it_looks_like}。"
         small_cover_photo_visibility: 小さいカバー写真はログイン前のユーザを除いて、すべてのページに表示されます。
-        small_cover_photo_instructions_text_with_dimensions: ~
-        main_content_width: ~
-        custom_color1_instructions_text: ~
-        custom_color2_instructions_text: ~
+        small_cover_photo_instructions_text_with_dimensions: "写真は%{width}ｘ%{height}ピクセルにリサイズされます。縦長のイメージ画像の場合中心を使用する形でカットされます。"
+        main_content_width: "カバー写真を選ぶとき最大幅%{main_width}ピクセルであることに注意してください。カバー写真は小さいスクリーンでどのように見えるか、一応確認してください（例、ブラウザの幅を狭くしてみる）。"
+        custom_color1_instructions_text: "ユーザインターフェイスの（ボタンなどに使われる）メインカラーを、カラーコードを入力することにより変更できます。<a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">カラーコード表</a>からご確認の上コードをコピーしてご利用ください。"
+        custom_color2_instructions_text: ユーザインターフェイスの第二メインカラーを、カラーコードを入力することにより変更できます。
         default_browse_view: 初期ブラウザ表示
-        default_browse_view_instructions_text: ~
+        default_browse_view_instructions_text: 初期ブラウザ表示は、初めての訪問者に、リストをどのように表示させるかを選択できます。
         grid: 画像表示
         list: リスト
         map: 地図表示
@@ -104,8 +104,8 @@ ja:
         first_name_with_initial: 名前とイニシャル（名、イニシャル）
         first_name_only: 名前だけ（名）
         invalid_color_code: "カラーコードは6つの数字とアルファベットA-Fで構成されます、例 D96E21"
-        custom_head_script: ~
-        custom_head_script_instructions_text: ~
+        custom_head_script: カスタムスクリプト
+        custom_head_script_instructions_text: "このスクリプトは、あらゆるページの<head> タグの中で、カスタムCSS、JavaScriptまたはHTML挿入などに用いることができます。将来Sharetribeの変更によっては、あなたのスクリプトを相容れなくするかもしれない点に注意してください。"
       edit_text_instructions:
         edit_text_instructions: 新規登録前の説明テキスト
       edit_welcome_email:
@@ -118,7 +118,7 @@ ja:
         welcome_to_your_marketplace: "%{name}さん、あなたのマーケットプレイスへようこそ！"
         intro: ~
         live_site_link_text: こちら
-        look_and_feel: ~
+        look_and_feel: "サイト公開前にいくつか確認してください。例えば、%{logo_link}とカバー写真とサイトカラーの色をマッチさせたいでしょうか。"
         logo_link_text: ロゴを追加
         custom_domain: ~
         contact_team_link_text: 私たちのチームにお問い合わせください
@@ -172,7 +172,7 @@ ja:
         newsletter_daily: 毎日
         newsletter_weekly: 毎週
       manage_members:
-        manage_members: ユーザを管理する
+        manage_members: ユーザを管理
         email: メールアドレス
         name: 名前
         join_date: 参加日
@@ -186,8 +186,8 @@ ja:
       social_media:
         social_media: ソーシャルメディア
         twitter_handle: Twitterのハンドル
-        twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
+        twitter_handle_info_text: あなたのマーケットプレイスのTwitterのユーザー名（お持ちであれば）。リストページのツイートボタンを使うときに言及されます。
+        twitter_handle_placeholder: twitterのユーザー名
         invalid_twitter_handle: ~
         facebook_connect: フェイスブック
         facebook_connect_info_text: ~
@@ -219,7 +219,7 @@ ja:
           status: 状態
           sum: 合計
           started: 開始済み
-          last_activity: 最近の活動
+          last_activity: アクション
           initiated_by: 先手
           other_party: 相手方
         status:
@@ -261,7 +261,7 @@ ja:
           this_field_is_required_checkbox: この項目は必須です（ユーザは少なくてもひとつ選択しなければなりません）
       index:
         listing_fields: リストの項目とフィルターの設定
-        listing_fields_help: ~
+        listing_fields_help: ここにユーザが、リストを作成する時に記入する記入項目を設定できます。いくつかの項目は所定の位置にあり編集が出来ないので注意してください。
         add_new_field: 新しい項目を追加
         remove_field_confirmation: "%{field_name}を本当に削除しますか。"
         cancel: キャンセル
@@ -289,7 +289,7 @@ ja:
         date: 日付
     emails:
       new:
-        send_email_to_members: ユーザにメールを送信する
+        send_email_to_members: ユーザにメールを送信
         send_email_to_members_title: ユーザに一斉メールを送信する
         email_subject: メール件名
         email_content: メール内容
@@ -297,7 +297,7 @@ ja:
         email_language: メール受信者の主要言語
         any_language: 全ての言語
         send_email: メールを送信する
-        message_will_be_sent_only_to_people_with_this_language: ~
+        message_will_be_sent_only_to_people_with_this_language: "注意： メールは、あなたが選択した言語を使用している%{service_name}内のユーザのみに、送信されます。"
         email_sent: メールを送信しました。
     left_hand_navigation:
       general: 一般
@@ -358,10 +358,10 @@ ja:
       share_for_free: 無料でシェアします
       accept_for_free: 無料で使いたいです
     categories:
-      item: ~
-      favor: ~
+      item: アイテム
+      favor: サービスしてください
       rideshare: ライドシェア
-      housing: ~
+      housing: スペース提供します
       tools: ~
       sports: ~
       music: ~
@@ -450,35 +450,35 @@ ja:
       favor_request_message_form_title: "%{person}さんにお手伝いをオファーする"
       housing_offer_message_form_title: "%{person}さんにスペースをオファーする"
       housing_request_message_form_title: "%{person}さんのスペースを申し込む"
-      item_offer_lend_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
+      item_offer_lend_message_form_title: "%{person}さんから%{listing}を無料で借ります"
+      item_offer_sell_message_form_title: "%{person}さんから%{listing}を買います"
+      item_offer_give_away_message_form_title: "%{person}さんから%{listing}をもらいます"
       item_offer_trade_message_form_title: "%{person}さんと%{listing}を交換する"
-      item_offer_rent_out_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
+      item_offer_rent_out_message_form_title: "%{person}さんから%{listing}を借ります"
+      item_request_borrow_message_form_title: "%{person}さんに%{listing}を無料で貸します"
+      item_request_buy_message_form_title: "%{person}さんに%{listing}を売ります"
+      item_request_take_for_free_message_form_title: "%{person}さんに%{listing}をあげます"
       item_request_trade_message_form_title: "%{person}さんと%{listing}を交換する"
-      item_request_rent_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_offer_accept_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
+      item_request_rent_message_form_title: "%{person}さんに%{listing}を貸します"
+      housing_offer_sell_message_form_title: "%{person}さんから%{listing}を買います"
+      housing_offer_rent_out_message_form_title: "%{person}さんから%{listing}を借ります"
+      housing_offer_share_for_free_message_form_title: "%{person}さんから%{listing}をリクエストします"
+      housing_offer_accept_for_free_message_form_title: "%{person}さんに%{listing}をオファーする"
+      housing_request_buy_message_form_title: "%{person}さんに%{listing}を売ります"
+      housing_request_rent_message_form_title: "%{person}さんに%{listing}を貸します"
       item_request_message_form_title: "%{person}さんにアイテムをオファーする"
       message: メッセージ
       message_to: ~
       optional_message_to: ~
       rideshare_offer_message_form_title: "%{person}さんにライドシェアを頼む"
       rideshare_request_message_form_title: "%{person}さんにライドシェアをオファーする"
-      send_message: ~
+      send_message: メッセージ送信する
       send: ~
       this_message_is_private: "このメッセージは、あなたと%{person}さんの間のプライベートなものです。%{person}さんは、メールでこのメッセージを通知されます。"
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
       title: タイトル
-      send_message_to_user: ~
+      send_message_to_user: "%{person}さんにメッセージを送信する"
       about_listing: ~
       author_has_to_accept_request: ~
     show:
@@ -487,10 +487,10 @@ ja:
       message_sent_to: ~
       send_reply: 返信する
       write_a_reply: 返事を書く
-      conversation_about_listing: ~
-      conversation_with_user: ~
+      conversation_about_listing: "%{listing}に関して%{person}さんと"
+      conversation_with_user: "%{person}さんと"
       conversation_with: ~
-      last_message_at: ~
+      last_message_at: "最新メッセージ %{time}"
       price: ~
       sum: ~
       price_excludes_vat: （外税）
@@ -676,12 +676,12 @@ ja:
       check_your_settings: 設定を確認してください
       hey: "%{name}さん　こんにちは、"
       kassi_team: "%{service_name} チーム"
-      thanks: ありがとうございます、
+      thanks: それでは、引き続きご利用よろしくお願いします。
       want_to_control_emails: "%{service_name}から受信するメールを管理したい"
-      dont_want_to_receive_these_emails: ~
+      dont_want_to_receive_these_emails: これらのメールを受信したくありませんか。
       edit_your_email_settings_here: ここからメール設定を編集
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
+      message_not_displaying_correctly: このメールアドレスは正しく表示されていませんか。
+      view_it_in_your_browser: あなたのブラウザで表示する
       or: ~
       unsubscribe_from_these_emails: ~
     community_starter_email:
@@ -759,7 +759,7 @@ ja:
       text_version_text: "他の人が必要としているかもしれない何かを共有してもらえますか。あるいは、他の人がもてあましているかもしれない何かを必要としますか。オファーまたはリクエストをしてみてください。%{url}で投稿内容をすべてチェックできます。"
     reset_password_instructions:
       change_my_password: パスワードの変更
-      reset_password_instructions: "<p>あなたは%{service_name}のサービスにおいて、パスワードかユーザ名を忘れたことを示しました。</p><p>あなたのユーザ名は、以下の通りです：%{username}</p><p>もしパスワードのリセットが必要な場合は、以下をクリックします：%{password_reset_link}</p><br><p>もしそれをしない場合は、このメールを無視してください。パスワードは上記のリンクをクリックしない限り変更されることはありません。<p>"
+      reset_password_instructions: "<p>あなたは%{service_name}のサービスにおいて、パスワードかユーザ名を忘れのお手続き中です。</p><p>あなたのユーザ名：%{username}</p><p>もしパスワードのリセットが必要な場合は、こちらをクリックしてください：%{password_reset_link}</p><br><p>もしそれをしない場合は、このメールを無視してください。パスワードは上記のリンクをクリックしない限り変更されることはありません。<p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "レビューはすべてのユーザに表示されます。他のユーザは%{name}さんが信頼できる人かどうかそして、互いに影響を与えても良いか判断が出来ます。従ってレビューを書くことを忘れないでください。また、他の人にあなたに関してレビューを書かれることに注意してください。多くのバッチをもらうにはポジティブなレビューが必要です。"
       remember_to_give_feedback_to: "ご注意：%{name}さんにレビューを書くのを忘れないでください"
@@ -886,13 +886,13 @@ ja:
   header:
     about: このサイトについて
     home: ホーム
-    members: ~
-    new_listing: ~
+    members: コミュニティ
+    new_listing: あたらしいリスト
     mobile_version: モバイル版
     offers: オファー
     requests: リクエスト
     search_kassi: "%{service_name}で検索"
-    create_new_marketplace: ~
+    create_new_marketplace: 新規マーケットプレイスを作成
     contact_us: お問い合わせ
     profile: プロフィール
     invite: メンバーを招待する
@@ -946,9 +946,9 @@ ja:
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: ログイン
-      is: ~
-      are: ~
-      what_do_you_need: ~
+      is: は
+      are: です
+      what_do_you_need: 何をお探しですか？
       post_new_listing: 新規リストを投稿！
       are_offering: オファー
       add_news_item: 記事を追加する
@@ -958,12 +958,12 @@ ja:
       news: ニュース
       no_news: ニュースがありません
       more_news: ニュースをもっと見る
-      or: ~
-      or_see_what_the_others: ~
+      or: それとも
+      or_see_what_the_others: それとも他の人のを見てみる
       recent_events: 最近の取引
       requesting: 必要です
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
+      tell_it_here: こちらで教えて下さい！
+      welcome_to_new_kassi: "新しくなった%{service_name}へようこそ！"
       no_reviews: ~
       no_image: ~
       filter: ~
@@ -990,19 +990,19 @@ ja:
       you_have_not_added_your_info: あなたは、連絡先を記入していませんでした。あなたと連絡を取りやすいように、どうぞ情報を追加してください。また、プロフィール画像もあると信頼感がアップしますので載せてみてください。
       add_your_info_link: あなたの情報を追加する
     recent_listing:
-      please_offer: ~
-      comment: ~
-      comments: ~
+      please_offer: オファーしてください
+      comment: コメント
+      comments: コメント
     filters:
-      show: ~
-      search: ~
+      show: フィルター：
+      search: 検索
       map: 地図で場所を限定する
-      list: ~
+      list: リストを表示する
       map_button: 地図
       grid_button: 画像
       list_button: ~
       all_listing_types: 全てのリストの種類
-      all_categories: ~
+      all_categories: すべてのカテゴリ
   infos:
     about:
       default_about_text_title: ~
@@ -1015,52 +1015,52 @@ ja:
     admin:
       admin: "%{service_name}のサイト管理パネル"
     no_tribe:
-      inbox: ~
+      inbox: 受信メール
       settings: 設定
       feedback: お問い合わせ
     application:
-      join_this_community: ~
-      read_more: ~
+      join_this_community: マーケットプレイスに参加する
+      read_more: もっと読む
       feedback: ご用件をどうぞ。
       default_feedback: "%{service_name}の問題を発見してしまいましたか。サイトの向上のためのご提案がありますか。あやしい投稿を見つけてしまいましたか。あるいは私たちと何かを議論してみたいですか。お気軽にお知らせください！"
       feedback_forum: レビューフォーラム
       feedback_handle: レビューを書く
       give_feedback: お問い合わせ
-      or_check_our: ~
+      or_check_our: "...それとも確認する"
       send_feedback_to_admin: 送信する
-      to_see_what_others_have_suggested: ~
+      to_see_what_others_have_suggested: 他のユーザがそのアイデアについて、何を提案や投票したかを見てみる。
       your_email_address: （連絡可能な）あなたのメールアドレス
       connect: 新規登録
-      invite_your_friends: ~
+      invite_your_friends: 友達を招待する！
       invite_your_neighbors: ~
-      invite_your_friends_description: ~
+      invite_your_friends_description: "%{service_name}にもっと人が集まれば、もっと便利になります。"
       invite_your_friends_invite_only_description: ~
       join_without_facebook: "or 代わりに %{join_without_facebook_link}"
       join_without_facebook_link: フェイスブックなしで登録する
     conversations:
       messages: メッセージ
       notifications: メール通知
-      received: ~
-      sent: ~
+      received: 受信済み
+      sent: 送信済み
     global-header:
       select_language: 言語を選択
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
+      about: このサイトについて
+      how_to_use: サイトの仕組み
+      info_about_kassi: "%{service_name}についての情報"
       news: ニュース
-      register_details: ~
-      terms: ~
+      register_details: プライバシー
+      terms: ご利用規約
     logged_in:
       admin: サイト管理
       go_to_your_profile_page: プロフィール
-      hi: ~
+      hi: こんにちは
       login: ログイン
       logout: ログアウト
       notifications: 通知
-      requests: ~
+      requests: 友達申請
       settings: 設定
-      sign_up: ~
+      sign_up: 新規登録
     logged_in_messages_icon:
       messages: メッセージ
     logged_in_notifications_icon:
@@ -1068,11 +1068,11 @@ ja:
     mobile_logged_in:
       admin: サイト管理
       go_to_your_profile_page: プロフィール
-      hi: ~
-      login: ~
-      logout: ~
+      hi: こんにちは
+      login: ログイン
+      logout: ログアウト
       notifications: メール通知
-      requests: ~
+      requests: 友達申請
       settings: 設定
       sign_up: 新規登録
     notifications:
@@ -1201,7 +1201,7 @@ ja:
       listing_not_visible: あなたはこのリストを閲覧する権限がありません。
     comment:
       wrote: ~
-      send_private_message: ~
+      send_private_message: "%{person}さんにプライベートメッセージを送信する"
     comment_form:
       ask_a_question: このリストについてのコメントや、更なる詳細について情報がほしい場合に書きこみが出来ます。すべてのユーザが、あなたのコメントを閲覧出来ることになります。
       log_in: ログイン
@@ -1306,11 +1306,11 @@ ja:
       valid_until_radio_buttons:
         for_the_time_being: 当分の間
       visibility:
-        all_communities: ~
+        all_communities: 私のすべてのSharetribeマーケットプレイス
         this_community: "%{service_name}のメンバー専用"
         visibility: 公開状態
       privacy:
-        privacy: ~
+        privacy: プライバシー
         private: プライベート（ログインユーザのみが見れます）
         public: 公開（ログイン前のユーザも閲覧可）
     help_texts:
@@ -1326,42 +1326,42 @@ ja:
       favors: サービス
       housing: スペース
       items: 品目
-      list_view: ~
-      listings: ~
+      list_view: リスト表示
+      listings: リスト
       map_view: 地図表示
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
+      offer_something: 皆さんにお知らせする！
+      offer_type: オファーの種類
+      offers: オファー
+      request_something: 何かをリクエストする！
+      request_type: リクエストの種類
+      requests: リクエスト
       rideshare: ライドシェア
-      search_verb: ~
-      you_have_something_others_do_not: ~
+      search_verb: 検索する
+      you_have_something_others_do_not: 何かオファーするものがありますか。
       feed_title: "%{service_name}の%{listing_type}の中の%{optional_category}"
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
+      borrows: 無料で借ります
+      buys: 買います
+      favors: サービスしてください
       give_aways: 「ご自由にどうぞ」
-      housings: ~
-      items: ~
-      lends: ~
+      housings: スペース提供します
+      items: アイテム
+      lends: 無料で貸します
       receives: 「ご自由にどうぞ」
-      rent_outs: ~
-      rents: ~
+      rent_outs: 貸します
+      rents: 借ります
       rideshares: ライドシェア
       sells: 売ります
       share_for_frees: 無料でシェアします
       accept_for_frees: 無料で受け入れます
-      trades: ~
+      trades: 交換したいです
     listing_actions:
       booking_from: ~
       booking_to: ~
       how_paypal_works: ~
     new:
       post_a_new_listing: 新規リストを投稿！
-      listing: ~
+      listing: リスト
       selected_category: "カテゴリ： %{category}"
       selected_subcategory: "サブカテゴリ： %{subcategory}"
       selected_transaction_type: "課金の種類： %{transaction_type}"
@@ -1370,39 +1370,39 @@ ja:
       select_transaction_type: 課金の種類を選択
       you_need_to_fill_payout_details_before_accepting: "リストを投稿する前に、お支払い情報の入力を完了している必要があります。%{payment_settings_link}で、情報入力をお願いします。"
       payment_settings_link: お支払い設定
-    please_comment: ~
+    please_comment: コメント
     reply_link:
       listing_closed: ~
     show:
-      add_your_phone_number: ~
+      add_your_phone_number: あなたの電話番号を追加
       add_profile_picture: プロフィール写真を追加
       comments: 質問コーナー＆詳細追加リクエスト
-      contact_by_phone: ~
+      contact_by_phone: 電話でのご連絡：
       contact: ~
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: サービスをします
+      favor_request: サービスをリクエストする
       inquiry: ~
       item_offer_trade: 交換の提案
       item_request_trade: 交換のリクエスト
-      no_description: ~
+      no_description: このリストの詳細情報はありません
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: オファー
       listing_created: ~
       open_until: "%{date}までの掲載分"
       feedback: レビュー
       qr_code: QRコード
-      request: ~
+      request: リクエスト
       rideshare_offer: ライドシェアオファー
       rideshare_request: ライドシェアリクエスト
-      send_private_message: ~
-      share_types: ~
-      share_types_offer: ~
-      share_types_request: ~
-      tags: ~
-      time: ~
+      send_private_message: プライベートメッセージを送信する
+      share_types: シェアの種類
+      share_types_offer: オファーの種類
+      share_types_request: リクエストの種類
+      tags: タグ
+      time: 回
       times: ~
-      times_viewed: ~
+      times_viewed: 表示
       processing_uploaded_image: （画像をアップロード中です...）
       price_excludes_vat: （外税）
       listing_created_at: 掲載日
@@ -1425,29 +1425,29 @@ ja:
       read_more: 表示
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
+      all_categories: すべてのカテゴリ
+      all_offer_types: すべてのオファーの種類
+      all_request_types: すべてのリクエストの種類
       category: カテゴリ
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
+      did_not_found_what_you_were_looking_for: お探しのものが見つかりませんでしたか。
+      favors: サービスしてください
+      housing: スペース提供します
+      items: アイテム
+      list_view: リスト表示
+      map_view: 地図表示
+      offer_something: 皆さんにお知らせする！
+      offer_type: オファーの種類
+      offers: オファー
+      request_something: 何かをリクエストする！
+      request_type: リクエストの種類
+      requests: リクエスト
+      rideshare: ライドシェア
+      search_verb: 検索する
+      you_have_something_others_do_not: 何かオファーするものがありますか。
     please_comment: コメント
   okl:
     member_id: メンバーID
-    member_id_or_email: ~
+    member_id_or_email: ユーザ名もしくはメールアドレス
   payments:
     new:
       new_payment: ~
@@ -1523,10 +1523,10 @@ ja:
       help_captcha_title: あなたは人間ですか。
       help_invitation_code_title: 参加には招待が必要です
       terms_title: "%{service_name}のご利用規約"
-      trustcloud_description_title: ~
+      trustcloud_description_title: TrustCloud
       trustcloud_description_text: ~
       invite_only_help_text: 既存のユーザからの招待のみで新規メンバーを獲得したい場合はこちらのオプションをご利用ください。
-      invite_only_help_text_title: ~
+      invite_only_help_text_title: 招待制になっております
     inactive_notification:
       this_person_is_not_active_in_kassi: "今後もこのユーザは%{service_name}でアクティブではありません"
       inactive_description: "このユーザは、%{service_name}の使用を停止しました。あなたはこのユーザと連絡をとることや、レビューやコメントを残すことが出来ません。"
@@ -1541,7 +1541,7 @@ ja:
       enter_captcha: 私は人間です。
       family_name: 姓
       given_name: 名
-      i_accept_the: を承諾します
+      i_accept_the: ご利用規約に同意します
       invalid_invitation_code: その招待コードは無効です。
       invitation_code: 招待コード
       not_required: 、必要ありません
@@ -1557,6 +1557,8 @@ ja:
       create_account_with_facebook: フェイスブックで登録する
       OR: ~
       signup_with_email: メールアドレスで新規登録する
+      email_restriction_instructions:
+        other: "%{service_name}へのアクセスが制限されました。参加しなおすには、ご登録時のメールアドレスが必要です。"
     not_member:
       explanation_text: "現在あなたは%{community}を閲覧中です。他のSharetribeのプラットフォームで制作されたマーケットプレイスのユーザのプロフィールを閲覧を試みました。%{community}内のこのユーザへのアクセスは出来ません。"
       read_more_about_kassi_communities: Sharetribeマーケットプレイスについてもっと読む
@@ -1574,7 +1576,7 @@ ja:
       show_only_open: 現在進行のリストのみ表示
       no_image: 写真なし
     show:
-      contact: ~
+      contact: "%{person}さんに連絡する"
       about_me: 私について：
       add_description: あなた自身について何か教えてください
       add_location: 現在位置を追加する
@@ -1583,7 +1585,7 @@ ja:
       as_expected: 期待通り
       edit_profile_info: プロフィールを編集する
       exceeded_expectations: 期待を超えました
-      positive: ~
+      positive: ポジティブ
       hide_description: 表示を少なくする
       less_than_expected: 期待以下
       phone_number: 電話番号：
@@ -1593,19 +1595,19 @@ ja:
       slightly_better_than_expected: 期待を超えました
       slightly_less_than_expected: 期待以下
       what_are_these: これらは何ですか。
-      review: ~
-      reviews: ~
+      review: 受信したレビュー
+      reviews: 受信したレビュー
       listing: ~
       listings: ~
-      open_listing: ~
-      open_listings: ~
+      open_listing: 公開リスト
+      open_listings: 公開リスト
       no_listings: ~
-      no_open_listings: ~
-      no_reviews: ~
+      no_open_listings: 非公開リスト
+      no_reviews: レビューがありません
       show_all_listings: ~
-      show_all_open_listings: ~
-      show_all_reviews: ~
-      trustcloud: ~
+      show_all_open_listings: 公開リストを表示
+      show_all_reviews: すべてのレビューを表示
+      trustcloud: TrustCard
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
@@ -1645,7 +1647,7 @@ ja:
       we_will_not_post_without_asking_you: あなたに断りなくフェイスブックに投稿することは、決してありません。
     password_forgotten:
       email: メールアドレス
-      password_recovery_instructions: メールアドレスとユーザ名の情報を入力して、パスワード再設定を行います。
+      password_recovery_instructions: メールアドレスを入力して、パスワード再設定を行います。
       request_new_password: 新しいパスワードをリクエストする
       change_your_password: パスワード変更
     confirmation_pending:
@@ -1767,8 +1769,8 @@ ja:
       slightly_less_than_expected: 期待より少しだけ悪い
       textual_feedback: 実際、いかがでしたか。
       this_will_be_shown_in_profile: ~
-      positive: ~
-      negative: ~
+      positive: ポジティブ
+      negative: ネガティブ
       default_textual_feedback: すべてはスムーズに進行しました、誠にありがとうございます！
     testimonial:
       about_listing: ~
@@ -1832,9 +1834,9 @@ ja:
   time:
     formats:
       short: "%Y年 %H:%M"
-      shorter: ~
+      shorter: "%m/%e %H:%M"
       short_date: "%Y/%m/%e"
-      sms: ~
+      sms: "%m/%e %H:%M"
   timestamps:
     day_ago: "%{count}日前"
     days_ago: "%{count}日前"

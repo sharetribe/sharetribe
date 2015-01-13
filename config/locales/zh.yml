@@ -47,7 +47,7 @@ zh:
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
+        update_information: 保存设置
         invite_people: ~
         edit_signup_info: ~
         edit_signup_info_description: ~
@@ -66,9 +66,9 @@ zh:
         transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
-        community_logo: ~
+        community_logo: 桌面图标
         community_logo_icon: ~
-        community_cover_photo: ~
+        community_cover_photo: 封面照片
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
@@ -345,11 +345,11 @@ zh:
       sell: 出售中
       offer_to_swap: ~
       request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
+      share_for_free: 免费共享
+      accept_for_free: 想要免费使用
     categories:
-      item: ~
-      favor: ~
+      item: 物品
+      favor: 服务
       rideshare: ~
       housing: ~
       tools: ~
@@ -440,14 +440,14 @@ zh:
       favor_request_message_form_title: "向%{person}提供帮助"
       housing_offer_message_form_title: "向%{person}提供住处"
       housing_request_message_form_title: "向%{person}请求住处"
-      item_offer_lend_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
+      item_offer_lend_message_form_title: "从%{person}借入%{listing}"
+      item_offer_sell_message_form_title: "从%{person}买入%{listing}"
+      item_offer_give_away_message_form_title: "从%{person}获得%{listing}"
+      item_offer_trade_message_form_title: "与%{person}交换%{listing}"
+      item_offer_rent_out_message_form_title: "从%{person}租赁%{listing}"
+      item_request_borrow_message_form_title: "将%{listing}出借%{person}"
+      item_request_buy_message_form_title: "将%{listing}卖给%{person}"
+      item_request_take_for_free_message_form_title: "将%{listing}给予%{person}"
       item_request_trade_message_form_title: ~
       item_request_rent_message_form_title: ~
       housing_offer_sell_message_form_title: ~
@@ -477,8 +477,8 @@ zh:
       message_sent_to: ~
       send_reply: 发送回复
       write_a_reply: 回复：
-      conversation_about_listing: ~
-      conversation_with_user: ~
+      conversation_about_listing: "与%{person}关于%{listing}"
+      conversation_with_user: "与%{person}"
       conversation_with: ~
       last_message_at: ~
       price: ~
@@ -668,10 +668,10 @@ zh:
       kassi_team: "%{service_name} 团队"
       thanks: 谢谢！
       want_to_control_emails: "想要管理来自%{service_name} 的邮件？"
-      dont_want_to_receive_these_emails: ~
+      dont_want_to_receive_these_emails: 不想收到这些邮件？
       edit_your_email_settings_here: 编辑你的邮箱设定
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
+      message_not_displaying_correctly: 邮件显示正确吗？
+      view_it_in_your_browser: 在你的浏览器中查看
       or: ~
       unsubscribe_from_these_emails: ~
     community_starter_email:
@@ -731,20 +731,20 @@ zh:
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
-      added_offer: ~
-      added_request: ~
+      added_offer: "%{name_link}新增了一个列表："
+      added_request: "%{name_link}新增了一个列表："
       added_listing: ~
       update_mail_title: ~
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      post_a_new_listing: ~
-      reduce_email_footer_text: ~
+      post_a_new_listing: 提交了一个新的列表！
+      reduce_email_footer_text: "太多邮件？%{settings_link}或者%{unsubscribe_link}"
       settings_link_text: 在这里编辑你的邮箱设定
-      unsubscribe_link_text: ~
+      unsubscribe_link_text: 取消订阅
     newsletter:
       hi: "Hi %{name},"
-      newest_offers: ~
+      newest_offers: 用户当前提供给其他用户的服务
       newest_requests: 人们目前需要的是什么
       text_version_text: ~
     reset_password_instructions:
@@ -833,7 +833,7 @@ zh:
     no_javascript:
       javascript_is_disabled_in_your_browser: 您的浏览器已禁用Javascript
       kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在无javascript环境下工作。请在浏览器首选项中打开javascript，然后刷新页面。"
-      contact_us: ~
+      contact_us: 联系我们
       send_feedback: 发送反馈
       your_feedback_to_admins: 给管理员发送反馈
     send: 发送
@@ -850,27 +850,27 @@ zh:
       on_or_after: ~
   event_feed_events:
     accept:
-      has_accepted_lend_item: ~
-      has_accepted_borrow_item: ~
-      has_accepted_rent_out_item: ~
-      has_accepted_rent_item: ~
-      has_accepted_give_away_item: ~
-      has_accepted_receive_item: ~
-      has_accepted_sell_item: ~
-      has_accepted_buy_item: ~
-      has_accepted_trade_item: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
-      has_accepted_rideshare: ~
+      has_accepted_lend_item: "%{offerer_name} 同意将 %{listing_title} 借给 %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} 同意将 %{listing_title} 借给 %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} 同意租赁 %{listing_title} 给 %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} 同意租赁 %{listing_title} 给 %{requester_name} %{time_ago}."
+      has_accepted_give_away_item: "%{offerer_name} 同意将 %{listing_title} 给予 %{requester_name} %{time_ago}."
+      has_accepted_receive_item: "%{offerer_name} 同意将 %{listing_title} 给予 %{requester_name} %{time_ago}."
+      has_accepted_sell_item: "%{offerer_name} 同意将%{listing_title} 卖给%{requester_name} %{time_ago}."
+      has_accepted_buy_item: "%{offerer_name} 在%{time_ago}前同意将%{listing_title} 卖给%{requester_name}."
+      has_accepted_trade_item: "%{offerer_name} 在%{time_ago}前同意将 %{listing_title}与 %{requester_name} 交换."
+      has_accepted_sell_housing: "%{offerer_name} 在%{time_ago}前同意将 %{listing_title}卖给 %{requester_name} ."
+      has_accepted_buy_housing: "%{offerer_name} 在%{time_ago}前同意将%{listing_title} 卖给%{requester_name}."
+      has_accepted_rent_out_housing: "%{offerer_name} 在%{time_ago}前同意将 %{listing_title} 租赁给 %{requester_name} ."
+      has_accepted_rent_housing: "%{offerer_name} 在%{time_ago}前同意将 %{listing_title} 租赁给 %{requester_name} ."
+      has_accepted_favor: "%{offerer_name} 在%{time_ago}前同意提供 %{listing_title} 给 %{requester_name} ."
+      has_accepted_rideshare: "%{offerer_name} 在%{time_ago}前同意与%{requester_name} 共同用车%{listing_title}."
     join:
       joined_kassi: ~
     login:
-      logged_in_to_kassi: ~
+      logged_in_to_kassi: "%{name} %{time_ago} 前登录%{service_name}."
     comment:
-      commented: ~
+      commented: "%{commenter_name}%{time_ago}前评论了%{listing_title}。"
       offer_partitive: 录取通知书
       request_partitive: 要求
   header:
@@ -883,8 +883,8 @@ zh:
     requests: 请求
     search_kassi: "搜索%{service_name}"
     create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
+    contact_us: 联系我们
+    profile: 资料
     invite: ~
     login: ~
     signup: ~
@@ -938,7 +938,7 @@ zh:
       private_listing_notification_log_in: ~
       is: ~
       are: ~
-      what_do_you_need: ~
+      what_do_you_need: 你在寻找什么？
       post_new_listing: ~
       are_offering: 提议
       add_news_item: 添加物品
@@ -1130,7 +1130,7 @@ zh:
       poll_updated: ~
       poll_deleted: ~
       read_more: 阅读更多！
-      registration_considered_spam: ~
+      registration_considered_spam: 注册失败，请从发导航菜单发送反馈信息并说明“邮件错误”
       reply_cannot_be_empty: 您不能发送空白信息
       reply_sent: 回复发送成功
       request_accepted: 您的请求已被接受
@@ -1145,7 +1145,7 @@ zh:
       you_are_not_allowed_to_give_feedback_on_this_transaction: 您没有对此事件发表评价的权限
       you_are_not_authorized_to_do_this: 您没有权限进行此操作
       you_are_not_authorized_to_view_this_content: 您没有查看此内容的权限
-      send_instructions: ~
+      send_instructions: 几分钟内你将会收到一封电子邮件告知你重置密码的步骤。
       you_cannot_reply_to_a_closed_offer: 您不能对已关闭的提议发表评论
       you_cannot_reply_to_a_closed_request: 您不能回复已关闭请求
       you_cannot_send_message_to_yourself: 你不能给你自己发送信息
@@ -1163,7 +1163,7 @@ zh:
       you_must_log_in_to_view_this_page: 你必须登录才能查看此页面
       you_must_log_in_to_view_your_inbox: "您必须登录%{service_name}以查看您的收件箱。"
       you_must_log_in_to_view_your_settings: "您必须登录%{service_name}以查看您的设置。"
-      you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_add_news_item: "你必须登录%{service_name}才能新增一篇文章。"
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
       you_must_log_in_to_accept_or_reject: ~
@@ -1190,8 +1190,8 @@ zh:
     bubble_listing_not_visible:
       listing_not_visible: 您无权查看此列表。
     comment:
-      wrote: ~
-      send_private_message: ~
+      wrote: 写到
+      send_private_message: "发送私人信息给%{person}"
     comment_form:
       ask_a_question: ~
       log_in: 登录
@@ -1232,7 +1232,7 @@ zh:
         favor: 提供帮助
         housing: 租房
         item: 物品
-        offer_something: 列出您的物品和技能!
+        offer_something: 出售物品
         request_something: 说出你的需要！
         rideshare: 拼车
         i_want_to_offer: 我想提供
@@ -1277,13 +1277,13 @@ zh:
         buy: 购买
         give_away: 赠送
         lend: 借出
-        offer_type: 提议类型
+        offer_type: 供应的类型
         receive: 免费获取
         rent: 出租
         rent_out: 已出租
         request_type: 请求类型
         sell: 出售
-        share_for_free: ~
+        share_for_free: 免费共享
         accept_for_free: ~
         trade: 交易
       tag_list:
@@ -1342,7 +1342,7 @@ zh:
       rents: 出租
       rideshares: 拼车
       sells: 出售中
-      share_for_frees: ~
+      share_for_frees: 免费共享
       accept_for_frees: ~
       trades: 交易中
     listing_actions:
@@ -1364,16 +1364,16 @@ zh:
     reply_link:
       listing_closed: ~
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
+      add_your_phone_number: 添加你的电话号码
+      add_profile_picture: 添加个人资料图片
       comments: 评论
-      contact_by_phone: ~
+      contact_by_phone: 联系电话
       contact: ~
       favor_offer: 已有帮助
       favor_request: 已有请求
       inquiry: ~
-      item_offer_trade: ~
-      item_request_trade: ~
+      item_offer_trade: 交换提议
+      item_request_trade: 交换请求
       no_description: 无描述
       no_image: ~
       no_reviews: ~
@@ -1381,7 +1381,7 @@ zh:
       listing_created: ~
       open_until: ~
       feedback: 反馈
-      qr_code: ~
+      qr_code: QR码
       request: 请求
       rideshare_offer: 提供顺风车
       rideshare_request: 需要顺风车
@@ -1437,7 +1437,7 @@ zh:
     please_comment: 评论
   okl:
     member_id: "会员号\n"
-    member_id_or_email: ~
+    member_id_or_email: 会员ID或者邮箱地址
   payments:
     new:
       new_payment: ~
@@ -1555,7 +1555,7 @@ zh:
       as_expected: 符合期望
       exceeded_expectations: 比期望的好很多
       grade: 评分：
-      and_gave_following_feedback: ~
+      and_gave_following_feedback: 并且给出以下反馈
       less_than_expected: 比期望的差
       slightly_better_than_expected: 比期望的略好
       slightly_less_than_expected: 比期望的略差
@@ -1564,7 +1564,7 @@ zh:
       show_only_open: 仅显示开放交易
       no_image: ~
     show:
-      contact: ~
+      contact: "联系%{person}"
       about_me: 关于我：
       add_description: 说说你自己
       add_location: 添加地点
@@ -1623,12 +1623,12 @@ zh:
       i_forgot_my_password: 忘记用户名或密码
       login: 登录
       login_to_kassi: "登录%{service_name}"
-      connect_your_facebook_to_kassi: ~
-      facebook_account: ~
-      log_in_to_link_account: ~
-      you_can_also_create_new_account: ~
+      connect_your_facebook_to_kassi: "连接你的Facebook帐号到%{service_name}"
+      facebook_account: Facebook帐号：
+      log_in_to_link_account: "如果你已经拥有一个%{service_name}帐号，登录并关联你的Facebook帐号。"
+      you_can_also_create_new_account: "如果你没有%{service_name}的帐号，访问%{accont_creation_link}用你的Facebook登录信息来创建一个帐号。"
       account_creation_link_text: 点击这里
-      cancle_facebook_connect: ~
+      cancle_facebook_connect: "如果你不想关联此帐号，你可以%{cancel_link}。"
       facebook_cancel_link_text: 取消
       log_in_with_your_facebook_account: 用你FACEBOOK账号登录
       or_sign_up_with_your_username: 用你的账号和密码
@@ -1690,8 +1690,8 @@ zh:
       email_about_new_messages: …有人发给我一条消息
       email_about_new_received_testimonials: …有人给我了一条评价
       email_about_testimonial_reminders: …我忘记评价一个活动
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
+      email_daily_community_updates: 如果有新的列表，<b>每日</b>发送给我一封更新的邮件
+      email_weekly_community_updates: 如果有新的列表，<b>每周</b>发送给我一封更新的邮件
       do_not_email_community_updates: 不要给我发送更新的电子邮件
       email_when_conversation_accepted: …有人接受了您的商品或请求
       email_when_conversation_rejected: …有人拒绝了您的商品或请求
@@ -1703,7 +1703,7 @@ zh:
       unsubscribe_info_text: ~
       settings_link: 设置
       homepage_link: 主页
-      unsubscribe_unsuccesful: ~
+      unsubscribe_unsuccesful: 取消订阅出错
       unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: 关于你：
