@@ -64,6 +64,8 @@ module Kassi
     # This is the list of all possible locales. Part of the translations may be unfinished.
     config.AVAILABLE_LOCALES = Sharetribe::AVAILABLE_LOCALES
 
+    I18n.enforce_available_locales = true
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
