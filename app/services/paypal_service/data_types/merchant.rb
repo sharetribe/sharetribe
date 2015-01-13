@@ -96,8 +96,7 @@ module PaypalService
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
         [:order_id, :mandatory, :string],
-        [:order_total, :mandatory, :money],
-        [:receiver_id, :mandatory, :string])
+        [:order_total, :mandatory, :money])
 
       DoAuthorization = EntityUtils.define_builder(
         [:method, const_value: :do_authorization],
