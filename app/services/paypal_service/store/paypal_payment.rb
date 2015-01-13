@@ -148,7 +148,7 @@ module PaypalService::Store::PaypalPayment
     payment_update = {}
 
     new_status = transform_status(update[:payment_status]) if update[:payment_status]
-    new_pending_reason = transform_pending_reason(update[:pending_reason]) if update[:pending_reason]
+    new_pending_reason = transform_pending_reason(update[:pending_reason])
     new_state = to_state(new_status, new_pending_reason) if new_status
 
     if(new_state && valid_transition?(current_state, new_state))
