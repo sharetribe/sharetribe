@@ -4,34 +4,60 @@ module PersonViewUtils
   # This method is an adapter to `display_name` method.
   # Makes the use easier by allowing Person and Community models as parameters
   def person_display_name(person, community)
-    display_name(
-      first_name: person.given_name,
-      last_name: person.family_name,
-      username: person.username,
+    if person.nil?
+      display_name(
+        first_name: nil,
+        last_name: nil,
+        organization_name: nil,
+        username: nil,
+        name_display_type: nil,
+        is_organization: false,
+        is_deleted: true,
+        deleted_user_text: I18n.translate("common.removed_user")
+      )
+    else
+      display_name(
+        first_name: person.given_name,
+        last_name: person.family_name,
+        username: person.username,
 
-      name_display_type: community.name_display_type,
+        name_display_type: community.name_display_type,
 
-      is_organization: person.is_organization?,
-      organization_name: person.organization_name,
+        is_organization: person.is_organization?,
+        organization_name: person.organization_name,
 
-      is_deleted: person.deleted?,
-      deleted_user_text: I18n.translate("common.removed_user"),
-    )
+        is_deleted: person.deleted?,
+        deleted_user_text: I18n.translate("common.removed_user"),
+      )
+    end
   end
 
   # This is another adapter to `display_name`.
   # It accepts person entity
   def person_entity_display_name(person_entity, name_display_type)
-    PersonViewUtils.display_name(
-      first_name: person_entity[:first_name],
-      last_name: person_entity[:last_name],
-      organization_name: nil,
-      username: person_entity[:username],
-      name_display_type: name_display_type,
-      is_organization: false,
-      is_deleted: person_entity[:is_deleted],
-      deleted_user_text: I18n.translate("common.removed_user")
-    )
+    if person_entity.nil?
+      display_name(
+        first_name: nil,
+        last_name: nil,
+        organization_name: nil,
+        username: nil,
+        name_display_type: name_display_type,
+        is_organization: false,
+        is_deleted: true,
+        deleted_user_text: I18n.translate("common.removed_user")
+      )
+    else
+      display_name(
+        first_name: person_entity[:first_name],
+        last_name: person_entity[:last_name],
+        organization_name: nil,
+        username: person_entity[:username],
+        name_display_type: name_display_type,
+        is_organization: false,
+        is_deleted: person_entity[:is_deleted],
+        deleted_user_text: I18n.translate("common.removed_user")
+      )
+    end
   end
 
   # rubocop:disable ParameterLists
