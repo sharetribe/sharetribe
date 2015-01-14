@@ -281,12 +281,12 @@ zh:
       new:
         send_email_to_members: ~
         send_email_to_members_title: ~
-        email_subject: ~
-        email_content: ~
+        email_subject: 邮件主题
+        email_content: 邮件内容
         email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        send_email: ~
+        email_language: 邮件接收者使用的语言
+        any_language: 任何语言
+        send_email: 发送邮件
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
     left_hand_navigation:
@@ -331,7 +331,7 @@ zh:
     fields_that_are_mandatory: 标有星号（*）的为必填项。
     or: 或
     password: 密码
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
       request: ~
       offer: ~
@@ -355,17 +355,17 @@ zh:
       tools: ~
       sports: ~
       music: ~
-      books: ~
+      books: 图书和杂志
       games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
+      furniture: 家具
+      outdoors: 露营和户外
+      food: 食品
+      electronics: 电子设备
+      pets: 宠物和动物
+      film: 电影
+      clothes: 服装和配饰
       garden: ~
-      travel: ~
+      travel: 旅游
       other: ~
     username: 用户名
     username_or_email: Email或用户名
@@ -480,7 +480,7 @@ zh:
       conversation_about_listing: "与%{person}关于%{listing}"
       conversation_with_user: "与%{person}"
       conversation_with: ~
-      last_message_at: ~
+      last_message_at: "最近的消息%{time}"
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -591,7 +591,7 @@ zh:
       you_are_banned_in_this_community: ~
       contact_page_link: ~
     new:
-      welcome_fb_user: ~
+      welcome_fb_user: "欢迎使用%{service_name}，%{name}！"
       fb_join_accept_terms: ~
       join_community: 加入社区
       you_can_join: ~
@@ -603,8 +603,8 @@ zh:
       join_community_button: 加入社区
   emails:
     accept_reminder:
-      remember_to_accept_offer: 请记得接受或拒绝提议
-      remember_to_accept_request: 请记得接受或拒绝请求
+      remember_to_accept_offer: "请记得接受或拒绝来自%{sender_name}的供给"
+      remember_to_accept_request: "请记得接受或拒绝来自%{sender_name}的请求"
       you_can_accept_or_reject_offer_at: 您可以在此接受或拒绝提议
       you_can_accept_or_reject_request_at: 您可以在此接受或拒绝请求
       you_have_not_yet_accepted_or_rejected_offer: "您尚未接受或拒绝您在%{date}收到的提议'%{title}'"
@@ -664,7 +664,7 @@ zh:
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: 查看您的设置
-      hey: "Hi %{name},"
+      hey: "你好 %{name},"
       kassi_team: "%{service_name} 团队"
       thanks: 谢谢！
       want_to_control_emails: "想要管理来自%{service_name} 的邮件？"
@@ -724,7 +724,7 @@ zh:
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}在%{service_name}给您了反馈"
-      you_can_give_feedback_to: "您可以在此给%{name}反馈"
+      you_can_give_feedback_to: "您还没有给%{name}反馈"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: 以下列表已更新
@@ -769,9 +769,9 @@ zh:
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
       p_s_did_you_know: ~
-      click_here_link_text: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
+      click_here_link_text: 点击这里
+      welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
+      settings_link_text: 查看你的设置
       welcome_email_subject_for_marketplace_creator: ~
       welcome_to_marketplace_creator: ~
       congrats_for_creating_your_marketplace: ~
@@ -797,8 +797,8 @@ zh:
   error_messages:
     listings:
       departure_time: 出发时间必需是现在起一年之内。
-      share_type: 您必须从中选择至少一项
-      valid_until: 该日期必须在现在起一年之内。
+      share_type: 您必须从中选择一项
+      valid_until: 该日期必须在现在起6个月之内。
       price: ~
       minimum_price: ~
     testimonials:
@@ -877,7 +877,7 @@ zh:
     about: 关于我们
     home: 主页
     members: 社区
-    new_listing: ~
+    new_listing: 新的物品
     mobile_version: 移动版
     offers: 提议
     requests: 请求
@@ -935,9 +935,9 @@ zh:
       add_listing_link_text: ~
       open_listing: ~
       open_listings: ~
-      private_listing_notification_log_in: ~
-      is: ~
-      are: ~
+      private_listing_notification_log_in: 登录
+      is: 是
+      are: 是
       what_do_you_need: 你在寻找什么？
       post_new_listing: 发布一个新的物品
       are_offering: 提议
@@ -960,7 +960,7 @@ zh:
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "邀请您的朋友加入%{service_name}！"
-      invite_your_neighbors: ~
+      invite_your_neighbors: "邀请你的邻居使用%{service_name}！"
       email: 朋友的Email地址
       message: 一条私人消息：
       send_invitation: 发送邀请
@@ -1007,7 +1007,7 @@ zh:
     no_tribe:
       inbox: 收件箱
       settings: 设置
-      feedback: ~
+      feedback: 联系我们
     application:
       join_this_community: ~
       read_more: 读取更多
@@ -1022,11 +1022,11 @@ zh:
       your_email_address: 您的E-mail地址（非必需）
       connect: 注册
       invite_your_friends: 邀请朋友
-      invite_your_neighbors: ~
+      invite_your_neighbors: 邀请邻居！
       invite_your_friends_description: "越多人加入%{service_name}，该服务就越有用。"
       invite_your_friends_invite_only_description: ~
-      join_without_facebook: ~
-      join_without_facebook_link: ~
+      join_without_facebook: "或者选择%{join_without_facebook_link}"
+      join_without_facebook_link: 不使用Facebook帐号注册
     conversations:
       messages: 私信
       notifications: 通知
@@ -1039,7 +1039,7 @@ zh:
       how_to_use: 如何使用
       info_about_kassi: "关于%{service_name}"
       news: 新闻
-      register_details: 注册详细信息
+      register_details: 隐私信息
       terms: 使用条款
     logged_in:
       admin: 管理员
@@ -1086,14 +1086,14 @@ zh:
       error_with_session: 内容错误
       feedback_considered_spam: 格式错误，评价失败。请重试或者使用论坛评价。
       feedback_not_saved: 评价发送失败。
-      feedback_saved: 感谢您的评价！
-      feedback_sent_to: 发送评价至
+      feedback_saved: 感谢您的评价！我们会尽快给你回复。
+      feedback_sent_to: "发送评价给%{target_person}"
       feedback_skipped: 跳过评价
       invitation_cannot_be_sent: 邀请未被发出
       invitation_sent: 邀请成功发出
       inviting_new_users_is_not_allowed_in_this_community: 邀请新用户在此社区不被允许。
       login_again: 请重新登录。
-      login_failed: 登录失败，请输入正确的用户凭证
+      login_failed: 登录失败，请输入正确的用户名和密码
       account_creation_successful: "%{person_name}，欢迎使用%{service_name}！"
       account_deleted: ~
       login_successful: "欢迎你，%{person_name}！"
@@ -1229,7 +1229,7 @@ zh:
       destination:
         destination: 目的地
       form_content:
-        favor: 提供帮助
+        favor: 帮助
         housing: 租房
         item: 物品
         offer_something: 出售物品
@@ -1285,7 +1285,7 @@ zh:
         sell: 出售
         share_for_free: 免费共享
         accept_for_free: 免费接受
-        trade: 交易
+        trade: 交换
       tag_list:
         comma_separate: （用逗号隔开）
         tags: 标签
@@ -1297,12 +1297,12 @@ zh:
         for_the_time_being: 一直有效
       visibility:
         all_communities: ~
-        this_community: "仅限%{community} 用户"
+        this_community: "仅限%{service_name} 用户"
         visibility: 公开度
       privacy:
         privacy: 隐私
         private: 私有的（只对登录用户可见）
-        public: ~
+        public: 公共的（对所有用户可见）
     help_texts:
       help_share_type_title: 提议或者请求的类型
       help_tags_title: 标签
@@ -1313,15 +1313,15 @@ zh:
       all_request_types: 所有请求的类型
       category: 分类
       did_not_found_what_you_were_looking_for: 没找到您需要的？
-      favors: 帮助
+      favors: 服务
       housing: 租房
       items: 物品
       list_view: 列表视图
       listings: 清单
-      map_view: 由指南针检视切换回到地图检视
+      map_view: 地图视图
       offer_something: 让其他人知道
-      offer_type: 提议类型
-      offers: 提议
+      offer_type: 供应的类型
+      offers: 供应
       request_something: 说出你的需要！
       request_type: 需求类型
       requests: 需求
@@ -1332,7 +1332,7 @@ zh:
     left_panel_link:
       borrows: 借入
       buys: 购买
-      favors: 帮助
+      favors: 服务
       give_aways: 送出
       housings: 租房
       items: 物品
@@ -1343,7 +1343,7 @@ zh:
       rideshares: 拼车
       sells: 出售中
       share_for_frees: 免费共享
-      accept_for_frees: ~
+      accept_for_frees: 免费接受
       trades: 交易中
     listing_actions:
       booking_from: ~
@@ -1351,9 +1351,9 @@ zh:
       how_paypal_works: ~
     new:
       post_a_new_listing: ~
-      listing: ~
-      selected_category: ~
-      selected_subcategory: ~
+      listing: 物品
+      selected_category: "类别：%{category}"
+      selected_subcategory: "子类别：%{subcategory}"
       selected_transaction_type: ~
       select_category: ~
       select_subcategory: ~
@@ -1377,9 +1377,9 @@ zh:
       no_description: 无描述
       no_image: ~
       no_reviews: ~
-      offer: 提议
+      offer: 供应
       listing_created: ~
-      open_until: ~
+      open_until: "开放至%{date}"
       feedback: 反馈
       qr_code: QR码
       request: 请求
@@ -1501,10 +1501,10 @@ zh:
       you_are_the_only_member: ~
       here_are_the_members: ~
       wanna_see_more_folks: ~
-      invite_people_you_know: ~
+      invite_people_you_know: 邀请你认识的人！
       there_are_x_members: ~
       to_see_the_list_log_in: ~
-      log_in_link: ~
+      log_in_link: 登录
     edit_links:
       activate: 激活
       deactivate: 停用
@@ -1544,7 +1544,7 @@ zh:
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
       visible_only_to_you: 只有您和社区管理员可见
       visible_to_everybody: 所有人可见
-      create_account_with_facebook: ~
+      create_account_with_facebook: 用Facebook帐号注册
       OR: ~
       signup_with_email: ~
     not_member:
@@ -1583,15 +1583,15 @@ zh:
       slightly_better_than_expected: 超过预期
       slightly_less_than_expected: 比期望的差
       what_are_these: 这些是什么？
-      review: ~
-      reviews: ~
+      review: 收到的评论
+      reviews: 收到的评论
       listing: ~
       listings: ~
       open_listing: ~
       open_listings: ~
       no_listings: ~
       no_open_listings: ~
-      no_reviews: ~
+      no_reviews: 没有评论
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
@@ -1632,7 +1632,7 @@ zh:
       facebook_cancel_link_text: 取消
       log_in_with_your_facebook_account: 用你FACEBOOK账号登录
       or_sign_up_with_your_username: 用你的账号和密码
-      we_will_not_post_without_asking_you: ~
+      we_will_not_post_without_asking_you: 我们永远不会在Facebook上未经你的允许发布任何信息
     password_forgotten:
       email: E-mail
       password_recovery_instructions: 输入注册时的E-mail地址，您会受到您的用户名及更改密码的说明。
@@ -1757,9 +1757,9 @@ zh:
       slightly_less_than_expected: 比期望的略差
       textual_feedback: 文本评价
       this_will_be_shown_in_profile: ~
-      positive: ~
-      negative: ~
-      default_textual_feedback: ~
+      positive: 正面的
+      negative: 负面的
+      default_textual_feedback: 一切顺利，非常感谢！
     testimonial:
       about_listing: ~
   date:
