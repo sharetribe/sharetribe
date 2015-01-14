@@ -876,13 +876,13 @@ zh:
   header:
     about: 关于我们
     home: 主页
-    members: ~
+    members: 社区
     new_listing: ~
     mobile_version: 移动版
     offers: 提议
     requests: 请求
     search_kassi: "搜索%{service_name}"
-    create_new_marketplace: ~
+    create_new_marketplace: 创建一个新的市场
     contact_us: 联系我们
     profile: 资料
     invite: ~
@@ -939,7 +939,7 @@ zh:
       is: ~
       are: ~
       what_do_you_need: 你在寻找什么？
-      post_new_listing: ~
+      post_new_listing: 发布一个新的物品
       are_offering: 提议
       add_news_item: 添加物品
       lend_rent_help_carpool: 出售，出租，帮助，拼车
@@ -984,15 +984,15 @@ zh:
       comment: 评论
       comments: 评论
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
+      show: 过滤：
+      search: 搜索
+      map: 显示地图
+      list: 显示物品
       map_button: ~
       grid_button: ~
       list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      all_listing_types: 所有的物品类型
+      all_categories: 全部分类
   infos:
     about:
       default_about_text_title: ~
@@ -1005,12 +1005,12 @@ zh:
     admin:
       admin: "%{service_name}控制面板"
     no_tribe:
-      inbox: ~
-      settings: ~
+      inbox: 收件箱
+      settings: 设置
       feedback: ~
     application:
       join_this_community: ~
-      read_more: ~
+      read_more: 读取更多
       feedback: 给我们提供反馈？
       default_feedback: 有任何意见，建议，或者程序漏洞需要提交
       feedback_forum: 反馈论坛
@@ -1020,10 +1020,10 @@ zh:
       send_feedback_to_admin: 发送反馈
       to_see_what_others_have_suggested: 看看其他用户的推荐
       your_email_address: 您的E-mail地址（非必需）
-      connect: ~
-      invite_your_friends: ~
+      connect: 注册
+      invite_your_friends: 邀请朋友
       invite_your_neighbors: ~
-      invite_your_friends_description: ~
+      invite_your_friends_description: "越多人加入%{service_name}，该服务就越有用。"
       invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
       join_without_facebook_link: ~
@@ -1094,7 +1094,7 @@ zh:
       inviting_new_users_is_not_allowed_in_this_community: 邀请新用户在此社区不被允许。
       login_again: 请重新登录。
       login_failed: 登录失败，请输入正确的用户凭证
-      account_creation_successful: ~
+      account_creation_successful: "%{person_name}，欢迎使用%{service_name}！"
       account_deleted: ~
       login_successful: "欢迎你，%{person_name}！"
       logout_successful: "您已登出%{service_name}，欢迎再次使用！"
@@ -1153,7 +1153,7 @@ zh:
       you_have_already_given_feedback_about_this_event: 您已经对此事件发表评价
       you_are_now_member: 你已成功的加入到社区
       you_are_already_member: 你已经是...社区的会员了，欢迎回来
-      you_must_log_in_to_create_new_listing: ~
+      you_must_log_in_to_create_new_listing: "必须登录%{service_name}才能创建新物品。如果你没有帐号，可以点击%{sign_up_link}注册。"
       additional_email_confirmed_dashboard: 你的邮箱现在已经被确认了
       you_must_log_in_to_give_feedback: 您必须登录以评价
       you_must_log_in_to_invite_new_users: 您必须登录以邀请新用户
@@ -1193,7 +1193,7 @@ zh:
       wrote: 写到
       send_private_message: "发送私人信息给%{person}"
     comment_form:
-      ask_a_question: ~
+      ask_a_question: 评论该物品或者询问更多细节。所有其他用户都能看到你的评论。
       log_in: 登录
       send_comment: 发送评论
       to_send_a_comment: 以发送新的评论
@@ -1284,7 +1284,7 @@ zh:
         request_type: 请求类型
         sell: 出售
         share_for_free: 免费共享
-        accept_for_free: ~
+        accept_for_free: 免费接受
         trade: 交易
       tag_list:
         comma_separate: （用逗号隔开）
@@ -1300,8 +1300,8 @@ zh:
         this_community: "仅限%{community} 用户"
         visibility: 公开度
       privacy:
-        privacy: ~
-        private: ~
+        privacy: 隐私
+        private: 私有的（只对登录用户可见）
         public: ~
     help_texts:
       help_share_type_title: 提议或者请求的类型
