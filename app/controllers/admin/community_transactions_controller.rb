@@ -27,11 +27,12 @@ class Admin::CommunityTransactionsController < ApplicationController
     conversations = conversations.map do |transaction|
       conversation = transaction[:conversation]
       # TODO Embed author and starter to the transaction entity
-      author = conversation[:other_person]
-      starter = conversation[:starter_person]
+      # author = conversation[:other_person]
+      author = Maybe(conversation[:other_person]).or_else({is_deleted: true})
+      starter = Maybe(conversation[:starter_person]).or_else({is_deleted: true})
 
       [author, starter].each { |p|
-        p[:url] = person_path(p[:username])
+        p[:url] = person_path(p[:username]) unless p[:username].nil?
         p[:display_name] = PersonViewUtils.person_entity_display_name(p, "fullname")
       }
 
