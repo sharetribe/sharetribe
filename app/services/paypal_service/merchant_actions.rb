@@ -214,8 +214,7 @@ module PaypalService
               payment_status: payment_info.payment_status,
               pending_reason: payment_info.pending_reason,
               order_id: payment_info.transaction_id,
-              order_total: to_money(payment_info.gross_amount),
-              receiver_id: payment_info.seller_details.secure_merchant_account_id
+              order_total: to_money(payment_info.gross_amount)
             })
         }
       ),

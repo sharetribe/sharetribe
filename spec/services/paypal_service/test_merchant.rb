@@ -220,8 +220,7 @@ module PaypalService
                   payment_status: payment[:payment_status],
                   pending_reason: payment[:pending_reason],
                   order_id: payment[:order_id],
-                  order_total: payment[:order_total],
-                  receiver_id: payment[:receiver_id]
+                  order_total: payment[:order_total]
                 })
             else
               PaypalService::DataTypes::FailureResponse.call()
