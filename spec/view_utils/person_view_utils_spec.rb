@@ -72,4 +72,15 @@ describe PersonViewUtils do
       is_deleted: false,
       deleted_user_text: "Deleted user")).to eql("johnd")
   end
+
+  it "#person_entity_display_name" do
+    expect(PersonViewUtils.person_entity_display_name(nil, "fullname"))
+      .to eql(I18n.translate("common.removed_user"))
+  end
+
+  it "#person_display_name" do
+    expect(PersonViewUtils.person_display_name(nil, Community.first))
+      .to eql(I18n.translate("common.removed_user"))
+  end
+
 end
