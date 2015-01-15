@@ -399,10 +399,6 @@ class Listing < ActiveRecord::Base
     price ? price.symbol : MoneyRails.default_currency.symbol
   end
 
-  def price_with_vat(vat)
-    price + (price * vat / 100)
-  end
-
   def answer_for(custom_field)
     custom_field_values.find { |value| value.custom_field_id == custom_field.id }
   end
