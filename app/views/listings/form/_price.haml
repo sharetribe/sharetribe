@@ -1,7 +1,7 @@
 .price-container
   - if @listing.transaction_type.price_field?
     = form.label :price, t(".price") + "*"
-    = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price_cents ? @listing.price_cents.to_f / 100.to_f : 0)
+    = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
     .currency-selector
       - if @current_community.available_currencies
         - currencies = @current_community.available_currencies.gsub(" ","").split(",")
