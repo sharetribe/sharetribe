@@ -92,14 +92,16 @@ class HomepageController < ApplicationController
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
     filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
 
-    filter_params[:price_cents] = if (params[:price_min] && params[:price_max])
-      min = params[:price_min].to_i * 100
-      max = params[:price_max].to_i * 100
+    filter_params[:price_cents] =
+      if (params[:price_min] && params[:price_max])
+        min = MoneyUtil.parse_str_to_money(params[:price_min], @current_community.default_currency).cents
+        max = MoneyUtil.parse_str_to_money(params[:price_max], @current_community.default_currency).cents
 
-      # Search only if range is not from min boundary to max boundary
-      if min != @current_community.price_filter_min || max != @current_community.price_filter_max
-        filter_params[:price_cents] = (min..max)
-      end
+        if ((@current_community.price_filter_min..@current_community.price_filter_max) != (min..max))
+          (min..max)
+        else
+          nil
+        end
     end
 
     p = HomepageController.numeric_filter_params(params)

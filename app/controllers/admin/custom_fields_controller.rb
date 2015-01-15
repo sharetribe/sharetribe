@@ -86,8 +86,8 @@ class Admin::CustomFieldsController < ApplicationController
 
   def update_price
     # To cents
-    params[:community][:price_filter_min] = (params[:community][:price_filter_min].to_i * 100) if params[:community][:price_filter_min]
-    params[:community][:price_filter_max] = (params[:community][:price_filter_max].to_i * 100) if params[:community][:price_filter_max]
+    params[:community][:price_filter_min] = MoneyUtil.parse_str_to_money(params[:community][:price_filter_min], @current_community.default_currency).cents if params[:community][:price_filter_min]
+    params[:community][:price_filter_max] = MoneyUtil.parse_str_to_money(params[:community][:price_filter_max], @current_community.default_currency).cents if params[:community][:price_filter_max]
 
     success = @current_community.update_attributes(params[:community])
 

@@ -27,4 +27,9 @@ module MoneyUtil
     [units, subs.rjust(2, "0")].join(".")
   end
 
+  # Get only full units. No rounding.
+  def to_units(m)
+    m.cents / m.currency.subunit_to_unit
+  end
+
 end
