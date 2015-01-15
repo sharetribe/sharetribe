@@ -56,7 +56,7 @@ Feature: User views a single listing
     And privacy of that listing is "private"
     And I am on the home page
     When I go to the listing page
-    Then I should see "You must log in to view this content"
+    Then I should see "You must sign in to view this content"
 
   @subdomain2
   Scenario: User tries to view a listing from another community
@@ -71,7 +71,7 @@ Feature: User views a single listing
     And privacy of that listing is "private"
     And I am on the home page
     When I go to the listing page
-    Then I should see "You must log in to view this content"
+    Then I should see "You must sign in to view this content"
 
   Scenario: User views listing created
     Given I am not logged in
