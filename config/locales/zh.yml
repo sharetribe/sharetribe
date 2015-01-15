@@ -463,7 +463,7 @@ zh:
       rideshare_offer_message_form_title: "想要搭%{person}的顺风车"
       rideshare_request_message_form_title: "向%{person}提供顺风车"
       send_message: 发送信息
-      send: ~
+      send: 发送
       this_message_is_private: "此消息为您和%{person}之间的悄悄话"
       you_will_get_notified_of_acceptance: "当%{person}接受或拒绝你的提议时，你将收到一封电子邮件通知。"
       you_will_get_notified: "当%{person}回复你时，你将收到一封电子邮件通知。"
@@ -472,9 +472,9 @@ zh:
       about_listing: ~
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      in_response_to_listing: 关于列表
+      message_sent_by: 消息发送方
+      message_sent_to: 消息发送到
       send_reply: 发送回复
       write_a_reply: 回复：
       conversation_about_listing: "与%{person}关于%{listing}"
@@ -681,28 +681,28 @@ zh:
       has_accepted_your_request: "%{accepter}已经接受了您关于 %{listing}的请求"
       has_rejected_your_offer: "%{accepter} 已经拒绝了您关于%{listing}的提议"
       has_rejected_your_request: "%{accepter} 已经拒绝了您关于%{listing}的请求"
-      view_thread: ~
+      view_thread: 查看对话
       your_offer_was_accepted: 您的提议已被接受
       your_offer_was_rejected: 您的提议被拒绝
       your_request_was_accepted: 您的请求已被接受
       your_request_was_rejected: 您的请求被拒绝
-      you_can_now_pay_to: ~
-      pay_now: ~
+      you_can_now_pay_to: "你现在可以支付要求的金额给%{payment_receiver}。"
+      pay_now: 现在支付
       remember_to_confirm: ~
     invitation_to_kassi:
       hi: 你好！
       you_have_been_invited_to_kassi: "%{inviter}邀请您使用%{service_name}"
       here_is_a_message_from: "这是一条来自%{inviter}的私人信息："
-      join_now: ~
-      invitation_code: ~
+      join_now: 现在加入
+      invitation_code: "邀请码：%{code}"
     new_comment:
       has_commented_your_listing_in_kassi: ~
-      view_comment: ~
+      view_comment: 查看评论
       you_have_a_new_comment: "%{author} 对您的留言发表了评论"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
-      view_message: ~
+      view_message: 查看消息
       has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 向您发送一条消息"
       you_have_a_new_message: 收到一条新消息
     new_payment:
@@ -725,11 +725,11 @@ zh:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}在%{service_name}给您了反馈"
       you_can_give_feedback_to: "您还没有给%{name}反馈"
-      view_feedback: ~
+      view_feedback: 查看反馈
     new_update_to_listing:
       listing_you_follow_has_been_updated: 以下列表已更新
       has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      view_changes: 查看变更
     community_updates:
       added_offer: "%{name_link}新增了一个列表："
       added_request: "%{name_link}新增了一个列表："
@@ -799,7 +799,7 @@ zh:
       departure_time: 出发时间必需是现在起一年之内。
       share_type: 您必须从中选择一项
       valid_until: 该日期必须在现在起6个月之内。
-      price: ~
+      price: 价格必须是整数。
       minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: 如果您希望给出非中性的评价，您必须解释原因。
@@ -997,7 +997,7 @@ zh:
     about:
       default_about_text_title: ~
       default_about_text: ~
-      click_here_link_text: ~
+      click_here_link_text: 点击这里
     how_to_use:
       default_title: ~
       default_content: ~
@@ -1069,7 +1069,7 @@ zh:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
+      something_went_wrong: 出错了
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，您需要确认您的Email地址。
@@ -1079,7 +1079,7 @@ zh:
       confirmation_link_is_wrong_or_used: 确认链接以被使用或失效。请尝试登录，如果问题依然存在请发送反馈。
       additional_email_confirmed: 你输入的邮箱已经确认。你可以再输入一次加入社区
       could_not_get_email_from_facebook: ~
-      create_new_listing: ~
+      create_new_listing: 创建另一个列表
       create_one_here: 在此创建
       email_confirmation_sent_to_new_address: 电子邮件确认信已经送往你的新地址。
       email_not_found: "无法在%{service_name}中找到您所提供的邮箱地址。"
@@ -1109,11 +1109,11 @@ zh:
       listing_created_successfully: ~
       offer_rejected: 提议被拒绝
       offer_canceled: ~
-      listing_updated_successfully: ~
+      listing_updated_successfully: 列表更新成功
       only_kassi_administrators_can_access_this_area: "只有%{service_name}管理员有权限进入此区域"
       only_listing_author_can_close_a_listing: 仅作者可以关闭列表
       only_listing_author_can_edit_a_listing: 仅作者可以编辑列表
-      payment_successful: ~
+      payment_successful: 付款成功
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
@@ -1134,10 +1134,10 @@ zh:
       reply_cannot_be_empty: 您不能发送空白信息
       reply_sent: 回复发送成功
       request_accepted: 您的请求已被接受
-      request_confirmed: ~
+      request_confirmed: 请求已完成。
       request_closed: 请求已关闭
       request_rejected: 请求已拒绝
-      request_canceled: ~
+      request_canceled: 请求已取消
       message_sent: 信息已发出
       this_content_is_not_available_in_this_community: 此内容在此社区中不可用
       unknown_error: 发生未知错误。请使用反馈链接向我们提供细节。
@@ -1202,11 +1202,11 @@ zh:
       you_must: 您必须
       subscribe_to_comments: 若有新评论或更新，通知我
     edit:
-      edit_listing: ~
+      edit_listing: 编辑列表
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: 关闭列表
+      edit_listing: 编辑列表
+      reopen_listing: 重新开放列表
       move_to_top: ~
       show_in_updates_email: ~
       show_in_updates_email_loading: ~
@@ -1258,11 +1258,11 @@ zh:
         location: 地点
       price:
         price: 价格
-        per: ~
+        per: 每
         per_day: 每天
-        mass: ~
-        time: ~
-        long_time: ~
+        mass: 件，公斤，升，平方米，……
+        time: 小时，天，月，……
+        long_time: 周，月，……
         after_service_fee_you_will_get: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
@@ -1270,7 +1270,7 @@ zh:
         location: 地点
         origin: 来源
       send_button:
-        save_listing: ~
+        save_listing: 保存列表
       share_type:
         select: 选择
         borrow: 借入
@@ -1355,14 +1355,14 @@ zh:
       selected_category: "类别：%{category}"
       selected_subcategory: "子类别：%{subcategory}"
       selected_transaction_type: ~
-      select_category: ~
+      select_category: 选择类别
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
     please_comment: 评论
     reply_link:
-      listing_closed: ~
+      listing_closed: 列表已关闭
     show:
       add_your_phone_number: 添加你的电话号码
       add_profile_picture: 添加个人资料图片
@@ -1378,7 +1378,7 @@ zh:
       no_image: ~
       no_reviews: ~
       offer: 供应
-      listing_created: ~
+      listing_created: 已创建
       open_until: "开放至%{date}"
       feedback: 反馈
       qr_code: QR码
@@ -1393,7 +1393,7 @@ zh:
       time: 时间
       times: 次数
       times_viewed: 已阅
-      processing_uploaded_image: ~
+      processing_uploaded_image: （正在处理上传图片……）
       price_excludes_vat: ~
       listing_created_at: ~
       price:
@@ -1440,9 +1440,9 @@ zh:
     member_id_or_email: 会员ID或者邮箱地址
   payments:
     new:
-      new_payment: ~
-      continue: ~
-      payment_receiver: ~
+      new_payment: 新的付款
+      continue: 继续
+      payment_receiver: 付款接收方：
       sum: ~
       commission_will_be_added: ~
     form:
