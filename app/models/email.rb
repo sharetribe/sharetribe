@@ -57,6 +57,7 @@ class Email < ActiveRecord::Base
   end
 
   def self.send_confirmation(email, host, community=nil)
-    PersonMailer.email_confirmation(email, host, community).deliver
+    #Omit deliver, as delayed_job takes care of that
+    PersonMailer.delay.email_confirmation(email, host, community)
   end
 end
