@@ -72,7 +72,7 @@ zh:
         small_community_cover_photo: ~
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
+        community_custom_color1: 主要颜色
         community_custom_color2: ~
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
@@ -93,7 +93,7 @@ zh:
         full_name: ~
         first_name_with_initial: ~
         first_name_only: ~
-        invalid_color_code: ~
+        invalid_color_code: 颜色代码需要包含6个数字或者字符A-F，比如D96E21
         custom_head_script: ~
         custom_head_script_instructions_text: ~
       edit_text_instructions:
@@ -288,7 +288,7 @@ zh:
         any_language: 任何语言
         send_email: 发送邮件
         message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        email_sent: 邮件已发送。
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
@@ -333,7 +333,7 @@ zh:
     password: 密码
     service_name: "%{service_name}"
     share_types:
-      request: ~
+      request: 请求
       offer: ~
       borrow: 借入
       buy: 购买
@@ -353,10 +353,10 @@ zh:
       rideshare: ~
       housing: ~
       tools: ~
-      sports: ~
-      music: ~
+      sports: 运动
+      music: 音乐
       books: 图书和杂志
-      games: ~
+      games: 游戏和玩具
       furniture: 家具
       outdoors: 露营和户外
       food: 食品
@@ -364,9 +364,9 @@ zh:
       pets: 宠物和动物
       film: 电影
       clothes: 服装和配饰
-      garden: ~
+      garden: 花园
       travel: 旅游
-      other: ~
+      other: 其他
     username: 用户名
     username_or_email: Email或用户名
     what_is_this: 这是什么？
@@ -375,14 +375,14 @@ zh:
     accept:
       respond_to_offer: ~
       respond_to_request: ~
-      accept_offer: ~
+      accept_offer: 接受提议
       accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      reject_offer: 这次不行。
+      reject_request: 这次不行。
       close_listing: ~
       update_later: ~
       optional_message: ~
-      price_to_pay: ~
+      price_to_pay: 需要支付的总价
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
@@ -395,16 +395,16 @@ zh:
       confirm_description: ~
       cancel_description: ~
       cancel_payed_description: ~
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
-      continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      canceling_payed_transaction: 取消事务
+      confirm: 标记为完成
+      cancel: 没有发生
+      continue: 继续
+      give_feedback_to: "反馈到%{person_link}"
+      do_not_give_feedback: 跳过反馈
     details:
       day: ~
       days: ~
-      price_per_day: ~
+      price_per_day: "每天：%{price}"
     index:
       loading_more_messages: 载入更多消息
       message_partitive: 消息
@@ -412,27 +412,27 @@ zh:
       no_received_messages: 没有新消息
       no_sent_messages: 没有已发送消息
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      accepted_request: 请求已接受。
+      accepted_offer: 提议已接受。
+      rejected_request: 请求已拒绝。
+      rejected_offer: 提议已拒绝。
+      confirmed_request: 请求已完成。
+      confirmed_offer: 提议已完成。
+      canceled_request: 请求已取消。
+      canceled_offer: 提议已取消。
       message_from: ~
       about_listing: ~
       free_message: ~
     message:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      accepted_request: 已接受请求
+      accepted_offer: 已接受提议
+      rejected_request: 已拒绝请求
+      rejected_offer: 已拒绝提议
+      confirmed_request: 标记请求为完成
+      confirmed_offer: 标记提议为完成
+      canceled_request: 已取消请求
+      canceled_offer: 已取消提议
+      paid: "支付了%{sum}"
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
@@ -448,14 +448,14 @@ zh:
       item_request_borrow_message_form_title: "将%{listing}出借%{person}"
       item_request_buy_message_form_title: "将%{listing}卖给%{person}"
       item_request_take_for_free_message_form_title: "将%{listing}给予%{person}"
-      item_request_trade_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
+      item_request_trade_message_form_title: "与%{person}交换%{listing}"
+      item_request_rent_message_form_title: "出租%{listing}给%{person}"
+      housing_offer_sell_message_form_title: "从%{person}购买%{listing}"
+      housing_offer_rent_out_message_form_title: "从%{person}租赁%{listing}"
+      housing_offer_share_for_free_message_form_title: "从%{person}请求%{listing}"
       housing_offer_accept_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
+      housing_request_buy_message_form_title: "将%{listing}卖给%{person}"
+      housing_request_rent_message_form_title: "出租%{listing}给%{person}"
       item_request_message_form_title: "向%{person}提供一个物品"
       message: 消息
       message_to: ~
@@ -465,8 +465,8 @@ zh:
       send_message: 发送信息
       send: ~
       this_message_is_private: "此消息为您和%{person}之间的悄悄话"
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      you_will_get_notified_of_acceptance: "当%{person}接受或拒绝你的提议时，你将收到一封电子邮件通知。"
+      you_will_get_notified: "当%{person}回复你时，你将收到一封电子邮件通知。"
       title: 名称
       send_message_to_user: 发送信息到
       about_listing: ~
@@ -489,20 +489,20 @@ zh:
       payment_errored: ~
       payment_errored_starter: ~
       payment_errored_author: ~
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: 取消
       feedback_given: 已发送反馈
       feedback_skipped: 跳过的反馈
       give_feedback: 发送反馈
       offer_accepted: 已接受的
       offer_rejected: 已拒绝的
-      offer_canceled: ~
-      offer_confirmed: ~
+      offer_canceled: 已取消
+      offer_confirmed: 已完成
       offer_paid: ~
       offer_preauthorized: ~
       offer_waiting_for_payment: ~
-      pay: ~
+      pay: 支付
       preauthorized: ~
-      paid: ~
+      paid: 付款成功
       pending_external:
         paypal:
           multicurrency: ~
@@ -512,17 +512,17 @@ zh:
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: 已接受的
       request_rejected: 已拒绝的
-      request_confirmed: ~
-      request_canceled: ~
+      request_confirmed: 已完成
+      request_canceled: 已取消
       request_paid: ~
       request_preauthorized: ~
       skip_feedback: 跳过反馈
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_offer: "正在等待%{listing_author_name}接受提议"
+      waiting_for_listing_author_to_accept_request: "正在等待%{listing_author_name}接受请求"
       waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_requester: "正在等待%{requester_name}标记请求为已完成"
       waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
+      waiting_payment_from_requester: "正在等待%{requester_name}支付"
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
       pending_external_inbox:
@@ -540,8 +540,8 @@ zh:
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
       reject_preauthorized_request: ~
-      confirm: ~
-      cancel: ~
+      confirm: 标记为已完成
+      cancel: 没有发生
   braintree_accounts:
     new:
       add_payout_details: ~
@@ -609,33 +609,33 @@ zh:
       you_can_accept_or_reject_request_at: 您可以在此接受或拒绝请求
       you_have_not_yet_accepted_or_rejected_offer: "您尚未接受或拒绝您在%{date}收到的提议'%{title}'"
       you_have_not_yet_accepted_or_rejected_request: "您尚未接受或拒绝您在%{date}收到的请求'%{title}'"
-      show_thread: ~
+      show_thread: 显示对话
     braintree_account_approved:
       account_ready: ~
       message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
-      remember_to_confirm_request: ~
+      remember_to_confirm_request: 记得确认或取消请求
       if_will_not_happen_you_should_cancel: ~
       if_will_not_happen_you_should_cancel_escrow: ~
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
-      cancel_it_link_text: ~
+      cancel_it_link_text: 取消它
       automatic_confirmation: ~
     payment_reminder:
-      remember_to_pay: ~
+      remember_to_pay: "记得支付%{listing_title}"
       you_have_not_yet_paid: ~
       if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
+      cancel_it_link_text: 取消它
     payment_settings_reminder:
       remember_to_add_payment_details: ~
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
       payment_settings_link: ~
     transaction_confirmed:
-      here_is_a_message_from: ~
+      here_is_a_message_from: "这里有一条%{other_party_given_name}发送的消息："
       request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
+      request_marked_as_canceled: 请求已取消
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
@@ -672,8 +672,8 @@ zh:
       edit_your_email_settings_here: 编辑你的邮箱设定
       message_not_displaying_correctly: 邮件显示正确吗？
       view_it_in_your_browser: 在你的浏览器中查看
-      or: ~
-      unsubscribe_from_these_emails: ~
+      or: 或者
+      unsubscribe_from_these_emails: 退订这些邮件
     community_starter_email:
       subject: ~
     conversation_status_changed:
@@ -738,7 +738,7 @@ zh:
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      post_a_new_listing: 提交了一个新的列表！
+      post_a_new_listing: 提交了一个新的物品！
       reduce_email_footer_text: "太多邮件？%{settings_link}或者%{unsubscribe_link}"
       settings_link_text: 在这里编辑你的邮箱设定
       unsubscribe_link_text: 取消订阅
@@ -931,7 +931,7 @@ zh:
       processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
+      no_listings_notification: "没有列表。%{add_listing_link}"
       add_listing_link_text: ~
       open_listing: ~
       open_listings: ~
@@ -965,7 +965,7 @@ zh:
       message: 一条私人消息：
       send_invitation: 发送邀请
       add_as_many_emails_as_you_want: ~
-      invitation_emails_field_placeholder: ~
+      invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: ~
       errors_in_emails: ~
     list_item:
@@ -1257,9 +1257,9 @@ zh:
       location:
         location: 地点
       price:
-        price: ~
+        price: 价格
         per: ~
-        per_day: ~
+        per_day: 每天
         mass: ~
         time: ~
         long_time: ~
@@ -1290,7 +1290,7 @@ zh:
         comma_separate: （用逗号隔开）
         tags: 标签
       title:
-        listing_title: ~
+        listing_title: 标题
       valid_until:
         valid_until: 截止日期
       valid_until_radio_buttons:
@@ -1350,7 +1350,7 @@ zh:
       booking_to: ~
       how_paypal_works: ~
     new:
-      post_a_new_listing: ~
+      post_a_new_listing: 发布一个新的物品
       listing: 物品
       selected_category: "类别：%{category}"
       selected_subcategory: "子类别：%{subcategory}"
@@ -1398,7 +1398,7 @@ zh:
       listing_created_at: ~
       price:
         per_quantity_unit: ~
-        per_day: ~
+        per_day: 每天
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1410,7 +1410,7 @@ zh:
       you_will_be_charged: ~
       day: ~
       days: ~
-      price_per_day: ~
+      price_per_day: "每天：%{price}"
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1503,7 +1503,7 @@ zh:
       wanna_see_more_folks: ~
       invite_people_you_know: 邀请你认识的人！
       there_are_x_members: ~
-      to_see_the_list_log_in: ~
+      to_see_the_list_log_in: "查看列表的所有会员，你需要登录%{log_in_link}。"
       log_in_link: 登录
     edit_links:
       activate: 激活
@@ -1573,7 +1573,7 @@ zh:
       as_expected: 符合期望
       edit_profile_info: 编辑您的资料
       exceeded_expectations: 超过预期
-      positive: ~
+      positive: 正面的
       hide_description: 显示更少
       less_than_expected: 比期望的差
       phone_number: 电话号码：
@@ -1594,7 +1594,7 @@ zh:
       no_reviews: 没有评论
       show_all_listings: ~
       show_all_open_listings: ~
-      show_all_reviews: ~
+      show_all_reviews: 显示所有评论
       trustcloud: ~
     followed_people:
       you_follow_plural: ~

@@ -341,10 +341,10 @@ ja:
     fields_that_are_mandatory: 「*」がある項目は、入力必須です。
     or: あるいは
     password: パスワード
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
-      request: ~
-      offer: ~
+      request: リクエスト
+      offer: オファー
       borrow: 無料で借ります
       buy: 買います
       give_away: 「ご自由にどうぞ」
@@ -362,36 +362,36 @@ ja:
       favor: サービスしてください
       rideshare: ライドシェア
       housing: スペース提供します
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
+      tools: ツール
+      sports: スポーツ
+      music: 音楽
+      books: 本＆雑誌
+      games: ゲーム＆おもちゃ
+      furniture: 家具
+      outdoors: キャンプ＆アウトドア
+      food: 食品＆キッチン
+      electronics: 小型家電
+      pets: ペット＆動物
+      film: 映画
+      clothes: 服＆アクセサリー
+      garden: ガーデニング
+      travel: 旅行
+      other: その他
     username: ユーザ名
     username_or_email: "メールアドレス or ユーザ名"
     what_is_this: これは何ですか。
     removed_user: ~
   conversations:
     accept:
-      respond_to_offer: ~
-      respond_to_request: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
+      respond_to_offer: オファーに返事をする
+      respond_to_request: リクエストに返事をする
+      accept_offer: オファーを受け入れる
+      accept_request: リクエストを受け入れる
+      reject_offer: 今回はやめる
+      reject_request: 今回はやめる
+      close_listing: "%{listing_title_link}をクローズします"
       update_later: このリストを再開する
-      optional_message: ~
+      optional_message: 追加メッセージ
       price_to_pay: 支払われる合計金額
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
@@ -406,14 +406,14 @@ ja:
       cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
       cancel_payed_description: ~
       canceling_payed_transaction: 課金キャンセル
-      confirm: ~
-      cancel: ~
-      continue: ~
+      confirm: マーク完了
+      cancel: 何も起きませんでした
+      continue: 続ける
       give_feedback_to: "%{person_link}さんにレビューを書く"
       do_not_give_feedback: レビューを書くのをスキップする
     details:
       day: ~
-      days: ~
+      days: 日
       price_per_day: "1日あたり： %{price}"
     index:
       loading_more_messages: メッセージをロードしています
@@ -422,14 +422,14 @@ ja:
       no_received_messages: メッセージなし
       no_sent_messages: メッセージを送信しませんでした
     conversation:
-      accepted_request: ~
+      accepted_request: リクエストは受諾されました。
       accepted_offer: ~
       rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      rejected_offer: オファーは却下されました。
+      confirmed_request: リクエストは完了しました。
+      confirmed_offer: オファーは完了しました。
+      canceled_request: リクエストはキャンセルされました。
+      canceled_offer: オファーはキャンセルされました。
       message_from: ~
       about_listing: ~
       free_message: ~
@@ -601,7 +601,7 @@ ja:
       you_are_banned_in_this_community: ~
       contact_page_link: お問い合わせする
     new:
-      welcome_fb_user: ~
+      welcome_fb_user: "%{service_name}へようこそ、%{name}さん！"
       fb_join_accept_terms: ~
       join_community: "%{service_name}に参加する"
       you_can_join: "%{service_name}のご利用規約に同意し、下の「%{service_name}に参加する」をクリックすると参加できます。"
@@ -682,8 +682,8 @@ ja:
       edit_your_email_settings_here: ここからメール設定を編集
       message_not_displaying_correctly: このメールアドレスは正しく表示されていませんか。
       view_it_in_your_browser: あなたのブラウザで表示する
-      or: ~
-      unsubscribe_from_these_emails: ~
+      or: それとも
+      unsubscribe_from_these_emails: これらのメールを購読解除する
     community_starter_email:
       subject: ~
     conversation_status_changed:
@@ -779,7 +779,7 @@ ja:
       welcome_to_marketplace: "%{service_name}へようこそ！よくお越しくださいました。"
       love_marketplace_crew: "それではまた、<br /><i>%{service_name}チーム"
       p_s_did_you_know: "PS. %{service_name}のようなサイトをあなた自身で作成してみたいですか。簡単でプログラムのスキルは必要ありません。%{click_here_link} こちらより詳細をご確認ください。"
-      click_here_link_text: ~
+      click_here_link_text: こちらをクリックしてください
       welcome_email_footer_text: ~
       settings_link_text: 設定を確認する
       welcome_email_subject_for_marketplace_creator: ~
@@ -941,10 +941,10 @@ ja:
       processing_uploaded_image: （画像をアップロード中です...）
     index:
       no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
+      no_listings_notification: "リストがありません。%{add_listing_link}。"
       add_listing_link_text: ~
-      open_listing: ~
-      open_listings: ~
+      open_listing: 公開リスト
+      open_listings: 公開リスト
       private_listing_notification_log_in: ログイン
       is: は
       are: です
@@ -970,7 +970,7 @@ ja:
       this_is_private_community: コンテンツ閲覧には登録の必要があります。
     invitation_form:
       invite_your_friends: "%{service_name}にお友達を招待する！"
-      invite_your_neighbors: ~
+      invite_your_neighbors: "%{service_name}にご近所さんを招待する！"
       email: メールアドレス
       message: パーソナル･メッセージを書いて下さい
       send_invitation: 招待状を送る
@@ -1032,9 +1032,9 @@ ja:
       your_email_address: （連絡可能な）あなたのメールアドレス
       connect: 新規登録
       invite_your_friends: 友達を招待する！
-      invite_your_neighbors: ~
+      invite_your_neighbors: ご近所さんを招待する！
       invite_your_friends_description: "%{service_name}にもっと人が集まれば、もっと便利になります。"
-      invite_your_friends_invite_only_description: ~
+      invite_your_friends_invite_only_description: "%{service_name}に招待されない限り、参加できません。"
       join_without_facebook: "or 代わりに %{join_without_facebook_link}"
       join_without_facebook_link: フェイスブックなしで登録する
     conversations:
@@ -1200,7 +1200,7 @@ ja:
     bubble_listing_not_visible:
       listing_not_visible: あなたはこのリストを閲覧する権限がありません。
     comment:
-      wrote: ~
+      wrote: 書き込む
       send_private_message: "%{person}さんにプライベートメッセージを送信する"
     comment_form:
       ask_a_question: このリストについてのコメントや、更なる詳細について情報がほしい場合に書きこみが出来ます。すべてのユーザが、あなたのコメントを閲覧出来ることになります。
@@ -1401,7 +1401,7 @@ ja:
       share_types_request: リクエストの種類
       tags: タグ
       time: 回
-      times: ~
+      times: 回
       times_viewed: 表示
       processing_uploaded_image: （画像をアップロード中です...）
       price_excludes_vat: （外税）
@@ -1506,9 +1506,9 @@ ja:
       commission_payment_description: ~
   people:
     index:
-      loading_more_members: ~
-      meet_the_people: ~
-      you_are_the_only_member: ~
+      loading_more_members: メンバーを読み込んでいます
+      meet_the_people: 人に合います
+      you_are_the_only_member: "あなたは%{service_name}の唯一のメンバーです。"
       here_are_the_members: ~
       wanna_see_more_folks: ~
       invite_people_you_know: ~
@@ -1850,7 +1850,7 @@ ja:
     year_ago: "%{count}年前"
     years_ago: "%{count}年前"
     days_since:
-      other: "日%{count}"
+      other: "%{count}日"
   unit:
     day: ~
     days: 日
