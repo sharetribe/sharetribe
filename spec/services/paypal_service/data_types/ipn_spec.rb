@@ -3,6 +3,28 @@ require 'spec_helper'
 describe PaypalService::DataTypes::IPN do
 
   # sample request params hashes
+  billing_agreement_created = {
+    "txn_type" => "mp_signup",
+    "last_name" => "tester",
+    "mp_currency" => "USD",
+    "residence_country" => "US",
+    "mp_status" => "0",
+    "mp_custom" => "",
+    "mp_pay_type" => "X",
+    "verify_sign" => "A.qaosenuthas.Nr4gxUyaosentuh-Lt9dlbeOVRRb5q3d4dJq3mX9",
+    "payer_status" => "unverified",
+    "payer_email" => "payer@example.com",
+    "first_name" => "N",
+    "payer_id" => "TVA34ASTESE",
+    "reason_code" => "mp_2001",
+    "payer_business_name" => "Payer Tester",
+    "mp_id" => "B-EUSNTOHEUSH34",
+    "charset" => "windows-1252",
+    "notify_version" => "3.8",
+    "mp_desc" => "Grant Test.com permission to charge a transaction fee.",
+    "mp_cycle_start" => "14",
+    "ipn_track_id" => "e388c4ss1491",
+  }
 
   order_created = {
     "txn_type"=> "express_checkout",
@@ -492,6 +514,7 @@ describe PaypalService::DataTypes::IPN do
 
   it "#from_params" do
     input_with_expected_type = [
+      [billing_agreement_created, :billing_agreement_created],
       [payment_refunded, :payment_refunded],
       [order_created, :order_created],
       [auth_created, :authorization_created],
