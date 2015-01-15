@@ -11,7 +11,7 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :subject
   end
 
   def perform
-    current_community = Community.find(community_id)
+    current_community = Community.where(id: community_id).first
 
     current_community.members.find_in_batches(batch_size: 1000) do |member_group|
       Delayed::Job.transaction do

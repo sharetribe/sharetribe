@@ -11,9 +11,9 @@ class CommunityMemberEmailSentJob < Struct.new(:sender_id, :recipient_id, :commu
   end
 
   def perform
-    sender = Person.find(sender_id)
-    recipient = Person.find(recipient_id)
-    community = Community.find(community_id)
+    sender = Person.where(id: sender_id).first
+    recipient = Person.where(id: recipient_id).first
+    community = Community.where(id: community_id).first
     PersonMailer.community_member_email_from_admin(sender, recipient, community, subject, content, locale)
   end
 
