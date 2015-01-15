@@ -56,7 +56,7 @@ Feature: User gives feedback from transaction
   @javascript
   Scenario: Try to give feedback without logging in
     When I go to the give feedback path of "kassi_testperson1"
-    Then I should see "You must log in to give feedback" within ".flash-notifications"
+    Then I should see "You must sign in to give feedback" within ".flash-notifications"
 
   @javascript
   Scenario: Try to give feedback on somebody else's transaction

@@ -46,7 +46,7 @@ Feature: User creates a new listing
     Given I am not logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I should see "Log in to Sharetribe" within "h1"
+    And I should see "Sign in to Sharetribe" within "h1"
 
   @javascript
   @skip_phantomjs

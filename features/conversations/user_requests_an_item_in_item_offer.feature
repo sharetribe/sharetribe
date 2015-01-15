@@ -71,8 +71,8 @@ Feature: User requests an item in item offer
     And I am on the homepage
     When I follow "Hammer"
     And I press "Borrow this item"
-    Then I should see "You must log in to Sharetribe to send a message to another user." within ".flash-notifications"
-    And I should see "Log in to Sharetribe" within "h1"
+    Then I should see "You must sign in to Sharetribe to send a message to another user." within ".flash-notifications"
+    And I should see "Sign in to Sharetribe" within "h1"
     When I log in as "kassi_testperson2"
 
   @javascript
@@ -85,8 +85,8 @@ Feature: User requests an item in item offer
     And I am on the homepage
     When I follow "Hammer"
     And I press "Borrow this item"
-    Then I should see "You must log in to Sharetribe to send a message to another user." within ".flash-notifications"
-    And I should see "Log in to Sharetribe" within "h1"
+    Then I should see "You must sign in to Sharetribe to send a message to another user." within ".flash-notifications"
+    And I should see "Sign in to Sharetribe" within "h1"
     When I log in as "kassi_testperson1"
     Then I should see "You cannot send a message to yourself" within ".flash-notifications"
     And I should see "Hammer"
