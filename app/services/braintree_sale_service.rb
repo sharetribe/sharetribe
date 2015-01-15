@@ -5,12 +5,14 @@
 #
 class BraintreeSaleService
   def initialize(payment, payment_params)
+    subunit_to_unit = Money::Currency.new(payment.currency).subunit_to_unit
+
     @payment = payment
     @community = payment.community
     @payer = payment.payer
     @recipient = payment.recipient
-    @amount = payment.sum_cents.to_f / 100  # Braintree want's whole dollars
-    @service_fee = payment.total_commission.cents.to_f / 100
+    @amount = payment.sum_cents.to_f / subunit_to_unit  # Braintree want's whole dollars
+    @service_fee = payment.total_commission.cents.to_f / subunit_to_unit
     @params = payment_params || {}
   end
 
