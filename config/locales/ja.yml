@@ -32,6 +32,8 @@ ja:
           other: "%{count}個のリストが、そのカテゴリーにあります。選択れたカスタム項目の方へ移動します。"
         warning_custom_field_will_be_moved:
           other: "%{count}個のカスタム項目が、そのカテゴリーとサブカテゴリにあります。選択れたカスタム項目の方へ移動します。"
+        warning_subcategory_will_be_removed:
+          other: "%{count}個のサブカテゴリが、カテゴリにあります。それらは削除されます。"
         warning_with_subcategories_listing_will_be_moved:
           other: "%{count}個のリストが、そのカテゴリーとサブカテゴリにあります。選択れたカテゴリの方へ移動します。"
         warning_with_subcategories_custom_field_will_be_moved:
@@ -40,8 +42,6 @@ ja:
         buttons:
           remove: 削除する
           cancel: キャンセル
-        warning_subcategory_will_be_removed:
-          other: "%{count}個のサブカテゴリが、カテゴリにあります。それらは削除されます。"
     communities:
       edit_details:
         community_details: 基本情報
@@ -187,7 +187,7 @@ ja:
         social_media: ソーシャルメディア
         twitter_handle: Twitterのハンドル
         twitter_handle_info_text: あなたのマーケットプレイスのTwitterのユーザー名（お持ちであれば）。リストページのツイートボタンを使うときに言及されます。
-        twitter_handle_placeholder: twitterのユーザー名
+        twitter_handle_placeholder: Twitterのユーザー名
         invalid_twitter_handle: ~
         facebook_connect: フェイスブック
         facebook_connect_info_text: ~
@@ -1538,6 +1538,8 @@ ja:
       email_is_in_use: そのメールアドレスはすでに使用されています。
       email_is_in_use_or_not_allowed: このメールアドレスは有効でないか、既に使用されています。もし理由不明の場合はお問い合わせください。
       email_not_allowed: "このメールアドレスは%{service_name}での使用を認められていません。他のメールアドレを使用してください。もしまだ入れないようでしたら、サイト管理者にお問い合わせください。"
+      email_restriction_instructions:
+        other: "%{service_name}へのアクセスが制限されました。参加しなおすには、ご登録時のメールアドレスが必要です。"
       enter_captcha: 私は人間です。
       family_name: 姓
       given_name: 名
@@ -1557,8 +1559,6 @@ ja:
       create_account_with_facebook: フェイスブックで登録する
       OR: ~
       signup_with_email: メールアドレスで新規登録する
-      email_restriction_instructions:
-        other: "%{service_name}へのアクセスが制限されました。参加しなおすには、ご登録時のメールアドレスが必要です。"
     not_member:
       explanation_text: "現在あなたは%{community}を閲覧中です。他のSharetribeのプラットフォームで制作されたマーケットプレイスのユーザのプロフィールを閲覧を試みました。%{community}内のこのユーザへのアクセスは出来ません。"
       read_more_about_kassi_communities: Sharetribeマーケットプレイスについてもっと読む
@@ -1855,12 +1855,12 @@ ja:
     day: ~
     days: 日
   will_paginate:
+    models:
+      listing_conversation:
+        other: 課金処理
     previous_label: ~
     next_label: ~
     page_gap: ~
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
-    models:
-      listing_conversation:
-        other: 課金処理

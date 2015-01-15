@@ -28,25 +28,25 @@ pt-BR:
         remove_category: "Remover categoria"
         remove_category_name: "Suprimir a categoria"
         warning_remove_effects: "Aviso! Removendo a categoria '%{category_name}' terá os seguintes efeitos:"
+        warning_listing_will_be_moved:
+          one: "Há %{count} anúncio na categoria. Ele será movido para a categoria selecionada."
+          other: "Há %{count} anúncios na categoria. Eles serão movidos para a categoria selecionada."
         warning_custom_field_will_be_moved:
           one: "Há %{count} campo personalizado na categoria. Ele será transferido para a categoria selecionada."
           other: "Há %{count} campos personalizados na categoria. Eles serão transferidos para a categoria selecionada."
         warning_subcategory_will_be_removed:
           one: "Há %{count} subcategoria na categoria. Ela será removida."
           other: "Há %{count} subcategorias na categoria. Elas serão removidas."
-        select_new_category: "Selecione uma nova categoria onde os itens listados acima serão movidos:"
-        buttons:
-          remove: Apagar
-          cancel: Anular
-        warning_listing_will_be_moved:
-          one: "Há %{count} anúncio na categoria. Ele será movido para a categoria selecionada."
-          other: "Há %{count} anúncios na categoria. Eles serão movidos para a categoria selecionada."
         warning_with_subcategories_listing_will_be_moved:
           one: "Há %{count} anúncio na categoria e subcategorias. Ele será movido para a categoria selecionada."
           other: "Há %{count} anúncios na categoria e subcategorias. Eles serão movidos para a categoria selecionada."
         warning_with_subcategories_custom_field_will_be_moved:
           one: "Há %{count} campo personalizado na categoria e subcategorias. Ele será movido para a categoria selecionada."
           other: "Há %{count} campos personalizados na categoria e subcategorias. Eles serão movidos para a categoria selecionada."
+        select_new_category: "Selecione uma nova categoria onde os itens listados acima serão movidos:"
+        buttons:
+          remove: Apagar
+          cancel: Anular
     communities:
       edit_details:
         community_details: "Detalhes da comunidade"

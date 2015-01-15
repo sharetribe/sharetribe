@@ -784,7 +784,7 @@ es-ES:
       one_day_left: ~
       click_here_to_reply: ~
     welcome_email:
-      welcome_email_subject: ~
+      welcome_email_subject: "Ya formas parte de %{service_name}"
       welcome_to_marketplace: "¡Bienvenido a %{service_name}! Nos encanta que estés con nosotros."
       love_marketplace_crew: "Un saludo del equipo de <br /><i>%{service_name} </i>"
       p_s_did_you_know: "P.D. ¿Sabías que puedes crear un mercado como este para cualquier comunidad a la que perteneces, completamente gratis? %{click_here_link} para saber más!"
@@ -905,7 +905,7 @@ es-ES:
     contact_us: Contáctanos
     profile: Perfil
     invite: "Invitar a nuevos miembros"
-    login: Conectarse
+    login: "Iniciar sesión"
     signup: Registrarse
     menu: Menú
   homepage:
@@ -1116,7 +1116,7 @@ es-ES:
       account_creation_successful: "Bienvenido a %{service_name}, %{person_name}!"
       account_deleted: "Tu cuenta ha sido eliminada."
       login_successful: "Bienvenido a %{service_name}, "
-      logout_successful: "Ahora ya estás registrado en %{service_name}. Bienvenido nuevamente!"
+      logout_successful: "Gracias por utilizar %{service_name}. Hasta pronto."
       news_item_created: "Artículo creado"
       news_item_creation_failed: "Error en el artículo creado"
       news_item_update_failed: "Error en la actualización del artículo"
@@ -1125,7 +1125,7 @@ es-ES:
       offer_accepted: "Oferta aceptada"
       offer_confirmed: ~
       offer_closed: "Oferta cerrada"
-      listing_created_successfully: "Anuncio creado con éxito. %{new_listing_link}"
+      listing_created_successfully: "Anuncio publicado con éxito. %{new_listing_link}"
       offer_rejected: "Oferta rechazada"
       offer_canceled: ~
       listing_updated_successfully: "Anuncio actualizado"
@@ -1171,7 +1171,7 @@ es-ES:
       you_followed_listing: "Ahora estás siguiendo este anuncio"
       you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
       you_are_now_member: ~
-      you_are_already_member: "Ya eres miembro de esta %{service_name} comunidad. Bienvenido otra vez!"
+      you_are_already_member: "Ya eres miembro de la comunidad de %{service_name} . Bienvenido otra vez!"
       you_must_log_in_to_create_new_listing: "Tienes que iniciar sesión en %{service_name} para crear un nuevo anuncio. Si no tienes una cuenta, puedes crear una gratis %{sign_up_link}."
       additional_email_confirmed_dashboard: "Tu e-mail ahora está confirmado."
       you_must_log_in_to_give_feedback: "Debe iniciar su sesión para dar una sugerencia"
@@ -1286,7 +1286,7 @@ es-ES:
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "El precio no incluye IVA."
       origin:
-        location: Lugar
+        location: "Dirección (Calle, Código postal, Ciudad...)"
         origin: Origen
       send_button:
         save_listing: "Guardar anuncio"
@@ -1582,8 +1582,8 @@ es-ES:
       slightly_better_than_expected: "Un poco mejor de lo esperado"
       slightly_less_than_expected: "Un poco peor de lo esperado"
     profile_listings:
-      show_also_closed: "Mostrar como cerrada"
-      show_only_open: "Mostrar como abierta"
+      show_also_closed: "Mostrar anuncios desactivados"
+      show_only_open: "Mostrar anuncios activados"
       no_image: "Sin imagen"
     show:
       contact: "Contactar a %{person}"
@@ -1646,15 +1646,15 @@ es-ES:
       login: "Iniciar sesión"
       login_to_kassi: "Iniciar sesión en %{service_name}"
       connect_your_facebook_to_kassi: "Conecta tu cuenta de Facebook a %{service_name}"
-      facebook_account: "Cuenta de Facebook:"
+      facebook_account: "Cuenta de Facebook"
       log_in_to_link_account: "Si ya tienes una cuenta en %{service_name}, inicia sesión para vincularla con tu cuenta de Facebook."
-      you_can_also_create_new_account: ~
+      you_can_also_create_new_account: "Si no tienes una cuenta en %{service_name}, todavía. Crea una con tu cuenta de Facebook %{accont_creation_link} ."
       account_creation_link_text: "haz clic aquí"
       cancle_facebook_connect: "Si no quieres vincular esta cuenta, puedes %{cancel_link}."
       facebook_cancel_link_text: cancelar
-      log_in_with_your_facebook_account: ~
+      log_in_with_your_facebook_account: "Inicia sesión con Facebook"
       or_sign_up_with_your_username: ~
-      we_will_not_post_without_asking_you: "Nunca postearemos en Facebook sin preguntarte."
+      we_will_not_post_without_asking_you: "Nunca publicaremos en Facebook sin preguntarte."
     password_forgotten:
       email: Email
       password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."
@@ -1667,7 +1667,7 @@ es-ES:
       your_current_email_is: "Tu e-mail es %{email}."
       change_email: Cambiar
       confirm_your_email: "Confirma tu e-mail"
-      account_confirmation_instructions: ~
+      account_confirmation_instructions: "Pronto recibirás un e-mail con un link en el cual deberás hacer clic para validar tu cuenta y activarla. Una vez lo hayas hecho, podrás comenzar a usar %{service_name}."
       account_confirmation_instructions_title_admin: "¡Bienvenido a tu marketplace!"
       your_marketplace_has_now_been_created: "Tu marketplace ha sido creado. ¿Ha sido fácil, verdad? Sólo hay un paso más antes de que puedas entrar a tu sitio web: Debes confirmar tu dirección de email."
       account_confirmation_instructions_admin: "En breve recibirás un email con un enlace en el que que deberás hacer clic para  confirmar la dirección de email que has usado para registrarte."
@@ -1702,7 +1702,7 @@ es-ES:
         status_confirmed: Confirmado
         status_pending: Pendiente
     notifications:
-      email_from_admins: ~
+      email_from_admins: "Quiero recibir actualizaciones del administrador de forma ocasional."
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
       newsletters: Boletines
       community_updates: "Actualizaciones de la comunidad"
@@ -1760,7 +1760,7 @@ es-ES:
       terms: "Términos de uso de %{service_name}"
       terms_have_changed: "Los términos de uso han cambiado"
       you_can_view_the_new_terms: "Puedes ver los nuevos términos"
-      you_need_to_accept: "Bienvenido a %{service_name}! Al parecer esta es la primera vez que utilizas el servicio. Antes de comenzar primero debes aceptar los"
+      you_need_to_accept: "Bienvenido a %{service_name}! Al parecer es la primera vez que utilizas el servicio. Antes de comenzar primero debes aceptar los"
       you_need_to_accept_new_terms: "Los términos de uso de %{service_name} han cambiado. Es necesario que aceptes los nuevos términos para poder continuar utilizando %{service_name}."
   testimonials:
     index:
