@@ -860,7 +860,8 @@ module ApplicationHelper
   end
 
   def sum_with_currency(sum, currency)
-    humanized_money_with_symbol(Money.new(sum*100, (currency || "EUR")))
+    curr = Money::Currency.new(currency || "EUR")
+    humanized_money_with_symbol(Money.new(sum * curr.subunit_to_unit, (currency || "EUR")))
   end
 
   def sort_link_direction(column)

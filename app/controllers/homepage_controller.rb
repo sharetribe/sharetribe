@@ -92,15 +92,7 @@ class HomepageController < ApplicationController
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
     filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
 
-    filter_params[:price_cents] = if (params[:price_min] && params[:price_max])
-      min = params[:price_min].to_i * 100
-      max = params[:price_max].to_i * 100
-
-      # Search only if range is not from min boundary to max boundary
-      if min != @current_community.price_filter_min || max != @current_community.price_filter_max
-        filter_params[:price_cents] = (min..max)
-      end
-    end
+    filter_params[:price_cents] = filter_range(params[:price_min], params[:price_max])
 
     p = HomepageController.numeric_filter_params(params)
     p = HomepageController.parse_numeric_filter_params(p)
@@ -117,6 +109,19 @@ class HomepageController < ApplicationController
       Listing.none.paginate(:per_page => listings_per_page, :page => params[:page])
     else
       Listing.find_with(filter_params, @current_user, @current_community, listings_per_page, params[:page])
+    end
+  end
+
+  def filter_range(price_min, price_max)
+    if (price_min && price_max)
+      min = MoneyUtil.parse_str_to_money(price_min, @current_community.default_currency).cents
+      max = MoneyUtil.parse_str_to_money(price_max, @current_community.default_currency).cents
+
+      if ((@current_community.price_filter_min..@current_community.price_filter_max) != (min..max))
+        (min..max)
+      else
+        nil
+      end
     end
   end
 
