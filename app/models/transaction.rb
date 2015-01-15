@@ -101,8 +101,7 @@ class Transaction < ActiveRecord::Base
   end
 
   def initialize_braintree_payment!(payment, sum, currency)
-    sum_in_cents = sum.to_f*100
-    payment.sum = Money.new(sum_in_cents, currency)
+    payment.sum = MoneyUtil.parse_str_to_money(sum.to_s, currency)
   end
 
   def initialize_checkout_payment!(payment, rows)
