@@ -5,6 +5,13 @@ module PaypalService
   module DataTypes
 
     module IPN
+      BillingAgreementCreated = EntityUtils.define_builder(
+        [:type, const_value: :billing_agreement_created],
+        [:billing_agreement_id, :string, :mandatory],
+        [:payer_id, :string, :mandatory],
+        [:payer_email, :string],
+      )
+
       OrderCreated = EntityUtils.define_builder(
         [:type, const_value: :order_created],
         [:order_date, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
@@ -136,6 +143,7 @@ module PaypalService
       def create_payment_completed(opts); PaymentCompleted.call(opts) end
       def create_payment_refunded(opts); PaymentRefunded.call(opts) end
       def create_billing_agreement_cancelled(opts); BillingAgreementCancelled.call(opts) end
+      def create_billing_agreement_created(opts); BillingAgreementCreated.call(opts) end
       def create_payment_pending_ext(opts); PaymentPendingExt.call(opts) end
       def create_payment_voided(opts); PaymentVoided.call(opts) end
       def create_payment_denied(opts); PaymentDenied.call(opts) end
@@ -158,6 +166,8 @@ module PaypalService
           to_payment_refunded(p)
         when :billing_agreement_cancelled
           to_billing_agreement_cancelled(p)
+        when :billing_agreement_created
+          to_billing_agreement_created(p)
         when :payment_pending_ext
           to_payment_pending_ext(p)
         when :payment_voided
@@ -178,6 +188,8 @@ module PaypalService
 
         if txn_type == "mp_cancel"
           return :billing_agreement_cancelled
+        elsif txn_type == "mp_signup"
+          return :billing_agreement_created
         elsif status == "pending" && reason == "order"
           return :order_created
         elsif status == "pending" && reason == "authorization"
@@ -343,6 +355,17 @@ module PaypalService
           }))
       end
       private_class_method :to_commission_paid
+
+      def to_billing_agreement_created(params)
+        p = HashUtils.rename_keys(
+          {
+            mp_id: :billing_agreement_id,
+          },
+          params
+        )
+        create_billing_agreement_created(p)
+      end
+      private_class_method :to_billing_agreement_created
 
     end
   end

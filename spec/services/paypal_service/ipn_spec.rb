@@ -8,6 +8,14 @@ describe PaypalService::IPN do
 
     @ipn_service = PaypalService::IPN.new(@events)
 
+    @billing_agreement_created = {
+      :type=>:billing_agreement_created,
+      :billing_agreement_id=>"B-80N6310848330024M",
+      :payer_id=>"P6S3ZMLQ25AYU",
+      :payer_email=>"dev+paypal_us@sharetribe.com",
+      :payer_status=>"verified"
+    }
+
     @order = {
       order_total: 100,
       community_id: 1,
@@ -211,6 +219,10 @@ describe PaypalService::IPN do
       @ipn_service.handle_msg(@commission_refunded_msg)
 
       expect(PaypalRefund.count).to eql 1
+    end
+
+    it "should handle billing agreement created" do
+      expect(@ipn_service.handle_msg(@billing_agreement_created)).to eql true
     end
   end
 

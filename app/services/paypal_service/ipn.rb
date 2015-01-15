@@ -22,6 +22,17 @@ module PaypalService
       when *PAYMENT_ROW_UPDATE_TYPES
         payment = handle_payment_update(ipn_msg)
         @events.send(:payment_updated, :success, payment) unless payment.nil?
+      when :billing_agreement_created
+        # This ipn message contains only payer_id and billing_agreement_id
+        #
+        # There are two scenarios when we receive this message:
+        # 1. Pending billing agreement - a client has failed to return and we don't have a billing_agreement_id
+        # 2. Confirmed billing agreement - we have already all the information
+        #
+        # From the ipn message, we don't have enough information to infer the correct agreement.
+        # Therefore, ack that we have id'd the message and do nothing in order to avoid hard to debug bugs in bordreline cases.
+        # Failing to correctly confirm a pending agreement just enforces the user to try again.
+        true
       when :billing_agreement_cancelled
         PaypalService::PaypalAccount::Command.delete_cancelled_billing_agreement(ipn_msg[:payer_id], ipn_msg[:billing_agreement_id])
       when :payment_refunded
