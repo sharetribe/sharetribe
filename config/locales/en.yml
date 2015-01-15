@@ -1509,6 +1509,8 @@ en:
     transaction:
       commission_payment_name: "Commission payment for %{listing_title}"
       commission_payment_description: "Marketplace %{service_name} took this commission from transaction regarding %{listing_title}"
+    wait_while_loading: "Please wait."
+    chatting_with_paypal: "We are chatting with PayPal."
   people:
     index:
       loading_more_members: "Loading more members"

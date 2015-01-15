@@ -5,3 +5,10 @@
 
   :javascript
     ST.transaction.initializeCreatePaymentPoller('#{op_status_url}', '#{redirect_url}');
+
+  .paypal-loading
+    %h1.paypal-loading-title
+      = t("paypal.wait_while_loading").html_safe
+    %p.paypal-loading-desc
+      = t("paypal.chatting_with_paypal").html_safe
+    %img.spinner(src="https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif")

@@ -1509,6 +1509,8 @@ fi:
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
+    wait_while_loading: "Odota hetki."
+    chatting_with_paypal: "Juttelemme PayPalin kanssa."
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"
