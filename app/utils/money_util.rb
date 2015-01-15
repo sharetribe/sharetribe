@@ -1,10 +1,6 @@
 module MoneyUtil
   module_function
 
-  def parse_str_to_cents(money_str)
-    raise "Dude, cents ain't the only subunit out there"
-  end
-
   # Give string that represents money and get back the amount in currency subunits
   #
   # Notice! The parsing strategy should follow the frontend validation strategy
