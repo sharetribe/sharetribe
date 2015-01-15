@@ -11,7 +11,7 @@ class BraintreeSaleService
     @community = payment.community
     @payer = payment.payer
     @recipient = payment.recipient
-    @amount = payment.sum_cents.to_f / subunit_to_unit  # Braintree want's whole dollars
+    @amount = payment.sum_cents.to_f / subunit_to_unit
     @service_fee = payment.total_commission.cents.to_f / subunit_to_unit
     @params = payment_params || {}
   end
