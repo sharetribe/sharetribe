@@ -1928,6 +1928,30 @@ a.lightbox-x {
 
 }
 
+.paypal-loading {
+  width: 360px;
+  height: 150px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin: -50px -170px;
+  text-align: center;
+}
+.paypal-loading-title {
+  font-size: 150%;
+  margin-bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.paypal-loading-desc {
+  width: 100%;
+  text-align: center;
+}
+.paypal-loading-spinner {
+  display: inline-block;
+  margin-top: 12px;
+}
+
 /*
   --------------------------
   Common stuff (new layout)
