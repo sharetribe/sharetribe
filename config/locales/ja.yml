@@ -1090,7 +1090,7 @@ ja:
       additional_email_confirmed: 入力したメールアドレスは承認されました。
       could_not_get_email_from_facebook: フェイスブックからメールアドレスを取得出来ませんでした。メールアドレスなしでアカウント作成が出来ません
       create_new_listing: もうひとつリストを作成する
-      create_one_here: ここに作成します
+      create_one_here: ここから作成
       email_confirmation_sent_to_new_address: 新しいメールアドレスへ認証メールを送りました。
       email_not_found: "ご記入いただいたメールアドレスは、%{service_name}に存在しません。"
       error_with_session: セッション中にエラーが起こりました
@@ -1504,8 +1504,8 @@ ja:
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: 少々お待ちください。
+    chatting_with_paypal: PayPalと連絡中です。
   people:
     index:
       loading_more_members: メンバーを読み込んでいます
