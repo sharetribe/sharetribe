@@ -12,7 +12,6 @@ describe MarketplaceService::API::Marketplaces do
     end
 
     it "should create a marketplace" do
-
       c = create(@community_params)
 
       expect(c[:domain]).to eql "localfoodgarden"
@@ -36,8 +35,6 @@ describe MarketplaceService::API::Marketplaces do
 
       c = create(@community_params.merge({:marketplace_country => "GG"}))
       expect(c[:available_currencies]).to eql "GBP"
-
-
     end
 
     it "should set correct transaction_type and category" do
@@ -61,21 +58,12 @@ describe MarketplaceService::API::Marketplaces do
       expect(c.transaction_types.first.categories.first).to eql c.categories.first
     end
 
-    it "should have paypal and preauthorize_payments enabled if passed in params" do
-      community_hash = create(@community_params.merge(paypal_enabled: true))
-      c = Community.find(community_hash[:id])
-
-      expect(c.paypal_enabled).to be true
-      expect(c.transaction_types.pluck(:preauthorize_payment).all?).to be true
-    end
-
-    it "should not have paypal_enabled by default" do
+    it "should have preauthorize_payments enabled" do
       community_hash = create(@community_params)
       c = Community.find(community_hash[:id])
 
-      expect(c.paypal_enabled).to be false
+      expect(c.transaction_types.pluck(:preauthorize_payment).all?).to be true
     end
-
 
     it "should have community customizations" do
       community_hash = create(@community_params)

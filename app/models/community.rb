@@ -600,11 +600,15 @@ class Community < ActiveRecord::Base
     listing.transaction_type.price_field? && payments_in_use?
   end
 
+  # Deprecated
+  #
+  # There is a method `payment_type` is community service. Use that instead.
   def payments_in_use?
-    # Deprecated
-    #
-    # There is a method `payment_type` is community service. Use that instead.
-    paypal_enabled? || (payment_gateway.present? && payment_gateway.configured?)
+    if MarketplaceService::Community::Query.payment_type(id) == :paypal
+      true
+    else
+      payment_gateway.present? && payment_gateway.configured?
+    end
   end
 
   # Testimonials can be used only if payments are used and `testimonials_in_use` value

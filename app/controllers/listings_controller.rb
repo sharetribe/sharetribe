@@ -89,12 +89,14 @@ class ListingsController < ApplicationController
       [nil, nil]
     end
 
+
+    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
     form_path = if @listing.transaction_type.preauthorize_payment?
       # TODO This is copy-paste
       if @listing.transaction_type.price_per.present?
         book_path(:listing_id => @listing.id.to_s)
       else
-        if @current_community.paypal_enabled?
+        if payment_gateway == :paypal
           initiate_order_path(:listing_id => @listing.id.to_s)
         else
           preauthorize_payment_path(:listing_id => @listing.id.to_s)
@@ -107,8 +109,6 @@ class ListingsController < ApplicationController
         post_pay_listing_path(:listing_id => @listing.id.to_s)
       end
     end
-
-    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
     render locals: {form_path: form_path, payment_gateway: payment_gateway}
   end
@@ -147,7 +147,7 @@ class ListingsController < ApplicationController
         render :partial => "listings/form/form_content", locals: commission(@current_community)
       end
     else
-      render "new"
+      render :new
     end
   end
 
@@ -301,7 +301,7 @@ class ListingsController < ApplicationController
     currency = community.default_currency
 
     case payment_type
-    when :none
+    when nil
       {seller_commission_in_use: false, minimum_commission: Money.new(0, currency), commission_from_seller: 0}
     when :paypal
       commission = Maybe(payment_settings_api.get_active(community_id: community.id))
@@ -313,7 +313,7 @@ class ListingsController < ApplicationController
        minimum_commission: paypal_minimum_commissions_api.get(currency),
        commission_from_seller: commission}
     else
-      {seller_commission_in_use: true,
+      {seller_commission_in_use: !!community.commission_from_seller,
        minimum_commission: Money.new(0, currency),
        commission_from_seller: community.commission_from_seller}
     end
