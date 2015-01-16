@@ -1511,6 +1511,8 @@ sv:
     transaction:
       commission_payment_name: "Provisionsbetalning för %{listing_title}"
       commission_payment_description: "Marknadsplatsen %{service_name} tog denna provion från transaktionen avseende %{listing_title}"
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
     index:
       loading_more_members: "Laddar fler medlemmar"

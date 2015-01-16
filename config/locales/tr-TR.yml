@@ -1504,6 +1504,8 @@ tr-TR:
     transaction:
       commission_payment_name: "%{listing_title} için komisyon ücreti"
       commission_payment_description: "%{service_name} pazar yeri %{listing_title} ile ilgili işlemden bu komisyonu aldı."
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
     index:
       loading_more_members: "Daha fazla üye yükleniyor"

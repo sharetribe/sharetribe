@@ -49,7 +49,7 @@ zh:
         edit_private_community_homepage_content_description: ~
         update_information: 保存设置
         invite_people: ~
-        edit_signup_info: ~
+        edit_signup_info: 注册信息
         edit_signup_info_description: ~
         edit_info: ~
         see_how_it_looks_like: ~
@@ -73,7 +73,7 @@ zh:
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: 主要颜色
-        community_custom_color2: ~
+        community_custom_color2: 第二颜色
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
@@ -99,10 +99,10 @@ zh:
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: 欢迎邮件内容
         welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        edit_message: 编辑消息
+        send_test_message: 发送测试消息
       getting_started:
         getting_started: ~
         welcome_to_your_marketplace: ~
@@ -324,7 +324,7 @@ zh:
         offer: ~
         inquiry: ~
   common:
-    edit_page: ~
+    edit_page: 编辑页面
     default_community_slogan: 借，帮助，分享
     default_community_description: ~
     cancel: 取消
@@ -384,8 +384,8 @@ zh:
       optional_message: ~
       price_to_pay: 需要支付的总价
       you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
-      minimum_price_error_message: ~
+      payment_settings_link: 付款设置
+      minimum_price_error_message: "价格不能低于%{amount}。"
       accept: ~
       decline: ~
       sum: ~
@@ -545,42 +545,42 @@ zh:
   braintree_accounts:
     new:
       add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
+      first_name: 名
+      last_name: 姓
+      email: 电子邮件地址
+      phone: 电话号码
+      address_street_address: 街道地址
+      address_postal_code: 邮编
+      address_locality: 城市
+      address_region: 州
+      date_of_birth: 生日
       ssn: ~
       routing_number: ~
-      account_number: ~
-      save: ~
+      account_number: 账户号码
+      save: 保存
     show:
-      payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
+      payout_details: 你的支出明细
+      first_name: 名
+      last_name: 姓
+      email: 电子邮件地址
+      phone: 电话号码
+      address_street_address: 街道地址
+      address_postal_code: 邮编
+      address_locality: 城市
+      address_region: 州
+      date_of_birth: 出生日期
       ssn: ~
       routing_number: ~
-      account_number: ~
+      account_number: 账号
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
-      payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
-      confirm_payment: ~
+      new_credit_card_payment: 新的信用卡付款
+      payment_receiver: 收款人
+      cardholder_name: 持卡者姓名
+      credit_card_number: 信用卡号
+      cvv: 验证码
+      credit_card_expiration_date: 信用卡有效期
+      confirm_payment: 确认支付
       exp: ~
   preauthorize_payments:
     edit:
@@ -611,7 +611,7 @@ zh:
       you_have_not_yet_accepted_or_rejected_request: "您尚未接受或拒绝您在%{date}收到的请求'%{title}'"
       show_thread: 显示对话
     braintree_account_approved:
-      account_ready: ~
+      account_ready: 你已经可以接收付款了
       message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
@@ -631,7 +631,7 @@ zh:
       remember_to_add_payment_details: ~
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      payment_settings_link: 付款设置
     transaction_confirmed:
       here_is_a_message_from: "这里有一条%{other_party_given_name}发送的消息："
       request_marked_as_confirmed: ~
@@ -709,18 +709,18 @@ zh:
       new_payment: ~
       you_have_received_new_payment: ~
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: 产品：
+      price_payer_paid: "%{payer_full_name}支付价格："
+      service_fee: "%{service_name}服务费："
+      you_will_get: 你将获得：
       money_will_be_transferred: ~
     receipt_to_payer:
-      receipt_of_payment: ~
+      receipt_of_payment: 付款收据
       you_have_made_new_payment: ~
-      product: ~
-      total: ~
-      price: ~
-      service_fee: ~
+      product: 产品
+      total: 总共
+      price: 价格
+      service_fee: 服务费
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}在%{service_name}给您了反馈"
@@ -733,7 +733,7 @@ zh:
     community_updates:
       added_offer: "%{name_link}新增了一个列表："
       added_request: "%{name_link}新增了一个列表："
-      added_listing: ~
+      added_listing: "%{name_link}添加了一个列表："
       update_mail_title: ~
       title_link_text: ~
       intro_paragraph: ~
@@ -885,7 +885,7 @@ zh:
     create_new_marketplace: 创建一个新的市场
     contact_us: 联系我们
     profile: 资料
-    invite: ~
+    invite: 邀请新成员
     login: ~
     signup: ~
     menu: ~
@@ -928,11 +928,11 @@ zh:
     event_feed:
       latest_events: 事情发展的如何
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: （正在处理上传图片……）
     index:
-      no_listings_with_your_search_criteria: ~
+      no_listings_with_your_search_criteria: 我们无法找到任何匹配你的搜索条件的结果。
       no_listings_notification: "没有列表。%{add_listing_link}"
-      add_listing_link_text: ~
+      add_listing_link_text: 添加新列表
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: 登录
@@ -954,9 +954,9 @@ zh:
       requesting: 需求
       tell_it_here: 在这里说出来！
       welcome_to_new_kassi: "欢迎来到新%{service_name}!"
-      no_reviews: ~
-      no_image: ~
-      filter: ~
+      no_reviews: 没有评论
+      no_image: 没有图片
+      filter: 过滤
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "邀请您的朋友加入%{service_name}！"
@@ -969,8 +969,8 @@ zh:
       invitation_message_field_placeholder: ~
       errors_in_emails: ~
     list_item:
-      review: ~
-      reviews: ~
+      review: 评论
+      reviews: 评论
     news_item:
       show_less: 显示更少
       show_more: "显示更多\n"
@@ -988,9 +988,9 @@ zh:
       search: 搜索
       map: 显示地图
       list: 显示物品
-      map_button: ~
-      grid_button: ~
-      list_button: ~
+      map_button: 地图
+      grid_button: 网格
+      list_button: 列表
       all_listing_types: 所有的物品类型
       all_categories: 全部分类
   infos:
@@ -1033,7 +1033,7 @@ zh:
       received: 已接收
       sent: 已发送
     global-header:
-      select_language: ~
+      select_language: 选择语言
     infos:
       about: 关于我们
       how_to_use: 如何使用
@@ -1068,7 +1068,7 @@ zh:
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
+      test_welcome_email_delivered_to: "测试邮件已发送到%{email}。"
       something_went_wrong: 出错了
       community_updated: ~
       community_update_failed: ~
@@ -1078,7 +1078,7 @@ zh:
       comment_sent: 评论已发送
       confirmation_link_is_wrong_or_used: 确认链接以被使用或失效。请尝试登录，如果问题依然存在请发送反馈。
       additional_email_confirmed: 你输入的邮箱已经确认。你可以再输入一次加入社区
-      could_not_get_email_from_facebook: ~
+      could_not_get_email_from_facebook: 不能从Facebook获取邮件地址，没有邮件地址则无法创建帐号。
       create_new_listing: 创建另一个列表
       create_one_here: 在此创建
       email_confirmation_sent_to_new_address: 电子邮件确认信已经送往你的新地址。
@@ -1095,7 +1095,7 @@ zh:
       login_again: 请重新登录。
       login_failed: 登录失败，请输入正确的用户名和密码
       account_creation_successful: "%{person_name}，欢迎使用%{service_name}！"
-      account_deleted: ~
+      account_deleted: 你的帐号已被删除。
       login_successful: "欢迎你，%{person_name}！"
       logout_successful: "您已登出%{service_name}，欢迎再次使用！"
       news_item_created: 创建文章
@@ -1114,10 +1114,10 @@ zh:
       only_listing_author_can_close_a_listing: 仅作者可以关闭列表
       only_listing_author_can_edit_a_listing: 仅作者可以编辑列表
       payment_successful: 付款成功
-      payment_canceled: ~
-      error_in_payment: ~
+      payment_canceled: 付款已取消
+      error_in_payment: 付款错误。如果你还没有完成付款，请重试。如果已完成，请联系我们。
       cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      payment_waiting_for_later_accomplishment: 当你完成支付后，我们会通知卖家，同时你会在电子邮件中收到收据。
       password_recovery_sent: 更改密码的说明已发送至您的电子邮箱。
       person_activated: 用户已激活
       person_deactivated: 用户已停用
@@ -1169,15 +1169,15 @@ zh:
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: 您需要先确认账户
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: 你必须填写所有表单项
       you_unfollowed_listing: 您不再关注此列表
       joining_community_failed: 加入社区失败
       can_not_login_with_private_user: ~
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
+      can_not_delete_email: 你不能移除邮件地址
+      user_does_not_have_email_to_delete: 你想要移除的邮件地址不存在
+      email_deleted: 邮件已删除
+      payment_details_add_successful: 成功添加支付信息
+      payment_details_add_error: 无法添加支付信息
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
     settings:
@@ -1185,7 +1185,7 @@ zh:
       notifications: 通知
       profile: 个人资料
       settings: 设置
-      payments: ~
+      payments: 付款
   listings:
     bubble_listing_not_visible:
       listing_not_visible: 您无权查看此列表。
@@ -1368,15 +1368,15 @@ zh:
       add_profile_picture: 添加个人资料图片
       comments: 评论
       contact_by_phone: 联系电话
-      contact: ~
+      contact: 联系
       favor_offer: 已有帮助
       favor_request: 已有请求
       inquiry: ~
       item_offer_trade: 交换提议
       item_request_trade: 交换请求
       no_description: 无描述
-      no_image: ~
-      no_reviews: ~
+      no_image: 没有图片
+      no_reviews: 没有收到评论
       offer: 供应
       listing_created: 已创建
       open_until: "开放至%{date}"
@@ -1446,15 +1446,15 @@ zh:
       sum: ~
       commission_will_be_added: ~
     form:
-      total: ~
-      service_charge: ~
-      product: ~
-      price: ~
+      total: 总共
+      service_charge: 服务收费
+      product: 产品：
+      price: 总和：
       price_for: ~
-      continue_to_pay: ~
-      invoice: ~
-      service_fee: ~
-      you_will_get: ~
+      continue_to_pay: 继续支付
+      invoice: 发票
+      service_fee: "%{service_name}服务费："
+      you_will_get: 你将获得：
     braintree:
       terms:
         braintree_terms_also_included: ~
@@ -1494,6 +1494,8 @@ zh:
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
     index:
       loading_more_members: ~
@@ -1562,7 +1564,7 @@ zh:
     profile_listings:
       show_also_closed: 显示已关闭的交易
       show_only_open: 仅显示开放交易
-      no_image: ~
+      no_image: 没有图片
     show:
       contact: "联系%{person}"
       about_me: 关于我：
@@ -1585,14 +1587,14 @@ zh:
       what_are_these: 这些是什么？
       review: 收到的评论
       reviews: 收到的评论
-      listing: ~
-      listings: ~
+      listing: 列表
+      listings: 列表
       open_listing: ~
       open_listings: ~
-      no_listings: ~
+      no_listings: 列表不存在
       no_open_listings: ~
       no_reviews: 没有评论
-      show_all_listings: ~
+      show_all_listings: 显示所有列表
       show_all_open_listings: ~
       show_all_reviews: 显示所有评论
       trustcloud: ~
@@ -1654,9 +1656,9 @@ zh:
       change: 修改
       confirm_new_password: 确认新密码
       delete_account: 删除账号
-      delete_account_button: ~
-      delete_account_confirmation_popup: ~
-      email_addresses: ~
+      delete_account_button: 永久删除我的帐号
+      delete_account_confirmation_popup: 你确认要永久删除你的用户帐号及其相关数据？帐号删除无法恢复。
+      email_addresses: 电子邮件地址
       new_email: 新Email地址
       delete_all_memberships: ~
       delete_personal_information: ~
@@ -1666,19 +1668,19 @@ zh:
       save: 保存
       these_fields_are_shown_only_to_you: 除非提供了您的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对您可见。
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        address_title: 地址
+        remove_title: 移除
+        remove_confirmation: 你确定要移除这个电子邮件地址吗？
+        receive_notifications_title_desktop: 接收通知
+        receive_notifications_title_mobile: 接收通知
+        receive_notifications_new_title_mobile: 接收通知
+        add_new_with_plus: +添加新的电子邮件地址
+        add_new_cancel: 取消
+        confirmation_title_mobile: 确认：
+        confirmation_title_desktop: 确认
+        confirmation_resend: 重新发送
+        status_confirmed: 已确认
+        status_pending: 待定
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: 寄给我一封Email通知当…
@@ -1714,7 +1716,7 @@ zh:
       first_name_only: ~
       location_description: 您可以选择提供您的准确住址或仅仅提供邮政编码。请至少填写邮政编码。您也可以通过地图选择一个地点。
       phone_number: 电话号码：
-      profile_picture: ~
+      profile_picture: 个人头像
       postal_code: 邮政编码：
       profile_page: 在您的个人信息页面
       profilemap: 地图

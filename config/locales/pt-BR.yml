@@ -1509,6 +1509,8 @@ pt-BR:
     transaction:
       commission_payment_name: "Pagamento de comissão para %{listing_title}"
       commission_payment_description: "O mercado %{service_name} obteve esta comissão da transação relativa a %{listing_title}"
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
     index:
       loading_more_members: Carregando

@@ -822,7 +822,7 @@ fi:
     transaction_agreement:
       required_error: "Sinun pitää hyväksyä ehdot"
     paypal:
-      generic_error: "Maksuprosessin yhteydessä tapahtui virhe. Emme pystyneet toteuttamaan PayPal-maksuasi."
+      generic_error: ~
       cancel_error: "Maksun perumisen yhteydessä tapahtui virhe."
       accept_authorization_error: "Maksun vastaanotto epäonnistui. Yritä uudelleen."
       reject_authorization_error: "Maksun peruuttaminen epäonnistui. Yritä uudelleen."
@@ -1507,10 +1507,10 @@ fi:
     checkout_with_paypal: "Maksa PayPal-tilillä"
     cancel_succesful: "PayPal maksu onnistuneesti peruttu."
     transaction:
-      commission_payment_name: "Välityspalkkio %{listing_title} -ostosta"
-      commission_payment_description: "%{service_name} -palvelun välityspalkkio %{listing_title} -ostoksesta"
-    wait_while_loading: "Odota hetki."
-    chatting_with_paypal: "Juttelemme PayPalin kanssa."
+      commission_payment_name: ~
+      commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"

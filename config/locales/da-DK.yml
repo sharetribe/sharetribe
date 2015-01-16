@@ -1509,6 +1509,8 @@ da-DK:
     transaction:
       commission_payment_name: "Service fee for %{listing_title}"
       commission_payment_description: "Markedspladsen %{service_name} tog en service fee fra transaktionen på %{listing_title}"
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
     index:
       loading_more_members: "Indlæser flere medlemmer"

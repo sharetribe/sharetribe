@@ -1110,7 +1110,7 @@ fr:
       login_again: "Merci de vous reconnecter."
       login_failed: "La connexion a échoué. Veuillez saisir vos identifiants."
       account_creation_successful: "Bienvenue sur %{service_name}, %{person_name} !"
-      account_deleted: "Votre compte est supprimé."
+      account_deleted: "Votre compte a été supprimé."
       login_successful: "Bienvenue, %{person_name} !"
       logout_successful: "Vous avez été déconnecté de %{service_name}. A bientôt !"
       news_item_created: "Article créé"
@@ -1316,8 +1316,8 @@ fr:
         visibility: Visibilité
       privacy:
         privacy: Visibilité
-        private: "Privée (visible uniquement aux utilisateurs connectés)"
-        public: "Publique (visible même aux utilisateurs non connectés)"
+        private: "Privée (visible uniquement par les utilisateurs connectés)"
+        public: "Publique (visible même par les utilisateurs non connectés)"
     help_texts:
       help_share_type_title: "Type d'offre ou de demande"
       help_tags_title: Tags
@@ -1509,6 +1509,8 @@ fr:
     transaction:
       commission_payment_name: "Paiement de la commission pour %{listing_title}"
       commission_payment_description: "La place de marché %{service_name} prélève cette commission sur une transaction de %{listing_title}"
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
     index:
       loading_more_members: "Chargement des autres membres"
@@ -1722,7 +1724,7 @@ fr:
       settings_link: paramètres
       homepage_link: "page d'accueil"
       unsubscribe_unsuccesful: "Erreur lors de la désinscription"
-      unsuccessful_unsubscribe_info_text: "Cela est peut être du au fait que le lien de désinscription que vous avez cliqué est ancien ou cassé. Contactez nous grâce au bouton \"feedback\" et nous vous désabonnerons, ou bien connectez vous pour gérer vos réglages d'emails."
+      unsuccessful_unsubscribe_info_text: "Cela est peut être du au fait que le lien de désinscription que vous avez cliqué est trop ancien ou erroné. Contactez nous grâce au bouton \"feedback\" et nous vous désabonnerons, ou bien connectez vous pour gérer vos réglages d'emails."
     profile:
       about_you: "A propos de vous"
       city: Ville
