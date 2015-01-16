@@ -51,4 +51,7 @@ module PaypalHelper
     return active_settings && active_settings[:payment_gateway] == :paypal
   end
 
+  def missing_payment_info?(user, community)
+    community.paypal_enabled && user.listings.present? && !user_and_community_ready_for_payments?(user, community)
+  end
 end
