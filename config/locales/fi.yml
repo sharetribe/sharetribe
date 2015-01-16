@@ -1509,8 +1509,8 @@ fi:
     transaction:
       commission_payment_name: "Välityspalkkio %{listing_title} -ostosta"
       commission_payment_description: "%{service_name} -palvelun välityspalkkio %{listing_title} -ostosta"
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: "Odota hetki"
+    chatting_with_paypal: "Juttelemme PayPalin kanssa."
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"
