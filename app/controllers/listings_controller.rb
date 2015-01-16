@@ -114,7 +114,6 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @seller_commission_in_use = @current_community.commission_from_seller && @current_community.payments_in_use?
     @selected_tribe_navi_tab = "new_listing"
     @listing = Listing.new
 
@@ -145,10 +144,10 @@ class ListingsController < ApplicationController
       if payment_setup_missing
         render :partial => "listings/payout_registration_before_posting", locals: { payment_settings_path: payment_setup_path }
       else
-        render :partial => "listings/form/form_content", locals: { minimum_commission: minimum_commission }
+        render :partial => "listings/form/form_content", locals: commission(@current_community)
       end
     else
-      render locals: { minimum_commission: minimum_commission }
+      render "new"
     end
   end
 
@@ -189,7 +188,6 @@ class ListingsController < ApplicationController
   end
 
   def edit
-    @seller_commission_in_use = @current_community.commission_from_seller && @current_community.payments_in_use?
     @selected_tribe_navi_tab = "home"
     if !@listing.origin_loc
         @listing.build_origin_loc(:location_type => "origin_loc")
@@ -198,7 +196,7 @@ class ListingsController < ApplicationController
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-    render locals: {minimum_commission: minimum_commission}
+    render locals: commission(@current_community)
   end
 
   def update
@@ -298,20 +296,35 @@ class ListingsController < ApplicationController
 
   private
 
-  def minimum_commission
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
-    currency = @current_community.default_currency
+  def commission(community)
+    payment_type = MarketplaceService::Community::Query.payment_type(community.id)
+    currency = community.default_currency
 
     case payment_type
+    when :none
+      {seller_commission_in_use: false, minimum_commission: Money.new(0, currency), commission_from_seller: 0}
     when :paypal
-      paypal_minimum_commissions_api.get(currency)
+      commission = Maybe(payment_settings_api.get_active(community_id: community.id))
+        .select {|res| res[:success]}
+        .map {|res| res[:data][:commission_from_seller]}
+        .or_else(0)
+
+      {seller_commission_in_use: true,
+       minimum_commission: paypal_minimum_commissions_api.get(currency),
+       commission_from_seller: commission}
     else
-      Money.new(0, currency)
+      {seller_commission_in_use: true,
+       minimum_commission: Money.new(0, currency),
+       commission_from_seller: community.commission_from_seller}
     end
   end
 
   def paypal_minimum_commissions_api
     PaypalService::API::Api.minimum_commissions_api
+  end
+
+  def payment_settings_api
+    TransactionService::API::Api.settings
   end
 
   # Ensure that only users with appropriate visibility settings can view the listing

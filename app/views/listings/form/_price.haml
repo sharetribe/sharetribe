@@ -30,7 +30,7 @@
                 "#listing_price",
                 "#you-will-get",
                 "#listing_currency",
-                #{Maybe(@current_community).commission_from_seller.or_else(0)},
+                #{commission_from_seller},
                 #{minimum_commission});
             });
         - if run_js_immediately
