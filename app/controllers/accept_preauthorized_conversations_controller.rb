@@ -13,7 +13,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def accept
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    payment_type = TransactionService::API::Api.transactions.query(params[:id])[:payment_gateway]
 
     case payment_type
     when :braintree
@@ -26,7 +26,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def reject
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    payment_type = TransactionService::API::Api.transactions.query(params[:id])[:payment_gateway]
 
     case payment_type
     when :braintree
