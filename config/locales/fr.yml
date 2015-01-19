@@ -1509,8 +1509,8 @@ fr:
     transaction:
       commission_payment_name: "Paiement de la commission pour %{listing_title}"
       commission_payment_description: "La place de marché %{service_name} prélève cette commission sur une transaction de %{listing_title}"
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: "Merci de patienter."
+    chatting_with_paypal: "Nous échangeons avec PayPal."
   people:
     index:
       loading_more_members: "Chargement des autres membres"

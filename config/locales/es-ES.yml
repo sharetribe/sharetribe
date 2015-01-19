@@ -1513,8 +1513,8 @@ es-ES:
     transaction:
       commission_payment_name: "Pago de comisión para %{listing_title}"
       commission_payment_description: "El marketplace %{service_name} cobró esta comisión por la transacción sobre %{listing_title}"
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: "Por favor, espera."
+    chatting_with_paypal: "Estamos hablando con PayPal."
   people:
     index:
       loading_more_members: "Cargando más miembros"
