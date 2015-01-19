@@ -52,6 +52,8 @@ module PaypalHelper
   end
 
   def missing_payment_info?(user, community)
-    community.paypal_enabled && user.listings.present? && !user_and_community_ready_for_payments?(user, community)
+    paypal_active?(community.id) &&
+    MarketplaceService::Listing::Query.open_listings_for(community.id, user.id) &&
+    !user_and_community_ready_for_payments?(user, community)
   end
 end
