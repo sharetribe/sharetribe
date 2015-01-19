@@ -1,6 +1,6 @@
 - payment_gateway = Maybe(@current_community).payment_gateway
 - content_for :javascript do
-  initialize_accept_transaction_form(#{@current_community.commission_from_seller || "null"}, #{APP_CONFIG.service_fee_tax_percentage || "0"}, '#{@current_community.invoice_form_type_for(@listing_conversation.listing)}', '#edit_transaction_#{@listing_conversation.id.to_s}', #{@current_community.absolute_minimum_price(@listing_conversation.listing.currency).cents}, "#{t('conversations.accept.minimum_price_error_message', :amount => humanized_money_with_symbol(@current_community.absolute_minimum_price(@listing_conversation.listing.currency)))}");
+  initialize_accept_transaction_form(#{@current_community.commission_from_seller || "null"}, #{APP_CONFIG.service_fee_tax_percentage || "0"}, '#{@current_community.invoice_form_type_for(@listing_conversation.listing)}', '#edit_transaction_#{@listing_conversation.id.to_s}', #{@current_community.absolute_minimum_price(@listing_conversation.listing.currency).cents}, "#{Money::Currency.new(@listing_conversation.listing.currency).subunit_to_unit}", "#{t('conversations.accept.minimum_price_error_message', :amount => humanized_money_with_symbol(@current_community.absolute_minimum_price(@listing_conversation.listing.currency)))}");
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.inbox")
