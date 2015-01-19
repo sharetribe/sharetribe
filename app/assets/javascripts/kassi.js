@@ -120,11 +120,14 @@ function add_validator_methods() {
 
   $.validator.
     addMethod( "minimum_price_required",
-      function(value, element, minimum_price) {
+      function(value, element, params) {
+        minimum_price = _.first(params) || "";
+        subunit_to_unit = _.first(_.rest(params));
+
         if (minimum_price == "") {
           return true
         } else {
-          return minimum_price <= ST.paymentMath.parseFloatFromFieldValue(value)*100;
+          return minimum_price <= ST.paymentMath.parseSubunitFloatFromFieldValue(value, subunit_to_unit);
         }
       }
     );
@@ -550,7 +553,8 @@ function display_listing_form(selected_attributes, locale) {
 }
 
 // Initialize the actual form fields
-function initialize_new_listing_form(fileDefaultText,
+function initialize_new_listing_form(
+  fileDefaultText,
   fileBtnText,
   locale,
   share_type_message,
@@ -559,6 +563,7 @@ function initialize_new_listing_form(fileDefaultText,
   price_required,
   price_message,
   minimum_price,
+  subunit_to_unit,
   minimum_price_message,
   numeric_field_names) {
 
@@ -602,7 +607,7 @@ function initialize_new_listing_form(fileDefaultText,
     rules: _.extend(numericRules, {
       "listing[title]": {required: true, maxlength: 60},
       "listing[origin]": {address_validator: true},
-      "listing[price]": {required: pr, money: true, minimum_price_required: minimum_price},
+      "listing[price]": {required: pr, money: true, minimum_price_required: [minimum_price, subunit_to_unit]},
       "listing[valid_until(1i)]": { min_date: true, max_date: true }
     }),
     messages: {
@@ -680,31 +685,39 @@ function initialize_listing_view(locale) {
   });
 }
 
-function initialize_accept_transaction_form(commission_percentage, service_fee_vat, form_type, form_id, minimum_price, minimum_price_message) {
-	auto_resize_text_areas("text_area");
-	style_action_selectors();
+function initialize_accept_transaction_form(
+  commission_percentage,
+  service_fee_vat,
+  form_type,
+  form_id,
+  minimum_price,
+  subunit_to_unit,
+  minimum_price_message) {
 
-	if (commission_percentage != null) {
-	  if (form_type === "simple") {
-	    $(".trigger-focusout").keyup(function(value) {
-	      update_simple_form_price_fields(commission_percentage);
-	    });
-	    $(form_id).validate({
-	      rules: {
-          "listing_conversation[payment_attributes][sum]": {money: true, minimum_price_required: minimum_price}
+  auto_resize_text_areas("text_area");
+  style_action_selectors();
+
+  if (commission_percentage != null) {
+    if (form_type === "simple") {
+      $(".trigger-focusout").keyup(function(value) {
+	update_simple_form_price_fields(commission_percentage);
+      });
+      $(form_id).validate({
+	rules: {
+          "listing_conversation[payment_attributes][sum]": {money: true, minimum_price_required: [minimum_price, subunit_to_unit]}
         },
         messages: {
           "listing_conversation[payment_attributes][sum]": {minimum_price_required: minimum_price_message}
         },
-	    });
-	  } else {
+      });
+    } else {
       function update() {
         update_complex_form_price_fields(commission_percentage, service_fee_vat);
       }
 
-	    $(".trigger-focusout").focusout(update);
+      $(".trigger-focusout").focusout(update);
       update();
-	  }
+    }
 
   }
 }

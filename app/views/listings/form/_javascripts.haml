@@ -3,7 +3,7 @@
 - content_for :listing_js do
   :javascript
     $(document).ready(function() {
-      initialize_new_listing_form("#{t('listings.form.images.no_file_selected')}", "#{t('listings.form.images.select_file')}", "#{I18n.locale}", "#{t('error_messages.listings.share_type')}", "#{valid_until_msg}", "#{listing_id}", "#{@listing.transaction_type.price_field?}","#{t('error_messages.listings.price')}","#{@current_community.minimum_price_cents}","#{t('error_messages.listings.minimum_price', :minimum_price => Maybe(@current_community).minimum_price.amount.or_else(0), :currency => @current_community.default_currency)}", #{@numeric_field_ids.collect { |numeric_field_id| "custom_fields[#{numeric_field_id}]" } } );
+      initialize_new_listing_form("#{t('listings.form.images.no_file_selected')}", "#{t('listings.form.images.select_file')}", "#{I18n.locale}", "#{t('error_messages.listings.share_type')}", "#{valid_until_msg}", "#{listing_id}", "#{@listing.transaction_type.price_field?}","#{t('error_messages.listings.price')}","#{@current_community.minimum_price_cents}","#{Money::Currency.new(@current_community.default_currency).subunit_to_unit}","#{t('error_messages.listings.minimum_price', :minimum_price => Maybe(@current_community).minimum_price.amount.or_else(0), :currency => @current_community.default_currency)}", #{@numeric_field_ids.collect { |numeric_field_id| "custom_fields[#{numeric_field_id}]" } } );
     });
 
 - if run_js_immediately
