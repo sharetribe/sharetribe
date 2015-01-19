@@ -1,4 +1,4 @@
-= render :partial => "listings/form/javascripts", :locals => { :listing_id => "false", :run_js_immediately => true }
+= render :partial => "listings/form/javascripts", :locals => { :listing_id => "false", :minimum_price_cents => minimum_price_cents, :run_js_immediately => true }
 
 = form_for @listing, :html => {:multipart => true} do |form|
   = render :partial => "listings/form/title", :locals => { :form => form }
