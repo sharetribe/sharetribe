@@ -1,4 +1,4 @@
-class Api::ListingsController < Api::ApiController
+class Atom::ListingsController < ApplicationController
   include ListingsHelper
 
   before_filter :set_pagination

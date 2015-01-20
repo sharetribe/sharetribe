@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Api::ListingsController do
+describe Atom::ListingsController do
   render_views
 
   before (:each) do
@@ -42,8 +42,6 @@ describe Api::ListingsController do
     @l4.communities = [@c1]
     @l4.save!
     @l4.update_attribute(:valid_until, 2.days.ago)
-
-    set_subdomain("api")
   end
 
   describe "ATOM feed" do
