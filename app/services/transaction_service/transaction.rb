@@ -17,9 +17,7 @@ module TransactionService::Transaction
   end
 
   def has_unfinished_transactions(person_id)
-    finished_states = ["free", "rejected", "confirmed", "canceled", "errored"]
-                      .map { |state| "'#{state}'"}
-                      .join(",")
+    finished_states = "'free', 'rejected', 'confirmed', 'canceled', 'errored'"
 
     unfinished = TransactionModel
                  .joins(:listing)
