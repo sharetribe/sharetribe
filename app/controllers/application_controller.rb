@@ -245,7 +245,7 @@ class ApplicationController < ActionController::Base
   # Before filter for PayPal, shows notification if user is not ready for payments
   def warn_about_missing_payment_info
     if @current_user && PaypalHelper.open_listings_with_missing_payment_info?(@current_user, @current_community)
-      settings_link = view_context.link_to(t("paypal_accounts.from_your_payment_settings_link_text"), payments_person_settings_path(@current_user))
+      settings_link = view_context.link_to(t("paypal_accounts.from_your_payment_settings_link_text"), payment_settings_path(:paypal, @current_user))
       warning = t("paypal_accounts.missing", settings_link: settings_link)
       flash.now[:warning] = warning.html_safe
     end
