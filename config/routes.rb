@@ -1,5 +1,3 @@
-require 'routes/api_request'
-
 Kassi::Application.routes.draw do
 
   namespace :mercury do

@@ -27,10 +27,6 @@ default: &default_settings
   # If this is empty, will use the same domain for login
   login_domain:
 
-  # Sharetribe can allow accessing data from external applications by RESTful API
-  # You can enable the API by setting this value true
-  api_enabled: false
-
   # You can use Amazong S3 to store listing and profile images
   # If you leave following empty, the images will be stored in local file system
   # NOTE: in Heroku you can't store files in local system, so S3 should be used
