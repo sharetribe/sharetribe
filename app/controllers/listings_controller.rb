@@ -455,7 +455,7 @@ class ListingsController < ApplicationController
       missing = PaymentRegistrationGuard.new(community, user, listing).requires_registration_before_posting?
       [missing, payment_settings_path(community.payment_gateway.gateway_type, user)]
     elsif payment_type == :paypal
-      missing = !PaypalHelper.user_and_community_ready_for_payments?(user, community)
+      missing = !PaypalHelper.user_and_community_ready_for_payments?(user.id, community.id)
       [missing, new_paypal_account_settings_payment_path(user.username)]
     else
       [false, nil]

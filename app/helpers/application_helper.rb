@@ -624,7 +624,7 @@ module ApplicationHelper
       }
     ]
 
-    if PaypalHelper.paypal_provisioned?(@current_community.id)
+    if PaypalHelper.paypal_active?(@current_community.id)
       links << {
         :text => t("admin.communities.paypal_account.paypal_admin_account"),
         :icon_class => icon_class("payments"),

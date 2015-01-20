@@ -3,7 +3,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
   skip_filter :check_email_confirmation
 
   before_filter do
-    unless PaypalHelper.paypal_active?(@current_community.id)
+    unless PaypalHelper.community_ready_for_payments?(@current_community.id)
       render :nothing => true, :status => 400 and return
     end
   end
