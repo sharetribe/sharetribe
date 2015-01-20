@@ -222,10 +222,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def ensure_person_belongs_to_current_community!(person)
-    raise ActiveRecord::RecordNotFound.new('Not Found') unless @person.communities.include?(@current_community)
-  end
-
   def fetch_community_admin_status
     @is_current_community_admin = @current_user && @current_user.has_admin_rights_in?(@current_community)
   end

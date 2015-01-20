@@ -6,7 +6,7 @@ class FollowersController < ApplicationController
 
   def create
     @person = Person.find(params[:person_id] || params[:id])
-    ensure_person_belongs_to_current_community!(@person)
+    PersonHelper.ensure_person_belongs_to_community!(@person, @current_community)
 
     @person.followers << @current_user
     respond_to do |format|
@@ -17,7 +17,7 @@ class FollowersController < ApplicationController
 
   def destroy
     @person = Person.find(params[:person_id] || params[:id])
-    ensure_person_belongs_to_current_community!(@person)
+    PersonHelper.ensure_person_belongs_to_community!(@person, @current_community)
 
     @person.followers.delete(@current_user)
     respond_to do |format|

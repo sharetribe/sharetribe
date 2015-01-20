@@ -2,7 +2,7 @@ class FollowedPeopleController < ApplicationController
 
   def index
     @person = Person.find(params[:person_id] || params[:id])
-    ensure_person_belongs_to_current_community!(@person)
+    PersonHelper.ensure_person_belongs_to_community!(@person, @current_community)
 
     @followed_people = @person.followed_people
     respond_to do |format|
