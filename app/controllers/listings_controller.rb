@@ -457,7 +457,11 @@ class ListingsController < ApplicationController
 
       [can_post, error_msg]
     elsif payment_type == :paypal
-      [PaypalHelper.community_ready_for_payments?(community.id), t("listings.new.community_not_configured_for_payments")]
+      [PaypalHelper.community_ready_for_payments?(community.id), t("listings.new.community_not_configured_for_payments",
+                                                                   contact_admin_link: view_context.link_to(
+                                                                     t("listings.new.contact_admin_link_text"),
+                                                                     new_user_feedback_path))
+                                                                 .html_safe]
     else
       [false, ""]
     end
