@@ -21,13 +21,6 @@ class PeopleController < Devise::RegistrationsController
 
   helper_method :show_closed?
 
-  def index
-    @selected_tribe_navi_tab = "members"
-    params[:page] = 1 unless request.xhr?
-    @people = @current_community.members.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
-    request.xhr? ? (render :partial => "additional_members") : (render :action => :index)
-  end
-
   def show
     redirect_to root and return if @current_community.private? && !@current_user
     redirect_to url_for(params.merge(:locale => nil)) and return if params[:locale] # This is an important URL to keep pretty
