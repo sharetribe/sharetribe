@@ -127,6 +127,10 @@ module MarketplaceService
         listing.merge(transaction_type: MarketplaceService::Listing::Entity.transaction_type(listing_model.transaction_type))
       end
 
+      def open_listings_for(community_id, person_id)
+        open_listings = ListingModel.includes(:communities).where("communities.id" => community_id, "author_id" => person_id)
+        open_listings.map { |l| MarketplaceService::Listing::Entity.listing(l) }
+      end
     end
   end
 end

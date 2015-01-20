@@ -25,7 +25,8 @@ class ApplicationController < ActionController::Base
     :set_default_url_for_mailer,
     :fetch_chargebee_plan_data,
     :fetch_community_admin_status,
-    :fetch_community_plan_expiration_status
+    :fetch_community_plan_expiration_status,
+    :warn_about_missing_payment_info
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
@@ -239,6 +240,15 @@ class ApplicationController < ActionController::Base
     @pro_biannual_price = APP_CONFIG.chargebee_pro_biannual_price
     @pro_monthly_link = APP_CONFIG.chargebee_pro_monthly_link
     @pro_monthly_price = APP_CONFIG.chargebee_pro_monthly_price
+  end
+
+  # Before filter for PayPal, shows notification if user is not ready for payments
+  def warn_about_missing_payment_info
+    if @current_user && PaypalHelper.open_listings_with_missing_payment_info?(@current_user, @current_community)
+      settings_link = view_context.link_to(t("paypal_accounts.from_your_payment_settings_link_text"), payments_person_settings_path(@current_user))
+      warning = t("paypal_accounts.missing", settings_link: settings_link)
+      flash.now[:warning] = warning.html_safe
+    end
   end
 
   private
