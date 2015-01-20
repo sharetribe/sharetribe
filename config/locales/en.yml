@@ -645,7 +645,7 @@ en:
     payment_settings_reminder:
       remember_to_add_payment_details: "Remember to add your payment details to receive payments"
       you_have_added_listing_with_payment: "You have added a listing %{listing_link} with payment. However, you haven't yet added your payment details. In order to receive the payment you have to add your payment information."
-      please_go_to_payment_settings: "Please go to %{payment_settings_link} and fill in the required payment information."
+      please_go_to_payment_settings: "Please go to your %{payment_settings_link} and fill in the required payment information."
       payment_settings_link: "payment settings"
     transaction_confirmed:
       here_is_a_message_from: "Here's a message from %{other_party_given_name}:"
