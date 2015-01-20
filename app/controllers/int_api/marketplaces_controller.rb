@@ -23,7 +23,7 @@ class IntApi::MarketplacesController < ApplicationController
                    :marketplace_language)
       )
 
-    unless marketplace.nil?
+    if marketplace
       TransactionService::API::Api.settings.provision(
         community_id: marketplace[:id],
         payment_gateway: :paypal,
