@@ -20,7 +20,6 @@ class PaypalAccountsController < ApplicationController
     return redirect_to action: :new unless PaypalAccountEntity.paypal_account_prepared?(paypal_account)
 
     @selected_left_navi_link = "payments"
-    commission_from_seller = @current_community.commission_from_seller ? @current_community.commission_from_seller : 0
 
     community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
     flash.now[:error] = t("paypal_accounts.new.admin_account_not_connected") unless community_ready_for_payments
@@ -28,9 +27,7 @@ class PaypalAccountsController < ApplicationController
     render(locals: {
       community_ready_for_payments: community_ready_for_payments,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
-      paypal_account: paypal_account,
       paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
-      commission_from_seller: t("paypal_accounts.commission", commission: commission_from_seller)
     })
   end
 
@@ -39,7 +36,7 @@ class PaypalAccountsController < ApplicationController
     return redirect_to action: :show if PaypalAccountEntity.paypal_account_prepared?(paypal_account)
 
     @selected_left_navi_link = "payments"
-    commission_from_seller = @current_community.commission_from_seller ? @current_community.commission_from_seller : 0
+    commission_from_seller = payment_gateway_commission(@current_community.id)
     community_currency = @current_community.default_currency
 
     community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
@@ -53,7 +50,7 @@ class PaypalAccountsController < ApplicationController
       paypal_account_state: Maybe(paypal_account)[:order_permission_state].or_else(""),
       paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
       commission_from_seller: t("paypal_accounts.commission", commission: commission_from_seller),
-      minimum_commission: minimum_commission,
+      minimum_commission: minimum_commission(),
       currency: community_currency
     })
   end
@@ -162,7 +159,7 @@ class PaypalAccountsController < ApplicationController
 
   # Before filter
   def ensure_paypal_enabled
-    unless @current_community.paypal_enabled?
+    unless PaypalHelper.paypal_active?(@current_community.id)
       flash[:error] = t("paypal_accounts.new.paypal_not_enabled")
       redirect_to person_settings_path(@current_user)
     end
@@ -263,8 +260,24 @@ class PaypalAccountsController < ApplicationController
     end
   end
 
+  def payment_gateway_commission(community_id)
+    p_set =
+      Maybe(payment_settings_api.get_active(community_id: community_id))
+      .map {|res| res[:success] ? res[:data] : nil}
+      .select {|set| set[:payment_gateway] == :paypal }
+      .or_else(nil)
+
+    raise ArgumentError.new("No active paypal gateway for community: #{community_id}.") if p_set.nil?
+
+    p_set[:commission_from_seller]
+  end
+
   def paypal_minimum_commissions_api
-    PaypalService::API::Api.minimum_commissions_api
+    PaypalService::API::Api.minimum_commissions
+  end
+
+  def payment_settings_api
+    TransactionService::API::Api.settings
   end
 
 end

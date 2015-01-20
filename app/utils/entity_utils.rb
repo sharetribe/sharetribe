@@ -98,7 +98,7 @@ module EntityUtils
     const_value: -> (const, v) { const },
     default: -> (default, v) { v.nil? ? default : v },
     to_bool: -> (_, v) { !!v },
-    to_symbol: -> (_, v) { v.to_sym },
+    to_symbol: -> (_, v) { v.to_sym unless v.nil? },
     str_to_time: -> (format, v) {
       if v.nil?
         nil

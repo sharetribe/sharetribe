@@ -89,7 +89,6 @@
 #  listing_location_required                  :boolean          default(FALSE)
 #  custom_head_script                         :text
 #  follow_in_use                              :boolean          default(TRUE), not null
-#  paypal_enabled                             :boolean          default(FALSE), not null
 #  logo_processing                            :boolean
 #  wide_logo_processing                       :boolean
 #  cover_photo_processing                     :boolean

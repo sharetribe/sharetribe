@@ -70,7 +70,6 @@
 
       .row
         .col-12
-          - automatic_confirmation = @current_community.automatic_confirmation_after_days
           %p
             = t("listing_conversations.preauthorize.you_will_be_charged", author: author_link, expiration_period: expiration_period).html_safe
 

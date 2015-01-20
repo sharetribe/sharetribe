@@ -7,6 +7,7 @@ class Admin::CommunitiesController < ApplicationController
   def getting_started
     @selected_left_navi_link = "getting_started"
     @community = @current_community
+    render locals: {paypal_enabled: PaypalHelper.paypal_active?(@current_community.id)}
   end
 
   def edit_look_and_feel
@@ -168,6 +169,8 @@ class Admin::CommunitiesController < ApplicationController
     permitted_params << :testimonials_in_use if @current_community.payment_gateway
     params.require(:community).permit(*permitted_params)
 
+    maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
+
     update(@current_community,
             params[:community],
             settings_admin_community_path(@current_community),
@@ -196,4 +199,26 @@ class Admin::CommunitiesController < ApplicationController
       render action
     end
   end
+
+  # TODO The home of this setting should be in payment settings but
+  # those are only used with paypal for now. During the transition
+  # period we simply mirror community setting to payment settings in
+  # case of paypal.
+  def maybe_update_payment_settings(community_id, automatic_confirmation_after_days)
+    return unless automatic_confirmation_after_days
+
+    p_set = Maybe(payment_settings_api.get(
+                   community_id: community_id,
+                   payment_gateway: :paypal,
+                   payment_process: :preauthorize))
+            .map {|res| res[:success] ? res[:data] : nil}
+            .or_else(nil)
+
+    payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i})) if p_set
+  end
+
+  def payment_settings_api
+    TransactionService::API::Api.settings
+  end
+
 end

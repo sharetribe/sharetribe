@@ -36,8 +36,6 @@ class PostPayTransactionsController < ApplicationController
             content: contact_form.content,
             payment_gateway: @current_community.payment_gateway.gateway_type,
             payment_process: :postpay,
-            commission_from_seller: @current_community.commission_from_seller,
-            automatic_confirmation_after_days: @current_community.automatic_confirmation_after_days
           }
         })
 

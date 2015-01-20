@@ -29,7 +29,8 @@ def create_transaction(community, listing, starter, message, payment_gateway = :
     community: community,
     starter: starter,
     conversation: build_conversation(community, listing, starter, message),
-    payment_gateway: payment_gateway
+    payment_gateway: payment_gateway,
+    automatic_confirmation_after_days: community.automatic_confirmation_after_days
   )
 end
 
