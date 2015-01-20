@@ -156,6 +156,7 @@ module Kassi
 
     # Map custom errors to error pages
     config.action_dispatch.rescue_responses["PeopleController::PersonDeleted"] = :gone
+    config.action_dispatch.rescue_responses["ListingsController::ListingDeleted"] = :gone
 
     config.exceptions_app = self.routes
   end

@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+  class ListingDeleted < StandardError; end
+
   include PeopleHelper
 
   # Skip auth token check as current jQuery doesn't provide it automatically
@@ -333,7 +335,7 @@ class ListingsController < ApplicationController
   def ensure_authorized_to_view
     @listing = Listing.find(params[:id])
 
-    redirect_to :error_gone if @listing.deleted?
+    raise ListingDeleted if @listing.deleted?
 
     unless @listing.visible_to?(@current_user, @current_community) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
       if @listing.public?
