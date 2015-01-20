@@ -463,7 +463,7 @@ class ListingsController < ApplicationController
                                                                      new_user_feedback_path))
                                                                  .html_safe]
     else
-      [false, ""]
+      [true, ""]
     end
   end
 end
