@@ -154,6 +154,9 @@ module Kassi
       Devise::Mailer.helper :email_template
     end
 
+    # Map custom errors to error pages
+    config.action_dispatch.rescue_responses["PeopleController::PersonDeleted"] = :gone
+
     config.exceptions_app = self.routes
   end
 end

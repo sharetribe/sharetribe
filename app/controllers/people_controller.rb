@@ -1,4 +1,5 @@
 class PeopleController < Devise::RegistrationsController
+  class PersonDeleted < StandardError; end
 
   include PeopleHelper
 
@@ -28,7 +29,7 @@ class PeopleController < Devise::RegistrationsController
 
   def show
     @person = Person.find(params[:person_id] || params[:id])
-    return redirect_to :error_gone if @person.deleted?
+    raise PersonDeleted if @person.deleted?
     ensure_person_belongs_to_current_community!(@person)
 
     redirect_to root and return if @current_community.private? && !@current_user

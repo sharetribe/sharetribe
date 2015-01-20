@@ -6,6 +6,7 @@ if APP_CONFIG.use_airbrake
                             "ActionController::RoutingError",
                             #"ActionController::InvalidAuthenticityToken",
                             "ActionController::UnknownAction",
+                            "PeopleController::PersonDeleted"
                             #"CGI::Session::CookieStore::TamperedWithCookie"
                             ]
     # The erros above are the defaults (from https://github.com/airbrake/airbrake)
