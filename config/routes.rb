@@ -262,7 +262,6 @@ Kassi::Application.routes.draw do
       match "/signup" => "people#new", :as => :sign_up
       match '/people/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
 
-      resources :people, :only => :index
       resources :people, :path => "", :only => :show, :constraints => { :id => /[_a-z0-9]+/ }
 
       resources :people, :constraints => { :id => /[_a-z0-9]+/ } do
