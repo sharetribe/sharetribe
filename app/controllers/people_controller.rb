@@ -9,8 +9,6 @@ class PeopleController < Devise::RegistrationsController
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
 
-  before_filter :person_belongs_to_current_community, :only => [:show]
-  before_filter :person_is_not_deleted, only: [:show]
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
 
   skip_filter :check_email_confirmation, :only => [ :update]
@@ -29,6 +27,10 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def show
+    @person = Person.find(params[:person_id] || params[:id])
+    return redirect_to :error_gone if @person.deleted?
+    ensure_person_belongs_to_current_community!(@person)
+
     redirect_to root and return if @current_community.private? && !@current_user
     redirect_to url_for(params.merge(:locale => nil)) and return if params[:locale] # This is an important URL to keep pretty
     @selected_tribe_navi_tab = "members"
@@ -377,10 +379,6 @@ class PeopleController < Devise::RegistrationsController
         render :layout => false
       }
     end
-  end
-
-  def person_is_not_deleted
-    redirect_to :error_gone if @person.deleted?
   end
 
 end

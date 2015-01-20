@@ -6,12 +6,14 @@ class TestimonialsController < ApplicationController
 
   before_filter :ensure_authorized_to_give_feedback, :except => :index
   before_filter :ensure_feedback_not_given, :except => :index
-  before_filter :person_belongs_to_current_community, :only => :index
 
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:skip]
 
   def index
+    @person = Person.find(params[:person_id] || params[:id])
+    ensure_person_belongs_to_current_community!(@person)
+
     if request.xhr?
       @testimonials = @person.received_testimonials.paginate(:per_page => params[:per_page], :page => params[:page])
       limit = params[:per_page].to_i

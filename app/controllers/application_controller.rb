@@ -222,8 +222,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def person_belongs_to_current_community
-    @person = Person.find(params[:person_id] || params[:id])
+  def ensure_person_belongs_to_current_community!(person)
     raise ActiveRecord::RecordNotFound.new('Not Found') unless @person.communities.include?(@current_community)
   end
 
