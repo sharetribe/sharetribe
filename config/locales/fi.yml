@@ -1373,7 +1373,7 @@ fi:
       select_category: "Valitse ilmoituskategoria"
       select_subcategory: "Valitse alakategoria"
       select_transaction_type: "Valitse ilmoitustyyppi"
-      you_need_to_fill_payout_details_before_accepting: ~
+      community_not_configured_for_payments: "Et voi lisätä vielä uusia ilmoituksia, koska %{service_name} ylläpitäjä ei ole suorittanu maksujärjestelmän asennusta loppuun saakka."
       payment_settings_link: ~
     please_comment: Kommentoi
     reply_link:
@@ -1486,7 +1486,7 @@ fi:
     new:
       payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täyttyy yhdistää PayPal-tilisi %{service_name}-palveluun."
       payout_info_text: "Se onnistuu seuraavien kahden vaiheen avulla."
-      admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska markkinapaikan ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
+      admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska %{service_name} ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_placeholder: "PayPal-tilisi sähköpostiosoite"
       paypal_account_email_info_text: "Huom! Tarvitset PayPalin 'Premier'-tilin (yksityishenkilöille) tai 'Business'-tilin (yrityksille) vastaanottaaksesi luottokorttimaksuja. Jos sinulla on PayPalin 'Personal'-tili, voit muuttaa tilin tyyppiä (se on helppoa ja ilmaista). %{upgrade_paypal_account} Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}. Huom! PayPal-tilisi tulee pystyä ottamaan vastaan %{currency}-valuuttaa."
