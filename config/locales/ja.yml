@@ -178,7 +178,7 @@ ja:
         join_date: 参加日
         admin: 管理人用
         posting_allowed: 投稿は許可されました
-        ban_user: アカウント停止対象ユーザ
+        ban_user: アカウント停止処理
         saving_user_status: 保存中...
         save_user_status_successful: 保存しました
         save_user_status_error: 保存に失敗しました。ページを再読込してもう一度試してください
@@ -221,7 +221,7 @@ ja:
           started: 開始済み
           last_activity: アクション
           initiated_by: 先手
-          other_party: 相手方
+          other_party: 相手
         status:
           free: 会話
           pending: 保留中
