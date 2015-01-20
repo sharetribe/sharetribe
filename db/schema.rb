@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150116125629) do
+ActiveRecord::Schema.define(:version => 20150120101020) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -748,7 +748,6 @@ ActiveRecord::Schema.define(:version => 20150116125629) do
     t.integer  "test_group_number",                                :default => 1
     t.boolean  "active",                                           :default => true
     t.string   "username"
-    t.string   "email"
     t.string   "encrypted_password",                               :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -776,7 +775,6 @@ ActiveRecord::Schema.define(:version => 20150116125629) do
     t.boolean  "deleted",                                          :default => false
   end
 
-  add_index "people", ["email"], :name => "index_people_on_email", :unique => true
   add_index "people", ["facebook_id"], :name => "index_people_on_facebook_id", :unique => true
   add_index "people", ["id"], :name => "index_people_on_id"
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
