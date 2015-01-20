@@ -1483,6 +1483,8 @@ sv:
     you_are_ready_to_accept_payments: "Du är redo att ta emot betalningar!"
     commission: "%{commission} %"
     connected_account: "PayPal konto %{email} kopplades korrekt."
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal-konto med %{service_name}."
       payout_info_text: "Vänligen slutför dessa två steg för att koppla ditt konto."

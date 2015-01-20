@@ -1466,6 +1466,8 @@ it:
     you_are_ready_to_accept_payments: "Ora sei pronto per accettare i pagamenti!"
     commission: ~
     connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: "Per accettare i pagamenti devi connettere il tuo conto PayPal con %{service_name}."
       payout_info_text: ~

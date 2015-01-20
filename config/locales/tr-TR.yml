@@ -1476,6 +1476,8 @@ tr-TR:
     you_are_ready_to_accept_payments: "Ödeme kabul etmeye hazırsınız!"
     commission: "%{commission}%"
     connected_account: "'%{email}' PayPal hesabı başarıyla eklendi."
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: "Ödeme kabul edebilmek için PayPal hesabınızı %{service_name}'a bağlamanız gerekmektedir."
       payout_info_text: "Lütfen, hesabınızı bağlamak için aşağıdaki iki adımı tamamlayın."

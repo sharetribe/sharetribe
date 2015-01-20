@@ -1481,6 +1481,8 @@ da-DK:
     you_are_ready_to_accept_payments: "Du er nu klar til at modtage betalinger!"
     commission: "%{commission}%"
     connected_account: "Din PayPal konto '%{email}' er nu tilknyttet."
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: "For at acceptere betalinger skal du tilknytte din PayPal konto til %{service_name}."
       payout_info_text: "Udfør venligt disse to steps for at tilknyttet din konto."
