@@ -1,10 +1,10 @@
 atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss', 'xmlns:st'  => 'http://www.sharetribe.com/SharetribeFeed' do |feed|
-  feed.title @title
-  feed.updated @updated
+  feed.title title
+  feed.updated updated
   feed.icon "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
   feed.logo "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"
 
-  @listings.each do |listing|
+  listings.each do |listing|
     feed.entry( listing, url: listing_url(listing, host: @current_community.full_domain(port: ''))) do |entry|
       entry.title listed_listing_title(listing)
       entry_content = add_links_and_br_tags(html_escape(listing.description))
