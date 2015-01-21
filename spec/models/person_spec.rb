@@ -13,7 +13,6 @@
 #  test_group_number                  :integer          default(1)
 #  active                             :boolean          default(TRUE)
 #  username                           :string(255)
-#  email                              :string(255)
 #  encrypted_password                 :string(255)      default(""), not null
 #  reset_password_token               :string(255)
 #  reset_password_sent_at             :datetime
@@ -42,7 +41,6 @@
 #
 # Indexes
 #
-#  index_people_on_email                 (email) UNIQUE
 #  index_people_on_facebook_id           (facebook_id) UNIQUE
 #  index_people_on_id                    (id)
 #  index_people_on_reset_password_token  (reset_password_token) UNIQUE
@@ -74,7 +72,6 @@ describe Person do
         username = generate_random_username
         p = Person.create!({:username => username,
           :password => "testi",
-          :email => "#{username}@example.com",
           "given_name" => "Tero",
           "family_name" => "Turari"})
         Person.find(p.id).should_not be_nil

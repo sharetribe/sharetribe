@@ -53,37 +53,6 @@ describe PeopleController do
     end
   end
 
-  describe "#update" do
-    it "should store the old accepted email as additional email when changing email" do
-
-      # one reason for this is that people can't use one email to create many accounts in email restricted community
-      community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
-      @request.host = "#{community.domain}.lvh.me"
-      member = FactoryGirl.build(:person, :emails => [ FactoryGirl.build(:email, :address => "one@examplecompany.co")])
-      member.communities.push community
-      member.save
-
-      person_count = Person.count
-
-      sign_in_for_spec(member)
-
-      request.env["HTTP_REFERER"] = "http://test.host/en/people/#{member.id}"
-      put :update, {:person => {:email => "something@el.se"}, :person_id => member.id}
-
-      # remove "signed in" stubs
-      request.env['warden'].unstub :authenticate!
-      #request.env['warden'].stub(:authenticate!).and_throw(:warden)
-      controller.unstub :current_person
-
-      post :create, {:person => {:username => generate_random_username, :password => "test", :email => "one@examplecompany.co", :given_name => "The user who", :family_name => "tries to use taken email"}, :community => community.domain}
-
-      Person.find_by_family_name("tries to use taken email").should be_nil
-      Person.count.should == person_count
-      flash[:error].to_s.should include("The email you gave is already in use")
-
-    end
-  end
-
   describe "#create" do
 
     it "creates a person" do
