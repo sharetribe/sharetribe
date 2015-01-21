@@ -1375,7 +1375,8 @@ fi:
       select_transaction_type: "Valitse ilmoitustyyppi"
       contact_admin_link_text: "lähetä viesti ylläpitäjälle"
       community_not_configured_for_payments: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja %{contact_admin_link}."
-      payment_settings_link: ~
+      payment_settings_link: "markkinapaikan maksuasetuksiin"
+      community_not_configured_for_payments_admin: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja mene %{payment_settings_link} lisäämään maksutiedot."
     please_comment: Kommentoi
     reply_link:
       listing_closed: "Ilmoitus on suljettu"
