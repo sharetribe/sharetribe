@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+  class ListingDeleted < StandardError; end
+
   include PeopleHelper
 
   # Skip auth token check as current jQuery doesn't provide it automatically
@@ -12,7 +14,6 @@ class ListingsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_create_new_listing", :sign_up_link => view_context.link_to(t("layouts.notifications.create_one_here"), sign_up_path)).html_safe
   end
 
-  before_filter :person_belongs_to_current_community, :only => [:index]
   before_filter :save_current_path, :only => :show
   before_filter :ensure_authorized_to_view, :only => [ :show, :follow, :unfollow ]
 
@@ -29,12 +30,11 @@ class ListingsController < ApplicationController
   before_filter :is_authorized_to_post, :only => [ :new, :create ]
 
   def index
-    if params[:format] == "atom" # API request for feed
-      redirect_to :controller => "Api::ListingsController", :action => :index
-      return
-    end
     @selected_tribe_navi_tab = "home"
     if request.xhr? && params[:person_id] # AJAX request to load on person's listings for profile view
+      @person = Person.find(params[:person_id])
+      PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
+
       # Returns the listings for one person formatted for profile page view
       per_page = params[:per_page] || 200 # the point is to show all here by default
       page = params[:page] || 1
@@ -335,7 +335,7 @@ class ListingsController < ApplicationController
   def ensure_authorized_to_view
     @listing = Listing.find(params[:id])
 
-    redirect_to :error_gone if @listing.deleted?
+    raise ListingDeleted if @listing.deleted?
 
     unless @listing.visible_to?(@current_user, @current_community) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
       if @listing.public?
