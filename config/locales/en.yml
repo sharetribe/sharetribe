@@ -1377,6 +1377,7 @@ en:
       contact_admin_link_text: "contact the administrator"
       community_not_configured_for_payments: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Please %{contact_admin_link} for details."
       payment_settings_link: "payment settings"
+      community_not_configured_for_payments_admin: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Go to %{payment_settings_link} to fill in the payment details."
     please_comment: Comment
     reply_link:
       listing_closed: "Listing is closed"
