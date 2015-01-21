@@ -1369,10 +1369,10 @@ ja:
       select_subcategory: サブカテゴリーを選択
       select_transaction_type: 課金の種類を選択
       you_need_to_fill_payout_details_before_accepting: "リストを投稿する前に、お支払い情報の入力を完了している必要があります。%{payment_settings_link}で、情報入力をお願いします。"
-      contact_admin_link_text: ~
-      community_not_configured_for_payments: ~
+      contact_admin_link_text: サイト管理者にお問い合わせください。
+      community_not_configured_for_payments: "%{service_name}はお支払いを確定できませんでしたので、まだ新しいリストを掲載が出来ていません。%{contact_admin_link}から詳細についてお問い合わせください。"
       payment_settings_link: お支払い設定
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name}はお支払いを確定できませんでしたので、まだ新しいリストを掲載が出来ていません。%{payment_settings_link}で、お支払いの詳細について記入してください。"
     please_comment: コメント
     reply_link:
       listing_closed: ~
@@ -1484,7 +1484,7 @@ ja:
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: サイト管理者にお問い合わせください。
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
