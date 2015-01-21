@@ -780,7 +780,7 @@ ja:
       love_marketplace_crew: "それではまた、<br /><i>%{service_name}チーム"
       p_s_did_you_know: "PS. %{service_name}のようなサイトをあなた自身で作成してみたいですか。簡単でプログラムのスキルは必要ありません。%{click_here_link} こちらより詳細をご確認ください。"
       click_here_link_text: こちらをクリックしてください
-      welcome_email_footer_text: ~
+      welcome_email_footer_text: "%{service_name}からのメール受信設定が出来ます。%{settings_link}"
       settings_link_text: 設定を確認する
       welcome_email_subject_for_marketplace_creator: ~
       welcome_to_marketplace_creator: ~
@@ -1476,8 +1476,8 @@ ja:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
-    missing: ~
-    from_your_payment_settings_link_text: ~
+    missing: "公開されているリストがありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続手続きをお願いします。"
+    from_your_payment_settings_link_text: お支払い設定
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
@@ -1717,7 +1717,7 @@ ja:
       email_about_new_listings_by_followed_people: "...フォロー中の誰かが新しいリストを投稿しました"
       unsubscribe_succesful: 購読をやめる
       unsubscribe_info_text: "これらのメールを今後受け取りません。今一度%{settings_link}から、%{service_name}より受け取りたい種類のメールを選んでください。もしくは%{homepage_link}に戻ります。"
-      settings_link: 各種設定
+      settings_link: メール通知設定
       homepage_link: ホームページ
       unsubscribe_unsuccesful: 購読解除中にエラー発生しました
       unsuccessful_unsubscribe_info_text: 購読解除のリンクが古いか壊れていた可能性があります。お問い合わせよりご連絡ください。サイト管理者に購読解除を代行を依頼するか、あるいはあなたのメール設定を今一度ご確認の上、変更してください。

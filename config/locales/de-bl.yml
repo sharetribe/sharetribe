@@ -1359,6 +1359,8 @@ de-bl:
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
     please_comment: ~
     reply_link:
@@ -1471,6 +1473,7 @@ de-bl:
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~

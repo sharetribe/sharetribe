@@ -1374,6 +1374,8 @@ da-DK:
       select_subcategory: "Vælg underkategori"
       select_transaction_type: "Vælg annonce type"
       you_need_to_fill_payout_details_before_accepting: "Du skal udfylde dine betalingsoplysninger før du kan oprette en annonce. Gå til %{payment_settings_link} og udfyld dine detaljer."
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: "betalings indstillinger"
     please_comment: Kommentar
     reply_link:
@@ -1486,6 +1488,7 @@ da-DK:
     new:
       payout_info_you_need_to_connect: "For at acceptere betalinger skal du tilknytte din PayPal konto til %{service_name}."
       payout_info_text: "Udfør venligt disse to steps for at tilknyttet din konto."
+      contact_admin_link_text: ~
       admin_account_not_connected: "Du kan på nuværende tidspunkt desværre ikke tilknytte din PayPal konto. Prøv igen senere."
       paypal_account_email: "1. Tilknyt din PayPal konto"
       paypal_account_email_placeholder: "Din PayPal email adresse"

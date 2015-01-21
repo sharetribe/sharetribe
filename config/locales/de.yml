@@ -1374,6 +1374,8 @@ de:
       select_subcategory: "Unterkategorie auswählen"
       select_transaction_type: "Eintragsart auswählen"
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: Zahlungseinstellungen
     please_comment: Kommentar
     reply_link:
@@ -1486,6 +1488,7 @@ de:
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
