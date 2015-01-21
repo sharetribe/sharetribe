@@ -134,17 +134,16 @@ class ListingsController < ApplicationController
       logger.info "Category: #{@listing.category.inspect}"
 
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+      allow_posting, error_msg = payment_setup_status(
+                       community: @current_community,
+                       user: @current_user,
+                       listing: @listing,
+                       payment_type: payment_type)
 
-      payment_setup_missing, payment_setup_path = payment_setup_status(
-        community: @current_community,
-        user: @current_user,
-        listing: @listing,
-        payment_type: payment_type)
-
-      if payment_setup_missing
-        render :partial => "listings/payout_registration_before_posting", locals: { payment_settings_path: payment_setup_path }
-      else
+      if allow_posting
         render :partial => "listings/form/form_content", locals: commission(@current_community)
+      else
+        render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
     else
       render :new
@@ -452,13 +451,19 @@ class ListingsController < ApplicationController
 
   def payment_setup_status(community:, user:, listing:, payment_type:)
     if payment_type == :braintree
-      missing = PaymentRegistrationGuard.new(community, user, listing).requires_registration_before_posting?
-      [missing, payment_settings_path(community.payment_gateway.gateway_type, user)]
+      can_post = !PaymentRegistrationGuard.new(community, user, listing).requires_registration_before_posting?
+      settings_link = payment_settings_path(community.payment_gateway.gateway_type, user)
+      error_msg = t("listings.new.you_need_to_fill_payout_details_before_accepting", :payment_settings_link => view_context.link_to(t("listings.new.payment_settings_link"), settings_link)).html_safe
+
+      [can_post, error_msg]
     elsif payment_type == :paypal
-      missing = !PaypalHelper.user_and_community_ready_for_payments?(user, community)
-      [missing, new_paypal_account_settings_payment_path(user.username)]
+      [PaypalHelper.community_ready_for_payments?(community.id), t("listings.new.community_not_configured_for_payments",
+                                                                   contact_admin_link: view_context.link_to(
+                                                                     t("listings.new.contact_admin_link_text"),
+                                                                     new_user_feedback_path))
+                                                                 .html_safe]
     else
-      [false, nil]
+      [true, ""]
     end
   end
 end

@@ -22,7 +22,12 @@ class PaypalAccountsController < ApplicationController
     @selected_left_navi_link = "payments"
 
     community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
-    flash.now[:error] = t("paypal_accounts.new.admin_account_not_connected") unless community_ready_for_payments
+    unless commmunity_ready_for_payments
+      flash.now[:warning] = t("paypal_accounts.new.admin_account_not_connected",
+                            contact_admin_link: view_context.link_to(
+                              t("paypal_accounts.new.contact_admin_link_text"),
+                                new_user_feedback_path))
+    end
 
     render(locals: {
       community_ready_for_payments: community_ready_for_payments,
@@ -40,7 +45,12 @@ class PaypalAccountsController < ApplicationController
     community_currency = @current_community.default_currency
 
     community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
-    flash.now[:error] = t("paypal_accounts.new.admin_account_not_connected") unless community_ready_for_payments
+    unless community_ready_for_payments
+      flash.now[:warning] = t("paypal_accounts.new.admin_account_not_connected",
+                            contact_admin_link: view_context.link_to(
+                              t("paypal_accounts.new.contact_admin_link_text"),
+                                new_user_feedback_path)).html_safe
+    end
 
     render(locals: {
       community_ready_for_payments: community_ready_for_payments,

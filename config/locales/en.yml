@@ -645,7 +645,7 @@ en:
     payment_settings_reminder:
       remember_to_add_payment_details: "Remember to add your payment details to receive payments"
       you_have_added_listing_with_payment: "You have added a listing %{listing_link} with payment. However, you haven't yet added your payment details. In order to receive the payment you have to add your payment information."
-      please_go_to_payment_settings: "Please go to %{payment_settings_link} and fill in the required payment information."
+      please_go_to_payment_settings: "Please go to your %{payment_settings_link} and fill in the required payment information."
       payment_settings_link: "payment settings"
     transaction_confirmed:
       here_is_a_message_from: "Here's a message from %{other_party_given_name}:"
@@ -1374,6 +1374,8 @@ en:
       select_subcategory: "Select subcategory"
       select_transaction_type: "Select listing type"
       you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can post a listing. Go to %{payment_settings_link} to fill in the details."
+      contact_admin_link_text: "contact the administrator"
+      community_not_configured_for_payments: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Please %{contact_admin_link} for details."
       payment_settings_link: "payment settings"
     please_comment: Comment
     reply_link:
@@ -1486,7 +1488,8 @@ en:
     new:
       payout_info_you_need_to_connect: "To accept payments you need to connect your PayPal account with %{service_name}."
       payout_info_text: "Please complete the following two steps to connect your account."
-      admin_account_not_connected: "You can not connect your PayPal account because the marketplace administrator has not finalized required PayPal configurations."
+      contact_admin_link_text: "contact the administrator"
+      admin_account_not_connected: "%{service_name} hasn't been configured for payments, so you cannot connect your PayPal account yet. Please %{contact_admin_link} for details."
       paypal_account_email: "1. Connect your PayPal account"
       paypal_account_email_placeholder: "Your PayPal email address"
       paypal_account_email_info_text: "Note: you need a PayPal premier account (for individuals) or business account (for companies) to accept payments. If you have a PayPal personal account, you can upgrade your account. It's free and only takes a minute. %{upgrade_paypal_account} If you don't have a PayPal account yet, you can create a new account %{create_paypal_account}. Your PayPal account should be configured to receive %{currency}."

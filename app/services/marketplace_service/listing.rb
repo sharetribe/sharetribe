@@ -128,8 +128,11 @@ module MarketplaceService
       end
 
       def open_listings_for(community_id, person_id)
-        open_listings = ListingModel.includes(:communities).where("communities.id" => community_id, "author_id" => person_id)
-        open_listings.map { |l| MarketplaceService::Listing::Entity.listing(l) }
+        ListingModel.includes(:communities).where(
+          "communities.id" => community_id,
+          "author_id" => person_id,
+          :open => true)
+          .map { |l| MarketplaceService::Listing::Entity.listing(l) }
       end
     end
   end
