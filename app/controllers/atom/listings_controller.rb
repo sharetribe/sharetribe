@@ -2,11 +2,12 @@ class Atom::ListingsController < ApplicationController
   include ListingsHelper
 
   before_filter :set_pagination
+  before_filter :ensure_community_is_public
 
   respond_to :atom
   layout false
 
-  # Render atom feed
+  # Renders atom feed of listings
   def index
     @listings = Listing.find_with(params, @current_user, @current_community, @per_page, @page)
 
@@ -33,5 +34,11 @@ class Atom::ListingsController < ApplicationController
   def set_pagination
     @page = params["page"] || 1
     @per_page = params["per_page"] || 50
+  end
+
+  def ensure_community_is_public
+    if @current_community.private
+      render xml: [] and return
+    end
   end
 end
