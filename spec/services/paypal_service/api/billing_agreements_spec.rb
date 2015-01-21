@@ -102,7 +102,7 @@ describe PaypalService::API::BillingAgreements do
       payment_res = @billing_agreements.charge_commission(@cid, @payer_id_admin, @commission_info)
 
       expect(payment_res[:success]).to eq(true)
-      expect(payment_res[:data][:commission_status]).to eq(:not_applicable)
+      expect(payment_res[:data][:commission_status]).to eq(:seller_is_admin)
     end
 
     it "marks the commission to not applicable when commission smaller than minimum" do
@@ -119,7 +119,7 @@ describe PaypalService::API::BillingAgreements do
       payment_res = @billing_agreements.charge_commission(@cid, @mid, commission_info)
 
       expect(payment_res[:success]).to eq(true)
-      expect(payment_res[:data][:commission_status]).to eq(:not_applicable)
+      expect(payment_res[:data][:commission_status]).to eq(:below_minimum)
     end
 
     it "supports async running" do
