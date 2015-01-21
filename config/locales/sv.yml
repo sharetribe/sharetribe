@@ -1376,7 +1376,10 @@ sv:
       select_subcategory: "Välj underkategori"
       select_transaction_type: "Välj annonstyp"
       you_need_to_fill_payout_details_before_accepting: "Du måste fylla i dina utbetalningsdetaljer innan du kan lägga ut en annons. Gå till %{payment_settings_link} för att fylla i detaljerna."
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: betalningsinställningar
+      community_not_configured_for_payments_admin: ~
     please_comment: Kommentar
     reply_link:
       listing_closed: "Annonsen är stängd"
@@ -1488,6 +1491,7 @@ sv:
     new:
       payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal-konto med %{service_name}."
       payout_info_text: "Vänligen slutför dessa två steg för att koppla ditt konto."
+      contact_admin_link_text: ~
       admin_account_not_connected: "Du kan inte koppla ditt PayPalkonto eftersom marknadsplatsens administratör har inte slutfört PayPalinställningarna."
       paypal_account_email: "1. Koppla ditt PayPal konto"
       paypal_account_email_placeholder: "Din PayPal e-postadress"

@@ -1359,7 +1359,10 @@ it:
       select_subcategory: ~
       select_transaction_type: "Seleziona il tipo di annuncio"
       you_need_to_fill_payout_details_before_accepting: "È necessario compilare i dettagli di pagamento prima di poter postare il tuo spazio. Vai al %{payment_settings_link} e inserisci le informazioni."
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: Commenta
     reply_link:
       listing_closed: "L'inserzione è chiusa"
@@ -1471,6 +1474,7 @@ it:
     new:
       payout_info_you_need_to_connect: "Per accettare i pagamenti devi connettere il tuo conto PayPal con %{service_name}."
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: "Non puoi connettere il tuo conto PayPal perchè l'amministratore della piattaforma non ha terminato la configurazione di PayPal."
       paypal_account_email: ~
       paypal_account_email_placeholder: "Il tuo indirizzo email di PayPal"

@@ -1369,7 +1369,10 @@ tr-TR:
       select_subcategory: "Alt kategori seç"
       select_transaction_type: "Listeleme türü seç"
       you_need_to_fill_payout_details_before_accepting: "Talebi kabul edip ödemeyi almadan önce, ödeme ayrıntılarını girmeniz gerekmektedir. %{payment_settings_link} sayfasına gidip bilgilerinizi girin."
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: "ödeme ayarları"
+      community_not_configured_for_payments_admin: ~
     please_comment: Yorum
     reply_link:
       listing_closed: "Listeleme kapandı"
@@ -1481,6 +1484,7 @@ tr-TR:
     new:
       payout_info_you_need_to_connect: "Ödeme kabul edebilmek için PayPal hesabınızı %{service_name}'a bağlamanız gerekmektedir."
       payout_info_text: "Lütfen, hesabınızı bağlamak için aşağıdaki iki adımı tamamlayın."
+      contact_admin_link_text: ~
       admin_account_not_connected: "Pazar yöneticisi PayPal konfigürasyonlarını tamamlamadığı için PayPal hesabınızı ekleyemezsiniz."
       paypal_account_email: "1. PayPal hesabınızı bağlayın"
       paypal_account_email_placeholder: "PayPal e-posta adresiniz"

@@ -1047,7 +1047,7 @@ ja:
     infos:
       about: このサイトについて
       how_to_use: サイトの仕組み
-      info_about_kassi: "%{service_name}についての情報"
+      info_about_kassi: "%{service_name}について"
       news: ニュース
       register_details: プライバシー
       terms: ご利用規約
@@ -1369,7 +1369,10 @@ ja:
       select_subcategory: サブカテゴリーを選択
       select_transaction_type: 課金の種類を選択
       you_need_to_fill_payout_details_before_accepting: "リストを投稿する前に、お支払い情報の入力を完了している必要があります。%{payment_settings_link}で、情報入力をお願いします。"
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: お支払い設定
+      community_not_configured_for_payments_admin: ~
     please_comment: コメント
     reply_link:
       listing_closed: ~
@@ -1481,6 +1484,7 @@ ja:
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~

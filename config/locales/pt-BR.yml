@@ -1374,7 +1374,10 @@ pt-BR:
       select_subcategory: "Selecionar uma sub-categoria"
       select_transaction_type: "Selecionar tipo de anúncio "
       you_need_to_fill_payout_details_before_accepting: "Você precisa preencher os detalhes de pagamento antes de aceitar o pedido e receber o pagamento. Vá para %{payment_settings_link} para preencher os detalhes."
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: "configurações de pagamento"
+      community_not_configured_for_payments_admin: ~
     please_comment: Comentar
     reply_link:
       listing_closed: "Anúncio está fechado."
@@ -1486,6 +1489,7 @@ pt-BR:
     new:
       payout_info_you_need_to_connect: "Para aceitar pagamentos você deve conectar a sua conta PayPal com %{service_name}."
       payout_info_text: "Por favor, preencha os dois passos seguintes para se conectar a sua conta."
+      contact_admin_link_text: ~
       admin_account_not_connected: "Você não pode conectar sua conta PayPal porque o administrador do mercado não finalizou as configurações necessárias do PayPal."
       paypal_account_email: "1. Conecte sua conta PayPal"
       paypal_account_email_placeholder: "Seu endereço de email PayPal"
