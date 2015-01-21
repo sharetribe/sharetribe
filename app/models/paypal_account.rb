@@ -9,6 +9,7 @@
 #  payer_id     :string(255)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  active       :boolean
 #
 # Indexes
 #

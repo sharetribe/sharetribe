@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150116125629) do
+ActiveRecord::Schema.define(:version => 20150121130521) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -645,6 +645,7 @@ ActiveRecord::Schema.define(:version => 20150116125629) do
     t.string   "payer_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.boolean  "active"
   end
 
   add_index "paypal_accounts", ["community_id"], :name => "index_paypal_accounts_on_community_id"
