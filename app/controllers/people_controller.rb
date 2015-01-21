@@ -20,13 +20,6 @@ class PeopleController < Devise::RegistrationsController
 
   helper_method :show_closed?
 
-  def index
-    @selected_tribe_navi_tab = "members"
-    params[:page] = 1 unless request.xhr?
-    @people = @current_community.members.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
-    request.xhr? ? (render :partial => "additional_members") : (render :action => :index)
-  end
-
   def show
     @person = Person.find(params[:person_id] || params[:id])
     raise PersonDeleted if @person.deleted?
