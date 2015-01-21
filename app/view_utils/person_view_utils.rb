@@ -102,4 +102,8 @@ module PersonViewUtils
       first_name
     end
   end
+
+  def ensure_person_belongs_to_community!(person, community)
+    raise ActiveRecord::RecordNotFound.new('Not Found') unless person.communities.include?(community)
+  end
 end

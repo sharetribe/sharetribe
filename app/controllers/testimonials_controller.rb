@@ -12,7 +12,7 @@ class TestimonialsController < ApplicationController
 
   def index
     @person = Person.find(params[:person_id] || params[:id])
-    PersonHelper.ensure_person_belongs_to_community!(@person, @current_community)
+    PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
 
     if request.xhr?
       @testimonials = @person.received_testimonials.paginate(:per_page => params[:per_page], :page => params[:page])

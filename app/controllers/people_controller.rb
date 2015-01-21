@@ -30,7 +30,7 @@ class PeopleController < Devise::RegistrationsController
   def show
     @person = Person.find(params[:person_id] || params[:id])
     raise PersonDeleted if @person.deleted?
-    PersonHelper.ensure_person_belongs_to_community!(@person, @current_community)
+    PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
 
     redirect_to root and return if @current_community.private? && !@current_user
     redirect_to url_for(params.merge(:locale => nil)) and return if params[:locale] # This is an important URL to keep pretty
