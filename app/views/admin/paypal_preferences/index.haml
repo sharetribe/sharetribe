@@ -17,6 +17,10 @@
   .row
     = t("admin.paypal_accounts.integration_info_text").html_safe
 
+  - if APP_CONFIG.display_knowledge_base_articles
+    .row
+      = link_to t("admin.paypal_accounts.read_more_about_paypal"), "#{APP_CONFIG.knowledge_base_url}/topics/68868-payment-with-paypal"
+
   .row
 
   - if paypal_account_email.present?

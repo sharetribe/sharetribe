@@ -10,7 +10,11 @@
       %h3= t(".google_analytics_key")
     .row
       .col-6
-        = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text")}
+        - if APP_CONFIG.display_knowledge_base_articles
+          - instructions_link = link_to(t("admin.communities.analytics.google_analytics_instructions_link_text"), "#{APP_CONFIG.knowledge_base_url}/articles/412735-how-to-configure-google-analytics" )
+          = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text_with_instructions", :instructions_link => instructions_link).html_safe }
+        - else
+          = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text", :instructions_link => instructions_link).html_safe }
       .col-6
         =form.text_field :google_analytics_key, :maxlength => "15", :class => "text_field", :placeholder => "UA-12345-12"
     .row

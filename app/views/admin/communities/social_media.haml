@@ -13,7 +13,11 @@
       %h3= t(".twitter_handle")
     .row
       .col-6
-        = render :partial => "layouts/info_text", :locals => { :text => t(".twitter_handle_info_text") }
+        - if APP_CONFIG.display_knowledge_base_articles
+          - twitter_instructions_link = link_to(t("admin.communities.social_media.twitter_instructions_link_text"), "#{APP_CONFIG.knowledge_base_url}/articles/437993-how-to-configure-twitter-mention" )
+          = render :partial => "layouts/info_text", :locals => { :text => t(".twitter_handle_info_text_with_instructions", :instructions_link => twitter_instructions_link).html_safe }
+        - else
+          = render :partial => "layouts/info_text", :locals => { :text => t(".twitter_handle_info_text", :instructions_link => twitter_instructions_link).html_safe }
       .col-6
         = form.text_field :twitter_handle, :maxlength => "15", :class => "text_field", :placeholder => t(".twitter_handle_placeholder")
         -if @community.errors.any?
@@ -22,7 +26,11 @@
               %li=msg
     .row
       %h3= t('.facebook_connect')
-      = render :partial => "layouts/info_text", :locals => { :text => t(".facebook_connect_info_text").html_safe}
+      - if APP_CONFIG.display_knowledge_base_articles
+        - facebook_instructions_link = link_to(t("admin.communities.social_media.facebook_instructions_link_text"), "#{APP_CONFIG.knowledge_base_url}/articles/412490-how-to-configure-facebook-connect" )
+        = render :partial => "layouts/info_text", :locals => { :text => t(".facebook_connect_info_text_with_instructions", :instructions_link => facebook_instructions_link).html_safe}
+      - else
+        = render :partial => "layouts/info_text", :locals => { :text => t(".facebook_connect_info_text", :instructions_link => facebook_instructions_link).html_safe}
     .row
       .col-6
         = form.label :facebook_connect_id, t(".facebook_connect_id"), :class => "input"
