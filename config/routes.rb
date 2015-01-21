@@ -1,5 +1,3 @@
-require 'routes/api_request'
-
 Kassi::Application.routes.draw do
 
   namespace :mercury do
@@ -97,10 +95,8 @@ Kassi::Application.routes.draw do
     match '/:person_id/settings/payments/paypal_account/show' => 'paypal_accounts#show', :as => :show_paypal_account_settings_payment
     match '/:person_id/settings/payments/paypal_account/create' => 'paypal_accounts#create', :as => :create_paypal_account_settings_payment
 
-    scope :module => "api", :constraints => ApiRequest do
-      resources :listings, :only => :index
-
-      match 'api_version' => "api#version_check"
+    scope module: "atom", constraints: { format: "atom" } do
+      resources :listings, only: :index
     end
 
     namespace :paypal_service do

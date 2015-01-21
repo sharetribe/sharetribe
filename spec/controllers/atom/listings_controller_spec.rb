@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Api::ListingsController do
+describe Atom::ListingsController do
   render_views
 
   before (:each) do
@@ -43,12 +43,12 @@ describe Api::ListingsController do
     @l4.save!
     @l4.update_attribute(:valid_until, 2.days.ago)
 
-    set_subdomain("api")
+    set_subdomain(@c1.domain)
   end
 
   describe "ATOM feed" do
     it "lists the most recent listings in order" do
-      get :index, :community_id => @c1.id, :format => :atom
+      get :index, :format => :atom
       response.status.should == 200
       doc = Nokogiri::XML::Document.parse(response.body)
       doc.at('feed/logo').text.should == "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"
