@@ -1513,16 +1513,6 @@ tr-TR:
     wait_while_loading: ~
     chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: "Daha fazla üye yükleniyor"
-      meet_the_people: "İnsanlarla tanışın"
-      you_are_the_only_member: "%{service_name}'in tek üyesi sizsiniz."
-      here_are_the_members: "%{service_name}'in %{count} üyesi burada."
-      wanna_see_more_folks: "Burada daha fazla kişiyi görmek mi istiyorsunuz?"
-      invite_people_you_know: "Tanıdıklarınızı davet edin!"
-      there_are_x_members: "%{service_name} içerisinde %{count} üye var."
-      to_see_the_list_log_in: "Üyelerin tamamını görebilmek için %{log_in_link}."
-      log_in_link: "giriş yapın"
     edit_links:
       activate: Etkinleştir
       deactivate: Etkisizleştir

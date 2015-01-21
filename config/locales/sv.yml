@@ -1520,16 +1520,6 @@ sv:
     wait_while_loading: "Vänligen vänta."
     chatting_with_paypal: "Vi chattar med PayPal."
   people:
-    index:
-      loading_more_members: "Laddar fler medlemmar"
-      meet_the_people: "Möt människorna"
-      you_are_the_only_member: "Du är den enda medlemmen på %{service_name}"
-      here_are_the_members: "Här är de %{count} medlemmarna på %{service_name}."
-      wanna_see_more_folks: "Vill du se lite mer folk här?"
-      invite_people_you_know: "Bjud in de du känner!"
-      there_are_x_members: "Det är %{count} medlemmar på %{service_name}."
-      to_see_the_list_log_in: "För att se en lista av alla medlemmar måste du %{log_in_link}."
-      log_in_link: "logga in"
     edit_links:
       activate: Aktivera
       deactivate: Avaktivera
