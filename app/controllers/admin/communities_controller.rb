@@ -99,6 +99,7 @@ class Admin::CommunitiesController < ApplicationController
 
   def settings
     @selected_left_navi_link = "admin_settings"
+    render :settings, locals: { supports_escrow: escrow_payments?(@current_community) }
   end
 
   def update_look_and_feel
@@ -219,6 +220,10 @@ class Admin::CommunitiesController < ApplicationController
 
   def payment_settings_api
     TransactionService::API::Api.settings
+  end
+
+  def escrow_payments?(community)
+    MarketplaceService::Community::Query.payment_type(community.id) == :braintree
   end
 
 end

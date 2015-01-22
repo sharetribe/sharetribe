@@ -173,6 +173,7 @@ en:
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
         update_settings: "Save settings"
         automatically_confirmed: "Transaction will be automatically marked as completed %{days_dropdown} days after the payment has been made. If escrow system is in use, the money will be released to the provider at this point."
+        automatically_confirmed_no_escrow: "Transaction will be automatically marked as completed %{days_dropdown} days after the payment has been made."
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
         newsletter_daily: Daily
         newsletter_weekly: Weekly
