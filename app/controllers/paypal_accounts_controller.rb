@@ -52,6 +52,8 @@ class PaypalAccountsController < ApplicationController
                                 new_user_feedback_path)).html_safe
     end
 
+    community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
+
     render(locals: {
       community_ready_for_payments: community_ready_for_payments,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
@@ -61,7 +63,9 @@ class PaypalAccountsController < ApplicationController
       paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
       commission_from_seller: t("paypal_accounts.commission", commission: commission_from_seller),
       minimum_commission: minimum_commission(),
-      currency: community_currency
+      currency: community_currency,
+      create_url: "https://www.paypal.com/#{community_country_code}/signup",
+      upgrade_url: "https://www.paypal.com/#{community_country_code}/upgrade"
     })
   end
 
@@ -146,7 +150,8 @@ class PaypalAccountsController < ApplicationController
       @current_community.id
     )
 
-    permissions_url = request_paypal_permissions_url
+    community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
+    permissions_url = request_paypal_permissions_url(community_country_code)
 
     if permissions_url.blank?
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
@@ -177,7 +182,7 @@ class PaypalAccountsController < ApplicationController
     end
   end
 
-  def request_paypal_permissions_url
+  def request_paypal_permissions_url(community_country_code)
     permission_request = PaypalService::DataTypes::Permissions
       .create_req_perm({callback: permissions_verified_person_paypal_account_url })
 
@@ -191,7 +196,7 @@ class PaypalAccountsController < ApplicationController
         response[:request_token]
       )
 
-      URLUtils.prepend_path_component(response[:redirect_url], LocalizationUtils.valid_country_code(@current_community.country))
+      URLUtils.prepend_path_component(response[:redirect_url], community_country_code)
     else
       nil
     end
