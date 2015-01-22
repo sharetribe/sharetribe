@@ -145,13 +145,15 @@ class PaypalAccountsController < ApplicationController
   private
 
   def create_paypal_account
-    PaypalAccountCommand.create_personal_account(
-      @current_user.id,
-      @current_community.id
-    )
-
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
-    permissions_url = request_paypal_permissions_url(community_country_code)
+    response = accounts_api.request(
+      PaypalService::API::DataTypes.create_create_account_request({
+                                                                     community_id: @current_community.id,
+                                                                     person_id: @current_user.id,
+                                                                     callback_url: permissions_verified_person_paypal_account_url,
+                                                                     country: community_country_code
+                                                                   }))
+    permissions_url = response.data[:redirect_url]
 
     if permissions_url.blank?
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
@@ -179,26 +181,6 @@ class PaypalAccountsController < ApplicationController
     unless PaypalHelper.paypal_active?(@current_community.id)
       flash[:error] = t("paypal_accounts.new.paypal_not_enabled")
       redirect_to person_settings_path(@current_user)
-    end
-  end
-
-  def request_paypal_permissions_url(community_country_code)
-    permission_request = PaypalService::DataTypes::Permissions
-      .create_req_perm({callback: permissions_verified_person_paypal_account_url })
-
-    response = paypal_permissions.do_request(permission_request)
-    if response[:success]
-      PaypalAccountCommand.create_pending_permissions_request(
-        @current_user.id,
-        @current_community.id,
-        response[:username_to],
-        permission_request[:scope],
-        response[:request_token]
-      )
-
-      URLUtils.prepend_path_component(response[:redirect_url], community_country_code)
-    else
-      nil
     end
   end
 
@@ -296,6 +278,10 @@ class PaypalAccountsController < ApplicationController
 
   def payment_settings_api
     TransactionService::API::Api.settings
+  end
+
+  def accounts_api
+    PaypalService::API::Api.accounts_api
   end
 
 end

@@ -17,6 +17,10 @@ module PaypalService
       @process_api ||= PaypalService::API::Process.new
     end
 
+    def accounts_api
+      @accounts_api ||= PaypalService::API::Accounts.new
+    end
+
     module_function
 
     def load_minimum_commissions

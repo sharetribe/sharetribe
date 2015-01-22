@@ -13,7 +13,7 @@
 #
 
 class OrderPermission < ActiveRecord::Base
-  attr_accessible :paypal_account, :request_token, :paypal_username_to, :scope, :verification_code
+  attr_accessible :paypal_account, :paypal_account_id, :request_token, :paypal_username_to, :scope, :verification_code
 
   belongs_to :paypal_account, class_name: "PaypalAccount"
 

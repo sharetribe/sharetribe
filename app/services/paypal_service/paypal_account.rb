@@ -1,6 +1,7 @@
 module PaypalService
   module PaypalAccount
     PaypalAccountModel = ::PaypalAccount
+    PaypalAccountStore = PaypalService::Store::PaypalAccount
 
     module Entity
       PaypalAccount = EntityUtils.define_entity(
@@ -72,7 +73,8 @@ module PaypalService
 
         old_account.destroy if old_account.present?
 
-        PaypalAccountModel.create!(
+
+        PaypalAccountStore.create(
           account_data.merge({person_id: person_id, community_id: community_id})
         )
         Result::Success.new
