@@ -124,6 +124,8 @@ class Admin::PaypalPreferencesController < ApplicationController
       params[:verification_code]
     )
 
+    PaypalAccountCommand.activate_account(nil, personal_data_res[:payer_id], @current_community.id)
+
     redirect_to action: :index
   end
 

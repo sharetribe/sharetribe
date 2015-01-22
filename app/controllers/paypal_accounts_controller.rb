@@ -124,7 +124,9 @@ class PaypalAccountsController < ApplicationController
       return flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_wrong_account"))
     end
 
-    success = PaypalAccountCommand.confirm_billing_agreement(@current_user.id, @current_community.id, params[:token], billing_agreement_id)
+    PaypalAccountCommand.confirm_billing_agreement(@current_user.id, @current_community.id, params[:token], billing_agreement_id)
+    PaypalAccountCommand.activate_account(@current_user.id, paypal_account[:payer_id], @current_community.id)
+
     redirect_to show_paypal_account_settings_payment_path(@current_user.username)
   end
 
