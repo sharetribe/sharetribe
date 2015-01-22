@@ -643,9 +643,9 @@ ActiveRecord::Schema.define(:version => 20150121130521) do
     t.integer  "community_id"
     t.string   "email"
     t.string   "payer_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.boolean  "active"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "active",       :default => false
   end
 
   add_index "paypal_accounts", ["community_id"], :name => "index_paypal_accounts_on_community_id"
