@@ -184,13 +184,14 @@ class PaypalAccountsController < ApplicationController
     response = paypal_permissions.do_request(permission_request)
     if response[:success]
       PaypalAccountCommand.create_pending_permissions_request(
-          @current_user.id,
-          @current_community.id,
-          response[:username_to],
-          permission_request[:scope],
-          response[:request_token]
-        )
-      response[:redirect_url]
+        @current_user.id,
+        @current_community.id,
+        response[:username_to],
+        permission_request[:scope],
+        response[:request_token]
+      )
+
+      URLUtils.prepend_path_component(response[:redirect_url], LocalizationUtils.valid_country_code(@current_community.country))
     else
       nil
     end

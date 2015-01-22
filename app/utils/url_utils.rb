@@ -15,6 +15,12 @@ module URLUtils
     uri.to_s
   end
 
+  def prepend_path_component(url_str, component)
+    uri = URI(url_str)
+    uri.path = "/#{component}#{uri.path}"
+    uri.to_s
+  end
+
   # http://www.sharetribe.com/en/people -> en
   # http://www.sharetribe.com/en-US/people -> en-US
   #
