@@ -173,6 +173,7 @@ fi:
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
         update_settings: Tallenna
         automatically_confirmed: "Transaktio merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää. Jos käytössä on escrow-järjestelmä, rahat tilitetään tässä vaiheessa maksun saajalle."
+        automatically_confirmed_no_escrow: "Transaktio merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää."
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
         newsletter_weekly: Viikoittain
