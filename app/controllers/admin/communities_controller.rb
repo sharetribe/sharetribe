@@ -223,7 +223,7 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def escrow_payments?(community)
-    MarketplaceService::Community::Query.payment_type(community) == :braintree
+    MarketplaceService::Community::Query.payment_type(community.id) == :braintree
   end
 
 end
