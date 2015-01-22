@@ -173,6 +173,7 @@ es-ES:
         twitter_handle: "Publicar en Twitter (a través del botón \"twee\" en la página del anuncio)"
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
         newsletter_daily: Diariamente
         newsletter_weekly: Semanalmente
@@ -1378,7 +1379,10 @@ es-ES:
       select_subcategory: "Selecciona una subcategoría"
       select_transaction_type: "Seleccionar tipo de anuncio"
       you_need_to_fill_payout_details_before_accepting: "Debes completar tus datos de pago antes de publicar un anuncio. Ve a %{payment_settings_link} para completar toda la información."
+      contact_admin_link_text: "contactar con el administrador"
+      community_not_configured_for_payments: ~
       payment_settings_link: "Configuración de los pagos"
+      community_not_configured_for_payments_admin: ~
     please_comment: Comentario
     reply_link:
       listing_closed: "Anuncio desactivado"
@@ -1490,6 +1494,7 @@ es-ES:
     new:
       payout_info_you_need_to_connect: "Para aceptar pagos necesitar conectar tu cuenta de PayPal con %{service_name}."
       payout_info_text: "Por favor, completa estos dos pasos para conectar tu cuenta."
+      contact_admin_link_text: "contactar al administrador"
       admin_account_not_connected: "No puedes conectar tu cuenta de PayPal porque el administrador del marketplace no ha finalizado las configuraciones necesarias para usar PayPal."
       paypal_account_email: "Conecta tu cuenta de Paypal"
       paypal_account_email_placeholder: "Tu dirección de email en Paypal"
@@ -1518,16 +1523,6 @@ es-ES:
     wait_while_loading: "Por favor, espera."
     chatting_with_paypal: "Estamos hablando con PayPal."
   people:
-    index:
-      loading_more_members: "Cargando más miembros"
-      meet_the_people: "Conoce a la gente"
-      you_are_the_only_member: "Eres el único miembre de la comunidad %{community_name}."
-      here_are_the_members: "Aquí están los %{count} miembros de la comunidad %{community_name}."
-      wanna_see_more_folks: "¿Quieres ver más gente aquí?"
-      invite_people_you_know: "Invita a tus conocidos!"
-      there_are_x_members: "Hay %{count} miembros en la comunidad %{community_name}."
-      to_see_the_list_log_in: "Para ver la lista completa de todos los miembros necesitas %{log_in_link}."
-      log_in_link: "inicia sesión"
     edit_links:
       activate: Activar
       deactivate: Desactivar

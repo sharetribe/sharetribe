@@ -1362,6 +1362,7 @@ el:
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: Σχολίασε
     reply_link:
       listing_closed: "Η καταχώρηση έχει απενεργοποιηθεί."
@@ -1502,16 +1503,6 @@ el:
     wait_while_loading: ~
     chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: "Εμφάνιση περισσότερων μελών"
-      meet_the_people: "Γνωρίστε τους υπόλοιπους"
-      you_are_the_only_member: "Είσαι το μόνο μέλος της κοινότητας \"%{community_name}\"."
-      here_are_the_members: "Εδώ εμφανίζονται τα %{count} μέλη της κοινότητας \"%{community_name}\"."
-      wanna_see_more_folks: "Θα θέλατε να εμφανίζεται περισσότερος κόσμος εδώ;"
-      invite_people_you_know: "Προσκαλέστε τα άτομα που γνωρίζετε!"
-      there_are_x_members: "Υπάρχουν %{count} μέλη στην κοινότητα \"%{community_name}\"."
-      to_see_the_list_log_in: "Για να δείτε την πλήρη λίστα των μελών πρέπει να %{log_in_link}."
-      log_in_link: συνδεθείτε
     edit_links:
       activate: Ενεργοποίηση
       deactivate: Απενεργοποίηση

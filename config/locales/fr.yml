@@ -645,7 +645,7 @@ fr:
     payment_settings_reminder:
       remember_to_add_payment_details: "N'oubliez pas d'ajouter vos détails de paiements pour recevoir les paiements"
       you_have_added_listing_with_payment: "Vous avez ajouté une annonce %{listing_link} avec un paiement. Cependant, vous n'avez pas ajouté vos détails de paiement. Pour en recevoir, vous devez ajouter vos informations de paiement."
-      please_go_to_payment_settings: "Rendez-vous sur les %{payment_settings_link} et complétez les informations nécessaires."
+      please_go_to_payment_settings: "Veuillez vous rendre dans vos %{payment_settings_link} et y complétez les informations nécessaires."
       payment_settings_link: "paramètres de paiement"
     transaction_confirmed:
       here_is_a_message_from: "Voici un message de %{other_party_given_name} : "
@@ -1374,7 +1374,10 @@ fr:
       select_subcategory: "Sélectionner une sous-catégorie"
       select_transaction_type: "Sélectionner le type d'annonce"
       you_need_to_fill_payout_details_before_accepting: "Vous devez compléter les détails de paiements avant de pouvoir déposer une annonce. Allez aux %{payment_settings_link} pour compléter les détails."
+      contact_admin_link_text: "contacter l'administrateur"
+      community_not_configured_for_payments: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas déposer d'annonce pour le moment. Veuillez %{contact_admin_link} pour en savoir plus."
       payment_settings_link: "paramètres de paiement"
+      community_not_configured_for_payments_admin: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas déposer d'annonce pour le moment. Rendez-vous dans les %{payment_settings_link} pour y compléter les informations de paiements."
     please_comment: "Faire un commentaire"
     reply_link:
       listing_closed: "L'annonce est close"
@@ -1486,7 +1489,8 @@ fr:
     new:
       payout_info_you_need_to_connect: "Pour accepter les paiements vous devez connecter votre compte PayPal à %{service_name}"
       payout_info_text: "Veuillez réaliser les deux actions suivantes pour connecter votre compte."
-      admin_account_not_connected: "Vous ne pouvez pas connecter votre compte PayPal car l'administrateur de la place de marché n'a pas terminé la configuration de PayPal."
+      contact_admin_link_text: "contacter l'administrateur"
+      admin_account_not_connected: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas connecter votre compte PayPal pour le moment. Veuillez %{contact_admin_link} pour en savoir plus."
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_placeholder: "Votre adresse email PayPal"
       paypal_account_email_info_text: "Note : vous devez avoir un compte PayPal Premier (pour les particuliers) ou Business (pour les entreprises) pour accepter les paiements. Si vous avez un compte PayPal personnel, vous pouvez le mettre à jour. C'est gratuit et ne prend que quelques instants. %{upgrade_paypal_account} Si vous n'avez pas encore de compte PayPal, vous pouvez créer un compte %{create_paypal_account}. Votre compte PayPal doit être configuré pour recevoir %{currency}."
@@ -1514,16 +1518,6 @@ fr:
     wait_while_loading: "Merci de patienter."
     chatting_with_paypal: "Nous échangeons avec PayPal."
   people:
-    index:
-      loading_more_members: "Chargement des autres membres"
-      meet_the_people: "Découvrez les membres"
-      you_are_the_only_member: "Vous êtes le seul membre de %{service_name}."
-      here_are_the_members: "Voici les %{count} membres de %{service_name}."
-      wanna_see_more_folks: "Vous voulez voir plus de monde ici ?"
-      invite_people_you_know: "Invitez des gens que vous connaissez !"
-      there_are_x_members: "Il y a %{count} membres sur %{service_name}."
-      to_see_the_list_log_in: "Pour voir la liste complète des membres, vous devez %{log_in_link}."
-      log_in_link: "vous connecter"
     edit_links:
       activate: Activer
       deactivate: Désactiver

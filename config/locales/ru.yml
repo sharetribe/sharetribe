@@ -158,6 +158,7 @@ ru:
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -1359,7 +1360,10 @@ ru:
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: Комментарий
     reply_link:
       listing_closed: ~
@@ -1471,6 +1475,7 @@ ru:
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
@@ -1499,16 +1504,6 @@ ru:
     wait_while_loading: ~
     chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: "Загружаю больше участников"
-      meet_the_people: ~
-      you_are_the_only_member: "Вы — единственный участник сообщества %{community_name}."
-      here_are_the_members: "Количество участников сообщества %{community_name}: %{count} чел."
-      wanna_see_more_folks: "Хотите видеть здесь больше людей?"
-      invite_people_you_know: "Приглашайте знакомых!"
-      there_are_x_members: "Количество участников сообщества %{community_name}: %{count} чел."
-      to_see_the_list_log_in: "Чтобы увидеть полный список участников, необходимо %{log_in_link}."
-      log_in_link: авторизоваться
     edit_links:
       activate: Активировать
       deactivate: Отключить
