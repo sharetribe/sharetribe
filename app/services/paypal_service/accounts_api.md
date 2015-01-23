@@ -47,6 +47,21 @@ Response 201 Created, with PaypalAccount body
 }
 ```
 
+## POST /accounts/:community_id/:person_id/billing_agreement/request
+
+```ruby
+{ description: "Marketplace X would like to charge transaction fee"
+, success_url: "https://alpha.sharetribe.com/account/billing_agreement_success"
+, cancel_url: "https://alpha.sharetribe.com/account/billing_agreement_cancel"
+}
+```
+
+```ruby
+{ redirect_url: "https://www.sandbox.paypal.com/webscr?cmd=_grant-permission&request_token=AAAAAAAbDq-HJDXerDtj" }
+```
+
+## POST /accounts/:community_id/:person_id/billing_agreement/create
+
 ## GET /accounts/:community_id(/:person_id?)
 
 No request body

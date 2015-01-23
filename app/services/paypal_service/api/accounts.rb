@@ -3,6 +3,7 @@ module PaypalService::API
 
   class Accounts
     include PaypalService::PermissionsInjector
+    include PaypalService::MerchantInjector
 
     # The API implmenetation
     #
@@ -50,6 +51,32 @@ module PaypalService::API
       }
     end
 
+    ## POST /accounts/:community_id/:person_id/billing_agreement/request
+    #
+    # Body:
+    # { description: "Let marketplace take commission"
+    # , success_url: "http://marketplace.com/success
+    # , cancel_url: "http://marketplace.com/cancel
+    # }
+    #
+
+    def billing_agreement_request(community_id, person_id, body)
+      with_billing_agreement_request(body[:description], body[:success_url], body[:cancel_url]) { |billing_agreement_request|
+        account = PaypalAccountStore.update({
+                                              community_id: community_id,
+                                              person_id: person_id,
+                                              billing_agreement_paypal_username_to: billing_agreement_request[:username_to],
+                                              billing_agreement_request_token: billing_agreement_request[:token]
+                                            })
+
+        Result::Success.new(DataTypes.create_billing_agreement_request({
+                                                                         redirect_url: billing_agreement_request[:redirect_url]
+                                                                       }))
+      }
+    end
+
+    ## POST /accounts/:community_id/:person_id/billing_agreement/create
+
     ## GET /accounts/:community_id(/:person_id?)
 
     private
@@ -85,6 +112,23 @@ module PaypalService::API
                               .create_get_basic_personal_data({token: access_token, token_secret: access_token_secret})
 
       response = paypal_permissions.do_request(personal_data_request)
+
+      if response[:success]
+        block.call(response)
+      else
+        nil
+      end
+    end
+
+    def with_billing_agreement_request(description, success_url, cancel_url, &block)
+      billing_agreement_request = PaypalService::DataTypes::Merchant
+                                  .create_setup_billing_agreement({
+                                                                    description: description,
+                                                                    success: success_url,
+                                                                    cancel: cancel_url
+                                                                  })
+
+      response = paypal_merchant.do_request(billing_agreement_request)
 
       if response[:success]
         block.call(response)

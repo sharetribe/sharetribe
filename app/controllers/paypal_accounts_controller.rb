@@ -153,7 +153,14 @@ class PaypalAccountsController < ApplicationController
   end
 
   def create_billing_agreement
-    billing_agreement_url = request_paypal_billing_agreement_url
+    response = accounts_api.billing_agreement_request(@current_community.id, @current_user.id,
+      PaypalService::API::DataTypes.create_create_billing_agreement_request({
+                                                                              description: t("paypal_accounts.new.billing_agreement_description"),
+                                                                              success_url:  billing_agreement_success_person_paypal_account_url,
+                                                                              cancel_url:   billing_agreement_cancel_person_paypal_account_url
+                                                                            }))
+
+    billing_agreement_url = response.data[:redirect_url]
 
     if billing_agreement_url.blank?
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
@@ -170,29 +177,6 @@ class PaypalAccountsController < ApplicationController
     unless PaypalHelper.paypal_active?(@current_community.id)
       flash[:error] = t("paypal_accounts.new.paypal_not_enabled")
       redirect_to person_settings_path(@current_user)
-    end
-  end
-
-  def request_paypal_billing_agreement_url
-    commission_from_seller = @current_community.commission_from_seller ? "#{@current_community.commission_from_seller} %" : "0 %"
-    billing_agreement_request = PaypalService::DataTypes::Merchant
-      .create_setup_billing_agreement({
-        description: t("paypal_accounts.new.billing_agreement_description"),
-        success:  billing_agreement_success_person_paypal_account_url,
-        cancel:   billing_agreement_cancel_person_paypal_account_url
-      })
-
-    response = paypal_merchant.do_request(billing_agreement_request)
-    if response[:success]
-      PaypalAccountCommand.create_pending_billing_agreement(
-          @current_user.id,
-          @current_community.id,
-          response[:username_to],
-          response[:token]
-        )
-      response[:redirect_url]
-    else
-      nil
     end
   end
 
