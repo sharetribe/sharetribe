@@ -69,7 +69,7 @@
         .content
           = @listing.transaction_type.action_button_label(I18n.locale)
 
-    - if payment_gateway == :paypal
+    - if payment_gateway == :paypal && @listing.transaction_type.status_after_reply != "free"
       .row
         .col-12
           - community_country_code = LocalizationUtils.country_code_valid?(@current_community.country) ? @current_community.country.downcase : 'us' # default should not happen in production
