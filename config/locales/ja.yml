@@ -168,6 +168,7 @@ ja:
         twitter_handle: "Twitter ハンドルネーム （リストページのtweetボタンを使用します）"
         update_settings: 設定を保存
         automatically_confirmed: "課金は%{days_dropdown}を過ぎると完了済みとして処理されます。第三者預託システムを使用している場合、この時点で料金はサービス提供側へ開放されます。"
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: "%{frequency_dropdown}の☆速報☆を自動で送信する"
         newsletter_daily: 毎日
         newsletter_weekly: 毎週
@@ -398,9 +399,9 @@ ja:
       minimum_price_error_message: "価格は%{amount}より低く設定できません。"
       accept: ~
       decline: ~
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      sum: "合計金額： %{sum}"
+      service_fee: "ご利用料金： %{service_fee}"
+      you_will_get: "あなたに支払われる金額： %{seller_gets}"
     confirm:
       confirm_description: あなたのリクエストに適していた場合、取引は完了したと承認してください。そうすると相手方のレビューを書くことができます。
       cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
@@ -412,7 +413,7 @@ ja:
       give_feedback_to: "%{person_link}さんにレビューを書く"
       do_not_give_feedback: レビューを書くのをスキップする
     details:
-      day: ~
+      day: 日
       days: 日
       price_per_day: "1日あたり： %{price}"
     index:
@@ -431,10 +432,10 @@ ja:
       canceled_request: リクエストはキャンセルされました。
       canceled_offer: オファーはキャンセルされました。
       message_from: ~
-      about_listing: ~
+      about_listing: "%{listing_title}から"
       free_message: ~
     message:
-      accepted_request: ~
+      accepted_request: リクエストは受諾しました
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
@@ -442,7 +443,7 @@ ja:
       confirmed_offer: ~
       canceled_request: ~
       canceled_offer: ~
-      paid: ~
+      paid: "%{sum}をお支払いしました"
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
@@ -475,14 +476,14 @@ ja:
       send_message: メッセージ送信する
       send: ~
       this_message_is_private: "このメッセージは、あなたと%{person}さんの間のプライベートなものです。%{person}さんは、メールでこのメッセージを通知されます。"
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      you_will_get_notified_of_acceptance: "%{person}さんがあなたの提案に承諾や却下する際に、メールを受け取る。"
+      you_will_get_notified: "%{person}さんがあなたに返事する際にメールを受け取る。"
       title: タイトル
       send_message_to_user: "%{person}さんにメッセージを送信する"
-      about_listing: ~
+      about_listing: "%{listing_title}から"
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: ~
+      in_response_to_listing: リストについて
       message_sent_by: ~
       message_sent_to: ~
       send_reply: 返信する
@@ -492,7 +493,7 @@ ja:
       conversation_with: ~
       last_message_at: "最新メッセージ %{time}"
       price: ~
-      sum: ~
+      sum: "合計： %{sum}"
       price_excludes_vat: （外税）
       total: ~
     status:
@@ -507,31 +508,31 @@ ja:
       offer_rejected: 却下されました
       offer_canceled: ~
       offer_confirmed: ~
-      offer_paid: ~
-      offer_preauthorized: ~
+      offer_paid: お支払い手続きは成功しました
+      offer_preauthorized: お支払い手続きは成功しました
       offer_waiting_for_payment: ~
       pay: ~
-      preauthorized: ~
-      paid: ~
+      preauthorized: お支払い手続きは成功しました
+      paid: お支払い手続きは成功しました
       pending_external:
         paypal:
           multicurrency: ~
           verify: ~
           intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: "%{listing_title}の納品待ち"
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: 承認されました
       request_rejected: 却下されました
       request_confirmed: ~
       request_canceled: ~
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: お支払い手続きは成功しました
+      request_preauthorized: お支払い手続きは成功しました
       skip_feedback: レビューを書くのをスキップする
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
-      waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
-      waiting_confirmation_from_you: ~
+      waiting_for_you_to_accept_request: リクエストの承認待ち
+      waiting_confirmation_from_requester: "%{requester_name}さんのリクエスト完了のステータス変更待ち"
+      waiting_confirmation_from_you: リクエスト完了のステータス変更待ち
       waiting_payment_from_requester: ~
       waiting_payment_from_you: ~
       waiting_feedback_from_you: レビューを書くまで待っています
@@ -544,12 +545,12 @@ ja:
     status_link:
       accept_offer: オファーを承諾する
       accept_request: リクエストを承諾する
-      reject_offer: 今回はしない
-      reject_request: 今回はしない
+      reject_offer: 今回はやめる
+      reject_request: 今回はやめる
       accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      accept_preauthorized_request: リクエストを承諾する
+      reject_preauthorized_offer: 今回はやめる
+      reject_preauthorized_request: 今回はやめる
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -719,18 +720,18 @@ ja:
       new_payment: ~
       you_have_received_new_payment: ~
     braintree_new_payment:
-      product: ~
+      product: 商品・サービス名：
       price_payer_paid: "価格 %{payer_full_name}さん 支払い済み："
-      service_fee: ~
-      you_will_get: ~
+      service_fee: "%{service_name}のご利用料金："
+      you_will_get: あなたに支払われる金額：
       money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
-      product: ~
+      product: 商品・サービス名：
       total: ~
       price: 価格
-      service_fee: ~
+      service_fee: ご利用料金
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}さんは%{service_name}であなたにレビューを書きました"
@@ -765,13 +766,13 @@ ja:
       remember_to_give_feedback_to: "ご注意：%{name}さんにレビューを書くのを忘れないでください"
       you_have_not_given_feedback_yet: "%{name}さんに「%{event}」の件でまだレビューを書いていないようです。この際に、%{given_name}さんのレビューを是非お願いします。"
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "%{requester}さんは%{listing_title}に対してリクエストをし、お支払いが完了しました。"
+      transaction_requested_by_user: "%{requester}さんは「%{listing_title}」に対してリクエストをし、お支払いが完了しました。"
       you_have_days_to_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
+      subject: "%{listing_title}について%{requester}さんからのリクエストを承諾してください"
+      remember_to_accept: "「%{listing_title}」について%{requester}さんからのリクエストを承諾してください。%{requester}さんは既にお支払いを完了しています。お支払いを受けるには注文のリクエストを承諾してください。"
       one_day_left: ~
       click_here_to_reply: ~
     welcome_email:
@@ -1123,7 +1124,7 @@ ja:
       only_kassi_administrators_can_access_this_area: "こちらは%{service_name}の管理者だけがアクセス出来ます"
       only_listing_author_can_close_a_listing: リストの作成者のみがリストをクローズ出来ます
       only_listing_author_can_edit_a_listing: このリストの作成者のみがこのリストを編集出来ます
-      payment_successful: お支払いは完了しました
+      payment_successful: お支払い手続きは成功しました
       payment_canceled: お支払いはキャンセルされました
       error_in_payment: お支払い時にエラー発生。お支払いを完了していない場合、再試行してください。完了している場合は、お問い合わせにご連絡ください。
       cannot_receive_payment: 何かのエラーによりお支払いを受領できませんでした。状況を明確にするため、サイト管理者にお問い合わせください。
@@ -1421,7 +1422,7 @@ ja:
       payment: ~
       exp: ~
       you_will_be_charged: ~
-      day: ~
+      day: 日
       days: 日
       price_per_day: "1日あたりの価格： %{price}"
     transaction_agreement_checkbox:
@@ -1456,18 +1457,18 @@ ja:
       new_payment: ~
       continue: ~
       payment_receiver: ~
-      sum: ~
-      commission_will_be_added: ~
+      sum: お支払い金額：
+      commission_will_be_added: ご利用料金が10％加算されます。
     form:
       total: ~
       service_charge: ~
-      product: ~
+      product: 商品・サービス名：
       price: 合計：
       price_for: "%{payer_given_name}さんのための価格"
       continue_to_pay: ~
       invoice: ~
-      service_fee: ~
-      you_will_get: ~
+      service_fee: "%{service_name}のご利用料金："
+      you_will_get: あなたに支払われる金額：
     braintree:
       terms:
         braintree_terms_also_included: ~
@@ -1771,7 +1772,7 @@ ja:
       negative: ネガティブ
       default_textual_feedback: すべてはスムーズに進行しました、誠にありがとうございます！
     testimonial:
-      about_listing: ~
+      about_listing: リストについて
   date:
     formats:
       long_with_abbr_day_name: "%Y/%m/%d （%a）"
@@ -1850,7 +1851,7 @@ ja:
     days_since:
       other: "%{count}日"
   unit:
-    day: ~
+    day: 日
     days: 日
   will_paginate:
     models:

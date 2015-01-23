@@ -158,6 +158,7 @@ zh:
         twitter_handle: ~
         update_settings: 保存设置
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: "自动发送新闻邮件：%{frequency_dropdown}"
         newsletter_daily: 每日
         newsletter_weekly: 每周
@@ -886,7 +887,7 @@ zh:
     contact_us: 联系我们
     profile: 资料
     invite: 邀请新成员
-    login: ~
+    login: 登录
     signup: 注册
     menu: 菜单
   homepage:
@@ -1467,7 +1468,7 @@ zh:
     paypal_account_email_connected: ~
     paypal_billing_agreement_made: ~
     you_are_ready_to_accept_payments: ~
-    commission: ~
+    commission: "%{commission}%"
     connected_account: ~
     missing: ~
     from_your_payment_settings_link_text: ~
@@ -1479,7 +1480,7 @@ zh:
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
       paypal_account_email_info_text: ~
-      create_paypal_account: ~
+      create_paypal_account: 这里
       upgrade_paypal_account: 在这里升级你的帐号。
       connect_paypal_account: ~
       paypal_account_billing_agreement: ~
@@ -1487,8 +1488,8 @@ zh:
       billing_agreement_description: ~
       billing_agreement: ~
       permissions_not_granted: ~
-      could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
+      could_not_fetch_redirect_url: 不能获得连接到PayPal的重定向链接。
+      paypal_not_enabled: "PayPal 支付没有启用。"
       billing_agreement_canceled: ~
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~

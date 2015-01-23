@@ -173,6 +173,7 @@ da-DK:
         twitter_handle: "Twitter brugernavn (bruges ved tweet knappen på annonce siderne)"
         update_settings: "Gen indstillinger"
         automatically_confirmed: "Transaktioner vil automatisk blive markeret som godkendt %{days_dropdown} dage efter betaling er lavet. Betalingen vil blive frigivet til sælger herefter."
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: "Send automatiske nyhedsbreve: %{frequency_dropdown}"
         newsletter_daily: Daligt
         newsletter_weekly: Ugenligt

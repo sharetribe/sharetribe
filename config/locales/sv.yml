@@ -173,6 +173,7 @@ sv:
         twitter_handle: "Twitter handtag (används med twitterknappen på annonssidan)"
         update_settings: "Spara inställningar"
         automatically_confirmed: "Transaktionen kommer automatiskt att markeras som klar %{days_dropdown} dagar efter att betalningen har gjorts. Om deponeringssystemet är i bruk så kommer pengarna att släppas till leverantören."
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
         newsletter_daily: Dagligen
         newsletter_weekly: Veckovis
