@@ -50,17 +50,22 @@ describe BraintreeService::EscrowReleaseHelper do
   end
 
   describe "#next_escrow_release_time" do
+
+    def central_time(*args)
+      ActiveSupport::TimeZone.new("Central Time (US & Canada)").local(*args)
+    end
+
     context 'when todays batch has not been run yet' do
       it 'returns time of todays batch and buffer' do
-        next_batch = BraintreeService::EscrowReleaseHelper.next_escrow_release_time(Time.new(2014, 3, 11, 22, 0, 0, 0), 2)
-        next_batch.utc.should be_eql(Time.new(2014, 3, 12, 1, 0, 0, 0))
+        next_batch = BraintreeService::EscrowReleaseHelper.next_escrow_release_time(Time.new(2014, 3, 11, 21, 0, 0, 0), 2)
+        next_batch.should be_eql(central_time(2014, 3, 11, 19, 0, 0))
       end
     end
 
     context 'when todays batch has been run already' do
       it 'returns time of tomorrows batch and buffer' do
         next_batch = BraintreeService::EscrowReleaseHelper.next_escrow_release_time(Time.new(2014, 3, 11, 23, 10, 0, 0), 2)
-        next_batch.utc.should be_eql(Time.new(2014, 3, 13, 1, 0, 0, 0))
+        next_batch.should be_eql(central_time(2014, 3, 12, 19, 0, 0))
       end
     end
   end
