@@ -1374,6 +1374,7 @@ fi:
       select_category: "Valitse ilmoituskategoria"
       select_subcategory: "Valitse alakategoria"
       select_transaction_type: "Valitse ilmoitustyyppi"
+      you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: "lähetä viesti ylläpitäjälle"
       community_not_configured_for_payments: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja %{contact_admin_link}."
       payment_settings_link: "markkinapaikan maksuasetuksiin"
@@ -1485,12 +1486,11 @@ fi:
     commission: "%{commission} %"
     connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
     missing: "Sinulla on avoimia ilmoituksia, mutta et ole yhdistänyt PayPal-tiliäsi, joten et pysty ottamaan maksuja vastaan. Yhdistä PayPal-tilisi %{settings_link}."
-    from_your_payment_settings_link_text: "maksuasetuksistasi"
+    from_your_payment_settings_link_text: maksuasetuksistasi
     new:
       payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täyttyy yhdistää PayPal-tilisi %{service_name}-palveluun."
       payout_info_text: "Se onnistuu seuraavien kahden vaiheen avulla."
       contact_admin_link_text: "lähetä viesti ylläpitäjälle"
-      admin_account_not_connected: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi vielä yhdistää PayPal-tiliäsi. Ole hyvä ja %{contact_admin_link}."
       admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska %{service_name} ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_placeholder: "PayPal-tilisi sähköpostiosoite"
