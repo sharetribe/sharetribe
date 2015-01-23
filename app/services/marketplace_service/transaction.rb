@@ -252,14 +252,14 @@ module MarketplaceService
       end
 
       def transaction_with_conversation(transaction_id, person_id, community_id)
-        transaction_model = TransactionModel.joins(:listing)
+        Maybe(TransactionModel.joins(:listing)
           .where(id: transaction_id)
           .where(community_id: community_id)
           .includes(:booking)
           .where("starter_id = ? OR listings.author_id = ?", person_id, person_id)
-          .first
-
-        Entity.transaction_with_conversation(transaction_model, community_id)
+          .first)
+          .map { |tx_model| Entity.transaction_with_conversation(tx_model, community_id) }
+          .or_else(nil)
       end
 
       def transactions_for_community_sorted_by_column(community_id, sort_column, sort_direction, limit, offset)
