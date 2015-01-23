@@ -22,7 +22,7 @@
         = render :partial => "ask_paypal_billing_agreement", locals: {paypal_account_email: paypal_account_email, form: form, commission_from_seller: commission_from_seller, minimum_commission: minimum_commission}
       - else
         - title = t("paypal_accounts.new.paypal_account_email")
-        = render :partial => "ask_paypal_permissions", locals: {form: form, title: title, currency: currency}
+        = render :partial => "ask_paypal_permissions", locals: {form: form, title: title, currency: currency, create_url: create_url, upgrade_url: upgrade_url}
 
         %br/
         .row

@@ -11,4 +11,7 @@ module LocalizationUtils
     return false
   end
 
+  def valid_country_code(code)
+    country_code_valid?(code) ? code.downcase : "us" # defaults to us, should not happen to new marketplaces
+  end
 end

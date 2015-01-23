@@ -1,12 +1,10 @@
 .row
   = form.label :paypal_email, title
 .row
-  - community_country_code = LocalizationUtils.country_code_valid?(@current_community.country) ? @current_community.country.downcase : 'us' # default should not happen in production
-  - create = link_to(t("paypal_accounts.new.create_paypal_account"), "https://www.paypal.com/#{community_country_code}/signup")
-  - upgrade = link_to(t("paypal_accounts.new.upgrade_paypal_account"), "https://www.paypal.com/#{community_country_code}/upgrade")
-  - text = t("paypal_accounts.new.paypal_account_email_info_text", {create_paypal_account: create, upgrade_paypal_account: upgrade, currency: "<strong>#{currency}</strong>"}).html_safe
+  - create_link = link_to(I18n.t("paypal_accounts.new.create_paypal_account"), create_url)
+  - upgrade_link = link_to(I18n.t("paypal_accounts.new.upgrade_paypal_account"), upgrade_url)
+  - text = t("paypal_accounts.new.paypal_account_email_info_text", {create_paypal_account: create_link, upgrade_paypal_account: upgrade_link, currency: "<strong>#{currency}</strong>"}).html_safe
   = render :partial => "layouts/info_text", :locals => {text: text}
 
 .row.send-button-wrapper
   = form.button t("paypal_accounts.new.connect_paypal_account"), :class => "send_button"
-
