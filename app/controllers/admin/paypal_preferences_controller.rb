@@ -49,6 +49,8 @@ class Admin::PaypalPreferencesController < ApplicationController
       commission_from_seller: tx_settings[:commission_from_seller],
       minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], @current_community.default_currency))
 
+    community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
+
     render("index", locals: {
         paypal_account_email: Maybe(paypal_account)[:email].or_else(nil),
         paypal_form_action: account_create_admin_community_paypal_preferences_path(@current_community.id),
@@ -59,7 +61,9 @@ class Admin::PaypalPreferencesController < ApplicationController
         min_commission: minimum_commission,
         min_commission_percentage: 5,
         max_commission_percentage: 100,
-        currency: currency
+        currency: currency,
+        create_url: "https://www.paypal.com/#{community_country_code}/signup",
+        upgrade_url: "https://www.paypal.com/#{community_country_code}/upgrade"
       })
   end
 
