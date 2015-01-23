@@ -75,7 +75,37 @@ module PaypalService::API
       }
     end
 
-    ## POST /accounts/:community_id/:person_id/billing_agreement/create
+    ## POST /accounts/:community_id/:person_id/billing_agreement/create?token=EC-123215122362
+    #
+    # Empty body
+    #
+    # Errors:
+    #
+    # - :billing_agreement_not_accepted
+    # - :wrong_account
+
+    def billing_agreement_create(community_id, person_id, request_token)
+      paypal_account = PaypalAccountStore.get(person_id, community_id)
+
+      with_billing_agreement(request_token) { |billing_agreement|
+        with_express_checkout_details(request_token) { |express_checkout_details|
+          if !express_checkout_details[:billing_agreement_accepted]
+            Result::Error.new(:billing_agreement_not_accepted)
+          elsif express_checkout_details[:payer_id] != paypal_account[:payer_id]
+            Result::Error.new(:wrong_account)
+          else
+            account = PaypalAccountStore.update({
+                                        community_id: community_id,
+                                        person_id: person_id,
+                                        billing_agreement_id: billing_agreement[:billing_agreement_id]
+                                      })
+
+            Result::Success.new(account)
+          end
+        }
+
+      }
+    end
 
     ## GET /accounts/:community_id(/:person_id?)
 
@@ -129,6 +159,36 @@ module PaypalService::API
                                                                   })
 
       response = paypal_merchant.do_request(billing_agreement_request)
+
+      if response[:success]
+        block.call(response)
+      else
+        nil
+      end
+    end
+
+    def with_billing_agreement(request_token, &block)
+      billing_agreement_request = PaypalService::DataTypes::Merchant
+                                  .create_create_billing_agreement({
+                                                                     token: request_token
+                                                                   })
+
+      response = paypal_merchant.do_request(billing_agreement_request)
+
+      if response[:success]
+        block.call(response)
+      else
+        nil
+      end
+    end
+
+    def with_express_checkout_details(request_token, &block)
+      express_checkout_details_request = PaypalService::DataTypes::Merchant
+                                         .create_get_express_checkout_details({
+                                                                                token: request_token
+                                                                              })
+
+      response = paypal_merchant.do_request(express_checkout_details_request)
 
       if response[:success]
         block.call(response)

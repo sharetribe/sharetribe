@@ -102,25 +102,24 @@ class PaypalAccountsController < ApplicationController
   end
 
   def billing_agreement_success
-    affirm_agreement_res = affirm_billing_agreement(params[:token])
-    return flash_error_and_redirect_to_settings(error_response: affirm_agreement_res) unless affirm_agreement_res[:success]
+    response = accounts_api.billing_agreement_create(@current_community.id, @current_user.id, params[:token])
 
-    billing_agreement_id = affirm_agreement_res[:billing_agreement_id]
+    if response[:success]
+      # TODO Move to Paypal Account API
+      paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
+      PaypalAccountCommand.activate_account(@current_user.id, paypal_account[:payer_id], @current_community.id)
 
-    express_checkout_details_req = PaypalService::DataTypes::Merchant.create_get_express_checkout_details({token: params[:token]})
-    express_checkout_details_res = paypal_merchant.do_request(express_checkout_details_req)
-
-    paypal_account =  PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
-    if !express_checkout_details_res[:billing_agreement_accepted]
-      return flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_not_accepted"))
-    elsif express_checkout_details_res[:payer_id] != paypal_account[:payer_id]
-      return flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_wrong_account"))
+      redirect_to show_paypal_account_settings_payment_path(@current_user.username)
+    else
+      case response.error_msg
+      when :billing_agreement_not_accepted
+        flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_not_accepted"))
+      when :wrong_account
+        flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_wrong_account"))
+      else
+        flash_error_and_redirect_to_settings(error_response: response)
+      end
     end
-
-    PaypalAccountCommand.confirm_billing_agreement(@current_user.id, @current_community.id, params[:token], billing_agreement_id)
-    PaypalAccountCommand.activate_account(@current_user.id, paypal_account[:payer_id], @current_community.id)
-
-    redirect_to show_paypal_account_settings_payment_path(@current_user.username)
   end
 
   def billing_agreement_cancel
@@ -178,13 +177,6 @@ class PaypalAccountsController < ApplicationController
       flash[:error] = t("paypal_accounts.new.paypal_not_enabled")
       redirect_to person_settings_path(@current_user)
     end
-  end
-
-  def affirm_billing_agreement(token)
-    affirm_billing_agreement_req = PaypalService::DataTypes::Merchant
-      .create_create_billing_agreement({token: token})
-
-    paypal_merchant.do_request(affirm_billing_agreement_req)
   end
 
   def flash_error_and_redirect_to_settings(error_response: nil, error_msg: nil)

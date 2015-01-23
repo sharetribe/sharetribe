@@ -25,6 +25,7 @@ module PaypalService::Store::PaypalAccount
   )
 
   BillingAgreement = EntityUtils.define_builder(
+    [:billing_agreement_id, :string],
     [:request_token, :string],
     [:paypal_username_to, :string]
   )
@@ -51,6 +52,10 @@ module PaypalService::Store::PaypalAccount
     account_model = update_or_create_billing_agreement(account_model, opts)
 
     from_model(account_model)
+  end
+
+  def get(person_id, community_id)
+    from_model(find_model(person_id, community_id))
   end
 
   ## Privates
