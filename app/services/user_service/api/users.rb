@@ -132,7 +132,7 @@ module UserService::API
 
     def gen_free_name(base, blacklist)
       (1..100000).reduce([base, ""]) do |(base_name, postfix), next_postfix|
-        return (base_name + postfix) unless blacklist.include?(base_name + postfix)
+        return (base_name + postfix) unless blacklist.include?(base_name + postfix) || (base_name + postfix).length < 3
         [base_name, next_postfix.to_s]
       end
     end

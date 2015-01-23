@@ -107,6 +107,38 @@ describe IntApi::MarketplacesController do
       expect(p.emails.first.address).to eql "fo@example.com"
     end
 
+    it "should handle short first + last names" do
+      post :create, {admin_email: "fo@example.com",
+                     admin_first_name: "E",
+                     admin_last_name: "McT",
+                     admin_password: "secret_word",
+                     marketplace_country: "FI",
+                     marketplace_language: "fi",
+                     marketplace_name: "ImaginationTraders",
+                     marketplace_type: "product"}
+
+      response.status.should == 201
+
+      r = JSON.parse(response.body)
+      expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
+
+      c = Community.find_by_name("ImaginationTraders")
+      expect(c).to_not be_nil
+      expect(c.country).to eql "FI"
+      expect(c.locales.first).to eql "fi"
+      expect(c.name).to eql "ImaginationTraders"
+      expect(c.domain).to eql "imaginationtraders"
+      expect(c.transaction_types.first.class).to eql Sell
+
+      p = c.admins.first
+      expect(p).to_not be_nil
+      expect(p.given_name).to eql "E"
+      expect(p.family_name).to eql "McT"
+      expect(p.username).to eql "em1"
+      expect(p.locale).to eql "fi"
+      expect(p.emails.first.address).to eql "fo@example.com"
+    end
+
   end
 
   describe "#check_email_availability" do
