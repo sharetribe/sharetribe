@@ -521,7 +521,7 @@ fi:
       paid: "Maksu suoritettu"
       pending_external:
         paypal:
-          multicurrency: "PayPal-maksua ei voitu suorittaa, koska PayPal-tiliäsi ei ole asetettu hyväksymään rahayksikköä %{currency}. Mene osoitteeseen %{paypal_url} ja kirjaudu sisään hyväksyäsi tai hylätäksesi maksun."
+          multicurrency: "PayPal-maksua ei voitu suorittaa, koska PayPal-tiliäsi ei ole asetettu hyväksymään rahayksikköä %{currency}. Mene osoitteeseen %{paypal_url} ja kirjaudu sisään hyväksyäksesi tai hylätäksesi maksun."
           verify: "PayPal-maksua ei voitu suorittaa, koska et ole vahvistanut PayPal-tiliäsi. Mene osoitteeseen %{paypal_url} ja vahvista tilisi."
           intl: "PayPal-maksua ei voitu suorittaa, koska et ole lisännyt PayPal-tiliisi tapaa nostaa rahaa tililtä. Mene osoitteeseen %{paypal_url} ja kirjaudu sisään hyväksyäsi tai hylätäksesi maksun."
       waiting_for_current_user_to_deliver_listing: "Odottaa että %{listing_title} on toimitettu"
