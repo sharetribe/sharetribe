@@ -1,10 +1,4 @@
--if @confirmation_token
-  - link = confirmation_url(:confirmation_token => @confirmation_token, :host => @host, :locale => I18n.locale)
-- else
-  - if $host
-    - link = confirmation_url(:confirmation_token => @resource.confirmation_token, :host => $host, :locale => I18n.locale)
-  - else
-    - link = confirmation_url(:confirmation_token => @resource.confirmation_token, :locale => I18n.locale)
+- link = confirmation_url(:confirmation_token => @confirmation_token, :host => @host, :locale => I18n.locale)
 
 %tr
   %td{:align => "left", :style => "padding-bottom: 15px;"}
