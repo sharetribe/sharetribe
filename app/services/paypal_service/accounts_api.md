@@ -47,7 +47,7 @@ Response 201 Created, with PaypalAccount body
 }
 ```
 
-## POST /accounts/:community_id/:person_id/billing_agreement/request
+## POST /accounts/:community_id/:person_id/billing_agreement/request?token=AAAAAAAbDq-HJDXerDtj
 
 ```ruby
 { description: "Marketplace X would like to charge transaction fee"
@@ -60,7 +60,20 @@ Response 201 Created, with PaypalAccount body
 { redirect_url: "https://www.sandbox.paypal.com/webscr?cmd=_grant-permission&request_token=AAAAAAAbDq-HJDXerDtj" }
 ```
 
-## POST /accounts/:community_id/:person_id/billing_agreement/create
+## POST /accounts/:community_id/:person_id/billing_agreement/create?token=AAAAAAAbDq-HJDXerDtj
+
+Empty body
+
+Errors:
+
+- :billing\_agreement\_not\_accepted - User did not accept the billing agreement
+- :wrong\_account - The payer id did not match
+
+## DELETE /accounts/:community_id/:person_id/billing_agreement
+
+Empty body
+
+Empty response
 
 ## GET /accounts/:community_id(/:person_id?)
 

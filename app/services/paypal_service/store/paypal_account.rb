@@ -54,6 +54,21 @@ module PaypalService::Store::PaypalAccount
     from_model(account_model)
   end
 
+  def delete_billing_agreement(opts)
+    billing_agreements =
+      if opts[:person_id] && opts[:community_id]
+        [find_model(opts[:person_id], opts[:community_id])]
+      elsif opts[:payer_id]
+        find_model_by_payer(opts[:payer_id])
+      else
+        raise "Illegal attributes, provide either person_id and community_id or payer_id"
+      end
+
+    billing_agreements.each do |billing_agreement|
+      billing_agreement.destroy
+    end
+  end
+
   def get(person_id, community_id)
     from_model(find_model(person_id, community_id))
   end
@@ -89,6 +104,10 @@ module PaypalService::Store::PaypalAccount
 
   def find_model(person_id, community_id)
     PaypalAccountModel.where(person_id: person_id, community_id: community_id).first
+  end
+
+  def find_model_by_payer(payer_id)
+    PaypalAccountModel.where(payer_id: payer_id)
   end
 
   def from_model(model)

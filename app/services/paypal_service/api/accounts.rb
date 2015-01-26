@@ -107,6 +107,17 @@ module PaypalService::API
       }
     end
 
+    def delete_billing_agreement(community_id=nil, person_id=nil, payer_id=nil)
+      PaypalAccountStore.delete_billing_agreement(
+        {
+          person_id: person_id,
+          community_id: community_id,
+          payer_id: payer_id
+        })
+
+      Result::Success.new()
+    end
+
     ## GET /accounts/:community_id(/:person_id?)
 
     private

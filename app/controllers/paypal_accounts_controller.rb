@@ -123,7 +123,7 @@ class PaypalAccountsController < ApplicationController
   end
 
   def billing_agreement_cancel
-    PaypalAccountCommand.cancel_pending_billing_agreement(@current_user.id, @current_community.id, params[:token])
+    accounts_api.delete_billing_agreement(@current_community.id, @current_user.id, nil)
 
     flash[:error] = t("paypal_accounts.new.billing_agreement_canceled")
     redirect_to new_paypal_account_settings_payment_path(@current_user.username)
