@@ -35,11 +35,17 @@ class Admin::CommunitiesController < ApplicationController
   def social_media
     @selected_left_navi_link = "social_media"
     @community = @current_community
+    render "social_media", :locals => { 
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles, 
+      knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
   def analytics
     @selected_left_navi_link = "analytics"
     @community = @current_community
+    render "analytics", :locals => { 
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles, 
+      knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
   def menu_links

@@ -193,10 +193,14 @@ en:
         social_media: "Social media"
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
+        twitter_handle_info_text_with_instructions: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page. %{instructions_link}."
+        twitter_instructions_link_text: "Read more"
         twitter_handle_placeholder: username
         invalid_twitter_handle: "Twitter handle should contain only at maximum 15 alphanumeric (letters A-Z and numbers 0-9) characters."
         facebook_connect: Facebook
         facebook_connect_info_text: "In order to enable Facebook sign in, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here."
+        facebook_connect_info_text_with_instructions: "In order to enable Facebook sign in, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here. %{instructions_link}"
+        facebook_instructions_link_text: "See instructions for configuring Facebook Connect."
         facebook_connect_id: "Facebook client id"
         invalid_facebook_connect_id: "Client id should contain only numbers."
         facebook_connect_secret: "Facebook client secret"
@@ -206,6 +210,8 @@ en:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "Tracking ID of your Google Analytics account."
+        google_analytics_key_info_text_with_instructions: "Tracking ID of your Google Analytics account. %{instructions_link}."
+        google_analytics_instructions_link_text: "Read more about connecting Google Analytics"
         save: "Save settings"
       menu_links:
         menu_links: "Menu links"
@@ -314,7 +320,8 @@ en:
     paypal_accounts:
       marketplace_paypal_integration: "Payment preferences"
       preferences_updated: "Payment preferences updated"
-      integration_info_text: "The payment system of %{service_name} is powered by PayPal. If you want to enable your users to make payments through your marketplace, you must connect your PayPal account and decide the minimum listing price and the fee you want to take from each transaction."
+      integration_info_text: "The payment system of Sharetribe is powered by PayPal. If you want to enable your users to make payments through your marketplace, you must connect your PayPal account and decide the minimum listing price and the fee you want to take from each transaction."
+      read_more_about_paypal: "Read more about Sharetribe's payment system"
       paypal_account_email: "1. Connect your PayPal account"
       paypal_account_email_completed: Completed!
       set_minimum_price_and_fee: "2. Set minimum price & transaction fee"

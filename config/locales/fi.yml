@@ -193,10 +193,14 @@ fi:
         social_media: "Sosiaalinen media"
         twitter_handle: Twitter-tili
         twitter_handle_info_text: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia."
+        twitter_handle_info_text_with_instructions: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia. %{instructions_link}."
+        twitter_instructions_link_text: "Lue lisää"
         twitter_handle_placeholder: tunnus
         invalid_twitter_handle: "Twitter-tilin tunnus voi olla enintään 15 merkkiä pitkä sekä sisältää vain kirjaimia (A-Z) ja numeroita (0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: "Luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta."
+        facebook_connect_info_text_with_instructions: "Luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta. %{instructions_link}"
+        facebook_instructions_link_text: "Lue ohjeet Facebook-sovelluksen luontiin."
         facebook_connect_id: "Facebook - sovellustunnus"
         invalid_facebook_connect_id: "Sovellustunnus voi sisältää vain numeroita."
         facebook_connect_secret: "Facebook - salainen avain"
@@ -206,6 +210,8 @@ fi:
         analytics: Analytiikka
         google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "Google Analytics -tilisi tracking ID."
+        google_analytics_key_info_text_with_instructions: "Google Analytics -tilisi tracking ID. %{instructions_link}."
+        google_analytics_instructions_link_text: "Lue lisää Google Analytics -tilin yhdistämisestä"
         save: Tallenna
       menu_links:
         menu_links: Valikkolinkit
@@ -314,7 +320,8 @@ fi:
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"
-      integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
+      integration_info_text: "Sharetribe-markkinapaikkojen maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun sivustosi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
+      read_more_about_paypal: "Lue lisää Sharetriben maksujärjestelmästä"
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_completed: Tehty!
       set_minimum_price_and_fee: "2. Aseta minimihinta ja välityspalkkioprosentti"
