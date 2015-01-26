@@ -37,14 +37,16 @@ module PaypalService::API
     def create(community_id, person_id, request_token, body)
       with_access_token(request_token, body[:verification_code]) { |access_token|
         with_personal_data(access_token[:token], access_token[:token_secret]) { |personal_data|
-          account = PaypalAccountStore.update({
-                                                community_id: community_id,
-                                                person_id: person_id,
-                                                email: personal_data[:email],
-                                                payer_id: personal_data[:payer_id],
-                                                verification_code: body[:verification_code],
-                                                scope: access_token[:scope].join(',')
-                                              })
+          account = PaypalAccountStore.update(
+            {
+              community_id: community_id,
+              person_id: person_id,
+              email: personal_data[:email],
+              payer_id: personal_data[:payer_id],
+              verification_code: body[:verification_code],
+              scope: access_token[:scope].join(','),
+              active: person_id.nil? # activate admin account
+            })
 
           Result::Success.new(account)
         }
@@ -94,11 +96,13 @@ module PaypalService::API
           elsif express_checkout_details[:payer_id] != paypal_account[:payer_id]
             Result::Error.new(:wrong_account)
           else
-            account = PaypalAccountStore.update({
-                                        community_id: community_id,
-                                        person_id: person_id,
-                                        billing_agreement_id: billing_agreement[:billing_agreement_id]
-                                      })
+            account = PaypalAccountStore.update(
+              {
+                community_id: community_id,
+                person_id: person_id,
+                billing_agreement_id: billing_agreement[:billing_agreement_id],
+                active: true
+              })
 
             Result::Success.new(account)
           end

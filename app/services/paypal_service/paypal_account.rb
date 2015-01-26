@@ -236,13 +236,6 @@ module PaypalService
           }
           .or_else(false)
       end
-
-      def activate_account(person_id, payer_id, community_id)
-        paypal_account = Maybe(PaypalAccountModel.where(person_id: person_id, community_id: community_id, payer_id: payer_id).first)
-        paypal_account.each { |acc| acc.update_attribute(:active, true) }
-
-        paypal_account.map { true }.or_else(false)
-      end
     end
 
     module Query

@@ -124,8 +124,6 @@ class Admin::PaypalPreferencesController < ApplicationController
           }))
 
     if response[:success]
-      paypal_account = PaypalAccountQuery.admin_account(@current_community.id)
-      PaypalAccountCommand.activate_account(nil, paypal_account[:payer_id], @current_community.id)
       redirect_to action: :index
     else
       flash_error_and_redirect_to_settings(error_response: response)

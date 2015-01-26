@@ -105,10 +105,6 @@ class PaypalAccountsController < ApplicationController
     response = accounts_api.billing_agreement_create(@current_community.id, @current_user.id, params[:token])
 
     if response[:success]
-      # TODO Move to Paypal Account API
-      paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
-      PaypalAccountCommand.activate_account(@current_user.id, paypal_account[:payer_id], @current_community.id)
-
       redirect_to show_paypal_account_settings_payment_path(@current_user.username)
     else
       case response.error_msg
