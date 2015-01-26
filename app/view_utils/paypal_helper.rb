@@ -31,8 +31,9 @@ module PaypalHelper
   # Check that the user has connected his paypal account for the
   # community
   def personal_account_prepared?(user_id, community_id)
-    paypal_account = PaypalAccountQuery.personal_account(user_id, community_id)
-    PaypalAccountEntity.paypal_account_prepared?(paypal_account)
+    account_response = accounts_api.get(community_id, user_id)
+    m_account = Maybe(account_response)[:data]
+    m_account[:active].or_else(false)
   end
 
   # Check that the currently active payment gateway (there can be only
@@ -71,5 +72,9 @@ module PaypalHelper
     paypal_active?(community_id) &&
     !user_and_community_ready_for_payments?(user_id, community_id) &&
     !MarketplaceService::Listing::Query.open_listings_for(community_id, user_id).empty?
+  end
+
+  def accounts_api
+    PaypalService::API::Api.accounts_api
   end
 end

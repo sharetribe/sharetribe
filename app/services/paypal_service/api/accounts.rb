@@ -124,6 +124,10 @@ module PaypalService::API
 
     ## GET /accounts/:community_id(/:person_id?)
 
+    def get(community_id, person_id=nil)
+      Result::Success.new(PaypalAccountStore.get(person_id, community_id))
+    end
+
     private
 
     def with_permission_request_response(callback_url, &block)
