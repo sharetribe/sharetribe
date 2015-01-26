@@ -34,7 +34,7 @@ class Admin::PaypalPreferencesController < ApplicationController
 
   def index
     @selected_left_navi_link = "paypal_account"
-    paypal_account = PaypalAccountQuery.admin_account(@current_community.id)
+    paypal_account = accounts_api.get(@current_community.id).maybe
     currency = @current_community.default_currency
     minimum_commission = paypal_minimum_commissions_api.get(currency)
 
@@ -52,7 +52,7 @@ class Admin::PaypalPreferencesController < ApplicationController
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
     render("index", locals: {
-        paypal_account_email: Maybe(paypal_account)[:email].or_else(nil),
+        paypal_account_email: paypal_account.or_else(nil),
         paypal_form_action: account_create_admin_community_paypal_preferences_path(@current_community.id),
         paypal_account_form: PaypalAccountForm.new,
         paypal_prefs_valid: paypal_prefs_form.valid?,

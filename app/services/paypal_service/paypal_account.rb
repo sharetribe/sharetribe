@@ -242,14 +242,6 @@ module PaypalService
 
       module_function
 
-      def admin_account(community_id)
-        Maybe(PaypalAccountModel.where(community_id: community_id, person_id: nil)
-            .eager_load([:order_permission, :billing_agreement])
-            .first)
-          .map { |model| Entity.paypal_account(model) }
-          .or_else(nil)
-      end
-
       def for_payer_id(community_id, payer_id)
         Maybe(PaypalAccountModel.where("community_id = ? AND payer_id = ? AND person_id IS NOT NULL", community_id, payer_id)
             .eager_load([:order_permission, :billing_agreement])

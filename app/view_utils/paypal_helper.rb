@@ -10,9 +10,10 @@ module PaypalHelper
   # for the community AND that the community admin has fully
   # configured the gateway.
   def community_ready_for_payments?(community_id)
-    admin_account = PaypalAccountQuery.admin_account(community_id)
+    account_response = accounts_api.get(community_id)
+    m_account = Maybe(account_response)[:data]
 
-    PaypalAccountEntity.order_permission_verified?(admin_account) &&
+    m_account[:order_permission_state].or_else(:not_verified) == :verified &&
       Maybe(TransactionService::API::Api.settings.get_active(community_id: community_id))
       .map {|res| res[:success] ? res[:data] : nil}
       .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
