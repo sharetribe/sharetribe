@@ -58,11 +58,11 @@ zh:
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: 联系管理员
         save: 保存设置
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
+        transaction_agreement: 交易协定
+        transaction_agreement_checkbox: 要求用户在交易前接受协定
+        transaction_agreement_checkbox_header: 协定标签
         transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
+        transaction_agreement_text_header: 协定文本
         transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
@@ -104,38 +104,38 @@ zh:
         edit_message: 编辑消息
         send_test_message: 发送测试消息
       getting_started:
-        getting_started: ~
-        welcome_to_your_marketplace: ~
-        intro: ~
-        live_site_link_text: ~
+        getting_started: 获取入门指南
+        welcome_to_your_marketplace: "欢迎来到你的市场，%{name}！"
+        intro: "这是配置和管理你的市场站点的快速指南。你可以查看实时站点%{live_site_link}。"
+        live_site_link_text: 这里
         look_and_feel: ~
-        logo_link_text: ~
+        logo_link_text: 添加你的标志
         custom_domain: ~
-        contact_team_link_text: ~
+        contact_team_link_text: 联系我们的团队
         categories_and_custom_fields: ~
-        categories_link_text: ~
-        custom_fields_link_text: ~
-        filters_link_text: ~
+        categories_link_text: 新增分类和子分类
+        custom_fields_link_text: 配置表单字段
+        filters_link_text: 何种类型的过滤器
         payments: ~
-        payments_link_text: ~
+        payments_link_text: 配置支付方式
         info_texts: ~
-        about_page_link_text: ~
-        terms_of_use_link_text: ~
-        privacy_policy_link_text: ~
-        welcome_email_link_text: ~
-        instruction_texts_link_text: ~
+        about_page_link_text: 关于页面
+        terms_of_use_link_text: 使用条款
+        privacy_policy_link_text: 隐私策略
+        welcome_email_link_text: 欢迎电子邮件
+        instruction_texts_link_text: 其他的指令文本
         social_media: ~
-        facebook_link_text: ~
-        twitter_link_text: ~
+        facebook_link_text: 连接你的自定义Facebook应用
+        twitter_link_text: 添加你的Twitter帐号
         analytics: ~
-        analytics_link_text: ~
+        analytics_link_text: "连接一个Google Analytics帐号"
         settings: ~
-        settings_link_text: ~
+        settings_link_text: 在这里查看你的市场设置
         final_words: ~
-        invite_link_text: ~
-        view_users_link_text: ~
-        view_transactions_link_text: ~
-        contact_support_link_text: ~
+        invite_link_text: 邀请用户
+        view_users_link_text: 这里
+        view_transactions_link_text: 这里
+        contact_support_link_text: 联系我们的支持人员
       settings:
         settings: 设置
         general: 常规
@@ -158,7 +158,7 @@ zh:
         twitter_handle: ~
         update_settings: 保存设置
         automatically_confirmed: ~
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "在付款后%{days_dropdown}天内交易将被自动标记为完成。"
         automatic_newsletter_frequency: "自动发送新闻邮件：%{frequency_dropdown}"
         newsletter_daily: 每日
         newsletter_weekly: 每周
@@ -175,23 +175,29 @@ zh:
         save_user_status_error: 保存失败。请刷新页面后重试。
         ban_user_confirmation: ~
       social_media:
-        social_media: ~
+        social_media: 社交媒体
         twitter_handle: ~
         twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
+        twitter_handle_placeholder: 用户名
         invalid_twitter_handle: ~
-        facebook_connect: ~
+        facebook_connect: Facebook
         facebook_connect_info_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        save: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
+        facebook_connect_id: Facebook客户号
+        invalid_facebook_connect_id: 客户号仅能包含数字。
+        facebook_connect_secret: Facebook客户秘密
+        invalid_facebook_connect_secret: 客户端密钥仅应包含数字和字母a到f。
+        save: 保存设置
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        save: ~
+        analytics: 分析
+        google_analytics_key: "Google Analytics追踪号"
+        google_analytics_key_info_text: "追踪你的Google Analytics帐号。"
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
+        save: 保存设置
       menu_links:
         menu_links: 菜单链接
         save: 保存设置
@@ -222,8 +228,8 @@ zh:
           paid: 已支付
           confirmed: 已确认
           canceled: 已取消
-          initiated: ~
-          pending_ext: ~
+          initiated: 等待PayPal付款
+          pending_ext: 等待PayPal付款
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: 环境
@@ -232,9 +238,9 @@ zh:
         client_side_encryption_key: 客户端加密（CSE）键
         merchant_id: 商户号
         master_merchant_id: 主商户号
-        commission_from_seller: ~
+        commission_from_seller: 卖家的佣金比例
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: 付款
     custom_fields:
       edit:
         edit_listing_field: "编辑列表字段“%{field_name}”"
@@ -291,22 +297,23 @@ zh:
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: 邮件已发送。
     left_hand_navigation:
-      general: ~
-      users_and_transactions: ~
-      configure: ~
-      emails_title: ~
-      support: ~
+      general: 常规
+      users_and_transactions: 用户和交易
+      configure: 配置
+      emails_title: 电邮
+      support: 支持
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      preferences_updated: ~
+      marketplace_paypal_integration: 支付偏好
+      preferences_updated: 支付偏好设置更新
       integration_info_text: ~
-      paypal_account_email: ~
-      paypal_account_email_completed: ~
-      set_minimum_price_and_fee: ~
-      set_minimum_price_and_fee_completed: ~
-      minimum_listing_price_label: ~
-      transaction_fee_label: ~
-      save_settings: ~
+      read_more_about_paypal: ~
+      paypal_account_email: "1. 连接你的PayPal帐号"
+      paypal_account_email_completed: 已完成！
+      set_minimum_price_and_fee: "2. 设置最低价格和交易费用"
+      set_minimum_price_and_fee_completed: 已完成！
+      minimum_listing_price_label: 最低挂牌价：
+      transaction_fee_label: 交易费用：
+      save_settings: 保存设置
       note_about_transaction_fee: ~
     transaction_types:
       sell: 出售
@@ -371,7 +378,7 @@ zh:
     username: 用户名
     username_or_email: Email或用户名
     what_is_this: 这是什么？
-    removed_user: ~
+    removed_user: 用户已删除
   conversations:
     accept:
       respond_to_offer: 响应一个提议
@@ -387,11 +394,11 @@ zh:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: 付款设置
       minimum_price_error_message: "价格不能低于%{amount}。"
-      accept: ~
-      decline: ~
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      accept: 接受
+      decline: 拒绝
+      sum: "总共：%{sum}"
+      service_fee: "服务费：%{service_fee}"
+      you_will_get: "你将得到：%{seller_gets}"
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -487,9 +494,9 @@ zh:
       price_excludes_vat: ~
       total: "总共：%{total}"
     status:
-      payment_errored: ~
-      payment_errored_starter: ~
-      payment_errored_author: ~
+      payment_errored: 付款失败。请重试。
+      payment_errored_starter: 支付失败。请重试。如果问题依然存在，请联系我们的支持人员。
+      payment_errored_author: "支付失败。请联系%{starter_name}并要求他再次尝试支付。"
       cancel_payed_transaction: 取消
       feedback_given: 已发送反馈
       feedback_skipped: 跳过的反馈
@@ -500,17 +507,17 @@ zh:
       offer_confirmed: 已完成
       offer_paid: 付款成功
       offer_preauthorized: 付款成功
-      offer_waiting_for_payment: ~
+      offer_waiting_for_payment: "正在等待%{requester_name}支付"
       pay: 支付
       preauthorized: 付款成功
       paid: 付款成功
       pending_external:
         paypal:
           multicurrency: ~
-          verify: ~
+          verify: "因为你没有验证PayPal帐号，你不能接受这笔交易。点击%{paypal_url}验证你的帐号。"
           intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: "正在等待你交付%{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "正在等待%{listing_author_name}交付%{listing_title}"
       request_accepted: 已接受的
       request_rejected: 已拒绝的
       request_confirmed: 已完成
@@ -528,10 +535,10 @@ zh:
       waiting_feedback_from_you: 正在等待你给出反馈
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
+          multicurrency: 等待你接受Paypal支付
+          intl: 等待你接受Paypal支付
           unknown_reason: ~
-          verify: ~
+          verify: 等待你确认你的PayPal帐号
     status_link:
       accept_offer: 接受提议
       accept_request: 接受请求
@@ -585,7 +592,7 @@ zh:
       exp: ~
   preauthorize_payments:
     edit:
-      confirm_payment: ~
+      confirm_payment: 确认支付
   community_memberships:
     access_denied:
       access_denied: 访问被拒绝
@@ -649,7 +656,7 @@ zh:
       we_have_marked_request_as_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "给予%{other_party_given_name}反馈"
       show_thread: 显示对话
     escrow_canceled:
       subject: 付款取消
@@ -768,7 +775,7 @@ zh:
     welcome_email:
       welcome_email_subject: ~
       welcome_to_marketplace: "欢迎使用%{service_name}！很高兴你的加入。"
-      love_marketplace_crew: ~
+      love_marketplace_crew: "爱你的，<br /><i>%{service_name} 工作人员</i>"
       p_s_did_you_know: ~
       click_here_link_text: 点击这里
       welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
@@ -776,20 +783,20 @@ zh:
       welcome_email_subject_for_marketplace_creator: ~
       welcome_to_marketplace_creator: ~
       congrats_for_creating_your_marketplace: ~
-      here_is_your_account_information: ~
-      your_email_address: ~
-      your_marketplace_address: ~
-      your_marketplace_admin_area: ~
+      here_is_your_account_information: 这是你的帐号信息。
+      your_email_address: 你用来登录的电子邮件地址：
+      your_marketplace_address: 你的市场地址：
+      your_marketplace_admin_area: 你的市场管理区域：
       just_follow_details: ~
-      we_will_guide_you_along_the_way: ~
+      we_will_guide_you_along_the_way: 我们将引导你走下去。
       are_you_new_to_online_marketplaces: ~
-      have_questions: ~
+      have_questions: 有问题吗？
       our_happiness_team_is_here_to_help: ~
-      love: ~
+      love: 爱你的，
       sharetribe_crew: ~
-      knowledge_base_link_text: ~
-      contact_support_link_text: ~
-      admin_panel_link_text: ~
+      knowledge_base_link_text: 查看我们的知识库
+      contact_support_link_text: 联系我们的支持人员
+      admin_panel_link_text: 管理控制面板
     new_listing_by_followed_person:
       subject: "%{author_name}在%{service_name}发布了一个新的列表"
       has_posted_a_new_listing: "%{author_name}发布了一个新的列表："
@@ -806,12 +813,12 @@ zh:
       you_must_explain_not_neutral_feedback: 如果您希望给出非中性的评价，您必须解释原因。
       you_must_select_a_grade: 点击上面的图标为用户评分（将鼠标指针悬停在图标上以获得帮助）
     transaction_agreement:
-      required_error: ~
+      required_error: 你需要接受协议
     paypal:
-      generic_error: ~
-      cancel_error: ~
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      generic_error: 付款过程中出现错误。无法完成你的PayPal付款。
+      cancel_error: 取消时发生错误。不能完成取消操作。
+      accept_authorization_error: 尝试接受预授权的PayPal付款时出错。请重试。
+      reject_authorization_error: 在尝试拒绝Paypal支付预授权时发生错误。请重试。
   error_pages:
     back_to_kassi_front_page: 回到主页
     error_404:
@@ -820,12 +827,12 @@ zh:
       page_you_requested_can_not_be_found: 您请求的页面不存在。您确定地址拼写正确？
     error_404_title: 未找到页面
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
+      page_removed: 页面已删除
+      page_you_requested_has_been_removed: 你请求的页面已被删除。
       page_removed_reason: ~
-    error_410_title: ~
+    error_410_title: 页面已删除
     error_500:
-      temporary_unavailable: ~
+      temporary_unavailable: 市场暂时不可用
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
@@ -1000,8 +1007,8 @@ zh:
       default_about_text: ~
       click_here_link_text: 点击这里
     how_to_use:
-      default_title: ~
-      default_content: ~
+      default_title: 它是如何工作的
+      default_content: "你可以在这里找到%{marketplace_name}如何工作的信息。"
   layouts:
     admin:
       admin: "%{service_name}控制面板"
@@ -1349,7 +1356,7 @@ zh:
     listing_actions:
       booking_from: 来自
       booking_to: 到
-      how_paypal_works: ~
+      how_paypal_works: PayPal如何工作
     new:
       post_a_new_listing: 发布一个新的物品
       listing: 物品
@@ -1360,7 +1367,7 @@ zh:
       select_subcategory: 选择子类别
       select_transaction_type: 选择列表类型
       you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: 联系管理员
       community_not_configured_for_payments: ~
       payment_settings_link: 付款设置
       community_not_configured_for_payments_admin: ~
@@ -1412,11 +1419,11 @@ zh:
       payment: 付款
       exp: ~
       you_will_be_charged: ~
-      day: ~
-      days: ~
+      day: 日
+      days: 天
       price_per_day: "每天：%{price}"
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: 查看。
   mapview:
     index:
       all_categories: 全部分类
@@ -1464,45 +1471,45 @@ zh:
         braintree_terms_also_included: ~
         terms_link_text: ~
   paypal_accounts:
-    payout_info_title: ~
-    paypal_account_email_connected: ~
-    paypal_billing_agreement_made: ~
-    you_are_ready_to_accept_payments: ~
+    payout_info_title: 支付信息
+    paypal_account_email_connected: "<del>1. 连接PayPal 帐号</del> 完成！"
+    paypal_billing_agreement_made: "<del>2. 授权%{service_name}  对交易收费</del> 完成！"
+    you_are_ready_to_accept_payments: 你已准备好接受付款！
     commission: "%{commission}%"
-    connected_account: ~
+    connected_account: "PayPal帐号“%{email}”连接成功。"
     missing: ~
-    from_your_payment_settings_link_text: ~
+    from_your_payment_settings_link_text: 付款设置
     new:
-      payout_info_you_need_to_connect: ~
-      payout_info_text: ~
-      contact_admin_link_text: ~
+      payout_info_you_need_to_connect: "要接受付款你需要连接你的PayPal帐号和%{service_name}。"
+      payout_info_text: 请完成下列两个步骤来连接你的帐号。
+      contact_admin_link_text: 请联系管理员
       admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
+      paypal_account_email: "1. 连接你的 PayPal 帐号"
+      paypal_account_email_placeholder: 你的PayPal电邮地址
       paypal_account_email_info_text: ~
       create_paypal_account: 这里
       upgrade_paypal_account: 在这里升级你的帐号。
-      connect_paypal_account: ~
-      paypal_account_billing_agreement: ~
+      connect_paypal_account: 连接PayPal帐号
+      paypal_account_billing_agreement: "2. 授权%{service_name}  对交易收费"
       paypal_account_billing_agreement_info: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
+      billing_agreement_description: "授权%{service_name}收取交易费。"
+      billing_agreement: 授权
+      permissions_not_granted: 没有授权连接PayPal帐号。
       could_not_fetch_redirect_url: 不能获得连接到PayPal的重定向链接。
       paypal_not_enabled: "PayPal 支付没有启用。"
-      billing_agreement_canceled: ~
+      billing_agreement_canceled: 账单协议已取消
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
-      something_went_wrong: ~
+      something_went_wrong: 出错了。请再试一次。如果这个问题仍旧存在，请联系服务支持：
       account_not_verified: ~
   paypal:
-    checkout_with_paypal: ~
-    cancel_succesful: ~
+    checkout_with_paypal: 用PayPal结帐
+    cancel_succesful: PayPal付款成功取消
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+      commission_payment_name: "%{listing_title}的佣金支付"
+      commission_payment_description: "市场%{service_name}对%{listing_title}收取交易佣金。"
+    wait_while_loading: 请等待。
+    chatting_with_paypal: 我们正在与PayPal聊天。
   people:
     edit_links:
       activate: 激活
@@ -1534,7 +1541,7 @@ zh:
       invalid_invitation_code: 邀请码无效。
       invitation_code: 邀请码：
       not_required: ，不是必须的
-      organization_name: ~
+      organization_name: 组织名称
       password_again: 确认密码：
       show_my_name_to_others: "对其他%{service_name}用户显示真实姓名"
       sign_up: "在%{service_name}新建账户"
@@ -1645,7 +1652,7 @@ zh:
       change_email: 改变
       confirm_your_email: 确认你的邮箱
       account_confirmation_instructions: ~
-      account_confirmation_instructions_title_admin: ~
+      account_confirmation_instructions_title_admin: 欢迎来到你的市场！
       your_marketplace_has_now_been_created: ~
       account_confirmation_instructions_admin: ~
   settings:
@@ -1763,7 +1770,7 @@ zh:
       about_listing: 关于列表
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %b %d, %Y"
   datepicker:
     days:
       sunday: 星期日
@@ -1816,7 +1823,7 @@ zh:
       november: 十一月
       december: 十二月
     today: 今日
-    clear: ~
+    clear: 清除
     format: yyyy年mm月dd日
   time:
     formats:
@@ -1837,8 +1844,8 @@ zh:
     year_ago: "%{count} 年前"
     years_ago: "%{count} 年前"
   unit:
-    day: ~
-    days: ~
+    day: 日
+    days: 天
   will_paginate:
     models:
       person:

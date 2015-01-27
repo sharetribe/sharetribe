@@ -193,10 +193,14 @@ sv:
         social_media: "Social media"
         twitter_handle: "Twitter användarnamn"
         twitter_handle_info_text: "Användarnamn på ditt Twitterkonto på din marknadsplats (om du har någon). Detta kommer nämnas när folk använder tweetknappen på annonssidan."
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: användarnamn
         invalid_twitter_handle: "Twitternamnet ska innehålla max 15 tecken (siffror 0-9 och bokstäver A-Z)."
         facebook_connect: Facebook
         facebook_connect_info_text: "För att aktivera Facebook inloggning, skapa en applikation för din marknadsplats på <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Lägg till ID och säkerhetsnyckeln för applikationen här."
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: "Facebook klient ID"
         invalid_facebook_connect_id: "Klient-ID ska bara innehålla nummer."
         facebook_connect_secret: "Facebook klientsäkerhet"
@@ -206,6 +210,8 @@ sv:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "Tracking ID för ditt Google Analytics konto."
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: "Spara inställningar"
       menu_links:
         menu_links: Menylänkar
@@ -315,6 +321,7 @@ sv:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"
       integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal-konto och välja minsta annonspriset och avgiften som du ska ta i provision från varje transaktion."
+      read_more_about_paypal: ~
       paypal_account_email: "1. Koppla ditt PayPal konto"
       paypal_account_email_completed: Klart!
       set_minimum_price_and_fee: "Ställ in lägsta pris och transaktionskonstnad"

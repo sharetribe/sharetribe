@@ -178,10 +178,14 @@ fr-at:
         social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
@@ -191,6 +195,8 @@ fr-at:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -300,6 +306,7 @@ fr-at:
       marketplace_paypal_integration: ~
       preferences_updated: ~
       integration_info_text: ~
+      read_more_about_paypal: ~
       paypal_account_email: ~
       paypal_account_email_completed: ~
       set_minimum_price_and_fee: ~

@@ -188,10 +188,14 @@ tr-TR:
         social_media: "Sosyal medya"
         twitter_handle: "Twitter aracı"
         twitter_handle_info_text: "Pazarınızın Twitter hesabının kullanıcı adı (mevcutsa). Kişiler listeleme sayfasındaki tweet butonunu kullandığında bahsedilecek."
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: "kullanıcı adı"
         invalid_twitter_handle: "Twitter aracı maksimum 15 alfanumerik karakter içerebilir (A-Z harfler ve 0-9 rakamlar)."
         facebook_connect: Facebook
         facebook_connect_info_text: "Facebook'la giriş yapmayı etkinleştirebilmek için, <a href='https://developers.facebook.com/'>Facebook geliştiricileri panosunda</a> pazar yeriniz için bir uygulama oluşturun. Uygulamanın oluşturduğu kimlik ve gizli anahtarı buraya ekleyin."
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: "Facebook müşteri kimliği"
         invalid_facebook_connect_id: "Müşteri kimliği sadece rakam içerebilir."
         facebook_connect_secret: "Facebook müşteri gizli anahtarı"
@@ -201,6 +205,8 @@ tr-TR:
         analytics: Analytics
         google_analytics_key: "Google Analytics takip kimliği"
         google_analytics_key_info_text: "Google Analytics hesabınızın takip kimliği"
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: "Ayarları kaydet"
       menu_links:
         menu_links: "Menü bağlantıları"
@@ -310,6 +316,7 @@ tr-TR:
       marketplace_paypal_integration: "Ödeme tercihleri"
       preferences_updated: "Ödeme referansları güncellendi"
       integration_info_text: "%{service_name}'in ödeme sistemi PayPal altyapısını kullanmaktadır. Eğer kullanıcılarınızın ödemelerini pazar aracılığıyla yapmasına izin vermek istiyorsanız, PayPal hesabınızı eklemeli, minimum listeleme ücreti ve her işlemden keseceğiniz ücreti belirlemelisiniz."
+      read_more_about_paypal: ~
       paypal_account_email: "1. PayPal hesabınızı bağlayın"
       paypal_account_email_completed: Tamamlandı!
       set_minimum_price_and_fee: "2. Minimum fiyat & işletim bedeli belirleyin"

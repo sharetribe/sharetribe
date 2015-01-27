@@ -193,10 +193,14 @@ da-DK:
         social_media: Social
         twitter_handle: "Twitter konto"
         twitter_handle_info_text: "Bruger navn (@navn) til din Twitter konto for din markedsplads. (hvis du har en). Din konto vil blive nævn hvergang nogen klikker på tweet knappen på siden."
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: "@brugernavn"
         invalid_twitter_handle: "Dit Twitter brugernavn kan max indeholde 15 tegn."
         facebook_connect: Facebook
         facebook_connect_info_text: "For at tilknytte Facebook login, skal du oprette en applikation til din markedsplads på <a href='https://developers.facebook.com/'>Facebook's developers dashboard</a>. Tilføj den generede id og secret key til din application her."
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: "Facebook client id"
         invalid_facebook_connect_id: "Client id skal kun indeholde tal."
         facebook_connect_secret: "Facebook client secret"
@@ -206,6 +210,8 @@ da-DK:
         analytics: Analytics
         google_analytics_key: "Google Analytics Sporingskode (tracking ID)"
         google_analytics_key_info_text: "Tracking ID til din Google Analytics konto."
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: Gem
       menu_links:
         menu_links: "Links i menuen"
@@ -315,6 +321,7 @@ da-DK:
       marketplace_paypal_integration: Betalingsindstillinger
       preferences_updated: "Betalings indstillinger blev opdateret"
       integration_info_text: "Betalingssystemet på %{service_name} kører gennem PayPal. Hvis du vil have mulighed for at tage imod betalinger på din markedsplads, skal du tilknytte din PayPal konto, og vælge en minimumspris pr. annonce og størrelsen på din service fee."
+      read_more_about_paypal: ~
       paypal_account_email: "1. Tilknyt din PayPal konto"
       paypal_account_email_completed: Gennemført!
       set_minimum_price_and_fee: "2. Vælg en minimumspris og service fee"

@@ -167,8 +167,8 @@ ja:
         google_analytics_key: "Google アナリティクス トラッキング コード"
         twitter_handle: "Twitter ハンドルネーム （リストページのtweetボタンを使用します）"
         update_settings: 設定を保存
-        automatically_confirmed: "課金は%{days_dropdown}を過ぎると完了済みとして処理されます。第三者預託システムを使用している場合、この時点で料金はサービス提供側へ開放されます。"
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed: "お支払いは%{days_dropdown}日後、お支払い済みとして処理されます。第三者預託システムを使用している場合、この時点で料金はサービス提供側へ開放されます。"
+        automatically_confirmed_no_escrow: "お支払いは%{days_dropdown}日後、完了済みとして処理されます。"
         automatic_newsletter_frequency: "%{frequency_dropdown}の☆速報☆を自動で送信する"
         newsletter_daily: 毎日
         newsletter_weekly: 毎週
@@ -188,10 +188,14 @@ ja:
         social_media: ソーシャルメディア
         twitter_handle: Twitterのハンドル
         twitter_handle_info_text: あなたのマーケットプレイスのTwitterのユーザー名（お持ちであれば）。リストページのツイートボタンを使うときに言及されます。
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: Twitterのユーザー名
         invalid_twitter_handle: ~
         facebook_connect: フェイスブック
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: フェイスプックのユーザーID
         invalid_facebook_connect_id: ユーザーIDは数字のみで構成されています
         facebook_connect_secret: フェイスプックユーザーの秘密
@@ -201,6 +205,8 @@ ja:
         analytics: アナリティクス
         google_analytics_key: "Google アナリティクス トラッキング コード"
         google_analytics_key_info_text: "Google アナリティクスアカウントの トラッキング コード"
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: 設定を保存する
       menu_links:
         menu_links: メニューにリンクを追加
@@ -213,7 +219,7 @@ ja:
         url: URL
         empty: 追加メニューリンクはありません
       transactions:
-        transactions: 課金履歴の表示
+        transactions: お支払い履歴の表示
         headers:
           conversation: 会話のスレッド
           listing: リスト
@@ -310,6 +316,7 @@ ja:
       marketplace_paypal_integration: お支払い方法
       preferences_updated: お支払い情報は更新されました
       integration_info_text: ~
+      read_more_about_paypal: ~
       paypal_account_email: "1. PayPal口座に接続する"
       paypal_account_email_completed: 完了しました！
       set_minimum_price_and_fee: 最低価格とお支払い手数料の設定
@@ -321,7 +328,7 @@ ja:
     transaction_types:
       sell: 売ります
       rent: 貸します
-      give: 「ご自由にどうぞ」
+      give: あげます
       lend: 無料で貸します
       swap: 交換したいです
       service: オファーします
@@ -348,7 +355,7 @@ ja:
       offer: オファー
       borrow: 無料で借ります
       buy: 買います
-      give_away: 「ご自由にどうぞ」
+      give_away: あげます
       lend: 無料で貸します
       receive: 「ご自由にどうぞ」
       rent: 借ります
@@ -439,8 +446,8 @@ ja:
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
+      confirmed_request: リクエスト完了のステータスに変更しました
+      confirmed_offer: オファー完了のステータスに変更しました
       canceled_request: ~
       canceled_offer: ~
       paid: "%{sum}をお支払いしました"
@@ -507,7 +514,7 @@ ja:
       offer_accepted: 承認されました
       offer_rejected: 却下されました
       offer_canceled: ~
-      offer_confirmed: ~
+      offer_confirmed: 完了しました
       offer_paid: お支払い手続きは成功しました
       offer_preauthorized: お支払い手続きは成功しました
       offer_waiting_for_payment: ~
@@ -523,7 +530,7 @@ ja:
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: 承認されました
       request_rejected: 却下されました
-      request_confirmed: ~
+      request_confirmed: 完了しました
       request_canceled: ~
       request_paid: お支払い手続きは成功しました
       request_preauthorized: お支払い手続きは成功しました
@@ -535,7 +542,7 @@ ja:
       waiting_confirmation_from_you: リクエスト完了のステータス変更待ち
       waiting_payment_from_requester: ~
       waiting_payment_from_you: ~
-      waiting_feedback_from_you: レビューを書くまで待っています
+      waiting_feedback_from_you: レビューを残してください
       pending_external_inbox:
         paypal:
           multicurrency: ~
@@ -551,7 +558,7 @@ ja:
       accept_preauthorized_request: リクエストを承諾する
       reject_preauthorized_offer: 今回はやめる
       reject_preauthorized_request: 今回はやめる
-      confirm: ~
+      confirm: マーク完了
       cancel: ~
   braintree_accounts:
     new:
@@ -941,7 +948,7 @@ ja:
     grid_item:
       processing_uploaded_image: （画像をアップロード中です...）
     index:
-      no_listings_with_your_search_criteria: ~
+      no_listings_with_your_search_criteria: 一致する情報は見つかりませんでした。
       no_listings_notification: "リストがありません。%{add_listing_link}。"
       add_listing_link_text: ~
       open_listing: 公開リスト
@@ -1098,7 +1105,7 @@ ja:
       feedback_considered_spam: 初期化により内容は保存されませんでした。フィードバックフォーラムを使用して再試行してください。
       feedback_not_saved: レビューは送信できませんでした。
       feedback_saved: ご意見いただきまして、ありがとうございます！なるべく早めのご返信を心がけたいと思います。
-      feedback_sent_to: "%{target_person}さんにお問い合わせを送信しました。"
+      feedback_sent_to: "%{target_person}さんにレビューを送信しました。"
       feedback_skipped: レビューをスキップしました
       invitation_cannot_be_sent: 招待状は送られませんでした
       invitation_sent: 招待状は正常に送信されました
@@ -1286,7 +1293,7 @@ ja:
         select: 選択
         borrow: 借りる
         buy: 購入する
-        give_away: 「ご自由にどうぞ」
+        give_away: あげます
         lend: 貸す
         offer_type: オファーの種類
         receive: 無料で受け入れます
@@ -1344,7 +1351,7 @@ ja:
       borrows: 無料で借ります
       buys: 買います
       favors: サービスしてください
-      give_aways: 「ご自由にどうぞ」
+      give_aways: あげます
       housings: スペース提供します
       items: アイテム
       lends: 無料で貸します
@@ -1475,8 +1482,8 @@ ja:
         terms_link_text: ~
   paypal_accounts:
     payout_info_title: ~
-    paypal_account_email_connected: ~
-    paypal_billing_agreement_made: ~
+    paypal_account_email_connected: "<del>1. Paypalに接続する</del> 完了しました！"
+    paypal_billing_agreement_made: "<del>2. %{service_name}からの利用料金のお支払いを許可する</del> 完了しました！"
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
@@ -1767,7 +1774,7 @@ ja:
       slightly_better_than_expected: 期待よりまあまあ良い
       slightly_less_than_expected: 期待より少しだけ悪い
       textual_feedback: 実際、いかがでしたか。
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "レビューは、他のメンバーに%{person}さんのプロフィールページにて公開されます。%{person}さんが信頼できる方かどうかの判断材料になりますので、正確な情報記入のご協力をお願いします。"
       positive: ポジティブ
       negative: ネガティブ
       default_textual_feedback: すべてはスムーズに進行しました、誠にありがとうございます！

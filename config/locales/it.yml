@@ -178,10 +178,14 @@ it:
         social_media: ~
         twitter_handle: "Nome utente di Twitter"
         twitter_handle_info_text: "Il nominativo del profilo Twitter del tuo negozio online (se ne hai uno). Sarà menzionato quando le persone premeranno il bottone di Twitter nella pagina dell'annuncio."
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: "nome utente"
         invalid_twitter_handle: "Il nome utente di Twitter può contenere un massimo di 15 caratteri alfanumerici (lettere A-Z e numero 0-9)."
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
@@ -191,6 +195,8 @@ it:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: "Salva le impostazioni"
       menu_links:
         menu_links: ~
@@ -300,6 +306,7 @@ it:
       marketplace_paypal_integration: "Integrazione PayPal"
       preferences_updated: "Preferenze di pagamento aggiornate"
       integration_info_text: "Il sistema di pagamento di %{service_name} è gestito da PayPal. Se vuoi consentire ai tuoi utenti di effettuare pagamenti sulla tua piattaforma, è necessario collegare il tuo conto PayPal e decidere il prezzo minimo del tuo spazio e la quota che vuoi trattenere per ogni transazione."
+      read_more_about_paypal: ~
       paypal_account_email: "1. Collega il tuo conto PayPal"
       paypal_account_email_completed: Completato!
       set_minimum_price_and_fee: "2. Inserisci un prezzo minimo e una tariffa di transazione"

@@ -193,10 +193,14 @@ pt-BR:
         social_media: "Mídia social"
         twitter_handle: "Nome Twitter"
         twitter_handle_info_text: "Nome de usuário da conta do Twitter do seu marketplace (se você tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: "nome de usuário"
         invalid_twitter_handle: "O nome Twitter deve conter no máximo 15 caracteres alfanuméricos (letras A-Z e números 0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: "ID do cliente Facebook"
         invalid_facebook_connect_id: "ID do cliente deve conter apenas números."
         facebook_connect_secret: "Segredo do cliente Facebook (client secret)"
@@ -206,6 +210,8 @@ pt-BR:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "ID de rastreamento de sua conta do Google Analytics."
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: "Salvar configurações"
       menu_links:
         menu_links: "Menu links"
@@ -315,6 +321,7 @@ pt-BR:
       marketplace_paypal_integration: "Preferências de pagamento"
       preferences_updated: "Preferências de pagamento atualizadas."
       integration_info_text: ~
+      read_more_about_paypal: ~
       paypal_account_email: "1. Conecte sua conta PayPal"
       paypal_account_email_completed: Concluído!
       set_minimum_price_and_fee: "2. Definir preço mínimo e taxa de transação"
