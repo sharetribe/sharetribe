@@ -56,18 +56,13 @@ module PaypalService::Store::PaypalAccount
   end
 
   def delete_billing_agreement(opts)
-    billing_agreements =
-      if opts[:person_id] && opts[:community_id]
-        [find_model(opts[:person_id], opts[:community_id])]
-      elsif opts[:payer_id]
-        find_model_by_payer(opts[:payer_id])
-      else
-        raise "Illegal attributes, provide either person_id and community_id or payer_id"
-      end
+    account = find_model(opts[:person_id], opts[:community_id])
+    account.billing_agreement.destroy
+  end
 
-    billing_agreements.each do |billing_agreement|
-      billing_agreement.destroy
-    end
+  def delete_billing_agreement_by_payer_and_agreement_id(payer_id, billing_agreement_id)
+    billing_agreement = find_billing_agreement_by_payer_and_agreement_id(payer_id, billing_agreement_id)
+    billing_agreement.destroy
   end
 
   def delete(person_id, community_id)
@@ -125,6 +120,17 @@ module PaypalService::Store::PaypalAccount
     PaypalAccountModel.where(person_id: person_id, community_id: community_id)
       .eager_load([:order_permission, :billing_agreement])
       .first
+  end
+
+
+  def find_billing_agreement_by_payer_and_agreement_id(payer_id, billing_agreement_id)
+    BillingAgreement
+      .joins(:paypal_account)
+      .where(
+        {
+          billing_agreement_id: billing_agreement_id,
+          paypal_accounts: {payer_id: payer_id}
+       }).first
   end
 
   def find_model_by_payer(payer_id)
