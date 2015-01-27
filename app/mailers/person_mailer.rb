@@ -24,6 +24,7 @@ class PersonMailer < ActionMailer::Base
     @transaction = transaction
 
     if @transaction.payment_gateway == "braintree" ||  @transaction.payment_process == "postpay"
+      # Payment url concerns only braintree and postpay, otherwise we show only the message thread
       @payment_url = community.payment_gateway.new_payment_url(@recipient, @transaction, @recipient.locale, @url_params)
     end
 

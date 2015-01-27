@@ -1,5 +1,5 @@
 - transaction_url = person_message_url(@recipient, @url_params.merge({:id => @transaction.id.to_s}))
-- if @recipient.should_pay?(@transaction, @community)
+- if @payment_url && @recipient.should_pay?(@transaction, @community)
   - action_url = @payment_url
   - action_text = t("emails.conversation_status_changed.pay_now")
   - additional_text = t("emails.conversation_status_changed.you_can_now_pay_to", :payment_receiver => @transaction.other_party(@recipient).given_name_or_username)
@@ -16,12 +16,12 @@
 
 -# TODO: Should we link transition to message?
 -#
-  - unless @transaction.conversation.last_message.content.blank?
-    %tr
-      %td{:align => "left", :style => "padding-top: 15px;"}
-        %font{body_font}
-          = t("emails.transaction_confirmed.here_is_a_message_from", :other_party_given_name => @transaction.other_party(@recipient).given_name_or_username)
-    = render :partial => "quote", :locals => { :quote => @transaction.transaction.last_message.content }
+- if @transaction.conversation.last_message.present? && @transaction.conversation.last_message.sender_id != @recipient.id
+  %tr
+    %td{:align => "left", :style => "padding-top: 15px;"}
+      %font{body_font}
+        = t("emails.transaction_confirmed.here_is_a_message_from", :other_party_given_name => @transaction.other_party(@recipient).given_name_or_username)
+  = render :partial => "quote", :locals => { :quote => @transaction.conversation.last_message.content }
 
 = render :partial => "action_button", :locals => { :text => action_text, :url => action_url}
 
