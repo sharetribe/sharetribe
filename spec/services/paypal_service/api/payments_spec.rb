@@ -4,6 +4,7 @@ describe PaypalService::API::Payments do
 
   TokenStore = PaypalService::Store::Token
   PaymentStore = PaypalService::Store::PaypalPayment
+  AccountStore = PaypalService::Store::PaypalAccount
 
   before(:each) do
     # Test version of merchant client
@@ -22,10 +23,15 @@ describe PaypalService::API::Payments do
     @paypal_email = "merchant_1@test.com"
     @payer_id = "payer_id_1"
 
-    PaypalService::PaypalAccount::Command.create_personal_account(
-      @mid,
-      @cid,
-      { email: @paypal_email, payer_id: @payer_id })
+    AccountStore.create(
+      {
+        person_id: @mid,
+        community_id: @cid,
+        email: @paypal_email,
+        payer_id: @payer_id,
+        paypal_username_to: "sharetribe@sharetribe.com",
+        request_token: "123456789"
+      })
 
     @tx_id = 1234
 

@@ -3,6 +3,7 @@ require_relative '../api'
 describe PaypalService::API::BillingAgreements do
 
   PaypalAccountStore = PaypalService::PaypalAccount
+  AccountStore = PaypalService::Store::PaypalAccount
 
   before(:each) do
     # Test version of merchant client
@@ -25,16 +26,32 @@ describe PaypalService::API::BillingAgreements do
     @payer_id_admin = "payer_id_2"
     @billing_agreement_id = "bagrid"
 
-    PaypalAccountStore::Command.create_personal_account(
-      @mid,
-      @cid,
-      { email: @paypal_email, payer_id: @payer_id })
-    PaypalAccountStore::Command.create_pending_billing_agreement(@mid, @cid, @paypal_email_admin, "request-token")
-    PaypalAccountStore::Command.confirm_billing_agreement(@mid, @cid, "request-token", @billing_agreement_id)
+    AccountStore.create(
+      {
+        person_id: @mid,
+        community_id: @cid,
+        email: @paypal_email,
+        payer_id: @payer_id,
+        paypal_username_to: "sharetribe@sharetribe.com",
+        request_token: "123456789"
+      })
+    AccountStore.update(
+      {
+        person_id: @mid,
+        community_id: @cid,
+        billing_agreement_id: @billing_agreement_id,
+        billing_agreement_request_token: "request-token",
+        billing_agreement_paypal_username_to: @paypal_email_admin
+      })
 
-    PaypalAccountStore::Command.create_admin_account(
-      @cid,
-      { email: @paypal_email_admin, payer_id: @payer_id_admin })
+    AccountStore.create(
+      {
+        community_id: @cid,
+        email: @paypal_email_admin,
+        payer_id: @payer_id_admin,
+        paypal_username_to: "sharetribe@sharetribe.com",
+        request_token: "123456789"
+      })
 
     @tx_id = 1234
 
@@ -92,12 +109,25 @@ describe PaypalService::API::BillingAgreements do
     it "marks the commission to not applicable when admin is merchant" do
       @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
 
-      PaypalAccountStore::Command.create_personal_account(
-        @payer_id_admin,
-        @cid,
-        { email: @paypal_email, payer_id: @payer_id_admin })
-      PaypalAccountStore::Command.create_pending_billing_agreement(@payer_id_admin, @cid, @paypal_email_admin, "request-token")
-      PaypalAccountStore::Command.confirm_billing_agreement(@payer_id_admin, @cid, "request-token", "abcd")
+      AccountStore.create(
+        {
+          person_id: @payer_id_admin,
+          community_id: @cid,
+          payer_id: @payer_id_admin,
+          email: @paypal_email,
+          paypal_username_to: "sharetribe@sharetribe.com",
+          request_token: "123456789"
+        })
+
+
+      AccountStore.update(
+        {
+          person_id: @payer_id_admin,
+          community_id: @cid,
+          billing_agreement_id: @billing_agreement_id,
+          billing_agreement_request_token: "request-token",
+          billing_agreement_paypal_username_to: @paypal_email_admin
+        })
 
       payment_res = @billing_agreements.charge_commission(@cid, @payer_id_admin, @commission_info)
 

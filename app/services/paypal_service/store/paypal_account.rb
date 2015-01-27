@@ -10,9 +10,10 @@ module PaypalService::Store::PaypalAccount
     [:payer_id, :string],
     [:order_permission_state, one_of: [:not_verified, :verified, nil]],
     [:billing_agreement_state, one_of: [:not_verified, :verified, nil]],
+    [:billing_agreement_id, :string]
   )
 
-  COMPUTED_PAYPAL_ACCOUNT_VALUES = [:order_permissions_state, :billing_agreement_state]
+  COMPUTED_PAYPAL_ACCOUNT_VALUES = [:active, :order_permissions_state, :billing_agreement_state]
 
   OrderPermissionCreate = EntityUtils.define_builder(
     [:paypal_username_to, :mandatory, :string],
@@ -33,7 +34,7 @@ module PaypalService::Store::PaypalAccount
   module_function
 
   def create(opts)
-    account = HashUtils.compact(PaypalAccount.call(opts))
+    account = HashUtils.compact(filter_billing_agreement(filter_computed(PaypalAccount.call(opts))))
     permission = HashUtils.compact(OrderPermissionCreate.call(opts))
 
     account_model = PaypalAccountModel.create!(account)
@@ -47,7 +48,7 @@ module PaypalService::Store::PaypalAccount
 
     raise "Can not find Paypal account for person_id #{opts[:person_id]} and community_id #{opts[:community_id]}" unless account_model
 
-    account_model.update_attributes(filter_computed(HashUtils.compact(PaypalAccount.call(opts))))
+    account_model.update_attributes(filter_billing_agreement(filter_computed(HashUtils.compact(PaypalAccount.call(opts)))))
     account_model.order_permission.update_attributes(HashUtils.compact(OrderPermissionUpdate.call(opts)))
     account_model = update_or_create_billing_agreement(account_model, opts)
 
@@ -89,6 +90,7 @@ module PaypalService::Store::PaypalAccount
 
   def to_billing_agreement(opts)
     renames = {
+      billing_agreement_id: :billing_agreement_id, #noop
       billing_agreement_request_token: :request_token,
       billing_agreement_paypal_username_to: :paypal_username_to
     }
@@ -100,6 +102,15 @@ module PaypalService::Store::PaypalAccount
   # Filter computed values from the PaypalAccount entity. We don't let users to update these values
   def filter_computed(opts)
     opts.except(*COMPUTED_PAYPAL_ACCOUNT_VALUES)
+  end
+
+  # TODO This does not feel good
+  def filter_billing_agreement(opts)
+    opts.except(
+      :billing_agreement_id,
+      :billing_agreement_request_token,
+      :billing_agreement_paypal_username_to
+    )
   end
 
   def find_model(person_id, community_id)
@@ -118,6 +129,8 @@ module PaypalService::Store::PaypalAccount
           Maybe(m).order_permission.verification_code.map { |code| :verified }.or_else(:not_verified)
         hash[:billing_agreement_state] =
           Maybe(m).billing_agreement.billing_agreement_id.map { |code| :verified }.or_else(:not_verified)
+        hash[:billing_agreement_id] =
+          Maybe(m).billing_agreement.billing_agreement_id.or_else(nil)
         PaypalAccount.call(hash)
       }
       .or_else(nil)

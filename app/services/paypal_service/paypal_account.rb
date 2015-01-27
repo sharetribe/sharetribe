@@ -73,7 +73,6 @@ module PaypalService
 
         old_account.destroy if old_account.present?
 
-
         PaypalAccountStore.create(
           account_data.merge({person_id: person_id, community_id: community_id})
         )
