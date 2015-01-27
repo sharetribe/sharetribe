@@ -329,7 +329,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def parse_booking_date(str)
-    Date.parse(str)
+    Date.parse(str) unless str.blank?
   end
 
   def stringify_booking_date(date)
