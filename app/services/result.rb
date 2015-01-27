@@ -44,7 +44,7 @@ module Result
     def and_then(&block)
       result = block.call(data)
       result.tap do |res|
-        raise "Block must return Result" unless (res.is_a?(Result::Success) || res.is_a?(Result::Error))
+        raise ArgumentError.new("Block must return Result") unless (res.is_a?(Result::Success) || res.is_a?(Result::Error))
       end
     end
 
