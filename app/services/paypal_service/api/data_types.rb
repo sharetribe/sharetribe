@@ -79,6 +79,9 @@ module PaypalService::API::DataTypes
     [:person_id, :optional, :string],
     [:redirect_url, :mandatory, :string])
 
+  AccountPermissionVerificationRequest = EntityUtils.define_builder(
+    [:verification_code, :mandatory, :string])
+
   module_function
 
   def create_create_payment_request(opts); CreatePaymentRequest.call(opts) end
@@ -92,5 +95,6 @@ module PaypalService::API::DataTypes
   def create_process_status(opts); ProcessStatus.call(opts) end
   def create_create_account_request(opts); CreateAccountRequest.call(opts) end
   def create_account_request(opts); AccountRequest.call(opts) end
+  def create_account_permission_verification_request(opts); AccountPermissionVerificationRequest.call(opts) end
 
 end

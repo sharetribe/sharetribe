@@ -88,28 +88,17 @@ class PaypalAccountsController < ApplicationController
       return flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.permissions_not_granted"))
     end
 
-    access_token_res = fetch_access_token(params[:request_token], params[:verification_code])
-    return flash_error_and_redirect_to_settings(error_response: access_token_res) unless access_token_res[:success]
+    response = accounts_api.create(@current_community.id, @current_user.id, params[:request_token],
+      PaypalService::API::DataTypes
+      .create_account_permission_verification_request({
+                                                        verification_code: params[:verification_code]
+                                                      }))
 
-    personal_data_res = fetch_personal_data(access_token_res[:token], access_token_res[:token_secret])
-    return flash_error_and_redirect_to_settings(error_response: personal_data_res) unless personal_data_res[:success]
-
-    PaypalAccountCommand.update_personal_account(
-      @current_user.id,
-      @current_community.id,
-      {
-        email: personal_data_res[:email],
-        payer_id: personal_data_res[:payer_id]
-      }
-    )
-    PaypalAccountCommand.confirm_pending_permissions_request(
-      @current_user.id,
-      @current_community.id,
-      params[:request_token],
-      access_token_res[:scope].join(","),
-      params[:verification_code]
-    )
-    redirect_to new_paypal_account_settings_payment_path(@current_user.username)
+    if response[:success]
+      redirect_to new_paypal_account_settings_payment_path(@current_user.username)
+    else
+      flash_error_and_redirect_to_settings(error_response: response) unless response[:success]
+    end
   end
 
   def billing_agreement_success
@@ -212,26 +201,6 @@ class PaypalAccountsController < ApplicationController
       .create_create_billing_agreement({token: token})
 
     paypal_merchant.do_request(affirm_billing_agreement_req)
-  end
-
-  def fetch_access_token(request_token, verification_code)
-    access_token_req = DataTypePermissions.create_get_access_token(
-      {
-        request_token: params[:request_token],
-        verification_code: params[:verification_code]
-      }
-    )
-    access_token_res = paypal_permissions.do_request(access_token_req)
-  end
-
-  def fetch_personal_data(token, token_secret)
-    personal_data_req = DataTypePermissions.create_get_basic_personal_data(
-      {
-        token: token,
-        token_secret: token_secret
-      }
-    )
-    paypal_permissions.do_request(personal_data_req)
   end
 
   def flash_error_and_redirect_to_settings(error_response: nil, error_msg: nil)
