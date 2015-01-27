@@ -75,6 +75,12 @@ Empty body
 
 Empty response
 
+## DELETE /accounts/:community_id/:person_id
+
+Empty body
+
+Empty response
+
 ## GET /accounts/:community_id(/:person_id?)
 
 No request body

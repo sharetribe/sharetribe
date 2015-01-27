@@ -70,6 +70,10 @@ module PaypalService::Store::PaypalAccount
     end
   end
 
+  def delete(person_id, community_id)
+    Maybe(find_model(person_id, community_id)).each { |account| account.destroy }
+  end
+
   def get(person_id, community_id)
     from_model(find_model(person_id, community_id))
   end

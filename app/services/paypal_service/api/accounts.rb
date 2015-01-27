@@ -122,6 +122,12 @@ module PaypalService::API
       Result::Success.new()
     end
 
+    ## DELETE /accounts/:community_id/:person_id
+
+    def delete(community_id, person_id=nil)
+      Result::Success.new(PaypalAccountStore.delete(person_id, community_id))
+    end
+
     ## GET /accounts/:community_id(/:person_id?)
 
     def get(community_id, person_id=nil)
