@@ -192,11 +192,15 @@ fr:
       social_media:
         social_media: "Réseaux sociaux"
         twitter_handle: "Nom Twitter"
-        twitter_handle_info_text: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partager Twitter sur les pages d'annonces."
+        twitter_handle_info_text: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces."
+        twitter_handle_info_text_with_instructions: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces. %{instructions_link}."
+        twitter_instructions_link_text: "En savoir plus."
         twitter_handle_placeholder: nomtwitter
         invalid_twitter_handle: "Le nom Twitter ne peut contenir qu'au maximum 15 caractères alpha-numériques (lettres A-Z et chiffre 0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici."
+        facebook_connect_info_text_with_instructions: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici. %{instructions_link}."
+        facebook_instructions_link_text: "Lire les instructions pour configurer Facebook Connect."
         facebook_connect_id: "Facebook client id"
         invalid_facebook_connect_id: "L'id client ne devrait contenir que des chiffres"
         facebook_connect_secret: "Clé secrète Facebook"
@@ -206,6 +210,8 @@ fr:
         analytics: Analyses
         google_analytics_key: "Code de suivi Google Analytics"
         google_analytics_key_info_text: "Identifiant du code de suivi de votre compte Google Analytics."
+        google_analytics_key_info_text_with_instructions: "Identifiant du code de suivi de votre compte Google Analytics. %{instructions_link}."
+        google_analytics_instructions_link_text: "En savoir plus sur la connexion avec Google Analytics."
         save: "Sauvegarder les paramètres"
       menu_links:
         menu_links: "Liens du menu"
@@ -315,6 +321,7 @@ fr:
       marketplace_paypal_integration: "Paramètres de paiement"
       preferences_updated: "Préférences de paiement mises à jour"
       integration_info_text: "Le système de paiement de %{service_name} est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimum pour les annonces ainsi que la commission que vous souhaitez prélever sur chaque transaction."
+      read_more_about_paypal: "En savoir plus sur le système de paiement avec Sharetribe."
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_completed: "Terminé !"
       set_minimum_price_and_fee: "2. Définir un montant minimum et la commission"
@@ -1682,6 +1689,7 @@ fr:
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
       these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Il n'y a que vous qui voyez les autres informations."
+      email_already_confirmed: ~
       email:
         address_title: Adresse
         remove_title: Supprimer
