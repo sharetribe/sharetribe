@@ -5,9 +5,6 @@ module TransactionService::Transaction
 
   PaymentSettingsStore = TransactionService::Store::PaymentSettings
 
-  PaypalAccountEntity = PaypalService::PaypalAccount::Entity
-  PaypalAccountQuery = PaypalService::PaypalAccount::Query
-
   TxUtil = TransactionService::Util
 
   module_function

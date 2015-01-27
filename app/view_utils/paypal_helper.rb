@@ -1,7 +1,4 @@
 module PaypalHelper
-  PaypalAccountEntity = PaypalService::PaypalAccount::Entity
-  PaypalAccountQuery = PaypalService::PaypalAccount::Query
-
   TxApi = TransactionService::API::Api
 
   module_function

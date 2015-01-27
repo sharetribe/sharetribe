@@ -1,7 +1,4 @@
 class PaypalAccountsController < ApplicationController
-  include PaypalService::PermissionsInjector
-  include PaypalService::MerchantInjector
-
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
@@ -9,9 +6,6 @@ class PaypalAccountsController < ApplicationController
   before_filter :ensure_paypal_enabled
 
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm")
-  PaypalAccountEntity = PaypalService::PaypalAccount::Entity
-  PaypalAccountQuery = PaypalService::PaypalAccount::Query
-  PaypalAccountCommand = PaypalService::PaypalAccount::Command
 
   DataTypePermissions = PaypalService::DataTypes::Permissions
 

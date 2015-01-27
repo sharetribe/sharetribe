@@ -1,12 +1,7 @@
 class Admin::PaypalPreferencesController < ApplicationController
-  include PaypalService::PermissionsInjector
-
   before_filter :ensure_is_admin
   before_filter :ensure_paypal_provisioned
 
-  PaypalAccountEntity = PaypalService::PaypalAccount::Entity
-  PaypalAccountQuery = PaypalService::PaypalAccount::Query
-  PaypalAccountCommand = PaypalService::PaypalAccount::Command
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm", :paypal_email, :commission_from_seller)
     .with_validations { validates_presence_of :paypal_email }
 

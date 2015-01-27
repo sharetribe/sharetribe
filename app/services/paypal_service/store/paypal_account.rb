@@ -74,6 +74,10 @@ module PaypalService::Store::PaypalAccount
     from_model(find_model(person_id, community_id))
   end
 
+  def get_by_payer_id(payer_id, community_id)
+    from_model(find_model_by_payer_and_community(payer_id, community_id))
+  end
+
   ## Privates
 
   def update_or_create_billing_agreement(account_model, opts)
@@ -114,11 +118,20 @@ module PaypalService::Store::PaypalAccount
   end
 
   def find_model(person_id, community_id)
-    PaypalAccountModel.where(person_id: person_id, community_id: community_id).first
+    PaypalAccountModel.where(person_id: person_id, community_id: community_id)
+      .eager_load([:order_permission, :billing_agreement])
+      .first
   end
 
   def find_model_by_payer(payer_id)
     PaypalAccountModel.where(payer_id: payer_id)
+      .eager_load([:order_permission, :billing_agreement])
+  end
+
+  def find_model_by_payer_and_community(payer_id, community_id)
+    PaypalAccountModel.where("community_id = ? AND payer_id = ? AND person_id IS NOT NULL", community_id, payer_id)
+      .eager_load([:order_permission, :billing_agreement])
+      .first
   end
 
   def from_model(model)

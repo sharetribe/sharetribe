@@ -2,7 +2,6 @@ require_relative '../api'
 
 describe PaypalService::API::BillingAgreements do
 
-  PaypalAccountStore = PaypalService::PaypalAccount
   AccountStore = PaypalService::Store::PaypalAccount
 
   before(:each) do
