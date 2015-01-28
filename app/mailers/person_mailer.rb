@@ -18,18 +18,19 @@ class PersonMailer < ActionMailer::Base
 
   add_template_helper(EmailTemplateHelper)
 
-  def conversation_status_changed(conversation, community)
-    @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
-    set_up_urls(conversation.other_party(conversation.listing.author), community, @email_type)
-    @conversation = conversation
+  def conversation_status_changed(transaction, community)
+    @email_type =  (transaction.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
+    set_up_urls(transaction.other_party(transaction.listing.author), community, @email_type)
+    @transaction = transaction
 
-    if community.payments_in_use?
-      @payment_url = community.payment_gateway.new_payment_url(@recipient, @conversation, @recipient.locale, @url_params)
+    if @transaction.payment_gateway == "braintree" ||  @transaction.payment_process == "postpay"
+      # Payment url concerns only braintree and postpay, otherwise we show only the message thread
+      @payment_url = community.payment_gateway.new_payment_url(@recipient, @transaction, @recipient.locale, @url_params)
     end
 
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
-         :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.direction)}_was_#{conversation.status}"))
+         :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(transaction.listing.direction)}_was_#{transaction.status}"))
   end
 
   def new_message_notification(message, community)
