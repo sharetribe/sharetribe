@@ -43,6 +43,13 @@ module PaypalService
         [:authorization_total, :money, :mandatory]
       )
 
+      AuthorizationExpired = EntityUtils.define_builder(
+        [:type, const_value: :authorization_expired],
+        [:authorization_id, :string],
+        [:order_id, :string],
+        [:payment_status, :string, :mandatory]
+      )
+
       PaymentCompleted = EntityUtils.define_builder(
         [:type, const_value: :payment_completed],
         [:payment_date, :mandatory, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
@@ -140,6 +147,7 @@ module PaypalService
 
       def create_order_created(opts); OrderCreated.call(opts) end
       def create_authorization_created(opts); AuthorizationCreated.call(opts) end
+      def create_authorization_expired(opts); AuthorizationExpired.call(opts) end
       def create_payment_completed(opts); PaymentCompleted.call(opts) end
       def create_payment_refunded(opts); PaymentRefunded.call(opts) end
       def create_billing_agreement_cancelled(opts); BillingAgreementCancelled.call(opts) end
@@ -158,6 +166,8 @@ module PaypalService
           to_order_created(p)
         when :authorization_created
           to_authorization_created(p)
+        when :authorization_expired
+          to_authorization_expired(p)
         when :commission_paid
           to_commission_paid(p)
         when :payment_completed
@@ -194,6 +204,8 @@ module PaypalService
           return :order_created
         elsif status == "pending" && reason == "authorization"
           return :authorization_created
+        elsif status == "expired"
+          return :authorization_expired
         elsif status == "pending"
           return :payment_pending_ext
         elsif status == "completed" && inv_type == :payment
@@ -366,6 +378,19 @@ module PaypalService
         create_billing_agreement_created(p)
       end
       private_class_method :to_billing_agreement_created
+
+
+      def to_authorization_expired(params)
+        p = HashUtils.rename_keys(
+          {
+            txn_id: :authorization_id,
+            parent_txn_id: :order_id
+          },
+          params
+        )
+        create_authorization_expired(p)
+      end
+      private_class_method :to_authorization_expired
 
     end
   end

@@ -193,6 +193,7 @@ module PaypalService::Store::PaypalPayment
   STATES = {
     order: [:pending, :order],
     authorized: [:pending, :authorization],
+    expired: [:expired, :none],
     pending_ext: [:pending, :ext],
     completed: [:completed, :none],
     voided: [:voided, :none],
@@ -204,6 +205,7 @@ module PaypalService::Store::PaypalPayment
   STATE_HIERARCHY = {
     order: 0,
     authorized: 1,
+    expired: 2,
     voided: 2,
     pending_ext: 2,
     completed: 3,
