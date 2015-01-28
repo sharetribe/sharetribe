@@ -16,6 +16,13 @@ describe PaypalService::IPN do
       :payer_status=>"verified"
     }
 
+    @billing_agreement_cancelled = {
+      type: :billing_agreement_cancelled,
+      payer_email: "dev+paypal_us@sharetribe.com",
+      payer_id: "payer_id_1",
+      billing_agreement_id: "bagrid"
+    }
+
     @order = {
       order_total: 100,
       community_id: 1,
@@ -153,8 +160,21 @@ describe PaypalService::IPN do
 
     @cid = 1
     @txid = 1
+    @mid = "merchant_id_1"
+    @payer_id = "payer_id_1"
+    @paypal_email = "merchant_1@test.com"
+    @paypal_email_admin = "admin_2@test.com"
+    @billing_agreement_id = "bagrid"
 
     PaypalService::Store::PaypalPayment.create(@cid, @txid, @order)
+
+    PaypalService::PaypalAccount::Command.create_personal_account(
+      @mid,
+      @cid,
+      {email: @paypal_email, payer_id: @payer_id})
+    PaypalService::PaypalAccount::Command.create_pending_billing_agreement(@mid, @cid, @paypal_email_admin, "request-token")
+    PaypalService::PaypalAccount::Command.confirm_billing_agreement(@mid, @cid, "request-token", @billing_agreement_id)
+
   end
 
   context "update payment" do
@@ -223,6 +243,16 @@ describe PaypalService::IPN do
 
     it "should handle billing agreement created" do
       expect(@ipn_service.handle_msg(@billing_agreement_created)).to eql true
+    end
+
+    it "should handle billing agreement cancelled" do
+      acc = PaypalService::PaypalAccount::Query.personal_account(@mid, @cid)
+      expect(acc[:billing_agreement_id]).to eql(@billing_agreement_id)
+
+      @ipn_service.handle_msg(@billing_agreement_cancelled)
+
+      acc2 = PaypalService::PaypalAccount::Query.personal_account(@mid, @cid)
+      expect(acc2[:billing_agreement_id]).to be_nil
     end
   end
 
