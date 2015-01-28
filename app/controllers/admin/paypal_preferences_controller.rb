@@ -11,7 +11,8 @@ class Admin::PaypalPreferencesController < ApplicationController
   PaypalPreferencesForm = FormUtils.define_form("PaypalPreferencesForm",
     :commission_from_seller,
     :minimum_listing_price,
-    :minimum_commission
+    :minimum_commission,
+    :minimum_transaction_fee
     ).with_validations do
       validates_numericality_of(
         :commission_from_seller,
@@ -42,7 +43,9 @@ class Admin::PaypalPreferencesController < ApplicationController
     paypal_prefs_form = PaypalPreferencesForm.new(
       minimum_commission: minimum_commission,
       commission_from_seller: tx_settings[:commission_from_seller],
-      minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], @current_community.default_currency))
+      minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], @current_community.default_currency),
+      minimum_transaction_fee: Money.new(tx_settings[:minimum_transaction_fee_cents], @current_community.default_currency)
+    )
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
@@ -79,7 +82,8 @@ class Admin::PaypalPreferencesController < ApplicationController
                             payment_gateway: :paypal,
                             payment_process: :preauthorize,
                             commission_from_seller: paypal_prefs_form.commission_from_seller.to_i,
-                            minimum_price_cents: paypal_prefs_form.minimum_listing_price.cents})
+                            minimum_price_cents: paypal_prefs_form.minimum_listing_price.cents,
+                            minimum_transaction_fee_cents: paypal_prefs_form.minimum_transaction_fee.cents})
 
     flash[:notice] = t("admin.paypal_accounts.preferences_updated")
     redirect_to action: :index
@@ -129,9 +133,9 @@ class Admin::PaypalPreferencesController < ApplicationController
   private
 
   def parse_preferences(params, currency)
-    minimum_listing_price = MoneyUtil.parse_str_to_money(params[:minimum_listing_price], currency)
     {
-      minimum_listing_price: minimum_listing_price,
+      minimum_listing_price: MoneyUtil.parse_str_to_money(params[:minimum_listing_price], currency),
+      minimum_transaction_fee: MoneyUtil.parse_str_to_money(params[:minimum_transaction_fee], currency),
       commission_from_seller: params[:commission_from_seller]
     }
   end

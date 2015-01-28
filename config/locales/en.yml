@@ -329,6 +329,7 @@ en:
       set_minimum_price_and_fee_completed: Completed!
       minimum_listing_price_label: "Minimum listing price:"
       transaction_fee_label: "Transaction fee:"
+      minimum_transaction_fee_label: "Minimum transaction fee:"
       save_settings: "Save settings"
       note_about_transaction_fee: "Note: the transaction fee includes PayPal's fees that depend on your currency and the sales volume of the seller. For this reason, the fee is always at least %{min_paypal_commission}. When the fee is charged from the seller, PayPal will take its fees first, and the remainder will be moved to your PayPal account."
     transaction_types:
