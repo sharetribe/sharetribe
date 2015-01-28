@@ -87,7 +87,7 @@ module PaypalService::Store::PaypalAccount
 
       from_model(Maybe(account_model))
     else
-      raise "Can not find Paypal account for person_id #{person_id} and community_id #{community_id}" unless account_model
+      raise ArgumentError.new("Can not find Paypal account for person_id #{person_id} and community_id #{community_id}") unless account_model
     end
 
   end
