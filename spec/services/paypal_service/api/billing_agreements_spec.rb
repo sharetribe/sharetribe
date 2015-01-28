@@ -25,31 +25,26 @@ describe PaypalService::API::BillingAgreements do
     @payer_id_admin = "payer_id_2"
     @billing_agreement_id = "bagrid"
 
-    AccountStore.create(
+    AccountStore.create(opts:
       {
         person_id: @mid,
         community_id: @cid,
         email: @paypal_email,
         payer_id: @payer_id,
-        paypal_username_to: "sharetribe@sharetribe.com",
-        request_token: "123456789"
-      })
-    AccountStore.update(
-      {
-        person_id: @mid,
-        community_id: @cid,
-        billing_agreement_id: @billing_agreement_id,
+        order_permission_paypal_username_to: "sharetribe@sharetribe.com",
+        order_permission_request_token: "123456789",
+        billing_agreement_billing_agreement_id: @billing_agreement_id,
         billing_agreement_request_token: "request-token",
         billing_agreement_paypal_username_to: @paypal_email_admin
       })
 
-    AccountStore.create(
+    AccountStore.create(opts:
       {
         community_id: @cid,
         email: @paypal_email_admin,
         payer_id: @payer_id_admin,
-        paypal_username_to: "sharetribe@sharetribe.com",
-        request_token: "123456789"
+        order_permission_paypal_username_to: "sharetribe@sharetribe.com",
+        order_permission_request_token: "123456789"
       })
 
     @tx_id = 1234
@@ -108,22 +103,15 @@ describe PaypalService::API::BillingAgreements do
     it "marks the commission to not applicable when admin is merchant" do
       @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
 
-      AccountStore.create(
+      AccountStore.create(opts:
         {
           person_id: @payer_id_admin,
           community_id: @cid,
           payer_id: @payer_id_admin,
           email: @paypal_email,
-          paypal_username_to: "sharetribe@sharetribe.com",
-          request_token: "123456789"
-        })
-
-
-      AccountStore.update(
-        {
-          person_id: @payer_id_admin,
-          community_id: @cid,
-          billing_agreement_id: @billing_agreement_id,
+          order_permission_paypal_username_to: "sharetribe@sharetribe.com",
+          order_permission_request_token: "123456789",
+          billing_agreement_billing_agreement_id: @billing_agreement_id,
           billing_agreement_request_token: "request-token",
           billing_agreement_paypal_username_to: @paypal_email_admin
         })

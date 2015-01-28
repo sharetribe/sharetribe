@@ -80,7 +80,7 @@ module PaypalService::API::DataTypes
     [:redirect_url, :mandatory, :string])
 
   AccountPermissionVerificationRequest = EntityUtils.define_builder(
-    [:verification_code, :mandatory, :string])
+    [:order_permission_verification_code, :mandatory, :string])
 
   CreateBillingAgreementRequest = EntityUtils.define_builder(
     [:description, :mandatory, :string],

@@ -7,7 +7,9 @@ module PaypalHelper
   # for the community AND that the community admin has fully
   # configured the gateway.
   def community_ready_for_payments?(community_id)
-    account_response = accounts_api.get(community_id)
+    account_response = accounts_api.get(
+      community_id: community_id
+    )
     m_account = Maybe(account_response)[:data]
 
     m_account[:order_permission_state].or_else(:not_verified) == :verified &&
@@ -29,7 +31,10 @@ module PaypalHelper
   # Check that the user has connected his paypal account for the
   # community
   def personal_account_prepared?(user_id, community_id)
-    account_response = accounts_api.get(community_id, user_id)
+    account_response = accounts_api.get(
+      community_id: community_id,
+      person_id: user_id
+    )
     m_account = Maybe(account_response)[:data]
     m_account[:active].or_else(false)
   end

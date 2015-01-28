@@ -13,7 +13,7 @@ module PaypalService::API
     end
 
     def with_account(cid, pid, &block)
-      m_acc = AccountStore.get(pid, cid)
+      m_acc = AccountStore.get(person_id: pid, community_id: cid)
       if m_acc.nil?
         return log_and_return(Result::Error.new("Cannot find paypal account for the given community and person: community_id: #{cid}, person_id: #{pid}."))
       else
@@ -22,12 +22,12 @@ module PaypalService::API
     end
 
     def with_accounts(cid, pid, &block)
-      admin_acc = AccountStore.get(nil, cid)
+      admin_acc = AccountStore.get(community_id: cid)
       if admin_acc.nil?
         return log_and_return(Result::Error.new("No matching admin account for community_id: #{cid} and transaction_id: #{txid}."))
       end
 
-      m_acc = AccountStore.get(pid, cid)
+      m_acc = AccountStore.get(person_id: pid, community_id: cid)
       if m_acc.nil?
         return log_and_return(Result::Error.new("Cannot find paypal account for the given community and person: community_id: #{cid}, person_id: #{pid}."))
       elsif m_acc[:billing_agreement_state] != :verified
@@ -48,7 +48,7 @@ module PaypalService::API
     end
 
     def with_merchant_account(cid, token, &block)
-      m_acc = AccountStore.get(token[:merchant_id], cid)
+      m_acc = AccountStore.get(person_id: token[:merchant_id], community_id: cid)
       if m_acc.nil?
         return log_and_return(Result::Error.new("No matching merchant account for community_id: #{cid} and person_id: #{token[:merchant_id]}."))
       end
@@ -67,7 +67,7 @@ module PaypalService::API
         return log_and_return(Result::Error.new("Payment was not in accepted precondition state for the requested operation. Expected one of: #{accepted_states}, was: :#{payment[:payment_status]}, :#{payment[:pending_reason]}"))
       end
 
-      m_acc = AccountStore.get_by_payer_id(payment[:receiver_id], cid)
+      m_acc = AccountStore.get_by_payer_id(payer_id: payment[:receiver_id], community_id: cid)
       if m_acc.nil?
         return log_and_return(Result::Error.new("No matching merchant account for community_id: #{cid} and transaction_id: #{txid}."))
       end

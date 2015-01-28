@@ -34,7 +34,10 @@ module PaypalService
         # Failing to correctly confirm a pending agreement just enforces the user to try again.
         true
       when :billing_agreement_cancelled
-        PaypalService::Store::PaypalAccount.delete_billing_agreement_by_payer_and_agreement_id(ipn_msg[:payer_id], ipn_msg[:billing_agreement_id])
+        PaypalService::Store::PaypalAccount.delete_billing_agreement_by_payer_and_agreement_id(
+          payer_id: ipn_msg[:payer_id],
+          billing_agreement_id: ipn_msg[:billing_agreement_id]
+        )
       when :payment_refunded
         PaypalService::Store::PaypalRefund.create(ipn_msg)
       else

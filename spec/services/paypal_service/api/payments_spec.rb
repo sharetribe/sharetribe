@@ -23,14 +23,14 @@ describe PaypalService::API::Payments do
     @paypal_email = "merchant_1@test.com"
     @payer_id = "payer_id_1"
 
-    AccountStore.create(
+    AccountStore.create(opts:
       {
         person_id: @mid,
         community_id: @cid,
         email: @paypal_email,
         payer_id: @payer_id,
-        paypal_username_to: "sharetribe@sharetribe.com",
-        request_token: "123456789"
+        order_permission_paypal_username_to: "sharetribe@sharetribe.com",
+        order_permission_request_token: "123456789"
       })
 
     @tx_id = 1234

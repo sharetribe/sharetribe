@@ -7,7 +7,8 @@ Request body:
 
 ```ruby
 { community_id: 121212     # Mandatory
-, person_id: "person_id_1" # Mandatory for personal account, ignored for community account
+, person_id: "person_id_1" # Optional: Ignored for community account
+, country: "us"
 , callback: "https://alpha.sharetribe.com/account/verify"
 }
 ```
@@ -18,21 +19,21 @@ Response 201 Created, body:
 { community_id: 121212
 , person_id: "person_id_1"
 , redirect_url: "https://www.sandbox.paypal.com/webscr?cmd=_grant-permission&request_token=AAAAAAAbDq-HJDXerDtj"
-, username_to: "dev+paypal_api1.sharetribe.com"
 }
 ```
 
-## POST /accounts/:community_id/:person_id/cancel?token=AAAAAAAbDq-HJDXerDtj
+## POST /accounts/create?community_id=1&person_id=asdfajasfdgnqwer&order_permission_request_token=AAAAAAAbDq-HJDXerDtj
 
-Empty body
+Query params:
 
-Response 204 No Content
+- `community_id`: mandatory
+- `person_id`: optional (ignored for admin accounts)
+- `order_permission_request_token`: mandatory
 
-
-## POST /accounts/:community_id/:person_id/create?token=AAAAAAAbDq-HJDXerDtj
+Request body:
 
 ```ruby
-{ verification_code: '123512321531145'
+{ order_permission_verification_code: '123512321531145'
 }
 ```
 
@@ -41,13 +42,22 @@ Response 201 Created, with PaypalAccount body
 ```ruby
 { person_id: "person_id_1"
 , community_id: 121212
+, active: false,
 , paypal_email: "dev+paypal-user1@sharetribe.com"
 , payer_id: "98ASDF723S"
 , order_permission_state: :verified
+, billing_agreement_state: :not_verified
 }
 ```
 
-## POST /accounts/:community_id/:person_id/billing_agreement/request?token=AAAAAAAbDq-HJDXerDtj
+## POST /accounts/billing_agreement/request?token=AAAAAAAbDq-HJDXerDtj
+
+Query params:
+
+- `community_id`: mandatory
+- `person_id`: mandatory
+
+Request body:
 
 ```ruby
 { description: "Marketplace X would like to charge transaction fee"
@@ -56,44 +66,83 @@ Response 201 Created, with PaypalAccount body
 }
 ```
 
+Response:
+
 ```ruby
 { redirect_url: "https://www.sandbox.paypal.com/webscr?cmd=_grant-permission&request_token=AAAAAAAbDq-HJDXerDtj" }
 ```
 
-## POST /accounts/:community_id/:person_id/billing_agreement/create?token=AAAAAAAbDq-HJDXerDtj
+## POST /accounts/billing_agreement/create?community_id=1&person_id=asdfasdgasdfasdg&billing_agreement_request_token=AAAAAAAbDq-HJDXerDtj
 
-Empty body
+Query params:
+
+- `community_id`: mandatory
+- `person_id`: mandatory
+- `billing_agreement_request_token`: mandatory
+
+Empty request body
 
 Errors:
 
-- :billing\_agreement\_not\_accepted - User did not accept the billing agreement
-- :wrong\_account - The payer id did not match
+- `:billing_agreement_not_accepted`: User did not accept the billing agreement
+- `:wrong_account`: The payer id did not match
 
-## DELETE /accounts/:community_id/:person_id/billing_agreement
-
-Empty body
-
-Empty response
-
-## DELETE /accounts/:community_id/:person_id
-
-Empty body
-
-Empty response
-
-## GET /accounts/:community_id(/:person_id?)
-
-No request body
-
-Response 200 OK, with PaypalAccount body
+Response body: PaypalAccount
 
 ```ruby
-{ type: :community
+{ person_id: "person_id_1"
 , community_id: 121212
-, paypal_email: "dev+mpadmin1@sharetribe.com"
-, payer_id: "2387SHSDJH82"
+, active: true,
+, paypal_email: "dev+paypal-user1@sharetribe.com"
+, payer_id: "98ASDF723S"
 , order_permission_state: :verified
-, billing_agreement_state: :not_requested      # :not_requested, :pending, :verified ?
+, billing_agreement_state: :verified
+, billing_agreement_billing_agreement_id: "B-125123245326"
 }
 ```
 
+## DELETE /accounts/billing_agreement?community_id=1&person_id=asdfasdgasdfasdg
+
+Query params:
+
+- `community_id`: mandatory
+- `person_id`: mandatory
+
+Empty body
+
+Empty response
+
+
+## DELETE /accounts?community_id=1&person_id=asdfasdgasdfasdg
+
+Query params:
+
+- `community_id`: mandatory
+- `person_id`: optional (ignored for admin account)
+
+Empty body
+
+Empty response
+
+## GET /accounts?community_id=1&person_id=aasdfasdgawsdg
+
+Query params:
+
+- `community_id`: mandatory
+- `person_id`: optional (ignored for admin account)
+
+Request body: Empty
+
+Response body: PaypalAccount
+
+```ruby
+{ person_id: "person_id_1"
+, community_id: 121212
+, active: true,
+, paypal_email: "dev+paypal-user1@sharetribe.com"
+, payer_id: "98ASDF723S"
+, order_permission_state: :verified
+, billing_agreement_state: :verified
+, billing_agreement_billing_agreement_id: "B-125123245326"
+}
+```

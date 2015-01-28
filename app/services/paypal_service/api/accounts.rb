@@ -9,51 +9,57 @@ module PaypalService::API
     #
 
     ## POST /accounts/request
-    def request(opts)
-      with_permission_request_response(opts[:callback_url]) { |perm_req_response|
-        account = PaypalAccountStore.create({
-                                              community_id: opts[:community_id],
-                                              person_id: opts[:person_id],
-                                              request_token: perm_req_response[:request_token],
-                                              paypal_username_to: perm_req_response[:username_to]
-                                            })
 
-        redirect_url = URLUtils.prepend_path_component(perm_req_response[:redirect_url], opts[:country])
+    def request(body:)
+      with_permission_request_response(body[:callback_url]) { |perm_req_response|
+        account = PaypalAccountStore.create(
+          opts: {
+            community_id: body[:community_id],
+            person_id: body[:person_id],
+            order_permission_request_token: perm_req_response[:request_token],
+            order_permission_paypal_username_to: perm_req_response[:username_to]
+          })
 
-        Result::Success.new(DataTypes.create_account_request({
-                                                               community_id: opts[:community_id],
-                                                               person_id: opts[:person_id],
-                                                               redirect_url: redirect_url
-                                                             }))
+        redirect_url = URLUtils.prepend_path_component(perm_req_response[:redirect_url], body[:country])
+
+        Result::Success.new(
+          DataTypes.create_account_request(
+          {
+            community_id: body[:community_id],
+            person_id: body[:person_id],
+            redirect_url: redirect_url
+          }))
       }
     end
 
-    ## TODO
-
-    ## POST /accounts/request/cancel?token=AAAAAAAbDq-HJDXerDtj
-
-    ## POST /accounts/:community_id/:person_id/create?token=AAAAAAAbDq-HJDXerDtj&verification_code=xxxxx11112222
-
-    def create(community_id, person_id, request_token, body)
-      with_access_token(request_token, body[:verification_code]) { |access_token|
+    ## POST /accounts/create?community_id=1&person_id=asdgaretrwersd&order_permission_request_token=AAAAAAAbDq-HJDXerDtj
+    #
+    # Body:
+    #
+    # { order_permission_verification_code: '123512321531145'
+    # }
+    #
+    def create(community_id:, person_id: nil, order_permission_request_token:, body:)
+      with_access_token(order_permission_request_token, body[:order_permission_verification_code]) { |access_token|
         with_personal_data(access_token[:token], access_token[:token_secret]) { |personal_data|
           account = PaypalAccountStore.update(
-            {
-              community_id: community_id,
-              person_id: person_id,
-              email: personal_data[:email],
-              payer_id: personal_data[:payer_id],
-              verification_code: body[:verification_code],
-              scope: access_token[:scope].join(','),
-              active: person_id.nil? # activate admin account
-            })
+            community_id: community_id,
+            person_id: person_id,
+            opts:
+              {
+                email: personal_data[:email],
+                payer_id: personal_data[:payer_id],
+                order_permission_verification_code: body[:order_permission_verification_code],
+                order_permission_scope: access_token[:scope].join(','),
+                active: person_id.nil? # activate admin account
+              })
 
           Result::Success.new(account)
         }
       }
     end
 
-    ## POST /accounts/:community_id/:person_id/billing_agreement/request
+    ## POST /accounts/billing_agreement/request?community_id=1&person_id=asdfasdgasdfd
     #
     # Body:
     # { description: "Let marketplace take commission"
@@ -62,22 +68,28 @@ module PaypalService::API
     # }
     #
 
-    def billing_agreement_request(community_id, person_id, body)
+    def billing_agreement_request(community_id:, person_id:, body:)
       with_billing_agreement_request(body[:description], body[:success_url], body[:cancel_url]) { |billing_agreement_request|
-        account = PaypalAccountStore.update({
-                                              community_id: community_id,
-                                              person_id: person_id,
-                                              billing_agreement_paypal_username_to: billing_agreement_request[:username_to],
-                                              billing_agreement_request_token: billing_agreement_request[:token]
-                                            })
+        account = PaypalAccountStore.update(
+          community_id: community_id,
+          person_id: person_id,
+          opts:
+            {
+              community_id: community_id,
+              person_id: person_id,
+              billing_agreement_paypal_username_to: billing_agreement_request[:username_to],
+              billing_agreement_request_token: billing_agreement_request[:token]
+            })
 
-        Result::Success.new(DataTypes.create_billing_agreement_request({
-                                                                         redirect_url: billing_agreement_request[:redirect_url]
-                                                                       }))
+        Result::Success.new(
+          DataTypes.create_billing_agreement_request(
+          {
+            redirect_url: billing_agreement_request[:redirect_url]
+          }))
       }
     end
 
-    ## POST /accounts/:community_id/:person_id/billing_agreement/create?token=EC-123215122362
+    ## POST /accounts/billing_agreement/create?community_id=1&person_id=asdfgasdgasdfaasdf&billing_agreement_request_token=EC-123215122362
     #
     # Empty body
     #
@@ -86,23 +98,24 @@ module PaypalService::API
     # - :billing_agreement_not_accepted
     # - :wrong_account
 
-    def billing_agreement_create(community_id, person_id, request_token)
-      paypal_account = PaypalAccountStore.get(person_id, community_id)
+    def billing_agreement_create(community_id:, person_id:, billing_agreement_request_token:)
+      paypal_account = PaypalAccountStore.get(person_id: person_id, community_id: community_id)
 
-      with_billing_agreement(request_token) { |billing_agreement|
-        with_express_checkout_details(request_token) { |express_checkout_details|
+      with_billing_agreement(billing_agreement_request_token) { |billing_agreement|
+        with_express_checkout_details(billing_agreement_request_token) { |express_checkout_details|
           if !express_checkout_details[:billing_agreement_accepted]
             Result::Error.new(:billing_agreement_not_accepted)
           elsif express_checkout_details[:payer_id] != paypal_account[:payer_id]
             Result::Error.new(:wrong_account)
           else
             account = PaypalAccountStore.update(
-              {
-                community_id: community_id,
-                person_id: person_id,
-                billing_agreement_id: billing_agreement[:billing_agreement_id],
-                active: true
-              })
+              community_id: community_id,
+              person_id: person_id,
+              opts:
+                {
+                  billing_agreement_billing_agreement_id: billing_agreement[:billing_agreement_id],
+                  active: true
+                })
 
             Result::Success.new(account)
           end
@@ -111,7 +124,7 @@ module PaypalService::API
       }
     end
 
-    def delete_billing_agreement(community_id, person_id)
+    def delete_billing_agreement(community_id:, person_id:)
       PaypalAccountStore.delete_billing_agreement(
         {
           person_id: person_id,
@@ -121,16 +134,16 @@ module PaypalService::API
       Result::Success.new()
     end
 
-    ## DELETE /accounts/:community_id/:person_id
+    ## DELETE /accounts/?community_id=1&person_id=asdfgasdgasdfaasdf
 
-    def delete(community_id, person_id=nil)
-      Result::Success.new(PaypalAccountStore.delete(person_id, community_id))
+    def delete(community_id:, person_id: nil)
+      Result::Success.new(PaypalAccountStore.delete(person_id: person_id, community_id: community_id))
     end
 
-    ## GET /accounts/:community_id(/:person_id?)
+    ## GET /accounts/?community_id=1&person_id=asdfgasdgasdfaasdf
 
-    def get(community_id, person_id=nil)
-      Result::Success.new(PaypalAccountStore.get(person_id, community_id))
+    def get(community_id:, person_id: nil)
+      Result::Success.new(PaypalAccountStore.get(person_id: person_id, community_id: community_id))
     end
 
     private

@@ -48,10 +48,15 @@ module TransactionService::Transaction
   end
 
   def can_start_transaction_paypal(community_id:, author_id:)
-    person_account_response = paypal_account_api.get(community_id, author_id)
+    person_account_response = paypal_account_api.get(
+      community_id: community_id,
+      person_id: author_id
+    )
     personal_account_active = Maybe(person_account_response)[:data][:active]
 
-    admin_account_response = paypal_account_api.get(community_id)
+    admin_account_response = paypal_account_api.get(
+      community_id: community_id
+    )
     admin_account_active = Maybe(admin_account_response)[:data][:active]
 
     payment_settings_available =

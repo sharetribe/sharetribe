@@ -3,6 +3,9 @@ require 'spec_helper'
 require_relative 'test_events'
 
 describe PaypalService::IPN do
+
+  AccountStore = PaypalService::Store::PaypalAccount
+
   before(:each) do
     @events = PaypalService::TestEvents.new
 
@@ -168,12 +171,26 @@ describe PaypalService::IPN do
 
     PaypalService::Store::PaypalPayment.create(@cid, @txid, @order)
 
-    PaypalService::PaypalAccount::Command.create_personal_account(
-      @mid,
-      @cid,
-      {email: @paypal_email, payer_id: @payer_id})
-    PaypalService::PaypalAccount::Command.create_pending_billing_agreement(@mid, @cid, @paypal_email_admin, "request-token")
-    PaypalService::PaypalAccount::Command.confirm_billing_agreement(@mid, @cid, "request-token", @billing_agreement_id)
+    AccountStore.create(
+      opts:
+        {
+          person_id: @mid,
+          community_id: @cid,
+          email: @paypal_email,
+          payer_id: @payer_id,
+          order_permission_paypal_username_to: @paypal_email_admin,
+          order_permission_request_token: "123456789",
+          billing_agreement_billing_agreement_id: @billing_agreement_id,
+          billing_agreement_request_token: "B-123456789",
+          billing_agreement_paypal_username_to: @paypal_email_admin
+        })
+
+    # PaypalService::PaypalAccount::Command.create_personal_account(
+    #   @mid,
+    #   @cid,
+    #   {email: @paypal_email, payer_id: @payer_id})
+    # PaypalService::PaypalAccount::Command.create_pending_billing_agreement(@mid, @cid, @paypal_email_admin, "request-token")
+    # PaypalService::PaypalAccount::Command.confirm_billing_agreement(@mid, @cid, "request-token", @billing_agreement_id)
 
   end
 
@@ -246,13 +263,23 @@ describe PaypalService::IPN do
     end
 
     it "should handle billing agreement cancelled" do
-      acc = PaypalService::PaypalAccount::Query.personal_account(@mid, @cid)
-      expect(acc[:billing_agreement_id]).to eql(@billing_agreement_id)
+      acc = AccountStore.get(
+        person_id: @mid,
+        community_id: @cid
+      )
+      expect(acc[:billing_agreement_state]).to eql(:verified)
+      expect(acc[:billing_agreement_billing_agreement_id]).to eql(@billing_agreement_id)
 
       @ipn_service.handle_msg(@billing_agreement_cancelled)
 
-      acc2 = PaypalService::PaypalAccount::Query.personal_account(@mid, @cid)
-      expect(acc2[:billing_agreement_id]).to be_nil
+      acc2 = AccountStore.get(
+        person_id: @mid,
+        community_id: @cid
+      )
+      expect(acc2[:billing_agreement_state]).to eql(:not_verified)
+      expect(acc2[:billing_agreement_billing_agreement_id]).to be_nil
+
+      # expect(acc2[:billing_agreement_id]).to be_nil
     end
   end
 
