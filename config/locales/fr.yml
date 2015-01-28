@@ -320,7 +320,7 @@ fr:
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       preferences_updated: "Préférences de paiement mises à jour"
-      integration_info_text: "Le système de paiement de %{service_name} est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimum pour les annonces ainsi que la commission que vous souhaitez prélever sur chaque transaction."
+      integration_info_text: "Le système de paiement de Sharetribe est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimum pour les annonces ainsi que la commission que vous souhaitez prélever sur chaque transaction."
       read_more_about_paypal: "En savoir plus sur le système de paiement avec Sharetribe."
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_completed: "Terminé !"
@@ -1689,7 +1689,7 @@ fr:
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
       these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Il n'y a que vous qui voyez les autres informations."
-      email_already_confirmed: ~
+      email_already_confirmed: "Votre adresse email est déjà confirmée."
       email:
         address_title: Adresse
         remove_title: Supprimer
