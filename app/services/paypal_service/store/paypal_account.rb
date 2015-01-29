@@ -39,8 +39,8 @@ module PaypalService::Store::PaypalAccount
     [:person_id, :string],
     [:email, :string],
     [:payer_id, :string],
-    [:order_permission_state, one_of: [:not_verified, :verified]],
-    [:billing_agreement_state, one_of: [:not_verified, :verified]],
+    [:order_permission_state, one_of: [:not_verified, :pending, :verified]],
+    [:billing_agreement_state, one_of: [:not_verified, :pending, :verified]],
     [:billing_agreement_billing_agreement_id, :string]
   )
 
@@ -92,7 +92,7 @@ module PaypalService::Store::PaypalAccount
 
   end
 
-  def delete_billing_agreement(person_id:nil, community_id: community_id, opts:)
+  def delete_billing_agreement(person_id:, community_id:)
     maybe_account = find_model(person_id: person_id, community_id: community_id)
     maybe_account.billing_agreement.each { |billing_agreement| billing_agreement.destroy }
   end
@@ -182,10 +182,29 @@ module PaypalService::Store::PaypalAccount
     model
       .map { |m|
         hash = EntityUtils.model_to_hash(m)
+
         hash[:order_permission_state] =
-          Maybe(m).order_permission.verification_code.map { |code| :verified }.or_else(:not_verified)
+          Maybe(m).order_permission.map { |perm|
+          if perm.verification_code
+            :verified
+          elsif perm.request_token
+            :pending
+          else
+            :not_verified
+          end
+        }.or_else(:not_verified)
+
         hash[:billing_agreement_state] =
-          Maybe(m).billing_agreement.billing_agreement_id.map { |code| :verified }.or_else(:not_verified)
+          Maybe(m).billing_agreement.map { |ba|
+          if ba.billing_agreement_id
+            :verified
+          elsif ba.request_token
+            :pending
+          else
+            :not_verified
+          end
+        }.or_else(:not_verified)
+
         hash[:billing_agreement_billing_agreement_id] =
           Maybe(m).billing_agreement.billing_agreement_id.or_else(nil)
         PaypalAccount.call(hash)

@@ -28,13 +28,14 @@ module PaypalService
           output_transformer: -> (res, api) {
             req = res[:value]
             token = @fake_pal.get_token(req[:token])
+            billing_agreement = @fake_pal.get_billing_agreement(token)
 
             if (!token.nil?)
               DataTypes::Merchant.create_get_express_checkout_details_response(
                 {
                   token: token[:token],
                   checkout_status: "not_used_in_tests",
-                  billing_agreement_accepted: true,
+                  billing_agreement_accepted: !billing_agreement.nil?,
                   payer: token[:email],
                   payer_id: "payer_id",
                   order_total: token[:order_total]
@@ -179,6 +180,43 @@ module PaypalService
             })
           }
         ),
+
+        setup_billing_agreement: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap,
+          output_transformer: -> (res, api) {
+            token = @fake_pal.save_token({})
+
+            DataTypes::Merchant.create_setup_billing_agreement_response(
+              {
+                token: token[:token],
+                redirect_url: "https://paypaltest.com/billing_agreement?token=#{token[:token]}",
+                username_to: api.config.subject || api.config.username
+              }
+            )
+          }
+        ),
+
+        create_billing_agreement: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap,
+          output_transformer: -> (res, api) {
+            req = res[:value]
+            token = @fake_pal.get_token(req[:token])
+
+            if (!token.nil?)
+              billing_agreement = @fake_pal.create_and_save_billing_agreement(token)
+
+              DataTypes::Merchant.create_create_billing_agreement_response(
+                billing_agreement_id: billing_agreement[:billing_agreement_id]
+              )
+            else
+              PaypalService::DataTypes::FailureResponse.call()
+            end
+          }
+        )
       }
     end
   end

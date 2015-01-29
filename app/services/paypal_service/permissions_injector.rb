@@ -7,10 +7,14 @@ module PaypalService
     module_function
 
     def build_paypal_permissions
-      PaypalService::Permissions.new(
-        build_endpoint(APP_CONFIG),
-        build_api_credentials(APP_CONFIG),
-        PaypalService::Logger.new)
+      config = DataTypes.create_config(
+        {
+          endpoint: build_endpoint(APP_CONFIG),
+          api_credentials: build_endpoint(APP_CONFIG)
+        }
+      )
+
+      PaypalService::Permissions.new(config, PaypalService::Logger.new)
     end
 
     def build_endpoint(config)

@@ -3,22 +3,22 @@ module PaypalService
 
     include PermissionsActions
 
-    def initialize(endpoint, api_credentials, logger, action_handlers = PERMISSIONS_ACTIONS, api_builder = nil)
+    def initialize(config, logger, action_handlers = PERMISSIONS_ACTIONS, api_builder = nil)
       @logger = logger
       @api_builder = api_builder || self.method(:build_api)
       @action_handlers = action_handlers
 
-      PayPal::SDK.configure(
-        {
-          mode: endpoint[:endpoint_name].to_s,
-          username: api_credentials[:username],
-          password: api_credentials[:password],
-          signature: api_credentials[:signature],
-          app_id: api_credentials[:app_id]
-        }
-      )
-
-      @api = PayPal::SDK::Permissions::API.new
+      unless (config.nil?)
+        PayPal::SDK.configure(
+          {
+            mode: config[:endpoint][:endpoint_name],
+            username: config[:api_credentials][:username],
+            password: config[:api_credentials][:password],
+            signature: config[:api_credentials][:signature],
+            app_id: config[:api_credentials][:app_id],
+          }
+          )
+      end
     end
 
     def do_request(request)

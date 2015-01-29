@@ -57,6 +57,7 @@ module PaypalService
       @tokens = {}
       @payments_by_order_id = {}
       @payments_by_auth_id = {}
+      @billing_agreements_by_token = {}
     end
 
     def save_token(req)
@@ -89,6 +90,15 @@ module PaypalService
 
       @payments_by_order_id[payment[:order_id]] = payment
       payment
+    end
+
+    def create_and_save_billing_agreement(token)
+      billing_agreement = {
+        billing_agreement_id: SecureRandom.uuid
+      }
+
+      @billing_agreements_by_token[token[:token]] = billing_agreement
+      billing_agreement
     end
 
     def authorize_payment(order_id, authorization_total)
@@ -128,6 +138,10 @@ module PaypalService
 
     def get_payment(auth_or_order_id)
       @payments_by_auth_id[auth_or_order_id] || @payments_by_order_id[auth_or_order_id]
+    end
+
+    def get_billing_agreement(token)
+      @billing_agreements_by_token[token[:token]]
     end
 
     def void(auth_or_order_id)

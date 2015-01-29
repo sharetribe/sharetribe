@@ -166,10 +166,9 @@ module PaypalService::API
 
     def delete_billing_agreement(community_id:, person_id:)
       PaypalAccountStore.delete_billing_agreement(
-        {
-          person_id: person_id,
-          community_id: community_id
-        })
+        person_id: person_id,
+        community_id: community_id
+      )
 
       Result::Success.new()
     end
@@ -205,7 +204,7 @@ module PaypalService::API
         block.call(res)
       else
         res.tap { |err_response|
-          @logger.warn("PayPal operation #{request[:method]} failed. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
+          @logger.warn("PayPal operation #{req[:method]} failed. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
         }
       end
     end
