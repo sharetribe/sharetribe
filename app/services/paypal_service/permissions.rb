@@ -25,7 +25,7 @@ module PaypalService
       action_def = @action_handlers[request[:method]]
       return exec_action(action_def, @api_builder.call(request), request) if action_def
 
-      raise(ArgumentError, "Unknown request method #{request.method}")
+      raise(ArgumentError, "Unknown request method #{request[:method]}")
     end
 
     def build_api(request)
