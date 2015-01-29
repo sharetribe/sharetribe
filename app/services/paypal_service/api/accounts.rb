@@ -11,7 +11,10 @@ module PaypalService::API
     ## POST /accounts/request
 
     def request(body:)
-      with_permission_request_response(body[:callback_url]) { |perm_req_response|
+      with_success_permissions(
+        PaypalService::DataTypes::Permissions
+        .create_req_perm({callback: body[:callback_url] })
+      ) { |perm_req_response|
         account = PaypalAccountStore.create(
           opts: {
             community_id: body[:community_id],
@@ -40,8 +43,22 @@ module PaypalService::API
     # }
     #
     def create(community_id:, person_id: nil, order_permission_request_token:, body:)
-      with_access_token(order_permission_request_token, body[:order_permission_verification_code]) { |access_token|
-        with_personal_data(access_token[:token], access_token[:token_secret]) { |personal_data|
+      with_success_permissions(
+        PaypalService::DataTypes::Permissions
+        .create_get_access_token(
+          {
+            request_token: order_permission_request_token,
+            verification_code: body[:order_permission_verification_code]
+          })
+      ) { |access_token|
+        with_success_permissions(
+          PaypalService::DataTypes::Permissions
+          .create_get_basic_personal_data(
+            {
+              token: access_token[:token],
+              token_secret: access_token[:token_secret]
+            })
+        ) { |personal_data|
           account = PaypalAccountStore.update(
             community_id: community_id,
             person_id: person_id,
@@ -69,7 +86,15 @@ module PaypalService::API
     #
 
     def billing_agreement_request(community_id:, person_id:, body:)
-      with_billing_agreement_request(body[:description], body[:success_url], body[:cancel_url]) { |billing_agreement_request|
+      with_success_merchant(
+        PaypalService::DataTypes::Merchant
+        .create_setup_billing_agreement(
+          {
+            description: body[:description],
+            success: body[:success_url],
+            cancel: body[:cancel_url]
+          })
+      ) { |billing_agreement_request|
         account = PaypalAccountStore.update(
           community_id: community_id,
           person_id: person_id,
@@ -101,8 +126,20 @@ module PaypalService::API
     def billing_agreement_create(community_id:, person_id:, billing_agreement_request_token:)
       paypal_account = PaypalAccountStore.get(person_id: person_id, community_id: community_id)
 
-      with_billing_agreement(billing_agreement_request_token) { |billing_agreement|
-        with_express_checkout_details(billing_agreement_request_token) { |express_checkout_details|
+      with_success_merchant(
+        PaypalService::DataTypes::Merchant
+        .create_create_billing_agreement(
+          {
+            token: billing_agreement_request_token
+          })
+      ) { |billing_agreement|
+        with_success_merchant(
+          PaypalService::DataTypes::Merchant
+          .create_get_express_checkout_details(
+            {
+              token: billing_agreement_request_token
+            })
+        ) { |express_checkout_details|
           if !express_checkout_details[:billing_agreement_accepted]
             Result::Error.new(:billing_agreement_not_accepted)
           elsif express_checkout_details[:payer_id] != paypal_account[:payer_id]
@@ -120,7 +157,6 @@ module PaypalService::API
             Result::Success.new(account)
           end
         }
-
       }
     end
 
@@ -148,91 +184,26 @@ module PaypalService::API
 
     private
 
-    def with_permission_request_response(callback_url, &block)
-      permission_request = PaypalService::DataTypes::Permissions
-                           .create_req_perm({callback: callback_url })
-
-      response = paypal_permissions.do_request(permission_request)
-
-      if response[:success]
-        block.call(response)
-      else
-        nil
-      end
+    # Calls Merchant API with given request
+    # Logs and returns if error, calls block if success
+    def with_success_merchant(req, &block)
+      handle_response(req, paypal_merchant.do_request(req), &block)
     end
 
-    def with_access_token(request_token, verification_code, &block)
-      access_token_request = PaypalService::DataTypes::Permissions
-                             .create_get_access_token({request_token: request_token, verification_code: verification_code})
-
-      response = paypal_permissions.do_request(access_token_request)
-
-      if response[:success]
-        block.call(response)
-      else
-        nil
-      end
+    # Calls Permissions API with given request
+    # Logs and returns if error, calls block if success
+    def with_success_permissions(req, &block)
+      handle_response(req, paypal_permissions.do_request(req), &block)
     end
 
-    def with_personal_data(access_token, access_token_secret, &block)
-      personal_data_request = PaypalService::DataTypes::Permissions
-                              .create_get_basic_personal_data({token: access_token, token_secret: access_token_secret})
-
-      response = paypal_permissions.do_request(personal_data_request)
-
-      if response[:success]
-        block.call(response)
+    def handle_response(req, res, &block)
+      if res[:success]
+        block.call(res)
       else
-        nil
+        res.tap { |err_response|
+          @logger.warn("PayPal operation #{request[:method]} failed. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
+        }
       end
     end
-
-    def with_billing_agreement_request(description, success_url, cancel_url, &block)
-      billing_agreement_request = PaypalService::DataTypes::Merchant
-                                  .create_setup_billing_agreement({
-                                                                    description: description,
-                                                                    success: success_url,
-                                                                    cancel: cancel_url
-                                                                  })
-
-      response = paypal_merchant.do_request(billing_agreement_request)
-
-      if response[:success]
-        block.call(response)
-      else
-        nil
-      end
-    end
-
-    def with_billing_agreement(request_token, &block)
-      billing_agreement_request = PaypalService::DataTypes::Merchant
-                                  .create_create_billing_agreement({
-                                                                     token: request_token
-                                                                   })
-
-      response = paypal_merchant.do_request(billing_agreement_request)
-
-      if response[:success]
-        block.call(response)
-      else
-        nil
-      end
-    end
-
-    def with_express_checkout_details(request_token, &block)
-      express_checkout_details_request = PaypalService::DataTypes::Merchant
-                                         .create_get_express_checkout_details({
-                                                                                token: request_token
-                                                                              })
-
-      response = paypal_merchant.do_request(express_checkout_details_request)
-
-      if response[:success]
-        block.call(response)
-      else
-        nil
-      end
-    end
-
   end
 end
