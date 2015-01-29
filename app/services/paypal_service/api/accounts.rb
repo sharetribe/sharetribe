@@ -2,8 +2,12 @@ module PaypalService::API
   PaypalAccountStore = PaypalService::Store::PaypalAccount
 
   class Accounts
-    include PaypalService::PermissionsInjector
-    include PaypalService::MerchantInjector
+
+    def initialize(permissions, merchant, logger = PaypalService::Logger.new)
+      @permissions = permissions
+      @merchant = merchant
+      @logger = logger
+    end
 
     # The API implmenetation
     #
@@ -187,13 +191,13 @@ module PaypalService::API
     # Calls Merchant API with given request
     # Logs and returns if error, calls block if success
     def with_success_merchant(req, &block)
-      handle_response(req, paypal_merchant.do_request(req), &block)
+      handle_response(req, @merchant.do_request(req), &block)
     end
 
     # Calls Permissions API with given request
     # Logs and returns if error, calls block if success
     def with_success_permissions(req, &block)
-      handle_response(req, paypal_permissions.do_request(req), &block)
+      handle_response(req, @permissions.do_request(req), &block)
     end
 
     def handle_response(req, res, &block)
