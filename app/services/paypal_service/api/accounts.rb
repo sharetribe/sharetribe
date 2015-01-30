@@ -18,10 +18,7 @@ module PaypalService::API
       # If a request for new account is made, delete old (not completely actived) accounts
       # Future note: This may not be sufficient solution when we implement the option to
       # switch PayPal account
-      delete(
-        community_id: body[:community_id],
-        person_id: body[:person_id]
-      )
+      PaypalAccountStore.delete(person_id: body[:person_id], community_id: body[:community_id])
 
       with_success_permissions(
         PaypalService::DataTypes::Permissions
@@ -101,10 +98,7 @@ module PaypalService::API
       # If a request for new billing agreement is made, delete old (not completely actived) billing agreement
       # Future note: This may not be sufficient solution when we implement the option to
       # switch PayPal account
-      delete_billing_agreement(
-        community_id: body[:community_id],
-        person_id: body[:person_id]
-      )
+      PaypalAccountStore.delete_billing_agreement(person_id: body[:person_id], community_id: body[:community_id])
 
       with_success_merchant(
         PaypalService::DataTypes::Merchant

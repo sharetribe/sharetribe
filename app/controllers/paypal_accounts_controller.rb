@@ -14,7 +14,7 @@ class PaypalAccountsController < ApplicationController
       community_id: @current_community.id,
       person_id: @current_user.id
     )
-    m_account = Maybe(account_response.data)
+    m_account = account_response.maybe
     return redirect_to action: :new unless m_account[:active].or_else(false)
 
     @selected_left_navi_link = "payments"
@@ -39,7 +39,7 @@ class PaypalAccountsController < ApplicationController
       community_id: @current_community.id,
       person_id: @current_user.id
     )
-    m_account = Maybe(account_response[:data])
+    m_account = account_response.maybe
     return redirect_to action: :show if m_account[:active].or_else(false)
 
     @selected_left_navi_link = "payments"
@@ -78,7 +78,7 @@ class PaypalAccountsController < ApplicationController
       community_id: @current_community.id,
       person_id: @current_user.id
     )
-    m_account = Maybe(account_response[:data])
+    m_account = account_response.maybe
 
     case m_account[:order_permission_state]
     when Some(:verified)
