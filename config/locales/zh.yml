@@ -139,7 +139,7 @@ zh:
       settings:
         settings: 设置
         general: 常规
-        users_can_review_each_other_after_transaction: ~
+        users_can_review_each_other_after_transaction: 用户可以在交易结束后查看彼此信息
         access: 访问
         join_with_invite_only: ~
         users_can_invite_new_users: ~
@@ -179,13 +179,13 @@ zh:
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
+        twitter_instructions_link_text: 读取更多
         twitter_handle_placeholder: 用户名
         invalid_twitter_handle: ~
         facebook_connect: Facebook
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
+        facebook_instructions_link_text: "关于如何配置Facebook Connect请参考说明。"
         facebook_connect_id: Facebook客户号
         invalid_facebook_connect_id: 客户号仅能包含数字。
         facebook_connect_secret: Facebook客户秘密
@@ -195,8 +195,8 @@ zh:
         analytics: 分析
         google_analytics_key: "Google Analytics追踪号"
         google_analytics_key_info_text: "追踪你的Google Analytics帐号。"
-        google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        google_analytics_key_info_text_with_instructions: "追踪你的Google Analytics帐号。%{instructions_link}。"
+        google_analytics_instructions_link_text: "了解更多关于Google Analytics"
         save: 保存设置
       menu_links:
         menu_links: 菜单链接
@@ -306,7 +306,7 @@ zh:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
       integration_info_text: ~
-      read_more_about_paypal: ~
+      read_more_about_paypal: 了解更多关于Sharetribe的支付系统
       paypal_account_email: "1. 连接你的PayPal帐号"
       paypal_account_email_completed: 已完成！
       set_minimum_price_and_fee: "2. 设置最低价格和交易费用"
@@ -358,7 +358,7 @@ zh:
     categories:
       item: 物品
       favor: 服务
-      rideshare: ~
+      rideshare: 拼车
       housing: ~
       tools: 工具
       sports: 运动
@@ -400,9 +400,9 @@ zh:
       service_fee: "服务费：%{service_fee}"
       you_will_get: "你将得到：%{seller_gets}"
     confirm:
-      confirm_description: ~
+      confirm_description: 如果你的请求完成，你应该确认完成。然后你可以给其他人反馈。
       cancel_description: ~
-      cancel_payed_description: ~
+      cancel_payed_description: 如果你的请求被接受但是你有其他的想法，你仍然可以在付款前取消请求。
       canceling_payed_transaction: 取消事务
       confirm: 标记为完成
       cancel: 没有发生
@@ -442,7 +442,7 @@ zh:
       canceled_offer: 已取消提议
       paid: "支付了%{sum}"
     new:
-      offer_message_form_title: ~
+      offer_message_form_title: "为%{person}提供%{listing}"
       request_message_form_title: "从%{person}请求%{listing}"
       favor_offer_message_form_title: "向%{person}请求帮助"
       favor_request_message_form_title: "向%{person}提供帮助"
@@ -461,7 +461,7 @@ zh:
       housing_offer_sell_message_form_title: "从%{person}购买%{listing}"
       housing_offer_rent_out_message_form_title: "从%{person}租赁%{listing}"
       housing_offer_share_for_free_message_form_title: "从%{person}请求%{listing}"
-      housing_offer_accept_for_free_message_form_title: ~
+      housing_offer_accept_for_free_message_form_title: "为%{person}提供%{listing}"
       housing_request_buy_message_form_title: "将%{listing}卖给%{person}"
       housing_request_rent_message_form_title: "出租%{listing}给%{person}"
       item_request_message_form_title: "向%{person}提供一个物品"
@@ -537,7 +537,7 @@ zh:
         paypal:
           multicurrency: 等待你接受Paypal支付
           intl: 等待你接受Paypal支付
-          unknown_reason: ~
+          unknown_reason: 支付待定。登录你的PayPal帐号查看详情。
           verify: 等待你确认你的PayPal帐号
     status_link:
       accept_offer: 接受提议
@@ -625,15 +625,15 @@ zh:
       you_have_not_yet_confirmed_or_canceled_request: ~
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: 记得确认或取消请求
-      if_will_not_happen_you_should_cancel: ~
+      if_will_not_happen_you_should_cancel: "如果你觉得请求由于某种原因无法完成，你可以%{cancel_it_link}。"
       if_will_not_happen_you_should_cancel_escrow: "如果你觉得请求由于某种原因无法完成，你可以%{cancel_it_link}。系统将通知管理员联系你退回款项。"
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
       cancel_it_link_text: 取消它
       automatic_confirmation: ~
     payment_reminder:
       remember_to_pay: "记得支付%{listing_title}"
-      you_have_not_yet_paid: ~
-      if_will_not_happen_you_should_cancel: ~
+      you_have_not_yet_paid: "你还没有为%{other_party_name}同意提供给你的%{listing_title}付款。"
+      if_will_not_happen_you_should_cancel: "如果你认为请求由于某种原因无法完成，你还可以%{cancel_it_link}。"
       cancel_it_link_text: 取消它
     payment_settings_reminder:
       remember_to_add_payment_details: ~
@@ -642,14 +642,14 @@ zh:
       payment_settings_link: 付款设置
     transaction_confirmed:
       here_is_a_message_from: "这里有一条%{other_party_given_name}发送的消息："
-      request_marked_as_confirmed: ~
+      request_marked_as_confirmed: 请求自动完成——记得给予评价
       request_marked_as_canceled: 请求已取消
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
       give_feedback_to: "从%{other_party_given_name}获取反馈"
     transaction_automatically_confirmed:
-      subject: ~
+      subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
@@ -683,7 +683,7 @@ zh:
       or: 或者
       unsubscribe_from_these_emails: 退订这些邮件
     community_starter_email:
-      subject: ~
+      subject: 见新的Sharetribe——会员限制已去除，外观和感受可以修改，以及更多
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} 已经接受了您关于%{listing}的请求"
       has_accepted_your_request: "%{accepter}已经接受了您关于 %{listing}的请求"
@@ -724,7 +724,7 @@ zh:
       money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: 付款收据
-      you_have_made_new_payment: ~
+      you_have_made_new_payment: "你已经为<b>%{listing_title}</b> 支付了 <b>%{payment_sum}</b> 给 %{recipient_full_name}。这是付款收据。"
       product: 产品
       total: 总共
       price: 价格
@@ -780,20 +780,20 @@ zh:
       click_here_link_text: 点击这里
       welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
       settings_link_text: 查看你的设置
-      welcome_email_subject_for_marketplace_creator: ~
-      welcome_to_marketplace_creator: ~
-      congrats_for_creating_your_marketplace: ~
+      welcome_email_subject_for_marketplace_creator: 欢迎来到Sharetribe
+      welcome_to_marketplace_creator: "欢迎来到Sharetribe，%{name}！"
+      congrats_for_creating_your_marketplace: 恭喜成功创建你的市场！很容易，是不是？
       here_is_your_account_information: 这是你的帐号信息。
       your_email_address: 你用来登录的电子邮件地址：
       your_marketplace_address: 你的市场地址：
       your_marketplace_admin_area: 你的市场管理区域：
-      just_follow_details: ~
+      just_follow_details: 点击下列链接你将获得如何开始搭建你的市场的详细信息！
       we_will_guide_you_along_the_way: 我们将引导你走下去。
       are_you_new_to_online_marketplaces: ~
       have_questions: 有问题吗？
-      our_happiness_team_is_here_to_help: ~
+      our_happiness_team_is_here_to_help: "我们的欢乐团队在此支持你！点击%{knowledge_base_link}或者通过%{admin_panel_link}联系我们的支持人员。"
       love: 爱你的，
-      sharetribe_crew: ~
+      sharetribe_crew: Sharetribe全体人员
       knowledge_base_link_text: 查看我们的知识库
       contact_support_link_text: 联系我们的支持人员
       admin_panel_link_text: 管理控制面板
@@ -833,9 +833,9 @@ zh:
     error_410_title: 页面已删除
     error_500:
       temporary_unavailable: 市场暂时不可用
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      unable_to_process: 服务当前无法处理你的请求。请过几分钟再试。
+      we_hate_this: 我们很不高兴它的发生！我们已经收到通知并将尽快修复它。
+      refer_to_error_id: "如果你想就此问题联系支持人员，请在消息中包含错误号“%{error_id}”。"
     error_500_title: 页面加载失败
     error_description: 错误描述
     no_javascript:
@@ -975,7 +975,7 @@ zh:
       add_as_many_emails_as_you_want: ~
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: ~
-      errors_in_emails: ~
+      errors_in_emails: 检查你新添的电邮地址是否有效。如果你添加了多个地址，确保用逗号分隔。
     list_item:
       review: 评论
       reviews: 评论
@@ -1003,7 +1003,7 @@ zh:
       all_categories: 全部分类
   infos:
     about:
-      default_about_text_title: ~
+      default_about_text_title: 什么是Sharetribe？
       default_about_text: ~
       click_here_link_text: 点击这里
     how_to_use:
@@ -1187,7 +1187,7 @@ zh:
       payment_details_add_successful: 成功添加支付信息
       payment_details_add_error: 无法添加支付信息
       listing_author_payment_details_missing: ~
-      stylesheet_needs_recompiling: ~
+      stylesheet_needs_recompiling: 样式表正在重新编译。请过一会重新加载页面。
     settings:
       account: 帐号
       notifications: 通知
@@ -1206,7 +1206,7 @@ zh:
       send_comment: 发送评论
       to_send_a_comment: 以发送新的评论
       write_comment: 发表新的评论：
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: 你不能发表新的评论，因为列表已经关闭。
       you_must: 您必须
       subscribe_to_comments: 若有新评论或更新，通知我
     edit:
@@ -1498,10 +1498,10 @@ zh:
       could_not_fetch_redirect_url: 不能获得连接到PayPal的重定向链接。
       paypal_not_enabled: "PayPal 支付没有启用。"
       billing_agreement_canceled: 账单协议已取消
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
+      billing_agreement_not_accepted: 你没有在PayPal接受账单协议。
+      billing_agreement_wrong_account: PayPal帐号不匹配。请使用与你在第一步连接的帐号相同的PayPal帐号。
       something_went_wrong: 出错了。请再试一次。如果这个问题仍旧存在，请联系服务支持：
-      account_not_verified: ~
+      account_not_verified: 你还没有验证你的PayPal帐号。要继续请先登录paypal.com并确认你的帐号。
   paypal:
     checkout_with_paypal: 用PayPal结帐
     cancel_succesful: PayPal付款成功取消
@@ -1664,14 +1664,14 @@ zh:
       delete_account_confirmation_popup: 你确认要永久删除你的用户帐号及其相关数据？帐号删除无法恢复。
       email_addresses: 电子邮件地址
       new_email: 新Email地址
-      delete_all_memberships: ~
+      delete_all_memberships: "如果你删除你的帐号，你将不能在以下市场中使用它：%{marketplaces}"
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
       new_password: 新密码
       save: 保存
       these_fields_are_shown_only_to_you: 除非提供了您的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对您可见。
-      email_already_confirmed: ~
+      email_already_confirmed: 你的电邮地址已经确认。
       email:
         address_title: 地址
         remove_title: 移除
@@ -1844,6 +1844,8 @@ zh:
     seconds_ago: "%{count} 秒前"
     year_ago: "%{count} 年前"
     years_ago: "%{count} 年前"
+    days_since:
+      other: "%{count}天"
   unit:
     day: 日
     days: 天
