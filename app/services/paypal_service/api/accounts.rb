@@ -15,6 +15,14 @@ module PaypalService::API
     ## POST /accounts/request
 
     def request(body:)
+      # If a request for new account is made, delete old (not completely actived) accounts
+      # Future note: This may not be sufficient solution when we implement the option to
+      # switch PayPal account
+      delete(
+        community_id: body[:community_id],
+        person_id: body[:person_id]
+      )
+
       with_success_permissions(
         PaypalService::DataTypes::Permissions
         .create_req_perm({callback: body[:callback_url] })
@@ -90,6 +98,14 @@ module PaypalService::API
     #
 
     def billing_agreement_request(community_id:, person_id:, body:)
+      # If a request for new billing agreement is made, delete old (not completely actived) billing agreement
+      # Future note: This may not be sufficient solution when we implement the option to
+      # switch PayPal account
+      delete_billing_agreement(
+        community_id: body[:community_id],
+        person_id: body[:person_id]
+      )
+
       with_success_merchant(
         PaypalService::DataTypes::Merchant
         .create_setup_billing_agreement(
