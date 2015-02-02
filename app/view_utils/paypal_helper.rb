@@ -1,7 +1,4 @@
 module PaypalHelper
-  PaypalAccountEntity = PaypalService::PaypalAccount::Entity
-  PaypalAccountQuery = PaypalService::PaypalAccount::Query
-
   TxApi = TransactionService::API::Api
 
   module_function
@@ -10,9 +7,12 @@ module PaypalHelper
   # for the community AND that the community admin has fully
   # configured the gateway.
   def community_ready_for_payments?(community_id)
-    admin_account = PaypalAccountQuery.admin_account(community_id)
+    account_response = accounts_api.get(
+      community_id: community_id
+    )
+    m_account = Maybe(account_response)[:data]
 
-    PaypalAccountEntity.order_permission_verified?(admin_account) &&
+    m_account[:order_permission_state].or_else(:not_verified) == :verified &&
       Maybe(TransactionService::API::Api.settings.get_active(community_id: community_id))
       .map {|res| res[:success] ? res[:data] : nil}
       .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
@@ -31,8 +31,12 @@ module PaypalHelper
   # Check that the user has connected his paypal account for the
   # community
   def personal_account_prepared?(user_id, community_id)
-    paypal_account = PaypalAccountQuery.personal_account(user_id, community_id)
-    PaypalAccountEntity.paypal_account_prepared?(paypal_account)
+    account_response = accounts_api.get(
+      community_id: community_id,
+      person_id: user_id
+    )
+    m_account = Maybe(account_response)[:data]
+    m_account[:active].or_else(false)
   end
 
   # Check that the currently active payment gateway (there can be only
@@ -71,5 +75,9 @@ module PaypalHelper
     paypal_active?(community_id) &&
     !user_and_community_ready_for_payments?(user_id, community_id) &&
     !MarketplaceService::Listing::Query.open_listings_for(community_id, user_id).empty?
+  end
+
+  def accounts_api
+    PaypalService::API::Api.accounts_api
   end
 end

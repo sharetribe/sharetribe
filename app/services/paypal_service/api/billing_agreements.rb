@@ -87,7 +87,7 @@ module PaypalService::API
       with_success(community_id, info[:transaction_id],
         MerchantData.create_do_reference_transaction({
             receiver_username: admin_acc[:email],
-            billing_agreement_id: m_acc[:billing_agreement_id],
+            billing_agreement_id: m_acc[:billing_agreement_billing_agreement_id],
             payment_total: info[:commission_to_admin],
             name: info[:payment_name],
             desc: info[:payment_desc] || info[:payment_name],

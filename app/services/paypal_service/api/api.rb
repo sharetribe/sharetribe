@@ -17,5 +17,9 @@ module PaypalService::API
     def self.process
       process_api
     end
+
+    def self.accounts
+      accounts_api
+    end
   end
 end

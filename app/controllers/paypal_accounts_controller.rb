@@ -1,7 +1,4 @@
 class PaypalAccountsController < ApplicationController
-  include PaypalService::PermissionsInjector
-  include PaypalService::MerchantInjector
-
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
@@ -9,15 +6,16 @@ class PaypalAccountsController < ApplicationController
   before_filter :ensure_paypal_enabled
 
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm")
-  PaypalAccountEntity = PaypalService::PaypalAccount::Entity
-  PaypalAccountQuery = PaypalService::PaypalAccount::Query
-  PaypalAccountCommand = PaypalService::PaypalAccount::Command
 
   DataTypePermissions = PaypalService::DataTypes::Permissions
 
   def show
-    paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
-    return redirect_to action: :new unless PaypalAccountEntity.paypal_account_prepared?(paypal_account)
+    account_response = accounts_api.get(
+      community_id: @current_community.id,
+      person_id: @current_user.id
+    )
+    m_account = account_response.maybe
+    return redirect_to action: :new unless m_account[:active].or_else(false)
 
     @selected_left_navi_link = "payments"
 
@@ -32,13 +30,17 @@ class PaypalAccountsController < ApplicationController
     render(locals: {
       community_ready_for_payments: community_ready_for_payments,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
-      paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
+      paypal_account_email: m_account[:email].or_else(""),
     })
   end
 
   def new
-    paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
-    return redirect_to action: :show if PaypalAccountEntity.paypal_account_prepared?(paypal_account)
+    account_response = accounts_api.get(
+      community_id: @current_community.id,
+      person_id: @current_user.id
+    )
+    m_account = account_response.maybe
+    return redirect_to action: :show if m_account[:active].or_else(false)
 
     @selected_left_navi_link = "payments"
     commission_from_seller = payment_gateway_commission(@current_community.id)
@@ -59,8 +61,8 @@ class PaypalAccountsController < ApplicationController
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       form_action: person_paypal_account_path(@current_user),
       paypal_account_form: PaypalAccountForm.new,
-      paypal_account_state: Maybe(paypal_account)[:order_permission_state].or_else(""),
-      paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
+      paypal_account_state: m_account[:order_permission_state].or_else(""),
+      paypal_account_email: m_account[:email].or_else(""),
       commission_from_seller: t("paypal_accounts.commission", commission: commission_from_seller),
       minimum_commission: minimum_commission(),
       currency: community_currency,
@@ -72,10 +74,14 @@ class PaypalAccountsController < ApplicationController
   def create
     return redirect_to action: :new unless PaypalHelper.community_ready_for_payments?(@current_community)
 
-    paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
-    order_permission_verified = PaypalAccountEntity.order_permission_verified?(paypal_account)
+    account_response = accounts_api.get(
+      community_id: @current_community.id,
+      person_id: @current_user.id
+    )
+    m_account = account_response.maybe
 
-    if order_permission_verified
+    case m_account[:order_permission_state]
+    when Some(:verified)
       create_billing_agreement
     else
       create_paypal_account
@@ -88,54 +94,49 @@ class PaypalAccountsController < ApplicationController
       return flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.permissions_not_granted"))
     end
 
-    access_token_res = fetch_access_token(params[:request_token], params[:verification_code])
-    return flash_error_and_redirect_to_settings(error_response: access_token_res) unless access_token_res[:success]
+    response = accounts_api.create(
+      community_id: @current_community.id,
+      person_id: @current_user.id,
+      order_permission_request_token: params[:request_token],
+      body: PaypalService::API::DataTypes.create_account_permission_verification_request(
+        {
+          order_permission_verification_code: params[:verification_code]
+        }
+      ))
 
-    personal_data_res = fetch_personal_data(access_token_res[:token], access_token_res[:token_secret])
-    return flash_error_and_redirect_to_settings(error_response: personal_data_res) unless personal_data_res[:success]
-
-    PaypalAccountCommand.update_personal_account(
-      @current_user.id,
-      @current_community.id,
-      {
-        email: personal_data_res[:email],
-        payer_id: personal_data_res[:payer_id]
-      }
-    )
-    PaypalAccountCommand.confirm_pending_permissions_request(
-      @current_user.id,
-      @current_community.id,
-      params[:request_token],
-      access_token_res[:scope].join(","),
-      params[:verification_code]
-    )
-    redirect_to new_paypal_account_settings_payment_path(@current_user.username)
+    if response[:success]
+      redirect_to new_paypal_account_settings_payment_path(@current_user.username)
+    else
+      flash_error_and_redirect_to_settings(error_response: response) unless response[:success]
+    end
   end
 
   def billing_agreement_success
-    affirm_agreement_res = affirm_billing_agreement(params[:token])
-    return flash_error_and_redirect_to_settings(error_response: affirm_agreement_res) unless affirm_agreement_res[:success]
+    response = accounts_api.billing_agreement_create(
+      community_id: @current_community.id,
+      person_id: @current_user.id,
+      billing_agreement_request_token: params[:token]
+    )
 
-    billing_agreement_id = affirm_agreement_res[:billing_agreement_id]
-
-    express_checkout_details_req = PaypalService::DataTypes::Merchant.create_get_express_checkout_details({token: params[:token]})
-    express_checkout_details_res = paypal_merchant.do_request(express_checkout_details_req)
-
-    paypal_account =  PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
-    if !express_checkout_details_res[:billing_agreement_accepted]
-      return flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_not_accepted"))
-    elsif express_checkout_details_res[:payer_id] != paypal_account[:payer_id]
-      return flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_wrong_account"))
+    if response[:success]
+      redirect_to show_paypal_account_settings_payment_path(@current_user.username)
+    else
+      case response.error_msg
+      when :billing_agreement_not_accepted
+        flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_not_accepted"))
+      when :wrong_account
+        flash_error_and_redirect_to_settings(error_msg: t("paypal_accounts.new.billing_agreement_wrong_account"))
+      else
+        flash_error_and_redirect_to_settings(error_response: response)
+      end
     end
-
-    PaypalAccountCommand.confirm_billing_agreement(@current_user.id, @current_community.id, params[:token], billing_agreement_id)
-    PaypalAccountCommand.activate_account(@current_user.id, paypal_account[:payer_id], @current_community.id)
-
-    redirect_to show_paypal_account_settings_payment_path(@current_user.username)
   end
 
   def billing_agreement_cancel
-    PaypalAccountCommand.cancel_pending_billing_agreement(@current_user.id, @current_community.id, params[:token])
+    accounts_api.delete_billing_agreement(
+      community_id: @current_community.id,
+      person_id: @current_user.id
+    )
 
     flash[:error] = t("paypal_accounts.new.billing_agreement_canceled")
     redirect_to new_paypal_account_settings_payment_path(@current_user.username)
@@ -145,13 +146,17 @@ class PaypalAccountsController < ApplicationController
   private
 
   def create_paypal_account
-    PaypalAccountCommand.create_personal_account(
-      @current_user.id,
-      @current_community.id
-    )
-
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
-    permissions_url = request_paypal_permissions_url(community_country_code)
+    response = accounts_api.request(
+      body: PaypalService::API::DataTypes.create_create_account_request(
+      {
+        community_id: @current_community.id,
+        person_id: @current_user.id,
+        callback_url: permissions_verified_person_paypal_account_url,
+        country: community_country_code
+      }))
+
+    permissions_url = response.data[:redirect_url]
 
     if permissions_url.blank?
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
@@ -162,7 +167,18 @@ class PaypalAccountsController < ApplicationController
   end
 
   def create_billing_agreement
-    billing_agreement_url = request_paypal_billing_agreement_url
+    response = accounts_api.billing_agreement_request(
+      community_id: @current_community.id,
+      person_id: @current_user.id,
+      body: PaypalService::API::DataTypes.create_create_billing_agreement_request(
+        {
+          description: t("paypal_accounts.new.billing_agreement_description"),
+          success_url:  billing_agreement_success_person_paypal_account_url,
+          cancel_url:   billing_agreement_cancel_person_paypal_account_url
+        }
+      ))
+
+    billing_agreement_url = response.data[:redirect_url]
 
     if billing_agreement_url.blank?
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
@@ -180,76 +196,6 @@ class PaypalAccountsController < ApplicationController
       flash[:error] = t("paypal_accounts.new.paypal_not_enabled")
       redirect_to person_settings_path(@current_user)
     end
-  end
-
-  def request_paypal_permissions_url(community_country_code)
-    permission_request = PaypalService::DataTypes::Permissions
-      .create_req_perm({callback: permissions_verified_person_paypal_account_url })
-
-    response = paypal_permissions.do_request(permission_request)
-    if response[:success]
-      PaypalAccountCommand.create_pending_permissions_request(
-        @current_user.id,
-        @current_community.id,
-        response[:username_to],
-        permission_request[:scope],
-        response[:request_token]
-      )
-
-      URLUtils.prepend_path_component(response[:redirect_url], community_country_code)
-    else
-      nil
-    end
-  end
-
-  def request_paypal_billing_agreement_url
-    commission_from_seller = @current_community.commission_from_seller ? "#{@current_community.commission_from_seller} %" : "0 %"
-    billing_agreement_request = PaypalService::DataTypes::Merchant
-      .create_setup_billing_agreement({
-        description: t("paypal_accounts.new.billing_agreement_description"),
-        success:  billing_agreement_success_person_paypal_account_url,
-        cancel:   billing_agreement_cancel_person_paypal_account_url
-      })
-
-    response = paypal_merchant.do_request(billing_agreement_request)
-    if response[:success]
-      PaypalAccountCommand.create_pending_billing_agreement(
-          @current_user.id,
-          @current_community.id,
-          response[:username_to],
-          response[:token]
-        )
-      response[:redirect_url]
-    else
-      nil
-    end
-  end
-
-  def affirm_billing_agreement(token)
-    affirm_billing_agreement_req = PaypalService::DataTypes::Merchant
-      .create_create_billing_agreement({token: token})
-
-    paypal_merchant.do_request(affirm_billing_agreement_req)
-  end
-
-  def fetch_access_token(request_token, verification_code)
-    access_token_req = DataTypePermissions.create_get_access_token(
-      {
-        request_token: params[:request_token],
-        verification_code: params[:verification_code]
-      }
-    )
-    access_token_res = paypal_permissions.do_request(access_token_req)
-  end
-
-  def fetch_personal_data(token, token_secret)
-    personal_data_req = DataTypePermissions.create_get_basic_personal_data(
-      {
-        token: token,
-        token_secret: token_secret
-      }
-    )
-    paypal_permissions.do_request(personal_data_req)
   end
 
   def flash_error_and_redirect_to_settings(error_response: nil, error_msg: nil)
@@ -296,6 +242,10 @@ class PaypalAccountsController < ApplicationController
 
   def payment_settings_api
     TransactionService::API::Api.settings
+  end
+
+  def accounts_api
+    PaypalService::API::Api.accounts_api
   end
 
 end

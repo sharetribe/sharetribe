@@ -226,7 +226,7 @@ class PeopleController < Devise::RegistrationsController
       MarketplaceService::Listing::Command.delete_listings(@current_user.id)
 
       communities.each { |community_id|
-        PaypalService::PaypalAccount::Command.destroy_personal_account(@current_user.id, community_id)
+        PaypalService::API::Api.accounts_api.delete(community_id: @current_community.id, person_id: @current_user.id)
       }
     end
 

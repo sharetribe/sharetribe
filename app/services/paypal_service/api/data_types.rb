@@ -68,6 +68,28 @@ module PaypalService::API::DataTypes
     [:completed, :mandatory, :to_bool],
     [:result])
 
+  CreateAccountRequest = EntityUtils.define_builder(
+    [:community_id, :mandatory, :fixnum],
+    [:person_id, :optional, :string],
+    [:country, :mandatory, :string],
+    [:callback_url, :mandatory, :string])
+
+  AccountRequest = EntityUtils.define_builder(
+    [:community_id, :mandatory, :fixnum],
+    [:person_id, :optional, :string],
+    [:redirect_url, :mandatory, :string])
+
+  AccountPermissionVerificationRequest = EntityUtils.define_builder(
+    [:order_permission_verification_code, :mandatory, :string])
+
+  CreateBillingAgreementRequest = EntityUtils.define_builder(
+    [:description, :mandatory, :string],
+    [:success_url, :mandatory, :string],
+    [:cancel_url, :mandatory, :string])
+
+  BillingAgreementRequest = EntityUtils.define_builder(
+    [:redirect_url, :mandatory, :string])
+
   module_function
 
   def create_create_payment_request(opts); CreatePaymentRequest.call(opts) end
@@ -79,5 +101,10 @@ module PaypalService::API::DataTypes
   def create_voiding_info(opts); VoidingInfo.call(opts) end
   def create_commission_info(opts); CommissionInfo.call(opts) end
   def create_process_status(opts); ProcessStatus.call(opts) end
+  def create_create_account_request(opts); CreateAccountRequest.call(opts) end
+  def create_account_request(opts); AccountRequest.call(opts) end
+  def create_account_permission_verification_request(opts); AccountPermissionVerificationRequest.call(opts) end
+  def create_create_billing_agreement_request(opts); CreateBillingAgreementRequest.call(opts) end
+  def create_billing_agreement_request(opts); BillingAgreementRequest.call(opts) end
 
 end

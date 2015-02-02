@@ -5,9 +5,6 @@ module TransactionService::Transaction
 
   PaymentSettingsStore = TransactionService::Store::PaymentSettings
 
-  PaypalAccountEntity = PaypalService::PaypalAccount::Entity
-  PaypalAccountQuery = PaypalService::PaypalAccount::Query
-
   TxUtil = TransactionService::Util
 
   module_function
@@ -51,15 +48,27 @@ module TransactionService::Transaction
   end
 
   def can_start_transaction_paypal(community_id:, author_id:)
-    paypal_account = PaypalService::PaypalAccount::Query.personal_account(author_id, community_id)
-    admin_account = PaypalAccountQuery.admin_account(community_id)
+    person_account_response = paypal_account_api.get(
+      community_id: community_id,
+      person_id: author_id
+    )
+    personal_account_active = Maybe(person_account_response)[:data][:active]
 
-    PaypalAccountEntity.paypal_account_prepared?(paypal_account) &&
-      PaypalAccountEntity.order_permission_verified?(admin_account) &&
+    admin_account_response = paypal_account_api.get(
+      community_id: community_id
+    )
+    admin_account_active = Maybe(admin_account_response)[:data][:active]
+
+    payment_settings_available =
       Maybe(PaymentSettingsStore.get_active(community_id: community_id))
       .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
-      .map {|_| true}
-      .or_else(false)
+
+    case [personal_account_active, admin_account_active, payment_settings_available]
+    when matches([Some(true), Some(true), Some])
+      true
+    else
+      false
+    end
   end
 
   def create(opts, paypal_async: false)
@@ -390,5 +399,9 @@ module TransactionService::Transaction
 
   def paypal_minimum_commissions_api
     PaypalService::API::Api.minimum_commissions
+  end
+
+  def paypal_account_api
+    PaypalService::API::Api.accounts_api
   end
 end
