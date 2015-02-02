@@ -182,7 +182,7 @@ default: &default_settings
 
   # If icon_pack is set to "ss-pika", set the location for the icon pack
   # This setting is irrelevant to Open Source developers, since ss icon pack
-  # does not include to the Open Source distribution
+  # is not included in the Open Source distribution
   ss_pika_location: "ss-pika"
   ss_social_location: "ss-social"
 
