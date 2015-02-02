@@ -116,32 +116,32 @@ ja:
       getting_started:
         getting_started: 「開始するには」ガイド
         welcome_to_your_marketplace: "%{name}さん、あなたのマーケットプレイスへようこそ！"
-        intro: ~
+        intro: "こちらはあなたのマーケットプレイスの設置と、運営方法のクイックガイドです。こちから現在の見え方を確認できます %{live_site_link} 。"
         live_site_link_text: こちら
         look_and_feel: "サイト公開前にいくつか確認してください。例えば、%{logo_link}とカバー写真とサイトカラーの色をマッチさせたいでしょうか。"
         logo_link_text: ロゴを追加
-        custom_domain: ~
+        custom_domain: "（例： www.yourmarketplace.comのような）カスタムドメインを使用したいと思うでしょう。その場合は、マニュアルのステップがいくつか必要になりますので、左側のサポートリンクからお問い合わせください。そのため、フリートライアルではなく、有料サービスになります。"
         contact_team_link_text: 私たちのチームにお問い合わせください
         categories_and_custom_fields: "次に決めるのことは、あなたのサイトで、どのような種類の投稿をしてもらうかです。%{categories_link}%{custom_fields_link}から、実際のリストの形式が構成されます。%{filters_link}を決定すると、人々がリストをブラウザするときに用いられます。"
         categories_link_text: カテゴリとサブカテゴリを追加する
         custom_fields_link_text: フォーム項目を設定
         filters_link_text: フィルターの種類
-        payments: ~
+        payments: "あなたのマーケットプレイスからの購入のお支払いを可能にしたい場合は、各々の取引の手数料を請求できます。こちらよりどうぞ %{payments_link} 。"
         payments_link_text: お支払い方法の設定
-        info_texts: ~
+        info_texts: "ユーザに促したいマーケットプレイスについての大事な情報をカスタマイズするのを忘れないでください。%{about_page_link}、%{terms_of_use_link} （こちらはあなたが作成した独自のものにしてください。あるいはテンプレートを編集しても構いません）、%{privacy_policy_link}、新規のユーザに送信する %{welcome_email_link} 。%{instruction_texts_link} も設定できます。"
         about_page_link_text: ページについて
         terms_of_use_link_text: ご利用規約
         privacy_policy_link_text: プライバシーポリシー
         welcome_email_link_text: 新ユーザ案内メール
         instruction_texts_link_text: その他の説明文
-        social_media: ~
+        social_media: "ソーシャルメディアを使うことはコミュニティを確立するために、とても良いことです。%{facebook_link} から人がログインをより簡単にしてもらえたり、%{twitter_link} でマーケットプレイスの商品やサービスのことをツイートしてもらって、口コミや良いうわさはすばやく広がるでしょう。"
         facebook_link_text: フェイスブックアプリと接続する
         twitter_link_text: Twitterのアカウントを追加する
-        analytics: ~
+        analytics: "%{analytics_link}の利用もいいアイデアです。これにより、何人の訪問者が来ているかなど情報をはじめとする、マーケットプレイスの動向が見えやすくなります。"
         analytics_link_text: "Google アナリティクスのアカウントに接続する"
-        settings: ~
+        settings: "各種設定は、こちらにまとめています。手短に、現ユーザからの招待制する場合、サイトをプライベートに設定にする必要があります。ログインユーザしか中身を見れないようにします。%{settings_link} 。"
         settings_link_text: こちらからマーケットプレイスの設定を確認する
-        final_words: ~
+        final_words: "これが、それです。すべて準備が整いましたら、%{invite_link}であなたのマーケットプレイスに招待し始めてください。%{view_users_link}でどのユーザが利用中であるかを閲覧できます。%{view_transactions_link}は、マーケットプレイス内の取引履歴です。また、容易にリストを管理することが出来ます： 各リストページに行って、管理者は編集リンクで編集や、公開・非公開などの変更が可能です。ヘルプが必要なら、%{contact_support_link} - 是非手伝わせてください！‘"
         invite_link_text: ユーザを招待する
         view_users_link_text: こちら
         view_transactions_link_text: こちら
@@ -166,7 +166,7 @@ ja:
         email_admins_about_new_members: 新規ユーザが登録したとき、メールアドレスを管理者に送信する
         google_analytics_key: "Google アナリティクス トラッキング コード"
         twitter_handle: "Twitter ハンドルネーム （リストページのtweetボタンを使用します）"
-        update_settings: 設定を保存
+        update_settings: 設定を保存する
         automatically_confirmed: "お支払いは%{days_dropdown}日後、お支払い済みとして処理されます。第三者預託システムを使用している場合、この時点で料金はサービス提供側へ開放されます。"
         automatically_confirmed_no_escrow: "お支払いは%{days_dropdown}日後、完了済みとして処理されます。"
         automatic_newsletter_frequency: "%{frequency_dropdown}の☆速報☆を自動で送信する"
@@ -188,19 +188,19 @@ ja:
         social_media: ソーシャルメディア
         twitter_handle: Twitterのハンドル
         twitter_handle_info_text: あなたのマーケットプレイスのTwitterのユーザー名（お持ちであれば）。リストページのツイートボタンを使うときに言及されます。
-        twitter_handle_info_text_with_instructions: ~
+        twitter_handle_info_text_with_instructions: "あなたのマーケットプレイスのツイッターのユーザ名（お持ちの場合）。ツイートボタンを使ってツイートすることが出来ます。%{instructions_link}。"
         twitter_instructions_link_text: 続きを読む
         twitter_handle_placeholder: Twitterのユーザー名
         invalid_twitter_handle: ツイッターのハンドルネームは、15文字以内のアルファベット（A-Zの半角文字と0-9の数字）が使用できます。
         facebook_connect: フェイスブック
         facebook_connect_info_text: "フェイスブックでログインを可能にするためには、<a href='https://developers.facebook.com/'>開発者のフェイスブックダッシュボード</a>の中のあなたのマーケットプレイスのアプリを立ち上げます。ここで生成IDとアプリのシークレットキーを追加してください。"
-        facebook_connect_info_text_with_instructions: ~
+        facebook_connect_info_text_with_instructions: "フェイスブックでログインを可能にするためには、<a href='https://developers.facebook.com/'>開発者のフェイスブックダッシュボード</a>の中のあなたのマーケットプレイスのアプリを立ち上げます。ここで生成IDとアプリのシークレットキーを追加してください。%{instructions_link}"
         facebook_instructions_link_text: フェイスブックに接続するするための説明を見る。
         facebook_connect_id: フェイスプックのユーザーID
         invalid_facebook_connect_id: ユーザーIDは数字のみで構成されています
         facebook_connect_secret: フェイスプックユーザーの秘密
         invalid_facebook_connect_secret: フェイスプックユーザーの秘密は、数字とアルファベットaからｆを含むものです。
-        save: 設定を保存
+        save: 設定を保存する
       analytics:
         analytics: アナリティクス
         google_analytics_key: "Google アナリティクス トラッキング コード"
@@ -315,7 +315,7 @@ ja:
     paypal_accounts:
       marketplace_paypal_integration: お支払い方法
       preferences_updated: お支払い情報は更新されました
-      integration_info_text: ~
+      integration_info_text: Sharetribeのお支払いシステムはPayPalを導入しています。あなたのマーケットプレイスで、お支払いが発生するようなサービスをご検討の場合は、PayPalと連携させる必要がございます。最小価格を設定し、取引毎にいただく手数料を設定します。
       read_more_about_paypal: Sharetribeのお支払い方法にについてさらに読む
       paypal_account_email: "1. PayPalアカウントに接続する"
       paypal_account_email_completed: 完了しました！
@@ -324,7 +324,7 @@ ja:
       minimum_listing_price_label: 最低価格：
       transaction_fee_label: 課金手数料：
       save_settings: 設定を保存する
-      note_about_transaction_fee: ~
+      note_about_transaction_fee: "注意： 取引手数料は、PayPal利用手数料も含まれています。それは、通貨や価格のボリュームにより異なります。そのため、手数料は少なくても%{min_paypal_commission}に設定しています。PayPalははじめにその手数料を差し引いてからの金額が、あなたのPayPalアカウントに送金されます。"
     transaction_types:
       sell: 売ります
       rent: 貸します
@@ -547,7 +547,7 @@ ja:
         paypal:
           multicurrency: あなたのPayPalのお支払い承認待ち
           intl: あなたのPayPalのお支払い承認待ち
-          unknown_reason: お支払いは承認待ちの状態です。今一度、PayPal口座にログインして詳細をご確認ください。
+          unknown_reason: お支払いは承認待ちの状態です。今一度、PayPalアカウントにログインして詳細をご確認ください。
           verify: あなたのPayPalアカウントの確認待ち
     status_link:
       accept_offer: オファーを承諾する
@@ -799,9 +799,9 @@ ja:
       your_marketplace_admin_area: あなたのマーケットプレイスの管理エリア：
       just_follow_details: このリンク先に目を通してください。マーケットプレイスを完成させるには、どのように始めたら良いかの詳細をご確認いただけます。
       we_will_guide_you_along_the_way: 私たちがその道をご案内します。
-      are_you_new_to_online_marketplaces: ~
+      are_you_new_to_online_marketplaces: "マーケットプレイスのアシスタントが必要ですか。心配しないで下さい。私たちはあなたを手助けするために、ここにいます。私たちは、Sharetribe をうまく使いこなし、マーケットプレイスのビジネスを成功に導いていただけるよう、手助けをします。また、サービス向上のために、順序だってメールをお送りいたします。第一号をお楽しみに！"
       have_questions: ご質問がありますか。
-      our_happiness_team_is_here_to_help: ~
+      our_happiness_team_is_here_to_help: "幸せなチームがあなたのために、ここにいます！ %{knowledge_base_link}やサポートに連絡が可能です %{admin_panel_link} 。"
       love: 以上、よろしくお願いいたします。
       sharetribe_crew: Sharetribeチーム
       knowledge_base_link_text: 我々の知識基盤を確認してください
@@ -839,13 +839,13 @@ ja:
     error_410:
       page_removed: ページは削除されました
       page_you_requested_has_been_removed: ご指定のページを削除しました。
-      page_removed_reason: ~
+      page_removed_reason: このために２，３前向きな理由があります。例えば、ユーザはアカウントやリストを削除するかもしれません。
     error_410_title: ページは削除されました
     error_500:
       temporary_unavailable: マーケットプレイスは一時的にご利用できません
-      unable_to_process: ~
+      unable_to_process: サーバーとの通信エラーが発生しました。少し経ってから再度試みて下さい。
       we_hate_this: このようなことが起きていては困りますね！実はこの件に関して報告済みです。問題解決中でありますので、今しばらくご辛抱願います。
-      refer_to_error_id: ~
+      refer_to_error_id: "この件でサポートに問い合わせる場合は、こちらの「%{error_id}」を報告してください。"
     error_500_title: ページのロードに失敗しました
     error_description: エラー内容
     no_javascript:
@@ -1176,12 +1176,12 @@ ja:
       you_must_log_in_to_give_feedback: レビューを書くにはログインをしてください
       you_must_log_in_to_invite_new_users: "%{service_name}に新しいユーザを招待するにはログインしていなければなりません"
       you_must_log_in_to_send_a_comment: 新しいコメントを送信するにはログインしてください
-      you_must_log_in_to_send_a_message: "他のユーザにメッセージを送信するには%{service_name}にログインしてください。"
+      you_must_log_in_to_send_a_message: "他のユーザにメッセージを送信するには、%{service_name}にログインしてください。"
       you_must_log_in_to_view_this_content: コンテンツを閲覧するにはログインしてください
       you_must_log_in_to_view_this_page: このページを閲覧するにはログインしていなければなりません
-      you_must_log_in_to_view_your_inbox: "メール受信箱を閲覧するには%{service_name}にログインしてください"
-      you_must_log_in_to_view_your_settings: "設定を見るには%{service_name}にログインしてください"
-      you_must_log_in_to_add_news_item: "新しい記事を追加するには%{service_name}にログインしている必要があります。"
+      you_must_log_in_to_view_your_inbox: "メール受信箱を閲覧するには、%{service_name}にログインしてください"
+      you_must_log_in_to_view_your_settings: "設定を見るには、%{service_name}にログインしてください"
+      you_must_log_in_to_add_news_item: "新しい記事を追加するには、%{service_name}にログインしている必要があります。"
       you_must_log_in_to_change_profile_settings: "プロフィールの設定を変更するには、%{service_name}にログインしてください。"
       you_must_log_in_to_change_payment_settings: "お支払い設定を変更するには、%{service_name}にログインしてください。"
       you_must_log_in_to_accept_or_reject: お取引を受諾か却下するにはログインしてください
@@ -1530,7 +1530,7 @@ ja:
       help_invitation_code_title: 参加には招待が必要です
       terms_title: "%{service_name}のご利用規約"
       trustcloud_description_title: TrustCloud
-      trustcloud_description_text: ~
+      trustcloud_description_text: "<p>TrustCloudとはオンラインでその人の信頼度を測ることができる様、違うオンラインサービスに導入されています。オンラインでの行動を評価し、TrustScore (1-1000)のように数字で表します。例えば、eBayで良いレビューをもらった場合はスコアは増えますし、Facebookでつながりが多い場合でも同様です。それぞれのカードをクリックして詳細を確認してください。</p><p>TrustCloudはプロフィールの背後で、隠し事がないか、見せ掛けのものでないかを見分けるために、効果を発揮できます。</p><p>あなたもTrustCardの利用を始めてはいかがですか。<a href='https://trustcloud.com/claim'><a href='https://trustcloud.com/claim'> TrustCloudに登録 </a> このとき、%{service_name}と同様の登録メールアドレスを使用してください。あなた次第ですが、我々はTrustCardのご利用を強くお勧めします。それにより多くの方があなたを信用し、サービスを求めるでしょう。</p><p>%{service_name}での活動において、まだTrustScoreの効果が見えていない場合でも、それが可能になるような計画をしています。"
       invite_only_help_text: 既存のユーザからの招待のみで新規メンバーを獲得したい場合はこちらのオプションをご利用ください。
       invite_only_help_text_title: 招待制になっております
     inactive_notification:
@@ -1663,10 +1663,10 @@ ja:
       your_current_email_is: "あなたのメールアドレスは %{email} です。"
       change_email: 変更する
       confirm_your_email: メールアドレスを認証してください
-      account_confirmation_instructions: "ご記入いただいたメールへ、クリックする必要がある認証手続き用のリンクと一緒にすぐに届きます。認証後、%{service_name}に参加できます。"
+      account_confirmation_instructions: "ご記入いただいたメールアドレス宛に、認証手続き用のリンクが、まもなく届きます。認証後、%{service_name}に参加できます。"
       account_confirmation_instructions_title_admin: あなたのマーケットプレイスへようこそ！
-      your_marketplace_has_now_been_created: ~
-      account_confirmation_instructions_admin: ~
+      your_marketplace_has_now_been_created: これより、あなたのマーケットプレイスは作成されました。簡単だったでしょう。あなたのサイトへのアクセスまで、あともう一歩です。あなたのメールアドレスの承認する必要があります。
+      account_confirmation_instructions_admin: ご記入いただいたメールアドレス宛に、認証手続き用のリンクが、まもなく届きます。認証後、あなたのマーケットプレイスに参加できます。
   settings:
     account:
       change: 変更
@@ -1677,9 +1677,9 @@ ja:
       email_addresses: メールアドレス
       new_email: 新しいメールアドレス
       delete_all_memberships: "アカウント削除をすると、以下のマーケットプレイスもご利用いただけなくなります： %{marketplaces}"
-      delete_personal_information: ~
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
+      delete_personal_information: あなたがアカウントを削除したい場合、（名前、電話番号、住所、メールアドレス、プロフィール写真などの）個人情報は永久に削除され、取り戻すことは出来なくなります。すべての作成されたリストも削除されます。その後、一切アカウント再開は見込めなくなります。
+      delete_information_others_involved: （他のユーザとの会話などの）付随するその他の情報、お取引履歴、レビューなどはあなたのアカウント削除お手続きのとき、すべて削除されます。次のステップに進むということは、あなたのお名前も、サイト上に表示されなくなります。
+      unfinished_transactions: まだやりとりが完了がしていないお取引があるため、削除が出来ないようです。削除前に、すべてのお取引を最後まで完了させてください。
       new_password: 新しいパスワード
       save: 保存
       these_fields_are_shown_only_to_you: ユーザ名はあなたの名前を公表している場合を除いて、あなたのプロフィールに表示されます。他の情報はあなただけに表示されています。
