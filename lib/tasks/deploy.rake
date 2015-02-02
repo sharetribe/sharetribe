@@ -73,7 +73,6 @@ def deploy(params)
   abort_if_pending_migrations if params[:migrations].nil?
   abort_if_css_modifications if params[:css].nil?
 
-  prepare_closed_source_branch
   deploy_to_server
 
   if params[:migrations]
@@ -133,26 +132,6 @@ def local_css_modifications?
   !diff.empty?
 end
 
-def prepare_closed_source_branch
-  puts 'Copying closed source contents...'
-  puts `mkdir ../tmp-sharetribe` unless File.exists?("../tmp-sharetribe")
-  puts `mkdir ../tmp-sharetribe/webfonts` unless File.exists?("../tmp-sharetribe/webfonts")
-  puts `rm app/assets/webfonts/* `
-  puts `git checkout closed_source`
-  # Just in case, check that we really are in the right branch before reset --hard
-  if `git symbolic-ref HEAD`.match("refs/heads/closed_source")
-    puts `git reset --hard private/closed_source`
-    puts `git pull`
-    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
-    puts `git rebase #{@branch}`
-    puts `git checkout #{@branch}`
-    puts `mkdir app/assets/webfonts `
-    puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
-  else
-    puts "ERROR: Checkout for closed_source branch didn't work. Maybe you have uncommitted changes?"
-  end
-end
-
 # Fixes error: Your Ruby version is 1.9.3, but your Gemfile specified 2.1.1
 def heroku(cmd)
   Bundler.with_clean_env { system("heroku #{cmd}") }
@@ -163,7 +142,7 @@ def heroku_with_output(cmd)
 end
 
 def deploy_to_server
-  system("git push #{@destination} closed_source:master --force")
+  system("git push #{@destination} #{@branch}:master --force")
 
 end
 

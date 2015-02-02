@@ -180,6 +180,12 @@ default: &default_settings
   # Currently only othe option is "ss-pika" (a proprietary icon set)
   icon_pack: "font-awesome"
 
+  # If icon_pack is set to "ss-pika", set the location for the icon pack
+  # This setting is irrelevant to Open Source developers, since ss icon pack
+  # is not included in the Open Source distribution
+  ss_pika_location: "ss-pika"
+  ss_social_location: "ss-social"
+
   # The default consent (terms of use) all the communities will use.
   # It's just a string that tells the version of the consent.
   consent: "SHARETRIBE1.0"

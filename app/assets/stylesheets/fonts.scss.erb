@@ -6,4 +6,4 @@
   (e.g. by replacing the whole line with font-awesome.min import)
 */
 
-<%= (APP_CONFIG.icon_pack == "font-awesome" ? "@import 'font-awesome.min';" : "@import 'ss-social';\n@import 'ss-pika';").html_safe %>
+<%= (APP_CONFIG.icon_pack == "font-awesome" ? "@import 'font-awesome.min';" : "@import '#{APP_CONFIG.ss_social_location}';\n@import '#{APP_CONFIG.ss_pika_location}';").html_safe %>
