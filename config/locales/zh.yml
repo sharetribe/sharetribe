@@ -211,7 +211,7 @@ zh:
       transactions:
         transactions: 查看交易记录
         headers:
-          conversation: ~
+          conversation: 会话
           listing: 列表
           status: 状态
           sum: 总和
@@ -770,7 +770,7 @@ zh:
     transaction_preauthorized_reminder:
       subject: "记得接受来自%{requester}的关于列表%{listing_title}的请求"
       remember_to_accept: ~
-      one_day_left: ~
+      one_day_left: 如果你不在一天内接受请求，该请求将被自动拒绝，你将无法收到支付款项。
       click_here_to_reply: 点击这里回应请求
     welcome_email:
       welcome_email_subject: ~
@@ -1366,7 +1366,7 @@ zh:
       select_category: 选择类别
       select_subcategory: 选择子类别
       select_transaction_type: 选择列表类型
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "在发布列表前你需要填写支出详情。点击%{payment_settings_link}来填写详情。"
       contact_admin_link_text: 联系管理员
       community_not_configured_for_payments: ~
       payment_settings_link: 付款设置
@@ -1417,7 +1417,7 @@ zh:
       details: 详情
       by: "由%{author}发布的%{listing}"
       payment: 付款
-      exp: ~
+      exp: 过期：
       you_will_be_charged: ~
       day: 日
       days: 天
