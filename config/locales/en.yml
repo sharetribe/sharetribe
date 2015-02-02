@@ -1286,7 +1286,15 @@ en:
         time: "hour, day, month, ..."
         long_time: "week, month, ..."
         after_service_fee_you_will_get: "After %{service_name} and payment processor fees you will get %{sum_with_currency}"
+
+        # TODO Juho
+        after_service_fee_you_will_get_paypal: "%{service_name} fee (%{sum_with_currency}) and payment processing fees will be deducted from the price."
+
         after_service_fee_you_will_get_vat: "After %{service_name} and payment processor fees you will get approx. %{sum_with_currency} (VAT 0%)"
+
+        # TODO Juho
+        after_service_fee_you_will_get_vat_paypal: "%{service_name} fee (%{sum_with_currency}) and payment processing fees will be deducted from the price."
+
         price_excludes_vat: "The price doesn't include VAT."
       origin:
         location: Location

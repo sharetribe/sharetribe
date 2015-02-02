@@ -28,10 +28,11 @@
             $(function() {
               updateSellerGetsValue(
                 "#listing_price",
-                "#you-will-get",
+                "#js-fee-display",
                 "#listing_currency",
                 #{commission_from_seller},
-                #{minimum_commission});
+                #{minimum_commission},
+                #{payment_gateway == :paypal});
             });
         - if run_js_immediately
           = yield :seller_commission_js
@@ -40,6 +41,8 @@
             = yield :seller_commission_js
 
         - if @current_community.vat
-          = t(".after_service_fee_you_will_get_vat", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
+          - tkey = payment_gateway == :paypal ? ".after_service_fee_you_will_get_vat_paypal" : ".after_service_fee_you_will_get_vat"
+          = t(tkey, :sum_with_currency => '<span id="js-fee-display"></span>').html_safe
         - else
-          = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
+          - tkey = payment_gateway == :paypal ? ".after_service_fee_you_will_get_paypal" : ".after_service_fee_you_will_get"
+          = t(tkey, :sum_with_currency => '<span id="js-fee-display"></span>').html_safe
