@@ -13,8 +13,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
-  before_filter :show_maintenance_page
-
   before_filter :force_ssl,
     :check_auth_token,
     :fetch_logged_in_user,
@@ -324,11 +322,4 @@ class ApplicationController < ActionController::Base
       redirect_to("https://#{request.host_with_port}#{request.fullpath}") unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || request.fullpath == "/robots.txt"
     end
   end
-
-  def show_maintenance_page
-    if APP_CONFIG.show_maintenance_page
-      render :file => "public/errors/maintenance.html", :layout => false and return
-    end
-  end
-
 end
