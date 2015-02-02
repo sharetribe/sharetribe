@@ -48,23 +48,15 @@ module TransactionService::Transaction
   end
 
   def can_start_transaction_paypal(community_id:, author_id:)
-    person_account_response = paypal_account_api.get(
-      community_id: community_id,
-      person_id: author_id
-    )
-    personal_account_active = Maybe(person_account_response)[:data][:active]
-
-    admin_account_response = paypal_account_api.get(
-      community_id: community_id
-    )
-    admin_account_active = Maybe(admin_account_response)[:data][:active]
+    personal_account_verified = paypal_account_verified?(community_id: community_id, person_id: author_id)
+    community_account_verified = paypal_account_verified?(community_id: community_id)
 
     payment_settings_available =
       Maybe(PaymentSettingsStore.get_active(community_id: community_id))
       .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
 
-    case [personal_account_active, admin_account_active, payment_settings_available]
-    when matches([Some(true), Some(true), Some])
+    case [personal_account_verified, community_account_verified, payment_settings_available]
+    when matches([true, true, Some])
       true
     else
       false
@@ -389,6 +381,17 @@ module TransactionService::Transaction
     commission_total - fee_total #we charge from admin, only the sum after paypal fees
   end
 
+  def paypal_account_verified?(community_id:, person_id:nil)
+    acc = paypal_accounts_api.get(
+      community_id: community_id,
+      person_id: person_id
+    ).maybe
+
+    state = acc[:state].or_else(:not_verified)
+
+    state == :verified
+  end
+
   def paypal_payment_api
     PaypalService::API::Api.payments
   end
@@ -401,7 +404,7 @@ module TransactionService::Transaction
     PaypalService::API::Api.minimum_commissions
   end
 
-  def paypal_account_api
+  def paypal_accounts_api
     PaypalService::API::Api.accounts_api
   end
 end
