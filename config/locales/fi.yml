@@ -398,6 +398,11 @@ fi:
     username_or_email: "Käyttäjätunnus tai sähköposti"
     what_is_this: "Mitä tämä tarkoittaa?"
     removed_user: "Käyttäjä poistettu"
+    paypal_fee_info:
+      title: "PayPalin käsittelymaksu"
+      body: "PayPal veloittaa jokaisesta maksutapahtumasta käsittelymaksun. Maksun suuruus on 2% - 5% kokonaishinnasta, riippuen kuukausittaisesta myyntimäärästäsi sekä ostajan kotimaasta. Maksu on yleensä halvempi kotimaan ostoissa kuin ulkomaan ostoissa, ja suuria määriä myyvät saavat alennusta maksuista.
+
+Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>tätä linkkiä.</a> Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu."
   conversations:
     accept:
       respond_to_offer: "Vastaa tarjoukseen"
@@ -1288,7 +1293,8 @@ fi:
         time: "tunti, päivä, kk ..."
         long_time: "vko, kk, ..."
         after_service_fee_you_will_get: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat %{sum_with_currency}"
-        after_service_fee_you_will_get_vat: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat noin %{sum_with_currency} (ALV 0%)"
+        after_service_fee_you_will_get_paypal: "%{service_name} fee (%{sum_with_currency}) and <a id='%{fee_info_link_id} href='#'>PayPal's payment processing fee</a> will be deducted from the price."
+        after_service_fee_you_will_get_vat: "%{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksu</a> vähennetään hinnasta."
         price_excludes_vat: "Merkitse tähän alv 0 -hinta."
       origin:
         location: Sijainti
