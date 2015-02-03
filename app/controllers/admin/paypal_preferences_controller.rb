@@ -23,7 +23,11 @@ class Admin::PaypalPreferencesController < ApplicationController
 
       validate do |prefs|
         if minimum_listing_price.nil? || minimum_listing_price < minimum_commission
-          prefs.errors[:minimum_listing_price] << "Minimum listing price has to be greater than minimum commission #{minimum_commission}"
+          prefs.errors[:minimum_listing_price] << I18n.t("admin.paypal_accounts.minimum_listing_price_below_min",
+                                                         { minimum_commission: minimum_commission })
+        elsif minimum_transaction_fee && minimum_listing_price < minimum_transaction_fee
+          prefs.errors[:minimum_listing_price] << I18n.t("admin.paypal_accounts.minimum_listing_price_below_tx_fee",
+                                                         { minimum_transaction_fee: minimum_transaction_fee })
         end
       end
     end
@@ -74,18 +78,19 @@ class Admin::PaypalPreferencesController < ApplicationController
     paypal_prefs_form = PaypalPreferencesForm.new(
       parse_preferences(params[:paypal_preferences_form], currency).merge(minimum_commission: minimum_commission))
 
-    unless paypal_prefs_form.valid?
+    if paypal_prefs_form.valid?
+      tx_settings_api.update({community_id: @current_community.id,
+                              payment_gateway: :paypal,
+                              payment_process: :preauthorize,
+                              commission_from_seller: paypal_prefs_form.commission_from_seller.to_i,
+                              minimum_price_cents: paypal_prefs_form.minimum_listing_price.cents,
+                              minimum_transaction_fee_cents: paypal_prefs_form.minimum_transaction_fee.cents})
+
+      flash[:notice] = t("admin.paypal_accounts.preferences_updated")
+    else
       flash[:error] = paypal_prefs_form.errors.full_messages.join(", ")
     end
 
-    tx_settings_api.update({community_id: @current_community.id,
-                            payment_gateway: :paypal,
-                            payment_process: :preauthorize,
-                            commission_from_seller: paypal_prefs_form.commission_from_seller.to_i,
-                            minimum_price_cents: paypal_prefs_form.minimum_listing_price.cents,
-                            minimum_transaction_fee_cents: paypal_prefs_form.minimum_transaction_fee.cents})
-
-    flash[:notice] = t("admin.paypal_accounts.preferences_updated")
     redirect_to action: :index
   end
 
