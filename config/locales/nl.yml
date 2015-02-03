@@ -2,11 +2,11 @@ nl:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Wijzig categorie '%{category}'"
       index:
         listing_categories: "Lijst categorieën"
-        create_a_new_category: ~
-        remove_category_confirmation: ~
+        create_a_new_category: "+ Nieuwe categorie toevoegen"
+        remove_category_confirmation: "Ben je zeker dat je de categorie '%{category_name}' wil verwijderen?"
         saving_order: ~
         save_order_successful: ~
         save_order_error: ~
@@ -14,7 +14,7 @@ nl:
         new_listing_category: ~
       form:
         category_name:
-          category_title: ~
+          category_title: "Categorie titel"
         category_parent:
           category_parent: ~
           no_parent: ~
@@ -22,33 +22,33 @@ nl:
           transaction_types: ~
           transaction_types_description: ~
         buttons:
-          save: ~
-          cancel: ~
+          save: Opslaan
+          cancel: Annueleren
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
+        remove_category: "Categorie verwijderen"
+        remove_category_name: "Verwijder categorie '%{category_name}'"
+        warning_remove_effects: "Opgelet! Categorie '%{category_name}' verwijderen heeft het volgende effect:"
         select_new_category: ~
         buttons:
-          remove: ~
-          cancel: ~
+          remove: Verwijderen
+          cancel: Annuleren
     communities:
       edit_details:
-        community_details: "Details gemeenschap"
-        community_look_and_feel: "Look & feel van gemeenschap"
-        edit_community: "Bewerk details gemeenschap %{community_name}"
+        community_details: "Basis details"
+        community_look_and_feel: "Look & feel"
+        edit_community: "Basis details"
         community_name: "Naam gemeenschap"
-        edit_community_name_description: "De naam van uw gemeenschap. Deze wordt getoond aan gebruikers in emails en op diverse andere plaatsen."
+        edit_community_name_description: "De naam van uw gemeenschap. Deze wordt getoond aan gebruikers in e-mails en op diverse andere plaatsen."
         community_slogan: "Slogan gemeenschap"
-        edit_community_slogan_description: "Deze wordt getoond op de homepage van de gemeenschap aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}"
+        edit_community_slogan_description: "Deze wordt getoond op de homepage van de gemeenschap aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
         community_description: "Beschrijving gemeenschap"
-        edit_community_description_description: "Deze wordt getoond op de homepage van de gemeenschap aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}"
+        edit_community_description_description: "Deze wordt getoond op de homepage van de gemeenschap aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
         community_search_placeholder: "Zoek hulptekst"
-        edit_community_search_placeholder_description: "Dit wordt getoond op de homepage van de gemeenschap als een tijdelijke tekst in het zoekvenster. %{see_how_it_looks_like}"
+        edit_community_search_placeholder_description: "Dit wordt getoond op de homepage van de gemeenschap als een tijdelijke tekst in het zoekvenster. %{see_how_it_looks_like}."
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
-        invite_people: "Nodig anderen uit"
+        update_information: "Sla wijzigingen op"
+        invite_people: "Nodig nieuwe gebruikers uit"
         edit_signup_info: "Registreer info"
         edit_signup_info_description: "Dit is een info tekst die kan worden getoond in de registratiepagina. Hier kan je gebruikers instructies geven over hoe te registreren, waar een uitnodiging te krijgen, enz. Standaard worden er geen instructies getoond."
         edit_info: "Bewerk informatie"
@@ -56,8 +56,8 @@ nl:
         verification_to_post_listings_info_content: "Info tekst voor niet-geverifiëerde gebruikers"
         verification_to_post_listings_info_content_description: "Deze marktplaats vereist dat mensen manueel worden geverifieerd door een administrator vooraleer ze items kunnen plaatsen. Hier kan je de default tekst instellen die wordt getoond aan niet-geverifieerde gebruikers wanneer zij een nieuw item proberen plaatsen."
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
-        save: ~
+        contact_admin_link_text: "contacteer de beheerder"
+        save: "Instellingen opslaan"
         transaction_agreement: ~
         transaction_agreement_checkbox: ~
         transaction_agreement_checkbox_header: ~
@@ -66,14 +66,14 @@ nl:
         transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Bewerk look & feel gemeenschap %{community_name}"
-        community_logo: ~
-        community_logo_icon: ~
-        community_cover_photo: ~
-        small_community_cover_photo: ~
+        community_logo: "Desktop logo"
+        community_logo_icon: "Mobiel logo"
+        community_cover_photo: "Cover afbeelding"
+        small_community_cover_photo: "Kleine cover afbeelding"
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
-        community_custom_color2: ~
+        community_custom_color1: Hoofdkleur
+        community_custom_color2: "Tweede kleur"
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
@@ -82,17 +82,17 @@ nl:
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
         custom_color1_instructions_text: ~
-        custom_color2_instructions_text: ~
+        custom_color2_instructions_text: "Je kan de tweede kleur van de gebruikersinterface wijzigen door een hex kleurenwaarde op te geven."
         default_browse_view: ~
         default_browse_view_instructions_text: ~
         grid: Raster
-        list: ~
+        list: Lijst
         map: Kaart
         name_display_type: ~
         name_display_type_instructions_text: ~
-        full_name: ~
-        first_name_with_initial: ~
-        first_name_only: ~
+        full_name: "Volledige naam (Voornaam Achternaam)"
+        first_name_with_initial: "Voornaam met initiaal (Voornaam A)"
+        first_name_only: "Enkel voornaam (Voornaam)"
         invalid_color_code: ~
         custom_head_script: ~
         custom_head_script_instructions_text: ~
@@ -100,9 +100,9 @@ nl:
         edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: "Inhoud welkomstmail"
-        welcome_email_content_description: "Onderstaande boodschap wordt verstuurd naar iedereen die zich aanmeldt. Je kan de boodschap aanpassen aan je gemeenschap. Door te klikken op %{send_test_message_link}, kan je een preview sturen naar je email adress, om te bekijken hoe deze er uit ziet in een email programma."
+        welcome_email_content_description: "Onderstaande boodschap wordt verstuurd naar iedereen die zich aanmeldt. Je kan de boodschap aanpassen aan je gemeenschap. Door te klikken op %{send_test_message_link}, kan je een preview sturen naar je e-mail adress, om te bekijken hoe deze er uit ziet in een e-mail programma."
         edit_message: "Bewerk boodschap"
-        send_test_message: "Verstuur testmail"
+        send_test_message: "Verstuur testbericht"
       getting_started:
         getting_started: ~
         welcome_to_your_marketplace: ~
@@ -137,42 +137,42 @@ nl:
         view_transactions_link_text: ~
         contact_support_link_text: ~
       settings:
-        settings: ~
-        general: ~
+        settings: Instellingen
+        general: Algemeen
         users_can_review_each_other_after_transaction: ~
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
+        access: Toegang
+        join_with_invite_only: "Aansluiten bij deze gemeenschap kan enkel met een uitnodiging van een andere gebruiker"
+        users_can_invite_new_users: "Alle gebruikers kunnen nieuwe leden uitnodigen voor deze gemeenschap"
+        private: "Deze gemeenschap is privé (enkel geregistreerde gebruikers kunnen de inhoud zien)"
+        require_verification_to_post_listings: "Enkel gebruikers die door de beheerder nagekeken werden kunnen nieuwe items toevoegen"
         listing_preferences: ~
         transaction_preferences: ~
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
         hide_expiration_date: ~
         listing_comments_in_use: ~
-        email_preferences: ~
+        email_preferences: "E-mail voorkeuren"
         automatic_newsletters: ~
-        email_admins_about_new_members: ~
+        email_admins_about_new_members: "Zend beheerder een e-mail telkens wanneer een nieuwe gebruiker zich inschrijft"
         google_analytics_key: ~
         twitter_handle: ~
-        update_settings: ~
+        update_settings: "Instellingen opslaan"
         automatically_confirmed: ~
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "De transactie zal automatisch als uitgevoerd gemarkeerd worden %{days_dropdown} dagen nadat de betaling is uitgevoerd."
         automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_daily: Dagelijks
+        newsletter_weekly: Wekelijks
       manage_members:
         manage_members: "Beheer gebruikers"
-        email: ~
-        name: ~
-        join_date: ~
-        admin: ~
+        email: E-mail
+        name: Naam
+        join_date: Aangesloten
+        admin: Beheerder
         posting_allowed: ~
         ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
-        save_user_status_error: ~
+        saving_user_status: Opslaan...
+        save_user_status_successful: Opgeslagen
+        save_user_status_error: "Opslaan mislukt. Vernieuw de pagina en probeer opnieuw."
         ban_user_confirmation: ~
       social_media:
         social_media: ~
@@ -196,38 +196,38 @@ nl:
         google_analytics_key: ~
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        google_analytics_instructions_link_text: "Lees meer over het connecteren van Google Analytics"
         save: ~
       menu_links:
         menu_links: ~
-        save: ~
+        save: "Instellingen opslaan"
         add_menu_link: ~
         title_placeholder: ~
         url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
+        title: Titel
+        language: Taal
+        url: URL
         empty: ~
       transactions:
-        transactions: ~
+        transactions: "Bekijk transacties"
         headers:
           conversation: ~
           listing: ~
-          status: ~
-          sum: ~
+          status: Status
+          sum: Som
           started: ~
-          last_activity: ~
+          last_activity: "Laatste activiteit"
           initiated_by: ~
           other_party: ~
         status:
           free: ~
           pending: ~
           preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          accepted: Aanvaard
+          rejected: Geweigerd
+          paid: Betaald
+          confirmed: Bevestigd
+          canceled: Geannuleerd
           initiated: ~
           pending_ext: ~
       braintree_payment_gateway:
@@ -243,59 +243,59 @@ nl:
         paypal_admin_account: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Edit item veld '%{field_name}'"
       edit_price:
         edit_price_field: ~
         show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        price_min: "Minimum prijs"
+        price_max: "Maximum prijs"
       edit_location:
         edit_location_field: ~
-        this_field_is_required: ~
+        this_field_is_required: "Dit veld is verplicht"
       form:
         field_required:
-          this_field_is_required: ~
+          this_field_is_required: "This veld is verplicht"
           this_field_is_required_checkbox: ~
       index:
-        listing_fields: "Lijst velden"
+        listing_fields: "Items velden en filters"
         listing_fields_help: ~
-        add_new_field: ~
-        remove_field_confirmation: ~
-        cancel: ~
-        save: ~
-        field_title: ~
-        field_type: ~
+        add_new_field: "Voeg een nieuw veld toe:"
+        remove_field_confirmation: "Ben je zeker dat je het veld '%{field_name}' wil verwijderen?"
+        cancel: Annuleer
+        save: Opslaan
+        field_title: "Veld titel"
+        field_type: "Veld type"
         categories: "Lijst categorieën waar het veld is gebruikt"
-        options: ~
-        add_option: ~
+        options: Opties
+        add_option: "+ Voeg optie toe"
         saving_order: ~
         save_order_successful: ~
         save_order_error: ~
-        select_one: ~
-        continue: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
+        select_one: "Kies een veld type..."
+        continue: "Ga verder"
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Laat cijfers na de komma toe"
       new:
-        new_listing_field: ~
+        new_listing_field: "Nieuw item veld"
       field_types:
-        text: ~
-        number: ~
+        text: Tekst
+        number: Nummer
         dropdown: ~
         checkbox_group: ~
-        date: ~
+        date: Datum
     emails:
       new:
-        send_email_to_members: "Stuur email aan gebruikers"
-        send_email_to_members_title: "Stuur email aan alle gebruikers van deze gemeenschap"
+        send_email_to_members: "Stuur e-mail aan gebruikers"
+        send_email_to_members_title: "Stuur e-mail aan al je gebruikers"
         email_subject: "Onderwerp email"
-        email_content: "Inhoud email"
+        email_content: "Inhoud e-mail"
         email_content_placeholder: "Wat wil je aan je leden zeggen?"
-        email_language: ~
-        any_language: ~
+        email_language: "Taal van de ontvangers van de e-mail"
+        any_language: "Elke taal"
         send_email: "Verstuur email"
-        message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        message_will_be_sent_only_to_people_with_this_language: "Opmerking: het bericht zal enkel naar de gebruikers gestuurd worden die %{service_name} gebruiken in de taal die je kiest."
+        email_sent: "E-mail verzonden."
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
@@ -306,11 +306,11 @@ nl:
       marketplace_paypal_integration: ~
       preferences_updated: ~
       integration_info_text: ~
-      read_more_about_paypal: ~
+      read_more_about_paypal: "Lees meer over Sharetribe's betalingssysteem"
       paypal_account_email: ~
-      paypal_account_email_completed: ~
+      paypal_account_email_completed: Uitgevoerd!
       set_minimum_price_and_fee: ~
-      set_minimum_price_and_fee_completed: ~
+      set_minimum_price_and_fee_completed: Uitgevoerd!
       minimum_listing_price_label: ~
       transaction_fee_label: ~
       save_settings: ~
@@ -332,17 +332,17 @@ nl:
         offer: Vraag
         inquiry: Contact
   common:
-    edit_page: ~
+    edit_page: "Pagina aanpassen"
     default_community_slogan: "Gemeenschappelijke marktplaats"
-    default_community_description: "Dit is een plaats om producten en diensten te verkopen, verhuren of uit te wisselen met andere leden van de gemeenschap"
+    default_community_description: "Dit is een plaats om producten en diensten te verkopen, verhuren of uit te wisselen met andere leden van de gemeenschap."
     cancel: Annuleer
     fields_that_are_mandatory: "Velden die gemarkeerd zijn met (*) zijn verplicht."
     or: of
     password: Wachtwoord
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
-      request: Vraag
-      offer: Aanbod
+      request: vraag
+      offer: aanbod
       borrow: lenen
       buy: kopen
       give_away: weggeven
@@ -351,32 +351,32 @@ nl:
       rent: huren
       rent_out: verhuren
       sell: verkopen
-      offer_to_swap: "Aanbod om te ruilen"
-      request_to_swap: "Vraag om te ruilen"
-      share_for_free: ~
+      offer_to_swap: ruilen
+      request_to_swap: ruilen
+      share_for_free: "gratis delen"
       accept_for_free: ~
     categories:
-      item: ~
-      favor: ~
+      item: Items
+      favor: Diensten
       rideshare: ~
       housing: ~
       tools: Gereedschap
       sports: Sport
       music: Muziek
-      books: "boeken & magazines"
-      games: ~
-      furniture: ~
-      outdoors: "Kampeergerief & outdoor"
+      books: "Boeken & magazines"
+      games: Spelletjes
+      furniture: Meubels
+      outdoors: Kampeergerief
       food: "Voeding & Keuken"
       electronics: Electronica
       pets: Dieren
       film: Films
-      clothes: "Kledij & accesoires"
+      clothes: "Kledij & accessoires"
       garden: Tuin
       travel: Reizen
       other: Andere
     username: Gebruikersnaam
-    username_or_email: ~
+    username_or_email: "E-mail of gebruikersnaam"
     what_is_this: "Wat is dit?"
     removed_user: ~
   conversations:
@@ -385,132 +385,132 @@ nl:
       respond_to_request: "Ga in op een vraag"
       accept_offer: "Aanvaard het aanbod"
       accept_request: "Aanvaard het verzoek"
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: "Laat de listing open"
-      optional_message: ~
-      price_to_pay: ~
+      reject_offer: "Nu niet"
+      reject_request: "Nu niet"
+      close_listing: "Sluit item %{listing_title_link}"
+      update_later: "Laat het item open"
+      optional_message: "Optioneel bericht"
+      price_to_pay: "Totaal te betalen prijs"
       you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
-      minimum_price_error_message: ~
+      payment_settings_link: "instellingen betalingen"
+      minimum_price_error_message: "De prijs kan niet lager zijn dan %{amount}."
       accept: ~
       decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~
     confirm:
-      confirm_description: ~
+      confirm_description: "Het verzoek is voldaan en je zou het moeten markeren als afgehandeld. Daarna kan je feedback geven aan de andere partij."
       cancel_description: ~
-      cancel_payed_description: ~
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
+      cancel_payed_description: "Je verzoek was geaccepteerd. Als je van gedachten zou veranderen kan je dit steeds annuleren nog voor de betaling."
+      canceling_payed_transaction: "Transactie annuleren"
+      confirm: "Markeer als uitgevoerd"
+      cancel: "is niet gebeurd."
       continue: "Ga door"
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      give_feedback_to: "Geef feedback aan %{person_link}"
+      do_not_give_feedback: "Sla feedback over"
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: dag
+      days: dagen
+      price_per_day: "Prijs per dag: %{price}"
     index:
       loading_more_messages: "Meer berichten laden..."
       message_partitive: bericht
       messages_partitive: berichten
-      no_received_messages: "Geen ontvangen berichten"
+      no_received_messages: "Geen berichten"
       no_sent_messages: "Geen verzonden berichten"
     conversation:
-      accepted_request: ~
-      accepted_offer: "Aanbod aanvaard"
-      rejected_request: "Verzoek geweigerd"
-      rejected_offer: "Aanbod geweigerd"
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      message_from: ~
-      about_listing: ~
+      accepted_request: "Verzoek aanvaard."
+      accepted_offer: "Aanbod aanvaard."
+      rejected_request: "Verzoek geweigerd."
+      rejected_offer: "Aanbod geweigerd."
+      confirmed_request: "Verzoek uitgevoerd."
+      confirmed_offer: "Voorstel uitgevoerd."
+      canceled_request: "Verzoek geannuleerd."
+      canceled_offer: "Voorstel geannuleerd."
+      message_from: "Bericht van %{person}"
+      about_listing: "Over item %{listing_title}"
       free_message: ~
     message:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      accepted_request: "heeft het verzoek aanvaard"
+      accepted_offer: "heeft het voorstel aanvaard"
+      rejected_request: "heeft het verzoek niet aanvaard"
+      rejected_offer: "heeft het voorstel niet aanvaard"
+      confirmed_request: "markeerde het verzoek als uitgevoerd"
+      confirmed_offer: "markeerde de aanbieding als uitgevoerd"
+      canceled_request: "heeft het verzoek geannuleerd"
+      canceled_offer: "heeft het voorstel geannuleerd"
+      paid: "betaald %{sum}"
     new:
-      offer_message_form_title: ~
-      request_message_form_title: ~
+      offer_message_form_title: "Stel %{listing} voor aan %{person}"
+      request_message_form_title: "Verzoek %{listing} van %{person}"
       favor_offer_message_form_title: "Vraag om hulp van %{person}"
       favor_request_message_form_title: "Bied hulp aan %{person}"
       housing_offer_message_form_title: "Bied ruimte aan %{person}"
       housing_request_message_form_title: "Vraag om ruimte van %{person}"
-      item_offer_lend_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_offer_accept_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
+      item_offer_lend_message_form_title: "Leen %{listing} van %{person}"
+      item_offer_sell_message_form_title: "Koop %{listing} van %{person}"
+      item_offer_give_away_message_form_title: "Krijg %{listing} van %{person}"
+      item_offer_trade_message_form_title: "Wissel %{listing} met %{person}"
+      item_offer_rent_out_message_form_title: "Huur %{listing} van %{person}"
+      item_request_borrow_message_form_title: "Leen %{listing} aan %{person}"
+      item_request_buy_message_form_title: "Verkoop %{listing} aan %{person}"
+      item_request_take_for_free_message_form_title: "Geef %{listing} aan %{person}"
+      item_request_trade_message_form_title: "Wissel %{listing} met %{person}"
+      item_request_rent_message_form_title: "Leen %{listing} uit aan %{person}"
+      housing_offer_sell_message_form_title: "Koop %{listing} van %{person}"
+      housing_offer_rent_out_message_form_title: "Huur %{listing} van %{person}"
+      housing_offer_share_for_free_message_form_title: "Vraag %{listing} van %{person}"
+      housing_offer_accept_for_free_message_form_title: "Voorstel %{listing} voor %{person}"
+      housing_request_buy_message_form_title: "Verkoop %{listing} aan %{person}"
+      housing_request_rent_message_form_title: "Verhuur %{listing} aan %{person}"
       item_request_message_form_title: "Bied een item aan %{person}"
       message: Bericht
-      message_to: ~
-      optional_message_to: ~
+      message_to: "Bericht aan %{author_name}"
+      optional_message_to: "Optioneel bericht naar %{author_name}"
       rideshare_offer_message_form_title: "Vraag een rit van %{person}"
       rideshare_request_message_form_title: "Bied een rit aan %{person}"
       send_message: "Stuur bericht"
-      send: ~
+      send: Versturen
       this_message_is_private: "Je stuurt nu een privé bericht aan %{person}. %{person} zal een melding ontvangen van dit bericht per e-mail."
       you_will_get_notified_of_acceptance: "Je ontvangt per mail een bericht als %{person} jouw aanbod accepteert of weigert."
       you_will_get_notified: "Je ontvangt er bericht per mail als %{person} jou antwoordt."
       title: Onderwerp
       send_message_to_user: "Stuur bericht aan %{person}"
-      about_listing: ~
+      about_listing: "Over item %{listing_title}"
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      in_response_to_listing: "over item"
+      message_sent_by: "Bericht verstuurd door"
+      message_sent_to: "Bericht verstuurd naar"
       send_reply: "Verstuur antwoord"
       write_a_reply: "Beantwoord bericht:"
-      conversation_about_listing: ~
-      conversation_with_user: ~
-      conversation_with: ~
-      last_message_at: ~
-      price: ~
-      sum: ~
-      price_excludes_vat: ~
-      total: ~
+      conversation_about_listing: "Met %{person} over %{listing}"
+      conversation_with_user: "Met %{person}"
+      conversation_with: "Gesprek met %{person}"
+      last_message_at: "(laatste bericht %{time})"
+      price: "Prijs: %{price}"
+      sum: "Totaal: %{sum}"
+      price_excludes_vat: "(exclusief BTW)"
+      total: "Totaal: %{total}"
     status:
       payment_errored: ~
       payment_errored_starter: ~
       payment_errored_author: ~
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: Annuleer
       feedback_given: "Feedback gegeven"
       feedback_skipped: "Feedback overgeslagen"
       give_feedback: "Geef feedback"
       offer_accepted: Geaccepteerd
       offer_rejected: Afgewezen
-      offer_canceled: ~
-      offer_confirmed: ~
-      offer_paid: ~
-      offer_preauthorized: ~
+      offer_canceled: Geannuleerd
+      offer_confirmed: Uitgevoerd
+      offer_paid: "Betaling succesvol"
+      offer_preauthorized: "Betaling succesvol"
       offer_waiting_for_payment: ~
-      pay: ~
-      preauthorized: ~
-      paid: ~
+      pay: Betaal
+      preauthorized: "Betaling succesvol"
+      paid: "Betaling succesvol"
       pending_external:
         paypal:
           multicurrency: ~
@@ -520,19 +520,19 @@ nl:
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Vraag geaccepteerd"
       request_rejected: "Verzoek afgewezen"
-      request_confirmed: ~
-      request_canceled: ~
-      request_paid: ~
-      request_preauthorized: ~
+      request_confirmed: Uitgevoerd
+      request_canceled: Geannuleerd
+      request_paid: "Betaling succesvol"
+      request_preauthorized: "Betaling succesvol"
       skip_feedback: "Sla feedback over"
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
-      waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
-      waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_for_listing_author_to_accept_offer: "Wachten op %{listing_author_name} om het voorstel te aanvaarden"
+      waiting_for_listing_author_to_accept_request: "Wachten op %{listing_author_name} om het verzoek te aanvaarden"
+      waiting_for_you_to_accept_request: "Wacht op jou om het verzoek te accepteren"
+      waiting_confirmation_from_requester: "Wachten op %{requester_name} om het verzoek als uitgevoerd te markeren"
+      waiting_confirmation_from_you: "Wacht op jou om verzoek als uitgevoerd te markeren"
+      waiting_payment_from_requester: "Wachten op %{requester_name} om te betalen"
+      waiting_payment_from_you: "Wacht op jou om te betalen"
+      waiting_feedback_from_you: "Wacht op jou om feedback te geven"
       pending_external_inbox:
         paypal:
           multicurrency: ~
@@ -544,71 +544,71 @@ nl:
       accept_request: "Accepteer verzoek"
       reject_offer: "Deze keer niet"
       reject_request: "Deze keer niet"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
-      confirm: ~
-      cancel: ~
+      accept_preauthorized_offer: "Aanvaard voorstel"
+      accept_preauthorized_request: "Aanvaard verzoek"
+      reject_preauthorized_offer: "Nu niet"
+      reject_preauthorized_request: "Nu niet"
+      confirm: "Markeer als uitgevoerd"
+      cancel: "Is niet gebeurd"
   braintree_accounts:
     new:
-      add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
+      add_payout_details: "Voeg je betalingsdetails toe"
+      first_name: Voornaam
+      last_name: Achternaam
+      email: "E-mail adres"
+      phone: Telefoon
+      address_street_address: Straat
+      address_postal_code: Postcode
+      address_locality: Stad
+      address_region: Staat/provincie
+      date_of_birth: Geboortedatum
       ssn: ~
       routing_number: ~
       account_number: ~
-      save: ~
+      save: Opslaan
     show:
-      payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
+      payout_details: "Jouw betalingsdetails"
+      first_name: Voornaam
+      last_name: Achternaam
+      email: "E-mail adres"
+      phone: Telefoonnummer
+      address_street_address: Adres
+      address_postal_code: Postcode
+      address_locality: Stad
+      address_region: "Staat of provincie"
+      date_of_birth: Geboortedatum
       ssn: ~
       routing_number: ~
       account_number: ~
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
-      payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
-      confirm_payment: ~
+      new_credit_card_payment: "Nieuwe betaling kredietkaart"
+      payment_receiver: "Ontvanger betaling"
+      cardholder_name: "Naam kaarthouder"
+      credit_card_number: "Kredietkaart nummer"
+      cvv: CVV
+      credit_card_expiration_date: "Kredietkaart vervaldatum"
+      confirm_payment: "Bevestig betaling"
       exp: ~
   preauthorize_payments:
     edit:
       confirm_payment: ~
   community_memberships:
     access_denied:
-      access_denied: ~
+      access_denied: "Toegang geweigerd"
       you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      contact_page_link: feedback
     new:
       welcome_fb_user: "Welkom bij %{service_name}, %{name}!"
-      fb_join_accept_terms: ~
-      join_community: ~
-      you_can_join: ~
+      fb_join_accept_terms: "Er is nog één stap om je bij %{service_name} aan te sluiten: je moet de gebruikersvoorwaarden aanvaarden."
+      join_community: "Sluit je aan bij %{service_name}"
+      you_can_join: "Je kan je aansluiten bij %{service_name} door de gebruikersvoorwaarden te aanvaarden en te klikken op 'Aansluiten bij %{service_name}' hieronder."
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
-      if_want_to_view_content: ~
-      log_out: ~
-      join_community_button: ~
+      if_want_to_view_content: "Als je de inhoud van %{service_name} wil zien zonder je aan te sluiten als lid moet je"
+      log_out: "Log uit"
+      join_community_button: "Aansluiten bij %{service_name}"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Vergeet niet om het aanbod van %{sender_name}te accepteren of te weigeren"
@@ -617,71 +617,71 @@ nl:
       you_can_accept_or_reject_request_at: "Je kunt het verzoek accepteren of weigeren op"
       you_have_not_yet_accepted_or_rejected_offer: "Je hebt het aanbod %{title} dat je %{date} hebt ontvangen nog niet geaccepteerd of geweigerd"
       you_have_not_yet_accepted_or_rejected_request: "Je hebt het verzoek %{title} dat je %{date} hebt ontvangen nog niet geaccepteerd of geweigerd"
-      show_thread: ~
+      show_thread: "Toon conversatie"
     braintree_account_approved:
-      account_ready: ~
+      account_ready: "Je bent klaar om betalingen te ontvangen"
       message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: "Herrinnering om een verzoek te bevestigen of te annuleren"
-      if_will_not_happen_you_should_cancel: ~
+      if_will_not_happen_you_should_cancel: "Als je denkt dat dit verzoek voor een of andere reden niet zal uitgevoerd worden, kan je %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: ~
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
-      cancel_it_link_text: ~
+      cancel_it_link_text: "Annuleer het"
       automatic_confirmation: ~
     payment_reminder:
-      remember_to_pay: ~
-      you_have_not_yet_paid: ~
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
+      remember_to_pay: "Herinnering om te betalen voor %{listing_title}"
+      you_have_not_yet_paid: "Je hebt nog niet betaald voor %{listing_title} die %{other_party_name} aanvaard heeft je voor te stellen."
+      if_will_not_happen_you_should_cancel: "Als je denkt dat dit verzoek voor een of andere reden niet zal uitgevoerd worden, kan je nog steeds %{cancel_it_link}."
+      cancel_it_link_text: "Annuleer het"
     payment_settings_reminder:
       remember_to_add_payment_details: ~
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      payment_settings_link: "instellingen betalingen"
     transaction_confirmed:
-      here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      here_is_a_message_from: "Hier is een bericht van %{other_party_given_name}:"
+      request_marked_as_confirmed: "Verzoek uitgevoerd - vergeet niet om feedback te geven"
+      request_marked_as_canceled: "Verzoek geannuleerd"
+      has_marked_request_as_confirmed: "%{other_party_full_name} heeft het verzoek betreft '%{request}' als afgewerkt. Je kan nu feedback geven aan %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} heeft het verzoek betreft '%{request}' geannuleerd. Je kan nog steeds feedback geven aan %{other_party_given_name}."
+      giving_feedback_is_good_idea: "Feedback geven is steeds een goed idee. Indien alles goed ging, kan je anderen laten weten dat %{other_party_given_name} betrouwbaar is. Als er problemen waren is het zinvol om deze ook te vermelden."
+      give_feedback_to: "Geef feedback aan %{other_party_given_name}"
     transaction_automatically_confirmed:
-      subject: ~
+      subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed:
-      subject: ~
+      subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
       we_have_marked_request_as_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
       show_thread: ~
     escrow_canceled:
-      subject: ~
+      subject: "Betaling geannuleerd"
       has_marked_request_as_canceled: ~
       if_this_was_error: ~
       please_contant_admin_link: ~
     confirmation_instructions:
-      confirmation_instructions_signature: ~
+      confirmation_instructions_signature: "Met vriendelijke groeten,<br/>Het %{service_name} Team"
       welcome_to_kassi: "Welkom bij %{service_name}!"
       need_to_confirm: "Je account is aangemaakt. De volgende stap is het bevestigen van je e-mailadres."
-      confirmation_link_text: ~
+      confirmation_link_text: "Bevestig mijn e-mail"
       or_paste_link: "Je kan ook onderstaande link kopiëren en plaatsen in de adresbalk van je browser."
-      turning_on_confirmations_in_this_community: ~
+      turning_on_confirmations_in_this_community: "We beginnen met e-mail bevestigingen te gebruiken in deze %{service_name} gemeenschap."
     common:
       check_your_settings: "Controleer je instellingen"
       hey: "Hallo %{name},"
       kassi_team: "Het %{service_name} Team"
       thanks: "Bedankt,"
       want_to_control_emails: "Wil je bepalen welke emails u ontvangt van %{service_name}?"
-      dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
-      or: ~
-      unsubscribe_from_these_emails: ~
+      dont_want_to_receive_these_emails: "Wil je deze berichten niet ontvangen?"
+      edit_your_email_settings_here: "Wijzig je e-mail instellingen hier"
+      message_not_displaying_correctly: "Wordt deze e-mail correct weergegeven?"
+      view_it_in_your_browser: "Bekijk in je browser"
+      or: of
+      unsubscribe_from_these_emails: "Uitschrijven van deze e-mails"
     community_starter_email:
       subject: ~
     conversation_status_changed:
@@ -689,74 +689,74 @@ nl:
       has_accepted_your_request: "%{accepter} heeft uw verzoek betreffende %{listing} geaccepteerd"
       has_rejected_your_offer: "%{accepter} heeft uw aanbod betreffende %{listing} geweigerd"
       has_rejected_your_request: "%{accepter} heeft uw verzoek betreffende %{listing} geweigerd"
-      view_thread: ~
+      view_thread: "Bekijk conversatie"
       your_offer_was_accepted: "Je aanbod is geaccepteerd"
       your_offer_was_rejected: "Je aanbod is afgewezen"
       your_request_was_accepted: "Je verzoek is geaccepteerd"
       your_request_was_rejected: "Je verzoek is afgewezen"
-      you_can_now_pay_to: ~
-      pay_now: ~
+      you_can_now_pay_to: "Ja kan nu het gevraagde bedrag betalen aan %{payment_receiver}."
+      pay_now: "Betaal nu"
       remember_to_confirm: ~
     invitation_to_kassi:
-      hi: Hoi!
-      you_have_been_invited_to_kassi: "%{inviter} heeft je uitgenodigd voor de %{community} gemeenschap"
+      hi: Hallo!
+      you_have_been_invited_to_kassi: "%{inviter} heeft je uitgenodigd voor %{service_name}."
       here_is_a_message_from: "Hier is een persoonlijke bericht van %{inviter}"
       join_now: "Word nu lid"
-      invitation_code: ~
+      invitation_code: "Uitnodigingscode: %{code}"
     new_comment:
-      has_commented_your_listing_in_kassi: ~
+      has_commented_your_listing_in_kassi: "%{author} heeft feedback gelaten op jouw item '%{listing}'."
       view_comment: "Toon reactie"
       you_have_a_new_comment: "%{author} heeft een reactie gegeven over uw vermelding in%{service_name}"
-      listing_you_follow_has_a_new_comment: ~
-      has_commented_listing_you_follow_in_kassi: ~
+      listing_you_follow_has_a_new_comment: "%{author} heeft commentaar gegeven op een listing die jij volgt in %{service_name}"
+      has_commented_listing_you_follow_in_kassi: "%{author} heeft feedback gelaten op het item '%{listing}' dat je volgt in %{service_name}."
     new_message:
-      view_message: ~
+      view_message: "Bekijk bericht"
       has_sent_you_a_message_in_kassi: "%{sender} heeft u een bericht gestuurd in %{service_name}"
       you_have_a_new_message: "Je hebt een nieuw bericht in %{service_name} van %{sender_name}"
     new_payment:
-      new_payment: ~
-      you_have_received_new_payment: ~
+      new_payment: "Je hebt een nieuwe betaling ontvangen"
+      you_have_received_new_payment: "Je bent <b> %{payment_sum}</b> betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Hier is het betalingsbewijs."
     braintree_new_payment:
-      product: ~
+      product: "Product:"
       price_payer_paid: ~
       service_fee: ~
-      you_will_get: ~
+      you_will_get: "Je zal ontvangen:"
       money_will_be_transferred: ~
     receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
-      total: ~
-      price: ~
+      receipt_of_payment: Betalingsbewijs.
+      you_have_made_new_payment: "Je hebt <b>%{payment_sum}</b> betaald voor <b>%{listing_title}</b> aan %{recipient_full_name}. Hier is een betalingsbewijs."
+      product: Product
+      total: Totaal
+      price: Prijs
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} heeft je feedback gegeven in%{service_name}"
       you_can_give_feedback_to: "Je kan feedback geven aan %{name}"
-      view_feedback: ~
+      view_feedback: "Bekijk feedback"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Item dat je volgt is aangepast"
-      has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} heeft het item '%{listing}' dat je volgt in %{service_name} bijgewerkt."
+      view_changes: "Bekijk wijzigingen"
     community_updates:
       added_offer: "%{name_link} heeft een item toegevoegd:"
       added_request: "%{name_link} heeft een item toegevoegd:"
       added_listing: "%{name_link} heeft een item toegevoegd:"
       update_mail_title: "%{title_link} update"
-      title_link_text: ~
-      intro_paragraph: "Hieronder een paar dingen die afgelopen %{time_since_last_update} gebeurd zijn bij %{community_link}"
-      intro_paragraph_link_text: ~
+      title_link_text: "%{community_name}"
+      intro_paragraph: "Hieronder een paar dingen die afgelopen %{time_since_last_update} gebeurd zijn bij %{community_link}."
+      intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Plaats een nieuw item!"
-      reduce_email_footer_text: "Te veel mail? %{settings_link} of %{unsubscribe_link}"
-      settings_link_text: ~
-      unsubscribe_link_text: ~
+      reduce_email_footer_text: "Te veel e-mail? %{settings_link} of %{unsubscribe_link}."
+      settings_link_text: "Wijzig je e-mail instellingen hier"
+      unsubscribe_link_text: uitschrijven
     newsletter:
-      hi: "Hoi %{name}"
+      hi: "Hallo %{name}"
       newest_offers: "Wat mensen op dit moment aanbieden aan anderen"
       newest_requests: "Wat mensen op dit moment nodig hebben"
       text_version_text: ~
     reset_password_instructions:
-      change_my_password: ~
+      change_my_password: "Wijzig mijn wachtwoord"
       reset_password_instructions: ~
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Feedback is openbaar en zichtbaar voor alle andere gebruikers. Met de feedback kunnen gebruikers beslissen of %{name} betrouwbaar is en of het iemand is met wie ze in zee willen gaan. Het is dus goed om altijd feedback te geven aan evenementen en herinner anderen er aan om jou feedback te geven. Je hebt positieve feedback nodig om de meeste badges te verdienen."
@@ -766,25 +766,25 @@ nl:
       subject: ~
       transaction_requested_by_user: ~
       you_have_days_to_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "Klik hier om te antwoorden op he verzoek"
     transaction_preauthorized_reminder:
       subject: ~
       remember_to_accept: ~
       one_day_left: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
     welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
+      welcome_email_subject: "Welkom bij %{service_name}"
+      welcome_to_marketplace: "Welkom, bij %{service_name}! Leuk dat je erbij bent."
+      love_marketplace_crew: "Groeten,<br /><i>%{service_name} team</i>"
       p_s_did_you_know: ~
-      click_here_link_text: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
+      click_here_link_text: "Klik hier"
+      welcome_email_footer_text: "Welk soort berichten zou je van %{service_name} willen ontvangen?%{settings_link}"
+      settings_link_text: "Kijk je instellingen na"
       welcome_email_subject_for_marketplace_creator: ~
       welcome_to_marketplace_creator: ~
       congrats_for_creating_your_marketplace: ~
       here_is_your_account_information: ~
-      your_email_address: ~
+      your_email_address: "Het e-mail adres dat je gebruikte om in te loggen:"
       your_marketplace_address: ~
       your_marketplace_admin_area: ~
       just_follow_details: ~
@@ -807,8 +807,8 @@ nl:
       departure_time: "Vertrektijd moet plaatsvinden in het komende jaar."
       share_type: "Selecteer er minimaal 1."
       valid_until: "Deze datum moet tussen nu en de komende 6 maanden zijn."
-      price: ~
-      minimum_price: ~
+      price: "Prijs moet een geheel getal zijn."
+      minimum_price: "Minimum prijs is %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "Als je positieve of negatieve feedback wilt geven, moet je uitleggen waarom."
       you_must_select_a_grade: "Vergeet niet om je ervaring positief of negatief te waarderen."
@@ -822,7 +822,7 @@ nl:
   error_pages:
     back_to_kassi_front_page: "Terug naar de voorpagina"
     error_404:
-      if_you_believe: ~
+      if_you_believe: "Als je denkt dat het adres correct is en zou moeten werken, help ons dan door te laten weten welk adres het probleem veroorzaakte en wat zichtbaar zou moeten zijn op de pagina. Gebruik hiervoor het formulier hieronder."
       page_can_not_be_found: "Pagina niet gevonden!"
       page_you_requested_can_not_be_found: "Pagina niet gevonden. Weet je zeker dat je het adres goed hebt gespeld?"
     error_404_title: "Pagina niet gevonden"
@@ -836,10 +836,10 @@ nl:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
-    error_description: ~
+    error_500_title: "fout bij laden van de pagina"
+    error_description: "Fout omschrijving"
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
+      javascript_is_disabled_in_your_browser: "Javascript is niet actief in jouw browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} werkt niet goed zonder JavaScript. Schakel JavaScript in bij de instellingen van je browser en herlaad dan de pagina."
       contact_us: "Neem contact op"
       send_feedback: "Stuur feedback"
@@ -848,53 +848,53 @@ nl:
     your_email_address: "Je e-mail adres"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
+      invalid_date: "is geen geldige datum"
+      invalid_time: "is geen geldige tijd"
+      invalid_datetime: "is geen geldige datum en tijd"
+      is_at: "moet zijn op %{restriction}"
+      before: "moet zijn voor %{restriction}"
+      on_or_before: "moet zijn op of voor %{restriction}"
+      after: "moet zijn na %{restriction}"
+      on_or_after: "moet zijn op of na %{restriction}"
   event_feed_events:
     accept:
-      has_accepted_lend_item: ~
-      has_accepted_borrow_item: ~
-      has_accepted_rent_out_item: ~
-      has_accepted_rent_item: ~
-      has_accepted_give_away_item: ~
-      has_accepted_receive_item: ~
-      has_accepted_sell_item: ~
-      has_accepted_buy_item: ~
-      has_accepted_trade_item: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
-      has_accepted_rideshare: ~
+      has_accepted_lend_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te verhuren aan %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te verhuren aan %{requester_name} %{time_ago}."
+      has_accepted_give_away_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te geven aan %{requester_name} %{time_ago}."
+      has_accepted_receive_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te geven aan %{requester_name} %{time_ago}."
+      has_accepted_sell_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te verkopen aan %{requester_name} %{time_ago}."
+      has_accepted_buy_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te verkopen aan %{requester_name} %{time_ago}."
+      has_accepted_trade_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te ruilen met %{requester_name} %{time_ago}."
+      has_accepted_sell_housing: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te verkopen aan %{requester_name} %{time_ago}."
+      has_accepted_buy_housing: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te verkopen aan %{requester_name} %{time_ago}."
+      has_accepted_rent_out_housing: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te verhuren aan %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te verhuren aan %{requester_name} %{time_ago}."
+      has_accepted_favor: "%{offerer_name} heeft ermee ingestemd om %{listing_title} voor te stellen aan %{requester_name} %{time_ago}."
+      has_accepted_rideshare: "%{offerer_name} heeft ermee ingestemd om een rit te delen %{listing_title} met %{requester_name} %{time_ago}."
     join:
-      joined_kassi: ~
+      joined_kassi: "%{name} heeft zich aangesloten bij %{service_name} %{time_ago}."
     login:
-      logged_in_to_kassi: ~
+      logged_in_to_kassi: "%{name} is ingelogd bij %{service_name} %{time_ago}."
     comment:
-      commented: ~
+      commented: "%{commenter_name} heeft commentaar gegeven op listing %{listing_title} %{time_ago}."
       offer_partitive: aanbod
       request_partitive: vraag
   header:
     about: Over
     home: Home
-    members: ~
-    new_listing: ~
+    members: Gemeenschap
+    new_listing: "New item"
     mobile_version: "Mobiele versie"
     offers: Aanbod
     requests: Vraag
     search_kassi: "Zoek %{service_name}"
-    create_new_marketplace: ~
-    contact_us: "Neem contact op"
+    create_new_marketplace: "Maak een nieuwe gemeenschap"
+    contact_us: "Contacteer ons"
     profile: Profiel
-    invite: "Nodig uit"
-    login: ~
+    invite: "Nodig nieuwe leden uit"
+    login: "Log in"
     signup: "Meld je aan"
     menu: ~
   homepage:
@@ -910,19 +910,19 @@ nl:
       create_new_account_for_yourself: "Maak een nieuw account aan voor jezelf"
       examples_of_what_you_could_offer_to_others: "Wat kan jij anderen aanbieden"
       examples_of_what_you_could_request_to_others: "Wat kan jij van anderen vragen"
-      favor_offer_list: "computer hulp, kleren maken, bakken, fiets maken"
-      favor_request_list: "Babysitten, pianoles, hond uitlaten, grasmaaien"
+      favor_offer_list: "computer assistentie, kleren maken, bakken, fiets maken"
+      favor_request_list: "babysitten, pianoles, hond uitlaten, gras maaien"
       favors_to_offer: "Help: "
       favors_to_request: "Help: "
       item_offer_list: "gereedschap, sport uitrusting, kostumes, camping spullen"
-      item_request_list: "Gereedschappen, sport uitrusting, kostumes, camping spullen"
+      item_request_list: "gereedschap, sport uitrusting, kostumes, camping spullen"
       items_to_offer: "Spullen te leen: "
       items_to_request: "Spullen om te lenen: "
       log_in: "log in!"
-      no_offers_visible_unless_logged_in: "Geen item, gunst of rit aanbod is zichtbaar voor niet-ingelogde-gebruikers."
+      no_offers_visible_unless_logged_in: "Geen item, gunst of rit aanbod is zichtbaar voor gebruikers die niet ingelogd zijn."
       no_open_offers_currently: "Geen open item, gunst of rit aanbod."
-      no_open_requests_currently: "Momenteel geen vraag of aanbod"
-      no_requests_visible_unless_logged_in: "Vraag en aanbod is niet zichtbaar voor niet-ingelogde gebruikers."
+      no_open_requests_currently: "Momenteel geen vraag of aanbod."
+      no_requests_visible_unless_logged_in: "Vraag en aanbod is niet zichtbaar voor gebruikers die niet ingelogd zijn."
       one_private_offer_exists: "Er is al <b>één aanbod</b>,"
       one_private_request_exists: "Er is al <b>één verzoek</b>,"
       ride_offer: "Breng uw en andere kinderen naar hun hobbies"
@@ -930,27 +930,27 @@ nl:
       some_private_offers_exist: "Er zijn al <b>%{number_of_listings} aanbiedingen</b>,"
       some_private_requests_exist: "Er zijn al <b>%{number_of_listings} vragen</b>,"
     custom_filters:
-      update_view: Verversen
-      min: ~
-      max: ~
+      update_view: "Overzicht bijwerken"
+      min: "Min:"
+      max: "Max:"
     event_feed:
       latest_events: "Wat gebeurt er"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Opgestuurde afbeelding verwerken...)"
     index:
       no_listings_with_your_search_criteria: "We slaagden er niet in om resultaten te vinden die voldoen aan de door jou opgegeven criteria (indien je iets hebt toegevoegd duurt het ongeveer 10 minuten voordat dit verschijnt in de zoekfunctie)."
       no_listings_notification: "Geen lijsten. %{add_listing_link}."
       add_listing_link_text: "Voeg een nieuw item toe"
-      open_listing: "Open item"
-      open_listings: "Open item"
-      private_listing_notification_log_in: "Log in"
+      open_listing: "open item"
+      open_listings: "open items"
+      private_listing_notification_log_in: "log in"
       is: is
       are: zijn
       what_do_you_need: "Wat zoek je?"
       post_new_listing: "Plaats een nieuw item"
       are_offering: aanbod
       add_news_item: "Voeg een item toe"
-      lend_rent_help_carpool: "Verkoop,leen, help, deel ritten"
+      lend_rent_help_carpool: "Verkoop, leen, help, deel ritten"
       loading_more_content: "Meer inhoud aan het laden"
       more_events: "Meer evenementen..."
       news: Nieuws
@@ -962,23 +962,23 @@ nl:
       requesting: gezocht
       tell_it_here: "Vertel het hier!"
       welcome_to_new_kassi: "Welkom bij%{service_name}!"
-      no_reviews: ~
-      no_image: ~
-      filter: ~
-      this_is_private_community: ~
+      no_reviews: "Geen evaluaties"
+      no_image: "Geen afbeelding"
+      filter: Filter
+      this_is_private_community: "Je moet je aanmelden alvorens je de inhoud kan zien."
     invitation_form:
-      invite_your_friends: ~
-      invite_your_neighbors: "Nodig je buren uit om %{service_name}"
-      email: "Email adres"
-      message: "een persoonlijk bericht"
+      invite_your_friends: "Nodig je vrienden uit naar %{service_name}!"
+      invite_your_neighbors: "Nodig je buren uit bij %{service_name}"
+      email: "E-mail adres"
+      message: "Een persoonlijk bericht"
       send_invitation: "Verstuur uitnodiging"
-      add_as_many_emails_as_you_want: "Voeg hier onder email adressen toe van de mensen die je wil uitnodigen. Als je meerdere adressen wil toevoegen, scheid deze dan met een komma."
-      invitation_emails_field_placeholder: "vriend1@voorbeeld.com, vriend2@voorbeeld.com"
-      invitation_message_field_placeholder: "Ik werd lid van deze ongelooflijke gemeenschap. Doe het ook!"
+      add_as_many_emails_as_you_want: "Voeg hier onder e-mail adressen toe van de mensen die je wil uitnodigen. Als je verschillende adressen wil toevoegen, scheid deze dan met een komma."
+      invitation_emails_field_placeholder: "vriend1@voorbeeld.com, vriend2@voorbeeld.com, ..."
+      invitation_message_field_placeholder: "Ik werd lid van deze geweldige gemeenschap. Doe het ook!"
       errors_in_emails: "Check of de e-mail adressen die je toegevoegd hebt geldig zijn. indien je meerdere adressen hebt toegevoegd, verzeker je ervan dat ze zijn gescheiden door comma's"
     list_item:
-      review: ~
-      reviews: ~
+      review: beoordeling
+      reviews: beoordelingen
     news_item:
       show_less: "Toon minder"
       show_more: "Toon meer"
@@ -989,51 +989,51 @@ nl:
       add_your_info_link: "Voeg jouw info toe"
     recent_listing:
       please_offer: "Reageer op vraag"
-      comment: Reactie
+      comment: reactie
       comments: reacties
     filters:
-      show: Filter
+      show: "Filter:"
       search: Zoek
       map: "Toon kaart"
       list: "Toon lijst"
       map_button: Kaart
       grid_button: Raster
-      list_button: ~
+      list_button: Lijst
       all_listing_types: "Alle lijst types"
       all_categories: "Alle categorieën"
   infos:
     about:
-      default_about_text_title: ~
+      default_about_text_title: "Wat is Sharetribe?"
       default_about_text: "Deze marktplaats wordt ondersteund door het Sharetribe platform. Met Sharetribe kan je eenvoudig je eigen marktplaats creëren. Het is gratis en duurt maar een minuut. %{click_here_link} om hier meer over te weten!"
-      click_here_link_text: ~
+      click_here_link_text: "Klik hier"
     how_to_use:
       default_title: ~
       default_content: ~
   layouts:
     admin:
-      admin: "%{service_name}admin dashboard"
+      admin: "%{service_name} admin dashboard"
     no_tribe:
-      inbox: ~
-      settings: ~
+      inbox: Inbox
+      settings: Instellingen
       feedback: "Neem contact op"
     application:
-      join_this_community: ~
-      read_more: ~
+      join_this_community: "Sluit aan bij gemeenschap"
+      read_more: "Lees meer"
       feedback: "Wat wil je ons vertellen?"
-      default_feedback: "Geef nieuwe ideeën, rapporteer een fout, geef je mening, of laat gewoon een berichtje achter om gedag te zeggen!"
+      default_feedback: "Heb je een probleem gehad met %{service_name}? Heb je suggesties om onze dienst te verbeteren? Niet gepaste inhoud gezien? Of wil je gewoon iets met ons bespreken? Laat het ons weten!"
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Neem contact op"
       or_check_our: "...of bekijk onze"
       send_feedback_to_admin: "Verstuur feedback"
       to_see_what_others_have_suggested: "om te zien wat voor ideeën andere gebruikers hebben en om op die ideeën te stemmen."
-      your_email_address: "Je emailadres"
+      your_email_address: "Je e-mail adres"
       connect: Aanmelden
-      invite_your_friends: ~
-      invite_your_neighbors: ~
-      invite_your_friends_description: ~
-      invite_your_friends_invite_only_description: ~
-      join_without_facebook: ~
+      invite_your_friends: "Nodig vrienden uit!"
+      invite_your_neighbors: "Nodig je buren uit!"
+      invite_your_friends_description: "Hoe meer mensen er zijn in %{service_name}, hoe nuttiger het wordt."
+      invite_your_friends_invite_only_description: "Mensen kunnen zich niet aansluiten bij %{service_name} tenzij ze uitgenodigd worden."
+      join_without_facebook: "...of als alternatief %{join_without_facebook_link}"
       join_without_facebook_link: "log in zonder Facebook te gebruiken"
     conversations:
       messages: Berichten
@@ -1041,12 +1041,12 @@ nl:
       received: Ontvangen
       sent: Verstuurd
     global-header:
-      select_language: ~
+      select_language: "Selecteer taal"
     infos:
       about: Over
       how_to_use: "Hoe werkt het"
       info_about_kassi: "Informatie over%{service_name}"
-      news: ~
+      news: Nieuws
       register_details: Privacybeleid
       terms: Gebruiksvoorwaarden
     logged_in:
@@ -1074,118 +1074,118 @@ nl:
       settings: Instellingen
       sign_up: "Meld je aan"
     notifications:
-      listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
-      test_welcome_email_delivered_to: "Een test e-mail is verzonden naar %{email}."
-      something_went_wrong: ~
-      community_updated: ~
-      community_update_failed: ~
+      listing_could_not_be_saved: "Item kon niet worden opgeslagen. Probeer het aub opnieuw. Als dit probleem zich blijft voordoen, %{contact_admin_link}."
+      contact_admin_link_text: "contacteer de beheerder"
+      test_welcome_email_delivered_to: "Een testbericht is verzonden naar %{email}."
+      something_went_wrong: "Er is iets mis gegaan"
+      community_updated: "Details bijgewerkt."
+      community_update_failed: "Bijwerken details mislukt."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Je account is aangemaakt. De volgende stap is het bevestigen van je e-mailadres."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Dank je wel om je aan te sluiten bij %{service_name}. Bevestig nu aub je e-mail adres."
       comment_cannot_be_empty: "Reactie kan niet leeg zijn"
       comment_sent: "Reactie verstuurd"
-      confirmation_link_is_wrong_or_used: ~
-      additional_email_confirmed: ~
-      could_not_get_email_from_facebook: ~
-      create_new_listing: ~
+      confirmation_link_is_wrong_or_used: "De confirmatie link werd reeds gebruikt of is niet geldig. Probeer in te loggen en geef ons een seintje als het probleem zich blijft voordoen."
+      additional_email_confirmed: "Het e-mail adres dat je hebt ingegeven is nu bevestigd."
+      could_not_get_email_from_facebook: "Kon je Facebook e-mail adres niet ophalen. Kan geen account aanmaken zonder e-mail adres."
+      create_new_listing: "Een ander item aanmaken"
       create_one_here: "hier één maken"
-      email_confirmation_sent_to_new_address: ~
+      email_confirmation_sent_to_new_address: "E-mail bevestiging is nu gestuurd naar het nieuwe adres."
       email_not_found: "Het emailadres dat je hebt gegeven, is niet gevonden in de %{service_name} database."
       error_with_session: "Fout in sessie."
-      feedback_considered_spam: "Feedback is niet opgeslagen, door de opmaak. Probeer opnieuw of gebruik het feedback forum."
+      feedback_considered_spam: "Feedback is niet opgeslagen door de opmaak. Probeer opnieuw of gebruik het feedback forum."
       feedback_not_saved: "Feedback kon niet worden verzonden."
       feedback_saved: "Bedankt voor je feedback! We komen zo snel mogelijk bij je terug."
       feedback_sent_to: "Feedback gestuurd naar %{target_person}."
       feedback_skipped: "Feedback overgeslagen"
       invitation_cannot_be_sent: "Uitnodiging kon niet verstuurd worden"
       invitation_sent: "Uitnodiging verzonden"
-      inviting_new_users_is_not_allowed_in_this_community: ~
+      inviting_new_users_is_not_allowed_in_this_community: "Nieuwe gebruikers uitnodigen is niet toegestaan."
       login_again: "Log opnieuw in alsjeblieft."
-      login_failed: "Login mislukt. Vul de goede gegevens in."
+      login_failed: "Login mislukt. Vul de juiste gegevens in."
       account_creation_successful: "Welkom bij %{service_name}, %{person_name}!"
-      account_deleted: ~
+      account_deleted: "Je account is nu verwijderd."
       login_successful: "Welkom %{person_name}!"
       logout_successful: "Je bent nu uitgelogd bij %{service_name}. Tot binnenkort!"
-      news_item_created: ~
-      news_item_creation_failed: ~
-      news_item_update_failed: ~
-      news_item_updated: ~
-      news_item_deleted: ~
+      news_item_created: "Artikel aangemaakt"
+      news_item_creation_failed: "Aanmaak artikel mislukt"
+      news_item_update_failed: "Bijwerken artikel mislukt"
+      news_item_updated: "Artikel bijgewerkt"
+      news_item_deleted: "Artikel verwijderd"
       offer_accepted: "Aanbod geaccepteerd"
-      offer_confirmed: ~
+      offer_confirmed: "Voorstel bevestigd"
       offer_closed: "Aanbod gesloten"
-      listing_created_successfully: "Je item is geplaatst. %{new_listing_link}"
+      listing_created_successfully: "Je item is geplaatst. %{new_listing_link}."
       offer_rejected: "Aanbod afgewezen"
-      offer_canceled: ~
-      listing_updated_successfully: ~
+      offer_canceled: "Voorstel geannuleerd"
+      listing_updated_successfully: "Item succesvol bijgewerkt"
       only_kassi_administrators_can_access_this_area: "Alleen %{service_name} administrators hebben toegang tot dit gedeelte"
       only_listing_author_can_close_a_listing: "Alleen de auteur van het item kan deze sluiten"
       only_listing_author_can_edit_a_listing: "Alleen de auteur van het item kan deze sluiten"
-      payment_successful: ~
-      payment_canceled: ~
-      error_in_payment: ~
-      cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      payment_successful: "Betaling succesvol"
+      payment_canceled: "Betaling geannuleerd"
+      error_in_payment: "Fout bij betaling. Als je nog geen betaling hebt uitgevoerd, probeer dan opnieuw. Als je dat wel al gedaan hebt, stuur ons dan een bericht."
+      cannot_receive_payment: "De tegenpartij kan de betaling niet ontvangen door een of andere fout. Contacteer de beheerders om dit uit te klaren"
+      payment_waiting_for_later_accomplishment: "We sturen de verkopen een bericht zodra je betaald hebt. Jij zal een betalingsbewijs via e-mail krijgen."
       password_recovery_sent: "Aanwijzigingen om je wachtwoord te veranderen zijn naar je email gestuurd."
       person_activated: "Gebruiker geactiveerd"
       person_deactivated: "Gebruiker gedeactiveerd"
       person_updated_successfully: "Informatie bijgewerkt"
-      poll_answered: ~
-      poll_could_not_be_answered: ~
-      poll_created: ~
-      poll_creation_failed: ~
-      poll_update_failed: ~
-      poll_updated: ~
-      poll_deleted: ~
+      poll_answered: "Poll beantwoord"
+      poll_could_not_be_answered: "Poll kon niet beantwoord worden"
+      poll_created: "Poll aangemaakt"
+      poll_creation_failed: "Aanmaak poll mislukt"
+      poll_update_failed: "Poll bijwerken mislukt"
+      poll_updated: "Poll bijgewerkt"
+      poll_deleted: "Poll verwijderd"
       read_more: "Lees meer!"
       registration_considered_spam: ~
       reply_cannot_be_empty: "Je kan geen leeg bericht sturen"
       reply_sent: "Reactie succesvol verstuurd"
       request_accepted: "Verzoek geaccepteerd"
-      request_confirmed: ~
+      request_confirmed: "Verzoek uitgevoerd"
       request_closed: "Verzoek gesloten"
       request_rejected: "Verzoek afgewezen"
-      request_canceled: ~
-      message_sent: ~
-      this_content_is_not_available_in_this_community: "Deze inhoud is niet beschikbaar voor deze community"
-      unknown_error: "Onbekende error. Gebruik alstublieft de feedback link om error details te verzenden."
+      request_canceled: "Verzoek geannuleerd"
+      message_sent: "Bericht verstuurd"
+      this_content_is_not_available_in_this_community: "Deze inhoud is niet beschikbaar."
+      unknown_error: "Onbekende fout. Gebruik alstublieft de feedback link om details te verzenden."
       update_error: "Er is een fout opgetreden bij het bijwerken van jouw informatie, probeer opnieuw"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Je hebt geen toestemming om feedback te geven over dit evenement"
       you_are_not_authorized_to_do_this: "Je hebt geen toestemming om dit te doen"
       you_are_not_authorized_to_view_this_content: "Je hebt geen toestemming om deze inhoud te zien"
-      send_instructions: ~
+      send_instructions: "Je zal binnen enkele minuten een e-mail ontvangen met instructies om je wachtwoord te resetten."
       you_cannot_reply_to_a_closed_offer: "Je kan niet reageren op een gesloten aanbod"
       you_cannot_reply_to_a_closed_request: "Je kan niet reageren op een gesloten verzoek"
-      you_cannot_send_message_to_yourself: ~
+      you_cannot_send_message_to_yourself: "Je kan geen bericht naar jezelf sturen"
       you_followed_listing: "Je volgt nu dit item"
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
-      you_are_now_member: "Je hebt met succes aangesloten bij deze community. Welkom!"
-      you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: "Je moet ingelogd zijn op %{service_name} om een nieuw item te kunnen plaatsen. Als je geen account hebt, kan je er %{sign_up_link}"
-      additional_email_confirmed_dashboard: ~
+      you_are_now_member: "Welkom bij %{service_name}!"
+      you_are_already_member: "Je bent al aangesloten bij %{service_name}. Welkom terug!"
+      you_must_log_in_to_create_new_listing: "Je moet ingelogd zijn op %{service_name} om een nieuw item te kunnen plaatsen. Als je geen account hebt, kan je er %{sign_up_link}."
+      additional_email_confirmed_dashboard: "Je e-mail adres is nu bevestigd."
       you_must_log_in_to_give_feedback: "Je moet inloggen om feedback te geven"
-      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_invite_new_users: "Je moet ingelogd zijn om nieuwe gebruikers uit te nodigen naar %{service_name}"
       you_must_log_in_to_send_a_comment: "Je moet inloggen om een nieuwe reactie te versturen"
-      you_must_log_in_to_send_a_message: "Je moet ingelogd zijn om een bericht te sturen naar een andere gebruiker."
+      you_must_log_in_to_send_a_message: "Je moet ingelogd zijn bij %{service_name} om een bericht te kunnen sturen naar een andere gebruiker."
       you_must_log_in_to_view_this_content: "Je moet inloggen om deze inhoud te zien"
-      you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: "Je moet ingelogd zijn om je inbox te zien."
-      you_must_log_in_to_view_your_settings: ~
-      you_must_log_in_to_add_news_item: ~
-      you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_change_payment_settings: ~
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_view_this_page: "Je moet inloggen om deze pagina te kunnen bekijken"
+      you_must_log_in_to_view_your_inbox: "Je moet ingelogd zijn bij %{service_name} om je inbox te kunnen zien."
+      you_must_log_in_to_view_your_settings: "Je moet ingelogd zijn bij %{service_name} om je instellingen te kunnen zien."
+      you_must_log_in_to_add_news_item: "Je moet inloggen bij %{service_name} om een nieuw artikel toe te voegen."
+      you_must_log_in_to_change_profile_settings: "Je moet inloggen bij %{service_name} om je profiel instellingen te wijzigen"
+      you_must_log_in_to_change_payment_settings: "Je moet inloggen bij %{service_name} om je betalingsgegevens te wijzigen"
+      you_must_log_in_to_accept_or_reject: "Je moet inloggen om de transactie te accepteren of te annuleren"
+      you_must_log_in_to_confirm_or_cancel: "Je moet inloggen om de transactie te confirmeren of te annuleren"
       you_need_to_confirm_your_account_first: "Bevestig je e-mailadres."
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: "Je moet alle velden invullen"
       you_unfollowed_listing: "Je volgt dit item niet meer"
-      joining_community_failed: ~
+      joining_community_failed: "Aansluiten mislukt"
       can_not_login_with_private_user: ~
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
+      can_not_delete_email: "Je kan het e-mail adres niet verwijderen"
+      user_does_not_have_email_to_delete: "Je bezit het e-mail adres dat je tracht te verwijderen niet"
+      email_deleted: "E-mail verwijderd"
+      payment_details_add_successful: "Betalingsdetails succesvol toegevoegd"
+      payment_details_add_error: "Kon betalingsgegevens niet toevoegen"
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
     settings:
@@ -1193,12 +1193,12 @@ nl:
       notifications: Notificaties
       profile: "Profiel info"
       settings: Instellingen
-      payments: ~
+      payments: Betalingen
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "U heeft geen toestemming om deze listing te bekijken"
+      listing_not_visible: "Je hebt geen toestemming om deze listing te bekijken."
     comment:
-      wrote: Schreef
+      wrote: schreef
       send_private_message: "Verstuur privé bericht naar %{person}"
     comment_form:
       ask_a_question: "Plaats een reactie als je meer wil weten over dit item. Andere gebruikers kunnen je reactie zien."
@@ -1217,7 +1217,7 @@ nl:
       reopen_listing: "Heropen item"
       move_to_top: ~
       show_in_updates_email: ~
-      show_in_updates_email_loading: ~
+      show_in_updates_email_loading: Laden...
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
     follow_links:
@@ -1226,23 +1226,23 @@ nl:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: "Kies één..."
       departure_time:
-        at: Op
+        at: Om
         departure_time: "Vertrek tijd"
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: "Uitgebreide beschrijving"
+        detailed_description: "Uitgebreide omschrijving"
       destination:
         destination: Bestemming
       form_content:
         favor: Aanbod
-        housing: Huisvesting
-        item: Item
+        housing: ~
+        item: "een item"
         offer_something: "Bied iets aan"
         request_something: "Vraag iets"
-        rideshare: "Rit delen"
+        rideshare: "een rit"
         i_want_to_offer: "Ik wil aanbieden..."
         i_want_to_request: "Ik zoek.."
       googlemap:
@@ -1252,64 +1252,64 @@ nl:
       images:
         image: Foto
         no_file_selected: "Geen bestand geselecteerd"
-        remove_image: "Verwijder foto"
+        remove_image: "Verwijder afbeelding"
         select_file: "Selecteer bestand"
-        removing: ~
-        processing: ~
-        loading_image: ~
-        this_may_take_a_while: ~
-        percentage_loaded: ~
-        uploading_failed: ~
-        file_too_large: ~
-        accepted_formats: "Het bestand moet een GIF-, JPG- of PNG bestand zijn."
+        removing: Verwijderen...
+        processing: Verwerken...
+        loading_image: Laden...
+        this_may_take_a_while: "(dit kan even duren)"
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: "Opladen afbeelding mislukt"
+        file_too_large: "Bestand is te groot"
+        accepted_formats: "Het bestandsformaat moet GIF, JPG of PNG zijn."
       location:
         location: Locatie
       price:
         price: Prijs
         per: per
-        per_day: ~
+        per_day: "per dag"
         mass: "stuk, kg, l, m2"
-        time: "uur, dag, week"
-        long_time: "week, maand"
-        after_service_fee_you_will_get: ~
-        after_service_fee_you_will_get_vat: ~
-        price_excludes_vat: "De prijs is exclusief BTW"
+        time: "uur, dag, week, ..."
+        long_time: "week, maand, ..."
+        after_service_fee_you_will_get: "Na %{service_name}- en betalingscommissies zal je %{sum_with_currency} ontvangen"
+        after_service_fee_you_will_get_vat: "Na %{service_name}- en betalingscommissies zal je ongeveer %{sum_with_currency} ontvangen (BTW 0%)"
+        price_excludes_vat: "De prijs is exclusief BTW."
       origin:
         location: Locatie
-        origin: Begin
+        origin: Oorsprong
       send_button:
         save_listing: "Plaats item"
       share_type:
         select: Selecteer
-        borrow: Leen
-        buy: Koop
+        borrow: Lenen
+        buy: Kopen
         give_away: Weggeven
         lend: Uitlenen
         offer_type: "Aanbod type"
         receive: "Gratis ontvangen"
-        rent: Huur
+        rent: Huren
         rent_out: Verhuren
         request_type: "Soort vraag"
-        sell: Verkoop
+        sell: Verkopen
         share_for_free: "Gratis lenen voor gebruik"
         accept_for_free: "Ontvang gratis"
         trade: Ruilen
       tag_list:
-        comma_separate: "(comma separate)"
+        comma_separate: "(gescheiden door een komma)"
         tags: Tags
       title:
         listing_title: "Titel bericht"
       valid_until:
         valid_until: "Geldig tot"
       valid_until_radio_buttons:
-        for_the_time_being: "Voor nu"
+        for_the_time_being: Voorlopig
       visibility:
-        all_communities: "All mijn%{service_name}gemeenschappen"
+        all_communities: "Al mijn Sharetribe gemeenschappen"
         this_community: "Alleen %{community} leden"
         visibility: Zichtbaarheid
       privacy:
         privacy: Privacy
-        private: Privé
+        private: "Privé (enkel ingelogde gebruikers kunnen zien)"
         public: "Openbaar (ook zichtbaar voor niet ingelogde gebruikers)"
     help_texts:
       help_share_type_title: "Type aanbod of verzoek"
@@ -1324,7 +1324,7 @@ nl:
       favors: Diensten
       housing: Ruimtes
       items: Items
-      list_view: "Lijst view"
+      list_view: "Lijst overzicht"
       listings: Items
       map_view: "Overzicht op de kaart"
       offer_something: "Vertel het anderen!"
@@ -1342,7 +1342,7 @@ nl:
       buys: Kopen
       favors: Diensten
       give_aways: Weggeven
-      housings: Huisvesting
+      housings: ~
       items: Items
       lends: Uitlenen
       receives: "Gratis ontvangen"
@@ -1354,22 +1354,22 @@ nl:
       accept_for_frees: "Gratis ontvangen"
       trades: Ruilen
     listing_actions:
-      booking_from: ~
-      booking_to: ~
+      booking_from: Van
+      booking_to: Tot
       how_paypal_works: ~
     new:
       post_a_new_listing: "Plaats een nieuw item"
       listing: Item
       selected_category: "Categorie%{category}"
       selected_subcategory: "Subcategorie:%{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Item type: %{transaction_type}"
       select_category: "Selecteer categorie"
       select_subcategory: ~
-      select_transaction_type: ~
+      select_transaction_type: "Selecteer item type"
       you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
-      payment_settings_link: ~
+      payment_settings_link: "instellingen betalingen"
       community_not_configured_for_payments_admin: ~
     please_comment: Reactie
     reply_link:
@@ -1379,20 +1379,20 @@ nl:
       add_profile_picture: "Voeg profielfoto toe"
       comments: Reacties
       contact_by_phone: "Neem telefonisch contact op:"
-      contact: ~
+      contact: Contact
       favor_offer: "Gunst aanbod"
       favor_request: Vraag
       inquiry: ~
       item_offer_trade: "Ruil aanbod"
       item_request_trade: "Ruil vraag"
-      no_description: "Geen beschrijving"
-      no_image: ~
+      no_description: "Dit item heeft geen beschrijving"
+      no_image: "Geen afbeelding"
       no_reviews: "Nog geen feedback ontvangen"
       offer: Aanbod
-      listing_created: Gecreeërd
+      listing_created: Aangemaakt
       open_until: "Open tot %{date}"
       feedback: Feedback
-      qr_code: ~
+      qr_code: "QR code"
       request: Vraag
       rideshare_offer: Ritaanbod
       rideshare_request: "Rit gezocht"
@@ -1404,24 +1404,24 @@ nl:
       time: tijd
       times: keer
       times_viewed: Gezien
-      processing_uploaded_image: ~
-      price_excludes_vat: ~
+      processing_uploaded_image: "(Opgestuurd bestand bewerken...)"
+      price_excludes_vat: "(exclusief BTW)"
       listing_created_at: "Item geplaatst"
       price:
-        per_quantity_unit: ~
-        per_day: ~
+        per_quantity_unit: "per %{quantity_unit}"
+        per_day: "per dag"
     verification_required:
       verification_required: ~
   listing_conversations:
     preauthorize:
-      details: ~
+      details: Details
       by: ~
-      payment: ~
+      payment: Betaling
       exp: ~
       you_will_be_charged: ~
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: dag
+      days: dagen
+      price_per_day: "Prijs per dag: %{price}"
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1447,33 +1447,33 @@ nl:
       you_have_something_others_do_not: "Heb je iets aan te bieden?"
     please_comment: Reactie
   okl:
-    member_id: ~
-    member_id_or_email: ~
+    member_id: Lidmaatschapsnummer
+    member_id_or_email: "Lid ID of e-mail"
   payments:
     new:
-      new_payment: ~
-      continue: ~
-      payment_receiver: ~
-      sum: ~
+      new_payment: "Nieuwe betaling"
+      continue: Doorgaan
+      payment_receiver: "Ontvanger betaling:"
+      sum: "Som betaling:"
       commission_will_be_added: ~
     form:
-      total: ~
+      total: Totaal
       service_charge: ~
-      product: ~
-      price: ~
-      price_for: ~
-      continue_to_pay: ~
-      invoice: ~
+      product: "Product:"
+      price: "Som:"
+      price_for: "Prijs voor %{payer_given_name}:"
+      continue_to_pay: "Ga verder met betalen"
+      invoice: Factuur
       service_fee: ~
-      you_will_get: ~
+      you_will_get: "Je zal ontvangen:"
     braintree:
       terms:
         braintree_terms_also_included: ~
-        terms_link_text: ~
+        terms_link_text: "Braintree gebruikersvoorwaarden"
   paypal_accounts:
     payout_info_title: ~
-    paypal_account_email_connected: ~
-    paypal_billing_agreement_made: ~
+    paypal_account_email_connected: "<del>1. Connectie met PayPal account</del> Uitgevoerd!"
+    paypal_billing_agreement_made: "<del>2. Geef toestemming aan %{service_name} om een transactie kost door te rekenen</del> Uitgevoerd!"
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
@@ -1516,70 +1516,70 @@ nl:
       deactivate: Deactiveer
     help_texts:
       feedback_description_title: Feedback
-      help_captcha_title: "Are you human?"
+      help_captcha_title: "Ben je een mens?"
       help_invitation_code_title: "Je hebt een uitnodiging nodig om deel te nemen"
       terms_title: "%{service_name} gebruiksvoorwaarden"
-      trustcloud_description_title: ~
+      trustcloud_description_title: TrustCloud
       trustcloud_description_text: ~
-      invite_only_help_text: ~
+      invite_only_help_text: "Kies deze optie indien je wil dat nieuwe leden enkel kunnen aansluiten na een uitnodiging door een bestaand lid."
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Deze gebruiker is niet meer actief bij %{service_name}"
-      inactive_description: ~
+      inactive_description: "Deze gebruiker is gestopt met het gebruiken van %{service_name}. Je kan deze gebruiker niet contacteren, feedback geven of commentaar geven op listings."
     new:
       captcha_incorrect: "reCAPTCHA check mislukt. Schrijf de worden in het blok hieronder alstublieft."
       captcha_was_wrong: "Captcha tekst was verkeerd."
-      create_new_account: "Creeer account"
-      email: "Email adres:"
-      email_is_in_use: "Het email adres is al in gebruik."
-      email_is_in_use_or_not_allowed: ~
-      email_not_allowed: ~
+      create_new_account: "Maak account"
+      email: "E-mail adres"
+      email_is_in_use: "Het e-mail adres is al in gebruik."
+      email_is_in_use_or_not_allowed: "Dit e-mail adres is niet toegestaan of al in gebruik. Contacteer ons wanneer je niet kan inloggen."
+      email_not_allowed: "Deze e-mail is niet toegestaan in %{service_name}. Gebruik aub een toegestaan adres. Stuur ons feedback als je nog altijd niet binnen geraakt."
       enter_captcha: "Ik ben een mens:"
-      family_name: "Familie naam:"
-      given_name: "Naam:"
+      family_name: Familienaam
+      given_name: Voornaam
       i_accept_the: "Ik accepteer de"
-      invalid_invitation_code: "Deze code is niet geldig"
-      invitation_code: ~
-      not_required: "niet vereist"
+      invalid_invitation_code: "Deze invitatie code is niet geldig."
+      invitation_code: "Invitatie code"
+      not_required: ", niet vereist"
       organization_name: ~
-      password_again: "Bevestig wachtwoord:"
-      show_my_name_to_others: ~
-      sign_up: "Creeer een nieuw account in%{service_name}"
+      password_again: "Bevestig wachtwoord"
+      show_my_name_to_others: "Toon mijn echte naam aan andere %{service_name} gebruikers"
+      sign_up: "Maak een nieuwe account in %{service_name}"
       terms: gebruiksvoorwaarden
-      username_is_in_use: "De gebruikersnaam is al in gebruik."
-      username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn, nummers en liggend streepje."
+      username_is_in_use: "Die gebruikersnaam is al in gebruik."
+      username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn letters, nummers en liggend streepje."
       visible_only_to_you: "alleen zichtbaar voor jou en de community beheerder"
       visible_to_everybody: "zichtbaar voor iedereen"
       create_account_with_facebook: "Maak een account met Facebook"
-      OR: ~
-      signup_with_email: ~
+      OR: OF
+      signup_with_email: "Meld je aan met je e-mail adres"
     not_member:
       explanation_text: "Je bent momenteel in de %{community} gemeenschap. Je hebt geprobeerd om het profiel te zien van een gebruiker uit een andere gemeenschap. Dit wordt op dit moment niet ondersteunt, dus je kunt alleen toegang tot dit profiel krijgen door de %{community} gemeenschap."
-      read_more_about_kassi_communities: "Lees meer over de gemeenschappen"
-      this_user_does_not_belong_to_this_community: "Deze gebruiker is niet lid van de %{community} gemeenschap"
+      read_more_about_kassi_communities: "Lees meer over de Sharetribe gemeenschappen"
+      this_user_does_not_belong_to_this_community: "Deze gebruiker is geen lid van de %{community} gemeenschap."
     profile_feedback:
       as_expected: "Zoals verwacht"
       exceeded_expectations: "Veel beter dan verwacht"
       grade: "cijfer:"
-      and_gave_following_feedback: ~
-      less_than_expected: "Veel minder dan verwacht"
+      and_gave_following_feedback: "en gaf de volgende feedback"
+      less_than_expected: "Minder dan verwacht"
       slightly_better_than_expected: "Iets beter dan verwacht"
       slightly_less_than_expected: "Iets minder dan verwacht"
     profile_listings:
       show_also_closed: "Laat ook gesloten zien"
       show_only_open: "Laat alleen open zien"
-      no_image: ~
+      no_image: "Geen afbeelding"
     show:
-      contact: ~
+      contact: "Contacteer %{person}"
       about_me: "Over mij:"
       add_description: "Vertel iets over jezelf"
       add_location: "Voeg een locatie toe"
       add_phone_number: "Voeg telefoonnummer toe"
       address: "Adres:"
       as_expected: "Zoals verwacht"
-      edit_profile_info: "Wijzig profile"
+      edit_profile_info: "Wijzig profiel"
       exceeded_expectations: "Verwachtingen overtroffen"
-      positive: ~
+      positive: positief
       hide_description: "Laat minder zien"
       less_than_expected: "Minder dan verwacht"
       phone_number: "Telefoon nummer:"
@@ -1589,24 +1589,24 @@ nl:
       slightly_better_than_expected: "Verwachtingen overtroffen"
       slightly_less_than_expected: "Minder dan verwacht"
       what_are_these: "Wat zijn dit?"
-      review: ~
-      reviews: ~
-      listing: ~
-      listings: ~
-      open_listing: Item
+      review: "ontvangen evaluatie"
+      reviews: "ontvangen evaluaties"
+      listing: item
+      listings: items
+      open_listing: item
       open_listings: "actuele items"
-      no_listings: ~
+      no_listings: "Geen items"
       no_open_listings: "Geen actuele items"
-      no_reviews: ~
-      show_all_listings: ~
+      no_reviews: "Geen evaluaties"
+      show_all_listings: "Toon alle items"
       show_all_open_listings: "Toon alle actuele items"
-      show_all_reviews: ~
-      trustcloud: ~
+      show_all_reviews: "Toon alle evaluaties"
+      trustcloud: TrustCard
     followed_people:
       you_follow_plural: "Je volgt %{count} mensen"
       you_follow_singular: "Je volgt %{count} persoon"
       they_follow_plural: "%{count} mensen die je volgt"
-      they_follow_singular: "Je volgt%{count} iemand"
+      they_follow_singular: "Je volgt %{count} iemand"
       show_all_followed_people: "Toon alle mensen die je volgt"
       no_followed_people: "Je volgt niemand"
     follow_button:
@@ -1626,32 +1626,32 @@ nl:
   sessions:
     new:
       create_new_account: "Maak een nieuw account aan"
-      i_forgot_my_password: "Ik ben mijn wachtwoord vergeten"
+      i_forgot_my_password: "Wachtwoord of gebruikersnaam vergeten"
       login: "Log in"
-      login_to_kassi: "Log in%{service_name}"
-      connect_your_facebook_to_kassi: "Connect %{service_name} met Facebook"
-      facebook_account: ~
-      log_in_to_link_account: ~
-      you_can_also_create_new_account: ~
-      account_creation_link_text: ~
-      cancle_facebook_connect: ~
-      facebook_cancel_link_text: ~
+      login_to_kassi: "Log in %{service_name}"
+      connect_your_facebook_to_kassi: "Connecteer %{service_name} met Facebook"
+      facebook_account: "Facebook account:"
+      log_in_to_link_account: "Als je al een %{service_name} account hebt, log dan in om dit te linken met je Facebook account."
+      you_can_also_create_new_account: "Als je geen account hebt bij %{service_name}, %{accont_creation_link} om een aan te maken met je Facebook login."
+      account_creation_link_text: "klik hier"
+      cancle_facebook_connect: "Klik %{cancel_link} als je niet wil linken met dit account."
+      facebook_cancel_link_text: annuleer
       log_in_with_your_facebook_account: "Log in met Facebook"
-      or_sign_up_with_your_username: "... of met je gebruikersnaam of emailadres:"
-      we_will_not_post_without_asking_you: ~
+      or_sign_up_with_your_username: "... of met je gebruikersnaam of e-mail adres:"
+      we_will_not_post_without_asking_you: "We zullen nooit iets op Facebook zetten zonder jouw toestemming."
     password_forgotten:
-      email: Email
-      password_recovery_instructions: "Geef je email adres en je ontvangt instructies hoe je je wachtwoord kunt veranderen."
+      email: E-mail
+      password_recovery_instructions: "Geef je e-mail adres en je ontvangt instructies hoe je je wachtwoord kunt wijzigen."
       request_new_password: "Nieuw wachtwoord aanvragen"
       change_your_password: "Wijzig je wachtwoord"
     confirmation_pending:
       welcome_to_kassi: "Welkom bij %{service_name}"
       check_your_email: "Controleer je inbox"
       resend_confirmation_instructions: "Stuur bevestigingsinstructies nogmaals"
-      your_current_email_is: ~
-      change_email: ~
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
+      your_current_email_is: "Je e-mail is %{email}."
+      change_email: Wijzig
+      confirm_your_email: "Bevestig aub je e-mail adres"
+      account_confirmation_instructions: "Je zal snel een bericht krijgen met een link die je moet aanklikken om het e-mail adres dat je hebt ingebracht te bevestigen. Zodra dit gebeurd is kan je aansluiten bij %{service_name}."
       account_confirmation_instructions_title_admin: ~
       your_marketplace_has_now_been_created: ~
       account_confirmation_instructions_admin: ~
@@ -1660,10 +1660,10 @@ nl:
       change: Wijzig
       confirm_new_password: "Bevestig nieuw wachtwoord"
       delete_account: "Verwijder account"
-      delete_account_button: ~
-      delete_account_confirmation_popup: ~
-      email_addresses: ~
-      new_email: "Nieuw email adres"
+      delete_account_button: "Verwijder mijn account permanent."
+      delete_account_confirmation_popup: "Ben je zeker dat je je account en alle bijbehorende data wil verwijderen? Deze actie kan niet ongedaan worden."
+      email_addresses: "E-mail adressen"
+      new_email: "Nieuw e-mail adres"
       delete_all_memberships: ~
       delete_personal_information: ~
       delete_information_others_involved: ~
@@ -1671,28 +1671,28 @@ nl:
       new_password: "Nieuw wachtwoord"
       save: Opslaan
       these_fields_are_shown_only_to_you: "Gebruikersnaam is zichtbaar in je profiel tenzij je je naam hebt opgegeven. Overige informatie is alleen zichtbaar voor jou."
-      email_already_confirmed: ~
+      email_already_confirmed: "Je e-mail adres is al geconfirmeerd."
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        address_title: Adres
+        remove_title: Verwijder
+        remove_confirmation: "Ben je zeker dat je dit e-mail adres wil verwijderen?"
+        receive_notifications_title_desktop: "Ontvang kennisgevingen"
+        receive_notifications_title_mobile: "Ontvang kennisgevingen"
+        receive_notifications_new_title_mobile: "Ontvang kennisgevingen"
+        add_new_with_plus: "+ Voeg een nieuw e-mail adres toe"
+        add_new_cancel: Annuleer
+        confirmation_title_mobile: "Bevestiging:"
+        confirmation_title_desktop: Bevestiging
+        confirmation_resend: "Stuur opnieuw"
+        status_confirmed: Bevestigd
+        status_pending: Hangende
     notifications:
-      email_from_admins: ~
-      i_want_to_get_email_notification_when: "Ik wil graag een email bevestiging krijgen als..."
+      email_from_admins: "Ik ben bereid occasionele updates te ontvangen van de beheerder(s)."
+      i_want_to_get_email_notification_when: "Ik wil graag een e-mail bevestiging krijgen wanneer..."
       newsletters: Nieuwsbrieven
-      community_updates: "Community updates"
-      email_about_accept_reminders: ~
-      email_about_confirm_reminders: "ik vergeten ben om te reageren op een vraag"
+      community_updates: "Update e-mails"
+      email_about_accept_reminders: "...ik ben vergeten om een voorstel of een verzoek te accepteren"
+      email_about_confirm_reminders: "...ik vergeten ben om een verzoek als uitgevoerd te bevestigen"
       email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn vraag of aanbod"
       email_about_new_messages: "...iemand stuurt me een bericht"
       email_about_new_received_testimonials: "...iemand geeft me feedback"
@@ -1703,34 +1703,34 @@ nl:
       email_when_conversation_accepted: "...iemand accepteert mijn vraag of aanbod"
       email_when_conversation_rejected: "...iemand weigert mijn vraag of aanbod"
       email_about_completed_transactions: "...iemand mijn vraag markeert als voltooid"
-      email_about_new_payments: ~
-      email_about_payment_reminders: "ik vergeten ben om te betalen"
+      email_about_new_payments: "...ik ontvang een nieuwe betaling"
+      email_about_payment_reminders: "...ik ben vergeten om te betalen"
       email_about_new_listings_by_followed_people: "...iemand die ik volg heeft iets nieuws geplaatst"
-      unsubscribe_succesful: ~
-      unsubscribe_info_text: ~
-      settings_link: ~
+      unsubscribe_succesful: "Uitschrijven succesvol uitgevoerd"
+      unsubscribe_info_text: "Je zal deze berichten niet langer ontvangen. Controleer je %{settings_link} om te kiezen welke e-mails je wil ontvangen van %{service_name}, of keer terug naar %{homepage_link}."
+      settings_link: instellingen
       homepage_link: "Home page"
-      unsubscribe_unsuccesful: ~
+      unsubscribe_unsuccesful: "Fout bij uitschrijven"
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: "Over jou:"
-      city: "Stad:"
-      family_name: "Achternaam*:"
-      given_name: "Voornaam*:"
+      about_you: "Over jou"
+      city: Stad
+      family_name: Achternaam
+      given_name: Voornaam
       first_name_with_initial: ~
-      first_name_only: ~
-      location_description: ~
-      phone_number: "Telefoon nummer:"
-      profile_picture: ~
-      postal_code: "Post code:"
+      first_name_only: "(niet getoond aan andere gebruikers)"
+      location_description: "Je kan je exacte locatie geven of bijvoorbeeld enkel je postcode. Voeg aub minstens een postcode toe. Je kan ook een locatie op onderstaande kaart selecteren."
+      phone_number: Telefoon
+      profile_picture: "Profiel afbeelding"
+      postal_code: Postcode
       profile_page: "op je profielpagina"
       profilemap: "Overzicht op kaart"
-      street_address: "Straat en huisnummer:"
+      street_address: "Straat en huisnummer"
       these_fields_are_shown_in_your: "Deze informatie is zichtbaar voor alle %{service_name} gebruikers"
       visible_to_everybody: "zichtbaar voor iedereen"
-      visible_to_registered_users: ~
+      visible_to_registered_users: "(zichtbaar voor ingelogde gebruikers)"
       default_in_listing: ~
-      invisible: ~
+      invisible: "(niet getoond aan andere gebruikers)"
     save_information: "Informatie opslaan"
   tag_cloud:
     tag_used:
@@ -1738,15 +1738,15 @@ nl:
       without_tag: "zonder tag"
   terms:
     show:
-      accept_terms: "%{service_name}gebruiksvoorwaarden accepteren"
-      here: hier
+      accept_terms: "%{service_name} gebruiksvoorwaarden accepteren"
+      here: "door hier te klikken"
       i_accept_new_terms: "Ik accepteer de nieuwe voorwaarden"
       i_accept_terms: "Ik accepteer de voorwaarden"
-      terms: "%{service_name}gebruiksvoorwaarden"
+      terms: "%{service_name} gebruiksvoorwaarden"
       terms_have_changed: "Gebruiksvoorwaarden zijn gewijzigd"
       you_can_view_the_new_terms: "Je kunt de nieuwe voorwaarden zien"
-      you_need_to_accept: "Welkom bij%{service_name}! Dit lijkt de eerste keer dat je gebruikt maakt van deze service. Voordat je aan de slag kunt moet je eerst accepteren de"
-      you_need_to_accept_new_terms: "De%{service_name} gebruiksvoorwaarden zijn gewijzigd. Deze moeten door jou geaccepteerd worden om gebruik te kunnen blijven maken van %{service_name}. De nieuwe voorwaarden zijn bedoeld voor het onderhoud van de service nadat het onderzoeksproject is beëindigd."
+      you_need_to_accept: "Welkom bij %{service_name}! Dit lijkt de eerste keer dat je gebruikt maakt van deze service. Voordat je aan de slag kunt moet je eerst accepteren de"
+      you_need_to_accept_new_terms: "De %{service_name} gebruiksvoorwaarden zijn gewijzigd. Deze moeten door jou geaccepteerd worden om gebruik te kunnen blijven maken van %{service_name}. De nieuwe voorwaarden zijn bedoeld voor het onderhoud van de service nadat het onderzoeksproject is beëindigd."
   testimonials:
     index:
       all_testimonials: "Alle feedback"
@@ -1757,18 +1757,18 @@ nl:
       as_expected: "Zoals verwacht"
       exceeded_expectations: "Veel beter dan verwacht"
       give_feedback_to: "Geef feedback aan %{person}"
-      grade: Waardering
+      grade: "Wat is je algemeen gevoel?"
       less_than_expected: "Minder dan verwacht"
       send_feedback: "Stuur feedback"
       slightly_better_than_expected: "Iets beter dan verwacht"
       slightly_less_than_expected: "Iets Minder dan verwacht"
-      textual_feedback: "Op- of aanmerkingen"
-      this_will_be_shown_in_profile: ~
-      positive: ~
-      negative: ~
-      default_textual_feedback: ~
+      textual_feedback: "Hoe is het gegaan?"
+      this_will_be_shown_in_profile: "De feedback die je geeft zal zichtbaar zijn voor andere leden in het de profiel pagina van %{person}. Het zal hen helpen om in te schatten of %{person} een betrouwbaar persoon is."
+      positive: Positief
+      negative: Negatief
+      default_textual_feedback: "Alles verliep vlot, dank je wel!"
     testimonial:
-      about_listing: ~
+      about_listing: "over item"
   date:
     formats:
       long_with_abbr_day_name: ~
@@ -1825,7 +1825,7 @@ nl:
       december: Dec
     today: Vandaag
     clear: ~
-    format: ~
+    format: mm/dd/yyyy
   time:
     formats:
       short: "%e %b %Y at %H:%M"
@@ -1841,16 +1841,21 @@ nl:
     minutes_ago: "%{count} minuten geleden"
     month_ago: "%{count} maand geleden"
     months_ago: "%{count} maanden geleden"
-    seconds_ago: "%{count} secondes geleden"
+    seconds_ago: "%{count} seconden geleden"
     year_ago: "%{count} jaar geleden"
     years_ago: "%{count} jaren geleden"
     days_since:
       one: "%{count} dag"
       other: "%{count} dagen"
   unit:
-    day: ~
-    days: ~
+    day: dag
+    days: dagen
   will_paginate:
+    models:
+      person:
+        zero: gebruikers
+        one: gebruiker
+        other: gebruikers
     previous_label: ~
     next_label: ~
     page_gap: ~
