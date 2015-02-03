@@ -234,6 +234,42 @@ describe TransactionService::PaypalEvents do
     end
   end
 
+  context "#payment_preauthorized -> expired" do
+    before(:each) do
+      PaymentStore.create(@cid, @transaction_with_msg.id, {
+          payer_id: "sduyfsudf",
+          receiver_id: "98ysdf98ysdf",
+          pending_reason: "authorization",
+          order_id: SecureRandom.uuid,
+          order_date: Time.now,
+          order_total: Money.new(22000, "EUR"),
+        })
+
+      @authorized_payment = PaymentStore.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {
+          payment_status: "pending",
+          pending_reason: "authorization",
+          authorization_id: "12345678",
+          authorization_date: Time.now,
+          authorization_total: Money.new(22000, "EUR")
+        })
+
+      TransactionService::PaypalEvents.payment_updated(:success, @authorized_payment)
+
+      @expired_payment = PaymentStore.update(community_id: @cid, transaction_id: @transaction_with_msg.id, data: {
+          payment_status: "expired",
+          authorization_id: "12345678"
+        })
+
+    end
+
+    it "transitions associated transaction to rejected on expiration" do
+      TransactionService::PaypalEvents.payment_updated(:success, @expired_payment)
+
+       expect(TransactionModel.where(id: @transaction_with_msg.id).pluck(:current_state).first).to eq "rejected"
+      expect(TransactionTransition.where(transaction_id: @transaction_with_msg.id).pluck(:metadata)).to include({ "paypal_payment_status" => "expired" })
+    end
+  end
+
   context "#payment_updated preauthorized -> denied" do
     before(:each) do
       PaymentStore.create(@cid, @transaction_with_msg.id, {

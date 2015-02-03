@@ -28,6 +28,8 @@ module TransactionService::PaypalEvents
       when :preauthorized_to_voided
         preauthorized_to_rejected(tx) if(flow == :success)
         preauthorized_to_errored(tx) if(flow == :error)
+      when :preauthorized_to_expired
+        preauthorized_to_rejected(tx, payment[:payment_status])
       when :pending_ext_to_denied
         pending_ext_to_denied(tx, payment[:payment_status])
       else
@@ -47,6 +49,7 @@ module TransactionService::PaypalEvents
     [:preauthorized_to_pending_ext, [:preauthorized, :pending]],
     [:pending_ext_to_paid,          [:pending_ext, :completed]],
     [:preauthorized_to_voided,      [:preauthorized, :voided]],
+    [:preauthorized_to_expired,     [:preauthorized, :expired]],
     [:pending_ext_to_denied,        [:pending_ext, :denied]]
   ]
 
@@ -68,8 +71,9 @@ module TransactionService::PaypalEvents
     MarketplaceService::Transaction::Command.transition_to(tx[:id], "errored")
   end
 
-  def preauthorized_to_rejected(tx)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected")
+  def preauthorized_to_rejected(tx, payment_status = nil)
+    metadata = payment_status ? { paypal_payment_status: payment_status } : nil
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected", metadata)
   end
 
   def pending_ext_to_denied(tx, payment_status)

@@ -10,6 +10,7 @@ module PaypalService
     PAYMENT_ROW_UPDATE_TYPES = [
       :order_created,
       :authorization_created,
+      :authorization_expired,
       :payment_completed,
       :payment_pending_ext,
       :payment_voided,

@@ -55,6 +55,13 @@ describe PaypalService::IPN do
       authorization_total: Money.new(120, "GBP")
     }
 
+    @auth_expired_msg = {
+      type: :authorization_expired,
+      authorization_id: "0L584749FU2628910",
+      order_id: "O-2ES620817J8424036",
+      payment_status: "Expired"
+    }
+
     @order_created_msg = {
       type: :order_created,
       order_date:  "2014-10-01 09:04:07 +0300",
@@ -256,6 +263,14 @@ describe PaypalService::IPN do
       @ipn_service.handle_msg(@commission_refunded_msg)
 
       expect(PaypalRefund.count).to eql 1
+    end
+
+    it "should handle authorization expired" do
+      @ipn_service.handle_msg(@auth_created_msg)
+      @ipn_service.handle_msg(@auth_expired_msg)
+
+      payment = PaypalPayment.first
+      expect(payment.payment_status).to eql "expired"
     end
 
     it "should handle billing agreement created" do

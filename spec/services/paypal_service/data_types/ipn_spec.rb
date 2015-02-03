@@ -512,6 +512,53 @@ describe PaypalService::DataTypes::IPN do
     "verify_sign" => "AH1pol-O9H-rvd9aoeuaonesutha.qtkq16DTx..JHU9WOSdPL9xy5"
   }
 
+  authorization_expired = {
+    "mc_gross" => "20.00",
+    "invoice" => "2492-12344567",
+    "auth_exp" => "10:20:37 Jan 18, 2015 PST",
+    "protection_eligibility" => "Ineligible",
+    "item_number1" => "",
+    "payer_id" => "LLLLLLLLLHEUE",
+    "tax" => "0.00",
+    "payment_date" => "10:20:38 Dec 20, 2014 PST",
+    "payment_status" => "Expired",
+    "charset" => "windows-1252",
+    "mc_shipping" => "0.00",
+    "mc_handling" => "0.00",
+    "first_name" => "Test",
+    "transaction_entity" => "auth",
+    "notify_version" => "3.8",
+    "custom" => "",
+    "payer_status" => "verified",
+    "num_cart_items" => "1",
+    "mc_handling1" => "0.00",
+    "verify_sign" => "An5ns1Kso71238r129837019283712938-123iw0CAMnhqxqxIxCX",
+    "payer_email" => "test@example.com",
+    "mc_shipping1" => "0.00",
+    "tax1" => "0.00",
+    "parent_txn_id" => "O-16D136AUOSRCHEUV",
+    "txn_id" => "1234556SNETHUSNTH",
+    "payment_type" => "instant",
+    "remaining_settle" => "10",
+    "auth_id" => "1234566ASDFASH81U",
+    "last_name" => "Tester",
+    "item_name1" => "Samurai Sword",
+    "receiver_email" => "rec@example.com",
+    "auth_amount" => "20.00",
+    "quantity1" => "1",
+    "receiver_id" => "123456RCEHSTN",
+    "txn_type" => "cart",
+    "mc_gross_1" => "20.00",
+    "mc_currency" => "USD",
+    "residence_country" => "US",
+    "transaction_subject" => "",
+    "payment_gross" => "20.00",
+    "auth_status" => "Expired",
+    "ipn_track_id" => "12ab3cdefgh8f",
+    "controller" => "paypal_ipn",
+    "action" => "ipn_hook"
+  }
+
   it "#from_params" do
     input_with_expected_type = [
       [billing_agreement_created, :billing_agreement_created],
@@ -524,7 +571,8 @@ describe PaypalService::DataTypes::IPN do
       [payment_completed_2, :payment_completed],
       [payment_refunded_2, :payment_refunded],
       [payment_denied, :payment_denied],
-      [commission_paid, :commission_paid]
+      [commission_paid, :commission_paid],
+      [authorization_expired, :authorization_expired]
     ]
 
     input_with_expected_type.each do |(input, type)|
