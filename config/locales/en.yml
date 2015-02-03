@@ -321,13 +321,13 @@ en:
     paypal_accounts:
       marketplace_paypal_integration: "Payment preferences"
       preferences_updated: "Payment preferences updated"
-      integration_info_text: "The payment system of Sharetribe is powered by PayPal. If you want to enable your users to make payments through your marketplace, you must connect your PayPal account and decide the minimum listing price and the fee you want to take from each transaction."
+      integration_info_text: "The payment system of Sharetribe is powered by PayPal. If you want to enable your users to make payments through your marketplace, you must connect your PayPal account and decide the minimum transaction size and the fee you want to take from each transaction."
       read_more_about_paypal: "Read more about Sharetribe's payment system"
       paypal_account_email: "1. Connect your PayPal account"
       paypal_account_email_completed: Completed!
       set_minimum_price_and_fee: "2. Set minimum price & transaction fee"
       set_minimum_price_and_fee_completed: Completed!
-      minimum_listing_price_label: "Minimum listing price:"
+      minimum_listing_price_label: "Minimum transaction size:"
       transaction_fee_label: "Transaction fee:"
       minimum_transaction_fee_label: "Minimum transaction fee:"
       save_settings: "Save settings"
@@ -1509,9 +1509,9 @@ You can see the exact fees by logging in to your PayPal account and going <a hre
       admin_account_not_connected: "%{service_name} hasn't been configured for payments, so you cannot connect your PayPal account yet. Please %{contact_admin_link} for details."
       paypal_account_email: "1. Connect your PayPal account"
       paypal_account_email_placeholder: "Your PayPal email address"
-      paypal_account_email_info_text: "Note: you need a PayPal premier account (for individuals) or business account (for companies) to accept payments. If you have a PayPal personal account, you can upgrade your account. It's free and only takes a minute. %{upgrade_paypal_account} If you don't have a PayPal account yet, you can create a new account %{create_paypal_account}. Your PayPal account should be configured to receive %{currency}."
-      create_paypal_account: here
-      upgrade_paypal_account: "Upgrade your account here."
+      paypal_account_email_info_text: "If you don't have a PayPal account, you can create one by %{create_paypal_account}. If you get an error message when connecting your PayPal account, you need to upgrade to a business account. Upgrading is quick and easy and doesn't cost you anything. If you are an individual, you should just put your first and last name in the \"business name\" field when PayPal asks for it. To upgrade your account, %{upgrade_paypal_account} and find the upgrade link."
+      create_paypal_account: "clicking here"
+      upgrade_paypal_account: "log in to your PayPal account"
       connect_paypal_account: "Connect PayPal account"
       paypal_account_billing_agreement: "2. Grant %{service_name} permission to charge a transaction fee"
       paypal_account_billing_agreement_info: "When you make a sale on %{service_name}, a transaction fee of %{commission} of the item price will be charged (note: minimum fee is %{minimum_commission}). The fee includes PayPal's fees. To use %{service_name} you need to allow it to charge this fee."

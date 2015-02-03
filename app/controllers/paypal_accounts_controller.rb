@@ -24,7 +24,7 @@ class PaypalAccountsController < ApplicationController
       flash.now[:warning] = t("paypal_accounts.new.admin_account_not_connected",
                             contact_admin_link: view_context.link_to(
                               t("paypal_accounts.new.contact_admin_link_text"),
-                                new_user_feedback_path))
+                                new_user_feedback_path)).html_safe
     end
 
     render(locals: {

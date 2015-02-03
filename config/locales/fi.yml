@@ -327,7 +327,7 @@ fi:
       paypal_account_email_completed: Tehty!
       set_minimum_price_and_fee: "2. Aseta minimihinta ja välityspalkkioprosentti"
       set_minimum_price_and_fee_completed: Tehty!
-      minimum_listing_price_label: "Ilmoituksen minimihinta:"
+      minimum_listing_price_label: "Maksutapahtuman minimikoko:"
       transaction_fee_label: "Välityspalkkioprosentti:"
       minimum_transaction_fee_label: "Minimipalkkio:"
       save_settings: "Tallenna asetukset"
@@ -1509,9 +1509,9 @@ Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a hre
       admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska %{service_name} ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_placeholder: "PayPal-tilisi sähköpostiosoite"
-      paypal_account_email_info_text: "Huom! Tarvitset PayPalin 'Premier'-tilin (yksityishenkilöille) tai 'Business'-tilin (yrityksille) vastaanottaaksesi luottokorttimaksuja. Jos sinulla on PayPalin 'Personal'-tili, voit muuttaa tilin tyyppiä (se on helppoa ja ilmaista). %{upgrade_paypal_account} Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}. Huom! PayPal-tilisi tulee pystyä ottamaan vastaan %{currency}-valuuttaa."
-      create_paypal_account: tästä
-      upgrade_paypal_account: "Muuta PayPal-tilin tyyppi tästä."
+      paypal_account_email_info_text: "Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}. Jos saat virheviestin yrittäessäsi yhdistää PayPal-tilisi, sinun pitää päivittää tilisi business-tiliksi. Päivittäminen on helppoa ja nopeaa eikä maksa sinulle mitään. Jos olet yksityishenkilö, voit lisätä etu- ja sukunimesi \"business name\"-kenttään PayPalin kysyessä sitä. Päivittäminen onnistuu %{upgrade_paypal_account} ja etsimällä linkin \"Upgrade to business account\"."
+      create_paypal_account: "klikkaamalla tästä"
+      upgrade_paypal_account: "kirjautumalla PayPal-tilillesi"
       connect_paypal_account: "Yhdistä PayPal-tili"
       paypal_account_billing_agreement: "2. Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista."
       paypal_account_billing_agreement_info: "%{service_name} veloittaa %{commission} välityspalkkion jokaisesta kaupasta (huom! välityspalkkio on aina vähintään %{minimum_commission}. Hinta sisältää PayPalin veloittamat maksut. Käyttääksesi %{service_name}-palvelua sinun tätyy antaa palvelulle lupa ottaa välityspalkkio PayPal-maksuista."
