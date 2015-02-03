@@ -186,6 +186,7 @@ describe PaypalService::API::Accounts do
 
       with_personal_account { |data|
         expect(data[:active]).to eq false
+        expect(data[:state]).to eq :not_verified
         expect(data[:order_permission_state]).to eq :pending
         expect(data[:billing_agreement_state]).to eq :not_verified
       }
@@ -200,6 +201,7 @@ describe PaypalService::API::Accounts do
 
       with_community_account { |data|
         expect(data[:active]).to eq false
+        expect(data[:state]).to eq :not_verified
         expect(data[:order_permission_state]).to eq :pending
         expect(data[:billing_agreement_state]).to eq :not_verified
       }
@@ -213,7 +215,8 @@ describe PaypalService::API::Accounts do
       create_personal_account
 
       with_personal_account { |data|
-        expect(data[:active]).to eq false
+        expect(data[:active]).to eq true
+        expect(data[:state]).to eq :not_verified
         expect(data[:email]).to eq @email
         expect(data[:payer_id]).to eq @payer_id
         expect(data[:order_permission_state]).to eq :verified
@@ -227,6 +230,7 @@ describe PaypalService::API::Accounts do
 
       with_community_account { |data|
         expect(data[:active]).to eq true
+        expect(data[:state]).to eq :verified
         expect(data[:email]).to eq @email
         expect(data[:payer_id]).to eq @payer_id
         expect(data[:order_permission_state]).to eq :verified
@@ -250,7 +254,8 @@ describe PaypalService::API::Accounts do
       }
 
       with_personal_account { |data|
-        expect(data[:active]).to eq false
+        expect(data[:active]).to eq true
+        expect(data[:state]).to eq :not_verified
         expect(data[:email]).to eq @email
         expect(data[:payer_id]).to eq @payer_id
         expect(data[:order_permission_state]).to eq :verified
@@ -270,6 +275,7 @@ describe PaypalService::API::Accounts do
 
       with_personal_account { |data|
         expect(data[:active]).to eq true
+        expect(data[:state]).to eq :verified
         expect(data[:email]).to eq @email
         expect(data[:payer_id]).to eq @payer_id
         expect(data[:order_permission_state]).to eq :verified

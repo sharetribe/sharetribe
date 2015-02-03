@@ -42,7 +42,8 @@ Response 201 Created, with PaypalAccount body
 ```ruby
 { person_id: "person_id_1"
 , community_id: 121212
-, active: false,
+, active: true,
+, state: :not_verified,
 , paypal_email: "dev+paypal-user1@sharetribe.com"
 , payer_id: "98ASDF723S"
 , order_permission_state: :verified
@@ -93,6 +94,7 @@ Response body: PaypalAccount
 { person_id: "person_id_1"
 , community_id: 121212
 , active: true,
+, state: :verified,
 , paypal_email: "dev+paypal-user1@sharetribe.com"
 , payer_id: "98ASDF723S"
 , order_permission_state: :verified
@@ -139,6 +141,7 @@ Response body: PaypalAccount
 { person_id: "person_id_1"
 , community_id: 121212
 , active: true,
+, state: :verified,
 , paypal_email: "dev+paypal-user1@sharetribe.com"
 , payer_id: "98ASDF723S"
 , order_permission_state: :verified

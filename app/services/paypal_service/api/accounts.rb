@@ -77,7 +77,7 @@ module PaypalService::API
                 payer_id: personal_data[:payer_id],
                 order_permission_verification_code: body[:order_permission_verification_code],
                 order_permission_scope: access_token[:scope].join(','),
-                active: person_id.nil? # activate admin account
+                active: true
               })
 
           Result::Success.new(account)
@@ -164,8 +164,7 @@ module PaypalService::API
               person_id: person_id,
               opts:
                 {
-                  billing_agreement_billing_agreement_id: billing_agreement[:billing_agreement_id],
-                  active: true
+                  billing_agreement_billing_agreement_id: billing_agreement[:billing_agreement_id]
                 })
 
             Result::Success.new(account)

@@ -10,12 +10,12 @@ class PaypalAccountsController < ApplicationController
   DataTypePermissions = PaypalService::DataTypes::Permissions
 
   def show
-    account_response = accounts_api.get(
+    m_account = accounts_api.get(
       community_id: @current_community.id,
       person_id: @current_user.id
-    )
-    m_account = account_response.maybe
-    return redirect_to action: :new unless m_account[:active].or_else(false)
+    ).maybe
+
+    return redirect_to action: :new unless m_account[:state].or_else(:not_verified) == :verified
 
     @selected_left_navi_link = "payments"
 
@@ -35,12 +35,12 @@ class PaypalAccountsController < ApplicationController
   end
 
   def new
-    account_response = accounts_api.get(
+    m_account = accounts_api.get(
       community_id: @current_community.id,
       person_id: @current_user.id
-    )
-    m_account = account_response.maybe
-    return redirect_to action: :show if m_account[:active].or_else(false)
+    ).maybe
+
+    return redirect_to action: :show if m_account[:state].or_else(:not_verified) == :verified
 
     @selected_left_navi_link = "payments"
     commission_from_seller = payment_gateway_commission(@current_community.id)

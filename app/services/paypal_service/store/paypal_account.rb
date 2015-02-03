@@ -23,7 +23,7 @@ module PaypalService::Store::PaypalAccount
   )
 
   PaypalAccountUpdate = EntityUtils.define_builder(
-    [:active, :to_bool],
+    [:active, one_of: [true, false, nil]],
     [:email, :string],
     [:payer_id, :string],
     [:order_permission_verification_code, :string],
@@ -39,6 +39,7 @@ module PaypalService::Store::PaypalAccount
     [:person_id, :string],
     [:email, :string],
     [:payer_id, :string],
+    [:state, one_of: [:not_verified, :verified]],
     [:order_permission_state, one_of: [:not_verified, :pending, :verified]],
     [:billing_agreement_state, one_of: [:not_verified, :pending, :verified]],
     [:billing_agreement_billing_agreement_id, :string]
@@ -205,11 +206,26 @@ module PaypalService::Store::PaypalAccount
           end
         }.or_else(:not_verified)
 
+        hash[:state] = account_state(hash)
+
         hash[:billing_agreement_billing_agreement_id] =
           Maybe(m).billing_agreement.billing_agreement_id.or_else(nil)
         PaypalAccount.call(hash)
       }
       .or_else(nil)
+  end
+
+  def account_state(entity)
+    case [entity[:person_id], entity[:order_permission_state], entity[:billing_agreement_state]]
+    when matches([nil, :verified])
+      # verified community account
+      :verified
+    when matches([__, :verified, :verified])
+      # verified personal account
+      :verified
+    else
+      :not_verified
+    end
   end
 
   def sub_and_rename(h, rename_map)
