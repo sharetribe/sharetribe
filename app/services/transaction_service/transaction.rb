@@ -153,13 +153,11 @@ module TransactionService::Transaction
   # Private
   def tx_data_paypal(listing, opts_tx)
     currency = listing.price.currency
-    minimum_commission = Maybe(paypal_minimum_commissions_api.get(currency)).or_else {
-        raise ArgumentError.new("No PayPal minimum commissions for currency #{currency} defined.")
-      }
-
     p_set = PaymentSettingsStore.get_active(community_id: opts_tx[:community_id])
 
-    [minimum_commission, p_set[:commission_from_seller], p_set[:confirmation_after_days]]
+    [Money.new(p_set[:minimum_transaction_fee_cents], currency),
+     p_set[:commission_from_seller],
+     p_set[:confirmation_after_days]]
   end
 
   # Private
@@ -342,7 +340,7 @@ module TransactionService::Transaction
         payment_name: I18n.translate_with_service_name("paypal.transaction.commission_payment_name", { listing_title: transaction[:listing_title] }),
         payment_desc: I18n.translate_with_service_name("paypal.transaction.commission_payment_description", { listing_title: transaction[:listing_title] }),
         minimum_commission: transaction[:minimum_commission],
-        commission_to_admin: calculate_commission_to_admin(transaction[:commission_total], payment[:fee_total])
+        commission_to_admin: calculate_commission_to_admin(transaction[:commission_total], payment[:payment_total], payment[:fee_total])
       }
 
     paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
@@ -377,8 +375,9 @@ module TransactionService::Transaction
     end
   end
 
-  def calculate_commission_to_admin(commission_total, fee_total)
-    commission_total - fee_total #we charge from admin, only the sum after paypal fees
+  def calculate_commission_to_admin(commission_total, payment_total, fee_total)
+    # Ensure we never charge more than what the seller received after payment processing fee
+    [commission_total, payment_total - fee_total].min
   end
 
   def paypal_account_verified?(community_id:, person_id:nil)
@@ -398,10 +397,6 @@ module TransactionService::Transaction
 
   def paypal_billing_agreement_api
     PaypalService::API::Api.billing_agreements
-  end
-
-  def paypal_minimum_commissions_api
-    PaypalService::API::Api.minimum_commissions
   end
 
   def paypal_accounts_api

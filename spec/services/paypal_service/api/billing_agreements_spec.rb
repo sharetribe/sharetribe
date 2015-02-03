@@ -145,24 +145,6 @@ describe PaypalService::API::BillingAgreements do
       expect(payment_res[:data][:commission_status]).to eq(:seller_is_admin)
     end
 
-    it "marks the commission to not applicable when commission smaller than minimum" do
-      do_payment!(@person_id)
-      @payments.full_capture(@cid, @tx_id, { payment_total: Money.new(2, "EUR") })
-
-      commission_info = {
-        transaction_id: @tx_id,
-        commission_to_admin: Money.new(47, "EUR"),
-        minimum_commission: Money.new(50, "EUR"),
-        payment_name: "commission payment",
-        payment_desc: "commission payment desc"
-      }
-
-      payment_res = @billing_agreements.charge_commission(@cid, @person_id, commission_info)
-
-      expect(payment_res[:success]).to eq(true)
-      expect(payment_res[:data][:commission_status]).to eq(:below_minimum)
-    end
-
     it "marks the commission errored if payment failed" do
       do_payment!(@person_id)
       @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
