@@ -1517,6 +1517,7 @@ fi:
       billing_agreement_wrong_account: "PayPal käyttäjätilit eivät täsmää. Käytä samaa käyttäjitiliä, jonka yhdistit ensimmäisessä vaiheessa."
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
       account_not_verified: "Et ole vahvistanut PayPal-tiliäsi. Sinun on vahvistettava tilisi ennen kuin voit jatkaa."
+      account_restricted: "PayPal-tiliisi on rajoitetussa tilassa eikä sitä voida yhdistää. Sinun tulee kirjautua PayPal-sivustolle selvittääksesi ongelman."
   paypal:
     checkout_with_paypal: "Maksa PayPal-tilillä"
     cancel_succesful: "PayPal maksu onnistuneesti peruttu."

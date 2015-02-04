@@ -1517,6 +1517,7 @@ en:
       billing_agreement_wrong_account: "PayPal accounts did not match. Please use the same PayPal account that you connected in the first step."
       something_went_wrong: "Something went wrong. Please try again. If the problem persists, please contact the site administrators."
       account_not_verified: "You haven't verified your PayPal account. You need to go to paypal.com and verify your account before you can continue."
+      account_restricted: "Your PayPal account is restricted and cannot be connected. Please log in to paypal.com to find out more what this means or get in touch with PayPal customer support to resolve the issue."
   paypal:
     checkout_with_paypal: "Checkout with PayPal"
     cancel_succesful: "PayPal payment succesfully canceled"
