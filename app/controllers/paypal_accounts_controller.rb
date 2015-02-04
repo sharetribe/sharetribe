@@ -204,6 +204,8 @@ class PaypalAccountsController < ApplicationController
         error_msg
       elsif (error_response && error_response[:error_code] == "570058")
         t("paypal_accounts.new.account_not_verified")
+      elsif (error_response && error_response[:error_code] == "520009")
+        t("paypal_accounts.new.account_restricted")
       else
         t("paypal_accounts.new.something_went_wrong")
       end
