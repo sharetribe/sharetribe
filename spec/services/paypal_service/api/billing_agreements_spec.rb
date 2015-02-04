@@ -27,6 +27,7 @@ describe PaypalService::API::BillingAgreements do
 
     AccountStore.create(opts:
       {
+        active: true,
         person_id: @mid,
         community_id: @cid,
         email: @paypal_email,
@@ -40,6 +41,7 @@ describe PaypalService::API::BillingAgreements do
 
     AccountStore.create(opts:
       {
+        active: true,
         community_id: @cid,
         email: @paypal_email_admin,
         payer_id: @payer_id_admin,

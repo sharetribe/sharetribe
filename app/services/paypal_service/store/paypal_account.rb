@@ -119,8 +119,15 @@ module PaypalService::Store::PaypalAccount
     find_model(person_id: person_id, community_id: community_id).each { |account| account.destroy }
   end
 
-  def get(person_id:nil, community_id:, active:[true, false])
-    from_model(find_model(person_id: person_id, community_id: community_id, active: active))
+  def get(person_id:nil, community_id:, active: :all, payer_id: :all)
+    from_model(
+      find_model(
+        person_id: person_id,
+        community_id: community_id,
+        active: active,
+        payer_id: payer_id
+      )
+    )
   end
 
   def get_by_payer_id(payer_id:, community_id:)
@@ -170,7 +177,7 @@ module PaypalService::Store::PaypalAccount
   # - `nil` means that the value has to be NULL in database
   # - `:all` means that this parameter is ignored, i.e. all values are accepted
   #
-  def find_model(person_id:nil, community_id:, active: :all, order_permission_request_token: :all)
+  def find_model(person_id:nil, community_id:, active: :all, order_permission_request_token: :all, payer_id: :all)
     query = construct_query(
       {
         person_id: person_id,

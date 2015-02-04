@@ -32,7 +32,7 @@ module PaypalService::API
 
     ## POST /payments/request
     def request(community_id, create_payment, async: false)
-      @lookup.with_account(
+      @lookup.with_active_account(
         community_id, create_payment[:merchant_id]
       ) do |m_acc|
         if (async)

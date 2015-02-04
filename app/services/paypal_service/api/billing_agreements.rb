@@ -35,8 +35,8 @@ module PaypalService::API
 
     # POST /billing_agreements/:community_id/:person_id/charge_commission
     def charge_commission(community_id, person_id, info, async: false)
-      @lookup.with_accounts(community_id, person_id) do |m_acc, admin_acc|
-        @lookup.with_completed_payment(community_id, info[:transaction_id]) do |payment|
+      @lookup.with_completed_payment(community_id, info[:transaction_id]) do |payment|
+        @lookup.with_accounts(community_id, person_id, payment[:receiver_id]) do |m_acc, admin_acc|
           if(seller_is_admin?(m_acc, admin_acc))
             commission_not_applicable(community_id, info[:transaction_id], m_acc[:person_id], payment, :seller_is_admin)
           elsif(commission_below_minimum?(info[:commission_to_admin], info[:minimum_commission]))
