@@ -5,41 +5,55 @@ describe PaypalService::API::Accounts do
   APIDataTypes = PaypalService::API::DataTypes
 
   ## API Operations (with default test data)
-  def request_personal_account
+  def request_personal_account(email:nil, payer_id:nil)
+    email ||= @email
+    payer_id ||= @payer_id
+
     @accounts.request(
       body: APIDataTypes.create_create_account_request(
       {
         community_id: @cid,
         person_id: @mid,
-        callback_url: "http://test.com/create",
+        # For testing purposes, add 'email' and 'payer_id' query params.
+        # That way we can inject them to our fake PayPal
+        callback_url: "http://test.com/request?email=#{email}&payer_id=#{payer_id}",
         country: @country
       }))
   end
 
   def request_community_account
+    email ||= @email
+    payer_id ||= @payer_id
+
     response = @accounts.request(
       body: APIDataTypes.create_create_account_request(
       {
         community_id: @cid,
-        callback_url: "http://test.com/create",
+        # For testing purposes, add 'email' and 'payer_id' query params.
+        # That way we can inject them to our fake PayPal
+        callback_url: "http://test.com/request?email=#{email}&payer_id=#{payer_id}",
         country: @country
       }))
   end
 
-  def create_personal_account
+  def create_personal_account(request_response)
+    _, token = parse_redirect_url_from_response(request_response)
+
     @accounts.create(
       community_id: @cid,
       person_id: @mid,
-      order_permission_request_token: "12345",
+      order_permission_request_token: token,
       body: {
         order_permission_verification_code: "xxxxyyyyzzzz"
       })
   end
 
-  def create_community_account
+  def create_community_account(request_response)
+    _, token = parse_redirect_url_from_response(request_response)
+
     @accounts.create(
       community_id: @cid,
-      order_permission_request_token: "12345",
+      order_permission_request_token: token,
       body: {
         order_permission_verification_code: "xxxxyyyyzzzz"
       })
@@ -181,7 +195,9 @@ describe PaypalService::API::Accounts do
       response = request_personal_account
 
       with_success(response) { |data|
-        expect(data[:redirect_url]).to eq "https://paypaltest.com/gb/12345"
+        redirect_endpoint, token = parse_redirect_url(data[:redirect_url])
+        expect(redirect_endpoint).to eq "https://paypaltest.com/gb/"
+        expect_token(token)
       }
     end
 
@@ -189,7 +205,9 @@ describe PaypalService::API::Accounts do
       response = request_community_account
 
       with_success(response) { |data|
-        expect(data[:redirect_url]).to eq "https://paypaltest.com/gb/12345"
+        redirect_endpoint, token = parse_redirect_url(data[:redirect_url])
+        expect(redirect_endpoint).to eq "https://paypaltest.com/gb/"
+        expect_token(token)
       }
     end
   end
@@ -197,8 +215,8 @@ describe PaypalService::API::Accounts do
   context "#create" do
 
     it "creates personal account with permissions" do
-      request_personal_account
-      create_personal_account
+      res = request_personal_account
+      create_personal_account(res)
 
       with_personal_account { |data|
         expect(data[:active]).to eq true
@@ -211,8 +229,8 @@ describe PaypalService::API::Accounts do
     end
 
     it "creates community account with permissions" do
-      request_community_account
-      create_community_account
+      res = request_community_account
+      create_community_account(res)
 
       with_community_account { |data|
         expect(data[:active]).to eq true
@@ -238,8 +256,8 @@ describe PaypalService::API::Accounts do
   context "#billing_agreement_request" do
 
     it "creates billing agreement request" do
-      request_personal_account
-      create_personal_account
+      res = request_personal_account
+      create_personal_account(res)
       response = request_billing_agreement
 
       with_success(response) { |data|
@@ -262,8 +280,8 @@ describe PaypalService::API::Accounts do
   context "#billing_agreement_create" do
 
     it "verifies billing agreement" do
-      request_personal_account
-      create_personal_account
+      res = request_personal_account
+      create_personal_account(res)
       res = request_billing_agreement
       _, token = parse_redirect_url_from_response(res)
       create_billing_agreement(token)
@@ -283,8 +301,8 @@ describe PaypalService::API::Accounts do
   context "#delete_billing_agreement" do
 
     it "deletes pending billing agreement" do
-      request_personal_account
-      create_personal_account
+      res = request_personal_account
+      create_personal_account(res)
       request_billing_agreement
 
       with_personal_account { |data|
@@ -299,8 +317,8 @@ describe PaypalService::API::Accounts do
     end
 
     it "deletes verified billing agreement" do
-      request_personal_account
-      create_personal_account
+      res = request_personal_account
+      create_personal_account(res)
       res = request_billing_agreement
       _, token = parse_redirect_url_from_response(res)
       create_billing_agreement(token)
@@ -321,8 +339,8 @@ describe PaypalService::API::Accounts do
     context "personal account" do
 
       it "deletes account with verified permissions" do
-        request_personal_account
-        create_personal_account
+        res = request_personal_account
+        create_personal_account(res)
 
         with_personal_account { |data|
           expect(data[:order_permission_state]).to eq :verified
@@ -334,8 +352,8 @@ describe PaypalService::API::Accounts do
       end
 
       it "deletes account with pending billing agreement" do
-        request_personal_account
-        create_personal_account
+        res = request_personal_account
+        create_personal_account(res)
         request_billing_agreement
 
         with_personal_account { |data|
@@ -348,8 +366,8 @@ describe PaypalService::API::Accounts do
       end
 
       it "deletes account with verified billing agreement" do
-        request_personal_account
-        create_personal_account
+        res = request_personal_account
+        create_personal_account(res)
         res = request_billing_agreement
         _, token = parse_redirect_url_from_response(res)
         create_billing_agreement(token)
@@ -366,8 +384,8 @@ describe PaypalService::API::Accounts do
 
     context "community account" do
       it "deletes account with verified permissions" do
-        request_community_account
-        create_community_account
+        res = request_community_account
+        create_community_account(res)
 
         with_community_account { |data|
           expect(data[:order_permission_state]).to eq :verified
