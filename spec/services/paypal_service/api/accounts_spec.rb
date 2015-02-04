@@ -186,7 +186,9 @@ describe PaypalService::API::Accounts do
     @mid = "merchant_id_1"
     @country = "gb"
     @payer_id = "payer_id"
+    @new_payer_id = "new_payer_id"
     @email = "payer_email@example.com"
+    @new_email = "new_payer_email@example.com"
   end
 
   context "#request" do
@@ -237,6 +239,43 @@ describe PaypalService::API::Accounts do
         expect(data[:state]).to eq :verified
         expect(data[:email]).to eq @email
         expect(data[:payer_id]).to eq @payer_id
+        expect(data[:order_permission_state]).to eq :verified
+        expect(data[:billing_agreement_state]).to eq :not_verified
+      }
+    end
+
+    it "replaces old account with new one" do
+      res = request_personal_account
+      create_personal_account(res)
+
+      with_personal_account { |data|
+        expect(data[:active]).to eq true
+        expect(data[:state]).to eq :not_verified
+        expect(data[:email]).to eq @email
+        expect(data[:payer_id]).to eq @payer_id
+        expect(data[:order_permission_state]).to eq :verified
+        expect(data[:billing_agreement_state]).to eq :not_verified
+      }
+
+      res = request_personal_account(email: @new_email, payer_id: @new_payer_id)
+
+      # Returns old account as long as the new account does not have permissions verified
+      with_personal_account { |data|
+        expect(data[:active]).to eq true
+        expect(data[:state]).to eq :not_verified
+        expect(data[:email]).to eq @email
+        expect(data[:payer_id]).to eq @payer_id
+        expect(data[:order_permission_state]).to eq :verified
+        expect(data[:billing_agreement_state]).to eq :not_verified
+      }
+
+      create_personal_account(res)
+
+      with_personal_account { |data|
+        expect(data[:active]).to eq true
+        expect(data[:state]).to eq :not_verified
+        expect(data[:email]).to eq @new_email
+        expect(data[:payer_id]).to eq @new_payer_id
         expect(data[:order_permission_state]).to eq :verified
         expect(data[:billing_agreement_state]).to eq :not_verified
       }

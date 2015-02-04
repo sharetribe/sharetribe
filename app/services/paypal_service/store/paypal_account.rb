@@ -64,31 +64,43 @@ module PaypalService::Store::PaypalAccount
 
   def create(opts:)
     entity = PaypalAccountCreate.call(opts)
-    account = select_paypal_account_values(entity)
-    order_permission = select_order_permission_values(entity)
+    account = HashUtils.compact(select_paypal_account_values(entity))
+    order_permission = HashUtils.compact(select_order_permission_values(entity))
 
     account_model = PaypalAccountModel.create!(account)
     account_model.create_order_permission(order_permission)
-    account_model = update_or_create_billing_agreement(account_model, select_billing_agreement_values(entity))
+    account_model = update_or_create_billing_agreement(account_model, HashUtils.compact(select_billing_agreement_values(entity)))
 
     from_model(Maybe(account_model))
   end
 
-  def update(community_id:, person_id:nil, opts:)
+  def update(community_id:, person_id:nil, order_permission_request_token: :all, opts:)
     entity = PaypalAccountUpdate.call(opts)
 
-    maybe_model = find_model(person_id: person_id, community_id: community_id)
+    maybe_model = find_model(
+      person_id: person_id,
+      community_id: community_id,
+      order_permission_request_token: order_permission_request_token
+    )
 
     case maybe_model
     when Some
       account_model = maybe_model.get
-      account_model.update_attributes(select_paypal_account_values(entity))
-      account_model.order_permission.update_attributes(select_order_permission_values(entity))
-      account_model = update_or_create_billing_agreement(account_model, select_billing_agreement_values(entity))
+      account_values = HashUtils.compact(select_paypal_account_values(entity))
+
+      account_model.update_attributes(account_values)
+      account_model.order_permission.update_attributes(HashUtils.compact(select_order_permission_values(entity)))
+      account_model = update_or_create_billing_agreement(account_model, HashUtils.compact(select_billing_agreement_values(entity)))
+
+      deactivate_other_accounts(account_model) if account_values[:active]
 
       from_model(Maybe(account_model))
     else
-      raise ArgumentError.new("Can not find Paypal account for person_id #{person_id} and community_id #{community_id}") unless account_model
+      msg = "Can not find Paypal account for person_id #{person_id},"
+              + " community_id #{community_id},"
+              + " order_permission_request_token: #{order_permission_request_to}"
+
+      raise ArgumentError.new(msg) unless account_model
     end
 
   end
@@ -132,7 +144,7 @@ module PaypalService::Store::PaypalAccount
 
   def select_paypal_account_values(opts)
     filter_keys = BILLING_AGREEMENT_MAP.keys.concat(ORDER_PERMISSIONS_MAP.keys)
-    HashUtils.compact(opts.except(*filter_keys))
+    opts.except(*filter_keys)
   end
 
   def select_billing_agreement_values(opts)
@@ -143,9 +155,32 @@ module PaypalService::Store::PaypalAccount
     sub_and_rename(opts, ORDER_PERMISSIONS_MAP)
   end
 
-  def find_model(person_id:nil, community_id:, active:[true, false])
+  def deactivate_other_accounts(active_account_model)
+    others = PaypalAccountModel.where(
+      "person_id = ? AND community_id = ? AND id != ?",
+      active_account_model.person_id,
+      active_account_model.community_id,
+      active_account_model.id
+    ).update_all(active: false)
+  end
+
+  # Finds model
+  #
+  # Params:
+  # - `nil` means that the value has to be NULL in database
+  # - `:all` means that this parameter is ignored, i.e. all values are accepted
+  #
+  def find_model(person_id:nil, community_id:, active: :all, order_permission_request_token: :all)
+    query = construct_query(
+      {
+        person_id: person_id,
+        community_id: community_id,
+        active: active,
+        order_permission_request_token: order_permission_request_token
+    })
+
     Maybe(
-      PaypalAccountModel.where(person_id: person_id, community_id: community_id, active: active)
+      PaypalAccountModel.where(query)
       .eager_load([:order_permission, :billing_agreement])
       .first
     )
@@ -230,7 +265,23 @@ module PaypalService::Store::PaypalAccount
 
   def sub_and_rename(h, rename_map)
     sub = HashUtils.sub(h, *rename_map.keys)
-    renamed = HashUtils.rename_keys(rename_map, sub)
-    HashUtils.compact(renamed)
+    HashUtils.rename_keys(rename_map, sub)
+  end
+
+  # Takes a hash and rejects values :all
+  def construct_query(params)
+    account_params = reject_ignored_params(select_paypal_account_values(params))
+    order_permission_params = HashUtils.wrap_if_present(
+      :order_permissions,
+      reject_ignored_params(select_order_permission_values(params))
+    )
+
+    account_params.merge(order_permission_params)
+  end
+
+  def reject_ignored_params(params)
+    params.reject { |k, v|
+      v == :all
+    }
   end
 end

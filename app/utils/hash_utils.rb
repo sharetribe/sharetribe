@@ -89,4 +89,13 @@ module HashUtils
       hash
     end
   end
+
+  # wrap_if_present(:wrap, {a: 1}} -> {wrap: {a: 1}}
+  # wrap_if_present(:wrap, {}} -> {}
+  # wrap_if_present(:wrap, nil) -> {}
+  def wrap_if_present(key, value)
+    Maybe(value).map { |v|
+      Hash[key, v]
+    }.or_else({})
+  end
 end

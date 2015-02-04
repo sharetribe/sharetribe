@@ -15,11 +15,6 @@ module PaypalService::API
     ## POST /accounts/request
 
     def request(body:)
-      # If a request for new account is made, delete old (not completely actived) accounts
-      # Future note: This may not be sufficient solution when we implement the option to
-      # switch PayPal account
-      PaypalAccountStore.delete(person_id: body[:person_id], community_id: body[:community_id])
-
       with_success_permissions(
         PaypalService::DataTypes::Permissions
         .create_req_perm({callback: body[:callback_url] })
@@ -71,6 +66,7 @@ module PaypalService::API
           account = PaypalAccountStore.update(
             community_id: community_id,
             person_id: person_id,
+            order_permission_request_token: order_permission_request_token,
             opts:
               {
                 email: personal_data[:email],
