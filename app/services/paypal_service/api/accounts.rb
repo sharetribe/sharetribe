@@ -63,18 +63,45 @@ module PaypalService::API
               token_secret: access_token[:token_secret]
             })
         ) { |personal_data|
-          account = PaypalAccountStore.update(
+          opts = {
+            email: personal_data[:email],
+            payer_id: personal_data[:payer_id],
+            order_permission_verification_code: body[:order_permission_verification_code],
+            order_permission_scope: access_token[:scope].join(','),
+            active: true
+          }
+
+          existing = PaypalAccountStore.get(
             community_id: community_id,
             person_id: person_id,
-            order_permission_request_token: order_permission_request_token,
-            opts:
-              {
-                email: personal_data[:email],
+            payer_id: personal_data[:payer_id]
+          )
+
+          account =
+            if existing.nil?
+              # Update the 'new' account
+              PaypalAccountStore.update(
+                community_id: community_id,
+                person_id: person_id,
+                order_permission_request_token: order_permission_request_token,
+                opts: opts
+              )
+            else
+              # Update the 'existing' account
+              PaypalAccountStore.update(
+                community_id: community_id,
+                person_id: person_id,
                 payer_id: personal_data[:payer_id],
-                order_permission_verification_code: body[:order_permission_verification_code],
-                order_permission_scope: access_token[:scope].join(','),
-                active: true
-              })
+                opts: opts
+              )
+
+              # Delete the 'new' account
+              PaypalAccountStore.delete(
+                community_id: community_id,
+                person_id: person_id,
+                order_permission_request_token: order_permission_request_token
+              )
+            end
 
           Result::Success.new(account)
         }
@@ -108,6 +135,7 @@ module PaypalService::API
         account = PaypalAccountStore.update(
           community_id: community_id,
           person_id: person_id,
+          active: true,
           opts:
             {
               community_id: community_id,
@@ -134,7 +162,7 @@ module PaypalService::API
     # - :wrong_account
 
     def billing_agreement_create(community_id:, person_id:, billing_agreement_request_token:)
-      paypal_account = PaypalAccountStore.get(person_id: person_id, community_id: community_id)
+      paypal_account = PaypalAccountStore.get(person_id: person_id, community_id: community_id, active: true)
 
       with_success_merchant(
         PaypalService::DataTypes::Merchant
@@ -158,6 +186,7 @@ module PaypalService::API
             account = PaypalAccountStore.update(
               community_id: community_id,
               person_id: person_id,
+              active: true,
               opts:
                 {
                   billing_agreement_billing_agreement_id: billing_agreement[:billing_agreement_id]

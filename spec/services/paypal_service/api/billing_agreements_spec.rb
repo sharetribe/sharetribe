@@ -18,17 +18,21 @@ describe PaypalService::API::BillingAgreements do
     # Test data
 
     @cid = 10
-    @mid = "merchant_id_1"
+    @person_id = "merchant_id_1"
     @paypal_email = "merchant_1@test.com"
     @paypal_email_admin = "admin_2@test.com"
+
     @payer_id = "payer_id_1"
+    @admin_person_id = "admin_merchant_id"
     @payer_id_admin = "payer_id_2"
+
     @billing_agreement_id = "bagrid"
 
+    # Normal personal account
     AccountStore.create(opts:
       {
         active: true,
-        person_id: @mid,
+        person_id: @person_id,
         community_id: @cid,
         email: @paypal_email,
         payer_id: @payer_id,
@@ -39,6 +43,22 @@ describe PaypalService::API::BillingAgreements do
         billing_agreement_paypal_username_to: @paypal_email_admin
       })
 
+    # Admin personal account (same Paypal account as Community account)
+    AccountStore.create(opts:
+      {
+        active: true,
+        person_id: @admin_person_id,
+        community_id: @cid,
+        email: @paypal_email_admin,
+        payer_id: @payer_id_admin,
+        order_permission_paypal_username_to: "sharetribe@sharetribe.com",
+        order_permission_request_token: "123456789",
+        billing_agreement_billing_agreement_id: @billing_agreement_id,
+        billing_agreement_request_token: "request-token",
+        billing_agreement_paypal_username_to: @paypal_email_admin
+      })
+
+    # Community account
     AccountStore.create(opts:
       {
         active: true,
@@ -51,17 +71,6 @@ describe PaypalService::API::BillingAgreements do
 
     @tx_id = 1234
 
-    @req_info = {
-      transaction_id: @tx_id,
-      item_name: "Item name",
-      item_quantity: 1,
-      item_price: Money.new(1200, "EUR"),
-      merchant_id: @mid,
-      order_total: Money.new(1200, "EUR"),
-      success: "https://www.test.com/success",
-      cancel: "https://www.test.com/cancel"
-    }
-
     SyncDelayedJobObserver.reset!
   end
 
@@ -70,28 +79,39 @@ describe PaypalService::API::BillingAgreements do
     SyncDelayedJobObserver.reset!
   end
 
+  def do_payment!(seller_person_id)
+    @req_info = {
+      transaction_id: @tx_id,
+      item_name: "Item name",
+      item_quantity: 1,
+      item_price: Money.new(1200, "EUR"),
+      merchant_id: seller_person_id,
+      order_total: Money.new(1200, "EUR"),
+      success: "https://www.test.com/success",
+      cancel: "https://www.test.com/cancel"
+    }
+
+    @payment_total = Money.new(1200, "EUR")
+    token = @payments.request(@cid, @req_info)[:data]
+    @payments.create(@cid, token[:token])[:data]
+    @events.clear
+
+    @commission_info = {
+      transaction_id: @tx_id,
+      commission_to_admin: Money.new(100, "EUR"),
+      minimum_commission: Money.new(50, "EUR"),
+      payment_name: "commission payment",
+      payment_desc: "commission payment desc"
+    }
+  end
 
   context "#charge_commission" do
 
-    before(:each) do
-      @payment_total = Money.new(1200, "EUR")
-      token = @payments.request(@cid, @req_info)[:data]
-      @payments.create(@cid, token[:token])[:data]
-      @events.clear
-
-      @commission_info = {
-        transaction_id: @tx_id,
-        commission_to_admin: Money.new(100, "EUR"),
-        minimum_commission: Money.new(50, "EUR"),
-        payment_name: "commission payment",
-        payment_desc: "commission payment desc"
-      }
-    end
-
     it "charges the commission and updates the payment" do
+      do_payment!(@person_id)
       @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
 
-      payment_res = @billing_agreements.charge_commission(@cid, @mid, @commission_info)
+      payment_res = @billing_agreements.charge_commission(@cid, @person_id, @commission_info)
 
       expect(payment_res[:success]).to eq(true)
       expect(payment_res[:data][:commission_payment_id]).not_to be_nil
@@ -103,6 +123,7 @@ describe PaypalService::API::BillingAgreements do
     end
 
     it "marks the commission to not applicable when admin is merchant" do
+      do_payment!(@admin_person_id)
       @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
 
       AccountStore.create(opts:
@@ -118,13 +139,14 @@ describe PaypalService::API::BillingAgreements do
           billing_agreement_paypal_username_to: @paypal_email_admin
         })
 
-      payment_res = @billing_agreements.charge_commission(@cid, @payer_id_admin, @commission_info)
+      payment_res = @billing_agreements.charge_commission(@cid, @admin_person_id, @commission_info)
 
       expect(payment_res[:success]).to eq(true)
       expect(payment_res[:data][:commission_status]).to eq(:seller_is_admin)
     end
 
     it "marks the commission to not applicable when commission smaller than minimum" do
+      do_payment!(@person_id)
       @payments.full_capture(@cid, @tx_id, { payment_total: Money.new(2, "EUR") })
 
       commission_info = {
@@ -135,17 +157,18 @@ describe PaypalService::API::BillingAgreements do
         payment_desc: "commission payment desc"
       }
 
-      payment_res = @billing_agreements.charge_commission(@cid, @mid, commission_info)
+      payment_res = @billing_agreements.charge_commission(@cid, @person_id, commission_info)
 
       expect(payment_res[:success]).to eq(true)
       expect(payment_res[:data][:commission_status]).to eq(:below_minimum)
     end
 
     it "supports async running" do
+      do_payment!(@person_id)
       @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
       SyncDelayedJobObserver.collect!
 
-      process_status = @billing_agreements.charge_commission(@cid, @mid, @commission_info, async: true)[:data]
+      process_status = @billing_agreements.charge_commission(@cid, @person_id, @commission_info, async: true)[:data]
       expect(process_status[:completed]).to eq(false)
 
       SyncDelayedJobObserver.process_queue!

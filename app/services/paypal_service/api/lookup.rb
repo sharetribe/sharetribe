@@ -29,7 +29,7 @@ module PaypalService::API
 
       m_acc = AccountStore.get(person_id: pid, community_id: cid, payer_id: receiver_id)
       if m_acc.nil?
-        return log_and_return(Result::Error.new("Cannot find paypal account for the given community and person: community_id: #{cid}, person_id: #{pid}."))
+        return log_and_return(Result::Error.new("Cannot find paypal account for the given community and person: community_id: #{cid}, person_id: #{pid}, payer_id: #{receiver_id}."))
       elsif m_acc[:billing_agreement_state] != :verified
         return log_and_return(Result::Error.new("Merchant account has no billing agreement setup."))
       end
@@ -71,7 +71,7 @@ module PaypalService::API
         return log_and_return(Result::Error.new("Payment was not in accepted precondition state for the requested operation. Expected one of: #{accepted_states}, was: :#{payment[:payment_status]}, :#{payment[:pending_reason]}"))
       end
 
-      m_acc = AccountStore.get_by_payer_id(payer_id: payment[:receiver_id], community_id: cid)
+      m_acc = AccountStore.get_personal_account_by_payer_id(payer_id: payment[:receiver_id], community_id: cid)
       if m_acc.nil?
         return log_and_return(Result::Error.new("No matching merchant account for community_id: #{cid} and transaction_id: #{txid}."))
       end

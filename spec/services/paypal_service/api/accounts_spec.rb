@@ -281,6 +281,50 @@ describe PaypalService::API::Accounts do
       }
     end
 
+    it "uses existing account if it's reconnected" do
+      # Account A
+      res = request_personal_account
+      create_personal_account(res)
+      res = request_billing_agreement
+      _, token = parse_redirect_url_from_response(res)
+      create_billing_agreement(token)
+
+      with_personal_account { |data|
+        expect(data[:active]).to eq true
+        expect(data[:state]).to eq :verified
+        expect(data[:email]).to eq @email
+        expect(data[:payer_id]).to eq @payer_id
+        expect(data[:order_permission_state]).to eq :verified
+        expect(data[:billing_agreement_state]).to eq :verified
+      }
+
+      # Account B
+      res = request_personal_account(email: @new_email, payer_id: @new_payer_id)
+      create_personal_account(res)
+
+      with_personal_account { |data|
+        expect(data[:active]).to eq true
+        expect(data[:state]).to eq :not_verified
+        expect(data[:email]).to eq @new_email
+        expect(data[:payer_id]).to eq @new_payer_id
+        expect(data[:order_permission_state]).to eq :verified
+        expect(data[:billing_agreement_state]).to eq :not_verified
+      }
+
+      # Reactivate Account A
+      res = request_personal_account
+      create_personal_account(res)
+
+      with_personal_account { |data|
+        expect(data[:active]).to eq true
+        expect(data[:state]).to eq :verified
+        expect(data[:email]).to eq @email
+        expect(data[:payer_id]).to eq @payer_id
+        expect(data[:order_permission_state]).to eq :verified
+        expect(data[:billing_agreement_state]).to eq :verified
+      }
+    end
+
   end
 
   context "#get" do

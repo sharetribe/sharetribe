@@ -1,3 +1,13 @@
+#
+# PayPalAccount Store wraps ActiveRecord models and stores accounts to the database.
+#
+# There are a couple of implicit unique combinations that result only one account:
+#
+# - Personal account: person_id, community_id, payer_id
+# - Active personal account: person_id, community_id, active: true
+# - Community account: person_id: nil, community_id, payer_id
+# - Active community account: person_id: nil, community_id, active: true
+#
 module PaypalService::Store::PaypalAccount
   PaypalAccountModel = ::PaypalAccount
   OrderPermissionModel = ::OrderPermission
@@ -74,12 +84,14 @@ module PaypalService::Store::PaypalAccount
     from_model(Maybe(account_model))
   end
 
-  def update(community_id:, person_id:nil, order_permission_request_token: :all, opts:)
+  def update(community_id:, person_id:nil, order_permission_request_token: :all, payer_id: :all, active: :all, opts:)
     entity = PaypalAccountUpdate.call(opts)
 
     maybe_model = find_model(
       person_id: person_id,
       community_id: community_id,
+      active: active,
+      payer_id: payer_id,
       order_permission_request_token: order_permission_request_token
     )
 
@@ -96,9 +108,9 @@ module PaypalService::Store::PaypalAccount
 
       from_model(Maybe(account_model))
     else
-      msg = "Can not find Paypal account for person_id #{person_id},"
-              + " community_id #{community_id},"
-              + " order_permission_request_token: #{order_permission_request_to}"
+      msg = "Can not find Paypal account for person_id #{person_id}, " \
+            "community_id #{community_id}, " \
+            "order_permission_request_token: #{order_permission_request_token}"
 
       raise ArgumentError.new(msg) unless account_model
     end
@@ -115,8 +127,8 @@ module PaypalService::Store::PaypalAccount
     maybe_billing_agreement.each { |billing_agreement| billing_agreement.destroy }
   end
 
-  def delete(person_id:nil, community_id:)
-    find_model(person_id: person_id, community_id: community_id).each { |account| account.destroy }
+  def delete(person_id:nil, community_id:, order_permission_request_token: :all)
+    find_model(person_id: person_id, community_id: community_id, order_permission_request_token: order_permission_request_token).each { |account| account.destroy }
   end
 
   def get(person_id:nil, community_id:, active: :all, payer_id: :all)
@@ -130,8 +142,8 @@ module PaypalService::Store::PaypalAccount
     )
   end
 
-  def get_by_payer_id(payer_id:, community_id:)
-    from_model(find_model_by_payer_and_community(payer_id: payer_id, community_id: community_id))
+  def get_personal_account_by_payer_id(payer_id:, community_id:)
+    from_model(find_personal_model_by_payer_id(payer_id: payer_id, community_id: community_id))
   end
 
   ## Privates
@@ -183,7 +195,8 @@ module PaypalService::Store::PaypalAccount
         person_id: person_id,
         community_id: community_id,
         active: active,
-        order_permission_request_token: order_permission_request_token
+        order_permission_request_token: order_permission_request_token,
+        payer_id: payer_id
     })
 
     Maybe(
@@ -205,14 +218,7 @@ module PaypalService::Store::PaypalAccount
     )
   end
 
-  def find_model_by_payer(payer_id:)
-    Maybe(
-      PaypalAccountModel.where(payer_id: payer_id)
-      .eager_load([:order_permission, :billing_agreement])
-    )
-  end
-
-  def find_model_by_payer_and_community(payer_id:, community_id:)
+  def find_personal_model_by_payer_id(payer_id:, community_id:)
     Maybe(
       PaypalAccountModel.where("community_id = ? AND payer_id = ? AND person_id IS NOT NULL", community_id, payer_id)
       .eager_load([:order_permission, :billing_agreement])
