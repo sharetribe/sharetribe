@@ -1519,6 +1519,7 @@ sv:
       billing_agreement_wrong_account: "PayPal-konton matchade inte. Vänligen använd samma PayPal-konto som du anslöt i första steget."
       something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
       account_not_verified: "Du har inte verifierat ditt PayPal-konto. Du behöver gå till www.paypal.com och verifiera ditt konto innan du kan gå vidare."
+      account_restricted: ~
   paypal:
     checkout_with_paypal: "Gå till kassan med PayPal"
     cancel_succesful: "PayPal betalning avbruten"

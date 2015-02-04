@@ -122,11 +122,11 @@ ja:
         logo_link_text: ロゴを追加
         custom_domain: "（例： www.yourmarketplace.comのような）カスタムドメインを使用したいと思うでしょう。その場合は、マニュアルのステップがいくつか必要になりますので、左側のサポートリンクからお問い合わせください。カスタムドメインの使用は、フリートライアルではなく、有料サービスになります。"
         contact_team_link_text: 私たちのチームにお問い合わせください
-        categories_and_custom_fields: "次に決めるのことは、あなたのサイトで、どのような種類の投稿をしてもらうかです。%{categories_link}%{custom_fields_link}から、実際のリストの形式が構成されます。%{filters_link}を決定すると、人々がリストをブラウザするときに用いられます。"
+        categories_and_custom_fields: "次に決めるのことは、あなたのサイトで、どのような内容で投稿をしてもらうかです。%{categories_link}%{custom_fields_link}から、実際のリストの形式が構成されます。%{filters_link}を追加すると、訪問者がリストをブラウザするときに検索フィルターとして用いられます。"
         categories_link_text: カテゴリとサブカテゴリを追加する
         custom_fields_link_text: フォーム項目を設定
         filters_link_text: フィルターの種類
-        payments: "あなたのマーケットプレイスからの購入のお支払いを可能にしたい場合は、各々の取引の手数料を請求できます。こちらよりどうぞ %{payments_link} 。"
+        payments: "あなたのマーケットプレイスからの購入のお支払いを可能にしたい場合は、各々の取引から手数料を請求できます。 %{payments_link} からどうぞ。"
         payments_link_text: お支払い方法の設定
         info_texts: "ユーザに促したいマーケットプレイスについての大事な情報をカスタマイズするのを忘れないでください。%{about_page_link}、%{terms_of_use_link} （こちらはあなたが作成した独自のものにしてください。あるいはテンプレートを編集しても構いません）、%{privacy_policy_link}、新規のユーザに送信する %{welcome_email_link} 。%{instruction_texts_link} も設定できます。"
         about_page_link_text: ページについて
@@ -137,11 +137,11 @@ ja:
         social_media: "ソーシャルメディアを使うことはコミュニティを確立するために、とても良いことです。%{facebook_link} から人がログインをより簡単にしてもらえたり、%{twitter_link} でマーケットプレイスの商品やサービスのことをツイートしてもらって、口コミや良いうわさはすばやく広がるでしょう。"
         facebook_link_text: フェイスブックアプリと接続する
         twitter_link_text: Twitterのアカウントを追加する
-        analytics: "%{analytics_link}の利用もいいアイデアです。これにより、何人の訪問者が来ているかなど情報をはじめとする、マーケットプレイスの動向が見えやすくなります。"
-        analytics_link_text: "Google アナリティクスのアカウントに接続する"
+        analytics: "%{analytics_link}して活用することは、良いアイデアです。これにより、何人の訪問者が来ているかなど情報をはじめとする、マーケットプレイスの動向が見えやすくなります。"
+        analytics_link_text: "Google アナリティクスのアカウントに接続"
         settings: "各種設定は、こちらにまとめています。手短に、現ユーザからの招待制する場合、サイトをプライベートに設定にする必要があります。ログインユーザしか中身を見れないようにします。%{settings_link} 。"
         settings_link_text: こちらからマーケットプレイスの設定を確認する
-        final_words: "これが、それです。すべて準備が整いましたら、%{invite_link}であなたのマーケットプレイスに招待し始めてください。%{view_users_link}でどのユーザが利用中であるかを閲覧できます。%{view_transactions_link}は、マーケットプレイス内の取引履歴です。また、容易にリストを管理することが出来ます： 各リストページに行って、管理者は編集リンクで編集や、公開・非公開などの変更が可能です。ヘルプが必要なら、%{contact_support_link} - 是非手伝わせてください！‘"
+        final_words: "ここまでです。すべて準備が整いましたら、%{invite_link}であなたのマーケットプレイスに招待し始めてください。%{view_users_link}でどのユーザが利用中であるかを閲覧できます。%{view_transactions_link}は、マーケットプレイス内の取引履歴です。また、容易にリストを管理することが出来ます： 各リストページに行って、管理者は編集リンクで編集や、公開・非公開などの変更が可能です。ヘルプが必要なら、%{contact_support_link} - お声をかけてください！(Sharetribeの直接サポートは、英語のみになります。)"
         invite_link_text: ユーザを招待する
         view_users_link_text: こちら
         view_transactions_link_text: こちら
@@ -563,7 +563,7 @@ ja:
   braintree_accounts:
     new:
       add_payout_details: お支払い情報を追加
-      first_name: 姓
+      first_name: 名
       last_name: 姓
       email: メールアドレス
       phone: 電話番号
@@ -711,7 +711,7 @@ ja:
       hi: こんにちは！
       you_have_been_invited_to_kassi: "%{inviter}さんがの%{service_name}のサイトに招待しています。"
       here_is_a_message_from: "%{inviter}さんからのプライベートメッセージがあります:"
-      join_now: 今参加します
+      join_now: 参加します
       invitation_code: "招待コード： %{code}"
     new_comment:
       has_commented_your_listing_in_kassi: "%{author}さんは「%{listing}」のリストにコメントしました。"
@@ -1512,6 +1512,7 @@ ja:
       billing_agreement_wrong_account: PayPalアカウントが一致しませんでした。当初ご登録されたPayPalアカウントを使用してください。
       something_went_wrong: 異常発生しました。もう一度やり直してください。もしこのまま問題が続くようであれば、サイト管理者にお問い合わせください。
       account_not_verified: あなたはPayPalアカウントを検証していません。ご利用を続けるには、paypal.comへ行って確認する必要があります。
+      account_restricted: ~
   paypal:
     checkout_with_paypal: PayPalでお支払い
     cancel_succesful: PayPalのお支払いは正常にキャンセルされました
@@ -1619,7 +1620,7 @@ ja:
       you_follow_singular: "あなたは%{count}人フォロー中です。"
       they_follow_plural: "%{count}人にフォローされています"
       they_follow_singular: "%{count}人にフォローされています"
-      show_all_followed_people: フォローされた人を閲覧する
+      show_all_followed_people: フォローしてくれた人を閲覧する
       no_followed_people: フォローした人はいません
     follow_button:
       following: フォローしています
@@ -1863,18 +1864,18 @@ ja:
     days: 日
   will_paginate:
     models:
-      listing_conversation:
-        other: 課金処理
       person:
         other: ユーザ
+      listing_conversation:
+        other: 課金処理
     previous_label: "&#8592; 前へ"
     next_label: "次へ &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
-      multi_page: "%{from} - %{to} 全体で%{count}件の%{model}を表示しています"
-      multi_page_html: "<b>%{from}&nbsp;-&nbsp;%{to}</b> 全体で<b>%{count}</b>件の%{model}を表示しています"
       single_page:
         zero: "%{model}は見つかりませんでした"
         other: "%{count}つの%{model}を表示しています"
       single_page_html:
         other: "<b>すべての&nbsp;%{count}</b>%{model}を表示しています"
+      multi_page: "%{from} - %{to} 全体で%{count}件の%{model}を表示しています"
+      multi_page_html: "<b>%{from}&nbsp;-&nbsp;%{to}</b> 全体で<b>%{count}</b>件の%{model}を表示しています"

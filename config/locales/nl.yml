@@ -11,13 +11,13 @@ nl:
         save_order_successful: "Succesvol volgorde categorieën opgeslagen"
         save_order_error: "Fout tijdens het opslagen volgorde categorieën. Vernieuw de pagina en probeer opnieuw."
       new:
-        new_listing_category: ~
+        new_listing_category: "Nieuw item categorie"
       form:
         category_name:
           category_title: "Categorie titel"
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: "Bovenliggende categorie"
+          no_parent: "Geen bovenliggende categorie"
         category_transaction_types:
           transaction_types: "Transactie types"
           transaction_types_description: "Transactie types bepalen welke soort transacties toegelaten zijn met items in deze categorie. Bijvoorbeeld: enkel verkoop of zijn verhuur en gratis weggeven ook toegestaan."
@@ -52,16 +52,16 @@ nl:
         community_details: "Basis details"
         community_look_and_feel: "Look & feel"
         edit_community: "Basis details"
-        community_name: "Naam gemeenschap"
-        edit_community_name_description: "De naam van uw gemeenschap. Deze wordt getoond aan gebruikers in e-mails en op diverse andere plaatsen."
-        community_slogan: "Slogan gemeenschap"
-        edit_community_slogan_description: "Deze wordt getoond op de homepage van de gemeenschap aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
-        community_description: "Beschrijving gemeenschap"
-        edit_community_description_description: "Deze wordt getoond op de homepage van de gemeenschap aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
+        community_name: "Naam marktplaats"
+        edit_community_name_description: "De naam van je marktplaats. Deze wordt getoond aan gebruikers in e-mails en op diverse andere plaatsen."
+        community_slogan: "Slogan marktplaats"
+        edit_community_slogan_description: "Deze wordt getoond op de homepage van de marktplaats aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
+        community_description: "Beschrijving marktplaats"
+        edit_community_description_description: "Deze wordt getoond op de homepage van de marktplaats aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
         community_search_placeholder: "Zoek hulptekst"
-        edit_community_search_placeholder_description: "Dit wordt getoond op de homepage van de gemeenschap als een tijdelijke tekst in het zoekvenster. %{see_how_it_looks_like}."
-        private_community_homepage_content: "Private gemeenschap homepage inhoud"
-        edit_private_community_homepage_content_description: "Deze inhoud wordt getoond aan gebruikers die niet ingelogd zijn op de homepage van private gemeenschappen. Hier kan je je gemeenschap omschrijven en de werkwijze om je aan te sluiten. Je kan hier ook afbeeldingen, filmpjes en HTML content toevoegen. %{see_how_it_looks_like}"
+        edit_community_search_placeholder_description: "Dit wordt getoond op de homepage van de marktplaats als een tijdelijke tekst in het zoekvenster. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Private marktplaats homepage inhoud"
+        edit_private_community_homepage_content_description: "Deze inhoud wordt getoond aan gebruikers die niet ingelogd zijn op de homepage van private marktplaatsen. Hier kan je je marktplaats omschrijven en de werkwijze om je aan te sluiten. Je kan hier ook afbeeldingen, filmpjes en HTML content toevoegen. %{see_how_it_looks_like}"
         update_information: "Sla wijzigingen op"
         invite_people: "Nodig nieuwe gebruikers uit"
         edit_signup_info: "Registreer info"
@@ -73,20 +73,20 @@ nl:
         verification_to_post_listings_info_content_default: "Manuele verificatie door een beheerder is vereist alvorens mensen items kunnen posten bij %{service_name}. Jouw account is nog niet geverifieerd. Contacteer %{contact_admin_link} om geverifieerd te worden."
         contact_admin_link_text: "contacteer de beheerder"
         save: "Instellingen opslaan"
-        transaction_agreement: ~
-        transaction_agreement_checkbox: "Vereist van gebruikers dat ze een overeenkomst aanvaarden voor een transactie"
+        transaction_agreement: "Transactie overeenkomst"
+        transaction_agreement_checkbox: "Vereis van gebruikers dat ze een overeenkomst aanvaarden voor een transactie"
         transaction_agreement_checkbox_header: "Overeenkomst hoofding"
-        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_checkbox_label_description: "De tekst zal getoond worden naast de checkbox in het checkout formulier. De gebruiker moet de checkbox aanvinken om verder te gaan met de transactie. Een voorbeeld label zou kunnen zijn: 'Door deze optie te selecteren aanvaard ik de overeenkomst'."
         transaction_agreement_text_header: "Overeenkomst tekst"
         transaction_agreement_description: "Dit is de inhoud van de eigenlijke overeenkomst die gebruikers moeten aanvaarden. Deze inhoud wordt weergegeven wanneer de gebruiker de \"%{read_more}\" link klikt naast de overeenkomst hoofding."
       edit_look_and_feel:
-        edit_community_look_and_feel: "Bewerk look & feel gemeenschap %{community_name}"
+        edit_community_look_and_feel: "Bewerk look & feel marktplaats %{community_name}"
         community_logo: "Desktop logo"
         community_logo_icon: "Mobiel logo"
         community_cover_photo: "Cover afbeelding"
         small_community_cover_photo: "Kleine cover afbeelding"
-        favicon: ~
-        favicon_info_text: ~
+        favicon: Favicon
+        favicon_info_text: "Favicon zal het standaard Sharetribe-logo vervangen. De afmetingen moeten 32x32 pixels zijn. De afbeelding die wordt opgeladen zal verkleind worden naar deze afmetingen."
         community_custom_color1: Hoofdkleur
         community_custom_color2: "Tweede kleur"
         logo_instructions_text_with_dimensions: "Het desktop logo zou %{width}x%{height} pixels moeten zijn. Het zal getoond worden aan gebruikers met grotere schermen."
@@ -108,20 +108,20 @@ nl:
         full_name: "Volledige naam (Voornaam Achternaam)"
         first_name_with_initial: "Voornaam met initiaal (Voornaam A)"
         first_name_only: "Enkel voornaam (Voornaam)"
-        invalid_color_code: ~
+        invalid_color_code: "Kleurencode moet 6 nummer of letters A-F bevatten. Bijvoorbeeld: D96E21"
         custom_head_script: ~
         custom_head_script_instructions_text: ~
       edit_text_instructions:
         edit_text_instructions: "Teksten instructies"
       edit_welcome_email:
         welcome_email_content: "Inhoud welkomstmail"
-        welcome_email_content_description: "Onderstaande boodschap wordt verstuurd naar iedereen die zich aanmeldt. Je kan de boodschap aanpassen aan je gemeenschap. Door te klikken op %{send_test_message_link}, kan je een preview sturen naar je e-mail adress, om te bekijken hoe deze er uit ziet in een e-mail programma."
+        welcome_email_content_description: "Onderstaande boodschap wordt verstuurd naar iedereen die zich aanmeldt. Je kan de boodschap aanpassen aan je marktplaats. Door te klikken op %{send_test_message_link}, kan je een preview sturen naar je e-mail adress, om te bekijken hoe deze er uit ziet in een e-mail programma."
         edit_message: "Bewerk boodschap"
         send_test_message: "Verstuur testbericht"
       getting_started:
         getting_started: "Starters gids"
-        welcome_to_your_marketplace: "Welkom bij jouw gemeenschap, %{name}!"
-        intro: ~
+        welcome_to_your_marketplace: "Welkom bij jouw marktplaats, %{name}!"
+        intro: "Dit is een snelle gids om je marktplaats te configureren en te beheren. Je kan de live site bekijken %{live_site_link}."
         live_site_link_text: hier
         look_and_feel: ~
         logo_link_text: "voeg je logo toe"
@@ -131,7 +131,7 @@ nl:
         categories_link_text: "voeg categorieën en subcategorieën toe"
         custom_fields_link_text: "configureer velden formulier"
         filters_link_text: "welke soort filters"
-        payments: ~
+        payments: "Als je wil dat mensen via je marktplaats kunnen betalen voor hun aankopen zodat je een commissie kan heffen op elke transactie, dan moet je %{payments_link}."
         payments_link_text: "configureer een betalingsmethode"
         info_texts: ~
         about_page_link_text: "\"over\" pagina"
@@ -143,9 +143,9 @@ nl:
         facebook_link_text: ~
         twitter_link_text: "voeg je Twitter account toe"
         analytics: ~
-        analytics_link_text: ~
+        analytics_link_text: "connecteer een Google Analytics account"
         settings: ~
-        settings_link_text: "Bekijk je gemeenschap instellingen hier"
+        settings_link_text: "Bekijk je marktplaats instellingen hier"
         final_words: ~
         invite_link_text: "gebruikers uitnodigen"
         view_users_link_text: hier
@@ -156,9 +156,9 @@ nl:
         general: Algemeen
         users_can_review_each_other_after_transaction: "Gebruikers kunnen elkaar evalueren na transactie"
         access: Toegang
-        join_with_invite_only: "Aansluiten bij deze gemeenschap kan enkel met een uitnodiging van een andere gebruiker"
-        users_can_invite_new_users: "Alle gebruikers kunnen nieuwe leden uitnodigen voor deze gemeenschap"
-        private: "Deze gemeenschap is privé (enkel geregistreerde gebruikers kunnen de inhoud zien)"
+        join_with_invite_only: "Aansluiten bij deze marktplaats kan enkel met een uitnodiging van een andere gebruiker"
+        users_can_invite_new_users: "Alle gebruikers kunnen nieuwe leden uitnodigen voor deze marktplaats"
+        private: "Deze marktplaats is privé (enkel geregistreerde gebruikers kunnen de inhoud zien)"
         require_verification_to_post_listings: "Enkel gebruikers die door de beheerder nagekeken werden kunnen nieuwe items toevoegen"
         listing_preferences: "Voorkeuren lijst"
         transaction_preferences: "Voorkeuren transacties"
@@ -170,9 +170,9 @@ nl:
         automatic_newsletters: "Zend automatisch dagelijkse / wekelijkse nieuwsbrieven naar gebruikers (tenzij ze zich uitgeschreven hebben)"
         email_admins_about_new_members: "Zend beheerder een e-mail telkens wanneer een nieuwe gebruiker zich inschrijft"
         google_analytics_key: ~
-        twitter_handle: ~
+        twitter_handle: "Twitter account (gebruikt met de tweet knop in de items pagina)"
         update_settings: "Instellingen opslaan"
-        automatically_confirmed: ~
+        automatically_confirmed: "Transactie zal automatisch als afgehandeld gemarkeerd worden %{days_dropdown} nadat de betaling werd uitgevoerd. Indien er een escrow-dienst werd gebruikt, zal het geld vrijgegeven worden op dit moment."
         automatically_confirmed_no_escrow: "De transactie zal automatisch als uitgevoerd gemarkeerd worden %{days_dropdown} dagen nadat de betaling is uitgevoerd."
         automatic_newsletter_frequency: "Zend automatische nieuwsbrief: %{frequency_dropdown}"
         newsletter_daily: Dagelijks
@@ -188,11 +188,11 @@ nl:
         saving_user_status: Opslaan...
         save_user_status_successful: Opgeslagen
         save_user_status_error: "Opslaan mislukt. Vernieuw de pagina en probeer opnieuw."
-        ban_user_confirmation: "Dit verwijdert de gebruiker van de gemeenschap en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
+        ban_user_confirmation: "Dit verwijdert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
       social_media:
         social_media: "Sociale media"
         twitter_handle: "Twitter account"
-        twitter_handle_info_text: "Gebruikersnaam van de Twitter account van je gemeenschap (als je er een hebt). Deze zal vermeld worden wanneer mensen de tweet-knop gebruiken op de item pagina."
+        twitter_handle_info_text: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Deze zal vermeld worden wanneer mensen de tweet-knop gebruiken op de item pagina."
         twitter_handle_info_text_with_instructions: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Het zal vermeld worden wanneer mensen de tweet-knop gebruiken op de items pagina. %{instructions_link}."
         twitter_instructions_link_text: "Lees meer"
         twitter_handle_placeholder: gebruikersnaam
@@ -201,16 +201,16 @@ nl:
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: "Zie instructies om Facebook Connect te configureren."
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
+        facebook_connect_id: "Facebook client ID"
+        invalid_facebook_connect_id: "Client ID kan enkel nummers bevatten"
+        facebook_connect_secret: "Facebook client geheim"
+        invalid_facebook_connect_secret: "Client geheim kan enkel nummer en letter A-F bevatten."
         save: "Opslaan instellingen"
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        google_analytics_key_info_text_with_instructions: ~
+        analytics: Analytics
+        google_analytics_key: "Google Analytics tracking ID"
+        google_analytics_key_info_text: "Tracking ID van je Google Analytics account."
+        google_analytics_key_info_text_with_instructions: "Tracking ID van je Google Analytics account. %{instructions_link}."
         google_analytics_instructions_link_text: "Lees meer over het connecteren van Google Analytics"
         save: "Opslaan instellingen"
       menu_links:
@@ -283,7 +283,7 @@ nl:
         categories: "Lijst categorieën waar het veld is gebruikt"
         options: Opties
         add_option: "+ Voeg optie toe"
-        saving_order: ~
+        saving_order: "Veld volgorde opslaan"
         save_order_successful: "Veld volgorde succesvol weggeschreven"
         save_order_error: "Fout tijdens het wegschrijven van de veld volgorde. Vernieuw de pagina en probeer opnieuw."
         select_one: "Kies een veld type..."
@@ -303,17 +303,17 @@ nl:
       new:
         send_email_to_members: "Stuur e-mail aan gebruikers"
         send_email_to_members_title: "Stuur e-mail aan al je gebruikers"
-        email_subject: "Onderwerp email"
+        email_subject: "Onderwerp e-mail"
         email_content: "Inhoud e-mail"
         email_content_placeholder: "Wat wil je aan je leden zeggen?"
         email_language: "Taal van de ontvangers van de e-mail"
         any_language: "Elke taal"
-        send_email: "Verstuur email"
+        send_email: "Verstuur e-mail"
         message_will_be_sent_only_to_people_with_this_language: "Opmerking: het bericht zal enkel naar de gebruikers gestuurd worden die %{service_name} gebruiken in de taal die je kiest."
         email_sent: "E-mail verzonden."
     left_hand_navigation:
       general: Algemeen
-      users_and_transactions: ~
+      users_and_transactions: "Gebruikers en transacties"
       configure: Configuratie
       emails_title: E-mails
       support: Support
@@ -349,7 +349,7 @@ nl:
   common:
     edit_page: "Pagina aanpassen"
     default_community_slogan: "Gemeenschappelijke marktplaats"
-    default_community_description: "Dit is een plaats om producten en diensten te verkopen, verhuren of uit te wisselen met andere leden van de gemeenschap."
+    default_community_description: "Dit is een plaats om producten en diensten te verkopen, verhuren of uit te wisselen met andere leden van de marktplaats."
     cancel: Annuleer
     fields_that_are_mandatory: "Velden die gemarkeerd zijn met (*) zijn verplicht."
     or: of
@@ -406,17 +406,17 @@ nl:
       update_later: "Laat het item open"
       optional_message: "Optioneel bericht"
       price_to_pay: "Totaal te betalen prijs"
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "Je moet betalingsgegevens invullen alvorens je betalingen kan vragen en krijgen. Ga naar %{payment_settings_link} om de details in te vullen."
       payment_settings_link: "instellingen betalingen"
       minimum_price_error_message: "De prijs kan niet lager zijn dan %{amount}."
       accept: Aanvaard
       decline: "Wijs af"
       sum: "Som: %{sum}"
-      service_fee: ~
+      service_fee: "Service toeslag: %{service_fee}"
       you_will_get: "Jij krijgt: %{seller_gets}"
     confirm:
       confirm_description: "Het verzoek is voldaan en je zou het moeten markeren als afgehandeld. Daarna kan je feedback geven aan de andere partij."
-      cancel_description: ~
+      cancel_description: "Indien je verzoek niet wat uitgevoerd, kan je het markeren als 'niet uitgevoerd'. Je kan dan nog steeds feedback geven aan de andere partij en omschrijven wat er gebeurd is."
       cancel_payed_description: "Je verzoek was geaccepteerd. Als je van gedachten zou veranderen kan je dit steeds annuleren nog voor de betaling."
       canceling_payed_transaction: "Transactie annuleren"
       confirm: "Markeer als uitgevoerd"
@@ -491,7 +491,7 @@ nl:
       you_will_get_notified_of_acceptance: "Je ontvangt per mail een bericht als %{person} jouw aanbod accepteert of weigert."
       you_will_get_notified: "Je ontvangt er bericht per mail als %{person} jou antwoordt."
       title: Onderwerp
-      send_message_to_user: "Stuur bericht aan %{person}"
+      send_message_to_user: "Stuur bericht naar %{person}"
       about_listing: "Over item %{listing_title}"
       author_has_to_accept_request: "%{author_name} moet het verzoek aanvaarden alvorens je kan betalen"
     show:
@@ -552,7 +552,7 @@ nl:
         paypal:
           multicurrency: "Wachten op jou om de PayPal betaling te aanvaarden"
           intl: "Wachten op jou om de PayPal betaling te aanvaarden"
-          unknown_reason: ~
+          unknown_reason: "Betaling is hangende. Log in je PayPal account om meer details te zien."
           verify: "Wachten op jou om je PayPal account te verifiëren"
     status_link:
       accept_offer: "Accepteer aanbod"
@@ -618,15 +618,15 @@ nl:
       fb_join_accept_terms: "Er is nog één stap om je bij %{service_name} aan te sluiten: je moet de gebruikersvoorwaarden aanvaarden."
       join_community: "Sluit je aan bij %{service_name}"
       you_can_join: "Je kan je aansluiten bij %{service_name} door de gebruikersvoorwaarden te aanvaarden en te klikken op 'Aansluiten bij %{service_name}' hieronder."
-      you_can_join_email_confirmation: ~
-      you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: ~
+      you_can_join_email_confirmation: "Om je aan te sluiten bij %{service_name} heb je een geldig e-mail adres nodig dat eindigt met %{email_ending}. Je kan aansluiten door je e-mail adres in te vullen, de gebruikersvoorwaarden te aanvaarden, te klikken op 'Sluit aan bij %{service_name}' hieronder je e-mail adres te bevestigen."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name} heeft e-mail restricties. Je kan enkel aansluiten indien je een toegestaan e-mail adres hebt. Je kan aansluiten door je e-mail adres in te vullen, de gebruikersvoorwaarden van %{service_name} te aanvaarden en te klikken op 'Sluit aan bij %{service_name}' hieronder."
+      you_can_join_with_invite_only: "Je hebt een uitnodiging van een andere gebruiker nodig om aan te sluiten bij %{service_name}. Als je een invitatie code hebt, kan je aansluiten door de code in het onderstaande veld in te brengen, de gebruikersvoorwaarden te aanvaarden en te klikken op 'Sluit aan bij %{service_name}' hieronder."
       if_want_to_view_content: "Als je de inhoud van %{service_name} wil zien zonder je aan te sluiten als lid moet je"
       log_out: "Log uit"
       join_community_button: "Aansluiten bij %{service_name}"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "Vergeet niet om het aanbod van %{sender_name}te accepteren of te weigeren"
+      remember_to_accept_offer: "Vergeet niet om het aanbod van %{sender_name} te accepteren of te weigeren"
       remember_to_accept_request: "Vergeet niet om het verzoek van %{sender_name} te accepteren of te weigeren"
       you_can_accept_or_reject_offer_at: "Je kunt het aanbod accepteren of weigeren op"
       you_can_accept_or_reject_request_at: "Je kunt het verzoek accepteren of weigeren op"
@@ -637,7 +637,7 @@ nl:
       account_ready: "Je bent klaar om betalingen te ontvangen"
       message: "Je betalingsinformatie is geconfirmeerd en je kan nu betalingen ontvangen in %{service_name}."
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request: "Je hebt het verzoek %{request_link} nog niet geconfirmeerd of geannuleer. Als het verzoek werd uitgevoerd, dan dien je dat te confirmeren. Daarna kan je feedback geven aan %{other_party_given_name}."
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: "Herrinnering om een verzoek te bevestigen of te annuleren"
       if_will_not_happen_you_should_cancel: "Als je denkt dat dit verzoek voor een of andere reden niet zal uitgevoerd worden, kan je %{cancel_it_link}."
@@ -665,7 +665,7 @@ nl:
       give_feedback_to: "Geef feedback aan %{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "We hebben het verzoek betreft %{request} als afgehandeld gemarkeerd. Dit is automatisch uitgevoerd omdat %{days_passed} dagen zijn verlopen sedert het verzoek was aanvaard."
     booking_transaction_automatically_confirmed:
       subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
       we_have_marked_request_as_confirmed: "We hebben het verzoek betreft '%{request}' gemarkeerd als afgehandeld. Het verzoek is automatisch afgehandeld omdat één dag voorbij is gegaan sedert het einde van de periode van de reservering."
@@ -681,16 +681,16 @@ nl:
     confirmation_instructions:
       confirmation_instructions_signature: "Met vriendelijke groeten,<br/>Het %{service_name} Team"
       welcome_to_kassi: "Welkom bij %{service_name}!"
-      need_to_confirm: "Je account is aangemaakt. De volgende stap is het bevestigen van je e-mailadres."
+      need_to_confirm: "Je account is aangemaakt. De volgende stap is het bevestigen van je e-mail adres."
       confirmation_link_text: "Bevestig mijn e-mail"
       or_paste_link: "Je kan ook onderstaande link kopiëren en plaatsen in de adresbalk van je browser."
-      turning_on_confirmations_in_this_community: "We beginnen met e-mail bevestigingen te gebruiken in deze %{service_name} gemeenschap."
+      turning_on_confirmations_in_this_community: "We beginnen met e-mail bevestigingen te gebruiken in deze %{service_name} marktplaats."
     common:
       check_your_settings: "Controleer je instellingen"
       hey: "Hallo %{name},"
       kassi_team: "Het %{service_name} Team"
       thanks: "Bedankt,"
-      want_to_control_emails: "Wil je bepalen welke emails u ontvangt van %{service_name}?"
+      want_to_control_emails: "Wil je bepalen welke e-mails je ontvangt van %{service_name}?"
       dont_want_to_receive_these_emails: "Wil je deze berichten niet ontvangen?"
       edit_your_email_settings_here: "Wijzig je e-mail instellingen hier"
       message_not_displaying_correctly: "Wordt deze e-mail correct weergegeven?"
@@ -701,9 +701,9 @@ nl:
       subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} heeft je aanbod betreffende %{listing} geaccepteerd."
-      has_accepted_your_request: "%{accepter} heeft uw verzoek betreffende %{listing} geaccepteerd"
-      has_rejected_your_offer: "%{accepter} heeft uw aanbod betreffende %{listing} geweigerd"
-      has_rejected_your_request: "%{accepter} heeft uw verzoek betreffende %{listing} geweigerd"
+      has_accepted_your_request: "%{accepter} heeft je verzoek betreffende %{listing} geaccepteerd"
+      has_rejected_your_offer: "%{accepter} heeft je aanbod betreffende %{listing} geweigerd"
+      has_rejected_your_request: "%{accepter} heeft je verzoek betreffende %{listing} geweigerd"
       view_thread: "Bekijk conversatie"
       your_offer_was_accepted: "Je aanbod is geaccepteerd"
       your_offer_was_rejected: "Je aanbod is afgewezen"
@@ -711,7 +711,7 @@ nl:
       your_request_was_rejected: "Je verzoek is afgewezen"
       you_can_now_pay_to: "Ja kan nu het gevraagde bedrag betalen aan %{payment_receiver}."
       pay_now: "Betaal nu"
-      remember_to_confirm: ~
+      remember_to_confirm: "Vergeet niet om het verzoek te markeren als afgehandeld eenmaal dit is uitgevoerd. Indien het verzoek niet werd afgehandeld heb je %{days_to_automatic_confirmation} dagen om het te annuleren. Zoniet zal het automatisch als afgehandeld worden gemarkeerd."
     invitation_to_kassi:
       hi: Hallo!
       you_have_been_invited_to_kassi: "%{inviter} heeft je uitgenodigd voor %{service_name}."
@@ -721,20 +721,20 @@ nl:
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} heeft feedback gelaten op jouw item '%{listing}'."
       view_comment: "Toon reactie"
-      you_have_a_new_comment: "%{author} heeft een reactie gegeven over uw vermelding in%{service_name}"
+      you_have_a_new_comment: "%{author} heeft een reactie gegeven over jouw vermelding in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} heeft commentaar gegeven op een listing die jij volgt in %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} heeft feedback gelaten op het item '%{listing}' dat je volgt in %{service_name}."
     new_message:
       view_message: "Bekijk bericht"
-      has_sent_you_a_message_in_kassi: "%{sender} heeft u een bericht gestuurd in %{service_name}"
+      has_sent_you_a_message_in_kassi: "%{sender} heeft je een bericht gestuurd in %{service_name}."
       you_have_a_new_message: "Je hebt een nieuw bericht in %{service_name} van %{sender_name}"
     new_payment:
       new_payment: "Je hebt een nieuwe betaling ontvangen"
       you_have_received_new_payment: "Je bent <b> %{payment_sum}</b> betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Hier is het betalingsbewijs."
     braintree_new_payment:
       product: "Product:"
-      price_payer_paid: ~
-      service_fee: ~
+      price_payer_paid: "Prijs %{payer_full_name} betaald:"
+      service_fee: "%{service_name} service toeslag:"
       you_will_get: "Je zal ontvangen:"
       money_will_be_transferred: ~
     receipt_to_payer:
@@ -743,11 +743,11 @@ nl:
       product: Product
       total: Totaal
       price: Prijs
-      service_fee: ~
-      money_will_be_transferred: ~
+      service_fee: "Service toeslag"
+      money_will_be_transferred: "Het geld zal getransfereerd worden naar %{recipient_name} wanneer a) je het verzoek als afgehandeld hebt gemarkeerd of b) wanneer er %{automatic_confirmation_days} dagen verstreken zijn sedert jouw betaling."
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} heeft je feedback gegeven in%{service_name}"
-      you_can_give_feedback_to: "Je kan feedback geven aan %{name}"
+      has_given_you_feedback_in_kassi: "%{name} heeft je feedback gegeven in %{service_name}"
+      you_can_give_feedback_to: "Je kan feedback geven aan %{name}."
       view_feedback: "Bekijk feedback"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Item dat je volgt is aangepast"
@@ -772,7 +772,7 @@ nl:
       text_version_text: ~
     reset_password_instructions:
       change_my_password: "Wijzig mijn wachtwoord"
-      reset_password_instructions: ~
+      reset_password_instructions: "<p>Je hebt opgegeven dat je je gebruikersnaam of wachtwoord vergeten bent voor de %{service_name} dienst.</p><p>Je gebruikersnaam is: %{username}.</p><p>Indien je je wachtwoord wil resetten, klik dan volgende link: %{password_reset_link}.</p><br/><p>Indien je dit niet hebt aangevraagd, negeer dan dit bericht. Je wachtwoord zal niet gewijzigd worden tenzij je bovenstaande link aanklikt en een nieuw maakt.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Feedback is openbaar en zichtbaar voor alle andere gebruikers. Met de feedback kunnen gebruikers beslissen of %{name} betrouwbaar is en of het iemand is met wie ze in zee willen gaan. Het is dus goed om altijd feedback te geven aan evenementen en herinner anderen er aan om jou feedback te geven. Je hebt positieve feedback nodig om de meeste badges te verdienen."
       remember_to_give_feedback_to: "Herinnering: vergeet niet om feedback te geven aan %{name}"
@@ -791,13 +791,13 @@ nl:
       welcome_email_subject: "Welkom bij %{service_name}"
       welcome_to_marketplace: "Welkom, bij %{service_name}! Leuk dat je erbij bent."
       love_marketplace_crew: "Groeten,<br /><i>%{service_name} team</i>"
-      p_s_did_you_know: ~
+      p_s_did_you_know: "p.s.: Zou je graag je eigen marktplaats maken zoals %{service_name}? Het is simpel en vraag geen programmatie kennis. %{click_here_link} om er meer over te weten te komen!"
       click_here_link_text: "Klik hier"
       welcome_email_footer_text: "Welk soort berichten zou je van %{service_name} willen ontvangen?%{settings_link}"
       settings_link_text: "Kijk je instellingen na"
       welcome_email_subject_for_marketplace_creator: "Welkom bij Sharetribe"
       welcome_to_marketplace_creator: "Welkom bij Sharetribe, %{name}!"
-      congrats_for_creating_your_marketplace: "Proficiat met het aanmaken van je gemeenschap. Dat was niet moeilijk, wel?"
+      congrats_for_creating_your_marketplace: "Proficiat met het aanmaken van je marktplaats. Dat was niet moeilijk, wel?"
       here_is_your_account_information: "Hier is de informatie van je account."
       your_email_address: "Het e-mail adres dat je gebruikte om in te loggen:"
       your_marketplace_address: "Je marktplaats adres:"
@@ -806,7 +806,7 @@ nl:
       we_will_guide_you_along_the_way: "We zullen je onderweg begeleiden."
       are_you_new_to_online_marketplaces: ~
       have_questions: Vragen?
-      our_happiness_team_is_here_to_help: ~
+      our_happiness_team_is_here_to_help: "Ons happiness team is hier voor jou! Ofwel %{knowledge_base_link} of contact support via %{admin_panel_link}."
       love: "Groeten,"
       sharetribe_crew: "Het Sharetribe Team"
       knowledge_base_link_text: "bekijk onze kennisdatabank"
@@ -831,7 +831,7 @@ nl:
       required_error: "Je moet de overeenkomst aanvaarden"
     paypal:
       generic_error: "Er heeft zicht een fout voorgedaan tijdens de betaling. De PayPal betaling kon niet uitgevoerd worden."
-      cancel_error: ~
+      cancel_error: "Fout tijden uitvoeren annulatie. Annulatie werd niet afgehandeld."
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
@@ -905,7 +905,7 @@ nl:
     offers: Aanbod
     requests: Vraag
     search_kassi: "Zoek %{service_name}"
-    create_new_marketplace: "Maak een nieuwe gemeenschap"
+    create_new_marketplace: "Maak een nieuwe marktplaats"
     contact_us: "Contacteer ons"
     profile: Profiel
     invite: "Nodig nieuwe leden uit"
@@ -940,7 +940,7 @@ nl:
       no_requests_visible_unless_logged_in: "Vraag en aanbod is niet zichtbaar voor gebruikers die niet ingelogd zijn."
       one_private_offer_exists: "Er is al <b>één aanbod</b>,"
       one_private_request_exists: "Er is al <b>één verzoek</b>,"
-      ride_offer: "Breng uw en andere kinderen naar hun hobbies"
+      ride_offer: "Breng kinderen van iemand anders naar hun hobbies"
       ride_request: "Een rit naar het werk"
       some_private_offers_exist: "Er zijn al <b>%{number_of_listings} aanbiedingen</b>,"
       some_private_requests_exist: "Er zijn al <b>%{number_of_listings} vragen</b>,"
@@ -987,9 +987,9 @@ nl:
       email: "E-mail adres"
       message: "Een persoonlijk bericht"
       send_invitation: "Verstuur uitnodiging"
-      add_as_many_emails_as_you_want: "Voeg hier onder e-mail adressen toe van de mensen die je wil uitnodigen. Als je verschillende adressen wil toevoegen, scheid deze dan met een komma."
+      add_as_many_emails_as_you_want: "Voeg hieronder e-mail adressen toe van de mensen die je wil uitnodigen. Als je verschillende adressen wil toevoegen, scheid deze dan met een komma."
       invitation_emails_field_placeholder: "vriend1@voorbeeld.com, vriend2@voorbeeld.com, ..."
-      invitation_message_field_placeholder: "Ik werd lid van deze geweldige gemeenschap. Doe het ook!"
+      invitation_message_field_placeholder: "Ik werd lid van deze geweldige marktplaats. Doe het ook!"
       errors_in_emails: "Check of de e-mail adressen die je toegevoegd hebt geldig zijn. indien je meerdere adressen hebt toegevoegd, verzeker je ervan dat ze zijn gescheiden door comma's"
     list_item:
       review: beoordeling
@@ -1032,10 +1032,10 @@ nl:
       settings: Instellingen
       feedback: "Neem contact op"
     application:
-      join_this_community: "Sluit aan bij gemeenschap"
+      join_this_community: "Sluit aan bij marktplaats"
       read_more: "Lees meer"
       feedback: "Wat wil je ons vertellen?"
-      default_feedback: "Heb je een probleem gehad met %{service_name}? Heb je suggesties om onze dienst te verbeteren? Niet gepaste inhoud gezien? Of wil je gewoon iets met ons bespreken? Laat het ons weten!"
+      default_feedback: "Heb je een probleem gehad met %{service_name}? Heb je suggesties om onze dienst te verbeteren? Niet gepaste inhoud gezien? Of wil je gewoon iets vertellen? Laat het ons weten!"
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Neem contact op"
@@ -1095,7 +1095,7 @@ nl:
       something_went_wrong: "Er is iets mis gegaan"
       community_updated: "Details bijgewerkt."
       community_update_failed: "Bijwerken details mislukt."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Je account is aangemaakt. De volgende stap is het bevestigen van je e-mailadres."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Je account is aangemaakt. De volgende stap is het bevestigen van je e-mail adres."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Dank je wel om je aan te sluiten bij %{service_name}. Bevestig nu aub je e-mail adres."
       comment_cannot_be_empty: "Reactie kan niet leeg zijn"
       comment_sent: "Reactie verstuurd"
@@ -1105,7 +1105,7 @@ nl:
       create_new_listing: "Een ander item aanmaken"
       create_one_here: "hier één maken"
       email_confirmation_sent_to_new_address: "E-mail bevestiging is nu gestuurd naar het nieuwe adres."
-      email_not_found: "Het emailadres dat je hebt gegeven, is niet gevonden in de %{service_name} database."
+      email_not_found: "Het e-mail adres dat je hebt opgegeven, is niet gevonden in de %{service_name} database."
       error_with_session: "Fout in sessie."
       feedback_considered_spam: "Feedback is niet opgeslagen door de opmaak. Probeer opnieuw of gebruik het feedback forum."
       feedback_not_saved: "Feedback kon niet worden verzonden."
@@ -1141,7 +1141,7 @@ nl:
       error_in_payment: "Fout bij betaling. Als je nog geen betaling hebt uitgevoerd, probeer dan opnieuw. Als je dat wel al gedaan hebt, stuur ons dan een bericht."
       cannot_receive_payment: "De tegenpartij kan de betaling niet ontvangen door een of andere fout. Contacteer de beheerders om dit uit te klaren"
       payment_waiting_for_later_accomplishment: "We sturen de verkopen een bericht zodra je betaald hebt. Jij zal een betalingsbewijs via e-mail krijgen."
-      password_recovery_sent: "Aanwijzigingen om je wachtwoord te veranderen zijn naar je email gestuurd."
+      password_recovery_sent: "Aanwijzigingen om je wachtwoord te veranderen zijn naar je e-mail adres gestuurd."
       person_activated: "Gebruiker geactiveerd"
       person_deactivated: "Gebruiker gedeactiveerd"
       person_updated_successfully: "Informatie bijgewerkt"
@@ -1153,7 +1153,7 @@ nl:
       poll_updated: "Poll bijgewerkt"
       poll_deleted: "Poll verwijderd"
       read_more: "Lees meer!"
-      registration_considered_spam: ~
+      registration_considered_spam: "Registratie niet gelukt, stuur aub feedback en vermeld \"email2 error\"."
       reply_cannot_be_empty: "Je kan geen leeg bericht sturen"
       reply_sent: "Reactie succesvol verstuurd"
       request_accepted: "Verzoek geaccepteerd"
@@ -1191,7 +1191,7 @@ nl:
       you_must_log_in_to_change_payment_settings: "Je moet inloggen bij %{service_name} om je betalingsgegevens te wijzigen"
       you_must_log_in_to_accept_or_reject: "Je moet inloggen om de transactie te accepteren of te annuleren"
       you_must_log_in_to_confirm_or_cancel: "Je moet inloggen om de transactie te confirmeren of te annuleren"
-      you_need_to_confirm_your_account_first: "Bevestig je e-mailadres."
+      you_need_to_confirm_your_account_first: "Bevestig je e-mail adres."
       you_must_fill_all_the_fields: "Je moet alle velden invullen"
       you_unfollowed_listing: "Je volgt dit item niet meer"
       joining_community_failed: "Aansluiten mislukt"
@@ -1319,7 +1319,7 @@ nl:
       valid_until_radio_buttons:
         for_the_time_being: Voorlopig
       visibility:
-        all_communities: "Al mijn Sharetribe gemeenschappen"
+        all_communities: "Al mijn Sharetribe marktplaatsen"
         this_community: "Alleen %{community} leden"
         visibility: Zichtbaarheid
       privacy:
@@ -1351,7 +1351,7 @@ nl:
       rideshare: "Rit delen"
       search_verb: Zoek
       you_have_something_others_do_not: "Heb je iets aan te bieden?"
-      feed_title: ~
+      feed_title: "%{listing_type} in %{service_name} %{optional_category}"
     left_panel_link:
       borrows: Lenen
       buys: Kopen
@@ -1470,16 +1470,16 @@ nl:
       continue: Doorgaan
       payment_receiver: "Ontvanger betaling:"
       sum: "Som betaling:"
-      commission_will_be_added: ~
+      commission_will_be_added: "Een service kost van 10% zal toegevoegd worden."
     form:
       total: Totaal
-      service_charge: ~
+      service_charge: "Service toeslag"
       product: "Product:"
       price: "Som:"
       price_for: "Prijs voor %{payer_given_name}:"
       continue_to_pay: "Ga verder met betalen"
       invoice: Factuur
-      service_fee: ~
+      service_fee: "%{service_name} service toeslag:"
       you_will_get: "Je zal ontvangen:"
     braintree:
       terms:
@@ -1517,6 +1517,7 @@ nl:
       billing_agreement_wrong_account: "De PayPal accounts kwamen niet overeen. Gebruik aub dezelfde PayPal account die je gebruikt hebt in de eerste stap."
       something_went_wrong: "Er is iets mis gegaan. Probeer aub opnieuw. Als het probleem zich blijft voordoen, contacteer dan de beheerder van de website."
       account_not_verified: "Je hebt je PayPal account nog niet geverifieerd. Ga naar PayPal.com en verifieer je account alvorens verder te gaan."
+      account_restricted: ~
   paypal:
     checkout_with_paypal: "Uitloggen met PayPal"
     cancel_succesful: "PayPal betaling succesvol geannuleerd"
@@ -1549,6 +1550,9 @@ nl:
       email_is_in_use: "Het e-mail adres is al in gebruik."
       email_is_in_use_or_not_allowed: "Dit e-mail adres is niet toegestaan of al in gebruik. Contacteer ons wanneer je niet kan inloggen."
       email_not_allowed: "Deze e-mail is niet toegestaan in %{service_name}. Gebruik aub een toegestaan adres. Stuur ons feedback als je nog altijd niet binnen geraakt."
+      email_restriction_instructions:
+        one: "De toegang tot %{service_name} is beperkt. Om aan te sluiten heb je een '%{allowed_emails}' e-mail adres nodig."
+        other: "De toegang tot %{service_name} is beperkt. Je hebt een e-mail adres nodig dat aantoont dat je gerechtigd bent om aan te sluiten."
       enter_captcha: "Ik ben een mens:"
       family_name: Familienaam
       given_name: Voornaam
@@ -1570,8 +1574,8 @@ nl:
       signup_with_email: "Meld je aan met je e-mail adres"
     not_member:
       explanation_text: "Je bent momenteel in de %{community} marktplaats. Je hebt geprobeerd om het profiel te zien van een gebruiker uit een andere marktplaats die gemaakt is met het Sharetribe platform. Je kan geen toegang krijgen tot het profiel van deze gebruiker vanuit %{community}."
-      read_more_about_kassi_communities: "Lees meer over de Sharetribe gemeenschappen"
-      this_user_does_not_belong_to_this_community: "Deze gebruiker is geen lid van de %{community} gemeenschap."
+      read_more_about_kassi_communities: "Lees meer over de Sharetribe marktplaatsen"
+      this_user_does_not_belong_to_this_community: "Deze gebruiker is geen lid van de %{community} marktplaats."
     profile_feedback:
       as_expected: "Zoals verwacht"
       exceeded_expectations: "Veel beter dan verwacht"
@@ -1667,9 +1671,9 @@ nl:
       change_email: Wijzig
       confirm_your_email: "Bevestig aub je e-mail adres"
       account_confirmation_instructions: "Je zal snel een bericht krijgen met een link die je moet aanklikken om het e-mail adres dat je hebt ingebracht te bevestigen. Zodra dit gebeurd is kan je aansluiten bij %{service_name}."
-      account_confirmation_instructions_title_admin: "Welkom bij je gemeenschap!"
-      your_marketplace_has_now_been_created: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_title_admin: "Welkom bij je marktplaats!"
+      your_marketplace_has_now_been_created: "Je marktplaats is nu aangemaakt. Dat was makkelijk, niet? Er is nog één ding te doen alvorens je je site kan gebruiken: je moet je e-mail adres bevestigen."
+      account_confirmation_instructions_admin: "Je zal binnenkort een e-mail ontvangen met een link om het e-mail adres dat je hebt opgegeven te bevestigen. Daarna kan je beginnen met je marktplaats te configureren."
   settings:
     account:
       change: Wijzig
@@ -1680,7 +1684,7 @@ nl:
       email_addresses: "E-mail adressen"
       new_email: "Nieuw e-mail adres"
       delete_all_memberships: "Wanneer je je account verwijdert, kan je het niet meer gebruiken in de volgende marktplaatsen: %{marketplaces}"
-      delete_personal_information: ~
+      delete_personal_information: "Als je je account verwijdert, zal al je persoonlijke informatie (naam, telefoonnummer, adres, e-mail, profiel afbeelding, enz...) permanent verwijderd worden. Dit kan niet meer worden gerecupereerd. Al de items die je hebt aangemaakt, worden verwijderd. Je kan je account niet opnieuw activeren."
       delete_information_others_involved: ~
       unfinished_transactions: "Je account kan niet verwijderd worden omdat je lopende transacties hebt. Sluit aub alle transacties alvorens je account te verwijderen."
       new_password: "Nieuw wachtwoord"
@@ -1707,7 +1711,7 @@ nl:
       newsletters: Nieuwsbrieven
       community_updates: "Update e-mails"
       email_about_accept_reminders: "...ik ben vergeten om een voorstel of een verzoek te accepteren"
-      email_about_confirm_reminders: "...ik vergeten ben om een verzoek als uitgevoerd te bevestigen"
+      email_about_confirm_reminders: "...ik ben vergeten om een verzoek als uitgevoerd te bevestigen"
       email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn vraag of aanbod"
       email_about_new_messages: "...iemand stuurt me een bericht"
       email_about_new_received_testimonials: "...iemand geeft me feedback"
@@ -1726,7 +1730,7 @@ nl:
       settings_link: instellingen
       homepage_link: "Home page"
       unsubscribe_unsuccesful: "Fout bij uitschrijven"
-      unsuccessful_unsubscribe_info_text: ~
+      unsuccessful_unsubscribe_info_text: "De reden is mogelijk dat de uitschrijf-link oud was of niet meer geldig. Contacteer ons via de feedback knop links en we zullen je uitschrijven of inloggen en je e-mail instellingen wijzigen."
     profile:
       about_you: "Over jou"
       city: Stad
@@ -1875,9 +1879,9 @@ nl:
         zero: transacties
         one: transactie
         other: transacties
-    previous_label: ~
-    next_label: ~
-    page_gap: ~
+    previous_label: "&#8592; Vorige"
+    next_label: "Volgende &#8594;"
+    page_gap: "&hellip;"
     page_entries_info:
       single_page:
         zero: "Geen %{model} gevonden"
