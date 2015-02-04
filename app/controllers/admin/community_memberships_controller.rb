@@ -13,6 +13,7 @@ class Admin::CommunityMembershipsController < ApplicationController
   def ban
     membership = CommunityMembership.find_by_id(params[:id])
     membership.update_attributes(:status => "banned")
+    membership.update_attributes(:admin => 0) if membership.admin == 1
 
     @current_community.close_listings_by_author(membership.person)
 
