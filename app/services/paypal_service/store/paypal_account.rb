@@ -107,8 +107,8 @@ module PaypalService::Store::PaypalAccount
     find_model(person_id: person_id, community_id: community_id).each { |account| account.destroy }
   end
 
-  def get(person_id:nil, community_id:)
-    from_model(find_model(person_id: person_id, community_id: community_id))
+  def get(person_id:nil, community_id:, active:[true, false])
+    from_model(find_model(person_id: person_id, community_id: community_id, active: active))
   end
 
   def get_by_payer_id(payer_id:, community_id:)
@@ -143,9 +143,9 @@ module PaypalService::Store::PaypalAccount
     sub_and_rename(opts, ORDER_PERMISSIONS_MAP)
   end
 
-  def find_model(person_id:nil, community_id:)
+  def find_model(person_id:nil, community_id:, active:[true, false])
     Maybe(
-      PaypalAccountModel.where(person_id: person_id, community_id: community_id)
+      PaypalAccountModel.where(person_id: person_id, community_id: community_id, active: active)
       .eager_load([:order_permission, :billing_agreement])
       .first
     )

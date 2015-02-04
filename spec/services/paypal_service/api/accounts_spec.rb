@@ -183,13 +183,6 @@ describe PaypalService::API::Accounts do
       with_success(response) { |data|
         expect(data[:redirect_url]).to eq "https://paypaltest.com/gb/12345"
       }
-
-      with_personal_account { |data|
-        expect(data[:active]).to eq false
-        expect(data[:state]).to eq :not_verified
-        expect(data[:order_permission_state]).to eq :pending
-        expect(data[:billing_agreement_state]).to eq :not_verified
-      }
     end
 
     it "creates pending community account" do
@@ -197,13 +190,6 @@ describe PaypalService::API::Accounts do
 
       with_success(response) { |data|
         expect(data[:redirect_url]).to eq "https://paypaltest.com/gb/12345"
-      }
-
-      with_community_account { |data|
-        expect(data[:active]).to eq false
-        expect(data[:state]).to eq :not_verified
-        expect(data[:order_permission_state]).to eq :pending
-        expect(data[:billing_agreement_state]).to eq :not_verified
       }
     end
   end
@@ -236,6 +222,15 @@ describe PaypalService::API::Accounts do
         expect(data[:order_permission_state]).to eq :verified
         expect(data[:billing_agreement_state]).to eq :not_verified
       }
+    end
+
+  end
+
+  context "#get" do
+
+    it "does not return inactive account" do
+      request_personal_account
+      expect_no_personal_account
     end
 
   end
@@ -324,17 +319,6 @@ describe PaypalService::API::Accounts do
 
   describe "#delete" do
     context "personal account" do
-      it "deletes account with pending permissions" do
-        request_personal_account
-
-        with_personal_account { |data|
-          expect(data[:order_permission_state]).to eq :pending
-          expect(data[:billing_agreement_state]).to eq :not_verified
-        }
-
-        expect_success(delete_personal_account)
-        expect_no_personal_account
-      end
 
       it "deletes account with verified permissions" do
         request_personal_account
@@ -381,18 +365,6 @@ describe PaypalService::API::Accounts do
     end
 
     context "community account" do
-      it "deletes account with pending permissions" do
-        request_community_account
-
-        with_community_account { |data|
-          expect(data[:order_permission_state]).to eq :pending
-          expect(data[:billing_agreement_state]).to eq :not_verified
-        }
-
-        expect_success(delete_community_account)
-        expect_no_community_account
-      end
-
       it "deletes account with verified permissions" do
         request_community_account
         create_community_account

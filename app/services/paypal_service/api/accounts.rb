@@ -191,7 +191,7 @@ module PaypalService::API
     ## GET /accounts/?community_id=1&person_id=asdfgasdgasdfaasdf
 
     def get(community_id:, person_id: nil)
-      Result::Success.new(PaypalAccountStore.get(person_id: person_id, community_id: community_id))
+      Result::Success.new(PaypalAccountStore.get(person_id: person_id, community_id: community_id, active: true))
     end
 
     private
