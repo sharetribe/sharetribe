@@ -5,6 +5,7 @@ describe PaypalService::Store::PaypalPayment do
     transaction_id: 1,
     payer_id: "7LFUVCDKGARH4",
     receiver_id: "URAPMR7WHFAWY",
+    merchant_id: "asdfasdf",
     pending_reason: "order",
     order_id: "O-2ES620817J8424036",
     order_date: Time.now,

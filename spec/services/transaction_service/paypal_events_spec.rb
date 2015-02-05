@@ -129,6 +129,7 @@ describe TransactionService::PaypalEvents do
       @authorized_payment = PaymentStore.create(@cid, @transaction_with_msg.id, {
           payer_id: "sduyfsudf",
           receiver_id: "98ysdf98ysdf",
+          merchant_id: "asdfasdf",
           pending_reason: "authorization",
           order_id: SecureRandom.uuid,
           order_date: Time.now,
@@ -160,6 +161,7 @@ describe TransactionService::PaypalEvents do
       PaymentStore.create(@cid, @transaction_no_msg.id, {
           payer_id: "sduyfsudf",
           receiver_id: "98ysdf98ysdf",
+          merchant_id: "asdfasdf",
           pending_reason: "authorization",
           order_id: SecureRandom.uuid,
           order_date: Time.now,
@@ -173,6 +175,7 @@ describe TransactionService::PaypalEvents do
       PaymentStore.create(@cid, @transaction_with_msg.id, {
           payer_id: "sduyfsudf",
           receiver_id: "98ysdf98ysdf",
+          merchant_id: "asdfasdf",
           pending_reason: "authorization",
           order_id: SecureRandom.uuid,
           order_date: Time.now,
@@ -208,6 +211,7 @@ describe TransactionService::PaypalEvents do
       PaymentStore.create(@cid, @transaction_with_msg.id, {
           payer_id: "sduyfsudf",
           receiver_id: "98ysdf98ysdf",
+          merchant_id: "asdfasdf",
           pending_reason: "authorization",
           order_id: SecureRandom.uuid,
           order_date: Time.now,
@@ -241,6 +245,7 @@ describe TransactionService::PaypalEvents do
       PaymentStore.create(@cid, @transaction_with_msg.id, {
           payer_id: "sduyfsudf",
           receiver_id: "98ysdf98ysdf",
+          merchant_id: "asdfasdf",
           pending_reason: "authorization",
           order_id: SecureRandom.uuid,
           order_date: Time.now,
@@ -277,6 +282,7 @@ describe TransactionService::PaypalEvents do
       PaymentStore.create(@cid, @transaction_with_msg.id, {
           payer_id: "sduyfsudf",
           receiver_id: "98ysdf98ysdf",
+          merchant_id: "asdfasdf",
           pending_reason: "authorization",
           order_id: SecureRandom.uuid,
           order_date: Time.now,
