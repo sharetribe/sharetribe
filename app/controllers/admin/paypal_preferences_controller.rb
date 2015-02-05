@@ -5,7 +5,7 @@ class Admin::PaypalPreferencesController < ApplicationController
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm", :paypal_email, :commission_from_seller)
     .with_validations { validates_presence_of :paypal_email }
 
-  MIN_COMMISSION_PERCENTAGE = 5
+  MIN_COMMISSION_PERCENTAGE = 0
   MAX_COMMISSION_PERCENTAGE = 100
 
   PaypalPreferencesForm = FormUtils.define_form("PaypalPreferencesForm",
@@ -61,8 +61,8 @@ class Admin::PaypalPreferencesController < ApplicationController
         paypal_prefs_form: paypal_prefs_form,
         paypal_prefs_form_action: preferences_update_admin_community_paypal_preferences_path(@current_community.id),
         min_commission: minimum_commission,
-        min_commission_percentage: 5,
-        max_commission_percentage: 100,
+        min_commission_percentage: MIN_COMMISSION_PERCENTAGE,
+        max_commission_percentage: MAX_COMMISSION_PERCENTAGE,
         currency: currency,
         create_url: "https://www.paypal.com/#{community_country_code}/signup",
         upgrade_url: "https://www.paypal.com/#{community_country_code}/upgrade",
