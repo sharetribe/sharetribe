@@ -127,7 +127,7 @@ zh:
         social_media: ~
         facebook_link_text: 连接你的自定义Facebook应用
         twitter_link_text: 添加你的Twitter帐号
-        analytics: ~
+        analytics: "访问%{analytics_link}是个好主意。方便你查看你的市场中发生的事情，比如你有多少访客等。"
         analytics_link_text: "连接一个Google Analytics帐号"
         settings: ~
         settings_link_text: 在这里查看你的市场设置
@@ -218,7 +218,7 @@ zh:
           started: 已开始
           last_activity: 最近的活动
           initiated_by: ~
-          other_party: ~
+          other_party: 其他参与方
         status:
           free: ~
           pending: 待定
@@ -653,7 +653,7 @@ zh:
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "我们已标记请求“%{request}”完成。该请求自动完成于预订期限结束后一天。"
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: "给予%{other_party_given_name}反馈"
@@ -829,7 +829,7 @@ zh:
     error_410:
       page_removed: 页面已删除
       page_you_requested_has_been_removed: 你请求的页面已被删除。
-      page_removed_reason: ~
+      page_removed_reason: 这种情况有几种可能的原因。比如，一个用户可能删除了他的帐号或者列表已被删除。
     error_410_title: 页面已删除
     error_500:
       temporary_unavailable: 市场暂时不可用
@@ -1502,6 +1502,7 @@ zh:
       billing_agreement_wrong_account: PayPal帐号不匹配。请使用与你在第一步连接的帐号相同的PayPal帐号。
       something_went_wrong: 出错了。请再试一次。如果这个问题仍旧存在，请联系服务支持：
       account_not_verified: 你还没有验证你的PayPal帐号。要继续请先登录paypal.com并确认你的帐号。
+      account_restricted: ~
   paypal:
     checkout_with_paypal: 用PayPal结帐
     cancel_succesful: PayPal付款成功取消
@@ -1654,7 +1655,7 @@ zh:
       account_confirmation_instructions: ~
       account_confirmation_instructions_title_admin: 欢迎来到你的市场！
       your_marketplace_has_now_been_created: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_admin: 你很快会收到一封邮件要求你点击确认刚才输入的邮件地址。在确认邮件之后你就可以配置你的市场了。
   settings:
     account:
       change: 修改
@@ -1667,7 +1668,7 @@ zh:
       delete_all_memberships: "如果你删除你的帐号，你将不能在以下市场中使用它：%{marketplaces}"
       delete_personal_information: ~
       delete_information_others_involved: ~
-      unfinished_transactions: ~
+      unfinished_transactions: 因为你有正在进行中的交易，所以你的帐号不能被删除。请在删除帐号前完成所有交易。
       new_password: 新密码
       save: 保存
       these_fields_are_shown_only_to_you: 除非提供了您的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对您可见。
@@ -1854,6 +1855,8 @@ zh:
       person:
         zero: 用户
         other: 用戶
+      listing_conversation:
+        other: 交易
     previous_label: "&#8592;上一个"
     next_label: "下一个 &#8594;"
     page_gap: ~
