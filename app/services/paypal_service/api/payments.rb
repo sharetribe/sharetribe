@@ -67,6 +67,7 @@ module PaypalService::API
             token: response[:token],
             transaction_id: create_payment[:transaction_id],
             merchant_id: m_acc[:person_id],
+            receiver_id: m_acc[:payer_id],
             item_name: create_payment[:item_name],
             item_quantity: create_payment[:item_quantity],
             item_price: create_payment[:item_price] || create_payment[:order_total],
