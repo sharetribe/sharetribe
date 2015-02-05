@@ -31,6 +31,7 @@ class PaypalAccountsController < ApplicationController
       community_ready_for_payments: community_ready_for_payments,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       paypal_account_email: m_account[:email].or_else(""),
+      change_url: ask_order_permission_person_paypal_account_path(@current_user)
     })
   end
 
@@ -59,7 +60,8 @@ class PaypalAccountsController < ApplicationController
     render(locals: {
       community_ready_for_payments: community_ready_for_payments,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
-      form_action: person_paypal_account_path(@current_user),
+      order_permission_action: ask_order_permission_person_paypal_account_path(@current_user),
+      billing_agreement_action: ask_billing_agreement_person_paypal_account_path(@current_user),
       paypal_account_form: PaypalAccountForm.new,
       paypal_account_state: m_account[:order_permission_state].or_else(""),
       paypal_account_email: m_account[:email].or_else(""),
@@ -71,7 +73,13 @@ class PaypalAccountsController < ApplicationController
     })
   end
 
-  def create
+  def ask_order_permission
+    return redirect_to action: :new unless PaypalHelper.community_ready_for_payments?(@current_community)
+
+    create_paypal_account
+  end
+
+  def ask_billing_agreement
     return redirect_to action: :new unless PaypalHelper.community_ready_for_payments?(@current_community)
 
     account_response = accounts_api.get(
@@ -84,7 +92,7 @@ class PaypalAccountsController < ApplicationController
     when Some(:verified)
       create_billing_agreement
     else
-      create_paypal_account
+      redirect_to action: ask_order_permission
     end
   end
 
