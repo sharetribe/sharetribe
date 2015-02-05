@@ -184,6 +184,7 @@ ja:
         save_user_status_successful: 保存しました
         save_user_status_error: 保存に失敗しました。ページを再読込してもう一度試してください
         ban_user_confirmation: これはマーケットプレイスのユーザを削除するものであり、このアカウントに戻れないようになります。本当にこの削除手続きを実行してもよろしいですか。
+        ban_me_error: ~
       social_media:
         social_media: ソーシャルメディア
         twitter_handle: Twitterのハンドル
@@ -1512,7 +1513,7 @@ ja:
       billing_agreement_wrong_account: PayPalアカウントが一致しませんでした。当初ご登録されたPayPalアカウントを使用してください。
       something_went_wrong: 異常発生しました。もう一度やり直してください。もしこのまま問題が続くようであれば、サイト管理者にお問い合わせください。
       account_not_verified: あなたはPayPalアカウントを検証していません。ご利用を続けるには、paypal.comへ行って確認する必要があります。
-      account_restricted: ~
+      account_restricted: あなたのPayPalアカウントは、拒否され接続できないようです。paypal.comにログインしてから、この問題の詳細について、PayPalカスタマーサポートに問い合わせをして状況を改善してください。
   paypal:
     checkout_with_paypal: PayPalでお支払い
     cancel_succesful: PayPalのお支払いは正常にキャンセルされました
