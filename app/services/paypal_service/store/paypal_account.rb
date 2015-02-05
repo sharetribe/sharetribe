@@ -118,7 +118,7 @@ module PaypalService::Store::PaypalAccount
   end
 
   def delete_billing_agreement(person_id:, community_id:)
-    maybe_account = find_model(person_id: person_id, community_id: community_id)
+    maybe_account = find_model(person_id: person_id, community_id: community_id, active: true)
     maybe_account.billing_agreement.each { |billing_agreement| billing_agreement.destroy }
   end
 
