@@ -22,7 +22,7 @@ module PaypalService::API
     end
 
     def with_accounts(cid, pid, receiver_id, &block)
-      admin_acc = AccountStore.get(community_id: cid)
+      admin_acc = AccountStore.get(community_id: cid, active: true)
       if admin_acc.nil?
         return log_and_return(Result::Error.new("No matching admin account for community_id: #{cid}."))
       end
