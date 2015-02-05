@@ -121,7 +121,11 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     transaction = TransactionService::Transaction.query(@listing_conversation.id)
 
     render "accept", locals: {
+      payment_gateway: :paypal,
       discussion_type: transaction_conversation[:discussion_type],
+      listing: @listing,
+      booking: @listing_conversation.booking,
+      orderer: @listing_conversation.starter,
       sum: transaction[:checkout_total],
       fee: transaction[:commission_total],
       seller_gets: transaction[:checkout_total] - transaction[:commission_total],
@@ -136,7 +140,11 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   def render_braintree_form(preselected_action)
     render action: :accept, locals: {
+      payment_gateway: :braintree,
       discussion_type: @listing_conversation.discussion_type,
+      listing: @listing,
+      booking: @listing_conversation.booking,
+      orderer: @listing_conversation.starter,
       sum: @listing_conversation.payment.total_sum,
       fee: @listing_conversation.payment.total_commission,
       seller_gets: @listing_conversation.payment.seller_gets,

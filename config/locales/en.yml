@@ -405,6 +405,8 @@ en:
 You can see the exact fees by logging in to your PayPal account and going <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>here</a>. After each purchase you will get a receipt displaying the exact fee."
   conversations:
     accept:
+      details: "Order details"
+      order_by: "Order by %{orderer_link}"
       respond_to_offer: "Respond to an offer"
       respond_to_request: "Respond to a request"
       accept_offer: "Accept the offer"
@@ -420,9 +422,11 @@ You can see the exact fees by logging in to your PayPal account and going <a hre
       minimum_price_error_message: "The price cannot be lower than %{amount}."
       accept: Accept
       decline: Decline
-      sum: "Sum: %{sum}"
-      service_fee: "Service fee: %{service_fee}"
+      sum: "Subtotal: %{sum}"
+      service_fee: "%{service_name} fee: -%{service_fee}"
       you_will_get: "You will get: %{seller_gets}"
+      total: "Total: %{seller_gets}*"
+      paypal_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a>"
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
