@@ -12,6 +12,12 @@ class Admin::CommunityMembershipsController < ApplicationController
 
   def ban
     membership = CommunityMembership.find_by_id(params[:id])
+
+    if membership.person == @current_user
+      flash[:error] = t("admin.communities.manage_members.ban_me_error")
+      return redirect_to admin_community_community_memberships_path(@current_community)
+    end
+
     membership.update_attributes(:status => "banned")
     membership.update_attributes(:admin => 0) if membership.admin == 1
 
