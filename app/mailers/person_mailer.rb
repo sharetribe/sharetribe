@@ -249,7 +249,7 @@ class PersonMailer < ActionMailer::Base
     premailer_mail(:to => @invitation.email,
          :from => community_specific_sender(@invitation.community),
          :subject => subject,
-         :reply_to => @invitation.inviter.email)
+         :reply_to => @invitation.inviter.confirmed_notification_email_to)
   end
 
   # A message from the community admin to a single community member
