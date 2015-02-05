@@ -107,7 +107,7 @@ class Community < ActiveRecord::Base
 
   has_many :community_memberships, :dependent => :destroy
   has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
-  has_many :admins, :through => :community_memberships, :conditions => ['community_memberships.admin = ?', true], :source => :person
+  has_many :admins, :through => :community_memberships, :conditions => ['community_memberships.admin = ? AND community_memberships.status <> ?', true, 'banned'], :source => :person
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
