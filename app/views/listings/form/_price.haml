@@ -22,7 +22,9 @@
 
     %small
       = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat
-      - if seller_commission_in_use
+      - if !seller_commission_in_use && payment_gateway == :paypal
+        = t(".no_service_fee_you_will_get_paypal", :fee_info_link_id => 'paypal_fee_info_link').html_safe
+      - elsif seller_commission_in_use
         - content_for :seller_commission_js do
           :javascript
             $(function() {

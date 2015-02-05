@@ -1293,8 +1293,9 @@ Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a hre
         time: "tunti, päivä, kk ..."
         long_time: "vko, kk, ..."
         after_service_fee_you_will_get: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat %{sum_with_currency}"
-        after_service_fee_you_will_get_paypal: "%{service_name} fee (%{sum_with_currency}) and <a id='%{fee_info_link_id} href='#'>PayPal's payment processing fee</a> will be deducted from the price."
-        after_service_fee_you_will_get_vat: "%{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksu</a> vähennetään hinnasta."
+        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksu</a> vähennetään hinnasta."
+        after_service_fee_you_will_get_paypal: "%{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksu</a> vähennetään hinnasta."
+        after_service_fee_you_will_get_vat: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat noin %{sum_with_currency} (ALV 0%)"
         price_excludes_vat: "Merkitse tähän alv 0 -hinta."
       origin:
         location: Sijainti

@@ -1293,6 +1293,7 @@ You can see the exact fees by logging in to your PayPal account and going <a hre
         time: "hour, day, month, ..."
         long_time: "week, month, ..."
         after_service_fee_you_will_get: "After %{service_name} and payment processor fees you will get %{sum_with_currency}"
+        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a> will be deducted from the price."
         after_service_fee_you_will_get_paypal: "%{service_name} fee (%{sum_with_currency}) and <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a> will be deducted from the price."
         after_service_fee_you_will_get_vat: "After %{service_name} and payment processor fees you will get approx. %{sum_with_currency} (VAT 0%)"
         price_excludes_vat: "The price doesn't include VAT."
