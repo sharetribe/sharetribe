@@ -175,12 +175,23 @@ module PaypalService::Store::PaypalAccount
   end
 
   def deactivate_other_accounts(active_account_model)
-    others = PaypalAccountModel.where(
-      "person_id = ? AND community_id = ? AND id != ?",
-      active_account_model.person_id,
-      active_account_model.community_id,
-      active_account_model.id
-    ).update_all(active: false)
+    base_query =
+      PaypalAccountModel.where(
+        "community_id = ? AND id != ?",
+        active_account_model.community_id,
+        active_account_model.id
+      )
+
+    query =
+      if active_account_model.person_id.nil?
+        # community account
+        base_query.where("person_id IS NULL")
+      else
+        # personal account
+        base_query.where("person_id = ?", active_account_model.person_id)
+      end
+
+    query.update_all(active: false)
   end
 
   # Finds model
