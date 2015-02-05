@@ -63,45 +63,21 @@ module PaypalService::API
               token_secret: access_token[:token_secret]
             })
         ) { |personal_data|
-          opts = {
-            email: personal_data[:email],
-            payer_id: personal_data[:payer_id],
-            order_permission_verification_code: body[:order_permission_verification_code],
-            order_permission_scope: access_token[:scope].join(','),
-            active: true
-          }
-
-          existing = PaypalAccountStore.get(
+          account = create_verified_account!(
             community_id: community_id,
             person_id: person_id,
-            payer_id: personal_data[:payer_id]
+            order_permission_request_token: order_permission_request_token,
+            payer_id: personal_data[:payer_id],
+
+            opts: {
+              email: personal_data[:email],
+              payer_id: personal_data[:payer_id],
+              order_permission_request_token: order_permission_request_token,
+              order_permission_verification_code: body[:order_permission_verification_code],
+              order_permission_scope: access_token[:scope].join(','),
+              active: true
+            }
           )
-
-          account =
-            if existing.nil?
-              # Update the 'new' account
-              PaypalAccountStore.update(
-                community_id: community_id,
-                person_id: person_id,
-                order_permission_request_token: order_permission_request_token,
-                opts: opts
-              )
-            else
-              # Update the 'existing' account
-              PaypalAccountStore.update(
-                community_id: community_id,
-                person_id: person_id,
-                payer_id: personal_data[:payer_id],
-                opts: opts
-              )
-
-              # Delete the 'new' account
-              PaypalAccountStore.delete(
-                community_id: community_id,
-                person_id: person_id,
-                order_permission_request_token: order_permission_request_token
-              )
-            end
 
           Result::Success.new(account)
         }
@@ -220,6 +196,39 @@ module PaypalService::API
     end
 
     private
+
+    def create_verified_account!(community_id:, person_id:nil, order_permission_request_token:, payer_id:, opts:)
+      existing = PaypalAccountStore.get(
+        community_id: community_id,
+        person_id: person_id,
+        payer_id: payer_id
+      )
+
+      if existing.nil?
+        # Update the 'new' account
+        PaypalAccountStore.update(
+          community_id: community_id,
+          person_id: person_id,
+          order_permission_request_token: order_permission_request_token,
+          opts: opts
+        )
+      else
+        # Delete the 'new' account
+        PaypalAccountStore.delete(
+          community_id: community_id,
+          person_id: person_id,
+          order_permission_request_token: order_permission_request_token
+        )
+
+        # Update the 'existing' account
+        PaypalAccountStore.update(
+          community_id: community_id,
+          person_id: person_id,
+          payer_id: payer_id,
+          opts: opts
+        )
+      end
+    end
 
     # Calls Merchant API with given request
     # Logs and returns if error, calls block if success
