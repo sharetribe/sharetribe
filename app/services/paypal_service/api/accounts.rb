@@ -108,10 +108,9 @@ module PaypalService::API
             cancel: body[:cancel_url]
           })
       ) { |billing_agreement_request|
-        account = PaypalAccountStore.update(
+        account = PaypalAccountStore.update_active(
           community_id: community_id,
           person_id: person_id,
-          active: true,
           opts:
             {
               community_id: community_id,
@@ -138,7 +137,7 @@ module PaypalService::API
     # - :wrong_account
 
     def billing_agreement_create(community_id:, person_id:, billing_agreement_request_token:)
-      paypal_account = PaypalAccountStore.get(person_id: person_id, community_id: community_id, active: true)
+      paypal_account = PaypalAccountStore.get_active(person_id: person_id, community_id: community_id)
 
       with_success_merchant(
         PaypalService::DataTypes::Merchant
@@ -159,10 +158,9 @@ module PaypalService::API
           elsif express_checkout_details[:payer_id] != paypal_account[:payer_id]
             Result::Error.new(:wrong_account)
           else
-            account = PaypalAccountStore.update(
+            account = PaypalAccountStore.update_active(
               community_id: community_id,
               person_id: person_id,
-              active: true,
               opts:
                 {
                   billing_agreement_billing_agreement_id: billing_agreement[:billing_agreement_id]
@@ -186,13 +184,13 @@ module PaypalService::API
     ## DELETE /accounts/?community_id=1&person_id=asdfgasdgasdfaasdf
 
     def delete(community_id:, person_id: nil)
-      Result::Success.new(PaypalAccountStore.delete(person_id: person_id, community_id: community_id))
+      Result::Success.new(PaypalAccountStore.delete_all(person_id: person_id, community_id: community_id))
     end
 
     ## GET /accounts/?community_id=1&person_id=asdfgasdgasdfaasdf
 
     def get(community_id:, person_id: nil)
-      Result::Success.new(PaypalAccountStore.get(person_id: person_id, community_id: community_id, active: true))
+      Result::Success.new(PaypalAccountStore.get_active(person_id: person_id, community_id: community_id))
     end
 
     private
@@ -206,7 +204,7 @@ module PaypalService::API
 
       if existing.nil?
         # Update the 'new' account
-        PaypalAccountStore.update(
+        PaypalAccountStore.update_pending(
           community_id: community_id,
           person_id: person_id,
           order_permission_request_token: order_permission_request_token,
@@ -214,7 +212,7 @@ module PaypalService::API
         )
       else
         # Delete the 'new' account
-        PaypalAccountStore.delete(
+        PaypalAccountStore.delete_pending(
           community_id: community_id,
           person_id: person_id,
           order_permission_request_token: order_permission_request_token

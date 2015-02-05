@@ -13,7 +13,7 @@ module PaypalService::API
     end
 
     def with_active_account(cid, pid, &block)
-      m_acc = AccountStore.get(person_id: pid, community_id: cid, active: true)
+      m_acc = AccountStore.get_active(person_id: pid, community_id: cid)
       if m_acc.nil?
         return log_and_return(Result::Error.new("Cannot find paypal account for the given community and person: community_id: #{cid}, person_id: #{pid}."))
       else
@@ -22,7 +22,7 @@ module PaypalService::API
     end
 
     def with_accounts(cid, pid, receiver_id, &block)
-      admin_acc = AccountStore.get(community_id: cid, active: true)
+      admin_acc = AccountStore.get_active(community_id: cid)
       if admin_acc.nil?
         return log_and_return(Result::Error.new("No matching admin account for community_id: #{cid}."))
       end
