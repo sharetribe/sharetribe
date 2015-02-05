@@ -48,7 +48,7 @@ class Admin::PaypalPreferencesController < ApplicationController
 
     render("index", locals: {
         paypal_account_email: paypal_account[:email].or_else(nil),
-        paypal_form_action: account_create_admin_community_paypal_preferences_path(@current_community.id),
+        order_permission_action: account_create_admin_community_paypal_preferences_path(@current_community.id),
         paypal_account_form: PaypalAccountForm.new,
         paypal_prefs_valid: paypal_prefs_form.valid?,
         paypal_prefs_form: paypal_prefs_form,

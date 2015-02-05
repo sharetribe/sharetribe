@@ -31,13 +31,15 @@
         = t("admin.paypal_accounts.paypal_account_email_completed")
       .paypal-connected-email.paypal-account-connected
         = t("paypal_accounts.connected_account", :email => paypal_account_email)
+      .paypal-connected-change
+        = link_to t("paypal_accounts.change_account"), order_permission_action
   - else
 
     - content_for :extra_javascript do
       :javascript
         ST.initializePayPalAccountForm("paypal_account_form");
 
-    = form_for paypal_account_form, url: paypal_form_action, html: { id: "paypal_account_form"} do |form|
+    = form_for paypal_account_form, url: order_permission_action, method: "get", html: { id: "paypal_account_form"} do |form|
 
       - title = t("admin.paypal_accounts.paypal_account_email")
       = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title, currency: currency, create_url: create_url, upgrade_url: upgrade_url}

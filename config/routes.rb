@@ -148,7 +148,7 @@ Kassi::Application.routes.draw do
           member do
             get :index
             post :preferences_update
-            post :account_create
+            get :account_create
             get :permissions_verified
           end
         end
