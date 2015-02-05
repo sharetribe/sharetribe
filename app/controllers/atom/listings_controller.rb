@@ -35,4 +35,5 @@ class Atom::ListingsController < ApplicationController
       :community_name => @current_community.name_with_separator(I18n.locale),
       :listing_type => listing_type_label)
   end
+
 end

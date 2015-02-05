@@ -2,6 +2,7 @@ class ListingsController < ApplicationController
   class ListingDeleted < StandardError; end
 
   include PeopleHelper
+  include ListingsHelper
 
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:close, :update, :follow, :unfollow]
@@ -31,17 +32,31 @@ class ListingsController < ApplicationController
 
   def index
     @selected_tribe_navi_tab = "home"
-    if request.xhr? && params[:person_id] # AJAX request to load on person's listings for profile view
-      @person = Person.find(params[:person_id])
-      PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
+    respond_to do |format|
+      format.js do
+        if params[:person_id] # AJAX request to load on person's listings for profile view
+          @person = Person.find(params[:person_id])
+          PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
 
-      # Returns the listings for one person formatted for profile page view
-      per_page = params[:per_page] || 200 # the point is to show all here by default
-      page = params[:page] || 1
-      render :partial => "listings/profile_listings", :locals => {:person => @person, :limit => per_page}
-      return
+          # Returns the listings for one person formatted for profile page view
+          per_page = params[:per_page] || 200 # the point is to show all here by default
+          page = params[:page] || 1
+          render :partial => "listings/profile_listings", :locals => {:person => @person, :limit => per_page}
+        end
+      end
+
+      format.atom do
+        page, per_page = pagination(params)
+        listings = @current_community.private ? [] : Listing.find_with(params, @current_user, @current_community, per_page, page)
+        title = build_title(params)
+        updated = listings.first.present? ? listings.first.updated_at : Time.now
+
+        render layout: false,
+               locals: { listings: listings,
+                         title: title,
+                         updated: updated }
+      end
     end
-    redirect_to root
   end
 
   def listing_bubble
@@ -294,6 +309,26 @@ class ListingsController < ApplicationController
   end
 
   private
+
+  def pagination(params)
+    [params["page"] || 1, params["per_page"] || 50]
+  end
+
+  def build_title(params)
+    category = Category.find_by_id(params["category"])
+    category_label = (category.present? ? "(" + localized_category_label(category) + ")" : "")
+
+    if ["request","offer"].include? params['share_type']
+      listing_type_label = t("listings.index.#{params['share_type']+"s"}")
+    else
+      listing_type_label = t("listings.index.listings")
+    end
+
+    t("listings.index.feed_title",
+      :optional_category => category_label,
+      :community_name => @current_community.name_with_separator(I18n.locale),
+      :listing_type => listing_type_label)
+  end
 
   def commission(community)
     payment_type = MarketplaceService::Community::Query.payment_type(community.id)
