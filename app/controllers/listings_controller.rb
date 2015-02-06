@@ -56,6 +56,8 @@ class ListingsController < ApplicationController
                          title: title,
                          updated: updated }
       end
+
+      format.html { redirect_to root }
     end
   end
 
