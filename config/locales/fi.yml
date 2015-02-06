@@ -405,6 +405,8 @@ fi:
 Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>tätä linkkiä.</a> Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu."
   conversations:
     accept:
+      details: "Tilauksen tiedot"
+      order_by: "Tilaus käyttäjältä %{orderer_link}"
       respond_to_offer: "Vastaa tarjoukseen"
       respond_to_request: "Vastaa pyyntöön"
       accept_offer: "Hyväksy tarjous"
@@ -420,9 +422,12 @@ Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a hre
       minimum_price_error_message: "Hinta ei voi olla pienempi kuin %{amount}."
       accept: Hyväksy
       decline: Hylkää
-      sum: "Kokonaissumma: %{sum}"
-      service_fee: "Palvelumaksu: %{service_fee}"
-      you_will_get: "Sinä saat: %{seller_gets}"
+      sum_label: "Välisumma:"
+      service_fee_label: "%{service_name} palvelumaksu:"
+      you_will_get_label: "Sinä saat:"
+      total_label: "Loppusumma:"
+      total_value: "%{seller_gets}*"
+      paypal_fee_info: "* Ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>"
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."

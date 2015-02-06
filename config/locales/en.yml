@@ -422,10 +422,11 @@ You can see the exact fees by logging in to your PayPal account and going <a hre
       minimum_price_error_message: "The price cannot be lower than %{amount}."
       accept: Accept
       decline: Decline
-      sum: "Subtotal: %{sum}"
-      service_fee: "%{service_name} fee: -%{service_fee}"
-      you_will_get: "You will get: %{seller_gets}"
-      total: "Total: %{seller_gets}*"
+      sum_label: "Subtotal:"
+      service_fee_label: "%{service_name} fee:"
+      you_will_get_label: "You will get:"
+      total_label: "Total:"
+      total_value: "%{seller_gets}*"
       paypal_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a>"
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."

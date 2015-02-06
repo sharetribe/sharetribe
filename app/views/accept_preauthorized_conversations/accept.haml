@@ -30,16 +30,33 @@
       = render partial: "transactions/details/booking", locals: { booking: booking, price_per_day: listing.price }
 
   .conversation-price-info
-    %p
-      = t("conversations.accept.sum", :sum => humanized_money_with_symbol(sum))
-    %p
-      = t("conversations.accept.service_fee", :service_fee => humanized_money_with_symbol(fee))
+    .conversation-totals
+      .conversation-sum-wrapper
+        %span.conversation-sum-label
+          = t("conversations.accept.sum_label")
+        %span.conversation-sum-value
+          = humanized_money_with_symbol(sum)
+      .conversation-service-fee-wrapper
+        %span.conversation-service-fee-label
+          = t("conversations.accept.service_fee_label")
+        %span.conversation-service-fee-value
+          = "-#{humanized_money_with_symbol(fee)}"
+
+      - if payment_gateway == :paypal
+        .conversation-total-wrapper
+          %span.conversation-total-label
+            = t("conversations.accept.total_label")
+          %span.conversation-total-paypal-value
+            = t("conversations.accept.total_value", seller_gets: humanized_money_with_symbol(seller_gets))
+
+      - else
+        .conversation-total-wrapper
+          %span.conversation-total-label
+            = t("conversations.accept.you_will_get_label")
+          %span.conversation-total-value
+            = humanized_money_with_symbol(seller_gets)
 
     - if payment_gateway == :paypal
-      %p
-        %strong
-          = t("conversations.accept.total", :seller_gets => humanized_money_with_symbol(seller_gets))
-
       %p
         = t("conversations.accept.paypal_fee_info", fee_info_link_id: "paypal_fee_info_link").html_safe
 
@@ -51,10 +68,6 @@
       - content_for :extra_javascript do
         :javascript
           $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
-    - else
-      %p
-        %strong
-          = t("conversations.accept.you_will_get", :seller_gets => humanized_money_with_symbol(seller_gets))
 
   = form_for form, :url => form_action, :html => { :method => "put" } do |form|
 
