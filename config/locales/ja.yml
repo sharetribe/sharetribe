@@ -179,12 +179,12 @@ ja:
         join_date: 参加日
         admin: 管理人用
         posting_allowed: 投稿は許可されました
-        ban_user: アカウント停止処理
+        ban_user: アカウント停止ユーザ
         saving_user_status: 保存中...
         save_user_status_successful: 保存しました
         save_user_status_error: 保存に失敗しました。ページを再読込してもう一度試してください
-        ban_user_confirmation: これはマーケットプレイスのユーザを削除するものであり、このアカウントに戻れないようになります。本当にこの削除手続きを実行してもよろしいですか。
-        ban_me_error: ~
+        ban_user_confirmation: これはマーケットプレイスのユーザを削除するものであり、今後二度とこのアカウントに戻れないようになります。本当にこの削除手続きを実行してもよろしいですか。
+        ban_me_error: 自分自身をアカウント停止ユーザに出来ません。
       social_media:
         social_media: ソーシャルメディア
         twitter_handle: Twitterのハンドル
@@ -607,7 +607,7 @@ ja:
   community_memberships:
     access_denied:
       access_denied: アクセスが拒否されました
-      you_are_banned_in_this_community: "%{service_name}のサイト管理者は、あなたのアクセスを妨げたようです。%{link_to_contact_page}よりお問い合わせください。"
+      you_are_banned_in_this_community: "%{service_name}のサイト管理者は、あなたのアクセスを妨げたようです。ご希望の場合は、%{link_to_contact_page}よりお問い合わせください。"
       contact_page_link: お問い合わせする
     new:
       welcome_fb_user: "%{service_name}へようこそ、%{name}さん！"
