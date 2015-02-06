@@ -80,7 +80,7 @@ module PaypalService::API
         community_id: community_id,
         transaction_id: transaction_id
       )
-      Result::Success.new(DataTypes.create_payment(updated_payment.merge({ merchant_id: merchant_id })))
+      Result::Success.new(DataTypes.create_payment(updated_payment))
     end
 
     def do_charge_commission(community_id, info, m_acc, admin_acc, payment)
@@ -110,7 +110,7 @@ module PaypalService::API
           community_id: community_id,
           transaction_id: info[:transaction_id])
         # Return as payment entity
-        Result::Success.new(DataTypes.create_payment(updated_payment.merge({ merchant_id: m_acc[:person_id] })))
+        Result::Success.new(DataTypes.create_payment(updated_payment))
       end
     end
 

@@ -229,12 +229,6 @@ module PaypalService::Store::PaypalAccount
     )
   end
 
-  # This needs to be fixed:
-  # Does not return unique result
-  def get_personal_account_by_payer_id(payer_id:, community_id:)
-    from_model(find_personal_model_by_payer_id(payer_id: payer_id, community_id: community_id))
-  end
-
   ## Privates
 
   def update_model(maybe_model, opts)
@@ -303,14 +297,6 @@ module PaypalService::Store::PaypalAccount
           billing_agreement_id: billing_agreement_id,
           paypal_accounts: {payer_id: payer_id}
         }).first
-    )
-  end
-
-  def find_personal_model_by_payer_id(payer_id:, community_id:)
-    Maybe(
-      PaypalAccountModel.where("community_id = ? AND payer_id = ? AND person_id IS NOT NULL", community_id, payer_id)
-      .eager_load([:order_permission, :billing_agreement])
-      .first
     )
   end
 

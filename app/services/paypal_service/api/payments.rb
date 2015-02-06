@@ -178,7 +178,7 @@ module PaypalService::API
           transaction_id: transaction_id
          )
 
-        payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
+        payment_entity = DataTypes.create_payment(payment)
 
         # Trigger payment_updated event
         @events.send(:payment_updated, :success, payment_entity)
@@ -191,7 +191,7 @@ module PaypalService::API
     ## GET /payments/:community_id/:transaction_id
     def get_payment(community_id, transaction_id)
       @lookup.with_payment(community_id, transaction_id) do |payment, m_acc|
-        Result::Success.new(DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] })))
+        Result::Success.new(DataTypes.create_payment(payment))
       end
     end
 
@@ -289,7 +289,7 @@ module PaypalService::API
                 .merge({receiver_id: m_acc[:payer_id], merchant_id: m_acc[:person_id]})
             )
 
-            payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
+            payment_entity = DataTypes.create_payment(payment)
 
             # Send event payment_crated
             @events.send(:payment_created, :success, payment_entity)
@@ -321,7 +321,7 @@ module PaypalService::API
 
           # Save authorization data to payment
           payment = PaymentStore.update(data: auth_res, community_id: community_id , transaction_id: payment[:transaction_id])
-          payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
+          payment_entity = DataTypes.create_payment(payment)
 
           # Trigger callback for authorized
           @events.send(:payment_updated, :success, payment_entity)
@@ -354,7 +354,7 @@ module PaypalService::API
             community_id: community_id,
             transaction_id: transaction_id)
 
-          payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
+          payment_entity = DataTypes.create_payment(payment)
 
           # Trigger payment_updated
           @events.send(:payment_updated, flow, payment_entity)
