@@ -21,7 +21,7 @@ module PaypalService::Store::PaypalPayment
     [:transaction_id, :mandatory, :fixnum],
     [:payer_id, :mandatory, :string],
     [:receiver_id, :mandatory, :string],
-    [:merchant_id, :mandatory, :string],
+    [:merchant_id, :optional, :string],
     [:payment_status, :mandatory, :symbol],
     [:pending_reason, :to_symbol],
     [:order_id, :mandatory, :string],
