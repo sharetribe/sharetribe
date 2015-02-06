@@ -264,18 +264,8 @@ class Community < ActiveRecord::Base
 
   attr_accessor :terms
 
-  def name(locale=nil)
-    if locale
-      if cc = community_customizations.find_by_locale(locale)
-        cc.name
-      else
-        community_customizations.find_by_locale(locales.first).name
-      end
-    else
-      # TODO: this is not required any more when we remove "name" column,
-      # from community, this should be removed after that.
-      read_attribute(:name)
-    end
+  def name(locale)
+    community_customizations.where(locale: locale).first.name
   end
 
   def full_name(locale)
