@@ -2,7 +2,6 @@ class ListingsController < ApplicationController
   class ListingDeleted < StandardError; end
 
   include PeopleHelper
-  include ListingsHelper
 
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:close, :update, :follow, :unfollow]
@@ -40,13 +39,14 @@ class ListingsController < ApplicationController
 
           # Returns the listings for one person formatted for profile page view
           per_page = params[:per_page] || 200 # the point is to show all here by default
-          page = params[:page] || 1
           render :partial => "listings/profile_listings", :locals => {:person => @person, :limit => per_page}
         end
       end
 
       format.atom do
-        page, per_page = pagination(params)
+        page =  params[:page] || 1
+        per_page = params[:per_page] || 50
+
         listings = @current_community.private ? [] : Listing.find_with(params, @current_user, @current_community, per_page, page)
         title = build_title(params)
         updated = listings.first.present? ? listings.first.updated_at : Time.now
@@ -311,10 +311,6 @@ class ListingsController < ApplicationController
   end
 
   private
-
-  def pagination(params)
-    [params["page"] || 1, params["per_page"] || 50]
-  end
 
   def build_title(params)
     category = Category.find_by_id(params["category"])
