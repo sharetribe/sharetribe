@@ -189,6 +189,7 @@ fr:
         save_user_status_successful: Sauvegardé
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
         ban_user_confirmation: "Ceci supprime l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Êtes-vous sûr de vouloir faire cela ?"
+        ban_me_error: ~
       social_media:
         social_media: "Réseaux sociaux"
         twitter_handle: "Nom Twitter"
@@ -1517,7 +1518,7 @@ fr:
       billing_agreement_wrong_account: "Les comptes PayPal ne correspondent pas. Veuillez utiliser le même compte PayPal que celui utilisé lors de la première étape."
       something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter les administrateurs."
       account_not_verified: "Vous n'avez pas vérifié votre compte PayPal. Vous devez vous connecter sur paypal.com et vérifier votre compte avant de pouvoir poursuivre."
-      account_restricted: ~
+      account_restricted: "Votre compte PayPal est restreint et ne peut être connecté. Veuillez vous connecter sur paypal.com pour en savoir plus ou contactez le support PayPal pour résoudre le problème."
   paypal:
     checkout_with_paypal: "Payer avec PayPal"
     cancel_succesful: "Paiement PayPal correctement annulé"

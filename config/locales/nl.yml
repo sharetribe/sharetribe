@@ -189,6 +189,7 @@ nl:
         save_user_status_successful: Opgeslagen
         save_user_status_error: "Opslaan mislukt. Vernieuw de pagina en probeer opnieuw."
         ban_user_confirmation: "Dit verwijdert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
+        ban_me_error: ~
       social_media:
         social_media: "Sociale media"
         twitter_handle: "Twitter account"
@@ -1026,7 +1027,7 @@ nl:
       default_content: "Hier kan je informatie vinden over hoe %{marketplace_name} werkt."
   layouts:
     admin:
-      admin: "%{service_name} admin dashboard"
+      admin: "%{service_name} dashboard beheerder"
     no_tribe:
       inbox: Inbox
       settings: Instellingen
@@ -1286,8 +1287,8 @@ nl:
         mass: "stuk, kg, l, m2"
         time: "uur, dag, week, ..."
         long_time: "week, maand, ..."
-        after_service_fee_you_will_get: "Na %{service_name}- en betalingscommissies zal je %{sum_with_currency} ontvangen"
-        after_service_fee_you_will_get_vat: "Na %{service_name}- en betalingscommissies zal je ongeveer %{sum_with_currency} ontvangen (BTW 0%)"
+        after_service_fee_you_will_get: "Na commissie voor %{service_name} en kosten voor de financiële transactie, zal je %{sum_with_currency} ontvangen"
+        after_service_fee_you_will_get_vat: "Na commissie voor %{service_name} en kosten voor de financiële transactie, zal je ongeveer %{sum_with_currency} ontvangen (BTW 0%)"
         price_excludes_vat: "De prijs is exclusief BTW."
       origin:
         location: Locatie
@@ -1679,11 +1680,11 @@ nl:
       change: Wijzig
       confirm_new_password: "Bevestig nieuw wachtwoord"
       delete_account: "Verwijder account"
-      delete_account_button: "Verwijder mijn account permanent."
+      delete_account_button: "Verwijder mijn account permanent"
       delete_account_confirmation_popup: "Ben je zeker dat je je account en alle bijbehorende data wil verwijderen? Deze actie kan niet ongedaan worden."
       email_addresses: "E-mail adressen"
       new_email: "Nieuw e-mail adres"
-      delete_all_memberships: "Wanneer je je account verwijdert, kan je het niet meer gebruiken in de volgende marktplaatsen: %{marketplaces}"
+      delete_all_memberships: "Wanneer je je account verwijdert, kan je het niet meer gebruiken in de volgende marktplaatsen: %{marketplaces}."
       delete_personal_information: "Als je je account verwijdert, zal al je persoonlijke informatie (naam, telefoonnummer, adres, e-mail, profiel afbeelding, enz...) permanent verwijderd worden. Dit kan niet meer worden gerecupereerd. Al de items die je hebt aangemaakt, worden verwijderd. Je kan je account niet opnieuw activeren."
       delete_information_others_involved: ~
       unfinished_transactions: "Je account kan niet verwijderd worden omdat je lopende transacties hebt. Sluit aub alle transacties alvorens je account te verwijderen."
