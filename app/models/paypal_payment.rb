@@ -7,6 +7,7 @@
 #  transaction_id             :integer          not null
 #  payer_id                   :string(64)       not null
 #  receiver_id                :string(64)       not null
+#  merchant_id                :string(255)      not null
 #  order_id                   :string(64)       not null
 #  order_date                 :datetime         not null
 #  currency                   :string(8)        not null
@@ -44,6 +45,7 @@ class PaypalPayment < ActiveRecord::Base
     :transaction_id,
     :payer_id,
     :receiver_id,
+    :merchant_id,
     :order_id,
     :order_date,
     :currency,

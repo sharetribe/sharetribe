@@ -286,7 +286,7 @@ module PaypalService::API
               token[:transaction_id],
               ec_details
                 .merge(payment_res)
-                .merge({receiver_id: m_acc[:payer_id]})
+                .merge({receiver_id: m_acc[:payer_id], merchant_id: m_acc[:person_id]})
             )
 
             payment_entity = DataTypes.create_payment(payment.merge({ merchant_id: m_acc[:person_id] }))
