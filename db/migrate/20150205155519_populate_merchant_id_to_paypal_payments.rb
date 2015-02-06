@@ -37,9 +37,12 @@ class PopulateMerchantIdToPaypalPayments < ActiveRecord::Migration
       SET paypal_payments.merchant_id = COALESCE(listings.author_id, accounts.person_id)
 
       WHERE
+        # pick author_id
         (listings.author_id IS NOT NULL AND accounts.person_id IS NULL) OR
+        # pick listing_id
         (listings.author_id IS NULL AND accounts.person_id IS NOT NULL) OR
-        (listings.author_id = accounts.person_id)
+        # both present, so make sure they match
+        (listings.author_id IS NOT NULL AND accounts.person_id IS NOT NULL AND listings.author_id = accounts.person_id)
     ")
 
   end
