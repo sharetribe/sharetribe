@@ -1,8 +1,10 @@
 # encoding: utf-8
 
+#Tests LisingControllers atom feed feature
+
 require 'spec_helper'
 
-describe Atom::ListingsController do
+describe ListingsController do
   render_views
 
   before (:each) do
