@@ -170,11 +170,13 @@ module PaypalService
                   ButtonSource: config[:button_source],
                   NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total]),
+                  ShippingTotal: from_money(Money.new(100, "GBP")),
+                  ItemTotal: from_money(Money.new(9900, "GBP")),
                   PaymentAction: "Order",
                   PaymentDetailsItem: [{
                       Name: req[:item_name],
                       Quantity: req[:item_quantity],
-                      Amount: from_money(req[:item_price] || req[:order_total])
+                      Amount: from_money(req[:item_price] - Money.new(100, "GBP") || req[:order_total] - Money.new(100, "GBP"))
                   }]
               }]
             }
@@ -213,10 +215,12 @@ module PaypalService
                   InvoiceID: req[:invnum],
                   NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total]),
+                  ShippingTotal: from_money(Money.new(100, "GBP")),
+                  ItemTotal: from_money(Money.new(9900, "GBP")),
                   PaymentDetailsItem: [{
                       Name: req[:item_name],
                       Quantity: req[:item_quantity],
-                      Amount: from_money(req[:item_price] || req[:order_total])
+                      Amount: from_money(req[:item_price] - Money.new(100, "GBP") || req[:order_total] - Money.new(100, "GBP"))
                   }]
               }]
             }
