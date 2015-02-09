@@ -173,7 +173,7 @@ es-ES:
         twitter_handle: "Publicar en Twitter (a través del botón \"twee\" en la página del anuncio)"
         update_settings: ~
         automatically_confirmed: ~
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "La transacción se marcará automáticamente como completada %{days_dropdown} días después de que se realice el pago."
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
         newsletter_daily: Diariamente
         newsletter_weekly: Semanalmente
@@ -189,21 +189,21 @@ es-ES:
         save_user_status_successful: Guardado
         save_user_status_error: "No se han guardado los cambios. Por favor, actualiza la página y vuelve a intentarlo."
         ban_user_confirmation: ~
-        ban_me_error: ~
+        ban_me_error: "No te puedes rechazar a ti mismo."
       social_media:
         social_media: "Social media"
         twitter_handle: Twitter
         twitter_handle_info_text: "El nombre de usuario de tu cuenta de Twitter en tu marketplace (si es que tienes uno). Será mencionado cuando alguien publique su anuncio en Twitter."
-        twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
+        twitter_handle_info_text_with_instructions: "El nombre de usuario de tu cuenta de Twitter en tu marketplace (si es que tienes uno). Será mencionado cuando alguien use el botón para twittear desde la página del anuncio. %{instructions_link}"
+        twitter_instructions_link_text: "Leer más"
         twitter_handle_placeholder: Usuario
         invalid_twitter_handle: "Twitter handle debe tener un máximo de 15 caracteres alfanuméricos (letras de la A-Z y números del 0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: |-
             Para que el login a través de Facebook funcione, debes crear una aplicación para tu marketplace en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. 
             Añade el ID y secret key que se haya generado aquí.
-        facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
+        facebook_connect_info_text_with_instructions: "Para habilitar el inicio de sesión de Facebook, crea una aplicación para tu marketplace en <a href='https://developers.facebook.com/'>Facebook para desarrolladores</a>. Añade entonces el ID y la clave secreta de la aplicación que se han generado aquí %{instructions_link}."
+        facebook_instructions_link_text: "Ver instrucciones para configurar la conexión con Facebook."
         facebook_connect_id: "ID de cliente de Facebook"
         invalid_facebook_connect_id: "La ID de cliente debe incluir sólo números"
         facebook_connect_secret: "Facebook client secret"
@@ -213,8 +213,8 @@ es-ES:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "Tracking ID de tu cuenta de Google Analytics."
-        google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        google_analytics_key_info_text_with_instructions: "Tracking ID de tu cuenta de Google Analytics.%{instructions_link}"
+        google_analytics_instructions_link_text: "Leer más sobre la conexión con Google Analytics."
         save: "Guardar configuración"
       menu_links:
         menu_links: "Menú de enlaces"
@@ -324,7 +324,7 @@ es-ES:
       marketplace_paypal_integration: "Preferencias de pago"
       preferences_updated: "Preferencias de pago actualizadas"
       integration_info_text: "El sistema de pago de %{service_name} se basa en PayPal. Si quieres permitir a tus usuarios hacer pagos a través del marketplace, debes conectar tu cuenta de PayPal y decidir el precio mínimo para cada anuncio así como la comisión por transacción que quieres recibir."
-      read_more_about_paypal: ~
+      read_more_about_paypal: "Leer más sobre el sistema de pagos de Sharetribe."
       paypal_account_email: "Conecta tu cuenta de PayPal"
       paypal_account_email_completed: ¡Completado!
       set_minimum_price_and_fee: "Configura un precio mínimo y una comisión por transacción"
@@ -1388,9 +1388,9 @@ es-ES:
       select_transaction_type: "Seleccionar tipo de anuncio"
       you_need_to_fill_payout_details_before_accepting: "Debes completar tus datos de pago antes de publicar un anuncio. Ve a %{payment_settings_link} para completar toda la información."
       contact_admin_link_text: "contactar con el administrador"
-      community_not_configured_for_payments: ~
+      community_not_configured_for_payments: "%{service_name} no se ha configurado para los pagos, por lo que aún no puedes publicar nuevos anuncios. Por favor %{contact_admin_link} para más detalles."
       payment_settings_link: "Configuración de los pagos"
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name} no se ha configurado para los pagos, por lo que aún no puedes publicar nuevos anuncios. Ve a %{payment_settings_link} para rellenar los detalles del pago."
     please_comment: Comentario
     reply_link:
       listing_closed: "Anuncio desactivado"
@@ -1497,8 +1497,8 @@ es-ES:
     you_are_ready_to_accept_payments: "¡Estás listo para aceptar pagos!"
     commission: "%{commission} %"
     connected_account: "La cuenta de PayPal '%{email}' se ha conectado con éxito."
-    missing: ~
-    from_your_payment_settings_link_text: ~
+    missing: "Tienes publicaciones abiertas, pero no has conectado tu cuenta de Paypal, por lo que no podrás recibir pagos. Por favor conecta tu cuenta de Paypal en tu %{settings_link}."
+    from_your_payment_settings_link_text: "Configuración de los pagos"
     new:
       payout_info_you_need_to_connect: "Para aceptar pagos necesitar conectar tu cuenta de PayPal con %{service_name}."
       payout_info_text: "Por favor, completa estos dos pasos para conectar tu cuenta."
@@ -1522,7 +1522,7 @@ es-ES:
       billing_agreement_wrong_account: "Las cuentas de Paypal no coinciden. Por favor, usa la misma cuenta de Paypal con la que has conectado en el primer paso."
       something_went_wrong: "Algo fue mal. Por favor, prueba de nuevo. Si el problema persiste, ponte en contacto con los administradores."
       account_not_verified: "No has verificado tu cuenta de PayPal. Necesitas ir a paypal.com y verificar tu cuenta antes de continuar."
-      account_restricted: ~
+      account_restricted: "Tu cuenta de Paypal está restringida y no se puede conectar. Por favor inicia sesión en paypal.com para más información de lo que esto significa o ponte en contacto con Atención al Cliente de Paypal para resolver este problema."
   paypal:
     checkout_with_paypal: "Pago con PayPal"
     cancel_succesful: "Pago en PayPal cancelado con éxito."
@@ -1695,7 +1695,7 @@ es-ES:
       new_password: "Nueva contraseña"
       save: Guardar
       these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas dado tu nombre. Cualquier otra información sólo está disponible para ti."
-      email_already_confirmed: ~
+      email_already_confirmed: "Tu dirección de correo electrónico ya se ha confirmado."
       email:
         address_title: Dirección
         remove_title: Eliminar

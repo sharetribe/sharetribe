@@ -96,21 +96,21 @@ nl:
         small_cover_photo_visibility: "Kleine cover afbeeldingen worden op alle pagina's getoond behalve op de homepagina voor gebruikers die niet ingelogd zijn."
         small_cover_photo_instructions_text_with_dimensions: "De afbeelding wordt verkleind tot %{width}x%{height} pixels. Grotere afbeeldingen worden in twee gesplitst."
         main_content_width: "Hou er bij het kiezen van een cover afbeelding rekening mee dat de hoofdpagina maximaal %{main_width} pixels is. Vergeet ook niet na te gaan hoe je cover afbeelding eruit ziet op kleinere schermen (b.v. door een smal browser scherm te gebruiken)."
-        custom_color1_instructions_text: ~
+        custom_color1_instructions_text: "Je kan de hoofdkleur van de intercace wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
         custom_color2_instructions_text: "Je kan de tweede kleur van de gebruikersinterface wijzigen door een hex kleurenwaarde op te geven."
         default_browse_view: "Standaard browse overzicht"
         default_browse_view_instructions_text: "Standaard browse overzicht is gebruikt op de homepagina om te bepalen hoe de lijsten standaard weergegeven worden."
         grid: Raster
         list: Lijst
         map: Kaart
-        name_display_type: ~
+        name_display_type: "Naam weergave type"
         name_display_type_instructions_text: "Kies hoe de naam van elke gebruiker getoond wordt op de site."
         full_name: "Volledige naam (Voornaam Achternaam)"
         first_name_with_initial: "Voornaam met initiaal (Voornaam A)"
         first_name_only: "Enkel voornaam (Voornaam)"
         invalid_color_code: "Kleurencode moet 6 nummer of letters A-F bevatten. Bijvoorbeeld: D96E21"
-        custom_head_script: ~
-        custom_head_script_instructions_text: ~
+        custom_head_script: "Aangepast script"
+        custom_head_script_instructions_text: "Dit script word toegevoegd aan de <head> tag van elke pagina en kan gebruikt worden om aanpaste CSS, Javascript of HTML toe te voegen. Hou er rekening mee dat toekomstige wijzigingen aan Sharetribe je script onbruikbaar kunnen maken."
       edit_text_instructions:
         edit_text_instructions: "Teksten instructies"
       edit_welcome_email:
@@ -123,30 +123,30 @@ nl:
         welcome_to_your_marketplace: "Welkom bij jouw marktplaats, %{name}!"
         intro: "Dit is een snelle gids om je marktplaats te configureren en te beheren. Je kan de live site bekijken %{live_site_link}."
         live_site_link_text: hier
-        look_and_feel: ~
+        look_and_feel: "Vooraleer je je site lanceert, wil je vermoedelijk wel een paar dingen aanpassen. Zo kan je b.v. %{logo_link} en de cover afbeelding wijzigen of de kleuren aanpassen zodat ze bij de look & feel van je merk passen."
         logo_link_text: "voeg je logo toe"
-        custom_domain: ~
+        custom_domain: "Je kan eventueel ook een aangepast web adres toevoegen (b.v.: www.jouwmarktplaats.com). Om dat te doen moet je ons contacteren via de support link. Dit opzetten vraagt een aantal manuele stappen van onze kant. Voor die reden is een aangepast web adres enkel beschikbaar voor betalende klanten, niet tijdens de proefperiode"
         contact_team_link_text: "contacteer ons team"
-        categories_and_custom_fields: ~
+        categories_and_custom_fields: "Het volgende dat je moet bepalen is wat voor soort inhoud mensen op je site kunnen plaatsen. Je kan %{categories_link},%{custom_fields_link} die de detailpagina van item zullen bevatten en bepalen %{filters_link} er gebruikt worden wanneer mensen door de items bladeren."
         categories_link_text: "voeg categorieën en subcategorieën toe"
         custom_fields_link_text: "configureer velden formulier"
         filters_link_text: "welke soort filters"
         payments: "Als je wil dat mensen via je marktplaats kunnen betalen voor hun aankopen zodat je een commissie kan heffen op elke transactie, dan moet je %{payments_link}."
         payments_link_text: "configureer een betalingsmethode"
-        info_texts: ~
+        info_texts: "Vergeet niet om de informatiepagina's en andere teksten aan te passen waar je je gebruikers over je marktplaats kan vertellen. Goede plaatsen om te bekijken zijn jouw %{about_page_link}, je %{terms_of_use_link} (je moet hier je eigen voorwaarden bepalen door de bestaande template aan te passen of door een volledig nieuw document te maken), je %{privacy_policy_link} en de %{welcome_email_link} die naar elke nieuwe gebruiker gestuurd wordt. Er zijn ook enkele %{instruction_texts_link} die aangepast kunnen worden."
         about_page_link_text: "\"over\" pagina"
         terms_of_use_link_text: gebruiksvoorwaarden
         privacy_policy_link_text: "Beleid privacy"
         welcome_email_link_text: "welkom e-mail"
         instruction_texts_link_text: "andere instructie teksten"
-        social_media: ~
-        facebook_link_text: ~
+        social_media: "Social media gebruiken is een goede manier om je gebruikersgroep op te bouwen. Je kan %{facebook_link} om het mensen makkelijker te maken in te loggen in je marktplaats en %{twitter_link} zodat ook anderen ervan op de hoogte gebracht worden wanneer gebruikers tweets schrijven over je marktplaats."
+        facebook_link_text: "connecteer je aangepaste Facebook app"
         twitter_link_text: "voeg je Twitter account toe"
-        analytics: ~
+        analytics: "Het is altijd een goed idee om %{analytics_link}. Zo kan je makkelijk volgen wat er allemaal gebeurd op je marktplaats, hoeveel bezoekers je hebt, enz..."
         analytics_link_text: "connecteer een Google Analytics account"
-        settings: ~
+        settings: "Er zijn een pak instellingen die je kan uitproberen. Zo kan je b.v. je marktplaats privé maken en nieuwe gebruikers enkel op uitnodiging van bestaande gebruikers toegang geven. %{settings_link}."
         settings_link_text: "Bekijk je marktplaats instellingen hier"
-        final_words: ~
+        final_words: "Klaar! Als alles in orde is, kan je %{invite_link} naar je marktplaats. Je kan alle gebruikers zien die zich hebben geregistreerd %{view_users_link} en alle transacties die ze hebben afgewerkt %{view_transactions_link}. Je kan ook makkelijk aanbiedingen beheren: ga simpelweg naar de pagina van het item en je zal beheerder links zien om te editeren en te sluiten. Als je hulp nodig hebt kan je %{contact_support_link}. We zijn hier om je te helpen!"
         invite_link_text: "gebruikers uitnodigen"
         view_users_link_text: hier
         view_transactions_link_text: hier
@@ -169,11 +169,11 @@ nl:
         email_preferences: "E-mail voorkeuren"
         automatic_newsletters: "Zend automatisch dagelijkse / wekelijkse nieuwsbrieven naar gebruikers (tenzij ze zich uitgeschreven hebben)"
         email_admins_about_new_members: "Zend beheerder een e-mail telkens wanneer een nieuwe gebruiker zich inschrijft"
-        google_analytics_key: ~
+        google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter account (gebruikt met de tweet knop in de items pagina)"
         update_settings: "Instellingen opslaan"
         automatically_confirmed: "Transactie zal automatisch als afgehandeld gemarkeerd worden %{days_dropdown} nadat de betaling werd uitgevoerd. Indien er een escrow-dienst werd gebruikt, zal het geld vrijgegeven worden op dit moment."
-        automatically_confirmed_no_escrow: "De transactie zal automatisch als uitgevoerd gemarkeerd worden %{days_dropdown} dagen nadat de betaling is uitgevoerd."
+        automatically_confirmed_no_escrow: "De transactie zal automatisch als uitgevoerd gemarkeerd worden %{days_dropdown} dagen nadat de betaling is uitgevoerd"
         automatic_newsletter_frequency: "Zend automatische nieuwsbrief: %{frequency_dropdown}"
         newsletter_daily: Dagelijks
         newsletter_weekly: Wekelijks
@@ -189,7 +189,7 @@ nl:
         save_user_status_successful: Opgeslagen
         save_user_status_error: "Opslaan mislukt. Vernieuw de pagina en probeer opnieuw."
         ban_user_confirmation: "Dit verwijdert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
-        ban_me_error: ~
+        ban_me_error: "Je kan jezelf niet uitsluiten."
       social_media:
         social_media: "Sociale media"
         twitter_handle: "Twitter account"
@@ -199,8 +199,8 @@ nl:
         twitter_handle_placeholder: gebruikersnaam
         invalid_twitter_handle: "Twitter account kan maximaal 15 alfanumerische karakters bevatten (letters A-Z en nummers 0-9)."
         facebook_connect: Facebook
-        facebook_connect_info_text: ~
-        facebook_connect_info_text_with_instructions: ~
+        facebook_connect_info_text: "Om een Facebook log in mogelijk te maken, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe."
+        facebook_connect_info_text_with_instructions: "Om Facebook toe te laten in te loggen, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe. %{instructions_link}"
         facebook_instructions_link_text: "Zie instructies om Facebook Connect te configureren."
         facebook_connect_id: "Facebook client ID"
         invalid_facebook_connect_id: "Client ID kan enkel nummers bevatten"
@@ -227,7 +227,7 @@ nl:
       transactions:
         transactions: "Bekijk transacties"
         headers:
-          conversation: ~
+          conversation: Conversatie
           listing: Item
           status: Status
           sum: Som
@@ -247,14 +247,14 @@ nl:
           initiated: "Wachten PayPal betaling"
           pending_ext: "Wachten PayPal betaling"
       braintree_payment_gateway:
-        braintree_payment_gateway: ~
+        braintree_payment_gateway: "Braintree Betaling API sleutels"
         environment: Omgeving
         private_key: "Privé sleutel"
         public_key: "Publieke sleutel"
-        client_side_encryption_key: ~
-        merchant_id: ~
-        master_merchant_id: ~
-        commission_from_seller: ~
+        client_side_encryption_key: "Client-Side Encryption (CSE) Sleutel"
+        merchant_id: "Verkoper ID"
+        master_merchant_id: "Hoofd verkoper ID"
+        commission_from_seller: "Commissie percentage van verkoper"
       paypal_account:
         paypal_admin_account: Betalingen
     custom_fields:
@@ -297,8 +297,8 @@ nl:
       field_types:
         text: Tekst
         number: Nummer
-        dropdown: ~
-        checkbox_group: ~
+        dropdown: Dropdown
+        checkbox_group: "Checkbox groep"
         date: Datum
     emails:
       new:
@@ -321,7 +321,7 @@ nl:
     paypal_accounts:
       marketplace_paypal_integration: "Voorkeuren betalingen"
       preferences_updated: "Voorkeuren betalingen bijgewerkt"
-      integration_info_text: ~
+      integration_info_text: "Het betaalsysteem van Sharetribe is PayPal. Als je gebruikers de mogelijkheid wil geven om betalingen te doen via je marktplaats, moet je je PayPal account linken en betalen wat de minimale marge is die je wil maken op elke transactie."
       read_more_about_paypal: "Lees meer over Sharetribe's betalingssysteem"
       paypal_account_email: "1. Connecteer je PayPal account"
       paypal_account_email_completed: Uitgevoerd!
@@ -330,7 +330,7 @@ nl:
       minimum_listing_price_label: "Minimum item prijs:"
       transaction_fee_label: "Transactie kost:"
       save_settings: "Opslaan instellingen"
-      note_about_transaction_fee: ~
+      note_about_transaction_fee: "Opmerking: de transactie kost omvat de kosten voor PayPal die afhankelijk zijn van je munteenheid en het verkoopsvolume van de verkoper. Voor die reden is de minimale kost %{min_paypal_commission}. Wanneer de kost wordt doorgerekend aan de verkoper zal PayPal eerst haar deel nemen en wat er overblijft wordt overgemaakt naar jouw PayPal account."
     transaction_types:
       sell: Verkopen
       rent: Verhuren
@@ -370,12 +370,12 @@ nl:
       offer_to_swap: ruilen
       request_to_swap: ruilen
       share_for_free: "gratis delen"
-      accept_for_free: ~
+      accept_for_free: "wachten om gratis te gebruiken"
     categories:
       item: Items
       favor: Diensten
-      rideshare: ~
-      housing: ~
+      rideshare: Rideshare
+      housing: Plaatsen
       tools: Gereedschap
       sports: Sport
       music: Muziek
@@ -529,9 +529,9 @@ nl:
       paid: "Betaling succesvol"
       pending_external:
         paypal:
-          multicurrency: ~
+          multicurrency: "We konden de PayPal betaling niet uitvoeren omdat je PayPal account nog niet ingesteld staat om betalingen te ontvangen in %{currency}. Log in op je account via %{paypal_url} om de betaling manueel te aanvaarden of te annuleren"
           verify: "Je kan deze transactie niet aanvaarden omdat je PayPal account nog niet geverifieerd is. Ga naar %{paypal_url} om je account te verifiëren."
-          intl: ~
+          intl: "We konden de PayPal betaling niet uitvoeren omdat er geen opnames kunnen uitgevoerd worden van je PayPal account. Log in op je account via %{paypal_url} om de betaling manueel te aanvaarden of te annuleren"
       waiting_for_current_user_to_deliver_listing: "Wachten op jou om %{listing_title} af te leveren"
       waiting_for_listing_author_to_deliver_listing: "Wachten op %{listing_author_name} om %{listing_title} af te leveren"
       request_accepted: "Vraag geaccepteerd"
@@ -578,9 +578,9 @@ nl:
       address_locality: Stad
       address_region: Staat/provincie
       date_of_birth: Geboortedatum
-      ssn: ~
-      routing_number: ~
-      account_number: ~
+      ssn: "Sofinummer / Rijksregisternummer"
+      routing_number: "Routing nummer"
+      account_number: "Account nummer"
       save: Opslaan
     show:
       payout_details: "Jouw betalingsdetails"
@@ -593,9 +593,9 @@ nl:
       address_locality: Stad
       address_region: "Staat of provincie"
       date_of_birth: Geboortedatum
-      ssn: ~
-      routing_number: ~
-      account_number: ~
+      ssn: "Sofinummer / Rijksregisternummer"
+      routing_number: "Routing nummer"
+      account_number: "Account nummer"
   braintree_payments:
     edit:
       new_credit_card_payment: "Nieuwe betaling kredietkaart"
@@ -639,13 +639,13 @@ nl:
       message: "Je betalingsinformatie is geconfirmeerd en je kan nu betalingen ontvangen in %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Je hebt het verzoek %{request_link} nog niet geconfirmeerd of geannuleer. Als het verzoek werd uitgevoerd, dan dien je dat te confirmeren. Daarna kan je feedback geven aan %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Je hebt het verzoek nog niet geconfirmeerd of geannuleerd %{request_link}. We zullen de betaling pas naar %{other_party_given_name} transfereren wanneer a) jij het verzoek als afgewerkt hebt gemarkeerd of b) %{days_to_automatic_confirmation} dagen zijn verstreken nadat je betaald hebt. Nadat het verzoek als afgewerkt werd gemarkeerd, kan je feedback geven aan %{other_party_given_name}."
       remember_to_confirm_request: "Herrinnering om een verzoek te bevestigen of te annuleren"
       if_will_not_happen_you_should_cancel: "Als je denkt dat dit verzoek voor een of andere reden niet zal uitgevoerd worden, kan je %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: "Als je denkt dat dit verzoek niet afgewerkt zal worden voor welke reden dan ook, kan je het steeds %{cancel_it_link}. Dit zal de beheerder verwittigen die je zal contacteren voor een terugbetaling."
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Als je verzoek niet afgewerkt wordt voor een of andere reden, heb je %{days_to_cancel} dagen om %{cancel_it_link}. Dit zal de beheerder verwittigen die je zal contacteren voor een terugbetaling."
       cancel_it_link_text: "Annuleer het"
-      automatic_confirmation: ~
+      automatic_confirmation: "Indien je het voorstel niet aanvaardt of afwijst binnen %{days_to_automatic_confirmation} dagen nadat het verzoek was aanvaard, zullen we automatisch als afgewerkt markeren."
     payment_reminder:
       remember_to_pay: "Herinnering om te betalen voor %{listing_title}"
       you_have_not_yet_paid: "Je hebt nog niet betaald voor %{listing_title} die %{other_party_name} aanvaard heeft je voor te stellen."
@@ -699,7 +699,7 @@ nl:
       or: of
       unsubscribe_from_these_emails: "Uitschrijven van deze e-mails"
     community_starter_email:
-      subject: ~
+      subject: "Ontdek de nieuwe Sharetribe - geen limieten meer op lidmaatschap, aanpassen van de look & feel en meer"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} heeft je aanbod betreffende %{listing} geaccepteerd."
       has_accepted_your_request: "%{accepter} heeft je verzoek betreffende %{listing} geaccepteerd"
@@ -737,7 +737,7 @@ nl:
       price_payer_paid: "Prijs %{payer_full_name} betaald:"
       service_fee: "%{service_name} service toeslag:"
       you_will_get: "Je zal ontvangen:"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Het geld zal naar je account getransfereerd worden indien a) %{payer_name} het verzoek heeft gemarkeerd als zijnde afgewerkt b) %{automatic_confirmation_days} dagen zijn verstreken sedert %{payer_name} betaalde."
     receipt_to_payer:
       receipt_of_payment: Betalingsbewijs.
       you_have_made_new_payment: "Je hebt <b>%{payment_sum}</b> betaald voor <b>%{listing_title}</b> aan %{recipient_full_name}. Hier is een betalingsbewijs."
@@ -770,7 +770,7 @@ nl:
       hi: "Hallo %{name}"
       newest_offers: "Wat mensen op dit moment aanbieden aan anderen"
       newest_requests: "Wat mensen op dit moment nodig hebben"
-      text_version_text: ~
+      text_version_text: "Kan je iets delen dat anderen nodig zouden kunnen hebben? Of heb jij iets nodig dat anderen zouden kunnen hebben? Voeg een voorstel of en verzoek toe of kijk alles na wat anderen aanbieden of zoeken op %{url}"
     reset_password_instructions:
       change_my_password: "Wijzig mijn wachtwoord"
       reset_password_instructions: "<p>Je hebt opgegeven dat je je gebruikersnaam of wachtwoord vergeten bent voor de %{service_name} dienst.</p><p>Je gebruikersnaam is: %{username}.</p><p>Indien je je wachtwoord wil resetten, klik dan volgende link: %{password_reset_link}.</p><br/><p>Indien je dit niet hebt aangevraagd, negeer dan dit bericht. Je wachtwoord zal niet gewijzigd worden tenzij je bovenstaande link aanklikt en een nieuw maakt.</p>"
@@ -805,7 +805,7 @@ nl:
       your_marketplace_admin_area: "Je marktplaats beheerders gebied:"
       just_follow_details: "Volg gewoon deze links en je krijgt meer details over het opzetten van je marktplaats!"
       we_will_guide_you_along_the_way: "We zullen je onderweg begeleiden."
-      are_you_new_to_online_marketplaces: ~
+      are_you_new_to_online_marketplaces: "Hulp nodig met je marktplaats! Geen probleem, we zijn er voor jou! We zullen je een reeks van e-mails sturen die je kunnen helpen het maximale te halen uit Sharetribe en om een succesvolle business op te starten. Deel 1 komt er binnenkort aan."
       have_questions: Vragen?
       our_happiness_team_is_here_to_help: "Ons happiness team is hier voor jou! Ofwel %{knowledge_base_link} of contact support via %{admin_panel_link}."
       love: "Groeten,"
@@ -833,8 +833,8 @@ nl:
     paypal:
       generic_error: "Er heeft zicht een fout voorgedaan tijdens de betaling. De PayPal betaling kon niet uitgevoerd worden."
       cancel_error: "Fout tijden uitvoeren annulatie. Annulatie werd niet afgehandeld."
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      accept_authorization_error: "Preautorisatie krijgen van de PayPal betaling is mislukt. Probeer opnieuw aub."
+      reject_authorization_error: "Preautorisatie annuleren van de PayPal betaling is mislukt. Probeer opnieuw aub."
   error_pages:
     back_to_kassi_front_page: "Terug naar de voorpagina"
     error_404:
@@ -851,7 +851,7 @@ nl:
       temporary_unavailable: "Marktplaats tijdelijk niet beschikbaar"
       unable_to_process: "De service is nu niet in staat om jouw verzoek te verwerken. Probeer binnen enkele ogenblikken opnieuw aub."
       we_hate_this: "We haten het wanneer dit gebeurd! We zijn op de hoogte gebracht van de situatie en werken aan een oplossing."
-      refer_to_error_id: ~
+      refer_to_error_id: "Indien je support wil contacteren mbt dit probleem, voeg dan aub foutmelding ID \"%{error_id}\" toe in je bericht."
     error_500_title: "fout bij laden van de pagina"
     error_description: "Fout omschrijving"
     no_javascript:
@@ -1061,7 +1061,7 @@ nl:
     infos:
       about: Over
       how_to_use: "Hoe werkt het"
-      info_about_kassi: "Informatie over%{service_name}"
+      info_about_kassi: "Informatie over %{service_name}"
       news: Nieuws
       register_details: Privacybeleid
       terms: Gebruiksvoorwaarden
@@ -1096,7 +1096,7 @@ nl:
       something_went_wrong: "Er is iets mis gegaan"
       community_updated: "Details bijgewerkt."
       community_update_failed: "Bijwerken details mislukt."
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Je account is aangemaakt. De volgende stap is het bevestigen van je e-mail adres."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Je account is succesvol aangemaakt. De volgende stap is het bevestigen van je e-mail adres."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Dank je wel om je aan te sluiten bij %{service_name}. Bevestig nu aub je e-mail adres."
       comment_cannot_be_empty: "Reactie kan niet leeg zijn"
       comment_sent: "Reactie verstuurd"
@@ -1192,7 +1192,7 @@ nl:
       you_must_log_in_to_change_payment_settings: "Je moet inloggen bij %{service_name} om je betalingsgegevens te wijzigen"
       you_must_log_in_to_accept_or_reject: "Je moet inloggen om de transactie te accepteren of te annuleren"
       you_must_log_in_to_confirm_or_cancel: "Je moet inloggen om de transactie te confirmeren of te annuleren"
-      you_need_to_confirm_your_account_first: "Bevestig je e-mail adres."
+      you_need_to_confirm_your_account_first: "Je moet je e-mail adres bevestigen."
       you_must_fill_all_the_fields: "Je moet alle velden invullen"
       you_unfollowed_listing: "Je volgt dit item niet meer"
       joining_community_failed: "Aansluiten mislukt"
@@ -1203,7 +1203,7 @@ nl:
       payment_details_add_successful: "Betalingsdetails succesvol toegevoegd"
       payment_details_add_error: "Kon betalingsgegevens niet toevoegen"
       listing_author_payment_details_missing: "De persoon die het item heeft geplaatst heeft zijn betalingsgegevens nog niet ingevuld en kan daardoor nog geen betalingen ontvangen. Contacteer deze aub."
-      stylesheet_needs_recompiling: ~
+      stylesheet_needs_recompiling: "De pagina met stijlinstellingen wordt bijgewerkt. Laad de pagina na enkele ogenblikken opnieuw."
     settings:
       account: Account
       notifications: Notificaties
@@ -1247,14 +1247,14 @@ nl:
         at: Om
         departure_time: "Vertrek tijd"
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "Herhaald (voeg aantal keren en dagen toe in veld 'gedetailleerd omschrijving')"
       description:
-        detailed_description: "Uitgebreide omschrijving"
+        detailed_description: "Meer details"
       destination:
         destination: Bestemming
       form_content:
         favor: Aanbod
-        housing: ~
+        housing: "een plaats"
         item: "een item"
         offer_something: "Bied iets aan"
         request_something: "Vraag iets"
@@ -1262,7 +1262,7 @@ nl:
         i_want_to_offer: "Ik wil aanbieden..."
         i_want_to_request: "Ik zoek.."
       googlemap:
-        googlemap_copy: ~
+        googlemap_copy: "Eindpunten Van Kaart"
         googlemap_description: Kaart
         googlemap_updatemap: "Update kaart"
       images:
@@ -1314,7 +1314,7 @@ nl:
         comma_separate: "(gescheiden door een komma)"
         tags: Tags
       title:
-        listing_title: "Titel bericht"
+        listing_title: Omschrijving
       valid_until:
         valid_until: "Geldig tot"
       valid_until_radio_buttons:
@@ -1358,7 +1358,7 @@ nl:
       buys: Kopen
       favors: Diensten
       give_aways: Weggeven
-      housings: ~
+      housings: Plaatsen
       items: Items
       lends: Uitlenen
       receives: "Gratis ontvangen"
@@ -1448,7 +1448,7 @@ nl:
       category: Categorie
       did_not_found_what_you_were_looking_for: "Heb je niet gevonden wat je zocht?"
       favors: Diensten
-      housing: ~
+      housing: Plaatsen
       items: items
       list_view: Lijstweergave
       map_view: "Overzicht op de kaart"
@@ -1484,7 +1484,7 @@ nl:
       you_will_get: "Je zal ontvangen:"
     braintree:
       terms:
-        braintree_terms_also_included: ~
+        braintree_terms_also_included: "Opmerking: Braintree is gebruikt als een dienst voor betalingen. Door deze website te gebruiken, accepteer je ook %{terms_link_text} bovenop de voorwaarden hieronder vermeld."
         terms_link_text: "Braintree gebruikersvoorwaarden"
   paypal_accounts:
     payout_info_title: Betalingsinformatie
@@ -1502,12 +1502,12 @@ nl:
       admin_account_not_connected: "%{service_name} is nog niet geconfigureerd voor betalingen, waardoor je je PayPal account nog niet kan connecteren. Aub %{contact_admin_link} voor details."
       paypal_account_email: "1. Connecteer je PayPal account"
       paypal_account_email_placeholder: "Je PayPal e-mail adres"
-      paypal_account_email_info_text: ~
+      paypal_account_email_info_text: "Let op: je hebt een Persoonlijk PayPal account nodig (voor particulieren) of een PayPal Business account (voor bedrijven) om betalingen te kunnen aanvaarden. Indien je een Persoonlijk PayPal account hebt, kan je die upgraden. Dit is gratis en kan onmiddellijk gebeuren. %{upgrade_paypal_account} Als je nog geen PayPal account hebt, kan je er eentje maken %{create_paypal_account}. Je PayPal account moet ingesteld staan om %{currency} te ontvangen."
       create_paypal_account: hier
       upgrade_paypal_account: "Upgrade je account hier."
       connect_paypal_account: "Connecteer PayPal account"
       paypal_account_billing_agreement: "Geef %{service_name} toestemming om een transactie kost in rekening te brengen"
-      paypal_account_billing_agreement_info: ~
+      paypal_account_billing_agreement_info: "Wanneer je een verkoop realiseert op %{service_name} zal er een transactiekost van %{commission} op de prijs gerekend worden (merk op: minimale transactiekost is %{minimum_commission}). De kost omvat ook de kosten voor PayPal. Om %{service_name} te kunnen gebruiken, moet je je akkoord geven om deze kost aan te rekenen."
       billing_agreement_description: "Sta %{service_name} toe om een transactiekost in rekening te brengen."
       billing_agreement: "Geef toestemming"
       permissions_not_granted: "Geen toestemming om te connecteren met PayPal."
@@ -1518,7 +1518,7 @@ nl:
       billing_agreement_wrong_account: "De PayPal accounts kwamen niet overeen. Gebruik aub dezelfde PayPal account die je gebruikt hebt in de eerste stap."
       something_went_wrong: "Er is iets mis gegaan. Probeer aub opnieuw. Als het probleem zich blijft voordoen, contacteer dan de beheerder van de website."
       account_not_verified: "Je hebt je PayPal account nog niet geverifieerd. Ga naar PayPal.com en verifieer je account alvorens verder te gaan."
-      account_restricted: ~
+      account_restricted: "Je PayPal account is gelimiteerd en kan niet geconnecteerd worden. Log aub in op paypal.com om na te gaan wat er mis is en contacteer PayPal support om dit probleem op te lossen."
   paypal:
     checkout_with_paypal: "Uitloggen met PayPal"
     cancel_succesful: "PayPal betaling succesvol geannuleerd"
@@ -1537,9 +1537,9 @@ nl:
       help_invitation_code_title: "Je hebt een uitnodiging nodig om deel te nemen"
       terms_title: "%{service_name} gebruiksvoorwaarden"
       trustcloud_description_title: TrustCloud
-      trustcloud_description_text: ~
+      trustcloud_description_text: "<p> TrustCloud is een online service die helpt de betrouwbaarheid van iemand over verschillende online diensten in te schatten. Het geeft een TrustScore (1-1000) gebaseerd op iemands online activiteit. De score stijgt bijvoorbeeld door goede feedback op eBay te krijgen of door veel connecties te hebben op Facebook. Je kan op elke kaart klikken om meer informatie te krijgen. </p><p>TrustCloud is gebruikt om meer betrouwbaarheid te krijgen over iemand en om in te schatten of iemand achter een bepaald profiel wel is wie hij/zij zegt te zijn.</p><p>Je kan je eigen TrustCard vragen door <a href='https://trustcloud.com/claim'>te registreren bij TrustCloud</a> en hetzelfde e-mail adres op te geven dat je gebruikte om te registreren bij %{service_name}. Dit is optioneel, maar we adviseren je om je eigen TrustCard aan te vragen. Het zal je geloofwaardigheid opkrikken en waarschijnlijk makkelijker maken om met anderen te handelen op de marktplaats.</p><p>De activiteiten op %{service_name} beïnvloeden je TrustScore nog niet, maar we plannen dit mogelijk te maken in de toekomst.</p>"
       invite_only_help_text: "Kies deze optie indien je wil dat nieuwe leden enkel kunnen aansluiten na een uitnodiging door een bestaand lid."
-      invite_only_help_text_title: ~
+      invite_only_help_text_title: "Enkel op uitnodiging"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Deze gebruiker is niet meer actief bij %{service_name}"
       inactive_description: "Deze gebruiker is gestopt met het gebruiken van %{service_name}. Je kan deze gebruiker niet contacteren, feedback geven of commentaar geven op listings."
@@ -1686,7 +1686,7 @@ nl:
       new_email: "Nieuw e-mail adres"
       delete_all_memberships: "Wanneer je je account verwijdert, kan je het niet meer gebruiken in de volgende marktplaatsen: %{marketplaces}."
       delete_personal_information: "Als je je account verwijdert, zal al je persoonlijke informatie (naam, telefoonnummer, adres, e-mail, profiel afbeelding, enz...) permanent verwijderd worden. Dit kan niet meer worden gerecupereerd. Al de items die je hebt aangemaakt, worden verwijderd. Je kan je account niet opnieuw activeren."
-      delete_information_others_involved: ~
+      delete_information_others_involved: "Informatie waar andere leden bij betrokken zijn (gesprekken met andere mensen, transacties die je gedaan hebt, feedback die je aan anderen hebt gegeven, enz...) verdwijnen niet wanneer je je account verwijdert. In die gevallen zal jouw naam echter niet meer getoond worden."
       unfinished_transactions: "Je account kan niet verwijderd worden omdat je lopende transacties hebt. Sluit aub alle transacties alvorens je account te verwijderen."
       new_password: "Nieuw wachtwoord"
       save: Opslaan
@@ -1791,7 +1791,7 @@ nl:
       about_listing: "over item"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %d %b, %Y"
   datepicker:
     days:
       sunday: Zondag
@@ -1844,13 +1844,13 @@ nl:
       november: Nov
       december: Dec
     today: Vandaag
-    clear: ~
+    clear: Leeg
     format: mm/dd/yyyy
   time:
     formats:
       short: "%e %b %Y om %H:%M"
       shorter: "%e %b om %H:%M"
-      short_date: ~
+      short_date: "%e %b %Y"
       sms: "%e %b om %H:%M"
   timestamps:
     day_ago: "%{count} dag geleden"
