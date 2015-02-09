@@ -152,7 +152,15 @@ module PaypalService
               ReturnURL: req[:success],
               CancelURL: req[:cancel],
               ReqConfirmShipping: 0,
-              NoShipping: 1,
+              AddressOverride: 1,
+              Address: {
+                Name: "Pete Buyer",
+                Street1: "Kalevantie 4",
+                Street2: "",
+                CityName: "Tampere",
+                Country: "FI",
+                PostalCode: "33820"
+              },
               SolutionType: "Sole",
               LandingPage: "Billing",
               InvoiceID: req[:invnum],
@@ -190,6 +198,16 @@ module PaypalService
               PaymentAction: "Order",
               Token: req[:token],
               PayerID: req[:payer_id],
+              ReqConfirmShipping: 0,
+              AddressOverride: 1,
+              Address: {
+                Name: "Pete Byer",
+                Street1: "Kalevantie 4",
+                Street2: "",
+                CityName: "Tampere",
+                Country: "FI",
+                PostalCode: "33820"
+              },
               PaymentDetails: [{
                   ButtonSource: config[:button_source],
                   InvoiceID: req[:invnum],
