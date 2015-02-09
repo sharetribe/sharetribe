@@ -53,6 +53,9 @@ class ApplicationController < ActionController::Base
       I18n.locale = available_locales.collect { |l| l[1] }.include?(locale) ? locale : APP_CONFIG.default_locale
     end
 
+    # Store to thread the service_name used by current community, so that it can be included in all translations
+    ApplicationHelper.store_community_service_name_to_thread(service_name)
+
     # A hack to get the path where the user is
     # redirected after the locale is changed
     new_path = request.fullpath.clone
@@ -115,10 +118,9 @@ class ApplicationController < ActionController::Base
   # Before filter to get the current community
   def fetch_community_by_strategy(&block)
     # Pick the community according to the given strategy
-    if @current_community = block.call
-      # Store to thread the service_name used by current community, so that it can be included in all translations
-      ApplicationHelper.store_community_service_name_to_thread(service_name)
-    else
+    @current_community = block.call
+
+    unless @current_community
       # No community found with the strategy, so redirecting to redirect url, or error page.
       redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else {
         no_communities = Community.count == 0
