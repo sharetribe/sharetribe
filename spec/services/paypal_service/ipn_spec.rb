@@ -182,6 +182,7 @@ describe PaypalService::IPN do
     AccountStore.create(
       opts:
         {
+          active: true,
           person_id: @mid,
           community_id: @cid,
           email: @paypal_email,
@@ -279,7 +280,7 @@ describe PaypalService::IPN do
     end
 
     it "should handle billing agreement cancelled" do
-      acc = AccountStore.get(
+      acc = AccountStore.get_active(
         person_id: @mid,
         community_id: @cid
       )
@@ -288,7 +289,7 @@ describe PaypalService::IPN do
 
       @ipn_service.handle_msg(@billing_agreement_cancelled)
 
-      acc2 = AccountStore.get(
+      acc2 = AccountStore.get_active(
         person_id: @mid,
         community_id: @cid
       )

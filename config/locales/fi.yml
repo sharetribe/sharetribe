@@ -1493,6 +1493,7 @@ fi:
     you_are_ready_to_accept_payments: "Olet nyt valmis ottamaan rahaa vastaan."
     commission: "%{commission} %"
     connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
+    change_account: "Vaihda tili"
     missing: "Sinulla on avoimia ilmoituksia, mutta et ole yhdistänyt PayPal-tiliäsi, joten et pysty ottamaan maksuja vastaan. Yhdistä PayPal-tilisi %{settings_link}."
     from_your_payment_settings_link_text: maksuasetuksistasi
     new:

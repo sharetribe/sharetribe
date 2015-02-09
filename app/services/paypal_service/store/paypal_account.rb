@@ -1,3 +1,6 @@
+#
+# PayPalAccount Store wraps ActiveRecord models and stores accounts to the database.
+#
 module PaypalService::Store::PaypalAccount
   PaypalAccountModel = ::PaypalAccount
   OrderPermissionModel = ::OrderPermission
@@ -45,56 +48,145 @@ module PaypalService::Store::PaypalAccount
     [:billing_agreement_billing_agreement_id, :string]
   )
 
-  # Rename map for PaypalAccount values that are stored to order_permissions table
-  ORDER_PERMISSIONS_MAP = {
-    order_permission_request_token: :request_token,
-    order_permission_paypal_username_to: :paypal_username_to,
-    order_permission_verification_code: :verification_code,
-    order_permission_scope: :scope
-  }
+  # PaypalAccount is composed of three tables that are flatted together:
+  #
+  # - paypal_accounts
+  # - order_permissions
+  # - billing_agreements
+  #
+  # This helper has some utility functions to deal with the flatted values
+  #
+  module FlattingHelper
 
-  # Rename map for PaypalAccount values that are stored to billing_agreement table
-  BILLING_AGREEMENT_MAP = {
-    billing_agreement_billing_agreement_id: :billing_agreement_id,
-    billing_agreement_paypal_username_to: :paypal_username_to,
-    billing_agreement_request_token: :request_token
-  }
+    # Rename map for PaypalAccount values that are stored to order_permissions table
+    ORDER_PERMISSIONS_MAP = {
+      order_permission_request_token: :request_token,
+      order_permission_paypal_username_to: :paypal_username_to,
+      order_permission_verification_code: :verification_code,
+      order_permission_scope: :scope
+    }
+
+    # Rename map for PaypalAccount values that are stored to billing_agreement table
+    BILLING_AGREEMENT_MAP = {
+      billing_agreement_billing_agreement_id: :billing_agreement_id,
+      billing_agreement_paypal_username_to: :paypal_username_to,
+      billing_agreement_request_token: :request_token
+    }
+
+    module_function
+
+    def select_paypal_account_values(opts)
+      filter_keys = BILLING_AGREEMENT_MAP.keys.concat(ORDER_PERMISSIONS_MAP.keys)
+      opts.except(*filter_keys)
+    end
+
+    def select_billing_agreement_values(opts)
+      sub_and_rename(opts, BILLING_AGREEMENT_MAP)
+    end
+
+    def select_order_permission_values(opts)
+      sub_and_rename(opts, ORDER_PERMISSIONS_MAP)
+    end
+
+    def sub_and_rename(h, rename_map)
+      sub = HashUtils.sub(h, *rename_map.keys)
+      HashUtils.rename_keys(rename_map, sub)
+    end
+  end
+
+  # There are a couple of combinations of fields that result a unique row from the
+  # paypal_accounts table. This class enforces correct usage and ensures the right unique row
+  # is returned.
+  #
+  # - Personal account: person_id, community_id, payer_id
+  # - Pending personal account: person_id, community_id, order_permission_request_token
+  # - Active personal account: person_id, community_id, active: true
+  # - Community account: person_id: nil, community_id, payer_id
+  # - Pending community account: person_id: nil, community_id:, order_permission_request_token
+  # - Active community account: person_id: nil, community_id, active: true
+  #
+  class PaypalAccountFinder
+
+    def find(person_id:nil, community_id:, payer_id:)
+      query_one(person_id: person_id, community_id: community_id, payer_id: payer_id)
+    end
+
+    def find_pending(person_id:nil, community_id:, order_permission_request_token:)
+      query_one(person_id: person_id, community_id: community_id, order_permission_request_token: order_permission_request_token)
+    end
+
+    def find_active(person_id:nil, community_id:)
+      query_one(person_id: person_id, community_id: community_id, active: true)
+    end
+
+    def find_all(person_id:nil, community_id:)
+      query_all(person_id: person_id, community_id: community_id)
+    end
+
+    private
+
+    def query_all(params)
+      query = construct_query(params)
+
+      Maybe(
+        PaypalAccountModel.where(query)
+        .eager_load([:order_permission, :billing_agreement])
+      )
+    end
+
+    def query_one(params)
+      query_all(params).map(&:first)
+    end
+
+    # Takes a hash and rejects values :all
+    def construct_query(params)
+      account_params = FlattingHelper.select_paypal_account_values(params)
+      order_permission_params = HashUtils.wrap_if_present(
+        :order_permissions,
+        FlattingHelper.select_order_permission_values(params)
+      )
+
+      account_params.merge(order_permission_params)
+    end
+  end
 
   module_function
 
+  ## Public Store CRUD methods:
+
   def create(opts:)
     entity = PaypalAccountCreate.call(opts)
-    account = select_paypal_account_values(entity)
-    order_permission = select_order_permission_values(entity)
+    account = HashUtils.compact(FlattingHelper.select_paypal_account_values(entity))
+    order_permission = HashUtils.compact(FlattingHelper.select_order_permission_values(entity))
 
     account_model = PaypalAccountModel.create!(account)
     account_model.create_order_permission(order_permission)
-    account_model = update_or_create_billing_agreement(account_model, select_billing_agreement_values(entity))
+    account_model = update_or_create_billing_agreement(account_model, HashUtils.compact(FlattingHelper.select_billing_agreement_values(entity)))
 
     from_model(Maybe(account_model))
   end
 
-  def update(community_id:, person_id:nil, opts:)
-    entity = PaypalAccountUpdate.call(opts)
+  def update(community_id:, person_id:nil, payer_id:, opts:)
+    model = finder.find(community_id: community_id, person_id: person_id, payer_id: payer_id)
+    update_model(model, opts)
+  end
 
-    maybe_model = find_model(person_id: person_id, community_id: community_id)
+  def update_pending(community_id:, person_id:nil, order_permission_request_token: order_permission_request_token, opts:)
+    model = finder.find_pending(
+      community_id: community_id,
+      person_id: person_id,
+      order_permission_request_token: order_permission_request_token
+    )
+    update_model(model, opts)
+  end
 
-    case maybe_model
-    when Some
-      account_model = maybe_model.get
-      account_model.update_attributes(select_paypal_account_values(entity))
-      account_model.order_permission.update_attributes(select_order_permission_values(entity))
-      account_model = update_or_create_billing_agreement(account_model, select_billing_agreement_values(entity))
-
-      from_model(Maybe(account_model))
-    else
-      raise ArgumentError.new("Can not find Paypal account for person_id #{person_id} and community_id #{community_id}") unless account_model
-    end
-
+  def update_active(community_id:, person_id:nil, opts:)
+    model = finder.find_active(community_id: community_id, person_id: person_id)
+    update_model(model, opts)
   end
 
   def delete_billing_agreement(person_id:, community_id:)
-    maybe_account = find_model(person_id: person_id, community_id: community_id)
+    maybe_account = finder.find_active(person_id: person_id, community_id: community_id)
     maybe_account.billing_agreement.each { |billing_agreement| billing_agreement.destroy }
   end
 
@@ -103,19 +195,65 @@ module PaypalService::Store::PaypalAccount
     maybe_billing_agreement.each { |billing_agreement| billing_agreement.destroy }
   end
 
-  def delete(person_id:nil, community_id:)
-    find_model(person_id: person_id, community_id: community_id).each { |account| account.destroy }
+  def delete_pending(person_id:nil, community_id:, order_permission_request_token:)
+    model = finder.find_pending(
+      community_id: community_id,
+      person_id: person_id,
+      order_permission_request_token: order_permission_request_token
+    )
+    model.each { |account| account.destroy }
   end
 
-  def get(person_id:nil, community_id:)
-    from_model(find_model(person_id: person_id, community_id: community_id))
+  def delete_all(person_id:nil, community_id:)
+    finder.find_all(person_id: person_id, community_id: community_id).each { |accounts|
+      accounts.each { |account| account.destroy }
+    }
   end
 
-  def get_by_payer_id(payer_id:, community_id:)
-    from_model(find_model_by_payer_and_community(payer_id: payer_id, community_id: community_id))
+  def get(person_id:nil, community_id:, payer_id:)
+    from_model(
+      finder.find(
+        person_id: person_id,
+        community_id: community_id,
+        payer_id: payer_id
+      )
+    )
+  end
+
+  def get_active(person_id:nil, community_id:)
+    from_model(
+      finder.find_active(
+        person_id: person_id,
+        community_id: community_id
+      )
+    )
   end
 
   ## Privates
+
+  def update_model(maybe_model, opts)
+    entity = PaypalAccountUpdate.call(opts)
+
+    case maybe_model
+    when Some
+      account_model = maybe_model.get
+      account_values = HashUtils.compact(FlattingHelper.select_paypal_account_values(entity))
+
+      account_model.update_attributes(account_values)
+      account_model.order_permission.update_attributes(HashUtils.compact(FlattingHelper.select_order_permission_values(entity)))
+      account_model = update_or_create_billing_agreement(account_model, HashUtils.compact(FlattingHelper.select_billing_agreement_values(entity)))
+
+      deactivate_other_accounts(account_model) if account_values[:active]
+
+      from_model(Maybe(account_model))
+    else
+      msg = "Can not find Paypal account for person_id #{person_id}, " \
+            "community_id #{community_id}, " \
+            "order_permission_request_token: #{order_permission_request_token}"
+
+      raise ArgumentError.new(msg) unless account_model
+    end
+  end
 
   def update_or_create_billing_agreement(account_model, opts)
     return account_model if opts.empty?
@@ -130,25 +268,24 @@ module PaypalService::Store::PaypalAccount
     account_model
   end
 
-  def select_paypal_account_values(opts)
-    filter_keys = BILLING_AGREEMENT_MAP.keys.concat(ORDER_PERMISSIONS_MAP.keys)
-    HashUtils.compact(opts.except(*filter_keys))
-  end
+  def deactivate_other_accounts(active_account_model)
+    base_query =
+      PaypalAccountModel.where(
+        "community_id = ? AND id != ?",
+        active_account_model.community_id,
+        active_account_model.id
+      )
 
-  def select_billing_agreement_values(opts)
-    sub_and_rename(opts, BILLING_AGREEMENT_MAP)
-  end
+    query =
+      if active_account_model.person_id.nil?
+        # community account
+        base_query.where("person_id IS NULL")
+      else
+        # personal account
+        base_query.where("person_id = ?", active_account_model.person_id)
+      end
 
-  def select_order_permission_values(opts)
-    sub_and_rename(opts, ORDER_PERMISSIONS_MAP)
-  end
-
-  def find_model(person_id:nil, community_id:)
-    Maybe(
-      PaypalAccountModel.where(person_id: person_id, community_id: community_id)
-      .eager_load([:order_permission, :billing_agreement])
-      .first
-    )
+    query.update_all(active: false)
   end
 
   def find_billing_agreement_by_payer_and_agreement_id(payer_id:, billing_agreement_id:)
@@ -160,21 +297,6 @@ module PaypalService::Store::PaypalAccount
           billing_agreement_id: billing_agreement_id,
           paypal_accounts: {payer_id: payer_id}
         }).first
-    )
-  end
-
-  def find_model_by_payer(payer_id:)
-    Maybe(
-      PaypalAccountModel.where(payer_id: payer_id)
-      .eager_load([:order_permission, :billing_agreement])
-    )
-  end
-
-  def find_model_by_payer_and_community(payer_id:, community_id:)
-    Maybe(
-      PaypalAccountModel.where("community_id = ? AND payer_id = ? AND person_id IS NOT NULL", community_id, payer_id)
-      .eager_load([:order_permission, :billing_agreement])
-      .first
     )
   end
 
@@ -228,9 +350,7 @@ module PaypalService::Store::PaypalAccount
     end
   end
 
-  def sub_and_rename(h, rename_map)
-    sub = HashUtils.sub(h, *rename_map.keys)
-    renamed = HashUtils.rename_keys(rename_map, sub)
-    HashUtils.compact(renamed)
+  def finder
+    @finder ||= PaypalAccountFinder.new
   end
 end

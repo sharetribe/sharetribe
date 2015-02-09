@@ -31,6 +31,7 @@ class PaypalAccountsController < ApplicationController
       community_ready_for_payments: community_ready_for_payments,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       paypal_account_email: m_account[:email].or_else(""),
+      change_url: ask_order_permission_person_paypal_account_path(@current_user)
     })
   end
 
@@ -59,7 +60,8 @@ class PaypalAccountsController < ApplicationController
     render(locals: {
       community_ready_for_payments: community_ready_for_payments,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
-      form_action: person_paypal_account_path(@current_user),
+      order_permission_action: ask_order_permission_person_paypal_account_path(@current_user),
+      billing_agreement_action: ask_billing_agreement_person_paypal_account_path(@current_user),
       paypal_account_form: PaypalAccountForm.new,
       paypal_account_state: m_account[:order_permission_state].or_else(""),
       paypal_account_email: m_account[:email].or_else(""),
@@ -71,7 +73,30 @@ class PaypalAccountsController < ApplicationController
     })
   end
 
-  def create
+  def ask_order_permission
+    return redirect_to action: :new unless PaypalHelper.community_ready_for_payments?(@current_community)
+
+    community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
+    response = accounts_api.request(
+      body: PaypalService::API::DataTypes.create_create_account_request(
+      {
+        community_id: @current_community.id,
+        person_id: @current_user.id,
+        callback_url: permissions_verified_person_paypal_account_url,
+        country: community_country_code
+      }))
+
+    permissions_url = response.data[:redirect_url]
+
+    if permissions_url.blank?
+      flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
+      return redirect_to action: :new
+    else
+      return redirect_to permissions_url
+    end
+  end
+
+  def ask_billing_agreement
     return redirect_to action: :new unless PaypalHelper.community_ready_for_payments?(@current_community)
 
     account_response = accounts_api.get(
@@ -82,9 +107,29 @@ class PaypalAccountsController < ApplicationController
 
     case m_account[:order_permission_state]
     when Some(:verified)
-      create_billing_agreement
+
+      response = accounts_api.billing_agreement_request(
+        community_id: @current_community.id,
+        person_id: @current_user.id,
+        body: PaypalService::API::DataTypes.create_create_billing_agreement_request(
+          {
+            description: t("paypal_accounts.new.billing_agreement_description"),
+            success_url:  billing_agreement_success_person_paypal_account_url,
+            cancel_url:   billing_agreement_cancel_person_paypal_account_url
+          }
+        ))
+
+      billing_agreement_url = response.data[:redirect_url]
+
+      if billing_agreement_url.blank?
+        flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
+        return redirect_to action: :new
+      else
+        return redirect_to billing_agreement_url
+      end
+
     else
-      create_paypal_account
+      redirect_to action: ask_order_permission
     end
   end
 
@@ -144,51 +189,6 @@ class PaypalAccountsController < ApplicationController
 
 
   private
-
-  def create_paypal_account
-    community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
-    response = accounts_api.request(
-      body: PaypalService::API::DataTypes.create_create_account_request(
-      {
-        community_id: @current_community.id,
-        person_id: @current_user.id,
-        callback_url: permissions_verified_person_paypal_account_url,
-        country: community_country_code
-      }))
-
-    permissions_url = response.data[:redirect_url]
-
-    if permissions_url.blank?
-      flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-      return redirect_to action: :new
-    else
-      return redirect_to permissions_url
-    end
-  end
-
-  def create_billing_agreement
-    response = accounts_api.billing_agreement_request(
-      community_id: @current_community.id,
-      person_id: @current_user.id,
-      body: PaypalService::API::DataTypes.create_create_billing_agreement_request(
-        {
-          description: t("paypal_accounts.new.billing_agreement_description"),
-          success_url:  billing_agreement_success_person_paypal_account_url,
-          cancel_url:   billing_agreement_cancel_person_paypal_account_url
-        }
-      ))
-
-    billing_agreement_url = response.data[:redirect_url]
-
-    if billing_agreement_url.blank?
-      flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-      return redirect_to action: :new
-    else
-      return redirect_to billing_agreement_url
-    end
-
-  end
-
 
   # Before filter
   def ensure_paypal_enabled

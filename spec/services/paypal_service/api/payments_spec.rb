@@ -25,6 +25,7 @@ describe PaypalService::API::Payments do
 
     AccountStore.create(opts:
       {
+        active: true,
         person_id: @mid,
         community_id: @cid,
         email: @paypal_email,

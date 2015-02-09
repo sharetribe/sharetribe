@@ -148,7 +148,7 @@ Kassi::Application.routes.draw do
           member do
             get :index
             post :preferences_update
-            post :account_create
+            get :account_create
             get :permissions_verified
           end
         end
@@ -319,8 +319,10 @@ Kassi::Application.routes.draw do
           end
           resources :braintree_payments
         end
-        resource :paypal_account, only: [:new, :show, :create] do
+        resource :paypal_account, only: [:new, :show] do
           member do
+            get :ask_order_permission
+            get :ask_billing_agreement
             get :permissions_verified
             get :billing_agreement_success
             get :billing_agreement_cancel

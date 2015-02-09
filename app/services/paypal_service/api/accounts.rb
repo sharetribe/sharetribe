@@ -15,11 +15,6 @@ module PaypalService::API
     ## POST /accounts/request
 
     def request(body:)
-      # If a request for new account is made, delete old (not completely actived) accounts
-      # Future note: This may not be sufficient solution when we implement the option to
-      # switch PayPal account
-      PaypalAccountStore.delete(person_id: body[:person_id], community_id: body[:community_id])
-
       with_success_permissions(
         PaypalService::DataTypes::Permissions
         .create_req_perm({callback: body[:callback_url] })
@@ -68,17 +63,21 @@ module PaypalService::API
               token_secret: access_token[:token_secret]
             })
         ) { |personal_data|
-          account = PaypalAccountStore.update(
+          account = create_verified_account!(
             community_id: community_id,
             person_id: person_id,
-            opts:
-              {
-                email: personal_data[:email],
-                payer_id: personal_data[:payer_id],
-                order_permission_verification_code: body[:order_permission_verification_code],
-                order_permission_scope: access_token[:scope].join(','),
-                active: true
-              })
+            order_permission_request_token: order_permission_request_token,
+            payer_id: personal_data[:payer_id],
+
+            opts: {
+              email: personal_data[:email],
+              payer_id: personal_data[:payer_id],
+              order_permission_request_token: order_permission_request_token,
+              order_permission_verification_code: body[:order_permission_verification_code],
+              order_permission_scope: access_token[:scope].join(','),
+              active: true
+            }
+          )
 
           Result::Success.new(account)
         }
@@ -109,7 +108,7 @@ module PaypalService::API
             cancel: body[:cancel_url]
           })
       ) { |billing_agreement_request|
-        account = PaypalAccountStore.update(
+        account = PaypalAccountStore.update_active(
           community_id: community_id,
           person_id: person_id,
           opts:
@@ -138,7 +137,7 @@ module PaypalService::API
     # - :wrong_account
 
     def billing_agreement_create(community_id:, person_id:, billing_agreement_request_token:)
-      paypal_account = PaypalAccountStore.get(person_id: person_id, community_id: community_id)
+      paypal_account = PaypalAccountStore.get_active(person_id: person_id, community_id: community_id)
 
       with_success_merchant(
         PaypalService::DataTypes::Merchant
@@ -159,7 +158,7 @@ module PaypalService::API
           elsif express_checkout_details[:payer_id] != paypal_account[:payer_id]
             Result::Error.new(:wrong_account)
           else
-            account = PaypalAccountStore.update(
+            account = PaypalAccountStore.update_active(
               community_id: community_id,
               person_id: person_id,
               opts:
@@ -185,16 +184,49 @@ module PaypalService::API
     ## DELETE /accounts/?community_id=1&person_id=asdfgasdgasdfaasdf
 
     def delete(community_id:, person_id: nil)
-      Result::Success.new(PaypalAccountStore.delete(person_id: person_id, community_id: community_id))
+      Result::Success.new(PaypalAccountStore.delete_all(person_id: person_id, community_id: community_id))
     end
 
     ## GET /accounts/?community_id=1&person_id=asdfgasdgasdfaasdf
 
     def get(community_id:, person_id: nil)
-      Result::Success.new(PaypalAccountStore.get(person_id: person_id, community_id: community_id))
+      Result::Success.new(PaypalAccountStore.get_active(person_id: person_id, community_id: community_id))
     end
 
     private
+
+    def create_verified_account!(community_id:, person_id:nil, order_permission_request_token:, payer_id:, opts:)
+      existing = PaypalAccountStore.get(
+        community_id: community_id,
+        person_id: person_id,
+        payer_id: payer_id
+      )
+
+      if existing.nil?
+        # Update the 'new' account
+        PaypalAccountStore.update_pending(
+          community_id: community_id,
+          person_id: person_id,
+          order_permission_request_token: order_permission_request_token,
+          opts: opts
+        )
+      else
+        # Delete the 'new' account
+        PaypalAccountStore.delete_pending(
+          community_id: community_id,
+          person_id: person_id,
+          order_permission_request_token: order_permission_request_token
+        )
+
+        # Update the 'existing' account
+        PaypalAccountStore.update(
+          community_id: community_id,
+          person_id: person_id,
+          payer_id: payer_id,
+          opts: opts
+        )
+      end
+    end
 
     # Calls Merchant API with given request
     # Logs and returns if error, calls block if success
