@@ -747,7 +747,8 @@ You can see the exact fees by logging in to your PayPal account and going <a hre
       product: "Product:"
       price_payer_paid: "Price %{payer_full_name} paid:"
       service_fee: "%{service_name} service fee:"
-      you_will_get: "You will get:"
+      paypal_gateway_fee: "PayPal's fee:"
+      you_will_get: "Total:"
       money_will_be_transferred: "The money will be transferred to your account when a) %{payer_name} has marked the request completed or b) %{automatic_confirmation_days} days have passed since %{payer_name} paid."
     receipt_to_payer:
       receipt_of_payment: "Receipt of payment"

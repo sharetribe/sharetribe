@@ -744,10 +744,10 @@ Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a hre
       new_payment: "Olet saanut uuden maksusuorituksen"
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: "Tuote:"
+      price_payer_paid: "Ostajan maksama summa:"
+      service_fee: "%{service_name} palvelumaksu:"
+      you_will_get: "Loppusumma:"
       money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Kuitti maksusta"

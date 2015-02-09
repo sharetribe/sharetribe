@@ -327,7 +327,9 @@ module TransactionService::Transaction
         minimum_commission: model.minimum_commission,
         commission_from_seller: Maybe(model.commission_from_seller).or_else(0),
         checkout_total:   checkout_details[:total_price],
-        commission_total: checkout_details[:commission_total]})
+        commission_total: checkout_details[:commission_total],
+        charged_commission: checkout_details[:charged_commission],
+        payment_gateway_fee: checkout_details[:payment_gateway_fee]})
   end
 
   def charge_commission(transaction_id)
@@ -350,16 +352,13 @@ module TransactionService::Transaction
 
     case model.payment_gateway.to_sym
     when :paypal
-      payment = paypal_payment_api().get_payment(model.community.id, model.id)
-      total =
-        if payment[:success] && payment[:data][:payment_total].present?
-          payment[:data][:payment_total]
-        elsif payment[:success] && payment[:data][:authorization_total].present?
-          payment[:data][:authorization_total]
-        else
-          model.listing.price * 1 #TODO fixme for booking (model.listing_quantity)
-        end
-      { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
+      payment = paypal_payment_api().get_payment(model.community.id, model.id).maybe
+      total = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
+              .or_else(model.listing.price)
+      { total_price: total,
+        commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission),
+        charged_commission: payment[:commission_total].or_else(nil),
+        payment_gateway_fee: payment[:fee_total].or_else(nil) }
     else
       total = model.listing.price * 1 #TODO fixme for booking (model.listing_quantity)
       { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
