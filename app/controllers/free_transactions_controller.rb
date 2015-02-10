@@ -9,8 +9,6 @@ class FreeTransactionsController < ApplicationController
   before_filter :ensure_listing_author_is_not_current_user
   before_filter :ensure_authorized_to_reply
 
-  skip_filter :dashboard_only
-
   ContactForm = FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
     .with_validations { validates_presence_of :content, :listing_id }
 

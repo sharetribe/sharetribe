@@ -2,6 +2,9 @@ module BraintreeService
   module EscrowReleaseHelper
     include Braintree::Transaction::EscrowStatus
 
+    BATCH_TIMEZONE = "Central Time (US & Canada)"
+    BATCH_HOUR = 17
+
     module_function
 
     # Get back the next escrow release time
@@ -40,18 +43,11 @@ module BraintreeService
       self.delay(:run_at => next_escrow_release_time, :priority => 6).release_from_escrow_by_community_id(community_id, transaction_id)
     end
 
-    # Give a date and get back time of the given date when batch is run
-    def settlement_batch_time_per_date(date)
-      offset = ActiveSupport::TimeZone.new("Central Time (US & Canada)").formatted_offset
-      Time.new(date.year, date.month, date.day, 17, 0, 0, offset)
-    end
-
     # Give a date and get back time of next batch time
     def next_settlement_batch_time(now=Time.now)
-      todays_batch = settlement_batch_time_per_date(now)
-      tomorrows_batch = settlement_batch_time_per_date(now.tomorrow)
-
-      now < todays_batch ? todays_batch : tomorrows_batch
+      next_batch_time = now.in_time_zone(BATCH_TIMEZONE).change(hour: BATCH_HOUR, min: 0, sec: 0)
+      next_batch_time += 1.day if next_batch_time < now
+      next_batch_time
     end
   end
 end

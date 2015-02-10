@@ -1,20 +1,3 @@
-describe MoneyUtil do
-  it "#parse_str_to_cents" do
-    MoneyUtil.parse_str_to_cents("100").should eql(10000)
-    MoneyUtil.parse_str_to_cents("100.00").should eql(10000)
-    MoneyUtil.parse_str_to_cents("100,00").should eql(10000)
-    MoneyUtil.parse_str_to_cents("99,99").should eql(9999)
-    MoneyUtil.parse_str_to_cents("99.99").should eql(9999)
-    MoneyUtil.parse_str_to_cents("0.12").should eql(12)
-    MoneyUtil.parse_str_to_cents("0,12").should eql(12)
-  end
-
-  it "#parse_str_to_money" do
-    MoneyUtil.parse_str_to_money("0.12", "USD").should eql(Money.new(12, "USD"))
-    MoneyUtil.parse_str_to_money("0,12", "EUR").should eql(Money.new(12, "EUR"))
-  end
-end
-
 describe HashUtils do
   it "#camelize_keys" do
     expected = {

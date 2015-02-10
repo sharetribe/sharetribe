@@ -9,13 +9,11 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   before_filter :ensure_is_author
 
-  skip_filter :dashboard_only
-
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token
 
   def accept
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    payment_type = TransactionService::API::Api.transactions.query(params[:id])[:payment_gateway]
 
     case payment_type
     when :braintree
@@ -28,7 +26,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def reject
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    payment_type = TransactionService::API::Api.transactions.query(params[:id])[:payment_gateway]
 
     case payment_type
     when :braintree
@@ -137,7 +135,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def render_braintree_form(preselected_action)
-    render locals: {
+    render action: :accept, locals: {
       discussion_type: @listing_conversation.discussion_type,
       sum: @listing_conversation.payment.total_sum,
       fee: @listing_conversation.payment.total_commission,

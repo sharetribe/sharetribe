@@ -10,8 +10,6 @@ class BraintreePaymentsController < ApplicationController
 
   before_filter :ensure_recipient_does_not_have_account_for_another_community
 
-  skip_filter :dashboard_only
-
   # This expects that each conversation already has a (pending) payment at this point
   def edit
     @conversation = Transaction.find(params[:message_id])

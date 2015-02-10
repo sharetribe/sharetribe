@@ -9,11 +9,11 @@ a {
 
 .truncated-link {
   display: inline-block;
-  width: 100%;
   max-width: em(350);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  vertical-align: bottom;
 }
 
 small {

@@ -125,7 +125,7 @@ sv:
         live_site_link_text: här
         look_and_feel: "Innan du lanserar din sida så kanske du vill ändra vissa saker. Du kanske vill  %{logo_link} och byta omslagsbild och färger för att det ska passa ditt märke."
         logo_link_text: "lägga till din logotyp"
-        custom_domain: "Du kanske också vill lägga till en egen webbadress (t ex: www.dinmarknadsplats.com). För att göra detta så bör du kontakta vårt team på hello@sharetribe.com, eftersom att ordna detta kräver några manuella steg från vår sida."
+        custom_domain: "Du kanske också vill lägga till en egen webbadress (t ex: www.dinmarknadsplats.com). För att göra detta så bör du kontakta oss via supportlänken till vänster, eftersom detta kräver några manuella steg från vår sida. Därför är egna domäner bara tillgängligt för våra betalpaket, ej för gratisversionen"
         contact_team_link_text: "kontakta vårt team"
         categories_and_custom_fields: "Nästa sak att bestämma är vilken typ av innehåll som dina användare kan lägga ut på din sida. Du kan %{categories_link}, %{custom_fields_link} som själva annonsen innehåller och bestämma %{filters_link} som används när folk bläddrar bland annonser."
         categories_link_text: "lägg till kategorier och underkategorier"
@@ -173,6 +173,7 @@ sv:
         twitter_handle: "Twitter handtag (används med twitterknappen på annonssidan)"
         update_settings: "Spara inställningar"
         automatically_confirmed: "Transaktionen kommer automatiskt att markeras som klar %{days_dropdown} dagar efter att betalningen har gjorts. Om deponeringssystemet är i bruk så kommer pengarna att släppas till leverantören."
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
         newsletter_daily: Dagligen
         newsletter_weekly: Veckovis
@@ -188,14 +189,19 @@ sv:
         save_user_status_successful: Sparad
         save_user_status_error: "Ett fel inträffade när sidan sparades. Försök igen eller ladda om sidan."
         ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
+        ban_me_error: ~
       social_media:
         social_media: "Social media"
         twitter_handle: "Twitter användarnamn"
         twitter_handle_info_text: "Användarnamn på ditt Twitterkonto på din marknadsplats (om du har någon). Detta kommer nämnas när folk använder tweetknappen på annonssidan."
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: användarnamn
         invalid_twitter_handle: "Twitternamnet ska innehålla max 15 tecken (siffror 0-9 och bokstäver A-Z)."
         facebook_connect: Facebook
         facebook_connect_info_text: "För att aktivera Facebook inloggning, skapa en applikation för din marknadsplats på <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Lägg till ID och säkerhetsnyckeln för applikationen här."
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: "Facebook klient ID"
         invalid_facebook_connect_id: "Klient-ID ska bara innehålla nummer."
         facebook_connect_secret: "Facebook klientsäkerhet"
@@ -205,6 +211,8 @@ sv:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "Tracking ID för ditt Google Analytics konto."
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: "Spara inställningar"
       menu_links:
         menu_links: Menylänkar
@@ -314,6 +322,7 @@ sv:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"
       integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal-konto och välja minsta annonspriset och avgiften som du ska ta i provision från varje transaktion."
+      read_more_about_paypal: ~
       paypal_account_email: "1. Koppla ditt PayPal konto"
       paypal_account_email_completed: Klart!
       set_minimum_price_and_fee: "Ställ in lägsta pris och transaktionskonstnad"
@@ -385,6 +394,7 @@ sv:
     username: Användarnamn
     username_or_email: "E-postadress eller användarnamn"
     what_is_this: "Vad är detta?"
+    removed_user: "Borttagen användare"
   conversations:
     accept:
       respond_to_offer: "Svara på ett erbjudande"
@@ -400,7 +410,8 @@ sv:
       you_need_to_fill_payout_details_before_accepting: "Du måste fylla i utbetalningsdetaljerna innan du kan acceptera förfrågan och ta emot betalning. Gå till %{payment_settings_link} för att fylla i detaljerna."
       payment_settings_link: betalningsinställningar
       minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
-      approve: Godkänn
+      accept: Acceptera
+      decline: Avböj
       sum: "Summa: %{sum}"
       service_fee: "Serviceavgift: %{service_fee}"
       you_will_get: "Du kommer att få: %{seller_gets}"
@@ -441,11 +452,11 @@ sv:
       accepted_offer: "acceptera erbjudandet"
       rejected_request: "avslagit förfrågan"
       rejected_offer: "avslagit erbjudandet"
-      confirmed_request: "markerat förfrågan som klar"
+      confirmed_request: "Markerat förfrågan som klar"
       confirmed_offer: "markerat erbjudandet som klar"
       canceled_request: "avbröt förfrågan"
       canceled_offer: "avbröt erbjudandet"
-      paid: "betalt %{sum}"
+      paid: "Betalt %{sum}"
     new:
       offer_message_form_title: "Erbjud %{listing} till %{person}"
       request_message_form_title: "Förfrågan %{listing} från %{person}"
@@ -531,7 +542,7 @@ sv:
       request_preauthorized: "Betalning lyckad"
       skip_feedback: "Hoppa över feedback"
       waiting_for_listing_author_to_accept_offer: "Väntar på att %{listing_author_name} ska acceptera erbjudandet"
-      waiting_for_listing_author_to_accept_request: "Väntar på att %{listing_author_name} ska acceptera begäran"
+      waiting_for_listing_author_to_accept_request: "Väntar på att %{listing_author_name} ska acceptera förfrågan"
       waiting_for_you_to_accept_request: "Väntar på att du ska acceptera förfrågan"
       waiting_confirmation_from_requester: "Väntar på att %{requester_name} ska markera förfrågan klar"
       waiting_confirmation_from_you: "Väntar på att du ska markera förfrågan som klar"
@@ -546,11 +557,11 @@ sv:
           verify: "Väntar på att du ska verifiera ditt PayPal konto"
     status_link:
       accept_offer: "Anta erbjudande"
-      accept_request: "Acceptera begäran"
+      accept_request: "Acceptera förfrågan"
       reject_offer: "Inte den här gången"
       reject_request: "Inte den här gången"
       accept_preauthorized_offer: "Anta erbjudande"
-      accept_preauthorized_request: "Acceptera begäran"
+      accept_preauthorized_request: "Acceptera förfrågan"
       reject_preauthorized_offer: "Inte den här gången"
       reject_preauthorized_request: "Inte den här gången"
       confirm: "Markera klar"
@@ -720,7 +731,7 @@ sv:
       you_have_a_new_message: "Du har ett nytt meddelande i %{service_name} från %{sender_name}"
     new_payment:
       new_payment: "Du har fått en ny inbetalning"
-      you_have_received_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{payer_full_name}. Här är ditt kvitto."
+      you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Pris %{payer_full_name} betalt:"
@@ -760,8 +771,6 @@ sv:
       newest_offers: "Vad folk har att erbjuda andra"
       newest_requests: "Vad folk behöver just nu"
       text_version_text: "Kan du dela med dig något som andra kanske behöver? Eller behöver du något som andra har? Lägg ett erbjudande eller förfrågan eller kolla vad de andra har att erbjuda %{url}."
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Tack för ditt intresse för %{service_name}!"
     reset_password_instructions:
       change_my_password: "Ändra mitt lösenord"
       reset_password_instructions: "<p>Du har angett att du antingen har glömt ditt lösenord eller användarnamn på %{service_name}.</p><p>Ditt användarnamn är: %{username}</p><p>Om du behöver återställa ditt lösenord, klicka här: %{password_reset_link}</p><br/><p>Om du inte begärde detta, vänligen ignorera detta e-postmeddelande. Ditt lösenord kommer ej att bytas om du inte klickar på länken ovan och väljer ett nytt.</p>"
@@ -770,9 +779,9 @@ sv:
       remember_to_give_feedback_to: "Kom ihåg att lämna feedback till %{name}"
       you_have_not_given_feedback_yet: "Du har ännu inte lämnat någon feedback till %{name} angående händelsen '%{event}'. Kom ihåg att ge feedback om hur %{given_name} utfört händelsen."
     transaction_preauthorized:
-      subject: "%{requester} har begärt och betalat för %{listing_title}"
-      transaction_requested_by_user: "%{requester} har begärt och betalat för \"%{listing_title}\""
-      you_have_days_to_accept: "DU måste acceptera eller avböja förfrågan inom %{payment_expires_in_days} dagar. Om du inte acceptera detta inom tidsramen så kommer automatiskt förfrågan avböjas och du kommer inte att få någon betalning."
+      subject: "%{requester} har efterfrågat och betalat för %{listing_title}"
+      transaction_requested_by_user: "%{requester} har efterfrågat och betalat för \"%{listing_title}\""
+      you_have_days_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in_days} dagar. Om du inte accepterar detta inom tidsramen så kommer automatiskt förfrågan att avböjas och du kommer inte att få någon betalning."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
     transaction_preauthorized_reminder:
       subject: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}"
@@ -800,11 +809,12 @@ sv:
       we_will_guide_you_along_the_way: "Vi kommer att guida dig på vägen."
       are_you_new_to_online_marketplaces: "Behöver du hjälp med din marknadsplats? Inga problem, vi är här för att hjälpa dig! Vi kommer att skicka dig några e-postmeddelanden som kommer att hjälpa dig att få reda på det mesta om Sharetribe och hur du bygger en lyckad marknadsplats. Vi kommer snart att skicka Del 1."
       have_questions: "Har du några frågor?"
-      our_happiness_team_is_here_to_help: "Vårt glada gäng är här för dig! Antingen%{knowledge_base_link} eller kontakta supporten %{contact_support_link}."
+      our_happiness_team_is_here_to_help: "Vårt glada gäng är här för dig! Antingen %{knowledge_base_link} eller kontakta supporten via %{admin_panel_link}."
       love: "Varma hälsningar,"
       sharetribe_crew: Sharetribe-gänget
       knowledge_base_link_text: "kolla vår kunskapsbas"
       contact_support_link_text: "kontakta vår support"
+      admin_panel_link_text: adminpanel
     new_listing_by_followed_person:
       subject: "%{author_name} har skapat en ny annons på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har skapat en ny annons:"
@@ -834,16 +844,21 @@ sv:
       page_can_not_be_found: "Sidan hittades inte!"
       page_you_requested_can_not_be_found: "Sidan som du efterfrågade hittades inte. Är du säker på att du skrev adressen korrekt?"
     error_404_title: "sidan hittades inte"
+    error_410:
+      page_removed: "Sida borttagen"
+      page_you_requested_has_been_removed: "Sidan du sökte har blivit borttagen."
+      page_removed_reason: "Det finns några anledningar till detta. T ex, en användare har kanske tagit bort sitt konto eller annonsen har tagits bort."
+    error_410_title: "sidan borttagen"
     error_500:
-      help_us_find_the_problem: "Du kan hjälpa oss att hitta problemet genom att skriva en kort beskrivning av problemet i rutan nedan."
-      page_loading_failed: "Sidan laddades inte!"
-      reload_refresh: "Att ladda om sidan hjälper dig oftast att nå den sidan du försökte komma åt. Vi försöker att hitta och fixa felet så snart vi bara kan."
+      temporary_unavailable: "Marknadsplatsen är inte tillgänglig för tillfället"
+      unable_to_process: "Tjänsten kan inte behandla din begäran just nu. Försök igen senare."
+      we_hate_this: "Vi gillar inte när detta händer! Vi har blivit informerade om situationen och vi åtgärdar det."
+      refer_to_error_id: "Om du vill kontakta supporten om det här problemet, vänligen inkludera fel-ID %{error_id} i ditt meddelande."
     error_500_title: "sidan laddades inte"
     error_description: Felbeskrivning
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript har avaktiverats i din webbläsare"
       kassi_does_not_currently_work_without_javascript: "Tyvärr %{service_name} fungerar inte utan Javascript. Försök att aktivera Javascript i din webbläsare och ladda om sidan."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Tyvärr %{service_name} fungerar inte utan Javascript. Försök att aktivera Javascript i din webbläsare och ladda om sidan. Om du vill använda %{service_name} utan Javascript, vänligen %{contact_us}."
       contact_us: "kontakta oss"
       send_feedback: "Skicka feedback"
       your_feedback_to_admins: "Din feedback till admin."
@@ -1027,8 +1042,6 @@ sv:
       feedback_forum: "forum för feedback"
       feedback_handle: Feedback
       give_feedback: "Kontakta oss"
-      keywords: "%{service_name}, Kassi, dela resurser på en marknadsplats, låna saker, tjänster, saker, samåkning, utrymmen, biltvätt, boende, logi, hjälp, erbjudande, förfrågan, hyra, byta ut, köpa, sälja, ge, ekologiskt, marknadsplats, online, marknad, lokal"
-      meta_description: "Sharetribe gör att du enkelt kan skapa en marknadsplats online och låta medlemmarna sälja, hyra ut tjänster, varor och utrymmen."
       or_check_our: "...eller kolla vår"
       send_feedback_to_admin: "Skicka feedback"
       to_see_what_others_have_suggested: "för att se vad andra användare har föreslagit, rösta på idéerna där."
@@ -1192,6 +1205,7 @@ sv:
       payment_details_add_successful: "Betalningsinformation tillagd"
       payment_details_add_error: "Det gick inte att lägga till betalningsdetaljer"
       listing_author_payment_details_missing: "Ägaren av annonsen har inte lagt till betalningsdetaljer så de kan inte ta emot betalning just nu. Vänligen kontakta ägaren av annonsen."
+      stylesheet_needs_recompiling: "Formatmallen kompilerar. Vänligen ladda om sidan efter ett tag."
     settings:
       account: Konto
       notifications: Aviseringar
@@ -1275,8 +1289,8 @@ sv:
         mass: "längd, kg, m2 ..."
         time: "timme, dag, månad, ..."
         long_time: "vecka, månad, ..."
-        after_service_fee_you_will_get: "Efter %{service_name} serviceavgift så kommer du att få %{sum_with_currency} när du sålt varan"
-        after_service_fee_you_will_get_vat: "Efter %{service_name} serviceavgift så kommer du att få ca. %{sum_with_currency} (moms 0%)"
+        after_service_fee_you_will_get: "Efter %{service_name}s serviceavgift så kommer du att få %{sum_with_currency} när du har sålt produkten. OBS! Om produkten ska skickas, glöm inte att inkludera fraktkostnad i priset."
+        after_service_fee_you_will_get_vat: "Efter %{service_name} och betalningsavgifter kommer du att få ca. %{sum_with_currency} (moms 0%)"
         price_excludes_vat: "Priset inkluderar inte moms."
       origin:
         location: Plats
@@ -1371,7 +1385,10 @@ sv:
       select_subcategory: "Välj underkategori"
       select_transaction_type: "Välj annonstyp"
       you_need_to_fill_payout_details_before_accepting: "Du måste fylla i dina utbetalningsdetaljer innan du kan lägga ut en annons. Gå till %{payment_settings_link} för att fylla i detaljerna."
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: betalningsinställningar
+      community_not_configured_for_payments_admin: ~
     please_comment: Kommentar
     reply_link:
       listing_closed: "Annonsen är stängd"
@@ -1478,9 +1495,13 @@ sv:
     you_are_ready_to_accept_payments: "Du är redo att ta emot betalningar!"
     commission: "%{commission} %"
     connected_account: "PayPal konto %{email} kopplades korrekt."
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal-konto med %{service_name}."
       payout_info_text: "Vänligen slutför dessa två steg för att koppla ditt konto."
+      contact_admin_link_text: ~
       admin_account_not_connected: "Du kan inte koppla ditt PayPalkonto eftersom marknadsplatsens administratör har inte slutfört PayPalinställningarna."
       paypal_account_email: "1. Koppla ditt PayPal konto"
       paypal_account_email_placeholder: "Din PayPal e-postadress"
@@ -1496,26 +1517,20 @@ sv:
       could_not_fetch_redirect_url: "Det gick inte att hämta omdirigerings-URL för att ansluta till PayPal."
       paypal_not_enabled: "PayPal betalningar är inte aktiverad."
       billing_agreement_canceled: "Betalningen avbröts"
-      billing_agreement_id_missing: "Det uppstod ett tekniskt fel med PayPal integrationen"
+      billing_agreement_not_accepted: "Du accepterade inte PayPals faktureringsavtal."
+      billing_agreement_wrong_account: "PayPal-konton matchade inte. Vänligen använd samma PayPal-konto som du anslöt i första steget."
       something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
       account_not_verified: "Du har inte verifierat ditt PayPal-konto. Du behöver gå till www.paypal.com och verifiera ditt konto innan du kan gå vidare."
+      account_restricted: ~
   paypal:
     checkout_with_paypal: "Gå till kassan med PayPal"
     cancel_succesful: "PayPal betalning avbruten"
     transaction:
       commission_payment_name: "Provisionsbetalning för %{listing_title}"
       commission_payment_description: "Marknadsplatsen %{service_name} tog denna provion från transaktionen avseende %{listing_title}"
+    wait_while_loading: "Vänligen vänta."
+    chatting_with_paypal: "Vi chattar med PayPal."
   people:
-    index:
-      loading_more_members: "Laddar fler medlemmar"
-      meet_the_people: "Möt människorna"
-      you_are_the_only_member: "Du är den enda medlemmen på %{service_name}"
-      here_are_the_members: "Här är de %{count} medlemmarna på %{service_name}."
-      wanna_see_more_folks: "Vill du se lite mer folk här?"
-      invite_people_you_know: "Bjud in de du känner!"
-      there_are_x_members: "Det är %{count} medlemmar på %{service_name}."
-      to_see_the_list_log_in: "För att se en lista av alla medlemmar måste du %{log_in_link}."
-      log_in_link: "logga in"
     edit_links:
       activate: Aktivera
       deactivate: Avaktivera
@@ -1587,7 +1602,7 @@ sv:
       as_expected: "Som förväntat"
       edit_profile_info: "Redigera profil"
       exceeded_expectations: "Över förväntan"
-      positive: positiv
+      positive: positiva
       hide_description: "Visa mindre"
       less_than_expected: "Värre än väntat"
       phone_number: "Telefonnummer:"
@@ -1611,7 +1626,7 @@ sv:
       show_all_reviews: "Visa alla recensioner"
       trustcloud: TrustCard
     followed_people:
-      you_follow_plural: "Du följer %{count} personer"
+      you_follow_plural: "Du följer %{count} person"
       you_follow_singular: "Du följer %{count} personer"
       they_follow_plural: "%{count} följande personer"
       they_follow_singular: "%{count} följande personer"
@@ -1656,7 +1671,7 @@ sv:
       welcome_to_kassi: "Välkommen till %{service_name}!"
       check_your_email: "Kolla din inkorg"
       resend_confirmation_instructions: "Skicka instruktioner för att bekräfta kontot igen"
-      your_current_email_is: "Din e-post är %{email}l"
+      your_current_email_is: "Din e-post är %{email}."
       change_email: Ändra
       confirm_your_email: "Bekräfta din e-post"
       account_confirmation_instructions: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så kan du gå med %{service_name}."
@@ -1672,11 +1687,14 @@ sv:
       delete_account_confirmation_popup: "Är du helt säker på att du vill radera ditt användarkonto och permanent förlora alla uppgifter relaterade till kontot. Borttagning av ditt konto går ej att ångra."
       email_addresses: E-postadresser
       new_email: "Ny e-postadress"
-      instructions_to_delete_account: "Om du tar bort ditt konto så kommer all data relaterad till ditt konto försvinna: dina profildetaljer, annonser, kommentarer, meddelanden, feedback osv."
-      contact_admin: "vänligen kontakta administratören"
+      delete_all_memberships: "Om du tar bort ditt konto så kommer du inte längre att kunna använda det på följande marknadsplatser: %{marketplaces}"
+      delete_personal_information: "Om du tar bort ditt konto så kommer din personliga information (namn, telefonnummer, adress, e-post, profilbild osv.) att tas bort permanent och går inte att återskapa. Alla annonser som du har skapat kommer också att tas bort från sidan. Du kommer inte att kunna återaktivera kontot."
+      delete_information_others_involved: "Information där andra medlemmar är involverade (konversationer med andra personer, transaktioner du gjort, recensioner du har gett till andra, m.m.) kommer inte att tas bort när du raderar ditt konto. Ditt namn kommer inte att visas vid denna information."
+      unfinished_transactions: "Ditt konto kan inte tas bort eftersom du har pågående transaktioner. Vänligen slutför alla transaktioner innan du tar bort ditt konto."
       new_password: "Nytt lösenord"
       save: Spara
       these_fields_are_shown_only_to_you: "Användarnamn visas i din profil om du inte har angett ditt namn. Annan information syns enbart för dig."
+      email_already_confirmed: ~
       email:
         address_title: Adress
         remove_title: "Ta bort"

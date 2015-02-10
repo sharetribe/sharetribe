@@ -40,7 +40,7 @@ module PaypalService
         [:pending_reason, :string],
         [:payment_id, :mandatory, :string],
         [:payment_total, :mandatory, :money],
-        [:payment_date, :str_to_time],
+        [:payment_date, :utc_str_to_time],
         [:fee, :money],
         [:username_to, :mandatory, :string])
 
@@ -56,7 +56,7 @@ module PaypalService
         [:billing_agreement_accepted],
         [:payer, :string],
         [:payer_id, :string],
-        [:order_total, :mandatory, :money])
+        [:order_total, :money])
 
       SetExpressCheckoutOrder = EntityUtils.define_builder(
         [:method, const_value: :set_express_checkout_order],
@@ -92,12 +92,11 @@ module PaypalService
 
       DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(
         [:success, const_value: true],
-        [:order_date, :mandatory, :str_to_time],
+        [:order_date, :mandatory, :utc_str_to_time],
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
         [:order_id, :mandatory, :string],
-        [:order_total, :mandatory, :money],
-        [:receiver_id, :mandatory, :string])
+        [:order_total, :mandatory, :money])
 
       DoAuthorization = EntityUtils.define_builder(
         [:method, const_value: :do_authorization],
@@ -112,7 +111,7 @@ module PaypalService
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
         [:authorization_total, :mandatory, :money],
-        [:authorization_date, :str_to_time],
+        [:authorization_date, :utc_str_to_time],
         [:msg_sub_id, :string])
 
       DoFullCapture = EntityUtils.define_builder(
@@ -130,7 +129,7 @@ module PaypalService
         [:pending_reason, :mandatory, :string],
         [:payment_total, :money],
         [:fee_total, :money],
-        [:payment_date, :str_to_time])
+        [:payment_date, :utc_str_to_time])
 
       DoVoid = EntityUtils.define_builder(
         [:method, const_value: :do_void],

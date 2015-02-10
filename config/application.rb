@@ -64,8 +64,7 @@ module Kassi
     # This is the list of all possible locales. Part of the translations may be unfinished.
     config.AVAILABLE_LOCALES = Sharetribe::AVAILABLE_LOCALES
 
-    # This is the list o locales avaible for the dashboard and newly created tribes in UI
-    config.AVAILABLE_DASHBOARD_LOCALES = Sharetribe::AVAILABLE_DASHBOARD_LOCALES
+    I18n.enforce_available_locales = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -110,7 +109,9 @@ module Kassi
     config.filter_parameters += [:password, :password2, :account_number, :routing_number, :address_street_address,
                                  :"date_of_birth(3i)", :"date_of_birth(2i)", :"date_of_birth(1i)"]
 
-    config.time_zone = 'Helsinki'
+    # ActiveRecord should be in UTC timezone.
+    config.time_zone = 'UTC'
+
     if APP_CONFIG.use_recaptcha
       ENV['RECAPTCHA_PUBLIC_KEY']  = APP_CONFIG.recaptcha_public_key
       ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG.recaptcha_private_key
@@ -152,6 +153,10 @@ module Kassi
       Devise::Mailer.layout "email" # email.haml or email.erb
       Devise::Mailer.helper :email_template
     end
+
+    # Map custom errors to error pages
+    config.action_dispatch.rescue_responses["PeopleController::PersonDeleted"] = :gone
+    config.action_dispatch.rescue_responses["ListingsController::ListingDeleted"] = :gone
 
     config.exceptions_app = self.routes
   end

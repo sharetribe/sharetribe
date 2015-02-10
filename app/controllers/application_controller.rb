@@ -13,18 +13,18 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
-  before_filter :show_maintenance_page
-
   before_filter :force_ssl,
     :check_auth_token,
     :fetch_logged_in_user,
-    :dashboard_only,
-    :single_community_only,
     :fetch_community,
     :fetch_community_membership,
     :set_locale,
     :generate_event_id,
-    :set_default_url_for_mailer
+    :set_default_url_for_mailer,
+    :fetch_chargebee_plan_data,
+    :fetch_community_admin_status,
+    :fetch_community_plan_expiration_status,
+    :warn_about_missing_payment_info
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
@@ -52,6 +52,9 @@ class ApplicationController < ActionController::Base
     else
       I18n.locale = available_locales.collect { |l| l[1] }.include?(locale) ? locale : APP_CONFIG.default_locale
     end
+
+    # Store to thread the service_name used by current community, so that it can be included in all translations
+    ApplicationHelper.store_community_service_name_to_thread(service_name)
 
     # A hack to get the path where the user is
     # redirected after the locale is changed
@@ -112,29 +115,22 @@ class ApplicationController < ActionController::Base
     session[:return_to_content] = request.fullpath
   end
 
-  # Before filter for actions that are only allowed on dashboard
-  def dashboard_only
-    return if controller_name.eql?("passwords")
-    redirect_to root and return unless on_dashboard?
-  end
-
-  # Before filter for actions that are only allowed on a single community
-  def single_community_only
-    return if controller_name.eql?("passwords")
-    redirect_to root and return if on_dashboard?
-  end
-
   # Before filter to get the current community
   def fetch_community_by_strategy(&block)
-    unless on_dashboard?
-      # Otherwise pick the domain normally from the request subdomain or custom domain
-      if @current_community = block.call
-        # Store to thread the service_name used by current community, so that it can be included in all translations
-        ApplicationHelper.store_community_service_name_to_thread(service_name)
-      else
-        # No community found with this domain, so redirecting to dashboard.
-        redirect_to "http://www.#{APP_CONFIG.domain}"
-      end
+    # Pick the community according to the given strategy
+    @current_community = block.call
+
+    unless @current_community
+      # No community found with the strategy, so redirecting to redirect url, or error page.
+      redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else {
+        no_communities = Community.count == 0
+
+        if no_communities
+          new_community_path
+        else
+          :community_not_found
+        end
+      }
     end
   end
 
@@ -144,8 +140,30 @@ class ApplicationController < ActionController::Base
     @current_host_with_port = request.host_with_port
 
     fetch_community_by_strategy {
-      Community.find_by_domain(request.host)
+      ApplicationController.default_community_fetch_strategy(request.host)
     }
+  end
+
+  # Fetch community
+  #
+  # 1. Try to find by domain
+  # 2. If there is only one community, use it
+  # 3. Otherwise nil
+  #
+  def self.default_community_fetch_strategy(domain)
+    by_domain = Community.find_by_domain(domain)
+
+    if by_domain.present?
+      by_domain
+    else
+      count = Community.count
+
+      if count == 1
+        Community.first
+      else
+        nil
+      end
+    end
   end
 
   # Before filter to check if current user is the member of this community
@@ -163,7 +181,7 @@ class ApplicationController < ActionController::Base
 
   # Before filter to direct a logged-in non-member to join tribe form
   def cannot_access_without_joining
-    if @current_user && ! (on_dashboard? || @current_community_membership || @current_user.is_admin?)
+    if @current_user && ! (@current_community_membership || @current_user.is_admin?)
 
       # Check if banned
       if @current_community && @current_user && @current_user.banned_at?(@current_community)
@@ -204,11 +222,29 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def person_belongs_to_current_community
-    @person = Person.find(params[:person_id] || params[:id])
-    raise ActiveRecord::RecordNotFound.new('Not Found') unless @person.communities.include?(@current_community)
+  def fetch_community_admin_status
+    @is_current_community_admin = @current_user && @current_user.has_admin_rights_in?(@current_community)
   end
 
+  def fetch_community_plan_expiration_status
+    @is_community_plan_expired = MarketplaceService::Community::Query.is_plan_expired(@current_community)
+  end
+
+  def fetch_chargebee_plan_data
+    @pro_biannual_link = APP_CONFIG.chargebee_pro_biannual_link
+    @pro_biannual_price = APP_CONFIG.chargebee_pro_biannual_price
+    @pro_monthly_link = APP_CONFIG.chargebee_pro_monthly_link
+    @pro_monthly_price = APP_CONFIG.chargebee_pro_monthly_price
+  end
+
+  # Before filter for PayPal, shows notification if user is not ready for payments
+  def warn_about_missing_payment_info
+    if @current_user && PaypalHelper.open_listings_with_missing_payment_info?(@current_user.id, @current_community.id)
+      settings_link = view_context.link_to(t("paypal_accounts.from_your_payment_settings_link_text"), payment_settings_path(:paypal, @current_user))
+      warning = t("paypal_accounts.missing", settings_link: settings_link)
+      flash.now[:warning] = warning.html_safe
+    end
+  end
 
   private
 
@@ -233,7 +269,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_is_admin
-    unless @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+    unless @is_current_community_admin
       flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
       redirect_to root and return
     end
@@ -288,11 +324,4 @@ class ApplicationController < ActionController::Base
       redirect_to("https://#{request.host_with_port}#{request.fullpath}") unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || request.fullpath == "/robots.txt"
     end
   end
-
-  def show_maintenance_page
-    if APP_CONFIG.show_maintenance_page
-      render :file => "public/errors/maintenance.html", :layout => false and return
-    end
-  end
-
 end

@@ -125,7 +125,7 @@ fi:
         live_site_link_text: tästä
         look_and_feel: "Ennen kuin avaat sivustosi kaikelle kansalle, kannattaa tehdä muutamia muutoksia. Voit esimerkiksi %{logo_link} ja vaihtaa sivuston kansikuvan ja värimaailman mieleisiksisi."
         logo_link_text: "lisätä oman logosi"
-        custom_domain: "Saatat myös haluta vaihtaa sivustolle mieleisesi verkko-osoitteen (esimerkiksi www.omamarkkinapaikka.fi). Tätä toimenpidettä varten sinun on syytä %{contact_team_link}, sillä osoitteen käyttöönotto vaatii muutamia toimenpiteitä meidän puoleltamme."
+        custom_domain: "Saatat myös haluta vaihtaa sivustolle mieleisesi verkko-osoitteen (esimerkiksi www.omamarkkinapaikka.fi). Tätä toimenpidettä varten sinun on syytä ottaa meihin yhteyttä 'asiakastuki' -navigaatiolinkillä (löytyy vasemmalta), sillä osoitteen käyttöönotto vaatii muutamia toimenpiteitä meidän puoleltamme. Tästä syystä oman verkko-osoitteen asettaminen ei ole käytössä 30:n päivän kokeiluversiossa."
         contact_team_link_text: "olla yhteydessä meihin sähköpostilla"
         categories_and_custom_fields: "Seuraavaksi voit määritellä, millaista sisältöä käyttäjäsi pystyvät sivustollesi lisäämään. Voit lisätä %{categories_link}, %{custom_fields_link} sekä päättää, millaisten hakusuodattimien avulla %{filters_link} käyttäjäsi pystyvät ilmoituksia etsimään."
         categories_link_text: "ilmoituskategorioita ja niille alakategorioita"
@@ -142,7 +142,7 @@ fi:
         social_media: "Sosiaalisen median hyödyntäminen on hyvä tapa yhteisöllisyyden lisäämiseen. Voit %{facebook_link}, jotta käyttäjäsi voivat kirjautua sivustollesi Facebook-tunnuksillaan, sekä %{twitter_link} saadaksesi lisää näkyvyytta, kun käyttäjäsi twiittaavat luomistaan ilmoituksista."
         facebook_link_text: "yhdistää oman Facebook-applikaatiosi"
         twitter_link_text: "lisätä Twitter-tilisi"
-        analytics: "Kannatta myös %{analytics_link} to your marketplace. This way it's easy for you to see what's happening in your marketplace, how many visitors you have, and so on."
+        analytics: "Kannatta myös %{analytics_link}"
         analytics_link_text: "yhdistää Google Analytics -tili markkinapaikkaasi, jotta näet helpommin, mitä sivustollasi tapahtuu, kuinka paljon sivustolla on kävijöitä ja niin edelleen."
         settings: "Tarjolla on myös paljon muita asetuksia. Voit esimerkiksi vaatia kaikilta käyttäjiltä kutsun, ennen kuin he pääsevät liittymään sivustollesi, ja tehdä sivustostasi ei-julkisen, jolloin ainoastaan kirjautuneet käyttäjät näkevät sivuston sisällöt. %{settings_link}."
         settings_link_text: "Muuta sivustosi asetuksia täältä"
@@ -173,6 +173,7 @@ fi:
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
         update_settings: Tallenna
         automatically_confirmed: "Transaktio merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää. Jos käytössä on escrow-järjestelmä, rahat tilitetään tässä vaiheessa maksun saajalle."
+        automatically_confirmed_no_escrow: "Transaktio merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää."
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
         newsletter_weekly: Viikoittain
@@ -188,14 +189,19 @@ fi:
         save_user_status_successful: "Tallennus onnistui"
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
         ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
+        ban_me_error: "Et voi poistaa itseäsi."
       social_media:
         social_media: "Sosiaalinen media"
         twitter_handle: Twitter-tili
         twitter_handle_info_text: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia."
+        twitter_handle_info_text_with_instructions: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia. %{instructions_link}."
+        twitter_instructions_link_text: "Lue lisää"
         twitter_handle_placeholder: tunnus
         invalid_twitter_handle: "Twitter-tilin tunnus voi olla enintään 15 merkkiä pitkä sekä sisältää vain kirjaimia (A-Z) ja numeroita (0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: "Luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta."
+        facebook_connect_info_text_with_instructions: "Luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta. %{instructions_link}"
+        facebook_instructions_link_text: "Lue ohjeet Facebook-sovelluksen luontiin."
         facebook_connect_id: "Facebook - sovellustunnus"
         invalid_facebook_connect_id: "Sovellustunnus voi sisältää vain numeroita."
         facebook_connect_secret: "Facebook - salainen avain"
@@ -205,6 +211,8 @@ fi:
         analytics: Analytiikka
         google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "Google Analytics -tilisi tracking ID."
+        google_analytics_key_info_text_with_instructions: "Google Analytics -tilisi tracking ID. %{instructions_link}."
+        google_analytics_instructions_link_text: "Lue lisää Google Analytics -tilin yhdistämisestä"
         save: Tallenna
       menu_links:
         menu_links: Valikkolinkit
@@ -313,7 +321,8 @@ fi:
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"
-      integration_info_text: "%{service_name}-palvelun maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun suoraan palvelusi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
+      integration_info_text: "Sharetribe-markkinapaikkojen maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun sivustosi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
+      read_more_about_paypal: "Lue lisää Sharetriben maksujärjestelmästä"
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_completed: Tehty!
       set_minimum_price_and_fee: "2. Aseta minimihinta ja välityspalkkioprosentti"
@@ -385,6 +394,7 @@ fi:
     username: Käyttäjätunnus
     username_or_email: "Käyttäjätunnus tai sähköposti"
     what_is_this: "Mitä tämä tarkoittaa?"
+    removed_user: "Käyttäjä poistettu"
   conversations:
     accept:
       respond_to_offer: "Vastaa tarjoukseen"
@@ -400,7 +410,8 @@ fi:
       you_need_to_fill_payout_details_before_accepting: "Sinun pitää täyttää maksutietosi ennen kuin voit hyväksyä pyynnön ja vastaanottaa maksun. Täytä maksutietosi %{payment_settings_link}."
       payment_settings_link: täällä
       minimum_price_error_message: "Hinta ei voi olla pienempi kuin %{amount}."
-      approve: Hyväksy
+      accept: Hyväksy
+      decline: Hylkää
       sum: "Kokonaissumma: %{sum}"
       service_fee: "Palvelumaksu: %{service_fee}"
       you_will_get: "Sinä saat: %{seller_gets}"
@@ -518,7 +529,7 @@ fi:
       paid: "Maksu suoritettu"
       pending_external:
         paypal:
-          multicurrency: "PayPal-maksua ei voitu suorittaa, koska PayPal-tiliäsi ei ole asetettu hyväksymään rahayksikköä %{currency}. Mene osoitteeseen %{paypal_url} ja kirjaudu sisään hyväksyäsi tai hylätäksesi maksun."
+          multicurrency: "PayPal-maksua ei voitu suorittaa, koska PayPal-tiliäsi ei ole asetettu hyväksymään rahayksikköä %{currency}. Mene osoitteeseen %{paypal_url} ja kirjaudu sisään hyväksyäksesi tai hylätäksesi maksun."
           verify: "PayPal-maksua ei voitu suorittaa, koska et ole vahvistanut PayPal-tiliäsi. Mene osoitteeseen %{paypal_url} ja vahvista tilisi."
           intl: "PayPal-maksua ei voitu suorittaa, koska et ole lisännyt PayPal-tiliisi tapaa nostaa rahaa tililtä. Mene osoitteeseen %{paypal_url} ja kirjaudu sisään hyväksyäsi tai hylätäksesi maksun."
       waiting_for_current_user_to_deliver_listing: "Odottaa että %{listing_title} on toimitettu"
@@ -760,8 +771,6 @@ fi:
       newest_offers: "Muun muassa näitä tarjotaan:"
       newest_requests: "Muun muassa näitä tarvitaan"
       text_version_text: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota? Lisää tarjous tai pyyntö tai katso mitä muut tarjoavat tai pyytävät osoitteessa %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Kiitos kiinnostuksestasi %{service_name}-palvelua kohtaan!"
     reset_password_instructions:
       change_my_password: "Vaihda salasanani"
       reset_password_instructions: "<p>Olet ilmeisesti unohtanut käyttäjätunnuksesi tai salasanasi %{service_name}-palveluun. Tämä viesti auttaa sinua kirjautumaan jälleen sisään.</p><p>Käyttäjätunuksesi on: %{username}</p><p>Jos et muista salasanaasi, voit uusia sen klikkaamalla linkkiä: %{password_reset_link}</p><br/><p>Jos et itse pyytänyt tätä viestiä %{service_name}-palvelussa, sinun ei tarvitse reagoida tähän mitenkään. Salasanasi ei vaihdu, ellet itse vaihda sitä ylläolevan linkin kautta.</p>"
@@ -798,11 +807,12 @@ fi:
       we_will_guide_you_along_the_way: "Me opastamme sinua."
       are_you_new_to_online_marketplaces: "Tarvitset lisäohjeita päästäksesi alkuun? Ei hätää, me autamme! Lähipäivinä tulemme lähettämään sinulle sarjan tietopaketteja, joista kerrotaan, miten markkinapaikkasivustot toimivat, ja autetaan sinua hyödyntämään Sharetriben ominaisuuksia parhaalla mahdollisella tavalla. Ensimmäinen osa lähetetään sinulle pian."
       have_questions: "Heräsikö sinulle kysymyksiä?"
-      our_happiness_team_is_here_to_help: "Autamme mielellämme! Voit joko %{knowledge_base_link} tai %{contact_support_link}."
+      our_happiness_team_is_here_to_help: "Autamme mielellämme! Voit joko %{knowledge_base_link} tai olla yhteydessä asiakapalveluumme %{admin_panel_link}."
       love: "Terveisin,"
       sharetribe_crew: "Sharetriben tiimi"
       knowledge_base_link_text: "katsoa vastauksia yleisimpiin kysymyksiin"
       contact_support_link_text: "olla yhteydessä asiakaspalveluumme"
+      admin_panel_link_text: "ylläpitonäkymän kautta"
     new_listing_by_followed_person:
       subject: "%{author_name} lisäsi ilmoituksen %{service_name}-palveluun"
       has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
@@ -821,7 +831,7 @@ fi:
     transaction_agreement:
       required_error: "Sinun pitää hyväksyä ehdot"
     paypal:
-      generic_error: ~
+      generic_error: "Maksuprosessin yhteydessä tapahtui virhe. PayPal-maksu ei onnistunut."
       cancel_error: "Maksun perumisen yhteydessä tapahtui virhe."
       accept_authorization_error: "Maksun vastaanotto epäonnistui. Yritä uudelleen."
       reject_authorization_error: "Maksun peruuttaminen epäonnistui. Yritä uudelleen."
@@ -832,16 +842,21 @@ fi:
       page_can_not_be_found: "Sivua ei löydy!"
       page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy. Oletko varma, että kirjoitit osoitteen oikein?"
     error_404_title: "sivua ei löydy"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: "Voit auttaa virheiden etsinnässä kertomalla alla olevalla lomakkeella, missä tilanteessa virhe ilmeni."
-      page_loading_failed: "Sivun lataus ei onnistunut!"
-      reload_refresh: "Sivun uudelleen lataaminen (reload/refresh-nappi) auttaa useimmiten pääsemään sivulle, jolle yritit. Yritämme selvittää ongelman syyn ja korjata sen mahdollisimman pian."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "sivun lataus ei onnistunut"
     error_description: "Virheen kuvaus"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
       kassi_does_not_currently_work_without_javascript: "%{service_name} ei toimi oikein ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan."
-      kassi_does_not_currently_work_without_javascript_dashboard: "%{service_name} ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja ladata tämä sivu uudestaan."
       contact_us: "ota yhteyttä"
       send_feedback: "Lähetä palaute"
       your_feedback_to_admins: "Palautteesi ylläpidolle"
@@ -1025,8 +1040,6 @@ fi:
       feedback_forum: "palautefoorumiltamme,"
       feedback_handle: Palaute
       give_feedback: "Anna palautetta %{service_name}-palvelusta"
-      keywords: "%{service_name}, Kassi, palvelus, tavara, kimppakyyti, asuminen, pyydetään, tarjotaan, lainataan, vuokrataan, vaihdetaan, ostetaan, myydään, annetaa, lahjoitetaan, annetaan, ekologisuus, yhteisö, verkkoyhteisö, markkinapaikka, kauppapaikka"
-      meta_description: "%{service_name} on verkkopalvelu, jonka avulla yhdistysten ja muiden yhteisöjen jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
       or_check_our: "...tai tarkista"
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
       to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
@@ -1190,6 +1203,7 @@ fi:
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: "Tyylejä rakennetaan taustalla. Lataa sivu uudestaan hetken kuluttua."
     settings:
       account: "Tilin tiedot"
       notifications: Tiedotteet
@@ -1273,8 +1287,8 @@ fi:
         mass: "kpl, kg, l, m2, ..."
         time: "tunti, päivä, kk ..."
         long_time: "vko, kk, ..."
-        after_service_fee_you_will_get: "%{service_name} palvelumaksun jälkeen sinä saat %{sum_with_currency}"
-        after_service_fee_you_will_get_vat: "%{service_name} palvelumaksun jälkeen sinä saat noin %{sum_with_currency} (ALV 0%)"
+        after_service_fee_you_will_get: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat %{sum_with_currency}"
+        after_service_fee_you_will_get_vat: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat noin %{sum_with_currency} (ALV 0%)"
         price_excludes_vat: "Merkitse tähän alv 0 -hinta."
       origin:
         location: Sijainti
@@ -1369,7 +1383,10 @@ fi:
       select_subcategory: "Valitse alakategoria"
       select_transaction_type: "Valitse ilmoitustyyppi"
       you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
+      contact_admin_link_text: "lähetä viesti ylläpitäjälle"
+      community_not_configured_for_payments: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja %{contact_admin_link}."
+      payment_settings_link: "markkinapaikan maksuasetuksiin"
+      community_not_configured_for_payments_admin: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja mene %{payment_settings_link} lisäämään maksutiedot."
     please_comment: Kommentoi
     reply_link:
       listing_closed: "Ilmoitus on suljettu"
@@ -1476,10 +1493,14 @@ fi:
     you_are_ready_to_accept_payments: "Olet nyt valmis ottamaan rahaa vastaan."
     commission: "%{commission} %"
     connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
+    change_account: "Vaihda tili"
+    missing: "Sinulla on avoimia ilmoituksia, mutta et ole yhdistänyt PayPal-tiliäsi, joten et pysty ottamaan maksuja vastaan. Yhdistä PayPal-tilisi %{settings_link}."
+    from_your_payment_settings_link_text: maksuasetuksistasi
     new:
       payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täyttyy yhdistää PayPal-tilisi %{service_name}-palveluun."
       payout_info_text: "Se onnistuu seuraavien kahden vaiheen avulla."
-      admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska markkinapaikan ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
+      contact_admin_link_text: "lähetä viesti ylläpitäjälle"
+      admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska %{service_name} ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_placeholder: "PayPal-tilisi sähköpostiosoite"
       paypal_account_email_info_text: "Huom! Tarvitset PayPalin 'Premier'-tilin (yksityishenkilöille) tai 'Business'-tilin (yrityksille) vastaanottaaksesi luottokorttimaksuja. Jos sinulla on PayPalin 'Personal'-tili, voit muuttaa tilin tyyppiä (se on helppoa ja ilmaista). %{upgrade_paypal_account} Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}. Huom! PayPal-tilisi tulee pystyä ottamaan vastaan %{currency}-valuuttaa."
@@ -1494,26 +1515,20 @@ fi:
       could_not_fetch_redirect_url: "Uudelleenohjaus PayPal-tiliin ei onnistunut."
       paypal_not_enabled: "PayPal maksut eivät ole käytössä."
       billing_agreement_canceled: "Laskutussopimus jäi kesken."
-      billing_agreement_id_missing: "PayPal asetuksissa ilmeni teknisiä ongelmia."
+      billing_agreement_not_accepted: "Et hyväksynyt laskutussopimusta PayPal-sivustolla."
+      billing_agreement_wrong_account: "PayPal käyttäjätilit eivät täsmää. Käytä samaa käyttäjitiliä, jonka yhdistit ensimmäisessä vaiheessa."
       something_went_wrong: "Jotain meni vikaan. Yritä uudestaan. Jos ongelma toistuu, ota yhteys ylläpitoon."
       account_not_verified: "Et ole vahvistanut PayPal-tiliäsi. Sinun on vahvistettava tilisi ennen kuin voit jatkaa."
+      account_restricted: "PayPal-tiliisi on rajoitetussa tilassa eikä sitä voida yhdistää. Sinun tulee kirjautua PayPal-sivustolle selvittääksesi ongelman."
   paypal:
     checkout_with_paypal: "Maksa PayPal-tilillä"
     cancel_succesful: "PayPal maksu onnistuneesti peruttu."
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
+      commission_payment_name: "Välityspalkkio %{listing_title} -ostosta"
+      commission_payment_description: "%{service_name} -palvelun välityspalkkio %{listing_title} -ostosta"
+    wait_while_loading: "Odota hetki"
+    chatting_with_paypal: "Juttelemme PayPalin kanssa."
   people:
-    index:
-      loading_more_members: "Ladataan lisää jäseniä"
-      meet_the_people: Ihmiset
-      you_are_the_only_member: "Olet tämän sivuston ainoa jäsen."
-      here_are_the_members: "Tässä ovat sivuston %{service_name} %{count} jäsentä."
-      wanna_see_more_folks: "Haluaisitko, että täällä olisi enemmän väkeä?"
-      invite_people_you_know: "Kutsu tuntemasi ihmiset mukaan!"
-      there_are_x_members: "Tälllä sivustolla on %{count} jäsentä."
-      to_see_the_list_log_in: "Nähdäksesi listan kaikista jäsenistä sinun pitää %{log_in_link}."
-      log_in_link: "kirjautua sisään"
     edit_links:
       activate: Aktivoi
       deactivate: "Muuta epäaktiiviseksi"
@@ -1670,11 +1685,14 @@ fi:
       delete_account_confirmation_popup: "Oletko aivan varma, että haluat pysyvästi poistaa käyttäjätilisi ja kaikki siihen liittyvät tiedot? Poistoa ei voi peruuttaa."
       email_addresses: Sähköpostiosoitteet
       new_email: "Uusi sähköpostiosoite"
-      instructions_to_delete_account: "Jos poistat käyttäjätilisi, samalla poistetaan kaikki profiilin tiedot, ilmoitukset, viestit, palautteet ym "
-      contact_admin: "otathan yhteyttä ylläpitoon"
+      delete_all_memberships: "Jos poistat käyttäjätunnuksesi, et pysty enää käyttämään sitä seuraavissa markkinapaikkoissa: %{marketplaces}"
+      delete_personal_information: "Jos poistat käyttäjätunnuksesi, kaikki henkilokohtaiset tietosi (nimi, puhelinnumero, osoite, sähköpostiosoite, profiilikuva, jne.) poistetaan pysyvästi. Tietojen palauttaminen ei ole mahdollista. Kaikki ilmoituksesi poistetaan. Et voi aktivoida tunnustasi uudelleen poiston jälkeen."
+      delete_information_others_involved: "Tapahtumat, joissa mukana on ollut muita osapuolia (esimerkiksi keskustelut, transaktiot, antamasi palautteet, jne.) eivät poistu tunnustesi poiston yhteydessä. Nimeäsi ei kuitenkaan enää näytetä näiden tapahtumien yhteydessä."
+      unfinished_transactions: "Et voi poistaa tunnustasi, koska sinulla on keskeneräisiä transaktioita. Päätä transaktiot ennen tunnuksen poistoa."
       new_password: "Uusi salasana"
       save: Tallenna
       these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."
+      email_already_confirmed: "Olet jo vahvistanut sähköpostiosoitteesi."
       email:
         address_title: Osoite
         remove_title: Poista

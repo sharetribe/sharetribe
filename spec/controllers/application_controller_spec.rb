@@ -19,11 +19,6 @@ describe ApplicationController do
       end
     end
 
-    it "redirects to the home page" do
-      get :index
-      response.should redirect_to("/")
-    end
-
     it "logs the user out from Sharetribe" do
       get :index
       session[:person_id].should be_nil
@@ -98,7 +93,6 @@ describe ApplicationController do
   describe "#fetch_community" do
 
     controller do
-      skip_filter :dashboard_only
       def index
         # do nothing as we are testing the filters here only
         # just return a dummy json

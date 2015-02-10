@@ -11,7 +11,7 @@ Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 
 ## Installation
 
-Note: If you encounter problems with the installation, you can try asking for help from the developer community in our [developer chatroom](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main).
+Note: If you encounter problems with the installation, you can try asking for help from the developer community in our [developer chatroom](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main). When you join, please use threads. Instructions for this and other chat related things can be found at [chat instructions](https://www.flowdock.com/help/chat).
 
 * Before you get started, you need to have or install the following:
   * Ruby (we use currently version 2.1.2 and don't guarantee everything working with others. If you need multiple versions of Ruby, [RVM](https://rvm.io//) can help.)
@@ -39,25 +39,12 @@ Note: If you encounter problems with the installation, you can try asking for he
 * If you want to run Sharetribe in production mode (i.e. you are not developing the software) you'll need to precompile the assets. This puts the Javascript and CSS files in right places. Use command: `rake assets:precompile`
 * If you want to enable Sharetribe to send email locally (in the development environment), you might want to change the email settings in the config file. There is an example of configuring settings using a gmail account, but you can also use any other SMTP server. If you do not touch the settings, the development version works otherwise normally but might crash in instances where it tries to send email (like when sending a message to another user).
 * Invoke the delayed job worker on your local machine: `rake RAILS_ENV=production jobs:work`. You should see "Starting job worker" and then the process stays open. The worker processes tasks that are done in the background, like processing images and sending email notifications. To exit the worker, press ctrl+c.
-* Create your marketplace. Quickest way is to open console and run the commands below. Before running, choose your marketplace subdomain, type (product, rental or service), languge and country and modify the command below to include your choices. Then run `rails console production` and run the commands with your values:
-
-```ruby
-marketplace_parameters = {
- marketplace_name: "your_chosen_subdomain_here",
- marketplace_type: "product",
- marketplace_country: "US",
- marketplace_language: "en"
-}
-
-MarketplaceService::API::Marketplaces::create(marketplace_parameters)
-
-```
 * Start the server. The simplest way is to use command `rails server` which will start it on Webrick, which is good option for development use.
   * To start the server in production environment, use command `rails server -e production`
 
 
 
-* Go to the marketplace you created (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and sign up as a new user. The first registered user will automatically become an administrator of that marketplace.
+* Open browser and go to the server URL (e.g. lvh.me:3000). Fill in the form to create a new marketplace and admin use
 
 Congrats! You should be now able to access your marketplace and modify it from the admin area.
 
@@ -65,6 +52,97 @@ See also:
 
 * [How to customize your marketplace?](docs/customize-marketplace.md)
 
+### Experimental: Docker container installation
+
+#### Prerequisite
+
+Prerequisite: You have to have _docker_ and _fig_ installed. If you are on a non-linux OS, you need to have _vagrant_. If you can successfully run `docker info`, then you should be ok to go.
+
+```bash
+brew cask install virtualbox
+brew cask install vagrant
+brew install docker
+brew install fig
+```
+
+Run:
+
+```bash
+vagrant up
+export DOCKER_HOST=tcp://192.168.33.10:2375   # Set Docker CLI to connect to Vagrant box. This IP is set in Vagrantfile
+export DOCKER_TLS_VERIFY=                     # disable TLS
+docker info                                   # this should run ok now
+```
+
+#### Sharetribe installation
+
+1. Modify `config/database.yml`. The easiest way is to use `database.docker.yml`
+
+  `cp config/database.docker.yml config/database.yml`
+
+1. Load schema (only on the first run)
+
+  `fig run web /bin/bash -l -c 'bundle exec rake db:schema:load'`
+
+1. Run the app
+
+  `fig up web`
+
+1. Set docker.lvh.me to point to docker IP
+
+  Modify your `/etc/hosts` file. If you're in Linux, point 127.0.0.1 to docker.lvh.me. If you are on OSX (or Windows), point 192.168.33.10 to docker.lvh.me
+
+1. All done! Open your browser and URL http://docker.lvh.me:3000 and create a new marketplace with name `docker`
+
+#### Development tips and tricks
+
+If you are planning to use Docker for development, here are some tips and tricks to make development workflow smoother.
+
+1. Add `figrun` function to your zsh/bash config.
+
+  Here is an example for ZSH:
+
+  ```zsh
+  figrun() {
+    PARAMS="$*"
+    CMD="bundle exec ${PARAMS}"
+    fig run web /bin/bash -l -c "$CMD"
+  }
+  ```
+
+  With this function, you can run commands on the web container like this:
+
+  ```
+  figrun rake routes
+  ```
+
+1. Use Zeus
+
+  First, add `figzeus` helper function to your zsh/bash config.
+
+  Here is an example for ZSH:
+
+  ```zsh
+  figzeus() {
+    PARAMS="$*"
+    CMD="zeus ${PARAMS}"
+    fig run web /bin/bash -l -c "$CMD"
+  }
+  ```
+
+  To use Zeus, do not start server by saying `fig up web`! Do this instead:
+
+  Start Zeus server in one terminal tab:
+
+  ```zsh
+  fig up zeus
+  ```
+
+  In another tab, start rails server:
+
+  ```zsh
+  figzeus s
+  ```
 
 ### Advanced settings
 

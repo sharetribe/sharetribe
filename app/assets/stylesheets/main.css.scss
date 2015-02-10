@@ -572,7 +572,7 @@ label.error {
   -----------
 */
 
-.lightbox {
+.lightbox, .expiration-notice {
   display: none;
   position: relative;
   margin: lines(10) auto;
@@ -649,6 +649,133 @@ a.lightbox-x {
     padding: em(7);
   }
 }
+
+/*
+  ------------------------
+  Expiration
+  ------------------------
+*/
+
+.expiration-lightbox {
+  max-width: 675px;
+  width: 95%;
+}
+.expiration-content {
+  position: relative;
+  width: 100%;
+  background: $background;
+  @include border-radius(em(5));
+}
+.expiration-head-panel {
+  width: 90%;
+  margin: 0 auto 30px auto;
+}
+.expiration-title {
+  font-size: 38px;
+  line-height: 38px;
+  font-weight: normal;
+  text-align: center;
+  margin: 0px;
+  padding: 30px 0;
+}
+
+.expiration-subtitle {
+  font-size: 17px;
+  line-height: 30px;
+  font-weight: normal;
+  text-align: center;
+  margin: 0px;
+}
+
+.expiration-plans-panel {
+  background-color: $expiration-background;
+}
+.expiration-plans-wrapper {
+  margin: 0 auto;
+  padding: 30px 15px;
+}
+.expiration-plan-title {
+  font-size: 26px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+.expiration-plan-desc {
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+}
+.expiration-plan-select {
+  max-width: 400px;
+  margin: 30px auto 0 auto;
+  @include clearfix();
+}
+
+.expiration-plan-wrapper {
+  width: 185px;
+  margin: 10px auto;
+}
+.expiration-plan-wrapper-left {
+  @extend .expiration-plan-wrapper;
+  @include media(small-tablet) {
+    float: left;
+    margin: 0;
+  }
+}
+.expiration-plan-wrapper-right {
+  @extend .expiration-plan-wrapper;
+  @include media(small-tablet) {
+    float: right;
+    margin: 0;
+  }
+}
+.expiration-plan-monthly,
+.expiration-plan-biannual {
+  @include border-radius(em(5));
+  background-color: white;
+  color: black;
+  padding: 30px 0;
+  border: solid 1px #ccc;
+}
+.expiration-plan-biannual {
+  background-color: $sharetribe-color;
+  border: solid 1px $sharetribe-color;
+  color: white;
+}
+.expiration-subscribe-title {
+  text-align: center;
+  font-size: 21px;
+  line-height: 21px;
+}
+.expiration-subscribe-price-per {
+  display: block;
+  margin: 10px auto 0 auto;
+  width: 92px;
+}
+.expiration-subscribe-price {
+  text-align: center;
+  font-size: 46px;
+  line-height: 48px;
+}
+.expiration-subscribe-per {
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+}
+.plan-price-disclaimer-desc {
+  font-size: 13px;
+  color: #999;
+  margin-top: 10px;
+}
+.expiration-footer {
+  padding: 30px 10px;
+}
+.expiration-alternative-plans {
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+}
+
 
 /*
   ------------------------
@@ -1655,114 +1782,6 @@ a.lightbox-x {
     }
 
   }
-
-}
-
-/*
-  -----------------
-  Community section
-  -----------------
-*/
-
-.members-intro {
-  padding: lines(0.5);
-  h1 {
-    margin-top: lines(0.5);
-  }
-
-  @include media(tablet) {
-    text-align: center;
-    padding: 0;
-
-    h1 {
-      margin-top: 0;
-    }
-
-    p {
-      margin: 0 auto lines(2) auto;
-      max-width: lines(22);
-    }
-
-  }
-}
-
-.members {
-  padding: 0 lines(0.5);
-
-  @include media(tablet) {
-    padding: lines(0);
-  }
-}
-
-.member {
-  position: relative;
-  border-top: 1px dotted $border;
-
-  h3 {
-    margin-top: lines(0.25);
-    margin-bottom: lines(0.25);
-  }
-
-  img {
-    width: 100%;
-    @include border-radius(em(5));
-  }
-
-  .member-image {
-    position: absolute;
-    top: em(10);
-    width: lines(3);
-  }
-
-  .member-details {
-    padding-left: lines(3.5);
-    padding-bottom: lines(0.5);
-    min-height: lines(3);
-  }
-
-  @include media(tablet) {
-    @include box-shadow(rgba(0,0,0,0.2) 0 0 em(8));
-    @include border-radius(em(5));
-    display: inline-block;
-    vertical-align: top;
-    width: em(179);
-    padding: em(10);
-    margin-right: lines(1);
-    margin-bottom: lines(1);
-    border-top: 0;
-
-    .member-image {
-      position: static;
-      top: auto;
-      width: 100%;
-    }
-
-    .member-details {
-      padding: 0;
-      min-height: auto;
-    }
-
-    &:nth-child(5n+5) {
-      margin-right: 0;
-    }
-
-  }
-
-}
-
-// Fix to make the paginated member list to be displayed correctly.
-// Pagination creates one extra element inside the member list,
-// so this needs to be taken into account.
-.paginated-member {
-  //width: lines(20);
-  @include media(tablet) {
-    &:nth-child(5n+5) {
-      margin-right: lines(1);
-    }
-    &:nth-child(5n+6) {
-      margin-right: 0;
-    }
-  }
 }
 
 /*
@@ -1801,6 +1820,30 @@ a.lightbox-x {
 
 }
 
+.paypal-loading {
+  width: 360px;
+  height: 150px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin: -50px -170px;
+  text-align: center;
+}
+.paypal-loading-title {
+  font-size: 150%;
+  margin-bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.paypal-loading-desc {
+  width: 100%;
+  text-align: center;
+}
+.paypal-loading-spinner {
+  display: inline-block;
+  margin-top: 12px;
+}
+
 /*
   --------------------------
   Common stuff (new layout)
@@ -1808,7 +1851,6 @@ a.lightbox-x {
 */
 
 /* Colors */
-$network-red: #ff5840;
 $light_grey: #fdfbfb;
 $network-green: #00a26c;
 
@@ -1886,12 +1928,6 @@ figure.fluidratio {
   }
 }
 
-/*
-  -----------------------------------
-  Tribe network
-  -----------------------------------
-*/
-
 .mobile {
   display: block;
   @include media(tablet) {
@@ -1903,573 +1939,6 @@ figure.fluidratio {
   display: none;
   @include media(tablet) {
     display: block;
-  }
-}
-
-section.lander, header.global-header, section.about, section.create-now, footer {
-  position: relative;
-  h1, h2, h3, h4, h5, h6, p, a, input, button, div {
-    @include source-sans-pro;
-  }
-}
-
-header.global-header {
-  background: $background;
-  height: lines(2.5);
-  width: 100%;
-
-  a, .toggle-menu-title {
-    font-weight: 600;
-  }
-
-  .top-menu {
-    a {
-      color: $background;
-      &:hover {
-        background: $network-red;
-        color: $background;
-      }
-    }
-  }
-
-  .left-side {
-    padding-top: lines(0.5);
-    padding-left: lines(0.5);
-  }
-
-}
-
-header.network-header {
-  border-bottom: em(3) solid $network-red;
-
-  .wrapper {
-    @include wrapper;
-    padding: 0 lines(0.5);
-  }
-
-  a {
-    color: $network-red;
-    &:hover {
-      color: darken($network-red, 20%);
-    };
-  }
-
-  .right-side {
-    display: none;
-    padding: 0 lines(0.5);
-
-    @include media(tablet) {
-      display: block;
-      position: absolute;
-      right: 0;
-      top: em(16);
-      text-align: right;
-      color: $network-red;
-      font-weight: 600;
-    }
-  }
-
-  .right-side-mobile {
-    @include big-type;
-    padding: 0 lines(0.5);
-    color: $network-red;
-    position: absolute;
-    right: 0;
-    top: em(14);
-
-    @include media(tablet) {
-      display: none;
-    }
-  }
-
-  a.global-navi {
-    margin: 0 lines(0.25);
-  }
-
-  a.global-navi-right {
-    margin-left: lines(0.25);
-  }
-
-}
-
-ul.network-navi {
-  list-style-type: none;
-  li { display: inline; }
-  padding-left: 0;
-  display: inline-block;
-}
-
-footer {
-  position: relative;
-  color: $network-red;
-  font-weight: 600;
-  padding: lines(1) 0 lines(1) 0;
-
-  a {
-    font-weight: 600;
-    color: $network-red;
-    &:hover {
-      color: darken($network-red, 20%);
-    };
-  }
-
-  a.footer-navi {
-    margin: 0 lines(0.25);
-  }
-
-  a.footer-navi-left {
-    margin-right: lines(0.25);
-  }
-
-  .left-side {
-    text-align: center;
-    margin-bottom: lines(1);
-
-    @include media(tablet) {
-      text-align: left;
-      margin: 0;
-    }
-  }
-
-  .right-side {
-    text-align: center;
-    padding-bottom: lines(1);
-
-    @include media(tablet) {
-      padding: 0;
-      position: absolute;
-      right: 0;
-      top: em(-5);
-      text-align: right;
-    }
-  }
-
-  .company-name {
-    display: inline-block;
-    color: $body;
-    font-weight: 400;
-    margin-right: lines(0.25);
-  }
-
-  a.social-icon-circle {
-    background-color: $network-red;
-    border-radius: 14px; /* one half of ( (border * 2) + height + padding ) */
-    color: white;
-    $vpadding: 6px;
-    height: 20px + (2 * $vpadding);
-    min-width: 14px + (2 * $vpadding);
-    padding: $vpadding 8px;
-    text-align: center;
-    display: inline-block;
-    &:hover { background-color: darken($network-red, 20%); }
-    margin-left: lines(0.25);
-  }
-
-}
-
-section.lander, section.create-now {
-
-  figure.network-cover {
-    background-image: url("https://s3.amazonaws.com/sharetribe/cover_photos/network/bg_photo_shadow.jpg");
-    height: em(600);
-    @include media(tablet) {
-      @include fluid-ratio(em(1920) em(822), em(300) em(822));
-    }
-  }
-
-  .network-lander-content {
-    top: lines(-20.5);
-  }
-
-  h1 {
-    position: relative;
-    z-index: 1;
-    padding: 0;
-    color: $background;
-    @include huge-type;
-    line-height: em(15);
-    @include photoshop-text-shadow(120, 0px, 12, 10px, rgba(black, 0.5));
-    @include media(tablet) {
-      padding: 0 lines(1);
-    }
-  }
-
-  p.lander-description {
-    margin-top: lines(1);
-    color: $background;
-    @include normal-type;
-    font-weight: 500;
-    @include text-shadow(2px, 2px, 3px, rgba(black, 0.5));
-  }
-
-  .contact-form-container {
-    h3 {
-      @include big-type;
-      margin-bottom: lines(0.5);
-    }
-  }
-
-  .contact-form {
-    margin-top: lines(2.5);
-  }
-
-  .lander-contact-form {
-    top: lines(-23);
-  }
-
-  .contact-form-input {
-    vertical-align: top;
-    display: inline;
-  }
-
-  .contact-request-completed-notification {
-    background: rgba($background, 0.75);
-    padding: lines(1) lines(2) lines(0.5) lines(2);
-    width: auto;
-    display: inline-block;
-    @include border-radius(em(5));
-    h3 {
-      color: $body;
-    }
-    margin: lines(2) 0 lines(2) 0;
-
-    @include media(tablet) {
-      width: auto;
-      margin: lines(8) 0 lines(2) 0;
-    }
-  }
-
-  .complete-contact-request-form {
-    background: rgba($background, 0.75);
-    padding: lines(0.5) lines(0.75);
-    width: auto;
-    display: inline-block;
-    @include border-radius(em(5));
-    text-align: left;
-    h3 {
-      color: $body;
-      text-align: left;
-      @include normal-type;
-    }
-    p {
-      text-align: left;
-      @include small-type;
-    }
-    label, input, select, button {
-      @include small-type;
-    }
-
-    margin: lines(1) 0 lines(2) 0;
-
-    @include media(tablet) {
-      padding: lines(1.25) lines(1.5);
-      max-width: lines(16);
-      h3 {
-        @include big-type;
-      }
-      p, label, input, select, button {
-        @include normal-type;
-      }
-    }
-  }
-
-  input[type=text] {
-    @include normal-type;
-    padding: 0;
-    border: 0;
-    margin: 0;
-    vertical-align: top;
-    padding: em(11) em(11) em(11) em(11);
-    border: 3px solid $body;
-    width: 100%;
-  }
-
-  button.action-button {
-    @include cover-photo-button($network-red);
-    border: 3px solid darken($network-red, 25%);
-    &:hover { border-color: darken($network-red, 25%); }
-    @include media(tablet) {
-      margin: 0 0 0 lines(0.5);
-      height: 64px;
-    }
-  }
-
-  button.small-action-button {
-    @include cover-photo-button($network-red);
-    height: 42px;
-    @include media(tablet) {
-      @include normal-type;
-      height: 48px;
-      min-width: 150px; // Looks better wider
-      padding: em(6) em(20) em(9) em(20);
-    }
-  }
-
-  @include media(tablet) {
-
-    .network-lander-content {
-      top: lines(-27);
-    }
-
-    .lander-contact-form {
-      top: lines(-30);
-    }
-
-    h1 {
-      @include mega-type;
-      line-height: em(15);
-    }
-
-    p.lander-description {
-      @include large-type;
-    }
-
-    input[type=text] {
-      padding: em(11) em(14) em(11) em(14);
-      @include big-type;
-      width: lines(10);
-    }
-
-    .contact-form-text-field {
-      width: lines(10);
-    }
-
-    label.error {
-      width: lines(21);
-      margin: lines(0.5) auto;
-      padding: em(10) em(15) em(15) em(15);
-    }
-
-    .complete-contact-request-form {
-      label.error {
-        width: 100%;
-        font-weight: normal;
-        padding: em(5) em(10) em(10) em(10);
-      }
-
-      select {
-        width: 100%;
-      }
-    }
-
-  }
-
-}
-
-section.lander {
-
-  h2 {
-    color: $background;
-    @include normal-type;
-    @include photoshop-text-shadow(120, 0px, 12, 10px, rgba(black, 0.5));
-  }
-
-  @include media(tablet) {
-    h2 {
-      @include large-type;
-    }
-  }
-
-}
-
-section.create-now {
-
-  h2 {
-    @include normal-type;
-  }
-
-  @include media(tablet) {
-    h2 {
-      @include large-type;
-    }
-  }
-}
-
-section.about, section.how-it-works, section.create-now {
-  padding: lines(3) 0 lines(3) 0;
-  color: $body;
-
-  h2 {
-    @include normal-type;
-    font-weight: 600;
-    color: $body;
-  }
-
-  .view-demo {
-
-    .action-button {
-      @include cover-photo-button($network-green);
-      height: 64px;
-      border-color: darken($network-green, 15%);
-
-      &:hover {
-        background: darken($network-green, 5%);
-        border-color: darken($network-green, 25%);
-      };
-
-      @include media(tablet) {
-        padding: em(11) em(20) em(14) em(20);
-      }
-    }
-
-    @include media(tablet) {
-      margin: lines(4) 0 0 0;
-    }
-  }
-
-  @include media(tablet) {
-    padding: lines(5) 0 lines(7) 0;
-    h2 {
-      @include large-type;
-    }
-  }
-
-}
-
-section.about, section.create-now {
-  background: $light_grey;
-  border-top: 3px solid $network-red;
-  border-bottom: 3px solid $network-red;
-}
-
-section.about {
-
-  .wrapper {
-    @include wrapper;
-    background: $light_grey;
-  }
-
-  .about-content {
-    width: 100%;
-    text-align: center;
-  }
-
-  .about-columns {
-    margin-top: lines(2);
-  }
-
-  .about-column {
-    width: lines(11);
-    margin: 0 auto;
-    padding-bottom: lines(2);
-  }
-
-  .about-column-title-icon {
-    display: inline-block;
-    color: $network-red;
-    font-size: em(20);
-  }
-
-  .about-column-title-text {
-    display: inline-block;
-    @include large-type;
-    color: $network-red;
-    margin-left: em(3);
-  }
-
-  .about-column-content p {
-    margin-top: lines(0.25);
-    color: $aside;
-    @include small-type;
-  }
-
-  @include media(tablet) {
-
-    .about-columns {
-      margin-top: lines(3);
-    }
-
-    .about-column {
-      display: inline-block;
-      margin: 0 0 0 lines(2);
-      padding-bottom: 0;
-    }
-
-    .about-column-left {
-      margin-left: 0;
-    }
-
-    .about-column-title-icon {
-      font-size: em(33);
-    }
-
-    .about-column-title-text {
-      @include huge-type;
-      font-weight: 400;
-    }
-
-    .about-column-content p {
-      @include normal-type;
-    }
-
-  }
-
-}
-
-section.how-it-works {
-
-  .how-it-works-content {
-    width: 100%;
-    text-align: center;
-  }
-
-  .video-container {
-    margin-top: lines(3);
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: em(30);
-    height: 0;
-    overflow: hidden;
-  }
-
-  .video-container iframe,
-  .video-container object,
-  .video-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-}
-
-section.create-now {
-
-  .wrapper {
-    @include wrapper;
-    background: $light_grey;
-  }
-
-  .create-now-content {
-    width: 100%;
-    text-align: center;
-  }
-
-  .create-now-form {
-    margin-top: lines(1.5);
-    padding: 0 lines(0.5);
-
-    @include media(tablet) {
-      padding: 0;
-    }
-  }
-
-}
-
-.top-menu-toggle {
-  @include big-type;
-  color: $network-red;
-  &:hover { color: darken($network-red, 25%); }
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: em(14) lines(0.5);
-  cursor: pointer;
-  text-align: right;
-
-  @include media(tablet) {
-    display: none;
   }
 }
 

@@ -99,7 +99,7 @@ es:
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: "Contenido del email de bienvenida."
         welcome_email_content_description: "Este mensaje será enviado a todos los miembros nuevos cuando ellos se unen a la comunidad. Puede modificar el contenido para adaptar a su comunidad. Haciendo click en '%{send_test_message_link}' puede ver cómo queda el mensaje en tu email."
         edit_message: ~
         send_test_message: ~
@@ -158,6 +158,7 @@ es:
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -173,14 +174,19 @@ es:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
+        ban_me_error: ~
       social_media:
         social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
@@ -190,6 +196,8 @@ es:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -299,6 +307,7 @@ es:
       marketplace_paypal_integration: ~
       preferences_updated: ~
       integration_info_text: ~
+      read_more_about_paypal: ~
       paypal_account_email: ~
       paypal_account_email_completed: ~
       set_minimum_price_and_fee: ~
@@ -324,7 +333,7 @@ es:
         offer: Solicitar
         inquiry: Contactar
   common:
-    edit_page: ~
+    edit_page: "Editar página"
     default_community_slogan: "Colabora, ayuda o comparte"
     default_community_description: "%{service_name} es un lugar donde los integrantes de tu comunidad pueden compartir productos y servicios. "
     cancel: Cancelar
@@ -370,6 +379,7 @@ es:
     username: "Nombre de usuario"
     username_or_email: "Usuario o email"
     what_is_this: "Qué es esto?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Responder a una oferta"
@@ -385,7 +395,8 @@ es:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
-      approve: ~
+      accept: ~
+      decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~
@@ -641,7 +652,7 @@ es:
       request_marked_as_canceled: "Solicitud cancelada"
       has_marked_request_as_confirmed: "%{other_party_full_name} ha marcado la solicitud de %{request}' como completa. Ahora puedes dar feedback a %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} ha cancelado la solicitud de '%{request}'. Ahora puedes dar feedback a %{other_party_given_name}"
-      giving_feedback_is_good_idea: ~
+      giving_feedback_is_good_idea: "Dejar una valoración es siempre una buena idea. Si todo fue bien, deberías contar a otros que %{other_party_given_name} es de confianza. Si hubo algún problema, también es bueno que lo menciones."
       give_feedback_to: "Dar feedback a %{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: ~
@@ -699,11 +710,11 @@ es:
       join_now: "Inscríbete ahora"
       invitation_code: "Código de invitación: %{code}"
     new_comment:
-      has_commented_your_listing_in_kassi: ~
+      has_commented_your_listing_in_kassi: "%{author} ha comentado en tu anuncio '%{listing}'."
       view_comment: "Ver comentario"
       you_have_a_new_comment: "%{author} ha comentado tu lista en %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} ha comentado un anuncio que sigues en %{service_name}"
-      has_commented_listing_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: "%{author} ha comentado en tu anuncio '%{listing}' que estás siguiendo en %{service_name}."
     new_message:
       view_message: "Ver mensaje"
       has_sent_you_a_message_in_kassi: "%{sender} te ha enviado un mensaje en %{service_name}:"
@@ -718,7 +729,7 @@ es:
       you_will_get: ~
       money_will_be_transferred: ~
     receipt_to_payer:
-      receipt_of_payment: ~
+      receipt_of_payment: "Recibo del pago realizado."
       you_have_made_new_payment: "Le has pagado <b>%{payment_sum}</b> a  %{recipient_full_name}  por <b>%{listing_title}</b>. Aquí está el comprobante."
       product: ~
       total: ~
@@ -731,7 +742,7 @@ es:
       view_feedback: "Ver feedback"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "La lista que sigues ha sido actualizada"
-      has_updated_listing_you_follow_in_kassi: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} ha actualizado el anuncio '%{listing}' que estás siguiendo en %{service_name}."
       view_changes: "Ver cambios"
     community_updates:
       added_offer: "%{name_link} ha añadido una oferta:"
@@ -750,8 +761,6 @@ es:
       newest_offers: "Lo que la gente actualmente ofrece a los demás"
       newest_requests: "Lo que las personas actualmente necesitan"
       text_version_text: "¿Tienes algo para compartir que los demás podrían necesitar? ¿O necesitas algo que los otros podrían tener? Añade una oferta o solicitud o revisa todo lo que otros están ofreciendo o están pidiendo en %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Gracias por tu interés en %{service_name}!"
     reset_password_instructions:
       change_my_password: "Cambiar mi contraseña"
       reset_password_instructions: "<p>Has indicado que has olvidado tu contraseña o tu nombre de usuario en el %{service_name} servicio.</p><p>Tu nombre de usuario es: %{username}</p><p>Si necesitas restablecer tu contraseña, haz click en el siguiente enlace: %{password_reset_link}</p><br/><p>Si no solicitaste esto, por favor ignora este e-mail. Tu contraseña no cambiará hasta que accedas al enlace de más arriba y crees una nueva.</p>"
@@ -795,6 +804,7 @@ es:
       sharetribe_crew: ~
       knowledge_base_link_text: ~
       contact_support_link_text: ~
+      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -806,7 +816,7 @@ es:
       share_type: "Deber de seleccionar al menos uno de los recuadros anteriores."
       valid_until: "Esta fecha debe estar entre la fecha actual y un año desde ahora."
       price: "Precio debe ser un número entero"
-      minimum_price: ~
+      minimum_price: "El precio mínimo es %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "Si deseas dar un feedback no neutral, debes explicar por qué."
       you_must_select_a_grade: "Recuerda evaluar a los usuarios haciendo click en uno de los íconos de más arriba (pueder ver las explicaciones de cada ícono deslizando el mouse sobre ellos)"
@@ -824,16 +834,21 @@ es:
       page_can_not_be_found: "No se ha podido encontrar la página!"
       page_you_requested_can_not_be_found: "La página solicitada no pudo encontrarse. ¿Estás seguro de que escribiste correctamente la dirección?"
     error_404_title: "Página no encontrada"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: "Puedes ayudarnos a encontrar el problema escribiendo una breve descripción del mismo en el recuadro a continuación."
-      page_loading_failed: "Falló la carga de la página!"
-      reload_refresh: "Actualizar la página a menudo ayuda a encontrar lo que estabas buscando en ella. Intentaremos localizar y arreglar el problema que ocasionó el error lo antes posible."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "Falló la carga de la página"
     error_description: "Descripción del error"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript está desactivado en tu buscador"
       kassi_does_not_currently_work_without_javascript: "Desafortunadamente en la actualidad %{service_name} no funciona sin javascript. Intenta activar javascript en las preferencias de tu buscador y vuelva a cargar la página. Si deseas utilizar %{service_name} sin javascript, por favor envíanos una sugerencia utilizando el formulario que aparece a continuación."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Lamentablemente por ahora %{service_name} no funciona sin javascript. Intenta habilitar javascript desde las preferencias de tu buscador y luego carga esta página nuevamente. Si quisieras usar %{service_name} sin javascript, por favor %{contact_us}."
       contact_us: contáctenos
       send_feedback: "Enviar feedback"
       your_feedback_to_admins: "Envía tu sugerencia al administrador"
@@ -886,7 +901,7 @@ es:
     create_new_marketplace: "Crear un nuevo mercado"
     contact_us: Contáctenos
     profile: Perfil
-    invite: ~
+    invite: "Invitar a nuevos miembros"
     login: Conectarse
     signup: Registrarse
     menu: ~
@@ -1017,8 +1032,6 @@ es:
       feedback_forum: "Forum de sugerencias"
       feedback_handle: Feedback
       give_feedback: Contáctenos
-      keywords: "%{service_name}, Servicio, favor, artículo, trayecto compartido, autos prestados, hospedaje, alojamiento, ayuda, ayudando, oferta, solicitud, arrendar, comerciar, intercambiar, comprando, vendiendo, comprar, vender, regalando, dar, Kassi, ecológico, comunidad, comunidad online"
-      meta_description: "%{service_name} es un servicio que ayuda a los miembros de agrupaciones y otras comunidades a vender y prestarse artículos entre ellos, organizar trayectos de traslado compartidos o a cooperarse mutuamente de múltiples formas."
       or_check_our: "...o revisa nuestro"
       send_feedback_to_admin: "Enviar sugerencia"
       to_see_what_others_have_suggested: "Ver lo que otros usuarios han sugerido."
@@ -1081,7 +1094,7 @@ es:
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto en el enlace. Intenta iniciar sesión o escríbenos si el problema persiste."
       additional_email_confirmed: "El e-mail que ingresaste está confirmado. Puedes entrar a la comunidad ingresando nuevamente."
-      could_not_get_email_from_facebook: ~
+      could_not_get_email_from_facebook: "No pudimos acceder a tu dirección de email en Facebook. Sin ella no podemos crearte una cuenta en el sistema."
       create_new_listing: "Crear otro listado."
       create_one_here: "Crear una aquí"
       email_confirmation_sent_to_new_address: "El e-mail de confirmación ya fue enviado a la nueva dirección."
@@ -1098,7 +1111,7 @@ es:
       login_again: "Por favor, vuelve a iniciar la sesión"
       login_failed: "No se pudo ingresar. Por favor revisa los datos ingresados"
       account_creation_successful: "Bienvenido a %{service_name}, %{person_name}!"
-      account_deleted: ~
+      account_deleted: "Tu cuenta ha sido eliminada."
       login_successful: "Bienvenido a %{service_name}, "
       logout_successful: "Ahora ya estás registrado en %{service_name}. Bienvenido nuevamente!"
       news_item_created: "Artículo creado"
@@ -1117,8 +1130,8 @@ es:
       only_listing_author_can_close_a_listing: "Sólo el creador de una lista puede cerrarla"
       only_listing_author_can_edit_a_listing: "Sólo el creador de una lista puede editarla"
       payment_successful: "Pago exitoso"
-      payment_canceled: ~
-      error_in_payment: ~
+      payment_canceled: "Pago cancelado."
+      error_in_payment: "Ha habido un error en el pago. Si no completaste el proceso todavía, prueba de nuevo. Si ya lo completaste, por favor, contáctanos."
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: "Cuando has sido pagado, notificaremos al vendedor y tu recibirás el comprabante por email"
       password_recovery_sent: "Las instrucciones para modificar tu contraseña han sido enviadas a tu correo electrónico."
@@ -1182,6 +1195,7 @@ es:
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: Cuenta
       notifications: Notificaciones
@@ -1210,7 +1224,7 @@ es:
       edit_listing: "Editar listado"
       reopen_listing: "rehabilitar listado"
       move_to_top: "Ir a la página de inicio"
-      show_in_updates_email: ~
+      show_in_updates_email: "Mostrar en el próximo email automático"
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
@@ -1259,7 +1273,7 @@ es:
       location:
         location: Lugar
       price:
-        price: precio
+        price: Precio
         per: por
         per_day: ~
         mass: "unidad, kg, l, m2"
@@ -1267,7 +1281,7 @@ es:
         long_time: "semana, mes, ..."
         after_service_fee_you_will_get: ~
         after_service_fee_you_will_get_vat: ~
-        price_excludes_vat: ~
+        price_excludes_vat: "El precio no incluye IVA."
       origin:
         location: Lugar
         origin: Origen
@@ -1361,7 +1375,10 @@ es:
       select_subcategory: ~
       select_transaction_type: "seleccionar tipo de listado"
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: Comentario
     reply_link:
       listing_closed: "Listado cerrado"
@@ -1397,7 +1414,7 @@ es:
       times_viewed: Visto
       processing_uploaded_image: "(Procesando imagen...)"
       price_excludes_vat: ~
-      listing_created_at: ~
+      listing_created_at: "Publicación creada"
       price:
         per_quantity_unit: ~
         per_day: ~
@@ -1468,9 +1485,12 @@ es:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
@@ -1486,26 +1506,20 @@ es:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: ~
       account_not_verified: ~
+      account_restricted: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: "Cargando más miembros"
-      meet_the_people: "Conoce a la gente"
-      you_are_the_only_member: "Eres el único miembre de la comunidad %{community_name}."
-      here_are_the_members: "Aquí están los %{count} miembros de la comunidad %{community_name}."
-      wanna_see_more_folks: "¿Quieres ver más gente aquí?"
-      invite_people_you_know: "Invita a tus conocidos!"
-      there_are_x_members: "Hay %{count} miembros en la comunidad %{community_name}."
-      to_see_the_list_log_in: "Para ver la lista completa de todos los miembros necesitas %{log_in_link}."
-      log_in_link: "inicia sesión"
     edit_links:
       activate: Activar
       deactivate: Desactivar
@@ -1590,13 +1604,13 @@ es:
       review: "Feedback recibido"
       reviews: "feedbacks recibidos"
       listing: Listado
-      listings: ~
+      listings: anuncios
       open_listing: "publicación abierta"
       open_listings: "publicaciones abiertas"
       no_listings: "No hay listados."
       no_open_listings: "Sin publicaciones abiertas"
       no_reviews: "Sin feedbacks"
-      show_all_listings: ~
+      show_all_listings: "Ver todos los anuncios"
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
       show_all_reviews: "Mostrar todos los feedbacks"
       trustcloud: TrustCloud
@@ -1659,14 +1673,17 @@ es:
       confirm_new_password: "Confirmar nueva contraseña"
       delete_account: "Borrar cuenta"
       delete_account_button: "Eliminar mi cuenta"
-      delete_account_confirmation_popup: ~
+      delete_account_confirmation_popup: "¿Estás seguro de que quieres eliminar tu cuenta de usuario y perder todos los datos asociados a ella de forma permanente? Si lo haces, no podrás volver atrás."
       email_addresses: ~
       new_email: "Nieva Dirección de Correo Electrónico"
-      instructions_to_delete_account: "Si quieres eliminar tu cuenta, contáctanos usando el botón de feedback a la izquierda"
-      contact_admin: "por favor contacta a los administradores"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Nueva contraseña"
       save: Guardar
       these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas dado tu nombre. Cualquier otra información sólo está disponible para ti."
+      email_already_confirmed: ~
       email:
         address_title: ~
         remove_title: ~
@@ -1682,7 +1699,7 @@ es:
         status_confirmed: ~
         status_pending: ~
     notifications:
-      email_from_admins: "Quiero recibir ocacionalmente las actualizaciones de SoyLa cr."
+      email_from_admins: "Quiero recibir ocacionalmente actualizaciones del administrator."
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
       newsletters: Boletines
       community_updates: "Actualizaciones de la comunidad"

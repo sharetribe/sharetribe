@@ -1,9 +1,9 @@
 class PaypalService::CheckoutOrdersController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  skip_filter :check_email_confirmation, :dashboard_only
+  skip_filter :check_email_confirmation
 
   before_filter do
-    unless @current_community.paypal_enabled?
+    unless PaypalHelper.community_ready_for_payments?(@current_community.id)
       render :nothing => true, :status => 400 and return
     end
   end

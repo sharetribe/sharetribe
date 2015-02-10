@@ -158,6 +158,7 @@ lv:
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -173,14 +174,19 @@ lv:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
+        ban_me_error: ~
       social_media:
         social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
@@ -190,6 +196,8 @@ lv:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -299,6 +307,7 @@ lv:
       marketplace_paypal_integration: ~
       preferences_updated: ~
       integration_info_text: ~
+      read_more_about_paypal: ~
       paypal_account_email: ~
       paypal_account_email_completed: ~
       set_minimum_price_and_fee: ~
@@ -370,6 +379,7 @@ lv:
     username: ~
     username_or_email: ~
     what_is_this: "Kas tas ir?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -385,7 +395,8 @@ lv:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
-      approve: ~
+      accept: ~
+      decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~
@@ -745,8 +756,6 @@ lv:
       newest_offers: ~
       newest_requests: ~
       text_version_text: ~
-    reply_to_contact_request:
-      thank_you_for_your_interest: ~
     reset_password_instructions:
       change_my_password: ~
       reset_password_instructions: ~
@@ -788,6 +797,7 @@ lv:
       sharetribe_crew: ~
       knowledge_base_link_text: ~
       contact_support_link_text: ~
+      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -817,16 +827,21 @@ lv:
       page_can_not_be_found: ~
       page_you_requested_can_not_be_found: ~
     error_404_title: ~
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: ~
-      page_loading_failed: ~
-      reload_refresh: ~
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: ~
     error_description: ~
     no_javascript:
       javascript_is_disabled_in_your_browser: ~
       kassi_does_not_currently_work_without_javascript: ~
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: ~
       send_feedback: ~
       your_feedback_to_admins: ~
@@ -1010,8 +1025,6 @@ lv:
       feedback_forum: ~
       feedback_handle: ~
       give_feedback: ~
-      keywords: ~
-      meta_description: ~
       or_check_our: ~
       send_feedback_to_admin: ~
       to_see_what_others_have_suggested: ~
@@ -1175,6 +1188,7 @@ lv:
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: ~
       notifications: ~
@@ -1354,7 +1368,10 @@ lv:
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: ~
     reply_link:
       listing_closed: ~
@@ -1461,9 +1478,13 @@ lv:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
@@ -1479,26 +1500,20 @@ lv:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: ~
       account_not_verified: ~
+      account_restricted: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: ~
-      meet_the_people: ~
-      you_are_the_only_member: ~
-      here_are_the_members: ~
-      wanna_see_more_folks: ~
-      invite_people_you_know: ~
-      there_are_x_members: ~
-      to_see_the_list_log_in: ~
-      log_in_link: ~
     edit_links:
       activate: ~
       deactivate: ~
@@ -1652,11 +1667,14 @@ lv:
       delete_account_confirmation_popup: ~
       email_addresses: ~
       new_email: ~
-      instructions_to_delete_account: ~
-      contact_admin: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: ~
       save: ~
       these_fields_are_shown_only_to_you: ~
+      email_already_confirmed: ~
       email:
         address_title: ~
         remove_title: ~

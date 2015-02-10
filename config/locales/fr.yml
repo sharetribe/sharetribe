@@ -125,7 +125,7 @@ fr:
         live_site_link_text: ici
         look_and_feel: "Avant de rendre votre site public, vous souhaitez probablement configurer quelques éléments. Par exemple, vous pouvez %{logo_link}, modifier l'image de couverture et les couleurs pour que cela corresponde à l'esprit de votre marque."
         logo_link_text: "ajouter votre logo"
-        custom_domain: "Vous pourriez également souhaiter utiliser votre propre adresse (par exemple www.votreplacedemarche.com). Pour cela, vous pouvez %{contact_team_link} car cela nécessite quelques étapes manuelles de notre côté."
+        custom_domain: "Vous pourriez également souhaiter utiliser votre propre adresse (par exemple www.votreplacedemarche.com). Pour cela, vous pouvez nous contacter en utilisant le lien de support sur la gauche car cela nécessite quelques étapes manuelles de notre côté. C'est pour cela que votre propre adresse n'est disponible que dans nos offres payantes et non dans l'essai gratuit."
         contact_team_link_text: "contacter notre équipe"
         categories_and_custom_fields: "Le point suivant concerne le type de contenu que les utilisateurs pourront diffuser sur votre site. Vous pouvez %{categories_link}, %{custom_fields_link} que le formulaire comporte déjà et choisir %{filters_link} doivent être utilisés lorsque les utilisateurs parcourent les annonces."
         categories_link_text: "ajouter des catégories et sous-catégories"
@@ -172,7 +172,8 @@ fr:
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Nom Twitter (utilisé dans le bouton \"Tweeter\" sur les pages des annonces)"
         update_settings: "Sauvegarder les paramètres"
-        automatically_confirmed: "Les annonces seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement. Si le système de dépôt est utilisé, l'argent sera transmis au vendeur à ce moment."
+        automatically_confirmed: "Les transactions seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement. Si le système de dépôt est utilisé, l'argent sera transmis au vendeur à ce moment."
+        automatically_confirmed_no_escrow: "Les transactions seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement."
         automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
         newsletter_daily: Quotidienne
         newsletter_weekly: Hebdomadaire
@@ -188,14 +189,19 @@ fr:
         save_user_status_successful: Sauvegardé
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
         ban_user_confirmation: "Ceci supprime l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Êtes-vous sûr de vouloir faire cela ?"
+        ban_me_error: ~
       social_media:
         social_media: "Réseaux sociaux"
         twitter_handle: "Nom Twitter"
-        twitter_handle_info_text: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partager Twitter sur les pages d'annonces."
+        twitter_handle_info_text: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces."
+        twitter_handle_info_text_with_instructions: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces. %{instructions_link}."
+        twitter_instructions_link_text: "En savoir plus."
         twitter_handle_placeholder: nomtwitter
         invalid_twitter_handle: "Le nom Twitter ne peut contenir qu'au maximum 15 caractères alpha-numériques (lettres A-Z et chiffre 0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici."
+        facebook_connect_info_text_with_instructions: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici. %{instructions_link}."
+        facebook_instructions_link_text: "Lire les instructions pour configurer Facebook Connect."
         facebook_connect_id: "Facebook client id"
         invalid_facebook_connect_id: "L'id client ne devrait contenir que des chiffres"
         facebook_connect_secret: "Clé secrète Facebook"
@@ -205,6 +211,8 @@ fr:
         analytics: Analyses
         google_analytics_key: "Code de suivi Google Analytics"
         google_analytics_key_info_text: "Identifiant du code de suivi de votre compte Google Analytics."
+        google_analytics_key_info_text_with_instructions: "Identifiant du code de suivi de votre compte Google Analytics. %{instructions_link}."
+        google_analytics_instructions_link_text: "En savoir plus sur la connexion avec Google Analytics."
         save: "Sauvegarder les paramètres"
       menu_links:
         menu_links: "Liens du menu"
@@ -313,7 +321,8 @@ fr:
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       preferences_updated: "Préférences de paiement mises à jour"
-      integration_info_text: "Le système de paiement de %{service_name} est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimum pour les annonces ainsi que la commission que vous souhaitez prélever sur chaque transaction."
+      integration_info_text: "Le système de paiement de Sharetribe est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimum pour les annonces ainsi que la commission que vous souhaitez prélever sur chaque transaction."
+      read_more_about_paypal: "En savoir plus sur le système de paiement avec Sharetribe."
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_completed: "Terminé !"
       set_minimum_price_and_fee: "2. Définir un montant minimum et la commission"
@@ -385,6 +394,7 @@ fr:
     username: "Nom d'utilisateur "
     username_or_email: "Email ou nom d'utilisateur "
     what_is_this: "Qu'est-ce que c'est ?"
+    removed_user: "Utilisateur supprimé"
   conversations:
     accept:
       respond_to_offer: "Répondre à une offre"
@@ -400,7 +410,8 @@ fr:
       you_need_to_fill_payout_details_before_accepting: "Vous devez compléter les détails de paiements avant de pouvoir accepter la demande et recevoir le paiement. Allez aux %{payment_settings_link} pour compléter les détails."
       payment_settings_link: "paramètres de paiement"
       minimum_price_error_message: "Le prix ne peut pas être plus bas que %{amount}."
-      approve: Approuver
+      accept: Accepter
+      decline: Refuser
       sum: "Total : %{sum}"
       service_fee: "Commission : %{service_fee}"
       you_will_get: "Vous recevrez : %{seller_gets}"
@@ -472,7 +483,7 @@ fr:
       item_request_message_form_title: "Proposer un objet à %{person}"
       message: Message
       message_to: "Message à %{author_name}"
-      optional_message_to: "Message optionnel à %{author_name}"
+      optional_message_to: "Message optionnel pour %{author_name}"
       rideshare_offer_message_form_title: "Demander un covoiturage à %{person}"
       rideshare_request_message_form_title: "Proposer un covoiturage à %{person}"
       send_message: "Envoyer le message"
@@ -643,7 +654,7 @@ fr:
     payment_settings_reminder:
       remember_to_add_payment_details: "N'oubliez pas d'ajouter vos détails de paiements pour recevoir les paiements"
       you_have_added_listing_with_payment: "Vous avez ajouté une annonce %{listing_link} avec un paiement. Cependant, vous n'avez pas ajouté vos détails de paiement. Pour en recevoir, vous devez ajouter vos informations de paiement."
-      please_go_to_payment_settings: "Rendez-vous sur les %{payment_settings_link} et complétez les informations nécessaires."
+      please_go_to_payment_settings: "Veuillez vous rendre dans vos %{payment_settings_link} et y complétez les informations nécessaires."
       payment_settings_link: "paramètres de paiement"
     transaction_confirmed:
       here_is_a_message_from: "Voici un message de %{other_party_given_name} : "
@@ -760,8 +771,6 @@ fr:
       newest_offers: "Ce que les membres proposent aux autres en ce moment"
       newest_requests: "Ce dont les membres ont besoin en ce moment"
       text_version_text: "Et si vous partagiez quelque chose dont les autres ont besoin ? Ou peut être avez-vous besoin de quelque chose que d'autres pourraient avoir ? Ajoutez une offre ou une demande ou jetez un oeil aux offres et demandes des autres membres sur %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Nous vous remercions pour l'intérêt que vous portez à %{service_name} !"
     reset_password_instructions:
       change_my_password: "Changer mon mot de passe"
       reset_password_instructions: "<p>Vous avez déclaré avoir oublié votre nom d'utilisateur et/ou votre mot de passe pour %{service_name}.</p><p>Votre nom d'utilisateur est : %{username}</p><p>Si vous souhaitez réinitialiser votre mot de passe, cliquez ici : %{password_reset_link}</p><br/><p>Si vous n'avez fait aucune demande, ignorez simplement cet email. Votre mot de passe ne sera pas modifié tant que vous ne cliquez pas sur le lien ci-dessus et en créez un nouveau.</p>"
@@ -798,11 +807,12 @@ fr:
       we_will_guide_you_along_the_way: "Nous vous guiderons tout au long de ces étapes."
       are_you_new_to_online_marketplaces: "Besoin d'un coup de main avec votre place de marché ? Pas d'inquiétude, nous sommes là pour vous aider ! Nous allons vous envoyer plusieurs emails pour vous aider à utiliser Sharetribe au maximum et à construire une place de marché qui soit une réussite. Nous vous enverrons la première partie très bientôt."
       have_questions: "Vous avez des questions ?"
-      our_happiness_team_is_here_to_help: "L'équipe chargée de votre bonheur est là pour vous ! Vous pouvez %{knowledge_base_link} ou %{contact_support_link}."
+      our_happiness_team_is_here_to_help: "L'équipe chargée de votre bonheur est là pour vous ! Vous pouvez %{knowledge_base_link} ou contacter notre support depuis le %{admin_panel_link}."
       love: "Love,"
       sharetribe_crew: "l'équipe Sharetribe"
       knowledge_base_link_text: "parcourir notre base de connaissance"
       contact_support_link_text: "contacter notre support"
+      admin_panel_link_text: "panneau d'administration"
     new_listing_by_followed_person:
       subject: "%{author_name} a publié une nouvelle annonce sur %{service_name}"
       has_posted_a_new_listing: "%{author_name} a publié une nouvelle annonce : "
@@ -832,16 +842,21 @@ fr:
       page_can_not_be_found: "Page introuvable !"
       page_you_requested_can_not_be_found: "L'adresse que vous demandez n'existe pas sur %{service_name}. Etes-vous sûr d'avoir saisi l'adresse correctement ?"
     error_404_title: "page introuvable"
+    error_410:
+      page_removed: "Page supprimée"
+      page_you_requested_has_been_removed: "La page que vous cherchez a été supprimée"
+      page_removed_reason: "Il y a plusieurs raisons potentielles à cela. Par exemple, un utilisateur peut avoir supprimé son compte ou bien une annonce a pu être clôturée."
+    error_410_title: "page supprimée"
     error_500:
-      help_us_find_the_problem: "Vous pouvez nous aider à détecter le problème en décrivant brièvement sur le formulaire ci-dessous ce qui s'est passé."
-      page_loading_failed: "Impossible de charger la page !"
-      reload_refresh: "Essayez de recharger/rafraîchir la page afin d'accéder à la page souhaitée. Nous nous efforçons de localiser et de résoudre le problème ayant causé l'erreur dans les meilleurs délais."
+      temporary_unavailable: "La place de marché est temporairement indisponible"
+      unable_to_process: "Le système n'est pour le moment pas en mesure de traiter votre demande. Veuillez essayer de nouveau dans quelques instants."
+      we_hate_this: "Nous détestons quand cela se produit ! Nous avons été informé de la situation et nous sommes en train de la résoudre."
+      refer_to_error_id: "Si vous souhaitez contacter le support à propos de ce problème, veuillez mentionner l'identifiant de l'erreur \"%{error_id}\" dans votre message."
     error_500_title: "impossible de charger la page"
     error_description: "Description d'erreur"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript est désactivé dans votre navigateur"
       kassi_does_not_currently_work_without_javascript: "%{service_name} ne fonctionne pas correctement sans JavaScript. Essayez d'activer javascript à partir des préférences de votre navigateur puis rechargez cette page."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Malheureusement, %{service_name} ne fonctionne pas sans Javascript. Activez Javascript dans les réglages de votre navigateur et rechargez la page. Si vous souhaitez utiliser %{service_name} sans Javascript, %{contact_us}."
       contact_us: "nous contacter"
       send_feedback: "Envoyer votre commentaire"
       your_feedback_to_admins: "Vos commentaires aux administrateurs"
@@ -1025,8 +1040,6 @@ fr:
       feedback_forum: "forum de discussion"
       feedback_handle: Commentaire
       give_feedback: "Nous contacter"
-      keywords: "%{service_name}, partage de ressources dans une place de marché, emprunter des objets, service, aide, objet, covoiturage, espace, logement, aide, aider, offre, demande, location, troc, échange, acheter, vendre, achat, vente, donner, don, écologique, place de marché, place de marché en ligne, local"
-      meta_description: "Sharetribe vous permet de créer facilement une place de marché en ligne et permet aux membres de votre communauté de vendre et louer des biens, des services et des lieux."
       or_check_our: "... ou consultez notre"
       send_feedback_to_admin: "Envoyer votre commentaire"
       to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré et votez pour vos fonctionnalités préférées."
@@ -1106,7 +1119,7 @@ fr:
       login_again: "Merci de vous reconnecter."
       login_failed: "La connexion a échoué. Veuillez saisir vos identifiants."
       account_creation_successful: "Bienvenue sur %{service_name}, %{person_name} !"
-      account_deleted: "Votre compte est supprimé."
+      account_deleted: "Votre compte a été supprimé."
       login_successful: "Bienvenue, %{person_name} !"
       logout_successful: "Vous avez été déconnecté de %{service_name}. A bientôt !"
       news_item_created: "Article créé"
@@ -1190,6 +1203,7 @@ fr:
       payment_details_add_successful: "Détails de paiement ajoutés avec succès"
       payment_details_add_error: "Impossible d'ajouter les détails de paiement"
       listing_author_payment_details_missing: "L'auteur de cette annonce n'a pas ajouté ses détails de paiement et ne peut pas recevoir de paiement actuellement. Merci de contacter l'auteur de l'annonce."
+      stylesheet_needs_recompiling: "La feuille de style est en cours de traitement. Veuillez recharger cette page dans quelques instants."
     settings:
       account: Compte
       notifications: Notifications
@@ -1273,8 +1287,8 @@ fr:
         mass: "unité, kg, l, m²..."
         time: "heure, jour, mois..."
         long_time: "semaine, mois..."
-        after_service_fee_you_will_get: "Après la commission de %{service_name} vous recevrez %{sum_with_currency}"
-        after_service_fee_you_will_get_vat: "Après la commission de %{service_name} vous recevrez environ %{sum_with_currency} (TVA 0%)"
+        after_service_fee_you_will_get: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez %{sum_with_currency}"
+        after_service_fee_you_will_get_vat: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez environ %{sum_with_currency} (TVA 0%)"
         price_excludes_vat: "Ce prix n'inclut pas la TVA."
       origin:
         location: Lieu
@@ -1311,8 +1325,8 @@ fr:
         visibility: Visibilité
       privacy:
         privacy: Visibilité
-        private: "Privée (visible uniquement aux utilisateurs connectés)"
-        public: "Publique (visible même aux utilisateurs non connectés)"
+        private: "Privée (visible uniquement par les utilisateurs connectés)"
+        public: "Publique (visible même par les utilisateurs non connectés)"
     help_texts:
       help_share_type_title: "Type d'offre ou de demande"
       help_tags_title: Tags
@@ -1369,7 +1383,10 @@ fr:
       select_subcategory: "Sélectionner une sous-catégorie"
       select_transaction_type: "Sélectionner le type d'annonce"
       you_need_to_fill_payout_details_before_accepting: "Vous devez compléter les détails de paiements avant de pouvoir déposer une annonce. Allez aux %{payment_settings_link} pour compléter les détails."
+      contact_admin_link_text: "contacter l'administrateur"
+      community_not_configured_for_payments: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas déposer d'annonce pour le moment. Veuillez %{contact_admin_link} pour en savoir plus."
       payment_settings_link: "paramètres de paiement"
+      community_not_configured_for_payments_admin: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas déposer d'annonce pour le moment. Rendez-vous dans les %{payment_settings_link} pour y compléter les informations de paiements."
     please_comment: "Faire un commentaire"
     reply_link:
       listing_closed: "L'annonce est close"
@@ -1422,7 +1439,7 @@ fr:
       days: jours
       price_per_day: "Prix par jour : %{price}"
     transaction_agreement_checkbox:
-      read_more: Voir.
+      read_more: Lire.
   mapview:
     index:
       all_categories: "Toutes les catégories"
@@ -1476,10 +1493,13 @@ fr:
     you_are_ready_to_accept_payments: "Vous pouvez désormais recevoir des paiements !"
     commission: "%{commission} %"
     connected_account: "Le compte PayPal '%{email}' est désormais connecté."
+    missing: "Vous avez des annonces actives mais n'avez pas encore connecté votre compte PayPal, vous ne pouvez donc pas recevoir de paiements. Veuillez connecter votre compte PayPal dans vos %{settings_link}."
+    from_your_payment_settings_link_text: "paramètres de paiement"
     new:
       payout_info_you_need_to_connect: "Pour accepter les paiements vous devez connecter votre compte PayPal à %{service_name}"
       payout_info_text: "Veuillez réaliser les deux actions suivantes pour connecter votre compte."
-      admin_account_not_connected: "Vous ne pouvez pas connecter votre compte PayPal car l'administrateur de la place de marché n'a pas terminé la configuration de PayPal."
+      contact_admin_link_text: "contacter l'administrateur"
+      admin_account_not_connected: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas connecter votre compte PayPal pour le moment. Veuillez %{contact_admin_link} pour en savoir plus."
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_placeholder: "Votre adresse email PayPal"
       paypal_account_email_info_text: "Note : vous devez avoir un compte PayPal Premier (pour les particuliers) ou Business (pour les entreprises) pour accepter les paiements. Si vous avez un compte PayPal personnel, vous pouvez le mettre à jour. C'est gratuit et ne prend que quelques instants. %{upgrade_paypal_account} Si vous n'avez pas encore de compte PayPal, vous pouvez créer un compte %{create_paypal_account}. Votre compte PayPal doit être configuré pour recevoir %{currency}."
@@ -1494,26 +1514,20 @@ fr:
       could_not_fetch_redirect_url: "L'url de redirection avec PayPal n'a pas pu être récupérée."
       paypal_not_enabled: "Les paiements PayPal ne sont pas activés."
       billing_agreement_canceled: "L'accord de facturation a été annulé"
-      billing_agreement_id_missing: "Il y a eu des problèmes techniques lors de l'intégration avec PayPal"
+      billing_agreement_not_accepted: "Vous n'avez pas accepté l'accord de facturation sur PayPal"
+      billing_agreement_wrong_account: "Les comptes PayPal ne correspondent pas. Veuillez utiliser le même compte PayPal que celui utilisé lors de la première étape."
       something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter les administrateurs."
       account_not_verified: "Vous n'avez pas vérifié votre compte PayPal. Vous devez vous connecter sur paypal.com et vérifier votre compte avant de pouvoir poursuivre."
+      account_restricted: "Votre compte PayPal est restreint et ne peut être connecté. Veuillez vous connecter sur paypal.com pour en savoir plus ou contactez le support PayPal pour résoudre le problème."
   paypal:
     checkout_with_paypal: "Payer avec PayPal"
     cancel_succesful: "Paiement PayPal correctement annulé"
     transaction:
       commission_payment_name: "Paiement de la commission pour %{listing_title}"
       commission_payment_description: "La place de marché %{service_name} prélève cette commission sur une transaction de %{listing_title}"
+    wait_while_loading: "Merci de patienter."
+    chatting_with_paypal: "Nous échangeons avec PayPal."
   people:
-    index:
-      loading_more_members: "Chargement des autres membres"
-      meet_the_people: "Découvrez les membres"
-      you_are_the_only_member: "Vous êtes le seul membre de %{service_name}."
-      here_are_the_members: "Voici les %{count} membres de %{service_name}."
-      wanna_see_more_folks: "Vous voulez voir plus de monde ici ?"
-      invite_people_you_know: "Invitez des gens que vous connaissez !"
-      there_are_x_members: "Il y a %{count} membres sur %{service_name}."
-      to_see_the_list_log_in: "Pour voir la liste complète des membres, vous devez %{log_in_link}."
-      log_in_link: "vous connecter"
     edit_links:
       activate: Activer
       deactivate: Désactiver
@@ -1648,7 +1662,7 @@ fr:
     password_forgotten:
       email: Email
       password_recovery_instructions: "Entrez votre adresse email afin de recevoir les instructions pour changer votre mot de passe."
-      request_new_password: Envoyer
+      request_new_password: "Recevoir un nouveau mot de passe"
       change_your_password: "Changer votre mot de passe"
     confirmation_pending:
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
@@ -1670,11 +1684,14 @@ fr:
       delete_account_confirmation_popup: "Etes-vous bien sûr(e) de vouloir supprimer votre compte et de perdre toutes ses données ? La suppression d'un compte est irréversible."
       email_addresses: "Adresses email"
       new_email: "Nouvelle adresse email"
-      instructions_to_delete_account: "Si vous supprimez votre compte, toutes ses données seront perdues : vos informations de profil, vos annonces, vos commentaires, vos avis, vos messages, vos avis etc."
-      contact_admin: "merci de contacter les administrateurs"
+      delete_all_memberships: "Si vous supprimez votre compte, vous ne serez plus en mesure de l'utiliser dans les places de marché suivantes : %{marketplaces}"
+      delete_personal_information: "Si vous supprimez votre compte, vos informations personnelles (nom, numéro de téléphone, adresse, email, photo de profil, etc...) seront supprimées définitivement et ne pourront être récupérées. Toutes les annonces que vous avez créées seront supprimées du site. Vous ne pourrez pas réactiver votre compte."
+      delete_information_others_involved: "Les informations impliquant d'autres membres (conversations avec d'autres personnes, transactions que vous avez réalisées, avis que vous avez donné à d'autres, etc...) ne sont pas supprimés quand vous supprimez votre compte. Cependant, votre nom n'apparaîtra pas à côté de ces informations."
+      unfinished_transactions: "Votre compte ne peut être supprimé car vous avez des transactions en cours. Veuillez terminer vos transactions avant de supprimer votre compte."
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
       these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Il n'y a que vous qui voyez les autres informations."
+      email_already_confirmed: "Votre adresse email est déjà confirmée."
       email:
         address_title: Adresse
         remove_title: Supprimer
@@ -1714,7 +1731,7 @@ fr:
       settings_link: paramètres
       homepage_link: "page d'accueil"
       unsubscribe_unsuccesful: "Erreur lors de la désinscription"
-      unsuccessful_unsubscribe_info_text: "Cela est peut être du au fait que le lien de désinscription que vous avez cliqué est ancien ou cassé. Contactez nous grâce au bouton \"feedback\" et nous vous désabonnerons, ou bien connectez vous pour gérer vos réglages d'emails."
+      unsuccessful_unsubscribe_info_text: "Cela est peut être du au fait que le lien de désinscription que vous avez cliqué est trop ancien ou erroné. Contactez nous grâce au bouton \"feedback\" et nous vous désabonnerons, ou bien connectez vous pour gérer vos réglages d'emails."
     profile:
       about_you: "A propos de vous"
       city: Ville

@@ -17,6 +17,10 @@
   .row
     = t("admin.paypal_accounts.integration_info_text").html_safe
 
+  - if display_knowledge_base_articles
+    .row
+      = link_to t("admin.paypal_accounts.read_more_about_paypal"), "#{knowledge_base_url}/topics/68868-payment-with-paypal"
+
   .row
 
   - if paypal_account_email.present?
@@ -27,23 +31,25 @@
         = t("admin.paypal_accounts.paypal_account_email_completed")
       .paypal-connected-email.paypal-account-connected
         = t("paypal_accounts.connected_account", :email => paypal_account_email)
+      .paypal-connected-change
+        = link_to t("paypal_accounts.change_account"), order_permission_action
   - else
 
     - content_for :extra_javascript do
       :javascript
         ST.initializePayPalAccountForm("paypal_account_form");
 
-    = form_for paypal_account_form, url: paypal_form_action, html: { id: "paypal_account_form"} do |form|
+    = form_for paypal_account_form, url: order_permission_action, method: "get", html: { id: "paypal_account_form"} do |form|
 
       - title = t("admin.paypal_accounts.paypal_account_email")
-      = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title, currency: currency}
+      = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title, currency: currency, create_url: create_url, upgrade_url: upgrade_url}
 
   = form_for paypal_prefs_form, url: paypal_prefs_form_action, html: { id: "paypal_preferences_form" } do |form|
 
     .row
       .col-12
         - if paypal_prefs_valid
-          %label.paypal-preferences-valid
+          %h3.paypal-preferences-valid
             %del= t("admin.paypal_accounts.set_minimum_price_and_fee")
             = t("admin.paypal_accounts.set_minimum_price_and_fee_completed")
         - else

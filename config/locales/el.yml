@@ -158,6 +158,7 @@ el:
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -173,14 +174,19 @@ el:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
+        ban_me_error: ~
       social_media:
         social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
@@ -190,6 +196,8 @@ el:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -299,6 +307,7 @@ el:
       marketplace_paypal_integration: ~
       preferences_updated: ~
       integration_info_text: ~
+      read_more_about_paypal: ~
       paypal_account_email: ~
       paypal_account_email_completed: ~
       set_minimum_price_and_fee: ~
@@ -370,6 +379,7 @@ el:
     username: "Όνομα χρήστη"
     username_or_email: "Ηλεκτρονική διεύθυνση ή όνομα χρήστη"
     what_is_this: "Τι είναι αυτό;"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Απαντήστε σε μια προσφορά"
@@ -385,7 +395,8 @@ el:
       you_need_to_fill_payout_details_before_accepting: "Πριν αποδεχτείτε το αίτημα και λάβετε την πληρωμή πρέπει να συμπληρώσετε τα στοιχεία για την πληρωμή σας. Πηγαίνετε στις %{payment_settings_link} για να τα συμπληρώσετε."
       payment_settings_link: "ρυθμίσεις πληρωμών"
       minimum_price_error_message: "Η τιμή δεν μπορεί να είναι μικρότερη από %{amount}."
-      approve: ~
+      accept: ~
+      decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~
@@ -745,8 +756,6 @@ el:
       newest_offers: "Τι προσφέρουν κάποιοι στο %{service_name}"
       newest_requests: "Τι χρειάζονται κάποιοι στο %{service_name}"
       text_version_text: "Μήπως έχεις κάτι που μπορείς να προσφέρεις; Ή μήπως χρειάζεσαι κάτι που μπορεί να το έχει κάποιος άλλος; Βάλε μια προσφορά ή ένα αίτημα στο ή δες τι προσφέρουν ή τι χρειάζονται άλλα άτομα στο %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Σας ευχαριστούμε για το ενδιαφέρον σας στο %{service_name}!"
     reset_password_instructions:
       change_my_password: "Αλλαγή του κωδικού πρόσβασής μου"
       reset_password_instructions: "<p>Δήλωσες ότι έχεις ξεχάσει το όνομα χρήστη ή τον κωδικό σου στο %{service_name}.</p><p>Το όνομα χρήστη είναι: %{username}</p><p>Αν θέλεις να επαναφέρεις τον κωδικό σου κάνε κλικ στον παρακάτω σύνδεσμο: %{password_reset_link}</p><br/><p>Αν δεν το ζήτησες εσύ αυτό, παρακαλούμε να αγνοήσεις αυτό το μήνυμα. Ο κωδικός σου δεν θα αλλάξει μέχρι να κάνεις κλικ στον παραπάνω σύνδεσμο και να δημιουργήσεις νέο κωδικό.</p>"
@@ -788,6 +797,7 @@ el:
       sharetribe_crew: ~
       knowledge_base_link_text: ~
       contact_support_link_text: ~
+      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -817,16 +827,21 @@ el:
       page_can_not_be_found: "Ωχ! Η σελίδα δεν μπορεί να βρεθεί!"
       page_you_requested_can_not_be_found: "Η σελίδα που ζήτησες δεν μπορεί να βρεθεί. Είσαι σίγουρος ότι έγραψες σωστά τη διεύθυνση;"
     error_404_title: "η σελίδα δεν βρέθηκε"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: "Μπορείς να μας βοηθήσεις να βρούμε το πρόβλημα γράφοντας μια σύντομη περιγραφή του στο παρακάτω πλαίσιο."
-      page_loading_failed: "Η φόρτωση της σελίδας απέτυχε!"
-      reload_refresh: "Η ανανέωση της σελίδας (reload/refresh) συνήθως βοηθάει να πάτε στη σελίδα που θέλατε. Προσπαθούμε να εντοπίσουμε το πρόβλημα που προκάλεσε το σφάλμα και να το διορθώσουμε το συντομότερο δυνατό."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "η φόρτωση της σελίδας απέτυχε"
     error_description: "Περιγραφή του σφάλματος"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Το Javascript είναι απενεργοποιημένο στον browser σας"
       kassi_does_not_currently_work_without_javascript: "Δυστυχώς το %{service_name} δεν λειτουργεί -προς το παρόν- χωρίς Javascript. Προσπαθείστε να ενεργοποιήσετε το Javascript από τις ρυθμίσεις του περιηγητή σας και ανανεώστε τη σελίδα."
-      kassi_does_not_currently_work_without_javascript_dashboard: "To %{service_name} δεν λειτουργεί χωρίς Javascript. Προσπαθήστε να ενεργοποιήσετε το Javascript από τις ρυθμίσεις του browser σας και ανανεώστε τη σελίδα. Αν θέλετε να χρησιμοποιήσετε το %{service_name} χωρίς Javascript, παρακαλούμε %{contact_us}."
       contact_us: "επικοινωνήστε μαζί μας"
       send_feedback: Αποστολή
       your_feedback_to_admins: "Τα σχόλιά σας στους διαχειριστές"
@@ -1010,8 +1025,6 @@ el:
       feedback_forum: "περιοχή σχολίων"
       feedback_handle: Ανατροφοδότηση
       give_feedback: "Επικοινωνήστε μαζί μας"
-      keywords: "%{service_name}, χάρη, αντικείμενο, συνοδήγηση, συνεπιβατισμός, οτοστόπ, διαμονή, στέγαση, βοήθεια, προσφορά, ζήτηση, αίτημα, ενοικίαση, εκμίσθωση, ανταλλαγή, παζάρι, αγορά, πώληση, αγοράζω, πουλάω, δίνω, χαρίζω, Kassi, οικολογικό, κοινότητα, δικτυακή κοινότητα"
-      meta_description: "Το %{service_name} είναι μια υπηρεσία που βοηθά μέλη διαφόρων κοινοτήτων να ανταλλάζουν χάρες, να πωλούν και να ενοικιάζουν αντικείμενα, να κανονίζουν να συνταξιδέψουν και να αλληλοβοηθούνται με πολλούς διαφορετικούς τρόπους."
       or_check_our: "... ή δες την"
       send_feedback_to_admin: Αποστολή
       to_see_what_others_have_suggested: "για να δείτε τι έχουν προτείνει άλλοι και να ψηφίσετε τις ιδέες που υπάρχουν."
@@ -1175,6 +1188,7 @@ el:
       payment_details_add_successful: "Οι πληροφορίες των πληρωμών εισήχθησαν επιτυχώς"
       payment_details_add_error: "Αποτυχία εισαγωγής στοιχείων πληρωμών"
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: Λογαριασμός
       notifications: Ειδοποιήσεις
@@ -1354,7 +1368,10 @@ el:
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: Σχολίασε
     reply_link:
       listing_closed: "Η καταχώρηση έχει απενεργοποιηθεί."
@@ -1461,9 +1478,12 @@ el:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
@@ -1479,26 +1499,20 @@ el:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: ~
       account_not_verified: ~
+      account_restricted: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: "Εμφάνιση περισσότερων μελών"
-      meet_the_people: "Γνωρίστε τους υπόλοιπους"
-      you_are_the_only_member: "Είσαι το μόνο μέλος της κοινότητας \"%{community_name}\"."
-      here_are_the_members: "Εδώ εμφανίζονται τα %{count} μέλη της κοινότητας \"%{community_name}\"."
-      wanna_see_more_folks: "Θα θέλατε να εμφανίζεται περισσότερος κόσμος εδώ;"
-      invite_people_you_know: "Προσκαλέστε τα άτομα που γνωρίζετε!"
-      there_are_x_members: "Υπάρχουν %{count} μέλη στην κοινότητα \"%{community_name}\"."
-      to_see_the_list_log_in: "Για να δείτε την πλήρη λίστα των μελών πρέπει να %{log_in_link}."
-      log_in_link: συνδεθείτε
     edit_links:
       activate: Ενεργοποίηση
       deactivate: Απενεργοποίηση
@@ -1655,11 +1669,14 @@ el:
       delete_account_confirmation_popup: "Είστε σίγουροι ότι θέλετε να διαγράψετε το λογαριασμό σας και να διαγραφούν όλα τα δεδομένα που σχετίζονται με αυτόν; Η διαγραφή λογαριασμού είναι μη αναστρέψιμη."
       email_addresses: "Διευθύνσεις email"
       new_email: "Νέα διεύθυνση email"
-      instructions_to_delete_account: "Αν διαγράψετε το λογαριασμό σας, όλα τα δεδομένα που σχετίζονται με αυτόν θα διαγραφτούν: το προφίλ σας, οι καταχωρήσεις σας, τα μηνύματά σας, η κριτική που έχετε λάβει κλπ."
-      contact_admin: "παρακαλούμε επικοινωνήστε με τους διαχειριστές"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Νέος κωδικός"
       save: Αποθήκευση
       these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σας εκτός αν έχετε δώσει το πραγματικό σας όνομα. Οι υπόλοιπες πληροφορίες είναι ορατές μόνο σε σας."
+      email_already_confirmed: ~
       email:
         address_title: Διεύθυνση
         remove_title: Αφαίρεση

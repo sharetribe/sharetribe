@@ -10,8 +10,6 @@ class PostPayTransactionsController < ApplicationController
   before_filter :ensure_authorized_to_reply
   before_filter :ensure_can_receive_payment, only: [:preauthorize, :preauthorized]
 
-  skip_filter :dashboard_only
-
   ContactForm = FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
     .with_validations { validates_presence_of :content, :listing_id }
 
@@ -38,8 +36,6 @@ class PostPayTransactionsController < ApplicationController
             content: contact_form.content,
             payment_gateway: @current_community.payment_gateway.gateway_type,
             payment_process: :postpay,
-            commission_from_seller: @current_community.commission_from_seller,
-            automatic_confirmation_after_days: @current_community.automatic_confirmation_after_days
           }
         })
 

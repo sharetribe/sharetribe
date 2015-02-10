@@ -158,6 +158,7 @@ vi:
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -173,14 +174,19 @@ vi:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
+        ban_me_error: ~
       social_media:
         social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
@@ -190,6 +196,8 @@ vi:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -299,6 +307,7 @@ vi:
       marketplace_paypal_integration: ~
       preferences_updated: ~
       integration_info_text: ~
+      read_more_about_paypal: ~
       paypal_account_email: ~
       paypal_account_email_completed: ~
       set_minimum_price_and_fee: ~
@@ -370,6 +379,7 @@ vi:
     username: "Tên đăng nhập"
     username_or_email: "Tên người dùng hoặc email"
     what_is_this: "Đây là gì?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -385,7 +395,8 @@ vi:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
-      approve: ~
+      accept: ~
+      decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~
@@ -745,8 +756,6 @@ vi:
       newest_offers: "Hiện tại người nào hỗ trợ những người khác"
       newest_requests: "Hiện tại người nào cần"
       text_version_text: "Bạn có thể chia sẻ thứ gì đó người khác cần không? Hoặc bạn cần thứ gì đó mà người khác có không? Thêm một đề nghị hoặc một yêu cầu hoặc kiểm tra mọi thứ mà những người khác đang hỗ trợ hoặc yêu cầu tại %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Cảm ơn bạn đã quan tâm đến %{service_name}!"
     reset_password_instructions:
       change_my_password: "Đổi mật khẩu của tôi"
       reset_password_instructions: "<p>Bạn đã chỉ ra rằng bạn đã quên mật khẩu hoặc tên người dùng của bạn tại dịch vụ %{service_name}.</p><p>Tên người dùng của bạn là: %{username}</p><p>Nếu bạn cần phải đặt lại mật khẩu của bạn, nhấp vào liên kết sau đây: %{password_reset_link}</p><br><p>Nếu bạn không yêu cầu, xin vui lòng bỏ qua email này. Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo ra một mật khẩu mới.</p>"
@@ -788,6 +797,7 @@ vi:
       sharetribe_crew: ~
       knowledge_base_link_text: ~
       contact_support_link_text: ~
+      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -817,16 +827,21 @@ vi:
       page_can_not_be_found: "Không thể tim thấy trang!"
       page_you_requested_can_not_be_found: "Không tim thấy trang bạn yêu cầu. Bạn có chắc viết địa chỉ chính xác không?"
     error_404_title: "Trang không tim thấy"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: "Bạn có thể giúp chúng tôi tìm ra vấn đề bằng cách viết một mô tả ngắn về vấn đề này trong hộp dưới đây."
-      page_loading_failed: "Trang tải bị hỏng!"
-      reload_refresh: "Tải lại/làm mới trang thường xuyên sẽ giúp bạn có được trang đúng yêu cầu. Chúng tôi cố xác định vị trí và sửa chữa vấn đề gây ra lỗi càng sớm càng tốt."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "trang tải bị hỏng"
     error_description: "Mô tả lỗi"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript bị vô hiệu hóa trên trình duyệt của bạn"
       kassi_does_not_currently_work_without_javascript: "Thật không may %{service_name} hiện tại không làm việc nếu javascript không hoạt động. Hãy thử kích hoạt javascript từ tùy chọn của trình duyệt của bạn và sau đó tải lại trang này. Nếu bạn muốn sử dụng %{service_name} mà không cần javascript, vui lòng gửi cho chúng tôi thông tin phản hồi bằng cách sử dụng mẫu dưới đây."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Không may, %{service_name} không thực hiện nếu không có javascript. Thử kích hoạt javascript từ tùy chọn của trình duyệt và nạp lại trang này. Nếu bạn muốn sử dụng %{service_name} mà không cần javascript, vui lòng liên hệ với chúng tôi %{contact_us}."
       contact_us: "liên hệ với chúng tôi"
       send_feedback: "Gửi thông tin phản hồi"
       your_feedback_to_admins: "Thông tin phản hồi của bạn đến các quản trị viên"
@@ -1010,8 +1025,6 @@ vi:
       feedback_forum: "diễn đàn thông tin phản hồi"
       feedback_handle: "Thông tin phản hồi"
       give_feedback: "Cho ý kiến phản hồi đối với %{service_name}"
-      keywords: "%{service_name}, Kassi, chia sẻ tài nguyên trong một cộng đồng, mượn đồ vật, dịch vụ, thiện ý, tin tức, chia sẻ chuyến đi, không gian, thông tin xe hơi, nhà ở, chỗ ở, sự giúp đỡ, giúp đỡ, hỗ trợ, yêu cầu, thuê mướn, đổi, trao đổi, việc mua, việc bán, bán, mua, việc cho, cho, sinh thái, cộng đồng, cộng đồng trực tuyến, địa phương"
-      meta_description: "%{service_name} là một dịch vụ giúp đỡ các thành viên của các hiệp hội và các cộng đồng khác để bán và cho mượn các đồ vật với nhau, sắp xếp thông tin về xe hơi và giúp đỡ lẫn nhau trong nhiều cách khác."
       or_check_our: "...hoặc kiểm tra"
       send_feedback_to_admin: "Gửi ý kiến phản hồi"
       to_see_what_others_have_suggested: "để xem những gì người dùng khác đề nghị"
@@ -1175,6 +1188,7 @@ vi:
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: "Tài khoản"
       notifications: "Các ghi chú"
@@ -1354,7 +1368,10 @@ vi:
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: "Bình luận"
     reply_link:
       listing_closed: ~
@@ -1461,9 +1478,13 @@ vi:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
@@ -1479,26 +1500,20 @@ vi:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: ~
       account_not_verified: ~
+      account_restricted: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: ~
-      meet_the_people: ~
-      you_are_the_only_member: ~
-      here_are_the_members: ~
-      wanna_see_more_folks: ~
-      invite_people_you_know: ~
-      there_are_x_members: ~
-      to_see_the_list_log_in: ~
-      log_in_link: ~
     edit_links:
       activate: "Kích hoạt"
       deactivate: "Vô hiệu hóa"
@@ -1522,7 +1537,6 @@ vi:
       email_is_in_use: "Email bạn cho đang được sử dụng."
       email_is_in_use_or_not_allowed: "Email này không được phép đối với cộng đồng này hoặc nó vừa được sử dụng. Vui lòng sử dụng một địa chỉ tương thích với cộng đồng này (xem hướng dẫn ở trên). Nếu bạn vẫn không thể vào được, gửi cho chúng tôi phản hồi bằng cách nhấp vào liên kết ở phía bên trái."
       email_not_allowed: "Email này không được phép trong cộng đồng này. Xin vui lòng sử dụng một địa chỉ đó là liên kết với cộng đồng này. Nếu bạn vẫn không thể nhận được trong, gửi cho chúng tôi thông tin phản hồi bằng cách nhấp vào liên kết ở bên trái."
-      email_restriction_instructions: ~
       enter_captcha: "Tôi là con người:"
       family_name: "Họ:"
       given_name: "Tên:"
@@ -1653,11 +1667,14 @@ vi:
       delete_account_confirmation_popup: ~
       email_addresses: ~
       new_email: "Địa chỉ email mới"
-      instructions_to_delete_account: "Nếu bạn muốn xóa tài khoản của bạn, liên hệ với chúng tôi bằng cách sử dụng nút phản hồi bên trái."
-      contact_admin: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Mật khẩu mới"
       save: Lưu
       these_fields_are_shown_only_to_you: "Tên người dùng được hiển thị trong tiểu sử của bạn trừ khi bạn đưa ra tên của bạn. Các thông tin khác chỉ hiện thị đối với bạn."
+      email_already_confirmed: ~
       email:
         address_title: ~
         remove_title: ~

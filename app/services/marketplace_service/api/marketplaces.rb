@@ -13,11 +13,14 @@ module MarketplaceService::API
       locale = p[:marketplace_language].or_else("en")
       marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
 
-      community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale, p[:paypal_enabled].or_else(false)))
+      community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
 
       Helper.create_community_customization!(community, marketplace_name, locale)
       t = Helper.create_transaction_type!(community, p[:marketplace_type])
       Helper.create_category!("Default", community, locale, t.id)
+
+      plan_level = p[:plan_level].or_else(CommunityPlan::FREE_PLAN)
+      Helper.create_community_plan!(community, {plan_level: plan_level});
 
       return from_model(community)
     end
@@ -38,15 +41,14 @@ module MarketplaceService::API
 
       module_function
 
-      def community_params(params, marketplace_name, locale, paypal_enabled)
+      def community_params(params, marketplace_name, locale)
         {
           consent: "SHARETRIBE1.0",
           domain: available_domain_based_on(params[:marketplace_name].get),
           settings: {"locales" => [locale]},
           name: marketplace_name,
           available_currencies: available_currencies_based_on(params[:marketplace_country].or_else("us")),
-          country: params[:marketplace_country].upcase.or_else(nil),
-          paypal_enabled: paypal_enabled
+          country: params[:marketplace_country].upcase.or_else(nil)
         }
       end
 
@@ -65,6 +67,14 @@ module MarketplaceService::API
 
       def create_community_customization!(community, marketplace_name, locale)
         community.community_customizations.create(customization_params(marketplace_name, locale))
+      end
+
+      def create_community_plan!(community, options={})
+        CommunityPlan.create({
+          community_id: community.id,
+          plan_level:   Maybe(options[:plan_level]).or_else(0),
+          expires_at:   Maybe(options[:expires_at]).or_else(DateTime.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days)
+        })
       end
 
       def transaction_type_name(type)

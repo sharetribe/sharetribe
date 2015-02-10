@@ -117,7 +117,6 @@ describe PeopleController do
       @community.members << @person
       @id = @person.id
       Person.find_by_id(@id).should_not be_nil
-
     end
 
     it "deletes the person" do
@@ -126,7 +125,7 @@ describe PeopleController do
       delete :destroy, {:person_id => @id}
       response.status.should == 302
 
-      Person.find_by_id(@id).should be_nil
+      Person.find_by_id(@id).deleted?.should eql(true)
     end
 
     it "doesn't delete if not logged in as target person" do

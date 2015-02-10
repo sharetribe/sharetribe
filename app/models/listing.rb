@@ -34,6 +34,7 @@
 #  price_cents         :integer
 #  currency            :string(255)
 #  quantity            :string(255)
+#  deleted             :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -396,10 +397,6 @@ class Listing < ActiveRecord::Base
   # The price symbol based on this listing's price or community default, if no price set
   def price_symbol
     price ? price.symbol : MoneyRails.default_currency.symbol
-  end
-
-  def price_with_vat(vat)
-    price + (price * vat / 100)
   end
 
   def answer_for(custom_field)

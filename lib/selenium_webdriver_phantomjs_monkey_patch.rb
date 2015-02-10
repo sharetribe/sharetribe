@@ -8,7 +8,7 @@
 ##
 # Disable port prober
 #
-# - The default port for PhantoJS WebDriver is 8910
+# - The default port for PhantomJS WebDriver is 8910
 # - PortProber uses 8910, but if it's not free, it tries 8911 etc.
 # - Disable port prober
 #

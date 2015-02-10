@@ -18,18 +18,19 @@ class PersonMailer < ActionMailer::Base
 
   add_template_helper(EmailTemplateHelper)
 
-  def conversation_status_changed(conversation, community)
-    @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
-    set_up_urls(conversation.other_party(conversation.listing.author), community, @email_type)
-    @conversation = conversation
+  def conversation_status_changed(transaction, community)
+    @email_type =  (transaction.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
+    set_up_urls(transaction.other_party(transaction.listing.author), community, @email_type)
+    @transaction = transaction
 
-    if community.payments_in_use?
-      @payment_url = community.payment_gateway.new_payment_url(@recipient, @conversation, @recipient.locale, @url_params)
+    if @transaction.payment_gateway == "braintree" ||  @transaction.payment_process == "postpay"
+      # Payment url concerns only braintree and postpay, otherwise we show only the message thread
+      @payment_url = community.payment_gateway.new_payment_url(@recipient, @transaction, @recipient.locale, @url_params)
     end
 
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
-         :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.direction)}_was_#{conversation.status}"))
+         :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(transaction.listing.direction)}_was_#{transaction.status}"))
   end
 
   def new_message_notification(message, community)
@@ -151,7 +152,7 @@ class PersonMailer < ActionMailer::Base
     @recipient = recipient
 
     if community.payments_in_use?
-      @payment_settings_link = payment_settings_url(community.payment_gateway.gateway_type, recipient, @url_params)
+      @payment_settings_link = payment_settings_url(MarketplaceService::Community::Query.payment_type(community.id), recipient, @url_params)
     end
 
     premailer_mail(:to => recipient.confirmed_notification_emails_to,
@@ -248,7 +249,7 @@ class PersonMailer < ActionMailer::Base
     premailer_mail(:to => @invitation.email,
          :from => community_specific_sender(@invitation.community),
          :subject => subject,
-         :reply_to => @invitation.inviter.email)
+         :reply_to => @invitation.inviter.confirmed_notification_email_to)
   end
 
   # A message from the community admin to a single community member
@@ -282,50 +283,29 @@ class PersonMailer < ActionMailer::Base
 
   # Used to send notification to Sharetribe admins when somebody
   # gives feedback on Sharetribe
-  def new_feedback(feedback, community, airbrake_url = nil)
-    @feedback = feedback
+  def new_feedback(feedback, community)
+    subject = "New #unanswered #feedback from #{community.name('en')} community from user #{feedback.author.try(:name)} "
 
-    @feedback.email = if feedback.author then
-      feedback.author.confirmed_notification_email_to
-    else
-      @feedback.email
-    end
-
-    @airbrake_url = airbrake_url;
-
-    @current_community = community
-    subject = "New #unanswered #feedback from #{@current_community.name('en')} community from user #{feedback.author.try(:name)} "
-    if @current_community.feedback_to_admin? && @current_community.admin_emails.any?
-      mail_to = @current_community.admin_emails.join(",")
-    else
-      mail_to = APP_CONFIG.feedback_mailer_recipients
-    end
-    premailer_mail(:to => mail_to,
-         :from => community_specific_sender(community),
-         :subject => subject,
-         :reply_to => @feedback.email)
-  end
-
-  # Used to send notification to admins when somebody
-  # wants to contact them through the form in the network page
-  def contact_request_notification(contact_request)
-    @contact_request = contact_request
-    subject = "New contact request by #{@contact_request.email}"
-    recipient = APP_CONFIG.contact_request_mailer_recipients || APP_CONFIG.feedback_mailer_recipients
-    premailer_mail(:to => recipient, :subject => subject) do |format|
-      format.html {render :layout => false }
+    premailer_mail(
+      :to => mail_feedback_to(community, APP_CONFIG.feedback_mailer_recipients),
+      :from => community_specific_sender(community),
+      :subject => subject,
+      :reply_to => feedback.email) do |format|
+        format.html {
+          render locals: {
+                   author_name_and_email: feedback.author_name_and_email,
+                   community_name: community.name(I18n.locale),
+                   content: feedback.content
+                 }
+      }
     end
   end
 
-  # Automatic reply to people who try to contact us via Dashboard
-  def reply_to_contact_request(contact_request)
-    @contact_request = contact_request
-    @country_manager = CountryManager.find_by_country(@contact_request.country) || CountryManager.find_by_country("global")
-    #@country_manager ||= CountryManager.find_by_country("global")
-    set_locale @country_manager.locale
-    email_from = "#{@country_manager.given_name} #{@country_manager.family_name} <#{@country_manager.email}>"
-    premailer_mail(:to => @contact_request.email, :subject => "#{@country_manager.subject_line}, #{@contact_request.email.split('@')[0]}", :from => email_from) do |format|
-      format.html { render :layout => false }
+  def mail_feedback_to(community, platform_admin_email)
+    if community.feedback_to_admin? && community.admin_emails.any?
+      community.admin_emails.join(",")
+    else
+      platform_admin_email
     end
   end
 
@@ -475,16 +455,22 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
+  # Depricated. Use CreateMemberEmailBatchJob instead.
   # A message from the community admin to all the community members
   def self.community_member_emails(sender, community, email_subject, email_content, email_locale)
     community.members.each do |recipient|
-      if recipient.should_receive?("email_from_admins") && (email_locale.eql?("any") || recipient.locale.eql?(email_locale))
-        begin
-          community_member_email(sender, recipient, email_subject, email_content, community).deliver
-        rescue => e
-          # Catch the exception and continue sending the emails
-          ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name(email_locale)}: #{e.message}", e.class)
-        end
+      self.community_member_email_from_admin(sender, recipient, community, email_subject, email_content, email_locale)
+    end
+  end
+
+  # A message from the community admin to a community member
+  def self.community_member_email_from_admin(sender, recipient, community, email_subject, email_content, email_locale)
+    if recipient.should_receive?("email_from_admins") && (email_locale.eql?("any") || recipient.locale.eql?(email_locale))
+      begin
+        community_member_email(sender, recipient, email_subject, email_content, community).deliver
+      rescue => e
+        # Catch the exception and continue sending the emails
+        ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name(email_locale)}: #{e.message}", e.class)
       end
     end
   end

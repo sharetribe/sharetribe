@@ -5,7 +5,6 @@ class PersonMessagesController < ApplicationController
   end
 
   before_filter :fetch_recipient
-  skip_filter :dashboard_only
 
   def new
     @conversation = Conversation.new

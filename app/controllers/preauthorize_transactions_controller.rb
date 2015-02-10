@@ -10,12 +10,9 @@ class PreauthorizeTransactionsController < ApplicationController
   before_filter :ensure_authorized_to_reply
   before_filter :ensure_can_receive_payment
 
-  skip_filter :dashboard_only
-
   BookingForm = FormUtils.define_form("BookingForm", :start_on, :end_on)
     .with_validations do
       validates :start_on, :end_on, presence: true
-      validates_date :start_on, on_or_after: :today
       validates_date :end_on, on_or_after: :start_on
     end
 
@@ -34,9 +31,7 @@ class PreauthorizeTransactionsController < ApplicationController
   PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
 
   ListingQuery = MarketplaceService::Listing::Query
-  PersonQuery = MarketplaceService::Person::Query
   BraintreePaymentQuery = BraintreeService::Payments::Query
-
 
   def initiate
     vprms = view_params(params[:listing_id])
@@ -45,7 +40,7 @@ class PreauthorizeTransactionsController < ApplicationController
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: vprms[:listing],
       sum: vprms[:listing][:price],
-      author: PersonQuery.person(vprms[:listing][:author_id], @current_community.id),
+      author: query_person_entity(vprms[:listing][:author_id]),
       action_button_label: vprms[:action_button_label],
       expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
       form_action: initiated_order_path(person_id: @current_user.id, listing_id: vprms[:listing][:id])
@@ -125,7 +120,7 @@ class PreauthorizeTransactionsController < ApplicationController
       listing: vprms[:listing],
       sum: vprms[:listing][:price] * booking_data[:duration],
       duration: booking_data[:duration],
-      author: PersonQuery.person(vprms[:listing][:author_id], @current_community.id),
+      author: query_person_entity(vprms[:listing][:author_id]),
       action_button_label: vprms[:action_button_label],
       expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
       form_action: booked_path(person_id: @current_user.id, listing_id: vprms[:listing][:id])
@@ -211,7 +206,7 @@ class PreauthorizeTransactionsController < ApplicationController
       braintree_form: BraintreeForm.new,
       listing: vprms[:listing],
       sum: vprms[:listing][:price],
-      author: PersonQuery.person(vprms[:listing][:author_id], @current_community.id),
+      author: query_person_entity(vprms[:listing][:author_id]),
       action_button_label: vprms[:action_button_label],
       expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
       form_action: preauthorized_payment_path(person_id: @current_user.id, listing_id: vprms[:listing][:id])
@@ -242,7 +237,6 @@ class PreauthorizeTransactionsController < ApplicationController
             content: preauthorize_form.content,
             payment_gateway: :braintree,
             payment_process: :preauthorize,
-            commission_from_seller: @current_community.commission_from_seller
           },
           gateway_fields: braintree_form.to_hash
         })
@@ -316,7 +310,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def ensure_can_receive_payment
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id) || :none
 
     ready = TransactionService::Transaction.can_start_transaction(transaction: {
         payment_gateway: payment_type,
@@ -335,7 +329,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def parse_booking_date(str)
-    Date.parse(str)
+    Date.parse(str) unless str.blank?
   end
 
   def stringify_booking_date(date)
@@ -366,7 +360,6 @@ class PreauthorizeTransactionsController < ApplicationController
     }
   end
 
-
   def create_preauth_transaction(opts)
     gateway_fields =
       if (opts[:payment_type] == :paypal)
@@ -396,12 +389,18 @@ class PreauthorizeTransactionsController < ApplicationController
           content: opts[:content],
           payment_gateway: opts[:payment_type],
           payment_process: :preauthorize,
-          commission_from_seller: opts[:community].commission_from_seller,
           booking_fields: opts[:booking_fields]
         },
         gateway_fields: gateway_fields
       },
       paypal_async: opts[:use_async])
+  end
+
+  def query_person_entity(id)
+    person_entity = MarketplaceService::Person::Query.person(id, @current_community.id)
+    person_display_entity = person_entity.merge(
+      display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
+    )
   end
 
 end

@@ -69,6 +69,17 @@ FactoryGirl.define do
     "sharetribe-testcommunity-#{n}"
   end
 
+  sequence :token do |n|
+    "token-#{n}"
+  end
+
+  factory :auth_token do
+    build_association(:person)
+    expires_at 30.days.from_now
+    token
+    token_type "unsubscribe"
+  end
+
   factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender, :follower] do
     id
     is_admin 0
@@ -185,12 +196,6 @@ FactoryGirl.define do
     admin false
     consent "test_consent0.1"
     status "accepted"
-  end
-
-  factory :contact_request do
-    email "test@example.com"
-    country "AO"
-    marketplace_type "Service marketplace"
   end
 
   factory :invitation do
@@ -364,6 +369,12 @@ FactoryGirl.define do
     sum_cents 2000
   end
 
+  factory :checkout_account do
+    build_association(:person)
+    merchant_id "12345678-9"
+    merchant_key "abcdef12345"
+  end
+
   factory :braintree_account do
     build_association(:person)
     first_name "Joe"
@@ -404,15 +415,6 @@ FactoryGirl.define do
     title "Blog"
     url "http://blog.sharetribe.com"
     locale "en"
-  end
-
-  factory :country_manager do
-    given_name "Country Manager Given Name"
-    family_name "Country Manager Family Name"
-    email "global@manager.com"
-    country "global"
-    subject_line "This subject will see requester"
-    email_content "This email will get the requester"
   end
 
   factory :follower_relationship do

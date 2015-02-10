@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+  class ListingDeleted < StandardError; end
+
   include PeopleHelper
 
   # Skip auth token check as current jQuery doesn't provide it automatically
@@ -12,7 +14,6 @@ class ListingsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_create_new_listing", :sign_up_link => view_context.link_to(t("layouts.notifications.create_one_here"), sign_up_path)).html_safe
   end
 
-  before_filter :person_belongs_to_current_community, :only => [:index]
   before_filter :save_current_path, :only => :show
   before_filter :ensure_authorized_to_view, :only => [ :show, :follow, :unfollow ]
 
@@ -28,22 +29,36 @@ class ListingsController < ApplicationController
 
   before_filter :is_authorized_to_post, :only => [ :new, :create ]
 
-  skip_filter :dashboard_only
-
   def index
-    if params[:format] == "atom" # API request for feed
-      redirect_to :controller => "Api::ListingsController", :action => :index
-      return
-    end
     @selected_tribe_navi_tab = "home"
-    if request.xhr? && params[:person_id] # AJAX request to load on person's listings for profile view
-      # Returns the listings for one person formatted for profile page view
-      per_page = params[:per_page] || 200 # the point is to show all here by default
-      page = params[:page] || 1
-      render :partial => "listings/profile_listings", :locals => {:person => @person, :limit => per_page}
-      return
+    respond_to do |format|
+      format.js do
+        if params[:person_id] # AJAX request to load on person's listings for profile view
+          @person = Person.find(params[:person_id])
+          PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
+
+          # Returns the listings for one person formatted for profile page view
+          per_page = params[:per_page] || 200 # the point is to show all here by default
+          render :partial => "listings/profile_listings", :locals => {:person => @person, :limit => per_page}
+        end
+      end
+
+      format.atom do
+        page =  params[:page] || 1
+        per_page = params[:per_page] || 50
+
+        listings = @current_community.private ? [] : Listing.find_with(params, @current_user, @current_community, per_page, page)
+        title = build_title(params)
+        updated = listings.first.present? ? listings.first.updated_at : Time.now
+
+        render layout: false,
+               locals: { listings: listings,
+                         title: title,
+                         updated: updated }
+      end
+
+      format.html { redirect_to root }
     end
-    redirect_to root
   end
 
   def listing_bubble
@@ -57,9 +72,15 @@ class ListingsController < ApplicationController
     end
   end
 
+  # "2,3,4, 563" => [2, 3, 4, 563]
+  def numbers_str_to_array(str)
+    str.split(",").map { |num| num.to_i }
+  end
+
   # Used to show multiple listings in one bubble
   def listing_bubble_multiple
-    @listings = Listing.visible_to(@current_user, @current_community, params[:ids]).order("id DESC")
+    ids = numbers_str_to_array(params[:ids])
+    @listings = Listing.visible_to(@current_user, @current_community, ids).order("id DESC")
     if @listings.size > 0
       render :partial => "homepage/listing_bubble_multiple"
     else
@@ -85,12 +106,14 @@ class ListingsController < ApplicationController
       [nil, nil]
     end
 
+
+    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
     form_path = if @listing.transaction_type.preauthorize_payment?
       # TODO This is copy-paste
       if @listing.transaction_type.price_per.present?
         book_path(:listing_id => @listing.id.to_s)
       else
-        if @current_community.paypal_enabled?
+        if payment_gateway == :paypal
           initiate_order_path(:listing_id => @listing.id.to_s)
         else
           preauthorize_payment_path(:listing_id => @listing.id.to_s)
@@ -104,13 +127,10 @@ class ListingsController < ApplicationController
       end
     end
 
-    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
-
     render locals: {form_path: form_path, payment_gateway: payment_gateway}
   end
 
   def new
-    @seller_commission_in_use = @current_community.commission_from_seller && @current_community.payments_in_use?
     @selected_tribe_navi_tab = "new_listing"
     @listing = Listing.new
 
@@ -131,25 +151,19 @@ class ListingsController < ApplicationController
       logger.info "Category: #{@listing.category.inspect}"
 
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+      allow_posting, error_msg = payment_setup_status(
+                       community: @current_community,
+                       user: @current_user,
+                       listing: @listing,
+                       payment_type: payment_type)
 
-      payment_setup_missing, payment_setup_path =
-        if payment_type == :braintree
-          missing = PaymentRegistrationGuard.new(@current_community, @current_user, @listing).requires_registration_before_posting?
-          [missing, payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)]
-        elsif payment_type == :paypal
-          missing = PaypalService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id).blank?
-          [missing, new_paypal_account_settings_payment_path(@current_user.username)]
-        else
-          [false, nil]
-        end
-
-      if payment_setup_missing
-        render :partial => "listings/payout_registration_before_posting", locals: {payment_settings_path: payment_setup_path }
+      if allow_posting
+        render :partial => "listings/form/form_content", locals: commission(@current_community)
       else
-        render :partial => "listings/form/form_content", locals: {minimum_commission: minimum_commission}
+        render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
     else
-      render locals: {minimum_commission: minimum_commission}
+      render :new
     end
   end
 
@@ -190,7 +204,6 @@ class ListingsController < ApplicationController
   end
 
   def edit
-    @seller_commission_in_use = @current_community.commission_from_seller && @current_community.payments_in_use?
     @selected_tribe_navi_tab = "home"
     if !@listing.origin_loc
         @listing.build_origin_loc(:location_type => "origin_loc")
@@ -199,7 +212,7 @@ class ListingsController < ApplicationController
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-    render locals: {minimum_commission: minimum_commission}
+    render locals: commission(@current_community)
   end
 
   def update
@@ -299,15 +312,47 @@ class ListingsController < ApplicationController
 
   private
 
-  def minimum_commission
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
-    currency = @current_community.default_currency
+  def build_title(params)
+    category = Category.find_by_id(params["category"])
+    category_label = (category.present? ? "(" + localized_category_label(category) + ")" : "")
+
+    if ["request","offer"].include? params['share_type']
+      listing_type_label = t("listings.index.#{params['share_type']+"s"}")
+    else
+      listing_type_label = t("listings.index.listings")
+    end
+
+    t("listings.index.feed_title",
+      :optional_category => category_label,
+      :community_name => @current_community.name_with_separator(I18n.locale),
+      :listing_type => listing_type_label)
+  end
+
+  def commission(community)
+    payment_type = MarketplaceService::Community::Query.payment_type(community.id)
+    currency = community.default_currency
 
     case payment_type
+    when nil
+      {seller_commission_in_use: false,
+       minimum_commission: Money.new(0, currency),
+       commission_from_seller: 0,
+       minimum_price_cents: 0}
     when :paypal
-      paypal_minimum_commissions_api.get(currency)
+      p_set = Maybe(payment_settings_api.get_active(community_id: community.id))
+        .select {|res| res[:success]}
+        .map {|res| res[:data]}
+        .or_else({})
+
+      {seller_commission_in_use: true,
+       minimum_commission: paypal_minimum_commissions_api.get(currency),
+       commission_from_seller: p_set[:commission_from_seller],
+       minimum_price_cents: p_set[:minimum_price_cents]}
     else
-      Money.new(0, currency)
+      {seller_commission_in_use: !!community.commission_from_seller,
+       minimum_commission: Money.new(0, currency),
+       commission_from_seller: community.commission_from_seller,
+       minimum_price_cents: community.absolute_minimum_price(currency).cents}
     end
   end
 
@@ -315,9 +360,16 @@ class ListingsController < ApplicationController
     PaypalService::API::Api.minimum_commissions_api
   end
 
+  def payment_settings_api
+    TransactionService::API::Api.settings
+  end
+
   # Ensure that only users with appropriate visibility settings can view the listing
   def ensure_authorized_to_view
     @listing = Listing.find(params[:id])
+
+    raise ListingDeleted if @listing.deleted?
+
     unless @listing.visible_to?(@current_user, @current_community) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
       if @listing.public?
         # This situation occurs when the user tries to access a listing
@@ -424,9 +476,38 @@ class ListingsController < ApplicationController
 
   def normalize_price_param(listing_params)
     if listing_params[:price] then
-      listing_params.except(:price).merge(price_cents: MoneyUtil.parse_str_to_cents(listing_params[:price]))
+      listing_params.except(:price).merge(price_cents: MoneyUtil.parse_str_to_subunits(listing_params[:price], listing_params[:currency]))
     else
       listing_params
+    end
+  end
+
+  def payment_setup_status(community:, user:, listing:, payment_type:)
+    if payment_type == :braintree
+      can_post = !PaymentRegistrationGuard.new(community, user, listing).requires_registration_before_posting?
+      settings_link = payment_settings_path(community.payment_gateway.gateway_type, user)
+      error_msg = t("listings.new.you_need_to_fill_payout_details_before_accepting", :payment_settings_link => view_context.link_to(t("listings.new.payment_settings_link"), settings_link)).html_safe
+
+      [can_post, error_msg]
+    elsif payment_type == :paypal
+      can_post = PaypalHelper.community_ready_for_payments?(community.id)
+      error_msg =
+        if user.has_admin_rights_in?(community)
+          t("listings.new.community_not_configured_for_payments_admin",
+            payment_settings_link: view_context.link_to(
+              t("listings.new.payment_settings_link"),
+              admin_community_paypal_preferences_path(community_id: community.id)))
+            .html_safe
+        else
+          t("listings.new.community_not_configured_for_payments",
+            contact_admin_link: view_context.link_to(
+              t("listings.new.contact_admin_link_text"),
+              new_user_feedback_path))
+            .html_safe
+        end
+      [can_post, error_msg]
+    else
+      [true, ""]
     end
   end
 end

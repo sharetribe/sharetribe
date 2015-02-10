@@ -71,8 +71,6 @@ class BraintreeAccountsController < ApplicationController
 
   before_filter :ensure_user_does_not_have_account_for_another_community
 
-  skip_filter :dashboard_only
-
   def new
     redirect_to action: :show and return if @current_user.braintree_account
 

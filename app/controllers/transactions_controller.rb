@@ -7,8 +7,6 @@ class TransactionsController < ApplicationController
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
 
-  skip_filter :dashboard_only
-
   MessageForm = Form::Message
 
   def show
@@ -44,8 +42,8 @@ class TransactionsController < ApplicationController
 
 
     messages_and_actions = TransactionViewUtils::merge_messages_and_transitions(
-      TransactionViewUtils.conversation_messages(conversation[:messages]),
-      TransactionViewUtils.transition_messages(transaction, conversation))
+      TransactionViewUtils.conversation_messages(conversation[:messages], @current_community.name_display_type),
+      TransactionViewUtils.transition_messages(transaction, conversation, @current_community.name_display_type))
 
     MarketplaceService::Transaction::Command.mark_as_seen_by_current(params[:id], @current_user.id)
 
@@ -75,7 +73,10 @@ class TransactionsController < ApplicationController
   end
 
   def person_entity_with_url(person_entity)
-    person_entity.merge({url: person_path(id: person_entity[:username])})
+    person_entity.merge({
+                          url: person_path(id: person_entity[:username]),
+                          display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
+                        })
   end
 
   def paypal_process

@@ -1,5 +1,5 @@
 -# Hide header in map view if mobile
-%header.header{:class => (params[:view].eql?("map") ? "visible-tablet" : "")}
+%header.header
   .header-wrapper
     .header-right.header-padding.visible-tablet
       = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "new-listing-link", :id => "new-listing-link"

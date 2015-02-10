@@ -38,6 +38,7 @@
 #  min_days_between_community_updates :integer          default(1)
 #  is_organization                    :boolean
 #  organization_name                  :string(255)
+#  deleted                            :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -88,7 +89,7 @@ class Person < ActiveRecord::Base
 
   attr_protected :is_admin
 
-  has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
+  has_many :listings, :dependent => :destroy, :foreign_key => "author_id", :conditions => { :deleted => 0 }
   has_many :emails, :dependent => :destroy, :inverse_of => :person
 
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
@@ -155,8 +156,8 @@ class Person < ActiveRecord::Base
 #  validates_uniqueness_of :username
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :username, :within => 3..20
-  validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
-  validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
+  validates_length_of :given_name, :within => 1..255, :allow_nil => true, :allow_blank => true
+  validates_length_of :family_name, :within => 1..255, :allow_nil => true, :allow_blank => true
 
   validates_format_of :username,
                        :with => /\A[A-Z0-9_]*\z/i
@@ -236,6 +237,8 @@ class Person < ActiveRecord::Base
      !Person.find_by_username(username).present? && !username.in?(USERNAME_BLACKLIST)
    end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def name_or_username(community_or_display_type=nil)
     if community_or_display_type.present? && community_or_display_type.class == Community
       display_type = community_or_display_type.name_display_type
@@ -262,10 +265,14 @@ class Person < ActiveRecord::Base
     end
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def full_name
     "#{given_name} #{family_name}"
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def first_name_with_initial
     if family_name
       initial = family_name[0,1]
@@ -275,10 +282,14 @@ class Person < ActiveRecord::Base
     "#{given_name} #{initial}"
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def name(community_or_display_type=nil)
     return name_or_username(community_or_display_type)
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def given_name_or_username
     if is_organization
       # Quick and somewhat dirty solution. `given_name_or_username`
@@ -495,7 +506,10 @@ class Person < ActiveRecord::Base
   # method returns the first confirmed emails
   def confirmed_notification_email_to
     send_message_to = EmailService.emails_to_send_message(emails).first
-    EmailService.emails_to_smtp_addresses([send_message_to])
+
+    Maybe(send_message_to).map { |email|
+      EmailService.emails_to_smtp_addresses([email])
+    }.or_else(nil)
   end
 
   # Returns true if the address given as a parameter is confirmed

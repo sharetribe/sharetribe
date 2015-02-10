@@ -45,7 +45,6 @@
         - unless @facebook_merge
           = link_to t('.create_new_account'), (@current_community ? sign_up_path : new_tribe_path), :class => "green_part_link"
           %br/
-        - if @current_community # TODO: remove this temporary disabling of pwd forgotten, when recovery works in Dashboard too
-          = link_to t('.i_forgot_my_password'), "#", :id => "password_forgotten_link", :class => "green_part_link"
+        = link_to t('.i_forgot_my_password'), "#", :id => "password_forgotten_link", :class => "green_part_link"
   #password_forgotten
     = render :partial => "sessions/password_forgotten"

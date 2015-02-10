@@ -1,8 +1,4 @@
 # Robots file for production server
 
-# gsa crawler is disallowed as it doesn't make sense to create a separete search appliance for Sharetribe
-# as there is already indexing and JSON API access for search that probably makes more sense
-# in most use cases. If you want more information, contact us via www.sharetribe.com.
-
-User-agent: gsa-crawler 
-Disallow: /
+User-agent: *
+Allow: /

@@ -1,6 +1,3 @@
-require 'routes/community_domain'
-require 'routes/api_request'
-
 Kassi::Application.routes.draw do
 
   namespace :mercury do
@@ -47,24 +44,22 @@ Kassi::Application.routes.draw do
   locale_matcher = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
 
   # Inside this constraits are the routes that are used when request has subdomain other than www
-  constraints(CommunityDomain) do
-    match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }
-    match '/' => 'homepage#index'
-  end
-
-  # Below are the routes that are matched if didn't match inside subdomain constraints
-  match '(/:locale)' => 'dashboard#index', :constraints => { :locale => locale_matcher }
-  root :to => 'dashboard#index'
+  match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }
+  match '/' => 'homepage#index'
+  root :to => 'homepage#index'
 
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
   match '/500' => 'errors#server_error'
   match '/404' => 'errors#not_found', :as => :error_not_found
+  match '/410' => 'errors#gone', as: :error_gone
+  match '/community_not_found' => 'errors#community_not_found', as: :community_not_found
+
+  resources :communities, only: [:new, :create]
 
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do
 
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
-    match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
 
     match "/transactions/op_status/:process_token" => "transactions#op_status", :as => :transaction_op_status
 
@@ -99,18 +94,6 @@ Kassi::Application.routes.draw do
     match '/:person_id/settings/payments/paypal_account/new' => 'paypal_accounts#new', :as => :new_paypal_account_settings_payment
     match '/:person_id/settings/payments/paypal_account/show' => 'paypal_accounts#show', :as => :show_paypal_account_settings_payment
     match '/:person_id/settings/payments/paypal_account/create' => 'paypal_accounts#create', :as => :create_paypal_account_settings_payment
-
-    scope :module => "api", :constraints => ApiRequest do
-      resources :listings, :only => :index
-
-      match 'api_version' => "api#version_check"
-      match '/' => 'dashboard#api'
-    end
-
-    namespace :superadmin do
-      resources :communities do
-      end
-    end
 
     namespace :paypal_service do
       resources :checkout_orders do
@@ -161,7 +144,7 @@ Kassi::Application.routes.draw do
           member do
             get :index
             post :preferences_update
-            post :account_create
+            get :account_create
             get :permissions_verified
           end
         end
@@ -187,7 +170,6 @@ Kassi::Application.routes.draw do
       end
     end
 
-    resources :contact_requests
     resources :invitations
     resources :user_feedbacks, :controller => :feedbacks
     resources :homepage do
@@ -272,7 +254,6 @@ Kassi::Application.routes.draw do
       match "/signup" => "people#new", :as => :sign_up
       match '/people/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
 
-      resources :people, :only => :index
       resources :people, :path => "", :only => :show, :constraints => { :id => /[_a-z0-9]+/ }
 
       resources :people, :constraints => { :id => /[_a-z0-9]+/ } do
@@ -284,7 +265,6 @@ Kassi::Application.routes.draw do
           get :not_member
           get :cancel
           get :create_facebook_based
-          get :fetch_rdf_profile
         end
       end
 
@@ -335,8 +315,10 @@ Kassi::Application.routes.draw do
           end
           resources :braintree_payments
         end
-        resource :paypal_account, only: [:new, :show, :create] do
+        resource :paypal_account, only: [:new, :show] do
           member do
+            get :ask_order_permission
+            get :ask_billing_agreement
             get :permissions_verified
             get :billing_agreement_success
             get :billing_agreement_cancel

@@ -173,6 +173,7 @@ de:
         twitter_handle: ~
         update_settings: "Einstellungen speichern"
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: Täglich
         newsletter_weekly: Wöchentlich
@@ -188,14 +189,19 @@ de:
         save_user_status_successful: Gespeichert
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
         ban_user_confirmation: ~
+        ban_me_error: ~
       social_media:
         social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
@@ -205,6 +211,8 @@ de:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -314,6 +322,7 @@ de:
       marketplace_paypal_integration: ~
       preferences_updated: ~
       integration_info_text: ~
+      read_more_about_paypal: ~
       paypal_account_email: ~
       paypal_account_email_completed: ~
       set_minimum_price_and_fee: ~
@@ -385,6 +394,7 @@ de:
     username: Benutzername
     username_or_email: "E-Mail oder Benutzername"
     what_is_this: "Was ist das?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Beantworte ein Angebot"
@@ -400,7 +410,8 @@ de:
       you_need_to_fill_payout_details_before_accepting: "Du musst deine Auszahlungsinformationen eintragen, bevor du die Anfrage akzeptieren und die Zahlung erhalten kannst. Gehe zu %{payment_settings_link} und fülle die Details aus."
       payment_settings_link: Zahlungseinstellungen
       minimum_price_error_message: "Der Preis kann nicht niedriger sein als %{amount}."
-      approve: ~
+      accept: ~
+      decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~
@@ -760,8 +771,6 @@ de:
       newest_offers: "Was Leute derzeit anderen anbieten"
       newest_requests: "Was Leute derzeit benötigen"
       text_version_text: "Könntest du etwas teilen, das andere möglicherweise brauchen? Oder benötigst du etwas, das andere vielleicht haben? Füge ein Angebot oder eine Anfrage hinzu oder sieh nach, was andere anbieten oder benötigen bei %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Danke für dein Interesse an %{service_name}!"
     reset_password_instructions:
       change_my_password: "Mein Passwort ändern"
       reset_password_instructions: "<p>Du hast angegeben, dein Passwort oder den Benutzernamen im %{service_name} Dienst vergessen zu haben.</p><p>Dein Benutzername ist: %{username}</p><p>Um dein Passwort zurückzusetzen, klicke auf den folgenden Link: %{password_reset_link}</p><br/><p> Falls du das Zurücksetzen des Passworts nicht angefordert hast, ignoriere diese E-Mail. Dein Passwort wird nicht zurückgesetzt, solange du den oberen Link nicht anklickst und ein neues Passwort erstellst.</p>"
@@ -803,6 +812,7 @@ de:
       sharetribe_crew: ~
       knowledge_base_link_text: ~
       contact_support_link_text: ~
+      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -832,16 +842,21 @@ de:
       page_can_not_be_found: "Seite kann nicht gefunden werden!"
       page_you_requested_can_not_be_found: "Die gewünschte Seite kann nicht gefunden werden. Bist du sicher, dass du die Adresse richtig geschrieben hast?"
     error_404_title: "Seite nicht gefunden"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: "Du kannst uns helfen, das Problem zu finden, indem du eine kleine Beschreibung des Problems unten in das Feld schreibst."
-      page_loading_failed: "Laden der Seite fehlgeschlagen!"
-      reload_refresh: "Das erneute Laden/Aktualiseren der Seite hilft oftmals, die eigentlich gewünschte Seite zu erreichen. Wir versuchen, das Problem, dass zu diesem Fehler führte, schnellstmöglich ausfindig zu machen und zu beheben."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "Laden der Seite fehlgeschlagen!"
     error_description: Fehlerbeschreibung
     no_javascript:
       javascript_is_disabled_in_your_browser: "JavaScript ist in deinem Browser deaktiviert."
       kassi_does_not_currently_work_without_javascript: "Leider funktioniert %{service_name} derzeit nicht ohne javascript. Versuche javascript in deinen Browser-Einstellungen zu aktivieren und lade diese Seite dann noch einmal."
-      kassi_does_not_currently_work_without_javascript_dashboard: "Leider funktioniert %{service_name} derzeit nicht ohne javascript. Versuche, javascript in deinen Browser-Einstellungen zu aktivieren und lade die Seite dann noch einmal. Falls du %{service_name} ohne javascript nutzen willst, dann %{contact_us} bitte."
       contact_us: Kontakt
       send_feedback: "Feedback senden"
       your_feedback_to_admins: "Dein Feedback an die Administratoren"
@@ -1025,8 +1040,6 @@ de:
       feedback_forum: Feedback-Forum
       feedback_handle: Feedback
       give_feedback: "Kontaktiere uns"
-      keywords: "%{service_name}, Kassi, teile Ressourcen in einer Community, Gegenstände ausleihen, Service, Gefallen, Mitfahrgelegenheit, Räumlichkeit, Unterkunft, Unterbringung, Hilfe, helfen, Angebot, anbieten, Anfrage, anfragen, vermieten, Austausch, Umtausch, kaufen, verkaufen, Kauf, Verkauf, geben, verschenken, ökologisch, Community, Online Community, lokal"
-      meta_description: "Sharetribe ist ein Service, der es dir ermöglicht, einfach einen Online-Marktplatz zu erschaffen, sodass die Mitglieder deiner Community sich gegenseitig Dienstleistungen und Dinge anbieten können - zum Verkauf, zur Miete, zum Tausch oder auch zum Teilen."
       or_check_our: "...oder überprüfe unser"
       send_feedback_to_admin: "Feedback senden"
       to_see_what_others_have_suggested: "um zu sehen, was andere Benutzer vorgeschlagen haben und um die für die Ideen zu stimmen."
@@ -1190,6 +1203,7 @@ de:
       payment_details_add_successful: "Zahlungsdetails erfolgreich hinzugefügt"
       payment_details_add_error: "Zahlungsdetails konnten nicht hinzugefügt werden"
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: Konto
       notifications: Benachrichtigungen
@@ -1369,7 +1383,10 @@ de:
       select_subcategory: "Unterkategorie auswählen"
       select_transaction_type: "Eintragsart auswählen"
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: Zahlungseinstellungen
+      community_not_configured_for_payments_admin: ~
     please_comment: Kommentar
     reply_link:
       listing_closed: "Eintrag abgeschlossen"
@@ -1476,9 +1493,13 @@ de:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
@@ -1494,26 +1515,20 @@ de:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: ~
       account_not_verified: ~
+      account_restricted: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: "Lade mehr Mitglieder"
-      meet_the_people: "Triff die anderen Mitglieder"
-      you_are_the_only_member: "Du bist das einzige MItglied der %{community_name} Community."
-      here_are_the_members: "Dies sind die %{count} Mitglieder der %{community_name} Community."
-      wanna_see_more_folks: "Willst Du hier mehr Leute sehen?"
-      invite_people_you_know: "Lade deine Freunde ein!"
-      there_are_x_members: "Es gibt %{count} Mitglieder in der %{community_name} Community."
-      to_see_the_list_log_in: "Um die Liste aller Mitglieder zu sehen musst du %{log_in_link}"
-      log_in_link: einloggen
     edit_links:
       activate: Aktivieren
       deactivate: Deaktivieren
@@ -1673,11 +1688,14 @@ de:
       delete_account_confirmation_popup: "Bist du sicher, dass du dein Benutzerkonto und alle damit verbundenen Daten endgültig löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden."
       email_addresses: E-Mail-Adressen
       new_email: "Neue E-Mail-Adresse"
-      instructions_to_delete_account: "Wenn du dein Konto löscht, werden auch alle damit verbundenen Daten entfernt: deine Profil-Details, Einträge, Kommentare, Nachrichten, Feedbacks etc."
-      contact_admin: "Bitte kontaktiere die Administratoren"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Neues Passwort"
       save: Speichern
       these_fields_are_shown_only_to_you: "Dein Benutzername wird dir in deinem Profil angezeigt, es sei denn, du hast deinen Namen angegeben. Andere Informationen sind nur für dich sichtbar."
+      email_already_confirmed: ~
       email:
         address_title: Adresse
         remove_title: Entfernen

@@ -17,6 +17,10 @@ module PaypalService
       @process_api ||= PaypalService::API::Process.new
     end
 
+    def accounts_api
+      @accounts_api ||= build_paypal_accounts
+    end
+
     module_function
 
     def load_minimum_commissions
@@ -42,6 +46,13 @@ module PaypalService
       })
 
       PaypalService::API::Payments.new(events, PaypalService::MerchantInjector.build_paypal_merchant)
+    end
+
+    def build_paypal_accounts
+      PaypalService::API::Accounts.new(
+        PaypalService::PermissionsInjector.build_paypal_permissions,
+        PaypalService::MerchantInjector.build_paypal_merchant
+      )
     end
   end
 end

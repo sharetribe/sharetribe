@@ -4,16 +4,16 @@ class Admin::CommunitiesController < ApplicationController
   before_filter :ensure_is_admin
   before_filter :ensure_is_superadmin, :only => [:payment_gateways, :update_payment_gateway, :create_payment_gateway]
 
-  skip_filter :dashboard_only
-
   def getting_started
     @selected_left_navi_link = "getting_started"
     @community = @current_community
+    render locals: {paypal_enabled: PaypalHelper.paypal_active?(@current_community.id)}
   end
 
   def edit_look_and_feel
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
+    flash.now[:notice] = t("layouts.notifications.stylesheet_needs_recompiling") if @community.stylesheet_needs_recompile?
   end
 
   def edit_text_instructions
@@ -35,11 +35,17 @@ class Admin::CommunitiesController < ApplicationController
   def social_media
     @selected_left_navi_link = "social_media"
     @community = @current_community
+    render "social_media", :locals => { 
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles, 
+      knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
   def analytics
     @selected_left_navi_link = "analytics"
     @community = @current_community
+    render "analytics", :locals => { 
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles, 
+      knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
   def menu_links
@@ -99,9 +105,13 @@ class Admin::CommunitiesController < ApplicationController
 
   def settings
     @selected_left_navi_link = "admin_settings"
+    render :settings, locals: { supports_escrow: escrow_payments?(@current_community) }
   end
 
   def update_look_and_feel
+    @community = @current_community
+    @selected_left_navi_link = "tribe_look_and_feel"
+
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
 
@@ -111,17 +121,18 @@ class Admin::CommunitiesController < ApplicationController
     ]
     permitted_params << :custom_head_script
     params.require(:community).permit(*permitted_params)
-
-    needs_stylesheet_recompile = regenerate_css?(params, @current_community)
     update(@current_community,
-           params[:community],
+           params[:community].merge(stylesheet_needs_recompile: regenerate_css?(params, @current_community)),
            edit_look_and_feel_admin_community_path(@current_community),
            :edit_look_and_feel) {
-      CommunityStylesheetCompiler.compile(@current_community) if needs_stylesheet_recompile
+      Delayed::Job.enqueue(CompileCustomStylesheetJob.new(@current_community.id))
     }
   end
 
   def update_social_media
+    @community = @current_community
+    @selected_left_navi_link = "social_media"
+
     [:twitter_handle,
      :facebook_connect_id,
      :facebook_connect_secret].each do |param|
@@ -139,6 +150,9 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def update_analytics
+    @community = @current_community
+    @selected_left_navi_link = "analytics"
+
     params[:community][:google_analytics_key] = nil if params[:community][:google_analytics_key] == ""
     params.require(:community).permit(:google_analytics_key)
     update(@current_community,
@@ -148,6 +162,8 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def update_settings
+    @selected_left_navi_link = "settings"
+
     permitted_params = [
       :join_with_invite_only, :users_can_invite_new_users, :private,
       :require_verification_to_post_listings,
@@ -160,6 +176,8 @@ class Admin::CommunitiesController < ApplicationController
     permitted_params << :testimonials_in_use if @current_community.payment_gateway
     params.require(:community).permit(*permitted_params)
 
+    maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
+
     update(@current_community,
             params[:community],
             settings_admin_community_path(@current_community),
@@ -171,10 +189,11 @@ class Admin::CommunitiesController < ApplicationController
   def regenerate_css?(params, community)
     params[:community][:custom_color1] != community.custom_color1 ||
     params[:community][:custom_color2] != community.custom_color2 ||
-    params[:community][:cover_photo] ||
-    params[:community][:small_cover_photo] ||
-    params[:community][:wide_logo] ||
-    params[:community][:logo]
+    !params[:community][:cover_photo].nil? ||
+    !params[:community][:small_cover_photo].nil? ||
+    !params[:community][:wide_logo].nil? ||
+    !params[:community][:logo].nil? ||
+    !params[:community][:favicon].nil?
   end
 
   def update(model, params, path, action, &block)
@@ -187,4 +206,30 @@ class Admin::CommunitiesController < ApplicationController
       render action
     end
   end
+
+  # TODO The home of this setting should be in payment settings but
+  # those are only used with paypal for now. During the transition
+  # period we simply mirror community setting to payment settings in
+  # case of paypal.
+  def maybe_update_payment_settings(community_id, automatic_confirmation_after_days)
+    return unless automatic_confirmation_after_days
+
+    p_set = Maybe(payment_settings_api.get(
+                   community_id: community_id,
+                   payment_gateway: :paypal,
+                   payment_process: :preauthorize))
+            .map {|res| res[:success] ? res[:data] : nil}
+            .or_else(nil)
+
+    payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i})) if p_set
+  end
+
+  def payment_settings_api
+    TransactionService::API::Api.settings
+  end
+
+  def escrow_payments?(community)
+    MarketplaceService::Community::Query.payment_type(community.id) == :braintree
+  end
+
 end

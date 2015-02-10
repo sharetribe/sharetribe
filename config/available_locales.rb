@@ -20,6 +20,7 @@ module Sharetribe
     ["Português do Brasil", "pt-BR"],
     ["Dansk", "da-DK"],
     ["Turkish", "tr-TR"],
+    ["日本語", "ja"],
 
     # Customization languages
     ["English", "en-rc"],
@@ -39,15 +40,5 @@ module Sharetribe
     ["English", "en-qr"],
     ["English", "en-at"],
     ["French", "fr-at"],
-  ]
-
-  AVAILABLE_DASHBOARD_LOCALES = [
-    ["English", "en"],
-    ["Suomi", "fi"],
-    ["Español", "es"],
-    ["Français", "fr"],
-    ["Deutsch", "de"],
-    ["Pусский", "ru"],
-    ["Ελληνικά", "el"]
   ]
 end

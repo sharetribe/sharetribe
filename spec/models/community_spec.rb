@@ -81,7 +81,6 @@
 #  price_filter_min                           :integer          default(0)
 #  price_filter_max                           :integer          default(100000)
 #  automatic_confirmation_after_days          :integer          default(14)
-#  plan_level                                 :integer          default(0)
 #  favicon_file_name                          :string(255)
 #  favicon_content_type                       :string(255)
 #  favicon_file_size                          :integer
@@ -90,7 +89,11 @@
 #  listing_location_required                  :boolean          default(FALSE)
 #  custom_head_script                         :text
 #  follow_in_use                              :boolean          default(TRUE), not null
-#  paypal_enabled                             :boolean          default(FALSE), not null
+#  logo_processing                            :boolean
+#  wide_logo_processing                       :boolean
+#  cover_photo_processing                     :boolean
+#  small_cover_photo_processing               :boolean
+#  favicon_processing                         :boolean
 #
 # Indexes
 #

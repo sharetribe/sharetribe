@@ -338,7 +338,7 @@ module ApplicationHelper
 
   def avatar_thumb(size, person, avatar_html_options={})
     return "" if person.nil?
-    link_to((image_tag person.image.url(size), avatar_html_options), person)
+    link_to_unless(person.deleted?, image_tag(person.image.url(size), avatar_html_options), person)
   end
 
   def large_avatar_thumb(person, options={})
@@ -408,10 +408,8 @@ module ApplicationHelper
     return ""
   end
 
-  # If we are not in a single community defined by a subdomain,
-  # we are on dashboard
-  def on_dashboard?
-    APP_CONFIG.dashboard_subdomains.include?(request.subdomain) && APP_CONFIG.domain.include?(request.domain)
+  def on_admin?
+    controller.class.name.split("::").first=="Admin"
   end
 
   def facebook_like(recommend=false)
@@ -454,17 +452,6 @@ module ApplicationHelper
     Thread.current[:current_community_service_name] = name
   end
 
-  # Class methods to access the service_name stored in the thread to work with I18N and DelayedJob etc async stuff.
-  # If called without host information, set's the server default
-  def self.store_community_service_name_to_thread_from_host(host=nil)
-    community = nil
-    if host.present?
-      community_domain = host.split(".")[0] #pick the subdomain part to search primarily with that
-      community = Community.find_by_domain(community_domain) || Community.find_by_domain(host)
-    end
-    store_community_service_name_to_thread_from_community(community)
-  end
-
   def self.store_community_service_name_to_thread_from_community_id(community_id=nil)
     community = nil
     if community_id.present?
@@ -489,12 +476,6 @@ module ApplicationHelper
 
   def self.fetch_community_service_name_from_thread
     Thread.current[:current_community_service_name] || APP_CONFIG.global_service_name || "Sharetribe"
-  end
-
-  # returns the locale part from url.
-  # e.g. from "kassi.eu/es/listings" returns es
-  def exctract_locale_from_url(url)
-    url[/^([^\/]*\/\/)?[^\/]+\/(\w{2})(\/.*)?/,2]
   end
 
   # Helper method for javascript. Return "undefined"
@@ -584,7 +565,8 @@ module ApplicationHelper
         :text => t("admin.left_hand_navigation.support"),
         :icon_class => icon_class("help"),
         :path => "mailto:#{APP_CONFIG.support_email}",
-        :name => "support"
+        :name => "support",
+        :data_uv_trigger => "contact"
       },
       {
         :text => t("admin.communities.manage_members.manage_members"),
@@ -642,7 +624,7 @@ module ApplicationHelper
       }
     ]
 
-    if @current_community.paypal_enabled
+    if PaypalHelper.paypal_active?(@current_community.id)
       links << {
         :text => t("admin.communities.paypal_account.paypal_admin_account"),
         :icon_class => icon_class("payments"),
@@ -756,18 +738,9 @@ module ApplicationHelper
       show_braintree_settings_payment_url(person, url_params.merge(locale: person.locale))
     elsif gateway_type == :checkout
       person_checkout_account_url(person, url_params.merge(locale: person.locale))
+    elsif gateway_type == :paypal
+      show_paypal_account_settings_payment_url(person, url_params.merge(locale: person.locale))
     end
-  end
-
-  def dashboard_link(args)
-    locale_part = ""
-    selected_locale = args[:locale].to_s
-    if selected_locale.present? && selected_locale != "en"
-      Kassi::Application.config.AVAILABLE_DASHBOARD_LOCALES.each do |name, loc|
-        locale_part = "/#{selected_locale}" and break if loc == selected_locale
-      end
-    end
-    return "#{default_protocol}www.#{APP_CONFIG.domain}#{locale_part}#{args[:ref] ? "?ref=#{args[:ref]}" : ""}"
   end
 
   # returns either "http://" or "https://" based on configuration settings
@@ -887,7 +860,8 @@ module ApplicationHelper
   end
 
   def sum_with_currency(sum, currency)
-    humanized_money_with_symbol(Money.new(sum*100, (currency || "EUR")))
+    curr = Money::Currency.new(currency || "EUR")
+    humanized_money_with_symbol(Money.new(sum * curr.subunit_to_unit, (currency || "EUR")))
   end
 
   def sort_link_direction(column)
@@ -904,4 +878,5 @@ module ApplicationHelper
       content_for :extra_javascript do js end
     end
   end
+
 end

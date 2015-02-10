@@ -80,8 +80,8 @@ class TransactionMailer < ActionMailer::Base
   def braintree_new_payment(payment, community)
     prepare_template(community, payment.recipient, "email_about_new_payments")
 
-    service_fee = payment.total_commission.cents.to_f / 100
-    you_get = payment.seller_gets.cents.to_f / 100
+    service_fee = payment.total_commission
+    you_get = payment.seller_gets
 
     premailer_mail(:to => payment.recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
@@ -90,9 +90,9 @@ class TransactionMailer < ActionMailer::Base
         render "payment_receipt_to_seller", locals: {
           conversation_url: person_transaction_url(payment.recipient, @url_params.merge({:id => payment.transaction.id.to_s})),
           listing_title: payment.transaction.listing.title,
-          payment_total: sum_with_currency(payment.total_sum, payment.currency),
-          payment_service_fee: sum_with_currency(service_fee, payment.currency),
-          payment_seller_gets: sum_with_currency(you_get, payment.currency),
+          payment_total: humanized_money_with_symbol(payment.total_sum),
+          payment_service_fee: humanized_money_with_symbol(service_fee),
+          payment_seller_gets: humanized_money_with_symbol(you_get),
           payer_full_name: payment.payer.name(community),
           payer_given_name: payment.payer.given_name_or_username,
           automatic_confirmation_days: payment.transaction.automatic_confirmation_after_days,

@@ -6,6 +6,9 @@
 
   = render :partial => 'layouts/global-header'
 
+  - if @is_current_community_admin && @is_community_plan_expired
+    = render partial: "layouts/expiration_notice"
+
   - content_for(:page_content) do
     %section.marketplace-lander
       - with_big_cover_photo do
@@ -46,11 +49,6 @@
     = content_for(:page_content)
 
   = render :partial => "layouts/google_analytics_script"
-
-  /[if lt IE 9]
-    - if APP_CONFIG.icon_pack == "ss-pika"
-      = javascript_include_tag "ss-social"
-      = javascript_include_tag "ss-pika"
 
   -#
     Most of the JavaScript should be for performance reasons at the end of the body

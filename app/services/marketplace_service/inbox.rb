@@ -60,7 +60,7 @@ module MarketplaceService
 
       inbox_row_common_spec = [
         [:conversation_id, :fixnum, :mandatory],
-        [:last_activity_at, :str_to_time, :mandatory],
+        [:last_activity_at, :utc_str_to_time, :mandatory],
         [:current_is_starter, :mandatory, transform_with: @tiny_int_to_bool],
         [:current_id, :string, :mandatory],
         [:other_id, :string, :mandatory],
@@ -84,6 +84,7 @@ module MarketplaceService
 
         [:listing_id, :fixnum, :mandatory],
         [:listing_title, :string, :mandatory],
+        [:listing_deleted, transform_with: @tiny_int_to_bool],
         [:transaction_type, :string, :mandatory],
 
         [:last_transition_at, :time, :mandatory],
@@ -298,6 +299,7 @@ module MarketplaceService
 
             listings.id                                       AS listing_id,
             listings.title                                    AS listing_title,
+            listings.deleted                                  AS listing_deleted,
 
             payments.id                                       AS payment_id,
 

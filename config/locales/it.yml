@@ -158,6 +158,7 @@ it:
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -173,14 +174,19 @@ it:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
+        ban_me_error: ~
       social_media:
         social_media: ~
         twitter_handle: "Nome utente di Twitter"
         twitter_handle_info_text: "Il nominativo del profilo Twitter del tuo negozio online (se ne hai uno). Sarà menzionato quando le persone premeranno il bottone di Twitter nella pagina dell'annuncio."
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: "nome utente"
         invalid_twitter_handle: "Il nome utente di Twitter può contenere un massimo di 15 caratteri alfanumerici (lettere A-Z e numero 0-9)."
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
@@ -190,6 +196,8 @@ it:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: "Salva le impostazioni"
       menu_links:
         menu_links: ~
@@ -299,6 +307,7 @@ it:
       marketplace_paypal_integration: "Integrazione PayPal"
       preferences_updated: "Preferenze di pagamento aggiornate"
       integration_info_text: "Il sistema di pagamento di %{service_name} è gestito da PayPal. Se vuoi consentire ai tuoi utenti di effettuare pagamenti sulla tua piattaforma, è necessario collegare il tuo conto PayPal e decidere il prezzo minimo del tuo spazio e la quota che vuoi trattenere per ogni transazione."
+      read_more_about_paypal: ~
       paypal_account_email: "1. Collega il tuo conto PayPal"
       paypal_account_email_completed: Completato!
       set_minimum_price_and_fee: "2. Inserisci un prezzo minimo e una tariffa di transazione"
@@ -370,6 +379,7 @@ it:
     username: ~
     username_or_email: "Email o username"
     what_is_this: "Cos'è questo?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -385,7 +395,8 @@ it:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: "Il prezzo non può essere inferiore a %{amount}."
-      approve: ~
+      accept: ~
+      decline: ~
       sum: ~
       service_fee: ~
       you_will_get: ~
@@ -745,8 +756,6 @@ it:
       newest_offers: "Quello che le persone attualmente offrono agli altri"
       newest_requests: "Quello che le persone attualmente necessitano"
       text_version_text: "Potresti condividere qualcosa di cui gli altri potrebbero avere bisogno? Oppure hai bisogno di qualcosa che altri potrebbero avere? Aggiungi un'offerta o una richiesta o controllare tutto ciò che gli altri stanno offrendo o stanno richiedendo a %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Grazie per il tuo interesse in %{service_name}!"
     reset_password_instructions:
       change_my_password: "Cambia la mia password"
       reset_password_instructions: ~
@@ -788,6 +797,7 @@ it:
       sharetribe_crew: ~
       knowledge_base_link_text: ~
       contact_support_link_text: ~
+      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -817,16 +827,21 @@ it:
       page_can_not_be_found: "La pagina non può essere trovata!"
       page_you_requested_can_not_be_found: "La pagina richiesta non è stata trovata. Sei sicuro che hai digitato l'indirizzo correttamente?"
     error_404_title: "pagina non trovata"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: "Puoi aiutarci a trovare il problema scrivendo una breve descrizione del problema nello spazio sottostante."
-      page_loading_failed: "Errore caricamento pagina!"
-      reload_refresh: "Ricaricare la pagina spesso può aiutare ad accedere alla pagina che si voleva raggiungere. Noi cerchiamo di localizzare e risolvere il problema che ha causato l'errore appena possibile."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "errore caricamento pagina"
     error_description: "Descrizione errore"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript è disabilitato nel tuo browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} non funziona bene senza javascript. Prova ad abilitare javascript nelle preferenze del tuo browser e dopo ricarica nuovamente la pagina."
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: contattaci
       send_feedback: "Invia feedback"
       your_feedback_to_admins: "I tuoi feedback agli amministratori"
@@ -985,7 +1000,7 @@ it:
       map_button: Mappa
       grid_button: Griglia
       list_button: Lista
-      all_listing_types: ~
+      all_listing_types: "Tutti i tipi di annuncio"
       all_categories: "Tutte le categorie"
   infos:
     about:
@@ -1010,8 +1025,6 @@ it:
       feedback_forum: "forum dei feedback"
       feedback_handle: Feedback
       give_feedback: Contattaci
-      keywords: ~
-      meta_description: "Sharetribe è un servizio che ti consente di creare facilmente un marketplace on line per permettere alla tua comunità di vendere, noleggiare, scambiare e condividere beni e servizi."
       or_check_our: "...o controlla i nostri"
       send_feedback_to_admin: "Invia feedback"
       to_see_what_others_have_suggested: "vedere cosa gli altri utenti hanno suggerito, e votare le  idee."
@@ -1175,6 +1188,7 @@ it:
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: Account
       notifications: Notifiche
@@ -1349,12 +1363,15 @@ it:
       listing: inserzione
       selected_category: "Categoria: %{category}"
       selected_subcategory: "Sottocategoria: %{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Tipo di annuncio: %{transaction_type}"
       select_category: "Seleziona una categoria"
       select_subcategory: ~
-      select_transaction_type: ~
-      you_need_to_fill_payout_details_before_accepting: ~
+      select_transaction_type: "Seleziona il tipo di annuncio"
+      you_need_to_fill_payout_details_before_accepting: "È necessario compilare i dettagli di pagamento prima di poter postare il tuo spazio. Vai al %{payment_settings_link} e inserisci le informazioni."
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: Commenta
     reply_link:
       listing_closed: "L'inserzione è chiusa"
@@ -1461,9 +1478,13 @@ it:
     you_are_ready_to_accept_payments: "Ora sei pronto per accettare i pagamenti!"
     commission: ~
     connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: "Per accettare i pagamenti devi connettere il tuo conto PayPal con %{service_name}."
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: "Non puoi connettere il tuo conto PayPal perchè l'amministratore della piattaforma non ha terminato la configurazione di PayPal."
       paypal_account_email: ~
       paypal_account_email_placeholder: "Il tuo indirizzo email di PayPal"
@@ -1479,26 +1500,20 @@ it:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
       account_not_verified: ~
+      account_restricted: ~
   paypal:
     checkout_with_paypal: ~
     cancel_succesful: "Il pagamento di PayPal è stato cancellato con successo"
     transaction:
       commission_payment_name: "Pagamento della commissione per %{listing_title}"
       commission_payment_description: "La piattaforma %{service_name} ha preso questa commissione dalla transazione riguardante %{listing_title}"
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: ~
-      meet_the_people: ~
-      you_are_the_only_member: ~
-      here_are_the_members: ~
-      wanna_see_more_folks: ~
-      invite_people_you_know: ~
-      there_are_x_members: ~
-      to_see_the_list_log_in: ~
-      log_in_link: ~
     edit_links:
       activate: Attiva
       deactivate: Disattiva
@@ -1652,11 +1667,14 @@ it:
       delete_account_confirmation_popup: "Sei sicuro di voler eliminare il tuo account e permanentemente perdere tutte le informazioni in esso contenute? La cancellazione dell'account non può essere revocata."
       email_addresses: "Indirizzi email"
       new_email: "Nuovo indirizzo email"
-      instructions_to_delete_account: "Se cancelli il tuo account tutte le informazioni in esso contenute saranno rimosse: i dettagli del tuo profilo, annunci, commenti, messaggi, commenti etc."
-      contact_admin: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Nuova password"
       save: Salva
       these_fields_are_shown_only_to_you: "Lo username è mostrato nel tuo profilo a meno che non abbia fornito il tuo nome. Altre informazioni sono mostrate solo a te."
+      email_already_confirmed: ~
       email:
         address_title: "Indirizzo email"
         remove_title: ~

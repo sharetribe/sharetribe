@@ -6,8 +6,8 @@ pt-BR:
       already_confirmed: "já confirmado, por favor tente se conectar"
       not_locked: "não foi bloqueado"
       not_saved:
-        one: "1 erro impediu %{resource} de ser salvo"
-        other: "%{count} erros impediram %{resource} de ser salvo"
+        one: "1 erro impediu este %{resource} de ser salvo"
+        other: "%{count} erros impediram este %{resource} de ser salvo"
   devise:
     failure:
       already_authenticated: "Você já está conectado."
@@ -21,14 +21,14 @@ pt-BR:
     passwords:
       updated_not_active: "Sua senha foi alterada com sucesso."
       send_paranoid_instructions: "Se seu e-mail existir no nosso banco de dados, você receberá um link para recuperação de senha em seu e-mail."
-      send_instructions: "Em alguns minutos você receberá um e-mail com instruções de como redefinir sua senha."
-      updated: "Sua senha foi alterada com sucesso. Você está agora conectado."
+      send_instructions: "Você receberá um e-mail com instruções sobre como redefinir sua senha em alguns minutos."
+      updated: "Sua senha foi alterada com sucesso. Você agora está conectado."
     sessions:
       signed_in: "Sessão iniciada com sucesso."
       signed_out: "Sessão encerrada com sucesso."
     confirmations:
-      send_paranoid_instructions: "Se seu e-mail existir no nosso banco de dados, em poucos minutos você receberá um e-mail com instruções sobre como confirmar sua conta."
-      send_instructions: "Você receberá um e-mail com instruções de como confirmar sua conta em alguns minutos."
+      send_paranoid_instructions: "Se seu e-mail existir no nosso banco de dados, você receberá um e-mail com instruções sobre como confirmar sua conta em poucos minutos."
+      send_instructions: "Você receberá um email com instruções sobre como confirmar a sua conta em poucos minutos."
       confirmed: "A sua conta foi confirmada com sucesso."
     registrations:
       signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviada para seu endereço de e-mail. Por favor, abra o link para ativar sua conta."

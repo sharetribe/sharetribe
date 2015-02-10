@@ -76,8 +76,15 @@ When /^Braintree webhook "(.*?)" with username "(.*?)" is triggered$/ do |kind, 
 end
 
 Given /^Braintree transaction is mocked$/ do
-  BraintreeApi.should_receive(:transaction_sale)
-    .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
+  BraintreeApi.should_receive(:transaction_sale) do |community, params|
+    cc = params[:credit_card]
+    # Check that the value is encrypted
+    expect(cc[:number]).to start_with("$bt4|javascript_1_3_10$")
+    expect(cc[:expiration_month]).to start_with("$bt4|javascript_1_3_10$")
+    expect(cc[:expiration_year]).to start_with("$bt4|javascript_1_3_10$")
+    expect(cc[:cvv]).to start_with("$bt4|javascript_1_3_10$")
+    expect(cc[:cardholder_name]).to start_with("$bt4|javascript_1_3_10$")
+  end.and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
 Given /^Braintree submit to settlement is mocked$/ do
@@ -267,10 +274,6 @@ Then /^I should not see payment setting fields$/ do
   page.should have_no_selector("#person-phone-number")
   page.should have_no_selector("#person-organization-website")
   page.should have_no_selector("[type=submit]")
-end
-
-When /^I click Osuuspankki logo$/ do
-  page.find('input[src="https://payment.checkout.fi/static/img/osuuspankki.png"]').click
 end
 
 When /^I click Tilisiirto logo$/ do

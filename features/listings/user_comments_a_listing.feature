@@ -6,7 +6,7 @@ Feature: User comments a listing
   @javascript
   Scenario: Adding a new comment successfully
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
@@ -38,11 +38,11 @@ Feature: User comments a listing
     And I should not see "Don't get emails about new comments"
     When I follow "Get emails about new comments"
     Then I should see "Don't get emails about new comments"
-  
+
   @javascript
   Scenario: Trying to add a new comment without content
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And listing comments are in use in community "test"
@@ -55,7 +55,7 @@ Feature: User comments a listing
   @javascript
   Scenario: Trying to add a comment without logging in
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
@@ -63,7 +63,7 @@ Feature: User comments a listing
     And I am not logged in
     And I am on the home page
     When I follow "Massage"
-    Then I should see "You must log in to send a new comment."
+    Then I should see "You must sign in to send a new comment."
     And I should not see "Write a new comment:"
 
   @javascript
@@ -82,7 +82,7 @@ Feature: User comments a listing
     Then I should see "Test comment 1" within "#comments"
     And "t1@example.com" should receive an email with subject "Anthony D has commented on your listing in Sharetribe"
     And "t2@example.com" should have no emails
-    
+
     When I log out
     And I log in as "kassi_testperson1"
     When "t1@example.com" opens the email
@@ -93,11 +93,11 @@ Feature: User comments a listing
     And I press "Send comment"
     Then I should see "Test comment 2" within "#comments"
     And "t2@example.com" should receive an email with subject "John M has commented on a listing you follow in Sharetribe"
-    
+
     When "t2@example.com" opens the email
     And I follow "en/listings" in the email
     Then I should see "Walking dogs"
     And I should see "Test comment 1" within "#comments"
     And I should see "Test comment 2" within "#comments"
-  
-  
+
+

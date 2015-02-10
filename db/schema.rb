@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141117165348) do
+ActiveRecord::Schema.define(:version => 20150206125017) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -202,7 +202,6 @@ ActiveRecord::Schema.define(:version => 20141117165348) do
     t.integer  "price_filter_min",                           :default => 0
     t.integer  "price_filter_max",                           :default => 100000
     t.integer  "automatic_confirmation_after_days",          :default => 14
-    t.integer  "plan_level",                                 :default => 0
     t.string   "favicon_file_name"
     t.string   "favicon_content_type"
     t.integer  "favicon_file_size"
@@ -211,7 +210,11 @@ ActiveRecord::Schema.define(:version => 20141117165348) do
     t.boolean  "listing_location_required",                  :default => false
     t.text     "custom_head_script"
     t.boolean  "follow_in_use",                              :default => true,                      :null => false
-    t.boolean  "paypal_enabled",                             :default => false,                     :null => false
+    t.boolean  "logo_processing"
+    t.boolean  "wide_logo_processing"
+    t.boolean  "cover_photo_processing"
+    t.boolean  "small_cover_photo_processing"
+    t.boolean  "favicon_processing"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -265,6 +268,14 @@ ActiveRecord::Schema.define(:version => 20141117165348) do
   add_index "community_memberships", ["community_id"], :name => "index_community_memberships_on_community_id"
   add_index "community_memberships", ["person_id", "community_id"], :name => "memberships"
 
+  create_table "community_plans", :force => true do |t|
+    t.integer  "community_id",                :null => false
+    t.integer  "plan_level",   :default => 0, :null => false
+    t.datetime "expires_at"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
   create_table "contact_requests", :force => true do |t|
     t.string   "email"
     t.datetime "created_at"
@@ -286,18 +297,6 @@ ActiveRecord::Schema.define(:version => 20141117165348) do
   add_index "conversations", ["community_id"], :name => "index_conversations_on_community_id"
   add_index "conversations", ["last_message_at"], :name => "index_conversations_on_last_message_at"
   add_index "conversations", ["listing_id"], :name => "index_conversations_on_listing_id"
-
-  create_table "country_managers", :force => true do |t|
-    t.string   "given_name"
-    t.string   "family_name"
-    t.string   "email"
-    t.string   "country"
-    t.string   "locale"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "subject_line"
-    t.text     "email_content"
-  end
 
   create_table "custom_field_names", :force => true do |t|
     t.string   "value"
@@ -491,6 +490,7 @@ ActiveRecord::Schema.define(:version => 20141117165348) do
     t.integer  "price_cents"
     t.string   "currency"
     t.string   "quantity"
+    t.boolean  "deleted",             :default => false
   end
 
   add_index "listings", ["listing_type_old"], :name => "index_listings_on_listing_type"
@@ -605,6 +605,20 @@ ActiveRecord::Schema.define(:version => 20141117165348) do
 
   add_index "payment_rows", ["payment_id"], :name => "index_payment_rows_on_payment_id"
 
+  create_table "payment_settings", :force => true do |t|
+    t.boolean  "active",                                :null => false
+    t.integer  "community_id",                          :null => false
+    t.string   "payment_gateway",         :limit => 64
+    t.string   "payment_process",         :limit => 64
+    t.integer  "commission_from_seller"
+    t.integer  "minimum_price_cents"
+    t.integer  "confirmation_after_days",               :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+  end
+
+  add_index "payment_settings", ["community_id"], :name => "index_payment_settings_on_community_id"
+
   create_table "payments", :force => true do |t|
     t.string   "payer_id"
     t.string   "recipient_id"
@@ -629,19 +643,28 @@ ActiveRecord::Schema.define(:version => 20141117165348) do
     t.integer  "community_id"
     t.string   "email"
     t.string   "payer_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "active",       :default => false
   end
 
   add_index "paypal_accounts", ["community_id"], :name => "index_paypal_accounts_on_community_id"
   add_index "paypal_accounts", ["payer_id"], :name => "index_paypal_accounts_on_payer_id"
   add_index "paypal_accounts", ["person_id"], :name => "index_paypal_accounts_on_person_id"
 
+  create_table "paypal_ipn_messages", :force => true do |t|
+    t.text     "body"
+    t.string   "status",     :limit => 64
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
   create_table "paypal_payments", :force => true do |t|
     t.integer  "community_id",                                                        :null => false
     t.integer  "transaction_id",                                                      :null => false
     t.string   "payer_id",                   :limit => 64,                            :null => false
     t.string   "receiver_id",                :limit => 64,                            :null => false
+    t.string   "merchant_id",                                                         :null => false
     t.string   "order_id",                   :limit => 64,                            :null => false
     t.datetime "order_date",                                                          :null => false
     t.string   "currency",                   :limit => 8,                             :null => false
@@ -703,6 +726,7 @@ ActiveRecord::Schema.define(:version => 20141117165348) do
     t.string   "token",                :limit => 64
     t.integer  "transaction_id"
     t.string   "merchant_id",                        :null => false
+    t.string   "receiver_id",                        :null => false
     t.datetime "created_at"
     t.string   "item_name"
     t.integer  "item_quantity"
@@ -716,7 +740,7 @@ ActiveRecord::Schema.define(:version => 20141117165348) do
   add_index "paypal_tokens", ["transaction_id"], :name => "index_paypal_tokens_on_transaction_id"
 
   create_table "people", :id => false, :force => true do |t|
-    t.string   "id",                                 :limit => 22,                   :null => false
+    t.string   "id",                                 :limit => 22,                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "is_admin",                                         :default => 0
@@ -728,7 +752,7 @@ ActiveRecord::Schema.define(:version => 20141117165348) do
     t.boolean  "active",                                           :default => true
     t.string   "username"
     t.string   "email"
-    t.string   "encrypted_password",                               :default => "",   :null => false
+    t.string   "encrypted_password",                               :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -752,6 +776,7 @@ ActiveRecord::Schema.define(:version => 20141117165348) do
     t.integer  "min_days_between_community_updates",               :default => 1
     t.boolean  "is_organization"
     t.string   "organization_name"
+    t.boolean  "deleted",                                          :default => false
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
