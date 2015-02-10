@@ -173,7 +173,7 @@ fi:
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
         update_settings: Tallenna
         automatically_confirmed: "Transaktio merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää. Jos käytössä on escrow-järjestelmä, rahat tilitetään tässä vaiheessa maksun saajalle."
-        automatically_confirmed_no_escrow: "Transaktio merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää."
+        automatically_confirmed_no_escrow: "Transaktio merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää"
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
         newsletter_weekly: Viikoittain
@@ -271,7 +271,7 @@ fi:
       form:
         field_required:
           this_field_is_required: "Tämä on pakollinen kenttä"
-          this_field_is_required_checkbox: "Tämä on pakollinen kenttä (Käyttäjän pitää valita ainakin yksi vaihtoehdoista)"
+          this_field_is_required_checkbox: "Tämä on pakollinen kenttä (käyttäjän pitää valita ainakin yksi vaihtoehdoista)"
       index:
         listing_fields: Ilmoituskentät
         listing_fields_help: "Voit muokata kenttiä, jotka käyttäjän pitää täyttää listausta luodessa. Osa kentistä on ennaltamäärättyjä eikä niitä voi muokata."
@@ -698,8 +698,6 @@ fi:
       view_it_in_your_browser: "Katso verkkoselaimellasi"
       or: tai
       unsubscribe_from_these_emails: "lopeta tällaisten viestien vastaanotto kokonaan"
-    community_starter_email:
-      subject: "Sharetriben uusi ilme - käyttäjämääräraja poistettu, kauppapaikan ilmeen muokkaus ja paljon muuta"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi '%{listing}'."
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi '%{listing}'."
@@ -984,7 +982,6 @@ fi:
       this_is_private_community: "Sinun täytyy liittyä palveluun nähdäksesi sen sisällön."
     invitation_form:
       invite_your_friends: "Kutsu kaverisi %{service_name}-palveluun!"
-      invite_your_neighbors: "Kutsu naapurisi %{service_name}-palveluun!"
       email: "Kutsuttavan sähköpostiosoite"
       message: "Viesti kutsuttavalle"
       send_invitation: "Lähetä kutsu"
@@ -1537,8 +1534,6 @@ fi:
       help_captcha_title: "Olethan ihminen"
       help_invitation_code_title: "Tarvitset kutsun liittyäksesi"
       terms_title: "%{service_name}-palvelun käyttöehdot"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloud on Internet-palvelu, joka auttaa mittaamaan henkilöiden luotettavuutta erilaisissa jakamispalveluissa. TrustCloud antaa pistemäärän (1-1000) perustuen henkilön toimintaan eri palveluissa. Pistemäärä kasvattaa muilta saatu hyvä palaute, omien tietojen kertominen avoimesti, sekä suuri määrä yhteyksiä esim. Facebookissa. TrustCard-korttia klikkaamalla näet lisätietoja kustakin kortista.</p><p>TrustCloud on käytössä %{service_name}-palvelussa tuomassa lisävarmistusta sille, että henkilö esiintyy omana itsenään, ei piiloudu tekaistun identiteetin taakse.</p><p>Voit rekisteröidä oman TrustCard-kortin, jos haluat, <a href='https://trustcloud.com/claim'>rekisteröitymällä TrustCloudiin</a> ja vahvistamalla siellä saman email osoitteen, joka sinulla on käytössä %{service_name}-palvelussa. TrustCloudin käyttö on täysin vapaaehtoista, mutta suosittelemme rekisteröitymistä, sillä se lisää luotettavuuttasi muiden silmissä, ja todennäköisesti siten helpottaa avun löytämistä.</p><p>Toimintasi %{service_name}-palvelussa ei vielä vaikuta TrustCloud-pisteisiisi, mutta tulevaisuudessa on tarkoitus, että %{service_name}-palautteetkin vaikuttavat.</p>"
       invite_only_help_text: "Valitse tämä, jos haluat, että uudet jäsenet voivat liittyä vain, jos he ovat saaneet kutsun olemassaolevalta jäseneltä."
       invite_only_help_text_title: "Kutsun vaativa sivusto"
     inactive_notification:
@@ -1685,7 +1680,7 @@ fi:
       delete_account_confirmation_popup: "Oletko aivan varma, että haluat pysyvästi poistaa käyttäjätilisi ja kaikki siihen liittyvät tiedot? Poistoa ei voi peruuttaa."
       email_addresses: Sähköpostiosoitteet
       new_email: "Uusi sähköpostiosoite"
-      delete_all_memberships: "Jos poistat käyttäjätunnuksesi, et pysty enää käyttämään sitä seuraavissa markkinapaikkoissa: %{marketplaces}"
+      delete_all_memberships: "Jos poistat käyttäjätunnuksesi, et pysty enää käyttämään sitä seuraavissa markkinapaikkoissa: %{marketplaces}."
       delete_personal_information: "Jos poistat käyttäjätunnuksesi, kaikki henkilokohtaiset tietosi (nimi, puhelinnumero, osoite, sähköpostiosoite, profiilikuva, jne.) poistetaan pysyvästi. Tietojen palauttaminen ei ole mahdollista. Kaikki ilmoituksesi poistetaan. Et voi aktivoida tunnustasi uudelleen poiston jälkeen."
       delete_information_others_involved: "Tapahtumat, joissa mukana on ollut muita osapuolia (esimerkiksi keskustelut, transaktiot, antamasi palautteet, jne.) eivät poistu tunnustesi poiston yhteydessä. Nimeäsi ei kuitenkaan enää näytetä näiden tapahtumien yhteydessä."
       unfinished_transactions: "Et voi poistaa tunnustasi, koska sinulla on keskeneräisiä transaktioita. Päätä transaktiot ennen tunnuksen poistoa."

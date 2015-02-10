@@ -264,23 +264,6 @@ class PersonMailer < ActionMailer::Base
          :reply_to => "\"#{sender.name(community)}\"<#{sender.confirmed_notification_email_to}>")
   end
 
-  # A custom message to a community starter
-  def community_starter_email(person, community)
-    @email_type = "email_from_admins"
-    set_up_urls(person, community, @email_type)
-    @community = community
-    @no_recipient_name = true
-    # This check needs to be here because this method is currently
-    # usually called directly from console.
-    if @recipient.should_receive?("email_from_admins")
-      premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-           :from => community_specific_sender(community),
-           :subject => t("emails.community_starter_email.subject")) do |format|
-        format.html { render "community_starter_email_#{@recipient.locale}" }
-      end
-    end
-  end
-
   # Used to send notification to Sharetribe admins when somebody
   # gives feedback on Sharetribe
   def new_feedback(feedback, community)
@@ -471,18 +454,6 @@ class PersonMailer < ActionMailer::Base
       rescue => e
         # Catch the exception and continue sending the emails
         ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name(email_locale)}: #{e.message}", e.class)
-      end
-    end
-  end
-
-  # A custom message to all the community starters
-  def self.community_starter_emails
-    CommunityMembership.where(:admin => true).each do |community_membership|
-      begin
-        community_starter_email(community_membership.person, community_membership.community).deliver
-      rescue => e
-        # Catch the exception and continue sending the emails
-        ApplicationHelper.send_error_notification("Error sending email to all community starters: #{e.message}", e.class)
       end
     end
   end
