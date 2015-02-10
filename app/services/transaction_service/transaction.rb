@@ -48,19 +48,15 @@ module TransactionService::Transaction
   end
 
   def can_start_transaction_paypal(community_id:, author_id:)
-    personal_account_verified = paypal_account_verified?(community_id: community_id, person_id: author_id)
+    payment_settings = Maybe(PaymentSettingsStore.get_active(community_id: community_id))
+                       .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
+
+    personal_account_verified = paypal_account_verified?(community_id: community_id, person_id: author_id, settings: payment_settings)
     community_account_verified = paypal_account_verified?(community_id: community_id)
 
-    payment_settings_available =
-      Maybe(PaymentSettingsStore.get_active(community_id: community_id))
-      .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
+    payment_settings_available = payment_settings.map {|_| true }.or_else(false)
 
-    case [personal_account_verified, community_account_verified, payment_settings_available]
-    when matches([true, true, Some])
-      true
-    else
-      false
-    end
+    [personal_account_verified, community_account_verified, payment_settings_available].all?
   end
 
   def create(opts, paypal_async: false)
@@ -379,15 +375,11 @@ module TransactionService::Transaction
     [commission_total, payment_total - fee_total].min
   end
 
-  def paypal_account_verified?(community_id:, person_id:nil)
-    acc = paypal_accounts_api.get(
-      community_id: community_id,
-      person_id: person_id
-    ).maybe
+  def paypal_account_verified?(community_id:, person_id: nil, settings: Maybe(nil))
+    acc_state = paypal_accounts_api.get(community_id: community_id, person_id: person_id).maybe()[:state].or_else(:not_connected)
+    commission_type = settings[:commission_type].or_else(nil)
 
-    state = acc[:state].or_else(:not_verified)
-
-    state == :verified
+    acc_state == :verified || (acc_state == :connected && commission_type == :none)
   end
 
   def paypal_payment_api

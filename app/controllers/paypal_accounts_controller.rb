@@ -10,12 +10,12 @@ class PaypalAccountsController < ApplicationController
   DataTypePermissions = PaypalService::DataTypes::Permissions
 
   def show
+    return redirect_to action: :new unless PaypalHelper.account_prepared_for_user?(@current_user.id, @current_community.id)
+
     m_account = accounts_api.get(
       community_id: @current_community.id,
       person_id: @current_user.id
     ).maybe
-
-    return redirect_to action: :new unless m_account[:state].or_else(:not_verified) == :verified
 
     @selected_left_navi_link = "payments"
 
@@ -31,17 +31,18 @@ class PaypalAccountsController < ApplicationController
       community_ready_for_payments: community_ready_for_payments,
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       paypal_account_email: m_account[:email].or_else(""),
+      paypal_account_state: m_account[:state].or_else(:not_connected),
       change_url: ask_order_permission_person_paypal_account_path(@current_user)
     })
   end
 
   def new
+    return redirect_to action: :show if PaypalHelper.account_prepared_for_user?(@current_user.id, @current_community.id)
+
     m_account = accounts_api.get(
       community_id: @current_community.id,
       person_id: @current_user.id
     ).maybe
-
-    return redirect_to action: :show if m_account[:state].or_else(:not_verified) == :verified
 
     @selected_left_navi_link = "payments"
 
