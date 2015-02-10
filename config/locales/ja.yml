@@ -1031,7 +1031,7 @@ ja:
       join_this_community: マーケットプレイスに参加する
       read_more: もっと読む
       feedback: ご用件をどうぞ。
-      default_feedback: "%{service_name}の問題を発見してしまいましたか。サイトの向上のためのご提案がありますか。あやしい投稿を見つけてしまいましたか。あるいは私たちと何かを議論してみたいですか。お気軽にお知らせください！"
+      default_feedback: "サイトの向上のためのご提案がありますか。あやしい投稿や%{service_name}の問題を見つけてしまいましたか。あるいは私たちと何かを議論してみたいですか。お気軽にお知らせください！"
       feedback_forum: レビューフォーラム
       feedback_handle: レビューを書く
       give_feedback: お問い合わせ
@@ -1488,7 +1488,7 @@ ja:
     you_are_ready_to_accept_payments: お支払いの受諾が出来ます！
     commission: "%{commission}％"
     connected_account: "PayPalアカウントと「%{email}」は接続されました。"
-    change_account: ~
+    change_account: アカウントの変更
     missing: "公開されているリストがありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続手続きをお願いします。"
     from_your_payment_settings_link_text: お支払い設定
     new:

@@ -2,32 +2,32 @@ zh:
   admin:
     categories:
       edit:
-        edit_listing_category: "编辑类别“%{category}”"
+        edit_listing_category: "编辑分类“%{category}”"
       index:
-        listing_categories: 列出类别
-        create_a_new_category: +添加一个新类别
-        remove_category_confirmation: "你确定要移除类别“%{category_name}”吗？"
-        saving_order: 保存类别顺序
-        save_order_successful: 成功保存类别顺序
-        save_order_error: 保存类别顺序时发生错误。请刷新页面后重试。
+        listing_categories: 信息类别
+        create_a_new_category: +添加一个新的分类
+        remove_category_confirmation: "你确定要移除分类“%{category_name}”吗？"
+        saving_order: 保存分类顺序
+        save_order_successful: 成功保存分类的顺序
+        save_order_error: 保存分类顺序时发生错误。请刷新页面后重试。
       new:
-        new_listing_category: 新的类别类别
+        new_listing_category: 新的信息分类
       form:
         category_name:
-          category_title: 类别标题
+          category_title: 分类的标题
         category_parent:
-          category_parent: 父类别
-          no_parent: 无上级
+          category_parent: 父分类
+          no_parent: 无上级分类
         category_transaction_types:
-          transaction_types: 事务类型
+          transaction_types: 交易的类型
           transaction_types_description: ~
         buttons:
           save: 保存
           cancel: 取消
       remove:
-        remove_category: 移除类别
-        remove_category_name: "移除类别“%{category_name}”"
-        warning_remove_effects: "警告！移除类别“%{category_name}”将会有以下影响："
+        remove_category: 移除分类
+        remove_category_name: "移除分类“%{category_name}”"
+        warning_remove_effects: "警告！移除分类“%{category_name}”将会有以下影响："
         select_new_category: 为上面将要移动的项目选择一个新的类别
         buttons:
           remove: 移去
@@ -43,7 +43,7 @@ zh:
         edit_community_slogan_description: ~
         community_description: ~
         edit_community_description_description: ~
-        community_search_placeholder: 搜索帮助正文
+        community_search_placeholder: 搜索提示
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
@@ -67,14 +67,14 @@ zh:
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: 页面展示Logo
-        community_logo_icon: 移动标志
+        community_logo_icon: 移动端logo
         community_cover_photo: 封面照片
         small_community_cover_photo: 小的封面照片
         favicon: 网站图标
         favicon_info_text: ~
         community_custom_color1: 主要颜色
         community_custom_color2: 第二颜色
-        logo_instructions_text_with_dimensions: "桌面图片尺寸必须是%{width}x%{height}像素。它将显示给使用大屏幕的用户。"
+        logo_instructions_text_with_dimensions: "封面图片尺寸必须是%{width}x%{height}像素。它将显示给使用大屏幕的用户。"
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: ~
@@ -84,12 +84,12 @@ zh:
         custom_color1_instructions_text: ~
         custom_color2_instructions_text: ~
         default_browse_view: 默认查看视图
-        default_browse_view_instructions_text: 主页使用默认查看视图来设置列表的默认展示方式。
+        default_browse_view_instructions_text: 主页使用默认查看视图来设置信息的默认展示方式。
         grid: 网格
         list: 列表
         map: 地图
         name_display_type: 名字显示类型
-        name_display_type_instructions_text: 选择每个用户名在站点的显示方式。
+        name_display_type_instructions_text: 选择用户名在站点的显示方式。
         full_name: 全名（名+姓）
         first_name_with_initial: 名及首字母缩写（名+姓缩写）
         first_name_only: 名字（名）
@@ -139,22 +139,22 @@ zh:
       settings:
         settings: 设置
         general: 常规
-        users_can_review_each_other_after_transaction: 用户可以在交易结束后查看彼此信息
+        users_can_review_each_other_after_transaction: 用户可以在交易结束后相互评论
         access: 访问
         join_with_invite_only: ~
         users_can_invite_new_users: ~
         private: ~
-        require_verification_to_post_listings: 只有经管理员验证的用户可以发布新的列表
+        require_verification_to_post_listings: 只有经管理员验证的用户可以发布新的信息
         listing_preferences: 列出偏好
         transaction_preferences: 事务偏好
-        show_listing_publishing_date: 显示列表页面的列表发布日期
-        show_category_in_listing_list: 显示列表视图的列表类型
-        hide_expiration_date: 不要求列表包含过期日期
-        listing_comments_in_use: 允许用户为列表发表评论（所有其他用户可见）
+        show_listing_publishing_date: 在列表页面的显示信息的发布日期
+        show_category_in_listing_list: 在列表视图中显示信息分类
+        hide_expiration_date: 不要求发布的信息包含过期日期
+        listing_comments_in_use: 允许用户对信息发表评论（所有其他用户可见）
         email_preferences: 邮件发送偏好设置
         automatic_newsletters: 自动发送每日/每周新闻邮件给所有用户（除非用户选择不接收）
-        email_admins_about_new_members: 当新用户注册时发送给管理员一封电子邮件
-        google_analytics_key: "Google Analytics跟踪号"
+        email_admins_about_new_members: 当新用户注册时给管理员发送一封电子邮件
+        google_analytics_key: "Google Analytics跟踪ID"
         twitter_handle: ~
         update_settings: 保存设置
         automatically_confirmed: ~
@@ -244,7 +244,7 @@ zh:
         paypal_admin_account: 付款
     custom_fields:
       edit:
-        edit_listing_field: "编辑列表字段“%{field_name}”"
+        edit_listing_field: "编辑信息字段“%{field_name}”"
       edit_price:
         edit_price_field: 编辑价格字段
         show_price_filter_homepage: 在主页显示价格过滤器
@@ -255,7 +255,7 @@ zh:
         this_field_is_required: 该字段必填
       form:
         field_required:
-          this_field_is_required: 这个字段是必填项。
+          this_field_is_required: 这个字段是必填的。
           this_field_is_required_checkbox: 该项必填（用户必须选择至少一个选项）
       index:
         listing_fields: ~
@@ -266,7 +266,7 @@ zh:
         save: 保存
         field_title: 字段标题
         field_type: 字段类型
-        categories: 列出字段使用的类别
+        categories: 信息分类字段
         options: 选项
         add_option: +添加选项
         saving_order: 保存字段顺序
@@ -276,9 +276,9 @@ zh:
         continue: 继续
         minimum_value: 最小
         maximum_value: 最大
-        allow_decimals: 允许数字
+        allow_decimals: 允许小数
       new:
-        new_listing_field: 新的列表字段
+        new_listing_field: 新的信息字段
       field_types:
         text: 文本
         number: 数字
@@ -319,17 +319,17 @@ zh:
     transaction_types:
       sell: 出售
       rent: 已出租
-      give: 放弃
+      give: 赠送
       lend: 出借
       swap: 交换
-      service: "\n"
-      request: 请求中
+      service: 供给
+      request: 请求
       inquiry: 查询
       share_for_free: 免费共享
       default_action_button_labels:
         sell: 购买
         rent: 租赁
-        request: 提议
+        request: 供应
         offer: 请求
         inquiry: 联系人
   common:
@@ -616,8 +616,8 @@ zh:
       remember_to_accept_request: "请记得接受或拒绝来自%{sender_name}的请求"
       you_can_accept_or_reject_offer_at: 您可以在此接受或拒绝提议
       you_can_accept_or_reject_request_at: 您可以在此接受或拒绝请求
-      you_have_not_yet_accepted_or_rejected_offer: "您尚未接受或拒绝您在%{date}收到的提议'%{title}'"
-      you_have_not_yet_accepted_or_rejected_request: "您尚未接受或拒绝您在%{date}收到的请求'%{title}'"
+      you_have_not_yet_accepted_or_rejected_offer: "您尚未接受或拒绝您在%{date}收到的%{title}"
+      you_have_not_yet_accepted_or_rejected_request: "您尚未接受或拒绝您在%{date}收到的%{title}"
       show_thread: 显示对话
     braintree_account_approved:
       account_ready: 你已经可以接收付款了
@@ -684,7 +684,7 @@ zh:
       or: 或者
       unsubscribe_from_these_emails: 退订这些邮件
     community_starter_email:
-      subject: 见新的Sharetribe——会员限制已去除，外观和感受可以修改，以及更多
+      subject: 新的Sharetribe包括—会员限制已去除，外观和感受可以修改，以及更多
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} 已经接受了你的%{listing}"
       has_accepted_your_request: "%{accepter}已经接受了你的%{listing}"
@@ -713,7 +713,7 @@ zh:
     new_message:
       view_message: 查看消息
       has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 向您发送一条消息"
-      you_have_a_new_message: 收到一条新消息
+      you_have_a_new_message: "在%{service_name}收到一条来自%{sender_name}的新消息"
     new_payment:
       new_payment: 你收到一笔新的付款
       you_have_received_new_payment: ~
@@ -742,7 +742,7 @@ zh:
     community_updates:
       added_offer: "%{name_link}新增了一条信息："
       added_request: "%{name_link}新增了一条信息："
-      added_listing: "%{name_link}添加了一个列表："
+      added_listing: "%{name_link}发布了一条信息："
       update_mail_title: ~
       title_link_text: ~
       intro_paragraph: ~
@@ -812,7 +812,7 @@ zh:
       minimum_price: "最低的价格是%{minimum_price}%{currency}。"
     testimonials:
       you_must_explain_not_neutral_feedback: 如果您希望给出非中性的评价，您必须解释原因。
-      you_must_select_a_grade: 点击上面的图标为用户评分（将鼠标指针悬停在图标上以获得帮助）
+      you_must_select_a_grade: 记得告诉我们你的体验是好的还是不好的。
     transaction_agreement:
       required_error: 你需要接受协议
     paypal:
@@ -920,10 +920,10 @@ zh:
       items_to_offer: "可借出的物品： "
       items_to_request: "可借入的物品： "
       log_in: 登录！
-      no_offers_visible_unless_logged_in: 没有对游客可见的提议。
-      no_open_offers_currently: 当前没有可用的提议。
-      no_open_requests_currently: 当前没有可用的请求。
-      no_requests_visible_unless_logged_in: 没有对游客可见得请求
+      no_offers_visible_unless_logged_in: 没有对游客公开的信息。
+      no_open_offers_currently: 当前没有公开的信息。
+      no_open_requests_currently: 当前没有公开的信息。
+      no_requests_visible_unless_logged_in: 没有对游客公开的信息。
       one_private_offer_exists: "已有<b>一个提议</b>,"
       one_private_request_exists: "已有<b>一个请求</b>,"
       ride_offer: 帮助其他人照管孩子
@@ -941,7 +941,7 @@ zh:
     index:
       no_listings_with_your_search_criteria: 我们无法找到任何匹配你的搜索条件的结果。
       no_listings_notification: "没有信息。%{add_listing_link}"
-      add_listing_link_text: 添加新列表
+      add_listing_link_text: 发布新的信息
       open_listing: 公开的信息
       open_listings: 公开的信息
       private_listing_notification_log_in: 登录
@@ -957,7 +957,7 @@ zh:
       news: 新闻
       no_news: "没有新闻\n"
       more_news: 更多新闻
-      or: 或者
+      or: 和
       or_see_what_the_others: 或者看看其他的……
       recent_events: 最近的事件
       requesting: 需求
@@ -1075,7 +1075,7 @@ zh:
       settings: 设置
       sign_up: 注册
     notifications:
-      listing_could_not_be_saved: "列表不能保存。请重试。如果问题依旧存在，请%{contact_admin_link}。"
+      listing_could_not_be_saved: "信息不能保存。请重试。如果问题依旧存在，请%{contact_admin_link}。"
       contact_admin_link_text: 联系管理员
       test_welcome_email_delivered_to: "测试邮件已发送到%{email}。"
       something_went_wrong: 出错了
@@ -1088,7 +1088,7 @@ zh:
       confirmation_link_is_wrong_or_used: 确认链接以被使用或失效。请尝试登录，如果问题依然存在请发送反馈。
       additional_email_confirmed: 你输入的邮箱已经确认。你可以再输入一次加入社区
       could_not_get_email_from_facebook: 不能从Facebook获取邮件地址，没有邮件地址则无法创建帐号。
-      create_new_listing: 创建另一个列表
+      create_new_listing: 发布另一条消息
       create_one_here: 在此创建
       email_confirmation_sent_to_new_address: 电子邮件确认信已经送往你的新地址。
       email_not_found: "无法在%{service_name}中找到您所提供的邮箱地址。"
@@ -1118,7 +1118,7 @@ zh:
       listing_created_successfully: "成功发布了新信息。%{new_listing_link}"
       offer_rejected: 提议被拒绝
       offer_canceled: 提议已取消
-      listing_updated_successfully: 列表更新成功
+      listing_updated_successfully: 信息更新成功
       only_kassi_administrators_can_access_this_area: "只有%{service_name}管理员有权限进入此区域"
       only_listing_author_can_close_a_listing: 仅作者可以关闭列表
       only_listing_author_can_edit_a_listing: 仅作者可以编辑列表
@@ -1207,15 +1207,15 @@ zh:
       send_comment: 发送评论
       to_send_a_comment: 以发送新的评论
       write_comment: 发表新的评论：
-      you_cannot_send_a_new_comment_because_listing_is_closed: 你不能发表新的评论，因为列表已经关闭。
+      you_cannot_send_a_new_comment_because_listing_is_closed: 你不能发表新的评论，因为这条信息已经关闭。
       you_must: 您必须
       subscribe_to_comments: 若有新评论或更新，通知我
     edit:
-      edit_listing: 编辑列表
+      edit_listing: 编辑发布的信息
     edit_links:
-      close_listing: 关闭列表
-      edit_listing: 编辑列表
-      reopen_listing: 重新开放列表
+      close_listing: 关闭发布的信息
+      edit_listing: 编辑发布的信息
+      reopen_listing: 重新开放发布的信息
       move_to_top: 移到主页顶端
       show_in_updates_email: ~
       show_in_updates_email_loading: 加载……
@@ -1259,7 +1259,7 @@ zh:
         processing: 处理中……
         loading_image: 正在加载……
         this_may_take_a_while: （这可能会花一些时间）
-        percentage_loaded: "%{percentage}"
+        percentage_loaded: "%{percentage}%"
         uploading_failed: 图片加载出错
         file_too_large: 文件太大
         accepted_formats: "图片必须是GIF,JPG或PNG格式"
@@ -1279,7 +1279,7 @@ zh:
         location: 地点
         origin: 来源
       send_button:
-        save_listing: 保存列表
+        save_listing: 保存发布的信息
       share_type:
         select: 选择
         borrow: 借入
@@ -1363,10 +1363,10 @@ zh:
       listing: 信息
       selected_category: "分类：%{category}"
       selected_subcategory: "子分类：%{subcategory}"
-      selected_transaction_type: "列表类型：%{transaction_type}"
-      select_category: 选择类别
-      select_subcategory: 选择子类别
-      select_transaction_type: 选择列表类型
+      selected_transaction_type: "信息类型：%{transaction_type}"
+      select_category: 选择分类
+      select_subcategory: 选择子分类
+      select_transaction_type: 选择信息类型
       you_need_to_fill_payout_details_before_accepting: "在发布列表前你需要填写支出详情。点击%{payment_settings_link}来填写详情。"
       contact_admin_link_text: 联系管理员
       community_not_configured_for_payments: ~
@@ -1374,7 +1374,7 @@ zh:
       community_not_configured_for_payments_admin: ~
     please_comment: 评论
     reply_link:
-      listing_closed: 列表已关闭
+      listing_closed: 发布的信息已关闭
     show:
       add_your_phone_number: 添加你的电话号码
       add_profile_picture: 添加个人资料图片
@@ -1407,7 +1407,7 @@ zh:
       times_viewed: 浏览的次数
       processing_uploaded_image: （正在处理上传图片……）
       price_excludes_vat: ~
-      listing_created_at: 列表创建
+      listing_created_at: 信息已创建
       price:
         per_quantity_unit: "每%{quantity_unit}"
         per_day: 每天
@@ -1478,7 +1478,7 @@ zh:
     you_are_ready_to_accept_payments: 你已准备好接受付款！
     commission: "%{commission}%"
     connected_account: "PayPal帐号“%{email}”连接成功。"
-    change_account: ~
+    change_account: 更改帐户
     missing: ~
     from_your_payment_settings_link_text: 付款设置
     new:
@@ -1594,14 +1594,14 @@ zh:
       what_are_these: 这些是什么？
       review: 收到的评论
       reviews: 收到的评论
-      listing: 列表
-      listings: 列表
+      listing: 发布的信息
+      listings: 发布的信息
       open_listing: 公开的信息
       open_listings: 公开的信息
-      no_listings: 列表不存在
+      no_listings: 没有信息
       no_open_listings: 非公开的信息
       no_reviews: 没有评论
-      show_all_listings: 显示所有列表
+      show_all_listings: 显示所有已发布的信息
       show_all_open_listings: 显示所有公开的信息
       show_all_reviews: 显示所有评论
       trustcloud: ~
@@ -1732,7 +1732,7 @@ zh:
       these_fields_are_shown_in_your: "此信息对所有%{service_name}用户可见"
       visible_to_everybody: 对所有人可见
       visible_to_registered_users: 对已登录用户可见
-      default_in_listing: （只有在创建新列表时作为默认值使用）
+      default_in_listing: （只有在发布新信息时作为默认值使用）
       invisible: （不显示给其他用户）
     save_information: 保存信息
   tag_cloud:
