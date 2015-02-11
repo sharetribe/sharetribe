@@ -95,7 +95,8 @@ module PaypalService::API
           }),
         error_policy: {
           codes_to_retry: ["10001", "x-timeout", "x-servererror"],
-          try_max: 5
+          try_max: 5,
+          finally: (method :commission_payment_failed).call(payment)
         }
         ) do |ref_tx_res|              # Update payment
         updated_payment = PaypalService::Store::PaypalPayment.update(
@@ -111,6 +112,23 @@ module PaypalService::API
           transaction_id: info[:transaction_id])
         # Return as payment entity
         Result::Success.new(DataTypes.create_payment(updated_payment))
+      end
+    end
+
+    def error_payment(cid, txid, payment)
+      PaypalService::Store::PaypalPayment.update(
+        data: payment.merge({
+          commission_status: :errored
+        }),
+        community_id: cid,
+        transaction_id: txid)
+    end
+
+    def commission_payment_failed(payment)
+      -> (cid, txid, request, err_response) do
+        error_payment(cid, txid, payment)
+
+        log_and_return(cid, txid, request, err_response)
       end
     end
 
