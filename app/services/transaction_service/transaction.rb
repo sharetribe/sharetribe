@@ -331,17 +331,22 @@ module TransactionService::Transaction
   def charge_commission(transaction_id)
     transaction = query(transaction_id)
     payment = paypal_payment_api.get_payment(transaction[:community_id], transaction[:id])[:data]
+    commission_to_admin = calculate_commission_to_admin(transaction[:commission_total], payment[:payment_total], payment[:fee_total])
 
-    charge_request =
-      {
-        transaction_id: transaction_id,
-        payment_name: I18n.translate_with_service_name("paypal.transaction.commission_payment_name", { listing_title: transaction[:listing_title] }),
-        payment_desc: I18n.translate_with_service_name("paypal.transaction.commission_payment_description", { listing_title: transaction[:listing_title] }),
-        minimum_commission: transaction[:minimum_commission],
-        commission_to_admin: calculate_commission_to_admin(transaction[:commission_total], payment[:payment_total], payment[:fee_total])
-      }
+    if (commission_to_admin.positive?)
+      charge_request =
+        {
+          transaction_id: transaction_id,
+          payment_name: I18n.translate_with_service_name("paypal.transaction.commission_payment_name", { listing_title: transaction[:listing_title] }),
+          payment_desc: I18n.translate_with_service_name("paypal.transaction.commission_payment_description", { listing_title: transaction[:listing_title] }),
+          minimum_commission: transaction[:minimum_commission],
+          commission_to_admin: commission_to_admin
+        }
 
-    paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
+      paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
+    else
+      Result::Success.new({})
+    end
   end
 
   def checkout_details(model)
@@ -362,12 +367,11 @@ module TransactionService::Transaction
   end
 
   def calculate_commission(total_price, commission_from_seller, minimum_commission)
-    if commission_from_seller.blank? || commission_from_seller == 0
-      Money.new(0, minimum_commission.currency)
-    else
-      commission_by_percentage = total_price * (commission_from_seller / 100.0)
-      (commission_by_percentage > minimum_commission) ? commission_by_percentage : minimum_commission
-    end
+    [(total_price * (commission_from_seller / 100.0) unless commission_from_seller.nil?),
+     (minimum_commission unless minimum_commission.nil?),
+     Money.new(0, total_price.currency)]
+      .compact
+      .max
   end
 
   def calculate_commission_to_admin(commission_total, payment_total, fee_total)
