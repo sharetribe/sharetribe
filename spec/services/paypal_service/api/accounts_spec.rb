@@ -231,7 +231,24 @@ describe PaypalService::API::Accounts do
         }
       end
 
-      it "replaces old account with new one" do
+      it "replaces old unverified account" do
+        res = request_personal_account
+        expect_no_personal_account
+        res2 = request_personal_account(email: @new_email, payer_id: @new_payer_id)
+        create_personal_account(res2)
+
+        with_personal_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :not_verified
+          expect(data[:email]).to eq @new_email
+          expect(data[:payer_id]).to eq @new_payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+
+      end
+
+      it "replaces old verified account with new one" do
         res = request_personal_account
         create_personal_account(res)
 
