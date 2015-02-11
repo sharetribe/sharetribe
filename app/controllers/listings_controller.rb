@@ -40,6 +40,8 @@ class ListingsController < ApplicationController
           # Returns the listings for one person formatted for profile page view
           per_page = params[:per_page] || 200 # the point is to show all here by default
           render :partial => "listings/profile_listings", :locals => {:person => @person, :limit => per_page}
+        else
+          redirect_to root
         end
       end
 
