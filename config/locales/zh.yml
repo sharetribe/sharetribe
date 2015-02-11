@@ -146,7 +146,7 @@ zh:
         private: ~
         require_verification_to_post_listings: 只有经管理员验证的用户可以发布新的信息
         listing_preferences: 列出偏好
-        transaction_preferences: 事务偏好
+        transaction_preferences: 交易偏好
         show_listing_publishing_date: 在列表页面的显示信息的发布日期
         show_category_in_listing_list: 在列表视图中显示信息分类
         hide_expiration_date: 不要求发布的信息包含过期日期
@@ -213,7 +213,7 @@ zh:
         transactions: 查看交易记录
         headers:
           conversation: 会话
-          listing: 列表
+          listing: 发布的信息
           status: 状态
           sum: 总和
           started: 已开始
@@ -545,7 +545,7 @@ zh:
       accept_request: 接受请求
       reject_offer: 这次不行。
       reject_request: 这次不行。
-      accept_preauthorized_offer: 接受提议
+      accept_preauthorized_offer: 接受共给
       accept_preauthorized_request: 接受请求
       reject_preauthorized_offer: 这次不行
       reject_preauthorized_request: 这次不行
@@ -799,8 +799,8 @@ zh:
       contact_support_link_text: 联系我们的支持人员
       admin_panel_link_text: 管理控制面板
     new_listing_by_followed_person:
-      subject: "%{author_name}在%{service_name}发布了一个新的列表"
-      has_posted_a_new_listing: "%{author_name}发布了一个新的列表："
+      subject: "%{author_name}在%{service_name}发布了一则新的信息"
+      has_posted_a_new_listing: "%{author_name}发布了一则新的信息："
       you_are_receiving_this_because: "你收到这个通知是由于你关注了%{author_name}。"
       view_listing: 查看列表
   error_messages:
@@ -1708,7 +1708,7 @@ zh:
       email_about_completed_transactions: ……有人将我的提议或请求标记为已完成
       email_about_new_payments: ……我收到一笔新的付款
       email_about_payment_reminders: ……我忘记了支付
-      email_about_new_listings_by_followed_people: ……我关注的人发布了一个新的列表
+      email_about_new_listings_by_followed_people: ……我关注的人发布了一则新的信息
       unsubscribe_succesful: 退订成功
       unsubscribe_info_text: ~
       settings_link: 设置
