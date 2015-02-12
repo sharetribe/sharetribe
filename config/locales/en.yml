@@ -743,11 +743,12 @@ You can see the exact fees by logging in to your PayPal account and going <a hre
     new_payment:
       new_payment: "You have received a new payment"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
+    paypal_new_payment:
+      paypal_gateway_fee: "PayPal's fee:"
     braintree_new_payment:
       product: "Product:"
       price_payer_paid: "Price %{payer_full_name} paid:"
       service_fee: "%{service_name} service fee:"
-      paypal_gateway_fee: "PayPal's fee:"
       you_will_get: "Total:"
       money_will_be_transferred: "The money will be transferred to your account when a) %{payer_name} has marked the request completed or b) %{automatic_confirmation_days} days have passed since %{payer_name} paid."
     receipt_to_payer:

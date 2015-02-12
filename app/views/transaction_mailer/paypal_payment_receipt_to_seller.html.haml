@@ -24,18 +24,12 @@
         - if paypal_gateway_fee
           %tr
             %td
-              %b= t("emails.braintree_new_payment.paypal_gateway_fee")
+              %b= t("emails.paypal_new_payment.paypal_gateway_fee")
             %td= paypal_gateway_fee
 
-        %tr{:style => "border-top: 1px solid black"}
-          %td
-            %b= t("emails.braintree_new_payment.you_will_get")
-          %td= payment_seller_gets
-
-- if show_money_will_be_transferred_note
-  %tr
-    %td{:align => "left"}
-      %font{body_font}
-        = t("emails.braintree_new_payment.money_will_be_transferred", payer_name: payer_full_name, automatic_confirmation_days: automatic_confirmation_days)
+    %tr{:style => "border-top: 1px solid black"}
+      %td
+        %b= t("emails.braintree_new_payment.you_will_get")
+      %td= payment_seller_gets
 
 = render :partial => "person_mailer/action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}
