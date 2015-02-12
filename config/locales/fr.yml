@@ -189,7 +189,7 @@ fr:
         save_user_status_successful: Sauvegardé
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
         ban_user_confirmation: "Ceci supprime l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Êtes-vous sûr de vouloir faire cela ?"
-        ban_me_error: ~
+        ban_me_error: "Vous ne pouvez pas vous bannir vous-même."
       social_media:
         social_media: "Réseaux sociaux"
         twitter_handle: "Nom Twitter"
@@ -1493,6 +1493,7 @@ fr:
     you_are_ready_to_accept_payments: "Vous pouvez désormais recevoir des paiements !"
     commission: "%{commission} %"
     connected_account: "Le compte PayPal '%{email}' est désormais connecté."
+    change_account: "Changer de compte"
     missing: "Vous avez des annonces actives mais n'avez pas encore connecté votre compte PayPal, vous ne pouvez donc pas recevoir de paiements. Veuillez connecter votre compte PayPal dans vos %{settings_link}."
     from_your_payment_settings_link_text: "paramètres de paiement"
     new:
