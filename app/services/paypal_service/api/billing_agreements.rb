@@ -115,7 +115,7 @@ module PaypalService::API
       end
     end
 
-    def error_payment(cid, txid, payment)
+    def mark_payment_errored(cid, txid, payment)
       PaypalService::Store::PaypalPayment.update(
         data: payment.merge({
           commission_status: :errored
@@ -126,7 +126,7 @@ module PaypalService::API
 
     def commission_payment_failed(payment)
       -> (cid, txid, request, err_response) do
-        error_payment(cid, txid, payment)
+        mark_payment_errored(cid, txid, payment)
 
         log_and_return(cid, txid, request, err_response)
       end
