@@ -19,7 +19,7 @@
     - if paypal_account_state == :verified
       = form_for paypal_account_form, :url => billing_agreement_action, method: "get", :html => { :id => "paypal_account_form"} do |form|
 
-        = render :partial => "ask_paypal_billing_agreement", locals: {paypal_account_email: paypal_account_email, form: form, commission_from_seller: commission_from_seller, minimum_commission: minimum_commission}
+        = render :partial => "ask_paypal_billing_agreement", locals: {paypal_account_email: paypal_account_email, change_url: change_url, form: form, commission_from_seller: commission_from_seller, minimum_commission: minimum_commission}
     - else
       = form_for paypal_account_form, :url => order_permission_action, method: "get", :html => { :id => "paypal_account_form"} do |form|
         - title = t("paypal_accounts.new.paypal_account_email")

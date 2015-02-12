@@ -3,7 +3,8 @@
     =t("paypal_accounts.paypal_account_email_connected").html_safe
   .paypal-connected-email.paypal-account-connected
     = t("paypal_accounts.connected_account", :email => paypal_account_email)
-
+  .paypal-connected-change
+    = link_to t("paypal_accounts.change_account"), change_url
 
 .row
   = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement")

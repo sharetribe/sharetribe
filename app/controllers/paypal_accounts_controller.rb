@@ -65,6 +65,7 @@ class PaypalAccountsController < ApplicationController
       paypal_account_form: PaypalAccountForm.new,
       paypal_account_state: m_account[:order_permission_state].or_else(""),
       paypal_account_email: m_account[:email].or_else(""),
+      change_url: ask_order_permission_person_paypal_account_path(@current_user),
       commission_from_seller: t("paypal_accounts.commission", commission: commission_from_seller),
       minimum_commission: minimum_commission(),
       currency: community_currency,
