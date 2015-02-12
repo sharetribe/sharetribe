@@ -167,22 +167,35 @@ module PaypalService::Store::PaypalAccount
   end
 
   def update(community_id:, person_id:nil, payer_id:, opts:)
-    model = finder.find(community_id: community_id, person_id: person_id, payer_id: payer_id)
-    update_model(model, opts)
+    find_params = {
+      community_id: community_id,
+      person_id: person_id,
+      payer_id: payer_id
+    }
+
+    model = finder.find(find_params)
+    update_model(model, opts, find_params)
   end
 
   def update_pending(community_id:, person_id:nil, order_permission_request_token: order_permission_request_token, opts:)
-    model = finder.find_pending(
+    find_params = {
       community_id: community_id,
       person_id: person_id,
       order_permission_request_token: order_permission_request_token
-    )
-    update_model(model, opts)
+    }
+
+    model = finder.find_pending(find_params)
+    update_model(model, opts, find_params)
   end
 
   def update_active(community_id:, person_id:nil, opts:)
-    model = finder.find_active(community_id: community_id, person_id: person_id)
-    update_model(model, opts)
+    find_params = {
+      community_id: community_id,
+      person_id: person_id
+    }
+
+    model = finder.find_active(find_params)
+    update_model(model, opts, find_params)
   end
 
   def delete_billing_agreement(person_id:, community_id:)
@@ -231,7 +244,7 @@ module PaypalService::Store::PaypalAccount
 
   ## Privates
 
-  def update_model(maybe_model, opts)
+  def update_model(maybe_model, opts, find_params)
     entity = PaypalAccountUpdate.call(opts)
 
     case maybe_model
@@ -247,9 +260,7 @@ module PaypalService::Store::PaypalAccount
 
       from_model(Maybe(account_model))
     else
-      msg = "Can not find Paypal account for person_id #{person_id}, " \
-            "community_id #{community_id}, " \
-            "order_permission_request_token: #{order_permission_request_token}"
+      msg = "Can not find Paypal account #{find_params}"
 
       raise ArgumentError.new(msg) unless account_model
     end
