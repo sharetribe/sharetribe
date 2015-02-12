@@ -23,16 +23,6 @@ module PaypalService::API
       @merchant
     end
 
-
-    # Public API implementation
-    #
-
-    # GET /billing_agreements/:community_id/:person_id
-    def get_billing_agreement(community_id, person_id)
-      raise NoMethodError.new("Not implemented")
-    end
-
-
     # POST /billing_agreements/:community_id/:person_id/charge_commission
     def charge_commission(community_id, person_id, info, async: false)
       @lookup.with_completed_payment(community_id, info[:transaction_id]) do |payment|
