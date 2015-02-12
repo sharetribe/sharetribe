@@ -4,7 +4,7 @@ module TransactionService::Util
 
   module_function
 
-  def build_tx_model_with_conversation(opts)
+  def create_tx_model_with_conversation(opts)
     tx = TransactionModel.new(
       community_id: opts[:community_id],
       listing_id: opts[:listing_id],
@@ -36,7 +36,13 @@ module TransactionService::Util
           sender_id: opts[:starter_id]})
     end
 
-    if opts[:booking_fields].present?
+    if is_booking?(opts)
+      # TODO Move quantity calculation to tx service to get rid of this silly check
+      # Make sure listing_quantity equals duration
+      if booking_duration(opts) != tx.listing_quantity
+        raise ArgumentException.new("Listing quantity (#{tx.listing_quantity}) must be equal to booking duration in days (#{booking_duration(opts)})")
+      end
+
       start_on = opts[:booking_fields][:start_on]
       end_on = opts[:booking_fields][:end_on]
 
@@ -45,8 +51,8 @@ module TransactionService::Util
           end_on: end_on})
     end
 
-
-    return [tx, conversation]
+    tx.save!
+    tx
   end
 
 
