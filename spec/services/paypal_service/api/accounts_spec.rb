@@ -239,7 +239,7 @@ describe PaypalService::API::Accounts do
 
         with_personal_account { |data|
           expect(data[:active]).to eq true
-          expect(data[:state]).to eq :not_verified
+          expect(data[:state]).to eq :connected
           expect(data[:email]).to eq @new_email
           expect(data[:payer_id]).to eq @new_payer_id
           expect(data[:order_permission_state]).to eq :verified
