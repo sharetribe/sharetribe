@@ -81,7 +81,7 @@ module PaypalHelper
   def open_listings_with_missing_payment_info?(user_id, community_id)
     paypal_active?(community_id) &&
     !user_and_community_ready_for_payments?(user_id, community_id) &&
-    !MarketplaceService::Listing::Query.open_listings_for(community_id, user_id).empty?
+    !MarketplaceService::Listing::Query.open_listings_with_price_for(community_id, user_id).empty?
   end
 
   def accounts_api
