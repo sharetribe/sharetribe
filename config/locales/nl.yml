@@ -1434,7 +1434,7 @@ nl:
       by: "%{listing} door %{author}"
       payment: Betaling
       exp: "Exp:"
-      you_will_be_charged: "Je zal enkel kosten aangerekend krijgen als %{author} de transactie aanvaardt. %{author} moet de transactie binnen %{expiration_period} dagen aanvaarden. Als %{author} deze afwijst of niet reageert worden er geen kosten aangerekend."
+      you_will_be_charged: "Je bestelling zal pas afgerekend worden als %{author} de transactie aanvaardt. Dit moet binnen %{expiration_period} dagen gebeuren. Als %{author} de transactie afwijst of niet reageert, worden er geen kosten aangerekend."
       day: dag
       days: dagen
       price_per_day: "Prijs per dag: %{price}"
@@ -1493,6 +1493,7 @@ nl:
     you_are_ready_to_accept_payments: "Je bent klaar om betalingen te ontvangen!"
     commission: "%{commission} %"
     connected_account: "PayPal account '%{email}' succesvol geconnecteerd."
+    change_account: "Wijzig account"
     missing: "Je hebt openstaande items, maar je hebt je PayPal account nog niet geconnecteerd. Daardoor kan je nog geen betalingen ontvangen. Connecteer aub je PayPal account in je %{settings_link}."
     from_your_payment_settings_link_text: "instellingen betalingen"
     new:
