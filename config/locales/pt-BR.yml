@@ -698,8 +698,6 @@ pt-BR:
       view_it_in_your_browser: "Visualizar no seu navegador."
       or: ou
       unsubscribe_from_these_emails: "cancelar o recebimento desses emails"
-    community_starter_email:
-      subject: "Veja o novo Sharetribe - limite de filiação removido, visual pode ser modificado, e mais"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} aceitou sua oferta %{listing}"
       has_accepted_your_request: "%{accepter} aceitou sua requisição %{listing}"
@@ -984,7 +982,6 @@ pt-BR:
       this_is_private_community: "Você precisa registrar-se antes de poder ver o conteúdo."
     invitation_form:
       invite_your_friends: "Convide seus amigos para %{service_name}!"
-      invite_your_neighbors: "Concide seus vizinhos ao %{service_name} !"
       email: "Endereço de email(s)"
       message: "Uma mensagem pessoal"
       send_invitation: "Enviar convite"
@@ -1537,8 +1534,6 @@ pt-BR:
       help_captcha_title: "Você é um humano?"
       help_invitation_code_title: "Você precisa de um convite para se juntar a"
       terms_title: "%{service_name} termos de uso"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloud é um serviço que ajuda a quantificar a confiança em uma pessoa através difervos sites. Ele dá um score (de 1 à 1000) que é baseado na atividade on line de uma pessoa. Esse score aumenta por exemplo se você tiver bons comentários no eBay ou muitos amigos no Facebook. Você pode clicar no mapa para saber mais. </p><p>TrustCloud é utilizado para verificar se alguém é realmente quem ele diz que é. </p><p> Você pode pedir seu TrustCard no <a href='https://trustcloud.com/claim'> e se inscrever no TrustCloud</a> com o mesmo e-mail %{service_name}. Não é obrigatório, mas recomendado, pois isso vai aumentar a sua credibilidade na comunidade. </p><p> No momento, uma ação %{service_name} não afeta o seu TrustScore, mas nós vamos tornar isso possível em breve. </p>"
       invite_only_help_text: "Selecione esta opção se você quiser que os novos membros podem participar se forem convidados por um membro existente da tribo."
       invite_only_help_text_title: "Convite para uma tribo"
     inactive_notification:

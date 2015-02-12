@@ -698,8 +698,6 @@ da-DK:
       view_it_in_your_browser: "Hvis i din browser"
       or: eller
       unsubscribe_from_these_emails: "afmeld disse e-mails"
-    community_starter_email:
-      subject: "Se den nye Sharetribe - medlemsskabsgrænse, udseende & funktionalitet kan ændre."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har accepteret dit tilbud %{listing}"
       has_accepted_your_request: "%{accepter} har accepteret din anmodning %{listing}"
@@ -984,7 +982,6 @@ da-DK:
       this_is_private_community: "Du skal opret profil﻿ før du kan se dette indhold."
     invitation_form:
       invite_your_friends: "Inviter dine venner til %{service_name}!"
-      invite_your_neighbors: "Inviter dem du kender til %{service_name}!"
       email: "E-mail-adresse (r)"
       message: "En personlig meddelelse"
       send_invitation: "Send en invitation"
@@ -1537,8 +1534,6 @@ da-DK:
       help_captcha_title: "Er du et menneske?"
       help_invitation_code_title: "Du har brug for en invitation til at deltage"
       terms_title: "%{service_name} brugsvilkår"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: ~
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:

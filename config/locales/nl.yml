@@ -698,8 +698,6 @@ nl:
       view_it_in_your_browser: "Bekijk in je browser"
       or: of
       unsubscribe_from_these_emails: "Uitschrijven van deze e-mails"
-    community_starter_email:
-      subject: "Ontdek de nieuwe Sharetribe - geen limieten meer op lidmaatschap, aanpassen van de look & feel en meer"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} heeft je aanbod betreffende %{listing} geaccepteerd."
       has_accepted_your_request: "%{accepter} heeft je verzoek betreffende %{listing} geaccepteerd"
@@ -984,7 +982,6 @@ nl:
       this_is_private_community: "Je moet je aanmelden alvorens je de inhoud kan zien."
     invitation_form:
       invite_your_friends: "Nodig je vrienden uit naar %{service_name}!"
-      invite_your_neighbors: "Nodig je buren uit bij %{service_name}"
       email: "E-mail adres"
       message: "Een persoonlijk bericht"
       send_invitation: "Verstuur uitnodiging"
@@ -1537,8 +1534,6 @@ nl:
       help_captcha_title: "Ben je een mens?"
       help_invitation_code_title: "Je hebt een uitnodiging nodig om deel te nemen"
       terms_title: "%{service_name} gebruiksvoorwaarden"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p> TrustCloud is een online service die helpt de betrouwbaarheid van iemand over verschillende online diensten in te schatten. Het geeft een TrustScore (1-1000) gebaseerd op iemands online activiteit. De score stijgt bijvoorbeeld door goede feedback op eBay te krijgen of door veel connecties te hebben op Facebook. Je kan op elke kaart klikken om meer informatie te krijgen. </p><p>TrustCloud is gebruikt om meer betrouwbaarheid te krijgen over iemand en om in te schatten of iemand achter een bepaald profiel wel is wie hij/zij zegt te zijn.</p><p>Je kan je eigen TrustCard vragen door <a href='https://trustcloud.com/claim'>te registreren bij TrustCloud</a> en hetzelfde e-mail adres op te geven dat je gebruikte om te registreren bij %{service_name}. Dit is optioneel, maar we adviseren je om je eigen TrustCard aan te vragen. Het zal je geloofwaardigheid opkrikken en waarschijnlijk makkelijker maken om met anderen te handelen op de marktplaats.</p><p>De activiteiten op %{service_name} beïnvloeden je TrustScore nog niet, maar we plannen dit mogelijk te maken in de toekomst.</p>"
       invite_only_help_text: "Kies deze optie indien je wil dat nieuwe leden enkel kunnen aansluiten na een uitnodiging door een bestaand lid."
       invite_only_help_text_title: "Enkel op uitnodiging"
     inactive_notification:

@@ -683,8 +683,6 @@ hr:
       view_it_in_your_browser: ~
       or: ~
       unsubscribe_from_these_emails: ~
-    community_starter_email:
-      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} je prihvatio vašu ponudu %{listing}."
       has_accepted_your_request: "%{accepter} je prihvatio vaš zahtjev %{listing}."
@@ -969,7 +967,6 @@ hr:
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Pozovi prijatelje na %{service_name}!"
-      invite_your_neighbors: "Pozovite susjede na %{service_name}!"
       email: "Email adresa(e)"
       message: "Osobna poruka"
       send_invitation: "Pošalji pozivnicu"
@@ -1522,8 +1519,6 @@ hr:
       help_captcha_title: ~
       help_invitation_code_title: ~
       terms_title: ~
-      trustcloud_description_title: ~
-      trustcloud_description_text: ~
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:

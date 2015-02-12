@@ -683,8 +683,6 @@ ca:
       view_it_in_your_browser: ~
       or: ~
       unsubscribe_from_these_emails: ~
-    community_starter_email:
-      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha acceptat la teva oferta considerant la sol·licitud %{listing}"
       has_accepted_your_request: "%{accepter} ha acceptat la teva sol·licitud considerant l'oferta %{listing}"
@@ -971,7 +969,6 @@ ca:
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Convida als teus amics a Kassi!"
-      invite_your_neighbors: ~
       email: "Adreça de correu electrònic del teu amic:"
       message: "Missatge personal:"
       send_invitation: "Enviar invitació"
@@ -1524,8 +1521,6 @@ ca:
       help_captcha_title: "Ets una persona?"
       help_invitation_code_title: "Necessites una invitació per unir-te a"
       terms_title: "Termes d'ús de Kassi"
-      trustcloud_description_title: ~
-      trustcloud_description_text: ~
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:

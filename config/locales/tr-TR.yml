@@ -693,8 +693,6 @@ tr-TR:
       view_it_in_your_browser: "Tarayıcınızda görüntüleyin"
       or: "ya da"
       unsubscribe_from_these_emails: "bu e-posta aboneliklerini sonlandır"
-    community_starter_email:
-      subject: "Yeni Sharetribe'a göz atın - üyelik sınırı yok, kişiselleştirilebilen görünüş ve kullanım ve daha niceleri"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}, %{listing} teklifini kabul etti."
       has_accepted_your_request: "%{accepter}, %{listing} talebini kabul etti."
@@ -979,7 +977,6 @@ tr-TR:
       this_is_private_community: "Bu içeriği görüntüleyebilmek için kayıt olmanız gerekmektedir."
     invitation_form:
       invite_your_friends: "Arkadaşlarınızı %{service_name}'e davet edin!"
-      invite_your_neighbors: "Komşularınızı %{service_name}'e davet edin!"
       email: "E-posta adres(ler)i"
       message: "Kişisel bir mesaj"
       send_invitation: "Davetiye yolla"
@@ -1532,8 +1529,6 @@ tr-TR:
       help_captcha_title: "Gerçek bir insan mısınız?"
       help_invitation_code_title: "Katılmak için davetiyeye ihtiyacınız var"
       terms_title: "%{service_name} kullanım koşulları"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "TrustCloud bir kişinin güvenilirliğini çeşitli çevrimiçi hizmetler üzerinden ölçmeyi sağlayan çevrimiçi bir hizmettir. Kişinin çevrimiçi etkinliğine bağlı olarak, 1 ile 1000 arasında TrustScore adı verilen bir güven puanı verir. Bu puan, örneğin eBay'de olumlu bir geri bildirim almakla ya da Facebook'ta çok bağlantıya sahip olmakla arttırılabilir. Ayrıntılı bilgi için, kartların üzerine tıklayabilirsiniz. TrustCloud bir profilin ardındaki kimsenin gerçek bir insan olduğundan, yani düzmece bir kimlik olmadığından emin olmak için kullanılır. TrustCloud'a kaydolup %{service_name}'da kullandığınız adresi doğrulatarak kendi TrustCard'ınızda sahip olabilirsiniz. Bunu yapmak mecburi değildir, fakat TrustCard sahibi olmak güvenilirliğinizi arttırıp bu pazar yerinde diğer kullanıcılarla yapacağınız alışverişi kolaylaştıracağından, kartınızı almanızı öneririz. %{service_name}'deki etkinliğiniz TrustScoru'nuzu etkilemez, ama gelecekte bunu mümkün kılmayı planlıyoruz."
       invite_only_help_text: "Yeni üyelerin sadece mevcut üyelerin davetiyle katılabilmesini istiyorsanız bunu seçin."
       invite_only_help_text_title: "Sadece davetle"
     inactive_notification:

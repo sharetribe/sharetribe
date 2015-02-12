@@ -545,7 +545,7 @@ zh:
       accept_request: 接受请求
       reject_offer: 这次不行。
       reject_request: 这次不行。
-      accept_preauthorized_offer: 接受共给
+      accept_preauthorized_offer: 接受供给
       accept_preauthorized_request: 接受请求
       reject_preauthorized_offer: 这次不行
       reject_preauthorized_request: 这次不行
@@ -683,8 +683,6 @@ zh:
       view_it_in_your_browser: 在你的浏览器中查看
       or: 或者
       unsubscribe_from_these_emails: 退订这些邮件
-    community_starter_email:
-      subject: 新的Sharetribe包括—会员限制已去除，外观和感受可以修改，以及更多
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} 已经接受了你的%{listing}"
       has_accepted_your_request: "%{accepter}已经接受了你的%{listing}"
@@ -969,7 +967,6 @@ zh:
       this_is_private_community: 查看内容前需要先登录。
     invitation_form:
       invite_your_friends: "邀请您的朋友加入%{service_name}！"
-      invite_your_neighbors: "邀请你的邻居使用%{service_name}！"
       email: 朋友的Email地址
       message: 一条私人消息：
       send_invitation: 发送邀请
@@ -1522,8 +1519,6 @@ zh:
       help_captcha_title: 你是人类么？
       help_invitation_code_title: 您需要被邀请才能加入
       terms_title: "%{service_name}的使用条款"
-      trustcloud_description_title: ~
-      trustcloud_description_text: ~
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:

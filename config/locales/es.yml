@@ -688,8 +688,6 @@ es:
       view_it_in_your_browser: "Velo en tu buscador"
       or: o
       unsubscribe_from_these_emails: ~
-    community_starter_email:
-      subject: "Mira el nuevo Sharetribe - el límite de miembros ha sido quitado, busca & siente han sido modificados, y más"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha aceptado tu oferta considerando la solicitud %{listing}"
       has_accepted_your_request: "%{accepter} ha aceptado tu solicitud de la oferta %{listing}"
@@ -976,7 +974,6 @@ es:
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Invita a tus amigos a %{service_name}!"
-      invite_your_neighbors: "Invita a tus vecinos a%{service_name}!"
       email: "Dirección de correo electrónico de tu amigo:"
       message: "Un mensaje personal:"
       send_invitation: "Enviar invitación"
@@ -1529,8 +1526,6 @@ es:
       help_captcha_title: "¿Eres humano?"
       help_invitation_code_title: "Necesitas una invitación para unirte a"
       terms_title: "Términos de uso de %{service_name}"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p> TrustCloud es un servicio en línea que ayuda a medir la integridad de una persona a través de varios servicios que están en línea. Genera un TrustScore (de 1 a 1000) basado en la actividad de la persona en la web. Por ejemplo, el puntaje se incrementa al recibir una buena evaluación en eBay o al tener muchas conexiones en Facebook. Puedes hacer clic en cada tarjeta para más detalles.</p><p>TrustCloud es usado para dar más confianza de que la persona tras el perfil es real y no se esconde tras una identidad falsificada.</p><p> Si quieres, puedes solicitar tu propia TrustCard por medio de <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> con la misma dirección e-mail que registraste en %{service_name}. Esto es completamente opcional, pero te recomendamos pedir tu TrustCard, la que te ayudará a mejorar tu credibilidad y, probablemente, hará más fácil hacer tratos con los demás miembros de esta comunidad. </p><p>Las actividades en %{service_name} no afectan tu TrustScore, pero estamos planeando integrarlo en el futuro.</p>"
       invite_only_help_text: "Selecciona esta opción si quieres que los nuevos miembros sólo puedan unirse si son invitados por un miembro de esta tribu."
       invite_only_help_text_title: "Tribu sólo de invitaciones"
     inactive_notification:

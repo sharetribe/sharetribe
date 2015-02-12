@@ -683,8 +683,6 @@ el:
       view_it_in_your_browser: "Δείτε το στο φυλλομετρητή σας."
       or: ή
       unsubscribe_from_these_emails: "απεγγραφείτε από αυτά τα μηνύματα"
-    community_starter_email:
-      subject: "Δείτε το νέο Sharetribe - Χωρίς όριο μελών, με εμφάνιση που μπορείτε να τροποποιήσετε στα μέτρα σας και πολλά άλλα"
     conversation_status_changed:
       has_accepted_your_offer: "Ο/Η %{accepter} δέχτηκε την προσφορά σας για την καταχώρηση \"%{listing}\""
       has_accepted_your_request: "Ο/Η %{accepter} δέχτηκε το αίτημά σας για την καταχώρηση \"%{listing}\""
@@ -969,7 +967,6 @@ el:
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Προσκαλέστε τους φίλους σας στο %{service_name}!"
-      invite_your_neighbors: "Προσκαλέστε τους γείτονές σας στο %{service_name}!"
       email: "Ηλεκτρονικές διευθύνσεις"
       message: "Ένα προσωπικό μήνυμα"
       send_invitation: "Αποστολή πρόσκλησης"
@@ -1522,8 +1519,6 @@ el:
       help_captcha_title: "Είσαι όντως άνθρωπος;"
       help_invitation_code_title: "Χρειάζεσαι πρόσκληση για να συμμετέχεις."
       terms_title: "Όροι χρήσης του %{service_name}"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this community.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
       invite_only_help_text: "Επιλέξτε αν θέλετε νέα μέλη να συμμετέχουν σε αυτό το sharetribe μόνο εάν έχουν λάβει πρόσκληση από άλλα μέλη."
       invite_only_help_text_title: "Συμμετοχή μόνο με πρόσκληση"
     inactive_notification:

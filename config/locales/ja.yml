@@ -693,8 +693,6 @@ ja:
       view_it_in_your_browser: あなたのブラウザで表示する
       or: それとも
       unsubscribe_from_these_emails: これらのメールを購読解除する
-    community_starter_email:
-      subject: "新しいSharetribeをご確認ください - メンバー限定制を削除しました。"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}さんはあなたの%{listing}のオファーを受け入れました"
       has_accepted_your_request: "%{accepter}さんはあなたの%{listing}のリクエストを受け入れました"
@@ -979,7 +977,6 @@ ja:
       this_is_private_community: コンテンツ閲覧には登録の必要があります。
     invitation_form:
       invite_your_friends: "%{service_name}にお友達を招待する！"
-      invite_your_neighbors: "%{service_name}にご近所さんを招待する！"
       email: メールアドレス
       message: パーソナル･メッセージを書いて下さい
       send_invitation: 招待状を送る
@@ -1532,8 +1529,6 @@ ja:
       help_captcha_title: あなたは人間ですか。
       help_invitation_code_title: 参加には招待が必要です
       terms_title: "%{service_name}のご利用規約"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloudとはオンラインでその人の信頼度を測ることができる様、違うオンラインサービスに導入されています。オンラインでの行動を評価し、TrustScore (1-1000)のように数字で表します。例えば、eBayで良いレビューをもらった場合はスコアは増えますし、Facebookでつながりが多い場合でも同様です。それぞれのカードをクリックして詳細を確認してください。</p><p>TrustCloudはプロフィールの背後で、隠し事がないか、見せ掛けのものでないかを見分けるために、効果を発揮できます。</p><p>あなたもTrustCardの利用を始めてはいかがですか。<a href='https://trustcloud.com/claim'><a href='https://trustcloud.com/claim'> TrustCloudに登録 </a> このとき、%{service_name}と同様の登録メールアドレスを使用してください。あなた次第ですが、我々はTrustCardのご利用を強くお勧めします。それにより多くの方があなたを信用し、サービスを求めるでしょう。</p><p>%{service_name}での活動において、まだTrustScoreの効果が見えていない場合でも、それが可能になるような計画をしています。"
       invite_only_help_text: 既存のユーザからの招待のみで新規メンバーを獲得したい場合はこちらのオプションをご利用ください。
       invite_only_help_text_title: 招待制になっております
     inactive_notification:

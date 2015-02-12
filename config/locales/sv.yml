@@ -698,8 +698,6 @@ sv:
       view_it_in_your_browser: "Se den i din webbläsare."
       or: eller
       unsubscribe_from_these_emails: "avsluta prenumeration från dessa e-postmeddelanden"
-    community_starter_email:
-      subject: "Se det nya Sharetribe - medlemsbegränsning är borttaget m.m."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har antagit ditt erbjudande angående %{listing}"
       has_accepted_your_request: "%{accepter} har antagit din förfrågan %{listing}."
@@ -986,7 +984,6 @@ sv:
       this_is_private_community: "Du behöver registrera dig för att se detta innehåll."
     invitation_form:
       invite_your_friends: "Bjud in vänner till %{service_name}!"
-      invite_your_neighbors: "Bjud in dina grannar till %{service_name}!"
       email: E-postadress(er)
       message: "Ett personligt meddelande"
       send_invitation: "Skicka inbjudan"
@@ -1539,8 +1536,6 @@ sv:
       help_captcha_title: "Är du en människa?"
       help_invitation_code_title: "Du behöver en inbjudan för att gå med"
       terms_title: "%{service_name} användarvillkor"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloud är en onlinetjänst som hjälper till att mäta personers trovärdighet på olika onlinetjänster. Det ger en \"TrustScore\" (1-1000) baserat på personens aktivitet. Poängen ökar t ex genom att man får bra feedback på t ex eBay eller har många kopplingar till Facebook. Du kan klicka på varje kort för mer detaljer.</p><p>TrustCloud används för att få bättre koll på att personen bakom profilen är verklig och inte gömmer sig bakom en påhittad identitet.</p><p>Du kan få ditt eget TrustCard om du vill genom att <a href='https://trustcloud.com/claim'>registerera dig på TrustCloud</a> med samma e-postadress som du har registrerat dig med på %{service_name}. Detta är helt valfritt men vi rekommenderar att du skaffar ett TrustCard eftersom det kommer att öka din trovärdighet och förmodligen göra det lättare att göra affärer med andra på denna marknadsplats.</p><p>Aktiviteterna på %{service_name} påverkar inte din TrustScore, men vi planerar att detta är möjligt i framtiden.</p>"
       invite_only_help_text: "Välj detta alternativ om du vill att nya medlemmar ska gå med bara om de är inbjudna från en nuvarande medlem."
       invite_only_help_text_title: "Endast inbjudan"
     inactive_notification:

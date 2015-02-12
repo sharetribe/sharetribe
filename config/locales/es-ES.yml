@@ -700,8 +700,6 @@ es-ES:
       view_it_in_your_browser: "Velo en tu buscador"
       or: ~
       unsubscribe_from_these_emails: "date de baja de estos emails"
-    community_starter_email:
-      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha aceptado tu oferta considerando la solicitud %{listing}"
       has_accepted_your_request: "%{accepter} ha aceptado tu solicitud considerando la oferta %{listing}"
@@ -988,7 +986,6 @@ es-ES:
       this_is_private_community: "Debes crear una cuenta para poder ver todo el contenido."
     invitation_form:
       invite_your_friends: "Invita a tus amigos a %{service_name}!"
-      invite_your_neighbors: ~
       email: "Dirección de correo electrónico de tu amigo:"
       message: "Un mensaje personal:"
       send_invitation: "Enviar invitación"
@@ -1541,8 +1538,6 @@ es-ES:
       help_captcha_title: "¿Eres humano?"
       help_invitation_code_title: "Necesitas una invitación para unirte a"
       terms_title: "Términos de uso de %{service_name}"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: ~
       invite_only_help_text: "Selecciona esta opción si quieres que los nuevos miembros sólo puedan unirse si son invitados por un miembro de esta tribu."
       invite_only_help_text_title: "Tribu sólo de invitaciones"
     inactive_notification:

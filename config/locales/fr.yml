@@ -698,8 +698,6 @@ fr:
       view_it_in_your_browser: "Voir dans votre navigateur."
       or: ou
       unsubscribe_from_these_emails: "désabonnez-vous de ces emails"
-    community_starter_email:
-      subject: "Découvrez le nouveau Sharetribe - fin de la limite en nombre de membres, présentation et aspect des places de marché modifiables et bien d'autres choses"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} a accepté votre offre %{listing}"
       has_accepted_your_request: "%{accepter} a accepté votre demande %{listing}"
@@ -984,7 +982,6 @@ fr:
       this_is_private_community: "Vous devez vous connecter pour voir le contenu."
     invitation_form:
       invite_your_friends: "Inviter vos amis sur %{service_name}"
-      invite_your_neighbors: "Invitez vos voisins sur %{service_name} !"
       email: "Adresse(s) email"
       message: "Votre message"
       send_invitation: "Envoyer l' (les) invitation(s)"
@@ -1537,8 +1534,6 @@ fr:
       help_captcha_title: "Etes-vous humain ?"
       help_invitation_code_title: "Il vous faut une invitation pour participer"
       terms_title: "Conditions d'utilisation de %{service_name}"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloud est un service en ligne qui aide à quantifier le niveau de confiance d'une personne parmi différents sites web. Il donne un score (de 1 à 1000) calculé sur l'activité en ligne d'une personne. Ce score augmente par exemple en ayant de bons avis sur eBay ou en ayant de nombreuses relations sur Facebook. Vous pouvez cliquer sur chaque carte pour en savoir plus.</p><p>TrustCloud est utilisé pour apporter aider à certifier que quelqu'un derrière un profil est bien celui qu'il dit être et non un autre.</p><p>Vous pouvez demander votre TrustCard si vous le souhaitez en <a href='https://trustcloud.com/claim'>vous inscrivant sur TrustCloud</a> avec la même adresse email que vous avez utilisé sur %{service_name}. Ce n'est pas obligatoire, mais nous vous le recommandons puisque cela va améliorer votre crédibilité et faciliter votre rencontre dans la place de marché.</p><p>Pour le moment, les actions sur %{service_name} n'affecte pas votre TrustScore, mais nous allons le rendre possible très bientôt.</p>"
       invite_only_help_text: "Choisissez cette option si vous souhaitez que les nouveaux membres ne puissent rejoindre la place de marché que s'ils ont été invités par un utilisateur déjà membre."
       invite_only_help_text_title: "Sur invitation"
     inactive_notification:

@@ -698,8 +698,6 @@ de:
       view_it_in_your_browser: "Sieh es dir in deinem Browser an"
       or: oder
       unsubscribe_from_these_emails: "bestelle diese E-Mails ab"
-    community_starter_email:
-      subject: "Sharetribe Neuerungen - das Mitglieder-Limit wurde abgeschafft, das Look & Feel kann verändert werden und vieles mehr"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} hat dein Angebot %{listing} akzeptiert."
       has_accepted_your_request: "%{accepter} hat deine Anfrage %{listing} akzeptiert."
@@ -984,7 +982,6 @@ de:
       this_is_private_community: "Du musst dich erst anmelden, um die Artikel sehen zu können."
     invitation_form:
       invite_your_friends: "Lade deine Freunde zu %{service_name} ein!"
-      invite_your_neighbors: "Lade deine Nachbarn ein zu %{service_name}!"
       email: E-Mail-Adresse(n)
       message: "Eine persönliche Nachricht"
       send_invitation: "Einladung senden"
@@ -1537,11 +1534,6 @@ de:
       help_captcha_title: "Bist du ein Mensch?"
       help_invitation_code_title: "Du benötigst eine Einladung, um beitreten zu können."
       terms_title: "%{service_name}Nutzungsbedingungen"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: |-
-          <p>TrustCloud ist ein Online Service der dabei hilft, die Vertrauenswürdigkeit einer Person durch verschiedene Online-Dienste zu messen. Es gibt einen TrustScore (1-1000), basierend auf der Online-Aktivität der Person. Diese Punktzahl erhöht sich zum Beispiel, indem man positives Feedback in eBay gibt, oder indem man viele Verbindungen auf Facebook hat. Sie können jede Karte anklicken, um mehr Informationen zu erhalten.
-           </p><p> TrustCloud wird genutzt um mehr Vertrauen zu bringen, dass die Person hinter diesem Profil echt ist und sich nicht hinter einer erfundenen Identität versteckt.
-          </p><p> Du kannst deine eigene TrustCard bekommen, indem <a href='https://trustcloud.com/claim'> du dich bei TrustCloud registrierst </a> und die selbe E-Mail-Adresse bestätigst, die du auch in %{service_name} verwendst. Dies ist natürlich freiwillig, doch wir empfehlen dir, deine TrustCard in Anspruch zu nehmen, um deine Glaubwürdigkeit zu erhöhen und um den Umgang mit anderen Leuten in der Community zu vereinfachen. </p><p> Die Aktivitäten in %{service_name} haben noch keine Wirkung auf deinen TrustScore, doch wir planen, dies bald zu möglich zu machen.</p>
       invite_only_help_text: "Wähle diese Option aus, wenn du willst, dass neue Mitglieder von einem bestehenden Mitglied des Stammes aufgenommen werden können durch eine Einladung."
       invite_only_help_text_title: "Nur Stamm einladen"
     inactive_notification:
