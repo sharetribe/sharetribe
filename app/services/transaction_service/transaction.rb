@@ -49,11 +49,10 @@ module TransactionService::Transaction
 
   def can_start_transaction_paypal(community_id:, author_id:)
     payment_settings = Maybe(PaymentSettingsStore.get_active(community_id: community_id))
-                       .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
+                       .select {|set| paypal_settings_configured?(set)}
 
     personal_account_verified = paypal_account_verified?(community_id: community_id, person_id: author_id, settings: payment_settings)
     community_account_verified = paypal_account_verified?(community_id: community_id)
-
     payment_settings_available = payment_settings.map {|_| true }.or_else(false)
 
     [personal_account_verified, community_account_verified, payment_settings_available].all?
@@ -377,6 +376,10 @@ module TransactionService::Transaction
   def calculate_commission_to_admin(commission_total, payment_total, fee_total)
     # Ensure we never charge more than what the seller received after payment processing fee
     [commission_total, payment_total - fee_total].min
+  end
+
+  def paypal_settings_configured?(settings)
+    settings[:payment_gateway] == :paypal && !!settings[:commission_from_seller] && !!settings[:minimum_price_cents]
   end
 
   def paypal_account_verified?(community_id:, person_id: nil, settings: Maybe(nil))
