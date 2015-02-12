@@ -163,6 +163,20 @@ describe PaypalService::API::BillingAgreements do
       expect(payment_res[:data][:commission_status]).to eq(:below_minimum)
     end
 
+    it "marks the commission errored if payment failed" do
+      do_payment!(@person_id)
+      @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
+
+      @api_builder.will_fail(5, "10069")
+      payment_res = @billing_agreements.charge_commission(@cid, @person_id, @commission_info)
+
+      expect(payment_res[:success]).to eq(false)
+
+      payment = @payments.get_payment(@cid, @tx_id)
+
+      expect(payment[:data][:commission_status]).to eq(:errored)
+    end
+
     it "supports async running" do
       do_payment!(@person_id)
       @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
