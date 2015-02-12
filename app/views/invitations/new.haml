@@ -3,7 +3,7 @@
     $(document).ready(function() { initialize_invitation_form("#{I18n.locale}", "#{t('homepage.invitation_form.errors_in_emails')}"); })
 
 - content_for :title_header do
-  %h1= @current_community.category.eql?("neighborhood") ? t("homepage.invitation_form.invite_your_neighbors") : t("homepage.invitation_form.invite_your_friends")
+  %h1= t("homepage.invitation_form.invite_your_friends")
 
 #invitation_form.centered-section
   %p= t("homepage.invitation_form.add_as_many_emails_as_you_want")

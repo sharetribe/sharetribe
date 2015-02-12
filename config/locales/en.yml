@@ -173,7 +173,7 @@ en:
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
         update_settings: "Save settings"
         automatically_confirmed: "Transaction will be automatically marked as completed %{days_dropdown} days after the payment has been made. If escrow system is in use, the money will be released to the provider at this point."
-        automatically_confirmed_no_escrow: "Transaction will be automatically marked as completed %{days_dropdown} days after the payment has been made."
+        automatically_confirmed_no_escrow: "Transaction will be automatically marked as completed %{days_dropdown} days after the payment has been made"
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
         newsletter_daily: Daily
         newsletter_weekly: Weekly
@@ -271,7 +271,7 @@ en:
       form:
         field_required:
           this_field_is_required: "This field is required"
-          this_field_is_required_checkbox: "This field is required (User has to select at least one option)"
+          this_field_is_required_checkbox: "This field is required (user has to select at least one option)"
       index:
         listing_fields: "Listing fields & filters"
         listing_fields_help: "Here you can edit the fields that users have to fill in when they create a new listing. Please note that some fields are predefined and can not be edited."
@@ -698,8 +698,6 @@ en:
       view_it_in_your_browser: "View it in your browser"
       or: or
       unsubscribe_from_these_emails: "unsubscribe from these emails"
-    community_starter_email:
-      subject: "See the new Sharetribe - membership limit removed, look & feel can be modified, and more"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer %{listing}."
       has_accepted_your_request: "%{accepter} has accepted your request %{listing}."
@@ -984,7 +982,6 @@ en:
       this_is_private_community: "You need to sign up before you can view the content."
     invitation_form:
       invite_your_friends: "Invite your friends to %{service_name}!"
-      invite_your_neighbors: "Invite your neighbors to %{service_name}!"
       email: "Email address(es)"
       message: "A personal message"
       send_invitation: "Send invitation"
@@ -1537,8 +1534,6 @@ en:
       help_captcha_title: "Are you human?"
       help_invitation_code_title: "You need an invite to join"
       terms_title: "%{service_name} terms of use"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this marketplace.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
       invite_only_help_text: "Select this option if you want that new members can join only if they are invited by an existing user."
       invite_only_help_text_title: Invite-only
     inactive_notification:
@@ -1685,7 +1680,7 @@ en:
       delete_account_confirmation_popup: "Are you sure you really want to delete your user account and permanently lose all data related to it? Account deletion can not be reversed."
       email_addresses: "Email addresses"
       new_email: "New email address"
-      delete_all_memberships: "If you delete your account, you will not be able to use it any more in the following marketplaces: %{marketplaces}"
+      delete_all_memberships: "If you delete your account, you will not be able to use it any more in the following marketplaces: %{marketplaces}."
       delete_personal_information: "If you delete your account, your personal information (name, phone number, address, email, profile picture, etc.) will be deleted permanently and can't be recovered. All the listings you have created will be removed. You won't be able to reactivate your account."
       delete_information_others_involved: "Information where other members are involved (conversations with other people, transactions you've made, reviews you've given to others, etc) is not removed when you delete your account. However, your name will no longer be displayed next to this information."
       unfinished_transactions: "Your account can't be deleted because you have ongoing transactions. Please complete all transactions before deleting your account."
