@@ -71,21 +71,10 @@ module TransactionService::Transaction
         tx_data_paypal(listing, opts_tx)
       end
 
-    transaction, conversation = TxUtil.build_tx_model_with_conversation(
+    transaction = TxUtil.create_tx_model_with_conversation(
       opts_tx.merge({minimum_commission: minimum_commission,
                      commission_from_seller: commission_from_seller,
                      automatic_confirmation_after_days: auto_confirm_days}))
-
-    # TODO Move quantity calculation to tx service to get rid of this silly check
-    if TxUtil.is_booking?(opts_tx)
-
-      # Make sure listing_quantity equals duration
-      if TxUtil.booking_duration(opts_tx) != transaction.listing_quantity
-        return Result::Error.new("Listing quantity (#{transaction.listing_quantity}) must be equal to booking duration in days (#{duration})")
-      end
-    end
-
-    transaction.save!
 
     gateway_fields_response =
       case [opts_tx[:payment_gateway], opts_tx[:payment_process]]
@@ -105,7 +94,6 @@ module TransactionService::Transaction
       Result::Success.new(
         DataTypes.create_transaction_response(opts_tx.merge({
           id: transaction.id,
-          conversation_id: conversation.id,
           created_at: transaction.created_at,
           updated_at: transaction.updated_at
         }),
