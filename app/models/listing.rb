@@ -3,38 +3,40 @@
 #
 # Table name: listings
 #
-#  id                  :integer          not null, primary key
-#  author_id           :string(255)
-#  category_old        :string(255)
-#  title               :string(255)
-#  times_viewed        :integer          default(0)
-#  language            :string(255)
-#  created_at          :datetime
-#  updates_email_at    :datetime
-#  updated_at          :datetime
-#  last_modified       :datetime
-#  sort_date           :datetime
-#  visibility          :string(255)      default("this_community")
-#  listing_type_old    :string(255)
-#  description         :text
-#  origin              :string(255)
-#  destination         :string(255)
-#  valid_until         :datetime
-#  delta               :boolean          default(TRUE), not null
-#  open                :boolean          default(TRUE)
-#  share_type_old      :string(255)
-#  privacy             :string(255)      default("private")
-#  comments_count      :integer          default(0)
-#  subcategory_old     :string(255)
-#  old_category_id     :integer
-#  category_id         :integer
-#  share_type_id       :integer
-#  transaction_type_id :integer
-#  organization_id     :integer
-#  price_cents         :integer
-#  currency            :string(255)
-#  quantity            :string(255)
-#  deleted             :boolean          default(FALSE)
+#  id                       :integer          not null, primary key
+#  author_id                :string(255)
+#  category_old             :string(255)
+#  title                    :string(255)
+#  times_viewed             :integer          default(0)
+#  language                 :string(255)
+#  created_at               :datetime
+#  updates_email_at         :datetime
+#  updated_at               :datetime
+#  last_modified            :datetime
+#  sort_date                :datetime
+#  visibility               :string(255)      default("this_community")
+#  listing_type_old         :string(255)
+#  description              :text
+#  origin                   :string(255)
+#  destination              :string(255)
+#  valid_until              :datetime
+#  delta                    :boolean          default(TRUE), not null
+#  open                     :boolean          default(TRUE)
+#  share_type_old           :string(255)
+#  privacy                  :string(255)      default("private")
+#  comments_count           :integer          default(0)
+#  subcategory_old          :string(255)
+#  old_category_id          :integer
+#  category_id              :integer
+#  share_type_id            :integer
+#  transaction_type_id      :integer
+#  organization_id          :integer
+#  price_cents              :integer
+#  currency                 :string(255)
+#  quantity                 :string(255)
+#  deleted                  :boolean          default(FALSE)
+#  require_shipping_address :boolean          default(FALSE)
+#  shipping_price_cents     :integer
 #
 # Indexes
 #
@@ -80,6 +82,7 @@ class Listing < ActiveRecord::Base
   delegate :status_after_reply, to: :transaction_type
 
   monetize :price_cents, :allow_nil => true
+  monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
 
   attr_accessor :current_community_id
 
