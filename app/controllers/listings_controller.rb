@@ -108,26 +108,19 @@ class ListingsController < ApplicationController
       [nil, nil]
     end
 
-
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
-    form_path = if @listing.transaction_type.preauthorize_payment?
-      # TODO This is copy-paste
-      if @listing.transaction_type.price_per.present?
-        book_path(:listing_id => @listing.id.to_s)
-      else
-        if payment_gateway == :paypal
-          initiate_order_path(:listing_id => @listing.id.to_s)
-        else
-          preauthorize_payment_path(:listing_id => @listing.id.to_s)
-        end
-      end
-    else
-      if @listing.status_after_reply == "free"
-        reply_to_listing_path(:listing_id => @listing.id.to_s)
-      else
-        post_pay_listing_path(:listing_id => @listing.id.to_s)
-      end
-    end
+
+    payment_process = select_payment_process(
+      price_field: @listing.transaction_type.price_field?,
+      preauthorize: @listing.transaction_type.preauthorize_payment?,
+      payment_gateway_available: payment_gateway.present?)
+
+    form_path = select_new_transaction_path(
+      listing_id: @listing.id.to_s,
+      payment_gateway: payment_gateway,
+      payment_process: payment_process,
+      booking: @listing.transaction_type.price_per.present?
+    )
 
     render locals: {form_path: form_path, payment_gateway: payment_gateway}
   end
@@ -512,4 +505,35 @@ class ListingsController < ApplicationController
       [true, ""]
     end
   end
+
+  def select_payment_process(price_field:, payment_gateway_available:, preauthorize:)
+    case [price_field, payment_gateway_available, preauthorize]
+    when matches([false])
+      :none
+    when matches([__, false])
+      :none
+    when matches([__, __, true])
+      :preauthorize
+    else
+      :postpay
+    end
+  end
+
+  def select_new_transaction_path(listing_id:, payment_gateway:, payment_process:, booking:)
+    case [payment_process, payment_gateway, booking]
+    when matches([:none])
+      reply_to_listing_path(listing_id: listing_id)
+    when matches([:preauthorize, __, true])
+      book_path(listing_id: listing_id)
+    when matches([:preauthorize, :paypal])
+      initiate_order_path(listing_id: listing_id)
+    when matches([:preauthorize, :braintree])
+      preauthorize_payment_path(:listing_id => @listing.id.to_s)
+    when matches([:postpay])
+      post_pay_listing_path(:listing_id => @listing.id.to_s)
+    else
+      raise ArgumentError.new("Can not find new transaction path to #{{listing_id: listing_id, payment_gateway: payment_gateway, payment_process: payment_process, booking: booking}}")
+    end
+  end
+
 end
