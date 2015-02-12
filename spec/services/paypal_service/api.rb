@@ -37,6 +37,7 @@ module PaypalService::API
     def self.reset!
       @payments = nil
       @events = nil
+      @billing_agreements = nil
       @test_merchant = nil
       @test_permissions = nil
       @api_builder = nil
