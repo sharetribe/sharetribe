@@ -41,10 +41,7 @@ Kassi::Application.routes.draw do
     get "/check_email_availability" => "marketplaces#check_email_availability"
   end
 
-  locale_matcher = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
-
   # Inside this constraits are the routes that are used when request has subdomain other than www
-  match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }
   match '/' => 'homepage#index'
   root :to => 'homepage#index'
 
@@ -57,7 +54,7 @@ Kassi::Application.routes.draw do
   resources :communities, only: [:new, :create]
 
   # Adds locale to every url right after the root path
-  scope "(/:locale)", :constraints => { :locale => locale_matcher } do
+  scope "(/:locale)" do
 
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
 
@@ -361,7 +358,7 @@ Kassi::Application.routes.draw do
     end
   end
 
-  match "(/:locale)/people/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher, :person_id => /[a-zA-Z0-9_-]{20,}/ }
+  match "(/:locale)/people/:person_id(*path)" => redirect(id_to_username), :constraints => { :person_id => /[a-zA-Z0-9_-]{20,}/ }
 
   #keep this matcher last
   #catches all non matched routes, shows 404 and logs more reasonably than the alternative RoutingError + stacktrace
