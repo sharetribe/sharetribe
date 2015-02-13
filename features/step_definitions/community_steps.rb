@@ -22,7 +22,7 @@ Given /^there are following communities:$/ do |communities_table|
     domain = hash[:community]
     existing_community = Community.find_by_domain(domain)
     existing_community.destroy if existing_community
-    @hash_community = FactoryGirl.create(:community, :name => domain, :domain => domain, :settings => {"locales" => ["en", "fi"]})
+    @hash_community = FactoryGirl.create(:community, :domain => domain, :settings => {"locales" => ["en", "fi"]})
 
     attributes_to_update = hash.except('community')
     @hash_community.update_attributes(attributes_to_update) unless attributes_to_update.empty?
@@ -49,8 +49,8 @@ Given /^the terms of community "([^"]*)" are changed to "([^"]*)"$/ do |communit
   Community.find_by_domain(community).update_attribute(:consent, terms)
 end
 
-Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, community_name|
-  community = Community.find_by_name!(community_name)
+Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, domain|
+  community = Community.where(domain: domain).first
   person = Person.find_by_username!(username)
   membership = FactoryGirl.create(:community_membership, :person => person, :community => community)
   membership.save!

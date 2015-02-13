@@ -135,7 +135,6 @@ class Community < ActiveRecord::Base
 
   monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :default_currency
 
-  validates_length_of :name, :in => 2..50
   validates_length_of :domain, :in => 2..50
   validates_format_of :domain, :with => /\A[A-Z0-9_\-\.]*\z/i
   validates_uniqueness_of :domain
@@ -265,7 +264,13 @@ class Community < ActiveRecord::Base
   attr_accessor :terms
 
   def name(locale)
-    community_customizations.where(locale: locale).first.name
+    customization = community_customizations.where(locale: locale).first
+
+    if customization
+      customization.name
+    else
+      raise ArgumentError.new("Can not find translation for marketplace name community_id: #{id}, locale: #{locale}")
+    end
   end
 
   def full_name(locale)
