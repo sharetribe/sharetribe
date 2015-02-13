@@ -55,7 +55,21 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     user_locale = Maybe(@current_user).locale.or_else(nil)
-    locale = select_locale(user_locale, params[:locale], @current_community.locales, @current_community.default_locale)
+
+    # We should remove this -- START
+    #
+    # There are a couple of controllers (amazon ses bounces, braintree webhooks) that
+    # inherit application controller, even though they shouldn't. ApplicationController
+    # has a lot of community specific filters and those controllers do not have community.
+    # Thus, we need to add this kind of additional logic to make sure whether we have
+    # community or not
+    #
+    m_community = Maybe(@current_community)
+    community_locales = m_community.locales.or_else([])
+    community_default_locale = m_community.default_locale.or_else("en")
+    # We should remove this -- END
+
+    locale = select_locale(user_locale, params[:locale], community_locales, community_default_locale)
 
     raise ArgumentError.new("Locale #{locale} not available. Check your community settings") unless available_locales.collect { |l| l[1] }.include?(locale)
 
