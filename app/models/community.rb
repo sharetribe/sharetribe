@@ -123,6 +123,7 @@ class Community < ActiveRecord::Base
 
   has_and_belongs_to_many :listings
 
+  has_one :marketplace_settings, dependent: :destroy
   has_one :payment_gateway, :dependent => :destroy
   has_one :paypal_account # Admin paypal account
 
