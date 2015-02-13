@@ -263,7 +263,13 @@ class Community < ActiveRecord::Base
   attr_accessor :terms
 
   def name(locale)
-    community_customizations.where(locale: locale).first.name
+    customization = community_customizations.where(locale: locale).first
+
+    if customization
+      customization.name
+    else
+      raise ArgumentError.new("Can not find translation for marketplace name community_id: #{id}, locale: #{locale}")
+    end
   end
 
   def full_name(locale)
