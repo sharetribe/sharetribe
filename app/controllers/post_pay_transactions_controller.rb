@@ -30,9 +30,12 @@ class PostPayTransactionsController < ApplicationController
       transaction_response = TransactionService::Transaction.create({
           transaction: {
             community_id: @current_community.id,
-            listing_id: contact_form.listing_id,
+            listing_id: @listing.id,
+            listing_title: @listing.title,
             starter_id: @current_user.id,
             listing_author_id: @listing.author.id,
+            unit_price: @listing.price,
+            listing_quantity: 1,
             content: contact_form.content,
             payment_gateway: @current_community.payment_gateway.gateway_type,
             payment_process: :postpay,

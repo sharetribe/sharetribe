@@ -231,9 +231,12 @@ class PreauthorizeTransactionsController < ApplicationController
       transaction_response = TransactionService::Transaction.create({
           transaction: {
             community_id: @current_community.id,
-            listing_id: preauthorize_form.listing_id,
+            listing_id: @listing.id,
+            listing_title: @listing.title,
             starter_id: @current_user.id,
             listing_author_id: @listing.author.id,
+            unit_price: @listing.price,
+            listing_quantity: 1,
             content: preauthorize_form.content,
             payment_gateway: :braintree,
             payment_process: :preauthorize,
@@ -386,6 +389,7 @@ class PreauthorizeTransactionsController < ApplicationController
           starter_id: opts[:user].id,
           listing_author_id: opts[:listing].author.id,
           listing_quantity: opts[:listing_quantity],
+          unit_price: opts[:listing].price,
           content: opts[:content],
           payment_gateway: opts[:payment_type],
           payment_process: :preauthorize,
