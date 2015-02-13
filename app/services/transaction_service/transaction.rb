@@ -74,7 +74,8 @@ module TransactionService::Transaction
     transaction = TxUtil.create_tx_model_with_conversation(
       opts_tx.merge({minimum_commission: minimum_commission,
                      commission_from_seller: commission_from_seller,
-                     automatic_confirmation_after_days: auto_confirm_days}))
+                     automatic_confirmation_after_days: auto_confirm_days}),
+      listing)
 
     gateway_fields_response =
       case [opts_tx[:payment_gateway], opts_tx[:payment_process]]
@@ -297,11 +298,11 @@ module TransactionService::Transaction
         payment_process: model.payment_process.to_sym,
         payment_gateway: model.payment_gateway.to_sym,
         community_id: model.community_id,
-        starter_id: model.starter.id,
-        listing_id: model.listing.id,
-        listing_title: model.listing.title,
-        listing_price: model.listing.price,
-        listing_author_id: model.listing.author.id,
+        starter_id: model.starter_id,
+        listing_id: model.listing_id,
+        listing_title: model.listing_title,
+        listing_price: model.unit_price,
+        listing_author_id: model.listing_author_id,
         listing_quantity: model.listing_quantity,
         automatic_confirmation_after_days: model.automatic_confirmation_after_days,
         last_transition_at: model.last_transition_at,
@@ -340,15 +341,15 @@ module TransactionService::Transaction
 
     case model.payment_gateway.to_sym
     when :paypal
-      payment = paypal_payment_api().get_payment(model.community.id, model.id).maybe
+      payment = paypal_payment_api().get_payment(model.community_id, model.id).maybe
       total = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
-              .or_else(model.listing.price)
+              .or_else(model.unit_price)
       { total_price: total,
         commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission),
         charged_commission: payment[:commission_total].or_else(nil),
         payment_gateway_fee: payment[:fee_total].or_else(nil) }
     else
-      total = model.listing.price * 1 #TODO fixme for booking (model.listing_quantity)
+      total = model.unit_price * 1 #TODO fixme for booking (model.listing_quantity)
       { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
     end
   end
