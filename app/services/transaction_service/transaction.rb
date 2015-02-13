@@ -62,27 +62,25 @@ module TransactionService::Transaction
     opts_tx = opts[:transaction]
 
     #TODO this thing should come through transaction_opts
-    listing = Listing.find(opts_tx[:listing_id])
     minimum_commission, commission_from_seller, auto_confirm_days =
       case opts_tx[:payment_gateway]
       when :braintree
-        tx_data_braintree(listing, opts_tx)
+        tx_data_braintree(opts_tx)
       when :paypal
-        tx_data_paypal(listing, opts_tx)
+        tx_data_paypal(opts_tx)
       end
 
     transaction = TxUtil.create_tx_model_with_conversation(
       opts_tx.merge({minimum_commission: minimum_commission,
                      commission_from_seller: commission_from_seller,
-                     automatic_confirmation_after_days: auto_confirm_days}),
-      listing)
+                     automatic_confirmation_after_days: auto_confirm_days}))
 
     gateway_fields_response =
       case [opts_tx[:payment_gateway], opts_tx[:payment_process]]
       when [:braintree, :preauthorize]
-        create_tx_braintree(transaction: transaction, listing: listing, opts: opts, async: false)
+        create_tx_braintree(transaction: transaction, opts: opts, async: false)
       when [:paypal, :preauthorize]
-        create_tx_paypal(transaction: transaction, listing: listing, opts: opts, async: paypal_async)
+        create_tx_paypal(transaction: transaction, opts: opts, async: paypal_async)
       else
         # Braintree Postpay (/ Other payment type?)
         Result::Success.new({})
@@ -106,15 +104,15 @@ module TransactionService::Transaction
   end
 
   # Private
-  def tx_data_braintree(listing, opts_tx)
-    currency = listing.price.currency
+  def tx_data_braintree(opts_tx)
+    currency = opts_tx[:unit_price].currency
     c = Community.find(opts_tx[:community_id])
 
     [Money.new(0, currency), c.commission_from_seller, c.automatic_confirmation_after_days]
   end
 
   # Private
-  def create_tx_braintree(transaction:, listing:, opts:, async:)
+  def create_tx_braintree(transaction:, opts:, async:)
     payment_gateway_id = BraintreePaymentGateway.where(community_id: opts[:transaction][:community_id]).pluck(:id).first
     transaction.payment = BraintreePayment.new({
       community_id: opts[:transaction][:community_id],
@@ -123,7 +121,7 @@ module TransactionService::Transaction
       payer_id: opts[:transaction][:starter_id],
       recipient_id: opts[:transaction][:listing_author_id],
       currency: "USD",
-      sum: listing.price * transaction.listing_quantity})
+      sum: transaction.unit_price * transaction.listing_quantity})
 
     result = BraintreeSaleService.new(transaction.payment, opts[:gateway_fields]).pay(false)
 
@@ -135,8 +133,8 @@ module TransactionService::Transaction
   end
 
   # Private
-  def tx_data_paypal(listing, opts_tx)
-    currency = listing.price.currency
+  def tx_data_paypal(opts_tx)
+    currency = opts_tx[:unit_price].currency
     p_set = PaymentSettingsStore.get_active(community_id: opts_tx[:community_id])
 
     [Money.new(p_set[:minimum_transaction_fee_cents], currency),
@@ -145,16 +143,15 @@ module TransactionService::Transaction
   end
 
   # Private
-  def create_tx_paypal(transaction:, listing:, opts:, async:)
+  def create_tx_paypal(transaction:, opts:, async:)
     # Note: Quantity may be confusing in Paypal Checkout page, thus, we don't use separated unit price and quantity,
     # only the total price.
-    quantity = 1
-    total = listing.price * transaction.listing_quantity
+    total = transaction.unit_price * transaction.listing_quantity
 
     create_payment_info = PaypalService::API::DataTypes.create_create_payment_request({
       transaction_id: transaction.id,
-      item_name: listing.title,
-      item_quantity: quantity,
+      item_name: transaction.listing_title,
+      item_quantity: 1,
       item_price: total,
       merchant_id: opts[:transaction][:listing_author_id],
       order_total: total,
