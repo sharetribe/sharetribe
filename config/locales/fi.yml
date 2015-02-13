@@ -30,7 +30,7 @@ fi:
         warning_remove_effects: "Varoitus! Kategorian '%{category_name}' poistamisella on seuraavat vaikutukset:"
         warning_listing_will_be_moved:
           one: "Kategorialla on %{count} ilmoitus. Tämä ilmoitus siirretään uuteen kategoriaan."
-          other: "Kategorialla on %{count} ilmoitusta. Nämä ilmoitukset siirtämään uuteen kategoriaan."
+          other: "Kategorialla on %{count} ilmoitusta. Nämä ilmoitukset siirretään uuteen kategoriaan."
         warning_custom_field_will_be_moved:
           one: "Kategorialla on %{count} ilmoituskenttä. Tämä ilmoituskenttä siirretään uuteen kategoriaan."
           other: "Kategorialla on %{count} ilmoituskenttää. Nämä ilmoituskentät siirretään uuteen kategoriaan."
@@ -39,7 +39,7 @@ fi:
           other: "Kategorialla on %{count} alakategoriaa. Nämä alakategoriat poistetaan."
         warning_with_subcategories_listing_will_be_moved:
           one: "Kategorialla ja sen alakategorioilla on %{count} ilmoitus. Tämä ilmoitus siirretään uuteen kategoriaan."
-          other: "Kategorialla ja sen alakategorioilla on %{count} ilmoitusta. Nämä ilmoitukset siirtämään uuteen kategoriaan."
+          other: "Kategorialla ja sen alakategorioilla on %{count} ilmoitusta. Nämä ilmoitukset siirretään uuteen kategoriaan."
         warning_with_subcategories_custom_field_will_be_moved:
           one: "Kategorialla ja sen alakategorioilla on %{count} ilmoituskenttä. Tämä ilmoituskenttä siirretään uuteen kategoriaan."
           other: "Kategorialla ja sen alakategorioilla on %{count} ilmoituskenttää. Nämä ilmoituskentät siirretään uuteen kategoriaan."
