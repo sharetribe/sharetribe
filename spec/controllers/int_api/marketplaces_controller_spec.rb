@@ -22,11 +22,11 @@ describe IntApi::MarketplacesController do
       r = JSON.parse(response.body)
       expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
 
-      c = Community.where(domain: "imaginationtraders").first
+      c = Community.find_by_name("ImaginationTraders")
       expect(c).to_not be_nil
       expect(c.country).to eql "FI"
       expect(c.locales.first).to eql "fi"
-      expect(c.name("fi")).to eql "ImaginationTraders"
+      expect(c.name).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
       expect(c.transaction_types.first.class).to eql Sell
 
@@ -58,11 +58,11 @@ describe IntApi::MarketplacesController do
       r = JSON.parse(response.body)
       expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
 
-      c = Community.where(domain: "imaginationtraders").first
+      c = Community.find_by_name("ImaginationTraders")
       expect(c).to_not be_nil
       expect(c.country).to eql "FI"
       expect(c.locales.first).to eql "fi"
-      expect(c.name("fi")).to eql "ImaginationTraders"
+      expect(c.name).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
       expect(c.transaction_types.first.class).to eql Sell
 
@@ -90,11 +90,11 @@ describe IntApi::MarketplacesController do
       r = JSON.parse(response.body)
       expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
 
-      c = Community.where(domain: "imaginationtraders").first
+      c = Community.find_by_name("ImaginationTraders")
       expect(c).to_not be_nil
       expect(c.country).to eql "FI"
       expect(c.locales.first).to eql "fi"
-      expect(c.name("fi")).to eql "ImaginationTraders"
+      expect(c.name).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
       expect(c.transaction_types.first.class).to eql Sell
 
@@ -122,11 +122,11 @@ describe IntApi::MarketplacesController do
       r = JSON.parse(response.body)
       expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
 
-      c = Community.where(domain: "imaginationtraders").first
+      c = Community.find_by_name("ImaginationTraders")
       expect(c).to_not be_nil
       expect(c.country).to eql "FI"
       expect(c.locales.first).to eql "fi"
-      expect(c.name("fi")).to eql "ImaginationTraders"
+      expect(c.name).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
       expect(c.transaction_types.first.class).to eql Sell
 

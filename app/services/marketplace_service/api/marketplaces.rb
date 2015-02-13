@@ -44,8 +44,9 @@ module MarketplaceService::API
       def community_params(params, marketplace_name, locale)
         {
           consent: "SHARETRIBE1.0",
-          domain: available_domain_based_on(marketplace_name),
+          domain: available_domain_based_on(params[:marketplace_name].get),
           settings: {"locales" => [locale]},
+          name: marketplace_name,
           available_currencies: available_currencies_based_on(params[:marketplace_country].or_else("us")),
           country: params[:marketplace_country].upcase.or_else(nil)
         }

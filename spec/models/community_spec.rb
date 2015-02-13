@@ -1,9 +1,10 @@
-# encoding: utf-8
+# encoding: UTF-8
 # == Schema Information
 #
 # Table name: communities
 #
 #  id                                         :integer          not null, primary key
+#  name                                       :string(255)
 #  domain                                     :string(255)
 #  created_at                                 :datetime
 #  updated_at                                 :datetime
@@ -109,6 +110,15 @@ describe Community do
 
   it "is valid with valid attributes" do
     @community.should be_valid
+  end
+
+  it "is not valid without proper name" do
+    @community.name = nil
+    @community.should_not be_valid
+    @community.name = "a"
+    @community.should_not be_valid
+    @community.name = "a" * 51
+    @community.should_not be_valid
   end
 
   it "is not valid without proper domain" do
