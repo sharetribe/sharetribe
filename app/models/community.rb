@@ -3,7 +3,6 @@
 # Table name: communities
 #
 #  id                                         :integer          not null, primary key
-#  name                                       :string(255)
 #  domain                                     :string(255)
 #  created_at                                 :datetime
 #  updated_at                                 :datetime
@@ -135,7 +134,6 @@ class Community < ActiveRecord::Base
 
   monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :default_currency
 
-  validates_length_of :name, :in => 2..50
   validates_length_of :domain, :in => 2..50
   validates_format_of :domain, :with => /\A[A-Z0-9_\-\.]*\z/i
   validates_uniqueness_of :domain
@@ -264,17 +262,13 @@ class Community < ActiveRecord::Base
 
   attr_accessor :terms
 
-  def name(locale=nil)
-    if locale
-      if cc = community_customizations.find_by_locale(locale)
-        cc.name
-      else
-        community_customizations.find_by_locale(locales.first).name
-      end
+  def name(locale)
+    customization = community_customizations.where(locale: locale).first
+
+    if customization
+      customization.name
     else
-      # TODO: this is not required any more when we remove "name" column,
-      # from community, this should be removed after that.
-      read_attribute(:name)
+      raise ArgumentError.new("Can not find translation for marketplace name community_id: #{id}, locale: #{locale}")
     end
   end
 

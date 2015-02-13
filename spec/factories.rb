@@ -173,7 +173,6 @@ FactoryGirl.define do
   end
 
   factory :community do
-    name { generate(:domain) }
     domain
     slogan "Test slogan"
     description "Test description"

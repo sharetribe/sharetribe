@@ -267,7 +267,7 @@ class PersonMailer < ActionMailer::Base
   # Used to send notification to Sharetribe admins when somebody
   # gives feedback on Sharetribe
   def new_feedback(feedback, community)
-    subject = "New #unanswered #feedback from #{community.name('en')} community from user #{feedback.author.try(:name)} "
+    subject = "New #unanswered #feedback from #{community.name(community.default_locale)} community from user #{feedback.author.try(:name)} "
 
     premailer_mail(
       :to => mail_feedback_to(community, APP_CONFIG.feedback_mailer_recipients),

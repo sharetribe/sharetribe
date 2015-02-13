@@ -8,7 +8,7 @@ class InvitationCreatedJob < Struct.new(:invitation_id, :community_id)
   def before(job)
     # Set the correct service name to thread for I18n to pick it
     community = Community.find(community_id)
-    ApplicationHelper.store_community_service_name_to_thread(community.name)
+    ApplicationHelper.store_community_service_name_to_thread(community.name(community.default_locale))
   end
 
   def perform
