@@ -29,13 +29,19 @@ class ErrorsController < ActionController::Base
   end
 
   def title(status)
-    community_name = Maybe(@current_community).name.or_else(nil)
+    community_name = Maybe(@current_community).map { |c|
+      c.name(community_locale)
+    }.or_else(nil)
 
     [community_name, t("error_pages.error_#{status}_title")].compact.join(' - ')
   end
 
+  def community_locale
+    Maybe(@current_community).default_locale.or_else(nil)
+  end
+
   def set_locale
-    I18n.locale = Maybe(@current_community).default_locale.or_else("en")
+    I18n.locale = community_locale || "en"
   end
 
   def exception
