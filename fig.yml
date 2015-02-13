@@ -1,0 +1,68 @@
+db:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_USER: sharetribe
+    MYSQL_PASSWORD: secret
+    MYSQL_DATABASE: sharetribe_development
+    MYSQL_ROOT_PASSWORD: secret
+
+dbtest:
+  image: mysql
+  ports:
+    - "3307:3306"
+  environment:
+    MYSQL_USER: sharetribe
+    MYSQL_PASSWORD: secret
+    MYSQL_DATABASE: sharetribe_test
+    MYSQL_ROOT_PASSWORD: secret
+
+worker:
+  build: .
+  command: '/bin/bash -l -c "bundle exec rake jobs:work"'
+  links:
+    - db:mysql
+  volumes:
+    - .:/opt/sharetribe
+
+search:
+  build: .
+  command: '/bin/bash -l -c "bundle exec rake ts:configure ts:index; searchd --nodetach --pidfile --config config/development.sphinx.conf"'
+  links:
+    - db:mysql
+  volumes:
+    - .:/opt/sharetribe
+  ports:
+    - "3563:3563"
+  environment:
+    SPHINX_HOST: ""
+
+web:
+  build: .
+  command: '/bin/bash -l -c "bundle exec rails server"'
+  volumes:
+     - .:/opt/sharetribe
+  ports:
+    - "3000:3000"
+  links:
+    - db:mysql
+    - dbtest:mysqltest
+    - search:search
+    - worker:worker
+  environment:
+    SPHINX_HOST: search
+
+zeus:
+  build: .
+  command: '/bin/bash -l -c "zeus start"'
+  volumes:
+     - .:/opt/sharetribe
+  ports:
+    - "3000:3000"
+  links:
+    - db:mysql
+    - dbtest:mysqltest
+    - search:search
+  environment:
+    SPHINX_HOST: search

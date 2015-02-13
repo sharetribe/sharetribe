@@ -7,8 +7,8 @@
     .custom-filter-options
       - id = ["range-slider", "price"].join("-")
       .range-slider{id: id}
-        - min = @current_community.price_filter_min / 100
-        - max = @current_community.price_filter_max / 100
+        - min = MoneyUtil.to_units(MoneyUtil.to_money(@current_community.price_filter_min, @current_community.default_currency))
+        - max = MoneyUtil.to_units(MoneyUtil.to_money(@current_community.price_filter_max, @current_community.default_currency))
         - range = [min, max]
         - start = [params["price_min"] || min, params["price_max"] || max]
         - labels = ["#price-filter-min-value", "#price-filter-max-value"]

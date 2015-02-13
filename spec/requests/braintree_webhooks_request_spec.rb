@@ -17,7 +17,7 @@ describe "braintree webhooks" do
     @community.reload
 
     # Guard assert
-    @community.braintree_in_use?.should be_true
+    @community.braintree_in_use?.should be_truthy
   end
 
   describe "#challenge" do
@@ -37,7 +37,7 @@ describe "braintree webhooks" do
       @community.save!
 
       # Guard assert
-      @community.braintree_in_use?.should be_false
+      @community.braintree_in_use?.should be_falsey
 
       get "http://market.custom.org/webhooks/braintree", :community_id => @community.id
 

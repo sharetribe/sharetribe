@@ -7,7 +7,7 @@ Feature: Admin edits welcome
   Scenario: Admin user can edit community details
     Given I am logged in as "kassi_testperson1"
     When I go to the admin view of community "test"
-    And I follow "Welcome email content"
+    And I follow "Emails"
     Then I should not have editor open
     When I follow "Edit message"
     Then I should have editor open

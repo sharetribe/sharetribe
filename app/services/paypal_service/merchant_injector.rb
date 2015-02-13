@@ -11,7 +11,8 @@ module PaypalService
         {
           endpoint: build_endpoint(APP_CONFIG),
           api_credentials: build_api_credentials(APP_CONFIG),
-          ipn_hook: build_ipn_hook(APP_CONFIG)
+          ipn_hook: build_ipn_hook(APP_CONFIG),
+          button_source: APP_CONFIG.paypal_button_source
         }
       )
 

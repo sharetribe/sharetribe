@@ -1,81 +1,12 @@
+## POST /billing_agreements/:community_id/:person_id/charge_commission
 
-# paypal/v1/
-
-## POST /billing_agreements/:community_id/request
-
-Request body:
+Request body CommissionInfo:
 
 ```ruby
-{ person_id: "person_id_1"
-, description: "Permission to charge commissions."
-, success: "https://alpha.sharetribe.com/billing_agreement/success"
-, cancel: "https://alpha.sharetribe.com/billing_agreement/cancel"
-}
-```
-
-Response 201 Created, body:
-
-```ruby
-{ community_id: 121212
-, person_id: "person_id_1"
-, token: "EC-3TH127556H844745T"
-, redirect_url: "https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&token=EC-3TH127556H844745T"
-, username_to: "dev+paypal_api1.sharetribe.com"
-}
-```
-
-
-## POST /billing_agreements/:community_id/cancel?token=EC-3TH127556H844745T
-
-Request body:
-
-```ruby
-{ person_id: "person_id_1" }
-```
-
-Response 204 No Content
-
-
-## POST /billing_agreements/:community_id/create?token=EC-3TH127556H844745T
-
-Request body:
-
-```ruby
-{ person_id: "person_id_1" }
-```
-
-Response 201 Created, body:
-
-```ruby
-{ community_id: 121212
-, person_id: "person_id_1"
-, billing_agreement_state: :verified
-, billing_agreement_id: "B-6LN09317DE8098150"
-}
-```
-
-
-## GET /billing_agreements/:community_id/:person_id
-
-Response 200 OK, body:
-
-```ruby
-{ community_id: 121212
-, person_id: "person_id_1"
-, billing_agreement_state: :verified # Could also be :pending, but :not_requested is returned as 404
-, billing_agreement_id: "B-6LN09317DE8098150"
-}
-```
-
-## POST /billing_agreements/:community_id/:person_id/charge
-
-Request body:
-
-```ruby
-{ community_id: 121212
-, community_admin_id: "community_admin_1" # External person id, community admin receiving the commission, must match to existing paypal admin account
-, commissioned_transaction_id: 123456789
+{ transaction_id: 123456789
 , commission_total: <Money>
+, payment_name: "commission payment name"
+, payment_desc: "commission payment desc"
 }
 ```
 
@@ -102,7 +33,8 @@ Response 200 OK, Payment body:
 , fee_total: <Money>
 , commission_payment_id: "08387GJK384"
 , commission_payment_date: <Time>
-, commission_status: :charged
+, commission_status: :completed  # :not_charged, :completed, or :pending
+, commissions_pending_reason     # :none, :multicurrency, etc
 , commission_total: <Money>
 , commission_fee_total: <Money>
 }

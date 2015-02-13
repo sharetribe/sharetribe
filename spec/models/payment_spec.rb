@@ -26,12 +26,12 @@
 describe Payment do
 
   PaymentSubclass = Class.new(Payment) do
-    attr_accessor :total_sum, :commission_from_seller, :gateway_commission_percentage, :gateway_commission_fixed
-    attr_accessible :commission_from_seller, :gateway_commission_percentage, :gateway_commission_fixed
+    attr_accessor :total_sum, :commission_from_seller
+    attr_accessible :commission_from_seller
   end
 
-  let(:payment) { PaymentSubclass.new(commission_from_seller: 12, gateway_commission_percentage: 0, gateway_commission_fixed: Money.new(0, "EUR")) }
-  let(:payment2) { PaymentSubclass.new(commission_from_seller: 10, gateway_commission_percentage: 0, gateway_commission_fixed: Money.new(0, "EUR")) }
+  let(:payment) { PaymentSubclass.new(commission_from_seller: 12) }
+  let(:payment2) { PaymentSubclass.new(commission_from_seller: 10) }
 
   describe "#total_commission" do
     it "calculates service fee from price and commission percentage" do
@@ -39,7 +39,7 @@ describe Payment do
       payment.total_commission.cents.should == 1200
 
       payment2.total_sum = Money.new(2900, "EUR")
-      payment2.total_commission.cents.should == 300
+      payment2.total_commission.cents.should == 290
     end
   end
 
@@ -49,7 +49,7 @@ describe Payment do
       payment.seller_gets.cents.should == 8800
 
       payment2.total_sum = Money.new(2900, "EUR")
-      payment2.seller_gets.cents.should == 2600
+      payment2.seller_gets.cents.should == 2610
     end
   end
 end

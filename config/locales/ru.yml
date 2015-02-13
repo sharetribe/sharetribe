@@ -103,6 +103,39 @@ ru:
         welcome_email_content_description: ~
         edit_message: ~
         send_test_message: ~
+      getting_started:
+        getting_started: ~
+        welcome_to_your_marketplace: ~
+        intro: ~
+        live_site_link_text: ~
+        look_and_feel: ~
+        logo_link_text: ~
+        custom_domain: ~
+        contact_team_link_text: ~
+        categories_and_custom_fields: ~
+        categories_link_text: ~
+        custom_fields_link_text: ~
+        filters_link_text: ~
+        payments: ~
+        payments_link_text: ~
+        info_texts: ~
+        about_page_link_text: ~
+        terms_of_use_link_text: ~
+        privacy_policy_link_text: ~
+        welcome_email_link_text: ~
+        instruction_texts_link_text: ~
+        social_media: ~
+        facebook_link_text: ~
+        twitter_link_text: ~
+        analytics: ~
+        analytics_link_text: ~
+        settings: ~
+        settings_link_text: ~
+        final_words: ~
+        invite_link_text: ~
+        view_users_link_text: ~
+        view_transactions_link_text: ~
+        contact_support_link_text: ~
       settings:
         settings: ~
         general: ~
@@ -121,11 +154,11 @@ ru:
         email_preferences: ~
         automatic_newsletters: ~
         email_admins_about_new_members: ~
-        integrations: ~
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -141,20 +174,30 @@ ru:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
-      integrations:
-        integrations: ~
+        ban_me_error: ~
+      social_media:
+        social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -186,6 +229,8 @@ ru:
           paid: ~
           confirmed: ~
           canceled: ~
+          initiated: ~
+          pending_ext: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -222,7 +267,6 @@ ru:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,54 +297,25 @@ ru:
         send_email: "Отправить письмо"
         message_will_be_sent_only_to_people_with_this_language: "Примечание: письмо будет отправлено только тем членам сообщества, которые пользуются %{service_name} на выбранном вами языке"
         email_sent: "Письмо отправлено"
-    news_items:
-      index:
-        news_items: "Новые статьи"
-        create_news_item: "Создание статьи"
-        no_news: "Пока нет новостей."
-        loading_more_news: "Загрузить больше новостей"
-      new:
-        new_news_item: "Создание статьи"
-        edit_news_item: "Редактирование статьи"
-        index_news_item: "Создание статьи"
-        title: "Заголовок:"
-        content: "Содержимое:"
-        save_news_item: "Сохранить статью"
-      news_item:
-        edit_news_item: Изменить
-        delete_news_item: Удалить
+    left_hand_navigation:
+      general: ~
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
+      support: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
-      new:
-        integration_info_text: ~
-        paypal_account_email: ~
-      show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: Опросы
-        create_poll: "Создайте новый опрос"
-        no_polls: "Нет опросов"
-      edit_poll_links:
-        close_poll: Закрыть
-        open_poll: Открыть
-        edit_poll: Изменить
-        delete_poll: Удалить
-      new:
-        add_option: "Добавить вариант"
-        new_poll: "Создать опрос"
-        edit_poll: "Редактировать опрос"
-        title: "Название:"
-        save_poll: "Сохранить опрос"
-      new_option:
-        option: Вариант
-        remove_option: "Удалить вариант"
-      show:
-        edit_poll: "Редактировать опрос"
-      poll_status:
-        open: Открытый
-        closed: Закрытый
+      preferences_updated: ~
+      integration_info_text: ~
+      read_more_about_paypal: ~
+      paypal_account_email: ~
+      paypal_account_email_completed: ~
+      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee_completed: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      save_settings: ~
+      note_about_transaction_fee: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -364,6 +379,7 @@ ru:
     username: "Имя пользователя"
     username_or_email: "Имя пользователя или электронная почта"
     what_is_this: "Что это?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Ответить на предложение"
@@ -379,7 +395,11 @@ ru:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
-      approve: ~
+      accept: ~
+      decline: ~
+      sum: ~
+      service_fee: ~
+      you_will_get: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -475,6 +495,9 @@ ru:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: Отменить
       feedback_given: "Отзыв отправлен"
       feedback_skipped: "Отзыв отменён"
@@ -515,6 +538,7 @@ ru:
         paypal:
           multicurrency: ~
           intl: ~
+          unknown_reason: ~
           verify: ~
     status_link:
       accept_offer: "Принять предложение"
@@ -579,7 +603,6 @@ ru:
       welcome_fb_user: "%{name}, добро пожаловать в %{service_name}!"
       fb_join_accept_terms: "Остался всего один шаг - вы должны принять правила использования."
       join_community: "Присоединяйтесь к сообществу '%{community}'"
-      you_are_not_a_member_of_this_community: "У вас есть учетная запись пользователя в %{service_name}, но вы не являетесь членом сообщества '%{community}'."
       you_can_join: "Вы можете присоединиться к этому сообществу, приняв условия использования и нажав кнопку \"Присоединиться\" ниже."
       you_can_join_email_confirmation: "Для вступления в это сообщество, вам необходимо иметь работающий почтовый адрес, заканчивающийся на %{email_ending}. Вы сможете присоединиться к сообществу, введя свой адрес электронной почты, приняв условия использования этого сообщества и нажав кнопку \"Присоединиться\", расположенную ниже."
       you_can_join_email_confirmation_multiple_addresses: "Для вступления в это сообщество, вам необходимо иметь работающий почтовый адрес, заканчивающийся на что-либо из списка: %{email_endings}. Вы сможете присоединиться к сообществу, введя свой адрес электронной почты, приняв условия использования этого сообщества и нажав кнопку \"Присоединиться\", расположенную ниже."
@@ -660,8 +683,6 @@ ru:
       view_it_in_your_browser: "Открыть в браузере"
       or: или
       unsubscribe_from_these_emails: ~
-    community_starter_email:
-      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} принял ваше предложение по запросу %{listing}"
       has_accepted_your_request: "%{accepter} принял ваш запрос по предложению %{listing}"
@@ -699,6 +720,7 @@ ru:
       price_payer_paid: ~
       service_fee: ~
       you_will_get: ~
+      money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -706,6 +728,7 @@ ru:
       total: ~
       price: ~
       service_fee: ~
+      money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в Kassi"
       you_can_give_feedback_to: "Вы можете оставить отзыв о %{name} здесь —"
@@ -731,8 +754,6 @@ ru:
       newest_offers: "Последние предложения"
       newest_requests: "Последние запросы"
       text_version_text: "У вас есть что-нибудь, что может кому-то пригодиться? А может быть вам нужно то, что может быть у других? Оставьте запрос, предложение или просто взгляните на то, что предлагают и запрашивают другие — %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Спасибо за ваш интерес к Kassi!"
     reset_password_instructions:
       change_my_password: "Изменить пароль"
       reset_password_instructions: "<p>Вы указали, что вы забыли свой пароль или имя пользователя в  %{service_name}.</p><p>Ваше имя пользователя: %{username}</p><p>Если вам нужно сбросить ваш пароль, нажмите на следующую ссылку: %{password_reset_link}</p><br><p>Если это были не вы,  просто проигнорируйте это сообщение. Ваш пароль не изменится до тех пор, пока вы не перейдёте по ссылке, указанной выше и не создадите новый пароль.</p>"
@@ -758,6 +779,23 @@ ru:
       click_here_link_text: "Нажмите здесь"
       welcome_email_footer_text: ~
       settings_link_text: "Проверьте настройки"
+      welcome_email_subject_for_marketplace_creator: ~
+      welcome_to_marketplace_creator: ~
+      congrats_for_creating_your_marketplace: ~
+      here_is_your_account_information: ~
+      your_email_address: ~
+      your_marketplace_address: ~
+      your_marketplace_admin_area: ~
+      just_follow_details: ~
+      we_will_guide_you_along_the_way: ~
+      are_you_new_to_online_marketplaces: ~
+      have_questions: ~
+      our_happiness_team_is_here_to_help: ~
+      love: ~
+      sharetribe_crew: ~
+      knowledge_base_link_text: ~
+      contact_support_link_text: ~
+      admin_panel_link_text: "Панель администратора"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -773,8 +811,13 @@ ru:
     testimonials:
       you_must_explain_not_neutral_feedback: "Если вы хотите оставить отзыв, отличный от нейтрального, объясните причину."
       you_must_select_a_grade: "Не забывайте оценивать пользователей, путём выбора одного из значков сверху (вы можете посмотреть, что они значат, наведя на них указатель мыши)"
+    transaction_agreement:
+      required_error: ~
     paypal:
       generic_error: ~
+      cancel_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "На главную страницу Kassi"
     error_404:
@@ -782,16 +825,21 @@ ru:
       page_can_not_be_found: "Такой страницы нет!"
       page_you_requested_can_not_be_found: "Запрашиваемая вами страница отсутствует на сервере. Проверьте правильность адреса."
     error_404_title: "страница не найдена"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: "Вы можете помочь нам найти проблему, отправив её краткое описание через форму, расположенную ниже."
-      page_loading_failed: "Ошибка сервера!"
-      reload_refresh: "Попробуйте обновить/перезагрузить страницу. В большинстве случаев это помогает. Мы делаем всё возможное, чтобы устранить причину этой ошибки как можно скорее."
+      temporary_unavailable: "Рынок временно недоступен"
+      unable_to_process: "Сервис не может обработать ваш запрос прямо сейчас. Пожалуйста, попробуйте через некоторое время снова."
+      we_hate_this: "Мы терпеть не можем когда это происходит! Мы уже оповещены о ситуации и исправляем ее."
+      refer_to_error_id: ~
     error_500_title: "ошибка сервера"
     error_description: "Описание ошибки"
     no_javascript:
       javascript_is_disabled_in_your_browser: "В вашем браузере отключён Javascript"
       kassi_does_not_currently_work_without_javascript: "К сожалению, %{service_name} не сможет работать при отключенном javascript. Попробуйте включить поддержку javascript в своём браузере и перезагрузить страницу. Если вы хотите пользоваться %{service_name} без javascript, сообщите нам, почему."
-      kassi_does_not_currently_work_without_javascript_dashboard: "К сожалению, %{service_name} не может работать без включенного в javascript. Попробуйте включить javascript в настройках браузера и перезагрузите эту страницу. Если вы хотите использовать %{service_name} без javascript, пожалуйста %{contact_us}."
       contact_us: "свяжитесь с нами"
       send_feedback: Отправить
       your_feedback_to_admins: "Обратная связь с администрацией"
@@ -841,7 +889,7 @@ ru:
     offers: Предложения
     requests: Запросы
     search_kassi: "Поиск в %{service_name}"
-    create_new_marketplace: ~
+    create_new_marketplace: "Создать новый рынок"
     contact_us: "Обратная связь"
     profile: Профиль
     invite: ~
@@ -892,18 +940,15 @@ ru:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
       add_listing_link_text: ~
-      available_on_the_app_store: "Доступно в AppStore"
-      private_listing_notification: "В этом сообществе содержится %{listing_count} открытых листингов. Из них %{private_listing_count}%{be_verb}видимы только для членов сообщества. Если вы хотите их увидеть, вам нужно %{log_in_link}."
       open_listing: "открытое объявление"
       open_listings: "открытые объявления"
       private_listing_notification_log_in: Войти
-      is: ~
+      is: является
       are: ~
       what_do_you_need: ~
       post_new_listing: "Разместить новый листинг!"
       are_offering: "что предлагают"
       add_news_item: "Добавить статью"
-      inform_others_about_events: "Последние новости и события в сообществе."
       lend_rent_help_carpool: "Прокат, обмен, помощь, совместные поездки"
       loading_more_content: "Загрузить больше"
       more_events: Больше...
@@ -914,7 +959,6 @@ ru:
       or_see_what_the_others: "...или посмотрите,"
       recent_events: "Недавние события"
       requesting: "запрашивают другие"
-      teaser_text: "%{service_name} — сервис для сообщества %{community}. С помощью него вы можете обмениваться вещами, продавать, покупать, отдавать и брать их на прокат, получить или оказать помощь, либо договориться о совместном использовании транспорта. У вас есть что предложить другим?"
       tell_it_here: "Расскажите об этом здесь!"
       welcome_to_new_kassi: "Добро пожаловать в новый %{service_name}!"
       no_reviews: ~
@@ -923,7 +967,6 @@ ru:
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Пригласите друзей в %{service_name}!"
-      invite_your_neighbors: ~
       email: "Адрес электронной почты вашего друга:"
       message: "Личное сообщение:"
       send_invitation: "Отправить приглашение"
@@ -937,13 +980,6 @@ ru:
     news_item:
       show_less: Меньше
       show_more: Больше
-    poll_form:
-      poll: "Опрос:"
-      comment: "Комментарий:"
-      answer: Ответ
-      results: Результаты
-      poll_answer: ответ
-      poll_answers: ответов
     profile_info_empty_notification:
       add_your_info: "Добавьте контактную информацию"
       add_a_profile_picture: "Добавьте изображение профиля"
@@ -957,7 +993,7 @@ ru:
       show: "Показать:"
       search: Поиск
       map: "Показать карту"
-      list: ~
+      list: "Показать список"
       map_button: ~
       grid_button: ~
       list_button: ~
@@ -968,17 +1004,16 @@ ru:
       default_about_text_title: ~
       default_about_text: ~
       click_here_link_text: ~
+    how_to_use:
+      default_title: ~
+      default_content: ~
   layouts:
+    admin:
+      admin: "Администрирование %{service_name}"
     no_tribe:
       inbox: Входящие
       settings: Настройки
       feedback: "Обратная связь"
-    admin:
-      admin: "Администрирование %{service_name}"
-      back_to_kassi: "Вернуться в %{service_name}"
-      tribe_info: "Основная информация о сообществе"
-      news_items: "Новостные статьи"
-      polls: Опросы
     application:
       join_this_community: "Присоединиться к сообществу"
       read_more: Подробнее
@@ -987,13 +1022,11 @@ ru:
       feedback_forum: форум
       feedback_handle: "Написать отзыв"
       give_feedback: "Написать отзыв о %{service_name}"
-      keywords: "%{service_name}, Sharetribe, услуга, вещи, совместное использование автомобилей, проживание, жилье, приют, помощь, помогать, предлагать, предложение, требуется, сдавать, обменяться, купить, продать, отдать, отдать бесплатно, сообщество, он-лайн сообщество"
-      meta_description: "%{service_name} - это сервис, который помогает людям обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
       or_check_our: "...или зайдите на наш"
       send_feedback_to_admin: "Отправить отзыв"
       to_see_what_others_have_suggested: "чтобы увидеть, что предлагают другие пользователи."
       your_email_address: "Ваш адрес email (необязательно)"
-      connect: ~
+      connect: Регистрация
       invite_your_friends: "Приглашайте друзей!"
       invite_your_neighbors: "Пригласите соседей!"
       invite_your_friends_description: "Чем больше людей вступит в сообщество %{service_name}, тем более полезным оно будет."
@@ -1005,8 +1038,6 @@ ru:
       notifications: Оповещения
       received: Полученные
       sent: Отправленые
-    dashboard:
-      title: "%{service_name} - делитесь вещами и услугами в вашем местном сообществе!"
     global-header:
       select_language: ~
     infos:
@@ -1117,7 +1148,6 @@ ru:
       this_content_is_not_available_in_this_community: "Эта информация не доступна в этом сообществе."
       unknown_error: "Неизвестная ошибка. Используйте ссылку отзыва для отправки деталей о том, как это произошло."
       update_error: "Произошла ошибка при сохранении данных. Попробуйте снова."
-      welcome_message: "Добро пожаловать в %{service_name}! %{service_name} - это сервис, который помогает членам сообщества %{community} обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Для того, чтобы оставить отзыв об этом событии, требуется авторизация"
       you_are_not_authorized_to_do_this: "У вас не хватает прав для этого действия"
       you_are_not_authorized_to_view_this_content: "У вас не хватает прав для просмотра этой информации"
@@ -1155,6 +1185,7 @@ ru:
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: "Учётная запись"
       notifications: Оповещения
@@ -1323,9 +1354,10 @@ ru:
     listing_actions:
       booking_from: ~
       booking_to: ~
+      how_paypal_works: ~
     new:
       post_a_new_listing: ~
-      listing: ~
+      listing: список
       selected_category: "Категория: %{category}"
       selected_subcategory: "Подкатегория: %{subcategory}"
       selected_transaction_type: ~
@@ -1333,7 +1365,10 @@ ru:
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: Комментарий
     reply_link:
       listing_closed: ~
@@ -1409,11 +1444,6 @@ ru:
       search_verb: Поиск
       you_have_something_others_do_not: "Можете предложить что-нибудь?"
     please_comment: Комментарий
-  news_items:
-    index:
-      news_from_community: "Последние новости сообщества %{community}"
-    news_item:
-      delete_news_item: "Удалить статью"
   okl:
     member_id: Идентификатор
     member_id_or_email: "ID пользователя или электронная почта"
@@ -1445,8 +1475,14 @@ ru:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
+      payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
+      admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
       paypal_account_email_info_text: ~
@@ -1461,19 +1497,20 @@ ru:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: ~
+      account_not_verified: ~
+      account_restricted: ~
+  paypal:
+    checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: ~
-      meet_the_people: ~
-      you_are_the_only_member: "Вы — единственный участник сообщества %{community_name}."
-      here_are_the_members: "Количество участников сообщества %{community_name}: %{count} чел."
-      wanna_see_more_folks: "Хотите видеть здесь больше людей?"
-      invite_people_you_know: "Приглашайте знакомых!"
-      there_are_x_members: "Количество участников сообщества %{community_name}: %{count} чел."
-      to_see_the_list_log_in: "Чтобы увидеть полный список участников, необходимо %{log_in_link}."
-      log_in_link: авторизоваться
     edit_links:
       activate: Активировать
       deactivate: Отключить
@@ -1482,8 +1519,6 @@ ru:
       help_captcha_title: "Вы человек?"
       help_invitation_code_title: "Для того, чтобы присоединиться требуется приглашение"
       terms_title: "Условия использования Kassi"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloud является онлайн-сервисом, который помогает \"измерить\"  надёжность пользователя с помощью других сервисов. В зависимости от активности пользователя в интернете, ему присваивается рейтинг TrustScore (1-1000). Рейтинг увеличивается, например, при получении положительных отзывов на аукционе eBay, либо при наличии множества связей в Facebook. Щёлкните каждую карточку для получения более подробной информации.</p><p>TrustCloud используется для получения  большей уверенности, в том, что человек за учётной записью является реальным и не прячется за выдуманной личностью.</p><p>Вы можете получить свою карточку TrustCard, <a href='https://trustcloud.com/claim'>зарегистрировавшись на TrustCloud</a> с тем же адресом электронной почты, который вы использовали при регистрации на %{service_name}. Это совершенно необязательно, но мы рекомендуем получить свою учётную запись TrustCard, так как это повысит ваш авторитет и скорее всего упростит общение с другими членами сообщества.</p><p>Ваши действия в %{service_name} пока ещё не влияют на ваш рейтинг TrustScore, но мы планируем сделать это возможным в будущем.</p>"
       invite_only_help_text: "Выберите этот вариант, если вы хотите, чтобы новые пользователи могли вступать в сообщество только по приглашению от существующих пользователей."
       invite_only_help_text_title: "Сообщество только по приглашениям"
     inactive_notification:
@@ -1547,9 +1582,6 @@ ru:
       exceeded_expectations: "Намного лучше, чем ожидалось"
       positive: позитивн.
       hide_description: Меньше
-      joined_this_community: "…зарегистрирован с %{time_ago}"
-      was_last_seen: "…последний раз заходил %{time_ago}"
-      was_invited_by: "...был приглашён %{inviter_name}"
       less_than_expected: "Хуже чем ожидалось"
       phone_number: "Телефон:"
       show_all_feedback: "Показать все отзывы"
@@ -1621,7 +1653,9 @@ ru:
       change_email: Изменить
       confirm_your_email: "Подтвердить электронную почту"
       account_confirmation_instructions: "Вскоре вы получите электронное письмо с ссылкой, которую нужно нажать для подтверждения электронной почты. После подтверждения вашей электронной почты вы сможете начать использовать %{service_name} ."
-      account_confirmation_instructions_dashboard: "Вскоре вы получите электронное письмо со ссылкой, по которой нужно будет перейти для подтверждения электронной почты."
+      account_confirmation_instructions_title_admin: ~
+      your_marketplace_has_now_been_created: ~
+      account_confirmation_instructions_admin: ~
   settings:
     account:
       change: Изменить
@@ -1631,11 +1665,14 @@ ru:
       delete_account_confirmation_popup: ~
       email_addresses: ~
       new_email: "Новый адрес электронной почты"
-      instructions_to_delete_account: "Если вы хотите удалить свою учётную запись, используйте форму связи слева."
-      contact_admin: "свяжитесь с администратором"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Новый пароль"
       save: Сохранить
       these_fields_are_shown_only_to_you: "Если вы не сообщили ваше реальное имя, в вашем профиле будет отображаться выбранное вами имя пользователя. Остальная информация будет доступна только вам."
+      email_already_confirmed: ~
       email:
         address_title: ~
         remove_title: ~

@@ -23,12 +23,14 @@ def build_conversation(community, listing, starter, message)
   conversation
 end
 
-def create_transaction(community, listing, starter, message)
+def create_transaction(community, listing, starter, message, payment_gateway = :none)
   transaction = FactoryGirl.create(:transaction,
     listing: listing,
     community: community,
     starter: starter,
-    conversation: build_conversation(community, listing, starter, message)
+    conversation: build_conversation(community, listing, starter, message),
+    payment_gateway: payment_gateway,
+    automatic_confirmation_after_days: community.automatic_confirmation_after_days
   )
 end
 
@@ -40,7 +42,7 @@ Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |mes
 end
 
 Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @transaction = create_transaction(@current_community, @listing, @people[sender], message)
+  @transaction = create_transaction(@current_community, @listing, @people[sender], message, @current_community.payment_gateway.gateway_type)
   @conversation = @transaction.conversation
   MarketplaceService::Transaction::Command.transition_to(@transaction.id, "pending")
   @transaction.reload
@@ -210,7 +212,7 @@ end
 When(/^I accepts the request for that listing$/) do
   visit_transaction_of_listing(@listing)
   click_link "Accept request"
-  click_button "Approve"
+  click_button "Accept"
 end
 
 
@@ -282,7 +284,7 @@ Then /^I should see that the price of a listing is "(.*?)"$/ do |price_string|
 end
 
 Then /^I should send a message to "(.*?)"$/ do |seller_name|
-  find("#new_listing_conversation").visible?.should be_true
+  find("#new_listing_conversation").visible?.should be_truthy
   seller = Person.find_by_username(seller_name)
   expect(find("label[for=listing_conversation_content]")).to have_content("Message to #{seller.given_name}")
 end

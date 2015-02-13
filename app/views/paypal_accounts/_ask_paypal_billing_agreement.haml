@@ -3,13 +3,14 @@
     =t("paypal_accounts.paypal_account_email_connected").html_safe
   .paypal-connected-email.paypal-account-connected
     = t("paypal_accounts.connected_account", :email => paypal_account_email)
-
+  .paypal-connected-change
+    = link_to t("paypal_accounts.change_account"), change_url
 
 .row
   = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement")
 
 .row
-  = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info", commission: commission_from_seller)}
+  = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info", commission: commission_from_seller, minimum_commission: humanized_money_with_symbol(minimum_commission))}
 
 .row.send-button-wrapper
   = form.button t("paypal_accounts.new.billing_agreement"), :class => "send_button"

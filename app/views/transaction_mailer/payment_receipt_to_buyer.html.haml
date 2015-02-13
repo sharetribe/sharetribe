@@ -1,0 +1,35 @@
+%tr
+  %td{:align => "left"}
+    %font{body_font}
+      = t("emails.receipt_to_payer.you_have_made_new_payment", :listing_title => listing_title, :payment_sum => payment_total, :recipient_full_name => recipient_full_name, :recipient_given_name => recipient_given_name).html_safe
+
+%tr
+  %td{:align => "left", :style => "padding: 10px 0;"}
+    %table{:cellpadding => 5, :cellspacing => 0}
+      %tbody
+        %tr
+          %td
+            %b
+              =t("emails.receipt_to_payer.product")
+          %td
+            %b
+              =t("emails.receipt_to_payer.price")
+          %tr
+            %td{:width => "250"}
+              = listing_title
+            %td
+              = payment_total
+        %tr
+          %td
+            %b
+              =t("emails.receipt_to_payer.total")
+          %td
+            %b= payment_total
+- if show_money_will_be_transferred_note
+  %tr
+    %td{:align => "left"}
+      %font{body_font}
+        = t("emails.receipt_to_payer.money_will_be_transferred", recipient_name: recipient_full_name, automatic_confirmation_days: automatic_confirmation_days)
+
+
+= render :partial => "person_mailer/action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}

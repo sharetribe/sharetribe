@@ -9,7 +9,7 @@ Feature: User creates a new account
     And I am on the signup page
 
   Scenario: Creating a new account successfully
-    Then I should not see "The access to this site is restricted."
+    Then I should not see "The access to Sharetribe is restricted."
     When I fill in "person[username]" with random username
     And I fill in "First name" with "Testmanno"
     And I fill in "Last name" with "Namez"
@@ -18,7 +18,7 @@ Feature: User creates a new account
     And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
-    Then I should see "Confirm your email"
+    Then I should see "Please confirm your email"
     When wait for 1 seconds
     Then I should receive 1 email
     When I open the email
@@ -85,7 +85,7 @@ Feature: User creates a new account
 
   @subdomain2
   Scenario: Seeing info of community's email restriction
-    Then I should see "The access to this site is restricted."
+    Then I should see "The access to Sharetribe is restricted."
 
 
 

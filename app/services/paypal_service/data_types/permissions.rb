@@ -9,11 +9,9 @@ module PaypalService
             "EXPRESS_CHECKOUT",
             "AUTH_CAPTURE",
             "REFUND",
+            "REFERENCE_TRANSACTION",
             "TRANSACTION_DETAILS",
             "EXPRESS_CHECKOUT",
-            "RECURRING_PAYMENTS",
-            "SETTLEMENT_REPORTING",
-            "RECURRING_PAYMENT_REPORT",
             "ACCESS_BASIC_PERSONAL_DATA"
           ]
         ],

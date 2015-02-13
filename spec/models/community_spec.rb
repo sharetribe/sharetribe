@@ -29,6 +29,7 @@
 #  slogan                                     :string(255)
 #  description                                :text
 #  category                                   :string(255)      default("other")
+#  country                                    :string(255)
 #  members_count                              :integer          default(0)
 #  user_limit                                 :integer
 #  monthly_price_in_euros                     :float
@@ -80,7 +81,6 @@
 #  price_filter_min                           :integer          default(0)
 #  price_filter_max                           :integer          default(100000)
 #  automatic_confirmation_after_days          :integer          default(14)
-#  plan_level                                 :integer          default(0)
 #  favicon_file_name                          :string(255)
 #  favicon_content_type                       :string(255)
 #  favicon_file_size                          :integer
@@ -89,7 +89,11 @@
 #  listing_location_required                  :boolean          default(FALSE)
 #  custom_head_script                         :text
 #  follow_in_use                              :boolean          default(TRUE), not null
-#  paypal_enabled                             :boolean          default(FALSE), not null
+#  logo_processing                            :boolean
+#  wide_logo_processing                       :boolean
+#  cover_photo_processing                     :boolean
+#  small_cover_photo_processing               :boolean
+#  favicon_processing                         :boolean
 #
 # Indexes
 #
@@ -106,15 +110,6 @@ describe Community do
 
   it "is valid with valid attributes" do
     @community.should be_valid
-  end
-
-  it "is not valid without proper name" do
-    @community.name = nil
-    @community.should_not be_valid
-    @community.name = "a"
-    @community.should_not be_valid
-    @community.name = "a" * 51
-    @community.should_not be_valid
   end
 
   it "is not valid without proper domain" do
@@ -203,7 +198,7 @@ describe Community do
         end
       end
 
-      correct_order.should be_true
+      correct_order.should be_truthy
     end
 
     it "should include just picked listings" do

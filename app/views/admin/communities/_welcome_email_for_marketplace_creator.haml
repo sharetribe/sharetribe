@@ -1,0 +1,38 @@
+%h3
+  = t("emails.welcome_email.welcome_to_marketplace_creator", :name => @recipient.given_name_or_username)
+
+%p
+  = t("emails.welcome_email.congrats_for_creating_your_marketplace")
+
+%p
+  %b
+    = t("emails.welcome_email.here_is_your_account_information")
+  %br/
+  = t("emails.welcome_email.your_email_address")
+  = @recipient.confirmed_notification_emails_to
+  %br/
+  = t("emails.welcome_email.your_marketplace_address")
+  = link_to @current_community.full_url, @current_community.full_url
+  %br/
+  = t("emails.welcome_email.your_marketplace_admin_area")
+  = link_to @current_community.full_url + "/admin", @current_community.full_url + "/admin"
+  %br/
+  = t("emails.welcome_email.just_follow_details")
+
+%p
+  %b
+    = t("emails.welcome_email.we_will_guide_you_along_the_way")
+  %br/
+  = t("emails.welcome_email.are_you_new_to_online_marketplaces")
+
+%p
+  %b
+    = t("emails.welcome_email.have_questions")
+  %br/
+  = t("emails.welcome_email.our_happiness_team_is_here_to_help", :knowledge_base_link => link_to(t("emails.welcome_email.knowledge_base_link_text"), "#{APP_CONFIG.knowledge_base_url}"), :admin_panel_link => link_to(t("emails.welcome_email.admin_panel_link_text"), @current_community.full_url + "/admin/")).html_safe
+
+%p
+  = t("emails.welcome_email.love")
+  %br/
+  %i
+    = t("emails.welcome_email.sharetribe_crew")

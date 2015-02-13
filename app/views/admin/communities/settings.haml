@@ -1,7 +1,7 @@
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
 
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
 .left-navi-section
   = form_for @current_community, :url => update_settings_admin_community_path(@current_community), :method => :put do |form|
@@ -54,7 +54,10 @@
           .checkbox-container
             .settings-checkbox-label.label
               - day_dropdown = form.select :automatic_confirmation_after_days, (1..100), {}, :class => "inline-select"
-              = t(".automatically_confirmed", :days_dropdown => day_dropdown).html_safe
+              - if supports_escrow
+                = t(".automatically_confirmed", :days_dropdown => day_dropdown).html_safe
+              - else
+                = t(".automatically_confirmed_no_escrow", :days_dropdown => day_dropdown).html_safe
 
     .row
       .col-12

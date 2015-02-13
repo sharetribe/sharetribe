@@ -38,6 +38,7 @@
 #  min_days_between_community_updates :integer          default(1)
 #  is_organization                    :boolean
 #  organization_name                  :string(255)
+#  deleted                            :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -133,6 +134,13 @@ describe Person do
         @test_person.family_name.should == "Riuska"
       end
 
+      it "returns the name in desired format" do
+        @test_person.name("first_name_with_initial").should == "Ripa R"
+        @test_person.name("first_name_only").should == "Ripa"
+        @test_person.name("full_name").should == "Ripa Riuska"
+      end
+
+
       describe "#given_name" do
 
         it "should return the given name" do
@@ -161,8 +169,8 @@ describe Person do
 
       describe "devise valid_password?" do
         it "Test that the hashing works. (makes more sense to test this if ASI digest is used)" do
-          FactoryGirl.build(:person).valid_password?('testi').should be_true
-          FactoryGirl.build(:person).valid_password?('something_else').should_not be_true
+          FactoryGirl.build(:person).valid_password?('testi').should be_truthy
+          FactoryGirl.build(:person).valid_password?('something_else').should_not be_truthy
         end
       end
 
@@ -222,7 +230,7 @@ describe Person do
     it "inherits_settings_from" do
       person.inherit_settings_from(community)
 
-      person.is_organization.should be_true
+      person.is_organization.should be_truthy
       person.min_days_between_community_updates.should eql(30)
     end
 

@@ -6,20 +6,22 @@ module MarketplaceService
       Person = EntityUtils.define_entity(
         :id,
         :username,
-        :name,
-        :full_name,
-        :avatar
+        :first_name,
+        :last_name,
+        :avatar,
+        :is_deleted
       )
 
       module_function
 
-      def person(person_model)
+      def person(person_model, community_id)
         Person[
           id: person_model.id,
           username: person_model.username,
-          name: person_model.name,
-          full_name: person_model.full_name,
-          avatar: person_model.image.url(:thumb)
+          first_name: person_model.given_name,
+          last_name: person_model.family_name,
+          avatar: person_model.image.url(:thumb),
+          is_deleted: person_model.deleted?
         ]
       end
     end
@@ -54,13 +56,13 @@ module MarketplaceService
 
       module_function
 
-      def person(id)
-        MarketplaceService::Person::Entity.person(PersonModel.where({id: id}).first)
+      def person(id, community_id)
+        MarketplaceService::Person::Entity.person(PersonModel.where({id: id}).first, community_id)
       end
 
-      def people(ids)
+      def people(ids, community_id)
         PersonModel.where({id: ids}).inject({}) do |memo, person_model|
-          memo[person_model.id] = MarketplaceService::Person::Entity.person(person_model)
+          memo[person_model.id] = MarketplaceService::Person::Entity.person(person_model, community_id)
           memo
         end
       end

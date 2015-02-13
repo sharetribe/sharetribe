@@ -8,14 +8,11 @@ class PreauthorizeTransactionsController < ApplicationController
   before_filter :ensure_listing_is_open
   before_filter :ensure_listing_author_is_not_current_user
   before_filter :ensure_authorized_to_reply
-  before_filter :ensure_can_receive_payment, only: [:preauthorize, :preauthorized]
-
-  skip_filter :dashboard_only
+  before_filter :ensure_can_receive_payment
 
   BookingForm = FormUtils.define_form("BookingForm", :start_on, :end_on)
     .with_validations do
       validates :start_on, :end_on, presence: true
-      validates_date :start_on, on_or_after: :today
       validates_date :end_on, on_or_after: :start_on
     end
 
@@ -34,146 +31,185 @@ class PreauthorizeTransactionsController < ApplicationController
   PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
 
   ListingQuery = MarketplaceService::Listing::Query
-  PersonQuery = MarketplaceService::Person::Query
   BraintreePaymentQuery = BraintreeService::Payments::Query
 
-
   def initiate
-    listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
-
-    action_button_label = listing[:transaction_type][:action_button_label_translations]
-      .select {|translation| translation[:locale] == I18n.locale}
-      .first
+    vprms = view_params(params[:listing_id])
 
     render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
-      listing: listing,
-      sum: listing[:price],
-      author: PersonQuery.person(listing[:author_id]),
-      action_button_label: action_button_label,
-      expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
-      form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
+      listing: vprms[:listing],
+      sum: vprms[:listing][:price],
+      author: query_person_entity(vprms[:listing][:author_id]),
+      action_button_label: vprms[:action_button_label],
+      expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
+      form_action: initiated_order_path(person_id: @current_user.id, listing_id: vprms[:listing][:id])
     }
   end
 
   def initiated
     conversation_params = params[:listing_conversation]
 
+    if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
+      return render_error_response(request.xhr?, t("error_messages.transaction_agreement.required_error"), action: :initiate)
+    end
+
     preauthorize_form = PreauthorizeMessageForm.new(conversation_params.merge({
       listing_id: @listing.id
     }))
-
     unless preauthorize_form.valid?
-      flash[:error] = preauthorize_form.errors.full_messages.join(", ")
-      return redirect_to action: :initiate
+      return render_error_response(request.xhr?, preauthorize_form.errors.full_messages.join(", "), action: :initiate)
     end
 
-    transaction_id = MarketplaceService::Transaction::Command.create({
-        community_id: @current_community.id,
-        listing_id: preauthorize_form.listing_id,
-        starter_id: @current_user.id,
-        author_id: @listing.author.id,
-        content: preauthorize_form.content})
+    transaction_response = create_preauth_transaction(
+      payment_type: :paypal,
+      community: @current_community,
+      listing: @listing,
+      user: @current_user,
+      content: preauthorize_form.content,
+      use_async: request.xhr?)
 
-    transaction = Transaction.find(transaction_id)
-    #TODO NULL in transaction.payment crashes cuz preauthorization_expiration_days
-    transaction.save!
+    unless transaction_response[:success]
+      return render_error_response(request.xhr?, t("error_messages.paypal.generic_error"), action: :initiate) unless transaction_response[:success]
+    end
 
-    pp_result = paypal_payments_service.request(
-      transaction.community_id,
-      PaypalService::API::DataTypes.create_create_payment_request({
-        transaction_id: transaction.id,
-        item_name: @listing.title,
-        item_quantity: 1, # FIXME Use booking days as quantity
-        item_price: @listing.price,
-        merchant_id: @listing.author.id,
-        order_total: @listing.price, # FIXME The price is not correct for booking
-        success: paypal_checkout_order_success_url,
-        cancel: paypal_checkout_order_cancel_url
-      })
-    )
+    transaction_id = transaction_response[:data][:transaction][:id]
+    MarketplaceService::Transaction::Command.transition_to(transaction_id, "initiated")
 
-    if pp_result[:success]
-      MarketplaceService::Transaction::Command.transition_to(transaction.id, "initiated")
-      redirect_to pp_result[:data][:redirect_url]
+    if (transaction_response[:data][:gateway_fields][:redirect_url])
+      redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
     else
-      flash[:error] = t("error_messages.paypal.generic_error")
-      return redirect_to action: :initiate
+      render json: {
+        op_status_url: transaction_op_status_path(transaction_response[:data][:gateway_fields][:process_token]),
+        op_error_msg: t("error_messages.paypal.generic_error")
+      }
     end
   end
 
   def book
-    listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    vprms = view_params(params[:listing_id])
     booking_data = verified_booking_data(params[:start_on], params[:end_on])
 
     if booking_data[:error].present?
       flash[:error] = booking_data[:error]
-      return redirect_to listing_path(listing[:id])
+      return redirect_to listing_path(vprms[:listing][:id])
     end
 
-    action_button_label = listing[:transaction_type][:action_button_label_translations]
-      .select {|translation| translation[:locale] == I18n.locale}
-      .first
+    gateway_locals =
+      if (vprms[:payment_type] == :braintree)
+        braintree_gateway_locals(@current_community.id)
+      else
+        {}
+      end
 
-    if @current_community.paypal_enabled?
-      render "listing_conversations/initiate", locals: {
-        preauthorize_form: PreauthorizeBookingForm.new({
+    view =
+      case vprms[:payment_type]
+      when :braintree
+        "listing_conversations/preauthorize"
+      when :paypal
+        "listing_conversations/initiate"
+      else
+        raise ArgumentError.new("Unknown payment type #{vprms[:payment_type]} for booking")
+      end
+
+    render view, locals: {
+      preauthorize_form: PreauthorizeBookingForm.new({
           start_on: booking_data[:start_on],
           end_on: booking_data[:end_on]
         }),
-        listing: listing,
-        sum: listing[:price] * booking_data[:duration],
-        duration: booking_data[:duration],
-        author: PersonQuery.person(listing[:author_id]),
-        action_button_label: action_button_label,
-        expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
-        form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing[:id])
-      }
-    else
-      braintree_settings = BraintreePaymentQuery.braintree_settings(@current_community.id)
+      listing: vprms[:listing],
+      sum: vprms[:listing][:price] * booking_data[:duration],
+      duration: booking_data[:duration],
+      author: query_person_entity(vprms[:listing][:author_id]),
+      action_button_label: vprms[:action_button_label],
+      expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
+      form_action: booked_path(person_id: @current_user.id, listing_id: vprms[:listing][:id])
+    }.merge(gateway_locals)
+  end
 
-      render "listing_conversations/preauthorize", locals: {
-        preauthorize_form: PreauthorizeBookingForm.new({
-          start_on: booking_data[:start_on],
-          end_on: booking_data[:end_on]
-        }),
-        listing: listing,
-        sum: listing[:price] * booking_data[:duration],
-        duration: booking_data[:duration],
-        author: PersonQuery.person(listing[:author_id]),
-        action_button_label: action_button_label,
-        expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
-        braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
-        braintree_form: BraintreeForm.new,
-        form_action: booked_path(person_id: @current_user.id, listing_id: listing[:id])
-      }
+  def booked
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    conversation_params = params[:listing_conversation]
 
+    start_on = DateUtils.from_date_select(conversation_params, :start_on)
+    end_on = DateUtils.from_date_select(conversation_params, :end_on)
+    preauthorize_form = PreauthorizeBookingForm.new(conversation_params.merge({
+      start_on: start_on,
+      end_on: end_on,
+      listing_id: @listing.id
+    }))
+
+    if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
+      return render_error_response(request.xhr?,
+        t("error_messages.transaction_agreement.required_error"),
+        { Action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on) })
+    end
+
+    unless preauthorize_form.valid?
+      return render_error_response(request.xhr?,
+        preauthorize_form.errors.full_messages.join(", "),
+       { action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on) })
+    end
+
+    transaction_response = create_preauth_transaction(
+      payment_type: payment_type,
+      community: @current_community,
+      listing: @listing,
+      user: @current_user,
+      listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on),
+      content: preauthorize_form.content,
+      use_async: request.xhr?,
+      bt_payment_params: params[:braintree_payment],
+      booking_fields: {
+        start_on: preauthorize_form.start_on,
+        end_on: preauthorize_form.end_on
+      })
+
+    unless transaction_response[:success]
+      error =
+        if (payment_type == :paypal)
+          t("error_messages.paypal.generic_error")
+        else
+          "An error occured while trying to create a new transaction: #{transaction_response[:error_msg]}"
+        end
+
+      return render_error_response(request.xhr?, error, { action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on) })
+    end
+
+    transaction_id = transaction_response[:data][:transaction][:id]
+
+    case payment_type
+    when :paypal
+      MarketplaceService::Transaction::Command.transition_to(transaction_id, "initiated")
+      if (transaction_response[:data][:gateway_fields][:redirect_url])
+        return redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
+      else
+        return render json: {
+          op_status_url: transaction_op_status_path(transaction_response[:data][:gateway_fields][:process_token]),
+          op_error_msg: t("error_messages.paypal.generic_error")
+        }
+      end
+    when :braintree
+      MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
+      return redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
     end
 
   end
 
   def preauthorize
-    listing = ListingQuery.listing_with_transaction_type(params[:listing_id])
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
-    action_button_label = listing[:transaction_type][:action_button_label_translations]
-      .select {|translation| translation[:locale] == I18n.locale}
-      .first
-
+    vprms = view_params(params[:listing_id])
     braintree_settings = BraintreePaymentQuery.braintree_settings(@current_community.id)
 
-    # TODO listing_conversations view (folder) needs some brainstorming
     render "listing_conversations/preauthorize", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
       braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
       braintree_form: BraintreeForm.new,
-      listing: listing,
-      sum: listing[:price],
-      author: PersonQuery.person(listing[:author_id]),
-      action_button_label: action_button_label,
-      expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type),
-      form_action: preauthorized_payment_path(person_id: @current_user.id, listing_id: listing[:id])
+      listing: vprms[:listing],
+      sum: vprms[:listing][:price],
+      author: query_person_entity(vprms[:listing][:author_id]),
+      action_button_label: vprms[:action_button_label],
+      expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
+      form_action: preauthorized_payment_path(person_id: @current_user.id, listing_id: vprms[:listing][:id])
     }
   end
 
@@ -181,7 +217,7 @@ class PreauthorizeTransactionsController < ApplicationController
     conversation_params = params[:listing_conversation]
 
     if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
-      flash[:error] = "Agreement checkbox has to be selected"
+      flash[:error] = t("error_messages.transaction_agreement.required_error")
       return redirect_to action: :preauthorize
     end
 
@@ -190,130 +226,57 @@ class PreauthorizeTransactionsController < ApplicationController
     }))
 
     if preauthorize_form.valid?
-      transaction_id = MarketplaceService::Transaction::Command.create({
-          community_id: @current_community.id,
-          listing_id: preauthorize_form.listing_id,
-          starter_id: @current_user.id,
-          author_id: @listing.author.id,
-          content: preauthorize_form.content})
-
-      # TODO
-      transaction = Transaction.find(transaction_id)
-
-      transaction.payment = BraintreePayment.new({
-        community_id: @current_community.id,
-        payment_gateway_id: @current_community.payment_gateway.id,
-        status: "pending",
-        payer_id: @current_user.id,
-        recipient_id: @listing.author.id,
-        currency: "USD",
-        sum: @listing.price
-      })
-
       braintree_form = BraintreeForm.new(params[:braintree_payment])
-      result = BraintreeSaleService.new(transaction.payment, braintree_form.to_hash).pay(false)
 
-      if result.success?
-        transaction.save!
-        MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
-        redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
-      else
-        flash[:error] = result.message
-        redirect_to action: :preauthorize
-      end
-    else
-      flash[:error] = preauthorize_form.errors.full_messages.join(", ")
-      return redirect_to action: :preauthorize
-    end
-  end
-
-  def booked
-    conversation_params = params[:listing_conversation]
-
-    if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
-      flash[:error] = "Agreement checkbox has to be selected"
-      return redirect_to action: :preauthorize
-    end
-
-    start_on = DateUtils.from_date_select(conversation_params, :start_on)
-    end_on = DateUtils.from_date_select(conversation_params, :end_on)
-
-    preauthorize_form = PreauthorizeBookingForm.new({
-      braintree_cardholder_name: conversation_params[:braintree_cardholder_name],
-      braintree_credit_card_number: conversation_params[:braintree_credit_card_number],
-      braintree_cvv: conversation_params[:braintree_cvv],
-      braintree_credit_card_expiration_month: conversation_params[:braintree_credit_card_expiration_month],
-      braintree_credit_card_expiration_year: conversation_params[:braintree_credit_card_expiration_year],
-      start_on: start_on,
-      end_on: end_on,
-      listing_id: @listing.id
-    })
-
-    if preauthorize_form.valid?
-      transaction = Transaction.new({
-        community_id: @current_community.id,
-        listing_id: @listing.id,
-        starter_id: @current_user.id,
-      });
-
-      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
-
-      if preauthorize_form.content.present?
-        conversation.messages.build({
-          content: preauthorize_form.content,
-          sender_id: @current_user.id
+      transaction_response = TransactionService::Transaction.create({
+          transaction: {
+            community_id: @current_community.id,
+            listing_id: preauthorize_form.listing_id,
+            starter_id: @current_user.id,
+            listing_author_id: @listing.author.id,
+            content: preauthorize_form.content,
+            payment_gateway: :braintree,
+            payment_process: :preauthorize,
+          },
+          gateway_fields: braintree_form.to_hash
         })
+
+      unless transaction_response[:success]
+        flash[:error] = "An error occured while trying to create a new transaction: #{transaction_response[:error_msg]}"
+        return redirect_to action: :preauthorize
       end
 
-      conversation.participations.build({
-        person_id: @listing.author.id,
-        is_starter: false
-      })
+      transaction_id = transaction_response[:data][:transaction][:id]
 
-      conversation.participations.build({
-        person_id: @current_user.id,
-        is_starter: true,
-        is_read: true
-      })
-
-      transaction.payment = BraintreePayment.new({
-        community_id: @current_community.id,
-        payment_gateway_id: @current_community.payment_gateway.id,
-        status: "pending",
-        payer_id: @current_user.id,
-        recipient_id: @listing.author.id,
-        currency: "USD",
-        sum: @listing.price * duration(preauthorize_form.start_on, preauthorize_form.end_on)
-      })
-
-      booking = transaction.build_booking({
-        start_on: preauthorize_form.start_on,
-        end_on: preauthorize_form.end_on
-      })
-
-      #TODO validations for form
-      braintree_form = BraintreeForm.new(params[:braintree_payment])
-      result = BraintreeSaleService.new(transaction.payment, braintree_form.to_hash).pay(false)
-
-      if result.success?
-        transaction.save!
-        MarketplaceService::Transaction::Command.transition_to(transaction.id, "preauthorized")
-        redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction.id)
-      else
-        flash[:error] = result.message
-        redirect_to action: :preauthorize
-      end
-
+      MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
+      redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
     else
       flash[:error] = preauthorize_form.errors.full_messages.join(", ")
-      return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
+      return redirect_to action: :preauthorize
     end
   end
 
   private
 
-  def paypal_payments_service
-    PaypalService::API::Payments.new
+
+  def view_params(listing_id)
+    listing = ListingQuery.listing_with_transaction_type(listing_id)
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+
+    action_button_label = listing[:transaction_type][:action_button_label_translations]
+      .select {|translation| translation[:locale] == I18n.locale}
+      .first
+
+    { listing: listing, payment_type: payment_type, action_button_label: action_button_label }
+  end
+
+  def render_error_response(isXhr, error_msg, redirect_params)
+    if isXhr
+      render json: { error_msg: error_msg }
+    else
+      flash[:error] = error_msg
+      redirect_to(redirect_params)
+    end
   end
 
   def ensure_listing_author_is_not_current_user
@@ -347,11 +310,17 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def ensure_can_receive_payment
-    Maybe(@current_community).payment_gateway.each do |gateway|
-      unless gateway.can_receive_payments?(@listing.author)
-        flash[:error] = t("layouts.notifications.listing_author_payment_details_missing")
-        redirect_to (session[:return_to_content] || root)
-      end
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id) || :none
+
+    ready = TransactionService::Transaction.can_start_transaction(transaction: {
+        payment_gateway: payment_type,
+        community_id: @current_community.id,
+        listing_author_id: @listing.author.id
+      })
+
+    unless ready[:data][:result]
+      flash[:error] = t("layouts.notifications.listing_author_payment_details_missing")
+      return redirect_to listing_path(@listing)
     end
   end
 
@@ -360,7 +329,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def parse_booking_date(str)
-    Date.parse(str)
+    Date.parse(str) unless str.blank?
   end
 
   def stringify_booking_date(date)
@@ -374,11 +343,64 @@ class PreauthorizeTransactionsController < ApplicationController
     })
 
     if !booking_form.valid?
-      { error: booking_data[:form].errors.full_messages }
+      { error: booking_form.errors.full_messages }
     else
       booking_form.to_hash.merge({
-        duration: duration(booking_form.start_on, booking_form.end_on)
+        duration: DateUtils.duration_days(booking_form.start_on, booking_form.end_on)
       })
     end
   end
+
+  def braintree_gateway_locals(community_id)
+    braintree_settings = BraintreePaymentQuery.braintree_settings(community_id)
+
+    {
+      braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
+      braintree_form: BraintreeForm.new
+    }
+  end
+
+  def create_preauth_transaction(opts)
+    gateway_fields =
+      if (opts[:payment_type] == :paypal)
+        # PayPal doesn't like images with cache buster in the URL
+        logo_url = Maybe(opts[:community])
+          .wide_logo
+          .select { |wl| wl.present? }
+          .url(:paypal, timestamp: false)
+          .or_else(nil)
+
+        {
+          merchant_brand_logo_url: logo_url,
+          success_url: success_paypal_service_checkout_orders_url,
+          cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: opts[:listing].id)
+        }
+      else
+        BraintreeForm.new(opts[:bt_payment_params]).to_hash
+      end
+
+    TransactionService::Transaction.create({
+        transaction: {
+          community_id: opts[:community].id,
+          listing_id: opts[:listing].id,
+          starter_id: opts[:user].id,
+          listing_author_id: opts[:listing].author.id,
+          listing_quantity: opts[:listing_quantity],
+          content: opts[:content],
+          payment_gateway: opts[:payment_type],
+          payment_process: :preauthorize,
+          booking_fields: opts[:booking_fields]
+        },
+        gateway_fields: gateway_fields
+      },
+      paypal_async: opts[:use_async])
+  end
+
+  def query_person_entity(id)
+    person_entity = MarketplaceService::Person::Query.person(id, @current_community.id)
+    person_display_entity = person_entity.merge(
+      display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
+    )
+  end
+
 end

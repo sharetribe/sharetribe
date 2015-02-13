@@ -57,17 +57,35 @@
         .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
           .datepicker-start-wrapper
             = label_tag t(".booking_from")
-            %input.input-sm.form-control.required#start-on{:type => 'text', :name => "start-on-display", :placeholder => t("datepicker.format"), :data => { :output => "booking-start-output" } }
+            %input.input-sm.form-control.required#start-on{:type => 'text', :name => "start_on", :placeholder => t("datepicker.format"), :data => { :output => "booking-start-output" } }
             %input#booking-start-output{:type => 'hidden', :name => 'start_on'}
 
           .datepicker-end-wrapper
             = label_tag t(".booking_to")
-            %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end-on-display", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
+            %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end_on", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
             %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
 
       %button.book-button
         .content
           = @listing.transaction_type.action_button_label(I18n.locale)
+
+    - if payment_gateway == :paypal && @listing.transaction_type.status_after_reply != "free"
+      .row
+        .col-12
+          - community_country_code = LocalizationUtils.country_code_valid?(@current_community.country) ? @current_community.country.downcase : 'us' # default should not happen in production
+          - how_paypal_works_link = "https://www.paypal.com/#{community_country_code}/webapps/mpp/paypal-popup"
+          %a#how-paypal-works-popup-link{title: t("listings.listing_actions.how_paypal_works"), href: how_paypal_works_link}
+            = image_tag "https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png", style: "max-width: 100%"
+            - content_for :extra_javascript do
+              :javascript
+                $("#how-paypal-works-popup-link").click(function() {
+                  window.open(
+                    '#{how_paypal_works_link}',
+                    'WIPaypal',
+                    'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'
+                  );
+                  return false;
+                });
 
   - if is_authorized
     .listing-view-admin-links

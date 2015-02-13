@@ -1,5 +1,10 @@
 - content_for :javascript do
   initialize_send_message_form('#{I18n.locale}', null);
+  ST.transaction.initializePayPalBuyForm("transaction-form");
+
+- content_for :extra_javascript do
+  :javascript
+    $('#transaction-agreement-read-more').click(function() { $('#transaction-agreement-content').lightbox_me({centered: true, zIndex: 1000000}); });
 
 - content_for :title_header do
   %h1
@@ -8,7 +13,7 @@
 
 #new_message_form.centered-section
 
-  - author_link = link_to(author[:name], person_path(id: author[:username]))
+  - author_link = link_to(author[:display_name], person_path(id: author[:username]))
 
   .preauthorize-section
     %h2.preauthorize-details-title
@@ -49,7 +54,7 @@
 
     .preauthorize-section
       %h2
-        = t("conversations.new.optional_message_to", author_name: link_to(author[:name], person_path(id: author[:username]))).html_safe
+        = t("conversations.new.optional_message_to", author_name: author_link).html_safe
 
       .row
         .col-12
@@ -57,15 +62,14 @@
           = form.hidden_field :sender_id, :value => @current_user.id
 
       - if @current_community.transaction_agreement_in_use
-        = render :partial => "transaction_agreement_checkbox", locals: { form: form }
+        = render :partial => "listing_conversations/transaction_agreement_checkbox", locals: { form: form }
+
+      .row
+        .col-12.paypal-button-wrapper
+          = form.submit t("paypal.checkout_with_paypal"), type: :image, src: t("paypal.buy_now_with_paypal_button_url"), alt: t("paypal.checkout_with_paypal"), class: "checkout-with-paypal-button"
 
       .row
         .col-12
-          = form.button t("preauthorize_payments.edit.confirm_payment"), :class => "send_button"
-
-      .row
-        .col-12
-          - automatic_confirmation = @current_community.automatic_confirmation_after_days
           %p
             = t("listing_conversations.preauthorize.you_will_be_charged", author: author_link, expiration_period: expiration_period).html_safe
 

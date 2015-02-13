@@ -52,6 +52,7 @@ module MarketplaceService
 
     module QueryHelper
       PersonModel = ::Person
+      PaymentModel = ::Payment
 
       @tiny_int_to_bool = ->(tiny_int) {
         !(tiny_int.nil? || tiny_int == 0)
@@ -59,7 +60,7 @@ module MarketplaceService
 
       inbox_row_common_spec = [
         [:conversation_id, :fixnum, :mandatory],
-        [:last_activity_at, :str_to_time, :mandatory],
+        [:last_activity_at, :utc_str_to_time, :mandatory],
         [:current_is_starter, :mandatory, transform_with: @tiny_int_to_bool],
         [:current_id, :string, :mandatory],
         [:other_id, :string, :mandatory],
@@ -83,6 +84,7 @@ module MarketplaceService
 
         [:listing_id, :fixnum, :mandatory],
         [:listing_title, :string, :mandatory],
+        [:listing_deleted, transform_with: @tiny_int_to_bool],
         [:transaction_type, :string, :mandatory],
 
         [:last_transition_at, :time, :mandatory],
@@ -91,8 +93,7 @@ module MarketplaceService
         [:last_message_at, :time, :optional],
         [:last_message_content, :string, :optional],
 
-        [:sum_cents, :fixnum, :optional],
-        [:currency, :string, :optional],
+        [:payment_total, :money, :optional],
 
         [:author, :hash, :mandatory],
         [:waiting_feedback, :mandatory, transform_with: @tiny_int_to_bool],
@@ -134,7 +135,7 @@ module MarketplaceService
         result_set = connection.execute(sql).each(as: :hash).map { |row| HashUtils.symbolize_keys(row) }
 
         people_ids = HashUtils.pluck(result_set, :current_id, :other_id).uniq
-        people_store = MarketplaceService::Person::Query.people(people_ids)
+        people_store = MarketplaceService::Person::Query.people(people_ids, community_id)
 
         last_message_conv_ids, last_transition_transaction_ids = reduce_transaction_and_conv_ids(result_set)
         message_store = MarketplaceService::Conversation::Query.latest_messages_for_conversations(last_message_conv_ids)
@@ -212,6 +213,18 @@ module MarketplaceService
           MarketplaceService::Transaction::Entity.transition(transition_model)
         end
 
+        payment_gateway = transaction[:payment_gateway]
+
+        payment_total =
+          case payment_gateway.to_sym
+          when :checkout, :braintree
+            # Use Maybe, since payment may not exists yet, if postpay flow
+            Maybe(PaymentModel.where(id: transaction[:payment_id]).first).total_sum.or_else(nil)
+          when :paypal
+            paypal_payments = PaypalService::API::Api.payments
+            Maybe(paypal_payments.get_payment(transaction[:community_id], transaction[:transaction_id]))[:data][:authorization_total].or_else(nil)
+          end
+
         should_notify =
           !@tiny_int_to_bool.call(transaction[:current_is_read]) ||
           @tiny_int_to_bool.call(transaction[:current_action_required]) ||
@@ -221,7 +234,8 @@ module MarketplaceService
           author: transaction[:other],
           transitions: transitions,
           should_notify: should_notify,
-          last_transition_at: transaction[:last_transition_at]
+          last_transition_at: transaction[:last_transition_at],
+          payment_total: payment_total
         )
       end
 
@@ -237,6 +251,12 @@ module MarketplaceService
           # Where person and community
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
+
+          # Ignore initiated
+          AND (
+            transactions.id IS NULL
+            OR transactions.current_state != 'initiated'
+          )
 
           # This is a bit complicated logic that is now moved from app to SQL.
           # I'm not complelety sure if it's a good or bad. However, since this query is called once per every page
@@ -274,13 +294,14 @@ module MarketplaceService
 
             transactions.last_transition_at                   AS last_transition_at,
             transactions.current_state                        AS last_transition_to_state,
+            transactions.payment_gateway                      AS payment_gateway,
             conversations.last_message_at                     AS last_message_at,
 
             listings.id                                       AS listing_id,
             listings.title                                    AS listing_title,
+            listings.deleted                                  AS listing_deleted,
 
-            payments.sum_cents                                AS sum_cents,
-            payments.currency                                 AS currency,
+            payments.id                                       AS payment_id,
 
             listings.author_id                                AS author_id,
             current_participation.person_id                   AS current_id,
@@ -290,6 +311,8 @@ module MarketplaceService
 
             current_participation.is_read                     AS current_is_read,
             current_participation.is_starter                  AS current_is_starter,
+
+            transactions.community_id                         AS community_id,
 
             # Requires actions
             (
@@ -316,6 +339,12 @@ module MarketplaceService
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
+          # Ignore initiated
+          AND (
+            transactions.id IS NULL
+            OR transactions.current_state != 'initiated'
+          )
+
           # Order by 'last_activity_at', that is last message or last transition
           ORDER BY last_activity_at DESC
 
@@ -329,9 +358,18 @@ module MarketplaceService
           SELECT COUNT(conversations.id)
           FROM conversations
 
+          LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
+
           # Where person and community
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
+
+          # Ignore initiated
+          AND (
+            transactions.id IS NULL
+            OR transactions.current_state != 'initiated'
+          )
+
         "
       }
     end

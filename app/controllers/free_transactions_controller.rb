@@ -9,8 +9,6 @@ class FreeTransactionsController < ApplicationController
   before_filter :ensure_listing_author_is_not_current_user
   before_filter :ensure_authorized_to_reply
 
-  skip_filter :dashboard_only
-
   ContactForm = FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
     .with_validations { validates_presence_of :content, :listing_id }
 
@@ -40,16 +38,27 @@ class FreeTransactionsController < ApplicationController
     contact_form = new_contact_form(params[:listing_conversation])
 
     if contact_form.valid?
-      transaction_id = MarketplaceService::Transaction::Command.create({
-          community_id: @current_community.id,
-          listing_id: contact_form.listing_id,
-          starter_id: @current_user.id,
-          author_id: @listing.author.id,
-          content: contact_form.content})
+      transaction_response = TransactionService::Transaction.create(
+        {
+          transaction: {
+            community_id: @current_community.id,
+            listing_id: contact_form.listing_id,
+            starter_id: @current_user.id,
+            listing_author_id: @listing.author.id,
+            content: contact_form.content,
+            payment_gateway: :none,
+            payment_process: :none}
+        })
 
+      unless transaction_response[:success]
+        flash[:error] = "Sending the message failed. Please try again."
+        return redirect_to root
+      end
+
+      transaction_id = transaction_response[:data][:transaction][:id]
       MarketplaceService::Transaction::Command.transition_to(transaction_id, "free")
 
-      # TODO
+      # TODO: remove references to transaction model
       transaction = Transaction.find(transaction_id)
 
       flash[:notice] = t("layouts.notifications.message_sent")

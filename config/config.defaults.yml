@@ -13,22 +13,19 @@ default: &default_settings
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
   session_domain:
 
+  # Redirect to this URL if community can not be found. For example, if user is trying to access community
+  # http://nonexisting.sharetribe.com and there's no community named "nonexisting", then the user is redirected
+  # to the URL that given here:
+  #
+  # Example value: http://mydomain.com
+  #
+  community_not_found_redirect:
+
   # Login url. This can be a separate address for loggin in. For example
   # a subdomain with https. It's recommended to use https here, so passwords
   # are submited in encrypted form. e.g. "https://login.sharetribe.com"
   # If this is empty, will use the same domain for login
   login_domain:
-
-  # Fill here the subdomains which will be running the main dashboard of your application.
-  # The subdomains which are not listed here are expected to be communities.
-  dashboard_subdomains:
-    - ''
-    - 'www'
-    - 'dashboardtranslate'
-
-  # Sharetribe can allow accessing data from external applications by RESTful API
-  # You can enable the API by setting this value true
-  api_enabled: false
 
   # You can use Amazong S3 to store listing and profile images
   # If you leave following empty, the images will be stored in local file system
@@ -48,16 +45,6 @@ default: &default_settings
   # and subscribe an url (https://yourdomain.com/bounces?sns_notification_token=[this_token])
   sns_notification_token:
 
-  # Braintree credentials to be used in tests. In production, each
-  # community have their own credentials.
-  # Ask for shared Braintree credentials if you don't want to create
-  # new Braintree account
-  braintree_environment: sandbox
-  braintree_test_merchant_id: xxxxxxxxxxxxxxxx
-  braintree_test_master_merchant_id: xxxxxxxxxxxxxxxx
-  braintree_test_public_key: xxxxxxxxxxxxxxxx
-  braintree_test_private_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-  braintree_client_side_encryption_key: xxxxxxxxxxxxxxxx
   # after preauthorization there is 5 day period before expiration
   braintree_expiration_period: 5
 
@@ -66,6 +53,8 @@ default: &default_settings
   paypal_password: xxxxxxxxxxxxx
   paypal_signature: xxxxxxxxxxxxx
   paypal_app_id: APP-80W284485P519543T # Global test id
+  paypal_button_source: # Unique value given to you by your PayPal contact
+
   # Paypal environment to use. Either :sandbox or :live
   paypal_endpoint: sandbox
   # after authorization there is 3 day period before expiration
@@ -129,6 +118,9 @@ default: &default_settings
   # The address where the notifications of feedbacks from Sharetribe UI are sent
   feedback_mailer_recipients:  'admins@example.com'
 
+  grid_listings_limit: 24
+  map_listings_limit: 150
+
   # Google Analytics can be used to track traffic on the site
   # If set to true you need to obtain your own API key for analytics
   # and enter it below
@@ -188,13 +180,15 @@ default: &default_settings
   # Currently only othe option is "ss-pika" (a proprietary icon set)
   icon_pack: "font-awesome"
 
+  # If icon_pack is set to "ss-pika", set the location for the icon pack
+  # This setting is irrelevant to Open Source developers, since ss icon pack
+  # is not included in the Open Source distribution
+  ss_pika_location: "ss-pika"
+  ss_social_location: "ss-social"
+
   # The default consent (terms of use) all the communities will use.
   # It's just a string that tells the version of the consent.
   consent: "SHARETRIBE1.0"
-
-  # If you need to turn off the service for a while (so that people can't modify data)
-  # you can show the maintenance page on every pageload by turning on the following
-  show_maintenance_page: false
 
   # If you want to run this server in a preproduction mode set this to true
   # I preproduction mode, e.g. alternative url is used for custom CSS files
@@ -221,6 +215,14 @@ default: &default_settings
   original_image_width: 1600
   original_image_height: 1600
 
+  # Email addresses for sales & support. Will be shown to the administrator.
+  sales_email: hello@example.com
+  support_email: support@example.com
+
+  # Knowledge base
+  knowledge_base_url: http://www.example.com/knowledgebase
+  display_knowledge_base_articles: false
+
 production: &production_settings
   <<: *default_settings
 
@@ -237,6 +239,9 @@ development:
 
   # Usually it's easier to run development without SSL
   always_use_ssl: false
+
+  # Skip email confirmation
+  skip_email_confirmation: true
 
 test:
   <<: *default_settings
@@ -285,3 +290,14 @@ test:
 
   # easier to run tests without SSL
   always_use_ssl: false
+
+  # Braintree credentials to be used in tests. In production, each
+  # community have their own credentials.
+  # Ask for shared Braintree credentials if you don't want to create
+  # new Braintree account
+  braintree_environment: sandbox
+  braintree_test_merchant_id: xxxxxxxxxxxxxxxx
+  braintree_test_master_merchant_id: xxxxxxxxxxxxxxxx
+  braintree_test_public_key: xxxxxxxxxxxxxxxx
+  braintree_test_private_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  braintree_client_side_encryption_key: MIIBCgKCAQEArIfLwPsGtsJ5ELsvaFrdww/vEcBBiS3ViPoMg0mmV67nM3RqkFuWu7JQ1bln12PVQgyU7Bn6O7OLUjAdaO35kunmRfwLNb/SStyGfd5JIFOFP2Pu4CRnKr2tTR+OkitqXTwoa9den8RmMFJlQyadozcpWvAIGtAa21r0RWNaSoHS9gkbmhiEa/94gvxVuPlEQTrlKWHp3pnOuTwST/xEcDI73q7Ug4nVhFgtqqU0Kck6HOBnF5Gby+tIfI5blih64sxPGKVGuExopcWNos4lV7x7fKxYT07vOCeRUIFUSYhfxRs8hZ/tLfXxzNsInOnaddFJpM8Mda8jKWs+aFhPiwIDAQAB

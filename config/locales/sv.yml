@@ -2,333 +2,363 @@ sv:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Redigera kategori %{category}"
       index:
-        listing_categories: ~
-        create_a_new_category: ~
-        remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
+        listing_categories: Annonskategorier
+        create_a_new_category: "+Skapa en ny kategori"
+        remove_category_confirmation: "Är du säker på att du vill ta bort kategori %{category_name}?"
+        saving_order: "Spara kategoriordning"
+        save_order_successful: "Kategoriordning sparad"
+        save_order_error: "Ett fel inträffade när kategoriordningen sparades. Ladda om sidan och försök igen."
       new:
-        new_listing_category: ~
+        new_listing_category: "Ny annonskategori"
       form:
         category_name:
-          category_title: ~
+          category_title: Kategorititel
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: Moderkategori
+          no_parent: "Ingen moderkategori"
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: Transaktionstyp
+          transaction_types_description: "Transaktionstyper avgör vilka typ av transaktioner som tillåts med annonser i denna kategori. T ex är det bara försäljning, eller är det uthyrning och ge bort också tillåtet."
         buttons:
-          save: ~
-          cancel: ~
+          save: Spara
+          cancel: Avbryt
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
-        select_new_category: ~
+        remove_category: "Ta bort kategori"
+        remove_category_name: "Ta bort kategori %{category_name}"
+        warning_remove_effects: "Varning! När du tar bort kategori %{category_name} så kommer det att ha följande effekt:"
+        warning_listing_will_be_moved:
+          one: "Det är %{count} annons i kategorin. Den kommer att flyttas till vald kategori."
+          other: "Det är %{count} annonser i kategorin. De kommer att flyttas till vald kategori."
+        warning_custom_field_will_be_moved:
+          one: "Det är %{count} anpassat fält i kategorin. Den kommer att flyttas till vald kategori."
+          other: "Det är %{count} anpassade fält i kategorin. De kommer att bli flyttade till vald kategori."
+        warning_subcategory_will_be_removed:
+          one: "Det är %{count} underkategori i kategorin. Den kommer att tas bort."
+          other: "Det är %{count} underkategorier i kategorin. De kommer att tas bort."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Det är %{count} annons i kategorin och underkategorierna. Den kommer att flyttas till vald kategori."
+          other: "Det är %{count} annonser i kategorin och underkategorierna. De kommer att flyttas till vald kategori."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "Det är %{count} anpassat fält i kategorin och underkategorierna. Den kommer att flyttas till vald kategori."
+          other: "Det är %{count} anpassade fält i kategorin och underkategorierna. De kommer att flyttas till vald kategori."
+        select_new_category: "Välj en ny kategori dit objekten ovan kommer att flyttas:"
         buttons:
-          remove: ~
-          cancel: ~
+          remove: "Ta bort"
+          cancel: Avbryt
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
-        community_name: ~
-        edit_community_name_description: ~
-        community_slogan: ~
-        edit_community_slogan_description: ~
-        community_description: ~
-        edit_community_description_description: ~
-        community_search_placeholder: ~
-        edit_community_search_placeholder_description: ~
-        private_community_homepage_content: ~
-        edit_private_community_homepage_content_description: ~
-        update_information: ~
-        invite_people: ~
-        edit_signup_info: ~
-        edit_signup_info_description: ~
-        edit_info: ~
-        see_how_it_looks_like: ~
-        verification_to_post_listings_info_content: ~
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
-        save: ~
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
-        transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        community_details: "Grundläggande detaljer"
+        community_look_and_feel: Design
+        edit_community: "Grundläggande detaljer"
+        community_name: Marknadsplatsnamn
+        edit_community_name_description: "Namnet på din marknadsplats. Detta ser användarna i e-postmeddelanden och på många andra ställen."
+        community_slogan: "Marknadsplats slogan"
+        edit_community_slogan_description: "Detta visas på startsidan av marknadsplatsen och för användarna som inte är inloggade. %{see_how_it_looks_like}"
+        community_description: "Marknadsplats beskrivning"
+        edit_community_description_description: "Detta visas på startsidan av marknadsplatsen och för användarna som inte är inloggade. %{see_how_it_looks_like}"
+        community_search_placeholder: "Sök hjälp text"
+        edit_community_search_placeholder_description: "Detta visas på startsidan av marknadsplatsen som en text i sökfältet. %{see_how_it_looks_like}"
+        private_community_homepage_content: "Privat marknadsplats startsidans innehåll"
+        edit_private_community_homepage_content_description: "Detta visas på startsidan av den privata marknadsplatsen för användarna som inte är inloggade. Här kan du beskriva din marknadsplats och processen hur man går med. Du kan även lägga till bilder, videos och HTML-innehåll här. %{see_how_it_looks_like}"
+        update_information: "Spara inställningar"
+        invite_people: "Bjud in nya användare"
+        edit_signup_info: Registreringsinformation
+        edit_signup_info_description: "Detta är en infotext som kan visas till användarna på registreringssidan. Där kan du ge användarna instruktioner för hur man registrerar sig, information hur du får en inbjudan osv. Som standard så finns det inga instruktioner."
+        edit_info: "Redigera information"
+        see_how_it_looks_like: "Se hur det fungerar"
+        verification_to_post_listings_info_content: "Info text till ej verifierade användare"
+        verification_to_post_listings_info_content_description: "Du kräver just nu att användarna ska godkännas manuellt av dig innan de kan skapa annonser. Här kan du ändra standardtexten som visas för icke-verifierade medlemmar när de försöker skapa en annons."
+        verification_to_post_listings_info_content_default: "%{service_name} kräver att man godkänns manuellt av admin innan man kan skapa en annons. Du har ännu inte blivit verifierad. Vänligen %{contact_admin_link} för att bli verifierad."
+        contact_admin_link_text: "Kontakta admin"
+        save: "Spara inställningar"
+        transaction_agreement: Transaktionsavtal
+        transaction_agreement_checkbox: "Kräver att användarna accepterar villkoren innan transaktion"
+        transaction_agreement_checkbox_header: Avtal
+        transaction_agreement_checkbox_label_description: "Denna text kommer att visas bredvid kryssrutan i kassan. Användaren behöver kryssa i denna ruta för att gå vidare med betalningen. Ett exempel skulle vara något i stil med \"Genom att bocka i denna ruta så accepterar du användarvillkoren.\""
+        transaction_agreement_text_header: Avtalstext
+        transaction_agreement_description: "Detta är innehållet av avtalet som användarna måste acceptera. Avtalets innehåll syns när användaren klickar på %{read_more} länken."
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
-        community_logo_icon: ~
-        community_cover_photo: ~
-        small_community_cover_photo: ~
-        favicon: ~
-        favicon_info_text: ~
-        community_custom_color1: ~
-        community_custom_color2: ~
-        logo_instructions_text_with_dimensions: ~
-        logo_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: ~
-        cover_photo_instructions_text_with_dimensions: ~
-        small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
-        main_content_width: ~
-        custom_color1_instructions_text: ~
-        custom_color2_instructions_text: ~
-        default_browse_view: ~
-        default_browse_view_instructions_text: ~
-        grid: ~
-        list: ~
-        map: ~
-        name_display_type: ~
-        name_display_type_instructions_text: ~
-        full_name: ~
-        first_name_with_initial: ~
-        first_name_only: ~
-        invalid_color_code: ~
-        custom_head_script: ~
-        custom_head_script_instructions_text: ~
+        edit_community_look_and_feel: "Redigera marknadsplatsen \"%{community_name}\""
+        community_logo: Logotyp
+        community_logo_icon: Mobillogotyp
+        community_cover_photo: Omslagsbild
+        small_community_cover_photo: "Liten omslagsbild"
+        favicon: Favicon
+        favicon_info_text: "Favicon kommer att ersätta Sharetribes standardlogotyp. Dimensionerna ska vara 32x32 pixlar och den uppladdade bilden kommer att skalas till den dimensionen."
+        community_custom_color1: Huvudfärg
+        community_custom_color2: "Den andra färgen"
+        logo_instructions_text_with_dimensions: "Desktoplogotypens storlek ska vara %{width}x%{height}px. Den kommer att visas för användare med större skärm."
+        logo_icon_instructions_text_with_dimensions: "Mobillogotypen ska vara fyrkantig, gärna storleken %{width}x%{height}px. Den kommer att visas för användare med mindre skärm."
+        cover_photo_visibility: "Omslagsbild visas på startsidan för ej inloggade användare."
+        cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten. %{see_how_it_looks_like}."
+        small_cover_photo_visibility: "Liten omslagsbild visas på alla sidor förutom på startsidan för ej inloggade användare."
+        small_cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{height}x%{width} pixlar och större bilder kommer att beskäras i mitten."
+        main_content_width: "När du väljer en omslagsbild så notera att huvudsidans innehåll är %{main_width} pixlar brett som mest. Kom även ihåg att se hur omslagsbilden ser ut på mindre skärmar (t ex så kan du göra din webbläsares fönster mindre)."
+        custom_color1_instructions_text: "Du kan ändra huvudfärgen på användargränssnittet genom att skriva in ett hex-värde. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kan hjälpa dig att välja en färg och kopiera koden här."
+        custom_color2_instructions_text: "Du kan byta den andra färgen på användargränssnittet genom att skriva in ett hex-värde."
+        default_browse_view: "Standard bläddervy"
+        default_browse_view_instructions_text: "Standard visningsläge används på startsidan för att se hur annonserna visas som standard."
+        grid: Rutnätsvy
+        list: Lista
+        map: Karta
+        name_display_type: "Namn visningstyp"
+        name_display_type_instructions_text: "Välj hur namnet för varje användare ska synas på sidan."
+        full_name: "Fullständigt namn (förnamn, efternamn)"
+        first_name_with_initial: "Förnamn med initialer"
+        first_name_only: "Bara förnamn"
+        invalid_color_code: "Färgkod bör innehålla 6 siffror eller bokstäver A-F t ex D96E21"
+        custom_head_script: "Anpassat script"
+        custom_head_script_instructions_text: "Detta script finns under <head> taggen för varje sida och kan användas för att lägga in anpassad CSS, Javascript eller HTML. Vänligen notera att framtida ändringar av Sharetribe kan göra ditt script inkomplett."
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: Instruktionstext
       edit_welcome_email:
-        welcome_email_content: ~
-        welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        welcome_email_content: "Innehåll för välkomstmail"
+        welcome_email_content_description: "Detta meddelande nedan kommer att skickas till alla nya medlemmar när de går med. Du kan skräddarsy meddelandet så att det passar din marknadsplats. Genom att klicka '%{send_test_message_link}' så kan du förhandsgranska meddelandet till din e-postadress så du kan se hur det ser ut."
+        edit_message: "Redigera meddelande"
+        send_test_message: "Skicka testmeddelande"
+      getting_started:
+        getting_started: Kom-igång-guide
+        welcome_to_your_marketplace: "Välkommen till din marknadsplats, %{name}!"
+        intro: "Detta är en snabb-guide hur du ställer in och hanterar din marknadsplats."
+        live_site_link_text: här
+        look_and_feel: "Innan du lanserar din sida så kanske du vill ändra vissa saker. Du kanske vill  %{logo_link} och byta omslagsbild och färger för att det ska passa ditt märke."
+        logo_link_text: "lägga till din logotyp"
+        custom_domain: "Du kanske också vill lägga till en egen webbadress (t ex: www.dinmarknadsplats.com). För att göra detta så bör du kontakta oss via supportlänken till vänster, eftersom detta kräver några manuella steg från vår sida. Därför är egna domäner bara tillgängligt för våra betalpaket, ej för gratisversionen"
+        contact_team_link_text: "kontakta vårt team"
+        categories_and_custom_fields: "Nästa sak att bestämma är vilken typ av innehåll som dina användare kan lägga ut på din sida. Du kan %{categories_link}, %{custom_fields_link} som själva annonsen innehåller och bestämma %{filters_link} som används när folk bläddrar bland annonser."
+        categories_link_text: "lägg till kategorier och underkategorier"
+        custom_fields_link_text: "konfigurera formulärfälten"
+        filters_link_text: "vilken typ av filter"
+        payments: "Om du vill att folk ska kunna betala för sina inköp via din marknadsplats, så att du kan ta ut en avgift för varje inköp, så ska du %{payments_link}."
+        payments_link_text: "konfigurera betalningsmetod"
+        info_texts: "Glöm inte att skräddarsy informationssidorna och annan text där du kan tala om för dina användare om din marknadsplats. Bra ställen att kolla in är din %{about_page_link}, din %{terms_of_use_link} (du borde lägga till dina egna användarvillkor här, antingen genom att ändra mallen eller skapa ett helt nytt dokument), dina %{privacy_policy_link}, och %{welcome_email_link} som skickas till alla nya användare. Det är också några %{instruction_texts_link} som du kan ändra."
+        about_page_link_text: "om sidan"
+        terms_of_use_link_text: användarvillkor
+        privacy_policy_link_text: sekretesspolicy
+        welcome_email_link_text: välkomstmail
+        instruction_texts_link_text: "andra instruktionstexter"
+        social_media: "Att använda sociala medier är ett bra sätt att bygga upp en community. Du kan %{facebook_link} för att göra det enklare för folk att logga in på din marknadsplats, och %{twitter_link} för att se när folk twittrar om produkter på din marknadsplats."
+        facebook_link_text: "koppla din Facebook app"
+        twitter_link_text: "lägg till ditt Twitterkonto"
+        analytics: "Det också en bra idé att %{analytics_link} till din marknadsplats. På så sätt är det lätt för dig att se vad som händer på din marknadsplats, hur många besökare du har m.m."
+        analytics_link_text: "koppla ett Google Analytics konto"
+        settings: "Det finns en hel del andra inställningar som du kan leka runt med. Som ett exempel så kan du kräva att alla måste ha en inbjudan från en annan användare innan de kan gå med i din marknadsplats, du kan göra din marknadsplats privat så bara de som är inloggade kan se ditt innehåll. %{settings_link}."
+        settings_link_text: "Visa inställningar för din marknadsplats här"
+        final_words: "Det var det! Om allt är redo så kan du börja %{invite_link} till din marknadsplats. Du kan se alla användare som har gått med %{view_users_link}, och alla transaktioner som är klara %{view_transactions_link}. Du kan också lätt hantera annonser: gå till annonssidan och du kommer att se adminlänkar för att redigera och att stänga annonser. Om du behöver hjälp så kan du kontakta vår support, vi finns här för dig!"
+        invite_link_text: "bjud in användare"
+        view_users_link_text: här
+        view_transactions_link_text: här
+        contact_support_link_text: "kontakta vår support"
       settings:
-        settings: ~
-        general: ~
-        users_can_review_each_other_after_transaction: ~
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
-        require_verification_to_post_listings: ~
-        listing_preferences: ~
-        transaction_preferences: ~
-        show_listing_publishing_date: ~
-        show_category_in_listing_list: ~
-        hide_expiration_date: ~
-        listing_comments_in_use: ~
-        email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
-        integrations: ~
-        google_analytics_key: ~
-        twitter_handle: ~
-        update_settings: ~
-        automatically_confirmed: ~
-        automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        settings: Inställningar
+        general: Allmänt
+        users_can_review_each_other_after_transaction: "Användare kan recensera varandra efter transaktion"
+        access: Åtkomst
+        join_with_invite_only: "Användare kan bara gå med denna marknadsplats med en inbjudan från en annan användare"
+        users_can_invite_new_users: "Alla användare kan bjuda in nya användare till denna marknadsplats"
+        private: "Denna marknadsplats är privat (bara registrerade medlemmar kan se innehållet)"
+        require_verification_to_post_listings: "Bara användare som är verifierade av admin kan skapa nya annonser"
+        listing_preferences: Annonsinställningar
+        transaction_preferences: Transaktionsinställningar
+        show_listing_publishing_date: "Visa publiceringsdatum på annonsen på annonssidan"
+        show_category_in_listing_list: "Visa annonstyp på annonssidan"
+        hide_expiration_date: "Kräv inte att annonser har ett utgångsdatum"
+        listing_comments_in_use: "Tillåt att användare kan skriva kommentarer till annonser (detta visas för alla andra användare)."
+        email_preferences: E-postinställningar
+        automatic_newsletters: "Skicka automatiskt dagliga/veckovis nyhetsbrev till alla användare (såvida de inte vill)"
+        email_admins_about_new_members: "Skicka admin ett e-postmeddelande när nya användare registrerar sig"
+        google_analytics_key: "Google Analytics tracking ID"
+        twitter_handle: "Twitter handtag (används med twitterknappen på annonssidan)"
+        update_settings: "Spara inställningar"
+        automatically_confirmed: "Transaktionen kommer automatiskt att markeras som klar %{days_dropdown} dagar efter att betalningen har gjorts. Om deponeringssystemet är i bruk så kommer pengarna att släppas till leverantören."
+        automatically_confirmed_no_escrow: ~
+        automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
+        newsletter_daily: Dagligen
+        newsletter_weekly: Veckovis
       manage_members:
-        manage_members: ~
-        email: ~
-        name: ~
-        join_date: ~
-        admin: ~
-        posting_allowed: ~
-        ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
-        save_user_status_error: ~
-        ban_user_confirmation: ~
-      integrations:
-        integrations: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        facebook_connect: ~
-        facebook_connect_info_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        save: ~
+        manage_members: "Hantera användare"
+        email: E-post
+        name: Namn
+        join_date: Anslöt
+        admin: Admin
+        posting_allowed: "Inlägg tillåtet"
+        ban_user: "Spärra användare"
+        saving_user_status: Sparar...
+        save_user_status_successful: Sparad
+        save_user_status_error: "Ett fel inträffade när sidan sparades. Försök igen eller ladda om sidan."
+        ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
+        ban_me_error: ~
+      social_media:
+        social_media: "Social media"
+        twitter_handle: "Twitter användarnamn"
+        twitter_handle_info_text: "Användarnamn på ditt Twitterkonto på din marknadsplats (om du har någon). Detta kommer nämnas när folk använder tweetknappen på annonssidan."
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
+        twitter_handle_placeholder: användarnamn
+        invalid_twitter_handle: "Twitternamnet ska innehålla max 15 tecken (siffror 0-9 och bokstäver A-Z)."
+        facebook_connect: Facebook
+        facebook_connect_info_text: "För att aktivera Facebook inloggning, skapa en applikation för din marknadsplats på <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Lägg till ID och säkerhetsnyckeln för applikationen här."
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
+        facebook_connect_id: "Facebook klient ID"
+        invalid_facebook_connect_id: "Klient-ID ska bara innehålla nummer."
+        facebook_connect_secret: "Facebook klientsäkerhet"
+        invalid_facebook_connect_secret: "Klientsäkerhet ska bara innehålla nummer och bokstäver från a till f."
+        save: "Spara inställningar"
+      analytics:
+        analytics: Analytics
+        google_analytics_key: "Google Analytics tracking ID"
+        google_analytics_key_info_text: "Tracking ID för ditt Google Analytics konto."
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
+        save: "Spara inställningar"
       menu_links:
-        menu_links: ~
-        save: ~
-        add_menu_link: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
-        empty: ~
+        menu_links: Menylänkar
+        save: "Spara inställningar"
+        add_menu_link: "Lägg till en ny länk till menyn"
+        title_placeholder: Länktitel
+        url_placeholder: "http://exempel.se/sv"
+        title: Titel
+        language: Språk
+        url: URL
+        empty: "Du har inga ytterligare menylänkar"
       transactions:
-        transactions: ~
+        transactions: "Visa transaktioner"
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          conversation: Konversationstråd
+          listing: Annons
+          status: Status
+          sum: Summa
+          started: Startade
+          last_activity: "Senaste aktivitet"
+          initiated_by: Startar
+          other_party: Motpart
         status:
-          free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          free: Konversation
+          pending: Väntar
+          preauthorized: Auktoriserad
+          accepted: Godkänt
+          rejected: Nekad
+          paid: Betald
+          confirmed: Bekräftad
+          canceled: Avbruten
+          initiated: "Väntar på PayPal betalning"
+          pending_ext: "Väntar på PayPal betalning"
       braintree_payment_gateway:
-        braintree_payment_gateway: ~
-        environment: ~
-        private_key: ~
-        public_key: ~
-        client_side_encryption_key: ~
-        merchant_id: ~
-        master_merchant_id: ~
-        commission_from_seller: ~
+        braintree_payment_gateway: "Braintree Payment API nycklar"
+        environment: Miljö
+        private_key: "Privat nyckel"
+        public_key: "Publik nyckel"
+        client_side_encryption_key: "Client-Side Encryption (CSE) Key"
+        merchant_id: "Handels ID"
+        master_merchant_id: "Master handels ID"
+        commission_from_seller: "Provision i % från säljaren"
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: Betalningar
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Redigera annonsfält %{field_name}"
       edit_price:
-        edit_price_field: ~
-        show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        edit_price_field: "Redigera prisfält"
+        show_price_filter_homepage: "Visa prisfilter på startsidan"
+        price_min: Minimipris
+        price_max: Maxpris
       edit_location:
-        edit_location_field: ~
-        this_field_is_required: ~
+        edit_location_field: "Redigera platsfält"
+        this_field_is_required: "Detta fält måste fyllas i"
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
+          this_field_is_required: "Detta fält måste fyllas i"
+          this_field_is_required_checkbox: "Detta fält krävs (Användaren måste välja minst ett alternativ)"
       index:
-        listing_fields: ~
-        listing_fields_help: ~
-        add_new_field: ~
-        remove_field_confirmation: ~
-        cancel: ~
-        save: ~
-        field_title: ~
-        field_type: ~
-        categories: ~
-        no_custom_listing_fields: ~
-        options: ~
-        add_option: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
-        select_one: ~
-        continue: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
+        listing_fields: "Annonsfält och filter"
+        listing_fields_help: "Här kan du redigera fälten som användarna behöver fylla i när de skapar en ny annons. Notera att det är några fält som är fördefinierade och inte går att ändra."
+        add_new_field: "Lägg till ett nytt fält:"
+        remove_field_confirmation: "Är du säker på att du vill ta bort fält %{field_name}?"
+        cancel: Avbryt
+        save: Spara
+        field_title: Fältnamn
+        field_type: "Typ av fält"
+        categories: "Annonskategorier där fältet används"
+        options: Val
+        add_option: "+ Lägg till alternativ"
+        saving_order: "Spara fältordning"
+        save_order_successful: "Fältordning har sparats"
+        save_order_error: "Ett fel inträffade när fältordningen sparades. Ladda om sidan och försök igen."
+        select_one: "Välj fälttyp..."
+        continue: Fortsätt
+        minimum_value: Minsta
+        maximum_value: Högsta
+        allow_decimals: "Tillåt decimaler"
       new:
-        new_listing_field: ~
+        new_listing_field: "Nytt annonsfält"
       field_types:
-        text: ~
-        number: ~
-        dropdown: ~
-        checkbox_group: ~
-        date: ~
+        text: Text
+        number: Nummer
+        dropdown: Rullgardin
+        checkbox_group: Kryssrutor
+        date: Datum
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
-        email_subject: ~
-        email_content: ~
-        email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        send_email: ~
-        message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
-    news_items:
-      index:
-        news_items: ~
-        create_news_item: ~
-        no_news: ~
-        loading_more_news: ~
-      new:
-        new_news_item: ~
-        edit_news_item: ~
-        index_news_item: ~
-        title: ~
-        content: ~
-        save_news_item: ~
-      news_item:
-        edit_news_item: ~
-        delete_news_item: ~
+        send_email_to_members: "Skicka e-post till användare"
+        send_email_to_members_title: "Skicka e-post till alla dina användare"
+        email_subject: "E-post ämne"
+        email_content: "E-post innehåll"
+        email_content_placeholder: "Vad vill du säga till dina användare?"
+        email_language: "Språk på e-postmottagarna"
+        any_language: "Alla språk"
+        send_email: "Skicka e-postmeddelandet"
+        message_will_be_sent_only_to_people_with_this_language: "Notera: e-postameddelandet skickas bara till de användare som använder %{service_name} på det språk du valt."
+        email_sent: "Meddelandet skickat."
+    left_hand_navigation:
+      general: Allmänt
+      users_and_transactions: "Användare & transaktioner"
+      configure: Konfiguration
+      emails_title: E-post
+      support: Support
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      new:
-        integration_info_text: ~
-        paypal_account_email: ~
-      show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: ~
-        create_poll: ~
-        no_polls: ~
-      edit_poll_links:
-        close_poll: ~
-        open_poll: ~
-        edit_poll: ~
-        delete_poll: ~
-      new:
-        add_option: ~
-        new_poll: ~
-        edit_poll: ~
-        title: ~
-        save_poll: ~
-      new_option:
-        option: ~
-        remove_option: ~
-      show:
-        edit_poll: ~
-      poll_status:
-        open: ~
-        closed: ~
+      marketplace_paypal_integration: Betalningsegenskaper
+      preferences_updated: "Betalningsinställningarna uppdaterade"
+      integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal-konto och välja minsta annonspriset och avgiften som du ska ta i provision från varje transaktion."
+      read_more_about_paypal: ~
+      paypal_account_email: "1. Koppla ditt PayPal konto"
+      paypal_account_email_completed: Klart!
+      set_minimum_price_and_fee: "Ställ in lägsta pris och transaktionskonstnad"
+      set_minimum_price_and_fee_completed: Klart!
+      minimum_listing_price_label: "Lägsta annonspris:"
+      transaction_fee_label: "Transaktionsavgift:"
+      save_settings: "Spara inställningar"
+      note_about_transaction_fee: "Notera: i transaktionsavgiften ingår PayPals avgifter som beror på din valuta och försäljningsvolymen på säljaren. Av denna anledning är avgiften alltid minst %{min_paypal_commission}. När avgiften tas ut från säljaren, kommer PayPal att ta sina arvoden först, och resten kommer att flyttas till ditt PayPal-konto."
     transaction_types:
-      sell: ~
-      rent: ~
-      give: ~
-      lend: ~
-      swap: ~
-      service: ~
-      request: ~
-      inquiry: ~
-      share_for_free: ~
+      sell: Säljer
+      rent: "Hyr ut"
+      give: "Ge bort"
+      lend: "Låna ut"
+      swap: Byta
+      service: Erbjudande
+      request: Förfrågan
+      inquiry: Förfrågan
+      share_for_free: Dela
       default_action_button_labels:
-        sell: ~
-        rent: ~
-        request: ~
-        offer: ~
-        inquiry: ~
+        sell: Köp
+        rent: Hyr
+        request: Erbjudande
+        offer: Förfrågan
+        inquiry: Kontakt
   common:
-    edit_page: ~
-    default_community_slogan: ~
-    default_community_description: ~
+    edit_page: "Redigera sida"
+    default_community_slogan: "Gemensam marknadsplats"
+    default_community_description: "Detta är en plats för att sälja, hyra ut, byta och dela saker och tjänster med andra medlemmar på marknadsplatsen."
     cancel: Avbryt
     fields_that_are_mandatory: "Fält markerade med (*) är obligatoriska."
     or: eller
-    password: ~
-    service_name: ~
+    password: Lösenord
+    service_name: "%{service_name}"
     share_types:
-      request: ~
-      offer: ~
+      request: förfrågan
+      offer: erbjudande
       borrow: lånar
       buy: köper
       give_away: "ger bort"
@@ -337,63 +367,68 @@ sv:
       rent: hyr
       rent_out: "hyr ut"
       sell: säljer
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
+      offer_to_swap: byta
+      request_to_swap: byta
+      share_for_free: "dela gratis"
+      accept_for_free: "vill använda gratis"
     categories:
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
-    username: ~
-    username_or_email: ~
+      item: Objekt
+      favor: Tjänster
+      rideshare: Samåkning
+      housing: Utrymmen
+      tools: Verktyg
+      sports: Sport
+      music: Musik
+      books: "Böcker & Magasin"
+      games: "Spel & Leksaker"
+      furniture: Möbler
+      outdoors: "Camping & Utomhus"
+      food: "Mat & Kök"
+      electronics: Elektronik
+      pets: "Husdjur & Djur"
+      film: Filmer
+      clothes: "Kläder & accessoarer"
+      garden: Trädgård
+      travel: Resor
+      other: Övrigt
+    username: Användarnamn
+    username_or_email: "E-postadress eller användarnamn"
     what_is_this: "Vad är detta?"
+    removed_user: "Borttagen användare"
   conversations:
     accept:
-      respond_to_offer: ~
-      respond_to_request: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: ~
-      optional_message: ~
-      price_to_pay: ~
-      you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
-      minimum_price_error_message: ~
-      approve: ~
+      respond_to_offer: "Svara på ett erbjudande"
+      respond_to_request: "Svara på en förfrågan"
+      accept_offer: "Acceptera erbjudande"
+      accept_request: "Acceptera förfrågan"
+      reject_offer: "Inte den här gången"
+      reject_request: "Inte den här gången"
+      close_listing: "Stäng annonsen %{listing_title_link}"
+      update_later: "Lämna annonsen öppen"
+      optional_message: "Valfritt meddelande"
+      price_to_pay: "Totalt pris att betala"
+      you_need_to_fill_payout_details_before_accepting: "Du måste fylla i utbetalningsdetaljerna innan du kan acceptera förfrågan och ta emot betalning. Gå till %{payment_settings_link} för att fylla i detaljerna."
+      payment_settings_link: betalningsinställningar
+      minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
+      accept: Acceptera
+      decline: Avböj
+      sum: "Summa: %{sum}"
+      service_fee: "Serviceavgift: %{service_fee}"
+      you_will_get: "Du kommer att få: %{seller_gets}"
     confirm:
-      confirm_description: ~
-      cancel_description: ~
-      cancel_payed_description: ~
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
-      continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som klar. Då kan du ge din feedback till den andra parten."
+      cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"hände inte\". Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
+      cancel_payed_description: "Om din förfrågan var accepterad men du har några andra funderingar, så kan du fortfarande avbryta förfrågan innan betalning."
+      canceling_payed_transaction: "Avbryt transaktion"
+      confirm: "Markera klar"
+      cancel: "Hände inte"
+      continue: Forsätt
+      give_feedback_to: "Lämna feedback till %{person_link}"
+      do_not_give_feedback: "Hoppa över feedback"
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: dag
+      days: dagar
+      price_per_day: "Pris per dag: %{price}"
     index:
       loading_more_messages: "Laddar fler meddelanden"
       message_partitive: meddelande
@@ -401,1338 +436,1360 @@ sv:
       no_received_messages: "Inga mottagna meddelanden"
       no_sent_messages: "Inga skickade meddelanden"
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      message_from: ~
-      about_listing: ~
-      free_message: ~
+      accepted_request: "Förfrågan accepterad."
+      accepted_offer: "Erbjudande accepterades."
+      rejected_request: "Förfrågan avslagen."
+      rejected_offer: "Erbjudande nekades."
+      confirmed_request: "Förfrågan klar."
+      confirmed_offer: "Erbjudande klar."
+      canceled_request: "Förfrågan avbruten."
+      canceled_offer: "Erbjudande avbrutet."
+      message_from: "Meddelande från %{person}"
+      about_listing: "Angående annons %{listing_title}"
+      free_message: "Gratis meddelande"
     message:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      accepted_request: "Acceptera förfrågan"
+      accepted_offer: "acceptera erbjudandet"
+      rejected_request: "avslagit förfrågan"
+      rejected_offer: "avslagit erbjudandet"
+      confirmed_request: "Markerat förfrågan som klar"
+      confirmed_offer: "markerat erbjudandet som klar"
+      canceled_request: "avbröt förfrågan"
+      canceled_offer: "avbröt erbjudandet"
+      paid: "Betalt %{sum}"
     new:
-      offer_message_form_title: ~
-      request_message_form_title: ~
+      offer_message_form_title: "Erbjud %{listing} till %{person}"
+      request_message_form_title: "Förfrågan %{listing} från %{person}"
       favor_offer_message_form_title: "Be %{person} om hjälp"
       favor_request_message_form_title: "Erbjud hjälp till %{person}"
       housing_offer_message_form_title: "Erbjud ledig lokal eller rum till %{person}"
       housing_request_message_form_title: "Fråga %{person} om ledigt rum eller lokal "
-      item_offer_lend_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_offer_accept_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
+      item_offer_lend_message_form_title: "Låna %{listing} från %{person}"
+      item_offer_sell_message_form_title: "Köp %{listing} från %{person}"
+      item_offer_give_away_message_form_title: "Hämta %{listing} från %{person}"
+      item_offer_trade_message_form_title: "Byt %{listing} med %{person}"
+      item_offer_rent_out_message_form_title: "Hyr %{listing} från %{person}"
+      item_request_borrow_message_form_title: "Låna %{listing} till %{person}"
+      item_request_buy_message_form_title: "Sälj %{listing} till %{person}"
+      item_request_take_for_free_message_form_title: "Ge %{listing} till %{person}"
+      item_request_trade_message_form_title: "Byt %{listing} med %{person}"
+      item_request_rent_message_form_title: "Hyr ut %{listing} till %{person}"
+      housing_offer_sell_message_form_title: "Köp %{listing} från %{person}"
+      housing_offer_rent_out_message_form_title: "Hyr %{listing} från %{person}"
+      housing_offer_share_for_free_message_form_title: "Förfrågan %{listing} från %{person}"
+      housing_offer_accept_for_free_message_form_title: "Erbjud %{listing} till %{person}"
+      housing_request_buy_message_form_title: "Sälj %{listing} till %{person}"
+      housing_request_rent_message_form_title: "Hyr ut %{listing} till %{person}"
       item_request_message_form_title: "Prylar skänkes till %{person}"
-      message: Meddelanden
-      message_to: ~
-      optional_message_to: ~
+      message: Meddelande
+      message_to: "Meddelande till %{author_name}"
+      optional_message_to: "Valfritt meddelande till %{author_name}"
       rideshare_offer_message_form_title: "Fråga %{person} om skjuts"
       rideshare_request_message_form_title: "Samåkning erbjuds till %{person}"
-      send_message: ~
-      send: ~
-      this_message_is_private: ~
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      send_message: "Skicka meddelande"
+      send: Skicka
+      this_message_is_private: "Detta meddelande är privat mellan dig och %{person}. %{person} kommer att bli notifierad om detta meddelande via e-post."
+      you_will_get_notified_of_acceptance: "Du kommer att få en e-postavisering när %{person} accepterar eller avböjer ditt förslag."
+      you_will_get_notified: "Du kommer att få en e-postavisering när %{person} svarar dig."
       title: Namn
-      send_message_to_user: ~
-      about_listing: ~
-      author_has_to_accept_request: ~
+      send_message_to_user: "Skicka meddelande till %{person}"
+      about_listing: "Angående annons %{listing_title}"
+      author_has_to_accept_request: "%{author_name} måste acceptera förfrågan innan du kan betala"
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      in_response_to_listing: "angående annonsen"
+      message_sent_by: "Meddelande skickades av"
+      message_sent_to: "Meddelandet har skickats till"
       send_reply: "Skicka svar"
       write_a_reply: "Skriv ett svar"
-      conversation_about_listing: ~
-      conversation_with_user: ~
-      conversation_with: ~
-      last_message_at: ~
-      price: ~
-      sum: ~
-      price_excludes_vat: ~
-      total: ~
+      conversation_about_listing: "Med %{listing} om %{person}"
+      conversation_with_user: "Med %{person}"
+      conversation_with: "Konversation med %{person}"
+      last_message_at: "(senaste meddelande %{time})"
+      price: "Pris: %{price}"
+      sum: "Totalt: %{sum}"
+      price_excludes_vat: "(utan moms)"
+      total: "Totalt: %{total}"
     status:
-      cancel_payed_transaction: ~
+      payment_errored: "Betalning misslyckades. Vänligen försök igen."
+      payment_errored_starter: "Betalning misslyckades. Vänligen försök igen. Om problemet kvarstår, vänligen kontakta vår support."
+      payment_errored_author: "Betalningen misslyckades. Vänligen kontakta %{starter_name} och be honom att försöka betala igen."
+      cancel_payed_transaction: Avbryt
       feedback_given: "Feedback skickat"
       feedback_skipped: "Ingen feedback"
       give_feedback: "Ge feedback"
-      offer_accepted: "Antagit erbjudande"
-      offer_rejected: "Avslagit erbjudande"
-      offer_canceled: ~
-      offer_confirmed: ~
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
-      pay: ~
-      preauthorized: ~
-      paid: ~
+      offer_accepted: Godkänt
+      offer_rejected: Avslagen
+      offer_canceled: Avbruten
+      offer_confirmed: Klar
+      offer_paid: "Betalning lyckad"
+      offer_preauthorized: "Betalning lyckad"
+      offer_waiting_for_payment: "Väntar på att %{requester_name} ska betala"
+      pay: Betala
+      preauthorized: "Betalning lyckad"
+      paid: "Betalning lyckad"
       pending_external:
         paypal:
-          multicurrency: ~
-          verify: ~
-          intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: "Förfrågan antagen"
-      request_rejected: "Förfrågan avslagen"
-      request_confirmed: ~
-      request_canceled: ~
-      request_paid: ~
-      request_preauthorized: ~
+          multicurrency: "Vi kunde inte genomföra PayPal betalningen eftersom ditt PayPal konto inte har ställts in för att ta emot betalning med %{currency}. Gå till %{paypal_url} och logga in på ditt konto för att manuellt acceptera eller avböja betalningen."
+          verify: "Det gick inte att acceptera transaktionen eftersom du inte har verifierat ditt PayPal konto. gå till %{paypal_url} och verifiera ditt konto."
+          intl: "Vi kunde inte genomföra PayPal betalningen eftersom ditt PayPal konto inte har uttagningsförfarande. Gå till %{paypal_url} och logga in på ditt konto för att manuellt acceptera eller avböja betalningen."
+      waiting_for_current_user_to_deliver_listing: "Väntar på att du ska skicka %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "Väntar på att %{listing_author_name} ska skicka %{listing_title}"
+      request_accepted: Godkänt
+      request_rejected: Avslagen
+      request_confirmed: Klar
+      request_canceled: Avbruten
+      request_paid: "Betalning lyckad"
+      request_preauthorized: "Betalning lyckad"
       skip_feedback: "Hoppa över feedback"
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
-      waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
-      waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_for_listing_author_to_accept_offer: "Väntar på att %{listing_author_name} ska acceptera erbjudandet"
+      waiting_for_listing_author_to_accept_request: "Väntar på att %{listing_author_name} ska acceptera förfrågan"
+      waiting_for_you_to_accept_request: "Väntar på att du ska acceptera förfrågan"
+      waiting_confirmation_from_requester: "Väntar på att %{requester_name} ska markera förfrågan klar"
+      waiting_confirmation_from_you: "Väntar på att du ska markera förfrågan som klar"
+      waiting_payment_from_requester: "Väntar på att %{requester_name} ska betala"
+      waiting_payment_from_you: "Väntar på att du ska betala"
+      waiting_feedback_from_you: "Väntar på att du ska ge feedback"
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
-          verify: ~
+          multicurrency: "Väntar på att du ska acceptera PayPal betalningen"
+          intl: "Väntar på att du ska acceptera PayPal betalningen"
+          unknown_reason: "Betalning väntar. Logga in till ditt PayPal-konto för att se mer information."
+          verify: "Väntar på att du ska verifiera ditt PayPal konto"
     status_link:
       accept_offer: "Anta erbjudande"
-      accept_request: "Anta förfrågan"
-      reject_offer: "Avslå erbjudande"
-      reject_request: "Avslå förfrågan"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
-      confirm: ~
-      cancel: ~
+      accept_request: "Acceptera förfrågan"
+      reject_offer: "Inte den här gången"
+      reject_request: "Inte den här gången"
+      accept_preauthorized_offer: "Anta erbjudande"
+      accept_preauthorized_request: "Acceptera förfrågan"
+      reject_preauthorized_offer: "Inte den här gången"
+      reject_preauthorized_request: "Inte den här gången"
+      confirm: "Markera klar"
+      cancel: "Hände inte"
   braintree_accounts:
     new:
-      add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
-      save: ~
+      add_payout_details: "Lägg till betalningsdetaljer"
+      first_name: Förnamn
+      last_name: Efternamn
+      email: E-postadress
+      phone: Telefonnummer
+      address_street_address: Gatuadress
+      address_postal_code: Postnummer
+      address_locality: Stad
+      address_region: Län
+      date_of_birth: Födelsedatum
+      ssn: SSN
+      routing_number: Clearingnummer
+      account_number: Kontonummer
+      save: Spara
     show:
-      payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
+      payout_details: "Dina betalningsdetaljer"
+      first_name: Förnamn
+      last_name: Efternamn
+      email: E-postadress
+      phone: Telefonnummer
+      address_street_address: Gatuadress
+      address_postal_code: Postnummer
+      address_locality: Stad
+      address_region: Län
+      date_of_birth: Födelsedatum
+      ssn: SSN
+      routing_number: Clearingnummer
+      account_number: Kontonummer
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
-      payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
-      confirm_payment: ~
-      exp: ~
+      new_credit_card_payment: "Ny kreditkortsbetalning"
+      payment_receiver: Betalningsmottagare
+      cardholder_name: "Kortinnehavarens namn"
+      credit_card_number: Kreditkortsnummer
+      cvv: Säkerhetskod
+      credit_card_expiration_date: "Kreditkortets utgångsdatum"
+      confirm_payment: "Bekräfta betalning"
+      exp: "Exp:"
   preauthorize_payments:
     edit:
-      confirm_payment: ~
+      confirm_payment: "Bekräfta betalning"
   community_memberships:
     access_denied:
-      access_denied: ~
-      you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      access_denied: "Åtkomst nekad"
+      you_are_banned_in_this_community: "Administratören har hindrat dig från att komma åt %{service_name}. Om du vill så kan du skicka ett meddelande till admin %{link_to_contact_page}."
+      contact_page_link: feedback
     new:
-      welcome_fb_user: ~
-      fb_join_accept_terms: ~
-      join_community: ~
-      you_are_not_a_member_of_this_community: ~
-      you_can_join: ~
-      you_can_join_email_confirmation: ~
-      you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: ~
-      if_want_to_view_content: ~
-      log_out: ~
-      join_community_button: ~
+      welcome_fb_user: "Välkommen till %{service_name}, %{name}!"
+      fb_join_accept_terms: "Det är ett mer steg för att gå med i %{service_name}: du behöver godkänna användarvillkoren."
+      join_community: "Gå med %{service_name}"
+      you_can_join: "Du kan gå med %{service_name} genom att acceptera användarvillkoren och klicka 'Gå med %{service_name}' nedan."
+      you_can_join_email_confirmation: "För att gå med %{service_name} så behöver du en giltig e-postadress som slutar med %{email_ending}. Du kan gå med genom att fylla i din e-postadress, acceptera användarvillkoren och genom att klicka 'Gå med %{service_name}' nedan, och senare bekräfta din e-postadress."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name} har e-post restriktioner. Du kan bara gå med om du har en tillåten e-postadress. Du kan gå med genom att skriva in din e-postadress, acceptera användarvillkoren %{service_name} och klicka 'Gå med %{service_name}' nedan."
+      you_can_join_with_invite_only: "Du behöver en inbjudan från en annan medlem för att gå med %{service_name}. Om du har en inbjudningskod så kan du gå med genom att skriva in koden nedan, acceptera användarvillkoren och klicka 'Gå med %{service_name}' nedan."
+      if_want_to_view_content: "Om du vill se detta innehåll på %{service_name} utan att bli medlem så måste du"
+      log_out: "logga ut"
+      join_community_button: "Gå med %{service_name}"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "Kom ihåg att anta eller avslå ett erbjudande"
-      remember_to_accept_request: "Kom ihåg att anta eller avslå en förfrågan"
+      remember_to_accept_offer: "Kom ihåg att anta eller avslå ett erbjudande från %{sender_name}"
+      remember_to_accept_request: "Kom ihåg att anta eller avslå en förfrågan från %{sender_name}"
       you_can_accept_or_reject_offer_at: "Du kan anta eller avslå erbjudanden på"
       you_can_accept_or_reject_request_at: "Du kan anta eller avslå förfrågan på"
       you_have_not_yet_accepted_or_rejected_offer: "Du har inte antagit eller avslagit erbjudandet om '%{title}' som du tog emot den %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Du har inte antagit eller avslagit förfrågan om '%{title}' som du tog emot den %{date}."
-      show_thread: ~
+      show_thread: "Visa konversation"
     braintree_account_approved:
-      account_ready: ~
-      message: ~
+      account_ready: "Du är redo för att ta emot betalningar"
+      message: "Din betalningsinformation har blivit godkänd och du är nu redo att ta emot betalningar på %{service_name}."
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
-      remember_to_confirm_request: ~
-      if_will_not_happen_you_should_cancel: ~
-      if_will_not_happen_you_should_cancel_escrow: ~
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
-      cancel_it_link_text: ~
-      automatic_confirmation: ~
+      you_have_not_yet_confirmed_or_canceled_request: "Du har inte än bekräftat eller avbrutit förfrågan %{request_link}. Om förfrågan är klar så måste du bekräfta det. Efter det så kan du lämna feedback till %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Du har ännu inte bekräftat eller avbrutit förfrågan %{request_link}. Vi kommer att skicka pengarna till %{other_party_given_name} när a) du har markerat förfrågan som klar eller b) %{days_to_automatic_confirmation} dagar har passerat sen du betalde. Efter du har markerat förfrågan som klar så kan du ge feedback till %{other_party_given_name}."
+      remember_to_confirm_request: "Kom ihåg att godkänna eller avbryta din förfrågan"
+      if_will_not_happen_you_should_cancel: "Om du tror att förfrågan inte skulle bli klar för någon anledning så kan du %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel_escrow: "Om du tror att förfrågan inte skulle bli klar för någon anledning så kan du %{cancel_it_link}. Detta kommer att meddela administratören som sen kommer att kontakta dig för återbetalning."
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Om du tror att förfrågan inte skulle bli klar för någon anledning. Du har %{days_to_cancel} för att %{cancel_it_link}. Detta kommer att meddela administratören som sen kommer att kontakta dig för återbetalning."
+      cancel_it_link_text: "avbryt den"
+      automatic_confirmation: "Om du inte accepterar eller avbryter förfrågan inom %{days_to_automatic_confirmation} dagar efter förfrågan var accepterad så kommer den automatiskt markeras som klar."
     payment_reminder:
-      remember_to_pay: ~
-      you_have_not_yet_paid: ~
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
+      remember_to_pay: "Kom ihåg att betala för %{listing_title}"
+      you_have_not_yet_paid: "Du har ännu inte betalat för %{listing_title} som %{other_party_name} har accepterat att erbjuda dig."
+      if_will_not_happen_you_should_cancel: "Om du tror att förfrågan inte skulle bli klar för någon anledning så kan du %{cancel_it_link}."
+      cancel_it_link_text: "avbryt den"
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: ~
-      please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      remember_to_add_payment_details: "Kom ihåg att ange betalningsdetaljer för att få betalt."
+      you_have_added_listing_with_payment: "Du har skapat annons %{listing_link} med betalning. Men du har inte angett dina betalningsdetaljer. För att du ska kunna få betalt så måste du lägga till betalningsinformationen."
+      please_go_to_payment_settings: "Vänligen gå till %{payment_settings_link} för att fylla i betalningsinformationen som krävs."
+      payment_settings_link: betalningsinställningar
     transaction_confirmed:
-      here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      here_is_a_message_from: "Här är ett meddelande från %{other_party_given_name}:"
+      request_marked_as_confirmed: "Förfrågan klar - kom ihåg att ge feedback"
+      request_marked_as_canceled: "Förfrågan avbruten"
+      has_marked_request_as_confirmed: "%{other_party_full_name} har markerat denna förfrågan om %{request} som klar. Du kan nu ge feedback till %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} har avbrutit förfrågan om %{request}. Du kan fortfarande ge feedback till %{other_party_given_name}."
+      giving_feedback_is_good_idea: "Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
+      give_feedback_to: "Ge feedback till %{other_party_given_name}"
     transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Förfrågan är klar - kom ihåg att ge feedback"
+      we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} klar. Förfrågan blev automatisk klar eftersom %{days_passed} har passerat sedan förfrågan accepterades."
     booking_transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Förfrågan är klar - kom ihåg att ge feedback"
+      we_have_marked_request_as_confirmed: "Du har markerat förfrågan om %{request} som klar. Förfrågan blev automatiskt klar eftersom en dag har passerat sen bokningsperioden slutade."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
-      show_thread: ~
+      giving_feedback_is_good_idea: "Du kan nu ge feedback till %{other_party_given_name}. Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
+      give_feedback_to: "Ge feedback till %{other_party_given_name}"
+      show_thread: "Visa konversation"
     escrow_canceled:
-      subject: ~
-      has_marked_request_as_canceled: ~
-      if_this_was_error: ~
-      please_contant_admin_link: ~
+      subject: "Betalning avbruten"
+      has_marked_request_as_canceled: "%{other_party_full_name} har markerat förfrågan om %{request} avbruten. Du kommer inte att få några pengar från denna transaktion."
+      if_this_was_error: "Om du tror att ett fel uppstod, %{please_contant_admin_link}"
+      please_contant_admin_link: "vänligen kontakta administratören"
     confirmation_instructions:
-      confirmation_instructions_signature: ~
-      welcome_to_kassi: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
-      or_paste_link: ~
-      turning_on_confirmations_in_this_community: ~
+      confirmation_instructions_signature: "Vänliga hälsningar,<br/>%{service_name} teamet"
+      welcome_to_kassi: "Välkommen till %{service_name}!"
+      need_to_confirm: "Du behöver bekräfta din e-postadress."
+      confirmation_link_text: "Bekräfta min e-postadress"
+      or_paste_link: "Alternativt så kan du kopiera följande länk till adressfältet i din webbläsare:"
+      turning_on_confirmations_in_this_community: "Vi har börjat med att använda e-postverifiering på denna %{service_name} marknadsplats."
     common:
       check_your_settings: "Kontrollera dina inställningar"
       hey: "Hej %{name},"
-      kassi_team: "%{service_name} teamet"
+      kassi_team: "%{service_name}gänget"
       thanks: "Tack,"
       want_to_control_emails: "Vill du kontrollera vilka mejl du har fått från %{service_name}?"
-      dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
-      or: ~
-      unsubscribe_from_these_emails: ~
-    community_starter_email:
-      subject: ~
+      dont_want_to_receive_these_emails: "Vill du inte ta emot dessa mail?"
+      edit_your_email_settings_here: "Ändra dina e-postinställningar här"
+      message_not_displaying_correctly: "Syns inte e-postmeddelandet korrekt?"
+      view_it_in_your_browser: "Se den i din webbläsare."
+      or: eller
+      unsubscribe_from_these_emails: "avsluta prenumeration från dessa e-postmeddelanden"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har antagit ditt erbjudande angående %{listing}"
-      has_accepted_your_request: "%{accepter} har antagit din förfrågan om erbjudande av %{listing}"
-      has_rejected_your_offer: "%{accepter} har avslagit ditt erbjudande angående %{listing}"
-      has_rejected_your_request: "%{accepter} har avslagit din förfrågan om erbjudande av %{listing}"
-      view_thread: ~
+      has_accepted_your_request: "%{accepter} har antagit din förfrågan %{listing}."
+      has_rejected_your_offer: "%{accepter} har avslagit ditt erbjudande angående %{listing}."
+      has_rejected_your_request: "%{accepter} har avslagit din förfrågan om erbjudande av %{listing}."
+      view_thread: "Visa konversation"
       your_offer_was_accepted: "Ditt erbjudande är antaget"
       your_offer_was_rejected: "Ditt erbjudande avslogs"
       your_request_was_accepted: "Din förfrågan avslogs"
       your_request_was_rejected: "Din förfrågan avslogs"
-      you_can_now_pay_to: ~
-      pay_now: ~
-      remember_to_confirm: ~
+      you_can_now_pay_to: "Du kan nu betala det begärda beloppet till %{payment_receiver}."
+      pay_now: "Betala nu"
+      remember_to_confirm: "När förfrågan är uppfylld, kom ihåg att markera den som klar. Om förfrågan inte är uppfylld så har du %{days_to_automatic_confirmation} dagar som du kan avbryta den. Annars vill den automatiskt markeras som klar."
     invitation_to_kassi:
-      hi: ~
-      you_have_been_invited_to_kassi: ~
-      here_is_a_message_from: ~
-      join_now: ~
-      invitation_code: ~
+      hi: Hej!
+      you_have_been_invited_to_kassi: "%{inviter} har bjudit in dig till %{service_name}."
+      here_is_a_message_from: "Här är ett personligt meddelande från %{inviter}:"
+      join_now: "Gå med nu"
+      invitation_code: "Inbjudningskod: %{code}"
     new_comment:
-      has_commented_your_listing_in_kassi: ~
-      view_comment: ~
+      has_commented_your_listing_in_kassi: "%{author} har kommenterat din annons %{listing}."
+      view_comment: "Visa kommentar"
       you_have_a_new_comment: "%{author} har kommenterar ditt inlägg i %{service_name}"
-      listing_you_follow_has_a_new_comment: ~
-      has_commented_listing_you_follow_in_kassi: ~
+      listing_you_follow_has_a_new_comment: "%{author} har kommenterat en annons du följer på %{service_name}"
+      has_commented_listing_you_follow_in_kassi: "%{author} har kommenterat annonsen %{listing} som du följer på %{service_name}."
     new_message:
-      view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: "Du har ett nytt meddelande i %{service_name}"
+      view_message: "Visa meddelande"
+      has_sent_you_a_message_in_kassi: "%{sender} har skickat ett meddelande i %{service_name}."
+      you_have_a_new_message: "Du har ett nytt meddelande i %{service_name} från %{sender_name}"
     new_payment:
-      new_payment: ~
-      you_have_received_new_payment: ~
+      new_payment: "Du har fått en ny inbetalning"
+      you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: "Produkt:"
+      price_payer_paid: "Pris %{payer_full_name} betalt:"
+      service_fee: "%{service_name} serviceavgift:"
+      you_will_get: "Du kommer att få:"
+      money_will_be_transferred: "Pengarna kommer att överföras till ditt konto när a) %{payer_name} har markerat förfrågan som klar eller b) %{automatic_confirmation_days} dagar har passerat sedan %{payer_name} betalat."
     receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
-      total: ~
-      price: ~
-      service_fee: ~
+      receipt_of_payment: "Kvitto för betalning"
+      you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{recipient_full_name}. Här är ett kvitto av betalningen."
+      product: Produkt
+      total: Totalt
+      price: Pris
+      service_fee: Serviceavgift
+      money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som klar eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har givit dig feedback på %{service_name}"
-      you_can_give_feedback_to: "Du kan ge feedback till %{name} i"
-      view_feedback: ~
+      you_can_give_feedback_to: "Du har inget gett feedback till %{name}."
+      view_feedback: "Visa feedback"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: ~
-      has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      listing_you_follow_has_been_updated: "Annonser som du följer"
+      has_updated_listing_you_follow_in_kassi: "%{author} har uppdaterat annonsen %{listing} som du följer på %{service_name}."
+      view_changes: "Visa ändringar"
     community_updates:
-      added_offer: ~
-      added_request: ~
-      added_listing: ~
-      update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
-      intro_paragraph_link_text: ~
-      post_a_new_listing: ~
-      reduce_email_footer_text: ~
-      settings_link_text: ~
-      unsubscribe_link_text: ~
+      added_offer: "%{name_link} skapade en annons:"
+      added_request: "%{name_link} skapade en annons:"
+      added_listing: "%{name_link} skapade en annons:"
+      update_mail_title: "%{title_link} nyheter"
+      title_link_text: "%{community_name}"
+      intro_paragraph: "Här är några saker som har hänt på %{community_link} under de senaste %{time_since_last_update}."
+      intro_paragraph_link_text: "%{community_name}"
+      post_a_new_listing: "Skapa annons!"
+      reduce_email_footer_text: "För många e-postmeddelanden? %{settings_link} eller %{unsubscribe_link}"
+      settings_link_text: "Ändra dina e-postinställningar här"
+      unsubscribe_link_text: avprenumerera
     newsletter:
-      hi: ~
-      newest_offers: ~
-      newest_requests: ~
-      text_version_text: ~
-    reply_to_contact_request:
-      thank_you_for_your_interest: ~
+      hi: "Hej %{name},"
+      newest_offers: "Vad folk har att erbjuda andra"
+      newest_requests: "Vad folk behöver just nu"
+      text_version_text: "Kan du dela med dig något som andra kanske behöver? Eller behöver du något som andra har? Lägg ett erbjudande eller förfrågan eller kolla vad de andra har att erbjuda %{url}."
     reset_password_instructions:
-      change_my_password: ~
-      reset_password_instructions: ~
+      change_my_password: "Ändra mitt lösenord"
+      reset_password_instructions: "<p>Du har angett att du antingen har glömt ditt lösenord eller användarnamn på %{service_name}.</p><p>Ditt användarnamn är: %{username}</p><p>Om du behöver återställa ditt lösenord, klicka här: %{password_reset_link}</p><br/><p>Om du inte begärde detta, vänligen ignorera detta e-postmeddelande. Ditt lösenord kommer ej att bytas om du inte klickar på länken ovan och väljer ett nytt.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: ~
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      feedback_is_public_and_is_shown: "Feedbacken är offentlig och visas för alla andra användare. Baserat på feedbacken kan de andra användarna bedöma huruvida %{name} är en pålitlig person och någon de vill interagera med. Därför är det bra att alltid komma ihåg att ge feedback på händelser, och även påminna den andra parten att ge feedback till dig."
+      remember_to_give_feedback_to: "Kom ihåg att lämna feedback till %{name}"
+      you_have_not_given_feedback_yet: "Du har ännu inte lämnat någon feedback till %{name} angående händelsen '%{event}'. Kom ihåg att ge feedback om hur %{given_name} utfört händelsen."
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
-      you_have_days_to_accept: ~
-      click_here_to_reply: ~
+      subject: "%{requester} har efterfrågat och betalat för %{listing_title}"
+      transaction_requested_by_user: "%{requester} har efterfrågat och betalat för \"%{listing_title}\""
+      you_have_days_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in_days} dagar. Om du inte accepterar detta inom tidsramen så kommer automatiskt förfrågan att avböjas och du kommer inte att få någon betalning."
+      click_here_to_reply: "Klicka här för att svara på förfrågan"
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      subject: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}"
+      remember_to_accept: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}. %{requester} har redan betalat för annonsen. Du måste acceptera förfrågan för att få betalt.."
+      one_day_left: "Om du inte accepterar förfrågan inom en dag så kommer den automatiskt att avslås och du får inte någon betalning."
+      click_here_to_reply: "Klicka här för att svara på förfrågan"
     welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
-      p_s_did_you_know: ~
-      click_here_link_text: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
+      welcome_email_subject: "Välkommen till %{service_name}"
+      welcome_to_marketplace: "Välkommen till %{service_name}! Kul att ha dig ombord."
+      love_marketplace_crew: "Vänligen,<br /><i>%{service_name} teamet</i>"
+      p_s_did_you_know: "P.S. Skulle du vilja skapa din egen marknasplatssida som %{service_name}? Det är enkelt och kräver ingen programmering. %{click_here_link} för att veta mer."
+      click_here_link_text: "Klicka här"
+      welcome_email_footer_text: |-
+          Vilken typ av e-postmeddelanden vill du få från %{service_name}?
+          %{settings_link}
+      settings_link_text: "Kontrollera dina inställningar"
+      welcome_email_subject_for_marketplace_creator: "Välkommen till Sharetribe"
+      welcome_to_marketplace_creator: "Välkommen till Sharetribe, %{name}!"
+      congrats_for_creating_your_marketplace: "Grattis till skapandet av din marknadsplats! Det var enkelt, var det inte?"
+      here_is_your_account_information: "Här är din kontoinformation."
+      your_email_address: "E-postadressen du använder för att logga in:"
+      your_marketplace_address: "Din marknadsplatsadress:"
+      your_marketplace_admin_area: "Adminområdet på din marknadsplats:"
+      just_follow_details: "Följ bara dessa länkar och du kommer att få mer information hur du bygger din marknadsplats!"
+      we_will_guide_you_along_the_way: "Vi kommer att guida dig på vägen."
+      are_you_new_to_online_marketplaces: "Behöver du hjälp med din marknadsplats? Inga problem, vi är här för att hjälpa dig! Vi kommer att skicka dig några e-postmeddelanden som kommer att hjälpa dig att få reda på det mesta om Sharetribe och hur du bygger en lyckad marknadsplats. Vi kommer snart att skicka Del 1."
+      have_questions: "Har du några frågor?"
+      our_happiness_team_is_here_to_help: "Vårt glada gäng är här för dig! Antingen %{knowledge_base_link} eller kontakta supporten via %{admin_panel_link}."
+      love: "Varma hälsningar,"
+      sharetribe_crew: Sharetribe-gänget
+      knowledge_base_link_text: "kolla vår kunskapsbas"
+      contact_support_link_text: "kontakta vår support"
+      admin_panel_link_text: adminpanel
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
+      subject: "%{author_name} har skapat en ny annons på %{service_name}"
+      has_posted_a_new_listing: "%{author_name} har skapat en ny annons:"
+      you_are_receiving_this_because: "Du har fått ett meddelande eftersom du följer %{author_name}."
+      view_listing: "Visa annons"
   error_messages:
     listings:
-      departure_time: ~
-      share_type: ~
-      valid_until: ~
-      price: ~
-      minimum_price: ~
+      departure_time: "Avgångstid måste vara mellan nuvarande tid och ett år från nu."
+      share_type: "Du måste välja en:"
+      valid_until: "Detta datum måste vara mellan aktuell tid och 6 månader från nu."
+      price: "Pris måste vara ett helttal."
+      minimum_price: "Minimum pris är %{minimum_price} %{currency}."
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "Om du vill ge en icke-neutral feedback, måste du förklara varför."
+      you_must_select_a_grade: "Kom ihåg att berätta om din erfarenhet var positiv eller negativ."
+    transaction_agreement:
+      required_error: "Du behöver acceptera avtalet"
     paypal:
-      generic_error: ~
+      generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din PayPal betalning."
+      cancel_error: "Ett fel inträffade. Det gick ej att slutföra."
+      accept_authorization_error: "Ett fel uppstod vid försök att acceptera PayPal betalningen. Försök igen."
+      reject_authorization_error: "Ett fel uppstod vid försök att avbryta PayPal betalningen. Vänligen försök igen."
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "Tillbaka till startsidan"
     error_404:
-      if_you_believe: ~
-      page_can_not_be_found: ~
-      page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+      if_you_believe: "Om du tror att adressen är korrekt och att det borde fungera, vänligen hjälp oss att hitta felet genom att låta oss veta vilken adress som skapade felmeddelandet."
+      page_can_not_be_found: "Sidan hittades inte!"
+      page_you_requested_can_not_be_found: "Sidan som du efterfrågade hittades inte. Är du säker på att du skrev adressen korrekt?"
+    error_404_title: "sidan hittades inte"
+    error_410:
+      page_removed: "Sida borttagen"
+      page_you_requested_has_been_removed: "Sidan du sökte har blivit borttagen."
+      page_removed_reason: "Det finns några anledningar till detta. T ex, en användare har kanske tagit bort sitt konto eller annonsen har tagits bort."
+    error_410_title: "sidan borttagen"
     error_500:
-      help_us_find_the_problem: ~
-      page_loading_failed: ~
-      reload_refresh: ~
-    error_500_title: ~
-    error_description: ~
+      temporary_unavailable: "Marknadsplatsen är inte tillgänglig för tillfället"
+      unable_to_process: "Tjänsten kan inte behandla din begäran just nu. Försök igen senare."
+      we_hate_this: "Vi gillar inte när detta händer! Vi har blivit informerade om situationen och vi åtgärdar det."
+      refer_to_error_id: "Om du vill kontakta supporten om det här problemet, vänligen inkludera fel-ID %{error_id} i ditt meddelande."
+    error_500_title: "sidan laddades inte"
+    error_description: Felbeskrivning
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
-      kassi_does_not_currently_work_without_javascript: ~
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
-      contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      javascript_is_disabled_in_your_browser: "Javascript har avaktiverats i din webbläsare"
+      kassi_does_not_currently_work_without_javascript: "Tyvärr %{service_name} fungerar inte utan Javascript. Försök att aktivera Javascript i din webbläsare och ladda om sidan."
+      contact_us: "kontakta oss"
+      send_feedback: "Skicka feedback"
+      your_feedback_to_admins: "Din feedback till admin."
+    send: Skicka
+    your_email_address: "Din e-postadress"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
+      invalid_date: "är inget giltigt datum"
+      invalid_time: "är ingen giltig tid"
+      invalid_datetime: "är inget giltig datum/tid"
+      is_at: "måste vara %{restriction}"
+      before: "måste vara före %{restriction}"
+      on_or_before: "måste vara exakt på eller före %{restriction}"
+      after: "måste vara efter %{restriction}"
+      on_or_after: "måste vara exakt på eller efter %{restriction}"
   event_feed_events:
     accept:
-      has_accepted_lend_item: ~
-      has_accepted_borrow_item: ~
-      has_accepted_rent_out_item: ~
-      has_accepted_rent_item: ~
-      has_accepted_give_away_item: ~
-      has_accepted_receive_item: ~
-      has_accepted_sell_item: ~
-      has_accepted_buy_item: ~
-      has_accepted_trade_item: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
-      has_accepted_rideshare: ~
+      has_accepted_lend_item: "%{offerer_name} gick med på att låna ut %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} gick med på att låna ut %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} gick med på att hyra ut %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} gick med på att hyra ut %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_give_away_item: "%{offerer_name} gick med på att ge %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_receive_item: "%{offerer_name} gick med på att ge %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_sell_item: "%{offerer_name} gick med på att sälja %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_buy_item: "%{offerer_name} gick med på att sälja %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_trade_item: "%{offerer_name} gick med på att byta %{listing_title} med %{requester_name} %{time_ago}."
+      has_accepted_sell_housing: "%{offerer_name} gick med på att sälja %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_buy_housing: "%{offerer_name} gick med på att sälja %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_rent_out_housing: "%{offerer_name} gick med på att hyra ut %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} gick med på att hyra ut %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_favor: "%{offerer_name} gick med på att erbjuda %{listing_title} till %{requester_name} %{time_ago}."
+      has_accepted_rideshare: "%{offerer_name} gick med på att dela en åktur %{listing_title} med %{requester_name} %{time_ago}."
     join:
-      joined_kassi: ~
+      joined_kassi: "%{name} gick med %{service_name} %{time_ago}"
     login:
-      logged_in_to_kassi: ~
+      logged_in_to_kassi: "%{name} loggade in på %{service_name} %{time_ago}"
     comment:
-      commented: ~
-      offer_partitive: ~
-      request_partitive: ~
+      commented: "%{commenter_name} kommenterade annons %{listing_title} %{time_ago}."
+      offer_partitive: erbjudande
+      request_partitive: Förfrågan
   header:
-    about: ~
-    home: ~
-    members: ~
-    new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
-    invite: ~
-    login: ~
-    signup: ~
-    menu: ~
+    about: Om
+    home: Hem
+    members: Community
+    new_listing: "Nytt objekt"
+    mobile_version: Mobilversion
+    offers: Erbjudanden
+    requests: Begäran
+    search_kassi: "Sök %{service_name}"
+    create_new_marketplace: "Skapa en ny marknadsplats"
+    contact_us: "Kontakta oss"
+    profile: Profil
+    invite: "Bjud in nya medlemmar"
+    login: "Logga in"
+    signup: Registrera
+    menu: Meny
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "Dessutom så finns det <b>ett annat erbjudande</b>,"
+      additionally_one_private_request_exists: "Dessutom  så finns det <b>en annan förfrågan</b>,"
+      additionally_some_private_offers_exist: "Dessutom så finns det <b>%{number_of_listings} andra erbjudanden</b>,"
+      additionally_some_private_requests_exist: "Dessutom så finns det <b>%{number_of_listings} andra förfrågningar</b>,"
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
-      favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
-      item_offer_list: ~
-      item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
-      log_in: ~
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
+      add_first: "Lägg till en!"
+      but_that_is_visible_only_to_registered_members: "men det är endast synligt för registrerade medlemmar."
+      but_those_are_visible_only_to_registered_members: "men de syns bara för registrerade medlemmar."
+      create_new_account_for_yourself: "Skapa dig ett nytt konto"
+      examples_of_what_you_could_offer_to_others: "Vad kan du erbjuda till andra?"
+      examples_of_what_you_could_request_to_others: "Vad kan du begära från de andra?"
+      favor_offer_list: "datorhjälp, laga kläder, baka, cykellagning"
+      favor_request_list: "barnpassning, piano lektioner, gå med hundar, gräsklippning"
+      favors_to_offer: "Hjälp: "
+      favors_to_request: "Hjälp: "
+      item_offer_list: "verktyg, sportutrustning, kostymer, campingutrustning"
+      item_request_list: "verktyg, sportutrustning, kostymer, campingutrustning"
+      items_to_offer: "Varor att låna: "
+      items_to_request: "Varor att låna: "
+      log_in: "logga in!"
+      no_offers_visible_unless_logged_in: "Ingen produkt, tjänst eller samåkningserbjudanden är synliga för icke inloggade användare."
+      no_open_offers_currently: "Inga öppna objekt, service eller samåknings erbjudanden."
+      no_open_requests_currently: "Inga öppna objekt, service eller samåknings erbjudanden."
+      no_requests_visible_unless_logged_in: "Ingen produkt, tjänst eller samåkningserbjudanden är synliga för icke inloggade användare."
+      one_private_offer_exists: "Detta är redan <b>ett erbjudande</b>,"
+      one_private_request_exists: "Detta är redan <b>ett erbjudande</b>,"
       ride_offer: "Följa barn till fritidsaktiviteter"
       ride_request: "Skjuts till arbetet"
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      some_private_offers_exist: "Det finns redan <b>%{number_of_listings} erbjudanden</b>,"
+      some_private_requests_exist: "Det finns redan <b>%{number_of_listings} förfrågningar</b>,"
     custom_filters:
-      update_view: ~
-      min: ~
-      max: ~
+      update_view: Uppdatera
+      min: "Minst:"
+      max: "Max:"
     event_feed:
-      latest_events: ~
+      latest_events: "Vad är på gång"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Behandlar uppladdad bild...)"
     index:
-      no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
-      add_listing_link_text: ~
-      available_on_the_app_store: ~
-      private_listing_notification: ~
-      open_listing: ~
-      open_listings: ~
-      private_listing_notification_log_in: ~
-      is: ~
-      are: ~
-      what_do_you_need: ~
-      post_new_listing: ~
-      are_offering: ~
-      add_news_item: ~
-      inform_others_about_events: ~
+      no_listings_with_your_search_criteria: "Vi kunde inte hitta några resultat som matchade dina sökkriterier."
+      no_listings_notification: "Inga annonser %{add_listing_link}"
+      add_listing_link_text: "Lägg till annons"
+      open_listing: "öppnad annons"
+      open_listings: "öppnade annonser"
+      private_listing_notification_log_in: "logga in"
+      is: är
+      are: är
+      what_do_you_need: "Vad letar du efter?"
+      post_new_listing: "Skapa annons"
+      are_offering: erbjudande
+      add_news_item: "Lägg till en artikel"
       lend_rent_help_carpool: "Sälj, låna, hjälp, erbjud skjuts"
       loading_more_content: "Laddar innehåll"
       more_events: "Fler händelser ..."
       news: Nyheter
-      no_news: ~
-      more_news: ~
+      no_news: "Inga nyheter"
+      more_news: "Mer nyheter"
       or: och
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      teaser_text: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
-      no_reviews: ~
-      no_image: ~
-      filter: ~
-      this_is_private_community: ~
+      or_see_what_the_others: "...eller se vad de andra"
+      recent_events: "Senaste händelser"
+      requesting: behöver
+      tell_it_here: "Berätta det här!"
+      welcome_to_new_kassi: "Välkommen till nya %{service_name}!"
+      no_reviews: "Inga recensioner"
+      no_image: "Ingen bild"
+      filter: Filter
+      this_is_private_community: "Du behöver registrera dig för att se detta innehåll."
     invitation_form:
-      invite_your_friends: ~
-      invite_your_neighbors: ~
-      email: ~
-      message: ~
-      send_invitation: ~
-      add_as_many_emails_as_you_want: ~
-      invitation_emails_field_placeholder: ~
-      invitation_message_field_placeholder: ~
-      errors_in_emails: ~
+      invite_your_friends: "Bjud in vänner till %{service_name}!"
+      email: E-postadress(er)
+      message: "Ett personligt meddelande"
+      send_invitation: "Skicka inbjudan"
+      add_as_many_emails_as_you_want: "Lägg till de e-postadresser i fältet nedan till personer som du vill bjuda in. Om du lägger till flera e-postadresser, använd kommatecken för att separera dem."
+      invitation_emails_field_placeholder: "kompis1@exempel.com, kompis2@exempel.com, ..."
+      invitation_message_field_placeholder: "Jag gick med denna fantastiska marknadsplats. Det borde du också göra!"
+      errors_in_emails: "Kontrollera att e-postadresserna som du la till är giltiga. Om du la till flera adresser, kontrollera så att de är separerade med kommatecken."
     list_item:
-      review: ~
-      reviews: ~
+      review: granska
+      reviews: recensioner
     news_item:
-      show_less: ~
-      show_more: ~
-    poll_form:
-      poll: ~
-      comment: ~
-      answer: ~
-      results: ~
-      poll_answer: ~
-      poll_answers: ~
+      show_less: "Visa mindre"
+      show_more: "Visa mer"
     profile_info_empty_notification:
-      add_your_info: ~
-      add_a_profile_picture: ~
-      you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      add_your_info: "Lägg till kontaktinfo"
+      add_a_profile_picture: "Lägg till en profilbild"
+      you_have_not_added_your_info: "Du har inte lagt till dina kontaktuppgifter. Vänligen gör detta så andra kan kontakta dig lättare. Lägg även till en profilbild så är det enklare för användarna att lita på dig."
+      add_your_info_link: "Lägg till din information nu"
     recent_listing:
-      please_offer: ~
-      comment: ~
-      comments: ~
+      please_offer: Erbjudande
+      comment: kommentera
+      comments: kommentarer
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
-      map_button: ~
-      grid_button: ~
-      list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      show: "Filtrera:"
+      search: Sök
+      map: "Visa karta"
+      list: "Visa lista"
+      map_button: Karta
+      grid_button: Rutnätsvy
+      list_button: Lista
+      all_listing_types: "Alla annonstyper"
+      all_categories: "Alla kategorier"
   infos:
     about:
-      default_about_text_title: ~
-      default_about_text: ~
-      click_here_link_text: ~
+      default_about_text_title: "Vad är Sharetribe?"
+      default_about_text: "Denna marknadsplats drivs av Sharetribe. Med Sharetribe så kan du enkelt skapa din egen marknadsplatssida. Det är gratis och det tar bara några minuter. %{click_here_link} för att läsa mer!"
+      click_here_link_text: "Klicka här"
+    how_to_use:
+      default_title: "Hur det fungerar"
+      default_content: "Här hittar du information om hur %{marketplace_name} fungerar."
   layouts:
-    no_tribe:
-      inbox: ~
-      settings: ~
-      feedback: ~
     admin:
-      admin: ~
-      back_to_kassi: ~
-      tribe_info: ~
-      news_items: ~
-      polls: ~
+      admin: "%{service_name} admin panel"
+    no_tribe:
+      inbox: Inkorg
+      settings: Inställningar
+      feedback: "Kontakta oss"
     application:
-      join_this_community: ~
-      read_more: ~
-      feedback: ~
-      default_feedback: ~
-      feedback_forum: ~
-      feedback_handle: ~
-      give_feedback: ~
-      keywords: ~
-      meta_description: ~
-      or_check_our: ~
-      send_feedback_to_admin: ~
-      to_see_what_others_have_suggested: ~
-      your_email_address: ~
-      connect: ~
-      invite_your_friends: ~
-      invite_your_neighbors: ~
-      invite_your_friends_description: ~
-      invite_your_friends_invite_only_description: ~
-      join_without_facebook: ~
-      join_without_facebook_link: ~
+      join_this_community: "Gå med marknadsplatsen"
+      read_more: "Läs mer"
+      feedback: "Vad skulle du vilja berätta för oss?"
+      default_feedback: "Har du stött på något problem med %{service_name}? Har du ett förslag hur vi förbättrar tjänsten? Märkt något misstänksamt innehåll? Eller har du bara något du vill diskutera med oss? Låt oss veta!"
+      feedback_forum: "forum för feedback"
+      feedback_handle: Feedback
+      give_feedback: "Kontakta oss"
+      or_check_our: "...eller kolla vår"
+      send_feedback_to_admin: "Skicka feedback"
+      to_see_what_others_have_suggested: "för att se vad andra användare har föreslagit, rösta på idéerna där."
+      your_email_address: "Din e-postadress (för att kontakta dig)"
+      connect: "Gå med"
+      invite_your_friends: "Bjud in vänner!"
+      invite_your_neighbors: "Bjud in grannar!"
+      invite_your_friends_description: "Ju fler personer det är på %{service_name}, destu mer användbart är det."
+      invite_your_friends_invite_only_description: "Folk kan inte gå med %{service_name} om de inte är inbjudna."
+      join_without_facebook: "...eller alternativt %{join_without_facebook_link}"
+      join_without_facebook_link: "registrera dig utan att använda Facebook"
     conversations:
-      messages: ~
-      notifications: ~
-      received: ~
-      sent: ~
-    dashboard:
-      title: ~
+      messages: Meddelanden
+      notifications: Notifieringar
+      received: Mottaget
+      sent: Skickat
     global-header:
-      select_language: ~
+      select_language: "Välj språk"
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
-      news: ~
-      register_details: ~
-      terms: ~
+      about: Om
+      how_to_use: "Hur det fungerar"
+      info_about_kassi: "Information om %{service_name}"
+      news: Nyheter
+      register_details: Sekretess
+      terms: Användarvillkor
     logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: Admin
+      go_to_your_profile_page: Profil
+      hi: Hej
+      login: "Logga in"
+      logout: "Logga ut"
+      notifications: Notifikationer
+      requests: Vänförfrågningar
+      settings: Inställningar
+      sign_up: "Skapa konto"
     logged_in_messages_icon:
-      messages: ~
+      messages: Meddelanden
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: Aviseringar
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: Admin
+      go_to_your_profile_page: Profil
+      hi: Hej
+      login: "Logga in"
+      logout: "Logga ut"
+      notifications: Aviseringar
+      requests: Vänförfrågningar
+      settings: Inställningar
+      sign_up: "Gå med"
     notifications:
-      listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
-      community_updated: ~
-      community_update_failed: ~
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
-      comment_sent: ~
-      confirmation_link_is_wrong_or_used: ~
-      additional_email_confirmed: ~
-      could_not_get_email_from_facebook: ~
-      create_new_listing: ~
-      create_one_here: ~
-      email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
-      invitation_cannot_be_sent: ~
-      invitation_sent: ~
-      inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
-      account_creation_successful: ~
-      account_deleted: ~
-      login_successful: ~
-      logout_successful: ~
-      news_item_created: ~
-      news_item_creation_failed: ~
-      news_item_update_failed: ~
-      news_item_updated: ~
-      news_item_deleted: ~
-      offer_accepted: ~
-      offer_confirmed: ~
-      offer_closed: ~
-      listing_created_successfully: ~
-      offer_rejected: ~
-      offer_canceled: ~
-      listing_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
-      payment_successful: ~
-      payment_canceled: ~
-      error_in_payment: ~
-      cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
-      person_activated: ~
-      person_deactivated: ~
-      person_updated_successfully: ~
-      poll_answered: ~
-      poll_could_not_be_answered: ~
-      poll_created: ~
-      poll_creation_failed: ~
-      poll_update_failed: ~
-      poll_updated: ~
-      poll_deleted: ~
-      read_more: ~
-      registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
-      request_accepted: ~
-      request_confirmed: ~
-      request_closed: ~
-      request_rejected: ~
-      request_canceled: ~
-      message_sent: ~
-      this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
-      welcome_message: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
-      send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
-      you_cannot_reply_to_a_closed_request: ~
-      you_cannot_send_message_to_yourself: ~
-      you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
-      you_are_now_member: ~
-      you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: ~
-      additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
-      you_must_log_in_to_invite_new_users: ~
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
-      you_must_log_in_to_view_this_content: ~
-      you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
-      you_must_log_in_to_add_news_item: ~
-      you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_change_payment_settings: ~
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
-      you_need_to_confirm_your_account_first: ~
-      you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: ~
-      joining_community_failed: ~
-      can_not_login_with_private_user: ~
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
-      listing_author_payment_details_missing: ~
+      listing_could_not_be_saved: "Annonsen kunde inte sparas. Vänligen försök igen. Om problemet kvarstår, vänligen %{contact_admin_link}."
+      contact_admin_link_text: "kontakta admin"
+      test_welcome_email_delivered_to: "Ett testmeddelande skickades till %{email}."
+      something_went_wrong: "Någonting gick snett"
+      community_updated: "Detaljer uppdaterade."
+      community_update_failed: "Detaljer uppdaterades inte."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Ditt konto skapades korrekt. Nu behöver du bekräfta din e-postadress."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Tack för att du anslöt dig till %{service_name}. Nu behöver du bekräfta din e-postadress."
+      comment_cannot_be_empty: "Kommentar kan inte vara tomt"
+      comment_sent: "Kommentar skickad"
+      confirmation_link_is_wrong_or_used: "Bekräftelselänken har redan används eller är trasig. Försök logga in eller skicka oss feedback om problemet kvarstår."
+      additional_email_confirmed: "E-postadressen du skrev in är nu bekräftad."
+      could_not_get_email_from_facebook: "Kunde inte hitta någon e-postadress från Facebook. Det går inte att skapa ett konto utan e-postadress."
+      create_new_listing: "Skapa en ny annons"
+      create_one_here: "skapa ett här"
+      email_confirmation_sent_to_new_address: "E-postbekräftelse har nu skickats till den nya adressen."
+      email_not_found: "Den e-postadress du gav oss hittades inte från %{service_name} databasen."
+      error_with_session: "Fel med session."
+      feedback_considered_spam: "Feedbacken sparades inte på grund av formatet. Försök igen eller använd feedbacks forumet."
+      feedback_not_saved: "Feedback kunde inte skickas."
+      feedback_saved: "Tack för din feedback! Vi återkommer till dig så fort som möjligt."
+      feedback_sent_to: "Feedback skickades till %{target_person}."
+      feedback_skipped: "Feedback skippades"
+      invitation_cannot_be_sent: "Inbjudan kunde inte skickas"
+      invitation_sent: "Inbjudan skickades"
+      inviting_new_users_is_not_allowed_in_this_community: "Bjuda in nya användare är inte tillåtet."
+      login_again: "Var vänlig logga in igen."
+      login_failed: "Inloggning misslyckades. Försök igen."
+      account_creation_successful: "Välkommen till %{service_name}, %{person_name}!"
+      account_deleted: "Ditt konto är nu borttaget."
+      login_successful: "Välkommen, %{person_name}!"
+      logout_successful: "Du har blivit utloggad från %{service_name}. Ses snart!"
+      news_item_created: "Artikel skapad"
+      news_item_creation_failed: "Skapandet av artikel misslyckades"
+      news_item_update_failed: "Uppdatering av artikel misslyckades"
+      news_item_updated: "Artikel uppdaterad"
+      news_item_deleted: "Artikel borttagen"
+      offer_accepted: "Erbjudande accepterades"
+      offer_confirmed: "Erbjudande bekräftat"
+      offer_closed: "Erbjudande stängt"
+      listing_created_successfully: "Annonsen skapades. %{new_listing_link}."
+      offer_rejected: "Erbjudandet nekades"
+      offer_canceled: "Erbjudande avbrutet"
+      listing_updated_successfully: "Annons uppdaterades"
+      only_kassi_administrators_can_access_this_area: "Bara %{service_name} admin har åtkomst till denna plats"
+      only_listing_author_can_close_a_listing: "Bara ägaren av annonsen kan stänga annonsen"
+      only_listing_author_can_edit_a_listing: "Bara ägaren av annonsen kan redigera annonsen"
+      payment_successful: "Betalning lyckad"
+      payment_canceled: "Avbruten betalning"
+      error_in_payment: "Fel på betalning. Om du inte har slutfört betalningen ännu så försök igen. Om du slutförde, vänligen skicka oss ett meddelande."
+      cannot_receive_payment: "Den andra parten kan inte ta emot betalningen på grund av något fel. Vänligen kontakta administratören för att reda ut situationen"
+      payment_waiting_for_later_accomplishment: "När du har betalt så kommer vi att meddela säljaren och du kommer att få ett kvitto via e-post."
+      password_recovery_sent: "Instruktioner för att byta lösenord skickades till din e-post."
+      person_activated: "Användare aktiverad"
+      person_deactivated: "Användare avaktiverad"
+      person_updated_successfully: "Information uppdaterades"
+      poll_answered: "Svar på omröstning"
+      poll_could_not_be_answered: "Omröstning kunde inte besvaras"
+      poll_created: "Omröstning skapad"
+      poll_creation_failed: "Skapandet av omröstning misslyckades"
+      poll_update_failed: "Omröstningsuppdateringen misslyckades"
+      poll_updated: "Omröstning uppdaterad"
+      poll_deleted: "Omröstning borttagen"
+      read_more: "Läs mer!"
+      registration_considered_spam: "Registrering lyckades inte. Vänligen skicka oss feedback från huvudmenyn och skriv in \"email2 error\"."
+      reply_cannot_be_empty: "Du kan inte skicka ett tomt meddelande"
+      reply_sent: "Svar skickades"
+      request_accepted: "Förfrågan accepterad"
+      request_confirmed: "Förfrågan klar"
+      request_closed: "Förfrågan stängd"
+      request_rejected: "Förfrågan avslagen"
+      request_canceled: "Förfrågan avbruten"
+      message_sent: "Meddelande skickat"
+      this_content_is_not_available_in_this_community: "Detta innehåll är inte tillgängligt"
+      unknown_error: "Okänt fel. Vänligen använd kontakta oss länken för att skicka detaljer om vad som hände."
+      update_error: "Ett fel uppstod när din information uppdaterades, vänligen försök igen."
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Du har inte behörighet att ge feedback för den här händelsen"
+      you_are_not_authorized_to_do_this: "Du har inte behörighet att göra detta"
+      you_are_not_authorized_to_view_this_content: "Du har inte behörighet att se detta innehåll"
+      send_instructions: "Du kommer snart att få ett e-postmeddelande med instruktioner om hur du återställer ditt lösenord."
+      you_cannot_reply_to_a_closed_offer: "Du kan inte svara på ett stängt erbjudande"
+      you_cannot_reply_to_a_closed_request: "Du kan inte svara på en stängd förfrågan"
+      you_cannot_send_message_to_yourself: "Du kan inte skicka ett meddelande till dig själv"
+      you_followed_listing: "Du följer nu denna annons"
+      you_have_already_given_feedback_about_this_event: "Du har redan lämnat feedback om denna händelse"
+      you_are_now_member: "Välkommen till %{service_name}!"
+      you_are_already_member: "Du är redan en medlem på %{service_name}. Välkommen tillbaka!"
+      you_must_log_in_to_create_new_listing: "Du måste logga in på %{service_name} för att skapa en annons. Om du inte har ett konto så kan du %{sign_up_link}."
+      additional_email_confirmed_dashboard: "Din e-postadress är nu bekräftad."
+      you_must_log_in_to_give_feedback: "Du måste logga in för att ge feedback"
+      you_must_log_in_to_invite_new_users: "Du måste logga in för att bjuda in nya medlemmar till %{service_name}!"
+      you_must_log_in_to_send_a_comment: "Du måste logga in för att skicka en ny kommentar"
+      you_must_log_in_to_send_a_message: "Du måste logga in på %{service_name} för att skicka ett meddelande till en annan användare."
+      you_must_log_in_to_view_this_content: "Du måste logga in för att se detta innehåll"
+      you_must_log_in_to_view_this_page: "Du måste logga in för att visa denna sida"
+      you_must_log_in_to_view_your_inbox: "Du måste logga in på %{service_name} för att visa din inkorg."
+      you_must_log_in_to_view_your_settings: "Du måste logga in på %{service_name} för att visa dina inställningar."
+      you_must_log_in_to_add_news_item: "Du måste logga in på %{service_name} för att lägga till en ny artikel."
+      you_must_log_in_to_change_profile_settings: "Du måste logga in på %{service_name} för att göra profilinställningar"
+      you_must_log_in_to_change_payment_settings: "Du måste logga in på %{service_name} för att ändra betalningsinställningarna"
+      you_must_log_in_to_accept_or_reject: "Du måste logga in för att acceptera eller avböja transaktionen"
+      you_must_log_in_to_confirm_or_cancel: "Du måste logga in för att avbryta eller acceptera transaktionen"
+      you_need_to_confirm_your_account_first: "Du behöver bekräfta din e-postadress."
+      you_must_fill_all_the_fields: "Du måste fylla i alla fält"
+      you_unfollowed_listing: "Du följer inte längre annonsen"
+      joining_community_failed: "Det gick inte att bli medlem"
+      can_not_login_with_private_user: "Du kan inte logga in med ditt personliga konto. Logga in med organisationens konto eller skapa ett nytt konto."
+      can_not_delete_email: "Du kan inte ta bort e-postadressen"
+      user_does_not_have_email_to_delete: "Du har inte e-postadressen som du försöker ta bort"
+      email_deleted: "E-post borttaget"
+      payment_details_add_successful: "Betalningsinformation tillagd"
+      payment_details_add_error: "Det gick inte att lägga till betalningsdetaljer"
+      listing_author_payment_details_missing: "Ägaren av annonsen har inte lagt till betalningsdetaljer så de kan inte ta emot betalning just nu. Vänligen kontakta ägaren av annonsen."
+      stylesheet_needs_recompiling: "Formatmallen kompilerar. Vänligen ladda om sidan efter ett tag."
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
-      payments: ~
+      account: Konto
+      notifications: Aviseringar
+      profile: Profilinfo
+      settings: Inställningar
+      payments: Betalningar
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: "Du har inte behörighet att se denna annons."
     comment:
-      wrote: ~
-      send_private_message: ~
+      wrote: skrev
+      send_private_message: "Skicka privat meddelande till %{person}"
     comment_form:
-      ask_a_question: ~
-      log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
-      subscribe_to_comments: ~
+      ask_a_question: "Kommentera annonsen eller fråga efter mer detaljer. Alla andra användare kommer att kunna se din kommentar."
+      log_in: "logga in"
+      send_comment: "Skicka kommentar"
+      to_send_a_comment: "för att skicka en ny kommentar."
+      write_comment: "Skriv en ny kommentar:"
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Du kan inte skicka nya kommentarer eftersom din annons är avslutad."
+      you_must: "Du måste"
+      subscribe_to_comments: "Meddela mig om nya kommentarer och uppdateringar"
     edit:
-      edit_listing: ~
+      edit_listing: "Redigera annons"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
-      move_to_top: ~
-      show_in_updates_email: ~
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
-      show_in_updates_email_success: ~
+      close_listing: "Stäng annons"
+      edit_listing: "Redigera annons"
+      reopen_listing: "Återuppta annons"
+      move_to_top: "Gå till toppen av startsidan"
+      show_in_updates_email: "Visa i nästa automatiska e-postmeddelande"
+      show_in_updates_email_loading: Laddar...
+      show_in_updates_email_error: "Det gick inte att nå servern. Försök igen efter att du laddat om sidan."
+      show_in_updates_email_success: "Dessa annonser kommer att visas i nästa automatiska uppdateringsmail som skickas till användarna."
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "Få e-post om nya kommentarer"
+      unfollow: "Få inga meddelanden om nya kommentarer"
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: "Välj en..."
       departure_time:
-        at: ~
-        departure_time: ~
+        at: Vid
+        departure_time: Avgångstid
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "Upprepa (lägg in tider och dagar i fältet \"detaljerad beskrivning\")"
       description:
-        detailed_description: ~
+        detailed_description: "Detaljerad beskrivning"
       destination:
-        destination: ~
+        destination: Destination
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
-        i_want_to_offer: ~
-        i_want_to_request: ~
+        favor: "en service"
+        housing: "ett utrymme"
+        item: "ett objekt"
+        offer_something: "Erbjud något"
+        request_something: "Begär något"
+        rideshare: "en tur"
+        i_want_to_offer: "Jag vill erbjuda..."
+        i_want_to_request: "Jag behöver..."
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_copy: "Slutpunkt från kartan"
+        googlemap_description: Kartvy
+        googlemap_updatemap: "Uppdatera karta"
       images:
-        image: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
-        removing: ~
-        processing: ~
-        loading_image: ~
-        this_may_take_a_while: ~
-        percentage_loaded: ~
-        uploading_failed: ~
-        file_too_large: ~
-        accepted_formats: ~
+        image: Bild
+        no_file_selected: "Ingen fil vald"
+        remove_image: "Ta bort bild"
+        select_file: "Välj fil"
+        removing: "Tar bort..."
+        processing: Bearbetar...
+        loading_image: Laddar...
+        this_may_take_a_while: "(detta kan ta ett tag)"
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: "Uppladdning av bild misslyckades"
+        file_too_large: "Filen är för stor"
+        accepted_formats: "Bilden måste antingen vara i formatet GIF, JPG, eller PNG."
       location:
-        location: ~
+        location: Plats
       price:
-        price: ~
-        per: ~
-        per_day: ~
-        mass: ~
-        time: ~
-        long_time: ~
-        after_service_fee_you_will_get: ~
-        after_service_fee_you_will_get_vat: ~
-        price_excludes_vat: ~
+        price: Pris
+        per: per
+        per_day: "per dag"
+        mass: "längd, kg, m2 ..."
+        time: "timme, dag, månad, ..."
+        long_time: "vecka, månad, ..."
+        after_service_fee_you_will_get: "Efter %{service_name}s serviceavgift så kommer du att få %{sum_with_currency} när du har sålt produkten. OBS! Om produkten ska skickas, glöm inte att inkludera fraktkostnad i priset."
+        after_service_fee_you_will_get_vat: "Efter %{service_name} och betalningsavgifter kommer du att få ca. %{sum_with_currency} (moms 0%)"
+        price_excludes_vat: "Priset inkluderar inte moms."
       origin:
-        location: ~
-        origin: ~
+        location: Plats
+        origin: Ursprung
       send_button:
-        save_listing: ~
+        save_listing: "Spara annons"
       share_type:
-        select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
-        share_for_free: ~
-        accept_for_free: ~
-        trade: ~
+        select: Välj
+        borrow: Utlåning
+        buy: Köp
+        give_away: "Ge bort"
+        lend: "Låna ut"
+        offer_type: "Typ av erbjudande"
+        receive: "Acceptera gratis"
+        rent: Hyra
+        rent_out: "Hyr ut"
+        request_type: "Typ av förfrågan"
+        sell: Säljer
+        share_for_free: "Dela gratis"
+        accept_for_free: "Acceptera gratis"
+        trade: Byta
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: (kommaseparerad)
+        tags: Taggar
       title:
-        listing_title: ~
+        listing_title: Annonstitel
       valid_until:
-        valid_until: ~
+        valid_until: Utgångsdatum
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: "För närvarande"
       visibility:
-        all_communities: ~
-        this_community: ~
-        visibility: ~
+        all_communities: "Alla mina Sharetribe marknadsplatser"
+        this_community: "Bara medlemmar av %{service_name}"
+        visibility: Synlighet
       privacy:
-        privacy: ~
-        private: ~
-        public: ~
+        privacy: Sekretess
+        private: "Privat (bara synlig för inloggade användare)"
+        public: "Publik (synlig för ej inloggade användare)"
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "Typ av erbjudande eller förfrågan"
+      help_tags_title: Taggar
+      help_valid_until_title: Utgångsdatum
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-      feed_title: ~
+      all_categories: "Alla kategorier"
+      all_offer_types: "Alla erbjudandetyper"
+      all_request_types: "Samtliga förfrågningar"
+      category: Kategori
+      did_not_found_what_you_were_looking_for: "Hittade du inte vad du sökte?"
+      favors: Tjänster
+      housing: Utrymmen
+      items: Objekt
+      list_view: Listvy
+      listings: Annonser
+      map_view: Kartvy
+      offer_something: "Låt andra få veta!"
+      offer_type: "Typ av erbjudande"
+      offers: Erbjudanden
+      request_something: "Efterfråga något!"
+      request_type: "Typ av förfrågan"
+      requests: Förfrågan
+      rideshare: Samåkning
+      search_verb: Sök
+      you_have_something_others_do_not: "Har du något att erbjuda?"
+      feed_title: "%{listing_type} på %{service_name}%{optional_category}"
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
-      rideshares: ~
-      sells: ~
-      share_for_frees: ~
-      accept_for_frees: ~
-      trades: ~
+      borrows: Utlåning
+      buys: Köper
+      favors: Tjänster
+      give_aways: "Ge bort"
+      housings: Utrymmen
+      items: Objekt
+      lends: "Låna ut"
+      receives: "Tar emot utan avgift"
+      rent_outs: "Hyr ut"
+      rents: Hyr
+      rideshares: Samåkning
+      sells: Säljer
+      share_for_frees: "Dela gratis"
+      accept_for_frees: "Acceptera gratis"
+      trades: Byter
     listing_actions:
-      booking_from: ~
-      booking_to: ~
+      booking_from: Från
+      booking_to: Till
+      how_paypal_works: "Hur PayPal fungerar"
     new:
-      post_a_new_listing: ~
-      listing: ~
-      selected_category: ~
-      selected_subcategory: ~
-      selected_transaction_type: ~
-      select_category: ~
-      select_subcategory: ~
-      select_transaction_type: ~
-      you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
-    please_comment: ~
+      post_a_new_listing: "Skapa annons"
+      listing: annons
+      selected_category: "Kategori: %{category}"
+      selected_subcategory: "Underkategori: %{subcategory}"
+      selected_transaction_type: "Annonstyp: %{transaction_type}"
+      select_category: "Välj kategori"
+      select_subcategory: "Välj underkategori"
+      select_transaction_type: "Välj annonstyp"
+      you_need_to_fill_payout_details_before_accepting: "Du måste fylla i dina utbetalningsdetaljer innan du kan lägga ut en annons. Gå till %{payment_settings_link} för att fylla i detaljerna."
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
+      payment_settings_link: betalningsinställningar
+      community_not_configured_for_payments_admin: ~
+    please_comment: Kommentar
     reply_link:
-      listing_closed: ~
+      listing_closed: "Annonsen är stängd"
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
-      comments: ~
-      contact_by_phone: ~
-      contact: ~
-      favor_offer: ~
-      favor_request: ~
-      inquiry: ~
-      item_offer_trade: ~
-      item_request_trade: ~
-      no_description: ~
-      no_image: ~
-      no_reviews: ~
-      offer: ~
-      listing_created: ~
-      open_until: ~
-      feedback: ~
-      qr_code: ~
-      request: ~
-      rideshare_offer: ~
-      rideshare_request: ~
-      send_private_message: ~
-      share_types: ~
-      share_types_offer: ~
-      share_types_request: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
-      processing_uploaded_image: ~
-      price_excludes_vat: ~
-      listing_created_at: ~
+      add_your_phone_number: "Lägg till ditt telefonnummer"
+      add_profile_picture: "Lägg till profilbild"
+      comments: Kommentarer
+      contact_by_phone: "Kontakt via telefon:"
+      contact: Kontakta
+      favor_offer: "Tjänst som erbjuds"
+      favor_request: "Tjänst som önskas"
+      inquiry: Förfrågan
+      item_offer_trade: "Byt erbjudande"
+      item_request_trade: "Byt förfrågan"
+      no_description: "Denna annons har ingen beskrivning"
+      no_image: "Ingen bild"
+      no_reviews: "Inga recensioner har inkommit"
+      offer: Erbjudande
+      listing_created: Skapad
+      open_until: "Öppen till %{date}"
+      feedback: Feedback
+      qr_code: QR-kod
+      request: Förfrågan
+      rideshare_offer: Samåkningserbjudande
+      rideshare_request: Samåkningsförfrågan
+      send_private_message: "Skicka ett privat meddelande"
+      share_types: Dela
+      share_types_offer: "Typ av erbjudande"
+      share_types_request: "Typ av förfrågan"
+      tags: Taggar
+      time: tid
+      times: tider
+      times_viewed: Visat
+      processing_uploaded_image: "(Behandlar uppladdad bild...)"
+      price_excludes_vat: "(utan moms)"
+      listing_created_at: "Annons skapad"
       price:
-        per_quantity_unit: ~
-        per_day: ~
+        per_quantity_unit: "per %{quantity_unit}"
+        per_day: "per dag"
     verification_required:
-      verification_required: ~
+      verification_required: "Verifiering krävs"
   listing_conversations:
     preauthorize:
-      details: ~
-      by: ~
-      payment: ~
-      exp: ~
-      you_will_be_charged: ~
-      day: ~
-      days: ~
-      price_per_day: ~
+      details: Detaljer
+      by: "%{listing} av %{author}"
+      payment: Betalning
+      exp: "Exp:"
+      you_will_be_charged: "OBS! Du debiteras endast om %{author} accepterar ditt köp. %{author} behöver acceptera köpet inom %{expiration_period} dagar. Om %{author} avvisar eller inte svarar så sker ingen debitering."
+      day: dag
+      days: dagar
+      price_per_day: "Pris per dag: %{price}"
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Visa
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: ~
+      all_categories: "Alla kategorier"
+      all_offer_types: "Alla erbjudandetyper"
+      all_request_types: "Alla förfrågningar"
+      category: Kategori
+      did_not_found_what_you_were_looking_for: "Hittade du inte det du ville ha?"
+      favors: Tjänster
+      housing: Utrymmen
+      items: Objekt
+      list_view: Listvy
+      map_view: Kartvy
+      offer_something: "Låt andra få veta!"
+      offer_type: "Typ av erbjudande"
+      offers: Erbjudanden
+      request_something: "Efterfråga något!"
+      request_type: "Typ av förfrågan"
+      requests: Förfrågan
+      rideshare: Samåkning
+      search_verb: Sök
+      you_have_something_others_do_not: "Har du något att erbjuda?"
+    please_comment: Kommentera
   okl:
-    member_id: ~
-    member_id_or_email: ~
+    member_id: Medlems-ID
+    member_id_or_email: "Medlems-ID eller e-post"
   payments:
     new:
-      new_payment: ~
-      continue: ~
-      payment_receiver: ~
-      sum: ~
-      commission_will_be_added: ~
+      new_payment: "Ny betalning"
+      continue: Fortsätt
+      payment_receiver: "Betalningsmottagare:"
+      sum: "Betalningssumma:"
+      commission_will_be_added: "En serviceavgift på 10% tillkommer."
     form:
-      total: ~
-      service_charge: ~
-      product: ~
-      price: ~
-      price_for: ~
-      continue_to_pay: ~
-      invoice: ~
-      service_fee: ~
-      you_will_get: ~
+      total: Totalt
+      service_charge: Serviceavgift
+      product: "Produkt:"
+      price: "Summa:"
+      price_for: "Pris för %{payer_given_name}"
+      continue_to_pay: "Fortsätt till betalning"
+      invoice: Faktura
+      service_fee: "%{service_name} serviceavgift:"
+      you_will_get: "Du kommer att få:"
     braintree:
       terms:
-        braintree_terms_also_included: ~
-        terms_link_text: ~
+        braintree_terms_also_included: "NOTERA: Braintree används som betalningslösning. Genom att använda denna sida så accepterar du också %{terms_link_text}, utöver villkoren nedan."
+        terms_link_text: "Braintree användarvillkor"
   paypal_accounts:
-    payout_info_title: ~
-    paypal_account_email_connected: ~
-    paypal_billing_agreement_made: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
-    connected_account: ~
+    payout_info_title: Utbetalningsinformation
+    paypal_account_email_connected: "<del>1. Anslut PayPal konto</del> Klart!"
+    paypal_billing_agreement_made: "<del>2. Ge %{service_name} tillåtelse att ta ut en serviceavgift</del> Klar!"
+    you_are_ready_to_accept_payments: "Du är redo att ta emot betalningar!"
+    commission: "%{commission} %"
+    connected_account: "PayPal konto %{email} kopplades korrekt."
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
-      payout_info_text: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
-      paypal_account_email_info_text: ~
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
-      connect_paypal_account: ~
-      paypal_account_billing_agreement: ~
-      paypal_account_billing_agreement_info: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
-      could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
-      something_went_wrong: ~
+      payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal-konto med %{service_name}."
+      payout_info_text: "Vänligen slutför dessa två steg för att koppla ditt konto."
+      contact_admin_link_text: ~
+      admin_account_not_connected: "Du kan inte koppla ditt PayPalkonto eftersom marknadsplatsens administratör har inte slutfört PayPalinställningarna."
+      paypal_account_email: "1. Koppla ditt PayPal konto"
+      paypal_account_email_placeholder: "Din PayPal e-postadress"
+      paypal_account_email_info_text: "Notera: du behöver ett PayPal premiumkonto (för privatpersoner) eller företagskonto (för företag) för att du ska kunna ta emot betalning. Om du har ett personligt PayPal-konto så kan du uppgradera ditt konto. Det är gratis och tar bara någon minut. %{upgrade_paypal_account} Om du inte har ett PayPal-konto än så kan du skapa ett nytt %{create_paypal_account}. Ditt PayPal-konto måste vara konfigurerat att kunna ta emot %{currency}."
+      create_paypal_account: här
+      upgrade_paypal_account: "Uppgradera ditt konto här."
+      connect_paypal_account: "Koppla ditt PayPal konto"
+      paypal_account_billing_agreement: "2. Ge %{service_name} tillåtelse att ta ut en serviceavgift."
+      paypal_account_billing_agreement_info: "När du säljer något på %{service_name} så tas det ut en transaktionsavgift på %{commission} av priset. För att använda %{service_name} så behöver du tillåta att avgiften tas ut."
+      billing_agreement_description: "Ge %{service_name} behörighet att ta ut en transaktionsavgift."
+      billing_agreement: "Bevilja behörighet"
+      permissions_not_granted: "Behörighet att ansluta med PayPalkonto beviljades inte."
+      could_not_fetch_redirect_url: "Det gick inte att hämta omdirigerings-URL för att ansluta till PayPal."
+      paypal_not_enabled: "PayPal betalningar är inte aktiverad."
+      billing_agreement_canceled: "Betalningen avbröts"
+      billing_agreement_not_accepted: "Du accepterade inte PayPals faktureringsavtal."
+      billing_agreement_wrong_account: "PayPal-konton matchade inte. Vänligen använd samma PayPal-konto som du anslöt i första steget."
+      something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
+      account_not_verified: "Du har inte verifierat ditt PayPal-konto. Du behöver gå till www.paypal.com och verifiera ditt konto innan du kan gå vidare."
+      account_restricted: ~
+  paypal:
+    checkout_with_paypal: "Gå till kassan med PayPal"
+    cancel_succesful: "PayPal betalning avbruten"
+    transaction:
+      commission_payment_name: "Provisionsbetalning för %{listing_title}"
+      commission_payment_description: "Marknadsplatsen %{service_name} tog denna provion från transaktionen avseende %{listing_title}"
+    wait_while_loading: "Vänligen vänta."
+    chatting_with_paypal: "Vi chattar med PayPal."
   people:
-    index:
-      loading_more_members: ~
-      meet_the_people: ~
-      you_are_the_only_member: ~
-      here_are_the_members: ~
-      wanna_see_more_folks: ~
-      invite_people_you_know: ~
-      there_are_x_members: ~
-      to_see_the_list_log_in: ~
-      log_in_link: ~
     edit_links:
-      activate: ~
-      deactivate: ~
+      activate: Aktivera
+      deactivate: Avaktivera
     help_texts:
-      feedback_description_title: ~
-      help_captcha_title: ~
-      help_invitation_code_title: ~
-      terms_title: ~
-      trustcloud_description_title: ~
-      trustcloud_description_text: ~
-      invite_only_help_text: ~
-      invite_only_help_text_title: ~
+      feedback_description_title: Feedback
+      help_captcha_title: "Är du en människa?"
+      help_invitation_code_title: "Du behöver en inbjudan för att gå med"
+      terms_title: "%{service_name} användarvillkor"
+      invite_only_help_text: "Välj detta alternativ om du vill att nya medlemmar ska gå med bara om de är inbjudna från en nuvarande medlem."
+      invite_only_help_text_title: "Endast inbjudan"
     inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
+      this_person_is_not_active_in_kassi: "Denna användare är ej längre aktiv i %{service_name}"
+      inactive_description: "Användaren har slutat använda %{service_name}. Du kan inte kontakta användaren, ge feedback till dem eller kommentera deras listor."
     new:
-      captcha_incorrect: ~
-      captcha_was_wrong: ~
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
-      email_is_in_use_or_not_allowed: ~
-      email_not_allowed: ~
-      enter_captcha: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
-      invalid_invitation_code: ~
-      invitation_code: ~
-      not_required: ~
-      organization_name: ~
-      password_again: ~
-      show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
-      create_account_with_facebook: ~
-      OR: ~
-      signup_with_email: ~
+      captcha_incorrect: "reCAPTCHA misslyckades. Vänligen skriv in ordet du ser i bilden i rutan nedan."
+      captcha_was_wrong: "Captcha-texten var inkorrekt."
+      create_new_account: "Skapa konto"
+      email: E-postadress
+      email_is_in_use: "E-postadressen du angav används redan."
+      email_is_in_use_or_not_allowed: "Denna e-postadress är inte tillåten eller används redan. Om du inte kommer in, kontakta oss."
+      email_not_allowed: "Denna e-postadress är inte godkänd på %{service_name}. Vänligen använd en annan e-postadress som är godkänd. Om du ändå inte kommer in, vänligen meddela oss."
+      email_restriction_instructions:
+        one: "Access till %{service_name} är begränsad. För att gå med så behöver du en '%{allowed_emails}' e-postadress."
+        other: "Access till %{service_name} är begränsad. Du behöver en e-postadress som bevisar att du har rätt att gå med."
+      enter_captcha: "Jag är en människa:"
+      family_name: Efternamn
+      given_name: Förnamn
+      i_accept_the: "Jag accepterar"
+      invalid_invitation_code: "Inbjudningskoden är inte korrekt."
+      invitation_code: Inbjudningskod
+      not_required: ", krävs inte"
+      organization_name: Organisationsnamn
+      password_again: "Bekräfta lösenord"
+      show_my_name_to_others: "Visa mitt riktiga namn till andra %{service_name} användare"
+      sign_up: "Skapa ett nytt %{service_name} konto"
+      terms: användarvillkoren
+      username_is_in_use: "Detta användarnamn används redan."
+      username_is_invalid: "Detta användarnamn är ogiltigt. Tillåtna tecken är bokstäver, nummer och understreck."
+      visible_only_to_you: "bara synlig för dig och markplatsplatsens admin"
+      visible_to_everybody: "synlig för alla"
+      create_account_with_facebook: "Registrera dig med Facebook"
+      OR: ELLER
+      signup_with_email: "Registrering med e-post"
     not_member:
-      explanation_text: ~
-      read_more_about_kassi_communities: ~
-      this_user_does_not_belong_to_this_community: ~
+      explanation_text: "Du surfar just nu på %{community}. Du försökte se profilen på en användare som är medlem av en annan marknadsplats skapad av Sharetribe. Du kan inte se användarens profil på denna %{community}."
+      read_more_about_kassi_communities: "Läs mer om Sharetribe marknadsplatser."
+      this_user_does_not_belong_to_this_community: "Denna användare är inte en medlem av %{community}."
     profile_feedback:
-      as_expected: ~
-      exceeded_expectations: ~
-      grade: ~
-      and_gave_following_feedback: ~
-      less_than_expected: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
+      as_expected: "Som förväntat"
+      exceeded_expectations: "Mycket bättre än väntat"
+      grade: "betyg:"
+      and_gave_following_feedback: "och gav följande feedback"
+      less_than_expected: "Värre än väntat"
+      slightly_better_than_expected: "Något bättre än väntat"
+      slightly_less_than_expected: "Något sämre än förväntat"
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
-      no_image: ~
+      show_also_closed: "Visa avslutade också"
+      show_only_open: "Visa bara öppnade"
+      no_image: "Ingen bild"
     show:
-      contact: ~
-      about_me: ~
-      add_description: ~
-      add_location: ~
-      add_phone_number: ~
-      address: ~
-      as_expected: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
-      positive: ~
-      hide_description: ~
-      joined_this_community: ~
-      was_last_seen: ~
-      was_invited_by: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
-      review: ~
-      reviews: ~
-      listing: ~
-      listings: ~
-      open_listing: ~
-      open_listings: ~
-      no_listings: ~
-      no_open_listings: ~
-      no_reviews: ~
-      show_all_listings: ~
-      show_all_open_listings: ~
-      show_all_reviews: ~
-      trustcloud: ~
+      contact: "Kontakta %{person}"
+      about_me: "Om mig:"
+      add_description: "Berätta något om dig själv"
+      add_location: "Lägg till plats"
+      add_phone_number: "Lägg till telefonnummer"
+      address: "Plats:"
+      as_expected: "Som förväntat"
+      edit_profile_info: "Redigera profil"
+      exceeded_expectations: "Över förväntan"
+      positive: positiva
+      hide_description: "Visa mindre"
+      less_than_expected: "Värre än väntat"
+      phone_number: "Telefonnummer:"
+      show_all_feedback: "Vissa all feedback"
+      show_all_testimonials: "Visa all feedback"
+      show_full_description: "Visa mer"
+      slightly_better_than_expected: "Över förväntan"
+      slightly_less_than_expected: "Värre än väntat"
+      what_are_these: "Vilka är dessa?"
+      review: "mottagen recension"
+      reviews: "mottagna recensioner"
+      listing: annons
+      listings: annonser
+      open_listing: "öppnad annons"
+      open_listings: "öppnade annonser"
+      no_listings: "Inga annonser"
+      no_open_listings: "Inga öppna annonser"
+      no_reviews: "Inga recensioner"
+      show_all_listings: "Visa alla annonser"
+      show_all_open_listings: "Visa alla öppna annonser"
+      show_all_reviews: "Visa alla recensioner"
+      trustcloud: TrustCard
     followed_people:
-      you_follow_plural: ~
-      you_follow_singular: ~
-      they_follow_plural: ~
-      they_follow_singular: ~
-      show_all_followed_people: ~
-      no_followed_people: ~
+      you_follow_plural: "Du följer %{count} person"
+      you_follow_singular: "Du följer %{count} personer"
+      they_follow_plural: "%{count} följande personer"
+      they_follow_singular: "%{count} följande personer"
+      show_all_followed_people: "Visa alla följande personer"
+      no_followed_people: "Inga personer följer dig"
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: Följer
+      follow: Följ
+      unfollow: "Sluta följ"
   search:
     show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
+      all_results: "Alla resultat"
+      loading_more_search_results: "Laddar fler sökresultat"
+      offers: Erbjudanden
+      requests: Förfrågningar
+      search: Sök
+      search_results: Sökresultat
+      search_returned_no_results: "Din sökning gav inga resultat."
+      search_verb: Sök
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
-      connect_your_facebook_to_kassi: ~
-      facebook_account: ~
-      log_in_to_link_account: ~
-      you_can_also_create_new_account: ~
-      account_creation_link_text: ~
-      cancle_facebook_connect: ~
-      facebook_cancel_link_text: ~
-      log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
-      we_will_not_post_without_asking_you: ~
+      create_new_account: "Skapa ett nytt konto"
+      i_forgot_my_password: "Glömt användarnamn eller lösenord"
+      login: "Logga in"
+      login_to_kassi: "Logga in till %{service_name}"
+      connect_your_facebook_to_kassi: "Koppla ditt Facebookkonto till %{service_name}"
+      facebook_account: "Facebook konto:"
+      log_in_to_link_account: "Om du redan har ett %{service_name} konto, logga in för att länka till ditt Facebookkonto."
+      you_can_also_create_new_account: "Om du inte har ett konto på %{service_name}, %{accont_creation_link} kommer att skapa ett med ditt Facebook inloggning."
+      account_creation_link_text: "klicka här"
+      cancle_facebook_connect: "Om du inte vill länka detta konto så kan du %{cancel_link}."
+      facebook_cancel_link_text: avbryt
+      log_in_with_your_facebook_account: "Logga in via Facebook"
+      or_sign_up_with_your_username: "...eller med användarnamn och e-post:"
+      we_will_not_post_without_asking_you: "Vi kommer aldrig att lägga ut något på Facebook utan att fråga dig."
     password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
-      change_your_password: ~
+      email: E-post
+      password_recovery_instructions: "Skriv in din e-postadress så får du ditt användarnamn och instruktioner hur du ändrar ditt lösenord."
+      request_new_password: "Begär ett nytt lösenord"
+      change_your_password: "Byt lösenord"
     confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      resend_confirmation_instructions: ~
-      your_current_email_is: ~
-      change_email: ~
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
+      welcome_to_kassi: "Välkommen till %{service_name}!"
+      check_your_email: "Kolla din inkorg"
+      resend_confirmation_instructions: "Skicka instruktioner för att bekräfta kontot igen"
+      your_current_email_is: "Din e-post är %{email}."
+      change_email: Ändra
+      confirm_your_email: "Bekräfta din e-post"
+      account_confirmation_instructions: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så kan du gå med %{service_name}."
+      account_confirmation_instructions_title_admin: "Välkommen till din marknadsplats!"
+      your_marketplace_has_now_been_created: "Din marknadsplats sida har nu skapats. Det var enkelt, var det inte? Det är bara ett till steg innan du kan komma åt sidan, du behöver bekräfta din e-postadress."
+      account_confirmation_instructions_admin: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så ´kan du böja konfigurera din marknadsplats."
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
-      delete_account: ~
-      delete_account_button: ~
-      delete_account_confirmation_popup: ~
-      email_addresses: ~
-      new_email: ~
-      instructions_to_delete_account: ~
-      contact_admin: ~
-      new_password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
+      change: Ändra
+      confirm_new_password: "Bekräfta nytt lösenord"
+      delete_account: "Ta bort konto"
+      delete_account_button: "Ta bort mitt konto permanent"
+      delete_account_confirmation_popup: "Är du helt säker på att du vill radera ditt användarkonto och permanent förlora alla uppgifter relaterade till kontot. Borttagning av ditt konto går ej att ångra."
+      email_addresses: E-postadresser
+      new_email: "Ny e-postadress"
+      delete_all_memberships: "Om du tar bort ditt konto så kommer du inte längre att kunna använda det på följande marknadsplatser: %{marketplaces}"
+      delete_personal_information: "Om du tar bort ditt konto så kommer din personliga information (namn, telefonnummer, adress, e-post, profilbild osv.) att tas bort permanent och går inte att återskapa. Alla annonser som du har skapat kommer också att tas bort från sidan. Du kommer inte att kunna återaktivera kontot."
+      delete_information_others_involved: "Information där andra medlemmar är involverade (konversationer med andra personer, transaktioner du gjort, recensioner du har gett till andra, m.m.) kommer inte att tas bort när du raderar ditt konto. Ditt namn kommer inte att visas vid denna information."
+      unfinished_transactions: "Ditt konto kan inte tas bort eftersom du har pågående transaktioner. Vänligen slutför alla transaktioner innan du tar bort ditt konto."
+      new_password: "Nytt lösenord"
+      save: Spara
+      these_fields_are_shown_only_to_you: "Användarnamn visas i din profil om du inte har angett ditt namn. Annan information syns enbart för dig."
+      email_already_confirmed: ~
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        address_title: Adress
+        remove_title: "Ta bort"
+        remove_confirmation: "Är du säker på att du vill ta bort denna e-postadress?"
+        receive_notifications_title_desktop: "Ta emot meddelanden"
+        receive_notifications_title_mobile: "Ta emot aviseringar"
+        receive_notifications_new_title_mobile: "Ta emot aviseringar"
+        add_new_with_plus: "+Lägg till ny e-postadress"
+        add_new_cancel: Avbryt
+        confirmation_title_mobile: "Bekräftelse:"
+        confirmation_title_desktop: Bekräftelse
+        confirmation_resend: "Skicka igen"
+        status_confirmed: Bekräftad
+        status_pending: Väntar
     notifications:
-      email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
-      newsletters: ~
-      community_updates: ~
-      email_about_accept_reminders: ~
-      email_about_confirm_reminders: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
-      email_about_payment_reminders: ~
-      email_about_new_listings_by_followed_people: ~
-      unsubscribe_succesful: ~
-      unsubscribe_info_text: ~
-      settings_link: ~
-      homepage_link: ~
-      unsubscribe_unsuccesful: ~
-      unsuccessful_unsubscribe_info_text: ~
+      email_from_admins: "Jag är villig att ta emot sporadiska uppdateringar från administratören."
+      i_want_to_get_email_notification_when: "Jag vill få e-post aviseringar när..."
+      newsletters: Nyhetsbrev
+      community_updates: "E-post om uppdateringar"
+      email_about_accept_reminders: "...jag har glömt att acceptera ett erbjudande eller efterfrågan"
+      email_about_confirm_reminders: "...jag har glömt att bekräfta en förfrågan som avslutad"
+      email_about_new_comments_to_own_listing: "...någon har kommenterat mitt erbjudande eller efterfrågan"
+      email_about_new_messages: "...någon skickar mig ett meddelande"
+      email_about_new_received_testimonials: "...någon ger mig feedback"
+      email_about_testimonial_reminders: "...jag har glömt att ge feedback på en händelse"
+      email_daily_community_updates: "Skicka mig ett nyhetsbrev <b>dagligen</b> om det kommer nya annonser"
+      email_weekly_community_updates: "Skicka mig ett nyhetsbrev <b>veckovis</b> om det kommer nya annonser"
+      do_not_email_community_updates: "Skicka inte e-post om uppdateringar"
+      email_when_conversation_accepted: "...någon accepterar mitt erbjudande eller efterfrågan"
+      email_when_conversation_rejected: "...någon avböjer mitt erbjudande eller min efterfrågan"
+      email_about_completed_transactions: "...när någon markerat mitt erbjudande som klar"
+      email_about_new_payments: "...jag har fått en ny betalning"
+      email_about_payment_reminders: "...jag har glömt att betala"
+      email_about_new_listings_by_followed_people: "...någon jag följer har skapat en annons"
+      unsubscribe_succesful: "Avprenumeration lyckades"
+      unsubscribe_info_text: "Du kommer inte längre att få dessa e-post. Kontrollera dina %{settings_link} för att välja vilka e-postmeddelanden du vill ha från %{service_name} eller gå tillbaka till %{homepage_link}."
+      settings_link: inställningar
+      homepage_link: startsidan
+      unsubscribe_unsuccesful: "Fel vid avprenumeration"
+      unsuccessful_unsubscribe_info_text: "Orsaken kan vara att avprenumerationslänken var gammal eller trasig. Kontakta oss via feedbackknappen till vänster och vi kan hjälpa dig med avprenumerationen."
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
-      first_name_with_initial: ~
-      first_name_only: ~
-      location_description: ~
-      phone_number: ~
-      profile_picture: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
-      default_in_listing: ~
-      invisible: ~
-    save_information: ~
+      about_you: "Om dig själv"
+      city: Stad
+      family_name: Efternamn
+      given_name: Förnamn
+      first_name_with_initial: "(bara första bokstaven visas för andra användare)"
+      first_name_only: "(visas inte för andra användare)"
+      location_description: "Du kan antingen ange din exakta position eller t ex bara ditt postnummer. Lägg minst till ditt postnummer. Du kan också välja en plats på kartan nedan."
+      phone_number: Telefonnummer
+      profile_picture: Profilbild
+      postal_code: Postnummer
+      profile_page: "på din profilsida"
+      profilemap: Kartvy
+      street_address: Plats
+      these_fields_are_shown_in_your: "Denna information är synlig för alla användare på %{service_name}"
+      visible_to_everybody: "synlig för alla"
+      visible_to_registered_users: "(synlig för användare som har loggat in)"
+      default_in_listing: "(används endast som standard när man skapar en ny annons)"
+      invisible: "(visas inte för andra användare)"
+    save_information: "Spara information"
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: "Med tagg"
+      without_tag: "Utan tagg"
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
-      you_need_to_accept: ~
-      you_need_to_accept_new_terms: ~
+      accept_terms: "Acceptera %{service_name} användarvillkoren"
+      here: "genom att klicka här"
+      i_accept_new_terms: "jag accepterar de nya villkoren"
+      i_accept_terms: "jag accepterar villkoren"
+      terms: "%{service_name} användarvillkor"
+      terms_have_changed: "Användarvillkor har ändrats"
+      you_can_view_the_new_terms: "Du kan se de nya villkoren"
+      you_need_to_accept: "Välkommen till %{service_name}! Det verkar vara första gången du använder tjänsten. Innan du startar så måste du acceptera"
+      you_need_to_accept_new_terms: "%{service_name} användarvillkoren har ändrats. Du måste acceptera de nya villkoren för att komma vidare %{service_name}."
   testimonials:
     index:
-      all_testimonials: ~
-      feedback_altogether: ~
-      loading_more_testimonials: ~
-      no_testimonials: ~
+      all_testimonials: "All feedback"
+      feedback_altogether: "Samlad feedback: "
+      loading_more_testimonials: "Laddar mer betyg"
+      no_testimonials: "Ingen feedback mottagen."
     new:
-      as_expected: ~
-      exceeded_expectations: ~
-      give_feedback_to: ~
-      grade: ~
-      less_than_expected: ~
-      send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      textual_feedback: ~
-      this_will_be_shown_in_profile: ~
-      positive: ~
-      negative: ~
-      default_textual_feedback: ~
+      as_expected: "Som förväntat"
+      exceeded_expectations: "Mycket bättre än förväntat"
+      give_feedback_to: "Ge feedback till %{person}"
+      grade: "Vilken är din övergripande känsla?"
+      less_than_expected: "Värre än väntat"
+      send_feedback: "Skicka feedback"
+      slightly_better_than_expected: "Något bättre än väntat"
+      slightly_less_than_expected: "Något sämre än förväntat"
+      textual_feedback: "Hur gick det?"
+      this_will_be_shown_in_profile: "Feedbacken som du ger kommer att vara synlig för andra medlemmar på profilsidan av %{person}. Det hjälper till att utvärdera om %{person} är en pålitlig person."
+      positive: Positiv
+      negative: Negativ
+      default_textual_feedback: "Allt gick smidigt, tack så mycket!"
     testimonial:
-      about_listing: ~
+      about_listing: "angående annonsen"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %b %d, %Y"
   datepicker:
     days:
       sunday: Söndag
@@ -1785,33 +1842,53 @@ sv:
       november: Nov
       december: Dec
     today: Idag
-    clear: ~
+    clear: Rensa
     format: yyyy-mm-dd
   time:
     formats:
-      short: ~
-      shorter: ~
-      short_date: ~
-      sms: ~
+      short: "%e %b %Y vid %H:%M"
+      shorter: "%e %b vid %H:%M"
+      short_date: "%e %b %Y"
+      sms: "%e %b vid %H:%M"
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: "%{count} dag sedan"
+    days_ago: "%{count} dagar sedan"
+    hour_ago: "%{count} timme sedan"
+    hours_ago: "%{count} timmar sedan"
+    minute_ago: "%{count} minut sedan"
+    minutes_ago: "%{count} minuter sedan"
+    month_ago: "%{count} månad sedan"
+    months_ago: "%{count} månader sedan"
+    seconds_ago: "%{count} sekunder sedan"
+    year_ago: "%{count} år sedan"
+    years_ago: "%{count} år sedan"
+    days_since:
+      one: "%{count} dag"
+      other: "%{count} dagarna"
   unit:
-    day: ~
-    days: ~
+    day: dag
+    days: dagar
   will_paginate:
-    previous_label: ~
-    next_label: ~
-    page_gap: ~
+    models:
+      person:
+        zero: användare
+        one: användare
+        other: användare
+      listing_conversation:
+        zero: transaktioner
+        one: transaktion
+        other: transaktioner
+    previous_label: "&#8592; Föregående"
+    next_label: "Nästa &#8594;"
+    page_gap: "&hellip;"
     page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
+      single_page:
+        zero: "Ingen %{model} hittades"
+        one: "Visar 1 %{model}"
+        other: "Visar alla %{count} %{model}"
+      single_page_html:
+        zero: "Inga %{model} hittades"
+        one: "Visar <b>1</b> %{model}"
+        other: "Visar <b>all&nbsp;%{count}</b> %{model}"
+      multi_page: "Visar %{model} %{from} - %{to} av %{count} totalt"
+      multi_page_html: "Visar %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> av <b>%{count}</b> totalt"

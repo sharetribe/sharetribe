@@ -1,7 +1,6 @@
 class InboxesController < ApplicationController
   include MoneyRails::ActionViewExtension
 
-  skip_filter :dashboard_only
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
@@ -75,11 +74,7 @@ class InboxesController < ApplicationController
   end
 
   def inbox_payment(inbox_item)
-    if inbox_item[:sum_cents].present? && inbox_item[:currency].present?
-      Money.new(inbox_item[:sum_cents], inbox_item[:currency])
-    else
-      nil
-    end
+    Maybe(inbox_item)[:payment_total].or_else(nil)
   end
 
   def path_to_conversation_or_transaction(inbox_item)
@@ -91,6 +86,9 @@ class InboxesController < ApplicationController
   end
 
   def person_entity_with_url(person_entity)
-    person_entity.merge({url: person_path(id: person_entity[:username])})
+    person_entity.merge({
+                          url: person_path(id: person_entity[:username]),
+                          display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
+                        })
   end
 end

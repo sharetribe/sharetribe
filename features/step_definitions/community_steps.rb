@@ -22,7 +22,7 @@ Given /^there are following communities:$/ do |communities_table|
     domain = hash[:community]
     existing_community = Community.find_by_domain(domain)
     existing_community.destroy if existing_community
-    @hash_community = FactoryGirl.create(:community, :name => domain, :domain => domain, :settings => {"locales" => ["en", "fi"]})
+    @hash_community = FactoryGirl.create(:community, :domain => domain, :settings => {"locales" => ["en", "fi"]})
 
     attributes_to_update = hash.except('community')
     @hash_community.update_attributes(attributes_to_update) unless attributes_to_update.empty?
@@ -36,15 +36,21 @@ Given /^the test community has following available locales:$/ do |locale_table|
   end
 
   #here is expected that the first community is the test community where the subdomain is pointing by default
-  Community.first.update_attributes({:settings => { "locales" => @locales }})
+  community = Community.first
+  community.update_attributes({:settings => { "locales" => @locales }})
+  community.locales.each do |locale|
+    unless community.community_customizations.find_by_locale(locale)
+      community.community_customizations.create(:locale => locale, :name => "Sharetribe")
+    end
+  end
 end
 
 Given /^the terms of community "([^"]*)" are changed to "([^"]*)"$/ do |community, terms|
   Community.find_by_domain(community).update_attribute(:consent, terms)
 end
 
-Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, community_name|
-  community = Community.find_by_name!(community_name)
+Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, domain|
+  community = Community.where(domain: domain).first
   person = Person.find_by_username!(username)
   membership = FactoryGirl.create(:community_membership, :person => person, :community => community)
   membership.save!
@@ -121,11 +127,11 @@ Given /^show me existing community$/ do
 end
 
 Then /^community "(.*?)" should require invite to join$/ do |community|
-   Community.find_by_domain(community).join_with_invite_only.should be_true
+   Community.find_by_domain(community).join_with_invite_only.should be_truthy
 end
 
 Then /^community "(.*?)" should not require invite to join$/ do |community|
-   Community.find_by_domain(community).join_with_invite_only.should_not be_true
+   Community.find_by_domain(community).join_with_invite_only.should_not be_truthy
 end
 
 Given /^community "(.*?)" is private$/ do |community_domain|
@@ -221,7 +227,8 @@ Given /^current community has (free|starter|basic|growth|scale) plan$/ do |plan|
   when "scale"
     plan_level = 4
   end
-  @current_community.update_attribute(:plan_level, plan_level)
+  # N.B. community_plans are changed manually atm.
+  MarketplaceService::API::Marketplaces.Helper.create_community_plan(@current_community, {plan_level: plan_level})
 end
 
 When /^community updates get delivered$/ do

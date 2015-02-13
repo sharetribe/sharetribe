@@ -1,21 +1,55 @@
 class ErrorsController < ActionController::Base
 
+  layout 'blank_layout'
+  before_filter :current_community
+  before_filter :set_locale
+
   def server_error
-    @airbrake_url = nofity_airbrake
-    render "500", layout: false, status: 500, :formats => [:html]
+    error_id = airbrake_error_id
+    # error_id = 12341234153 # uncomment this to test the last text paragraph
+    render "status_500", status: 500, locals: { status: 500, title: title(500), error_id: error_id }
   end
 
   def not_found
-    render "404", layouts: false, status: 404, :formats => [:html]
+    render "status_404", status: 404, locals: { status: 404, title: title(404) }
+  end
+
+  def gone
+    render "status_410", status: 410, locals: { status: 410, title: title(410) }
+  end
+
+  def community_not_found
+    render status: 404, locals: { status: 404, title: "Marketplace not found", host: request.host }
+  end
+
+  private
+
+  def current_community
+    @current_community ||= Community.find_by_domain(request.host)
+  end
+
+  def title(status)
+    community_name = Maybe(@current_community).map { |c|
+      c.name(community_locale)
+    }.or_else(nil)
+
+    [community_name, t("error_pages.error_#{status}_title")].compact.join(' - ')
+  end
+
+  def community_locale
+    Maybe(@current_community).default_locale.or_else(nil)
+  end
+
+  def set_locale
+    I18n.locale = community_locale || "en"
   end
 
   def exception
     env["action_dispatch.exception"]
   end
 
-  def nofity_airbrake
-    env["airbrake.error_id"] = Airbrake.notify(exception) if can_notify_airbrake && use_airbrake
-    "https://airbrake.io/locate/#{env["airbrake.error_id"]}" if env["airbrake.error_id"]
+  def airbrake_error_id
+    env['airbrake.error_id'] if error_id_present?(env['airbrake.error_id'])
   end
 
   def can_notify_airbrake
@@ -24,5 +58,12 @@ class ErrorsController < ActionController::Base
 
   def use_airbrake
     APP_CONFIG && APP_CONFIG.use_airbrake
+  end
+
+  # For some weird reason, Airbrake gem returns true, if error is not sent
+  # (e.g. due to missing api key). So, make sure the error_id is present
+  # (i.e. not empty), but return false if the id is true
+  def error_id_present?(error_id)
+    error_id.present? && error_id != true
   end
 end

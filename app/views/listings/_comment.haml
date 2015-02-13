@@ -2,7 +2,7 @@
   .avatar
     = small_avatar_thumb(comment.author)
   %h3
-    = link_to comment.author.name(@current_community), comment.author
+    = link_to_unless comment.author.deleted?, PersonViewUtils.person_display_name(comment.author, @current_community), comment.author
   %small= time_ago(comment.created_at)
   .comment-content
     - text_with_line_breaks do

@@ -31,11 +31,11 @@ Feature: Facebook connect
     And I press "Join Sharetribe"
     Then I should see "Welcome to Sharetribe!"
     And I should see "Markus"
-    And user "markus_sharer_123" should have "given_name" with value "Markus"
-    And user "markus_sharer_123" should have "family_name" with value "Sugarberg"
-    And user "markus_sharer_123" should have email "markus@example.com"
-    And user "markus_sharer_123" should have "facebook_id" with value "597013691"
-    And user "markus_sharer_123" should not have "image_file_size" with value "nil"
+    And user "markusdotsharer123" should have "given_name" with value "Markus"
+    And user "markusdotsharer123" should have "family_name" with value "Sugarberg"
+    And user "markusdotsharer123" should have email "markus@example.com"
+    And user "markusdotsharer123" should have "facebook_id" with value "597013691"
+    And user "markusdotsharer123" should not have "image_file_size" with value "nil"
 
   @javascript
   Scenario: Facebook connect first time, without existing account in Sharetribe
@@ -47,11 +47,11 @@ Feature: Facebook connect
     And I press "Join Sharetribe"
     Then I should see "Welcome to Sharetribe!"
     And I should see "Markus"
-    And user "markus_sharer_123" should have "given_name" with value "Markus"
-    And user "markus_sharer_123" should have "family_name" with value "Sugarberg"
-    And user "markus_sharer_123" should have email "markus@example.com"
-    And user "markus_sharer_123" should have "facebook_id" with value "597013691"
-    And user "markus_sharer_123" should not have "image_file_size" with value "nil"
+    And user "markusdotsharer123" should have "given_name" with value "Markus"
+    And user "markusdotsharer123" should have "family_name" with value "Sugarberg"
+    And user "markusdotsharer123" should have email "markus@example.com"
+    And user "markusdotsharer123" should have "facebook_id" with value "597013691"
+    And user "markusdotsharer123" should not have "image_file_size" with value "nil"
 
   @javascript
   Scenario: Facebook connect to log in when the accounts are already linked

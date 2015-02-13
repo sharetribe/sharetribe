@@ -1,7 +1,7 @@
 cs:
   errors:
     messages:
-      expired: ~
+      expired: "vypršel, prosím, požádejte o nové"
       not_found: nenalezeno
       already_confirmed: "už bylo potvrzeno, prosím, přihlaste se znovu"
       not_locked: "nebylo uzamčeno"
@@ -24,19 +24,19 @@ cs:
       signed_in: "Přihlášení proběhlo úspěšně."
       signed_out: "Odhlášení proběhlo úspěšně."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Pokud váš email už je v naší databázi, obdržíte email s instrukcemi o tom, jak během několika minut váš účet potvrdit."
+      send_instructions: "Během několika minut obdržíte email s instrukcemi k potvrzení vašeho účtu."
+      confirmed: "Váš účet byl uspěšně potvrzen. Nyní jste přihlášeni."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
+      signed_up_but_unconfirmed: "Na vaši emailovou adresu byl odeslán email s potvrzujícím odkazem. K aktivování vašeho účtu je potřeba tento odkaz otevřít."
+      signed_up_but_inactive: "Úspěšně jste se zaregistrovali. Ale před dalším pokračováním je potřeba váš účet nejprve aktivovat."
       signed_up_but_locked: ~
       reasons:
         inactive: ~
         unconfirmed: ~
         locked: ~
       update_needs_confirmation: ~
-      signed_up: ~
+      signed_up: "Vítejte! Úspěšně jste se přihlásili."
       updated: ~
       destroyed: ~
     unlocks:

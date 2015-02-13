@@ -7,7 +7,7 @@
     = "-"
     = t(".edit_listing_category", :category => @category.display_name(I18n.locale))
 
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
 .left-navi-section
   = form_for [:admin, @category] do |form|

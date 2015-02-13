@@ -7,8 +7,9 @@ module TransactionService::DataTypes::Transaction
   # Common response format:
 
   Transaction = EntityUtils.define_builder(
+    [:id, :fixnum, :mandatory],
     [:payment_process, one_of: [:none, :postpay, :preauthorize]],
-    [:payment_gateway, one_of: [:paypal, :checkout, :braintree, nil]],
+    [:payment_gateway, one_of: [:paypal, :checkout, :braintree, :none]],
     [:community_id, :fixnum, :mandatory],
     [:starter_id, :string, :mandatory],
     [:listing_id, :fixnum, :mandatory],
@@ -18,7 +19,12 @@ module TransactionService::DataTypes::Transaction
     [:listing_quantity, :fixnum, default: 1],
     [:automatic_confirmation_after_days, :fixnum],
     [:last_transition_at, :time],
-    [:current_state, :symbol])
+    [:current_state, :symbol],
+    [:payment_total, :money],
+    [:minimum_commission, :money],
+    [:commission_from_seller, :fixnum],
+    [:commission_total, :money],
+    [:checkout_total, :money])
 
   TransactionResponse = EntityUtils.define_builder(
     [:transaction, :hash, :mandatory],

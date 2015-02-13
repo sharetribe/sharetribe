@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.1.2'
 
-gem 'rails', '3.2.19'
+gem 'rails', '3.2.21'
 
 # To use debugger
 #gem 'ruby-debug'
@@ -25,6 +25,7 @@ gem 'jquery-rails', '2.1.4'
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
 #gem 'thin'
 gem 'unicorn', "~>4.6.3"
+gem "rack-timeout"
 
 gem "mysql2"
 gem 'haml'
@@ -68,19 +69,18 @@ gem 'money-rails'
 gem 'mercury-rails'
 gem 'fb-channel-file'
 gem 'country_select', '> 1.2.0'
-gem 'localized_country_select', '>= 0.9.3'
 gem 'braintree'
 gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 0.5.0'
 gem "premailer"
 gem 'stringex', '~> 2.5.2'
 gem 'validates_timeliness', '~> 3.0'
-gem 'paypal-sdk-permissions'
-gem 'paypal-sdk-merchant'
+gem 'paypal-sdk-permissions',
+  :git    => 'git://github.com/paypal/permissions-sdk-ruby.git',
+  :branch => 'master',
+  :ref    => 'c0240bee9f94fe6338d67b4f754e1a11ce81619a'
+gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~>4.1.0'
-
-#ouisharelabs
-gem 'rdf-turtle'
 
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'

@@ -27,14 +27,21 @@ module PaypalService
         [:method, const_value: :do_reference_transaction],
         [:receiver_username, :mandatory, :string],
         [:billing_agreement_id, :mandatory, :string],
-        [:order_total, :mandatory, :money])
+        [:payment_total, :mandatory, :money],
+        [:name, :string, :mandatory],
+        [:desc, :string],
+        [:invnum, :string, :mandatory], # Unique tx id on our side
+        [:msg_sub_id, transform_with: -> (v) { v.nil? ? SecureRandom.uuid : v }])
 
       DoReferenceTransactionResponse = EntityUtils.define_builder(
         [:success, const_value: true],
         [:billing_agreement_id, :mandatory, :string],
-        [:transaction_id, :mandatory, :string],
-        [:order_total, :mandatory, :money],
-        [:fee, :mandatory, :money],
+        [:payment_status, :mandatory, :string],
+        [:pending_reason, :string],
+        [:payment_id, :mandatory, :string],
+        [:payment_total, :mandatory, :money],
+        [:payment_date, :utc_str_to_time],
+        [:fee, :money],
         [:username_to, :mandatory, :string])
 
       GetExpressCheckoutDetails = EntityUtils.define_builder(
@@ -49,7 +56,7 @@ module PaypalService
         [:billing_agreement_accepted],
         [:payer, :string],
         [:payer_id, :string],
-        [:order_total, :mandatory, :money])
+        [:order_total, :money])
 
       SetExpressCheckoutOrder = EntityUtils.define_builder(
         [:method, const_value: :set_express_checkout_order],
@@ -62,7 +69,9 @@ module PaypalService
         [:receiver_username, :mandatory, :string],
         [:order_total, :mandatory, :money],
         [:success, :mandatory, :string],
-        [:cancel, :mandatory, :string])
+        [:cancel, :mandatory, :string],
+        [:invnum, :mandatory, :string],
+        [:merchant_brand_logo_url, :optional, :string])
 
       SetExpressCheckoutOrderResponse = EntityUtils.define_builder(
         [:success, const_value: true],
@@ -75,16 +84,19 @@ module PaypalService
         [:receiver_username, :mandatory, :string],
         [:token, :mandatory, :string],
         [:payer_id, :mandatory, :string],
-        [:order_total, :mandatory, :money])
+        [:order_total, :mandatory, :money],
+        [:item_name, :mandatory, :string],
+        [:item_quantity, :mandatory, :fixnum],
+        [:item_price, :mandatory, :money],
+        [:invnum, :mandatory, :string])
 
       DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(
         [:success, const_value: true],
-        [:order_date, :mandatory, :str_to_time],
+        [:order_date, :mandatory, :utc_str_to_time],
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
         [:order_id, :mandatory, :string],
-        [:order_total, :mandatory, :money],
-        [:receiver_id, :mandatory, :string])
+        [:order_total, :mandatory, :money])
 
       DoAuthorization = EntityUtils.define_builder(
         [:method, const_value: :do_authorization],
@@ -99,14 +111,15 @@ module PaypalService
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
         [:authorization_total, :mandatory, :money],
-        [:authorization_date, :str_to_time],
+        [:authorization_date, :utc_str_to_time],
         [:msg_sub_id, :string])
 
       DoFullCapture = EntityUtils.define_builder(
         [:method, const_value: :do_capture],
         [:receiver_username, :mandatory, :string],
         [:authorization_id, :mandatory, :string],
-        [:payment_total, :mandatory, :money])
+        [:payment_total, :mandatory, :money],
+        [:invnum, :mandatory, :string])
 
       DoFullCaptureResponse = EntityUtils.define_builder(
         [:success, const_value: true],
@@ -116,7 +129,7 @@ module PaypalService
         [:pending_reason, :mandatory, :string],
         [:payment_total, :money],
         [:fee_total, :money],
-        [:payment_date, :str_to_time])
+        [:payment_date, :utc_str_to_time])
 
       DoVoid = EntityUtils.define_builder(
         [:method, const_value: :do_void],

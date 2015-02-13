@@ -103,6 +103,39 @@ ca:
         welcome_email_content_description: ~
         edit_message: ~
         send_test_message: ~
+      getting_started:
+        getting_started: ~
+        welcome_to_your_marketplace: ~
+        intro: ~
+        live_site_link_text: ~
+        look_and_feel: ~
+        logo_link_text: ~
+        custom_domain: ~
+        contact_team_link_text: ~
+        categories_and_custom_fields: ~
+        categories_link_text: ~
+        custom_fields_link_text: ~
+        filters_link_text: ~
+        payments: ~
+        payments_link_text: ~
+        info_texts: ~
+        about_page_link_text: ~
+        terms_of_use_link_text: ~
+        privacy_policy_link_text: ~
+        welcome_email_link_text: ~
+        instruction_texts_link_text: ~
+        social_media: ~
+        facebook_link_text: ~
+        twitter_link_text: ~
+        analytics: ~
+        analytics_link_text: ~
+        settings: ~
+        settings_link_text: ~
+        final_words: ~
+        invite_link_text: ~
+        view_users_link_text: ~
+        view_transactions_link_text: ~
+        contact_support_link_text: ~
       settings:
         settings: ~
         general: ~
@@ -121,11 +154,11 @@ ca:
         email_preferences: ~
         automatic_newsletters: ~
         email_admins_about_new_members: ~
-        integrations: ~
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -141,20 +174,30 @@ ca:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
-      integrations:
-        integrations: ~
+        ban_me_error: ~
+      social_media:
+        social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -186,6 +229,8 @@ ca:
           paid: ~
           confirmed: ~
           canceled: ~
+          initiated: ~
+          pending_ext: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -222,7 +267,6 @@ ca:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,54 +297,25 @@ ca:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
-    news_items:
-      index:
-        news_items: "Articles més recents"
-        create_news_item: "Crea un article"
-        no_news: "No hi ha cap notícia"
-        loading_more_news: "Carregant més notícies"
-      new:
-        new_news_item: "Crea un article"
-        edit_news_item: "Edita l'article"
-        index_news_item: "Crea un article"
-        title: "Títol:"
-        content: "Contingut:"
-        save_news_item: "Desa l'article"
-      news_item:
-        edit_news_item: Edita
-        delete_news_item: Neteja
+    left_hand_navigation:
+      general: ~
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
+      support: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
-      new:
-        integration_info_text: ~
-        paypal_account_email: ~
-      show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: Enquestes
-        create_poll: "Crea una enquesta"
-        no_polls: "No hi ha cap enquesta"
-      edit_poll_links:
-        close_poll: Tanca
-        open_poll: Obre
-        edit_poll: Edita
-        delete_poll: Neteja
-      new:
-        add_option: "Afegeix opció"
-        new_poll: "Crea una enquesta"
-        edit_poll: "Edita l'enquesta"
-        title: "Títol:"
-        save_poll: "Desa l'enquesta"
-      new_option:
-        option: Opció
-        remove_option: "Esborra l'opció"
-      show:
-        edit_poll: "Edita l'enquesta"
-      poll_status:
-        open: Obre
-        closed: Tancat
+      preferences_updated: ~
+      integration_info_text: ~
+      read_more_about_paypal: ~
+      paypal_account_email: ~
+      paypal_account_email_completed: ~
+      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee_completed: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      save_settings: ~
+      note_about_transaction_fee: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -364,6 +379,7 @@ ca:
     username: Usuari
     username_or_email: ~
     what_is_this: "Què és això?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -379,7 +395,11 @@ ca:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
-      approve: ~
+      accept: ~
+      decline: ~
+      sum: ~
+      service_fee: ~
+      you_will_get: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -475,6 +495,9 @@ ca:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: ~
       feedback_given: "Suggerència enviada"
       feedback_skipped: "Suggerència omesa"
@@ -515,6 +538,7 @@ ca:
         paypal:
           multicurrency: ~
           intl: ~
+          unknown_reason: ~
           verify: ~
     status_link:
       accept_offer: "Acceptar l'oferta"
@@ -579,7 +603,6 @@ ca:
       welcome_fb_user: ~
       fb_join_accept_terms: ~
       join_community: ~
-      you_are_not_a_member_of_this_community: ~
       you_can_join: ~
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
@@ -660,8 +683,6 @@ ca:
       view_it_in_your_browser: ~
       or: ~
       unsubscribe_from_these_emails: ~
-    community_starter_email:
-      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha acceptat la teva oferta considerant la sol·licitud %{listing}"
       has_accepted_your_request: "%{accepter} ha acceptat la teva sol·licitud considerant l'oferta %{listing}"
@@ -699,6 +720,7 @@ ca:
       price_payer_paid: ~
       service_fee: ~
       you_will_get: ~
+      money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -706,6 +728,7 @@ ca:
       total: ~
       price: ~
       service_fee: ~
+      money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} t'ha fet un suggeriment a %{service_name}"
       you_can_give_feedback_to: "Pots donar-li un suggeriment a %{name} en"
@@ -731,8 +754,6 @@ ca:
       newest_offers: "Que ofereix la gent?"
       newest_requests: "Que necessita la gent?"
       text_version_text: "Tens alguna cosa que la resta puguin necessitar? O necessites alguna cosa que altra gent pugui tenir? Afegeix una oferta o sol·licitud, o revisa tot allò que s'ofereix a %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Gràcies pel teu interès amb %{service_name}!"
     reset_password_instructions:
       change_my_password: ~
       reset_password_instructions: ~
@@ -760,6 +781,23 @@ ca:
       click_here_link_text: ~
       welcome_email_footer_text: ~
       settings_link_text: ~
+      welcome_email_subject_for_marketplace_creator: ~
+      welcome_to_marketplace_creator: ~
+      congrats_for_creating_your_marketplace: ~
+      here_is_your_account_information: ~
+      your_email_address: ~
+      your_marketplace_address: ~
+      your_marketplace_admin_area: ~
+      just_follow_details: ~
+      we_will_guide_you_along_the_way: ~
+      are_you_new_to_online_marketplaces: ~
+      have_questions: ~
+      our_happiness_team_is_here_to_help: ~
+      love: ~
+      sharetribe_crew: ~
+      knowledge_base_link_text: ~
+      contact_support_link_text: ~
+      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -775,8 +813,13 @@ ca:
     testimonials:
       you_must_explain_not_neutral_feedback: "Si desitges fer un suggeriment no neutral has de raonar-lo"
       you_must_select_a_grade: "Recorda avaluar als usuaris clicant en una de les icones de sobre (pot veure les explicacions de cada icona passant el ratolí per sobre d'elles)"
+    transaction_agreement:
+      required_error: ~
     paypal:
       generic_error: ~
+      cancel_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Tornar a la pàgina principal"
     error_404:
@@ -784,16 +827,21 @@ ca:
       page_can_not_be_found: "Pàgina no trobada."
       page_you_requested_can_not_be_found: "Pàgina no trobada. Esteu segurs de que està correctament escrita?"
     error_404_title: "Pàgina no trobada"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: "Pots ajudar-nos a trobar el problema escrivint una breu descripció del mateix al quadre de sota."
-      page_loading_failed: "La pàgina no s'ha carregat"
-      reload_refresh: "Actualitzar la pàgina pot solucionar el problema. Intentarem localitzar i solucionar el problema que ha ocasionat l'error el més aviat possible."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "La pàgina no s'ha carregat"
     error_description: "Descripció de l'error"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript està inhabilitat al teu navegador"
       kassi_does_not_currently_work_without_javascript: "Malauradament %{service_name} no funciona sense javascript. Intenta activar javascript en els opcions del navegador i torna a carregar la pàgina. Si desitges utilitzar Kassi sense javascript, siusplau, envia'ns un suggeriment utilitzant el formulari que apareix a continuació."
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: ~
       send_feedback: "Enviar suggeriment"
       your_feedback_to_admins: "Enviar el suggeriment a l'administrador"
@@ -894,8 +942,6 @@ ca:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
       add_listing_link_text: ~
-      available_on_the_app_store: ~
-      private_listing_notification: ~
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: ~
@@ -905,7 +951,6 @@ ca:
       post_new_listing: ~
       are_offering: ofereixen
       add_news_item: "Afegeix un article"
-      inform_others_about_events: "Últims esdeveniments i notícies de la comunitat"
       lend_rent_help_carpool: "Ven, regala o ajuda a altres! Comparteix els teus viatges!"
       loading_more_content: "S'estan carregant més continguts"
       more_events: "Més esdeveniments"
@@ -916,7 +961,6 @@ ca:
       or_see_what_the_others: "...o mira el que la resta"
       recent_events: "Esdeveniments recents"
       requesting: necessiten
-      teaser_text: "%{service_name} és un servei per a la comunitat de %{community}. Pots prestar, llogar, regalar i vendre coses, fer i demanar favors o compartir viatges amb cotxe. Pots prestar alguna cosa a algú o ajudar-lo?"
       tell_it_here: "Diga-ho aquí!"
       welcome_to_new_kassi: "Benvingut al nou %{service_name}!"
       no_reviews: ~
@@ -925,7 +969,6 @@ ca:
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Convida als teus amics a Kassi!"
-      invite_your_neighbors: ~
       email: "Adreça de correu electrònic del teu amic:"
       message: "Missatge personal:"
       send_invitation: "Enviar invitació"
@@ -939,13 +982,6 @@ ca:
     news_item:
       show_less: "Menys de"
       show_more: "Més de"
-    poll_form:
-      poll: "Enquesta:"
-      comment: "Comentari:"
-      answer: Resposta
-      results: Resultats
-      poll_answer: resposta
-      poll_answers: respostes
     profile_info_empty_notification:
       add_your_info: "Afegeix la teva informació de contacte"
       add_a_profile_picture: "Afegeix una fotografia de perfil"
@@ -970,17 +1006,16 @@ ca:
       default_about_text_title: ~
       default_about_text: ~
       click_here_link_text: ~
+    how_to_use:
+      default_title: ~
+      default_content: ~
   layouts:
+    admin:
+      admin: "Panell d'administració de %{service_name}"
     no_tribe:
       inbox: ~
       settings: ~
       feedback: ~
-    admin:
-      admin: "Panell d'administració de %{service_name}"
-      back_to_kassi: "Tornar a %{service_name}"
-      tribe_info: ~
-      news_items: "Nous articles"
-      polls: Enquestes
     application:
       join_this_community: ~
       read_more: ~
@@ -989,8 +1024,6 @@ ca:
       feedback_forum: "Fòrum de suggeriments"
       feedback_handle: Suggeriment
       give_feedback: "Fes un suggeriment"
-      keywords: "Servei, favor, article, trajecte compartit, allotjament, ajuda, ajudant, oferta, sol·licitud, llogar, comerciar, intercanviar, comprant, venent, comprar, vendre, regalant, donar, Kassi, ecològic, comunitat, comunitat en línia"
-      meta_description: "Kassi és un servei que ajuda als membres d'associacions i altres comunitats a vendre i prestar-se articles entre ells, organitzar trajectes compartits o ajudar-los de diverses formes."
       or_check_our: "...o comprova el nostre"
       send_feedback_to_admin: "Enviar suggeriment"
       to_see_what_others_have_suggested: "per veure els suggeriments d'altres usuaris."
@@ -1007,8 +1040,6 @@ ca:
       notifications: Notificacions
       received: Rebut
       sent: Enviat
-    dashboard:
-      title: "Kassi - comparteix bens, serveis i viatges dins de la teva comunitat!"
     global-header:
       select_language: ~
     infos:
@@ -1119,7 +1150,6 @@ ca:
       this_content_is_not_available_in_this_community: "Aquest contingut no està disponible en aquesta comunitat."
       unknown_error: "Error desconegut. Si us plau utilitza l'enllaç de suggeriments per donar-nos detalls del que ha succeït."
       update_error: "S'ha produït un error quan durant l'actualització de la informació, si us plau intenta-ho de nou."
-      welcome_message: "Benvingut a Kassi! Un servei que ajuda als membres de la comunitat %{community} a vendre i prestar-se articles entre ells, organitzar trajectes compartits i ajudar-se mútuament de diverses formes!"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "No tens autorització per donar suggeriments en aquest esdeveniment."
       you_are_not_authorized_to_do_this: "No tens autorització per dur a terme aquesta acció."
       you_are_not_authorized_to_view_this_content: "No tens autorització per veure aquest contingut"
@@ -1157,6 +1187,7 @@ ca:
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: Compte
       notifications: Notificacions
@@ -1325,6 +1356,7 @@ ca:
     listing_actions:
       booking_from: ~
       booking_to: ~
+      how_paypal_works: ~
     new:
       post_a_new_listing: ~
       listing: ~
@@ -1335,7 +1367,10 @@ ca:
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: Comentari
     reply_link:
       listing_closed: ~
@@ -1411,11 +1446,6 @@ ca:
       search_verb: Cerca
       you_have_something_others_do_not: "Tens alguna cosa per oferir?"
     please_comment: Comentari
-  news_items:
-    index:
-      news_from_community: "Últimes notícies de la comunitat %{community}"
-    news_item:
-      delete_news_item: "Suprimeix l'article"
   okl:
     member_id: "Número d'identificació"
     member_id_or_email: ~
@@ -1447,8 +1477,14 @@ ca:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
+      payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
+      admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
       paypal_account_email_info_text: ~
@@ -1463,19 +1499,20 @@ ca:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: ~
+      account_not_verified: ~
+      account_restricted: ~
+  paypal:
+    checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: ~
-      meet_the_people: ~
-      you_are_the_only_member: ~
-      here_are_the_members: ~
-      wanna_see_more_folks: ~
-      invite_people_you_know: ~
-      there_are_x_members: ~
-      to_see_the_list_log_in: ~
-      log_in_link: ~
     edit_links:
       activate: Activar
       deactivate: Desactivar
@@ -1484,8 +1521,6 @@ ca:
       help_captcha_title: "Ets una persona?"
       help_invitation_code_title: "Necessites una invitació per unir-te a"
       terms_title: "Termes d'ús de Kassi"
-      trustcloud_description_title: ~
-      trustcloud_description_text: ~
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
@@ -1546,9 +1581,6 @@ ca:
       exceeded_expectations: "Expectatives superades"
       positive: ~
       hide_description: "Mostrar menys"
-      joined_this_community: "...es va unir a la comunitat %{time_ago}"
-      was_last_seen: "...va ser vist per última vegada %{time_ago}"
-      was_invited_by: "...va ser convidat per"
       less_than_expected: "Pitjor de l'esperat"
       phone_number: "Número de telèfon"
       show_all_feedback: "Mostra tots els comentaris"
@@ -1620,7 +1652,9 @@ ca:
       change_email: ~
       confirm_your_email: ~
       account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
+      account_confirmation_instructions_title_admin: ~
+      your_marketplace_has_now_been_created: ~
+      account_confirmation_instructions_admin: ~
   settings:
     account:
       change: Canviar
@@ -1630,11 +1664,14 @@ ca:
       delete_account_confirmation_popup: ~
       email_addresses: ~
       new_email: "Nou correu electrònic:"
-      instructions_to_delete_account: ~
-      contact_admin: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Nova contrasenya"
       save: Desa
       these_fields_are_shown_only_to_you: "El nom de l'usuari es mostra en el teu perfil a no ser que hagis donat el teu nom. Qualsevol altra informació està només disponible per a tu."
+      email_already_confirmed: ~
       email:
         address_title: ~
         remove_title: ~

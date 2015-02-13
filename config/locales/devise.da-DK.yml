@@ -1,55 +1,58 @@
 da-DK:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "er udløbet, anmod venligst om en ny"
+      not_found: "ikke fundet"
+      already_confirmed: "blev allerede bekræftet, prøv at logge ind"
+      not_locked: "blev ikke låst"
+      not_saved:
+        one: "1 fejl forhindrede denne %{resource} i at blive gemt:"
+        other: "%{count} fejl forhindrede denne %{resource} i at blive gemt:"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: "Du er allerede logget ind."
+      unauthenticated: "Du skal logge ind eller oprette en konto for at fortsætte."
+      unconfirmed: "Du skal bekræfte din konto for at fortsætte."
+      locked: "Din konto er låst."
+      invalid: "Forkert e-mail eller kodeord."
+      invalid_token: "Ugyldig token."
+      timeout: "Du har været inaktiv for længe. Log ind for at fortsætte."
+      inactive: "Din konto er endnu ikke aktiveret."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Din adgangskode er nu ændret."
+      send_paranoid_instructions: "Hvis din e-mail findes i vores system, vil du modtage et på din e-mail til at oprette en ny kode."
+      send_instructions: "Du vil modtage en e-mail med instruktioner om, hvordan du kan nulstille din adgangskode om et øjeblik."
+      updated: "Din adgangskode er nu ændret. Du er nu logget ind."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Du er nu logget ind"
+      signed_out: "Du er nu logget ud."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Hvis din e-mail findes i vores database, vil du modtage en e-mail med instruktioner om, hvordan man bekræfter sin konto om et par minutter."
+      send_instructions: "Du vil modtage en mail om et par minutter, med instruktioner om hvordan du aktiverer din konto."
+      confirmed: "Din konto er blevet bekræftet. Du er nu logget ind"
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "En meddelelse med et link til bekræftelse er blevet sendt til din e-mail-adresse. Venligst åbne linket for at aktivere din konto."
+      signed_up_but_inactive: "Din tilmelding er korrekt. Vi kunne desværre ikke logge dig ind, fordi din konto er endnu ikke aktiveret."
+      signed_up_but_locked: "Din tilmelding er korrekt. Vi kunne desværre ikke logge dig ind, fordi din konto er låst."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: Passiv
+        unconfirmed: "Ikke bekræftet"
+        locked: låst
+      update_needs_confirmation: "Dig opdateret din konto med succes, men vi er nødt til at bekræfte din nye e-mailadresse. Tjek venligst din e-mail og klik på linket Bekræft for at færdiggøre bekræftelsen af din nye e-mailadresse."
+      signed_up: "Velkommen! Du er nu logget på."
+      updated: "Din konto er nu opdateret."
+      destroyed: "Tak for denne gang! Din konto er nu lukket. Vi håber at se dig igen snart."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Hvis der findes på din konto, vil du modtage en e-mail med instruktioner om, hvordan at låse den op i et par minutter."
+      send_instructions: "Du vil modtage en e-mail om et par minutter med instruktioner om hvordan du kan låse din konto op."
+      unlocked: "Din konto er blevet låst op. Venligst log ind for at fortsætte."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Succesfuld tilladelse fra %{kind} konto."
+      failure: "Kunne ikke godkende dig fra %{kind} fordi \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: Bekræftelsesinstruktioner
       reset_password_instructions:
-        subject: ~
+        subject: "Instruktioner til nulstilling af kodeord"
       unlock_instructions:
-        subject: ~
+        subject: "Aktiver instruktioner"

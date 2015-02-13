@@ -9,7 +9,9 @@ module MarketplaceService
         [:author_id, :mandatory, :string],
         [:price, :optional, :money],
         [:quantity, :optional, :string],
-        [:transaction_type_id, :mandatory, :fixnum])
+        [:transaction_type_id, :mandatory, :fixnum],
+        [:deleted, :to_bool]
+      )
 
       TransactionType = EntityUtils.define_builder(
         [:id, :mandatory, :fixnum],
@@ -67,6 +69,46 @@ module MarketplaceService
           .merge(action_button_label_translations: translations)
         )
       end
+
+      def send_payment_settings_reminder?(listing_id, community_id)
+        listing = ListingModel.find(listing_id)
+        payment_type = MarketplaceService::Community::Query.payment_type(community_id)
+
+        query_info = {
+          transaction: {
+            payment_gateway: payment_type,
+            listing_author_id: listing.author.id,
+            community_id: community_id
+          }
+        }
+
+        payment_type &&
+        listing.transaction_type.is_offer? &&
+        !TransactionService::Transaction.can_start_transaction(query_info).data[:result]
+      end
+    end
+
+    module Command
+      module_function
+
+      #
+      # DELETE /listings/:author_id
+      def delete_listings(author_id)
+        listings = ListingModel.where(author_id: author_id)
+        listings.update_all(
+          # Delete listing info
+          description: nil,
+          origin: nil,
+          open: false,
+
+          deleted: true
+        )
+
+        ids = listings.pluck(:id)
+        ListingImage.where(listing_id: ids).destroy_all
+
+        Result::Success.new
+      end
     end
 
     module Query
@@ -85,6 +127,19 @@ module MarketplaceService
         listing.merge(transaction_type: MarketplaceService::Listing::Entity.transaction_type(listing_model.transaction_type))
       end
 
+      def open_listings_with_price_for(community_id, person_id)
+        ListingModel
+          .includes(:communities)
+          .includes(:transaction_type)
+          .where(
+            {
+              communities: { id: community_id },
+              transaction_types: { price_field: true },
+              author_id: person_id,
+              open: true
+            })
+          .map { |l| MarketplaceService::Listing::Entity.listing(l) }
+      end
     end
   end
 end

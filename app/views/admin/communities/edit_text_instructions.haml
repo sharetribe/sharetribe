@@ -4,7 +4,7 @@
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
 
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
 .left-navi-section
   %h2= t(".edit_text_instructions", :community_name => @community.name(I18n.locale))

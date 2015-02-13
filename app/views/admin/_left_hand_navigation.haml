@@ -1,0 +1,49 @@
+-# Admin navigation is split into link groups.
+- links_general = links[0..1]
+- links_manage = links[2..5]
+- links_configure = links[6..21]
+
+= render :partial => "admin/uservoice_widget"
+
+.left-navi
+
+  .admin-left-navi-link-group-title
+    = t("admin.left_hand_navigation.general")
+
+  .admin-left-navi-link-group
+    - links_general.each do |link|
+      %a{:id => link[:id], :href => link[:path], :title => link[:text], :class => (link[:name].eql?(@selected_left_navi_link) ? "selected left-navi-link" : "left-navi-link"), "data-uv-trigger" => link[:data_uv_trigger]}
+        .left-navi-link-icon{:class => link[:icon_class]}
+        .left-navi-link-text= link[:text]
+
+  .admin-left-navi-link-group-title
+    = t("admin.left_hand_navigation.users_and_transactions")
+
+  .admin-left-navi-link-group
+    - links_manage.each do |link|
+      %a{:id => link[:id], :href => link[:path], :title => link[:text], :class => (link[:name].eql?(@selected_left_navi_link) ? "selected left-navi-link" : "left-navi-link")}
+        .left-navi-link-icon{:class => link[:icon_class]}
+        .left-navi-link-text= link[:text]
+
+  .admin-left-navi-link-group-title
+    = t("admin.left_hand_navigation.configure")
+
+  .admin-left-navi-link-group.admin-left-navi-link-group-last
+    - links_configure.each do |link|
+      %a{:id => link[:id], :href => link[:path], :title => link[:text], :class => (link[:name].eql?(@selected_left_navi_link) ? "selected left-navi-link" : "left-navi-link")}
+        .left-navi-link-icon{:class => link[:icon_class]}
+        .left-navi-link-text= link[:text]
+
+
+- links.each do |link|
+  - if link[:name].eql?(@selected_left_navi_link)
+    .left-navi-dropdown.toggle.with-borders.hidden-tablet{data: {toggle: '.left-navi-menu'}}
+      .icon-with-text{:class => link[:icon_class]}
+      .text-with-icon= link[:text]
+      %i.icon-dropdown.ss-dropdown
+
+.left-navi-menu.toggle-menu.hidden
+  - links.each do |link|
+    %a{:href => link[:path], :title => link[:text], :id => "#{link[:name]}_left_navi_link"}
+      .icon-with-text{:class => link[:icon_class]}
+      .text-with-icon= link[:text]

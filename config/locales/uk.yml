@@ -103,6 +103,39 @@ uk:
         welcome_email_content_description: ~
         edit_message: ~
         send_test_message: ~
+      getting_started:
+        getting_started: ~
+        welcome_to_your_marketplace: ~
+        intro: ~
+        live_site_link_text: ~
+        look_and_feel: ~
+        logo_link_text: ~
+        custom_domain: ~
+        contact_team_link_text: ~
+        categories_and_custom_fields: ~
+        categories_link_text: ~
+        custom_fields_link_text: ~
+        filters_link_text: ~
+        payments: ~
+        payments_link_text: ~
+        info_texts: ~
+        about_page_link_text: ~
+        terms_of_use_link_text: ~
+        privacy_policy_link_text: ~
+        welcome_email_link_text: ~
+        instruction_texts_link_text: ~
+        social_media: ~
+        facebook_link_text: ~
+        twitter_link_text: ~
+        analytics: ~
+        analytics_link_text: ~
+        settings: ~
+        settings_link_text: ~
+        final_words: ~
+        invite_link_text: ~
+        view_users_link_text: ~
+        view_transactions_link_text: ~
+        contact_support_link_text: ~
       settings:
         settings: ~
         general: ~
@@ -121,11 +154,11 @@ uk:
         email_preferences: ~
         automatic_newsletters: ~
         email_admins_about_new_members: ~
-        integrations: ~
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -141,20 +174,30 @@ uk:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
-      integrations:
-        integrations: ~
+        ban_me_error: ~
+      social_media:
+        social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -186,6 +229,8 @@ uk:
           paid: ~
           confirmed: ~
           canceled: ~
+          initiated: ~
+          pending_ext: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -222,7 +267,6 @@ uk:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,54 +297,25 @@ uk:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
-    news_items:
-      index:
-        news_items: ~
-        create_news_item: ~
-        no_news: ~
-        loading_more_news: ~
-      new:
-        new_news_item: ~
-        edit_news_item: ~
-        index_news_item: ~
-        title: ~
-        content: ~
-        save_news_item: ~
-      news_item:
-        edit_news_item: ~
-        delete_news_item: ~
+    left_hand_navigation:
+      general: ~
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
+      support: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
-      new:
-        integration_info_text: ~
-        paypal_account_email: ~
-      show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: ~
-        create_poll: ~
-        no_polls: ~
-      edit_poll_links:
-        close_poll: ~
-        open_poll: ~
-        edit_poll: ~
-        delete_poll: ~
-      new:
-        add_option: ~
-        new_poll: ~
-        edit_poll: ~
-        title: ~
-        save_poll: ~
-      new_option:
-        option: ~
-        remove_option: ~
-      show:
-        edit_poll: ~
-      poll_status:
-        open: ~
-        closed: ~
+      preferences_updated: ~
+      integration_info_text: ~
+      read_more_about_paypal: ~
+      paypal_account_email: ~
+      paypal_account_email_completed: ~
+      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee_completed: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      save_settings: ~
+      note_about_transaction_fee: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -364,6 +379,7 @@ uk:
     username: ~
     username_or_email: ~
     what_is_this: ~
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -379,7 +395,11 @@ uk:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
-      approve: ~
+      accept: ~
+      decline: ~
+      sum: ~
+      service_fee: ~
+      you_will_get: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -475,6 +495,9 @@ uk:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: ~
       feedback_given: ~
       feedback_skipped: ~
@@ -515,6 +538,7 @@ uk:
         paypal:
           multicurrency: ~
           intl: ~
+          unknown_reason: ~
           verify: ~
     status_link:
       accept_offer: ~
@@ -579,7 +603,6 @@ uk:
       welcome_fb_user: ~
       fb_join_accept_terms: ~
       join_community: ~
-      you_are_not_a_member_of_this_community: ~
       you_can_join: ~
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
@@ -660,8 +683,6 @@ uk:
       view_it_in_your_browser: ~
       or: ~
       unsubscribe_from_these_emails: ~
-    community_starter_email:
-      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: ~
       has_accepted_your_request: ~
@@ -699,6 +720,7 @@ uk:
       price_payer_paid: ~
       service_fee: ~
       you_will_get: ~
+      money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -706,6 +728,7 @@ uk:
       total: ~
       price: ~
       service_fee: ~
+      money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: ~
       you_can_give_feedback_to: ~
@@ -731,8 +754,6 @@ uk:
       newest_offers: ~
       newest_requests: ~
       text_version_text: ~
-    reply_to_contact_request:
-      thank_you_for_your_interest: ~
     reset_password_instructions:
       change_my_password: ~
       reset_password_instructions: ~
@@ -758,6 +779,23 @@ uk:
       click_here_link_text: ~
       welcome_email_footer_text: ~
       settings_link_text: ~
+      welcome_email_subject_for_marketplace_creator: ~
+      welcome_to_marketplace_creator: ~
+      congrats_for_creating_your_marketplace: ~
+      here_is_your_account_information: ~
+      your_email_address: ~
+      your_marketplace_address: ~
+      your_marketplace_admin_area: ~
+      just_follow_details: ~
+      we_will_guide_you_along_the_way: ~
+      are_you_new_to_online_marketplaces: ~
+      have_questions: ~
+      our_happiness_team_is_here_to_help: ~
+      love: ~
+      sharetribe_crew: ~
+      knowledge_base_link_text: ~
+      contact_support_link_text: ~
+      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -773,8 +811,13 @@ uk:
     testimonials:
       you_must_explain_not_neutral_feedback: ~
       you_must_select_a_grade: ~
+    transaction_agreement:
+      required_error: ~
     paypal:
       generic_error: ~
+      cancel_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: ~
     error_404:
@@ -782,16 +825,21 @@ uk:
       page_can_not_be_found: ~
       page_you_requested_can_not_be_found: ~
     error_404_title: ~
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: ~
-      page_loading_failed: ~
-      reload_refresh: ~
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: ~
     error_description: ~
     no_javascript:
       javascript_is_disabled_in_your_browser: ~
       kassi_does_not_currently_work_without_javascript: ~
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: ~
       send_feedback: ~
       your_feedback_to_admins: ~
@@ -892,8 +940,6 @@ uk:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
       add_listing_link_text: ~
-      available_on_the_app_store: ~
-      private_listing_notification: ~
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: ~
@@ -903,7 +949,6 @@ uk:
       post_new_listing: ~
       are_offering: ~
       add_news_item: ~
-      inform_others_about_events: ~
       lend_rent_help_carpool: ~
       loading_more_content: ~
       more_events: ~
@@ -914,7 +959,6 @@ uk:
       or_see_what_the_others: ~
       recent_events: ~
       requesting: ~
-      teaser_text: ~
       tell_it_here: ~
       welcome_to_new_kassi: ~
       no_reviews: ~
@@ -923,7 +967,6 @@ uk:
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: ~
-      invite_your_neighbors: ~
       email: ~
       message: ~
       send_invitation: ~
@@ -937,13 +980,6 @@ uk:
     news_item:
       show_less: ~
       show_more: ~
-    poll_form:
-      poll: ~
-      comment: ~
-      answer: ~
-      results: ~
-      poll_answer: ~
-      poll_answers: ~
     profile_info_empty_notification:
       add_your_info: ~
       add_a_profile_picture: ~
@@ -968,17 +1004,16 @@ uk:
       default_about_text_title: ~
       default_about_text: ~
       click_here_link_text: ~
+    how_to_use:
+      default_title: ~
+      default_content: ~
   layouts:
+    admin:
+      admin: ~
     no_tribe:
       inbox: ~
       settings: ~
       feedback: ~
-    admin:
-      admin: ~
-      back_to_kassi: ~
-      tribe_info: ~
-      news_items: ~
-      polls: ~
     application:
       join_this_community: ~
       read_more: ~
@@ -987,8 +1022,6 @@ uk:
       feedback_forum: ~
       feedback_handle: ~
       give_feedback: ~
-      keywords: ~
-      meta_description: ~
       or_check_our: ~
       send_feedback_to_admin: ~
       to_see_what_others_have_suggested: ~
@@ -1005,8 +1038,6 @@ uk:
       notifications: ~
       received: ~
       sent: ~
-    dashboard:
-      title: ~
     global-header:
       select_language: ~
     infos:
@@ -1117,7 +1148,6 @@ uk:
       this_content_is_not_available_in_this_community: ~
       unknown_error: ~
       update_error: ~
-      welcome_message: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: ~
       you_are_not_authorized_to_do_this: ~
       you_are_not_authorized_to_view_this_content: ~
@@ -1155,6 +1185,7 @@ uk:
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: ~
       notifications: ~
@@ -1323,6 +1354,7 @@ uk:
     listing_actions:
       booking_from: ~
       booking_to: ~
+      how_paypal_works: ~
     new:
       post_a_new_listing: ~
       listing: ~
@@ -1333,7 +1365,10 @@ uk:
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: ~
     reply_link:
       listing_closed: ~
@@ -1409,11 +1444,6 @@ uk:
       search_verb: ~
       you_have_something_others_do_not: ~
     please_comment: ~
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: ~
   okl:
     member_id: ~
     member_id_or_email: ~
@@ -1445,8 +1475,14 @@ uk:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
+      payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
+      admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
       paypal_account_email_info_text: ~
@@ -1461,19 +1497,20 @@ uk:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: ~
+      account_not_verified: ~
+      account_restricted: ~
+  paypal:
+    checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: ~
-      meet_the_people: ~
-      you_are_the_only_member: ~
-      here_are_the_members: ~
-      wanna_see_more_folks: ~
-      invite_people_you_know: ~
-      there_are_x_members: ~
-      to_see_the_list_log_in: ~
-      log_in_link: ~
     edit_links:
       activate: ~
       deactivate: ~
@@ -1482,8 +1519,6 @@ uk:
       help_captcha_title: ~
       help_invitation_code_title: ~
       terms_title: ~
-      trustcloud_description_title: ~
-      trustcloud_description_text: ~
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
@@ -1544,9 +1579,6 @@ uk:
       exceeded_expectations: ~
       positive: ~
       hide_description: ~
-      joined_this_community: ~
-      was_last_seen: ~
-      was_invited_by: ~
       less_than_expected: ~
       phone_number: ~
       show_all_feedback: ~
@@ -1618,7 +1650,9 @@ uk:
       change_email: ~
       confirm_your_email: ~
       account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
+      account_confirmation_instructions_title_admin: ~
+      your_marketplace_has_now_been_created: ~
+      account_confirmation_instructions_admin: ~
   settings:
     account:
       change: ~
@@ -1628,11 +1662,14 @@ uk:
       delete_account_confirmation_popup: ~
       email_addresses: ~
       new_email: ~
-      instructions_to_delete_account: ~
-      contact_admin: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: ~
       save: ~
       these_fields_are_shown_only_to_you: ~
+      email_already_confirmed: ~
       email:
         address_title: ~
         remove_title: ~

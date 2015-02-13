@@ -1,0 +1,44 @@
+<% content_for :javascript do %>
+  window.ST.initializeExpirationNotice('expiration-notice');
+<% end %>
+<div class="expiration-lightbox lightbox" id="expiration-notice" >
+  <div class="expiration-content">
+    <div class="expiration-head-panel">
+      <h1 class="expiration-title"><%= t("expiration.title") %></h1>
+      <h2 class="expiration-subtitle" ><%= t("expiration.sub_title") %></h2>
+    </div>
+    <div class="expiration-plans-panel">
+      <div class="expiration-plans-wrapper">
+        <h1 class="expiration-plan-title"><%= t("expiration.plans_feature_title") %></h1>
+        <p class="expiration-plan-desc"><%= t("expiration.plans_feature_domain") %></p>
+        <p class="expiration-plan-desc"><%= t("expiration.plans_feature_size") %></p>
+        <p class="expiration-plan-desc"><%= t("expiration.plans_feature_popular") %></p>
+
+        <div class="expiration-plan-select">
+
+          <a href="<%= @pro_biannual_link %>" class="expiration-plan-wrapper-right">
+            <div class="expiration-plan-biannual">
+              <p class="expiration-subscribe-title"><%= t("expiration.subscribe") %></p>
+              <p class="expiration-subscribe-price-per"><span class="expiration-subscribe-price"><%= @pro_biannual_price %></span><br />
+                <span class="expiration-subscribe-per"><%= t("expiration.per_month") %>&nbsp;<span class="plan-price-disclaimer">*</span></span></p>
+            </div>
+              <p class="plan-price-disclaimer-desc">*&nbsp;<%= t("expiration.commitment_required") %></p>
+          </a>
+
+          <a href="<%= @pro_monthly_link %>" class="expiration-plan-wrapper-left">
+            <div class="expiration-plan-monthly">
+              <p class="expiration-subscribe-title"><%= t("expiration.subscribe") %></p>
+              <p class="expiration-subscribe-price-per"><span class="expiration-subscribe-price"><%= @pro_monthly_price %></span><br />
+              <span class="expiration-subscribe-per"><%= t("expiration.per_month") %></span></p>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="expiration-footer">
+      <p class="expiration-alternative-plans"><%= t("expiration.alternative_plans") %> <a href="mailto:sales@sharetribe.com"><%= t("expiration.contact_us") %></a></p>
+    </div>
+  </div>
+</div>

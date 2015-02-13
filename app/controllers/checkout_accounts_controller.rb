@@ -3,8 +3,6 @@ class CheckoutAccountsController < ApplicationController
     controller.ensure_logged_in "You need to be logged in in order to change payment details."
   end
 
-  skip_filter :dashboard_only
-
   CheckoutAccountForm = FormUtils.define_form("CheckoutAccountForm", :company_id_or_personal_id, :organization_address, :phone_number, :organization_website)
     .with_validations do
       validates_presence_of :organization_address, :phone_number

@@ -1,10 +1,12 @@
+// The fonts file has to be the first one, since there are @imports in the fonts file
+//= require ./fonts
+
 // Vendor
 //= require jquery.nouislider
 //= require jquery.fileupload
 //= require datepicker3
 
 //= require ./reset
-//= require ./fonts
 //= require ./main
 
 //= require_tree ./partials

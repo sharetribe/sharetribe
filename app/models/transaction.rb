@@ -14,6 +14,12 @@
 #  author_skipped_feedback           :boolean          default(FALSE)
 #  last_transition_at                :datetime
 #  current_state                     :string(255)
+#  commission_from_seller            :integer
+#  minimum_commission_cents          :integer          default(0)
+#  minimum_commission_currency       :string(255)
+#  payment_gateway                   :string(255)      default("none"), not null
+#  listing_quantity                  :integer          default(1)
+#  payment_process                   :string(31)       default("none")
 #
 # Indexes
 #
@@ -31,8 +37,14 @@ class Transaction < ActiveRecord::Base
     :automatic_confirmation_after_days,
     :author_skipped_feedback,
     :starter_skipped_feedback,
-    :payment_attributes
-  )
+    :payment_attributes,
+    :payment_gateway,
+    :payment_process,
+    :commission_from_seller,
+    :minimum_commission,
+    :listing_quantity
+    )
+
   attr_accessor :contract_agreed
 
   belongs_to :community
@@ -48,6 +60,10 @@ class Transaction < ActiveRecord::Base
   delegate :title, to: :listing, prefix: true
 
   accepts_nested_attributes_for :booking
+
+  validates_presence_of :payment_gateway
+
+  monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
 
   scope :for_person, -> (person){
     joins(:listing)
@@ -85,8 +101,7 @@ class Transaction < ActiveRecord::Base
   end
 
   def initialize_braintree_payment!(payment, sum, currency)
-    sum_in_cents = sum.to_f*100
-    payment.sum = Money.new(sum_in_cents, currency)
+    payment.sum = MoneyUtil.parse_str_to_money(sum.to_s, currency)
   end
 
   def initialize_checkout_payment!(payment, rows)

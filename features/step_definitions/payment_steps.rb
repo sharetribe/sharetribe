@@ -55,7 +55,7 @@ Then /^"(.*?)" should have required Checkout payment details saved to my account
 end
 
 When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
-  community = Community.find_by_name("test") # Hard-coded default test community
+  community = Community.where(domain: "test").first # Hard-coded default test community
   signature, payload = BraintreeApi.webhook_testing_sample_notification(
     community, kind, id
   )
@@ -66,7 +66,7 @@ end
 
 When /^Braintree webhook "(.*?)" with username "(.*?)" is triggered$/ do |kind, username|
   person = Person.find_by_username(username)
-  community = Community.find_by_name("test") # Hard-coded default test community
+  community = Community.where(domain: "test").first # Hard-coded default test community
   signature, payload = BraintreeApi.webhook_testing_sample_notification(
     community, kind, person.id
   )
@@ -76,8 +76,15 @@ When /^Braintree webhook "(.*?)" with username "(.*?)" is triggered$/ do |kind, 
 end
 
 Given /^Braintree transaction is mocked$/ do
-  BraintreeApi.should_receive(:transaction_sale)
-    .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
+  BraintreeApi.should_receive(:transaction_sale) do |community, params|
+    cc = params[:credit_card]
+    # Check that the value is encrypted
+    expect(cc[:number]).to start_with("$bt4|javascript_1_3_10$")
+    expect(cc[:expiration_month]).to start_with("$bt4|javascript_1_3_10$")
+    expect(cc[:expiration_year]).to start_with("$bt4|javascript_1_3_10$")
+    expect(cc[:cvv]).to start_with("$bt4|javascript_1_3_10$")
+    expect(cc[:cardholder_name]).to start_with("$bt4|javascript_1_3_10$")
+  end.and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
 Given /^Braintree submit to settlement is mocked$/ do
@@ -109,7 +116,7 @@ Given /^Braintree merchant creation is mocked$/ do
     braintree_account.routing_number.should == "101000187"
     braintree_account.account_number.should == "43759348798"
     braintree_account.person_id.should == @current_user.id
-    community.name('en').should == "Test"
+    community.name('en').should == "Sharetribe"
   end.and_return(Braintree::SuccessfulResult.new({:merchant_account => HashClass.new({:id => @current_user.id, :status => "pending"})}))
 end
 
@@ -230,7 +237,7 @@ Given /^"(.*?)" does not have Checkout account$/ do |org_username|
 end
 
 Then /^I should see information about existing Checkout account$/ do
-  find("#payment-help-checkout-exists").visible?.should be_true
+  find("#payment-help-checkout-exists").visible?.should be_truthy
   steps %Q{
     And I should not see payment setting fields
   }
@@ -267,10 +274,6 @@ Then /^I should not see payment setting fields$/ do
   page.should have_no_selector("#person-phone-number")
   page.should have_no_selector("#person-organization-website")
   page.should have_no_selector("[type=submit]")
-end
-
-When /^I click Osuuspankki logo$/ do
-  page.find('input[src="https://payment.checkout.fi/static/img/osuuspankki.png"]').click
 end
 
 When /^I click Tilisiirto logo$/ do

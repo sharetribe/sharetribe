@@ -9,13 +9,11 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   before_filter :ensure_is_author
 
-  skip_filter :dashboard_only
-
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token
 
   def accept
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    payment_type = TransactionService::API::Api.transactions.query(params[:id])[:payment_gateway]
 
     case payment_type
     when :braintree
@@ -28,7 +26,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def reject
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    payment_type = TransactionService::API::Api.transactions.query(params[:id])[:payment_gateway]
 
     case payment_type
     when :braintree
@@ -41,40 +39,65 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def accepted
-    update_listing_status do
-      flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_accepted")
+    message = params[:listing_conversation][:message_attributes][:content]
+    sender_id = @current_user.id
+    status = params[:listing_conversation][:status]
+
+    with_updated_listing_status(@listing_conversation, status, sender_id) do |lc|
+      with_optional_message(lc, message, sender_id) do |lc|
+        MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
+        flash[:notice] = t("layouts.notifications.#{lc.discussion_type}_accepted")
+        redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
+      end
     end
+
   end
 
   def rejected
-    update_listing_status do
-      flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_rejected")
+    message = params[:listing_conversation][:message_attributes][:content]
+    sender_id = @current_user.id
+    status = params[:listing_conversation][:status]
+
+    with_updated_listing_status(@listing_conversation, status, sender_id) do |lc|
+      with_optional_message(lc, message, sender_id) do |lc|
+        MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
+        flash[:notice] = t("layouts.notifications.#{lc.discussion_type}_rejected")
+        redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
+      end
     end
   end
 
   private
 
-  # Update listing status and call success block. In the block you can e.g. set flash notices.
-  def update_listing_status(&block)
-    @listing_conversation.conversation.messages.build({
-      content: params[:listing_conversation][:message_attributes][:content],
-      sender_id: @current_user.id
-    })
+  def with_optional_message(listing_conversation, message, sender_id, &block)
+    if(message)
+      listing_conversation.conversation.messages.create({
+          content: message,
+          sender_id: sender_id
+        })
+    end
 
-    if @listing_conversation.save!
-      case params[:listing_conversation][:status]
-      when "paid"
-        response = TransactionService::Transaction.complete_preauthorization(@listing_conversation.id)
-      when "rejected"
-        MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, params[:listing_conversation][:status])
+    block.call(listing_conversation)
+  end
+
+  def with_updated_listing_status(listing_conversation, status, sender_id, &block)
+    response =
+      if(status == "paid")
+        TransactionService::Transaction.complete_preauthorization(listing_conversation.id)
+      elsif(status == "rejected")
+        TransactionService::Transaction.reject(@current_community.id, listing_conversation.id)
       end
-      MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
 
-      redirect_to person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
-      block.call
+    if(response[:success])
+      block.call(listing_conversation.reload)
     else
-      flash[:error] = t("layouts.notifications.something_went_wrong")
-      redirect_to person_transaction_path(@current_user, @listing_conversation)
+      if (status == "paid")
+        flash[:error] = t("error_messages.paypal.accept_authorization_error")
+      else
+        flash[:error] = t("error_messages.paypal.reject_authorization_error")
+      end
+
+      redirect_to accept_preauthorized_person_message_path(person_id: sender_id , id: listing_conversation.id)
     end
   end
 
@@ -94,15 +117,15 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def render_paypal_form(preselected_action)
-    transaction = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
-    paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
+    transaction_conversation = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
+    transaction = TransactionService::Transaction.query(@listing_conversation.id)
 
-    render locals: {
-      discussion_type: transaction[:discussion_type],
-      sum: paypal_payment[:authorization_total],
-      fee: 0, # TODO FIXME
-      seller_gets: paypal_payment[:authorization_total], # TODO FIXME - FEE
-      form: @listing_conversation, # TODO FIX ME DONT USE MODEL
+    render "accept", locals: {
+      discussion_type: transaction_conversation[:discussion_type],
+      sum: transaction[:checkout_total],
+      fee: transaction[:commission_total],
+      seller_gets: transaction[:checkout_total] - transaction[:commission_total],
+      form: @listing_conversation, # TODO FIX ME, DONT USE MODEL
       form_action: acceptance_preauthorized_person_message_path(
         person_id: @current_user.id,
         id: @listing_conversation.id
@@ -112,7 +135,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def render_braintree_form(preselected_action)
-    render locals: {
+    render action: :accept, locals: {
       discussion_type: @listing_conversation.discussion_type,
       sum: @listing_conversation.payment.total_sum,
       fee: @listing_conversation.payment.total_commission,

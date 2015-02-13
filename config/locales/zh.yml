@@ -2,36 +2,36 @@ zh:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "编辑分类“%{category}”"
       index:
-        listing_categories: ~
-        create_a_new_category: ~
-        remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
+        listing_categories: 信息类别
+        create_a_new_category: +添加一个新的分类
+        remove_category_confirmation: "你确定要移除分类“%{category_name}”吗？"
+        saving_order: 保存分类顺序
+        save_order_successful: 成功保存分类的顺序
+        save_order_error: 保存分类顺序时发生错误。请刷新页面后重试。
       new:
-        new_listing_category: ~
+        new_listing_category: 新的信息分类
       form:
         category_name:
-          category_title: ~
+          category_title: 分类的标题
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: 父分类
+          no_parent: 无上级分类
         category_transaction_types:
-          transaction_types: ~
+          transaction_types: 交易的类型
           transaction_types_description: ~
         buttons:
-          save: ~
-          cancel: ~
+          save: 保存
+          cancel: 取消
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
-        select_new_category: ~
+        remove_category: 移除分类
+        remove_category_name: "移除分类“%{category_name}”"
+        warning_remove_effects: "警告！移除分类“%{category_name}”将会有以下影响："
+        select_new_category: 为上面将要移动的项目选择一个新的类别
         buttons:
-          remove: ~
-          cancel: ~
+          remove: 移去
+          cancel: 取消
     communities:
       edit_details:
         community_details: ~
@@ -43,292 +43,307 @@ zh:
         edit_community_slogan_description: ~
         community_description: ~
         edit_community_description_description: ~
-        community_search_placeholder: ~
+        community_search_placeholder: 搜索提示
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
+        update_information: 保存设置
         invite_people: ~
-        edit_signup_info: ~
+        edit_signup_info: 注册信息
         edit_signup_info_description: ~
-        edit_info: ~
-        see_how_it_looks_like: ~
-        verification_to_post_listings_info_content: ~
+        edit_info: 编辑信息
+        see_how_it_looks_like: 预览
+        verification_to_post_listings_info_content: 未验证用户的信息文本
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
-        save: ~
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
+        contact_admin_link_text: 联系管理员
+        save: 保存设置
+        transaction_agreement: 交易协定
+        transaction_agreement_checkbox: 要求用户在交易前接受协定
+        transaction_agreement_checkbox_header: 协定标签
         transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
+        transaction_agreement_text_header: 协定文本
         transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
-        community_logo: ~
-        community_logo_icon: ~
-        community_cover_photo: ~
-        small_community_cover_photo: ~
-        favicon: ~
+        community_logo: 页面展示Logo
+        community_logo_icon: 移动端logo
+        community_cover_photo: 封面照片
+        small_community_cover_photo: 小的封面照片
+        favicon: 网站图标
         favicon_info_text: ~
-        community_custom_color1: ~
-        community_custom_color2: ~
-        logo_instructions_text_with_dimensions: ~
+        community_custom_color1: 主要颜色
+        community_custom_color2: 第二颜色
+        logo_instructions_text_with_dimensions: "封面图片尺寸必须是%{width}x%{height}像素。它将显示给使用大屏幕的用户。"
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: ~
         small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
+        small_cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。"
         main_content_width: ~
         custom_color1_instructions_text: ~
         custom_color2_instructions_text: ~
-        default_browse_view: ~
-        default_browse_view_instructions_text: ~
-        grid: ~
-        list: ~
-        map: ~
-        name_display_type: ~
-        name_display_type_instructions_text: ~
-        full_name: ~
-        first_name_with_initial: ~
-        first_name_only: ~
-        invalid_color_code: ~
-        custom_head_script: ~
+        default_browse_view: 默认查看视图
+        default_browse_view_instructions_text: 主页使用默认查看视图来设置信息的默认展示方式。
+        grid: 网格
+        list: 列表
+        map: 地图
+        name_display_type: 名字显示类型
+        name_display_type_instructions_text: 选择用户名在站点的显示方式。
+        full_name: 全名（名+姓）
+        first_name_with_initial: 名及首字母缩写（名+姓缩写）
+        first_name_only: 名字（名）
+        invalid_color_code: 颜色代码需要包含6个数字或者字符A-F，比如D96E21
+        custom_head_script: 定制脚本
         custom_head_script_instructions_text: ~
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: 欢迎邮件内容
         welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
-      settings:
+        edit_message: 编辑消息
+        send_test_message: 发送测试消息
+      getting_started:
+        getting_started: 获取入门指南
+        welcome_to_your_marketplace: "欢迎来到你的市场，%{name}！"
+        intro: "这是配置和管理你的市场站点的快速指南。你可以查看实时站点%{live_site_link}。"
+        live_site_link_text: 这里
+        look_and_feel: ~
+        logo_link_text: 添加你的标志
+        custom_domain: ~
+        contact_team_link_text: 联系我们的团队
+        categories_and_custom_fields: ~
+        categories_link_text: 新增分类和子分类
+        custom_fields_link_text: 配置表单字段
+        filters_link_text: 何种类型的过滤器
+        payments: ~
+        payments_link_text: 配置支付方式
+        info_texts: ~
+        about_page_link_text: 关于页面
+        terms_of_use_link_text: 使用条款
+        privacy_policy_link_text: 隐私策略
+        welcome_email_link_text: 欢迎电子邮件
+        instruction_texts_link_text: 其他的指令文本
+        social_media: ~
+        facebook_link_text: 连接你的自定义Facebook应用
+        twitter_link_text: 添加你的Twitter帐号
+        analytics: "访问%{analytics_link}是个好主意。方便你查看你的市场中发生的事情，比如你有多少访客等。"
+        analytics_link_text: "连接一个Google Analytics帐号"
         settings: ~
-        general: ~
-        users_can_review_each_other_after_transaction: ~
-        access: ~
+        settings_link_text: 在这里查看你的市场设置
+        final_words: ~
+        invite_link_text: 邀请用户
+        view_users_link_text: 这里
+        view_transactions_link_text: 这里
+        contact_support_link_text: 联系我们的支持人员
+      settings:
+        settings: 设置
+        general: 常规
+        users_can_review_each_other_after_transaction: 用户可以在交易结束后相互评论
+        access: 访问
         join_with_invite_only: ~
         users_can_invite_new_users: ~
         private: ~
-        require_verification_to_post_listings: ~
-        listing_preferences: ~
-        transaction_preferences: ~
-        show_listing_publishing_date: ~
-        show_category_in_listing_list: ~
-        hide_expiration_date: ~
-        listing_comments_in_use: ~
-        email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
-        integrations: ~
-        google_analytics_key: ~
+        require_verification_to_post_listings: 只有经管理员验证的用户可以发布新的信息
+        listing_preferences: 列出偏好
+        transaction_preferences: 交易偏好
+        show_listing_publishing_date: 在列表页面的显示信息的发布日期
+        show_category_in_listing_list: 在列表视图中显示信息分类
+        hide_expiration_date: 不要求发布的信息包含过期日期
+        listing_comments_in_use: 允许用户对信息发表评论（所有其他用户可见）
+        email_preferences: 邮件发送偏好设置
+        automatic_newsletters: 自动发送每日/每周新闻邮件给所有用户（除非用户选择不接收）
+        email_admins_about_new_members: 当新用户注册时给管理员发送一封电子邮件
+        google_analytics_key: "Google Analytics跟踪ID"
         twitter_handle: ~
-        update_settings: ~
+        update_settings: 保存设置
         automatically_confirmed: ~
-        automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        automatically_confirmed_no_escrow: "在付款后%{days_dropdown}天内交易将被自动标记为完成。"
+        automatic_newsletter_frequency: "自动发送新闻邮件：%{frequency_dropdown}"
+        newsletter_daily: 每日
+        newsletter_weekly: 每周
       manage_members:
-        manage_members: ~
-        email: ~
-        name: ~
-        join_date: ~
-        admin: ~
-        posting_allowed: ~
+        manage_members: 管理用户
+        email: 电子邮件
+        name: 姓名
+        join_date: 已加入
+        admin: 管理员
+        posting_allowed: 允许发布
         ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
-        save_user_status_error: ~
+        saving_user_status: 正在保存……
+        save_user_status_successful: 已保存
+        save_user_status_error: 保存失败。请刷新页面后重试。
         ban_user_confirmation: ~
-      integrations:
-        integrations: ~
+        ban_me_error: ~
+      social_media:
+        social_media: 社交媒体
         twitter_handle: ~
         twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: 读取更多
+        twitter_handle_placeholder: 用户名
         invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        facebook_connect: ~
+        facebook_connect: Facebook
         facebook_connect_info_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        save: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: "关于如何配置Facebook Connect请参考说明。"
+        facebook_connect_id: Facebook客户号
+        invalid_facebook_connect_id: 客户号仅能包含数字。
+        facebook_connect_secret: Facebook客户秘密
+        invalid_facebook_connect_secret: 客户端密钥仅应包含数字和字母a到f。
+        save: 保存设置
+      analytics:
+        analytics: 分析
+        google_analytics_key: "Google Analytics追踪号"
+        google_analytics_key_info_text: "追踪你的Google Analytics帐号。"
+        google_analytics_key_info_text_with_instructions: "追踪你的Google Analytics帐号。%{instructions_link}。"
+        google_analytics_instructions_link_text: "了解更多关于Google Analytics"
+        save: 保存设置
       menu_links:
-        menu_links: ~
-        save: ~
-        add_menu_link: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
-        empty: ~
+        menu_links: 菜单链接
+        save: 保存设置
+        add_menu_link: 添加一个新连链接到菜单
+        title_placeholder: 链接名称
+        url_placeholder: "http://example.com/en"
+        title: 标题
+        language: 语言
+        url: 网址
+        empty: 你没有更多的菜单链接
       transactions:
-        transactions: ~
+        transactions: 查看交易记录
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
+          conversation: 会话
+          listing: 发布的信息
+          status: 状态
+          sum: 总和
+          started: 已开始
+          last_activity: 最近的活动
           initiated_by: ~
-          other_party: ~
+          other_party: 其他参与方
         status:
           free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          pending: 待定
+          preauthorized: 预授权的
+          accepted: 已接受
+          rejected: 已拒绝
+          paid: 已支付
+          confirmed: 已确认
+          canceled: 已取消
+          initiated: 等待PayPal付款
+          pending_ext: 等待PayPal付款
       braintree_payment_gateway:
         braintree_payment_gateway: ~
-        environment: ~
-        private_key: ~
-        public_key: ~
-        client_side_encryption_key: ~
-        merchant_id: ~
-        master_merchant_id: ~
-        commission_from_seller: ~
+        environment: 环境
+        private_key: 私有密钥
+        public_key: 公共密钥
+        client_side_encryption_key: 客户端加密（CSE）键
+        merchant_id: 商户号
+        master_merchant_id: 主商户号
+        commission_from_seller: 卖家的佣金比例
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: 付款
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "编辑信息字段“%{field_name}”"
       edit_price:
-        edit_price_field: ~
-        show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        edit_price_field: 编辑价格字段
+        show_price_filter_homepage: 在主页显示价格过滤器
+        price_min: 最低价格
+        price_max: 最高价格
       edit_location:
-        edit_location_field: ~
-        this_field_is_required: ~
+        edit_location_field: 编辑地点字段
+        this_field_is_required: 该字段必填
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
+          this_field_is_required: 这个字段是必填的。
+          this_field_is_required_checkbox: 该项必填（用户必须选择至少一个选项）
       index:
         listing_fields: ~
         listing_fields_help: ~
-        add_new_field: ~
-        remove_field_confirmation: ~
-        cancel: ~
-        save: ~
-        field_title: ~
-        field_type: ~
-        categories: ~
-        no_custom_listing_fields: ~
-        options: ~
-        add_option: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
-        select_one: ~
-        continue: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
+        add_new_field: 添加新字段
+        remove_field_confirmation: "你确认要移除字段%{field_name}吗？"
+        cancel: 取消
+        save: 保存
+        field_title: 字段标题
+        field_type: 字段类型
+        categories: 信息分类字段
+        options: 选项
+        add_option: +添加选项
+        saving_order: 保存字段顺序
+        save_order_successful: 成功保存字段顺序
+        save_order_error: 保存字段顺序时发生错误。请刷新页面后重试。
+        select_one: 选择字段类型
+        continue: 继续
+        minimum_value: 最小
+        maximum_value: 最大
+        allow_decimals: 允许小数
       new:
-        new_listing_field: ~
+        new_listing_field: 新的信息字段
       field_types:
-        text: ~
-        number: ~
-        dropdown: ~
-        checkbox_group: ~
-        date: ~
+        text: 文本
+        number: 数字
+        dropdown: 下拉
+        checkbox_group: 检查框组
+        date: 日期
     emails:
       new:
         send_email_to_members: ~
         send_email_to_members_title: ~
-        email_subject: ~
-        email_content: ~
+        email_subject: 邮件主题
+        email_content: 邮件内容
         email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        send_email: ~
+        email_language: 邮件接收者使用的语言
+        any_language: 任何语言
+        send_email: 发送邮件
         message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
-    news_items:
-      index:
-        news_items: 最新的文章
-        create_news_item: 创建一个文章
-        no_news: 没有新闻
-        loading_more_news: ~
-      new:
-        new_news_item: ~
-        edit_news_item: "编辑文章\n"
-        index_news_item: ~
-        title: 标题：
-        content: "目录：\n"
-        save_news_item: ~
-      news_item:
-        edit_news_item: 编辑
-        delete_news_item: 删除
+        email_sent: 邮件已发送。
+    left_hand_navigation:
+      general: 常规
+      users_and_transactions: 用户和交易
+      configure: 配置
+      emails_title: 电邮
+      support: 支持
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      new:
-        integration_info_text: ~
-        paypal_account_email: ~
-      show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: ~
-        create_poll: ~
-        no_polls: ~
-      edit_poll_links:
-        close_poll: 关闭
-        open_poll: 打开
-        edit_poll: 编辑
-        delete_poll: 删除
-      new:
-        add_option: 添加选项
-        new_poll: ~
-        edit_poll: ~
-        title: 标题
-        save_poll: ~
-      new_option:
-        option: 选项
-        remove_option: 移除选项
-      show:
-        edit_poll: ~
-      poll_status:
-        open: 打开
-        closed: 关闭的
+      marketplace_paypal_integration: 支付偏好
+      preferences_updated: 支付偏好设置更新
+      integration_info_text: ~
+      read_more_about_paypal: 了解更多关于Sharetribe的支付系统
+      paypal_account_email: "1. 连接你的PayPal帐号"
+      paypal_account_email_completed: 已完成！
+      set_minimum_price_and_fee: "2. 设置最低价格和交易费用"
+      set_minimum_price_and_fee_completed: 已完成！
+      minimum_listing_price_label: 最低挂牌价：
+      transaction_fee_label: 交易费用：
+      save_settings: 保存设置
+      note_about_transaction_fee: ~
     transaction_types:
-      sell: ~
-      rent: ~
-      give: ~
-      lend: ~
-      swap: ~
-      service: ~
-      request: ~
-      inquiry: ~
-      share_for_free: ~
+      sell: 出售
+      rent: 已出租
+      give: 赠送
+      lend: 出借
+      swap: 交换
+      service: 供给
+      request: 请求
+      inquiry: 查询
+      share_for_free: 免费共享
       default_action_button_labels:
-        sell: ~
-        rent: ~
-        request: ~
-        offer: ~
-        inquiry: ~
+        sell: 购买
+        rent: 租赁
+        request: 供应
+        offer: 请求
+        inquiry: 联系人
   common:
-    edit_page: ~
+    edit_page: 编辑页面
     default_community_slogan: 借，帮助，分享
     default_community_description: ~
     cancel: 取消
     fields_that_are_mandatory: 标有星号（*）的为必填项。
     or: 或
     password: 密码
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
-      request: ~
-      offer: ~
+      request: 请求
+      offer: 供应
       borrow: 借入
       buy: 购买
       give_away: 赠送
@@ -337,63 +352,68 @@ zh:
       rent: 出租
       rent_out: 已出租
       sell: 出售中
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
+      offer_to_swap: 交换
+      request_to_swap: 交换
+      share_for_free: 免费共享
+      accept_for_free: 想要免费使用
     categories:
-      item: ~
-      favor: ~
-      rideshare: ~
+      item: 物品
+      favor: 服务
+      rideshare: 拼车
       housing: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
+      tools: 工具
+      sports: 运动
+      music: 音乐
+      books: 图书和杂志
+      games: 游戏和玩具
+      furniture: 家具
+      outdoors: 露营和户外
+      food: 食品及厨具
+      electronics: 电子设备
+      pets: 宠物和动物
+      film: 电影
+      clothes: 服装和配饰
+      garden: 花园
+      travel: 旅游
+      other: 其他
     username: 用户名
-    username_or_email: ~
+    username_or_email: Email或用户名
     what_is_this: 这是什么？
+    removed_user: 用户已删除
   conversations:
     accept:
-      respond_to_offer: ~
-      respond_to_request: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: ~
-      optional_message: ~
-      price_to_pay: ~
+      respond_to_offer: 响应一个供应
+      respond_to_request: 响应一个请求
+      accept_offer: 接受供应
+      accept_request: 接受请求
+      reject_offer: 这次不行。
+      reject_request: 这次不行。
+      close_listing: "关闭这条信息%{listing_title_link}"
+      update_later: 保持信息的公开
+      optional_message: 可选消息
+      price_to_pay: 需要支付的总价
       you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
-      minimum_price_error_message: ~
-      approve: ~
+      payment_settings_link: 付款设置
+      minimum_price_error_message: "价格不能低于%{amount}。"
+      accept: 接受
+      decline: 拒绝
+      sum: "总共：%{sum}"
+      service_fee: "服务费：%{service_fee}"
+      you_will_get: "你将得到：%{seller_gets}"
     confirm:
-      confirm_description: ~
+      confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
       cancel_description: ~
-      cancel_payed_description: ~
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
-      continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      cancel_payed_description: 如果你的请求被接受但是你有其他的想法，你仍然可以在付款前取消请求。
+      canceling_payed_transaction: 取消交易
+      confirm: 标记为完成
+      cancel: 没有发生
+      continue: 继续
+      give_feedback_to: "反馈给%{person_link}"
+      do_not_give_feedback: 跳过反馈
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: 日
+      days: 天
+      price_per_day: "每天：%{price}"
     index:
       loading_more_messages: 载入更多消息
       message_partitive: 消息
@@ -401,185 +421,188 @@ zh:
       no_received_messages: 没有新消息
       no_sent_messages: 没有已发送消息
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      message_from: ~
-      about_listing: ~
-      free_message: ~
+      accepted_request: 请求已接受。
+      accepted_offer: 供应已接受。
+      rejected_request: 请求已拒绝。
+      rejected_offer: 供应已拒绝。
+      confirmed_request: 请求已完成。
+      confirmed_offer: 供应已完成。
+      canceled_request: 请求已取消。
+      canceled_offer: 供应已取消。
+      message_from: "来自%{person}的消息"
+      about_listing: "关于%{listing_title}"
+      free_message: 免费消息
     message:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      accepted_request: 已接受请求
+      accepted_offer: 已接受的供应
+      rejected_request: 已拒绝的请求
+      rejected_offer: 已拒绝供应
+      confirmed_request: 标记请求为完成
+      confirmed_offer: 标记供应为完成
+      canceled_request: 已取消供应
+      canceled_offer: 已取消提议
+      paid: "支付了%{sum}"
     new:
-      offer_message_form_title: ~
-      request_message_form_title: ~
-      favor_offer_message_form_title: 向...请求帮助
-      favor_request_message_form_title: 向...提供帮助
-      housing_offer_message_form_title: 向...提供空间
-      housing_request_message_form_title: 回复
-      item_offer_lend_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_offer_accept_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
-      item_request_message_form_title: 向...提供一个物品
+      offer_message_form_title: "为%{person}提供%{listing}"
+      request_message_form_title: "从%{person}请求%{listing}"
+      favor_offer_message_form_title: "向%{person}请求帮助"
+      favor_request_message_form_title: "向%{person}提供帮助"
+      housing_offer_message_form_title: "向%{person}提供住处"
+      housing_request_message_form_title: "向%{person}请求住处"
+      item_offer_lend_message_form_title: "从%{person}借入%{listing}"
+      item_offer_sell_message_form_title: "从%{person}买入%{listing}"
+      item_offer_give_away_message_form_title: "从%{person}获得%{listing}"
+      item_offer_trade_message_form_title: "与%{person}交换%{listing}"
+      item_offer_rent_out_message_form_title: "从%{person}租赁%{listing}"
+      item_request_borrow_message_form_title: "将%{listing}出借%{person}"
+      item_request_buy_message_form_title: "将%{listing}卖给%{person}"
+      item_request_take_for_free_message_form_title: "将%{listing}送给%{person}"
+      item_request_trade_message_form_title: "与%{person}交换%{listing}"
+      item_request_rent_message_form_title: "出租%{listing}给%{person}"
+      housing_offer_sell_message_form_title: "从%{person}购买%{listing}"
+      housing_offer_rent_out_message_form_title: "从%{person}租赁%{listing}"
+      housing_offer_share_for_free_message_form_title: "从%{person}请求%{listing}"
+      housing_offer_accept_for_free_message_form_title: "为%{person}提供%{listing}"
+      housing_request_buy_message_form_title: "将%{listing}卖给%{person}"
+      housing_request_rent_message_form_title: "出租%{listing}给%{person}"
+      item_request_message_form_title: "向%{person}提供一个物品"
       message: 消息
-      message_to: ~
-      optional_message_to: ~
-      rideshare_offer_message_form_title: 想要搭顺风车
-      rideshare_request_message_form_title: 提供顺风车
+      message_to: "发送给%{author_name}的消息"
+      optional_message_to: "发送给%{author_name}的可选信息"
+      rideshare_offer_message_form_title: "想要搭%{person}的顺风车"
+      rideshare_request_message_form_title: "向%{person}提供顺风车"
       send_message: 发送信息
-      send: ~
+      send: 发送
       this_message_is_private: "此消息为您和%{person}之间的悄悄话"
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      you_will_get_notified_of_acceptance: "当%{person}接受或拒绝你的提议时，你将收到一封电子邮件通知。"
+      you_will_get_notified: "当%{person}回复你时，你将收到一封电子邮件通知。"
       title: 名称
-      send_message_to_user: 发送信息到
-      about_listing: ~
-      author_has_to_accept_request: ~
+      send_message_to_user: "发送信息给%{person}"
+      about_listing: "关于%{listing_title}"
+      author_has_to_accept_request: "在你支付前%{author_name}需要接受请求"
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      in_response_to_listing: 关于发布的信息
+      message_sent_by: 消息发送方
+      message_sent_to: 消息发送到
       send_reply: 发送回复
       write_a_reply: 回复：
-      conversation_about_listing: ~
-      conversation_with_user: ~
-      conversation_with: ~
-      last_message_at: ~
-      price: ~
-      sum: ~
+      conversation_about_listing: "与%{person}关于%{listing}"
+      conversation_with_user: "与%{person}"
+      conversation_with: "与%{person}的对话"
+      last_message_at: "最近的消息%{time}"
+      price: "价格：%{price}"
+      sum: "总共：%{sum}"
       price_excludes_vat: ~
-      total: ~
+      total: "总共：%{total}"
     status:
-      cancel_payed_transaction: ~
+      payment_errored: 付款失败。请重试。
+      payment_errored_starter: 支付失败。请重试。如果问题依然存在，请联系我们的支持人员。
+      payment_errored_author: "支付失败。请联系%{starter_name}并要求他再次尝试支付。"
+      cancel_payed_transaction: 取消
       feedback_given: 已发送反馈
       feedback_skipped: 跳过的反馈
       give_feedback: 发送反馈
-      offer_accepted: 已接受的提议
-      offer_rejected: 已拒绝的提议
-      offer_canceled: ~
-      offer_confirmed: ~
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
-      pay: ~
-      preauthorized: ~
-      paid: ~
+      offer_accepted: 已接受的
+      offer_rejected: 已拒绝的
+      offer_canceled: 已取消
+      offer_confirmed: 已完成
+      offer_paid: 付款成功
+      offer_preauthorized: 付款成功
+      offer_waiting_for_payment: "正在等待%{requester_name}支付"
+      pay: 支付
+      preauthorized: 付款成功
+      paid: 付款成功
       pending_external:
         paypal:
           multicurrency: ~
-          verify: ~
+          verify: "因为你没有验证PayPal帐号，你不能接受这笔交易。点击%{paypal_url}验证你的帐号。"
           intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: 已接受的请求
-      request_rejected: 请求被拒绝
-      request_confirmed: ~
-      request_canceled: ~
-      request_paid: ~
-      request_preauthorized: ~
+      waiting_for_current_user_to_deliver_listing: "正在等待你交付%{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "正在等待%{listing_author_name}交付%{listing_title}"
+      request_accepted: 已接受的
+      request_rejected: 已拒绝的
+      request_confirmed: 已完成
+      request_canceled: 已取消
+      request_paid: 付款成功
+      request_preauthorized: 付款成功
       skip_feedback: 跳过反馈
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
-      waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
-      waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_for_listing_author_to_accept_offer: "正在等待%{listing_author_name}接受供应"
+      waiting_for_listing_author_to_accept_request: "正在等待%{listing_author_name}接受请求"
+      waiting_for_you_to_accept_request: 正在等待你接受请求
+      waiting_confirmation_from_requester: "正在等待%{requester_name}标记请求为已完成"
+      waiting_confirmation_from_you: 正在等待你标记请求完成
+      waiting_payment_from_requester: "正在等待%{requester_name}支付"
+      waiting_payment_from_you: 正在等待你支付
+      waiting_feedback_from_you: 正在等待你给出反馈
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
-          verify: ~
+          multicurrency: 等待你接受Paypal支付
+          intl: 等待你接受Paypal支付
+          unknown_reason: 支付待定。登录你的PayPal帐号查看详情。
+          verify: 等待你确认你的PayPal帐号
     status_link:
       accept_offer: 接受提议
       accept_request: 接受请求
-      reject_offer: 拒绝提议
-      reject_request: 拒绝请求
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
-      confirm: ~
-      cancel: ~
+      reject_offer: 这次不行。
+      reject_request: 这次不行。
+      accept_preauthorized_offer: 接受供给
+      accept_preauthorized_request: 接受请求
+      reject_preauthorized_offer: 这次不行
+      reject_preauthorized_request: 这次不行
+      confirm: 标记为已完成
+      cancel: 没有发生
   braintree_accounts:
     new:
-      add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
+      add_payout_details: 添加你的支付信息
+      first_name: 名
+      last_name: 姓
+      email: 电子邮件地址
+      phone: 电话号码
+      address_street_address: 街道地址
+      address_postal_code: 邮编
+      address_locality: 城市
+      address_region: 州
+      date_of_birth: 生日
       ssn: ~
       routing_number: ~
-      account_number: ~
-      save: ~
+      account_number: 账户号码
+      save: 保存
     show:
-      payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
+      payout_details: 你的支出明细
+      first_name: 名
+      last_name: 姓
+      email: 电子邮件地址
+      phone: 电话号码
+      address_street_address: 街道地址
+      address_postal_code: 邮编
+      address_locality: 城市
+      address_region: 州
+      date_of_birth: 出生日期
       ssn: ~
       routing_number: ~
-      account_number: ~
+      account_number: 账号
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
-      payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
-      confirm_payment: ~
+      new_credit_card_payment: 新的信用卡付款
+      payment_receiver: 收款人
+      cardholder_name: 持卡者姓名
+      credit_card_number: 信用卡号
+      cvv: 验证码
+      credit_card_expiration_date: 信用卡有效期
+      confirm_payment: 确认支付
       exp: ~
   preauthorize_payments:
     edit:
-      confirm_payment: ~
+      confirm_payment: 确认支付
   community_memberships:
     access_denied:
-      access_denied: ~
+      access_denied: 访问被拒绝
       you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      contact_page_link: 用户反馈
     new:
-      welcome_fb_user: ~
+      welcome_fb_user: "%{name}，欢迎使用%{service_name}！"
       fb_join_accept_terms: ~
       join_community: 加入社区
-      you_are_not_a_member_of_this_community: ~
       you_can_join: ~
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
@@ -589,150 +612,148 @@ zh:
       join_community_button: 加入社区
   emails:
     accept_reminder:
-      remember_to_accept_offer: 请记得接受或拒绝提议
-      remember_to_accept_request: 请记得接受或拒绝请求
+      remember_to_accept_offer: "请记得接受或拒绝来自%{sender_name}的供给"
+      remember_to_accept_request: "请记得接受或拒绝来自%{sender_name}的请求"
       you_can_accept_or_reject_offer_at: 您可以在此接受或拒绝提议
       you_can_accept_or_reject_request_at: 您可以在此接受或拒绝请求
-      you_have_not_yet_accepted_or_rejected_offer: "您尚未接受或拒绝您在%{date}收到的提议'%{title}'"
-      you_have_not_yet_accepted_or_rejected_request: "您尚未接受或拒绝您在%{date}收到的请求'%{title}'"
-      show_thread: ~
+      you_have_not_yet_accepted_or_rejected_offer: "您尚未接受或拒绝您在%{date}收到的%{title}"
+      you_have_not_yet_accepted_or_rejected_request: "您尚未接受或拒绝您在%{date}收到的%{title}"
+      show_thread: 显示对话
     braintree_account_approved:
-      account_ready: ~
+      account_ready: 你已经可以接收付款了
       message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
-      remember_to_confirm_request: ~
-      if_will_not_happen_you_should_cancel: ~
-      if_will_not_happen_you_should_cancel_escrow: ~
+      remember_to_confirm_request: 记得确认或取消请求
+      if_will_not_happen_you_should_cancel: "如果你觉得请求由于某种原因无法完成，你可以%{cancel_it_link}。"
+      if_will_not_happen_you_should_cancel_escrow: "如果你觉得请求由于某种原因无法完成，你可以%{cancel_it_link}。系统将通知管理员联系你退回款项。"
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
-      cancel_it_link_text: ~
+      cancel_it_link_text: 取消
       automatic_confirmation: ~
     payment_reminder:
-      remember_to_pay: ~
-      you_have_not_yet_paid: ~
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
+      remember_to_pay: "记得支付%{listing_title}"
+      you_have_not_yet_paid: "你还没有为%{other_party_name}同意提供给你的%{listing_title}付款。"
+      if_will_not_happen_you_should_cancel: "如果你认为请求由于某种原因无法完成，你还可以%{cancel_it_link}。"
+      cancel_it_link_text: 取消
     payment_settings_reminder:
       remember_to_add_payment_details: ~
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      payment_settings_link: 付款设置
     transaction_confirmed:
-      here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
+      here_is_a_message_from: "这里有一条%{other_party_given_name}发送的消息："
+      request_marked_as_confirmed: 请求已完成——记得给予评价
+      request_marked_as_canceled: 请求已取消
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "给%{other_party_given_name}反馈"
     transaction_automatically_confirmed:
-      subject: ~
+      subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: 请求自动完成——记得给予评价
+      we_have_marked_request_as_confirmed: "我们已标记请求“%{request}”完成。该请求自动完成于预订期限结束后一天。"
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
-      show_thread: ~
+      give_feedback_to: "给予%{other_party_given_name}反馈"
+      show_thread: 显示对话
     escrow_canceled:
-      subject: ~
-      has_marked_request_as_canceled: ~
-      if_this_was_error: ~
-      please_contant_admin_link: ~
+      subject: 付款取消
+      has_marked_request_as_canceled: "%{other_party_full_name}标记请求“%{request}”取消。你将不会收到此次交易的款项。"
+      if_this_was_error: "如果你认为这儿出错了，%{please_contant_admin_link}。"
+      please_contant_admin_link: 请联系管理员
     confirmation_instructions:
-      confirmation_instructions_signature: 此致敬礼，<br/>Kassi团队
-      welcome_to_kassi: 欢迎来到Kassi！
-      need_to_confirm: 开始使用Kassi前，您必须通过以下链接确认您的Email地址：
+      confirmation_instructions_signature: "此致敬礼，<br/>%{service_name}团队"
+      welcome_to_kassi: "欢迎来到%{service_name}！"
+      need_to_confirm: 您需要确认您的Email地址。
       confirmation_link_text: 确认账号
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: 查看您的设置
-      hey: "Hi %{name},"
-      kassi_team: Kassi团队
+      hey: "你好 %{name},"
+      kassi_team: "%{service_name} 团队"
       thanks: 谢谢！
-      want_to_control_emails: 想要管理来自Kassi的邮件？
-      dont_want_to_receive_these_emails: ~
+      want_to_control_emails: "想要管理来自%{service_name} 的邮件？"
+      dont_want_to_receive_these_emails: 不想收到这些邮件？
       edit_your_email_settings_here: 编辑你的邮箱设定
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
-      or: ~
-      unsubscribe_from_these_emails: ~
-    community_starter_email:
-      subject: ~
+      message_not_displaying_correctly: 邮件显示正确吗？
+      view_it_in_your_browser: 在你的浏览器中查看
+      or: 或者
+      unsubscribe_from_these_emails: 退订这些邮件
     conversation_status_changed:
-      has_accepted_your_offer: "%{accepter} 已经接受了您关于%{listing}的请求"
-      has_accepted_your_request: "%{accepter}已经接受了您关于 %{listing}的请求"
-      has_rejected_your_offer: "%{accepter} 已经拒绝了您关于%{listing}的提议"
-      has_rejected_your_request: "%{accepter} 已经拒绝了您关于%{listing}的请求"
-      view_thread: ~
+      has_accepted_your_offer: "%{accepter} 已经接受了你的%{listing}"
+      has_accepted_your_request: "%{accepter}已经接受了你的%{listing}"
+      has_rejected_your_offer: "%{accepter} 已经拒绝了你的%{listing}"
+      has_rejected_your_request: "%{accepter} 已经拒绝了你的%{listing}"
+      view_thread: 查看对话
       your_offer_was_accepted: 您的提议已被接受
       your_offer_was_rejected: 您的提议被拒绝
       your_request_was_accepted: 您的请求已被接受
       your_request_was_rejected: 您的请求被拒绝
-      you_can_now_pay_to: ~
-      pay_now: ~
+      you_can_now_pay_to: "你现在可以支付要求的金额给%{payment_receiver}。"
+      pay_now: 现在支付
       remember_to_confirm: ~
     invitation_to_kassi:
-      hi: Hi！
-      you_have_been_invited_to_kassi: "%{inviter}邀请您使用%{community}社区的Kassi服务"
+      hi: 你好！
+      you_have_been_invited_to_kassi: "%{inviter}邀请您使用%{service_name}"
       here_is_a_message_from: "这是一条来自%{inviter}的私人信息："
-      join_now: ~
-      invitation_code: ~
+      join_now: 现在加入
+      invitation_code: "邀请码：%{code}"
     new_comment:
-      has_commented_your_listing_in_kassi: ~
-      view_comment: ~
-      you_have_a_new_comment: "%{author} 对您的留言发表了评论"
+      has_commented_your_listing_in_kassi: "%{author}评论了你的“%{listing}”。"
+      view_comment: 查看评论
+      you_have_a_new_comment: "%{author} 在%{service_name}评论了你发布的信息"
       listing_you_follow_has_a_new_comment: ~
-      has_commented_listing_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: "%{author}评价了你在%{service_name}中关注的“%{listing}”。"
     new_message:
-      view_message: ~
-      has_sent_you_a_message_in_kassi: "%{sender} 在Kassi向您发送一条消息"
-      you_have_a_new_message: 收到一条新消息
+      view_message: 查看消息
+      has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 向您发送一条消息"
+      you_have_a_new_message: "在%{service_name}收到一条来自%{sender_name}的新消息"
     new_payment:
-      new_payment: ~
+      new_payment: 你收到一笔新的付款
       you_have_received_new_payment: ~
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: 产品：
+      price_payer_paid: "%{payer_full_name}支付价格："
+      service_fee: "%{service_name}服务费："
+      you_will_get: 你将获得：
+      money_will_be_transferred: ~
     receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
-      total: ~
-      price: ~
-      service_fee: ~
+      receipt_of_payment: 付款收据
+      you_have_made_new_payment: "你已经为<b>%{listing_title}</b> 支付了 <b>%{payment_sum}</b> 给 %{recipient_full_name}。这是付款收据。"
+      product: 产品
+      total: 总共
+      price: 价格
+      service_fee: 服务费
+      money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name}在Kassi给您了反馈"
-      you_can_give_feedback_to: "您可以在此给%{name}反馈"
-      view_feedback: ~
+      has_given_you_feedback_in_kassi: "%{name}在%{service_name}给您了反馈"
+      you_can_give_feedback_to: "您还没有给%{name}反馈"
+      view_feedback: 查看反馈
     new_update_to_listing:
       listing_you_follow_has_been_updated: 以下列表已更新
-      has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      has_updated_listing_you_follow_in_kassi: "%{author}更新了你在%{service_name}中关注的列表“%{listing}”。"
+      view_changes: 查看变更
     community_updates:
-      added_offer: ~
-      added_request: ~
-      added_listing: ~
+      added_offer: "%{name_link}新增了一条信息："
+      added_request: "%{name_link}新增了一条信息："
+      added_listing: "%{name_link}发布了一条信息："
       update_mail_title: ~
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      post_a_new_listing: ~
-      reduce_email_footer_text: ~
+      post_a_new_listing: 提交了一个新的物品！
+      reduce_email_footer_text: "太多邮件？%{settings_link}或者%{unsubscribe_link}"
       settings_link_text: 在这里编辑你的邮箱设定
-      unsubscribe_link_text: ~
+      unsubscribe_link_text: 取消订阅
     newsletter:
       hi: "Hi %{name},"
-      newest_offers: ~
-      newest_requests: 人们目前需要的是什么
+      newest_offers: 大家都提供了些什么？
+      newest_requests: 人们目前都想要什么
       text_version_text: ~
-    reply_to_contact_request:
-      thank_you_for_your_interest: 感谢您对Kassi的兴趣！
     reset_password_instructions:
       change_my_password: 修改密码
       reset_password_instructions: ~
@@ -741,113 +762,140 @@ zh:
       remember_to_give_feedback_to: "提醒：记得给%{name} 评价"
       you_have_not_given_feedback_yet: "您尚未评价%{name} 参与的活动'%{event}'。记得评价%{given_name} 在活动中的表现。"
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "%{requester}要求并支付了%{listing_title}"
+      transaction_requested_by_user: "%{requester}要求并支付了%{listing_title}"
       you_have_days_to_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: 点击这里回应请求
     transaction_preauthorized_reminder:
-      subject: ~
+      subject: "记得接受来自%{requester}的关于%{listing_title}的请求"
       remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      one_day_left: 如果你不在一天内接受请求，该请求将被自动拒绝，你将无法收到支付款项。
+      click_here_to_reply: 点击这里回应请求
     welcome_email:
       welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
+      welcome_to_marketplace: "欢迎使用%{service_name}！很高兴你的加入。"
+      love_marketplace_crew: "爱你的，<br /><i>%{service_name} 工作人员</i>"
       p_s_did_you_know: ~
-      click_here_link_text: ~
-      welcome_email_footer_text: ~
-      settings_link_text: ~
+      click_here_link_text: 点击这里
+      welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
+      settings_link_text: 查看你的设置
+      welcome_email_subject_for_marketplace_creator: 欢迎来到Sharetribe
+      welcome_to_marketplace_creator: "欢迎来到Sharetribe，%{name}！"
+      congrats_for_creating_your_marketplace: 恭喜成功创建你的市场！很容易，是不是？
+      here_is_your_account_information: 这是你的帐号信息。
+      your_email_address: 你用来登录的电子邮件地址：
+      your_marketplace_address: 你的市场地址：
+      your_marketplace_admin_area: 你的市场管理区域：
+      just_follow_details: 点击下列链接你将获得如何开始搭建你的市场的详细信息！
+      we_will_guide_you_along_the_way: 我们将引导你走下去。
+      are_you_new_to_online_marketplaces: ~
+      have_questions: 有问题吗？
+      our_happiness_team_is_here_to_help: "我们的欢乐团队在此支持你！点击%{knowledge_base_link}或者通过%{admin_panel_link}联系我们的支持人员。"
+      love: 爱你的，
+      sharetribe_crew: Sharetribe全体人员
+      knowledge_base_link_text: 查看我们的知识库
+      contact_support_link_text: 联系我们的支持人员
+      admin_panel_link_text: 管理控制面板
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
+      subject: "%{author_name}在%{service_name}发布了一则新的信息"
+      has_posted_a_new_listing: "%{author_name}发布了一则新的信息："
+      you_are_receiving_this_because: "你收到这个通知是由于你关注了%{author_name}。"
+      view_listing: 查看列表
   error_messages:
     listings:
       departure_time: 出发时间必需是现在起一年之内。
-      share_type: 您必须从中选择至少一项
-      valid_until: 该日期必须在现在起一年之内。
-      price: ~
-      minimum_price: ~
+      share_type: 您必须从中选择一项
+      valid_until: 该日期必须在现在起6个月之内。
+      price: 价格必须是整数。
+      minimum_price: "最低的价格是%{minimum_price}%{currency}。"
     testimonials:
       you_must_explain_not_neutral_feedback: 如果您希望给出非中性的评价，您必须解释原因。
-      you_must_select_a_grade: 点击上面的图标为用户评分（将鼠标指针悬停在图标上以获得帮助）
+      you_must_select_a_grade: 记得告诉我们你的体验是好的还是不好的。
+    transaction_agreement:
+      required_error: 你需要接受协议
     paypal:
-      generic_error: ~
+      generic_error: 付款过程中出现错误。无法完成你的PayPal付款。
+      cancel_error: 取消时发生错误。不能完成取消操作。
+      accept_authorization_error: 尝试接受预授权的PayPal付款时出错。请重试。
+      reject_authorization_error: 在尝试拒绝Paypal支付预授权时发生错误。请重试。
   error_pages:
-    back_to_kassi_front_page: 回到Kassi主页
+    back_to_kassi_front_page: 回到主页
     error_404:
       if_you_believe: 如果您认为地址是正确并有效的。请完成下面的表格以便我们了解什么地址造成了错误。
       page_can_not_be_found: 页面没找到或不存在
       page_you_requested_can_not_be_found: 您请求的页面不存在。您确定地址拼写正确？
     error_404_title: 未找到页面
+    error_410:
+      page_removed: 页面已删除
+      page_you_requested_has_been_removed: 你请求的页面已被删除。
+      page_removed_reason: 这种情况有几种可能的原因。比如，一个用户可能删除了他的帐号或者列表已被删除。
+    error_410_title: 页面已删除
     error_500:
-      help_us_find_the_problem: 您可以在下面的对话框中描述遇到的问题以便帮助我们解决。
-      page_loading_failed: 页面加载失败！
-      reload_refresh: 请刷新页面再尝试访问您所需求的页面。我们会尽快找出并修复错误。
+      temporary_unavailable: 市场暂时不可用
+      unable_to_process: 服务当前无法处理你的请求。请过几分钟再试。
+      we_hate_this: 我们很不高兴它的发生！我们已经收到通知并将尽快修复它。
+      refer_to_error_id: "如果你想就此问题联系支持人员，请在消息中包含错误号“%{error_id}”。"
     error_500_title: 页面加载失败
     error_description: 错误描述
     no_javascript:
       javascript_is_disabled_in_your_browser: 您的浏览器已禁用Javascript
-      kassi_does_not_currently_work_without_javascript: 抱歉，Kassi目前不能在无javascript环境下工作。请在浏览器首选项中打开javascript，然后刷新页面。如果您想在无javascript环境下使用Kassi，请填写下面的表格已让我们知道。
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
-      contact_us: ~
+      kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在无javascript环境下工作。请在浏览器首选项中打开javascript，然后刷新页面。"
+      contact_us: 联系我们
       send_feedback: 发送反馈
       your_feedback_to_admins: 给管理员发送反馈
     send: 发送
     your_email_address: 您的E-mail地址
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
+      invalid_date: 不是有效的日期
+      invalid_time: 不是有效的时间
+      invalid_datetime: 不是有效的日期时间
+      is_at: "必须在%{restriction}时"
+      before: "必须在%{restriction}之前"
+      on_or_before: "必须在%{restriction}时或之前"
+      after: "必须在%{restriction}之后"
+      on_or_after: "必须在%{restriction}时或之后"
   event_feed_events:
     accept:
-      has_accepted_lend_item: ~
-      has_accepted_borrow_item: ~
-      has_accepted_rent_out_item: ~
-      has_accepted_rent_item: ~
-      has_accepted_give_away_item: ~
-      has_accepted_receive_item: ~
-      has_accepted_sell_item: ~
-      has_accepted_buy_item: ~
-      has_accepted_trade_item: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
-      has_accepted_rideshare: ~
+      has_accepted_lend_item: "%{offerer_name} 同意将 %{listing_title} 借给 %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} 同意将 %{listing_title} 借给 %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} 同意租赁 %{listing_title} 给 %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} 同意租赁 %{listing_title} 给 %{requester_name} %{time_ago}."
+      has_accepted_give_away_item: "%{offerer_name} 同意将 %{listing_title} 送给%{requester_name} %{time_ago}."
+      has_accepted_receive_item: "%{offerer_name} 同意将 %{listing_title} 送给%{requester_name} %{time_ago}."
+      has_accepted_sell_item: "%{offerer_name} 同意将%{listing_title} 卖给%{requester_name} %{time_ago}."
+      has_accepted_buy_item: "%{offerer_name} 在%{time_ago}前同意将%{listing_title} 卖给%{requester_name}."
+      has_accepted_trade_item: "%{offerer_name} 在%{time_ago}前同意将 %{listing_title}与 %{requester_name} 交换."
+      has_accepted_sell_housing: "%{offerer_name} 在%{time_ago}前同意将 %{listing_title}卖给 %{requester_name} ."
+      has_accepted_buy_housing: "%{offerer_name} 在%{time_ago}前同意将%{listing_title} 卖给%{requester_name}."
+      has_accepted_rent_out_housing: "%{offerer_name} 在%{time_ago}前同意将 %{listing_title} 租赁给 %{requester_name} ."
+      has_accepted_rent_housing: "%{offerer_name} 在%{time_ago}前同意将 %{listing_title} 租赁给 %{requester_name} ."
+      has_accepted_favor: "%{offerer_name} 在%{time_ago}前同意提供 %{listing_title} 给 %{requester_name} ."
+      has_accepted_rideshare: "%{offerer_name} 在%{time_ago}前同意与%{requester_name} 共同用车%{listing_title}."
     join:
       joined_kassi: ~
     login:
-      logged_in_to_kassi: ~
+      logged_in_to_kassi: "%{name} %{time_ago} 前登录%{service_name}."
     comment:
-      commented: ~
-      offer_partitive: 录取通知书
-      request_partitive: 要求
+      commented: "%{commenter_name}%{time_ago}前评论了%{listing_title}。"
+      offer_partitive: 供应
+      request_partitive: 请求
   header:
-    about: 关于Kassi
+    about: 关于我们
     home: 主页
-    members: ~
-    new_listing: ~
+    members: 社区
+    new_listing: 发布新信息
     mobile_version: 移动版
     offers: 提议
     requests: 请求
-    search_kassi: 搜索Kassi
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
-    invite: ~
-    login: ~
-    signup: ~
-    menu: ~
+    search_kassi: "搜索%{service_name}"
+    create_new_marketplace: 创建一个新的市场
+    contact_us: 联系我们
+    profile: 个人设置
+    invite: 邀请新成员
+    login: 登录
+    signup: 注册
+    menu: 菜单
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "还有<b>一个提议</b>,"
@@ -856,8 +904,8 @@ zh:
       additionally_some_private_requests_exist: "还有<b>%{number_of_listings}个请求</b>,"
     blank_slate:
       add_first: 增加一个！
-      but_that_is_visible_only_to_registered_members: 只有注册用户有权查看
-      but_those_are_visible_only_to_registered_members: 只有注册用户有权查看
+      but_that_is_visible_only_to_registered_members: 但只有注册用户可以查看。
+      but_those_are_visible_only_to_registered_members: 但只有注册用户可以查看。
       create_new_account_for_yourself: 创建新账户
       examples_of_what_you_could_offer_to_others: 您能提供什么
       examples_of_what_you_could_request_to_others: 您需要什么
@@ -870,10 +918,10 @@ zh:
       items_to_offer: "可借出的物品： "
       items_to_request: "可借入的物品： "
       log_in: 登录！
-      no_offers_visible_unless_logged_in: 没有对游客可见的提议。
-      no_open_offers_currently: 当前没有可用的提议。
-      no_open_requests_currently: 当前没有可用的请求。
-      no_requests_visible_unless_logged_in: 没有对游客可见得请求
+      no_offers_visible_unless_logged_in: 没有对游客公开的信息。
+      no_open_offers_currently: 当前没有公开的信息。
+      no_open_requests_currently: 当前没有公开的信息。
+      no_requests_visible_unless_logged_in: 没有对游客公开的信息。
       one_private_offer_exists: "已有<b>一个提议</b>,"
       one_private_request_exists: "已有<b>一个请求</b>,"
       ride_offer: 帮助其他人照管孩子
@@ -881,69 +929,57 @@ zh:
       some_private_offers_exist: "已有<b>%{number_of_listings}个提议</b>,"
       some_private_requests_exist: "已有<b>%{number_of_listings} 请求</b>,"
     custom_filters:
-      update_view: ~
-      min: ~
-      max: ~
+      update_view: 更新视图
+      min: 最小：
+      max: 最大：
     event_feed:
-      latest_events: 事情发展的如何
+      latest_events: 都发生了些什么？
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: （正在处理上传图片……）
     index:
-      no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
-      add_listing_link_text: ~
-      available_on_the_app_store: ~
-      private_listing_notification: ~
-      open_listing: ~
-      open_listings: ~
-      private_listing_notification_log_in: ~
-      is: ~
-      are: ~
-      what_do_you_need: ~
-      post_new_listing: ~
+      no_listings_with_your_search_criteria: 我们无法找到任何匹配你的搜索条件的结果。
+      no_listings_notification: "没有信息。%{add_listing_link}"
+      add_listing_link_text: 发布新的信息
+      open_listing: 公开的信息
+      open_listings: 公开的信息
+      private_listing_notification_log_in: 登录
+      is: 是
+      are: 是
+      what_do_you_need: 想找什么？请输入关键字。
+      post_new_listing: 发布信息
       are_offering: 提议
-      add_news_item: ~
-      inform_others_about_events: ~
+      add_news_item: 添加物品
       lend_rent_help_carpool: 出售，出租，帮助，拼车
       loading_more_content: 正在加载更多内容
       more_events: 更多事件…
       news: 新闻
       no_news: "没有新闻\n"
       more_news: 更多新闻
-      or: 或者
+      or: 和
       or_see_what_the_others: 或者看看其他的……
       recent_events: 最近的事件
       requesting: 需求
-      teaser_text: "Kassi是针对 %{community} 社区的服务。在这里您可以租售或赠送物品，提供或请求帮助，拼车。您能出借某些东西或者帮助他人么？"
       tell_it_here: 在这里说出来！
-      welcome_to_new_kassi: 欢迎来到新Kassi!
-      no_reviews: ~
-      no_image: ~
-      filter: ~
-      this_is_private_community: ~
+      welcome_to_new_kassi: "欢迎来到新%{service_name}!"
+      no_reviews: 没有评论
+      no_image: 没有图片
+      filter: 过滤
+      this_is_private_community: 查看内容前需要先登录。
     invitation_form:
-      invite_your_friends: 邀请您的朋友加入Kassi！
-      invite_your_neighbors: ~
+      invite_your_friends: "邀请您的朋友加入%{service_name}！"
       email: 朋友的Email地址
       message: 一条私人消息：
       send_invitation: 发送邀请
       add_as_many_emails_as_you_want: ~
-      invitation_emails_field_placeholder: ~
+      invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: ~
-      errors_in_emails: ~
+      errors_in_emails: 检查你新添的电邮地址是否有效。如果你添加了多个地址，确保用逗号分隔。
     list_item:
-      review: ~
-      reviews: ~
+      review: 评论
+      reviews: 评论
     news_item:
       show_less: 显示更少
       show_more: "显示更多\n"
-    poll_form:
-      poll: ~
-      comment: 评论
-      answer: 答案
-      results: 结果
-      poll_answer: 回答
-      poll_answers: 答案
     profile_info_empty_notification:
       add_your_info: 添加联系信息
       add_a_profile_picture: 添加头像
@@ -954,67 +990,62 @@ zh:
       comment: 评论
       comments: 评论
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
-      map_button: ~
-      grid_button: ~
-      list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      show: 过滤：
+      search: 搜索
+      map: 地图显示
+      list: 列表显示
+      map_button: 地图
+      grid_button: 网格
+      list_button: 列表
+      all_listing_types: 所有的展示方式
+      all_categories: 全部分类
   infos:
     about:
-      default_about_text_title: ~
+      default_about_text_title: 什么是Sharetribe？
       default_about_text: ~
-      click_here_link_text: ~
+      click_here_link_text: 点击这里
+    how_to_use:
+      default_title: 它是如何工作的
+      default_content: "你可以在这里找到%{marketplace_name}如何工作的信息。"
   layouts:
-    no_tribe:
-      inbox: ~
-      settings: ~
-      feedback: ~
     admin:
-      admin: Kassi控制面板
-      back_to_kassi: 回到Kassi
-      tribe_info: ~
-      news_items: 新文章
-      polls: ~
+      admin: "%{service_name}控制面板"
+    no_tribe:
+      inbox: 收件箱
+      settings: 设置
+      feedback: 联系我们
     application:
       join_this_community: ~
-      read_more: ~
-      feedback: 向Kassi员工发送反馈
+      read_more: 读取更多
+      feedback: 给我们提供反馈？
       default_feedback: 有任何意见，建议，或者程序漏洞需要提交
       feedback_forum: 反馈论坛
       feedback_handle: 反馈
-      give_feedback: 给Kassi反馈
-      keywords: 帮助，出售物品，顺风车，合用汽车，住房，租房，帮忙，提议，请求，出租，交易，交换，买入，卖出，买，卖，给予，赠送，Kassi，环保，社区，网上社区
-      meta_description: Kassi给人们提供了一个网上社区平台服务。用户可以通过Kassi买卖物品，合用汽车，或者以各种方式彼此帮助。
+      give_feedback: 联系我们
       or_check_our: ……或者查看我们的
       send_feedback_to_admin: 发送反馈
       to_see_what_others_have_suggested: 看看其他用户的推荐
       your_email_address: 您的E-mail地址（非必需）
-      connect: ~
-      invite_your_friends: ~
-      invite_your_neighbors: ~
-      invite_your_friends_description: ~
+      connect: 注册
+      invite_your_friends: 邀请朋友！
+      invite_your_neighbors: 邀请邻居！
+      invite_your_friends_description: "越多人加入%{service_name}，网站就越有用。"
       invite_your_friends_invite_only_description: ~
-      join_without_facebook: ~
-      join_without_facebook_link: ~
+      join_without_facebook: "或者选择%{join_without_facebook_link}"
+      join_without_facebook_link: 不使用Facebook帐号注册
     conversations:
       messages: 私信
       notifications: 通知
       received: 已接收
       sent: 已发送
-    dashboard:
-      title: Kassi—在您的当地社区中分享物品，互相帮助以及拼车@
     global-header:
-      select_language: ~
+      select_language: 选择语言
     infos:
-      about: 什么是Kassi？
-      how_to_use: 如何使用Kassi
-      info_about_kassi: 关于Kassi
+      about: 关于我们
+      how_to_use: 如何使用
+      info_about_kassi: "关于%{service_name}"
       news: 新闻
-      register_details: 注册详细信息
+      register_details: 隐私信息
       terms: 使用条款
     logged_in:
       admin: 管理员
@@ -1041,10 +1072,10 @@ zh:
       settings: 设置
       sign_up: 注册
     notifications:
-      listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
-      something_went_wrong: ~
+      listing_could_not_be_saved: "信息不能保存。请重试。如果问题依旧存在，请%{contact_admin_link}。"
+      contact_admin_link_text: 联系管理员
+      test_welcome_email_delivered_to: "测试邮件已发送到%{email}。"
+      something_went_wrong: 出错了
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，您需要确认您的Email地址。
@@ -1053,46 +1084,46 @@ zh:
       comment_sent: 评论已发送
       confirmation_link_is_wrong_or_used: 确认链接以被使用或失效。请尝试登录，如果问题依然存在请发送反馈。
       additional_email_confirmed: 你输入的邮箱已经确认。你可以再输入一次加入社区
-      could_not_get_email_from_facebook: ~
-      create_new_listing: ~
+      could_not_get_email_from_facebook: 不能从Facebook获取邮件地址，没有邮件地址则无法创建帐号。
+      create_new_listing: 发布另一条消息
       create_one_here: 在此创建
       email_confirmation_sent_to_new_address: 电子邮件确认信已经送往你的新地址。
-      email_not_found: 无法在Kassi中找到您所提供的邮箱地址
+      email_not_found: "无法在%{service_name}中找到您所提供的邮箱地址。"
       error_with_session: 内容错误
       feedback_considered_spam: 格式错误，评价失败。请重试或者使用论坛评价。
       feedback_not_saved: 评价发送失败。
-      feedback_saved: 感谢您的评价！
-      feedback_sent_to: 发送评价至
-      feedback_skipped: 无评价
+      feedback_saved: 感谢您的评价！我们会尽快给你回复。
+      feedback_sent_to: "发送评价给%{target_person}"
+      feedback_skipped: 跳过评价
       invitation_cannot_be_sent: 邀请未被发出
       invitation_sent: 邀请成功发出
       inviting_new_users_is_not_allowed_in_this_community: 邀请新用户在此社区不被允许。
       login_again: 请重新登录。
-      login_failed: 登录失败，请输入正确的用户凭证
-      account_creation_successful: ~
-      account_deleted: ~
-      login_successful: "欢迎来到Kassi, "
-      logout_successful: 您已登出Kassi，欢迎再次使用！
+      login_failed: 登录失败，请输入正确的用户名和密码
+      account_creation_successful: "%{person_name}，欢迎使用%{service_name}！"
+      account_deleted: 你的帐号已被删除。
+      login_successful: "欢迎你，%{person_name}！"
+      logout_successful: "您已登出%{service_name}，欢迎再次使用！"
       news_item_created: 创建文章
       news_item_creation_failed: "文章创立失败\n"
       news_item_update_failed: 文章更新失败
       news_item_updated: 文章更新
       news_item_deleted: 移除文章
-      offer_accepted: 被接受的提议
-      offer_confirmed: ~
-      offer_closed: 已关闭的提议
-      listing_created_successfully: ~
-      offer_rejected: 已拒绝的提议
-      offer_canceled: ~
-      listing_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: 只有Kassi管理员有权限进入此区域
+      offer_accepted: 提议被接受
+      offer_confirmed: 供应已确认
+      offer_closed: 提议已关闭
+      listing_created_successfully: "成功发布了新信息。%{new_listing_link}"
+      offer_rejected: 提议被拒绝
+      offer_canceled: 提议已取消
+      listing_updated_successfully: 信息更新成功
+      only_kassi_administrators_can_access_this_area: "只有%{service_name}管理员有权限进入此区域"
       only_listing_author_can_close_a_listing: 仅作者可以关闭列表
       only_listing_author_can_edit_a_listing: 仅作者可以编辑列表
-      payment_successful: ~
-      payment_canceled: ~
-      error_in_payment: ~
+      payment_successful: 付款成功
+      payment_canceled: 付款已取消
+      error_in_payment: 付款错误。如果你还没有完成付款，请重试。如果已完成，请联系我们。
       cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      payment_waiting_for_later_accomplishment: 当你完成支付后，我们会通知卖家，同时你会在电子邮件中收到收据。
       password_recovery_sent: 更改密码的说明已发送至您的电子邮箱。
       person_activated: 用户已激活
       person_deactivated: 用户已停用
@@ -1105,87 +1136,87 @@ zh:
       poll_updated: ~
       poll_deleted: ~
       read_more: 阅读更多！
-      registration_considered_spam: ~
+      registration_considered_spam: 注册失败，请从发导航菜单发送反馈信息并说明“邮件错误”
       reply_cannot_be_empty: 您不能发送空白信息
       reply_sent: 回复发送成功
       request_accepted: 您的请求已被接受
-      request_confirmed: ~
+      request_confirmed: 请求已完成。
       request_closed: 请求已关闭
-      request_rejected: 已拒绝的请求
-      request_canceled: ~
+      request_rejected: 请求已拒绝
+      request_canceled: 请求已取消
       message_sent: 信息已发出
       this_content_is_not_available_in_this_community: 此内容在此社区中不可用
       unknown_error: 发生未知错误。请使用反馈链接向我们提供细节。
       update_error: 更新您的信息时发生错误，请重试
-      welcome_message: "欢迎来到Kassi！Kassi给来自%{community}社区的人们提供了一个网上社区平台服务。用户可以通过Kassi买卖物品，合用汽车，或者以各种方式彼此帮助。"
       you_are_not_allowed_to_give_feedback_on_this_transaction: 您没有对此事件发表评价的权限
       you_are_not_authorized_to_do_this: 您没有权限进行此操作
       you_are_not_authorized_to_view_this_content: 您没有查看此内容的权限
-      send_instructions: ~
+      send_instructions: 几分钟内你将会收到一封电子邮件告知你重置密码。
       you_cannot_reply_to_a_closed_offer: 您不能对已关闭的提议发表评论
       you_cannot_reply_to_a_closed_request: 您不能回复已关闭请求
       you_cannot_send_message_to_yourself: 你不能给你自己发送信息
-      you_followed_listing: 你不在这个列表中
+      you_followed_listing: 你没有关注这条信息
       you_have_already_given_feedback_about_this_event: 您已经对此事件发表评价
       you_are_now_member: 你已成功的加入到社区
       you_are_already_member: 你已经是...社区的会员了，欢迎回来
-      you_must_log_in_to_create_new_listing: ~
+      you_must_log_in_to_create_new_listing: "必须登录%{service_name}才能创建新物品。如果你没有帐号，可以点击%{sign_up_link}注册。"
       additional_email_confirmed_dashboard: 你的邮箱现在已经被确认了
       you_must_log_in_to_give_feedback: 您必须登录以评价
       you_must_log_in_to_invite_new_users: 您必须登录以邀请新用户
       you_must_log_in_to_send_a_comment: 您必须登录才能发表评论
-      you_must_log_in_to_send_a_message: 您必须登录Kassi以向其他用户发送信息
+      you_must_log_in_to_send_a_message: "您必须先登录%{service_name}，然后才可以向其他用户发送信息。"
       you_must_log_in_to_view_this_content: 您必须登录以查看此内容
       you_must_log_in_to_view_this_page: 你必须登录才能查看此页面
-      you_must_log_in_to_view_your_inbox: 您必须登录Kassi以查看您的收件箱
-      you_must_log_in_to_view_your_settings: 您必须登录Kassi以查看您的设置
-      you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_view_your_inbox: "您必须登录%{service_name}以查看您的收件箱。"
+      you_must_log_in_to_view_your_settings: "您必须登录%{service_name}以查看您的设置。"
+      you_must_log_in_to_add_news_item: "你必须登录%{service_name}才能新增一篇文章。"
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: 您需要先确认账户
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: 你必须填写所有表单项
       you_unfollowed_listing: 您不再关注此列表
       joining_community_failed: 加入社区失败
       can_not_login_with_private_user: ~
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
+      can_not_delete_email: 你不能移除邮件地址
+      user_does_not_have_email_to_delete: 你想要移除的邮件地址不存在
+      email_deleted: 邮件已删除
+      payment_details_add_successful: 成功添加支付信息
+      payment_details_add_error: 无法添加支付信息
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: 样式表正在重新编译。请过一会重新加载页面。
     settings:
       account: 帐号
       notifications: 通知
       profile: 个人资料
       settings: 设置
-      payments: ~
+      payments: 付款
   listings:
     bubble_listing_not_visible:
       listing_not_visible: 您无权查看此列表。
     comment:
-      wrote: ~
-      send_private_message: ~
+      wrote: 写到
+      send_private_message: "发送私人信息给%{person}"
     comment_form:
-      ask_a_question: ~
+      ask_a_question: 评论该条信息或者询问更多细节。所有其他用户都能看到你的评论。
       log_in: 登录
       send_comment: 发送评论
       to_send_a_comment: 以发送新的评论
       write_comment: 发表新的评论：
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: 你不能发表新的评论，因为这条信息已经关闭。
       you_must: 您必须
       subscribe_to_comments: 若有新评论或更新，通知我
     edit:
-      edit_listing: ~
+      edit_listing: 编辑发布的信息
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
-      move_to_top: ~
+      close_listing: 关闭发布的信息
+      edit_listing: 编辑发布的信息
+      reopen_listing: 重新开放发布的信息
+      move_to_top: 移到主页顶端
       show_in_updates_email: ~
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
+      show_in_updates_email_loading: 加载……
+      show_in_updates_email_error: 不能访问服务器。页面刷新后重试。
       show_in_updates_email_success: ~
     follow_links:
       follow: 关注此列表
@@ -1193,7 +1224,7 @@ zh:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: 选择一个……
       departure_time:
         at: 在
         departure_time: 出发时间
@@ -1204,10 +1235,10 @@ zh:
       destination:
         destination: 目的地
       form_content:
-        favor: 提供帮助
+        favor: 帮助
         housing: 租房
         item: 物品
-        offer_something: 列出您的物品和技能!
+        offer_something: 出售物品
         request_something: 说出你的需要！
         rideshare: 拼车
         i_want_to_offer: 我想提供
@@ -1221,23 +1252,23 @@ zh:
         no_file_selected: 未选择文件
         remove_image: 移除图片
         select_file: 选择文件
-        removing: ~
-        processing: ~
-        loading_image: ~
-        this_may_take_a_while: ~
-        percentage_loaded: ~
-        uploading_failed: ~
-        file_too_large: ~
+        removing: 移除中……
+        processing: 处理中……
+        loading_image: 正在加载……
+        this_may_take_a_while: （这可能会花一些时间）
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: 图片加载出错
+        file_too_large: 文件太大
         accepted_formats: "图片必须是GIF,JPG或PNG格式"
       location:
         location: 地点
       price:
-        price: ~
-        per: ~
-        per_day: ~
-        mass: ~
-        time: ~
-        long_time: ~
+        price: 价格
+        per: 每
+        per_day: 每天
+        mass: 件，公斤，升，平方米，……
+        time: 小时，天，月，……
+        long_time: 周，月，……
         after_service_fee_you_will_get: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
@@ -1245,60 +1276,60 @@ zh:
         location: 地点
         origin: 来源
       send_button:
-        save_listing: ~
+        save_listing: 保存发布的信息
       share_type:
         select: 选择
         borrow: 借入
         buy: 购买
         give_away: 赠送
         lend: 借出
-        offer_type: 提议类型
+        offer_type: 供应的类型
         receive: 免费获取
         rent: 出租
         rent_out: 已出租
         request_type: 请求类型
         sell: 出售
-        share_for_free: ~
-        accept_for_free: ~
-        trade: 交易
+        share_for_free: 免费共享
+        accept_for_free: 免费接受
+        trade: 交换
       tag_list:
         comma_separate: （用逗号隔开）
         tags: 标签
       title:
-        listing_title: ~
+        listing_title: 标题
       valid_until:
         valid_until: 截止日期
       valid_until_radio_buttons:
         for_the_time_being: 一直有效
       visibility:
         all_communities: ~
-        this_community: "仅限%{community} 用户"
+        this_community: "仅限%{service_name} 用户"
         visibility: 公开度
       privacy:
-        privacy: ~
-        private: ~
-        public: ~
+        privacy: 隐私
+        private: 私有的（只对登录用户可见）
+        public: 公共的（对所有用户可见）
     help_texts:
-      help_share_type_title: 提议或者请求的类型
+      help_share_type_title: 供给或者请求的信息的类型
       help_tags_title: 标签
       help_valid_until_title: 截止日期
     index:
       all_categories: 全部分类
-      all_offer_types: 所有提议的类型
-      all_request_types: 所有请求的类型
+      all_offer_types: 供给信息的类型
+      all_request_types: 所有请求信息的类型
       category: 分类
-      did_not_found_what_you_were_looking_for: 没找到您需要的？
-      favors: 帮助
+      did_not_found_what_you_were_looking_for: 没找到您需要的东西？
+      favors: 服务
       housing: 租房
       items: 物品
       list_view: 列表视图
-      listings: 清单
-      map_view: 由指南针检视切换回到地图检视
+      listings: 信息列表
+      map_view: 地图视图
       offer_something: 让其他人知道
-      offer_type: 提议类型
-      offers: 提议
+      offer_type: 供应的类型
+      offers: 供应
       request_something: 说出你的需要！
-      request_type: 需求类型
+      request_type: 请求信息的类型
       requests: 需求
       rideshare: 拼车
       search_verb: 搜索
@@ -1307,7 +1338,7 @@ zh:
     left_panel_link:
       borrows: 借入
       buys: 购买
-      favors: 帮助
+      favors: 服务
       give_aways: 送出
       housings: 租房
       items: 物品
@@ -1317,163 +1348,169 @@ zh:
       rents: 出租
       rideshares: 拼车
       sells: 出售中
-      share_for_frees: ~
-      accept_for_frees: ~
+      share_for_frees: 免费共享
+      accept_for_frees: 免费接受
       trades: 交易中
     listing_actions:
-      booking_from: ~
-      booking_to: ~
+      booking_from: 来自
+      booking_to: 到
+      how_paypal_works: PayPal如何工作
     new:
-      post_a_new_listing: ~
-      listing: ~
-      selected_category: ~
-      selected_subcategory: ~
-      selected_transaction_type: ~
-      select_category: ~
-      select_subcategory: ~
-      select_transaction_type: ~
-      you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
+      post_a_new_listing: 发布信息
+      listing: 信息
+      selected_category: "分类：%{category}"
+      selected_subcategory: "子分类：%{subcategory}"
+      selected_transaction_type: "信息类型：%{transaction_type}"
+      select_category: 选择分类
+      select_subcategory: 选择子分类
+      select_transaction_type: 选择信息类型
+      you_need_to_fill_payout_details_before_accepting: "在发布列表前你需要填写支出详情。点击%{payment_settings_link}来填写详情。"
+      contact_admin_link_text: 联系管理员
+      community_not_configured_for_payments: ~
+      payment_settings_link: 付款设置
+      community_not_configured_for_payments_admin: ~
     please_comment: 评论
     reply_link:
-      listing_closed: ~
+      listing_closed: 发布的信息已关闭
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
+      add_your_phone_number: 添加你的电话号码
+      add_profile_picture: 添加个人资料图片
       comments: 评论
-      contact_by_phone: ~
-      contact: ~
+      contact_by_phone: 联系电话
+      contact: 联系
       favor_offer: 已有帮助
       favor_request: 已有请求
-      inquiry: ~
-      item_offer_trade: ~
-      item_request_trade: ~
+      inquiry: 查询
+      item_offer_trade: 交换供给信息
+      item_request_trade: 交换请求信息
       no_description: 无描述
-      no_image: ~
-      no_reviews: ~
-      offer: 提议
-      listing_created: ~
-      open_until: ~
+      no_image: 没有图片
+      no_reviews: 没有收到评论
+      offer: 供应
+      listing_created: 已创建
+      open_until: "开放至%{date}"
       feedback: 反馈
-      qr_code: ~
+      qr_code: QR码
       request: 请求
       rideshare_offer: 提供顺风车
       rideshare_request: 需要顺风车
       send_private_message: 发送个人短信
       share_types: 共享类型
-      share_types_offer: 提议类型
-      share_types_request: 请求类型
+      share_types_offer: 供应信息的类型
+      share_types_request: 请求信息的类型
       tags: 标签
       time: 时间
       times: 次数
-      times_viewed: 已阅
-      processing_uploaded_image: ~
+      times_viewed: 浏览的次数
+      processing_uploaded_image: （正在处理上传图片……）
       price_excludes_vat: ~
-      listing_created_at: ~
+      listing_created_at: 信息已创建
       price:
-        per_quantity_unit: ~
-        per_day: ~
+        per_quantity_unit: "每%{quantity_unit}"
+        per_day: 每天
     verification_required:
-      verification_required: ~
+      verification_required: 要求验证
   listing_conversations:
     preauthorize:
-      details: ~
-      by: ~
-      payment: ~
-      exp: ~
+      details: 详情
+      by: "由%{author}发布的%{listing}"
+      payment: 付款
+      exp: 过期：
       you_will_be_charged: ~
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: 日
+      days: 天
+      price_per_day: "每天：%{price}"
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: 查看。
   mapview:
     index:
       all_categories: 全部分类
-      all_offer_types: 所有提议类型
-      all_request_types: 所有请求类型
+      all_offer_types: 所有供应信息的类型
+      all_request_types: 所有请求信息的类型
       category: 分类
-      did_not_found_what_you_were_looking_for: 没找到您需要的？
+      did_not_found_what_you_were_looking_for: 没找到您需要的东西？
       favors: 帮助
       housing: 租房
-      items: 项目
+      items: 物品
       list_view: 列表视图
       map_view: 地图视图
       offer_something: 让其他人知道
-      offer_type: 提议类型
-      offers: 提议
+      offer_type: 供应信息的类型
+      offers: 所有的供应信息
       request_something: 说出你的需要！
-      request_type: 请求类型
-      requests: 请求
+      request_type: 请求信息的类型
+      requests: 所有请求的信息
       rideshare: 拼车
       search_verb: 搜索
       you_have_something_others_do_not: 想卖点什么？
     please_comment: 评论
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: 移除文章
   okl:
     member_id: "会员号\n"
-    member_id_or_email: ~
+    member_id_or_email: 会员ID或者邮箱地址
   payments:
     new:
-      new_payment: ~
-      continue: ~
-      payment_receiver: ~
-      sum: ~
-      commission_will_be_added: ~
+      new_payment: 新的付款
+      continue: 继续
+      payment_receiver: 付款接收方：
+      sum: 付款总金额：
+      commission_will_be_added: 将被附加10%的服务费
     form:
-      total: ~
-      service_charge: ~
-      product: ~
-      price: ~
-      price_for: ~
-      continue_to_pay: ~
-      invoice: ~
-      service_fee: ~
-      you_will_get: ~
+      total: 总共
+      service_charge: 服务收费
+      product: 产品：
+      price: 总和：
+      price_for: "%{payer_given_name}的价格："
+      continue_to_pay: 继续支付
+      invoice: 发票
+      service_fee: "%{service_name}服务费："
+      you_will_get: 你将获得：
     braintree:
       terms:
         braintree_terms_also_included: ~
         terms_link_text: ~
   paypal_accounts:
-    payout_info_title: ~
-    paypal_account_email_connected: ~
-    paypal_billing_agreement_made: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
-    connected_account: ~
+    payout_info_title: 支付信息
+    paypal_account_email_connected: "<del>1. 连接PayPal 帐号</del> 完成！"
+    paypal_billing_agreement_made: "<del>2. 授权%{service_name}  对交易收费</del> 完成！"
+    you_are_ready_to_accept_payments: 你已准备好接受付款！
+    commission: "%{commission}%"
+    connected_account: "PayPal帐号“%{email}”连接成功。"
+    change_account: 更改帐户
+    missing: ~
+    from_your_payment_settings_link_text: 付款设置
     new:
-      payout_info_text: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
+      payout_info_you_need_to_connect: "要接受付款你需要连接你的PayPal帐号和%{service_name}。"
+      payout_info_text: 请完成下列两个步骤来连接你的帐号。
+      contact_admin_link_text: 请联系管理员
+      admin_account_not_connected: ~
+      paypal_account_email: "1. 连接你的 PayPal 帐号"
+      paypal_account_email_placeholder: 你的PayPal电邮地址
       paypal_account_email_info_text: ~
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
-      connect_paypal_account: ~
-      paypal_account_billing_agreement: ~
+      create_paypal_account: 这里
+      upgrade_paypal_account: 在这里升级你的帐号。
+      connect_paypal_account: 连接PayPal帐号
+      paypal_account_billing_agreement: "2. 授权%{service_name}  对交易收费"
       paypal_account_billing_agreement_info: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
-      could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
-      something_went_wrong: ~
+      billing_agreement_description: "授权%{service_name}收取交易费。"
+      billing_agreement: 授权
+      permissions_not_granted: 没有授权连接PayPal帐号。
+      could_not_fetch_redirect_url: 不能获得连接到PayPal的重定向链接。
+      paypal_not_enabled: "PayPal 支付没有启用。"
+      billing_agreement_canceled: 账单协议已取消
+      billing_agreement_not_accepted: 你没有在PayPal接受账单协议。
+      billing_agreement_wrong_account: PayPal帐号不匹配。请使用与你在第一步连接的帐号相同的PayPal帐号。
+      something_went_wrong: 出错了。请再试一次。如果这个问题仍旧存在，请联系服务支持：
+      account_not_verified: 你还没有验证你的PayPal帐号。要继续请先登录paypal.com并确认你的帐号。
+      account_restricted: ~
+  paypal:
+    checkout_with_paypal: 用PayPal结帐
+    cancel_succesful: PayPal付款成功取消
+    transaction:
+      commission_payment_name: "%{listing_title}的佣金支付"
+      commission_payment_description: "市场%{service_name}对%{listing_title}收取交易佣金。"
+    wait_while_loading: 请等待。
+    chatting_with_paypal: 我们正在与PayPal聊天。
   people:
-    index:
-      loading_more_members: ~
-      meet_the_people: ~
-      you_are_the_only_member: ~
-      here_are_the_members: ~
-      wanna_see_more_folks: ~
-      invite_people_you_know: ~
-      there_are_x_members: ~
-      to_see_the_list_log_in: ~
-      log_in_link: ~
     edit_links:
       activate: 激活
       deactivate: 停用
@@ -1481,13 +1518,11 @@ zh:
       feedback_description_title: 反馈
       help_captcha_title: 你是人类么？
       help_invitation_code_title: 您需要被邀请才能加入
-      terms_title: Kassi使用条款
-      trustcloud_description_title: ~
-      trustcloud_description_text: ~
+      terms_title: "%{service_name}的使用条款"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
-      this_person_is_not_active_in_kassi: 此用户处于冻结状态
+      this_person_is_not_active_in_kassi: "此用户在%{service_name}网站上处于冻结状态"
       inactive_description: 此用户已停用。您不能联系此用户或评价他们的商品列表。
     new:
       captcha_incorrect: 验证码错误。请输入下图中显示的单词
@@ -1503,37 +1538,37 @@ zh:
       i_accept_the: 我接受
       invalid_invitation_code: 邀请码无效。
       invitation_code: 邀请码：
-      not_required: ，不要求
-      organization_name: ~
+      not_required: ，不是必须的
+      organization_name: 组织名称
       password_again: 确认密码：
-      show_my_name_to_others: 对其他Kassi用户显示真实姓名
-      sign_up: 在Kassi新建账户
+      show_my_name_to_others: "对其他%{service_name}用户显示真实姓名"
+      sign_up: "在%{service_name}新建账户"
       terms: 使用条款
       username_is_in_use: 此用户名已被使用。
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
       visible_only_to_you: 只有您和社区管理员可见
       visible_to_everybody: 所有人可见
-      create_account_with_facebook: ~
-      OR: ~
-      signup_with_email: ~
+      create_account_with_facebook: 用Facebook帐号注册
+      OR: 或
+      signup_with_email: 用邮件注册
     not_member:
-      explanation_text: "您现在属于%{community} 社区。您试图查看另一个社区的用户资料。Kassi现在并不支持多重社区身份，所以您可以通过%{community} 社区查看这个用户的资料。我们正在努力实现多重社区身份，以后的更新将会完善这个功能。"
-      read_more_about_kassi_communities: 阅读更多关于Kassi社区
+      explanation_text: "您正在浏览%{community} 社区。您试图查看另一个社区的用户资料。所以您不可以在%{community}社区查看这个用户的资料。"
+      read_more_about_kassi_communities: 阅读更多关于这个网站
       this_user_does_not_belong_to_this_community: "此用户不属于%{community} 社区"
     profile_feedback:
       as_expected: 符合期望
       exceeded_expectations: 比期望的好很多
       grade: 评分：
-      and_gave_following_feedback: ~
-      less_than_expected: 比期望的差
-      slightly_better_than_expected: 比期望的略好
-      slightly_less_than_expected: 比期望的略差
+      and_gave_following_feedback: 并且给出以下反馈
+      less_than_expected: 差
+      slightly_better_than_expected: 较好
+      slightly_less_than_expected: 较差
     profile_listings:
-      show_also_closed: 显示已关闭的交易
-      show_only_open: 仅显示开放交易
-      no_image: ~
+      show_also_closed: 显示已关闭的
+      show_only_open: 仅显示开放的
+      no_image: 没有图片
     show:
-      contact: ~
+      contact: "联系%{person}"
       about_me: 关于我：
       add_description: 说说你自己
       add_location: 添加地点
@@ -1542,11 +1577,8 @@ zh:
       as_expected: 符合期望
       edit_profile_info: 编辑您的资料
       exceeded_expectations: 超过预期
-      positive: ~
-      hide_description: 显示更少
-      joined_this_community: "已加入这个社区 %{time_ago}"
-      was_last_seen: 被看见
-      was_invited_by: "被邀请 %{time_ago}"
+      positive: 正面的
+      hide_description: 隐藏描述
       less_than_expected: 比期望的差
       phone_number: 电话号码：
       show_all_feedback: 显示所有评价
@@ -1555,30 +1587,30 @@ zh:
       slightly_better_than_expected: 超过预期
       slightly_less_than_expected: 比期望的差
       what_are_these: 这些是什么？
-      review: ~
-      reviews: ~
-      listing: ~
-      listings: ~
-      open_listing: ~
-      open_listings: ~
-      no_listings: ~
-      no_open_listings: ~
-      no_reviews: ~
-      show_all_listings: ~
-      show_all_open_listings: ~
-      show_all_reviews: ~
+      review: 收到的评论
+      reviews: 收到的评论
+      listing: 发布的信息
+      listings: 发布的信息
+      open_listing: 公开的信息
+      open_listings: 公开的信息
+      no_listings: 没有信息
+      no_open_listings: 非公开的信息
+      no_reviews: 没有评论
+      show_all_listings: 显示所有已发布的信息
+      show_all_open_listings: 显示所有公开的信息
+      show_all_reviews: 显示所有评论
       trustcloud: ~
     followed_people:
-      you_follow_plural: ~
-      you_follow_singular: ~
-      they_follow_plural: ~
-      they_follow_singular: ~
-      show_all_followed_people: ~
-      no_followed_people: ~
+      you_follow_plural: "你关注了%{count}个人"
+      you_follow_singular: "你关注了%{count}个人"
+      they_follow_plural: "%{count}个关注者"
+      they_follow_singular: "%{count}个关注者"
+      show_all_followed_people: 显示所有关注者
+      no_followed_people: 没有关注者
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: 正在关注
+      follow: 关注
+      unfollow: 取消关注
   search:
     show:
       all_results: 所有结果
@@ -1594,104 +1626,109 @@ zh:
       create_new_account: 创建新账户
       i_forgot_my_password: 忘记用户名或密码
       login: 登录
-      login_to_kassi: 登录
-      connect_your_facebook_to_kassi: ~
-      facebook_account: ~
-      log_in_to_link_account: ~
-      you_can_also_create_new_account: ~
+      login_to_kassi: "登录%{service_name}"
+      connect_your_facebook_to_kassi: "连接你的Facebook帐号到%{service_name}"
+      facebook_account: Facebook帐号：
+      log_in_to_link_account: "如果你已经拥有一个%{service_name}帐号，登录并关联你的Facebook帐号。"
+      you_can_also_create_new_account: "如果你没有%{service_name}的帐号，访问%{accont_creation_link}用你的Facebook登录信息来创建一个帐号。"
       account_creation_link_text: 点击这里
-      cancle_facebook_connect: ~
+      cancle_facebook_connect: "如果你不想关联此帐号，你可以%{cancel_link}。"
       facebook_cancel_link_text: 取消
       log_in_with_your_facebook_account: 用你FACEBOOK账号登录
       or_sign_up_with_your_username: 用你的账号和密码
-      we_will_not_post_without_asking_you: ~
+      we_will_not_post_without_asking_you: 我们永远不会在Facebook上未经你的允许发布任何信息
     password_forgotten:
       email: E-mail
       password_recovery_instructions: 输入注册时的E-mail地址，您会受到您的用户名及更改密码的说明。
       request_new_password: 请求新密码
       change_your_password: 更改你的密码
     confirmation_pending:
-      welcome_to_kassi: 欢迎来到Kassi！
+      welcome_to_kassi: "欢迎来到%{service_name}！"
       check_your_email: 查看您的收件箱
       resend_confirmation_instructions: 再次发送确认信
       your_current_email_is: "你的的电子邮箱是%{email}。"
       change_email: 改变
       confirm_your_email: 确认你的邮箱
       account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
+      account_confirmation_instructions_title_admin: 欢迎来到你的市场！
+      your_marketplace_has_now_been_created: ~
+      account_confirmation_instructions_admin: 你很快会收到一封邮件要求你点击确认刚才输入的邮件地址。在确认邮件之后你就可以配置你的市场了。
   settings:
     account:
       change: 修改
       confirm_new_password: 确认新密码
       delete_account: 删除账号
-      delete_account_button: ~
-      delete_account_confirmation_popup: ~
-      email_addresses: ~
+      delete_account_button: 永久删除我的帐号
+      delete_account_confirmation_popup: 你确认要永久删除你的用户帐号及其相关数据？帐号删除无法恢复。
+      email_addresses: 电子邮件地址
       new_email: 新Email地址
-      instructions_to_delete_account: ~
-      contact_admin: ~
+      delete_all_memberships: "如果你删除你的帐号，你将不能在以下市场中使用它：%{marketplaces}"
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: 因为你有正在进行中的交易，所以你的帐号不能被删除。请在删除帐号前完成所有交易。
       new_password: 新密码
       save: 保存
       these_fields_are_shown_only_to_you: 除非提供了您的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对您可见。
+      email_already_confirmed: 你的电邮地址已经确认。
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        address_title: 地址
+        remove_title: 移除
+        remove_confirmation: 你确定要移除这个电子邮件地址吗？
+        receive_notifications_title_desktop: 接收通知
+        receive_notifications_title_mobile: 接收通知
+        receive_notifications_new_title_mobile: 接收通知
+        add_new_with_plus: +添加新的电子邮件地址
+        add_new_cancel: 取消
+        confirmation_title_mobile: 确认：
+        confirmation_title_desktop: 确认
+        confirmation_resend: 重新发送
+        status_confirmed: 已确认
+        status_pending: 待定
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: 寄给我一封Email通知当…
       newsletters: 简报
       community_updates: ~
       email_about_accept_reminders: …我忘记确认一个活动
-      email_about_confirm_reminders: ~
+      email_about_confirm_reminders: ……我忘记了确认已完成的请求
       email_about_new_comments_to_own_listing: …有人评论了您的商品或请求
       email_about_new_messages: …有人发给我一条消息
       email_about_new_received_testimonials: …有人给我了一条评价
       email_about_testimonial_reminders: …我忘记评价一个活动
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: 不要给我发送更新的电子邮件
+      email_daily_community_updates: 如果有新发布的信息，<b>每日</b>发送给我一封更新的邮件
+      email_weekly_community_updates: 如果有新发布的信息，<b>每周</b>发送给我一封更新的邮件
+      do_not_email_community_updates: 不要给我发送有更新消息的电子邮件
       email_when_conversation_accepted: …有人接受了您的商品或请求
       email_when_conversation_rejected: …有人拒绝了您的商品或请求
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
-      email_about_payment_reminders: ~
-      email_about_new_listings_by_followed_people: ~
+      email_about_completed_transactions: ……有人将我的提议或请求标记为已完成
+      email_about_new_payments: ……我收到一笔新的付款
+      email_about_payment_reminders: ……我忘记了支付
+      email_about_new_listings_by_followed_people: ……我关注的人发布了一则新的信息
       unsubscribe_succesful: 退订成功
       unsubscribe_info_text: ~
       settings_link: 设置
       homepage_link: 主页
-      unsubscribe_unsuccesful: ~
+      unsubscribe_unsuccesful: 取消订阅出错
       unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: 关于你：
       city: 城市：
       family_name: 姓：
       given_name: 名：
-      first_name_with_initial: ~
-      first_name_only: ~
+      first_name_with_initial: （只将首字母显示给其他用户）
+      first_name_only: （不显示给其他用户）
       location_description: 您可以选择提供您的准确住址或仅仅提供邮政编码。请至少填写邮政编码。您也可以通过地图选择一个地点。
       phone_number: 电话号码：
-      profile_picture: ~
+      profile_picture: 个人头像
       postal_code: 邮政编码：
       profile_page: 在您的个人信息页面
-      profilemap: 地图
+      profilemap: 地图视图
       street_address: 地点：
-      these_fields_are_shown_in_your: 此信息对所有Kassi用户可见
+      these_fields_are_shown_in_your: "此信息对所有%{service_name}用户可见"
       visible_to_everybody: 对所有人可见
       visible_to_registered_users: 对已登录用户可见
-      default_in_listing: ~
-      invisible: ~
+      default_in_listing: （只有在发布新信息时作为默认值使用）
+      invisible: （不显示给其他用户）
     save_information: 保存信息
   tag_cloud:
     tag_used:
@@ -1699,15 +1736,15 @@ zh:
       without_tag: 无标签
   terms:
     show:
-      accept_terms: 接受Kassi的使用条款
+      accept_terms: "接受%{service_name}的使用条款"
       here: 这里
       i_accept_new_terms: 我接受新的条款
       i_accept_terms: 我接受条款
-      terms: Kassi使用条款
+      terms: "%{service_name}的使用条款"
       terms_have_changed: 使用条款发生改变
       you_can_view_the_new_terms: 您可以查看新的条款
-      you_need_to_accept: 欢迎来到Kassi！这是您第一次使用此服务。在开始前您必须接受
-      you_need_to_accept_new_terms: Kassi使用条款以改变。您必须接受新条款以继续使用Kassi。新条款诣在在研究项目结束后继续保持服务。
+      you_need_to_accept: "欢迎来到%{service_name}！这是您第一次使用此服务。在开始前您必须接受"
+      you_need_to_accept_new_terms: "%{service_name}使用条款以改变。您必须接受新条款以继续使用%{service_name}。新条款诣在在研究项目结束后继续保持服务。"
   testimonials:
     index:
       all_testimonials: 所有评价
@@ -1725,14 +1762,14 @@ zh:
       slightly_less_than_expected: 比期望的略差
       textual_feedback: 文本评价
       this_will_be_shown_in_profile: ~
-      positive: ~
-      negative: ~
-      default_textual_feedback: ~
+      positive: 正面的
+      negative: 负面的
+      default_textual_feedback: 一切顺利，非常感谢！
     testimonial:
-      about_listing: ~
+      about_listing: 关于发布的信息
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %b %d, %Y"
   datepicker:
     days:
       sunday: 星期日
@@ -1785,13 +1822,13 @@ zh:
       november: 十一月
       december: 十二月
     today: 今日
-    clear: ~
+    clear: 清除
     format: yyyy年mm月dd日
   time:
     formats:
       short: "%e %b %Y  %H:%M"
       shorter: "%e %b %H:%M"
-      short_date: ~
+      short_date: "%e %b %Y"
       sms: "%e %b %H:%M"
   timestamps:
     day_ago: "%{count} 天前"
@@ -1805,12 +1842,20 @@ zh:
     seconds_ago: "%{count} 秒前"
     year_ago: "%{count} 年前"
     years_ago: "%{count} 年前"
+    days_since:
+      other: "%{count}天"
   unit:
-    day: ~
-    days: ~
+    day: 日
+    days: 天
   will_paginate:
-    previous_label: ~
-    next_label: ~
+    models:
+      person:
+        zero: 用户
+        other: 用戶
+      listing_conversation:
+        other: 交易
+    previous_label: "&#8592;上一个"
+    next_label: "下一个 &#8594;"
     page_gap: ~
     page_entries_info:
       multi_page: ~

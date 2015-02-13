@@ -19,7 +19,7 @@ end
 
 Then /^there should be an organization account "(.*?)"$/ do |org_username|
   o = Person.find_by_username(org_username)
-  o.is_organization.should be_true
+  o.is_organization.should be_truthy
 end
 
 Then /^I should see flash error$/ do

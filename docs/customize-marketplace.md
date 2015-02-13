@@ -4,16 +4,6 @@ Before reading, should have your marketplace up and running and your should be a
 
 There are a few settings you have to change to enable all customizations options. You can change these settings directly to database, or use Rails console.
 
-## Make yourself a super admin
-
-There are two admin roles in Sharetribe: Marketplace admin (defined in `community_memberships.admin`) and Super admin (`people.is_admin`).
-
-Make yourself a super admin by setting your `people.is_admin` to `true` (int value 1). This will allow you to administrate all the marketplaces. It also enables some features that are not enabled to marketplace admins such as Admin > Braintree Payment API keys
-
-## Enable all customization options
-
-* Plan level (`communities.plan_level`): Change the plan\_level value to number 4. This will enable Admin > Integrations (Facebook, Twitter, Google Analytics e.g) and allow you to add custom CSS/JavaScript to the page head.
-
 ## Customize transaction types
 
 There are several transaction types in Sharetribe. Transaction type defined the type of the listing, e.g. is this listing about selling a product, renting or maybe giving a way for free. Transaction type belongs to one or many categories. In pratice this means that if you have categories "clothes" and "appartments", you might choose that only clothes and be sold and only appartments can be rented.
@@ -35,7 +25,7 @@ The transaction types are defined in `transaction_types` table. The translations
 
 `transaction_types` table have a following customization columns:
 
-* `price_field`: Is price field available or not. Only offer's can have price field.
+* `price_field`: Is price field available or not. Only offers can have price field.
 * `price_quantity_placeholder`: A placeholder text for price quantity, e.g. price $10 per hour. Possible values: 
   * `mass`: "piece, kg, l, m2, ..."
   * `time`: "hour, day, month, ..."

@@ -1,7 +1,4 @@
-- if service_name.casecmp(@current_community.name(I18n.locale)) != 0
-  - title_service_name = "#{service_name} - #{@current_community.name(I18n.locale)}"
-- else
-  - title_service_name = service_name
+- title_service_name = "#{@current_community.full_name(I18n.locale)}"
 
 - if content_for?(:title)
   - title = "#{content_for(:title)} - #{title_service_name}"
@@ -16,14 +13,14 @@
 - if content_for?(:meta_author)
   - meta_author = content_for(:meta_author)
 - else
-  - meta_author = @current_community.name
+  - meta_author = @current_community.name(I18n.locale)
 
 - full_url = "#{@current_community.full_url}#{request.fullpath}"
 
 - if content_for?(:meta_description)
-  - meta_description = "#{@current_community.name} - #{content_for(:meta_description)}"
+  - meta_description = "#{@current_community.name(I18n.locale)} - #{content_for(:meta_description)}"
 - else
-  - meta_description = "#{@current_community.name} - #{community_slogan}"
+  - meta_description = "#{@current_community.name(I18n.locale)} - #{community_slogan}"
 
 - if content_for?(:meta_image)
   - meta_image = content_for(:meta_image)
@@ -31,7 +28,7 @@
   - if @current_community.logo?
     - meta_image = @current_community.logo.url(:original)
   - else
-    - meta_image = "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
+    - meta_image = image_path("sharetribe_icon.png")
 
 %title= title
 %meta{ :property => "og:title", :content => title}
@@ -41,7 +38,7 @@
 %meta{ :property => "og:url", :content => full_url}
 %meta{ :property => "og:locale", :content => "#{I18n.locale}" }
 %meta{ :name => "identifier-url", :content => "#{@current_community.full_domain(with_protocol: true)}"}
-%meta{ :name => "copyright", :content => "#{@current_community.name}"}
+%meta{ :name => "copyright", :content => "#{@current_community.name(I18n.locale)}"}
 %meta{ :name => "twitter:url", :content => full_url}
 %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
 %meta{ :name => "description", :content => strip_tags(meta_description).html_safe}
@@ -77,12 +74,13 @@
 
 = csrf_meta_tag
 
-%link{:rel => "image_src", :href => "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"}
+%link{:rel => "image_src", :href => image_path("sharetribe_icon.png")}
 
 %link{:rel => "shortcut icon", :href => @current_community.favicon }
 
-%link{:rel => "apple-touch-icon-precomposed",:href => @current_community.logo.url(:apple_touch) || "https://s3.amazonaws.com/sharetribe/assets/images/icon_144.png"}
+%link{:rel => "apple-touch-icon-precomposed",:href => @current_community.logo.url(:apple_touch)}
 
 = auto_discovery_link_tag(:atom, atom_feed_url )
 
-= @current_community.custom_head_script.try(:html_safe)
+- unless on_admin?
+  = @current_community.custom_head_script.try(:html_safe)

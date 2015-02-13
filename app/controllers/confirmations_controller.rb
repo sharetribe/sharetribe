@@ -1,8 +1,6 @@
 class ConfirmationsController < Devise::ConfirmationsController
 
   skip_filter :check_email_confirmation, :cannot_access_without_joining
-  skip_filter :dashboard_only
-  skip_filter :single_community_only
 
   # This is directly copied from Devise::ConfirmationsController
   # to be able to handle better the situations of resending confirmation and
@@ -58,24 +56,22 @@ class ConfirmationsController < Devise::ConfirmationsController
       # Accept pending community membership if needed
       if @current_community.approve_pending_membership(person, e.address)
         # If the pending membership was accepted now, it's time to send the welcome email, unless creating admin acocunt
-        PersonMailer.welcome_email(person, @current_community).deliver unless person.has_admin_rights_in?(@current_community)
+        PersonMailer.welcome_email(person, @current_community).deliver
       end
       flash[:notice] = t("layouts.notifications.additional_email_confirmed")
 
-      if @current_user
+      if @current_user && @current_user.has_admin_rights_in?(@current_community) #admins
+        redirect_to getting_started_admin_community_path(:id => @current_community.id) and return
+      elsif @current_user # normal logged in user
         redirect_to root and return
-      else
+      else # no logged in session
         redirect_to login_path and return
       end
     end
 
     flash[:error] = t("layouts.notifications.confirmation_link_is_wrong_or_used")
     if @current_user
-      if on_dashboard?
-        redirect_to new_tribe_path
-      else
-        redirect_to :controller => "sessions", :action => "confirmation_pending"
-      end
+      redirect_to :controller => "sessions", :action => "confirmation_pending"
     else
       redirect_to :root
     end

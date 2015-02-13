@@ -9,7 +9,7 @@
     "email": "请输入一个有效的电子邮件地址。",
     "equalTo": "请再次输入。",
     "max": "请输入小于或等于{0}的数值。",
-    "maxlength": "请输入小于{0}个字符。",
+    "maxlength": "请输入少于{0}个字符。",
     "min": "请输入大于或等于{0}的数值。",
     "minlength": "请至少输入{0}个字符。",
     "number": "请输入一个有效数字。",
@@ -18,11 +18,11 @@
     "remote": "请修正此处。",
     "required": "此项必填。",
     "url": "请输入有效的URL。",
-    "address_validator": "The location was not found.",
-    "money": "You need to insert a valid monetary value.",
-    "min_bound": "Please enter a value less than max value ({0})",
-    "max_bound": "Please enter a value more than min value ({0})",
-    "number_no_decimals": "Please enter a whole number",
-    "number_decimals": "Please enter a valid number with either dot (.) or comma (,) as a decimal separator"
+    "address_validator": "没找到您输入的地址。",
+    "money": "您需要输入有效的金额。",
+    "min_bound": "请输入小于{0}的数值",
+    "max_bound": "请输入大于{0}的数值",
+    "number_no_decimals": "请输入一个整数",
+    "number_decimals": "请输入一个有效的数字，小数点用(.)"
   }
 }

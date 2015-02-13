@@ -1,0 +1,19 @@
+%h2= t('error_pages.error_500.temporary_unavailable')
+%p
+  =t('error_pages.error_500.unable_to_process')
+  %br/
+  %br/
+
+  = t('error_pages.error_500.we_hate_this')
+
+  - if error_id.present?
+    %br/
+    %br/
+
+    = t('error_pages.error_500.refer_to_error_id', error_id: error_id)
+
+  %br/
+  %br/
+
+  %a{href: '/'}
+    = t('error_pages.back_to_kassi_front_page')

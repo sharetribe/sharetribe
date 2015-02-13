@@ -103,6 +103,39 @@ el:
         welcome_email_content_description: "Αυτό είναι το μήνυμα ηλεκτρονικού ταχυδρομείου που στέλνεται σε κάθε νέο μέλος όταν εγγράφεται. Μπορείτε να το τροποποιήσετε για να ταιριάζει στην κοινότητα. Αν θέλετε να δείτε πως φαίνεται στους χρήστες, πατήστε \"%{send_test_message_link}\" για να σταλεί ένα μήνυμα στη δική σας διεύθυνση."
         edit_message: "Επεξεργασία μηνύματος"
         send_test_message: "Αποστολή δοκιμαστικού μηνύματος"
+      getting_started:
+        getting_started: ~
+        welcome_to_your_marketplace: ~
+        intro: ~
+        live_site_link_text: ~
+        look_and_feel: ~
+        logo_link_text: ~
+        custom_domain: ~
+        contact_team_link_text: ~
+        categories_and_custom_fields: ~
+        categories_link_text: ~
+        custom_fields_link_text: ~
+        filters_link_text: ~
+        payments: ~
+        payments_link_text: ~
+        info_texts: ~
+        about_page_link_text: ~
+        terms_of_use_link_text: ~
+        privacy_policy_link_text: ~
+        welcome_email_link_text: ~
+        instruction_texts_link_text: ~
+        social_media: ~
+        facebook_link_text: ~
+        twitter_link_text: ~
+        analytics: ~
+        analytics_link_text: ~
+        settings: ~
+        settings_link_text: ~
+        final_words: ~
+        invite_link_text: ~
+        view_users_link_text: ~
+        view_transactions_link_text: ~
+        contact_support_link_text: ~
       settings:
         settings: ~
         general: ~
@@ -121,11 +154,11 @@ el:
         email_preferences: ~
         automatic_newsletters: ~
         email_admins_about_new_members: ~
-        integrations: ~
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -141,20 +174,30 @@ el:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
-      integrations:
-        integrations: ~
+        ban_me_error: ~
+      social_media:
+        social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -186,6 +229,8 @@ el:
           paid: ~
           confirmed: ~
           canceled: ~
+          initiated: ~
+          pending_ext: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -222,7 +267,6 @@ el:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,54 +297,25 @@ el:
         send_email: Αποστολή
         message_will_be_sent_only_to_people_with_this_language: "Σημείωση: Το μήνυμα θα σταλεί μόνο στα μηνύματα που χρησιμοποιούν το %{service_name} στη γλώσσα που επιλέξατε."
         email_sent: "Το μήνυμα στάλθηκε."
-    news_items:
-      index:
-        news_items: "Νεότερα άρθρα"
-        create_news_item: "Δημιούργησε ένα άρθρο"
-        no_news: "Κανένα νέο"
-        loading_more_news: "Εμφάνιση περισσότερων ειδήσεων"
-      new:
-        new_news_item: "Δημιουργία άρθρου"
-        edit_news_item: "Επεξεργασία άρθρου"
-        index_news_item: "Δημιούργησε ένα άρθρο"
-        title: "Τίτλος:"
-        content: "Περιεχόμενο:"
-        save_news_item: Αποθήκευση
-      news_item:
-        edit_news_item: Επεξεργασία
-        delete_news_item: Διαγραφή
+    left_hand_navigation:
+      general: ~
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
+      support: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
-      new:
-        integration_info_text: ~
-        paypal_account_email: ~
-      show:
-        integration_info_text: ~
-        paypal_account_email_connected: ~
-    polls:
-      index:
-        polls: Δημοσκοπήσεις
-        create_poll: "Δημιούργησε μια δημοσκόπηση"
-        no_polls: "Καμία δημοσκόπηση"
-      edit_poll_links:
-        close_poll: Κλείσιμο
-        open_poll: Άνοιγμα
-        edit_poll: Επεξεργασία
-        delete_poll: Διαγραφή
-      new:
-        add_option: "Προσθήκη επιλογής"
-        new_poll: "Δημιουργία δημοσκόπησης"
-        edit_poll: Επεξεργασία
-        title: "Τίτλος:"
-        save_poll: Αποθήκευση
-      new_option:
-        option: Επιλογή
-        remove_option: "Κατάργηση επιλογής"
-      show:
-        edit_poll: Επεξεργασία
-      poll_status:
-        open: Ανοιχτή
-        closed: Κλειστή
+      preferences_updated: ~
+      integration_info_text: ~
+      read_more_about_paypal: ~
+      paypal_account_email: ~
+      paypal_account_email_completed: ~
+      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee_completed: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      save_settings: ~
+      note_about_transaction_fee: ~
     transaction_types:
       sell: πώληση
       rent: ενοικίαση
@@ -364,6 +379,7 @@ el:
     username: "Όνομα χρήστη"
     username_or_email: "Ηλεκτρονική διεύθυνση ή όνομα χρήστη"
     what_is_this: "Τι είναι αυτό;"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: "Απαντήστε σε μια προσφορά"
@@ -379,7 +395,11 @@ el:
       you_need_to_fill_payout_details_before_accepting: "Πριν αποδεχτείτε το αίτημα και λάβετε την πληρωμή πρέπει να συμπληρώσετε τα στοιχεία για την πληρωμή σας. Πηγαίνετε στις %{payment_settings_link} για να τα συμπληρώσετε."
       payment_settings_link: "ρυθμίσεις πληρωμών"
       minimum_price_error_message: "Η τιμή δεν μπορεί να είναι μικρότερη από %{amount}."
-      approve: ~
+      accept: ~
+      decline: ~
+      sum: ~
+      service_fee: ~
+      you_will_get: ~
     confirm:
       confirm_description: "Αν το αίτημά σας έχει εκπληρωθεί θα πρέπει να το επιβεβαιώσετε ως ολοκληρωμένο. Τότε μόνο μπορείτε να γράψετε κριτική για το άλλο μέλος της συναλλαγής."
       cancel_description: "Αν το αίτημά σας δεν εκπληρώθηκε τότε μπορείτε να δηλώσετε ότι δεν πραγματοποιήθηκε η συναλλαγή. Μπορείτε και πάλι να γράψετε κριτική για το άλλο μέλος και να περιγράψετε τι συνέβη."
@@ -475,6 +495,9 @@ el:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
       cancel_payed_transaction: Άκυρο
       feedback_given: "Δόθηκε κριτική"
       feedback_skipped: "Η κριτική παραλείφθηκε"
@@ -515,6 +538,7 @@ el:
         paypal:
           multicurrency: ~
           intl: ~
+          unknown_reason: ~
           verify: ~
     status_link:
       accept_offer: "Αποδοχή προσφοράς"
@@ -579,7 +603,6 @@ el:
       welcome_fb_user: "Καλωσήρθες στο %{service_name}!"
       fb_join_accept_terms: "Υπάρχει ένα ακόμα βήμα για να εγγραφείς στην κοινότητα: πρέπει να αποδεχτείς τους όρους χρήσης."
       join_community: "Εγγραφή στην κοινότητα %{community}"
-      you_are_not_a_member_of_this_community: "Έχεις λογαριασμό στο %{service_name} αλλά δεν είσαι ακόμα μέλος της κοινότητας '%{community}'."
       you_can_join: "Μπορείς να γραφτείς σε αυτή την κοινότητα αφού αποδεχτείς τους όρους χρήσης και κάνεις κλικ στο κουμπί \"Εγγραφή στην κοινότητα\"."
       you_can_join_email_confirmation: "Για να γραφτείτε σε αυτή την κοινότητα πρέπει να έχετε μια έγκυρη ηλεκτρονική διεύθυνση που να έχει μια από τις καταλήξεις: %{email_ending}. Μπορείτε να γραφτείτε συμπληρώνοντας την ηλεκτρονική σας διεύθυνση, αποδεχόμενοι τους όρους χρήσης της κοινότητας και πατώντας \"Εγγραφή στην κοινότητα\"."
       you_can_join_email_confirmation_multiple_addresses: "Για να γραφτείτε σε αυτή την κοινότητα πρέπει να έχετε μια έγκυρη ηλεκτρονική διεύθυνση που να έχει μια από τις καταλήξεις: %{email_endings}. Μπορείτε να γραφτείτε συμπληρώνοντας την ηλεκτρονική σας διεύθυνση, αποδεχόμενοι τους όρους χρήσης της κοινότητας και πατώντας \"Εγγραφή στην κοινότητα\"."
@@ -660,8 +683,6 @@ el:
       view_it_in_your_browser: "Δείτε το στο φυλλομετρητή σας."
       or: ή
       unsubscribe_from_these_emails: "απεγγραφείτε από αυτά τα μηνύματα"
-    community_starter_email:
-      subject: "Δείτε το νέο Sharetribe - Χωρίς όριο μελών, με εμφάνιση που μπορείτε να τροποποιήσετε στα μέτρα σας και πολλά άλλα"
     conversation_status_changed:
       has_accepted_your_offer: "Ο/Η %{accepter} δέχτηκε την προσφορά σας για την καταχώρηση \"%{listing}\""
       has_accepted_your_request: "Ο/Η %{accepter} δέχτηκε το αίτημά σας για την καταχώρηση \"%{listing}\""
@@ -699,6 +720,7 @@ el:
       price_payer_paid: ~
       service_fee: ~
       you_will_get: ~
+      money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Απόδειξη πληρωμής"
       you_have_made_new_payment: "Πληρώσατε <b>%{payment_sum}</b> για το <b>%{listing_title}</b> στον/στην %{recipient_full_name}. Ορίστε η απόδειξη πληρωμής."
@@ -706,6 +728,7 @@ el:
       total: ~
       price: ~
       service_fee: ~
+      money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "O/H %{name} σχολίασε για σένα στο %{service_name}"
       you_can_give_feedback_to: "Έχετε παραλείψει να γράψετε την κριτική σας για τον/την %{name}."
@@ -731,8 +754,6 @@ el:
       newest_offers: "Τι προσφέρουν κάποιοι στο %{service_name}"
       newest_requests: "Τι χρειάζονται κάποιοι στο %{service_name}"
       text_version_text: "Μήπως έχεις κάτι που μπορείς να προσφέρεις; Ή μήπως χρειάζεσαι κάτι που μπορεί να το έχει κάποιος άλλος; Βάλε μια προσφορά ή ένα αίτημα στο ή δες τι προσφέρουν ή τι χρειάζονται άλλα άτομα στο %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Σας ευχαριστούμε για το ενδιαφέρον σας στο %{service_name}!"
     reset_password_instructions:
       change_my_password: "Αλλαγή του κωδικού πρόσβασής μου"
       reset_password_instructions: "<p>Δήλωσες ότι έχεις ξεχάσει το όνομα χρήστη ή τον κωδικό σου στο %{service_name}.</p><p>Το όνομα χρήστη είναι: %{username}</p><p>Αν θέλεις να επαναφέρεις τον κωδικό σου κάνε κλικ στον παρακάτω σύνδεσμο: %{password_reset_link}</p><br/><p>Αν δεν το ζήτησες εσύ αυτό, παρακαλούμε να αγνοήσεις αυτό το μήνυμα. Ο κωδικός σου δεν θα αλλάξει μέχρι να κάνεις κλικ στον παραπάνω σύνδεσμο και να δημιουργήσεις νέο κωδικό.</p>"
@@ -758,6 +779,23 @@ el:
       click_here_link_text: "Πατήστε εδώ"
       welcome_email_footer_text: "Θέλετε να ελέγξετε τι μηνύματα θα λαμβάνετε από το %{service_name}; %{settings_link}"
       settings_link_text: "Δείτε τις ρυθμίσεις σας"
+      welcome_email_subject_for_marketplace_creator: ~
+      welcome_to_marketplace_creator: ~
+      congrats_for_creating_your_marketplace: ~
+      here_is_your_account_information: ~
+      your_email_address: ~
+      your_marketplace_address: ~
+      your_marketplace_admin_area: ~
+      just_follow_details: ~
+      we_will_guide_you_along_the_way: ~
+      are_you_new_to_online_marketplaces: ~
+      have_questions: ~
+      our_happiness_team_is_here_to_help: ~
+      love: ~
+      sharetribe_crew: ~
+      knowledge_base_link_text: ~
+      contact_support_link_text: ~
+      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -773,8 +811,13 @@ el:
     testimonials:
       you_must_explain_not_neutral_feedback: "Αν θέλεις να κάνεις μη-ουδέτερη κριτική, πρέπει να εξηγήσεις γιατί."
       you_must_select_a_grade: "Μην ξεχνάτε να πείτε αν η εμπειρία σας ήταν καλή ή όχι."
+    transaction_agreement:
+      required_error: ~
     paypal:
       generic_error: ~
+      cancel_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Επιστροφή στην αρχική σελίδα"
     error_404:
@@ -782,16 +825,21 @@ el:
       page_can_not_be_found: "Ωχ! Η σελίδα δεν μπορεί να βρεθεί!"
       page_you_requested_can_not_be_found: "Η σελίδα που ζήτησες δεν μπορεί να βρεθεί. Είσαι σίγουρος ότι έγραψες σωστά τη διεύθυνση;"
     error_404_title: "η σελίδα δεν βρέθηκε"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: "Μπορείς να μας βοηθήσεις να βρούμε το πρόβλημα γράφοντας μια σύντομη περιγραφή του στο παρακάτω πλαίσιο."
-      page_loading_failed: "Η φόρτωση της σελίδας απέτυχε!"
-      reload_refresh: "Η ανανέωση της σελίδας (reload/refresh) συνήθως βοηθάει να πάτε στη σελίδα που θέλατε. Προσπαθούμε να εντοπίσουμε το πρόβλημα που προκάλεσε το σφάλμα και να το διορθώσουμε το συντομότερο δυνατό."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "η φόρτωση της σελίδας απέτυχε"
     error_description: "Περιγραφή του σφάλματος"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Το Javascript είναι απενεργοποιημένο στον browser σας"
       kassi_does_not_currently_work_without_javascript: "Δυστυχώς το %{service_name} δεν λειτουργεί -προς το παρόν- χωρίς Javascript. Προσπαθείστε να ενεργοποιήσετε το Javascript από τις ρυθμίσεις του περιηγητή σας και ανανεώστε τη σελίδα."
-      kassi_does_not_currently_work_without_javascript_dashboard: "To %{service_name} δεν λειτουργεί χωρίς Javascript. Προσπαθήστε να ενεργοποιήσετε το Javascript από τις ρυθμίσεις του browser σας και ανανεώστε τη σελίδα. Αν θέλετε να χρησιμοποιήσετε το %{service_name} χωρίς Javascript, παρακαλούμε %{contact_us}."
       contact_us: "επικοινωνήστε μαζί μας"
       send_feedback: Αποστολή
       your_feedback_to_admins: "Τα σχόλιά σας στους διαχειριστές"
@@ -892,8 +940,6 @@ el:
       no_listings_with_your_search_criteria: "Δεν βρήκαμε αποτελέσματα με αυτά τα κριτήρια."
       no_listings_notification: "Καμία καταχώρηση. %{add_listing_link}."
       add_listing_link_text: "Προσθέστε κάτι"
-      available_on_the_app_store: "Διατίθεται στο app store"
-      private_listing_notification: "Υπάρχουν %{listing_count} καταχωρήσεις σε αυτή την κοινότητα. %{private_listing_count} από αυτές %{be_verb} ορατές μόνο σε μέλη της κοινότητας. Αν θέλετε να τις δείτε, πρέπει να %{log_in_link}."
       open_listing: "ενεργή καταχώρηση"
       open_listings: "ενεργές καταχωρήσεις"
       private_listing_notification_log_in: συνδεθείς
@@ -903,7 +949,6 @@ el:
       post_new_listing: "Νέα καταχώρηση"
       are_offering: προσφέρουν
       add_news_item: "Προσθήκη άρθρου"
-      inform_others_about_events: "Τελευταία νέα και γεγονότα στην κοινότητα"
       lend_rent_help_carpool: "Δάνεισε, νοίκιασε, βοήθα κάποιον, βρες συνταξιδιώτες"
       loading_more_content: "Εμφάνιση περισσότερων καταχωρήσεων"
       more_events: Περισσότερα...
@@ -914,7 +959,6 @@ el:
       or_see_what_the_others: "ή δες οι άλλοι τι"
       recent_events: Πρόσφατα
       requesting: χρειάζονται
-      teaser_text: "Το %{service_name} είναι μια υπηρεσία για την κοινότητα \"%{community}\". Εδώ μπορείς να δανείσεις, να νοικιάσεις, να χαρίσεις και να πουλήσεις πράγματα, να προσφέρεις και να ζητήσεις βοήθεια ή να βρεις συνταξιδιώτες. Έχεις κάτι που μπορείς να δανείσεις; Μπορείς να προσφέρεις βοήθεια;"
       tell_it_here: "Πες το!"
       welcome_to_new_kassi: "Καλώς ήρθες στο καινούριο %{service_name}!"
       no_reviews: "Δεν υπάρχουν κριτικές"
@@ -923,7 +967,6 @@ el:
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Προσκαλέστε τους φίλους σας στο %{service_name}!"
-      invite_your_neighbors: "Προσκαλέστε τους γείτονές σας στο %{service_name}!"
       email: "Ηλεκτρονικές διευθύνσεις"
       message: "Ένα προσωπικό μήνυμα"
       send_invitation: "Αποστολή πρόσκλησης"
@@ -937,13 +980,6 @@ el:
     news_item:
       show_less: "Εμφάνιση λιγότερων"
       show_more: "Εμφάνιση περισσότερων"
-    poll_form:
-      poll: "Δημοσκόπηση:"
-      comment: "Σχόλιο:"
-      answer: Απάντηση
-      results: Αποτελέσματα
-      poll_answer: απάντησε
-      poll_answers: απαντήσεις
     profile_info_empty_notification:
       add_your_info: "Γράψτε τα στοιχεία επικοινωνίας σας"
       add_a_profile_picture: "Προσθήκη φωτογραφίας προφίλ"
@@ -968,17 +1004,16 @@ el:
       default_about_text_title: "Τι είναι το Sharetribe;"
       default_about_text: "Αυτή η αγορά βασίζεται στην πλατφόρμα Sharetribe. Με το Sharetribe μπορείτε κι εσείς να δημιουργήσετε την δική σας αγορά online. Είναι εύκολο και δωρεάν. %{click_here_link} για να μάθετε περισσότερα!"
       click_here_link_text: "Πατήστε εδώ"
+    how_to_use:
+      default_title: ~
+      default_content: ~
   layouts:
+    admin:
+      admin: "Διαχείριση του %{service_name}"
     no_tribe:
       inbox: Εισερχόμενα
       settings: Ρυθμίσεις
       feedback: "Επικοινωνήστε μαζί μας"
-    admin:
-      admin: "Διαχείριση του %{service_name}"
-      back_to_kassi: "Επιστροφή στο %{service_name}"
-      tribe_info: "Πληροφορίες του tribe"
-      news_items: Άρθρα
-      polls: Δημοσκοπήσεις
     application:
       join_this_community: "Εγγραφή στην κοινότητα"
       read_more: "Διαβάστε περισσότερα"
@@ -987,8 +1022,6 @@ el:
       feedback_forum: "περιοχή σχολίων"
       feedback_handle: Ανατροφοδότηση
       give_feedback: "Επικοινωνήστε μαζί μας"
-      keywords: "%{service_name}, χάρη, αντικείμενο, συνοδήγηση, συνεπιβατισμός, οτοστόπ, διαμονή, στέγαση, βοήθεια, προσφορά, ζήτηση, αίτημα, ενοικίαση, εκμίσθωση, ανταλλαγή, παζάρι, αγορά, πώληση, αγοράζω, πουλάω, δίνω, χαρίζω, Kassi, οικολογικό, κοινότητα, δικτυακή κοινότητα"
-      meta_description: "Το %{service_name} είναι μια υπηρεσία που βοηθά μέλη διαφόρων κοινοτήτων να ανταλλάζουν χάρες, να πωλούν και να ενοικιάζουν αντικείμενα, να κανονίζουν να συνταξιδέψουν και να αλληλοβοηθούνται με πολλούς διαφορετικούς τρόπους."
       or_check_our: "... ή δες την"
       send_feedback_to_admin: Αποστολή
       to_see_what_others_have_suggested: "για να δείτε τι έχουν προτείνει άλλοι και να ψηφίσετε τις ιδέες που υπάρχουν."
@@ -1005,8 +1038,6 @@ el:
       notifications: Ειδοποιήσεις
       received: Εισερχόμενα
       sent: Απεσταλμένα
-    dashboard:
-      title: "%{service_name} - μοιράσου αγαθά, πρόσφερε βοήθεια και συνταξίδεψε με άλλους στην κοινότητά σου!"
     global-header:
       select_language: "Επιλέξτε γλώσσα"
     infos:
@@ -1117,7 +1148,6 @@ el:
       this_content_is_not_available_in_this_community: "Αυτό το περιεχόμενο δεν είναι διαθέσιμο σε αυτή την κοινότητα."
       unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε επικοινωνήστε μαζί μας και πείτε μας τι συνέβη."
       update_error: "Παρουσιάστηκε σφάλμα κατά την προσπάθεια ενημέρωσης των στοιχείων σας. Παρακαλούμε προσπαθήστε ξανά"
-      welcome_message: "Καλωσήρθατε στο %{service_name}! Το %{service_name} είναι μια υπηρεσία που βοηθά τα μέλη της κοινότητας \"%{community}\" να ανταλλάσουν χάρες, να πωλούν και να δανείζουν αντικείμενα μεταξύ τους, να κανονίζουν να ταξιδέψουν μαζί και να βοηθούν ο ένας τον άλλο με πολλούς και διαφορετικούς τρόπους."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Δεν έχεις δικαίωμα να κάνεις κριτική για αυτό το συμβάν"
       you_are_not_authorized_to_do_this: "Δεν έχεις δικαίωμα να το κάνεις αυτό"
       you_are_not_authorized_to_view_this_content: "Δεν έχεις δικαίωμα να δεις αυτό το περιεχόμενο"
@@ -1155,6 +1185,7 @@ el:
       payment_details_add_successful: "Οι πληροφορίες των πληρωμών εισήχθησαν επιτυχώς"
       payment_details_add_error: "Αποτυχία εισαγωγής στοιχείων πληρωμών"
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: Λογαριασμός
       notifications: Ειδοποιήσεις
@@ -1323,6 +1354,7 @@ el:
     listing_actions:
       booking_from: ~
       booking_to: ~
+      how_paypal_works: ~
     new:
       post_a_new_listing: "Νέα καταχώρηση"
       listing: καταχώρηση
@@ -1333,7 +1365,10 @@ el:
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: Σχολίασε
     reply_link:
       listing_closed: "Η καταχώρηση έχει απενεργοποιηθεί."
@@ -1409,11 +1444,6 @@ el:
       search_verb: Ψάξε
       you_have_something_others_do_not: "Έχεις κάτι να προσφέρεις;"
     please_comment: Σχολίασε
-  news_items:
-    index:
-      news_from_community: "Τελευταία νέα από την κοινότητα %{community}"
-    news_item:
-      delete_news_item: "Αφαίρεση άρθρου"
   okl:
     member_id: ~
     member_id_or_email: "ID μέλους ή email"
@@ -1445,8 +1475,14 @@ el:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
+      payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
+      admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
       paypal_account_email_info_text: ~
@@ -1461,19 +1497,20 @@ el:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: ~
+      account_not_verified: ~
+      account_restricted: ~
+  paypal:
+    checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: "Εμφάνιση περισσότερων μελών"
-      meet_the_people: "Γνωρίστε τους υπόλοιπους"
-      you_are_the_only_member: "Είσαι το μόνο μέλος της κοινότητας \"%{community_name}\"."
-      here_are_the_members: "Εδώ εμφανίζονται τα %{count} μέλη της κοινότητας \"%{community_name}\"."
-      wanna_see_more_folks: "Θα θέλατε να εμφανίζεται περισσότερος κόσμος εδώ;"
-      invite_people_you_know: "Προσκαλέστε τα άτομα που γνωρίζετε!"
-      there_are_x_members: "Υπάρχουν %{count} μέλη στην κοινότητα \"%{community_name}\"."
-      to_see_the_list_log_in: "Για να δείτε την πλήρη λίστα των μελών πρέπει να %{log_in_link}."
-      log_in_link: συνδεθείτε
     edit_links:
       activate: Ενεργοποίηση
       deactivate: Απενεργοποίηση
@@ -1482,8 +1519,6 @@ el:
       help_captcha_title: "Είσαι όντως άνθρωπος;"
       help_invitation_code_title: "Χρειάζεσαι πρόσκληση για να συμμετέχεις."
       terms_title: "Όροι χρήσης του %{service_name}"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this community.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
       invite_only_help_text: "Επιλέξτε αν θέλετε νέα μέλη να συμμετέχουν σε αυτό το sharetribe μόνο εάν έχουν λάβει πρόσκληση από άλλα μέλη."
       invite_only_help_text_title: "Συμμετοχή μόνο με πρόσκληση"
     inactive_notification:
@@ -1547,9 +1582,6 @@ el:
       exceeded_expectations: "Ξεπέρασε τις προσδοκίες"
       positive: θετική
       hide_description: Απόκρυψη
-      joined_this_community: "Γράφτηκε %{time_ago}"
-      was_last_seen: "Ήταν εδώ τελευταία φορά %{time_ago}"
-      was_invited_by: "Προσκλήθηκε από τον/την %{inviter_name}"
       less_than_expected: "Χειρότερα από το αναμενόμενο"
       phone_number: "Τηλέφωνο:"
       show_all_feedback: "Εμφάνιση όλων των σχολίων"
@@ -1621,7 +1653,9 @@ el:
       change_email: Αλλαγή
       confirm_your_email: "Επιβεβαιώστε την ηλεκτρονική σας διεύθυνση"
       account_confirmation_instructions: "Σύντομα θα λάβετε ένα email με ένα σύνδεσμο τον οποίο πρέπει να ακολουθήσετε για να επιβεβαιώσετε τη διεύθυνση email σας. Μετά την επιβεβαίωση θα μπορείτε να εγγραφείτε σε αυτή την κοινότητα."
-      account_confirmation_instructions_dashboard: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες."
+      account_confirmation_instructions_title_admin: ~
+      your_marketplace_has_now_been_created: ~
+      account_confirmation_instructions_admin: ~
   settings:
     account:
       change: Αλλαγή
@@ -1631,11 +1665,14 @@ el:
       delete_account_confirmation_popup: "Είστε σίγουροι ότι θέλετε να διαγράψετε το λογαριασμό σας και να διαγραφούν όλα τα δεδομένα που σχετίζονται με αυτόν; Η διαγραφή λογαριασμού είναι μη αναστρέψιμη."
       email_addresses: "Διευθύνσεις email"
       new_email: "Νέα διεύθυνση email"
-      instructions_to_delete_account: "Αν διαγράψετε το λογαριασμό σας, όλα τα δεδομένα που σχετίζονται με αυτόν θα διαγραφτούν: το προφίλ σας, οι καταχωρήσεις σας, τα μηνύματά σας, η κριτική που έχετε λάβει κλπ."
-      contact_admin: "παρακαλούμε επικοινωνήστε με τους διαχειριστές"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Νέος κωδικός"
       save: Αποθήκευση
       these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σας εκτός αν έχετε δώσει το πραγματικό σας όνομα. Οι υπόλοιπες πληροφορίες είναι ορατές μόνο σε σας."
+      email_already_confirmed: ~
       email:
         address_title: Διεύθυνση
         remove_title: Αφαίρεση

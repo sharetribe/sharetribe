@@ -8,7 +8,7 @@ module PaypalService
 
 
     def from_money(m)
-      { value: m.cents.abs.divmod(m.currency.subunit_to_unit).join("."), currencyID: m.currency.iso_code }
+      { value: MoneyUtil.to_dot_separated_str(m), currencyID: m.currency.iso_code }
     end
 
     def to_money(pp_amount)
@@ -20,10 +20,21 @@ module PaypalService
     end
 
     def append_useraction_commit(url_str)
-      uri = URI(url_str)
-      args = URI.decode_www_form(uri.query || "") << ["useraction", "commit"]
-      uri.query = URI.encode_www_form(args)
-      uri.to_s
+      URLUtils.append_query_param(url_str, "useraction", "commit")
+    end
+
+
+    SANDBOX_EC_URL = "https://www.sandbox.paypal.com/checkoutnow"
+    LIVE_EC_URL = "https://www.paypal.com/checkoutnow"
+    TOKEN_PARAM = "token"
+
+    def express_checkout_url(api, token)
+      endpoint = api.config.mode.to_sym
+      if (endpoint == :sandbox)
+        URLUtils.append_query_param(SANDBOX_EC_URL, TOKEN_PARAM, token)
+      else
+        URLUtils.append_query_param(LIVE_EC_URL, TOKEN_PARAM, token)
+      end
     end
 
 
@@ -38,6 +49,7 @@ module PaypalService
               NoShipping: 1,
               AllowNote: 0,
               PaymentDetails: [{
+                  ButtonSource: config[:button_source],
                   OrderTotal: { value: "0.0" },
                   NotifyURL: hook_url(config[:ipn_hook]),
                   PaymentAction: "Authorization"
@@ -54,7 +66,7 @@ module PaypalService
         output_transformer: -> (res, api) {
           DataTypes::Merchant.create_setup_billing_agreement_response({
             token: res.token,
-            redirect_url: api.express_checkout_url(res),
+            redirect_url: express_checkout_url(api, res.token),
             username_to: api.config.subject || api.config.username
           })
         }
@@ -77,10 +89,21 @@ module PaypalService
             DoReferenceTransactionRequestDetails: {
               ReferenceID: req[:billing_agreement_id],
               PaymentAction: "Sale",
+              PaymentType: "InstantOnly",
               PaymentDetails: {
                 NotifyURL: hook_url(config[:ipn_hook]),
-                OrderTotal: from_money(req[:order_total])
-              }
+                OrderTotal: from_money(req[:payment_total]),
+                InvoiceID: req[:invnum],
+                PaymentDetailsItem: [{
+                    ItemCategory: "Digital", #Commissions are always digital goods, enables also micropayments
+                    Name: req[:name],
+                    Description: req[:desc],
+                    Number: 0,
+                    Quantity: 1,
+                    Amount: from_money(req[:payment_total])
+                }]
+              },
+              MsgSubID: req[:msg_sub_id]
             }
           }
         },
@@ -90,9 +113,12 @@ module PaypalService
           details = res.do_reference_transaction_response_details
           DataTypes::Merchant.create_do_reference_transaction_response({
             billing_agreement_id: details.billing_agreement_id,
-            transaction_id: details.payment_info.transaction_id,
-            order_total: to_money(details.payment_info.gross_amount),
+            payment_id: details.payment_info.transaction_id,
+            payment_total: to_money(details.payment_info.gross_amount),
+            payment_date: details.payment_info.payment_date.to_s,
             fee: to_money(details.payment_info.fee_amount),
+            payment_status: details.payment_info.payment_status,
+            pending_reason: details.payment_info.pending_reason,
             username_to: api.config.subject || api.config.username
           })
         }
@@ -121,14 +147,19 @@ module PaypalService
         input_transformer: -> (req, config) {
           {
             SetExpressCheckoutRequestDetails: {
+              cppcartbordercolor: "FFFFFF",
+              cpplogoimage: req[:merchant_brand_logo_url] || "",
               ReturnURL: req[:success],
               CancelURL: req[:cancel],
               ReqConfirmShipping: 0,
               NoShipping: 1,
               SolutionType: "Sole",
               LandingPage: "Billing",
+              InvoiceID: req[:invnum],
               AllowNote: 0,
+              MaxAmount: from_money(req[:order_total]),
               PaymentDetails: [{
+                  ButtonSource: config[:button_source],
                   NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total]),
                   PaymentAction: "Order",
@@ -146,7 +177,7 @@ module PaypalService
         output_transformer: -> (res, api) {
           DataTypes::Merchant.create_set_express_checkout_order_response({
             token: res.token,
-            redirect_url: append_useraction_commit(api.express_checkout_url(res)),
+            redirect_url: append_useraction_commit(express_checkout_url(api, res.token)),
             receiver_username: api.config.subject || api.config.username
           })
         }
@@ -160,8 +191,15 @@ module PaypalService
               Token: req[:token],
               PayerID: req[:payer_id],
               PaymentDetails: [{
+                  ButtonSource: config[:button_source],
+                  InvoiceID: req[:invnum],
                   NotifyURL: hook_url(config[:ipn_hook]),
-                  OrderTotal: from_money(req[:order_total])
+                  OrderTotal: from_money(req[:order_total]),
+                  PaymentDetailsItem: [{
+                      Name: req[:item_name],
+                      Quantity: req[:item_quantity],
+                      Amount: from_money(req[:item_price] || req[:order_total])
+                  }]
               }]
             }
           }
@@ -176,8 +214,7 @@ module PaypalService
               payment_status: payment_info.payment_status,
               pending_reason: payment_info.pending_reason,
               order_id: payment_info.transaction_id,
-              order_total: to_money(payment_info.gross_amount),
-              receiver_id: payment_info.seller_details.secure_merchant_account_id
+              order_total: to_money(payment_info.gross_amount)
             })
         }
       ),
@@ -209,6 +246,7 @@ module PaypalService
           {
             AuthorizationID: req[:authorization_id],
             Amount: from_money(req[:payment_total]),
+            InvoiceID: req[:invnum],
             CompleteType: "Complete"
           }
         },

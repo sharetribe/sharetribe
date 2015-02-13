@@ -16,9 +16,6 @@
 #  checkout_password                    :string(255)
 #  created_at                           :datetime         not null
 #  updated_at                           :datetime         not null
-#  gateway_commission_percentage        :integer
-#  gateway_commission_fixed_cents       :integer
-#  gateway_commission_fixed_currency    :string(255)
 #
 
 class Checkout < PaymentGateway
@@ -161,10 +158,6 @@ class Checkout < PaymentGateway
     payment.community = community
     payment.currency = "EUR"
     payment
-  end
-
-  def no_fixed_commission
-    Money.new(0, "EUR")
   end
 
   def configured?

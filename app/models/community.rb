@@ -28,6 +28,7 @@
 #  slogan                                     :string(255)
 #  description                                :text
 #  category                                   :string(255)      default("other")
+#  country                                    :string(255)
 #  members_count                              :integer          default(0)
 #  user_limit                                 :integer
 #  monthly_price_in_euros                     :float
@@ -79,7 +80,6 @@
 #  price_filter_min                           :integer          default(0)
 #  price_filter_max                           :integer          default(100000)
 #  automatic_confirmation_after_days          :integer          default(14)
-#  plan_level                                 :integer          default(0)
 #  favicon_file_name                          :string(255)
 #  favicon_content_type                       :string(255)
 #  favicon_file_size                          :integer
@@ -88,7 +88,11 @@
 #  listing_location_required                  :boolean          default(FALSE)
 #  custom_head_script                         :text
 #  follow_in_use                              :boolean          default(TRUE), not null
-#  paypal_enabled                             :boolean          default(FALSE), not null
+#  logo_processing                            :boolean
+#  wide_logo_processing                       :boolean
+#  cover_photo_processing                     :boolean
+#  small_cover_photo_processing               :boolean
+#  favicon_processing                         :boolean
 #
 # Indexes
 #
@@ -103,7 +107,7 @@ class Community < ActiveRecord::Base
 
   has_many :community_memberships, :dependent => :destroy
   has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
-  has_many :admins, :through => :community_memberships, :conditions => ['community_memberships.admin = ?', true], :source => :person
+  has_many :admins, :through => :community_memberships, :conditions => ['community_memberships.admin = ? AND community_memberships.status <> ?', true, 'banned'], :source => :person
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
@@ -116,7 +120,6 @@ class Community < ActiveRecord::Base
   has_many :conversations
   has_many :transactions
   has_many :payments
-  has_many :statistics, :dependent => :destroy
   has_many :transaction_types, :dependent => :destroy, :order => "sort_priority"
 
   has_and_belongs_to_many :listings
@@ -130,16 +133,8 @@ class Community < ActiveRecord::Base
 
   after_create :initialize_settings
 
-  monetize :minimum_price_cents, :allow_nil => true
+  monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :default_currency
 
-  # Plan levels
-  FREE_PLAN = 0
-  STARTER_PLAN = 1
-  BASIC_PLAN = 2
-  GROWTH_PLAN = 3
-  SCALE_PLAN = 4
-
-  validates_length_of :name, :in => 2..50
   validates_length_of :domain, :in => 2..50
   validates_format_of :domain, :with => /\A[A-Z0-9_\-\.]*\z/i
   validates_uniqueness_of :domain
@@ -158,8 +153,8 @@ class Community < ActiveRecord::Base
 
   serialize :settings, Hash
 
-  DEFAULT_LOGO = "/assets/logos/mobile/default.png"
-  DEFAULT_WIDE_LOGO = "/assets/logos/full/default.png"
+  DEFAULT_LOGO = ActionController::Base.helpers.asset_path("logos/mobile/default.png")
+  DEFAULT_WIDE_LOGO = ActionController::Base.helpers.asset_path("logos/full/default.png")
 
   has_attached_file :logo,
                     :styles => {
@@ -183,12 +178,18 @@ class Community < ActiveRecord::Base
                                                       "image/gif",
                                                       "image/pjpeg",
                                                       "image/x-png"]
+  process_in_background :logo
 
   has_attached_file :wide_logo,
                     :styles => {
                       :header => "168x40#",
+                      :paypal => "190x60>", # This logo is shown in PayPal checkout page. It has to be 190x60 according to PayPal docs.
                       :header_highres => "336x80#",
                       :original => "600x600>"
+                    },
+                    :convert_options => {
+                      # The size for paypal logo will be exactly 190x60. No cropping, instead the canvas is extended with white background
+                      :paypal => "-background white -gravity center -extent 190x60"
                     },
                     :default_url => DEFAULT_WIDE_LOGO
 
@@ -198,6 +199,7 @@ class Community < ActiveRecord::Base
                                                       "image/gif",
                                                       "image/pjpeg",
                                                       "image/x-png"]
+  process_in_background :wide_logo
 
   has_attached_file :cover_photo,
                     :styles => {
@@ -205,7 +207,7 @@ class Community < ActiveRecord::Base
                       :hd_header => "1920x450#",
                       :original => "3840x3840>"
                     },
-                    :default_url => "/assets/cover_photos/header/default.jpg",
+                    :default_url => ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg"),
                     :keep_old_files => true # Temporarily to make preprod work aside production
 
   validates_attachment_content_type :cover_photo,
@@ -214,6 +216,7 @@ class Community < ActiveRecord::Base
                                                       "image/gif",
                                                       "image/pjpeg",
                                                       "image/x-png"]
+  process_in_background :cover_photo
 
   has_attached_file :small_cover_photo,
                     :styles => {
@@ -221,7 +224,7 @@ class Community < ActiveRecord::Base
                       :hd_header => "1920x96#",
                       :original => "3840x3840>"
                     },
-                    :default_url => "/assets/cover_photos/header/default.jpg",
+                    :default_url => ActionController::Base.helpers.asset_path("cover_photos/header/default.jpg"),
                     :keep_old_files => true # Temporarily to make preprod work aside production
 
   validates_attachment_content_type :small_cover_photo,
@@ -230,6 +233,7 @@ class Community < ActiveRecord::Base
                                                       "image/gif",
                                                       "image/pjpeg",
                                                       "image/x-png"]
+  process_in_background :small_cover_photo
 
   has_attached_file :favicon,
                     :styles => {
@@ -240,7 +244,7 @@ class Community < ActiveRecord::Base
                       :favicon => "-depth 32",
                       :favicon => "-strip"
                     },
-                    :default_url => "/assets/favicon.ico"
+                    :default_url => ActionController::Base.helpers.asset_path("favicon.ico")
 
   validates_attachment_content_type :favicon,
                                     :content_type => ["image/jpeg",
@@ -248,6 +252,7 @@ class Community < ActiveRecord::Base
                                                       "image/gif",
                                                       "image/x-icon",
                                                       "image/vnd.microsoft.icon"]
+  process_in_background :favicon
 
   validates_format_of :twitter_handle, with: /\A[A-Za-z0-9_]{1,15}\z/, allow_nil: true
 
@@ -258,17 +263,18 @@ class Community < ActiveRecord::Base
 
   attr_accessor :terms
 
-  def name(locale=nil)
-    if locale
-      cc = community_customizations.find_by_locale(locale)
-      (cc && cc.name) ? cc.name : super()
+  def name(locale)
+    customization = community_customizations.where(locale: locale).first
+
+    if customization
+      customization.name
     else
-      super()
+      raise ArgumentError.new("Can not find translation for marketplace name community_id: #{id}, locale: #{locale}")
     end
   end
 
   def full_name(locale)
-    settings["service_name"] ? settings["service_name"] : "Sharetribe #{name(locale)}"
+    name(locale)
   end
 
   # If community name has several words, add an extra space
@@ -498,10 +504,6 @@ class Community < ActiveRecord::Base
     return false
   end
 
-  def uses_rdf_profile_import?
-    settings["use_rdf_profile_import"] == true
-  end
-
   # Returns an array that contains the hierarchy of categories and transaction types
   #
   # An xample of a returned tree:
@@ -591,11 +593,15 @@ class Community < ActiveRecord::Base
     listing.transaction_type.price_field? && payments_in_use?
   end
 
+  # Deprecated
+  #
+  # There is a method `payment_type` is community service. Use that instead.
   def payments_in_use?
-    # Deprecated
-    #
-    # There is a method `payment_type` is community service. Use that instead.
-    paypal_enabled? || (payment_gateway.present? && payment_gateway.configured?)
+    if MarketplaceService::Community::Query.payment_type(id) == :paypal
+      true
+    else
+      payment_gateway.present? && payment_gateway.configured?
+    end
   end
 
   # Testimonials can be used only if payments are used and `testimonials_in_use` value
@@ -640,14 +646,6 @@ class Community < ActiveRecord::Base
     payment_possible_for?(listing) && payments_in_use? ? payment_gateway.invoice_form_type : "no_form"
   end
 
-  def integrations_in_use?
-    plan_level >= BASIC_PLAN
-  end
-
-  def custom_head_script_in_use?
-    plan_level >= BASIC_PLAN
-  end
-
   def email_notification_types
     valid_types = Person::EMAIL_NOTIFICATION_TYPES.dup
     if !follow_in_use?
@@ -658,6 +656,14 @@ class Community < ActiveRecord::Base
 
   def close_listings_by_author(author)
     listings.where(:author_id => author.id).update_all(:open => false)
+  end
+
+  def images_processing?
+    logo.processing? ||
+    wide_logo.processing? ||
+    cover_photo.processing? ||
+    small_cover_photo.processing? ||
+    favicon.processing?
   end
 
   private

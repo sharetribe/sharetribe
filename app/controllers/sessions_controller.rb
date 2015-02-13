@@ -3,8 +3,6 @@ require 'rest_client'
 class SessionsController < ApplicationController
 
   skip_filter :check_email_confirmation
-  skip_filter :dashboard_only
-  skip_filter :single_community_only, :only => [ :create, :request_new_password ]
   skip_filter :cannot_access_without_joining, :only => [ :destroy, :confirmation_pending ]
 
   # For security purposes, Devise just authenticates an user
@@ -34,11 +32,7 @@ class SessionsController < ApplicationController
     # Since the authentication happens in the rack layer,
     # we need to tell Devise to call the action "sessions#new"
     # in case something goes bad.
-    if @current_community
-      person = authenticate_person!(:recall => "sessions#new")
-    else
-      person = authenticate_person!(:recall => "dashboard#login")
-    end
+    person = authenticate_person!(:recall => "sessions#new")
     flash[:error] = nil
     @current_user = person
 
@@ -111,17 +105,13 @@ class SessionsController < ApplicationController
       flash[:error] = t("layouts.notifications.email_not_found")
     end
 
-    if on_dashboard?
-      redirect_to dashboard_login_path
-    else
-      redirect_to login_path
-    end
+    redirect_to login_path
   end
 
   def facebook
     @person = Person.find_for_facebook_oauth(request.env["omniauth.auth"], @current_user)
 
-    I18n.locale = exctract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
+    I18n.locale = URLUtils.extract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
 
     if @person
       flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Facebook")
@@ -157,7 +147,7 @@ class SessionsController < ApplicationController
 
   # Callback from Omniauth failures
   def failure
-    I18n.locale = exctract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
+    I18n.locale = URLUtils.extract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
     error_message = params[:error_reason] || "login error"
     kind = env["omniauth.error.strategy"].name.to_s || "Facebook"
     flash[:error] = t("devise.omniauth_callbacks.failure",:kind => kind.humanize, :reason => error_message.humanize)
@@ -166,7 +156,9 @@ class SessionsController < ApplicationController
 
   # This is used if user has not confirmed her email address
   def confirmation_pending
-
+    if @current_user.blank?
+      redirect_to root
+    end
   end
 
 end

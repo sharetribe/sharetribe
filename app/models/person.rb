@@ -38,6 +38,7 @@
 #  min_days_between_community_updates :integer          default(1)
 #  is_organization                    :boolean
 #  organization_name                  :string(255)
+#  deleted                            :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -88,7 +89,7 @@ class Person < ActiveRecord::Base
 
   attr_protected :is_admin
 
-  has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
+  has_many :listings, :dependent => :destroy, :foreign_key => "author_id", :conditions => { :deleted => 0 }
   has_many :emails, :dependent => :destroy, :inverse_of => :person
 
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
@@ -155,8 +156,8 @@ class Person < ActiveRecord::Base
 #  validates_uniqueness_of :username
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :username, :within => 3..20
-  validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
-  validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
+  validates_length_of :given_name, :within => 1..255, :allow_nil => true, :allow_blank => true
+  validates_length_of :family_name, :within => 1..255, :allow_nil => true, :allow_blank => true
 
   validates_format_of :username,
                        :with => /\A[A-Z0-9_]*\z/i
@@ -228,16 +229,27 @@ class Person < ActiveRecord::Base
     community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago
   end
 
+  def self.username_blacklist
+    USERNAME_BLACKLIST
+  end
+
   def self.username_available?(username)
      !Person.find_by_username(username).present? && !username.in?(USERNAME_BLACKLIST)
    end
 
-  def name_or_username(community=nil)
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
+  def name_or_username(community_or_display_type=nil)
+    if community_or_display_type.present? && community_or_display_type.class == Community
+      display_type = community_or_display_type.name_display_type
+    else
+      display_type = community_or_display_type
+    end
     if is_organization
       return organization_name
     elsif given_name.present?
-      if community
-        case community.name_display_type
+      if display_type
+        case display_type
         when "first_name_with_initial"
           return first_name_with_initial
         when "first_name_only"
@@ -253,10 +265,14 @@ class Person < ActiveRecord::Base
     end
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def full_name
     "#{given_name} #{family_name}"
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def first_name_with_initial
     if family_name
       initial = family_name[0,1]
@@ -266,10 +282,14 @@ class Person < ActiveRecord::Base
     "#{given_name} #{initial}"
   end
 
-  def name(community=nil)
-    return name_or_username(community)
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
+  def name(community_or_display_type=nil)
+    return name_or_username(community_or_display_type)
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def given_name_or_username
     if is_organization
       # Quick and somewhat dirty solution. `given_name_or_username`
@@ -486,7 +506,10 @@ class Person < ActiveRecord::Base
   # method returns the first confirmed emails
   def confirmed_notification_email_to
     send_message_to = EmailService.emails_to_send_message(emails).first
-    EmailService.emails_to_smtp_addresses([send_message_to])
+
+    Maybe(send_message_to).map { |email|
+      EmailService.emails_to_smtp_addresses([email])
+    }.or_else(nil)
   end
 
   # Returns true if the address given as a parameter is confirmed
@@ -530,22 +553,6 @@ class Person < ActiveRecord::Base
     generate_reset_password_token! if should_generate_reset_token?
   end
 
-  # returns the same if its available, otherwise "same1", "same2" etc.
-  # Changes most special characters to _ to match with current validations
-  def self.available_username_based_on(initial_name)
-    if initial_name.blank?
-      initial_name = "fb_name_missing"
-    end
-    current_name = initial_name.gsub(/[^A-Z0-9_]/i,"_")
-    current_name = current_name[0..17] #truncate to 18 chars or less (max is 20)
-    i = 1
-    while self.find_by_username(current_name) do
-      current_name = "#{initial_name}#{i}"
-      i += 1
-    end
-    return current_name
-  end
-
   # If image_file_name is null, it means the user
   # does not have a profile picture.
   def has_profile_picture?
@@ -553,7 +560,7 @@ class Person < ActiveRecord::Base
   end
 
   def new_email_auth_token
-    t = AuthToken.create(:person => self, :expires_at => 1.week.from_now)
+    t = AuthToken.create(:person => self, :expires_at => 1.week.from_now, :token_type => "unsubscribe")
     return t.token
   end
 
@@ -704,15 +711,6 @@ class Person < ActiveRecord::Base
   # even without payment details
   def can_create_paid_listings_at?(community)
     true
-  end
-
-  # Has the person filled in all the information needed to receive payments in this community?
-  def can_receive_payments_at?(community)
-    if community.payment_gateway
-      return community.payment_gateway.can_receive_payments?(self)
-    else
-      throw "can_receive_payments_at? was checked in a community which has no payment gateways"
-    end
   end
 
   def follows?(person)

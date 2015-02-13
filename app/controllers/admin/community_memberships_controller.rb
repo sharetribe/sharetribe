@@ -1,6 +1,5 @@
 class Admin::CommunityMembershipsController < ApplicationController
   before_filter :ensure_is_admin
-  skip_filter :dashboard_only
 
   def index
     @selected_left_navi_link = "manage_members"
@@ -13,7 +12,14 @@ class Admin::CommunityMembershipsController < ApplicationController
 
   def ban
     membership = CommunityMembership.find_by_id(params[:id])
+
+    if membership.person == @current_user
+      flash[:error] = t("admin.communities.manage_members.ban_me_error")
+      return redirect_to admin_community_community_memberships_path(@current_community)
+    end
+
     membership.update_attributes(:status => "banned")
+    membership.update_attributes(:admin => 0) if membership.admin == 1
 
     @current_community.close_listings_by_author(membership.person)
 
@@ -24,16 +30,16 @@ class Admin::CommunityMembershipsController < ApplicationController
     if removes_itself?(params[:remove_admin], @current_user, @current_community)
       render nothing: true, status: 405
     else
-      CommunityMembership.where(:person_id => params[:add_admin]).update_all("admin = 1")
-      CommunityMembership.where(:person_id => params[:remove_admin]).update_all("admin = 0")
+      @current_community.community_memberships.where(:person_id => params[:add_admin]).update_all("admin = 1")
+      @current_community.community_memberships.where(:person_id => params[:remove_admin]).update_all("admin = 0")
 
       render nothing: true, status: 200
     end
   end
 
   def posting_allowed
-    CommunityMembership.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
-    CommunityMembership.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
+    @current_community.community_memberships.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
+    @current_community.community_memberships.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
 
     render nothing: true, status: 200
   end

@@ -8,8 +8,6 @@ class SettingsController < ApplicationController
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
 
-  skip_filter :dashboard_only
-
   def show
     @selected_left_navi_link = "profile"
     add_location_to_person
@@ -26,6 +24,12 @@ class SettingsController < ApplicationController
   def account
     @selected_left_navi_link = "account"
     @person.emails.build
+    marketplaces = @person.community_memberships.map do |membership|
+      membership.community.name(I18n.locale)
+    end
+    has_unfinished = TransactionService::Transaction.has_unfinished_transactions(@current_user.id)
+
+    render locals: {marketplaces: marketplaces, has_unfinished: has_unfinished}
   end
 
   def notifications

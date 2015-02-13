@@ -9,6 +9,7 @@ class TransactionProcess
   state :pending_ext
   state :accepted
   state :rejected
+  state :errored
   state :paid
   state :confirmed
   state :canceled
@@ -16,8 +17,8 @@ class TransactionProcess
   transition from: :not_started,               to: [:free, :pending, :preauthorized, :initiated]
   transition from: :initiated,                 to: [:preauthorized]
   transition from: :pending,                   to: [:accepted, :rejected]
-  transition from: :preauthorized,             to: [:paid, :rejected, :pending_ext]
-  transition from: :pending_ext,               to: [:paid, :canceled]
+  transition from: :preauthorized,             to: [:paid, :rejected, :pending_ext, :errored]
+  transition from: :pending_ext,               to: [:paid, :rejected]
   transition from: :accepted,                  to: [:paid, :canceled]
   transition from: :paid,                      to: [:confirmed, :canceled]
 
@@ -36,13 +37,7 @@ class TransactionProcess
     end
   end
 
-  after_transition(from: :accepted, to: :paid) do |transaction|
-    payment = transaction.payment
-    payer = payment.payer
-  end
-
   after_transition(to: :paid) do |transaction|
-    payment = transaction.payment
     payer = transaction.starter
     current_community = transaction.community
 
@@ -50,14 +45,10 @@ class TransactionProcess
       automatic_booking_confirmation_at = transaction.booking.end_on + 1.day
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_booking_confirmation_at!(automatic_booking_confirmation_at)
     else
-      transaction.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_confirmation!
     end
 
-    if payment
-      # TODO FIX THIS
-      Delayed::Job.enqueue(PaymentCreatedJob.new(payment.id, transaction.community.id))
-    end
+    Delayed::Job.enqueue(SendPaymentReceipts.new(transaction.id))
   end
 
   after_transition(to: :rejected) do |transaction|
@@ -72,8 +63,15 @@ class TransactionProcess
     confirmation.confirm!
   end
 
-  after_transition(to: :canceled) do |conversation|
+  after_transition(from: :accepted, to: :canceled) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.cancel!
   end
+
+  after_transition(from: :paid, to: :canceled) do |conversation|
+    confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
+    confirmation.cancel!
+    confirmation.cancel_escrow!
+  end
+
 end

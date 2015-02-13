@@ -1,31 +1,31 @@
-- conversation_url = person_message_url(@recipient, @url_params.merge({:id => @conversation.id.to_s}))
-- if @recipient.should_pay?(@conversation, @community)
+- transaction_url = person_message_url(@recipient, @url_params.merge({:id => @transaction.id.to_s}))
+- if @payment_url && @recipient.should_pay?(@transaction, @community)
   - action_url = @payment_url
   - action_text = t("emails.conversation_status_changed.pay_now")
-  - additional_text = t("emails.conversation_status_changed.you_can_now_pay_to", :payment_receiver => @conversation.other_party(@recipient).given_name_or_username)
+  - additional_text = t("emails.conversation_status_changed.you_can_now_pay_to", :payment_receiver => @transaction.other_party(@recipient).given_name_or_username)
 - else
-  - action_url = person_message_url(@recipient, @url_params.merge({:id => @conversation.id}))
+  - action_url = person_message_url(@recipient, @url_params.merge({:id => @transaction.id}))
   - action_text = t("emails.conversation_status_changed.view_thread")
   - additional_text = ""
 
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.conversation_status_changed.has_#{@conversation.status}_your_#{Listing.opposite_type(@conversation.listing.direction)}", :accepter => @conversation.listing.author.name(@current_community), :listing => @conversation.listing_title)
+      = t("emails.conversation_status_changed.has_#{@transaction.status}_your_#{Listing.opposite_type(@transaction.listing.direction)}", :accepter => @transaction.listing.author.name(@current_community), :listing => @transaction.listing_title)
       = additional_text
 
 -# TODO: Should we link transition to message?
 -#
-  - unless @conversation.conversation.last_message.content.blank?
-    %tr
-      %td{:align => "left", :style => "padding-top: 15px;"}
-        %font{body_font}
-          = t("emails.transaction_confirmed.here_is_a_message_from", :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username)
-    = render :partial => "quote", :locals => { :quote => @conversation.conversation.last_message.content }
+- if @transaction.conversation.last_message.present? && @transaction.conversation.last_message.sender_id != @recipient.id
+  %tr
+    %td{:align => "left", :style => "padding-top: 15px;"}
+      %font{body_font}
+        = t("emails.transaction_confirmed.here_is_a_message_from", :other_party_given_name => @transaction.other_party(@recipient).given_name_or_username)
+  = render :partial => "quote", :locals => { :quote => @transaction.conversation.last_message.content }
 
 = render :partial => "action_button", :locals => { :text => action_text, :url => action_url}
 
-- if @conversation.can_be_confirmed? && !@recipient.should_pay?(@conversation, @community)
+- if @transaction.can_be_confirmed? && !@recipient.should_pay?(@transaction, @community)
   %td{:align => "left", :style => "padding-bottom: 25px;"}
     %font{body_font}
-      = t("emails.conversation_status_changed.remember_to_confirm", :days_to_automatic_confirmation => @conversation.automatic_confirmation_after_days)
+      = t("emails.conversation_status_changed.remember_to_confirm", :days_to_automatic_confirmation => @transaction.automatic_confirmation_after_days)

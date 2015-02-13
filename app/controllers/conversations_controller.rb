@@ -7,8 +7,6 @@ class ConversationsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
 
-  skip_filter :dashboard_only
-
   def show
     conversation_id = params[:id]
 
@@ -22,12 +20,20 @@ class ConversationsController < ApplicationController
       return redirect_to root
     end
 
+    transaction = Transaction.find_by_conversation_id(conversation[:id])
+
+    if transaction.present?
+      # We do not want to use this controller to show conversations with transactions
+      # as the transaction controller shows not only the messages, but also the actions
+      # so redirect there.
+      redirect_to person_transaction_url(@current_user, {:id => transaction.id}) and return
+    end
+
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: conversation_id})
 
-    other = conversation[:other_person]
-    conversation[:other_party] = person_entity_with_url(other)
+    conversation[:other_person] = person_entity_with_url(conversation[:other_person])
 
-    messages = TransactionViewUtils.conversation_messages(conversation[:messages])
+    messages = TransactionViewUtils.conversation_messages(conversation[:messages], @current_community.name_display_type)
 
     MarketplaceService::Conversation::Command.mark_as_read(conversation[:id], @current_user.id)
 
@@ -40,6 +46,9 @@ class ConversationsController < ApplicationController
   end
 
   def person_entity_with_url(person_entity)
-    person_entity.merge({url: person_path(id: person_entity[:username])})
+    person_entity.merge({
+                          url: person_path(id: person_entity[:username]),
+                          display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
+                        })
   end
 end

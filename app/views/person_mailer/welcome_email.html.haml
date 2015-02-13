@@ -11,14 +11,18 @@
                     %tr
                       %td{:width => "7.5%"}
                       %td{:valign => "top", :width => "85%", :style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif; font-weight:400; font-size:14px; padding: 10px 0 40px 0; text-align: left; line-height:22px;"}
-                        %p= t("emails.common.hey", :name => @recipient.given_name_or_username)
-                        - customization = @current_community.community_customizations.find_by_locale(@url_params[:locale])
-                        - if customization && !customization.welcome_email_content.blank?
-                          = customization.welcome_email_content.html_safe
+                        - if @recipient.has_admin_rights_in?(@current_community) && !@test_email
+                          = render :partial => "admin/communities/welcome_email_for_marketplace_creator"
                         - else
-                          = render :partial => "admin/communities/default_welcome_email"
+                          %p= t("emails.common.hey", :name => @recipient.given_name_or_username)
+                          - customization = @current_community.community_customizations.find_by_locale(@url_params[:locale])
+                          - if customization && !customization.welcome_email_content.blank?
+                            = customization.welcome_email_content.html_safe
+                          - else
+                            = render :partial => "admin/communities/default_welcome_email"
                       %td{:width => "7.5%"}
-            %tr
-              %td{:style => "text-align: left;width:100%;max-width:602px;padding: 0 45px;"}
-                %p{:style => "margin-top:15px;margin-bottom:15px;font-family:helvetica,arial,sans-serif;font-size:12px;color:#464646;"}
-                  = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(@recipient, @url_params))).html_safe
+            - unless @recipient.has_admin_rights_in?(@current_community) && !@test_email
+              %tr
+                %td{:style => "text-align: left;width:100%;max-width:602px;padding: 0 45px;"}
+                  %p{:style => "margin-top:15px;margin-bottom:15px;font-family:helvetica,arial,sans-serif;font-size:12px;color:#464646;"}
+                    = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(@recipient, @url_params))).html_safe

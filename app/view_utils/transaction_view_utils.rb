@@ -22,7 +22,7 @@ module TransactionViewUtils
   def create_messages_from_actions(transitions, discussion_type, author, starter, payment_sum)
     return [] if transitions.blank?
 
-    ignored_transitions = ["free", "pending", "initiated", "pending_ext"] # Transitions that should not generate auto-message
+    ignored_transitions = ["free", "pending", "initiated", "pending_ext", "errored"] # Transitions that should not generate auto-message
 
     previous_states = [nil] + transitions.map { |transition| transition[:to_state] }
 
@@ -36,18 +36,24 @@ module TransactionViewUtils
       }
   end
 
-  def conversation_messages(message_entities)
-    message_entities.map { |message_entity| message_entity.merge(mood: :neutral) }
+  def conversation_messages(message_entities, name_display_type)
+    message_entities.map { |message_entity|
+      sender = message_entity[:sender].merge(
+        display_name: PersonViewUtils.person_entity_display_name(message_entity[:sender], name_display_type))
+      message_entity.merge(mood: :neutral, sender: sender)
+    }
   end
 
-  def transition_messages(transaction, conversation)
+  def transition_messages(transaction, conversation, name_display_type)
     if transaction.present?
-      author = conversation[:other_person]
-      starter = conversation[:starter_person]
+      author = conversation[:other_person].merge(
+        display_name: PersonViewUtils.person_entity_display_name(conversation[:other_person], name_display_type))
+      starter = conversation[:starter_person].merge(
+        display_name: PersonViewUtils.person_entity_display_name(conversation[:starter_person], name_display_type))
 
       transitions = transaction[:transitions]
       discussion_type = transaction[:discussion_type]
-      payment_sum = transaction[:payment_sum]
+      payment_sum = transaction[:payment_total]
 
       create_messages_from_actions(transitions, discussion_type, author, starter, payment_sum)
     else
@@ -91,12 +97,12 @@ module TransactionViewUtils
       }
     when "canceled"
       {
-        sender: author,
+        sender: starter,
         mood: :negative
       }
     when "confirmed"
       {
-        sender: author,
+        sender: starter,
         mood: :positive
       }
     else

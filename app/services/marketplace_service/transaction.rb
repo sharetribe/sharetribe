@@ -17,7 +17,9 @@ module MarketplaceService
         :starter_id,
         :testimonials,
         :transitions,
-        :payment_sum,
+        :payment_total,
+        :payment_gateway,
+        :commission_from_seller,
         :conversation,
         :booking,
         :created_at,
@@ -62,14 +64,9 @@ module MarketplaceService
       # - gateway_expires_at (how long the payment authorization is valid)
       # - max_date_at (max date, e.g. booking ending)
       def preauth_expires_at(gateway_expires_at, max_date_at=nil)
-        gateway_expires_at = gateway_expires_at.to_time
-        max_date_at = max_date_at.to_time if max_date_at.present?
-
-        if max_date_at.present?
-          max_date_at < gateway_expires_at ? max_date_at : gateway_expires_at
-        else
-          gateway_expires_at
-        end
+        [gateway_expires_at,
+         Maybe(max_date_at).map {|d| (d + 1.day).to_time}.or_else(nil)
+        ].compact.min
       end
 
       def authorization_expiration_period(payment_type)
@@ -88,7 +85,25 @@ module MarketplaceService
 
       def transaction(transaction_model)
         listing_model = transaction_model.listing
-        listing = ListingEntity.listing(listing_model)
+        listing = ListingEntity.listing(listing_model) if listing_model
+
+        payment_gateway = transaction_model.payment_gateway.to_sym
+
+        payment_total =
+          case payment_gateway
+          when :checkout, :braintree
+            # Use Maybe, since payment may not exists yet, if postpay flow
+            Maybe(transaction_model).payment.total_sum.or_else { nil }
+          when :paypal
+            paypal_payments = PaypalService::API::Api.payments
+            payment = paypal_payments.get_payment(transaction_model.community_id, transaction_model.id)
+
+            if payment[:success]
+              payment[:data][:authorization_total]
+            else
+              nil
+            end
+          end
 
         Transaction[EntityUtils.model_to_hash(transaction_model).merge({
           status: transaction_model.current_state,
@@ -97,20 +112,25 @@ module MarketplaceService
           testimonials: transaction_model.testimonials.map { |testimonial|
             Testimonial[EntityUtils.model_to_hash(testimonial)]
           },
-          starter_id: transaction_model.starter.id,
+          starter_id: transaction_model.starter_id,
           transitions: transaction_model.transaction_transitions.map { |transition|
             Transition[EntityUtils.model_to_hash(transition)]
           },
-          discussion_type: listing_model.discussion_type.to_sym,
-          payment_sum: Maybe(transaction_model).payment.total_sum.or_else { nil },
+          discussion_type: Maybe(listing_model).discussion_type.to_sym.or_else(:not_available),
+          payment_total: payment_total,
           booking: transaction_model.booking,
           __model: transaction_model
         })]
       end
 
-      def transaction_with_conversation(transaction_model)
+      def transaction_with_conversation(transaction_model, community_id)
         transaction = Entity.transaction(transaction_model)
-        transaction[:conversation] = ConversationEntity.conversation(transaction_model.conversation)
+        if transaction_model.conversation
+          transaction[:conversation] = ConversationEntity.conversation(transaction_model.conversation, community_id)
+        else
+          # placeholder for deleted conversation to keep transaction list working
+          transaction[:conversation] = ConversationEntity.deleted_conversation_placeholder
+        end
         transaction
       end
 
@@ -128,7 +148,8 @@ module MarketplaceService
         [:listing_id, :fixnum, :mandatory],
         [:starter_id, :string, :mandatory],
         [:author_id, :string, :mandatory],
-        [:content, :string, :optional]
+        [:content, :string, :optional],
+        [:commission_from_seller, :fixnum, :optional]
       )
       module_function
 
@@ -138,7 +159,8 @@ module MarketplaceService
         transaction = TransactionModel.new({
             community_id: opts[:community_id],
             listing_id: opts[:listing_id],
-            starter_id: opts[:starter_id]})
+            starter_id: opts[:starter_id],
+            commission_from_seller: opts[:commission_from_seller]})
 
         conversation = transaction.build_conversation(
           community_id: opts[:community_id],
@@ -193,7 +215,7 @@ module MarketplaceService
         old_status = transaction.current_state.to_sym if transaction.current_state.present?
 
         transaction_entity = Entity.transaction(transaction)
-        payment_type = MarketplaceService::Community::Query.payment_type(transaction_entity[:community_id])
+        payment_type = transaction.payment_gateway.to_sym
 
         Events.handle_transition(transaction_entity, payment_type, old_status, new_status)
 
@@ -206,6 +228,7 @@ module MarketplaceService
 
         metadata_hash = Maybe(metadata)
           .map { |data| TransactionService::DataTypes::TransitionMetadata.create_metadata(data) }
+          .map { |data| HashUtils.compact(data) }
           .or_else(nil)
 
         state_machine = TransactionProcess.new(transaction, transition_class: TransactionTransition)
@@ -223,18 +246,20 @@ module MarketplaceService
       module_function
 
       def transaction(transaction_id)
-        Entity.transaction(TransactionModel.find(transaction_id))
+        Maybe(TransactionModel.where(id: transaction_id).first)
+          .map { |m| Entity.transaction(m) }
+          .or_else(nil)
       end
 
       def transaction_with_conversation(transaction_id, person_id, community_id)
-        transaction_model = TransactionModel.joins(:listing)
+        Maybe(TransactionModel.joins(:listing)
           .where(id: transaction_id)
           .where(community_id: community_id)
           .includes(:booking)
           .where("starter_id = ? OR listings.author_id = ?", person_id, person_id)
-          .first
-
-        Entity.transaction_with_conversation(transaction_model)
+          .first)
+          .map { |tx_model| Entity.transaction_with_conversation(tx_model, community_id) }
+          .or_else(nil)
       end
 
       def transactions_for_community_sorted_by_column(community_id, sort_column, sort_direction, limit, offset)
@@ -245,7 +270,7 @@ module MarketplaceService
           .order("#{sort_column} #{sort_direction}")
 
         transactions = transactions.map { |txn|
-          Entity.transaction_with_conversation(txn)
+          Entity.transaction_with_conversation(txn, community_id)
         }
       end
 
@@ -254,7 +279,7 @@ module MarketplaceService
         transactions = TransactionModel.find_by_sql(sql)
 
         transactions = transactions.map { |txn|
-          Entity.transaction_with_conversation(txn)
+          Entity.transaction_with_conversation(txn, community_id)
         }
       end
 
@@ -297,36 +322,10 @@ module MarketplaceService
       def handle_transition(transaction, payment_type, old_status, new_status)
         if new_status == :preauthorized
           preauthorized(transaction, payment_type)
-        elsif (old_status == :preauthorized && new_status == :rejected)
-          preauthorized_to_rejected(transaction, payment_type)
         end
       end
 
       # privates
-
-      def preauthorized_to_rejected(transaction, payment_type)
-        case payment_type
-        when :braintree
-          BraintreeService::Payments::Command.void_transaction(transaction[:id], transaction[:community_id])
-        when :paypal
-          paypal_account = PaypalService::PaypalAccount::Query.personal_account(transaction[:listing][:author_id], transaction[:community_id])
-          paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(transaction[:id])
-
-          api_params = {
-            receiver_username: paypal_account[:email],
-            authorization_id: paypal_payment[:authorization_id],
-            note: "Automatic void: Not responded to a request after 3 days"
-          }
-
-          merchant = PaypalService::MerchantInjector.build_paypal_merchant
-          void_request = PaypalService::DataTypes::Merchant.create_do_void(api_params)
-          void_response = merchant.do_request(void_request)
-
-          if !void_response[:success]
-            # TODO Use Paypal logger
-          end
-        end
-      end
 
       def preauthorized(transaction, payment_type)
         expiration_period = Entity.authorization_expiration_period(payment_type)
@@ -342,7 +341,6 @@ module MarketplaceService
                               end
 
         booking_ends_on = Maybe(transaction)[:booking][:end_on].or_else(nil)
-
         expire_at = Entity.preauth_expires_at(gateway_expires_at, booking_ends_on)
 
         Delayed::Job.enqueue(TransactionPreauthorizedJob.new(transaction[:id]), :priority => 10)

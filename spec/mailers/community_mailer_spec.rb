@@ -16,6 +16,8 @@ describe "CommunityMailer" do
 
     before(:each) do
       @c1 = FactoryGirl.create(:community)
+      @c1.community_customizations.first.update_attribute(:name, "MarketTestPlace")
+
       @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
       @p1.communities << @c1
       @l2 = FactoryGirl.create(:listing,
@@ -35,7 +37,7 @@ describe "CommunityMailer" do
 
     it "should have correct address and subject" do
       @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("Sharetribe update")
+      @email.should have_subject("MarketTestPlace update")
     end
 
     it "should have correct links" do
@@ -45,6 +47,10 @@ describe "CommunityMailer" do
     it "should include valid auth_token in links" do
       token = @p1.auth_tokens.last.token
       @email.should have_body_text("?auth=#{token}")
+    end
+
+    it "should contain correct service name in the link" do
+      @email.should have_body_text(/that happened on <a href.+\">MarketTestPlace/)
     end
   end
 
@@ -94,9 +100,9 @@ describe "CommunityMailer" do
 
     it "should send only to people who want it now" do
       CommunityMailer.deliver_community_updates
-      (include_all?(ActionMailer::Base.deliveries[0].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[0].to, @p4.confirmed_notification_email_addresses)).should be_true
-      (include_all?(ActionMailer::Base.deliveries[1].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[1].to, @p4.confirmed_notification_email_addresses)).should be_true
-      (include_all?(ActionMailer::Base.deliveries[2].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[2].to, @p4.confirmed_notification_email_addresses)).should be_true
+      (include_all?(ActionMailer::Base.deliveries[0].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[0].to, @p4.confirmed_notification_email_addresses)).should be_truthy
+      (include_all?(ActionMailer::Base.deliveries[1].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[1].to, @p4.confirmed_notification_email_addresses)).should be_truthy
+      (include_all?(ActionMailer::Base.deliveries[2].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[2].to, @p4.confirmed_notification_email_addresses)).should be_truthy
       ActionMailer::Base.deliveries.size.should == 3
     end
 
@@ -105,11 +111,11 @@ describe "CommunityMailer" do
       CommunityMailer.deliver_community_updates
       ActionMailer::Base.deliveries.size.should == 4
       email = find_email_body_for(@p1.emails.first)
-      email.body.include?("during the past 1 day").should be_true
+      email.body.include?("during the past 1 day").should be_truthy
       email = find_email_body_for(@p2.emails.first)
-      email.body.include?("during the past 14 day").should be_true
+      email.body.include?("during the past 14 day").should be_truthy
       email = find_email_body_for(@p4.emails.first)
-      email.body.include?("during the past 9 day").should be_true
+      email.body.include?("during the past 9 day").should be_truthy
     end
 
     it "should send with default 7 days to those with nil as last time sent" do
@@ -120,8 +126,8 @@ describe "CommunityMailer" do
       ActionMailer::Base.deliveries.size.should == 4
       email = find_email_body_for(@p5.emails.first)
       email.should_not be_nil
-      #ActionMailer::Base.deliveries[3].to.include?(@p5.email).should be_true
-      email.body.include?("during the past 7 days").should be_true
+      #ActionMailer::Base.deliveries[3].to.include?(@p5.email).should be_truthy
+      email.body.include?("during the past 7 days").should be_truthy
     end
 
   end

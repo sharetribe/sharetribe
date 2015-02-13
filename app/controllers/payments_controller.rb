@@ -8,8 +8,6 @@ class PaymentsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
 
-  skip_filter :dashboard_only
-
   def new
     @conversation = Transaction.find(params[:message_id])
     @payment = @conversation.payment  #This expects that each conversation already has a (pending) payment at this point

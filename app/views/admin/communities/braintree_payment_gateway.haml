@@ -1,10 +1,7 @@
-- content_for :javascript do
-  initialize_admin_integrations_form("#{I18n.locale}", "#{@community.id}", "#{t('.invalid_twitter_handle')}", "#{t('.invalid_facebook_connect_id')}", "#{t('.invalid_facebook_connect_secret')}" );
-
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
 
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
 .left-navi-section
   %h2= t(".braintree_payment_gateway", :community_name => @community.name(I18n.locale))
@@ -54,5 +51,5 @@
         = form.number_field :commission_from_seller, in: 0..100
 
     .row
-      = button_tag t("admin.communities.integrations.save")
+      = button_tag t("admin.communities.social_media.save")
 

@@ -14,6 +14,10 @@ module PaypalService
       Rails.logger.error "[Paypal] #{msg}"
     end
 
+    def log_request_input(request, input)
+      info("paypal request: #{{method: request[:method] }.merge(Maybe(input).or_else({}))}")
+    end
+
     def log_response(resp)
       info("paypal response: #{response_to_log_str(resp)}") unless resp.nil?
     end

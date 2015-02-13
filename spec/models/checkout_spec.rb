@@ -16,9 +16,6 @@
 #  checkout_password                    :string(255)
 #  created_at                           :datetime         not null
 #  updated_at                           :datetime         not null
-#  gateway_commission_percentage        :integer
-#  gateway_commission_fixed_cents       :integer
-#  gateway_commission_fixed_currency    :string(255)
 #
 
 require 'spec_helper'
@@ -33,7 +30,7 @@ describe Checkout do
       gateway.checkout_user_id = ""
       gateway.checkout_password = ""
 
-      gateway.configured?.should be_false
+      gateway.configured?.should be_falsey
     end
 
     it "is configured if it's in testing mode" do
@@ -41,7 +38,7 @@ describe Checkout do
       gateway.checkout_user_id = ""
       gateway.checkout_password = ""
 
-      gateway.configured?.should be_true
+      gateway.configured?.should be_truthy
     end
 
     it "production and configured" do
@@ -49,7 +46,7 @@ describe Checkout do
       gateway.checkout_user_id = "1234user"
       gateway.checkout_password = "xxxxyyyyyzzzzz"
 
-      gateway.configured?.should be_true
+      gateway.configured?.should be_truthy
     end
   end
 end

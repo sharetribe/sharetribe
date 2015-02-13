@@ -16,9 +16,6 @@
 #  checkout_password                    :string(255)
 #  created_at                           :datetime         not null
 #  updated_at                           :datetime         not null
-#  gateway_commission_percentage        :integer
-#  gateway_commission_fixed_cents       :integer
-#  gateway_commission_fixed_currency    :string(255)
 #
 
 require 'spec_helper'
@@ -36,7 +33,7 @@ describe BraintreePaymentGateway do
       gateway.braintree_private_key = nil
       gateway.braintree_client_side_encryption_key = "xxx"
 
-      gateway.configured?.should be_false
+      gateway.configured?.should be_falsey
     end
 
     it "is configured" do
@@ -47,7 +44,7 @@ describe BraintreePaymentGateway do
       gateway.braintree_private_key = "1252384a99cdb1"
       gateway.braintree_client_side_encryption_key = "xxx"
 
-      gateway.configured?.should be_true
+      gateway.configured?.should be_truthy
     end
   end
 end

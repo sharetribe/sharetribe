@@ -89,6 +89,9 @@ module TransactionTypeCreator
       })
     end
 
+    #enable preauthorized payments
+    transaction_type.preauthorize_payment = true
+
     transaction_type.save!
 
     # Categories

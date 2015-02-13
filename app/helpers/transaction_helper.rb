@@ -20,10 +20,13 @@ module TransactionHelper
       "ss-check"
     when "reject_preauthorized"
       "ss-delete"
+    when "errored"
+      "ss-delete"
     end
   end
 
   # Give `status`, `is_author` and `other_party` and get back icon and text for current status
+  # rubocop:disable all
   def conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback, status_meta)
     icon_waiting_you = icon_tag("alert", ["icon-fix-rel", "waiting-you"])
     icon_waiting_other = icon_tag("clock", ["icon-fix-rel", "waiting-other"])
@@ -59,7 +62,7 @@ module TransactionHelper
       } },
 
       pending_ext: ->() {
-        case status_meta[:pending_reason]
+        case status_meta[:paypal_pending_reason]
         when "multicurrency"
           {
             author: {
@@ -96,8 +99,17 @@ module TransactionHelper
               text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
             }
           }
-        when "other"
-
+        else # some pending_ext reason we don't have special message for
+          {
+            author: {
+              icon: icon_waiting_you,
+              text: t("conversations.status.pending_external_inbox.paypal.unknown_reason")
+            },
+            starter: {
+              icon: icon_waiting_other,
+              text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party_name)
+            }
+          }
         end
       },
 
@@ -149,7 +161,14 @@ module TransactionHelper
           icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
           text: t("conversations.status.request_canceled")
         }
-      } }
+      } },
+
+      errored: ->() { {
+        both: {
+          icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
+          text: t("conversations.status.payment_errored")
+         }
+      } },
     }
 
     Maybe(status_hash)[status.to_sym]
@@ -158,6 +177,7 @@ module TransactionHelper
       .values
       .get
   end
+  # rubocop:enable all
 
   #
   # Returns statuses in Hash format
@@ -190,7 +210,6 @@ module TransactionHelper
   #   }
   # }
   def get_conversation_statuses(conversation, is_author)
-
     statuses = if conversation.listing && !conversation.status.eql?("free")
       status_hash = {
         pending: ->() { {
@@ -219,9 +238,10 @@ module TransactionHelper
         } },
         pending_ext: ->() {
           ## This is so wrong place to call services...
-          paypal_payment = PaypalService::PaypalPayment::Query.for_transaction(conversation.id)
+          #TODO Deprecated call, update to use PaypalService::API:Api.payments.get_payment
+          paypal_payment = PaypalService::Store::PaypalPayment.for_transaction(conversation.id)
 
-          reason = Maybe(conversation).transaction_transitions.last.metadata["pending_reason"]
+          reason = Maybe(conversation).transaction_transitions.last.metadata["paypal_pending_reason"]
 
           case reason
           when Some("multicurrency")
@@ -271,6 +291,14 @@ module TransactionHelper
         rejected: ->() { {
           both: [
             status_info(t("conversations.status.#{conversation.discussion_type}_rejected"), icon_classes: icon_for(conversation.status))
+          ]
+        } },
+        errored: ->() { {
+          author: [
+            status_info(t("conversations.status.payment_errored_author", starter_name: conversation.starter.name), icon_classes: icon_for("errored"))
+          ],
+          starter: [
+            status_info(t("conversations.status.payment_errored_starter"), icon_classes: icon_for("errored"))
           ]
         } }
       }

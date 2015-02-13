@@ -33,7 +33,6 @@ module.exports = function(grunt) {
         src: [
           'app/assets/javascripts/**/*.js',
           '!app/assets/javascripts/application.js',
-          '!app/assets/javascripts/dashboard.js',
           '!app/assets/javascripts/fastclick.min.js',
           '!app/assets/javascripts/googlemaps.js',
           '!app/assets/javascripts/homepage.js',

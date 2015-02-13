@@ -103,6 +103,39 @@ it:
         welcome_email_content_description: ~
         edit_message: ~
         send_test_message: ~
+      getting_started:
+        getting_started: ~
+        welcome_to_your_marketplace: ~
+        intro: ~
+        live_site_link_text: ~
+        look_and_feel: ~
+        logo_link_text: ~
+        custom_domain: ~
+        contact_team_link_text: ~
+        categories_and_custom_fields: ~
+        categories_link_text: ~
+        custom_fields_link_text: ~
+        filters_link_text: ~
+        payments: ~
+        payments_link_text: ~
+        info_texts: ~
+        about_page_link_text: ~
+        terms_of_use_link_text: ~
+        privacy_policy_link_text: ~
+        welcome_email_link_text: ~
+        instruction_texts_link_text: ~
+        social_media: ~
+        facebook_link_text: ~
+        twitter_link_text: ~
+        analytics: ~
+        analytics_link_text: ~
+        settings: ~
+        settings_link_text: ~
+        final_words: ~
+        invite_link_text: ~
+        view_users_link_text: ~
+        view_transactions_link_text: ~
+        contact_support_link_text: ~
       settings:
         settings: ~
         general: ~
@@ -121,11 +154,11 @@ it:
         email_preferences: ~
         automatic_newsletters: ~
         email_admins_about_new_members: ~
-        integrations: ~
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -141,21 +174,31 @@ it:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
-      integrations:
-        integrations: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
+        ban_me_error: ~
+      social_media:
+        social_media: ~
+        twitter_handle: "Nome utente di Twitter"
+        twitter_handle_info_text: "Il nominativo del profilo Twitter del tuo negozio online (se ne hai uno). Sarà menzionato quando le persone premeranno il bottone di Twitter nella pagina dell'annuncio."
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
+        twitter_handle_placeholder: "nome utente"
+        invalid_twitter_handle: "Il nome utente di Twitter può contenere un massimo di 15 caratteri alfanumerici (lettere A-Z e numero 0-9)."
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
         save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
+        save: "Salva le impostazioni"
       menu_links:
         menu_links: ~
         save: ~
@@ -186,6 +229,8 @@ it:
           paid: ~
           confirmed: ~
           canceled: ~
+          initiated: "In attesa del pagamento di PayPal"
+          pending_ext: "In attesa del pagamento di PayPal"
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -222,7 +267,6 @@ it:
         field_title: ~
         field_type: ~
         categories: ~
-        no_custom_listing_fields: ~
         options: ~
         add_option: ~
         saving_order: ~
@@ -253,54 +297,25 @@ it:
         send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
-    news_items:
-      index:
-        news_items: "Nuovi articoli"
-        create_news_item: "Crea un articolo"
-        no_news: ~
-        loading_more_news: ~
-      new:
-        new_news_item: "Crea un articolo"
-        edit_news_item: "Modifica articolo"
-        index_news_item: "Crea un articolo"
-        title: "Titolo:"
-        content: "Contenuto:"
-        save_news_item: "Salva articolo"
-      news_item:
-        edit_news_item: Modifica
-        delete_news_item: Cancella
+    left_hand_navigation:
+      general: ~
+      users_and_transactions: "Utenti & transazioni"
+      configure: Configura
+      emails_title: ~
+      support: ~
     paypal_accounts:
       marketplace_paypal_integration: "Integrazione PayPal"
-      new:
-        integration_info_text: "Per ricevere i soldi devi connettere il conto PayPal del tuo business con %{service_name}."
-        paypal_account_email: "Connetti il conto PayPal del tuo business"
-      show:
-        integration_info_text: "Per ricevere i soldi devi connettere il conto PayPal del tuo business con %{service_name}."
-        paypal_account_email_connected: "Conto PayPal connesso"
-    polls:
-      index:
-        polls: Sondaggi
-        create_poll: "Crea un sondaggio"
-        no_polls: "Nessun sondaggio"
-      edit_poll_links:
-        close_poll: Chiudi
-        open_poll: Apri
-        edit_poll: Modifica
-        delete_poll: Cancella
-      new:
-        add_option: "Aggiungi opzione"
-        new_poll: "Crea un sondaggio"
-        edit_poll: "Modifica sondaggio"
-        title: "Titolo:"
-        save_poll: "Salva sondaggio"
-      new_option:
-        option: Opzione
-        remove_option: "Rimuovi opzione"
-      show:
-        edit_poll: "Modifica sondaggio"
-      poll_status:
-        open: Aperto
-        closed: Chiuso
+      preferences_updated: "Preferenze di pagamento aggiornate"
+      integration_info_text: "Il sistema di pagamento di %{service_name} è gestito da PayPal. Se vuoi consentire ai tuoi utenti di effettuare pagamenti sulla tua piattaforma, è necessario collegare il tuo conto PayPal e decidere il prezzo minimo del tuo spazio e la quota che vuoi trattenere per ogni transazione."
+      read_more_about_paypal: ~
+      paypal_account_email: "1. Collega il tuo conto PayPal"
+      paypal_account_email_completed: Completato!
+      set_minimum_price_and_fee: "2. Inserisci un prezzo minimo e una tariffa di transazione"
+      set_minimum_price_and_fee_completed: Completato!
+      minimum_listing_price_label: "Prezzo minimo per lo spazio:"
+      transaction_fee_label: "Tariffa di transazione:"
+      save_settings: "Salva le impostazioni"
+      note_about_transaction_fee: "Nota: la quota di transazione include la percentuale di PayPal che dipende dalla valuta e dal volume delle vendite del venditore. Per questo motivo, la quota  è sempre almeno %{min_paypal_commission}. Quando la quota viene imposta da parte del venditore, PayPal detrarrà prima le sue spese , e il resto sarà trasferito al tuo conto PayPal."
     transaction_types:
       sell: ~
       rent: ~
@@ -313,7 +328,7 @@ it:
       share_for_free: ~
       default_action_button_labels:
         sell: ~
-        rent: ~
+        rent: Affitta
         request: ~
         offer: ~
         inquiry: ~
@@ -364,6 +379,7 @@ it:
     username: ~
     username_or_email: "Email o username"
     what_is_this: "Cos'è questo?"
+    removed_user: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -379,7 +395,11 @@ it:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: "Il prezzo non può essere inferiore a %{amount}."
-      approve: ~
+      accept: ~
+      decline: ~
+      sum: ~
+      service_fee: ~
+      you_will_get: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -475,6 +495,9 @@ it:
       price_excludes_vat: ~
       total: ~
     status:
+      payment_errored: "Il pagamento non è riuscito. Riprova grazie."
+      payment_errored_starter: "Il pagamento non è riuscito. Riprova grazie. Se il problema persiste, si prega di contattare il nostro supporto."
+      payment_errored_author: "Il pagamento non è riuscito. Contatta %{starter_name} e chiedigli di inviare nuovamente il pagamento."
       cancel_payed_transaction: ~
       feedback_given: "Feedback rilasciato"
       feedback_skipped: "Feedback saltato"
@@ -491,9 +514,9 @@ it:
       paid: ~
       pending_external:
         paypal:
-          multicurrency: ~
-          verify: ~
-          intl: ~
+          multicurrency: "Non siamo stati in grado di processare il pagamento PayPal perché il tuo conto PayPal non è stato impostato per ricevere fondi in %{currency}. Apri %{paypal_url} e accedi al tuo account per accettare o rifiutare manualmente il pagamento."
+          verify: "Non puoi accettare questa transazione in quanto il tuo conto PayPal non è stato ancora verificato. Apri %{paypal_url} per verificare il tuo conto."
+          intl: "Non siamo stati in grado di processare il pagamento PayPal in quanto il tuo conto PayPal non ha abilitato un meccanismo di prelievo. Apri %{paypal_url} e accedi al tuo conto per accettare o rifiutare manualmente il pagamento."
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Richiesta accettata"
@@ -513,9 +536,10 @@ it:
       waiting_feedback_from_you: ~
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
-          verify: ~
+          multicurrency: "In attesa che tu accetti il pagamento PayPal"
+          intl: "In attesa che tu accetti il pagamento PayPal"
+          unknown_reason: ~
+          verify: "In attesa che tu verifichi il tuo conto PayPal"
     status_link:
       accept_offer: "Accetta offerta"
       accept_request: "Accetta richiesta"
@@ -579,7 +603,6 @@ it:
       welcome_fb_user: ~
       fb_join_accept_terms: ~
       join_community: ~
-      you_are_not_a_member_of_this_community: ~
       you_can_join: ~
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
@@ -660,8 +683,6 @@ it:
       view_it_in_your_browser: ~
       or: ~
       unsubscribe_from_these_emails: ~
-    community_starter_email:
-      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha accettato la tua offerta %{listing}."
       has_accepted_your_request: "%{accepter} ha accettato la tua richiesta %{listing}."
@@ -699,6 +720,7 @@ it:
       price_payer_paid: "Prezzo %{payer_full_name} pagato:"
       service_fee: ~
       you_will_get: ~
+      money_will_be_transferred: "I soldi saranno trasferiti nel tuo conto quando a) %{payer_name} ha segnato la richiesta come completata or b) %{automatic_confirmation_days} giorni sono passati da quando %{payer_name} ha effettuato il pagamento."
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -706,6 +728,7 @@ it:
       total: ~
       price: Prezzo
       service_fee: ~
+      money_will_be_transferred: "I soldi saranno trasferiti a %{recipient_name} quando a) avrai segnato la richiesta completata or b) %{automatic_confirmation_days} giorni sono passati da quando hai pagato."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ti ha lasciato un feedback in %{service_name}"
       you_can_give_feedback_to: "non hai ancora lasciato un feedback a %{name}"
@@ -731,8 +754,6 @@ it:
       newest_offers: "Quello che le persone attualmente offrono agli altri"
       newest_requests: "Quello che le persone attualmente necessitano"
       text_version_text: "Potresti condividere qualcosa di cui gli altri potrebbero avere bisogno? Oppure hai bisogno di qualcosa che altri potrebbero avere? Aggiungi un'offerta o una richiesta o controllare tutto ciò che gli altri stanno offrendo o stanno richiedendo a %{url}"
-    reply_to_contact_request:
-      thank_you_for_your_interest: "Grazie per il tuo interesse in %{service_name}!"
     reset_password_instructions:
       change_my_password: "Cambia la mia password"
       reset_password_instructions: ~
@@ -758,6 +779,23 @@ it:
       click_here_link_text: "Clicca qui"
       welcome_email_footer_text: ~
       settings_link_text: "Controlla le tue impostazioni"
+      welcome_email_subject_for_marketplace_creator: ~
+      welcome_to_marketplace_creator: ~
+      congrats_for_creating_your_marketplace: ~
+      here_is_your_account_information: ~
+      your_email_address: ~
+      your_marketplace_address: ~
+      your_marketplace_admin_area: ~
+      just_follow_details: ~
+      we_will_guide_you_along_the_way: ~
+      are_you_new_to_online_marketplaces: ~
+      have_questions: ~
+      our_happiness_team_is_here_to_help: ~
+      love: ~
+      sharetribe_crew: ~
+      knowledge_base_link_text: ~
+      contact_support_link_text: ~
+      admin_panel_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -773,8 +811,13 @@ it:
     testimonials:
       you_must_explain_not_neutral_feedback: "Se vuoi dare feedback non neutrali, devi spiegarne il motivo."
       you_must_select_a_grade: "Ricordati di raccontare se la tua esperienza è stata positiva o negativa"
+    transaction_agreement:
+      required_error: ~
     paypal:
       generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento di PayPal."
+      cancel_error: "Si è verificato un errore durante la cancellazione. Non è stato possibile completare la cancellazione."
+      accept_authorization_error: "Si è verificato un errore durante il tentativo di accettare un pagamento pre autorizzato di Paypal. Per favore, riprova nuovamente."
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Indietro alla front page"
     error_404:
@@ -782,16 +825,21 @@ it:
       page_can_not_be_found: "La pagina non può essere trovata!"
       page_you_requested_can_not_be_found: "La pagina richiesta non è stata trovata. Sei sicuro che hai digitato l'indirizzo correttamente?"
     error_404_title: "pagina non trovata"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
-      help_us_find_the_problem: "Puoi aiutarci a trovare il problema scrivendo una breve descrizione del problema nello spazio sottostante."
-      page_loading_failed: "Errore caricamento pagina!"
-      reload_refresh: "Ricaricare la pagina spesso può aiutare ad accedere alla pagina che si voleva raggiungere. Noi cerchiamo di localizzare e risolvere il problema che ha causato l'errore appena possibile."
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
     error_500_title: "errore caricamento pagina"
     error_description: "Descrizione errore"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript è disabilitato nel tuo browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} non funziona bene senza javascript. Prova ad abilitare javascript nelle preferenze del tuo browser e dopo ricarica nuovamente la pagina."
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: contattaci
       send_feedback: "Invia feedback"
       your_feedback_to_admins: "I tuoi feedback agli amministratori"
@@ -892,8 +940,6 @@ it:
       no_listings_with_your_search_criteria: "Non abbiamo trovato nessun risultato che corrisponde ai tuoi criteri di ricerca"
       no_listings_notification: "No inserzioni. %{add_listing_link}."
       add_listing_link_text: "Aggiungi il tuo spazio"
-      available_on_the_app_store: "Disponibile su app store"
-      private_listing_notification: ~
       open_listing: "inserzione aperta"
       open_listings: "inserzioni aperte"
       private_listing_notification_log_in: ~
@@ -903,7 +949,6 @@ it:
       post_new_listing: "Aggiungi il tuo spazio"
       are_offering: offerta
       add_news_item: "Aggiungi un articolo"
-      inform_others_about_events: ~
       lend_rent_help_carpool: "Vendere, prestare, aiutare, condividere passaggi"
       loading_more_content: "Carica maggiori informazioni"
       more_events: "Più eventi..."
@@ -914,9 +959,6 @@ it:
       or_see_what_the_others: "...o guarda cosa gli altri"
       recent_events: "Eventi recenti"
       requesting: bisogno
-      teaser_text: |-
-          %{service_name} è un servizio per la comunità di %{community}.
-          Qui puoi prestare, noleggiare, regalare e vendere oggetti, fornire e ottenere aiuti o passaggi. Puoi prestare qualcosa agli altri o aiutarli in qualche modo?
       tell_it_here: "Dillo qui!"
       welcome_to_new_kassi: "Benvenuto al nuovo %{service_name}!"
       no_reviews: ~
@@ -925,7 +967,6 @@ it:
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Invita i tuoi amici su %{service_name}!"
-      invite_your_neighbors: ~
       email: "Indirizzo/i email"
       message: "Un messaggio personale"
       send_invitation: "Invia un invito"
@@ -939,13 +980,6 @@ it:
     news_item:
       show_less: ~
       show_more: ~
-    poll_form:
-      poll: "Sondaggio:"
-      comment: "Commento:"
-      answer: Risposta
-      results: Risultati
-      poll_answer: risposta
-      poll_answers: risposte
     profile_info_empty_notification:
       add_your_info: "Aggiungi le tue informazioni per essere contattato"
       add_a_profile_picture: "Aggiungi una foto per il profilo"
@@ -963,24 +997,23 @@ it:
       map_button: Mappa
       grid_button: Griglia
       list_button: Lista
-      all_listing_types: ~
+      all_listing_types: "Tutti i tipi di annuncio"
       all_categories: "Tutte le categorie"
   infos:
     about:
       default_about_text_title: ~
       default_about_text: ~
       click_here_link_text: ~
+    how_to_use:
+      default_title: ~
+      default_content: ~
   layouts:
+    admin:
+      admin: "%{service_name} pannello dell'amministratore."
     no_tribe:
       inbox: ~
       settings: Impostazioni
       feedback: Contattaci
-    admin:
-      admin: "%{service_name} pannello dell'amministratore."
-      back_to_kassi: "Indietro a %{service_name}"
-      tribe_info: ~
-      news_items: ~
-      polls: Sondaggi
     application:
       join_this_community: ~
       read_more: ~
@@ -989,8 +1022,6 @@ it:
       feedback_forum: "forum dei feedback"
       feedback_handle: Feedback
       give_feedback: Contattaci
-      keywords: ~
-      meta_description: "Sharetribe è un servizio che ti consente di creare facilmente un marketplace on line per permettere alla tua comunità di vendere, noleggiare, scambiare e condividere beni e servizi."
       or_check_our: "...o controlla i nostri"
       send_feedback_to_admin: "Invia feedback"
       to_see_what_others_have_suggested: "vedere cosa gli altri utenti hanno suggerito, e votare le  idee."
@@ -1007,13 +1038,11 @@ it:
       notifications: Notifiche
       received: Ricevuta
       sent: Inviata
-    dashboard:
-      title: "%{service_name} - condividi beni, servizi e passaggi nella tua comunità locale!"
     global-header:
       select_language: ~
     infos:
       about: Info
-      how_to_use: Aiuto
+      how_to_use: FAQ
       info_about_kassi: "Informazioni su %{service_name}"
       news: ~
       register_details: Privacy
@@ -1119,7 +1148,6 @@ it:
       this_content_is_not_available_in_this_community: "Questo contenuto non è disponibile in questa comunità."
       unknown_error: "Errore sconosciuto. Usa il link Contattaci per inviarci i dettagli di quanto accaduto."
       update_error: "È avvenuto un errore mentre stavi aggiornando le tue informazioni, prova nuovamente"
-      welcome_message: "Benvenuto in %{service_name}! %{service_name} è un servizio che aiuta i membri della comunità %{community} a vendere e noleggiare beni l'un l'altro, organizzare passaggi auto ed aiutarsi in molti altri modi."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Non sei autorizzato a fornire feedback su questo evento"
       you_are_not_authorized_to_do_this: "Non sei autorizzato a farlo"
       you_are_not_authorized_to_view_this_content: "Non sei autorizzato a vedere questo commento"
@@ -1157,6 +1185,7 @@ it:
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
     settings:
       account: Account
       notifications: Notifiche
@@ -1325,17 +1354,21 @@ it:
     listing_actions:
       booking_from: ~
       booking_to: ~
+      how_paypal_works: "Come funziona PayPal"
     new:
       post_a_new_listing: "Inserisci un nuovo spazio"
       listing: inserzione
       selected_category: "Categoria: %{category}"
       selected_subcategory: "Sottocategoria: %{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Tipo di annuncio: %{transaction_type}"
       select_category: "Seleziona una categoria"
       select_subcategory: ~
-      select_transaction_type: ~
-      you_need_to_fill_payout_details_before_accepting: ~
+      select_transaction_type: "Seleziona il tipo di annuncio"
+      you_need_to_fill_payout_details_before_accepting: "È necessario compilare i dettagli di pagamento prima di poter postare il tuo spazio. Vai al %{payment_settings_link} e inserisci le informazioni."
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
     please_comment: Commenta
     reply_link:
       listing_closed: "L'inserzione è chiusa"
@@ -1411,11 +1444,6 @@ it:
       search_verb: Cerca
       you_have_something_others_do_not: "Hai qualcosa da offrire?"
     please_comment: Commenta
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: "Rimuovi articolo"
   okl:
     member_id: ~
     member_id_or_email: ~
@@ -1447,8 +1475,14 @@ it:
     you_are_ready_to_accept_payments: "Ora sei pronto per accettare i pagamenti!"
     commission: ~
     connected_account: "Il conto PayPal '%{email}' è stato connesso con successo."
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
+      payout_info_you_need_to_connect: "Per accettare i pagamenti devi connettere il tuo conto PayPal con %{service_name}."
       payout_info_text: ~
+      contact_admin_link_text: ~
+      admin_account_not_connected: "Non puoi connettere il tuo conto PayPal perchè l'amministratore della piattaforma non ha terminato la configurazione di PayPal."
       paypal_account_email: ~
       paypal_account_email_placeholder: "Il tuo indirizzo email di PayPal"
       paypal_account_email_info_text: ~
@@ -1463,19 +1497,20 @@ it:
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
-      billing_agreement_id_missing: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
       something_went_wrong: "Qualcosa è andato storto. Riprova. Se il problema persiste, si prega di contattare gli amministratori del sito."
+      account_not_verified: ~
+      account_restricted: ~
+  paypal:
+    checkout_with_paypal: ~
+    cancel_succesful: "Il pagamento di PayPal è stato cancellato con successo"
+    transaction:
+      commission_payment_name: "Pagamento della commissione per %{listing_title}"
+      commission_payment_description: "La piattaforma %{service_name} ha preso questa commissione dalla transazione riguardante %{listing_title}"
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: ~
-      meet_the_people: ~
-      you_are_the_only_member: ~
-      here_are_the_members: ~
-      wanna_see_more_folks: ~
-      invite_people_you_know: ~
-      there_are_x_members: ~
-      to_see_the_list_log_in: ~
-      log_in_link: ~
     edit_links:
       activate: Attiva
       deactivate: Disattiva
@@ -1484,8 +1519,6 @@ it:
       help_captcha_title: "Sei umano?"
       help_invitation_code_title: "Hai bisogno di un invito per partecipare"
       terms_title: "%{service_name} termini di utilizzo"
-      trustcloud_description_title: ~
-      trustcloud_description_text: ~
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
@@ -1546,9 +1579,6 @@ it:
       exceeded_expectations: "Oltre le aspettative"
       positive: ~
       hide_description: "Mostra di meno"
-      joined_this_community: "Iscritto %{time_ago}"
-      was_last_seen: "Visto l'ultima volta %{time_ago}"
-      was_invited_by: "Invitato da %{inviter_name}"
       less_than_expected: "Peggio del previsto"
       phone_number: "Numero di telefono:"
       show_all_feedback: "Mostra tutti i feedback"
@@ -1620,7 +1650,9 @@ it:
       change_email: Cambia
       confirm_your_email: "Conferma la tua email"
       account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
+      account_confirmation_instructions_title_admin: ~
+      your_marketplace_has_now_been_created: ~
+      account_confirmation_instructions_admin: ~
   settings:
     account:
       change: Cambia
@@ -1630,11 +1662,14 @@ it:
       delete_account_confirmation_popup: "Sei sicuro di voler eliminare il tuo account e permanentemente perdere tutte le informazioni in esso contenute? La cancellazione dell'account non può essere revocata."
       email_addresses: "Indirizzi email"
       new_email: "Nuovo indirizzo email"
-      instructions_to_delete_account: "Se cancelli il tuo account tutte le informazioni in esso contenute saranno rimosse: i dettagli del tuo profilo, annunci, commenti, messaggi, commenti etc."
-      contact_admin: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Nuova password"
       save: Salva
       these_fields_are_shown_only_to_you: "Lo username è mostrato nel tuo profilo a meno che non abbia fornito il tuo nome. Altre informazioni sono mostrate solo a te."
+      email_already_confirmed: ~
       email:
         address_title: "Indirizzo email"
         remove_title: ~

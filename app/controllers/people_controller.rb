@@ -1,10 +1,7 @@
-require 'rdf'
-require 'rdf/ntriples'
-
 class PeopleController < Devise::RegistrationsController
+  class PersonDeleted < StandardError; end
 
   include PeopleHelper
-  include RDF
 
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   skip_before_filter :require_no_authentication, :only => [:new]
@@ -13,12 +10,9 @@ class PeopleController < Devise::RegistrationsController
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
 
-  before_filter :person_belongs_to_current_community, :only => [:show]
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
 
   skip_filter :check_email_confirmation, :only => [ :update]
-  skip_filter :dashboard_only
-  skip_filter :single_community_only, :only => [ :create, :update, :check_username_availability, :check_email_availability, :check_email_availability_and_validity]
   skip_filter :cannot_access_without_joining, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
 
   # Skip auth token check as current jQuery doesn't provide it automatically
@@ -26,14 +20,11 @@ class PeopleController < Devise::RegistrationsController
 
   helper_method :show_closed?
 
-  def index
-    @selected_tribe_navi_tab = "members"
-    params[:page] = 1 unless request.xhr?
-    @people = @current_community.members.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
-    request.xhr? ? (render :partial => "additional_members") : (render :action => :index)
-  end
-
   def show
+    @person = Person.find(params[:person_id] || params[:id])
+    raise PersonDeleted if @person.deleted?
+    PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
+
     redirect_to root and return if @current_community.private? && !@current_user
     redirect_to url_for(params.merge(:locale => nil)) and return if params[:locale] # This is an important URL to keep pretty
     @selected_tribe_navi_tab = "members"
@@ -141,7 +132,10 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def create_facebook_based
-    username = Person.available_username_based_on(session["devise.facebook_data"]["username"])
+    username = UserService::API::Users.username_from_fb_data(
+      username: session["devise.facebook_data"]["username"],
+      given_name: session["devise.facebook_data"]["given_name"],
+      family_name: session["devise.facebook_data"]["family_name"])
 
     person_hash = {
       :username => username,
@@ -221,13 +215,24 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def destroy
-    if @person && @current_user && @person == @current_user
-      sign_out @current_user
-      @current_user.destroy
-      report_analytics_event(['user', "deleted", "by user"]);
-      flash[:notice] = t("layouts.notifications.account_deleted")
+    has_unfinished = TransactionService::Transaction.has_unfinished_transactions(@current_user.id)
+    return redirect_to root if has_unfinished
+
+    communities = @current_user.community_memberships.map(&:community_id)
+
+    # Do all delete operations in transaction. Rollback if any of them fails
+    ActiveRecord::Base.transaction do
+      UserService::API::Users.delete_user(@current_user.id)
+      MarketplaceService::Listing::Command.delete_listings(@current_user.id)
+
+      communities.each { |community_id|
+        PaypalService::API::Api.accounts.delete(community_id: @current_community.id, person_id: @current_user.id)
+      }
     end
 
+    sign_out @current_user
+    report_analytics_event(['user', "deleted", "by user"]);
+    flash[:notice] = t("layouts.notifications.account_deleted")
     redirect_to root
   end
 
@@ -296,20 +301,6 @@ class PeopleController < Devise::RegistrationsController
     change_active_status("deactivated")
   end
 
-  def fetch_rdf_profile
-    graph = RDF::Graph.load(params[:rdf_profile_url])
-
-    fetched_data = {}
-    name = query_graph(graph, "name")
-    given_name = query_graph(graph, "givenName")
-    fetched_data["given_name"] = given_name || name
-    fetched_data["family_name"] = query_graph(graph, "familyName")
-    fetched_data["username"] = query_graph(graph, "nick") || given_name
-    fetched_data["email"] = query_graph(graph, "mbox").to_s.sub("mailto:","")
-
-    redirect_to new_person_path :person => fetched_data, :rdf_profile_url => params[:rdf_profile_url]
-  end
-
   private
 
   # Create a new person by params and current community
@@ -352,19 +343,6 @@ class PeopleController < Devise::RegistrationsController
 
     respond_to do |format|
       format.json { render :json => available }
-    end
-  end
-
-  def query_graph(graph, field)
-    solutions = RDF::Query.execute(graph) do
-      pattern [:person, RDF.type, FOAF.Person]
-      pattern [:person, FOAF.send(field), :result]
-    end
-
-    if solutions.present?
-      return solutions.first.result
-    else
-      return nil
     end
   end
 

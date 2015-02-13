@@ -290,4 +290,9 @@ namespace :sharetribe do
   task :delete_expired_auth_tokens => :environment do
     AuthToken.delete_expired
   end
+
+  desc "Retries set express checkouts"
+  task :retry_and_clean_paypal_tokens => :environment do
+    Delayed::Job.enqueue(PaypalService::Jobs::RetryAndCleanTokens.new(1.hour.ago))
+  end
 end

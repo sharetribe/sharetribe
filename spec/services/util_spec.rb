@@ -1,15 +1,3 @@
-describe MoneyUtil do
-  it "#parse_money_to_cents" do
-    MoneyUtil.parse_money_to_cents("100").should eql(10000)
-    MoneyUtil.parse_money_to_cents("100.00").should eql(10000)
-    MoneyUtil.parse_money_to_cents("100,00").should eql(10000)
-    MoneyUtil.parse_money_to_cents("99,99").should eql(9999)
-    MoneyUtil.parse_money_to_cents("99.99").should eql(9999)
-    MoneyUtil.parse_money_to_cents("0.12").should eql(12)
-    MoneyUtil.parse_money_to_cents("0,12").should eql(12)
-  end
-end
-
 describe HashUtils do
   it "#camelize_keys" do
     expected = {
@@ -45,11 +33,11 @@ describe HashUtils do
   end
 
   it "#deep_contains" do
-    HashUtils.deep_contains({a: 1}, {a: 1, b: 2}).should be_true
-    HashUtils.deep_contains({a: 2}, {a: 1, b: 2}).should be_false
-    HashUtils.deep_contains({a: 1, b: 1}, {a: 1, b: 2}).should be_false
-    HashUtils.deep_contains({a: 1, b: 2}, {a: 1, b: 2}).should be_true
-    HashUtils.deep_contains({c: 3}, {a: 1, b: 2}).should be_false
+    HashUtils.deep_contains({a: 1}, {a: 1, b: 2}).should be_truthy
+    HashUtils.deep_contains({a: 2}, {a: 1, b: 2}).should be_falsey
+    HashUtils.deep_contains({a: 1, b: 1}, {a: 1, b: 2}).should be_falsey
+    HashUtils.deep_contains({a: 1, b: 2}, {a: 1, b: 2}).should be_truthy
+    HashUtils.deep_contains({c: 3}, {a: 1, b: 2}).should be_falsey
   end
 end
 

@@ -11,7 +11,7 @@ Feature: User accepts new terms
     Then I should see "Terms of use have changed"
     When I press "I accept the new terms"
     Then I should see "Welcome"
-    And I should not see "Log in"
+    And I should not see "Sign in"
 
   @javascript
   Scenario: User does not accept the terms
@@ -20,4 +20,4 @@ Feature: User accepts new terms
     When I log in as "kassi_testperson2"
     Then I should see "Terms of use have changed"
     When I click the community logo
-    Then I should see "Log in"
+    Then I should see "Sign in"

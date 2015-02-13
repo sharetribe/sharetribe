@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+    <title><%= locals(local_assigns, :title) %></title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+
+    html, body {
+      background-color: #f6f7f7;
+      font-family: 'Source Sans Pro', sans-serif;
+      text-align: center;
+      color: #333;
+    }
+
+    html {
+      box-sizing: border-box;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    h2 {
+      padding-bottom: 10px;
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    .box {
+      max-width: 620px;
+      width: 90%;
+      background-color: #ffffff;
+      border-radius: 5px;
+      margin: 10% auto;
+      padding: 50px 5%;
+    }
+
+    .new-marketplace-form-row {
+      margin-bottom: 20px;
+    }
+
+    .new-marketplace-label {
+      margin-bottom: 5px;
+      display: block;
+      font-size: 18px;
+    }
+
+    .new-marketplace-input {
+      width: 60%;
+      height: 20px;
+      font-size: 14px;
+    }
+
+    .new-marketplace-select {
+      width: 60%;
+      font-size: 14px;
+      height: 20px;
+    }
+
+    .new-marketplace-submit {
+      font-size: 18px;
+    }
+
+    .new-marketplace-errors {
+      margin: auto;
+      color: red;
+    }
+
+  </style>
+
+  <% Maybe(@current_community).favicon.each do |favicon| %>
+    <link href="<%= favicon %>" rel="shortcut icon">
+  <% end %>
+
+</head>
+<body>
+  <div class="box">
+    <%= yield %>
+  </div>
+</body>
+</html>

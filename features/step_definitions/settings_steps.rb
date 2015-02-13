@@ -101,11 +101,11 @@ Then /^I should be able to remove notifications from "(.*?)"$/ do |email|
 end
 
 Then /^I should receive notifications for email "(.*?)"$/ do |email|
-  Email.find_by_address(email).send_notifications.should be_true
+  Email.find_by_address(email).send_notifications.should be_truthy
 end
 
 Then /^I should not receive notifications for email "(.*?)"$/ do |email|
-  Email.find_by_address(email).send_notifications.should be_false
+  Email.find_by_address(email).send_notifications.should be_falsey
 end
 
 Then /^I should not be able to resend confirmation for "(.*?)"$/ do |email|
