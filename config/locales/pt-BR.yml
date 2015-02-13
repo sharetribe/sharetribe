@@ -639,7 +639,7 @@ pt-BR:
       message: "Suas informações de pagamento foram confirmadas e agora você está pronto para receber pagamentos em %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Você ainda não confirmou ou cancelou o pedido %{request_link}. Se o pedido foi concluído, você deve confirmá-lo. Depois disso você pode dar um parecer ao %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Você ainda não confirmou nem cancelou o pedido %{request_link}. Iremos transferir o valor de %{other_party_given_name} somento quando a) você marcar pedido completo ou b) %{days_to_automatic_confirmation} dias após seu pagamento. Depois de marcar o pedido como completo você poderá dar o feedback para %{other_party_given_name}."
       remember_to_confirm_request: "Lembre-se de confirmar ou cancelar um pedido"
       if_will_not_happen_you_should_cancel: "Se você acha que este pedido não será concluído por uma razão ou outra, você pode %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: "Se você acha que este pedido não será concluído por uma razão ou outra, você pode %{cancel_it_link}. Isto notificará o administrador que entrará em contato com você para um reembolso."
@@ -671,7 +671,7 @@ pt-BR:
       subject: "Pedido concluído automaticamente - lembre-se de dar feedback"
       we_have_marked_request_as_confirmed: "Marcamos o pedido '%{request}' concluído. O pedido foi automaticamente concluído porque passou um dia desde que o período de reserva terminou."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
+      giving_feedback_is_good_idea: "Agora você pode dar o feedback para %{other_party_given_name}. Dar este retorno é sempre uma boa ideia. Se tudo ocorreu bem, você deve permitir que outros saibam que %{other_party_given_name} é confiável. Se houve algum problema, é bom mencionar que deu tudo certo."
       give_feedback_to: "Dar uma opinião sobre %{other_party_given_name}"
       show_thread: "Exibir conversa."
     escrow_canceled:
@@ -710,7 +710,7 @@ pt-BR:
       your_request_was_rejected: "Sua requisição foi rejeitada"
       you_can_now_pay_to: "Agora você pode pagar o montante solicitado a %{payment_receiver}."
       pay_now: "Pagar agora"
-      remember_to_confirm: ~
+      remember_to_confirm: "Quando o pedido estiver completado, relembre de marcá-lo como completo. Se o pedido não o estiver, você terá %{days_to_automatic_confirmation} dias para cancelá-lo. Caso contrário ele irá ser automaticamente marcado como completo."
     invitation_to_kassi:
       hi: Oi!
       you_have_been_invited_to_kassi: "%{inviter} convidou você a fazer parte da tribo %{community}."
@@ -789,7 +789,7 @@ pt-BR:
     welcome_email:
       welcome_email_subject: ~
       welcome_to_marketplace: "Bem-vindo a %{service_name}! Ficamos felizes em tê-lo a bordo."
-      love_marketplace_crew: ~
+      love_marketplace_crew: "Com carinho,<br/><i>Equipe %{service_name}</i>"
       p_s_did_you_know: "P.S. Sabia que você pode criar uma praça de mercado como esta para todas comunidades ou projetos que você tem ? %{click_here_link} para saber mais!"
       click_here_link_text: "Clique aqui"
       welcome_email_footer_text: "Que tipo de e-mails que você quer receber de %{service_name} %{settings_link}"
@@ -1500,7 +1500,7 @@ pt-BR:
       admin_account_not_connected: "Você não pode conectar sua conta PayPal porque o administrador do mercado não finalizou as configurações necessárias do PayPal."
       paypal_account_email: "1. Conecte sua conta PayPal"
       paypal_account_email_placeholder: "Seu endereço de email PayPal"
-      paypal_account_email_info_text: ~
+      paypal_account_email_info_text: "Atenção: Você precisa de uma conta individual no PayPal ou empresarial para aceitar pagamentos. Se você já possui sua conta pessoal, você poderá fazer o upgrade da mesma. É grátis e você só leva alguns minutos. %{upgrade_paypal_account} Se você não tem uma conta PayPal ainda, você pode criar esta nova conta %{create_paypal_account}. Sua conta PayPal deve estar configurada para receber %{currency}."
       create_paypal_account: aqui
       upgrade_paypal_account: "Aprimore sua conta aqui."
       connect_paypal_account: "Conecte-se a uma conta PayPal"
