@@ -314,8 +314,11 @@ ru:
       set_minimum_price_and_fee_completed: ~
       minimum_listing_price_label: ~
       transaction_fee_label: ~
+      minimum_transaction_fee_label: ~
       save_settings: ~
       note_about_transaction_fee: ~
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -380,8 +383,13 @@ ru:
     username_or_email: "Имя пользователя или электронная почта"
     what_is_this: "Что это?"
     removed_user: ~
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: "Ответить на предложение"
       respond_to_request: "Ответить на запрос"
       accept_offer: "Принять предложение"
@@ -391,15 +399,21 @@ ru:
       close_listing: "Закрыть объявление %{listing_title_link}"
       update_later: ~
       optional_message: "Сообщение (необязательно)"
+      sum: ~
       price_to_pay: ~
+      service_fee: ~
       you_need_to_fill_payout_details_before_accepting: ~
+      you_will_get: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
       accept: ~
       decline: ~
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -453,25 +467,25 @@ ru:
       item_offer_sell_message_form_title: "Купить %{listing} у %{person}"
       item_offer_give_away_message_form_title: "Забрать %{listing} у %{person}"
       item_offer_trade_message_form_title: "Обменяться %{listing} с %{person}"
+      housing_request_buy_message_form_title: "Продать %{listing} %{person}"
       item_offer_rent_out_message_form_title: "Взять в аренду %{listing} у %{person}"
+      housing_request_rent_message_form_title: "Дать в аренду %{listing} %{person}"
       item_request_borrow_message_form_title: "Дать на время %{listing} %{person}"
       item_request_buy_message_form_title: "Продать %{listing} %{person}"
-      item_request_take_for_free_message_form_title: "Отдать %{listing} %{person}"
-      item_request_trade_message_form_title: "Обменяться %{listing} с %{person}"
-      item_request_rent_message_form_title: "Дать в аренду %{listing} %{person}"
-      housing_offer_sell_message_form_title: "Купить %{listing} у %{person}"
-      housing_offer_rent_out_message_form_title: "Взять в аренду %{listing} у %{person}"
-      housing_offer_share_for_free_message_form_title: "Запросить %{listing} у %{person}"
-      housing_offer_accept_for_free_message_form_title: "Предложить %{listing} %{person}"
-      housing_request_buy_message_form_title: "Продать %{listing} %{person}"
-      housing_request_rent_message_form_title: "Дать в аренду %{listing} %{person}"
       item_request_message_form_title: "Предложить вещь"
+      item_request_take_for_free_message_form_title: "Отдать %{listing} %{person}"
       message: Сообщение
+      item_request_trade_message_form_title: "Обменяться %{listing} с %{person}"
       message_to: ~
+      item_request_rent_message_form_title: "Дать в аренду %{listing} %{person}"
       optional_message_to: ~
+      housing_offer_sell_message_form_title: "Купить %{listing} у %{person}"
       rideshare_offer_message_form_title: "Запросить поездку от"
+      housing_offer_rent_out_message_form_title: "Взять в аренду %{listing} у %{person}"
       rideshare_request_message_form_title: "Предложить поездку"
+      housing_offer_share_for_free_message_form_title: "Запросить %{listing} у %{person}"
       send_message: "Отправить сообщение"
+      housing_offer_accept_for_free_message_form_title: "Предложить %{listing} %{person}"
       send: ~
       this_message_is_private: "Это приватное сообщение между вами и %{person}. %{person} будет уведомлен(-а) об этом сообщении по электронной почте."
       you_will_get_notified_of_acceptance: "Вы получите уведомление по электронной почте когда %{person} примет или отклонит ваше предложение."

@@ -331,8 +331,11 @@ es-ES:
       set_minimum_price_and_fee_completed: ¡Completado!
       minimum_listing_price_label: "Precio mínimo para anuncio:"
       transaction_fee_label: "Comisión por transacción:"
+      minimum_transaction_fee_label: ~
       save_settings: "Guardar configuración"
       note_about_transaction_fee: "Nota: la comisión por transacción incluye las tasas de PayPal que dependen de tu moneda y del volumen de ventas del vendedor. Por esta razón, la comisión siempre es al menos %{min_paypal_commission}. Cuando se carga la comisión al vendedor, Paypal cobra su comisión primero y el resto del dinero se moverá a tu cuenta de PayPal."
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: Venta
       rent: Alquilando
@@ -397,8 +400,13 @@ es-ES:
     username_or_email: ~
     what_is_this: "¿Qué es esto?"
     removed_user: "Usuario eliminado"
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: ~
       respond_to_request: "Responder al pedido"
       accept_offer: ~
@@ -414,9 +422,12 @@ es-ES:
       minimum_price_error_message: "El precio no puede ser menor de %{amount}."
       accept: Aceptar
       decline: Declinar
-      sum: "Total: %{sum}"
-      service_fee: "Gastos de servicio: %{service_fee}"
-      you_will_get: "Obtendrás: %{seller_gets}"
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -732,6 +743,8 @@ es-ES:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: "Producto:"
       price_payer_paid: "Importe pagado por %{payer_full_name} :"
@@ -1289,6 +1302,8 @@ es-ES:
         time: ~
         long_time: ~
         after_service_fee_you_will_get: ~
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "El precio no incluye IVA."
       origin:
@@ -1509,7 +1524,9 @@ es-ES:
       upgrade_paypal_account: "Actualiza tu cuenta aquí."
       connect_paypal_account: "Conecta tu cuenta de Paypal"
       paypal_account_billing_agreement: "Concede permisos a %{service_name} para cargar la comisión por transferencia"
-      paypal_account_billing_agreement_info: "Cuando haces una venta en %{service_name}, se cargará una comisión del %{commission} % sobre precio del producto (nota: la comisión mínima es del %{minimum_commission} %). La comisión incluye las tasas de Paypal. Para usar %{service_name} necesitas permitir el cargo de esta comisión."
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: "Concede permisos a %{service_name} para cargar una comisión por transferencia."
       billing_agreement: "Concede permiso"
       permissions_not_granted: "El permiso para conectar la cuenta de Paypal no está concedido."
@@ -1621,7 +1638,6 @@ es-ES:
       show_all_listings: "Mostrar todos los anuncios"
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
       show_all_reviews: "Mostrar todas las reseñas"
-      trustcloud: ~
     followed_people:
       you_follow_plural: "Sigues a %{count} personas"
       you_follow_singular: "Sigues a %{count} persona"

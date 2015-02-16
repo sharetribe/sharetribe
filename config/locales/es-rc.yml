@@ -314,8 +314,11 @@ es-rc:
       set_minimum_price_and_fee_completed: ~
       minimum_listing_price_label: ~
       transaction_fee_label: ~
+      minimum_transaction_fee_label: ~
       save_settings: ~
       note_about_transaction_fee: ~
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -380,8 +383,13 @@ es-rc:
     username_or_email: ~
     what_is_this: ~
     removed_user: ~
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: ~
       respond_to_request: ~
       accept_offer: ~
@@ -397,9 +405,12 @@ es-rc:
       minimum_price_error_message: ~
       accept: ~
       decline: ~
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -717,6 +728,8 @@ es-rc:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: ~
       price_payer_paid: ~
@@ -1302,6 +1315,8 @@ es-rc:
         time: ~
         long_time: ~
         after_service_fee_you_will_get: ~
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
       origin:
@@ -1522,7 +1537,9 @@ es-rc:
       upgrade_paypal_account: ~
       connect_paypal_account: ~
       paypal_account_billing_agreement: ~
-      paypal_account_billing_agreement_info: ~
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: ~
       billing_agreement: ~
       permissions_not_granted: ~
@@ -1631,7 +1648,6 @@ es-rc:
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
-      trustcloud: ~
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~

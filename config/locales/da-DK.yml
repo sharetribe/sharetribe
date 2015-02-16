@@ -329,8 +329,11 @@ da-DK:
       set_minimum_price_and_fee_completed: Gennemført!
       minimum_listing_price_label: "Minimums pris:"
       transaction_fee_label: "Service fee:"
+      minimum_transaction_fee_label: ~
       save_settings: Gem
       note_about_transaction_fee: "Note: the transaction fee includes PayPal's fees that depend on your currency and the sales volume of the seller. For this reason, the fee is always at least %{min_paypal_commission}. When the fee is charged from the seller, PayPal will take its fees first, and the remainder will be moved to your PayPal account."
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: Sælger
       rent: Udlejer
@@ -395,8 +398,13 @@ da-DK:
     username_or_email: "Email eller brugernavn"
     what_is_this: "Hvad er dette?"
     removed_user: ~
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: "Svar på et tilbud"
       respond_to_request: "Svar på en ansøgning"
       accept_offer: "Accepter tilbud"
@@ -412,9 +420,12 @@ da-DK:
       minimum_price_error_message: "Prisen kan ikke være lavere end %{amount}."
       accept: ~
       decline: ~
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: "Hvis din ansøgning er godkendt, bør du markerer den som en success. Så kan I give feedback til hinanden."
       cancel_description: "Hvis din ansøgning ikke er godkendt, kan du markere den som 'ikke godkendt'. Du kan stadig give feedback til den anden part."
@@ -730,6 +741,8 @@ da-DK:
     new_payment:
       new_payment: "Du har modtaget en ny betaling"
       you_have_received_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{payer_full_name}. Her er din kvittering."
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Pris %{payer_full_name} betalte:"
@@ -1285,6 +1298,8 @@ da-DK:
         time: "time, dag, måned, ..."
         long_time: "uge, måned, ..."
         after_service_fee_you_will_get: "Efter %{service_name}'s service fee, vil du få %{sum_with_currency}"
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: "Efter %{service_name} service fee's vil du modtage: %{sum_with_currency}"
         price_excludes_vat: "Prisen er eksklusiv moms"
       origin:
@@ -1505,7 +1520,9 @@ da-DK:
       upgrade_paypal_account: "Opgrader din konto her."
       connect_paypal_account: "Tilknyt PayPal konto"
       paypal_account_billing_agreement: "2. Tillad %{service_name} at tage et service fee"
-      paypal_account_billing_agreement_info: "Når du laver et salg på %{service_name}, har vi et service fee på %{commission} af det produkt du sælger. For at bruge %{service_name} skal du godkende vores service fee."
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: "Tillad %{service_name} at tage et service fee."
       billing_agreement: "Tillad adgang"
       permissions_not_granted: "Tilladelsen til at tilknyttet din PayPal konto mislykkedes."
@@ -1617,7 +1634,6 @@ da-DK:
       show_all_listings: "Vis alle annoncer"
       show_all_open_listings: "Vis alle åbne annoncer"
       show_all_reviews: "Vis alle anmeldelser"
-      trustcloud: TrustCard
     followed_people:
       you_follow_plural: "Du følger %{count} personer"
       you_follow_singular: "Du følger %{count} person"

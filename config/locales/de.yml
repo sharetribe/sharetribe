@@ -59,7 +59,7 @@ de:
         community_description: "Community Beschreibung"
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_search_placeholder: "Hilfe-Text durchsuchen"
-        edit_community_search_placeholder_description: ~
+        edit_community_search_placeholder_description: "Dies wird auf der Homepage des Marktes als Platzhaltertext in der Suchleiste angezeigt. %{see_how_it_looks_like}"
         private_community_homepage_content: "Privater Inhalt der Community Startseite"
         edit_private_community_homepage_content_description: "Dieser Content ist nur bei privaten Communities sichtbar. User, die nicht eingeloggt sind, sehen den Text auf der Startseite. Beschreibe hier deine Community und wie man ihr beitreten kann. Du kannst hier außerdem Bilder, Videos und HTML-Content hinzufügen. %{see_how_it_looks_like}."
         update_information: "Einstellungen speichern"
@@ -74,11 +74,11 @@ de:
         contact_admin_link_text: "Administrator kontaktieren"
         save: "Einstellungen speichern"
         transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
+        transaction_agreement_checkbox: "Benutzer müssen die Nutzungsvereinbarungen vor der Transaktion akzeptieren"
+        transaction_agreement_checkbox_header: "Nutzungsvereinbarung Label"
         transaction_agreement_checkbox_label_description: ~
         transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        transaction_agreement_description: "Dies ist der Inhalt der eigentlichen Nutzungsvereinbarung, die der Anwender akzeptieren muss. Der Inhalt der Nutzungsvereinbarung wird angezeigt, wenn der Benutzer den %{read_more} Link neben dem Label der Nutzungsvereinbarung klickt."
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
         community_logo: Logo
@@ -112,7 +112,7 @@ de:
         custom_head_script: ~
         custom_head_script_instructions_text: ~
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: Anleitungstexte
       edit_welcome_email:
         welcome_email_content: "Inhalt der Begrüßungsmail"
         welcome_email_content_description: "Die folgende Nachricht wird zur Begrüßung an jedes neue Mitglied gesendet. Du kannst die Nachricht so bearbeiten, dass sie zu deiner Community passt. Indem du auf '%{send_test_message_link}' klickst, kannst du sehen, wie sie in einem E-Mail-Client aussieht."
@@ -138,7 +138,7 @@ de:
         terms_of_use_link_text: Nutzungsbedingungen
         privacy_policy_link_text: Datenschutzbestimmungen
         welcome_email_link_text: Begrüßungs-E-Mail
-        instruction_texts_link_text: ~
+        instruction_texts_link_text: "Andere Anleitungstexte"
         social_media: ~
         facebook_link_text: ~
         twitter_link_text: "füge deinen Twitter-Account hinzu"
@@ -329,8 +329,11 @@ de:
       set_minimum_price_and_fee_completed: Abgeschlossen!
       minimum_listing_price_label: "Minimaler Listing Preis:"
       transaction_fee_label: "Transaktionsgebühr:"
+      minimum_transaction_fee_label: ~
       save_settings: "Einstellungen speichern"
       note_about_transaction_fee: ~
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: Verkaufen
       rent: Vermieten
@@ -395,8 +398,13 @@ de:
     username_or_email: "E-Mail oder Benutzername"
     what_is_this: "Was ist das?"
     removed_user: ~
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: "Beantworte ein Angebot"
       respond_to_request: "Beantworte eine Anfrage"
       accept_offer: "Akzeptiere das Angebot"
@@ -412,9 +420,12 @@ de:
       minimum_price_error_message: "Der Preis kann nicht niedriger sein als %{amount}."
       accept: Akzeptieren
       decline: Ablehnen
-      sum: "Summe: %{sum}"
-      service_fee: "Servicegebühr: %{service_fee}"
-      you_will_get: "Du erhälst : %{seller_gets}"
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem anderen Feedback geben."
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
@@ -730,6 +741,8 @@ de:
     new_payment:
       new_payment: "Du hast eine neue Zahlung erhalten"
       you_have_received_new_payment: "Du hast bezahlt %{payment_sum} für %{listing_title} an %{payer_full_name}. Das ist deine Rechnung."
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Betrag bezahlt von %{payer_full_name}:"
@@ -1285,6 +1298,8 @@ de:
         time: "Stunde, Tag, Monat,..."
         long_time: "Woche, Monat..."
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr, wirst du %{sum_with_currency} erhalten"
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."
       origin:
@@ -1505,7 +1520,9 @@ de:
       upgrade_paypal_account: "Upgrade deinen PayPal Konto hier."
       connect_paypal_account: "Verbinde deinen PayPal Account"
       paypal_account_billing_agreement: "Erteile dem Webservice %{service_name} die Erlaubnis eine Transaktionsgebühr zu berechnen."
-      paypal_account_billing_agreement_info: ~
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: ~
       billing_agreement: "Erteile die Erlaubnis"
       permissions_not_granted: ~
@@ -1617,7 +1634,6 @@ de:
       show_all_listings: "Alle Einträge anzeigen"
       show_all_open_listings: "Zeige alle offenen Einträge an"
       show_all_reviews: "Alle Bewertungen anzeigen"
-      trustcloud: TrustCloud
     followed_people:
       you_follow_plural: "Du folgst %{count} Personen"
       you_follow_singular: "Du folgst %{count} Person"

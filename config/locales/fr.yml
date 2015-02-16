@@ -329,8 +329,11 @@ fr:
       set_minimum_price_and_fee_completed: "Terminé !"
       minimum_listing_price_label: "Montant minimum : "
       transaction_fee_label: "Commission : "
+      minimum_transaction_fee_label: ~
       save_settings: "Sauvegarder les paramètres"
       note_about_transaction_fee: "Note : la commission inclut les frais PayPal qui dépendent de la monnaie et du volume des ventes du vendeur. Pour cette raison, la commission est d'au minimum %{min_paypal_commission}. Lorsque la commission est facturée au vendeur, PayPal prélève d'abord ses frais puis le restant est viré sur votre propre compte PayPal."
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: Vente
       rent: Location
@@ -395,8 +398,13 @@ fr:
     username_or_email: "Email ou nom d'utilisateur "
     what_is_this: "Qu'est-ce que c'est ?"
     removed_user: "Utilisateur supprimé"
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: "Répondre à une offre"
       respond_to_request: "Répondre à une demande"
       accept_offer: "Accepter l'offre"
@@ -412,9 +420,12 @@ fr:
       minimum_price_error_message: "Le prix ne peut pas être plus bas que %{amount}."
       accept: Accepter
       decline: Refuser
-      sum: "Total : %{sum}"
-      service_fee: "Commission : %{service_fee}"
-      you_will_get: "Vous recevrez : %{seller_gets}"
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: "Si votre demande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
       cancel_description: "Si votre demande n'a pas été satisfaite, vous pouvez la marquer comme \"non réalisée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
@@ -730,6 +741,8 @@ fr:
     new_payment:
       new_payment: "Vous avez reçu un nouveau paiement"
       you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: "Produit : "
       price_payer_paid: "Prix payé par %{payer_full_name} : "
@@ -1285,6 +1298,8 @@ fr:
         time: "heure, jour, mois..."
         long_time: "semaine, mois..."
         after_service_fee_you_will_get: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez %{sum_with_currency}"
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez environ %{sum_with_currency} (TVA 0%)"
         price_excludes_vat: "Ce prix n'inclut pas la TVA."
       origin:
@@ -1505,7 +1520,9 @@ fr:
       upgrade_paypal_account: "Mettre à jour votre compte ici."
       connect_paypal_account: "Connecter le compte PayPal"
       paypal_account_billing_agreement: "2. Autoriser %{service_name} à prélever une commission sur les transactions"
-      paypal_account_billing_agreement_info: "Lorsque vous réalisez une transaction sur %{service_name}, une commission de %{commission} sur le prix total est prélevée (note : la commission minimale est de %{minimum_commission}). Cette commission inclue les frais PayPal. Pour utiliser %{service_name} vous devez l'autoriser à prélever cette commission."
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: "Autoriser %{service_name} à prélever une commission sur les transactions."
       billing_agreement: Autoriser
       permissions_not_granted: "La connexion avec le compte PayPal n'a pas été permise."
@@ -1617,7 +1634,6 @@ fr:
       show_all_listings: "Voir toutes les annonces"
       show_all_open_listings: "Voir toutes les annonces en ligne"
       show_all_reviews: "Vois tous les avis"
-      trustcloud: TrustCard
     followed_people:
       you_follow_plural: "Vous suivez %{count} personnes"
       you_follow_singular: "Vous suivez %{count} personne"

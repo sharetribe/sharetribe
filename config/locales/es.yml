@@ -314,8 +314,11 @@ es:
       set_minimum_price_and_fee_completed: ~
       minimum_listing_price_label: ~
       transaction_fee_label: ~
+      minimum_transaction_fee_label: ~
       save_settings: ~
       note_about_transaction_fee: ~
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: Venta
       rent: Alquilando
@@ -380,8 +383,13 @@ es:
     username_or_email: "Usuario o email"
     what_is_this: "Qué es esto?"
     removed_user: ~
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: "Responder a una oferta"
       respond_to_request: "Responder a una solicitud"
       accept_offer: "Aceptar la oferta"
@@ -397,9 +405,12 @@ es:
       minimum_price_error_message: ~
       accept: ~
       decline: ~
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: "Si tu pedido ha sido completado debes confirmar que esta hecho. Entonces puedes dar tu opinion a la otra parte."
       cancel_description: "Si tu pedido no ha sido completado, puedes marcar en \"no ha sucedido\". Aun puedes dar tu opinion a la otra parte y contar que sucedio."
@@ -720,6 +731,8 @@ es:
     new_payment:
       new_payment: "Ha recibido un nuevo pago"
       you_have_received_new_payment: "Has sido pagado  <b> %{payment_sum}</b> por  <b>%{listing_title}</b> %{payer_full_name}. Aquí estatu comprobante."
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: ~
       price_payer_paid: "Precio que %{payer_full_name} pagó"
@@ -1277,6 +1290,8 @@ es:
         time: "hora, día, semana, ..."
         long_time: "semana, mes, ..."
         after_service_fee_you_will_get: ~
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "El precio no incluye IVA."
       origin:
@@ -1497,7 +1512,9 @@ es:
       upgrade_paypal_account: ~
       connect_paypal_account: ~
       paypal_account_billing_agreement: ~
-      paypal_account_billing_agreement_info: ~
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: ~
       billing_agreement: ~
       permissions_not_granted: ~
@@ -1609,7 +1626,6 @@ es:
       show_all_listings: "Ver todos los anuncios"
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
       show_all_reviews: "Mostrar todos los feedbacks"
-      trustcloud: TrustCloud
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
