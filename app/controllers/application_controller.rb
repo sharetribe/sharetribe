@@ -39,19 +39,41 @@ class ApplicationController < ActionController::Base
 
   helper_method :root, :logged_in?, :current_user?
 
+  def select_locale(user_locale, locale_param, community_locales, community_default_locale)
+
+    # Use user locale, if community supports it
+    user = Maybe(user_locale).select { |locale| community_locales.include?(locale) }.or_else(nil)
+
+    # Use locale from URL param, if community supports it
+    param = Maybe(locale_param).select { |locale| community_locales.include?(locale) }.or_else(nil)
+
+    # Use community detauls locale
+    community = community_default_locale
+
+    user || param || community
+  end
+
   def set_locale
+    user_locale = Maybe(@current_user).locale.or_else(nil)
 
-    locale = (logged_in? && @current_community && @current_community.locales.include?(@current_user.locale)) ? @current_user.locale : params[:locale]
+    # We should remove this -- START
+    #
+    # There are a couple of controllers (amazon ses bounces, braintree webhooks) that
+    # inherit application controller, even though they shouldn't. ApplicationController
+    # has a lot of community specific filters and those controllers do not have community.
+    # Thus, we need to add this kind of additional logic to make sure whether we have
+    # community or not
+    #
+    m_community = Maybe(@current_community)
+    community_locales = m_community.locales.or_else([])
+    community_default_locale = m_community.default_locale.or_else("en")
+    # We should remove this -- END
 
-    if locale.blank? && @current_community
-      locale = @current_community.default_locale
-    end
+    locale = select_locale(user_locale, params[:locale], community_locales, community_default_locale)
 
-    if ENV['RAILS_ENV'] == 'test'
-      I18n.locale = locale
-    else
-      I18n.locale = available_locales.collect { |l| l[1] }.include?(locale) ? locale : APP_CONFIG.default_locale
-    end
+    raise ArgumentError.new("Locale #{locale} not available. Check your community settings") unless available_locales.collect { |l| l[1] }.include?(locale)
+
+    I18n.locale = locale
 
     # Store to thread the service_name used by current community, so that it can be included in all translations
     ApplicationHelper.store_community_service_name_to_thread(service_name)
@@ -63,11 +85,9 @@ class ApplicationController < ActionController::Base
     new_path.slice!(0,1) if new_path =~ /^\//
     @return_to = new_path
 
-    if @current_community
-      unless @community_customization = @current_community.community_customizations.find_by_locale(I18n.locale)
-        @community_customization = @current_community.community_customizations.find_by_locale(@current_community.locales.first)
-      end
-    end
+    Maybe(@current_community).each { |community|
+      @community_customization = community.community_customizations.where(locale: locale).first
+    }
   end
 
   #Creates a URL for root path (i18n breaks root_path helper)
