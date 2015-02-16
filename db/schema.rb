@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150206125017) do
+ActiveRecord::Schema.define(:version => 20150213092629) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -125,7 +125,6 @@ ActiveRecord::Schema.define(:version => 20150206125017) do
   add_index "comments", ["listing_id"], :name => "index_comments_on_listing_id"
 
   create_table "communities", :force => true do |t|
-    t.string   "name"
     t.string   "domain"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -463,24 +462,24 @@ ActiveRecord::Schema.define(:version => 20150206125017) do
     t.string   "author_id"
     t.string   "category_old"
     t.string   "title"
-    t.integer  "times_viewed",        :default => 0
+    t.integer  "times_viewed",             :default => 0
     t.string   "language"
     t.datetime "created_at"
     t.datetime "updates_email_at"
     t.datetime "updated_at"
     t.datetime "last_modified"
     t.datetime "sort_date"
-    t.string   "visibility",          :default => "this_community"
+    t.string   "visibility",               :default => "this_community"
     t.string   "listing_type_old"
     t.text     "description"
     t.string   "origin"
     t.string   "destination"
     t.datetime "valid_until"
-    t.boolean  "delta",               :default => true,             :null => false
-    t.boolean  "open",                :default => true
+    t.boolean  "delta",                    :default => true,             :null => false
+    t.boolean  "open",                     :default => true
     t.string   "share_type_old"
-    t.string   "privacy",             :default => "private"
-    t.integer  "comments_count",      :default => 0
+    t.string   "privacy",                  :default => "private"
+    t.integer  "comments_count",           :default => 0
     t.string   "subcategory_old"
     t.integer  "old_category_id"
     t.integer  "category_id"
@@ -490,7 +489,10 @@ ActiveRecord::Schema.define(:version => 20150206125017) do
     t.integer  "price_cents"
     t.string   "currency"
     t.string   "quantity"
-    t.boolean  "deleted",             :default => false
+    t.boolean  "deleted",                  :default => false
+    t.boolean  "require_shipping_address", :default => false
+    t.boolean  "pickup_enabled",           :default => false
+    t.integer  "shipping_price_cents"
   end
 
   add_index "listings", ["listing_type_old"], :name => "index_listings_on_listing_type"
@@ -516,6 +518,11 @@ ActiveRecord::Schema.define(:version => 20150206125017) do
   add_index "locations", ["community_id"], :name => "index_locations_on_community_id"
   add_index "locations", ["listing_id"], :name => "index_locations_on_listing_id"
   add_index "locations", ["person_id"], :name => "index_locations_on_person_id"
+
+  create_table "marketplace_settings", :force => true do |t|
+    t.boolean "shipping_enabled", :default => false
+    t.integer "community_id"
+  end
 
   create_table "menu_link_translations", :force => true do |t|
     t.integer  "menu_link_id"
