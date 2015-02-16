@@ -264,7 +264,13 @@ class Community < ActiveRecord::Base
   attr_accessor :terms
 
   def name(locale)
-    customization = community_customizations.where(locale: locale).first
+    customization = Maybe(community_customizations.where(locale: locale).first).or_else {
+      # We should not end up in a situation where the given locale is not found.
+      # However, currently that is likely to happend, because:
+      # - User has one locale
+      # - User can join to multiple communities, which may not have user's locale available
+      community_customizations.where(default_locale).first
+    }
 
     if customization
       customization.name
