@@ -325,7 +325,7 @@ fi:
       read_more_about_paypal: "Lue lisää Sharetriben maksujärjestelmästä"
       paypal_account_email: "1. Yhdistä PayPal-tilisi"
       paypal_account_email_completed: Tehty!
-      set_minimum_price_and_fee: "2. Aseta minimihinta ja välityspalkkioprosentti"
+      set_minimum_price_and_fee: "2. Aseta maksutapahtuman minimikoko ja välityspalkkioprosentti"
       set_minimum_price_and_fee_completed: Tehty!
       minimum_listing_price_label: "Maksutapahtuman minimikoko:"
       transaction_fee_label: "Välityspalkkioprosentti:"
@@ -1522,9 +1522,9 @@ Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a hre
       upgrade_paypal_account: "kirjautumalla PayPal-tilillesi"
       connect_paypal_account: "Yhdistä PayPal-tili"
       paypal_account_billing_agreement: "Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista."
-      paypal_account_billing_agreement_fee_both: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
+      paypal_account_billing_agreement_fee_relative: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
       paypal_account_billing_agreement_fee_fixed: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
-      paypal_account_billing_agreement_fee_relative: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta, vähintään %{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
+      paypal_account_billing_agreement_fee_both: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta, vähintään %{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
       billing_agreement_description: "Anna %{service_name}-palvelulle lupa ottaa välityspalkkio kaupoista."
       billing_agreement: "Anna lupa veloittaa välityspalkkio"
       permissions_not_granted: "Lupaa PayPal-tilin yhdistämiseen ei annettu."
