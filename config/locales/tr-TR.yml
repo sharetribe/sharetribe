@@ -324,8 +324,11 @@ tr-TR:
       set_minimum_price_and_fee_completed: Tamamlandı!
       minimum_listing_price_label: "Minimum listeleme fiyatı:"
       transaction_fee_label: "İşlem ücreti:"
+      minimum_transaction_fee_label: ~
       save_settings: "Ayarları kaydet"
       note_about_transaction_fee: "Not: İşlem ücreti para birimi ve satıcının satış hacmine bağlı PayPal ücretlerini de içerir. Bu sebeple, ücret her zaman en azından %{min_paypal_commission} kadardır. Bu ücret satıcıdan kesildiğinde, PayPal önce kendi ücretlerini keser, geri kalan meblağ ise PayPal hesabınıza aktarılır."
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: Satmak
       rent: "Kiraya vermek"
@@ -390,8 +393,13 @@ tr-TR:
     username_or_email: "E-posta ya da kullanıcı adı"
     what_is_this: "Bu nedir?"
     removed_user: ~
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: "Teklife cevap ver"
       respond_to_request: "Talebe cevap ver"
       accept_offer: "Teklifi kabul et"
@@ -407,9 +415,12 @@ tr-TR:
       minimum_price_error_message: "Fiyat %{amount}'den az olamaz."
       accept: ~
       decline: ~
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: "Eğer talebiniz gerçekleştirildiyse, bunu \"Gerçekleşti\" olarak işaretlemelisiniz. Bundan sonra, diğer tarafa geri bildirim bırakabilirsiniz."
       cancel_description: "Eğer talebiniz gerçekleştirilmediyse, \"Gerçekleşmedi\" olarak işaretleyebilirsiniz. Bundan sonra, geri bildirim bırakıp neler olduğunu açıklayabilirsiniz."
@@ -725,6 +736,8 @@ tr-TR:
     new_payment:
       new_payment: "Yeni bir ödeme aldınız"
       you_have_received_new_payment: "%{listing_title} için %{payer_full_name} kişisinden %{payment_sum} tutarında ödeme aldınız. Faturanız burada."
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: "Ürün:"
       price_payer_paid: "%{payer_full_name}'in ödediği tutar:"
@@ -1280,6 +1293,8 @@ tr-TR:
         time: "saat, gün, ay, ..."
         long_time: "hafta, ay, ..."
         after_service_fee_you_will_get: "%{service_name} hizmet bedeli düşüldükten sonra %{sum_with_currency} tutarında ödeme alacaksınız."
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: "%{service_name} hizmet bedeli düşüldükten sonra, yaklaşık %{sum_with_currency} tutarında ödeme alacaksınız (KDV 0%)"
         price_excludes_vat: "Fiyata KDV dahil değildir."
       origin:
@@ -1500,7 +1515,9 @@ tr-TR:
       upgrade_paypal_account: "Hesabınızı buradan yükseltebilirsiniz."
       connect_paypal_account: "PayPal hesabınızı bağlayın"
       paypal_account_billing_agreement: "2. %{service_name}'e işletim ücreti kesme izni verin"
-      paypal_account_billing_agreement_info: "%{service_name} üzerinde bir satış gerçekleştirdiğinizde, fiyatın %{commission} kadar bir komisyon ücreti kesilecektir. %{service_name}'i kullanabilmek için, bu kesintiye izin vermelisiniz."
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: "%{service_name}'in işletim ücreti kesmesine izin ver."
       billing_agreement: "İzin ver"
       permissions_not_granted: "PayPal hesabı bağlama izni verilmedi."
@@ -1611,7 +1628,6 @@ tr-TR:
       show_all_listings: "Tüm listelemeleri göster"
       show_all_open_listings: "Tüm açık listelemeleri göster"
       show_all_reviews: "Tüm yorumları göster"
-      trustcloud: TrustCard
     followed_people:
       you_follow_plural: "%{count} kişiyi takip ediyorsunuz"
       you_follow_singular: "%{count} kişiyi takip ediyorsunuz"

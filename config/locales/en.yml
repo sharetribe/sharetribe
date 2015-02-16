@@ -325,7 +325,7 @@ en:
       read_more_about_paypal: "Read more about Sharetribe's payment system"
       paypal_account_email: "1. Connect your PayPal account"
       paypal_account_email_completed: Completed!
-      set_minimum_price_and_fee: "2. Set minimum transaction size & fee"
+      set_minimum_price_and_fee: "2. Set minimum price & transaction fee"
       set_minimum_price_and_fee_completed: Completed!
       minimum_listing_price_label: "Minimum transaction size:"
       transaction_fee_label: "Transaction fee:"
@@ -400,9 +400,9 @@ en:
     removed_user: "Removed user"
     paypal_fee_info:
       title: "PayPal's payment processing fee"
-      body: "PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
-
-You can see the exact fees by logging in to your PayPal account and going <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>here</a>. After each purchase you will get a receipt displaying the exact fee."
+      body: |-
+          PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
+          You can see the exact fees by logging in to your PayPal account and going <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>here</a>. After each purchase you will get a receipt displaying the exact fee.
   conversations:
     accept:
       details: "Order details"

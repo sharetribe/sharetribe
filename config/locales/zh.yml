@@ -59,7 +59,7 @@ zh:
         contact_admin_link_text: 联系管理员
         save: 保存设置
         transaction_agreement: 交易协定
-        transaction_agreement_checkbox: 要求用户在交易前接受协定
+        transaction_agreement_checkbox: 需要用户在交易前接受协定
         transaction_agreement_checkbox_header: 协定标签
         transaction_agreement_checkbox_label_description: ~
         transaction_agreement_text_header: 协定文本
@@ -314,8 +314,11 @@ zh:
       set_minimum_price_and_fee_completed: 已完成！
       minimum_listing_price_label: 最低挂牌价：
       transaction_fee_label: 交易费用：
+      minimum_transaction_fee_label: ~
       save_settings: 保存设置
       note_about_transaction_fee: ~
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: 出售
       rent: 已出租
@@ -380,8 +383,13 @@ zh:
     username_or_email: Email或用户名
     what_is_this: 这是什么？
     removed_user: 用户已删除
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: 响应一个供应
       respond_to_request: 响应一个请求
       accept_offer: 接受供应
@@ -397,9 +405,12 @@ zh:
       minimum_price_error_message: "价格不能低于%{amount}。"
       accept: 接受
       decline: 拒绝
-      sum: "总共：%{sum}"
-      service_fee: "服务费：%{service_fee}"
-      you_will_get: "你将得到：%{seller_gets}"
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
       cancel_description: ~
@@ -715,6 +726,8 @@ zh:
     new_payment:
       new_payment: 你收到一笔新的付款
       you_have_received_new_payment: ~
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: 产品：
       price_payer_paid: "%{payer_full_name}支付价格："
@@ -1270,6 +1283,8 @@ zh:
         time: 小时，天，月，……
         long_time: 周，月，……
         after_service_fee_you_will_get: ~
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
       origin:
@@ -1490,7 +1505,9 @@ zh:
       upgrade_paypal_account: 在这里升级你的帐号。
       connect_paypal_account: 连接PayPal帐号
       paypal_account_billing_agreement: "2. 授权%{service_name}  对交易收费"
-      paypal_account_billing_agreement_info: ~
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: "授权%{service_name}收取交易费。"
       billing_agreement: 授权
       permissions_not_granted: 没有授权连接PayPal帐号。
@@ -1599,7 +1616,6 @@ zh:
       show_all_listings: 显示所有已发布的信息
       show_all_open_listings: 显示所有公开的信息
       show_all_reviews: 显示所有评论
-      trustcloud: ~
     followed_people:
       you_follow_plural: "你关注了%{count}个人"
       you_follow_singular: "你关注了%{count}个人"

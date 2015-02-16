@@ -329,8 +329,11 @@ pt-BR:
       set_minimum_price_and_fee_completed: Concluído!
       minimum_listing_price_label: "Preço mínimo de anúncio:"
       transaction_fee_label: "Taxa de transação:"
+      minimum_transaction_fee_label: ~
       save_settings: "Salvar definições"
       note_about_transaction_fee: ~
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: Vendendo
       rent: Alugando
@@ -395,8 +398,13 @@ pt-BR:
     username_or_email: "E-mail ou nome de usuário"
     what_is_this: "O que é isso?"
     removed_user: "Usuário removido"
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: "Responder a uma oferta"
       respond_to_request: "Responder a um pedido"
       accept_offer: "Aceitar a oferta"
@@ -412,9 +420,12 @@ pt-BR:
       minimum_price_error_message: "O preço não pode ser inferior %{amount}"
       accept: Aceitar
       decline: Recusar
-      sum: "soma: %{sum}"
-      service_fee: "Taxa de serviço: %{service_fee}"
-      you_will_get: "Você receberá: %{seller_gets}"
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: "Se o seu pedido foi aceito, você deve confirmá-lo como concluído. Então você pode dar um feedback para a outra parte."
       cancel_description: "Se o seu pedido não foi efetuado, você pode marcá-lo como \"não efeutado\". Você ainda pode dar um feedback para a outra parte e descrever o que aconteceu."
@@ -730,6 +741,8 @@ pt-BR:
     new_payment:
       new_payment: "Você recebeu um novo pagamento"
       you_have_received_new_payment: "Você foi pago <b>%{payment_sum}</b> por <b>%{listing_title}</b> pelo %{payer_full_name}. Veja o recibo."
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: "Produto:"
       price_payer_paid: "Preço pago pelo %{payer_full_name} :"
@@ -1285,6 +1298,8 @@ pt-BR:
         time: "hora, dia, mês, ..."
         long_time: "semana, mês, ..."
         after_service_fee_you_will_get: ~
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "O preço não inclui VAT."
       origin:
@@ -1505,7 +1520,9 @@ pt-BR:
       upgrade_paypal_account: "Aprimore sua conta aqui."
       connect_paypal_account: "Conecte-se a uma conta PayPal"
       paypal_account_billing_agreement: "2. Conceder permissão a %{service_name} para cobrar uma taxa de transação"
-      paypal_account_billing_agreement_info: ~
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: "Conceder permissão a %{service_name} para cobrar uma taxa de transação."
       billing_agreement: "Conceder permissão"
       permissions_not_granted: "Permissões para conectar com a conta PayPal não são concedidas."
@@ -1617,7 +1634,6 @@ pt-BR:
       show_all_listings: "Mostrar todas as listas"
       show_all_open_listings: "Listar todas anúncios ativos"
       show_all_reviews: "Mostrar todas as opiniões"
-      trustcloud: "Cartão confiança"
     followed_people:
       you_follow_plural: "Você segue %{count} pessoas"
       you_follow_singular: "Você segue %{count} pessoa"

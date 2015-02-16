@@ -403,8 +403,8 @@ de:
       body: ~
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: Buchungsdetails
+      order_by: "Sortieren nach %{orderer_link}"
       respond_to_offer: "Beantworte ein Angebot"
       respond_to_request: "Beantworte eine Anfrage"
       accept_offer: "Akzeptiere das Angebot"
@@ -420,11 +420,11 @@ de:
       minimum_price_error_message: "Der Preis kann nicht niedriger sein als %{amount}."
       accept: Akzeptieren
       decline: Ablehnen
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
+      sum_label: "Zwischensumme:"
+      service_fee_label: "%{service_name} Servicegebühr:"
+      you_will_get_label: "Du wirst erhalten:"
+      total_label: "Summe:"
+      total_value: "%{seller_gets}*"
       paypal_fee_info: ~
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem anderen Feedback geben."
@@ -1034,7 +1034,7 @@ de:
       click_here_link_text: "Hier klicken"
     how_to_use:
       default_title: "So funktioniert's"
-      default_content: ~
+      default_content: "Hier findest du Informationen darüber, wie %{marketplace_name} funktioniert."
   layouts:
     admin:
       admin: "%{service_name} Verwaltung"
@@ -1446,7 +1446,7 @@ de:
       by: "%{listing} von %{author}"
       payment: Zahlung
       exp: ~
-      you_will_be_charged: ~
+      you_will_be_charged: "Die Kosten werden nur in Rechnung gestellt, wenn %{author} nimmt die Transaktion annimmt. %{author} muss die Transaktion innerhalb von %{expiration_period} Tagen akzeptieren. Wenn %{author} ablehnt oder nicht antwortet, werden keine Gebühr erhoben."
       day: Tag
       days: Tage
       price_per_day: "Preis pro Tag: %{price}"
@@ -1541,7 +1541,7 @@ de:
       commission_payment_name: ~
       commission_payment_description: ~
     wait_while_loading: "Bitte warten …"
-    chatting_with_paypal: "Wir reden mir PayPal."
+    chatting_with_paypal: "Wir reden mit PayPal."
   people:
     edit_links:
       activate: Aktivieren

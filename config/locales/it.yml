@@ -314,8 +314,11 @@ it:
       set_minimum_price_and_fee_completed: Completato!
       minimum_listing_price_label: "Prezzo minimo per lo spazio:"
       transaction_fee_label: "Tariffa di transazione:"
+      minimum_transaction_fee_label: ~
       save_settings: "Salva le impostazioni"
       note_about_transaction_fee: "Nota: la quota di transazione include la percentuale di PayPal che dipende dalla valuta e dal volume delle vendite del venditore. Per questo motivo, la quota  è sempre almeno %{min_paypal_commission}. Quando la quota viene imposta da parte del venditore, PayPal detrarrà prima le sue spese , e il resto sarà trasferito al tuo conto PayPal."
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -380,8 +383,13 @@ it:
     username_or_email: "Email o username"
     what_is_this: "Cos'è questo?"
     removed_user: ~
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: ~
       respond_to_request: ~
       accept_offer: ~
@@ -397,9 +405,12 @@ it:
       minimum_price_error_message: "Il prezzo non può essere inferiore a %{amount}."
       accept: ~
       decline: ~
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -715,6 +726,8 @@ it:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: ~
       price_payer_paid: "Prezzo %{payer_full_name} pagato:"
@@ -1270,6 +1283,8 @@ it:
         time: "ora, giorno, mese, ..."
         long_time: "settimana, mese, ..."
         after_service_fee_you_will_get: ~
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Il prezzo non include l'IVA"
       origin:
@@ -1490,7 +1505,9 @@ it:
       upgrade_paypal_account: ~
       connect_paypal_account: ~
       paypal_account_billing_agreement: ~
-      paypal_account_billing_agreement_info: ~
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: ~
       billing_agreement: ~
       permissions_not_granted: ~
@@ -1599,7 +1616,6 @@ it:
       show_all_listings: "Mostra tutte le inserzioni"
       show_all_open_listings: "Mostra tutte le inserzioni aperte"
       show_all_reviews: ~
-      trustcloud: ~
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~

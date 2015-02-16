@@ -324,8 +324,11 @@ ja:
       set_minimum_price_and_fee_completed: 完了しました！
       minimum_listing_price_label: 最低価格：
       transaction_fee_label: 課金手数料：
+      minimum_transaction_fee_label: ~
       save_settings: 設定を保存する
       note_about_transaction_fee: "注意： 取引手数料は、PayPal利用手数料も含まれています。それは、通貨や価格のボリュームにより異なります。そのため、手数料は少なくても%{min_paypal_commission}に設定しています。PayPalははじめにその手数料を差し引いてからの金額が、あなたのPayPalアカウントに送金されます。"
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: 売ります
       rent: 貸します
@@ -390,8 +393,13 @@ ja:
     username_or_email: "メールアドレス or ユーザ名"
     what_is_this: これは何ですか。
     removed_user: ユーザは削除されました
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: オファーに返事をする
       respond_to_request: リクエストに返事をする
       accept_offer: オファーを受け入れる
@@ -407,9 +415,12 @@ ja:
       minimum_price_error_message: "価格は%{amount}より低く設定できません。"
       accept: 受諾する
       decline: 辞退する
-      sum: "合計金額： %{sum}"
-      service_fee: "ご利用料金： %{service_fee}"
-      you_will_get: "あなたに支払われる金額： %{seller_gets}"
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: あなたのリクエストに適していた場合、取引は完了したと承認してください。そうすると相手方のレビューを書くことができます。
       cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
@@ -725,6 +736,8 @@ ja:
     new_payment:
       new_payment: 新しいお支払いを受け取りました
       you_have_received_new_payment: "%{payer_full_name}さんより<b>%{listing_title}</b>の件で、<b>%{payment_sum}</b>支払われました。こちらはその領収書です。"
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: 商品・サービス名：
       price_payer_paid: "価格 %{payer_full_name}さん 支払い済み："
@@ -1280,6 +1293,8 @@ ja:
         time: 時間、日、ヶ月
         long_time: 週、ヶ月、...
         after_service_fee_you_will_get: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。"
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。（消費税 0%）"
         price_excludes_vat: 価格は外税です。
       origin:
@@ -1500,7 +1515,9 @@ ja:
       upgrade_paypal_account: ここであなたのアカウントをアップグレードしてください。
       connect_paypal_account: PayPalアカウントに接続する
       paypal_account_billing_agreement: "%{service_name}の利用料金支払いの許可を承諾してください"
-      paypal_account_billing_agreement_info: "%{service_name}上で販売するとき、価格の%{commission}が手数料として差し引かれます（注意： 最小手数料は %{minimum_commission} ）。手数料は、PayPalの利用手数料も含まれています。%{service_name}を利用するとき、手数料の支払いに同意している必要があります。"
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: "%{service_name}の利用料金支払いの許可を承諾してください"
       billing_agreement: 許可してください
       permissions_not_granted: PayPalアカウントに接続する許可を取得出来ませんでした。
@@ -1611,7 +1628,6 @@ ja:
       show_all_listings: リストを表示する
       show_all_open_listings: 公開リストを表示
       show_all_reviews: すべてのレビューを表示
-      trustcloud: TrustCard
     followed_people:
       you_follow_plural: "あなたは%{count}人フォロー中です。"
       you_follow_singular: "あなたは%{count}人フォロー中です。"

@@ -329,8 +329,11 @@ sv:
       set_minimum_price_and_fee_completed: Klart!
       minimum_listing_price_label: "Lägsta annonspris:"
       transaction_fee_label: "Transaktionsavgift:"
+      minimum_transaction_fee_label: ~
       save_settings: "Spara inställningar"
       note_about_transaction_fee: "Notera: i transaktionsavgiften ingår PayPals avgifter som beror på din valuta och försäljningsvolymen på säljaren. Av denna anledning är avgiften alltid minst %{min_paypal_commission}. När avgiften tas ut från säljaren, kommer PayPal att ta sina arvoden först, och resten kommer att flyttas till ditt PayPal-konto."
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: Säljer
       rent: "Hyr ut"
@@ -395,8 +398,13 @@ sv:
     username_or_email: "E-postadress eller användarnamn"
     what_is_this: "Vad är detta?"
     removed_user: "Borttagen användare"
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: "Svara på ett erbjudande"
       respond_to_request: "Svara på en förfrågan"
       accept_offer: "Acceptera erbjudande"
@@ -412,9 +420,12 @@ sv:
       minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
       accept: Acceptera
       decline: Avböj
-      sum: "Summa: %{sum}"
-      service_fee: "Serviceavgift: %{service_fee}"
-      you_will_get: "Du kommer att få: %{seller_gets}"
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som klar. Då kan du ge din feedback till den andra parten."
       cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"hände inte\". Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
@@ -730,6 +741,8 @@ sv:
     new_payment:
       new_payment: "Du har fått en ny inbetalning"
       you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Pris %{payer_full_name} betalt:"
@@ -1287,6 +1300,8 @@ sv:
         time: "timme, dag, månad, ..."
         long_time: "vecka, månad, ..."
         after_service_fee_you_will_get: "Efter %{service_name}s serviceavgift så kommer du att få %{sum_with_currency} när du har sålt produkten. OBS! Om produkten ska skickas, glöm inte att inkludera fraktkostnad i priset."
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: "Efter %{service_name} och betalningsavgifter kommer du att få ca. %{sum_with_currency} (moms 0%)"
         price_excludes_vat: "Priset inkluderar inte moms."
       origin:
@@ -1507,7 +1522,9 @@ sv:
       upgrade_paypal_account: "Uppgradera ditt konto här."
       connect_paypal_account: "Koppla ditt PayPal konto"
       paypal_account_billing_agreement: "2. Ge %{service_name} tillåtelse att ta ut en serviceavgift."
-      paypal_account_billing_agreement_info: "När du säljer något på %{service_name} så tas det ut en transaktionsavgift på %{commission} av priset. För att använda %{service_name} så behöver du tillåta att avgiften tas ut."
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: "Ge %{service_name} behörighet att ta ut en transaktionsavgift."
       billing_agreement: "Bevilja behörighet"
       permissions_not_granted: "Behörighet att ansluta med PayPalkonto beviljades inte."
@@ -1619,7 +1636,6 @@ sv:
       show_all_listings: "Visa alla annonser"
       show_all_open_listings: "Visa alla öppna annonser"
       show_all_reviews: "Visa alla recensioner"
-      trustcloud: TrustCard
     followed_people:
       you_follow_plural: "Du följer %{count} person"
       you_follow_singular: "Du följer %{count} personer"
