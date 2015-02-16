@@ -33,7 +33,7 @@
                 "#fee_display",
                 "#listing_currency",
                 #{commission_from_seller},
-                #{minimum_commission},
+                #{minimum_commission.format(decimal_mark: ".", symbol: false)},
                 #{payment_gateway == :paypal});
             });
         - if run_js_immediately
