@@ -491,6 +491,7 @@ ActiveRecord::Schema.define(:version => 20150213092629) do
     t.string   "quantity"
     t.boolean  "deleted",                  :default => false
     t.boolean  "require_shipping_address", :default => false
+    t.boolean  "pickup_enabled",           :default => false
     t.integer  "shipping_price_cents"
   end
 

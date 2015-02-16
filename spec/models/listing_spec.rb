@@ -35,6 +35,7 @@
 #  quantity                 :string(255)
 #  deleted                  :boolean          default(FALSE)
 #  require_shipping_address :boolean          default(FALSE)
+#  pickup_enabled           :boolean          default(FALSE)
 #  shipping_price_cents     :integer
 #
 # Indexes
