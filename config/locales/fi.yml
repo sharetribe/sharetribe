@@ -400,9 +400,9 @@ fi:
     removed_user: "Käyttäjä poistettu"
     paypal_fee_info:
       title: "PayPalin käsittelymaksu"
-      body: "PayPal veloittaa jokaisesta maksutapahtumasta käsittelymaksun. Maksun suuruus on 2% - 5% kokonaishinnasta, riippuen kuukausittaisesta myyntimäärästäsi sekä ostajan kotimaasta. Maksu on yleensä halvempi kotimaan ostoissa kuin ulkomaan ostoissa, ja suuria määriä myyvät saavat alennusta maksuista.
-
-Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>tätä linkkiä.</a> Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu."
+      body: |-
+          PayPal veloittaa jokaisesta maksutapahtumasta käsittelymaksun. Maksun suuruus on 2% - 5% kokonaishinnasta, riippuen kuukausittaisesta myyntimäärästäsi sekä ostajan kotimaasta. Maksu on yleensä halvempi kotimaan ostoissa kuin ulkomaan ostoissa, ja suuria määriä myyvät saavat alennusta maksuista.
+          Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>tätä linkkiä.</a> Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu.
   conversations:
     accept:
       details: "Tilauksen tiedot"
@@ -1512,7 +1512,7 @@ Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a hre
     from_your_payment_settings_link_text: maksuasetuksistasi
     new:
       payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täyttyy yhdistää PayPal-tilisi %{service_name}-palveluun."
-      payout_info_text: ""
+      payout_info_text: ~
       contact_admin_link_text: "lähetä viesti ylläpitäjälle"
       admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska %{service_name} ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
       paypal_account_email: "Yhdistä PayPal-tilisi"
@@ -1522,9 +1522,9 @@ Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a hre
       upgrade_paypal_account: "kirjautumalla PayPal-tilillesi"
       connect_paypal_account: "Yhdistä PayPal-tili"
       paypal_account_billing_agreement: "Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista."
-      paypal_account_billing_agreement_fee_relative: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
-      paypal_account_billing_agreement_fee_fixed: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
       paypal_account_billing_agreement_fee_both: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta, vähintään %{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
+      paypal_account_billing_agreement_fee_fixed: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
+      paypal_account_billing_agreement_fee_relative: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
       billing_agreement_description: "Anna %{service_name}-palvelulle lupa ottaa välityspalkkio kaupoista."
       billing_agreement: "Anna lupa veloittaa välityspalkkio"
       permissions_not_granted: "Lupaa PayPal-tilin yhdistämiseen ei annettu."

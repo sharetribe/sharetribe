@@ -329,8 +329,11 @@ nl:
       set_minimum_price_and_fee_completed: Uitgevoerd!
       minimum_listing_price_label: "Minimum item prijs:"
       transaction_fee_label: "Transactie kost:"
+      minimum_transaction_fee_label: ~
       save_settings: "Opslaan instellingen"
       note_about_transaction_fee: "Opmerking: de transactie kost omvat de kosten voor PayPal die afhankelijk zijn van je munteenheid en het verkoopsvolume van de verkoper. Voor die reden is de minimale kost %{min_paypal_commission}. Wanneer de kost wordt doorgerekend aan de verkoper zal PayPal eerst haar deel nemen en wat er overblijft wordt overgemaakt naar jouw PayPal account."
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: Verkopen
       rent: Verhuren
@@ -395,8 +398,13 @@ nl:
     username_or_email: "E-mail of gebruikersnaam"
     what_is_this: "Wat is dit?"
     removed_user: "Verwijderde gebruiker"
+    paypal_fee_info:
+      title: ~
+      body: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: "Antwoord op een aanbod"
       respond_to_request: "Ga in op een vraag"
       accept_offer: "Aanvaard het aanbod"
@@ -412,9 +420,12 @@ nl:
       minimum_price_error_message: "De prijs kan niet lager zijn dan %{amount}."
       accept: Aanvaard
       decline: "Wijs af"
-      sum: "Som: %{sum}"
-      service_fee: "Service toeslag: %{service_fee}"
-      you_will_get: "Jij krijgt: %{seller_gets}"
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
     confirm:
       confirm_description: "Het verzoek is voldaan en je zou het moeten markeren als afgehandeld. Daarna kan je feedback geven aan de andere partij."
       cancel_description: "Indien je verzoek niet wat uitgevoerd, kan je het markeren als 'niet uitgevoerd'. Je kan dan nog steeds feedback geven aan de andere partij en omschrijven wat er gebeurd is."
@@ -730,6 +741,8 @@ nl:
     new_payment:
       new_payment: "Je hebt een nieuwe betaling ontvangen"
       you_have_received_new_payment: "Je bent <b> %{payment_sum}</b> betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Hier is het betalingsbewijs."
+    paypal_new_payment:
+      paypal_gateway_fee: ~
     braintree_new_payment:
       product: "Product:"
       price_payer_paid: "Prijs %{payer_full_name} betaald:"
@@ -1285,6 +1298,8 @@ nl:
         time: "uur, dag, week, ..."
         long_time: "week, maand, ..."
         after_service_fee_you_will_get: "Na commissie voor %{service_name} en kosten voor de financiële transactie, zal je %{sum_with_currency} ontvangen"
+        no_service_fee_you_will_get_paypal: ~
+        after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: "Na commissie voor %{service_name} en kosten voor de financiële transactie, zal je ongeveer %{sum_with_currency} ontvangen (BTW 0%)"
         price_excludes_vat: "De prijs is exclusief BTW."
       origin:
@@ -1505,7 +1520,9 @@ nl:
       upgrade_paypal_account: "Upgrade je account hier."
       connect_paypal_account: "Connecteer PayPal account"
       paypal_account_billing_agreement: "Geef %{service_name} toestemming om een transactie kost in rekening te brengen"
-      paypal_account_billing_agreement_info: "Wanneer je een verkoop realiseert op %{service_name} zal er een transactiekost van %{commission} op de prijs gerekend worden (merk op: minimale transactiekost is %{minimum_commission}). De kost omvat ook de kosten voor PayPal. Om %{service_name} te kunnen gebruiken, moet je je akkoord geven om deze kost aan te rekenen."
+      paypal_account_billing_agreement_fee_both: ~
+      paypal_account_billing_agreement_fee_fixed: ~
+      paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: "Sta %{service_name} toe om een transactiekost in rekening te brengen."
       billing_agreement: "Geef toestemming"
       permissions_not_granted: "Geen toestemming om te connecteren met PayPal."
@@ -1617,7 +1634,6 @@ nl:
       show_all_listings: "Toon alle items"
       show_all_open_listings: "Toon alle actuele items"
       show_all_reviews: "Toon alle evaluaties"
-      trustcloud: TrustCard
     followed_people:
       you_follow_plural: "Je volgt %{count} mensen"
       you_follow_singular: "Je volgt %{count} persoon"

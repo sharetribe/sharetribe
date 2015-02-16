@@ -321,7 +321,7 @@ fr:
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       preferences_updated: "Préférences de paiement mises à jour"
-      integration_info_text: "Le système de paiement de Sharetribe est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimum pour les annonces ainsi que la commission que vous souhaitez prélever sur chaque transaction."
+      integration_info_text: "Le système de paiement de Sharetribe est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimum pour les transactions ainsi que la commission que vous souhaitez prélever sur chaque transaction."
       read_more_about_paypal: "En savoir plus sur le système de paiement avec Sharetribe."
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_completed: "Terminé !"
@@ -329,11 +329,11 @@ fr:
       set_minimum_price_and_fee_completed: "Terminé !"
       minimum_listing_price_label: "Montant minimum : "
       transaction_fee_label: "Commission : "
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: "Frais minimaux de transaction : "
       save_settings: "Sauvegarder les paramètres"
       note_about_transaction_fee: "Note : la commission inclut les frais PayPal qui dépendent de la monnaie et du volume des ventes du vendeur. Pour cette raison, la commission est d'au minimum %{min_paypal_commission}. Lorsque la commission est facturée au vendeur, PayPal prélève d'abord ses frais puis le restant est viré sur votre propre compte PayPal."
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "doit être au moins égal aux frais minimaux de transaction %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "doit être supérieur à la commission minimale %{minimum_commission}."
     transaction_types:
       sell: Vente
       rent: Location
@@ -399,12 +399,14 @@ fr:
     what_is_this: "Qu'est-ce que c'est ?"
     removed_user: "Utilisateur supprimé"
     paypal_fee_info:
-      title: ~
-      body: ~
+      title: "Frais de transaction PayPal"
+      body: |-
+          PayPal facture des frais de transaction pour chaque paiement. Ces frais sont entre 2% et 5% du montant total de la transaction et cela dépend de votre volume mensuel de ventes et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que celles internationales et un plus gros volume de vente mensuel donne des réductions sur ces frais. 
+          Vous pouvez connaître les frais exacts en vous connectant à votre compte PayPal et en allant <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>sur cette page</a>. Après chaque transaction, vous recevrez un reçu affichant les frais exacts.
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: "Détails de la commande"
+      order_by: "Commande par %{orderer_link}"
       respond_to_offer: "Répondre à une offre"
       respond_to_request: "Répondre à une demande"
       accept_offer: "Accepter l'offre"
@@ -420,12 +422,12 @@ fr:
       minimum_price_error_message: "Le prix ne peut pas être plus bas que %{amount}."
       accept: Accepter
       decline: Refuser
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
-      paypal_fee_info: ~
+      sum_label: "Sous-total : "
+      service_fee_label: "Commission de %{service_name} : "
+      you_will_get_label: "Vous recevrez : "
+      total_label: "Total : "
+      total_value: "%{seller_gets}*"
+      paypal_fee_info: "* Hors <a id='%{fee_info_link_id}' href='#'>frais de transaction PayPal</a>"
     confirm:
       confirm_description: "Si votre demande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
       cancel_description: "Si votre demande n'a pas été satisfaite, vous pouvez la marquer comme \"non réalisée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
@@ -742,12 +744,12 @@ fr:
       new_payment: "Vous avez reçu un nouveau paiement"
       you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."
     paypal_new_payment:
-      paypal_gateway_fee: ~
+      paypal_gateway_fee: "Frais PayPal : "
     braintree_new_payment:
       product: "Produit : "
       price_payer_paid: "Prix payé par %{payer_full_name} : "
       service_fee: "Commission de %{service_name} : "
-      you_will_get: "Vous recevrez : "
+      you_will_get: "Total : "
       money_will_be_transferred: "L'argent sera transféré sur votre compte quand a) %{payer_name} aura marqué la demande comme réalisée ou quand b) %{automatic_confirmation_days} jours auront passé après le paiement de %{payer_name}."
     receipt_to_payer:
       receipt_of_payment: "Reçu du paiement"
@@ -1298,8 +1300,8 @@ fr:
         time: "heure, jour, mois..."
         long_time: "semaine, mois..."
         after_service_fee_you_will_get: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal: ~
-        after_service_fee_you_will_get_paypal: ~
+        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>les frais de transaction PayPal</a> seront déduits du montant total."
+        after_service_fee_you_will_get_paypal: "La commission %{service_name} (%{sum_with_currency}) et <a id='%{fee_info_link_id}' href='#'>les frais de transaction PayPal</a> seront déduits du montant total."
         after_service_fee_you_will_get_vat: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez environ %{sum_with_currency} (TVA 0%)"
         price_excludes_vat: "Ce prix n'inclut pas la TVA."
       origin:
@@ -1500,8 +1502,8 @@ fr:
         terms_link_text: "Conditions d'utilisation de Braintree"
   paypal_accounts:
     payout_info_title: "Information de paiement"
-    paypal_account_email_connected: "<del>1. Connecter le compte PayPal</del> Connecté !"
-    paypal_billing_agreement_made: "<del>2. Autoriser %{service_name} à prélèver une commission sur chaque transaction.</del> Autorisé !"
+    paypal_account_email_connected: "<del>Connecter le compte PayPal</del> Connecté !"
+    paypal_billing_agreement_made: "<del>Autoriser %{service_name} à prélever une commission sur chaque transaction.</del> Autorisé !"
     you_are_ready_to_accept_payments: "Vous pouvez désormais recevoir des paiements !"
     commission: "%{commission} %"
     connected_account: "Le compte PayPal '%{email}' est désormais connecté."
@@ -1510,19 +1512,19 @@ fr:
     from_your_payment_settings_link_text: "paramètres de paiement"
     new:
       payout_info_you_need_to_connect: "Pour accepter les paiements vous devez connecter votre compte PayPal à %{service_name}"
-      payout_info_text: "Veuillez réaliser les deux actions suivantes pour connecter votre compte."
+      payout_info_text: "Veuillez réaliser les actions suivantes pour connecter votre compte."
       contact_admin_link_text: "contacter l'administrateur"
       admin_account_not_connected: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas connecter votre compte PayPal pour le moment. Veuillez %{contact_admin_link} pour en savoir plus."
-      paypal_account_email: "1. Connecter votre compte PayPal"
+      paypal_account_email: "Connecter votre compte PayPal"
       paypal_account_email_placeholder: "Votre adresse email PayPal"
-      paypal_account_email_info_text: "Note : vous devez avoir un compte PayPal Premier (pour les particuliers) ou Business (pour les entreprises) pour accepter les paiements. Si vous avez un compte PayPal personnel, vous pouvez le mettre à jour. C'est gratuit et ne prend que quelques instants. %{upgrade_paypal_account} Si vous n'avez pas encore de compte PayPal, vous pouvez créer un compte %{create_paypal_account}. Votre compte PayPal doit être configuré pour recevoir %{currency}."
-      create_paypal_account: ici
-      upgrade_paypal_account: "Mettre à jour votre compte ici."
+      paypal_account_email_info_text: "Si vous n'avez pas de compte PayPal, vous pouvez en créer un en %{create_paypal_account}. Si vous obtenez un message d'erreur en connectant votre compte PayPal, vous devez le surclasser en un compte Business. Surclasser un compte est simple, rapide et ne vous coûte rien. Si vous êtes un particulier, vous devez simplement mettre votre nom et prénom dans le champ \"Nom de société\" lorsque PayPal vous le demande. Pour surclasser votre compte, %{upgrade_paypal_account} et cherche le lien de surclassement."
+      create_paypal_account: "cliquant ici"
+      upgrade_paypal_account: "connectez-vous à votre compte PayPal"
       connect_paypal_account: "Connecter le compte PayPal"
-      paypal_account_billing_agreement: "2. Autoriser %{service_name} à prélever une commission sur les transactions"
-      paypal_account_billing_agreement_fee_both: ~
-      paypal_account_billing_agreement_fee_fixed: ~
-      paypal_account_billing_agreement_fee_relative: ~
+      paypal_account_billing_agreement: "Autoriser %{service_name} à prélever une commission sur les transactions"
+      paypal_account_billing_agreement_fee_both: "Après que vous ayez réalisé une vente sur %{service_name}, une commission (%{commission_from_seller} du montant total, frais minimaux %{minimum_commission}) sera prélevée sur votre compte PayPal. Pour recevoir des paiements sur %{service_name}, vous devez l'autoriser à prélever cette commission. Cette commission ne comporte pas <a id='%{fee_info_link_id}' href='#'>les frais de transaction PayPal</a>."
+      paypal_account_billing_agreement_fee_fixed: "Après que vous ayez réalisé une vente sur %{service_name}, une commission de %{minimum_commission} sera prélevée sur votre compte PayPal. Pour recevoir des paiements sur %{service_name}, vous devez l'autoriser à prélever cette commission. Cette commission ne comporte pas <a id='%{fee_info_link_id}' href='#'>les frais de transaction PayPal</a>."
+      paypal_account_billing_agreement_fee_relative: "Après que vous ayez réalisé une vente sur %{service_name}, une commission (%{commission_from_seller} du montant total) sera prélevée sur votre compte PayPal. Pour recevoir des paiements sur %{service_name}, vous devez l'autoriser à prélever cette commission. Cette commission ne comporte pas <a id='%{fee_info_link_id}' href='#'>les frais de transaction PayPal</a>."
       billing_agreement_description: "Autoriser %{service_name} à prélever une commission sur les transactions."
       billing_agreement: Autoriser
       permissions_not_granted: "La connexion avec le compte PayPal n'a pas été permise."
