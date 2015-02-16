@@ -85,8 +85,11 @@ module TransactionService::PaypalEvents
   end
 
   def preauthorized_to_paid(tx)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
+    # Commission charge is synchronous and must complete before we
+    # transition to paid so that we have the full payment info
+    # available at the time we send payment receipts.
     TransactionService::Transaction.charge_commission(tx[:id])
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
   end
 
   def preauthorized_to_pending_ext(tx, pending_reason)

@@ -22,16 +22,19 @@
 
     %small
       = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat
-      - if seller_commission_in_use
+      - if !seller_commission_in_use && payment_gateway == :paypal
+        = t(".no_service_fee_you_will_get_paypal", :fee_info_link_id => 'paypal_fee_info_link').html_safe
+      - elsif seller_commission_in_use
         - content_for :seller_commission_js do
           :javascript
             $(function() {
               updateSellerGetsValue(
                 "#listing_price",
-                "#you-will-get",
+                "#fee_display",
                 "#listing_currency",
                 #{commission_from_seller},
-                #{minimum_commission});
+                #{minimum_commission},
+                #{payment_gateway == :paypal});
             });
         - if run_js_immediately
           = yield :seller_commission_js
@@ -39,7 +42,24 @@
           - content_for :extra_javascript do
             = yield :seller_commission_js
 
-        - if @current_community.vat
-          = t(".after_service_fee_you_will_get_vat", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
+        - if payment_gateway == :paypal
+          = t(".after_service_fee_you_will_get_paypal", :sum_with_currency => '<span id="fee_display"></span>', :fee_info_link_id => 'paypal_fee_info_link').html_safe
+        - elsif @current_community.vat
+          = t(".after_service_fee_you_will_get_vat", :sum_with_currency => '<span id="fee_display"></span>').html_safe
         - else
-          = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
+          = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="fee_display"></span>').html_safe
+
+- if payment_gateway == :paypal
+  = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
+    %h2= t("common.paypal_fee_info.title")
+    - text_with_line_breaks_html_safe do
+      = t("common.paypal_fee_info.body").html_safe
+
+  - if run_js_immediately
+    :javascript
+      $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
+  - else
+    - content_for :extra_javascript do
+      :javascript
+        $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
+

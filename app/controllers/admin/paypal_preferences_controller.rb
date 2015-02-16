@@ -5,13 +5,14 @@ class Admin::PaypalPreferencesController < ApplicationController
   PaypalAccountForm = FormUtils.define_form("PaypalAccountForm", :paypal_email, :commission_from_seller)
     .with_validations { validates_presence_of :paypal_email }
 
-  MIN_COMMISSION_PERCENTAGE = 5
+  MIN_COMMISSION_PERCENTAGE = 0
   MAX_COMMISSION_PERCENTAGE = 100
 
   PaypalPreferencesForm = FormUtils.define_form("PaypalPreferencesForm",
     :commission_from_seller,
     :minimum_listing_price,
-    :minimum_commission
+    :minimum_commission,
+    :minimum_transaction_fee
     ).with_validations do
       validates_numericality_of(
         :commission_from_seller,
@@ -22,7 +23,11 @@ class Admin::PaypalPreferencesController < ApplicationController
 
       validate do |prefs|
         if minimum_listing_price.nil? || minimum_listing_price < minimum_commission
-          prefs.errors[:minimum_listing_price] << "Minimum listing price has to be greater than minimum commission #{minimum_commission}"
+          prefs.errors[:minimum_listing_price] << I18n.t("admin.paypal_accounts.minimum_listing_price_below_min",
+                                                         { minimum_commission: minimum_commission })
+        elsif minimum_transaction_fee && minimum_listing_price < minimum_transaction_fee
+          prefs.errors[:minimum_listing_price] << I18n.t("admin.paypal_accounts.minimum_listing_price_below_tx_fee",
+                                                         { minimum_transaction_fee: minimum_transaction_fee })
         end
       end
     end
@@ -42,7 +47,9 @@ class Admin::PaypalPreferencesController < ApplicationController
     paypal_prefs_form = PaypalPreferencesForm.new(
       minimum_commission: minimum_commission,
       commission_from_seller: tx_settings[:commission_from_seller],
-      minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], @current_community.default_currency))
+      minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], @current_community.default_currency),
+      minimum_transaction_fee: Money.new(tx_settings[:minimum_transaction_fee_cents], @current_community.default_currency)
+    )
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
@@ -54,8 +61,8 @@ class Admin::PaypalPreferencesController < ApplicationController
         paypal_prefs_form: paypal_prefs_form,
         paypal_prefs_form_action: preferences_update_admin_community_paypal_preferences_path(@current_community.id),
         min_commission: minimum_commission,
-        min_commission_percentage: 5,
-        max_commission_percentage: 100,
+        min_commission_percentage: MIN_COMMISSION_PERCENTAGE,
+        max_commission_percentage: MAX_COMMISSION_PERCENTAGE,
         currency: currency,
         create_url: "https://www.paypal.com/#{community_country_code}/signup",
         upgrade_url: "https://www.paypal.com/#{community_country_code}/upgrade",
@@ -71,17 +78,19 @@ class Admin::PaypalPreferencesController < ApplicationController
     paypal_prefs_form = PaypalPreferencesForm.new(
       parse_preferences(params[:paypal_preferences_form], currency).merge(minimum_commission: minimum_commission))
 
-    unless paypal_prefs_form.valid?
+    if paypal_prefs_form.valid?
+      tx_settings_api.update({community_id: @current_community.id,
+                              payment_gateway: :paypal,
+                              payment_process: :preauthorize,
+                              commission_from_seller: paypal_prefs_form.commission_from_seller.to_i,
+                              minimum_price_cents: paypal_prefs_form.minimum_listing_price.cents,
+                              minimum_transaction_fee_cents: paypal_prefs_form.minimum_transaction_fee.cents})
+
+      flash[:notice] = t("admin.paypal_accounts.preferences_updated")
+    else
       flash[:error] = paypal_prefs_form.errors.full_messages.join(", ")
     end
 
-    tx_settings_api.update({community_id: @current_community.id,
-                            payment_gateway: :paypal,
-                            payment_process: :preauthorize,
-                            commission_from_seller: paypal_prefs_form.commission_from_seller.to_i,
-                            minimum_price_cents: paypal_prefs_form.minimum_listing_price.cents})
-
-    flash[:notice] = t("admin.paypal_accounts.preferences_updated")
     redirect_to action: :index
   end
 
@@ -129,9 +138,9 @@ class Admin::PaypalPreferencesController < ApplicationController
   private
 
   def parse_preferences(params, currency)
-    minimum_listing_price = MoneyUtil.parse_str_to_money(params[:minimum_listing_price], currency)
     {
-      minimum_listing_price: minimum_listing_price,
+      minimum_listing_price: MoneyUtil.parse_str_to_money(params[:minimum_listing_price], currency),
+      minimum_transaction_fee: MoneyUtil.parse_str_to_money(params[:minimum_transaction_fee], currency),
       commission_from_seller: params[:commission_from_seller]
     }
   end

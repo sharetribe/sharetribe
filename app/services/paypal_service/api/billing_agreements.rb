@@ -29,23 +29,23 @@ module PaypalService::API
         @lookup.with_accounts(community_id, person_id, payment[:receiver_id]) do |m_acc, admin_acc|
           if(seller_is_admin?(m_acc, admin_acc))
             commission_not_applicable(community_id, info[:transaction_id], m_acc[:person_id], payment, :seller_is_admin)
-          elsif(commission_below_minimum?(info[:commission_to_admin], info[:minimum_commission]))
-            commission_not_applicable(community_id, info[:transaction_id], m_acc[:person_id], payment, :below_minimum)
-          elsif async
-            proc_token = Worker.enqueue_billing_agreements_op(
-              community_id: community_id,
-              transaction_id: info[:transaction_id],
-              op_name: :do_charge_commission,
-              op_input: [community_id, info, m_acc, admin_acc, payment])
-
-            Result::Success.new(
-              DataTypes.create_process_status({
-                  process_token: proc_token[:process_token],
-                  completed: proc_token[:op_completed],
-                  result: proc_token[:op_output],
-                }))
           else
-            do_charge_commission(community_id, info, m_acc, admin_acc, payment)
+            if async
+              proc_token = Worker.enqueue_billing_agreements_op(
+                community_id: community_id,
+                transaction_id: info[:transaction_id],
+                op_name: :do_charge_commission,
+                op_input: [community_id, info, m_acc, admin_acc, payment])
+
+              Result::Success.new(
+                DataTypes.create_process_status({
+                                                  process_token: proc_token[:process_token],
+                                                  completed: proc_token[:op_completed],
+                                                  result: proc_token[:op_output],
+                                                }))
+            else
+              do_charge_commission(community_id, info, m_acc, admin_acc, payment)
+            end
           end
         end
       end
@@ -56,10 +56,6 @@ module PaypalService::API
 
     def seller_is_admin?(m_acc, admin_acc)
       m_acc[:payer_id] == admin_acc[:payer_id]
-    end
-
-    def commission_below_minimum?(commission, minimum_commission)
-      commission < minimum_commission
     end
 
     def commission_not_applicable(community_id, transaction_id, merchant_id, payment, status)

@@ -332,11 +332,13 @@ class ListingsController < ApplicationController
 
   def commission(community)
     payment_type = MarketplaceService::Community::Query.payment_type(community.id)
+    payment_settings = TransactionService::API::Api.settings.get_active(community_id: community.id).maybe
     currency = community.default_currency
 
     case payment_type
     when nil
       {seller_commission_in_use: false,
+       payment_gateway: payment_type,
        minimum_commission: Money.new(0, currency),
        commission_from_seller: 0,
        minimum_price_cents: 0}
@@ -346,12 +348,14 @@ class ListingsController < ApplicationController
         .map {|res| res[:data]}
         .or_else({})
 
-      {seller_commission_in_use: true,
-       minimum_commission: paypal_minimum_commissions_api.get(currency),
+      {seller_commission_in_use: payment_settings[:commission_type].or_else(:none) != :none,
+       payment_gateway: payment_type,
+       minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
        commission_from_seller: p_set[:commission_from_seller],
        minimum_price_cents: p_set[:minimum_price_cents]}
     else
       {seller_commission_in_use: !!community.commission_from_seller,
+       payment_gateway: payment_type,
        minimum_commission: Money.new(0, currency),
        commission_from_seller: community.commission_from_seller,
        minimum_price_cents: community.absolute_minimum_price(currency).cents}

@@ -327,10 +327,13 @@ fi:
       paypal_account_email_completed: Tehty!
       set_minimum_price_and_fee: "2. Aseta minimihinta ja välityspalkkioprosentti"
       set_minimum_price_and_fee_completed: Tehty!
-      minimum_listing_price_label: "Ilmoituksen minimihinta:"
+      minimum_listing_price_label: "Maksutapahtuman minimikoko:"
       transaction_fee_label: "Välityspalkkioprosentti:"
+      minimum_transaction_fee_label: "Minimipalkkio:"
       save_settings: "Tallenna asetukset"
       note_about_transaction_fee: "Huom! Välityspalkkioon sisältyy PayPal-palvelun palvelumaksu, jonka suuruus riippuu valuutasta ja myyjän myyntimääristä. Tästä syystä välityspalkkio on vähintään %{min_paypal_commission}. PayPal-palvelun palvelumaksu vähennetään välityspalkkiosta automaattisesti, minkä jälkeen loppuosa välityspalkkiosta siirretään sinun PayPal-tilillesi."
+      minimum_listing_price_below_tx_fee: "tulee olla vähintään minimipalkkio %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "tulee olla suurempi kuin %{minimum_commission}."
     transaction_types:
       sell: Myydään
       rent: "Annetaan vuokralle"
@@ -395,8 +398,15 @@ fi:
     username_or_email: "Käyttäjätunnus tai sähköposti"
     what_is_this: "Mitä tämä tarkoittaa?"
     removed_user: "Käyttäjä poistettu"
+    paypal_fee_info:
+      title: "PayPalin käsittelymaksu"
+      body: "PayPal veloittaa jokaisesta maksutapahtumasta käsittelymaksun. Maksun suuruus on 2% - 5% kokonaishinnasta, riippuen kuukausittaisesta myyntimäärästäsi sekä ostajan kotimaasta. Maksu on yleensä halvempi kotimaan ostoissa kuin ulkomaan ostoissa, ja suuria määriä myyvät saavat alennusta maksuista.
+
+Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>tätä linkkiä.</a> Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu."
   conversations:
     accept:
+      details: "Tilauksen tiedot"
+      order_by: "Tilaus käyttäjältä %{orderer_link}"
       respond_to_offer: "Vastaa tarjoukseen"
       respond_to_request: "Vastaa pyyntöön"
       accept_offer: "Hyväksy tarjous"
@@ -412,9 +422,12 @@ fi:
       minimum_price_error_message: "Hinta ei voi olla pienempi kuin %{amount}."
       accept: Hyväksy
       decline: Hylkää
-      sum: "Kokonaissumma: %{sum}"
-      service_fee: "Palvelumaksu: %{service_fee}"
-      you_will_get: "Sinä saat: %{seller_gets}"
+      sum_label: "Välisumma:"
+      service_fee_label: "%{service_name} palvelumaksu:"
+      you_will_get_label: "Sinä saat:"
+      total_label: "Loppusumma:"
+      total_value: "%{seller_gets}*"
+      paypal_fee_info: "* Ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>"
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
@@ -730,11 +743,13 @@ fi:
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
+    paypal_new_payment:
+      paypal_gateway_fee: "PayPalin käsittelymaksu:"
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: "Tuote:"
+      price_payer_paid: "Ostajan maksama summa:"
+      service_fee: "%{service_name} palvelumaksu:"
+      you_will_get: "Loppusumma:"
       money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Kuitti maksusta"
@@ -1285,6 +1300,8 @@ fi:
         time: "tunti, päivä, kk ..."
         long_time: "vko, kk, ..."
         after_service_fee_you_will_get: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat %{sum_with_currency}"
+        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksu</a> vähennetään hinnasta."
+        after_service_fee_you_will_get_paypal: "%{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksu</a> vähennetään hinnasta."
         after_service_fee_you_will_get_vat: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat noin %{sum_with_currency} (ALV 0%)"
         price_excludes_vat: "Merkitse tähän alv 0 -hinta."
       origin:
@@ -1485,8 +1502,8 @@ fi:
         terms_link_text: "Braintreen käyttöehdot"
   paypal_accounts:
     payout_info_title: "Maksujen vastaanotto"
-    paypal_account_email_connected: "<del>1. Yhdistä Paypal-tilisi</del> Tehty!"
-    paypal_billing_agreement_made: "<del>2. Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista.</del> Tehty!"
+    paypal_account_email_connected: "<del>Yhdistä Paypal-tilisi</del> Tehty!"
+    paypal_billing_agreement_made: "<del>Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista.</del> Tehty!"
     you_are_ready_to_accept_payments: "Olet nyt valmis ottamaan rahaa vastaan."
     commission: "%{commission} %"
     connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
@@ -1495,17 +1512,19 @@ fi:
     from_your_payment_settings_link_text: maksuasetuksistasi
     new:
       payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täyttyy yhdistää PayPal-tilisi %{service_name}-palveluun."
-      payout_info_text: "Se onnistuu seuraavien kahden vaiheen avulla."
+      payout_info_text: ""
       contact_admin_link_text: "lähetä viesti ylläpitäjälle"
       admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska %{service_name} ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
-      paypal_account_email: "1. Yhdistä PayPal-tilisi"
+      paypal_account_email: "Yhdistä PayPal-tilisi"
       paypal_account_email_placeholder: "PayPal-tilisi sähköpostiosoite"
-      paypal_account_email_info_text: "Huom! Tarvitset PayPalin 'Premier'-tilin (yksityishenkilöille) tai 'Business'-tilin (yrityksille) vastaanottaaksesi luottokorttimaksuja. Jos sinulla on PayPalin 'Personal'-tili, voit muuttaa tilin tyyppiä (se on helppoa ja ilmaista). %{upgrade_paypal_account} Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}. Huom! PayPal-tilisi tulee pystyä ottamaan vastaan %{currency}-valuuttaa."
-      create_paypal_account: tästä
-      upgrade_paypal_account: "Muuta PayPal-tilin tyyppi tästä."
+      paypal_account_email_info_text: "Jos sinulla ei ole PayPal-tiliä, voit luoda uuden tilin %{create_paypal_account}. Jos saat virheviestin yrittäessäsi yhdistää PayPal-tilisi, sinun pitää päivittää tilisi business-tiliksi. Päivittäminen on helppoa ja nopeaa eikä maksa sinulle mitään. Jos olet yksityishenkilö, voit lisätä etu- ja sukunimesi \"business name\"-kenttään PayPalin kysyessä sitä. Päivittäminen onnistuu %{upgrade_paypal_account} ja etsimällä linkin \"Upgrade to business account\"."
+      create_paypal_account: "klikkaamalla tästä"
+      upgrade_paypal_account: "kirjautumalla PayPal-tilillesi"
       connect_paypal_account: "Yhdistä PayPal-tili"
-      paypal_account_billing_agreement: "2. Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista."
-      paypal_account_billing_agreement_info: "%{service_name} veloittaa %{commission} välityspalkkion jokaisesta kaupasta (huom! välityspalkkio on aina vähintään %{minimum_commission}. Hinta sisältää PayPalin veloittamat maksut. Käyttääksesi %{service_name}-palvelua sinun tätyy antaa palvelulle lupa ottaa välityspalkkio PayPal-maksuista."
+      paypal_account_billing_agreement: "Anna %{service_name}-palvelulle lupa veloittaa välityspalkkio kaupoista."
+      paypal_account_billing_agreement_fee_both: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
+      paypal_account_billing_agreement_fee_fixed: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
+      paypal_account_billing_agreement_fee_relative: "Kun myyt jotain %{service_name}-palvelussa, PayPal-tililtäsi veloitetaan automaattisesti palvelumaksu (%{commission_from_seller} myyntihinnasta, vähintään %{minimum_commission}). Jos haluat vastaanottaa maksuja %{service_name}-palvelussa, sinun pitää antaa sille oikeudet palvelumaksun veloitukseen. Palvelumaksu ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>."
       billing_agreement_description: "Anna %{service_name}-palvelulle lupa ottaa välityspalkkio kaupoista."
       billing_agreement: "Anna lupa veloittaa välityspalkkio"
       permissions_not_granted: "Lupaa PayPal-tilin yhdistämiseen ei annettu."
@@ -1617,7 +1636,6 @@ fi:
       show_all_listings: "Näytä kaikki ilmoitukset"
       show_all_open_listings: "Näytä kaikki avoimet ilmoitukset"
       show_all_reviews: "Näytä kaikki palautteet"
-      trustcloud: TrustCard
     followed_people:
       you_follow_plural: "%{count} seurattua käyttäjää"
       you_follow_singular: "%{count} seurattu käyttäjä"

@@ -722,17 +722,28 @@ function initialize_accept_transaction_form(
   }
 }
 
-function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencySelector, communityCommissionPercentage, minCommission) {
-  $display = $(youWillGetSelector);
+function updateSellerGetsValue(priceInputSelector, displayTargetSelector, currencySelector, communityCommissionPercentage, minCommission, showReversed) {
+  // true == Show the fee instead of what's left after the fee
+  showReversed = showReversed || false;
+
+  $display = $(displayTargetSelector);
   $input = $(priceInputSelector);
   $currency = $(currencySelector);
 
   function updateYouWillGet() {
     var sum = ST.paymentMath.parseFloatFromFieldValue($input.val());
-    var sellerGets = sum - ST.paymentMath.totalCommission(sum, communityCommissionPercentage, minCommission);
-    var currency = $currency.val();
-    sellerGets = sellerGets < 0 ? 0 : sellerGets;
-    $display.text([ST.paymentMath.displayMoney(sellerGets), currency].join(" "));
+
+    var displaySum;
+    if (showReversed) {
+      displaySum = ST.paymentMath.totalCommission(sum, communityCommissionPercentage, minCommission);
+    } else {
+      displaySum = sum - ST.paymentMath.totalCommission(sum, communityCommissionPercentage, minCommission);
+    }
+
+    $display.text(
+      [ST.paymentMath.displayMoney(Math.max(0, displaySum)),
+       $currency.val()]
+        .join(" "));
   }
 
   $input.keyup(updateYouWillGet);

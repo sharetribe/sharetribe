@@ -87,7 +87,7 @@ class TransactionMailer < ActionMailer::Base
          :from => community_specific_sender(community),
          :subject => t("emails.new_payment.new_payment")) { |format|
       format.html {
-        render "payment_receipt_to_seller", locals: {
+        render "braintree_payment_receipt_to_seller", locals: {
           conversation_url: person_transaction_url(payment.recipient, @url_params.merge({:id => payment.transaction.id.to_s})),
           listing_title: payment.transaction.listing.title,
           payment_total: humanized_money_with_symbol(payment.total_sum),
@@ -123,36 +123,39 @@ class TransactionMailer < ActionMailer::Base
   end
 
   # seller_model, buyer_model and community can be passed as params for testing purposes
-  def paypal_new_payment(transaction, service_fee, seller_model = nil, buyer_model = nil, community = nil)
+  def paypal_new_payment(transaction, seller_model = nil, buyer_model = nil, community = nil)
     seller_model ||= Person.find(transaction[:listing_author_id])
     buyer_model ||= Person.find(transaction[:starter_id])
     community ||= Community.find(transaction[:community_id])
 
+    payment_total = transaction[:payment_total]
+    service_fee = Maybe(transaction[:charged_commission]).or_else(Money.new(0, payment_total.currency))
+    gateway_fee = transaction[:payment_gateway_fee]
+
     prepare_template(community, seller_model, "email_about_new_payments")
 
-    you_get = transaction[:payment_total] - service_fee
+    you_get = payment_total - service_fee - gateway_fee
 
     premailer_mail(:to => seller_model.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_payment.new_payment")) do |format|
       format.html {
-        render "payment_receipt_to_seller", locals: {
+        render "paypal_payment_receipt_to_seller", locals: {
           conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction[:id])),
           listing_title: transaction[:listing_title],
-          payment_total: humanized_money_with_symbol(transaction[:payment_total]),
+          payment_total: humanized_money_with_symbol(payment_total),
           payment_service_fee: humanized_money_with_symbol(service_fee),
+          paypal_gateway_fee: humanized_money_with_symbol(gateway_fee),
           payment_seller_gets: humanized_money_with_symbol(you_get),
           payer_full_name: buyer_model.name(community),
           payer_given_name: buyer_model.given_name_or_username,
-          automatic_confirmation_days: nil,
-          show_money_will_be_transferred_note: false
         }
       }
     end
   end
 
   # seller_model, buyer_model and community can be passed as params for testing purposes
-  def paypal_receipt_to_payer(transaction, service_fee, seller_model = nil, buyer_model = nil, community = nil)
+  def paypal_receipt_to_payer(transaction, seller_model = nil, buyer_model = nil, community = nil)
     seller_model ||= Person.find(transaction[:listing_author_id])
     buyer_model ||= Person.find(transaction[:starter_id])
     community ||= Community.find(transaction[:community_id])

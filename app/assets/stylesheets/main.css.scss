@@ -1589,6 +1589,33 @@ a.lightbox-x {
     padding: lines(0.25) 0;
   }
 
+  .conversation-totals {
+    background-color: $highlight;
+    padding: lines(0.5);
+    margin-bottom: lines(0.5);
+  }
+  .conversation-sum-wrapper,
+  .conversation-service-fee-wrapper,
+  .conversation-total-wrapper {
+    @include clearfix;
+  }
+  .conversation-sum-label,
+  .conversation-service-fee-label,
+  .conversation-total-label{
+    float: left;
+  }
+  .conversation-sum-value,
+  .conversation-service-fee-value,
+  .conversation-total-value {
+    float: right;
+    margin-right: lines(0.25);
+  }
+  .conversation-total-paypal-value {
+    float: right;
+  }
+  .conversation-total-wrapper {
+    font-weight: bold;
+  }
 }
 
 /*

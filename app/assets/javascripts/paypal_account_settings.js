@@ -37,6 +37,10 @@ window.ST = window.ST || {};
         "paypal_preferences_form[minimum_listing_price]": {
           required: true,
           number_min: minCommission
+        },
+        "paypal_preferences_form[minimum_transaction_fee]": {
+          required: true,
+          number_min: 0
         }
       }
     });

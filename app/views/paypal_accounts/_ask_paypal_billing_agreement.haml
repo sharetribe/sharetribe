@@ -6,11 +6,33 @@
   .paypal-connected-change
     = link_to t("paypal_accounts.change_account"), change_url
 
-.row
-  = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement")
+- if commission_type != :none
+  .row
+    = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement")
 
-.row
-  = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info", commission: commission_from_seller, minimum_commission: humanized_money_with_symbol(minimum_commission))}
+  .row
+    - if commission_type == :both
+      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_fee_both",
+      commission_from_seller: commission_from_seller,
+      minimum_commission: humanized_money_with_symbol(minimum_commission),
+      fee_info_link_id: "paypal_fee_info_link").html_safe }
+    - elsif commission_type == :relative
+      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_fee_relative",
+      commission_from_seller: commission_from_seller,
+      fee_info_link_id: "paypal_fee_info_link").html_safe }
+    - elsif commission_type == :fixed
+      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_fee_fixed",
+      minimum_commission: humanized_money_with_symbol(minimum_commission),
+      fee_info_link_id: "paypal_fee_info_link").html_safe }
 
-.row.send-button-wrapper
-  = form.button t("paypal_accounts.new.billing_agreement"), :class => "send_button"
+  .row.send-button-wrapper
+    = form.button t("paypal_accounts.new.billing_agreement"), :class => "send_button"
+
+  = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
+    %h2= t("common.paypal_fee_info.title")
+    - text_with_line_breaks_html_safe do
+      = t("common.paypal_fee_info.body").html_safe
+
+  - content_for :extra_javascript do
+    :javascript
+      $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });

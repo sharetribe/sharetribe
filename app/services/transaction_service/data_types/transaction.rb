@@ -24,7 +24,9 @@ module TransactionService::DataTypes::Transaction
     [:minimum_commission, :money],
     [:commission_from_seller, :fixnum],
     [:commission_total, :money],
-    [:checkout_total, :money])
+    [:checkout_total, :money],
+    [:charged_commission, :money],
+    [:payment_gateway_fee, :money])
 
   TransactionResponse = EntityUtils.define_builder(
     [:transaction, :hash, :mandatory],

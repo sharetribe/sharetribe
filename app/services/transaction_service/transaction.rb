@@ -48,19 +48,14 @@ module TransactionService::Transaction
   end
 
   def can_start_transaction_paypal(community_id:, author_id:)
-    personal_account_verified = paypal_account_verified?(community_id: community_id, person_id: author_id)
+    payment_settings = Maybe(PaymentSettingsStore.get_active(community_id: community_id))
+                       .select {|set| paypal_settings_configured?(set)}
+
+    personal_account_verified = paypal_account_verified?(community_id: community_id, person_id: author_id, settings: payment_settings)
     community_account_verified = paypal_account_verified?(community_id: community_id)
+    payment_settings_available = payment_settings.map {|_| true }.or_else(false)
 
-    payment_settings_available =
-      Maybe(PaymentSettingsStore.get_active(community_id: community_id))
-      .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
-
-    case [personal_account_verified, community_account_verified, payment_settings_available]
-    when matches([true, true, Some])
-      true
-    else
-      false
-    end
+    [personal_account_verified, community_account_verified, payment_settings_available].all?
   end
 
   def create(opts, paypal_async: false)
@@ -153,13 +148,11 @@ module TransactionService::Transaction
   # Private
   def tx_data_paypal(listing, opts_tx)
     currency = listing.price.currency
-    minimum_commission = Maybe(paypal_minimum_commissions_api.get(currency)).or_else {
-        raise ArgumentError.new("No PayPal minimum commissions for currency #{currency} defined.")
-      }
-
     p_set = PaymentSettingsStore.get_active(community_id: opts_tx[:community_id])
 
-    [minimum_commission, p_set[:commission_from_seller], p_set[:confirmation_after_days]]
+    [Money.new(p_set[:minimum_transaction_fee_cents], currency),
+     p_set[:commission_from_seller],
+     p_set[:confirmation_after_days]]
   end
 
   # Private
@@ -329,39 +322,43 @@ module TransactionService::Transaction
         minimum_commission: model.minimum_commission,
         commission_from_seller: Maybe(model.commission_from_seller).or_else(0),
         checkout_total:   checkout_details[:total_price],
-        commission_total: checkout_details[:commission_total]})
+        commission_total: checkout_details[:commission_total],
+        charged_commission: checkout_details[:charged_commission],
+        payment_gateway_fee: checkout_details[:payment_gateway_fee]})
   end
 
   def charge_commission(transaction_id)
     transaction = query(transaction_id)
     payment = paypal_payment_api.get_payment(transaction[:community_id], transaction[:id])[:data]
+    commission_to_admin = calculate_commission_to_admin(transaction[:commission_total], payment[:payment_total], payment[:fee_total])
 
-    charge_request =
-      {
-        transaction_id: transaction_id,
-        payment_name: I18n.translate_with_service_name("paypal.transaction.commission_payment_name", { listing_title: transaction[:listing_title] }),
-        payment_desc: I18n.translate_with_service_name("paypal.transaction.commission_payment_description", { listing_title: transaction[:listing_title] }),
-        minimum_commission: transaction[:minimum_commission],
-        commission_to_admin: calculate_commission_to_admin(transaction[:commission_total], payment[:fee_total])
-      }
+    if (commission_to_admin.positive?)
+      charge_request =
+        {
+          transaction_id: transaction_id,
+          payment_name: I18n.translate_with_service_name("paypal.transaction.commission_payment_name", { listing_title: transaction[:listing_title] }),
+          payment_desc: I18n.translate_with_service_name("paypal.transaction.commission_payment_description", { listing_title: transaction[:listing_title] }),
+          minimum_commission: transaction[:minimum_commission],
+          commission_to_admin: commission_to_admin
+        }
 
-    paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
+      paypal_billing_agreement_api().charge_commission(transaction[:community_id], transaction[:listing_author_id], charge_request)
+    else
+      Result::Success.new({})
+    end
   end
 
   def checkout_details(model)
 
     case model.payment_gateway.to_sym
     when :paypal
-      payment = paypal_payment_api().get_payment(model.community.id, model.id)
-      total =
-        if payment[:success] && payment[:data][:payment_total].present?
-          payment[:data][:payment_total]
-        elsif payment[:success] && payment[:data][:authorization_total].present?
-          payment[:data][:authorization_total]
-        else
-          model.listing.price * 1 #TODO fixme for booking (model.listing_quantity)
-        end
-      { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
+      payment = paypal_payment_api().get_payment(model.community.id, model.id).maybe
+      total = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
+              .or_else(model.listing.price)
+      { total_price: total,
+        commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission),
+        charged_commission: payment[:commission_total].or_else(nil),
+        payment_gateway_fee: payment[:fee_total].or_else(nil) }
     else
       total = model.listing.price * 1 #TODO fixme for booking (model.listing_quantity)
       { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
@@ -369,27 +366,27 @@ module TransactionService::Transaction
   end
 
   def calculate_commission(total_price, commission_from_seller, minimum_commission)
-    if commission_from_seller.blank? || commission_from_seller == 0
-      Money.new(0, minimum_commission.currency)
-    else
-      commission_by_percentage = total_price * (commission_from_seller / 100.0)
-      (commission_by_percentage > minimum_commission) ? commission_by_percentage : minimum_commission
-    end
+    [(total_price * (commission_from_seller / 100.0) unless commission_from_seller.nil?),
+     (minimum_commission unless minimum_commission.nil? || minimum_commission.zero? ),
+     Money.new(0, total_price.currency)]
+      .compact
+      .max
   end
 
-  def calculate_commission_to_admin(commission_total, fee_total)
-    commission_total - fee_total #we charge from admin, only the sum after paypal fees
+  def calculate_commission_to_admin(commission_total, payment_total, fee_total)
+    # Ensure we never charge more than what the seller received after payment processing fee
+    [commission_total, payment_total - fee_total].min
   end
 
-  def paypal_account_verified?(community_id:, person_id:nil)
-    acc = paypal_accounts_api.get(
-      community_id: community_id,
-      person_id: person_id
-    ).maybe
+  def paypal_settings_configured?(settings)
+    settings[:payment_gateway] == :paypal && !!settings[:commission_from_seller] && !!settings[:minimum_price_cents]
+  end
 
-    state = acc[:state].or_else(:not_verified)
+  def paypal_account_verified?(community_id:, person_id: nil, settings: Maybe(nil))
+    acc_state = paypal_accounts_api.get(community_id: community_id, person_id: person_id).maybe()[:state].or_else(:not_connected)
+    commission_type = settings[:commission_type].or_else(nil)
 
-    state == :verified
+    acc_state == :verified || (acc_state == :connected && commission_type == :none)
   end
 
   def paypal_payment_api
@@ -398,10 +395,6 @@ module TransactionService::Transaction
 
   def paypal_billing_agreement_api
     PaypalService::API::Api.billing_agreements
-  end
-
-  def paypal_minimum_commissions_api
-    PaypalService::API::Api.minimum_commissions
   end
 
   def paypal_accounts_api

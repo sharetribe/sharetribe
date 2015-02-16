@@ -42,7 +42,7 @@ module PaypalService::Store::PaypalAccount
     [:person_id, :string],
     [:email, :string],
     [:payer_id, :string],
-    [:state, one_of: [:not_verified, :verified]],
+    [:state, one_of: [:not_connected, :connected, :verified]],
     [:order_permission_state, one_of: [:not_verified, :pending, :verified]],
     [:billing_agreement_state, one_of: [:not_verified, :pending, :verified]],
     [:billing_agreement_billing_agreement_id, :string]
@@ -353,11 +353,13 @@ module PaypalService::Store::PaypalAccount
     when matches([nil, :verified])
       # verified community account
       :verified
+    when matches([__, :verified, :not_verified])
+      :connected
     when matches([__, :verified, :verified])
       # verified personal account
       :verified
     else
-      :not_verified
+      :not_connected
     end
   end
 

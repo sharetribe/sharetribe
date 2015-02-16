@@ -10,42 +10,14 @@ class PaypalAccountsController < ApplicationController
   DataTypePermissions = PaypalService::DataTypes::Permissions
 
   def show
+    return redirect_to action: :new unless PaypalHelper.account_prepared_for_user?(@current_user.id, @current_community.id)
+
     m_account = accounts_api.get(
       community_id: @current_community.id,
       person_id: @current_user.id
     ).maybe
 
-    return redirect_to action: :new unless m_account[:state].or_else(:not_verified) == :verified
-
     @selected_left_navi_link = "payments"
-
-    community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
-    unless community_ready_for_payments
-      flash.now[:warning] = t("paypal_accounts.new.admin_account_not_connected",
-                            contact_admin_link: view_context.link_to(
-                              t("paypal_accounts.new.contact_admin_link_text"),
-                                new_user_feedback_path))
-    end
-
-    render(locals: {
-      community_ready_for_payments: community_ready_for_payments,
-      left_hand_navigation_links: settings_links_for(@current_user, @current_community),
-      paypal_account_email: m_account[:email].or_else(""),
-      change_url: ask_order_permission_person_paypal_account_path(@current_user)
-    })
-  end
-
-  def new
-    m_account = accounts_api.get(
-      community_id: @current_community.id,
-      person_id: @current_user.id
-    ).maybe
-
-    return redirect_to action: :show if m_account[:state].or_else(:not_verified) == :verified
-
-    @selected_left_navi_link = "payments"
-    commission_from_seller = payment_gateway_commission(@current_community.id)
-    community_currency = @current_community.default_currency
 
     community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
     unless community_ready_for_payments
@@ -55,6 +27,35 @@ class PaypalAccountsController < ApplicationController
                                 new_user_feedback_path)).html_safe
     end
 
+    render(locals: {
+      community_ready_for_payments: community_ready_for_payments,
+      left_hand_navigation_links: settings_links_for(@current_user, @current_community),
+      paypal_account_email: m_account[:email].or_else(""),
+      paypal_account_state: m_account[:state].or_else(:not_connected),
+      change_url: ask_order_permission_person_paypal_account_path(@current_user)
+    })
+  end
+
+  def new
+    return redirect_to action: :show if PaypalHelper.account_prepared_for_user?(@current_user.id, @current_community.id)
+
+    m_account = accounts_api.get(
+      community_id: @current_community.id,
+      person_id: @current_user.id
+    ).maybe
+
+    @selected_left_navi_link = "payments"
+
+    community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
+    unless community_ready_for_payments
+      flash.now[:warning] = t("paypal_accounts.new.admin_account_not_connected",
+                            contact_admin_link: view_context.link_to(
+                              t("paypal_accounts.new.contact_admin_link_text"),
+                                new_user_feedback_path)).html_safe
+    end
+
+    community_currency = @current_community.default_currency
+    payment_settings = payment_settings_api.get_active(community_id: @current_community.id).maybe.get
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
     render(locals: {
@@ -66,8 +67,9 @@ class PaypalAccountsController < ApplicationController
       paypal_account_state: m_account[:order_permission_state].or_else(""),
       paypal_account_email: m_account[:email].or_else(""),
       change_url: ask_order_permission_person_paypal_account_path(@current_user),
-      commission_from_seller: t("paypal_accounts.commission", commission: commission_from_seller),
-      minimum_commission: minimum_commission(),
+      commission_from_seller: t("paypal_accounts.commission", commission: payment_settings[:commission_from_seller]),
+      minimum_commission: Money.new(payment_settings[:minimum_transaction_fee_cents], community_currency),
+      commission_type: payment_settings[:commission_type],
       currency: community_currency,
       create_url: "https://www.paypal.com/#{community_country_code}/signup",
       upgrade_url: "https://www.paypal.com/#{community_country_code}/upgrade"
@@ -213,18 +215,6 @@ class PaypalAccountsController < ApplicationController
 
     flash[:error] = error_msg
     redirect_to new_paypal_account_settings_payment_path(@current_user.username)
-  end
-
-  def minimum_commission
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
-    currency = @current_community.default_currency
-
-    case payment_type
-    when :paypal
-      paypal_minimum_commissions_api.get(currency)
-    else
-      Money.new(0, currency)
-    end
   end
 
   def payment_gateway_commission(community_id)
