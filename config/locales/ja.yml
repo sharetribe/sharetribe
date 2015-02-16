@@ -648,7 +648,7 @@ ja:
       cancel_it_link_text: キャンセルしてください
     payment_settings_reminder:
       remember_to_add_payment_details: お支払いを受け取るためにお支払い情報の入力をお願いします
-      you_have_added_listing_with_payment: "%{listing_link}のリストが追加されました。しかし、あなたはお支払い情報を追加していないようです。お支払いを受け取るには、お支払い情報を追加してください。"
+      you_have_added_listing_with_payment: "%{listing_link}のリストが追加されました。しかし、あなたは料金受け取りに必要なPaypalの情報を追加していないようです。お支払いを受け取るには、お支払い情報ページより、PayPalアカウントを追加してください。"
       please_go_to_payment_settings: "%{payment_settings_link}からお支払い情報のご入力をお願いします。"
       payment_settings_link: お支払い設定
     transaction_confirmed:

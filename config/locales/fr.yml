@@ -173,7 +173,7 @@ fr:
         twitter_handle: "Nom Twitter (utilisé dans le bouton \"Tweeter\" sur les pages des annonces)"
         update_settings: "Sauvegarder les paramètres"
         automatically_confirmed: "Les transactions seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement. Si le système de dépôt est utilisé, l'argent sera transmis au vendeur à ce moment."
-        automatically_confirmed_no_escrow: "Les transactions seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement."
+        automatically_confirmed_no_escrow: "Les transactions seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement"
         automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
         newsletter_daily: Quotidienne
         newsletter_weekly: Hebdomadaire
@@ -1680,7 +1680,7 @@ fr:
       delete_account_confirmation_popup: "Etes-vous bien sûr(e) de vouloir supprimer votre compte et de perdre toutes ses données ? La suppression d'un compte est irréversible."
       email_addresses: "Adresses email"
       new_email: "Nouvelle adresse email"
-      delete_all_memberships: "Si vous supprimez votre compte, vous ne serez plus en mesure de l'utiliser dans les places de marché suivantes : %{marketplaces}"
+      delete_all_memberships: "Si vous supprimez votre compte, vous ne serez plus en mesure de l'utiliser dans les places de marché suivantes : %{marketplaces}."
       delete_personal_information: "Si vous supprimez votre compte, vos informations personnelles (nom, numéro de téléphone, adresse, email, photo de profil, etc...) seront supprimées définitivement et ne pourront être récupérées. Toutes les annonces que vous avez créées seront supprimées du site. Vous ne pourrez pas réactiver votre compte."
       delete_information_others_involved: "Les informations impliquant d'autres membres (conversations avec d'autres personnes, transactions que vous avez réalisées, avis que vous avez donné à d'autres, etc...) ne sont pas supprimés quand vous supprimez votre compte. Cependant, votre nom n'apparaîtra pas à côté de ces informations."
       unfinished_transactions: "Votre compte ne peut être supprimé car vous avez des transactions en cours. Veuillez terminer vos transactions avant de supprimer votre compte."

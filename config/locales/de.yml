@@ -120,7 +120,7 @@ de:
         send_test_message: "Test-Nachricht senden"
       getting_started:
         getting_started: Kurzanleitung
-        welcome_to_your_marketplace: ~
+        welcome_to_your_marketplace: "Willkommen auf deinem Marktplatz, %{name}!"
         intro: ~
         live_site_link_text: ~
         look_and_feel: ~
@@ -130,7 +130,7 @@ de:
         categories_and_custom_fields: ~
         categories_link_text: ~
         custom_fields_link_text: ~
-        filters_link_text: ~
+        filters_link_text: "welche Art von Filter"
         payments: ~
         payments_link_text: ~
         info_texts: ~
@@ -141,15 +141,15 @@ de:
         instruction_texts_link_text: ~
         social_media: ~
         facebook_link_text: ~
-        twitter_link_text: ~
+        twitter_link_text: "füge deinen Twitter-Account hinzu"
         analytics: ~
         analytics_link_text: ~
         settings: ~
-        settings_link_text: ~
+        settings_link_text: "Hier siehst du deine Marktplatz-Einstellungen"
         final_words: ~
         invite_link_text: ~
-        view_users_link_text: ~
-        view_transactions_link_text: ~
+        view_users_link_text: hier
+        view_transactions_link_text: hier
         contact_support_link_text: ~
       settings:
         settings: Einstellungen
@@ -192,7 +192,7 @@ de:
         ban_me_error: "Du kannst dich nicht selber sperren."
       social_media:
         social_media: "Social media"
-        twitter_handle: ~
+        twitter_handle: Twittername
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: Weiterlesen
@@ -202,16 +202,16 @@ de:
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
-        facebook_connect_id: ~
+        facebook_connect_id: "Facebook Client-ID"
         invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
+        facebook_connect_secret: "Facebook Client-Geheimnis"
         invalid_facebook_connect_secret: ~
         save: "Einstellungen speichern"
       analytics:
-        analytics: ~
-        google_analytics_key: ~
+        analytics: Analytics
+        google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "Tracking ID deines Google Analytics Kontos."
-        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_key_info_text_with_instructions: "Tracking ID deines Google Analytics Kontos. %{instructions_link}"
         google_analytics_instructions_link_text: "Mehr über die Anbindung von Google Analytics hier lesen."
         save: "Einstellungen speichern"
       menu_links:
@@ -254,9 +254,9 @@ de:
         client_side_encryption_key: ~
         merchant_id: ~
         master_merchant_id: ~
-        commission_from_seller: ~
+        commission_from_seller: "Provisionsprozentsatz vom Anbieter"
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: Zahlungen
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -412,9 +412,9 @@ de:
       minimum_price_error_message: "Der Preis kann nicht niedriger sein als %{amount}."
       accept: Akzeptieren
       decline: Ablehnen
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      sum: "Summe: %{sum}"
+      service_fee: "Servicegebühr: %{service_fee}"
+      you_will_get: "Du erhälst : %{seller_gets}"
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem anderen Feedback geben."
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
@@ -445,7 +445,7 @@ de:
       canceled_request: "Anfrage abgebrochen"
       canceled_offer: "Angebot abgebrochen"
       message_from: "Nachricht von %{person}"
-      about_listing: ~
+      about_listing: "In Bezug auf %{listing_title}"
       free_message: "Kostenlose Nachricht"
     message:
       accepted_request: "Anfrage akzeptieren"
@@ -493,7 +493,7 @@ de:
       you_will_get_notified: "Du erhältst eine E-Mail-Benachrichtigung, wenn %{person} dir antwortet."
       title: Titel
       send_message_to_user: "Nachricht an %{person} senden"
-      about_listing: ~
+      about_listing: "In Bezug auf %{listing_title}"
       author_has_to_accept_request: ~
     show:
       in_response_to_listing: "über die Einträge"
@@ -506,13 +506,13 @@ de:
       conversation_with: "Unterhaltung mit %{person}"
       last_message_at: "(letzte Nachricht %{time})"
       price: "Preis: %{price}"
-      sum: ~
+      sum: "Insgesamt: %{sum}"
       price_excludes_vat: "(ohne Mehrwertsteuer)"
       total: "Insgesamt: %{total}"
     status:
-      payment_errored: ~
-      payment_errored_starter: ~
-      payment_errored_author: ~
+      payment_errored: "Zahlung nicht erfolgreich. Bitte versuche es erneut!"
+      payment_errored_starter: "Zahlung nicht erfolgreich. Bitte versuche es erneut. Wenn das Problem weiter besteht, wende dich bitte an unseren Kundenservice."
+      payment_errored_author: "Zahlung nicht erfolgreich. Bitte kontaktiere %{starter_name} und bitte ihn die Zahlung erneut zu versuchen."
       cancel_payed_transaction: Abbruch
       feedback_given: "gegebenes Feedback"
       feedback_skipped: "übersprungene Feedbacks"
@@ -521,8 +521,8 @@ de:
       offer_rejected: "Angebot abgelehnt"
       offer_canceled: abgelehnt
       offer_confirmed: fertig
-      offer_paid: ~
-      offer_preauthorized: ~
+      offer_paid: "Zahlung erfolgreich"
+      offer_preauthorized: "Zahlung erfolgreich"
       offer_waiting_for_payment: "Wartet darauf, dass %{requester_name} bezahlt"
       pay: Zahlen
       preauthorized: "Zahlung erfolgreich"
@@ -532,14 +532,14 @@ de:
           multicurrency: ~
           verify: ~
           intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: "Wartet darauf, dass du %{listing_title} lieferst"
+      waiting_for_listing_author_to_deliver_listing: "Wartet darauf, dass %{listing_author_name} %{listing_title} liefert"
       request_accepted: "Anfrage akzeptiert"
       request_rejected: "Anfrage abgelehnt"
       request_confirmed: fertig
       request_canceled: abgelehnt
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: "Zahlung erfolgreich"
+      request_preauthorized: "Zahlung erfolgreich"
       skip_feedback: "Feedback überspringen"
       waiting_for_listing_author_to_accept_offer: "Warte bis %{listing_author_name} das Angebt annimmt"
       waiting_for_listing_author_to_accept_request: "Warte bis %{listing_author_name} die Anfrage annimmt"
@@ -551,10 +551,10 @@ de:
       waiting_feedback_from_you: "Wartet darauf, dass du Feedback gibst"
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
-          unknown_reason: ~
-          verify: ~
+          multicurrency: "Wartet darauf, dass du die PayPal-Zahlung akzeptierst"
+          intl: "Wartet darauf, dass du die PayPal-Zahlung akzeptierst"
+          unknown_reason: "Zahlung ausstehend. Melde dich in deinem PayPal-Konto an, um mehr Details zu sehen."
+          verify: "Wartet darauf, dass du dein PayPal Konto bestätigst"
     status_link:
       accept_offer: "Angebot annehmen"
       accept_request: "Anfrage annehmen"
@@ -668,11 +668,11 @@ de:
       subject: "Anfrage wurde automatisch abgeschlossen - vergiss nicht, eine Bewertung abzugeben."
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed:
-      subject: ~
+      subject: "Angebot automatisch abgeschlossen - bitte denk daran, Feedback zu geben"
       we_have_marked_request_as_confirmed: ~
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "Bitte gib %{other_party_given_name} ein Feedback"
       show_thread: "Unterhaltung anzeigen"
     escrow_canceled:
       subject: "Zahlungsprozess abgebrochen"
@@ -777,44 +777,44 @@ de:
       remember_to_give_feedback_to: "Zur Erinnerung: Denke daran, %{name} ein Feedback zu geben"
       you_have_not_given_feedback_yet: "Du hast %{name} noch kein Feedback zur Transaktion '%{event}' gegeben. Denke daran, ein Feedback darüber zu hinterlassen, wie %{given_name} die Transaktion durchgeführt hat."
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "%{requester} hat %{listing_title} angefragt und bezahlt"
+      transaction_requested_by_user: "%{requester} hat \"%{listing_title}\" angefragt und bezahlt"
       you_have_days_to_accept: ~
       click_here_to_reply: "Klicke hier um auf das Angebot zu antworten"
     transaction_preauthorized_reminder:
       subject: ~
       remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      one_day_left: "Wenn du das Angebot nicht innerhalb eines Tages akzeptierst, wird das Angebot automatisch abgelehnt, und Du erhälst keine Zahlung."
+      click_here_to_reply: "Klicke hier um auf das Angebot zu antworten"
     welcome_email:
       welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
+      welcome_to_marketplace: "Willkommen bei %{service_name}! Schön, dass du dabei bist."
+      love_marketplace_crew: "Herzliche Grüße,<br /><i>%{service_name} Team</i>"
       p_s_did_you_know: "P.S.: Wusstest du, dass du einen Marktplatz wie diesen für jede andere Community, zu der du gehörst, kostenlos erstellen kannst? %{click_here_link} um mehr zu erfahren!"
       click_here_link_text: "Hier klicken"
       welcome_email_footer_text: "Welche Art von E-Mails willst du empfangen von %{service_name}? %{settings_link}"
       settings_link_text: "Überprüfe deine Einstellungen"
-      welcome_email_subject_for_marketplace_creator: ~
-      welcome_to_marketplace_creator: ~
-      congrats_for_creating_your_marketplace: ~
-      here_is_your_account_information: ~
-      your_email_address: ~
-      your_marketplace_address: ~
-      your_marketplace_admin_area: ~
-      just_follow_details: ~
-      we_will_guide_you_along_the_way: ~
+      welcome_email_subject_for_marketplace_creator: "Willkommen bei Sharetribe"
+      welcome_to_marketplace_creator: "Willkommen bei Sharetribe, %{name}!"
+      congrats_for_creating_your_marketplace: "Herzlichen Glückwunsch für die Erstellung deines Marktplatzes! Das war einfach, nicht wahr?"
+      here_is_your_account_information: "Dies ist deine Kontoinformation."
+      your_email_address: "Die E-Mail mit der du dich angemeldet hast:"
+      your_marketplace_address: "Die Adresse deines Marktplatzes:"
+      your_marketplace_admin_area: "Der Admin-Bereich deines Marktplatzes:"
+      just_follow_details: "Folge einfach diesen Links und du wirst mehr Information darüber erhalten, wie du den Aufbau deines Marktplatzes startest!"
+      we_will_guide_you_along_the_way: "Wir werden dich den Weg entlang führen."
       are_you_new_to_online_marketplaces: ~
-      have_questions: ~
+      have_questions: "Hast du Fragen?"
       our_happiness_team_is_here_to_help: ~
-      love: ~
-      sharetribe_crew: ~
-      knowledge_base_link_text: ~
-      contact_support_link_text: ~
-      admin_panel_link_text: ~
+      love: "Herzliche Grüße,"
+      sharetribe_crew: "Das Sharetribe Team"
+      knowledge_base_link_text: "Besuche unsere Knowledge Base"
+      contact_support_link_text: "Kontaktiere unseren Support"
+      admin_panel_link_text: Admin-Panel
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
+      subject: "%{author_name} hat ein neues Angebot in %{service_name} veröffentlicht"
+      has_posted_a_new_listing: "%{author_name} hat ein neues Angebot veröffentlicht:"
+      you_are_receiving_this_because: "Du hast diese Benachrichtigung erhalten, weil du %{author_name} folgst."
       view_listing: "Eintrag ansehen"
   error_messages:
     listings:
@@ -908,7 +908,7 @@ de:
     contact_us: Kontakt
     profile: Profil
     invite: "Neue Mitglieder einladen"
-    login: ~
+    login: Anmelden
     signup: Registrieren
     menu: Menü
   homepage:
@@ -1020,7 +1020,7 @@ de:
       default_about_text: "Diese Website wurde mit Hilfe der Sharetribe-Plattform angelegt. Jeder kann mit Sharetribe seinen eigenen Community-Marktplatz erstellen. Möchtest du so eine Seite für deine Community erstellen? Es ist kostenlos und dauert nur eine Minute. Klicke hier, um mehr zu erfahren %{click_here_link}!"
       click_here_link_text: "Hier klicken"
     how_to_use:
-      default_title: ~
+      default_title: "So funktioniert's"
       default_content: ~
   layouts:
     admin:
@@ -1187,8 +1187,8 @@ de:
       you_must_log_in_to_add_news_item: "Du musst dich bei %{service_name} anmelden, um einen neuen Artikel hinzuzufügen."
       you_must_log_in_to_change_profile_settings: "Du musst dich bei %{service_name} anmelden, wenn du deine Profil-Einstellungen ändern möchtest"
       you_must_log_in_to_change_payment_settings: "Du musst dich bei %{service_name} einloggen, um deine Zahlungseinstellungen zu ändern"
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_accept_or_reject: "Du musst dich anmelden, um die Transaktion zu akzeptieren oder abzubrechen"
+      you_must_log_in_to_confirm_or_cancel: "Du musst dich anmelden, um die Transaktion abzubrechen oder zu bestätigen"
       you_need_to_confirm_your_account_first: "Du musst zuerst deine E-Mail bestätigen."
       you_must_fill_all_the_fields: "Du musst alle Felder ausfüllen"
       you_unfollowed_listing: "Du folgst diesem Eintrag nicht länger"
@@ -1229,7 +1229,7 @@ de:
       edit_listing: "Eintrag bearbeiten"
       reopen_listing: "Eintrag wieder aktivieren"
       move_to_top: "Auf der Homepage nach oben verschieben"
-      show_in_updates_email: ~
+      show_in_updates_email: "In der nächsten automatischen E-Mail anzeigen"
       show_in_updates_email_loading: Lädt...
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
@@ -1369,7 +1369,7 @@ de:
     listing_actions:
       booking_from: Von
       booking_to: Bis
-      how_paypal_works: ~
+      how_paypal_works: "Wie PayPal funktioniert"
     new:
       post_a_new_listing: "Einen neuen Eintrag veröffentlichen"
       listing: Eintrag
@@ -1427,8 +1427,8 @@ de:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
     preauthorize:
-      details: ~
-      by: ~
+      details: Details
+      by: "%{listing} von %{author}"
       payment: Zahlung
       exp: ~
       you_will_be_charged: ~
@@ -1488,11 +1488,11 @@ de:
     paypal_account_email_connected: ~
     paypal_billing_agreement_made: ~
     you_are_ready_to_accept_payments: ~
-    commission: ~
-    connected_account: ~
+    commission: "%{commission} %"
+    connected_account: "PayPal Konto '%{email}' erfolgreich verknüpft."
     change_account: "Konto ändern"
-    missing: ~
-    from_your_payment_settings_link_text: ~
+    missing: "Du hast offene Angebote, aber weil du dein PayPal-Konto nicht eingebunden hast, kannst du keine Zahlungen erhalten. Bitte verknüpfe Dein PayPal Konto in deinen %{settings_link}"
+    from_your_payment_settings_link_text: Zahlungseinstellungen
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
@@ -1872,6 +1872,10 @@ de:
         zero: Benutzer
         one: Benutzer
         other: Benutzer
+      listing_conversation:
+        zero: Buchungen
+        one: Buchung
+        other: Buchungen
     previous_label: "&#8592; Zurück"
     next_label: "Vor &#8594;"
     page_gap: "&hellip;"
