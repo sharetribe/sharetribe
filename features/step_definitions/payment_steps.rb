@@ -142,7 +142,7 @@ When /^I cancel the transaction$/ do
     Given I am on the messages page
     Then I should see "Waiting for you to mark the request completed"
     When I click ".conversation-title-link"
-    And I follow "Did not happen"
+    And I follow "Dispute"
   }
 end
 

@@ -434,7 +434,7 @@ fi:
       cancel_payed_description: "Jos pyyntösi on jo hyväksytty mutta tulit toisiin ajatuksiin, voit vielä perua pyynnön ennen maksua."
       canceling_payed_transaction: "Pyynnön peruuttaminen"
       confirm: "Merkitse toteutuneeksi"
-      cancel: "Ei toteutunut"
+      cancel: "Riitauta"
       continue: Jatka
       give_feedback_to: "Anna palautetta käyttäjälle %{person_link}"
       do_not_give_feedback: "Ohita palaute"
@@ -578,7 +578,7 @@ fi:
       reject_preauthorized_offer: "Hylkää tarjous"
       reject_preauthorized_request: "Ei tällä kertaa"
       confirm: "Merkitse toteutuneeksi"
-      cancel: "Ei toteutunut"
+      cancel: "Riitauta"
   braintree_accounts:
     new:
       add_payout_details: ~
