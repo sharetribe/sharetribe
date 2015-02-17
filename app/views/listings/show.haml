@@ -122,6 +122,13 @@
             - with_quantity_and_vat_text(@current_community, @listing) do |text|
               %span.listing-price-quantity
                 = text
+    - if @listing.shipping_price
+      .row
+        .col-12
+          %h2= t("listings.show.delivery")
+          .shipping-price
+            %span.shipping-price-amount
+              = t("listings.show.shipping", shipping_price: humanized_money_with_symbol(@listing.shipping_price).upcase)
 
     .row-with-divider
       .col-12
