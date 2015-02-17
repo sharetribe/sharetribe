@@ -63,9 +63,14 @@ module PaypalService
         [:item_name, :mandatory, :string],
         [:item_quantity, :fixnum, default: 1],
 
+        # A bit odd field as it is negative, but conforms to PayPal conventions
+        [:no_shipping, one_of: [1, 0], default: 1],
+
         # If not specified, defaults to order_total. If specifed, quantity * item_price must match order_total
         [:item_price, :optional, :money],
 
+        # If spefied, no_shipping must be 0, and order_total = item_price (* quantity) + shipping_price
+        [:shipping_price, :optional],
         [:receiver_username, :mandatory, :string],
         [:order_total, :mandatory, :money],
         [:success, :mandatory, :string],
@@ -79,6 +84,7 @@ module PaypalService
         [:redirect_url, :mandatory, :string],
         [:receiver_username, :mandatory, :string])
 
+      # Should contain the same fields as in set express checkout order
       DoExpressCheckoutPayment = EntityUtils.define_builder(
         [:method, const_value: :do_express_checkout_payment],
         [:receiver_username, :mandatory, :string],
@@ -88,6 +94,8 @@ module PaypalService
         [:item_name, :mandatory, :string],
         [:item_quantity, :mandatory, :fixnum],
         [:item_price, :mandatory, :money],
+        [:no_shipping, one_of: [1, 0], default: 1],
+        [:shipping_price, :optional, :money],
         [:invnum, :mandatory, :string])
 
       DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(
