@@ -122,7 +122,7 @@ de:
         getting_started: Kurzanleitung
         welcome_to_your_marketplace: "Willkommen auf deinem Marktplatz, %{name}!"
         intro: ~
-        live_site_link_text: ~
+        live_site_link_text: hier
         look_and_feel: ~
         logo_link_text: "Füge dein Logo hinzu"
         custom_domain: ~
@@ -231,19 +231,19 @@ de:
           listing: Listing
           status: Status
           sum: Summe
-          started: ~
+          started: Gestartet
           last_activity: "Letzte Aktivität"
           initiated_by: ~
           other_party: ~
         status:
           free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          pending: Ausstehend
+          preauthorized: Vorauthorisiert
+          accepted: Akzeptiert
+          rejected: Abgelehnt
+          paid: Bezahlt
+          confirmed: Bestätigt
+          canceled: Storniert
           initiated: ~
           pending_ext: ~
       braintree_payment_gateway:
@@ -313,14 +313,14 @@ de:
         message_will_be_sent_only_to_people_with_this_language: "Merke: Die E-Mail wird nur an Mitglieder von %{service_name} verschickt, die die Sprache sprechen, die du gewählt hast."
         email_sent: "E-Mail gesendet."
     left_hand_navigation:
-      general: ~
+      general: Allgemein
       users_and_transactions: "Benutzer & Transaktionen"
       configure: Konfiguration
       emails_title: E-Mails
-      support: ~
+      support: Support
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      preferences_updated: ~
+      marketplace_paypal_integration: Zahlungseinstellungen
+      preferences_updated: "Zahlungseinstellungen aktualisiert"
       integration_info_text: ~
       read_more_about_paypal: "Mehr über das Shartetribe Zahlungssystem hier lesen."
       paypal_account_email: ~
@@ -397,7 +397,7 @@ de:
     username: Benutzername
     username_or_email: "E-Mail oder Benutzername"
     what_is_this: "Was ist das?"
-    removed_user: ~
+    removed_user: "Entfernter Benutzer"
     paypal_fee_info:
       title: ~
       body: ~
@@ -505,7 +505,7 @@ de:
       title: Titel
       send_message_to_user: "Nachricht an %{person} senden"
       about_listing: "In Bezug auf %{listing_title}"
-      author_has_to_accept_request: ~
+      author_has_to_accept_request: "%{author_name} muss den Auftrag annehmen, bevor Sie zahlen können"
     show:
       in_response_to_listing: "über die Einträge"
       message_sent_by: "Nachricht gesendet von"
@@ -555,7 +555,7 @@ de:
       waiting_for_listing_author_to_accept_offer: "Warte bis %{listing_author_name} das Angebt annimmt"
       waiting_for_listing_author_to_accept_request: "Warte bis %{listing_author_name} die Anfrage annimmt"
       waiting_for_you_to_accept_request: "Wartet darauf, dass du das Angebot akzeptierst"
-      waiting_confirmation_from_requester: "Warte bis %{requester_name} die Anfrage als erledigt markiert"
+      waiting_confirmation_from_requester: "Wartet bis %{requester_name} die Anfrage als erledigt markiert"
       waiting_confirmation_from_you: "Wartet darauf, dass du den Vorgang als abgeschlossen markierst"
       waiting_payment_from_requester: "Warte bis %{requester_name} bezahlt"
       waiting_payment_from_you: "Wartet darauf, dass du zahlst"
@@ -742,7 +742,7 @@ de:
       new_payment: "Du hast eine neue Zahlung erhalten"
       you_have_received_new_payment: "Du hast bezahlt %{payment_sum} für %{listing_title} an %{payer_full_name}. Das ist deine Rechnung."
     paypal_new_payment:
-      paypal_gateway_fee: ~
+      paypal_gateway_fee: "PayPal's Gebühr:"
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Betrag bezahlt von %{payer_full_name}:"
@@ -1298,8 +1298,8 @@ de:
         time: "Stunde, Tag, Monat,..."
         long_time: "Woche, Monat..."
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr, wirst du %{sum_with_currency} erhalten"
-        no_service_fee_you_will_get_paypal: ~
-        after_service_fee_you_will_get_paypal: ~
+        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPal's Zahlungsbearbeitungsgebühr</a> wird vom Preis abgezogen werden."
+        after_service_fee_you_will_get_paypal: "%{service_name} Gebühr %{sum_with_currency} und <a id='%{fee_info_link_id}' href='#'>PayPal's Zahlungsbearbeitungsgebühr</a> wird vom Preis abgezogen werden."
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."
       origin:
@@ -1642,7 +1642,7 @@ de:
       show_all_followed_people: "Zeige alle gefolgten Personen"
       no_followed_people: "Keine gefolgten Personen"
     follow_button:
-      following: ~
+      following: Folgend
       follow: Folgen
       unfollow: "Nicht mehr folgen"
   search:

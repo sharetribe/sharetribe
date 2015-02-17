@@ -77,7 +77,7 @@ zh:
         logo_instructions_text_with_dimensions: "封面图片尺寸必须是%{width}x%{height}像素。它将显示给使用大屏幕的用户。"
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
-        cover_photo_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。%{see_how_it_looks_like}"
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。"
         main_content_width: ~
@@ -157,7 +157,7 @@ zh:
         google_analytics_key: "Google Analytics跟踪ID"
         twitter_handle: ~
         update_settings: 保存设置
-        automatically_confirmed: ~
+        automatically_confirmed: "交易在付款%{days_dropdown}天后将被自动标记为已完成。如果使用第三方支付系统，现在钱将被打入第三方系统。"
         automatically_confirmed_no_escrow: "在付款后%{days_dropdown}天内交易将被自动标记为完成。"
         automatic_newsletter_frequency: "自动发送新闻邮件：%{frequency_dropdown}"
         newsletter_daily: 每日
@@ -413,7 +413,7 @@ zh:
       paypal_fee_info: ~
     confirm:
       confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
-      cancel_description: ~
+      cancel_description: 如果你的请求没有完成，你可以标记它为“未发生”。你仍然可以评论给其他交易方描述发生的事情。
       cancel_payed_description: 如果你的请求被接受但是你有其他的想法，你仍然可以在付款前取消请求。
       canceling_payed_transaction: 取消交易
       confirm: 标记为完成
@@ -648,7 +648,7 @@ zh:
       if_will_not_happen_you_should_cancel: "如果你认为请求由于某种原因无法完成，你还可以%{cancel_it_link}。"
       cancel_it_link_text: 取消
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
+      remember_to_add_payment_details: 记得添加你的付款明细以接收付款。
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
       payment_settings_link: 付款设置
@@ -680,7 +680,7 @@ zh:
       welcome_to_kassi: "欢迎来到%{service_name}！"
       need_to_confirm: 您需要确认您的Email地址。
       confirmation_link_text: 确认账号
-      or_paste_link: ~
+      or_paste_link: 或者你可以复制以下链接到你浏览器的地址栏：
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: 查看您的设置
@@ -725,7 +725,7 @@ zh:
       you_have_a_new_message: "在%{service_name}收到一条来自%{sender_name}的新消息"
     new_payment:
       new_payment: 你收到一笔新的付款
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "你已经为<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>给%{payer_full_name}。这是你的收据。"
     paypal_new_payment:
       paypal_gateway_fee: ~
     braintree_new_payment:
@@ -983,7 +983,7 @@ zh:
       email: 朋友的Email地址
       message: 一条私人消息：
       send_invitation: 发送邀请
-      add_as_many_emails_as_you_want: ~
+      add_as_many_emails_as_you_want: 添加你要邀请的人的邮件地址到下面的字段。如果你添加多个电子邮件地址，用逗号分隔。
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: ~
       errors_in_emails: 检查你新添的电邮地址是否有效。如果你添加了多个地址，确保用逗号分隔。
@@ -1135,7 +1135,7 @@ zh:
       payment_successful: 付款成功
       payment_canceled: 付款已取消
       error_in_payment: 付款错误。如果你还没有完成付款，请重试。如果已完成，请联系我们。
-      cannot_receive_payment: ~
+      cannot_receive_payment: 由于某些错误，另一交易方无法收款。请联系管理员并说明情况。
       payment_waiting_for_later_accomplishment: 当你完成支付后，我们会通知卖家，同时你会在电子邮件中收到收据。
       password_recovery_sent: 更改密码的说明已发送至您的电子邮箱。
       person_activated: 用户已激活
@@ -1286,7 +1286,7 @@ zh:
         no_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: ~
-        price_excludes_vat: ~
+        price_excludes_vat: 价格不包含VAT。
       origin:
         location: 地点
         origin: 来源
@@ -1418,7 +1418,7 @@ zh:
       times: 次数
       times_viewed: 浏览的次数
       processing_uploaded_image: （正在处理上传图片……）
-      price_excludes_vat: ~
+      price_excludes_vat: （除去VAT）
       listing_created_at: 信息已创建
       price:
         per_quantity_unit: "每%{quantity_unit}"
@@ -1482,7 +1482,7 @@ zh:
     braintree:
       terms:
         braintree_terms_also_included: ~
-        terms_link_text: ~
+        terms_link_text: Braintree使用条款
   paypal_accounts:
     payout_info_title: 支付信息
     paypal_account_email_connected: "<del>1. 连接PayPal 帐号</del> 完成！"

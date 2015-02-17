@@ -324,11 +324,11 @@ ja:
       set_minimum_price_and_fee_completed: 完了しました！
       minimum_listing_price_label: 最低価格：
       transaction_fee_label: 課金手数料：
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: 最小ご利用手数料額
       save_settings: 設定を保存する
       note_about_transaction_fee: "注意： 取引手数料は、PayPal利用手数料も含まれています。それは、通貨や価格のボリュームにより異なります。そのため、手数料は少なくても%{min_paypal_commission}に設定しています。PayPalははじめにその手数料を差し引いてからの金額が、あなたのPayPalアカウントに送金されます。"
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "最小でも、%{minimum_transaction_fee}と同じ値にしてください。"
+      minimum_listing_price_below_min: "最小手数料は、%{minimum_commission}より大きい値にしてください。"
     transaction_types:
       sell: 売ります
       rent: 貸します
@@ -394,12 +394,12 @@ ja:
     what_is_this: これは何ですか。
     removed_user: ユーザは削除されました
     paypal_fee_info:
-      title: ~
-      body: ~
+      title: PayPal手数料
+      body: "PayPalはお支払いごとに手数料を差し引きます。手数料は価格の2%から5%になり、サイトの総売り上げ高と買い手の居住国によってきまります。通常、国内の消費の方が国外消費より低い手数料で、月額総売上高が上がれば、手数料は値引きされる仕組みです。 PayPalにログインすると、<a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>こちら</a>から詳細を確認できます。ご購入後、毎回正確な手数料情報が表示されます。"
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: ご注文の詳細
+      order_by: "%{orderer_link}順"
       respond_to_offer: オファーに返事をする
       respond_to_request: リクエストに返事をする
       accept_offer: オファーを受け入れる
@@ -415,12 +415,12 @@ ja:
       minimum_price_error_message: "価格は%{amount}より低く設定できません。"
       accept: 受諾する
       decline: 辞退する
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
-      paypal_fee_info: ~
+      sum_label: 合計：
+      service_fee_label: "%{service_name}のご利用手数料："
+      you_will_get_label: 受け取り額：
+      total_label: 合計：
+      total_value: "%{seller_gets}*"
+      paypal_fee_info: "*<a id='%{fee_info_link_id}' href='#'>PayPalの手数料</a>は含まず"
     confirm:
       confirm_description: あなたのリクエストに適していた場合、取引は完了したと承認してください。そうすると相手方のレビューを書くことができます。
       cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
@@ -737,7 +737,7 @@ ja:
       new_payment: 新しいお支払いを受け取りました
       you_have_received_new_payment: "%{payer_full_name}さんより<b>%{listing_title}</b>の件で、<b>%{payment_sum}</b>支払われました。こちらはその領収書です。"
     paypal_new_payment:
-      paypal_gateway_fee: ~
+      paypal_gateway_fee: PayPalの手数料：
     braintree_new_payment:
       product: 商品・サービス名：
       price_payer_paid: "価格 %{payer_full_name}さん 支払い済み："
@@ -1293,8 +1293,8 @@ ja:
         time: 時間、日、ヶ月
         long_time: 週、ヶ月、...
         after_service_fee_you_will_get: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。"
-        no_service_fee_you_will_get_paypal: ~
-        after_service_fee_you_will_get_paypal: ~
+        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPalの手数料</a>は価格から差し引かれます。"
+        after_service_fee_you_will_get_paypal: "%{service_name}のご利用手数料(%{sum_with_currency})と<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は、価格から差し引かれます。"
         after_service_fee_you_will_get_vat: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。（消費税 0%）"
         price_excludes_vat: 価格は外税です。
       origin:
@@ -1515,9 +1515,9 @@ ja:
       upgrade_paypal_account: ここであなたのアカウントをアップグレードしてください。
       connect_paypal_account: PayPalアカウントに接続する
       paypal_account_billing_agreement: "%{service_name}の利用料金支払いの許可を承諾してください"
-      paypal_account_billing_agreement_fee_both: ~
-      paypal_account_billing_agreement_fee_fixed: ~
-      paypal_account_billing_agreement_fee_relative: ~
+      paypal_account_billing_agreement_fee_both: "%{service_name}で売り上げると、総売り上げ額による手数料%{commission_from_seller}と、最小手数料%{minimum_commission}が、あなたのPayPalへ請求されます。%{service_name}内のお支払いを受け入れるには、それらの手数料の請求を認めてください。尚、手数料には<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は含まれません。"
+      paypal_account_billing_agreement_fee_fixed: "%{service_name}で売り上げると、最小手数料%{minimum_commission}が、あなたのPayPalへ請求されます。%{service_name}内のお支払いを受け入れるには、その手数料の請求を認めてください。尚、手数料には<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は含まれません。"
+      paypal_account_billing_agreement_fee_relative: "%{service_name}で売り上げると、総売り上げ額による手数料%{commission_from_seller}が、あなたのPayPalへ請求されます。%{service_name}内のお支払いを受け入れるには、その手数料の請求を認めてください。尚、手数料には<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は含まれません。"
       billing_agreement_description: "%{service_name}の利用料金支払いの許可を承諾してください"
       billing_agreement: 許可してください
       permissions_not_granted: PayPalアカウントに接続する許可を取得出来ませんでした。
