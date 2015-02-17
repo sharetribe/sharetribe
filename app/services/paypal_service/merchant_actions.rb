@@ -23,6 +23,11 @@ module PaypalService
       URLUtils.append_query_param(url_str, "useraction", "commit")
     end
 
+    def add_shipping_fields(req_details, opts)
+      req_details[:NoShipping] = opts[:no_shipping]
+      req_details[:PaymentDetails][:ShippingTotal] = from_money(opts[shipping_price])
+      req_details[:PaymentDetails][:ItemTotal] = opts[:item_price] * opts[:item_quatinty]
+    end
 
     SANDBOX_EC_URL = "https://www.sandbox.paypal.com/checkoutnow"
     LIVE_EC_URL = "https://www.paypal.com/checkoutnow"
@@ -145,7 +150,7 @@ module PaypalService
 
       set_express_checkout_order: PaypalAction.def_action(
         input_transformer: -> (req, config) {
-          {
+          req_details = {
             SetExpressCheckoutRequestDetails: {
               cppcartbordercolor: "FFFFFF",
               cpplogoimage: req[:merchant_brand_logo_url] || "",
@@ -171,6 +176,8 @@ module PaypalService
               }]
             }
           }
+
+          req[:no_shipping] == 0 ? add_shipping_fields(req_details, req) : req_details
         },
         wrapper_method_name: :build_set_express_checkout,
         action_method_name: :set_express_checkout,
@@ -185,11 +192,13 @@ module PaypalService
 
       do_express_checkout_payment: PaypalAction.def_action(
         input_transformer: -> (req, config) {
-          {
+          req_details = {
             DoExpressCheckoutPaymentRequestDetails: {
               PaymentAction: "Order",
               Token: req[:token],
               PayerID: req[:payer_id],
+              ReqConfirmShipping: 0,
+              NoShipping: 1,
               PaymentDetails: [{
                   ButtonSource: config[:button_source],
                   InvoiceID: req[:invnum],
@@ -203,6 +212,8 @@ module PaypalService
               }]
             }
           }
+
+          req[:no_shipping] == 0 ? add_shipping_fields(req_details, req) : req_details
         },
         wrapper_method_name: :build_do_express_checkout_payment,
         action_method_name: :do_express_checkout_payment,
