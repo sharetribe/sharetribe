@@ -17,8 +17,7 @@ module TransactionService::Transaction
     finished_states = "'free', 'rejected', 'confirmed', 'canceled', 'errored'"
 
     unfinished = TransactionModel
-                 .joins(:listing)
-                 .where("starter_id = ? OR listings.author_id = ?", person_id, person_id)
+                 .where("starter_id = ? OR listing_author_id = ?", person_id, person_id)
                  .where("current_state NOT IN (#{finished_states})")
 
     unfinished.length > 0
@@ -62,37 +61,25 @@ module TransactionService::Transaction
     opts_tx = opts[:transaction]
 
     #TODO this thing should come through transaction_opts
-    listing = Listing.find(opts_tx[:listing_id])
     minimum_commission, commission_from_seller, auto_confirm_days =
       case opts_tx[:payment_gateway]
       when :braintree
-        tx_data_braintree(listing, opts_tx)
+        tx_data_braintree(opts_tx)
       when :paypal
-        tx_data_paypal(listing, opts_tx)
+        tx_data_paypal(opts_tx)
       end
 
-    transaction, conversation = TxUtil.build_tx_model_with_conversation(
+    transaction = TxUtil.create_tx_model_with_conversation(
       opts_tx.merge({minimum_commission: minimum_commission,
                      commission_from_seller: commission_from_seller,
                      automatic_confirmation_after_days: auto_confirm_days}))
 
-    # TODO Move quantity calculation to tx service to get rid of this silly check
-    if TxUtil.is_booking?(opts_tx)
-
-      # Make sure listing_quantity equals duration
-      if TxUtil.booking_duration(opts_tx) != transaction.listing_quantity
-        return Result::Error.new("Listing quantity (#{transaction.listing_quantity}) must be equal to booking duration in days (#{duration})")
-      end
-    end
-
-    transaction.save!
-
     gateway_fields_response =
       case [opts_tx[:payment_gateway], opts_tx[:payment_process]]
       when [:braintree, :preauthorize]
-        create_tx_braintree(transaction: transaction, listing: listing, opts: opts, async: false)
+        create_tx_braintree(transaction: transaction, opts: opts, async: false)
       when [:paypal, :preauthorize]
-        create_tx_paypal(transaction: transaction, listing: listing, opts: opts, async: paypal_async)
+        create_tx_paypal(transaction: transaction, opts: opts, async: paypal_async)
       else
         # Braintree Postpay (/ Other payment type?)
         Result::Success.new({})
@@ -105,7 +92,6 @@ module TransactionService::Transaction
       Result::Success.new(
         DataTypes.create_transaction_response(opts_tx.merge({
           id: transaction.id,
-          conversation_id: conversation.id,
           created_at: transaction.created_at,
           updated_at: transaction.updated_at
         }),
@@ -117,15 +103,15 @@ module TransactionService::Transaction
   end
 
   # Private
-  def tx_data_braintree(listing, opts_tx)
-    currency = listing.price.currency
+  def tx_data_braintree(opts_tx)
+    currency = opts_tx[:unit_price].currency
     c = Community.find(opts_tx[:community_id])
 
     [Money.new(0, currency), c.commission_from_seller, c.automatic_confirmation_after_days]
   end
 
   # Private
-  def create_tx_braintree(transaction:, listing:, opts:, async:)
+  def create_tx_braintree(transaction:, opts:, async:)
     payment_gateway_id = BraintreePaymentGateway.where(community_id: opts[:transaction][:community_id]).pluck(:id).first
     transaction.payment = BraintreePayment.new({
       community_id: opts[:transaction][:community_id],
@@ -134,7 +120,7 @@ module TransactionService::Transaction
       payer_id: opts[:transaction][:starter_id],
       recipient_id: opts[:transaction][:listing_author_id],
       currency: "USD",
-      sum: listing.price * transaction.listing_quantity})
+      sum: transaction.unit_price * transaction.listing_quantity})
 
     result = BraintreeSaleService.new(transaction.payment, opts[:gateway_fields]).pay(false)
 
@@ -146,8 +132,8 @@ module TransactionService::Transaction
   end
 
   # Private
-  def tx_data_paypal(listing, opts_tx)
-    currency = listing.price.currency
+  def tx_data_paypal(opts_tx)
+    currency = opts_tx[:unit_price].currency
     p_set = PaymentSettingsStore.get_active(community_id: opts_tx[:community_id])
 
     [Money.new(p_set[:minimum_transaction_fee_cents], currency),
@@ -156,16 +142,15 @@ module TransactionService::Transaction
   end
 
   # Private
-  def create_tx_paypal(transaction:, listing:, opts:, async:)
+  def create_tx_paypal(transaction:, opts:, async:)
     # Note: Quantity may be confusing in Paypal Checkout page, thus, we don't use separated unit price and quantity,
     # only the total price.
-    quantity = 1
-    total = listing.price * transaction.listing_quantity
+    total = transaction.unit_price * transaction.listing_quantity
 
     create_payment_info = PaypalService::API::DataTypes.create_create_payment_request({
       transaction_id: transaction.id,
-      item_name: listing.title,
-      item_quantity: quantity,
+      item_name: transaction.listing_title,
+      item_quantity: 1,
       item_price: total,
       merchant_id: opts[:transaction][:listing_author_id],
       order_total: total,
@@ -309,11 +294,11 @@ module TransactionService::Transaction
         payment_process: model.payment_process.to_sym,
         payment_gateway: model.payment_gateway.to_sym,
         community_id: model.community_id,
-        starter_id: model.starter.id,
-        listing_id: model.listing.id,
-        listing_title: model.listing.title,
-        listing_price: model.listing.price,
-        listing_author_id: model.listing.author.id,
+        starter_id: model.starter_id,
+        listing_id: model.listing_id,
+        listing_title: model.listing_title,
+        listing_price: model.unit_price,
+        listing_author_id: model.listing_author_id,
         listing_quantity: model.listing_quantity,
         automatic_confirmation_after_days: model.automatic_confirmation_after_days,
         last_transition_at: model.last_transition_at,
@@ -352,15 +337,15 @@ module TransactionService::Transaction
 
     case model.payment_gateway.to_sym
     when :paypal
-      payment = paypal_payment_api().get_payment(model.community.id, model.id).maybe
+      payment = paypal_payment_api().get_payment(model.community_id, model.id).maybe
       total = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
-              .or_else(model.listing.price)
+              .or_else(model.unit_price)
       { total_price: total,
         commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission),
         charged_commission: payment[:commission_total].or_else(nil),
         payment_gateway_fee: payment[:fee_total].or_else(nil) }
     else
-      total = model.listing.price * 1 #TODO fixme for booking (model.listing_quantity)
+      total = model.unit_price * 1 #TODO fixme for booking (model.listing_quantity)
       { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
     end
   end
