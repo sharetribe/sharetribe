@@ -17,8 +17,7 @@ module TransactionService::Transaction
     finished_states = "'free', 'rejected', 'confirmed', 'canceled', 'errored'"
 
     unfinished = TransactionModel
-                 .joins(:listing)
-                 .where("starter_id = ? OR listings.author_id = ?", person_id, person_id)
+                 .where("starter_id = ? OR listing_author_id = ?", person_id, person_id)
                  .where("current_state NOT IN (#{finished_states})")
 
     unfinished.length > 0
