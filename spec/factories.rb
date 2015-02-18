@@ -107,6 +107,7 @@ FactoryGirl.define do
     times_viewed 0
     visibility "this_community"
     privacy "public"
+    price Money.new(20, "USD")
 
     has_many :communities do |listing|
       FactoryGirl.build(:community)
@@ -115,8 +116,12 @@ FactoryGirl.define do
 
   factory :transaction do
     build_association(:person, as: :starter)
-    build_association(:listing)
     build_association(:community)
+    build_association(:listing)
+    listing_title { listing.title }
+    listing_author_id { listing.author.id }
+    unit_price { listing.price }
+    listing_quantity 1
   end
 
   factory :conversation do
