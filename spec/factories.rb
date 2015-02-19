@@ -121,6 +121,7 @@ FactoryGirl.define do
     listing_title { listing.title }
     listing_author_id { listing.author.id }
     unit_price { listing.price }
+    commission_from_seller 0
     listing_quantity 1
   end
 
