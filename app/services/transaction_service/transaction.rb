@@ -15,13 +15,7 @@ module TransactionService::Transaction
   end
 
   def has_unfinished_transactions(person_id)
-    finished_states = "'free', 'rejected', 'confirmed', 'canceled', 'errored'"
-
-    unfinished = TransactionModel
-                 .where("starter_id = ? OR listing_author_id = ?", person_id, person_id)
-                 .where("current_state NOT IN (#{finished_states})")
-
-    unfinished.length > 0
+    TxStore.unfinished_tx_count(person_id) > 0
   end
 
   def can_start_transaction(opts)

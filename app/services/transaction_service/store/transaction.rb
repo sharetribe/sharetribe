@@ -35,6 +35,8 @@ module TransactionService::Store::Transaction
     [:last_transition_at, :time],
     [:current_state, :to_symbol])
 
+  FINISHED_TX_STATES = "'free', 'rejected', 'confirmed', 'canceled', 'errored'"
+
   module_function
 
   def create(opts)
@@ -51,6 +53,13 @@ module TransactionService::Store::Transaction
     Maybe(TransactionModel.where(id: transaction_id).first)
       .map { |m| from_model(m) }
       .or_else(nil)
+  end
+
+  def unfinished_tx_count(person_id)
+    TransactionModel
+      .where("starter_id = ? OR listing_author_id = ?", person_id, person_id)
+      .where("current_state NOT IN (#{FINISHED_TX_STATES})")
+      .count
   end
 
 
