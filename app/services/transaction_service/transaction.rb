@@ -56,10 +56,10 @@ module TransactionService::Transaction
     #TODO this thing should come through transaction_opts
     minimum_commission, commission_from_seller, auto_confirm_days =
       case opts_tx[:payment_gateway]
-      when :braintree
-        tx_data_braintree(opts_tx)
       when :paypal
         tx_data_paypal(opts_tx)
+      else
+        tx_data_community(opts_tx)
       end
 
     tx = TxStore.create(
@@ -87,11 +87,11 @@ module TransactionService::Transaction
   end
 
   # Private
-  def tx_data_braintree(opts_tx)
-    currency = opts_tx[:unit_price].currency
+  def tx_data_community(opts_tx)
+    minimum_commission = Maybe(opts_tx[:unit_price]).map { |price| Money.new(0, price.currency) }.or_else(Money.new(0))
     c = Community.find(opts_tx[:community_id])
 
-    [Money.new(0, currency), c.commission_from_seller, c.automatic_confirmation_after_days]
+    [minimum_commission, Maybe(c.commission_from_seller).or_else(0), Maybe(c.automatic_confirmation_after_days).or_else(14)]
   end
 
   # Private
@@ -302,7 +302,7 @@ module TransactionService::Transaction
 
   def checkout_details(tx)
     case tx[:payment_gateway]
-    when :checkout, :braintree
+    when :checkout, :braintree, :none
       payment_total = Maybe(Payment.where(transaction_id: tx[:id]).first).total_sum.or_else(nil)
       total_price = tx[:unit_price] * 1 # TODO fixme for booking (model.listing_quantity)
       { payment_total: payment_total,

@@ -12,9 +12,9 @@ module TransactionService::Store::Transaction
     [:unit_price, :money, default: Money.new(0)],
     [:payment_process, one_of: [:none, :postpay, :preauthorize]],
     [:payment_gateway, one_of: [:paypal, :checkout, :braintree, :none]],
-    [:commission_from_seller, :fixnum, default: 0],
+    [:commission_from_seller, :fixnum, :mandatory],
     [:automatic_confirmation_after_days, :fixnum, :mandatory],
-    [:minimum_commission, :money, default: Money.new(0)],
+    [:minimum_commission, :money, :mandatory],
     [:content, :string],
     [:booking_fields, :hash])
 

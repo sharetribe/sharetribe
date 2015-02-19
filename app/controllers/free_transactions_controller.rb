@@ -42,9 +42,12 @@ class FreeTransactionsController < ApplicationController
         {
           transaction: {
             community_id: @current_community.id,
-            listing_id: contact_form.listing_id,
+            listing_id: @listing.id,
+            listing_title: @listing.title,
             starter_id: @current_user.id,
             listing_author_id: @listing.author.id,
+            unit_price: @listing.price,
+            listing_quantity: 1,
             content: contact_form.content,
             payment_gateway: :none,
             payment_process: :none}
