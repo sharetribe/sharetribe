@@ -23,12 +23,6 @@ module PaypalService
       URLUtils.append_query_param(url_str, "useraction", "commit")
     end
 
-    def add_shipping_fields(req_details, opts)
-      req_details[:NoShipping] = opts[:no_shipping]
-      req_details[:PaymentDetails][:ShippingTotal] = from_money(opts[shipping_price])
-      req_details[:PaymentDetails][:ItemTotal] = opts[:item_price] * opts[:item_quatinty]
-    end
-
     SANDBOX_EC_URL = "https://www.sandbox.paypal.com/checkoutnow"
     LIVE_EC_URL = "https://www.paypal.com/checkoutnow"
     TOKEN_PARAM = "token"
@@ -157,26 +151,32 @@ module PaypalService
               ReturnURL: req[:success],
               CancelURL: req[:cancel],
               ReqConfirmShipping: 0,
-              NoShipping: 1,
+              NoShipping: req[:no_shipping],
               SolutionType: "Sole",
               LandingPage: "Billing",
               InvoiceID: req[:invnum],
               AllowNote: 0,
               MaxAmount: from_money(req[:order_total]),
               PaymentDetails: [{
-                  NotifyURL: hook_url(config[:ipn_hook]),
-                  OrderTotal: from_money(req[:order_total]),
-                  PaymentAction: "Order",
-                  PaymentDetailsItem: [{
-                      Name: req[:item_name],
-                      Quantity: req[:item_quantity],
-                      Amount: from_money(req[:item_price] || req[:order_total])
-                  }]
+                NotifyURL: hook_url(config[:ipn_hook]),
+                OrderTotal: from_money(req[:order_total]),
+                PaymentAction: "Order",
+                PaymentDetailsItem: [{
+                  Name: req[:item_name],
+                  Quantity: req[:item_quantity],
+                  Amount: from_money(req[:item_price] || req[:item_total])
+                }]
               }]
             }
           }
 
-          req[:no_shipping] == 0 ? add_shipping_fields(req_details, req) : req_details
+          # Add shipping related payment fields if required
+          if(req[:no_shipping] == 0)
+            req_details[:SetExpressCheckoutRequestDetails][:PaymentDetails][0][:ShippingTotal] = from_money(req[:shipping_total])
+            req_details[:SetExpressCheckoutRequestDetails][:PaymentDetails][0][:ItemTotal] = from_money(req[:item_total])
+          end
+
+          req_details
         },
         wrapper_method_name: :build_set_express_checkout,
         action_method_name: :set_express_checkout,
@@ -191,28 +191,23 @@ module PaypalService
 
       do_express_checkout_payment: PaypalAction.def_action(
         input_transformer: -> (req, config) {
-          req_details = {
-            DoExpressCheckoutPaymentRequestDetails: {
+          { DoExpressCheckoutPaymentRequestDetails: {
               PaymentAction: "Order",
               Token: req[:token],
               PayerID: req[:payer_id],
-              ReqConfirmShipping: 0,
-              NoShipping: 1,
               PaymentDetails: [{
-                  ButtonSource: config[:button_source],
-                  InvoiceID: req[:invnum],
-                  NotifyURL: hook_url(config[:ipn_hook]),
-                  OrderTotal: from_money(req[:order_total]),
-                  PaymentDetailsItem: [{
-                      Name: req[:item_name],
-                      Quantity: req[:item_quantity],
-                      Amount: from_money(req[:item_price] || req[:order_total])
-                  }]
+                ButtonSource: config[:button_source],
+                InvoiceID: req[:invnum],
+                NotifyURL: hook_url(config[:ipn_hook]),
+                OrderTotal: from_money(req[:order_total]),
+                PaymentDetailsItem: [{
+                  Name: req[:item_name],
+                  Quantity: req[:item_quantity],
+                  Amount: from_money(req[:item_price] || req[:order_total])
+                }]
               }]
             }
           }
-
-          req[:no_shipping] == 0 ? add_shipping_fields(req_details, req) : req_details
         },
         wrapper_method_name: :build_do_express_checkout_payment,
         action_method_name: :do_express_checkout_payment,
