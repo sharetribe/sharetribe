@@ -66,13 +66,19 @@ module PaypalService
         # A bit odd field as it is negative, but conforms to PayPal conventions
         [:no_shipping, one_of: [1, 0], default: 1],
 
-        # If not specified, defaults to order_total. If specifed, quantity * item_price must match order_total
+        # If not specified, defaults to item_total. If specifed, quantity * item_price must match item_total
         [:item_price, :optional, :money],
 
-        # If spefied, no_shipping must be 0, and order_total = item_price (* quantity) + shipping_price
-        [:shipping_price, :optional],
-        [:receiver_username, :mandatory, :string],
+        # Must be equal to item_price * quantity
+        [:item_total, :mandatory, :money],
+
+        # If specified, no_shipping must be 0, and order_total must match item_total + shipping_total
+        [:shipping_total, :optional],
+
+        # Must match item_total + shipping_total
         [:order_total, :mandatory, :money],
+
+        [:receiver_username, :mandatory, :string],
         [:success, :mandatory, :string],
         [:cancel, :mandatory, :string],
         [:invnum, :mandatory, :string],
