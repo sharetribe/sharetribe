@@ -55,6 +55,12 @@ module TransactionService::Store::Transaction
       .or_else(nil)
   end
 
+  def get_in_community(community_id:, transaction_id:)
+    Maybe(TransactionModel.where(id: transaction_id, community_id: community_id).first)
+      .map { |m| from_model(m) }
+      .or_else(nil)
+  end
+
   def unfinished_tx_count(person_id)
     TransactionModel
       .where("starter_id = ? OR listing_author_id = ?", person_id, person_id)

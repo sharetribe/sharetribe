@@ -1,10 +1,8 @@
 module TransactionService::Transaction
 
   DataTypes = TransactionService::DataTypes::Transaction
-  TransactionModel = ::Transaction
 
   PaymentSettingsStore = TransactionService::Store::PaymentSettings
-
   TxStore = TransactionService::Store::Transaction
 
   module_function
@@ -161,21 +159,20 @@ module TransactionService::Transaction
   end
 
   def reject(community_id, transaction_id)
-    payment_type = TransactionModel.where(id: transaction_id, community_id: community_id).pluck(:payment_gateway).first
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
-    case(payment_type)
-    when "braintree"
-      BraintreeService::Payments::Command.void_transaction(transaction_id, community_id)
-      #TODO: Event handling also to braintree service?
-      MarketplaceService::Transaction::Command.transition_to(transaction_id, "rejected")
+    case(tx[:payment_gateway])
+    when :braintree
+      BraintreeService::Payments::Command.void_transaction(tx[:id], tx[:community_id])
+      MarketplaceService::Transaction::Command.transition_to(tx[:id], :rejected)
 
-      transaction = query(transaction_id)
-      Result::Success.new(DataTypes.create_transaction_response(transaction))
-    when "paypal"
+      Result::Success.new(
+        DataTypes.create_transaction_response(query(tx[:id])))
+    when :paypal
       result = paypal_payment_api.void(community_id, transaction_id, {note: ""})
       if result[:success]
-        transaction = query(transaction_id)
-        Result::Success.new(DataTypes.create_transaction_response(transaction))
+        Result::Success.new(
+          DataTypes.create_transaction_response(query(tx[:id])))
       else
         result
       end
