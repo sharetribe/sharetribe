@@ -180,47 +180,41 @@ module TransactionService::Transaction
   end
 
 
+  # TODO Should require community id too
   def complete_preauthorization(transaction_id)
-    transaction = MarketplaceService::Transaction::Query.transaction(transaction_id)
+    tx = TxStore.get(transaction_id)
 
-    case transaction[:payment_gateway].to_sym
+    case tx[:payment_gateway]
     when :braintree
-      complete_preauthorization_braintree(transaction)
+      complete_preauthorization_braintree(tx)
     when :paypal
-      complete_preauthorization_paypal(transaction)
+      complete_preauthorization_paypal(tx)
     end
 
   end
 
-  def complete_preauthorization_braintree(transaction)
-    BraintreeService::Payments::Command.submit_to_settlement(transaction[:id], transaction[:community_id])
-    MarketplaceService::Transaction::Command.transition_to(transaction[:id], :paid)
+  def complete_preauthorization_braintree(tx)
+    BraintreeService::Payments::Command.submit_to_settlement(tx[:id], tx[:community_id])
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
 
-    transaction = query(transaction[:id])
-    Result::Success.new(DataTypes.create_transaction_response(transaction))
+    Result::Success.new(DataTypes.create_transaction_response(query(tx[:id])))
   end
 
-  def complete_preauthorization_paypal(transaction)
-    paypal_payments = paypal_payment_api
-    payment_response = paypal_payments.get_payment(transaction[:community_id], transaction[:id])
-
-    if payment_response[:success]
-      payment = payment_response[:data]
-      capture_response = paypal_payments.full_capture(
-        transaction[:community_id],
-        transaction[:id],
+  def complete_preauthorization_paypal(tx)
+    res = paypal_payment_api.get_payment(tx[:community_id], tx[:id]).and_then do |payment|
+      paypal_payment_api.full_capture(
+        tx[:community_id],
+        tx[:id],
         PaypalService::API::DataTypes.create_payment_info({ payment_total: payment[:authorization_total] }))
+    end
 
-      if capture_response[:success]
-        Result::Success.new(
-          DataTypes.create_transaction_response(
-            transaction,
-            DataTypes.create_paypal_complete_preauthorization_fields(paypal_pending_reason: capture_response[:data][:pending_reason])))
-      else
-        Result::Error.new("An error occured while trying to complete preauthorized PayPal payment")
-      end
+    if res[:success]
+      Result::Success.new(
+        DataTypes.create_transaction_response(
+        query(tx[:id]),
+        DataTypes.create_paypal_complete_preauthorization_fields(paypal_pending_reason: res[:data][:pending_reason])))
     else
-      Result::Error.new("No payment found for community_id: #{transaction[:community_id]} and transaction_id: #{transaction[:id]}")
+      Result::Error.new("An error occured while trying to complete preauthorized PayPal payment", res)
     end
   end
 
