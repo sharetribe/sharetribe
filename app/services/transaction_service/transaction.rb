@@ -82,7 +82,7 @@ module TransactionService::Transaction
       Result::Success.new(
         DataTypes.create_transaction_response(to_tx_response(tx), gateway_fields_response[:data]))
     else
-      gateway_fields_respon
+      gateway_fields_response
     end
   end
 
