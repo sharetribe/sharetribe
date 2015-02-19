@@ -35,10 +35,10 @@ zh:
       signed_up_but_inactive: 虽然您已经注册成功，但因为你的帐号还未激活，所以你暂时无法登录
       signed_up_but_locked: 虽然您已经注册成功，但因为你的帐号已被锁定，所以你暂时无法登录
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
+        inactive: 未激活
+        unconfirmed: 未确认
+        locked: 锁定
+      update_needs_confirmation: 更新您的帐户成功，但我们需要验证您的新电子邮件地址。请检查您的电子邮件，请单击确认链接来确认您的新电子邮件地址。
       signed_up: 欢迎您！您已注册成功.
       updated: 帐号资料更新成功.
       destroyed: 再见！您的帐户已成功注销。我们希望很快可以再见到您.

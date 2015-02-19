@@ -50,7 +50,7 @@ zh:
         update_information: 保存设置
         invite_people: ~
         edit_signup_info: 注册信息
-        edit_signup_info_description: ~
+        edit_signup_info_description: 这段信息文字将显示在用户的注册页面。在那儿你可以提供用户注册说明，在哪儿得到邀请的信息等。默认那里没有任何说明。
         edit_info: 编辑信息
         see_how_it_looks_like: 预览
         verification_to_post_listings_info_content: 未验证用户的信息文本
@@ -63,7 +63,7 @@ zh:
         transaction_agreement_checkbox_header: 协定标签
         transaction_agreement_checkbox_label_description: ~
         transaction_agreement_text_header: 协定文本
-        transaction_agreement_description: ~
+        transaction_agreement_description: "这是用户需要接受的实际协议的内容。该协议内容会在用户点击协议标签旁边的“%{read_more}”链接时展现。"
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: 页面展示Logo
@@ -75,7 +75,7 @@ zh:
         community_custom_color1: 主要颜色
         community_custom_color2: 第二颜色
         logo_instructions_text_with_dimensions: "封面图片尺寸必须是%{width}x%{height}像素。它将显示给使用大屏幕的用户。"
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "手机标识必须是方的，尺寸最好是%{width}x%{height}像素。它将被显示给较小屏幕的用户。"
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。%{see_how_it_looks_like}"
         small_cover_photo_visibility: ~
@@ -116,14 +116,14 @@ zh:
         categories_link_text: 新增分类和子分类
         custom_fields_link_text: 配置表单字段
         filters_link_text: 何种类型的过滤器
-        payments: ~
+        payments: "如果你希望人们通过你的市集支付他们购买的东西，从而为每笔交易收取费用，你应该%{payments_link}。"
         payments_link_text: 配置支付方式
         info_texts: ~
         about_page_link_text: 关于页面
         terms_of_use_link_text: 使用条款
         privacy_policy_link_text: 隐私策略
         welcome_email_link_text: 欢迎电子邮件
-        instruction_texts_link_text: 其他的指令文本
+        instruction_texts_link_text: 其他的说明文本
         social_media: ~
         facebook_link_text: 连接你的自定义Facebook应用
         twitter_link_text: 添加你的Twitter帐号
@@ -169,12 +169,12 @@ zh:
         join_date: 已加入
         admin: 管理员
         posting_allowed: 允许发布
-        ban_user: ~
+        ban_user: 禁止用户
         saving_user_status: 正在保存……
         save_user_status_successful: 已保存
         save_user_status_error: 保存失败。请刷新页面后重试。
         ban_user_confirmation: ~
-        ban_me_error: ~
+        ban_me_error: 你不能禁止自己。
       social_media:
         social_media: 社交媒体
         twitter_handle: ~
@@ -259,7 +259,7 @@ zh:
           this_field_is_required_checkbox: 该项必填（用户必须选择至少一个选项）
       index:
         listing_fields: ~
-        listing_fields_help: ~
+        listing_fields_help: 你可以在这里编辑用户在创建新的信息时必须填入的字段。请注意某些预定义字段不能被编辑。
         add_new_field: 添加新字段
         remove_field_confirmation: "你确认要移除字段%{field_name}吗？"
         cancel: 取消
@@ -314,11 +314,11 @@ zh:
       set_minimum_price_and_fee_completed: 已完成！
       minimum_listing_price_label: 最低挂牌价：
       transaction_fee_label: 交易费用：
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: 最低交易费用：
       save_settings: 保存设置
       note_about_transaction_fee: ~
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "至少必须等于最低交易费用%{minimum_transaction_fee}。"
+      minimum_listing_price_below_min: "必须高于最低佣金%{minimum_commission}。"
     transaction_types:
       sell: 出售
       rent: 已出租
@@ -384,12 +384,12 @@ zh:
     what_is_this: 这是什么？
     removed_user: 用户已删除
     paypal_fee_info:
-      title: ~
+      title: PayPal的支付处理费
       body: ~
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: 订单明细
+      order_by: "订购%{orderer_link}"
       respond_to_offer: 响应一个供应
       respond_to_request: 响应一个请求
       accept_offer: 接受供应
@@ -400,17 +400,17 @@ zh:
       update_later: 保持信息的公开
       optional_message: 可选消息
       price_to_pay: 需要支付的总价
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "在接受请求并收款前你需要填写支出详情。点击%{payment_settings_link}来填写详情。"
       payment_settings_link: 付款设置
       minimum_price_error_message: "价格不能低于%{amount}。"
       accept: 接受
       decline: 拒绝
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
-      paypal_fee_info: ~
+      sum_label: 小计
+      service_fee_label: "%{service_name}费："
+      you_will_get_label: 你将得到：
+      total_label: 总计：
+      total_value: "%{seller_gets}*"
+      paypal_fee_info: "* 不包括<a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费用</a>"
     confirm:
       confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
       cancel_description: 如果你的请求没有完成，你可以标记它为“未发生”。你仍然可以评论给其他交易方描述发生的事情。
@@ -503,7 +503,7 @@ zh:
       last_message_at: "最近的消息%{time}"
       price: "价格：%{price}"
       sum: "总共：%{sum}"
-      price_excludes_vat: ~
+      price_excludes_vat: （不包含消费税）
       total: "总共：%{total}"
     status:
       payment_errored: 付款失败。请重试。
@@ -525,9 +525,9 @@ zh:
       paid: 付款成功
       pending_external:
         paypal:
-          multicurrency: ~
+          multicurrency: "由于你的PayPal帐号还没有设置%{currency}货币收款，我们无法处理PayPal付款。点击%{paypal_url}并登录你的帐号来手动接受或拒绝付款。"
           verify: "因为你没有验证PayPal帐号，你不能接受这笔交易。点击%{paypal_url}验证你的帐号。"
-          intl: ~
+          intl: "由于你的PayPal帐号没有设置取款机制，我们无法处理PayPal付款。点击%{paypal_url}并登录你的帐号来手动接受或拒绝付款。"
       waiting_for_current_user_to_deliver_listing: "正在等待你交付%{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "正在等待%{listing_author_name}交付%{listing_title}"
       request_accepted: 已接受的
@@ -601,7 +601,7 @@ zh:
       cvv: 验证码
       credit_card_expiration_date: 信用卡有效期
       confirm_payment: 确认支付
-      exp: ~
+      exp: 过期：
   preauthorize_payments:
     edit:
       confirm_payment: 确认支付
@@ -632,16 +632,16 @@ zh:
       show_thread: 显示对话
     braintree_account_approved:
       account_ready: 你已经可以接收付款了
-      message: ~
+      message: "你的付款信息以及被确认，你现在已经可以接受%{service_name}的付款了。"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request: "你还没有确认或者取消请求%{request_link}。如果请求已经完成，你应该确认。之后你可以评论给%{other_party_given_name}。"
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: 记得确认或取消请求
       if_will_not_happen_you_should_cancel: "如果你觉得请求由于某种原因无法完成，你可以%{cancel_it_link}。"
       if_will_not_happen_you_should_cancel_escrow: "如果你觉得请求由于某种原因无法完成，你可以%{cancel_it_link}。系统将通知管理员联系你退回款项。"
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "如果你觉得请求由于某种原因无法完成，你有%{days_to_cancel}天时间来%{cancel_it_link}。系统将通知管理员联系你退回款项。"
       cancel_it_link_text: 取消
-      automatic_confirmation: ~
+      automatic_confirmation: "如果你不在请求被接受后%{days_to_automatic_confirmation}天确认或取消请求，我们将自动标记请求为完成。"
     payment_reminder:
       remember_to_pay: "记得支付%{listing_title}"
       you_have_not_yet_paid: "你还没有为%{other_party_name}同意提供给你的%{listing_title}付款。"
@@ -649,25 +649,25 @@ zh:
       cancel_it_link_text: 取消
     payment_settings_reminder:
       remember_to_add_payment_details: 记得添加你的付款明细以接收付款。
-      you_have_added_listing_with_payment: ~
+      you_have_added_listing_with_payment: "你添加了一个需要付款的信息%{listing_link}。然而，你还没有添加付款详情。为了接受付款你必须添加你的付款信息。"
       please_go_to_payment_settings: ~
       payment_settings_link: 付款设置
     transaction_confirmed:
       here_is_a_message_from: "这里有一条%{other_party_given_name}发送的消息："
       request_marked_as_confirmed: 请求已完成——记得给予评价
       request_marked_as_canceled: 请求已取消
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
-      giving_feedback_is_good_idea: ~
+      has_marked_request_as_confirmed: "%{other_party_full_name}标记关于“%{request}”的请求为完成。你现在可以评论给%{other_party_given_name}。"
+      has_marked_request_as_canceled: "%{other_party_full_name}取消了关于“%{request}”的请求。你仍然可以评论%{other_party_given_name}。"
+      giving_feedback_is_good_idea: "给予评论是个不错的主意。如果一切顺利，你应该让其他人知道%{other_party_given_name}可以被信任。如果有任何问题，在评论中提到它们也是很好的。"
       give_feedback_to: "给%{other_party_given_name}反馈"
     transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "我们已经将关于“%{request}”的请求标记为完成。自动标记完成的原因是在请求被接受后已经过了%{days_passed}天。"
     booking_transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: "我们已标记请求“%{request}”完成。该请求自动完成于预订期限结束后一天。"
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
+      giving_feedback_is_good_idea: "你现在可以评价%{other_party_given_name}。给予评价这个好主意。如果一切顺利，你应该让其他人知道%{other_party_given_name}可以被信任。如果有任何问题，在评论中提到它们也是很好的。"
       give_feedback_to: "给予%{other_party_given_name}反馈"
       show_thread: 显示对话
     escrow_canceled:
@@ -706,7 +706,7 @@ zh:
       your_request_was_rejected: 您的请求被拒绝
       you_can_now_pay_to: "你现在可以支付要求的金额给%{payment_receiver}。"
       pay_now: 现在支付
-      remember_to_confirm: ~
+      remember_to_confirm: "当请求实现之后，记得标记其为完成。如果请求没有实现你有%{days_to_automatic_confirmation}时间来取消。否则它将自动被标记为完成。"
     invitation_to_kassi:
       hi: 你好！
       you_have_been_invited_to_kassi: "%{inviter}邀请您使用%{service_name}"
@@ -717,7 +717,7 @@ zh:
       has_commented_your_listing_in_kassi: "%{author}评论了你的“%{listing}”。"
       view_comment: 查看评论
       you_have_a_new_comment: "%{author} 在%{service_name}评论了你发布的信息"
-      listing_you_follow_has_a_new_comment: ~
+      listing_you_follow_has_a_new_comment: "%{author}评论了你在%{service_name}关注的一条信息"
       has_commented_listing_you_follow_in_kassi: "%{author}评价了你在%{service_name}中关注的“%{listing}”。"
     new_message:
       view_message: 查看消息
@@ -727,7 +727,7 @@ zh:
       new_payment: 你收到一笔新的付款
       you_have_received_new_payment: "你已经为<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>给%{payer_full_name}。这是你的收据。"
     paypal_new_payment:
-      paypal_gateway_fee: ~
+      paypal_gateway_fee: PayPal的费用：
     braintree_new_payment:
       product: 产品：
       price_payer_paid: "%{payer_full_name}支付价格："
@@ -741,7 +741,7 @@ zh:
       total: 总共
       price: 价格
       service_fee: 服务费
-      money_will_be_transferred: ~
+      money_will_be_transferred: "以下两种情况发生时，钱将被转给%{recipient_name} a)你标记请求为完成 b)你付款之后的%{automatic_confirmation_days}天。"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}在%{service_name}给您了反馈"
       you_can_give_feedback_to: "您还没有给%{name}反馈"
@@ -766,7 +766,7 @@ zh:
       hi: "Hi %{name},"
       newest_offers: 大家都提供了些什么？
       newest_requests: 人们目前都想要什么
-      text_version_text: ~
+      text_version_text: "你可以共享一些其他人可能需要的东西吗？或者你可能需要一些别人已经拥有的东西？点击%{url}新添一个请求或者查看其他人当前提供的或者请求的东西"
     reset_password_instructions:
       change_my_password: 修改密码
       reset_password_instructions: ~
@@ -777,18 +777,18 @@ zh:
     transaction_preauthorized:
       subject: "%{requester}要求并支付了%{listing_title}"
       transaction_requested_by_user: "%{requester}要求并支付了%{listing_title}"
-      you_have_days_to_accept: ~
+      you_have_days_to_accept: "你需要在%{payment_expires_in_days}天内接受或拒绝请求。如果你在该期限内不接受，请求将自动被拒绝，你不需要支付费用。"
       click_here_to_reply: 点击这里回应请求
     transaction_preauthorized_reminder:
       subject: "记得接受来自%{requester}的关于%{listing_title}的请求"
-      remember_to_accept: ~
+      remember_to_accept: "记住接受来自%{requester}关于“%{listing_title}”信息的请求。%{requester}已经为该信息付款。你必须接受请求以接受付款。"
       one_day_left: 如果你不在一天内接受请求，该请求将被自动拒绝，你将无法收到支付款项。
       click_here_to_reply: 点击这里回应请求
     welcome_email:
       welcome_email_subject: ~
       welcome_to_marketplace: "欢迎使用%{service_name}！很高兴你的加入。"
       love_marketplace_crew: "爱你的，<br /><i>%{service_name} 工作人员</i>"
-      p_s_did_you_know: ~
+      p_s_did_you_know: "附言 你想创建像%{service_name}一样的自己的市集网站吗？很简单，不需要任何编程经验。点击%{click_here_link}查看更多！"
       click_here_link_text: 点击这里
       welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
       settings_link_text: 查看你的设置
@@ -1197,7 +1197,7 @@ zh:
       email_deleted: 邮件已删除
       payment_details_add_successful: 成功添加支付信息
       payment_details_add_error: 无法添加支付信息
-      listing_author_payment_details_missing: ~
+      listing_author_payment_details_missing: 该信息作者没有添加他们的付款明细因此当前不能接受付款。请联系作者。
       stylesheet_needs_recompiling: 样式表正在重新编译。请过一会重新加载页面。
     settings:
       account: 帐号
@@ -1283,8 +1283,8 @@ zh:
         time: 小时，天，月，……
         long_time: 周，月，……
         after_service_fee_you_will_get: ~
-        no_service_fee_you_will_get_paypal: ~
-        after_service_fee_you_will_get_paypal: ~
+        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费用</a> 将从价格中减去."
+        after_service_fee_you_will_get_paypal: "%{service_name} 费 (%{sum_with_currency}) 和 <a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费</a> 将从价格中减去."
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: 价格不包含VAT。
       origin:
@@ -1381,9 +1381,9 @@ zh:
       select_transaction_type: 选择信息类型
       you_need_to_fill_payout_details_before_accepting: "在发布列表前你需要填写支出详情。点击%{payment_settings_link}来填写详情。"
       contact_admin_link_text: 联系管理员
-      community_not_configured_for_payments: ~
+      community_not_configured_for_payments: "%{service_name}没有配置支付方式，所以你不能发布新的信息。详情请联系%{contact_admin_link}。"
       payment_settings_link: 付款设置
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name}没有配置支付方式，所以你不能发布新的信息。点击%{payment_settings_link}填写详细付款信息。"
     please_comment: 评论
     reply_link:
       listing_closed: 发布的信息已关闭
@@ -1497,7 +1497,7 @@ zh:
       payout_info_you_need_to_connect: "要接受付款你需要连接你的PayPal帐号和%{service_name}。"
       payout_info_text: 请完成下列两个步骤来连接你的帐号。
       contact_admin_link_text: 请联系管理员
-      admin_account_not_connected: ~
+      admin_account_not_connected: "没有为%{service_name}配置付款方式，所以你不能连接到你的PayPal帐号。请%{contact_admin_link}了解详情。"
       paypal_account_email: "1. 连接你的 PayPal 帐号"
       paypal_account_email_placeholder: 你的PayPal电邮地址
       paypal_account_email_info_text: ~
@@ -1721,7 +1721,7 @@ zh:
       email_about_payment_reminders: ……我忘记了支付
       email_about_new_listings_by_followed_people: ……我关注的人发布了一则新的信息
       unsubscribe_succesful: 退订成功
-      unsubscribe_info_text: ~
+      unsubscribe_info_text: "你将不会再接收到这些邮件。检查你的%{settings_link}来选择你想从%{service_name}接收的邮件类型，或者回到%{homepage_link}。"
       settings_link: 设置
       homepage_link: 主页
       unsubscribe_unsuccesful: 取消订阅出错
