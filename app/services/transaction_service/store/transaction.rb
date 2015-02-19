@@ -111,8 +111,8 @@ module TransactionService::Store::Transaction
         raise ArgumentException.new("Listing quantity (#{tx_listing_quantity}) must be equal to booking duration in days (#{booking_duration(tx_data)})")
       end
 
-      start_on = opts[:booking_fields][:start_on]
-      end_on = opts[:booking_fields][:end_on]
+      start_on = tx_data[:booking_fields][:start_on]
+      end_on = tx_data[:booking_fields][:end_on]
       tx_model.build_booking({start_on: start_on, end_on: end_on})
     end
   end
