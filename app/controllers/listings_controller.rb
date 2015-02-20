@@ -31,6 +31,20 @@ class ListingsController < ApplicationController
 
   def index
     @selected_tribe_navi_tab = "home"
+
+    # -- HOTFIX, REMOVE
+    if request.xhr? && params[:person_id] # AJAX request to load on person's listings for profile view
+      @person = Person.find(params[:person_id])
+      PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
+
+      # Returns the listings for one person formatted for profile page view
+      per_page = params[:per_page] || 200 # the point is to show all here by default
+      page = params[:page] || 1
+      render :partial => "listings/profile_listings", :locals => {:person => @person, :limit => per_page}
+      return
+    end
+    # -- HOTFIX, REMOVE
+
     respond_to do |format|
       format.js do
         if params[:person_id] # AJAX request to load on person's listings for profile view
