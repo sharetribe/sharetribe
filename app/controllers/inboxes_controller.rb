@@ -60,10 +60,8 @@ class InboxesController < ApplicationController
     title = if MarketplaceService::Inbox::Entity.last_activity_type(inbox_item) == :message
       inbox_item[:last_message_content]
     else
-      discussion_type = MarketplaceService::Listing::Entity.discussion_type(inbox_item[:transaction_type])
       action_messages = TransactionViewUtils.create_messages_from_actions(
         inbox_item[:transitions],
-        discussion_type,
         inbox_item[:other],
         inbox_item[:starter],
         payment_sum

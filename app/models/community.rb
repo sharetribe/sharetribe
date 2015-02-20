@@ -498,7 +498,7 @@ class Community < ActiveRecord::Base
     return false
   end
 
-  # Returns an array that contains the hierarchy of categories and transaction types
+  # Returns an array that contains the hierarchy of categories and listing types
   #
   # An xample of a returned tree:
   #
@@ -510,7 +510,7 @@ class Community < ActiveRecord::Base
   #       {
   #         "label" => "tools",
   #         "id" => id,
-  #         "transaction_types" => [
+  #         "listing_shapes" => [
   #           {
   #             "label" => "sell",
   #             "id" => id
@@ -534,9 +534,10 @@ class Community < ActiveRecord::Base
   def hash_for_category(category, locale)
     category_hash = {"id" => category.id, "label" => category.display_name(locale)}
     if category.children.empty?
-      category_hash["transaction_types"] = category.transaction_types.inject([]) do |transaction_type_array, transaction_type|
-        transaction_type_array << {"id" => transaction_type.id, "label" => transaction_type.display_name(locale)}
-        transaction_type_array
+      category_hash["listing_shapes"] = category.listing_shapes.inject([]) do |listing_shapes, listing_shape|
+        listing_shapes.tap { |shapes|
+          shapes << {"id" => listing_shape.id, "label" => listing_shape.transaction_process.display_name(locale)}
+        }
       end
     else
       category_hash["subcategories"] = category.children.inject([]) do |subcategory_array, subcategory|
@@ -552,16 +553,15 @@ class Community < ActiveRecord::Base
   # Used to simplify UI building
   # Example hash:
   # {
-  #   "listing_type" => ["offer", "request"],
   #   "category" => ["item", "favor", "housing"],
   #   "subcategory" => ["tools", "sports", "music", "books", "games", "furniture_assemble", "walking_dogs"],
-  #   "transaction_type" => ["lend", "sell", "rent_out", "give_away", "share_for_free", "borrow", "buy", "rent", "trade", "receive", "accept_for_free"]
+  #   "listing_shape" => ["lend", "sell", "rent_out", "give_away", "share_for_free", "borrow", "buy", "rent", "trade", "receive", "accept_for_free"]
   # }
   def available_categorization_values
     values = {}
     values["category"] = top_level_categories.collect(&:id)
     values["subcategory"] = subcategories.collect(&:id)
-    values["transaction_type"] = transaction_types.collect(&:id)
+    values["listing_shape"] = listing_shapes.collect(&:id)
     return values
   end
 
@@ -570,7 +570,7 @@ class Community < ActiveRecord::Base
     values = {}
     values["category"] = top_level_categories
     values["subcategory"] = subcategories
-    values["transaction_type"] = transaction_types
+    values["listing_shape"] = listing_shapes
     return values
   end
 

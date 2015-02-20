@@ -21,11 +21,9 @@ class HomepageController < ApplicationController
 
     @categories = @current_community.categories
     @main_categories = @current_community.main_categories
-    @transaction_types = @current_community.transaction_types
 
     # This assumes that we don't never ever have communities with only 1 main share type and
     # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
-    @transaction_type_menu_enabled = @transaction_types.size > 1
     @show_categories = @current_community.categories.size > 1
     filters_enabled = @current_community.custom_fields.size > 0 || @current_community.show_price_filter
     @show_custom_fields = @current_community.custom_fields.select { |field| field.can_filter? }.present?
@@ -51,6 +49,21 @@ class HomepageController < ApplicationController
         render :partial => "list_item", :collection => @listings, :as => :listing
       end
     end
+
+    transaction_processes = @current_community.listing_shapes.map { |shape|
+      {
+        id: shape.transaction_process.id,
+        name: shape.transaction_process.display_name(I18n.locale),
+        shape_url: shape.url
+      }
+    }
+
+    render locals: {
+             transaction_processes: transaction_processes,
+             transaction_process_menu_enabled: transaction_processes.present?,
+             selected_transaction_process: @selected_transaction_process,
+             filters_in_use: filters_in_use?(params)
+           }
   end
 
   def self.selected_view_type(view_param, community_default, app_default, all_types)
@@ -65,12 +78,13 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, listings_per_page)
-    # :share_type was renamed to :transaction_type
-    # Support both URLs for a while
-    # This can be removeds soon (June 2014)
-    params[:transaction_type] ||= params[:share_type]
+  def filters_in_use?(params)
+    params[:q].present? ||
+    (params[:category].present? && params[:category] != "all") ||
+    (params[:listing_shape].present? && params[:listing_shape] != "all")
+  end
 
+  def find_listings(params, listings_per_page)
     filter_params = {}
 
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
@@ -78,9 +92,9 @@ class HomepageController < ApplicationController
       @selected_category = category
     end
 
-    Maybe(@current_community.transaction_types.find_by_url_or_id(params[:transaction_type])).each do |transaction_type|
-      filter_params[:transaction_type] = transaction_type.id
-      @selected_transaction_type = transaction_type
+    Maybe(@current_community.listing_shapes.find_by_param(params[:listing_shape])).each do |listing_shape|
+      filter_params[:transaction_process] = listing_shape.transaction_process.id
+      @selected_transaction_process = listing_shape.transaction_process
     end
 
     @listing_count = @current_community.listings.currently_open.count
@@ -89,7 +103,7 @@ class HomepageController < ApplicationController
     end
 
     filter_params[:search] = params[:q] if params[:q]
-    filter_params[:include] = [:listing_images, :author, :category, :transaction_type]
+    filter_params[:include] = [:listing_images, :author, :category, :transaction_process]
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
     filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
 
