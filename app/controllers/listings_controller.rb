@@ -160,6 +160,7 @@ class ListingsController < ApplicationController
       logger.info "Category: #{@listing.category.inspect}"
 
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+      payment_gateway = payment_type
       allow_posting, error_msg = payment_setup_status(
                        community: @current_community,
                        user: @current_user,
