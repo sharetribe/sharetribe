@@ -34,9 +34,9 @@ Note: If you encounter problems with the installation, you can try asking for he
 * Install [Imagemagick](http://www.imagemagick.org)
 * run `bundle install` in the project root directory (sharetribe) to install required gems
 * (In the following commands, leave out the `RAILS_ENV=production` part if you want to get Sharetribe running in development mode.) Load the database structure to your database: `rake RAILS_ENV=production db:schema:load`
+* If you want to run Sharetribe in production mode (i.e. you are not developing the software) you'll need to precompile the assets. This puts the Javascript and CSS files in right places. Use command: `rake assets:precompile`
 * run sphinx index `rake RAILS_ENV=production ts:index`
 * start sphinx daemon `rake RAILS_ENV=production ts:start`
-* If you want to run Sharetribe in production mode (i.e. you are not developing the software) you'll need to precompile the assets. This puts the Javascript and CSS files in right places. Use command: `rake assets:precompile`
 * If you want to enable Sharetribe to send email locally (in the development environment), you might want to change the email settings in the config file. There is an example of configuring settings using a gmail account, but you can also use any other SMTP server. If you do not touch the settings, the development version works otherwise normally but might crash in instances where it tries to send email (like when sending a message to another user).
 * Invoke the delayed job worker on your local machine: `rake RAILS_ENV=production jobs:work`. You should see "Starting job worker" and then the process stays open. The worker processes tasks that are done in the background, like processing images and sending email notifications. To exit the worker, press ctrl+c.
 * Start the server. The simplest way is to use command `rails server` which will start it on Webrick, which is good option for development use.
