@@ -20,7 +20,7 @@ zh:
           no_parent: 无上级分类
         category_transaction_types:
           transaction_types: 交易的类型
-          transaction_types_description: ~
+          transaction_types_description: 交易类型决定了类别中信息允许存在何种交易。比如，是否只能卖，或者租以及免费赠送是否允许。
         buttons:
           save: 保存
           cancel: 取消
@@ -32,6 +32,16 @@ zh:
         buttons:
           remove: 移去
           cancel: 取消
+        warning_custom_field_will_be_moved:
+          other: "这个类别中有%{count}个自定义字段。它将被移到选中的类别中。"
+        warning_listing_will_be_moved:
+          other: "这个类别中有%{count}个自定义字段。它将被移到选中的类别中。"
+        warning_subcategory_will_be_removed:
+          other: "在类别中有%{count}个子类别。它将被删除。"
+        warning_with_subcategories_listing_will_be_moved:
+          other: "在这个分类和子分类中有%{count}个信息。它们将被移到选中的分类中。"
+        warning_with_subcategories_custom_field_will_be_moved:
+          other: "在这个分类和子分类中有%{count}个自定义字段。它们将被移到选中的分类中。"
     communities:
       edit_details:
         community_details: ~
@@ -80,7 +90,7 @@ zh:
         cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。%{see_how_it_looks_like}"
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。"
-        main_content_width: ~
+        main_content_width: "在选择封面照片时注意页面主要内容最多是%{main_width}像素宽。记得检查你的封面照片在较小屏幕上看上去如何（比如使用较窄的浏览器窗口）。"
         custom_color1_instructions_text: ~
         custom_color2_instructions_text: ~
         default_browse_view: 默认查看视图
@@ -108,7 +118,7 @@ zh:
         welcome_to_your_marketplace: "欢迎来到你的市场，%{name}！"
         intro: "这是配置和管理你的市场站点的快速指南。你可以查看实时站点%{live_site_link}。"
         live_site_link_text: 这里
-        look_and_feel: ~
+        look_and_feel: "在你将你的站点公开发布前，你也许想再配置一些东西。比如，你可能想去%{logo_link}修改封面照片和颜色以配合你的品牌的外观和感受。"
         logo_link_text: 添加你的标志
         custom_domain: ~
         contact_team_link_text: 联系我们的团队
@@ -124,12 +134,12 @@ zh:
         privacy_policy_link_text: 隐私策略
         welcome_email_link_text: 欢迎电子邮件
         instruction_texts_link_text: 其他的说明文本
-        social_media: ~
+        social_media: "使用社交媒体是建立社区的好办法。你可以通过%{facebook_link}让人们更容易的登录你的市集，通过%{twitter_link}使得人们对你的市集产品发布推特时获得病毒式的可见性。"
         facebook_link_text: 连接你的自定义Facebook应用
         twitter_link_text: 添加你的Twitter帐号
         analytics: "访问%{analytics_link}是个好主意。方便你查看你的市场中发生的事情，比如你有多少访客等。"
         analytics_link_text: "连接一个Google Analytics帐号"
-        settings: ~
+        settings: "有许多其他的设置你可以使用。比如你可以要求每个人加入你的市集钱必须从其他用户处获得邀请并且设置你的市集为私有，从而只有登录的用户才能看见内容。%{settings_link}"
         settings_link_text: 在这里查看你的市场设置
         final_words: ~
         invite_link_text: 邀请用户
@@ -155,7 +165,7 @@ zh:
         automatic_newsletters: 自动发送每日/每周新闻邮件给所有用户（除非用户选择不接收）
         email_admins_about_new_members: 当新用户注册时给管理员发送一封电子邮件
         google_analytics_key: "Google Analytics跟踪ID"
-        twitter_handle: ~
+        twitter_handle: 推特句柄（使用在信息页面的推特按钮）
         update_settings: 保存设置
         automatically_confirmed: "交易在付款%{days_dropdown}天后将被自动标记为已完成。如果使用第三方支付系统，现在钱将被打入第三方系统。"
         automatically_confirmed_no_escrow: "在付款后%{days_dropdown}天内交易将被自动标记为完成。"
@@ -177,15 +187,15 @@ zh:
         ban_me_error: 你不能禁止自己。
       social_media:
         social_media: 社交媒体
-        twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_info_text_with_instructions: ~
+        twitter_handle: 推特句柄
+        twitter_handle_info_text: 当人们使用信息页面上的推特按钮时，你的市集推特帐号的用户名（如果你有的话）将被提及。
+        twitter_handle_info_text_with_instructions: "当人们使用信息页面上的推特按钮时，你的市集推特帐号的用户名（如果你有的话）将被提及。%{instructions_link}"
         twitter_instructions_link_text: 读取更多
         twitter_handle_placeholder: 用户名
-        invalid_twitter_handle: ~
+        invalid_twitter_handle: 推特句柄最多不能超过15个字母数字字符（字母A-Z和数字0-9）。
         facebook_connect: Facebook
-        facebook_connect_info_text: ~
-        facebook_connect_info_text_with_instructions: ~
+        facebook_connect_info_text: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者仪表盘</a>中为你的市集创建一个应用。在这里添加应用生成的ID和密钥。"
+        facebook_connect_info_text_with_instructions: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者仪表盘</a>中为你的市集创建一个应用。在这里添加应用生成的ID和密钥。%{instructions_link}"
         facebook_instructions_link_text: "关于如何配置Facebook Connect请参考说明。"
         facebook_connect_id: Facebook客户号
         invalid_facebook_connect_id: 客户号仅能包含数字。
@@ -218,7 +228,7 @@ zh:
           sum: 总和
           started: 已开始
           last_activity: 最近的活动
-          initiated_by: ~
+          initiated_by: 发起者
           other_party: 其他参与方
         status:
           free: ~
@@ -232,7 +242,7 @@ zh:
           initiated: 等待PayPal付款
           pending_ext: 等待PayPal付款
       braintree_payment_gateway:
-        braintree_payment_gateway: ~
+        braintree_payment_gateway: Braintree支付API密钥
         environment: 环境
         private_key: 私有密钥
         public_key: 公共密钥
@@ -306,7 +316,7 @@ zh:
     paypal_accounts:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
-      integration_info_text: ~
+      integration_info_text: Sharetribe的支付系统由PayPal提供技术支持。如果你想使用你的用户名在你的市集上付款，你必须连接你的PayPal帐号及决定最小交易规模以及对每个交易收取的费用。
       read_more_about_paypal: 了解更多关于Sharetribe的支付系统
       paypal_account_email: "1. 连接你的PayPal帐号"
       paypal_account_email_completed: 已完成！
@@ -363,7 +373,7 @@ zh:
       item: 物品
       favor: 服务
       rideshare: 拼车
-      housing: ~
+      housing: 空间
       tools: 工具
       sports: 运动
       music: 音乐
@@ -574,8 +584,8 @@ zh:
       address_locality: 城市
       address_region: 州
       date_of_birth: 生日
-      ssn: ~
-      routing_number: ~
+      ssn: 社会保障号
+      routing_number: 银行代号
       account_number: 账户号码
       save: 保存
     show:
@@ -589,8 +599,8 @@ zh:
       address_locality: 城市
       address_region: 州
       date_of_birth: 出生日期
-      ssn: ~
-      routing_number: ~
+      ssn: 社会保障号
+      routing_number: 银行代号
       account_number: 账号
   braintree_payments:
     edit:
@@ -635,7 +645,7 @@ zh:
       message: "你的付款信息以及被确认，你现在已经可以接受%{service_name}的付款了。"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "你还没有确认或者取消请求%{request_link}。如果请求已经完成，你应该确认。之后你可以评论给%{other_party_given_name}。"
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "你还没有确认或者取消请求%{request_link}。只有在以下情况发生时我们才会把钱转给%{other_party_given_name}：a) 你标记请求为完成 b) 从你付款起的%{days_to_automatic_confirmation}天后。在标记请求完成后，你可以给%{other_party_given_name}评论。"
       remember_to_confirm_request: 记得确认或取消请求
       if_will_not_happen_you_should_cancel: "如果你觉得请求由于某种原因无法完成，你可以%{cancel_it_link}。"
       if_will_not_happen_you_should_cancel_escrow: "如果你觉得请求由于某种原因无法完成，你可以%{cancel_it_link}。系统将通知管理员联系你退回款项。"
@@ -733,7 +743,7 @@ zh:
       price_payer_paid: "%{payer_full_name}支付价格："
       service_fee: "%{service_name}服务费："
       you_will_get: 你将获得：
-      money_will_be_transferred: ~
+      money_will_be_transferred: "以下两种情况发生时，钱将被转到你的帐号中：a）%{payer_name}标记请求为完成 或者b）%{payer_name}完成支付的%{automatic_confirmation_days}天后。"
     receipt_to_payer:
       receipt_of_payment: 付款收据
       you_have_made_new_payment: "你已经为<b>%{listing_title}</b> 支付了 <b>%{payment_sum}</b> 给 %{recipient_full_name}。这是付款收据。"
@@ -801,7 +811,7 @@ zh:
       your_marketplace_admin_area: 你的市场管理区域：
       just_follow_details: 点击下列链接你将获得如何开始搭建你的市场的详细信息！
       we_will_guide_you_along_the_way: 我们将引导你走下去。
-      are_you_new_to_online_marketplaces: ~
+      are_you_new_to_online_marketplaces: 需要协助你的市集？没关系，我们能帮助你！我们将发送给你一系列电邮帮助你最大化利用Sharetribe并且建造一个成功的市集生意。我们将很快发送给你第一部分的内容。
       have_questions: 有问题吗？
       our_happiness_team_is_here_to_help: "我们的欢乐团队在此支持你！点击%{knowledge_base_link}或者通过%{admin_panel_link}联系我们的支持人员。"
       love: 爱你的，
@@ -1015,7 +1025,7 @@ zh:
   infos:
     about:
       default_about_text_title: 什么是Sharetribe？
-      default_about_text: ~
+      default_about_text: "该市集由Sharetribe平台提供技术支持。通过Sharetribe你可以容易的创建自己的市集网站。只需要一分钟并且是免费的。点击%{click_here_link}了解更多！"
       click_here_link_text: 点击这里
     how_to_use:
       default_title: 它是如何工作的
@@ -1141,13 +1151,13 @@ zh:
       person_activated: 用户已激活
       person_deactivated: 用户已停用
       person_updated_successfully: 信息已更新
-      poll_answered: ~
-      poll_could_not_be_answered: ~
-      poll_created: ~
-      poll_creation_failed: ~
-      poll_update_failed: ~
-      poll_updated: ~
-      poll_deleted: ~
+      poll_answered: 问卷调查已回答
+      poll_could_not_be_answered: 问卷调查不能被回答
+      poll_created: 问卷调查已创建
+      poll_creation_failed: 问卷调查创建失败
+      poll_update_failed: 问卷调查更新失败
+      poll_updated: 文件调查已更新
+      poll_deleted: 问卷调查已删除
       read_more: 阅读更多！
       registration_considered_spam: 注册失败，请从发导航菜单发送反馈信息并说明“邮件错误”
       reply_cannot_be_empty: 您不能发送空白信息
@@ -1242,7 +1252,7 @@ zh:
         at: 在
         departure_time: 出发时间
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: 重复的（在字段“详细描述”中添加次数和天数）
       description:
         detailed_description: 详细描述
       destination:
@@ -1481,7 +1491,7 @@ zh:
       you_will_get: 你将获得：
     braintree:
       terms:
-        braintree_terms_also_included: ~
+        braintree_terms_also_included: "注意：Braintree用于支付网关服务，通过使用该网站，除了下面的条款以外，默认你也接受%{terms_link_text}。"
         terms_link_text: Braintree使用条款
   paypal_accounts:
     payout_info_title: 支付信息
@@ -1491,7 +1501,7 @@ zh:
     commission: "%{commission}%"
     connected_account: "PayPal帐号“%{email}”连接成功。"
     change_account: 更改帐户
-    missing: ~
+    missing: "你有开放的信息，但是并没有连接到你的PayPal帐号，所以你将不能接受付款。请在你的%{settings_link}中连接你的PayPal帐号。"
     from_your_payment_settings_link_text: 付款设置
     new:
       payout_info_you_need_to_connect: "要接受付款你需要连接你的PayPal帐号和%{service_name}。"
@@ -1505,9 +1515,9 @@ zh:
       upgrade_paypal_account: 在这里升级你的帐号。
       connect_paypal_account: 连接PayPal帐号
       paypal_account_billing_agreement: "2. 授权%{service_name}  对交易收费"
-      paypal_account_billing_agreement_fee_both: ~
-      paypal_account_billing_agreement_fee_fixed: ~
-      paypal_account_billing_agreement_fee_relative: ~
+      paypal_account_billing_agreement_fee_both: "当你完成%{service_name}的一个销售后，服务费（总商品价格的%{commission_from_seller}，最低%{minimum_commission}）将从你的PayPal帐号中扣除。要接受%{service_name}中的付款，你必须允许其收取此费用。该费用不包括<a id='%{fee_info_link_id}' href='#'>PayPal的付款处理费</a>."
+      paypal_account_billing_agreement_fee_fixed: "当你完成%{service_name}的一个销售后，服务费%{minimum_commission}将从你的PayPal帐号中扣除。要接受%{service_name}中的付款，你必须允许其收取此费用。该费用不包括<a id='%{fee_info_link_id}' href='#'>PayPal的付款处理费</a>."
+      paypal_account_billing_agreement_fee_relative: "当你完成%{service_name}的一个销售后，服务费（总商品价格的%{commission_from_seller}）将从你的PayPal帐号中扣除。接受%{service_name}中的付款，你必须允许其收取此费用。该费用不包括<a id='%{fee_info_link_id}' href='#'>PayPal的付款处理费</a>."
       billing_agreement_description: "授权%{service_name}收取交易费。"
       billing_agreement: 授权
       permissions_not_granted: 没有授权连接PayPal帐号。
@@ -1518,7 +1528,7 @@ zh:
       billing_agreement_wrong_account: PayPal帐号不匹配。请使用与你在第一步连接的帐号相同的PayPal帐号。
       something_went_wrong: 出错了。请再试一次。如果这个问题仍旧存在，请联系服务支持：
       account_not_verified: 你还没有验证你的PayPal帐号。要继续请先登录paypal.com并确认你的帐号。
-      account_restricted: ~
+      account_restricted: 你的PayPal帐号受限制且不能被连接。请登录paypal.com以了解更多或联系PayPal客户服务解决这个问题。
   paypal:
     checkout_with_paypal: 用PayPal结帐
     cancel_succesful: PayPal付款成功取消
@@ -1568,6 +1578,8 @@ zh:
       create_account_with_facebook: 用Facebook帐号注册
       OR: 或
       signup_with_email: 用邮件注册
+      email_restriction_instructions:
+        other: "到%{service_name}的访问受限。你需要电邮地址来证明你有权加入。"
     not_member:
       explanation_text: "您正在浏览%{community} 社区。您试图查看另一个社区的用户资料。所以您不可以在%{community}社区查看这个用户的资料。"
       read_more_about_kassi_communities: 阅读更多关于这个网站
@@ -1667,7 +1679,7 @@ zh:
       confirm_your_email: 确认你的邮箱
       account_confirmation_instructions: ~
       account_confirmation_instructions_title_admin: 欢迎来到你的市场！
-      your_marketplace_has_now_been_created: ~
+      your_marketplace_has_now_been_created: 你的市集站点已经创建。这很容易吧？接下来只要一个步骤你就可以访问你的站点了：你需要确认你的电邮地址。
       account_confirmation_instructions_admin: 你很快会收到一封邮件要求你点击确认刚才输入的邮件地址。在确认邮件之后你就可以配置你的市场了。
   settings:
     account:
@@ -1679,8 +1691,8 @@ zh:
       email_addresses: 电子邮件地址
       new_email: 新Email地址
       delete_all_memberships: "如果你删除你的帐号，你将不能在以下市场中使用它：%{marketplaces}"
-      delete_personal_information: ~
-      delete_information_others_involved: ~
+      delete_personal_information: 如果你删除你的帐号，你的个人信息（姓名，电话号码，地址，电邮，个人资料图片等等）都将被永久删除切不能回复。所有你创建的信息将被删除。你将不能重新激活你的帐号。
+      delete_information_others_involved: 涉及其他会员的信息（和其他人的对话，你完成的交易，你给其他人的评论等）在你删除你的帐号时是不能被删除的。然后，下次你的名字将不会出现在这些信息中。
       unfinished_transactions: 因为你有正在进行中的交易，所以你的帐号不能被删除。请在删除帐号前完成所有交易。
       new_password: 新密码
       save: 保存
@@ -1872,7 +1884,13 @@ zh:
         other: 交易
     previous_label: "&#8592;上一个"
     next_label: "下一个 &#8594;"
-    page_gap: ~
+    page_gap: "&hellip;"
     page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
+      multi_page: "显示 %{model} %{from} - %{to} of %{count} 的总数"
+      multi_page_html: "显示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> 的总数"
+      single_page:
+        zero: "没有找到%{model}"
+        other: "显示所有%{count}个%{model}"
+      single_page_html:
+        zero: "没有找到%{model}"
+        other: "显示 <b>所有&nbsp;%{count}个</b> %{model}"

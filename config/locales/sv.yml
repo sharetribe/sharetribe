@@ -173,7 +173,7 @@ sv:
         twitter_handle: "Twitter handtag (används med twitterknappen på annonssidan)"
         update_settings: "Spara inställningar"
         automatically_confirmed: "Transaktionen kommer automatiskt att markeras som klar %{days_dropdown} dagar efter att betalningen har gjorts. Om deponeringssystemet är i bruk så kommer pengarna att släppas till leverantören."
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "Transaktionen kommer automatiskt att markeras som klar %{days_dropdown} dagar efter att betalningen gjorts"
         automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
         newsletter_daily: Dagligen
         newsletter_weekly: Veckovis
@@ -189,19 +189,19 @@ sv:
         save_user_status_successful: Sparad
         save_user_status_error: "Ett fel inträffade när sidan sparades. Försök igen eller ladda om sidan."
         ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
-        ban_me_error: ~
+        ban_me_error: "Du kan inte bannlysa dig själv."
       social_media:
         social_media: "Social media"
         twitter_handle: "Twitter användarnamn"
         twitter_handle_info_text: "Användarnamn på ditt Twitterkonto på din marknadsplats (om du har någon). Detta kommer nämnas när folk använder tweetknappen på annonssidan."
-        twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
+        twitter_handle_info_text_with_instructions: "Användarnamnet på Twitterkontot på din marknadsplats (om du har ett). Det kommer att nämnas när folk använder tweetknappen på annonssidan. %{instructions_link}."
+        twitter_instructions_link_text: "Läs mer"
         twitter_handle_placeholder: användarnamn
         invalid_twitter_handle: "Twitternamnet ska innehålla max 15 tecken (siffror 0-9 och bokstäver A-Z)."
         facebook_connect: Facebook
         facebook_connect_info_text: "För att aktivera Facebook inloggning, skapa en applikation för din marknadsplats på <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Lägg till ID och säkerhetsnyckeln för applikationen här."
-        facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
+        facebook_connect_info_text_with_instructions: "För att aktivera Facebook inloggning, skapa en applikation för din marknadsplats på <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Lägg till ID och säkerhetsnyckeln för applikationen här.%{instructions_link}"
+        facebook_instructions_link_text: "Se instruktioner för att konfigurera Facebook Connect."
         facebook_connect_id: "Facebook klient ID"
         invalid_facebook_connect_id: "Klient-ID ska bara innehålla nummer."
         facebook_connect_secret: "Facebook klientsäkerhet"
@@ -211,8 +211,8 @@ sv:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "Tracking ID för ditt Google Analytics konto."
-        google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        google_analytics_key_info_text_with_instructions: "Tracking ID för ditt Google Analytics konto.%{instructions_link}."
+        google_analytics_instructions_link_text: "Läs mer om att koppla Google Analytics"
         save: "Spara inställningar"
       menu_links:
         menu_links: Menylänkar
@@ -271,7 +271,7 @@ sv:
       form:
         field_required:
           this_field_is_required: "Detta fält måste fyllas i"
-          this_field_is_required_checkbox: "Detta fält krävs (Användaren måste välja minst ett alternativ)"
+          this_field_is_required_checkbox: "Detta fält krävs (användaren måste välja minst ett alternativ)"
       index:
         listing_fields: "Annonsfält och filter"
         listing_fields_help: "Här kan du redigera fälten som användarna behöver fylla i när de skapar en ny annons. Notera att det är några fält som är fördefinierade och inte går att ändra."
@@ -322,18 +322,18 @@ sv:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"
       integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal-konto och välja minsta annonspriset och avgiften som du ska ta i provision från varje transaktion."
-      read_more_about_paypal: ~
+      read_more_about_paypal: "Läs mer om Sharetribes betalningssystem"
       paypal_account_email: "1. Koppla ditt PayPal konto"
       paypal_account_email_completed: Klart!
-      set_minimum_price_and_fee: "Ställ in lägsta pris och transaktionskonstnad"
+      set_minimum_price_and_fee: "2. Ställ in lägsta pris och transaktionskonstnad"
       set_minimum_price_and_fee_completed: Klart!
       minimum_listing_price_label: "Lägsta annonspris:"
       transaction_fee_label: "Transaktionsavgift:"
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: "Lägsta transaktionskostnad:"
       save_settings: "Spara inställningar"
       note_about_transaction_fee: "Notera: i transaktionsavgiften ingår PayPals avgifter som beror på din valuta och försäljningsvolymen på säljaren. Av denna anledning är avgiften alltid minst %{min_paypal_commission}. När avgiften tas ut från säljaren, kommer PayPal att ta sina arvoden först, och resten kommer att flyttas till ditt PayPal-konto."
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "måste vara minst samma som minsta transaktionskostnad %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "måste vara större än minsta provision %{minimum_commission}."
     transaction_types:
       sell: Säljer
       rent: "Hyr ut"
@@ -399,12 +399,12 @@ sv:
     what_is_this: "Vad är detta?"
     removed_user: "Borttagen användare"
     paypal_fee_info:
-      title: ~
-      body: ~
+      title: "PayPals avgift för betalningshantering"
+      body: "PayPal tar ut en administrativ avgift för varje betalning. Denna avgift är mellan 2% och 5% av totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inlandsbetalningar lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>hit</a>. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften."
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: Orderinformation
+      order_by: "Order av %{orderer_link}"
       respond_to_offer: "Svara på ett erbjudande"
       respond_to_request: "Svara på en förfrågan"
       accept_offer: "Acceptera erbjudande"
@@ -420,12 +420,12 @@ sv:
       minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
       accept: Acceptera
       decline: Avböj
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
-      paypal_fee_info: ~
+      sum_label: "Delsumma:"
+      service_fee_label: "%{service_name} avgift:"
+      you_will_get_label: "Du kommer att få:"
+      total_label: "Totalt:"
+      total_value: "%{seller_gets}*"
+      paypal_fee_info: "* Inkluderar inte <a id='%{fee_info_link_id}' href='#'>PayPal's administrationsavgift</a>"
     confirm:
       confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som klar. Då kan du ge din feedback till den andra parten."
       cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"hände inte\". Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
@@ -742,12 +742,12 @@ sv:
       new_payment: "Du har fått en ny inbetalning"
       you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
     paypal_new_payment:
-      paypal_gateway_fee: ~
+      paypal_gateway_fee: "PayPals avgift:"
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Pris %{payer_full_name} betalt:"
       service_fee: "%{service_name} serviceavgift:"
-      you_will_get: "Du kommer att få:"
+      you_will_get: "Totalt:"
       money_will_be_transferred: "Pengarna kommer att överföras till ditt konto när a) %{payer_name} har markerat förfrågan som klar eller b) %{automatic_confirmation_days} dagar har passerat sedan %{payer_name} betalat."
     receipt_to_payer:
       receipt_of_payment: "Kvitto för betalning"
@@ -1199,7 +1199,7 @@ sv:
       you_must_log_in_to_view_this_page: "Du måste logga in för att visa denna sida"
       you_must_log_in_to_view_your_inbox: "Du måste logga in på %{service_name} för att visa din inkorg."
       you_must_log_in_to_view_your_settings: "Du måste logga in på %{service_name} för att visa dina inställningar."
-      you_must_log_in_to_add_news_item: "Du måste logga in på %{service_name} för att lägga till en ny artikel."
+      you_must_log_in_to_add_news_item: "Du måste logga in på %{service_name} för att lägga till en ny annons."
       you_must_log_in_to_change_profile_settings: "Du måste logga in på %{service_name} för att göra profilinställningar"
       you_must_log_in_to_change_payment_settings: "Du måste logga in på %{service_name} för att ändra betalningsinställningarna"
       you_must_log_in_to_accept_or_reject: "Du måste logga in för att acceptera eller avböja transaktionen"
@@ -1300,8 +1300,8 @@ sv:
         time: "timme, dag, månad, ..."
         long_time: "vecka, månad, ..."
         after_service_fee_you_will_get: "Efter %{service_name}s serviceavgift så kommer du att få %{sum_with_currency} när du har sålt produkten. OBS! Om produkten ska skickas, glöm inte att inkludera fraktkostnad i priset."
-        no_service_fee_you_will_get_paypal: ~
-        after_service_fee_you_will_get_paypal: ~
+        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPal's adminstrationsavgift</a> kommer att dras av från priset."
+        after_service_fee_you_will_get_paypal: "%{service_name} avgift (%{sum_with_currency}) och <a id='%{fee_info_link_id}' href='#'>PayPal's administrationsavgift</a> kommer att dras av från priset."
         after_service_fee_you_will_get_vat: "Efter %{service_name} och betalningsavgifter kommer du att få ca. %{sum_with_currency} (moms 0%)"
         price_excludes_vat: "Priset inkluderar inte moms."
       origin:
@@ -1397,10 +1397,10 @@ sv:
       select_subcategory: "Välj underkategori"
       select_transaction_type: "Välj annonstyp"
       you_need_to_fill_payout_details_before_accepting: "Du måste fylla i dina utbetalningsdetaljer innan du kan lägga ut en annons. Gå till %{payment_settings_link} för att fylla i detaljerna."
-      contact_admin_link_text: ~
-      community_not_configured_for_payments: ~
+      contact_admin_link_text: "kontakta administratören"
+      community_not_configured_for_payments: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Vänligen %{contact_admin_link} för detaljer."
       payment_settings_link: betalningsinställningar
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Gå till %{payment_settings_link} för att fylla i betalningsdetaljer."
     please_comment: Kommentar
     reply_link:
       listing_closed: "Annonsen är stängd"
@@ -1503,28 +1503,28 @@ sv:
   paypal_accounts:
     payout_info_title: Utbetalningsinformation
     paypal_account_email_connected: "<del>1. Anslut PayPal konto</del> Klart!"
-    paypal_billing_agreement_made: "<del>2. Ge %{service_name} tillåtelse att ta ut en serviceavgift</del> Klar!"
+    paypal_billing_agreement_made: "<del>2. Ge %{service_name} tillåtelse att ta ut en serviceavgift</del> Klart!"
     you_are_ready_to_accept_payments: "Du är redo att ta emot betalningar!"
     commission: "%{commission} %"
     connected_account: "PayPal konto %{email} kopplades korrekt."
-    change_account: ~
-    missing: ~
-    from_your_payment_settings_link_text: ~
+    change_account: "Byt konto"
+    missing: "Du har öppna annonser, men du har inte kopplat ditt PayPalkonto så att du kan inte ta emot betalningar. Vänligen koppla ditt PayPalkonto i dina %{settings_link}."
+    from_your_payment_settings_link_text: betalningsinställningar
     new:
       payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal-konto med %{service_name}."
       payout_info_text: "Vänligen slutför dessa två steg för att koppla ditt konto."
-      contact_admin_link_text: ~
-      admin_account_not_connected: "Du kan inte koppla ditt PayPalkonto eftersom marknadsplatsens administratör har inte slutfört PayPalinställningarna."
+      contact_admin_link_text: "kontakta administratören"
+      admin_account_not_connected: "%{service_name} har inte blivit konfigurerat för betalning så du kan inte koppla ditt PayPalkonto än. Vänligen %{contact_admin_link} för detaljer."
       paypal_account_email: "1. Koppla ditt PayPal konto"
       paypal_account_email_placeholder: "Din PayPal e-postadress"
-      paypal_account_email_info_text: "Notera: du behöver ett PayPal premiumkonto (för privatpersoner) eller företagskonto (för företag) för att du ska kunna ta emot betalning. Om du har ett personligt PayPal-konto så kan du uppgradera ditt konto. Det är gratis och tar bara någon minut. %{upgrade_paypal_account} Om du inte har ett PayPal-konto än så kan du skapa ett nytt %{create_paypal_account}. Ditt PayPal-konto måste vara konfigurerat att kunna ta emot %{currency}."
-      create_paypal_account: här
-      upgrade_paypal_account: "Uppgradera ditt konto här."
+      paypal_account_email_info_text: "Om du inte har ett PayPalkonto, så kan du skapa ett %{create_paypal_account}. Om du får ett felmeddelande när du kopplar ditt PayPalkonto så måste du uppgradera till företagskonto. Uppgradera går fort och kostar ingenting. Om du är privatperson så skriver du bara förnamn och efternamn där det står \"företagsnamn\" när PayPal frågar efter det. För att uppgradera ditt konto, %{upgrade_paypal_account} och hitta uppgraderingslänken."
+      create_paypal_account: "klicka här"
+      upgrade_paypal_account: "logga in till ditt PayPal konto"
       connect_paypal_account: "Koppla ditt PayPal konto"
       paypal_account_billing_agreement: "2. Ge %{service_name} tillåtelse att ta ut en serviceavgift."
-      paypal_account_billing_agreement_fee_both: ~
-      paypal_account_billing_agreement_fee_fixed: ~
-      paypal_account_billing_agreement_fee_relative: ~
+      paypal_account_billing_agreement_fee_both: "Efter att du har sålt något på %{service_name}, så kommer en serviceavgift (%{commission_from_seller} på det totala priset, minsta avgift %{minimum_commission}) kommer att dras från ditt PayPalkonto. För att acceptera betalningar på %{service_name}, så måste du tillåta att det dras en avgift. Denna avgift inkluderar inte <a id='%{fee_info_link_id}' href='#'>PayPal's adminstrationsavgift</a>."
+      paypal_account_billing_agreement_fee_fixed: "Efter att du har sålt något på %{service_name}, så kommer en serviceavgift på %{minimum_commission} att dras från ditt PayPal konto. För att acceptera betalningar på %{service_name}, så måste du tillåta att det dras en avgift. Denna avgift inkluderar inte <a id='%{fee_info_link_id}' href='#'>PayPal's administrativa avgift</a>."
+      paypal_account_billing_agreement_fee_relative: "Efter att du säljer något på %{service_name}, så kommer en serviceavgift (%{commission_from_seller} av det totala priset) att dras från ditt PayPalkonto. För att acceptera betalning på %{service_name}, så måste du tillåta att denna avgift dras. Denna avgift inkluderar inte <a id='%{fee_info_link_id}' href='#'>PayPal's administrationsavgift</a>."
       billing_agreement_description: "Ge %{service_name} behörighet att ta ut en transaktionsavgift."
       billing_agreement: "Bevilja behörighet"
       permissions_not_granted: "Behörighet att ansluta med PayPalkonto beviljades inte."
@@ -1535,7 +1535,7 @@ sv:
       billing_agreement_wrong_account: "PayPal-konton matchade inte. Vänligen använd samma PayPal-konto som du anslöt i första steget."
       something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
       account_not_verified: "Du har inte verifierat ditt PayPal-konto. Du behöver gå till www.paypal.com och verifiera ditt konto innan du kan gå vidare."
-      account_restricted: ~
+      account_restricted: "Ditt PayPalkonto är begränsat och kan inte kopplas. Vänligen logga in på PayPal.com och hitta vad detta beror på eller kontakta PayPals användarsupport för att lösa detta."
   paypal:
     checkout_with_paypal: "Gå till kassan med PayPal"
     cancel_succesful: "PayPal betalning avbruten"
@@ -1705,7 +1705,7 @@ sv:
       new_password: "Nytt lösenord"
       save: Spara
       these_fields_are_shown_only_to_you: "Användarnamn visas i din profil om du inte har angett ditt namn. Annan information syns enbart för dig."
-      email_already_confirmed: ~
+      email_already_confirmed: "Din e-postadress är redan godkänd."
       email:
         address_title: Adress
         remove_title: "Ta bort"
