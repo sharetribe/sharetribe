@@ -2,7 +2,6 @@ module TransactionService::Transaction
 
   DataTypes = TransactionService::DataTypes::Transaction
 
-  PaymentSettingsStore = TransactionService::Store::PaymentSettings
   TxStore = TransactionService::Store::Transaction
 
   SETTINGS_ADAPTERS = {
@@ -35,27 +34,18 @@ module TransactionService::Transaction
     author_id = opts[:transaction][:listing_author_id]
     community_id = opts[:transaction][:community_id]
 
-    adapter = settings_adapter(payment_gateway)
+    set_adapter = settings_adapter(payment_gateway)
 
-    Result::Success.new(result: adapter.configured?(community_id: community_id, author_id: author_id))
+    Result::Success.new(result: set_adapter.configured?(community_id: community_id, author_id: author_id))
   end
 
   def create(opts, paypal_async: false)
     opts_tx = opts[:transaction]
 
-    # TODO this thing should come through transaction_opts
-    minimum_commission, commission_from_seller, auto_confirm_days =
-      case opts_tx[:payment_gateway]
-      when :paypal
-        tx_data_paypal(opts_tx)
-      else
-        tx_data_community(opts_tx)
-      end
+    set_adapter = settings_adapter(opts_tx[:payment_gateway])
+    tx_process_settings = set_adapter.tx_process_settings(opts_tx)
 
-    tx = TxStore.create(
-      opts_tx.merge({minimum_commission: minimum_commission,
-                     commission_from_seller: commission_from_seller,
-                     automatic_confirmation_after_days: auto_confirm_days}))
+    tx = TxStore.create(opts_tx.merge(tx_process_settings))
 
     gateway_fields_response =
       case [opts_tx[:payment_gateway], opts_tx[:payment_process]]
@@ -74,14 +64,6 @@ module TransactionService::Transaction
     else
       gateway_fields_response
     end
-  end
-
-  # Private
-  def tx_data_community(opts_tx)
-    minimum_commission = Maybe(opts_tx[:unit_price]).map { |price| Money.new(0, price.currency) }.or_else(Money.new(0))
-    c = Community.find(opts_tx[:community_id])
-
-    [minimum_commission, Maybe(c.commission_from_seller).or_else(0), Maybe(c.automatic_confirmation_after_days).or_else(14)]
   end
 
   # Private
@@ -105,16 +87,6 @@ module TransactionService::Transaction
     end
 
     Result::Success.new({})
-  end
-
-  # Private
-  def tx_data_paypal(opts_tx)
-    currency = opts_tx[:unit_price].currency
-    p_set = PaymentSettingsStore.get_active(community_id: opts_tx[:community_id])
-
-    [Money.new(p_set[:minimum_transaction_fee_cents], currency),
-     p_set[:commission_from_seller],
-     p_set[:confirmation_after_days]]
   end
 
   # Private

@@ -14,6 +14,14 @@ module TransactionService::Gateway
       [personal_account_verified, community_account_verified, payment_settings_available].all?
     end
 
+    def tx_process_settings(opts_tx)
+      currency = opts_tx[:unit_price].currency
+      p_set = PaymentSettingsStore.get_active(community_id: opts_tx[:community_id])
+
+      {minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
+       commission_from_seller: p_set[:commission_from_seller],
+       automatic_confirmation_after_days: p_set[:confirmation_after_days]}
+    end
 
     private
 
