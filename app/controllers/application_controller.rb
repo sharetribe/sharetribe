@@ -53,6 +53,13 @@ class ApplicationController < ActionController::Base
     user || param || community
   end
 
+  def redirect_to_current_locale!(params, locale)
+    # It's important to use only_path: true, since otherwise this would be a security hole
+    # if a user adds query params such as ?host=haxxxx.com
+    path = url_for(params.merge({only_path: true, locale: locale}))
+    redirect_to path
+  end
+
   def set_locale
     user_locale = Maybe(@current_user).locale.or_else(nil)
 
@@ -70,6 +77,9 @@ class ApplicationController < ActionController::Base
     # We should remove this -- END
 
     locale = select_locale(user_locale, params[:locale], community_locales, community_default_locale)
+
+    needs_redirect = params[:locale].present? && params[:locale] != locale
+    return redirect_to_current_locale!(params, locale) if needs_redirect
 
     raise ArgumentError.new("Locale #{locale} not available. Check your community settings") unless available_locales.collect { |l| l[1] }.include?(locale)
 
