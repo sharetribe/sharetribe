@@ -31,7 +31,7 @@
   %h2= t("admin.communities.getting_started.welcome_to_your_marketplace", :name => @current_user.given_name_or_username)
   %p= t("admin.communities.getting_started.intro", :live_site_link => live_site_link).html_safe
   %p= t("admin.communities.getting_started.look_and_feel", :logo_link => logo_link).html_safe
-  %p= t("admin.communities.getting_started.custom_domain", :contact_team_link => contact_team_link, :contact_support_link => contact_support_link).html_safe
+  %p= t("admin.communities.getting_started.custom_domain", :contact_support_link => contact_support_link).html_safe
   %p= t("admin.communities.getting_started.categories_and_custom_fields", :categories_link => categories_link, :custom_fields_link => custom_fields_link, :filters_link => filters_link).html_safe
   - if paypal_enabled
     %p= t("admin.communities.getting_started.payments", :payments_link => payments_link).html_safe
