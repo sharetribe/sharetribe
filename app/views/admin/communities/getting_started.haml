@@ -7,7 +7,7 @@
 -# Links for the description
 - live_site_link = link_to t("admin.communities.getting_started.live_site_link_text"), "/"
 - logo_link = link_to t("admin.communities.getting_started.logo_link_text"), edit_look_and_feel_admin_community_path(@current_community)
-- contact_team_link = link_to t("admin.communities.getting_started.contact_team_link_text"), "mailto:#{APP_CONFIG.sales_email}"
+- contact_support_link = link_to t("admin.communities.getting_started.contact_support_link_text"), "mailto:#{APP_CONFIG.support_email}", "data-uv-trigger" => "contact"
 - categories_link = link_to t("admin.communities.getting_started.categories_link_text"), admin_categories_path
 - custom_fields_link = link_to t("admin.communities.getting_started.custom_fields_link_text"), admin_custom_fields_path
 - filters_link = link_to t("admin.communities.getting_started.filters_link_text"), admin_custom_fields_path
@@ -24,7 +24,6 @@
 - invite_link = link_to t("admin.communities.getting_started.invite_link_text"), new_invitation_path
 - view_users_link = link_to t("admin.communities.getting_started.view_users_link_text"), admin_community_community_memberships_path(@current_community, sort: "join_date", direction: "desc")
 - view_transactions_link = link_to t("admin.communities.getting_started.view_transactions_link_text"), admin_community_transactions_path(@current_community, sort: "last_activity", direction: "desc")
-- contact_support_link = link_to t("admin.communities.getting_started.contact_support_link_text"), "mailto:#{APP_CONFIG.support_email}", "data-uv-trigger" => "contact"
 
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
