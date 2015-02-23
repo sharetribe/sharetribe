@@ -27,7 +27,7 @@
           = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
 
     - unless @current_user
-      .header-right.visible-tablet
+      .header-right
         = link_to sign_up_path, class: "header-text-link header-hover" do
           = t("header.signup")
       .header-right
