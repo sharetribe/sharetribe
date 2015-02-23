@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe MarketplaceService::Listing::Entity do
   include MarketplaceService::Listing::Entity
   include MarketplaceService::Listing::Command
@@ -29,8 +31,8 @@ describe MarketplaceService::Listing::Entity do
 
       expect(hammer.description).to be_nil
       expect(hammer.origin).to be_nil
-      expect(hammer.open).to be_false
-      expect(hammer.deleted?).to be_true
+      expect(hammer.open).to be false
+      expect(hammer.deleted?).to be true
     end
   end
 end
