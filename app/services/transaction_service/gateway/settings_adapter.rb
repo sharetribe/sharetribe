@@ -1,5 +1,4 @@
 module TransactionService::Gateway
-  class InterfaceMethodNotImplementedError < NoMethodError; end
 
   # This is an interface for gateway adapters to provide transaction
   # process settings and validate gateway configurations. In a better

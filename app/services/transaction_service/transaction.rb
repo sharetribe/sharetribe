@@ -11,6 +11,19 @@ module TransactionService::Transaction
     none: TransactionService::Gateway::FreeSettingsAdapter.new
   }
 
+  GATEWAY_ADAPTERS = {
+    paypal: TransactionService::Gateway::PaypalAdapter.new,
+    braintree: TransactionService::Gateway::BraintreeAdapter.new,
+    checkout: TransactionService::Gateway::CheckoutAdapter.new,
+    none: Object.new
+  }
+
+  TX_PROCESSES = {
+    preauthorize: TransactionService::Process::Preauthorize.new,
+    postpay: TransactionService::Process::Postpay.new,
+    none: TransactionService::Process::Free.new
+  }
+
   module_function
 
   def settings_adapter(payment_gateway)
@@ -19,6 +32,21 @@ module TransactionService::Transaction
 
     adapter
   end
+
+  def tx_process(payment_process)
+    tx_process = TX_PROCESSES[payment_process]
+    raise ArgumentError.new("No matching tx process handler found for #{payment_process}.") if tx_process.nil?
+
+    tx_process
+  end
+
+  def gateway_adapter(payment_gateway)
+    adapter = GATEWAY_ADAPTERS[payment_gateway]
+    raise ArgumentError.new("No matching gateway adapter found for payment_gateway type #{payment_gateway}.") if adapter.nil?
+
+    adapter
+  end
+
 
   def query(transaction_id)
     tx = TxStore.get(transaction_id)
@@ -47,78 +75,18 @@ module TransactionService::Transaction
 
     tx = TxStore.create(opts_tx.merge(tx_process_settings))
 
-    gateway_fields_response =
-      case [opts_tx[:payment_gateway], opts_tx[:payment_process]]
-      when [:braintree, :preauthorize]
-        create_tx_braintree(tx: tx, gateway_fields: opts[:gateway_fields], async: false)
-      when [:paypal, :preauthorize]
-        create_tx_paypal(tx: tx, gateway_fields: opts[:gateway_fields], async: paypal_async)
-      else
-        # Braintree Postpay (/ Other payment type?)
-        Result::Success.new({})
-      end
+    tx_process = tx_process(tx[:payment_process])
+    gateway_adapter = gateway_adapter(tx[:payment_gateway])
+    res = tx_process.create(tx: tx,
+                            gateway_fields: opts[:gateway_fields],
+                            gateway_adapter: gateway_adapter,
+                            prefer_async: paypal_async)
 
-    if gateway_fields_response[:success]
-      Result::Success.new(
-        DataTypes.create_transaction_response(to_tx_response(tx), gateway_fields_response[:data]))
-    else
-      gateway_fields_response
-    end
+    res.maybe().map { |gw_resp|
+      Result::Success.new(DataTypes.create_transaction_response(to_tx_response(tx), gw_resp))
+    }.or_else(res)
   end
 
-  # Private
-  def create_tx_braintree(tx:, gateway_fields:, async:)
-    payment_gateway_id = BraintreePaymentGateway.where(community_id: tx[:community_id]).pluck(:id).first
-    payment = BraintreePayment.create(
-      {
-        transaction_id: tx[:id],
-        community_id: tx[:community_id],
-        payment_gateway_id: payment_gateway_id,
-        status: :pending,
-        payer_id: tx[:starter_id],
-        recipient_id: tx[:listing_author_id],
-        currency: "USD",
-        sum: tx[:unit_price] * tx[:listing_quantity]})
-
-    result = BraintreeSaleService.new(payment, gateway_fields).pay(false)
-
-    unless result.success?
-      return Result::Error.new(result.message)
-    end
-
-    Result::Success.new({})
-  end
-
-  # Private
-  def create_tx_paypal(tx:, gateway_fields:, async:)
-    # Note: Quantity may be confusing in Paypal Checkout page, thus, we don't use separated unit price and quantity,
-    # only the total price.
-    total = tx[:unit_price] * tx[:listing_quantity]
-
-    create_payment_info = PaypalService::API::DataTypes.create_create_payment_request({
-      transaction_id: tx[:id],
-      item_name: tx[:listing_title],
-      item_quantity: 1,
-      item_price: total,
-      merchant_id: tx[:listing_author_id],
-      order_total: total,
-      success: gateway_fields[:success_url],
-      cancel: gateway_fields[:cancel_url],
-      merchant_brand_logo_url: gateway_fields[:merchant_brand_logo_url]})
-
-    result = PaypalService::API::Api.payments.request(
-      tx[:community_id],
-      create_payment_info,
-      async: async)
-
-    return Result::Error.new(result[:error_msg]) unless result[:success]
-
-    if async
-      Result::Success.new({ process_token: result[:data][:process_token] })
-    else
-      Result::Success.new({ redirect_url: result[:data][:redirect_url] })
-    end
-  end
 
   def reject(community_id, transaction_id)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
@@ -207,6 +175,7 @@ module TransactionService::Transaction
     Result::Success.new(DataTypes.create_transaction_response(transaction))
   end
 
+  # TODO This is not called from anywhere currently. Should it be deleted or called?
   def token_cancelled(token)
     Transaction.where(community_id: token[:community_id], id: token[:transaction_id]).destroy_all
   end
