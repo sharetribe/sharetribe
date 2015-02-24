@@ -245,7 +245,7 @@ module PaypalService::API
         block.call(res)
       else
         res.tap { |err_response|
-          @logger.warn("PayPal operation #{req[:method]} failed. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
+          @logger.warn("PayPal operation failed: #{req}. Response: #{err_response}")
         }
       end
     end

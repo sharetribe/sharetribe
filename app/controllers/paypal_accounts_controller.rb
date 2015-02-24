@@ -214,7 +214,15 @@ class PaypalAccountsController < ApplicationController
       end
 
     flash[:error] = error_msg
-    redirect_to new_paypal_account_settings_payment_path(@current_user.username)
+    redirect_to action: error_redirect_action
+  end
+
+  def error_redirect_action
+    if PaypalHelper.account_prepared_for_user?(@current_user.id, @current_community.id)
+      :show
+    else
+      :new
+    end
   end
 
   def payment_gateway_commission(community_id)
