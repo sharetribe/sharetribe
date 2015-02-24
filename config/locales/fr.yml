@@ -125,8 +125,7 @@ fr:
         live_site_link_text: ici
         look_and_feel: "Avant de rendre votre site public, vous souhaitez probablement configurer quelques éléments. Par exemple, vous pouvez %{logo_link}, modifier l'image de couverture et les couleurs pour que cela corresponde à l'esprit de votre marque."
         logo_link_text: "ajouter votre logo"
-        custom_domain: "Vous pourriez également souhaiter utiliser votre propre adresse (par exemple www.votreplacedemarche.com). Pour cela, vous pouvez nous contacter en utilisant le lien de support sur la gauche car cela nécessite quelques étapes manuelles de notre côté. C'est pour cela que votre propre adresse n'est disponible que dans nos offres payantes et non dans l'essai gratuit."
-        contact_team_link_text: "contacter notre équipe"
+        custom_domain: "Vous pourriez également souhaiter utiliser votre propre adresse (par exemple www.votreplacedemarche.com). Cela requiert quelques étapes manuelles de notre côté et nous devons également acheter un certificat SSL pour votre adresse afin que votre site soit sécurisé. C'est pour cela que votre propre adresse n'est pas disponible dans votre place de marché d'essai, vous devez donc souscrire à notre offre Pro ou supérieure pour en bénéficier. Si vous souhaitez avoir votre propre adresse, veuillez %{contact_support_link}."
         categories_and_custom_fields: "Le point suivant concerne le type de contenu que les utilisateurs pourront diffuser sur votre site. Vous pouvez %{categories_link}, %{custom_fields_link} que le formulaire comporte déjà et choisir %{filters_link} doivent être utilisés lorsque les utilisateurs parcourent les annonces."
         categories_link_text: "ajouter des catégories et sous-catégories"
         custom_fields_link_text: "configurer les champs d'annonces"

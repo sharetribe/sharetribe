@@ -28,13 +28,9 @@ zh:
         remove_category: 移除分类
         remove_category_name: "移除分类“%{category_name}”"
         warning_remove_effects: "警告！移除分类“%{category_name}”将会有以下影响："
-        select_new_category: 为上面将要移动的项目选择一个新的类别
-        buttons:
-          remove: 移去
-          cancel: 取消
-        warning_custom_field_will_be_moved:
-          other: "这个类别中有%{count}个自定义字段。它将被移到选中的类别中。"
         warning_listing_will_be_moved:
+          other: "这个类别中有%{count}个自定义字段。它将被移到选中的类别中。"
+        warning_custom_field_will_be_moved:
           other: "这个类别中有%{count}个自定义字段。它将被移到选中的类别中。"
         warning_subcategory_will_be_removed:
           other: "在类别中有%{count}个子类别。它将被删除。"
@@ -42,6 +38,10 @@ zh:
           other: "在这个分类和子分类中有%{count}个信息。它们将被移到选中的分类中。"
         warning_with_subcategories_custom_field_will_be_moved:
           other: "在这个分类和子分类中有%{count}个自定义字段。它们将被移到选中的分类中。"
+        select_new_category: 为上面将要移动的项目选择一个新的类别
+        buttons:
+          remove: 移去
+          cancel: 取消
     communities:
       edit_details:
         community_details: ~
@@ -121,7 +121,6 @@ zh:
         look_and_feel: "在你将你的站点公开发布前，你也许想再配置一些东西。比如，你可能想去%{logo_link}修改封面照片和颜色以配合你的品牌的外观和感受。"
         logo_link_text: 添加你的标志
         custom_domain: ~
-        contact_team_link_text: 联系我们的团队
         categories_and_custom_fields: ~
         categories_link_text: 新增分类和子分类
         custom_fields_link_text: 配置表单字段
@@ -1559,6 +1558,8 @@ zh:
       email_is_in_use: 此邮箱已使用。
       email_is_in_use_or_not_allowed: 此Email不允许在此社区使用或已被注册。请使用与社区相关的Email地址（详细说明见上）。如果您仍然不能注册，请点击左侧链接填写反馈。
       email_not_allowed: ~
+      email_restriction_instructions:
+        other: "到%{service_name}的访问受限。你需要电邮地址来证明你有权加入。"
       enter_captcha: 我是一个人类：
       family_name: 姓：
       given_name: 名：
@@ -1578,8 +1579,6 @@ zh:
       create_account_with_facebook: 用Facebook帐号注册
       OR: 或
       signup_with_email: 用邮件注册
-      email_restriction_instructions:
-        other: "到%{service_name}的访问受限。你需要电邮地址来证明你有权加入。"
     not_member:
       explanation_text: "您正在浏览%{community} 社区。您试图查看另一个社区的用户资料。所以您不可以在%{community}社区查看这个用户的资料。"
       read_more_about_kassi_communities: 阅读更多关于这个网站
@@ -1886,11 +1885,11 @@ zh:
     next_label: "下一个 &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
-      multi_page: "显示 %{model} %{from} - %{to} of %{count} 的总数"
-      multi_page_html: "显示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> 的总数"
       single_page:
         zero: "没有找到%{model}"
         other: "显示所有%{count}个%{model}"
       single_page_html:
         zero: "没有找到%{model}"
         other: "显示 <b>所有&nbsp;%{count}个</b> %{model}"
+      multi_page: "显示 %{model} %{from} - %{to} of %{count} 的总数"
+      multi_page_html: "显示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> 的总数"
