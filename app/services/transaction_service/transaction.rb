@@ -2,10 +2,23 @@ module TransactionService::Transaction
 
   DataTypes = TransactionService::DataTypes::Transaction
 
-  PaymentSettingsStore = TransactionService::Store::PaymentSettings
   TxStore = TransactionService::Store::Transaction
 
+  SETTINGS_ADAPTERS = {
+    paypal: TransactionService::Gateway::PaypalSettingsAdapter.new,
+    braintree: TransactionService::Gateway::BraintreeSettingsAdapter.new,
+    checkout: TransactionService::Gateway::BraintreeSettingsAdapter.new, # Checkout handles configuration the same way as BT
+    none: TransactionService::Gateway::FreeSettingsAdapter.new
+  }
+
   module_function
+
+  def settings_adapter(payment_gateway)
+    adapter = SETTINGS_ADAPTERS[payment_gateway]
+    raise ArgumentError.new("No matching settings adapter found for payment_gateway type #{payment_gateway}.") if adapter.nil?
+
+    adapter
+  end
 
   def query(transaction_id)
     tx = TxStore.get(transaction_id)
@@ -17,55 +30,22 @@ module TransactionService::Transaction
   end
 
   def can_start_transaction(opts)
+    payment_gateway = opts[:transaction][:payment_gateway]
     author_id = opts[:transaction][:listing_author_id]
     community_id = opts[:transaction][:community_id]
 
-    result =
-      case opts[:transaction][:payment_gateway]
-      when :paypal
-        can_start_transaction_paypal(community_id: community_id, author_id: author_id)
-      when :braintree, :checkout
-        can_start_transaction_braintree(community_id: community_id, author_id: author_id)
-      when :none
-        true
-      else
-        raise ArgumentError.new("Unknown payment gateway #{opts[:transaction][:payment_gateway]}")
-      end
+    set_adapter = settings_adapter(payment_gateway)
 
-    Result::Success.new(result: result)
-  end
-
-  def can_start_transaction_braintree(community_id:, author_id:)
-    Community.find(community_id).payment_gateway.can_receive_payments?(Person.find(author_id))
-  end
-
-  def can_start_transaction_paypal(community_id:, author_id:)
-    payment_settings = Maybe(PaymentSettingsStore.get_active(community_id: community_id))
-                       .select {|set| paypal_settings_configured?(set)}
-
-    personal_account_verified = paypal_account_verified?(community_id: community_id, person_id: author_id, settings: payment_settings)
-    community_account_verified = paypal_account_verified?(community_id: community_id)
-    payment_settings_available = payment_settings.map {|_| true }.or_else(false)
-
-    [personal_account_verified, community_account_verified, payment_settings_available].all?
+    Result::Success.new(result: set_adapter.configured?(community_id: community_id, author_id: author_id))
   end
 
   def create(opts, paypal_async: false)
     opts_tx = opts[:transaction]
 
-    #TODO this thing should come through transaction_opts
-    minimum_commission, commission_from_seller, auto_confirm_days =
-      case opts_tx[:payment_gateway]
-      when :paypal
-        tx_data_paypal(opts_tx)
-      else
-        tx_data_community(opts_tx)
-      end
+    set_adapter = settings_adapter(opts_tx[:payment_gateway])
+    tx_process_settings = set_adapter.tx_process_settings(opts_tx)
 
-    tx = TxStore.create(
-      opts_tx.merge({minimum_commission: minimum_commission,
-                     commission_from_seller: commission_from_seller,
-                     automatic_confirmation_after_days: auto_confirm_days}))
+    tx = TxStore.create(opts_tx.merge(tx_process_settings))
 
     gateway_fields_response =
       case [opts_tx[:payment_gateway], opts_tx[:payment_process]]
@@ -84,14 +64,6 @@ module TransactionService::Transaction
     else
       gateway_fields_response
     end
-  end
-
-  # Private
-  def tx_data_community(opts_tx)
-    minimum_commission = Maybe(opts_tx[:unit_price]).map { |price| Money.new(0, price.currency) }.or_else(Money.new(0))
-    c = Community.find(opts_tx[:community_id])
-
-    [minimum_commission, Maybe(c.commission_from_seller).or_else(0), Maybe(c.automatic_confirmation_after_days).or_else(14)]
   end
 
   # Private
@@ -115,16 +87,6 @@ module TransactionService::Transaction
     end
 
     Result::Success.new({})
-  end
-
-  # Private
-  def tx_data_paypal(opts_tx)
-    currency = opts_tx[:unit_price].currency
-    p_set = PaymentSettingsStore.get_active(community_id: opts_tx[:community_id])
-
-    [Money.new(p_set[:minimum_transaction_fee_cents], currency),
-     p_set[:commission_from_seller],
-     p_set[:confirmation_after_days]]
   end
 
   # Private
@@ -332,26 +294,11 @@ module TransactionService::Transaction
     [commission_total, payment_total - fee_total].min
   end
 
-  def paypal_settings_configured?(settings)
-    settings[:payment_gateway] == :paypal && !!settings[:commission_from_seller] && !!settings[:minimum_price_cents]
-  end
-
-  def paypal_account_verified?(community_id:, person_id: nil, settings: Maybe(nil))
-    acc_state = paypal_accounts_api.get(community_id: community_id, person_id: person_id).maybe()[:state].or_else(:not_connected)
-    commission_type = settings[:commission_type].or_else(nil)
-
-    acc_state == :verified || (acc_state == :connected && commission_type == :none)
-  end
-
   def paypal_payment_api
     PaypalService::API::Api.payments
   end
 
   def paypal_billing_agreement_api
     PaypalService::API::Api.billing_agreements
-  end
-
-  def paypal_accounts_api
-    PaypalService::API::Api.accounts_api
   end
 end
