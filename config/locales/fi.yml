@@ -1439,6 +1439,9 @@ fi:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per päivä"
+      delivery: "Kuljetus"
+      shipping: "Postikulut (%{price)"
+      pickup: "Nouto (%{price})"
     verification_required:
       verification_required: ~
   listing_conversations:
