@@ -1,26 +1,19 @@
 module TransactionService::Transaction
 
   DataTypes = TransactionService::DataTypes::Transaction
-  TransactionModel = ::Transaction
 
   PaymentSettingsStore = TransactionService::Store::PaymentSettings
-
-  TxUtil = TransactionService::Util
+  TxStore = TransactionService::Store::Transaction
 
   module_function
 
   def query(transaction_id)
-    model_to_entity(TransactionModel.find(transaction_id))
+    tx = TxStore.get(transaction_id)
+    to_tx_response(tx)
   end
 
   def has_unfinished_transactions(person_id)
-    finished_states = "'free', 'rejected', 'confirmed', 'canceled', 'errored'"
-
-    unfinished = TransactionModel
-                 .where("starter_id = ? OR listing_author_id = ?", person_id, person_id)
-                 .where("current_state NOT IN (#{finished_states})")
-
-    unfinished.length > 0
+    TxStore.unfinished_tx_count(person_id) > 0
   end
 
   def can_start_transaction(opts)
@@ -63,13 +56,13 @@ module TransactionService::Transaction
     #TODO this thing should come through transaction_opts
     minimum_commission, commission_from_seller, auto_confirm_days =
       case opts_tx[:payment_gateway]
-      when :braintree
-        tx_data_braintree(opts_tx)
       when :paypal
         tx_data_paypal(opts_tx)
+      else
+        tx_data_community(opts_tx)
       end
 
-    transaction = TxUtil.create_tx_model_with_conversation(
+    tx = TxStore.create(
       opts_tx.merge({minimum_commission: minimum_commission,
                      commission_from_seller: commission_from_seller,
                      automatic_confirmation_after_days: auto_confirm_days}))
@@ -77,52 +70,45 @@ module TransactionService::Transaction
     gateway_fields_response =
       case [opts_tx[:payment_gateway], opts_tx[:payment_process]]
       when [:braintree, :preauthorize]
-        create_tx_braintree(transaction: transaction, opts: opts, async: false)
+        create_tx_braintree(tx: tx, gateway_fields: opts[:gateway_fields], async: false)
       when [:paypal, :preauthorize]
-        create_tx_paypal(transaction: transaction, opts: opts, async: paypal_async)
+        create_tx_paypal(tx: tx, gateway_fields: opts[:gateway_fields], async: paypal_async)
       else
         # Braintree Postpay (/ Other payment type?)
         Result::Success.new({})
       end
 
     if gateway_fields_response[:success]
-      transaction.save!
-      #TODO: Fix to more sustainable solution (use model_to_entity, and add paypal and braintree relevant fields)
-      #transition info is now added in controllers
       Result::Success.new(
-        DataTypes.create_transaction_response(opts_tx.merge({
-          id: transaction.id,
-          created_at: transaction.created_at,
-          updated_at: transaction.updated_at
-        }),
-        gateway_fields_response[:data]))
+        DataTypes.create_transaction_response(to_tx_response(tx), gateway_fields_response[:data]))
     else
       gateway_fields_response
     end
-
   end
 
   # Private
-  def tx_data_braintree(opts_tx)
-    currency = opts_tx[:unit_price].currency
+  def tx_data_community(opts_tx)
+    minimum_commission = Maybe(opts_tx[:unit_price]).map { |price| Money.new(0, price.currency) }.or_else(Money.new(0))
     c = Community.find(opts_tx[:community_id])
 
-    [Money.new(0, currency), c.commission_from_seller, c.automatic_confirmation_after_days]
+    [minimum_commission, Maybe(c.commission_from_seller).or_else(0), Maybe(c.automatic_confirmation_after_days).or_else(14)]
   end
 
   # Private
-  def create_tx_braintree(transaction:, opts:, async:)
-    payment_gateway_id = BraintreePaymentGateway.where(community_id: opts[:transaction][:community_id]).pluck(:id).first
-    transaction.payment = BraintreePayment.new({
-      community_id: opts[:transaction][:community_id],
-      payment_gateway_id: payment_gateway_id,
-      status: "pending",
-      payer_id: opts[:transaction][:starter_id],
-      recipient_id: opts[:transaction][:listing_author_id],
-      currency: "USD",
-      sum: transaction.unit_price * transaction.listing_quantity})
+  def create_tx_braintree(tx:, gateway_fields:, async:)
+    payment_gateway_id = BraintreePaymentGateway.where(community_id: tx[:community_id]).pluck(:id).first
+    payment = BraintreePayment.create(
+      {
+        transaction_id: tx[:id],
+        community_id: tx[:community_id],
+        payment_gateway_id: payment_gateway_id,
+        status: :pending,
+        payer_id: tx[:starter_id],
+        recipient_id: tx[:listing_author_id],
+        currency: "USD",
+        sum: tx[:unit_price] * tx[:listing_quantity]})
 
-    result = BraintreeSaleService.new(transaction.payment, opts[:gateway_fields]).pay(false)
+    result = BraintreeSaleService.new(payment, gateway_fields).pay(false)
 
     unless result.success?
       return Result::Error.new(result.message)
@@ -142,24 +128,24 @@ module TransactionService::Transaction
   end
 
   # Private
-  def create_tx_paypal(transaction:, opts:, async:)
+  def create_tx_paypal(tx:, gateway_fields:, async:)
     # Note: Quantity may be confusing in Paypal Checkout page, thus, we don't use separated unit price and quantity,
     # only the total price.
-    total = transaction.unit_price * transaction.listing_quantity
+    total = tx[:unit_price] * tx[:listing_quantity]
 
     create_payment_info = PaypalService::API::DataTypes.create_create_payment_request({
-      transaction_id: transaction.id,
-      item_name: transaction.listing_title,
+      transaction_id: tx[:id],
+      item_name: tx[:listing_title],
       item_quantity: 1,
       item_price: total,
-      merchant_id: opts[:transaction][:listing_author_id],
+      merchant_id: tx[:listing_author_id],
       order_total: total,
-      success: opts[:gateway_fields][:success_url],
-      cancel: opts[:gateway_fields][:cancel_url],
-      merchant_brand_logo_url: opts[:gateway_fields][:merchant_brand_logo_url]})
+      success: gateway_fields[:success_url],
+      cancel: gateway_fields[:cancel_url],
+      merchant_brand_logo_url: gateway_fields[:merchant_brand_logo_url]})
 
     result = PaypalService::API::Api.payments.request(
-      opts[:transaction][:community_id],
+      tx[:community_id],
       create_payment_info,
       async: async)
 
@@ -173,21 +159,20 @@ module TransactionService::Transaction
   end
 
   def reject(community_id, transaction_id)
-    payment_type = TransactionModel.where(id: transaction_id, community_id: community_id).pluck(:payment_gateway).first
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
-    case(payment_type)
-    when "braintree"
-      BraintreeService::Payments::Command.void_transaction(transaction_id, community_id)
-      #TODO: Event handling also to braintree service?
-      MarketplaceService::Transaction::Command.transition_to(transaction_id, "rejected")
+    case(tx[:payment_gateway])
+    when :braintree
+      BraintreeService::Payments::Command.void_transaction(tx[:id], tx[:community_id])
+      MarketplaceService::Transaction::Command.transition_to(tx[:id], :rejected)
 
-      transaction = query(transaction_id)
-      Result::Success.new(DataTypes.create_transaction_response(transaction))
-    when "paypal"
+      Result::Success.new(
+        DataTypes.create_transaction_response(query(tx[:id])))
+    when :paypal
       result = paypal_payment_api.void(community_id, transaction_id, {note: ""})
       if result[:success]
-        transaction = query(transaction_id)
-        Result::Success.new(DataTypes.create_transaction_response(transaction))
+        Result::Success.new(
+          DataTypes.create_transaction_response(query(tx[:id])))
       else
         result
       end
@@ -195,47 +180,41 @@ module TransactionService::Transaction
   end
 
 
+  # TODO Should require community id too
   def complete_preauthorization(transaction_id)
-    transaction = MarketplaceService::Transaction::Query.transaction(transaction_id)
+    tx = TxStore.get(transaction_id)
 
-    case transaction[:payment_gateway].to_sym
+    case tx[:payment_gateway]
     when :braintree
-      complete_preauthorization_braintree(transaction)
+      complete_preauthorization_braintree(tx)
     when :paypal
-      complete_preauthorization_paypal(transaction)
+      complete_preauthorization_paypal(tx)
     end
 
   end
 
-  def complete_preauthorization_braintree(transaction)
-    BraintreeService::Payments::Command.submit_to_settlement(transaction[:id], transaction[:community_id])
-    MarketplaceService::Transaction::Command.transition_to(transaction[:id], :paid)
+  def complete_preauthorization_braintree(tx)
+    BraintreeService::Payments::Command.submit_to_settlement(tx[:id], tx[:community_id])
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
 
-    transaction = query(transaction[:id])
-    Result::Success.new(DataTypes.create_transaction_response(transaction))
+    Result::Success.new(DataTypes.create_transaction_response(query(tx[:id])))
   end
 
-  def complete_preauthorization_paypal(transaction)
-    paypal_payments = paypal_payment_api
-    payment_response = paypal_payments.get_payment(transaction[:community_id], transaction[:id])
-
-    if payment_response[:success]
-      payment = payment_response[:data]
-      capture_response = paypal_payments.full_capture(
-        transaction[:community_id],
-        transaction[:id],
+  def complete_preauthorization_paypal(tx)
+    res = paypal_payment_api.get_payment(tx[:community_id], tx[:id]).and_then do |payment|
+      paypal_payment_api.full_capture(
+        tx[:community_id],
+        tx[:id],
         PaypalService::API::DataTypes.create_payment_info({ payment_total: payment[:authorization_total] }))
+    end
 
-      if capture_response[:success]
-        Result::Success.new(
-          DataTypes.create_transaction_response(
-            transaction,
-            DataTypes.create_paypal_complete_preauthorization_fields(paypal_pending_reason: capture_response[:data][:pending_reason])))
-      else
-        Result::Error.new("An error occured while trying to complete preauthorized PayPal payment")
-      end
+    if res[:success]
+      Result::Success.new(
+        DataTypes.create_transaction_response(
+        query(tx[:id]),
+        DataTypes.create_paypal_complete_preauthorization_fields(paypal_pending_reason: res[:data][:pending_reason])))
     else
-      Result::Error.new("No payment found for community_id: #{transaction[:community_id]} and transaction_id: #{transaction[:id]}")
+      Result::Error.new("An error occured while trying to complete preauthorized PayPal payment", res)
     end
   end
 
@@ -272,46 +251,6 @@ module TransactionService::Transaction
 
   # private
 
-  # Warning!
-  # This is only an intermediate solution. Ideally, we would store all the required
-  # transaction data in transaction service, but now we have to fetch the data from here and there.
-  # However, this method is only used to get the API interface right, even though the data model
-  # doesn't match the interface.
-  #
-  def model_to_entity(model)
-    payment_total =
-      case model.payment_gateway.to_sym
-      when :checkout, :braintree
-        Maybe(model).payment.total_sum.or_else(nil)
-      when :paypal
-        payment = paypal_payment_api().get_payment(model.community_id, model.id)
-        Maybe(payment).select { |p| p[:success] }[:data][:payment_total].or_else(nil)
-      end
-
-    checkout_details = checkout_details(model)
-    DataTypes.create_transaction({
-        id: model.id,
-        payment_process: model.payment_process.to_sym,
-        payment_gateway: model.payment_gateway.to_sym,
-        community_id: model.community_id,
-        starter_id: model.starter_id,
-        listing_id: model.listing_id,
-        listing_title: model.listing_title,
-        listing_price: model.unit_price,
-        listing_author_id: model.listing_author_id,
-        listing_quantity: model.listing_quantity,
-        automatic_confirmation_after_days: model.automatic_confirmation_after_days,
-        last_transition_at: model.last_transition_at,
-        current_state: model.current_state.to_sym,
-        payment_total: payment_total,
-        minimum_commission: model.minimum_commission,
-        commission_from_seller: Maybe(model.commission_from_seller).or_else(0),
-        checkout_total:   checkout_details[:total_price],
-        commission_total: checkout_details[:commission_total],
-        charged_commission: checkout_details[:charged_commission],
-        payment_gateway_fee: checkout_details[:payment_gateway_fee]})
-  end
-
   def charge_commission(transaction_id)
     transaction = query(transaction_id)
     payment = paypal_payment_api.get_payment(transaction[:community_id], transaction[:id])[:data]
@@ -333,20 +272,50 @@ module TransactionService::Transaction
     end
   end
 
-  def checkout_details(model)
+  def to_tx_response(tx)
+    checkout_details = checkout_details(tx)
+    commission_total = calculate_commission(checkout_details[:total_price], tx[:commission_from_seller], tx[:minimum_commission])
 
-    case model.payment_gateway.to_sym
+    DataTypes.create_transaction(
+      {
+        id: tx[:id],
+        payment_process: tx[:payment_process],
+        payment_gateway: tx[:payment_gateway],
+        community_id: tx[:community_id],
+        starter_id: tx[:starter_id],
+        listing_id: tx[:listing_id],
+        listing_title: tx[:listing_title],
+        listing_price: tx[:unit_price],
+        listing_author_id: tx[:listing_author_id],
+        listing_quantity: tx[:listing_quantity],
+        automatic_confirmation_after_days: tx[:automatic_confirmation_after_days],
+        last_transition_at: tx[:last_transition_at],
+        current_state: tx[:current_state],
+        payment_total: checkout_details[:payment_total],
+        minimum_commission: tx[:minimum_commission],
+        commission_from_seller: tx[:commission_from_seller],
+        checkout_total: checkout_details[:total_price],
+        commission_total: commission_total,
+        charged_commission: checkout_details[:charged_commission],
+        payment_gateway_fee: checkout_details[:payment_gateway_fee]})
+  end
+
+  def checkout_details(tx)
+    case tx[:payment_gateway]
+    when :checkout, :braintree, :none
+      payment_total = Maybe(Payment.where(transaction_id: tx[:id]).first).total_sum.or_else(nil)
+      total_price = tx[:unit_price] * 1 # TODO fixme for booking (model.listing_quantity)
+      { payment_total: payment_total,
+        total_price: total_price }
     when :paypal
-      payment = paypal_payment_api().get_payment(model.community_id, model.id).maybe
-      total = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
-              .or_else(model.unit_price)
-      { total_price: total,
-        commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission),
+      payment = paypal_payment_api().get_payment(tx[:community_id], tx[:id]).maybe
+      payment_total = payment[:payment_total].or_else(nil)
+      total_price = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
+              .or_else(tx[:unit_price])
+      { payment_total: payment_total,
+        total_price: total_price,
         charged_commission: payment[:commission_total].or_else(nil),
         payment_gateway_fee: payment[:fee_total].or_else(nil) }
-    else
-      total = model.unit_price * 1 #TODO fixme for booking (model.listing_quantity)
-      { total_price: total, commission_total: calculate_commission(total, model.commission_from_seller, model.minimum_commission) }
     end
   end
 
