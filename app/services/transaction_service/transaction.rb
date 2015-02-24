@@ -7,7 +7,7 @@ module TransactionService::Transaction
   SETTINGS_ADAPTERS = {
     paypal: TransactionService::Gateway::PaypalSettingsAdapter.new,
     braintree: TransactionService::Gateway::BraintreeSettingsAdapter.new,
-    checkout: TransactionService::Gateway::BraintreeSettingsAdapter.new, # Checkout handles configuration the same was as BT
+    checkout: TransactionService::Gateway::BraintreeSettingsAdapter.new, # Checkout handles configuration the same way as BT
     none: TransactionService::Gateway::FreeSettingsAdapter.new
   }
 
