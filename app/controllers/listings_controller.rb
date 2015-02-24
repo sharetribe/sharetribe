@@ -122,7 +122,9 @@ class ListingsController < ApplicationController
       booking: @listing.transaction_type.price_per.present?
     )
 
-    render locals: {form_path: form_path, payment_gateway: payment_gateway}
+    delivery_opts = delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.currency)
+
+    render locals: {form_path: form_path, payment_gateway: payment_gateway, delivery_opts: delivery_opts}
   end
 
   def new
@@ -545,4 +547,17 @@ class ListingsController < ApplicationController
     end
   end
 
+  def delivery_config(require_shipping_address, pickup_enabled, shipping_price, currency)
+      case [require_shipping_address, pickup_enabled]
+      when matches([true, true])
+        [{ name: :shipping, price: shipping_price },
+         { name: :pickup, price: Money.new(0, currency)}]
+      when matches([true, false])
+        [{ name: :shipping, price: shipping_price }]
+      when matches([false, true])
+        [{ name: :pickup, price: Money.new(0, currency) }]
+      else
+        []
+      end
+  end
 end

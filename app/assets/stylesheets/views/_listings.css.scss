@@ -131,6 +131,17 @@ $listing-author-avatar-height: 108;
   margin: lines(0.5) 0; // Some top & bottom margin to give links some space
 }
 
+// Delivery options
+.delivery-title {
+  margin-bottom: 0;
+}
+
+.delivery-label {
+  display: inline;
+  width: auto;
+  margin-left: lines(0.2);
+}
+
 // Transaction action button
 .book-button {
   @include big-button($link);
