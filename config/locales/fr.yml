@@ -433,7 +433,7 @@ fr:
       cancel_payed_description: "Si votre demande a été acceptée mais que vous changez d'avis, vous pouvez toujours l'annuler avant le paiement."
       canceling_payed_transaction: "Annuler la transaction"
       confirm: Réalisée
-      cancel: "Non réalisée"
+      cancel: Contester
       continue: Continuer
       give_feedback_to: "Donner un avis sur %{person_link}"
       do_not_give_feedback: "Ne pas donner d'avis"
@@ -577,7 +577,7 @@ fr:
       reject_preauthorized_offer: "Pas cette fois"
       reject_preauthorized_request: "Pas cette fois"
       confirm: Réalisée
-      cancel: "Non réalisée"
+      cancel: Contester
   braintree_accounts:
     new:
       add_payout_details: "Ajouter vos informations de paiement"

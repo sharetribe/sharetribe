@@ -433,7 +433,7 @@ en:
       cancel_payed_description: "If your request was accepted but you're having second thoughts, you can still cancel the request before the payment."
       canceling_payed_transaction: "Cancel transaction"
       confirm: "Mark completed"
-      cancel: "Dispute"
+      cancel: Dispute
       continue: Continue
       give_feedback_to: "Give feedback to %{person_link}"
       do_not_give_feedback: "Skip feedback"
@@ -577,7 +577,7 @@ en:
       reject_preauthorized_offer: "Not this time"
       reject_preauthorized_request: "Not this time"
       confirm: "Mark completed"
-      cancel: "Dispute"
+      cancel: Dispute
   braintree_accounts:
     new:
       add_payout_details: "Add your payout details"
