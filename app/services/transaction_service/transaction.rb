@@ -175,10 +175,6 @@ module TransactionService::Transaction
     Result::Success.new(DataTypes.create_transaction_response(transaction))
   end
 
-  # TODO This is not called from anywhere currently. Should it be deleted or called?
-  def token_cancelled(token)
-    Transaction.where(community_id: token[:community_id], id: token[:transaction_id]).destroy_all
-  end
 
   # private
 
