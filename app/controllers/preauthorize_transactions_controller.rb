@@ -74,7 +74,6 @@ class PreauthorizeTransactionsController < ApplicationController
     end
 
     transaction_id = transaction_response[:data][:transaction][:id]
-    MarketplaceService::Transaction::Command.transition_to(transaction_id, "initiated")
 
     if (transaction_response[:data][:gateway_fields][:redirect_url])
       redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
@@ -180,7 +179,6 @@ class PreauthorizeTransactionsController < ApplicationController
 
     case payment_type
     when :paypal
-      MarketplaceService::Transaction::Command.transition_to(transaction_id, "initiated")
       if (transaction_response[:data][:gateway_fields][:redirect_url])
         return redirect_to transaction_response[:data][:gateway_fields][:redirect_url]
       else
@@ -190,7 +188,6 @@ class PreauthorizeTransactionsController < ApplicationController
         }
       end
     when :braintree
-      MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
       return redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
     end
 
@@ -251,7 +248,6 @@ class PreauthorizeTransactionsController < ApplicationController
 
       transaction_id = transaction_response[:data][:transaction][:id]
 
-      MarketplaceService::Transaction::Command.transition_to(transaction_id, "preauthorized")
       redirect_to person_transaction_path(:person_id => @current_user.id, :id => transaction_id)
     else
       flash[:error] = preauthorize_form.errors.full_messages.join(", ")
