@@ -48,7 +48,6 @@ class PostPayTransactionsController < ApplicationController
       end
 
       transaction_id = transaction_response[:data][:transaction][:id]
-      MarketplaceService::Transaction::Command.transition_to(transaction_id, "pending")
 
       flash[:notice] = t("layouts.notifications.message_sent")
       Delayed::Job.enqueue(TransactionCreatedJob.new(transaction_id, @current_community.id))
