@@ -21,10 +21,10 @@ module TransactionService::Gateway
       result = BraintreeSaleService.new(payment, gateway_fields).pay(false)
 
       unless result.success?
-        return Result::Error.new(result.message)
+        return SyncCompletion.new(Result::Error.new(result.message))
       end
 
-      Result::Success.new({result: true})
+      SyncCompletion.new(Result::Success.new({result: true}))
     end
 
   end

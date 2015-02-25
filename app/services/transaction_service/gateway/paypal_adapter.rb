@@ -28,12 +28,14 @@ module TransactionService::Gateway
         create_payment_info,
         async: prefer_async)
 
-      return Result::Error.new(result[:error_msg]) unless result[:success]
+      if !result[:success]
+        return SyncCompletion.new(Result::Error.new(result[:error_msg]))
+      end
 
       if prefer_async
-        Result::Success.new({ process_token: result[:data][:process_token] })
+        AsyncCompletion.new(Result::Success.new({ process_token: result[:data][:process_token] }))
       else
-        Result::Success.new({ redirect_url: result[:data][:redirect_url] })
+        AsyncCompletion.new(Result::Success.new({ redirect_url: result[:data][:redirect_url] }))
       end
     end
 

@@ -1,4 +1,5 @@
 module TransactionService::Gateway
+
   class GatewayAdapter
 
     # Returns true or false indicating if the gateway adapter supports
@@ -15,7 +16,7 @@ module TransactionService::Gateway
     # asynchronously but the final choice is up to adapter
     # implementation.
     #
-    # Returns a Result object wrapping gateway specific return value.
+    # Returns a Completion( Result( gateway_specific_response) )
     def create_payment(tx:, gateway_fields:, prefer_async:)
       raise InterfaceMethodNotImplementedError.new
     end
