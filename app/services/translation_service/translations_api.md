@@ -46,25 +46,18 @@ Response 200 OK, array of asked translations in body:
   }
 , { translation_key: "dhfgh45tg75t4"
   , locale: "en-US"
+  , translation: nil
   , error: "TRANSLATION_KEY_MISSING"    // Translation key is missing.
   }
 , { translation_key: "dhfgh45tg75t5"
-  , locale: "en-US"
-  , error: "TRANSLATION_LOCALE_MISSING" // Translation locale is missing
-  , fallback:
-    { translation_key: "dhfgh45tg75t5"
-    , locale: "en-GB"
-    , translation: "BUY"
-    }
+  , locale: "en-GB"
+  , translation: "BUY"
+  , warn: "TRANSLATION_LOCALE_MISSING" // Translation locale is missing
   }
 , { translation_key: "dhfgh45tg75t6"
-  , locale: "en-US"
-  , error: "TRANSLATION_LOCALE_EMPTY"   // Translation string is empty
-  , fallback:
-    { translation_key: "dhfgh45tg75t6"
-    , locale: "en-GB"
-    , translation: "Book"
-    }
+  , locale: "en-GB"
+  , translation: "Book",
+  , error: "TRANSLATION_LOCALE_MISSING"   // Translation string is empty
   }
 ]
 ```
@@ -77,6 +70,7 @@ Request body:
 ```ruby
 { translation_keys:["dhfgh45tg75t3"]
 , locales: ["en-US", "en-GB", "fi-FI"]
+, use_fallback: false // Defaults to true when not passed explicitly
 }
 ```
 
@@ -92,12 +86,8 @@ Response 200 OK, array of translations in body:
   }
 , { translation_key: "dhfgh45tg75t3"
   , locale: "fi-FI"
-  , error: "TRANSLATION_LOCALE_MISSING" // Translation locale is missing
-  , fallback:
-    { translation_key: "dhfgh45tg75t3"
-    , locale: "en-GB"
-    , translation: "Welcome"
-    }
+  , translation: nil
+  , warn: "TRANSLATION_LOCALE_MISSING" // Translation locale is missing
   }
 ]
 ```
