@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150213094110) do
+ActiveRecord::Schema.define(:version => 20150225122608) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -886,6 +886,9 @@ ActiveRecord::Schema.define(:version => 20150213094110) do
     t.integer  "unit_price_cents"
     t.string   "unit_price_currency",               :limit => 8
     t.string   "payment_process",                   :limit => 31, :default => "none"
+    t.boolean  "require_shipping_address",                        :default => false
+    t.boolean  "pickup_enabled",                                  :default => false
+    t.integer  "shipping_price_cents"
   end
 
   add_index "transactions", ["community_id"], :name => "index_transactions_on_community_id"
