@@ -71,6 +71,7 @@ module PaypalService::API
             item_name: create_payment[:item_name],
             item_quantity: create_payment[:item_quantity],
             item_price: create_payment[:item_price] || create_payment[:order_total],
+            shipping_total: create_payment[:shipping_total],
             express_checkout_url: response[:redirect_url]
           })
 
@@ -272,6 +273,7 @@ module PaypalService::API
               item_name: token[:item_name],
               item_quantity: token[:item_quantity],
               item_price: token[:item_price],
+              shipping_total: token[:shipping_total],
               invnum: Invnum.create(token[:community_id], token[:transaction_id], :payment)
             }),
             error_policy: {

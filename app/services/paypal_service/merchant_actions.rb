@@ -192,7 +192,7 @@ module PaypalService
 
       do_express_checkout_payment: PaypalAction.def_action(
         input_transformer: -> (req, config) {
-          { DoExpressCheckoutPaymentRequestDetails: {
+          req_details = { DoExpressCheckoutPaymentRequestDetails: {
               PaymentAction: "Order",
               Token: req[:token],
               PayerID: req[:payer_id],
@@ -209,6 +209,14 @@ module PaypalService
               }]
             }
           }
+
+          if(req[:shipping_total])
+            req_details[:DoExpressCheckoutPaymentRequestDetails][:PaymentDetails][0][:ShippingTotal] = from_money(req[:shipping_total])
+            req_details[:DoExpressCheckoutPaymentRequestDetails][:PaymentDetails][0][:ItemTotal] = from_money(req[:item_price])
+          end
+
+          req_details
+
         },
         wrapper_method_name: :build_do_express_checkout_payment,
         action_method_name: :do_express_checkout_payment,

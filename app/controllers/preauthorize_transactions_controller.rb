@@ -38,20 +38,13 @@ class PreauthorizeTransactionsController < ApplicationController
   BraintreePaymentQuery = BraintreeService::Payments::Query
 
   def initiate
-    vprms = view_params(params[:listing_id])
-
-    total =
-      if(params[:delivery] == "shipping")
-        vprms[:listing][:price] + vprms[:listing][:shipping_price]
-      else
-        vprms[:listing][:price]
-      end
+    vprms = view_params(params[:listing_id], params[:delivery] == "shipping")
 
     render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: vprms[:listing],
       shipping_enabled: params[:delivery] == "shipping",
-      sum: total,
+      sum: vprms[:total_price],
       author: query_person_entity(vprms[:listing][:author_id]),
       action_button_label: vprms[:action_button_label],
       expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
@@ -272,7 +265,7 @@ class PreauthorizeTransactionsController < ApplicationController
   private
 
 
-  def view_params(listing_id)
+  def view_params(listing_id, shipping_enabled = false)
     listing = ListingQuery.listing_with_transaction_type(listing_id)
     payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
@@ -280,7 +273,9 @@ class PreauthorizeTransactionsController < ApplicationController
       .select {|translation| translation[:locale] == I18n.locale}
       .first
 
-    { listing: listing, payment_type: payment_type, action_button_label: action_button_label }
+    total_price = shipping_enabled ? listing.price + listing.sum : listing.price
+
+    { listing: listing, payment_type: payment_type, action_button_label: action_button_label, total_price: total_price }
   end
 
   def render_error_response(isXhr, error_msg, redirect_params)
