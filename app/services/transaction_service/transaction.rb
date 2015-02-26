@@ -103,10 +103,9 @@ module TransactionService::Transaction
   end
 
 
-  # TODO Should require community id too
   # TODO Should handle optional message & mark unseen
-  def complete_preauthorization(transaction_id)
-    tx = TxStore.get(transaction_id)
+  def complete_preauthorization(community_id, transaction_id)
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
     tx_process = tx_process(tx[:payment_process])
     gw = gateway_adapter(tx[:payment_gateway])

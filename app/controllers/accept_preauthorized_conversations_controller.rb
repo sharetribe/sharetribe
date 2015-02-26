@@ -83,7 +83,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   def with_updated_listing_status(listing_conversation, status, sender_id, &block)
     response =
       if(status == "paid")
-        TransactionService::Transaction.complete_preauthorization(listing_conversation.id)
+        TransactionService::Transaction.complete_preauthorization(@current_community.id, listing_conversation.id)
       elsif(status == "rejected")
         TransactionService::Transaction.reject(@current_community.id, listing_conversation.id)
       end
