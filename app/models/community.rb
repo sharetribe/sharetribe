@@ -3,6 +3,7 @@
 # Table name: communities
 #
 #  id                                         :integer          not null, primary key
+#  username                                   :string(255)      not null
 #  domain                                     :string(255)
 #  created_at                                 :datetime
 #  updated_at                                 :datetime
@@ -135,6 +136,9 @@ class Community < ActiveRecord::Base
 
   monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :default_currency
 
+  validates_length_of :username, :in => 2..50
+  validates_format_of :username, :with => /\A[A-Z0-9_\-]*\z/i
+  validates_uniqueness_of :username
   validates_length_of :domain, :in => 2..50
   validates_format_of :domain, :with => /\A[A-Z0-9_\-\.]*\z/i
   validates_uniqueness_of :domain
