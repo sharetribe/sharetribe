@@ -57,6 +57,8 @@ module BraintreeService
         else
           BTLog.error("Could not void transaction #{transaction_id}")
         end
+
+        result
       end
     end
 

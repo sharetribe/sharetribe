@@ -91,22 +91,13 @@ module TransactionService::Transaction
   def reject(community_id, transaction_id)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
-    case(tx[:payment_gateway])
-    when :braintree
-      BraintreeService::Payments::Command.void_transaction(tx[:id], tx[:community_id])
-      MarketplaceService::Transaction::Command.transition_to(tx[:id], :rejected)
+    tx_process = tx_process(tx[:payment_process])
+    gw = gateway_adapter(tx[:payment_gateway])
 
-      Result::Success.new(
-        DataTypes.create_transaction_response(query(tx[:id])))
-    when :paypal
-      result = paypal_payment_api.void(community_id, transaction_id, {note: ""})
-      if result[:success]
-        Result::Success.new(
-          DataTypes.create_transaction_response(query(tx[:id])))
-      else
-        result
-      end
-    end
+    res = tx_process.reject(tx: tx, gateway_adapter: gw)
+    res.maybe()
+      .map { Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]))) }
+      .or_else(res)
   end
 
 

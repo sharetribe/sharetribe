@@ -1,6 +1,8 @@
 module TransactionService::Gateway
   class PaypalAdapter < GatewayAdapter
 
+    DataTypes = PaypalService::API::DataTypes
+
     def implements_process(process)
       [:none, :preauthorize].include?(process)
     end
@@ -11,7 +13,7 @@ module TransactionService::Gateway
       # price for now.
       total = tx[:unit_price] * tx[:listing_quantity]
 
-      create_payment_info = PaypalService::API::DataTypes.create_create_payment_request(
+      create_payment_info = DataTypes.create_create_payment_request(
         {
          transaction_id: tx[:id],
          item_name: tx[:listing_title],
@@ -23,7 +25,7 @@ module TransactionService::Gateway
          cancel: gateway_fields[:cancel_url],
          merchant_brand_logo_url: gateway_fields[:merchant_brand_logo_url]})
 
-      result = PaypalService::API::Api.payments.request(
+      result = paypal_api.payments.request(
         tx[:community_id],
         create_payment_info,
         async: prefer_async)
@@ -39,16 +41,30 @@ module TransactionService::Gateway
       end
     end
 
-    def reject_payment(tx:, reason:)
-      raise InterfaceMethodNotImplementedError.new
+    def reject_payment(tx:, reason: "")
+      AsyncCompletion.new(paypal_api.payments.void(tx[:community_id], tx[:id], {note: reason}))
     end
 
     def complete_preauthorization(tx:)
-      raise InterfaceMethodNotImplementedError.new
+      AsyncCompletion.new(
+        paypal_api.payments.get_payment(tx[:community_id], tx[:id])
+        .and_then { |payment|
+          paypal_api.payments.full_capture(
+            tx[:community_id],
+            tx[:id],
+            DataTypes.create_payment_info({ payment_total: payment[:authorization_total] }))})
     end
 
     def get_payment_details(tx:)
       raise InterfaceMethodNotImplementedError.new
     end
+
+
+    private
+
+    def paypal_api
+      PaypalService::API::Api
+    end
   end
+
 end

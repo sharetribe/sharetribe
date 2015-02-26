@@ -18,6 +18,11 @@ module TransactionService::Process
     end
 
     def reject(tx:, gateway_adapter:)
+      Gateway.unwrap_completion(
+        gateway_adapter.reject_payment(tx: tx, reason: "")) do
+
+        Transition.transition_to(tx[:id], :rejected)
+      end
     end
 
     def complete_preauthorization(tx:, gateway_adapter:)

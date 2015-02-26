@@ -20,8 +20,18 @@ module TransactionService::Gateway
 
       result = BraintreeSaleService.new(payment, gateway_fields).pay(false)
 
-      unless result.success?
-        return SyncCompletion.new(Result::Error.new(result.message))
+      if !result.success?
+        SyncCompletion.new(Result::Error.new(result.message))
+      end
+
+      SyncCompletion.new(Result::Success.new({result: true}))
+    end
+
+    def reject_payment(tx:, reason: nil)
+      result = BraintreeService::Payments::Command.void_transaction(tx[:id], tx[:community_id])
+
+      if !result.success?
+        SyncCompletion.new(Result::Error.new(result.message))
       end
 
       SyncCompletion.new(Result::Success.new({result: true}))
