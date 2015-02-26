@@ -64,7 +64,6 @@
 #  name_display_type                          :string(255)      default("first_name_with_initial")
 #  twitter_handle                             :string(255)
 #  use_community_location_as_default          :boolean          default(FALSE)
-#  domain_alias                               :string(255)
 #  preproduction_stylesheet_url               :string(255)
 #  show_category_in_listing_list              :boolean          default(FALSE)
 #  default_browse_view                        :string(255)      default("grid")
@@ -265,10 +264,6 @@ class Community < ActiveRecord::Base
 
   attr_accessor :terms
 
-  def self.columns
-    super.reject { |c| c.name == "domain_alias" }
-  end
-
   def name(locale)
     customization = Maybe(community_customizations.where(locale: locale).first).or_else {
       # We should not end up in a situation where the given locale is not found.
@@ -411,8 +406,8 @@ class Community < ActiveRecord::Base
     default_host, default_port = APP_CONFIG.domain.split(':')
     port_string = options[:port] || default_port
 
-    if self.domain =~ /\./ # custom domain
-      dom = "#{self.domain}#{port_string}"
+    if domain.present? # custom domain
+      dom = domain
     else # just a subdomain specified
       dom = "#{self.ident}.#{default_host}"
       dom += ":#{port_string}" unless port_string.blank?
