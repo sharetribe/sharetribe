@@ -24,7 +24,7 @@ class PaymentRow < ActiveRecord::Base
 
   belongs_to :payment
 
-  monetize :sum_cents
+  monetize :sum_cents, with_model_currency: :currency
 
   def sum_with_vat
     sum_with_percentage(sum, vat)
