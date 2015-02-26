@@ -742,6 +742,7 @@ ActiveRecord::Schema.define(:version => 20150226131628) do
     t.integer  "item_price_cents"
     t.string   "currency",             :limit => 8
     t.string   "express_checkout_url"
+    t.integer  "shipping_total_cents"
   end
 
   add_index "paypal_tokens", ["community_id"], :name => "index_paypal_tokens_on_community_id"

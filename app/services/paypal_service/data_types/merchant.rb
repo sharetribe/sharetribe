@@ -63,8 +63,7 @@ module PaypalService
         [:item_name, :mandatory, :string],
         [:item_quantity, :fixnum, default: 1],
 
-        # A bit odd field as it is negative, but conforms to PayPal conventions
-        [:no_shipping, one_of: [1, 0], default: 1],
+        [:require_shipping_address, :to_bool],
 
         # If not specified, defaults to item_total. If specifed, quantity * item_price must match item_total
         [:item_price, :optional, :money],

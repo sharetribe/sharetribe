@@ -76,7 +76,7 @@ class Transaction < ActiveRecord::Base
 
   monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
   monetize :unit_price_cents, with_model_currency: :unit_price_currency
-  monetize :shipping_price_cents, allow_nil: true, with_model_currency: :unity_price_currency
+  monetize :shipping_price_cents, allow_nil: true, with_model_currency: :unit_price_currency
 
   scope :for_person, -> (person){
     joins(:listing)

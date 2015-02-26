@@ -100,7 +100,7 @@ module TransactionService::Store::Transaction
     Maybe(model)
       .map { |m|
         EntityUtils.model_to_hash(m)
-        .merge({unit_price: m.unit_price , minimum_commission: m.minimum_commission })
+        .merge({unit_price: m.unit_price, minimum_commission: m.minimum_commission, shipping_price: m.shipping_price })
       }
       .map { |hash| Transaction.call(hash) }
       .or_else(nil)

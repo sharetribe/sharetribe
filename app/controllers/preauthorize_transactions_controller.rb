@@ -25,8 +25,12 @@ class PreauthorizeTransactionsController < ApplicationController
     :content,
     :sender_id,
     :contract_agreed,
+    :require_shipping_address,
     :listing_id
-  ).with_validations { validates_presence_of :listing_id }
+   ).with_validations {
+    validates_presence_of :listing_id
+    validates :require_shipping_address, inclusion: { in: %w(1 0), message: "%{value} is not 1 or 0."}
+  }
 
   PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
 
@@ -36,10 +40,18 @@ class PreauthorizeTransactionsController < ApplicationController
   def initiate
     vprms = view_params(params[:listing_id])
 
+    total =
+      if(params[:delivery] == "shipping")
+        vprms[:listing][:price] + vprms[:listing][:shipping_price]
+      else
+        vprms[:listing][:price]
+      end
+
     render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: vprms[:listing],
-      sum: vprms[:listing][:price],
+      shipping_enabled: params[:delivery] == "shipping",
+      sum: total,
       author: query_person_entity(vprms[:listing][:author_id]),
       action_button_label: vprms[:action_button_label],
       expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
@@ -67,7 +79,9 @@ class PreauthorizeTransactionsController < ApplicationController
       listing: @listing,
       user: @current_user,
       content: preauthorize_form.content,
-      use_async: request.xhr?)
+      use_async: request.xhr?,
+      require_shipping_address: preauthorize_form.require_shipping_address.to_i
+    )
 
     unless transaction_response[:success]
       return render_error_response(request.xhr?, t("error_messages.paypal.generic_error"), action: :initiate) unless transaction_response[:success]
@@ -378,8 +392,7 @@ class PreauthorizeTransactionsController < ApplicationController
         BraintreeForm.new(opts[:bt_payment_params]).to_hash
       end
 
-    TransactionService::Transaction.create({
-        transaction: {
+    transaction = {
           community_id: opts[:community].id,
           listing_id: opts[:listing].id,
           listing_title: opts[:listing].title,
@@ -391,7 +404,15 @@ class PreauthorizeTransactionsController < ApplicationController
           payment_gateway: opts[:payment_type],
           payment_process: :preauthorize,
           booking_fields: opts[:booking_fields]
-        },
+    }
+
+    if(opts[:require_shipping_address] == 1)
+      transaction[:shipping_price] = opts[:listing].shipping_price
+      transaction[:require_shipping_address] = opts[:require_shipping_address]
+    end
+
+    TransactionService::Transaction.create({
+        transaction: transaction,
         gateway_fields: gateway_fields
       },
       paypal_async: opts[:use_async])

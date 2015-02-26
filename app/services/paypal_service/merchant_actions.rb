@@ -151,7 +151,7 @@ module PaypalService
               ReturnURL: req[:success],
               CancelURL: req[:cancel],
               ReqConfirmShipping: 0,
-              NoShipping: req[:no_shipping],
+              NoShipping: 1,
               SolutionType: "Sole",
               LandingPage: "Billing",
               InvoiceID: req[:invnum],
@@ -171,7 +171,8 @@ module PaypalService
           }
 
           # Add shipping related payment fields if required
-          if(req[:no_shipping] == 0)
+          if(req[:require_shipping_address])
+            req_details[:SetExpressCheckoutRequestDetails][:NoShipping] = 0
             req_details[:SetExpressCheckoutRequestDetails][:PaymentDetails][0][:ShippingTotal] = from_money(req[:shipping_total])
             req_details[:SetExpressCheckoutRequestDetails][:PaymentDetails][0][:ItemTotal] = from_money(req[:item_total])
           end
