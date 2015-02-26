@@ -887,6 +887,8 @@ ActiveRecord::Schema.define(:version => 20150226131628) do
     t.integer  "unit_price_cents"
     t.string   "unit_price_currency",               :limit => 8
     t.string   "payment_process",                   :limit => 31, :default => "none"
+    t.string   "delivery_method",                   :limit => 31, :default => "none"
+    t.integer  "shipping_price_cents"
   end
 
   add_index "transactions", ["community_id"], :name => "index_transactions_on_community_id"
