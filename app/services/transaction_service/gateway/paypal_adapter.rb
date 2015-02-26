@@ -56,7 +56,16 @@ module TransactionService::Gateway
     end
 
     def get_payment_details(tx:)
-      raise InterfaceMethodNotImplementedError.new
+      payment = paypal_api.payments.get_payment(tx[:community_id], tx[:id]).maybe
+
+      payment_total = payment[:payment_total].or_else(nil)
+      total_price = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
+                    .or_else(tx[:unit_price])
+
+      { payment_total: payment_total,
+        total_price: total_price,
+        charged_commission: payment[:commission_total].or_else(nil),
+        payment_gateway_fee: payment[:fee_total].or_else(nil) }
     end
 
 

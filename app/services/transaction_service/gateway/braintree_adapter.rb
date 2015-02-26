@@ -1,6 +1,8 @@
 module TransactionService::Gateway
   class BraintreeAdapter < GatewayAdapter
 
+    PaymentModel = ::Payment
+
     def implements_process(process)
       [:none, :preauthorize, :postpay].include?(process)
     end
@@ -45,6 +47,15 @@ module TransactionService::Gateway
       end
 
       SyncCompletion.new(Result::Success.new({result: true}))
+    end
+
+    def get_payment_details(tx:)
+      payment_total = Maybe(PaymentModel.where(transaction_id: tx[:id]).first).total_sum.or_else(nil)
+      total_price = tx[:unit_price] * 1 # TODO fixme for booking (model.listing_quantity)
+      { payment_total: payment_total,
+        total_price: total_price,
+        charged_commission: nil, # TODO Apparently this value is not used in case of BT/Checkout?
+        payment_gateway_fee: nil }
     end
 
   end

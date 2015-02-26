@@ -15,7 +15,7 @@ module TransactionService::Transaction
     paypal: TransactionService::Gateway::PaypalAdapter.new,
     braintree: TransactionService::Gateway::BraintreeAdapter.new,
     checkout: TransactionService::Gateway::CheckoutAdapter.new,
-    none: Object.new
+    none: TransactionService::Gateway::FreeAdapter.new
   }
 
   TX_PROCESSES = {
@@ -48,6 +48,7 @@ module TransactionService::Transaction
   end
 
 
+  # TODO Return type should be Result (wraps current return type)
   def query(transaction_id)
     tx = TxStore.get(transaction_id)
     to_tx_response(tx)
@@ -83,7 +84,7 @@ module TransactionService::Transaction
                             prefer_async: paypal_async)
 
     res.maybe().map { |gw_resp|
-      Result::Success.new(DataTypes.create_transaction_response(to_tx_response(tx), gw_resp))
+      Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_resp))
     }.or_else(res)
   end
 
@@ -167,8 +168,10 @@ module TransactionService::Transaction
   end
 
   def to_tx_response(tx)
-    checkout_details = checkout_details(tx)
-    commission_total = calculate_commission(checkout_details[:total_price], tx[:commission_from_seller], tx[:minimum_commission])
+    gw = gateway_adapter(tx[:payment_gateway])
+    payment_details = gw.get_payment_details(tx: tx)
+
+    commission_total = calculate_commission(payment_details[:total_price], tx[:commission_from_seller], tx[:minimum_commission])
 
     DataTypes.create_transaction(
       {
@@ -185,32 +188,13 @@ module TransactionService::Transaction
         automatic_confirmation_after_days: tx[:automatic_confirmation_after_days],
         last_transition_at: tx[:last_transition_at],
         current_state: tx[:current_state],
-        payment_total: checkout_details[:payment_total],
+        payment_total: payment_details[:payment_total],
         minimum_commission: tx[:minimum_commission],
         commission_from_seller: tx[:commission_from_seller],
-        checkout_total: checkout_details[:total_price],
+        checkout_total: payment_details[:total_price],
         commission_total: commission_total,
-        charged_commission: checkout_details[:charged_commission],
-        payment_gateway_fee: checkout_details[:payment_gateway_fee]})
-  end
-
-  def checkout_details(tx)
-    case tx[:payment_gateway]
-    when :checkout, :braintree, :none
-      payment_total = Maybe(Payment.where(transaction_id: tx[:id]).first).total_sum.or_else(nil)
-      total_price = tx[:unit_price] * 1 # TODO fixme for booking (model.listing_quantity)
-      { payment_total: payment_total,
-        total_price: total_price }
-    when :paypal
-      payment = paypal_payment_api().get_payment(tx[:community_id], tx[:id]).maybe
-      payment_total = payment[:payment_total].or_else(nil)
-      total_price = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
-              .or_else(tx[:unit_price])
-      { payment_total: payment_total,
-        total_price: total_price,
-        charged_commission: payment[:commission_total].or_else(nil),
-        payment_gateway_fee: payment[:fee_total].or_else(nil) }
-    end
+        charged_commission: payment_details[:charged_commission],
+        payment_gateway_fee: payment_details[:payment_gateway_fee]})
   end
 
   def calculate_commission(total_price, commission_from_seller, minimum_commission)
