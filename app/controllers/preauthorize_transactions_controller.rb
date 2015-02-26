@@ -273,7 +273,7 @@ class PreauthorizeTransactionsController < ApplicationController
       .select {|translation| translation[:locale] == I18n.locale}
       .first
 
-    total_price = shipping_enabled ? listing.price + listing.sum : listing.price
+    total_price = shipping_enabled ? listing[:price] + listing[:shipping_price] : listing[:price]
 
     { listing: listing, payment_type: payment_type, action_button_label: action_button_label, total_price: total_price }
   end
