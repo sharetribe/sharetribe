@@ -8,6 +8,9 @@ module MarketplaceService
         [:title, :mandatory, :string],
         [:author_id, :mandatory, :string],
         [:price, :optional, :money],
+        [:require_shipping_address, :optional, :to_bool],
+        [:pickup_enabled, :optional, :to_bool],
+        [:shipping_price, :optional, :money],
         [:quantity, :optional, :string],
         [:transaction_type_id, :mandatory, :fixnum],
         [:deleted, :to_bool]
@@ -52,7 +55,7 @@ module MarketplaceService
       end
 
       def listing(listing_model)
-        Listing.call(EntityUtils.model_to_hash(listing_model).merge(price: listing_model.price))
+        Listing.call(EntityUtils.model_to_hash(listing_model).merge({price: listing_model.price, shipping_price: listing_model.shipping_price}))
       end
 
       def transaction_type(transaction_type_model)
