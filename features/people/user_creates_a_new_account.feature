@@ -68,8 +68,9 @@ Feature: User creates a new account
     Then I should see "This field is required."
     When given name and last name are not required in community "test"
     And I am on the signup page
+    Then I should not see "First name"
+    And I should not see "Last name"
     When I fill in "person[username]" with random username
-    And I fill in "person[username]" with random username
     And I fill in "person_password1" with "test"
     And I fill in "Confirm password" with "test"
     And I fill in "Email address" with random email

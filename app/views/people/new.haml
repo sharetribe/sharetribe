@@ -47,7 +47,7 @@
     - if @current_community.only_organizations
       = form.label :organization_name, t('.organization_name')
       = form.text_field :organization_name, :class => :text_field, :maxlength => "30"
-    - else
+    - elsif @current_community.real_name_required?
       = form.label :given_name, t('.given_name')
       = form.text_field :given_name, :class => :text_field, :maxlength => "30"
       = form.label :family_name, t('.family_name')
