@@ -18,7 +18,7 @@
     .row
       .col-12
         = form.label :logo, t(".community_logo_icon"), :class => "input"
-        = render :partial => "layouts/info_text", :locals => { :text => t(".logo_icon_instructions_text_with_dimensions", :width => 300, :height => 300)}
+        = render :partial => "layouts/info_text", :locals => { :text => t(".logo_icon_instructions_text_with_dimensions", :width => 600, :height => 600)}
         = form.file_field(:logo, :class => "file_field")
 
     .row

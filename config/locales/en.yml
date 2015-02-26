@@ -82,7 +82,7 @@ en:
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit marketplace \"%{community_name}\" look and feel"
         community_logo: "Desktop logo"
-        community_logo_icon: "Mobile logo"
+        community_logo_icon: "Logo for social networks and mobile devices"
         community_cover_photo: "Cover photo"
         small_community_cover_photo: "Small cover photo"
         favicon: Favicon
@@ -90,7 +90,7 @@ en:
         community_custom_color1: "Main color"
         community_custom_color2: "Second color"
         logo_instructions_text_with_dimensions: "Desktop logo size should be %{width}x%{height}px. It will be shown to users with bigger screens."
-        logo_icon_instructions_text_with_dimensions: "Mobile logo should be square, preferably %{width}x%{height}px in size. It will be shown to users with smaller screens."
+        logo_icon_instructions_text_with_dimensions: "This square logo will be shown when people share your site in Facebook, when they view your site on a mobile device or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height}px."
         cover_photo_visibility: "Cover photo is shown in the homepage for non-signed-in users."
         cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Small cover photo is shown in all pages expect in the homepage for non-signed-in users."
