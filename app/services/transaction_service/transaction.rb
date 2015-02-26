@@ -88,6 +88,7 @@ module TransactionService::Transaction
   end
 
 
+  # TODO Should handle optional message & mark unseen
   def reject(community_id, transaction_id)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
@@ -102,43 +103,18 @@ module TransactionService::Transaction
 
 
   # TODO Should require community id too
+  # TODO Should handle optional message & mark unseen
   def complete_preauthorization(transaction_id)
     tx = TxStore.get(transaction_id)
 
-    case tx[:payment_gateway]
-    when :braintree
-      complete_preauthorization_braintree(tx)
-    when :paypal
-      complete_preauthorization_paypal(tx)
-    end
+    tx_process = tx_process(tx[:payment_process])
+    gw = gateway_adapter(tx[:payment_gateway])
 
+    res = tx_process.complete_preauthorization(tx: tx, gateway_adapter: gw)
+    res.maybe()
+      .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
+      .or_else(res)
   end
-
-  def complete_preauthorization_braintree(tx)
-    BraintreeService::Payments::Command.submit_to_settlement(tx[:id], tx[:community_id])
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
-
-    Result::Success.new(DataTypes.create_transaction_response(query(tx[:id])))
-  end
-
-  def complete_preauthorization_paypal(tx)
-    res = paypal_payment_api.get_payment(tx[:community_id], tx[:id]).and_then do |payment|
-      paypal_payment_api.full_capture(
-        tx[:community_id],
-        tx[:id],
-        PaypalService::API::DataTypes.create_payment_info({ payment_total: payment[:authorization_total] }))
-    end
-
-    if res[:success]
-      Result::Success.new(
-        DataTypes.create_transaction_response(
-        query(tx[:id]),
-        DataTypes.create_paypal_complete_preauthorization_fields(paypal_pending_reason: res[:data][:pending_reason])))
-    else
-      Result::Error.new("An error occured while trying to complete preauthorized PayPal payment", res)
-    end
-  end
-
 
   def invoice
     raise NoMethodError.new("Not implemented")

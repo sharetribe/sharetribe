@@ -1,6 +1,5 @@
 module TransactionService::Process
   Gateway = TransactionService::Gateway
-  # Transition = TransactionService::Process::Transition
 
   class Preauthorize
 
@@ -26,6 +25,11 @@ module TransactionService::Process
     end
 
     def complete_preauthorization(tx:, gateway_adapter:)
+      Gateway.unwrap_completion(
+        gateway_adapter.complete_preauthorization(tx: tx)) do
+
+        Transition.transition_to(tx[:id], :paid)
+      end
     end
   end
 end

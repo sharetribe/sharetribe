@@ -37,5 +37,15 @@ module TransactionService::Gateway
       SyncCompletion.new(Result::Success.new({result: true}))
     end
 
+    def complete_preauthorization(tx:)
+      result = BraintreeService::Payments::Command.submit_to_settlement(tx[:id], tx[:community_id])
+
+      if !result.success?
+        SyncCompletion.new(Result::Error.new(result.message))
+      end
+
+      SyncCompletion.new(Result::Success.new({result: true}))
+    end
+
   end
 end
