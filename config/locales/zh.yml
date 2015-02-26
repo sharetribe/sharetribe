@@ -81,7 +81,7 @@ zh:
         community_cover_photo: 封面照片
         small_community_cover_photo: 小的封面照片
         favicon: 网站图标
-        favicon_info_text: ~
+        favicon_info_text: Favicon将取代默认的Sharetribe标识。它的尺寸应该是32x32像素，上传的图片将被调整为这个像素。
         community_custom_color1: 主要颜色
         community_custom_color2: 第二颜色
         logo_instructions_text_with_dimensions: "封面图片尺寸必须是%{width}x%{height}像素。它将显示给使用大屏幕的用户。"
@@ -778,7 +778,7 @@ zh:
       text_version_text: "你可以共享一些其他人可能需要的东西吗？或者你可能需要一些别人已经拥有的东西？点击%{url}新添一个请求或者查看其他人当前提供的或者请求的东西"
     reset_password_instructions:
       change_my_password: 修改密码
-      reset_password_instructions: ~
+      reset_password_instructions: "<p>您声明您遗忘了服务%{service_name}的用户名或者密码。</p><p>您的用户名是：%{username}</p><p>如果你需要重置密码，点击以下链接：%{password_reset_link}</p><br/><p>如果您没有这个要求，请忽略这封电子邮件。 您的密码将不会改变，直到您访问上面的链接并创建一个新的密码。</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "评价是对其他用户公开的。其他用户可根据评价来判断 %{name} 是否值得信赖。所以，记得评价别人发起的活动，也提醒别人评价您发起的活动。您需要正面的评价来获得更多的徽章。"
       remember_to_give_feedback_to: "提醒：记得给%{name} 评价"
