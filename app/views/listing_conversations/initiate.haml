@@ -39,6 +39,18 @@
 
       %li
         %div
+          -if shipping_enabled
+            .row
+              %span.col-2
+                = "Subtotal:"
+              %span.col-4
+                = humanized_money_with_symbol(listing[:price])
+            .row
+              %span.col-2
+                = "Shipping:"
+              %span.col-4
+                = humanized_money_with_symbol(listing[:shipping_price])
+              .row-with-divider
           %strong
             = t("conversations.show.total", total: humanized_money_with_symbol(sum))
 
@@ -64,6 +76,8 @@
       - if @current_community.transaction_agreement_in_use
         = render :partial => "listing_conversations/transaction_agreement_checkbox", locals: { form: form }
 
+      - if shipping_enabled
+        = form.hidden_field :require_shipping_address, value: 1
       .row
         .col-12.paypal-button-wrapper
           = form.submit t("paypal.checkout_with_paypal"), type: :image, src: t("paypal.buy_now_with_paypal_button_url"), alt: t("paypal.checkout_with_paypal"), class: "checkout-with-paypal-button"
