@@ -20,7 +20,7 @@ Given /^there are following Braintree accounts:$/ do |bt_accounts|
   # Create new accounts
   bt_accounts.hashes.each do |hash|
     person = Person.find_by_username(hash[:person])
-    community = Community.find_by_domain(hash[:community])
+    community = Community.where(ident: hash[:community]).first
     attributes_to_update = hash.except('person', 'community')
     @account = create_braintree_account(person, community, attributes_to_update)
   end
@@ -55,7 +55,7 @@ Then /^"(.*?)" should have required Checkout payment details saved to my account
 end
 
 When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
-  community = Community.where(domain: "test").first # Hard-coded default test community
+  community = Community.where(ident: "test").first # Hard-coded default test community
   signature, payload = BraintreeApi.webhook_testing_sample_notification(
     community, kind, id
   )
@@ -66,7 +66,7 @@ end
 
 When /^Braintree webhook "(.*?)" with username "(.*?)" is triggered$/ do |kind, username|
   person = Person.find_by_username(username)
-  community = Community.where(domain: "test").first # Hard-coded default test community
+  community = Community.where(ident: "test").first # Hard-coded default test community
   signature, payload = BraintreeApi.webhook_testing_sample_notification(
     community, kind, person.id
   )

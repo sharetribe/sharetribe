@@ -28,4 +28,10 @@ module URLUtils
   def extract_locale_from_url(url)
     URI(url).path.split('/')[1]
   end
+
+  # www.sharetribe.com => www.sharetribe.com
+  # www.sharetribe.com:3000 => www.sharetribe.com
+  def strip_port_from_host(host)
+    host.split(":").first
+  end
 end

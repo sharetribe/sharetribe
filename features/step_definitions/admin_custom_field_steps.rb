@@ -162,7 +162,7 @@ When /^I add a new checkbox field Amenities with invalid data$/ do
 end
 
 Given /^there is a custom field "(.*?)" in community "(.*?)" for category "(.*?)"$/ do |name, community, category_name|
-  current_community = Community.find_by_domain(community)
+  current_community = Community.where(ident: community).first
   @custom_field = FactoryGirl.build(:custom_dropdown_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
@@ -172,7 +172,7 @@ Given /^there is a custom field "(.*?)" in community "(.*?)" for category "(.*?)
 end
 
 Given /^there is a numeric field "(.*?)" in community "(.*?)" for category "(.*?)" with min value "(.*?)" and max value "(.*?)"$/ do |name, community, category_name, min, max|
-  current_community = Community.find_by_domain(community)
+  current_community = Community.where(ident: community).first
   @custom_field = FactoryGirl.build(:custom_numeric_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
@@ -254,7 +254,7 @@ When /^I move custom field "(.*?)" up$/ do |custom_field|
 end
 
 Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")? with options:$/ do |name, community, category_name, options|
-  current_community = Community.find_by_domain(community)
+  current_community = Community.where(ident: community).first
   custom_field = FactoryGirl.build(:custom_dropdown_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")]
@@ -280,7 +280,7 @@ Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in cate
 end
 
 Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")?$/ do |name, community, category_name|
-  current_community = Community.find_by_domain(community)
+  current_community = Community.where(ident: community).first
   custom_field = FactoryGirl.build(:custom_text_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")]

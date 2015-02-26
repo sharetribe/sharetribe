@@ -294,8 +294,8 @@ class PersonMailer < ActionMailer::Base
 
   # Old layout
 
-  def new_member_notification(person, community_domain, email)
-    @community = Community.find_by_domain(community_domain)
+  def new_member_notification(person, community, email)
+    @community = community
     @no_settings = true
     @person = person
     @email = email
@@ -304,17 +304,16 @@ class PersonMailer < ActionMailer::Base
          :subject => "New member in #{@community.full_name(@person.locale)}")
   end
 
-  def email_confirmation(email, host, com=nil)
-    community = com || Community.find_by_domain(host)
+  def email_confirmation(email, community)
     @current_community = community
     @no_settings = true
     @resource = email.person
     @confirmation_token = email.confirmation_token
-    @host = host
+    @host = community.full_domain
     set_locale(email.person.locale)
     email.update_attribute(:confirmation_sent_at, Time.now)
     premailer_mail(:to => email.address,
-         :from => community_specific_sender(com),
+         :from => community_specific_sender(community),
          :subject => t("devise.mailer.confirmation_instructions.subject"),
          :template_path => 'devise/mailer',
          :template_name => 'confirmation_instructions')

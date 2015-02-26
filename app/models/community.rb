@@ -140,9 +140,6 @@ class Community < ActiveRecord::Base
   validates_length_of :ident, :in => 2..50
   validates_format_of :ident, :with => /\A[A-Z0-9_\-\.]*\z/i
   validates_uniqueness_of :ident
-  validates_length_of :domain, :in => 2..50
-  validates_format_of :domain, :with => /\A[A-Z0-9_\-\.]*\z/i
-  validates_uniqueness_of :domain
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
   validates_format_of :custom_color1, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
   validates_format_of :custom_color2, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
@@ -267,6 +264,10 @@ class Community < ActiveRecord::Base
   validates_format_of :facebook_connect_secret, with: /\A[a-f0-9]{32}\z/, allow_nil: true
 
   attr_accessor :terms
+
+  def self.columns
+    super.reject { |c| c.name == "domain_alias" }
+  end
 
   def name(locale)
     customization = Maybe(community_customizations.where(locale: locale).first).or_else {
@@ -413,7 +414,7 @@ class Community < ActiveRecord::Base
     if self.domain =~ /\./ # custom domain
       dom = "#{self.domain}#{port_string}"
     else # just a subdomain specified
-      dom = "#{self.domain}.#{default_host}"
+      dom = "#{self.ident}.#{default_host}"
       dom += ":#{port_string}" unless port_string.blank?
     end
 
@@ -471,20 +472,6 @@ class Community < ActiveRecord::Base
   def self.find_by_allowed_email(email)
     email_ending = "@#{email.split('@')[1]}"
     where("allowed_emails LIKE ?", "%#{email_ending}%")
-  end
-
-  # Find community by domain, which can be full domain or just subdomain
-  def self.find_by_domain(domain_string)
-    if domain_string =~ /\:/ #string includes port which should be removed
-      domain_string = domain_string.split(":").first
-    end
-
-    # search for exact match or then match by first part of domain string.
-    # first priority is the domain, then domain_alias
-    return Community.where(["domain = ?", domain_string]).first ||
-           Community.where(["domain = ?", domain_string.split(".").first]).first ||
-           Community.where(["domain_alias = ?", domain_string]).first ||
-           Community.where(["domain_alias = ?", domain_string.split(".").first]).first
   end
 
   # Check if communities with this category are email restricted

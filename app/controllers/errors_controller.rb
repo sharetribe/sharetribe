@@ -25,7 +25,7 @@ class ErrorsController < ActionController::Base
   private
 
   def current_community
-    @current_community ||= Community.find_by_domain(request.host)
+    @current_community ||= ApplicationController.default_community_fetch_strategy(request.host)
   end
 
   def title(status)

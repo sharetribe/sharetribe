@@ -14,17 +14,15 @@ describe MarketplaceService::API::Marketplaces do
     it "should create a marketplace" do
       c = create(@community_params)
 
-      expect(c[:domain]).to eql "localfoodgarden"
       expect(c[:ident]).to eql "localfoodgarden"
       expect(c[:locales].first).to eql "es"
       expect(c[:country]).to eql "ES"
     end
 
     it "should find a free domain, if intitial domain is taken" do
-      FactoryGirl.create(:community, :domain => "common")
+      FactoryGirl.create(:community, :ident => "common")
 
       c = create(@community_params.merge!({:marketplace_name => "Common"}))
-      expect(c[:domain]). to eql "common1"
       expect(c[:ident]). to eql "common1"
     end
 

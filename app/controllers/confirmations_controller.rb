@@ -16,7 +16,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       if Email.email_available?(params[:person][:email])
         if @current_community.email_allowed?(params[:person][:email])
           email = Email.create(:person => @current_user, :address => params[:person][:email], :send_notifications => true)
-          Email.send_confirmation(email, request.host_with_port, @current_community)
+          Email.send_confirmation(email, @current_community)
           flash[:notice] = t("sessions.confirmation_pending.check_your_email")
           redirect_to :controller => "sessions", :action => "confirmation_pending" and return
         else
@@ -32,7 +32,7 @@ class ConfirmationsController < Devise::ConfirmationsController
     # Resend confirmation
     if email_param_present
       email = Email.find_by_address(params[:person][:email])
-      Email.send_confirmation(email, request.host_with_port, @current_community)
+      Email.send_confirmation(email, @current_community)
       flash[:notice] = t("sessions.confirmation_pending.check_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending" and return
     end

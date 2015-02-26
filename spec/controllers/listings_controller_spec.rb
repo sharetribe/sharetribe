@@ -45,7 +45,7 @@ describe ListingsController do
     @l4.save!
     @l4.update_attribute(:valid_until, 2.days.ago)
 
-    set_subdomain(@c1.domain)
+    @request.host = "#{@c1.ident}.lvh.me"
   end
 
   describe "ATOM feed" do

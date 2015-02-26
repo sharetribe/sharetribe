@@ -56,7 +56,7 @@ class Email < ActiveRecord::Base
     !email.present? || email.person == user
   end
 
-  def self.send_confirmation(email, host, community=nil)
-    PersonMailer.email_confirmation(email, host, community).deliver
+  def self.send_confirmation(email, community)
+    PersonMailer.email_confirmation(email, community).deliver
   end
 end
