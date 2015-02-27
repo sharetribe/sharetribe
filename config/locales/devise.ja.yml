@@ -6,8 +6,8 @@ ja:
       already_confirmed: 認証済みです。再度、ログインしてください。
       not_locked: ロックされていません。
       not_saved:
-        other: "%{count}箇所のエラーにより、この%{resource}は保存されませんでした："
         zero: "エラーは%{count}箇所でしたが、この%{resource}は保存されませんでした："
+        other: "%{count}箇所のエラーにより、この%{resource}は保存されませんでした："
   devise:
     failure:
       already_authenticated: 既にログインしています。
