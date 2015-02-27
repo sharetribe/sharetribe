@@ -30,18 +30,21 @@ module PaypalService::Store::Token
   module_function
 
   def create(opts)
-    PaypalTokenModel.create!({
-        community_id: opts[:community_id],
-        token: opts[:token],
-        transaction_id: opts[:transaction_id],
-        merchant_id: opts[:merchant_id],
-        receiver_id: opts[:receiver_id],
-        item_name: opts[:item_name],
-        item_quantity: opts[:item_quantity],
-        item_price: opts[:item_price],
-        shipping_total: opts[:shipping_total],
-        express_checkout_url: opts[:express_checkout_url]
-    })
+    pt_opts = {
+      community_id: opts[:community_id],
+      token: opts[:token],
+      transaction_id: opts[:transaction_id],
+      merchant_id: opts[:merchant_id],
+      receiver_id: opts[:receiver_id],
+      item_name: opts[:item_name],
+      item_quantity: opts[:item_quantity],
+      item_price: opts[:item_price],
+      express_checkout_url: opts[:express_checkout_url]
+    }
+
+    pt_opts[:shipping_total] = opts[:shipping_total] if opts[:shipping_total]
+
+    PaypalTokenModel.create!(pt_opts)
   end
 
   def delete(community_id, transaction_id)
