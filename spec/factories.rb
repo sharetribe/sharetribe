@@ -180,6 +180,7 @@ FactoryGirl.define do
 
   factory :community do
     domain
+    ident { generate(:domain) }
     slogan "Test slogan"
     description "Test description"
     category "other"
