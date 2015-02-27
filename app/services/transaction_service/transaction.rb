@@ -122,24 +122,30 @@ module TransactionService::Transaction
     raise NoMethodError.new("Not implemented")
   end
 
-  # TODO Should be implemented in process
-  def complete(transaction_id)
-    MarketplaceService::Transaction::Command.transition_to(transaction_id, :confirmed)
+  # TODO Should handle optional message
+  def complete(community_id:, transaction_id:)
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
-    transaction = query(transaction_id)
-    MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id, transaction[:listing_author_id])
+    tx_process = tx_process(tx[:payment_process])
+    gw = gateway_adapter(tx[:payment_gateway])
 
-    Result::Success.new(DataTypes.create_transaction_response(transaction))
+    res = tx_process.complete(tx: tx, gateway_adapter: gw)
+    res.maybe()
+      .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
+      .or_else(res)
   end
 
-  # TODO Should be implemented in process
-  def cancel(transaction_id)
-    MarketplaceService::Transaction::Command.transition_to(transaction_id, :canceled)
+  # TODO Should handle optional message
+  def cancel(community_id:, transaction_id:)
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
-    transaction = query(transaction_id)
-    MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id,transaction[:listing_author_id])
+    tx_process = tx_process(tx[:payment_process])
+    gw = gateway_adapter(tx[:payment_gateway])
 
-    Result::Success.new(DataTypes.create_transaction_response(transaction))
+    res = tx_process.cancel(tx: tx, gateway_adapter: gw)
+    res.maybe()
+      .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
+      .or_else(res)
   end
 
 

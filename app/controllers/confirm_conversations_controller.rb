@@ -60,9 +60,9 @@ class ConfirmConversationsController < ApplicationController
 
       transaction =
         if status.to_sym == :confirmed
-          TransactionService::Transaction.complete(@listing_transaction.id)
+          TransactionService::Transaction.complete(community_id: @current_community.id, transaction_id: @listing_transaction.id)
         else
-          TransactionService::Transaction.cancel(@listing_transaction.id)
+          TransactionService::Transaction.cancel(community_id: @current_community.id, transaction_id: @listing_transaction.id)
         end
 
       if(params[:message])

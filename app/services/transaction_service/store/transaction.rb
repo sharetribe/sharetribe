@@ -65,7 +65,7 @@ module TransactionService::Store::Transaction
   # conversation tightly together.
   def mark_as_unseen_by_other(community_id:, transaction_id:, person_id:)
     tx_model = TransactionModel.where(community_id: community_id, id: transaction_id).first
-    do_mark_as_unseen_by_other(tx_model) if tx_model
+    do_mark_as_unseen_by_other(tx_model, person_id) if tx_model
 
     nil
   end
