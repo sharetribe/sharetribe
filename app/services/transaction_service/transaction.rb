@@ -89,28 +89,26 @@ module TransactionService::Transaction
   end
 
 
-  # TODO Should handle optional message & mark unseen
-  def reject(community_id, transaction_id)
+  def reject(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
     tx_process = tx_process(tx[:payment_process])
     gw = gateway_adapter(tx[:payment_gateway])
 
-    res = tx_process.reject(tx: tx, gateway_adapter: gw)
+    res = tx_process.reject(tx: tx, message: message, sender_id: sender_id, gateway_adapter: gw)
     res.maybe()
       .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
       .or_else(res)
   end
 
 
-  # TODO Should handle optional message & mark unseen
-  def complete_preauthorization(community_id, transaction_id)
+  def complete_preauthorization(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
     tx_process = tx_process(tx[:payment_process])
     gw = gateway_adapter(tx[:payment_gateway])
 
-    res = tx_process.complete_preauthorization(tx: tx, gateway_adapter: gw)
+    res = tx_process.complete_preauthorization(tx: tx, message: message, sender_id: sender_id, gateway_adapter: gw)
     res.maybe()
       .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
       .or_else(res)

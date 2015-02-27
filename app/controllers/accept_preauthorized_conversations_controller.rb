@@ -21,7 +21,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     when :paypal
       render_paypal_form("accept")
     else
-      raise "Unknown payment type: #{payment_type}"
+      raise ArgumentError.new("Unknown payment type: #{payment_type}")
     end
   end
 
@@ -34,70 +34,72 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     when :paypal
       render_paypal_form("reject")
     else
-      raise "Unknown payment type: #{payment_type}"
+      raise ArgumentError.new("Unknown payment type: #{payment_type}")
     end
   end
 
-  def accepted
+  def accepted_or_rejected
     message = params[:listing_conversation][:message_attributes][:content]
     sender_id = @current_user.id
-    status = params[:listing_conversation][:status]
+    status = params[:listing_conversation][:status].to_sym
 
-    with_updated_listing_status(@listing_conversation, status, sender_id) do |lc|
-      with_optional_message(lc, message, sender_id) do |lc|
-        MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
-        flash[:notice] = t("layouts.notifications.#{lc.discussion_type}_accepted")
-        redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
-      end
-    end
+    res = accept_or_reject_tx(@current_community.id, @listing_conversation.id, status, message, sender_id)
 
-  end
-
-  def rejected
-    message = params[:listing_conversation][:message_attributes][:content]
-    sender_id = @current_user.id
-    status = params[:listing_conversation][:status]
-
-    with_updated_listing_status(@listing_conversation, status, sender_id) do |lc|
-      with_optional_message(lc, message, sender_id) do |lc|
-        MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
-        flash[:notice] = t("layouts.notifications.#{lc.discussion_type}_rejected")
-        redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
-      end
+    if res[:success]
+      flash[:notice] = success_msg(@listing_conversation, res[:flow])
+      redirect_to person_transaction_path(person_id: sender_id, id: @listing_conversation.id)
+    else
+      flash[:error] = error_msg(res[:flow])
+      redirect_to accept_preauthorized_person_message_path(person_id: sender_id , id: @listing_conversation.id)
     end
   end
+
 
   private
 
-  def with_optional_message(listing_conversation, message, sender_id, &block)
-    if(message)
-      listing_conversation.conversation.messages.create({
-          content: message,
-          sender_id: sender_id
-        })
+  def accept_or_reject_tx(community_id, tx_id, status, message, sender_id)
+    if (status == :paid)
+      accept_tx(community_id, tx_id, message, sender_id)
+    elsif (status == :rejected)
+      reject_tx(community_id, tx_id, message, sender_id)
+    else
+      {flow: :unknown, success: false}
     end
-
-    block.call(listing_conversation)
   end
 
-  def with_updated_listing_status(listing_conversation, status, sender_id, &block)
-    response =
-      if(status == "paid")
-        TransactionService::Transaction.complete_preauthorization(@current_community.id, listing_conversation.id)
-      elsif(status == "rejected")
-        TransactionService::Transaction.reject(@current_community.id, listing_conversation.id)
-      end
+  def accept_tx(community_id, tx_id, message, sender_id)
+    TransactionService::Transaction.complete_preauthorization(community_id: community_id,
+                                                              transaction_id: tx_id,
+                                                              message: message,
+                                                              sender_id: sender_id)
+      .maybe()
+      .map { |_| {flow: :accept, success: true}}
+      .or_else({flow: :accept, success: false})
+  end
 
-    if(response[:success])
-      block.call(listing_conversation.reload)
-    else
-      if (status == "paid")
-        flash[:error] = t("error_messages.paypal.accept_authorization_error")
-      else
-        flash[:error] = t("error_messages.paypal.reject_authorization_error")
-      end
+  def reject_tx(community_id, tx_id, message, sender_id)
+    TransactionService::Transaction.reject(community_id: community_id,
+                                           transaction_id: tx_id,
+                                           message: message,
+                                           sender_id: sender_id)
+      .maybe()
+      .map { |_| {flow: :reject, success: true}}
+      .or_else({flow: :reject, success: false})
+  end
 
-      redirect_to accept_preauthorized_person_message_path(person_id: sender_id , id: listing_conversation.id)
+  def success_msg(listing_conversation, flow)
+    if flow == :accept
+      t("layouts.notifications.#{listing_conversation.discussion_type}_accepted")
+    elsif flow == :reject
+      t("layouts.notifications.#{listing_conversation.discussion_type}_rejected")
+    end
+  end
+
+  def error_msg(flow)
+    if flow == :accept
+      t("error_messages.paypal.accept_authorization_error")
+    elsif flow == :reject
+      t("error_messages.paypal.reject_authorization_error")
     end
   end
 

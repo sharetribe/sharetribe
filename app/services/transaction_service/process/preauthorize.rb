@@ -3,6 +3,8 @@ module TransactionService::Process
 
   class Preauthorize
 
+    TxStore = TransactionService::Store::Transaction
+
     def create(tx:, gateway_fields:, gateway_adapter:, prefer_async:)
       Transition.transition_to(tx[:id], :initiated)
 
@@ -16,20 +18,43 @@ module TransactionService::Process
       end
     end
 
-    def reject(tx:, gateway_adapter:)
-      Gateway.unwrap_completion(
+    def reject(tx:, message:, sender_id:, gateway_adapter:)
+      res = Gateway.unwrap_completion(
         gateway_adapter.reject_payment(tx: tx, reason: "")) do
 
         Transition.transition_to(tx[:id], :rejected)
       end
+
+      if res[:success] && message.present?
+        send_message(tx, message, sender_id)
+      end
+
+      res
     end
 
-    def complete_preauthorization(tx:, gateway_adapter:)
-      Gateway.unwrap_completion(
+    def complete_preauthorization(tx:, message:, sender_id:, gateway_adapter:)
+      res = Gateway.unwrap_completion(
         gateway_adapter.complete_preauthorization(tx: tx)) do
 
         Transition.transition_to(tx[:id], :paid)
       end
+
+      if res[:success] && message.present?
+        send_message(tx, message, sender_id)
+      end
+
+      res
     end
+
+
+    private
+
+    def send_message(tx, message, sender_id)
+      TxStore.add_message(community_id: tx[:community_id],
+                          transaction_id: tx[:id],
+                          message: message,
+                          sender_id: sender_id)
+    end
+
   end
 end
