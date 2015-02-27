@@ -15,7 +15,7 @@ describe MarketplaceService::API::Marketplaces do
       c = create(@community_params)
 
       expect(c[:domain]).to eql "localfoodgarden"
-      expect(c[:username]).to eql "localfoodgarden"
+      expect(c[:ident]).to eql "localfoodgarden"
       expect(c[:locales].first).to eql "es"
       expect(c[:country]).to eql "ES"
     end
@@ -25,7 +25,7 @@ describe MarketplaceService::API::Marketplaces do
 
       c = create(@community_params.merge!({:marketplace_name => "Common"}))
       expect(c[:domain]). to eql "common1"
-      expect(c[:username]). to eql "common1"
+      expect(c[:ident]). to eql "common1"
     end
 
     it "should set correct currency based on contry selection" do

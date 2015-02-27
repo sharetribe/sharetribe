@@ -28,7 +28,7 @@ describe IntApi::MarketplacesController do
       expect(c.locales.first).to eql "fi"
       expect(c.name("fi")).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
-      expect(c.username).to eql "imaginationtraders"
+      expect(c.ident).to eql "imaginationtraders"
       expect(c.transaction_types.first.class).to eql Sell
 
       payment_settings = TransactionService::API::Api.settings.get_active(community_id: c.id)
@@ -65,7 +65,7 @@ describe IntApi::MarketplacesController do
       expect(c.locales.first).to eql "fi"
       expect(c.name("fi")).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
-      expect(c.username).to eql "imaginationtraders"
+      expect(c.ident).to eql "imaginationtraders"
       expect(c.transaction_types.first.class).to eql Sell
 
       p = c.admins.first
@@ -98,7 +98,7 @@ describe IntApi::MarketplacesController do
       expect(c.locales.first).to eql "fi"
       expect(c.name("fi")).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
-      expect(c.username).to eql "imaginationtraders"
+      expect(c.ident).to eql "imaginationtraders"
       expect(c.transaction_types.first.class).to eql Sell
 
       p = c.admins.first
@@ -131,7 +131,7 @@ describe IntApi::MarketplacesController do
       expect(c.locales.first).to eql "fi"
       expect(c.name("fi")).to eql "ImaginationTraders"
       expect(c.domain).to eql "imaginationtraders"
-      expect(c.username).to eql "imaginationtraders"
+      expect(c.ident).to eql "imaginationtraders"
       expect(c.transaction_types.first.class).to eql Sell
 
       p = c.admins.first

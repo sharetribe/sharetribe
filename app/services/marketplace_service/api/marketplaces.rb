@@ -46,7 +46,7 @@ module MarketplaceService::API
         {
           consent: "SHARETRIBE1.0",
           domain: domain,
-          username: domain,
+          ident: domain,
           settings: {"locales" => [locale]},
           available_currencies: available_currencies_based_on(params[:marketplace_country].or_else("us")),
           country: params[:marketplace_country].upcase.or_else(nil)

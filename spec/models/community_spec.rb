@@ -4,7 +4,7 @@
 # Table name: communities
 #
 #  id                                         :integer          not null, primary key
-#  username                                   :string(255)      not null
+#  ident                                      :string(255)      not null
 #  domain                                     :string(255)
 #  created_at                                 :datetime
 #  updated_at                                 :datetime
@@ -98,6 +98,7 @@
 # Indexes
 #
 #  index_communities_on_domain  (domain)
+#  index_communities_on_ident   (ident)
 #
 
 require 'spec_helper'
