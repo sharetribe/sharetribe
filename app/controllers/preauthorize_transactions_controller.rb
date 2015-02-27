@@ -25,11 +25,11 @@ class PreauthorizeTransactionsController < ApplicationController
     :content,
     :sender_id,
     :contract_agreed,
-    :require_shipping_address,
+    :delivery_method,
     :listing_id
    ).with_validations {
     validates_presence_of :listing_id
-    validates :require_shipping_address, inclusion: { in: %w(1 0), message: "%{value} is not 1 or 0."}
+    validates :delivery_method, inclusion: { in: %w(shipping pickup), message: "%{value} is not shipping or pickup."}
   }
 
   PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
@@ -43,7 +43,7 @@ class PreauthorizeTransactionsController < ApplicationController
     render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: vprms[:listing],
-      shipping_enabled: params[:delivery] == "shipping",
+      delivery_method: params[:delivery],
       sum: vprms[:total_price],
       author: query_person_entity(vprms[:listing][:author_id]),
       action_button_label: vprms[:action_button_label],
@@ -73,7 +73,7 @@ class PreauthorizeTransactionsController < ApplicationController
       user: @current_user,
       content: preauthorize_form.content,
       use_async: request.xhr?,
-      require_shipping_address: preauthorize_form.require_shipping_address.to_i
+      delivery_method: preauthorize_form.delivery_method
     )
 
     unless transaction_response[:success]
@@ -398,12 +398,12 @@ class PreauthorizeTransactionsController < ApplicationController
           content: opts[:content],
           payment_gateway: opts[:payment_type],
           payment_process: :preauthorize,
-          booking_fields: opts[:booking_fields]
+          booking_fields: opts[:booking_fields],
+          delivery_method: opts[:delivery_method]
     }
 
-    if(opts[:require_shipping_address] == 1)
+    if(opts[:delivery_method] == "shipping")
       transaction[:shipping_price] = opts[:listing].shipping_price
-      transaction[:require_shipping_address] = opts[:require_shipping_address]
     end
 
     TransactionService::Transaction.create({

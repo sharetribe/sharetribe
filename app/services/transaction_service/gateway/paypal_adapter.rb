@@ -22,7 +22,7 @@ module TransactionService::Gateway
          item_quantity: 1,
          item_price: item_total,
          merchant_id: tx[:listing_author_id],
-         require_shipping_address: tx[:require_shipping_address],
+         require_shipping_address: tx[:delivery_method] == :shipping,
          shipping_total: tx[:shipping_price],
          item_total: item_total,
          order_total: order_total,

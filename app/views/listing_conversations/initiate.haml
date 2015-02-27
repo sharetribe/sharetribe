@@ -39,7 +39,7 @@
 
       %li
         %div
-          -if shipping_enabled
+          -if delivery_method == "shipping"
             .row
               %span.col-2
                 = "Subtotal:"
@@ -76,8 +76,9 @@
       - if @current_community.transaction_agreement_in_use
         = render :partial => "listing_conversations/transaction_agreement_checkbox", locals: { form: form }
 
-      - if shipping_enabled
-        = form.hidden_field :require_shipping_address, value: 1
+      - if delivery_method
+        = form.hidden_field :delivery_method, value: delivery_method
+
       .row
         .col-12.paypal-button-wrapper
           = form.submit t("paypal.checkout_with_paypal"), type: :image, src: t("paypal.buy_now_with_paypal_button_url"), alt: t("paypal.checkout_with_paypal"), class: "checkout-with-paypal-button"
