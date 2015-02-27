@@ -83,9 +83,9 @@ module TransactionService::Transaction
                             gateway_adapter: gateway_adapter,
                             prefer_async: paypal_async)
 
-    res.maybe().map { |gw_resp|
-      Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_resp))
-    }.or_else(res)
+    res.maybe()
+      .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
+      .or_else(res)
   end
 
 
@@ -98,7 +98,7 @@ module TransactionService::Transaction
 
     res = tx_process.reject(tx: tx, gateway_adapter: gw)
     res.maybe()
-      .map { Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]))) }
+      .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
       .or_else(res)
   end
 
@@ -124,6 +124,7 @@ module TransactionService::Transaction
     raise NoMethodError.new("Not implemented")
   end
 
+  # TODO Should be implemented in process
   def complete(transaction_id)
     MarketplaceService::Transaction::Command.transition_to(transaction_id, :confirmed)
 
@@ -133,6 +134,7 @@ module TransactionService::Transaction
     Result::Success.new(DataTypes.create_transaction_response(transaction))
   end
 
+  # TODO Should be implemented in process
   def cancel(transaction_id)
     MarketplaceService::Transaction::Command.transition_to(transaction_id, :canceled)
 
