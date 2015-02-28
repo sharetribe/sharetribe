@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150226131628) do
+ActiveRecord::Schema.define(:version => 20150304084451) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -810,6 +810,21 @@ ActiveRecord::Schema.define(:version => 20150226131628) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "shipping_addresses", :force => true do |t|
+    t.integer  "transaction_id",    :null => false
+    t.string   "status"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "postal_code"
+    t.string   "city"
+    t.string   "country"
+    t.string   "state_or_province"
+    t.string   "street1"
+    t.string   "street2"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "testimonials", :force => true do |t|
     t.float    "grade"
