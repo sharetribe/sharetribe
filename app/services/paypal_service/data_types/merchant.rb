@@ -56,7 +56,16 @@ module PaypalService
         [:billing_agreement_accepted],
         [:payer, :string],
         [:payer_id, :string],
-        [:order_total, :money])
+        [:order_total, :money],
+        [:shipping_address_status, :string],
+        [:shipping_address_city, :string],
+        [:shipping_address_country, :string],
+        [:shipping_address_name, :string],
+        [:shipping_address_phone, :string],
+        [:shipping_address_postal_code, :string],
+        [:shipping_address_state_or_province, :string],
+        [:shipping_address_street1, :string],
+        [:shipping_address_street2, :string])
 
       SetExpressCheckoutOrder = EntityUtils.define_builder(
         [:method, const_value: :set_express_checkout_order],

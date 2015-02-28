@@ -258,11 +258,12 @@ module PaypalService::API
             finally: method(:handle_failed_create_payment).call(token),
           }
         ) do |ec_details|
-
           # Validate that the buyer accepted and we have a payer_id now
           if (ec_details[:payer_id].nil?)
             return Result::Error.new("Payment has not been accepted by the buyer.")
           end
+
+          @events.send(:order_details, :success, ec_details.merge(transaction_id: token[:transaction_id]))
 
           with_success(token[:community_id], token[:transaction_id],
             MerchantData.create_do_express_checkout_payment({
