@@ -49,7 +49,7 @@ namespace :sharetribe do
       community_sheet = spreadsheet.worksheet "Community"
       community_domain = community_sheet.row(1)[1]
 
-      c = Community.find_by_domain(community_domain)
+      c = Community.where(ident: community_domain).first
       c.destroy if c
 
       user_sheet = spreadsheet.worksheet "Users"
@@ -72,7 +72,7 @@ namespace :sharetribe do
       community_sheet = spreadsheet.worksheet "Community"
       community_domain = community_sheet.row(1)[1]
 
-      c = Community.find_by_domain(community_domain)
+      c = Community.where(ident: community_domain).first
 
       c.community_memberships.destroy_all
 

@@ -77,11 +77,10 @@ module MarketplaceService::API
       module_function
 
       def community_params(params, marketplace_name, locale)
-        domain = available_domain_based_on(marketplace_name)
+        ident = available_ident_based_on(marketplace_name)
         {
           consent: "SHARETRIBE1.0",
-          domain: domain,
-          ident: domain,
+          ident: ident,
           settings: {"locales" => [locale]},
           available_currencies: available_currencies_based_on(params[:marketplace_country].or_else("us")),
           country: params[:marketplace_country].upcase.or_else(nil)
@@ -128,25 +127,25 @@ module MarketplaceService::API
         "<h1>#{I18n.t("infos.how_to_use.default_title", locale: locale)}</h1><div>#{I18n.t("infos.how_to_use.default_content", locale: locale, :marketplace_name => marketplace_name)}</div>"
       end
 
-      def available_domain_based_on(initial_domain)
+      def available_ident_based_on(initial_ident)
 
-        if initial_domain.blank?
-          initial_domain = "trial_site"
+        if initial_ident.blank?
+          initial_ident = "trial_site"
         end
 
-        current_domain = initial_domain.to_url
-        current_domain = current_domain[0..29] #truncate to 30 chars or less
+        current_ident = initial_ident.to_url
+        current_ident = current_ident[0..29] #truncate to 30 chars or less
 
         # use basedomain as basis on new variations if current domain is not available
-        base_domain = current_domain
+        base_ident = current_ident
 
         i = 1
-        while CommunityModel.find_by_domain(current_domain) || RESERVED_DOMAINS.include?(current_domain) do
-          current_domain = "#{base_domain}#{i}"
+        while CommunityModel.exists?(ident: current_ident) || RESERVED_DOMAINS.include?(current_ident) do
+          current_ident = "#{base_ident}#{i}"
           i += 1
         end
 
-        return current_domain
+        return current_ident
       end
 
       def available_currencies_based_on(country_code)

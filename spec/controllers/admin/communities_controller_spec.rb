@@ -4,7 +4,7 @@ describe Admin::CommunitiesController do
 
   before(:each) do
     @community = FactoryGirl.create(:community)
-    @request.host = "#{@community.domain}.lvh.me"
+    @request.host = "#{@community.ident}.lvh.me"
     sign_in_for_spec(create_admin_for(@community))
   end
 

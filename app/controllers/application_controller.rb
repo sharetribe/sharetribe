@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
     :check_auth_token,
     :fetch_logged_in_user,
     :fetch_community,
+    :redirect_to_marketplace_domain,
     :fetch_community_membership,
     :set_locale,
     :generate_event_id,
@@ -164,6 +165,38 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  def redirect_to_marketplace_domain
+    return unless @current_community
+
+    host = request.host
+    domain = @current_community.domain
+
+    if needs_redirect?(host, domain)
+      redirect_to "#{request.protocol}#{domain}#{request.fullpath}", status: :moved_permanently
+    end
+  end
+
+  def needs_redirect?(host, domain)
+    if domain.nil?
+      false
+    elsif is_subdomain?(domain)
+      # In the future we should not save subdomain (i.e. the usernames) to `domain` column.
+      # However, those have been left there for easier migration from domain -> usernames.
+      # We have a lot of code where `find_by_domain` is used, and we don't want to break that
+      # for now
+      false
+    elsif host == domain
+      false
+    else
+      true
+    end
+  end
+
+  def is_subdomain?(domain)
+    # Very naive
+    !domain.include?(".")
+  end
+
   # Fetch community
   #
   # 1. Try to find by domain
@@ -171,19 +204,31 @@ class ApplicationController < ActionController::Base
   # 3. Otherwise nil
   #
   def self.default_community_fetch_strategy(domain)
+    # Find by domain
     by_domain = Community.find_by_domain(domain)
 
     if by_domain.present?
-      by_domain
-    else
-      count = Community.count
-
-      if count == 1
-        Community.first
-      else
-        nil
-      end
+      return by_domain
     end
+
+    # Find by username
+    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
+    ident = domain.chomp(".#{app_domain}")
+    by_ident = Community.where(ident: ident).first
+
+    if by_ident.present?
+      return by_ident
+    end
+
+    # If only one, use it
+    count = Community.count
+
+    if count == 1
+      return Community.first
+    end
+
+    # Not found, return nil
+    nil
   end
 
   # Before filter to check if current user is the member of this community

@@ -1,13 +1,13 @@
 class BraintreeWebhooksController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
-  skip_filter :fetch_community, :check_email_confirmation
+  skip_filter :fetch_community, :redirect_to_marketplace_domain, :check_email_confirmation
 
   before_filter :fetch_community_by_params
 
   before_filter do
     unless @current_community.braintree_in_use?
-      BTLog.error("Received webhook notification even though '#{@current_community.domain}' does not have Braintree in use")
+      BTLog.error("Received webhook notification even though '#{@current_community.ident}' does not have Braintree in use")
       render :nothing => true, :status => 400 and return
     end
   end

@@ -2,7 +2,7 @@ Before do
   Capybara.default_host = 'test.lvh.me'
   Capybara.server_port = 9887
   Capybara.app_host = "http://test.lvh.me:9887"
-  @current_community = Community.find_by_domain("test")
+  @current_community = Community.where(ident: "test").first
 end
 
 Before('@javascript') do
@@ -26,7 +26,7 @@ end
 Before ('@subdomain2') do
   Capybara.default_host = 'test2.lvh.me'
   Capybara.app_host = "http://test2.lvh.me:9887"
-  @current_community = Community.find_by_domain("test2")
+  @current_community = Community.where(ident: "test2").first
 end
 
 Before ('@no_subdomain') do

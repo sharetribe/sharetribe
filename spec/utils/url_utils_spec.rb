@@ -20,4 +20,9 @@ describe URLUtils do
     expect(URLUtils.extract_locale_from_url('http://www.sharetribe.com/en/people')).to eql('en')
     expect(URLUtils.extract_locale_from_url('http://www.sharetribe.com/en-US/people')).to eql('en-US')
   end
+
+  it "#strip_port_from_host" do
+    expect(URLUtils.strip_port_from_host("www.sharetribe.com")).to eql("www.sharetribe.com")
+    expect(URLUtils.strip_port_from_host("www.sharetribe.com:3000")).to eql("www.sharetribe.com")
+  end
 end

@@ -17,7 +17,7 @@ module UserService::API
       if APP_CONFIG.skip_email_confirmation
         email.confirm!
       else
-        Email.send_confirmation(email, community.full_domain, community)
+        Email.send_confirmation(email, community)
       end
 
       return user

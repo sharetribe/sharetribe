@@ -113,8 +113,8 @@ When /^I confirm category removal$/ do
   }
 end
 
-Given /^"(.*?)" is the only top level category in community "(.*?)"$/ do |category_name, domain|
-  community = Community.where(domain: domain).first
+Given /^"(.*?)" is the only top level category in community "(.*?)"$/ do |category_name, ident|
+  community = Community.where(ident: ident).first
   category = find_category_by_name(category_name)
   community.main_categories.each do |community_category|
     if !community_category.eql? category then community_category.destroy end

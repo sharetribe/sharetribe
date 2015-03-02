@@ -1,10 +1,10 @@
 module CommunitySteps
 
-  def use_payment_gateway(community_domain, gateway_name, commission)
+  def use_payment_gateway(community_ident, gateway_name, commission)
     gateway_name ||= "Checkout"
     commission ||= "8"
 
-    community = Community.find_by_domain(community_domain)
+    community = Community.where(ident: community_ident).first
     community.update_attributes(:vat => "24", :commission_from_seller => commission.to_i)
 
     if gateway_name == "Checkout"
@@ -19,10 +19,10 @@ World(CommunitySteps)
 
 Given /^there are following communities:$/ do |communities_table|
   communities_table.hashes.each do |hash|
-    domain = hash[:community]
-    existing_community = Community.find_by_domain(domain)
+    ident = hash[:community]
+    existing_community = Community.where(ident: ident).first
     existing_community.destroy if existing_community
-    @hash_community = FactoryGirl.create(:community, :domain => domain, :settings => {"locales" => ["en", "fi"]})
+    @hash_community = FactoryGirl.create(:community, :ident => ident, :settings => {"locales" => ["en", "fi"]})
 
     attributes_to_update = hash.except('community')
     @hash_community.update_attributes(attributes_to_update) unless attributes_to_update.empty?
@@ -46,23 +46,23 @@ Given /^the test community has following available locales:$/ do |locale_table|
 end
 
 Given /^the terms of community "([^"]*)" are changed to "([^"]*)"$/ do |community, terms|
-  Community.find_by_domain(community).update_attribute(:consent, terms)
+  Community.where(ident: community).first.update_attribute(:consent, terms)
 end
 
-Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, domain|
-  community = Community.where(domain: domain).first
+Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, community_name|
+  community = Community.where(ident: community_name).first
   person = Person.find_by_username!(username)
   membership = FactoryGirl.create(:community_membership, :person => person, :community => community)
   membership.save!
 end
 
-Then /^Most recently created user should be member of "([^"]*)" community with(?: status "(.*?)" and)? its latest consent accepted(?: with invitation code "([^"]*)")?$/ do |community_domain, status, invitation_code|
+Then /^Most recently created user should be member of "([^"]*)" community with(?: status "(.*?)" and)? its latest consent accepted(?: with invitation code "([^"]*)")?$/ do |community_ident, status, invitation_code|
     # Person.last seemed to return unreliable results for some reason
     # (kassi_testperson1 instead of the actual newest person, so changed
     # to look for the latest CommunityMembership)
     status ||= "accepted"
 
-    community = Community.find_by_domain(community_domain)
+    community = Community.where(ident: community_ident).first
     CommunityMembership.last.community.should == community
     CommunityMembership.last.consent.should == community.consent
     CommunityMembership.last.status.should == status
@@ -70,36 +70,36 @@ Then /^Most recently created user should be member of "([^"]*)" community with(?
 end
 
 Given /^given name and last name are not required in community "([^"]*)"$/ do |community|
-  Community.find_by_domain(community).update_attribute(:real_name_required, 0)
+  Community.where(ident: community).first.update_attribute(:real_name_required, 0)
 end
 
 Given /^community "([^"]*)" requires invite to join$/ do |community|
-  Community.find_by_domain(community).update_attribute(:join_with_invite_only, true)
+  Community.where(ident: community).first.update_attribute(:join_with_invite_only, true)
 end
 
 Given /^community "([^"]*)" does not require invite to join$/ do |community|
-  Community.find_by_domain(community).update_attribute(:join_with_invite_only, false)
+  Community.where(ident: community).first.update_attribute(:join_with_invite_only, false)
 end
 
 Given /^community "([^"]*)" requires users to have an email address of type "(.*?)"$/ do |community, email|
-  Community.find_by_domain(community).update_attribute(:allowed_emails, email)
+  Community.where(ident: community).first.update_attribute(:allowed_emails, email)
 end
 
 Given /^the community has payments in use(?: via (\w+))?(?: with seller commission (\w+))?$/ do |gateway_name, commission|
-  use_payment_gateway(@current_community.domain, gateway_name, commission)
+  use_payment_gateway(@current_community.ident, gateway_name, commission)
 end
 
-Given /^community "([^"]*)" has payments in use(?: via (\w+))?(?: with seller commission (\w+))?$/ do |community_domain, gateway_name, commission|
-  use_payment_gateway(community_domain, gateway_name, commission)
+Given /^community "([^"]*)" has payments in use(?: via (\w+))?(?: with seller commission (\w+))?$/ do |community_ident, gateway_name, commission|
+  use_payment_gateway(community_ident, gateway_name, commission)
 end
 
 Given /^users (can|can not) invite new users to join community "([^"]*)"$/ do |verb, community|
   can_invite = verb == "can"
-  Community.find_by_domain(community).update_attribute(:users_can_invite_new_users, can_invite)
+  Community.where(ident: community).first.update_attribute(:users_can_invite_new_users, can_invite)
 end
 
 Given /^there is an invitation for community "([^"]*)" with code "([^"]*)"(?: with (\d+) usages left)?$/ do |community, code, usages_left|
-  inv = Invitation.new(:community => Community.find_by_domain(community), :code => code, :inviter_id => @people.first[1].id)
+  inv = Invitation.new(:community => Community.where(ident: community).first, :code => code, :inviter_id => @people.first[1].id)
   inv.usages_left = usages_left if usages_left.present?
   inv.save
 end
@@ -111,7 +111,7 @@ end
 When /^I move to community "([^"]*)"$/ do |community|
   Capybara.default_host = "#{community}.lvh.me"
   Capybara.app_host = "http://#{community}.lvh.me:9887"
-  @current_community = Community.find_by_domain(community)
+  @current_community = Community.where(ident: community).first
 end
 
 When /^I arrive to sign up page with the link in the invitation email with code "(.*?)"$/ do |code|
@@ -127,19 +127,19 @@ Given /^show me existing community$/ do
 end
 
 Then /^community "(.*?)" should require invite to join$/ do |community|
-   Community.find_by_domain(community).join_with_invite_only.should be_truthy
+   Community.where(ident: community).first.join_with_invite_only.should be_truthy
 end
 
 Then /^community "(.*?)" should not require invite to join$/ do |community|
-   Community.find_by_domain(community).join_with_invite_only.should_not be_truthy
+   Community.where(ident: community).first.join_with_invite_only.should_not be_truthy
 end
 
-Given /^community "(.*?)" is private$/ do |community_domain|
-  Community.find_by_domain(community_domain).update_attributes({:private => true})
+Given /^community "(.*?)" is private$/ do |community_ident|
+  Community.where(ident: community_ident).first.update_attributes({:private => true})
 end
 
 Given /^community "(.*?)" has following category structure:$/ do |community, categories|
-  current_community = Community.find_by_domain(community)
+  current_community = Community.where(ident: community).first
   old_category_ids = current_community.categories.collect(&:id)
 
   current_community.categories = categories.hashes.map do |hash|
@@ -164,7 +164,7 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
 end
 
 Given /^community "(.*?)" has following transaction types enabled:$/ do |community, transaction_types|
-  current_community = Community.find_by_domain(community)
+  current_community = Community.where(ident: community).first
   current_community.transaction_types.destroy_all
 
   current_community.transaction_types << transaction_types.hashes.map do |hash|
@@ -199,8 +199,8 @@ Given /^that transaction belongs to category "(.*?)"$/ do |category_name|
   category.save!
 end
 
-Given /^listing publishing date is shown in community "(.*?)"$/ do |community_domain|
-  Community.find_by_domain(community_domain).update_attributes({:show_listing_publishing_date => true})
+Given /^listing publishing date is shown in community "(.*?)"$/ do |community_ident|
+  Community.where(ident: community_ident).first.update_attributes({:show_listing_publishing_date => true})
 end
 
 Given /^current community requires users to be verified to post listings$/ do

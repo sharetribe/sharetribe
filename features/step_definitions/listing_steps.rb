@@ -48,12 +48,12 @@ Given /^privacy of that listing is "([^"]*)"$/ do |privacy|
   @listing.update_attribute(:privacy, privacy)
 end
 
-Given(/^that listing belongs to community "(.*?)"$/) do |domain|
-  @listing.communities = [Community.find_by_domain(domain)]
+Given(/^that listing belongs to community "(.*?)"$/) do |ident|
+  @listing.communities = [Community.where(ident: ident).first]
 end
 
-Given /^that listing is visible to members of community "([^"]*)"$/ do |domain|
-  @listing.communities << Community.find_by_domain(domain)
+Given /^that listing is visible to members of community "([^"]*)"$/ do |ident|
+  @listing.communities << Community.where(ident: ident).first
 end
 
 Given /^that listing has a description "(.*?)"$/ do |description|
@@ -127,8 +127,8 @@ When /^I choose to view only transaction type "(.*?)"$/ do |transaction_type|
   }
 end
 
-Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_domain, opts_table|
-  @community = Community.find_by_domain(community_domain)
+Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_ident, opts_table|
+  @community = Community.where(ident: community_ident).first
   @category = find_category_by_name(category_name)
   @custom_field = FactoryGirl.build(:custom_dropdown_field, :community => @community, :names => [CustomFieldName.create(:value => field_title, :locale => "en")])
   @custom_field.category_custom_fields << FactoryGirl.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
@@ -173,8 +173,8 @@ Given /^that listing has custom field "(.*?)" with value "(.*?)"$/ do |field_tit
   value.save!
 end
 
-Given /^listing comments are in use in community "(.*?)"$/ do |community_domain|
-  community = Community.find_by_domain(community_domain)
+Given /^listing comments are in use in community "(.*?)"$/ do |community_ident|
+  community = Community.where(ident: community_ident).first
   community.update_attribute(:listing_comments_in_use, true)
 end
 

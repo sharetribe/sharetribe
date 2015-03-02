@@ -1,5 +1,5 @@
 Given /^community "(.*?)" allows only organizations$/ do |community|
-  c = Community.find_by_domain(community)
+  c = Community.where(ident: community).first
   c.only_organizations = true
   c.save!
 end
