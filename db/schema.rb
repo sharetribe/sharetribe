@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(:version => 20150225082144) do
   add_index "comments", ["listing_id"], :name => "index_comments_on_listing_id"
 
   create_table "communities", :force => true do |t|
-    t.string   "ident",                                                                             :null => false
+    t.string   "ident"
     t.string   "domain"
     t.datetime "created_at"
     t.datetime "updated_at"
