@@ -71,7 +71,7 @@ zh:
         transaction_agreement: 交易协定
         transaction_agreement_checkbox: 需要用户在交易前接受协定
         transaction_agreement_checkbox_header: 协定标签
-        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_checkbox_label_description: 该文本将被显示于结帐表单的检查框边上。洪湖需要勾选该框以继续交易。标签文字类似于“通过勾选该检查框我接受协议。“
         transaction_agreement_text_header: 协定文本
         transaction_agreement_description: "这是用户需要接受的实际协议的内容。该协议内容会在用户点击协议标签旁边的“%{read_more}”链接时展现。"
       edit_look_and_feel:
@@ -105,7 +105,7 @@ zh:
         first_name_only: 名字（名）
         invalid_color_code: 颜色代码需要包含6个数字或者字符A-F，比如D96E21
         custom_head_script: 定制脚本
-        custom_head_script_instructions_text: ~
+        custom_head_script_instructions_text: 该脚本注入在每一个页面的<head>标签中，可以插入自定义CSS，JavaScript或者HTML。请注意对Sharetribe的未来改动可能会导致你的脚本不兼容。
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
@@ -121,13 +121,13 @@ zh:
         look_and_feel: "在你将你的站点公开发布前，你也许想再配置一些东西。比如，你可能想去%{logo_link}修改封面照片和颜色以配合你的品牌的外观和感受。"
         logo_link_text: 添加你的标志
         custom_domain: ~
-        categories_and_custom_fields: ~
+        categories_and_custom_fields: "接下来需要决定用户可以发布什么样的内容到你的站点。你可以%{categories_link}，通过%{custom_fields_link}定制实际列表表单包含的内容，并在用户浏览列表时决定%{filters_link}。"
         categories_link_text: 新增分类和子分类
         custom_fields_link_text: 配置表单字段
         filters_link_text: 何种类型的过滤器
         payments: "如果你希望人们通过你的市集支付他们购买的东西，从而为每笔交易收取费用，你应该%{payments_link}。"
         payments_link_text: 配置支付方式
-        info_texts: ~
+        info_texts: "不要忘了通过定制信息页面和其他文本来告诉你的用户关于你的市集。有一些不错的地方可以参考：你的%{about_page_link}，你的%{terms_of_use_link}（你应该增加你自己的条款，或者编辑当前模板，或者创建一个全新文档），你的%{privacy_policy_link}，以及发送给每个新用户的%{welcome_email_link}。这儿还有一些你可以配置的%{instruction_texts_link}。"
         about_page_link_text: 关于页面
         terms_of_use_link_text: 使用条款
         privacy_policy_link_text: 隐私策略
@@ -140,7 +140,7 @@ zh:
         analytics_link_text: "连接一个Google Analytics帐号"
         settings: "有许多其他的设置你可以使用。比如你可以要求每个人加入你的市集钱必须从其他用户处获得邀请并且设置你的市集为私有，从而只有登录的用户才能看见内容。%{settings_link}"
         settings_link_text: 在这里查看你的市场设置
-        final_words: ~
+        final_words: "就是这些了！如果一切都准备好了，你可以开始在你的市集发送邀请%{invite_link}。你可以看到所有加入你的%{view_users_link}的哟农户，以及所有他们完成的交易%{view_transactions_link}。你还可以很容易的管理列表：去列表页面你将看到管理员链接以用于编辑和关闭。如果需要帮助，你可以点击%{contact_support_link} ——我们在这儿随时准备为你服务。"
         invite_link_text: 邀请用户
         view_users_link_text: 这里
         view_transactions_link_text: 这里
@@ -325,7 +325,7 @@ zh:
       transaction_fee_label: 交易费用：
       minimum_transaction_fee_label: 最低交易费用：
       save_settings: 保存设置
-      note_about_transaction_fee: ~
+      note_about_transaction_fee: "注意：交易费用包括PayPal的费用都依赖于你的货币种类和卖家的销售量。因此，费用至少是%{min_paypal_commission}。当费用从卖家收取时，PayPal会先取费用，然后剩余的费用将被汇入你的PayPal帐号。"
       minimum_listing_price_below_tx_fee: "至少必须等于最低交易费用%{minimum_transaction_fee}。"
       minimum_listing_price_below_min: "必须高于最低佣金%{minimum_commission}。"
     transaction_types:
@@ -1509,7 +1509,7 @@ zh:
       admin_account_not_connected: "没有为%{service_name}配置付款方式，所以你不能连接到你的PayPal帐号。请%{contact_admin_link}了解详情。"
       paypal_account_email: "1. 连接你的 PayPal 帐号"
       paypal_account_email_placeholder: 你的PayPal电邮地址
-      paypal_account_email_info_text: ~
+      paypal_account_email_info_text: "如果你没有PayPal帐号，你可以用%{create_paypal_account}创建一个。如果你在连接PayPal帐号时的到错误信息，那你需要升级到商业帐号。升级是免费而快捷的。如果你是个人用户，你应该只需要在PayPal询问”商业名称“时填入姓名。要升级帐号，通过%{upgrade_paypal_account}查找升级链接。"
       create_paypal_account: 这里
       upgrade_paypal_account: 在这里升级你的帐号。
       connect_paypal_account: 连接PayPal帐号

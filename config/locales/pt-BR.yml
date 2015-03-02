@@ -99,7 +99,7 @@ pt-BR:
         custom_color1_instructions_text: "Você pode mudar a cor principal da interface de usuário desta comunidade, inserindo um valor de cor hex. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\"> ColorPicker.com </ a> pode ajudar você a escolher a cor e copie o código aqui."
         custom_color2_instructions_text: "Você pode alterar a segunda cor da interface do usuário dessa comunidade, inserindo um valor de cor hex."
         default_browse_view: "Visualização navegação padrão"
-        default_browse_view_instructions_text: "Visualização de navegação padrão é usado na página inicial para definir a forma como as listas são exibidas por padrão."
+        default_browse_view_instructions_text: "Visualização de navegação padrão é usado na página inicial para definir a forma como os anúncios são exibidos por padrão."
         grid: Grade
         list: Lista
         map: Mapa
@@ -120,29 +120,29 @@ pt-BR:
         send_test_message: "Enviar mensagem de teste"
       getting_started:
         getting_started: "Guia dos primeiros passos"
-        welcome_to_your_marketplace: "Bem-vindo ao seu mercado, %{name}"
+        welcome_to_your_marketplace: "Bem-vindo(a) ao seu mercado, %{name}!"
         intro: "Este é um guia rápido para configurar e gerenciar o seu site mercado. Você pode visualizar o site ao vivo %{live_site_link}"
         live_site_link_text: aqui
         look_and_feel: "Antes de lançar o seu site para o público, você provavelmente vai querer configurar algumas coisas. Por exemplo, você pode querer alterar %{logo_link} e mudar a foto da capa e cores para combinar com o look and feel da sua marca."
         logo_link_text: "adicionar o seu logotipo"
-        custom_domain: ~
-        categories_and_custom_fields: ~
+        custom_domain: "Você também pode querer adicionar um endereço de web personalizado (um exemplo: www.seumercado.com.br). Configurá-lo requer algum trabalho manual da nossa parte, e nós também precisaremos comprar um certificado SSL para o domínio para manter seu site seguro. Por estas razões, domínios personalizados não estão disponíveis em testes gratuitos agora, para isso, você precisa se inscrever em nosso plano Pro ou superior para ter um. Se você desejar ter um domínio personalizado, por favor %{contact_support_link}."
+        categories_and_custom_fields: "O próximo passo é decidir que tipo de conteúdo que as pessoas podem postar em seu site. Você pode adicionar %{categories_link}, configurar os %{custom_fields_link} que a forma de listagem atual contém, e decidir que tipo de %{filters_link} estarão em uso quando as pessoas navegarem pelos perfis."
         categories_link_text: "adicionar categorias e subcategorias"
         custom_fields_link_text: "configurar os campos do formulário"
         filters_link_text: "que tipo de filtros"
         payments: "Se você quer que as pessoas sejam capazes de pagar suas compras através de seu mercado, de modo que você possa cobrar uma taxa por cada transação, você deve %{payments_link}."
         payments_link_text: "configurar um método de pagamento"
-        info_texts: ~
+        info_texts: "Não se esqueça de personalizar as páginas de informações e outros textos em que você possa informar a seus usuários sobre o seu mercado. Bons lugares para verificar são a sua página %{about_page_link}, seus %{terms_of_use_link} (você deve adicionar seus próprios termos de uso aqui, seja modificando o modelo atual ou criando completamente um novo documento), sua %{privacy_policy_link}, e o  %{welcome_email_link} que é enviado para cada novo usuário. Há também alguns outros %{instruction_texts_link} que você pode configurar."
         about_page_link_text: "sobre a página"
         terms_of_use_link_text: "termos de uso"
         privacy_policy_link_text: "Política de Privacidade"
         welcome_email_link_text: "Conteúdo do e-mail de boas-vindas"
         instruction_texts_link_text: "outros textos de instrução"
-        social_media: ~
+        social_media: "Usar a mídia social é uma boa maneira de construir a comunidade. Você pode %{facebook_link} para tornar mais fácil a inscrição das pessoas ao seu mercado, e %{twitter_link} para obter melhor visibilidade quando as pessoas \"tweetarem\" sobre produtos em seu mercado."
         facebook_link_text: "conecte seu app personalizado do Facebook"
         twitter_link_text: "Adicionar sua conta do Twitter"
         analytics: "Também é uma boa ideia para %{analytics_link}. Desta forma é fácil para você ver o que está acontecendo no seu mercado, quantos visitantes tem, e assim por diante."
-        analytics_link_text: "conectar uma conta do Google Analytics"
+        analytics_link_text: "conectar uma conta do \"Google Analytics\""
         settings: ~
         settings_link_text: "Ver as suas definições de mercado aqui"
         final_words: ~
@@ -159,20 +159,20 @@ pt-BR:
         users_can_invite_new_users: "Todos os usuários podem convidar novos usuários a esta comunidade"
         private: "Esta comunidade é privada (apenas usuários registrados podem ver o conteúdo)"
         require_verification_to_post_listings: "Somente usuários verificados por administrador pode postar novos anúncios"
-        listing_preferences: "Listagem preferências"
+        listing_preferences: "Preferências de anúncios"
         transaction_preferences: "Transação - preferências"
-        show_listing_publishing_date: "Data de publicação de exibição da lista na página de listagem"
-        show_category_in_listing_list: "Mostrar lista tipo na exibição de lista"
-        hide_expiration_date: "Não requer uma data de expiração"
-        listing_comments_in_use: "Permitir aos usuários postar comentários para listagens (visível a todos os outros usuários)"
-        email_preferences: "Preferências de E-mail"
+        show_listing_publishing_date: "Data de publicação de exibição da lista na página de anúncio"
+        show_category_in_listing_list: "Mostrar o tipo de anúncio na lista de visualização"
+        hide_expiration_date: "Não requer anúncios para ter data de validade"
+        listing_comments_in_use: "Permitir aos usuários comentarem nos anúncios (visível a todos os outros usuários)"
+        email_preferences: "Preferências de e-mail"
         automatic_newsletters: "Enviar automáticamente boletins diários / semanais para todos os usuários (a menos que optar por sair)"
         email_admins_about_new_members: "Envie um e-mail sempre para adminstrador quando um novo usuário se cadastrar"
-        google_analytics_key: "Google Analytics tracking ID (classic account)"
-        twitter_handle: "Twitter handle (usado com botão Tweet em página de listagem)"
+        google_analytics_key: "ID de acompanhamento do \"Google Analytics\""
+        twitter_handle: "Twitter handle (usado com o botão de tweet na página de anúncio)"
         update_settings: "Salvar configurações"
         automatically_confirmed: "Os anúncios serão automaticamente confirmados %{days_dropdown} dias após o pagamento. Se o sistema de depósito for utilizado, o dinheiro sera transmitido ao vendedor nesse momento."
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "A operação será automaticamente marcada como concluída %{days_dropdown} dias após o pagamento ter sido confirmado"
         automatic_newsletter_frequency: "Enviar boletim automático: %{frequency_dropdown}"
         newsletter_daily: Diaramente
         newsletter_weekly: Semanal
@@ -188,30 +188,30 @@ pt-BR:
         save_user_status_successful: Salvo
         save_user_status_error: "Erro ao gravar. Por favor, atualize a página e tente novamente"
         ban_user_confirmation: "Deseja remove o usuário da comunidade e os impedir de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
-        ban_me_error: ~
+        ban_me_error: "Você não pode se banir."
       social_media:
         social_media: "Mídia social"
         twitter_handle: "Nome Twitter"
         twitter_handle_info_text: "Nome de usuário da conta do Twitter do seu marketplace (se você tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
         twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
+        twitter_instructions_link_text: "Leia mais"
         twitter_handle_placeholder: "nome de usuário"
         invalid_twitter_handle: "O nome Twitter deve conter no máximo 15 caracteres alfanuméricos (letras A-Z e números 0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
+        facebook_instructions_link_text: "Veja as instruções para configurar o \"Facebook Connect\"."
         facebook_connect_id: "ID do cliente Facebook"
         invalid_facebook_connect_id: "ID do cliente deve conter apenas números."
         facebook_connect_secret: "Segredo do cliente Facebook (client secret)"
         invalid_facebook_connect_secret: "Segredo do cliente deve conter apenas números e letras de A a F."
         save: "Salvar definições"
       analytics:
-        analytics: Analytics
-        google_analytics_key: "Google Analytics tracking ID"
-        google_analytics_key_info_text: "ID de rastreamento de sua conta do Google Analytics."
-        google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        analytics: "Google Analytics"
+        google_analytics_key: "ID de acompanhamento do \"Google Analytics\""
+        google_analytics_key_info_text: "ID de rastreamento da sua conta do \"Google Analytics\"."
+        google_analytics_key_info_text_with_instructions: "ID de acompanhamento da sua conta do \"Google Analytics\". %{instructions_link}."
+        google_analytics_instructions_link_text: "Leia mais sobre como conectar com o \"Google Analytics\""
         save: "Salvar configurações"
       menu_links:
         menu_links: "Menu links"
@@ -227,7 +227,7 @@ pt-BR:
         transactions: "Ver transações"
         headers:
           conversation: "Criou a conversa"
-          listing: Listando
+          listing: Anúncio
           status: Estado
           sum: Soma
           started: Iniciado
@@ -258,22 +258,22 @@ pt-BR:
         paypal_admin_account: Pagamentos
     custom_fields:
       edit:
-        edit_listing_field: "Modificar anúncio '%{field_name}'"
+        edit_listing_field: "Alterar anúncio '%{field_name}'"
       edit_price:
-        edit_price_field: "Modificar campo 'Preço'"
+        edit_price_field: "Editar campo 'Preço'"
         show_price_filter_homepage: "Mostrar filtro de preço na página inicial"
         price_min: "Preço mínimo"
         price_max: "Preço máximo"
       edit_location:
-        edit_location_field: "Modificar campo 'Lugar'"
+        edit_location_field: "Editar campo 'Lugar'"
         this_field_is_required: "Esse campo é obrigatório"
       form:
         field_required:
           this_field_is_required: "Esse campo é obrigatório"
           this_field_is_required_checkbox: "Este campo é obrigatório (Usuário tem que selecionar pelo menos uma opção)"
       index:
-        listing_fields: "Listar campos"
-        listing_fields_help: "Aqui você pode editar os campos que os usuários têm de preencher ao criar uma nova listagem. Por favor, note que alguns campos são predefinidos e não podem ser editados."
+        listing_fields: "Anúncio campos & filtros"
+        listing_fields_help: "Aqui você pode editar os campos que os usuários têm de preencher ao criar um novo anúncio. Por favor, note que alguns campos são predefinidos e não podem ser editados."
         add_new_field: "Adicionar novo campo:"
         remove_field_confirmation: "Você tem certeza que deseja remover o campo '%{field_name}'?"
         cancel: Anular
@@ -306,33 +306,33 @@ pt-BR:
         email_subject: "Assunto do e-mail"
         email_content: "Conteúdo do e-mail"
         email_content_placeholder: "O que você gostaria de dizer aos membros?"
-        email_language: "Língua dos destinatários do email"
+        email_language: "Idioma do e-mail dos destinatários"
         any_language: "Qualquer idioma"
-        send_email: "Enviar o email"
+        send_email: "Enviar o e-mail"
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: "E-mail enviado."
     left_hand_navigation:
       general: Geral
       users_and_transactions: "Usuários & transações"
       configure: Configuração
-      emails_title: Emails
+      emails_title: E-mails
       support: Suporte
     paypal_accounts:
       marketplace_paypal_integration: "Preferências de pagamento"
       preferences_updated: "Preferências de pagamento atualizadas."
       integration_info_text: ~
-      read_more_about_paypal: ~
+      read_more_about_paypal: "Leia mais sobre o sistema de pagamento do Sharetribe"
       paypal_account_email: "1. Conecte sua conta PayPal"
       paypal_account_email_completed: Concluído!
       set_minimum_price_and_fee: "2. Definir preço mínimo e taxa de transação"
       set_minimum_price_and_fee_completed: Concluído!
       minimum_listing_price_label: "Preço mínimo de anúncio:"
       transaction_fee_label: "Taxa de transação:"
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: "Taxa mínima de transação:"
       save_settings: "Salvar definições"
       note_about_transaction_fee: ~
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "tem que ser, pelo menos, o mesmo que a taxa de transação mínima de %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "tem de ser maior do que o mínimo de comissão que é %{minimum_commission}."
     transaction_types:
       sell: Vendendo
       rent: Alugando
@@ -398,20 +398,20 @@ pt-BR:
     what_is_this: "O que é isso?"
     removed_user: "Usuário removido"
     paypal_fee_info:
-      title: ~
+      title: "Processamento da taxa de pagamento do PayPal"
       body: ~
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: "Detalhes do pedido"
+      order_by: "Ordernar por %{orderer_link}"
       respond_to_offer: "Responder a uma oferta"
       respond_to_request: "Responder a um pedido"
       accept_offer: "Aceitar a oferta"
       accept_request: "Aceitar o pedido"
       reject_offer: "Não agora"
       reject_request: "Não agora"
-      close_listing: "Fechar a lista %{listing_title_link}"
-      update_later: "Deixar a lista aberta"
+      close_listing: "Encerrar o anúncio %{listing_title_link}"
+      update_later: "Deixar o anúncio ativo"
       optional_message: "Mensagem opcional"
       price_to_pay: "Preço total a ser pago"
       you_need_to_fill_payout_details_before_accepting: "Você precisa preencher os detalhes de pagamento antes de aceitar o pedido e receber o pagamento. Vá para %{payment_settings_link}para preencher os detalhes."
@@ -419,11 +419,11 @@ pt-BR:
       minimum_price_error_message: "O preço não pode ser inferior %{amount}"
       accept: Aceitar
       decline: Recusar
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
+      sum_label: "Subtotal:"
+      service_fee_label: "taxa de %{service_name}:"
+      you_will_get_label: "Você receberá:"
+      total_label: "Total:"
+      total_value: "%{seller_gets}*"
       paypal_fee_info: ~
     confirm:
       confirm_description: "Se o seu pedido foi aceito, você deve confirmá-lo como concluído. Então você pode dar um feedback para a outra parte."
@@ -455,7 +455,7 @@ pt-BR:
       canceled_request: "Pedido cancelado."
       canceled_offer: "Oferta cancelada."
       message_from: "Mensagem de %{person}"
-      about_listing: "Sobre como listar %{listing_title}"
+      about_listing: "Sobre o anúncio %{listing_title}"
       free_message: "Mensagem livre"
     message:
       accepted_request: "aceitou o pedido"
@@ -539,9 +539,9 @@ pt-BR:
       paid: "Pagamento efetuado com sucesso"
       pending_external:
         paypal:
-          multicurrency: ~
+          multicurrency: "Não foi possível processar o pagamento via PayPal porque a sua conta PayPal não foi configurada para receber o dinheiro em  %{currency}. Vá para %{paypal_url} e conecte na sua conta para manualmente aceitar ou rejeitar o pagamento."
           verify: "Você não pode aceitar essa transação porque você não verificou a sua conta PayPal. Vá para %{paypal_url} para verificar sua conta."
-          intl: ~
+          intl: "Não foi possível processar o pagamento via PayPal porque a sua conta PayPal não tem um mecanismo de retirada. Vá para %{paypal_url} e conecte na sua conta para manualmente aceitar ou rejeitar o pagamento."
       waiting_for_current_user_to_deliver_listing: "Aguardando-lhe para entregar %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Aguardando por %{listing_author_name} para entregar %{listing_title}"
       request_accepted: Aceito
@@ -563,7 +563,7 @@ pt-BR:
         paypal:
           multicurrency: "Aguardando você aceitar o pagamento PayPal"
           intl: "Aguardando você aceitar o pagamento PayPal"
-          unknown_reason: "O pagamento está pendente. Faça login na sua conta PayPal para ver mais detalhes."
+          unknown_reason: "O pagamento está pendente. Conecte-se na sua conta PayPal para ver mais detalhes."
           verify: "Aguardando você verificar sua conta PayPal"
     status_link:
       accept_offer: "Aceitar oferta"
@@ -581,7 +581,7 @@ pt-BR:
       add_payout_details: "Adicione seus detalhes de pagamento."
       first_name: Nome
       last_name: Sobrenome
-      email: "Endereço de email"
+      email: "Endereço de e-mail"
       phone: Telefone
       address_street_address: Rua
       address_postal_code: CEP
@@ -596,7 +596,7 @@ pt-BR:
       payout_details: "Detalhes do pagamento"
       first_name: Nome
       last_name: Sobrenome
-      email: "Endereço de email"
+      email: "Endereço de e-mail"
       phone: Telefone
       address_street_address: Rua
       address_postal_code: CEP
@@ -625,16 +625,16 @@ pt-BR:
       you_are_banned_in_this_community: ~
       contact_page_link: Reposta
     new:
-      welcome_fb_user: "Bem-vindo à %{service_name}, %{name} !"
+      welcome_fb_user: "Bem-vindo(a) à %{service_name}, %{name} !"
       fb_join_accept_terms: "Última étapa para fazer parte dessa tribo : você deve aceitar as condições de uso."
       join_community: "Ingressar na comunidade %{community}"
       you_can_join: "Você pode participar desta comunidade, aceitando os termos de uso e clique em 'Participar da comunidade' abaixo."
-      you_can_join_email_confirmation: "Para participar desta comunidade, você precisa ter um endereço de email válido, que termina com %{email_ending}. Você pode participar através do preenchimento de seu endereço de e-mail, aceitando os termos de uso dessa comunidade e clicando em \"Aderir à comunidade 'abaixo, e confirmar seu e-mail."
-      you_can_join_email_confirmation_multiple_addresses: "Esta comunidade tem restrições de e-mail. Você só pode entrar se você tiver um endereço de e-mail de uma organização que o administrador deste site tem efetuado permissão. Você pode participar através do preenchimento de seu endereço de e-mail, aceitando os termos de uso dessa comunidade e clicando em 'Aderir à comunidade' abaixo."
+      you_can_join_email_confirmation: "Para participar %{service_name}, você precisa ter um endereço de e-mail válido, que termina com %{email_ending}. Você pode participar através do preenchimento de seu endereço de e-mail, aceitando os termos de uso dessa comunidade e clicando em 'Participar da %{service_name}' abaixo, e confirmar seu e-mail."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name} tem restrições de e-mail. Você só pode entrar se você tiver um endereço de e-mail de uma organização que o administrador deste site tem efetuado permissão. Você pode participar através do preenchimento de seu endereço de e-mail, aceitando os termos de uso %{service_name} e clicando em 'Participar da %{service_name}' abaixo."
       you_can_join_with_invite_only: "Você tem que ter um convite de outro membro para participar desta comunidade. Se você tem um código de convite, você pode participar desta comunidade, digitando o código no campo abaixo, aceitando os termos de uso dessa comunidade e clicando em \"Aderir à comunidade 'abaixo."
       if_want_to_view_content: "Para ver o conteúdo dessa tribo sem fazer parte, você deve"
       log_out: sair
-      join_community_button: "Ingressar a comunidade"
+      join_community_button: "Ingressar na %{service_name}"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Lembrar de aceitar ou rejeitar uma oferta de %{sender_name}"
@@ -693,21 +693,21 @@ pt-BR:
       confirmation_instructions_signature: "Cordialmente <br/> A équipe de %{service_name}"
       welcome_to_kassi: "Bem-vindo à %{service_name} !"
       need_to_confirm: "Você precisa confirmar o seu endereço de e-mail."
-      confirmation_link_text: "Confirmar meu email"
+      confirmation_link_text: "Confirmar meu e-mail"
       or_paste_link: "Alternativamente, você pode copiar o seguinte link para a barra de endereços do seu navegador:"
       turning_on_confirmations_in_this_community: "Nós utilizamos um email de confirmação nessa tribo %{service_name}."
     common:
       check_your_settings: "Verifique suas configurações"
-      hey: "Ola %{name}"
+      hey: "Olá %{name}"
       kassi_team: "O Time %{service_name}"
       thanks: "Obrigado,"
-      want_to_control_emails: "Quer controlar quais emails receber de %{service_name}?"
-      dont_want_to_receive_these_emails: "Você deseja receber emails ?"
+      want_to_control_emails: "Quer controlar quais e-mails receber de %{service_name}?"
+      dont_want_to_receive_these_emails: "Você deseja receber e-mails?"
       edit_your_email_settings_here: "Edite suas configurações de e-mail aqui"
       message_not_displaying_correctly: "Este e-mail não está sendo exibido corretamente?"
       view_it_in_your_browser: "Visualizar no seu navegador."
       or: ou
-      unsubscribe_from_these_emails: "cancelar o recebimento desses emails"
+      unsubscribe_from_these_emails: "cancelar o recebimento desses e-mails"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} aceitou sua oferta %{listing}"
       has_accepted_your_request: "%{accepter} aceitou sua requisição %{listing}"
@@ -730,7 +730,7 @@ pt-BR:
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} comentou seu anúncio '%{listing}'."
       view_comment: "Ver comentário"
-      you_have_a_new_comment: "%{author} comentou sua lista em %{service_name}"
+      you_have_a_new_comment: "%{author} comentou seu anúncio em %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} comentou um anúncio que você segue no %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} comentou o anúncio '%{listing}' que você segue no %{service_name}."
     new_message:
@@ -741,13 +741,13 @@ pt-BR:
       new_payment: "Você recebeu um novo pagamento"
       you_have_received_new_payment: "Você foi pago <b>%{payment_sum}</b> por <b>%{listing_title}</b> pelo %{payer_full_name}. Veja o recibo."
     paypal_new_payment:
-      paypal_gateway_fee: ~
+      paypal_gateway_fee: "Taxa do PayPal:"
     braintree_new_payment:
       product: "Produto:"
       price_payer_paid: "Preço pago pelo %{payer_full_name} :"
       service_fee: "Comissão de %{service_name} :"
       you_will_get: "Você terá:"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "O dinheiro será transferido para sua conta quando a) %{payer_name} marcar a solicitação como concluída ou b) %{automatic_confirmation_days} dias se passarem desde que %{payer_name} efetuou o pagamento."
     receipt_to_payer:
       receipt_of_payment: "Recibo do pagamento"
       you_have_made_new_payment: "Você pagou <b>%{payment_sum}</b> por <b>%{listing_title}</b> à %{recipient_full_name}. Veja o recibo."
@@ -757,8 +757,8 @@ pt-BR:
       service_fee: "Despesas de serviço"
       money_will_be_transferred: "O dinheiro será transferido para %{recipient_name} quando a) você tenha marcado o pedido como concluído ou b) %{automatic_confirmation_days} dias se passaram desde que você pagou."
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} te deu um feedback em %{service_name}"
-      you_can_give_feedback_to: "Você ainda não deu um feedback para %{name}"
+      has_given_you_feedback_in_kassi: "%{name} te deu um 'feedback' em %{service_name}"
+      you_can_give_feedback_to: "Você ainda não deu um 'feedback' para %{name}"
       view_feedback: "Ver opinião"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Um anúncio que você segue foi atualizado"
@@ -767,25 +767,25 @@ pt-BR:
     community_updates:
       added_offer: "%{name_link} adicionou um anúncio :"
       added_request: "%{name_link} adicionou um anúncio :\n"
-      added_listing: "%{name_link} adicionou um anúncio :"
+      added_listing: "%{name_link} adicionou um anúncio:"
       update_mail_title: "Atualidades da tribo %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: ~
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Postar um novo anúncio!"
-      reduce_email_footer_text: "Emails demais ? %{settings_link} ou %{unsubscribe_link}"
+      reduce_email_footer_text: "E-mails demais ? %{settings_link} ou %{unsubscribe_link}"
       settings_link_text: "Edite suas configurações de e-mail aqui"
-      unsubscribe_link_text: Désincreva-se
+      unsubscribe_link_text: "Cancelar inscrição"
     newsletter:
-      hi: "Ola %{name},"
-      newest_offers: "O que as pessoas oferecem atualmente aos outros"
+      hi: "Oi %{name},"
+      newest_offers: "O que atualmente as pessoas oferecem para os outros"
       newest_requests: "O que as pessoas precisam atualmente"
-      text_version_text: "Você poderia compartilhar algo que outros precisam? Ou você precisa de algo que outros tem? Adicionar uma oferta, um pedido ou verificar tudo o que outros estão oferecendo ou pedindo a %{url}"
+      text_version_text: "Você poderia compartilhar algo que outros precisam? Ou você precisa de algo que outros já possuem? Adicionar uma oferta, um pedido ou verificar tudo o que outros estão oferecendo ou pedindo a %{url}"
     reset_password_instructions:
       change_my_password: "Alterar minha senha"
       reset_password_instructions: "<p>Você informou que esqueceu sua senha ou nome de usuário no serviço %{service_name}.</p><p>Seu nome de usuário é: %{username}</p><p>Se você precisa redefinir sua senha, clique no link seguinte: %{password_reset_link}</p><br/><p>Se você não fez essa solicitação, por favor ignore este e-mail. Sua senha não mudará até que acesse o link acima e crie uma nova.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "O feedback é publico e é exibido a todos outros usuários. Baseado no feedback os outros usuários podem julgar o quanto %{name} é uma pessoa confiavel e qualquer um que ele queira interagir. Por isso é sempre bom lembrar de dar feedback nos eventos, e também lembrar os outros para te darem o feedback. Você precisa de feedbacks positivos para ganhar mais emblemas."
+      feedback_is_public_and_is_shown: "O 'feedback' é publico e é exibido a todos outros usuários. Baseado no feedback os outros usuários podem julgar o quanto %{name} é uma pessoa confiavel e qualquer um que ele queira interagir. Por isso é sempre bom lembrar de dar 'feedback' nos eventos, e também lembrar os outros para te darem o 'feedback'. Você precisa de 'feedbacks' positivos para ganhar mais emblemas."
       remember_to_give_feedback_to: "Lembrete: Lembre de dar feedback para %{name}"
       you_have_not_given_feedback_yet: "Você ainda não deu feedback para %{name} sobre o evento %{event}. Lembre de dar um feedback de como %{given_name} foi no evento"
     transaction_preauthorized:
@@ -799,18 +799,18 @@ pt-BR:
       one_day_left: "Se você não aceitar o pedido no prazo de um dia, ele será rejeitado automaticamente e você não será pago."
       click_here_to_reply: "Clique aqui para responder ao pedido"
     welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: "Bem-vindo a %{service_name}! Ficamos felizes em tê-lo a bordo."
+      welcome_email_subject: "Bem-vindo(a) à %{service_name}"
+      welcome_to_marketplace: "Bem-vindo(a) à %{service_name}! Ficamos felizes em tê-lo a bordo."
       love_marketplace_crew: "Com carinho,<br/><i>Equipe %{service_name}</i>"
-      p_s_did_you_know: "P.S. Sabia que você pode criar uma praça de mercado como esta para todas comunidades ou projetos que você tem ? %{click_here_link} para saber mais!"
+      p_s_did_you_know: "P.S.: Você gostaria de criar o seu próprio site de mercado como %{service_name}? É fácil e não requer nenhum conhecimento de programação. %{click_here_link} para saber mais!"
       click_here_link_text: "Clique aqui"
-      welcome_email_footer_text: "Que tipo de e-mails que você quer receber de %{service_name} %{settings_link}"
+      welcome_email_footer_text: "Que tipo de e-mails que você quer receber da %{service_name}? %{settings_link}"
       settings_link_text: "Verifique suas configurações"
-      welcome_email_subject_for_marketplace_creator: "Bem-vindo ao Sharetribe"
-      welcome_to_marketplace_creator: "Bem-vindo ao Sharetribe, %{name}!"
+      welcome_email_subject_for_marketplace_creator: "Bem-vindo(a) à Sharetribe"
+      welcome_to_marketplace_creator: "Bem-vindo(a) à Sharetribe, %{name}!"
       congrats_for_creating_your_marketplace: "Parabéns pela criação do seu mercado! Isso foi fácil, não foi?"
       here_is_your_account_information: "Aqui está a informação da sua conta."
-      your_email_address: "O endereço de email que você usou para fazer login:"
+      your_email_address: "O endereço de e-mail que você usou para conectar na sua conta:"
       your_marketplace_address: "O endereço do seu mercado:"
       your_marketplace_admin_area: "A área de administração do seu mercado:"
       just_follow_details: "Basta seguir estes links e você terá mais detalhes sobre como começar a construir o seu mercado!"
@@ -818,7 +818,7 @@ pt-BR:
       are_you_new_to_online_marketplaces: "Precisa de ajuda com o seu mercado? Não se preocupe, estamos aqui para ajudá-lo! Enviaremos para você uma série de e-mails que o ajudarão a obter o máximo do Sharetribe e a construir um mercado bem sucedido. Enviaremos a Parte 1 para você em breve."
       have_questions: "Tem dúvidas?"
       our_happiness_team_is_here_to_help: "Nossa equipe da felicidade está aqui para você! %{knowledge_base_link} ou entre em contato com o nosso suporte através %{admin_panel_link}."
-      love: ~
+      love: "Amor,"
       sharetribe_crew: "Equipe Sharetribe"
       knowledge_base_link_text: "verifique nossa base de conhecimento"
       contact_support_link_text: "entre em contato com o nosso suporte"
@@ -871,7 +871,7 @@ pt-BR:
       send_feedback: "Enviar feedback"
       your_feedback_to_admins: "Seu feedback para os administradores"
     send: Enviar
-    your_email_address: "Seu endereço de email"
+    your_email_address: "Seu endereço de e-mail"
   errors:
     messages:
       invalid_date: "não é uma data válida"
@@ -909,9 +909,9 @@ pt-BR:
       request_partitive: requisição
   header:
     about: Sobre
-    home: Inicio
+    home: Início
     members: Comunidade
-    new_listing: "Postar uma nova lista!"
+    new_listing: "Novo anúncio"
     mobile_version: "Versão para celular"
     offers: Ofertas
     requests: Solicitações
@@ -944,7 +944,7 @@ pt-BR:
       item_request_list: "ferramentas, equipamentos esportivos, roupas, equipamentos de camping"
       items_to_offer: "Itens para emprestar: "
       items_to_request: "Itens para pegar emprestado: "
-      log_in: login!
+      log_in: entre!
       no_offers_visible_unless_logged_in: "Nenhuma oferta de itens, serviços ou caronas compartilhadas visíveis para usuários não logados."
       no_open_offers_currently: "Nenhum item, serviço ou carona compartilhada anunciado."
       no_open_requests_currently: "Nenhum pedido de item, serviço ou carona compartilhada."
@@ -966,8 +966,8 @@ pt-BR:
     index:
       no_listings_with_your_search_criteria: "Nós não encontramos nenhum resultado que corresponde à sua pesquisa."
       no_listings_notification: "Nenhum anúncio. %{add_listing_link}."
-      add_listing_link_text: "Adicionar nova lista"
-      open_listing: "anúncio on line"
+      add_listing_link_text: "Adicionar novo anúncio"
+      open_listing: "anúncio ativo"
       open_listings: "anúncios ativos"
       private_listing_notification_log_in: entrar
       is: é
@@ -987,14 +987,14 @@ pt-BR:
       recent_events: "Eventos recentes"
       requesting: precisa
       tell_it_here: "Conte isso aqui!"
-      welcome_to_new_kassi: "Bem vindo ao novo %{service_name}!"
+      welcome_to_new_kassi: "Bem-vindo(a) à nova %{service_name}!"
       no_reviews: "nenhum comentário"
       no_image: "Sem imagem"
       filter: Filtro
       this_is_private_community: "Você precisa registrar-se antes de poder ver o conteúdo."
     invitation_form:
       invite_your_friends: "Convide seus amigos para %{service_name}!"
-      email: "Endereço de email(s)"
+      email: "Endereço de e-mail(s)"
       message: "Uma mensagem pessoal"
       send_invitation: "Enviar convite"
       add_as_many_emails_as_you_want: "Adicione os endereços de e-mail das pessoas que você está convidando para o campo abaixo. Se você adicionar vários endereços de e-mail, separe-os com vírgula."
@@ -1024,7 +1024,7 @@ pt-BR:
       map_button: Mapa
       grid_button: Grade
       list_button: Lista
-      all_listing_types: "Listar todos tipos"
+      all_listing_types: "Todos os tipos de anúncios"
       all_categories: "Todas categorias"
   infos:
     about:
@@ -1052,7 +1052,7 @@ pt-BR:
       or_check_our: "...ou verifique nosso"
       send_feedback_to_admin: "Enviar feedback"
       to_see_what_others_have_suggested: "para ver o que outros usuários sugeriram, e votar para novas idéias."
-      your_email_address: "Seu email (para entrar em contato)"
+      your_email_address: "Seu e-mail (para entrar em contato)"
       connect: Registar
       invite_your_friends: "Convide amigos!"
       invite_your_neighbors: "Convidar os vizinhos!"
@@ -1078,7 +1078,7 @@ pt-BR:
       admin: Administrador
       go_to_your_profile_page: Perfil
       hi: Ola
-      login: Login
+      login: Entrar
       logout: Sair
       notifications: Notificações
       requests: "Solicitações de amizades"
@@ -1099,7 +1099,7 @@ pt-BR:
       settings: Configurações
       sign_up: Registrar
     notifications:
-      listing_could_not_be_saved: "Listagem não pôde ser salva. Por favor, tente novamente. Se o problema persistir, por favor, %{contact_admin_link}"
+      listing_could_not_be_saved: "O anúncio não pôde ser salvo. Por favor, tente novamente. Se o problema persistir, por favor, %{contact_admin_link}."
       contact_admin_link_text: "entre em contato com o administrador"
       test_welcome_email_delivered_to: "Um e-mail de teste foi enviado para %{email}"
       something_went_wrong: "Algo deu errado"
@@ -1115,7 +1115,7 @@ pt-BR:
       create_new_listing: "Criar uma outra lista"
       create_one_here: "crie um aqui"
       email_confirmation_sent_to_new_address: "E-mail de confirmação é agora enviado para o novo endereço."
-      email_not_found: "O email que você forneceu não existe no banco de dados do %{service_name}."
+      email_not_found: "O e-mail que você forneceu não existe no banco de dados do %{service_name}."
       error_with_session: "Erro na sessão."
       feedback_considered_spam: "Feedback não gravado, devido a sua formatação. Tente novamente ou use o fórum de feedback."
       feedback_not_saved: "Feedback não pode ser enviado."
@@ -1125,11 +1125,11 @@ pt-BR:
       invitation_cannot_be_sent: "Convite não pôde ser enviado"
       invitation_sent: "Convite enviado com sucesso"
       inviting_new_users_is_not_allowed_in_this_community: "Convidar novos usuários não é permitido neste %{service_name} comunidade"
-      login_again: "Por favor, tente logar novamente"
-      login_failed: "Falha no login. Por favor, digite as credenciais corretas."
-      account_creation_successful: "Bem-vindo ao %{service_name}, %{person_name}"
+      login_again: "Por favor, tente conectar novamente."
+      login_failed: "Falha ao conectar sua conta. Por favor, digite as dados corretos."
+      account_creation_successful: "Bem-vindo(a) à %{service_name}, %{person_name}!"
       account_deleted: "Sua conta já está deletada."
-      login_successful: "Bem vindo, %{person_name}"
+      login_successful: "Bem-vindo(a), %{person_name}"
       logout_successful: "Agora você foi desconectado de %{service_name}. Vejo vocês em breve!"
       news_item_created: "Artigo criado"
       news_item_creation_failed: "Criação de artigo falhou"
@@ -1144,8 +1144,8 @@ pt-BR:
       offer_canceled: "Oferta cancelada"
       listing_updated_successfully: "Listagem atualizada com sucesso"
       only_kassi_administrators_can_access_this_area: "Só %{service_name} administradores podem aceder a esta área"
-      only_listing_author_can_close_a_listing: "Listando autor só pode fechar uma lista"
-      only_listing_author_can_edit_a_listing: "Só listando autor pode editar uma listagem"
+      only_listing_author_can_close_a_listing: "Somente o autor do anúncio pode fechar o mesmo"
+      only_listing_author_can_edit_a_listing: "Somente o autor do anúncio pode editar o mesmo"
       payment_successful: "Pagamento efetuado com sucesso"
       payment_canceled: "Pagamento cancelado"
       error_in_payment: "Erro no pagamento. Se você não completar o pagamento, no entanto, tente novamente. Se você fez, por favor, envie-nos um feedback."
@@ -1182,30 +1182,30 @@ pt-BR:
       you_cannot_reply_to_a_closed_offer: "Você não pode responder a uma oferta fechada"
       you_cannot_reply_to_a_closed_request: "Você não pode responder a um pedido fechado"
       you_cannot_send_message_to_yourself: "Você não pode enviar uma mensagem para si mesmo"
-      you_followed_listing: "Começaste a seguir este anúncio"
+      you_followed_listing: "Você está agora seguindo este anúncio"
       you_have_already_given_feedback_about_this_event: "Você já deixou sua opinião sobre este evento"
-      you_are_now_member: "Você entrou com sucesso esta comunidade. Bem-vindo!"
-      you_are_already_member: "Você já é membro desta %{service_name} comunidade. Bem-vindo de volta!"
-      you_must_log_in_to_create_new_listing: "Você deve fazer login para %{service_name} para criar uma nova listagem. Se você não tem uma conta, você pode %{sign_up_link}"
+      you_are_now_member: "Bem-vindo(a) à %{service_name}!"
+      you_are_already_member: "Você já é membro da %{service_name}. Bem-vindo(a) de volta!"
+      you_must_log_in_to_create_new_listing: "Você deve conectar a sua conta para %{service_name} para criar um novo anúncio. Se você não tem uma conta, você pode %{sign_up_link}."
       additional_email_confirmed_dashboard: "Seu e-mail está confirmado."
-      you_must_log_in_to_give_feedback: "Você deve logar para escrever um feedback"
-      you_must_log_in_to_invite_new_users: "Você deve fazer login para convidar novos usuários a %{service_name}"
-      you_must_log_in_to_send_a_comment: "Você deve logar para enviar um novo comentário"
-      you_must_log_in_to_send_a_message: "Você deve fazer login em %{service_name} para enviar uma mensagem para outro usuário."
-      you_must_log_in_to_view_this_content: "Você deve logar para visualizar este conteúdo"
-      you_must_log_in_to_view_this_page: "Você deve fazer login para ver esta página"
-      you_must_log_in_to_view_your_inbox: "Você deve fazer login em %{service_name} para ver sua caixa de entrada."
-      you_must_log_in_to_view_your_settings: "Você deve fazer login em %{service_name} para exibir suas configurações."
-      you_must_log_in_to_add_news_item: "Você deve fazer login em %{service_name} para adicionar um novo artigo."
-      you_must_log_in_to_change_profile_settings: "Você deve fazer login em %{service_name} para mudar as configurações de perfil"
-      you_must_log_in_to_change_payment_settings: "Você deve fazer login em %{service_name} para alterar as configurações de pagamento"
-      you_must_log_in_to_accept_or_reject: "Você deve fazer login para aceitar ou rejeitar a transação"
-      you_must_log_in_to_confirm_or_cancel: "Você deve fazer login para cancelar ou confirmar a transação"
+      you_must_log_in_to_give_feedback: "Você deve conectar para escrever um 'feedback'"
+      you_must_log_in_to_invite_new_users: "Você deve se conectar para convidar novos usuários a %{service_name}"
+      you_must_log_in_to_send_a_comment: "Você deve conectar para enviar um novo comentário"
+      you_must_log_in_to_send_a_message: "Você deve fazer se conectar em %{service_name} para enviar uma mensagem para outro usuário."
+      you_must_log_in_to_view_this_content: "Você deve se conectar para visualizar este conteúdo"
+      you_must_log_in_to_view_this_page: "Você deve se conectar para ver esta página"
+      you_must_log_in_to_view_your_inbox: "Você deve se conectar em %{service_name} para ver sua caixa de entrada."
+      you_must_log_in_to_view_your_settings: "Você deve se conectar em %{service_name} para exibir suas configurações."
+      you_must_log_in_to_add_news_item: "Você deve se conectar em %{service_name} para adicionar um novo artigo."
+      you_must_log_in_to_change_profile_settings: "Você deve se conectar em %{service_name} para mudar as configurações de perfil."
+      you_must_log_in_to_change_payment_settings: "Você deve se conectar em %{service_name} para alterar as configurações de pagamento"
+      you_must_log_in_to_accept_or_reject: "Você deve conectar sua conta para aceitar ou rejeitar a transação"
+      you_must_log_in_to_confirm_or_cancel: "Você deve conectar sua conta para cancelar ou confirmar a transação"
       you_need_to_confirm_your_account_first: "Você precisa confirmar o seu e-mail."
       you_must_fill_all_the_fields: "Você deve preencher todos os campos"
       you_unfollowed_listing: "Você já não estão seguindo este anúncio"
       joining_community_failed: "Entrar nesta comunidade falhou"
-      can_not_login_with_private_user: "Você não pode entrar nessa comunidade com a sua conta pessoal. Entrar com empresarial ou criar uma nova conta."
+      can_not_login_with_private_user: "Você não pode entrar nessa comunidade com a sua conta pessoal. Se conecte com uma conta empresarial ou crie uma nova conta."
       can_not_delete_email: "Você não pode remover o endereço de email"
       user_does_not_have_email_to_delete: "Você não tem o endereço de e-mail que você está tentando remover"
       email_deleted: "E-mail removido"
@@ -1226,25 +1226,25 @@ pt-BR:
       wrote: escreveu
       send_private_message: "Enviar uma mensagem a %{person}"
     comment_form:
-      ask_a_question: "Comente sobre a lista ou peça mais detalhes. Todos os outros usuários serão capazes de ver o seu comentário."
-      log_in: login
-      send_comment: "Enviar um comentário"
+      ask_a_question: "Comente no anúncio ou peça por mais detalhes. Todos os outros usuários serão capazes de ver o seu comentário."
+      log_in: entrar
+      send_comment: "Enviar comentário"
       to_send_a_comment: "para enviar um novo comentário."
       write_comment: "Escrever um novo comentário:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Você não pode enviar novos comentários pois este anúncio está fechado."
       you_must: "Você deve"
       subscribe_to_comments: "Notifique-me de novos comentários e atualizações"
     edit:
-      edit_listing: "Editar listagem"
+      edit_listing: "Editar anúncio"
     edit_links:
-      close_listing: Fechar
-      edit_listing: Editar
-      reopen_listing: Reabrir
+      close_listing: "Encerrar anúncio"
+      edit_listing: "Editar anúncio"
+      reopen_listing: "Reativar anúncio"
       move_to_top: "Mover para o início da página inicial"
-      show_in_updates_email: "Mostrar no próximo e-mail atualização comunidade"
+      show_in_updates_email: "Mostrar no próximo e-mail automático"
       show_in_updates_email_loading: Carregando...
       show_in_updates_email_error: "Não foi possível acessar o servidor. Tente novamente depois de atualizar a página."
-      show_in_updates_email_success: ~
+      show_in_updates_email_success: "Este anúncio será mostrado na próxima atualização automática de e-mail enviado aos usuários"
     follow_links:
       follow: "Obter e-mails sobre novos comentários"
       unfollow: "Não receber e-mails sobre novos comentários"
@@ -1278,7 +1278,7 @@ pt-BR:
         image: Imagem
         no_file_selected: "Nenhum arquivo selecionado"
         remove_image: "Remover imagem"
-        select_file: "Selecione arquivo"
+        select_file: "Escolher arquivo"
         removing: Removendo...
         processing: Processando...
         loading_image: "Carregando ..."
@@ -1305,9 +1305,9 @@ pt-BR:
         location: Local
         origin: Origem
       send_button:
-        save_listing: "Publicar anúncio"
+        save_listing: "Salvar anúncio"
       share_type:
-        select: Selecionar
+        select: Selecione
         borrow: Empréstimo
         buy: Comprando
         give_away: Doar
@@ -1318,7 +1318,7 @@ pt-BR:
         rent_out: Alugando
         request_type: "Tipo de solicitação"
         sell: Vendendo
-        share_for_free: Gratuito
+        share_for_free: "Compartilhe de graça"
         accept_for_free: "Aceitar gratuitamente"
         trade: Troca
       tag_list:
@@ -1327,12 +1327,12 @@ pt-BR:
       title:
         listing_title: Título
       valid_until:
-        valid_until: "Data expiração"
+        valid_until: Validade
       valid_until_radio_buttons:
-        for_the_time_being: "Sem data de expiração"
+        for_the_time_being: "Por enquanto"
       visibility:
-        all_communities: "Todas as minhas tribos %{service_name}"
-        this_community: "Somente os membros desta tribo"
+        all_communities: "Todas as minhas tribos da Sharetribe"
+        this_community: "Somente os membros desta %{service_name}"
         visibility: Visibilidade
       privacy:
         privacy: Privacidade
@@ -1340,10 +1340,10 @@ pt-BR:
         public: "Público (visível também pelos usuários não conectados)"
     help_texts:
       help_share_type_title: "Tipo da oferta ou solicitação"
-      help_tags_title: Tags
-      help_valid_until_title: "Data expiração"
+      help_tags_title: Etiquetas
+      help_valid_until_title: Validade
     index:
-      all_categories: "Todas categorias"
+      all_categories: "Todas as categorias"
       all_offer_types: "Todos os tipos de oferta"
       all_request_types: "Todos os tipos de solicitação"
       category: Categoria
@@ -1352,7 +1352,7 @@ pt-BR:
       housing: Espaços
       items: Itens
       list_view: "Ver lista"
-      listings: Listagens
+      listings: Anúncios
       map_view: "Ver mapa"
       offer_something: "Deixe os outros saberem!"
       offer_type: "Tipo de oferta"
@@ -1361,7 +1361,7 @@ pt-BR:
       request_type: "Tipo de solicitação"
       requests: Solicitações
       rideshare: Carona
-      search_verb: Buscar
+      search_verb: Pesquisa
       you_have_something_others_do_not: "Tem algo a oferecer?"
       feed_title: "%{listing_type} de %{community_name} %{service_name} %{optional_category}"
     left_panel_link:
@@ -1377,7 +1377,7 @@ pt-BR:
       rents: Aluguel
       rideshares: Carona
       sells: Vendendo
-      share_for_frees: Gratuito
+      share_for_frees: "Compartilhe de graça"
       accept_for_frees: "Aceitar gratuitamente"
       trades: Troca
     listing_actions:
@@ -1386,7 +1386,7 @@ pt-BR:
       how_paypal_works: "Como o Paypal Trabalha"
     new:
       post_a_new_listing: "Postar um novo anúncio"
-      listing: listando
+      listing: anúncio
       selected_category: "Categoria: %{category}"
       selected_subcategory: "Sub-categoria: %{subcategory}"
       selected_transaction_type: "Tipo de anúncio : %{transaction_type}"
@@ -1394,18 +1394,18 @@ pt-BR:
       select_subcategory: "Selecionar uma sub-categoria"
       select_transaction_type: "Selecionar tipo de anúncio "
       you_need_to_fill_payout_details_before_accepting: "Você precisa preencher os detalhes de pagamento antes de aceitar o pedido e receber o pagamento. Vá para %{payment_settings_link} para preencher os detalhes."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "contate o administrador"
       community_not_configured_for_payments: ~
       payment_settings_link: "configurações de pagamento"
       community_not_configured_for_payments_admin: ~
     please_comment: Comentar
     reply_link:
-      listing_closed: "Anúncio está fechado."
+      listing_closed: "Anúncio está encerrado."
     show:
-      add_your_phone_number: "Adicionar um número de telefone"
-      add_profile_picture: "Adicionar uma foto ao seu perfil"
+      add_your_phone_number: "Adicione seu número de telefone"
+      add_profile_picture: "Adicione uma foto ao seu perfil"
       comments: "Discussão pública"
-      contact_by_phone: "Contactar por telefone :"
+      contact_by_phone: "Contatar por telefone :"
       contact: Contato
       favor_offer: "Oferecer serviço"
       favor_request: "Solicitação de serviço"
@@ -1418,7 +1418,7 @@ pt-BR:
       offer: Oferta
       listing_created: Criado
       open_until: "Válido até %{date}"
-      feedback: Reposta
+      feedback: Feedback
       qr_code: "QR Code"
       request: Requisição
       rideshare_offer: "Oferecer carona"
@@ -1433,7 +1433,7 @@ pt-BR:
       times_viewed: Visualizado
       processing_uploaded_image: "(Processando imagem carregada...)"
       price_excludes_vat: "(exclui VAT)"
-      listing_created_at: "Listagem criada"
+      listing_created_at: "Anúncio criado"
       price:
         per_quantity_unit: "por %{quantity_unit}"
         per_day: "por dia"
@@ -1475,7 +1475,7 @@ pt-BR:
     please_comment: Comentar
   okl:
     member_id: "ID de Membro"
-    member_id_or_email: "Nome de usuário ou email"
+    member_id_or_email: "Nome de usuário ou e-mail"
   payments:
     new:
       new_payment: "Novo pagamento"
@@ -1504,16 +1504,16 @@ pt-BR:
     you_are_ready_to_accept_payments: "Você está pronto para aceitar pagamentos!"
     commission: "%{commission} %"
     connected_account: "Conta PayPal '%{email}' connectada com sucesso."
-    change_account: ~
+    change_account: "Mudar conta"
     missing: ~
-    from_your_payment_settings_link_text: ~
+    from_your_payment_settings_link_text: "configurações de pagamento"
     new:
       payout_info_you_need_to_connect: "Para aceitar pagamentos você deve conectar a sua conta PayPal com %{service_name}."
       payout_info_text: "Por favor, preencha os dois passos seguintes para se conectar a sua conta."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "contate o administrador"
       admin_account_not_connected: "Você não pode conectar sua conta PayPal porque o administrador do mercado não finalizou as configurações necessárias do PayPal."
       paypal_account_email: "1. Conecte sua conta PayPal"
-      paypal_account_email_placeholder: "Seu endereço de email PayPal"
+      paypal_account_email_placeholder: "Seu endereço de e-mail PayPal"
       paypal_account_email_info_text: "Atenção: Você precisa de uma conta individual no PayPal ou empresarial para aceitar pagamentos. Se você já possui sua conta pessoal, você poderá fazer o upgrade da mesma. É grátis e você só leva alguns minutos. %{upgrade_paypal_account} Se você não tem uma conta PayPal ainda, você pode criar esta nova conta %{create_paypal_account}. Sua conta PayPal deve estar configurada para receber %{currency}."
       create_paypal_account: aqui
       upgrade_paypal_account: "Aprimore sua conta aqui."
@@ -1539,8 +1539,8 @@ pt-BR:
     transaction:
       commission_payment_name: "Pagamento de comissão para %{listing_title}"
       commission_payment_description: "O mercado %{service_name} obteve esta comissão da transação relativa a %{listing_title}"
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: "Aguarde, por favor."
+    chatting_with_paypal: "Estamos conversando com o PayPal."
   people:
     edit_links:
       activate: Ativar
@@ -1559,7 +1559,7 @@ pt-BR:
       captcha_incorrect: "verificação reCAPTCHA falhou. Por favor, escreva as palavras que a imagem na caixa abaixo."
       captcha_was_wrong: "Texto da imagem estava incorreta."
       create_new_account: "Criar conta"
-      email: "Endereço de email"
+      email: "Endereço de e-mail"
       email_is_in_use: "O e-mail já está em uso."
       email_is_in_use_or_not_allowed: "Esse endereço eletrônico não foi aceito pela tribo ou já está sendo utilizado. Por favor utilize um endereço associado à tribo (ver instruções abaixo). Se você não conseguir se conectar entre em contato conosco."
       email_not_allowed: ~
@@ -1569,7 +1569,7 @@ pt-BR:
       enter_captcha: "Eu sou humano:"
       family_name: Sobrenome
       given_name: Nome
-      i_accept_the: "Eu aceito o"
+      i_accept_the: "Eu aceito os"
       invalid_invitation_code: "O código de convite não é válido."
       invitation_code: "Código do convite "
       not_required: ", não necessaria"
@@ -1584,7 +1584,7 @@ pt-BR:
       visible_to_everybody: "visível para todos"
       create_account_with_facebook: "Criar uma conta no Facebook"
       OR: OU
-      signup_with_email: Registe-se
+      signup_with_email: "Registre-se com e-mail"
     not_member:
       explanation_text: "Você está atualmente em %{community} comunidade. Você tentou ver o perfil de um usuário que pertence a outra comunidade Sharetribe. Você não pode acessar este perfil através de %{community} comunidade."
       read_more_about_kassi_communities: "Leia mais sobre comunidades Sharetribe"
@@ -1599,7 +1599,7 @@ pt-BR:
       slightly_less_than_expected: "Um pouco pior do que o esperado"
     profile_listings:
       show_also_closed: "Mostar também anúncios invisíveis"
-      show_only_open: "Exibir apenas abertos"
+      show_only_open: "Exibir apenas os abertos"
       no_image: "Sem imagem"
     show:
       contact: "Contate %{person}"
@@ -1623,15 +1623,15 @@ pt-BR:
       what_are_these: "O que é isso?"
       review: "comentario recebido"
       reviews: "comentários recebidos"
-      listing: listando
-      listings: listagens
-      open_listing: "lista aberta"
+      listing: anúncio
+      listings: anúncios
+      open_listing: "anúncio ativo"
       open_listings: "anúncios ativos"
-      no_listings: "Sem listagem"
-      no_open_listings: "lista fechada"
+      no_listings: "Sem anúncios"
+      no_open_listings: "Nenhum anúncio ativo"
       no_reviews: "nenhum comentário"
-      show_all_listings: "Mostrar todas as listas"
-      show_all_open_listings: "Listar todas anúncios ativos"
+      show_all_listings: "Mostrar todos os anúncios"
+      show_all_open_listings: "Listar todos os anúncios ativos"
       show_all_reviews: "Mostrar todas as opiniões"
     followed_people:
       you_follow_plural: "Você segue %{count} pessoas"
@@ -1639,7 +1639,7 @@ pt-BR:
       they_follow_plural: "%{count} pessoas seguidas"
       they_follow_singular: "%{count} pessoa seguida"
       show_all_followed_people: "Mostrar todas as pessoas seguidas"
-      no_followed_people: "Ninguém seguido"
+      no_followed_people: "Nenhuma pessoa sendo seguida"
     follow_button:
       following: Seguindo
       follow: Seguir
@@ -1658,43 +1658,43 @@ pt-BR:
     new:
       create_new_account: "Criar uma nova conta"
       i_forgot_my_password: "Nome de usuário ou senha esquecida"
-      login: Login
-      login_to_kassi: "Logar em %{service_name}"
+      login: Entrar
+      login_to_kassi: "Conectar em %{service_name}"
       connect_your_facebook_to_kassi: "Associar a sua conta Facebook à %{service_name}"
       facebook_account: "Conta Facebook :"
-      log_in_to_link_account: "Se você já tem uma conta %{service_name}, faça o login para vinculá-lo com a sua conta do Facebook."
+      log_in_to_link_account: "Se você já tem uma conta %{service_name}, se conecte para vinculá-la com a sua conta do Facebook."
       you_can_also_create_new_account: "Si você não tem uma conta %{service_name}, %{accont_creation_link} para criar uma à partir da sua conta Facebook."
       account_creation_link_text: "clique aqui"
       cancle_facebook_connect: "Se você não quiser associar essa conta, você pode %{cancel_link}."
       facebook_cancel_link_text: anular
-      log_in_with_your_facebook_account: "Logar com o Facebook"
+      log_in_with_your_facebook_account: "Conectar com o Facebook"
       or_sign_up_with_your_username: "...ou com seu nome de usuário ou e-mail"
       we_will_not_post_without_asking_you: "Nós não publicaremos no Facebook sem a sua permissão."
     password_forgotten:
-      email: Email
+      email: E-mail
       password_recovery_instructions: "Digite o seu endereço de e-mail e receberá o seu nome de usuário e instruções sobre como alterar sua senha."
       request_new_password: "Pedir uma nova senha"
       change_your_password: "Alterar sua senha"
     confirmation_pending:
-      welcome_to_kassi: "Bem-vindo à %{service_name} !"
+      welcome_to_kassi: "Bem-vindo(a) à %{service_name} !"
       check_your_email: "Verifique sua caixa de entrada"
       resend_confirmation_instructions: "Reenviar instruções de confirmação"
       your_current_email_is: "Seu e-mail é %{email}"
       change_email: Trocar
-      confirm_your_email: "Confirme o seu email"
+      confirm_your_email: "Confirme o seu e-mail"
       account_confirmation_instructions: "Você receberá um e-mail com um link que você precisa clicar para confirmar o endereço de email que você digitou. Após a confirmação de e-mail você pode participar desta comunidade."
-      account_confirmation_instructions_title_admin: "Bem-vindo ao seu mercado!"
+      account_confirmation_instructions_title_admin: "Bem-vindo(a) ao seu mercado!"
       your_marketplace_has_now_been_created: "Seu site de mercado já foi criado. Isso foi fácil, não foi? Há apenas mais um passo para que possa acessar seu site: você precisa confirmar o seu endereço de e-mail."
       account_confirmation_instructions_admin: "Em breve você receberá um e-mail com um link que deve ser clicado para confirmar o endereço de e-mail informado. Após a confirmação do e-mail, você pode começar a configurar o seu mercado."
   settings:
     account:
-      change: Modificar
+      change: Alterar
       confirm_new_password: "Confirmar nova senha"
       delete_account: "Deletar conta"
       delete_account_button: "Excluir permanentemente minha conta"
       delete_account_confirmation_popup: "Você tem certeza que realmente quer apagar sua conta de usuário e perder permanentemente todos os dados relacionados à ela? A exclusão da conta não pode ser revertida."
-      email_addresses: "Endereço de email"
-      new_email: "Novo endereço de email"
+      email_addresses: "Endereço de e-mail"
+      new_email: "Novo endereço de e-mail"
       delete_all_memberships: "Se você excluir sua conta, não será capaz de usá-la mais nos seguintes mercados: %{marketplaces}"
       delete_personal_information: "Se você excluir sua conta, suas informações pessoais (nome, número de telefone, endereço, e-mail, foto do perfil, etc.) serão excluídas permanentemente e não poderão ser recuperadas. Todos os anúncios que você criou serão removidos. Você não será capaz de reativar a sua conta."
       delete_information_others_involved: "Informações onde outros membros estão envolvidos (conversas com outras pessoas, transações que você fez, comentários que você tenha dado aos outros, etc) não serão removidas quando você excluir sua conta. No entanto, seu nome não será mais exibido próximo a essas informações."
@@ -1702,7 +1702,7 @@ pt-BR:
       new_password: "Nova senha"
       save: Salvar
       these_fields_are_shown_only_to_you: "Seu nome de usuário é mostrado no seu perfil a menos que você tenha dado o seu nome. Outras informações só é mostrado a você."
-      email_already_confirmed: ~
+      email_already_confirmed: "O seu endereço de e-mail já foi confirmado."
       email:
         address_title: Endereço
         remove_title: Remover
@@ -1721,13 +1721,13 @@ pt-BR:
       email_from_admins: "Estou disposto a receber atualizações ocasionais de administrador(es) desta comunidade"
       i_want_to_get_email_notification_when: "Eu quero receber uma notificação por email quando ..."
       newsletters: Noticias
-      community_updates: "Atualizações da comunidade"
+      community_updates: "Atualizações de e-mails"
       email_about_accept_reminders: "...esquecer de aceitar uma oferta ou um pedido"
       email_about_confirm_reminders: "...esquecer de confirmar um pedido como concluído"
       email_about_new_comments_to_own_listing: "...alguém comentar a minha oferta ou solicitação"
       email_about_new_messages: "...alguém me enviar uma mensagem"
-      email_about_new_received_testimonials: "...alguém me enviar feedback"
-      email_about_testimonial_reminders: "...esquecer de enviar feedback sobre um evento"
+      email_about_new_received_testimonials: "...alguém me enviar 'feedback'"
+      email_about_testimonial_reminders: "...esquecer de enviar 'feedback' sobre um evento"
       email_daily_community_updates: "Receber um email <b>diário</b> se houver novos anúncios"
       email_weekly_community_updates: "Receber um e-mail <b>semanal</b> se houver novos anúncios"
       do_not_email_community_updates: "Não receber e-mails"
@@ -1738,11 +1738,11 @@ pt-BR:
       email_about_payment_reminders: "...esquecer de efetuar um pagamento"
       email_about_new_listings_by_followed_people: "...alguém que eu siga publique uma mensagem"
       unsubscribe_succesful: "Subscrição bem sucedida"
-      unsubscribe_info_text: "Você não vai mais receber esses emails. Verifique seu %{settings_link} para escolher qual tipo de emails você deseja receber de %{service_name}, ou voltar para %{homepage_link}."
+      unsubscribe_info_text: "Você não vai mais receber esses emails. Verifique seu %{settings_link} para escolher qual tipo de e-mails você deseja receber de %{service_name}, ou voltar para %{homepage_link}."
       settings_link: configurações
       homepage_link: "home page"
       unsubscribe_unsuccesful: "Erro no cancelamento da inscrição"
-      unsuccessful_unsubscribe_info_text: "A razão talvez que o link de cancelamento em que você clicou é antigo. Contacte-nos através do botão de feedback à esquerda para nós podermos cancelar você, ou então fazer login para alterar as suas configurações de e-mail."
+      unsuccessful_unsubscribe_info_text: "A razão talvez que o link de cancelamento em que você clicou é antigo. Contate-nos através do botão de 'feedback' à esquerda para nós podermos cancelar sua conta, ou então se conecte para alterar as suas configurações de e-mail."
     profile:
       about_you: "Sobre você"
       city: Cidade
@@ -1760,7 +1760,7 @@ pt-BR:
       these_fields_are_shown_in_your: "Esta informação pode ser vista por todos os usuários %{service_name}"
       visible_to_everybody: "visível para todos"
       visible_to_registered_users: "(visível para os usuários que tenham logado)"
-      default_in_listing: "(usado apenas como um padrão ao criar uma nova listagem)"
+      default_in_listing: "(usado apenas como um padrão ao criar um novo anúncio)"
       invisible: "(não será mostrado a outros usuários)"
     save_information: "Salvar informações"
   tag_cloud:
@@ -1776,7 +1776,7 @@ pt-BR:
       terms: "%{service_name} termos de uso"
       terms_have_changed: "Termos de uso mudaram"
       you_can_view_the_new_terms: "Você pode ver os novos termos"
-      you_need_to_accept: "Seja bem vindo ao %{service_name} ! Se essa é sua primeira conexão, antes de começar, aceite os"
+      you_need_to_accept: "Seja bem-vindo(a) à %{service_name}! Se essa é sua primeira conexão, antes de começar, aceite os"
       you_need_to_accept_new_terms: "As condições de uso do %{service_name} mudaram. Você deve aceitar as novas condições para continuar usando %{service_name}. O objetivo das novas condições é de possibilitar a existência do serviço após o projeto de pesquisa."
   testimonials:
     index:
