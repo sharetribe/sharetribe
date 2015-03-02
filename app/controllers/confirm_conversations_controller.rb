@@ -51,49 +51,55 @@ class ConfirmConversationsController < ApplicationController
     })
   end
 
-  # TODO: Separate confirm and cancel form handling to separate actions
   # Handles confirm and cancel forms
   def confirmation
-    status = params[:transaction][:status]
+    status = params[:transaction][:status].to_sym
 
-    if MarketplaceService::Transaction::Query.can_transition_to?(@listing_transaction.id, status)
+    if !MarketplaceService::Transaction::Query.can_transition_to?(@listing_transaction.id, status)
+      flash[:error] = t("layouts.notifications.something_went_wrong")
+      return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
+    end
 
-      transaction =
-        if status.to_sym == :confirmed
-          TransactionService::Transaction.complete(community_id: @current_community.id, transaction_id: @listing_transaction.id)
-        else
-          TransactionService::Transaction.cancel(community_id: @current_community.id, transaction_id: @listing_transaction.id)
-        end
 
-      if(params[:message])
-        message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_transaction.conversation.id }))
-        if(message.valid?)
-          @listing_transaction.conversation.messages.create({ content: message.content, sender_id: message.sender_id})
-        end
+    msg, sender_id = parse_message_param()
+    transaction = complete_or_cancel_tx(@current_community.id, @listing_transaction.id, status, msg, sender_id)
+
+    give_feedback = Maybe(params)[:give_feedback].select { |v| v == "true" }.or_else { false }
+
+    confirmation = ConfirmConversation.new(@listing_transaction, @current_user, @current_community)
+    confirmation.update_participation(give_feedback)
+
+    flash[:notice] = t("layouts.notifications.#{@listing_transaction.listing.direction}_#{status}")
+
+    redirect_path =
+      if give_feedback
+        new_person_message_feedback_path(:person_id => @current_user.id, :message_id => @listing_transaction.id)
+      else
+        person_transaction_path(:person_id => @current_user.id, :id => @listing_transaction.id)
       end
 
-      give_feedback = Maybe(params)[:give_feedback].select { |v| v == "true" }.or_else { false }
-
-      confirmation = ConfirmConversation.new(@listing_transaction, @current_user, @current_community)
-      confirmation.update_participation(give_feedback)
-
-      flash[:notice] = t("layouts.notifications.#{@listing_transaction.listing.direction}_#{status}")
-
-      redirect_path =
-        if give_feedback
-          new_person_message_feedback_path(:person_id => @current_user.id, :message_id => @listing_transaction.id)
-        else
-          person_transaction_path(:person_id => @current_user.id, :id => @listing_transaction.id)
-        end
-
-      redirect_to redirect_path
-    else
-      flash[:error] = t("layouts.notifications.something_went_wrong")
-      redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
-    end
+    redirect_to redirect_path
   end
 
   private
+
+
+  def complete_or_cancel_tx(community_id, tx_id, status, msg, sender_id)
+    if status == :confirmed
+      TransactionService::Transaction.complete(community_id: community_id, transaction_id: tx_id, message: msg, sender_id: sender_id)
+    else
+      TransactionService::Transaction.cancel(community_id: community_id, transaction_id: tx_id, message: msg, sender_id: sender_id)
+    end
+  end
+
+  def parse_message_param
+    if(params[:message])
+      message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_transaction.conversation.id }))
+      if(message.valid?)
+        [message.content, message.sender_id]
+      end
+    end
+  end
 
   def ensure_is_starter
     unless @listing_transaction.starter == @current_user
