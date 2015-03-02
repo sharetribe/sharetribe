@@ -169,7 +169,15 @@ class ListingsController < ApplicationController
 
     params[:listing] = normalize_price_param(params[:listing]);
 
-    @listing = Listing.new(params[:listing])
+    transaction_type_id = params[:listing][:transaction_type_id]
+    listing_shape = Maybe(@current_community.listing_shapes.where(transaction_type_id: transaction_type_id).first).or_else(nil)
+
+    @listing = Listing.new(
+      params[:listing].merge(
+      {
+        listing_shape_id: listing_shape.id,
+        transaction_process_id: listing_shape.transaction_process.id
+      }))
 
     @listing.author = @current_user
     @listing.custom_field_values = create_field_values(params[:custom_fields])

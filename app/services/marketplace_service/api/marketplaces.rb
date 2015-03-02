@@ -52,7 +52,8 @@ module MarketplaceService::API
 
       Helper.create_community_customization!(community, marketplace_name, locale)
       t = Helper.create_transaction_type!(community, p[:marketplace_type])
-      Helper.create_category!("Default", community, locale, t.id)
+      listing_shape = Helper.create_listing_shape!(community, p[:marketplace_type], t.id)
+      Helper.create_category!("Default", community, locale, t.id, listing_shape.id)
 
       plan_level = p[:plan_level].or_else(CommunityPlan::FREE_PLAN)
       Helper.create_community_plan!(community, {plan_level: plan_level});
@@ -97,7 +98,63 @@ module MarketplaceService::API
 
       def create_transaction_type!(community, marketplace_type)
         transaction_type_name = transaction_type_name(marketplace_type)
-        TransactionTypeCreator.create(community, transaction_type_name)
+        transaction_type = TransactionTypeCreator.create(community, transaction_type_name)
+      end
+
+      def create_listing_shape!(community, marketplace_type, transaction_type_id)
+        default_opts = {
+          price_enabled: true,
+        }
+
+        shape_opts =
+          case marketplace_type
+          when "rental"
+            {
+              name_key: "admin.transaction_types.rent",
+              action_button_label_key: "admin.transaction_types.default_action_button_labels.rent",
+              price_per: "day"
+            }
+          when "service"
+            {
+              name_key: "admin.transaction_types.service",
+              action_button_label_key: "admin.transaction_types.default_action_button_labels.offer",
+              price_per: "day"
+            }
+          else
+            # product
+            {
+              name_key: "admin.transaction_types.sell",
+              action_button_label_key: "admin.transaction_types.default_action_button_labels.sell",
+              price_per: nil
+            }
+          end
+
+        opts = default_opts.merge(price_per: shape_opts[:price_per])
+
+        locale = community.locales.first.to_sym
+        translation_opts =
+          {
+            locale: locale,
+            name: I18n.t(shape_opts[:name_key], locale: locale),
+            action_button_label: I18n.t(shape_opts[:action_button_label_key], locale: locale)
+          }
+
+        # Create shape
+        listing_shape_opts = opts.merge(
+          {
+            transaction_type_id: transaction_type_id, # This is only temporary
+            url: translation_opts[:name].to_url
+          })
+
+        shape = community.listing_shapes.create(listing_shape_opts)
+
+        # Create process
+        process = shape.create_transaction_process(process: :preauthorize)
+
+        # Create translation
+        process.translations.create(translation_opts)
+
+        shape
       end
 
       def create_community_customization!(community, marketplace_name, locale)
@@ -152,13 +209,18 @@ module MarketplaceService::API
         Maybe(MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[country_code.upcase]).or_else("USD")
       end
 
-      def create_category!(category_name, community, locale, transaction_type_id=nil)
+      def create_category!(category_name, community, locale, transaction_type_id=nil, listing_shape_id=nil)
         category = Category.create!(:community_id => community.id, :url => category_name.downcase)
         CategoryTranslation.create!(:category_id => category.id, :locale => locale, :name => category_name)
 
         if transaction_type_id
           CategoryTransactionType.create!(:category_id => category.id, :transaction_type_id => transaction_type_id)
         end
+
+        if listing_shape_id
+          CategoryListingShape.create!(category_id: category.id, listing_shape_id: listing_shape_id)
+        end
+
       end
 
     end

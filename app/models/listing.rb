@@ -80,6 +80,8 @@ class Listing < ActiveRecord::Base
 
   belongs_to :category
   belongs_to :transaction_type
+  belongs_to :listing_shape
+  belongs_to :transaction_process
 
   delegate :direction, to: :transaction_type
   delegate :status_after_reply, to: :transaction_type

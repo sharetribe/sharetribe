@@ -18,7 +18,7 @@
 #
 
 class Category < ActiveRecord::Base
-  attr_accessible :community_id, :parent_id, :translation_attributes, :transaction_type_attributes, :sort_priority, :url
+  attr_accessible :community_id, :parent_id, :translation_attributes, :transaction_type_attributes, :listing_shape_attributes, :sort_priority, :url
 
   has_many :subcategories, :class_name => "Category", :foreign_key => "parent_id", :dependent => :destroy, :order => "sort_priority"
   # children is a more generic alias for sub categories, used in classification.rb
@@ -32,6 +32,8 @@ class Category < ActiveRecord::Base
 
   has_many :category_transaction_types, :dependent => :destroy
   has_many :transaction_types, :through => :category_transaction_types
+  has_many :category_listing_shapes, dependent: :destroy
+  has_many :listing_shapes, through: :category_listing_shapes
 
   belongs_to :community
 
@@ -65,6 +67,11 @@ class Category < ActiveRecord::Base
   def transaction_type_attributes=(attributes)
     transaction_types.clear
     attributes.each { |transaction_type| category_transaction_types.build(transaction_type) }
+  end
+
+  def listing_shape_attributes=(attributes)
+    listing_shapes.clear
+    attributes.each { |listing_shape| category_listing_shapes.build(listing_shape) }
   end
 
   def display_name(locale)

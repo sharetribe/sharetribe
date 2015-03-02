@@ -15,7 +15,7 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     @selected_left_navi_link = "listing_categories"
-    @category = Category.new(params[:category])
+    @category = Category.new(transaction_type_params_to_listing_shape(params[:category]))
     @category.community = @current_community
     @category.parent_id = nil if params[:category][:parent_id].blank?
     @category.sort_priority = Admin::SortingService.next_sort_priority(@current_community.categories)
@@ -39,7 +39,7 @@ class Admin::CategoriesController < ApplicationController
     @selected_left_navi_link = "listing_categories"
     @category = @current_community.categories.find_by_url_or_id(params[:id])
     @default_transaction_types = @category.transaction_types
-    if @category.update_attributes(params[:category])
+    if @category.update_attributes(transaction_type_params_to_listing_shape(params[:category]))
       redirect_to admin_categories_path
     else
       flash[:error] = "Category saving failed"
@@ -93,6 +93,20 @@ class Admin::CategoriesController < ApplicationController
     @category.destroy
 
     redirect_to admin_categories_path
+  end
+
+  # This is only temporary
+  def transaction_type_params_to_listing_shape(params)
+    transaction_type_ids = params[:transaction_type_attributes].map { |tt| tt[:transaction_type_id] }
+    listing_shape_ids = transaction_type_ids.map { |ttid|
+      Maybe(@current_community.listing_shapes.where(transaction_type_id: ttid).first).id.or_else(nil)
+    }.compact
+
+    listing_shape_attributes = listing_shape_ids.map { |lsid|
+      {listing_shape_id: lsid}
+    }
+
+    params.merge({listing_shape_attributes: listing_shape_attributes})
   end
 
 end
