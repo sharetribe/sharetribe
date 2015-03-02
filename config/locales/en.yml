@@ -1884,6 +1884,11 @@ en:
     days_since:
       one: "%{count} day"
       other: "%{count} days"
+  transactions:
+    initiate:
+      subtotal: "Subtotal:"
+      shipping-price: "Shipping:"
+      total: "Total:"
   unit:
     day: day
     days: days

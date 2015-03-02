@@ -1441,7 +1441,7 @@ fi:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per päivä"
       delivery: "Kuljetus"
-      shipping: "Postikulut (%{price)"
+      shipping: "Postikulut (%{price})"
       pickup: "Nouto (%{price})"
     verification_required:
       verification_required: ~
@@ -1884,6 +1884,11 @@ fi:
     days_since:
       one: päivän
       other: "%{count} päivän"
+  transactions:
+    initiate:
+      subtotal: "Välisumma:"
+      shipping-price: "Postikulut:"
+      total: "Loppusumma:"
   unit:
     day: päivä
     days: päivää

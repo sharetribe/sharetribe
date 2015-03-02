@@ -1623,6 +1623,44 @@ a.lightbox-x {
 }
 
 /*
+  ------------------------
+  Initiate Transaction
+  ------------------------
+*/
+
+.initiate-transaction-totals {
+    background-color: $highlight;
+    padding: lines(0.5);
+    margin-bottom: lines(0.5);
+}
+
+.initiate-transaction-sum-wrapper,
+.initiate-transaction-shipping-price-wrapper,
+.initiate-transaction-total-wrapper {
+    @include clearfix;
+}
+
+.initiate-transaction-sum-label,
+.initiate-transaction-shipping-price-label,
+.initiate-transaction-total-label {
+    float: left;
+}
+
+.initiate-transaction-sum-value,
+.initiate-transaction-shipping-price-value,
+.initiate-transaction-total-value {
+    float: right;
+    margin-right: lines(0.25);
+}
+
+.initiate-transaction-total-wrapper {
+    font-weight: bold;
+}
+
+
+
+
+/*
   ----------------
   About
   ----------------
