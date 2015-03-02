@@ -152,7 +152,15 @@ module PaypalService
               ReturnURL: req[:success],
               CancelURL: req[:cancel],
               ReqConfirmShipping: 0,
-              NoShipping: 1,
+              AddressOverride: 1,
+              Address: {
+                Name: "Pete Buyer",
+                Street1: "Kalevantie 4",
+                Street2: "",
+                CityName: "Tampere",
+                Country: "FI",
+                PostalCode: "33820"
+              },
               SolutionType: "Sole",
               LandingPage: "Billing",
               InvoiceID: req[:invnum],
@@ -162,11 +170,13 @@ module PaypalService
                   ButtonSource: config[:button_source],
                   NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total]),
+                  ShippingTotal: from_money(Money.new(100, "GBP")),
+                  ItemTotal: from_money(Money.new(9900, "GBP")),
                   PaymentAction: "Order",
                   PaymentDetailsItem: [{
                       Name: req[:item_name],
                       Quantity: req[:item_quantity],
-                      Amount: from_money(req[:item_price] || req[:order_total])
+                      Amount: from_money(req[:item_price] - Money.new(100, "GBP") || req[:order_total] - Money.new(100, "GBP"))
                   }]
               }]
             }
@@ -190,15 +200,27 @@ module PaypalService
               PaymentAction: "Order",
               Token: req[:token],
               PayerID: req[:payer_id],
+              ReqConfirmShipping: 0,
+              AddressOverride: 1,
+              Address: {
+                Name: "Pete Byer",
+                Street1: "Kalevantie 4",
+                Street2: "",
+                CityName: "Tampere",
+                Country: "FI",
+                PostalCode: "33820"
+              },
               PaymentDetails: [{
                   ButtonSource: config[:button_source],
                   InvoiceID: req[:invnum],
                   NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total]),
+                  ShippingTotal: from_money(Money.new(100, "GBP")),
+                  ItemTotal: from_money(Money.new(9900, "GBP")),
                   PaymentDetailsItem: [{
                       Name: req[:item_name],
                       Quantity: req[:item_quantity],
-                      Amount: from_money(req[:item_price] || req[:order_total])
+                      Amount: from_money(req[:item_price] - Money.new(100, "GBP") || req[:order_total] - Money.new(100, "GBP"))
                   }]
               }]
             }
