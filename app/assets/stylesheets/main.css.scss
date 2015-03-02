@@ -1596,17 +1596,21 @@ a.lightbox-x {
   }
   .conversation-sum-wrapper,
   .conversation-service-fee-wrapper,
-  .conversation-total-wrapper {
+  .conversation-total-wrapper,
+  .conversation-shipping-price-wrapper {
     @include clearfix;
   }
   .conversation-sum-label,
   .conversation-service-fee-label,
-  .conversation-total-label{
+  .conversation-total-label,
+  .conversation-shipping-price-label {
     float: left;
   }
+
   .conversation-sum-value,
   .conversation-service-fee-value,
-  .conversation-total-value {
+  .conversation-total-value,
+  .conversation-shipping-price-value {
     float: right;
     margin-right: lines(0.25);
   }

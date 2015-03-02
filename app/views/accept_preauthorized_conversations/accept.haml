@@ -42,6 +42,13 @@
         %span.conversation-service-fee-value
           = "-#{humanized_money_with_symbol(fee)}"
 
+      -unless shipping_price.zero?
+        .conversation-shipping-price-wrapper
+          %span.conversation-shipping-price-label
+            = t("conversations.accept.shipping_price_label")
+          %span.conversation-shipping-price-value
+            = humanized_money_with_symbol(shipping_price)
+
       - if payment_gateway == :paypal
         .conversation-total-wrapper
           %span.conversation-total-label

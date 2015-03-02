@@ -128,8 +128,9 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       listing: @listing,
       booking: @listing_conversation.booking,
       orderer: @listing_conversation.starter,
-      sum: transaction[:checkout_total],
+      sum: transaction[:checkout_total] - transaction[:shipping_price],
       fee: transaction[:commission_total],
+      shipping_price: transaction[:shipping_price],
       seller_gets: transaction[:checkout_total] - transaction[:commission_total],
       form: @listing_conversation, # TODO FIX ME, DONT USE MODEL
       form_action: acceptance_preauthorized_person_message_path(

@@ -185,6 +185,7 @@ module TransactionService::Transaction
         listing_id: tx[:listing_id],
         listing_title: tx[:listing_title],
         listing_price: tx[:unit_price],
+        shipping_price: tx[:shipping_price],
         listing_author_id: tx[:listing_author_id],
         listing_quantity: tx[:listing_quantity],
         automatic_confirmation_after_days: tx[:automatic_confirmation_after_days],
