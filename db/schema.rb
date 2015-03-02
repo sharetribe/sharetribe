@@ -82,6 +82,16 @@ ActiveRecord::Schema.define(:version => 20150226131628) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "category_listing_shapes", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "listing_shape_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "category_listing_shapes", ["category_id"], :name => "index_category_listing_shapes_on_category_id"
+  add_index "category_listing_shapes", ["listing_shape_id"], :name => "index_category_listing_shapes_on_listing_shape_id"
+
   create_table "category_transaction_types", :force => true do |t|
     t.integer  "category_id"
     t.integer  "transaction_type_id"
@@ -459,6 +469,21 @@ ActiveRecord::Schema.define(:version => 20150226131628) do
 
   add_index "listing_images", ["listing_id"], :name => "index_listing_images_on_listing_id"
 
+  create_table "listing_shapes", :force => true do |t|
+    t.integer  "community_id",               :null => false
+    t.integer  "transaction_type_id",        :null => false
+    t.integer  "sort_priority"
+    t.boolean  "price_enabled",              :null => false
+    t.string   "price_quantity_placeholder"
+    t.string   "price_per"
+    t.string   "url"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "listing_shapes", ["community_id"], :name => "index_listing_shapes_on_community_id"
+  add_index "listing_shapes", ["url"], :name => "index_listing_shapes_on_url"
+
   create_table "listings", :force => true do |t|
     t.string   "author_id"
     t.string   "category_old"
@@ -486,6 +511,8 @@ ActiveRecord::Schema.define(:version => 20150226131628) do
     t.integer  "category_id"
     t.integer  "share_type_id"
     t.integer  "transaction_type_id"
+    t.integer  "listing_shape_id"
+    t.integer  "transaction_process_id"
     t.integer  "organization_id"
     t.integer  "price_cents"
     t.string   "currency"
@@ -824,6 +851,28 @@ ActiveRecord::Schema.define(:version => 20150226131628) do
   add_index "testimonials", ["author_id"], :name => "index_testimonials_on_author_id"
   add_index "testimonials", ["receiver_id"], :name => "index_testimonials_on_receiver_id"
   add_index "testimonials", ["transaction_id"], :name => "index_testimonials_on_transaction_id"
+
+  create_table "transaction_process_translations", :force => true do |t|
+    t.integer  "transaction_process_id", :null => false
+    t.string   "locale",                 :null => false
+    t.string   "name"
+    t.string   "action_button_label"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  add_index "transaction_process_translations", ["locale"], :name => "index_transaction_process_translations_on_locale"
+  add_index "transaction_process_translations", ["transaction_process_id"], :name => "index_transaction_process_translations_on_transaction_process_id"
+
+  create_table "transaction_processes", :force => true do |t|
+    t.integer  "listing_shape_id",                    :null => false
+    t.string   "process"
+    t.boolean  "author_is_seller", :default => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
+  add_index "transaction_processes", ["listing_shape_id"], :name => "index_transaction_processes_on_listing_shape_id"
 
   create_table "transaction_transitions", :force => true do |t|
     t.string   "to_state"
