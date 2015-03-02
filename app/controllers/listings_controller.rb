@@ -159,7 +159,7 @@ class ListingsController < ApplicationController
                        payment_type: payment_type)
 
       if allow_posting
-        render :partial => "listings/form/form_content", locals: commission(@current_community)
+        render :partial => "listings/form/form_content", locals: commission(@current_community).merge(shipping_enabled: shipping_enabled?(@current_community))
       else
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
@@ -359,6 +359,10 @@ class ListingsController < ApplicationController
        commission_from_seller: community.commission_from_seller,
        minimum_price_cents: community.absolute_minimum_price(currency).cents}
     end
+  end
+
+  def shipping_enabled?(community)
+    MarketplaceService::Community::Query.shipping_enabled?(community.id)
   end
 
   def paypal_minimum_commissions_api

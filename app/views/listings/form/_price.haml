@@ -1,6 +1,6 @@
 .price-container
   - if @listing.transaction_type.price_field?
-    = form.label :price, t(".price") + "*"
+    = form.label :price, t(".price")
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
     .currency-selector
       - if @current_community.available_currencies
@@ -63,3 +63,21 @@
       :javascript
         $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
 
+- if shipping_enabled
+  .delivery-options-container
+    = field_set_tag t(".delivery"), class: "delivery-title" do
+      .delivery-row-low
+        .delivery-checkbox
+          = form.check_box :require_shipping_address
+        .delivery-label2
+          = form.label :require_shipping_address, t(".shipping"), class: "shipping-options-label"
+      .delivery-row-tall
+        .delivery-label2
+          = form.label :shipping_price, t(".shipping_price"), class: "shipping-options-label"
+          = form.text_field :shipping_price, class: "price-field", maxlength: 10, placeholder: 0, value: (@listing.shipping_price ? @listing.shipping_price.to_s: 0)
+          USD
+      .delivery-row-low
+        .delivery-checkbox
+          = form.check_box :pickup_enabled
+        .delivery-label2
+          = form.label :pickup_enabled, t(".pickup"), class: "shipping-options-label"

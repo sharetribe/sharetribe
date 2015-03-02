@@ -36,6 +36,12 @@ module MarketplaceService
           .or_else(nil)
       end
 
+      def shipping_enabled?(community_id)
+        Maybe(MarketplaceSettings.where(community_id: community_id).first)
+          .map { |settings| settings.shipping_enabled }
+          .or_else(nil)
+      end
+
       def current_plan(community_id)
         CommunityPlan
           .where(:community_id => community_id)
