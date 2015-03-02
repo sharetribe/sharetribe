@@ -172,7 +172,7 @@ class ApplicationController < ActionController::Base
     domain = @current_community.domain
 
     if needs_redirect?(host, domain)
-      redirect_to "#{request.protocol}#{domain}"
+      redirect_to "#{request.protocol}#{domain}#{request.fullpath}", status: :moved_permanently
     end
   end
 
