@@ -42,7 +42,7 @@
         %span.conversation-service-fee-value
           = "-#{humanized_money_with_symbol(fee)}"
 
-      -unless shipping_price.zero?
+      - if shipping_price
         .conversation-shipping-price-wrapper
           %span.conversation-shipping-price-label
             = t("conversations.accept.shipping_price_label")

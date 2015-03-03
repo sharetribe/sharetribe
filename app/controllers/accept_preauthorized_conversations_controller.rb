@@ -150,6 +150,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       orderer: @listing_conversation.starter,
       sum: @listing_conversation.payment.total_sum,
       fee: @listing_conversation.payment.total_commission,
+      shipping_price: nil,
       seller_gets: @listing_conversation.payment.seller_gets,
       form: @listing_conversation,
       form_action: acceptance_preauthorized_person_message_path(
