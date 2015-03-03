@@ -68,7 +68,7 @@ module TransactionTypeCreator
 
   module_function
 
-  def create(community, transaction_type_class_name)
+  def create(community, transaction_type_class_name, opts = {})
     throw "Transaction type #{transaction_type_class_name} not available. Available types are: #{available_types.join(', ')}" unless available_types.include? transaction_type_class_name
 
     transaction_type_description = TRANSACTION_TYPES[transaction_type_class_name]
@@ -92,6 +92,8 @@ module TransactionTypeCreator
     #enable preauthorized payments
     transaction_type.preauthorize_payment = true
 
+    create_transaction_process!(community, transaction_type, opts[:payment_gateway_available])
+
     transaction_type.save!
 
     # Categories
@@ -108,6 +110,17 @@ module TransactionTypeCreator
 
   def use_in_category(category, transaction_type)
     CategoryTransactionType.create(:category_id => category.id, :transaction_type_id => transaction_type.id)
+  end
+
+  # This method is only temporary implementation for the transaction_process change
+  def create_transaction_process!(community, transaction_type, payment_gateway_available)
+    payment_gateway_available = payment_gateway_available || MarketplaceService::Community::Query.payment_type(community.id).present?
+    process = ListingsController.select_payment_process(
+          price_field: transaction_type.price_field?,
+          preauthorize: transaction_type.preauthorize_payment?,
+          payment_gateway_available: payment_gateway_available)
+
+    transaction_type.create_transaction_process({ process: process })
   end
 
 end
