@@ -77,7 +77,7 @@
           - delivery_opts.each do |opts|
             .row
               .col-12
-                = radio_button_tag("delivery", opts.fetch(:name), false)
+                = radio_button_tag("delivery", opts.fetch(:name), opts[:default])
                 = label_tag("delivery_#{opts.fetch(:name)}", t("listings.show.#{opts.fetch(:name)}", price: humanized_money_with_symbol(opts.fetch(:price)).upcase), class: "delivery-label")
 
       %button.book-button

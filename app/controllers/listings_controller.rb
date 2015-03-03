@@ -544,8 +544,8 @@ class ListingsController < ApplicationController
   end
 
   def delivery_config(require_shipping_address, pickup_enabled, shipping_price, currency)
-    shipping = { name: :shipping, price: shipping_price }
-    pickup = { name: :pickup, price: Money.new(0, currency) }
+    shipping = { name: :shipping, price: shipping_price, default: true }
+    pickup = { name: :pickup, price: Money.new(0, currency), defaul: false }
 
     case [require_shipping_address, pickup_enabled]
     when matches([true, true])
