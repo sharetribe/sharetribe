@@ -40,6 +40,7 @@ describe PaypalService::API::Payments do
       transaction_id: @tx_id,
       item_name: "Item name",
       item_quantity: 1,
+      item_total: Money.new(1200, "EUR"),
       item_price: Money.new(1200, "EUR"),
       merchant_id: @mid,
       order_total: Money.new(1200, "EUR"),

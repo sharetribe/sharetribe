@@ -86,6 +86,7 @@ describe PaypalService::API::BillingAgreements do
       item_quantity: 1,
       item_price: Money.new(1200, "EUR"),
       merchant_id: seller_person_id,
+      item_total: Money.new(1200, "EUR"),
       order_total: Money.new(1200, "EUR"),
       success: "https://www.test.com/success",
       cancel: "https://www.test.com/cancel"

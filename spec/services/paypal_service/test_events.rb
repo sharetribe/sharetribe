@@ -2,7 +2,7 @@ module PaypalService
   class TestEvents
     attr_reader :received_events
 
-    ALLOWED_EVENTS = [:request_cancelled, :payment_created, :payment_updated]
+    ALLOWED_EVENTS = [:request_cancelled, :payment_created, :payment_updated, :order_details]
 
     def initialize
       clear
