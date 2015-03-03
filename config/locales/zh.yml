@@ -120,7 +120,7 @@ zh:
         live_site_link_text: 这里
         look_and_feel: "在你将你的站点公开发布前，你也许想再配置一些东西。比如，你可能想去%{logo_link}修改封面照片和颜色以配合你的品牌的外观和感受。"
         logo_link_text: 添加你的标志
-        custom_domain: ~
+        custom_domain: "你也许还想增加一个定制的网页地址（比如www.yourmarketplace.com）。设置它需要我们做一些手动工作，同时我们也需要为域名购买SSL证书以保证你的站点安全。由于这些原因，定制的郁闷在免费试用期不可用，所以如果需要该域名，你要订阅我们的Pro计划或更高级别的计划。如果你想要定制域名，请%{contact_support_link}。"
         categories_and_custom_fields: "接下来需要决定用户可以发布什么样的内容到你的站点。你可以%{categories_link}，通过%{custom_fields_link}定制实际列表表单包含的内容，并在用户浏览列表时决定%{filters_link}。"
         categories_link_text: 新增分类和子分类
         custom_fields_link_text: 配置表单字段
@@ -394,7 +394,7 @@ zh:
     removed_user: 用户已删除
     paypal_fee_info:
       title: PayPal的支付处理费
-      body: ~
+      body: "PayPal对每笔付款收取一笔处理费。该费用介于总销售费用的2%到5%之间，取决于你的月销售量和卖家所在国家。总的说来，国内购买者比国际购买者的费用低，每月销售额高则可以获得费用折扣。你可以通过登录你的PayPal帐号访问<a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>这里</a>。来查看详细费用。在每次购买之后你将得到一据显示具体费用的收据。"
   conversations:
     accept:
       details: 订单明细

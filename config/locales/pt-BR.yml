@@ -123,10 +123,10 @@ pt-BR:
         welcome_to_your_marketplace: "Bem-vindo(a) ao seu mercado, %{name}!"
         intro: "Este é um guia rápido para configurar e gerenciar o seu site mercado. Você pode visualizar o site ao vivo %{live_site_link}"
         live_site_link_text: aqui
-        look_and_feel: "Antes de lançar o seu site para o público, você provavelmente vai querer configurar algumas coisas. Por exemplo, você pode querer alterar %{logo_link} e mudar a foto da capa e cores para combinar com o look and feel da sua marca."
+        look_and_feel: "Antes de lançar o seu site para o público, você provavelmente vai querer configurar algumas coisas. Por exemplo, você pode querer %{logo_link} e mudar a foto da capa e cores para combinar com a concepção da sua marca."
         logo_link_text: "adicionar o seu logotipo"
         custom_domain: "Você também pode querer adicionar um endereço de web personalizado (um exemplo: www.seumercado.com.br). Configurá-lo requer algum trabalho manual da nossa parte, e nós também precisaremos comprar um certificado SSL para o domínio para manter seu site seguro. Por estas razões, domínios personalizados não estão disponíveis em testes gratuitos agora, para isso, você precisa se inscrever em nosso plano Pro ou superior para ter um. Se você desejar ter um domínio personalizado, por favor %{contact_support_link}."
-        categories_and_custom_fields: "O próximo passo é decidir que tipo de conteúdo que as pessoas podem postar em seu site. Você pode adicionar %{categories_link}, configurar os %{custom_fields_link} que a forma de listagem atual contém, e decidir que tipo de %{filters_link} estarão em uso quando as pessoas navegarem pelos perfis."
+        categories_and_custom_fields: "O próximo passo é decidir que tipo de conteúdo que as pessoas podem postar em seu site. Você pode %{categories_link}, %{custom_fields_link} que a forma atual de anúncios contém, e decidir %{filters_link} estarão em uso quando as pessoas navegarem pelos anúncios."
         categories_link_text: "adicionar categorias e subcategorias"
         custom_fields_link_text: "configurar os campos do formulário"
         filters_link_text: "que tipo de filtros"
@@ -139,17 +139,17 @@ pt-BR:
         welcome_email_link_text: "Conteúdo do e-mail de boas-vindas"
         instruction_texts_link_text: "outros textos de instrução"
         social_media: "Usar a mídia social é uma boa maneira de construir a comunidade. Você pode %{facebook_link} para tornar mais fácil a inscrição das pessoas ao seu mercado, e %{twitter_link} para obter melhor visibilidade quando as pessoas \"tweetarem\" sobre produtos em seu mercado."
-        facebook_link_text: "conecte seu app personalizado do Facebook"
-        twitter_link_text: "Adicionar sua conta do Twitter"
+        facebook_link_text: "conectar seu app personalizado do Facebook"
+        twitter_link_text: "adicionar sua conta do Twitter"
         analytics: "Também é uma boa ideia para %{analytics_link}. Desta forma é fácil para você ver o que está acontecendo no seu mercado, quantos visitantes tem, e assim por diante."
         analytics_link_text: "conectar uma conta do \"Google Analytics\""
-        settings: ~
+        settings: "Há um monte de outras configurações que você pode alterar. Por exemplo, você pode exigir que todos tenham um convite de outros usuários antes que eles possam se juntar e fazer o seu mercado privado, portanto, apenas os usuários que estão cadastrados, podem ver o conteúdo. %{settings_link}."
         settings_link_text: "Ver as suas definições de mercado aqui"
         final_words: ~
         invite_link_text: "Convidar outros usuários"
         view_users_link_text: aqui
         view_transactions_link_text: aqui
-        contact_support_link_text: "entre em contato com o nosso suporte"
+        contact_support_link_text: "entrar em contato com o nosso suporte"
       settings:
         settings: Opções
         general: Geral
@@ -193,7 +193,7 @@ pt-BR:
         social_media: "Mídia social"
         twitter_handle: "Nome Twitter"
         twitter_handle_info_text: "Nome de usuário da conta do Twitter do seu marketplace (se você tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
-        twitter_handle_info_text_with_instructions: ~
+        twitter_handle_info_text_with_instructions: "Nome de usuário da conta de Twitter de seu mercado (se você tiver um). Ele será mencionado quando as pessoas usarem o botão 'tweet' na página de anúncios. %{instructions_link}."
         twitter_instructions_link_text: "Leia mais"
         twitter_handle_placeholder: "nome de usuário"
         invalid_twitter_handle: "O nome Twitter deve conter no máximo 15 caracteres alfanuméricos (letras A-Z e números 0-9)."
@@ -320,7 +320,7 @@ pt-BR:
     paypal_accounts:
       marketplace_paypal_integration: "Preferências de pagamento"
       preferences_updated: "Preferências de pagamento atualizadas."
-      integration_info_text: ~
+      integration_info_text: "O sistema de pagamento de Sharetribe é gerenciado pelo PayPal. Se você quiser permitir que os seus usuários façam pagamentos através de seu mercado, você deve se conectar a sua conta PayPal e decidir o tamanho mínimo da transação e a taxa que você quer ganhar de cada transação."
       read_more_about_paypal: "Leia mais sobre o sistema de pagamento do Sharetribe"
       paypal_account_email: "1. Conecte sua conta PayPal"
       paypal_account_email_completed: Concluído!
@@ -1395,9 +1395,9 @@ pt-BR:
       select_transaction_type: "Selecionar tipo de anúncio "
       you_need_to_fill_payout_details_before_accepting: "Você precisa preencher os detalhes de pagamento antes de aceitar o pedido e receber o pagamento. Vá para %{payment_settings_link} para preencher os detalhes."
       contact_admin_link_text: "contate o administrador"
-      community_not_configured_for_payments: ~
+      community_not_configured_for_payments: "%{service_name} não foi configurado para os pagamentos, então você ainda não pode criar novos anúncios. Por favor, %{contact_admin_link} para mais detalhes."
       payment_settings_link: "configurações de pagamento"
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name} não foi configurado para receber os pagamentos, por isso você não pode criar novos anúncios. Ir para %{payment_settings_link} para preencher os detalhes de pagamento."
     please_comment: Comentar
     reply_link:
       listing_closed: "Anúncio está encerrado."
@@ -1505,7 +1505,7 @@ pt-BR:
     commission: "%{commission} %"
     connected_account: "Conta PayPal '%{email}' connectada com sucesso."
     change_account: "Mudar conta"
-    missing: ~
+    missing: "Você têm anúncios ativos, mas você ainda não adicionou a sua conta do PayPal, então você não será capaz de receber os pagamentos. Por favor, conecte sua conta do PayPal em sua %{settings_link}."
     from_your_payment_settings_link_text: "configurações de pagamento"
     new:
       payout_info_you_need_to_connect: "Para aceitar pagamentos você deve conectar a sua conta PayPal com %{service_name}."
@@ -1532,7 +1532,7 @@ pt-BR:
       billing_agreement_wrong_account: "Contas PayPal não coincidem. Por favor, use a mesma conta PayPal que você conectou na primeira etapa."
       something_went_wrong: "Algo deu errado. Por favor, tente novamente. Se o problema persistir, entre em contato com os administradores do site."
       account_not_verified: "Você não verificou a sua conta PayPal. Você precisa ir para paypal.com e verificar a sua conta antes de continuar."
-      account_restricted: ~
+      account_restricted: "A sua conta do PayPal é restrita e não pode ser conectada. Por favor, conecte via paypal.com para saber mais o que isso significa ou entre em contato com o suporte ao cliente do PayPal para resolver o problema."
   paypal:
     checkout_with_paypal: "Pagar com PayPal"
     cancel_succesful: "Pagamento PayPal cancelado com sucesso."
