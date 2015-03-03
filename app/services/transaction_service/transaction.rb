@@ -122,7 +122,6 @@ module TransactionService::Transaction
     raise NoMethodError.new("Not implemented")
   end
 
-  # TODO Should handle optional message
   def complete(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
@@ -135,7 +134,6 @@ module TransactionService::Transaction
       .or_else(res)
   end
 
-  # TODO Should handle optional message
   def cancel(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
