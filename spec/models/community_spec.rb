@@ -65,7 +65,6 @@
 #  name_display_type                          :string(255)      default("first_name_with_initial")
 #  twitter_handle                             :string(255)
 #  use_community_location_as_default          :boolean          default(FALSE)
-#  domain_alias                               :string(255)
 #  preproduction_stylesheet_url               :string(255)
 #  show_category_in_listing_list              :boolean          default(FALSE)
 #  default_browse_view                        :string(255)      default("grid")

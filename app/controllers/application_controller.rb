@@ -177,24 +177,7 @@ class ApplicationController < ActionController::Base
   end
 
   def needs_redirect?(host, domain)
-    if domain.nil?
-      false
-    elsif is_subdomain?(domain)
-      # In the future we should not save subdomain (i.e. the usernames) to `domain` column.
-      # However, those have been left there for easier migration from domain -> usernames.
-      # We have a lot of code where `find_by_domain` is used, and we don't want to break that
-      # for now
-      false
-    elsif host == domain
-      false
-    else
-      true
-    end
-  end
-
-  def is_subdomain?(domain)
-    # Very naive
-    !domain.include?(".")
+    domain.present? && host != domain
   end
 
   # Fetch community
