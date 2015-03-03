@@ -110,7 +110,7 @@ class ListingsController < ApplicationController
 
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
-    payment_process = select_payment_process(
+    payment_process = ListingsController.select_payment_process(
       price_field: @listing.transaction_type.price_field?,
       preauthorize: @listing.transaction_type.preauthorize_payment?,
       payment_gateway_available: payment_gateway.present?)
@@ -512,7 +512,8 @@ class ListingsController < ApplicationController
     end
   end
 
-  def select_payment_process(price_field:, payment_gateway_available:, preauthorize:)
+  # This is wrong place, yes, but this method will be soon removed
+  def self.select_payment_process(price_field:, payment_gateway_available:, preauthorize:)
     case [price_field, payment_gateway_available, preauthorize]
     when matches([false])
       :none

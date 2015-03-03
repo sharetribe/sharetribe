@@ -97,7 +97,7 @@ module MarketplaceService::API
 
       def create_transaction_type!(community, marketplace_type)
         transaction_type_name = transaction_type_name(marketplace_type)
-        TransactionTypeCreator.create(community, transaction_type_name)
+        TransactionTypeCreator.create(community, transaction_type_name, payment_gateway_available: true)
       end
 
       def create_community_customization!(community, marketplace_name, locale)
