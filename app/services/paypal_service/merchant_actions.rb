@@ -49,7 +49,6 @@ module PaypalService
               NoShipping: 1,
               AllowNote: 0,
               PaymentDetails: [{
-                  ButtonSource: config[:button_source],
                   OrderTotal: { value: "0.0" },
                   NotifyURL: hook_url(config[:ipn_hook]),
                   PaymentAction: "Authorization"
@@ -91,6 +90,7 @@ module PaypalService
               PaymentAction: "Sale",
               PaymentType: "InstantOnly",
               PaymentDetails: {
+                ButtonSource: config[:button_source],
                 NotifyURL: hook_url(config[:ipn_hook]),
                 OrderTotal: from_money(req[:payment_total]),
                 InvoiceID: req[:invnum],
@@ -159,7 +159,6 @@ module PaypalService
               AllowNote: 0,
               MaxAmount: from_money(req[:order_total]),
               PaymentDetails: [{
-                  ButtonSource: config[:button_source],
                   NotifyURL: hook_url(config[:ipn_hook]),
                   OrderTotal: from_money(req[:order_total]),
                   PaymentAction: "Order",
