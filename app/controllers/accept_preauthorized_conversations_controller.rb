@@ -131,6 +131,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       sum: transaction[:checkout_total] - transaction[:shipping_price],
       fee: transaction[:commission_total],
       shipping_price: transaction[:shipping_price],
+      shipping_address: transaction_conversation[:shipping_address],
       seller_gets: transaction[:checkout_total] - transaction[:commission_total],
       form: @listing_conversation, # TODO FIX ME, DONT USE MODEL
       form_action: acceptance_preauthorized_person_message_path(
@@ -151,6 +152,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       sum: @listing_conversation.payment.total_sum,
       fee: @listing_conversation.payment.total_commission,
       shipping_price: nil,
+      shipping_address: nil,
       seller_gets: @listing_conversation.payment.seller_gets,
       form: @listing_conversation,
       form_action: acceptance_preauthorized_person_message_path(
