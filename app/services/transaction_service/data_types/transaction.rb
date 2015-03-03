@@ -1,9 +1,5 @@
 module TransactionService::DataTypes::Transaction
 
-  PaypalCompletePreauthorizationFields = EntityUtils.define_builder(
-    [:payment_gateway, const_value: :paypal],
-    [:pending_reason, :symbol, :optional])
-
   # Common response format:
 
   Transaction = EntityUtils.define_builder(
@@ -33,8 +29,6 @@ module TransactionService::DataTypes::Transaction
     [:gateway_fields, :hash, :optional])
 
   module_function
-
-  def create_paypal_complete_preauthorization_fields(fields); PaypalCompletePreauthorizationFields.call(fields) end
 
   def create_transaction(opts); Transaction.call(opts) end
 

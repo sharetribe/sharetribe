@@ -97,7 +97,8 @@ Given /^Braintree escrow release is mocked$/ do
 end
 
 Given /^Braintree void transaction is mocked$/ do
-  BraintreeApi.should_receive(:void_transaction).at_least(1).times.and_return(true)
+  BraintreeApi.should_receive(:void_transaction).at_least(1).times
+    .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
 Given /^Braintree merchant creation is mocked$/ do

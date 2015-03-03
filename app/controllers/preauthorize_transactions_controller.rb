@@ -141,7 +141,7 @@ class PreauthorizeTransactionsController < ApplicationController
     if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
       return render_error_response(request.xhr?,
         t("error_messages.transaction_agreement.required_error"),
-        { Action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on) })
+        { action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on) })
     end
 
     unless preauthorize_form.valid?

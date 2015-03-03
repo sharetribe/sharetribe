@@ -193,6 +193,8 @@ module MarketplaceService
       #
       # Under the hood, this is stored to conversation, which is not optimal since that ties transaction and
       # conversation tightly together
+      #
+      # Deprecated! No need to call from outside tx service in the new process model.
       def mark_as_unseen_by_other(transaction_id, person_id)
         TransactionModel.find(transaction_id)
           .conversation

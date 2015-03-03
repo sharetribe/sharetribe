@@ -15,7 +15,7 @@ module TransactionService::Transaction
     paypal: TransactionService::Gateway::PaypalAdapter.new,
     braintree: TransactionService::Gateway::BraintreeAdapter.new,
     checkout: TransactionService::Gateway::CheckoutAdapter.new,
-    none: Object.new
+    none: TransactionService::Gateway::FreeAdapter.new
   }
 
   TX_PROCESSES = {
@@ -48,6 +48,7 @@ module TransactionService::Transaction
   end
 
 
+  # TODO Return type should be Result (wraps current return type)
   def query(transaction_id)
     tx = TxStore.get(transaction_id)
     to_tx_response(tx)
@@ -82,72 +83,36 @@ module TransactionService::Transaction
                             gateway_adapter: gateway_adapter,
                             prefer_async: paypal_async)
 
-    res.maybe().map { |gw_resp|
-      Result::Success.new(DataTypes.create_transaction_response(to_tx_response(tx), gw_resp))
-    }.or_else(res)
+    res.maybe()
+      .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
+      .or_else(res)
   end
 
 
-  def reject(community_id, transaction_id)
+  def reject(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
-    case(tx[:payment_gateway])
-    when :braintree
-      BraintreeService::Payments::Command.void_transaction(tx[:id], tx[:community_id])
-      MarketplaceService::Transaction::Command.transition_to(tx[:id], :rejected)
+    tx_process = tx_process(tx[:payment_process])
+    gw = gateway_adapter(tx[:payment_gateway])
 
-      Result::Success.new(
-        DataTypes.create_transaction_response(query(tx[:id])))
-    when :paypal
-      result = paypal_payment_api.void(community_id, transaction_id, {note: ""})
-      if result[:success]
-        Result::Success.new(
-          DataTypes.create_transaction_response(query(tx[:id])))
-      else
-        result
-      end
-    end
+    res = tx_process.reject(tx: tx, message: message, sender_id: sender_id, gateway_adapter: gw)
+    res.maybe()
+      .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
+      .or_else(res)
   end
 
 
-  # TODO Should require community id too
-  def complete_preauthorization(transaction_id)
-    tx = TxStore.get(transaction_id)
+  def complete_preauthorization(community_id:, transaction_id:, message: nil, sender_id: nil)
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
-    case tx[:payment_gateway]
-    when :braintree
-      complete_preauthorization_braintree(tx)
-    when :paypal
-      complete_preauthorization_paypal(tx)
-    end
+    tx_process = tx_process(tx[:payment_process])
+    gw = gateway_adapter(tx[:payment_gateway])
 
+    res = tx_process.complete_preauthorization(tx: tx, message: message, sender_id: sender_id, gateway_adapter: gw)
+    res.maybe()
+      .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
+      .or_else(res)
   end
-
-  def complete_preauthorization_braintree(tx)
-    BraintreeService::Payments::Command.submit_to_settlement(tx[:id], tx[:community_id])
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
-
-    Result::Success.new(DataTypes.create_transaction_response(query(tx[:id])))
-  end
-
-  def complete_preauthorization_paypal(tx)
-    res = paypal_payment_api.get_payment(tx[:community_id], tx[:id]).and_then do |payment|
-      paypal_payment_api.full_capture(
-        tx[:community_id],
-        tx[:id],
-        PaypalService::API::DataTypes.create_payment_info({ payment_total: payment[:authorization_total] }))
-    end
-
-    if res[:success]
-      Result::Success.new(
-        DataTypes.create_transaction_response(
-        query(tx[:id]),
-        DataTypes.create_paypal_complete_preauthorization_fields(paypal_pending_reason: res[:data][:pending_reason])))
-    else
-      Result::Error.new("An error occured while trying to complete preauthorized PayPal payment", res)
-    end
-  end
-
 
   def invoice
     raise NoMethodError.new("Not implemented")
@@ -157,22 +122,28 @@ module TransactionService::Transaction
     raise NoMethodError.new("Not implemented")
   end
 
-  def complete(transaction_id)
-    MarketplaceService::Transaction::Command.transition_to(transaction_id, :confirmed)
+  def complete(community_id:, transaction_id:, message: nil, sender_id: nil)
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
-    transaction = query(transaction_id)
-    MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id, transaction[:listing_author_id])
+    tx_process = tx_process(tx[:payment_process])
+    gw = gateway_adapter(tx[:payment_gateway])
 
-    Result::Success.new(DataTypes.create_transaction_response(transaction))
+    res = tx_process.complete(tx: tx, message: message, sender_id: sender_id, gateway_adapter: gw)
+    res.maybe()
+      .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
+      .or_else(res)
   end
 
-  def cancel(transaction_id)
-    MarketplaceService::Transaction::Command.transition_to(transaction_id, :canceled)
+  def cancel(community_id:, transaction_id:, message: nil, sender_id: nil)
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
-    transaction = query(transaction_id)
-    MarketplaceService::Transaction::Command.mark_as_unseen_by_other(transaction_id,transaction[:listing_author_id])
+    tx_process = tx_process(tx[:payment_process])
+    gw = gateway_adapter(tx[:payment_gateway])
 
-    Result::Success.new(DataTypes.create_transaction_response(transaction))
+    res = tx_process.cancel(tx: tx, message: message, sender_id: sender_id, gateway_adapter: gw)
+    res.maybe()
+      .map { |gw_fields| Result::Success.new(DataTypes.create_transaction_response(query(tx[:id]), gw_fields)) }
+      .or_else(res)
   end
 
 
@@ -200,8 +171,10 @@ module TransactionService::Transaction
   end
 
   def to_tx_response(tx)
-    checkout_details = checkout_details(tx)
-    commission_total = calculate_commission(checkout_details[:total_price], tx[:commission_from_seller], tx[:minimum_commission])
+    gw = gateway_adapter(tx[:payment_gateway])
+    payment_details = gw.get_payment_details(tx: tx)
+
+    commission_total = calculate_commission(payment_details[:total_price], tx[:commission_from_seller], tx[:minimum_commission])
 
     DataTypes.create_transaction(
       {
@@ -218,32 +191,13 @@ module TransactionService::Transaction
         automatic_confirmation_after_days: tx[:automatic_confirmation_after_days],
         last_transition_at: tx[:last_transition_at],
         current_state: tx[:current_state],
-        payment_total: checkout_details[:payment_total],
+        payment_total: payment_details[:payment_total],
         minimum_commission: tx[:minimum_commission],
         commission_from_seller: tx[:commission_from_seller],
-        checkout_total: checkout_details[:total_price],
+        checkout_total: payment_details[:total_price],
         commission_total: commission_total,
-        charged_commission: checkout_details[:charged_commission],
-        payment_gateway_fee: checkout_details[:payment_gateway_fee]})
-  end
-
-  def checkout_details(tx)
-    case tx[:payment_gateway]
-    when :checkout, :braintree, :none
-      payment_total = Maybe(Payment.where(transaction_id: tx[:id]).first).total_sum.or_else(nil)
-      total_price = tx[:unit_price] * 1 # TODO fixme for booking (model.listing_quantity)
-      { payment_total: payment_total,
-        total_price: total_price }
-    when :paypal
-      payment = paypal_payment_api().get_payment(tx[:community_id], tx[:id]).maybe
-      payment_total = payment[:payment_total].or_else(nil)
-      total_price = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
-              .or_else(tx[:unit_price])
-      { payment_total: payment_total,
-        total_price: total_price,
-        charged_commission: payment[:commission_total].or_else(nil),
-        payment_gateway_fee: payment[:fee_total].or_else(nil) }
-    end
+        charged_commission: payment_details[:charged_commission],
+        payment_gateway_fee: payment_details[:payment_gateway_fee]})
   end
 
   def calculate_commission(total_price, commission_from_seller, minimum_commission)

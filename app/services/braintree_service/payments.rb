@@ -42,6 +42,8 @@ module BraintreeService
         else
           BTLog.error("Could not submit authorized payment #{transaction_id} to settlement")
         end
+
+        result
       end
 
       def void_transaction(transaction_id, community_id)
@@ -57,6 +59,8 @@ module BraintreeService
         else
           BTLog.error("Could not void transaction #{transaction_id}")
         end
+
+        result
       end
     end
 

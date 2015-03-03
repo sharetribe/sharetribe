@@ -49,6 +49,27 @@ module TransactionService::Store::Transaction
     from_model(tx_model)
   end
 
+  def add_message(community_id:, transaction_id:, sender_id:, message:)
+    tx_model = TransactionModel.where(community_id: community_id, id: transaction_id).first
+    if tx_model
+      tx_model.conversation.messages.create({content: message, sender_id: sender_id})
+      do_mark_as_unseen_by_other(tx_model, sender_id)
+    end
+
+    nil
+  end
+
+  # Mark transasction as unseen, i.e. something new (e.g. transition) has happened
+  #
+  # Under the hood, this is stored to conversation, which is not optimal since that ties transaction and
+  # conversation tightly together.
+  def mark_as_unseen_by_other(community_id:, transaction_id:, person_id:)
+    tx_model = TransactionModel.where(community_id: community_id, id: transaction_id).first
+    do_mark_as_unseen_by_other(tx_model, person_id) if tx_model
+
+    nil
+  end
+
   def get(transaction_id)
     Maybe(TransactionModel.where(id: transaction_id).first)
       .map { |m| from_model(m) }
@@ -125,6 +146,14 @@ module TransactionService::Store::Transaction
     start_on = tx_data[:booking_fields][:start_on]
     end_on = tx_data[:booking_fields][:end_on]
     DateUtils.duration_days(start_on, end_on)
+  end
+
+  def do_mark_as_unseen_by_other(tx_model, person_id)
+    tx_model
+      .conversation
+      .participations
+      .where("person_id != '#{person_id}'")
+      .update_all(is_read: false)
   end
 
 end
