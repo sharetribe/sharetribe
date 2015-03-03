@@ -112,7 +112,7 @@ class TransactionMailer < ActionMailer::Base
         render "payment_receipt_to_buyer", locals: {
           conversation_url: person_transaction_url(payment.payer, @url_params.merge({:id => payment.transaction.id.to_s})),
           listing_title: payment.transaction.listing.title,
-          payment_total: sum_with_currency(payment.total_sum, payment.currency),
+          payment_total: humanized_money_with_symbol(payment.total_sum),
           recipient_full_name: payment.recipient.name(community),
           recipient_given_name: payment.recipient.given_name_or_username,
           automatic_confirmation_days: payment.transaction.automatic_confirmation_after_days,

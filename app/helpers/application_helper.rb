@@ -859,11 +859,6 @@ module ApplicationHelper
     @homepage && (!@current_user || params[:big_cover_photo])
   end
 
-  def sum_with_currency(sum, currency)
-    curr = Money::Currency.new(currency || "EUR")
-    humanized_money_with_symbol(Money.new(sum * curr.subunit_to_unit, (currency || "EUR")))
-  end
-
   def sort_link_direction(column)
     params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
   end
