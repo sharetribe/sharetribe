@@ -73,17 +73,12 @@ module PaypalService
         [:item_quantity, :fixnum, default: 1],
 
         [:require_shipping_address, :to_bool],
+        [:item_price, :mandatory, :money],
 
-        # If not specified, defaults to item_total. If specifed, quantity * item_price must match item_total
-        [:item_price, :optional, :money],
-
-        # Must be equal to item_price * quantity
-        [:item_total, :mandatory, :money],
-
-        # If specified, no_shipping must be 0, and order_total must match item_total + shipping_total
+        # If specified, require_shipping_address must be true
         [:shipping_total, :optional],
 
-        # Must match item_total + shipping_total
+        # Must match item_price * item_quantity + shipping_total
         [:order_total, :mandatory, :money],
 
         [:receiver_username, :mandatory, :string],

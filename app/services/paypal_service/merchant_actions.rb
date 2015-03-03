@@ -155,39 +155,35 @@ module PaypalService
       set_express_checkout_order: PaypalAction.def_action(
         input_transformer: -> (req, config) {
           req_details = {
-            SetExpressCheckoutRequestDetails: {
-              cppcartbordercolor: "FFFFFF",
-              cpplogoimage: req[:merchant_brand_logo_url] || "",
-              ReturnURL: req[:success],
-              CancelURL: req[:cancel],
-              ReqConfirmShipping: 0,
-              NoShipping: 1,
-              SolutionType: "Sole",
-              LandingPage: "Billing",
-              InvoiceID: req[:invnum],
-              AllowNote: 0,
-              MaxAmount: from_money(req[:order_total]),
-              PaymentDetails: [{
-                NotifyURL: hook_url(config[:ipn_hook]),
-                OrderTotal: from_money(req[:order_total]),
-                PaymentAction: "Order",
-                PaymentDetailsItem: [{
-                  Name: req[:item_name],
-                  Quantity: req[:item_quantity],
-                  Amount: from_money(req[:item_price] || req[:item_total])
-                }]
+            cppcartbordercolor: "FFFFFF",
+            cpplogoimage: req[:merchant_brand_logo_url] || "",
+            ReturnURL: req[:success],
+            CancelURL: req[:cancel],
+            ReqConfirmShipping: 0,
+            NoShipping: req[:require_shipping_address] ? 0 : 1,
+            SolutionType: "Sole",
+            LandingPage: "Billing",
+            InvoiceID: req[:invnum],
+            AllowNote: 0,
+            MaxAmount: from_money(req[:order_total]),
+            PaymentDetails: [{
+              NotifyURL: hook_url(config[:ipn_hook]),
+              OrderTotal: from_money(req[:order_total]),
+              ItemTotal: from_money(req[:item_price] * req[:item_quantity]),
+              PaymentAction: "Order",
+              PaymentDetailsItem: [{
+                Name: req[:item_name],
+                Quantity: req[:item_quantity],
+                Amount: from_money(req[:item_price])
               }]
-            }
+            }]
           }
 
-          # Add shipping related payment fields if required
-          if(req[:require_shipping_address])
-            req_details[:SetExpressCheckoutRequestDetails][:NoShipping] = 0
-            req_details[:SetExpressCheckoutRequestDetails][:PaymentDetails][0][:ShippingTotal] = from_money(req[:shipping_total])
-            req_details[:SetExpressCheckoutRequestDetails][:PaymentDetails][0][:ItemTotal] = from_money(req[:item_total])
+          if(req[:shipping_total])
+             req_details[:PaymentDetails][0][:ShippingTotal] = from_money(req[:shipping_total])
           end
 
-          req_details
+          { SetExpressCheckoutRequestDetails: req_details }
         },
         wrapper_method_name: :build_set_express_checkout,
         action_method_name: :set_express_checkout,
@@ -202,31 +198,29 @@ module PaypalService
 
       do_express_checkout_payment: PaypalAction.def_action(
         input_transformer: -> (req, config) {
-          req_details = { DoExpressCheckoutPaymentRequestDetails: {
-              PaymentAction: "Order",
-              Token: req[:token],
-              PayerID: req[:payer_id],
-              PaymentDetails: [{
-                ButtonSource: config[:button_source],
-                InvoiceID: req[:invnum],
-                NotifyURL: hook_url(config[:ipn_hook]),
-                OrderTotal: from_money(req[:order_total]),
-                PaymentDetailsItem: [{
-                  Name: req[:item_name],
-                  Quantity: req[:item_quantity],
-                  Amount: from_money(req[:item_price] || req[:order_total])
-                }]
+          req_details = {
+            PaymentAction: "Order",
+            Token: req[:token],
+            PayerID: req[:payer_id],
+            PaymentDetails: [{
+              ButtonSource: config[:button_source],
+              InvoiceID: req[:invnum],
+              NotifyURL: hook_url(config[:ipn_hook]),
+              OrderTotal: from_money(req[:order_total]),
+              ItemTotal: from_money(req[:item_price] * req[:item_quantity]),
+              PaymentDetailsItem: [{
+                Name: req[:item_name],
+                Quantity: req[:item_quantity],
+                Amount: from_money(req[:item_price])
               }]
-            }
+            }]
           }
 
           if(req[:shipping_total])
-            req_details[:DoExpressCheckoutPaymentRequestDetails][:PaymentDetails][0][:ShippingTotal] = from_money(req[:shipping_total])
-            req_details[:DoExpressCheckoutPaymentRequestDetails][:PaymentDetails][0][:ItemTotal] = from_money(req[:item_price])
+            req_details[:PaymentDetails][0][:ShippingTotal] = from_money(req[:shipping_total])
           end
 
-          req_details
-
+          { DoExpressCheckoutPaymentRequestDetails: req_details }
         },
         wrapper_method_name: :build_do_express_checkout_payment,
         action_method_name: :do_express_checkout_payment,
