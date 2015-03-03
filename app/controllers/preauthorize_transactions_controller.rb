@@ -29,7 +29,7 @@ class PreauthorizeTransactionsController < ApplicationController
     :listing_id
    ).with_validations {
     validates_presence_of :listing_id
-    validates :delivery_method, inclusion: { in: %w(shipping pickup), message: "%{value} is not shipping or pickup."}
+    validates :delivery_method, inclusion: { in: %w(shipping pickup), message: "%{value} is not shipping or pickup." }, allow_nil: true
   }
 
   PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
