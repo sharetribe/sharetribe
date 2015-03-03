@@ -113,6 +113,8 @@ class TransactionMailer < ActionMailer::Base
           conversation_url: person_transaction_url(payment.payer, @url_params.merge({:id => payment.transaction.id.to_s})),
           listing_title: payment.transaction.listing.title,
           payment_total: humanized_money_with_symbol(payment.total_sum),
+          subtotal: humanized_money_with_symbol(payment.total_sum),
+          shipping_total: nil,
           recipient_full_name: payment.recipient.name(community),
           recipient_given_name: payment.recipient.given_name_or_username,
           automatic_confirmation_days: payment.transaction.automatic_confirmation_after_days,
