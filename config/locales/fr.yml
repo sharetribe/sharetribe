@@ -82,7 +82,7 @@ fr:
       edit_look_and_feel:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la place de marché \"%{community_name}\""
         community_logo: "Logo large"
-        community_logo_icon: "Logo sur mobile"
+        community_logo_icon: "Logo pour les réseaux sociaux et appareils mobiles"
         community_cover_photo: "Photo de couverture"
         small_community_cover_photo: "Photo de couverture réduite"
         favicon: Favicon
@@ -90,7 +90,7 @@ fr:
         community_custom_color1: "Couleur principale"
         community_custom_color2: "Couleur secondaire"
         logo_instructions_text_with_dimensions: "Le logo large doit avoir des dimensions de %{width}x%{height} pixels. Il sera affiché sur les grands écrans."
-        logo_icon_instructions_text_with_dimensions: "Le logo sur mobile doit être carré et si possible avoir des dimensions de %{width}x%{height} pixels. Il sera affiché sur les petits écrans."
+        logo_icon_instructions_text_with_dimensions: "Ce logo carré sera utilisé lorsque des gens partageront votre site sur Facebook, quand ils navigueront sur votre site depuis un appareil mobile ou en tant qu'image lorsqu'ils mettront le site en favori. Les dimensions doivent être d'au moins %{width}x%{height} pixels."
         cover_photo_visibility: "La photo de couverture est affichée aux utilisateurs non connectés sur la page d'accueil."
         cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté pour les visiteurs non connectés sur la page d'accueil."
@@ -1606,7 +1606,7 @@ fr:
     show:
       contact: "Contacter %{person}"
       about_me: "A propos de moi : "
-      add_description: "Parlez un peu de vous"
+      add_description: "Partagez quelque chose à propos de vous"
       add_location: "Ajoutez une adresse"
       add_phone_number: "Ajoutez un numéro de téléphone"
       address: "Adresse : "
