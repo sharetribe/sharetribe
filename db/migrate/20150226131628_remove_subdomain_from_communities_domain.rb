@@ -4,6 +4,6 @@ class RemoveSubdomainFromCommunitiesDomain < ActiveRecord::Migration
   end
 
   def down
-    # Something here? No?
+    execute("UPDATE communities SET domain = ident WHERE domain IS NULL")
   end
 end
