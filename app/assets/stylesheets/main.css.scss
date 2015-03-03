@@ -1657,8 +1657,20 @@ a.lightbox-x {
     font-weight: bold;
 }
 
+/*
+  ------------------------
+  Shipping address
+  ------------------------
+*/
 
+.shipping-address-container {
+    background-color: $highlight;
+    padding: lines(0.5);
+}
 
+.shipping-address-name {
+    font-weight: bold;
+}
 
 /*
   ----------------

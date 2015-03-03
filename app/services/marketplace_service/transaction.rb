@@ -23,6 +23,7 @@ module MarketplaceService
         :conversation,
         :booking,
         :created_at,
+        :shipping_address,
         :__model
       )
 
@@ -119,8 +120,22 @@ module MarketplaceService
           discussion_type: Maybe(listing_model).discussion_type.to_sym.or_else(:not_available),
           payment_total: payment_total,
           booking: transaction_model.booking,
+          shipping_address: shipping_address(transaction_model),
           __model: transaction_model
         })]
+      end
+
+      def shipping_address(transaction_model)
+        {
+          name: transaction_model.shipping_address_name,
+          phone: transaction_model.shipping_address_phone,
+          street1: transaction_model.shipping_address_street1,
+          street2: transaction_model.shipping_address_street2,
+          postal_code: transaction_model.shipping_address_postal_code,
+          city: transaction_model.shipping_address_city,
+          state_or_province: transaction_model.shipping_address_state_or_province,
+          country: transaction_model.shipping_address_country
+        }
       end
 
       def transaction_with_conversation(transaction_model, community_id)
