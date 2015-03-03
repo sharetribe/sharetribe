@@ -18,7 +18,14 @@
             %td{:width => "250"}
               = listing_title
             %td
-              = payment_total
+              = subtotal
+
+        - if shipping_total.present?
+          %tr
+            %td
+              %b= t("emails.paypal_new_payment.shipping_total")
+            %td= shipping_total
+
         %tr
           %td
             %b

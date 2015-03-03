@@ -166,6 +166,8 @@ class TransactionMailer < ActionMailer::Base
 
     prepare_template(community, buyer_model, "email_about_new_payments")
 
+    subtotal = transaction[:payment_total] - Maybe(transaction[:shipping_price]).or_else(0)
+
     premailer_mail(:to => buyer_model.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
@@ -173,6 +175,8 @@ class TransactionMailer < ActionMailer::Base
         render "payment_receipt_to_buyer", locals: {
           conversation_url: person_transaction_url(buyer_model, @url_params.merge({:id => transaction[:id]})),
           listing_title: transaction[:listing_title],
+          subtotal: humanized_money_with_symbol(subtotal),
+          shipping_total: humanized_money_with_symbol(transaction[:shipping_price]),
           payment_total: humanized_money_with_symbol(transaction[:payment_total]),
           recipient_full_name: seller_model.name(community),
           recipient_given_name: seller_model.given_name_or_username,
