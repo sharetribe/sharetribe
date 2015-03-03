@@ -52,12 +52,12 @@ Response 200 OK, array of asked translations in body:
 , { translation_key: "dhfgh45tg75t5"
   , locale: "en-GB"
   , translation: "BUY"
-  , warn: "TRANSLATION_LOCALE_MISSING" // Translation locale is missing
+  , warn: "TRANSLATION_LOCALE_MISSING"  // Translation locale is missing, using fallback
   }
 , { translation_key: "dhfgh45tg75t6"
   , locale: "en-GB"
   , translation: "Book",
-  , error: "TRANSLATION_LOCALE_MISSING"   // Translation string is empty
+  , warn: "TRANSLATION_LOCALE_MISSING" // Translation string is empty, using fallback
   }
 ]
 ```
@@ -87,7 +87,7 @@ Response 200 OK, array of translations in body:
 , { translation_key: "dhfgh45tg75t3"
   , locale: "fi-FI"
   , translation: nil
-  , warn: "TRANSLATION_LOCALE_MISSING" // Translation locale is missing
+  , error: "TRANSLATION_LOCALE_MISSING" // Translation locale is missing
   }
 ]
 ```
@@ -106,29 +106,60 @@ Response 400 Bad Request, body:
 }
 ```
 
-###Scenario 2 - request body contains an array of locale & translation pairs:
+###Scenario 2 - request body contains locale & translation pairs in arrays of shared translation keys:
 e.g. admin modifies a static translation
 
 Request body:
 ```ruby
-[ { locale: "en-US"
-  , translation: "Welcome"
+[ { translation_key: nil // optional key - if defined it will override previous translations
+  , translations:
+    [ { locale: "en-US"
+      , translation: "Welcome"
+      }
+    , { locale: "fi-FI"
+      , translation: "Tervetuloa"
+      }
+    ]
   }
-, { locale: "fi-FI"
-  , translation: "Tervetuloa"
+, { translation_key: nil // optional key - if defined it will override previous translations
+  , translations:
+    [ { locale: "en-US"
+      , translation: "Hi"
+      }
+    , { locale: "fi-FI"
+      , translation: "Moi"
+      }
+    ]
   }
+}
 ]
 ```
 
-Response 201 Created, an array of created translations in body:
+Response 201 Created, an array of created translations (grouped the same way as in request) in body:
 ```ruby
-[ { translation_key: "dfnv7858vfjgk" // random hash string to be used when fetching a translation
-  , locale: "en-US"
-  , translation: "Welcome"
+[ { translation_key: "dfnv7858vfjgk"
+  , translations:
+      [ { translation_key: "dfnv7858vfjgk"
+        , locale: "en-US"
+        , translation: "Welcome"
+        }
+      , { translation_key: "dfnv7858vfjgk"
+        , locale: "fi-FI"
+        , translation: "Tervetuloa"
+        }
+      ]
   }
-, { translation_key: "dfnv7858vfjgk"
-  , locale: "fi-FI"
-  , translation: "Tervetuloa"
+, { translation_key: "tr54rdfgdrted"
+  , translations:
+      [ { translation_key: "tr54rdfgdrted"
+        , locale: "en-US"
+        , translation: "Welcome"
+        }
+      , { translation_key: "tr54rdfgdrted"
+        , locale: "fi-FI"
+        , translation: "Tervetuloa"
+        }
+      ]
   }
 ]
 ```
@@ -138,13 +169,17 @@ e.g. adming creates dynamic translations similar to categories or custom_field_o
 
 Request body:
 ```ruby
-[ { translation_key: "category.1" // explicit translation_key
-  , locale: "en-US"
-  , translation: "Ceramics"
-  }
-, { translation_key: "category.1" // explicit translation_key
-  , locale: "fi-FI"
-  , translation: "Keramiikkaa"
+[ { translation_key: "category.1" // override translations under key "category.1"
+  , translations:
+      [ { translation_key: "category.1"
+        , locale: "en-US"
+        , translation: "Ceramics"
+        }
+      , { translation_key: "category.1"
+        , locale: "fi-FI"
+        , translation: "Keramiikkaa"
+        }
+      ]
   }
 ]
 ```
@@ -152,12 +187,16 @@ Request body:
 Response 201 Created, array of created translations in body:
 ```ruby
 [ { translation_key: "category.1"
-  , locale: "en-US"
-  , translation: "Ceramics"
-  }
-, { translation_key: "category.1"
-  , locale: "fi-FI"
-  , translation: "Keramiikka"
+  , translations:
+      [ { translation_key: "category.1"
+        , locale: "en-US"
+        , translation: "Ceramics"
+        }
+      , { translation_key: "category.1"
+        , locale: "fi-FI"
+        , translation: "Keramiikka"
+        }
+      ]
   }
 ]
 ```
@@ -167,26 +206,26 @@ e.g. adming creates or modifies several static or dynamic translations
 
 Request body:
 ```ruby
-[ { translation_key: "listings.edit.edit_listing"   // translation key exists already
-  , locale: "en-US"
-  , translation: "Edit product"
-  }
-, { translation_key: "listings.edit.delete_listing" // translation key does not exists yet
-  , locale: "en-US"
-  , translation: "Delete product"
+[ { translation_key: "listings.edit.edit_listing"
+  , translations:
+      [ { translation_key: "listings.edit.edit_listing"   // translation key exists already e.g. "Edit listing"
+        , locale: "en-US"
+        , translation: "Edit product"
+        }
+      ]
   }
 ]
 ```
 
 Response 201 Created, array of created and modified translations in body:
 ```ruby
-, { translation_key: "listings.edit.edit_listing"
-  , locale: "en-US"
-  , translation: "Edit product"
-  }
-, { translation_key: "listings.edit.delete_listing"
-  , locale: "en-US"
-  , translation: "Delete product"
+[ { translation_key: "listings.edit.edit_listing"
+  , translations:
+      [ { translation_key: "listings.edit.edit_listing"
+        , locale: "en-US"
+        , translation: "Edit product"
+        }
+      ]
   }
 ]
 ```
@@ -202,7 +241,7 @@ Request no body
 
 Response 400 Bad Request, body:
 ```ruby
-{ error_message: "You must specify an array of translation_key, locale & translation triples in your request. e.g. '[{translation_key: "dfnv7858vfjgk", locale: "en-US", translation: "hello"}, {translation_key: "dfnv7858vfjgk", locale: "fi-FI", translation: "Moi"}]'
+{ error_message: "You must specify an array of translation keys and locales with new translations. Locales must be grouped under translation_key."'
 }
 ```
 
@@ -211,12 +250,16 @@ Scenario 2 - array of translation_key, locale & translation:
 Request body:
 ```ruby
 [ { translation_key: "dfnv7858vfjgk"
-  , locale: "en-US"
-  , translation: "Welcome!"
-  }
-, { translation_key: "dfnv7858vfjgk"
-  , locale: "fi-FI"
-  , translation: "Tervetuloa!"
+  , translations:
+      [ { translation_key: "dfnv7858vfjgk"
+        , locale: "en-US"
+        , translation: "Welcome!"
+        }
+      , { translation_key: "dfnv7858vfjgk"
+        , locale: "fi-FI"
+        , translation: "Tervetuloa!"
+        }
+      ]
   }
 ]
 ```
@@ -225,12 +268,16 @@ Response 200 OK, updated translations in body:
 
 ```ruby
 [ { translation_key: "dfnv7858vfjgk"
-  , locale: "en-US"
-  , translation: "Welcome!"
-  }
-, { translation_key: "dfnv7858vfjgk"
-  , locale: "fi-FI"
-  , translation: "Tervetuloa!"
+  , translations:
+      [ { translation_key: "dfnv7858vfjgk"
+        , locale: "en-US"
+        , translation: "Welcome!"
+        }
+      , { translation_key: "dfnv7858vfjgk"
+        , locale: "fi-FI"
+        , translation: "Tervetuloa!"
+        }
+      ]
   }
 ]
 ```
