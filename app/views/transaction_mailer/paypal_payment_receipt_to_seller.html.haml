@@ -15,13 +15,19 @@
         %tr
           %td
             %b= t("emails.braintree_new_payment.price_payer_paid", :payer_full_name => payer_given_name)
-          %td= payment_total
+          %td= subtotal
         %tr
           %td
             %b= t("emails.braintree_new_payment.service_fee")
           %td= payment_service_fee
 
-        - if paypal_gateway_fee
+        - if shipping_total.present?
+          %tr
+            %td
+              %b= t("emails.paypal_new_payment.shipping_total")
+            %td= shipping_total
+
+        - if paypal_gateway_fee.present?
           %tr
             %td
               %b= t("emails.paypal_new_payment.paypal_gateway_fee")

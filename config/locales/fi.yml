@@ -745,6 +745,7 @@ fi:
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
     paypal_new_payment:
       paypal_gateway_fee: "PayPalin käsittelymaksu:"
+      shipping_total: "Postitus:"
     braintree_new_payment:
       product: "Tuote:"
       price_payer_paid: "Ostajan maksama summa:"

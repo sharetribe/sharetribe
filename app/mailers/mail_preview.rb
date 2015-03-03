@@ -61,6 +61,7 @@ class MailPreview < MailView
         listing_id: paypal_transaction.listing.id,
         listing_title: paypal_transaction.listing.title,
         listing_price: paypal_transaction.listing.price,
+        shipping_price: paypal_transaction.shipping_price,
         listing_author_id: paypal_transaction.listing.author.id,
         listing_quantity: 1,
         last_transition_at: Time.now,
