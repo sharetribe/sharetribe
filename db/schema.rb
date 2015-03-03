@@ -841,6 +841,12 @@ ActiveRecord::Schema.define(:version => 20150304084451) do
   add_index "testimonials", ["receiver_id"], :name => "index_testimonials_on_receiver_id"
   add_index "testimonials", ["transaction_id"], :name => "index_testimonials_on_transaction_id"
 
+  create_table "transaction_processes", :force => true do |t|
+    t.string   "process",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "transaction_transitions", :force => true do |t|
     t.string   "to_state"
     t.text     "metadata"
