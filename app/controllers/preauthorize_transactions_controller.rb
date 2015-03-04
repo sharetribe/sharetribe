@@ -124,6 +124,7 @@ class PreauthorizeTransactionsController < ApplicationController
           end_on: booking_data[:end_on]
         }),
       listing: vprms[:listing],
+      delivery_method: nil,
       sum: vprms[:listing][:price] * booking_data[:duration],
       duration: booking_data[:duration],
       author: query_person_entity(vprms[:listing][:author_id]),
