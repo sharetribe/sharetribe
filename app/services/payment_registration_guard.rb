@@ -21,7 +21,7 @@ class PaymentRegistrationGuard
   end
 
   def preauthorize_flow_in_use?
-    @listing.transaction_type.transaction_process.process == :preauthorize
+    TransactionProcess.find(@listing.transaction_type.transaction_process_id).process == :preauthorize
   end
 
   def not_registered_already?

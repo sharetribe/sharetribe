@@ -40,7 +40,7 @@ class Offer < TransactionType
   end
 
   def status_after_reply
-    case transaction_process.process
+    case TransactionProcess.find(transaction_process_id).process
     when :preauthorize
       "preauthorize"
     when :postpay

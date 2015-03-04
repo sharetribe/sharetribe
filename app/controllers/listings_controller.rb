@@ -110,10 +110,15 @@ class ListingsController < ApplicationController
 
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
+    # TODO Change this so that the path is always the same, but the controller
+    # decides what to do. We don't want to make a API call to TransactionService
+    # just to show a listing details
+    process = TransactionProcess.find(@listing.transaction_type.transaction_process_id).process
+
     form_path = select_new_transaction_path(
       listing_id: @listing.id.to_s,
       payment_gateway: payment_gateway,
-      payment_process: @listing.transaction_type.transaction_process.process,
+      payment_process: process,
       booking: @listing.transaction_type.price_per.present?
     )
 
