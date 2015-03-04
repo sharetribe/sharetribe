@@ -66,7 +66,13 @@ module TestHelpers
       transaction_types.each do |type, opts|
 
         transaction_type = Object.const_get(type.to_s).create!(:type => type, :community_id => community.id)
-        transaction_type.create_transaction_process(process: opts[:process])
+
+        # Make all transaction types to use :none process
+        # This is not exactly in line with our applications default behaviour
+        # but in Cucumber tests the free is good default since there are a lot of modifier that say for example
+        # Given this community uses preauthorize
+        #
+        transaction_type.create_transaction_process(process: :none)
         transaction_type.save!
         community.locales.each do |locale|
           translation = opts[:translations][locale.to_sym]
