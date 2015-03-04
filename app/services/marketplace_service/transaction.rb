@@ -23,7 +23,19 @@ module MarketplaceService
         :conversation,
         :booking,
         :created_at,
+        :shipping_address,
         :__model
+      )
+
+      ShippingAddress = EntityUtils.define_entity(
+        :name,
+        :phone,
+        :street1,
+        :street2,
+        :postal_code,
+        :city,
+        :state_or_province,
+        :country
       )
 
       Transition = EntityUtils.define_entity(
@@ -105,6 +117,8 @@ module MarketplaceService
             end
           end
 
+        shipping_address = ShippingAddress[EntityUtils.model_to_hash(transaction_model.shipping_address)]
+
         Transaction[EntityUtils.model_to_hash(transaction_model).merge({
           status: transaction_model.current_state,
           last_transition_at: Maybe(transaction_model.transaction_transitions.last).created_at.or_else(nil),
@@ -119,6 +133,7 @@ module MarketplaceService
           discussion_type: Maybe(listing_model).discussion_type.to_sym.or_else(:not_available),
           payment_total: payment_total,
           booking: transaction_model.booking,
+          shipping_address: shipping_address,
           __model: transaction_model
         })]
       end

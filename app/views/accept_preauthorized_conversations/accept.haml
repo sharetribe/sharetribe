@@ -77,7 +77,7 @@
           $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
 
 
-  - if Maybe(shipping_address).values.any?
+  - if shipping_address.values.any?
     = render partial: "transactions/shipping_address", locals: { shipping_address: shipping_address }
 
   = form_for form, :url => form_action, :html => { :method => "put" } do |form|
