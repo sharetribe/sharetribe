@@ -30,7 +30,7 @@ def create_transaction(community, listing, starter, message, payment_gateway = :
     starter: starter,
     conversation: build_conversation(community, listing, starter, message),
     payment_gateway: payment_gateway,
-    payment_process: listing.transaction_type.preauthorize_payment ? :preauthorized : :postpay,
+    payment_process: listing.transaction_type.process == :preauthorize ? :preauthorized : :postpay,
     automatic_confirmation_after_days: community.automatic_confirmation_after_days
   )
 end

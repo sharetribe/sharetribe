@@ -15,4 +15,8 @@ class TransactionProcess < ActiveRecord::Base
     :community_id,
     :process
   )
+
+  def process
+    read_attribute(:process).to_sym
+  end
 end
