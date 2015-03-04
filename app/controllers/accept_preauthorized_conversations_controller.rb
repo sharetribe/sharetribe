@@ -128,7 +128,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       listing: @listing,
       booking: @listing_conversation.booking,
       orderer: @listing_conversation.starter,
-      sum: transaction[:checkout_total] - transaction[:shipping_price],
+      sum: transaction[:item_total],
       fee: transaction[:commission_total],
       shipping_price: transaction[:shipping_price],
       shipping_address: transaction_conversation[:shipping_address],

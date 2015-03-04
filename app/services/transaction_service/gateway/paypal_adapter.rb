@@ -24,7 +24,6 @@ module TransactionService::Gateway
          merchant_id: tx[:listing_author_id],
          require_shipping_address: tx[:delivery_method] == :shipping,
          shipping_total: tx[:shipping_price],
-         item_total: item_total,
          order_total: order_total,
          success: gateway_fields[:success_url],
          cancel: gateway_fields[:cancel_url],

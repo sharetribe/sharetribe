@@ -131,9 +131,7 @@ class TransactionMailer < ActionMailer::Base
     community ||= Community.find(transaction[:community_id])
 
     payment_total = transaction[:payment_total]
-    subtotal = transaction[:payment_total] - Maybe(transaction[:shipping_price]).or_else(0)
     service_fee = Maybe(transaction[:charged_commission]).or_else(Money.new(0, payment_total.currency))
-    shipping_total = transaction[:shipping_price]
     gateway_fee = transaction[:payment_gateway_fee]
 
     prepare_template(community, seller_model, "email_about_new_payments")
@@ -147,9 +145,9 @@ class TransactionMailer < ActionMailer::Base
         render "paypal_payment_receipt_to_seller", locals: {
           conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction[:id])),
           listing_title: transaction[:listing_title],
-          subtotal: humanized_money_with_symbol(subtotal),
+          subtotal: humanized_money_with_symbol(transaction[:item_total]),
           payment_total: humanized_money_with_symbol(payment_total),
-          shipping_total: humanized_money_with_symbol(shipping_total),
+          shipping_total: humanized_money_with_symbol(transaction[:shipping_price]),
           payment_service_fee: humanized_money_with_symbol(service_fee),
           paypal_gateway_fee: humanized_money_with_symbol(gateway_fee),
           payment_seller_gets: humanized_money_with_symbol(you_get),
@@ -168,8 +166,6 @@ class TransactionMailer < ActionMailer::Base
 
     prepare_template(community, buyer_model, "email_about_new_payments")
 
-    subtotal = transaction[:payment_total] - Maybe(transaction[:shipping_price]).or_else(0)
-
     premailer_mail(:to => buyer_model.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
@@ -177,7 +173,7 @@ class TransactionMailer < ActionMailer::Base
         render "payment_receipt_to_buyer", locals: {
           conversation_url: person_transaction_url(buyer_model, @url_params.merge({:id => transaction[:id]})),
           listing_title: transaction[:listing_title],
-          subtotal: humanized_money_with_symbol(subtotal),
+          subtotal: humanized_money_with_symbol(transaction[:item_total]),
           shipping_total: humanized_money_with_symbol(transaction[:shipping_price]),
           payment_total: humanized_money_with_symbol(transaction[:payment_total]),
           recipient_full_name: seller_model.name(community),
