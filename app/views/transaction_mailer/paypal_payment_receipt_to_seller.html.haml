@@ -19,7 +19,7 @@
         %tr
           %td
             %b= t("emails.braintree_new_payment.service_fee")
-          %td= payment_service_fee
+          %td= "#{payment_service_fee}"
 
         - if shipping_total.present?
           %tr
@@ -31,7 +31,7 @@
           %tr
             %td
               %b= t("emails.paypal_new_payment.paypal_gateway_fee")
-            %td= paypal_gateway_fee
+            %td= "#{paypal_gateway_fee}"
 
         %tr{:style => "border-top: 1px solid black"}
           %td
