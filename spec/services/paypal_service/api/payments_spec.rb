@@ -145,6 +145,25 @@ describe PaypalService::API::Payments do
       expect(@events.received_events[:payment_updated].first).to eq([:success, payment_res[:data]])
     end
 
+    it "triggers order_details event with shipping info" do
+      token = @payments.request(@cid, @req_info.merge(require_shipping_address: true))[:data]
+      payment_res = @payments.create(@cid, token[:token])
+      order_details = {
+        status: "Confirmed",
+        city: "city",
+        country: "country",
+        name: "name",
+        phone: "123456",
+        postal_code: "WX1GQ",
+        state_or_province: "state",
+        street1: "street1",
+        street2: "street2"
+      }
+
+      expect(@events.received_events[:order_details].length).to eq(1)
+      expect(@events.received_events[:order_details].first.second).to include(order_details)
+    end
+
     it "will retry at least 3 times" do
       token = @payments.request(@cid, @req_info)[:data]
       @api_builder.will_fail(2, "10001")
