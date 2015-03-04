@@ -89,9 +89,6 @@ module TransactionTypeCreator
       })
     end
 
-    #enable preauthorized payments
-    transaction_type.preauthorize_payment = true
-
     create_transaction_process!(community, transaction_type, opts[:payment_gateway_available])
 
     transaction_type.save!
