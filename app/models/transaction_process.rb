@@ -11,4 +11,8 @@
 class TransactionProcess < ActiveRecord::Base
   attr_accessible :process
   has_one :transaction_type
+
+  def process
+    read_attribute(:process).to_sym
+  end
 end

@@ -115,12 +115,26 @@ module TransactionTypeCreator
   # This method is only temporary implementation for the transaction_process change
   def create_transaction_process!(community, transaction_type, payment_gateway_available)
     payment_gateway_available = payment_gateway_available || MarketplaceService::Community::Query.payment_type(community.id).present?
-    process = ListingsController.select_payment_process(
+    process = select_payment_process(
           price_field: transaction_type.price_field?,
-          preauthorize: transaction_type.preauthorize_payment?,
+          preauthorize: true,
           payment_gateway_available: payment_gateway_available)
 
     transaction_type.create_transaction_process({ process: process })
   end
+
+  def select_payment_process(price_field:, payment_gateway_available:, preauthorize:)
+    case [price_field, payment_gateway_available, preauthorize]
+    when matches([false])
+      :none
+    when matches([__, false])
+      :none
+    when matches([__, __, true])
+      :preauthorize
+    else
+      :postpay
+    end
+  end
+
 
 end
