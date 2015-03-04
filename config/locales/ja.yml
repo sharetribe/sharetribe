@@ -1503,7 +1503,7 @@ ja:
     missing: "公開されているリストがありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続手続きをお願いします。"
     from_your_payment_settings_link_text: お支払い設定
     new:
-      payout_info_you_need_to_connect: "お支払いを受諾するには、あなたのPayPalアカウントを%{service_name}に接続する必要があります。"
+      payout_info_you_need_to_connect: "ほかの利用者からお支払いを受け取るには、あなたのPayPalアカウントを%{service_name}に接続する必要があります。"
       payout_info_text: あなたのアカウントを接続するために次の２つのステップを完了させてください。
       contact_admin_link_text: サイト管理者にお問い合わせください。
       admin_account_not_connected: "%{service_name}はお支払い設定がされていなかったため、あなたのPayPalアカウントまで到達できませんでした。%{contact_admin_link}に詳細を報告して問題を解決してください。"

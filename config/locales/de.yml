@@ -401,7 +401,7 @@ de:
       title: PayPal-Zahlungsbearbeitungsgebühr
       body: |-
           PayPal erhebt eine Bearbeitungsgebühr in Höhe von jeder Zahlung. Diese Gebühr ist zwischen 2% und 5% der gesamten Verkaufspreis, abhängig von Ihrem monatlichen Umsatz und Wohnsitzland des Käufers. Im Allgemeinen haben die inländischen Käufe niedrigere Gebühren als diejenigen internationalen und höhere Monatsumsätze geben Ihnen einen Rabatt auf Gebühren.
-          Die genauen Gebühren siehst Du, indem Du Dich in Dein PayPal-Konto einloggst und zu <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-Gebühren-outside'> hier </ gehst a>. Nach jedem Kauf erhälst Du einen Beleg mit den exakten Gebühren.
+          Die genauen Gebühren siehst Du, indem Du Dich in Dein PayPal-Konto einloggst und zu <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>hier gehst</a>. Nach jedem Kauf erhälst Du einen Beleg mit den exakten Gebühren.
   conversations:
     accept:
       details: Buchungsdetails
@@ -801,7 +801,7 @@ de:
       one_day_left: "Wenn du das Angebot nicht innerhalb eines Tages akzeptierst, wird das Angebot automatisch abgelehnt, und Du erhälst keine Zahlung."
       click_here_to_reply: "Klicke hier um auf das Angebot zu antworten"
     welcome_email:
-      welcome_email_subject: ~
+      welcome_email_subject: "Willkommen bei %{service_name}"
       welcome_to_marketplace: "Willkommen bei %{service_name}! Schön, dass du dabei bist."
       love_marketplace_crew: "Herzliche Grüße,<br /><i>%{service_name} Team</i>"
       p_s_did_you_know: "P.S.: Wusstest du, dass du einen Marktplatz wie diesen für jede andere Community, zu der du gehörst, kostenlos erstellen kannst? %{click_here_link} um mehr zu erfahren!"
@@ -1680,7 +1680,7 @@ de:
     confirmation_pending:
       welcome_to_kassi: "Willkommen bei %{service_name},"
       check_your_email: "Posteingang überprüfen"
-      resend_confirmation_instructions: "Anweisungen zum Bestätigen erneut senden"
+      resend_confirmation_instructions: "E-Mail zum Bestätigen der E-Mail erneut senden"
       your_current_email_is: "Deine E-Mail-Adresse ist %{email}."
       change_email: Ändern
       confirm_your_email: "Bestätige deine E-Mail"

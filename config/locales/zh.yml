@@ -47,11 +47,11 @@ zh:
         community_details: ~
         community_look_and_feel: ~
         edit_community: ~
-        community_name: ~
+        community_name: 市集名称
         edit_community_name_description: ~
-        community_slogan: ~
+        community_slogan: 市集标语
         edit_community_slogan_description: ~
-        community_description: ~
+        community_description: 市集描述
         edit_community_description_description: ~
         community_search_placeholder: 搜索提示
         edit_community_search_placeholder_description: ~
@@ -75,7 +75,7 @@ zh:
         transaction_agreement_text_header: 协定文本
         transaction_agreement_description: "这是用户需要接受的实际协议的内容。该协议内容会在用户点击协议标签旁边的“%{read_more}”链接时展现。"
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
+        edit_community_look_and_feel: "编辑市集”%{community_name}“的外观和感觉"
         community_logo: 页面展示Logo
         community_logo_icon: 移动端logo
         community_cover_photo: 封面照片
@@ -265,7 +265,7 @@ zh:
       form:
         field_required:
           this_field_is_required: 这个字段是必填的。
-          this_field_is_required_checkbox: 该项必填（用户必须选择至少一个选项）
+          this_field_is_required_checkbox: 该字段必须填写（用户必须选择至少一个选项）
       index:
         listing_fields: ~
         listing_fields_help: 你可以在这里编辑用户在创建新的信息时必须填入的字段。请注意某些预定义字段不能被编辑。
@@ -321,7 +321,7 @@ zh:
       paypal_account_email_completed: 已完成！
       set_minimum_price_and_fee: "2. 设置最低价格和交易费用"
       set_minimum_price_and_fee_completed: 已完成！
-      minimum_listing_price_label: 最低挂牌价：
+      minimum_listing_price_label: 最小交易规模：
       transaction_fee_label: 交易费用：
       minimum_transaction_fee_label: 最低交易费用：
       save_settings: 保存设置
@@ -346,7 +346,7 @@ zh:
         inquiry: 联系人
   common:
     edit_page: 编辑页面
-    default_community_slogan: 借，帮助，分享
+    default_community_slogan: 社区市集
     default_community_description: ~
     cancel: 取消
     fields_that_are_mandatory: 标有星号（*）的为必填项。
@@ -426,7 +426,7 @@ zh:
       cancel_payed_description: 如果你的请求被接受但是你有其他的想法，你仍然可以在付款前取消请求。
       canceling_payed_transaction: 取消交易
       confirm: 标记为完成
-      cancel: 没有发生
+      cancel: 争议
       continue: 继续
       give_feedback_to: "反馈给%{person_link}"
       do_not_give_feedback: 跳过反馈
@@ -493,7 +493,7 @@ zh:
       rideshare_request_message_form_title: "向%{person}提供顺风车"
       send_message: 发送信息
       send: 发送
-      this_message_is_private: "此消息为您和%{person}之间的悄悄话"
+      this_message_is_private: "此消息为您和%{person}之间的私密信息。%{person}将收到邮件通知。"
       you_will_get_notified_of_acceptance: "当%{person}接受或拒绝你的提议时，你将收到一封电子邮件通知。"
       you_will_get_notified: "当%{person}回复你时，你将收到一封电子邮件通知。"
       title: 名称
@@ -570,7 +570,7 @@ zh:
       reject_preauthorized_offer: 这次不行
       reject_preauthorized_request: 这次不行
       confirm: 标记为已完成
-      cancel: 没有发生
+      cancel: 争议
   braintree_accounts:
     new:
       add_payout_details: 添加你的支付信息
@@ -622,14 +622,14 @@ zh:
     new:
       welcome_fb_user: "%{name}，欢迎使用%{service_name}！"
       fb_join_accept_terms: ~
-      join_community: 加入社区
-      you_can_join: ~
+      join_community: "加入%{service_name}"
+      you_can_join: "你可以通过接受使用条款并点击”加入%{service_name}“加入%{service_name}。"
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
       if_want_to_view_content: ~
-      log_out: 登出
-      join_community_button: 加入社区
+      log_out: 注销
+      join_community_button: "加入%{service_name}"
   emails:
     accept_reminder:
       remember_to_accept_offer: "请记得接受或拒绝来自%{sender_name}的供给"
@@ -688,7 +688,7 @@ zh:
       confirmation_instructions_signature: "此致敬礼，<br/>%{service_name}团队"
       welcome_to_kassi: "欢迎来到%{service_name}！"
       need_to_confirm: 您需要确认您的Email地址。
-      confirmation_link_text: 确认账号
+      confirmation_link_text: 确认我的电子邮件
       or_paste_link: 或者你可以复制以下链接到你浏览器的地址栏：
       turning_on_confirmations_in_this_community: ~
     common:
@@ -741,7 +741,7 @@ zh:
       product: 产品：
       price_payer_paid: "%{payer_full_name}支付价格："
       service_fee: "%{service_name}服务费："
-      you_will_get: 你将获得：
+      you_will_get: 总数：
       money_will_be_transferred: "以下两种情况发生时，钱将被转到你的帐号中：a）%{payer_name}标记请求为完成 或者b）%{payer_name}完成支付的%{automatic_confirmation_days}天后。"
     receipt_to_payer:
       receipt_of_payment: 付款收据
@@ -763,10 +763,10 @@ zh:
       added_offer: "%{name_link}新增了一条信息："
       added_request: "%{name_link}新增了一条信息："
       added_listing: "%{name_link}发布了一条信息："
-      update_mail_title: ~
-      title_link_text: ~
+      update_mail_title: "%{title_link}更新"
+      title_link_text: "%{community_name}"
       intro_paragraph: ~
-      intro_paragraph_link_text: ~
+      intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: 提交了一个新的物品！
       reduce_email_footer_text: "太多邮件？%{settings_link}或者%{unsubscribe_link}"
       settings_link_text: 在这里编辑你的邮箱设定
@@ -895,9 +895,9 @@ zh:
       has_accepted_favor: "%{offerer_name} 在%{time_ago}前同意提供 %{listing_title} 给 %{requester_name} ."
       has_accepted_rideshare: "%{offerer_name} 在%{time_ago}前同意与%{requester_name} 共同用车%{listing_title}."
     join:
-      joined_kassi: ~
+      joined_kassi: "%{name}%{time_ago}前加入了%{service_name}。"
     login:
-      logged_in_to_kassi: "%{name} %{time_ago} 前登录%{service_name}."
+      logged_in_to_kassi: "%{name} %{time_ago} 前登录了%{service_name}。"
     comment:
       commented: "%{commenter_name}%{time_ago}前评论了%{listing_title}。"
       offer_partitive: 供应
@@ -989,8 +989,8 @@ zh:
       this_is_private_community: 查看内容前需要先登录。
     invitation_form:
       invite_your_friends: "邀请您的朋友加入%{service_name}！"
-      email: 朋友的Email地址
-      message: 一条私人消息：
+      email: 电子邮件地址
+      message: 一条私人消息
       send_invitation: 发送邀请
       add_as_many_emails_as_you_want: 添加你要邀请的人的邮件地址到下面的字段。如果你添加多个电子邮件地址，用逗号分隔。
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
@@ -1005,7 +1005,7 @@ zh:
     profile_info_empty_notification:
       add_your_info: 添加联系信息
       add_a_profile_picture: 添加头像
-      you_have_not_added_your_info: 您尚未添加联系方式。请添加联系方式以方便他人更方便的联系您。
+      you_have_not_added_your_info: 您尚未添加联系方式。请添加联系方式以方便他人更方便的联系您。同时请新增个人资料照片从而更容易得到其他人的信任。
       add_your_info_link: 现在添加个人信息
     recent_listing:
       please_offer: 提议
@@ -1046,8 +1046,8 @@ zh:
       give_feedback: 联系我们
       or_check_our: ……或者查看我们的
       send_feedback_to_admin: 发送反馈
-      to_see_what_others_have_suggested: 看看其他用户的推荐
-      your_email_address: 您的E-mail地址（非必需）
+      to_see_what_others_have_suggested: 看看其他用户的推荐，在这里投票。
+      your_email_address: 您的E-mail地址（用来联系你）
       connect: 注册
       invite_your_friends: 邀请朋友！
       invite_your_neighbors: 邀请邻居！
@@ -1098,14 +1098,14 @@ zh:
       contact_admin_link_text: 联系管理员
       test_welcome_email_delivered_to: "测试邮件已发送到%{email}。"
       something_went_wrong: 出错了
-      community_updated: ~
+      community_updated: 详情已更新。
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，您需要确认您的Email地址。
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: 评论不能为空
       comment_sent: 评论已发送
-      confirmation_link_is_wrong_or_used: 确认链接以被使用或失效。请尝试登录，如果问题依然存在请发送反馈。
-      additional_email_confirmed: 你输入的邮箱已经确认。你可以再输入一次加入社区
+      confirmation_link_is_wrong_or_used: 确认链接已使用或失效。请尝试登录，如果问题依然存在请发送反馈。
+      additional_email_confirmed: 你输入的电子邮件已被确认。
       could_not_get_email_from_facebook: 不能从Facebook获取邮件地址，没有邮件地址则无法创建帐号。
       create_new_listing: 发布另一条消息
       create_one_here: 在此创建
@@ -1119,9 +1119,9 @@ zh:
       feedback_skipped: 跳过评价
       invitation_cannot_be_sent: 邀请未被发出
       invitation_sent: 邀请成功发出
-      inviting_new_users_is_not_allowed_in_this_community: 邀请新用户在此社区不被允许。
+      inviting_new_users_is_not_allowed_in_this_community: 不允许邀请新用户。
       login_again: 请重新登录。
-      login_failed: 登录失败，请输入正确的用户名和密码
+      login_failed: 登录失败。请输入正确的用户名和密码。
       account_creation_successful: "%{person_name}，欢迎使用%{service_name}！"
       account_deleted: 你的帐号已被删除。
       login_successful: "欢迎你，%{person_name}！"
@@ -1167,8 +1167,8 @@ zh:
       request_rejected: 请求已拒绝
       request_canceled: 请求已取消
       message_sent: 信息已发出
-      this_content_is_not_available_in_this_community: 此内容在此社区中不可用
-      unknown_error: 发生未知错误。请使用反馈链接向我们提供细节。
+      this_content_is_not_available_in_this_community: 此内容不可用。
+      unknown_error: 发生未知错误。请点击”联系我们“向我们发送细节。
       update_error: 更新您的信息时发生错误，请重试
       you_are_not_allowed_to_give_feedback_on_this_transaction: 您没有对此事件发表评价的权限
       you_are_not_authorized_to_do_this: 您没有权限进行此操作
@@ -1179,27 +1179,27 @@ zh:
       you_cannot_send_message_to_yourself: 你不能给你自己发送信息
       you_followed_listing: 你没有关注这条信息
       you_have_already_given_feedback_about_this_event: 您已经对此事件发表评价
-      you_are_now_member: 你已成功的加入到社区
-      you_are_already_member: 你已经是...社区的会员了，欢迎回来
+      you_are_now_member: "欢迎来到%{service_name}！"
+      you_are_already_member: "你已经是%{service_name}社区的会员了。欢迎回来！"
       you_must_log_in_to_create_new_listing: "必须登录%{service_name}才能创建新物品。如果你没有帐号，可以点击%{sign_up_link}注册。"
       additional_email_confirmed_dashboard: 你的邮箱现在已经被确认了
       you_must_log_in_to_give_feedback: 您必须登录以评价
-      you_must_log_in_to_invite_new_users: 您必须登录以邀请新用户
+      you_must_log_in_to_invite_new_users: "您必须先登录才能邀请新用户到%{service_name}"
       you_must_log_in_to_send_a_comment: 您必须登录才能发表评论
       you_must_log_in_to_send_a_message: "您必须先登录%{service_name}，然后才可以向其他用户发送信息。"
-      you_must_log_in_to_view_this_content: 您必须登录以查看此内容
+      you_must_log_in_to_view_this_content: 您必须登录以查看内容
       you_must_log_in_to_view_this_page: 你必须登录才能查看此页面
       you_must_log_in_to_view_your_inbox: "您必须登录%{service_name}以查看您的收件箱。"
       you_must_log_in_to_view_your_settings: "您必须登录%{service_name}以查看您的设置。"
-      you_must_log_in_to_add_news_item: "你必须登录%{service_name}才能新增一篇文章。"
+      you_must_log_in_to_add_news_item: "你必须登录%{service_name}才能添加新文章。"
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
-      you_need_to_confirm_your_account_first: 您需要先确认账户
+      you_need_to_confirm_your_account_first: 您需要确认您的电子邮件。
       you_must_fill_all_the_fields: 你必须填写所有表单项
       you_unfollowed_listing: 您不再关注此列表
-      joining_community_failed: 加入社区失败
+      joining_community_failed: 加入失败
       can_not_login_with_private_user: ~
       can_not_delete_email: 你不能移除邮件地址
       user_does_not_have_email_to_delete: 你想要移除的邮件地址不存在
@@ -1241,8 +1241,8 @@ zh:
       show_in_updates_email_error: 不能访问服务器。页面刷新后重试。
       show_in_updates_email_success: ~
     follow_links:
-      follow: 关注此列表
-      unfollow: 不再关注此列表
+      follow: 发送关于新评论的邮件
+      unfollow: 不再接受关于新评论的邮件
     form:
       custom_field_partials:
         dropdown:
@@ -1281,7 +1281,7 @@ zh:
         percentage_loaded: "%{percentage}%"
         uploading_failed: 图片加载出错
         file_too_large: 文件太大
-        accepted_formats: "图片必须是GIF,JPG或PNG格式"
+        accepted_formats: "图片必须是GIF,JPG或PNG格式。"
       location:
         location: 地点
       price:
@@ -1331,7 +1331,7 @@ zh:
         visibility: 公开度
       privacy:
         privacy: 隐私
-        private: 私有的（只对登录用户可见）
+        private: 私密的（只对登录用户可见）
         public: 公共的（对所有用户可见）
     help_texts:
       help_share_type_title: 供给或者请求的信息的类型
@@ -1358,13 +1358,13 @@ zh:
       rideshare: 拼车
       search_verb: 搜索
       you_have_something_others_do_not: 想卖点什么？
-      feed_title: ~
+      feed_title: "在%{service_name}%{optional_category}中的%{listing_type}"
     left_panel_link:
       borrows: 借入
       buys: 购买
       favors: 服务
       give_aways: 送出
-      housings: 租房
+      housings: 空间
       items: 物品
       lends: 出借
       receives: 免费获取
@@ -1374,7 +1374,7 @@ zh:
       sells: 出售中
       share_for_frees: 免费共享
       accept_for_frees: 免费接受
-      trades: 交易中
+      trades: 交换
     listing_actions:
       booking_from: 来自
       booking_to: 到
@@ -1399,21 +1399,21 @@ zh:
     show:
       add_your_phone_number: 添加你的电话号码
       add_profile_picture: 添加个人资料图片
-      comments: 评论
+      comments: 公开讨论
       contact_by_phone: 联系电话
       contact: 联系
-      favor_offer: 已有帮助
-      favor_request: 已有请求
+      favor_offer: 服务报价
+      favor_request: 服务请求
       inquiry: 查询
       item_offer_trade: 交换供给信息
       item_request_trade: 交换请求信息
-      no_description: 无描述
+      no_description: 该发布的信息无描述
       no_image: 没有图片
       no_reviews: 没有收到评论
       offer: 供应
       listing_created: 已创建
       open_until: "开放至%{date}"
-      feedback: 反馈
+      feedback: 评论
       qr_code: QR码
       request: 请求
       rideshare_offer: 提供顺风车
@@ -1453,8 +1453,8 @@ zh:
       all_request_types: 所有请求信息的类型
       category: 分类
       did_not_found_what_you_were_looking_for: 没找到您需要的东西？
-      favors: 帮助
-      housing: 租房
+      favors: 服务
+      housing: 空间
       items: 物品
       list_view: 列表视图
       map_view: 地图视图
@@ -1495,7 +1495,7 @@ zh:
   paypal_accounts:
     payout_info_title: 支付信息
     paypal_account_email_connected: "<del>1. 连接PayPal 帐号</del> 完成！"
-    paypal_billing_agreement_made: "<del>2. 授权%{service_name}  对交易收费</del> 完成！"
+    paypal_billing_agreement_made: "<del>2. 授权%{service_name}收取交易费</del> 完成！"
     you_are_ready_to_accept_payments: 你已准备好接受付款！
     commission: "%{commission}%"
     connected_account: "PayPal帐号“%{email}”连接成功。"
@@ -1507,13 +1507,13 @@ zh:
       payout_info_text: 请完成下列两个步骤来连接你的帐号。
       contact_admin_link_text: 请联系管理员
       admin_account_not_connected: "没有为%{service_name}配置付款方式，所以你不能连接到你的PayPal帐号。请%{contact_admin_link}了解详情。"
-      paypal_account_email: "1. 连接你的 PayPal 帐号"
+      paypal_account_email: "连接你的 PayPal 帐号"
       paypal_account_email_placeholder: 你的PayPal电邮地址
       paypal_account_email_info_text: "如果你没有PayPal帐号，你可以用%{create_paypal_account}创建一个。如果你在连接PayPal帐号时的到错误信息，那你需要升级到商业帐号。升级是免费而快捷的。如果你是个人用户，你应该只需要在PayPal询问”商业名称“时填入姓名。要升级帐号，通过%{upgrade_paypal_account}查找升级链接。"
-      create_paypal_account: 这里
-      upgrade_paypal_account: 在这里升级你的帐号。
+      create_paypal_account: 点击这里
+      upgrade_paypal_account: 登录你的PayPal帐号
       connect_paypal_account: 连接PayPal帐号
-      paypal_account_billing_agreement: "2. 授权%{service_name}  对交易收费"
+      paypal_account_billing_agreement: "授权%{service_name}收取交易费"
       paypal_account_billing_agreement_fee_both: "当你完成%{service_name}的一个销售后，服务费（总商品价格的%{commission_from_seller}，最低%{minimum_commission}）将从你的PayPal帐号中扣除。要接受%{service_name}中的付款，你必须允许其收取此费用。该费用不包括<a id='%{fee_info_link_id}' href='#'>PayPal的付款处理费</a>."
       paypal_account_billing_agreement_fee_fixed: "当你完成%{service_name}的一个销售后，服务费%{minimum_commission}将从你的PayPal帐号中扣除。要接受%{service_name}中的付款，你必须允许其收取此费用。该费用不包括<a id='%{fee_info_link_id}' href='#'>PayPal的付款处理费</a>."
       paypal_account_billing_agreement_fee_relative: "当你完成%{service_name}的一个销售后，服务费（总商品价格的%{commission_from_seller}）将从你的PayPal帐号中扣除。接受%{service_name}中的付款，你必须允许其收取此费用。该费用不包括<a id='%{fee_info_link_id}' href='#'>PayPal的付款处理费</a>."
@@ -1549,32 +1549,32 @@ zh:
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "此用户在%{service_name}网站上处于冻结状态"
-      inactive_description: 此用户已停用。您不能联系此用户或评价他们的商品列表。
+      inactive_description: "该用户已停用%{service_name}。您不能联系此用户或评价他们的商品列表。"
     new:
       captcha_incorrect: 验证码错误。请输入下图中显示的单词
       captcha_was_wrong: 验证码错误
       create_new_account: 创建账户
-      email: 电子邮件地址：
+      email: 电子邮件地址
       email_is_in_use: 此邮箱已使用。
-      email_is_in_use_or_not_allowed: 此Email不允许在此社区使用或已被注册。请使用与社区相关的Email地址（详细说明见上）。如果您仍然不能注册，请点击左侧链接填写反馈。
+      email_is_in_use_or_not_allowed: 此Email不允许使用或已被注册。如果你无法注册，请联系我们。
       email_not_allowed: ~
       email_restriction_instructions:
         other: "到%{service_name}的访问受限。你需要电邮地址来证明你有权加入。"
       enter_captcha: 我是一个人类：
-      family_name: 姓：
-      given_name: 名：
+      family_name: 姓
+      given_name: 名
       i_accept_the: 我接受
       invalid_invitation_code: 邀请码无效。
-      invitation_code: 邀请码：
+      invitation_code: 邀请码
       not_required: ，不是必须的
       organization_name: 组织名称
-      password_again: 确认密码：
+      password_again: 确认密码
       show_my_name_to_others: "对其他%{service_name}用户显示真实姓名"
       sign_up: "在%{service_name}新建账户"
       terms: 使用条款
       username_is_in_use: 此用户名已被使用。
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
-      visible_only_to_you: 只有您和社区管理员可见
+      visible_only_to_you: 仅对您和市集管理员可见
       visible_to_everybody: 所有人可见
       create_account_with_facebook: 用Facebook帐号注册
       OR: 或
@@ -1582,7 +1582,7 @@ zh:
     not_member:
       explanation_text: "您正在浏览%{community} 社区。您试图查看另一个社区的用户资料。所以您不可以在%{community}社区查看这个用户的资料。"
       read_more_about_kassi_communities: 阅读更多关于这个网站
-      this_user_does_not_belong_to_this_community: "此用户不属于%{community} 社区"
+      this_user_does_not_belong_to_this_community: "此用户不是%{community} 社区的成员。"
     profile_feedback:
       as_expected: 符合期望
       exceeded_expectations: 比期望的好很多
@@ -1598,12 +1598,12 @@ zh:
     show:
       contact: "联系%{person}"
       about_me: 关于我：
-      add_description: 说说你自己
+      add_description: 分享一些关于你自己的东西
       add_location: 添加地点
       add_phone_number: 添加手机号码
       address: 地点：
       as_expected: 符合期望
-      edit_profile_info: 编辑您的资料
+      edit_profile_info: 编辑资料
       exceeded_expectations: 超过预期
       positive: 正面的
       hide_description: 隐藏描述
@@ -1661,8 +1661,8 @@ zh:
       account_creation_link_text: 点击这里
       cancle_facebook_connect: "如果你不想关联此帐号，你可以%{cancel_link}。"
       facebook_cancel_link_text: 取消
-      log_in_with_your_facebook_account: 用你FACEBOOK账号登录
-      or_sign_up_with_your_username: 用你的账号和密码
+      log_in_with_your_facebook_account: 用你Facebook账号登录
+      or_sign_up_with_your_username: ……或者用你的用户名或电子邮件：
       we_will_not_post_without_asking_you: 我们永远不会在Facebook上未经你的允许发布任何信息
     password_forgotten:
       email: E-mail
@@ -1675,7 +1675,7 @@ zh:
       resend_confirmation_instructions: 再次发送确认信
       your_current_email_is: "你的的电子邮箱是%{email}。"
       change_email: 改变
-      confirm_your_email: 确认你的邮箱
+      confirm_your_email: 请确认你的电子邮件
       account_confirmation_instructions: ~
       account_confirmation_instructions_title_admin: 欢迎来到你的市场！
       your_marketplace_has_now_been_created: 你的市集站点已经创建。这很容易吧？接下来只要一个步骤你就可以访问你的站点了：你需要确认你的电邮地址。
@@ -1715,8 +1715,8 @@ zh:
       email_from_admins: ~
       i_want_to_get_email_notification_when: 寄给我一封Email通知当…
       newsletters: 简报
-      community_updates: ~
-      email_about_accept_reminders: …我忘记确认一个活动
+      community_updates: 更新电子邮件
+      email_about_accept_reminders: …我忘记了接受一个报价或请求
       email_about_confirm_reminders: ……我忘记了确认已完成的请求
       email_about_new_comments_to_own_listing: …有人评论了您的商品或请求
       email_about_new_messages: …有人发给我一条消息
@@ -1738,22 +1738,22 @@ zh:
       unsubscribe_unsuccesful: 取消订阅出错
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: 关于你：
-      city: 城市：
-      family_name: 姓：
-      given_name: 名：
+      about_you: 关于你
+      city: 城市
+      family_name: 姓
+      given_name: 名
       first_name_with_initial: （只将首字母显示给其他用户）
       first_name_only: （不显示给其他用户）
       location_description: 您可以选择提供您的准确住址或仅仅提供邮政编码。请至少填写邮政编码。您也可以通过地图选择一个地点。
-      phone_number: 电话号码：
+      phone_number: 电话号码
       profile_picture: 个人头像
-      postal_code: 邮政编码：
+      postal_code: 邮政编码
       profile_page: 在您的个人信息页面
       profilemap: 地图视图
-      street_address: 地点：
+      street_address: 地点
       these_fields_are_shown_in_your: "此信息对所有%{service_name}用户可见"
       visible_to_everybody: 对所有人可见
-      visible_to_registered_users: 对已登录用户可见
+      visible_to_registered_users: （对已登录用户可见）
       default_in_listing: （只有在发布新信息时作为默认值使用）
       invisible: （不显示给其他用户）
     save_information: 保存信息
@@ -1764,7 +1764,7 @@ zh:
   terms:
     show:
       accept_terms: "接受%{service_name}的使用条款"
-      here: 这里
+      here: 点击这里
       i_accept_new_terms: 我接受新的条款
       i_accept_terms: 我接受条款
       terms: "%{service_name}的使用条款"
@@ -1782,12 +1782,12 @@ zh:
       as_expected: 符合期望
       exceeded_expectations: 比期望的好很多
       give_feedback_to: "对%{person}发表评价"
-      grade: 服务评估
+      grade: 你的总体感觉如何？
       less_than_expected: 比期望的差
       send_feedback: 发送评价
       slightly_better_than_expected: 比期望的略好
       slightly_less_than_expected: 比期望的略差
-      textual_feedback: 文本评价
+      textual_feedback: 事情进展如何？
       this_will_be_shown_in_profile: ~
       positive: 正面的
       negative: 负面的
