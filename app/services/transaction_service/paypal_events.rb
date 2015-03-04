@@ -1,7 +1,7 @@
 module TransactionService::PaypalEvents
 
   TransactionModel = ::Transaction
-
+  TransactionStore = TransactionService::Store::Transaction
   module_function
 
   # Public event API
@@ -39,19 +39,11 @@ module TransactionService::PaypalEvents
   end
 
   def update_transaction_details(flow, details)
-    TransactionModel.find(details[:transaction_id]).update_attributes!({
-        shipping_address_status: details[:shipping_address_status],
-        shipping_address_city: details[:shipping_address_city],
-        shipping_address_country: details[:shipping_address_country],
-        shipping_address_name: details[:shipping_address_name],
-        shipping_address_phone: details[:shipping_address_phone],
-        shipping_address_postal_code: details[:shipping_address_postal_code],
-        shipping_address_state_or_province: details[:shipping_address_state_or_province],
-        shipping_address_street1: details[:shipping_address_street1],
-        shipping_address_street2: details[:shipping_address_street2]
-      })
+    TransactionStore.upsert_shipping_address(
+      community_id: details[:community_id],
+      transaction_id: details[:transaction_id],
+      addr: details)
   end
-
   # Privates
 
   ## Mapping from payment transition to transaction transition

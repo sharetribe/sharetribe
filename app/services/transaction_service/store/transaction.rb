@@ -38,15 +38,8 @@ module TransactionService::Store::Transaction
     [:minimum_commission, :money, :mandatory],
     [:last_transition_at, :time],
     [:current_state, :to_symbol],
-    [:shipping_address_status, :string],
-    [:shipping_address_city, :string],
-    [:shipping_address_country, :string],
-    [:shipping_address_name, :string],
-    [:shipping_address_phone, :string],
-    [:shipping_address_postal_code, :string],
-    [:shipping_address_state_or_province, :string],
-    [:shipping_address_street1, :string],
-    [:shipping_address_street2, :string])
+    [:shipping_address, :hash]
+  )
 
   FINISHED_TX_STATES = "'free', 'rejected', 'confirmed', 'canceled', 'errored'"
 
@@ -102,6 +95,12 @@ module TransactionService::Store::Transaction
       .count
   end
 
+  def upsert_shipping_address(community_id:, transaction_id:, addr:)
+    Maybe(TransactionModel.where(id: transaction_id, community_id: community_id).first)
+      .map { |m| ShippingAddress.where(transaction_id: m.id).first_or_create!(transaction_id: m.id) }
+      .map { |a| a.update_attributes!(addr_fields(addr)) }
+      .or_else { nil }
+  end
 
   ## Privates
 
@@ -113,6 +112,10 @@ module TransactionService::Store::Transaction
       }
       .map { |hash| Transaction.call(hash) }
       .or_else(nil)
+  end
+
+  def addr_fields(addr)
+    addr.slice(:status, :name, :phone, :postal_code, :city, :state_or_province, :country, :street1, :street2)
   end
 
   def build_conversation(tx_model, tx_data)

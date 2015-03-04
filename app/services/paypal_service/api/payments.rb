@@ -263,7 +263,12 @@ module PaypalService::API
             return Result::Error.new("Payment has not been accepted by the buyer.")
           end
 
-          @events.send(:order_details, :success, ec_details.merge(transaction_id: token[:transaction_id]))
+
+          order_details = create_order_details(ec_details)
+                          .merge({community_id: token[:community_id], transaction_id: token[:transaction_id]})
+          @events.send(:order_details,
+                       :success,
+                       order_details)
 
           with_success(token[:community_id], token[:transaction_id],
             MerchantData.create_do_express_checkout_payment({
@@ -302,6 +307,21 @@ module PaypalService::API
           end
         end
       end
+    end
+
+    def create_order_details(data)
+      DataTypes.create_order_details(
+        HashUtils.rename_keys({
+          shipping_address_status: :status,
+          shipping_address_city: :city,
+          shipping_address_country: :country,
+          shipping_address_name: :name,
+          shipping_address_phone: :phone,
+          shipping_address_postal_code: :postal_code,
+          shipping_address_state_or_province: :state_or_province,
+          shipping_address_street1: :street1,
+          shipping_address_street2: :street2,
+        }, data))
     end
 
     def authorize_payment(community_id, payment)
