@@ -1,6 +1,7 @@
 module Sharetribe
   AVAILABLE_LOCALES = [
     ["English", "en"],
+    ["English", "en-GB"],
     ["Suomi", "fi"],
     ["Pусский", "ru"],
     ["Nederlands", "nl"],
