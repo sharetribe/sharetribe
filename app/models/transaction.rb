@@ -24,6 +24,8 @@
 #  unit_price_cents                  :integer
 #  unit_price_currency               :string(8)
 #  payment_process                   :string(31)       default("none")
+#  delivery_method                   :string(31)       default("none")
+#  shipping_price_cents              :integer
 #
 # Indexes
 #
@@ -49,8 +51,10 @@ class Transaction < ActiveRecord::Base
     :listing_quantity,
     :listing_title,
     :listing_author_id,
-    :unit_price
-    )
+    :unit_price,
+    :shipping_price,
+    :delivery_method,
+  )
 
   attr_accessor :contract_agreed
 
@@ -59,6 +63,7 @@ class Transaction < ActiveRecord::Base
   has_many :transaction_transitions, dependent: :destroy, foreign_key: :transaction_id
   has_one :payment, foreign_key: :transaction_id
   has_one :booking, :dependent => :destroy
+  has_one :shipping_address, dependent: :destroy
   belongs_to :starter, :class_name => "Person", :foreign_key => "starter_id"
   belongs_to :conversation
   has_many :testimonials
@@ -72,6 +77,7 @@ class Transaction < ActiveRecord::Base
 
   monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
   monetize :unit_price_cents, with_model_currency: :unit_price_currency
+  monetize :shipping_price_cents, allow_nil: true, with_model_currency: :unit_price_currency
 
   scope :for_person, -> (person){
     joins(:listing)

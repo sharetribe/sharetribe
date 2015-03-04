@@ -11,6 +11,8 @@ module TransactionService::DataTypes::Transaction
     [:listing_id, :fixnum, :mandatory],
     [:listing_title, :string, :mandatory],
     [:listing_price, :money, :optional],
+    [:item_total, :money, :mandatory],
+    [:shipping_price, :money],
     [:listing_author_id, :string, :mandatory],
     [:listing_quantity, :fixnum, default: 1],
     [:automatic_confirmation_after_days, :fixnum],

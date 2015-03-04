@@ -56,18 +56,32 @@ module PaypalService
         [:billing_agreement_accepted],
         [:payer, :string],
         [:payer_id, :string],
-        [:order_total, :money])
+        [:order_total, :money],
+        [:shipping_address_status, :string],
+        [:shipping_address_city, :string],
+        [:shipping_address_country, :string],
+        [:shipping_address_name, :string],
+        [:shipping_address_phone, :string],
+        [:shipping_address_postal_code, :string],
+        [:shipping_address_state_or_province, :string],
+        [:shipping_address_street1, :string],
+        [:shipping_address_street2, :string])
 
       SetExpressCheckoutOrder = EntityUtils.define_builder(
         [:method, const_value: :set_express_checkout_order],
         [:item_name, :mandatory, :string],
         [:item_quantity, :fixnum, default: 1],
 
-        # If not specified, defaults to order_total. If specifed, quantity * item_price must match order_total
-        [:item_price, :optional, :money],
+        [:require_shipping_address, :to_bool],
+        [:item_price, :mandatory, :money],
+
+        # If specified, require_shipping_address must be true
+        [:shipping_total, :optional],
+
+        # Must match item_price * item_quantity + shipping_total
+        [:order_total, :mandatory, :money],
 
         [:receiver_username, :mandatory, :string],
-        [:order_total, :mandatory, :money],
         [:success, :mandatory, :string],
         [:cancel, :mandatory, :string],
         [:invnum, :mandatory, :string],
@@ -79,6 +93,7 @@ module PaypalService
         [:redirect_url, :mandatory, :string],
         [:receiver_username, :mandatory, :string])
 
+      # Should contain the same fields as in set express checkout order
       DoExpressCheckoutPayment = EntityUtils.define_builder(
         [:method, const_value: :do_express_checkout_payment],
         [:receiver_username, :mandatory, :string],
@@ -88,6 +103,7 @@ module PaypalService
         [:item_name, :mandatory, :string],
         [:item_quantity, :mandatory, :fixnum],
         [:item_price, :mandatory, :money],
+        [:shipping_total, :money],
         [:invnum, :mandatory, :string])
 
       DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(

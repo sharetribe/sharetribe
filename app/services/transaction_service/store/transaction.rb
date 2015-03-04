@@ -10,6 +10,8 @@ module TransactionService::Store::Transaction
     [:listing_title, :string, :mandatory],
     [:listing_author_id, :string, :mandatory],
     [:unit_price, :money, default: Money.new(0)],
+    [:shipping_price, :money],
+    [:delivery_method, :to_symbol, one_of: [:none, :shipping, :pickup], default: :none],
     [:payment_process, one_of: [:none, :postpay, :preauthorize]],
     [:payment_gateway, one_of: [:paypal, :checkout, :braintree, :none]],
     [:commission_from_seller, :fixnum, :mandatory],
@@ -27,13 +29,17 @@ module TransactionService::Store::Transaction
     [:listing_title, :string, :mandatory],
     [:listing_author_id, :string, :mandatory],
     [:unit_price, :money, :mandatory],
+    [:shipping_price, :money],
+    [:delivery_method, :to_symbol, :mandatory, one_of: [:none, :shipping, :pickup]],
     [:payment_process, :to_symbol, one_of: [:none, :postpay, :preauthorize]],
     [:payment_gateway, :to_symbol, one_of: [:paypal, :checkout, :braintree, :none]],
     [:commission_from_seller, :fixnum, :mandatory],
     [:automatic_confirmation_after_days, :fixnum, :mandatory],
     [:minimum_commission, :money, :mandatory],
     [:last_transition_at, :time],
-    [:current_state, :to_symbol])
+    [:current_state, :to_symbol],
+    [:shipping_address, :hash]
+  )
 
   FINISHED_TX_STATES = "'free', 'rejected', 'confirmed', 'canceled', 'errored'"
 
@@ -89,6 +95,12 @@ module TransactionService::Store::Transaction
       .count
   end
 
+  def upsert_shipping_address(community_id:, transaction_id:, addr:)
+    Maybe(TransactionModel.where(id: transaction_id, community_id: community_id).first)
+      .map { |m| ShippingAddress.where(transaction_id: m.id).first_or_create!(transaction_id: m.id) }
+      .map { |a| a.update_attributes!(addr_fields(addr)) }
+      .or_else { nil }
+  end
 
   ## Privates
 
@@ -96,10 +108,14 @@ module TransactionService::Store::Transaction
     Maybe(model)
       .map { |m|
         EntityUtils.model_to_hash(m)
-        .merge({unit_price: m.unit_price , minimum_commission: m.minimum_commission })
+        .merge({unit_price: m.unit_price, minimum_commission: m.minimum_commission, shipping_price: m.shipping_price })
       }
       .map { |hash| Transaction.call(hash) }
       .or_else(nil)
+  end
+
+  def addr_fields(addr)
+    addr.slice(:status, :name, :phone, :postal_code, :city, :state_or_province, :country, :street1, :street2)
   end
 
   def build_conversation(tx_model, tx_data)

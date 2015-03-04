@@ -88,7 +88,6 @@ module TransactionService::Transaction
       .or_else(res)
   end
 
-
   def reject(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 
@@ -174,7 +173,9 @@ module TransactionService::Transaction
     gw = gateway_adapter(tx[:payment_gateway])
     payment_details = gw.get_payment_details(tx: tx)
 
-    commission_total = calculate_commission(payment_details[:total_price], tx[:commission_from_seller], tx[:minimum_commission])
+    item_total = tx[:unit_price] * tx[:listing_quantity]
+    commission_total = calculate_commission(item_total, tx[:commission_from_seller], tx[:minimum_commission])
+
 
     DataTypes.create_transaction(
       {
@@ -186,6 +187,8 @@ module TransactionService::Transaction
         listing_id: tx[:listing_id],
         listing_title: tx[:listing_title],
         listing_price: tx[:unit_price],
+        item_total: item_total,
+        shipping_price: tx[:shipping_price],
         listing_author_id: tx[:listing_author_id],
         listing_quantity: tx[:listing_quantity],
         automatic_confirmation_after_days: tx[:automatic_confirmation_after_days],
@@ -200,10 +203,10 @@ module TransactionService::Transaction
         payment_gateway_fee: payment_details[:payment_gateway_fee]})
   end
 
-  def calculate_commission(total_price, commission_from_seller, minimum_commission)
-    [(total_price * (commission_from_seller / 100.0) unless commission_from_seller.nil?),
+  def calculate_commission(item_total, commission_from_seller, minimum_commission)
+    [(item_total * (commission_from_seller / 100.0) unless commission_from_seller.nil?),
      (minimum_commission unless minimum_commission.nil? || minimum_commission.zero? ),
-     Money.new(0, total_price.currency)]
+     Money.new(0, item_total.currency)]
       .compact
       .max
   end

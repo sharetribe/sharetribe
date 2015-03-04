@@ -209,6 +209,39 @@ describe TransactionService::PaypalEvents do
     end
   end
 
+  context "#update_transaction_details" do
+    before(:each) do
+      @order_details = {
+        status: "Confirmed",
+        city: "city",
+        country: "country",
+        name: "name",
+        phone: "123456",
+        postal_code: "WX1GQ",
+        state_or_province: "state",
+        street1: "street1",
+        street2: "street2"
+      }
+
+    end
+
+    it "saves address details" do
+      TransactionService::PaypalEvents.update_transaction_details(:success,
+        @order_details.merge(transaction_id: @transaction_with_msg.id, community_id: @cid))
+
+      expect(
+        EntityUtils.model_to_hash(Transaction.find(@transaction_with_msg.id).shipping_address)
+      ).to include(@order_details)
+    end
+
+    it "handles empty shipping address" do
+      TransactionService::PaypalEvents.update_transaction_details(:success,
+        {}.merge(transaction_id: @transaction_with_msg.id, community_id: @cid))
+
+      expect(Transaction.find(@transaction_with_msg.id).shipping_address).to be nil
+    end
+  end
+
   context "#payment_updated - preauthorized => voided" do
     before(:each) do
       PaymentStore.create(@cid, @transaction_with_msg.id, {

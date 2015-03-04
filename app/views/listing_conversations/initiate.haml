@@ -38,9 +38,27 @@
             = t("listing_conversations.preauthorize.price_per_day", price: humanized_money_with_symbol(listing[:price]))
 
       %li
-        %div
-          %strong
-            = t("conversations.show.total", total: humanized_money_with_symbol(sum))
+        -if delivery_method == "shipping"
+          .initiate-transaction-totals
+            .initiate-transaction-sum-wrapper
+              %span.initiate-transaction-sum-label
+                = t("transactions.initiate.subtotal")
+              %span.initiate-transaction-sum-value
+                = humanized_money_with_symbol(listing[:price])
+            .initiate-transaction-shipping-price-wrapper
+              %span.initiate-transaction-shipping-price-label
+                = t("transactions.initiate.shipping-price")
+              %span.initiate-transaction-shipping-price-value
+                = humanized_money_with_symbol(listing[:shipping_price])
+            .initiate-transaction-total-wrapper
+              %span.initiate-transaction-total-label
+                = t("transactions.initiate.total")
+              %span.initiate-transaction-total-value
+                = humanized_money_with_symbol(sum)
+        -else
+          %div
+            %strong
+              = t("conversations.show.total", total: humanized_money_with_symbol(sum))
 
   = form_for preauthorize_form,
     :url => form_action,
@@ -63,6 +81,9 @@
 
       - if @current_community.transaction_agreement_in_use
         = render :partial => "listing_conversations/transaction_agreement_checkbox", locals: { form: form }
+
+      - if delivery_method
+        = form.hidden_field :delivery_method, value: delivery_method
 
       .row
         .col-12.paypal-button-wrapper

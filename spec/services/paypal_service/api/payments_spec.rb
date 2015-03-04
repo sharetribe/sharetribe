@@ -40,6 +40,7 @@ describe PaypalService::API::Payments do
       transaction_id: @tx_id,
       item_name: "Item name",
       item_quantity: 1,
+      item_total: Money.new(1200, "EUR"),
       item_price: Money.new(1200, "EUR"),
       merchant_id: @mid,
       order_total: Money.new(1200, "EUR"),
@@ -142,6 +143,25 @@ describe PaypalService::API::Payments do
       expect(@events.received_events[:payment_created].length).to eq(1)
       expect(@events.received_events[:payment_updated].length).to eq(1)
       expect(@events.received_events[:payment_updated].first).to eq([:success, payment_res[:data]])
+    end
+
+    it "triggers order_details event with shipping info" do
+      token = @payments.request(@cid, @req_info.merge(require_shipping_address: true))[:data]
+      payment_res = @payments.create(@cid, token[:token])
+      order_details = {
+        status: "Confirmed",
+        city: "city",
+        country: "country",
+        name: "name",
+        phone: "123456",
+        postal_code: "WX1GQ",
+        state_or_province: "state",
+        street1: "street1",
+        street2: "street2"
+      }
+
+      expect(@events.received_events[:order_details].length).to eq(1)
+      expect(@events.received_events[:order_details].first.second).to include(order_details)
     end
 
     it "will retry at least 3 times" do

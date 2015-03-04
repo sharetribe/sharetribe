@@ -42,6 +42,13 @@
         %span.conversation-service-fee-value
           = "-#{humanized_money_with_symbol(fee)}"
 
+      - if shipping_price
+        .conversation-shipping-price-wrapper
+          %span.conversation-shipping-price-label
+            = t("conversations.accept.shipping_price_label")
+          %span.conversation-shipping-price-value
+            = humanized_money_with_symbol(shipping_price)
+
       - if payment_gateway == :paypal
         .conversation-total-wrapper
           %span.conversation-total-label
@@ -68,6 +75,10 @@
       - content_for :extra_javascript do
         :javascript
           $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
+
+
+  - if shipping_address && shipping_address.values.any?
+    = render partial: "transactions/shipping_address", locals: { shipping_address: shipping_address }
 
   = form_for form, :url => form_action, :html => { :method => "put" } do |form|
 

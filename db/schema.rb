@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150226131628) do
+ActiveRecord::Schema.define(:version => 20150304084451) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -742,6 +742,7 @@ ActiveRecord::Schema.define(:version => 20150226131628) do
     t.integer  "item_price_cents"
     t.string   "currency",             :limit => 8
     t.string   "express_checkout_url"
+    t.integer  "shipping_total_cents"
   end
 
   add_index "paypal_tokens", ["community_id"], :name => "index_paypal_tokens_on_community_id"
@@ -809,6 +810,21 @@ ActiveRecord::Schema.define(:version => 20150226131628) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "shipping_addresses", :force => true do |t|
+    t.integer  "transaction_id",    :null => false
+    t.string   "status"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "postal_code"
+    t.string   "city"
+    t.string   "country"
+    t.string   "state_or_province"
+    t.string   "street1"
+    t.string   "street2"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "testimonials", :force => true do |t|
     t.float    "grade"
@@ -887,6 +903,8 @@ ActiveRecord::Schema.define(:version => 20150226131628) do
     t.integer  "unit_price_cents"
     t.string   "unit_price_currency",               :limit => 8
     t.string   "payment_process",                   :limit => 31, :default => "none"
+    t.string   "delivery_method",                   :limit => 31, :default => "none"
+    t.integer  "shipping_price_cents"
   end
 
   add_index "transactions", ["community_id"], :name => "index_transactions_on_community_id"

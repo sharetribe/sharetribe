@@ -23,7 +23,8 @@ module PaypalService
         item_quantity: req[:item_quantity],
         item_price: req[:item_price],
         order_total: req[:order_total],
-        receiver_id: req[:receiver_username]
+        receiver_id: req[:receiver_username],
+        no_shipping: req[:require_shipping_address] ? 0 : 1
       }
 
       @tokens[token[:token]] = token
@@ -138,15 +139,28 @@ module PaypalService
             billing_agreement = @fake_pal.get_billing_agreement(token)
 
             if (!token.nil?)
-              DataTypes::Merchant.create_get_express_checkout_details_response(
-                {
-                  token: token[:token],
-                  checkout_status: "not_used_in_tests",
-                  billing_agreement_accepted: !billing_agreement.nil?,
-                  payer: token[:email],
-                  payer_id: "payer_id",
-                  order_total: token[:order_total]
-                })
+              response = {
+                token: token[:token],
+                checkout_status: "not_used_in_tests",
+                billing_agreement_accepted: !billing_agreement.nil?,
+                payer: token[:email],
+                payer_id: "payer_id",
+                order_total: token[:order_total]
+              }
+
+              if(token[:no_shipping] == 0)
+                response[:shipping_address_status] = "Confirmed"
+                response[:shipping_address_city] = "city"
+                response[:shipping_address_country] = "country"
+                response[:shipping_address_name] = "name"
+                response[:shipping_address_phone] = "123456"
+                response[:shipping_address_postal_code] = "WX1GQ"
+                response[:shipping_address_state_or_province] = "state"
+                response[:shipping_address_street1] = "street1"
+                response[:shipping_address_street2] = "street2"
+              end
+
+              DataTypes::Merchant.create_get_express_checkout_details_response(response)
             else
               PaypalService::DataTypes::FailureResponse.call()
             end

@@ -65,6 +65,21 @@
             %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end_on", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
             %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
 
+      - elsif delivery_opts.present?
+        .row
+          .col-12
+            %h2.delivery-title= t("listings.show.delivery")
+        - if delivery_opts.count == 1
+          .row
+            .col-12
+              = t("listings.show.#{delivery_opts.first.fetch(:name)}", price: humanized_money_with_symbol(delivery_opts.first.fetch(:price)).upcase)
+        - else
+          - delivery_opts.each do |opts|
+            .row
+              .col-12
+                = radio_button_tag("delivery", opts.fetch(:name), opts[:default])
+                = label_tag("delivery_#{opts.fetch(:name)}", t("listings.show.#{opts.fetch(:name)}", price: humanized_money_with_symbol(opts.fetch(:price)).upcase), class: "delivery-label")
+
       %button.book-button
         .content
           = @listing.transaction_type.action_button_label(I18n.locale)

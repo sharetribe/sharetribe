@@ -427,6 +427,7 @@ fi:
       total_label: "Loppusumma:"
       total_value: "%{seller_gets}*"
       paypal_fee_info: "* Ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>"
+      shipping_price_label: "Postikulut:"
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
@@ -744,6 +745,7 @@ fi:
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
     paypal_new_payment:
       paypal_gateway_fee: "PayPalin käsittelymaksu:"
+      shipping_total: "Postitus:"
     braintree_new_payment:
       product: "Tuote:"
       price_payer_paid: "Ostajan maksama summa:"
@@ -1439,6 +1441,9 @@ fi:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per päivä"
+      delivery: "Kuljetus"
+      shipping: "Postikulut (%{price})"
+      pickup: "Nouto (%{price})"
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1765,6 +1770,8 @@ fi:
       default_in_listing: "(käytetään vain oletusarvona uutta ilmoitusta luotaessa)"
       invisible: "(ei näytetä muille käyttäjille)"
     save_information: "Tallenna tiedot"
+  shipping_address:
+    shipping_address: "Postitusosoite"
   tag_cloud:
     tag_used:
       with_tag: Avainsanalla
@@ -1880,6 +1887,11 @@ fi:
     days_since:
       one: päivän
       other: "%{count} päivän"
+  transactions:
+    initiate:
+      subtotal: "Välisumma:"
+      shipping-price: "Postikulut:"
+      total: "Loppusumma:"
   unit:
     day: päivä
     days: päivää

@@ -25,8 +25,12 @@ class PreauthorizeTransactionsController < ApplicationController
     :content,
     :sender_id,
     :contract_agreed,
+    :delivery_method,
     :listing_id
-  ).with_validations { validates_presence_of :listing_id }
+   ).with_validations {
+    validates_presence_of :listing_id
+    validates :delivery_method, inclusion: { in: %w(shipping pickup), message: "%{value} is not shipping or pickup." }, allow_nil: true
+  }
 
   PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
 
@@ -34,12 +38,13 @@ class PreauthorizeTransactionsController < ApplicationController
   BraintreePaymentQuery = BraintreeService::Payments::Query
 
   def initiate
-    vprms = view_params(params[:listing_id])
+    vprms = view_params(params[:listing_id], params[:delivery] == "shipping")
 
     render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: vprms[:listing],
-      sum: vprms[:listing][:price],
+      delivery_method: params[:delivery],
+      sum: vprms[:total_price],
       author: query_person_entity(vprms[:listing][:author_id]),
       action_button_label: vprms[:action_button_label],
       expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
@@ -67,7 +72,9 @@ class PreauthorizeTransactionsController < ApplicationController
       listing: @listing,
       user: @current_user,
       content: preauthorize_form.content,
-      use_async: request.xhr?)
+      use_async: request.xhr?,
+      delivery_method: preauthorize_form.delivery_method
+    )
 
     unless transaction_response[:success]
       return render_error_response(request.xhr?, t("error_messages.paypal.generic_error"), action: :initiate) unless transaction_response[:success]
@@ -258,7 +265,7 @@ class PreauthorizeTransactionsController < ApplicationController
   private
 
 
-  def view_params(listing_id)
+  def view_params(listing_id, shipping_enabled = false)
     listing = ListingQuery.listing_with_transaction_type(listing_id)
     payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
@@ -266,7 +273,9 @@ class PreauthorizeTransactionsController < ApplicationController
       .select {|translation| translation[:locale] == I18n.locale}
       .first
 
-    { listing: listing, payment_type: payment_type, action_button_label: action_button_label }
+    total_price = shipping_enabled ? listing[:price] + listing[:shipping_price] : listing[:price]
+
+    { listing: listing, payment_type: payment_type, action_button_label: action_button_label, total_price: total_price }
   end
 
   def render_error_response(isXhr, error_msg, redirect_params)
@@ -378,8 +387,7 @@ class PreauthorizeTransactionsController < ApplicationController
         BraintreeForm.new(opts[:bt_payment_params]).to_hash
       end
 
-    TransactionService::Transaction.create({
-        transaction: {
+    transaction = {
           community_id: opts[:community].id,
           listing_id: opts[:listing].id,
           listing_title: opts[:listing].title,
@@ -390,8 +398,16 @@ class PreauthorizeTransactionsController < ApplicationController
           content: opts[:content],
           payment_gateway: opts[:payment_type],
           payment_process: :preauthorize,
-          booking_fields: opts[:booking_fields]
-        },
+          booking_fields: opts[:booking_fields],
+          delivery_method: opts[:delivery_method]
+    }
+
+    if(opts[:delivery_method] == "shipping")
+      transaction[:shipping_price] = opts[:listing].shipping_price
+    end
+
+    TransactionService::Transaction.create({
+        transaction: transaction,
         gateway_fields: gateway_fields
       },
       paypal_async: opts[:use_async])

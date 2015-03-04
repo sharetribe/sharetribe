@@ -1,0 +1,8 @@
+.shipping-address-container
+  %h2= t("shipping_address.shipping_address")
+  - shipping_address.each do |key, value|
+    - if value.present?
+      - if key == :name
+        .shipping-address-name= value
+      - else
+        .shipping-address-row= value

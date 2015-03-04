@@ -11,16 +11,20 @@ module TransactionService::Gateway
       # Note: Quantity may be confusing in Paypal Checkout page, thus,
       # we don't use separated unit price and quantity, only the total
       # price for now.
-      total = tx[:unit_price] * tx[:listing_quantity]
+      shipping_total = Maybe(tx[:shipping_price]).or_else(0)
+      order_total = tx[:unit_price] * tx[:listing_quantity] + shipping_total
+      item_total = tx[:unit_price] * tx[:listing_quantity]
 
       create_payment_info = DataTypes.create_create_payment_request(
         {
          transaction_id: tx[:id],
          item_name: tx[:listing_title],
          item_quantity: 1,
-         item_price: total,
+         item_price: item_total,
          merchant_id: tx[:listing_author_id],
-         order_total: total,
+         require_shipping_address: tx[:delivery_method] == :shipping,
+         shipping_total: tx[:shipping_price],
+         order_total: order_total,
          success: gateway_fields[:success_url],
          cancel: gateway_fields[:cancel_url],
          merchant_brand_logo_url: gateway_fields[:merchant_brand_logo_url]})

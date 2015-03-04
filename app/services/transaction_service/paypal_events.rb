@@ -1,7 +1,7 @@
 module TransactionService::PaypalEvents
 
   TransactionModel = ::Transaction
-
+  TransactionStore = TransactionService::Store::Transaction
   module_function
 
   # Public event API
@@ -38,6 +38,17 @@ module TransactionService::PaypalEvents
     end
   end
 
+  def update_transaction_details(flow, details)
+    community_id = details.delete(:community_id)
+    transaction_id = details.delete(:transaction_id)
+
+    if(details.values.any?)
+      TransactionStore.upsert_shipping_address(
+        community_id: community_id,
+        transaction_id: transaction_id,
+        addr: details)
+    end
+  end
   # Privates
 
   ## Mapping from payment transition to transaction transition

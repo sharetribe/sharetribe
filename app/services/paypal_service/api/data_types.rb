@@ -6,6 +6,8 @@ module PaypalService::API::DataTypes
     [:item_quantity, :fixnum, default: 1],
     [:item_price, :money],
     [:merchant_id, :mandatory, :string],
+    [:require_shipping_address, :to_bool, default: false],
+    [:shipping_total, :optional, :money],
     [:order_total, :mandatory, :money],
     [:merchant_brand_logo_url, :string, :optional],
     [:success, :mandatory, :string],
@@ -90,6 +92,17 @@ module PaypalService::API::DataTypes
   BillingAgreementRequest = EntityUtils.define_builder(
     [:redirect_url, :mandatory, :string])
 
+  OrderDetails = EntityUtils.define_builder(
+    [:status, :string],
+    [:city, :string],
+    [:country, :string],
+    [:name, :string],
+    [:phone, :string],
+    [:postal_code, :string],
+    [:state_or_province, :string],
+    [:street1, :string],
+    [:street2, :string])
+
   module_function
 
   def create_create_payment_request(opts); CreatePaymentRequest.call(opts) end
@@ -106,5 +119,6 @@ module PaypalService::API::DataTypes
   def create_account_permission_verification_request(opts); AccountPermissionVerificationRequest.call(opts) end
   def create_create_billing_agreement_request(opts); CreateBillingAgreementRequest.call(opts) end
   def create_billing_agreement_request(opts); BillingAgreementRequest.call(opts) end
+  def create_order_details(opts); OrderDetails.call(opts) end
 
 end

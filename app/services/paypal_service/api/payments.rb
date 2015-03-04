@@ -71,6 +71,7 @@ module PaypalService::API
             item_name: create_payment[:item_name],
             item_quantity: create_payment[:item_quantity],
             item_price: create_payment[:item_price] || create_payment[:order_total],
+            shipping_total: create_payment[:shipping_total],
             express_checkout_url: response[:redirect_url]
           })
 
@@ -257,11 +258,17 @@ module PaypalService::API
             finally: method(:handle_failed_create_payment).call(token),
           }
         ) do |ec_details|
-
           # Validate that the buyer accepted and we have a payer_id now
           if (ec_details[:payer_id].nil?)
             return Result::Error.new("Payment has not been accepted by the buyer.")
           end
+
+
+          order_details = create_order_details(ec_details)
+                          .merge({community_id: token[:community_id], transaction_id: token[:transaction_id]})
+          @events.send(:order_details,
+                       :success,
+                       order_details)
 
           with_success(token[:community_id], token[:transaction_id],
             MerchantData.create_do_express_checkout_payment({
@@ -272,6 +279,7 @@ module PaypalService::API
               item_name: token[:item_name],
               item_quantity: token[:item_quantity],
               item_price: token[:item_price],
+              shipping_total: token[:shipping_total],
               invnum: Invnum.create(token[:community_id], token[:transaction_id], :payment)
             }),
             error_policy: {
@@ -299,6 +307,21 @@ module PaypalService::API
           end
         end
       end
+    end
+
+    def create_order_details(data)
+      DataTypes.create_order_details(
+        HashUtils.rename_keys({
+          shipping_address_status: :status,
+          shipping_address_city: :city,
+          shipping_address_country: :country,
+          shipping_address_name: :name,
+          shipping_address_phone: :phone,
+          shipping_address_postal_code: :postal_code,
+          shipping_address_state_or_province: :state_or_province,
+          shipping_address_street1: :street1,
+          shipping_address_street2: :street2,
+        }, data))
     end
 
     def authorize_payment(community_id, payment)

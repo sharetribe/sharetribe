@@ -427,6 +427,7 @@ en:
       total_label: "Total:"
       total_value: "%{seller_gets}*"
       paypal_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a>"
+      shipping_price_label: "Shipping:"
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
@@ -744,6 +745,7 @@ en:
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's fee:"
+      shipping_total: "Shipping:"
     braintree_new_payment:
       product: "Product:"
       price_payer_paid: "Price %{payer_full_name} paid:"
@@ -1439,6 +1441,9 @@ en:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per day"
+      delivery: "Delivery"
+      shipping: "Shipping (%{price})"
+      pickup: "Pickup (%{price})"
     verification_required:
       verification_required: "Verification required"
   listing_conversations:
@@ -1765,6 +1770,8 @@ en:
       default_in_listing: "(used only as a default when creating a new listing)"
       invisible: "(not shown to other users)"
     save_information: "Save information"
+  shipping_address:
+    shipping_address: "Shipping address"
   tag_cloud:
     tag_used:
       with_tag: "With tag"
@@ -1880,6 +1887,11 @@ en:
     days_since:
       one: "%{count} day"
       other: "%{count} days"
+  transactions:
+    initiate:
+      subtotal: "Subtotal:"
+      shipping-price: "Shipping:"
+      total: "Total:"
   unit:
     day: day
     days: days
