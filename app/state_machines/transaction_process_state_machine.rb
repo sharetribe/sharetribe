@@ -1,4 +1,4 @@
-class TransactionProcess
+class TransactionProcessStateMachine
   include Statesman::Machine
 
   state :not_started, initial: true

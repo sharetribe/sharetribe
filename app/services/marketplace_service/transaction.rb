@@ -233,7 +233,7 @@ module MarketplaceService
           .map { |data| HashUtils.compact(data) }
           .or_else(nil)
 
-        state_machine = TransactionProcess.new(transaction, transition_class: TransactionTransition)
+        state_machine = TransactionProcessStateMachine.new(transaction, transition_class: TransactionTransition)
         state_machine.transition_to!(new_status, metadata_hash)
 
         transaction.touch(:last_transition_at)
@@ -291,7 +291,7 @@ module MarketplaceService
 
       def can_transition_to?(transaction_id, new_status)
         transaction = TransactionModel.find(transaction_id)
-        state_machine = TransactionProcess.new(transaction, transition_class: TransactionTransition)
+        state_machine = TransactionProcessStateMachine.new(transaction, transition_class: TransactionTransition)
         state_machine.can_transition_to?(new_status)
       end
 
