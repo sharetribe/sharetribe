@@ -25,6 +25,16 @@ task :deploy_to, [:destination] do |t, args|
   )
 end
 
+# Runs multiple up migrations.
+#
+# This task is mostly run in Heroku during the deploy. No need to run this locally.
+#
+# Usage: rake migrate_up[20150226124214, 20150226124215, 20150226124216]
+#
+task migrate_up: [:environment, "db:load_config"] do |_, args|
+  migrate_up(args.extras.map(&:to_i))
+end
+
 def deploy(params)
   @destination = params[:destination]
   @branch = `git symbolic-ref HEAD`[/refs\/heads\/(.+)$/,1]
@@ -37,7 +47,7 @@ def deploy(params)
   puts "Deploying to:   #{@destination}"
   puts "Deploy options:"
   puts "  css:        #{params[:css]}"
-  puts "  migrations: #{params[:migrations]} "
+  puts "  migrations: #{params[:migrations]}"
 
   if @destination == "production"
     puts ""
@@ -69,14 +79,14 @@ def deploy(params)
 
   set_app(@destination)
 
-  fetch_remote_heroku_branch if params[:migrations].nil? || params[:css].nil?
-  abort_if_pending_migrations if params[:migrations].nil?
+  fetch_remote_heroku_branch if params[:migrations] != false || params[:css].nil?
+  migrations = params[:migrations] == false ? [] : ask_all_migrations_to_run
   abort_if_css_modifications if params[:css].nil?
 
   deploy_to_server
 
-  if params[:migrations]
-    run_migrations
+  unless migrations.empty?
+    run_migrations(migrations)
     restart
   end
   if params[:css]
@@ -100,19 +110,11 @@ def airbrake_trigger_deploy(destination)
   puts "Done."
 end
 
-def abort_if_pending_migrations
-  pending_heroku_migrations = pending_migrations_in_heroku?
-  pending_local_migrations = pending_local_migrations?
+def migrate_up(versions)
+  raise "Nothing to migrate" if versions.empty?
 
-  if pending_heroku_migrations || pending_local_migrations
-    puts ""
-    puts "Heroku has deployed migrations that are not yet run." if pending_heroku_migrations
-    puts "You are about to deploy migrations from a local branch." if pending_local_migrations
-    puts ""
-    puts "Run migrations with rake deploy_to[#{@destination}] migrations=true"
-    puts "If you know what you are doing, skip with migrations=false"
-    puts "Aborting deploy process."
-    exit
+  versions.each do |version|
+    ActiveRecord::Migrator.run(:up, ActiveRecord::Migrator.migrations_paths, version)
   end
 end
 
@@ -146,9 +148,11 @@ def deploy_to_server
 
 end
 
-def run_migrations
+def run_migrations(versions)
+  versions_arg = versions.join(",")
+
   puts 'Running database migrations ...'
-  heroku("run rake db:migrate --app #{@app}")
+  heroku("run rake migrate_up[#{versions_arg}] --app #{@app}")
 end
 
 def restart
@@ -166,17 +170,77 @@ def fetch_remote_heroku_branch
   `git fetch #{@destination} master`
 end
 
-def pending_migrations_in_heroku?
-  puts "Checking for pending migrations in heroku ..."
-  output = heroku_with_output("run rake db:migrate:status --app #{@app}")
-  arr = output.split("\n")
-  statuses = arr.drop(arr.find_index("-" * 50) + 1)
-    .map(&:strip)
-    .map { |str| str.split(" ").first }
-  statuses.include?("down")
+def ask_all_migrations_to_run
+  ask_local_migrations_to_run.concat(ask_heroku_migrations_to_run).sort
 end
 
-def pending_local_migrations?
-  diff = `git diff --shortstat #{@branch}..#{@destination}/master db/migrate`
-  !diff.empty?
+def ask_local_migrations_to_run
+  # List of files added to db/migrate dir
+  new_files = `git diff --name-only --diff-filter=A #{@destination}/master..#{@branch} db/migrate`
+  migrations = select_down_migrations(parse_added_migration_files(new_files))
+
+  if migrations.empty?
+    []
+  else
+    puts ""
+    puts "You are about to deploy #{migrations.length} new migrations:"
+    puts ""
+    ask_migrations_to_run(migrations)
+  end
+end
+
+# Returns an array of migration versions to run
+def ask_heroku_migrations_to_run
+  puts "Checking for pending migrations in heroku ..."
+  output = heroku_with_output("run rake db:migrate:status --app #{@app}")
+  migrations = select_down_migrations(parse_migration_status(output))
+
+  if migrations.empty?
+    []
+  else
+    puts ""
+    puts "There are #{migrations.length} migration in Heroku that have not been run:"
+    puts ""
+    ask_migrations_to_run(migrations)
+  end
+end
+
+def select_down_migrations(migrations)
+  migrations.select { |migration| migration[:status] == :down }
+end
+
+def ask_migrations_to_run(migrations)
+  migrations.select { |migration|
+      puts "Run migration #{migration[:version]} #{migration[:description]} (y/n)?"
+      response = STDIN.gets.strip
+      response == 'y' || response == 'Y'
+    }
+    .map { |migration| migration[:version] }
+end
+
+def parse_migration_status(output)
+  arr = output.split("\n")
+  arr.drop(arr.find_index("-" * 50) + 1).map { |line| parse_status_line(line) }
+end
+
+def parse_status_line(line)
+  parsed = /^\s*(up|down)\s*(\d{14})\s*(.*)$/.match(line)
+
+  {
+    status: parsed[1].to_sym,
+    version: parsed[2].to_i,
+    description: parsed[3]
+  }
+end
+
+def parse_added_migration_files(new_files)
+  new_files.split("\n").map { |file|
+    parsed = /^db\/migrate\/(\d{14})_(.*).rb$/.match(file)
+
+    {
+      status: :down, # New local migration is always "down" in Heroku
+      version: parsed[1].to_i,
+      description: parsed[2].humanize
+    }
+  }
 end
