@@ -62,12 +62,14 @@ module TestHelpers
     end
 
     def self.load_categories_and_transaction_types_to_db(community, transaction_types, categories)
+      processes = [:none, :preauthorize, :postpay].inject({}) { |memo, process|
+        memo.tap { |m| m[process] = TransactionProcess.create(community_id: community.id, process: process).id }
+      }
+
       # Load transaction types
       transaction_types.each do |type, opts|
 
-        transaction_type = Object.const_get(type.to_s).create!(:type => type, :community_id => community.id)
-        transaction_type.create_transaction_process!(process: opts[:process])
-        transaction_type.save!
+        transaction_type = Object.const_get(type.to_s).create!(type: type, community_id: community.id, transaction_process_id: processes[opts[:process]])
         community.locales.each do |locale|
           translation = opts[:translations][locale.to_sym]
 
