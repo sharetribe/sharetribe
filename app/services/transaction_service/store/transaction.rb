@@ -1,6 +1,7 @@
 module TransactionService::Store::Transaction
 
   TransactionModel = ::Transaction
+  ShippingAddressModel = ::ShippingAddress
 
   NewTransaction = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
@@ -38,8 +39,19 @@ module TransactionService::Store::Transaction
     [:minimum_commission, :money, :mandatory],
     [:last_transition_at, :time],
     [:current_state, :to_symbol],
-    [:shipping_address, :hash]
-  )
+    [:shipping_address, :hash])
+
+  ShippingAddress = EntityUtils.define_builder(
+    [:status, :string],
+    [:name, :string],
+    [:phone, :string],
+    [:street1, :string],
+    [:street2, :string],
+    [:postal_code, :string],
+    [:city, :string],
+    [:state_or_province, :string],
+    [:country, :string])
+
 
   FINISHED_TX_STATES = "'free', 'rejected', 'confirmed', 'canceled', 'errored'"
 
@@ -65,7 +77,7 @@ module TransactionService::Store::Transaction
     nil
   end
 
-  # Mark transasction as unseen, i.e. something new (e.g. transition) has happened
+  # Mark transaction as unseen, i.e. something new (e.g. transition) has happened
   #
   # Under the hood, this is stored to conversation, which is not optimal since that ties transaction and
   # conversation tightly together.
@@ -97,7 +109,7 @@ module TransactionService::Store::Transaction
 
   def upsert_shipping_address(community_id:, transaction_id:, addr:)
     Maybe(TransactionModel.where(id: transaction_id, community_id: community_id).first)
-      .map { |m| ShippingAddress.where(transaction_id: m.id).first_or_create!(transaction_id: m.id) }
+      .map { |m| ShippingAddressModel.where(transaction_id: m.id).first_or_create!(transaction_id: m.id) }
       .map { |a| a.update_attributes!(addr_fields(addr)) }
       .or_else { nil }
   end
@@ -107,15 +119,21 @@ module TransactionService::Store::Transaction
   def from_model(model)
     Maybe(model)
       .map { |m|
-        EntityUtils.model_to_hash(m)
-        .merge({unit_price: m.unit_price, minimum_commission: m.minimum_commission, shipping_price: m.shipping_price })
+        hash = EntityUtils.model_to_hash(m)
+               .merge({unit_price: m.unit_price, minimum_commission: m.minimum_commission, shipping_price: m.shipping_price })
+
+        if m.shipping_address
+          hash.merge({shipping_address: ShippingAddress.call(EntityUtils.model_to_hash(m.shipping_address)) })
+        else
+          hash
+        end
       }
       .map { |hash| Transaction.call(hash) }
       .or_else(nil)
   end
 
   def addr_fields(addr)
-    addr.slice(:status, :name, :phone, :postal_code, :city, :state_or_province, :country, :street1, :street2)
+    HashUtils.compact(ShippingAddress.call(addr))
   end
 
   def build_conversation(tx_model, tx_data)

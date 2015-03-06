@@ -48,6 +48,7 @@ module TransactionService::Transaction
   end
 
 
+  # TODO should require community_id
   # TODO Return type should be Result (wraps current return type)
   def query(transaction_id)
     tx = TxStore.get(transaction_id)
@@ -200,7 +201,8 @@ module TransactionService::Transaction
         checkout_total: payment_details[:total_price],
         commission_total: commission_total,
         charged_commission: payment_details[:charged_commission],
-        payment_gateway_fee: payment_details[:payment_gateway_fee]})
+        payment_gateway_fee: payment_details[:payment_gateway_fee],
+        shipping_address: tx[:shipping_address]})
   end
 
   def calculate_commission(item_total, commission_from_seller, minimum_commission)
