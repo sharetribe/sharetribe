@@ -842,9 +842,10 @@ ActiveRecord::Schema.define(:version => 20150304084451) do
   add_index "testimonials", ["transaction_id"], :name => "index_testimonials_on_transaction_id"
 
   create_table "transaction_processes", :force => true do |t|
-    t.string   "process",    :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "community_id"
+    t.string   "process",      :limit => 32, :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "transaction_transitions", :force => true do |t|
@@ -877,11 +878,11 @@ ActiveRecord::Schema.define(:version => 20150304084451) do
     t.integer  "transaction_process_id"
     t.integer  "sort_priority"
     t.boolean  "price_field"
-    t.boolean  "preauthorize_payment",       :default => false
+    t.boolean  "preauthorize_payment"
     t.string   "price_quantity_placeholder"
     t.string   "price_per"
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.string   "url"
   end
 

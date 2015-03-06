@@ -51,7 +51,8 @@ module MarketplaceService::API
       community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
 
       Helper.create_community_customization!(community, marketplace_name, locale)
-      t = Helper.create_transaction_type!(community, p[:marketplace_type])
+      process_id = Helper.create_transaction_process!(community_id: community.id, process: :preauthorize)
+      t = Helper.create_transaction_type!(community, p[:marketplace_type], process_id)
       Helper.create_category!("Default", community, locale, t.id)
 
       plan_level = p[:plan_level].or_else(CommunityPlan::FREE_PLAN)
@@ -95,9 +96,15 @@ module MarketplaceService::API
         }
       end
 
-      def create_transaction_type!(community, marketplace_type)
+      def create_transaction_type!(community, marketplace_type, transaction_process_id)
         transaction_type_name = transaction_type_name(marketplace_type)
-        TransactionTypeCreator.create(community, transaction_type_name, payment_gateway_available: true)
+        TransactionTypeCreator.create(community, transaction_type_name, transaction_process_id, payment_gateway_available: true)
+      end
+
+      def create_transaction_process!(community_id:, process:)
+        # TODO Call TransactionService API
+        process = TransactionProcess.create(community_id: community_id, process: process)
+        process.id
       end
 
       def create_community_customization!(community, marketplace_name, locale)
