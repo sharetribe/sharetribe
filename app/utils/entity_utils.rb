@@ -87,6 +87,11 @@ module EntityUtils
         "#{field}: Value must be an Enumerable. Was: #{v}."
       end
     },
+    array: -> (_, v, field) {
+      unless (v.nil? || v.is_a?(Array))
+        "#{field}: Value must be an Array. Was: #{v}."
+      end
+    },
     money: -> (_, v, field) {
       unless (v.nil? || v.is_a?(Money))
         "#{field}: Value must be a Money. Was: #{v}."
