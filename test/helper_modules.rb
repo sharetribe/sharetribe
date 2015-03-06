@@ -66,7 +66,7 @@ module TestHelpers
       transaction_types.each do |type, opts|
 
         transaction_type = Object.const_get(type.to_s).create!(:type => type, :community_id => community.id)
-        transaction_type.create_transaction_process(process: opts[:process])
+        transaction_type.create_transaction_process!(process: opts[:process])
         transaction_type.save!
         community.locales.each do |locale|
           translation = opts[:translations][locale.to_sym]
