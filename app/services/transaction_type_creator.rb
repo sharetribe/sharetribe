@@ -120,7 +120,7 @@ module TransactionTypeCreator
           preauthorize: transaction_type.preauthorize_payment?,
           payment_gateway_available: payment_gateway_available)
 
-    transaction_type.create_transaction_process({ process: process })
+    transaction_type.create_transaction_process!({ process: process })
   end
 
 end
