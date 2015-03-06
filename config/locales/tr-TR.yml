@@ -420,6 +420,7 @@ tr-TR:
       total_label: ~
       total_value: ~
       paypal_fee_info: ~
+      shipping_price_label: ~
     confirm:
       confirm_description: "Eğer talebiniz gerçekleştirildiyse, bunu \"Gerçekleşti\" olarak işaretlemelisiniz. Bundan sonra, diğer tarafa geri bildirim bırakabilirsiniz."
       cancel_description: "Eğer talebiniz gerçekleştirilmediyse, \"Gerçekleşmedi\" olarak işaretleyebilirsiniz. Bundan sonra, geri bildirim bırakıp neler olduğunu açıklayabilirsiniz."
@@ -737,6 +738,7 @@ tr-TR:
       you_have_received_new_payment: "%{listing_title} için %{payer_full_name} kişisinden %{payment_sum} tutarında ödeme aldınız. Faturanız burada."
     paypal_new_payment:
       paypal_gateway_fee: ~
+      shipping_total: ~
     braintree_new_payment:
       product: "Ürün:"
       price_payer_paid: "%{payer_full_name}'in ödediği tutar:"
@@ -1432,6 +1434,9 @@ tr-TR:
       price:
         per_quantity_unit: "%{quantity_unit} başına"
         per_day: günde
+      delivery: ~
+      shipping: ~
+      pickup: ~
     verification_required:
       verification_required: "Doğrulama gerekli"
   listing_conversations:
@@ -1757,6 +1762,8 @@ tr-TR:
       default_in_listing: "(Sadece yeni listeleme oluşturulurken default olarak kullanılır.)"
       invisible: "(Diğer kullanıcılara gösterilmez.)"
     save_information: "Bu bilgiyi kaydet"
+  shipping_address:
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: Etiketli
@@ -1871,6 +1878,11 @@ tr-TR:
     years_ago: "%{count} yıl önce"
     days_since:
       other: "%{count} gün"
+  transactions:
+    initiate:
+      subtotal: ~
+      shipping-price: ~
+      total: ~
   unit:
     day: gün
     days: günler

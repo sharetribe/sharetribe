@@ -11,12 +11,12 @@ pt-BR:
   devise:
     failure:
       already_authenticated: "Você já está conectado."
-      unauthenticated: "Você precisa conectar ou se cadastrar antes de continuar."
+      unauthenticated: "Você precisa se autenticar ou se cadastrar antes de continuar."
       unconfirmed: "Você deve confirmar a sua conta antes de continuar."
       locked: "Sua conta está bloqueada."
       invalid: "E-mail ou senha inválida."
       invalid_token: "Dados para autenticação inválidos."
-      timeout: "Sua sessão expirou, por favor conecte sua conta novamente para continuar."
+      timeout: "Sua sessão expirou, por favor autentique-se novamente para continuar."
       inactive: "Sua conta ainda não foi ativada."
     passwords:
       updated_not_active: "Sua senha foi alterada com sucesso."

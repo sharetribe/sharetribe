@@ -82,7 +82,7 @@ sv:
       edit_look_and_feel:
         edit_community_look_and_feel: "Redigera marknadsplatsen \"%{community_name}\""
         community_logo: Logotyp
-        community_logo_icon: Mobillogotyp
+        community_logo_icon: "Logotyp för sociala nätverk och mobila enheter"
         community_cover_photo: Omslagsbild
         small_community_cover_photo: "Liten omslagsbild"
         favicon: Favicon
@@ -90,7 +90,7 @@ sv:
         community_custom_color1: Huvudfärg
         community_custom_color2: "Den andra färgen"
         logo_instructions_text_with_dimensions: "Desktoplogotypens storlek ska vara %{width}x%{height}px. Den kommer att visas för användare med större skärm."
-        logo_icon_instructions_text_with_dimensions: "Mobillogotypen ska vara fyrkantig, gärna storleken %{width}x%{height}px. Den kommer att visas för användare med mindre skärm."
+        logo_icon_instructions_text_with_dimensions: "Denna fyrkantiga logotyp kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
         cover_photo_visibility: "Omslagsbild visas på startsidan för ej inloggade användare."
         cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Liten omslagsbild visas på alla sidor förutom på startsidan för ej inloggade användare."
@@ -125,7 +125,7 @@ sv:
         live_site_link_text: här
         look_and_feel: "Innan du lanserar din sida så kanske du vill ändra vissa saker. Du kanske vill  %{logo_link} och byta omslagsbild och färger för att det ska passa ditt märke."
         logo_link_text: "lägga till din logotyp"
-        custom_domain: "Du kanske också vill lägga till en egen webbadress (t ex: www.dinmarknadsplats.com). För att göra detta så bör du kontakta oss via supportlänken till vänster, eftersom detta kräver några manuella steg från vår sida. Därför är egna domäner bara tillgängligt för våra betalpaket, ej för gratisversionen"
+        custom_domain: "Du kanske också vill lägga till en egen webbadress (t ex: www.dinmarknadsplats.com). Detta kräver manuellt jobb från vår sida, och vi måste även köpa SSL certifikat för domänen för att göra din sida säker. Därför är egna domäner bara tillgängligt för våra betalpaket, ej för gratisversionen. Om du vill ha en egen domän, vänligen %{contact_support_link}."
         categories_and_custom_fields: "Nästa sak att bestämma är vilken typ av innehåll som dina användare kan lägga ut på din sida. Du kan %{categories_link}, %{custom_fields_link} som själva annonsen innehåller och bestämma %{filters_link} som används när folk bläddrar bland annonser."
         categories_link_text: "lägg till kategorier och underkategorier"
         custom_fields_link_text: "konfigurera formulärfälten"
@@ -425,13 +425,14 @@ sv:
       total_label: "Totalt:"
       total_value: "%{seller_gets}*"
       paypal_fee_info: "* Inkluderar inte <a id='%{fee_info_link_id}' href='#'>PayPal's administrationsavgift</a>"
+      shipping_price_label: "Frakt:"
     confirm:
       confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som klar. Då kan du ge din feedback till den andra parten."
       cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"hände inte\". Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
       cancel_payed_description: "Om din förfrågan var accepterad men du har några andra funderingar, så kan du fortfarande avbryta förfrågan innan betalning."
       canceling_payed_transaction: "Avbryt transaktion"
       confirm: "Markera klar"
-      cancel: "Hände inte"
+      cancel: Avbryt
       continue: Forsätt
       give_feedback_to: "Lämna feedback till %{person_link}"
       do_not_give_feedback: "Hoppa över feedback"
@@ -575,7 +576,7 @@ sv:
       reject_preauthorized_offer: "Inte den här gången"
       reject_preauthorized_request: "Inte den här gången"
       confirm: "Markera klar"
-      cancel: "Hände inte"
+      cancel: Avbryt
   braintree_accounts:
     new:
       add_payout_details: "Lägg till betalningsdetaljer"
@@ -742,6 +743,7 @@ sv:
       you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
     paypal_new_payment:
       paypal_gateway_fee: "PayPals avgift:"
+      shipping_total: "Frakt:"
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Pris %{payer_full_name} betalt:"
@@ -1439,6 +1441,9 @@ sv:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per dag"
+      delivery: Leverans
+      shipping: "Frakt %{price}"
+      pickup: "Hämtning %{price}"
     verification_required:
       verification_required: "Verifiering krävs"
   listing_conversations:
@@ -1765,6 +1770,8 @@ sv:
       default_in_listing: "(används endast som standard när man skapar en ny annons)"
       invisible: "(visas inte för andra användare)"
     save_information: "Spara information"
+  shipping_address:
+    shipping_address: Leveransadress
   tag_cloud:
     tag_used:
       with_tag: "Med tagg"
@@ -1880,6 +1887,11 @@ sv:
     days_since:
       one: "%{count} dag"
       other: "%{count} dagarna"
+  transactions:
+    initiate:
+      subtotal: "Delsumma:"
+      shipping-price: "Frakt:"
+      total: "Totalt:"
   unit:
     day: dag
     days: dagar

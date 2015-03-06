@@ -427,6 +427,7 @@ de:
       total_label: "Summe:"
       total_value: "%{seller_gets}*"
       paypal_fee_info: "* Ohne <a id='%{fee_info_link_id}' href='#'>PayPal-Zahlungsbearbeitungsgebühr</a>"
+      shipping_price_label: ~
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem anderen Feedback geben."
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
@@ -744,6 +745,7 @@ de:
       you_have_received_new_payment: "Du hast bezahlt %{payment_sum} für %{listing_title} an %{payer_full_name}. Das ist deine Rechnung."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's Gebühr:"
+      shipping_total: ~
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Betrag bezahlt von %{payer_full_name}:"
@@ -922,7 +924,7 @@ de:
     contact_us: Kontakt
     profile: Profil
     invite: "Neue Mitglieder einladen"
-    login: Anmelden
+    login: Einloggen
     signup: Registrieren
     menu: Menü
   homepage:
@@ -993,7 +995,7 @@ de:
       no_reviews: "Keine Bewertungen"
       no_image: "Kein Bild"
       filter: Filter
-      this_is_private_community: "Du musst dich erst anmelden, um die Artikel sehen zu können."
+      this_is_private_community: "Du musst dich erst einloggen, um die Artikel sehen zu können."
     invitation_form:
       invite_your_friends: "Lade deine Freunde zu %{service_name} ein!"
       email: E-Mail-Adresse(n)
@@ -1094,7 +1096,7 @@ de:
       admin: Administrator
       go_to_your_profile_page: Profil
       hi: Hallo
-      login: Anmelden
+      login: Einloggen
       logout: Abmelden
       notifications: Benachrichtigungen
       requests: Freundschaftsanfragen
@@ -1190,19 +1192,19 @@ de:
       you_are_already_member: "Du bist bereits Mitglied dieser %{service_name} Community. Willkommen zurück!"
       you_must_log_in_to_create_new_listing: "Du musst dich bei %{service_name} einloggen, um einen neuen Eintrag zu erstellen. Wenn du keinen Account hast, kannst du %{sign_up_link}."
       additional_email_confirmed_dashboard: "Deine E-Mail ist nun bestätigt."
-      you_must_log_in_to_give_feedback: "Du musst dich anmelden, um Feedback zu geben"
-      you_must_log_in_to_invite_new_users: "Du musst dich anmelden, um neue Benutzer zu %{service_name} einzuladen"
-      you_must_log_in_to_send_a_comment: "Du musst dich anmelden, um einen neuen Kommentar abzugeben"
-      you_must_log_in_to_send_a_message: "Du musst dich bei %{service_name} anmelden, um eine Nachricht an einen anderen Benutzer zu senden."
-      you_must_log_in_to_view_this_content: "Du musst dich anmelden, um diesen Inhalt sehen zu können"
-      you_must_log_in_to_view_this_page: "Du musst dich anmelden, um diese Seite sehen zu können"
-      you_must_log_in_to_view_your_inbox: "Du musst dich bei %{service_name} anmelden, um deinen Posteingang sehen zu können."
-      you_must_log_in_to_view_your_settings: "Du musst dich bei %{service_name} anmelden, um deine Einstellungen anzeigen zu können."
-      you_must_log_in_to_add_news_item: "Du musst dich bei %{service_name} anmelden, um einen neuen Artikel hinzuzufügen."
-      you_must_log_in_to_change_profile_settings: "Du musst dich bei %{service_name} anmelden, wenn du deine Profil-Einstellungen ändern möchtest"
+      you_must_log_in_to_give_feedback: "Du musst dich einloggen, um Feedback zu geben"
+      you_must_log_in_to_invite_new_users: "Du musst dich einloggen, um neue Benutzer zu %{service_name} einzuladen"
+      you_must_log_in_to_send_a_comment: "Du musst dich einloggen, um einen neuen Kommentar abzugeben"
+      you_must_log_in_to_send_a_message: "Du musst dich bei %{service_name} einloggen, um eine Nachricht an einen anderen Benutzer zu senden."
+      you_must_log_in_to_view_this_content: "Du musst dich einloggen, um diesen Inhalt sehen zu können"
+      you_must_log_in_to_view_this_page: "Du musst dich einloggen, um diese Seite sehen zu können"
+      you_must_log_in_to_view_your_inbox: "Du musst dich bei %{service_name} einloggen, um deinen Posteingang sehen zu können."
+      you_must_log_in_to_view_your_settings: "Du musst dich bei %{service_name} einloggen, um deine Einstellungen anzeigen zu können."
+      you_must_log_in_to_add_news_item: "Du musst dich bei %{service_name} einloggen, um einen neuen Artikel hinzuzufügen."
+      you_must_log_in_to_change_profile_settings: "Du musst dich bei %{service_name} einloggen, wenn du deine Profil-Einstellungen ändern möchtest"
       you_must_log_in_to_change_payment_settings: "Du musst dich bei %{service_name} einloggen, um deine Zahlungseinstellungen zu ändern"
-      you_must_log_in_to_accept_or_reject: "Du musst dich anmelden, um die Transaktion zu akzeptieren oder abzubrechen"
-      you_must_log_in_to_confirm_or_cancel: "Du musst dich anmelden, um die Transaktion abzubrechen oder zu bestätigen"
+      you_must_log_in_to_accept_or_reject: "Du musst dich einloggen, um die Transaktion zu akzeptieren oder abzubrechen"
+      you_must_log_in_to_confirm_or_cancel: "Du musst dich einloggen, um die Transaktion abzubrechen oder zu bestätigen"
       you_need_to_confirm_your_account_first: "Du musst zuerst deine E-Mail bestätigen."
       you_must_fill_all_the_fields: "Du musst alle Felder ausfüllen"
       you_unfollowed_listing: "Du folgst diesem Eintrag nicht länger"
@@ -1439,6 +1441,9 @@ de:
       price:
         per_quantity_unit: "pro %{quantity_unit}"
         per_day: "pro Tag"
+      delivery: ~
+      shipping: ~
+      pickup: ~
     verification_required:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
@@ -1765,6 +1770,8 @@ de:
       default_in_listing: "(wird nur beim Erstellen eines neuen Eintrags als Standardeinstellung benutzt)"
       invisible: "(wird anderen Benutzern nicht angezeigt)"
     save_information: "Informationen speichern"
+  shipping_address:
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: "Mit Tag"
@@ -1880,6 +1887,11 @@ de:
     days_since:
       one: "%{count} Tag"
       other: "%{count} Tage"
+  transactions:
+    initiate:
+      subtotal: ~
+      shipping-price: ~
+      total: ~
   unit:
     day: Tag
     days: Tage

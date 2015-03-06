@@ -425,6 +425,7 @@ da-DK:
       total_label: ~
       total_value: ~
       paypal_fee_info: ~
+      shipping_price_label: ~
     confirm:
       confirm_description: "Hvis din ansøgning er godkendt, bør du markerer den som en success. Så kan I give feedback til hinanden."
       cancel_description: "Hvis din ansøgning ikke er godkendt, kan du markere den som 'ikke godkendt'. Du kan stadig give feedback til den anden part."
@@ -742,6 +743,7 @@ da-DK:
       you_have_received_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{payer_full_name}. Her er din kvittering."
     paypal_new_payment:
       paypal_gateway_fee: ~
+      shipping_total: ~
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Pris %{payer_full_name} betalte:"
@@ -1437,6 +1439,9 @@ da-DK:
       price:
         per_quantity_unit: "pr. %{quantity_unit}"
         per_day: "pr. dag"
+      delivery: ~
+      shipping: ~
+      pickup: ~
     verification_required:
       verification_required: "Godkendelse påkrævet"
   listing_conversations:
@@ -1763,6 +1768,8 @@ da-DK:
       default_in_listing: "(bruges kun som standard når du opretter nye annoncer)"
       invisible: "(vises ikke til andre brugere)"
     save_information: Gem
+  shipping_address:
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: "Med tag"
@@ -1878,6 +1885,11 @@ da-DK:
     days_since:
       one: "%{count} dag"
       other: "%{count} dage"
+  transactions:
+    initiate:
+      subtotal: ~
+      shipping-price: ~
+      total: ~
   unit:
     day: dag
     days: dage

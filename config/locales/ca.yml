@@ -410,6 +410,7 @@ ca:
       total_label: ~
       total_value: ~
       paypal_fee_info: ~
+      shipping_price_label: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -727,6 +728,7 @@ ca:
       you_have_received_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
+      shipping_total: ~
     braintree_new_payment:
       product: ~
       price_payer_paid: ~
@@ -1424,6 +1426,9 @@ ca:
       price:
         per_quantity_unit: ~
         per_day: ~
+      delivery: ~
+      shipping: ~
+      pickup: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1747,6 +1752,8 @@ ca:
       default_in_listing: ~
       invisible: ~
     save_information: "Desa la informació"
+  shipping_address:
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: "Amb etiqueta"
@@ -1859,6 +1866,11 @@ ca:
     seconds_ago: "fa %{count} segons"
     year_ago: "fa un any"
     years_ago: "%{count} anys enrere"
+  transactions:
+    initiate:
+      subtotal: ~
+      shipping-price: ~
+      total: ~
   unit:
     day: ~
     days: ~

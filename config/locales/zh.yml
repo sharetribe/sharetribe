@@ -420,6 +420,7 @@ zh:
       total_label: 总计：
       total_value: "%{seller_gets}*"
       paypal_fee_info: "* 不包括<a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费用</a>"
+      shipping_price_label: ~
     confirm:
       confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
       cancel_description: 如果你的请求没有完成，你可以标记它为“未发生”。你仍然可以评论给其他交易方描述发生的事情。
@@ -737,6 +738,7 @@ zh:
       you_have_received_new_payment: "你已经为<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>给%{payer_full_name}。这是你的收据。"
     paypal_new_payment:
       paypal_gateway_fee: PayPal的费用：
+      shipping_total: ~
     braintree_new_payment:
       product: 产品：
       price_payer_paid: "%{payer_full_name}支付价格："
@@ -1432,6 +1434,9 @@ zh:
       price:
         per_quantity_unit: "每%{quantity_unit}"
         per_day: 每天
+      delivery: ~
+      shipping: ~
+      pickup: ~
     verification_required:
       verification_required: 要求验证
   listing_conversations:
@@ -1757,6 +1762,8 @@ zh:
       default_in_listing: （只有在发布新信息时作为默认值使用）
       invisible: （不显示给其他用户）
     save_information: 保存信息
+  shipping_address:
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: 有标签
@@ -1871,6 +1878,11 @@ zh:
     years_ago: "%{count} 年前"
     days_since:
       other: "%{count}天"
+  transactions:
+    initiate:
+      subtotal: ~
+      shipping-price: ~
+      total: ~
   unit:
     day: 日
     days: 天
