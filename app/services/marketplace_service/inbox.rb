@@ -85,7 +85,6 @@ module MarketplaceService
         [:listing_id, :fixnum, :mandatory],
         [:listing_title, :string, :mandatory],
         [:listing_deleted, transform_with: @tiny_int_to_bool],
-        [:transaction_type, :string, :mandatory],
 
         [:last_transition_at, :time, :mandatory],
         [:last_transition_to_state, :string, :mandatory],
@@ -307,8 +306,6 @@ module MarketplaceService
             current_participation.person_id                   AS current_id,
             other_participation.person_id                     AS other_id,
 
-            transaction_types.type                            AS transaction_type,
-
             current_participation.is_read                     AS current_is_read,
             current_participation.is_starter                  AS current_is_starter,
 
@@ -329,7 +326,6 @@ module MarketplaceService
 
           LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
           LEFT JOIN listings          ON transactions.listing_id = listings.id
-          LEFT JOIN transaction_types ON listings.transaction_type_id = transaction_types.id
           LEFT JOIN payments          ON payments.transaction_id = transactions.id
           LEFT JOIN testimonials      ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = #{params[:person_id]})
           LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = #{params[:person_id]})

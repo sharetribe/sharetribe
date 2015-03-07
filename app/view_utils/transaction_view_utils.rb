@@ -19,7 +19,7 @@ module TransactionViewUtils
     (messages + transitions).sort_by { |hash| hash[:created_at] }
   end
 
-  def create_messages_from_actions(transitions, discussion_type, author, starter, payment_sum)
+  def create_messages_from_actions(transitions, author, starter, payment_sum)
     return [] if transitions.blank?
 
     ignored_transitions = ["free", "pending", "initiated", "pending_ext", "errored"] # Transitions that should not generate auto-message
@@ -32,7 +32,7 @@ module TransactionViewUtils
         ignored_transitions.include? transition[:to_state]
       }
       .map { |(transition, previous_state)|
-        create_message_from_action(transition, previous_state, discussion_type, author, starter, payment_sum)
+        create_message_from_action(transition, previous_state, author, starter, payment_sum)
       }
   end
 
@@ -52,16 +52,15 @@ module TransactionViewUtils
         display_name: PersonViewUtils.person_entity_display_name(conversation[:starter_person], name_display_type))
 
       transitions = transaction[:transitions]
-      discussion_type = transaction[:discussion_type]
       payment_sum = transaction[:payment_total]
 
-      create_messages_from_actions(transitions, discussion_type, author, starter, payment_sum)
+      create_messages_from_actions(transitions, author, starter, payment_sum)
     else
       []
     end
   end
 
-  def create_message_from_action(transition, old_state, discussion_type, author, starter, payment_sum)
+  def create_message_from_action(transition, old_state, author, starter, payment_sum)
     preauthorize_accepted = ->(new_state) { new_state == "paid" && old_state == "preauthorized" }
     post_pay_accepted = ->(new_state) {
       # The condition here is simply "if new_state is paid", since due to migrations from old system there might be
@@ -111,11 +110,11 @@ module TransactionViewUtils
 
     MessageBubble[message.merge(
       created_at: transition[:created_at],
-      content: create_content_from_action(transition[:to_state], old_state, discussion_type, payment_sum)
+      content: create_content_from_action(transition[:to_state], old_state, payment_sum)
     )]
   end
 
-  def create_content_from_action(state, old_state, discussion_type, payment_sum)
+  def create_content_from_action(state, old_state, payment_sum)
     preauthorize_accepted = ->(new_state) { new_state == "paid" && old_state == "preauthorized" }
     post_pay_accepted = ->(new_state) {
       # The condition here is simply "if new_state is paid", since due to migrations from old system there might be
@@ -127,17 +126,17 @@ module TransactionViewUtils
     when "preauthorized"
       t("conversations.message.paid", sum: humanized_money_with_symbol(payment_sum))
     when "accepted"
-      t("conversations.message.accepted_#{discussion_type}")
+      t("conversations.message.accepted_request")
     when "rejected"
-      t("conversations.message.rejected_#{discussion_type}")
+      t("conversations.message.rejected_request")
     when preauthorize_accepted
-      t("conversations.message.accepted_#{discussion_type}")
+      t("conversations.message.accepted_request")
     when post_pay_accepted
       t("conversations.message.paid", sum: humanized_money_with_symbol(payment_sum))
     when "canceled"
-      t("conversations.message.canceled_#{discussion_type}")
+      t("conversations.message.canceled_request")
     when "confirmed"
-      t("conversations.message.confirmed_#{discussion_type}")
+      t("conversations.message.confirmed_request")
     else
       raise("Unknown transition to state: #{state}")
     end

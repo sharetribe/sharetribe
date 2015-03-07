@@ -1,5 +1,5 @@
 .price-container
-  - if @listing.transaction_type.price_field?
+  - if @listing.listing_shape.price_enabled?
     = form.label :price, t(".price") + "*"
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
     .currency-selector
@@ -13,12 +13,12 @@
       - else
         = form.select :currency, major_currencies(Money::Currency.table), { :selected => (@listing.currency || "EUR") }
 
-    - if @listing.transaction_type.price_per
-      .quantity-description= t(".per_#{@listing.transaction_type.price_per}")
+    - if @listing.listing_shape.price_per
+      .quantity-description= t(".per_#{@listing.listing_shape.price_per}")
 
-    - elsif @listing.transaction_type.price_quantity_placeholder?
+    - elsif @listing.listing_shape.price_quantity_placeholder?
       .quantity-description= t(".per")
-      = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{@listing.transaction_type.price_quantity_placeholder}")
+      = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{@listing.listing_shape.price_quantity_placeholder}")
 
     %small
       = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat

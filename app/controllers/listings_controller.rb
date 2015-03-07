@@ -110,15 +110,10 @@ class ListingsController < ApplicationController
 
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
-    payment_process = select_payment_process(
-      price_field: @listing.transaction_type.price_field?,
-      preauthorize: @listing.transaction_type.preauthorize_payment?,
-      payment_gateway_available: payment_gateway.present?)
-
     form_path = select_new_transaction_path(
       listing_id: @listing.id.to_s,
       payment_gateway: payment_gateway,
-      payment_process: payment_process,
+      payment_process: @listing.transaction_process.process.to_sym,
       booking: @listing.transaction_type.price_per.present?
     )
 
@@ -144,7 +139,7 @@ class ListingsController < ApplicationController
       @custom_field_questions = @listing.category.custom_fields
       @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-      @listing.transaction_type = @current_community.transaction_types.find(params[:transaction_type])
+      @listing.listing_shape = @current_community.listing_shapes.find(params[:listing_shape])
       logger.info "Category: #{@listing.category.inspect}"
 
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
@@ -171,7 +166,15 @@ class ListingsController < ApplicationController
 
     params[:listing] = normalize_price_param(params[:listing]);
 
-    @listing = Listing.new(params[:listing])
+    listing_shape_id = params[:listing][:listing_shape_id]
+    listing_shape = @current_community.listing_shapes.where(id: listing_shape_id).first
+
+    @listing = Listing.new(
+      params[:listing].merge(
+      {
+        transaction_type_id: listing_shape.transaction_type_id,
+        transaction_process_id: listing_shape.transaction_process.id
+      }))
 
     @listing.author = @current_user
     @listing.custom_field_values = create_field_values(params[:custom_fields])
@@ -509,19 +512,6 @@ class ListingsController < ApplicationController
       [can_post, error_msg]
     else
       [true, ""]
-    end
-  end
-
-  def select_payment_process(price_field:, payment_gateway_available:, preauthorize:)
-    case [price_field, payment_gateway_available, preauthorize]
-    when matches([false])
-      :none
-    when matches([__, false])
-      :none
-    when matches([__, __, true])
-      :preauthorize
-    else
-      :postpay
     end
   end
 

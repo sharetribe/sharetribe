@@ -19,7 +19,13 @@
         .selected-group{:name => attribute}
           - values.each do |value|
             %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
-              .link-text= t(".selected_#{attribute}", attribute.to_sym => value.display_name(I18n.locale))
+
+              - if (attribute === "listing_shape")
+                .link-text= t(".selected_transaction_type", :transaction_type => value.transaction_process.display_name(I18n.locale))
+              - else
+                .link-text= t(".selected_#{attribute}", attribute.to_sym => value.transaction_process.display_name(I18n.locale))
+
+
 
   %h2.listing-form-title{:id => "foo"}
 
@@ -29,6 +35,6 @@
         .option-group{:name => attribute}
           - values.each do |value|
             %a.select.option.hidden{:href => "#", :data => {:id => value.id}}
-              .link-text= value.display_name(I18n.locale)
+              .link-text= value.transaction_process.display_name(I18n.locale)
 
   .form-fields
