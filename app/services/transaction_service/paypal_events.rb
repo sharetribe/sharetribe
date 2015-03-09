@@ -42,14 +42,19 @@ module TransactionService::PaypalEvents
     community_id = details.delete(:community_id)
     transaction_id = details.delete(:transaction_id)
 
-    if(details.values.any?)
+    if shipping_fields_present?(details)
       TransactionStore.upsert_shipping_address(
         community_id: community_id,
         transaction_id: transaction_id,
         addr: details)
     end
   end
+
   # Privates
+
+  def shipping_fields_present?(details)
+    details.except(:status).values.any?
+  end
 
   ## Mapping from payment transition to transaction transition
 
