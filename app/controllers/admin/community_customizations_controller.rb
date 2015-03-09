@@ -6,7 +6,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
     # @community_customization is fetched in application_controller
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)
     @show_transaction_agreement = @current_community.transaction_types.any? do |transaction_type|
-      transaction_type.preauthorize_payment
+      transaction_type.transaction_process.process == :preauthorize
     end
   end
 

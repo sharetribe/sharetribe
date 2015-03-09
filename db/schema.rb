@@ -841,6 +841,12 @@ ActiveRecord::Schema.define(:version => 20150304084451) do
   add_index "testimonials", ["receiver_id"], :name => "index_testimonials_on_receiver_id"
   add_index "testimonials", ["transaction_id"], :name => "index_testimonials_on_transaction_id"
 
+  create_table "transaction_processes", :force => true do |t|
+    t.string   "process",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "transaction_transitions", :force => true do |t|
     t.string   "to_state"
     t.text     "metadata"
@@ -868,6 +874,7 @@ ActiveRecord::Schema.define(:version => 20150304084451) do
   create_table "transaction_types", :force => true do |t|
     t.string   "type"
     t.integer  "community_id"
+    t.integer  "transaction_process_id"
     t.integer  "sort_priority"
     t.boolean  "price_field"
     t.boolean  "preauthorize_payment",       :default => false
@@ -879,6 +886,7 @@ ActiveRecord::Schema.define(:version => 20150304084451) do
   end
 
   add_index "transaction_types", ["community_id"], :name => "index_transaction_types_on_community_id"
+  add_index "transaction_types", ["transaction_process_id"], :name => "index_transaction_types_on_transaction_process_id"
   add_index "transaction_types", ["url"], :name => "index_transaction_types_on_url"
 
   create_table "transactions", :force => true do |t|

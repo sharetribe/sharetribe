@@ -12,6 +12,14 @@ module CommunitySteps
     else
       FactoryGirl.create(:braintree_payment_gateway, :community => community, :type => gateway_name)
     end
+
+    # also change the transaction types
+    community.transaction_types.each { |tt|
+      case tt.type
+      when "Rent", "Sell", "Service"
+        tt.transaction_process.update_attribute(:process, :postpay)
+      end
+    }
   end
 end
 
@@ -171,6 +179,8 @@ Given /^community "(.*?)" has following transaction types enabled:$/ do |communi
     transaction_type = FactoryGirl.create(:transaction_type, :type => hash['transaction_type'], :community_id => current_community.id)
     transaction_type.translations.create(:name => hash['fi'], :action_button_label => (hash['button'] || "Action"), :locale => 'fi')
     transaction_type.translations.create(:name => hash['en'], :action_button_label => (hash['button'] || "Action"), :locale => 'en')
+    transaction_type.create_transaction_process(process: :none)
+    transaction_type.save!
     transaction_type
   end
 end
@@ -178,6 +188,8 @@ end
 Given /^the community has transaction type (Sell|Rent) with name "(.*?)" and action button label "(.*?)"$/ do |type_class, name, action_button_label|
   translations = [FactoryGirl.build(:transaction_type_translation, locale: "en", name: name, action_button_label: action_button_label)]
   @transaction_type = FactoryGirl.create("transaction_type_#{type_class.downcase}".to_sym, translations: translations, community: @current_community)
+  @transaction_type.create_transaction_process(process: :preauthorize)
+  @transaction_type.save!
 end
 
 Given /^that transaction type shows the price of listing per (day)$/ do |price_per|
@@ -186,11 +198,11 @@ Given /^that transaction type shows the price of listing per (day)$/ do |price_p
 end
 
 Given /^that transaction uses payment preauthorization$/ do
-  @transaction_type.update_attribute(:preauthorize_payment, true)
+  @transaction_type.transaction_process.update_attribute(:process, :preauthorize)
 end
 
 Given /^that transaction does not use payment preauthorization$/ do
-  @transaction_type.update_attribute(:preauthorize_payment, false)
+  @transaction_type.transaction_process.update_attribute(:process, :postpay)
 end
 
 Given /^that transaction belongs to category "(.*?)"$/ do |category_name|
