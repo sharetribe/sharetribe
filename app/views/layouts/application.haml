@@ -2,7 +2,9 @@
 
 %body
 
-  = render :partial => "layouts/noscript"
+  %noscript
+    .noscript-padding
+      -# Noscript content will be positioned here
 
   = render :partial => 'layouts/global-header'
 
@@ -80,4 +82,4 @@
   :javascript
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
-
+  = render :partial => "layouts/noscript"
