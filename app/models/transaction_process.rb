@@ -13,7 +13,8 @@
 class TransactionProcess < ActiveRecord::Base
   attr_accessible(
     :community_id,
-    :process
+    :process,
+    :author_is_seller
   )
 
   def process

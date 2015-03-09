@@ -48,7 +48,15 @@ module TestHelpers
 
     def self.load_categories_and_transaction_types_to_db(community, transaction_types, categories)
       processes = [:none, :preauthorize, :postpay].inject({}) { |memo, process|
-        memo.tap { |m| m[process] = TransactionProcess.create(community_id: community.id, process: process).id }
+        memo.tap { |m|
+          process_res = TransactionService::API::Api.processes.create(
+            community_id: community.id,
+            process: process,
+            author_is_seller: true
+          )
+
+          memo[process] = process_res.data[:id]
+        }
       }
 
       # Load transaction types

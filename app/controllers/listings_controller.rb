@@ -113,7 +113,11 @@ class ListingsController < ApplicationController
     # TODO Change this so that the path is always the same, but the controller
     # decides what to do. We don't want to make a API call to TransactionService
     # just to show a listing details
-    process = TransactionProcess.find(@listing.transaction_type.transaction_process_id).process
+    process_res = TransactionService::API::Api.processes.get(
+      community_id: @current_community.id,
+      process_id: @listing.transaction_type.transaction_process_id
+    )
+    process = process_res.data[:process].to_sym
 
     form_path = select_new_transaction_path(
       listing_id: @listing.id.to_s,
