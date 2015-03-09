@@ -783,10 +783,27 @@ a.lightbox-x {
   ------------------------
 */
 
+$noscript-height: lines(4);
+
+.noscript-padding {
+  height: $noscript-height;
+}
+
 .noscript {
-  padding-top: lines(4);
-  max-width: lines(42);
-  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: lines(0.5) lines(0);
+  height: $noscript-height;
+  background: $error-red;
+  color: white;
+
+  .wrapper {
+    &, h2, p {
+      background: $error-red;
+      color: white;
+    }
+  }
 }
 
 /*
