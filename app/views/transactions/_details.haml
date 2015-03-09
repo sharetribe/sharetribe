@@ -1,27 +1,17 @@
-- listing = transaction[:listing]
-
 .message-avatar-padding
   .row
     .col-12
 
       %h2
-        = link_to_unless listing[:deleted], listing[:title], transaction[:listing_url]
+        = link_to_unless listing[:deleted], listing[:title], listing_path(id: listing[:id])
 
-      - Maybe(transaction)[:booking].each do |booking|
-        = render partial: "transactions/details/booking", locals: { booking: booking, price_per_day: listing[:price] }
-      = render partial: "transactions/details/sum_or_price", locals: { sum: transaction[:payment_total], price: listing[:price], quantity: listing[:quantity], excludes_vat: @current_community.vat.present? }
+      - if tx[:booking]
+        = render partial: "transactions/details/booking", locals: { booking: tx[:booking], price_per_day: tx[:listing_price] }
 
-      - if transaction[:shipping_address].values.any?
-        = render partial: "transactions/shipping_address", locals: { shipping_address: transaction[:shipping_address] }
+      = render partial: "transactions/details/sum_or_price", locals: { sum: tx[:payment_total], price: tx[:listing_price], quantity: tx[:quantity], excludes_vat: @current_community.vat.present? }
 
-      - if transaction[:show_call_to_action]
-        -# Show Call to Action button for free conversations
+      - if tx[:shipping_address] && tx[:shipping_address].values.any?
+        = render partial: "transactions/shipping_address", locals: { shipping_address: tx[:shipping_address] }
 
-        / -# Hide the button temporarily as no support for Booking of Paypal
-        / = link_to transaction[:new_transaction_path], :class => "message-book-button" do
-        /   .content
-        /     = transaction[:action_button_label]
-
-      - else
-        %div{:id => "transaction_status"}
-          = render :partial => "transactions/status/status", :locals => { :__transaction_model => transaction[:__model], is_author: is_author }
+      %div{:id => "transaction_status"}
+        = render :partial => "transactions/status/status", :locals => { :__transaction_model => transaction_model, is_author: is_author }

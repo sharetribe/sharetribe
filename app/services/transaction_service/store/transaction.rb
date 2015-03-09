@@ -39,7 +39,8 @@ module TransactionService::Store::Transaction
     [:minimum_commission, :money, :mandatory],
     [:last_transition_at, :time],
     [:current_state, :to_symbol],
-    [:shipping_address, :hash])
+    [:shipping_address, :hash],
+    [:booking, :hash])
 
   ShippingAddress = EntityUtils.define_builder(
     [:status, :string],
@@ -51,6 +52,11 @@ module TransactionService::Store::Transaction
     [:city, :string],
     [:state_or_province, :string],
     [:country, :string])
+
+  Booking = EntityUtils.define_builder(
+    [:start_on, :date, :mandatory],
+    [:end_on, :date, :mandatory],
+    [:duration, :fixnum, :mandatory])
 
 
   FINISHED_TX_STATES = "'free', 'rejected', 'confirmed', 'canceled', 'errored'"
@@ -122,14 +128,29 @@ module TransactionService::Store::Transaction
         hash = EntityUtils.model_to_hash(m)
                .merge({unit_price: m.unit_price, minimum_commission: m.minimum_commission, shipping_price: m.shipping_price })
 
-        if m.shipping_address
-          hash.merge({shipping_address: ShippingAddress.call(EntityUtils.model_to_hash(m.shipping_address)) })
-        else
-          hash
-        end
+        hash = add_opt_shipping_address(hash, m)
+        hash = add_opt_booking(hash, m)
       }
       .map { |hash| Transaction.call(hash) }
       .or_else(nil)
+  end
+
+  def add_opt_shipping_address(hash, m)
+    if m.shipping_address
+      hash.merge({shipping_address: ShippingAddress.call(EntityUtils.model_to_hash(m.shipping_address)) })
+    else
+      hash
+    end
+  end
+
+  def add_opt_booking(hash, m)
+    if m.booking
+      booking_data = EntityUtils.model_to_hash(m.booking)
+      hash.merge(booking: Booking.call(
+                  booking_data.merge(duration: booking_duration(booking_data))))
+    else
+      hash
+    end
   end
 
   def addr_fields(addr)
@@ -162,7 +183,7 @@ module TransactionService::Store::Transaction
 
       # TODO What's the correct place for the booking calculation logic?
       # Make sure listing_quantity equals duration
-      if booking_duration(tx_data) != tx_model.listing_quantity
+      if booking_duration(tx_data[:booking_fields]) != tx_model.listing_quantity
         raise ArgumentException.new("Listing quantity (#{tx_listing_quantity}) must be equal to booking duration in days (#{booking_duration(tx_data)})")
       end
 
@@ -176,9 +197,9 @@ module TransactionService::Store::Transaction
     tx_data[:booking_fields] && tx_data[:booking_fields][:start_on] && tx_data[:booking_fields][:end_on]
   end
 
-  def booking_duration(tx_data)
-    start_on = tx_data[:booking_fields][:start_on]
-    end_on = tx_data[:booking_fields][:end_on]
+  def booking_duration(booking_data)
+    start_on = booking_data[:start_on]
+    end_on = booking_data[:end_on]
     DateUtils.duration_days(start_on, end_on)
   end
 
