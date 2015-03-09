@@ -5,9 +5,9 @@
 #  id                         :integer          not null, primary key
 #  type                       :string(255)
 #  community_id               :integer
+#  transaction_process_id     :integer
 #  sort_priority              :integer
 #  price_field                :boolean
-#  preauthorize_payment       :boolean          default(FALSE)
 #  price_quantity_placeholder :string(255)
 #  price_per                  :string(255)
 #  created_at                 :datetime         not null
@@ -16,8 +16,9 @@
 #
 # Indexes
 #
-#  index_transaction_types_on_community_id  (community_id)
-#  index_transaction_types_on_url           (url)
+#  index_transaction_types_on_community_id            (community_id)
+#  index_transaction_types_on_transaction_process_id  (transaction_process_id)
+#  index_transaction_types_on_url                     (url)
 #
 
 class TransactionType < ActiveRecord::Base
@@ -29,6 +30,8 @@ class TransactionType < ActiveRecord::Base
   has_many :category_transaction_types, :dependent => :destroy
   has_many :categories, :through => :category_transaction_types
   has_many :listings
+
+  belongs_to :transaction_process
 
   validates_presence_of :community
 
