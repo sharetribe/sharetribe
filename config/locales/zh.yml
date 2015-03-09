@@ -494,7 +494,7 @@ zh:
       rideshare_request_message_form_title: "向%{person}提供顺风车"
       send_message: 发送信息
       send: 发送
-      this_message_is_private: "此消息为您和%{person}之间的私密信息。%{person}将收到邮件通知。"
+      this_message_is_private: "此消息为你和%{person}之间的私密信息。%{person}将收到邮件通知。"
       you_will_get_notified_of_acceptance: "当%{person}接受或拒绝你的提议时，你将收到一封电子邮件通知。"
       you_will_get_notified: "当%{person}回复你时，你将收到一封电子邮件通知。"
       title: 名称
@@ -635,10 +635,10 @@ zh:
     accept_reminder:
       remember_to_accept_offer: "请记得接受或拒绝来自%{sender_name}的供给"
       remember_to_accept_request: "请记得接受或拒绝来自%{sender_name}的请求"
-      you_can_accept_or_reject_offer_at: 您可以在此接受或拒绝提议
-      you_can_accept_or_reject_request_at: 您可以在此接受或拒绝请求
-      you_have_not_yet_accepted_or_rejected_offer: "您尚未接受或拒绝您在%{date}收到的%{title}"
-      you_have_not_yet_accepted_or_rejected_request: "您尚未接受或拒绝您在%{date}收到的%{title}"
+      you_can_accept_or_reject_offer_at: 你可以在此接受或拒绝提议
+      you_can_accept_or_reject_request_at: 你可以在此接受或拒绝请求
+      you_have_not_yet_accepted_or_rejected_offer: "你尚未接受或拒绝你在%{date}收到的%{title}"
+      you_have_not_yet_accepted_or_rejected_request: "你尚未接受或拒绝你在%{date}收到的%{title}"
       show_thread: 显示对话
     braintree_account_approved:
       account_ready: 你已经可以接收付款了
@@ -688,12 +688,12 @@ zh:
     confirmation_instructions:
       confirmation_instructions_signature: "此致敬礼，<br/>%{service_name}团队"
       welcome_to_kassi: "欢迎来到%{service_name}！"
-      need_to_confirm: 您需要确认您的Email地址。
+      need_to_confirm: 你需要确认你的Email地址。
       confirmation_link_text: 确认我的电子邮件
       or_paste_link: 或者你可以复制以下链接到你浏览器的地址栏：
       turning_on_confirmations_in_this_community: "我们开始在%{service_name}市集中使用电子邮件确认。"
     common:
-      check_your_settings: 查看您的设置
+      check_your_settings: 查看你的设置
       hey: "你好 %{name},"
       kassi_team: "%{service_name} 团队"
       thanks: 谢谢！
@@ -710,16 +710,16 @@ zh:
       has_rejected_your_offer: "%{accepter} 已经拒绝了你的%{listing}"
       has_rejected_your_request: "%{accepter} 已经拒绝了你的%{listing}"
       view_thread: 查看对话
-      your_offer_was_accepted: 您的提议已被接受
-      your_offer_was_rejected: 您的提议被拒绝
-      your_request_was_accepted: 您的请求已被接受
-      your_request_was_rejected: 您的请求被拒绝
+      your_offer_was_accepted: 你的提议已被接受
+      your_offer_was_rejected: 你的提议被拒绝
+      your_request_was_accepted: 你的请求已被接受
+      your_request_was_rejected: 你的请求被拒绝
       you_can_now_pay_to: "你现在可以支付要求的金额给%{payment_receiver}。"
       pay_now: 现在支付
       remember_to_confirm: "当请求实现之后，记得标记其为完成。如果请求没有实现你有%{days_to_automatic_confirmation}时间来取消。否则它将自动被标记为完成。"
     invitation_to_kassi:
       hi: 你好！
-      you_have_been_invited_to_kassi: "%{inviter}邀请您使用%{service_name}"
+      you_have_been_invited_to_kassi: "%{inviter}邀请你使用%{service_name}"
       here_is_a_message_from: "这是一条来自%{inviter}的私人信息："
       join_now: 现在加入
       invitation_code: "邀请码：%{code}"
@@ -731,7 +731,7 @@ zh:
       has_commented_listing_you_follow_in_kassi: "%{author}评价了你在%{service_name}中关注的“%{listing}”。"
     new_message:
       view_message: 查看消息
-      has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 向您发送一条消息"
+      has_sent_you_a_message_in_kassi: "%{sender} 在%{service_name} 向你发送一条消息"
       you_have_a_new_message: "在%{service_name}收到一条来自%{sender_name}的新消息"
     new_payment:
       new_payment: 你收到一笔新的付款
@@ -754,8 +754,8 @@ zh:
       service_fee: 服务费
       money_will_be_transferred: "以下两种情况发生时，钱将被转给%{recipient_name} a)你标记请求为完成 b)你付款之后的%{automatic_confirmation_days}天。"
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name}在%{service_name}给您了反馈"
-      you_can_give_feedback_to: "您还没有给%{name}反馈"
+      has_given_you_feedback_in_kassi: "%{name}在%{service_name}给你了反馈"
+      you_can_give_feedback_to: "你还没有给%{name}反馈"
       view_feedback: 查看反馈
     new_update_to_listing:
       listing_you_follow_has_been_updated: 以下列表已更新
@@ -780,11 +780,11 @@ zh:
       text_version_text: "你可以共享一些其他人可能需要的东西吗？或者你可能需要一些别人已经拥有的东西？点击%{url}新添一个请求或者查看其他人当前提供的或者请求的东西"
     reset_password_instructions:
       change_my_password: 修改密码
-      reset_password_instructions: "<p>您声明您遗忘了服务%{service_name}的用户名或者密码。</p><p>您的用户名是：%{username}</p><p>如果你需要重置密码，点击以下链接：%{password_reset_link}</p><br/><p>如果您没有这个要求，请忽略这封电子邮件。 您的密码将不会改变，直到您访问上面的链接并创建一个新的密码。</p>"
+      reset_password_instructions: "<p>你声明你遗忘了服务%{service_name}的用户名或者密码。</p><p>你的用户名是：%{username}</p><p>如果你需要重置密码，点击以下链接：%{password_reset_link}</p><br/><p>如果你没有这个要求，请忽略这封电子邮件。 你的密码将不会改变，直到你访问上面的链接并创建一个新的密码。</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "评价是对其他用户公开的。其他用户可根据评价来判断 %{name} 是否值得信赖。所以，记得评价别人发起的活动，也提醒别人评价您发起的活动。您需要正面的评价来获得更多的徽章。"
+      feedback_is_public_and_is_shown: "评价是对其他用户公开的。其他用户可根据评价来判断 %{name} 是否值得信赖。所以，记得评价别人发起的活动，也提醒别人评价你发起的活动。你需要正面的评价来获得更多的徽章。"
       remember_to_give_feedback_to: "提醒：记得给%{name} 评价"
-      you_have_not_given_feedback_yet: "您尚未评价%{name} 参与的活动'%{event}'。记得评价%{given_name} 在活动中的表现。"
+      you_have_not_given_feedback_yet: "你尚未评价%{name} 参与的活动'%{event}'。记得评价%{given_name} 在活动中的表现。"
     transaction_preauthorized:
       subject: "%{requester}要求并支付了%{listing_title}"
       transaction_requested_by_user: "%{requester}要求并支付了%{listing_title}"
@@ -828,12 +828,12 @@ zh:
   error_messages:
     listings:
       departure_time: 出发时间必需是现在起一年之内。
-      share_type: 您必须从中选择一项
+      share_type: 你必须从中选择一项
       valid_until: 该日期必须在现在起6个月之内。
       price: 价格必须是整数。
       minimum_price: "最低的价格是%{minimum_price}%{currency}。"
     testimonials:
-      you_must_explain_not_neutral_feedback: 如果您希望给出非中性的评价，您必须解释原因。
+      you_must_explain_not_neutral_feedback: 如果你希望给出非中性的评价，你必须解释原因。
       you_must_select_a_grade: 记得告诉我们你的体验是好的还是不好的。
     transaction_agreement:
       required_error: 你需要接受协议
@@ -845,9 +845,9 @@ zh:
   error_pages:
     back_to_kassi_front_page: 回到主页
     error_404:
-      if_you_believe: 如果您认为地址是正确并有效的。请完成下面的表格以便我们了解什么地址造成了错误。
+      if_you_believe: 如果你认为地址是正确并有效的。请完成下面的表格以便我们了解什么地址造成了错误。
       page_can_not_be_found: 页面没找到或不存在
-      page_you_requested_can_not_be_found: 您请求的页面不存在。您确定地址拼写正确？
+      page_you_requested_can_not_be_found: 你请求的页面不存在。你确定地址拼写正确？
     error_404_title: 未找到页面
     error_410:
       page_removed: 页面已删除
@@ -862,13 +862,13 @@ zh:
     error_500_title: 页面加载失败
     error_description: 错误描述
     no_javascript:
-      javascript_is_disabled_in_your_browser: 您的浏览器已禁用Javascript
+      javascript_is_disabled_in_your_browser: 你的浏览器已禁用Javascript
       kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在无javascript环境下工作。请在浏览器首选项中打开javascript，然后刷新页面。"
       contact_us: 联系我们
       send_feedback: 发送反馈
       your_feedback_to_admins: 给管理员发送反馈
     send: 发送
-    your_email_address: 您的E-mail地址
+    your_email_address: 你的E-mail地址
   errors:
     messages:
       invalid_date: 不是有效的日期
@@ -931,8 +931,8 @@ zh:
       but_that_is_visible_only_to_registered_members: 但只有注册用户可以查看。
       but_those_are_visible_only_to_registered_members: 但只有注册用户可以查看。
       create_new_account_for_yourself: 创建新账户
-      examples_of_what_you_could_offer_to_others: 您能提供什么
-      examples_of_what_you_could_request_to_others: 您需要什么
+      examples_of_what_you_could_offer_to_others: 你能提供什么
+      examples_of_what_you_could_request_to_others: 你需要什么
       favor_offer_list: 电脑帮手，衣物缝补，烘焙，自行车修理
       favor_request_list: 保姆，钢琴课，遛狗，修剪草坪
       favors_to_offer: "帮助： "
@@ -990,7 +990,7 @@ zh:
       filter: 过滤
       this_is_private_community: 查看内容前需要先登录。
     invitation_form:
-      invite_your_friends: "邀请您的朋友加入%{service_name}！"
+      invite_your_friends: "邀请你的朋友加入%{service_name}！"
       email: 电子邮件地址
       message: 一条私人消息
       send_invitation: 发送邀请
@@ -1007,7 +1007,7 @@ zh:
     profile_info_empty_notification:
       add_your_info: 添加联系信息
       add_a_profile_picture: 添加头像
-      you_have_not_added_your_info: 您尚未添加联系方式。请添加联系方式以方便他人更方便的联系您。同时请新增个人资料照片从而更容易得到其他人的信任。
+      you_have_not_added_your_info: 你尚未添加联系方式。请添加联系方式以方便他人更方便的联系你。同时请新增个人资料照片从而更容易得到其他人的信任。
       add_your_info_link: 现在添加个人信息
     recent_listing:
       please_offer: 提议
@@ -1049,7 +1049,7 @@ zh:
       or_check_our: ……或者查看我们的
       send_feedback_to_admin: 发送反馈
       to_see_what_others_have_suggested: 看看其他用户的推荐，在这里投票。
-      your_email_address: 您的E-mail地址（用来联系你）
+      your_email_address: 你的E-mail地址（用来联系你）
       connect: 注册
       invite_your_friends: 邀请朋友！
       invite_your_neighbors: 邀请邻居！
@@ -1074,9 +1074,9 @@ zh:
     logged_in:
       admin: 管理员
       go_to_your_profile_page: 个人设置
-      hi: 您好
+      hi: 你好
       login: 登录
-      logout: 注销
+      logout: 退出
       notifications: 通知
       requests: 好友请求
       settings: 设置
@@ -1088,9 +1088,9 @@ zh:
     mobile_logged_in:
       admin: 管理员
       go_to_your_profile_page: 个人设置
-      hi: 您好
+      hi: 你好
       login: 登录
-      logout: 注销
+      logout: 退出
       notifications: 通知
       requests: 加好友请求
       settings: 设置
@@ -1102,7 +1102,7 @@ zh:
       something_went_wrong: 出错了
       community_updated: 详情已更新。
       community_update_failed: 信息更新失败。
-      account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，您需要确认您的Email地址。
+      account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，你需要确认你的Email地址。
       community_joined_succesfully_you_still_need_to_confirm_your_email: "感谢加入%{service_name}。现在你需要确认你的电子邮件地址。"
       comment_cannot_be_empty: 评论不能为空
       comment_sent: 评论已发送
@@ -1112,11 +1112,11 @@ zh:
       create_new_listing: 发布另一条消息
       create_one_here: 在此创建
       email_confirmation_sent_to_new_address: 电子邮件确认信已经送往你的新地址。
-      email_not_found: "无法在%{service_name}中找到您所提供的邮箱地址。"
+      email_not_found: "无法在%{service_name}中找到你所提供的邮箱地址。"
       error_with_session: 内容错误
       feedback_considered_spam: 格式错误，评价失败。请重试或者使用论坛评价。
       feedback_not_saved: 评价发送失败。
-      feedback_saved: 感谢您的评价！我们会尽快给你回复。
+      feedback_saved: 感谢你的评价！我们会尽快给你回复。
       feedback_sent_to: "发送评价给%{target_person}"
       feedback_skipped: 跳过评价
       invitation_cannot_be_sent: 邀请未被发出
@@ -1127,7 +1127,7 @@ zh:
       account_creation_successful: "%{person_name}，欢迎使用%{service_name}！"
       account_deleted: 你的帐号已被删除。
       login_successful: "欢迎你，%{person_name}！"
-      logout_successful: "您已登出%{service_name}，欢迎再次使用！"
+      logout_successful: "你已退出%{service_name}，欢迎再次使用！"
       news_item_created: 创建文章
       news_item_creation_failed: "文章创立失败\n"
       news_item_update_failed: 文章更新失败
@@ -1148,7 +1148,7 @@ zh:
       error_in_payment: 付款错误。如果你还没有完成付款，请重试。如果已完成，请联系我们。
       cannot_receive_payment: 由于某些错误，另一交易方无法收款。请联系管理员并说明情况。
       payment_waiting_for_later_accomplishment: 当你完成支付后，我们会通知卖家，同时你会在电子邮件中收到收据。
-      password_recovery_sent: 更改密码的说明已发送至您的电子邮箱。
+      password_recovery_sent: 更改密码的说明已发送至你的电子邮箱。
       person_activated: 用户已激活
       person_deactivated: 用户已停用
       person_updated_successfully: 信息已更新
@@ -1161,46 +1161,46 @@ zh:
       poll_deleted: 问卷调查已删除
       read_more: 阅读更多！
       registration_considered_spam: 注册失败，请从发导航菜单发送反馈信息并说明“邮件错误”
-      reply_cannot_be_empty: 您不能发送空白信息
+      reply_cannot_be_empty: 你不能发送空白信息
       reply_sent: 回复发送成功
-      request_accepted: 您的请求已被接受
+      request_accepted: 你的请求已被接受
       request_confirmed: 请求已完成。
       request_closed: 请求已关闭
       request_rejected: 请求已拒绝
       request_canceled: 请求已取消
       message_sent: 信息已发出
       this_content_is_not_available_in_this_community: 此内容不可用。
-      unknown_error: 发生未知错误。请点击”联系我们“向我们发送细节。
-      update_error: 更新您的信息时发生错误，请重试
-      you_are_not_allowed_to_give_feedback_on_this_transaction: 您没有对此事件发表评价的权限
-      you_are_not_authorized_to_do_this: 您没有权限进行此操作
-      you_are_not_authorized_to_view_this_content: 您没有查看此内容的权限
+      unknown_error: 发生未知错误。请点击”联系我们“向我们报告问题。
+      update_error: 更新你的信息时发生错误，请重试
+      you_are_not_allowed_to_give_feedback_on_this_transaction: 你没有对此事件发表评价的权限
+      you_are_not_authorized_to_do_this: 你没有权限进行此操作
+      you_are_not_authorized_to_view_this_content: 你没有查看此内容的权限
       send_instructions: 几分钟内你将会收到一封电子邮件告知你重置密码。
-      you_cannot_reply_to_a_closed_offer: 您不能对已关闭的提议发表评论
-      you_cannot_reply_to_a_closed_request: 您不能回复已关闭请求
+      you_cannot_reply_to_a_closed_offer: 你不能对已关闭的提议发表评论
+      you_cannot_reply_to_a_closed_request: 你不能回复已关闭请求
       you_cannot_send_message_to_yourself: 你不能给你自己发送信息
       you_followed_listing: 你没有关注这条信息
-      you_have_already_given_feedback_about_this_event: 您已经对此事件发表评价
+      you_have_already_given_feedback_about_this_event: 你已经对此事件发表评价
       you_are_now_member: "欢迎来到%{service_name}！"
       you_are_already_member: "你已经是%{service_name}社区的会员了。欢迎回来！"
       you_must_log_in_to_create_new_listing: "必须登录%{service_name}才能发布新的信息。如果你没有帐号，可以点击%{sign_up_link}注册。"
       additional_email_confirmed_dashboard: 你的邮箱现在已经被确认了
-      you_must_log_in_to_give_feedback: 您必须登录以评价
-      you_must_log_in_to_invite_new_users: "您必须先登录才能邀请新用户到%{service_name}"
-      you_must_log_in_to_send_a_comment: 您必须登录才能发表评论
-      you_must_log_in_to_send_a_message: "您必须先登录%{service_name}，然后才可以向其他用户发送信息。"
-      you_must_log_in_to_view_this_content: 您必须登录以查看内容
+      you_must_log_in_to_give_feedback: 你必须登录以评价
+      you_must_log_in_to_invite_new_users: "你必须先登录才能邀请新用户到%{service_name}"
+      you_must_log_in_to_send_a_comment: 你必须登录才能发表评论
+      you_must_log_in_to_send_a_message: "你必须先登录%{service_name}，然后才可以向其他用户发送信息。"
+      you_must_log_in_to_view_this_content: 你必须登录以查看内容
       you_must_log_in_to_view_this_page: 你必须登录才能查看此页面
-      you_must_log_in_to_view_your_inbox: "您必须登录%{service_name}以查看您的收件箱。"
-      you_must_log_in_to_view_your_settings: "您必须登录%{service_name}以查看您的设置。"
+      you_must_log_in_to_view_your_inbox: "你必须登录%{service_name}以查看你的收件箱。"
+      you_must_log_in_to_view_your_settings: "你必须登录%{service_name}以查看你的设置。"
       you_must_log_in_to_add_news_item: "你必须登录%{service_name}才能添加新文章。"
       you_must_log_in_to_change_profile_settings: "你必须登录%{service_name}以修改资料设定"
       you_must_log_in_to_change_payment_settings: "你必须登录%{service_name}来修改付款设置"
       you_must_log_in_to_accept_or_reject: 你必须登录才能接受或拒绝交易
       you_must_log_in_to_confirm_or_cancel: 你必须登录才能取消或确认交易
-      you_need_to_confirm_your_account_first: 您需要确认您的电子邮件。
+      you_need_to_confirm_your_account_first: 你需要确认你的电子邮件。
       you_must_fill_all_the_fields: 你必须填写所有表单项
-      you_unfollowed_listing: 您不再关注此列表
+      you_unfollowed_listing: 你不再关注此列表
       joining_community_failed: 加入失败
       can_not_login_with_private_user: 你不能使用你的个人帐号登录。使用企业帐号登录或创建一个新帐号。
       can_not_delete_email: 你不能移除邮件地址
@@ -1218,7 +1218,7 @@ zh:
       payments: 付款
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: 您无权查看此列表。
+      listing_not_visible: 你无权查看此列表。
     comment:
       wrote: 写到
       send_private_message: "发送私人信息给%{person}"
@@ -1229,7 +1229,7 @@ zh:
       to_send_a_comment: 以发送新的评论
       write_comment: 发表新的评论：
       you_cannot_send_a_new_comment_because_listing_is_closed: 你不能发表新的评论，因为这条信息已经关闭。
-      you_must: 您必须
+      you_must: 你必须
       subscribe_to_comments: 若有新评论或更新，通知我
     edit:
       edit_listing: 编辑发布的信息
@@ -1344,7 +1344,7 @@ zh:
       all_offer_types: 供给信息的类型
       all_request_types: 所有请求信息的类型
       category: 分类
-      did_not_found_what_you_were_looking_for: 没找到您需要的东西？
+      did_not_found_what_you_were_looking_for: 没找到你需要的东西？
       favors: 服务
       housing: 租房
       items: 物品
@@ -1457,7 +1457,7 @@ zh:
       all_offer_types: 所有供应信息的类型
       all_request_types: 所有请求信息的类型
       category: 分类
-      did_not_found_what_you_were_looking_for: 没找到您需要的东西？
+      did_not_found_what_you_were_looking_for: 没找到你需要的东西？
       favors: 服务
       housing: 空间
       items: 物品
@@ -1548,13 +1548,13 @@ zh:
     help_texts:
       feedback_description_title: 反馈
       help_captcha_title: 你是人类么？
-      help_invitation_code_title: 您需要被邀请才能加入
+      help_invitation_code_title: 你需要被邀请才能加入
       terms_title: "%{service_name}的使用条款"
       invite_only_help_text: 选择这个选项，如果你希望新用户通过被已有用户邀请的方式加入。
       invite_only_help_text_title: 仅允许邀请
     inactive_notification:
       this_person_is_not_active_in_kassi: "此用户在%{service_name}网站上处于冻结状态"
-      inactive_description: "该用户已停用%{service_name}。您不能联系此用户，给予反馈或者评价他们的发布的信息。"
+      inactive_description: "该用户已停用%{service_name}。你不能联系此用户，给予反馈或者评价他们的发布的信息。"
     new:
       captcha_incorrect: 验证码错误。请输入下图中显示的单词
       captcha_was_wrong: 验证码错误
@@ -1579,13 +1579,13 @@ zh:
       terms: 使用条款
       username_is_in_use: 此用户名已被使用。
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
-      visible_only_to_you: 仅对您和市集管理员可见
+      visible_only_to_you: 仅对你和市集管理员可见
       visible_to_everybody: 所有人可见
       create_account_with_facebook: 用Facebook帐号注册
       OR: 或
       signup_with_email: 用邮件注册
     not_member:
-      explanation_text: "您正在浏览%{community} 社区。您试图查看另一个社区的用户资料。所以您不可以在%{community}社区查看这个用户的资料。"
+      explanation_text: "你正在浏览%{community} 社区。你试图查看另一个社区的用户资料。所以你不可以在%{community}社区查看这个用户的资料。"
       read_more_about_kassi_communities: 阅读更多关于这个网站
       this_user_does_not_belong_to_this_community: "此用户不是%{community} 社区的成员。"
     profile_feedback:
@@ -1671,12 +1671,12 @@ zh:
       we_will_not_post_without_asking_you: 我们永远不会在Facebook上未经你的允许发布任何信息
     password_forgotten:
       email: E-mail
-      password_recovery_instructions: 输入注册时的E-mail地址，您会受到您的用户名及更改密码的说明。
+      password_recovery_instructions: 输入注册时的E-mail地址，你会收到你的用户名及更改密码的说明。
       request_new_password: 请求新密码
       change_your_password: 更改你的密码
     confirmation_pending:
       welcome_to_kassi: "欢迎来到%{service_name}！"
-      check_your_email: 查看您的收件箱
+      check_your_email: 查看你的收件箱
       resend_confirmation_instructions: 再次发送确认信
       your_current_email_is: "你的的电子邮箱是%{email}。"
       change_email: 改变
@@ -1700,7 +1700,7 @@ zh:
       unfinished_transactions: 因为你有正在进行中的交易，所以你的帐号不能被删除。请在删除帐号前完成所有交易。
       new_password: 新密码
       save: 保存
-      these_fields_are_shown_only_to_you: 除非提供了您的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对您可见。
+      these_fields_are_shown_only_to_you: 除非提供了你的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对你可见。
       email_already_confirmed: 你的电邮地址已经确认。
       email:
         address_title: 地址
@@ -1723,15 +1723,15 @@ zh:
       community_updates: 更新电子邮件
       email_about_accept_reminders: …我忘记了接受一个报价或请求
       email_about_confirm_reminders: ……我忘记了确认已完成的请求
-      email_about_new_comments_to_own_listing: …有人评论了您的商品或请求
+      email_about_new_comments_to_own_listing: …有人评论了你的商品或请求
       email_about_new_messages: …有人发给我一条消息
       email_about_new_received_testimonials: …有人给我了一条评价
       email_about_testimonial_reminders: …我忘记评价一个活动
       email_daily_community_updates: 如果有新发布的信息，<b>每日</b>发送给我一封更新的邮件
       email_weekly_community_updates: 如果有新发布的信息，<b>每周</b>发送给我一封更新的邮件
       do_not_email_community_updates: 不要给我发送有更新消息的电子邮件
-      email_when_conversation_accepted: …有人接受了您的商品或请求
-      email_when_conversation_rejected: …有人拒绝了您的商品或请求
+      email_when_conversation_accepted: …有人接受了你的商品或请求
+      email_when_conversation_rejected: …有人拒绝了你的商品或请求
       email_about_completed_transactions: ……有人将我的提议或请求标记为已完成
       email_about_new_payments: ……我收到一笔新的付款
       email_about_payment_reminders: ……我忘记了支付
@@ -1749,11 +1749,11 @@ zh:
       given_name: 名
       first_name_with_initial: （只将首字母显示给其他用户）
       first_name_only: （不显示给其他用户）
-      location_description: 您可以选择提供您的准确住址或仅仅提供邮政编码。请至少填写邮政编码。您也可以通过地图选择一个地点。
+      location_description: 你可以选择提供你的准确住址或仅仅提供邮政编码。请至少填写邮政编码。你也可以通过地图选择一个地点。
       phone_number: 电话号码
       profile_picture: 个人头像
       postal_code: 邮政编码
-      profile_page: 在您的个人信息页面
+      profile_page: 在你的个人信息页面
       profilemap: 地图视图
       street_address: 地点
       these_fields_are_shown_in_your: "此信息对所有%{service_name}用户可见"
@@ -1776,9 +1776,9 @@ zh:
       i_accept_terms: 我接受条款
       terms: "%{service_name}的使用条款"
       terms_have_changed: 使用条款发生改变
-      you_can_view_the_new_terms: 您可以查看新的条款
-      you_need_to_accept: "欢迎来到%{service_name}！这是您第一次使用此服务。在开始前您必须接受"
-      you_need_to_accept_new_terms: "%{service_name}使用条款以改变。您必须接受新条款以继续使用%{service_name}。新条款诣在在研究项目结束后继续保持服务。"
+      you_can_view_the_new_terms: 你可以查看新的条款
+      you_need_to_accept: "欢迎来到%{service_name}！这是你第一次使用此服务。在开始前你必须接受"
+      you_need_to_accept_new_terms: "%{service_name}使用条款以改变。你必须接受新条款以继续使用%{service_name}。新条款诣在在研究项目结束后继续保持服务。"
   testimonials:
     index:
       all_testimonials: 所有评价

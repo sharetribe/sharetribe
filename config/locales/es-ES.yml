@@ -427,6 +427,7 @@ es-ES:
       total_label: ~
       total_value: ~
       paypal_fee_info: ~
+      shipping_price_label: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -744,6 +745,7 @@ es-ES:
       you_have_received_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
+      shipping_total: ~
     braintree_new_payment:
       product: "Producto:"
       price_payer_paid: "Importe pagado por %{payer_full_name} :"
@@ -1441,6 +1443,9 @@ es-ES:
       price:
         per_quantity_unit: "por %{quantity_unit}"
         per_day: "por día"
+      delivery: ~
+      shipping: ~
+      pickup: ~
     verification_required:
       verification_required: "Verificación requerida"
   listing_conversations:
@@ -1767,6 +1772,8 @@ es-ES:
       default_in_listing: "(usada por defecto al publicar un nuevo anuncio)"
       invisible: "(no se mostrará a otros usuarios)"
     save_information: "Guardar Información"
+  shipping_address:
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: "Con etiqueta"
@@ -1882,6 +1889,11 @@ es-ES:
     days_since:
       one: "%{count} día"
       other: "%{count} días"
+  transactions:
+    initiate:
+      subtotal: ~
+      shipping-price: ~
+      total: ~
   unit:
     day: día
     days: días

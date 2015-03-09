@@ -427,6 +427,7 @@ fr:
       total_label: "Total : "
       total_value: "%{seller_gets}*"
       paypal_fee_info: "* Hors <a id='%{fee_info_link_id}' href='#'>frais de transaction PayPal</a>"
+      shipping_price_label: "Frais de livraison : "
     confirm:
       confirm_description: "Si votre demande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
       cancel_description: "Si votre demande n'a pas été satisfaite, vous pouvez la marquer comme \"non réalisée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
@@ -744,6 +745,7 @@ fr:
       you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."
     paypal_new_payment:
       paypal_gateway_fee: "Frais PayPal : "
+      shipping_total: "Frais de livraison : "
     braintree_new_payment:
       product: "Produit : "
       price_payer_paid: "Prix payé par %{payer_full_name} : "
@@ -1439,6 +1441,9 @@ fr:
       price:
         per_quantity_unit: "par %{quantity_unit}"
         per_day: "par jour"
+      delivery: Livraison
+      shipping: "Frais de livraison (%{price})"
+      pickup: "Retrait (%{price})"
     verification_required:
       verification_required: "Vérification nécessaire"
   listing_conversations:
@@ -1765,6 +1770,8 @@ fr:
       default_in_listing: "(utilisée par défaut lors de la création d'une nouvelle annonce)"
       invisible: "(non visible par les autres utilisateurs)"
     save_information: "Sauvegarder les informations"
+  shipping_address:
+    shipping_address: "Adresse de livraison"
   tag_cloud:
     tag_used:
       with_tag: "Avec tag"
@@ -1880,6 +1887,11 @@ fr:
     days_since:
       one: hier
       other: "%{count} jours"
+  transactions:
+    initiate:
+      subtotal: "Sous-total : "
+      shipping-price: "Frais de livraison : "
+      total: "Total : "
   unit:
     day: jour
     days: jours

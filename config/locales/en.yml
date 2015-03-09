@@ -1441,7 +1441,7 @@ en:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per day"
-      delivery: "Delivery"
+      delivery: Delivery
       shipping: "Shipping (%{price})"
       pickup: "Pickup (%{price})"
     verification_required:

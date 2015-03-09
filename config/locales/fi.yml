@@ -1441,7 +1441,7 @@ fi:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per päivä"
-      delivery: "Kuljetus"
+      delivery: Kuljetus
       shipping: "Postikulut (%{price})"
       pickup: "Nouto (%{price})"
     verification_required:
@@ -1771,7 +1771,7 @@ fi:
       invisible: "(ei näytetä muille käyttäjille)"
     save_information: "Tallenna tiedot"
   shipping_address:
-    shipping_address: "Postitusosoite"
+    shipping_address: Postitusosoite
   tag_cloud:
     tag_used:
       with_tag: Avainsanalla

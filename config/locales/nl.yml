@@ -82,7 +82,7 @@ nl:
       edit_look_and_feel:
         edit_community_look_and_feel: "Bewerk look & feel marktplaats %{community_name}"
         community_logo: "Desktop logo"
-        community_logo_icon: "Mobiel logo"
+        community_logo_icon: "Logo voor sociale netwerken en mobiele toestellen"
         community_cover_photo: "Cover afbeelding"
         small_community_cover_photo: "Kleine cover afbeelding"
         favicon: Favicon
@@ -320,19 +320,19 @@ nl:
     paypal_accounts:
       marketplace_paypal_integration: "Voorkeuren betalingen"
       preferences_updated: "Voorkeuren betalingen bijgewerkt"
-      integration_info_text: "Het betaalsysteem van Sharetribe is PayPal. Als je gebruikers de mogelijkheid wil geven om betalingen te doen via je marktplaats, moet je je PayPal account linken en betalen wat de minimale marge is die je wil maken op elke transactie."
+      integration_info_text: "Het betaalsysteem van Sharetribe is PayPal. Als je gebruikers de mogelijkheid wil geven om betalingen te doen via je marktplaats, moet je je PayPal account linken en bepalen wat de minimale marge is die je wil maken op elke transactie."
       read_more_about_paypal: "Lees meer over Sharetribe's betalingssysteem"
       paypal_account_email: "1. Connecteer je PayPal account"
       paypal_account_email_completed: Uitgevoerd!
       set_minimum_price_and_fee: "2. Bepaal minimum prijs en transactie kost"
       set_minimum_price_and_fee_completed: Uitgevoerd!
-      minimum_listing_price_label: "Minimum item prijs:"
+      minimum_listing_price_label: "Minimale transactie prijs:"
       transaction_fee_label: "Transactie kost:"
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: "Minimale transactie cost:"
       save_settings: "Opslaan instellingen"
       note_about_transaction_fee: "Opmerking: de transactie kost omvat de kosten voor PayPal die afhankelijk zijn van je munteenheid en het verkoopsvolume van de verkoper. Voor die reden is de minimale kost %{min_paypal_commission}. Wanneer de kost wordt doorgerekend aan de verkoper zal PayPal eerst haar deel nemen en wat er overblijft wordt overgemaakt naar jouw PayPal account."
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "moet op zijn minst gelijk zijn aan minimale transactie kost %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "moet groter zijn dan minimale commissie %{minimum_commission}."
     transaction_types:
       sell: Verkopen
       rent: Verhuren
@@ -398,12 +398,12 @@ nl:
     what_is_this: "Wat is dit?"
     removed_user: "Verwijderde gebruiker"
     paypal_fee_info:
-      title: ~
+      title: "Processing kost PayPal"
       body: ~
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: "Order details"
+      order_by: "Sorteer op %{orderer_link}"
       respond_to_offer: "Antwoord op een aanbod"
       respond_to_request: "Ga in op een vraag"
       accept_offer: "Aanvaard het aanbod"
@@ -419,19 +419,20 @@ nl:
       minimum_price_error_message: "De prijs kan niet lager zijn dan %{amount}."
       accept: Aanvaard
       decline: "Wijs af"
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
+      sum_label: "Subtotaal:"
+      service_fee_label: "%{service_name} kost:"
+      you_will_get_label: "Je krijgt:"
+      total_label: "Totaal:"
+      total_value: "%{seller_gets}*"
       paypal_fee_info: ~
+      shipping_price_label: "Transport:"
     confirm:
       confirm_description: "Het verzoek is voldaan en je zou het moeten markeren als afgehandeld. Daarna kan je feedback geven aan de andere partij."
       cancel_description: "Indien je verzoek niet wat uitgevoerd, kan je het markeren als 'niet uitgevoerd'. Je kan dan nog steeds feedback geven aan de andere partij en omschrijven wat er gebeurd is."
       cancel_payed_description: "Je verzoek was geaccepteerd. Als je van gedachten zou veranderen kan je dit steeds annuleren nog voor de betaling."
       canceling_payed_transaction: "Transactie annuleren"
       confirm: "Markeer als uitgevoerd"
-      cancel: "is niet gebeurd."
+      cancel: Dispuut
       continue: "Ga door"
       give_feedback_to: "Geef feedback aan %{person_link}"
       do_not_give_feedback: "Sla feedback over"
@@ -575,7 +576,7 @@ nl:
       reject_preauthorized_offer: "Nu niet"
       reject_preauthorized_request: "Nu niet"
       confirm: "Markeer als uitgevoerd"
-      cancel: "Is niet gebeurd"
+      cancel: Dispuut
   braintree_accounts:
     new:
       add_payout_details: "Voeg je betalingsdetails toe"
@@ -741,12 +742,13 @@ nl:
       new_payment: "Je hebt een nieuwe betaling ontvangen"
       you_have_received_new_payment: "Je bent <b> %{payment_sum}</b> betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Hier is het betalingsbewijs."
     paypal_new_payment:
-      paypal_gateway_fee: ~
+      paypal_gateway_fee: "Kost PayPal:"
+      shipping_total: "Transport:"
     braintree_new_payment:
       product: "Product:"
       price_payer_paid: "Prijs %{payer_full_name} betaald:"
       service_fee: "%{service_name} service toeslag:"
-      you_will_get: "Je zal ontvangen:"
+      you_will_get: "Totaal:"
       money_will_be_transferred: "Het geld zal naar je account getransfereerd worden indien a) %{payer_name} het verzoek heeft gemarkeerd als zijnde afgewerkt b) %{automatic_confirmation_days} dagen zijn verstreken sedert %{payer_name} betaalde."
     receipt_to_payer:
       receipt_of_payment: Betalingsbewijs.
@@ -1437,6 +1439,9 @@ nl:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per dag"
+      delivery: Levering
+      shipping: "Transport (%{price})"
+      pickup: "Ophalen (%{price})"
     verification_required:
       verification_required: "Verificatie vereist"
   listing_conversations:
@@ -1499,8 +1504,8 @@ nl:
         terms_link_text: "Braintree gebruikersvoorwaarden"
   paypal_accounts:
     payout_info_title: Betalingsinformatie
-    paypal_account_email_connected: "<del>1. Connectie met PayPal account</del> Uitgevoerd!"
-    paypal_billing_agreement_made: "<del>2. Geef toestemming aan %{service_name} om een transactie kost door te rekenen</del> Uitgevoerd!"
+    paypal_account_email_connected: "<del>Connectie met PayPal account</del> Uitgevoerd!"
+    paypal_billing_agreement_made: "<del>Geef toestemming aan %{service_name} om een transactie kost aan te rekenen</del> Uitgevoerd!"
     you_are_ready_to_accept_payments: "Je bent klaar om betalingen te ontvangen!"
     commission: "%{commission} %"
     connected_account: "PayPal account '%{email}' succesvol geconnecteerd."
@@ -1509,14 +1514,14 @@ nl:
     from_your_payment_settings_link_text: "instellingen betalingen"
     new:
       payout_info_you_need_to_connect: "Om betalingen te kunnen aanvaarden moet je jouw PayPal account connecteren met %{service_name}."
-      payout_info_text: "Voer aub volgende twee stappen uit om je account te connecteren."
+      payout_info_text: "Voer aub volgende stappen uit om je account te connecteren."
       contact_admin_link_text: "contacteer de beheerder"
       admin_account_not_connected: "%{service_name} is nog niet geconfigureerd voor betalingen, waardoor je je PayPal account nog niet kan connecteren. Aub %{contact_admin_link} voor details."
-      paypal_account_email: "1. Connecteer je PayPal account"
+      paypal_account_email: "Connecteer je PayPal account"
       paypal_account_email_placeholder: "Je PayPal e-mail adres"
       paypal_account_email_info_text: "Let op: je hebt een Persoonlijk PayPal account nodig (voor particulieren) of een PayPal Business account (voor bedrijven) om betalingen te kunnen aanvaarden. Indien je een Persoonlijk PayPal account hebt, kan je die upgraden. Dit is gratis en kan onmiddellijk gebeuren. %{upgrade_paypal_account} Als je nog geen PayPal account hebt, kan je er eentje maken %{create_paypal_account}. Je PayPal account moet ingesteld staan om %{currency} te ontvangen."
-      create_paypal_account: hier
-      upgrade_paypal_account: "Upgrade je account hier."
+      create_paypal_account: "Klik hier"
+      upgrade_paypal_account: "Log in op je PayPal account"
       connect_paypal_account: "Connecteer PayPal account"
       paypal_account_billing_agreement: "Geef %{service_name} toestemming om een transactie kost in rekening te brengen"
       paypal_account_billing_agreement_fee_both: ~
@@ -1763,6 +1768,8 @@ nl:
       default_in_listing: "(enkel als standaard gebruikt bij het aanmaken van een nieuwe lijst)"
       invisible: "(niet getoond aan andere gebruikers)"
     save_information: "Informatie opslaan"
+  shipping_address:
+    shipping_address: Afleveradres
   tag_cloud:
     tag_used:
       with_tag: "met tag"
@@ -1878,6 +1885,11 @@ nl:
     days_since:
       one: "%{count} dag"
       other: "%{count} dagen"
+  transactions:
+    initiate:
+      subtotal: "Subtotaal:"
+      shipping-price: "Transport:"
+      total: "Totaal:"
   unit:
     day: dag
     days: dagen

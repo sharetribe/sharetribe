@@ -410,6 +410,7 @@ ru:
       total_label: ~
       total_value: ~
       paypal_fee_info: ~
+      shipping_price_label: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -727,6 +728,7 @@ ru:
       you_have_received_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
+      shipping_total: ~
     braintree_new_payment:
       product: ~
       price_payer_paid: ~
@@ -1422,6 +1424,9 @@ ru:
       price:
         per_quantity_unit: ~
         per_day: ~
+      delivery: ~
+      shipping: ~
+      pickup: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1748,6 +1753,8 @@ ru:
       default_in_listing: ~
       invisible: ~
     save_information: Сохранить
+  shipping_address:
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: "С меткой"
@@ -1865,6 +1872,11 @@ ru:
       few: "%{count} дня"
       many: дней
       other: дня
+  transactions:
+    initiate:
+      subtotal: ~
+      shipping-price: ~
+      total: ~
   unit:
     day: ~
     days: ~

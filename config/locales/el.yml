@@ -410,6 +410,7 @@ el:
       total_label: ~
       total_value: ~
       paypal_fee_info: ~
+      shipping_price_label: ~
     confirm:
       confirm_description: "Αν το αίτημά σας έχει εκπληρωθεί θα πρέπει να το επιβεβαιώσετε ως ολοκληρωμένο. Τότε μόνο μπορείτε να γράψετε κριτική για το άλλο μέλος της συναλλαγής."
       cancel_description: "Αν το αίτημά σας δεν εκπληρώθηκε τότε μπορείτε να δηλώσετε ότι δεν πραγματοποιήθηκε η συναλλαγή. Μπορείτε και πάλι να γράψετε κριτική για το άλλο μέλος και να περιγράψετε τι συνέβη."
@@ -727,6 +728,7 @@ el:
       you_have_received_new_payment: "Πληρωθήκατε <b>%{payment_sum}</b> για το \"<b>%{listing_title}</b>\" από τον/την %{payer_full_name}. Ορίστε η απόδειξή σας."
     paypal_new_payment:
       paypal_gateway_fee: ~
+      shipping_total: ~
     braintree_new_payment:
       product: ~
       price_payer_paid: ~
@@ -1422,6 +1424,9 @@ el:
       price:
         per_quantity_unit: ~
         per_day: ~
+      delivery: ~
+      shipping: ~
+      pickup: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1748,6 +1753,8 @@ el:
       default_in_listing: ~
       invisible: ~
     save_information: Αποθήκευση
+  shipping_address:
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: "Με ετικέτα"
@@ -1863,6 +1870,11 @@ el:
     days_since:
       one: "%{count} μέρα"
       other: "%{count} μέρες"
+  transactions:
+    initiate:
+      subtotal: ~
+      shipping-price: ~
+      total: ~
   unit:
     day: ~
     days: ~

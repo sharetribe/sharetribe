@@ -410,6 +410,7 @@ es:
       total_label: ~
       total_value: ~
       paypal_fee_info: ~
+      shipping_price_label: ~
     confirm:
       confirm_description: "Si tu pedido ha sido completado debes confirmar que esta hecho. Entonces puedes dar tu opinion a la otra parte."
       cancel_description: "Si tu pedido no ha sido completado, puedes marcar en \"no ha sucedido\". Aun puedes dar tu opinion a la otra parte y contar que sucedio."
@@ -732,6 +733,7 @@ es:
       you_have_received_new_payment: "Has sido pagado  <b> %{payment_sum}</b> por  <b>%{listing_title}</b> %{payer_full_name}. Aquí estatu comprobante."
     paypal_new_payment:
       paypal_gateway_fee: ~
+      shipping_total: ~
     braintree_new_payment:
       product: ~
       price_payer_paid: "Precio que %{payer_full_name} pagó"
@@ -1429,6 +1431,9 @@ es:
       price:
         per_quantity_unit: ~
         per_day: ~
+      delivery: ~
+      shipping: ~
+      pickup: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1755,6 +1760,8 @@ es:
       default_in_listing: ~
       invisible: ~
     save_information: "Guardar Información"
+  shipping_address:
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: "Con etiqueta"
@@ -1870,6 +1877,11 @@ es:
     days_since:
       one: "%{count} día"
       other: "%{count} días"
+  transactions:
+    initiate:
+      subtotal: ~
+      shipping-price: ~
+      total: ~
   unit:
     day: ~
     days: ~
