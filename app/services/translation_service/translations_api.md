@@ -153,11 +153,11 @@ Response 201 Created, an array of created translations (grouped the same way as 
   , translations:
       [ { translation_key: "tr54rdfgdrted"
         , locale: "en-US"
-        , translation: "Welcome"
+        , translation: "Hi"
         }
       , { translation_key: "tr54rdfgdrted"
         , locale: "fi-FI"
-        , translation: "Tervetuloa"
+        , translation: "Moi"
         }
       ]
   }
