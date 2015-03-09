@@ -44,28 +44,28 @@ zh:
           cancel: 取消
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
+        community_details: 基本信息
+        community_look_and_feel: 设计
+        edit_community: 基本信息
         community_name: 市集名称
-        edit_community_name_description: ~
+        edit_community_name_description: 你的市集名称。它将在邮件和其他不同地方显示给用户。
         community_slogan: 市集标语
-        edit_community_slogan_description: ~
+        edit_community_slogan_description: "这将显示在市集主页给所有未登录用户。%{see_how_it_looks_like}"
         community_description: 市集描述
-        edit_community_description_description: ~
+        edit_community_description_description: "这将显示在未登录用户的市集主页。%{see_how_it_looks_like}"
         community_search_placeholder: 搜索提示
-        edit_community_search_placeholder_description: ~
-        private_community_homepage_content: ~
-        edit_private_community_homepage_content_description: ~
+        edit_community_search_placeholder_description: "这将在市集主页以占位符文本显示在搜索栏。%{see_how_it_looks_like}"
+        private_community_homepage_content: 私有市集主页内容
+        edit_private_community_homepage_content_description: "这个内容在私有的主页显示给未登录用户。你可以在这里描述你的市集及加入的流程。你也可以在这里新增图片，视频和HTML内容。%{see_how_it_looks_like}"
         update_information: 保存设置
-        invite_people: ~
+        invite_people: 邀请新用户
         edit_signup_info: 注册信息
         edit_signup_info_description: 这段信息文字将显示在用户的注册页面。在那儿你可以提供用户注册说明，在哪儿得到邀请的信息等。默认那里没有任何说明。
         edit_info: 编辑信息
         see_how_it_looks_like: 预览
         verification_to_post_listings_info_content: 未验证用户的信息文本
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
+        verification_to_post_listings_info_content_description: 你当前要求你的用户通过人工验证才能发布新的信息。你可以在这里设置在未验证用户尝试发布新的信息时显示的默认文字。
+        verification_to_post_listings_info_content_default: "%{service_name}要求人们在发布信息前通过管理员的人工验证。你还没有被验证。请联系%{contact_admin_link}以进行验证。"
         contact_admin_link_text: 联系管理员
         save: 保存设置
         transaction_agreement: 交易协定
@@ -77,7 +77,7 @@ zh:
       edit_look_and_feel:
         edit_community_look_and_feel: "编辑市集”%{community_name}“的外观和感觉"
         community_logo: 页面展示Logo
-        community_logo_icon: 移动端logo
+        community_logo_icon: 社交网络和移动设备的标识
         community_cover_photo: 封面照片
         small_community_cover_photo: 小的封面照片
         favicon: 网站图标
@@ -85,14 +85,14 @@ zh:
         community_custom_color1: 主要颜色
         community_custom_color2: 第二颜色
         logo_instructions_text_with_dimensions: "封面图片尺寸必须是%{width}x%{height}像素。它将显示给使用大屏幕的用户。"
-        logo_icon_instructions_text_with_dimensions: "手机标识必须是方的，尺寸最好是%{width}x%{height}像素。它将被显示给较小屏幕的用户。"
-        cover_photo_visibility: ~
+        logo_icon_instructions_text_with_dimensions: "当人们在Facebook分享你的站点，当他们在移动设备上查看你的站点或者当他们在移动设备的主屏幕收藏你的站点时，这个方形的标识将被显示。它的尺寸必须（至少）是%{width}x%{height}像素。"
+        cover_photo_visibility: 封面照片将在主页显示给未登录用户。
         cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。%{see_how_it_looks_like}"
-        small_cover_photo_visibility: ~
+        small_cover_photo_visibility: 小的封面照片将显示在未登录用户主页的所有页面。
         small_cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。"
         main_content_width: "在选择封面照片时注意页面主要内容最多是%{main_width}像素宽。记得检查你的封面照片在较小屏幕上看上去如何（比如使用较窄的浏览器窗口）。"
-        custom_color1_instructions_text: ~
-        custom_color2_instructions_text: ~
+        custom_color1_instructions_text: "你可以通过输入十六进制色彩值改变用户接口的主体颜色。<a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>可以帮助你选择颜色并且复制色彩代码。"
+        custom_color2_instructions_text: 你可以通过输入16进制色彩值来改变用户界面的第二种颜色。
         default_browse_view: 默认查看视图
         default_browse_view_instructions_text: 主页使用默认查看视图来设置信息的默认展示方式。
         grid: 网格
@@ -107,10 +107,10 @@ zh:
         custom_head_script: 定制脚本
         custom_head_script_instructions_text: 该脚本注入在每一个页面的<head>标签中，可以插入自定义CSS，JavaScript或者HTML。请注意对Sharetribe的未来改动可能会导致你的脚本不兼容。
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: 说明文本
       edit_welcome_email:
         welcome_email_content: 欢迎邮件内容
-        welcome_email_content_description: ~
+        welcome_email_content_description: "下面的消息将在新用户加入时被发送给每个用户。你可以定制消息以适应你的市集。通过点击“%{send_test_message_link}”你可以发送一条预览信息到你的电子邮件地址，你可以看看它在邮件客户端中的将如何被显示。"
         edit_message: 编辑消息
         send_test_message: 发送测试消息
       getting_started:
@@ -150,9 +150,9 @@ zh:
         general: 常规
         users_can_review_each_other_after_transaction: 用户可以在交易结束后相互评论
         access: 访问
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
+        join_with_invite_only: 用户只能通过其他用户的邀请才能加入这个市集
+        users_can_invite_new_users: 所有用户都可以邀请新用户来到这个市集
+        private: 这个市集是私有的（只有注册用户可以看到内容）
         require_verification_to_post_listings: 只有经管理员验证的用户可以发布新的信息
         listing_preferences: 列出偏好
         transaction_preferences: 交易偏好
@@ -182,7 +182,7 @@ zh:
         saving_user_status: 正在保存……
         save_user_status_successful: 已保存
         save_user_status_error: 保存失败。请刷新页面后重试。
-        ban_user_confirmation: ~
+        ban_user_confirmation: 这将会把用户从市集中删除并阻止他们使用这个帐号再次访问该站点。你确认要继续吗？
         ban_me_error: 你不能禁止自己。
       social_media:
         social_media: 社交媒体
@@ -230,7 +230,7 @@ zh:
           initiated_by: 发起者
           other_party: 其他参与方
         status:
-          free: ~
+          free: 会话
           pending: 待定
           preauthorized: 预授权的
           accepted: 已接受
@@ -267,7 +267,7 @@ zh:
           this_field_is_required: 这个字段是必填的。
           this_field_is_required_checkbox: 该字段必须填写（用户必须选择至少一个选项）
       index:
-        listing_fields: ~
+        listing_fields: 信息字段&过滤器
         listing_fields_help: 你可以在这里编辑用户在创建新的信息时必须填入的字段。请注意某些预定义字段不能被编辑。
         add_new_field: 添加新字段
         remove_field_confirmation: "你确认要移除字段%{field_name}吗？"
@@ -296,15 +296,15 @@ zh:
         date: 日期
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
+        send_email_to_members: 发送电子邮件给用户
+        send_email_to_members_title: 发送电子邮件给所有用户
         email_subject: 邮件主题
         email_content: 邮件内容
-        email_content_placeholder: ~
+        email_content_placeholder: 你想和你的用户说些什么？
         email_language: 邮件接收者使用的语言
         any_language: 任何语言
         send_email: 发送邮件
-        message_will_be_sent_only_to_people_with_this_language: ~
+        message_will_be_sent_only_to_people_with_this_language: "注意：电子邮件只会以你选择的语言发送给使用%{service_name}的用户。"
         email_sent: 邮件已发送。
     left_hand_navigation:
       general: 常规
@@ -347,7 +347,7 @@ zh:
   common:
     edit_page: 编辑页面
     default_community_slogan: 社区市集
-    default_community_description: ~
+    default_community_description: 这是一个出售、租赁、交换和共享商品与服务给其他市集成员的地方。
     cancel: 取消
     fields_that_are_mandatory: 标有星号（*）的为必填项。
     or: 或
@@ -420,7 +420,7 @@ zh:
       total_label: 总计：
       total_value: "%{seller_gets}*"
       paypal_fee_info: "* 不包括<a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费用</a>"
-      shipping_price_label: ~
+      shipping_price_label: "运费:"
     confirm:
       confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
       cancel_description: 如果你的请求没有完成，你可以标记它为“未发生”。你仍然可以评论给其他交易方描述发生的事情。
@@ -618,17 +618,17 @@ zh:
   community_memberships:
     access_denied:
       access_denied: 访问被拒绝
-      you_are_banned_in_this_community: ~
+      you_are_banned_in_this_community: "管理员阻止你访问%{service_name}。如果你想联系管理员，可以发送信息%{link_to_contact_page}。"
       contact_page_link: 用户反馈
     new:
       welcome_fb_user: "%{name}，欢迎使用%{service_name}！"
-      fb_join_accept_terms: ~
+      fb_join_accept_terms: "加入%{service_name}还有一个步骤：你需要接受使用条款。"
       join_community: "加入%{service_name}"
       you_can_join: "你可以通过接受使用条款并点击”加入%{service_name}“加入%{service_name}。"
-      you_can_join_email_confirmation: ~
-      you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: ~
-      if_want_to_view_content: ~
+      you_can_join_email_confirmation: "为了加入%{service_name}你需要一个以%{email_ending}结尾的有效电子邮件地址。你可以通过填入你的电子邮件地址，接受使用条款并点击”加入%{service_name}“链接来确认你的电子邮件地址。"
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name}有邮件限制。你必须有被允许的电子邮件地址才能加入。你可以通过填入你的邮件地址，接受%{service_name}使用条款并点击下面的”%{service_name}“来加入。"
+      you_can_join_with_invite_only: "你必须有其他成员的邀请才能加入%{service_name}。如果你有邀请码，你可以在下面的字段中输入代码，接受使用协议并点击下面的“加入%{service_name}”。"
+      if_want_to_view_content: "如果你想查看%{service_name}的内容而不加入为成员你需要"
       log_out: 注销
       join_community_button: "加入%{service_name}"
   emails:
@@ -660,7 +660,7 @@ zh:
     payment_settings_reminder:
       remember_to_add_payment_details: 记得添加你的付款明细以接收付款。
       you_have_added_listing_with_payment: "你添加了一个需要付款的信息%{listing_link}。然而，你还没有添加付款详情。为了接受付款你必须添加你的付款信息。"
-      please_go_to_payment_settings: ~
+      please_go_to_payment_settings: "请点击%{payment_settings_link}并填入付款信息。"
       payment_settings_link: 付款设置
     transaction_confirmed:
       here_is_a_message_from: "这里有一条%{other_party_given_name}发送的消息："
@@ -691,7 +691,7 @@ zh:
       need_to_confirm: 您需要确认您的Email地址。
       confirmation_link_text: 确认我的电子邮件
       or_paste_link: 或者你可以复制以下链接到你浏览器的地址栏：
-      turning_on_confirmations_in_this_community: ~
+      turning_on_confirmations_in_this_community: "我们开始在%{service_name}市集中使用电子邮件确认。"
     common:
       check_your_settings: 查看您的设置
       hey: "你好 %{name},"
@@ -738,7 +738,7 @@ zh:
       you_have_received_new_payment: "你已经为<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>给%{payer_full_name}。这是你的收据。"
     paypal_new_payment:
       paypal_gateway_fee: PayPal的费用：
-      shipping_total: ~
+      shipping_total: "运费:"
     braintree_new_payment:
       product: 产品：
       price_payer_paid: "%{payer_full_name}支付价格："
@@ -767,7 +767,7 @@ zh:
       added_listing: "%{name_link}发布了一条信息："
       update_mail_title: "%{title_link}更新"
       title_link_text: "%{community_name}"
-      intro_paragraph: ~
+      intro_paragraph: "这儿是一些在过去%{time_since_last_update}发生在%{community_link}的事情。"
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: 提交了一个新的物品！
       reduce_email_footer_text: "太多邮件？%{settings_link}或者%{unsubscribe_link}"
@@ -796,7 +796,7 @@ zh:
       one_day_left: 如果你不在一天内接受请求，该请求将被自动拒绝，你将无法收到支付款项。
       click_here_to_reply: 点击这里回应请求
     welcome_email:
-      welcome_email_subject: ~
+      welcome_email_subject: "欢迎来到%{service_name}"
       welcome_to_marketplace: "欢迎使用%{service_name}！很高兴你的加入。"
       love_marketplace_crew: "爱你的，<br /><i>%{service_name} 工作人员</i>"
       p_s_did_you_know: "附言 你想创建像%{service_name}一样的自己的市集网站吗？很简单，不需要任何编程经验。点击%{click_here_link}查看更多！"
@@ -996,7 +996,7 @@ zh:
       send_invitation: 发送邀请
       add_as_many_emails_as_you_want: 添加你要邀请的人的邮件地址到下面的字段。如果你添加多个电子邮件地址，用逗号分隔。
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
-      invitation_message_field_placeholder: ~
+      invitation_message_field_placeholder: 我加入了这个很棒的市集。你也应该加入！
       errors_in_emails: 检查你新添的电邮地址是否有效。如果你添加了多个地址，确保用逗号分隔。
     list_item:
       review: 评论
@@ -1039,10 +1039,10 @@ zh:
       settings: 设置
       feedback: 联系我们
     application:
-      join_this_community: ~
+      join_this_community: 加入市集
       read_more: 读取更多
       feedback: 给我们提供反馈？
-      default_feedback: 有任何意见，建议，或者程序漏洞需要提交
+      default_feedback: "你碰到任何关于%{service_name}的问题了吗？有什么提高服务质量的建议吗？注意到一些可以内容？或者你有些什么想与我们讨论吗？告诉我们！"
       feedback_forum: 反馈论坛
       feedback_handle: 反馈
       give_feedback: 联系我们
@@ -1054,7 +1054,7 @@ zh:
       invite_your_friends: 邀请朋友！
       invite_your_neighbors: 邀请邻居！
       invite_your_friends_description: "越多人加入%{service_name}，网站就越有用。"
-      invite_your_friends_invite_only_description: ~
+      invite_your_friends_invite_only_description: "除非被邀请，人们将不能加入%{service_name}。"
       join_without_facebook: "或者选择%{join_without_facebook_link}"
       join_without_facebook_link: 不使用Facebook帐号注册
     conversations:
@@ -1101,9 +1101,9 @@ zh:
       test_welcome_email_delivered_to: "测试邮件已发送到%{email}。"
       something_went_wrong: 出错了
       community_updated: 详情已更新。
-      community_update_failed: ~
+      community_update_failed: 信息更新失败。
       account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，您需要确认您的Email地址。
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "感谢加入%{service_name}。现在你需要确认你的电子邮件地址。"
       comment_cannot_be_empty: 评论不能为空
       comment_sent: 评论已发送
       confirmation_link_is_wrong_or_used: 确认链接已使用或失效。请尝试登录，如果问题依然存在请发送反馈。
@@ -1183,7 +1183,7 @@ zh:
       you_have_already_given_feedback_about_this_event: 您已经对此事件发表评价
       you_are_now_member: "欢迎来到%{service_name}！"
       you_are_already_member: "你已经是%{service_name}社区的会员了。欢迎回来！"
-      you_must_log_in_to_create_new_listing: "必须登录%{service_name}才能创建新物品。如果你没有帐号，可以点击%{sign_up_link}注册。"
+      you_must_log_in_to_create_new_listing: "必须登录%{service_name}才能发布新的信息。如果你没有帐号，可以点击%{sign_up_link}注册。"
       additional_email_confirmed_dashboard: 你的邮箱现在已经被确认了
       you_must_log_in_to_give_feedback: 您必须登录以评价
       you_must_log_in_to_invite_new_users: "您必须先登录才能邀请新用户到%{service_name}"
@@ -1194,15 +1194,15 @@ zh:
       you_must_log_in_to_view_your_inbox: "您必须登录%{service_name}以查看您的收件箱。"
       you_must_log_in_to_view_your_settings: "您必须登录%{service_name}以查看您的设置。"
       you_must_log_in_to_add_news_item: "你必须登录%{service_name}才能添加新文章。"
-      you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_change_payment_settings: ~
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_change_profile_settings: "你必须登录%{service_name}以修改资料设定"
+      you_must_log_in_to_change_payment_settings: "你必须登录%{service_name}来修改付款设置"
+      you_must_log_in_to_accept_or_reject: 你必须登录才能接受或拒绝交易
+      you_must_log_in_to_confirm_or_cancel: 你必须登录才能取消或确认交易
       you_need_to_confirm_your_account_first: 您需要确认您的电子邮件。
       you_must_fill_all_the_fields: 你必须填写所有表单项
       you_unfollowed_listing: 您不再关注此列表
       joining_community_failed: 加入失败
-      can_not_login_with_private_user: ~
+      can_not_login_with_private_user: 你不能使用你的个人帐号登录。使用企业帐号登录或创建一个新帐号。
       can_not_delete_email: 你不能移除邮件地址
       user_does_not_have_email_to_delete: 你想要移除的邮件地址不存在
       email_deleted: 邮件已删除
@@ -1238,10 +1238,10 @@ zh:
       edit_listing: 编辑发布的信息
       reopen_listing: 重新开放发布的信息
       move_to_top: 移到主页顶端
-      show_in_updates_email: ~
+      show_in_updates_email: 在下一封自动邮件中显示
       show_in_updates_email_loading: 加载……
       show_in_updates_email_error: 不能访问服务器。页面刷新后重试。
-      show_in_updates_email_success: ~
+      show_in_updates_email_success: 这个发布的信息将被显示在下一封自动发送给用户的邮件中。
     follow_links:
       follow: 发送关于新评论的邮件
       unfollow: 不再接受关于新评论的邮件
@@ -1293,10 +1293,10 @@ zh:
         mass: 件，公斤，升，平方米，……
         time: 小时，天，月，……
         long_time: 周，月，……
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "在%{service_name}和付款处理费之后你将得到%{sum_with_currency}"
         no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费用</a> 将从价格中减去."
         after_service_fee_you_will_get_paypal: "%{service_name} 费 (%{sum_with_currency}) 和 <a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费</a> 将从价格中减去."
-        after_service_fee_you_will_get_vat: ~
+        after_service_fee_you_will_get_vat: "在%{service_name}和付款处理费用之后你将得到大概%{sum_with_currency}（0%消费税）"
         price_excludes_vat: 价格不包含VAT。
       origin:
         location: 地点
@@ -1328,7 +1328,7 @@ zh:
       valid_until_radio_buttons:
         for_the_time_being: 一直有效
       visibility:
-        all_communities: ~
+        all_communities: 所有我的Sharetribe市集
         this_community: "仅限%{service_name} 用户"
         visibility: 公开度
       privacy:
@@ -1434,9 +1434,9 @@ zh:
       price:
         per_quantity_unit: "每%{quantity_unit}"
         per_day: 每天
-      delivery: ~
-      shipping: ~
-      pickup: ~
+      delivery: 发货
+      shipping: "运费(%{price})"
+      pickup: "自取(%{price})"
     verification_required:
       verification_required: 要求验证
   listing_conversations:
@@ -1445,7 +1445,7 @@ zh:
       by: "由%{author}发布的%{listing}"
       payment: 付款
       exp: 过期：
-      you_will_be_charged: ~
+      you_will_be_charged: "你只有在%{author}接受交易后才会被收费。%{author}需要在%{expiration_period}天内接受交易。如果%{author}拒绝或者没有响应，不会产生任何费用。"
       day: 日
       days: 天
       price_per_day: "每天：%{price}"
@@ -1550,11 +1550,11 @@ zh:
       help_captcha_title: 你是人类么？
       help_invitation_code_title: 您需要被邀请才能加入
       terms_title: "%{service_name}的使用条款"
-      invite_only_help_text: ~
-      invite_only_help_text_title: ~
+      invite_only_help_text: 选择这个选项，如果你希望新用户通过被已有用户邀请的方式加入。
+      invite_only_help_text_title: 仅允许邀请
     inactive_notification:
       this_person_is_not_active_in_kassi: "此用户在%{service_name}网站上处于冻结状态"
-      inactive_description: "该用户已停用%{service_name}。您不能联系此用户或评价他们的商品列表。"
+      inactive_description: "该用户已停用%{service_name}。您不能联系此用户，给予反馈或者评价他们的发布的信息。"
     new:
       captcha_incorrect: 验证码错误。请输入下图中显示的单词
       captcha_was_wrong: 验证码错误
@@ -1562,7 +1562,7 @@ zh:
       email: 电子邮件地址
       email_is_in_use: 此邮箱已使用。
       email_is_in_use_or_not_allowed: 此Email不允许使用或已被注册。如果你无法注册，请联系我们。
-      email_not_allowed: ~
+      email_not_allowed: "该电子邮件不允许在%{service_name}中使用。请使用允许的电子邮件地址。如果你还是不能进入，发送反馈给我们。"
       email_restriction_instructions:
         other: "到%{service_name}的访问受限。你需要电邮地址来证明你有权加入。"
       enter_captcha: 我是一个人类：
@@ -1681,7 +1681,7 @@ zh:
       your_current_email_is: "你的的电子邮箱是%{email}。"
       change_email: 改变
       confirm_your_email: 请确认你的电子邮件
-      account_confirmation_instructions: ~
+      account_confirmation_instructions: "你很快会收到一封邮件包含一个需要你点击确认刚才输入的邮件地址的链接。在确认邮件之后你就可以加入%{service_name}了。"
       account_confirmation_instructions_title_admin: 欢迎来到你的市场！
       your_marketplace_has_now_been_created: 你的市集站点已经创建。这很容易吧？接下来只要一个步骤你就可以访问你的站点了：你需要确认你的电邮地址。
       account_confirmation_instructions_admin: 你很快会收到一封邮件要求你点击确认刚才输入的邮件地址。在确认邮件之后你就可以配置你的市场了。
@@ -1717,7 +1717,7 @@ zh:
         status_confirmed: 已确认
         status_pending: 待定
     notifications:
-      email_from_admins: ~
+      email_from_admins: 我愿意接收偶尔来自管理员的更新信息。
       i_want_to_get_email_notification_when: 寄给我一封Email通知当…
       newsletters: 简报
       community_updates: 更新电子邮件
@@ -1741,7 +1741,7 @@ zh:
       settings_link: 设置
       homepage_link: 主页
       unsubscribe_unsuccesful: 取消订阅出错
-      unsuccessful_unsubscribe_info_text: ~
+      unsuccessful_unsubscribe_info_text: 原因可能是你点击的退订链接过久或已经失效。通过左边的反馈按钮联系我们进行退订或者登录并修改你的电子邮件配置。
     profile:
       about_you: 关于你
       city: 城市
@@ -1763,7 +1763,7 @@ zh:
       invisible: （不显示给其他用户）
     save_information: 保存信息
   shipping_address:
-    shipping_address: ~
+    shipping_address: 送货地址
   tag_cloud:
     tag_used:
       with_tag: 有标签
@@ -1795,7 +1795,7 @@ zh:
       slightly_better_than_expected: 比期望的略好
       slightly_less_than_expected: 比期望的略差
       textual_feedback: 事情进展如何？
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "你给予的反馈将对在%{person}的资料页面其他会员可见。它将帮助他们评估%{person}是否是一个值得信赖的人。"
       positive: 正面的
       negative: 负面的
       default_textual_feedback: 一切顺利，非常感谢！
@@ -1880,9 +1880,9 @@ zh:
       other: "%{count}天"
   transactions:
     initiate:
-      subtotal: ~
-      shipping-price: ~
-      total: ~
+      subtotal: "小结:"
+      shipping-price: "运费:"
+      total: "总共:"
   unit:
     day: 日
     days: 天

@@ -6,8 +6,8 @@ nb:
       already_confirmed: "var allerede bekreftet, vennligst prøv og logge inn."
       not_locked: "er ikke låst"
       not_saved:
-        one: "1 feil forbudt denne %{resource} for og bli lagret:"
-        other: "%{count} feil forbudt denne %{resource} fra å bli lagret:"
+        one: "1 feil hindret %{resource} fra å bli lagret:"
+        other: "%{count} feil hindret %{resource} fra å bli lagret:"
   devise:
     failure:
       already_authenticated: "Du er allerede logget inn"
@@ -20,39 +20,39 @@ nb:
       inactive: "Brukeren din er ikke aktivert ennå."
     passwords:
       updated_not_active: "Endring av passord var vellykket."
-      send_paranoid_instructions: "Hvis e-post finnes på vår database, vil du motta en passord resetning link i din e-post."
-      send_instructions: "Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt på noen få minutter."
-      updated: "Endring av passord var vellykket. Du er nå innlogget."
+      send_paranoid_instructions: "Hvis din e-post finnes på vår database, vil du motta en link til å lage nytt passord i en e-post."
+      send_instructions: "Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt innen noen få minutter."
+      updated: "Endring av passord var vellykket. Du er nå logget inn."
     sessions:
       signed_in: "Innlogging var vellykket."
-      signed_out: "Utlogginga var vellykket."
+      signed_out: "Utlogging var vellykket."
     confirmations:
       send_paranoid_instructions: "Hvis e-post finnes på vår database, vil du motta en e-post med instruksjoner om hvordan du bekrefter kontoen din i løpet av få minutter."
-      send_instructions: "Du vil få en e-post med instrukser om hvordan du bekrefter brukeren din om kort tid."
+      send_instructions: "Du vil få en e-post med instruksjoner om hvordan du bekrefter brukeren din om kort tid."
       confirmed: "Din konto er aktivert."
     registrations:
-      signed_up_but_unconfirmed: "En melding med en bekreftelseslenke er blitt sendt til din e-postadresse. Vennligst åpne linken for å aktivere kontoen din."
+      signed_up_but_unconfirmed: "En melding med en bekreftelseslenke er blitt sendt til din e-postadresse. Vennligst åpne lenken for å aktivere kontoen din."
       signed_up_but_inactive: "Du er nå registrert. Men vi kunne ikke logge deg på fordi kontoen din ennå ikke er aktivert."
       signed_up_but_locked: "Du er nå registrert. Men vi kunne ikke logge deg på fordi kontoen din er låst."
       reasons:
-        inactive: inaktive
-        unconfirmed: Ubekreftet
+        inactive: inaktiv
+        unconfirmed: ubekreftet
         locked: låst
-      update_needs_confirmation: "Du oppdatert din kontoen, men vi må bekrefte din nye e-postadresse. Vennligst sjekk e-posten og klikk på linken som ble sendt til din nye e-postadresse."
+      update_needs_confirmation: "Du har oppdatert din konto, men vi må bekrefte din nye e-postadresse. Vennligst sjekk din e-post og klikk på lenken som ble sendt for å bekrefte din nye e-postadresse."
       signed_up: "Velkommen! Du er nå registrert."
       updated: "Du har oppdatert brukeren din."
-      destroyed: "Ha det! Brukeren din er nå slettet. Vi håper å se deg igjen snart."
+      destroyed: "Farvel! Brukeren din er nå slettet. Vi håper å se deg igjen snart."
     unlocks:
-      send_paranoid_instructions: "Hvis kontoen eksisterer, vil du motta en e-post med instruksjoner om hvordan du låser den i et par minutter."
-      send_instructions: "Du vil få en e-post med instrukser om hvordan du låser opp brukeren din om kort tid."
+      send_paranoid_instructions: "Hvis kontoen eksisterer, vil du motta en e-post med instruksjoner om hvordan du låser den opp innen noen minutter."
+      send_instructions: "Du vil få en e-post med instruksjoner om hvordan du låser opp brukeren din om kort tid."
       unlocked: "Din bruker har nå blitt låst opp. Vennligst logg inn for å fortsette."
     omniauth_callbacks:
-      success: "Vellykket autorisert fra %{kind} konto."
-      failure: "Kunne ikke autorisere deg fra %{kind} fordi \"%{reason}\"."
+      success: "Bekreftet fra %{kind} konto."
+      failure: "Kunne ikke bekrefte deg fra %{kind} fordi \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: "bekreftelse instruksjoner"
+        subject: "Instruksjoner for bekreftelse"
       reset_password_instructions:
-        subject: "Instruksjoner for å tilbakestille passord"
+        subject: "Instruksjoner for å endre passord"
       unlock_instructions:
-        subject: "Instrukser for å låse opp"
+        subject: "Instruksjoner for å låse opp"

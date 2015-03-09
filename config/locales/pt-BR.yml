@@ -121,12 +121,12 @@ pt-BR:
       getting_started:
         getting_started: "Guia dos primeiros passos"
         welcome_to_your_marketplace: "Bem-vindo(a) ao seu mercado, %{name}!"
-        intro: "Este é um guia rápido para configurar e gerenciar o seu site mercado. Você pode visualizar o site ao vivo %{live_site_link}"
+        intro: "Este é um guia rápido para configurar e gerenciar o seu mercado virtual. Você pode visualizar %{live_site_link} o seu site ao vivo."
         live_site_link_text: aqui
-        look_and_feel: "Antes de lançar o seu site para o público, você provavelmente vai querer configurar algumas coisas. Por exemplo, você pode querer %{logo_link} e mudar a foto da capa e cores para combinar com a concepção da sua marca."
+        look_and_feel: "Antes de você lançar o seu site para o público, você provavelmente vai querer configurar algumas coisas. Por exemplo, talvez você queira %{logo_link}, também mudar a imagem de destaque e as cores para combinar melhor com a concepção da sua marca."
         logo_link_text: "adicionar o seu logotipo"
-        custom_domain: "Você também pode querer adicionar um endereço de web personalizado (um exemplo: www.seumercado.com.br). Configurá-lo requer algum trabalho manual da nossa parte, e nós também precisaremos comprar um certificado SSL para o domínio para manter seu site seguro. Por estas razões, domínios personalizados não estão disponíveis em testes gratuitos agora, para isso, você precisa se inscrever em nosso plano Pro ou superior para ter um. Se você desejar ter um domínio personalizado, por favor %{contact_support_link}."
-        categories_and_custom_fields: "O próximo passo é decidir que tipo de conteúdo que as pessoas podem postar em seu site. Você pode %{categories_link}, %{custom_fields_link} que a forma atual de anúncios contém, e decidir %{filters_link} estarão em uso quando as pessoas navegarem pelos anúncios."
+        custom_domain: "Você também pode querer adicionar um endereço de web personalizado (um exemplo: www.seumercadovirtual.com.br). Configurá-lo requer algum trabalho manual da nossa parte, e nós também precisaremos comprar um certificado SSL para o seu domínio, afim de manter seu site seguro. Por estas razões, domínios personalizados não estão disponíveis nos períodos de testes gratuitos, para ter um domínio personalizado, você precisa se inscrever em algum dos nossos planos: Pro ou superior. Se você desejar ter um domínio personalizado, por favor %{contact_support_link}."
+        categories_and_custom_fields: "O próximo passo é decidir que tipo de conteúdo as pessoas podem anunciar em seu mercado virtual. Você pode %{categories_link}, %{custom_fields_link} que contém a forma atual de anúncios, e decidir %{filters_link} estarão em uso quando as pessoas navegarem pelos anúncios."
         categories_link_text: "adicionar categorias e subcategorias"
         custom_fields_link_text: "configurar os campos do formulário"
         filters_link_text: "que tipo de filtros"
@@ -145,11 +145,11 @@ pt-BR:
         analytics_link_text: "conectar uma conta do \"Google Analytics\""
         settings: "Há um monte de outras configurações que você pode alterar. Por exemplo, você pode exigir que todos tenham um convite de outros usuários antes que eles possam se juntar e fazer o seu mercado privado, portanto, apenas os usuários que estão cadastrados, podem ver o conteúdo. %{settings_link}."
         settings_link_text: "Ver as suas definições de mercado aqui"
-        final_words: ~
+        final_words: "É só isso! Se tudo estiver pronto, você pode começar %{invite_link} para o seu mercado. Você pode ver todos os usuários que se juntaram %{view_users_link}, e todas as operações que foram concluídas %{view_transactions_link}. Você também pode facilmente gerenciar os anúncios: basta ir até a página de anúncios e você verá os links de administração para edição e  encerramento lá. Se você precisar de alguma ajuda, você pode %{contact_support_link} - nós estamos aqui para você!"
         invite_link_text: "Convidar outros usuários"
         view_users_link_text: aqui
         view_transactions_link_text: aqui
-        contact_support_link_text: "entrar em contato com o nosso suporte"
+        contact_support_link_text: "entre em contato com o nosso suporte"
       settings:
         settings: Opções
         general: Geral
@@ -198,8 +198,8 @@ pt-BR:
         twitter_handle_placeholder: "nome de usuário"
         invalid_twitter_handle: "O nome Twitter deve conter no máximo 15 caracteres alfanuméricos (letras A-Z e números 0-9)."
         facebook_connect: Facebook
-        facebook_connect_info_text: ~
-        facebook_connect_info_text_with_instructions: ~
+        facebook_connect_info_text: "A fim de permitir conectar-se via Facebook, crie um aplicativo para o seu mercado no <a href='https://developers.facebook.com/'>painel de desenvolvedores do Facebook</a>. Adicione aqui o ID gerado e a chave secreta do aplicativo."
+        facebook_connect_info_text_with_instructions: "A fim de permitir a conexão via Facebook, crie um aplicativo para o seu mercado no <a href='https://developers.facebook.com/'>painel de desenvolvedores do Facebook</a>. Adicione aqui o ID gerado e a chave secreta do aplicativo. %{instructions_link}"
         facebook_instructions_link_text: "Veja as instruções para configurar o \"Facebook Connect\"."
         facebook_connect_id: "ID do cliente Facebook"
         invalid_facebook_connect_id: "ID do cliente deve conter apenas números."
@@ -330,7 +330,7 @@ pt-BR:
       transaction_fee_label: "Taxa de transação:"
       minimum_transaction_fee_label: "Taxa mínima de transação:"
       save_settings: "Salvar definições"
-      note_about_transaction_fee: ~
+      note_about_transaction_fee: "Nota: a taxa de transação inclui taxas do PayPal que dependem de sua moeda e o volume de vendas do vendedor. Por esta razão, a taxa é sempre pelo menos %{min_paypal_commission}. Quando a taxa é cobrada do vendedor, o PayPal cobrará as suas taxas em primeiro lugar, e o restante será transferido para sua conta PayPal."
       minimum_listing_price_below_tx_fee: "tem que ser, pelo menos, o mesmo que a taxa de transação mínima de %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "tem de ser maior do que o mínimo de comissão que é %{minimum_commission}."
     transaction_types:
@@ -1526,9 +1526,9 @@ pt-BR:
       upgrade_paypal_account: "Aprimore sua conta aqui."
       connect_paypal_account: "Conecte-se a uma conta PayPal"
       paypal_account_billing_agreement: "2. Conceder permissão a %{service_name} para cobrar uma taxa de transação"
-      paypal_account_billing_agreement_fee_both: ~
-      paypal_account_billing_agreement_fee_fixed: ~
-      paypal_account_billing_agreement_fee_relative: ~
+      paypal_account_billing_agreement_fee_both: "Depois de fazer uma venda no %{service_name}, uma taxa de serviço (%{commission_from_seller} do preço total do item, a taxa mínima %{minimum_commission}) será cobrada de sua conta PayPal. Para aceitar pagamentos em %{service_name}, você precisa permitir que ele cobre esta taxa. A taxa exclui <a id='%{fee_info_link_id}' href='#'>o processamento de pagamento de taxa do Paypal</a>."
+      paypal_account_billing_agreement_fee_fixed: "Depois de fazer uma venda no %{service_name}, uma taxa de serviço de %{minimum_commission} será cobrada da sua conta PayPal. Para aceitar pagamentos no %{service_name}, você precisa permitir a ele cobrar esta taxa. A taxa exclui <a id='%{fee_info_link_id}' href='#'>o processamento de pagamento da taxa do PayPal</a>."
+      paypal_account_billing_agreement_fee_relative: "Depois de fazer uma venda no %{service_name}, uma taxa de serviço (%{commission_from_seller} do preço total do item) será cobrado da sua conta PayPal. Para aceitar pagamentos no %{service_name}, você precisa permitir ele cobrar esta taxa. A taxa exclui <a id='%{fee_info_link_id}' href='#'>o processamento de pagamento da taxa do PayPal.</a>."
       billing_agreement_description: "Conceder permissão a %{service_name} para cobrar uma taxa de transação."
       billing_agreement: "Conceder permissão"
       permissions_not_granted: "Permissões para conectar com a conta PayPal não são concedidas."

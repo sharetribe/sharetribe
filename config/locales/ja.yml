@@ -420,7 +420,7 @@ ja:
       total_label: 合計：
       total_value: "%{seller_gets}*"
       paypal_fee_info: "*<a id='%{fee_info_link_id}' href='#'>PayPalの手数料</a>は含まず"
-      shipping_price_label: ~
+      shipping_price_label: 送料：
     confirm:
       confirm_description: あなたのリクエストに適していた場合、取引は完了したと承認してください。そうすると相手方のレビューを書くことができます。
       cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
@@ -738,7 +738,7 @@ ja:
       you_have_received_new_payment: "%{payer_full_name}さんより<b>%{listing_title}</b>の件で、<b>%{payment_sum}</b>支払われました。こちらはその領収書です。"
     paypal_new_payment:
       paypal_gateway_fee: PayPalの手数料：
-      shipping_total: ~
+      shipping_total: 送料：
     braintree_new_payment:
       product: 商品・サービス名：
       price_payer_paid: "価格 %{payer_full_name}さん 支払い済み："
@@ -1434,9 +1434,9 @@ ja:
       price:
         per_quantity_unit: "あたり： %{quantity_unit}"
         per_day: 1日あたり
-      delivery: ~
-      shipping: ~
-      pickup: ~
+      delivery: 発送
+      shipping: "送料（%{price}）"
+      pickup: "引き取り（%{price}）"
     verification_required:
       verification_required: 認証が必要です
   listing_conversations:
@@ -1763,7 +1763,7 @@ ja:
       invisible: （他のユーザに表示していません）
     save_information: 情報を保存する
   shipping_address:
-    shipping_address: ~
+    shipping_address: 送り先
   tag_cloud:
     tag_used:
       with_tag: タグあり
@@ -1880,9 +1880,9 @@ ja:
       other: "%{count}日"
   transactions:
     initiate:
-      subtotal: ~
-      shipping-price: ~
-      total: ~
+      subtotal: 合計金額：
+      shipping-price: 送料：
+      total: 合計金額：
   unit:
     day: 日
     days: 日
