@@ -126,7 +126,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       payment_gateway: :paypal,
       discussion_type: transaction_conversation[:discussion_type],
       listing: @listing,
-      booking: @listing_conversation.booking,
+      booking: transaction[:booking],
       orderer: @listing_conversation.starter,
       sum: transaction[:item_total],
       fee: transaction[:commission_total],
