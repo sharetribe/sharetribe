@@ -23,16 +23,25 @@ module PaypalService
       URLUtils.append_query_param(url_str, "useraction", "commit")
     end
 
+
+    # Use either the default old checkout UI or the new paypal checkout experience
+    NEW_CHECKOUT_UI = false
+
+    # URLs for the new paypal checkout UI
     SANDBOX_EC_URL = "https://www.sandbox.paypal.com/checkoutnow"
     LIVE_EC_URL = "https://www.paypal.com/checkoutnow"
     TOKEN_PARAM = "token"
 
     def express_checkout_url(api, token)
-      endpoint = api.config.mode.to_sym
-      if (endpoint == :sandbox)
-        URLUtils.append_query_param(SANDBOX_EC_URL, TOKEN_PARAM, token)
+      if NEW_CHECKOUT_UI
+        endpoint = api.config.mode.to_sym
+        if (endpoint == :sandbox)
+          URLUtils.append_query_param(SANDBOX_EC_URL, TOKEN_PARAM, token)
+        else
+          URLUtils.append_query_param(LIVE_EC_URL, TOKEN_PARAM, token)
+        end
       else
-        URLUtils.append_query_param(LIVE_EC_URL, TOKEN_PARAM, token)
+        api.express_checkout_url(token)
       end
     end
 
