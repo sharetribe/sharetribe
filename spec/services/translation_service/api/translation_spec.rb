@@ -46,29 +46,19 @@ describe TranslationService::API::Translations do
 
 
   it "POST request with only community_id" do
-    result = TranslationsAPI.create(@community_id)
-    expect(result[:success]).to eq(false)
-    expect(result.members.include?(:error_msg)).to be(true)
-    expect(result[:data]).to eq(nil)
+    expect { TranslationsAPI.create(@community_id) }.to raise_error
   end
 
   it "POST request with community_id and wrong params" do
-    result = TranslationsAPI.create(@community_id, {foo: :bar})
-    expect(result[:success]).to eq(false)
-    expect(result.members.include?(:error_msg)).to be(true)
-    expect(result[:data]).to eq(nil)
+    expect { TranslationsAPI.create(@community_id, {foo: :bar}) }.to raise_error
   end
 
   it "POST request with community_id and wrong structure in params" do
-    result = TranslationsAPI.create(@community_id, [translations: [{locale: @locale_sv}] ])
-    expect(result[:success]).to eq(false)
-    expect(result.members.include?(:error_msg)).to be(true)
-    expect(result[:data]).to eq(nil)
+    expect { TranslationsAPI.create(@community_id, [translations: [{locale: @locale_sv}] ]) }.to raise_error
   end
 
   it "POST request with community_id and correct params" do
     result = TranslationsAPI.create(@community_id, @translations_groups)
-    expect(result.members.include?(:error_msg)).to be(false)
     expect(result[:success]).to eq(true)
     expect(result[:data]).to eq(@translation_groups_with_keys)
   end
@@ -164,19 +154,13 @@ describe TranslationService::API::Translations do
 
 
   it "DELETE request with only community_id" do
-    TranslationsAPI.create(@community_id)
-    result = TranslationsAPI.delete(@community_id)
-    expect(result[:success]).to eq(false)
-    expect(result.members.include?(:error_msg)).to be(true)
-    expect(result[:data]).to eq(nil)
+    TranslationsAPI.create(@community_id, @translations_groups)
+    expect { TranslationsAPI.delete(@community_id) }.to raise_error
   end
 
   it "DELETE request with only community_id with wrong params" do
-    TranslationsAPI.create(@community_id)
-    result = TranslationsAPI.delete(@community_id, {foo: :bar})
-    expect(result[:success]).to eq(false)
-    expect(result.members.include?(:error_msg)).to be(true)
-    expect(result[:data]).to eq(nil)
+    TranslationsAPI.create(@community_id, @translations_groups)
+    expect { TranslationsAPI.delete(@community_id, {foo: :bar}) }.to raise_error
   end
 
   it "DELETE request with only community_id with correct params" do

@@ -76,11 +76,6 @@ module TranslationService::Store::Translation
   # Format for params:
   # {community_id: 1, translation_keys: ["aa", "bb", "cc"]}
   def delete(community_id:, translation_keys: [])
-    if translation_keys.empty?
-      msg = "You must specify array: 'translation_keys'"
-      raise ArgumentError.new(msg)
-    end
-
     Maybe(CommunityTranslationModel
         .where(community_id: community_id, translation_key: translation_keys)
       )
