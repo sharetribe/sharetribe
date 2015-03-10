@@ -75,7 +75,7 @@ module TransactionTypeCreator
     throw "Transaction process '#{process}' not available. Available processes are: #{TRANSACTION_PROCESSES.join(', ')}" unless TRANSACTION_PROCESSES.include? process.to_sym
 
     author_is_seller = transaction_type_class_name != "Request"
-    transaction_process = TransactionProcess.where(community_id: community.id, author_is_seller: author_is_seller, process: process).first_or_create
+    transaction_process = TransactionProcess.where(community_id: community.id, author_is_seller: author_is_seller, process: process).first_or_create!
 
     transaction_type_description = TRANSACTION_TYPES[transaction_type_class_name]
     defaults = transaction_type_description[:defaults] || {}

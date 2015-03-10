@@ -17,9 +17,8 @@
 #
 # Indexes
 #
-#  index_transaction_types_on_community_id            (community_id)
-#  index_transaction_types_on_transaction_process_id  (transaction_process_id)
-#  index_transaction_types_on_url                     (url)
+#  index_transaction_types_on_community_id  (community_id)
+#  index_transaction_types_on_url           (url)
 #
 
 class Sell < Offer
