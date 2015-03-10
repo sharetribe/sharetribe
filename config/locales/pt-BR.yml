@@ -80,7 +80,7 @@ pt-BR:
         transaction_agreement_text_header: "Texto de acordo"
         transaction_agreement_description: "Este é o conteúdo do acordo vigente que o usuário deve aceitar. O conteúdo do mesmo é exibido quando o usuário clica no link \"%{read_more}\" ao lado da legenda do acordo."
       edit_look_and_feel:
-        edit_community_look_and_feel: "Editar comunidade %{community_name} visual."
+        edit_community_look_and_feel: "Editar o visual da comunidade %{community_name}."
         community_logo: "Logo principal"
         community_logo_icon: "logomarca no telefone"
         community_cover_photo: "Foto da capa"
@@ -155,7 +155,7 @@ pt-BR:
         general: Geral
         users_can_review_each_other_after_transaction: "Os usuários podem revisar o outro depois de operação"
         access: Acesso
-        join_with_invite_only: "Os usuários só podem participar desta comunidade com um convite de outro usuário"
+        join_with_invite_only: "Os usuários só podem participar desta comunidade com o convite de outro usuário"
         users_can_invite_new_users: "Todos os usuários podem convidar novos usuários a esta comunidade"
         private: "Esta comunidade é privada (apenas usuários registrados podem ver o conteúdo)"
         require_verification_to_post_listings: "Somente usuários verificados por administrador pode postar novos anúncios"
@@ -187,7 +187,7 @@ pt-BR:
         saving_user_status: Gravando...
         save_user_status_successful: Salvo
         save_user_status_error: "Erro ao gravar. Por favor, atualize a página e tente novamente"
-        ban_user_confirmation: "Deseja remove o usuário da comunidade e os impedir de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
+        ban_user_confirmation: "Isso remove o usuário da comunidade e o impede de acessar o site novamente com esta conta. Tem certeza que deseja continuar?"
         ban_me_error: "Você não pode se banir."
       social_media:
         social_media: "Mídia social"
@@ -352,7 +352,7 @@ pt-BR:
   common:
     edit_page: "Editar página"
     default_community_slogan: "Mercado comunitário"
-    default_community_description: "Este é um lugar para vender, alugar, trocar e partilhar bens e serviços com os outros membros da comunidade."
+    default_community_description: "Este é um lugar para vender, alugar, trocar e compartilhar bens e serviços com os outros membros da comunidade."
     cancel: Cancelar
     fields_that_are_mandatory: "Campos marcados com asterisco (*) são obrigatórios."
     or: ou
@@ -1003,7 +1003,7 @@ pt-BR:
       send_invitation: "Enviar convite"
       add_as_many_emails_as_you_want: "Adicione os endereços de e-mail das pessoas que você está convidando para o campo abaixo. Se você adicionar vários endereços de e-mail, separe-os com vírgula."
       invitation_emails_field_placeholder: "convidado1@exemplo.com.br, convidado2@exemplo.com.br, ......"
-      invitation_message_field_placeholder: "Entrei para esta comunidade incrível. Você deve também!"
+      invitation_message_field_placeholder: "Entrei para esta comunidade incrível. Você também deveria!"
       errors_in_emails: "Verifique que os e-mails que você adiciona são validos. Se você adicionar vários e-mails, verifique se eles são separados pour uma vírgula."
     list_item:
       review: opinião
@@ -1046,10 +1046,10 @@ pt-BR:
       settings: Configurações
       feedback: Contato
     application:
-      join_this_community: "Ingressar a comunidade"
+      join_this_community: "Cadastrar na comunidade"
       read_more: "Ler o seguinte"
       feedback: "O que você gostaria de nos contar?"
-      default_feedback: "Você encontrou um problema com %{service_name}? Tem alguma sugestão para melhorar o serviço? Notei algum conteúdo suspeito? Ou apenas tem algo que você quer discutir com a gente? Deixe-nos saber!"
+      default_feedback: "Você encontrou um problema com %{service_name}? Tem alguma sugestão para melhorar o serviço? Notou algum conteúdo suspeito? Ou você simplesmente quer discutir algo com a gente? Mande sua mensagem!"
       feedback_forum: "fórum de respostas"
       feedback_handle: Reposta
       give_feedback: Contato
@@ -1583,7 +1583,7 @@ pt-BR:
       organization_name: "Nome da organização"
       password_again: "Confirme a senha"
       show_my_name_to_others: "Mostrar o meu nome completo aos utilizadores de %{service_name}"
-      sign_up: "Criar em %{service_name} uma nova conta"
+      sign_up: "Cadastrar-se em %{service_name}"
       terms: "termos de uso"
       username_is_in_use: "Este nome de usuário já está em uso."
       username_is_invalid: "Nome de usuário é inválido. Os caracteres permitidos são letras, números e sublinhado."
@@ -1593,7 +1593,7 @@ pt-BR:
       OR: OU
       signup_with_email: "Registre-se com e-mail"
     not_member:
-      explanation_text: "Você está atualmente em %{community} comunidade. Você tentou ver o perfil de um usuário que pertence a outra comunidade Sharetribe. Você não pode acessar este perfil através de %{community} comunidade."
+      explanation_text: "Você está atualmente na comunidade %{community}. Você tentou ver o perfil de um usuário que pertence a outra comunidade Sharetribe. Você não pode acessar este perfil através da comunidade %{community}."
       read_more_about_kassi_communities: "Leia mais sobre comunidades Sharetribe"
       this_user_does_not_belong_to_this_community: "Este usuário não pertence a %{community} comunidade"
     profile_feedback:
