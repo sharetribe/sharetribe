@@ -374,7 +374,14 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def valid_delivery_method(delivery_method_str)
-    delivery_method_str == "shipping" ? :shipping : :pickup
+    case delivery_method_str
+    when "shipping"
+      :shipping
+    when "pickup"
+      :pickup
+    else
+      nil
+    end
   end
 
   def braintree_gateway_locals(community_id)
