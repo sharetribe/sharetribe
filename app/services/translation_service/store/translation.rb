@@ -51,8 +51,8 @@ module TranslationService::Store::Translation
 
   # Get translations
   # Format for params:
-  # {community_id: 1, translation_keys: ["aa", "bb", "cc"], locales: ["en", "fi-FI", "sv-SE"]}
-  def get(community_id:, translation_keys: [], locales: [], use_fallbacks: true)
+  # {community_id: 1, translation_keys: ["aa", "bb", "cc"], locales: ["en", "fi-FI", "sv-SE"], fallback_locale: "en"}
+  def get(community_id:, translation_keys: [], locales: [], fallback_locale:nil)
 
     translations = Maybe(CommunityTranslationModel
         .where(get_search_hash(community_id, translation_keys, locales))
@@ -65,7 +65,7 @@ module TranslationService::Store::Translation
 
     # add missing values if we know what values are expected
     if translation_keys.present? && locales.present?
-      fill_in_delta(translations, translation_keys, locales, use_fallbacks)
+      fill_in_delta(translations, translation_keys, locales, fallback_locale)
     else
       translations
     end
@@ -135,7 +135,7 @@ module TranslationService::Store::Translation
   end
 
   # if translation_hash does not include all combinations, add them
-  def fill_in_delta(translations_hash, translation_keys, locales, use_fallbacks)
+  def fill_in_delta(translations_hash, translation_keys, locales, fallback_locale)
 
     results = []
     translation_keys.each { |key|
@@ -147,7 +147,7 @@ module TranslationService::Store::Translation
               t[:translation_key] == key && t[:locale] == locale && !t[:translation].empty?
             }
           )
-          .or_else(create_delta_result(translations_hash, key, locale, use_fallbacks))
+          .or_else(create_delta_result(translations_hash, key, locale, fallback_locale))
         )
 
       }
@@ -155,25 +155,31 @@ module TranslationService::Store::Translation
     results
   end
 
-  def create_delta_result(translations_hash, translation_key, locale, use_fallbacks)
-    fallback = translations_hash.find { |t|
-      t[:translation_key] == translation_key && !t[:translation].empty?
+  def create_delta_result(translations_hash, translation_key, locale, fallback_locale)
+    translations_with_key = translations_hash.select { |t|
+      t[:translation_key] == translation_key && t[:translation].present?
     }
-    select_fallback = use_fallbacks && fallback.present?
 
+    fallback = Maybe(
+      translations_with_key.find { |t|
+        if fallback_locale.present? then t[:locale] == fallback_locale else false end;
+      })
+      .or_else(nil)
+
+    use_fallback = fallback_locale.present? && fallback.present?
     Translation.call({
         translation_key: translation_key,
-        locale: select_fallback ? fallback[:locale] : locale,
-        translation: select_fallback ? fallback[:translation] : nil
-      }).merge(error_message(fallback.present?, use_fallbacks))
+        locale: use_fallback ? fallback[:locale] : locale,
+        translation: use_fallback ? fallback[:translation] : nil
+      }).merge(error_message(translations_with_key.present?, use_fallback))
 
   end
 
-  def error_message(fallback_exists, use_fallbacks)
-    if !fallback_exists
+  def error_message(has_translations_with_key, use_fallback)
+    if !has_translations_with_key
       # no translations for requested translation_key
       { error: :TRANSLATION_KEY_MISSING }
-    elsif !use_fallbacks
+    elsif !use_fallback
       # no translation for requested locale
       { error: :TRANSLATION_LOCALE_MISSING }
     else

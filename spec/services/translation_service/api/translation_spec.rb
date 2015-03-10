@@ -1,8 +1,4 @@
-require_relative '../api'
-
 describe TranslationService::API::Translations do
-  # include TranslationService::API::Translation
-  #  TranslationService::API::Api.translations
 
   TranslationsAPI = TranslationService::API::Api.translations
 
@@ -90,9 +86,9 @@ describe TranslationService::API::Translations do
     TranslationsAPI.create(@community_id, @translations_groups)
     locale_sv_missing_fallback =
       { translation_key: @translation_key1,
-        locale: @locale_en,
-        translation: @translation_en,
-        warn: :TRANSLATION_LOCALE_MISSING
+        locale: @locale_sv,
+        translation: nil,
+        error: :TRANSLATION_LOCALE_MISSING
       }
     key2_missing_errors = [@locale_en, @locale_fi, @locale_sv].map { |locale|
       { translation_key: @translation_key2,
@@ -115,13 +111,13 @@ describe TranslationService::API::Translations do
     expect(result[:data]).to eq(expected_with_fallbacks)
   end
 
-  it "GET request with only community_id, translation_keys, locales, and use_fallback: false" do
+  it "GET request with only community_id, translation_keys, locales, and fallback_locale" do
     TranslationsAPI.create(@community_id, @translations_groups)
     locale_sv_missing_fallback =
       { translation_key: @translation_key1,
-        locale: @locale_sv,
-        translation: nil,
-        error: :TRANSLATION_LOCALE_MISSING
+        locale: @locale_en,
+        translation: @translation_en,
+        warn: :TRANSLATION_LOCALE_MISSING
       }
     key2_missing_errors = [@locale_en, @locale_fi, @locale_sv].map { |locale|
       { translation_key: @translation_key2,
@@ -138,7 +134,7 @@ describe TranslationService::API::Translations do
     result = TranslationsAPI.get(@community_id, {
       translation_keys: [@translation_key1, @translation_key2],
       locales: [@locale_en, @locale_fi, @locale_sv],
-      use_fallbacks: false
+      fallback_locale: @locale_en
       })
 
     expect(result[:success]).to eq(true)

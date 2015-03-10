@@ -5,7 +5,7 @@ module TranslationService
       FindParams = EntityUtils.define_builder(
         [:translation_keys, :array, default: []],
         [:locales, :array, default: []],
-        [:use_fallbacks, transform_with: ->(v) { v.nil? || !!v }]) # to boolean with default true
+        [:fallback_locale, :string])
 
       CreateTranslationGroups = EntityUtils.define_builder(
         [:translation_groups, :array, default: []])
