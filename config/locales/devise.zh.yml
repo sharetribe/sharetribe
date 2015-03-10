@@ -10,7 +10,7 @@ zh:
         other: "因为%{count}个错误导致此%{resource}保存失败:"
   devise:
     failure:
-      already_authenticated: 你已经登录.
+      already_authenticated: 你已经登录。
       unauthenticated: 继续操作前请注册或者登录.
       unconfirmed: 继续操作前请先确认你的帐号.
       locked: 你的帐号已被锁定.
