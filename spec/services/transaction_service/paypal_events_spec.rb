@@ -234,9 +234,16 @@ describe TransactionService::PaypalEvents do
       ).to include(@order_details)
     end
 
-    it "handles empty shipping address" do
+    it "doesn't record shipping address with no fields" do
       TransactionService::PaypalEvents.update_transaction_details(:success,
         {}.merge(transaction_id: @transaction_with_msg.id, community_id: @cid))
+
+      expect(Transaction.find(@transaction_with_msg.id).shipping_address).to be nil
+    end
+
+    it "doesn't record shipping address with only status field" do
+      TransactionService::PaypalEvents.update_transaction_details(:success,
+        {status: "None"}.merge(transaction_id: @transaction_with_msg.id, community_id: @cid))
 
       expect(Transaction.find(@transaction_with_msg.id).shipping_address).to be nil
     end

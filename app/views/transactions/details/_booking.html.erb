@@ -1,10 +1,10 @@
 <ul class="no-bullets">
   <li>
     <div>
-      <%= l booking.start_on, format: :long_with_abbr_day_name %>
+      <%= l booking[:start_on], format: :long_with_abbr_day_name %>
       -
-      <%= l booking.end_on, format: :long_with_abbr_day_name %>
-      (<%= pluralize(booking.duration, t("conversations.details.day"), t("conversations.details.days")) %>)
+      <%= l booking[:end_on], format: :long_with_abbr_day_name %>
+      (<%= pluralize(booking[:duration], t("conversations.details.day"), t("conversations.details.days")) %>)
     </div>
   </li>
   <li>

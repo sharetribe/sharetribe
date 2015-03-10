@@ -57,6 +57,11 @@ module EntityUtils
         "#{field}: Value must be a Time. Was: #{v} (#{v.class.name})."
       end
     },
+    date: -> (_, v, field) {
+      unless (v.nil? || v.is_a?(Date))
+        "#{field}: Value must be a Date. Was: #{v} (#{v.class.name})."
+      end
+    },
     fixnum: -> (_, v, field) {
       unless (v.nil? || v.is_a?(Fixnum))
         "#{field}: Value must be a Fixnum. Was: #{v} (#{v.class.name})."

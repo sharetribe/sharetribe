@@ -126,12 +126,12 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       payment_gateway: :paypal,
       discussion_type: transaction_conversation[:discussion_type],
       listing: @listing,
-      booking: @listing_conversation.booking,
+      booking: transaction[:booking],
       orderer: @listing_conversation.starter,
       sum: transaction[:item_total],
       fee: transaction[:commission_total],
       shipping_price: transaction[:shipping_price],
-      shipping_address: transaction_conversation[:shipping_address],
+      shipping_address: transaction[:shipping_address],
       seller_gets: transaction[:checkout_total] - transaction[:commission_total],
       form: @listing_conversation, # TODO FIX ME, DONT USE MODEL
       form_action: acceptance_preauthorized_person_message_path(

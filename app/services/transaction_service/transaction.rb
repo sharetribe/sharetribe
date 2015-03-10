@@ -48,10 +48,17 @@ module TransactionService::Transaction
   end
 
 
+  # TODO should require community_id
   # TODO Return type should be Result (wraps current return type)
+  # Deprecated
   def query(transaction_id)
     tx = TxStore.get(transaction_id)
     to_tx_response(tx)
+  end
+
+  def get(community_id:, transaction_id:)
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
+    Result::Success.new(to_tx_response(tx))
   end
 
   def has_unfinished_transactions(person_id)
@@ -200,7 +207,9 @@ module TransactionService::Transaction
         checkout_total: payment_details[:total_price],
         commission_total: commission_total,
         charged_commission: payment_details[:charged_commission],
-        payment_gateway_fee: payment_details[:payment_gateway_fee]})
+        payment_gateway_fee: payment_details[:payment_gateway_fee],
+        shipping_address: tx[:shipping_address],
+        booking: tx[:booking]})
   end
 
   def calculate_commission(item_total, commission_from_seller, minimum_commission)
