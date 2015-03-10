@@ -8,7 +8,7 @@
       - if tx[:booking]
         = render partial: "transactions/details/booking", locals: { booking: tx[:booking], price_per_day: tx[:listing_price] }
 
-      = render partial: "transactions/details/sum_or_price", locals: { sum: tx[:payment_total], price: tx[:listing_price], quantity: tx[:quantity], excludes_vat: @current_community.vat.present? }
+      = render partial: "transactions/details/sum_or_price", locals: { sum: tx[:payment_total], price: tx[:item_total], quantity: listing[:quantity], excludes_vat: @current_community.vat.present? }
 
       = render partial: "transactions/shipping_address", locals: { shipping_address: tx[:shipping_address] }
 

@@ -7,7 +7,7 @@
     <%= t("conversations.show.price", price: humanized_money_with_symbol(price)) %>
 
 
-    <% if quantity %>
+    <% if quantity.present? %>
       / <%= quantity %>
     <% end %>
 
