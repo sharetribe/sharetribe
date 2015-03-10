@@ -19,7 +19,7 @@ class TransactionsController < ApplicationController
          .maybe()
          .or_else(nil)
 
-    if !tx
+    unless tx.present? && transaction_conversation.present?
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
       return redirect_to root
     end
