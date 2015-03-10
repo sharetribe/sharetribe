@@ -231,58 +231,6 @@ Response 201 Created, array of created and modified translations in body:
 ```
 
 
-## PUT /translations/:community_id/
-
-we might not need this if POST with scenario 4 is in use.
-
-Scenario 1 - empty body:
-
-Request no body
-
-Response 400 Bad Request, body:
-```ruby
-{ error_message: "You must specify an array of translation keys and locales with new translations. Locales must be grouped under translation_key."'
-}
-```
-
-Scenario 2 - array of translation_key, locale & translation:
-
-Request body:
-```ruby
-[ { translation_key: "dfnv7858vfjgk"
-  , translations:
-      [ { translation_key: "dfnv7858vfjgk"
-        , locale: "en-US"
-        , translation: "Welcome!"
-        }
-      , { translation_key: "dfnv7858vfjgk"
-        , locale: "fi-FI"
-        , translation: "Tervetuloa!"
-        }
-      ]
-  }
-]
-```
-
-Response 200 OK, updated translations in body:
-
-```ruby
-[ { translation_key: "dfnv7858vfjgk"
-  , translations:
-      [ { translation_key: "dfnv7858vfjgk"
-        , locale: "en-US"
-        , translation: "Welcome!"
-        }
-      , { translation_key: "dfnv7858vfjgk"
-        , locale: "fi-FI"
-        , translation: "Tervetuloa!"
-        }
-      ]
-  }
-]
-```
-
-
 ## DELETE /translations/:community_id/
 
 Scenario 1 - empty body:
@@ -299,7 +247,7 @@ Scenario 2 - array of translation_keys:
 
 Request body:
 ```ruby
-[ { translation_key: "dfnv7858vfjgk"
+[ { translation_keys: ["dfnv7858vfjgk"]
   }
 ]
 ```
