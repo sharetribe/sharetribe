@@ -35,7 +35,7 @@ module TransactionService::Store::Transaction
     [:payment_process, :to_symbol, one_of: [:none, :postpay, :preauthorize]],
     [:payment_gateway, :to_symbol, one_of: [:paypal, :checkout, :braintree, :none]],
     [:commission_from_seller, :fixnum, :mandatory],
-    [:automatic_confirmation_after_days, :fixnum, :mandatory],
+    [:automatic_confirmation_after_days, :fixnum, default: 14],
     [:minimum_commission, :money, :mandatory],
     [:last_transition_at, :time],
     [:current_state, :to_symbol],
