@@ -38,12 +38,15 @@ class PreauthorizeTransactionsController < ApplicationController
   BraintreePaymentQuery = BraintreeService::Payments::Query
 
   def initiate
-    vprms = view_params(params[:listing_id], params[:delivery] == "shipping")
+    vprms = view_params(listing_id: params[:listing_id],
+                        quantity: 1,
+                        shipping_enabled: params[:delivery] == "shipping")
 
     render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: vprms[:listing],
       delivery_method: params[:delivery],
+      subtotal: vprms[:subtotal],
       sum: vprms[:total_price],
       author: query_person_entity(vprms[:listing][:author_id]),
       action_button_label: vprms[:action_button_label],
@@ -73,7 +76,7 @@ class PreauthorizeTransactionsController < ApplicationController
       user: @current_user,
       content: preauthorize_form.content,
       use_async: request.xhr?,
-      delivery_method: preauthorize_form.delivery_method
+      delivery_method: valid_delivery_method(preauthorize_form.delivery_method)
     )
 
     unless transaction_response[:success]
@@ -93,8 +96,10 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def book
-    vprms = view_params(params[:listing_id])
     booking_data = verified_booking_data(params[:start_on], params[:end_on])
+    vprms = view_params(listing_id: params[:listing_id],
+                        quantity: booking_data[:duration],
+                        shipping_enabled: params[:delivery] == "shipping")
 
     if booking_data[:error].present?
       flash[:error] = booking_data[:error]
@@ -124,8 +129,9 @@ class PreauthorizeTransactionsController < ApplicationController
           end_on: booking_data[:end_on]
         }),
       listing: vprms[:listing],
-      delivery_method: nil,
-      sum: vprms[:listing][:price] * booking_data[:duration],
+      delivery_method: params[:delivery],
+      subtotal: vprms[:subtotal],
+      sum: vprms[:total_price],
       duration: booking_data[:duration],
       author: query_person_entity(vprms[:listing][:author_id]),
       action_button_label: vprms[:action_button_label],
@@ -166,6 +172,7 @@ class PreauthorizeTransactionsController < ApplicationController
       listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on),
       content: preauthorize_form.content,
       use_async: request.xhr?,
+      delivery_method: valid_delivery_method(preauthorize_form.delivery_method),
       bt_payment_params: params[:braintree_payment],
       booking_fields: {
         start_on: preauthorize_form.start_on,
@@ -202,7 +209,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def preauthorize
-    vprms = view_params(params[:listing_id])
+    vprms = view_params(listing_id: params[:listing_id])
     braintree_settings = BraintreePaymentQuery.braintree_settings(@current_community.id)
 
     render "listing_conversations/preauthorize", locals: {
@@ -210,7 +217,8 @@ class PreauthorizeTransactionsController < ApplicationController
       braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
       braintree_form: BraintreeForm.new,
       listing: vprms[:listing],
-      sum: vprms[:listing][:price],
+      subtotal: vprms[:subtotal],
+      sum: vprms[:total_price],
       author: query_person_entity(vprms[:listing][:author_id]),
       action_button_label: vprms[:action_button_label],
       expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(vprms[:payment_type]),
@@ -266,7 +274,7 @@ class PreauthorizeTransactionsController < ApplicationController
   private
 
 
-  def view_params(listing_id, shipping_enabled = false)
+  def view_params(listing_id: listing_id, quantity: 1, shipping_enabled: false)
     listing = ListingQuery.listing_with_transaction_type(listing_id)
     payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
@@ -274,9 +282,14 @@ class PreauthorizeTransactionsController < ApplicationController
       .select {|translation| translation[:locale] == I18n.locale}
       .first
 
-    total_price = shipping_enabled ? listing[:price] + listing[:shipping_price] : listing[:price]
+    subtotal = listing[:price] * quantity
+    total_price = shipping_enabled ? subtotal + listing[:shipping_price] : subtotal
 
-    { listing: listing, payment_type: payment_type, action_button_label: action_button_label, total_price: total_price }
+    { listing: listing,
+      payment_type: payment_type,
+      action_button_label: action_button_label,
+      subtotal: subtotal,
+      total_price: total_price }
   end
 
   def render_error_response(isXhr, error_msg, redirect_params)
@@ -360,6 +373,17 @@ class PreauthorizeTransactionsController < ApplicationController
     end
   end
 
+  def valid_delivery_method(delivery_method_str)
+    case delivery_method_str
+    when "shipping"
+      :shipping
+    when "pickup"
+      :pickup
+    else
+      nil
+    end
+  end
+
   def braintree_gateway_locals(community_id)
     braintree_settings = BraintreePaymentQuery.braintree_settings(community_id)
 
@@ -403,7 +427,7 @@ class PreauthorizeTransactionsController < ApplicationController
           delivery_method: opts[:delivery_method]
     }
 
-    if(opts[:delivery_method] == "shipping")
+    if(opts[:delivery_method] == :shipping)
       transaction[:shipping_price] = opts[:listing].shipping_price
     end
 

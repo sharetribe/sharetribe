@@ -65,7 +65,7 @@
             %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end_on", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
             %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
 
-      - elsif delivery_opts.present?
+      - if delivery_opts.present?
         .row
           .col-12
             %h2.delivery-title= t("listings.show.delivery")

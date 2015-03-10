@@ -38,13 +38,13 @@
             = t("listing_conversations.preauthorize.price_per_day", price: humanized_money_with_symbol(listing[:price]))
 
       %li
-        -if delivery_method == "shipping"
+        - if delivery_method == "shipping"
           .initiate-transaction-totals
             .initiate-transaction-sum-wrapper
               %span.initiate-transaction-sum-label
                 = t("transactions.initiate.subtotal")
               %span.initiate-transaction-sum-value
-                = humanized_money_with_symbol(listing[:price])
+                = humanized_money_with_symbol(subtotal)
             .initiate-transaction-shipping-price-wrapper
               %span.initiate-transaction-shipping-price-label
                 = t("transactions.initiate.shipping-price")
@@ -55,7 +55,7 @@
                 = t("transactions.initiate.total")
               %span.initiate-transaction-total-value
                 = humanized_money_with_symbol(sum)
-        -else
+        - else
           %div
             %strong
               = t("conversations.show.total", total: humanized_money_with_symbol(sum))
