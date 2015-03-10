@@ -27,8 +27,7 @@ module TranslationService::Store::Translation
 
     translation_groups
       .map { |group|
-        enforced_key = group[:translation_key]
-        key = Maybe(enforced_key).or_else(gen_translation_uuid(community_id))
+        key = Maybe(group[:translation_key]).or_else(gen_translation_uuid(community_id))
 
         translations = group[:translations]
           .map { |translation|
@@ -37,8 +36,7 @@ module TranslationService::Store::Translation
               community_id: community_id,
               translation_key: key,
               locale: translation[:locale],
-              translation: translation[:translation],
-              is_key_enforced: enforced_key.present?
+              translation: translation[:translation]
             }
             save_translation(translation_hash)
           }
@@ -107,13 +105,13 @@ module TranslationService::Store::Translation
   end
 
   def save_translation(options)
-    options.assert_valid_keys(:community_id, :translation_key, :locale, :translation, :is_key_enforced)
+    options.assert_valid_keys(:community_id, :translation_key, :locale, :translation)
 
     existing_translation = CommunityTranslationModel
       .where(options.slice(:community_id, :translation_key, :locale))
       .first
 
-    if options[:is_key_enforced] && existing_translation
+    if existing_translation.present?
       update_translation(id: existing_translation.id, translation: options[:translation])
     else
       create_translation(options.slice(:community_id, :translation_key, :locale, :translation))
