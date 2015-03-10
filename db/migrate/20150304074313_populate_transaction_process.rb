@@ -25,7 +25,7 @@ class PopulateTransactionProcess < ActiveRecord::Migration
         LEFT JOIN payment_gateways ON (payment_gateways.community_id = transaction_types.community_id)
 
         WHERE transaction_types.transaction_process_id IS NULL
-        GROUP BY community_id, process
+        GROUP BY community_id, process, author_is_seller
       )
     ")
 
