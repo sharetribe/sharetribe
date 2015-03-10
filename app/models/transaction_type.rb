@@ -5,6 +5,7 @@
 #  id                         :integer          not null, primary key
 #  type                       :string(255)
 #  community_id               :integer
+#  transaction_process_id     :integer
 #  sort_priority              :integer
 #  price_field                :boolean
 #  preauthorize_payment       :boolean          default(FALSE)
@@ -21,7 +22,15 @@
 #
 
 class TransactionType < ActiveRecord::Base
-  attr_accessible :community_id, :price_field, :sort_priority, :type, :price_quantity_placeholder, :price_per
+  attr_accessible(
+    :community_id,
+    :price_field,
+    :sort_priority,
+    :type,
+    :price_quantity_placeholder,
+    :price_per,
+    :transaction_process_id
+  )
 
   belongs_to :community
 

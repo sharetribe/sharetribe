@@ -66,17 +66,26 @@ module TransactionTypeCreator
     }
   }
 
+  TRANSACTION_PROCESSES = [:none, :preauthorize, :postpay]
+
   module_function
 
-  def create(community, transaction_type_class_name)
-    throw "Transaction type #{transaction_type_class_name} not available. Available types are: #{available_types.join(', ')}" unless available_types.include? transaction_type_class_name
+  def create(community, transaction_type_class_name, process)
+    throw "Transaction type '#{transaction_type_class_name}' not available. Available types are: #{available_types.join(', ')}" unless available_types.include? transaction_type_class_name
+    throw "Transaction process '#{process}' not available. Available processes are: #{TRANSACTION_PROCESSES.join(', ')}" unless TRANSACTION_PROCESSES.include? process.to_sym
+
+    author_is_seller = transaction_type_class_name != "Request"
+    transaction_process = TransactionProcess.where(community_id: community.id, author_is_seller: author_is_seller, process: process).first_or_create!
 
     transaction_type_description = TRANSACTION_TYPES[transaction_type_class_name]
     defaults = transaction_type_description[:defaults] || {}
 
     # Create
     transaction_type = community.transaction_types.build(
-      {type: transaction_type_class_name}.merge(defaults)
+      {
+        type: transaction_type_class_name,
+        transaction_process_id: transaction_process.id
+      }.merge(defaults)
     )
 
     # Locales
@@ -109,5 +118,4 @@ module TransactionTypeCreator
   def use_in_category(category, transaction_type)
     CategoryTransactionType.create(:category_id => category.id, :transaction_type_id => transaction_type.id)
   end
-
 end

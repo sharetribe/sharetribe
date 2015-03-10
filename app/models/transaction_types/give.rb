@@ -5,6 +5,7 @@
 #  id                         :integer          not null, primary key
 #  type                       :string(255)
 #  community_id               :integer
+#  transaction_process_id     :integer
 #  sort_priority              :integer
 #  price_field                :boolean
 #  preauthorize_payment       :boolean          default(FALSE)

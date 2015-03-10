@@ -512,6 +512,7 @@ class ListingsController < ApplicationController
     end
   end
 
+  # This is wrong place, yes, but this method will be soon removed
   def select_payment_process(price_field:, payment_gateway_available:, preauthorize:)
     case [price_field, payment_gateway_available, preauthorize]
     when matches([false])
