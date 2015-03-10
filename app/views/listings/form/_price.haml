@@ -59,16 +59,16 @@
     = field_set_tag t(".delivery"), class: "delivery-title" do
       .delivery-row-low
         .delivery-checkbox
-          = form.check_box :require_shipping_address
-        .delivery-label2
-          = form.label :require_shipping_address, t(".shipping"), class: "shipping-options-label"
+          = check_box_tag "listing[delivery_methods][]", "shipping", @listing.require_shipping_address?, id: "shipping-checkbox", class: "delivery-method-checkbox required"
+        .delivery-left-field
+          = label_tag "shipping-checkbox", t(".shipping"), class: "shipping-options-label"
       .delivery-row-tall
-        .delivery-label2
+        .delivery-left-field.shipping-price-container{class: @listing.require_shipping_address? ? "" : "hidden" }
           = form.label :shipping_price, t(".shipping_price"), class: "shipping-options-label"
           = form.text_field :shipping_price, class: "price-field", maxlength: 10, placeholder: 0, value: (@listing.shipping_price ? @listing.shipping_price.to_s: 0)
           = render partial: "listings/form/currency_selector", locals: {form: form}
       .delivery-row-low
         .delivery-checkbox
-          = form.check_box :pickup_enabled
-        .delivery-label2
-          = form.label :pickup_enabled, t(".pickup"), class: "shipping-options-label"
+          = check_box_tag "listing[delivery_methods][]", "pickup", @listing.pickup_enabled?, id: "pickup-checkbox", class: "delivery-method-checkbox required"
+        .delivery-left-field
+          = label_tag "pickup-checkbox", t(".pickup"), class: "shipping-options-label"
