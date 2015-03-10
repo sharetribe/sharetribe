@@ -1,7 +1,7 @@
 class PopulateTransactionProcess < ActiveRecord::Migration
   def up
     execute("
-      INSERT INTO transaction_processes (process, community_id, created_at, updated_at)
+      INSERT INTO transaction_processes (process, author_is_seller, community_id, created_at, updated_at)
       (
         SELECT
           CASE WHEN transaction_types.price_field = 0                 THEN 'none'
@@ -11,6 +11,11 @@ class PopulateTransactionProcess < ActiveRecord::Migration
                WHEN payment_gateways.type = 'BraintreePaymentGateway' THEN IF(transaction_types.preauthorize_payment, 'preauthorize', 'postpay')
                ELSE 'none'
           END as process,
+
+          CASE WHEN transaction_types.type = 'Request' THEN 0
+               ELSE 1
+          END as author_is_seller,
+
           transaction_types.community_id,
           transaction_types.created_at,
           transaction_types.updated_at
@@ -40,6 +45,11 @@ class PopulateTransactionProcess < ActiveRecord::Migration
                WHEN payment_gateways.type = 'Checkout'                THEN 'postpay'
                WHEN payment_gateways.type = 'BraintreePaymentGateway' THEN IF(transaction_types.preauthorize_payment, 'preauthorize', 'postpay')
                ELSE 'none'
+          END AND
+
+        author_is_seller =
+          CASE WHEN transaction_types.type = 'Request' THEN 0
+               ELSE 1
           END
       )
 
