@@ -2,16 +2,7 @@
   - if @listing.transaction_type.price_field?
     = form.label :price, t(".price")
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
-    .currency-selector
-      - if @current_community.available_currencies
-        - currencies = @current_community.available_currencies.gsub(" ","").split(",")
-        - if currencies.size > 1
-          = form.select :currency, currencies, { :selected => (@listing.currency || currencies.first) }
-        - else
-          = Money.new(1, currencies[0]).symbol
-          = form.hidden_field :currency, :value => currencies[0]
-      - else
-        = form.select :currency, major_currencies(Money::Currency.table), { :selected => (@listing.currency || "EUR") }
+    = render partial: "listings/form/currency_selector", locals: {form: form}
 
     - if @listing.transaction_type.price_per
       .quantity-description= t(".per_#{@listing.transaction_type.price_per}")
@@ -75,7 +66,7 @@
         .delivery-label2
           = form.label :shipping_price, t(".shipping_price"), class: "shipping-options-label"
           = form.text_field :shipping_price, class: "price-field", maxlength: 10, placeholder: 0, value: (@listing.shipping_price ? @listing.shipping_price.to_s: 0)
-          USD
+          = render partial: "listings/form/currency_selector", locals: {form: form}
       .delivery-row-low
         .delivery-checkbox
           = form.check_box :pickup_enabled
