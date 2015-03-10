@@ -7,10 +7,6 @@
     <%= t("conversations.show.price", price: humanized_money_with_symbol(price)) %>
 
 
-    <% if quantity.present? %>
-      / <%= quantity %>
-    <% end %>
-
     <% if excludes_vat %>
       <span class="message-price-vat">
         <%= t("conversations.show.price_excludes_vat") %>
