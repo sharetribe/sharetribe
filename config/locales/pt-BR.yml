@@ -52,16 +52,16 @@ pt-BR:
         community_details: "Detalhes da comunidade"
         community_look_and_feel: "Editar visual"
         edit_community: "Editar detalhes da comunidade %{community_name}"
-        community_name: "Nome da comunidade"
-        edit_community_name_description: "O nome da sua comunidade. Será mostrado a usuários e em vários outros locais."
-        community_slogan: "Slogan da comunidade"
-        edit_community_slogan_description: "Será mostrado na página inicial da comunidade para os usuários que não estão conectados. %{see_how_it_looks_like}"
-        community_description: "Descrição da comunidade"
-        edit_community_description_description: "Será mostrado na página inicial da comunidade para os usuários que não estão conectados. %{see_how_it_looks_like}"
+        community_name: "Nome do Mercado Virtual"
+        edit_community_name_description: "O nome do seu mercado virtual. Será mostrado a usuários e em vários outros locais."
+        community_slogan: "Slogan do Mercado Virtual"
+        edit_community_slogan_description: "Isso é mostrado na página inicial do mercado virtual para os usuários que não estejam cadastrados. %{see_how_it_looks_like}."
+        community_description: "Descrição do Mercado Virtual"
+        edit_community_description_description: "Isso é mostrado na página inicial do mercado virtual para os usuários que não estejam cadastrados. %{see_how_it_looks_like}."
         community_search_placeholder: "Auxílio na busca de texto"
-        edit_community_search_placeholder_description: "Será mostrado na página inicial da comunidade como um texto de espaço reservado na barra de pesquisa. %{see_how_it_looks_like}"
-        private_community_homepage_content: "Conteúdo página inicial da comunidade privada"
-        edit_private_community_homepage_content_description: "Este conteúdo é mostrado para usuários não registrados na home page das comunidades privadas. Aqui você pode descrever a sua comunidade eo processo para se juntar a ele. Você também pode adicionar imagens, vídeos e conteúdo HTML aqui. %{see_how_it_looks_like}"
+        edit_community_search_placeholder_description: "Isso é mostrado na página inicial do mercado virtual como um texto de espaço reservado na barra de pesquisa. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Conteúdo privado da página inicial do mercado virtual"
+        edit_private_community_homepage_content_description: "Este conteúdo é mostrado para usuários não cadastrados na página inicial dos mercados virtuais privados. Aqui você pode descrever o seu mercado virtual e o processo para se juntar a ele. Você também pode adicionar imagens, vídeos e conteúdo HTML aqui. %{see_how_it_looks_like}."
         update_information: "Salvar configurações"
         invite_people: "Convide as pessoas para esta comunidade"
         edit_signup_info: "Informações da conta"
@@ -80,7 +80,7 @@ pt-BR:
         transaction_agreement_text_header: "Texto de acordo"
         transaction_agreement_description: "Este é o conteúdo do acordo vigente que o usuário deve aceitar. O conteúdo do mesmo é exibido quando o usuário clica no link \"%{read_more}\" ao lado da legenda do acordo."
       edit_look_and_feel:
-        edit_community_look_and_feel: "Editar o visual da comunidade %{community_name}."
+        edit_community_look_and_feel: "Editar o visual do mercado virtual da %{community_name}."
         community_logo: "Logo principal"
         community_logo_icon: "logomarca no telefone"
         community_cover_photo: "Foto da capa"
@@ -115,12 +115,12 @@ pt-BR:
         edit_text_instructions: Instruções
       edit_welcome_email:
         welcome_email_content: "Conteúdo do e-mail de boas-vindas"
-        welcome_email_content_description: "A mensagem abaixo será enviada para cada novo membro quando eles se registrarem. Você pode personalizar a mensagem. Clicando em '%{send_test_message_link}' você pode ter uma pré-visualização para o seu endereço de e-mail, para que você possa ver como fica em um cliente de e-mail."
+        welcome_email_content_description: "A mensagem abaixo será enviada para cada novo membro quando eles se registrarem. Você pode personalizar a mensagem para se encaixar melhor em seu mercado virtual. Clicando em '%{send_test_message_link}' você pode ter uma pré-visualização para o seu endereço de e-mail, para que você possa ver como fica em um cliente de e-mail."
         edit_message: "Editar mensagem"
         send_test_message: "Enviar mensagem de teste"
       getting_started:
         getting_started: "Guia dos primeiros passos"
-        welcome_to_your_marketplace: "Bem-vindo(a) ao seu mercado, %{name}!"
+        welcome_to_your_marketplace: "Bem-vindo(a) ao seu mercado virtual, %{name}!"
         intro: "Este é um guia rápido para configurar e gerenciar o seu mercado virtual. Você pode visualizar %{live_site_link} o seu site ao vivo."
         live_site_link_text: aqui
         look_and_feel: "Antes de você lançar o seu site para o público, você provavelmente vai querer configurar algumas coisas. Por exemplo, talvez você queira %{logo_link}, também mudar a imagem de destaque e as cores para combinar melhor com a concepção da sua marca."
@@ -130,22 +130,22 @@ pt-BR:
         categories_link_text: "adicionar categorias e subcategorias"
         custom_fields_link_text: "configurar os campos do formulário"
         filters_link_text: "que tipo de filtros"
-        payments: "Se você quer que as pessoas sejam capazes de pagar suas compras através de seu mercado, de modo que você possa cobrar uma taxa por cada transação, você deve %{payments_link}."
+        payments: "Se você quer que as pessoas sejam capazes de pagar suas compras através do seu mercado virtual, de modo que você possa cobrar uma taxa por cada transação, você deve %{payments_link}."
         payments_link_text: "configurar um método de pagamento"
-        info_texts: "Não se esqueça de personalizar as páginas de informações e outros textos em que você possa informar a seus usuários sobre o seu mercado. Bons lugares para verificar são a sua página %{about_page_link}, seus %{terms_of_use_link} (você deve adicionar seus próprios termos de uso aqui, seja modificando o modelo atual ou criando completamente um novo documento), sua %{privacy_policy_link}, e o  %{welcome_email_link} que é enviado para cada novo usuário. Há também alguns outros %{instruction_texts_link} que você pode configurar."
+        info_texts: "Não se esqueça de personalizar as páginas de informações e outros textos em que você possa informar a seus usuários sobre o seu mercado virtual. Bons lugares para verificar são a sua página %{about_page_link}, seus %{terms_of_use_link} (você deve adicionar seus próprios termos de uso aqui, seja modificando o modelo atual ou criando completamente um novo documento), sua %{privacy_policy_link}, e o  %{welcome_email_link} que é enviado para cada novo usuário. Há também alguns outros %{instruction_texts_link} que você pode configurar."
         about_page_link_text: "sobre a página"
         terms_of_use_link_text: "termos de uso"
         privacy_policy_link_text: "Política de Privacidade"
         welcome_email_link_text: "Conteúdo do e-mail de boas-vindas"
         instruction_texts_link_text: "outros textos de instrução"
-        social_media: "Usar a mídia social é uma boa maneira de construir a comunidade. Você pode %{facebook_link} para tornar mais fácil a inscrição das pessoas ao seu mercado, e %{twitter_link} para obter melhor visibilidade quando as pessoas \"tweetarem\" sobre produtos em seu mercado."
+        social_media: "Usar a mídia social é uma boa maneira de construir a comunidade. Você pode %{facebook_link} para tornar mais fácil a inscrição das pessoas ao seu mercado virtual, e %{twitter_link} para obter melhor visibilidade quando as pessoas \"tweetarem\" sobre produtos em seu mercado virtual."
         facebook_link_text: "conectar seu app personalizado do Facebook"
         twitter_link_text: "adicionar sua conta do Twitter"
-        analytics: "Também é uma boa ideia para %{analytics_link}. Desta forma é fácil para você ver o que está acontecendo no seu mercado, quantos visitantes tem, e assim por diante."
+        analytics: "Também é uma boa ideia para %{analytics_link}. Desta forma é fácil para você ver o que está acontecendo no seu mercado virtual, quantos visitantes tem, e assim por diante."
         analytics_link_text: "conectar uma conta do \"Google Analytics\""
-        settings: "Há um monte de outras configurações que você pode alterar. Por exemplo, você pode exigir que todos tenham um convite de outros usuários antes que eles possam se juntar e fazer o seu mercado privado, portanto, apenas os usuários que estão cadastrados, podem ver o conteúdo. %{settings_link}."
-        settings_link_text: "Ver as suas definições de mercado aqui"
-        final_words: "É só isso! Se tudo estiver pronto, você pode começar %{invite_link} para o seu mercado. Você pode ver todos os usuários que se juntaram %{view_users_link}, e todas as operações que foram concluídas %{view_transactions_link}. Você também pode facilmente gerenciar os anúncios: basta ir até a página de anúncios e você verá os links de administração para edição e  encerramento lá. Se você precisar de alguma ajuda, você pode %{contact_support_link} - nós estamos aqui para você!"
+        settings: "Há um monte de outras configurações que você pode alterar. Por exemplo, você pode exigir que todos tenham um convite de outros usuários antes que eles possam se juntar e fazer o seu mercado virtual privado, portanto, apenas os usuários que estão cadastrados, podem ver o conteúdo. %{settings_link}."
+        settings_link_text: "Ver as suas definições de mercado virtual aqui"
+        final_words: "É só isso! Se tudo estiver pronto, você pode começar %{invite_link} para o seu mercado virtual. Você pode ver todos os usuários que se juntaram %{view_users_link}, e todas as operações que foram concluídas %{view_transactions_link}. Você também pode facilmente gerenciar os anúncios: basta ir até a página de anúncios e você verá os links de administração para edição e  encerramento lá. Se você precisar de alguma ajuda, você pode %{contact_support_link} - nós estamos aqui para você!"
         invite_link_text: "Convidar outros usuários"
         view_users_link_text: aqui
         view_transactions_link_text: aqui
@@ -155,9 +155,9 @@ pt-BR:
         general: Geral
         users_can_review_each_other_after_transaction: "Os usuários podem revisar o outro depois de operação"
         access: Acesso
-        join_with_invite_only: "Os usuários só podem participar desta comunidade com o convite de outro usuário"
-        users_can_invite_new_users: "Todos os usuários podem convidar novos usuários a esta comunidade"
-        private: "Esta comunidade é privada (apenas usuários registrados podem ver o conteúdo)"
+        join_with_invite_only: "Novos usuários só podem se cadastrar neste mercado virtual com o convite de outro usuário"
+        users_can_invite_new_users: "Todos os usuários podem convidar novos usuários para este mercado virtual"
+        private: "Este mercado virtual é privado (apenas usuários cadastrados podem ver o conteúdo)"
         require_verification_to_post_listings: "Somente usuários verificados por administrador pode postar novos anúncios"
         listing_preferences: "Preferências de anúncios"
         transaction_preferences: "Transação - preferências"
@@ -187,19 +187,19 @@ pt-BR:
         saving_user_status: Gravando...
         save_user_status_successful: Salvo
         save_user_status_error: "Erro ao gravar. Por favor, atualize a página e tente novamente"
-        ban_user_confirmation: "Isso remove o usuário da comunidade e o impede de acessar o site novamente com esta conta. Tem certeza que deseja continuar?"
+        ban_user_confirmation: "Isso remove o usuário do mercado virtual e o impede de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
         ban_me_error: "Você não pode se banir."
       social_media:
         social_media: "Mídia social"
         twitter_handle: "Nome Twitter"
         twitter_handle_info_text: "Nome de usuário da conta do Twitter do seu marketplace (se você tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
-        twitter_handle_info_text_with_instructions: "Nome de usuário da conta de Twitter de seu mercado (se você tiver um). Ele será mencionado quando as pessoas usarem o botão 'tweet' na página de anúncios. %{instructions_link}."
+        twitter_handle_info_text_with_instructions: "Nome de usuário da conta de Twitter de seu mercado virtual (se você tiver um). Ele será mencionado quando as pessoas usarem o botão 'tweet' na página de anúncios. %{instructions_link}."
         twitter_instructions_link_text: "Leia mais"
         twitter_handle_placeholder: "nome de usuário"
         invalid_twitter_handle: "O nome Twitter deve conter no máximo 15 caracteres alfanuméricos (letras A-Z e números 0-9)."
         facebook_connect: Facebook
-        facebook_connect_info_text: "A fim de permitir conectar-se via Facebook, crie um aplicativo para o seu mercado no <a href='https://developers.facebook.com/'>painel de desenvolvedores do Facebook</a>. Adicione aqui o ID gerado e a chave secreta do aplicativo."
-        facebook_connect_info_text_with_instructions: "A fim de permitir a conexão via Facebook, crie um aplicativo para o seu mercado no <a href='https://developers.facebook.com/'>painel de desenvolvedores do Facebook</a>. Adicione aqui o ID gerado e a chave secreta do aplicativo. %{instructions_link}"
+        facebook_connect_info_text: "A fim de permitir conectar-se via Facebook, crie um aplicativo para o seu mercado virtual no <a href='https://developers.facebook.com/'>painel de desenvolvedores do Facebook</a>. Adicione aqui o ID gerado e a chave secreta do aplicativo."
+        facebook_connect_info_text_with_instructions: "A fim de permitir a conexão via Facebook, crie um aplicativo para o seu mercado virtual no <a href='https://developers.facebook.com/'>painel de desenvolvedores do Facebook</a>. Adicione aqui o ID gerado e a chave secreta do aplicativo. %{instructions_link}"
         facebook_instructions_link_text: "Veja as instruções para configurar o \"Facebook Connect\"."
         facebook_connect_id: "ID do cliente Facebook"
         invalid_facebook_connect_id: "ID do cliente deve conter apenas números."
@@ -320,7 +320,7 @@ pt-BR:
     paypal_accounts:
       marketplace_paypal_integration: "Preferências de pagamento"
       preferences_updated: "Preferências de pagamento atualizadas."
-      integration_info_text: "O sistema de pagamento de Sharetribe é gerenciado pelo PayPal. Se você quiser permitir que os seus usuários façam pagamentos através de seu mercado, você deve se conectar a sua conta PayPal e decidir o tamanho mínimo da transação e a taxa que você quer ganhar de cada transação."
+      integration_info_text: "O sistema de pagamento de Sharetribe é gerenciado pelo PayPal. Se você quiser permitir que os seus usuários façam pagamentos através de seu mercado virtual, você deve se conectar a sua conta PayPal e decidir o tamanho mínimo da transação e a taxa que você quer ganhar de cada transação."
       read_more_about_paypal: "Leia mais sobre o sistema de pagamento do Sharetribe"
       paypal_account_email: "1. Conecte sua conta PayPal"
       paypal_account_email_completed: Concluído!
@@ -351,8 +351,8 @@ pt-BR:
         inquiry: Contato
   common:
     edit_page: "Editar página"
-    default_community_slogan: "Mercado comunitário"
-    default_community_description: "Este é um lugar para vender, alugar, trocar e compartilhar bens e serviços com os outros membros da comunidade."
+    default_community_slogan: "Mercado Virtual Comunitário"
+    default_community_description: "Este é um lugar para vender, alugar, trocar e compartilhar bens e serviços com os outros membros do mercado virtual."
     cancel: Cancelar
     fields_that_are_mandatory: "Campos marcados com asterisco (*) são obrigatórios."
     or: ou
@@ -437,7 +437,7 @@ pt-BR:
       cancel: "Não aconteceu"
       continue: Continua
       give_feedback_to: "Dar feedback a %{person_link}"
-      do_not_give_feedback: "Skip feedback"
+      do_not_give_feedback: "Não deixar opinião"
     details:
       day: dia
       days: dias
@@ -496,7 +496,7 @@ pt-BR:
       item_request_message_form_title: "Oferecer item para %{person}"
       message: Mensagem
       message_to: "Mensagem para %{author_name}"
-      optional_message_to: "Menssagem opcional para %{author_name}"
+      optional_message_to: "Mensagem para %{author_name} (opcional)"
       rideshare_offer_message_form_title: "Pedir carona para %{person}"
       rideshare_request_message_form_title: "Oferecer carona para %{person}"
       send_message: "Enviar mensagem"
@@ -553,7 +553,7 @@ pt-BR:
       request_canceled: Cancelado
       request_paid: "Pagamento efetuado com sucesso"
       request_preauthorized: "Pagamento efetuado com sucesso"
-      skip_feedback: "Pular feedback"
+      skip_feedback: "Não deixar opinião"
       waiting_for_listing_author_to_accept_offer: "Aguardando %{listing_author_name} aceitar a oferta"
       waiting_for_listing_author_to_accept_request: "Aguandando %{listing_author_name} aceitar o pedido"
       waiting_for_you_to_accept_request: "Esperando por você para aceitar o pedido"
@@ -698,7 +698,7 @@ pt-BR:
       need_to_confirm: "Você precisa confirmar o seu endereço de e-mail."
       confirmation_link_text: "Confirmar meu e-mail"
       or_paste_link: "Alternativamente, você pode copiar o seguinte link para a barra de endereços do seu navegador:"
-      turning_on_confirmations_in_this_community: "Nós utilizamos um email de confirmação nessa tribo %{service_name}."
+      turning_on_confirmations_in_this_community: "Nós utilizamos um e-mail de confirmação nesse mercado virtual da %{service_name}."
     common:
       check_your_settings: "Verifique suas configurações"
       hey: "Olá %{name}"
@@ -806,20 +806,20 @@ pt-BR:
       welcome_email_subject: "Bem-vindo(a) à %{service_name}"
       welcome_to_marketplace: "Bem-vindo(a) à %{service_name}! Ficamos felizes em tê-lo a bordo."
       love_marketplace_crew: "Com carinho,<br/><i>Equipe %{service_name}</i>"
-      p_s_did_you_know: "P.S.: Você gostaria de criar o seu próprio site de mercado como %{service_name}? É fácil e não requer nenhum conhecimento de programação. %{click_here_link} para saber mais!"
+      p_s_did_you_know: "P.S.: Você gostaria de criar o seu próprio site de mercado virtual como %{service_name}? É fácil e não requer nenhum conhecimento de programação. %{click_here_link} para saber mais!"
       click_here_link_text: "Clique aqui"
       welcome_email_footer_text: "Que tipo de e-mails que você quer receber da %{service_name}? %{settings_link}"
       settings_link_text: "Verifique suas configurações"
       welcome_email_subject_for_marketplace_creator: "Bem-vindo(a) à Sharetribe"
       welcome_to_marketplace_creator: "Bem-vindo(a) à Sharetribe, %{name}!"
-      congrats_for_creating_your_marketplace: "Parabéns pela criação do seu mercado! Isso foi fácil, não foi?"
+      congrats_for_creating_your_marketplace: "Parabéns pela criação do seu mercado virtual! Isso foi fácil, não foi?"
       here_is_your_account_information: "Aqui está a informação da sua conta."
       your_email_address: "O endereço de e-mail que você usou para conectar na sua conta:"
-      your_marketplace_address: "O endereço do seu mercado:"
-      your_marketplace_admin_area: "A área de administração do seu mercado:"
-      just_follow_details: "Basta seguir estes links e você terá mais detalhes sobre como começar a construir o seu mercado!"
+      your_marketplace_address: "O endereço do seu mercado virtual:"
+      your_marketplace_admin_area: "A área de administração do seu mercado virtual:"
+      just_follow_details: "Basta seguir estes links e você terá mais detalhes sobre como começar a construir o seu mercado virtual!"
       we_will_guide_you_along_the_way: "Vamos orientá-lo ao longo do caminho."
-      are_you_new_to_online_marketplaces: "Precisa de ajuda com o seu mercado? Não se preocupe, estamos aqui para ajudá-lo! Enviaremos para você uma série de e-mails que o ajudarão a obter o máximo do Sharetribe e a construir um mercado bem sucedido. Enviaremos a Parte 1 para você em breve."
+      are_you_new_to_online_marketplaces: "Precisa de ajuda com o seu mercado virtual? Não se preocupe, estamos aqui para ajudá-lo! Enviaremos para você uma série de e-mails que o ajudarão a obter o máximo da Sharetribe e a construir um mercado bem sucedido. Enviaremos a Parte 1 para você em breve."
       have_questions: "Tem dúvidas?"
       our_happiness_team_is_here_to_help: "Nossa equipe da felicidade está aqui para você! %{knowledge_base_link} ou entre em contato com o nosso suporte através %{admin_panel_link}."
       love: "Amor,"
@@ -862,7 +862,7 @@ pt-BR:
       page_removed_reason: "Há algumas razões possíveis para isso. Por exemplo, um usuário pode ter removido a sua conta ou um anúncio pode ter sido removido."
     error_410_title: "página removida"
     error_500:
-      temporary_unavailable: "Mercado temporariamente indisponível"
+      temporary_unavailable: "Mercado virtual temporariamente indisponível"
       unable_to_process: "O serviço é incapaz de processar o seu pedido agora. Por favor, tente novamente em alguns instantes."
       we_hate_this: "Nós odiamos quando isso acontece! Fomos informados sobre a situação e estamos consertando."
       refer_to_error_id: "Se você deseja entrar em contato com o suporte em relação a este assunto, por favor, inclua um ID de erro \"%{error_id}\" em sua mensagem."
@@ -920,7 +920,7 @@ pt-BR:
     offers: Ofertas
     requests: Solicitações
     search_kassi: "Procurar %{service_name}"
-    create_new_marketplace: "Criar um novo mercado"
+    create_new_marketplace: "Criar um novo mercado virtual"
     contact_us: Contato
     profile: Perfil
     invite: "Convidar novos membros"
@@ -966,7 +966,7 @@ pt-BR:
     event_feed:
       latest_events: "O que está acontecendo"
     grid_item:
-      processing_uploaded_image: "(Processando imagem carregada...)"
+      processing_uploaded_image: "(Processando imagem...)"
     index:
       no_listings_with_your_search_criteria: "Nós não encontramos nenhum resultado que corresponde à sua pesquisa."
       no_listings_notification: "Nenhum anúncio. %{add_listing_link}."
@@ -1003,7 +1003,7 @@ pt-BR:
       send_invitation: "Enviar convite"
       add_as_many_emails_as_you_want: "Adicione os endereços de e-mail das pessoas que você está convidando para o campo abaixo. Se você adicionar vários endereços de e-mail, separe-os com vírgula."
       invitation_emails_field_placeholder: "convidado1@exemplo.com.br, convidado2@exemplo.com.br, ......"
-      invitation_message_field_placeholder: "Entrei para esta comunidade incrível. Você também deveria!"
+      invitation_message_field_placeholder: "Entrei para este mercado virtual incrível. Você também deveria!"
       errors_in_emails: "Verifique que os e-mails que você adiciona são validos. Se você adicionar vários e-mails, verifique se eles são separados pour uma vírgula."
     list_item:
       review: opinião
@@ -1033,7 +1033,7 @@ pt-BR:
   infos:
     about:
       default_about_text_title: "O que é Sharetribe?"
-      default_about_text: "Este mercado é alimentado pela plataforma Sharetribe. Com Sharetribe você pode facilmente criar o seu próprio site de mercado. É gratuito e leva apenas um minuto. %{click_here_link} para saber mais!"
+      default_about_text: "Este mercado virtual é gerenciado pela plataforma Sharetribe. Com Sharetribe você pode facilmente criar o seu próprio site de mercado virtual. É gratuito e leva apenas um minuto. %{click_here_link} para saber mais!"
       click_here_link_text: "Clique aqui"
     how_to_use:
       default_title: "Como funciona"
@@ -1046,7 +1046,7 @@ pt-BR:
       settings: Configurações
       feedback: Contato
     application:
-      join_this_community: "Cadastrar na comunidade"
+      join_this_community: "Juntar-se ao mercado virtual"
       read_more: "Ler o seguinte"
       feedback: "O que você gostaria de nos contar?"
       default_feedback: "Você encontrou um problema com %{service_name}? Tem alguma sugestão para melhorar o serviço? Notou algum conteúdo suspeito? Ou você simplesmente quer discutir algo com a gente? Mande sua mensagem!"
@@ -1435,7 +1435,7 @@ pt-BR:
       time: hora
       times: vezes
       times_viewed: Visualizado
-      processing_uploaded_image: "(Processando imagem carregada...)"
+      processing_uploaded_image: "(Processando imagem...)"
       price_excludes_vat: "(exclui VAT)"
       listing_created_at: "Anúncio criado"
       price:
@@ -1452,7 +1452,9 @@ pt-BR:
       by: "%{listing} por %{author}"
       payment: Pagamento
       exp: "Validade:"
-      you_will_be_charged: ~
+      you_will_be_charged: |-
+          Você só será cobrado se %{author} aceitar a transação.
+          %{author} precisa aceitar a transação em no máximo %{expiration_period} dias. Se %{author} rejeitar ou não responder neste período você não será cobrado.
       day: dia
       days: dias
       price_per_day: "Preço por dia: %{price}"
@@ -1545,7 +1547,7 @@ pt-BR:
     cancel_succesful: "Pagamento PayPal cancelado com sucesso."
     transaction:
       commission_payment_name: "Pagamento de comissão para %{listing_title}"
-      commission_payment_description: "O mercado %{service_name} obteve esta comissão da transação relativa a %{listing_title}"
+      commission_payment_description: "O mercado virtual %{service_name} obteve esta comissão da transação relativa ao anúncio %{listing_title}"
     wait_while_loading: "Aguarde, por favor."
     chatting_with_paypal: "Estamos conversando com o PayPal."
   people:
@@ -1587,14 +1589,14 @@ pt-BR:
       terms: "termos de uso"
       username_is_in_use: "Este nome de usuário já está em uso."
       username_is_invalid: "Nome de usuário é inválido. Os caracteres permitidos são letras, números e sublinhado."
-      visible_only_to_you: "visível apenas para você e para o administrador comunidade"
+      visible_only_to_you: "visível apenas para você e para o administrador do mercado virtual"
       visible_to_everybody: "visível para todos"
       create_account_with_facebook: "Criar uma conta no Facebook"
       OR: OU
       signup_with_email: "Registre-se com e-mail"
     not_member:
-      explanation_text: "Você está atualmente na comunidade %{community}. Você tentou ver o perfil de um usuário que pertence a outra comunidade Sharetribe. Você não pode acessar este perfil através da comunidade %{community}."
-      read_more_about_kassi_communities: "Leia mais sobre comunidades Sharetribe"
+      explanation_text: "Você está atualmente navegando na %{community}. Você tentou ver o perfil de um membro que pertence a outro mercado virtual criado com a plataforma Sharetribe. Você não pode acessar este perfil de usuário na %{community}."
+      read_more_about_kassi_communities: "Leia mais sobre os mercados virtuais da Sharetribe"
       this_user_does_not_belong_to_this_community: "Este usuário não pertence a %{community} comunidade"
     profile_feedback:
       as_expected: "Como esperado"
@@ -1690,9 +1692,9 @@ pt-BR:
       change_email: Trocar
       confirm_your_email: "Confirme o seu e-mail"
       account_confirmation_instructions: "Você receberá um e-mail com um link que você precisa clicar para confirmar o endereço de email que você digitou. Após a confirmação de e-mail você pode participar desta comunidade."
-      account_confirmation_instructions_title_admin: "Bem-vindo(a) ao seu mercado!"
-      your_marketplace_has_now_been_created: "Seu site de mercado já foi criado. Isso foi fácil, não foi? Há apenas mais um passo para que possa acessar seu site: você precisa confirmar o seu endereço de e-mail."
-      account_confirmation_instructions_admin: "Em breve você receberá um e-mail com um link que deve ser clicado para confirmar o endereço de e-mail informado. Após a confirmação do e-mail, você pode começar a configurar o seu mercado."
+      account_confirmation_instructions_title_admin: "Bem-vindo(a) ao seu mercado virtual!"
+      your_marketplace_has_now_been_created: "Seu site de mercado virtual já foi criado. Isso foi fácil, não foi? Há apenas mais um passo para que possa acessar seu site: você precisa confirmar o seu endereço de e-mail."
+      account_confirmation_instructions_admin: "Em breve você receberá um e-mail com um link que deve ser clicado para confirmar o endereço de e-mail informado. Após a confirmação do seu e-mail, você pode começar a configurar o seu mercado."
   settings:
     account:
       change: Alterar
@@ -1702,7 +1704,7 @@ pt-BR:
       delete_account_confirmation_popup: "Você tem certeza que realmente quer apagar sua conta de usuário e perder permanentemente todos os dados relacionados à ela? A exclusão da conta não pode ser revertida."
       email_addresses: "Endereço de e-mail"
       new_email: "Novo endereço de e-mail"
-      delete_all_memberships: "Se você excluir sua conta, não será capaz de usá-la mais nos seguintes mercados: %{marketplaces}"
+      delete_all_memberships: "Se você excluir sua conta, não será capaz de usá-la mais nos seguintes mercados virtuais: %{marketplaces}"
       delete_personal_information: "Se você excluir sua conta, suas informações pessoais (nome, número de telefone, endereço, e-mail, foto do perfil, etc.) serão excluídas permanentemente e não poderão ser recuperadas. Todos os anúncios que você criou serão removidos. Você não será capaz de reativar a sua conta."
       delete_information_others_involved: "Informações onde outros membros estão envolvidos (conversas com outras pessoas, transações que você fez, comentários que você tenha dado aos outros, etc) não serão removidas quando você excluir sua conta. No entanto, seu nome não será mais exibido próximo a essas informações."
       unfinished_transactions: "Sua conta não pode ser excluída porque você tem transações em andamento. Por favor, conclua todas as transações antes de excluir a sua conta."
@@ -1802,8 +1804,8 @@ pt-BR:
       send_feedback: "Enviar feedback"
       slightly_better_than_expected: "Ligeiramente melhor do que o esperado"
       slightly_less_than_expected: "Um pouco pior do que o esperado"
-      textual_feedback: "Como é que as coisas vão?"
-      this_will_be_shown_in_profile: "A sua opinião será visível pelos outros usuários no seu perfil %{person}. Isso ajuda os outros membros a saber se %{person} é uma pessoa de confiança."
+      textual_feedback: "Como foi sua experiência?"
+      this_will_be_shown_in_profile: "A sua opinião será visível pelos outros usuários no perfil do %{person}. Isso ajuda os outros membros a saber se %{person} é uma pessoa de confiança."
       positive: Positivo
       negative: Negativo
       default_textual_feedback: "Tudo correu bem, muito obrigado!"
