@@ -124,6 +124,7 @@ class Transaction < ActiveRecord::Base
 
   # If listing is an offer, return request, otherwise return offer
   def discussion_type
+    raise "transaction.discussion_type is deprecated"
     listing.transaction_type.is_request? ? "offer" : "request"
   end
 

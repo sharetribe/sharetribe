@@ -26,18 +26,22 @@ class Inquiry < TransactionType
   DEFAULTS = {}
 
   def direction
+    raise "Inquiry.direction is deprecated"
     "inquiry"
   end
 
   def is_offer?
+    raise "Inquiry.is_offer is deprecated"
     false
   end
 
   def is_request?
+    raise "Inquiry.is_request is deprecated"
     false
   end
 
   def is_inquiry?
+    raise "Inquiry.is_inquiry is deprecated"
     true
   end
 

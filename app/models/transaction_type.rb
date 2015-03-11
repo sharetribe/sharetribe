@@ -67,6 +67,7 @@ class TransactionType < ActiveRecord::Base
   end
 
   def status_after_reply
+    raise "TransactionType.status_after_reply is deprecated"
     "free"
   end
 

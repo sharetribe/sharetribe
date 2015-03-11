@@ -32,18 +32,22 @@ class Request < TransactionType
   end
 
   def direction
+    raise "Request.direction is deprecated"
     "request"
   end
 
   def is_offer?
+    raise "Request.is_offer is deprecated"
     false
   end
 
   def is_request?
+    raise "Request.is_request is deprecated"
     true
   end
 
   def is_inquiry?
+    raise "Request.is_inquiry is deprecated"
     false
   end
 

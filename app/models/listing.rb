@@ -330,6 +330,7 @@ class Listing < ActiveRecord::Base
   end
 
   def self.opposite_type(type)
+    raise "Listing.opposite_type is deprecated"
     type.eql?("offer") ? "request" : "offer"
   end
 

@@ -24,22 +24,27 @@
 class Offer < TransactionType
 
   def direction
+    raise "Offer.direction is deprecated"
     "offer"
   end
 
   def is_offer?
+    raise "Offer.is_offer is deprecated"
     true
   end
 
   def is_request?
+    raise "Offer.is_request is deprecated"
     false
   end
 
   def is_inquiry?
+    raise "Offer.is_inquiry is deprecated"
     false
   end
 
   def status_after_reply
+    raise "Offer.status_after_reply is deprecated"
     process_res = TransactionService::API::Api.processes.get(
       community_id: community_id,
       process_id: transaction_process_id
