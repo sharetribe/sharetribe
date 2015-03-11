@@ -81,6 +81,24 @@ describe TranslationService::API::Translations do
     expect(result[:data]).to eq(@translations_with_keys)
   end
 
+  it "GET request with community_id, locales, and fallback_locale" do
+    TranslationsAPI.create(@community_id, @translations_groups)
+
+    locale_sv_missing_fallback =
+      { translation_key: @translation_key1,
+        locale: @locale_en,
+        translation: @translation_en,
+        warn: :TRANSLATION_LOCALE_MISSING
+      }
+
+    result = TranslationsAPI.get(@community_id, {
+      locales: [@locale_sv],
+      fallback_locale: @locale_en
+    })
+    expect(result[:success]).to eq(true)
+    expect(result[:data]).to eq([locale_sv_missing_fallback])
+  end
+
 
   it "GET request with only community_id, translation_keys and locales" do
     TranslationsAPI.create(@community_id, @translations_groups)

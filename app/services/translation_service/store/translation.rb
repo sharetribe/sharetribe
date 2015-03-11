@@ -52,20 +52,13 @@ module TranslationService::Store::Translation
   # {community_id: 1, translation_keys: ["aa", "bb", "cc"], locales: ["en", "fi-FI", "sv-SE"], fallback_locale: "en"}
   def get(community_id:, translation_keys: [], locales: [], fallback_locale:nil)
 
-    translations = Maybe(CommunityTranslationModel
-        .where(get_search_hash(community_id, translation_keys, locales))
-        .order("translation_key ASC")
-      )
-      .map { |models|
-        from_model_array(models)
-      }
-      .or_else([])
-
     # add missing values if we know what values are expected
-    if translation_keys.present? && locales.present?
+    if locales.present?
+      locales_with_fallback = locales | [fallback_locale] if fallback_locale.present?
+      translations = get_translations(get_search_hash(community_id, translation_keys, locales_with_fallback))
       fill_in_delta(translations, translation_keys, locales, fallback_locale)
     else
-      translations
+      get_translations(get_search_hash(community_id, translation_keys, locales))
     end
 
   end
@@ -92,6 +85,18 @@ module TranslationService::Store::Translation
 
   def gen_translation_uuid(community_id)
     SecureRandom.uuid
+  end
+
+  def get_translations(options)
+    options.assert_valid_keys(:community_id, :translation_key, :locale)
+    Maybe(CommunityTranslationModel
+        .where(options)
+        .order("translation_key ASC")
+      )
+      .map { |models|
+        from_model_array(models)
+      }
+      .or_else([])
   end
 
   def create_translation(options)
@@ -135,8 +140,19 @@ module TranslationService::Store::Translation
   # if translation_hash does not include all combinations, add them
   def fill_in_delta(translations_hash, translation_keys, locales, fallback_locale)
 
+    keys =
+      if translation_keys.present?
+        translation_keys
+      else
+        translations_hash
+          .map { |translation|
+            translation[:translation_key]
+          }
+          .uniq
+      end
+
     results = []
-    translation_keys.each { |key|
+    keys.each { |key|
       locales.each { |locale|
 
         results.push(
