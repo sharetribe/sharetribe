@@ -20,6 +20,8 @@ class FixTransactionProcessValues < ActiveRecord::Migration
          transaction_types.type != 'Request' AND
          (transaction_types.price_field IS NULL OR transaction_types.type = 'Inquiry') AND
          transaction_processes.id IS NULL
+
+        GROUP BY community_id, process, author_is_seller
       )
     ")
 
