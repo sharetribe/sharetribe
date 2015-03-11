@@ -312,6 +312,7 @@ class Listing < ActiveRecord::Base
   # Listing type is not anymore stored separately, so we serach it by share_type top level parent
   # And return a string here, as that's what expected in most existing cases (e.g. translation strings)
   def listing_type
+    raise "listing.listing_type is deprecated"
     return transaction_type.direction
   end
 
@@ -331,17 +332,20 @@ class Listing < ActiveRecord::Base
 
   # Returns true if the given person is offerer and false if requester
   def offerer?(person)
+    raise "listing.offerer? is deprecated"
     (transaction_type.is_offer? && author.eql?(person)) || (transaction_type.is_request? && !author.eql?(person))
   end
 
   # Returns true if the given person is requester and false if offerer
   def requester?(person)
+    raise "listing.requester? is deprecated"
     (transaction_type.is_request? && author.eql?(person)) || (transaction_type.is_offer? && !author.eql?(person))
   end
 
   # If listing is an offer, a discussion about the listing
   # should be request, and vice versa
   def discussion_type
+    raise "discussion_type.requester? is deprecated"
     transaction_type.is_request? ? "offer" : "request"
   end
 
