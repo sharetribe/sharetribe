@@ -48,6 +48,10 @@ class Admin::CommunityTransactionsController < ApplicationController
       transaction.merge({author: author, starter: starter})
     end
 
+    # TODO Fix this with sktoiva
+    #
+    # See https://github.com/sharetribe/sharetribe/commit/8dfe54c227be944f75038a08a2188b7e2cfa3b11
+    raise "FIX ME, WHAT TO DO?"
     conversations = conversations.reject { |c| c[:discussion_type] == :not_available }
 
     conversations = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|

@@ -10,7 +10,6 @@ module MarketplaceService
         :last_transition,
         :last_transition_at,
         :listing,
-        :discussion_type, # :offer or :request, opposite of transaction_type direction
         :status,
         :author_skipped_feedback,
         :starter_skipped_feedback,

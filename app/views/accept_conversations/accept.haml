@@ -6,7 +6,7 @@
   %h1= t("layouts.no_tribe.inbox")
 
 .conversation-status-form{:class => (@current_community.vat ? "centered-section-wide" : "centered-section")}
-  %h2= t("conversations.accept.respond_to_#{@listing_conversation.discussion_type}")
+  %h2= t("conversations.accept.respond_to_request")
   = form_for @listing_conversation, :url => acceptance_person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id), :html => { :method => "put" } do |form|
 
     .conversation-action
@@ -15,7 +15,7 @@
           = radio_button_tag "listing_conversation[status]", "#{action}ed", @action.eql?(action), :id => "action-#{action}"
         %a.conversation-action.hidden{:id => "#{action}", :name => "#{action}-link", :class => (@action.eql?(action) ? action : "")}
           .link-icon{:class => icon_for("#{action}ed")}
-          .link-text{:id => "#{action}-action-link"}= t("conversations.accept.#{action}_#{@listing_conversation.discussion_type}")
+          .link-text{:id => "#{action}-action-link"}= t("conversations.accept.#{action}_request")
 
     - if @payout_registration_missing
       .hidden-accept-form.visible-when-accept{:class => (@action.eql?("accept") ? "" : "hidden")}

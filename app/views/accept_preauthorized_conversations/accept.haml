@@ -86,13 +86,13 @@
         = radio_button_tag "listing_conversation[status]", "paid", preselected_action.eql?("accept"), :id => "accept-link"
       %a.conversation-action{:id => "accept", :name => "accept-link", :class => (preselected_action.eql?("accept") ? "accept" : "")}
         .link-icon{:class => icon_for("accepted")}
-        .link-text{:id => "accept-action-link"}= t("conversations.accept.accept_#{discussion_type}")
+        .link-text{:id => "accept-action-link"}= t("conversations.accept.accept_request")
 
       %label{:for => "action-reject", :class => "radio hidden"}
         = radio_button_tag "listing_conversation[status]", "rejected", preselected_action.eql?("reject"), :id => "reject-link"
       %a.conversation-action{:id => "reject", :name => "reject-link", :class => (preselected_action.eql?("reject") ? "reject" : "")}
         .link-icon{:class => icon_for("rejected")}
-        .link-text{:id => "reject-action-link"}= t("conversations.accept.reject_#{discussion_type}")
+        .link-text{:id => "reject-action-link"}= t("conversations.accept.reject_request")
 
     %div
       = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|

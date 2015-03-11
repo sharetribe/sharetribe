@@ -40,7 +40,7 @@ class AcceptConversationsController < ApplicationController
       MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, params[:listing_conversation][:status])
       MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
 
-      flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_#{params[:listing_conversation][:status]}")
+      flash[:notice] = t("layouts.notifications.request_#{params[:listing_conversation][:status]}")
       redirect_to person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
     else
       flash[:error] = t("layouts.notifications.something_went_wrong")

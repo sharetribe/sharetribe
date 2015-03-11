@@ -89,9 +89,9 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   def success_msg(listing_conversation, flow)
     if flow == :accept
-      t("layouts.notifications.#{listing_conversation.discussion_type}_accepted")
+      t("layouts.notifications.request_accepted")
     elsif flow == :reject
-      t("layouts.notifications.#{listing_conversation.discussion_type}_rejected")
+      t("layouts.notifications.request_rejected")
     end
   end
 
@@ -124,7 +124,6 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
     render "accept", locals: {
       payment_gateway: :paypal,
-      discussion_type: transaction_conversation[:discussion_type],
       listing: @listing,
       booking: transaction[:booking],
       orderer: @listing_conversation.starter,
@@ -145,7 +144,6 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   def render_braintree_form(preselected_action)
     render action: :accept, locals: {
       payment_gateway: :braintree,
-      discussion_type: @listing_conversation.discussion_type,
       listing: @listing,
       booking: @listing_conversation.booking,
       orderer: @listing_conversation.starter,
