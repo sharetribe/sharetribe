@@ -402,6 +402,7 @@ es-ES:
     paypal_fee_info:
       title: ~
       body: ~
+      body_with_shipping_info: ~
   conversations:
     accept:
       details: ~
@@ -1307,6 +1308,10 @@ es-ES:
         after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "El precio no incluye IVA."
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        pickup: ~
       origin:
         location: "Dirección (Calle, Código postal, Ciudad...)"
         origin: Origen

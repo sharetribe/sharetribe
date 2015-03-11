@@ -1308,10 +1308,10 @@ fi:
         after_service_fee_you_will_get_paypal: "%{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksu</a> vähennetään hinnasta."
         after_service_fee_you_will_get_vat: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat noin %{sum_with_currency} (ALV 0%)"
         price_excludes_vat: "Merkitse tähän alv 0 -hinta."
-        delivery: "Kuljetus"
-        shipping: "Postitus"
+        delivery: Kuljetus
+        shipping: Postitus
         shipping_price: "Postituksen hinta"
-        pickup: "Nouto"
+        pickup: Nouto
       origin:
         location: Sijainti
         origin: Lähtöpaikka

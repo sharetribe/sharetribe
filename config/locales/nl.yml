@@ -400,6 +400,7 @@ nl:
     paypal_fee_info:
       title: "Processing kost PayPal"
       body: ~
+      body_with_shipping_info: ~
   conversations:
     accept:
       details: "Order details"
@@ -1303,6 +1304,10 @@ nl:
         after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: "Na commissie voor %{service_name} en kosten voor de financiële transactie, zal je ongeveer %{sum_with_currency} ontvangen (BTW 0%)"
         price_excludes_vat: "De prijs is exclusief BTW."
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        pickup: ~
       origin:
         location: Locatie
         origin: Oorsprong

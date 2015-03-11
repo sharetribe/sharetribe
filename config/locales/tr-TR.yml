@@ -395,6 +395,7 @@ tr-TR:
     paypal_fee_info:
       title: ~
       body: ~
+      body_with_shipping_info: ~
   conversations:
     accept:
       details: ~
@@ -1298,6 +1299,10 @@ tr-TR:
         after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: "%{service_name} hizmet bedeli düşüldükten sonra, yaklaşık %{sum_with_currency} tutarında ödeme alacaksınız (KDV 0%)"
         price_excludes_vat: "Fiyata KDV dahil değildir."
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        pickup: ~
       origin:
         location: Konum
         origin: Kaynak

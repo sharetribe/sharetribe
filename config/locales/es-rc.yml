@@ -385,6 +385,7 @@ es-rc:
     paypal_fee_info:
       title: ~
       body: ~
+      body_with_shipping_info: ~
   conversations:
     accept:
       details: ~
@@ -1320,6 +1321,10 @@ es-rc:
         after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        pickup: ~
       origin:
         location: Ubicación
         origin: ~

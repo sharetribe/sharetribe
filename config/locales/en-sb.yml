@@ -541,6 +541,7 @@ en-sb:
     paypal_fee_info:
       title: ~
       body: ~
+      body_with_shipping_info: ~
   conversations:
     accept:
       details: ~
@@ -1444,6 +1445,10 @@ en-sb:
         after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        pickup: ~
       origin:
         location: ~
         origin: ~

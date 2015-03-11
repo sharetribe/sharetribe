@@ -395,6 +395,7 @@ zh:
     paypal_fee_info:
       title: PayPal的支付处理费
       body: "PayPal对每笔付款收取一笔处理费。该费用介于总销售费用的2%到5%之间，取决于你的月销售量和卖家所在国家。总的说来，国内购买者比国际购买者的费用低，每月销售额高则可以获得费用折扣。你可以通过登录你的PayPal帐号访问<a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>这里</a>。来查看详细费用。在每次购买之后你将得到一据显示具体费用的收据。"
+      body_with_shipping_info: ~
   conversations:
     accept:
       details: 订单明细
@@ -1298,6 +1299,10 @@ zh:
         after_service_fee_you_will_get_paypal: "%{service_name} 费 (%{sum_with_currency}) 和 <a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费</a> 将从价格中减去."
         after_service_fee_you_will_get_vat: "在%{service_name}和付款处理费用之后你将得到大概%{sum_with_currency}（0%消费税）"
         price_excludes_vat: 价格不包含VAT。
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        pickup: ~
       origin:
         location: 地点
         origin: 来源

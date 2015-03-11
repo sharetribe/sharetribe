@@ -402,6 +402,7 @@ de:
       body: |-
           PayPal erhebt eine Bearbeitungsgebühr in Höhe von jeder Zahlung. Diese Gebühr ist zwischen 2% und 5% der gesamten Verkaufspreis, abhängig von Ihrem monatlichen Umsatz und Wohnsitzland des Käufers. Im Allgemeinen haben die inländischen Käufe niedrigere Gebühren als diejenigen internationalen und höhere Monatsumsätze geben Ihnen einen Rabatt auf Gebühren.
           Die genauen Gebühren siehst Du, indem Du Dich in Dein PayPal-Konto einloggst und zu <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>hier gehst</a>. Nach jedem Kauf erhälst Du einen Beleg mit den exakten Gebühren.
+      body_with_shipping_info: ~
   conversations:
     accept:
       details: Buchungsdetails
@@ -1305,6 +1306,10 @@ de:
         after_service_fee_you_will_get_paypal: "%{service_name} Gebühr %{sum_with_currency} und <a id='%{fee_info_link_id}' href='#'>PayPal's Zahlungsbearbeitungsgebühr</a> wird vom Preis abgezogen werden."
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        pickup: ~
       origin:
         location: Standort
         origin: Herkunft

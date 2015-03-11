@@ -400,6 +400,7 @@ da-DK:
     paypal_fee_info:
       title: ~
       body: ~
+      body_with_shipping_info: ~
   conversations:
     accept:
       details: ~
@@ -1303,6 +1304,10 @@ da-DK:
         after_service_fee_you_will_get_paypal: ~
         after_service_fee_you_will_get_vat: "Efter %{service_name} service fee's vil du modtage: %{sum_with_currency}"
         price_excludes_vat: "Prisen er eksklusiv moms"
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        pickup: ~
       origin:
         location: Sted
         origin: Oprindelse
