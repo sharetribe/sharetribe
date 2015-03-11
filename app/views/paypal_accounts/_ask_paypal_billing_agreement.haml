@@ -11,19 +11,20 @@
     = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement")
 
   .row
+    - paypal_info_link = "<a id='paypal_fee_info_link' href='#'>#{t("paypal_accounts.new.paypal_info_link_text")}</a>"
     - if commission_type == :both
-      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_fee_both",
+      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info_both",
       commission_from_seller: commission_from_seller,
       minimum_commission: humanized_money_with_symbol(minimum_commission),
-      fee_info_link_id: "paypal_fee_info_link").html_safe }
+      paypal_info_link: paypal_info_link).html_safe }
     - elsif commission_type == :relative
-      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_fee_relative",
+      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info_relative",
       commission_from_seller: commission_from_seller,
-      fee_info_link_id: "paypal_fee_info_link").html_safe }
+      paypal_info_link: paypal_info_link).html_safe }
     - elsif commission_type == :fixed
-      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_fee_fixed",
+      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info_fixed",
       minimum_commission: humanized_money_with_symbol(minimum_commission),
-      fee_info_link_id: "paypal_fee_info_link").html_safe }
+      paypal_info_link: paypal_info_link).html_safe }
 
   .row.send-button-wrapper
     = form.button t("paypal_accounts.new.billing_agreement"), :class => "send_button"
