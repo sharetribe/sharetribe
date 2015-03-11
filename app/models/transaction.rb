@@ -6,7 +6,7 @@
 #  starter_id                        :string(255)      not null
 #  listing_id                        :integer          not null
 #  conversation_id                   :integer
-#  automatic_confirmation_after_days :integer
+#  automatic_confirmation_after_days :integer          not null
 #  community_id                      :integer          not null
 #  created_at                        :datetime         not null
 #  updated_at                        :datetime         not null
