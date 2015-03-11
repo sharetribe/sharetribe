@@ -28,6 +28,7 @@ module MarketplaceService
       module_function
 
       def transaction_direction(transaction_type)
+        raise "MarketplaceService::Listing.transaction_direction is deprecated"
         direction_map = {
           ["Give", "Lend", "Rent", "Sell", "Service", "ShareForFree", "Swap", "Offer"] => "offer",
           ["Request"] => "request",
@@ -44,6 +45,7 @@ module MarketplaceService
       end
 
       def discussion_type(transaction_type)
+        raise "MarketplaceService::Listing.discussion_type is deprecated"
         case transaction_direction(transaction_type)
         when "request"
           "offer"
