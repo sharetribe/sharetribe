@@ -75,7 +75,7 @@ module TransactionTypeCreator
     throw "Transaction process '#{process}' not available. Available processes are: #{TRANSACTION_PROCESSES.join(', ')}" unless TRANSACTION_PROCESSES.include? process.to_sym
 
     author_is_seller = transaction_type_class_name != "Request"
-    transaction_process = TransactionProcess.where(community_id: community.id, author_is_seller: author_is_seller, process: process).first_or_create!
+    transaction_process = get_or_create_transaction_process(community_id: community.id, process: process, author_is_seller: author_is_seller)
 
     transaction_type_description = TRANSACTION_TYPES[transaction_type_class_name]
     defaults = transaction_type_description[:defaults] || {}
@@ -84,7 +84,7 @@ module TransactionTypeCreator
     transaction_type = community.transaction_types.build(
       {
         type: transaction_type_class_name,
-        transaction_process_id: transaction_process.id
+        transaction_process_id: transaction_process[:id]
       }.merge(defaults)
     )
 
@@ -117,5 +117,23 @@ module TransactionTypeCreator
 
   def use_in_category(category, transaction_type)
     CategoryTransactionType.create(:category_id => category.id, :transaction_type_id => transaction_type.id)
+  end
+
+  def get_or_create_transaction_process(community_id:, process:, author_is_seller:)
+    Maybe(
+      TransactionService::API::Api.processes.get(
+      community_id: community_id,
+    ))
+      .map { |res| res.data }
+      .map { |processes|
+        processes.find { |p| p[:process] == process.to_s && p[:author_is_seller] == author_is_seller }
+      }
+      .or_else {
+        TransactionService::API::Api.processes.create(
+          community_id: community_id,
+          process: process,
+          author_is_seller: author_is_seller
+        ).data
+      }
   end
 end

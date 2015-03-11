@@ -110,15 +110,19 @@ class ListingsController < ApplicationController
 
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
-    payment_process = select_payment_process(
-      price_field: @listing.transaction_type.price_field?,
-      preauthorize: @listing.transaction_type.preauthorize_payment?,
-      payment_gateway_available: payment_gateway.present?)
+    # TODO Change this so that the path is always the same, but the controller
+    # decides what to do. We don't want to make a API call to TransactionService
+    # just to show a listing details
+    process_res = TransactionService::API::Api.processes.get(
+      community_id: @current_community.id,
+      process_id: @listing.transaction_type.transaction_process_id
+    )
+    process = process_res.data[:process].to_sym
 
     form_path = select_new_transaction_path(
       listing_id: @listing.id.to_s,
       payment_gateway: payment_gateway,
-      payment_process: payment_process,
+      payment_process: process,
       booking: @listing.transaction_type.price_per.present?
     )
 
@@ -509,20 +513,6 @@ class ListingsController < ApplicationController
       [can_post, error_msg]
     else
       [true, ""]
-    end
-  end
-
-  # This is wrong place, yes, but this method will be soon removed
-  def select_payment_process(price_field:, payment_gateway_available:, preauthorize:)
-    case [price_field, payment_gateway_available, preauthorize]
-    when matches([false])
-      :none
-    when matches([__, false])
-      :none
-    when matches([__, __, true])
-      :preauthorize
-    else
-      :postpay
     end
   end
 

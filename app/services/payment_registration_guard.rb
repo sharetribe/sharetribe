@@ -21,7 +21,12 @@ class PaymentRegistrationGuard
   end
 
   def preauthorize_flow_in_use?
-    @listing.transaction_type.preauthorize_payment?
+    process_res = TransactionService::API::Api.processes.get(
+      community_id: @listing.transaction_type.community_id,
+      process_id: @listing.transaction_type.transaction_process_id
+    )
+
+    process_res.data[:process].to_sym == :preauthorize
   end
 
   def not_registered_already?

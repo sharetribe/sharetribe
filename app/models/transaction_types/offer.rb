@@ -40,14 +40,20 @@ class Offer < TransactionType
   end
 
   def status_after_reply
-    if price_field? && community.payments_in_use?
-      if preauthorize_payment?
-        "preauthorize"
-      else
-        "pending"
-      end
-    else
+    process_res = TransactionService::API::Api.processes.get(
+      community_id: community_id,
+      process_id: transaction_process_id
+    )
+
+    case process_res.data[:process].to_sym
+    when :preauthorize
+      "preauthorize"
+    when :postpay
+      "pending"
+    when :none
       "free"
+    else
+      raise ArgumentError.new("Can not find order flow for process #{process}")
     end
   end
 

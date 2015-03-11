@@ -5,43 +5,28 @@ module TestHelpers
 
     DEFAULT_TRANSACTION_TYPES_FOR_TESTS = {
       Sell: {
-        process: :preauthorize,
-        translations: {
-          en: {
-            name: "Selling", action_button_label: "Buy this item"
-          }
+        en: {
+          name: "Selling", action_button_label: "Buy this item"
         }
       },
       Lend: {
-        process: :none,
-        translations: {
-          en: {
-            name: "Lending", action_button_label: "Borrow this item"
-          }
+        en: {
+          name: "Lending", action_button_label: "Borrow this item"
         }
       },
       Rent: {
-        process: :preauthorize,
-        translations: {
-          en: {
-            name: "Renting", action_button_label: "Rent this item"
-          }
+        en: {
+          name: "Renting", action_button_label: "Rent this item"
         }
       },
       Request: {
-        process: :none,
-        translations: {
-          en: {
-            name: "Requesting", action_button_label: "Offer"
-          }
+        en: {
+          name: "Requesting", action_button_label: "Offer"
         }
       },
       Service: {
-        process: :preauthorize,
-        translations: {
-          en: {
-            name: "Selling services", action_button_label: ""
-          }
+        en: {
+          name: "Selling services", action_button_label: ""
         }
       }
     }
@@ -63,15 +48,23 @@ module TestHelpers
 
     def self.load_categories_and_transaction_types_to_db(community, transaction_types, categories)
       processes = [:none, :preauthorize, :postpay].inject({}) { |memo, process|
-        memo.tap { |m| m[process] = TransactionProcess.create(community_id: community.id, process: process).id }
+        memo.tap { |m|
+          process_res = TransactionService::API::Api.processes.create(
+            community_id: community.id,
+            process: process,
+            author_is_seller: true
+          )
+
+          memo[process] = process_res.data[:id]
+        }
       }
 
       # Load transaction types
-      transaction_types.each do |type, opts|
+      transaction_types.each do |type, translations|
 
-        transaction_type = Object.const_get(type.to_s).create!(type: type, community_id: community.id, transaction_process_id: processes[opts[:process]])
+        transaction_type = Object.const_get(type.to_s).create!(type: type, community_id: community.id, transaction_process_id: processes[:none])
         community.locales.each do |locale|
-          translation = opts[:translations][locale.to_sym]
+          translation = translations[locale.to_sym]
 
           if translation then
             tt_name = translation[:name]
