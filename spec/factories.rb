@@ -122,6 +122,7 @@ FactoryGirl.define do
     listing_author_id { listing.author.id }
     unit_price { listing.price }
     commission_from_seller 0
+    automatic_confirmation_after_days 14
     listing_quantity 1
   end
 

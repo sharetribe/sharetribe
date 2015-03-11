@@ -20,6 +20,7 @@ describe TransactionService::PaypalEvents do
       payment_gateway: opts[:payment_gateway],
       payment_process: opts[:payment_process],
       commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
+      automatic_confirmation_after_days: 14,
       minimum_commission: opts[:minimum_commission])
 
     conversation = transaction.build_conversation(
