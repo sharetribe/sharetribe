@@ -30,7 +30,7 @@ class PersonMailer < ActionMailer::Base
 
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
-         :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(transaction.listing.direction)}_was_#{transaction.status}"))
+         :subject => t("emails.conversation_status_changed.your_request_was_#{transaction.status}"))
   end
 
   def new_message_notification(message, community)
@@ -129,7 +129,7 @@ class PersonMailer < ActionMailer::Base
     @conversation = conversation
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
-         :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}", :sender_name => @conversation.other_party(@recipient).name(community)))
+         :subject => t("emails.accept_reminder.remember_to_accept_request", :sender_name => @conversation.other_party(@recipient).name(community)))
   end
 
   # Remind users to pay

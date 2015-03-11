@@ -117,7 +117,6 @@ module MarketplaceService
           transitions: transaction_model.transaction_transitions.map { |transition|
             Transition[EntityUtils.model_to_hash(transition)]
           },
-          discussion_type: Maybe(listing_model).discussion_type.to_sym.or_else(:not_available),
           payment_total: payment_total,
           booking: transaction_model.booking,
           __model: transaction_model

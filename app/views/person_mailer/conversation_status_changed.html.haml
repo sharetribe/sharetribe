@@ -11,7 +11,7 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.conversation_status_changed.has_#{@transaction.status}_your_#{Listing.opposite_type(@transaction.listing.direction)}", :accepter => @transaction.listing.author.name(@current_community), :listing => @transaction.listing_title)
+      = t("emails.conversation_status_changed.has_#{@transaction.status}_your_request", :accepter => @transaction.listing.author.name(@current_community), :listing => @transaction.listing_title)
       = additional_text
 
 -# TODO: Should we link transition to message?

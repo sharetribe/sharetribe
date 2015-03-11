@@ -24,7 +24,7 @@ atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss'
       # the strftime is needed to work with Google Reader.
       #entry.updated(listing.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
 
-      entry.st :listing_type, :term => listing.direction, :label => localized_listing_type_label(listing.direction)
+      entry.st :listing_type, :term => direction_map[listing.transaction_type.id], :label => localized_listing_type_label(direction_map[listing.transaction_type.id])
 
         # TODO: add scheme link to point to url where that category of that community is shown
       entry.category :term => listing.category.id, :label => localized_category_label(listing.category)

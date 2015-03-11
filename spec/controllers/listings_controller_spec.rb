@@ -28,12 +28,17 @@ describe ListingsController do
     @category_rideshare = FactoryGirl.create(:category, :community => @c1)
     @category_furniture = FactoryGirl.create(:category, :community => @c1)
 
-    @transaction_type_request = FactoryGirl.create(:transaction_type_request)
-    @transaction_type_sell = FactoryGirl.create(:transaction_type_sell, :categories => [@category_item, @category_furniture], :community => @c1)
-    @transaction_type_sell_c2 = FactoryGirl.create(:transaction_type_sell, :community => @c2)
-    @transaction_type_request_c2 = FactoryGirl.create(:transaction_type_request, :community => @c2)
+    c1_request_process = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: false)
+    c1_offer_process = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: true)
+    c2_request_process = TransactionProcess.create(community_id: @c2.id, process: :none, author_is_seller: false)
+    c2_offer_process = TransactionProcess.create(community_id: @c2.id, process: :none, author_is_seller: true)
+
+    @transaction_type_request = FactoryGirl.create(:transaction_type_request, transaction_process_id: c1_request_process.id)
+    @transaction_type_sell = FactoryGirl.create(:transaction_type_sell, :categories => [@category_item, @category_furniture], :community => @c1, transaction_process_id: c1_offer_process.id)
+    @transaction_type_sell_c2 = FactoryGirl.create(:transaction_type_sell, :community => @c2, transaction_process_id: c2_offer_process.id)
+    @transaction_type_request_c2 = FactoryGirl.create(:transaction_type_request, :community => @c2, transaction_process_id: c2_request_process.id)
     @transaction_type_sell.translations << FactoryGirl.create(:transaction_type_translation, :name => "Myydään", :locale => "fi", :transaction_type => @transaction_type_sell)
-    @transaction_type_service_offer = FactoryGirl.create(:transaction_type_service, :categories => [@category_favor], :community => @c1)
+    @transaction_type_service_offer = FactoryGirl.create(:transaction_type_service, :categories => [@category_favor], :community => @c1, transaction_process_id: c1_offer_process.id)
 
     @l1 = FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :sort_date => 3.days.ago, :author => @p1, :privacy => "public")
     @l1.communities = [@c1]
