@@ -329,11 +329,6 @@ class Listing < ActiveRecord::Base
     !open? || (valid_until && valid_until < DateTime.now)
   end
 
-  def self.opposite_type(type)
-    raise "Listing.opposite_type is deprecated"
-    type.eql?("offer") ? "request" : "offer"
-  end
-
   # Returns true if the given person is offerer and false if requester
   def offerer?(person)
     (transaction_type.is_offer? && author.eql?(person)) || (transaction_type.is_request? && !author.eql?(person))
