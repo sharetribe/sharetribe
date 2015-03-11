@@ -570,6 +570,19 @@ function initialize_new_listing_form(
   $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
   $('input.title_text_field:first').focus();
 
+  var $shipping_price_container = $('.shipping-price-container');
+  var $shipping_checkbox = $('#shipping-checkbox');
+  $shipping_checkbox.click(function() { togglePrice(); });
+
+  var togglePrice = function(){
+    if($shipping_checkbox.is(":checked")) {
+      $shipping_price_container.show();
+    } else {
+      $shipping_price_container.hide();
+    }
+  }
+  togglePrice(); //initialize
+
   form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
 
   // Is price required?
@@ -599,6 +612,8 @@ function initialize_new_listing_form(
       } else if ($(element).hasClass("custom_field_checkbox")) {
         var container = $(element).closest(".checkbox-group-container");
         error.insertAfter(container);
+      } else if ($(element).hasClass("delivery-method-checkbox")) {
+        error.insertAfter($(".delivery-options-container"));
       } else {
         error.insertAfter(element);
       }

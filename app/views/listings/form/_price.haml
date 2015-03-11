@@ -1,17 +1,8 @@
 .price-container
   - if @listing.transaction_type.price_field?
-    = form.label :price, t(".price") + "*"
+    = form.label :price, t(".price")
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
-    .currency-selector
-      - if @current_community.available_currencies
-        - currencies = @current_community.available_currencies.gsub(" ","").split(",")
-        - if currencies.size > 1
-          = form.select :currency, currencies, { :selected => (@listing.currency || currencies.first) }
-        - else
-          = Money.new(1, currencies[0]).symbol
-          = form.hidden_field :currency, :value => currencies[0]
-      - else
-        = form.select :currency, major_currencies(Money::Currency.table), { :selected => (@listing.currency || "EUR") }
+    = render partial: "listings/form/currency_selector", locals: {form: form}
 
     - if @listing.transaction_type.price_per
       .quantity-description= t(".per_#{@listing.transaction_type.price_per}")
@@ -53,7 +44,10 @@
   = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
     %h2= t("common.paypal_fee_info.title")
     - text_with_line_breaks_html_safe do
-      = t("common.paypal_fee_info.body").html_safe
+      - if shipping_enabled
+        = t("common.paypal_fee_info.body_with_shipping_info").html_safe
+      - else
+        = t("common.paypal_fee_info.body").html_safe
 
   - if run_js_immediately
     :javascript
@@ -63,3 +57,21 @@
       :javascript
         $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
 
+- if shipping_enabled
+  .delivery-options-container
+    = field_set_tag t(".delivery"), class: "delivery-title" do
+      .delivery-row-low
+        .delivery-checkbox
+          = check_box_tag "listing[delivery_methods][]", "shipping", @listing.require_shipping_address?, id: "shipping-checkbox", class: "delivery-method-checkbox required"
+        .delivery-left-field
+          = label_tag "shipping-checkbox", t(".shipping"), class: "shipping-options-label"
+      .delivery-row-tall
+        .delivery-left-field.shipping-price-container{class: @listing.require_shipping_address? ? "" : "hidden" }
+          = form.label :shipping_price, t(".shipping_price"), class: "shipping-options-label"
+          = form.text_field :shipping_price, class: "price-field", maxlength: 10, placeholder: 0, value: (@listing.shipping_price ? @listing.shipping_price.to_s: 0)
+          = render partial: "listings/form/currency_selector", locals: {form: form}
+      .delivery-row-low
+        .delivery-checkbox
+          = check_box_tag "listing[delivery_methods][]", "pickup", @listing.pickup_enabled?, id: "pickup-checkbox", class: "delivery-method-checkbox required"
+        .delivery-left-field
+          = label_tag "pickup-checkbox", t(".pickup"), class: "shipping-options-label"

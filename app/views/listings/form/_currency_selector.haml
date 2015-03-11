@@ -1,0 +1,10 @@
+.currency-selector
+  - if @current_community.available_currencies
+    - currencies = @current_community.available_currencies.gsub(" ","").split(",")
+    - if currencies.size > 1
+      = form.select :currency, currencies, { :selected => (@listing.currency || currencies.first) }
+    - else
+      = Money.new(1, currencies[0]).symbol
+      = form.hidden_field :currency, :value => currencies[0]
+  - else
+    = form.select :currency, major_currencies(Money::Currency.table), { :selected => (@listing.currency || "EUR") }

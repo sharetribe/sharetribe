@@ -402,6 +402,9 @@ en:
       body: |-
           PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
           You can see the exact fees by logging in to your PayPal account and going <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>here</a>. After each purchase you will get a receipt displaying the exact fee.
+      body_with_shipping_info: |-
+          PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price (including shipping), depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
+          You can see the exact fees by logging in to your PayPal account and going <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>here</a>. After each purchase you will get a receipt displaying the exact fee.
   conversations:
     accept:
       details: "Order details"
@@ -1305,6 +1308,10 @@ en:
         after_service_fee_you_will_get_paypal: "%{service_name} fee (%{sum_with_currency}) and <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a> will be deducted from the price."
         after_service_fee_you_will_get_vat: "After %{service_name} and payment processor fees you will get approx. %{sum_with_currency} (VAT 0%)"
         price_excludes_vat: "The price doesn't include VAT."
+        delivery: "Delivery"
+        shipping: "Shipping"
+        shipping_price: "Shipping price"
+        pickup: "Pickup"
       origin:
         location: Location
         origin: Origin

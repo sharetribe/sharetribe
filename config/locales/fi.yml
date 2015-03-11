@@ -402,6 +402,9 @@ fi:
       body: |-
           PayPal veloittaa jokaisesta maksutapahtumasta käsittelymaksun. Maksun suuruus on 2% - 5% kokonaishinnasta, riippuen kuukausittaisesta myyntimäärästäsi sekä ostajan kotimaasta. Maksu on yleensä halvempi kotimaan ostoissa kuin ulkomaan ostoissa, ja suuria määriä myyvät saavat alennusta maksuista.
           Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>tätä linkkiä.</a> Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu.
+      body_with_shipping_info: |-
+          PayPal veloittaa jokaisesta maksutapahtumasta käsittelymaksun. Maksun suuruus on 2% - 5% kokonaishinnasta (postikulut mukaanluettuna), riippuen kuukausittaisesta myyntimäärästäsi sekä ostajan kotimaasta. Maksu on yleensä halvempi kotimaan ostoissa kuin ulkomaan ostoissa, ja suuria määriä myyvät saavat alennusta maksuista.
+          Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>tätä linkkiä.</a> Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu.
   conversations:
     accept:
       details: "Tilauksen tiedot"
@@ -1305,6 +1308,10 @@ fi:
         after_service_fee_you_will_get_paypal: "%{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksu</a> vähennetään hinnasta."
         after_service_fee_you_will_get_vat: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat noin %{sum_with_currency} (ALV 0%)"
         price_excludes_vat: "Merkitse tähän alv 0 -hinta."
+        delivery: "Kuljetus"
+        shipping: "Postitus"
+        shipping_price: "Postituksen hinta"
+        pickup: "Nouto"
       origin:
         location: Sijainti
         origin: Lähtöpaikka

@@ -1543,6 +1543,39 @@ $noscript-height: lines(4);
   display: inline;
 }
 
+.delivery-options-container{
+  margin-top: lines(0.5);
+}
+
+.delivery-title {
+  font-weight: 600;
+}
+
+.shipping-options-label {
+    font-weight: normal;
+    display: inline;
+    margin-right: lines(0.5);
+}
+
+.delivery-row-low {
+    position: relative;
+    padding-top: em(9);
+    padding-bottom: em(9);
+}
+
+.delivery-row-tall {
+    position: relative;
+}
+
+.delivery-checkbox {
+    position: absolute;
+    top: em(9);
+}
+
+.delivery-left-field {
+    padding-left: lines(1);
+}
+
 /*
   -----------
   Inbox
@@ -1684,6 +1717,7 @@ $noscript-height: lines(4);
     background-color: $highlight;
     padding: lines(0.5);
     margin-bottom: lines(0.5);
+    margin-top: lines(0.5);
 }
 
 .shipping-address-name {
