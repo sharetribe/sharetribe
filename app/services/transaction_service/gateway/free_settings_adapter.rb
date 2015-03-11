@@ -13,7 +13,7 @@ module TransactionService::Gateway
 
       {minimum_commission: minimum_commission,
        commission_from_seller: 0,
-       automatic_confirmation_after_days: Maybe(c.automatic_confirmation_after_days).or_else(14)}
+       automatic_confirmation_after_days: 0}
     end
   end
 end
