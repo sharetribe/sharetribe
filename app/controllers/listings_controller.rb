@@ -362,7 +362,9 @@ class ListingsController < ApplicationController
   end
 
   def shipping_enabled?(community)
-    MarketplaceService::Community::Query.shipping_enabled?(community.id)
+    Maybe(community.marketplace_settings)
+      .map { |settings| settings.shipping_enabled }
+      .or_else(nil)
   end
 
   def paypal_minimum_commissions_api
