@@ -45,7 +45,7 @@ class Offer < TransactionType
       process_id: transaction_process_id
     )
 
-    case process_res.data[:process].to_sym
+    case process_res.data[:process]
     when :preauthorize
       "preauthorize"
     when :postpay

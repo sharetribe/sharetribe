@@ -26,7 +26,7 @@ class PaymentRegistrationGuard
       process_id: @listing.transaction_type.transaction_process_id
     )
 
-    process_res.data[:process].to_sym == :preauthorize
+    process_res.data[:process] == :preauthorize
   end
 
   def not_registered_already?
