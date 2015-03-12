@@ -65,7 +65,7 @@ class PersonMailer < ActionMailer::Base
   def transaction_confirmed(conversation, community)
     @email_type =  "email_about_completed_transactions"
     @conversation = conversation
-    set_up_urls(@conversation.offerer, community, @email_type)
+    set_up_urls(@conversation.seller, community, @email_type)
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
@@ -74,7 +74,7 @@ class PersonMailer < ActionMailer::Base
   def transaction_automatically_confirmed(conversation, community)
     @email_type =  "email_about_completed_transactions"
     @conversation = conversation
-    set_up_urls(@conversation.requester, community, @email_type)
+    set_up_urls(@conversation.buyer, community, @email_type)
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :template_path => 'person_mailer/automatic_confirmation',
@@ -84,7 +84,7 @@ class PersonMailer < ActionMailer::Base
   def booking_transaction_automatically_confirmed(transaction, community)
     @email_type = "email_about_completed_transactions"
     @transaction = transaction
-    set_up_urls(@transaction.requester, community, @email_type)
+    set_up_urls(@transaction.bueyr, community, @email_type)
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :template_path => 'person_mailer/automatic_confirmation',
@@ -94,7 +94,7 @@ class PersonMailer < ActionMailer::Base
   def escrow_canceled_to(conversation, community, to)
     @email_type =  "email_about_canceled_escrow"
     @conversation = conversation
-    set_up_urls(@conversation.offerer, community, @email_type)
+    set_up_urls(@conversation.seller, community, @email_type)
     premailer_mail(:to => to,
          :from => community_specific_sender(community),
          :subject => t("emails.escrow_canceled.subject")) do |format|
@@ -103,7 +103,7 @@ class PersonMailer < ActionMailer::Base
   end
 
   def escrow_canceled(conversation, community)
-    escrow_canceled_to(conversation, community, conversation.offerer.confirmed_notification_emails_to)
+    escrow_canceled_to(conversation, community, conversation.seller.confirmed_notification_emails_to)
   end
 
   def admin_escrow_canceled(conversation, community)
@@ -177,7 +177,7 @@ class PersonMailer < ActionMailer::Base
   # Remind users of conversations that have not been accepted or rejected
   def confirm_reminder(conversation, recipient, community, days_to_cancel)
     @email_type = "email_about_confirm_reminders"
-    set_up_urls(conversation.requester, community, @email_type)
+    set_up_urls(conversation.bueyr, community, @email_type)
     @conversation = conversation
     @days_to_cancel = days_to_cancel
     escrow = community.payment_gateway && community.payment_gateway.hold_in_escrow

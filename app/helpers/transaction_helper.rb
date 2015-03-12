@@ -325,7 +325,7 @@ module TransactionHelper
   end
 
   def accepted_status(conversation)
-    if conversation.listing.offerer?(@current_user)
+    if conversation.seller == @current_user
       waiting_for_buyer_to_pay(conversation)
     else
       waiting_for_current_user_to_pay(conversation)
@@ -335,7 +335,7 @@ module TransactionHelper
   def paid_status(conversation, show_testimonial_status)
     return nil unless show_testimonial_status
 
-    if conversation.listing.offerer?(@current_user)
+    if conversation.seller == @current_user
       waiting_for_buyer_to_confirm(conversation)
     else
       waiting_for_current_user_to_confirm(conversation)
@@ -494,7 +494,7 @@ module TransactionHelper
   end
 
   def waiting_for_buyer_to_pay(conversation)
-    link = t("conversations.status.waiting_payment_from_requester", :requester_name => link_to(conversation.requester.given_name_or_username, conversation.requester)).html_safe
+    link = t("conversations.status.waiting_payment_from_requester", :requester_name => link_to(conversation.buyer.given_name_or_username, conversation.buyer)).html_safe
     status_info(link, icon_classes: 'ss-clock')
   end
 

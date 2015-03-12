@@ -153,11 +153,25 @@ class Transaction < ActiveRecord::Base
   end
 
   def offerer
+    raise "Transaction.offerer is deprecated"
     participations.find { |p| listing.offerer?(p) }
   end
 
   def requester
+    raise "Transaction.requester is deprecated"
     participations.find { |p| listing.requester?(p) }
+  end
+
+  # TODO This assumes that author is seller (which is true for all offers, sell, give, rent, etc.)
+  # Change it so that it looks for TransactionProcess.author_is_seller
+  def seller
+    author
+  end
+
+  # TODO This assumes that author is seller (which is true for all offers, sell, give, rent, etc.)
+  # Change it so that it looks for TransactionProcess.author_is_seller
+  def buyer
+    starter
   end
 
   def participations
