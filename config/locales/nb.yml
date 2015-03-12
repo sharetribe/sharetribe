@@ -243,34 +243,34 @@ nb:
         paypal_admin_account: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Rediger annonse felt'%{field_name}'"
       edit_price:
-        edit_price_field: ~
-        show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        edit_price_field: "Rediger pris felt"
+        show_price_filter_homepage: "Vis pris filter på hjemmeside"
+        price_min: "Minimums pris"
+        price_max: "Maximums pris"
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
       form:
         field_required:
-          this_field_is_required: ~
+          this_field_is_required: "Dette feltet er påkrevd"
           this_field_is_required_checkbox: ~
       index:
         listing_fields: ~
         listing_fields_help: ~
         add_new_field: ~
-        remove_field_confirmation: ~
+        remove_field_confirmation: "Er du sikker på at du ønsker å fjerne '%{field_name}'?"
         cancel: ~
         save: ~
         field_title: ~
         field_type: ~
         categories: ~
         options: ~
-        add_option: ~
+        add_option: "+Legg til valg"
         saving_order: ~
         save_order_successful: ~
-        save_order_error: ~
+        save_order_error: "Det var en feil ved lagring av siden. Vennligst oppdater siden og forsøk igjen"
         select_one: ~
         continue: ~
         minimum_value: ~
@@ -401,8 +401,8 @@ nb:
       optional_message: "Valgfri melding"
       price_to_pay: "Total pris"
       you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
-      minimum_price_error_message: ~
+      payment_settings_link: "Innstillinger betaling"
+      minimum_price_error_message: "Prisen kan ikke være lavere enn%{amount}"
       accept: ~
       decline: ~
       sum_label: ~
@@ -568,42 +568,42 @@ nb:
   braintree_accounts:
     new:
       add_payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
+      first_name: Fornavn
+      last_name: Etternavn
+      email: E-post
+      phone: Telefonnummer
+      address_street_address: Gateadresse
+      address_postal_code: Postnummer
+      address_locality: By
       address_region: ~
-      date_of_birth: ~
+      date_of_birth: Fødselsdato
       ssn: ~
       routing_number: ~
-      account_number: ~
-      save: ~
+      account_number: Kontonummer
+      save: Lagre
     show:
-      payout_details: ~
-      first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
+      payout_details: "Dine utbetalings detaljer"
+      first_name: Fornavn
+      last_name: Etternavn
+      email: E-post
+      phone: Telefonnummer
+      address_street_address: Gateadresse
+      address_postal_code: Postnummer
+      address_locality: By
       address_region: ~
-      date_of_birth: ~
+      date_of_birth: Fødselsdato
       ssn: ~
       routing_number: ~
-      account_number: ~
+      account_number: Kontonummer
   braintree_payments:
     edit:
       new_credit_card_payment: ~
-      payment_receiver: ~
-      cardholder_name: ~
+      payment_receiver: "Betalings mottaker:"
+      cardholder_name: "Kortholders navn"
       credit_card_number: ~
       cvv: ~
       credit_card_expiration_date: ~
-      confirm_payment: ~
+      confirm_payment: "Bekreft betaling"
       exp: ~
   preauthorize_payments:
     edit:
@@ -634,27 +634,29 @@ nb:
       you_have_not_yet_accepted_or_rejected_request: "Du har enda ikke godtatt eller avslått forespørselen %{title} du mottok %{date}."
       show_thread: "Vis samtale"
     braintree_account_approved:
-      account_ready: ~
-      message: ~
+      account_ready: "Du kan nå motta betaling"
+      message: "Dine betalingsdetaljer er nå bekreftet og du er nå klar til å motta betalinger på %{service_name}"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel%{request_link}. Dersom forespørsel er gjennomført, må du bekrefte dette. Du kan nå gi tilbakemelding til%{other_party_given_name}"
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel%{request_link}.Vi overfører pengen til%{other_party_given_name} kun når a)du har merket forespørsel som gjennomført eller b)%{days_to_automatic_confirmation}dager siden du betalte. Etter at du har merket forespørsel som gjennomført kan du gi tilbakemelding til %{other_party_given_name}"
       remember_to_confirm_request: "Husk å godta eller avslå en forespørsel"
       if_will_not_happen_you_should_cancel: ~
       if_will_not_happen_you_should_cancel_escrow: ~
-      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: |-
+          Dersom du tror denne forespørselen ikke kommer til å bli gjennomført for den ene eller andre årsak, har du %{days_to_cancel}dager til å %{cancel_it_link}
+          Administrator vil få melding og du blir kontaktet slik at du får refundert pengene.
       cancel_it_link_text: "Avbryt den"
-      automatic_confirmation: ~
+      automatic_confirmation: "Dersom du ikke bekrefter eller avbryter forespørselen innen %{days_to_automatic_confirmation}dager etter forespørselen ble akseptert, blir den automatisk merket som gjennomført."
     payment_reminder:
       remember_to_pay: "Husk å betale for%{listing_title}"
       you_have_not_yet_paid: "Du har fremdeles ikke betalt for %{listing_title}som %{other_party_name}har bekreftet å tilby deg."
       if_will_not_happen_you_should_cancel: ~
       cancel_it_link_text: "Avbryt den"
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: ~
-      please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      remember_to_add_payment_details: "Husk å legge til dine betalings detaljer slik at du kan motta betaling."
+      you_have_added_listing_with_payment: "Du har lagt til en annonse %{listing_link}med betaling. Du har ikke lagt til dine betalings detaljer. For å motta betaling må du legge til din betalingsinformasjon."
+      please_go_to_payment_settings: "Vennligst gå til %{payment_settings_link}og fyll in nødvendig betalingsinformasjon."
+      payment_settings_link: "Innstillinger betaling"
     transaction_confirmed:
       here_is_a_message_from: "Her er en melding fra %{other_party_given_name}:"
       request_marked_as_confirmed: "Forespørsel gjennomført-husk å gi tilbakemelding"
@@ -664,7 +666,7 @@ nb:
       giving_feedback_is_good_idea: "Å gi tilbakemelding er alltid en god ide`. Dersom alt gikk fint, bør du la andre få vite at%{other_party_given_name}er til å stole på. Dersom det oppstod problemer er det fint å også nevne det."
       give_feedback_to: "Gi tilbakemelding til%{other_party_given_name}"
     transaction_automatically_confirmed:
-      subject: ~
+      subject: "Forespørsel er automatisk merket som gjennomført-husk å gi tilbakemelding"
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: ~
@@ -676,8 +678,8 @@ nb:
     escrow_canceled:
       subject: ~
       has_marked_request_as_canceled: ~
-      if_this_was_error: ~
-      please_contant_admin_link: ~
+      if_this_was_error: "Dersom du tror dette var en feil, %{please_contant_admin_link}"
+      please_contant_admin_link: "Vennligst kontakt administrator"
     confirmation_instructions:
       confirmation_instructions_signature: ~
       welcome_to_kassi: "Velkommen til %{service_name}!"
@@ -733,18 +735,18 @@ nb:
       paypal_gateway_fee: ~
       shipping_total: ~
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
+      product: "Produkt:"
+      price_payer_paid: "Pris%{payer_full_name}betalt:"
+      service_fee: "%{service_name}tjenestekostnad:"
+      you_will_get: "Totalt:"
       money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Kvittering av betaling"
       you_have_made_new_payment: ~
-      product: ~
-      total: ~
-      price: ~
-      service_fee: ~
+      product: Produkt
+      total: Totalt
+      price: Pris
+      service_fee: Tjenestekostnad
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har gitt deg tilbakemeldinge hos %{service_name}"
@@ -909,7 +911,7 @@ nb:
     create_new_marketplace: "Lag en ny markedsplass"
     contact_us: "Kontakt oss"
     profile: Profil
-    invite: ~
+    invite: "Inviter nye brukere"
     login: ~
     signup: ~
     menu: ~
@@ -947,7 +949,7 @@ nb:
       some_private_requests_exist: "Det er allerede <b>%{number_of_listings} forespørsler</b>,"
     custom_filters:
       update_view: ~
-      min: ~
+      min: "Minimum:"
       max: ~
     event_feed:
       latest_events: "Hva skjer"
@@ -981,7 +983,7 @@ nb:
       no_reviews: ~
       no_image: ~
       filter: ~
-      this_is_private_community: ~
+      this_is_private_community: "Du må logge inn for å se dette innholdet."
     invitation_form:
       invite_your_friends: "Inviter dine venner til %{service_name}!"
       email: Epost(er)
@@ -1187,18 +1189,18 @@ nb:
       you_must_log_in_to_view_your_inbox: "Du må logge inn på  %{service_name} for å se din innboks."
       you_must_log_in_to_view_your_settings: "Du må logge inn på %{service_name} for å se dine innstillinger."
       you_must_log_in_to_add_news_item: "Du må logge inn på %{service_name} for å legge til ny artikkel."
-      you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_change_profile_settings: "Du må logge inn på %{service_name}for å redigere profil"
+      you_must_log_in_to_change_payment_settings: "Du må logge inn på %{service_name}for å redigere betalings oppsett"
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Du må bekrefte din epost."
       you_must_fill_all_the_fields: "Du må fylle inn alle felter"
       you_unfollowed_listing: "Du følger ikke lenger denne listingen"
       joining_community_failed: ~
-      can_not_login_with_private_user: ~
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
+      can_not_login_with_private_user: "Du kan ikke logge inn med din personlige konto. Logg inn med organisasjons konto eller opprett en ny konto."
+      can_not_delete_email: "Du kan ikke fjerne e-post adressen"
+      user_does_not_have_email_to_delete: "Du har ikke e-post adressen du prøver å fjerne"
+      email_deleted: "E-post fjernet"
       payment_details_add_successful: ~
       payment_details_add_error: ~
       listing_author_payment_details_missing: ~
@@ -1208,7 +1210,7 @@ nb:
       notifications: Notifikasjoner
       profile: "Profil informasjon"
       settings: Innstillinger
-      payments: ~
+      payments: Betalinger
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Du har ikke tillatelse til å se denne listingen"
@@ -1241,7 +1243,7 @@ nb:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: "Velg én …"
       departure_time:
         at: På
         departure_time: Avreisetidspunkt
@@ -1485,10 +1487,10 @@ nb:
       service_charge: Tjenestekostnad
       product: "Produkt:"
       price: "Sum:"
-      price_for: ~
+      price_for: "Pris for%{payer_given_name}"
       continue_to_pay: "Gå til betaling"
-      invoice: ~
-      service_fee: ~
+      invoice: Faktura
+      service_fee: "%{service_name}tjenestekostnad"
       you_will_get: ~
     braintree:
       terms:
@@ -1690,7 +1692,7 @@ nb:
       delete_account: "Slett konto"
       delete_account_button: "Slett min konto permanent"
       delete_account_confirmation_popup: "Er du helt sikker på at du ønsker å slette din bruker konto og miste all data knyttet til denne? Konto sletting kan ikke reverseres."
-      email_addresses: ~
+      email_addresses: E-postadresser
       new_email: "Ny epost"
       delete_all_memberships: ~
       delete_personal_information: ~
@@ -1701,19 +1703,19 @@ nb:
       these_fields_are_shown_only_to_you: "Brukernavn er synlig på din profil foruten om du har oppgitt ditt navn. Annen informasjon er kun synlig for deg."
       email_already_confirmed: ~
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
+        address_title: Adresse
+        remove_title: Fjerne
+        remove_confirmation: "Er du sikker på at du ønsker å fjerne denne e-postadressen?"
         receive_notifications_title_desktop: ~
         receive_notifications_title_mobile: ~
         receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        add_new_with_plus: "+Legg til ny e-post"
+        add_new_cancel: Avbryt
+        confirmation_title_mobile: "Bekreftelse:"
+        confirmation_title_desktop: Bekreftelse
+        confirmation_resend: "Send på nytt"
+        status_confirmed: Bekreftet
+        status_pending: Venter
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Jeg ønsker å motta en epost når..."
@@ -1745,8 +1747,8 @@ nb:
       city: By
       family_name: Etternavn
       given_name: Fornavn
-      first_name_with_initial: ~
-      first_name_only: ~
+      first_name_with_initial: "(kun første bokstav vises andre brukere)"
+      first_name_only: "(vises ikke til andre brukere)"
       location_description: "Du kan enten legge til din eksakte lokasjon eller, for eksempel kun din postkode. Vennligst legg til minimum din postkode. Du kan også velge din lokasjon på kartet under."
       phone_number: Telefonnummer
       profile_picture: Profilbilde
@@ -1758,7 +1760,7 @@ nb:
       visible_to_everybody: "Synlig for alle"
       visible_to_registered_users: "(synlig for brukere som er inn logget)"
       default_in_listing: ~
-      invisible: ~
+      invisible: "(vises ikke til andre brukere)"
     save_information: "Lagre informasjon"
   shipping_address:
     shipping_address: ~

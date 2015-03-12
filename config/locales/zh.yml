@@ -493,13 +493,13 @@ zh:
       optional_message_to: "发送给%{author_name}的可选信息"
       rideshare_offer_message_form_title: "想要搭%{person}的顺风车"
       rideshare_request_message_form_title: "向%{person}提供顺风车"
-      send_message: 发送信息
+      send_message: 发送消息
       send: 发送
       this_message_is_private: "此消息为你和%{person}之间的私密信息。%{person}将收到邮件通知。"
       you_will_get_notified_of_acceptance: "当%{person}接受或拒绝你的提议时，你将收到一封电子邮件通知。"
       you_will_get_notified: "当%{person}回复你时，你将收到一封电子邮件通知。"
       title: 名称
-      send_message_to_user: "发送信息给%{person}"
+      send_message_to_user: "发送消息给%{person}"
       about_listing: "关于%{listing_title}"
       author_has_to_accept_request: "在你支付前%{author_name}需要接受请求"
     show:
@@ -636,8 +636,8 @@ zh:
     accept_reminder:
       remember_to_accept_offer: "请记得接受或拒绝来自%{sender_name}的供给"
       remember_to_accept_request: "请记得接受或拒绝来自%{sender_name}的请求"
-      you_can_accept_or_reject_offer_at: 你可以在此接受或拒绝提议
-      you_can_accept_or_reject_request_at: 你可以在此接受或拒绝请求
+      you_can_accept_or_reject_offer_at: 你可以在此接受或拒绝该供应
+      you_can_accept_or_reject_request_at: 你可以在此接受或拒绝该请求
       you_have_not_yet_accepted_or_rejected_offer: "你尚未接受或拒绝你在%{date}收到的%{title}"
       you_have_not_yet_accepted_or_rejected_request: "你尚未接受或拒绝你在%{date}收到的%{title}"
       show_thread: 显示对话
@@ -721,7 +721,7 @@ zh:
     invitation_to_kassi:
       hi: 你好！
       you_have_been_invited_to_kassi: "%{inviter}邀请你使用%{service_name}"
-      here_is_a_message_from: "这是一条来自%{inviter}的私人信息："
+      here_is_a_message_from: "这是一条来自%{inviter}的私人消息："
       join_now: 现在加入
       invitation_code: "邀请码：%{code}"
     new_comment:
@@ -932,7 +932,7 @@ zh:
       but_that_is_visible_only_to_registered_members: 但只有注册用户可以查看。
       but_those_are_visible_only_to_registered_members: 但只有注册用户可以查看。
       create_new_account_for_yourself: 创建新账户
-      examples_of_what_you_could_offer_to_others: 你能提供什么
+      examples_of_what_you_could_offer_to_others: 你能提供什么给其他人
       examples_of_what_you_could_request_to_others: 你需要什么
       favor_offer_list: 电脑帮手，衣物缝补，烘焙，自行车修理
       favor_request_list: 保姆，钢琴课，遛狗，修剪草坪
@@ -1049,7 +1049,7 @@ zh:
       give_feedback: 联系我们
       or_check_our: ……或者查看我们的
       send_feedback_to_admin: 发送反馈
-      to_see_what_others_have_suggested: 看看其他用户的推荐，在这里投票。
+      to_see_what_others_have_suggested: 看看其他用户的推荐，给那些主意投票。
       your_email_address: 你的E-mail地址（用来联系你）
       connect: 注册
       invite_your_friends: 邀请朋友！
@@ -1162,14 +1162,14 @@ zh:
       poll_deleted: 问卷调查已删除
       read_more: 阅读更多！
       registration_considered_spam: 注册失败，请从发导航菜单发送反馈信息并说明“邮件错误”
-      reply_cannot_be_empty: 你不能发送空白信息
+      reply_cannot_be_empty: 你不能发送空白消息
       reply_sent: 回复发送成功
       request_accepted: 你的请求已被接受
       request_confirmed: 请求已完成。
       request_closed: 请求已关闭
       request_rejected: 请求已拒绝
       request_canceled: 请求已取消
-      message_sent: 信息已发出
+      message_sent: 消息已发出
       this_content_is_not_available_in_this_community: 此内容不可用。
       unknown_error: 发生未知错误。请点击”联系我们“向我们报告问题。
       update_error: 更新你的信息时发生错误，请重试
@@ -1179,7 +1179,7 @@ zh:
       send_instructions: 几分钟内你将会收到一封电子邮件告知你重置密码。
       you_cannot_reply_to_a_closed_offer: 你不能对已关闭的提议发表评论
       you_cannot_reply_to_a_closed_request: 你不能回复已关闭请求
-      you_cannot_send_message_to_yourself: 你不能给你自己发送信息
+      you_cannot_send_message_to_yourself: 你不能给你自己发送消息
       you_followed_listing: 你没有关注这条信息
       you_have_already_given_feedback_about_this_event: 你已经对此事件发表评价
       you_are_now_member: "欢迎来到%{service_name}！"
@@ -1189,7 +1189,7 @@ zh:
       you_must_log_in_to_give_feedback: 你必须登录以评价
       you_must_log_in_to_invite_new_users: "你必须先登录才能邀请新用户到%{service_name}"
       you_must_log_in_to_send_a_comment: 你必须登录才能发表评论
-      you_must_log_in_to_send_a_message: "你必须先登录%{service_name}，然后才可以向其他用户发送信息。"
+      you_must_log_in_to_send_a_message: "你必须先登录%{service_name}，然后才可以向其他用户发送消息。"
       you_must_log_in_to_view_this_content: 你必须登录以查看内容
       you_must_log_in_to_view_this_page: 你必须登录才能查看此页面
       you_must_log_in_to_view_your_inbox: "你必须登录%{service_name}以查看你的收件箱。"
@@ -1222,7 +1222,7 @@ zh:
       listing_not_visible: 你无权查看此列表。
     comment:
       wrote: 写到
-      send_private_message: "发送私人信息给%{person}"
+      send_private_message: "发送私人消息给%{person}"
     comment_form:
       ask_a_question: 评论该条信息或者询问更多细节。所有其他用户都能看到你的评论。
       log_in: 登录
@@ -1299,10 +1299,10 @@ zh:
         after_service_fee_you_will_get_paypal: "%{service_name} 费 (%{sum_with_currency}) 和 <a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费</a> 将从价格中减去."
         after_service_fee_you_will_get_vat: "在%{service_name}和付款处理费用之后你将得到大概%{sum_with_currency}（0%消费税）"
         price_excludes_vat: 价格不包含VAT。
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        pickup: ~
+        delivery: 配送
+        shipping: 运费
+        shipping_price: 运费
+        pickup: 收货
       origin:
         location: 地点
         origin: 来源
@@ -1409,7 +1409,7 @@ zh:
       comments: 公开讨论
       contact_by_phone: 联系电话
       contact: 联系
-      favor_offer: 服务报价
+      favor_offer: 服务提供
       favor_request: 服务请求
       inquiry: 查询
       item_offer_trade: 交换供给信息
@@ -1425,7 +1425,7 @@ zh:
       request: 请求
       rideshare_offer: 提供顺风车
       rideshare_request: 需要顺风车
-      send_private_message: 发送个人短信
+      send_private_message: 发送私人消息
       share_types: 共享类型
       share_types_offer: 供应信息的类型
       share_types_request: 请求信息的类型

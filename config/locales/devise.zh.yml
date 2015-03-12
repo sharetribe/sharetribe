@@ -29,23 +29,23 @@ zh:
     confirmations:
       send_paranoid_instructions: 如果你的邮箱存在于我们的数据库中，你将收到一封确认账号的邮件.
       send_instructions: 几分钟后，你将收到确认帐号的电子邮件.
-      confirmed: 你的帐号已经确认，你现在已登录.
+      confirmed: 你的帐号已经确认。
     registrations:
-      signed_up_but_unconfirmed: 带有确认链接的信息已经发送到你的邮箱。请打开此链接来激活你的帐号
+      signed_up_but_unconfirmed: 带有确认链接的消息已经发送到你的邮箱。请打开此链接来激活你的帐号
       signed_up_but_inactive: 虽然你已经注册成功，但因为你的帐号还未激活，所以你暂时无法登录
       signed_up_but_locked: 虽然你已经注册成功，但因为你的帐号已被锁定，所以你暂时无法登录
       reasons:
         inactive: 未激活
         unconfirmed: 未确认
         locked: 锁定
-      update_needs_confirmation: 更新你的帐户成功，但我们需要验证你的新电子邮件地址。请检查你的电子邮件，请单击确认链接来确认你的新电子邮件地址。
+      update_needs_confirmation: 更新你的帐户成功，但我们需要验证你的新电子邮件地址。请检查你的电子邮件，点击确认链接来确认你的新电子邮件地址。
       signed_up: 欢迎你！你已注册成功.
       updated: 帐号资料更新成功.
       destroyed: 再见！你的帐户已成功注销。我们希望很快可以再见到你.
     unlocks:
       send_paranoid_instructions: 如果你的邮箱存在于我们的数据库中，你将收到一封解锁账号的邮件.
       send_instructions: 几分钟后，你将收到一封解锁帐号的邮件.
-      unlocked: 你的帐号已成功解锁，你现在已登录.
+      unlocked: 你的帐号已成功解锁，请登录继续使用网站.
     omniauth_callbacks:
       success: "成功地从%{kind}获得授权."
       failure: "因为%{reason}，所以你无法从%{kind}获得授权."

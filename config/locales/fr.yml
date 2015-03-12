@@ -402,7 +402,9 @@ fr:
       body: |-
           PayPal facture des frais de transaction pour chaque paiement. Ces frais sont entre 2% et 5% du montant total de la transaction et cela dépend de votre volume mensuel de ventes et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que celles internationales et un plus gros volume de vente mensuel donne des réductions sur ces frais. 
           Vous pouvez connaître les frais exacts en vous connectant à votre compte PayPal et en allant <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>sur cette page</a>. Après chaque transaction, vous recevrez un reçu affichant les frais exacts.
-      body_with_shipping_info: ~
+      body_with_shipping_info: |-
+          PayPal facture des frais de transaction pour chaque paiement. Ces frais sont entre 2% et 5% du montant total de la transaction (livraison inclus) et cela dépend de votre volume mensuel de ventes et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que celles internationales et un plus gros volume de vente mensuel donne des réductions sur ces frais. 
+          Vous pouvez connaître les frais exacts en vous connectant à votre compte PayPal et en allant <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>sur cette page</a>. Après chaque transaction, vous recevrez un reçu affichant les frais exacts.
   conversations:
     accept:
       details: "Détails de la commande"
@@ -1306,10 +1308,10 @@ fr:
         after_service_fee_you_will_get_paypal: "La commission %{service_name} (%{sum_with_currency}) et <a id='%{fee_info_link_id}' href='#'>les frais de transaction PayPal</a> seront déduits du montant total."
         after_service_fee_you_will_get_vat: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez environ %{sum_with_currency} (TVA 0%)"
         price_excludes_vat: "Ce prix n'inclut pas la TVA."
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        pickup: ~
+        delivery: Livraison
+        shipping: Envoi
+        shipping_price: "Frais de livraison"
+        pickup: Retrait
       origin:
         location: Lieu
         origin: "Lieu de départ"

@@ -106,31 +106,31 @@ ru:
       getting_started:
         getting_started: ~
         welcome_to_your_marketplace: ~
-        intro: ~
+        intro: "Краткий справочник как настроить и управлять вашим маркетплейс. Вы можете просмотреть сайт в действии %{live_site_link}."
         live_site_link_text: ~
-        look_and_feel: ~
+        look_and_feel: "Перед тем как открыть ваш сайт для публики, возможно вы хотите настроить некоторые вещи. Например, вы можете %{logo_link} и изменить изображение обложки и общие цвета, чтобы ваш проект отражал образ вашего бренда."
         logo_link_text: ~
-        custom_domain: ~
+        custom_domain: "Вы можете также пожелать добавить индивидуальный адрес сайта (например: www.yourmarketplace.com). Чтобы это настроить нам необходимо провести определенные действия с нашей стороны, и также вам нужно купить SSL сертификат чтобы обеспечить безопасность вашему сайту. По этим причинам индивидуальный домен не доступен в тестовом режиме в данное время, для этого вам нужно оформить подписку на наш наш Pro тарифный план или более высокий. Если вам необходим индивидуальный домен, свяжитесь с нами %{contact_support_link}."
         categories_and_custom_fields: ~
         categories_link_text: ~
-        custom_fields_link_text: ~
+        custom_fields_link_text: "Настроить поля формы"
         filters_link_text: ~
-        payments: ~
+        payments: "Если вы хотите чтобы люди могли оплачивать покупки в вашем маркетплейс, что позволит вам получать комиссию с каждой транзакции, вам необходимо %{payments_link}."
         payments_link_text: ~
-        info_texts: ~
+        info_texts: "Не забудьте настроить информационную страницу и другие тексты где вы можете рассказать вашим пользователям о вашем маркетплейс.  Это %{about_page_link}, %{terms_of_use_link} (вы должны добавить ваши собственные условия использования сервиса здесь, либо модифицировать текущий шаблон либо создать новый документ), %{privacy_policy_link}, и %{welcome_email_link} - отправляется каждому новому пользователю. Также здесь %{instruction_texts_link} информация которую можно настроить."
         about_page_link_text: ~
         terms_of_use_link_text: ~
         privacy_policy_link_text: ~
         welcome_email_link_text: ~
         instruction_texts_link_text: ~
-        social_media: ~
+        social_media: "Использование социальных медиа это отличная возможность создать аудиторию для вашего проекта. Вы можете сделать это легче для людей %{facebook_link}, и %{twitter_link} чтобы увеличить вирусный видимость когда люди упоминают о ваших продуктах и вашем маркетплейс."
         facebook_link_text: ~
         twitter_link_text: ~
-        analytics: ~
+        analytics: "Также хорошая идея для %{analytics_link}. Это доступный путь чтобы видеть что происходит в вашем маркетплейс, сколько у вас посетителей и т.д."
         analytics_link_text: ~
-        settings: ~
-        settings_link_text: ~
-        final_words: ~
+        settings: "Здесь множество других настроек чтобы все обустроить как вам необходимо. Например, вы можете потребовать от каждого иметь приглашение от другого участника чтобы сделать ваш проект приватным, таким образом только пользователи вошедшие в систему могут видеть контент %{settings_link}."
+        settings_link_text: "Настройки вашего маркетплейс"
+        final_words: "Если все готово, вы можете начать приглашать в ваш маркетплейс %{invite_link}. Вы можете видеть всех участников кто присоединился %{view_users_link}, и все транзакции которые осуществлены %{view_transactions_link}. Вы также можете легко управлять предложениями: просто перейдите на страницу предложений и вы увидите ссылки для редактирования. Если вам нужна поддержка, обратитесь в нашу службу поддержки %{contact_support_link} - мы работаем для вас!"
         invite_link_text: ~
         view_users_link_text: ~
         view_transactions_link_text: ~
@@ -157,7 +157,7 @@ ru:
         twitter_handle: ~
         update_settings: "Сохранить настройки"
         automatically_confirmed: "Транзакция будет автоматически помечена как завершенная спустя %{days_dropdown} дней после того как платеж осуществлен. Если используется система депонирования, деньги будут выпущены поставщику."
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "Транзакция будет автоматически отмечена как завешенная через %{days_dropdown} дней после осуществления платежа"
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -305,13 +305,13 @@ ru:
     paypal_accounts:
       marketplace_paypal_integration: "Настройки платежей"
       preferences_updated: ~
-      integration_info_text: ~
+      integration_info_text: "Система платежей Sharetribe функционирует на основе PayPal. Если вы желаете разрешить вашим пользователям осуществлять платежи в вашем проекте, вы обязаны подключить ваш аккаунт PayPal и определить минимальный размер транзакции и комиссию которую вы желаете установить от каждой транзакции."
       read_more_about_paypal: ~
       paypal_account_email: ~
       paypal_account_email_completed: ~
-      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee: "2. Установите минимальную цену и комиссию за платеж"
       set_minimum_price_and_fee_completed: ~
-      minimum_listing_price_label: ~
+      minimum_listing_price_label: "Минимальный размер транзакции:"
       transaction_fee_label: ~
       minimum_transaction_fee_label: ~
       save_settings: ~
@@ -357,7 +357,7 @@ ru:
       offer_to_swap: обмен
       request_to_swap: обмен
       share_for_free: "бесплатно поделюсь"
-      accept_for_free: ~
+      accept_for_free: "желаю получить в дар"
     categories:
       item: Продукты
       favor: Услуги
@@ -550,7 +550,7 @@ ru:
         paypal:
           multicurrency: ~
           intl: ~
-          unknown_reason: ~
+          unknown_reason: "Платеж отложен. Войдите в ваш PayPal аккаунт чтобы получить детали."
           verify: ~
     status_link:
       accept_offer: "Принять предложение"
@@ -798,14 +798,14 @@ ru:
       welcome_to_marketplace_creator: ~
       congrats_for_creating_your_marketplace: ~
       here_is_your_account_information: ~
-      your_email_address: ~
+      your_email_address: "Email адрес который вы используете для входа:"
       your_marketplace_address: ~
       your_marketplace_admin_area: ~
       just_follow_details: ~
       we_will_guide_you_along_the_way: ~
-      are_you_new_to_online_marketplaces: ~
+      are_you_new_to_online_marketplaces: "Требуется помощь с вашим маркетплейс? Не волнуйтесь, мы поможем! Мы отправим вам серию сообщений которые помогут вам раскрыть возможности Sharetribe и создать успешный маркетплейс проект. Вскоре мы отправим первую часть."
       have_questions: ~
-      our_happiness_team_is_here_to_help: ~
+      our_happiness_team_is_here_to_help: "Наша команда работает для вас! Нажмите здесь %{knowledge_base_link} или свяжитесь с нашей службой поддержки %{admin_panel_link}."
       love: ~
       sharetribe_crew: ~
       knowledge_base_link_text: ~
@@ -1021,7 +1021,7 @@ ru:
       click_here_link_text: "Нажмите здесь"
     how_to_use:
       default_title: ~
-      default_content: ~
+      default_content: "Здесь вы можете информацию о %{marketplace_name}."
   layouts:
     admin:
       admin: "Администрирование %{service_name}"
@@ -1495,7 +1495,7 @@ ru:
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: "<del>Connect PayPal account</del> Завершено!"
-    paypal_billing_agreement_made: ~
+    paypal_billing_agreement_made: "<del>Разрешить %{service_name} комиссионное вознаграждение</del> Сделано!"
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
@@ -1509,7 +1509,7 @@ ru:
       admin_account_not_connected: "%{service_name} не был настроен для платежей, поэтому пока вы не можете подключить ваш PayPal аккаунт. Пожалуйста обратитесь для детализации вопроса %{contact_admin_link}."
       paypal_account_email: "Подключить ваш PayPal аккаунт"
       paypal_account_email_placeholder: ~
-      paypal_account_email_info_text: ~
+      paypal_account_email_info_text: "Если у вас нет PayPal аккаунта, вы можете создать его здесь %{create_paypal_account}. Если вы получили сообщение об ошибке при подключении PayPal аккаунта, вам необходимо обновить его до уровня бизнес. Обновление быстро и легко, без дополнительных затрат.Если вы физическое лицо, вам необходимо указать ваше имя и фамилию в поле \"Название компании\" когда PayPal запросит это. Нажмите здесь чтобы обновить %{upgrade_paypal_account}."
       create_paypal_account: "Нажмите здесь"
       upgrade_paypal_account: "Войдите в ваш PayPal аккаунт"
       connect_paypal_account: ~
@@ -1692,7 +1692,7 @@ ru:
       delete_account_confirmation_popup: ~
       email_addresses: "Адреса e-mail"
       new_email: "Новый адрес электронной почты"
-      delete_all_memberships: ~
+      delete_all_memberships: "Если вы удалите ваш аккаунт, вы не сможете использовать его больше для: %{marketplaces}."
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
