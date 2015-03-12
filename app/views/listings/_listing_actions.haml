@@ -72,7 +72,6 @@
         - if delivery_opts.count == 1
           .row
             .col-12
-              = hidden_field_tag(:delivery, delivery_opts.first[:name])
               = t("listings.show.#{delivery_opts.first[:name]}", price: humanized_money_with_symbol(delivery_opts.first[:price]).upcase)
         - else
           - delivery_opts.each do |opts|

@@ -38,7 +38,7 @@
             = t("listing_conversations.preauthorize.price_per_day", price: humanized_money_with_symbol(listing[:price]))
 
       %li
-        - if delivery_method == "shipping"
+        - if delivery_method == :shipping
           .initiate-transaction-totals
             .initiate-transaction-sum-wrapper
               %span.initiate-transaction-sum-label
