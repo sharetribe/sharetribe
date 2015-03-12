@@ -87,7 +87,11 @@
 
       .row
         .col-12.paypal-button-wrapper
-          = form.submit t("paypal.checkout_with_paypal"), type: :image, src: t("paypal.buy_now_with_paypal_button_url"), alt: t("paypal.checkout_with_paypal"), class: "checkout-with-paypal-button"
+          = form.button t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button"
+
+      .row
+        .col-12
+          = render :partial => "listing_conversations/paypal_payment_methods", locals: { country_code: @current_community.country }
 
       .row
         .col-12
