@@ -33,11 +33,6 @@ Feature: User sees available locales
       | locale |
     When I am on the home page
     And I open language menu
-    Then I should see "Pусский" on the language menu
-    Then I should see "Suomi" on the language menu
-    Then I select "Pусский" from the language menu
-    And I should see "Разместить новый листинг!" within "#new-listing-link"
-    And I open language menu
     And I select "Suomi" from the language menu
     Then I should see "Lisää uusi ilmoitus!" within "#new-listing-link"
 
