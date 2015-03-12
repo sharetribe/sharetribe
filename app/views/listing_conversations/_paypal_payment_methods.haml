@@ -1,0 +1,14 @@
+- country_code = LocalizationUtils.country_code_valid?(country_code) ? country_code.downcase : 'us' # default should not happen in production
+- how_paypal_works_link = "https://www.paypal.com/#{country_code}/webapps/mpp/paypal-popup"
+%a#how-paypal-works-popup-link{title: t("listings.listing_actions.how_paypal_works"), href: how_paypal_works_link}
+  = image_tag "https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png", style: "max-width: 100%"
+  - content_for :extra_javascript do
+    :javascript
+      $("#how-paypal-works-popup-link").click(function() {
+        window.open(
+          '#{how_paypal_works_link}',
+          'WIPaypal',
+          'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'
+        );
+        return false;
+      });

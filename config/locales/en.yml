@@ -1548,6 +1548,7 @@ en:
       account_not_verified: "You haven't verified your PayPal account. You need to go to paypal.com and verify your account before you can continue."
       account_restricted: "Your PayPal account is restricted and cannot be connected. Please log in to paypal.com to find out more what this means or get in touch with PayPal customer support to resolve the issue."
   paypal:
+    pay_with_paypal: "Proceed to payment"
     checkout_with_paypal: "Checkout with PayPal"
     cancel_succesful: "PayPal payment succesfully canceled"
     transaction:
