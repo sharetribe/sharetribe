@@ -122,12 +122,6 @@ class Transaction < ActiveRecord::Base
     rows.each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
   end
 
-  # If listing is an offer, return request, otherwise return offer
-  def discussion_type
-    raise "transaction.discussion_type is deprecated"
-    listing.transaction_type.is_request? ? "offer" : "request"
-  end
-
   def has_feedback_from?(person)
     if author == person
       testimonial_from_author.present?
@@ -150,16 +144,6 @@ class Transaction < ActiveRecord::Base
 
   def testimonial_from_starter
     testimonials.find { |testimonial| testimonial.author_id == starter.id }
-  end
-
-  def offerer
-    raise "Transaction.offerer is deprecated"
-    participations.find { |p| listing.offerer?(p) }
-  end
-
-  def requester
-    raise "Transaction.requester is deprecated"
-    participations.find { |p| listing.requester?(p) }
   end
 
   # TODO This assumes that author is seller (which is true for all offers, sell, give, rent, etc.)

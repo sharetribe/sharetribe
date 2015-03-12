@@ -70,11 +70,6 @@ class TransactionType < ActiveRecord::Base
     TranslationCache.new(self, :translations).translate(locale, :action_button_label)
   end
 
-  def status_after_reply
-    raise "TransactionType.status_after_reply is deprecated"
-    "free"
-  end
-
   def self.find_by_url_or_id(url_or_id)
     self.find_by_url(url_or_id) || self.find_by_id(url_or_id)
   end

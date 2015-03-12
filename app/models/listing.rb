@@ -311,13 +311,6 @@ class Listing < ActiveRecord::Base
     Listing.where(:category_id => category.own_and_subcategory_ids)
   end
 
-  # Listing type is not anymore stored separately, so we serach it by share_type top level parent
-  # And return a string here, as that's what expected in most existing cases (e.g. translation strings)
-  def listing_type
-    raise "listing.listing_type is deprecated"
-    return transaction_type.direction
-  end
-
   # Returns true if listing exists and valid_until is set
   def temporary?
     !new_record? && valid_until
@@ -330,25 +323,6 @@ class Listing < ActiveRecord::Base
 
   def closed?
     !open? || (valid_until && valid_until < DateTime.now)
-  end
-
-  # Returns true if the given person is offerer and false if requester
-  def offerer?(person)
-    raise "listing.offerer? is deprecated"
-    (transaction_type.is_offer? && author.eql?(person)) || (transaction_type.is_request? && !author.eql?(person))
-  end
-
-  # Returns true if the given person is requester and false if offerer
-  def requester?(person)
-    raise "listing.requester? is deprecated"
-    (transaction_type.is_request? && author.eql?(person)) || (transaction_type.is_offer? && !author.eql?(person))
-  end
-
-  # If listing is an offer, a discussion about the listing
-  # should be request, and vice versa
-  def discussion_type
-    raise "discussion_type.requester? is deprecated"
-    transaction_type.is_request? ? "offer" : "request"
   end
 
   # This is used to provide clean JSON-strings for map view queries
