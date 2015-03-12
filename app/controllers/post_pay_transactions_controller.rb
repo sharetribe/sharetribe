@@ -86,7 +86,7 @@ class PostPayTransactionsController < ApplicationController
 
   def ensure_listing_is_open
     if @listing.closed?
-      flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_#{@listing.direction}")
+      flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_offer")
       redirect_to (session[:return_to_content] || root)
     end
   end

@@ -79,8 +79,6 @@ class Listing < ActiveRecord::Base
   belongs_to :category
   belongs_to :transaction_type
 
-  delegate :direction, to: :transaction_type
-
   monetize :price_cents, :allow_nil => true, with_model_currency: :currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
 
@@ -221,7 +219,12 @@ class Listing < ActiveRecord::Base
     # Share type is overriden by transaction_type if it is present
     if params[:share_type].present?
       direction = params[:share_type]
-      params[:transaction_types] = {:id => current_community.transaction_types.select { |transaction_type| transaction_type.direction == direction }.collect(&:id) }
+      transaction_type_direction_map = BackwardCompatibility.transaction_types_to_direction_map(current_community)
+      params[:transaction_types] = {
+        id: current_community.transaction_types.select { |transaction_type|
+          transaction_type_direction_map[transaction_type.id] == direction
+        }.collect(&:id)
+      }
     end
 
     if params[:transaction_type].present?
@@ -350,10 +353,9 @@ class Listing < ActiveRecord::Base
 
   # This is used to provide clean JSON-strings for map view queries
   def as_json(options = {})
-
     # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
     hash = {
-      :listing_type => self.transaction_type.direction,
+      :listing_type => BackwardCompatibility.transaction_type_to_direction(self.transaction_type),
       :category => self.category.id,
       :id => self.id,
       :icon => icon_class(icon_name)

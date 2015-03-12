@@ -59,28 +59,10 @@ class ListingsController < ApplicationController
                locals: { listings: listings,
                          title: title,
                          updated: updated,
-                         direction_map: atom_direction_map
+                         direction_map: BackwardCompatibility.transaction_types_to_direction_map(@current_community)
                        }
       end
     end
-  end
-
-  # Deprecated
-  #
-  # Backward compatibility support for Atom APIs "direction" and "share_type"
-  def atom_direction_map
-    process_res = TransactionService::API::Api.processes.get(
-      community_id: @current_community.id,
-    )
-
-    @current_community.transaction_types.inject({}) { |direction_map, tt|
-      direction_map.tap { |m|
-        process = process_res.data.find { |p| p[:id] == tt.transaction_process_id }
-
-        direction = process[:author_is_seller] ? "offer" : "request"
-        m[tt.id] = direction
-      }
-    }
   end
 
   def listing_bubble
