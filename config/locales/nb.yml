@@ -34,9 +34,9 @@ nb:
           cancel: ~
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
+        community_details: "Grunnleggende informasjon"
+        community_look_and_feel: Design
+        edit_community: "Grunnleggende informasjon"
         community_name: "Navn markedsplass"
         edit_community_name_description: ~
         community_slogan: "slogan markedsplass"
@@ -66,14 +66,14 @@ nb:
         transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Redigere markedsplass \"%{community_name}\" uttrykk og følelse"
-        community_logo: ~
+        community_logo: Skrivebordslogo
         community_logo_icon: ~
-        community_cover_photo: ~
-        small_community_cover_photo: ~
+        community_cover_photo: Forsidebilde
+        small_community_cover_photo: "Lite forside bilde"
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: "Hoved farge"
-        community_custom_color2: ~
+        community_custom_color2: "Sekundær farge"
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
@@ -93,13 +93,13 @@ nb:
         full_name: ~
         first_name_with_initial: ~
         first_name_only: ~
-        invalid_color_code: ~
+        invalid_color_code: "Fargekode skal inneholde 6 tall eller bokstaver A-F, for eksempel D96E21"
         custom_head_script: ~
         custom_head_script_instructions_text: ~
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: "Innhold i velkomstmelding"
         welcome_email_content_description: ~
         edit_message: "Rediger melding"
         send_test_message: "Send test melding"
@@ -118,8 +118,8 @@ nb:
         payments: ~
         payments_link_text: ~
         info_texts: ~
-        about_page_link_text: ~
-        terms_of_use_link_text: ~
+        about_page_link_text: "om side"
+        terms_of_use_link_text: "Betingelser for bruk"
         privacy_policy_link_text: ~
         welcome_email_link_text: ~
         instruction_texts_link_text: ~
@@ -179,8 +179,8 @@ nb:
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
+        twitter_instructions_link_text: "Les mer"
+        twitter_handle_placeholder: brukernavn
         invalid_twitter_handle: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
@@ -190,14 +190,14 @@ nb:
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
-        save: ~
+        save: "Lagre innstillinger"
       analytics:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
-        save: ~
+        google_analytics_instructions_link_text: "Les mer hvordan knytte til Google Analytics"
+        save: "Lagre innstillinger"
       menu_links:
         menu_links: ~
         save: ~
@@ -290,31 +290,31 @@ nb:
         send_email_to_members_title: "Send e-post til alle brukere"
         email_subject: "E-post emne"
         email_content: "E-post innhold"
-        email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        send_email: ~
+        email_content_placeholder: "Hva vil du si til dine brukere?"
+        email_language: "Språk til epostmottakere"
+        any_language: "Alle språk"
+        send_email: "Send epost"
         message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        email_sent: "Epost sendt."
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
       configure: ~
-      emails_title: ~
+      emails_title: E-poster
       support: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
       integration_info_text: ~
-      read_more_about_paypal: ~
-      paypal_account_email: ~
-      paypal_account_email_completed: ~
+      read_more_about_paypal: "Les mer om Sharetribe`s betalingssystem"
+      paypal_account_email: "Koble til din PayPal konto"
+      paypal_account_email_completed: fullført!
       set_minimum_price_and_fee: ~
-      set_minimum_price_and_fee_completed: ~
+      set_minimum_price_and_fee_completed: fullført!
       minimum_listing_price_label: ~
       transaction_fee_label: ~
       minimum_transaction_fee_label: ~
-      save_settings: ~
+      save_settings: "Lagre innstillinger"
       note_about_transaction_fee: ~
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
@@ -336,16 +336,16 @@ nb:
         inquiry: ~
   common:
     edit_page: "Rediger side"
-    default_community_slogan: ~
+    default_community_slogan: Markedsplass
     default_community_description: "Dette er et nettsted for å selge, leie, bytte og dele produkter og tjenester med andre medlemmer av denne markedsplassen."
     cancel: Avbryt
     fields_that_are_mandatory: "Felt merket med stjerne (*) er obligatorisk."
     or: eller
     password: Passord
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
-      request: ~
-      offer: ~
+      request: forespørsel
+      offer: tilbud
       borrow: bytting
       buy: kjøp
       give_away: "gis bort"
@@ -354,17 +354,17 @@ nb:
       rent: leie
       rent_out: utleie
       sell: selges
-      offer_to_swap: ~
-      request_to_swap: ~
+      offer_to_swap: bytter
+      request_to_swap: bytter
       share_for_free: "dele gratis"
-      accept_for_free: ~
+      accept_for_free: "ønsker å benytte gratis"
     categories:
       item: Gjenstander
       favor: Tjenester
       rideshare: Samkjøring
-      housing: ~
-      tools: ~
-      sports: ~
+      housing: Steder
+      tools: Verktøy
+      sports: "Sport og fritid"
       music: Musikk
       books: "Bøker & magasiner"
       games: "Spill & leker"
@@ -390,17 +390,17 @@ nb:
     accept:
       details: ~
       order_by: ~
-      respond_to_offer: ~
-      respond_to_request: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: ~
+      respond_to_offer: "Svar på et tilbud"
+      respond_to_request: "Svar på en forespørsel"
+      accept_offer: "Godta tilbudet"
+      accept_request: "Godta forespørselen"
+      reject_offer: "Ikke denne gang"
+      reject_request: "Ikke denne gang"
+      close_listing: "Stopp annonsen %{listing_title_link}"
+      update_later: "La annonsen være åpen"
       optional_message: "Valgfri melding"
       price_to_pay: "Total pris"
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "Du må fylle ut utbetalings detaljer før du kan akseptere forespørselen og motta betaling. Gå til %{payment_settings_link} for å fylle ut."
       payment_settings_link: "Innstillinger betaling"
       minimum_price_error_message: "Prisen kan ikke være lavere enn%{amount}"
       accept: ~
@@ -425,9 +425,9 @@ nb:
       give_feedback_to: "Gi tilbakemelding til %{person_link}"
       do_not_give_feedback: "Hopp over tilbakemelding"
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: dag
+      days: dager
+      price_per_day: "Pris pr.dag:%{price}"
     index:
       loading_more_messages: "Laster flere meldinger"
       message_partitive: melding
@@ -449,12 +449,12 @@ nb:
     message:
       accepted_request: "godtatt forespørselen"
       accepted_offer: "Tilbud godtatt"
-      rejected_request: ~
-      rejected_offer: ~
+      rejected_request: "avslå forespørselen"
+      rejected_offer: "avslå tilbudet"
       confirmed_request: "merk forespørsel som ferdig"
       confirmed_offer: "merk tilbud som ferdig"
-      canceled_request: ~
-      canceled_offer: ~
+      canceled_request: "avslo forespørselen"
+      canceled_offer: "avslo tilbudet"
       paid: "betalte%{sum}"
     new:
       offer_message_form_title: "tilby%{listing}til%{person}"
@@ -482,7 +482,7 @@ nb:
       item_request_message_form_title: "Tilby en ting til %{person}"
       message: Melding
       message_to: "Melding til %{author_name}"
-      optional_message_to: ~
+      optional_message_to: "Valgfri melding til %{author_name}"
       rideshare_offer_message_form_title: "Be om en tur med %{person}"
       rideshare_request_message_form_title: "Tilby en tur til %{person}"
       send_message: "Send melding"
@@ -509,9 +509,9 @@ nb:
       price_excludes_vat: ~
       total: ~
     status:
-      payment_errored: ~
-      payment_errored_starter: ~
-      payment_errored_author: ~
+      payment_errored: "Betaling feilet. Vennligst prøv igjen."
+      payment_errored_starter: "Betaling feilet. Vennligst prøv igjen. Dersom problemet vedvarer, vennligst kontakt vår support."
+      payment_errored_author: "Betaling feilet. Vennligst kontakt%{starter_name}og spør om å prøve betaling på nytt."
       cancel_payed_transaction: Avbryt
       feedback_given: "Tilbakemelding gitt"
       feedback_skipped: "Hoppet over tilbakemelding"
@@ -522,14 +522,14 @@ nb:
       offer_confirmed: Ferdig
       offer_paid: ~
       offer_preauthorized: ~
-      offer_waiting_for_payment: ~
+      offer_waiting_for_payment: "Venter på betaling fra %{requester_name}"
       pay: Betal
       preauthorized: "Betaling vellykket"
       paid: "Betaling vellykket"
       pending_external:
         paypal:
           multicurrency: ~
-          verify: ~
+          verify: "Du kan ikke akseptere denne transaksjonen fordi din PayPal konto ikke er verifisert. Gå til %{paypal_url}for å verifisere."
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
@@ -537,7 +537,7 @@ nb:
       request_rejected: Avslått
       request_confirmed: Ferdig
       request_canceled: Avbrutt
-      request_paid: ~
+      request_paid: "Betaling vellykket"
       request_preauthorized: ~
       skip_feedback: "Hopp over tilbakemelding"
       waiting_for_listing_author_to_accept_offer: "Venter på%{listing_author_name}for å akseptere tilbudet"
@@ -607,12 +607,12 @@ nb:
       exp: ~
   preauthorize_payments:
     edit:
-      confirm_payment: ~
+      confirm_payment: "Bekreft betaling"
   community_memberships:
     access_denied:
-      access_denied: ~
-      you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      access_denied: "Tilgang avvist"
+      you_are_banned_in_this_community: "Administrator har hindret deg tilgang til %{service_name}. Dersom du ønsker å kontakte admin, gå til%{link_to_contact_page}"
+      contact_page_link: Tilbakemelding
     new:
       welcome_fb_user: "Velkommen til %{service_name},%{name}"
       fb_join_accept_terms: "Ett steg til for å bli medlem av%{service_name}: Du må akseptere bruker vilkår."
@@ -640,8 +640,8 @@ nb:
       you_have_not_yet_confirmed_or_canceled_request: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel%{request_link}. Dersom forespørsel er gjennomført, må du bekrefte dette. Du kan nå gi tilbakemelding til%{other_party_given_name}"
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel%{request_link}.Vi overfører pengen til%{other_party_given_name} kun når a)du har merket forespørsel som gjennomført eller b)%{days_to_automatic_confirmation}dager siden du betalte. Etter at du har merket forespørsel som gjennomført kan du gi tilbakemelding til %{other_party_given_name}"
       remember_to_confirm_request: "Husk å godta eller avslå en forespørsel"
-      if_will_not_happen_you_should_cancel: ~
-      if_will_not_happen_you_should_cancel_escrow: ~
+      if_will_not_happen_you_should_cancel: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel_escrow: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du %{cancel_it_link}. Dette varsler admin som kontakter deg for refund."
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: |-
           Dersom du tror denne forespørselen ikke kommer til å bli gjennomført for den ene eller andre årsak, har du %{days_to_cancel}dager til å %{cancel_it_link}
           Administrator vil få melding og du blir kontaktet slik at du får refundert pengene.
@@ -650,7 +650,7 @@ nb:
     payment_reminder:
       remember_to_pay: "Husk å betale for%{listing_title}"
       you_have_not_yet_paid: "Du har fremdeles ikke betalt for %{listing_title}som %{other_party_name}har bekreftet å tilby deg."
-      if_will_not_happen_you_should_cancel: ~
+      if_will_not_happen_you_should_cancel: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du du %{cancel_it_link}."
       cancel_it_link_text: "Avbryt den"
     payment_settings_reminder:
       remember_to_add_payment_details: "Husk å legge til dine betalings detaljer slik at du kan motta betaling."
@@ -667,21 +667,23 @@ nb:
       give_feedback_to: "Gi tilbakemelding til%{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: "Forespørsel er automatisk merket som gjennomført-husk å gi tilbakemelding"
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "Vi har merket forespørselen vedrørende %{request}som fullført. Forespørselen ble automatisk fullført fordi %{days_passed}dager er passert siden forespørselen ble akseptert."
     booking_transaction_automatically_confirmed:
-      subject: ~
+      subject: "Forespørsel er automatisk merket som gjennomført-husk å gi tilbakemelding"
       we_have_marked_request_as_confirmed: ~
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
-      show_thread: ~
+      giving_feedback_is_good_idea: |-
+          Du kan nå gi tilbakemelding til %{other_party_given_name}.Å gi tilbakemelding er alltid en god ide`. Dersom alt gikk fint, bør du la andre få vite
+          at%{other_party_given_name}er til å stole på. Dersom det oppstod problemer er det fint å også nevne det.
+      give_feedback_to: "Gi tilbakemelding til%{other_party_given_name}"
+      show_thread: "Vis samtale"
     escrow_canceled:
-      subject: ~
-      has_marked_request_as_canceled: ~
+      subject: "Betaling avvist"
+      has_marked_request_as_canceled: "%{other_party_full_name}har merket forespørselen vedrørende %{request} som avbrutt. Du vil ikke motta betaling for denne transaksjonen."
       if_this_was_error: "Dersom du tror dette var en feil, %{please_contant_admin_link}"
       please_contant_admin_link: "Vennligst kontakt administrator"
     confirmation_instructions:
-      confirmation_instructions_signature: ~
+      confirmation_instructions_signature: "Vennlig hilsen,<br/> %{service_name}-teamet"
       welcome_to_kassi: "Velkommen til %{service_name}!"
       need_to_confirm: "Du må bekrefte din epost."
       confirmation_link_text: "Bekreft min epost"
@@ -697,8 +699,8 @@ nb:
       edit_your_email_settings_here: "Rediger dine e-post innstillinger her"
       message_not_displaying_correctly: "Vises ikke denne e-post korrekt?"
       view_it_in_your_browser: "Se den i nettleseren din"
-      or: ~
-      unsubscribe_from_these_emails: ~
+      or: eller
+      unsubscribe_from_these_emails: "meld deg av slike eposter"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har godtatt ditt tilbud %{listing}."
       has_accepted_your_request: "%{accepter} har godtatt din forespørsel %{listing}."
@@ -716,7 +718,7 @@ nb:
       hi: Hei!
       you_have_been_invited_to_kassi: "%{inviter} har invitert deg til %{service_name}."
       here_is_a_message_from: "Her er en personlig melding fra %{inviter}:"
-      join_now: ~
+      join_now: "Bli medlem nå"
       invitation_code: "Invitasjons kode:%{code}"
     new_comment:
       has_commented_your_listing_in_kassi: "%{author}har commentary på din annonse%{listing}"
@@ -730,7 +732,7 @@ nb:
       you_have_a_new_message: "Ny melding hos %{service_name} fra %{sender_name}"
     new_payment:
       new_payment: "Du har mottatt en ny betaling"
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "Du har fått betaling <b>%{payment_sum}</b>for<b>%{listing_title}</b>av%{payer_full_name}. Her er din kvittering."
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: ~
@@ -742,7 +744,7 @@ nb:
       money_will_be_transferred: ~
     receipt_to_payer:
       receipt_of_payment: "Kvittering av betaling"
-      you_have_made_new_payment: ~
+      you_have_made_new_payment: "Du har betalt <b>%{payment_sum}</b>for<b>%{listing_title}</b>til %{recipient_full_name}. Her er kvitteringen."
       product: Produkt
       total: Totalt
       price: Pris
@@ -761,7 +763,7 @@ nb:
       added_request: "%{name_link} la til en listing:"
       added_listing: "%{name_link} la til en annonse:"
       update_mail_title: "%{title_link} oppdatering"
-      title_link_text: ~
+      title_link_text: "%{community_name}"
       intro_paragraph: "Her er noe av det som har skjedd på %{community_link} iløpet av den siste%{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Post en ny listing!"
@@ -791,8 +793,8 @@ nb:
       one_day_left: "Dersom du ikke aksepterer forespørselen innen èn dag blir den automatisk avvist og du blir ikke betalt."
       click_here_to_reply: "klikk her for å svare på forespørselen"
     welcome_email:
-      welcome_email_subject: ~
-      welcome_to_marketplace: ~
+      welcome_email_subject: "Velkommen til %{service_name}!"
+      welcome_to_marketplace: "Velkommen til %{service_name}! Glad for å ha deg ombord."
       love_marketplace_crew: ~
       p_s_did_you_know: ~
       click_here_link_text: "Klikk her"
@@ -801,7 +803,7 @@ nb:
       welcome_email_subject_for_marketplace_creator: ~
       welcome_to_marketplace_creator: ~
       congrats_for_creating_your_marketplace: ~
-      here_is_your_account_information: ~
+      here_is_your_account_information: "Her er din konto informasjon."
       your_email_address: ~
       your_marketplace_address: ~
       your_marketplace_admin_area: ~
@@ -818,7 +820,7 @@ nb:
     new_listing_by_followed_person:
       subject: "%{author_name}har lagt ut en ny annonse på %{service_name}"
       has_posted_a_new_listing: "%{author_name}har lagt ut en ny annonse:"
-      you_are_receiving_this_because: ~
+      you_are_receiving_this_because: "Du mottok denne varslingen fordi du følger%{author_name}"
       view_listing: "Se annonse"
   error_messages:
     listings:
@@ -833,8 +835,8 @@ nb:
     transaction_agreement:
       required_error: ~
     paypal:
-      generic_error: ~
-      cancel_error: ~
+      generic_error: "En feil oppstod i betalingsprosessen. Din PayPal betaling kunne ikke sluttføres."
+      cancel_error: "En feil oppstod ved kansrelering. Kunne ikke sluttføre kansrelering."
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
@@ -845,10 +847,10 @@ nb:
       page_you_requested_can_not_be_found: "Finner ikke siden du ba om. Er du sikker på at adressen er riktig?"
     error_404_title: "side ikke funnet"
     error_410:
-      page_removed: ~
+      page_removed: "Side fjernet"
       page_you_requested_has_been_removed: ~
       page_removed_reason: ~
-    error_410_title: ~
+    error_410_title: "side fjernet"
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -866,14 +868,14 @@ nb:
     your_email_address: "Din e-post"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
+      invalid_date: "er ikke en gyldig dato"
+      invalid_time: "er ikke en gyldig tid"
+      invalid_datetime: "er ikke et gyldig tidspunkt"
+      is_at: "må være %{restriction}"
+      before: "må være før %{restriction}"
+      on_or_before: "må være på eller før %{restriction}"
+      after: "må være etter %{restriction}"
+      on_or_after: "må være på eller etter %{restriction}"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aksepterte å låne %{listing_title} til %{requester_name} %{time_ago}."
@@ -888,8 +890,8 @@ nb:
       has_accepted_sell_housing: "%{offerer_name} aksepterte å selge %{listing_title} til %{requester_name} %{time_ago}."
       has_accepted_buy_housing: "%{offerer_name} aksepterte å selge %{listing_title} til %{requester_name} %{time_ago}."
       has_accepted_rent_out_housing: "%{offerer_name} aksepterte å leie %{listing_title} til  %{requester_name} %{time_ago}."
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
+      has_accepted_rent_housing: "%{offerer_name} aksepterte å leie %{listing_title} til %{requester_name}%{time_ago}."
+      has_accepted_favor: "%{offerer_name} aksepterte å tilby %{listing_title} til %{requester_name}%{time_ago}"
       has_accepted_rideshare: "%{offerer_name} aksepterte å samkjøre %{listing_title} med  %{requester_name} %{time_ago}."
     join:
       joined_kassi: "%{name} ble medlem av %{service_name} %{time_ago}."
@@ -957,17 +959,17 @@ nb:
       processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: "Vi finner ingen resultater som matcher dine søke kriterier."
-      no_listings_notification: ~
+      no_listings_notification: "Ingen annonser. %{add_listing_link}"
       add_listing_link_text: "Legg til ny annonse"
-      open_listing: ~
-      open_listings: ~
+      open_listing: "aktiv annonse"
+      open_listings: "aktive annonser"
       private_listing_notification_log_in: "Logg inn"
       is: er
-      are: ~
+      are: er
       what_do_you_need: "Hva ser du etter?"
       post_new_listing: "Post en ny listing"
       are_offering: tilbud
-      add_news_item: ~
+      add_news_item: "Legg til ny ting"
       lend_rent_help_carpool: "Selg, lån, hjelp, del kjøretur"
       loading_more_content: "Laster mer innhold"
       more_events: "Flere hendelser…"
@@ -980,8 +982,8 @@ nb:
       requesting: trenger
       tell_it_here: "Fortell om det her!"
       welcome_to_new_kassi: "Velkommer til nye %{service_name}!"
-      no_reviews: ~
-      no_image: ~
+      no_reviews: "Ingen tilbakemeldinger"
+      no_image: "Ikke bilde"
       filter: ~
       this_is_private_community: "Du må logge inn for å se dette innholdet."
     invitation_form:
@@ -994,8 +996,8 @@ nb:
       invitation_message_field_placeholder: "Jeg ble medlem av denne fantastiske markedsplassen. Det bør du også!"
       errors_in_emails: "Sjekk at e-posten du la til er gyldig. Dersom du la til flere, sørg for at de er adskilt med komma."
     list_item:
-      review: ~
-      reviews: ~
+      review: tilbakemelding
+      reviews: tilbakemeldinger
     news_item:
       show_less: "Vis færre"
       show_more: "Vis flere"
@@ -1020,7 +1022,7 @@ nb:
       all_categories: "Alle kategorier"
   infos:
     about:
-      default_about_text_title: ~
+      default_about_text_title: "Hva er Sharetribe?"
       default_about_text: ~
       click_here_link_text: "Klikk her"
     how_to_use:
@@ -1034,7 +1036,7 @@ nb:
       settings: Innstillinger
       feedback: "Kontakt oss"
     application:
-      join_this_community: ~
+      join_this_community: "Bli medlem"
       read_more: "Les mer"
       feedback: "Hva vil du fortelle oss?"
       default_feedback: "Opplevde du problemer med %{service_name}? Har du forslag til forbedringer? Så du noe utenom det vanlige? Eller vil du bare slå av en prat? Gi oss en lyd!"
@@ -1049,9 +1051,9 @@ nb:
       invite_your_friends: "Inviter venner!"
       invite_your_neighbors: "inviter naboer!"
       invite_your_friends_description: "Dess flere som bruker %{service_name}, jo nyttigere det er."
-      invite_your_friends_invite_only_description: ~
+      invite_your_friends_invite_only_description: "Brukere kan ikke registrere seg på %{service_name} uten invitasjon."
       join_without_facebook: "...eller alternativt %{join_without_facebook_link}"
-      join_without_facebook_link: ~
+      join_without_facebook_link: "registrér uten å bruke Facebook"
     conversations:
       messages: Meldinger
       notifications: Varsler
@@ -1101,7 +1103,7 @@ nb:
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Takk for at du ble medlem av %{service_name}. Du må nå bekrefte din epost."
       comment_cannot_be_empty: "Kommentar kan ikke være tom"
       comment_sent: "Kommentar sendt"
-      confirmation_link_is_wrong_or_used: ~
+      confirmation_link_is_wrong_or_used: "Bekreftelseslenken er allerede brukt eller ikke riktig. Forsøk å logge inn, eller send oss tilbakemelding hvis det fortsatt er et problem."
       additional_email_confirmed: "Eposten du har benyttet er ikke bekreftet."
       could_not_get_email_from_facebook: "Kunne ikke hente e-post fra Facebook og kan ikke opprette konto uten e-post."
       create_new_listing: "Opprett en annen annonse"
@@ -1133,7 +1135,7 @@ nb:
       offer_closed: Lukket
       listing_created_successfully: "Annonse opprettet%{new_listing_link}"
       offer_rejected: Avvist
-      offer_canceled: ~
+      offer_canceled: "Tilbud avslått"
       listing_updated_successfully: "Annonse oppdatert"
       only_kassi_administrators_can_access_this_area: "Kun %{service_name} administrator kan besøke dette området"
       only_listing_author_can_close_a_listing: "Kun annonsør kan stoppe en annonse"
@@ -1141,7 +1143,7 @@ nb:
       payment_successful: "Betaling vellykket"
       payment_canceled: "Betaling avbrutt"
       error_in_payment: "Betaling feilet. Dersom du ikke fullførte betalingen, prøv igjen. Dersom du gjorde det og den fremdeles feiler, kontakt oss."
-      cannot_receive_payment: ~
+      cannot_receive_payment: "Mottaker kan ikke motta betaling grunnet en feil. Vennligst kontakt administrator for klarhet i situasjonen"
       payment_waiting_for_later_accomplishment: "Når du har betalt, får selger beskjed og du mottar kvittering på e-post"
       password_recovery_sent: "Instruksjoner for å endre ditt passord er blitt sent til din epost"
       person_activated: "Bruker aktivert"
@@ -1196,14 +1198,14 @@ nb:
       you_need_to_confirm_your_account_first: "Du må bekrefte din epost."
       you_must_fill_all_the_fields: "Du må fylle inn alle felter"
       you_unfollowed_listing: "Du følger ikke lenger denne listingen"
-      joining_community_failed: ~
+      joining_community_failed: "Kunne ikke koble til"
       can_not_login_with_private_user: "Du kan ikke logge inn med din personlige konto. Logg inn med organisasjons konto eller opprett en ny konto."
       can_not_delete_email: "Du kan ikke fjerne e-post adressen"
       user_does_not_have_email_to_delete: "Du har ikke e-post adressen du prøver å fjerne"
       email_deleted: "E-post fjernet"
       payment_details_add_successful: ~
-      payment_details_add_error: ~
-      listing_author_payment_details_missing: ~
+      payment_details_add_error: "Kunne ikke legge til betalings detaljer"
+      listing_author_payment_details_missing: "Annonse eier har ikke lagt til betalingsinformasjon og kan derfor ikke motta betaling akkurat nå. Vennligst kontakt annonse eier."
       stylesheet_needs_recompiling: ~
     settings:
       account: Konto
@@ -1236,7 +1238,7 @@ nb:
       show_in_updates_email: ~
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
-      show_in_updates_email_success: ~
+      show_in_updates_email_success: "Denne annonsen vil bli vist i den neste automatiske e-post utsendelsen til brukere"
     follow_links:
       follow: "Motta epost ved kommentar"
       unfollow: "Ikke motta epost ved kommentar"
@@ -1248,7 +1250,7 @@ nb:
         at: På
         departure_time: Avreisetidspunkt
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "Gjentatt (skriv tidspunkt og dager i feltet 'detaljert beskrivelse')"
       description:
         detailed_description: "Detaljert beskrivelse"
       destination:
@@ -1263,7 +1265,7 @@ nb:
         i_want_to_offer: "Jeg ønsker å tilby..."
         i_want_to_request: "Jeg trenger..."
       googlemap:
-        googlemap_copy: "Markinger fra kart"
+        googlemap_copy: "Markeringer fra kart"
         googlemap_description: "Kart oversikt"
         googlemap_updatemap: "Oppdater kart"
       images:
@@ -1272,7 +1274,7 @@ nb:
         remove_image: "Fjern bilde"
         select_file: "Velg fil"
         removing: Fjern...
-        processing: ~
+        processing: Arbeider...
         loading_image: "Laster opp..."
         this_may_take_a_while: "(dette kan ta en stund)"
         percentage_loaded: ~
@@ -1283,9 +1285,9 @@ nb:
         location: Sted
       price:
         price: Pris
-        per: ~
-        per_day: ~
-        mass: ~
+        per: per
+        per_day: "pr dag"
+        mass: "del, kg, l, m2, ..."
         time: "time,dag,måned,..."
         long_time: "uke, måned, ..."
         after_service_fee_you_will_get: ~
@@ -1299,7 +1301,7 @@ nb:
         pickup: ~
       origin:
         location: Sted
-        origin: ~
+        origin: Opprinnelse
       send_button:
         save_listing: "Lagre annonse"
       share_type:
@@ -1309,17 +1311,17 @@ nb:
         give_away: "Gis bort"
         lend: låner
         offer_type: Tilbudstype
-        receive: ~
+        receive: "Godtar gratis"
         rent: Leier
         rent_out: "Leier ut"
         request_type: "Type forespørsel"
         sell: Selger
         share_for_free: "dele gratis"
-        accept_for_free: ~
+        accept_for_free: "Godtar gratis"
         trade: Bytter
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(del opp med komma)"
+        tags: Tags
       title:
         listing_title: "Annonse tittel"
       valid_until:
@@ -1331,7 +1333,7 @@ nb:
         this_community: "Bare medlemmer av %{service_name}"
         visibility: Synlighet
       privacy:
-        privacy: ~
+        privacy: Personvern
         private: "Privat(bare brukere som er innlogget kan se dette)"
         public: "Offentlig(synlig for alle)"
     help_texts:
@@ -1345,7 +1347,7 @@ nb:
       category: Kategori
       did_not_found_what_you_were_looking_for: "Fant du ikke det du trenger?"
       favors: Tjenester
-      housing: ~
+      housing: Steder
       items: objekter
       list_view: Listevisning
       listings: Listinger
@@ -1365,7 +1367,7 @@ nb:
       buys: Kjøpe
       favors: Tjenester
       give_aways: "Gis bort"
-      housings: ~
+      housings: Steder
       items: objekter
       lends: lån
       receives: "tas i mot"
@@ -1374,15 +1376,15 @@ nb:
       rideshares: Samkjøring
       sells: Selges
       share_for_frees: "dele gratis"
-      accept_for_frees: ~
+      accept_for_frees: "Godtar gratis"
       trades: Bytter
     listing_actions:
-      booking_from: ~
-      booking_to: ~
-      how_paypal_works: ~
+      booking_from: Fra
+      booking_to: Til
+      how_paypal_works: "Hvordan PayPal virker"
     new:
-      post_a_new_listing: ~
-      listing: ~
+      post_a_new_listing: "Post en ny annonse"
+      listing: annonse
       selected_category: "Kategori:%{category}"
       selected_subcategory: "Under kategori:%{subcategory}"
       selected_transaction_type: ~
@@ -1406,29 +1408,29 @@ nb:
       favor_offer: "Type tjeneste"
       favor_request: "Type forespørsel"
       inquiry: ~
-      item_offer_trade: ~
-      item_request_trade: ~
+      item_offer_trade: "Tilbud om bytte"
+      item_request_trade: "Forespørsel om bytte"
       no_description: "Denne listingen har ingen beskrivelse"
-      no_image: ~
-      no_reviews: ~
+      no_image: "Ikke bilde"
+      no_reviews: "Ingen tilbakemeldinger mottatt"
       offer: Tilbud
       listing_created: Opprettet
-      open_until: ~
-      feedback: ~
+      open_until: "Aktiv frem til %{date}"
+      feedback: Tilbakemelding
       qr_code: "QR kode"
       request: Forespørsel
-      rideshare_offer: ~
-      rideshare_request: ~
+      rideshare_offer: Samkjøringstilbud
+      rideshare_request: Samkjøringsforespørsel
       send_private_message: "Send privat melding"
-      share_types: ~
+      share_types: Delingstyper
       share_types_offer: "Type tilbud"
       share_types_request: "Type forespørsel"
       tags: ~
       time: tid
       times: ganger
       times_viewed: vist
-      processing_uploaded_image: ~
-      price_excludes_vat: ~
+      processing_uploaded_image: "(Behandler bildet…)"
+      price_excludes_vat: "(ikke inklusiv MVA)"
       listing_created_at: ~
       price:
         per_quantity_unit: ~
@@ -1440,14 +1442,14 @@ nb:
       verification_required: ~
   listing_conversations:
     preauthorize:
-      details: ~
-      by: ~
-      payment: ~
+      details: Detaljer
+      by: "%{listing}av%{author}"
+      payment: Betaling
       exp: ~
-      you_will_be_charged: ~
-      day: ~
-      days: ~
-      price_per_day: ~
+      you_will_be_charged: "Du blir belastet kun dersom %{author}aksepterer transaksjonen.%{author}må akseptere transaksjonen innen%{expiration_period}dager. Om%{author}avviser eller ikke svarer, forekommer ingen kostnad."
+      day: dag
+      days: dager
+      price_per_day: "Pris pr.dag:%{price}"
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1458,7 +1460,7 @@ nb:
       category: Kategori
       did_not_found_what_you_were_looking_for: "Fant du ikke det du leter etter?"
       favors: Tjenester
-      housing: ~
+      housing: Steder
       items: Gjenstander
       list_view: Listevisning
       map_view: "Vis kart"
@@ -1481,7 +1483,7 @@ nb:
       continue: Fortsett
       payment_receiver: "Betalings mottaker:"
       sum: "Sum betaling:"
-      commission_will_be_added: ~
+      commission_will_be_added: "En tjenestekostnad på 10% vil bli lagt til."
     form:
       total: Totalt
       service_charge: Tjenestekostnad
@@ -1507,12 +1509,12 @@ nb:
     missing: ~
     from_your_payment_settings_link_text: ~
     new:
-      payout_info_you_need_to_connect: ~
-      payout_info_text: ~
+      payout_info_you_need_to_connect: "For å motta betaling må du knytte din PayPal konto med %{service_name}"
+      payout_info_text: "Vennligst fullfør følgende steg for koble opp din konto."
       contact_admin_link_text: ~
-      admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
+      admin_account_not_connected: "%{service_name}er ikke konfigurert for betaling, du kan derfor ikke knytte til din PayPal konto enda. Vennligst %{contact_admin_link} for detaljer."
+      paypal_account_email: "Koble til din PayPal konto"
+      paypal_account_email_placeholder: "Din PayPal e-post"
       paypal_account_email_info_text: ~
       create_paypal_account: ~
       upgrade_paypal_account: ~
@@ -1522,25 +1524,25 @@ nb:
       paypal_account_billing_agreement_fee_fixed: ~
       paypal_account_billing_agreement_fee_relative: ~
       billing_agreement_description: ~
-      billing_agreement: ~
+      billing_agreement: "Gi tillatelse"
       permissions_not_granted: ~
       could_not_fetch_redirect_url: ~
       paypal_not_enabled: ~
       billing_agreement_canceled: ~
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
-      something_went_wrong: ~
+      something_went_wrong: "Noe gikk galt. Vennligst prøv igjen. Dersom problemet fortsetter, vennligst kontakt administrator."
       account_not_verified: ~
       account_restricted: ~
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: "Gå til betaling"
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: "Vennligst vent."
+    chatting_with_paypal: "Vi chatter med PayPal"
   people:
     edit_links:
       activate: Aktiver
@@ -1556,8 +1558,8 @@ nb:
       this_person_is_not_active_in_kassi: "Denne brukeren er ikke lenger aktiv på %{service_name}"
       inactive_description: "Denne brukeren bruker ikke lenger  %{service_name}. Du kan ikke kontakte denne brukeren, gi tilbakemelding eller kommentere listinger."
     new:
-      captcha_incorrect: ~
-      captcha_was_wrong: ~
+      captcha_incorrect: "reCAPTCHA-sjekk feilet. Vennligst skriv ordene fra bildet i feltet nedenfor."
+      captcha_was_wrong: "Captcha-tekst var ikke riktig."
       create_new_account: "Opprett konto"
       email: E-post
       email_is_in_use: "Eposten du oppgav er allerede i bruk."
@@ -1586,7 +1588,7 @@ nb:
       OR: ~
       signup_with_email: ~
     not_member:
-      explanation_text: ~
+      explanation_text: "Du besøker for øyebliket %{community}. Du forøkte å vise profilen til en bruker som tilhører en annen markedsplass. Du kan ikke vise denne personens profil på %{community}."
       read_more_about_kassi_communities: "Les mer om Sharetribe markedsplasser"
       this_user_does_not_belong_to_this_community: "Denne brukeren er ikke medlem av %{community}."
     profile_feedback:
@@ -1600,7 +1602,7 @@ nb:
     profile_listings:
       show_also_closed: "Vis også lukkede"
       show_only_open: "Vis kun åpne"
-      no_image: ~
+      no_image: "Ikke bilde"
     show:
       contact: "Kontakt %{person}"
       about_me: "Om meg:"
@@ -1625,10 +1627,10 @@ nb:
       reviews: "tilbakemeldinger mottatt"
       listing: annonse
       listings: annonser
-      open_listing: ~
-      open_listings: ~
+      open_listing: "aktiv annonse"
+      open_listings: "aktive annonser"
       no_listings: "Ingen annonser"
-      no_open_listings: ~
+      no_open_listings: "Ingen aktive annonser"
       no_reviews: "Ingen tilbakemeldinger"
       show_all_listings: "Vis alle annonser"
       show_all_open_listings: "Vis alle åpne annonser"
@@ -1638,12 +1640,12 @@ nb:
       you_follow_singular: ~
       they_follow_plural: ~
       they_follow_singular: ~
-      show_all_followed_people: ~
+      show_all_followed_people: "Vis alle fulgte personer"
       no_followed_people: ~
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: Følger
+      follow: Følge
+      unfollow: "Ikke følg"
   search:
     show:
       all_results: "Alle resultater"
@@ -1660,12 +1662,12 @@ nb:
       i_forgot_my_password: "Brukernavn eller passord glemt"
       login: "Logg inn"
       login_to_kassi: "Logg inn på %{service_name}"
-      connect_your_facebook_to_kassi: ~
+      connect_your_facebook_to_kassi: "Koble din Facebook-konto til %{service_name}"
       facebook_account: "Facebook konto:"
       log_in_to_link_account: "Dersom du allerede har en  %{service_name} konto, logg inn for å koble til din Facebook konto."
       you_can_also_create_new_account: "Dersom du ikke har en  %{service_name}, %{accont_creation_link} for å opprette en med din Facebook logg inn."
       account_creation_link_text: "Klikk her"
-      cancle_facebook_connect: ~
+      cancle_facebook_connect: "Hvis du ikke vil koble til din konto kan du %{cancel_link}"
       facebook_cancel_link_text: Avbryt
       log_in_with_your_facebook_account: "Logg inn med Facebook"
       or_sign_up_with_your_username: "...eller med ditt brukernavn eller e-post"
@@ -1702,7 +1704,7 @@ nb:
       new_password: "Nytt passord"
       save: Lagre
       these_fields_are_shown_only_to_you: "Brukernavn er synlig på din profil foruten om du har oppgitt ditt navn. Annen informasjon er kun synlig for deg."
-      email_already_confirmed: ~
+      email_already_confirmed: "Din e-post er allerede bekreftet."
       email:
         address_title: Adresse
         remove_title: Fjerne
@@ -1718,7 +1720,7 @@ nb:
         status_confirmed: Bekreftet
         status_pending: Venter
     notifications:
-      email_from_admins: ~
+      email_from_admins: "Jeg ønsker å få oppdatering fra siden."
       i_want_to_get_email_notification_when: "Jeg ønsker å motta en epost når..."
       newsletters: Nyhetsbrev
       community_updates: "oppdater e-poster"
@@ -1733,10 +1735,10 @@ nb:
       do_not_email_community_updates: "Ikke send meg oppdaterings e-poster"
       email_when_conversation_accepted: "...noen aksepterer mitt tilbud eller forespørsel"
       email_when_conversation_rejected: "...noen avslår mitt tilbud eller forespørsel"
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
+      email_about_completed_transactions: "…noen markerer mitt tilbud eller forespørsel som fullført"
+      email_about_new_payments: "…jeg mottar en ny betaling"
       email_about_payment_reminders: "...Jeg har glemt å betale"
-      email_about_new_listings_by_followed_people: ~
+      email_about_new_listings_by_followed_people: "...noen jeg følger postet en ny annonse"
       unsubscribe_succesful: "avmelding utført"
       unsubscribe_info_text: "Du får ikke lenger disse e-postene. Sjekk dine %{settings_link}for å velge hvilke e-poster du ønsker å motta fra %{service_name}, eller gå tilbake til %{homepage_link}."
       settings_link: Innstillinger
@@ -1791,12 +1793,12 @@ nb:
       exceeded_expectations: "Mye bedre enn forventet"
       give_feedback_to: "Gi tilbakemelding til %{person}"
       grade: "Hva er din helhetlige vurdering?"
-      less_than_expected: ~
+      less_than_expected: "Dårligere enn forventet"
       send_feedback: "Send tilbakemelding"
       slightly_better_than_expected: "Noe bedre enn forventet"
       slightly_less_than_expected: "Noe dårligere enn forventet"
       textual_feedback: "Hvordan gikk det?"
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "Tilbakemeldingen vil være synlig for andre brukere på profilsiden til %{person}. Dette hjelper med å vurdere om %{person} er en tillitsfull person."
       positive: positiv
       negative: Negativ
       default_textual_feedback: "Alt gikk bra, takk!"
@@ -1807,15 +1809,15 @@ nb:
       long_with_abbr_day_name: ~
   datepicker:
     days:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Søndag
+      monday: Mandag
+      tuesday: Tirsdag
+      wednesday: Onsdag
+      thursday: Torsdag
+      friday: Fredag
+      saturday: Lørdag
     days_short:
-      sunday: ~
+      sunday: Søn
       monday: ~
       tuesday: ~
       wednesday: ~
@@ -1831,18 +1833,18 @@ nb:
       friday: ~
       saturday: ~
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: januar
+      february: Februar
+      march: Mars
+      april: April
+      may: Mai
+      june: Juni
+      july: Juli
+      august: August
+      september: September
+      october: Oktober
+      november: November
+      december: Desember
     months_short:
       january: ~
       february: ~
@@ -1866,17 +1868,17 @@ nb:
       short_date: ~
       sms: ~
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: "%{count} dag siden"
+    days_ago: "%{count} dager siden"
+    hour_ago: "%{count} time siden"
+    hours_ago: "%{count} timer siden"
+    minute_ago: "%{count} minutt siden"
+    minutes_ago: "%{count} minutter siden"
+    month_ago: "%{count} måned siden"
+    months_ago: "%{count} måneder siden"
+    seconds_ago: "%{count} sekunder siden"
+    year_ago: "%{count} år siden"
+    years_ago: "%{count} år siden"
     days_since:
       one: "%{count}dag"
       other: "%{count}dager"

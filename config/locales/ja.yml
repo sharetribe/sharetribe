@@ -395,7 +395,7 @@ ja:
     paypal_fee_info:
       title: PayPal手数料
       body: "PayPalはお支払いごとに手数料を差し引きます。手数料は価格の2%から5%になり、サイトの総売り上げ高と買い手の居住国によってきまります。通常、国内の消費の方が国外消費より低い手数料で、月額総売上高が上がれば、手数料は値引きされる仕組みです。 PayPalにログインすると、<a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>こちら</a>から詳細を確認できます。ご購入後、毎回正確な手数料情報が表示されます。"
-      body_with_shipping_info: ~
+      body_with_shipping_info: "PayPalはお支払いごとに課金をします。この手数料は、月間総売り上げや、書いての居住国によって異なりますが、おおよそ（送料を含む）設定価格の２％から５％になります。一般的に、国内の売り上げは国外の手数料より低く設定されおり、月間総利上げが多ければ多いほど、手数料は安くなります。具体的な手数料は、PayPalにログインした後に<a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>こちら</a>より、ご確認いただけます。お客様の購入ごとに、正確な手数料を確認できる領収書を発行されます。"
   conversations:
     accept:
       details: ご注文の詳細
@@ -1299,10 +1299,10 @@ ja:
         after_service_fee_you_will_get_paypal: "%{service_name}のご利用手数料(%{sum_with_currency})と<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は、価格から差し引かれます。"
         after_service_fee_you_will_get_vat: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。（消費税 0%）"
         price_excludes_vat: 価格は外税です。
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        pickup: ~
+        delivery: 発送
+        shipping: 送料
+        shipping_price: 送料
+        pickup: 引き取り
       origin:
         location: 場所
         origin: 起点となる場所
@@ -1539,7 +1539,7 @@ ja:
       account_not_verified: あなたはPayPalアカウントを検証していません。ご利用を続けるには、paypal.comへ行って確認する必要があります。
       account_restricted: あなたのPayPalアカウントは、拒否され接続できないようです。paypal.comにログインしてから、この問題の詳細について、PayPalカスタマーサポートに問い合わせをして状況を改善してください。
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: お支払いへ進む
     checkout_with_paypal: PayPalでお支払い
     cancel_succesful: PayPalのお支払いは正常にキャンセルされました
     transaction:
