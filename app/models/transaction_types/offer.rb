@@ -38,12 +38,6 @@ class Offer < TransactionType
     false
   end
 
-  def is_inquiry?
-    # We still need this method to define whether to show the contact button or not
-    # raise "Offer.is_inquiry is deprecated"
-    false
-  end
-
   def status_after_reply
     raise "Offer.status_after_reply is deprecated"
     process_res = TransactionService::API::Api.processes.get(
