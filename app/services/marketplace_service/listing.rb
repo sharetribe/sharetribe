@@ -89,7 +89,7 @@ module MarketplaceService
 
         process = TransactionService::API::Api.processes.get(
           community_id: community_id,
-          process_id: listing.transaction_type.transaction_process.id
+          process_id: listing.transaction_type.transaction_process_id
         ).data[:process].to_sym
 
         payment_type &&

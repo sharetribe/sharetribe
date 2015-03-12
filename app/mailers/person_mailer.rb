@@ -84,7 +84,7 @@ class PersonMailer < ActionMailer::Base
   def booking_transaction_automatically_confirmed(transaction, community)
     @email_type = "email_about_completed_transactions"
     @transaction = transaction
-    set_up_urls(@transaction.bueyr, community, @email_type)
+    set_up_urls(@transaction.buyer, community, @email_type)
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :template_path => 'person_mailer/automatic_confirmation',
@@ -177,7 +177,7 @@ class PersonMailer < ActionMailer::Base
   # Remind users of conversations that have not been accepted or rejected
   def confirm_reminder(conversation, recipient, community, days_to_cancel)
     @email_type = "email_about_confirm_reminders"
-    set_up_urls(conversation.bueyr, community, @email_type)
+    set_up_urls(conversation.buyer, community, @email_type)
     @conversation = conversation
     @days_to_cancel = days_to_cancel
     escrow = community.payment_gateway && community.payment_gateway.hold_in_escrow
