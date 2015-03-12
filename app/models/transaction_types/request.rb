@@ -47,7 +47,8 @@ class Request < TransactionType
   end
 
   def is_inquiry?
-    raise "Request.is_inquiry is deprecated"
+    # We still need this method to define whether to show the contact button or not
+    # raise "Request.is_inquiry is deprecated"
     false
   end
 

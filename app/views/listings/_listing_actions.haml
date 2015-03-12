@@ -84,7 +84,7 @@
         .content
           = @listing.transaction_type.action_button_label(I18n.locale)
 
-    - if payment_gateway == :paypal && @listing.transaction_type.status_after_reply != "free"
+    - if payment_gateway == :paypal && process == :preauthorize
       .row
         .col-12
           = render :partial => "listing_conversations/paypal_payment_methods", locals: { country_code: @current_community.country }

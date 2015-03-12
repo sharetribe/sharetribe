@@ -148,7 +148,12 @@ class ListingsController < ApplicationController
 
     delivery_opts = delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.currency)
 
-    render locals: {form_path: form_path, payment_gateway: payment_gateway, delivery_opts: delivery_opts}
+    render locals: {
+             form_path: form_path,
+             payment_gateway: payment_gateway,
+             process: process,
+             delivery_opts: delivery_opts
+           }
   end
 
   def new
@@ -261,6 +266,12 @@ class ListingsController < ApplicationController
   end
 
   def close
+    process_res = TransactionService::API::Api.processes.get(
+      community_id: @current_community.id,
+      process_id: @listing.transaction_type.transaction_process_id
+    )
+    process = process_res.data[:process].to_sym
+
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
     @listing.update_attribute(:open, false)
@@ -269,7 +280,7 @@ class ListingsController < ApplicationController
         redirect_to @listing
       }
       format.js {
-        render :layout => false, locals: {payment_gateway: payment_gateway}
+        render :layout => false, locals: {payment_gateway: payment_gateway, process: process}
       }
     end
   end

@@ -13,16 +13,12 @@ class FreeTransactionsController < ApplicationController
     .with_validations { validates_presence_of :content, :listing_id }
 
   def new
-    use_contact_view = @listing.status_after_reply == "free"
     @listing_conversation = new_contact_form
-
-    if use_contact_view
-      render "listing_conversations/contact", locals: {
-        contact: false,
-        contact_form: @listing_conversation,
-        create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
-      }
-    end
+    render "listing_conversations/contact", locals: {
+      contact: false,
+      contact_form: @listing_conversation,
+      create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
+    }
   end
 
   def contact
@@ -38,6 +34,16 @@ class FreeTransactionsController < ApplicationController
     contact_form = new_contact_form(params[:listing_conversation])
 
     if contact_form.valid?
+      process_res = TransactionService::API::Api.processes.get(
+        community_id: @current_community.id,
+        process_id: @listing.transaction_type.transaction_process_id
+      )
+
+      unless process_res.data[:process] == "none"
+        flash[:error] = "Sending the message failed. Please try again."
+        return redirect_to root
+      end
+
       transaction_response = TransactionService::Transaction.create(
         {
           transaction: {
