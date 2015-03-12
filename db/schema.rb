@@ -285,6 +285,9 @@ ActiveRecord::Schema.define(:version => 20150317080017) do
     t.datetime "updated_at",                    :null => false
   end
 
+  add_index "community_translations", ["community_id", "translation_key", "locale"], :name => "community_translations_key_locale"
+  add_index "community_translations", ["community_id", "translation_key"], :name => "community_translations_key"
+
   create_table "contact_requests", :force => true do |t|
     t.string   "email"
     t.datetime "created_at"

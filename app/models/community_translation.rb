@@ -10,6 +10,11 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
+# Indexes
+#
+#  community_translations_key         (community_id,translation_key)
+#  community_translations_key_locale  (community_id,translation_key,locale)
+#
 
 class CommunityTranslation < ActiveRecord::Base
   validates_presence_of :locale, :translation_key
