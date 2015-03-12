@@ -1539,6 +1539,7 @@ zh:
       account_not_verified: 你还没有验证你的PayPal帐号。要继续请先登录paypal.com并确认你的帐号。
       account_restricted: 你的PayPal帐号受限制且不能被连接。请登录paypal.com以了解更多或联系PayPal客户服务解决这个问题。
   paypal:
+    pay_with_paypal: ~
     checkout_with_paypal: 用PayPal结帐
     cancel_succesful: PayPal付款成功取消
     transaction:

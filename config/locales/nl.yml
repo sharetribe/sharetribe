@@ -1544,6 +1544,7 @@ nl:
       account_not_verified: "Je hebt je PayPal account nog niet geverifieerd. Ga naar PayPal.com en verifieer je account alvorens verder te gaan."
       account_restricted: "Je PayPal account is gelimiteerd en kan niet geconnecteerd worden. Log aub in op paypal.com om na te gaan wat er mis is en contacteer PayPal support om dit probleem op te lossen."
   paypal:
+    pay_with_paypal: ~
     checkout_with_paypal: "Uitloggen met PayPal"
     cancel_succesful: "PayPal betaling succesvol geannuleerd"
     transaction:

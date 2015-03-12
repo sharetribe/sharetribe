@@ -57,7 +57,7 @@ nb:
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
-        save: ~
+        save: "Lagre innstillinger"
         transaction_agreement: ~
         transaction_agreement_checkbox: ~
         transaction_agreement_checkbox_header: ~
@@ -85,9 +85,9 @@ nb:
         custom_color2_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
-        grid: ~
-        list: ~
-        map: ~
+        grid: Rutenett
+        list: Annonse
+        map: Kart
         name_display_type: ~
         name_display_type_instructions_text: ~
         full_name: ~
@@ -443,8 +443,8 @@ nb:
       confirmed_offer: "Tilbud fullført"
       canceled_request: "Forespørsel avbrutt."
       canceled_offer: "Tilbud avbrutt."
-      message_from: ~
-      about_listing: ~
+      message_from: "Melding fra %{person}"
+      about_listing: "Om annonse%{listing_title}"
       free_message: ~
     message:
       accepted_request: "godtatt forespørselen"
@@ -481,7 +481,7 @@ nb:
       housing_request_rent_message_form_title: "Lei ut %{listing} til %{person}"
       item_request_message_form_title: "Tilby en ting til %{person}"
       message: Melding
-      message_to: ~
+      message_to: "Melding til %{author_name}"
       optional_message_to: ~
       rideshare_offer_message_form_title: "Be om en tur med %{person}"
       rideshare_request_message_form_title: "Tilby en tur til %{person}"
@@ -492,8 +492,8 @@ nb:
       you_will_get_notified: "Du vil motta en e-post når %{person} svarer deg."
       title: Emne
       send_message_to_user: "Send melding til %{person}"
-      about_listing: ~
-      author_has_to_accept_request: ~
+      about_listing: "Om annonse%{listing_title}"
+      author_has_to_accept_request: "%{author_name}må akseptere forespørselen før du kan betale"
     show:
       in_response_to_listing: "Om annonse"
       message_sent_by: "Melding sendt av"
@@ -502,10 +502,10 @@ nb:
       write_a_reply: "Skriv et svar:"
       conversation_about_listing: "Med %{person} om %{listing}"
       conversation_with_user: "Med %{person}"
-      conversation_with: ~
+      conversation_with: "Samtale med%{person}"
       last_message_at: "(siste melding%{time})"
       price: ~
-      sum: ~
+      sum: "Totalt:%{sum}"
       price_excludes_vat: ~
       total: ~
     status:
@@ -524,7 +524,7 @@ nb:
       offer_preauthorized: ~
       offer_waiting_for_payment: ~
       pay: Betal
-      preauthorized: ~
+      preauthorized: "Betaling vellykket"
       paid: "Betaling vellykket"
       pending_external:
         paypal:
@@ -542,12 +542,12 @@ nb:
       skip_feedback: "Hopp over tilbakemelding"
       waiting_for_listing_author_to_accept_offer: "Venter på%{listing_author_name}for å akseptere tilbudet"
       waiting_for_listing_author_to_accept_request: "Venter på %{listing_author_name}for å akseptere forespørsel"
-      waiting_for_you_to_accept_request: ~
+      waiting_for_you_to_accept_request: "Venter på at du skal akseptere forespørsel"
       waiting_confirmation_from_requester: "Venter på %{requester_name}for å markere forespørsel som ferdig"
-      waiting_confirmation_from_you: ~
+      waiting_confirmation_from_you: "Venter på at du skal merke forespørsel som gjennomført"
       waiting_payment_from_requester: "Venter på betaling fra %{requester_name}"
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_payment_from_you: "Venter på at du skal betale"
+      waiting_feedback_from_you: "Venter på at du skal gi tilbakemelding"
       pending_external_inbox:
         paypal:
           multicurrency: ~
@@ -559,10 +559,10 @@ nb:
       accept_request: "Godta forespørsel"
       reject_offer: "Ikke denne gangen"
       reject_request: "Ikke denne gangen"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      accept_preauthorized_offer: "Godta tilbud"
+      accept_preauthorized_request: "Godta forespørsel"
+      reject_preauthorized_offer: "Ikke denne gang"
+      reject_preauthorized_request: "Ikke denne gang"
       confirm: "Merk som ferdig"
       cancel: Uenighet
   braintree_accounts:
@@ -711,7 +711,7 @@ nb:
       your_request_was_rejected: "Din forespørsel ble avslått"
       you_can_now_pay_to: "Du kan nå betale forespurte beløp til%{payment_receiver}"
       pay_now: "Betal nå"
-      remember_to_confirm: ~
+      remember_to_confirm: "Når en forespørsel er gjennomført, husk å merke den som gjennomført. Dersom en forespørsel ikke er gjennomført har du %{days_to_automatic_confirmation}dager på å avbryte den. Om ikke blir den automatisk merket som gjennomført."
     invitation_to_kassi:
       hi: Hei!
       you_have_been_invited_to_kassi: "%{inviter} har invitert deg til %{service_name}."
@@ -781,15 +781,15 @@ nb:
       remember_to_give_feedback_to: "Påminnelse: husk å gi tilbakemelding til %{name}"
       you_have_not_given_feedback_yet: "Du har enda ikke gitt tilbakemelding til %{name} om '%{event}'. Husk å gi tilbakemelding om hvordan %{given_name} utførte dette."
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
-      you_have_days_to_accept: ~
-      click_here_to_reply: ~
+      subject: "%{requester}har etterspurt og betalt for%{listing_title}"
+      transaction_requested_by_user: "%{requester}har etterspurt og betalt for%{listing_title}"
+      you_have_days_to_accept: "Du må akseptere eller avvise forespørselen innen%{payment_expires_in_days} dager. Dersom du ikke aksepterer innen tidsrammen, blir forespørselen automatisk avvist og du vil ikke få betalt."
+      click_here_to_reply: "klikk her for å svare på forespørselen"
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      subject: "Husk å akseptere forespørselen fra %{requester}vedrørende%{listing_title}"
+      remember_to_accept: "Husk å akseptere forespørselen fra %{requester}vedrørende %{listing_title}.%{requester}har allerede betalt. Du må akseptere forespørselen for å kunne motta betaling."
+      one_day_left: "Dersom du ikke aksepterer forespørselen innen èn dag blir den automatisk avvist og du blir ikke betalt."
+      click_here_to_reply: "klikk her for å svare på forespørselen"
     welcome_email:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
@@ -816,10 +816,10 @@ nb:
       contact_support_link_text: ~
       admin_panel_link_text: ~
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
+      subject: "%{author_name}har lagt ut en ny annonse på %{service_name}"
+      has_posted_a_new_listing: "%{author_name}har lagt ut en ny annonse:"
       you_are_receiving_this_because: ~
-      view_listing: ~
+      view_listing: "Se annonse"
   error_messages:
     listings:
       departure_time: "Avreisetidspunkt må være mellom nå og ett år frem i tid."
@@ -1092,7 +1092,7 @@ nb:
       sign_up: "Registrér deg"
     notifications:
       listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "Kontakt administrator"
       test_welcome_email_delivered_to: "En test e-post ble sendt til %{email}"
       something_went_wrong: "Noe gikk galt"
       community_updated: "Detaljer oppdatert"
@@ -1136,8 +1136,8 @@ nb:
       offer_canceled: ~
       listing_updated_successfully: "Annonse oppdatert"
       only_kassi_administrators_can_access_this_area: "Kun %{service_name} administrator kan besøke dette området"
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
+      only_listing_author_can_close_a_listing: "Kun annonsør kan stoppe en annonse"
+      only_listing_author_can_edit_a_listing: "Kun annonsør kan endre en annonse"
       payment_successful: "Betaling vellykket"
       payment_canceled: "Betaling avbrutt"
       error_in_payment: "Betaling feilet. Dersom du ikke fullførte betalingen, prøv igjen. Dersom du gjorde det og den fremdeles feiler, kontakt oss."
@@ -1167,7 +1167,7 @@ nb:
       this_content_is_not_available_in_this_community: "Dette innholdet er ikke tilgjengelig."
       unknown_error: "Ukjent feil. Vennligst gå til kontakt oss og send oss en melding om hva som skjedde."
       update_error: "Feil ved oppdatering av din informasjon, vennligst prøv på nytt"
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Du har ikke tilgang til å gi tilbakemelding på denne hendelsen"
       you_are_not_authorized_to_do_this: "Du er ikke autorisert til å gjøre dette"
       you_are_not_authorized_to_view_this_content: "Du er ikke autorisert til dette innholdet"
       send_instructions: "Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt innen noen få minutter."
@@ -1191,8 +1191,8 @@ nb:
       you_must_log_in_to_add_news_item: "Du må logge inn på %{service_name} for å legge til ny artikkel."
       you_must_log_in_to_change_profile_settings: "Du må logge inn på %{service_name}for å redigere profil"
       you_must_log_in_to_change_payment_settings: "Du må logge inn på %{service_name}for å redigere betalings oppsett"
-      you_must_log_in_to_accept_or_reject: ~
-      you_must_log_in_to_confirm_or_cancel: ~
+      you_must_log_in_to_accept_or_reject: "Du må logge på for å akseptere eller avvise transaksjonen"
+      you_must_log_in_to_confirm_or_cancel: "Du må logge på for å avvise eller bekrefte transaksjonen"
       you_need_to_confirm_your_account_first: "Du må bekrefte din epost."
       you_must_fill_all_the_fields: "Du må fylle inn alle felter"
       you_unfollowed_listing: "Du følger ikke lenger denne listingen"
@@ -1255,15 +1255,15 @@ nb:
         destination: Destinasjon
       form_content:
         favor: "en tjeneste"
-        housing: ~
+        housing: "et sted"
         item: "et produkt"
         offer_something: "Tilby noe"
         request_something: "Forespør noe"
-        rideshare: ~
+        rideshare: "en tur"
         i_want_to_offer: "Jeg ønsker å tilby..."
         i_want_to_request: "Jeg trenger..."
       googlemap:
-        googlemap_copy: ~
+        googlemap_copy: "Markinger fra kart"
         googlemap_description: "Kart oversikt"
         googlemap_updatemap: "Oppdater kart"
       images:
@@ -1271,14 +1271,14 @@ nb:
         no_file_selected: "Ingen fil er valgt"
         remove_image: "Fjern bilde"
         select_file: "Velg fil"
-        removing: ~
+        removing: Fjern...
         processing: ~
-        loading_image: ~
-        this_may_take_a_while: ~
+        loading_image: "Laster opp..."
+        this_may_take_a_while: "(dette kan ta en stund)"
         percentage_loaded: ~
-        uploading_failed: ~
-        file_too_large: ~
-        accepted_formats: ~
+        uploading_failed: "Bilde opplasting feilet"
+        file_too_large: "Filen er for stor"
+        accepted_formats: "Bilde-filen må enten være GIF, JPG or PNG."
       location:
         location: Sted
       price:
@@ -1389,10 +1389,10 @@ nb:
       select_category: "Velg kategori"
       select_subcategory: ~
       select_transaction_type: ~
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "Du må fylle ut utbetalings detaljer før du kan poste en annonse. Gå til %{payment_settings_link} for å fylle ut."
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
-      payment_settings_link: ~
+      payment_settings_link: "Innstillinger betaling"
       community_not_configured_for_payments_admin: ~
     please_comment: Kommenter
     reply_link:
@@ -1533,6 +1533,7 @@ nb:
       account_not_verified: ~
       account_restricted: ~
   paypal:
+    pay_with_paypal: ~
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
