@@ -46,6 +46,10 @@ class TransactionType < ActiveRecord::Base
 
   acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
 
+  def self.inheritance_column
+    :a_non_existing_column_because_we_want_to_disable_inheritance
+  end
+
   def to_param
     url
   end

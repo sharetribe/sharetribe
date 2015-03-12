@@ -61,8 +61,13 @@ module TestHelpers
 
       # Load transaction types
       transaction_types.each do |type, translations|
+        default_type_opts = TransactionTypeCreator::DEFAULTS[type.to_s]
 
-        transaction_type = Object.const_get(type.to_s).create!(type: type, community_id: community.id, transaction_process_id: processes[:none])
+        type_opts = default_type_opts.merge(
+          transaction_process_id: processes[:none])
+
+        transaction_type = community.transaction_types.create!(type_opts)
+
         community.locales.each do |locale|
           translation = translations[locale.to_sym]
 

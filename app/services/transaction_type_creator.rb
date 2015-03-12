@@ -9,60 +9,92 @@
 #
 module TransactionTypeCreator
 
-  TRANSACTION_TYPES = {
+  DEFAULTS = {
+    "Give" => {
+      type: "Give",
+      price_field: false
+    },
+    "Inquiry" => {
+      type: "Inquiry",
+      price_field: false
+    },
+    "Lend" => {
+      type: "Lend",
+      price_field: false
+    },
+    "Rent" => {
+      type: "Rent",
+      price_field: true,
+      price_per: "day"
+    },
+    "Request" => {
+      type: "Request",
+      price_field: false,
+    },
+    "Sell" => {
+      type: "Sell",
+      price_field: true
+    },
+    "Service" => {
+      type: "Service",
+      price_field: true,
+      price_per: "day"
+    },
+    "ShareForFree" => {
+      type: "ShareForFree",
+      price_field: false
+    },
+    "Swap" => {
+      type: "Swap",
+      price_field: false
+    }
+  }
+
+  TRANSLATIONS = {
     "Give" => {
       label: "Give",
       translation_key: "admin.transaction_types.give",
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
-      defaults: Give::DEFAULTS
     },
     "Inquiry" => {
       label: "Inquiry",
       translation_key: "admin.transaction_types.inquiry",
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.inquiry",
-      defaults: Inquiry::DEFAULTS
     },
     "Lend" => {
       label: "Lend",
       translation_key: "admin.transaction_types.lend",
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
-      defaults: Lend::DEFAULTS
     },
     "Rent" => {
       label: "Rent",
       translation_key: "admin.transaction_types.rent",
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.rent",
-      defaults: Rent::DEFAULTS
     },
     "Request" => {
       label: "Request",
       translation_key: "admin.transaction_types.request",
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.request",
-      defaults: Request::DEFAULTS
     },
     "Sell" => {
       label: "Sell",
       translation_key: "admin.transaction_types.sell",
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.sell",
-      defaults: Sell::DEFAULTS
     },
     "Service" => {
       label: "Service",
       translation_key: "admin.transaction_types.service",
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
-      defaults: Service::DEFAULTS
     },
     "ShareForFree" => {
       label: "Share for free",
       translation_key: "admin.transaction_types.share_for_free",
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
-      defaults: ShareForFree::DEFAULTS
     },
     "Swap" => {
       label: "Swap",
       translation_key: "admin.transaction_types.swap",
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
-      defaults: Swap::DEFAULTS
     }
   }
 
@@ -77,15 +109,12 @@ module TransactionTypeCreator
     author_is_seller = transaction_type_class_name != "Request"
     transaction_process = get_or_create_transaction_process(community_id: community.id, process: process, author_is_seller: author_is_seller)
 
-    transaction_type_description = TRANSACTION_TYPES[transaction_type_class_name]
-    defaults = transaction_type_description[:defaults] || {}
+    translations = TRANSLATIONS[transaction_type_class_name]
+    defaults = DEFAULTS[transaction_type_class_name]
 
     # Create
     transaction_type = community.transaction_types.build(
-      {
-        type: transaction_type_class_name,
-        transaction_process_id: transaction_process[:id]
-      }.merge(defaults)
+      defaults.merge(transaction_process_id: transaction_process[:id])
     )
 
     # Locales
@@ -93,8 +122,8 @@ module TransactionTypeCreator
 
       transaction_type.translations.build({
         locale: locale,
-        name: I18n.t(transaction_type_description[:translation_key], :locale => locale.to_sym),
-        action_button_label: I18n.t(transaction_type_description[:action_button_translation_key], :locale => locale.to_sym)
+        name: I18n.t(translations[:translation_key], :locale => locale.to_sym),
+        action_button_label: I18n.t(translations[:action_button_translation_key], :locale => locale.to_sym)
       })
     end
 
@@ -112,7 +141,7 @@ module TransactionTypeCreator
   end
 
   def available_types
-    TransactionTypeCreator::TRANSACTION_TYPES.map { |type, settings| type }
+    TransactionTypeCreator::DEFAULTS.map { |type, _| type }
   end
 
   def use_in_category(category, transaction_type)
