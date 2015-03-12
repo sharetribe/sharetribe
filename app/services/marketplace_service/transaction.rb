@@ -10,6 +10,7 @@ module MarketplaceService
         :last_transition,
         :last_transition_at,
         :listing,
+        :listing_title,
         :status,
         :author_skipped_feedback,
         :starter_skipped_feedback,

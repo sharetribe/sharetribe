@@ -245,6 +245,7 @@ fi:
           canceled: Peruutettu
           initiated: "Odottaa maksua"
           pending_ext: "Odottaa maksun hyväksyntää"
+        not_available: Ei saatavilla
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
