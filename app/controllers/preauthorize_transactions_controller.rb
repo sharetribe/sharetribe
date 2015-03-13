@@ -38,16 +38,16 @@ class PreauthorizeTransactionsController < ApplicationController
   BraintreePaymentQuery = BraintreeService::Payments::Query
 
   def initiate
-    vprms = view_params(listing_id: params[:listing_id],
-                        quantity: 1,
-                        shipping_enabled: params[:delivery] == "shipping")
-
     delivery_method = valid_delivery_method(delivery_method_str: params[:delivery],
                                              shipping: @listing.require_shipping_address,
                                              pickup: @listing.pickup_enabled)
     if(delivery_method == :errored)
       return redirect_to error_not_found_path
     end
+
+    vprms = view_params(listing_id: params[:listing_id],
+                        quantity: 1,
+                        shipping_enabled: delivery_method == :shipping)
 
     render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
@@ -109,10 +109,17 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def book
+    delivery_method = valid_delivery_method(delivery_method_str: params[:delivery],
+                                             shipping: @listing.require_shipping_address,
+                                             pickup: @listing.pickup_enabled)
+    if(delivery_method == :errored)
+      return redirect_to error_not_found_path
+    end
+
     booking_data = verified_booking_data(params[:start_on], params[:end_on])
     vprms = view_params(listing_id: params[:listing_id],
                         quantity: booking_data[:duration],
-                        shipping_enabled: params[:delivery] == "shipping")
+                        shipping_enabled: delivery_method == :shipping)
 
     if booking_data[:error].present?
       flash[:error] = booking_data[:error]
@@ -135,13 +142,6 @@ class PreauthorizeTransactionsController < ApplicationController
       else
         raise ArgumentError.new("Unknown payment type #{vprms[:payment_type]} for booking")
       end
-
-    delivery_method = valid_delivery_method(delivery_method_str: params[:delivery],
-                                             shipping: @listing.require_shipping_address,
-                                             pickup: @listing.pickup_enabled)
-    if(delivery_method == :errored)
-      return redirect_to error_not_found_path
-    end
 
     render view, locals: {
       preauthorize_form: PreauthorizeBookingForm.new({
