@@ -12,7 +12,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
         process_id: transaction_type.transaction_process_id
       )
 
-      process_res.data[:process].to_sym == :preauthorize
+      process_res.data[:process] == :preauthorize
     end
   end
 

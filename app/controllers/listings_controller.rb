@@ -117,7 +117,7 @@ class ListingsController < ApplicationController
       community_id: @current_community.id,
       process_id: @listing.transaction_type.transaction_process_id
     )
-    process = process_res.data[:process].to_sym
+    process = process_res.data[:process]
 
     form_path = select_new_transaction_path(
       listing_id: @listing.id.to_s,
