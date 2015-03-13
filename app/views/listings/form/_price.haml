@@ -12,9 +12,10 @@
       = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{@listing.transaction_type.price_quantity_placeholder}")
 
     %small
+      - paypal_fee_info_link = "<a href=# id='paypal_fee_info_link'>#{t(".paypal_fee_info_link_text")}</a>"
       = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat
       - if !seller_commission_in_use && payment_gateway == :paypal
-        = t(".no_service_fee_you_will_get_paypal", :fee_info_link_id => 'paypal_fee_info_link').html_safe
+        = t(".no_service_fee_you_will_get_paypal_text", :paypal_fee_info_link => paypal_fee_info_link).html_safe
       - elsif seller_commission_in_use
         - content_for :seller_commission_js do
           :javascript
@@ -34,7 +35,7 @@
             = yield :seller_commission_js
 
         - if payment_gateway == :paypal
-          = t(".after_service_fee_you_will_get_paypal", :sum_with_currency => '<span id="fee_display"></span>', :fee_info_link_id => 'paypal_fee_info_link').html_safe
+          = t(".after_service_fee_you_will_get_paypal_text", :sum_with_currency => '<span id="fee_display"></span>', :paypal_fee_info_link => paypal_fee_info_link).html_safe
         - elsif @current_community.vat
           = t(".after_service_fee_you_will_get_vat", :sum_with_currency => '<span id="fee_display"></span>').html_safe
         - else
