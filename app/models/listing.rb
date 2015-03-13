@@ -219,7 +219,7 @@ class Listing < ActiveRecord::Base
     # Share type is overriden by transaction_type if it is present
     if params[:share_type].present?
       direction = params[:share_type]
-      transaction_type_direction_map = BackwardCompatibility.transaction_types_to_direction_map(current_community)
+      transaction_type_direction_map = ListingShapeHelper.transaction_types_to_direction_map(current_community) # deprecated
       params[:transaction_types] = {
         id: current_community.transaction_types.select { |transaction_type|
           transaction_type_direction_map[transaction_type.id] == direction
@@ -329,7 +329,7 @@ class Listing < ActiveRecord::Base
   def as_json(options = {})
     # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
     hash = {
-      :listing_type => BackwardCompatibility.transaction_type_to_direction(self.transaction_type),
+      :listing_type => ListingShapeHelper.transaction_type_to_direction(self.transaction_type), # deprecated
       :category => self.category.id,
       :id => self.id,
       :icon => icon_class(icon_name)

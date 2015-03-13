@@ -59,7 +59,9 @@ class ListingsController < ApplicationController
                locals: { listings: listings,
                          title: title,
                          updated: updated,
-                         direction_map: BackwardCompatibility.transaction_types_to_direction_map(@current_community)
+
+                         # deprecated
+                         direction_map: ListingShapeHelper.transaction_types_to_direction_map(@current_community)
                        }
       end
     end
