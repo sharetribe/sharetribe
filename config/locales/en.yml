@@ -399,12 +399,13 @@ en:
     removed_user: "Removed user"
     paypal_fee_info:
       title: "PayPal's payment processing fee"
-      body: |-
+      body_text: |-
           PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
-          You can see the exact fees by logging in to your PayPal account and going <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>here</a>. After each purchase you will get a receipt displaying the exact fee.
-      body_with_shipping_info: |-
+          You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
+      body_with_shipping_text: |-
           PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price (including shipping), depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
-          You can see the exact fees by logging in to your PayPal account and going <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>here</a>. After each purchase you will get a receipt displaying the exact fee.
+          You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
+      link_to_paypal_text: "here"
   conversations:
     accept:
       details: "Order details"
@@ -1304,8 +1305,9 @@ en:
         time: "hour, day, month, ..."
         long_time: "week, month, ..."
         after_service_fee_you_will_get: "After %{service_name} and payment processor fees you will get %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a> will be deducted from the price."
-        after_service_fee_you_will_get_paypal: "%{service_name} fee (%{sum_with_currency}) and <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a> will be deducted from the price."
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} will be deducted from the price."
+        after_service_fee_you_will_get_paypal_text: "%{service_name} fee (%{sum_with_currency}) and %{paypal_fee_info_link} will be deducted from the price."
+        paypal_fee_info_link_text: "PayPal's payment processing fee"
         after_service_fee_you_will_get_vat: "After %{service_name} and payment processor fees you will get approx. %{sum_with_currency} (VAT 0%)"
         price_excludes_vat: "The price doesn't include VAT."
         delivery: "Delivery"
@@ -1533,9 +1535,10 @@ en:
       upgrade_paypal_account: "log in to your PayPal account"
       connect_paypal_account: "Connect PayPal account"
       paypal_account_billing_agreement: "Grant %{service_name} permission to charge a transaction fee"
-      paypal_account_billing_agreement_fee_both: "After you make a sale on %{service_name}, a service fee (%{commission_from_seller} of the total item price, minimum fee %{minimum_commission}) will be charged from your PayPal account. To accept payments in %{service_name}, you need to allow it to charge this fee. The fee excludes <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a>."
-      paypal_account_billing_agreement_fee_fixed: "After you make a sale on %{service_name}, a service fee of %{minimum_commission} will be charged from your PayPal account. To accept payments in %{service_name}, you need to allow it to charge this fee. The fee excludes <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a>."
-      paypal_account_billing_agreement_fee_relative: "After you make a sale on %{service_name}, a service fee (%{commission_from_seller} of the total item price) will be charged from your PayPal account. To accept payments in %{service_name}, you need to allow it to charge this fee. The fee excludes <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a>."
+      paypal_account_billing_agreement_info_both: "After you make a sale on %{service_name}, a service fee (%{commission_from_seller} of the total item price, excluding shipping, minimum fee %{minimum_commission}) will be charged from your PayPal account. To accept payments in %{service_name}, you need to allow it to charge this fee. The fee excludes %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "After you make a sale on %{service_name}, a service fee of %{minimum_commission} will be charged from your PayPal account. To accept payments in %{service_name}, you need to allow it to charge this fee. The fee excludes %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "After you make a sale on %{service_name}, a service fee (%{commission_from_seller} of the total item price, excluding shipping) will be charged from your PayPal account. To accept payments in %{service_name}, you need to allow it to charge this fee. The fee excludes %{paypal_info_link}"
+      paypal_info_link_text: "PayPal's payment processing fee"
       billing_agreement_description: "Grant %{service_name} permission to charge a transaction fee."
       billing_agreement: "Grant permission"
       permissions_not_granted: "Permissions to connect with PayPal account are not granted."
