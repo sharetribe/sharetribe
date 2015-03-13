@@ -394,8 +394,9 @@ zh:
     removed_user: 用户已删除
     paypal_fee_info:
       title: PayPal的支付处理费
-      body: "PayPal对每笔付款收取一笔处理费。该费用介于总销售费用的2%到5%之间，取决于你的月销售量和卖家所在国家。总的说来，国内购买者比国际购买者的费用低，每月销售额高则可以获得费用折扣。你可以通过登录你的PayPal帐号访问<a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>这里</a>。来查看详细费用。在每次购买之后你将得到一据显示具体费用的收据。"
-      body_with_shipping_info: ~
+      body_text: ~
+      body_with_shipping_text: ~
+      link_to_paypal_text: ~
   conversations:
     accept:
       details: 订单明细
@@ -1295,8 +1296,9 @@ zh:
         time: 小时，天，月，……
         long_time: 周，月，……
         after_service_fee_you_will_get: "在%{service_name}和付款处理费之后你将得到%{sum_with_currency}"
-        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费用</a> 将从价格中减去."
-        after_service_fee_you_will_get_paypal: "%{service_name} 费 (%{sum_with_currency}) 和 <a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费</a> 将从价格中减去."
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: "在%{service_name}和付款处理费用之后你将得到大概%{sum_with_currency}（0%消费税）"
         price_excludes_vat: 价格不包含VAT。
         delivery: 配送
@@ -1524,9 +1526,10 @@ zh:
       upgrade_paypal_account: 登录你的PayPal帐号
       connect_paypal_account: 连接PayPal帐号
       paypal_account_billing_agreement: "授权%{service_name}收取交易费"
-      paypal_account_billing_agreement_fee_both: "当你完成%{service_name}的一个销售后，服务费（总商品价格的%{commission_from_seller}，最低%{minimum_commission}）将从你的PayPal帐号中扣除。要接受%{service_name}中的付款，你必须允许其收取此费用。该费用不包括<a id='%{fee_info_link_id}' href='#'>PayPal的付款处理费</a>."
-      paypal_account_billing_agreement_fee_fixed: "当你完成%{service_name}的一个销售后，服务费%{minimum_commission}将从你的PayPal帐号中扣除。要接受%{service_name}中的付款，你必须允许其收取此费用。该费用不包括<a id='%{fee_info_link_id}' href='#'>PayPal的付款处理费</a>."
-      paypal_account_billing_agreement_fee_relative: "当你完成%{service_name}的一个销售后，服务费（总商品价格的%{commission_from_seller}）将从你的PayPal帐号中扣除。接受%{service_name}中的付款，你必须允许其收取此费用。该费用不包括<a id='%{fee_info_link_id}' href='#'>PayPal的付款处理费</a>."
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_info_link_text: ~
       billing_agreement_description: "授权%{service_name}收取交易费。"
       billing_agreement: 授权
       permissions_not_granted: 没有授权连接PayPal帐号。

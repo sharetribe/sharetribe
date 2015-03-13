@@ -399,8 +399,9 @@ sv:
     removed_user: "Borttagen användare"
     paypal_fee_info:
       title: "PayPals avgift för betalningshantering"
-      body: "PayPal tar ut en administrativ avgift för varje betalning. Denna avgift är mellan 2% och 5% av totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inlandsbetalningar lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>hit</a>. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften."
-      body_with_shipping_info: ~
+      body_text: ~
+      body_with_shipping_text: ~
+      link_to_paypal_text: ~
   conversations:
     accept:
       details: Orderinformation
@@ -1302,8 +1303,9 @@ sv:
         time: "timme, dag, månad, ..."
         long_time: "vecka, månad, ..."
         after_service_fee_you_will_get: "Efter %{service_name}s serviceavgift så kommer du att få %{sum_with_currency} när du har sålt produkten. OBS! Om produkten ska skickas, glöm inte att inkludera fraktkostnad i priset."
-        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPal's adminstrationsavgift</a> kommer att dras av från priset."
-        after_service_fee_you_will_get_paypal: "%{service_name} avgift (%{sum_with_currency}) och <a id='%{fee_info_link_id}' href='#'>PayPal's administrationsavgift</a> kommer att dras av från priset."
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: "Efter %{service_name} och betalningsavgifter kommer du att få ca. %{sum_with_currency} (moms 0%)"
         price_excludes_vat: "Priset inkluderar inte moms."
         delivery: ~
@@ -1531,9 +1533,10 @@ sv:
       upgrade_paypal_account: "logga in till ditt PayPal konto"
       connect_paypal_account: "Koppla ditt PayPal konto"
       paypal_account_billing_agreement: "2. Ge %{service_name} tillåtelse att ta ut en serviceavgift."
-      paypal_account_billing_agreement_fee_both: "Efter att du har sålt något på %{service_name}, så kommer en serviceavgift (%{commission_from_seller} på det totala priset, minsta avgift %{minimum_commission}) kommer att dras från ditt PayPalkonto. För att acceptera betalningar på %{service_name}, så måste du tillåta att det dras en avgift. Denna avgift inkluderar inte <a id='%{fee_info_link_id}' href='#'>PayPal's adminstrationsavgift</a>."
-      paypal_account_billing_agreement_fee_fixed: "Efter att du har sålt något på %{service_name}, så kommer en serviceavgift på %{minimum_commission} att dras från ditt PayPal konto. För att acceptera betalningar på %{service_name}, så måste du tillåta att det dras en avgift. Denna avgift inkluderar inte <a id='%{fee_info_link_id}' href='#'>PayPal's administrativa avgift</a>."
-      paypal_account_billing_agreement_fee_relative: "Efter att du säljer något på %{service_name}, så kommer en serviceavgift (%{commission_from_seller} av det totala priset) att dras från ditt PayPalkonto. För att acceptera betalning på %{service_name}, så måste du tillåta att denna avgift dras. Denna avgift inkluderar inte <a id='%{fee_info_link_id}' href='#'>PayPal's administrationsavgift</a>."
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_info_link_text: ~
       billing_agreement_description: "Ge %{service_name} behörighet att ta ut en transaktionsavgift."
       billing_agreement: "Bevilja behörighet"
       permissions_not_granted: "Behörighet att ansluta med PayPalkonto beviljades inte."

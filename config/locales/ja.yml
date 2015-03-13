@@ -394,8 +394,9 @@ ja:
     removed_user: ユーザは削除されました
     paypal_fee_info:
       title: PayPal手数料
-      body: "PayPalはお支払いごとに手数料を差し引きます。手数料は価格の2%から5%になり、サイトの総売り上げ高と買い手の居住国によってきまります。通常、国内の消費の方が国外消費より低い手数料で、月額総売上高が上がれば、手数料は値引きされる仕組みです。 PayPalにログインすると、<a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>こちら</a>から詳細を確認できます。ご購入後、毎回正確な手数料情報が表示されます。"
-      body_with_shipping_info: "PayPalはお支払いごとに課金をします。この手数料は、月間総売り上げや、書いての居住国によって異なりますが、おおよそ（送料を含む）設定価格の２％から５％になります。一般的に、国内の売り上げは国外の手数料より低く設定されおり、月間総利上げが多ければ多いほど、手数料は安くなります。具体的な手数料は、PayPalにログインした後に<a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>こちら</a>より、ご確認いただけます。お客様の購入ごとに、正確な手数料を確認できる領収書を発行されます。"
+      body_text: ~
+      body_with_shipping_text: ~
+      link_to_paypal_text: ~
   conversations:
     accept:
       details: ご注文の詳細
@@ -1295,8 +1296,9 @@ ja:
         time: 時間、日、ヶ月
         long_time: 週、ヶ月、...
         after_service_fee_you_will_get: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。"
-        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPalの手数料</a>は価格から差し引かれます。"
-        after_service_fee_you_will_get_paypal: "%{service_name}のご利用手数料(%{sum_with_currency})と<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は、価格から差し引かれます。"
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。（消費税 0%）"
         price_excludes_vat: 価格は外税です。
         delivery: 発送
@@ -1524,9 +1526,10 @@ ja:
       upgrade_paypal_account: ここであなたのアカウントをアップグレードしてください。
       connect_paypal_account: PayPalアカウントに接続する
       paypal_account_billing_agreement: "%{service_name}の利用料金支払いの許可を承諾してください"
-      paypal_account_billing_agreement_fee_both: "%{service_name}で売り上げると、総売り上げ額による手数料%{commission_from_seller}と、最小手数料%{minimum_commission}が、あなたのPayPalへ請求されます。%{service_name}内のお支払いを受け入れるには、それらの手数料の請求を認めてください。尚、手数料には<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は含まれません。"
-      paypal_account_billing_agreement_fee_fixed: "%{service_name}で売り上げると、最小手数料%{minimum_commission}が、あなたのPayPalへ請求されます。%{service_name}内のお支払いを受け入れるには、その手数料の請求を認めてください。尚、手数料には<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は含まれません。"
-      paypal_account_billing_agreement_fee_relative: "%{service_name}で売り上げると、総売り上げ額による手数料%{commission_from_seller}が、あなたのPayPalへ請求されます。%{service_name}内のお支払いを受け入れるには、その手数料の請求を認めてください。尚、手数料には<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は含まれません。"
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_info_link_text: ~
       billing_agreement_description: "%{service_name}の利用料金支払いの許可を承諾してください"
       billing_agreement: 許可してください
       permissions_not_granted: PayPalアカウントに接続する許可を取得出来ませんでした。

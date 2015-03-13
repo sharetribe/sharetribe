@@ -384,8 +384,9 @@ en-vg:
     removed_user: ~
     paypal_fee_info:
       title: ~
-      body: ~
-      body_with_shipping_info: ~
+      body_text: ~
+      body_with_shipping_text: ~
+      link_to_paypal_text: ~
   conversations:
     accept:
       details: ~
@@ -1285,8 +1286,9 @@ en-vg:
         time: ~
         long_time: ~
         after_service_fee_you_will_get: ~
-        no_service_fee_you_will_get_paypal: ~
-        after_service_fee_you_will_get_paypal: ~
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
         delivery: ~
@@ -1514,9 +1516,10 @@ en-vg:
       upgrade_paypal_account: ~
       connect_paypal_account: ~
       paypal_account_billing_agreement: ~
-      paypal_account_billing_agreement_fee_both: ~
-      paypal_account_billing_agreement_fee_fixed: ~
-      paypal_account_billing_agreement_fee_relative: ~
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_info_link_text: ~
       billing_agreement_description: ~
       billing_agreement: ~
       permissions_not_granted: ~

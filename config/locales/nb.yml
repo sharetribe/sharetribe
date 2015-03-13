@@ -14,7 +14,7 @@ nb:
         new_listing_category: ~
       form:
         category_name:
-          category_title: ~
+          category_title: "Kategori tittel"
         category_parent:
           category_parent: ~
           no_parent: ~
@@ -51,8 +51,8 @@ nb:
         invite_people: "Inviter nye brukere"
         edit_signup_info: ~
         edit_signup_info_description: ~
-        edit_info: ~
-        see_how_it_looks_like: ~
+        edit_info: "Redigere informasjon"
+        see_how_it_looks_like: "Se hvordan det ser ut"
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
@@ -136,7 +136,7 @@ nb:
         view_transactions_link_text: ~
         contact_support_link_text: ~
       settings:
-        settings: ~
+        settings: Innstillinger
         general: ~
         users_can_review_each_other_after_transaction: ~
         access: ~
@@ -162,9 +162,9 @@ nb:
         newsletter_daily: ~
         newsletter_weekly: ~
       manage_members:
-        manage_members: ~
-        email: ~
-        name: ~
+        manage_members: "Administrer brukere"
+        email: E-post
+        name: Navn
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -262,7 +262,7 @@ nb:
         add_new_field: ~
         remove_field_confirmation: "Er du sikker på at du ønsker å fjerne '%{field_name}'?"
         cancel: ~
-        save: ~
+        save: Lagre
         field_title: ~
         field_type: ~
         categories: ~
@@ -294,7 +294,7 @@ nb:
         email_language: "Språk til epostmottakere"
         any_language: "Alle språk"
         send_email: "Send epost"
-        message_will_be_sent_only_to_people_with_this_language: ~
+        message_will_be_sent_only_to_people_with_this_language: "Ps: e-posten sendes kun til brukere av %{service_name} i det språket du har valgt."
         email_sent: "Epost sendt."
     left_hand_navigation:
       general: ~
@@ -384,8 +384,9 @@ nb:
     removed_user: ~
     paypal_fee_info:
       title: ~
-      body: ~
-      body_with_shipping_info: ~
+      body_text: ~
+      body_with_shipping_text: ~
+      link_to_paypal_text: ~
   conversations:
     accept:
       details: ~
@@ -984,7 +985,7 @@ nb:
       welcome_to_new_kassi: "Velkommer til nye %{service_name}!"
       no_reviews: "Ingen tilbakemeldinger"
       no_image: "Ikke bilde"
-      filter: ~
+      filter: Filter
       this_is_private_community: "Du må logge inn for å se dette innholdet."
     invitation_form:
       invite_your_friends: "Inviter dine venner til %{service_name}!"
@@ -1203,7 +1204,7 @@ nb:
       can_not_delete_email: "Du kan ikke fjerne e-post adressen"
       user_does_not_have_email_to_delete: "Du har ikke e-post adressen du prøver å fjerne"
       email_deleted: "E-post fjernet"
-      payment_details_add_successful: ~
+      payment_details_add_successful: "Betalings detaljer lagt til"
       payment_details_add_error: "Kunne ikke legge til betalings detaljer"
       listing_author_payment_details_missing: "Annonse eier har ikke lagt til betalingsinformasjon og kan derfor ikke motta betaling akkurat nå. Vennligst kontakt annonse eier."
       stylesheet_needs_recompiling: ~
@@ -1291,8 +1292,9 @@ nb:
         time: "time,dag,måned,..."
         long_time: "uke, måned, ..."
         after_service_fee_you_will_get: ~
-        no_service_fee_you_will_get_paypal: ~
-        after_service_fee_you_will_get_paypal: ~
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Prisen inkluderer ikke MVA"
         delivery: ~
@@ -1387,10 +1389,10 @@ nb:
       listing: annonse
       selected_category: "Kategori:%{category}"
       selected_subcategory: "Under kategori:%{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Annonse type: %{transaction_type}"
       select_category: "Velg kategori"
-      select_subcategory: ~
-      select_transaction_type: ~
+      select_subcategory: "Velg underkategori"
+      select_transaction_type: "Velg annonse type"
       you_need_to_fill_payout_details_before_accepting: "Du må fylle ut utbetalings detaljer før du kan poste en annonse. Gå til %{payment_settings_link} for å fylle ut."
       contact_admin_link_text: ~
       community_not_configured_for_payments: ~
@@ -1439,7 +1441,7 @@ nb:
       shipping: ~
       pickup: ~
     verification_required:
-      verification_required: ~
+      verification_required: "Verifisering påkrevd"
   listing_conversations:
     preauthorize:
       details: Detaljer
@@ -1497,7 +1499,7 @@ nb:
     braintree:
       terms:
         braintree_terms_also_included: ~
-        terms_link_text: ~
+        terms_link_text: "Braintree bruker vilkår"
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: ~
@@ -1520,9 +1522,10 @@ nb:
       upgrade_paypal_account: ~
       connect_paypal_account: ~
       paypal_account_billing_agreement: ~
-      paypal_account_billing_agreement_fee_both: ~
-      paypal_account_billing_agreement_fee_fixed: ~
-      paypal_account_billing_agreement_fee_relative: ~
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_info_link_text: ~
       billing_agreement_description: ~
       billing_agreement: "Gi tillatelse"
       permissions_not_granted: ~
@@ -1709,7 +1712,7 @@ nb:
         address_title: Adresse
         remove_title: Fjerne
         remove_confirmation: "Er du sikker på at du ønsker å fjerne denne e-postadressen?"
-        receive_notifications_title_desktop: ~
+        receive_notifications_title_desktop: "Motta varsler"
         receive_notifications_title_mobile: ~
         receive_notifications_new_title_mobile: ~
         add_new_with_plus: "+Legg til ny e-post"
