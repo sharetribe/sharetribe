@@ -51,7 +51,7 @@ ru:
         invite_people: "Пригласить новых пользователей"
         edit_signup_info: Информация
         edit_signup_info_description: "Этот текст может быть показан пользователям на странице регистрации. Здесь вы можете указать необходимую инструкцию, информацию как например, где получить приглашение и т.д. По умолчанию здесь нет инструкций."
-        edit_info: ~
+        edit_info: "Редактировать информацию"
         see_how_it_looks_like: "Посмотреть как это выглядит"
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: "В настоящее время требуется вашим пользователям быть подтвержденным вручную вами чтобы они смогли размещать предложения. Здесь вы можете установить базовый текст который показывается для не-подтвержденных пользователей когда они пробуют создать новое размещение продукта."
@@ -69,7 +69,7 @@ ru:
         community_logo: Логотип
         community_logo_icon: "Лого для соц сетей и мобильных устройств"
         community_cover_photo: Обложка
-        small_community_cover_photo: ~
+        small_community_cover_photo: "Уменьшенное фото для обложки"
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: "Основной цвет"
@@ -79,7 +79,7 @@ ru:
         cover_photo_visibility: "Обложка с фото будет показана на главной странице для не зарегистрированных пользователей."
         cover_photo_instructions_text_with_dimensions: "Фото будут изменено до размера %{width}x%{height} пикселей а более большие изображения будут обрезаны до среднего размера %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Уменьшенная обложка с фото будет показана на всех страницах исключаю главную страницу для не зарегистрированных пользователей."
-        small_cover_photo_instructions_text_with_dimensions: ~
+        small_cover_photo_instructions_text_with_dimensions: "Фото будут изменено до размера %{width}x%{height} пикселей а более большие изображения будут обрезаны до среднего размера."
         main_content_width: "Выбирая обложку с фото примите во внимание что основной контент на странице %{main_width} пикселей шире. Не забудь также проверить как ваша обложка с фото выглядит на более маленьких экранах."
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса, введя его значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
         custom_color2_instructions_text: "Вы можете изменить второй цвет интерфейса для пользователей введя цветовое значение."
@@ -99,7 +99,7 @@ ru:
       edit_text_instructions:
         edit_text_instructions: Инструкция
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: "Содержание приветственного письма"
         welcome_email_content_description: "Сообщение расположенное ниже будет отправлено каждому новому пользователю. Вы можете адаптировать сообщение наиболее подходящим для вашего проекта способом. Нажимая \"%{send_test_message_link}\" вы можете предварительно посмотреть сообщение чтобы проверить как оно будет отображено клиенту."
         edit_message: "Редактировать сообщение"
         send_test_message: "Отправить тестовое сообщение"
@@ -243,7 +243,7 @@ ru:
         paypal_admin_account: Платежи
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Редактировать поле предложения \"%{field_name}\""
       edit_price:
         edit_price_field: ~
         show_price_filter_homepage: ~
@@ -254,34 +254,34 @@ ru:
         this_field_is_required: ~
       form:
         field_required:
-          this_field_is_required: ~
+          this_field_is_required: "Это обязательное поле"
           this_field_is_required_checkbox: "Это обязательное поле (пользователь должен выбрать по крайней мере одну опцию)"
       index:
         listing_fields: "Поля и фильтры для предложений"
         listing_fields_help: ~
         add_new_field: "Добавить новое поле"
-        remove_field_confirmation: ~
+        remove_field_confirmation: "Вы уверены что хотите удалить поле \"%{field_name}\"?"
         cancel: Отмена
         save: Сохранить
-        field_title: ~
-        field_type: ~
-        categories: ~
+        field_title: "Наименование поля"
+        field_type: "Тип поля"
+        categories: "Категории предложений где данное поле используется"
         options: ~
-        add_option: ~
-        saving_order: ~
-        save_order_successful: ~
+        add_option: "+ Добавить опцию"
+        saving_order: "Сохранение порядка полей"
+        save_order_successful: "Порядок полей успешно сохранен"
         save_order_error: "Во время сохранения поля произошла ошибка Обновите страницу и попробуйте еще раз."
-        select_one: ~
-        continue: ~
+        select_one: "Выберите тип поля..."
+        continue: Продолжить
         minimum_value: ~
         maximum_value: ~
         allow_decimals: ~
       new:
-        new_listing_field: ~
+        new_listing_field: "Новое поле предложения"
       field_types:
         text: ~
         number: ~
-        dropdown: ~
+        dropdown: "Выпадающее меню"
         checkbox_group: ~
         date: ~
     emails:
@@ -385,7 +385,10 @@ ru:
     paypal_fee_info:
       title: ~
       body: ~
+      body_text: ~
       body_with_shipping_info: ~
+      body_with_shipping_text: ~
+      link_to_paypal_text: ~
   conversations:
     accept:
       details: ~
@@ -400,7 +403,7 @@ ru:
       update_later: "Оставить размещения открытыми"
       optional_message: "Сообщение (необязательно)"
       price_to_pay: "Сумма к оплате"
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "Вам нужно заполнить платежные реквизиты до того как принять запрос и получить оплату. Посетите %{payment_settings_link} чтобы указать детали."
       payment_settings_link: "настройки оплаты"
       minimum_price_error_message: "Цена не может быть ниже чем %{amount}."
       accept: ~
@@ -413,9 +416,9 @@ ru:
       paypal_fee_info: ~
       shipping_price_label: ~
     confirm:
-      confirm_description: ~
-      cancel_description: ~
-      cancel_payed_description: ~
+      confirm_description: "Если ваш запрос был выполнен вы должны подтвердить его как завершенный. Затем вы можете оставить отзыв."
+      cancel_description: "Если ваш запрос не был выполнен вы можете отметить его как \"не сделанный\". Тем не менее вы можете оставить отзыв и описать ситуацию."
+      cancel_payed_description: "Если ваш запрос был принят, но вы пересмотрели свои намерения, тем не менее вы можете отменить ваш запрос перед оплатой."
       canceling_payed_transaction: "Отменить транзакцию"
       confirm: "Отметить как завершенное"
       cancel: Спорно
@@ -451,12 +454,12 @@ ru:
       rejected_offer: "предложение отклонено"
       confirmed_request: "Отметить запрос как завершенный"
       confirmed_offer: "Отметить предложение как завершенное"
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      canceled_request: "отменный запрос"
+      canceled_offer: "отмененное предложение"
+      paid: "оплачено %{sum}"
     new:
-      offer_message_form_title: ~
-      request_message_form_title: ~
+      offer_message_form_title: "Предложить %{listing} для %{person}"
+      request_message_form_title: "Запросить %{listing} у %{person}"
       favor_offer_message_form_title: "Запросить поддержку у %{person}"
       favor_request_message_form_title: "Предложить поддержку для %{person}"
       housing_offer_message_form_title: "Предложить место %{person}"
@@ -484,7 +487,7 @@ ru:
       rideshare_offer_message_form_title: "Запросить поездку от %{person}"
       rideshare_request_message_form_title: "Предложить поездку %{person}"
       send_message: "Отправить сообщение"
-      send: ~
+      send: Отправить
       this_message_is_private: "Это приватное сообщение между вами и %{person}. %{person} будет уведомлен(-а) об этом сообщении по электронной почте."
       you_will_get_notified_of_acceptance: "Вы получите уведомление по электронной почте когда %{person} примет или отклонит ваше предложение."
       you_will_get_notified: "Вы получите уведомление по электронной почте когда %{person} ответит вам."
@@ -493,7 +496,7 @@ ru:
       about_listing: ~
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: ~
+      in_response_to_listing: "о предложении"
       message_sent_by: "Сообщение отправлено"
       message_sent_to: "Сообщение отправлено"
       send_reply: "Отправить ответ"
@@ -538,12 +541,12 @@ ru:
       request_paid: ~
       request_preauthorized: ~
       skip_feedback: "Пропустить отзыв"
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_offer: "Ожидание от %{listing_author_name} принятия предложения"
+      waiting_for_listing_author_to_accept_request: "Ожидание от %{listing_author_name} принять запрос"
       waiting_for_you_to_accept_request: ~
       waiting_confirmation_from_requester: "Ожидаю %{requester_name} чтобы отметить запрос завершенным"
       waiting_confirmation_from_you: ~
-      waiting_payment_from_requester: ~
+      waiting_payment_from_requester: "Ожидание от %{requester_name} оплаты"
       waiting_payment_from_you: ~
       waiting_feedback_from_you: ~
       pending_external_inbox:
@@ -576,7 +579,7 @@ ru:
       address_region: Область
       date_of_birth: "Дата рождения"
       ssn: "Номер Социального Страхования"
-      routing_number: ~
+      routing_number: "Код Банка"
       account_number: "Номер счета"
       save: Сохранить
     show:
@@ -591,11 +594,11 @@ ru:
       address_region: Область
       date_of_birth: "Дата рождения"
       ssn: "Номер Социального Страхования"
-      routing_number: ~
-      account_number: ~
+      routing_number: "Код Банка"
+      account_number: "Номер счета"
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
+      new_credit_card_payment: "Новый платеж кредитной картой"
       payment_receiver: "Получатель платежа"
       cardholder_name: "Имя владельца карты"
       credit_card_number: "Номер карты"
@@ -633,33 +636,33 @@ ru:
       show_thread: "Показать диалог"
     braintree_account_approved:
       account_ready: "Вы готовы получать платежи"
-      message: ~
+      message: "Ваши платежные реквизиты были подтверждены и вы готовы к получения платежей в %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Вы пока еще не подтвердили или отменили запрос %{request_link}. Если запрос был выполнен, вам нужно подтвердить это. После этого вы можете оставить отзыв о %{other_party_given_name}."
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: "Не забудьте подтвердить или отменить запрос"
-      if_will_not_happen_you_should_cancel: ~
+      if_will_not_happen_you_should_cancel: "Если вы предполагаете что запрос не будет выполнен по различным причинам, вы можете его отменить %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: ~
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
       cancel_it_link_text: отменить
       automatic_confirmation: ~
     payment_reminder:
-      remember_to_pay: ~
-      you_have_not_yet_paid: ~
-      if_will_not_happen_you_should_cancel: ~
+      remember_to_pay: "Не забудьте оплатить за %{listing_title}"
+      you_have_not_yet_paid: "Вы пока не оплатили за %{listing_title} что было %{other_party_name} принято и предложено для вас."
+      if_will_not_happen_you_should_cancel: "Если вы предполагаете что запрос не будет выполнен по различным причинам, вы также можете его отменить %{cancel_it_link}."
       cancel_it_link_text: отменить
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: ~
+      remember_to_add_payment_details: "Не забудьте указать ваши реквизиты для приема оплаты."
+      you_have_added_listing_with_payment: "Вы добавили предложение %{listing_link} с условием оплаты. Однако, вы еще не добавили ваши реквизиты. Чтобы получить оплату вам необходимо указать реквизиты."
       please_go_to_payment_settings: "Пожалуйста перейдите в %{payment_settings_link} и укажите необходимую информацию для платежей."
       payment_settings_link: "настройки оплаты"
     transaction_confirmed:
-      here_is_a_message_from: ~
+      here_is_a_message_from: "Сообщение от %{other_party_given_name}:"
       request_marked_as_confirmed: "Запрос завершен - не забудьте оставить отзыв"
       request_marked_as_canceled: "Запрос отменен"
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
-      giving_feedback_is_good_idea: ~
+      has_marked_request_as_confirmed: "%{other_party_full_name} отметил запрос %{request} выполненным. Теперь вы можете оставить отзыв о %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} отменил запрос %{request}. Вы все еще можете оставить отзыв о %{other_party_given_name}."
+      giving_feedback_is_good_idea: "Оставлять отзыв это всегда хорошо. Если все прошло правильно, вы должны поделиться с другими пользователями что %{other_party_given_name} можно доверять. Либо если были сложности, об этом тоже можно сообщить."
       give_feedback_to: "Оставить отзыв %{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: ~
@@ -705,7 +708,7 @@ ru:
       your_offer_was_rejected: "Ваше предложение было отклонено"
       your_request_was_accepted: "Ваш запрос был принят"
       your_request_was_rejected: "Ваш запрос был отклонён"
-      you_can_now_pay_to: ~
+      you_can_now_pay_to: "Сейчас вы можете оплатить требуемую сумму %{payment_receiver}."
       pay_now: "Оплатить сейчас"
       remember_to_confirm: ~
     invitation_to_kassi:
@@ -731,18 +734,18 @@ ru:
       paypal_gateway_fee: ~
       shipping_total: ~
     braintree_new_payment:
-      product: ~
-      price_payer_paid: ~
+      product: "Продукт:"
+      price_payer_paid: "Оплаченная %{payer_full_name} сумма:"
       service_fee: "Комиссия сервиса %{service_name}:"
       you_will_get: "Всего:"
       money_will_be_transferred: ~
     receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
+      receipt_of_payment: "Квитанция об оплате"
+      you_have_made_new_payment: "Вы оплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b> %{recipient_full_name}. Здесь ваша квитанция."
+      product: Продукт
       total: Всего
-      price: ~
-      service_fee: ~
+      price: Цена
+      service_fee: "Комиссия сервиса"
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в Kassi"
@@ -755,7 +758,7 @@ ru:
     community_updates:
       added_offer: "%{name_link} добавлено предложение:"
       added_request: "%{name_link} добавлено предложение:"
-      added_listing: ~
+      added_listing: "%{name_link} добавил новое предложение"
       update_mail_title: "Обновления %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "В этом письме содержится несколько новостей %{community_link} за последние %{time_since_last_update}"
@@ -821,7 +824,7 @@ ru:
       departure_time: "Дата выезда должна быть в интервале от сегодняшней даты плюс один год."
       share_type: "Вы должны выбрать как минимум один из пунктов."
       valid_until: "Дата должна быть в интервале от сегодняшней даты плюс 6 месяцев"
-      price: ~
+      price: "Цена должна быть целым числом."
       minimum_price: "Минимальная цена %{currency} %{minimum_price}"
     testimonials:
       you_must_explain_not_neutral_feedback: "Если вы хотите оставить отзыв, отличный от нейтрального, объясните причину."
@@ -865,8 +868,8 @@ ru:
       invalid_date: ~
       invalid_time: ~
       invalid_datetime: ~
-      is_at: ~
       before: ~
+      is_at: ~
       on_or_before: ~
       after: ~
       on_or_after: ~
@@ -944,7 +947,7 @@ ru:
       some_private_offers_exist: "Уже есть <b>%{number_of_listings} предложений</b>,"
       some_private_requests_exist: "Уже есть <b>%{number_of_listings} запросов</b>,"
     custom_filters:
-      update_view: ~
+      update_view: Обновить
       min: ~
       max: ~
     event_feed:
@@ -976,7 +979,7 @@ ru:
       requesting: "запрашивают другие"
       tell_it_here: "Расскажите об этом здесь!"
       welcome_to_new_kassi: "Добро пожаловать в новый %{service_name}!"
-      no_reviews: ~
+      no_reviews: "Нет отзывов"
       no_image: "нет изображения"
       filter: Фильтр
       this_is_private_community: ~
@@ -991,7 +994,7 @@ ru:
       errors_in_emails: "Проверьте правильность адресов электронной почты, разделённых запятой."
     list_item:
       review: Проверка
-      reviews: ~
+      reviews: Отзывы
     news_item:
       show_less: Меньше
       show_more: Больше
@@ -1016,7 +1019,7 @@ ru:
       all_categories: "Все категории"
   infos:
     about:
-      default_about_text_title: ~
+      default_about_text_title: "Что такое Sharetribe?"
       default_about_text: "Этот маркетплейс создан на платформе Sharetribe. С Sharetribe вы можете легко создать ваш собственный маркетплейс. Это бесплатно и займет несколько минут. %{click_here_link} чтобы узнать больше!"
       click_here_link_text: "Нажмите здесь"
     how_to_use:
@@ -1099,8 +1102,8 @@ ru:
       comment_sent: "Комментарий отправлен"
       confirmation_link_is_wrong_or_used: "Ссылка для подтверждения уже была использована, либо неправильна. Попробуйте войти в систему, или отправьте отзыв, если проблема повторяется."
       additional_email_confirmed: "Адрес электронной почты, указанный вами теперь подтвержден."
-      could_not_get_email_from_facebook: ~
-      create_new_listing: ~
+      could_not_get_email_from_facebook: "Не смогли получить email адрес от Facebook и не можем создать аккаунт без email."
+      create_new_listing: "Создать другое предложение"
       create_one_here: "создать её"
       email_confirmation_sent_to_new_address: "Письмо с ссылкой подтверждения отправлено на новый адрес."
       email_not_found: "Введённый вами адрес электронной почты не содержится в базе данных %{service_name}."
@@ -1130,15 +1133,15 @@ ru:
       listing_created_successfully: "Объявление успешно создано: %{new_listing_link}"
       offer_rejected: "Предложение отклонено"
       offer_canceled: "Предложение отменено"
-      listing_updated_successfully: ~
+      listing_updated_successfully: "Предложение обновлено успешно"
       only_kassi_administrators_can_access_this_area: "Только администраторы %{service_name} имеют доступ к этому разделу"
       only_listing_author_can_close_a_listing: "Листинг может закрыть только автор"
       only_listing_author_can_edit_a_listing: "Листинг может редактировать только автор"
-      payment_successful: ~
+      payment_successful: "Оплата выполнена успешно"
       payment_canceled: "Платёж отменен"
-      error_in_payment: ~
-      cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      error_in_payment: "Ошибка оплаты. Если вы еще не завершили операцию оплаты, попробуйте снова. Если вы завершили, пожалуйста свяжитесь с нами."
+      cannot_receive_payment: "Другая сторона не может получить платеж из-за произошедшей ошибки. Пожалуйста свяжитесь с администрацией чтобы прояснить ситуацию."
+      payment_waiting_for_later_accomplishment: "Когда вы оплатите, мы уведомим продавца и вы получите квитанцию об оплате по email."
       password_recovery_sent: "Инструкции по смене пароля отправлены на ваш почтовый ящик."
       person_activated: "Пользователь активирован"
       person_deactivated: "Пользователь отключен"
@@ -1190,15 +1193,15 @@ ru:
       you_must_log_in_to_accept_or_reject: "Вы обязаны войти чтобы принять или отклонить транзакцию"
       you_must_log_in_to_confirm_or_cancel: "Вы обязаны войти чтобы отменить или подтвердить транзакцию"
       you_need_to_confirm_your_account_first: "Вы должны подтвердить свою учётную запись."
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: "Вы должны заполнить все поля"
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
       joining_community_failed: "Ошибка при вступлении в сообщество"
       can_not_login_with_private_user: "Вы не можете войти с вашей персональной учетной записью. Войдите с аккаунтом организации или создайте новый аккаунт."
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
+      can_not_delete_email: "Вы не можете удалить email адрес"
+      user_does_not_have_email_to_delete: "У вас нет email адреса который вы пытаетесь удалить"
       email_deleted: "E-mail удален"
       payment_details_add_successful: "Платежные реквизиты успешно добавлены"
-      payment_details_add_error: ~
+      payment_details_add_error: "Платежная информация не добавлена"
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
     settings:
@@ -1219,7 +1222,7 @@ ru:
       send_comment: Отправить
       to_send_a_comment: "для отправки комментария."
       write_comment: "Новый комментарий:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Вы не можете оставить новые комментарии так как данное предложение закрыто."
       you_must: "Вы должны"
       subscribe_to_comments: "Сообщать мне о новых комментариях и обновлениях"
     edit:
@@ -1291,7 +1294,7 @@ ru:
         price_excludes_vat: "Цена без НДС."
         delivery: ~
         shipping: ~
-        shipping_price: ~
+        shipping_price: "Стоимость доставки"
         pickup: ~
       origin:
         location: Местоположение
@@ -1377,7 +1380,7 @@ ru:
       booking_to: ~
       how_paypal_works: ~
     new:
-      post_a_new_listing: ~
+      post_a_new_listing: "Новое предложение"
       listing: список
       selected_category: "Категория: %{category}"
       selected_subcategory: "Подкатегория: %{subcategory}"
@@ -1398,7 +1401,7 @@ ru:
       add_profile_picture: "Добавить изображение профиля"
       comments: Комментарии
       contact_by_phone: "Телефон:"
-      contact: ~
+      contact: Контакты
       favor_offer: "Предложение услуги"
       favor_request: "Запрос услуги"
       inquiry: ~
@@ -1406,9 +1409,9 @@ ru:
       item_request_trade: "Запрос обмена"
       no_description: "Предложение не содержит описания"
       no_image: "Нет изображения"
-      no_reviews: ~
+      no_reviews: "Нет полученных отзывов"
       offer: Предложение
-      listing_created: ~
+      listing_created: Создано
       open_until: "Действительно до %{date}"
       feedback: Отзывы
       qr_code: QR-код
@@ -1475,23 +1478,23 @@ ru:
     new:
       new_payment: "Вы получили новый платёж"
       continue: Продолжить
-      payment_receiver: ~
+      payment_receiver: "Получатель платежа:"
       sum: "Сумма оплаты:"
-      commission_will_be_added: ~
+      commission_will_be_added: "Будет добавлена комиссия сервиса 10%."
     form:
       total: Итого
-      service_charge: ~
+      service_charge: "Комиссия сервиса"
       product: Товар
       price: Цена
-      price_for: ~
-      continue_to_pay: ~
+      price_for: "Цена для %{payer_given_name}:"
+      continue_to_pay: "Продолжить оплату"
       invoice: Счет
       service_fee: "Комиссия сервиса %{service_name}:"
       you_will_get: "Вы получите:"
     braintree:
       terms:
-        braintree_terms_also_included: ~
-        terms_link_text: ~
+        braintree_terms_also_included: "Примечание: Braintree используется в качестве платежного шлюза и используя этот сайт вы также принимаете условия %{terms_link_text}, в дополнении к условиям ниже."
+        terms_link_text: "Условия использования Braintree"
   paypal_accounts:
     payout_info_title: ~
     paypal_account_email_connected: "<del>Connect PayPal account</del> Завершено!"
@@ -1621,11 +1624,11 @@ ru:
       what_are_these: "Что это?"
       review: "получен отзыв"
       reviews: "получены отзывы"
-      listing: ~
-      listings: ~
+      listing: Предложение
+      listings: Предложения
       open_listing: "открытое объявление"
       open_listings: "открытые объявления"
-      no_listings: ~
+      no_listings: "Нет предложений"
       no_open_listings: "Нет открытых предложений"
       no_reviews: "Нет обзоров"
       show_all_listings: "Показать все предлождения"
@@ -1689,8 +1692,8 @@ ru:
       change: Изменить
       confirm_new_password: "Подтвердить новый пароль"
       delete_account: "Удалить учётную запись"
-      delete_account_button: ~
-      delete_account_confirmation_popup: ~
+      delete_account_button: "Удалить мой аккаунт навсегда"
+      delete_account_confirmation_popup: "Вы уверены что хотите удалить ваш аккаунт и навсегда утратить информацию относящуюся к нему? Удаление аккаунта не может быть отменено."
       email_addresses: "Адреса e-mail"
       new_email: "Новый адрес электронной почты"
       delete_all_memberships: "Если вы удалите ваш аккаунт, вы не сможете использовать его больше для: %{marketplaces}."
@@ -1704,7 +1707,7 @@ ru:
       email:
         address_title: Адрес
         remove_title: Удалить
-        remove_confirmation: ~
+        remove_confirmation: "Вы уверены в том, что вы хотите удалить этот email адрес?"
         receive_notifications_title_desktop: "Получать уведомления"
         receive_notifications_title_mobile: "Получать уведомления"
         receive_notifications_new_title_mobile: "Получать уведомления"
@@ -1721,7 +1724,7 @@ ru:
       newsletters: "Новостная рассылка"
       community_updates: "Обновить почтовые адреса"
       email_about_accept_reminders: "...я забыл принять предложение или запрос"
-      email_about_confirm_reminders: ~
+      email_about_confirm_reminders: "...я забыл (а) подтвердить запрос как выполненный"
       email_about_new_comments_to_own_listing: "...кто-либо оставил комментарий на мой запрос или предложение"
       email_about_new_messages: "...кто-нибудь отправил мне сообщение"
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"
@@ -1731,9 +1734,9 @@ ru:
       do_not_email_community_updates: "Не посылать обновления"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
-      email_about_payment_reminders: ~
+      email_about_completed_transactions: "...кто-то отметил мое предложение или запрос как выполенный"
+      email_about_new_payments: "...я получил новый платеж"
+      email_about_payment_reminders: "...я забыл оплатить"
       email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Вы успешно отписались от рассылки!"
       unsubscribe_info_text: "Вы больше не будете получать подобные письма. Проверьте свои %{settings_link}, чтобы выбрать, какие письма вы хотели бы получать от %{service_name}, либо посетите %{homepage_link}"
@@ -1799,7 +1802,7 @@ ru:
       negative: Отрицательный
       default_textual_feedback: "Всё прошло отлично, большое спасибо!"
     testimonial:
-      about_listing: ~
+      about_listing: "о предложении"
   date:
     formats:
       long_with_abbr_day_name: ~

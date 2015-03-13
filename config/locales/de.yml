@@ -399,10 +399,9 @@ de:
     removed_user: "Entfernter Benutzer"
     paypal_fee_info:
       title: PayPal-Zahlungsbearbeitungsgebühr
-      body: |-
-          PayPal erhebt eine Bearbeitungsgebühr in Höhe von jeder Zahlung. Diese Gebühr ist zwischen 2% und 5% der gesamten Verkaufspreis, abhängig von Ihrem monatlichen Umsatz und Wohnsitzland des Käufers. Im Allgemeinen haben die inländischen Käufe niedrigere Gebühren als diejenigen internationalen und höhere Monatsumsätze geben Ihnen einen Rabatt auf Gebühren.
-          Die genauen Gebühren siehst Du, indem Du Dich in Dein PayPal-Konto einloggst und zu <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>hier gehst</a>. Nach jedem Kauf erhälst Du einen Beleg mit den exakten Gebühren.
-      body_with_shipping_info: ~
+      body_text: ~
+      body_with_shipping_text: ~
+      link_to_paypal_text: ~
   conversations:
     accept:
       details: Buchungsdetails
@@ -1302,8 +1301,9 @@ de:
         time: "Stunde, Tag, Monat,..."
         long_time: "Woche, Monat..."
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr, wirst du %{sum_with_currency} erhalten"
-        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>PayPal's Zahlungsbearbeitungsgebühr</a> wird vom Preis abgezogen werden."
-        after_service_fee_you_will_get_paypal: "%{service_name} Gebühr %{sum_with_currency} und <a id='%{fee_info_link_id}' href='#'>PayPal's Zahlungsbearbeitungsgebühr</a> wird vom Preis abgezogen werden."
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."
         delivery: ~
@@ -1531,9 +1531,10 @@ de:
       upgrade_paypal_account: "Upgrade deinen PayPal Konto hier."
       connect_paypal_account: "Verbinde deinen PayPal Account"
       paypal_account_billing_agreement: "Erteile dem Webservice %{service_name} die Erlaubnis eine Transaktionsgebühr zu berechnen."
-      paypal_account_billing_agreement_fee_both: "Nachdem Du auf %{service_name} einen Verkauf tätigst, wird eine Servicegebühr (%{commission_from_seller} des Gesamteinzelteilpreises und eine Mindestgebühr %{minimum_commission}) von Deinem PayPal-Konto abgebucht. Um Zahlungen von %{service_name} zu akzeptieren, musst Du es erlauben, diese Gebühr zu erheben. Diese Gebühr schließt <a id='%{fee_info_link_id}' href='#'> PayPal-Zahlungsbearbeitungsgebühr </a> nicht mit ein."
-      paypal_account_billing_agreement_fee_fixed: "Nachdem Du auf %{service_name} einen Verkauf tätigst, wird eine Servicegebühr von %{minimum_commission} von deinem PayPal Konto abgebucht. Um Zahlungen von %{service_name} zu akzeptieren, musst Du es erlauben, diese Gebühr zu erheben. Diese Gebühr schließt <a id='%{fee_info_link_id}' href='#'> PayPal-Zahlungsbearbeitungsgebühr </a> nicht mit ein."
-      paypal_account_billing_agreement_fee_relative: "Nachdem Du auf %{service_name} einen Verkauf tätigst, wird eine Servicegebühr (%{commission_from_seller} des Gesamteinzelteilpreises von Deinem PayPal-Konto abgebucht. Um Zahlungen von %{service_name} zu akzeptieren, musst Du es erlauben, diese Gebühr zu erheben. Diese Gebühr schließt <a id='%{fee_info_link_id}' href='#'> PayPal-Zahlungsbearbeitungsgebühr </a> nicht mit ein."
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_info_link_text: ~
       billing_agreement_description: "Gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr zu berechnen."
       billing_agreement: "Erteile die Erlaubnis"
       permissions_not_granted: "Berechtigungen mit PayPal-Konto zu verbinden werden nicht gewährt."
