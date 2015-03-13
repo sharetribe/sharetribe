@@ -34,16 +34,6 @@ class FreeTransactionsController < ApplicationController
     contact_form = new_contact_form(params[:listing_conversation])
 
     if contact_form.valid?
-      process_res = TransactionService::API::Api.processes.get(
-        community_id: @current_community.id,
-        process_id: @listing.transaction_type.transaction_process_id
-      )
-
-      unless process_res.data[:process] == "none"
-        flash[:error] = "Sending the message failed. Please try again."
-        return redirect_to root
-      end
-
       transaction_response = TransactionService::Transaction.create(
         {
           transaction: {

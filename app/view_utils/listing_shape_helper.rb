@@ -19,18 +19,18 @@ module ListingShapeHelper
     )
 
     direction_tuples = community.transaction_types.map { |tt|
-      process = process_res
-                .maybe
-                .map { |processes| processes.find { |p| p[:id] == tt.transaction_process_id } }
-                .or_else(nil)
-
-      raise ArgumentError.new("Can not find transaction process for community #{community.id}, transaction type #{tt.id}") if process.nil?
-
-      direction = process[:author_is_seller] ? "offer" : "request"
+      direction = process_res
+                  .maybe
+                  .map { |processes| processes.find { |p| p[:id] == tt.transaction_process_id } }
+                  .map { |process| process[:author_is_seller] ? "offer" : "request" }
+                  .or_else(nil)
+                  .tap { |process|
+        raise ArgumentError.new("Can not find transaction process for community #{community.id}, transaction type #{tt.id}") if process.nil?
+      }
 
       [tt.id, direction]
     }
 
-    directions_tuples.to_h
+    direction_tuples.to_h
   end
 end

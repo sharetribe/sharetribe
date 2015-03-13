@@ -58,10 +58,14 @@ module MarketplaceService
           }
         }
 
-        process = TransactionService::API::Api.processes.get(
+        opts = {
           community_id: community_id,
           process_id: listing.transaction_type.transaction_process_id
-        ).data[:process].to_sym
+        }
+
+        process = TransactionService::API::Api.processes.get(opts).maybe[:process].or_else(nil)
+
+        raise ArgumentError.new("Can not find transaction process: #{opts}") if process.nil?
 
         payment_type &&
         (process == :preauthorize || process == :postpay) &&

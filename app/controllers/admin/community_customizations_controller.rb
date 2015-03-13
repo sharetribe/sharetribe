@@ -7,12 +7,19 @@ class Admin::CommunityCustomizationsController < ApplicationController
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)
     @show_transaction_agreement = @current_community.transaction_types.any? do |transaction_type|
       # Todo add agreement to TransactionType
-      process_res = TransactionService::API::Api.processes.get(
+      opts = {
         community_id: @current_community.id,
         process_id: transaction_type.transaction_process_id
-      )
+      }
 
-      process_res.data[:process] == :preauthorize
+      process_res = TransactionService::API::Api.processes.get(opts)
+
+      process_res.maybe[:process]
+        .map { |process| process == :preauthorize }
+        .or_else(nil)
+        .tap { |show_agreement|
+          raise ArgumentError.new("Can not find transaction process: #{opts}") if show_agreement.nil?
+      }
     end
   end
 
