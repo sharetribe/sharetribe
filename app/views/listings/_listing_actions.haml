@@ -72,13 +72,13 @@
         - if delivery_opts.count == 1
           .row
             .col-12
-              = t("listings.show.#{delivery_opts.first.fetch(:name)}", price: humanized_money_with_symbol(delivery_opts.first.fetch(:price)).upcase)
+              = t("listings.show.#{delivery_opts.first[:name]}", price: humanized_money_with_symbol(delivery_opts.first[:price]).upcase)
         - else
           - delivery_opts.each do |opts|
             .row
               .col-12
-                = radio_button_tag("delivery", opts.fetch(:name), opts[:default])
-                = label_tag("delivery_#{opts.fetch(:name)}", t("listings.show.#{opts.fetch(:name)}", price: humanized_money_with_symbol(opts.fetch(:price)).upcase), class: "delivery-label")
+                = radio_button_tag(:delivery, opts[:name], opts[:default])
+                = label_tag("delivery_#{opts[:name]}", t("listings.show.#{opts[:name]}", price: humanized_money_with_symbol(opts[:price]).upcase), class: "delivery-label")
 
       %button.book-button
         .content

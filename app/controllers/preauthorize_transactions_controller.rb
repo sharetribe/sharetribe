@@ -42,10 +42,17 @@ class PreauthorizeTransactionsController < ApplicationController
                         quantity: 1,
                         shipping_enabled: params[:delivery] == "shipping")
 
+    delivery_method = valid_delivery_method(delivery_method_str: params[:delivery],
+                                             shipping: @listing.require_shipping_address,
+                                             pickup: @listing.pickup_enabled)
+    if(delivery_method == :errored)
+      return redirect_to error_not_found_path
+    end
+
     render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: vprms[:listing],
-      delivery_method: params[:delivery],
+      delivery_method: delivery_method,
       subtotal: vprms[:subtotal],
       sum: vprms[:total_price],
       author: query_person_entity(vprms[:listing][:author_id]),
@@ -68,6 +75,12 @@ class PreauthorizeTransactionsController < ApplicationController
     unless preauthorize_form.valid?
       return render_error_response(request.xhr?, preauthorize_form.errors.full_messages.join(", "), action: :initiate)
     end
+    delivery_method = valid_delivery_method(delivery_method_str: preauthorize_form.delivery_method,
+                                             shipping: @listing.require_shipping_address,
+                                             pickup: @listing.pickup_enabled)
+    if(delivery_method == :errored)
+      return render_error_response(request.xhr?, "Delivery method is invalid.", action: :initiate)
+    end
 
     transaction_response = create_preauth_transaction(
       payment_type: :paypal,
@@ -76,7 +89,7 @@ class PreauthorizeTransactionsController < ApplicationController
       user: @current_user,
       content: preauthorize_form.content,
       use_async: request.xhr?,
-      delivery_method: valid_delivery_method(preauthorize_form.delivery_method)
+      delivery_method: delivery_method
     )
 
     unless transaction_response[:success]
@@ -123,13 +136,20 @@ class PreauthorizeTransactionsController < ApplicationController
         raise ArgumentError.new("Unknown payment type #{vprms[:payment_type]} for booking")
       end
 
+    delivery_method = valid_delivery_method(delivery_method_str: params[:delivery],
+                                             shipping: @listing.require_shipping_address,
+                                             pickup: @listing.pickup_enabled)
+    if(delivery_method == :errored)
+      return redirect_to error_not_found_path
+    end
+
     render view, locals: {
       preauthorize_form: PreauthorizeBookingForm.new({
           start_on: booking_data[:start_on],
           end_on: booking_data[:end_on]
         }),
       listing: vprms[:listing],
-      delivery_method: params[:delivery],
+      delivery_method: delivery_method,
       subtotal: vprms[:subtotal],
       sum: vprms[:total_price],
       duration: booking_data[:duration],
@@ -158,6 +178,13 @@ class PreauthorizeTransactionsController < ApplicationController
         { action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on) })
     end
 
+    delivery_method = valid_delivery_method(delivery_method_str: preauthorize_form.delivery_method,
+                                             shipping: @listing.require_shipping_address,
+                                             pickup: @listing.pickup_enabled)
+    if(delivery_method == :errored)
+      return render_error_response(request.xhr?, "Delivery method is invalid.", action: :booked)
+    end
+
     unless preauthorize_form.valid?
       return render_error_response(request.xhr?,
         preauthorize_form.errors.full_messages.join(", "),
@@ -172,7 +199,7 @@ class PreauthorizeTransactionsController < ApplicationController
       listing_quantity: DateUtils.duration_days(preauthorize_form.start_on, preauthorize_form.end_on),
       content: preauthorize_form.content,
       use_async: request.xhr?,
-      delivery_method: valid_delivery_method(preauthorize_form.delivery_method),
+      delivery_method: delivery_method,
       bt_payment_params: params[:braintree_payment],
       booking_fields: {
         start_on: preauthorize_form.start_on,
@@ -373,14 +400,16 @@ class PreauthorizeTransactionsController < ApplicationController
     end
   end
 
-  def valid_delivery_method(delivery_method_str)
-    case delivery_method_str
-    when "shipping"
+  def valid_delivery_method(delivery_method_str:, shipping:, pickup:)
+    case [delivery_method_str, shipping, pickup]
+    when matches([nil, true, false]), matches(["shipping", true, __])
       :shipping
-    when "pickup"
+    when matches([nil, false, true]), matches(["pickup", __, true])
       :pickup
-    else
+    when matches([nil, false, false])
       nil
+    else
+      :errored
     end
   end
 

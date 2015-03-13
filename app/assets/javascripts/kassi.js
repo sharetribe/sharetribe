@@ -614,6 +614,8 @@ function initialize_new_listing_form(
         error.insertAfter(container);
       } else if ($(element).hasClass("delivery-method-checkbox")) {
         error.insertAfter($(".delivery-options-container"));
+      } else if (element.attr("name") == "listing[shipping_price]") {
+        error.insertAfter($(".shipping-price-container"));
       } else {
         error.insertAfter(element);
       }
@@ -623,6 +625,7 @@ function initialize_new_listing_form(
       "listing[title]": {required: true, maxlength: 60},
       "listing[origin]": {address_validator: true},
       "listing[price]": {required: pr, money: true, minimum_price_required: [minimum_price, subunit_to_unit]},
+      "listing[shipping_price]": {money: true},
       "listing[valid_until(1i)]": { min_date: true, max_date: true }
     }),
     messages: {
