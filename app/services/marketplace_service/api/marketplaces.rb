@@ -9,6 +9,7 @@ module MarketplaceService::API
       "sharetribe",
       "login",
       "blog",
+      "business",
       "catch",
       "webhooks",
       "dashboard",
@@ -24,11 +25,14 @@ module MarketplaceService::API
       "app",
       "beta-site",
       "marketplace",
+      "marketplaces",
+      "masters",
       "marketplacemasters",
       "insights",
       "insight",
       "tips",
       "doc",
+      "docs",
       "support",
       "legal",
       "org",
@@ -37,7 +41,11 @@ module MarketplaceService::API
       "intra",
       "intranet",
       "internal",
-      "webinar"
+      "webinar",
+      "local",
+      "proxy",
+      "preproduction",
+      "staging"
     ]
 
     module_function
