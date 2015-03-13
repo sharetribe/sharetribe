@@ -18,13 +18,19 @@ module ListingShapeHelper
       community_id: community.id,
     )
 
-    community.transaction_types.inject({}) { |direction_map, tt|
-      direction_map.tap { |m|
-        process = process_res.data.find { |p| p[:id] == tt.transaction_process_id }
+    direction_tuples = community.transaction_types.map { |tt|
+      process = process_res
+                .maybe
+                .map { |processes| processes.find { |p| p[:id] == tt.transaction_process_id } }
+                .or_else(nil)
 
-        direction = process[:author_is_seller] ? "offer" : "request"
-        m[tt.id] = direction
-      }
+      raise ArgumentError.new("Can not find transaction process for community #{community.id}, transaction type #{tt.id}") if process.nil?
+
+      direction = process[:author_is_seller] ? "offer" : "request"
+
+      [tt.id, direction]
     }
+
+    directions_tuples.to_h
   end
 end
