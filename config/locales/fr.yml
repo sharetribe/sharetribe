@@ -399,12 +399,9 @@ fr:
     removed_user: "Utilisateur supprimé"
     paypal_fee_info:
       title: "Frais de transaction PayPal"
-      body: |-
-          PayPal facture des frais de transaction pour chaque paiement. Ces frais sont entre 2% et 5% du montant total de la transaction et cela dépend de votre volume mensuel de ventes et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que celles internationales et un plus gros volume de vente mensuel donne des réductions sur ces frais. 
-          Vous pouvez connaître les frais exacts en vous connectant à votre compte PayPal et en allant <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>sur cette page</a>. Après chaque transaction, vous recevrez un reçu affichant les frais exacts.
-      body_with_shipping_info: |-
-          PayPal facture des frais de transaction pour chaque paiement. Ces frais sont entre 2% et 5% du montant total de la transaction (livraison inclus) et cela dépend de votre volume mensuel de ventes et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que celles internationales et un plus gros volume de vente mensuel donne des réductions sur ces frais. 
-          Vous pouvez connaître les frais exacts en vous connectant à votre compte PayPal et en allant <a href='https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside'>sur cette page</a>. Après chaque transaction, vous recevrez un reçu affichant les frais exacts.
+      body_text: ~
+      body_with_shipping_text: ~
+      link_to_paypal_text: ~
   conversations:
     accept:
       details: "Détails de la commande"
@@ -1304,8 +1301,9 @@ fr:
         time: "heure, jour, mois..."
         long_time: "semaine, mois..."
         after_service_fee_you_will_get: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal: "<a id='%{fee_info_link_id}' href='#'>les frais de transaction PayPal</a> seront déduits du montant total."
-        after_service_fee_you_will_get_paypal: "La commission %{service_name} (%{sum_with_currency}) et <a id='%{fee_info_link_id}' href='#'>les frais de transaction PayPal</a> seront déduits du montant total."
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez environ %{sum_with_currency} (TVA 0%)"
         price_excludes_vat: "Ce prix n'inclut pas la TVA."
         delivery: Livraison
@@ -1533,9 +1531,10 @@ fr:
       upgrade_paypal_account: "connectez-vous à votre compte PayPal"
       connect_paypal_account: "Connecter le compte PayPal"
       paypal_account_billing_agreement: "Autoriser %{service_name} à prélever une commission sur les transactions"
-      paypal_account_billing_agreement_fee_both: "Après que vous ayez réalisé une vente sur %{service_name}, une commission (%{commission_from_seller} du montant total, frais minimaux %{minimum_commission}) sera prélevée sur votre compte PayPal. Pour recevoir des paiements sur %{service_name}, vous devez l'autoriser à prélever cette commission. Cette commission ne comporte pas <a id='%{fee_info_link_id}' href='#'>les frais de transaction PayPal</a>."
-      paypal_account_billing_agreement_fee_fixed: "Après que vous ayez réalisé une vente sur %{service_name}, une commission de %{minimum_commission} sera prélevée sur votre compte PayPal. Pour recevoir des paiements sur %{service_name}, vous devez l'autoriser à prélever cette commission. Cette commission ne comporte pas <a id='%{fee_info_link_id}' href='#'>les frais de transaction PayPal</a>."
-      paypal_account_billing_agreement_fee_relative: "Après que vous ayez réalisé une vente sur %{service_name}, une commission (%{commission_from_seller} du montant total) sera prélevée sur votre compte PayPal. Pour recevoir des paiements sur %{service_name}, vous devez l'autoriser à prélever cette commission. Cette commission ne comporte pas <a id='%{fee_info_link_id}' href='#'>les frais de transaction PayPal</a>."
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_info_link_text: ~
       billing_agreement_description: "Autoriser %{service_name} à prélever une commission sur les transactions."
       billing_agreement: Autoriser
       permissions_not_granted: "La connexion avec le compte PayPal n'a pas été permise."

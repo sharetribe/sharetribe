@@ -2,32 +2,42 @@ ru:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Редактировать категорию \"%{category}\""
       index:
-        listing_categories: ~
-        create_a_new_category: ~
-        remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
+        listing_categories: "Категории предложений"
+        create_a_new_category: "+ Создать новую категорию"
+        remove_category_confirmation: "Вы уверены что хотите удалить категорию \"%{category_name}\"?"
+        saving_order: "Сохранение порядка категорий"
+        save_order_successful: "Порядок категорий сохранен успешно"
+        save_order_error: "При сохранении порядка категорий произошла ошибка. Пожалуйста обновите страницу и попробуйте снова."
       new:
-        new_listing_category: ~
+        new_listing_category: "Новая категория предложений"
       form:
         category_name:
-          category_title: ~
+          category_title: "Название категории"
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: "Родительская категория"
+          no_parent: "Нет вышестоящей"
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: "Тип транзакции"
+          transaction_types_description: "Типы транзакций определяют какие типы транзакций допустимы для предложений данной категории. Для примера, это продажа, аренда или в дар где есть бесплатная возможность."
         buttons:
-          save: ~
-          cancel: ~
+          save: Сохранить
+          cancel: Отменить
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
+        remove_category: "Удалить категорию"
+        remove_category_name: "Удалить категорию \"%{category_name}\""
+        warning_remove_effects: "Предупреждение! Удаление категории \"%{category_name}\" отразиться на следующем:"
+        warning_listing_will_be_moved:
+          one: "В категории есть %{count} предложение. Будет перемещено в выбранную категорию."
+          few: "В категории есть %{count} предложений. Они будут перемещены в выбранную категорию."
+          many: "В категории есть %{count} предложений. Они будут перемещены в выбранную категорию."
+          other: "В категории есть %{count} предложений. Они будут перемещены в выбранную категорию."
+        warning_custom_field_will_be_moved:
+          one: "В этой категории %{count} пользовательское поле. Будет перемещено в выбранную категорию."
+          few: "В этой категории %{count} пользовательских полей. Будут перемещены в выбранную категорию."
+          many: "В этой категории %{count} пользовательских полей. Будут перемещены в выбранную категорию."
+          other: "В этой категории %{count} пользовательских полей. Будут перемещены в выбранную категорию."
         select_new_category: ~
         buttons:
           remove: Удалить
@@ -319,13 +329,13 @@ ru:
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
-      sell: ~
-      rent: ~
-      give: ~
-      lend: ~
-      swap: ~
+      sell: Продажа
+      rent: Аренда
+      give: "Отдам бесплатно"
+      lend: "Дам на время"
+      swap: Обмен
       service: Предлагающие
-      request: ~
+      request: Требуется
       inquiry: ~
       share_for_free: ~
       default_action_button_labels:
@@ -384,9 +394,7 @@ ru:
     removed_user: ~
     paypal_fee_info:
       title: ~
-      body: ~
       body_text: ~
-      body_with_shipping_info: ~
       body_with_shipping_text: ~
       link_to_paypal_text: ~
   conversations:
@@ -868,8 +876,8 @@ ru:
       invalid_date: ~
       invalid_time: ~
       invalid_datetime: ~
-      before: ~
       is_at: ~
+      before: ~
       on_or_before: ~
       after: ~
       on_or_after: ~
@@ -982,7 +990,7 @@ ru:
       no_reviews: "Нет отзывов"
       no_image: "нет изображения"
       filter: Фильтр
-      this_is_private_community: ~
+      this_is_private_community: "Вам нужно войти чтобы увидеть контент."
     invitation_form:
       invite_your_friends: "Пригласите друзей в %{service_name}!"
       email: "Адрес(а) электронной почты"
@@ -1288,8 +1296,9 @@ ru:
         time: "час, день, месяц, ..."
         long_time: "неделя, месяц, ..."
         after_service_fee_you_will_get: "После комиссии %{service_name} и системы оплаты вы получите %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal: ~
-        after_service_fee_you_will_get_paypal: ~
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: "После комиссии %{service_name} и системы оплаты вы получите приблизительно %{sum_with_currency} (НДС 0%)"
         price_excludes_vat: "Цена без НДС."
         delivery: ~
@@ -1428,7 +1437,7 @@ ru:
       times_viewed: Просмотрено
       processing_uploaded_image: "(Изображение в обработке...)"
       price_excludes_vat: "(без НДС)"
-      listing_created_at: ~
+      listing_created_at: "Предложение создано"
       price:
         per_quantity_unit: ~
         per_day: ~
@@ -1517,9 +1526,10 @@ ru:
       upgrade_paypal_account: "Войдите в ваш PayPal аккаунт"
       connect_paypal_account: ~
       paypal_account_billing_agreement: "Предоставьте %{service_name} разрешение получить комиссию за транзакцию"
-      paypal_account_billing_agreement_fee_both: ~
-      paypal_account_billing_agreement_fee_fixed: ~
-      paypal_account_billing_agreement_fee_relative: ~
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_info_link_text: ~
       billing_agreement_description: "Предоставьте %{service_name} разрешение получить комиссию за транзакцию"
       billing_agreement: "Предоставьте разрешение"
       permissions_not_granted: ~
@@ -1864,7 +1874,7 @@ ru:
     formats:
       short: "%e %b %Y в %H:%M"
       shorter: "%e %b в %H:%M"
-      short_date: ~
+      short_date: "%e. %b %Y"
       sms: "%e %b в %H:%M"
   timestamps:
     day_ago: "%{count} день назад"
