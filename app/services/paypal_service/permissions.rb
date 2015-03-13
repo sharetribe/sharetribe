@@ -76,7 +76,7 @@ module PaypalService
       if (res.error.length > 0)
         DataTypes.create_failure_response({
           error_code: res.error[0].error_id.to_s,
-          error_msg: res.error[0].message
+          error_msg: res.error[0].message.to_s
         })
       else
         DataTypes.create_failure_response({})

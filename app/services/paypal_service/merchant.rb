@@ -87,8 +87,8 @@ module PaypalService
     def create_failure_response(res)
       if (res.errors.length > 0)
         DataTypes.create_failure_response({
-          error_code: res.errors[0].error_code,
-          error_msg: res.errors[0].long_message
+          error_code: res.errors[0].error_code.to_s,
+          error_msg: res.errors[0].long_message.to_s
         })
       else
         DataTypes.create_failure_response({})
