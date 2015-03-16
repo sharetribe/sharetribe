@@ -401,7 +401,7 @@ pt-BR:
       title: "Processamento da taxa de pagamento do PayPal"
       body_text: ~
       body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: aqui
   conversations:
     accept:
       details: "Detalhes do pedido"
@@ -1303,7 +1303,7 @@ pt-BR:
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: ~
+        paypal_fee_info_link_text: "Processando o pagamento da taxa do PayPal"
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "O preço não inclui VAT."
         delivery: ~
@@ -1536,7 +1536,7 @@ pt-BR:
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
-      paypal_info_link_text: ~
+      paypal_info_link_text: "Processando o pagamento da taxa do PayPal"
       billing_agreement_description: "Conceder permissão a %{service_name} para cobrar uma taxa de transação."
       billing_agreement: "Conceder permissão"
       permissions_not_granted: "Permissões para conectar com a conta PayPal não são concedidas."

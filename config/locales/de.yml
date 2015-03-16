@@ -1301,8 +1301,8 @@ de:
         time: "Stunde, Tag, Monat,..."
         long_time: "Woche, Monat..."
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr, wirst du %{sum_with_currency} erhalten"
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wird vom Preis abgezogen."
+        after_service_fee_you_will_get_paypal_text: "%{service_name} Gebühr %{sum_with_currency} und %{paypal_fee_info_link} wird vom Preis abgezogen."
         paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."

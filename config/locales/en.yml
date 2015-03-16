@@ -405,7 +405,7 @@ en:
       body_with_shipping_text: |-
           PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price (including shipping), depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
           You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
-      link_to_paypal_text: "here"
+      link_to_paypal_text: here
   conversations:
     accept:
       details: "Order details"
@@ -1310,10 +1310,10 @@ en:
         paypal_fee_info_link_text: "PayPal's payment processing fee"
         after_service_fee_you_will_get_vat: "After %{service_name} and payment processor fees you will get approx. %{sum_with_currency} (VAT 0%)"
         price_excludes_vat: "The price doesn't include VAT."
-        delivery: "Delivery"
-        shipping: "Shipping"
+        delivery: Delivery
+        shipping: Shipping
         shipping_price: "Shipping fee"
-        pickup: "Pickup"
+        pickup: Pickup
       origin:
         location: Location
         origin: Origin
