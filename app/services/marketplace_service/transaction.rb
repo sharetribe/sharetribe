@@ -269,7 +269,8 @@ module MarketplaceService
         transactions = TransactionModel
           .where(:community_id => community_id)
           .includes(:listing)
-          .paginate(:page => (offset + 1), :per_page => limit)
+          .limit(limit)
+          .offset(offset)
           .order("#{sort_column} #{sort_direction}")
 
         transactions = transactions.map { |txn|
