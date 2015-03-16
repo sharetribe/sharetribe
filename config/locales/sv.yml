@@ -245,6 +245,7 @@ sv:
           canceled: Avbruten
           initiated: "Väntar på PayPal betalning"
           pending_ext: "Väntar på PayPal betalning"
+        not_available: ~
       braintree_payment_gateway:
         braintree_payment_gateway: "Braintree Payment API nycklar"
         environment: Miljö

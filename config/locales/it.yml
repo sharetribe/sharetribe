@@ -230,6 +230,7 @@ it:
           canceled: ~
           initiated: "In attesa del pagamento di PayPal"
           pending_ext: "In attesa del pagamento di PayPal"
+        not_available: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~

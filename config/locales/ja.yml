@@ -240,6 +240,7 @@ ja:
           canceled: キャンセル済
           initiated: PayPalの支払いを待っています
           pending_ext: PayPalの支払いを待っています
+        not_available: ~
       braintree_payment_gateway:
         braintree_payment_gateway: "API 設定"
         environment: 環境

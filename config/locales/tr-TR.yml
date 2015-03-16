@@ -240,6 +240,7 @@ tr-TR:
           canceled: "İptal edilen"
           initiated: "PayPal ödemesi bekleniyor"
           pending_ext: "PayPal ödemesi bekleniyor"
+        not_available: ~
       braintree_payment_gateway:
         braintree_payment_gateway: "Braintree Ödeme API tuşları"
         environment: Çevre

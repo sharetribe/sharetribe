@@ -240,6 +240,7 @@ zh:
           canceled: 已取消
           initiated: 等待PayPal付款
           pending_ext: 等待PayPal付款
+        not_available: ~
       braintree_payment_gateway:
         braintree_payment_gateway: Braintree支付API密钥
         environment: 环境
