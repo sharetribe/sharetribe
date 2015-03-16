@@ -14,6 +14,7 @@
 #  created_at                 :datetime         not null
 #  updated_at                 :datetime         not null
 #  url                        :string(255)
+#  shipping_enabled           :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -28,7 +29,8 @@ class TransactionType < ActiveRecord::Base
     :sort_priority,
     :price_quantity_placeholder,
     :price_per,
-    :transaction_process_id
+    :transaction_process_id,
+    :shipping_enabled
   )
 
   belongs_to :community
