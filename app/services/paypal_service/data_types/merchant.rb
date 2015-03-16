@@ -60,6 +60,7 @@ module PaypalService
         [:shipping_address_status, :string],
         [:shipping_address_city, :string],
         [:shipping_address_country, :string],
+        [:shipping_address_country_code, :string],
         [:shipping_address_name, :string],
         [:shipping_address_phone, :string],
         [:shipping_address_postal_code, :string],

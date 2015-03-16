@@ -150,6 +150,7 @@ module PaypalService
               shipping_address_status: shipping_address.address_status,
               shipping_address_city: shipping_address.city_name,
               shipping_address_country: shipping_address.country_name,
+              shipping_address_country_code: shipping_address.country,
               shipping_address_name: shipping_address.name,
               shipping_address_phone: shipping_address.phone,
               shipping_address_postal_code: shipping_address.postal_code,

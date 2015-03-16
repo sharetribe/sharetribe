@@ -51,7 +51,8 @@ module TransactionService::Store::Transaction
     [:postal_code, :string],
     [:city, :string],
     [:state_or_province, :string],
-    [:country, :string])
+    [:country, :string],
+    [:country_code, :string])
 
   Booking = EntityUtils.define_builder(
     [:start_on, :date, :mandatory],

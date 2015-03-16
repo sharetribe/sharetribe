@@ -315,6 +315,7 @@ module PaypalService::API
           shipping_address_status: :status,
           shipping_address_city: :city,
           shipping_address_country: :country,
+          shipping_address_country_code: :country_code,
           shipping_address_name: :name,
           shipping_address_phone: :phone,
           shipping_address_postal_code: :postal_code,
