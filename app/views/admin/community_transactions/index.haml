@@ -23,7 +23,8 @@
     %tbody
       - conversations.each do |conversation|
         %tr
-          %td=Maybe(conversation[:listing]).map { |listing| link_to_unless(listing[:deleted], listing[:title], conversation[:listing_url]) }.or_else("")
+          - listing_title = conversation[:listing_title] || t("admin.communities.transactions.not_available")
+          %td=Maybe(conversation[:listing]).map { |listing| link_to_unless(listing[:deleted], listing_title, conversation[:listing_url]) }.or_else(listing_title)
           - if show_status_and_sum
             %td=t("admin.communities.transactions.status.#{conversation[:status]}")
             %td=conversation[:payment_total] ? humanized_money_with_symbol(conversation[:payment_total]) : ""

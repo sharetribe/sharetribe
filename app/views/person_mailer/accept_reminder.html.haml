@@ -5,7 +5,7 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.accept_reminder.you_have_not_yet_accepted_or_rejected_#{@conversation.discussion_type}", :date => time_ago(@conversation.created_at.to_date), :title => link_to(@conversation.listing_title, conversation_url)).html_safe
+      = t("emails.accept_reminder.you_have_not_yet_accepted_or_rejected_request", :date => time_ago(@conversation.created_at.to_date), :title => link_to(@conversation.listing_title, conversation_url)).html_safe
 
 %tr
   %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 25px;"}
@@ -13,9 +13,9 @@
       %tbody
         %tr
           %td{:align => "left"}
-            = render :partial => "green_action_button", :locals => { :text => t("conversations.status_link.accept_#{@conversation.discussion_type}"), :url => accept_url}
+            = render :partial => "green_action_button", :locals => { :text => t("conversations.status_link.accept_request"), :url => accept_url}
           %td{:style => "padding-left: 10px;"}
-            = render :partial => "red_action_button", :locals => { :text => t("conversations.status_link.reject_#{@conversation.discussion_type}"), :url => reject_url}
+            = render :partial => "red_action_button", :locals => { :text => t("conversations.status_link.reject_request"), :url => reject_url}
 
 %tr
   %td{:align => "left", :style => "padding-bottom: 25px;"}

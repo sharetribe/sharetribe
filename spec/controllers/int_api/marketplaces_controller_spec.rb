@@ -28,7 +28,9 @@ describe IntApi::MarketplacesController do
       expect(c.locales.first).to eql "fi"
       expect(c.name("fi")).to eql "ImaginationTraders"
       expect(c.ident).to eql "imaginationtraders"
-      expect(c.transaction_types.first.class).to eql Sell
+      expect(c.transaction_types.first.price_field?).to eql true
+      expect(c.transaction_types.first.price_per).to eql nil
+      expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
 
       payment_settings = TransactionService::API::Api.settings.get_active(community_id: c.id)
       expect(payment_settings[:data][:payment_gateway]).to eql :paypal
@@ -64,7 +66,9 @@ describe IntApi::MarketplacesController do
       expect(c.locales.first).to eql "fi"
       expect(c.name("fi")).to eql "ImaginationTraders"
       expect(c.ident).to eql "imaginationtraders"
-      expect(c.transaction_types.first.class).to eql Sell
+      expect(c.transaction_types.first.price_field?).to eql true
+      expect(c.transaction_types.first.price_per).to eql nil
+      expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -96,7 +100,9 @@ describe IntApi::MarketplacesController do
       expect(c.locales.first).to eql "fi"
       expect(c.name("fi")).to eql "ImaginationTraders"
       expect(c.ident).to eql "imaginationtraders"
-      expect(c.transaction_types.first.class).to eql Sell
+      expect(c.transaction_types.first.price_field?).to eql true
+      expect(c.transaction_types.first.price_per).to eql nil
+      expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -128,7 +134,9 @@ describe IntApi::MarketplacesController do
       expect(c.locales.first).to eql "fi"
       expect(c.name("fi")).to eql "ImaginationTraders"
       expect(c.ident).to eql "imaginationtraders"
-      expect(c.transaction_types.first.class).to eql Sell
+      expect(c.transaction_types.first.price_field?).to eql true
+      expect(c.transaction_types.first.price_per).to eql nil
+      expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
 
       p = c.admins.first
       expect(p).to_not be_nil

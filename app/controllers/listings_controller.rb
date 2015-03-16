@@ -58,7 +58,11 @@ class ListingsController < ApplicationController
         render layout: false,
                locals: { listings: listings,
                          title: title,
-                         updated: updated }
+                         updated: updated,
+
+                         # deprecated
+                         direction_map: ListingShapeHelper.transaction_types_to_direction_map(@current_community)
+                       }
       end
     end
   end
@@ -113,11 +117,7 @@ class ListingsController < ApplicationController
     # TODO Change this so that the path is always the same, but the controller
     # decides what to do. We don't want to make a API call to TransactionService
     # just to show a listing details
-    process_res = TransactionService::API::Api.processes.get(
-      community_id: @current_community.id,
-      process_id: @listing.transaction_type.transaction_process_id
-    )
-    process = process_res.data[:process]
+    process = get_transaction_process(community: @current_community, listing: @listing)
 
     form_path = select_new_transaction_path(
       listing_id: @listing.id.to_s,
@@ -128,7 +128,12 @@ class ListingsController < ApplicationController
 
     delivery_opts = delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.currency)
 
-    render locals: {form_path: form_path, payment_gateway: payment_gateway, delivery_opts: delivery_opts}
+    render locals: {
+             form_path: form_path,
+             payment_gateway: payment_gateway,
+             process: process,
+             delivery_opts: delivery_opts
+           }
   end
 
   def new
@@ -241,6 +246,8 @@ class ListingsController < ApplicationController
   end
 
   def close
+    process = get_transaction_process(community: @current_community, listing: @listing)
+
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
     @listing.update_attribute(:open, false)
@@ -249,7 +256,7 @@ class ListingsController < ApplicationController
         redirect_to @listing
       }
       format.js {
-        render :layout => false, locals: {payment_gateway: payment_gateway}
+        render :layout => false, locals: {payment_gateway: payment_gateway, process: process}
       }
     end
   end
@@ -561,5 +568,19 @@ class ListingsController < ApplicationController
       l[:require_shipping_address] = Maybe(listing_params[:delivery_methods]).map { |d| d.include?("shipping") }.or_else(false)
       l[:pickup_enabled] = Maybe(listing_params[:delivery_methods]).map { |d| d.include?("pickup") }.or_else(false)
     end
+  end
+
+  def get_transaction_process(community: community, listing: listing)
+    opts = {
+      process_id: listing.transaction_type.transaction_process_id,
+      community_id: community.id
+    }
+
+    TransactionService::API::Api.processes.get(opts)
+      .maybe[:process]
+      .or_else(nil)
+      .tap { |process|
+        raise ArgumentError.new("Can not find transaction process: #{opts}") if process.nil?
+      }
   end
 end

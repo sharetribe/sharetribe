@@ -69,7 +69,7 @@ class ConfirmConversationsController < ApplicationController
     confirmation = ConfirmConversation.new(@listing_transaction, @current_user, @current_community)
     confirmation.update_participation(give_feedback)
 
-    flash[:notice] = t("layouts.notifications.#{@listing_transaction.listing.direction}_#{status}")
+    flash[:notice] = t("layouts.notifications.offer_#{status}")
 
     redirect_path =
       if give_feedback

@@ -21,12 +21,17 @@ class PaymentRegistrationGuard
   end
 
   def preauthorize_flow_in_use?
-    process_res = TransactionService::API::Api.processes.get(
+    opts = {
       community_id: @listing.transaction_type.community_id,
       process_id: @listing.transaction_type.transaction_process_id
-    )
+    }
 
-    process_res.data[:process] == :preauthorize
+    TransactionService::API::Api.processes.get(opts)
+      .maybe[:process]
+      .map { |process| process == :preauthorize }
+      .tap { |process|
+      raise ArgumentError.new("Can not find transaction process: #{opts}") if process.nil?
+    }
   end
 
   def not_registered_already?

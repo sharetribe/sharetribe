@@ -5,7 +5,7 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.confirm_reminder.you_have_not_yet_confirmed_or_canceled_request", :date => time_ago(@conversation.created_at.to_date), :request_link => link_to(@conversation.listing_title, conversation_url), :other_party_full_name => @conversation.offerer.name, :other_party_given_name => @conversation.offerer.given_name_or_username).html_safe
+      = t("emails.confirm_reminder.you_have_not_yet_confirmed_or_canceled_request", :date => time_ago(@conversation.created_at.to_date), :request_link => link_to(@conversation.listing_title, conversation_url), :other_party_full_name => @conversation.seller.name, :other_party_given_name => @conversation.seller.given_name_or_username).html_safe
 
 %tr
   %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 25px;"}

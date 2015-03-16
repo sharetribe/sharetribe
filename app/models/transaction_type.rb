@@ -46,6 +46,10 @@ class TransactionType < ActiveRecord::Base
 
   acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
 
+  def self.inheritance_column
+    :a_non_existing_column_because_we_want_to_disable_inheritance
+  end
+
   def to_param
     url
   end
@@ -66,11 +70,17 @@ class TransactionType < ActiveRecord::Base
     TranslationCache.new(self, :translations).translate(locale, :action_button_label)
   end
 
-  def status_after_reply
-    "free"
-  end
-
   def self.find_by_url_or_id(url_or_id)
     self.find_by_url(url_or_id) || self.find_by_id(url_or_id)
+  end
+
+  # Deprecated
+  # This method is used to define whether the transaction is inquiry, which
+  # is used to define if we show the 'contact' button or not.
+  #
+  # TODO Change the listing view so that we show the 'contact' button only if the
+  # process is preauthorize or postpay
+  def is_inquiry?
+    type == "Inquiry"
   end
 end

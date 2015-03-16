@@ -79,9 +79,6 @@ class Listing < ActiveRecord::Base
   belongs_to :category
   belongs_to :transaction_type
 
-  delegate :direction, to: :transaction_type
-  delegate :status_after_reply, to: :transaction_type
-
   monetize :price_cents, :allow_nil => true, with_model_currency: :currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
 
@@ -222,7 +219,12 @@ class Listing < ActiveRecord::Base
     # Share type is overriden by transaction_type if it is present
     if params[:share_type].present?
       direction = params[:share_type]
-      params[:transaction_types] = {:id => current_community.transaction_types.select { |transaction_type| transaction_type.direction == direction }.collect(&:id) }
+      transaction_type_direction_map = ListingShapeHelper.transaction_types_to_direction_map(current_community) # deprecated
+      params[:transaction_types] = {
+        id: current_community.transaction_types.select { |transaction_type|
+          transaction_type_direction_map[transaction_type.id] == direction
+        }.collect(&:id)
+      }
     end
 
     if params[:transaction_type].present?
@@ -309,12 +311,6 @@ class Listing < ActiveRecord::Base
     Listing.where(:category_id => category.own_and_subcategory_ids)
   end
 
-  # Listing type is not anymore stored separately, so we serach it by share_type top level parent
-  # And return a string here, as that's what expected in most existing cases (e.g. translation strings)
-  def listing_type
-    return transaction_type.direction
-  end
-
   # Returns true if listing exists and valid_until is set
   def temporary?
     !new_record? && valid_until
@@ -329,32 +325,11 @@ class Listing < ActiveRecord::Base
     !open? || (valid_until && valid_until < DateTime.now)
   end
 
-  def self.opposite_type(type)
-    type.eql?("offer") ? "request" : "offer"
-  end
-
-  # Returns true if the given person is offerer and false if requester
-  def offerer?(person)
-    (transaction_type.is_offer? && author.eql?(person)) || (transaction_type.is_request? && !author.eql?(person))
-  end
-
-  # Returns true if the given person is requester and false if offerer
-  def requester?(person)
-    (transaction_type.is_request? && author.eql?(person)) || (transaction_type.is_offer? && !author.eql?(person))
-  end
-
-  # If listing is an offer, a discussion about the listing
-  # should be request, and vice versa
-  def discussion_type
-    transaction_type.is_request? ? "offer" : "request"
-  end
-
   # This is used to provide clean JSON-strings for map view queries
   def as_json(options = {})
-
     # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
     hash = {
-      :listing_type => self.transaction_type.direction,
+      :listing_type => ListingShapeHelper.transaction_type_to_direction(self.transaction_type), # deprecated
       :category => self.category.id,
       :id => self.id,
       :icon => icon_class(icon_name)

@@ -246,8 +246,13 @@ FactoryGirl.define do
 
     ['Sell', 'Give', 'Lend', 'Rent', 'Request', 'Service'].each do |type|
       factory_name = "transaction_type_#{type.downcase}"
-      factory factory_name.to_sym, class: type do
+      defaults = TransactionTypeCreator::DEFAULTS[type]
+      factory factory_name.to_sym, class: "TransactionType" do
         type type
+        price_field defaults[:price_field]
+        price_quantity_placeholder defaults[:price_quantity_placeholder]
+        price_per defaults[:price_per]
+
         has_many :translations do |transaction_type|
           FactoryGirl.build(:transaction_type_translation, :name => type, :transaction_type => transaction_type)
         end

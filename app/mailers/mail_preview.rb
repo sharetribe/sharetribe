@@ -86,12 +86,12 @@ class MailPreview < MailView
   def confirm_reminder
     # Show different template if hold_in_escrow is true
     conversation.community.payment_gateway = nil
-    PersonMailer.confirm_reminder(conversation, conversation.requester, conversation.community, 4)
+    PersonMailer.confirm_reminder(conversation, conversation.buyer, conversation.community, 4)
   end
 
   def confirm_reminder_escrow
     # Show different template if hold_in_escrow is true
-    PersonMailer.confirm_reminder(conversation, conversation.requester, conversation.community, 5)
+    PersonMailer.confirm_reminder(conversation, conversation.buyer, conversation.community, 5)
   end
 
   def admin_escrow_canceled

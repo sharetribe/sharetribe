@@ -122,11 +122,6 @@ class Transaction < ActiveRecord::Base
     rows.each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
   end
 
-  # If listing is an offer, return request, otherwise return offer
-  def discussion_type
-    listing.transaction_type.is_request? ? "offer" : "request"
-  end
-
   def has_feedback_from?(person)
     if author == person
       testimonial_from_author.present?
@@ -151,12 +146,16 @@ class Transaction < ActiveRecord::Base
     testimonials.find { |testimonial| testimonial.author_id == starter.id }
   end
 
-  def offerer
-    participations.find { |p| listing.offerer?(p) }
+  # TODO This assumes that author is seller (which is true for all offers, sell, give, rent, etc.)
+  # Change it so that it looks for TransactionProcess.author_is_seller
+  def seller
+    author
   end
 
-  def requester
-    participations.find { |p| listing.requester?(p) }
+  # TODO This assumes that author is seller (which is true for all offers, sell, give, rent, etc.)
+  # Change it so that it looks for TransactionProcess.author_is_seller
+  def buyer
+    starter
   end
 
   def participations

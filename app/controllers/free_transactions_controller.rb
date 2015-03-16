@@ -13,16 +13,12 @@ class FreeTransactionsController < ApplicationController
     .with_validations { validates_presence_of :content, :listing_id }
 
   def new
-    use_contact_view = @listing.status_after_reply == "free"
     @listing_conversation = new_contact_form
-
-    if use_contact_view
-      render "listing_conversations/contact", locals: {
-        contact: false,
-        contact_form: @listing_conversation,
-        create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
-      }
-    end
+    render "listing_conversations/contact", locals: {
+      contact: false,
+      contact_form: @listing_conversation,
+      create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
+    }
   end
 
   def contact
@@ -92,7 +88,7 @@ class FreeTransactionsController < ApplicationController
 
   def ensure_listing_is_open
     if @listing.closed?
-      flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_#{@listing.direction}")
+      flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_offer")
       redirect_to (session[:return_to_content] || root)
     end
   end
