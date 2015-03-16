@@ -1453,7 +1453,7 @@ fi:
         per_day: "per päivä"
       delivery: Kuljetus
       shipping: "Postikulut (%{price})"
-      pickup: "Nouto (%{price})"
+      pickup: "Nouto"
     verification_required:
       verification_required: ~
   listing_conversations:
