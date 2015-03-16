@@ -558,11 +558,6 @@ Void:
 WhileUntilDo:
   Enabled: false
 
-# Offense count: 113
-# Cop supports --auto-correct.
-WordArray:
-  MinSize: 37
-
 Delegate:
   Enabled: false
 

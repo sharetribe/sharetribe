@@ -4,6 +4,9 @@ inherit_from: rubocop-todo.yml
 DoubleNegation:
   Enabled: false
 
+WordArray:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'db/**/*'
