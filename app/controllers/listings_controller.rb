@@ -164,7 +164,7 @@ class ListingsController < ApplicationController
                        payment_type: payment_type)
 
       if allow_posting
-        render :partial => "listings/form/form_content", locals: commission(@current_community).merge(shipping_enabled: shipping_enabled?(@current_community))
+        render :partial => "listings/form/form_content", locals: commission(@current_community).merge(shipping_enabled: shipping_enabled?(@listing))
       else
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
@@ -218,7 +218,7 @@ class ListingsController < ApplicationController
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-    render locals: commission(@current_community).merge(shipping_enabled: shipping_enabled?(@current_community))
+    render locals: commission(@current_community).merge(shipping_enabled: shipping_enabled?(@listing))
   end
 
   def update
@@ -368,10 +368,8 @@ class ListingsController < ApplicationController
     end
   end
 
-  def shipping_enabled?(community)
-    Maybe(community.marketplace_settings)
-      .map { |settings| settings.shipping_enabled }
-      .or_else(nil)
+  def shipping_enabled?(listing)
+    listing.transaction_type.shipping_enabled?
   end
 
   def paypal_minimum_commissions_api
