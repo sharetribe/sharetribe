@@ -26,7 +26,6 @@ class TransactionType < ActiveRecord::Base
     :community_id,
     :price_field,
     :sort_priority,
-    :type,
     :price_quantity_placeholder,
     :price_per,
     :transaction_process_id
@@ -46,6 +45,12 @@ class TransactionType < ActiveRecord::Base
 
   acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
 
+  # TODO this can be removed
+  def self.columns
+    super.reject { |c| c.name == "type" }
+  end
+
+  # TODO this can be removed
   def self.inheritance_column
     :a_non_existing_column_because_we_want_to_disable_inheritance
   end
@@ -55,7 +60,9 @@ class TransactionType < ActiveRecord::Base
   end
 
   def url_source
-    Maybe(default_translation_without_cache).name.or_else(type)
+    Maybe(default_translation_without_cache).name.or_else(nil).tap { |translation|
+      raise ArgumentError.new("Can not create URL for transaction type. Expected transaction type to have translation") if translation.nil?
+    }
   end
 
   def default_translation_without_cache
@@ -72,15 +79,5 @@ class TransactionType < ActiveRecord::Base
 
   def self.find_by_url_or_id(url_or_id)
     self.find_by_url(url_or_id) || self.find_by_id(url_or_id)
-  end
-
-  # Deprecated
-  # This method is used to define whether the transaction is inquiry, which
-  # is used to define if we show the 'contact' button or not.
-  #
-  # TODO Change the listing view so that we show the 'contact' button only if the
-  # process is preauthorize or postpay
-  def is_inquiry?
-    type == "Inquiry"
   end
 end

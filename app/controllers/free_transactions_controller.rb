@@ -13,21 +13,11 @@ class FreeTransactionsController < ApplicationController
     .with_validations { validates_presence_of :content, :listing_id }
 
   def new
-    @listing_conversation = new_contact_form
-    render "listing_conversations/contact", locals: {
-      contact: false,
-      contact_form: @listing_conversation,
-      create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
-    }
+    render_contact_form
   end
 
   def contact
-    @listing_conversation = new_contact_form
-    render "listing_conversations/contact", locals: {
-      contact: true,
-      contact_form: @listing_conversation,
-      create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
-    }
+    render_contact_form
   end
 
   def create_contact
@@ -70,6 +60,14 @@ class FreeTransactionsController < ApplicationController
   end
 
   private
+
+  def render_contact_form
+    @listing_conversation = new_contact_form
+    render "listing_conversations/contact", locals: {
+      contact_form: @listing_conversation,
+      create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
+    }
+  end
 
   def ensure_listing_author_is_not_current_user
     if @listing.author == @current_user

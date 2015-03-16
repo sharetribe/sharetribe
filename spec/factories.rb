@@ -248,7 +248,6 @@ FactoryGirl.define do
       factory_name = "transaction_type_#{type.downcase}"
       defaults = TransactionTypeCreator::DEFAULTS[type]
       factory factory_name.to_sym, class: "TransactionType" do
-        type type
         price_field defaults[:price_field]
         price_quantity_placeholder defaults[:price_quantity_placeholder]
         price_per defaults[:price_per]

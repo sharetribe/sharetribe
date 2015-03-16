@@ -66,7 +66,7 @@ module TestHelpers
         type_opts = default_type_opts.merge(
           transaction_process_id: processes[:none])
 
-        transaction_type = community.transaction_types.create!(type_opts)
+        transaction_type = community.transaction_types.build(type_opts)
 
         community.locales.each do |locale|
           translation = translations[locale.to_sym]
@@ -74,9 +74,11 @@ module TestHelpers
           if translation then
             tt_name = translation[:name]
             tt_action = translation[:action_button_label]
-            transaction_type.translations.create!(:locale => locale, :name => tt_name, :action_button_label => tt_action)
+            transaction_type.translations.build(:locale => locale, :name => tt_name, :action_button_label => tt_action)
           end
         end
+
+        transaction_type.save!
       end
 
       # Load categories
