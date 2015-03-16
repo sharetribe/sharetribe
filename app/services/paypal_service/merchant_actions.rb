@@ -228,6 +228,16 @@ module PaypalService
 
           if(req[:shipping_total])
             req_details[:PaymentDetails][0][:ShippingTotal] = from_money(req[:shipping_total])
+            req_details[:PaymentDetails][0][:ShipToAddress] = {
+              Name: req[:shipping_address_name],
+              Phone: req[:shipping_address_phone],
+              Street1: req[:shipping_address_street1],
+              Street2: req[:shipping_address_street2],
+              PostalCode: req[:shipping_address_postal_code],
+              CityName: req[:shipping_address_city],
+              StateOrProvince: req[:shipping_address_state_or_province],
+              Country: req[:shipping_address_country_code]
+            }
           end
 
           { DoExpressCheckoutPaymentRequestDetails: req_details }

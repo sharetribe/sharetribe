@@ -105,7 +105,16 @@ module PaypalService
         [:item_quantity, :mandatory, :fixnum],
         [:item_price, :mandatory, :money],
         [:shipping_total, :money],
-        [:invnum, :mandatory, :string])
+        [:invnum, :mandatory, :string],
+        [:shipping_address_city, :string],
+        [:shipping_address_country, :string],
+        [:shipping_address_country_code, :string],
+        [:shipping_address_name, :string],
+        [:shipping_address_phone, :string],
+        [:shipping_address_postal_code, :string],
+        [:shipping_address_state_or_province, :string],
+        [:shipping_address_street1, :string],
+        [:shipping_address_street2, :string])
 
       DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(
         [:success, const_value: true],
