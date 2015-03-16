@@ -152,6 +152,7 @@ module PaypalService
                 response[:shipping_address_status] = "Confirmed"
                 response[:shipping_address_city] = "city"
                 response[:shipping_address_country] = "country"
+                response[:shipping_address_country_code] = "CC"
                 response[:shipping_address_name] = "name"
                 response[:shipping_address_phone] = "123456"
                 response[:shipping_address_postal_code] = "WX1GQ"

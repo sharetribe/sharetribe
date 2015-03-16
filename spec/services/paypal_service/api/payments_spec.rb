@@ -152,6 +152,7 @@ describe PaypalService::API::Payments do
         status: "Confirmed",
         city: "city",
         country: "country",
+        country_code: "CC",
         name: "name",
         phone: "123456",
         postal_code: "WX1GQ",
