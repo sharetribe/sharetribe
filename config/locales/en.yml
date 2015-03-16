@@ -1311,7 +1311,7 @@ en:
         paypal_fee_info_link_text: "PayPal's payment processing fee"
         after_service_fee_you_will_get_vat: "After %{service_name} and payment processor fees you will get approx. %{sum_with_currency} (VAT 0%)"
         price_excludes_vat: "The price doesn't include VAT."
-        delivery: Delivery
+        delivery: "Delivery method"
         shipping: Shipping
         shipping_price: "Shipping fee"
         pickup: Pickup
@@ -1451,8 +1451,8 @@ en:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per day"
-      delivery: Delivery
-      shipping: "Shipping (%{price})"
+      delivery: "Delivery method"
+      shipping: "Shipping (+%{price})"
       pickup: "Pickup"
     verification_required:
       verification_required: "Verification required"
