@@ -14,11 +14,8 @@ module CommunitySteps
     end
 
     # also change the transaction types
-    community.transaction_types.each { |tt|
-      case tt.type
-      when "Rent", "Sell", "Service"
-        TransactionProcess.find(tt.transaction_process_id).update_attribute(:process, :postpay)
-      end
+    community.transaction_types.select { |tt| tt.price_field? }.each { |tt|
+      TransactionProcess.find(tt.transaction_process_id).update_attribute(:process, :postpay)
     }
   end
 end
@@ -178,9 +175,10 @@ Given /^community "(.*?)" has following transaction types enabled:$/ do |communi
   process_id = TransactionProcess.where(community_id: current_community.id, process: :none).first.id
 
   current_community.transaction_types << transaction_types.hashes.map do |hash|
-    transaction_type = FactoryGirl.create(:transaction_type, :type => hash['transaction_type'], :community_id => current_community.id, :transaction_process_id => process_id)
-    transaction_type.translations.create(:name => hash['fi'], :action_button_label => (hash['button'] || "Action"), :locale => 'fi')
-    transaction_type.translations.create(:name => hash['en'], :action_button_label => (hash['button'] || "Action"), :locale => 'en')
+    transaction_type = FactoryGirl.build(:transaction_type, :community_id => current_community.id, :transaction_process_id => process_id)
+    transaction_type.translations.build(:name => hash['fi'], :action_button_label => (hash['button'] || "Action"), :locale => 'fi')
+    transaction_type.translations.build(:name => hash['en'], :action_button_label => (hash['button'] || "Action"), :locale => 'en')
+    transaction_type.save!
     transaction_type
   end
 end

@@ -18,7 +18,6 @@ module MarketplaceService
 
       TransactionType = EntityUtils.define_builder(
         [:id, :mandatory, :fixnum],
-        [:type, :mandatory, :string],
         [:price_per, :optional, :string],
         [:price_field, :optional, :to_bool],
         [:preauthorize_payment, :optional, :to_bool],
