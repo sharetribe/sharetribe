@@ -50,7 +50,7 @@ nb:
         update_information: "Lagre innstillinger"
         invite_people: "Inviter nye brukere"
         edit_signup_info: ~
-        edit_signup_info_description: ~
+        edit_signup_info_description: "Dette er en info side som kan bli vist til brukere på signup siden. På den siden kan du gi brukerne instruksjoner for signup, informasjon som hvor få en invitasjon, etc. Som default er der ingen restriksjoner."
         edit_info: "Redigere informasjon"
         see_how_it_looks_like: "Se hvordan det ser ut"
         verification_to_post_listings_info_content: ~
@@ -74,7 +74,7 @@ nb:
         favicon_info_text: ~
         community_custom_color1: "Hoved farge"
         community_custom_color2: "Sekundær farge"
-        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "Desktop logo størrelse skal være %{height}x%{width}px. Blir vist til brukere med større skjermer."
         logo_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: ~
@@ -569,7 +569,7 @@ nb:
       cancel: Uenighet
   braintree_accounts:
     new:
-      add_payout_details: ~
+      add_payout_details: "Legg til dine utbetalings detaljer."
       first_name: Fornavn
       last_name: Etternavn
       email: E-post
@@ -577,9 +577,9 @@ nb:
       address_street_address: Gateadresse
       address_postal_code: Postnummer
       address_locality: By
-      address_region: ~
+      address_region: Fylke
       date_of_birth: Fødselsdato
-      ssn: ~
+      ssn: Fødselsnummer
       routing_number: ~
       account_number: Kontonummer
       save: Lagre
@@ -592,7 +592,7 @@ nb:
       address_street_address: Gateadresse
       address_postal_code: Postnummer
       address_locality: By
-      address_region: ~
+      address_region: Fylke
       date_of_birth: Fødselsdato
       ssn: ~
       routing_number: ~
@@ -1496,10 +1496,10 @@ nb:
       continue_to_pay: "Gå til betaling"
       invoice: Faktura
       service_fee: "%{service_name}tjenestekostnad"
-      you_will_get: ~
+      you_will_get: "Du vil motta:"
     braintree:
       terms:
-        braintree_terms_also_included: ~
+        braintree_terms_also_included: "PS: Braintree brukes som betalingsleverandør og ved å bruke denne nettsiden aksepterer du også %{terms_link_text}, i tillegg til vilkårene under."
         terms_link_text: "Braintree bruker vilkår"
   paypal_accounts:
     payout_info_title: ~
@@ -1714,8 +1714,8 @@ nb:
         remove_title: Fjerne
         remove_confirmation: "Er du sikker på at du ønsker å fjerne denne e-postadressen?"
         receive_notifications_title_desktop: "Motta varsler"
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
+        receive_notifications_title_mobile: "Motta varslinger"
+        receive_notifications_new_title_mobile: "Motta varslinger"
         add_new_with_plus: "+Legg til ny e-post"
         add_new_cancel: Avbryt
         confirmation_title_mobile: "Bekreftelse:"
