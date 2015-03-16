@@ -4,11 +4,7 @@
 #new_message_form.centered-section
 
   %h2
-    - if contact || @listing.transaction_type.is_inquiry?
-      = t("conversations.new.send_message_to_user", :person => link_to(@listing.author.given_name_or_username, @listing.author)).html_safe
-    - else
-      = @listing.transaction_type.action_button_label(I18n.locale)
-      = link_to(@listing.title, @listing)
+    = t("conversations.new.send_message_to_user", :person => link_to(@listing.author.given_name_or_username, @listing.author)).html_safe
 
   = form_for contact_form, :url => create_contact do |form|
 
