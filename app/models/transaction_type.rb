@@ -26,7 +26,6 @@ class TransactionType < ActiveRecord::Base
     :community_id,
     :price_field,
     :sort_priority,
-    :type,
     :price_quantity_placeholder,
     :price_per,
     :transaction_process_id
@@ -51,6 +50,7 @@ class TransactionType < ActiveRecord::Base
     super.reject { |c| c.name == "type" }
   end
 
+  # TODO this can be removed
   def self.inheritance_column
     :a_non_existing_column_because_we_want_to_disable_inheritance
   end
@@ -60,7 +60,9 @@ class TransactionType < ActiveRecord::Base
   end
 
   def url_source
-    Maybe(default_translation_without_cache).name.or_else(type)
+    Maybe(default_translation_without_cache).name.or_else(nil).tap { |translation|
+      raise ArgumentError.new("Can not create URL for transaction type. Expected transaction type to have translation") if translation.nil?
+    }
   end
 
   def default_translation_without_cache

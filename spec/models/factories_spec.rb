@@ -5,7 +5,8 @@ describe "Factory Girl" do
   # List here factories that should be ignored.
   # E.g. :payment is ignored, since it's a super class and shouldn't be instantiated
   ignored_factories = [
-    :payment
+    :payment,
+    :transaction_type
   ]
 
   (FactoryGirl.factories.map(&:name) - ignored_factories).each do |factory_name|

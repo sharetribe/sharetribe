@@ -11,41 +11,32 @@ module TransactionTypeCreator
 
   DEFAULTS = {
     "Give" => {
-      type: "Give",
       price_field: false
     },
     "Inquiry" => {
-      type: "Inquiry",
       price_field: false
     },
     "Lend" => {
-      type: "Lend",
       price_field: false
     },
     "Rent" => {
-      type: "Rent",
       price_field: true,
       price_per: "day"
     },
     "Request" => {
-      type: "Request",
       price_field: false,
     },
     "Sell" => {
-      type: "Sell",
       price_field: true
     },
     "Service" => {
-      type: "Service",
       price_field: true,
       price_per: "day"
     },
     "ShareForFree" => {
-      type: "ShareForFree",
       price_field: false
     },
     "Swap" => {
-      type: "Swap",
       price_field: false
     }
   }
