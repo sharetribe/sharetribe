@@ -15,6 +15,7 @@
 #  street2           :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  country_code      :string(8)
 #
 
 class ShippingAddress < ActiveRecord::Base
@@ -26,6 +27,7 @@ class ShippingAddress < ActiveRecord::Base
     :postal_code,
     :city,
     :country,
+    :country_code,
     :state_or_province,
     :street1,
     :street2

@@ -96,6 +96,7 @@ module PaypalService::API::DataTypes
     [:status, :string],
     [:city, :string],
     [:country, :string],
+    [:country_code, :string],
     [:name, :string],
     [:phone, :string],
     [:postal_code, :string],
