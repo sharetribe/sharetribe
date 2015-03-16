@@ -43,6 +43,10 @@ MoneyRails.configure do |config|
                              default: nil
                            }
 
+  config.default_format = {
+    sign_before_symbol: true
+  }
+
   config.register_currency = {
     :priority            => 1,
     :iso_code            => "CHF",
