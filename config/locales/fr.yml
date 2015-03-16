@@ -399,9 +399,13 @@ fr:
     removed_user: "Utilisateur supprimé"
     paypal_fee_info:
       title: "Frais de transaction PayPal"
-      body_text: ~
-      body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      body_text: |-
+          PayPal facture des frais de transaction sur chaque paiement. Ces frais sont généralement entre 2% et 5% du montant total de la transaction et dépend de votre nombre de transaction mensuel et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que les transactions internationales et réaliser plus de ventes mensuelles vous permet de bénéficier de réductions sur les frais. 
+          Vous pouvez retrouver les frais exacts en vous connectant à votre compte PayPal et en allant %{link_to_paypal}. Après chaque transaction vous recevrez un reçu affichant les frais exacts.
+      body_with_shipping_text: |-
+          PayPal facture des frais de transaction sur chaque paiement. Ces frais sont généralement entre 2% et 5% du montant total de la transaction (frais de livraison inclus) et dépend de votre nombre de transaction mensuel et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que les transactions internationales et réaliser plus de ventes mensuelles vous permet de bénéficier de réductions sur les frais. 
+          Vous pouvez retrouver les frais exacts en vous connectant à votre compte PayPal et en allant %{link_to_paypal}. Après chaque transaction vous recevrez un reçu affichant les frais exacts.
+      link_to_paypal_text: ici
   conversations:
     accept:
       details: "Détails de la commande"
@@ -1301,14 +1305,14 @@ fr:
         time: "heure, jour, mois..."
         long_time: "semaine, mois..."
         after_service_fee_you_will_get: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} seront déduits du montant."
+        after_service_fee_you_will_get_paypal_text: "Les frais de %{service_name} (%{sum_with_currency}) et %{paypal_fee_info_link} seront déduits du montant."
+        paypal_fee_info_link_text: "les frais de transaction PayPal"
         after_service_fee_you_will_get_vat: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez environ %{sum_with_currency} (TVA 0%)"
         price_excludes_vat: "Ce prix n'inclut pas la TVA."
         delivery: Livraison
         shipping: Envoi
-        shipping_price: "Frais de livraison"
+        shipping_price: "Frais de port"
         pickup: Retrait
       origin:
         location: Lieu
@@ -1531,10 +1535,10 @@ fr:
       upgrade_paypal_account: "connectez-vous à votre compte PayPal"
       connect_paypal_account: "Connecter le compte PayPal"
       paypal_account_billing_agreement: "Autoriser %{service_name} à prélever une commission sur les transactions"
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
-      paypal_info_link_text: ~
+      paypal_account_billing_agreement_info_both: "Après avoir réalisé une vente sur %{service_name}, des frais (%{commission_from_seller} du montant total, hors frais de livraison, frais minimal de %{minimum_commission}) seront prélevés sur votre compte PayPal. Pour accepter les paiements sur %{service_name}, vous devez l'autoriser à prélever ces frais. Ces frais n'incluent pas %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Après avoir réalisé une vente sur %{service_name}, des frais de %{minimum_commission} seront prélevés sur votre compte PayPal. Pour accepter les paiements sur %{service_name}, vous devez l'autoriser à prélever ces frais. Ces frais n'incluent pas %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Après avoir réalisé une vente sur %{service_name}, des frais (%{commission_from_seller} du montant total, hors frais de livraison) seront prélevés sur votre compte PayPal. Pour accepter les paiements sur %{service_name}, vous devez l'autoriser à prélever ces frais. Ces frais n'incluent pas %{paypal_info_link}."
+      paypal_info_link_text: "les frais de transaction PayPal"
       billing_agreement_description: "Autoriser %{service_name} à prélever une commission sur les transactions."
       billing_agreement: Autoriser
       permissions_not_granted: "La connexion avec le compte PayPal n'a pas été permise."
