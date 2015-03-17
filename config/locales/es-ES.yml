@@ -247,6 +247,7 @@ es-ES:
           canceled: Cancelada
           initiated: "Esperando al pago de PayPal"
           pending_ext: "Esperando al pago de PayPal"
+        not_available: ~
       braintree_payment_gateway:
         braintree_payment_gateway: "Clave de API (Key) de pagos de Braintree"
         environment: Entorno

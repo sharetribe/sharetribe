@@ -245,7 +245,7 @@ fi:
           canceled: Peruutettu
           initiated: "Odottaa maksua"
           pending_ext: "Odottaa maksun hyväksyntää"
-        not_available: Ei saatavilla
+        not_available: "Ei saatavilla"
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -1453,7 +1453,7 @@ fi:
         per_day: "per päivä"
       delivery: Kuljetus
       shipping: "Postikulut (+%{price})"
-      pickup: "Nouto"
+      pickup: Nouto
     verification_required:
       verification_required: ~
   listing_conversations:

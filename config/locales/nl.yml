@@ -245,6 +245,7 @@ nl:
           canceled: Geannuleerd
           initiated: "Wachten PayPal betaling"
           pending_ext: "Wachten PayPal betaling"
+        not_available: ~
       braintree_payment_gateway:
         braintree_payment_gateway: "Braintree Betaling API sleutels"
         environment: Omgeving
