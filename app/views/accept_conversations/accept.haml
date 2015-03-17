@@ -21,7 +21,7 @@
       .hidden-accept-form.visible-when-accept{:class => (@action.eql?("accept") ? "" : "hidden")}
         %br
         %p#conversation-payment-details-missing
-          = t("conversations.accept.you_need_to_fill_payout_details_before_accepting", :payment_settings_link => link_to(t("conversations.accept.payment_settings_link"), payment_settings_path,:id => "#conversation-payment-settings-link")).html_safe
+          = t("conversations.accept.you_need_to_fill_payout_details_before_accepting", :payment_settings_link => link_to(t("conversations.accept.payment_settings_link"), path_to_payment_settings, :id => "#conversation-payment-settings-link")).html_safe
 
     %div{:class => (@payout_registration_missing ? "hidden-accept-form visible-when-reject #{@action.eql?("accept") ? "hidden" : ""}" : "")}
       - if @listing_conversation.listing.payment_required_at?(@current_community)
