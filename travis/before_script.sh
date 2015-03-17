@@ -6,7 +6,7 @@ echo "SUITE: ${SUITE}"
 if [ "$SUITE" = "rspec" ]
 then
 	cp config/database.example.yml config/database.yml
-	mysql -e 'create database sharetribe_test;'
+	mysql -e 'create database sharetribe_test character set utf8mb4;'
 	bundle exec rake db:test:load
 	exit
 elif [ "$SUITE" = "rubocop" ]
@@ -15,7 +15,7 @@ then
 elif [ "$SUITE" = "cucumber" ]
 then
 	cp config/database.example.yml config/database.yml
-	mysql -e 'create database sharetribe_test;'
+	mysql -e 'create database sharetribe_test character set uf8mb4;'
 	bundle exec rake db:test:load
 	exit
 elif [ "$SUITE" = "mocha" ]
