@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150316140637) do
+ActiveRecord::Schema.define(:version => 20150317081853) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -884,7 +884,7 @@ ActiveRecord::Schema.define(:version => 20150316140637) do
     t.integer  "transaction_process_id"
     t.integer  "sort_priority"
     t.boolean  "price_field"
-    t.boolean  "preauthorize_payment"
+    t.boolean  "preauthorize_payment",       :default => false
     t.string   "price_quantity_placeholder"
     t.string   "price_per"
     t.datetime "created_at",                                    :null => false

@@ -3,7 +3,7 @@
 development:
     adapter: mysql2
     database: sharetribe_development
-    encoding: utf8
+    encoding: utf8mb4
     username: sharetribe
     password: secret
     host: localhost
@@ -15,7 +15,7 @@ development:
 test: &test
     adapter: mysql2
     database: sharetribe_test
-    encoding: utf8
+    encoding: utf8mb4
     username: root
     password:
     host: localhost
@@ -23,7 +23,7 @@ test: &test
 staging:
     adapter: mysql2
     database: sharetribe_staging
-    encoding: utf8
+    encoding: utf8mb4
     username: sharetribe
     password: secret
     host: localhost
@@ -31,7 +31,7 @@ staging:
 production:
     adapter: mysql2
     database: sharetribe_production
-    encoding: utf8
+    encoding: utf8mb4
     username: sharetribe
     password: secret
     host: localhost
