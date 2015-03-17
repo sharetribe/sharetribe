@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150317080017) do
+ActiveRecord::Schema.define(:version => 20150317142931) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -284,6 +284,9 @@ ActiveRecord::Schema.define(:version => 20150317080017) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
+
+  add_index "community_translations", ["community_id", "translation_key", "locale"], :name => "community_translations_key_locale"
+  add_index "community_translations", ["community_id", "translation_key"], :name => "community_translations_key"
 
   create_table "contact_requests", :force => true do |t|
     t.string   "email"
@@ -884,13 +887,15 @@ ActiveRecord::Schema.define(:version => 20150317080017) do
     t.integer  "transaction_process_id"
     t.integer  "sort_priority"
     t.boolean  "price_field"
-    t.boolean  "preauthorize_payment"
+    t.boolean  "preauthorize_payment",       :default => false
     t.string   "price_quantity_placeholder"
     t.string   "price_per"
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
     t.string   "url"
     t.boolean  "shipping_enabled",           :default => false
+    t.string   "name_tr_key"
+    t.string   "action_button_tr_key"
   end
 
   add_index "transaction_types", ["community_id"], :name => "index_transaction_types_on_community_id"
