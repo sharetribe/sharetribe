@@ -245,6 +245,7 @@ fr:
           canceled: Annulée
           initiated: "En attente du paiement PayPal"
           pending_ext: "En attente du paiement PayPal"
+        not_available: "Non disponible"
       braintree_payment_gateway:
         braintree_payment_gateway: "Clé d'API pour Braintree Payment"
         environment: Environnement
@@ -1451,8 +1452,8 @@ fr:
         per_quantity_unit: "par %{quantity_unit}"
         per_day: "par jour"
       delivery: Livraison
-      shipping: "Frais de livraison (%{price})"
-      pickup: "Retrait (%{price})"
+      shipping: "Frais de livraison (+%{price})"
+      pickup: Retrait
     verification_required:
       verification_required: "Vérification nécessaire"
   listing_conversations:
