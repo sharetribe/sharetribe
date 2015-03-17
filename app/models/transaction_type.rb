@@ -45,16 +45,6 @@ class TransactionType < ActiveRecord::Base
 
   acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
 
-  # TODO this can be removed
-  def self.columns
-    super.reject { |c| c.name == "type" || c.name == "preauthorize_payment" }
-  end
-
-  # TODO this can be removed
-  def self.inheritance_column
-    :a_non_existing_column_because_we_want_to_disable_inheritance
-  end
-
   def to_param
     url
   end

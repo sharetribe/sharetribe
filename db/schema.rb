@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150317080017) do
+ActiveRecord::Schema.define(:version => 20150317114948) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -879,12 +879,10 @@ ActiveRecord::Schema.define(:version => 20150317080017) do
   add_index "transaction_type_translations", ["transaction_type_id"], :name => "index_transaction_type_translations_on_transaction_type_id"
 
   create_table "transaction_types", :force => true do |t|
-    t.string   "type"
     t.integer  "community_id"
     t.integer  "transaction_process_id"
     t.integer  "sort_priority"
     t.boolean  "price_field"
-    t.boolean  "preauthorize_payment"
     t.string   "price_quantity_placeholder"
     t.string   "price_per"
     t.datetime "created_at",                                    :null => false
