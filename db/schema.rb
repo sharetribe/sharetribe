@@ -884,7 +884,7 @@ ActiveRecord::Schema.define(:version => 20150316140637) do
     t.integer  "transaction_process_id"
     t.integer  "sort_priority"
     t.boolean  "price_field"
-    t.boolean  "preauthorize_payment",       :default => false
+    t.boolean  "preauthorize_payment"
     t.string   "price_quantity_placeholder"
     t.string   "price_per"
     t.datetime "created_at",                                    :null => false
