@@ -884,13 +884,15 @@ ActiveRecord::Schema.define(:version => 20150317080017) do
     t.integer  "transaction_process_id"
     t.integer  "sort_priority"
     t.boolean  "price_field"
-    t.boolean  "preauthorize_payment"
+    t.boolean  "preauthorize_payment",       :default => false
     t.string   "price_quantity_placeholder"
     t.string   "price_per"
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
     t.string   "url"
     t.boolean  "shipping_enabled",           :default => false
+    t.string   "name_tr_key"
+    t.string   "action_button_tr_key"
   end
 
   add_index "transaction_types", ["community_id"], :name => "index_transaction_types_on_community_id"

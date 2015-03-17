@@ -12,6 +12,8 @@
 #  created_at                 :datetime         not null
 #  updated_at                 :datetime         not null
 #  url                        :string(255)
+#  name_tr_key                :string(255)
+#  action_button_tr_key       :string(255)
 #  shipping_enabled           :boolean          default(FALSE)
 #
 # Indexes
