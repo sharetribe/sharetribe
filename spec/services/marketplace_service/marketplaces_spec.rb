@@ -63,8 +63,8 @@ describe MarketplaceService::API::Marketplaces do
     it "should have preauthorize_payments enabled" do
       community_hash = create(@community_params)
       c = Community.find(community_hash[:id])
-
-      expect(c.transaction_types.pluck(:preauthorize_payment).all?).to be true
+      processes = TransactionService::API::Api.processes.get(community_id: c.id).data
+      expect(processes.any? { |p| p[:process] == :preauthorize })
     end
 
     it "should have community customizations" do

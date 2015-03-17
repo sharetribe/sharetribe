@@ -49,7 +49,7 @@ class TransactionType < ActiveRecord::Base
 
   # TODO this can be removed
   def self.columns
-    super.reject { |c| c.name == "type" }
+    super.reject { |c| c.name == "type" || c.name == "preauthorize_payment" }
   end
 
   # TODO this can be removed
