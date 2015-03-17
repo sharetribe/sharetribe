@@ -92,22 +92,11 @@ def deploy(params)
   if params[:css]
     generate_custom_css
   end
-
-  airbrake_trigger_deploy(@destination)
 end
 
 def set_app(destination)
   @app = "sharetribe-#{destination}"
   puts "Destination Heroku app: #{@app}"
-end
-
-def airbrake_trigger_deploy(destination)
-  puts ""
-  puts "Triggering airbrake deploy..."
-  ENV['use_airbrake'] = "true"
-  ENV['TO'] = destination
-  Rake::Task['airbrake:deploy'].invoke
-  puts "Done."
 end
 
 def migrate_up(versions)
