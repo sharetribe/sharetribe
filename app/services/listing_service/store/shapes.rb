@@ -9,6 +9,7 @@ module ListingService::Store::Shapes
     [:transaction_process_id, :fixnum, :mandatory],
     [:translations, :array, :optional], # TODO Only temporary
     [:units, :array, :mandatory],
+    [:shipping_enabled, :bool, :mandatory]
   )
 
   Shape = EntityUtils.define_builder(
@@ -19,7 +20,8 @@ module ListingService::Store::Shapes
     [:price_enabled, :to_bool, :mandatory], # to_bool, because there are NULL values in db
     [:transaction_process_id, :fixnum, :mandatory],
     [:translations, :array, :optional], # TODO Only temporary
-    [:units, :array, :mandatory]
+    [:units, :array, :mandatory],
+    [:shipping_enabled, :bool, :mandatory]
   )
 
   Unit = EntityUtils.define_builder(

@@ -12,6 +12,7 @@ describe ListingService::API::Shapes do
         opts: {
           price_enabled: true,
           transaction_process_id: transaction_process_id,
+          shipping_enabled: true,
 
           # TODO Move these to translation service
           translations: [
@@ -38,6 +39,7 @@ describe ListingService::API::Shapes do
 
       expect(shape[:community_id]).to eql(community_id)
       expect(shape[:price_enabled]).to eql(true)
+      expect(shape[:shipping_enabled]).to eql(true)
       expect(shape[:transaction_process_id]).to eql(transaction_process_id)
       expect(shape[:transaction_type_id]).to be_a(Fixnum)
 
