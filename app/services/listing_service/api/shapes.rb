@@ -22,10 +22,9 @@ module ListingService::API
 
     # TODO Move transaction_type creation inside the API
     # That way we can get rid of the transaction_type_id
-    def create(community_id:, transaction_type_id:, opts:)
+    def create(community_id:, opts:)
       Result::Success.new(ShapeStore.create(
         community_id: community_id,
-        transaction_type_id: transaction_type_id,
         opts: opts
       ))
     end

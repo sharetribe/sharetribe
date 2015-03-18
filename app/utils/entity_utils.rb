@@ -97,6 +97,11 @@ module EntityUtils
         "#{field}: Value must be a Money. Was: #{v}."
       end
     },
+    bool: -> (_, v, field) {
+      unless (v.nil? || v == true || v == false)
+        "#{field}: Value must be boolean true or false. Was: #{v} (#{v.class.name})."
+      end
+    },
     validate_with: -> (validator, v, field) {
       unless (validator.call(v))
         "#{field}: Custom validation failed. Was: #{v}."
