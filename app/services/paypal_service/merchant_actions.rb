@@ -212,8 +212,8 @@ module PaypalService
             PaymentAction: "Order",
             Token: req[:token],
             PayerID: req[:payer_id],
+            ButtonSource: config[:button_source],
             PaymentDetails: [{
-              ButtonSource: config[:button_source],
               InvoiceID: req[:invnum],
               NotifyURL: hook_url(config[:ipn_hook]),
               OrderTotal: from_money(req[:order_total]),
