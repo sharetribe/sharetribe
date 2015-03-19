@@ -11,6 +11,24 @@ describe ListingsController do
     Rails.cache.clear
   end
 
+  def create_transaction_type(community_id, type, process_id, translations = [], categories = [])
+    shapes_api = ListingService::API::Api.shapes
+
+    defaults = TransactionTypeCreator::DEFAULTS[type]
+
+    opts = defaults.merge(
+      {
+        transaction_process_id: process_id,
+        name_tr_key: 'something.here',
+        action_button_tr_key: 'something.here',
+        translations: translations.concat([{ locale: "en", name: type }])
+      })
+
+    shape = shapes_api.create(community_id: community_id, opts: opts).data
+
+    TransactionType.find(shape[:transaction_type_id])
+  end
+
   before(:each) do
     Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
 
@@ -22,23 +40,22 @@ describe ListingsController do
     @p1.communities << @c1
     @p1.ensure_authentication_token!
 
-    @category_item = FactoryGirl.create(:category, :community => @c1)
+    @category_item      = FactoryGirl.create(:category, :community => @c1)
     @category_item.translations << FactoryGirl.create(:category_translation, :name => "Tavarat", :locale => "fi", :category => @category_item)
-    @category_favor = FactoryGirl.create(:category, :community => @c1)
+    @category_favor     = FactoryGirl.create(:category, :community => @c1)
     @category_rideshare = FactoryGirl.create(:category, :community => @c1)
     @category_furniture = FactoryGirl.create(:category, :community => @c1)
 
     c1_request_process = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: false)
-    c1_offer_process = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: true)
+    c1_offer_process   = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: true)
     c2_request_process = TransactionProcess.create(community_id: @c2.id, process: :none, author_is_seller: false)
-    c2_offer_process = TransactionProcess.create(community_id: @c2.id, process: :none, author_is_seller: true)
+    c2_offer_process   = TransactionProcess.create(community_id: @c2.id, process: :none, author_is_seller: true)
 
-    @transaction_type_request = FactoryGirl.create(:transaction_type_request, transaction_process_id: c1_request_process.id)
-    @transaction_type_sell = FactoryGirl.create(:transaction_type_sell, :categories => [@category_item, @category_furniture], :community => @c1, transaction_process_id: c1_offer_process.id)
-    @transaction_type_sell_c2 = FactoryGirl.create(:transaction_type_sell, :community => @c2, transaction_process_id: c2_offer_process.id)
-    @transaction_type_request_c2 = FactoryGirl.create(:transaction_type_request, :community => @c2, transaction_process_id: c2_request_process.id)
-    @transaction_type_sell.translations << FactoryGirl.create(:transaction_type_translation, :name => "Myydään", :locale => "fi", :transaction_type => @transaction_type_sell)
-    @transaction_type_service_offer = FactoryGirl.create(:transaction_type_service, :categories => [@category_favor], :community => @c1, transaction_process_id: c1_offer_process.id)
+    @transaction_type_request       = create_transaction_type(@c1.id, "Request", c1_request_process.id)
+    @transaction_type_sell          = create_transaction_type(@c1.id, "Sell",    c1_offer_process.id, [{locale: "fi", name: "Myydään"}], [@category_item, @category_furniture])
+    @transaction_type_sell_c2       = create_transaction_type(@c2.id, "Sell",    c2_offer_process.id)
+    @transaction_type_request_c2    = create_transaction_type(@c2.id, "Request", c2_request_process.id)
+    @transaction_type_service_offer = create_transaction_type(@c1.id, "Service", c1_request_process.id)
 
     @l1 = FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :sort_date => 3.days.ago, :author => @p1, :privacy => "public")
     @l1.communities = [@c1]
