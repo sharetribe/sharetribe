@@ -49,7 +49,7 @@ nb:
         edit_private_community_homepage_content_description: ~
         update_information: "Lagre innstillinger"
         invite_people: "Inviter nye brukere"
-        edit_signup_info: ~
+        edit_signup_info: Registreringsinformasjon
         edit_signup_info_description: "Dette er en info side som kan bli vist til brukere på signup siden. På den siden kan du gi brukerne instruksjoner for signup, informasjon som hvor få en invitasjon, etc. Som default er der ingen restriksjoner."
         edit_info: "Redigere informasjon"
         see_how_it_looks_like: "Se hvordan det ser ut"
@@ -67,7 +67,7 @@ nb:
       edit_look_and_feel:
         edit_community_look_and_feel: "Redigere markedsplass \"%{community_name}\" uttrykk og følelse"
         community_logo: Skrivebordslogo
-        community_logo_icon: ~
+        community_logo_icon: "Logo for sosiale nettverk og mindre skjermer."
         community_cover_photo: Forsidebilde
         small_community_cover_photo: "Lite forside bilde"
         favicon: ~
@@ -76,13 +76,13 @@ nb:
         community_custom_color2: "Sekundær farge"
         logo_instructions_text_with_dimensions: "Desktop logo størrelse skal være %{height}x%{width}px. Blir vist til brukere med større skjermer."
         logo_icon_instructions_text_with_dimensions: "Denne firkantede logoen blir vist når siden blir delt på Facebook, vist på moblie enheter og når de bokmerker siden på mobil. Dimensjonene bør (minst) være %{width}x%{height}px."
-        cover_photo_visibility: ~
-        cover_photo_instructions_text_with_dimensions: ~
-        small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
+        cover_photo_visibility: "Forsidebildet vises på forsiden for brukere som ikke er logget inn."
+        cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten. %{see_how_it_looks_like}"
+        small_cover_photo_visibility: "Mindre forsidebilde vises på alle sider bortsett fra forsiden for brukere som ikke er logget inn."
+        small_cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten."
         main_content_width: ~
-        custom_color1_instructions_text: ~
-        custom_color2_instructions_text: ~
+        custom_color1_instructions_text: "Du kan endre hovedfargen på brukergrensesnittet ved å skrive inn en hex-kode. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kan hjelpe deg med å finne en farge og kopiere koden hit."
+        custom_color2_instructions_text: "Du kan endre sekundærfargen til brukergrensesnittet ved å skrive inn en fargeverdi i hex kode."
         default_browse_view: ~
         default_browse_view_instructions_text: ~
         grid: Rutenett
@@ -100,7 +100,7 @@ nb:
         edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: "Innhold i velkomstmelding"
-        welcome_email_content_description: ~
+        welcome_email_content_description: "Meldingen nedenfor blir sendt ut til alle nye brukere når de registrerer seg. Du kan tilpasse meldingen slik at den passer din markedsplass. Ved å trykke på '%{send_test_message_link}' kan du forhåndsvise meldingen ved å sende en test til din egen epost."
         edit_message: "Rediger melding"
         send_test_message: "Send test melding"
       getting_started:
@@ -580,7 +580,7 @@ nb:
       address_region: Fylke
       date_of_birth: Fødselsdato
       ssn: Fødselsnummer
-      routing_number: ~
+      routing_number: IBAN
       account_number: Kontonummer
       save: Lagre
     show:
@@ -594,17 +594,17 @@ nb:
       address_locality: By
       address_region: Fylke
       date_of_birth: Fødselsdato
-      ssn: ~
-      routing_number: ~
+      ssn: Fødselsnummer
+      routing_number: IBAN
       account_number: Kontonummer
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
+      new_credit_card_payment: "Ny kortbetaling"
       payment_receiver: "Betalings mottaker:"
       cardholder_name: "Kortholders navn"
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
+      credit_card_number: Kortnummer
+      cvv: "Sikkerhetskode (CVC)"
+      credit_card_expiration_date: Utløpsdato
       confirm_payment: "Bekreft betaling"
       exp: ~
   preauthorize_payments:
@@ -798,7 +798,7 @@ nb:
       welcome_email_subject: "Velkommen til %{service_name}!"
       welcome_to_marketplace: "Velkommen til %{service_name}! Glad for å ha deg ombord."
       love_marketplace_crew: ~
-      p_s_did_you_know: ~
+      p_s_did_you_know: "PS. Vil du lage din egen markedsplass akkurat slik som %{service_name}? Det er enkelt og du trenger ikke å kunne programmering. %{click_here_link} for å funne ut mer!"
       click_here_link_text: "Klikk her"
       welcome_email_footer_text: "Hvilke e-poster ønsker du å motta fra %{service_name}?%{settings_link}"
       settings_link_text: "Sjekk innstillingene dine."
@@ -906,7 +906,7 @@ nb:
   header:
     about: Om
     home: Hjem
-    members: ~
+    members: Medlemmer
     new_listing: "Ny annonse"
     mobile_version: Mobilversjon
     offers: Tilbud
@@ -958,7 +958,7 @@ nb:
     event_feed:
       latest_events: "Hva skjer"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Behandler bildet…)"
     index:
       no_listings_with_your_search_criteria: "Vi finner ingen resultater som matcher dine søke kriterier."
       no_listings_notification: "Ingen annonser. %{add_listing_link}"
@@ -1025,7 +1025,7 @@ nb:
   infos:
     about:
       default_about_text_title: "Hva er Sharetribe?"
-      default_about_text: ~
+      default_about_text: "Denne markedsplassen er laget på Sharetribe-platformen. Med Sharetribe kan du enkelt lage din egen markedsplass. Det er gratis og tar kun noen minutter. %{click_here_link} for å lære mer!"
       click_here_link_text: "Klikk her"
     how_to_use:
       default_title: ~
@@ -1292,7 +1292,7 @@ nb:
         mass: "del, kg, l, m2, ..."
         time: "time,dag,måned,..."
         long_time: "uke, måned, ..."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "Etter kostnad fra %{service_name} og betalingsleverandøren vil du motta %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: ~
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
@@ -1341,7 +1341,7 @@ nb:
         public: "Offentlig(synlig for alle)"
     help_texts:
       help_share_type_title: "Type tilbud eller forespørsel"
-      help_tags_title: ~
+      help_tags_title: Tags
       help_valid_until_title: Utløpsdato
     index:
       all_categories: "Alle kategorier"
@@ -1428,7 +1428,7 @@ nb:
       share_types: Delingstyper
       share_types_offer: "Type tilbud"
       share_types_request: "Type forespørsel"
-      tags: ~
+      tags: Tags
       time: tid
       times: ganger
       times_viewed: vist
@@ -1867,10 +1867,10 @@ nb:
     format: ~
   time:
     formats:
-      short: ~
-      shorter: ~
+      short: "%e %b %Y klokken %H:%M"
+      shorter: "%e %b klokken %H:%M"
       short_date: ~
-      sms: ~
+      sms: "%e %b klokken %H:%M"
   timestamps:
     day_ago: "%{count} dag siden"
     days_ago: "%{count} dager siden"

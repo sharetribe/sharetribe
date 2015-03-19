@@ -1313,7 +1313,7 @@ fr:
         price_excludes_vat: "Ce prix n'inclut pas la TVA."
         delivery: Livraison
         shipping: Envoi
-        shipping_price: "Frais de port"
+        shipping_price: "Frais de livraison"
         pickup: Retrait
       origin:
         location: Lieu
@@ -1452,7 +1452,7 @@ fr:
         per_quantity_unit: "par %{quantity_unit}"
         per_day: "par jour"
       delivery: Livraison
-      shipping: "Frais de livraison (+%{price})"
+      shipping: "Envoi (+%{price})"
       pickup: Retrait
     verification_required:
       verification_required: "Vérification nécessaire"

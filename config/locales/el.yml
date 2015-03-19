@@ -5,7 +5,7 @@ el:
         edit_listing_category: ~
       index:
         listing_categories: ~
-        create_a_new_category: ~
+        create_a_new_category: "+ Δημιουργήστε νέα κατηγορία"
         remove_category_confirmation: ~
         saving_order: ~
         save_order_successful: ~
@@ -14,7 +14,7 @@ el:
         new_listing_category: ~
       form:
         category_name:
-          category_title: ~
+          category_title: "Τίτλος κατηγορίας"
         category_parent:
           category_parent: ~
           no_parent: ~
@@ -51,12 +51,12 @@ el:
         invite_people: "Καλέστε κόσμο σε αυτή την κοινότητα"
         edit_signup_info: "Πληροφορίες εγγραφής"
         edit_signup_info_description: "Αυτό είναι ένα ενημερωτικό κείμενο που εμφανίζεται στους χρήστες στη σελίδα εγγραφής. Μέσω αυτού μπορείτε να δώσετε οδηγίες για την εγγγραφή, πληροφορίες για το που μπορούν να βρουν ένα κωδικό πρόσκλησης στην κοινότητα κ.α. Αρχικά δεν εμφανίζονται καθόλου οδηγίες μπορείτε όμως να προσθέσετε μερικές κάνοντας κλικ στον παρακάτω σύνδεσμο."
-        edit_info: ~
+        edit_info: "Επεξεργασία πληροφοριών"
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
+        contact_admin_link_text: "Επικοινωνήστε με τον διαχειριστή"
         save: ~
         transaction_agreement: ~
         transaction_agreement_checkbox: ~
@@ -136,10 +136,10 @@ el:
         view_transactions_link_text: ~
         contact_support_link_text: ~
       settings:
-        settings: ~
-        general: ~
-        users_can_review_each_other_after_transaction: ~
-        access: ~
+        settings: Ρυθμίσεις
+        general: Γενικά
+        users_can_review_each_other_after_transaction: "Οι χρήστες μπορούν να αφήνουν κριτική ο ένας στον αλλόν μετά απο την συναλλαγή"
+        access: Πρόσβαση
         join_with_invite_only: ~
         users_can_invite_new_users: ~
         private: ~
@@ -164,7 +164,7 @@ el:
       manage_members:
         manage_members: ~
         email: ~
-        name: ~
+        name: Όνομα
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -262,8 +262,8 @@ el:
         listing_fields_help: ~
         add_new_field: ~
         remove_field_confirmation: ~
-        cancel: ~
-        save: ~
+        cancel: Άκυρο
+        save: Αποθήκευση
         field_title: ~
         field_type: ~
         categories: ~
@@ -273,7 +273,7 @@ el:
         save_order_successful: ~
         save_order_error: ~
         select_one: ~
-        continue: ~
+        continue: Συνέχεια
         minimum_value: ~
         maximum_value: ~
         allow_decimals: ~
@@ -603,7 +603,7 @@ el:
       credit_card_number: "Αριθμός πιστωτικής κάρτας"
       cvv: CVV
       credit_card_expiration_date: "Ημερομηνία λήξης πιστωτικής κάρτας"
-      confirm_payment: ~
+      confirm_payment: "Επιβεβαίωση πληρωμής"
       exp: ~
   preauthorize_payments:
     edit:
@@ -733,7 +733,7 @@ el:
       paypal_gateway_fee: ~
       shipping_total: ~
     braintree_new_payment:
-      product: ~
+      product: "Προϊόν:"
       price_payer_paid: ~
       service_fee: ~
       you_will_get: ~
@@ -742,8 +742,8 @@ el:
       receipt_of_payment: "Απόδειξη πληρωμής"
       you_have_made_new_payment: "Πληρώσατε <b>%{payment_sum}</b> για το <b>%{listing_title}</b> στον/στην %{recipient_full_name}. Ορίστε η απόδειξη πληρωμής."
       product: ~
-      total: ~
-      price: ~
+      total: Σύνολο
+      price: Τιμή
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
@@ -981,7 +981,7 @@ el:
       no_reviews: "Δεν υπάρχουν κριτικές"
       no_image: "Δεν επιλέχθηκε εικόνα"
       filter: Φίλτρο
-      this_is_private_community: ~
+      this_is_private_community: "Θα πρέπει να εγγραφείτε για να δείτε το περιεχόμενο"
     invitation_form:
       invite_your_friends: "Προσκαλέστε τους φίλους σας στο %{service_name}!"
       email: "Ηλεκτρονικές διευθύνσεις"
@@ -1241,7 +1241,7 @@ el:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: "Επιλέξτε ένα..."
       departure_time:
         at: Στις
         departure_time: Αναχώρηση

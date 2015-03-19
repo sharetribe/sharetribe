@@ -335,14 +335,14 @@ zh:
       give: 赠送
       lend: 出借
       swap: 交换
-      service: 供给
+      service: 宝贝
       request: 请求
       inquiry: 查询
       share_for_free: 免费共享
       default_action_button_labels:
         sell: 购买
         rent: 租赁
-        request: 供应
+        request: 宝贝
         offer: 请求
         inquiry: 联系人
   common:
@@ -356,7 +356,7 @@ zh:
     service_name: "%{service_name}"
     share_types:
       request: 请求
-      offer: 供应
+      offer: 宝贝
       borrow: 借入
       buy: 购买
       give_away: 赠送
@@ -397,14 +397,14 @@ zh:
       title: PayPal的支付处理费
       body_text: ~
       body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: 这里
   conversations:
     accept:
       details: 订单明细
       order_by: "订购%{orderer_link}"
-      respond_to_offer: 响应一个供应
+      respond_to_offer: 响应一个宝贝
       respond_to_request: 响应一个请求
-      accept_offer: 接受供应
+      accept_offer: 接受宝贝
       accept_request: 接受请求
       reject_offer: 这次不行。
       reject_request: 这次不行。
@@ -446,25 +446,25 @@ zh:
       no_sent_messages: 没有已发送消息
     conversation:
       accepted_request: 请求已接受。
-      accepted_offer: 供应已接受。
+      accepted_offer: 宝贝已接受。
       rejected_request: 请求已拒绝。
-      rejected_offer: 供应已拒绝。
+      rejected_offer: 宝贝已拒绝。
       confirmed_request: 请求已完成。
-      confirmed_offer: 供应已完成。
+      confirmed_offer: 宝贝已完成。
       canceled_request: 请求已取消。
-      canceled_offer: 供应已取消。
+      canceled_offer: 宝贝已取消。
       message_from: "来自%{person}的消息"
       about_listing: "关于%{listing_title}"
       free_message: 免费消息
     message:
       accepted_request: 已接受请求
-      accepted_offer: 已接受的供应
+      accepted_offer: 已接受的宝贝
       rejected_request: 已拒绝的请求
-      rejected_offer: 已拒绝供应
+      rejected_offer: 已拒绝的宝贝
       confirmed_request: 标记请求为完成
-      confirmed_offer: 标记供应为完成
-      canceled_request: 已取消供应
-      canceled_offer: 已取消提议
+      confirmed_offer: 标记宝贝为完成
+      canceled_request: 已取消请求
+      canceled_offer: 已取消宝贝
       paid: "支付了%{sum}"
     new:
       offer_message_form_title: "为%{person}提供%{listing}"
@@ -550,7 +550,7 @@ zh:
       request_paid: 付款成功
       request_preauthorized: 付款成功
       skip_feedback: 跳过反馈
-      waiting_for_listing_author_to_accept_offer: "正在等待%{listing_author_name}接受供应"
+      waiting_for_listing_author_to_accept_offer: "正在等待%{listing_author_name}接受宝贝"
       waiting_for_listing_author_to_accept_request: "正在等待%{listing_author_name}接受请求"
       waiting_for_you_to_accept_request: 正在等待你接受请求
       waiting_confirmation_from_requester: "正在等待%{requester_name}标记请求为已完成"
@@ -565,11 +565,11 @@ zh:
           unknown_reason: 支付待定。登录你的PayPal帐号查看详情。
           verify: 等待你确认你的PayPal帐号
     status_link:
-      accept_offer: 接受提议
+      accept_offer: 接受宝贝
       accept_request: 接受请求
       reject_offer: 这次不行。
       reject_request: 这次不行。
-      accept_preauthorized_offer: 接受供给
+      accept_preauthorized_offer: 接受宝贝
       accept_preauthorized_request: 接受请求
       reject_preauthorized_offer: 这次不行
       reject_preauthorized_request: 这次不行
@@ -636,9 +636,9 @@ zh:
       join_community_button: "加入%{service_name}"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "请记得接受或拒绝来自%{sender_name}的供给"
+      remember_to_accept_offer: "请记得接受或拒绝来自%{sender_name}提供的宝贝"
       remember_to_accept_request: "请记得接受或拒绝来自%{sender_name}的请求"
-      you_can_accept_or_reject_offer_at: 你可以在此接受或拒绝该供应
+      you_can_accept_or_reject_offer_at: 你可以在此接受或拒绝该宝贝
       you_can_accept_or_reject_request_at: 你可以在此接受或拒绝该请求
       you_have_not_yet_accepted_or_rejected_offer: "你尚未接受或拒绝你在%{date}收到的%{title}"
       you_have_not_yet_accepted_or_rejected_request: "你尚未接受或拒绝你在%{date}收到的%{title}"
@@ -713,8 +713,8 @@ zh:
       has_rejected_your_offer: "%{accepter} 已经拒绝了你的%{listing}"
       has_rejected_your_request: "%{accepter} 已经拒绝了你的%{listing}"
       view_thread: 查看对话
-      your_offer_was_accepted: 你的提议已被接受
-      your_offer_was_rejected: 你的提议被拒绝
+      your_offer_was_accepted: 你的宝贝已被接受
+      your_offer_was_rejected: 你的宝贝被拒绝
       your_request_was_accepted: 你的请求已被接受
       your_request_was_rejected: 你的请求被拒绝
       you_can_now_pay_to: "你现在可以支付要求的金额给%{payment_receiver}。"
@@ -780,7 +780,7 @@ zh:
       hi: "Hi %{name},"
       newest_offers: 大家都提供了些什么？
       newest_requests: 人们目前都想要什么
-      text_version_text: "你可以共享一些其他人可能需要的东西吗？或者你可能需要一些别人已经拥有的东西？点击%{url}新添一个请求或者查看其他人当前提供的或者请求的东西"
+      text_version_text: "你可以共享一些其他人可能需要的东西吗？或者你可能需要一些别人已经拥有的东西？点击%{url}新添一个宝贝或者查看其他人当前提供的或者请求的东西"
     reset_password_instructions:
       change_my_password: 修改密码
       reset_password_instructions: "<p>你声明你遗忘了服务%{service_name}的用户名或者密码。</p><p>你的用户名是：%{username}</p><p>如果你需要重置密码，点击以下链接：%{password_reset_link}</p><br/><p>如果你没有这个要求，请忽略这封电子邮件。 你的密码将不会改变，直到你访问上面的链接并创建一个新的密码。</p>"
@@ -905,7 +905,7 @@ zh:
       logged_in_to_kassi: "%{name} %{time_ago} 前登录了%{service_name}。"
     comment:
       commented: "%{commenter_name}%{time_ago}前评论了%{listing_title}。"
-      offer_partitive: 供应
+      offer_partitive: 宝贝
       request_partitive: 请求
   header:
     about: 关于我们
@@ -913,7 +913,7 @@ zh:
     members: 社区
     new_listing: 发布新信息
     mobile_version: 移动版
-    offers: 提议
+    offers: 宝贝
     requests: 请求
     search_kassi: "搜索%{service_name}"
     create_new_marketplace: 创建一个新的市场
@@ -925,9 +925,9 @@ zh:
     menu: 菜单
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "还有<b>一个提议</b>,"
+      additionally_one_private_offer_exists: "还有<b>一个宝贝</b>,"
       additionally_one_private_request_exists: "还有<b>一个请求</b>,"
-      additionally_some_private_offers_exist: "还有<b>%{number_of_listings}个提议</b>,"
+      additionally_some_private_offers_exist: "还有<b>%{number_of_listings}个宝贝</b>,"
       additionally_some_private_requests_exist: "还有<b>%{number_of_listings}个请求</b>,"
     blank_slate:
       add_first: 增加一个！
@@ -949,11 +949,11 @@ zh:
       no_open_offers_currently: 当前没有公开的信息。
       no_open_requests_currently: 当前没有公开的信息。
       no_requests_visible_unless_logged_in: 没有对游客公开的信息。
-      one_private_offer_exists: "已有<b>一个提议</b>,"
+      one_private_offer_exists: "已有<b>一个宝贝</b>,"
       one_private_request_exists: "已有<b>一个请求</b>,"
       ride_offer: 帮助其他人照管孩子
       ride_request: 搭车去上班
-      some_private_offers_exist: "已有<b>%{number_of_listings}个提议</b>,"
+      some_private_offers_exist: "已有<b>%{number_of_listings}个宝贝</b>,"
       some_private_requests_exist: "已有<b>%{number_of_listings} 请求</b>,"
     custom_filters:
       update_view: 更新视图
@@ -974,7 +974,7 @@ zh:
       are: 是
       what_do_you_need: 想找什么？请输入关键字。
       post_new_listing: 发布信息
-      are_offering: 提议
+      are_offering: 宝贝
       add_news_item: 添加物品
       lend_rent_help_carpool: 出售，出租，帮助，拼车
       loading_more_content: 正在加载更多内容
@@ -1013,7 +1013,7 @@ zh:
       you_have_not_added_your_info: 你尚未添加联系方式。请添加联系方式以方便他人更方便的联系你。同时请新增个人资料照片从而更容易得到其他人的信任。
       add_your_info_link: 现在添加个人信息
     recent_listing:
-      please_offer: 提议
+      please_offer: 宝贝
       comment: 评论
       comments: 评论
     filters:
@@ -1045,7 +1045,7 @@ zh:
       join_this_community: 加入市集
       read_more: 读取更多
       feedback: 给我们提供反馈？
-      default_feedback: "你碰到任何关于%{service_name}的问题了吗？有什么提高服务质量的建议吗？注意到一些可以内容？或者你有些什么想与我们讨论吗？告诉我们！"
+      default_feedback: "你碰到任何关于%{service_name}的问题了吗？有什么提高服务质量的建议吗？注意到一些可疑的内容？或者你有些什么想与我们讨论吗？告诉我们！"
       feedback_forum: 反馈论坛
       feedback_handle: 反馈
       give_feedback: 联系我们
@@ -1136,12 +1136,12 @@ zh:
       news_item_update_failed: 文章更新失败
       news_item_updated: 文章更新
       news_item_deleted: 移除文章
-      offer_accepted: 提议被接受
-      offer_confirmed: 供应已确认
-      offer_closed: 提议已关闭
+      offer_accepted: 宝贝被接受
+      offer_confirmed: 宝贝已确认
+      offer_closed: 宝贝已关闭
       listing_created_successfully: "成功发布了新信息。%{new_listing_link}"
-      offer_rejected: 提议被拒绝
-      offer_canceled: 提议已取消
+      offer_rejected: 宝贝被拒绝
+      offer_canceled: 宝贝已取消
       listing_updated_successfully: 信息更新成功
       only_kassi_administrators_can_access_this_area: "只有%{service_name}管理员有权限进入此区域"
       only_listing_author_can_close_a_listing: 仅作者可以关闭列表
@@ -1160,7 +1160,7 @@ zh:
       poll_created: 问卷调查已创建
       poll_creation_failed: 问卷调查创建失败
       poll_update_failed: 问卷调查更新失败
-      poll_updated: 文件调查已更新
+      poll_updated: 问卷调查已更新
       poll_deleted: 问卷调查已删除
       read_more: 阅读更多！
       registration_considered_spam: 注册失败，请从发导航菜单发送反馈信息并说明“邮件错误”
@@ -1179,7 +1179,7 @@ zh:
       you_are_not_authorized_to_do_this: 你没有权限进行此操作
       you_are_not_authorized_to_view_this_content: 你没有查看此内容的权限
       send_instructions: 几分钟内你将会收到一封电子邮件告知你重置密码。
-      you_cannot_reply_to_a_closed_offer: 你不能对已关闭的提议发表评论
+      you_cannot_reply_to_a_closed_offer: 你不能对已关闭的宝贝发表评论
       you_cannot_reply_to_a_closed_request: 你不能回复已关闭请求
       you_cannot_send_message_to_yourself: 你不能给你自己发送消息
       you_followed_listing: 你没有关注这条信息
@@ -1203,7 +1203,7 @@ zh:
       you_must_log_in_to_confirm_or_cancel: 你必须登录才能取消或确认交易
       you_need_to_confirm_your_account_first: 你需要确认你的电子邮件。
       you_must_fill_all_the_fields: 你必须填写所有表单项
-      you_unfollowed_listing: 你不再关注此列表
+      you_unfollowed_listing: 你不再关注此条信息
       joining_community_failed: 加入失败
       can_not_login_with_private_user: 你不能使用你的个人帐号登录。使用企业帐号登录或创建一个新帐号。
       can_not_delete_email: 你不能移除邮件地址
@@ -1221,7 +1221,7 @@ zh:
       payments: 付款
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: 你无权查看此列表。
+      listing_not_visible: 你无权查看此信息。
     comment:
       wrote: 写到
       send_private_message: "发送私人消息给%{person}"
@@ -1246,8 +1246,8 @@ zh:
       show_in_updates_email_error: 不能访问服务器。页面刷新后重试。
       show_in_updates_email_success: 这个发布的信息将被显示在下一封自动发送给用户的邮件中。
     follow_links:
-      follow: 发送关于新评论的邮件
-      unfollow: 不再接受关于新评论的邮件
+      follow: 接收关于新评论的邮件
+      unfollow: 不再接收关于新评论的邮件
     form:
       custom_field_partials:
         dropdown:
@@ -1265,7 +1265,7 @@ zh:
         favor: 帮助
         housing: 租房
         item: 物品
-        offer_something: 出售物品
+        offer_something: 提供宝贝
         request_something: 说出你的需要！
         rideshare: 拼车
         i_want_to_offer: 我想提供
@@ -1302,7 +1302,7 @@ zh:
         paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: "在%{service_name}和付款处理费用之后你将得到大概%{sum_with_currency}（0%消费税）"
         price_excludes_vat: 价格不包含VAT。
-        delivery: 配送
+        delivery: 配送方式
         shipping: 运费
         shipping_price: 运费
         pickup: 收货
@@ -1317,7 +1317,7 @@ zh:
         buy: 购买
         give_away: 赠送
         lend: 借出
-        offer_type: 供应的类型
+        offer_type: 宝贝的类型
         receive: 免费获取
         rent: 出租
         rent_out: 已出租
@@ -1344,12 +1344,12 @@ zh:
         private: 私密的（只对登录用户可见）
         public: 公共的（对所有用户可见）
     help_texts:
-      help_share_type_title: 供给或者请求的信息的类型
+      help_share_type_title: 宝贝或者请求的信息的类型
       help_tags_title: 标签
       help_valid_until_title: 截止日期
     index:
       all_categories: 全部分类
-      all_offer_types: 供给信息的类型
+      all_offer_types: 宝贝的类型
       all_request_types: 所有请求信息的类型
       category: 分类
       did_not_found_what_you_were_looking_for: 没找到你需要的东西？
@@ -1360,8 +1360,8 @@ zh:
       listings: 信息列表
       map_view: 地图视图
       offer_something: 让其他人知道
-      offer_type: 供应的类型
-      offers: 供应
+      offer_type: 宝贝的类型
+      offers: 宝贝
       request_something: 说出你的需要！
       request_type: 请求信息的类型
       requests: 需求
@@ -1415,22 +1415,22 @@ zh:
       favor_offer: 服务提供
       favor_request: 服务请求
       inquiry: 查询
-      item_offer_trade: 交换供给信息
+      item_offer_trade: 交换宝贝
       item_request_trade: 交换请求信息
       no_description: 该发布的信息无描述
       no_image: 没有图片
       no_reviews: 没有收到评论
-      offer: 供应
+      offer: 宝贝
       listing_created: 已创建
       open_until: "开放至%{date}"
       feedback: 评论
       qr_code: QR码
       request: 请求
-      rideshare_offer: 提供顺风车
+      rideshare_offer: 顺风车
       rideshare_request: 需要顺风车
       send_private_message: 发送私人消息
       share_types: 共享类型
-      share_types_offer: 供应信息的类型
+      share_types_offer: 宝贝的类型
       share_types_request: 请求信息的类型
       tags: 标签
       time: 时间
@@ -1442,9 +1442,9 @@ zh:
       price:
         per_quantity_unit: "每%{quantity_unit}"
         per_day: 每天
-      delivery: 发货
-      shipping: "运费(%{price})"
-      pickup: "自取(%{price})"
+      delivery: 配送方式
+      shipping: "运费(+%{price})"
+      pickup: 自取
     verification_required:
       verification_required: 要求验证
   listing_conversations:
@@ -1462,18 +1462,18 @@ zh:
   mapview:
     index:
       all_categories: 全部分类
-      all_offer_types: 所有供应信息的类型
+      all_offer_types: 所有宝贝的类型
       all_request_types: 所有请求信息的类型
       category: 分类
       did_not_found_what_you_were_looking_for: 没找到你需要的东西？
       favors: 服务
-      housing: 空间
+      housing: 住处
       items: 物品
       list_view: 列表视图
       map_view: 地图视图
       offer_something: 让其他人知道
-      offer_type: 供应信息的类型
-      offers: 所有的供应信息
+      offer_type: 宝贝的类型
+      offers: 所有的宝贝
       request_something: 说出你的需要！
       request_type: 请求信息的类型
       requests: 所有请求的信息
@@ -1657,7 +1657,7 @@ zh:
     show:
       all_results: 所有结果
       loading_more_search_results: 加载更多搜索结果
-      offers: 提供
+      offers: 宝贝
       requests: 请求
       search: 搜索
       search_results: 搜索结果
@@ -1731,18 +1731,18 @@ zh:
       i_want_to_get_email_notification_when: 寄给我一封Email通知当…
       newsletters: 简报
       community_updates: 更新电子邮件
-      email_about_accept_reminders: …我忘记了接受一个报价或请求
+      email_about_accept_reminders: …我忘记了接受一个宝贝或请求
       email_about_confirm_reminders: ……我忘记了确认已完成的请求
-      email_about_new_comments_to_own_listing: …有人评论了你的商品或请求
+      email_about_new_comments_to_own_listing: …有人评论了我的宝贝或请求
       email_about_new_messages: …有人发给我一条消息
       email_about_new_received_testimonials: …有人给我了一条评价
       email_about_testimonial_reminders: …我忘记评价一个活动
       email_daily_community_updates: 如果有新发布的信息，<b>每日</b>发送给我一封更新的邮件
       email_weekly_community_updates: 如果有新发布的信息，<b>每周</b>发送给我一封更新的邮件
       do_not_email_community_updates: 不要给我发送有更新消息的电子邮件
-      email_when_conversation_accepted: …有人接受了你的商品或请求
-      email_when_conversation_rejected: …有人拒绝了你的商品或请求
-      email_about_completed_transactions: ……有人将我的提议或请求标记为已完成
+      email_when_conversation_accepted: …有人接受了我的宝贝或请求
+      email_when_conversation_rejected: …有人拒绝了我的宝贝或请求
+      email_about_completed_transactions: ……有人将我的宝贝或请求标记为已完成
       email_about_new_payments: ……我收到一笔新的付款
       email_about_payment_reminders: ……我忘记了支付
       email_about_new_listings_by_followed_people: ……我关注的人发布了一则新的信息
@@ -1788,7 +1788,7 @@ zh:
       terms_have_changed: 使用条款发生改变
       you_can_view_the_new_terms: 你可以查看新的条款
       you_need_to_accept: "欢迎来到%{service_name}！这是你第一次使用此服务。在开始前你必须接受"
-      you_need_to_accept_new_terms: "%{service_name}使用条款以改变。你必须接受新条款以继续使用%{service_name}。新条款诣在在研究项目结束后继续保持服务。"
+      you_need_to_accept_new_terms: "%{service_name}使用条款已改变。你必须接受新条款以继续使用%{service_name}。新条款诣在在研究项目结束后继续保持服务。"
   testimonials:
     index:
       all_testimonials: 所有评价
