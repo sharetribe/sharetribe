@@ -7,11 +7,45 @@ Request: empty
 Response:
 
 ```ruby
-[ { id: 123
-  , name: TranslationKey.new("listing_shape.1234.123")
-  }
-, ...
+[
+# Array of listing shapes, see the format below
 ]
+```
+
+## POST /:community_id
+
+Request body:
+
+```ruby
+{ price_enabled: true
+, transaction_process_id: 123
+, name_tr_key: TranslationKey.new("listing_shape.1234.123")
+, action_button_tr_key: TranslationKey.new("action_button.1234.123")
+, units:
+  [ { unit\_type: "day" }
+  , { unit\_type: "custom"
+    , label: TransactionKey.new("unit.1234.123")
+    }
+  ]
+}
+```
+
+Response:
+
+```ruby
+{ id: 12345
+, community_id: 9876
+, price_enabled: true
+, transaction_process_id: 123
+, name_tr_key: TranslationKey.new("listing_shape.1234.123")
+, action_button_tr_key: TranslationKey.new("action_button.1234.123")
+, units:
+  [ { unit\_type: "day" }
+  , { unit\_type: "custom"
+    , label: TransactionKey.new("unit.1234.123")
+    }
+  ]
+}
 ```
 
 ## GET /:community_id/:listing_shape_id
@@ -21,21 +55,17 @@ Request: empty
 Response:
 
 ```ruby
-[ { id: 123
-  , name: TranslationKey.new("listing_shape.1234.123")
-  , ...
-  , ...
-  , custom_fields: [ ... ]
-  , units:
-    [ { unit\_type: "day"}
-    , { unit\_type: "custom"
-      , label: TransactionKey.new("unit.1234.123")
-      }
-    ]
-  }
-  ,
-
-  ...
-
-]
+{ id: 12345
+, community_id: 9876
+, price_enabled: true
+, transaction_process_id: 123
+, name_tr_key: TranslationKey.new("listing_shape.1234.123")
+, action_button_tr_key: TranslationKey.new("action_button.1234.123")
+, units:
+  [ { unit\_type: "day" }
+  , { unit\_type: "custom"
+    , label: TransactionKey.new("unit.1234.123")
+    }
+  ]
+}
 ```
