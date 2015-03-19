@@ -98,7 +98,7 @@ FactoryGirl.define do
   end
 
   factory :listing do
-    title "Sledgeham!!!!!!!!!!!!!!!!!!"
+    title "Sledgehammer"
     description("test")
     build_association(:author)
     category { TestHelpers::find_or_build_category("item") }
