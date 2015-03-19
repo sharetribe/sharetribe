@@ -35,9 +35,9 @@ class Category < ActiveRecord::Base
 
   belongs_to :community
 
+  before_save :uniq_url
   before_destroy :can_destroy?
 
-  acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
 
   def translation_attributes=(attributes)
     build_attrs = attributes.map { |locale, values| { locale: locale, values: values } }
@@ -60,6 +60,25 @@ class Category < ActiveRecord::Base
 
   def default_translation_without_cache
     (translations.find { |translation| translation.locale == community.default_locale } || translations.first)
+  end
+
+  # TODO this should be done on service layer
+  def uniq_url
+    current_url = url_source.to_url
+
+    if new_record? || url != current_url
+      blacklist = ['new', 'all']
+      base_url = current_url
+      categories = Category.where(community_id: community_id)
+
+      i = 1
+      while blacklist.include?(current_url) || categories.find { |c| c.url == current_url && c.id != id }.present? do
+        current_url = "#{base_url}#{i}"
+        i += 1
+      end
+      self.url = current_url
+    end
+
   end
 
   def transaction_type_attributes=(attributes)

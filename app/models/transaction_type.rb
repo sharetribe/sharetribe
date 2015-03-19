@@ -45,7 +45,8 @@ class TransactionType < ActiveRecord::Base
   validates :price_per, inclusion: { in: %w(day),
     message: "%{value} is not valid" }, allow_nil: true
 
-  acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
+  before_save :uniq_url
+
 
   # TODO this can be removed
   def self.columns
@@ -69,6 +70,25 @@ class TransactionType < ActiveRecord::Base
 
   def default_translation_without_cache
     (translations.find { |translation| translation.locale == community.default_locale } || translations.first)
+  end
+
+  # TODO this should be done on service layer
+  def uniq_url
+    current_url = url_source.to_url
+
+    if new_record? || url != current_url
+      blacklist = ['new', 'all']
+      base_url = current_url
+      transaction_types = TransactionType.where(community_id: community_id)
+
+      i = 1
+      while blacklist.include?(current_url) || transaction_types.find { |tt| tt.url == current_url && tt.id != id }.present? do
+        current_url = "#{base_url}#{i}"
+        i += 1
+      end
+      self.url = current_url
+    end
+
   end
 
   def display_name(locale)
