@@ -8,8 +8,8 @@ module ListingService::Store::Shapes
     [:price_enabled, :bool, :mandatory],
     [:transaction_process_id, :fixnum, :mandatory],
     [:translations, :array, :optional], # TODO Only temporary
-    [:units, :array, :mandatory],
-    [:shipping_enabled, :bool, :mandatory]
+    [:shipping_enabled, :bool, :mandatory],
+    [:units, :array, default: []] # Mandatory only if price_enabled
   )
 
   Shape = EntityUtils.define_builder(
@@ -45,7 +45,10 @@ module ListingService::Store::Shapes
 
   def create(community_id:, opts:)
     shape = NewShape.call(opts.merge(community_id: community_id))
-    units = opts[:units].map { |unit| Unit.call(unit) }
+
+    valid_to_create!(shape)
+
+    units = shape[:units].map { |unit| Unit.call(unit) }
     translations = opts[:translations] # Skip data type and validation, because this is temporary
 
     # TODO We should be able to create transaction_type without community
@@ -53,6 +56,9 @@ module ListingService::Store::Shapes
 
     create_tt_opts = to_tt_model_attributes(shape).except(:units, :translations)
     tt_model = community.transaction_types.build(create_tt_opts)
+
+    raise NotImplementedError.new("For backward compatibility reasons saving multiple units is not yet supported") if units.length > 1
+
     units.each { |unit|
       tt_model.listing_units.build(to_unit_model_attributes(unit))
     }
@@ -64,6 +70,11 @@ module ListingService::Store::Shapes
   end
 
   # private
+
+  def valid_to_create!(shape)
+    valid = (shape[:price_enabled] == true && !shape[:units].empty?) || (shape[:price_enabled] == false && shape[:units].empty?)
+    raise ArgumentError.new("If price_enabled, then units must not be empty and vice versa: #{shape}") unless valid
+  end
 
   def from_transaction_type_model(model)
     Maybe(model).map { |m|
@@ -92,18 +103,43 @@ module ListingService::Store::Shapes
   end
 
   def to_tt_model_attributes(hash)
-    HashUtils.rename_keys(
+    model_hash = HashUtils.rename_keys(
       {
         price_enabled: :price_field
       }, hash)
+
+    unit_type = Maybe(model_hash)[:units][0][:type].or_else(nil)
+
+    case unit_type
+    when :day
+      model_hash[:price_per] = "day"
+    when :piece, nil
+      model_hash[:price_per] = nil
+    else
+      raise ArgumentError.new("Unknown unit type #{unit_type}")
+    end
+
+    model_hash.except(:units)
   end
 
-  def from_tt_model_attributes(hash)
-    HashUtils.rename_keys(
+  def from_tt_model_attributes(model_hash)
+    hash = HashUtils.rename_keys(
       {
         price_field: :price_enabled,
         id: :transaction_type_id
-      }, hash)
+      }, model_hash)
+
+    units =
+      case model_hash[:price_per]
+      when "day"
+        [{type: :day}]
+      when nil
+        [{type: :piece}]
+      else
+        raise ArgumentError.new("Unknown price_per #{model_hash[:price_per]}")
+      end
+
+    hash.except(:units)
   end
 
 end

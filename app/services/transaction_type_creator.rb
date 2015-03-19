@@ -158,8 +158,8 @@ module TransactionTypeCreator
       }
     created_translations = TranslationService::API::Api.translations.create(community.id, [name_group, action_button_group])
     result = created_translations[:data]
-    transaction_type[:name_tr_key] =          result.at(0)[:translation_key]
-    transaction_type[:action_button_tr_key] = result.at(1)[:translation_key]
+    # TODO Save the key via ListingShape API transaction_type[:name_tr_key] =          result.at(0)[:translation_key]
+    # TODO Save the key via ListingShape API transaction_type[:action_button_tr_key] = result.at(1)[:translation_key]
     transaction_type.save!
 
     # Categories
