@@ -189,12 +189,6 @@ Given /^community "(.*?)" has following transaction types enabled:$/ do |communi
         units: [ {type: :piece} ]
       }
     )
-
-    # transaction_type = FactoryGirl.build(:transaction_type, :community_id => current_community.id, :transaction_process_id => process_id)
-    # transaction_type.translations.build(:name => hash['fi'], :action_button_label => (hash['button'] || "Action"), :locale => 'fi')
-    # transaction_type.translations.build(:name => hash['en'], :action_button_label => (hash['button'] || "Action"), :locale => 'en')
-    # transaction_type.save!
-    # transaction_type
   end
 
   current_community.reload
