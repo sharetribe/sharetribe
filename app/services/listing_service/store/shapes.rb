@@ -6,6 +6,8 @@ module ListingService::Store::Shapes
   NewShape = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
     [:price_enabled, :bool, :mandatory],
+    [:name_tr_key, :string, :mandatory],
+    [:action_button_tr_key, :string, :mandatory],
     [:transaction_process_id, :fixnum, :mandatory],
     [:translations, :array, :optional], # TODO Only temporary
     [:shipping_enabled, :bool, :mandatory],
@@ -18,6 +20,8 @@ module ListingService::Store::Shapes
     [:transaction_type_id, :fixnum, :optional], # TODO Only temporary
     [:community_id, :fixnum, :mandatory],
     [:price_enabled, :to_bool, :mandatory], # to_bool, because there are NULL values in db
+    [:name_tr_key, :string, :mandatory],
+    [:action_button_tr_key, :string, :mandatory],
     [:transaction_process_id, :fixnum, :mandatory],
     [:translations, :array, :optional], # TODO Only temporary
     [:units, :array, :mandatory],

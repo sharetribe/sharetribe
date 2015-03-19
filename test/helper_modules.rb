@@ -77,6 +77,8 @@ module TestHelpers
 
         shape_opts = defaults.merge(
           transaction_process_id: processes[:none],
+          name_tr_key: 'something.here',
+          action_button_tr_key: 'something.here',
           translations: translations,
           shipping_enabled: false
         )

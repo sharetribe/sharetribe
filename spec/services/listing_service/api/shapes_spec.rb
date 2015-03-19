@@ -6,6 +6,8 @@ describe ListingService::API::Shapes do
   let(:shapes) { ListingService::API::Api.shapes }
   let(:community_id) { FactoryGirl.create(:community).id }
   let(:transaction_process_id) { 555 }
+  let(:name_tr_key) { "listing_shape.name.123.translation" }
+  let(:action_button_tr_key) { "listing_shape.action_button.123.translation" }
 
   describe "#create" do
     context "success" do
@@ -16,6 +18,8 @@ describe ListingService::API::Shapes do
             price_enabled: true,
             shipping_enabled: true,
             transaction_process_id: transaction_process_id,
+            name_tr_key: name_tr_key,
+            action_button_tr_key: action_button_tr_key,
 
             # TODO Move these to translation service
             translations: [
@@ -45,6 +49,8 @@ describe ListingService::API::Shapes do
         expect(shape[:shipping_enabled]).to eql(true)
         expect(shape[:transaction_process_id]).to eql(transaction_process_id)
         expect(shape[:transaction_type_id]).to be_a(Fixnum)
+        expect(shape[:name_tr_key]).to eql(name_tr_key)
+        expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
 
         units = shape[:units]
 
@@ -60,6 +66,8 @@ describe ListingService::API::Shapes do
         expect(tt.shipping_enabled?).to eql(true)
         expect(tt.transaction_process_id).to eql(transaction_process_id)
         expect(tt.price_per).to eql("day")
+        expect(tt.name_tr_key).to eql(name_tr_key)
+        expect(tt.action_button_tr_key).to eql(action_button_tr_key)
       end
 
       it "creates new listing shape with piece unit" do
@@ -68,6 +76,8 @@ describe ListingService::API::Shapes do
           opts: {
             price_enabled: true,
             transaction_process_id: transaction_process_id,
+            name_tr_key: name_tr_key,
+            action_button_tr_key: action_button_tr_key,
             shipping_enabled: true,
 
             # TODO Move these to translation service
@@ -98,6 +108,8 @@ describe ListingService::API::Shapes do
         expect(shape[:shipping_enabled]).to eql(true)
         expect(shape[:transaction_process_id]).to eql(transaction_process_id)
         expect(shape[:transaction_type_id]).to be_a(Fixnum)
+        expect(shape[:name_tr_key]).to eql(name_tr_key)
+        expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
 
         units = shape[:units]
 
@@ -113,6 +125,8 @@ describe ListingService::API::Shapes do
         expect(tt.shipping_enabled?).to eql(true)
         expect(tt.transaction_process_id).to eql(transaction_process_id)
         expect(tt.price_per).to eql(nil)
+        expect(tt.name_tr_key).to eql(name_tr_key)
+        expect(tt.action_button_tr_key).to eql(action_button_tr_key)
       end
     end
 
@@ -123,8 +137,10 @@ describe ListingService::API::Shapes do
           opts: {
             price_enabled: false,
             transaction_process_id: transaction_process_id,
+            name_tr_key: name_tr_key,
+            action_button_tr_key: action_button_tr_key,
 
-            # TODO Move these to translation service
+            # TODO Remove these
             translations: [
               { locale: "en", name: "Selling", action_button_label: "Buy" },
               { locale: "fi", name: "Myydään", action_button_label: "Osta" }
@@ -145,8 +161,10 @@ describe ListingService::API::Shapes do
           opts: {
             price_enabled: true,
             transaction_process_id: transaction_process_id,
+            name_tr_key: name_tr_key,
+            action_button_tr_key: action_button_tr_key,
 
-            # TODO Move these to translation service
+            # TODO Remove these
             translations: [
               { locale: "en", name: "Selling", action_button_label: "Buy" },
               { locale: "fi", name: "Myydään", action_button_label: "Osta" }

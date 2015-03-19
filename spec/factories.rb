@@ -102,6 +102,7 @@ FactoryGirl.define do
     description("test")
     build_association(:author)
     category { TestHelpers::find_or_build_category("item") }
+    # TODO Find out if it's possible to get rid of transaction type factories
     build_association(:transaction_type_sell, as: :transaction_type)
     valid_until 3.months.from_now
     times_viewed 0
@@ -235,12 +236,14 @@ FactoryGirl.define do
     locale "en"
   end
 
+  # TODO Find out if it's possible to get rid of transaction type factories
   factory :transaction_type_translation do
     name "Selling"
     locale "en"
     build_association(:transaction_type)
   end
 
+  # TODO Find out if it's possible to get rid of transaction type factories
   factory :transaction_type do
     build_association(:community)
 

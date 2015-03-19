@@ -107,7 +107,27 @@ module TransactionTypeCreator
     author_is_seller = transaction_type_class_name != "Request"
     transaction_process = get_or_create_transaction_process(community_id: community.id, process: process, author_is_seller: author_is_seller)
 
+    # Save name & action_button_label to TranslationService
     translations = TRANSLATIONS[transaction_type_class_name]
+    name_group =
+      { translations: community.locales.map { |locale|
+          {
+            locale: locale,
+            translation: I18n.t(translations[:translation_key], :locale => locale.to_sym)
+          }
+        }
+      }
+    action_button_group =
+      { translations: community.locales.map { |locale|
+          {
+            locale: locale,
+            translation: I18n.t(translations[:action_button_translation_key], :locale => locale.to_sym)
+          }
+        }
+      }
+    created_translations = TranslationService::API::Api.translations.create(community.id, [name_group, action_button_group])
+    name_tr_key, action_button_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }
+
     defaults = DEFAULTS[transaction_type_class_name]
 
     # Create
@@ -123,6 +143,8 @@ module TransactionTypeCreator
 
     shape_opts = defaults.merge(
       transaction_process_id: transaction_process[:id],
+      name_tr_key: name_tr_key,
+      action_button_tr_key: action_button_tr_key,
       translations: translations,
       shipping_enabled: enable_shipping
     )
@@ -136,31 +158,6 @@ module TransactionTypeCreator
 
     new_shape = shape_res.data
     transaction_type_id = new_shape[:transaction_type_id]
-
-    # Save name & action_button_label to TranslationService
-    name_group =
-      { translation_key: "transaction_type_translation.name.#{transaction_type.id}",
-        translations: community.locales.map { |locale|
-          {
-            locale: locale,
-            translation: I18n.t(translations[:translation_key], :locale => locale.to_sym)
-          }
-        }
-      }
-    action_button_group =
-      { translation_key: "transaction_type_translation.action_button_label.#{transaction_type.id}",
-        translations: community.locales.map { |locale|
-          {
-            locale: locale,
-            translation: I18n.t(translations[:action_button_translation_key], :locale => locale.to_sym)
-          }
-        }
-      }
-    created_translations = TranslationService::API::Api.translations.create(community.id, [name_group, action_button_group])
-    result = created_translations[:data]
-    # TODO Save the key via ListingShape API transaction_type[:name_tr_key] =          result.at(0)[:translation_key]
-    # TODO Save the key via ListingShape API transaction_type[:action_button_tr_key] = result.at(1)[:translation_key]
-    transaction_type.save!
 
     # Categories
     community.categories.each do |category|

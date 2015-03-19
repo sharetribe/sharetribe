@@ -30,7 +30,9 @@ class TransactionType < ActiveRecord::Base
     :price_quantity_placeholder,
     :price_per,
     :transaction_process_id,
-    :shipping_enabled
+    :shipping_enabled,
+    :name_tr_key,
+    :action_button_tr_key
   )
 
   belongs_to :community
