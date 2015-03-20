@@ -76,8 +76,8 @@ module ListingService::Store::Shapes
   # private
 
   def valid_to_create!(shape)
-    valid = (shape[:price_enabled] == true && !shape[:units].empty?) || (shape[:price_enabled] == false && shape[:units].empty?)
-    raise ArgumentError.new("If price_enabled, then units must not be empty and vice versa: #{shape}") unless valid
+    invalid = shape[:price_enabled] == false && !shape[:units].empty?
+    raise ArgumentError.new("If price_enabled, then units must not be empty and vice versa: #{shape}") if invalid
   end
 
   def from_transaction_type_model(model)
