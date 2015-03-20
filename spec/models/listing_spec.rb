@@ -33,6 +33,7 @@
 #  price_cents              :integer
 #  currency                 :string(255)
 #  quantity                 :string(255)
+#  unit_type                :string(32)
 #  deleted                  :boolean          default(FALSE)
 #  require_shipping_address :boolean          default(FALSE)
 #  pickup_enabled           :boolean          default(FALSE)

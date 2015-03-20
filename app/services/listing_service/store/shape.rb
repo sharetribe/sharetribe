@@ -43,7 +43,7 @@ module ListingService::Store::Shape
     elsif listing_shape_id
       raise NotImplementedError.new("Can not find listing shape by listing_shape_id, yet. Specify transaction_type_id instead.")
     else
-      rase ArgumentError.new("Can not find listing shape without id.")
+      raise ArgumentError.new("Can not find listing shape without id.")
     end
   end
 

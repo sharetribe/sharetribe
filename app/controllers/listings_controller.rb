@@ -155,14 +155,7 @@ class ListingsController < ApplicationController
 
       @listing.transaction_type = @current_community.transaction_types.find(params[:transaction_type])
 
-      shape_find_opts = {
-        community_id: @current_community.id,
-        transaction_type_id: Maybe(params)[:transaction_type].to_i.or_else(nil)
-      }
-
-      shape_res = shapes_api.get(shape_find_opts)
-
-      raise ArgumentError.new(shape_res.error_msg) unless shape_res.success
+      shape = get_shape(Maybe(params)[:transaction_type].to_i.or_else(nil))
 
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
       allow_posting, error_msg = payment_setup_status(
@@ -174,7 +167,7 @@ class ListingsController < ApplicationController
       if allow_posting
         render :partial => "listings/form/form_content", locals: commission(@current_community).merge(
                  shipping_enabled: shipping_enabled?(@listing),
-                 shape: shape_res.data
+                 shape: shape
                )
       else
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
@@ -191,7 +184,10 @@ class ListingsController < ApplicationController
 
     params[:listing] = normalize_price_param(params[:listing]);
 
-    @listing = Listing.new(create_listing_params(params[:listing]))
+    shape = get_shape(Maybe(params)[:transaction_type].to_i.or_else(nil))
+    unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
+
+    @listing = Listing.new(create_listing_params(params[:listing]).merge(unit_type: unit_type))
 
     @listing.author = @current_user
     @listing.custom_field_values = create_field_values(params[:custom_fields])
@@ -229,18 +225,11 @@ class ListingsController < ApplicationController
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-    shape_find_opts = {
-      community_id: @current_community.id,
-      transaction_type_id: @listing.transaction_type.id
-    }
-
-    shape_res = shapes_api.get(shape_find_opts)
-
-    raise ArgumentError.new(shape_res.error_msg) unless shape_res.success
+    shape = get_shape(@listing.transaction_type.id)
 
     render locals: commission(@current_community).merge(
              shipping_enabled: shipping_enabled?(@listing),
-             shape: shape_res.data)
+             shape: shape)
   end
 
   def update
@@ -255,7 +244,10 @@ class ListingsController < ApplicationController
 
     params[:listing] = normalize_price_param(params[:listing])
 
-    if @listing.update_fields(create_listing_params(params[:listing]))
+    shape = get_shape(@listing.transaction_type.id)
+    unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
+
+    if @listing.update_fields(create_listing_params(params[:listing]).merge(unit_type: unit_type))
       @listing.location.update_attributes(params[:location]) if @listing.location
       flash[:notice] = t("layouts.notifications.listing_updated_successfully")
       Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
@@ -606,5 +598,28 @@ class ListingsController < ApplicationController
 
   def shapes_api
     ListingService::API::Api.shapes
+  end
+
+  def valid_unit_type?(shape:, unit_type:)
+    if unit_type.nil?
+      shape[:units].empty?
+    else
+      shape[:units].any? { |unit| unit[:type] == unit_type.to_sym }
+    end
+  end
+
+  def get_shape(transaction_type_id)
+    shape_find_opts = {
+      community_id: @current_community.id,
+      transaction_type_id: transaction_type_id
+    }
+
+    shape_res = shapes_api.get(shape_find_opts)
+
+    if shape_res.success
+      shape_res.data
+    else
+      raise ArgumentError.new(shape_res.error_msg) unless shape_res.success
+    end
   end
 end
