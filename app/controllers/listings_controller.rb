@@ -183,8 +183,7 @@ class ListingsController < ApplicationController
     end
 
     params[:listing] = normalize_price_param(params[:listing]);
-
-    shape = get_shape(Maybe(params)[:transaction_type].to_i.or_else(nil))
+    shape = get_shape(Maybe(params)[:listing][:transaction_type_id].to_i.or_else(nil))
     unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
 
     @listing = Listing.new(create_listing_params(params[:listing]).merge(unit_type: unit_type))
