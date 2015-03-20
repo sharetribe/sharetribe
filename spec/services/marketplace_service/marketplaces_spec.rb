@@ -43,18 +43,21 @@ describe MarketplaceService::API::Marketplaces do
       expect(c.transaction_types.first.price_field?).to eql true
       expect(c.transaction_types.first.price_per).to eql nil
       expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
+      expect(c.transaction_types.first.shipping_enabled).to eql true
 
       community_hash = create(@community_params.merge({:marketplace_type => "rental"}))
       c = Community.find(community_hash[:id])
       expect(c.transaction_types.first.price_per).to eql "day"
       expect(c.transaction_types.first.price_field?).to eql true
       expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
+      expect(c.transaction_types.first.shipping_enabled).to eql false
 
       community_hash = create(@community_params.merge({:marketplace_type => "service"}))
       c = Community.find(community_hash[:id])
       expect(c.transaction_types.first.price_per).to eql "day"
       expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
       expect(c.transaction_types.first.price_field?).to eql true
+      expect(c.transaction_types.first.shipping_enabled).to eql false
 
       # check that category and transaction type are linked
       expect(c.transaction_types.first.categories.first).to eql c.categories.first
