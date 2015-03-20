@@ -18,6 +18,7 @@ describe ListingsController do
 
     opts = defaults.merge(
       {
+        shipping_enabled: false,
         transaction_process_id: process_id,
         name_tr_key: 'something.here',
         action_button_tr_key: 'something.here',

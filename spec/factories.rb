@@ -118,6 +118,7 @@ FactoryGirl.define do
         community_id: (communities.first || FactoryGirl.create(:community)).id,
         opts: {
           price_enabled: true,
+          shipping_enabled: false,
           transaction_process_id: 12345,
           name_tr_key: "something.here",
           action_button_tr_key: "something.here",

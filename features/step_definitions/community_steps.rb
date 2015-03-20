@@ -179,6 +179,7 @@ Given /^community "(.*?)" has following transaction types enabled:$/ do |communi
       community_id: current_community.id,
       opts: {
         price_enabled: true,
+        shipping_enabled: false,
         name_tr_key: 'something.here',
         action_button_tr_key: 'something.here',
         transaction_process_id: process_id,
@@ -202,6 +203,7 @@ Given /^the community has transaction type Rent with name "(.*?)" and action but
     community_id: @current_community.id,
     opts: {
       price_enabled: true,
+      shipping_enabled: false,
       name_tr_key: 'something.here',
       action_button_tr_key: 'something.here',
       transaction_process_id: process_id,
@@ -221,6 +223,7 @@ Given /^the community has transaction type Sell with name "(.*?)" and action but
     community_id: @current_community.id,
     opts: {
       price_enabled: true,
+      shipping_enabled: false,
       name_tr_key: 'something.here',
       action_button_tr_key: 'something.here',
       transaction_process_id: process_id,
