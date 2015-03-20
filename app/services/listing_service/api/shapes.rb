@@ -1,5 +1,5 @@
 module ListingService::API
-  ShapeStore = ListingService::Store::Shapes
+  ShapeStore = ListingService::Store::Shape
 
   class Shapes
 

@@ -1,4 +1,4 @@
-module ListingService::Store::Shapes
+module ListingService::Store::Shape
 
   TransactionTypeModel = ::TransactionType
   ListingUnitModel = ::ListingUnit

@@ -22,8 +22,8 @@ Request body:
 , name_tr_key: TranslationKey.new("listing_shape.1234.123")
 , action_button_tr_key: TranslationKey.new("action_button.1234.123")
 , units:
-  [ { unit\_type: "day" }
-  , { unit\_type: "custom"
+  [ { unit_type: :day }
+  , { unit_type: :custom
     , label: TransactionKey.new("unit.1234.123")
     }
   ]
@@ -40,8 +40,8 @@ Response:
 , name_tr_key: TranslationKey.new("listing_shape.1234.123")
 , action_button_tr_key: TranslationKey.new("action_button.1234.123")
 , units:
-  [ { unit\_type: "day" }
-  , { unit\_type: "custom"
+  [ { unit_type: :day }
+  , { unit_type: :custom
     , label: TransactionKey.new("unit.1234.123")
     }
   ]
@@ -62,8 +62,8 @@ Response:
 , name_tr_key: TranslationKey.new("listing_shape.1234.123")
 , action_button_tr_key: TranslationKey.new("action_button.1234.123")
 , units:
-  [ { unit\_type: "day" }
-  , { unit\_type: "custom"
+  [ { unit_type: :day }
+  , { unit_type: :custom
     , label: TransactionKey.new("unit.1234.123")
     }
   ]
