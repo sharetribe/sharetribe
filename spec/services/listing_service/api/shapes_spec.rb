@@ -129,31 +129,5 @@ describe ListingService::API::Shapes do
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
       end
     end
-
-    context "failure" do
-      it "does not let user to create new listing shape without price but with units" do
-        shape_opts = {
-          community_id: community_id,
-          opts: {
-            price_enabled: false,
-            transaction_process_id: transaction_process_id,
-            name_tr_key: name_tr_key,
-            action_button_tr_key: action_button_tr_key,
-
-            # TODO Remove these
-            translations: [
-              { locale: "en", name: "Selling", action_button_label: "Buy" },
-              { locale: "fi", name: "Myydään", action_button_label: "Osta" }
-            ],
-
-            units: [
-              {type: :piece}
-            ]
-          }
-        }
-
-        expect { shapes.create(shape_opts) }.to raise_error(ArgumentError)
-      end
-    end
   end
 end

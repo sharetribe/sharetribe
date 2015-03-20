@@ -50,8 +50,6 @@ module ListingService::Store::Shapes
   def create(community_id:, opts:)
     shape = NewShape.call(opts.merge(community_id: community_id))
 
-    valid_to_create!(shape)
-
     units = shape[:units].map { |unit| Unit.call(unit) }
     translations = opts[:translations] # Skip data type and validation, because this is temporary
 
@@ -74,11 +72,6 @@ module ListingService::Store::Shapes
   end
 
   # private
-
-  def valid_to_create!(shape)
-    invalid = shape[:price_enabled] == false && !shape[:units].empty?
-    raise ArgumentError.new("If price_enabled, then units must not be empty and vice versa: #{shape}") if invalid
-  end
 
   def from_transaction_type_model(model)
     Maybe(model).map { |m|
