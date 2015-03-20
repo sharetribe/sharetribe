@@ -93,7 +93,7 @@ module TransactionTypeCreator
 
   module_function
 
-  def create(community, transaction_type_class_name, process)
+  def create(community, transaction_type_class_name, process, enable_shipping)
     throw "Transaction type '#{transaction_type_class_name}' not available. Available types are: #{available_types.join(', ')}" unless available_types.include? transaction_type_class_name
     throw "Transaction process '#{process}' not available. Available processes are: #{TRANSACTION_PROCESSES.join(', ')}" unless TRANSACTION_PROCESSES.include? process.to_sym
 
@@ -105,7 +105,7 @@ module TransactionTypeCreator
 
     # Create
     transaction_type = community.transaction_types.build(
-      defaults.merge(transaction_process_id: transaction_process[:id])
+      defaults.merge(transaction_process_id: transaction_process[:id], shipping_enabled: enable_shipping)
     )
 
     # Locales
