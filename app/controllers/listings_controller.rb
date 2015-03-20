@@ -154,7 +154,15 @@ class ListingsController < ApplicationController
       @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
       @listing.transaction_type = @current_community.transaction_types.find(params[:transaction_type])
-      logger.info "Category: #{@listing.category.inspect}"
+
+      shape_find_opts = {
+        community_id: @current_community.id,
+        transaction_type_id: Maybe(params)[:transaction_type].to_i.or_else(nil)
+      }
+
+      shape_res = shapes_api.get(shape_find_opts)
+
+      raise ArgumentError.new(shape_res.error_msg) unless shape_res.success
 
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
       allow_posting, error_msg = payment_setup_status(
@@ -164,7 +172,10 @@ class ListingsController < ApplicationController
                        payment_type: payment_type)
 
       if allow_posting
-        render :partial => "listings/form/form_content", locals: commission(@current_community).merge(shipping_enabled: shipping_enabled?(@listing))
+        render :partial => "listings/form/form_content", locals: commission(@current_community).merge(
+                 shipping_enabled: shipping_enabled?(@listing),
+                 shape: shape_res.data
+               )
       else
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
@@ -218,7 +229,18 @@ class ListingsController < ApplicationController
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-    render locals: commission(@current_community).merge(shipping_enabled: shipping_enabled?(@listing))
+    shape_find_opts = {
+      community_id: @current_community.id,
+      transaction_type_id: @listing.transaction_type.id
+    }
+
+    shape_res = shapes_api.get(shape_find_opts)
+
+    raise ArgumentError.new(shape_res.error_msg) unless shape_res.success
+
+    render locals: commission(@current_community).merge(
+             shipping_enabled: shipping_enabled?(@listing),
+             shape: shape_res.data)
   end
 
   def update
@@ -580,5 +602,9 @@ class ListingsController < ApplicationController
       .tap { |process|
         raise ArgumentError.new("Can not find transaction process: #{opts}") if process.nil?
       }
+  end
+
+  def shapes_api
+    ListingService::API::Api.shapes
   end
 end
