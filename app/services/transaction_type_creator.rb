@@ -26,13 +26,10 @@ module TransactionTypeCreator
       ]
     },
     "Request" => {
-      price_enabled: false,
+      price_enabled: false
     },
     "Sell" => {
-      price_enabled: true,
-      units: [
-        {type: :piece}
-      ]
+      price_enabled: true
     },
     "Service" => {
       price_enabled: true,
