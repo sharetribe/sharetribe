@@ -119,37 +119,37 @@ nb:
         edit_message: "Rediger melding"
         send_test_message: "Send test melding"
       getting_started:
-        getting_started: ~
+        getting_started: "Kom i gang"
         welcome_to_your_marketplace: "Velkommen til din markedsplass, %{name}!"
-        intro: ~
-        live_site_link_text: ~
-        look_and_feel: ~
-        logo_link_text: ~
-        custom_domain: ~
-        categories_and_custom_fields: ~
-        categories_link_text: ~
-        custom_fields_link_text: ~
-        filters_link_text: ~
-        payments: ~
-        payments_link_text: ~
-        info_texts: ~
+        intro: "Dette er en rask guide for hvordan sette opp og administrere din markedsplass. Du kan se live-site her %{live_site_link}."
+        live_site_link_text: her
+        look_and_feel: "Før du lanserer siden til brukere bør du gjøre noen tilpasninger. Du bør ha en %{logo_link} og endre forsidebildet og fargene til å matche din profil."
+        logo_link_text: "legg til logo"
+        custom_domain: "Du bør også legge til ditt eget domenenavn (eksempel www.dinmarkedsplass.no). Å sette opp dette krever noe manuelt arbeid fra vår side, vi må blant annet kjøpe et SSL-sertifikat til domenet for å sørge for at siden er sikret. Derfor er ikke egne domener tilgjengelig i gratis prøveversjon akkurat nå. Abonnér på vårt Pro-abonnement eller mer for å gjøre dette. Hvis du vil ha et eget domene, vennligst %{contact_support_link}."
+        categories_and_custom_fields: "Neste tilpasning er å velge hvilke type innhold brukere kan legge inn på siden. Du kan %{categories_link}, %{custom_fields_link} som annonsen inneholder og bestemme %{filters_link} i bruk når brukere navigerer i annonsene."
+        categories_link_text: "legge til kategorier og underkategorier"
+        custom_fields_link_text: "tilpasse felter"
+        filters_link_text: "hvilke type filter"
+        payments: "Hvis du vil at brukere skal kunne betale for transaksjonene gjennom din markedsplass slik at du kan ta en provisjonsbetaling må du %{payments_link}."
+        payments_link_text: "sette opp en betalingsmetode"
+        info_texts: "Ikke glem å tilpasse info-sider og andre tekster hvor du kan fortelle brukere om din markedsplass. Gode steder verdt å sjekke er din %{about_page_link}, din  %{terms_of_use_link} (du bør skrive dine egne bruksvilkår her, enten ved å tilpasse malen eller lage et nytt dokument), din %{privacy_policy_link}, og %{welcome_email_link} som sendes til hver nye bruker. Det er også noen %{instruction_texts_link} du kan tilpasse."
         about_page_link_text: "om side"
         terms_of_use_link_text: "Betingelser for bruk"
-        privacy_policy_link_text: ~
-        welcome_email_link_text: ~
-        instruction_texts_link_text: ~
-        social_media: ~
-        facebook_link_text: ~
-        twitter_link_text: ~
-        analytics: ~
-        analytics_link_text: ~
-        settings: ~
-        settings_link_text: ~
-        final_words: ~
-        invite_link_text: ~
-        view_users_link_text: ~
-        view_transactions_link_text: ~
-        contact_support_link_text: ~
+        privacy_policy_link_text: personvern
+        welcome_email_link_text: velkomstmelding
+        instruction_texts_link_text: "andre instruksjoner"
+        social_media: "Bruk av sosiale medier er viktig når du skal bygge et community. Du kan %{facebook_link} for å gjøre det enklere å registrere seg på siden din, og %{twitter_link} for å få viral spredning når folk tweeter om annonser på siden din."
+        facebook_link_text: "koble til din Facebook-app"
+        twitter_link_text: "legge til din Twitter-konto"
+        analytics: "Det er også en god idé å %{analytics_link}. Slik kan du enkelt se hva som skjer på markedsplassen din, hvor mange besøkende du har osv."
+        analytics_link_text: "koble til Google Analytics-konto"
+        settings: "Det er massevis av andre innstillinger du kan leke deg med. For eksempel så kan du kreve at alle brukere må ha en invitasjon fra en annen bruker for å registrere seg. Du kan også gjøre markedsplassen privat slik at brukere må logge inn for å se innholdet. %{settings_link}."
+        settings_link_text: "Se innstillinger for markedsplassen her"
+        final_words: "That's it! Hvis alt erklart kan du begynne å %{invite_link} til din markedsplass. Du kan se alle brukere som har registrert seg %{view_users_link}, og alle fullførte transaksjoner %{view_transactions_link}. Du kan enkelt administrere annonser: gå til annonsesiden og du vil se admin-lenker for å endre og stoppe annonser der. Hvis du trenger hjelp kan du %{contact_support_link} - vi er her for deg!"
+        invite_link_text: "invitere brukere"
+        view_users_link_text: her
+        view_transactions_link_text: her
+        contact_support_link_text: "kontakt vår support"
       settings:
         settings: Innstillinger
         general: Generelt
@@ -172,7 +172,7 @@ nb:
         twitter_handle: "Twitternavn (brukt med tweet-knapp på annonsesiden)"
         update_settings: "Lagre innstillinger"
         automatically_confirmed: "Transaksjonen vil bli automatisk satt som utført %{days_dropdown} dager etter at betalingen er gjennomført."
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "Transaksjoner vil automatisk bli satt som utført %{days_dropdown} dager etter at betaling er utført"
         automatic_newsletter_frequency: "Send automatisk nyhetsbrev:%{frequency_dropdown}"
         newsletter_daily: Daglig
         newsletter_weekly: Ukentlig
@@ -188,19 +188,19 @@ nb:
         save_user_status_successful: Lagret
         save_user_status_error: "Lagring feilet. Vennligst oppdater siden på nytt og prøv igjen."
         ban_user_confirmation: "Dette fjerner bruker fra denne markedsplassen og hindrer vedkommende tilgang med denne bruker kontoen igjen. Er du sikker på at du ønsker å fortsette?"
-        ban_me_error: ~
+        ban_me_error: "Du kan ikke forby deg selv."
       social_media:
         social_media: "Sosiale medier"
         twitter_handle: Twitternavn
         twitter_handle_info_text: "Twitternavn til din markedsplass (hvis du har). Det vil bli mentioned når brukere bruker tweet-knappen på annonsesiden."
-        twitter_handle_info_text_with_instructions: ~
+        twitter_handle_info_text_with_instructions: "Twitternavn til din markedsplass (hvis du har). Det vil bli mentioned når brukere bruker tweet-knappen på annonsesiden. %{instructions_link}."
         twitter_instructions_link_text: "Les mer"
         twitter_handle_placeholder: brukernavn
         invalid_twitter_handle: "Twitternavn inneholder maks 15 tegn (bokstaver A-Z og tall 0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: "For å aktivere Facebook-innlogging må du opprette en applikasjon for din arkedsplass i <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Legg inn generated id og secret key for applikasjonen her."
-        facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
+        facebook_connect_info_text_with_instructions: "For å aktivere Facebook-innlogging må du opprette en applikasjon for din markedsplass i <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Legg inn generated id og secret key for applikasjonen her. %{instructions_link}"
+        facebook_instructions_link_text: "Se instruksjoner for å konfigurere Facebook Connect."
         facebook_connect_id: "Facebook client id"
         invalid_facebook_connect_id: "Client id kan kun inneholde tall."
         facebook_connect_secret: "Facebook client secret"
@@ -210,7 +210,7 @@ nb:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
         google_analytics_key_info_text: "Tracking ID til din Google Analytics-konto."
-        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_key_info_text_with_instructions: "Tracking-ID til din Google Analytics-konto. %{instructions_link}."
         google_analytics_instructions_link_text: "Les mer hvordan knytte til Google Analytics"
         save: "Lagre innstillinger"
       menu_links:
@@ -313,11 +313,11 @@ nb:
         message_will_be_sent_only_to_people_with_this_language: "Ps: e-posten sendes kun til brukere av %{service_name} i det språket du har valgt."
         email_sent: "Epost sendt."
     left_hand_navigation:
-      general: ~
+      general: Generelt
       users_and_transactions: "Brukere og transaksjoner"
       configure: Innstillinger
       emails_title: E-poster
-      support: ~
+      support: Support
     paypal_accounts:
       marketplace_paypal_integration: Betalingsinnstillinger
       preferences_updated: "Betalingsinnstillinger oppdatert"
@@ -329,11 +329,11 @@ nb:
       set_minimum_price_and_fee_completed: fullført!
       minimum_listing_price_label: "Minimum transaksjonsstørrelse:"
       transaction_fee_label: "Transaksjonskostnad:"
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: "Minimum transaksjonskostnad:"
       save_settings: "Lagre innstillinger"
-      note_about_transaction_fee: ~
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      note_about_transaction_fee: "Transaksjonskostnad inkluderer PayPal-kostnad som varierer fra valuta til valuta og ditt salgsvolum. Derfor vil kostnaden alltid være minst %{min_paypal_commission}. Når kostnaden er trukket fra selger vil PayPal ta sin provisjon først og resten vil bli flyttet til din PayPal-konto."
+      minimum_listing_price_below_tx_fee: "må være minst det samme som minimum transaksjonskostnad %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "må være mer enn minimum transaksjonsprovisjon %{minimum_commission}."
     transaction_types:
       sell: Selger
       rent: "Leier ut"
@@ -397,16 +397,16 @@ nb:
     username: Brukernavn
     username_or_email: "e-post eller brukernavn"
     what_is_this: "Hva er dette?"
-    removed_user: ~
+    removed_user: "Fjernet bruker"
     paypal_fee_info:
-      title: ~
-      body_text: ~
-      body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      title: "PayPals transaksjonskostnad"
+      body_text: "PayPal tar betalt ved hver betaling. Denne kostnaden er mellom 2-5% av salgsprisen, avhenging av ditt månedlige salgsvolum og land. Vanligvis er det billigere innenlands og et høyere volum gir lavere priser. Du kan se nøyaktige priser ved å logge inn på din PayPal-konto og gå til %{link_to_paypal}. Du vil motta en kvittering etter hver transaksjon med alle detaljer."
+      body_with_shipping_text: "PayPal tar betalt ved hver betaling. Denne kostnaden er mellom 2-5% av salgsprisen, avhenging av ditt månedlige salgsvolum og land. Vanligvis er det billigere innenlands og et høyere volum gir lavere priser. Du kan se nøyaktige priser ved å logge inn på din PayPal-konto og gå til %{link_to_paypal}. Du vil motta en kvittering etter hver transaksjon med alle detaljer."
+      link_to_paypal_text: her
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: Ordredetaljer
+      order_by: "Ordre fra %{orderer_link}"
       respond_to_offer: "Svar på et tilbud"
       respond_to_request: "Svar på en forespørsel"
       accept_offer: "Godta tilbudet"
@@ -420,15 +420,15 @@ nb:
       you_need_to_fill_payout_details_before_accepting: "Du må fylle ut utbetalings detaljer før du kan akseptere forespørselen og motta betaling. Gå til %{payment_settings_link} for å fylle ut."
       payment_settings_link: "Innstillinger betaling"
       minimum_price_error_message: "Prisen kan ikke være lavere enn%{amount}"
-      accept: ~
-      decline: ~
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
-      paypal_fee_info: ~
-      shipping_price_label: ~
+      accept: Godta
+      decline: Avslå
+      sum_label: "Delsum:"
+      service_fee_label: "%{service_name}-kostnad:"
+      you_will_get_label: "Du vil motta:"
+      total_label: "Totalt:"
+      total_value: "%{seller_gets}*"
+      paypal_fee_info: "* ekskludert <a id='%{fee_info_link_id}' href='#'>PayPals transaksjonskostnad</a>"
+      shipping_price_label: "Frakt:"
     confirm:
       confirm_description: "Dersom din forespørsel er utført må du bekrefte den som utført. Du kan så gi tilbakemelding til den andre parten."
       cancel_description: |-
@@ -569,7 +569,7 @@ nb:
         paypal:
           multicurrency: "Venter på at du skal godkjenne PayPal betalingen"
           intl: "Venter på at du skal godkjenne PayPal betalingen"
-          unknown_reason: ~
+          unknown_reason: "Betaling venter. Logg inn på din PayPal-konto for å se mer detaljer."
           verify: "Venter på at du skal verifisere din PayPal konto"
     status_link:
       accept_offer: "Godta tilbud"
@@ -751,8 +751,8 @@ nb:
       new_payment: "Du har mottatt en ny betaling"
       you_have_received_new_payment: "Du har fått betaling <b>%{payment_sum}</b>for<b>%{listing_title}</b>av%{payer_full_name}. Her er din kvittering."
     paypal_new_payment:
-      paypal_gateway_fee: ~
-      shipping_total: ~
+      paypal_gateway_fee: "PayPal-kostnad:"
+      shipping_total: "Frakt:"
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Pris%{payer_full_name}betalt:"
@@ -817,23 +817,23 @@ nb:
       click_here_link_text: "Klikk her"
       welcome_email_footer_text: "Hvilke e-poster ønsker du å motta fra %{service_name}?%{settings_link}"
       settings_link_text: "Sjekk innstillingene dine."
-      welcome_email_subject_for_marketplace_creator: ~
-      welcome_to_marketplace_creator: ~
-      congrats_for_creating_your_marketplace: ~
+      welcome_email_subject_for_marketplace_creator: "Velkommen til Sharetribe"
+      welcome_to_marketplace_creator: "Velkommen til Sharetribe, %{name}!"
+      congrats_for_creating_your_marketplace: "Gratulerer med ny markedsplass! Det var enkelt, var det ikke?"
       here_is_your_account_information: "Her er din konto informasjon."
-      your_email_address: ~
-      your_marketplace_address: ~
-      your_marketplace_admin_area: ~
-      just_follow_details: ~
-      we_will_guide_you_along_the_way: ~
-      are_you_new_to_online_marketplaces: ~
-      have_questions: ~
-      our_happiness_team_is_here_to_help: ~
-      love: ~
-      sharetribe_crew: ~
-      knowledge_base_link_text: ~
-      contact_support_link_text: ~
-      admin_panel_link_text: ~
+      your_email_address: "Espot brukt til å logge inn:"
+      your_marketplace_address: "Ditt domene:"
+      your_marketplace_admin_area: Adminområde
+      just_follow_details: "Følg disse lenkene og du vil få mer informasjon om hvordan tilpasse din markedsplass!"
+      we_will_guide_you_along_the_way: "Vi vil hjelpe deg på veien."
+      are_you_new_to_online_marketplaces: "Trenger du hjelp med din markedsplass? Ikke stress, vi er her for å hjelpe! Vi vil sende en rekke eposter som vil hjelpe deg med å få mest mulig ut av Sharetribe og hvordan bygge en vellykket markedsplass. Første del sendes snart."
+      have_questions: Spørsmål?
+      our_happiness_team_is_here_to_help: "Vårt hapiness team er her for deg! Enten %{knowledge_base_link} eller kontakt oss gjennom %{admin_panel_link}."
+      love: "Hilsen,"
+      sharetribe_crew: Sharetribe-teamet
+      knowledge_base_link_text: "sjekk ut vår kunnskapsbase"
+      contact_support_link_text: "kontakt vår support"
+      admin_panel_link_text: adminpanel
     new_listing_by_followed_person:
       subject: "%{author_name}har lagt ut en ny annonse på %{service_name}"
       has_posted_a_new_listing: "%{author_name}har lagt ut en ny annonse:"
@@ -850,12 +850,12 @@ nb:
       you_must_explain_not_neutral_feedback: "Hvis du gir noe annet enn nøytral tilbakemelding må du forklare hvorfor."
       you_must_select_a_grade: "Husk å fortelle om din opplevelse var positiv eller negativ."
     transaction_agreement:
-      required_error: ~
+      required_error: "Du må godta avtalevilkår"
     paypal:
       generic_error: "En feil oppstod i betalingsprosessen. Din PayPal betaling kunne ikke sluttføres."
       cancel_error: "En feil oppstod ved kansrelering. Kunne ikke sluttføre kansrelering."
       accept_authorization_error: "En feil oppstod med PayPal-betalingen. Vennligst prøv igjen."
-      reject_authorization_error: ~
+      reject_authorization_error: "En feil oppstod med PayPal-betaling. Vennlist prøv igjen."
   error_pages:
     back_to_kassi_front_page: "Tilbake til forsiden"
     error_404:
@@ -865,14 +865,14 @@ nb:
     error_404_title: "side ikke funnet"
     error_410:
       page_removed: "Side fjernet"
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
+      page_you_requested_has_been_removed: "Siden du ba om er fjernet."
+      page_removed_reason: "Det er noen mulige årsaker for dette. For eksempel kan en bruker ha fjernet kontoen sin eller annonsen er stoppet."
     error_410_title: "side fjernet"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      temporary_unavailable: "Markedsplass midlertidig utilgjengelig"
+      unable_to_process: "Tjenesten er kan ikke behandle din forespørsel akkurat nå. Vennligst prøv igjen senere."
+      we_hate_this: "Vi hater når dette skjer! Vi har blitt informert om situasjonen og jobber med en fiks!"
+      refer_to_error_id: "Hvis du ønsker å kontakte support om dette vær vennlig å inkludere feil-ID \"%{error_id}\" i meldingen."
     error_500_title: "feil ved lasting av siden"
     error_description: Feilbeskrivelse
     no_javascript:
@@ -1043,8 +1043,8 @@ nb:
       default_about_text: "Denne markedsplassen er laget på Sharetribe-platformen. Med Sharetribe kan du enkelt lage din egen markedsplass. Det er gratis og tar kun noen minutter. %{click_here_link} for å lære mer!"
       click_here_link_text: "Klikk her"
     how_to_use:
-      default_title: ~
-      default_content: ~
+      default_title: "Hvordan det virker"
+      default_content: "Her kan du finne mer informasjon om hvordan %{marketplace_name} virker."
   layouts:
     admin:
       admin: "%{service_name} adminpanel"
@@ -1223,7 +1223,7 @@ nb:
       payment_details_add_successful: "Betalings detaljer lagt til"
       payment_details_add_error: "Kunne ikke legge til betalings detaljer"
       listing_author_payment_details_missing: "Annonse eier har ikke lagt til betalingsinformasjon og kan derfor ikke motta betaling akkurat nå. Vennligst kontakt annonse eier."
-      stylesheet_needs_recompiling: ~
+      stylesheet_needs_recompiling: "Side genereres på nytt. Vennligst last siden på nytt etter en liten stund."
     settings:
       account: Konto
       notifications: Notifikasjoner
@@ -1308,15 +1308,15 @@ nb:
         time: "time,dag,måned,..."
         long_time: "uke, måned, ..."
         after_service_fee_you_will_get: "Etter kostnad fra %{service_name} og betalingsleverandøren vil du motta %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vil bli trukket fra prisen."
+        after_service_fee_you_will_get_paypal_text: "%{service_name}-kostnad (%{sum_with_currency}) og %{paypal_fee_info_link} vil bli trukket fra prisen."
+        paypal_fee_info_link_text: "PayPal transaksjonskostnad"
         after_service_fee_you_will_get_vat: "Tjenestekostnad på %{service_name} og betalingsleverandør trekkes fra og du vil få ca. %{sum_with_currency} utbetalt."
         price_excludes_vat: "Prisen inkluderer ikke MVA"
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        pickup: ~
+        delivery: Leveringsmetode
+        shipping: Frakt
+        shipping_price: Fraktkostnad
+        pickup: Henting
       origin:
         location: Sted
         origin: Opprinnelse
@@ -1410,10 +1410,10 @@ nb:
       select_subcategory: "Velg underkategori"
       select_transaction_type: "Velg annonse type"
       you_need_to_fill_payout_details_before_accepting: "Du må fylle ut utbetalings detaljer før du kan poste en annonse. Gå til %{payment_settings_link} for å fylle ut."
-      contact_admin_link_text: ~
-      community_not_configured_for_payments: ~
+      contact_admin_link_text: "kontakt administrator"
+      community_not_configured_for_payments: "%{service_name} har ikke blitt konfigurert for betalinger så du kan ikke opprette annonser enda. Vennligst %{contact_admin_link} for mer detaljer."
       payment_settings_link: "Innstillinger betaling"
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name} har ikke blitt konfigurert for betalinger så du kan ikke opprette annonser enda. Gå til %{payment_settings_link} for å fylle inn betalingsdetaljer."
     please_comment: Kommenter
     reply_link:
       listing_closed: "Annonse er utgått"
@@ -1453,9 +1453,9 @@ nb:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per dag"
-      delivery: ~
-      shipping: ~
-      pickup: ~
+      delivery: Leveringsmetode
+      shipping: "Frakt (+%{price})"
+      pickup: Henting
     verification_required:
       verification_required: "Verifisering påkrevd"
   listing_conversations:
@@ -1523,13 +1523,13 @@ nb:
     you_are_ready_to_accept_payments: "Du er klar til å motta betaling!"
     commission: "%{commission} %"
     connected_account: "PayPal-konto '%{email}' tilkoblet."
-    change_account: ~
-    missing: ~
-    from_your_payment_settings_link_text: ~
+    change_account: "Endre konto"
+    missing: "Du har åpne annonser men har ikke koblet til en PayPal-konto så du vil ikke kunne motta betalinger. Vennligst koble til din PayPal-konto i dine %{settings_link}."
+    from_your_payment_settings_link_text: betalingsinnstillinger
     new:
       payout_info_you_need_to_connect: "For å motta betaling må du knytte din PayPal konto med %{service_name}"
       payout_info_text: "Vennligst fullfør følgende steg for koble opp din konto."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "kontakt administrator"
       admin_account_not_connected: "%{service_name}er ikke konfigurert for betaling, du kan derfor ikke knytte til din PayPal konto enda. Vennligst %{contact_admin_link} for detaljer."
       paypal_account_email: "Koble til din PayPal konto"
       paypal_account_email_placeholder: "Din PayPal e-post"
@@ -1538,21 +1538,21 @@ nb:
       upgrade_paypal_account: "logg inn på din PayPal-konto"
       connect_paypal_account: "Koble til PayPal-konto"
       paypal_account_billing_agreement: "Tillat %{service_name}å ta et transaksjonsgebyr"
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
-      paypal_info_link_text: ~
+      paypal_account_billing_agreement_info_both: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt, minimumkostnad %{minimum_commission}) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad på %{minimum_commission} bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
+      paypal_info_link_text: "PayPal transaksjonskostnad"
       billing_agreement_description: "Gi %{service_name} tilgang til å ta betalt for sine tjenester."
       billing_agreement: "Gi tillatelse"
       permissions_not_granted: "Tilkoblingstilgang til PayPal-konto ble ikke gitt."
       could_not_fetch_redirect_url: "Kunne ikke finne url-peker for å koble til PayPal."
       paypal_not_enabled: "PayPal-betalinger er ikke aktivert."
       billing_agreement_canceled: "Betalingsavtale er avbrutt"
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
+      billing_agreement_not_accepted: "Du godtok ikke betalingsvilkårene hos PayPal."
+      billing_agreement_wrong_account: "PayPal-kontoer matcher ikke. Vennligst bruk samme PayPal-konto som du brukte i første steg."
       something_went_wrong: "Noe gikk galt. Vennligst prøv igjen. Dersom problemet fortsetter, vennligst kontakt administrator."
-      account_not_verified: ~
-      account_restricted: ~
+      account_not_verified: "Du har ikke verifisert din PayPal-konto. Du må gå til paypal.com og verifisere kontoen før du kan fortsette."
+      account_restricted: "Din PayPal-konto er begrenset og kan ikke bli koblet til. Vennligst logg på paypal.com for å finne ut mer hva dette betyr og ta kontakt med PayPal-support for å løse saken."
   paypal:
     pay_with_paypal: "Gå til betaling"
     checkout_with_paypal: "Betal med PayPal"
@@ -1704,9 +1704,9 @@ nb:
       change_email: Endre
       confirm_your_email: "Vennligst bekreft din e-post"
       account_confirmation_instructions: "Du vil snart motta en e-post med en link du må klikke på for å bekrefte din e-post. Når e-post er bekreftet kan du bli medlem av %{service_name}."
-      account_confirmation_instructions_title_admin: ~
-      your_marketplace_has_now_been_created: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_title_admin: "Velkommen til din markedsplass!"
+      your_marketplace_has_now_been_created: "Din markedsplass er nå blitt laget. Det var enkelt, var det ikke? Kun noen få steg gjenstår før du kan bruke din side: du må bekrefte din epost-adresse."
+      account_confirmation_instructions_admin: "Du vil snart motta en e-post med en link du må klikke på for å bekrefte din e-post. Når e-post er bekreftet kan du begynne å tilpasse markedsplassen din."
   settings:
     account:
       change: Endre
@@ -1716,10 +1716,10 @@ nb:
       delete_account_confirmation_popup: "Er du helt sikker på at du ønsker å slette din bruker konto og miste all data knyttet til denne? Konto sletting kan ikke reverseres."
       email_addresses: E-postadresser
       new_email: "Ny epost"
-      delete_all_memberships: ~
-      delete_personal_information: ~
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
+      delete_all_memberships: "Hvis du fjerner din konto vil du ikke lenger kunne bruke den på følgende sider: %{marketplaces}."
+      delete_personal_information: "Hvis du fjerner din konto vil dine personalia (navn, telefon, adresse, epost, profilbilde, etc) bli slettet og disse kan ikke gjenopprettes. Alle dine annonser vil bli fjernet og du vil ikke kunne gjenopprette din brukerkonto."
+      delete_information_others_involved: "Informasjon hvor andre brukere er involvert (samtaler med brukere, transaksjoner du har gjort, tilbakemeldinger du har gitt andre, etc) fjernes ikke når du sletter din konto. Navnet ditt vil derimot ikke lenger vises sammen med denne informasjonen."
+      unfinished_transactions: "Din konto kan ikke fjernes fordi du har pågående transaksjoner. Vennligst fullfør alle dine transaksjoner før du fjerner din konto."
       new_password: "Nytt passord"
       save: Lagre
       these_fields_are_shown_only_to_you: "Brukernavn er synlig på din profil foruten om du har oppgitt ditt navn. Annen informasjon er kun synlig for deg."
@@ -1785,7 +1785,7 @@ nb:
       invisible: "(vises ikke til andre brukere)"
     save_information: "Lagre informasjon"
   shipping_address:
-    shipping_address: ~
+    shipping_address: Leveringsadresse
   tag_cloud:
     tag_used:
       with_tag: "Med merkelapp"
@@ -1903,9 +1903,9 @@ nb:
       other: "%{count}dager"
   transactions:
     initiate:
-      subtotal: ~
-      shipping-price: ~
-      total: ~
+      subtotal: "Delsum:"
+      shipping-price: "Frakt:"
+      total: "Totalt:"
   unit:
     day: dag
     days: dager

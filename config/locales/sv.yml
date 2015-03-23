@@ -245,7 +245,7 @@ sv:
           canceled: Avbruten
           initiated: "Väntar på PayPal betalning"
           pending_ext: "Väntar på PayPal betalning"
-        not_available: ~
+        not_available: "Inte tillgänglig"
       braintree_payment_gateway:
         braintree_payment_gateway: "Braintree Payment API nycklar"
         environment: Miljö
@@ -402,7 +402,7 @@ sv:
       title: "PayPals avgift för betalningshantering"
       body_text: ~
       body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: här
   conversations:
     accept:
       details: Orderinformation
@@ -1304,15 +1304,15 @@ sv:
         time: "timme, dag, månad, ..."
         long_time: "vecka, månad, ..."
         after_service_fee_you_will_get: "Efter %{service_name}s serviceavgift så kommer du att få %{sum_with_currency} när du har sålt produkten. OBS! Om produkten ska skickas, glöm inte att inkludera fraktkostnad i priset."
-        no_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} kommer att dras av från priset."
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: "Efter %{service_name} och betalningsavgifter kommer du att få ca. %{sum_with_currency} (moms 0%)"
         price_excludes_vat: "Priset inkluderar inte moms."
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        pickup: ~
+        delivery: Leveransmetod
+        shipping: Frakt
+        shipping_price: Fraktkostnad
+        pickup: Hämtas
       origin:
         location: Plats
         origin: Ursprung
@@ -1449,9 +1449,9 @@ sv:
       price:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per dag"
-      delivery: Leverans
-      shipping: "Frakt %{price}"
-      pickup: "Hämtning %{price}"
+      delivery: Leveransmetod
+      shipping: "Frakt (+%{price})"
+      pickup: Hämtas
     verification_required:
       verification_required: "Verifiering krävs"
   listing_conversations:
@@ -1550,7 +1550,7 @@ sv:
       account_not_verified: "Du har inte verifierat ditt PayPal-konto. Du behöver gå till www.paypal.com och verifiera ditt konto innan du kan gå vidare."
       account_restricted: "Ditt PayPalkonto är begränsat och kan inte kopplas. Vänligen logga in på PayPal.com och hitta vad detta beror på eller kontakta PayPals användarsupport för att lösa detta."
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: "Fortsätt till betalning"
     checkout_with_paypal: "Gå till kassan med PayPal"
     cancel_succesful: "PayPal betalning avbruten"
     transaction:
