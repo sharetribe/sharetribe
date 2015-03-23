@@ -1,5 +1,5 @@
 .price-container
-  - if @listing.transaction_type.price_field?
+  - if shape[:price_enabled]
     = form.label :price, t(".price")
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
     = render partial: "listings/form/currency_selector", locals: {form: form}

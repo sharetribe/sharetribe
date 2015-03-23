@@ -384,7 +384,7 @@ class Listing < ActiveRecord::Base
   end
 
   def payment_required_at?(community)
-    transaction_type.price_field? && community.payments_in_use?
+    price && price > 0 && community.payments_in_use?
   end
 
   def unit_type
