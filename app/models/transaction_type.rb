@@ -60,11 +60,35 @@ class TransactionType < ActiveRecord::Base
   end
 
   def display_name(locale)
-    TranslationCache.new(self, :translations).translate(locale, :name)
+    result = TranslationService::API::Api.translations
+      .get(community_id, {
+        translation_keys: [name_tr_key],
+        locales: [locale.to_s],
+        fallback_locale: community.default_locale
+      })
+
+    Maybe(result[:data].first)[:translation].or_else(nil).tap { |translation|
+      if translation.nil?
+        error_msg = "translation missing for key #{name_tr_key} and locale #{locale}"
+        raise ArgumentError.new(error_msg)
+      end
+    }
   end
 
   def action_button_label(locale)
-    TranslationCache.new(self, :translations).translate(locale, :action_button_label)
+    result = TranslationService::API::Api.translations
+      .get(community_id, {
+        translation_keys: [action_button_tr_key],
+        locales: [locale.to_s],
+        fallback_locale: community.default_locale
+      })
+
+    Maybe(result[:data].first)[:translation].or_else(nil).tap { |translation|
+      if translation.nil?
+        error_msg = "translation missing for key #{action_button_tr_key} and locale #{locale}"
+        raise ArgumentError.new(error_msg)
+      end
+    }
   end
 
   def self.find_by_url_or_id(url_or_id)

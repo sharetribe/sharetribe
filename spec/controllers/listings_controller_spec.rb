@@ -16,14 +16,26 @@ describe ListingsController do
 
     defaults = TransactionTypeCreator::DEFAULTS[type]
 
+    # Save name to TranslationService
+    translations_with_default = translations.concat([{ locale: "en", name: type }])
+    name_group = {
+      translations: translations_with_default.map { |translation|
+          { locale: translation[:locale],
+            translation: translation[:name]
+          }
+        }
+      }
+    created_translations = TranslationService::API::Api.translations.create(community_id, [name_group])
+    name_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }.first
+
     opts = defaults.merge(
       {
         shipping_enabled: false,
         transaction_process_id: process_id,
-        name_tr_key: 'something.here',
+        name_tr_key: name_tr_key,
         action_button_tr_key: 'something.here',
-        translations: translations.concat([{ locale: "en", name: type }]),
-        url_source: translations.present? ? translations[0][:name] :type
+        translations: translations_with_default,
+        url_source: Maybe(translations).first[:name].or_else(type)
       })
 
     shape = listings_api.shapes.create(community_id: community_id, opts: opts).data

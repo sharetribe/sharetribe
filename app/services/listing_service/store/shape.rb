@@ -70,7 +70,10 @@ module ListingService::Store::Shape
       # TODO We should be able to create transaction_type without community
       community = Community.find(shape[:community_id])
 
-      create_tt_opts = to_tt_model_attributes(shape).except(:units, :translations)
+      url = uniq_url(shape[:url_source], shape[:community_id])
+      shape_with_url = shape.except(:url_source).merge(url: url)
+
+      create_tt_opts = to_tt_model_attributes(shape_with_url).except(:units, :translations)
       tt_model = community.transaction_types.build(create_tt_opts)
 
       units.each { |unit|

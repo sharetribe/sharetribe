@@ -149,7 +149,7 @@ describe ListingService::API::Shapes do
               { locale: "en", name: "Selling", action_button_label: "Buy" },
               { locale: "fi", name: "Myydään", action_button_label: "Osta" }
             ],
-
+            url_source: "Selling",
             units: []
           }
         ).data[:transaction_type_id]

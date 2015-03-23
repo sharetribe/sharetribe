@@ -26,7 +26,7 @@ module TestHelpers
       },
       Service: {
         en: {
-          name: "Selling services", action_button_label: ""
+          name: "Selling services", action_button_label: "Offer"
         }
       }
     }
@@ -63,6 +63,21 @@ module TestHelpers
       transaction_types.each do |type, translations|
         defaults = TransactionTypeCreator::DEFAULTS[type.to_s]
 
+        name_group = {
+          translations: community.locales.map do |locale|
+            translation = translations[locale.to_sym]
+            {locale: locale, translation: translation[:name]} unless translation.blank?
+          end.compact
+        }
+        ab_group = {
+          translations: community.locales.map do |locale|
+            translation = translations[locale.to_sym]
+            {locale: locale, translation: translation[:action_button_label]} unless translation.blank?
+          end.compact
+        }
+        created_translations = TranslationService::API::Api.translations.create(community.id, [name_group, ab_group])
+        name_tr_key, action_button_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }
+
         translations = community.locales.map do |locale|
           translation = translations[locale.to_sym]
 
@@ -79,9 +94,9 @@ module TestHelpers
 
         shape_opts = defaults.merge(
           transaction_process_id: processes[:none],
-          name_tr_key: 'something.here',
-          action_button_tr_key: 'something.here',
           translations: translations,
+          name_tr_key: name_tr_key,
+          action_button_tr_key: action_button_tr_key,
           shipping_enabled: false,
           url_source: url_source
         )
