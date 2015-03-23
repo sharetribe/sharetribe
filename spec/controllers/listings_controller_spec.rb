@@ -12,7 +12,7 @@ describe ListingsController do
   end
 
   def create_transaction_type(community_id, type, process_id, translations = [], categories = [])
-    shapes_api = ListingService::API::Api.shapes
+    listings_api = ListingService::API::Api
 
     defaults = TransactionTypeCreator::DEFAULTS[type]
 
@@ -25,7 +25,7 @@ describe ListingsController do
         translations: translations.concat([{ locale: "en", name: type }])
       })
 
-    shape = shapes_api.create(community_id: community_id, opts: opts).data
+    shape = listings_api.shapes.create(community_id: community_id, opts: opts).data
 
     TransactionType.find(shape[:transaction_type_id])
   end

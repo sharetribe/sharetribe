@@ -83,9 +83,9 @@ module TestHelpers
           shipping_enabled: false
         )
 
-        shapes_api = ListingService::API::Api.shapes
+        listings_api = ListingService::API::Api
 
-        shape_res = shapes_api.create(
+        shape_res = listings_api.shapes.create(
           community_id: community.id,
           opts: shape_opts
         )

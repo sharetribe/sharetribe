@@ -595,8 +595,8 @@ class ListingsController < ApplicationController
       }
   end
 
-  def shapes_api
-    ListingService::API::Api.shapes
+  def listings_api
+    ListingService::API::Api
   end
 
   def valid_unit_type?(shape:, unit_type:)
@@ -613,7 +613,7 @@ class ListingsController < ApplicationController
       transaction_type_id: transaction_type_id
     }
 
-    shape_res = shapes_api.get(shape_find_opts)
+    shape_res = listings_api.shapes.get(shape_find_opts)
 
     if shape_res.success
       shape_res.data

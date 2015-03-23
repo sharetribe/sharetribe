@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe ListingService::API::Shapes do
 
-  let(:shapes) { ListingService::API::Api.shapes }
+  let(:listings_api) { ListingService::API::Api }
   let(:community_id) { FactoryGirl.create(:community).id }
   let(:transaction_process_id) { 555 }
   let(:name_tr_key) { "listing_shape.name.123.translation" }
@@ -12,7 +12,7 @@ describe ListingService::API::Shapes do
   describe "#create" do
     context "success" do
       it "creates new listing shape with day unit" do
-        create_shape_res = shapes.create(
+        create_shape_res = listings_api.shapes.create(
           community_id: community_id,
           opts: {
             price_enabled: true,
@@ -38,7 +38,7 @@ describe ListingService::API::Shapes do
 
         transaction_type_id = create_shape_res.data[:transaction_type_id]
 
-        res = shapes.get(community_id: community_id, transaction_type_id: transaction_type_id)
+        res = listings_api.shapes.get(community_id: community_id, transaction_type_id: transaction_type_id)
 
         expect(res.success).to eql(true)
 
@@ -71,7 +71,7 @@ describe ListingService::API::Shapes do
       end
 
       it "creates new listing shape with piece unit" do
-        create_shape_res = shapes.create(
+        create_shape_res = listings_api.shapes.create(
           community_id: community_id,
           opts: {
             price_enabled: true,
@@ -97,7 +97,7 @@ describe ListingService::API::Shapes do
 
         transaction_type_id = create_shape_res.data[:transaction_type_id]
 
-        res = shapes.get(community_id: community_id, transaction_type_id: transaction_type_id)
+        res = listings_api.shapes.get(community_id: community_id, transaction_type_id: transaction_type_id)
 
         expect(res.success).to eql(true)
 
