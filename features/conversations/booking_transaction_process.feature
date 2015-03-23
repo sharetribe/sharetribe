@@ -15,7 +15,7 @@ Feature: Booking transaction process
 
   Scenario: User books a snowboard for 7 days
     Given there is a listing with title "Cool snowboard" from "owner" with category "Items" and with transaction type "Renting"
-      And the price of that listing is 70.0 USD
+      And the price of that listing is 70.0 USD per day
       And Braintree submit to settlement is mocked
       And Braintree escrow release is mocked
 

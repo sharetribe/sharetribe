@@ -134,7 +134,7 @@ describe ListingService::API::Shapes do
   describe "#update" do
     context "success" do
       let(:transaction_type_id) {
-        shapes.create(
+        listings_api.shapes.create(
           community_id: community_id,
           opts: {
             price_enabled: true,
@@ -155,7 +155,7 @@ describe ListingService::API::Shapes do
       }
 
       it "updates listing type units" do
-        update_res = shapes.update(
+        update_res = listings_api.shapes.update(
           community_id: community_id,
           transaction_type_id: transaction_type_id,
           opts: {
@@ -194,7 +194,7 @@ describe ListingService::API::Shapes do
 
     context "failure" do
       it "can not update non-existing shape" do
-        update_res = shapes.update(
+        update_res = listings_api.shapes.update(
           community_id: community_id,
           transaction_type_id: 9999,
           opts: {
