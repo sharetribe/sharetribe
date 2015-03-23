@@ -65,7 +65,6 @@ describe ListingService::API::Shapes do
         expect(tt.price_field?).to eql(true)
         expect(tt.shipping_enabled?).to eql(true)
         expect(tt.transaction_process_id).to eql(transaction_process_id)
-        expect(tt.price_per).to eql("day")
         expect(tt.name_tr_key).to eql(name_tr_key)
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
       end
@@ -124,7 +123,6 @@ describe ListingService::API::Shapes do
         expect(tt.price_field?).to eql(true)
         expect(tt.shipping_enabled?).to eql(true)
         expect(tt.transaction_process_id).to eql(transaction_process_id)
-        expect(tt.price_per).to eql(nil)
         expect(tt.name_tr_key).to eql(name_tr_key)
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
       end
@@ -186,7 +184,6 @@ describe ListingService::API::Shapes do
         expect(tt.price_field?).to eql(true)
         expect(tt.shipping_enabled?).to eql(true)
         expect(tt.transaction_process_id).to eql(transaction_process_id)
-        expect(tt.price_per).to eql("day")
         expect(tt.name_tr_key).to eql(name_tr_key)
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
       end
