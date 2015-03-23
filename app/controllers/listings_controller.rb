@@ -123,7 +123,7 @@ class ListingsController < ApplicationController
       listing_id: @listing.id.to_s,
       payment_gateway: payment_gateway,
       payment_process: process,
-      booking: @listing.transaction_type.price_per.present?
+      booking: @listing.unit_type == :day
     )
 
     delivery_opts = delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.currency)

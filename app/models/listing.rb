@@ -386,4 +386,8 @@ class Listing < ActiveRecord::Base
   def payment_required_at?(community)
     transaction_type.price_field? && community.payments_in_use?
   end
+
+  def unit_type
+    Maybe(read_attribute(:unit_type)).to_sym.or_else(nil)
+  end
 end
