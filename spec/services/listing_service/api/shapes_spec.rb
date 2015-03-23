@@ -130,4 +130,78 @@ describe ListingService::API::Shapes do
       end
     end
   end
+
+  describe "#update" do
+    context "success" do
+      let(:transaction_type_id) {
+        shapes.create(
+          community_id: community_id,
+          opts: {
+            price_enabled: true,
+            shipping_enabled: true,
+            transaction_process_id: transaction_process_id,
+            name_tr_key: name_tr_key,
+            action_button_tr_key: action_button_tr_key,
+
+            # TODO Move these to translation service
+            translations: [
+              { locale: "en", name: "Selling", action_button_label: "Buy" },
+              { locale: "fi", name: "Myydään", action_button_label: "Osta" }
+            ],
+
+            units: []
+          }
+        ).data[:transaction_type_id]
+      }
+
+      it "updates listing type units" do
+        update_res = shapes.update(
+          community_id: community_id,
+          transaction_type_id: transaction_type_id,
+          opts: {
+            units: [{type: :day}]})
+
+        expect(update_res.success).to eql(true)
+
+        shape = update_res.data
+
+        expect(shape[:community_id]).to eql(community_id)
+        expect(shape[:price_enabled]).to eql(true)
+        expect(shape[:shipping_enabled]).to eql(true)
+        expect(shape[:transaction_process_id]).to eql(transaction_process_id)
+        expect(shape[:transaction_type_id]).to eql(transaction_type_id)
+        expect(shape[:name_tr_key]).to eql(name_tr_key)
+        expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
+
+        units = shape[:units]
+
+        expect(units[0][:type]).to eql(:day)
+        # TODO Enable me expect(units[1][:type]).to eql(:custom)
+        # TODO Enable me expect(units[1][:translation_key]).to eql('my.custom.units.translation')
+
+        # TODO Remove this in the future.
+        # Currently also TransactionType is saved
+        tt = TransactionType.find(shape[:transaction_type_id])
+        expect(tt.community_id).to eql(community_id)
+        expect(tt.price_field?).to eql(true)
+        expect(tt.shipping_enabled?).to eql(true)
+        expect(tt.transaction_process_id).to eql(transaction_process_id)
+        expect(tt.price_per).to eql("day")
+        expect(tt.name_tr_key).to eql(name_tr_key)
+        expect(tt.action_button_tr_key).to eql(action_button_tr_key)
+      end
+    end
+
+    context "failure" do
+      it "can not update non-existing shape" do
+        update_res = shapes.update(
+          community_id: community_id,
+          transaction_type_id: 9999,
+          opts: {
+            units: [{type: :day}]})
+
+        expect(update_res.success).to eql(false)
+      end
+    end
+  end
 end
