@@ -128,7 +128,7 @@ module TransactionTypeCreator
     defaults = DEFAULTS[transaction_type_class_name]
 
     # Create
-    shapes_api = ListingService::API::Api.shapes
+    listings_api = ListingService::API::Api
 
     translations = community.locales.map do |locale|
       {
@@ -146,7 +146,7 @@ module TransactionTypeCreator
       shipping_enabled: enable_shipping
     )
 
-    shape_res = shapes_api.create(
+    shape_res = listings_api.shapes.create(
       community_id: community.id,
       opts: shape_opts
     )

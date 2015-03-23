@@ -4,8 +4,8 @@
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
     = render partial: "listings/form/currency_selector", locals: {form: form}
 
-    - if @listing.transaction_type.price_per
-      .quantity-description= t(".per_#{@listing.transaction_type.price_per}")
+    - if Maybe(shape)[:units][0][:type].or_else(nil) == :day
+      .quantity-description= t(".per_day")
 
     - elsif @listing.transaction_type.price_quantity_placeholder?
       .quantity-description= t(".per")
