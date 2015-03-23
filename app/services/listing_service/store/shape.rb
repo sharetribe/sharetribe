@@ -60,7 +60,6 @@ module ListingService::Store::Shape
     shape = NewShape.call(opts.merge(community_id: community_id))
 
     units = shape[:units].map { |unit| Unit.call(unit) }
-    raise NotImplementedError.new("For backward compatibility reasons saving multiple units is not yet supported") if units.length > 1
 
     translations = opts[:translations] # Skip data type and validation, because this is temporary
 
@@ -95,7 +94,6 @@ module ListingService::Store::Shape
     update_shape = UpdateShape.call(opts.merge(community_id: community_id))
 
     units = update_shape[:units].map { |unit| Unit.call(unit) }
-    raise NotImplementedError.new("For backward compatibility reasons saving multiple units is not yet supported") if units.length > 1
 
     translations = opts[:translations] # Skip data type and validation, because this is temporary
 
