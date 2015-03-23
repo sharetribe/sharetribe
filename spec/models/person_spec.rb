@@ -111,7 +111,6 @@ describe Person do
       it "creates a new listing with the submitted attributes" do
         listing = FactoryGirl.create(:listing,
           :title => "Test",
-          :transaction_type => FactoryGirl.create(:transaction_type_sell),
           :author => @test_person
         )
         listing.title.should == "Test"

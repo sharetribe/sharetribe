@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150317142931) do
+ActiveRecord::Schema.define(:version => 20150319121616) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -470,6 +470,14 @@ ActiveRecord::Schema.define(:version => 20150317142931) do
   end
 
   add_index "listing_images", ["listing_id"], :name => "index_listing_images_on_listing_id"
+
+  create_table "listing_units", :force => true do |t|
+    t.string   "unit_type",           :limit => 32, :null => false
+    t.string   "translation_key",     :limit => 64
+    t.integer  "transaction_type_id"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
 
   create_table "listings", :force => true do |t|
     t.string   "author_id"

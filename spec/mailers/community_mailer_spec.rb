@@ -24,8 +24,7 @@ describe "CommunityMailer" do
           :title => "hammer",
           :created_at => 2.days.ago,
           :updates_email_at => 2.days.ago,
-          :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer",
-          :transaction_type => FactoryGirl.create(:transaction_type_sell))
+          :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer")
       @l2.communities << @c1
 
       @email = CommunityMailer.community_updates(
@@ -70,13 +69,11 @@ describe "CommunityMailer" do
       @p2.communities << @c2
 
       @l1 = FactoryGirl.create(:listing,
-          :transaction_type => FactoryGirl.create(:transaction_type_request),
           :title => "bike",
           :description => "A very nice bike",
           :created_at => 3.hours.ago,
           :author => @p1).communities = [@c1]
       @l2 = FactoryGirl.create(:listing,
-          :transaction_type => FactoryGirl.create(:transaction_type_request),
           :title => "motorbike",
           :description => "fast!",
           :created_at => 1.hours.ago,

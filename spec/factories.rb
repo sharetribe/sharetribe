@@ -102,16 +102,33 @@ FactoryGirl.define do
     description("test")
     build_association(:author)
     category { TestHelpers::find_or_build_category("item") }
-    build_association(:transaction_type_sell, as: :transaction_type)
     valid_until 3.months.from_now
     times_viewed 0
     visibility "this_community"
     privacy "public"
     price Money.new(20, "USD")
-
     has_many :communities do |listing|
       FactoryGirl.build(:community)
     end
+    transaction_type {
+      TransactionType.find(
+        ListingService::API::Api.shapes.create(
+        # If community is not given, this will create a new one which differs from the community of the listing.
+        # That's an error, but tests seem to pass
+        community_id: (communities.first || FactoryGirl.create(:community)).id,
+        opts: {
+          price_enabled: true,
+          shipping_enabled: false,
+          transaction_process_id: 12345,
+          name_tr_key: "something.here",
+          action_button_tr_key: "something.here",
+          translations: [
+            { locale: "en", name: "Selling" }
+          ],
+          units: [ {type: :piece} ]
+        }
+      ).data[:transaction_type_id])
+    }
   end
 
   factory :transaction do
@@ -233,30 +250,6 @@ FactoryGirl.define do
   factory :category_translation do
     name "test category"
     locale "en"
-  end
-
-  factory :transaction_type_translation do
-    name "Selling"
-    locale "en"
-    build_association(:transaction_type)
-  end
-
-  factory :transaction_type do
-    build_association(:community)
-
-    ['Sell', 'Give', 'Lend', 'Rent', 'Request', 'Service'].each do |type|
-      factory_name = "transaction_type_#{type.downcase}"
-      defaults = TransactionTypeCreator::DEFAULTS[type]
-      factory factory_name.to_sym, class: "TransactionType" do
-        price_field defaults[:price_field]
-        price_quantity_placeholder defaults[:price_quantity_placeholder]
-        price_per defaults[:price_per]
-
-        has_many :translations do |transaction_type|
-          FactoryGirl.build(:transaction_type_translation, :name => type, :transaction_type => transaction_type)
-        end
-      end
-    end
   end
 
   factory :custom_field, aliases: [:question] do

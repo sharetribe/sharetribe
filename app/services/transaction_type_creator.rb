@@ -11,33 +11,40 @@ module TransactionTypeCreator
 
   DEFAULTS = {
     "Give" => {
-      price_field: false
+      price_enabled: false
     },
     "Inquiry" => {
-      price_field: false
+      price_enabled: false
     },
     "Lend" => {
-      price_field: false
+      price_enabled: false
     },
     "Rent" => {
-      price_field: true,
-      price_per: "day"
+      price_enabled: true,
+      units: [
+        {type: :day}
+      ]
     },
     "Request" => {
-      price_field: false,
+      price_enabled: false,
     },
     "Sell" => {
-      price_field: true
+      price_enabled: true,
+      units: [
+        {type: :piece}
+      ]
     },
     "Service" => {
-      price_field: true,
-      price_per: "day"
+      price_enabled: true,
+      units: [
+        {type: :day}
+      ]
     },
     "ShareForFree" => {
-      price_field: false
+      price_enabled: false
     },
     "Swap" => {
-      price_field: false
+      price_enabled: false
     }
   }
 
@@ -100,30 +107,10 @@ module TransactionTypeCreator
     author_is_seller = transaction_type_class_name != "Request"
     transaction_process = get_or_create_transaction_process(community_id: community.id, process: process, author_is_seller: author_is_seller)
 
-    translations = TRANSLATIONS[transaction_type_class_name]
-    defaults = DEFAULTS[transaction_type_class_name]
-
-    # Create
-    transaction_type = community.transaction_types.build(
-      defaults.merge(transaction_process_id: transaction_process[:id], shipping_enabled: enable_shipping)
-    )
-
-    # Locales
-    community.locales.each do |locale|
-
-      transaction_type.translations.build({
-        locale: locale,
-        name: I18n.t(translations[:translation_key], :locale => locale.to_sym),
-        action_button_label: I18n.t(translations[:action_button_translation_key], :locale => locale.to_sym)
-      })
-    end
-
-    transaction_type.save!
-
     # Save name & action_button_label to TranslationService
+    translations = TRANSLATIONS[transaction_type_class_name]
     name_group =
-      { translation_key: "transaction_type_translation.name.#{transaction_type.id}",
-        translations: community.locales.map { |locale|
+      { translations: community.locales.map { |locale|
           {
             locale: locale,
             translation: I18n.t(translations[:translation_key], :locale => locale.to_sym)
@@ -131,8 +118,7 @@ module TransactionTypeCreator
         }
       }
     action_button_group =
-      { translation_key: "transaction_type_translation.action_button_label.#{transaction_type.id}",
-        translations: community.locales.map { |locale|
+      { translations: community.locales.map { |locale|
           {
             locale: locale,
             translation: I18n.t(translations[:action_button_translation_key], :locale => locale.to_sym)
@@ -140,25 +126,53 @@ module TransactionTypeCreator
         }
       }
     created_translations = TranslationService::API::Api.translations.create(community.id, [name_group, action_button_group])
-    result = created_translations[:data]
-    transaction_type[:name_tr_key] =          result.at(0)[:translation_key]
-    transaction_type[:action_button_tr_key] = result.at(1)[:translation_key]
-    transaction_type.save!
+    name_tr_key, action_button_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }
+
+    defaults = DEFAULTS[transaction_type_class_name]
+
+    # Create
+    shapes_api = ListingService::API::Api.shapes
+
+    translations = community.locales.map do |locale|
+      {
+        locale: locale,
+        name: I18n.t(translations[:translation_key], :locale => locale.to_sym),
+        action_button_label: I18n.t(translations[:action_button_translation_key], :locale => locale.to_sym)
+      }
+    end
+
+    shape_opts = defaults.merge(
+      transaction_process_id: transaction_process[:id],
+      name_tr_key: name_tr_key,
+      action_button_tr_key: action_button_tr_key,
+      translations: translations,
+      shipping_enabled: enable_shipping
+    )
+
+    shape_res = shapes_api.create(
+      community_id: community.id,
+      opts: shape_opts
+    )
+
+    raise ArgumentError.new("Could not create new shape: #{shape_opts}") unless shape_res.success
+
+    new_shape = shape_res.data
+    transaction_type_id = new_shape[:transaction_type_id]
 
     # Categories
     community.categories.each do |category|
-      use_in_category(category, transaction_type)
+      use_in_category(category, transaction_type_id)
     end
 
-    transaction_type
+    new_shape
   end
 
   def available_types
     TransactionTypeCreator::DEFAULTS.map { |type, _| type }
   end
 
-  def use_in_category(category, transaction_type)
-    CategoryTransactionType.create(:category_id => category.id, :transaction_type_id => transaction_type.id)
+  def use_in_category(category, transaction_type_id)
+    CategoryTransactionType.create(:category_id => category.id, :transaction_type_id => transaction_type_id)
   end
 
   def get_or_create_transaction_process(community_id:, process:, author_is_seller:)

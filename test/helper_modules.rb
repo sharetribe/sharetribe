@@ -61,25 +61,40 @@ module TestHelpers
 
       # Load transaction types
       transaction_types.each do |type, translations|
-        default_type_opts = TransactionTypeCreator::DEFAULTS[type.to_s]
+        defaults = TransactionTypeCreator::DEFAULTS[type.to_s]
 
-        type_opts = default_type_opts.merge(
-          transaction_process_id: processes[:none])
-
-        transaction_type = community.transaction_types.build(type_opts)
-
-        community.locales.each do |locale|
+        translations = community.locales.map do |locale|
           translation = translations[locale.to_sym]
 
-          if translation then
-            tt_name = translation[:name]
-            tt_action = translation[:action_button_label]
-            transaction_type.translations.build(:locale => locale, :name => tt_name, :action_button_label => tt_action)
+          if translation
+            {
+              locale: locale,
+              name: translation[:name],
+              action_button_label: translation[:action_button_label]
+            }
           end
-        end
+        end.compact
 
-        transaction_type.save!
+        shape_opts = defaults.merge(
+          transaction_process_id: processes[:none],
+          name_tr_key: 'something.here',
+          action_button_tr_key: 'something.here',
+          translations: translations,
+          shipping_enabled: false
+        )
+
+        shapes_api = ListingService::API::Api.shapes
+
+        shape_res = shapes_api.create(
+          community_id: community.id,
+          opts: shape_opts
+        )
+
+        raise ArgumentError.new("Could not create new shape: #{shape_opts}") unless shape_res.success
       end
+
+      # Community has now new transaction types, so we must reload it
+      community.reload
 
       # Load categories
       categories.each do |c|

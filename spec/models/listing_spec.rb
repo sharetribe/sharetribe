@@ -150,10 +150,6 @@ describe Listing do
 
   context "with listing type 'offer'" do
 
-    before(:each) do
-      @listing.transaction_type = FactoryGirl.create(:transaction_type_give)
-    end
-
     it "should be valid when there is no valid until" do
       @listing.valid_until = nil
       @listing.should be_valid
