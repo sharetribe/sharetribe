@@ -75,12 +75,15 @@ module TestHelpers
           end
         end.compact
 
+        url_source = translations.find{ |t| t[:locale] == community.default_locale }[:name]
+
         shape_opts = defaults.merge(
           transaction_process_id: processes[:none],
           name_tr_key: 'something.here',
           action_button_tr_key: 'something.here',
           translations: translations,
-          shipping_enabled: false
+          shipping_enabled: false,
+          url_source: url_source
         )
 
         listings_api = ListingService::API::Api

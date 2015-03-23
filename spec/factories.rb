@@ -125,7 +125,8 @@ FactoryGirl.define do
           translations: [
             { locale: "en", name: "Selling" }
           ],
-          units: [ {type: :piece} ]
+          units: [ {type: :piece} ],
+          url_source: "Selling"
         }
       ).data[:transaction_type_id])
     }

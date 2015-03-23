@@ -22,7 +22,8 @@ describe ListingsController do
         transaction_process_id: process_id,
         name_tr_key: 'something.here',
         action_button_tr_key: 'something.here',
-        translations: translations.concat([{ locale: "en", name: type }])
+        translations: translations.concat([{ locale: "en", name: type }]),
+        url_source: translations.present? ? translations[0][:name] :type
       })
 
     shape = listings_api.shapes.create(community_id: community_id, opts: opts).data
