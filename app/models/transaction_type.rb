@@ -63,35 +63,32 @@ class TransactionType < ActiveRecord::Base
     result = TranslationService::API::Api.translations
       .get(community_id, {
         translation_keys: [name_tr_key],
-        locales: [locale.to_s],
-        fallback_locale: community.default_locale
+        locales: community.locales
       })
-
-    Maybe(result[:data].first)[:translation].or_else(nil).tap { |translation|
-      if translation.nil?
-        error_msg = "translation missing for key #{name_tr_key} and locale #{locale}"
-        raise ArgumentError.new(error_msg)
-      end
-    }
+    find_any_translation(result[:data], locale)
   end
 
   def action_button_label(locale)
     result = TranslationService::API::Api.translations
       .get(community_id, {
         translation_keys: [action_button_tr_key],
-        locales: [locale.to_s],
+        locales: community.locales,
         fallback_locale: community.default_locale
       })
-
-    Maybe(result[:data].first)[:translation].or_else(nil).tap { |translation|
-      if translation.nil?
-        error_msg = "translation missing for key #{action_button_tr_key} and locale #{locale}"
-        raise ArgumentError.new(error_msg)
-      end
-    }
+    find_any_translation(result[:data], locale)
   end
 
   def self.find_by_url_or_id(url_or_id)
     self.find_by_url(url_or_id) || self.find_by_id(url_or_id)
+  end
+
+  private
+
+  def find_any_translation(data, preferred_locale)
+    tr_hash = data.find {|tr| tr[:locale] == preferred_locale.to_s && tr[:translation].present? }
+    tr_hash = data.find {|tr| tr[:locale] == community.default_locale && tr[:translation].present? } if tr_hash.nil?
+    tr_hash = data.find {|tr| tr[:translation].present?} if tr_hash.nil?
+    raise ArgumentError.new("translations missing for transaction type") if tr_hash.nil?
+    tr_hash[:translation]
   end
 end
