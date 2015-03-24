@@ -31,7 +31,8 @@ class TransactionType < ActiveRecord::Base
     :transaction_process_id,
     :shipping_enabled,
     :name_tr_key,
-    :action_button_tr_key
+    :action_button_tr_key,
+    :url
   )
 
   belongs_to :community
@@ -43,9 +44,6 @@ class TransactionType < ActiveRecord::Base
   has_many :listing_units
 
   validates_presence_of :community
-
-  before_save :uniq_url
-
 
   # TODO this can be removed
   def self.columns
@@ -61,41 +59,36 @@ class TransactionType < ActiveRecord::Base
     url
   end
 
-  def url_source
-    Maybe(default_translation_without_cache).name.or_else(nil).tap { |translation|
-      raise ArgumentError.new("Can not create URL for transaction type. Expected transaction type to have translation") if translation.nil?
+  def display_name(locale)
+    result = TranslationService::API::Api.translations
+      .get(community_id, {
+        translation_keys: [name_tr_key],
+        locales: [locale.to_s],
+        fallback_locale: community.default_locale
+      })
+
+    Maybe(result[:data].first)[:translation].or_else(nil).tap { |translation|
+      if translation.nil?
+        error_msg = "translation missing for key #{name_tr_key} and locale #{locale}"
+        raise ArgumentError.new(error_msg)
+      end
     }
   end
 
-  def default_translation_without_cache
-    (translations.find { |translation| translation.locale == community.default_locale } || translations.first)
-  end
-
-  # TODO this should be done on service layer
-  def uniq_url
-    current_url = url_source.to_url
-
-    if new_record? || url != current_url
-      blacklist = ['new', 'all']
-      base_url = current_url
-      transaction_types = TransactionType.where(community_id: community_id)
-
-      i = 1
-      while blacklist.include?(current_url) || transaction_types.find { |tt| tt.url == current_url && tt.id != id }.present? do
-        current_url = "#{base_url}#{i}"
-        i += 1
-      end
-      self.url = current_url
-    end
-
-  end
-
-  def display_name(locale)
-    TranslationCache.new(self, :translations).translate(locale, :name)
-  end
-
   def action_button_label(locale)
-    TranslationCache.new(self, :translations).translate(locale, :action_button_label)
+    result = TranslationService::API::Api.translations
+      .get(community_id, {
+        translation_keys: [action_button_tr_key],
+        locales: [locale.to_s],
+        fallback_locale: community.default_locale
+      })
+
+    Maybe(result[:data].first)[:translation].or_else(nil).tap { |translation|
+      if translation.nil?
+        error_msg = "translation missing for key #{action_button_tr_key} and locale #{locale}"
+        raise ArgumentError.new(error_msg)
+      end
+    }
   end
 
   def self.find_by_url_or_id(url_or_id)

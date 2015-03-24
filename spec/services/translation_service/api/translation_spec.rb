@@ -3,7 +3,7 @@ describe TranslationService::API::Translations do
   TranslationsAPI = TranslationService::API::Api.translations
 
   before(:each) do
-    @community_id = 1
+    @community_id = 88 # cucumber loads test data for existing test communities
     @translation_key1 = "027268a5-abbf-4191-b6bd-b1e7569b361f"
     @translation_key2 = "blaa-blaa-blaa"
     @locale_en = "en"
