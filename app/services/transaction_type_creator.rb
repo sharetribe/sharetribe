@@ -143,7 +143,8 @@ module TransactionTypeCreator
       name_tr_key: name_tr_key,
       action_button_tr_key: action_button_tr_key,
       translations: translations,
-      shipping_enabled: enable_shipping
+      shipping_enabled: enable_shipping,
+      url_source: translations.find { |t| t[:locale] == community.default_locale }[:name]
     )
 
     shape_res = listings_api.shapes.create(
