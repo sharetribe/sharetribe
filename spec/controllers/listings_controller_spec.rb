@@ -11,7 +11,7 @@ describe ListingsController do
     Rails.cache.clear
   end
 
-  def create_transaction_type(community_id, type, process_id, translations = [], categories = [])
+  def create_shape(community_id, type, process_id, translations = [], categories = [])
     listings_api = ListingService::API::Api
 
     defaults = TransactionTypeCreator::DEFAULTS[type]
@@ -38,9 +38,7 @@ describe ListingsController do
         url_source: Maybe(translations).first[:name].or_else(type)
       })
 
-    shape = listings_api.shapes.create(community_id: community_id, opts: opts).data
-
-    TransactionType.find(shape[:transaction_type_id])
+    listings_api.shapes.create(community_id: community_id, opts: opts).data
   end
 
   before(:each) do
@@ -65,18 +63,80 @@ describe ListingsController do
     c2_request_process = TransactionProcess.create(community_id: @c2.id, process: :none, author_is_seller: false)
     c2_offer_process   = TransactionProcess.create(community_id: @c2.id, process: :none, author_is_seller: true)
 
-    @transaction_type_request       = create_transaction_type(@c1.id, "Request", c1_request_process.id)
-    @transaction_type_sell          = create_transaction_type(@c1.id, "Sell",    c1_offer_process.id, [{locale: "fi", name: "Myydään"}], [@category_item, @category_furniture])
-    @transaction_type_sell_c2       = create_transaction_type(@c2.id, "Sell",    c2_offer_process.id)
-    @transaction_type_request_c2    = create_transaction_type(@c2.id, "Request", c2_request_process.id)
-    @transaction_type_service_offer = create_transaction_type(@c1.id, "Service", c1_request_process.id)
+    request_shape    = create_shape(@c1.id, "Request", c1_request_process.id)
+    sell_shape       = create_shape(@c1.id, "Sell",    c1_offer_process.id, [{locale: "fi", name: "Myydään"}], [@category_item, @category_furniture])
+    sell_c2_shape    = create_shape(@c2.id, "Sell",    c2_offer_process.id)
+    request_c2_shape = create_shape(@c2.id, "Request", c2_request_process.id)
+    service_shape    = create_shape(@c1.id, "Service", c1_request_process.id)
 
-    @l1 = FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :sort_date => 3.days.ago, :author => @p1, :privacy => "public")
+    @transaction_type_request       = TransactionType.find(request_shape[:transaction_type_id])
+    @transaction_type_sell          = TransactionType.find(sell_shape[:transaction_type_id])
+    @transaction_type_sell_c2       = TransactionType.find(sell_c2_shape[:transaction_type_id])
+    @transaction_type_request_c2    = TransactionType.find(request_c2_shape[:transaction_type_id])
+    @transaction_type_service_offer = TransactionType.find(service_shape[:transaction_type_id])
+
+    @l1 = FactoryGirl.create(
+      :listing,
+      :transaction_type => @transaction_type_request,
+      :shape_name_tr_key => request_shape[:name_tr_key],
+      :action_button_tr_key => request_shape[:action_button_tr_key],
+      :title => "bike",
+      :description => "A very nice bike",
+      :created_at => 3.days.ago,
+      :sort_date => 3.days.ago,
+      :author => @p1,
+      :privacy => "public"
+    )
     @l1.communities = [@c1]
-    FactoryGirl.create(:listing, :title => "hammer", :category => @category_item, :created_at => 2.days.ago, :sort_date => 2.days.ago, :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", :transaction_type => @transaction_type_sell, :privacy => "public").communities = [@c1]
-    FactoryGirl.create(:listing, :transaction_type => @transaction_type_request_c2, :title => "help me", :created_at => 12.days.ago, :sort_date => 12.days.ago, :privacy => "public").communities = [@c2]
-    FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway", :privacy => "public").communities = [@c1]
-    @l4 = FactoryGirl.create(:listing, :title => "car", :created_at => 2.months.ago, :sort_date => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :transaction_type => @transaction_type_request, :privacy => "public")
+
+    FactoryGirl.create(
+      :listing,
+      :title => "hammer",
+      :category => @category_item,
+      :created_at => 2.days.ago,
+      :sort_date => 2.days.ago,
+      :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer",
+      :transaction_type => @transaction_type_sell,
+      :shape_name_tr_key => sell_shape[:name_tr_key],
+      :action_button_tr_key => sell_shape[:action_button_tr_key],
+      :privacy => "public"
+    ).communities = [@c1]
+
+    FactoryGirl.create(
+      :listing,
+      :transaction_type => @transaction_type_request_c2,
+      :shape_name_tr_key => request_c2_shape[:name_tr_key],
+      :action_button_tr_key => request_c2_shape[:action_button_tr_key],
+      :title => "help me",
+      :created_at => 12.days.ago,
+      :sort_date => 12.days.ago,
+      :privacy => "public"
+    ).communities = [@c2]
+
+    FactoryGirl.create(
+      :listing,
+      :transaction_type => @transaction_type_request,
+      :shape_name_tr_key => request_shape[:name_tr_key],
+      :action_button_tr_key => request_shape[:action_button_tr_key],
+      :title => "old junk",
+      :open => false,
+      :description => "This should be closed already,
+ but nice stuff anyway",
+      :privacy => "public"
+    ).communities = [@c1]
+
+    @l4 = FactoryGirl.create(
+      :listing,
+      :title => "car",
+      :created_at => 2.months.ago,
+      :sort_date => 2.months.ago,
+      :description => "I needed a car earlier,
+ but now this listing is no more open",
+      :transaction_type => @transaction_type_request,
+      :shape_name_tr_key => request_shape[:name_tr_key],
+      :action_button_tr_key => request_shape[:action_button_tr_key],
+      :privacy => "public"
+    )
     @l4.communities = [@c1]
     @l4.save!
     @l4.update_attribute(:valid_until, 2.days.ago)
