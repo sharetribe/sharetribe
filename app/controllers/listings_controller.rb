@@ -153,9 +153,10 @@ class ListingsController < ApplicationController
       @custom_field_questions = @listing.category.custom_fields
       @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-      @listing.transaction_type = @current_community.transaction_types.find(params[:transaction_type])
-
       shape = get_shape(Maybe(params)[:transaction_type].to_i.or_else(nil))
+
+      # TODO Don't use transaction type model
+      @listing.transaction_type = TransactionType.find(id: shape[:transaction_type_id]) @current_community.transaction_types.find(params[:transaction_type])
 
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
       allow_posting, error_msg = payment_setup_status(

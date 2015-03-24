@@ -54,8 +54,13 @@ class CommunityMailer < ActionMailer::Base
     @url_params[:ref] = "weeklymail"
     @url_params.freeze # to avoid accidental modifications later
 
-
-    @show_transaction_type_label = community.transaction_types.length > 1
+    @show_transaction_type_label =
+      ListingService::API::Api.shapes(community_id: community.id).maybe
+      .map { |shapes| shapes.length > 1 }
+      .or_else(nil)
+      .tap { |result|
+        raise ArgumentError.new("Can not find shapes for community #{community.id}") if result.nil?
+      }
 
     @title_link_text = t("emails.community_updates.title_link_text",
           :community_name => @community.full_name(@recipient.locale))
