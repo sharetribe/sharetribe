@@ -18,7 +18,7 @@
                 %h2{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal; font-size: 22px; margin-bottom: 8px; margin-top: 2px; padding:0;text-justify: none;line-height:26px;"}
                   = link_to listing_url(@url_params.merge({:id => listing.id})), :target => "_blank" do
                     - if @show_transaction_type_label
-                      = listing.transaction_type.display_name(I18n.locale) + ":"
+                      = shape_name(listing) + ":"
                     = listing.title
         - unless listing.listing_images.empty?
           = link_to(image_tag(listing.listing_images.first.image.url(:email), :class => "listing_main_image", :alt => listing.title, :height => "100", :width => "150", :style => "display:block;margin-left:30px;margin-bottom:20px;margin-top:4px;border:0", :align => "right"), listing_url(@url_params.merge({:id => listing.id})))
