@@ -183,7 +183,13 @@ class ListingsController < ApplicationController
     shape = get_shape(Maybe(params)[:listing][:transaction_type_id].to_i.or_else(nil))
     unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
 
-    @listing = Listing.new(create_listing_params(params[:listing]).merge(unit_type: unit_type))
+    @listing = Listing.new(
+      create_listing_params(params[:listing]).merge(
+      unit_type: unit_type,
+      transaction_process_id: shape[:transaction_process_id],
+      shape_name_tr_key: shape[:name_tr_key],
+      action_button_tr_key: shape[:action_button_tr_key]
+    ))
 
     @listing.author = @current_user
     @listing.custom_field_values = create_field_values(params[:custom_fields])
@@ -241,7 +247,15 @@ class ListingsController < ApplicationController
     shape = get_shape(@listing.transaction_type_id)
     unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
 
-    if @listing.update_fields(create_listing_params(params[:listing]).merge(unit_type: unit_type))
+    update_successful = @listing.update_fields(
+      create_listing_params(params[:listing]).merge(
+      unit_type: unit_type,
+      transaction_process_id: shape[:transaction_process_id],
+      shape_name_tr_key: shape[:name_tr_key],
+      action_button_tr_key: shape[:action_button_tr_key]
+    ))
+
+    if update_successful
       @listing.location.update_attributes(params[:location]) if @listing.location
       flash[:notice] = t("layouts.notifications.listing_updated_successfully")
       Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
