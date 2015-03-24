@@ -22,7 +22,7 @@
 
     = form_tag form_path, :method => :get, :id => "booking-dates" do
 
-      - if @listing.transaction_type.price_per
+      - if @listing.unit_type == :day
         - days = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
         - months = [:january, :february, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]
         - translated_days = days.map { |day_symbol| t("datepicker.days.#{day_symbol}") }.to_json

@@ -235,9 +235,14 @@ Given /^the community has transaction type Sell with name "(.*?)" and action but
   @transaction_type = TransactionType.find(shape_res.data[:transaction_type_id])
 end
 
-Given /^that transaction type shows the price of listing per (day)$/ do |price_per|
-  @transaction_type.price_per = price_per
-  @transaction_type.save!
+Given /^that transaction type shows the price of listing per day$/ do
+  ListingService::API::Api.shapes.update(
+    community_id: @current_community.id,
+    transaction_type_id: @transaction_type.id,
+    opts: {
+      units: [type: :day]})
+
+  @transaction_type.reload
 end
 
 Given /^that transaction uses payment preauthorization$/ do

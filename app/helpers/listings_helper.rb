@@ -97,8 +97,8 @@ module ListingsHelper
   end
 
   def price_quantity_slash_unit(listing)
-    if listing.transaction_type.price_per
-      "/ " + t("unit.#{listing.transaction_type.price_per}")
+    if listing.unit_type == :day
+      "/ " + t("unit.day")
     elsif listing.quantity.present?
       "/ #{listing.quantity}"
     else
@@ -107,8 +107,8 @@ module ListingsHelper
   end
 
   def price_quantity_per_unit(listing)
-    if listing.transaction_type.price_per
-      t("listings.show.price.per_#{listing.transaction_type.price_per}")
+    if listing.unit_type == :day
+      t("listings.show.price.per_day")
     elsif listing.quantity.present?
       t("listings.show.price.per_quantity_unit", quantity_unit: listing.quantity)
     else

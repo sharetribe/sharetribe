@@ -29,5 +29,19 @@ module ListingService::API
       ))
     end
 
+    def update(community_id:, listing_shape_id: nil, transaction_type_id: nil, opts:)
+      find_opts = {
+        community_id: community_id,
+        listing_shape_id: listing_shape_id,
+        transaction_type_id: transaction_type_id
+      }
+
+      Maybe(ShapeStore.update(find_opts.merge(opts: opts))).map { |shape|
+        Result::Success.new(shape)
+      }.or_else {
+        Result::Error.new("Can not find listing shape for #{find_opts}")
+      }
+    end
+
   end
 end

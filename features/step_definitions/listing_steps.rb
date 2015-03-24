@@ -8,8 +8,15 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
   create_listing_to_current_community(opts)
 end
 
-Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)$/ do |price, price_decimal, currency|
+Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)(?: per (day))?$/ do |price, price_decimal, currency, price_per|
+  unit_type = if price_per == "day"
+    :day
+  else
+    nil
+  end
+
   @listing.update_attribute(:price, Money.new(price.to_i * 100 + price_decimal.to_i, currency))
+  @listing.update_attribute(:unit_type, unit_type) unless unit_type.nil?
 end
 
 Given /^that listing is closed$/ do
