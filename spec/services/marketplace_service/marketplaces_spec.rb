@@ -43,7 +43,6 @@ describe MarketplaceService::API::Marketplaces do
       community_hash = create(@community_params)
       c = Community.find(community_hash[:id])
       expect(c.transaction_types.first.price_field?).to eql true
-      expect(c.transaction_types.first.price_per).to eql nil
       expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
       expect(c.transaction_types.first.shipping_enabled).to eql true
       s = listings_api.shapes.get(community_id: c.id, transaction_type_id: c.transaction_types.first.id).data
