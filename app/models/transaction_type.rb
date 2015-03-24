@@ -8,13 +8,12 @@
 #  sort_priority              :integer
 #  price_field                :boolean
 #  price_quantity_placeholder :string(255)
-#  price_per                  :string(255)
 #  created_at                 :datetime         not null
 #  updated_at                 :datetime         not null
 #  url                        :string(255)
+#  shipping_enabled           :boolean          default(FALSE)
 #  name_tr_key                :string(255)
 #  action_button_tr_key       :string(255)
-#  shipping_enabled           :boolean          default(FALSE)
 #
 # Indexes
 #

@@ -9,7 +9,7 @@ module PaypalService::Store::PaypalAccount
     # Mandatory
     [:community_id, :mandatory, :fixnum],
     [:person_id, :optional, :string],
-    [:order_permission_request_token, :mandatory, :string],
+    [:order_permission_request_token, :string],
     [:order_permission_paypal_username_to, :mandatory, :string],
 
     # Optional
@@ -19,6 +19,7 @@ module PaypalService::Store::PaypalAccount
 
     [:order_permission_verification_code, :string],
     [:order_permission_scope, :string],
+    [:order_permission_onboarding_id, :string],
 
     [:billing_agreement_billing_agreement_id, :string],
     [:billing_agreement_paypal_username_to, :string],
@@ -31,6 +32,7 @@ module PaypalService::Store::PaypalAccount
     [:payer_id, :string],
     [:order_permission_verification_code, :string],
     [:order_permission_scope, :string],
+    [:order_permission_permissions_granted, :bool],
     [:billing_agreement_billing_agreement_id, :string],
     [:billing_agreement_paypal_username_to, :string],
     [:billing_agreement_request_token, :string]
@@ -63,7 +65,9 @@ module PaypalService::Store::PaypalAccount
       order_permission_request_token: :request_token,
       order_permission_paypal_username_to: :paypal_username_to,
       order_permission_verification_code: :verification_code,
-      order_permission_scope: :scope
+      order_permission_scope: :scope,
+      order_permission_onboarding_id: :onboarding_id,
+      order_permission_permissions_granted: :permissions_granted
     }
 
     # Rename map for PaypalAccount values that are stored to billing_agreement table
@@ -107,19 +111,19 @@ module PaypalService::Store::PaypalAccount
   #
   class PaypalAccountFinder
 
-    def find(person_id:nil, community_id:, payer_id:)
+    def find(person_id: nil, community_id:, payer_id:)
       query_one(person_id: person_id, community_id: community_id, payer_id: payer_id)
     end
 
-    def find_pending(person_id:nil, community_id:, order_permission_request_token:)
-      query_one(person_id: person_id, community_id: community_id, order_permission_request_token: order_permission_request_token)
+    def find_pending(person_id: nil, community_id:, order_permission_request_token:, order_permission_onboarding_id:)
+      query_one(person_id: person_id, community_id: community_id, order_permission_request_token: order_permission_request_token, order_permission_onboarding_id: order_permission_onboarding_id)
     end
 
-    def find_active(person_id:nil, community_id:)
+    def find_active(person_id: nil, community_id:)
       query_one(person_id: person_id, community_id: community_id, active: true)
     end
 
-    def find_all(person_id:nil, community_id:)
+    def find_all(person_id: nil, community_id:)
       query_all(person_id: person_id, community_id: community_id)
     end
 
@@ -163,10 +167,11 @@ module PaypalService::Store::PaypalAccount
     account_model.create_order_permission(order_permission)
     account_model = update_or_create_billing_agreement(account_model, HashUtils.compact(FlattingHelper.select_billing_agreement_values(entity)))
 
+
     from_model(Maybe(account_model))
   end
 
-  def update(community_id:, person_id:nil, payer_id:, opts:)
+  def update(community_id:, person_id: nil, payer_id:, opts:)
     find_params = {
       community_id: community_id,
       person_id: person_id,
@@ -177,18 +182,19 @@ module PaypalService::Store::PaypalAccount
     update_model(model, opts, find_params)
   end
 
-  def update_pending(community_id:, person_id:nil, order_permission_request_token: order_permission_request_token, opts:)
+  def update_pending(community_id:, person_id: nil, order_permission_request_token:, order_permission_onboarding_id:, opts:)
     find_params = {
       community_id: community_id,
       person_id: person_id,
-      order_permission_request_token: order_permission_request_token
+      order_permission_request_token: order_permission_request_token,
+      order_permission_onboarding_id: order_permission_onboarding_id
     }
 
     model = finder.find_pending(find_params)
     update_model(model, opts, find_params)
   end
 
-  def update_active(community_id:, person_id:nil, opts:)
+  def update_active(community_id:, person_id: nil, opts:)
     find_params = {
       community_id: community_id,
       person_id: person_id
@@ -208,22 +214,23 @@ module PaypalService::Store::PaypalAccount
     maybe_billing_agreement.each { |billing_agreement| billing_agreement.destroy }
   end
 
-  def delete_pending(person_id:nil, community_id:, order_permission_request_token:)
+  def delete_pending(person_id: nil, community_id:, order_permission_request_token:, order_permission_onboarding_id:)
     model = finder.find_pending(
       community_id: community_id,
       person_id: person_id,
-      order_permission_request_token: order_permission_request_token
+      order_permission_request_token: order_permission_request_token,
+      order_permission_onboarding_id: order_permission_onboarding_id
     )
     model.each { |account| account.destroy }
   end
 
-  def delete_all(person_id:nil, community_id:)
+  def delete_all(person_id: nil, community_id:)
     finder.find_all(person_id: person_id, community_id: community_id).each { |accounts|
       accounts.each { |account| account.destroy }
     }
   end
 
-  def get(person_id:nil, community_id:, payer_id:)
+  def get(person_id: nil, community_id:, payer_id:)
     from_model(
       finder.find(
         person_id: person_id,
@@ -233,7 +240,7 @@ module PaypalService::Store::PaypalAccount
     )
   end
 
-  def get_active(person_id:nil, community_id:)
+  def get_active(person_id: nil, community_id:)
     from_model(
       finder.find_active(
         person_id: person_id,
@@ -319,9 +326,9 @@ module PaypalService::Store::PaypalAccount
 
         hash[:order_permission_state] =
           Maybe(m).order_permission.map { |perm|
-          if perm.verification_code
+          if perm.verification_code || perm.permissions_granted
             :verified
-          elsif perm.request_token
+          elsif perm.request_token || perm.onboarding_id
             :pending
           else
             :not_verified

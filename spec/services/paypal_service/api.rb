@@ -34,6 +34,12 @@ module PaypalService::API
       @test_permissions ||= PaypalService::TestPermissions.build(api_builder)
     end
 
+    def self.test_onboarding
+      @test_onboarding ||= PaypalService::Onboarding.new(
+        {api_credentials: {partner_id: "partner-id"},
+         endpoint: {endpoint_name: "sandbox"}})
+    end
+
     def self.reset!
       @payments = nil
       @events = nil
@@ -54,6 +60,7 @@ module PaypalService::API
       PaypalService::API::Accounts.new(
         test_permissions,
         test_merchant,
+        test_onboarding,
         PaypalService::TestLogger.new)
     end
 
