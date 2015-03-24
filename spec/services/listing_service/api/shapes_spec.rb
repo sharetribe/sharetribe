@@ -26,7 +26,6 @@ describe ListingService::API::Shapes do
               { locale: "en", name: "Selling", action_button_label: "Buy" },
               { locale: "fi", name: "Myydään", action_button_label: "Osta" }
             ],
-            url_source: "Selling",
 
             units: [
               {type: :day},
@@ -68,7 +67,6 @@ describe ListingService::API::Shapes do
         expect(tt.transaction_process_id).to eql(transaction_process_id)
         expect(tt.name_tr_key).to eql(name_tr_key)
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
-        expect(tt.url).to eql("selling")
       end
 
       it "creates new listing shape with piece unit" do
@@ -86,7 +84,6 @@ describe ListingService::API::Shapes do
               { locale: "en", name: "Selling", action_button_label: "Buy" },
               { locale: "fi", name: "Myydään", action_button_label: "Osta" }
             ],
-            url_source: "Selling",
 
             units: [
               {type: :piece},
@@ -149,7 +146,7 @@ describe ListingService::API::Shapes do
               { locale: "en", name: "Selling", action_button_label: "Buy" },
               { locale: "fi", name: "Myydään", action_button_label: "Osta" }
             ],
-            url_source: "Selling",
+
             units: []
           }
         ).data[:transaction_type_id]
@@ -192,7 +189,6 @@ describe ListingService::API::Shapes do
         expect(tt.transaction_process_id).to eql(transaction_process_id)
         expect(tt.name_tr_key).to eql(name_tr_key)
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
-        expect(tt.url).to eql("selling")
       end
     end
 
