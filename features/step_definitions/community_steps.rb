@@ -18,11 +18,6 @@ module CommunitySteps
       TransactionProcess.find(tt.transaction_process_id).update_attribute(:process, :postpay)
     }
   end
-
-  def save_name_and_action(community_id, groups)
-    created_translations = TranslationService::API::Api.translations.create(community_id, groups)
-    created_translations[:data].map { |translation| translation[:translation_key] }
-  end
 end
 
 World(CommunitySteps)
@@ -180,24 +175,18 @@ Given /^community "(.*?)" has following transaction types enabled:$/ do |communi
   process_id = TransactionProcess.where(community_id: current_community.id, process: :none).first.id
 
   transaction_types.hashes.map do |hash|
-    name_tr_key, action_button_tr_key = save_name_and_action(current_community.id, [
-      {translations: [ {locale: 'fi', translation: hash['fi']}, {locale: 'en', translation: hash['en']} ]},
-      {translations: [ {locale: 'fi', translation: (hash['button'] || 'Action')}, {locale: 'en', translation: (hash['button'] || 'Action')} ]}
-    ])
-
     ListingService::API::Api.shapes.create(
       community_id: current_community.id,
       opts: {
         price_enabled: true,
         shipping_enabled: false,
-        name_tr_key: name_tr_key,
-        action_button_tr_key: action_button_tr_key,
+        name_tr_key: 'something.here',
+        action_button_tr_key: 'something.here',
         transaction_process_id: process_id,
         translations: [
           {name: hash['fi'], action_button_label: (hash['button'] || "Action"), locale: 'fi'},
           {name: hash['en'], action_button_label: (hash['button'] || "Action"), locale: 'en'}
         ],
-        url_source: hash['en'],
         units: [ {type: :piece} ]
       }
     )
@@ -210,21 +199,15 @@ Given /^the community has transaction type Rent with name "(.*?)" and action but
   process_id = TransactionProcess.where(community_id: @current_community.id, process: [:preauthorize, :postpay]).first.id
   defaults = TransactionTypeCreator::DEFAULTS["Rent"]
 
-  name_tr_key, action_button_tr_key = save_name_and_action(@current_community.id, [
-    {translations: [{locale: "en", translation: name}]},
-    {translations: [{locale: "en", translation: (action_button_label || "Action")}]}
-  ])
-
   shape_res = ListingService::API::Api.shapes.create(
     community_id: @current_community.id,
     opts: {
       price_enabled: true,
       shipping_enabled: false,
-      name_tr_key: name_tr_key,
-      action_button_tr_key: action_button_tr_key,
+      name_tr_key: 'something.here',
+      action_button_tr_key: 'something.here',
       transaction_process_id: process_id,
       translations: [ {locale: "en", name: name, action_button_label: action_button_label} ],
-      url_source: name,
       units: [ {type: :day} ]
     }
   )
@@ -236,21 +219,15 @@ Given /^the community has transaction type Sell with name "(.*?)" and action but
   process_id = TransactionProcess.where(community_id: @current_community.id, process: [:preauthorize, :postpay]).first.id
   defaults = TransactionTypeCreator::DEFAULTS["Sell"]
 
-  name_tr_key, action_button_tr_key = save_name_and_action(@current_community.id, [
-    {translations: [{locale: "en", translation: name}]},
-    {translations: [{locale: "en", translation: (action_button_label || "Action")}]}
-  ])
-
   shape_res = ListingService::API::Api.shapes.create(
     community_id: @current_community.id,
     opts: {
       price_enabled: true,
       shipping_enabled: false,
-      name_tr_key: name_tr_key,
-      action_button_tr_key: action_button_tr_key,
+      name_tr_key: 'something.here',
+      action_button_tr_key: 'something.here',
       transaction_process_id: process_id,
       translations: [ {locale: "en", name: name, action_button_label: action_button_label} ],
-      url_source: name,
       units: [ {type: :piece} ]
     }
   )

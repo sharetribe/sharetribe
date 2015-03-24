@@ -111,29 +111,21 @@ FactoryGirl.define do
       FactoryGirl.build(:community)
     end
     transaction_type {
-
-      community = communities.first || FactoryGirl.create(:community)
-      # Save name to TranslationService
-      name_group = { translations: [ { locale: "en", translation: "Selling" } ] }
-      created_translations = TranslationService::API::Api.translations.create(community.id, [name_group])
-      name_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }.first
-
       TransactionType.find(
         ListingService::API::Api.shapes.create(
         # If community is not given, this will create a new one which differs from the community of the listing.
         # That's an error, but tests seem to pass
-        community_id: community.id,
+        community_id: (communities.first || FactoryGirl.create(:community)).id,
         opts: {
           price_enabled: true,
           shipping_enabled: false,
           transaction_process_id: 12345,
-          name_tr_key: name_tr_key,
+          name_tr_key: "something.here",
           action_button_tr_key: "something.here",
           translations: [
             { locale: "en", name: "Selling" }
           ],
-          units: [ {type: :piece} ],
-          url_source: "Selling"
+          units: [ {type: :piece} ]
         }
       ).data[:transaction_type_id])
     }
