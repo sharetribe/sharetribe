@@ -48,14 +48,12 @@ module ListingService::Store::Shape
 
   # TODO Remove transaction_type_id
   def get(community_id:, transaction_type_id: nil, listing_shape_id: nil)
-    if transaction_type_id
-      model = TransactionTypeModel.where(community_id: community_id, id: transaction_type_id).first
-      from_transaction_type_model(model)
-    elsif listing_shape_id
-      raise NotImplementedError.new("Can not find listing shape by listing_shape_id, yet. Specify transaction_type_id instead.")
-    else
-      raise ArgumentError.new("Can not find listing shape without id.")
-    end
+    tt_model = find_tt_model(
+      community_id: community_id,
+      transaction_type_id: transaction_type_id,
+      listing_shape_id: listing_shape_id)
+
+    from_transaction_type_model(tt_model)
   end
 
   def create(community_id:, opts:)
@@ -87,13 +85,10 @@ module ListingService::Store::Shape
   end
 
   def update(community_id:, transaction_type_id: nil, listing_shape_id: nil, opts:)
-    tt_model = if transaction_type_id
-      TransactionTypeModel.where(community_id: community_id, id: transaction_type_id).first
-    elsif listing_shape_id
-      raise NotImplementedError.new("Can not find listing shape by listing_shape_id, yet. Specify transaction_type_id instead.")
-    else
-      raise ArgumentError.new("Can not find listing shape without id.")
-    end
+    tt_model = find_tt_model(
+      community_id: community_id,
+      transaction_type_id: transaction_type_id,
+      listing_shape_id: listing_shape_id)
 
     return nil if tt_model.nil?
 
@@ -106,8 +101,6 @@ module ListingService::Store::Shape
 
     # TODO We should be able to create transaction_type without community
     ActiveRecord::Base.transaction do
-      community = Community.find(community_id)
-
       update_tt_opts = HashUtils.compact(to_tt_model_attributes(update_shape)).except(:units, :translations)
       tt_model.update_attributes(update_tt_opts)
 
@@ -193,6 +186,16 @@ module ListingService::Store::Shape
       end
 
     hash.except(:units)
+  end
+
+  def find_tt_model(community_id:, transaction_type_id: nil, listing_shape_id: nil)
+    if transaction_type_id
+      TransactionTypeModel.where(community_id: community_id, id: transaction_type_id).first
+    elsif listing_shape_id
+      raise NotImplementedError.new("Can not find listing shape by listing_shape_id, yet. Specify transaction_type_id instead.")
+    else
+      raise ArgumentError.new("Can not find listing shape without id.")
+    end
   end
 
 end

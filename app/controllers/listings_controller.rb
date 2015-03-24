@@ -554,7 +554,7 @@ class ListingsController < ApplicationController
       post_pay_listing_path(:listing_id => @listing.id.to_s)
     else
       params = "listing_id: #{listing_id}, payment_gateway: #{payment_gateway}, payment_process: #{payment_process}, booking: #{booking}"
-      raise ArgumentError.new("Can not find new transaction path to params")
+      raise ArgumentError.new("Can not find new transaction path to #{params}")
     end
   end
 
