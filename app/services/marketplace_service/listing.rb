@@ -57,7 +57,7 @@ module MarketplaceService
 
         opts = {
           community_id: community_id,
-          process_id: listing.transaction_type.transaction_process_id
+          process_id: listing.transaction_process_id
         }
 
         process = TransactionService::API::Api.processes.get(opts).maybe[:process].or_else(nil)
