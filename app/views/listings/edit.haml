@@ -1,4 +1,4 @@
-= render :partial => "listings/form/javascripts", :locals => { :listing_id => @listing.id.to_s, :minimum_price_cents => minimum_price_cents, :run_js_immediately => false }
+= render :partial => "listings/form/javascripts", :locals => { listing_id: @listing.id.to_s, minimum_price_cents: minimum_price_cents, run_js_immediately: false, shape: shape }
 
 - content_for :title_header do
   %h1= t(".edit_listing")
