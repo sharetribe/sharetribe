@@ -21,6 +21,15 @@ module URLUtils
     uri.to_s
   end
 
+  # Takes a base_url with no query parameters but with scheme included
+  # and a params hash. Returns a full uri str with query
+  # params. Params with nil values are dropped.
+  def build_url(base_url, params)
+    uri = URI(base_url)
+    uri.query = URI.encode_www_form(HashUtils.compact(params))
+    uri.to_s
+  end
+
   # http://www.sharetribe.com/en/people -> en
   # http://www.sharetribe.com/en-US/people -> en-US
   #
