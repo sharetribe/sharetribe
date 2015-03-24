@@ -137,6 +137,9 @@ FactoryGirl.define do
         }
       ).data[:transaction_type_id])
     }
+    transaction_process_id { transaction_type.transaction_process_id }
+    shape_name_tr_key { transaction_type.name_tr_key }
+    action_button_tr_key { transaction_type.action_button_tr_key }
   end
 
   factory :transaction do

@@ -157,6 +157,9 @@ class ListingsController < ApplicationController
 
       shape = get_shape(Maybe(params)[:transaction_type].to_i.or_else(nil))
 
+      # PaymentRegistrationGuard needs this to be set before posting
+      @listing.transaction_process_id = shape[:transaction_process_id]
+
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
       allow_posting, error_msg = payment_setup_status(
                        community: @current_community,

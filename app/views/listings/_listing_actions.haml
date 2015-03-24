@@ -71,7 +71,7 @@
 
       %button.book-button
         .content
-          = action_button_label(listing)
+          = action_button_label(@listing)
 
     - if payment_gateway == :paypal && process != :none
       .row
