@@ -28,7 +28,6 @@ class TransactionType < ActiveRecord::Base
     :price_field,
     :sort_priority,
     :price_quantity_placeholder,
-    :price_per,
     :transaction_process_id,
     :shipping_enabled,
     :name_tr_key,
@@ -45,15 +44,12 @@ class TransactionType < ActiveRecord::Base
 
   validates_presence_of :community
 
-  validates :price_per, inclusion: { in: %w(day),
-    message: "%{value} is not valid" }, allow_nil: true
-
   before_save :uniq_url
 
 
   # TODO this can be removed
   def self.columns
-    super.reject { |c| c.name == "type" || c.name == "preauthorize_payment" }
+    super.reject { |c| c.name == "type" || c.name == "preauthorize_payment" || c.name == "price_per" }
   end
 
   # TODO this can be removed

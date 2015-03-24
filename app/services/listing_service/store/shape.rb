@@ -60,7 +60,6 @@ module ListingService::Store::Shape
     shape = NewShape.call(opts.merge(community_id: community_id))
 
     units = shape[:units].map { |unit| Unit.call(unit) }
-    raise NotImplementedError.new("For backward compatibility reasons saving multiple units is not yet supported") if units.length > 1
 
     translations = opts[:translations] # Skip data type and validation, because this is temporary
 
@@ -95,7 +94,6 @@ module ListingService::Store::Shape
     update_shape = UpdateShape.call(opts.merge(community_id: community_id))
 
     units = update_shape[:units].map { |unit| Unit.call(unit) }
-    raise NotImplementedError.new("For backward compatibility reasons saving multiple units is not yet supported") if units.length > 1
 
     translations = opts[:translations] # Skip data type and validation, because this is temporary
 
@@ -149,23 +147,10 @@ module ListingService::Store::Shape
   end
 
   def to_tt_model_attributes(hash)
-    model_hash = HashUtils.rename_keys(
+    HashUtils.rename_keys(
       {
         price_enabled: :price_field
-      }, hash)
-
-    unit_type = Maybe(model_hash)[:units][0][:type].or_else(nil)
-
-    case unit_type
-    when :day
-      model_hash[:price_per] = "day"
-    when :piece, nil
-      model_hash[:price_per] = nil
-    else
-      raise ArgumentError.new("Unknown unit type #{unit_type}")
-    end
-
-    model_hash.except(:units)
+      }, hash).except(:units)
   end
 
   def from_tt_model_attributes(model_hash)
@@ -173,19 +158,7 @@ module ListingService::Store::Shape
       {
         price_field: :price_enabled,
         id: :transaction_type_id
-      }, model_hash)
-
-    units =
-      case model_hash[:price_per]
-      when "day"
-        [{type: :day}]
-      when nil
-        [{type: :piece}]
-      else
-        raise ArgumentError.new("Unknown price_per #{model_hash[:price_per]}")
-      end
-
-    hash.except(:units)
+      }, model_hash).except(:units)
   end
 
   def find_tt_model(community_id:, transaction_type_id: nil, listing_shape_id: nil)

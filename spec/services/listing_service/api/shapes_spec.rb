@@ -29,7 +29,7 @@ describe ListingService::API::Shapes do
 
             units: [
               {type: :day},
-              # TODO Enable me {type: :custom, translation_key: 'my.custom.units.translation'}
+              {type: :custom, translation_key: 'my.custom.units.translation'}
             ]
           }
         )
@@ -55,8 +55,8 @@ describe ListingService::API::Shapes do
         units = shape[:units]
 
         expect(units[0][:type]).to eql(:day)
-        # TODO Enable me expect(units[1][:type]).to eql(:custom)
-        # TODO Enable me expect(units[1][:translation_key]).to eql('my.custom.units.translation')
+        expect(units[1][:type]).to eql(:custom)
+        expect(units[1][:translation_key]).to eql('my.custom.units.translation')
 
         # TODO Remove this in the future.
         # Currently also TransactionType is saved
@@ -65,7 +65,6 @@ describe ListingService::API::Shapes do
         expect(tt.price_field?).to eql(true)
         expect(tt.shipping_enabled?).to eql(true)
         expect(tt.transaction_process_id).to eql(transaction_process_id)
-        expect(tt.price_per).to eql("day")
         expect(tt.name_tr_key).to eql(name_tr_key)
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
       end
@@ -88,7 +87,7 @@ describe ListingService::API::Shapes do
 
             units: [
               {type: :piece},
-              # TODO Enable me {type: :custom, translation_key: 'my.custom.units.translation'}
+              {type: :custom, translation_key: 'my.custom.units.translation'}
             ]
           }
         )
@@ -114,8 +113,8 @@ describe ListingService::API::Shapes do
         units = shape[:units]
 
         expect(units[0][:type]).to eql(:piece)
-        # TODO Enable me expect(units[1][:type]).to eql(:custom)
-        # TODO Enable me expect(units[1][:translation_key]).to eql('my.custom.units.translation')
+        expect(units[1][:type]).to eql(:custom)
+        expect(units[1][:translation_key]).to eql('my.custom.units.translation')
 
         # TODO Remove this in the future.
         # Currently also TransactionType is saved
@@ -124,7 +123,6 @@ describe ListingService::API::Shapes do
         expect(tt.price_field?).to eql(true)
         expect(tt.shipping_enabled?).to eql(true)
         expect(tt.transaction_process_id).to eql(transaction_process_id)
-        expect(tt.price_per).to eql(nil)
         expect(tt.name_tr_key).to eql(name_tr_key)
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
       end
@@ -159,7 +157,10 @@ describe ListingService::API::Shapes do
           community_id: community_id,
           transaction_type_id: transaction_type_id,
           opts: {
-            units: [{type: :day}]})
+            units: [
+              {type: :day},
+              {type: :custom, translation_key: 'my.custom.units.translation'}
+            ]})
 
         expect(update_res.success).to eql(true)
 
@@ -186,7 +187,6 @@ describe ListingService::API::Shapes do
         expect(tt.price_field?).to eql(true)
         expect(tt.shipping_enabled?).to eql(true)
         expect(tt.transaction_process_id).to eql(transaction_process_id)
-        expect(tt.price_per).to eql("day")
         expect(tt.name_tr_key).to eql(name_tr_key)
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
       end
