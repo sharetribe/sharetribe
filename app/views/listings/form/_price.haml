@@ -46,7 +46,7 @@
     %h2= t("common.paypal_fee_info.title")
     - text_with_line_breaks_html_safe do
       - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), "https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside")
-      - if shipping_enabled
+      - if shape[:shipping_enabled]
         = t("common.paypal_fee_info.body_with_shipping_text", link_to_paypal: link_to_paypal).html_safe
       - else
         = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
@@ -59,7 +59,7 @@
       :javascript
         $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
 
-- if shipping_enabled
+- if shape[:shipping_enabled]
   .delivery-options-container
     = field_set_tag t(".delivery"), class: "delivery-title" do
       .delivery-row-low
