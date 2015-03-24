@@ -588,7 +588,7 @@ class ListingsController < ApplicationController
 
   def get_transaction_process(community: community, listing: listing)
     opts = {
-      process_id: listing.transaction_type.transaction_process_id,
+      process_id: listing.transaction_process_id,
       community_id: community.id
     }
 
