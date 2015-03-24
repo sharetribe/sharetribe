@@ -165,10 +165,7 @@ class ListingsController < ApplicationController
                        payment_type: payment_type)
 
       if allow_posting
-        render :partial => "listings/form/form_content", locals: commission(@current_community).merge(
-                 shipping_enabled: shipping_enabled?(@listing),
-                 shape: shape
-               )
+        render :partial => "listings/form/form_content", locals: commission(@current_community).merge(shape: shape)
       else
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
@@ -226,9 +223,7 @@ class ListingsController < ApplicationController
 
     shape = get_shape(@listing.transaction_type.id)
 
-    render locals: commission(@current_community).merge(
-             shipping_enabled: shipping_enabled?(@listing),
-             shape: shape)
+    render locals: commission(@current_community).merge(shape: shape)
   end
 
   def update
@@ -379,10 +374,6 @@ class ListingsController < ApplicationController
        commission_from_seller: community.commission_from_seller,
        minimum_price_cents: community.absolute_minimum_price(currency).cents}
     end
-  end
-
-  def shipping_enabled?(listing)
-    listing.transaction_type.shipping_enabled?
   end
 
   def paypal_minimum_commissions_api
