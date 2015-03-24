@@ -221,7 +221,7 @@ class ListingsController < ApplicationController
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-    shape = get_shape(@listing.transaction_type.id)
+    shape = get_shape(@listing.transaction_type_id)
 
     render locals: commission(@current_community).merge(shape: shape)
   end
@@ -238,7 +238,7 @@ class ListingsController < ApplicationController
 
     params[:listing] = normalize_price_param(params[:listing])
 
-    shape = get_shape(@listing.transaction_type.id)
+    shape = get_shape(@listing.transaction_type_id)
     unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
 
     if @listing.update_fields(create_listing_params(params[:listing]).merge(unit_type: unit_type))

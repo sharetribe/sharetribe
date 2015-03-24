@@ -29,7 +29,7 @@ class PaymentRegistrationGuard
 
   def preauthorize_flow_in_use?
     opts = {
-      community_id: @listing.transaction_type.community_id,
+      community_id: @listing.communities.first.id,
       process_id: @listing.transaction_type.transaction_process_id
     }
 
