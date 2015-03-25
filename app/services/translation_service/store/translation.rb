@@ -11,10 +11,6 @@ module TranslationService::Store::Translation
 
   class CachedTranslationStore
 
-    def initialize
-      @local_cache = {}
-    end
-
     # Create translations
     # Format for translation_groups:
     # [ { translation_key: nil // optional key - if defined it will override previous translations
@@ -194,7 +190,6 @@ module TranslationService::Store::Translation
           locale: use_fallback ? fallback[:locale] : locale,
           translation: use_fallback ? fallback[:translation] : nil
         }).merge(error_message(translations_with_key.present?, use_fallback))
-
     end
 
     def error_message(has_translations_with_key, use_fallback)
@@ -226,12 +221,11 @@ module TranslationService::Store::Translation
 
 
     def community_translations_cache(community_id)
-      @local_cache[community_id] ||=
-        Rails.cache.fetch(cache_key(community_id)) do
-          from_model_array(
-            CommunityTranslationModel
-              .where(community_id: community_id))
-        end
+      Rails.cache.fetch(cache_key(community_id)) do
+        from_model_array(
+          CommunityTranslationModel
+            .where(community_id: community_id))
+      end
     end
 
     def cache_key(community_id)
@@ -239,7 +233,6 @@ module TranslationService::Store::Translation
     end
 
     def invalidate_cache(community_id)
-      @local_cache[community_id] = nil
       Rails.cache.delete(cache_key(community_id))
     end
   end
