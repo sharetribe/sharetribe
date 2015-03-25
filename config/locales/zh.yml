@@ -348,7 +348,7 @@ zh:
   common:
     edit_page: 编辑页面
     default_community_slogan: 集市
-    default_community_description: 这是一个出售、租赁、交换和共享商品与服务给其他市集成员的地方。
+    default_community_description: 这是一个出售、出租、交换和共享商品与服务给其他成员的集市。
     cancel: 取消
     fields_that_are_mandatory: 标有星号（*）的为必填项。
     or: 或
@@ -630,9 +630,9 @@ zh:
       you_can_join: "你可以通过接受使用条款并点击”加入%{service_name}“加入%{service_name}。"
       you_can_join_email_confirmation: "为了加入%{service_name}你需要一个以%{email_ending}结尾的有效电子邮件地址。你可以通过填入你的电子邮件地址，接受使用条款并点击”加入%{service_name}“链接来确认你的电子邮件地址。"
       you_can_join_email_confirmation_multiple_addresses: "%{service_name}有邮件限制。你必须有被允许的电子邮件地址才能加入。你可以通过填入你的邮件地址，接受%{service_name}使用条款并点击下面的”%{service_name}“来加入。"
-      you_can_join_with_invite_only: "你必须有其他成员的邀请才能加入%{service_name}。如果你有邀请码，你可以在下面的字段中输入代码，接受使用协议并点击下面的“加入%{service_name}”。"
+      you_can_join_with_invite_only: "你必须有其他成员的邀请才能加入%{service_name}。如果你有邀请码，你可以在下面的输入框中输入代码，接受使用协议并点击下面的“加入%{service_name}”。"
       if_want_to_view_content: "如果你想查看%{service_name}的内容而不加入为成员你需要"
-      log_out: 注销
+      log_out: 退出
       join_community_button: "加入%{service_name}"
   emails:
     accept_reminder:
@@ -694,7 +694,7 @@ zh:
       need_to_confirm: 你需要确认你的Email地址。
       confirmation_link_text: 确认我的电子邮件
       or_paste_link: 或者你可以复制以下链接到你浏览器的地址栏：
-      turning_on_confirmations_in_this_community: "我们开始在%{service_name}市集中使用电子邮件确认。"
+      turning_on_confirmations_in_this_community: "我们开始在%{service_name}中使用电子邮件确认。"
     common:
       check_your_settings: 查看你的设置
       hey: "你好 %{name},"
@@ -783,7 +783,7 @@ zh:
       text_version_text: "你可以共享一些其他人可能需要的东西吗？或者你可能需要一些别人已经拥有的东西？点击%{url}新添一个宝贝或者查看其他人当前提供的或者请求的东西"
     reset_password_instructions:
       change_my_password: 修改密码
-      reset_password_instructions: "<p>你声明你遗忘了服务%{service_name}的用户名或者密码。</p><p>你的用户名是：%{username}</p><p>如果你需要重置密码，点击以下链接：%{password_reset_link}</p><br/><p>如果你没有这个要求，请忽略这封电子邮件。 你的密码将不会改变，直到你访问上面的链接并创建一个新的密码。</p>"
+      reset_password_instructions: "<p>你声明你忘记了%{service_name}的用户名或者密码。</p><p>你的用户名是：%{username}</p><p>如果你需要重置密码，点击以下链接：%{password_reset_link}</p><br/><p>如果你没有这个要求，请忽略这封电子邮件。 你的密码将不会改变，直到你访问上面的链接并创建一个新的密码。</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "评价是对其他用户公开的。其他用户可根据评价来判断 %{name} 是否值得信赖。所以，记得评价别人发起的活动，也提醒别人评价你发起的活动。你需要正面的评价来获得更多的徽章。"
       remember_to_give_feedback_to: "提醒：记得给%{name} 评价"
@@ -1010,7 +1010,7 @@ zh:
     profile_info_empty_notification:
       add_your_info: 添加联系信息
       add_a_profile_picture: 添加头像
-      you_have_not_added_your_info: 你尚未添加联系方式。请添加联系方式以方便他人更方便的联系你。同时请新增个人资料照片从而更容易得到其他人的信任。
+      you_have_not_added_your_info: 你尚未添加联系方式。请添加联系方式以方便他人联系你。同时请添加个人资料照片从而更容易得到其他人的信任
       add_your_info_link: 现在添加个人信息
     recent_listing:
       please_offer: 宝贝
@@ -1196,7 +1196,7 @@ zh:
       you_must_log_in_to_view_this_page: 你必须登录才能查看此页面
       you_must_log_in_to_view_your_inbox: "你必须登录%{service_name}以查看你的收件箱。"
       you_must_log_in_to_view_your_settings: "你必须登录%{service_name}以查看你的设置。"
-      you_must_log_in_to_add_news_item: "你必须登录%{service_name}才能添加新文章。"
+      you_must_log_in_to_add_news_item: "你必须登录%{service_name}才能添加新宝贝。"
       you_must_log_in_to_change_profile_settings: "你必须登录%{service_name}以修改资料设定"
       you_must_log_in_to_change_payment_settings: "你必须登录%{service_name}来修改付款设置"
       you_must_log_in_to_accept_or_reject: 你必须登录才能接受或拒绝交易
@@ -1303,9 +1303,9 @@ zh:
         after_service_fee_you_will_get_vat: "在%{service_name}和付款处理费用之后你将得到大概%{sum_with_currency}（0%消费税）"
         price_excludes_vat: 价格不包含VAT。
         delivery: 配送方式
-        shipping: 运费
+        shipping: 配送
         shipping_price: 运费
-        pickup: 收货
+        pickup: 上门自提
       origin:
         location: 地点
         origin: 来源
@@ -1423,7 +1423,7 @@ zh:
       offer: 宝贝
       listing_created: 已创建
       open_until: "开放至%{date}"
-      feedback: 评论
+      feedback: 评价
       qr_code: QR码
       request: 请求
       rideshare_offer: 顺风车
@@ -1560,7 +1560,7 @@ zh:
       help_captcha_title: 你是人类么？
       help_invitation_code_title: 你需要被邀请才能加入
       terms_title: "%{service_name}的使用条款"
-      invite_only_help_text: 选择这个选项，如果你希望新用户通过被已有用户邀请的方式加入。
+      invite_only_help_text: 如果你希望新用户通过被已有用户邀请的方式加入，请选择这个选项。
       invite_only_help_text_title: 仅允许邀请
     inactive_notification:
       this_person_is_not_active_in_kassi: "此用户在%{service_name}网站上处于冻结状态"
@@ -1574,7 +1574,7 @@ zh:
       email_is_in_use_or_not_allowed: 此Email不允许使用或已被注册。如果你无法注册，请联系我们。
       email_not_allowed: "该电子邮件不允许在%{service_name}中使用。请使用允许的电子邮件地址。如果你还是不能进入，发送反馈给我们。"
       email_restriction_instructions:
-        other: "到%{service_name}的访问受限。你需要电邮地址来证明你有权加入。"
+        other: "访问%{service_name}受限。你需要一个电子邮件地址来加入。"
       enter_captcha: 我是一个人类：
       family_name: 姓
       given_name: 名
@@ -1805,7 +1805,7 @@ zh:
       slightly_better_than_expected: 比期望的略好
       slightly_less_than_expected: 比期望的略差
       textual_feedback: 事情进展如何？
-      this_will_be_shown_in_profile: "你给予的反馈将对在%{person}的资料页面其他会员可见。它将帮助他们评估%{person}是否是一个值得信赖的人。"
+      this_will_be_shown_in_profile: "你给予的反馈将在%{person}的资料页面对其他会员可见。它将帮助他们评估%{person}是否是一个值得信赖的人。"
       positive: 正面的
       negative: 负面的
       default_textual_feedback: 一切顺利，非常感谢！
