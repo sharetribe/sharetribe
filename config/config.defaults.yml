@@ -223,6 +223,11 @@ default: &default_settings
   knowledge_base_url: http://www.example.com/knowledgebase
   display_knowledge_base_articles: false
 
+  # UserVoice Widget
+  # If you want to display a UserVoice widget in the Admin control panel, enter
+  # the URL here. Completely optional and probably not needed in most cases.
+  uservoice_widget_url:
+
 production: &production_settings
   <<: *default_settings
 

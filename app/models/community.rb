@@ -400,7 +400,7 @@ class Community < ActiveRecord::Base
 
   #returns full domain without protocol
   def full_domain(options= {})
-    # assume that if  port is used in domain config, it should
+    # assume that if port is used in domain config, it should
     # be added to the end of the full domain for links to work
     # This concerns usually mostly testing and development
     default_host, default_port = APP_CONFIG.domain.split(':')
