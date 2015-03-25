@@ -12,8 +12,7 @@
 #
 # Indexes
 #
-#  community_translations_key         (community_id,translation_key)
-#  community_translations_key_locale  (community_id,translation_key,locale)
+#  index_community_translations_on_community_id  (community_id)
 #
 
 class CommunityTranslation < ActiveRecord::Base
