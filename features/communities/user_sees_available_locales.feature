@@ -7,8 +7,8 @@ Feature: User sees available locales
   Scenario: User comes to multiple locale community
     Given the test community has following available locales:
       | locale |
-      | fi |
       | en |
+      | fi |
     When I am on the home page
     And I open language menu
     Then I should see "English" on the language menu
