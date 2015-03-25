@@ -2,7 +2,9 @@ module TranslationService::API
 
   class Translations
 
-    TranslationStore = TranslationService::Store::Translation
+    def initialize
+      @store = TranslationService::Store::Translation::CachedTranslationStore.new
+    end
 
 
     ## GET /translations/:community_id/
@@ -10,7 +12,7 @@ module TranslationService::API
       params = TranslationService::DataTypes::Translation
         .validate_find_params(request_params)
 
-      Result::Success.new(TranslationStore.get({
+      Result::Success.new(@store.get({
                             community_id: community_id
                             }.merge(params)))
     end
@@ -26,7 +28,7 @@ module TranslationService::API
       groups = TranslationService::DataTypes::Translation
         .validate_translation_groups({translation_groups: translation_groups})
 
-      Result::Success.new(TranslationStore.create({
+      Result::Success.new(@store.create({
                             community_id: community_id,
                             translation_groups: groups[:translation_groups]
                           }))
@@ -45,7 +47,7 @@ module TranslationService::API
       params = TranslationService::DataTypes::Translation
         .validate_delete_params(translation_keys: translation_keys)
 
-      Result::Success.new(TranslationStore.delete({
+      Result::Success.new(@store.delete({
                             community_id: community_id
                             }.merge(params)))
 
