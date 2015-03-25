@@ -225,7 +225,8 @@ default: &default_settings
 
   # UserVoice Widget
   # If you want to display a UserVoice widget in the Admin control panel, enter
-  # the URL here. Completely optional and probably not needed in most cases.
+  # the URL here. (looks like '//widget.uservoice.com/some_code_here.js')
+  # This is completely optional and probably not needed in most cases.
   uservoice_widget_url:
 
 production: &production_settings
