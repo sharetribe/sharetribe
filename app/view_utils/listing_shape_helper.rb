@@ -10,6 +10,10 @@ module ListingShapeHelper
     transaction_types_to_direction_map(transaction_type.community)[transaction_type.id]
   end
 
+  def transaction_type_id_to_direction(transaction_type_id, community)
+    transaction_types_to_direction_map(community)[transaction_type_id]
+  end
+
   # deprecated
   #
   # This method is deprecated, but it's still in use in Atom API

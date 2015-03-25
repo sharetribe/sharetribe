@@ -183,12 +183,6 @@ module TestHelpers
 
   module_function :find_category_by_name
 
-  def find_transaction_type_by_name(transaction_type_name)
-    TransactionType.all.select do |transaction_type|
-      transaction_type.display_name("en") == transaction_type_name
-    end.first
-  end
-
   def find_numeric_custom_field_type_by_name(name)
     NumericField.all.select do |numeric_custom_field|
       numeric_custom_field.name("en") == name

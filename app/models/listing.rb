@@ -81,7 +81,6 @@ class Listing < ActiveRecord::Base
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
 
   belongs_to :category
-  belongs_to :transaction_type
 
   monetize :price_cents, :allow_nil => true, with_model_currency: :currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
@@ -127,7 +126,6 @@ class Listing < ActiveRecord::Base
   validates_length_of :description, :maximum => 5000, :allow_nil => true
   validates_inclusion_of :visibility, :in => VALID_VISIBILITIES
   validates_presence_of :category
-  validates_presence_of :transaction_type
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 7.months
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
 
@@ -197,7 +195,7 @@ class Listing < ActiveRecord::Base
     params ||= {}  # Set params to empty hash if it's nil
     joined_tables = []
 
-    params[:include] ||= [:listing_images, :category, :transaction_type]
+    params[:include] ||= [:listing_images, :category]
 
     params.reject!{ |key,value| (value == "all" || value == ["all"]) && key != "status"} # all means the fliter doesn't need to be included (except with "status")
 
@@ -234,10 +232,6 @@ class Listing < ActiveRecord::Base
     if params[:transaction_type].present?
       # Sphinx expects integer
       params[:transaction_types] = {:id => params[:transaction_type].to_i}
-    end
-
-    if params[:transaction_type].present? || params[:share_type].present?
-      joined_tables << :transaction_type
     end
 
     # Two ways of finding, with or without sphinx
@@ -333,7 +327,7 @@ class Listing < ActiveRecord::Base
   def as_json(options = {})
     # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
     hash = {
-      :listing_type => ListingShapeHelper.transaction_type_to_direction(self.transaction_type), # deprecated
+      :listing_type => ListingShapeHelper.transaction_type_to_direction(transaction_type_id), # deprecated
       :category => self.category.id,
       :id => self.id,
       :icon => icon_class(icon_name)

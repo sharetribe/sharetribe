@@ -13,34 +13,14 @@ module MarketplaceService
         [:shipping_price, :optional, :money],
         [:quantity, :optional, :string],
         [:transaction_type_id, :mandatory, :fixnum],
+        [:action_button_tr_key, :string],
         [:deleted, :to_bool]
       )
-
-      TransactionType = EntityUtils.define_builder(
-        [:id, :mandatory, :fixnum],
-        [:price_field, :optional, :to_bool],
-        [:url, :optional, :to_bool],
-        [:action_button_label_translations, :optional])
 
       module_function
 
       def listing(listing_model)
         Listing.call(EntityUtils.model_to_hash(listing_model).merge({price: listing_model.price, shipping_price: listing_model.shipping_price}))
-      end
-
-      def transaction_type(transaction_type_model)
-        translations = transaction_type_model.translations
-          .map { |translation|
-            {
-              locale: translation.locale,
-              action_button_label: translation.action_button_label
-            }
-          }
-
-        TransactionType.call(EntityUtils
-          .model_to_hash(transaction_type_model)
-          .merge(action_button_label_translations: translations)
-        )
       end
 
       def send_payment_settings_reminder?(listing_id, community_id)
@@ -102,24 +82,16 @@ module MarketplaceService
         MarketplaceService::Listing::Entity.listing(listing_model)
       end
 
-      def listing_with_transaction_type(listing_id)
-        listing_model = ListingModel.find(listing_id)
-        listing = MarketplaceService::Listing::Entity.listing(listing_model)
-        listing.delete(:transaction_type_id)
-        listing.merge(transaction_type: MarketplaceService::Listing::Entity.transaction_type(listing_model.transaction_type))
-      end
-
       def open_listings_with_price_for(community_id, person_id)
         ListingModel
           .includes(:communities)
-          .includes(:transaction_type)
           .where(
             {
               communities: { id: community_id },
-              transaction_types: { price_field: true },
               author_id: person_id,
               open: true
             })
+          .where("price_cents IS NOT NULL AND price_cents > 0")
           .map { |l| MarketplaceService::Listing::Entity.listing(l) }
       end
     end

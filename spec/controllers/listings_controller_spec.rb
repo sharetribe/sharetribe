@@ -69,15 +69,12 @@ describe ListingsController do
     request_c2_shape = create_shape(@c2.id, "Request", c2_request_process.id)
     service_shape    = create_shape(@c1.id, "Service", c1_request_process.id)
 
-    @transaction_type_request       = TransactionType.find(request_shape[:transaction_type_id])
-    @transaction_type_sell          = TransactionType.find(sell_shape[:transaction_type_id])
-    @transaction_type_sell_c2       = TransactionType.find(sell_c2_shape[:transaction_type_id])
-    @transaction_type_request_c2    = TransactionType.find(request_c2_shape[:transaction_type_id])
-    @transaction_type_service_offer = TransactionType.find(service_shape[:transaction_type_id])
+    # This is needed in the spec, thus save it in instance variable
+    @sell_shape = sell_shape
 
     @l1 = FactoryGirl.create(
       :listing,
-      :transaction_type => @transaction_type_request,
+      :transaction_type_id => request_shape[:transaction_type_id],
       :shape_name_tr_key => request_shape[:name_tr_key],
       :action_button_tr_key => request_shape[:action_button_tr_key],
       :title => "bike",
@@ -96,7 +93,7 @@ describe ListingsController do
       :created_at => 2.days.ago,
       :sort_date => 2.days.ago,
       :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer",
-      :transaction_type => @transaction_type_sell,
+      :transaction_type_id => sell_shape[:transaction_type_id],
       :shape_name_tr_key => sell_shape[:name_tr_key],
       :action_button_tr_key => sell_shape[:action_button_tr_key],
       :privacy => "public"
@@ -104,7 +101,7 @@ describe ListingsController do
 
     FactoryGirl.create(
       :listing,
-      :transaction_type => @transaction_type_request_c2,
+      :transaction_type_id => request_c2_shape[:transaction_type_id],
       :shape_name_tr_key => request_c2_shape[:name_tr_key],
       :action_button_tr_key => request_c2_shape[:action_button_tr_key],
       :title => "help me",
@@ -115,7 +112,7 @@ describe ListingsController do
 
     FactoryGirl.create(
       :listing,
-      :transaction_type => @transaction_type_request,
+      :transaction_type_id => request_shape[:transaction_type_id],
       :shape_name_tr_key => request_shape[:name_tr_key],
       :action_button_tr_key => request_shape[:action_button_tr_key],
       :title => "old junk",
@@ -132,7 +129,7 @@ describe ListingsController do
       :sort_date => 2.months.ago,
       :description => "I needed a car earlier,
  but now this listing is no more open",
-      :transaction_type => @transaction_type_request,
+      :transaction_type_id => request_shape[:transaction_type_id],
       :shape_name_tr_key => request_shape[:name_tr_key],
       :action_button_tr_key => request_shape[:action_button_tr_key],
       :privacy => "public"
@@ -172,7 +169,7 @@ describe ListingsController do
       doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"
       doc.at("feed/entry/listing_type").attribute("term").value.should == "offer"
       doc.at("feed/entry/listing_type").attribute("label").value.should == "Tarjous"
-      doc.at("feed/entry/share_type").attribute("term").value.should == "#{@transaction_type_sell.id}"
+      doc.at("feed/entry/share_type").attribute("term").value.should == "#{@sell_shape[:transaction_type_id]}"
       doc.at("feed/entry/share_type").attribute("label").value.should == "Myydään"
     end
 

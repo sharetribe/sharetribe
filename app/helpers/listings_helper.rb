@@ -36,11 +36,6 @@ module ListingsHelper
     return category.display_name(I18n.locale).capitalize
   end
 
-  def localized_transaction_type_label(transaction_type)
-    return nil if transaction_type.nil?
-    return transaction_type.display_name(I18n.locale).capitalize
-  end
-
   def localized_listing_type_label(listing_type_string)
     return nil if listing_type_string.nil?
     return t("listings.show.#{listing_type_string}", :default => listing_type_string.capitalize)
