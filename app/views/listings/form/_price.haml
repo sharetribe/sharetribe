@@ -7,9 +7,9 @@
     - if Maybe(shape)[:units][0][:type].or_else(nil) == :day
       .quantity-description= t(".per_day")
 
-    - elsif @listing.transaction_type.price_quantity_placeholder?
+    - elsif Maybe(shape)[:price_quantity_placeholder].or_else(false)
       .quantity-description= t(".per")
-      = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{@listing.transaction_type.price_quantity_placeholder}")
+      = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{shape[:price_quantity_placeholder].to_s}")
 
     %small
       - paypal_fee_info_link = "<a href=# id='paypal_fee_info_link'>#{t(".paypal_fee_info_link_text")}</a>"
