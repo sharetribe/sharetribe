@@ -60,8 +60,7 @@ class TransactionType < ActiveRecord::Base
   def display_name(locale)
     result = TranslationService::API::Api.translations
       .get(community_id, {
-        translation_keys: [name_tr_key],
-        locales: community.locales
+        translation_keys: [name_tr_key]
       })
     find_any_translation(result[:data], locale)
   end
@@ -69,9 +68,7 @@ class TransactionType < ActiveRecord::Base
   def action_button_label(locale)
     result = TranslationService::API::Api.translations
       .get(community_id, {
-        translation_keys: [action_button_tr_key],
-        locales: community.locales,
-        fallback_locale: community.default_locale
+        translation_keys: [action_button_tr_key]
       })
     find_any_translation(result[:data], locale)
   end
