@@ -153,8 +153,6 @@ class ListingsController < ApplicationController
       @custom_field_questions = @listing.category.custom_fields
       @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-      @listing.transaction_type = @current_community.transaction_types.find(params[:transaction_type])
-
       shape = get_shape(Maybe(params)[:transaction_type].to_i.or_else(nil))
 
       # PaymentRegistrationGuard needs this to be set before posting
