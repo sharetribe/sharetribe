@@ -30,4 +30,4 @@
             = price_text
       - else
         %span.fluid-thumbnail-grid-image-type{:class => "#{modifier_class}"}
-          = listing.transaction_type.display_name(I18n.locale)
+          = shape_name(listing)

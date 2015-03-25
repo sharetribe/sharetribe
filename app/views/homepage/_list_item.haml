@@ -16,7 +16,7 @@
             = price_text
       - else
         .home-list-transaction-type-value
-          = listing.transaction_type.display_name(I18n.locale)
+          = shape_name(listing)
 
   %div{:class => (listing.listing_images.size > 0 ? "home-list-details-with-image" : "")}
     %h2.home-list-title
@@ -25,7 +25,7 @@
         - if @current_community.show_category_in_listing_list
           %a.home-share-type-link{:href => transaction_type_url(listing, params[:view])}
             = icon_tag(listing.icon_name, ["icon-fix"])
-            = listing.transaction_type.display_name(I18n.locale)
+            = shape_name(listing)
 
   .home-list-author{:class => (listing.listing_images.size > 0 ? "home-list-author-with-listing-image" : "home-list-author-without-listing-image")}
     .home-list-avatar
@@ -44,4 +44,4 @@
       = humanized_money_with_symbol(listing.price).upcase
     - else
       %span.smaller
-        = listing.transaction_type.display_name(I18n.locale)
+        = shape_name(listing)

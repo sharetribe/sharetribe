@@ -24,11 +24,13 @@ module ListingsHelper
   end
 
   def listed_listing_title(listing)
-    listing.transaction_type.display_name(I18n.locale) + ": #{listing.title}"
+    shape_name = get_translations([listing.shape_name_tr_key], listing.communities.first).first
+
+    shape_name + ": #{listing.title}"
   end
 
   def transaction_type_url(listing, view)
-    root_path(:transaction_type => listing.transaction_type.id, :view => view)
+    root_path(:transaction_type => listing.transaction_type_id, :view => view)
   end
 
   def localized_category_label(category)
@@ -114,5 +116,32 @@ module ListingsHelper
     else
       ""
     end
+  end
+
+  def shape_name(listing)
+    get_translations([listing.shape_name_tr_key], listing.communities.first).first
+  end
+
+  def action_button_label(listing)
+    get_translations([listing.action_button_tr_key], listing.communities.first).first
+  end
+
+  # private
+  def get_translations(translation_keys, community)
+    locale = I18n.locale.to_s
+    fallback = community.default_locale.to_s
+
+    result = TranslationService::API::Api.translations
+      .get(community.id, {
+        translation_keys: translation_keys,
+        locales: [locale],
+        fallback_locale: fallback
+           })
+
+    data = result[:data]
+
+    data.select { |t| t[:translation].nil? }.each { |t| raise ArgumentError.new("translation missing: #{t}") }
+
+    data.map { |t| t[:translation] }
   end
 end

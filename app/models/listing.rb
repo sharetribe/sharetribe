@@ -30,6 +30,9 @@
 #  category_id              :integer
 #  share_type_id            :integer
 #  transaction_type_id      :integer
+#  transaction_process_id   :integer
+#  shape_name_tr_key        :string(255)
+#  action_button_tr_key     :string(255)
 #  organization_id          :integer
 #  price_cents              :integer
 #  currency                 :string(255)
@@ -384,7 +387,7 @@ class Listing < ActiveRecord::Base
   end
 
   def payment_required_at?(community)
-    transaction_type.price_field? && community.payments_in_use?
+    price && price > 0 && community.payments_in_use?
   end
 
   def unit_type

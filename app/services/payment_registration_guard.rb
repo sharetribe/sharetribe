@@ -17,13 +17,20 @@ class PaymentRegistrationGuard
   private
 
   def requires_registration?
-    @listing.payment_required_at?(@community) && not_registered_already?
+    find_opts = { community_id: @community.id, transaction_type_id: @listing.transaction_type_id }
+    res = ListingService::API::Api.shapes.get(find_opts)
+
+    res.maybe.map { |shape|
+      shape[:price_enabled] && not_registered_already?
+    }.or_else(nil).tap { |result|
+      raise ArgumentError.new("Can not find shape: #{find_opts}") if result.nil?
+    }
   end
 
   def preauthorize_flow_in_use?
     opts = {
-      community_id: @listing.transaction_type.community_id,
-      process_id: @listing.transaction_type.transaction_process_id
+      community_id: @listing.communities.first.id,
+      process_id: @listing.transaction_process_id
     }
 
     TransactionService::API::Api.processes.get(opts)

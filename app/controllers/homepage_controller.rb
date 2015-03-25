@@ -21,11 +21,13 @@ class HomepageController < ApplicationController
 
     @categories = @current_community.categories
     @main_categories = @current_community.main_categories
-    @transaction_types = @current_community.transaction_types
+    shapes_res = listings_api.shapes.get(community_id: @current_community.id)
+
+    shapes = shapes_res.maybe.or_else(nil).tap { raise ArgumentError.new("Could not find shape for community #{@current_community.id}")}
 
     # This assumes that we don't never ever have communities with only 1 main share type and
     # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
-    @transaction_type_menu_enabled = @transaction_types.size > 1
+    @transaction_type_menu_enabled = shapes.size > 1
     @show_categories = @current_community.categories.size > 1
     filters_enabled = @current_community.custom_fields.size > 0 || @current_community.show_price_filter
     @show_custom_fields = @current_community.custom_fields.select { |field| field.can_filter? }.present?
@@ -50,6 +52,8 @@ class HomepageController < ApplicationController
       else
         render :partial => "list_item", :collection => @listings, :as => :listing
       end
+    else
+      render locals: { m_selected_shape: @m_selected_shape }
     end
   end
 
@@ -78,10 +82,16 @@ class HomepageController < ApplicationController
       @selected_category = category
     end
 
-    Maybe(@current_community.transaction_types.find_by_url_or_id(params[:transaction_type])).each do |transaction_type|
-      filter_params[:transaction_type] = transaction_type.id
-      @selected_transaction_type = transaction_type
-    end
+    @m_selected_shape = Maybe(params[:transaction_type]).flat_map { |param|
+      listings_api.shapes.find_by_url(
+        community_id: @current_community.id,
+        url_param: param
+      ).maybe
+    }
+
+    @m_selected_shape.each { |shape|
+      filter_params[:transaction_type] = shape[:transaction_type_id]
+    }
 
     @listing_count = @current_community.listings.currently_open.count
     unless @current_user
@@ -177,5 +187,9 @@ class HomepageController < ApplicationController
 
   def self.checkbox_field_options_for_search(params)
     options_from_params(params, /^checkbox_filter_option/).flatten
+  end
+
+  def listings_api
+    ListingService::API::Api
   end
 end
