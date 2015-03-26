@@ -9,10 +9,10 @@ module PaypalService::Store::PaypalAccount
     # Mandatory
     [:community_id, :mandatory, :fixnum],
     [:person_id, :optional, :string],
-    [:order_permission_request_token, :string],
     [:order_permission_paypal_username_to, :mandatory, :string],
 
     # Optional
+    [:order_permission_request_token, :string],
     [:active, one_of: [true, false, nil]],
     [:email, :string],
     [:payer_id, :string],

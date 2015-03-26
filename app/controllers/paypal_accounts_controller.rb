@@ -275,7 +275,6 @@ class PaypalAccountsController < ApplicationController
   # TODO Per community "Feature flag" for using new paypal account connect flow
   def use_new_connect_flow?(community)
     false
-    # true
   end
 
   def paypal_minimum_commissions_api
