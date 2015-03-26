@@ -59,6 +59,12 @@ module ListingService::Store::Shape
     from_transaction_type_model(tt_model)
   end
 
+  def get_all(community_id:)
+    tt_models = find_tt_models(community_id: community_id)
+
+    tt_models.map { |m| from_transaction_type_model(m) }
+  end
+
   def create(community_id:, opts:)
     shape = NewShape.call(opts.merge(community_id: community_id))
 
@@ -175,6 +181,10 @@ module ListingService::Store::Shape
     else
       raise ArgumentError.new("Can not find listing shape without id.")
     end
+  end
+
+  def find_tt_models(community_id:)
+    TransactionTypeModel.where(community_id: community_id)
   end
 
   def uniq_url(url_source, community_id)

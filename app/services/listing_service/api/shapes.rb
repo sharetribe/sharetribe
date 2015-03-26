@@ -7,17 +7,22 @@ module ListingService::API
     # Current implementation can seach listing shapes by transaction_type_id or listing_shape_id.
     # This will change in the future.
     def get(community_id:, listing_shape_id: nil, transaction_type_id: nil)
-      find_opts = {
-        community_id: community_id,
-        listing_shape_id: listing_shape_id,
-        transaction_type_id: transaction_type_id
-      }
+      if listing_shape_id || transaction_type_id
+        find_opts = {
+          community_id: community_id,
+          listing_shape_id: listing_shape_id,
+          transaction_type_id: transaction_type_id
+        }
 
-      Maybe(ShapeStore.get(find_opts)).map { |shape|
-        Result::Success.new(shape)
-      }.or_else {
-        Result::Error.new("Can not find listing shape for #{find_opts}")
-      }
+        Maybe(ShapeStore.get(find_opts)).map { |shape|
+          Result::Success.new(shape)
+        }.or_else {
+          Result::Error.new("Can not find listing shape for #{find_opts}")
+        }
+      else
+        Result::Success.new(ShapeStore.get_all(community_id: community_id))
+      end
+
     end
 
     # TODO Move transaction_type creation inside the API
