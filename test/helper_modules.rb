@@ -101,9 +101,7 @@ module TestHelpers
           url_source: url_source
         )
 
-        listings_api = ListingService::API::Api
-
-        shape_res = listings_api.shapes.create(
+        shape_res = ListingService::API::Api.shapes.create(
           community_id: community.id,
           opts: shape_opts
         )
@@ -136,7 +134,10 @@ module TestHelpers
     end
 
     def self.add_transaction_types_and_translations_to_category(category, category_name)
-      category.community.transaction_types.each { |tt| category.transaction_types << tt }
+      ListingService::API::Api.shapes.get(community_id: category.community.id)[:data].each do |s|
+        CategoryTransactionType.create!(category_id: category.id, transaction_type_id: s[:transaction_type_id])
+      end
+
       category.community.locales.each do |locale|
         cat_name = I18n.t!(category_name, :locale => locale, :scope => ["common", "categories"], :raise => true)
         category.translations.create!(:locale => locale, :name => cat_name)
@@ -263,4 +264,5 @@ module TestHelpers
     :confirmed_at => "2012-05-04 18:17:04")
   end
   module_function :load_default_test_data_to_db_before_test
+
 end
