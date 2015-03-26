@@ -24,9 +24,7 @@ module ListingsHelper
   end
 
   def listed_listing_title(listing)
-    shape_name = get_translations([listing.shape_name_tr_key], listing.communities.first).first
-
-    shape_name + ": #{listing.title}"
+    shape_name(listing) + ": #{listing.title}"
   end
 
   def transaction_type_url(listing, view)
@@ -119,29 +117,10 @@ module ListingsHelper
   end
 
   def shape_name(listing)
-    get_translations([listing.shape_name_tr_key], listing.communities.first).first
+    ts(listing.shape_name_tr_key, community: listing.communities.first)
   end
 
   def action_button_label(listing)
-    get_translations([listing.action_button_tr_key], listing.communities.first).first
-  end
-
-  # private
-  def get_translations(translation_keys, community)
-    locale = I18n.locale.to_s
-    fallback = community.default_locale.to_s
-
-    result = TranslationService::API::Api.translations
-      .get(community.id, {
-        translation_keys: translation_keys,
-        locales: [locale],
-        fallback_locale: fallback
-           })
-
-    data = result[:data]
-
-    data.select { |t| t[:translation].nil? }.each { |t| raise ArgumentError.new("translation missing: #{t}") }
-
-    data.map { |t| t[:translation] }
+    ts(listing.action_button_tr_key, community: listing.communities.first)
   end
 end

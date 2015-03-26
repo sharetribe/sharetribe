@@ -4,6 +4,7 @@ include ApplicationHelper
 include PeopleHelper
 include ListingsHelper
 include TruncateHtmlHelper
+include TranslationHelper
 
 class PersonMailer < ActionMailer::Base
   include MailUtils
