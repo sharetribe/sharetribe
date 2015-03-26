@@ -52,6 +52,7 @@ default: &default_settings
   paypal_username: xxxxxxxxxxxxx
   paypal_password: xxxxxxxxxxxxx
   paypal_signature: xxxxxxxxxxxxx
+  paypal_partner_id: xxxxxxxxxxxxx # payerID for paypal platform owner account
   paypal_app_id: APP-80W284485P519543T # Global test id
   paypal_button_source: # Unique value given to you by your PayPal contact
 

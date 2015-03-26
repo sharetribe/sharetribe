@@ -79,10 +79,12 @@ module PaypalService::API::DataTypes
   AccountRequest = EntityUtils.define_builder(
     [:community_id, :mandatory, :fixnum],
     [:person_id, :optional, :string],
-    [:redirect_url, :mandatory, :string])
+    [:redirect_url, :mandatory, :string],
+    [:onboarding_params, :hash])
 
   AccountPermissionVerificationRequest = EntityUtils.define_builder(
-    [:order_permission_verification_code, :mandatory, :string])
+    [:order_permission_verification_code, :string],
+    [:onboarding_params, :hash])
 
   CreateBillingAgreementRequest = EntityUtils.define_builder(
     [:description, :mandatory, :string],

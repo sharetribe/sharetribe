@@ -33,17 +33,17 @@ module PaypalService
       end
     end
 
-    def build_endpoint(app_config)
-      PaypalService::DataTypes.create_endpoint({ endpoint_name: app_config.paypal_endpoint })
+    def build_endpoint(config)
+      PaypalService::DataTypes.create_endpoint({ endpoint_name: config.paypal_endpoint })
     end
 
-    def build_api_credentials(app_config)
+    def build_api_credentials(config)
       PaypalService::DataTypes.create_api_credentials({
-        username: app_config.paypal_username,
-        password: app_config.paypal_password,
-        signature: app_config.paypal_signature,
-        app_id: app_config.paypal_app_id
-      })
+        username: config.paypal_username,
+        password: config.paypal_password,
+        signature: config.paypal_signature,
+        app_id: config.paypal_app_id,
+        partner_id: config.paypal_partner_id})
     end
   end
 end

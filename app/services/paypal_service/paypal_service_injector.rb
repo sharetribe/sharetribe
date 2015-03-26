@@ -33,10 +33,6 @@ module PaypalService
     end
 
     def build_paypal_payments
-      print_event_dummy = -> (event, payload) {
-        puts "Event #{event} triggered with payload: #{payload}"
-      }
-
       events = Events.new({
           request_cancelled: -> (flow, token) {
             TransactionService::PaypalEvents.request_cancelled(flow, token)
@@ -54,8 +50,8 @@ module PaypalService
     def build_paypal_accounts
       PaypalService::API::Accounts.new(
         PaypalService::PermissionsInjector.build_paypal_permissions,
-        PaypalService::MerchantInjector.build_paypal_merchant
-      )
+        PaypalService::MerchantInjector.build_paypal_merchant,
+        PaypalService::OnboardingInjector.build_paypal_onboarding)
     end
   end
 end

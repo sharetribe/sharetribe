@@ -1,20 +1,17 @@
 module PaypalService
-  module PermissionsInjector
-    def paypal_permissions
-      @paypal_permissions ||= build_paypal_permissions
+  module OnboardingInjector
+    def paypal_onboarding
+      @paypal_onboarding ||= build_paypal_onboarding
     end
 
     module_function
 
-    def build_paypal_permissions
-      config = DataTypes.create_config(
-        {
-          endpoint: build_endpoint(APP_CONFIG),
-          api_credentials: build_api_credentials(APP_CONFIG)
-        }
-      )
+    def build_paypal_onboarding
+      config = DataTypes.create_config({
+        endpoint: build_endpoint(APP_CONFIG),
+        api_credentials: build_api_credentials(APP_CONFIG)})
 
-      PaypalService::Permissions.new(config, PaypalService::Logger.new)
+      PaypalService::Onboarding.new(config)
     end
 
     def build_endpoint(config)
