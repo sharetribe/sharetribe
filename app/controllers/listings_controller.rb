@@ -153,9 +153,11 @@ class ListingsController < ApplicationController
       @custom_field_questions = @listing.category.custom_fields
       @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-      @listing.transaction_type = @current_community.transaction_types.find(params[:transaction_type])
-
       shape = get_shape(Maybe(params)[:transaction_type].to_i.or_else(nil))
+
+      # PaymentRegistrationGuard needs this to be set before posting
+      @listing.transaction_process_id = shape[:transaction_process_id]
+      @listing.transaction_type_id = shape[:transaction_type_id]
 
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
       allow_posting, error_msg = payment_setup_status(
@@ -179,7 +181,7 @@ class ListingsController < ApplicationController
       params[:listing].delete("origin_loc_attributes")
     end
 
-    params[:listing] = normalize_price_param(params[:listing]);
+    params[:listing] = normalize_price_param(params[:listing])
     shape = get_shape(Maybe(params)[:listing][:transaction_type_id].to_i.or_else(nil))
     unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
 
@@ -588,7 +590,7 @@ class ListingsController < ApplicationController
 
   def get_transaction_process(community: community, listing: listing)
     opts = {
-      process_id: listing.transaction_type.transaction_process_id,
+      process_id: listing.transaction_process_id,
       community_id: community.id
     }
 

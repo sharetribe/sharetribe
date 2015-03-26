@@ -12,6 +12,7 @@ module ListingService::Store::Shape
     [:translations, :array, :optional], # TODO Only temporary
     [:shipping_enabled, :bool, :mandatory],
     [:units, :array, default: []], # Mandatory only if price_enabled
+    [:price_quantity_placeholder, one_of: [nil, :mass, :time, :long_time]], # TODO TEMP
     [:url_source, :string, :mandatory]
   )
 
@@ -26,7 +27,8 @@ module ListingService::Store::Shape
     [:transaction_process_id, :fixnum, :mandatory],
     [:translations, :array, :optional], # TODO Only temporary
     [:units, :array, :mandatory],
-    [:shipping_enabled, :bool, :mandatory]
+    [:shipping_enabled, :bool, :mandatory],
+    [:price_quantity_placeholder, :to_symbol, one_of: [nil, :mass, :time, :long_time]] # TODO TEMP
   )
 
   UpdateShape = EntityUtils.define_builder(

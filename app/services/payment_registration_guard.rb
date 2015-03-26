@@ -28,7 +28,7 @@ class PaymentRegistrationGuard
   def preauthorize_flow_in_use?
     opts = {
       community_id: @community.id,
-      process_id: @listing.transaction_type.transaction_process_id
+      process_id: @listing.transaction_process_id
     }
 
     TransactionService::API::Api.processes.get(opts)

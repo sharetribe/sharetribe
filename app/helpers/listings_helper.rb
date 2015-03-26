@@ -24,7 +24,7 @@ module ListingsHelper
   end
 
   def listed_listing_title(listing)
-    listing.transaction_type.display_name(I18n.locale) + ": #{listing.title}"
+    shape_name(listing) + ": #{listing.title}"
   end
 
   def transaction_type_url(listing, view)
@@ -114,5 +114,13 @@ module ListingsHelper
     else
       ""
     end
+  end
+
+  def shape_name(listing)
+    ts(listing.shape_name_tr_key, community: listing.communities.first)
+  end
+
+  def action_button_label(listing)
+    ts(listing.action_button_tr_key, community: listing.communities.first)
   end
 end

@@ -20,6 +20,7 @@ describe ListingService::API::Shapes do
             transaction_process_id: transaction_process_id,
             name_tr_key: name_tr_key,
             action_button_tr_key: action_button_tr_key,
+            price_quantity_placeholder: :time,
 
             # TODO Move these to translation service
             translations: [
@@ -52,6 +53,7 @@ describe ListingService::API::Shapes do
         expect(shape[:transaction_type_id]).to be_a(Fixnum)
         expect(shape[:name_tr_key]).to eql(name_tr_key)
         expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
+        expect(shape[:price_quantity_placeholder]).to eql(:time)
 
         units = shape[:units]
 
@@ -69,6 +71,7 @@ describe ListingService::API::Shapes do
         expect(tt.name_tr_key).to eql(name_tr_key)
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
         expect(tt.url).to eql("selling")
+        expect(tt.price_quantity_placeholder).to eql("time")
       end
 
       it "creates new listing shape with piece unit" do

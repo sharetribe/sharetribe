@@ -71,7 +71,7 @@
 
       %button.book-button
         .content
-          = @listing.transaction_type.action_button_label(I18n.locale)
+          = action_button_label(@listing)
 
     - if payment_gateway == :paypal && process != :none
       .row
