@@ -372,4 +372,9 @@ class ApplicationController < ActionController::Base
       redirect_to("https://#{request.host_with_port}#{request.fullpath}") unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || request.fullpath == "/robots.txt"
     end
   end
+
+  def translate(key, opts = {})
+    @community_translations ||= TranslationService::API::Api.translations.get(@current_community.id)[:data]
+    TranslationServiceHelper.pick_translation(key, @community_translations, @current_community.locales, I18n.locale, opts)
+  end
 end
