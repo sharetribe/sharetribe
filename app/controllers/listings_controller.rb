@@ -157,6 +157,7 @@ class ListingsController < ApplicationController
 
       # PaymentRegistrationGuard needs this to be set before posting
       @listing.transaction_process_id = shape[:transaction_process_id]
+      @listing.transaction_type_id = shape[:transaction_type_id]
 
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
       allow_posting, error_msg = payment_setup_status(
@@ -180,7 +181,7 @@ class ListingsController < ApplicationController
       params[:listing].delete("origin_loc_attributes")
     end
 
-    params[:listing] = normalize_price_param(params[:listing]);
+    params[:listing] = normalize_price_param(params[:listing])
     shape = get_shape(Maybe(params)[:listing][:transaction_type_id].to_i.or_else(nil))
     unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
 
