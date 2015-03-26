@@ -49,8 +49,8 @@
             .toggle.with-borders#home_toolbar-select-share-type{data: {toggle: '.home-toolbar-share-type-menu'}}
               .toggle-header-container
                 .toggle-header
-                  - if @selected_transaction_type
-                    = @selected_transaction_type.display_name(I18n.locale).mb_chars.capitalize.to_s
+                  - if selected_shape
+                    = ts(selected_shape[:name_tr_key]).mb_chars.capitalize.to_s
                   - else
                     = t("homepage.filters.all_listing_types")
 
@@ -58,9 +58,9 @@
 
             .home-toolbar-share-type-menu.toggle-menu.hidden
               = link_to t("homepage.filters.all_listing_types"), params.merge({transaction_type: "all"})
-              - @transaction_types.each do |transaction_type|
-                = link_to params.merge({transaction_type: transaction_type}), :class => "toggle-menu-subitem" do
-                  = transaction_type.display_name(I18n.locale).mb_chars.capitalize.to_s
+              - shapes.each do |shape|
+                = link_to params.merge({transaction_type: shape[:url]}), class:  "toggle-menu-subitem" do
+                  = ts(shape[:name_tr_key]).mb_chars.capitalize.to_s
 
         - if @show_categories
           .toggle-container.home-toolbar-toggle-container.hidden-tablet
