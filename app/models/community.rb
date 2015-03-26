@@ -583,7 +583,7 @@ class Community < ActiveRecord::Base
 
   # is it possible to pay for this listing via the payment system
   def payment_possible_for?(listing)
-    listing.transaction_type.price_field? && payments_in_use?
+    listing.price && listing.price > 0 && payments_in_use?
   end
 
   # Deprecated

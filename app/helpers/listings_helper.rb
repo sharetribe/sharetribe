@@ -28,7 +28,7 @@ module ListingsHelper
   end
 
   def transaction_type_url(listing, view)
-    root_path(:transaction_type => listing.transaction_type.id, :view => view)
+    root_path(:transaction_type => listing.transaction_type_id, :view => view)
   end
 
   def localized_category_label(category)

@@ -165,10 +165,7 @@ class ListingsController < ApplicationController
                        payment_type: payment_type)
 
       if allow_posting
-        render :partial => "listings/form/form_content", locals: commission(@current_community).merge(
-                 shipping_enabled: shipping_enabled?(@listing),
-                 shape: shape
-               )
+        render :partial => "listings/form/form_content", locals: commission(@current_community).merge(shape: shape)
       else
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
@@ -186,7 +183,13 @@ class ListingsController < ApplicationController
     shape = get_shape(Maybe(params)[:listing][:transaction_type_id].to_i.or_else(nil))
     unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
 
-    @listing = Listing.new(create_listing_params(params[:listing]).merge(unit_type: unit_type))
+    @listing = Listing.new(
+      create_listing_params(params[:listing]).merge(
+      unit_type: unit_type,
+      transaction_process_id: shape[:transaction_process_id],
+      shape_name_tr_key: shape[:name_tr_key],
+      action_button_tr_key: shape[:action_button_tr_key]
+    ))
 
     @listing.author = @current_user
     @listing.custom_field_values = create_field_values(params[:custom_fields])
@@ -224,11 +227,9 @@ class ListingsController < ApplicationController
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-    shape = get_shape(@listing.transaction_type.id)
+    shape = get_shape(@listing.transaction_type_id)
 
-    render locals: commission(@current_community).merge(
-             shipping_enabled: shipping_enabled?(@listing),
-             shape: shape)
+    render locals: commission(@current_community).merge(shape: shape)
   end
 
   def update
@@ -243,10 +244,18 @@ class ListingsController < ApplicationController
 
     params[:listing] = normalize_price_param(params[:listing])
 
-    shape = get_shape(@listing.transaction_type.id)
+    shape = get_shape(@listing.transaction_type_id)
     unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
 
-    if @listing.update_fields(create_listing_params(params[:listing]).merge(unit_type: unit_type))
+    update_successful = @listing.update_fields(
+      create_listing_params(params[:listing]).merge(
+      unit_type: unit_type,
+      transaction_process_id: shape[:transaction_process_id],
+      shape_name_tr_key: shape[:name_tr_key],
+      action_button_tr_key: shape[:action_button_tr_key]
+    ))
+
+    if update_successful
       @listing.location.update_attributes(params[:location]) if @listing.location
       flash[:notice] = t("layouts.notifications.listing_updated_successfully")
       Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
@@ -379,10 +388,6 @@ class ListingsController < ApplicationController
        commission_from_seller: community.commission_from_seller,
        minimum_price_cents: community.absolute_minimum_price(currency).cents}
     end
-  end
-
-  def shipping_enabled?(listing)
-    listing.transaction_type.shipping_enabled?
   end
 
   def paypal_minimum_commissions_api
