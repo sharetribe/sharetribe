@@ -28,6 +28,7 @@ module ListingService::Store::Shape
     [:translations, :array, :optional], # TODO Only temporary
     [:units, :array, :mandatory],
     [:shipping_enabled, :bool, :mandatory],
+    [:url, :string, :mandatory],
     [:price_quantity_placeholder, :to_symbol, one_of: [nil, :mass, :time, :long_time]] # TODO TEMP
   )
 
