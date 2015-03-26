@@ -9,32 +9,39 @@ describe ListingService::API::Shapes do
   let(:name_tr_key) { "listing_shape.name.123.translation" }
   let(:action_button_tr_key) { "listing_shape.action_button.123.translation" }
 
+
+  def create_shape(opts = {})
+    defaults = {
+      price_enabled: true,
+      shipping_enabled: true,
+      transaction_process_id: transaction_process_id,
+      name_tr_key: name_tr_key,
+      action_button_tr_key: action_button_tr_key,
+      price_quantity_placeholder: :time,
+
+      # TODO Move these to translation service
+      translations: [
+        { locale: "en", name: "Selling", action_button_label: "Buy" },
+        { locale: "fi", name: "Myydään", action_button_label: "Osta" }
+      ],
+      url_source: "Selling",
+
+      units: [
+        {type: :day},
+        {type: :custom, translation_key: 'my.custom.units.translation'}
+      ]
+    }
+
+    listings_api.shapes.create(
+      community_id: community_id,
+      opts: defaults.merge(opts)
+    )
+  end
+
   describe "#create" do
     context "success" do
       it "creates new listing shape with day unit" do
-        create_shape_res = listings_api.shapes.create(
-          community_id: community_id,
-          opts: {
-            price_enabled: true,
-            shipping_enabled: true,
-            transaction_process_id: transaction_process_id,
-            name_tr_key: name_tr_key,
-            action_button_tr_key: action_button_tr_key,
-            price_quantity_placeholder: :time,
-
-            # TODO Move these to translation service
-            translations: [
-              { locale: "en", name: "Selling", action_button_label: "Buy" },
-              { locale: "fi", name: "Myydään", action_button_label: "Osta" }
-            ],
-            url_source: "Selling",
-
-            units: [
-              {type: :day},
-              {type: :custom, translation_key: 'my.custom.units.translation'}
-            ]
-          }
-        )
+        create_shape_res = create_shape()
 
         expect(create_shape_res.success).to eql(true)
 
@@ -75,27 +82,11 @@ describe ListingService::API::Shapes do
       end
 
       it "creates new listing shape with piece unit" do
-        create_shape_res = listings_api.shapes.create(
-          community_id: community_id,
-          opts: {
-            price_enabled: true,
-            transaction_process_id: transaction_process_id,
-            name_tr_key: name_tr_key,
-            action_button_tr_key: action_button_tr_key,
-            shipping_enabled: true,
-
-            # TODO Move these to translation service
-            translations: [
-              { locale: "en", name: "Selling", action_button_label: "Buy" },
-              { locale: "fi", name: "Myydään", action_button_label: "Osta" }
-            ],
-            url_source: "Selling",
-
-            units: [
-              {type: :piece},
-              {type: :custom, translation_key: 'my.custom.units.translation'}
-            ]
-          }
+        create_shape_res = create_shape(
+          units: [
+            {type: :piece},
+            {type: :custom, translation_key: 'my.custom.units.translation'}
+          ]
         )
 
         expect(create_shape_res.success).to eql(true)
@@ -135,27 +126,23 @@ describe ListingService::API::Shapes do
     end
   end
 
+  describe "#get" do
+    context "success" do
+      it "gets all by community id" do
+        3.times { create_shape }
+
+        get_res = listings_api.shapes.get(community_id: community_id)
+
+        expect(get_res.success).to eq(true)
+        expect(get_res.data.length).to eq(3)
+      end
+    end
+  end
+
   describe "#update" do
     context "success" do
       let(:transaction_type_id) {
-        listings_api.shapes.create(
-          community_id: community_id,
-          opts: {
-            price_enabled: true,
-            shipping_enabled: true,
-            transaction_process_id: transaction_process_id,
-            name_tr_key: name_tr_key,
-            action_button_tr_key: action_button_tr_key,
-
-            # TODO Move these to translation service
-            translations: [
-              { locale: "en", name: "Selling", action_button_label: "Buy" },
-              { locale: "fi", name: "Myydään", action_button_label: "Osta" }
-            ],
-            url_source: "Selling",
-            units: []
-          }
-        ).data[:transaction_type_id]
+        create_shape.data[:transaction_type_id]
       }
 
       it "updates listing type units" do
