@@ -20,7 +20,7 @@ class PaymentRegistrationGuard
       raise ArgumentError.new("Can not find shape: #{find_opts}") if result.nil?
     }
 
-    price_enabled && preauthorize_flow_in_use?
+    price_enabled && not_registered_already? && preauthorize_flow_in_use?
   end
 
   private
