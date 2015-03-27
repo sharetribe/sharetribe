@@ -327,7 +327,7 @@ class Listing < ActiveRecord::Base
   def as_json(options = {})
     # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
     hash = {
-      :listing_type => ListingShapeHelper.transaction_type_id_to_direction(transaction_type_id), # deprecated
+      :listing_type => ListingShapeHelper.transaction_type_id_to_direction(transaction_type_id, communities.first), # deprecated
       :category => self.category.id,
       :id => self.id,
       :icon => icon_class(icon_name)
