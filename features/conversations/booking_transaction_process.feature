@@ -9,12 +9,12 @@ Feature: Booking transaction process
       And "owner" has an active Braintree account
 
     Given the community has payments in use via BraintreePaymentGateway with seller commission 10
-      And the community has transaction type Rent with name "Renting" and action button label "Buy"
+      And the community has transaction type Rent with name "Renting snowboards" and action button label "Buy"
       And that transaction uses payment preauthorization
       And that transaction type shows the price of listing per day
 
   Scenario: User books a snowboard for 7 days
-    Given there is a listing with title "Cool snowboard" from "owner" with category "Items" and with transaction type "Renting"
+    Given there is a listing with title "Cool snowboard" from "owner" with category "Items" and with transaction type "Renting snowboards"
       And the price of that listing is 70.0 USD per day
       And Braintree submit to settlement is mocked
       And Braintree escrow release is mocked
