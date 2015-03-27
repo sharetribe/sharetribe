@@ -145,11 +145,13 @@ describe ListingService::API::Shapes do
         create_shape.data[:transaction_type_id]
       }
 
-      it "updates listing type units" do
+      it "updates listing type units and shipping" do
         update_res = listings_api.shapes.update(
           community_id: community_id,
           transaction_type_id: transaction_type_id,
           opts: {
+            shipping_enabled: false,
+            url_source: "Selling w/o shipping",
             units: [
               {type: :day},
               {type: :custom, translation_key: 'my.custom.units.translation'}
@@ -161,7 +163,7 @@ describe ListingService::API::Shapes do
 
         expect(shape[:community_id]).to eql(community_id)
         expect(shape[:price_enabled]).to eql(true)
-        expect(shape[:shipping_enabled]).to eql(true)
+        expect(shape[:shipping_enabled]).to eql(false)
         expect(shape[:transaction_process_id]).to eql(transaction_process_id)
         expect(shape[:transaction_type_id]).to eql(transaction_type_id)
         expect(shape[:name_tr_key]).to eql(name_tr_key)
@@ -170,19 +172,19 @@ describe ListingService::API::Shapes do
         units = shape[:units]
 
         expect(units[0][:type]).to eql(:day)
-        # TODO Enable me expect(units[1][:type]).to eql(:custom)
-        # TODO Enable me expect(units[1][:translation_key]).to eql('my.custom.units.translation')
+        expect(units[1][:type]).to eql(:custom)
+        expect(units[1][:translation_key]).to eql('my.custom.units.translation')
 
         # TODO Remove this in the future.
         # Currently also TransactionType is saved
         tt = TransactionType.find(shape[:transaction_type_id])
         expect(tt.community_id).to eql(community_id)
         expect(tt.price_field?).to eql(true)
-        expect(tt.shipping_enabled?).to eql(true)
+        expect(tt.shipping_enabled?).to eql(false)
         expect(tt.transaction_process_id).to eql(transaction_process_id)
         expect(tt.name_tr_key).to eql(name_tr_key)
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
-        expect(tt.url).to eql("selling")
+        expect(tt.url).to eql("selling") # URL in not updated
       end
     end
 
