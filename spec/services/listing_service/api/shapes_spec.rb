@@ -53,7 +53,6 @@ describe ListingService::API::Shapes do
 
         shape = res.data
 
-        expect(shape[:id]).to be_a(Fixnum)
         expect(shape[:community_id]).to eql(community_id)
         expect(shape[:price_enabled]).to eql(true)
         expect(shape[:shipping_enabled]).to eql(true)
@@ -82,7 +81,7 @@ describe ListingService::API::Shapes do
         expect(tt.price_quantity_placeholder).to eql("time")
 
         ## TODO Remove this in the future
-        s = ListingShape.find(shape[:id])
+        s = ListingShape.where(transaction_type_id: shape[:transaction_type_id]).first
         expect(s.community_id).to eql(community_id)
         expect(s.price_enabled?).to eql(true)
         expect(s.shipping_enabled?).to eql(true)
@@ -111,7 +110,6 @@ describe ListingService::API::Shapes do
 
         shape = res.data
 
-        expect(shape[:id]).to be_a(Fixnum)
         expect(shape[:community_id]).to eql(community_id)
         expect(shape[:price_enabled]).to eql(true)
         expect(shape[:shipping_enabled]).to eql(true)
@@ -137,7 +135,7 @@ describe ListingService::API::Shapes do
         expect(tt.action_button_tr_key).to eql(action_button_tr_key)
 
         ## TODO Remove this in the future
-        s = ListingShape.find(shape[:id])
+        s = ListingShape.where(transaction_type_id: shape[:transaction_type_id]).first
         expect(s.community_id).to eql(community_id)
         expect(s.price_enabled?).to eql(true)
         expect(s.shipping_enabled?).to eql(true)
@@ -184,7 +182,6 @@ describe ListingService::API::Shapes do
 
         shape = update_res.data
 
-        expect(shape[:id]).to be_a(Fixnum)
         expect(shape[:community_id]).to eql(community_id)
         expect(shape[:price_enabled]).to eql(true)
         expect(shape[:shipping_enabled]).to eql(false)
@@ -211,14 +208,14 @@ describe ListingService::API::Shapes do
         expect(tt.url).to eql("selling") # URL in not updated
 
         ## TODO Remove this in the future
-        s = ListingShape.find(shape[:id])
+        s = ListingShape.where(transaction_type_id: shape[:transaction_type_id]).first
         expect(s.community_id).to eql(community_id)
         expect(s.price_enabled?).to eql(true)
         expect(s.shipping_enabled?).to eql(false)
         expect(s.transaction_process_id).to eql(transaction_process_id)
         expect(s.name_tr_key).to eql(name_tr_key)
         expect(s.action_button_tr_key).to eql(action_button_tr_key)
-        expect(tt.url).to eql("selling-wo-shipping")
+        expect(tt.url).to eql("selling") # URL is not updated
       end
     end
 

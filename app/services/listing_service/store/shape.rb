@@ -78,6 +78,7 @@ module ListingService::Store::Shape
       url = uniq_url(shape[:url_source], shape[:community_id])
       shape_with_url = shape.except(:url_source).merge(url: url)
 
+      # Save to TransactionType model
       create_tt_opts = to_tt_model_attributes(shape_with_url).except(:units, :translations)
       tt_model = TransactionType.new(create_tt_opts)
 
@@ -87,6 +88,9 @@ module ListingService::Store::Shape
       translations.each { |tr| tt_model.translations.build(tr) }
 
       tt_model.save!
+
+      # Save to ListingShape model
+      ListingShape.create!(shape_with_url.merge(transaction_type_id: tt_model.id).except(:units, :translations))
     end
 
     from_transaction_type_model(tt_model)
@@ -99,6 +103,8 @@ module ListingService::Store::Shape
       listing_shape_id: listing_shape_id)
 
     return nil if tt_model.nil?
+
+    shape_model = ListingShape.where(transaction_type_id: tt_model.id).first
 
     update_shape = UpdateShape.call(opts.merge(community_id: community_id))
 
@@ -122,6 +128,9 @@ module ListingService::Store::Shape
       end
 
       tt_model.save!
+
+      # Save to ListingShape model
+      shape_model.update_attributes!(HashUtils.compact(update_shape).merge(transaction_type_id: tt_model.id).except(:units, :translations))
     end
 
     from_transaction_type_model(tt_model)
