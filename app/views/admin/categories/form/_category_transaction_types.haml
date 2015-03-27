@@ -1,13 +1,13 @@
-- if @current_community.transaction_types.size > 1
+- if shapes.size > 1
   = form.label :transaction_type_attributes, t(".transaction_types")
   = render :partial => "layouts/info_text", :locals => { :text => t(".transaction_types_description") }
   .row
     .col-12
       #category-transaction-types-container.clearfix
-        - @current_community.transaction_types.each do |transaction_type|
-          - checkbox_id = "transaction_type_checkbox_#{transaction_type.id.to_s}"
+        - shapes.each do |shape|
+          - checkbox_id = "transaction_type_checkbox_#{shape[:transaction_type_id].to_s}"
           .custom-field-categories-checkbox-container
-            = check_box_tag "category[transaction_type_attributes][][transaction_type_id]", "#{transaction_type.id}", @default_transaction_types.include?(transaction_type), :id => checkbox_id, :class => "category-transaction-type-checkbox"
-            = label_tag checkbox_id, transaction_type.display_name(I18n.locale), :class => "category-transaction-type-checkbox-label"
+            = check_box_tag "category[transaction_type_attributes][][transaction_type_id]", "#{shape[:transaction_type_id]}", @default_transaction_types.any? {|d| d.id = shape[:transaction_type_id]}, :id => checkbox_id, :class => "category-transaction-type-checkbox"
+            = label_tag checkbox_id, ts(shape[:name_tr_key]), :class => "category-transaction-type-checkbox-label"
 - else
-  = hidden_field_tag "category[transaction_type_attributes][][transaction_type_id]", @current_community.transaction_types.first.id
+  = hidden_field_tag "category[transaction_type_attributes][][transaction_type_id]", shapes.first[:transaction_type_id]
