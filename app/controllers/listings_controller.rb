@@ -117,7 +117,7 @@ class ListingsController < ApplicationController
     # TODO Change this so that the path is always the same, but the controller
     # decides what to do. We don't want to make a API call to TransactionService
     # just to show a listing details
-    process = get_transaction_process(community: @current_community, transaction_process_id: @listing.transaction_process_id)
+    process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
 
     form_path = select_new_transaction_path(
       listing_id: @listing.id.to_s,
@@ -154,7 +154,7 @@ class ListingsController < ApplicationController
       @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
       shape = get_shape(Maybe(params)[:transaction_type].to_i.or_else(nil))
-      process = get_transaction_process(community: @current_community, transaction_process_id: shape[:transaction_process_id])
+      process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
 
       # PaymentRegistrationGuard needs this to be set before posting
       @listing.transaction_process_id = shape[:transaction_process_id]
@@ -232,7 +232,7 @@ class ListingsController < ApplicationController
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
     shape = get_shape(@listing.transaction_type_id)
-    process = get_transaction_process(community: @current_community, transaction_process_id: shape[:transaction_process_id])
+    process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
 
     render locals: commission(@current_community, process).merge(shape: shape)
   end
@@ -273,7 +273,7 @@ class ListingsController < ApplicationController
   end
 
   def close
-    process = get_transaction_process(community: @current_community, transaction_process_id: @listing.transaction_process_id)
+    process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
 
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
@@ -595,10 +595,10 @@ class ListingsController < ApplicationController
     end
   end
 
-  def get_transaction_process(community:, transaction_process_id:)
+  def get_transaction_process(community_id:, transaction_process_id:)
     opts = {
       process_id: transaction_process_id,
-      community_id: community.id
+      community_id: community_id
     }
 
     TransactionService::API::Api.processes.get(opts)
