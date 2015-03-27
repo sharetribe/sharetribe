@@ -50,7 +50,9 @@ describe TransactionService::PaypalEvents do
   before(:each) do
     @cid = 3
     @payer = FactoryGirl.create(:payer)
-    @listing = FactoryGirl.create(:listing, price: Money.new(45000, "EUR"))
+    @listing = FactoryGirl.create(:listing,
+                                  price: Money.new(45000, "EUR"),
+                                  transaction_type_id: 123)
 
     @paypal_account = PaypalAccountModel.create(person_id: @listing.author, community_id: @cid, email: "author@sharetribe.com", payer_id: "abcdabcd")
 

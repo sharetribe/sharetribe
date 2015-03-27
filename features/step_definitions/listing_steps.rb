@@ -1,11 +1,17 @@
-Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with transaction type "([^"]*)")?$/ do |title, author, category_name, transaction_type|
+Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with transaction type "([^"]*)")?$/ do |title, author, category_name, shape_name|
   opts = Hash.new
   opts[:title] = title
   opts[:category] = find_category_by_name(category_name) if category_name
-  opts[:transaction_type] = find_transaction_type_by_name(transaction_type) if transaction_type
   opts[:author] = Person.find_by_username(author) if author
 
-  create_listing_to_current_community(opts)
+  shape =
+    if shape_name
+      find_shape(name: shape_name)
+    else
+      all_shapes.first
+    end
+
+  create_listing(shape: shape, opts: opts)
 end
 
 Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)(?: per (day))?$/ do |price, price_decimal, currency, price_per|

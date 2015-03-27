@@ -110,36 +110,6 @@ FactoryGirl.define do
     has_many :communities do |listing|
       FactoryGirl.build(:community)
     end
-    transaction_type {
-
-      community = communities.first || FactoryGirl.create(:community)
-      # Save name to TranslationService
-      name_group = { translations: [ { locale: "en", translation: "Selling" } ] }
-      created_translations = TranslationService::API::Api.translations.create(community.id, [name_group])
-      name_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }.first
-
-      TransactionType.find(
-        ListingService::API::Api.shapes.create(
-        # If community is not given, this will create a new one which differs from the community of the listing.
-        # That's an error, but tests seem to pass
-        community_id: community.id,
-        opts: {
-          price_enabled: true,
-          shipping_enabled: false,
-          transaction_process_id: 12345,
-          name_tr_key: name_tr_key,
-          action_button_tr_key: "something.here",
-          translations: [
-            { locale: "en", name: "Selling" }
-          ],
-          units: [ {type: :piece} ],
-          url_source: "Selling"
-        }
-      ).data[:transaction_type_id])
-    }
-    transaction_process_id { transaction_type.transaction_process_id }
-    shape_name_tr_key { transaction_type.name_tr_key }
-    action_button_tr_key { transaction_type.action_button_tr_key }
   end
 
   factory :transaction do

@@ -29,14 +29,6 @@ module AdminCategorySteps
       memo
     end
   end
-
-  def find_transaction_type_by_name(transaction_type_name)
-    TransactionType.all.inject("") do |memo, tt|
-      memo = tt if tt.display_name("en").eql?(transaction_type_name) && tt.community_id == @current_community.id
-      memo
-    end
-  end
-
 end
 
 World(AdminCategorySteps)
@@ -226,8 +218,8 @@ When(/^I change transaction types of category "(.*?)" to following:$/) do |categ
 end
 
 When /^I toggle transaction type "(.*?)"$/ do |transaction_type_name|
-  transaction_type = find_transaction_type_by_name(transaction_type_name)
-  find(:css, "#transaction_type_checkbox_#{transaction_type.id}").click
+  shape = find_shape(name: transaction_type_name)
+  find(:css, "#transaction_type_checkbox_#{shape[:transaction_type_id]}").click
 end
 
 When /^I try to remove all transaction types from category "(.*?)"$/ do |category_name|

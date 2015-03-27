@@ -104,7 +104,9 @@ describe PersonMailer do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
 
     transition = FactoryGirl.build(:transaction_transition, to_state: "confirmed")
-    listing = FactoryGirl.build(:listing, author: @test_person)
+    listing = FactoryGirl.build(:listing,
+                                transaction_type_id: 123,
+                                author: @test_person)
     transaction = FactoryGirl.create(:transaction, starter: @test_person2, listing: listing, transaction_transitions: [transition])
     testimonial = FactoryGirl.create(:testimonial, :grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :transaction => transaction)
 

@@ -39,7 +39,6 @@ class TransactionType < ActiveRecord::Base
   has_many :translations, :class_name => "TransactionTypeTranslation", :dependent => :destroy, inverse_of: :transaction_type
   has_many :category_transaction_types, :dependent => :destroy
   has_many :categories, :through => :category_transaction_types
-  has_many :listings
   has_many :listing_units
 
   validates_presence_of :community

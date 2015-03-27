@@ -302,12 +302,10 @@ class PreauthorizeTransactionsController < ApplicationController
 
 
   def view_params(listing_id: listing_id, quantity: 1, shipping_enabled: false)
-    listing = ListingQuery.listing_with_transaction_type(listing_id)
+    listing = ListingQuery.listing(listing_id)
     payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
-    action_button_label = listing[:transaction_type][:action_button_label_translations]
-      .select {|translation| translation[:locale] == I18n.locale}
-      .first
+    action_button_label = translate(listing[:action_button_tr_key])
 
     subtotal = listing[:price] * quantity
     total_price = shipping_enabled ? subtotal + listing[:shipping_price] : subtotal

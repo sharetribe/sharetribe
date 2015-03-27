@@ -35,10 +35,18 @@ module AdminTransactionSteps
     }
     sum = transaction_data[:sum].to_i * 100 unless transaction_data[:sum].empty?
 
+    shape = all_shapes.first
+    listing = create_listing(
+      shape: shape,
+      opts: {
+        title: transaction_data[:listing],
+        author: author
+      })
+
     transaction = FactoryGirl.build(
       :transaction,
       transaction_opts.merge({
-          listing: FactoryGirl.build(:listing, title: transaction_data[:listing], author: author),
+          listing: listing,
           payment: sum ? FactoryGirl.build(:braintree_payment, { sum_cents: sum, currency: transaction_data[:currency] }) : nil,
           conversation: conversation,
           starter: starter,
