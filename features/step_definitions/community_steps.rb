@@ -229,7 +229,7 @@ Given /^the community has transaction type Rent with name "(.*?)" and action but
     }
   )
 
-  @transaction_type = TransactionType.find(shape_res.data[:transaction_type_id])
+  @shape = shape_res.data
 end
 
 Given /^the community has transaction type Sell with name "(.*?)" and action button label "(.*?)"$/ do |name, action_button_label|
@@ -255,31 +255,29 @@ Given /^the community has transaction type Sell with name "(.*?)" and action but
     }
   )
 
-  @transaction_type = TransactionType.find(shape_res.data[:transaction_type_id])
+  @shape = shape_res.data
 end
 
 Given /^that transaction type shows the price of listing per day$/ do
-  ListingService::API::Api.shapes.update(
+  @shape = ListingService::API::Api.shapes.update(
     community_id: @current_community.id,
-    transaction_type_id: @transaction_type.id,
+    transaction_type_id: @shape[:transaction_type_id],
     opts: {
       units: [type: :day]})
-
-  @transaction_type.reload
 end
 
 Given /^that transaction uses payment preauthorization$/ do
-  TransactionProcess.find(@transaction_type.transaction_process_id).update_attribute(:process, :preauthorize)
+  TransactionProcess.find(@shape[:transaction_process_id]).update_attribute(:process, :preauthorize)
 end
 
 Given /^that transaction does not use payment preauthorization$/ do
-  TransactionProcess.find(@transaction_type.transaction_process_id).update_attribute(:process, :postpay)
+  TransactionProcess.find(@shape[:transaction_process_id]).update_attribute(:process, :postpay)
 end
 
 Given /^that transaction belongs to category "(.*?)"$/ do |category_name|
   category = find_category_by_name(category_name)
-  category.transaction_types << @transaction_type
-  category.save!
+  CategoryTransactionType.create(category_id: category.id, transaction_type_id: @shape[:transaction_type_id])
+  category.reload!
 end
 
 Given /^listing publishing date is shown in community "(.*?)"$/ do |community_ident|
