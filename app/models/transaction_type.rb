@@ -62,7 +62,7 @@ class TransactionType < ActiveRecord::Base
       .get(community_id, {
         translation_keys: [name_tr_key],
         locales: community.locales
-           })
+      })
     find_any_translation(result[:data], locale)
   end
 
