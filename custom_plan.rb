@@ -1,7 +1,6 @@
 require 'zeus/rails'
 
 require File.expand_path('../test/helper_modules', __FILE__)
-include TestHelpers
 
 class CustomPlan < Zeus::Rails
 
@@ -15,8 +14,8 @@ class CustomPlan < Zeus::Rails
     # Populate db with default data
     require 'database_cleaner'
     DatabaseCleaner.clean_with(:truncation)
-    load_default_test_data_to_db_before_suite
-    load_default_test_data_to_db_before_test
+    TestHelpers.load_default_test_data_to_db_before_suite
+    TestHelpers.load_default_test_data_to_db_before_test
   end
 
   def cucumber_environment

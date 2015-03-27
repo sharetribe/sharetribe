@@ -218,6 +218,7 @@ module TestHelpers
 
     [community1, community2, community3].each { |c| TestHelpers::CategoriesHelper.load_test_categories_and_transaction_types_to_db(c) }
   end
+  module_function :load_default_test_data_to_db_before_suite
 
   # This is loaded before each test
   def load_default_test_data_to_db_before_test
@@ -261,5 +262,5 @@ module TestHelpers
     :send_notifications => true,
     :confirmed_at => "2012-05-04 18:17:04")
   end
-
+  module_function :load_default_test_data_to_db_before_test
 end
