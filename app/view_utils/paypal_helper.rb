@@ -85,7 +85,19 @@ module PaypalHelper
   def open_listings_with_missing_payment_info?(user_id, community_id)
     paypal_active?(community_id) &&
     !user_and_community_ready_for_payments?(user_id, community_id) &&
-    !MarketplaceService::Listing::Query.open_listings_with_price_for(community_id, user_id).empty?
+    open_listings_with_price_and_payment_process?(community_id, user_id)
+  end
+
+  def open_listings_with_price_and_payment_process?(community_id, user_id)
+    listings = MarketplaceService::Listing::Query.open_listings_with_price_for(community_id, user_id)
+    listings.any? { |l|
+      process = TransactionService::API::Api.processes.get(
+        community_id: community_id,
+        process_id: l[:transaction_process_id]
+      )[:data][:process]
+
+      process != :none
+    }
   end
 
   def accounts_api
