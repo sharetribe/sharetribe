@@ -62,6 +62,25 @@ MoneyRails.configure do |config|
     :iso_numeric         => "756"
   }
 
+  # Russian ruble is not yet available wide enough
+  # The Unicode consortium officially designated a code point, U+20BD RUBLE SIGN, ₽, for the new symbol in Unicode 7.0, released 2014-06-16
+  config.register_currency = {
+    priority:               100,
+    iso_code:               "RUB",
+    name:                   "Russian Ruble",
+    symbol:                 "RUB",
+    alternate_symbols:      ["руб.", "р."],
+    subunit:                "Kopeck",
+    subunit_to_unit:        100,
+    symbol_first:           false,
+    html_entity:            "&#x20BD;",
+    decimal_mark:           ",",
+    thousands_separator:    ".",
+    iso_numeric:            "643",
+    smallest_denomination:  1
+  }
+
+
   # Register a custom currency
   #
   # Example:
