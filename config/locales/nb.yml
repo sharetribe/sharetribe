@@ -28,10 +28,6 @@ nb:
         remove_category: "Fjern kategori"
         remove_category_name: "Fjern kategori`%{category_name}`"
         warning_remove_effects: "Advarsel! Fjerning av kategori`%{category_name}`vil ha følgende konsekvenser:"
-        select_new_category: "Velg en ny kategori hvor det listet over skal flyttes til:"
-        buttons:
-          remove: Fjern
-          cancel: Avbryt
         warning_listing_will_be_moved:
           one: "Det er %{count} annonse i kategorien. Den vil bli flyttet til valgte kategori."
           other: "Det er %{count} annonser i kategoriern. De vil bli flyttet til valgte kategori."
@@ -47,6 +43,10 @@ nb:
         warning_with_subcategories_custom_field_will_be_moved:
           one: "Det er %{count} spesialfelt i kategorien og underkategoriene. Det vil bli flyttet til valgt kategori."
           other: "Det er %{count} spesialfelt i kategorien og underkategoriene. De vil bli flyttet til valgt kategori."
+        select_new_category: "Velg en ny kategori hvor det listet over skal flyttes til:"
+        buttons:
+          remove: Fjern
+          cancel: Avbryt
     communities:
       edit_details:
         community_details: "Grunnleggende informasjon"
@@ -1910,20 +1910,6 @@ nb:
     day: dag
     days: dager
   will_paginate:
-    previous_label: "&#8592; Forrige"
-    next_label: "Neste &#8594;"
-    page_gap: "&hellip;"
-    page_entries_info:
-      multi_page: "Viser %{model} %{from} - %{to} av %{count} totalt"
-      multi_page_html: "Viser %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> av <b>%{count}</b> totalt"
-      single_page:
-        zero: "Ingen %{model} funnet"
-        one: "Viser 1 %{model}"
-        other: "Viser alle %{count} %{model}"
-      single_page_html:
-        zero: "Ingen %{model} funnet"
-        one: "Viser <b>1</b> %{model}"
-        other: "Viser <b>alle&nbsp;%{count}</b> %{model}"
     models:
       person:
         zero: brukere
@@ -1933,3 +1919,17 @@ nb:
         zero: transaksjoner
         one: transaksjon
         other: transaksjoner
+    previous_label: "&#8592; Forrige"
+    next_label: "Neste &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero: "Ingen %{model} funnet"
+        one: "Viser 1 %{model}"
+        other: "Viser alle %{count} %{model}"
+      single_page_html:
+        zero: "Ingen %{model} funnet"
+        one: "Viser <b>1</b> %{model}"
+        other: "Viser <b>alle&nbsp;%{count}</b> %{model}"
+      multi_page: "Viser %{model} %{from} - %{to} av %{count} totalt"
+      multi_page_html: "Viser %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> av <b>%{count}</b> totalt"
