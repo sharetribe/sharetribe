@@ -10,6 +10,7 @@ module Sharetribe
     ["Kiswahili", "sw"],
     ["Română", "ro"],
     ["Français", "fr"],
+    ["Français", "fr-CA"],
     ["中文", "zh"],
     ["Español", "es"],
     ["Español", "es-ES"],
