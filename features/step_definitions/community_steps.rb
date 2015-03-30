@@ -277,7 +277,7 @@ end
 Given /^that transaction belongs to category "(.*?)"$/ do |category_name|
   category = find_category_by_name(category_name)
   CategoryTransactionType.create(category_id: category.id, transaction_type_id: @shape[:transaction_type_id])
-  category.reload!
+  category.reload
 end
 
 Given /^listing publishing date is shown in community "(.*?)"$/ do |community_ident|
