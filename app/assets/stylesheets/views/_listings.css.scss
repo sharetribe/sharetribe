@@ -42,6 +42,30 @@
   color: $aside;
 }
 
+// Listing quantity input
+.quantity-wrapper {
+  width: 100%;
+  margin-bottom: lines(0.75);
+}
+.quantity-label {
+  float: left;
+  display: inline;
+  width: auto;
+  font-weight: bold;
+  line-height: lines(1.7);
+  margin: auto lines(0.4) auto 0;
+}
+.quantity-input {
+  display: block;
+  overflow-y: hidden;
+}
+.quantity-input input{
+  width: 100%;
+}
+.quantity-input input:focus {
+  outline-width: 0;
+}
+
 // Listing author
 $listing-author-avatar-width: 108;
 $listing-author-avatar-height: 108;

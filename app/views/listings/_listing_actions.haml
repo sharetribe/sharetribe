@@ -66,6 +66,17 @@
             = label_tag t(".booking_to")
             %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end_on", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
             %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
+      - elsif listing_unit_type.present?
+        - content_for :extra_javascript do
+          :javascript
+            $("#booking-dates").validate();
+            window.ST.initializeQuantityValidation({validate: "positiveIntegers", input: "quantity", errorMessage: "#{t("errors.messages.positive_number")}" });
+
+        .quantity-wrapper.input-group.clearfix
+          %label.quantity-label{for: 'quantity'}
+            = t("listings.quantity")
+          .quantity-input.input-sm.required
+            %input#quantity{type: 'number', placeholder: 'Quantity', name: 'quantity', value: 1}
 
       = render partial: "delivery_opts", locals: { delivery_opts: delivery_opts, is_author: is_author }
 

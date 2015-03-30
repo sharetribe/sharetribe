@@ -891,6 +891,7 @@ fi:
       on_or_before: "täytyy olla %{restriction} tai sen jälkeen"
       after: "täytyy olla %{restriction} jälkeen"
       on_or_after: "täytyy olla %{restriction} tai ennen sitä"
+      positive_number: "Käytä kokonaislukuja."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} lainasi tavaran %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
@@ -1413,6 +1414,7 @@ fi:
       payment_settings_link: "markkinapaikan maksuasetuksiin"
       community_not_configured_for_payments_admin: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja mene %{payment_settings_link} lisäämään maksutiedot."
     please_comment: Kommentoi
+    quantity: "Määrä:"
     reply_link:
       listing_closed: "Ilmoitus on suljettu"
     show:
@@ -1454,6 +1456,13 @@ fi:
       delivery: Kuljetus
       shipping: "Postikulut (+%{price})"
       pickup: Nouto
+    unit_types:
+      piece: kpl
+      hour: tunti
+      day: päivä
+      night: yö
+      week: viikko
+      month: kuukausi
     verification_required:
       verification_required: ~
   listing_conversations:
