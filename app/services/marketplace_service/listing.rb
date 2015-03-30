@@ -13,6 +13,7 @@ module MarketplaceService
         [:shipping_price, :optional, :money],
         [:quantity, :optional, :string],
         [:transaction_process_id, :mandatory, :fixnum],
+        [:unit_type, :optional, :to_symbol],
         [:action_button_tr_key, :string],
         [:deleted, :to_bool]
       )

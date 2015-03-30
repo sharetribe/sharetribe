@@ -26,6 +26,7 @@ class PreauthorizeTransactionsController < ApplicationController
     :sender_id,
     :contract_agreed,
     :delivery_method,
+    :quantity,
     :listing_id
    ).with_validations {
     validates_presence_of :listing_id
@@ -45,14 +46,17 @@ class PreauthorizeTransactionsController < ApplicationController
       return redirect_to error_not_found_path
     end
 
+    quantity = valid_quantity(params[:quantity])
+
     vprms = view_params(listing_id: params[:listing_id],
-                        quantity: 1,
+                        quantity: quantity,
                         shipping_enabled: delivery_method == :shipping)
 
     render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: vprms[:listing],
       delivery_method: delivery_method,
+      quantity: quantity,
       subtotal: vprms[:subtotal],
       sum: vprms[:total_price],
       author: query_person_entity(vprms[:listing][:author_id]),
@@ -411,6 +415,14 @@ class PreauthorizeTransactionsController < ApplicationController
     else
       :errored
     end
+  end
+
+  def valid_quantity(quantity)
+    Maybe(quantity)
+      .map {|q|
+        !!q.match(/\A\d+\z/) && q.to_i > 0 ? q.to_i : 1
+      }
+      .or_else(1)
   end
 
   def braintree_gateway_locals(community_id)

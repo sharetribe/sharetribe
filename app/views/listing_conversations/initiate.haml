@@ -24,41 +24,15 @@
         %div
           = t("listing_conversations.preauthorize.by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
 
-      -# TODO Fix this, no respond_to?
-      - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
-        %li
-          %div
-            = l preauthorize_form.start_on, format: :long_with_abbr_day_name
-            = "-"
-            = l preauthorize_form.end_on, format: :long_with_abbr_day_name
-            = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
-
-        %li
-          %div
-            = t("listing_conversations.preauthorize.price_per_day", price: humanized_money_with_symbol(listing[:price]))
-
       %li
-        - if delivery_method == :shipping
-          .initiate-transaction-totals
-            .initiate-transaction-sum-wrapper
-              %span.initiate-transaction-sum-label
-                = t("transactions.initiate.subtotal")
-              %span.initiate-transaction-sum-value
-                = humanized_money_with_symbol(subtotal)
-            .initiate-transaction-shipping-price-wrapper
-              %span.initiate-transaction-shipping-price-label
-                = t("transactions.initiate.shipping-price")
-              %span.initiate-transaction-shipping-price-value
-                = humanized_money_with_symbol(listing[:shipping_price])
-            .initiate-transaction-total-wrapper
-              %span.initiate-transaction-total-label
-                = t("transactions.initiate.total")
-              %span.initiate-transaction-total-value
-                = humanized_money_with_symbol(sum)
-        - else
-          %div
-            %strong
-              = t("conversations.show.total", total: humanized_money_with_symbol(sum))
+        - booking = preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
+        - start_on = booking ? preauthorize_form.start_on : nil
+        - end_on = booking ? preauthorize_form.end_on : nil
+        - duration = booking ? duration : nil
+        - quantity = local_assigns.has_key?(:quantity) ? quantity : nil
+        - localized_unit_type = translate_quantity_unit(listing[:unit_type])
+        - shipping_price = Maybe(listing[:shipping_price]).or_else(nil)
+        = render partial: "transactions/price_break_down", locals: { booking: booking, start_on: start_on, end_on: end_on, duration: duration, listing: listing, listing_price: listing[:price], quantity: quantity, localized_unit_type: localized_unit_type, subtotal: subtotal, sum: sum, shipping_price: shipping_price }
 
   = form_for preauthorize_form,
     :url => form_action,
@@ -81,6 +55,9 @@
 
       - if @current_community.transaction_agreement_in_use
         = render :partial => "listing_conversations/transaction_agreement_checkbox", locals: { form: form }
+
+      - if local_assigns.has_key?(:quantity)
+        = form.hidden_field :quantity, value: quantity
 
       - if delivery_method
         = form.hidden_field :delivery_method, value: delivery_method

@@ -1474,7 +1474,6 @@ fi:
       you_will_be_charged: "Maksu veloitetaan mikäli myyjä %{author} hyväksyy oston. Myyjän täytyy hyväksyä maksu %{expiration_period} päivän kuluessa. Sinua ei veloiteta, jos %{author} ei hyväksy ostoa tai ei vastaa ostopyyntöön."
       day: päivä
       days: päivää
-      price_per_day: "Päivähinta: %{price}"
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
   mapview:
@@ -1911,9 +1910,15 @@ fi:
       other: "%{count} päivän"
   transactions:
     initiate:
+      booked_days: "Valitut päivät:"
+      price_per_day: "Päivähinta:"
+      quantity: "Määrä:"
       subtotal: "Välisumma:"
       shipping-price: "Postikulut:"
       total: "Loppusumma:"
+    price_per_quantity: "Hinta per %{unit_type}"
+    unit_price: "Yksikköhinta: %{unit_price}"
+    quanity: "Määrä: %{quantity}"
   unit:
     day: päivä
     days: päivää

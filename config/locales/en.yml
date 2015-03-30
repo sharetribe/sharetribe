@@ -1474,7 +1474,6 @@ en:
       you_will_be_charged: "You will be charged only if %{author} accepts the transaction. %{author} needs to accept the transaction within %{expiration_period} days. If %{author} declines or does not respond, no charge is made."
       day: day
       days: days
-      price_per_day: "Price per day: %{price}"
     transaction_agreement_checkbox:
       read_more: View.
   mapview:
@@ -1911,9 +1910,15 @@ en:
       other: "%{count} days"
   transactions:
     initiate:
+      booked_days: "Booked days"
+      price_per_day: "Price per day"
+      quantity: "Quantity:"
       subtotal: "Subtotal:"
       shipping-price: "Shipping:"
       total: "Total:"
+    unit_price: "Unit price: %{unit_price}"
+    price_per_quantity: "Price per %{unit_type}"
+    quantity: "Quantity: %{quantity}"
   unit:
     day: day
     days: days
