@@ -82,19 +82,6 @@ module MarketplaceService
         listing_model = ListingModel.find(listing_id)
         MarketplaceService::Listing::Entity.listing(listing_model)
       end
-
-      def open_listings_with_price_for(community_id, person_id)
-        ListingModel
-          .includes(:communities)
-          .where(
-            {
-              communities: { id: community_id },
-              author_id: person_id,
-              open: true
-            })
-          .where("price_cents IS NOT NULL AND price_cents > 0")
-          .map { |l| MarketplaceService::Listing::Entity.listing(l) }
-      end
     end
   end
 end
