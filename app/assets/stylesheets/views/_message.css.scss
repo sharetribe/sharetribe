@@ -11,7 +11,9 @@ $message-time-margin: lines(0.25);
     margin-right: $avatar-size + lines(0.5);
   }
 }
-
+.page-content .message-price-break-down {
+  margin-bottom: 0;
+}
 .message-sum, .message-price {
   @include big-type;
   padding-top: lines(0.5);

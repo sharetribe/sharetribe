@@ -1,3 +1,11 @@
+<% if quantity > 1 %>
+  <p class="message-price-break-down">
+    <%= t("transactions.unit_price", unit_price: humanized_money_with_symbol(unit_price)) %>
+    <br />
+    <%= t("transactions.quantity", quantity: quantity) %>
+  </p>
+<% end %>
+
 <% if sum %>
   <p class="message-sum">
     <%= t("conversations.show.sum", sum: humanized_money_with_symbol(sum)) %>
