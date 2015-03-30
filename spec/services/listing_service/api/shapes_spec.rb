@@ -90,6 +90,9 @@ describe ListingService::API::Shapes do
         expect(s.action_button_tr_key).to eql(action_button_tr_key)
         expect(s.url).to eql("selling")
         expect(s.price_quantity_placeholder).to eql("time")
+
+        ## TODO Remove this in the future
+        expect(ListingUnit.where(listing_shape_id: s.id).count).to eq 2
       end
 
       it "creates new listing shape with piece unit" do
@@ -143,6 +146,9 @@ describe ListingService::API::Shapes do
         expect(s.name_tr_key).to eql(name_tr_key)
         expect(s.action_button_tr_key).to eql(action_button_tr_key)
         expect(s.price_quantity_placeholder).to eql("time")
+
+        ## TODO Remove this in the future
+        expect(ListingUnit.where(listing_shape_id: s.id).count).to eq 2
       end
     end
   end
@@ -216,6 +222,9 @@ describe ListingService::API::Shapes do
         expect(s.name_tr_key).to eql(name_tr_key)
         expect(s.action_button_tr_key).to eql(action_button_tr_key)
         expect(tt.url).to eql("selling") # URL is not updated
+
+        ## TODO Remove this in the future
+        expect(ListingUnit.where(listing_shape_id: s.id).count).to eq 2
       end
     end
 

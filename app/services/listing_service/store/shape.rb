@@ -80,17 +80,16 @@ module ListingService::Store::Shape
 
       # Save to TransactionType model
       create_tt_opts = to_tt_model_attributes(shape_with_url).except(:units, :translations)
-      tt_model = TransactionType.new(create_tt_opts)
-
-      units.each { |unit|
-        tt_model.listing_units.build(to_unit_model_attributes(unit))
-      }
-      translations.each { |tr| tt_model.translations.build(tr) }
-
-      tt_model.save!
+      tt_model = TransactionType.create(create_tt_opts)
 
       # Save to ListingShape model
-      ListingShape.create!(shape_with_url.merge(transaction_type_id: tt_model.id).except(:units, :translations))
+      shape_model = ListingShape.create!(shape_with_url.merge(transaction_type_id: tt_model.id).except(:units, :translations))
+
+      # Save units
+      units.each { |unit|
+        tt_model.listing_units.create(to_unit_model_attributes(unit).merge(listing_shape_id: shape_model.id))
+      }
+      translations.each { |tr| tt_model.translations.create(tr) }
     end
 
     from_transaction_type_model(tt_model)
@@ -119,7 +118,7 @@ module ListingService::Store::Shape
 
       unless units.nil?
         tt_model.listing_units.destroy_all
-        units.each { |unit| tt_model.listing_units.build(to_unit_model_attributes(unit)) }
+        units.each { |unit| tt_model.listing_units.build(to_unit_model_attributes(unit).merge(listing_shape_id: shape_model.id)) }
       end
 
       unless translations.nil?
