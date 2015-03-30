@@ -117,7 +117,7 @@ class ListingsController < ApplicationController
     # TODO Change this so that the path is always the same, but the controller
     # decides what to do. We don't want to make a API call to TransactionService
     # just to show a listing details
-    process = get_transaction_process(community: @current_community, listing: @listing)
+    process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
 
     form_path = select_new_transaction_path(
       listing_id: @listing.id.to_s,
@@ -154,6 +154,7 @@ class ListingsController < ApplicationController
       @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
       shape = get_shape(Maybe(params)[:transaction_type].to_i.or_else(nil))
+      process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
 
       # PaymentRegistrationGuard needs this to be set before posting
       @listing.transaction_process_id = shape[:transaction_process_id]
@@ -164,10 +165,11 @@ class ListingsController < ApplicationController
                        community: @current_community,
                        user: @current_user,
                        listing: @listing,
-                       payment_type: payment_type)
+                       payment_type: payment_type,
+                       process: process)
 
       if allow_posting
-        render :partial => "listings/form/form_content", locals: commission(@current_community).merge(shape: shape)
+        render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(shape: shape)
       else
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
@@ -230,8 +232,9 @@ class ListingsController < ApplicationController
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
     shape = get_shape(@listing.transaction_type_id)
+    process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
 
-    render locals: commission(@current_community).merge(shape: shape)
+    render locals: commission(@current_community, process).merge(shape: shape)
   end
 
   def update
@@ -270,7 +273,7 @@ class ListingsController < ApplicationController
   end
 
   def close
-    process = get_transaction_process(community: @current_community, listing: @listing)
+    process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
 
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
@@ -360,19 +363,19 @@ class ListingsController < ApplicationController
       :listing_type => listing_type_label)
   end
 
-  def commission(community)
+  def commission(community, process)
     payment_type = MarketplaceService::Community::Query.payment_type(community.id)
     payment_settings = TransactionService::API::Api.settings.get_active(community_id: community.id).maybe
     currency = community.default_currency
 
-    case payment_type
-    when nil
+    case [payment_type, process]
+    when matches([__, :none])
       {seller_commission_in_use: false,
-       payment_gateway: payment_type,
+       payment_gateway: nil,
        minimum_commission: Money.new(0, currency),
        commission_from_seller: 0,
        minimum_price_cents: 0}
-    when :paypal
+    when matches([:paypal])
       p_set = Maybe(payment_settings_api.get_active(community_id: community.id))
         .select {|res| res[:success]}
         .map {|res| res[:data]}
@@ -518,14 +521,18 @@ class ListingsController < ApplicationController
     end
   end
 
-  def payment_setup_status(community:, user:, listing:, payment_type:)
-    if payment_type == :braintree
+  def payment_setup_status(community:, user:, listing:, payment_type:, process:)
+    case [payment_type, process]
+    when matches([nil]),
+         matches([__, :none])
+      [true, ""]
+    when matches([:braintree])
       can_post = !PaymentRegistrationGuard.new(community, user, listing).requires_registration_before_posting?
       settings_link = payment_settings_path(community.payment_gateway.gateway_type, user)
       error_msg = t("listings.new.you_need_to_fill_payout_details_before_accepting", :payment_settings_link => view_context.link_to(t("listings.new.payment_settings_link"), settings_link)).html_safe
 
       [can_post, error_msg]
-    elsif payment_type == :paypal
+    when matches([:paypal])
       can_post = PaypalHelper.community_ready_for_payments?(community.id)
       error_msg =
         if user.has_admin_rights_in?(community)
@@ -588,10 +595,10 @@ class ListingsController < ApplicationController
     end
   end
 
-  def get_transaction_process(community: community, listing: listing)
+  def get_transaction_process(community_id:, transaction_process_id:)
     opts = {
-      process_id: listing.transaction_process_id,
-      community_id: community.id
+      process_id: transaction_process_id,
+      community_id: community_id
     }
 
     TransactionService::API::Api.processes.get(opts)
