@@ -14,6 +14,7 @@ module MarketplaceService
         [:quantity, :optional, :string],
         [:transaction_type_id, :mandatory, :fixnum],
         [:transaction_process_id, :mandatory, :fixnum],
+        [:unit_type, :optional, :to_symbol],
         [:action_button_tr_key, :string],
         [:deleted, :to_bool]
       )

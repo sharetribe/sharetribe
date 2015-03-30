@@ -1684,18 +1684,27 @@ $noscript-height: lines(4);
     margin-bottom: lines(0.5);
 }
 
+.initiate-transaction-per-unit-wrapper,
+.initiate-transaction-booking-wrapper,
+.initiate-transaction-quantity-wrapper,
 .initiate-transaction-sum-wrapper,
 .initiate-transaction-shipping-price-wrapper,
 .initiate-transaction-total-wrapper {
     @include clearfix;
 }
 
+.initiate-transaction-per-unit-label,
+.initiate-transaction-booking-label,
+.initiate-transaction-quantity-label,
 .initiate-transaction-sum-label,
 .initiate-transaction-shipping-price-label,
 .initiate-transaction-total-label {
     float: left;
 }
 
+.initiate-transaction-per-unit-value,
+.initiate-transaction-booking-value,
+.initiate-transaction-quantity-value,
 .initiate-transaction-sum-value,
 .initiate-transaction-shipping-price-value,
 .initiate-transaction-total-value {
