@@ -106,6 +106,7 @@ describe PersonMailer do
     transition = FactoryGirl.build(:transaction_transition, to_state: "confirmed")
     listing = FactoryGirl.build(:listing,
                                 transaction_type_id: 123,
+                                transaction_process_id: 123, # not needed, but mandatory
                                 author: @test_person)
     transaction = FactoryGirl.create(:transaction, starter: @test_person2, listing: listing, transaction_transitions: [transition])
     testimonial = FactoryGirl.create(:testimonial, :grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :transaction => transaction)
