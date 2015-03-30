@@ -47,16 +47,16 @@ zh:
         community_details: 基本信息
         community_look_and_feel: 设计
         edit_community: 基本信息
-        community_name: 市集名称
-        edit_community_name_description: 你的市集名称。它将在邮件和其他不同地方显示给用户。
-        community_slogan: 市集标语
-        edit_community_slogan_description: "这将显示在市集主页给所有未登录用户。%{see_how_it_looks_like}"
-        community_description: 市集描述
-        edit_community_description_description: "这将显示在未登录用户的市集主页。%{see_how_it_looks_like}"
+        community_name: 集市名称
+        edit_community_name_description: 你的集市名称。它将在邮件和其他不同地方显示给用户。
+        community_slogan: 集市标语
+        edit_community_slogan_description: "这将显示在集市主页给所有未登录用户。%{see_how_it_looks_like}"
+        community_description: 集市描述
+        edit_community_description_description: "这将显示在未登录用户的集市主页。%{see_how_it_looks_like}"
         community_search_placeholder: 搜索提示
-        edit_community_search_placeholder_description: "这将在市集主页以占位符文本显示在搜索栏。%{see_how_it_looks_like}"
-        private_community_homepage_content: 私有市集主页内容
-        edit_private_community_homepage_content_description: "这个内容在私有的主页显示给未登录用户。你可以在这里描述你的市集及加入的流程。你也可以在这里新增图片，视频和HTML内容。%{see_how_it_looks_like}"
+        edit_community_search_placeholder_description: "这将在集市主页以占位符文本显示在搜索栏。%{see_how_it_looks_like}"
+        private_community_homepage_content: 私有集市主页内容
+        edit_private_community_homepage_content_description: "这个内容在私有的主页显示给未登录用户。你可以在这里描述你的集市及加入的流程。你也可以在这里新增图片，视频和HTML内容。%{see_how_it_looks_like}"
         update_information: 保存设置
         invite_people: 邀请新用户
         edit_signup_info: 注册信息
@@ -75,7 +75,7 @@ zh:
         transaction_agreement_text_header: 协定文本
         transaction_agreement_description: "这是用户需要接受的实际协议的内容。该协议内容会在用户点击协议标签旁边的“%{read_more}”链接时展现。"
       edit_look_and_feel:
-        edit_community_look_and_feel: "编辑市集”%{community_name}“的外观和感觉"
+        edit_community_look_and_feel: "编辑集市”%{community_name}“的外观"
         community_logo: 页面展示Logo
         community_logo_icon: 社交网络和移动设备的标识
         community_cover_photo: 封面照片
@@ -110,7 +110,7 @@ zh:
         edit_text_instructions: 说明文本
       edit_welcome_email:
         welcome_email_content: 欢迎邮件内容
-        welcome_email_content_description: "下面的消息将在新用户加入时被发送给每个用户。你可以定制消息以适应你的市集。通过点击“%{send_test_message_link}”你可以发送一条预览信息到你的电子邮件地址，你可以看看它在邮件客户端中的将如何被显示。"
+        welcome_email_content_description: "下面的消息将在新用户加入时被发送给每个用户。你可以定制消息以适应你的集市。通过点击“%{send_test_message_link}”你可以发送一条预览信息到你的电子邮件地址，你可以看看它在邮件客户端中的将如何被显示。"
         edit_message: 编辑消息
         send_test_message: 发送测试消息
       getting_started:
@@ -125,22 +125,22 @@ zh:
         categories_link_text: 新增分类和子分类
         custom_fields_link_text: 配置表单字段
         filters_link_text: 何种类型的过滤器
-        payments: "如果你希望人们通过你的市集支付他们购买的东西，从而为每笔交易收取费用，你应该%{payments_link}。"
+        payments: "如果你希望人们通过你的集市支付他们购买的东西，从而为每笔交易收取费用，你应该%{payments_link}。"
         payments_link_text: 配置支付方式
-        info_texts: "不要忘了通过定制信息页面和其他文本来告诉你的用户关于你的市集。有一些不错的地方可以参考：你的%{about_page_link}，你的%{terms_of_use_link}（你应该增加你自己的条款，或者编辑当前模板，或者创建一个全新文档），你的%{privacy_policy_link}，以及发送给每个新用户的%{welcome_email_link}。这儿还有一些你可以配置的%{instruction_texts_link}。"
+        info_texts: "不要忘了通过定制信息页面和其他文本来告诉你的用户关于你的集市。有一些不错的地方可以参考：你的%{about_page_link}，你的%{terms_of_use_link}（你应该增加你自己的条款，或者编辑当前模板，或者创建一个全新文档），你的%{privacy_policy_link}，以及发送给每个新用户的%{welcome_email_link}。这儿还有一些你可以配置的%{instruction_texts_link}。"
         about_page_link_text: 关于页面
         terms_of_use_link_text: 使用条款
         privacy_policy_link_text: 隐私策略
         welcome_email_link_text: 欢迎电子邮件
         instruction_texts_link_text: 其他的说明文本
-        social_media: "使用社交媒体是建立社区的好办法。你可以通过%{facebook_link}让人们更容易的登录你的市集，通过%{twitter_link}使得人们对你的市集产品发布推特时获得病毒式的可见性。"
+        social_media: "使用社交媒体是建立社区的好办法。你可以通过%{facebook_link}让人们更容易的登录你的市集，通过%{twitter_link}使得人们对你的集市产品发布推特时获得病毒式的可见性。"
         facebook_link_text: 连接你的自定义Facebook应用
         twitter_link_text: 添加你的Twitter帐号
         analytics: "访问%{analytics_link}是个好主意。方便你查看你的市场中发生的事情，比如你有多少访客等。"
         analytics_link_text: "连接一个Google Analytics帐号"
-        settings: "有许多其他的设置你可以使用。比如你可以要求每个人加入你的市集钱必须从其他用户处获得邀请并且设置你的市集为私有，从而只有登录的用户才能看见内容。%{settings_link}"
+        settings: "有许多其他的设置你可以使用。比如你可以要求每个人加入你的集市钱必须从其他用户处获得邀请并且设置你的集市为私有，从而只有登录的用户才能看见内容。%{settings_link}"
         settings_link_text: 在这里查看你的市场设置
-        final_words: "就是这些了！如果一切都准备好了，你可以开始在你的市集发送邀请%{invite_link}。你可以看到所有加入你的%{view_users_link}的哟农户，以及所有他们完成的交易%{view_transactions_link}。你还可以很容易的管理列表：去列表页面你将看到管理员链接以用于编辑和关闭。如果需要帮助，你可以点击%{contact_support_link} ——我们在这儿随时准备为你服务。"
+        final_words: "就是这些了！如果一切都准备好了，你可以开始在你的集市发送邀请%{invite_link}。你可以看到所有加入你的%{view_users_link}的用户，以及所有他们完成的交易%{view_transactions_link}。你还可以很容易的管理列表：去列表页面你将看到管理员链接以用于编辑和关闭。如果需要帮助，你可以点击%{contact_support_link} ——我们在这儿随时准备为你服务。"
         invite_link_text: 邀请用户
         view_users_link_text: 这里
         view_transactions_link_text: 这里
@@ -150,9 +150,9 @@ zh:
         general: 常规
         users_can_review_each_other_after_transaction: 用户可以在交易结束后相互评论
         access: 访问
-        join_with_invite_only: 用户只能通过其他用户的邀请才能加入这个市集
-        users_can_invite_new_users: 所有用户都可以邀请新用户来到这个市集
-        private: 这个市集是私有的（只有注册用户可以看到内容）
+        join_with_invite_only: 用户只能通过其他用户的邀请才能加入这个集市
+        users_can_invite_new_users: 所有用户都可以邀请新用户来到这个集市
+        private: 这个集市是私有的（只有注册用户可以看到内容）
         require_verification_to_post_listings: 只有经管理员验证的用户可以发布新的信息
         listing_preferences: 列出偏好
         transaction_preferences: 交易偏好
@@ -182,19 +182,19 @@ zh:
         saving_user_status: 正在保存……
         save_user_status_successful: 已保存
         save_user_status_error: 保存失败。请刷新页面后重试。
-        ban_user_confirmation: 这将会把用户从市集中删除并阻止他们使用这个帐号再次访问该站点。你确认要继续吗？
+        ban_user_confirmation: 这将会把用户从集市中删除并阻止他们使用这个帐号再次访问该站点。你确认要继续吗？
         ban_me_error: 你不能禁止自己。
       social_media:
         social_media: 社交媒体
         twitter_handle: 推特句柄
-        twitter_handle_info_text: 当人们使用信息页面上的推特按钮时，你的市集推特帐号的用户名（如果你有的话）将被提及。
-        twitter_handle_info_text_with_instructions: "当人们使用信息页面上的推特按钮时，你的市集推特帐号的用户名（如果你有的话）将被提及。%{instructions_link}"
+        twitter_handle_info_text: 当人们使用信息页面上的推特按钮时，你的集市推特帐号的用户名（如果你有的话）将被提及。
+        twitter_handle_info_text_with_instructions: "当人们使用信息页面上的推特按钮时，你的集市推特帐号的用户名（如果你有的话）将被提及。%{instructions_link}"
         twitter_instructions_link_text: 读取更多
         twitter_handle_placeholder: 用户名
         invalid_twitter_handle: 推特句柄最多不能超过15个字母数字字符（字母A-Z和数字0-9）。
         facebook_connect: Facebook
-        facebook_connect_info_text: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者仪表盘</a>中为你的市集创建一个应用。在这里添加应用生成的ID和密钥。"
-        facebook_connect_info_text_with_instructions: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者仪表盘</a>中为你的市集创建一个应用。在这里添加应用生成的ID和密钥。%{instructions_link}"
+        facebook_connect_info_text: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者仪表盘</a>中为你的集市创建一个应用。在这里添加应用生成的ID和密钥。"
+        facebook_connect_info_text_with_instructions: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者仪表盘</a>中为你的集市创建一个应用。在这里添加应用生成的ID和密钥。%{instructions_link}"
         facebook_instructions_link_text: "关于如何配置Facebook Connect请参考说明。"
         facebook_connect_id: Facebook客户号
         invalid_facebook_connect_id: 客户号仅能包含数字。
@@ -316,7 +316,7 @@ zh:
     paypal_accounts:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
-      integration_info_text: Sharetribe的支付系统由PayPal提供技术支持。如果你想使用你的用户名在你的市集上付款，你必须连接你的PayPal帐号及决定最小交易规模以及对每个交易收取的费用。
+      integration_info_text: Sharetribe的支付系统由PayPal提供技术支持。如果你想使用你的用户名在你的集市上付款，你必须连接你的PayPal帐号及决定最小交易规模以及对每个交易收取的费用。
       read_more_about_paypal: 了解更多关于Sharetribe的支付系统
       paypal_account_email: "1. 连接你的PayPal帐号"
       paypal_account_email_completed: 已完成！
@@ -373,7 +373,7 @@ zh:
       item: 物品
       favor: 服务
       rideshare: 拼车
-      housing: 空间
+      housing: 住处
       tools: 工具
       sports: 运动
       music: 音乐
@@ -802,7 +802,7 @@ zh:
       welcome_email_subject: "欢迎来到%{service_name}"
       welcome_to_marketplace: "欢迎使用%{service_name}！很高兴你的加入。"
       love_marketplace_crew: "爱你的，<br /><i>%{service_name} 工作人员</i>"
-      p_s_did_you_know: "附言 你想创建像%{service_name}一样的自己的市集网站吗？很简单，不需要任何编程经验。点击%{click_here_link}查看更多！"
+      p_s_did_you_know: "附言 你想创建像%{service_name}一样的自己的集市网站吗？很简单，不需要任何编程经验。点击%{click_here_link}查看更多！"
       click_here_link_text: 点击这里
       welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
       settings_link_text: 查看你的设置
@@ -815,7 +815,7 @@ zh:
       your_marketplace_admin_area: 你的市场管理区域：
       just_follow_details: 点击下列链接你将获得如何开始搭建你的市场的详细信息！
       we_will_guide_you_along_the_way: 我们将引导你走下去。
-      are_you_new_to_online_marketplaces: 需要协助你的市集？没关系，我们能帮助你！我们将发送给你一系列电邮帮助你最大化利用Sharetribe并且建造一个成功的市集生意。我们将很快发送给你第一部分的内容。
+      are_you_new_to_online_marketplaces: 需要协助你的集市？没关系，我们能帮助你！我们将发送给你一系列电邮帮助你最大化利用Sharetribe并且建造一个成功的集市生意。我们将很快发送给你第一部分的内容。
       have_questions: 有问题吗？
       our_happiness_team_is_here_to_help: "我们的欢乐团队在此支持你！点击%{knowledge_base_link}或者通过%{admin_panel_link}联系我们的支持人员。"
       love: 爱你的，
@@ -997,9 +997,9 @@ zh:
       email: 电子邮件地址
       message: 一条私人消息
       send_invitation: 发送邀请
-      add_as_many_emails_as_you_want: 添加你要邀请的人的邮件地址到下面的字段。如果你添加多个电子邮件地址，用逗号分隔。
+      add_as_many_emails_as_you_want: 添加你要邀请的人的邮件地址到下面的输入框。如果你添加多个电子邮件地址，用逗号分隔。
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
-      invitation_message_field_placeholder: 我加入了这个很棒的市集。你也应该加入！
+      invitation_message_field_placeholder: 我加入了这个很棒的集市。你也应该加入！
       errors_in_emails: 检查你新添的电邮地址是否有效。如果你添加了多个地址，确保用逗号分隔。
     list_item:
       review: 评论
@@ -1029,7 +1029,7 @@ zh:
   infos:
     about:
       default_about_text_title: 什么是Sharetribe？
-      default_about_text: "该市集由Sharetribe平台提供技术支持。通过Sharetribe你可以容易的创建自己的市集网站。只需要一分钟并且是免费的。点击%{click_here_link}了解更多！"
+      default_about_text: "该集市由Sharetribe平台提供技术支持。通过Sharetribe你可以容易的创建自己的集市网站。只需要一分钟并且是免费的。点击%{click_here_link}了解更多！"
       click_here_link_text: 点击这里
     how_to_use:
       default_title: 它是如何工作的
@@ -1042,7 +1042,7 @@ zh:
       settings: 设置
       feedback: 联系我们
     application:
-      join_this_community: 加入市集
+      join_this_community: 加入集市
       read_more: 读取更多
       feedback: 给我们提供反馈？
       default_feedback: "你碰到任何关于%{service_name}的问题了吗？有什么提高服务质量的建议吗？注意到一些可疑的内容？或者你有些什么想与我们讨论吗？告诉我们！"
@@ -1057,7 +1057,7 @@ zh:
       invite_your_friends: 邀请朋友！
       invite_your_neighbors: 邀请邻居！
       invite_your_friends_description: "越多人加入%{service_name}，网站就越有用。"
-      invite_your_friends_invite_only_description: "除非被邀请，人们将不能加入%{service_name}。"
+      invite_your_friends_invite_only_description: "除非被邀请，一般人将不能加入%{service_name}。"
       join_without_facebook: "或者选择%{join_without_facebook_link}"
       join_without_facebook_link: 不使用Facebook帐号注册
     conversations:
@@ -1336,7 +1336,7 @@ zh:
       valid_until_radio_buttons:
         for_the_time_being: 一直有效
       visibility:
-        all_communities: 所有我的Sharetribe市集
+        all_communities: 所有我的Sharetribe集市
         this_community: "仅限%{service_name} 用户"
         visibility: 公开度
       privacy:
@@ -1589,7 +1589,7 @@ zh:
       terms: 使用条款
       username_is_in_use: 此用户名已被使用。
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
-      visible_only_to_you: 仅对你和市集管理员可见
+      visible_only_to_you: 仅对你和集市管理员可见
       visible_to_everybody: 所有人可见
       create_account_with_facebook: 用Facebook帐号注册
       OR: 或
@@ -1693,7 +1693,7 @@ zh:
       confirm_your_email: 请确认你的电子邮件
       account_confirmation_instructions: "你很快会收到一封邮件包含一个需要你点击确认刚才输入的邮件地址的链接。在确认邮件之后你就可以加入%{service_name}了。"
       account_confirmation_instructions_title_admin: 欢迎来到你的市场！
-      your_marketplace_has_now_been_created: 你的市集站点已经创建。这很容易吧？接下来只要一个步骤你就可以访问你的站点了：你需要确认你的电邮地址。
+      your_marketplace_has_now_been_created: 你的集市站点已经创建。这很容易吧？接下来只要一个步骤你就可以访问你的站点了：你需要确认你的电邮地址。
       account_confirmation_instructions_admin: 你很快会收到一封邮件要求你点击确认刚才输入的邮件地址。在确认邮件之后你就可以配置你的市场了。
   settings:
     account:
