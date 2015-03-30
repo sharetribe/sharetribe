@@ -86,10 +86,13 @@ class PreauthorizeTransactionsController < ApplicationController
       return render_error_response(request.xhr?, "Delivery method is invalid.", action: :initiate)
     end
 
+    quantity = valid_quantity(preauthorize_form.quantity)
+
     transaction_response = create_preauth_transaction(
       payment_type: :paypal,
       community: @current_community,
       listing: @listing,
+      listing_quantity: quantity,
       user: @current_user,
       content: preauthorize_form.content,
       use_async: request.xhr?,
