@@ -559,7 +559,7 @@ class Community < ActiveRecord::Base
     values = {}
     values["category"] = top_level_categories.collect(&:id)
     values["subcategory"] = subcategories.collect(&:id)
-    values["transaction_type"] = transaction_types.collect(&:id)
+    values["transaction_type"] = listing_shapes.collect { |s| s[:transaction_type_id] }
     return values
   end
 
@@ -568,7 +568,7 @@ class Community < ActiveRecord::Base
     values = {}
     values["category"] = top_level_categories
     values["subcategory"] = subcategories
-    values["transaction_type"] = transaction_types
+    values["shape"] = listing_shapes
     return values
   end
 
@@ -662,5 +662,11 @@ class Community < ActiveRecord::Base
 
   def initialize_settings
     update_attribute(:settings,{"locales"=>[APP_CONFIG.default_locale]}) if self.settings.blank?
+  end
+
+  def listing_shapes
+    @listing_shapes ||= ListingService::API::Api.shapes.get(community_id: id).maybe.or_else(nil).tap { |shapes|
+      raise ArgumentError.new("Can not find any listing shapes for community #{id}") if shapes.nil?
+    }
   end
 end
