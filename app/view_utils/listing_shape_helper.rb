@@ -22,7 +22,7 @@ module ListingShapeHelper
       community_id: community.id
     )
 
-    shapes = ListingService::API::Api.shapes.get(:community_id)
+    shapes = ListingService::API::Api.shapes.get(community_id: community.id).maybe.or_else([])
 
     direction_tuples = shapes.map { |shape|
         direction = process_res
@@ -34,7 +34,7 @@ module ListingShapeHelper
             raise ArgumentError.new("Can not find transaction process for community #{community.id}, transaction type #{tt.id}") if process.nil?
         }
 
-      [tt.id, direction]
+      [shape[:transaction_type_id], direction]
     }
 
     direction_tuples.to_h

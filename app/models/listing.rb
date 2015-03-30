@@ -223,12 +223,12 @@ class Listing < ActiveRecord::Base
       direction = params[:share_type]
       transaction_type_direction_map = ListingShapeHelper.transaction_types_to_direction_map(current_community) # deprecated
 
-      all_shapes = ListingService::API::Api.shapes.get(community_id: current_community.id)
+      all_shapes = ListingService::API::Api.shapes.get(community_id: current_community.id).maybe.or_else([])
 
       params[:transaction_types] = {
         id: all_shapes.select { |shape|
           transaction_type_direction_map[shape[:transaction_type_id]] == direction
-        }.collect(&:id)
+        }.map { |shape| shape[:transaction_type_id] }
       }
     end
 
