@@ -17,7 +17,7 @@ class PopulateListingShapes < ActiveRecord::Migration
         SELECT
           tt.community_id,
           tt.transaction_process_id,
-          tt.price_field = true, # Convert NULL to false
+          COALESCE(tt.price_field, false), # Convert NULL to false
           tt.shipping_enabled,
           tt.url,
           tt.name_tr_key,
