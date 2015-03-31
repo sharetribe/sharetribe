@@ -81,16 +81,16 @@ module ListingService::Store::Shape
 
       # Save to TransactionType model
       create_tt_opts = to_tt_model_attributes(shape_with_url).except(:units, :translations)
-      tt_model = TransactionType.create(create_tt_opts)
+      tt_model = TransactionType.create!(create_tt_opts)
 
       # Save to ListingShape model
       shape_model = ListingShape.create!(shape_with_name.merge(transaction_type_id: tt_model.id).except(:units, :translations))
 
       # Save units
       units.each { |unit|
-        tt_model.listing_units.create(to_unit_model_attributes(unit).merge(listing_shape_id: shape_model.id))
+        tt_model.listing_units.create!(to_unit_model_attributes(unit).merge(listing_shape_id: shape_model.id))
       }
-      translations.each { |tr| tt_model.translations.create(tr) }
+      translations.each { |tr| tt_model.translations.create!(tr) }
     end
 
     from_transaction_type_model(tt_model)
