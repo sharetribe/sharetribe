@@ -125,6 +125,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     render "accept", locals: {
       payment_gateway: :paypal,
       listing: @listing,
+      listing_quantity: transaction[:listing_quantity],
       booking: transaction[:booking],
       orderer: @listing_conversation.starter,
       sum: transaction[:item_total],
@@ -145,6 +146,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     render action: :accept, locals: {
       payment_gateway: :braintree,
       listing: @listing,
+      listing_quantity: @listing_conversation.listing_quantity,
       booking: @listing_conversation.booking,
       orderer: @listing_conversation.starter,
       sum: @listing_conversation.payment.total_sum,

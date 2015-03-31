@@ -1644,12 +1644,18 @@ $noscript-height: lines(4);
     padding: lines(0.5);
     margin-bottom: lines(0.5);
   }
+  .conversation-per-unit-wrapper,
+  .conversation-booking-wrapper,
+  .conversation-quantity-wrapper,
   .conversation-sum-wrapper,
   .conversation-service-fee-wrapper,
   .conversation-total-wrapper,
   .conversation-shipping-price-wrapper {
     @include clearfix;
   }
+  .conversation-per-unit-label,
+  .conversation-booking-label,
+  .conversation-quantity-label,
   .conversation-sum-label,
   .conversation-service-fee-label,
   .conversation-total-label,
@@ -1657,6 +1663,9 @@ $noscript-height: lines(4);
     float: left;
   }
 
+  .conversation-per-unit-value,
+  .conversation-booking-value,
+  .conversation-quantity-value,
   .conversation-sum-value,
   .conversation-service-fee-value,
   .conversation-total-value,

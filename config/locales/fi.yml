@@ -426,6 +426,7 @@ fi:
       minimum_price_error_message: "Hinta ei voi olla pienempi kuin %{amount}."
       accept: Hyväksy
       decline: Hylkää
+      quantity_label: "Määrä:"
       sum_label: "Välisumma:"
       service_fee_label: "%{service_name} palvelumaksu:"
       you_will_get_label: "Sinä saat:"
