@@ -1,7 +1,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      initialize_new_listing_form_selectors("#{I18n.locale}", #{@current_community.category_tree(I18n.locale).to_json}, #{listing_form_menu_titles(@current_community.available_categorization_values).to_json});
+      initialize_new_listing_form_selectors("#{I18n.locale}", #{@current_community.category_tree(I18n.locale).to_json}, #{listing_form_menu_titles().to_json});
     });
 
 - content_for :extra_javascript do
