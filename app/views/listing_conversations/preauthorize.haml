@@ -35,23 +35,12 @@
         %div
           = t(".by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
 
-      -# TODO Fix this, no respond_to?
-      - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
-        %li
-          %div
-            = l preauthorize_form.start_on, format: :long_with_abbr_day_name
-            = "-"
-            = l preauthorize_form.end_on, format: :long_with_abbr_day_name
-            = "(#{pluralize(duration, t(".day"), t(".days"))})"
-
-        %li
-          %div
-            = t(".price_per_day", price: humanized_money_with_symbol(listing[:price]))
-
       %li
-        %div
-          %strong
-            = t("conversations.show.total", total: humanized_money_with_symbol(sum))
+        - booking = {booking: preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)}
+        - booking = booking.merge({start_on: preauthorize_form.start_on, end_on: preauthorize_form.end_on, duration: duration}) if booking[:booking]
+        - quantity = local_assigns.has_key?(:quantity) ? quantity : nil
+        - locals = booking.merge({listing: listing, listing_price: listing[:price], quantity: quantity, subtotal: subtotal, sum: sum, shipping_price: nil})
+        = render partial: "transactions/price_break_down", locals: locals
 
   = form_for preauthorize_form,
     :url => form_action,
@@ -80,6 +69,9 @@
 
       - if @current_community.transaction_agreement_in_use
         = render :partial => "listing_conversations/transaction_agreement_checkbox", locals: { form: form }
+
+      - if local_assigns.has_key?(:quantity)
+        = form.hidden_field :quantity, value: quantity
 
       .row
         .col-12
