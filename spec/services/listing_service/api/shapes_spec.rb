@@ -18,6 +18,7 @@ describe ListingService::API::Shapes do
       name_tr_key: name_tr_key,
       action_button_tr_key: action_button_tr_key,
       price_quantity_placeholder: :time,
+      sort_priority: 0,
 
       # TODO Move these to translation service
       translations: [
@@ -163,6 +164,15 @@ describe ListingService::API::Shapes do
 
         expect(get_res.success).to eq(true)
         expect(get_res.data.length).to eq(3)
+      end
+
+      it "respects the sort priority" do
+        [["sell", 10], ["rent", 0], ["request", 5]].each { |(name, prio)|
+          create_shape(url_source: name, sort_priority: prio)
+        }
+
+        shape_names = listings_api.shapes.get(community_id: community_id).data.map { |s| [s[:url], s[:sort_priority]] }
+        expect(shape_names).to eq [["rent", 0], ["request", 5], ["sell", 10]]
       end
     end
   end

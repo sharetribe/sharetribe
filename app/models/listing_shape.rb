@@ -12,6 +12,7 @@
 #  action_button_tr_key       :string(255)      not null
 #  price_quantity_placeholder :string(255)
 #  transaction_type_id        :integer
+#  sort_priority              :integer          default(0), not null
 #  created_at                 :datetime         not null
 #  updated_at                 :datetime         not null
 #
@@ -28,6 +29,7 @@ class ListingShape < ActiveRecord::Base
     :price_enabled,
     :shipping_enabled,
     :name,
+    :sort_priority,
     :name_tr_key,
     :action_button_tr_key,
     :price_quantity_placeholder,

@@ -13,6 +13,7 @@ module ListingService::Store::Shape
     [:shipping_enabled, :bool, :mandatory],
     [:units, :array, default: []], # Mandatory only if price_enabled
     [:price_quantity_placeholder, one_of: [nil, :mass, :time, :long_time]], # TODO TEMP
+    [:sort_priority, :fixnum, default: 0],
     [:url_source, :string, :mandatory]
   )
 
@@ -29,6 +30,7 @@ module ListingService::Store::Shape
     [:units, :array, :mandatory],
     [:shipping_enabled, :bool, :mandatory],
     [:url, :string, :mandatory],
+    [:sort_priority, :fixnum, default: 0],
     [:price_quantity_placeholder, :to_symbol, one_of: [nil, :mass, :time, :long_time]] # TODO TEMP
   )
 
@@ -40,7 +42,8 @@ module ListingService::Store::Shape
     [:action_button_tr_key, :string],
     [:translations, :array], # TODO Only temporary
     [:units, :array],
-    [:shipping_enabled, :bool]
+    [:shipping_enabled, :bool],
+    [:sort_priority, :fixnum]
   )
 
   Unit = EntityUtils.define_builder(
@@ -191,7 +194,7 @@ module ListingService::Store::Shape
   end
 
   def find_tt_models(community_id:)
-    TransactionTypeModel.where(community_id: community_id)
+    TransactionTypeModel.where(community_id: community_id).order(:sort_priority)
   end
 
   def uniq_url(url_source, community_id)
