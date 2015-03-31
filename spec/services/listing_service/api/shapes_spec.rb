@@ -88,7 +88,7 @@ describe ListingService::API::Shapes do
         expect(s.transaction_process_id).to eql(transaction_process_id)
         expect(s.name_tr_key).to eql(name_tr_key)
         expect(s.action_button_tr_key).to eql(action_button_tr_key)
-        expect(s.url).to eql("selling")
+        expect(s.name).to eql("selling")
         expect(s.price_quantity_placeholder).to eql("time")
 
         ## TODO Remove this in the future

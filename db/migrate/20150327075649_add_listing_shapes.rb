@@ -5,7 +5,7 @@ class AddListingShapes < ActiveRecord::Migration
       t.integer :transaction_process_id, null: false
       t.boolean :price_enabled, null: false
       t.boolean :shipping_enabled, null: false
-      t.string :url, null: false
+      t.string :name, null: false
       t.string :name_tr_key, null: false
       t.string :action_button_tr_key, null: false
 
@@ -16,6 +16,6 @@ class AddListingShapes < ActiveRecord::Migration
     end
 
     add_index :listing_shapes, :community_id
-    add_index :listing_shapes, :url
+    add_index :listing_shapes, :name
   end
 end

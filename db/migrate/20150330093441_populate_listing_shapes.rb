@@ -6,7 +6,7 @@ class PopulateListingShapes < ActiveRecord::Migration
         transaction_process_id,
         price_enabled,
         shipping_enabled,
-        url,
+        name,
         name_tr_key,
         action_button_tr_key,
         price_quantity_placeholder,

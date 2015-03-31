@@ -475,7 +475,7 @@ ActiveRecord::Schema.define(:version => 20150330094735) do
     t.integer  "transaction_process_id",     :null => false
     t.boolean  "price_enabled",              :null => false
     t.boolean  "shipping_enabled",           :null => false
-    t.string   "url",                        :null => false
+    t.string   "name",                       :null => false
     t.string   "name_tr_key",                :null => false
     t.string   "action_button_tr_key",       :null => false
     t.string   "price_quantity_placeholder"
@@ -485,7 +485,7 @@ ActiveRecord::Schema.define(:version => 20150330094735) do
   end
 
   add_index "listing_shapes", ["community_id"], :name => "index_listing_shapes_on_community_id"
-  add_index "listing_shapes", ["url"], :name => "index_listing_shapes_on_url"
+  add_index "listing_shapes", ["name"], :name => "index_listing_shapes_on_name"
 
   create_table "listing_units", :force => true do |t|
     t.string   "unit_type",           :limit => 32, :null => false

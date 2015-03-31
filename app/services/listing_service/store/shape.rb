@@ -77,13 +77,14 @@ module ListingService::Store::Shape
     ActiveRecord::Base.transaction do
       url = uniq_url(shape[:url_source], shape[:community_id])
       shape_with_url = shape.except(:url_source).merge(url: url)
+      shape_with_name = shape.except(:url_source).merge(name: url)
 
       # Save to TransactionType model
       create_tt_opts = to_tt_model_attributes(shape_with_url).except(:units, :translations)
       tt_model = TransactionType.create(create_tt_opts)
 
       # Save to ListingShape model
-      shape_model = ListingShape.create!(shape_with_url.merge(transaction_type_id: tt_model.id).except(:units, :translations))
+      shape_model = ListingShape.create!(shape_with_name.merge(transaction_type_id: tt_model.id).except(:units, :translations))
 
       # Save units
       units.each { |unit|
