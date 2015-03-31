@@ -42,30 +42,30 @@ describe MarketplaceService::API::Marketplaces do
     it "should set correct transaction_type and category" do
       community_hash = create(@community_params)
       c = Community.find(community_hash[:id])
-      expect(c.transaction_types.first.price_field?).to eql true
-      expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
-      expect(c.transaction_types.first.shipping_enabled).to eql true
-      s = listings_api.shapes.get(community_id: c.id, transaction_type_id: c.transaction_types.first.id).data
+      s = listings_api.shapes.get(community_id: c.id).data.first
       expect(s[:units].empty?).to eql true
+      expect(s[:price_enabled]).to eql true
+      expect(s[:price_quantity_placeholder]).to eql nil
+      expect(s[:shipping_enabled]).to eql true
 
       community_hash = create(@community_params.merge({:marketplace_type => "rental"}))
       c = Community.find(community_hash[:id])
-      expect(c.transaction_types.first.price_field?).to eql true
-      expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
-      expect(c.transaction_types.first.shipping_enabled).to eql false
-      s = listings_api.shapes.get(community_id: c.id, transaction_type_id: c.transaction_types.first.id).data
+      s = listings_api.shapes.get(community_id: c.id).data.first
       expect(s[:units][0][:type]).to eql :day
+      expect(s[:price_enabled]).to eql true
+      expect(s[:price_quantity_placeholder]).to eql nil
+      expect(s[:shipping_enabled]).to eql false
 
       community_hash = create(@community_params.merge({:marketplace_type => "service"}))
       c = Community.find(community_hash[:id])
-      expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
-      expect(c.transaction_types.first.price_field?).to eql true
-      expect(c.transaction_types.first.shipping_enabled).to eql false
-      s = listings_api.shapes.get(community_id: c.id, transaction_type_id: c.transaction_types.first.id).data
+      s = listings_api.shapes.get(community_id: c.id).data.first
       expect(s[:units][0][:type]).to eql :day
+      expect(s[:price_enabled]).to eql true
+      expect(s[:price_quantity_placeholder]).to eql nil
+      expect(s[:shipping_enabled]).to eql false
 
       # check that category and transaction type are linked
-      expect(c.transaction_types.first.categories.first).to eql c.categories.first
+      expect(TransactionType.where(community_id: c.id).first.categories.first).to eql c.categories.first
     end
 
     it "should have preauthorize_payments enabled" do

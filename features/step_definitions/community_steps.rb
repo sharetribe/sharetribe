@@ -16,7 +16,7 @@ module CommunitySteps
     listings_api = ListingService::API::Api
     shapes = listings_api.shapes.get(community_id: community.id)[:data]
 
-    shapes.select { |s| s[:price_enaboed] }.each { |s|
+    shapes.select { |s| s[:price_enabled] }.each { |s|
       TransactionProcess.find(s[:transaction_process_id]).update_attribute(:process, :postpay)
     }
   end
@@ -160,7 +160,7 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
     category.translations.create!(:name => hash['en'], :locale => 'en')
 
     shape = ListingService::API::Api.shapes.get(community_id: current_community.id)[:data].first
-    CategoryTransactionTypes.create(category_id: category.id, transaction_type_id: shape[:transaction_type_id])
+    CategoryTransactionType.create(category_id: category.id, transaction_type_id: shape[:transaction_type_id])
 
     if hash['category_type'].eql?("main")
       @top_level_category = category
