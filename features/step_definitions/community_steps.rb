@@ -13,9 +13,11 @@ module CommunitySteps
       FactoryGirl.create(:braintree_payment_gateway, :community => community, :type => gateway_name)
     end
 
-    # also change the transaction types
-    community.transaction_types.select { |tt| tt.price_field? }.each { |tt|
-      TransactionProcess.find(tt.transaction_process_id).update_attribute(:process, :postpay)
+    listings_api = ListingService::API::Api
+    shapes = listings_api.shapes.get(community_id: community.id)[:data]
+
+    shapes.select { |s| s[:price_enaboed] }.each { |s|
+      TransactionProcess.find(s[:transaction_process_id]).update_attribute(:process, :postpay)
     }
   end
 
@@ -156,7 +158,10 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
     category = current_community.categories.create!
     category.translations.create!(:name => hash['fi'], :locale => 'fi')
     category.translations.create!(:name => hash['en'], :locale => 'en')
-    category.transaction_types << current_community.transaction_types.first
+
+    shape = ListingService::API::Api.shapes.get(community_id: current_community.id)[:data].first
+    CategoryTransactionTypes.create(category_id: category.id, transaction_type_id: shape[:transaction_type_id])
+
     if hash['category_type'].eql?("main")
       @top_level_category = category
     else
@@ -175,7 +180,7 @@ end
 
 Given /^community "(.*?)" has following transaction types enabled:$/ do |community, transaction_types|
   current_community = Community.where(ident: community).first
-  current_community.transaction_types.destroy_all
+  TransactionType.where(community_id: current_community.id).destroy_all
 
   process_id = TransactionProcess.where(community_id: current_community.id, process: :none).first.id
 

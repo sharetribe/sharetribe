@@ -625,7 +625,7 @@ class Community < ActiveRecord::Base
   end
 
   def price_in_use?
-    transaction_types.any? { |tt| tt.price_field }
+    listing_shapes.any? { |s| s[:price_enabled] }
   end
 
   # Return either minimum price defined by this community or the absolute
