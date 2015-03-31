@@ -29,6 +29,7 @@
 #  category_id              :integer
 #  share_type_id            :integer
 #  transaction_type_id      :integer
+#  listing_shape_id         :integer          not null
 #  transaction_process_id   :integer
 #  shape_name_tr_key        :string(255)
 #  action_button_tr_key     :string(255)
@@ -45,6 +46,7 @@
 # Indexes
 #
 #  index_listings_on_category_id          (old_category_id)
+#  index_listings_on_listing_shape_id     (listing_shape_id)
 #  index_listings_on_listing_type         (listing_type_old)
 #  index_listings_on_open                 (open)
 #  index_listings_on_share_type_id        (share_type_id)
