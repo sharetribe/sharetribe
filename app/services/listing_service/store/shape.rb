@@ -18,8 +18,7 @@ module ListingService::Store::Shape
   )
 
   Shape = EntityUtils.define_builder(
-    # TODO Currently we don't have Shape model, i.e. we don't have Shape id
-    # [:id, :fixnum, :mandatory]
+    [:id, :fixnum, :mandatory],
     [:transaction_type_id, :fixnum, :optional], # TODO Only temporary
     [:community_id, :fixnum, :mandatory],
     [:price_enabled, :to_bool, :mandatory], # to_bool, because there are NULL values in db
@@ -35,8 +34,6 @@ module ListingService::Store::Shape
   )
 
   UpdateShape = EntityUtils.define_builder(
-    # TODO Currently we don't have Shape model, i.e. we don't have Shape id
-    # [:id, :fixnum, :mandatory]
     [:price_enabled, :bool], # to_bool, because there are NULL values in db
     [:name_tr_key, :string],
     [:action_button_tr_key, :string],
@@ -49,24 +46,36 @@ module ListingService::Store::Shape
   Unit = EntityUtils.define_builder(
     [:type, :to_symbol, one_of: [:piece, :hour, :day, :night, :week, :month, :custom]],
     [:translation_key, :optional] # TODO Validate or transform to TranslationKey
-    )
+  )
 
   module_function
 
   # TODO Remove transaction_type_id
   def get(community_id:, transaction_type_id: nil, listing_shape_id: nil)
-    tt_model = find_tt_model(
+    shape_model = find_shape_model(
       community_id: community_id,
       transaction_type_id: transaction_type_id,
       listing_shape_id: listing_shape_id)
 
-    from_transaction_type_model(tt_model)
+    transaction_type_id ||= shape_model.transaction_type_id
+
+    tt_model = find_tt_model(
+      community_id: community_id,
+      transaction_type_id: transaction_type_id)
+
+    from_model(tt_model, shape_model)
   end
 
   def get_all(community_id:)
     tt_models = find_tt_models(community_id: community_id)
 
-    tt_models.map { |m| from_transaction_type_model(m) }
+    tt_models.map { |tt_model|
+      shape_model = find_shape_model(
+        community_id: community_id,
+        transaction_type_id: tt_model.id)
+
+      from_model(tt_model, shape_model)
+    }
   end
 
   def create(community_id:, opts:)
@@ -77,6 +86,7 @@ module ListingService::Store::Shape
     translations = opts[:translations] # Skip data type and validation, because this is temporary
 
     tt_model = nil
+    shape_model = nil
 
     ActiveRecord::Base.transaction do
       name = uniq_name(shape[:basename], shape[:community_id])
@@ -97,18 +107,24 @@ module ListingService::Store::Shape
       translations.each { |tr| tt_model.translations.create!(tr) }
     end
 
-    from_transaction_type_model(tt_model)
+    from_model(tt_model, shape_model)
   end
 
   def update(community_id:, transaction_type_id: nil, listing_shape_id: nil, opts:)
-    tt_model = find_tt_model(
+    shape_model = find_shape_model(
       community_id: community_id,
       transaction_type_id: transaction_type_id,
       listing_shape_id: listing_shape_id)
 
-    return nil if tt_model.nil?
+    return nil if shape_model.nil?
 
-    shape_model = ListingShape.where(transaction_type_id: tt_model.id).first
+    transaction_type_id ||= transaction_type_id
+
+    tt_model = find_tt_model(
+      community_id: community_id,
+      transaction_type_id: transaction_type_id)
+
+    return nil if tt_model.nil?
 
     update_shape = UpdateShape.call(opts.merge(community_id: community_id))
 
@@ -137,18 +153,20 @@ module ListingService::Store::Shape
       shape_model.update_attributes!(HashUtils.compact(update_shape).merge(transaction_type_id: tt_model.id).except(:units, :translations))
     end
 
-    from_transaction_type_model(tt_model)
+    from_model(tt_model, shape_model)
   end
 
   # private
 
-  def from_transaction_type_model(model)
-    Maybe(model).map { |m|
+  def from_model(tt_model, shape_model)
+    Maybe(tt_model).map { |m|
       hash = from_tt_model_attributes(EntityUtils.model_to_hash(m))
 
       hash[:units] = m.listing_units.map { |unit_model|
         Unit.call(from_unit_model_attributes(EntityUtils.model_to_hash(unit_model)))
       }
+
+      hash[:id] = shape_model.id
 
       Shape.call(hash)
     }.or_else(nil)
@@ -184,18 +202,25 @@ module ListingService::Store::Shape
       }, model_hash).except(:units)
   end
 
-  def find_tt_model(community_id:, transaction_type_id: nil, listing_shape_id: nil)
-    if transaction_type_id
-      TransactionTypeModel.where(community_id: community_id, id: transaction_type_id).first
-    elsif listing_shape_id
-      raise NotImplementedError.new("Can not find listing shape by listing_shape_id, yet. Specify transaction_type_id instead.")
-    else
-      raise ArgumentError.new("Can not find listing shape without id.")
-    end
+  def find_tt_model(community_id:, transaction_type_id:)
+    TransactionTypeModel.where(community_id: community_id, id: transaction_type_id).first
   end
 
   def find_tt_models(community_id:)
     TransactionTypeModel.where(community_id: community_id).order(:sort_priority)
+  end
+
+  def find_shape_model(community_id:, listing_shape_id: nil, transaction_type_id: nil)
+    community_shapes = ListingShape.where(community_id: community_id)
+
+    if listing_shape_id
+      community_shapes.where(id: listing_shape_id).first
+    elsif transaction_type_id
+      community_shapes.where(transaction_type_id: transaction_type_id).first
+    else
+      raise ArgumentError.new("Can not find listing shape without id.")
+    end
+
   end
 
   def uniq_name(name_source, community_id)
