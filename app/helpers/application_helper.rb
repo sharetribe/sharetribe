@@ -621,6 +621,14 @@ module ApplicationHelper
         :icon_class => icon_class("form"),
         :path => admin_custom_fields_path,
         :name => "listing_fields"
+      },
+
+      # TODO Feature flag for inclusion
+      {
+        :text => t("admin.listing_shapes.index.listing_shapes"),
+        :icon_class => icon_class("form"),
+        :path => admin_listing_shapes_path,
+        :name => "listing_shapes"
       }
     ]
 
