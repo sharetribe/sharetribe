@@ -32,6 +32,7 @@
 #  image_content_type                 :string(255)
 #  image_file_size                    :integer
 #  image_updated_at                   :datetime
+#  image_processing                   :boolean
 #  facebook_id                        :string(255)
 #  authentication_token               :string(255)
 #  community_updates_last_sent_at     :datetime
@@ -173,6 +174,7 @@ class Person < ActiveRecord::Base
                       :thumb => "48x48#",
                       :original => "600x800>"},
                     :default_url => ActionController::Base.helpers.asset_path("/assets/profile_image/:style/missing.png", :digest => true)
+  process_in_background :image
 
   #validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 9.megabytes
