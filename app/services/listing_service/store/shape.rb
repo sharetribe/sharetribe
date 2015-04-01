@@ -21,7 +21,7 @@ module ListingService::Store::Shape
     [:id, :fixnum, :mandatory],
     [:transaction_type_id, :fixnum, :optional], # TODO Only temporary
     [:community_id, :fixnum, :mandatory],
-    [:price_enabled, :to_bool, :mandatory], # to_bool, because there are NULL values in db
+    [:price_enabled, :bool, :mandatory],
     [:name_tr_key, :string, :mandatory],
     [:action_button_tr_key, :string, :mandatory],
     [:transaction_process_id, :fixnum, :mandatory],
@@ -34,7 +34,7 @@ module ListingService::Store::Shape
   )
 
   UpdateShape = EntityUtils.define_builder(
-    [:price_enabled, :bool], # to_bool, because there are NULL values in db
+    [:price_enabled, :bool],
     [:name_tr_key, :string],
     [:action_button_tr_key, :string],
     [:translations, :array], # TODO Only temporary
