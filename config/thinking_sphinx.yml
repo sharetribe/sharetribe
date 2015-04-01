@@ -1,7 +1,7 @@
 # The charset_table is really long because we want to allow folding of accented characters¨é ->e, ä->a etc. AND the use of cyrillic letters.
 
 production:
-  version: '2.1.9'
+  version: '2.1.8'
   mysql41: 3564
   address: <%= ENV['SPHINX_HOST'] || '' %>
   enable_star: true
@@ -14,7 +14,7 @@ production:
   mysql_ssl_ca: lib/certificates/rds-combined-ca-bundle.pem
 
 staging:
-  version: '2.1.9'
+  version: '2.1.8'
   mysql41: 3566
   address: <%= ENV['SPHINX_HOST'] || '' %>
   enable_star: true
