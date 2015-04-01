@@ -9,7 +9,7 @@ class SettingsController < ApplicationController
   end
 
   def show
-    flash.now[:notice] = "Reload page!" if @current_user.image.processing?
+    flash.now[:notice] = t("settings.profile.image_is_processing") if @current_user.image.processing?
     @selected_left_navi_link = "profile"
     add_location_to_person
   end
