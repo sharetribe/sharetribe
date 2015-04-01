@@ -21,11 +21,11 @@ class HomepageController < ApplicationController
 
     @categories = @current_community.categories
     @main_categories = @current_community.main_categories
-    @transaction_types = @current_community.transaction_types
+    all_shapes = shapes.get(community_id: @current_community.id)[:data]
 
     # This assumes that we don't never ever have communities with only 1 main share type and
     # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
-    @transaction_type_menu_enabled = @transaction_types.size > 1
+    @transaction_type_menu_enabled = all_shapes.size > 1
     @show_categories = @current_community.categories.size > 1
     filters_enabled = @current_community.custom_fields.size > 0 || @current_community.show_price_filter
     @show_custom_fields = @current_community.custom_fields.select { |field| field.can_filter? }.present?
@@ -50,6 +50,8 @@ class HomepageController < ApplicationController
       else
         render :partial => "list_item", :collection => @listings, :as => :listing
       end
+    else
+      render locals: { shapes: all_shapes, selected_shape: @selected_shape }
     end
   end
 
@@ -78,9 +80,13 @@ class HomepageController < ApplicationController
       @selected_category = category
     end
 
-    Maybe(@current_community.transaction_types.find_by_url_or_id(params[:transaction_type])).each do |transaction_type|
-      filter_params[:transaction_type] = transaction_type.id
-      @selected_transaction_type = transaction_type
+    all_shapes = shapes.get(community_id: @current_community.id)[:data]
+    shape_by_name = all_shapes.find { |s| s[:name] == params[:transaction_type] }
+    shape_by_id = all_shapes.find { |s| s[:transaction_type_id] == params[:transaction_type] } unless shape_by_name
+
+    Maybe(shape_by_name || shape_by_id).each do |shape|
+      filter_params[:transaction_type] = shape[:transaction_type_id]
+      @selected_shape = shape
     end
 
     @listing_count = @current_community.listings.currently_open.count
@@ -177,5 +183,9 @@ class HomepageController < ApplicationController
 
   def self.checkbox_field_options_for_search(params)
     options_from_params(params, /^checkbox_filter_option/).flatten
+  end
+
+  def shapes
+    ListingService::API::Api.shapes
   end
 end

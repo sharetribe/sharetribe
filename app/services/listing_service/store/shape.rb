@@ -13,7 +13,8 @@ module ListingService::Store::Shape
     [:shipping_enabled, :bool, :mandatory],
     [:units, :array, default: []], # Mandatory only if price_enabled
     [:price_quantity_placeholder, one_of: [nil, :mass, :time, :long_time]], # TODO TEMP
-    [:url_source, :string, :mandatory]
+    [:sort_priority, :fixnum, default: 0],
+    [:basename, :string, :mandatory]
   )
 
   Shape = EntityUtils.define_builder(
@@ -28,6 +29,8 @@ module ListingService::Store::Shape
     [:translations, :array, :optional], # TODO Only temporary
     [:units, :array, :mandatory],
     [:shipping_enabled, :bool, :mandatory],
+    [:name, :string, :mandatory],
+    [:sort_priority, :fixnum, default: 0],
     [:price_quantity_placeholder, :to_symbol, one_of: [nil, :mass, :time, :long_time]] # TODO TEMP
   )
 
@@ -39,7 +42,8 @@ module ListingService::Store::Shape
     [:action_button_tr_key, :string],
     [:translations, :array], # TODO Only temporary
     [:units, :array],
-    [:shipping_enabled, :bool]
+    [:shipping_enabled, :bool],
+    [:sort_priority, :fixnum]
   )
 
   Unit = EntityUtils.define_builder(
@@ -75,9 +79,9 @@ module ListingService::Store::Shape
     tt_model = nil
 
     ActiveRecord::Base.transaction do
-      url = uniq_url(shape[:url_source], shape[:community_id])
-      shape_with_url = shape.except(:url_source).merge(url: url)
-      shape_with_name = shape.except(:url_source).merge(name: url)
+      name = uniq_name(shape[:basename], shape[:community_id])
+      shape_with_url = shape.except(:basename).merge(url: name)
+      shape_with_name = shape.except(:basename).merge(name: name)
 
       # Save to TransactionType model
       create_tt_opts = to_tt_model_attributes(shape_with_url).except(:units, :translations)
@@ -175,7 +179,8 @@ module ListingService::Store::Shape
     hash = HashUtils.rename_keys(
       {
         price_field: :price_enabled,
-        id: :transaction_type_id
+        id: :transaction_type_id,
+        url: :name
       }, model_hash).except(:units)
   end
 
@@ -190,22 +195,22 @@ module ListingService::Store::Shape
   end
 
   def find_tt_models(community_id:)
-    TransactionTypeModel.where(community_id: community_id)
+    TransactionTypeModel.where(community_id: community_id).order(:sort_priority)
   end
 
-  def uniq_url(url_source, community_id)
+  def uniq_name(name_source, community_id)
     blacklist = ['new', 'all']
-    current_url = url_source.to_url
-    base_url = current_url
+    current_name = name_source.to_url
+    base_name = current_name
 
     transaction_types = TransactionTypeModel.where(community_id: community_id)
 
     i = 1
-    while blacklist.include?(current_url) || transaction_types.find { |tt| tt.url == current_url }.present? do
-      current_url = "#{base_url}#{i}"
+    while blacklist.include?(current_name) || transaction_types.find { |tt| tt.url == current_name }.present? do
+      current_name = "#{base_name}#{i}"
       i += 1
     end
-    current_url
+    current_name
 
   end
 

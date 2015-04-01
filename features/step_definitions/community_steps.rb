@@ -13,9 +13,11 @@ module CommunitySteps
       FactoryGirl.create(:braintree_payment_gateway, :community => community, :type => gateway_name)
     end
 
-    # also change the transaction types
-    community.transaction_types.select { |tt| tt.price_field? }.each { |tt|
-      TransactionProcess.find(tt.transaction_process_id).update_attribute(:process, :postpay)
+    listings_api = ListingService::API::Api
+    shapes = listings_api.shapes.get(community_id: community.id)[:data]
+
+    shapes.select { |s| s[:price_enabled] }.each { |s|
+      TransactionProcess.find(s[:transaction_process_id]).update_attribute(:process, :postpay)
     }
   end
 
@@ -156,7 +158,10 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
     category = current_community.categories.create!
     category.translations.create!(:name => hash['fi'], :locale => 'fi')
     category.translations.create!(:name => hash['en'], :locale => 'en')
-    category.transaction_types << current_community.transaction_types.first
+
+    shape = ListingService::API::Api.shapes.get(community_id: current_community.id)[:data].first
+    CategoryTransactionType.create(category_id: category.id, transaction_type_id: shape[:transaction_type_id])
+
     if hash['category_type'].eql?("main")
       @top_level_category = category
     else
@@ -175,7 +180,7 @@ end
 
 Given /^community "(.*?)" has following transaction types enabled:$/ do |community, transaction_types|
   current_community = Community.where(ident: community).first
-  current_community.transaction_types.destroy_all
+  TransactionType.where(community_id: current_community.id).destroy_all
 
   process_id = TransactionProcess.where(community_id: current_community.id, process: :none).first.id
 
@@ -197,7 +202,7 @@ Given /^community "(.*?)" has following transaction types enabled:$/ do |communi
           {name: hash['fi'], action_button_label: (hash['button'] || "Action"), locale: 'fi'},
           {name: hash['en'], action_button_label: (hash['button'] || "Action"), locale: 'en'}
         ],
-        url_source: hash['en'],
+        basename: hash['en'],
         units: [ {type: :piece} ]
       }
     )
@@ -224,7 +229,7 @@ Given /^the community has transaction type Rent with name "(.*?)" and action but
       action_button_tr_key: action_button_tr_key,
       transaction_process_id: process_id,
       translations: [ {locale: "en", name: name, action_button_label: action_button_label} ],
-      url_source: name,
+      basename: name,
       units: [ {type: :day} ]
     }
   )
@@ -250,7 +255,7 @@ Given /^the community has transaction type Sell with name "(.*?)" and action but
       action_button_tr_key: action_button_tr_key,
       transaction_process_id: process_id,
       translations: [ {locale: "en", name: name, action_button_label: action_button_label} ],
-      url_source: name,
+      basename: name,
       units: [ {type: :piece} ]
     }
   )

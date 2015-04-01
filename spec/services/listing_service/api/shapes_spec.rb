@@ -18,13 +18,14 @@ describe ListingService::API::Shapes do
       name_tr_key: name_tr_key,
       action_button_tr_key: action_button_tr_key,
       price_quantity_placeholder: :time,
+      sort_priority: 0,
 
       # TODO Move these to translation service
       translations: [
         { locale: "en", name: "Selling", action_button_label: "Buy" },
         { locale: "fi", name: "Myydään", action_button_label: "Osta" }
       ],
-      url_source: "Selling",
+      basename: "Selling",
 
       units: [
         {type: :day},
@@ -61,6 +62,7 @@ describe ListingService::API::Shapes do
         expect(shape[:name_tr_key]).to eql(name_tr_key)
         expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
         expect(shape[:price_quantity_placeholder]).to eql(:time)
+        expect(shape[:name]).to eql("selling")
 
         units = shape[:units]
 
@@ -163,6 +165,15 @@ describe ListingService::API::Shapes do
         expect(get_res.success).to eq(true)
         expect(get_res.data.length).to eq(3)
       end
+
+      it "respects the sort priority" do
+        [["sell", 10], ["rent", 0], ["request", 5]].each { |(name, prio)|
+          create_shape(basename: name, sort_priority: prio)
+        }
+
+        shape_names = listings_api.shapes.get(community_id: community_id).data.map { |s| [s[:name], s[:sort_priority]] }
+        expect(shape_names).to eq [["rent", 0], ["request", 5], ["sell", 10]]
+      end
     end
   end
 
@@ -178,7 +189,7 @@ describe ListingService::API::Shapes do
           transaction_type_id: transaction_type_id,
           opts: {
             shipping_enabled: false,
-            url_source: "Selling w/o shipping",
+            basename: "Selling w/o shipping",
             units: [
               {type: :day},
               {type: :custom, translation_key: 'my.custom.units.translation'}

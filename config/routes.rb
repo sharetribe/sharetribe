@@ -192,7 +192,6 @@ Kassi::Application.routes.draw do
       collection do
         get :more_listings
         get :browse
-        get :random
         get :locations_json
         get :verification_required
       end

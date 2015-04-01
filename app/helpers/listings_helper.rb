@@ -41,7 +41,7 @@ module ListingsHelper
     return t("listings.show.#{listing_type_string}", :default => listing_type_string.capitalize)
   end
 
-  def listing_form_menu_titles(community_attribute_values)
+  def listing_form_menu_titles()
     titles = {
       "category" => t("listings.new.select_category"),
       "subcategory" => t("listings.new.select_subcategory"),

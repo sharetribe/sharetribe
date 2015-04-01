@@ -1,7 +1,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      initialize_new_listing_form_selectors("#{I18n.locale}", #{@current_community.category_tree(I18n.locale).to_json}, #{listing_form_menu_titles(@current_community.available_categorization_values).to_json});
+      initialize_new_listing_form_selectors("#{I18n.locale}", #{@current_community.category_tree(I18n.locale).to_json}, #{listing_form_menu_titles().to_json});
     });
 
 - content_for :extra_javascript do
@@ -9,26 +9,48 @@
 
 - content_for :title_header do
   %h1= t("listings.new.post_a_new_listing")
-
-- available_categorizations = @current_community.available_categorizations
 #new_listing_form.new-listing-form.centered-section
 
   #selected-groups
-    - available_categorizations.each do |attribute, values|
-      - if values.size > 1
-        .selected-group{:name => attribute}
-          - values.each do |value|
-            %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
-              .link-text= t(".selected_#{attribute}", attribute.to_sym => value.display_name(I18n.locale))
+
+    - if categories.size > 1
+      .selected-group{:name => "category"}
+        - categories.each do |value|
+          %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
+            .link-text= t(".selected_category", :category => value.display_name(I18n.locale))
+
+    - if subcategories.size > 1
+      .selected-group{:name => "subcategory"}
+        - subcategories.each do |value|
+          %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
+            .link-text= t(".selected_subcategory", :subcategory => value.display_name(I18n.locale))
+
+    - if shapes.size > 1
+      .selected-group{:name => "transaction_type"}
+        - shapes.each do |value|
+          %a.select.selected.hidden{:href => "#", :data => {:id => value[:transaction_type_id]}}
+            .link-text= t(".selected_transaction_type", :transaction_type => ts(value[:name_tr_key]))
 
   %h2.listing-form-title{:id => "foo"}
 
   #option-groups
-    - available_categorizations.each do |attribute, values|
-      - if values.size > 1
-        .option-group{:name => attribute}
-          - values.each do |value|
-            %a.select.option.hidden{:href => "#", :data => {:id => value.id}}
-              .link-text= value.display_name(I18n.locale)
+
+    - if categories.size > 1
+      .option-group{:name => "category"}
+        - categories.each do |value|
+          %a.select.option.hidden{:href => "#", :data => {:id => value.id}}
+            .link-text= value.display_name(I18n.locale)
+
+    - if subcategories.size > 1
+      .option-group{:name => "subcategory"}
+        - subcategories.each do |value|
+          %a.select.option.hidden{:href => "#", :data => {:id => value.id}}
+            .link-text= value.display_name(I18n.locale)
+
+    - if shapes.size > 1
+      .option-group{:name => "transaction_type"}
+        - shapes.each do |value|
+          %a.select.option.hidden{:href => "#", :data => {:id => value[:transaction_type_id]}}
+            .link-text= ts(value[:name_tr_key])
 
   .form-fields

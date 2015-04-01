@@ -120,7 +120,6 @@ class Community < ActiveRecord::Base
   has_many :conversations
   has_many :transactions
   has_many :payments
-  has_many :transaction_types, :dependent => :destroy, :order => "sort_priority"
 
   has_and_belongs_to_many :listings
 
@@ -546,33 +545,6 @@ class Community < ActiveRecord::Base
     category_hash
   end
 
-  # available_categorization_values
-  # Returns a hash of lists of values for different categorization aspects in use in this community
-  # Used to simplify UI building
-  # Example hash:
-  # {
-  #   "listing_type" => ["offer", "request"],
-  #   "category" => ["item", "favor", "housing"],
-  #   "subcategory" => ["tools", "sports", "music", "books", "games", "furniture_assemble", "walking_dogs"],
-  #   "transaction_type" => ["lend", "sell", "rent_out", "give_away", "share_for_free", "borrow", "buy", "rent", "trade", "receive", "accept_for_free"]
-  # }
-  def available_categorization_values
-    values = {}
-    values["category"] = top_level_categories.collect(&:id)
-    values["subcategory"] = subcategories.collect(&:id)
-    values["transaction_type"] = transaction_types.collect(&:id)
-    return values
-  end
-
-  # same as available_categorization_values but returns the models instead of just values
-  def available_categorizations
-    values = {}
-    values["category"] = top_level_categories
-    values["subcategory"] = subcategories
-    values["transaction_type"] = transaction_types
-    return values
-  end
-
   def main_categories
     top_level_categories
   end
@@ -623,10 +595,6 @@ class Community < ActiveRecord::Base
 
   def braintree_in_use?
     payment_gateway.present? && payment_gateway.type == "BraintreePaymentGateway"
-  end
-
-  def price_in_use?
-    transaction_types.any? { |tt| tt.price_field }
   end
 
   # Return either minimum price defined by this community or the absolute

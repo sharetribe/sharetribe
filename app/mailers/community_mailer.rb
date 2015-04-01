@@ -56,7 +56,7 @@ class CommunityMailer < ActionMailer::Base
     @url_params.freeze # to avoid accidental modifications later
 
 
-    @show_transaction_type_label = community.transaction_types.length > 1
+    @show_transaction_type_label = shapes.get(community_id: community.id)[:data].length > 1
 
     @title_link_text = t("emails.community_updates.title_link_text",
           :community_name => @community.full_name(@recipient.locale))
@@ -90,4 +90,7 @@ class CommunityMailer < ActionMailer::Base
     premailer(mail(opts, &block))
   end
 
+  def shapes
+    ListingService::API::Api.shapes
+  end
 end

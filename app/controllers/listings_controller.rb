@@ -51,6 +51,19 @@ class ListingsController < ApplicationController
         page =  params[:page] || 1
         per_page = params[:per_page] || 50
 
+        if params[:share_type].present?
+          direction = params[:share_type]
+          transaction_type_direction_map = ListingShapeHelper.transaction_types_to_direction_map(@current_community) # deprecated
+
+          all_shapes = ListingService::API::Api.shapes.get(community_id: @current_community.id).maybe.or_else([])
+
+          params[:transaction_types] = {
+            id: all_shapes.select { |shape|
+              transaction_type_direction_map[shape[:transaction_type_id]] == direction
+            }.map { |shape| shape[:transaction_type_id] }
+          }
+        end
+
         listings = @current_community.private ? [] : Listing.find_with(params, @current_user, @current_community, per_page, page)
         title = build_title(params)
         updated = listings.first.present? ? listings.first.updated_at : Time.now
@@ -174,7 +187,11 @@ class ListingsController < ApplicationController
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
     else
-      render :new
+      render :new, locals: {
+               categories: @current_community.top_level_categories,
+               subcategories: @current_community.subcategories,
+               shapes: get_shapes
+             }
     end
   end
 
@@ -311,19 +328,6 @@ class ListingsController < ApplicationController
       Rails.logger.error "An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage"
       render :nothing => true, :status => 500
     end
-  end
-
-  #shows a random listing from current community
-  def random
-    open_listings_ids = Listing.currently_open.select("id").find_with(nil, @current_user, @current_community).all
-    if open_listings_ids.empty?
-      redirect_to root and return
-      #render :action => :index and return
-    end
-    random_id = open_listings_ids[Kernel.rand(open_listings_ids.length)].id
-    #redirect_to listing_path(random_id)
-    @listing = Listing.find_by_id(random_id)
-    render :action => :show
   end
 
   def ensure_current_user_is_listing_author(error_message)
@@ -619,6 +623,12 @@ class ListingsController < ApplicationController
     else
       shape[:units].any? { |unit| unit[:type] == unit_type.to_sym }
     end
+  end
+
+  def get_shapes
+    listings_api.shapes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |shapes|
+      raise ArgumentError.new("Can not find any listing shape for community #{community_id}") if shapes.nil?
+    }
   end
 
   def get_shape(transaction_type_id)

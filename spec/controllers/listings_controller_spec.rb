@@ -35,7 +35,7 @@ describe ListingsController do
         name_tr_key: name_tr_key,
         action_button_tr_key: 'something.here',
         translations: translations_with_default,
-        url_source: Maybe(translations).first[:name].or_else(type)
+        basename: Maybe(translations).first[:name].or_else(type)
       })
 
     listings_api.shapes.create(community_id: community_id, opts: opts).data

@@ -11,6 +11,8 @@ class Admin::CategoriesController < ApplicationController
     @selected_left_navi_link = "listing_categories"
     @category = Category.new
     @default_transaction_types = Maybe(@current_community.categories.last).transaction_types.or_else { [] }
+    shapes = ListingService::API::Api.shapes.get(community_id: @current_community.id)[:data]
+    render locals: { shapes: shapes }
   end
 
   def create
@@ -33,6 +35,8 @@ class Admin::CategoriesController < ApplicationController
     @selected_left_navi_link = "listing_categories"
     @category = @current_community.categories.find_by_url_or_id(params[:id])
     @default_transaction_types = @category.transaction_types
+    shapes = ListingService::API::Api.shapes.get(community_id: @current_community.id)[:data]
+    render locals: { shapes: shapes }
   end
 
   def update

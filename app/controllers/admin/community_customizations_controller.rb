@@ -5,22 +5,11 @@ class Admin::CommunityCustomizationsController < ApplicationController
     @selected_left_navi_link = "tribe_details"
     # @community_customization is fetched in application_controller
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)
-    @show_transaction_agreement = @current_community.transaction_types.any? do |transaction_type|
-      # Todo add agreement to TransactionType
-      opts = {
-        community_id: @current_community.id,
-        process_id: transaction_type.transaction_process_id
-      }
 
-      process_res = TransactionService::API::Api.processes.get(opts)
-
-      process_res.maybe[:process]
-        .map { |process| process == :preauthorize }
-        .or_else(nil)
-        .tap { |show_agreement|
-          raise ArgumentError.new("Can not find transaction process: #{opts}") if show_agreement.nil?
-      }
-    end
+    @show_transaction_agreement = TransactionService::API::Api.processes.get(community_id: @current_community.id)
+      .maybe
+      .map { |data| has_preauthorize_process?(data) }
+      .or_else(nil).tap { |p| raise ArgumentError.new("Can not find transaction process: #{opts}") if p.nil? }
   end
 
   def update_details
@@ -72,6 +61,10 @@ class Admin::CommunityCustomizationsController < ApplicationController
       search_placeholder: t("homepage.index.what_do_you_need", locale: locale),
       locale: locale
     )
+  end
+
+  def has_preauthorize_process?(processes)
+    processes.any? { |p| p[:process] == :preauthorize }
   end
 
 end
