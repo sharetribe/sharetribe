@@ -317,19 +317,6 @@ class ListingsController < ApplicationController
     end
   end
 
-  #shows a random listing from current community
-  def random
-    open_listings_ids = Listing.currently_open.select("id").find_with(nil, @current_user, @current_community).all
-    if open_listings_ids.empty?
-      redirect_to root and return
-      #render :action => :index and return
-    end
-    random_id = open_listings_ids[Kernel.rand(open_listings_ids.length)].id
-    #redirect_to listing_path(random_id)
-    @listing = Listing.find_by_id(random_id)
-    render :action => :show
-  end
-
   def ensure_current_user_is_listing_author(error_message)
     @listing = Listing.find(params[:id])
     return if current_user?(@listing.author) || @current_user.has_admin_rights_in?(@current_community)
