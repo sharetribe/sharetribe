@@ -206,7 +206,7 @@ module ListingService::Store::Shape
   end
 
   def find_shape_models(community_id:)
-    ListingShape.where(community_id: community_id)
+    ListingShape.where(community_id: community_id).order(:sort_priority)
   end
 
   def uniq_name(name_source, community_id)
