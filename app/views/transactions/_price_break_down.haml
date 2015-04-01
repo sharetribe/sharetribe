@@ -46,4 +46,7 @@
     %span.initiate-transaction-total-label
       = t("transactions.initiate.total")
     %span.initiate-transaction-total-value
-      = humanized_money_with_symbol(sum)
+      - if local_assigns.has_key?(:price) # payment total vs. checkout total
+        = humanized_money_with_symbol(price)
+      - else
+        = humanized_money_with_symbol(sum)
