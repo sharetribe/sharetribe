@@ -202,7 +202,7 @@ Given /^community "(.*?)" has following transaction types enabled:$/ do |communi
           {name: hash['fi'], action_button_label: (hash['button'] || "Action"), locale: 'fi'},
           {name: hash['en'], action_button_label: (hash['button'] || "Action"), locale: 'en'}
         ],
-        url_source: hash['en'],
+        basename: hash['en'],
         units: [ {type: :piece} ]
       }
     )
@@ -229,7 +229,7 @@ Given /^the community has transaction type Rent with name "(.*?)" and action but
       action_button_tr_key: action_button_tr_key,
       transaction_process_id: process_id,
       translations: [ {locale: "en", name: name, action_button_label: action_button_label} ],
-      url_source: name,
+      basename: name,
       units: [ {type: :day} ]
     }
   )
@@ -255,7 +255,7 @@ Given /^the community has transaction type Sell with name "(.*?)" and action but
       action_button_tr_key: action_button_tr_key,
       transaction_process_id: process_id,
       translations: [ {locale: "en", name: name, action_button_label: action_button_label} ],
-      url_source: name,
+      basename: name,
       units: [ {type: :piece} ]
     }
   )

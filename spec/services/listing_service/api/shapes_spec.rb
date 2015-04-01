@@ -25,7 +25,7 @@ describe ListingService::API::Shapes do
         { locale: "en", name: "Selling", action_button_label: "Buy" },
         { locale: "fi", name: "Myydään", action_button_label: "Osta" }
       ],
-      url_source: "Selling",
+      basename: "Selling",
 
       units: [
         {type: :day},
@@ -62,7 +62,7 @@ describe ListingService::API::Shapes do
         expect(shape[:name_tr_key]).to eql(name_tr_key)
         expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
         expect(shape[:price_quantity_placeholder]).to eql(:time)
-        expect(shape[:url]).to eql("selling")
+        expect(shape[:name]).to eql("selling")
 
         units = shape[:units]
 
@@ -168,10 +168,10 @@ describe ListingService::API::Shapes do
 
       it "respects the sort priority" do
         [["sell", 10], ["rent", 0], ["request", 5]].each { |(name, prio)|
-          create_shape(url_source: name, sort_priority: prio)
+          create_shape(basename: name, sort_priority: prio)
         }
 
-        shape_names = listings_api.shapes.get(community_id: community_id).data.map { |s| [s[:url], s[:sort_priority]] }
+        shape_names = listings_api.shapes.get(community_id: community_id).data.map { |s| [s[:name], s[:sort_priority]] }
         expect(shape_names).to eq [["rent", 0], ["request", 5], ["sell", 10]]
       end
     end
@@ -189,7 +189,7 @@ describe ListingService::API::Shapes do
           transaction_type_id: transaction_type_id,
           opts: {
             shipping_enabled: false,
-            url_source: "Selling w/o shipping",
+            basename: "Selling w/o shipping",
             units: [
               {type: :day},
               {type: :custom, translation_key: 'my.custom.units.translation'}

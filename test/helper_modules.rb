@@ -90,7 +90,7 @@ module TestHelpers
           end
         end.compact
 
-        url_source = translations.find{ |t| t[:locale] == community.default_locale }[:name]
+        basename = translations.find{ |t| t[:locale] == community.default_locale }[:name]
 
         shape_opts = defaults.merge(
           transaction_process_id: processes[:none],
@@ -98,7 +98,7 @@ module TestHelpers
           name_tr_key: name_tr_key,
           action_button_tr_key: action_button_tr_key,
           shipping_enabled: false,
-          url_source: url_source
+          basename: basename
         )
 
         shape_res = ListingService::API::Api.shapes.create(
