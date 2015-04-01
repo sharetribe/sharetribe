@@ -7,7 +7,7 @@
         - shapes.each do |shape|
           - checkbox_id = "transaction_type_checkbox_#{shape[:transaction_type_id].to_s}"
           .custom-field-categories-checkbox-container
-            = check_box_tag "category[transaction_type_attributes][][transaction_type_id]", "#{shape[:transaction_type_id]}", @default_transaction_types.any? {|d| d.id = shape[:transaction_type_id]}, :id => checkbox_id, :class => "category-transaction-type-checkbox"
+            = check_box_tag "category[transaction_type_attributes][][transaction_type_id]", "#{shape[:transaction_type_id]}", @default_transaction_types.any? {|d| d.id == shape[:transaction_type_id]}, :id => checkbox_id, :class => "category-transaction-type-checkbox"
             = label_tag checkbox_id, ts(shape[:name_tr_key]), :class => "category-transaction-type-checkbox-label"
 - else
   = hidden_field_tag "category[transaction_type_attributes][][transaction_type_id]", shapes.first[:transaction_type_id]
