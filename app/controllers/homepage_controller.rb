@@ -82,7 +82,7 @@ class HomepageController < ApplicationController
 
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
     shape_by_name = all_shapes.find { |s| s[:name] == params[:transaction_type] }
-    shape_by_id = all_shapes.find { |s| s[:transaction_type_id] == params[:transaction_type] } unless shape_by_url
+    shape_by_id = all_shapes.find { |s| s[:transaction_type_id] == params[:transaction_type] } unless shape_by_name
 
     Maybe(shape_by_name || shape_by_id).each do |shape|
       filter_params[:transaction_type] = shape[:transaction_type_id]

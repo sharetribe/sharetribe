@@ -31,7 +31,7 @@ module ListingShapeHelper
           .map { |process| process[:author_is_seller] ? "offer" : "request" }
           .or_else(nil)
           .tap { |process|
-            raise ArgumentError.new("Can not find transaction process for community #{community.id}, transaction type #{tt.id}") if process.nil?
+            raise ArgumentError.new("Can not find transaction process for community #{community.id}, transaction type #{s[:transaction_type_id]}") if process.nil?
         }
 
       [shape[:transaction_type_id], direction]
