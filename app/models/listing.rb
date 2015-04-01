@@ -217,21 +217,6 @@ class Listing < ActiveRecord::Base
       end
     end
 
-    # :share_type is deprecated, but we need to support it for the ATOM API
-    # Share type is overriden by transaction_type if it is present
-    if params[:share_type].present?
-      direction = params[:share_type]
-      transaction_type_direction_map = ListingShapeHelper.transaction_types_to_direction_map(current_community) # deprecated
-
-      all_shapes = ListingService::API::Api.shapes.get(community_id: current_community.id).maybe.or_else([])
-
-      params[:transaction_types] = {
-        id: all_shapes.select { |shape|
-          transaction_type_direction_map[shape[:transaction_type_id]] == direction
-        }.map { |shape| shape[:transaction_type_id] }
-      }
-    end
-
     if params[:transaction_type].present?
       # Sphinx expects integer
       params[:transaction_types] = {:id => params[:transaction_type].to_i}

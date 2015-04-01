@@ -51,6 +51,19 @@ class ListingsController < ApplicationController
         page =  params[:page] || 1
         per_page = params[:per_page] || 50
 
+        if params[:share_type].present?
+          direction = params[:share_type]
+          transaction_type_direction_map = ListingShapeHelper.transaction_types_to_direction_map(@current_community) # deprecated
+
+          all_shapes = ListingService::API::Api.shapes.get(community_id: @current_community.id).maybe.or_else([])
+
+          params[:transaction_types] = {
+            id: all_shapes.select { |shape|
+              transaction_type_direction_map[shape[:transaction_type_id]] == direction
+            }.map { |shape| shape[:transaction_type_id] }
+          }
+        end
+
         listings = @current_community.private ? [] : Listing.find_with(params, @current_user, @current_community, per_page, page)
         title = build_title(params)
         updated = listings.first.present? ? listings.first.updated_at : Time.now
