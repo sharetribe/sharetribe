@@ -7,6 +7,11 @@ class Admin::CustomFieldsController < ApplicationController
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
     @custom_fields = @current_community.custom_fields
+
+    shapes = listings_api.shapes.get(community_id: @community.id).data
+    price_in_use = shapes.any? { |s| s[:price_enabled] }
+
+    render locals: { show_price_filter: price_in_use }
   end
 
   def new
@@ -155,6 +160,10 @@ class Admin::CustomFieldsController < ApplicationController
 
   def field_type_is_valid
     redirect_to admin_custom_fields_path unless CustomField::VALID_TYPES.include?(params[:field_type])
+  end
+
+  def listings_api
+    ListingService::API::Api
   end
 
 end

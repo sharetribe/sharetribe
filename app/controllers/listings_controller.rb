@@ -174,7 +174,11 @@ class ListingsController < ApplicationController
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
     else
-      render :new
+      render :new, locals: {
+               categories: @current_community.top_level_categories,
+               subcategories: @current_community.subcategories,
+               shapes: get_shapes
+             }
     end
   end
 
@@ -619,6 +623,12 @@ class ListingsController < ApplicationController
     else
       shape[:units].any? { |unit| unit[:type] == unit_type.to_sym }
     end
+  end
+
+  def get_shapes
+    listings_api.shapes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |shapes|
+      raise ArgumentError.new("Can not find any listing shape for community #{community_id}") if shapes.nil?
+    }
   end
 
   def get_shape(transaction_type_id)

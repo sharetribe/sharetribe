@@ -545,15 +545,6 @@ class Community < ActiveRecord::Base
     category_hash
   end
 
-  # same as available_categorization_values but returns the models instead of just values
-  def available_categorizations
-    values = {}
-    values["category"] = top_level_categories
-    values["subcategory"] = subcategories
-    values["shape"] = listing_shapes
-    return values
-  end
-
   def main_categories
     top_level_categories
   end
@@ -606,10 +597,6 @@ class Community < ActiveRecord::Base
     payment_gateway.present? && payment_gateway.type == "BraintreePaymentGateway"
   end
 
-  def price_in_use?
-    listing_shapes.any? { |s| s[:price_enabled] }
-  end
-
   # Return either minimum price defined by this community or the absolute
   # platform default minimum price.
   def absolute_minimum_price(currency)
@@ -644,11 +631,5 @@ class Community < ActiveRecord::Base
 
   def initialize_settings
     update_attribute(:settings,{"locales"=>[APP_CONFIG.default_locale]}) if self.settings.blank?
-  end
-
-  def listing_shapes
-    @listing_shapes ||= ListingService::API::Api.shapes.get(community_id: id).maybe.or_else(nil).tap { |shapes|
-      raise ArgumentError.new("Can not find any listing shapes for community #{id}") if shapes.nil?
-    }
   end
 end
