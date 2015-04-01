@@ -27,9 +27,9 @@
           - listing_shapes.map do |shape|
             %tr
               %td
-                = shape[:name]
+                = ts(shape[:name_tr_key])
               %td
-                = shape[:categories]
+                = "TODO"
               %td
                 = link_to edit_admin_listing_shape_path(shape[:id]) do
                   = icon_tag("edit", ["icon-fix"])
