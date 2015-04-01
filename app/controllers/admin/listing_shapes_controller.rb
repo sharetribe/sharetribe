@@ -7,7 +7,13 @@ class Admin::ListingShapesController < ApplicationController
     render("index",
            locals: {
              selected_left_navi_link: "listing_shapes",
-             listing_shapes: [{id: 1, name: "Selling products", categories: "Foo, Bar, Doo"},
-                              {id: 2, name: "Renting spaces", categories: "Quux, Wau, Ohno"}]})
+             listing_shapes: listing_api.shapes.get(community_id: @current_community.id).maybe().or_else([])})
+  end
+
+
+  private
+
+  def listing_api
+    ListingService::API::Api
   end
 end
