@@ -14,13 +14,30 @@ window.ST = window.ST || {};
 */
 
 window.ST.rangeFilter = function(selector, range, start, labels, fields, decimals) {
-  var step = decimals ? 0.01 : 1;
+
+  function decimalPlaces(number) {
+    // The ^-?\d*\. strips off any sign, integer portion, and decimal point
+    // leaving only the decimal fraction.
+    return ((+number).toString()).replace(/^-?\d*\.?/g, '').length;
+  }
+
+  function numberOfDecimals(){
+    if(decimals){
+      var num_of_decimals = Math.max.apply(null, range.map(decimalPlaces));
+      return 1 / Math.pow(10, num_of_decimals);
+    }else{
+      return 1;
+    }
+  }
 
   function updateLabel(el) {
     return function(val) {
       el.html(val);
     };
   }
+
+
+  var step = numberOfDecimals();
 
   $(selector).noUiSlider({
     range: range,
