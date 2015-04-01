@@ -35,4 +35,6 @@ class ListingShape < ActiveRecord::Base
     :price_quantity_placeholder,
     :transaction_type_id
   )
+
+  has_many :listing_units
 end
