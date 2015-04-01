@@ -18,8 +18,9 @@
 #
 # Indexes
 #
-#  index_listing_shapes_on_community_id  (community_id)
-#  index_listing_shapes_on_name          (name)
+#  index_listing_shapes_on_community_id         (community_id)
+#  index_listing_shapes_on_name                 (name)
+#  index_listing_shapes_on_transaction_type_id  (transaction_type_id)
 #
 
 class ListingShape < ActiveRecord::Base
