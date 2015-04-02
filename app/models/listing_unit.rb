@@ -10,6 +10,11 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #
+# Indexes
+#
+#  index_listing_units_on_listing_shape_id     (listing_shape_id)
+#  index_listing_units_on_transaction_type_id  (transaction_type_id)
+#
 
 class ListingUnit < ActiveRecord::Base
   attr_accessible(

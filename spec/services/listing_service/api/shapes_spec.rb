@@ -54,6 +54,7 @@ describe ListingService::API::Shapes do
 
         shape = res.data
 
+        expect(shape[:id]).to be_a(Fixnum)
         expect(shape[:community_id]).to eql(community_id)
         expect(shape[:price_enabled]).to eql(true)
         expect(shape[:shipping_enabled]).to eql(true)
@@ -173,6 +174,18 @@ describe ListingService::API::Shapes do
 
         shape_names = listings_api.shapes.get(community_id: community_id).data.map { |s| [s[:name], s[:sort_priority]] }
         expect(shape_names).to eq [["rent", 0], ["request", 5], ["sell", 10]]
+      end
+
+      it "can get shape by listing shape id or transaction type id" do
+        shape = create_shape.data
+
+        by_tt_id = listings_api.shapes.get(community_id: community_id, transaction_type_id: shape[:transaction_type_id]).data
+        by_shape_id = listings_api.shapes.get(community_id: community_id, listing_shape_id: shape[:id]).data
+
+        expect(by_tt_id).not_to be_nil
+        expect(by_shape_id).not_to be_nil
+
+        expect(by_tt_id).to eq(by_shape_id)
       end
     end
   end
