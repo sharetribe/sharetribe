@@ -12,10 +12,14 @@ en:
         edit_listing_shape: "Edit order type '%{shape}'"
         update: "Save"
         cancel: "Cancel"
+        update_success: "Changes to order type '%{shape}' saved"
+        update_failure: "Something went wrong. Could not save changes."
       listing_shape_name: "Name"
       listing_shape_name_desc: "This is the order type name identifying this order type in order type selection when user posts a new listing."
       action_button_label: "Checkout button label"
       action_button_label_desc: "This is the checkout button label shown on the listing page."
+      shipping_title: "Shipping"
+      shipping_label: "Shipping fee enabled"
     categories:
       edit:
         edit_listing_category: "Edit category '%{category}'"
