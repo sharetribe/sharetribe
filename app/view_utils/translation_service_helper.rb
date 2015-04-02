@@ -17,4 +17,11 @@ module TranslationServiceHelper
 
     (translations_ordered.first || translations_for_key.first)[:translation]
   end
+
+  def to_key_locale_hash(ts)
+    ts.group_by { |t| t[:translation_key] }
+      .map { |key, key_ts| [key, key_ts.group_by { |t| t[:locale] }]}
+      .map { |key, key_ts| [key, key_ts.map { |loc, t| [loc, t.first[:translation]]}.to_h]}
+      .to_h
+  end
 end
