@@ -187,10 +187,20 @@ class ListingsController < ApplicationController
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
     else
+      category_tree = CategoryViewUtils.category_tree(
+        category_models: @current_community.top_level_categories,
+        shape_entities: get_shapes,
+        association_models: CategoryListingShape.where(category_id: @current_community.categories.map(&:id)),
+        locale: I18n.locale,
+        all_locales: @current_community.locales,
+        community_translations: community_translations
+      )
+
       render :new, locals: {
                categories: @current_community.top_level_categories,
                subcategories: @current_community.subcategories,
-               shapes: get_shapes
+               shapes: get_shapes,
+               category_tree: category_tree
              }
     end
   end
@@ -628,7 +638,7 @@ class ListingsController < ApplicationController
   end
 
   def get_shapes
-    listings_api.shapes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |shapes|
+    @shapes ||= listings_api.shapes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |shapes|
       raise ArgumentError.new("Can not find any listing shape for community #{community_id}") if shapes.nil?
     }
   end
