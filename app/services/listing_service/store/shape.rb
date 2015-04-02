@@ -38,6 +38,7 @@ module ListingService::Store::Shape
     [:name_tr_key, :string],
     [:action_button_tr_key, :string],
     [:translations, :array], # TODO Only temporary
+    [:transaction_process_id, :fixnum],
     [:units, :array],
     [:shipping_enabled, :bool],
     [:sort_priority, :fixnum]
@@ -115,7 +116,8 @@ module ListingService::Store::Shape
 
     update_shape = UpdateShape.call(opts.merge(community_id: community_id))
 
-    units = update_shape[:units].map { |unit| Unit.call(unit) }
+    skip_units = update_shape[:units].nil?
+    units = update_shape[:units].map { |unit| Unit.call(unit) } unless skip_units
 
     translations = opts[:translations] # Skip data type and validation, because this is temporary
 
@@ -123,7 +125,7 @@ module ListingService::Store::Shape
       update_tt_opts = HashUtils.compact(to_tt_model_attributes(update_shape)).except(:units, :translations)
       tt_model.update_attributes(update_tt_opts)
 
-      unless units.nil?
+      unless skip_units
         tt_model.listing_units.destroy_all
         units.each { |unit| tt_model.listing_units.build(to_unit_model_attributes(unit).merge(listing_shape_id: shape_model.id)) }
       end
