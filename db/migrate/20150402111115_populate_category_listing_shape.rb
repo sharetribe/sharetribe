@@ -11,7 +11,7 @@ class PopulateCategoryListingShape < ActiveRecord::Migration
         LEFT JOIN listing_shapes ON (ctt.transaction_type_id = listing_shapes.transaction_type_id)
 
         # Avoid dublicates
-        LEFT JOIN category_listing_shapes ON (category_listing_shapes.listing_shape_id = listing_shapes.id)
+        LEFT JOIN category_listing_shapes ON (ctt.category_id = category_listing_shapes.category_id AND category_listing_shapes.listing_shape_id = listing_shapes.id)
         WHERE category_listing_shapes.listing_shape_id IS NULL
       )
 ")
