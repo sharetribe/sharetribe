@@ -25,7 +25,7 @@ Feature: Booking transaction process
       And I should see payment details form for Braintree
 
      When I fill in my payment details for Braintree
-     Then I should see that I successfully paid 490
+     Then I should see that I successfully paid $490
       And author "owner" should be notified about the request from starter "booker"
       And I should see that the request is waiting for seller acceptance
 

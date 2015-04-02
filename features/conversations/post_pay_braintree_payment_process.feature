@@ -51,7 +51,7 @@ Feature: Post pay Braintree payment process
     Then I should see payment details form for Braintree
 
     When I fill in my payment details for Braintree
-    Then I should see that I successfully paid 50
+    Then I should see that I successfully paid $50
 
     When I confirm the request for that listing
     Then I should see that the request was confirmed

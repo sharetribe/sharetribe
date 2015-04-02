@@ -426,6 +426,7 @@ en:
       minimum_price_error_message: "The price cannot be lower than %{amount}."
       accept: Accept
       decline: Decline
+      quantity_label: "Quantity:"
       sum_label: "Subtotal:"
       service_fee_label: "%{service_name} fee:"
       you_will_get_label: "You will get:"
@@ -1412,6 +1413,7 @@ en:
       community_not_configured_for_payments: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Please %{contact_admin_link} for details."
       payment_settings_link: "payment settings"
       community_not_configured_for_payments_admin: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Go to %{payment_settings_link} to fill in the payment details."
+    quantity: "Quantity:"
     please_comment: Comment
     reply_link:
       listing_closed: "Listing is closed"
@@ -1454,6 +1456,13 @@ en:
       delivery: "Delivery method"
       shipping: "Shipping (+%{price})"
       pickup: Pickup
+    unit_types:
+      piece: piece
+      hour: hour
+      day: day
+      night: night
+      week: week
+      month: month
     verification_required:
       verification_required: "Verification required"
   listing_conversations:
@@ -1465,7 +1474,6 @@ en:
       you_will_be_charged: "You will be charged only if %{author} accepts the transaction. %{author} needs to accept the transaction within %{expiration_period} days. If %{author} declines or does not respond, no charge is made."
       day: day
       days: days
-      price_per_day: "Price per day: %{price}"
     transaction_agreement_checkbox:
       read_more: View.
   mapview:
@@ -1902,9 +1910,15 @@ en:
       other: "%{count} days"
   transactions:
     initiate:
+      booked_days: "Booked days"
+      price_per_day: "Price per day"
+      price_per_quantity: "Price per %{unit_type}"
+      quantity: "Quantity:"
       subtotal: "Subtotal:"
       shipping-price: "Shipping:"
       total: "Total:"
+    unit_price: "Unit price: %{unit_price}"
+    quantity: "Quantity: %{quantity}"
   unit:
     day: day
     days: days

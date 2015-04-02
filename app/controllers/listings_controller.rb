@@ -145,7 +145,8 @@ class ListingsController < ApplicationController
              form_path: form_path,
              payment_gateway: payment_gateway,
              process: process,
-             delivery_opts: delivery_opts
+             delivery_opts: delivery_opts,
+             listing_unit_type: @listing.unit_type
            }
   end
 

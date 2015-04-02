@@ -14,9 +14,9 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
   create_listing(shape: shape, opts: opts)
 end
 
-Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)(?: per (day))?$/ do |price, price_decimal, currency, price_per|
-  unit_type = if price_per == "day"
-    :day
+Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)(?: per (.*?))?$/ do |price, price_decimal, currency, price_per|
+  unit_type = if ["piece", "hour", "day", "night", "week", "month"].include?(price_per)
+    price_per.to_sym
   else
     nil
   end
@@ -254,6 +254,12 @@ end
 
 When(/^I (?:buy) that listing$/) do
   visit(path_to "the listing page")
+  find(".book-button").click
+end
+
+When(/^I (?:buy) (\d+) of those listings$/) do |quantity|
+  visit(path_to "the listing page")
+  fill_in('Quantity:', with: quantity)
   find(".book-button").click
 end
 
