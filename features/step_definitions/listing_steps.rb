@@ -15,7 +15,7 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
 end
 
 Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)(?: per (.*?))?$/ do |price, price_decimal, currency, price_per|
-  unit_type = if ["piece", "hour", "day", "week", "month"].include?(price_per)
+  unit_type = if ["piece", "hour", "day", "night", "week", "month"].include?(price_per)
     price_per.to_sym
   else
     nil
