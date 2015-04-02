@@ -1286,7 +1286,7 @@ function initialize_admin_category_form_view(locale, form_id) {
   translate_validation_messages(locale);
 
   var $form = $(form_id);
-  var TRANSACTION_TYPE_CHECKBOX_NAME = "category[transaction_type_attributes][][transaction_type_id]";
+  var TRANSACTION_TYPE_CHECKBOX_NAME = "category[listing_shapes][][listing_shape_id]";
 
   var rules = {}
   rules[TRANSACTION_TYPE_CHECKBOX_NAME] = {
