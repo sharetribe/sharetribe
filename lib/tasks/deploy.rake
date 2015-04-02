@@ -209,11 +209,14 @@ end
 
 def parse_migration_status(output)
   arr = output.split("\n")
-  arr.drop(arr.find_index("-" * 50) + 1).map { |line| parse_status_line(line) }
+  arr.drop(arr.find_index("-" * 50) + 1).map { |line| parse_status_line(line, output) }
 end
 
-def parse_status_line(line)
+# Remove `output`. It's only for debugging
+def parse_status_line(line, output)
   parsed = /^\s*(up|down)\s*(\d{14})\s*(.*)$/.match(line)
+  puts "[DEBUG] Regexp didn't match, line: #{line}, result: #{parsed}" if parsed.nil?
+  puts "[DEBUG] Output: #{output}" if parsed.nil?
 
   {
     status: parsed[1].to_sym,
