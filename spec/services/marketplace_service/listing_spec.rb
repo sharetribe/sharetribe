@@ -5,7 +5,7 @@ describe MarketplaceService::Listing::Entity do
   include MarketplaceService::Listing::Command
 
   describe "delete_listings" do
-    let(:hammer) { FactoryGirl.create(:listing, title: "Hammer")}
+    let(:hammer) { FactoryGirl.create(:listing, title: "Hammer", listing_shape_id: 123)}
     let(:author) { hammer.author }
 
     it "delete_listings by author" do

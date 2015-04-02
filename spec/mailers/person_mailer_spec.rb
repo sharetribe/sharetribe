@@ -38,7 +38,7 @@ describe PersonMailer do
 
   it "should send email about listing with payment but without user's payment details" do
     community = FactoryGirl.create(:community)
-    listing = FactoryGirl.create(:listing)
+    listing = FactoryGirl.create(:listing, listing_shape_id: 123)
     recipient = listing.author
     email = PersonMailer.payment_settings_reminder(listing, recipient, community).deliver
 
@@ -50,7 +50,7 @@ describe PersonMailer do
   describe "status changed" do
 
     let(:author) { FactoryGirl.build(:person) }
-    let(:listing) { FactoryGirl.build(:listing, author: author) }
+    let(:listing) { FactoryGirl.build(:listing, author: author, listing_shape_id: 123) }
     let(:starter) { FactoryGirl.build(:person, given_name: "Teppo", family_name: "Testaaja") }
     let(:conversation) { FactoryGirl.build(:conversation) }
     let(:transaction) { FactoryGirl.create(:transaction, listing: listing, starter: starter, conversation: conversation) }
@@ -107,6 +107,7 @@ describe PersonMailer do
     listing = FactoryGirl.build(:listing,
                                 transaction_type_id: 123,
                                 transaction_process_id: 123, # not needed, but mandatory
+                                listing_shape_id: 123, # not needed, but mandatory
                                 author: @test_person)
     transaction = FactoryGirl.create(:transaction, starter: @test_person2, listing: listing, transaction_transitions: [transition])
     testimonial = FactoryGirl.create(:testimonial, :grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :transaction => transaction)
@@ -120,7 +121,7 @@ describe PersonMailer do
   it "should remind about testimonial" do
     author = FactoryGirl.build(:person)
     starter = FactoryGirl.build(:person, given_name: "Teppo", family_name: "Testaaja")
-    listing = FactoryGirl.build(:listing, author: author)
+    listing = FactoryGirl.build(:listing, author: author, listing_shape_id: 123)
     # Create is needed here, not exactly sure why
     conversation = FactoryGirl.create(:transaction, starter: starter, listing: listing)
 
@@ -133,7 +134,7 @@ describe PersonMailer do
   it "should remind to accept or reject" do
     starter = FactoryGirl.build(:person, given_name: "Jack", family_name: "Dexter")
     author = FactoryGirl.build(:person)
-    listing = FactoryGirl.build(:listing, :author => author)
+    listing = FactoryGirl.build(:listing, :author => author, listing_shape_id: 123)
     conversation = FactoryGirl.create(:transaction, starter: starter, listing: listing)
 
     email = PersonMailer.accept_reminder(conversation, "this_can_be_anything", @community).deliver
@@ -298,7 +299,7 @@ describe PersonMailer do
   describe "#new_listing_by_followed_person" do
 
     before do
-      @listing = FactoryGirl.create(:listing)
+      @listing = FactoryGirl.create(:listing, listing_shape_id: 123)
       @recipient = FactoryGirl.create(:person)
       @community = @listing.communities.last
     end

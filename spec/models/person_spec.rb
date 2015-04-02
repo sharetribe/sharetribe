@@ -112,7 +112,8 @@ describe Person do
       it "creates a new listing with the submitted attributes" do
         listing = FactoryGirl.create(:listing,
           :title => "Test",
-          :author => @test_person
+          :author => @test_person,
+          :listing_shape_id => 123
         )
         listing.title.should == "Test"
         @test_person.listings.last.should == listing
