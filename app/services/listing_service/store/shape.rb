@@ -38,6 +38,7 @@ module ListingService::Store::Shape
     [:name_tr_key, :string],
     [:action_button_tr_key, :string],
     [:translations, :array], # TODO Only temporary
+    [:transaction_process_id, :fixnum],
     [:units, :array],
     [:shipping_enabled, :bool],
     [:sort_priority, :fixnum]

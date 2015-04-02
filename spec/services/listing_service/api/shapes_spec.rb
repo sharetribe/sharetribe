@@ -203,6 +203,7 @@ describe ListingService::API::Shapes do
           opts: {
             shipping_enabled: false,
             basename: "Selling w/o shipping",
+            transaction_process_id: 987,
             units: [
               {type: :day},
               {type: :custom, translation_key: 'my.custom.units.translation'}
