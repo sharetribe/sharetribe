@@ -1,35 +1,25 @@
 - content_for :title_header do
-  %h1
-    = t("layouts.admin.admin")
-    = "-"
-    = t(".listing_shapes")
+  %h1= t("layouts.admin.admin")
 
 = render partial: "admin/left_hand_navigation", locals: { links: admin_links_for(@current_community), selected_left_navi_link: selected_left_navi_link }
 
 .left-navi-section
   .row
     .col-12
-      %h1
-        = t(".listing_shapes")
-
-      .p
-        = t(".description")
+      %h1= t(".listing_shapes")
+      .p= t(".description")
 
   .row
     .col-12
       %table
         %thead
-          %th
-            = t(".header.listing_shape_name")
-          %th
-            = t(".header.listing_shape_categories")
+          %th= t(".header.listing_shape_name")
+          %th= t(".header.listing_shape_categories")
         %tbody
           - listing_shapes.map do |shape|
             %tr
-              %td
-                = ts(shape[:name_tr_key])
-              %td
-                = "TODO"
+              %td= ts(shape[:name_tr_key])
+              %td= "TODO"
               %td
                 = link_to edit_admin_listing_shape_path(shape[:id]) do
                   = icon_tag("edit", ["icon-fix"])
