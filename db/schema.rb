@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150401140830) do
+ActiveRecord::Schema.define(:version => 20150402111115) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -81,6 +81,13 @@ ActiveRecord::Schema.define(:version => 20150401140830) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  create_table "category_listing_shapes", :id => false, :force => true do |t|
+    t.integer "category_id",      :null => false
+    t.integer "listing_shape_id", :null => false
+  end
+
+  add_index "category_listing_shapes", ["category_id"], :name => "index_category_listing_shapes_on_category_id"
 
   create_table "category_transaction_types", :force => true do |t|
     t.integer  "category_id"

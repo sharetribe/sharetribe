@@ -161,6 +161,7 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
 
     shape = ListingService::API::Api.shapes.get(community_id: current_community.id)[:data].first
     CategoryTransactionType.create(category_id: category.id, transaction_type_id: shape[:transaction_type_id])
+    CategoryListingShape.create!(category_id: category.id, listing_shape_id: shape[:id])
 
     if hash['category_type'].eql?("main")
       @top_level_category = category
@@ -284,6 +285,7 @@ end
 Given /^that transaction belongs to category "(.*?)"$/ do |category_name|
   category = find_category_by_name(category_name)
   CategoryTransactionType.create(category_id: category.id, transaction_type_id: @shape[:transaction_type_id])
+  CategoryListingShape.create!(category_id: category.id, listing_shape_id: @shape[:id])
   category.reload
 end
 

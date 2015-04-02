@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: category_listing_shapes
+#
+#  category_id      :integer          not null
+#  listing_shape_id :integer          not null
+#
+# Indexes
+#
+#  index_category_listing_shapes_on_category_id  (category_id)
+#
+
+class CategoryListingShape < ActiveRecord::Base
+  attr_accessible(
+    :category_id,
+    :listing_shape_id
+  )
+end
