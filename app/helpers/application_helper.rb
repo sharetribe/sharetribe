@@ -685,7 +685,7 @@ module ApplicationHelper
         :id => "settings-tab-profile",
         :text => t("layouts.settings.profile"),
         :icon_class => icon_class("profile"),
-        :path => profile_person_settings_path(person),
+        :path => person_settings_path(person),
         :name => "profile"
       },
       {

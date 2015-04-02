@@ -327,7 +327,6 @@ Kassi::Application.routes.draw do
         resource :checkout_account, only: [:new, :show, :create]
         resource :settings do
           member do
-            get :profile
             get :account
             get :notifications
             get :payments
@@ -347,6 +346,8 @@ Kassi::Application.routes.draw do
     end # devise scope person
 
     match "/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
+
+    get '/:person_id/settings/profile', to: redirect("/%{person_id}/settings") #needed to keep old links working
 
   end # scope locale
 

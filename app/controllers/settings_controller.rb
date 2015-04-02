@@ -9,15 +9,8 @@ class SettingsController < ApplicationController
   end
 
   def show
+    flash.now[:notice] = t("settings.profile.image_is_processing") if @current_user.image.processing?
     @selected_left_navi_link = "profile"
-    add_location_to_person
-    render :action => :profile
-  end
-
-  def profile
-    @selected_left_navi_link = "profile"
-    # This is needed if person doesn't yet have a location
-    # Build a new one based on old street address or then empty one.
     add_location_to_person
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150331105616) do
+ActiveRecord::Schema.define(:version => 20150401072129) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -819,6 +819,7 @@ ActiveRecord::Schema.define(:version => 20150331105616) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "image_processing"
     t.string   "facebook_id"
     t.string   "authentication_token"
     t.datetime "community_updates_last_sent_at"
