@@ -22,7 +22,11 @@ class Admin::ListingShapesController < ApplicationController
     "ListingShapeForm",
     :name,
     :action_button_label,
-    :shipping_enabled)
+    :shipping_enabled).with_validations {
+    validates :name, presence: true
+    validates :action_button_label, presence: true
+    validates :shipping_enabled, inclusion: { in: [true, false] }
+  }
 
   def index
     render("index",
@@ -35,20 +39,49 @@ class Admin::ListingShapesController < ApplicationController
     shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
 
-    render("edit",
-           locals: {
-             selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-             shape: shape,
-             shape_form: to_form(shape, @current_community.id, available_locales().map(&:second)),
-             locale_name_mapping: available_locales().map { |name, l| [l, name]}.to_h })
+    render_edit(shape, @current_community.id, available_locales())
   end
 
   def update
-    binding.pry
+    shape = get_shape(@current_community.id, params[:id])
+    return redirect_to error_not_found_path if shape.nil?
+
+    shape_form = ListingShapeForm.new(
+      params
+      .slice(:name, :action_button_label)
+      .merge(shipping_enabled: params[:shipping_enabled] == "true"))
+    unless shape_form.valid?
+      flash[:error] = shape_form.errors.full_messages.join(", ")
+      return render_edit(shape, @current_community.id, available_locales())
+    end
+
+    update_result = update_translations(
+      @current_community.id,
+      { shape[:name_tr_key] => shape_form.name,
+        shape[:action_button_tr_key] => shape_form.action_button_label }
+    ).and_then {
+      update_shape(shape, shape_form) }
+
+    if update_result[:success]
+      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate(shape[:name_tr_key]))
+      return redirect_to admin_listing_shapes_path
+    else
+      flash[:error] = t("admin.listing_shapes.edit.update_failure")
+      return render_edit(shape, @current_community.id, available_locales())
+    end
   end
 
 
   private
+
+  def render_edit(shape, community_id, available_locs)
+    render("edit",
+           locals: {
+             selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+             shape: shape,
+             shape_form: to_form(shape, community_id, available_locs.map(&:second)),
+             locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h })
+  end
 
   def all_shapes(community_id)
     listing_api.shapes.get(community_id: community_id)
@@ -77,6 +110,27 @@ class Admin::ListingShapesController < ApplicationController
       .maybe()
       .or_else([])
   end
+
+  def update_translations(community_id, key_locale_hash)
+    tr_groups = key_locale_hash.map { |key, key_ts|
+      { translation_key: key, translations: key_ts.map { |loc, t|
+          t.present? ? { locale: loc, translation: t } : nil
+        }.compact
+      }}
+
+    translations_api.translations.create(community_id, tr_groups)
+  end
+
+  def update_shape(shape, shape_form)
+    listing_api.shapes.update(
+      community_id: shape[:community_id],
+      listing_shape_id: shape[:id],
+      opts: {
+        shipping_enabled: shape_form.shipping_enabled
+      }
+    )
+  end
+
 
   def listing_api
     ListingService::API::Api
