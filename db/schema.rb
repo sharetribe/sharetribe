@@ -528,6 +528,7 @@ ActiveRecord::Schema.define(:version => 20150401140830) do
     t.integer  "category_id"
     t.integer  "share_type_id"
     t.integer  "transaction_type_id"
+    t.integer  "listing_shape_id",                                                     :null => false
     t.integer  "transaction_process_id"
     t.string   "shape_name_tr_key"
     t.string   "action_button_tr_key"
@@ -542,6 +543,7 @@ ActiveRecord::Schema.define(:version => 20150401140830) do
     t.integer  "shipping_price_cents"
   end
 
+  add_index "listings", ["listing_shape_id"], :name => "index_listings_on_listing_shape_id"
   add_index "listings", ["listing_type_old"], :name => "index_listings_on_listing_type"
   add_index "listings", ["old_category_id"], :name => "index_listings_on_category_id"
   add_index "listings", ["open"], :name => "index_listings_on_open"

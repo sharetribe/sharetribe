@@ -29,6 +29,7 @@
 #  category_id              :integer
 #  share_type_id            :integer
 #  transaction_type_id      :integer
+#  listing_shape_id         :integer          not null
 #  transaction_process_id   :integer
 #  shape_name_tr_key        :string(255)
 #  action_button_tr_key     :string(255)
@@ -45,6 +46,7 @@
 # Indexes
 #
 #  index_listings_on_category_id          (old_category_id)
+#  index_listings_on_listing_shape_id     (listing_shape_id)
 #  index_listings_on_listing_type         (listing_type_old)
 #  index_listings_on_open                 (open)
 #  index_listings_on_share_type_id        (share_type_id)
@@ -57,7 +59,7 @@ require 'spec_helper'
 describe Listing do
 
   before(:each) do
-    @listing = FactoryGirl.build(:listing)
+    @listing = FactoryGirl.build(:listing, listing_shape_id: 123)
   end
 
   it "is valid with valid attributes" do
@@ -113,7 +115,7 @@ describe Listing do
     let(:community) { FactoryGirl.create(:community, private: true) }
     let(:community2) { FactoryGirl.create(:community) }
     let(:person) { FactoryGirl.create(:person, communities: [community, community2]) }
-    let(:listing) { FactoryGirl.create(:listing, communities: [community]) }
+    let(:listing) { FactoryGirl.create(:listing, communities: [community], listing_shape_id: 123) }
 
     it "is not visible, if the listing doesn't belong to the given community" do
       listing.visible_to?(person, community2).should be_falsey

@@ -106,6 +106,7 @@ FactoryGirl.define do
     times_viewed 0
     visibility "this_community"
     privacy "public"
+    listing_shape_id 123
     price Money.new(20, "USD")
     has_many :communities do |listing|
       FactoryGirl.build(:community)

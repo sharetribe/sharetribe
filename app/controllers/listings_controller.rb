@@ -206,6 +206,7 @@ class ListingsController < ApplicationController
 
     @listing = Listing.new(
       create_listing_params(params[:listing]).merge(
+      listing_shape_id: shape[:id],
       unit_type: unit_type,
       transaction_process_id: shape[:transaction_process_id],
       shape_name_tr_key: shape[:name_tr_key],
@@ -271,6 +272,7 @@ class ListingsController < ApplicationController
 
     update_successful = @listing.update_fields(
       create_listing_params(params[:listing]).merge(
+      listing_shape_id: shape[:id],
       unit_type: unit_type,
       transaction_process_id: shape[:transaction_process_id],
       shape_name_tr_key: shape[:name_tr_key],

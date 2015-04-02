@@ -143,6 +143,7 @@ describe Community do
       FactoryGirl.create(:listing,
         :created_at => created_at.days.ago,
         :updates_email_at => updates_email_at.days.ago,
+        :listing_shape_id => 123,
         :communities => [@community])
     end
 
