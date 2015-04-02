@@ -1307,10 +1307,10 @@ de:
         paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        pickup: ~
+        delivery: Lieferart
+        shipping: Versand
+        shipping_price: Versandkostenpauschale
+        pickup: Abholung
       origin:
         location: Standort
         origin: Herkunft
@@ -1548,7 +1548,7 @@ de:
       account_not_verified: "Du hast Dein PayPal-Konto nicht verifiziert. Du musst Dein Konto bei paypal.com überprüfen und betätigen, bevor Du fortfahren kannst."
       account_restricted: "Dein PayPal-Konto ist eingeschränkt und kann nicht verbunden werden. Bitte logge Dich bei paypal.com ein, um mehr darüber zu erfahren, was das bedeutet oder nimm Kontakt mit dem PayPal Kundendienstauf, um das Problem zu lösen."
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: "Weiter zur Zahlung"
     checkout_with_paypal: "Mit PayPal bezahlen"
     cancel_succesful: "PayPal Zahlung erfolgreich abgebrochen."
     transaction:
@@ -1777,6 +1777,7 @@ de:
       visible_to_registered_users: "(sichtbar für angemeldete Benutzer)"
       default_in_listing: "(wird nur beim Erstellen eines neuen Eintrags als Standardeinstellung benutzt)"
       invisible: "(wird anderen Benutzern nicht angezeigt)"
+      image_is_processing: ~
     save_information: "Informationen speichern"
   shipping_address:
     shipping_address: ~
