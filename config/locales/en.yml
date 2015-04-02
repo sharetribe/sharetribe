@@ -8,6 +8,14 @@ en:
         header:
           listing_shape_name: "Order type name"
           listing_shape_categories: "Order type categories"
+      edit:
+        edit_listing_shape: "Edit order type '%{shape}'"
+        update: "Save"
+        cancel: "Cancel"
+      listing_shape_name: "Name"
+      listing_shape_name_desc: "This is the order type name identifying this order type in order type selection when user posts a new listing."
+      action_button_label: "Checkout button label"
+      action_button_label_desc: "This is the checkout button label shown on the listing page."
     categories:
       edit:
         edit_listing_category: "Edit category '%{category}'"
