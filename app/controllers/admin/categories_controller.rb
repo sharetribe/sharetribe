@@ -24,6 +24,7 @@ class Admin::CategoriesController < ApplicationController
     logger.info "Translations #{@category.translations.inspect}"
     @default_transaction_types = Maybe(@current_community.categories.last).transaction_types.or_else { [] }
     if @category.save
+      update_category_listing_shapes(params, @category)
       redirect_to admin_categories_path
     else
       flash[:error] = "Category saving failed"
@@ -43,7 +44,9 @@ class Admin::CategoriesController < ApplicationController
     @selected_left_navi_link = "listing_categories"
     @category = @current_community.categories.find_by_url_or_id(params[:id])
     @default_transaction_types = @category.transaction_types
+
     if @category.update_attributes(params[:category])
+      update_category_listing_shapes(params, @category)
       redirect_to admin_categories_path
     else
       flash[:error] = "Category saving failed"
@@ -79,6 +82,7 @@ class Admin::CategoriesController < ApplicationController
   def destroy
     @category = @current_community.categories.find_by_url_or_id(params[:id])
     @category.destroy
+    CategoryListingShape.delete_all(category_id: @category.id)
     redirect_to admin_categories_path
   end
 
@@ -97,6 +101,23 @@ class Admin::CategoriesController < ApplicationController
     @category.destroy
 
     redirect_to admin_categories_path
+  end
+
+  private
+
+  def update_category_listing_shapes(params, category)
+    transaction_type_ids = params[:category][:transaction_type_attributes].map { |tt_param| tt_param[:transaction_type_id].to_i }
+
+    shapes = ListingService::API::Api.shapes.get(community_id: @current_community.id)[:data]
+    selected_shapes = shapes.select { |s| transaction_type_ids.include? s[:transaction_type_id] }
+
+    raise ArgumentError.new("No shapes selected for category #{category.id}, transaction_type_ids: #{transaction_type_ids}") if selected_shapes.empty?
+
+    CategoryListingShape.delete_all(category_id: category.id)
+
+    selected_shapes.each { |s|
+      CategoryListingShape.create!(category_id: category.id, listing_shape_id: s[:id])
+    }
   end
 
 end
