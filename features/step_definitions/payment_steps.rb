@@ -251,11 +251,8 @@ Then /^I should be see that the payment was successful$/ do
   }
 end
 
-Then /^I should see that I successfully paid (\d+)$/ do |amount|
-  steps %Q{
-    Then I should see "paid"
-    Then I should see "#{amount}"
-  }
+Then /^I should see that I successfully paid (.*?)$/ do |amount|
+  page.should have_content("paid #{amount}")
 end
 
 Then /^"(.*?)" should receive email about payment$/ do |receiver|
@@ -288,3 +285,14 @@ Then /^I should receive an email about missing payment details$/ do
     And I should see "However, you haven't yet added your payment details. In order to receive the payment you have to add your payment information." in the email body
   }
 end
+
+Then /^I should see receipt info for unit_type (.*?) with quantity (\d+) and subtotal of (.*?)$/ do |unit_type, quantity, subtotal|
+  page.should have_content("Price per #{unit_type}")
+  page.should have_content("Quantity:")
+  page.should have_content("Subtotal:")
+  page.should have_content("Total:")
+
+  expect(find(".initiate-transaction-quantity-value")).to have_content(quantity)
+  expect(find(".initiate-transaction-sum-value")).to have_content(subtotal)
+end
+
