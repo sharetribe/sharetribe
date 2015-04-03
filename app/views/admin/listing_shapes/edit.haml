@@ -1,11 +1,14 @@
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
 
+- content_for :javascript do
+  $('#listing_shape_form').validate();
+
 = render partial: "admin/left_hand_navigation", locals: { links: admin_links_for(@current_community), selected_left_navi_link: selected_left_navi_link }
 
 .left-navi-section
   %h2= t(".edit_listing_shape", shape: ts(shape[:name_tr_key]))
-  = form_tag(admin_listing_shape_path(shape[:id]), method: :put) do
+  = form_tag(admin_listing_shape_path(shape[:id]), method: :put, id: "listing_shape_form") do
 
     .translation-wrapper
       .input-header= t("admin.listing_shapes.listing_shape_name")
@@ -15,7 +18,7 @@
           .name-locale-label.col-2
             = label_tag "name[#{loc}]", locale_name_mapping[loc]
           .name-locale-text_field.col-10
-            = text_field_tag "name[#{loc}]", t
+            = text_field_tag("name[#{loc}]", t, class: "required")
 
     .translation-wrapper
       .input-header= t("admin.listing_shapes.action_button_label")
@@ -25,7 +28,7 @@
           .name-locale-label.col-2
             = label_tag "action_button_label[#{loc}]", locale_name_mapping[loc]
           .name-locale-text_field.col-10
-            = text_field_tag "action_button_label[#{loc}]", t
+            = text_field_tag("action_button_label[#{loc}]", t, class: "required")
 
     .row
       .col-12

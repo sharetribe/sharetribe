@@ -622,16 +622,18 @@ module ApplicationHelper
         :icon_class => icon_class("form"),
         :path => admin_custom_fields_path,
         :name => "listing_fields"
-      },
+      }
+    ]
 
-      # TODO Feature flag for inclusion
-      {
+    # TODO Feature flag for inclusion based upon community
+    if false
+      links << {
         :text => t("admin.listing_shapes.index.listing_shapes"),
         :icon_class => icon_class("form"),
         :path => admin_listing_shapes_path,
         :name => "listing_shapes"
       }
-    ]
+    end
 
     if PaypalHelper.paypal_active?(@current_community.id)
       links << {

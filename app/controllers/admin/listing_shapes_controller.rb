@@ -1,7 +1,7 @@
 class Admin::ListingShapesController < ApplicationController
   before_filter :ensure_is_admin
 
-  # TODO before_filter :feature_flag
+  before_filter :feature_flag
 
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
 
@@ -41,12 +41,9 @@ class Admin::ListingShapesController < ApplicationController
       return render_edit(shape, @current_community.id, available_locales())
     end
 
-    update_result = update_translations(
-      @current_community.id,
-      { shape[:name_tr_key] => shape_form.name,
-        shape[:action_button_tr_key] => shape_form.action_button_label }
-    ).and_then {
-      update_shape(shape, shape_form) }
+    update_result =
+      update_translations(shape, shape_form)
+      .and_then { update_shape(shape, shape_form) }
 
     if update_result[:success]
       flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate(shape[:name_tr_key]))
@@ -59,6 +56,12 @@ class Admin::ListingShapesController < ApplicationController
 
 
   private
+
+
+  # TODO This will check based upon community if the controller is available
+  def feature_flag
+    return redirect_to edit_details_admin_community_path(@current_community)
+  end
 
   def edit_view_locals(shape, translations, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
@@ -102,9 +105,12 @@ class Admin::ListingShapesController < ApplicationController
       .or_else([])
   end
 
-  def update_translations(community_id, key_locale_hash)
-    tr_groups = TranslationServiceHelper.to_per_key_translations(key_locale_hash)
-    translations_api.translations.create(community_id, tr_groups)
+  def update_translations(shape, shape_form)
+    tr_groups = TranslationServiceHelper.to_per_key_translations({
+      shape[:name_tr_key] => shape_form.name,
+      shape[:action_button_tr_key] => shape_form.action_button_label})
+
+    translations_api.translations.create(shape[:community_id], tr_groups)
   end
 
   def translations_api
