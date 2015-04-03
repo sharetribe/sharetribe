@@ -21,8 +21,10 @@
 #  listing_quantity                  :integer          default(1)
 #  listing_author_id                 :string(255)
 #  listing_title                     :string(255)
+#  unit_type                         :string(32)
 #  unit_price_cents                  :integer
 #  unit_price_currency               :string(8)
+#  unit_tr_key                       :string(64)
 #  payment_process                   :string(31)       default("none")
 #  delivery_method                   :string(31)       default("none")
 #  shipping_price_cents              :integer
@@ -51,7 +53,9 @@ class Transaction < ActiveRecord::Base
     :listing_quantity,
     :listing_title,
     :listing_author_id,
+    :unit_type,
     :unit_price,
+    :unit_tr_key,
     :shipping_price,
     :delivery_method,
   )
