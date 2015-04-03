@@ -1,6 +1,9 @@
 
 module ListingShapeHelper
 
+
+  PREDEFINED_UNIT_TYPES = [:piece, :hour, :day, :night, :week, :month]
+
   module_function
 
   # deprecated
@@ -17,4 +20,9 @@ module ListingShapeHelper
   def process_to_direction(process)
     process[:author_is_seller] ? "offer" : "request"
   end
+
+  def predefined_unit_types
+    PREDEFINED_UNIT_TYPES
+  end
+
 end

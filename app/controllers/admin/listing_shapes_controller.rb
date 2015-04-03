@@ -5,24 +5,13 @@ class Admin::ListingShapesController < ApplicationController
 
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
 
-  # :id=>127,
-  # :transaction_type_id=>65,
-  # :community_id=>10,
-  # :price_enabled=>false,
-  # :name_tr_key=>"transaction_type_translation.name.65",
-  # :action_button_tr_key=>
-  # "transaction_type_translation.action_button_label.65",
-  # :transaction_process_id=>17,
-  # :translations=>nil,
-  # :units=>[],
-  # :shipping_enabled=>false,
-  # :price_quantity_placeholder=>nil
-
   ListingShapeForm = FormUtils.define_form(
     "ListingShapeForm",
     :name,
     :action_button_label,
-    :shipping_enabled).with_validations {
+    :shipping_enabled,
+    :units,
+  ).with_validations {
     validates :name, presence: true
     validates :action_button_label, presence: true
     validates :shipping_enabled, inclusion: { in: [true, false] }
@@ -46,10 +35,7 @@ class Admin::ListingShapesController < ApplicationController
     shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
 
-    shape_form = ListingShapeForm.new(
-      params
-      .slice(:name, :action_button_label)
-      .merge(shipping_enabled: params[:shipping_enabled] == "true"))
+    shape_form = parse_params_to_form(params)
     unless shape_form.valid?
       flash[:error] = shape_form.errors.full_messages.join(", ")
       return render_edit(shape, @current_community.id, available_locales())
@@ -77,7 +63,7 @@ class Admin::ListingShapesController < ApplicationController
   def edit_view_locals(shape, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       shape: shape,
-      shape_form: to_form(shape, available_locs.map(&:second)),
+      shape_form: to_form_data(shape, available_locs.map(&:second)),
       locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h  }
   end
 
@@ -93,11 +79,29 @@ class Admin::ListingShapesController < ApplicationController
       .or_else(nil)
   end
 
-  def to_form(shape, locales)
+  def parse_params_to_form(params)
+    ListingShapeForm.new(
+      params
+      .slice(:name, :action_button_label)
+      .merge(shipping_enabled: params[:shipping_enabled] == "true")
+      .merge(units: Maybe(params[:units]).or_else([]).map { |t, _| {type: t.to_sym} }))
+  end
+
+  def to_form_data(shape, locales)
     trs = TranslationServiceHelper.to_key_locale_hash(
       get_translations(shape, locales))
 
-    ListingShapeForm.new(name: trs[shape[:name_tr_key]], action_button_label: trs[shape[:action_button_tr_key]], shipping_enabled: shape[:shipping_enabled])
+    shape_units = shape[:units].map { |t| t[:type] }.to_set
+    units = ListingShapeHelper.predefined_unit_types
+      .map { |t| {type: t, enabled: shape_units.include?(t), label: t("admin.listing_shapes.units.#{t}")} }
+      .concat(shape[:units]
+              .select { |unit| unit[:type] == :custom }
+              .map { |unit| {type: unit[:type], enabled: true, label: translate(unit[:translation_key])} })
+
+    ListingShapeForm.new(name: trs[shape[:name_tr_key]],
+                         action_button_label: trs[shape[:action_button_tr_key]],
+                         shipping_enabled: shape[:shipping_enabled],
+                         units: units)
   end
 
   def get_translations(shape, locales)
@@ -119,7 +123,8 @@ class Admin::ListingShapesController < ApplicationController
       community_id: shape[:community_id],
       listing_shape_id: shape[:id],
       opts: {
-        shipping_enabled: shape_form.shipping_enabled
+        shipping_enabled: shape_form.shipping_enabled,
+        units: shape_form.units
       }
     )
   end
