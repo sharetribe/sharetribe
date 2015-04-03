@@ -552,6 +552,7 @@ module ApplicationHelper
     }
   end
 
+  # rubocop:disable all
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
@@ -685,6 +686,7 @@ module ApplicationHelper
 
     links
   end
+  # rubocop:enable all
 
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil)
