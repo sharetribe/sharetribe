@@ -39,7 +39,7 @@ class Admin::ListingShapesController < ApplicationController
     shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
 
-    render_edit(shape, @current_community.id, available_locales())
+    render("edit", locals: edit_view_locals(shape, available_locales()))
   end
 
   def update
@@ -67,20 +67,18 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to admin_listing_shapes_path
     else
       flash[:error] = t("admin.listing_shapes.edit.update_failure")
-      return render_edit(shape, @current_community.id, available_locales())
+      render("edit", locals: edit_view_locals(shape, available_locales()))
     end
   end
 
 
   private
 
-  def render_edit(shape, community_id, available_locs)
-    render("edit",
-           locals: {
-             selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-             shape: shape,
-             shape_form: to_form(shape, community_id, available_locs.map(&:second)),
-             locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h })
+  def edit_view_locals(shape, available_locs)
+    { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+      shape: shape,
+      shape_form: to_form(shape, available_locs.map(&:second)),
+      locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h  }
   end
 
   def all_shapes(community_id)
@@ -95,16 +93,16 @@ class Admin::ListingShapesController < ApplicationController
       .or_else(nil)
   end
 
-  def to_form(shape, community_id, locales)
+  def to_form(shape, locales)
     trs = TranslationServiceHelper.to_key_locale_hash(
-      get_translations(shape, community_id, locales))
+      get_translations(shape, locales))
 
     ListingShapeForm.new(name: trs[shape[:name_tr_key]], action_button_label: trs[shape[:action_button_tr_key]], shipping_enabled: shape[:shipping_enabled])
   end
 
-  def get_translations(shape, community_id, locales)
+  def get_translations(shape, locales)
     translations_api.translations.get(
-      community_id,
+      shape[:community_id],
       translation_keys: [shape[:name_tr_key], shape[:action_button_tr_key]],
       locales: locales)
       .maybe()
@@ -112,12 +110,7 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def update_translations(community_id, key_locale_hash)
-    tr_groups = key_locale_hash.map { |key, key_ts|
-      { translation_key: key, translations: key_ts.map { |loc, t|
-          t.present? ? { locale: loc, translation: t } : nil
-        }.compact
-      }}
-
+    tr_groups = TranslationServiceHelper.to_per_key_translations(key_locale_hash)
     translations_api.translations.create(community_id, tr_groups)
   end
 
