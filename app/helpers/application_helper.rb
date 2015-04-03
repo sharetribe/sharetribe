@@ -552,6 +552,7 @@ module ApplicationHelper
     }
   end
 
+  # rubocop:disable all
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
@@ -621,6 +622,14 @@ module ApplicationHelper
         :icon_class => icon_class("form"),
         :path => admin_custom_fields_path,
         :name => "listing_fields"
+      },
+
+      # TODO Feature flag for inclusion
+      {
+        :text => t("admin.listing_shapes.index.listing_shapes"),
+        :icon_class => icon_class("form"),
+        :path => admin_listing_shapes_path,
+        :name => "listing_shapes"
       }
     ]
 
@@ -677,6 +686,7 @@ module ApplicationHelper
 
     links
   end
+  # rubocop:enable all
 
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil)
