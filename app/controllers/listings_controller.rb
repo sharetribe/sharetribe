@@ -188,12 +188,11 @@ class ListingsController < ApplicationController
       end
     else
       category_tree = CategoryViewUtils.category_tree(
-        category_models: @current_community.top_level_categories,
-        shape_entities: get_shapes,
-        association_models: CategoryListingShape.where(category_id: @current_community.categories.map(&:id)),
+        categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
+        shapes: get_shapes,
         locale: I18n.locale,
         all_locales: @current_community.locales,
-        community_translations: community_translations
+        translation_cache: community_translations
       )
 
       render :new, locals: {
