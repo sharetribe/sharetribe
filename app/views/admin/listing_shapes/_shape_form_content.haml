@@ -1,0 +1,36 @@
+.translation-wrapper
+  .input-header= t("admin.listing_shapes.listing_shape_name")
+  = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.listing_shape_name_desc")}
+  - shape_form.name.map do |loc, t|
+    .row
+      .name-locale-label.col-2
+        = label_tag "name[#{loc}]", locale_name_mapping[loc]
+      .name-locale-text_field.col-10
+        = text_field_tag("name[#{loc}]", t, class: "required")
+
+.translation-wrapper
+  .input-header= t("admin.listing_shapes.action_button_label")
+  = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.action_button_label_desc")}
+  - shape_form.action_button_label.map do |loc, t|
+    .row
+      .name-locale-label.col-2
+        = label_tag "action_button_label[#{loc}]", locale_name_mapping[loc]
+      .name-locale-text_field.col-10
+        = text_field_tag("action_button_label[#{loc}]", t, class: "required")
+
+.row
+  .col-12
+    = label_tag("shipping_title", t("admin.listing_shapes.shipping_title"), class: "input")
+    = check_box_tag(:shipping_enabled, "true", shape_form.shipping_enabled, class: "checkbox-row-checkbox")
+    = label_tag(:shipping_enabled, t("admin.listing_shapes.shipping_label"), class: "checkbox-row-label")
+
+
+.row
+  .col-12
+    = label_tag("units_title", t("admin.listing_shapes.units_title"), class: "input")
+    = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.units_desc")}
+- shape_form.units.map do |unit|
+  .row
+    .col-12
+      = check_box_tag("units[#{unit[:type]}]", "true", unit[:enabled], class: "checkbox-row-checkbox")
+      = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label")

@@ -24,6 +24,14 @@ class Admin::ListingShapesController < ApplicationController
              listing_shapes: all_shapes(@current_community.id)})
   end
 
+  def new
+    shape = new_shape_template(@current_community.id)
+    render("new", locals: new_view_locals(
+             shape,
+             make_empty_translations(shape, available_locales()),
+             available_locales()))
+  end
+
   def edit
     shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
@@ -62,6 +70,13 @@ class Admin::ListingShapesController < ApplicationController
       shape: shape,
       shape_form: to_form_data(shape, translations),
       locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h  }
+  end
+
+  def new_view_locals(shape, translations, available_locs)
+    { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+      shape: shape,
+      shape_form: to_form_data(shape, translations),
+      locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h }
   end
 
 
@@ -110,6 +125,13 @@ class Admin::ListingShapesController < ApplicationController
       .or_else([])
   end
 
+  def make_empty_translations(shape, available_locs)
+    empty_trs = available_locs.map { |_, loc| {locale: loc, translation: ""}}
+
+    empty_trs.map { |t| t.merge({translation_key: shape[:name_tr_key]}) }
+      .concat(empty_trs.map { |t| t.merge({translation_key: shape[:action_button_tr_key]}) })
+  end
+
   def update_translations(shape, shape_form)
     tr_groups = TranslationServiceHelper.to_per_key_translations({
       shape[:name_tr_key] => shape_form.name,
@@ -122,6 +144,14 @@ class Admin::ListingShapesController < ApplicationController
     TranslationService::API::Api
   end
 
+  def new_shape_template(community_id)
+    { community_id: community_id,
+      price_enabled: true,
+      name_tr_key: "name-key-placeholder",
+      action_button_tr_key: "action-button-key-placeholder",
+      shipping_enabled: false,
+      units: [] }
+  end
 
   def all_shapes(community_id)
     listing_api.shapes.get(community_id: community_id)
