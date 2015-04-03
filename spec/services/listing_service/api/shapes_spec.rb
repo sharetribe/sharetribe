@@ -19,12 +19,6 @@ describe ListingService::API::Shapes do
       action_button_tr_key: action_button_tr_key,
       price_quantity_placeholder: :time,
       sort_priority: 0,
-
-      # TODO Move these to translation service
-      translations: [
-        { locale: "en", name: "Selling", action_button_label: "Buy" },
-        { locale: "fi", name: "Myydään", action_button_label: "Osta" }
-      ],
       basename: "Selling",
 
       units: [

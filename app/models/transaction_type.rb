@@ -36,7 +36,6 @@ class TransactionType < ActiveRecord::Base
 
   belongs_to :community
 
-  has_many :translations, :class_name => "TransactionTypeTranslation", :dependent => :destroy, inverse_of: :transaction_type
   has_many :category_transaction_types, :dependent => :destroy
   has_many :categories, :through => :category_transaction_types
   has_many :listing_units
@@ -57,33 +56,7 @@ class TransactionType < ActiveRecord::Base
     url
   end
 
-  def display_name(locale)
-    result = TranslationService::API::Api.translations
-      .get(community_id, {
-        translation_keys: [name_tr_key]
-      })
-    find_any_translation(result[:data], locale)
-  end
-
-  def action_button_label(locale)
-    result = TranslationService::API::Api.translations
-      .get(community_id, {
-        translation_keys: [action_button_tr_key]
-      })
-    find_any_translation(result[:data], locale)
-  end
-
   def self.find_by_url_or_id(url_or_id)
     self.find_by_url(url_or_id) || self.find_by_id(url_or_id)
-  end
-
-  private
-
-  def find_any_translation(data, preferred_locale)
-    tr_hash = data.find {|tr| tr[:locale] == preferred_locale.to_s && tr[:translation].present? }
-    tr_hash = data.find {|tr| tr[:locale] == community.default_locale && tr[:translation].present? } if tr_hash.nil?
-    tr_hash = data.find {|tr| tr[:translation].present?} if tr_hash.nil?
-    raise ArgumentError.new("translations missing for transaction type") if tr_hash.nil?
-    tr_hash[:translation]
   end
 end

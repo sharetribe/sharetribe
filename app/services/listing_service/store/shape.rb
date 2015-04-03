@@ -9,7 +9,6 @@ module ListingService::Store::Shape
     [:name_tr_key, :string, :mandatory],
     [:action_button_tr_key, :string, :mandatory],
     [:transaction_process_id, :fixnum, :mandatory],
-    [:translations, :array, :optional], # TODO Only temporary
     [:shipping_enabled, :bool, :mandatory],
     [:units, :array, default: []], # Mandatory only if price_enabled
     [:price_quantity_placeholder, one_of: [nil, :mass, :time, :long_time]], # TODO TEMP
@@ -25,7 +24,6 @@ module ListingService::Store::Shape
     [:name_tr_key, :string, :mandatory],
     [:action_button_tr_key, :string, :mandatory],
     [:transaction_process_id, :fixnum, :mandatory],
-    [:translations, :array, :optional], # TODO Only temporary
     [:units, :array, :mandatory],
     [:shipping_enabled, :bool, :mandatory],
     [:name, :string, :mandatory],
@@ -37,7 +35,6 @@ module ListingService::Store::Shape
     [:price_enabled, :bool],
     [:name_tr_key, :string],
     [:action_button_tr_key, :string],
-    [:translations, :array], # TODO Only temporary
     [:transaction_process_id, :fixnum],
     [:units, :array],
     [:shipping_enabled, :bool],
@@ -74,25 +71,22 @@ module ListingService::Store::Shape
 
     units = shape[:units].map { |unit| Unit.call(unit) }
 
-    translations = opts[:translations] # Skip data type and validation, because this is temporary
-
     name = uniq_name(shape[:basename], shape[:community_id])
     shape_with_url = shape.except(:basename).merge(url: name)
     shape_with_name = shape.except(:basename).merge(name: name)
 
     ActiveRecord::Base.transaction do
       # Save to TransactionType model
-      create_tt_opts = to_tt_model_attributes(shape_with_url).except(:units, :translations)
+      create_tt_opts = to_tt_model_attributes(shape_with_url).except(:units)
       tt_model = TransactionType.create!(create_tt_opts)
 
       # Save to ListingShape model
-      shape_model = ListingShape.create!(shape_with_name.merge(transaction_type_id: tt_model.id).except(:units, :translations))
+      shape_model = ListingShape.create!(shape_with_name.merge(transaction_type_id: tt_model.id).except(:units))
 
       # Save units
       units.each { |unit|
         tt_model.listing_units.create!(to_unit_model_attributes(unit).merge(listing_shape_id: shape_model.id))
       }
-      translations.each { |tr| tt_model.translations.create!(tr) }
 
       from_model(shape_model)
     end
@@ -119,10 +113,8 @@ module ListingService::Store::Shape
     skip_units = update_shape[:units].nil?
     units = update_shape[:units].map { |unit| Unit.call(unit) } unless skip_units
 
-    translations = opts[:translations] # Skip data type and validation, because this is temporary
-
     ActiveRecord::Base.transaction do
-      update_tt_opts = HashUtils.compact(to_tt_model_attributes(update_shape)).except(:units, :translations)
+      update_tt_opts = HashUtils.compact(to_tt_model_attributes(update_shape)).except(:units)
       tt_model.update_attributes(update_tt_opts)
 
       unless skip_units
@@ -130,15 +122,10 @@ module ListingService::Store::Shape
         units.each { |unit| tt_model.listing_units.build(to_unit_model_attributes(unit).merge(listing_shape_id: shape_model.id)) }
       end
 
-      unless translations.nil?
-        tt_model.translations.destroy_all
-        translations.each { |tr| tt_model.translations.build(tr) }
-      end
-
       tt_model.save!
 
       # Save to ListingShape model
-      shape_model.update_attributes!(HashUtils.compact(update_shape).merge(transaction_type_id: tt_model.id).except(:units, :translations))
+      shape_model.update_attributes!(HashUtils.compact(update_shape).merge(transaction_type_id: tt_model.id).except(:units))
     end
 
     from_model(shape_model)
