@@ -34,8 +34,7 @@ class Category < ActiveRecord::Base
   has_many :listings
   has_many :translations, :class_name => "CategoryTranslation", :dependent => :destroy
 
-  has_many :category_listing_shapes, dependent: :destroy
-  has_many :listing_shapes, through: :category_listing_shapes, order: "sort_priority"
+  has_and_belongs_to_many :listing_shapes, order: "sort_priority", join_table: "category_listing_shapes"
 
   has_many :category_custom_fields, :dependent => :destroy
   has_many :custom_fields, :through => :category_custom_fields, :order => "sort_priority"

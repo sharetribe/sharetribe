@@ -84,7 +84,6 @@ class Admin::CategoriesController < ApplicationController
   def destroy
     @category = @current_community.categories.find_by_url_or_id(params[:id])
     @category.destroy
-    CategoryListingShape.delete_all(category_id: @category.id)
     redirect_to admin_categories_path
   end
 
