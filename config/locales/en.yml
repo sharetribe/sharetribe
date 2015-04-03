@@ -20,6 +20,15 @@ en:
       action_button_label_desc: "This is the checkout button label shown on the listing page."
       shipping_title: "Shipping"
       shipping_label: "Shipping fee enabled"
+      units_title: "Pricing units"
+      units_desc: "Listing price is always shown as \"price per pricing unit\". An example: \"$39 per hour\". An exception: \"per piece\" text will not be shown, so if you select \"per piece\", price will simply be shown as \"$39\"."
+      units:
+        piece: "Per piece"
+        hour: "Per hour"
+        day: "Per day"
+        night: "Per night"
+        week: "Per week"
+        month: "Per month"
     categories:
       edit:
         edit_listing_category: "Edit category '%{category}'"

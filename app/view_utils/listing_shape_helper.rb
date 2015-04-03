@@ -1,6 +1,9 @@
 
 module ListingShapeHelper
 
+
+  PREDEFINED_UNIT_TYPES = [:piece, :hour, :day, :night, :week, :month]
+
   module_function
 
   # deprecated
@@ -39,4 +42,9 @@ module ListingShapeHelper
 
     direction_tuples.to_h
   end
+
+  def predefined_unit_types
+    PREDEFINED_UNIT_TYPES
+  end
+
 end
