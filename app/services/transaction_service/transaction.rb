@@ -194,6 +194,7 @@ module TransactionService::Transaction
         listing_id: tx[:listing_id],
         listing_title: tx[:listing_title],
         listing_price: tx[:unit_price],
+        unit_type: tx[:unit_type],
         item_total: item_total,
         shipping_price: tx[:shipping_price],
         listing_author_id: tx[:listing_author_id],
