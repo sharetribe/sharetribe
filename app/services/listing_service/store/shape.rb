@@ -1,6 +1,5 @@
 module ListingService::Store::Shape
 
-  TransactionTypeModel = ::TransactionType
   ListingUnitModel = ::ListingUnit
 
   NewShape = EntityUtils.define_builder(
@@ -69,16 +68,12 @@ module ListingService::Store::Shape
     units = shape[:units].map { |unit| Unit.call(unit) }
 
     name = uniq_name(shape[:basename], shape[:community_id])
-    shape_with_url = shape.except(:basename).merge(url: name)
     shape_with_name = shape.except(:basename).merge(name: name)
 
     ActiveRecord::Base.transaction do
-      # Save to TransactionType model
-      create_tt_opts = to_tt_model_attributes(shape_with_url).except(:units)
-      tt_model = TransactionType.create!(create_tt_opts)
 
       # Save to ListingShape model
-      shape_model = ListingShape.create!(shape_with_name.merge(transaction_type_id: tt_model.id).except(:units))
+      shape_model = ListingShape.create!(shape_with_name.except(:units))
 
       # Save units
       units.each { |unit|
@@ -96,30 +91,19 @@ module ListingService::Store::Shape
 
     return nil if shape_model.nil?
 
-    tt_model = find_tt_model(
-      community_id: community_id,
-      transaction_type_id: shape_model.transaction_type_id)
-
-    return nil if tt_model.nil?
-
     update_shape = UpdateShape.call(opts.merge(community_id: community_id))
 
     skip_units = update_shape[:units].nil?
     units = update_shape[:units].map { |unit| Unit.call(unit) } unless skip_units
 
     ActiveRecord::Base.transaction do
-      update_tt_opts = HashUtils.compact(to_tt_model_attributes(update_shape)).except(:units)
-      tt_model.update_attributes(update_tt_opts)
-
       unless skip_units
         shape_model.listing_units.destroy_all
         units.each { |unit| shape_model.listing_units.build(to_unit_model_attributes(unit)) }
       end
 
-      tt_model.save!
-
       # Save to ListingShape model
-      shape_model.update_attributes!(HashUtils.compact(update_shape).merge(transaction_type_id: tt_model.id).except(:units))
+      shape_model.update_attributes!(HashUtils.compact(update_shape).except(:units))
     end
 
     from_model(shape_model)
@@ -151,19 +135,6 @@ module ListingService::Store::Shape
       {
         unit_type: :type
       }, hash)
-  end
-
-  # TODO Remove this
-  def to_tt_model_attributes(hash)
-    HashUtils.rename_keys(
-      {
-        price_enabled: :price_field
-      }, hash).except(:units)
-  end
-
-  # TODO Remove this
-  def find_tt_model(community_id:, transaction_type_id:)
-    TransactionTypeModel.where(community_id: community_id, id: transaction_type_id).first
   end
 
   def find_shape_model(community_id:, listing_shape_id:)
