@@ -11,7 +11,7 @@ class PaymentRegistrationGuard
   end
 
   def requires_registration_before_posting?
-    find_opts = { community_id: @community.id, transaction_type_id: @listing.transaction_type_id }
+    find_opts = { community_id: @community.id, listing_shape_id: @listing.listing_shape_id }
     res = ListingService::API::Api.shapes.get(find_opts)
 
     price_enabled = res.maybe.map { |shape|

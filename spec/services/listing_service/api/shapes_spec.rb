@@ -40,9 +40,9 @@ describe ListingService::API::Shapes do
 
         expect(create_shape_res.success).to eql(true)
 
-        transaction_type_id = create_shape_res.data[:transaction_type_id]
+        listing_shape_id = create_shape_res.data[:id]
 
-        res = listings_api.shapes.get(community_id: community_id, transaction_type_id: transaction_type_id)
+        res = listings_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id)
 
         expect(res.success).to eql(true)
 
@@ -53,7 +53,6 @@ describe ListingService::API::Shapes do
         expect(shape[:price_enabled]).to eql(true)
         expect(shape[:shipping_enabled]).to eql(true)
         expect(shape[:transaction_process_id]).to eql(transaction_process_id)
-        expect(shape[:transaction_type_id]).to be_a(Fixnum)
         expect(shape[:name_tr_key]).to eql(name_tr_key)
         expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
         expect(shape[:price_quantity_placeholder]).to eql(:time)
@@ -64,32 +63,6 @@ describe ListingService::API::Shapes do
         expect(units[0][:type]).to eql(:day)
         expect(units[1][:type]).to eql(:custom)
         expect(units[1][:translation_key]).to eql('my.custom.units.translation')
-
-        # TODO Remove this in the future.
-        # Currently also TransactionType is saved
-        tt = TransactionType.find(shape[:transaction_type_id])
-        expect(tt.community_id).to eql(community_id)
-        expect(tt.price_field?).to eql(true)
-        expect(tt.shipping_enabled?).to eql(true)
-        expect(tt.transaction_process_id).to eql(transaction_process_id)
-        expect(tt.name_tr_key).to eql(name_tr_key)
-        expect(tt.action_button_tr_key).to eql(action_button_tr_key)
-        expect(tt.url).to eql("selling")
-        expect(tt.price_quantity_placeholder).to eql("time")
-
-        ## TODO Remove this in the future
-        s = ListingShape.where(transaction_type_id: shape[:transaction_type_id]).first
-        expect(s.community_id).to eql(community_id)
-        expect(s.price_enabled?).to eql(true)
-        expect(s.shipping_enabled?).to eql(true)
-        expect(s.transaction_process_id).to eql(transaction_process_id)
-        expect(s.name_tr_key).to eql(name_tr_key)
-        expect(s.action_button_tr_key).to eql(action_button_tr_key)
-        expect(s.name).to eql("selling")
-        expect(s.price_quantity_placeholder).to eql("time")
-
-        ## TODO Remove this in the future
-        expect(ListingUnit.where(listing_shape_id: s.id).count).to eq 2
       end
 
       it "creates new listing shape with piece unit" do
@@ -102,9 +75,9 @@ describe ListingService::API::Shapes do
 
         expect(create_shape_res.success).to eql(true)
 
-        transaction_type_id = create_shape_res.data[:transaction_type_id]
+        listing_shape_id = create_shape_res.data[:id]
 
-        res = listings_api.shapes.get(community_id: community_id, transaction_type_id: transaction_type_id)
+        res = listings_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id)
 
         expect(res.success).to eql(true)
 
@@ -114,7 +87,6 @@ describe ListingService::API::Shapes do
         expect(shape[:price_enabled]).to eql(true)
         expect(shape[:shipping_enabled]).to eql(true)
         expect(shape[:transaction_process_id]).to eql(transaction_process_id)
-        expect(shape[:transaction_type_id]).to be_a(Fixnum)
         expect(shape[:name_tr_key]).to eql(name_tr_key)
         expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
 
@@ -123,29 +95,6 @@ describe ListingService::API::Shapes do
         expect(units[0][:type]).to eql(:piece)
         expect(units[1][:type]).to eql(:custom)
         expect(units[1][:translation_key]).to eql('my.custom.units.translation')
-
-        # TODO Remove this in the future.
-        # Currently also TransactionType is saved
-        tt = TransactionType.find(shape[:transaction_type_id])
-        expect(tt.community_id).to eql(community_id)
-        expect(tt.price_field?).to eql(true)
-        expect(tt.shipping_enabled?).to eql(true)
-        expect(tt.transaction_process_id).to eql(transaction_process_id)
-        expect(tt.name_tr_key).to eql(name_tr_key)
-        expect(tt.action_button_tr_key).to eql(action_button_tr_key)
-
-        ## TODO Remove this in the future
-        s = ListingShape.where(transaction_type_id: shape[:transaction_type_id]).first
-        expect(s.community_id).to eql(community_id)
-        expect(s.price_enabled?).to eql(true)
-        expect(s.shipping_enabled?).to eql(true)
-        expect(s.transaction_process_id).to eql(transaction_process_id)
-        expect(s.name_tr_key).to eql(name_tr_key)
-        expect(s.action_button_tr_key).to eql(action_button_tr_key)
-        expect(s.price_quantity_placeholder).to eql("time")
-
-        ## TODO Remove this in the future
-        expect(ListingUnit.where(listing_shape_id: s.id).count).to eq 2
       end
     end
   end
@@ -169,31 +118,19 @@ describe ListingService::API::Shapes do
         shape_names = listings_api.shapes.get(community_id: community_id).data.map { |s| [s[:name], s[:sort_priority]] }
         expect(shape_names).to eq [["rent", 0], ["request", 5], ["sell", 10]]
       end
-
-      it "can get shape by listing shape id or transaction type id" do
-        shape = create_shape.data
-
-        by_tt_id = listings_api.shapes.get(community_id: community_id, transaction_type_id: shape[:transaction_type_id]).data
-        by_shape_id = listings_api.shapes.get(community_id: community_id, listing_shape_id: shape[:id]).data
-
-        expect(by_tt_id).not_to be_nil
-        expect(by_shape_id).not_to be_nil
-
-        expect(by_tt_id).to eq(by_shape_id)
-      end
     end
   end
 
   describe "#update" do
     context "success" do
-      let(:transaction_type_id) {
-        create_shape.data[:transaction_type_id]
+      let(:listing_shape_id) {
+        create_shape.data[:id]
       }
 
       it "updates listing type units and shipping" do
         update_res = listings_api.shapes.update(
           community_id: community_id,
-          transaction_type_id: transaction_type_id,
+          listing_shape_id: listing_shape_id,
           opts: {
             shipping_enabled: false,
             basename: "Selling w/o shipping",
@@ -205,13 +142,12 @@ describe ListingService::API::Shapes do
 
         expect(update_res.success).to eql(true)
 
-        shape = listings_api.shapes.get(community_id: community_id, transaction_type_id: transaction_type_id).data
+        shape = listings_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).data
 
         expect(shape[:community_id]).to eql(community_id)
         expect(shape[:price_enabled]).to eql(true)
         expect(shape[:shipping_enabled]).to eql(false)
         expect(shape[:transaction_process_id]).to eql(987)
-        expect(shape[:transaction_type_id]).to eql(transaction_type_id)
         expect(shape[:name_tr_key]).to eql(name_tr_key)
         expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
 
@@ -220,48 +156,23 @@ describe ListingService::API::Shapes do
         expect(units[0][:type]).to eql(:day)
         expect(units[1][:type]).to eql(:custom)
         expect(units[1][:translation_key]).to eql('my.custom.units.translation')
-
-        # TODO Remove this in the future.
-        # Currently also TransactionType is saved
-        tt = TransactionType.find(shape[:transaction_type_id])
-        expect(tt.community_id).to eql(community_id)
-        expect(tt.price_field?).to eql(true)
-        expect(tt.shipping_enabled?).to eql(false)
-        expect(tt.transaction_process_id).to eql(987)
-        expect(tt.name_tr_key).to eql(name_tr_key)
-        expect(tt.action_button_tr_key).to eql(action_button_tr_key)
-        expect(tt.url).to eql("selling") # URL in not updated
-
-        ## TODO Remove this in the future
-        s = ListingShape.where(transaction_type_id: shape[:transaction_type_id]).first
-        expect(s.community_id).to eql(community_id)
-        expect(s.price_enabled?).to eql(true)
-        expect(s.shipping_enabled?).to eql(false)
-        expect(s.transaction_process_id).to eql(987)
-        expect(s.name_tr_key).to eql(name_tr_key)
-        expect(s.action_button_tr_key).to eql(action_button_tr_key)
-        expect(tt.url).to eql("selling") # URL is not updated
-
-        ## TODO Remove this in the future
-        expect(ListingUnit.where(listing_shape_id: s.id).count).to eq 2
       end
 
       it "updates only one field" do
         update_res = listings_api.shapes.update(
           community_id: community_id,
-          transaction_type_id: transaction_type_id,
+          listing_shape_id: listing_shape_id,
           opts: { shipping_enabled: false }
         )
 
         expect(update_res.success).to eql(true)
 
-        shape = listings_api.shapes.get(community_id: community_id, transaction_type_id: transaction_type_id).data
+        shape = listings_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).data
 
         expect(shape[:community_id]).to eql(community_id)
         expect(shape[:price_enabled]).to eql(true)
         expect(shape[:shipping_enabled]).to eql(false)
         expect(shape[:transaction_process_id]).to eql(transaction_process_id)
-        expect(shape[:transaction_type_id]).to eql(transaction_type_id)
         expect(shape[:name_tr_key]).to eql(name_tr_key)
         expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
 
@@ -270,30 +181,6 @@ describe ListingService::API::Shapes do
         expect(units[0][:type]).to eql(:day)
         expect(units[1][:type]).to eql(:custom)
         expect(units[1][:translation_key]).to eql('my.custom.units.translation')
-
-        # TODO Remove this in the future.
-        # Currently also TransactionType is saved
-        tt = TransactionType.find(shape[:transaction_type_id])
-        expect(tt.community_id).to eql(community_id)
-        expect(tt.price_field?).to eql(true)
-        expect(tt.shipping_enabled?).to eql(false)
-        expect(tt.transaction_process_id).to eql(transaction_process_id)
-        expect(tt.name_tr_key).to eql(name_tr_key)
-        expect(tt.action_button_tr_key).to eql(action_button_tr_key)
-        expect(tt.url).to eql("selling") # URL in not updated
-
-        ## TODO Remove this in the future
-        s = ListingShape.where(transaction_type_id: shape[:transaction_type_id]).first
-        expect(s.community_id).to eql(community_id)
-        expect(s.price_enabled?).to eql(true)
-        expect(s.shipping_enabled?).to eql(false)
-        expect(s.transaction_process_id).to eql(transaction_process_id)
-        expect(s.name_tr_key).to eql(name_tr_key)
-        expect(s.action_button_tr_key).to eql(action_button_tr_key)
-        expect(tt.url).to eql("selling") # URL is not updated
-
-        ## TODO Remove this in the future
-        expect(ListingUnit.where(listing_shape_id: s.id).count).to eq 2
       end
     end
 
@@ -301,7 +188,7 @@ describe ListingService::API::Shapes do
       it "can not update non-existing shape" do
         update_res = listings_api.shapes.update(
           community_id: community_id,
-          transaction_type_id: 9999,
+          listing_shape_id: 9999,
           opts: {
             units: [{type: :day}]})
 
