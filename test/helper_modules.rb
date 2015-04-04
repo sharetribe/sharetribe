@@ -135,7 +135,6 @@ module TestHelpers
 
     def self.add_transaction_types_and_translations_to_category(category, category_name)
       ListingService::API::Api.shapes.get(community_id: category.community.id)[:data].each do |s|
-        CategoryTransactionType.create!(category_id: category.id, transaction_type_id: s[:transaction_type_id])
         CategoryListingShape.create!(category_id: category.id, listing_shape_id: s[:id])
       end
 
