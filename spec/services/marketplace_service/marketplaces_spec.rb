@@ -64,8 +64,8 @@ describe MarketplaceService::API::Marketplaces do
       expect(s[:price_quantity_placeholder]).to eql nil
       expect(s[:shipping_enabled]).to eql false
 
-      # check that category and transaction type are linked
-      expect(TransactionType.where(community_id: c.id).first.categories.first).to eql c.categories.first
+      # check that category and shape are linked
+      expect(CategoryListingShape.where(listing_shape_id: s[:id]).first.category).to eql c.categories.first
     end
 
     it "should have preauthorize_payments enabled" do

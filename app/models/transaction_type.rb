@@ -36,8 +36,6 @@ class TransactionType < ActiveRecord::Base
 
   belongs_to :community
 
-  has_many :category_transaction_types, :dependent => :destroy
-  has_many :categories, :through => :category_transaction_types
   has_many :listing_units
 
   validates_presence_of :community
