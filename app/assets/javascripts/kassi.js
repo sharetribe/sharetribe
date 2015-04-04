@@ -1108,7 +1108,7 @@ function initialize_profile_view(profile_id) {
   $('#trustcloud_description_link').click(function() { $('#trustcloud_description').lightbox_me({centered: true}); });
 }
 
-function initialize_homepage(filters_in_use) {
+function initialize_homepage() {
   // make map/list button change the value in the filter form and submit the form
   // in order to keep all filter values combinable and remembered
   $('.map-button').click(
