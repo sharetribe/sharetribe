@@ -46,4 +46,11 @@ module ArrayUtils
   def trim(xs)
     xs.drop_while { |x| x.blank? }.reverse.drop_while { |x| x.blank? }.reverse
   end
+
+  def zip_by(a, b, &block)
+    a.map { |a_elem|
+      b_found = b.find { |b_elem| block.call(a_elem, b_elem) }
+      b_found ? [a_elem, b_found] : nil
+    }.compact
+  end
 end
