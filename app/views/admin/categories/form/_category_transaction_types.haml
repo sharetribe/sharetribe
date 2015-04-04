@@ -5,9 +5,9 @@
     .col-12
       #category-transaction-types-container.clearfix
         - shapes.each do |shape|
-          - checkbox_id = "transaction_type_checkbox_#{shape[:transaction_type_id].to_s}"
+          - checkbox_id = "transaction_type_checkbox_#{shape[:id].to_s}"
           .custom-field-categories-checkbox-container
-            = check_box_tag "category[transaction_type_attributes][][transaction_type_id]", "#{shape[:transaction_type_id]}", @default_transaction_types.any? {|d| d.id == shape[:transaction_type_id]}, :id => checkbox_id, :class => "category-transaction-type-checkbox"
+            = check_box_tag "category[listing_shapes][][listing_shape_id]", "#{shape[:id]}", selected_shape_ids.include?(shape[:id]), :id => checkbox_id, :class => "category-transaction-type-checkbox"
             = label_tag checkbox_id, ts(shape[:name_tr_key]), :class => "category-transaction-type-checkbox-label"
 - else
-  = hidden_field_tag "category[transaction_type_attributes][][transaction_type_id]", shapes.first[:transaction_type_id]
+  = hidden_field_tag "category[transaction_type_attributes][][transaction_type_id]", shapes.first[:id]

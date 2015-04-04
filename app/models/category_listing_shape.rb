@@ -15,4 +15,7 @@ class CategoryListingShape < ActiveRecord::Base
     :category_id,
     :listing_shape_id
   )
+
+  belongs_to :category
+  belongs_to :listing_shape
 end

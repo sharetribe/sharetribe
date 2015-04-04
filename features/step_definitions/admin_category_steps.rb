@@ -197,8 +197,16 @@ Given(/^category "(.*?)" should have the following transaction types:$/) do |cat
     memo << hash['transaction_type']
     memo
   end
-  category_tt_array = category.transaction_types.collect { |tt| tt.display_name("en") }
-  tt_array.uniq.sort.should == category_tt_array.uniq.sort
+
+  shapes = CategoryListingShape.where(category_id: category.id).map { |associations|
+    ListingService::API::Api.shapes.get(community_id: category.community_id, listing_shape_id: associations.listing_shape_id)[:data]
+  }.map { |s|
+    TranslationService::API::Api.translations.get(category.community_id, translation_keys: [s[:name_tr_key]], locales: ["en"])[:data]
+  }.flat_map { |tr|
+    tr.map { |tr_hash| tr_hash[:translation] }
+  }
+
+  tt_array.uniq.sort.should == shapes.uniq.sort
 end
 
 When(/^I change transaction types of category "(.*?)" to following:$/) do |category_name, new_transaction_types|
