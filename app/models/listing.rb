@@ -194,6 +194,10 @@ class Listing < ActiveRecord::Base
     "#{id}-#{title.to_url}"
   end
 
+  def self.columns
+    super.reject { |c| c.name == "transaction_type_id" }
+  end
+
   def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)
     params ||= {}  # Set params to empty hash if it's nil
     joined_tables = []
