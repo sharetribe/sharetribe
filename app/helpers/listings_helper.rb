@@ -45,7 +45,7 @@ module ListingsHelper
     titles = {
       "category" => t("listings.new.select_category"),
       "subcategory" => t("listings.new.select_subcategory"),
-      "transaction_type" => t("listings.new.select_transaction_type")
+      "listing_shape" => t("listings.new.select_transaction_type")
     }
   end
 

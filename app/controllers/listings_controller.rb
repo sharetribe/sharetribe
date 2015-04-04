@@ -167,12 +167,12 @@ class ListingsController < ApplicationController
       @custom_field_questions = @listing.category.custom_fields
       @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-      shape = get_shape(Maybe(params)[:transaction_type].to_i.or_else(nil))
+      shape = get_shape(Maybe(params)[:listing_shape].to_i.or_else(nil))
       process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
 
       # PaymentRegistrationGuard needs this to be set before posting
       @listing.transaction_process_id = shape[:transaction_process_id]
-      @listing.transaction_type_id = shape[:transaction_type_id]
+      @listing.listing_shape_id = shape[:id]
 
       payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
       allow_posting, error_msg = payment_setup_status(
@@ -211,7 +211,7 @@ class ListingsController < ApplicationController
     end
 
     params[:listing] = normalize_price_param(params[:listing])
-    shape = get_shape(Maybe(params)[:listing][:transaction_type_id].to_i.or_else(nil))
+    shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
     unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
     unit_tr_key = Maybe(shape[:units].first)[:translation_key].or_else(nil)
 
@@ -262,7 +262,7 @@ class ListingsController < ApplicationController
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-    shape = get_shape(@listing.transaction_type_id)
+    shape = get_shape(@listing.listing_shape_id)
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
 
     render locals: commission(@current_community, process).merge(shape: shape)
@@ -280,7 +280,7 @@ class ListingsController < ApplicationController
 
     params[:listing] = normalize_price_param(params[:listing])
 
-    shape = get_shape(@listing.transaction_type_id)
+    shape = get_shape(@listing.listing_shape_id)
     unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
 
     update_successful = @listing.update_fields(
@@ -656,10 +656,10 @@ class ListingsController < ApplicationController
     }
   end
 
-  def get_shape(transaction_type_id)
+  def get_shape(listing_shape_id)
     shape_find_opts = {
       community_id: @current_community.id,
-      transaction_type_id: transaction_type_id
+      listing_shape_id: listing_shape_id
     }
 
     shape_res = listings_api.shapes.get(shape_find_opts)
