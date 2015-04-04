@@ -227,7 +227,7 @@ end
 
 When /^I toggle transaction type "(.*?)"$/ do |transaction_type_name|
   shape = find_shape(name: transaction_type_name)
-  find(:css, "#transaction_type_checkbox_#{shape[:transaction_type_id]}").click
+  find(:css, "#listing_shape_checkbox_#{shape[:id]}").click
 end
 
 When /^I try to remove all transaction types from category "(.*?)"$/ do |category_name|

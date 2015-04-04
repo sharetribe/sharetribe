@@ -105,7 +105,6 @@ describe PersonMailer do
 
     transition = FactoryGirl.build(:transaction_transition, to_state: "confirmed")
     listing = FactoryGirl.build(:listing,
-                                transaction_type_id: 123,
                                 transaction_process_id: 123, # not needed, but mandatory
                                 listing_shape_id: 123, # not needed, but mandatory
                                 author: @test_person)

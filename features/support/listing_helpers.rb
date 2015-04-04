@@ -5,7 +5,7 @@ module ListingHelpers
 
     shape_opts = {
       transaction_process_id: shape[:transaction_process_id],
-      transaction_type_id: shape[:transaction_type_id],
+      listing_shape_id: shape[:id],
       shape_name_tr_key: shape[:name_tr_key],
       action_button_tr_key: shape[:action_button_tr_key],
       listing_shape_id: shape[:id]

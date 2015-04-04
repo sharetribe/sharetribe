@@ -268,7 +268,7 @@ end
 Given /^that transaction type shows the price of listing per day$/ do
   @shape = ListingService::API::Api.shapes.update(
     community_id: @current_community.id,
-    transaction_type_id: @shape[:transaction_type_id],
+    listing_shape_id: @shape[:id],
     opts: {
       units: [type: :day]})
 end
