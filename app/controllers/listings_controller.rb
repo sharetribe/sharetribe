@@ -51,16 +51,17 @@ class ListingsController < ApplicationController
         page =  params[:page] || 1
         per_page = params[:per_page] || 50
 
+        all_shapes = get_shapes()
+        all_processes = get_processes()
+        direction_map = ListingShapeHelper.shape_direction_map(all_shapes, all_processes)
+
         if params[:share_type].present?
           direction = params[:share_type]
-          transaction_type_direction_map = ListingShapeHelper.transaction_types_to_direction_map(@current_community) # deprecated
 
-          all_shapes = ListingService::API::Api.shapes.get(community_id: @current_community.id).maybe.or_else([])
-
-          params[:transaction_types] = {
+          params[:listing_shapes] = {
             id: all_shapes.select { |shape|
-              transaction_type_direction_map[shape[:transaction_type_id]] == direction
-            }.map { |shape| shape[:transaction_type_id] }
+              direction_map[shape[:id]] == direction
+            }.map { |shape| shape[:id] }
           }
         end
 
@@ -74,7 +75,7 @@ class ListingsController < ApplicationController
                          updated: updated,
 
                          # deprecated
-                         direction_map: ListingShapeHelper.transaction_types_to_direction_map(@current_community)
+                         direction_map: direction_map
                        }
       end
     end
@@ -631,6 +632,10 @@ class ListingsController < ApplicationController
     ListingService::API::Api
   end
 
+  def transactions_api
+    TransactionService::API::Api
+  end
+
   def valid_unit_type?(shape:, unit_type:)
     if unit_type.nil?
       shape[:units].empty?
@@ -641,7 +646,13 @@ class ListingsController < ApplicationController
 
   def get_shapes
     @shapes ||= listings_api.shapes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |shapes|
-      raise ArgumentError.new("Can not find any listing shape for community #{community_id}") if shapes.nil?
+      raise ArgumentError.new("Can not find any listing shape for community #{@current_community.id}") if shapes.nil?
+    }
+  end
+
+  def get_processes
+    @processes ||= transactions_api.processes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |processes|
+      raise ArgumentError.new("Can not find any transaction process for community #{@current_community.id}") if processes.nil?
     }
   end
 

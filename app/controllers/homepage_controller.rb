@@ -37,10 +37,26 @@ class HomepageController < ApplicationController
 
     listings_per_page = APP_CONFIG.grid_listings_limit
 
+    filter_params = {}
+
+    # :transaction_type was renamed to :order_type
+    # Support both URLs for a while
+    # This can be removeds soon (June 2015)
+    params[:order_type] ||= params[:transaction_type]
+    params[:transaction_type] = nil
+    order_type_params = params[:order_type]
+
+    all_shapes = shapes.get(community_id: @current_community.id)[:data]
+    selected_shape = all_shapes.find { |s| s[:name] == order_type_params }
+
+    filter_params[:listing_shape] = Maybe(selected_shape)[:id].or_else(nil)
+
+    compact_filter_params = HashUtils.compact(filter_params)
+
     @listings = if @view_type == "map"
-      find_listings(params, APP_CONFIG.map_listings_limit)
+      find_listings(params, APP_CONFIG.map_listings_limit, compact_filter_params)
     else
-      find_listings(params, listings_per_page)
+      find_listings(params, listings_per_page, compact_filter_params)
     end
 
     if request.xhr? # checks if AJAX request
@@ -50,7 +66,7 @@ class HomepageController < ApplicationController
         render :partial => "list_item", :collection => @listings, :as => :listing
       end
     else
-      render locals: { shapes: all_shapes, selected_shape: @selected_shape }
+      render locals: { shapes: all_shapes, selected_shape: selected_shape }
     end
   end
 
@@ -66,26 +82,10 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, listings_per_page)
-    # :share_type was renamed to :transaction_type
-    # Support both URLs for a while
-    # This can be removeds soon (June 2014)
-    params[:transaction_type] ||= params[:share_type]
-
-    filter_params = {}
-
+  def find_listings(params, listings_per_page, filter_params)
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
       filter_params[:category] = category.id
       @selected_category = category
-    end
-
-    all_shapes = shapes.get(community_id: @current_community.id)[:data]
-    shape_by_name = all_shapes.find { |s| s[:name] == params[:transaction_type] }
-    shape_by_id = all_shapes.find { |s| s[:transaction_type_id] == params[:transaction_type] } unless shape_by_name
-
-    Maybe(shape_by_name || shape_by_id).each do |shape|
-      filter_params[:transaction_type] = shape[:transaction_type_id]
-      @selected_shape = shape
     end
 
     @listing_count = @current_community.listings.currently_open.count

@@ -220,9 +220,9 @@ class Listing < ActiveRecord::Base
       end
     end
 
-    if params[:transaction_type].present?
+    if params[:listing_shape].present?
       # Sphinx expects integer
-      params[:transaction_types] = {:id => params[:transaction_type].to_i}
+      params[:listing_shapes] = {:id => params[:listing_shape].to_i}
     end
 
     # Two ways of finding, with or without sphinx
@@ -245,7 +245,7 @@ class Listing < ActiveRecord::Base
       with[:community_ids] = current_community.id
 
       with[:category_id] = params[:categories][:id] if params[:categories].present?
-      with[:transaction_type_id] = params[:transaction_types][:id] if params[:transaction_types].present?
+      with[:listing_shape_id] = params[:listing_shapes][:id] if params[:listing_shapes].present?
       with[:listing_id] = params[:listing_id] if params[:listing_id].present?
       with[:price_cents] = params[:price_cents] if params[:price_cents].present?
 
@@ -279,7 +279,6 @@ class Listing < ActiveRecord::Base
     else # No search query or filters used, no sphinx needed
       query = {}
       query[:categories] = params[:categories] if params[:categories]
-      # FIX THIS query[:transaction_types] = params[:transaction_types] if params[:transaction_types]
       query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
       query[:id] = params[:listing_id] if params[:listing_id].present?
       listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
@@ -293,7 +292,7 @@ class Listing < ActiveRecord::Base
   end
 
   def self.search_with_sphinx?(params)
-    params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_dropdown_field_options].present?  || params[:custom_checkbox_field_options].present? || params[:price_cents].present?
+    params[:search].present? || params[:listing_shapes].present? || params[:category].present? || params[:custom_dropdown_field_options].present?  || params[:custom_checkbox_field_options].present? || params[:price_cents].present?
   end
 
   def self.find_by_category_and_subcategory(category)
@@ -318,7 +317,6 @@ class Listing < ActiveRecord::Base
   def as_json(options = {})
     # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
     hash = {
-      :listing_type => ListingShapeHelper.transaction_type_id_to_direction(transaction_type_id, communities.first), # deprecated
       :category => self.category.id,
       :id => self.id,
       :icon => icon_class(icon_name)

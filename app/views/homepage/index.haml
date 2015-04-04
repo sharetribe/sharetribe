@@ -57,9 +57,9 @@
                 = icon_tag("dropdown", ["icon-dropdown"])
 
             .home-toolbar-share-type-menu.toggle-menu.hidden
-              = link_to t("homepage.filters.all_listing_types"), params.merge({transaction_type: "all"})
+              = link_to t("homepage.filters.all_listing_types"), params.merge({order_type: "all"})
               - shapes.each do |shape|
-                = link_to params.merge({transaction_type: shape[:name]}), class:  "toggle-menu-subitem" do
+                = link_to params.merge({order_type: shape[:name]}), class:  "toggle-menu-subitem" do
                   = ts(shape[:name_tr_key]).mb_chars.capitalize.to_s
 
         - if @show_categories
