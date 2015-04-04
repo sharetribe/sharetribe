@@ -59,14 +59,16 @@ class HomepageController < ApplicationController
       find_listings(params, listings_per_page, compact_filter_params)
     end
 
+    shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
+
     if request.xhr? # checks if AJAX request
       if @view_type == "grid" then
         render :partial => "grid_item", :collection => @listings, :as => :listing
       else
-        render :partial => "list_item", :collection => @listings, :as => :listing
+        render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map }
       end
     else
-      render locals: { shapes: all_shapes, selected_shape: selected_shape }
+      render locals: { shapes: all_shapes, selected_shape: selected_shape, shape_name_map: shape_name_map }
     end
   end
 
