@@ -85,7 +85,7 @@ module ListingService::Store::Shape
 
       # Save units
       units.each { |unit|
-        tt_model.listing_units.create!(to_unit_model_attributes(unit).merge(listing_shape_id: shape_model.id))
+        shape_model.listing_units.create!(to_unit_model_attributes(unit))
       }
 
       from_model(shape_model)
@@ -118,8 +118,8 @@ module ListingService::Store::Shape
       tt_model.update_attributes(update_tt_opts)
 
       unless skip_units
-        tt_model.listing_units.destroy_all
-        units.each { |unit| tt_model.listing_units.build(to_unit_model_attributes(unit).merge(listing_shape_id: shape_model.id)) }
+        shape_model.listing_units.destroy_all
+        units.each { |unit| shape_model.listing_units.build(to_unit_model_attributes(unit)) }
       end
 
       tt_model.save!
