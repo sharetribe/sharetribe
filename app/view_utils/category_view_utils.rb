@@ -66,7 +66,11 @@ module CategoryViewUtils
 
   def pick_category_translation(category_translations, locale, all_locales)
     prio = translation_preferences(locale, all_locales)
-    category_translations.sort { |a, b| prio[a[:locale]] <=> prio[b[:locale]]}.first[:name]
+    category_translations.sort { |a, b|
+      a_prio = prio[a[:locale]]
+      b_prio = prio[b[:locale]]
+      sort_num_or_nil(a_prio, b_prio)
+    }.first[:name]
   end
 
   def translation_preferences(preferred, all)
@@ -75,5 +79,15 @@ module CategoryViewUtils
       .each_with_index
       .map { |l, index| [l, index] }
       .to_h
+  end
+
+  def sort_num_or_nil(a, b)
+    if a.nil?
+      1
+    elsif b.nil?
+      -1
+    else
+      a <=> b
+    end
   end
 end
