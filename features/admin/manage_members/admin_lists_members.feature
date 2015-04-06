@@ -67,7 +67,7 @@ Feature: Admin lists members
     Then I should see that "john doe" can post new listings
 
   Scenario: Admin removes a user
-    Given there is a listing with title "Sledgehammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+    Given there is a listing with title "Sledgehammer" from "kassi_testperson1" with category "Items" and with listing shape "Requesting"
 
      When I am on the home page
      Then I should see "Sledgehammer"

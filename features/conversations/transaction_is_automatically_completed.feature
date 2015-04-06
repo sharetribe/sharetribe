@@ -13,7 +13,7 @@ Feature: Automatic transaction completition
     And that transaction does not use payment preauthorization
     And that transaction belongs to category "Items"
     And Braintree escrow release is mocked
-    And there is a listing with title "Snowboard" from "jeremy" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "Snowboard" from "jeremy" with category "Items" and with listing shape "Selling"
     And the price of that listing is 20.00 USD
     And there is a pending request "I'd like to buy this" from "paula" about that listing
     And the request is paid

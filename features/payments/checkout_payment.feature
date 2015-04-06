@@ -9,7 +9,7 @@ Feature: User pays after accepted transaction
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use via Checkout
-    And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with listing shape "Selling"
     And the price of that listing is 12.00 EUR
     And there is a pending request "I want to buy" from "kassi_testperson1" about that listing
     And "kassi_testperson2" has Checkout account

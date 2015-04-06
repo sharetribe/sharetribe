@@ -10,7 +10,7 @@ Feature: User pays accepted request
       | kassi_testperson1 | active | test      |
     And the community has payments in use via BraintreePaymentGateway
     And Braintree transaction is mocked
-    And there is a listing with title "math book" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "math book" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And the price of that listing is 101.00 USD
     And there is a pending request "math book" from "kassi_testperson2" about that listing
     And the request is accepted

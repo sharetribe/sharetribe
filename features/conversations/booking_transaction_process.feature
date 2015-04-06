@@ -14,7 +14,7 @@ Feature: Booking transaction process
       And that listing shape shows the price of listing per day
 
   Scenario: User books a snowboard for 7 days
-    Given there is a listing with title "Cool snowboard" from "owner" with category "Items" and with transaction type "Renting snowboards"
+    Given there is a listing with title "Cool snowboard" from "owner" with category "Items" and with listing shape "Renting snowboards"
       And the price of that listing is 70.0 USD per day
       And Braintree submit to settlement is mocked
       And Braintree escrow release is mocked

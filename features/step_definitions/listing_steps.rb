@@ -1,4 +1,4 @@
-Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with transaction type "([^"]*)")?$/ do |title, author, category_name, shape_name|
+Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with listing shape "([^"]*)")?$/ do |title, author, category_name, shape_name|
   opts = Hash.new
   opts[:title] = title
   opts[:category] = find_category_by_name(category_name) if category_name

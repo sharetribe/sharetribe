@@ -9,7 +9,7 @@ Feature: User comments a listing
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
     And listing comments are in use in community "test"
     And I am logged in as "kassi_testperson2"
     When I follow "Massage"
@@ -46,7 +46,7 @@ Feature: User comments a listing
       | kassi_testperson1 |
       | kassi_testperson2 |
     And listing comments are in use in community "test"
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
     And I am logged in as "kassi_testperson2"
     When I follow "Massage"
     And I press "Send comment"
@@ -58,7 +58,7 @@ Feature: User comments a listing
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
     And listing comments are in use in community "test"
     And I am not logged in
     And I am on the home page
@@ -72,7 +72,7 @@ Feature: User comments a listing
       | person            | email          | given_name         | family_name |
       | kassi_testperson1 | t1@example.com | John               | MacTest     |
       | kassi_testperson2 | t2@example.com | Anthony            | Debugger    |
-    And there is a listing with title "Walking dogs" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "Walking dogs" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
     And listing comments are in use in community "test"
     And I am logged in as "kassi_testperson2"
     When I follow "Walking dogs"

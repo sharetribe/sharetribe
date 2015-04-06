@@ -12,7 +12,7 @@ Feature: Post pay Braintree payment process
       And that transaction does not use payment preauthorization
       And that transaction belongs to category "Items"
 
-    Given there is a listing with title "Skateboard" from "seller_jane" with category "Items" and with transaction type "Selling"
+    Given there is a listing with title "Skateboard" from "seller_jane" with category "Items" and with listing shape "Selling"
       And the price of that listing is 50.00 USD
 
   Scenario: User successfully buys Skateboard using post pay

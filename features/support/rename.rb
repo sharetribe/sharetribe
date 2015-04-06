@@ -1,4 +1,3 @@
-# features/support/twitter_formatter.rb
 require 'rubygems'
 
 # This is an example script, which can be used to rename large amount
@@ -12,7 +11,6 @@ require 'rubygems'
 module Rename
   class GivenListingRenamer
     def initialize(step_mother, io, options)
-      # We don't care about these - we're just twittering!
     end
 
     def replace_in_file(file_name, search, replace)
@@ -81,10 +79,40 @@ module Rename
       %Q{#{keyword}there is a listing with title "#{title}"#{author_step} with category "#{new_category}" and with transaction type "#{transaction_type}"}
     end
 
+
+    # there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with transaction type "([^"]*)")?
+    def rename_to_listing_shape(keyword, title, author, category, listing_shape)
+      from_author =
+        if author.present?
+          " from \"#{author}\""
+        else
+          ""
+        end
+
+      with_category =
+        if category.present?
+          " with category \"#{category}\""
+        else
+          ""
+        end
+
+      with_listing_shape =
+        if listing_shape.present?
+          " and with listing shape \"#{listing_shape}\""
+        else
+          ""
+        end
+
+      %Q{#{keyword}there is a listing with title "#{title}"#{from_author}#{with_category}#{with_listing_shape}}.tap { |replaced|
+        puts replaced
+      }
+    end
+
     def step_name(keyword, step_match, status, source_indent, background, file_colon_line)
       replaces = {
-        %Q{/^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with price "([^"]*)")?$/} => :rename1,
-        %Q{/^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/} => :rename_rideshare
+        %Q{/^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with transaction type "([^"]*)")?$/} => :rename_to_listing_shape
+        # %Q{/^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with price "([^"]*)")?$/} => :rename1,
+        # %Q{/^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/} => :rename_rideshare
       }.select do |source, replace_method|
         step_match && step_match.step_definition && step_match.step_definition.regexp_source == source
       end.each do |source, replace_method|

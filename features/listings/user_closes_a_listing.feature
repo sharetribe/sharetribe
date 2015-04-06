@@ -8,7 +8,7 @@ Feature: User closes a listing
     Given there are following users:
       | person | 
       | kassi_testperson1 |
-    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"  
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with listing shape "Requesting"  
     And I am logged in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Close listing"
