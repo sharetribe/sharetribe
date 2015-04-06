@@ -133,10 +133,10 @@ When /^I choose to view only share type "(.*?)"$/ do |share_type_name|
   }
 end
 
-When /^I choose to view only transaction type "(.*?)"$/ do |transaction_type|
+When /^I choose to view only listing shape "(.*?)"$/ do |listing_shape|
   steps %Q{
     When I click "#home_toolbar-select-share-type"
-    And I follow "#{transaction_type}" within ".home-toolbar-share-type-menu"
+    And I follow "#{listing_shape}" within ".home-toolbar-share-type-menu"
   }
 end
 
@@ -267,9 +267,9 @@ When(/^I select subcategory "(.*?)"$/) do |subcategory_name|
   click_link(subcategory_name)
 end
 
-When(/^I select transaction type "(.*?)"$/) do |transaction_type_name|
+When(/^I select listing shape "(.*?)"$/) do |listing_shape_name|
   page.should have_content("Select listing type")
-  click_link(transaction_type_name)
+  click_link(listing_shape_name)
 end
 
 Then(/^I should see the new listing form$/) do

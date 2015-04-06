@@ -178,14 +178,14 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
   end
 end
 
-Given /^community "(.*?)" has following transaction types enabled:$/ do |community, transaction_types|
+Given /^community "(.*?)" has following listing shapes enabled:$/ do |community, listing_shapes|
   current_community = Community.where(ident: community).first
   # TODO Add DELETE to Listing shape API
   ListingShape.where(community_id: current_community.id).destroy_all
 
   process_id = TransactionProcess.where(community_id: current_community.id, process: :none).first.id
 
-  transaction_types.hashes.map do |hash|
+  listing_shapes.hashes.map do |hash|
     name_tr_key, action_button_tr_key = save_name_and_action(current_community.id, [
       {translations: [ {locale: 'fi', translation: hash['fi']}, {locale: 'en', translation: hash['en']} ]},
       {translations: [ {locale: 'fi', translation: (hash['button'] || 'Action')}, {locale: 'en', translation: (hash['button'] || 'Action')} ]}
@@ -212,7 +212,7 @@ Given /^community "(.*?)" has following transaction types enabled:$/ do |communi
   current_community.reload
 end
 
-Given /^the community has transaction type Rent with name "(.*?)" and action button label "(.*?)"$/ do |name, action_button_label|
+Given /^the community has listing shape Rent with name "(.*?)" and action button label "(.*?)"$/ do |name, action_button_label|
   process_id = TransactionProcess.where(community_id: @current_community.id, process: [:preauthorize, :postpay]).first.id
   defaults = TransactionTypeCreator::DEFAULTS["Rent"]
 
@@ -238,7 +238,7 @@ Given /^the community has transaction type Rent with name "(.*?)" and action but
   @shape = shape_res.data
 end
 
-Given /^the community has transaction type Sell with name "(.*?)" and action button label "(.*?)"$/ do |name, action_button_label|
+Given /^the community has listing shape Sell with name "(.*?)" and action button label "(.*?)"$/ do |name, action_button_label|
   process_id = TransactionProcess.where(community_id: @current_community.id, process: [:preauthorize, :postpay]).first.id
   defaults = TransactionTypeCreator::DEFAULTS["Sell"]
 
@@ -264,7 +264,7 @@ Given /^the community has transaction type Sell with name "(.*?)" and action but
   @shape = shape_res.data
 end
 
-Given /^that transaction type shows the price of listing per day$/ do
+Given /^that listing shape shows the price of listing per day$/ do
   @shape = ListingService::API::Api.shapes.update(
     community_id: @current_community.id,
     listing_shape_id: @shape[:id],

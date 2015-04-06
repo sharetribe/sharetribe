@@ -8,7 +8,7 @@ Feature: Post pay Braintree payment process
     Given a user "seller_jane"
       And a user "buyer_bob"
 
-    Given the community has transaction type Sell with name "Selling" and action button label "Buy"
+    Given the community has listing shape Sell with name "Selling" and action button label "Buy"
       And that transaction does not use payment preauthorization
       And that transaction belongs to category "Items"
 

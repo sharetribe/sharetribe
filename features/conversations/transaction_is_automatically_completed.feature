@@ -9,7 +9,7 @@ Feature: Automatic transaction completition
       | paula  | paula@example.com  |
       | jeremy | jeremy@example.com |
     And the community has payments in use via BraintreePaymentGateway
-    And the community has transaction type Sell with name "Selling" and action button label "Buy"
+    And the community has listing shape Sell with name "Selling" and action button label "Buy"
     And that transaction does not use payment preauthorization
     And that transaction belongs to category "Items"
     And Braintree escrow release is mocked

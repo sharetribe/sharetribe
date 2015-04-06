@@ -59,7 +59,7 @@ module TestHelpers
         }
       }
 
-      # Load transaction types
+      # Load listing shapes
       listing_shape_templates.each do |type, translations|
         defaults = TransactionTypeCreator::DEFAULTS[type.to_s]
 
@@ -109,7 +109,7 @@ module TestHelpers
         raise ArgumentError.new("Could not create new shape: #{shape_opts}") unless shape_res.success
       end
 
-      # Community has now new transaction types, so we must reload it
+      # Community has now new listing shapes, so we must reload it
       community.reload
 
       # Load categories
