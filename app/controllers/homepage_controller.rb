@@ -27,7 +27,7 @@ class HomepageController < ApplicationController
     # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
     @transaction_type_menu_enabled = all_shapes.size > 1
     @show_categories = @current_community.categories.size > 1
-    @show_custom_fields = @current_community.custom_fields.select { |field| field.can_filter? }.present? || @current_community.show_price_filter
+    @show_custom_fields = @current_community.custom_fields.any?(&:can_filter?) || @current_community.show_price_filter
     @category_menu_enabled = @show_categories || @show_custom_fields
 
     @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_en_135x40.svg"
