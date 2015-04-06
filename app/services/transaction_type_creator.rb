@@ -169,7 +169,6 @@ module TransactionTypeCreator
   end
 
   def use_in_category(category, transaction_type_id, listing_shape_id)
-    CategoryTransactionType.create(:category_id => category.id, :transaction_type_id => transaction_type_id)
     CategoryListingShape.create!(category_id: category.id, listing_shape_id: listing_shape_id)
   end
 
