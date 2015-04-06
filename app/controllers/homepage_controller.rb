@@ -39,15 +39,10 @@ class HomepageController < ApplicationController
 
     filter_params = {}
 
-    # :transaction_type was renamed to :order_type
-    # Support both URLs for a while
-    # This can be removeds soon (June 2015)
-    params[:order_type] ||= params[:transaction_type]
-    params[:transaction_type] = nil
-    order_type_params = params[:order_type]
+    listing_shape_param = params[:transaction_type]
 
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
-    selected_shape = all_shapes.find { |s| s[:name] == order_type_params }
+    selected_shape = all_shapes.find { |s| s[:name] == listing_shape_param }
 
     filter_params[:listing_shape] = Maybe(selected_shape)[:id].or_else(nil)
 
