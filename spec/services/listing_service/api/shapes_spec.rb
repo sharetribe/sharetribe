@@ -4,7 +4,7 @@ require 'spec_helper'
 describe ListingService::API::Shapes do
 
   let(:listings_api) { ListingService::API::Api }
-  let(:community_id) { FactoryGirl.create(:community).id }
+  let(:community_id) { 333 }
   let(:transaction_process_id) { 555 }
   let(:name_tr_key) { "listing_shape.name.123.translation" }
   let(:action_button_tr_key) { "listing_shape.action_button.123.translation" }
