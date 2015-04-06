@@ -47,10 +47,14 @@ module ArrayUtils
     xs.drop_while { |x| x.blank? }.reverse.drop_while { |x| x.blank? }.reverse
   end
 
-  def zip_by(a, b, &block)
-    a.map { |a_elem|
-      b_found = b.find { |b_elem| block.call(a_elem, b_elem) }
-      b_found ? [a_elem, b_found] : nil
-    }.compact
+  def inner_join(a, b, &block)
+    a.reduce([]) { |joins, a_elem|
+      bs_found = b.select { |b_elem| block ? block.call(a_elem, b_elem) : a_elem == b_elem }
+      if bs_found.empty?
+        joins
+      else
+        joins.concat([[a_elem].concat(bs_found)])
+      end
+    }
   end
 end
