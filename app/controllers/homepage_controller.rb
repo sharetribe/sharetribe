@@ -7,14 +7,6 @@ class HomepageController < ApplicationController
   VIEW_TYPES = ["grid", "list", "map"]
 
   def index
-    ## Support old /?map=true URL START
-    ## This can be removed after March 2014
-    if !params[:view] && params[:map] == "true" then
-      redirect_params = params.except(:map).merge({view: "map"})
-      redirect_to url_for(redirect_params), status: :moved_permanently
-    end
-    ## Support old /?map=true URL END
-
     @homepage = true
 
     @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
