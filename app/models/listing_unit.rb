@@ -18,9 +18,12 @@
 
 class ListingUnit < ActiveRecord::Base
   attr_accessible(
-    :transaction_type_id,
     :listing_shape_id,
     :unit_type,
     :translation_key
   )
+
+  def self.columns
+    super.reject { |c| c.name == "transaction_type_id" }
+  end
 end

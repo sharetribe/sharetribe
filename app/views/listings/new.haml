@@ -26,9 +26,9 @@
             .link-text= t(".selected_subcategory", :subcategory => value.display_name(I18n.locale))
 
     - if shapes.size > 1
-      .selected-group{:name => "transaction_type"}
+      .selected-group{:name => "listing_shape"}
         - shapes.each do |value|
-          %a.select.selected.hidden{:href => "#", :data => {:id => value[:transaction_type_id]}}
+          %a.select.selected.hidden{:href => "#", :data => {:id => value[:id]}}
             .link-text= t(".selected_transaction_type", :transaction_type => ts(value[:name_tr_key]))
 
   %h2.listing-form-title{:id => "foo"}
@@ -48,9 +48,9 @@
             .link-text= value.display_name(I18n.locale)
 
     - if shapes.size > 1
-      .option-group{:name => "transaction_type"}
+      .option-group{:name => "listing_shape"}
         - shapes.each do |value|
-          %a.select.option.hidden{:href => "#", :data => {:id => value[:transaction_type_id]}}
+          %a.select.option.hidden{:href => "#", :data => {:id => value[:id]}}
             .link-text= ts(value[:name_tr_key])
 
   .form-fields

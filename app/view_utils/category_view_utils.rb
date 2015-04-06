@@ -2,7 +2,7 @@ module CategoryViewUtils
 
   module_function
 
-  # Returns an array that contains the hierarchy of categories and transaction types
+  # Returns an array that contains the hierarchy of categories and listing shapes
   #
   # An xample of a returned tree:
   #
@@ -14,7 +14,7 @@ module CategoryViewUtils
   #       {
   #         "label" => "tools",
   #         "id" => id,
-  #         "transaction_types" => [
+  #         "listing_shapes" => [
   #           {
   #             "label" => "sell",
   #             "id" => id
@@ -33,7 +33,7 @@ module CategoryViewUtils
       {
         id: c[:id],
         label: pick_category_translation(c[:translations], locale, all_locales),
-        transaction_types: embed_shape(c[:listing_shape_ids], shapes, locale, all_locales, translation_cache),
+        listing_shapes: embed_shape(c[:listing_shape_ids], shapes, locale, all_locales, translation_cache),
         subcategories: category_tree(
           categories: c[:children],
           shapes: shapes,
@@ -53,7 +53,7 @@ module CategoryViewUtils
       ids.include? s[:id]
     }.map { |s|
       {
-        id: s[:transaction_type_id],
+        id: s[:id],
         label: TranslationServiceHelper.pick_translation(
           s[:name_tr_key],
           translation_cache,

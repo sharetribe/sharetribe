@@ -52,7 +52,6 @@ describe TransactionService::PaypalEvents do
     @payer = FactoryGirl.create(:payer)
     @listing = FactoryGirl.create(:listing,
                                   price: Money.new(45000, "EUR"),
-                                  transaction_type_id: 123,
                                   listing_shape_id: 123, # This is not used, but needed because the Entity value is mandatory
                                   transaction_process_id: 123) # This is not used, but needed because the Entity value is mandatory
 

@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_homepage(#{filters_in_use?});
+  initialize_homepage();
 
 - content_for :coverfade_class do
   = "without-text"
@@ -120,7 +120,7 @@
                 = render :partial => "grid_item", :collection => @listings, :as => :listing
           - else
             .home-listings
-              = render :partial => "list_item", :collection => @listings, :as => :listing
+              = render :partial => "list_item", :collection => @listings, :as => :listing, locals:{shape_name_map: shape_name_map}
           .home-loading-more
             = will_paginate(@listings)
             - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end

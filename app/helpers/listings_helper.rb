@@ -27,10 +27,6 @@ module ListingsHelper
     shape_name(listing) + ": #{listing.title}"
   end
 
-  def transaction_type_url(listing, view)
-    root_path(:transaction_type => listing.transaction_type_id, :view => view)
-  end
-
   def localized_category_label(category)
     return nil if category.nil?
     return category.display_name(I18n.locale).capitalize
@@ -45,7 +41,7 @@ module ListingsHelper
     titles = {
       "category" => t("listings.new.select_category"),
       "subcategory" => t("listings.new.select_subcategory"),
-      "transaction_type" => t("listings.new.select_transaction_type")
+      "listing_shape" => t("listings.new.select_transaction_type")
     }
   end
 

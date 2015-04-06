@@ -23,7 +23,7 @@
       = link_to listing do
         = listing.title
         - if @current_community.show_category_in_listing_list
-          %a.home-share-type-link{:href => transaction_type_url(listing, params[:view])}
+          %a.home-share-type-link{:href => root_path(:transaction_type => shape_name_map[listing.listing_shape_id], :view => :list)}
             = icon_tag(listing.icon_name, ["icon-fix"])
             = shape_name(listing)
 
