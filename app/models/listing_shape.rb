@@ -34,8 +34,11 @@ class ListingShape < ActiveRecord::Base
     :name_tr_key,
     :action_button_tr_key,
     :price_quantity_placeholder,
-    :transaction_type_id
   )
 
   has_many :listing_units
+
+  def self.columns
+    super.reject { |c| c.name == "transaction_type_id" }
+  end
 end

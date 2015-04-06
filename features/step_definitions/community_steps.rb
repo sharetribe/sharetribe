@@ -180,7 +180,6 @@ end
 
 Given /^community "(.*?)" has following transaction types enabled:$/ do |community, transaction_types|
   current_community = Community.where(ident: community).first
-  TransactionType.where(community_id: current_community.id).destroy_all
   # TODO Add DELETE to Listing shape API
   ListingShape.where(community_id: current_community.id).destroy_all
 
