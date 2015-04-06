@@ -65,7 +65,7 @@ When /^I add a new category "(.*?)" with invalid data$/ do |category_name|
 end
 
 When /^I deselect all listing shapes$/ do
-  page.all(:css, ".category-transaction-type-checkbox").each do |checkbox|
+  page.all(:css, ".category-listing-shape-checkbox").each do |checkbox|
     checkbox.set(false)
   end
 end
