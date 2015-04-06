@@ -29,12 +29,12 @@
 
   .home-toolbar
 
-    - if @transaction_type_menu_enabled || @category_menu_enabled
+    - if listing_shape_menu_enabled || @category_menu_enabled
       .home-toolbar-show-filters-button-container
         .home-toolbar-show-filters-button#home-toolbar-show-filters
           = t(".filter")
 
-    .home-toolbar-button-group{:class => @transaction_type_menu_enabled || @category_menu_enabled ? "filters-enabled" : ""}
+    .home-toolbar-button-group{:class => listing_shape_menu_enabled || @category_menu_enabled ? "filters-enabled" : ""}
       - ["grid", "list", "map"].each do |view_type|
         - selected_class = @view_type == view_type ? "selected" : ""
         = link_to params.merge(view: view_type), :class => "home-toolbar-button-group-button #{selected_class}", :title => t("homepage.filters.#{view_type}_button") do
@@ -42,9 +42,9 @@
           %span.home-toolbar-button-text
             = t("homepage.filters.#{view_type}_button")
 
-    - if @transaction_type_menu_enabled || @category_menu_enabled
+    - if listing_shape_menu_enabled || @category_menu_enabled
       .home-toolbar-filters.home-toolbar-filters-mobile-hidden#home-toolbar-filters
-        - if @transaction_type_menu_enabled
+        - if listing_shape_menu_enabled
           .toggle-container.home-toolbar-toggle-container
             .toggle.with-borders#home_toolbar-select-share-type{data: {toggle: '.home-toolbar-share-type-menu'}}
               .toggle-header-container

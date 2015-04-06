@@ -1,6 +1,6 @@
 - if shapes.size > 1
-  = form.label :transaction_type_attributes, t(".transaction_types")
-  = render :partial => "layouts/info_text", :locals => { :text => t(".transaction_types_description") }
+  %label= t("admin.categories.form.category_transaction_types.transaction_types")
+  = render :partial => "layouts/info_text", :locals => { :text => t("admin.categories.form.category_transaction_types.transaction_types_description") }
   .row
     .col-12
       #category-transaction-types-container.clearfix

@@ -1288,10 +1288,10 @@ function initialize_admin_category_form_view(locale, form_id) {
   translate_validation_messages(locale);
 
   var $form = $(form_id);
-  var TRANSACTION_TYPE_CHECKBOX_NAME = "category[listing_shapes][][listing_shape_id]";
+  var LISTING_SHAPE_CHECKBOX_NAME = "category[listing_shapes][][listing_shape_id]";
 
   var rules = {}
-  rules[TRANSACTION_TYPE_CHECKBOX_NAME] = {
+  rules[LISTING_SHAPE_CHECKBOX_NAME] = {
     required: true
   };
 
@@ -1299,7 +1299,7 @@ function initialize_admin_category_form_view(locale, form_id) {
     rules: rules,
     errorPlacement: function(error, element) {
       // Custom placement for checkbox group
-      if (element.attr("name") === TRANSACTION_TYPE_CHECKBOX_NAME) {
+      if (element.attr("name") === LISTING_SHAPE_CHECKBOX_NAME) {
         var container = $("#category-transaction-types-container")
         error.insertAfter(container);
       } else {
