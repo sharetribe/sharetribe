@@ -13,7 +13,6 @@ var currentDirections = null;
 var initialLocation;
 var helsinki;
 var browserSupportFlag =  new Boolean();
-var transaction_type;
 var listing_category = ["all"];
 var listing_tags = [];
 var listing_search;

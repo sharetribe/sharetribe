@@ -17,7 +17,7 @@
                               :name_link => name_link)).html_safe
                 %h2{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal; font-size: 22px; margin-bottom: 8px; margin-top: 2px; padding:0;text-justify: none;line-height:26px;"}
                   = link_to listing_url(@url_params.merge({:id => listing.id})), :target => "_blank" do
-                    - if @show_transaction_type_label
+                    - if @show_listing_shape_label
                       = shape_name(listing) + ":"
                     = listing.title
         - unless listing.listing_images.empty?

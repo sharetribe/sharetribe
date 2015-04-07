@@ -3,7 +3,7 @@
 module TestHelpers
   module CategoriesHelper
 
-    DEFAULT_TRANSACTION_TYPES_FOR_TESTS = {
+    DEFAULT_LISTING_SHAPE_TEMPLATES_FOR_TESTS = {
       Sell: {
         en: {
           name: "Selling", action_button_label: "Buy this item"
@@ -42,11 +42,11 @@ module TestHelpers
       "housing"
     ]
 
-    def self.load_test_categories_and_transaction_types_to_db(community)
-      TestHelpers::CategoriesHelper.load_categories_and_transaction_types_to_db(community, DEFAULT_TRANSACTION_TYPES_FOR_TESTS, DEFAULT_CATEGORIES_FOR_TESTS)
+    def self.load_test_categories_and_listing_shapes_to_db(community)
+      TestHelpers::CategoriesHelper.load_categories_and_listing_shapes_to_db(community, DEFAULT_LISTING_SHAPE_TEMPLATES_FOR_TESTS, DEFAULT_CATEGORIES_FOR_TESTS)
     end
 
-    def self.load_categories_and_transaction_types_to_db(community, transaction_types, categories)
+    def self.load_categories_and_listing_shapes_to_db(community, listing_shape_templates, categories)
       processes = [:none, :preauthorize, :postpay].inject({}) { |memo, process|
         memo.tap { |m|
           process_res = TransactionService::API::Api.processes.create(
@@ -59,8 +59,8 @@ module TestHelpers
         }
       }
 
-      # Load transaction types
-      transaction_types.each do |type, translations|
+      # Load listing shapes
+      listing_shape_templates.each do |type, translations|
         defaults = TransactionTypeCreator::DEFAULTS[type.to_s]
 
         name_group = {
@@ -109,7 +109,7 @@ module TestHelpers
         raise ArgumentError.new("Could not create new shape: #{shape_opts}") unless shape_res.success
       end
 
-      # Community has now new transaction types, so we must reload it
+      # Community has now new listing shapes, so we must reload it
       community.reload
 
       # Load categories
@@ -118,22 +118,22 @@ module TestHelpers
         # Categories that do not have subcategories
         if c.is_a?(String)
           category = Category.create!(:community_id => community.id)
-          TestHelpers::CategoriesHelper.add_transaction_types_and_translations_to_category(category, c)
+          TestHelpers::CategoriesHelper.add_listing_shapes_and_translations_to_category(category, c)
 
         # Categories that have subcategories
         elsif c.is_a?(Hash)
           top_level_category = Category.create!(:community_id => community.id)
-          TestHelpers::CategoriesHelper.add_transaction_types_and_translations_to_category(top_level_category, c.keys.first)
+          TestHelpers::CategoriesHelper.add_listing_shapes_and_translations_to_category(top_level_category, c.keys.first)
           c.values.first.each do |sg|
             subcategory = Category.create!(:community_id => community.id, :parent_id => top_level_category.id)
-            TestHelpers::CategoriesHelper.add_transaction_types_and_translations_to_category(subcategory, sg)
+            TestHelpers::CategoriesHelper.add_listing_shapes_and_translations_to_category(subcategory, sg)
           end
         end
 
       end
     end
 
-    def self.add_transaction_types_and_translations_to_category(category, category_name)
+    def self.add_listing_shapes_and_translations_to_category(category, category_name)
       ListingService::API::Api.shapes.get(community_id: category.community.id)[:data].each do |s|
         CategoryListingShape.create!(category_id: category.id, listing_shape_id: s[:id])
       end
@@ -217,7 +217,7 @@ module TestHelpers
     community2 = FactoryGirl.create(:community, :ident => "test2", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true, :allowed_emails => "@example.com")
     community3 = FactoryGirl.create(:community, :ident => "test3", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true)
 
-    [community1, community2, community3].each { |c| TestHelpers::CategoriesHelper.load_test_categories_and_transaction_types_to_db(c) }
+    [community1, community2, community3].each { |c| TestHelpers::CategoriesHelper.load_test_categories_and_listing_shapes_to_db(c) }
   end
   module_function :load_default_test_data_to_db_before_suite
 

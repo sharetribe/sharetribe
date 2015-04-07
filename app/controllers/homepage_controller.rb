@@ -17,7 +17,7 @@ class HomepageController < ApplicationController
 
     # This assumes that we don't never ever have communities with only 1 main share type and
     # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
-    @transaction_type_menu_enabled = all_shapes.size > 1
+    listing_shape_menu_enabled = all_shapes.size > 1
     @show_categories = @current_community.categories.size > 1
     @show_custom_fields = @current_community.custom_fields.any?(&:can_filter?) || @current_community.show_price_filter
     @category_menu_enabled = @show_categories || @show_custom_fields
@@ -55,7 +55,11 @@ class HomepageController < ApplicationController
         render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map }
       end
     else
-      render locals: { shapes: all_shapes, selected_shape: selected_shape, shape_name_map: shape_name_map }
+      render locals: {
+               shapes: all_shapes,
+               selected_shape: selected_shape,
+               shape_name_map: shape_name_map,
+               listing_shape_menu_enabled: listing_shape_menu_enabled }
     end
   end
 

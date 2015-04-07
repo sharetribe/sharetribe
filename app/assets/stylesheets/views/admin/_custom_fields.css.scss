@@ -97,14 +97,14 @@ $custom-field-option-height: lines(1.5); // Used to center label text vertically
   @extend .add-custom-field-buttons;
 }
 
-.category-transaction-types-checkbox-container {
+.category-listing-shapes-checkbox-container {
   @extend .custom-field-categories-checkbox-container;
 }
 
-.category-transaction-type-checkbox {
+.category-listing-shape-checkbox {
   @extend .custom-field-category-checkbox;
 }
 
-.category-transaction-type-checkbox-label {
+.category-listing-shape-checkbox-label {
   @extend .custom-field-category-checkbox-label;
 }

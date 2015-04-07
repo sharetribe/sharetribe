@@ -1,0 +1,13 @@
+- if shapes.size > 1
+  %label= t("admin.categories.form.category_transaction_types.transaction_types")
+  = render :partial => "layouts/info_text", :locals => { :text => t("admin.categories.form.category_transaction_types.transaction_types_description") }
+  .row
+    .col-12
+      #category-listing-shapes-container.clearfix
+        - shapes.each do |shape|
+          - checkbox_id = "listing_shape_checkbox_#{shape[:id].to_s}"
+          .custom-field-categories-checkbox-container
+            = check_box_tag "category[listing_shapes][][listing_shape_id]", "#{shape[:id]}", selected_shape_ids.include?(shape[:id]), :id => checkbox_id, :class => "category-listing-shape-checkbox"
+            = label_tag checkbox_id, ts(shape[:name_tr_key]), :class => "category-listing-shape-checkbox-label"
+- else
+  = hidden_field_tag "category[listing_shapes][][listing_shape_id]", shapes.first[:id]

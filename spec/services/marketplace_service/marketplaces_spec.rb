@@ -39,7 +39,7 @@ describe MarketplaceService::API::Marketplaces do
       expect(c[:available_currencies]).to eql "GBP"
     end
 
-    it "should set correct transaction_type and category" do
+    it "should set correct listing shape and category" do
       community_hash = create(@community_params)
       c = Community.find(community_hash[:id])
       s = listings_api.shapes.get(community_id: c.id).data.first

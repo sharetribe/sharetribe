@@ -449,7 +449,7 @@ function should_show_menu_for(attribute, selected_attributes, attribute_array) {
       } else {
         listing_shapes = get_listing_shapes_for_category(selected_attributes["category"], attribute_array);
       }
-      // If there is exactly 1 transaction type, it should be marked automatically as selected,
+      // If there is exactly 1 listing shape, it should be marked automatically as selected,
       // without showing the form
       if (listing_shapes.length === 1) {
         selected_attributes["listing_shape"] = listing_shapes[0]["id"];
@@ -481,14 +481,14 @@ function get_subcategories_for(category_id, category_array) {
     .value();
 }
 
-// Return transaction types of given category (expects
+// Return listing shapes of given category (expects
 // that this category does not have subcategories)
 function get_listing_shapes_for_category(category_id, category_array) {
   var category = find_by_id(Number(category_id), category_array);
   return category["listing_shapes"];
 }
 
-// Returns transaction types of given subcategory
+// Returns listing shape of given subcategory
 function get_listing_shapes_for_subcategory(category_id, subcategory_id, category_array) {
   var category = find_by_id(Number(category_id), category_array);
   var subcategory = find_by_id(Number(subcategory_id), category["subcategories"]);
@@ -503,7 +503,7 @@ function find_by_id(id, array) {
   });
 }
 
-// Displays the given menu where category or transaction type can be selected
+// Displays the given menu where category or listing shape can be selected
 function display_option_group(group_type, selected_attributes, attribute_array) {
   $('.option-group[name=' + group_type + ']').children().each(function() {
     if (group_type == "category") {
@@ -528,7 +528,7 @@ function has_subcategory(category_id, subcategory_id, attribute_array) {
   });
 }
 
-// Check if selected category or subcategory has certain transaction type
+// Check if selected category or subcategory has certain listing shape
 function has_listing_shape(selected_attributes, listing_shape_id, attribute_array) {
   // If subcategory is selected, loop through listing shapes of that subcategory
   var listing_shapes;
@@ -1288,10 +1288,10 @@ function initialize_admin_category_form_view(locale, form_id) {
   translate_validation_messages(locale);
 
   var $form = $(form_id);
-  var TRANSACTION_TYPE_CHECKBOX_NAME = "category[listing_shapes][][listing_shape_id]";
+  var LISTING_SHAPE_CHECKBOX_NAME = "category[listing_shapes][][listing_shape_id]";
 
   var rules = {}
-  rules[TRANSACTION_TYPE_CHECKBOX_NAME] = {
+  rules[LISTING_SHAPE_CHECKBOX_NAME] = {
     required: true
   };
 
@@ -1299,8 +1299,8 @@ function initialize_admin_category_form_view(locale, form_id) {
     rules: rules,
     errorPlacement: function(error, element) {
       // Custom placement for checkbox group
-      if (element.attr("name") === TRANSACTION_TYPE_CHECKBOX_NAME) {
-        var container = $("#category-transaction-types-container")
+      if (element.attr("name") === LISTING_SHAPE_CHECKBOX_NAME) {
+        var container = $("#category-listing-shapes-container");
         error.insertAfter(container);
       } else {
         error.insertAfter(element);

@@ -2,13 +2,12 @@
 #
 # Table name: listing_units
 #
-#  id                  :integer          not null, primary key
-#  unit_type           :string(32)       not null
-#  translation_key     :string(64)
-#  transaction_type_id :integer
-#  listing_shape_id    :integer
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
+#  id               :integer          not null, primary key
+#  unit_type        :string(32)       not null
+#  translation_key  :string(64)
+#  listing_shape_id :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 # Indexes
 #

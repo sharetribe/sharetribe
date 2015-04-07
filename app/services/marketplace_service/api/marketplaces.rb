@@ -60,7 +60,7 @@ module MarketplaceService::API
 
       Helper.create_community_customization!(community, marketplace_name, locale)
       Helper.create_category!("Default", community, locale)
-      shape = Helper.create_transaction_type!(community, p[:marketplace_type], :preauthorize)
+      shape = Helper.create_listing_shape!(community, p[:marketplace_type], :preauthorize)
 
       plan_level = p[:plan_level].or_else(CommunityPlan::FREE_PLAN)
       Helper.create_community_plan!(community, {plan_level: plan_level});
@@ -103,10 +103,10 @@ module MarketplaceService::API
         }
       end
 
-      def create_transaction_type!(community, marketplace_type, process)
-        transaction_type_name = transaction_type_name(marketplace_type)
+      def create_listing_shape!(community, marketplace_type, process)
+        listing_shape_template = select_listing_shape_template(marketplace_type)
         enable_shipping = marketplace_type.or_else("product") == "product"
-        TransactionTypeCreator.create(community, transaction_type_name, process, enable_shipping)
+        TransactionTypeCreator.create(community, listing_shape_template, process, enable_shipping)
       end
 
       def create_community_customization!(community, marketplace_name, locale)
@@ -121,7 +121,7 @@ module MarketplaceService::API
         })
       end
 
-      def transaction_type_name(type)
+      def select_listing_shape_template(type)
        case type.or_else("product")
         when "rental"
           "Rent"

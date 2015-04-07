@@ -48,10 +48,6 @@ Note: If you encounter problems with the installation, you can try asking for he
 
 Congrats! You should be now able to access your marketplace and modify it from the admin area.
 
-See also:
-
-* [How to customize your marketplace?](docs/customize-marketplace.md)
-
 ### Experimental: Docker container installation
 
 #### Prerequisite

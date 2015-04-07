@@ -10,7 +10,7 @@ Feature: User requests an item in item offer
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use via BraintreePaymentGateway
-    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Renting"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with listing shape "Renting"
     And the price of that listing is 20.00 USD
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
@@ -53,7 +53,7 @@ Feature: User requests an item in item offer
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with listing shape "Lending"
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
@@ -67,7 +67,7 @@ Feature: User requests an item in item offer
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    Given there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
+    Given there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with listing shape "Lending"
     And I am on the homepage
     When I follow "Hammer"
     And I press "Borrow this item"
@@ -81,7 +81,7 @@ Feature: User requests an item in item offer
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    Given there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
+    Given there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with listing shape "Lending"
     And I am on the homepage
     When I follow "Hammer"
     And I press "Borrow this item"
