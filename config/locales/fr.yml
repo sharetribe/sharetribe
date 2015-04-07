@@ -211,7 +211,7 @@ fr:
         google_analytics_key: "Code de suivi Google Analytics"
         google_analytics_key_info_text: "Identifiant du code de suivi de votre compte Google Analytics."
         google_analytics_key_info_text_with_instructions: "Identifiant du code de suivi de votre compte Google Analytics. %{instructions_link}."
-        google_analytics_instructions_link_text: "En savoir plus sur la connexion avec Google Analytics."
+        google_analytics_instructions_link_text: "En savoir plus sur la connexion avec Google Analytics"
         save: "Sauvegarder les paramètres"
       menu_links:
         menu_links: "Liens du menu"
@@ -1220,7 +1220,7 @@ fr:
       email_deleted: "Email supprimé"
       payment_details_add_successful: "Détails de paiement ajoutés avec succès"
       payment_details_add_error: "Impossible d'ajouter les détails de paiement"
-      listing_author_payment_details_missing: "L'auteur de cette annonce n'a pas ajouté ses détails de paiement et ne peut pas recevoir de paiement actuellement. Merci de contacter l'auteur de l'annonce."
+      listing_author_payment_details_missing: "Veuillez contacter l'auteur de l'annonce via le bouton 'Contact' ci-dessous. Il doit mettre à jour ses informations de paiement pour en recevoir."
       stylesheet_needs_recompiling: "La feuille de style est en cours de traitement. Veuillez recharger cette page dans quelques instants."
     settings:
       account: Compte
@@ -1691,7 +1691,7 @@ fr:
       we_will_not_post_without_asking_you: "Nous ne publierons jamais sur Facebook sans vous poser la question avant."
     password_forgotten:
       email: Email
-      password_recovery_instructions: "Entrez votre adresse email afin de recevoir les instructions pour changer votre mot de passe."
+      password_recovery_instructions: "Entrez votre adresse email afin de recevoir votre nom d'utilisateur et réinitialiser votre mot de passe."
       request_new_password: "Recevoir un nouveau mot de passe"
       change_your_password: "Changer votre mot de passe"
     confirmation_pending:
@@ -1781,6 +1781,7 @@ fr:
       visible_to_registered_users: "(visible par les utilisateurs connectés)"
       default_in_listing: "(utilisée par défaut lors de la création d'une nouvelle annonce)"
       invisible: "(non visible par les autres utilisateurs)"
+      image_is_processing: "Votre photo de profil est en train d'être traitée. Veuillez recharger la page dans quelques instants."
     save_information: "Sauvegarder les informations"
   shipping_address:
     shipping_address: "Adresse de livraison"
