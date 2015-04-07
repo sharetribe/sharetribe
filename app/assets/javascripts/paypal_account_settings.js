@@ -32,7 +32,8 @@ window.ST = window.ST || {};
         "paypal_preferences_form[commission_from_seller]": {
           required: true,
           number_min: commissionRange[0],
-          number_max: commissionRange[1]
+          number_max: commissionRange[1],
+          number_no_decimals: true
         },
         "paypal_preferences_form[minimum_listing_price]": {
           required: true,
