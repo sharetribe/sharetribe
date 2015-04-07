@@ -168,6 +168,7 @@ Kassi::Application.routes.draw do
           post :order
         end
       end
+      resources :listing_shapes
     end
 
     resources :invitations
