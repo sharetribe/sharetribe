@@ -26,6 +26,9 @@
         - if listing.quantity.present?
           = "/ #{listing.quantity}"
 
+        - elsif listing.unit_type.present?
+          = "/ #{translate_quantity_unit(listing.unit_type)}"
+
         - if @current_community.vat
           %span.message-price-vat
             = t("conversations.show.price_excludes_vat")
