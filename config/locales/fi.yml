@@ -1916,10 +1916,11 @@ fi:
       quantity: "Määrä:"
       subtotal: "Välisumma:"
       shipping-price: "Postikulut:"
-      total: "Loppusumma:"
     price_per_quantity: "Hinta per %{unit_type}"
+    price: "Hinta:"
+    quantity: "Määrä: %{quantity}"
     unit_price: "Yksikköhinta: %{unit_price}"
-    quanity: "Määrä: %{quantity}"
+    total: "Loppusumma:"
   unit:
     day: päivä
     days: päivää

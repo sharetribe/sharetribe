@@ -9,7 +9,7 @@
       - start_on = booking ? tx[:booking][:start_on] : nil
       - end_on = booking ? tx[:booking][:end_on] : nil
       - duration = booking ? tx[:booking][:duration] : nil
-      = render partial: "transactions/price_break_down", locals: { booking: booking, start_on: start_on, end_on: end_on, duration: duration, listing: listing, listing_price: tx[:listing_price], quantity: tx[:listing_quantity], subtotal: tx[:listing_price] * tx[:listing_quantity], sum: tx[:checkout_total], price: tx[:payment_total], shipping_price: tx[:shipping_price] }
+      = render partial: "transactions/price_break_down", locals: { booking: booking, start_on: start_on, end_on: end_on, duration: duration, listing: listing, listing_price: tx[:listing_price], localized_unit_type: localized_unit_type, quantity: tx[:listing_quantity], subtotal: tx[:listing_price] * tx[:listing_quantity], sum: tx[:checkout_total], price: tx[:payment_total], shipping_price: tx[:shipping_price], show_total_price: show_total_price, total_price_label: total_price_label }
 
       - if @current_community.vat.present?
         .message-price-vat

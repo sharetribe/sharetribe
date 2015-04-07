@@ -42,11 +42,15 @@
       %span.initiate-transaction-shipping-price-value
         = humanized_money_with_symbol(shipping_price)
 
-  .initiate-transaction-total-wrapper
-    %span.initiate-transaction-total-label
-      = t("transactions.initiate.total")
-    %span.initiate-transaction-total-value
-      - if local_assigns.has_key?(:price) # payment total vs. checkout total
-        = humanized_money_with_symbol(price)
-      - else
-        = humanized_money_with_symbol(sum)
+  - unless local_assigns.has_key?(:show_total_price) && show_total_price == false
+    .initiate-transaction-total-wrapper
+      %span.initiate-transaction-total-label
+        - if local_assigns.has_key?(:total_price_label) && total_price_label.present?
+          = total_price_label
+        - else
+          = t("transactions.total")
+      %span.initiate-transaction-total-value
+        - if local_assigns.has_key?(:price) && price.present? # payment total vs. checkout total
+          = humanized_money_with_symbol(price)
+        - else
+          = humanized_money_with_symbol(sum)

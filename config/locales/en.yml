@@ -1916,10 +1916,11 @@ en:
       quantity: "Quantity:"
       subtotal: "Subtotal:"
       shipping-price: "Shipping:"
-      total: "Total:"
-    unit_price: "Unit price: %{unit_price}"
     price_per_quantity: "Price per %{unit_type}"
+    price: "Price:"
     quantity: "Quantity: %{quantity}"
+    unit_price: "Unit price: %{unit_price}"
+    total: "Total:"
   unit:
     day: day
     days: days
