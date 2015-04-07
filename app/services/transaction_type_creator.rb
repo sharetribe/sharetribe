@@ -22,7 +22,7 @@ module TransactionTypeCreator
     "Rent" => {
       price_enabled: true,
       units: [
-        {type: :day}
+        {type: :day, selector: :day}
       ]
     },
     "Request" => {
@@ -34,7 +34,7 @@ module TransactionTypeCreator
     "Service" => {
       price_enabled: true,
       units: [
-        {type: :day}
+        {type: :day, selector: :day}
       ]
     },
     "ShareForFree" => {

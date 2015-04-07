@@ -22,8 +22,8 @@ describe ListingService::API::Shapes do
       basename: "Selling",
 
       units: [
-        {type: :day},
-        {type: :custom, translation_key: 'my.custom.units.translation'}
+        {type: :day, selector: :day},
+        {type: :custom, selector: :number, translation_key: 'my.custom.units.translation'}
       ]
     }
 
@@ -61,15 +61,17 @@ describe ListingService::API::Shapes do
         units = shape[:units]
 
         expect(units[0][:type]).to eql(:day)
+        expect(units[0][:selector]).to eql(:day)
         expect(units[1][:type]).to eql(:custom)
+        expect(units[1][:selector]).to eql(:number)
         expect(units[1][:translation_key]).to eql('my.custom.units.translation')
       end
 
       it "creates new listing shape with piece unit" do
         create_shape_res = create_shape(
           units: [
-            {type: :piece},
-            {type: :custom, translation_key: 'my.custom.units.translation'}
+            {type: :piece, selector: :number},
+            {type: :custom, selector: :number, translation_key: 'my.custom.units.translation'}
           ]
         )
 
@@ -136,8 +138,8 @@ describe ListingService::API::Shapes do
             basename: "Selling w/o shipping",
             transaction_process_id: 987,
             units: [
-              {type: :day},
-              {type: :custom, translation_key: 'my.custom.units.translation'}
+              {type: :day, selector: :number},
+              {type: :custom, selector: :number, translation_key: 'my.custom.units.translation'}
             ]})
 
         expect(update_res.success).to eql(true)
@@ -154,6 +156,7 @@ describe ListingService::API::Shapes do
         units = shape[:units]
 
         expect(units[0][:type]).to eql(:day)
+        expect(units[0][:selector]).to eql(:number)
         expect(units[1][:type]).to eql(:custom)
         expect(units[1][:translation_key]).to eql('my.custom.units.translation')
       end
@@ -190,7 +193,7 @@ describe ListingService::API::Shapes do
           community_id: community_id,
           listing_shape_id: 9999,
           opts: {
-            units: [{type: :day}]})
+            units: [{type: :day, selector: :day}]})
 
         expect(update_res.success).to eql(false)
       end

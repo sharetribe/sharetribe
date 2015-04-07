@@ -37,6 +37,7 @@
 #  currency                 :string(255)
 #  quantity                 :string(255)
 #  unit_type                :string(32)
+#  quantity_selector_type   :string(32)
 #  unit_tr_key              :string(64)
 #  deleted                  :boolean          default(FALSE)
 #  require_shipping_address :boolean          default(FALSE)

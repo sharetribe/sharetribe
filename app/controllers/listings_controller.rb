@@ -212,14 +212,16 @@ class ListingsController < ApplicationController
 
     params[:listing] = normalize_price_param(params[:listing])
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
-    unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
+    m_unit = Maybe(shape[:units].first)
+    unit_type = m_unit[:type].or_else(nil)
+    quantity_selector_type = m_unit[:selector].or_else(nil)
     unit_tr_key = Maybe(shape[:units].first)[:translation_key].or_else(nil)
-
 
     @listing = Listing.new(
       create_listing_params(params[:listing]).merge(
       listing_shape_id: shape[:id],
       unit_type: unit_type,
+      quantity_selector_type: quantity_selector_type,
       unit_tr_key: unit_tr_key,
       transaction_process_id: shape[:transaction_process_id],
       shape_name_tr_key: shape[:name_tr_key],
@@ -281,12 +283,15 @@ class ListingsController < ApplicationController
     params[:listing] = normalize_price_param(params[:listing])
 
     shape = get_shape(@listing.listing_shape_id)
-    unit_type = Maybe(shape[:units].first)[:type].or_else(nil)
+    m_unit = Maybe(shape[:units].first)
+    unit_type = m_unit[:type].or_else(nil)
+    quantity_selector_type = m_unit[:selector].or_else(nil)
 
     update_successful = @listing.update_fields(
       create_listing_params(params[:listing]).merge(
       listing_shape_id: shape[:id],
       unit_type: unit_type,
+      quantity_selector_type: quantity_selector_type,
       transaction_process_id: shape[:transaction_process_id],
       shape_name_tr_key: shape[:name_tr_key],
       action_button_tr_key: shape[:action_button_tr_key]

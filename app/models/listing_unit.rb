@@ -4,6 +4,7 @@
 #
 #  id               :integer          not null, primary key
 #  unit_type        :string(32)       not null
+#  selector         :string(32)       not null
 #  translation_key  :string(64)
 #  listing_shape_id :integer
 #  created_at       :datetime         not null
@@ -19,7 +20,8 @@ class ListingUnit < ActiveRecord::Base
   attr_accessible(
     :listing_shape_id,
     :unit_type,
-    :translation_key
+    :translation_key,
+    :selector
   )
 
   def self.columns
