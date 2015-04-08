@@ -41,7 +41,8 @@ module ListingService::Store::Shape
 
   Unit = EntityUtils.define_builder(
     [:type, :to_symbol, one_of: [:piece, :hour, :day, :night, :week, :month, :custom]],
-    [:quantity_selector, :to_symbol, one_of: [:none, :number, :day]], # in the future include :hour, :week:, :night ,:month etc.
+    [:quantity_selector, :to_symbol, one_of: ["".to_sym, :none, :number, :day]], # TODO Empty symbol allowed for migration purposes
+    # in the future include :hour, :week:, :night ,:month etc.
     [:translation_key, :optional] # Mandatory if custom
   )
 
