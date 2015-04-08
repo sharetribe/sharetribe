@@ -2,13 +2,13 @@
 #
 # Table name: listing_units
 #
-#  id               :integer          not null, primary key
-#  unit_type        :string(32)       not null
-#  selector         :string(32)       not null
-#  translation_key  :string(64)
-#  listing_shape_id :integer
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id                :integer          not null, primary key
+#  unit_type         :string(32)       not null
+#  quantity_selector :string(32)       not null
+#  translation_key   :string(64)
+#  listing_shape_id  :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
 #
 # Indexes
 #
@@ -21,7 +21,7 @@ class ListingUnit < ActiveRecord::Base
     :listing_shape_id,
     :unit_type,
     :translation_key,
-    :selector
+    :quantity_selector
   )
 
   def self.columns

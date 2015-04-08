@@ -498,7 +498,7 @@ ActiveRecord::Schema.define(:version => 20150407131139) do
 
   create_table "listing_units", :force => true do |t|
     t.string   "unit_type",           :limit => 32, :null => false
-    t.string   "selector",            :limit => 32, :null => false
+    t.string   "quantity_selector",   :limit => 32, :null => false
     t.string   "translation_key",     :limit => 64
     t.integer  "transaction_type_id"
     t.integer  "listing_shape_id"
@@ -545,7 +545,7 @@ ActiveRecord::Schema.define(:version => 20150407131139) do
     t.string   "currency"
     t.string   "quantity"
     t.string   "unit_type",                :limit => 32
-    t.string   "quantity_selector_type",   :limit => 32
+    t.string   "quantity_selector",        :limit => 32
     t.string   "unit_tr_key",              :limit => 64
     t.boolean  "deleted",                                :default => false
     t.boolean  "require_shipping_address",               :default => false
