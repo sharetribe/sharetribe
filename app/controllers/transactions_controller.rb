@@ -38,7 +38,7 @@ class TransactionsController < ApplicationController
 
     show_total_price = tx[:payment_process] != :none
     total_price_label = (tx[:payment_process] != :preauthorize) ? t("transactions.price") : t("transactions.total")
-    unit_type = translate_quantity_unit(tx[:unit_type])
+    unit_type = listing[:unit_type].present? ? translate_quantity_unit(tx[:unit_type]) : nil
 
     render "transactions/show", locals: {
       messages: messages_and_actions.reverse,

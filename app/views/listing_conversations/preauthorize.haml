@@ -41,7 +41,7 @@
         - end_on = booking ? preauthorize_form.end_on : nil
         - duration = booking ? duration : nil
         - quantity = local_assigns.has_key?(:quantity) ? quantity : nil
-        - localized_unit_type = translate_quantity_unit(listing[:unit_type])
+        - localized_unit_type = listing[:unit_type].present? ? translate_quantity_unit(listing[:unit_type]) : nil
         = render partial: "transactions/price_break_down", locals: { booking: booking, start_on: start_on, end_on: end_on, duration: duration, listing: listing, listing_price: listing[:price], quantity: quantity, localized_unit_type: localized_unit_type, subtotal: subtotal, sum: sum, shipping_price: nil }
 
   = form_for preauthorize_form,

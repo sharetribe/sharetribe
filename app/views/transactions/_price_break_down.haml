@@ -15,7 +15,7 @@
         = l end_on, format: :long_with_abbr_day_name
         = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
 
-  - elsif local_assigns.has_key?(:quantity)
+  - elsif local_assigns.has_key?(:quantity) && localized_unit_type.present?
     .initiate-transaction-per-unit-wrapper
       %span.initiate-transaction-per-unit-label
         = t("transactions.price_per_quantity", unit_type: localized_unit_type)
