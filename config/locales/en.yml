@@ -1911,12 +1911,12 @@ en:
       other: "%{count} days"
   transactions:
     initiate:
-      booked_days: "Booked days"
-      price_per_day: "Price per day"
+      booked_days: "Booked days:"
+      price_per_day: "Price per day:"
       quantity: "Quantity:"
       subtotal: "Subtotal:"
       shipping-price: "Shipping:"
-    price_per_quantity: "Price per %{unit_type}"
+    price_per_quantity: "Price per %{unit_type}:"
     price: "Price:"
     quantity: "Quantity: %{quantity}"
     unit_price: "Unit price: %{unit_price}"
