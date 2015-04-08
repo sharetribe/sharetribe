@@ -1323,6 +1323,13 @@ fi:
         shipping: Postitus
         shipping_price: "Postituksen hinta"
         pickup: Nouto
+      units:
+        piece: "kappale"
+        hour: "tunti"
+        day: "päivä"
+        night: "yö"
+        week: "viikko"
+        month: "kuukausi"
       origin:
         location: Sijainti
         origin: Lähtöpaikka

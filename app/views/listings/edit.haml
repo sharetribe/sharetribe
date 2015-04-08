@@ -11,7 +11,7 @@
 #new_listing_form.edit-listing-form.centered-section
   = form_for @listing, :html => {:multipart => true} do |form|
     = render :partial => "listings/form/title", :locals => { :form => form }
-    = render :partial => "listings/form/price", :locals => { :form => form, :seller_commission_in_use => seller_commission_in_use, :payment_gateway => payment_gateway, :run_js_immediately => false, :minimum_commission => minimum_commission, commission_from_seller: commission_from_seller, shape: shape }
+    = render :partial => "listings/form/price", :locals => { :form => form, :seller_commission_in_use => seller_commission_in_use, :payment_gateway => payment_gateway, :run_js_immediately => false, :minimum_commission => minimum_commission, commission_from_seller: commission_from_seller, shape: shape, unit_options: unit_options }
     = render :partial => "listings/form/description", :locals => { :form => form }
     = render :partial => "listings/form/custom_fields", :locals => { :form => form, :listing => @listing, :custom_fields => @custom_field_questions }
     = render :partial => "listings/form/valid_until", :locals => { :form => form }
