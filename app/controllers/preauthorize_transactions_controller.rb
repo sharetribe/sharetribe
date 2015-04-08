@@ -426,7 +426,7 @@ class PreauthorizeTransactionsController < ApplicationController
   def valid_quantity(quantity)
     Maybe(quantity)
       .map {|q|
-        !!q.match(/\A\d+\z/) && q.to_i > 0 ? q.to_i : 1
+        StringUtils.is_numeric?(q) && q.to_i > 0 ? q.to_i : 1
       }
       .or_else(1)
   end
