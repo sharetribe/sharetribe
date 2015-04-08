@@ -199,12 +199,8 @@ Given /^community "(.*?)" has following listing shapes enabled:$/ do |community,
         name_tr_key: name_tr_key,
         action_button_tr_key: action_button_tr_key,
         transaction_process_id: process_id,
-        translations: [
-          {name: hash['fi'], action_button_label: (hash['button'] || "Action"), locale: 'fi'},
-          {name: hash['en'], action_button_label: (hash['button'] || "Action"), locale: 'en'}
-        ],
         basename: hash['en'],
-        units: [ {type: :piece} ]
+        units: [ {type: :piece, quantity_selector: :number} ]
       }
     )
   end
@@ -229,9 +225,8 @@ Given /^the community has listing shape Rent with name "(.*?)" and action button
       name_tr_key: name_tr_key,
       action_button_tr_key: action_button_tr_key,
       transaction_process_id: process_id,
-      translations: [ {locale: "en", name: name, action_button_label: action_button_label} ],
       basename: name,
-      units: [ {type: :day} ]
+      units: [ {type: :day, quantity_selector: :day} ]
     }
   )
 
@@ -255,9 +250,8 @@ Given /^the community has listing shape Sell with name "(.*?)" and action button
       name_tr_key: name_tr_key,
       action_button_tr_key: action_button_tr_key,
       transaction_process_id: process_id,
-      translations: [ {locale: "en", name: name, action_button_label: action_button_label} ],
       basename: name,
-      units: [ {type: :piece} ]
+      units: [ {type: :piece, quantity_selector: :number} ]
     }
   )
 
@@ -269,7 +263,7 @@ Given /^that listing shape shows the price of listing per day$/ do
     community_id: @current_community.id,
     listing_shape_id: @shape[:id],
     opts: {
-      units: [type: :day]})
+      units: [type: :day, quantity_selector: :day]})
 end
 
 Given /^that transaction uses payment preauthorization$/ do
