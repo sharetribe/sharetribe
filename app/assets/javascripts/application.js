@@ -27,7 +27,7 @@
 // Allow IE8-9 to post cross domain XHR (required for image upload)
 //= require jquery.iframe-transport.js
 
-//= require fastclick.min
+//= require fastclick
 
 // Responsive helpers
 // https://github.com/edenspiekermann/minwidth-relocate
