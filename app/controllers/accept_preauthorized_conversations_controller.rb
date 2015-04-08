@@ -143,17 +143,19 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def render_braintree_form(preselected_action)
+    transaction = TransactionService::Transaction.query(@listing_conversation.id)
+
     render action: :accept, locals: {
       payment_gateway: :braintree,
       listing: @listing,
-      listing_quantity: @listing_conversation.listing_quantity,
-      booking: @listing_conversation.booking,
+      listing_quantity: transaction[:listing_quantity],
+      booking: transaction[:booking],
       orderer: @listing_conversation.starter,
-      sum: @listing_conversation.payment.total_sum,
-      fee: @listing_conversation.payment.total_commission,
+      sum: transaction[:item_total],
+      fee: transaction[:commission_total],
       shipping_price: nil,
       shipping_address: nil,
-      seller_gets: @listing_conversation.payment.seller_gets,
+      seller_gets: transaction[:checkout_total] - transaction[:commission_total],
       form: @listing_conversation,
       form_action: acceptance_preauthorized_person_message_path(
         person_id: @current_user.id,
