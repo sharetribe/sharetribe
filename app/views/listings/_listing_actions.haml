@@ -76,7 +76,7 @@
           %label.quantity-label{for: 'quantity'}
             = t("listings.quantity")
           .quantity-input.input-sm.required
-            %input#quantity{type: 'number', placeholder: 'Quantity', name: 'quantity', value: 1}
+            %input#quantity{type: 'number', placeholder: t("listings.quantity_placeholder"), name: 'quantity', value: 1}
 
       = render partial: "delivery_opts", locals: { delivery_opts: delivery_opts, is_author: is_author }
 
