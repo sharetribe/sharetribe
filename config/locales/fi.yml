@@ -762,6 +762,10 @@ fi:
       receipt_of_payment: "Kuitti maksusta"
       you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
       product: Tuote
+      price_per_unit_type: "Hinta per %{unit_type}"
+      quantity: "Määrä:"
+      duration: "Kesto:"
+      subtotal: "Välisumma:"
       total: Yhteensä
       price: Hinta
       service_fee: Palvelumaksu

@@ -8,28 +8,43 @@
     %table{:cellpadding => 5, :cellspacing => 0}
       %tbody
         %tr
+          %td{:width => "200"}
+            %b= t("emails.receipt_to_payer.product")
           %td
-            %b
-              =t("emails.receipt_to_payer.product")
-          %td
-            %b
-              =t("emails.receipt_to_payer.price")
+            %b= listing_title
+        - if duration.present? || listing_quantity > 1
           %tr
             %td{:width => "250"}
-              = listing_title
+              = price_per_unit_title
             %td
-              = subtotal
+              = listing_price
+        - if duration.present?
+          %tr
+            %td{:width => "250"}
+              = t("emails.receipt_to_payer.duration")
+            %td
+              = duration
+        - elsif listing_quantity > 1
+          %tr
+            %td{:width => "250"}
+              = t("emails.receipt_to_payer.quantity")
+            %td
+              = listing_quantity
+        %tr
+          %td{:width => "250"}
+            = t("emails.receipt_to_payer.subtotal") #listing_title
+          %td
+            = subtotal
 
         - if shipping_total.present?
           %tr
             %td
-              %b= t("emails.paypal_new_payment.shipping_total")
+              = t("emails.paypal_new_payment.shipping_total")
             %td= shipping_total
 
-        %tr
+        %tr{:style => "border-top: 1px solid black"}
           %td
-            %b
-              =t("emails.receipt_to_payer.total")
+            %b=t("emails.receipt_to_payer.total")
           %td
             %b= payment_total
 - if show_money_will_be_transferred_note
