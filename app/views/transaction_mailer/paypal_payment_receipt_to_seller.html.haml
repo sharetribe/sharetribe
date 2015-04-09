@@ -11,31 +11,51 @@
           %td{:width => "200"}
             %b= t("emails.braintree_new_payment.product")
           %td
-            = listing_title
-        %tr
+            %b= listing_title
+        - if duration.present? || listing_quantity > 1
+          %tr
+            %td{:width => "250"}
+              = price_per_unit_title
+            %td
+              = listing_price
+        - if duration.present?
+          %tr
+            %td{:width => "250"}
+              = t("emails.receipt_to_payer.duration")
+            %td
+              = duration
+        - elsif listing_quantity > 1
+          %tr
+            %td{:width => "250"}
+              = t("emails.new_payment.quantity")
+            %td
+              = listing_quantity
+        %tr{:style => "border-top: 1px solid black"}
           %td
             %b= t("emails.braintree_new_payment.price_payer_paid", :payer_full_name => payer_given_name)
-          %td= subtotal
+          %td
+            %b= subtotal
         %tr
           %td
-            %b= t("emails.braintree_new_payment.service_fee")
+            = t("emails.braintree_new_payment.service_fee")
           %td= "#{payment_service_fee}"
 
         - if shipping_total.present?
           %tr
             %td
-              %b= t("emails.paypal_new_payment.shipping_total")
+              = t("emails.paypal_new_payment.shipping_total")
             %td= shipping_total
 
         - if paypal_gateway_fee.present?
           %tr
             %td
-              %b= t("emails.paypal_new_payment.paypal_gateway_fee")
+              = t("emails.paypal_new_payment.paypal_gateway_fee")
             %td= "#{paypal_gateway_fee}"
 
         %tr{:style => "border-top: 1px solid black"}
           %td
             %b= t("emails.braintree_new_payment.you_will_get")
-          %td= payment_seller_gets
+          %td
+            %b= payment_seller_gets
 
 = render :partial => "person_mailer/action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}

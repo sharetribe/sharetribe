@@ -147,6 +147,8 @@ class TransactionMailer < ActionMailer::Base
 
     you_get = payment_total - service_fee - gateway_fee
 
+    unit_type = translate_quantity_unit(transaction[:unit_type])
+
     premailer_mail(:to => seller_model.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_payment.new_payment")) do |format|
@@ -154,6 +156,10 @@ class TransactionMailer < ActionMailer::Base
         render "paypal_payment_receipt_to_seller", locals: {
           conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction[:id])),
           listing_title: transaction[:listing_title],
+          price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
+          listing_price: humanized_money_with_symbol(transaction[:listing_price]),
+          listing_quantity: transaction[:listing_quantity],
+          duration: transaction[:booking].present? ? transaction[:booking][:duration] : nil,
           subtotal: humanized_money_with_symbol(transaction[:item_total]),
           payment_total: humanized_money_with_symbol(payment_total),
           shipping_total: humanized_money_with_symbol(transaction[:shipping_price]),
@@ -175,7 +181,6 @@ class TransactionMailer < ActionMailer::Base
 
     prepare_template(community, buyer_model, "email_about_new_payments")
 
-    listing = Listing.where(transaction[:listing_id]).first
     unit_type = translate_quantity_unit(transaction[:unit_type])
 
     premailer_mail(:to => buyer_model.confirmed_notification_emails_to,
