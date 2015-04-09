@@ -422,6 +422,7 @@ de:
       minimum_price_error_message: "Der Preis kann nicht niedriger sein als %{amount}."
       accept: Akzeptieren
       decline: Ablehnen
+      quantity_label: ~
       sum_label: "Zwischensumme:"
       service_fee_label: "%{service_name} Servicegebühr:"
       you_will_get_label: "Du wirst erhalten:"
@@ -887,6 +888,7 @@ de:
       on_or_before: "muss genau oder vor %{restriction} sein"
       after: "muss nach %{restriction} sein"
       on_or_after: "muss genau oder nach %{restriction} sein"
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} hat zugestimmt %{listing_title} an %{requester_name}% zu verleihen vor {time_ago}."
@@ -1408,6 +1410,8 @@ de:
       community_not_configured_for_payments: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst Du keine Angebote veröffentlichen. Bitte kontaktiere %{contact_admin_link} für Einzelheiten."
       payment_settings_link: Zahlungseinstellungen
       community_not_configured_for_payments_admin: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst Du keine Angebote veröffentlichen. Gehe zu %{payment_settings_link} um die Zahlungsangaben einzutragen."
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: Kommentar
     reply_link:
       listing_closed: "Eintrag abgeschlossen"
@@ -1450,6 +1454,13 @@ de:
       delivery: ~
       shipping: ~
       pickup: ~
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
@@ -1461,7 +1472,6 @@ de:
       you_will_be_charged: "Die Kosten werden nur in Rechnung gestellt, wenn %{author} die Transaktion annimmt. %{author} muss die Transaktion innerhalb von %{expiration_period} Tagen akzeptieren. Wenn %{author} ablehnt oder nicht antwortet, werden keine Gebühr erhoben."
       day: Tag
       days: Tage
-      price_per_day: "Preis pro Tag: %{price}"
     transaction_agreement_checkbox:
       read_more: Anzeigen.
   mapview:
@@ -1898,9 +1908,16 @@ de:
       other: "%{count} Tage"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: ~
       shipping-price: ~
-      total: ~
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: Tag
     days: Tage

@@ -426,6 +426,7 @@ sv:
       minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
       accept: Acceptera
       decline: Avböj
+      quantity_label: ~
       sum_label: "Delsumma:"
       service_fee_label: "%{service_name} avgift:"
       you_will_get_label: "Du kommer att få:"
@@ -893,6 +894,7 @@ sv:
       on_or_before: "måste vara exakt på eller före %{restriction}"
       after: "måste vara efter %{restriction}"
       on_or_after: "måste vara exakt på eller efter %{restriction}"
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} gick med på att låna ut %{listing_title} till %{requester_name} %{time_ago}."
@@ -1414,6 +1416,8 @@ sv:
       community_not_configured_for_payments: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Vänligen %{contact_admin_link} för detaljer."
       payment_settings_link: betalningsinställningar
       community_not_configured_for_payments_admin: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Gå till %{payment_settings_link} för att fylla i betalningsdetaljer."
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: Kommentar
     reply_link:
       listing_closed: "Annonsen är stängd"
@@ -1456,6 +1460,13 @@ sv:
       delivery: Leveransmetod
       shipping: "Frakt (+%{price})"
       pickup: Hämtas
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: "Verifiering krävs"
   listing_conversations:
@@ -1467,7 +1478,6 @@ sv:
       you_will_be_charged: "OBS! Du debiteras endast om %{author} accepterar ditt köp. %{author} behöver acceptera köpet inom %{expiration_period} dagar. Om %{author} avvisar eller inte svarar så sker ingen debitering."
       day: dag
       days: dagar
-      price_per_day: "Pris per dag: %{price}"
     transaction_agreement_checkbox:
       read_more: Visa
   mapview:
@@ -1904,9 +1914,16 @@ sv:
       other: "%{count} dagarna"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: "Delsumma:"
       shipping-price: "Frakt:"
-      total: "Totalt:"
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: dag
     days: dagar

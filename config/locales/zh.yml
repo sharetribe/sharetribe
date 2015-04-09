@@ -417,6 +417,7 @@ zh:
       minimum_price_error_message: "价格不能低于%{amount}。"
       accept: 接受
       decline: 拒绝
+      quantity_label: ~
       sum_label: 小计
       service_fee_label: "%{service_name}费："
       you_will_get_label: 你将得到：
@@ -882,6 +883,7 @@ zh:
       on_or_before: "必须在%{restriction}时或之前"
       after: "必须在%{restriction}之后"
       on_or_after: "必须在%{restriction}时或之后"
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} 同意将 %{listing_title} 借给 %{requester_name} %{time_ago}."
@@ -1403,6 +1405,8 @@ zh:
       community_not_configured_for_payments: "%{service_name}没有配置支付方式，所以你不能发布新的信息。详情请联系%{contact_admin_link}。"
       payment_settings_link: 付款设置
       community_not_configured_for_payments_admin: "%{service_name}没有配置支付方式，所以你不能发布新的信息。点击%{payment_settings_link}填写详细付款信息。"
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: 评论
     reply_link:
       listing_closed: 发布的信息已关闭
@@ -1445,6 +1449,13 @@ zh:
       delivery: 配送方式
       shipping: "运费(+%{price})"
       pickup: 自取
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: 要求验证
   listing_conversations:
@@ -1456,7 +1467,6 @@ zh:
       you_will_be_charged: "你只有在%{author}接受交易后才会被收费。%{author}需要在%{expiration_period}天内接受交易。如果%{author}拒绝或者没有响应，不会产生任何费用。"
       day: 日
       days: 天
-      price_per_day: "每天：%{price}"
     transaction_agreement_checkbox:
       read_more: 查看。
   mapview:
@@ -1891,9 +1901,16 @@ zh:
       other: "%{count}天"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: "小结:"
       shipping-price: "运费:"
-      total: "总共:"
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: 日
     days: 天

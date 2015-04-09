@@ -407,6 +407,7 @@ es-rc:
       minimum_price_error_message: ~
       accept: ~
       decline: ~
+      quantity_label: ~
       sum_label: ~
       service_fee_label: ~
       you_will_get_label: ~
@@ -876,6 +877,7 @@ es-rc:
       on_or_before: ~
       after: ~
       on_or_after: ~
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: ~
@@ -1425,6 +1427,8 @@ es-rc:
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: ~
     reply_link:
       listing_closed: ~
@@ -1467,6 +1471,13 @@ es-rc:
       delivery: ~
       shipping: ~
       pickup: ~
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1478,7 +1489,6 @@ es-rc:
       you_will_be_charged: ~
       day: ~
       days: ~
-      price_per_day: ~
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1909,9 +1919,16 @@ es-rc:
     years_ago: ~
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: ~
       shipping-price: ~
-      total: ~
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: ~
     days: ~

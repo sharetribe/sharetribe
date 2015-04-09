@@ -422,6 +422,7 @@ pt-BR:
       minimum_price_error_message: "O preço não pode ser inferior %{amount}"
       accept: Aceitar
       decline: Recusar
+      quantity_label: ~
       sum_label: "Subtotal:"
       service_fee_label: "taxa de %{service_name}:"
       you_will_get_label: "Você receberá:"
@@ -887,6 +888,7 @@ pt-BR:
       on_or_before: "deve ser igual ou anterior %{restriction}"
       after: "deve ser depois %{restriction}"
       on_or_after: "deve ser igual ou depois %{restriction}"
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceitou emprestar %{listing_title} à %{requester_name} %{time_ago}"
@@ -1408,6 +1410,8 @@ pt-BR:
       community_not_configured_for_payments: "%{service_name} não foi configurado para os pagamentos, então você ainda não pode criar novos anúncios. Por favor, %{contact_admin_link} para mais detalhes."
       payment_settings_link: "configurações de pagamento"
       community_not_configured_for_payments_admin: "%{service_name} não foi configurado para receber os pagamentos, por isso você não pode criar novos anúncios. Ir para %{payment_settings_link} para preencher os detalhes de pagamento."
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: Comentar
     reply_link:
       listing_closed: "Anúncio está encerrado."
@@ -1450,6 +1454,13 @@ pt-BR:
       delivery: Entrega
       shipping: "Envio %{price}"
       pickup: "Pechincha %{price}"
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: "Verificação necessária"
   listing_conversations:
@@ -1463,7 +1474,6 @@ pt-BR:
           %{author} precisa aceitar a transação em no máximo %{expiration_period} dias. Se %{author} rejeitar ou não responder neste período você não será cobrado.
       day: dia
       days: dias
-      price_per_day: "Preço por dia: %{price}"
     transaction_agreement_checkbox:
       read_more: Ver.
   mapview:
@@ -1900,9 +1910,16 @@ pt-BR:
       other: "%{count} dias"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: "Sub-total:"
       shipping-price: "Envio:"
-      total: "Total:"
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: dia
     days: dias

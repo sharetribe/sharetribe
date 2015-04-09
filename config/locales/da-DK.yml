@@ -422,6 +422,7 @@ da-DK:
       minimum_price_error_message: "Prisen kan ikke være lavere end %{amount}."
       accept: ~
       decline: ~
+      quantity_label: ~
       sum_label: ~
       service_fee_label: ~
       you_will_get_label: ~
@@ -887,6 +888,7 @@ da-DK:
       on_or_before: "skal være på eller før %{restriction}"
       after: "skal være efter %{restriction}"
       on_or_after: "skal være på eller efter %{restriction}"
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} indvilligede i at udlåne %{listing_title} til %{requester_name}%{time_ago}"
@@ -1408,6 +1410,8 @@ da-DK:
       community_not_configured_for_payments: ~
       payment_settings_link: "betalings indstillinger"
       community_not_configured_for_payments_admin: ~
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: Kommentar
     reply_link:
       listing_closed: "Annoncen er lukket"
@@ -1450,6 +1454,13 @@ da-DK:
       delivery: ~
       shipping: ~
       pickup: ~
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: "Godkendelse påkrævet"
   listing_conversations:
@@ -1461,7 +1472,6 @@ da-DK:
       you_will_be_charged: ~
       day: dag
       days: dage
-      price_per_day: "Pris pr. dag: %{price}"
     transaction_agreement_checkbox:
       read_more: Vis.
   mapview:
@@ -1898,9 +1908,16 @@ da-DK:
       other: "%{count} dage"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: ~
       shipping-price: ~
-      total: ~
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: dag
     days: dage

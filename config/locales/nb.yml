@@ -422,6 +422,7 @@ nb:
       minimum_price_error_message: "Prisen kan ikke være lavere enn%{amount}"
       accept: Godta
       decline: Avslå
+      quantity_label: ~
       sum_label: "Delsum:"
       service_fee_label: "%{service_name}-kostnad:"
       you_will_get_label: "Du vil motta:"
@@ -893,6 +894,7 @@ nb:
       on_or_before: "må være på eller før %{restriction}"
       after: "må være etter %{restriction}"
       on_or_after: "må være på eller etter %{restriction}"
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aksepterte å låne %{listing_title} til %{requester_name} %{time_ago}."
@@ -1414,6 +1416,8 @@ nb:
       community_not_configured_for_payments: "%{service_name} har ikke blitt konfigurert for betalinger så du kan ikke opprette annonser enda. Vennligst %{contact_admin_link} for mer detaljer."
       payment_settings_link: "Innstillinger betaling"
       community_not_configured_for_payments_admin: "%{service_name} har ikke blitt konfigurert for betalinger så du kan ikke opprette annonser enda. Gå til %{payment_settings_link} for å fylle inn betalingsdetaljer."
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: Kommenter
     reply_link:
       listing_closed: "Annonse er utgått"
@@ -1456,6 +1460,13 @@ nb:
       delivery: Leveringsmetode
       shipping: "Frakt (+%{price})"
       pickup: Henting
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: "Verifisering påkrevd"
   listing_conversations:
@@ -1467,7 +1478,6 @@ nb:
       you_will_be_charged: "Du blir belastet kun dersom %{author}aksepterer transaksjonen.%{author}må akseptere transaksjonen innen%{expiration_period}dager. Om%{author}avviser eller ikke svarer, forekommer ingen kostnad."
       day: dag
       days: dager
-      price_per_day: "Pris pr.dag:%{price}"
     transaction_agreement_checkbox:
       read_more: Vis.
   mapview:
@@ -1904,9 +1914,16 @@ nb:
       other: "%{count}dager"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: "Delsum:"
       shipping-price: "Frakt:"
-      total: "Totalt:"
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: dag
     days: dager

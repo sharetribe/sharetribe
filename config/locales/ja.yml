@@ -417,6 +417,7 @@ ja:
       minimum_price_error_message: "価格は%{amount}より低く設定できません。"
       accept: 受諾する
       decline: 辞退する
+      quantity_label: ~
       sum_label: 合計：
       service_fee_label: "%{service_name}のご利用手数料："
       you_will_get_label: 受け取り額：
@@ -882,6 +883,7 @@ ja:
       on_or_before: "%{restriction}以前でなければなりません"
       after: "%{restriction}より後でなければなりません"
       on_or_after: "%{restriction}以後でなければなりません"
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{time_ago}に%{offerer_name}さんは%{requester_name}さんに%{listing_title}を貸すことに同意しました。"
@@ -1403,6 +1405,8 @@ ja:
       community_not_configured_for_payments: "%{service_name}はお支払いを確定できませんでしたので、まだ新しいリストを掲載が出来ていません。%{contact_admin_link}から詳細についてお問い合わせください。"
       payment_settings_link: お支払い設定
       community_not_configured_for_payments_admin: "%{service_name}はお支払いを確定できませんでしたので、まだ新しいリストを掲載が出来ていません。%{payment_settings_link}で、お支払いの詳細について記入してください。"
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: コメント
     reply_link:
       listing_closed: リストはクローズになりました
@@ -1445,6 +1449,13 @@ ja:
       delivery: 発送
       shipping: "送料（%{price}）"
       pickup: "引き取り（%{price}）"
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: 認証が必要です
   listing_conversations:
@@ -1456,7 +1467,6 @@ ja:
       you_will_be_charged: "%{author}さんが取引を受け入れた場合のみ、その後あなたに請求がされます。%{author}さんが%{expiration_period}日以内に取引を受け入れる必要があります。%{author}さんがこの件に関して拒否したり、返事をしない場合はお支払いは完了しません。"
       day: 日
       days: 日
-      price_per_day: "1日あたりの価格： %{price}"
     transaction_agreement_checkbox:
       read_more: 表示
   mapview:
@@ -1891,9 +1901,16 @@ ja:
       other: "%{count}日"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: 合計金額：
       shipping-price: 送料：
-      total: 合計金額：
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: 日
     days: 日

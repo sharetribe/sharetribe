@@ -417,6 +417,7 @@ tr-TR:
       minimum_price_error_message: "Fiyat %{amount}'den az olamaz."
       accept: ~
       decline: ~
+      quantity_label: ~
       sum_label: ~
       service_fee_label: ~
       you_will_get_label: ~
@@ -882,6 +883,7 @@ tr-TR:
       on_or_before: "%{restriction} içinde ya da öncesinde olmalı"
       after: "%{restriction} sonrasında olmalı"
       on_or_after: "%{restriction} içinde ya da sonrasında olmalı"
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} %{time_ago}%{listing_title}'ı %{requester_name}'e ödünç vermeyi kabul etti."
@@ -1403,6 +1405,8 @@ tr-TR:
       community_not_configured_for_payments: ~
       payment_settings_link: "ödeme ayarları"
       community_not_configured_for_payments_admin: ~
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: Yorum
     reply_link:
       listing_closed: "Listeleme kapandı"
@@ -1445,6 +1449,13 @@ tr-TR:
       delivery: ~
       shipping: ~
       pickup: ~
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: "Doğrulama gerekli"
   listing_conversations:
@@ -1456,7 +1467,6 @@ tr-TR:
       you_will_be_charged: "Ödeme sadece %{author} kişisi işlemi kabul ettiğinde hesabınızdan düşülür. %{author} işlemi %{expiration_period} gün içerisinde kabul etmelidir. %{author} reddeder ya da cevap vermezse, hesabınızdan kesinti olmayacaktır."
       day: gün
       days: günler
-      price_per_day: "Günlük ücret: %{price}"
     transaction_agreement_checkbox:
       read_more: Görüntüle.
   mapview:
@@ -1891,9 +1901,16 @@ tr-TR:
       other: "%{count} gün"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: ~
       shipping-price: ~
-      total: ~
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: gün
     days: günler
