@@ -120,7 +120,8 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   def render_paypal_form(preselected_action)
     transaction_conversation = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
-    transaction = TransactionService::Transaction.query(@listing_conversation.id)
+    result = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: @listing_conversation.id)
+    transaction = result[:data]
 
     render "accept", locals: {
       payment_gateway: :paypal,
@@ -143,7 +144,8 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def render_braintree_form(preselected_action)
-    transaction = TransactionService::Transaction.query(@listing_conversation.id)
+    result = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: @listing_conversation.id)
+    transaction = result[:data]
 
     render action: :accept, locals: {
       payment_gateway: :braintree,
