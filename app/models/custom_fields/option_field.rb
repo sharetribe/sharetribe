@@ -53,7 +53,7 @@ class OptionField < CustomField
       }
     }
 
-    diff = ArrayUtils.diff(options_hash, attributes_hash, :id)
+    diff = ArrayUtils.diff_by_key(options_hash, attributes_hash, :id)
 
     Maybe(diff.select { |d| d[:action] == :added }.map { |added| added[:value] }).each { |added|
       options.create!(added)
