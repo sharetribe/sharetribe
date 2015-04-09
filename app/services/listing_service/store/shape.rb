@@ -39,11 +39,15 @@ module ListingService::Store::Shape
     [:sort_priority, :fixnum]
   )
 
-  Unit = EntityUtils.define_builder(
-    [:type, :to_symbol, one_of: [:piece, :hour, :day, :night, :week, :month, :custom]],
-    [:quantity_selector, :to_symbol, one_of: ["".to_sym, :none, :number, :day]], # TODO Empty symbol allowed for migration purposes
-    # in the future include :hour, :week:, :night ,:month etc.
-    [:translation_key, :optional] # Mandatory if custom
+  BuiltInUnit = EntityUtils.define_builder(
+    [:type, :to_symbol, one_of: [:piece, :hour, :day, :night, :week, :month]],
+    [:quantity_selector, :to_symbol, one_of: ["".to_sym, :none, :number, :day]] # in the future include :hour, :week:, :night ,:month etc.
+  )
+
+  CustomUnit = EntityUtils.define_builder(
+    [:type, :to_symbol, one_of: [:custom]],
+    [:translation_key, :string, :mandatory],
+    [:quantity_selector, :to_symbol, one_of: ["".to_sym, :none, :number, :day]] # in the future include :hour, :week:, :night ,:month etc.
   )
 
   module_function
@@ -67,7 +71,7 @@ module ListingService::Store::Shape
   def create(community_id:, opts:)
     shape = NewShape.call(opts.merge(community_id: community_id))
 
-    units = shape[:units].map { |unit| Unit.call(unit) }
+    units = shape[:units].map { |unit| to_unit(unit) }
 
     name = uniq_name(shape[:basename], shape[:community_id])
     shape_with_name = shape.except(:basename).merge(name: name)
@@ -96,7 +100,7 @@ module ListingService::Store::Shape
     update_shape = UpdateShape.call(opts.merge(community_id: community_id))
 
     skip_units = update_shape[:units].nil?
-    units = update_shape[:units].map { |unit| Unit.call(unit) } unless skip_units
+    units = update_shape[:units].map { |unit| to_unit(unit) } unless skip_units
 
     ActiveRecord::Base.transaction do
       unless skip_units
@@ -113,12 +117,25 @@ module ListingService::Store::Shape
 
   # private
 
+  def to_unit(hash)
+    type = Maybe(hash)[:type].to_sym.or_else(nil)
+
+    case type
+    when nil
+      raise ArgumentError.new("Expected unit hash with type. Instead got this hash: #{hash}")
+    when :custom
+      CustomUnit.call(hash)
+    else
+      BuiltInUnit.call(hash)
+    end
+  end
+
   def from_model(shape_model)
     Maybe(shape_model).map { |m|
       hash = EntityUtils.model_to_hash(m)
 
       hash[:units] = shape_model.listing_units.map { |unit_model|
-        Unit.call(from_unit_model_attributes(EntityUtils.model_to_hash(unit_model)))
+        to_unit(from_unit_model_attributes(EntityUtils.model_to_hash(unit_model)))
       }
 
       Shape.call(hash)
