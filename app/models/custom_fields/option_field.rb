@@ -21,22 +21,50 @@
 class OptionField < CustomField
   has_many :options, :class_name => "CustomFieldOption", :dependent => :destroy, :foreign_key => 'custom_field_id'
 
+  # attributes structure:
+  #
+  # {
+  #   <option_id>: {
+  #     title_attributes: {
+  #       <locale>: <translation>,
+  #       ...
+  #     },
+  #     sort_priority: <prio>
+  #   },
+  #   ...
+  # }
+  #
   def option_attributes=(attributes)
-    new_option_ids = []
-    # FIXME: Without this options.each loop Rails seems to sometimes confuse which option
-    # has which titles, which causes weird bugs. An example: if user first adds 2 new options
-    # and then removes the second one of the existing options, the titles of the last one of the new
-    # options will be deleted.
-    options.each { |o| o }
-    attributes.each do |option_id, option_values|
-      if option = CustomFieldOption.where(:id => option_id).first
-        option.update_attributes(option_values)
-      else
-        option =  new_record? ? options.build(option_values) : options.create(option_values)
-      end
-      new_option_ids << option.id
-    end
-    options.each { |option| option.destroy unless new_option_ids.include?(option.id) }
-  end
+    options_hash = options.includes(:titles).map { |option|
+      {
+        id: option.id,
+        sort_priority: option.sort_priority,
+        title_attributes: option.titles.map { |title|
+          [title.locale, title.value]
+        }.to_h
+      }
+    }
 
+    attributes_hash = attributes.map { |(option_id, opts)|
+      {
+        id: Maybe(option_id).to_i.or_else(nil),
+        sort_priority: opts["sort_priority"].to_i,
+        title_attributes: opts["title_attributes"]
+      }
+    }
+
+    diff = ArrayUtils.diff_by_key(options_hash, attributes_hash, :id)
+
+    Maybe(diff.select { |d| d[:action] == :added }.map { |added| added[:value] }).each { |added|
+      options.create!(added)
+    }
+
+    Maybe(diff.select { |d| d[:action] == :removed }.map { |removed| removed[:value][:id] }).each { |removed_ids|
+      options.where(id: removed_ids).destroy_all
+    }
+
+    diff.select { |d| d[:action] == :changed }.map { |added| added[:value] }.each { |changed|
+      options.where(id: changed[:id]).first.update_attributes(changed)
+    }
+  end
 end
