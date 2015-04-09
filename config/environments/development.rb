@@ -39,7 +39,7 @@ Kassi::Application.configure do
     }
   end
 
-  config.active_support.deprecation = :log
+  config.active_support.deprecation = :stderr
 
   # Do not compress assets
   config.assets.compress = false
