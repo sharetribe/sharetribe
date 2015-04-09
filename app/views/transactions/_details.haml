@@ -5,10 +5,17 @@
       %h2
         = link_to_unless listing[:deleted], listing[:title], listing_path(id: listing[:id])
 
-      - if tx[:booking]
-        = render partial: "transactions/details/booking", locals: { booking: tx[:booking], price_per_day: tx[:listing_price] }
+      - # if we don't want to show total price or price_per field, we don't want to show this price-break-down at all
+      - unless local_assigns.has_key?(:show_total_price) && show_total_price == false && tx[:listing_price].cents == 0
+        - booking = !!tx[:booking]
+        - start_on = booking ? tx[:booking][:start_on] : nil
+        - end_on = booking ? tx[:booking][:end_on] : nil
+        - duration = booking ? tx[:booking][:duration] : nil
+        = render partial: "transactions/price_break_down", locals: { booking: booking, start_on: start_on, end_on: end_on, duration: duration, listing: listing, listing_price: tx[:listing_price], localized_unit_type: localized_unit_type, quantity: tx[:listing_quantity], subtotal: tx[:listing_price] * tx[:listing_quantity], sum: tx[:checkout_total], price: tx[:payment_total], shipping_price: tx[:shipping_price], show_total_price: show_total_price, total_price_label: total_price_label }
 
-      = render partial: "transactions/details/sum_or_price", locals: { sum: tx[:payment_total], price: tx[:checkout_total], quantity: listing[:quantity], excludes_vat: @current_community.vat.present? }
+      - if @current_community.vat.present?
+        .message-price-vat
+          = t("conversations.show.price_excludes_vat")
 
       = render partial: "transactions/shipping_address", locals: { shipping_address: tx[:shipping_address] }
 

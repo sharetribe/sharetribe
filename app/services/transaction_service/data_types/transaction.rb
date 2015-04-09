@@ -15,6 +15,7 @@ module TransactionService::DataTypes::Transaction
     [:shipping_price, :money],
     [:listing_author_id, :string, :mandatory],
     [:listing_quantity, :fixnum, default: 1],
+    [:unit_type, :to_symbol, one_of: [:piece, :hour, :day, :night, :week, :month, :custom, nil]],
     [:automatic_confirmation_after_days, :fixnum],
     [:last_transition_at, :time],
     [:current_state, :symbol],

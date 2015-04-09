@@ -25,12 +25,36 @@
     %p= t("conversations.accept.order_by",
           orderer_link: link_to_unless(orderer.deleted?, PersonViewUtils.person_display_name(orderer, @current_community), orderer)).html_safe
 
-  - if booking
-    %p
-      = render partial: "transactions/details/booking", locals: { booking: booking, price_per_day: listing.price }
-
   .conversation-price-info
     .conversation-totals
+      - if booking
+        .conversation-per-unit-wrapper
+          %span.conversation-per-unit-label
+            = t("transactions.initiate.price_per_day")
+          %span.conversation-per-unit-value
+            = humanized_money_with_symbol(listing.price)
+
+        .conversation-booking-wrapper
+          %span.conversation-booking-label
+            = t("transactions.initiate.booked_days")
+          %span.conversation-booking-value
+            = l booking[:start_on], format: :long_with_abbr_day_name
+            = "-"
+            = l booking[:end_on], format: :long_with_abbr_day_name
+            = "(#{pluralize(booking[:duration], t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+
+      - elsif listing_quantity > 1
+        .conversation-per-unit-wrapper
+          %span.conversation-per-unit-label
+            = t("transactions.price_per_quantity", unit_type: translate_quantity_unit(listing.unit_type))
+          %span.conversation-per-unit-value
+            = humanized_money_with_symbol(listing.price)
+        .conversation-quantity-wrapper
+          %span.conversation-quantity-label
+            = t("conversations.accept.quantity_label")
+          %span.conversation-quantity-value
+            = listing_quantity
+
       .conversation-sum-wrapper
         %span.conversation-sum-label
           = t("conversations.accept.sum_label")

@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+  include ListingsHelper
+
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
@@ -34,9 +36,16 @@ class TransactionsController < ApplicationController
 
     MarketplaceService::Transaction::Command.mark_as_seen_by_current(params[:id], @current_user.id)
 
+    show_total_price = tx[:payment_process] != :none
+    total_price_label = (tx[:payment_process] != :preauthorize) ? t("transactions.price") : t("transactions.total")
+    unit_type = listing[:unit_type].present? ? translate_quantity_unit(tx[:unit_type]) : nil
+
     render "transactions/show", locals: {
       messages: messages_and_actions.reverse,
       transaction: tx,
+      total_price_label: total_price_label,
+      show_total_price: show_total_price,
+      localized_unit_type: unit_type,
       listing: listing,
       transaction_model: tx_model,
       conversation_other_party: person_entity_with_url(conversation[:other_person]),

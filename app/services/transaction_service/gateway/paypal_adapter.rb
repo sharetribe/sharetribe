@@ -13,14 +13,13 @@ module TransactionService::Gateway
       # price for now.
       shipping_total = Maybe(tx[:shipping_price]).or_else(0)
       order_total = tx[:unit_price] * tx[:listing_quantity] + shipping_total
-      item_total = tx[:unit_price] * tx[:listing_quantity]
 
       create_payment_info = DataTypes.create_create_payment_request(
         {
          transaction_id: tx[:id],
          item_name: tx[:listing_title],
-         item_quantity: 1,
-         item_price: item_total,
+         item_quantity: tx[:listing_quantity],
+         item_price: tx[:unit_price],
          merchant_id: tx[:listing_author_id],
          require_shipping_address: tx[:delivery_method] == :shipping,
          shipping_total: tx[:shipping_price],

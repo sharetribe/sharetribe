@@ -1,0 +1,56 @@
+.initiate-transaction-totals
+  - if booking
+    .initiate-transaction-per-unit-wrapper
+      %span.initiate-transaction-per-unit-label
+        = t("transactions.initiate.price_per_day")
+      %span.initiate-transaction-per-unit-value
+        = humanized_money_with_symbol(listing_price)
+
+    .initiate-transaction-booking-wrapper
+      %span.initiate-transaction-booking-label
+        = t("transactions.initiate.booked_days")
+      %span.initiate-transaction-booking-value
+        = l start_on, format: :long_with_abbr_day_name
+        = "-"
+        = l end_on, format: :long_with_abbr_day_name
+        = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+
+  - elsif local_assigns.has_key?(:quantity) && localized_unit_type.present?
+    .initiate-transaction-per-unit-wrapper
+      %span.initiate-transaction-per-unit-label
+        = t("transactions.price_per_quantity", unit_type: localized_unit_type)
+      %span.initiate-transaction-per-unit-value
+        = humanized_money_with_symbol(listing_price)
+    - if quantity > 1
+      .initiate-transaction-quantity-wrapper
+        %span.initiate-transaction-quantity-label
+          = t("transactions.initiate.quantity")
+        %span.initiate-transaction-quantity-value
+          = quantity
+
+  - if booking || (local_assigns.has_key?(:quantity) && quantity > 1) || shipping_price.present?
+    .initiate-transaction-sum-wrapper
+      %span.initiate-transaction-sum-label
+        = t("transactions.initiate.subtotal")
+      %span.initiate-transaction-sum-value
+        = humanized_money_with_symbol(subtotal)
+
+  - if shipping_price.present?
+    .initiate-transaction-shipping-price-wrapper
+      %span.initiate-transaction-shipping-price-label
+        = t("transactions.initiate.shipping-price")
+      %span.initiate-transaction-shipping-price-value
+        = humanized_money_with_symbol(shipping_price)
+
+  - unless local_assigns.has_key?(:show_total_price) && show_total_price == false
+    .initiate-transaction-total-wrapper
+      %span.initiate-transaction-total-label
+        - if local_assigns.has_key?(:total_price_label) && total_price_label.present?
+          = total_price_label
+        - else
+          = t("transactions.total")
+      %span.initiate-transaction-total-value
+        - if local_assigns.has_key?(:price) && price.present? # payment total vs. checkout total
+          = humanized_money_with_symbol(price)
+        - else
+          = humanized_money_with_symbol(sum)

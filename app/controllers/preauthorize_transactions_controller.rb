@@ -26,6 +26,7 @@ class PreauthorizeTransactionsController < ApplicationController
     :sender_id,
     :contract_agreed,
     :delivery_method,
+    :quantity,
     :listing_id
    ).with_validations {
     validates_presence_of :listing_id
@@ -45,14 +46,17 @@ class PreauthorizeTransactionsController < ApplicationController
       return redirect_to error_not_found_path
     end
 
+    quantity = valid_quantity(params[:quantity])
+
     vprms = view_params(listing_id: params[:listing_id],
-                        quantity: 1,
+                        quantity: quantity,
                         shipping_enabled: delivery_method == :shipping)
 
     render "listing_conversations/initiate", locals: {
       preauthorize_form: PreauthorizeMessageForm.new,
       listing: vprms[:listing],
       delivery_method: delivery_method,
+      quantity: quantity,
       subtotal: vprms[:subtotal],
       sum: vprms[:total_price],
       author: query_person_entity(vprms[:listing][:author_id]),
@@ -82,10 +86,13 @@ class PreauthorizeTransactionsController < ApplicationController
       return render_error_response(request.xhr?, "Delivery method is invalid.", action: :initiate)
     end
 
+    quantity = valid_quantity(preauthorize_form.quantity)
+
     transaction_response = create_preauth_transaction(
       payment_type: :paypal,
       community: @current_community,
       listing: @listing,
+      listing_quantity: quantity,
       user: @current_user,
       content: preauthorize_form.content,
       use_async: request.xhr?,
@@ -236,7 +243,8 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def preauthorize
-    vprms = view_params(listing_id: params[:listing_id])
+    quantity = valid_quantity(params[:quantity])
+    vprms = view_params(listing_id: params[:listing_id], quantity: quantity)
     braintree_settings = BraintreePaymentQuery.braintree_settings(@current_community.id)
 
     render "listing_conversations/preauthorize", locals: {
@@ -244,6 +252,7 @@ class PreauthorizeTransactionsController < ApplicationController
       braintree_client_side_encryption_key: braintree_settings[:braintree_client_side_encryption_key],
       braintree_form: BraintreeForm.new,
       listing: vprms[:listing],
+      quantity: quantity,
       subtotal: vprms[:subtotal],
       sum: vprms[:total_price],
       author: query_person_entity(vprms[:listing][:author_id]),
@@ -267,6 +276,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
     if preauthorize_form.valid?
       braintree_form = BraintreeForm.new(params[:braintree_payment])
+      quantity = valid_quantity(preauthorize_form.quantity)
 
       transaction_response = TransactionService::Transaction.create({
           transaction: {
@@ -278,7 +288,7 @@ class PreauthorizeTransactionsController < ApplicationController
             unit_type: @listing.unit_type,
             unit_price: @listing.price,
             unit_tr_key: @listing.unit_tr_key,
-            listing_quantity: 1,
+            listing_quantity: quantity,
             content: preauthorize_form.content,
             payment_gateway: :braintree,
             payment_process: :preauthorize,
@@ -411,6 +421,14 @@ class PreauthorizeTransactionsController < ApplicationController
     else
       :errored
     end
+  end
+
+  def valid_quantity(quantity)
+    Maybe(quantity)
+      .map {|q|
+        StringUtils.is_numeric?(q) && q.to_i > 0 ? q.to_i : 1
+      }
+      .or_else(1)
   end
 
   def braintree_gateway_locals(community_id)

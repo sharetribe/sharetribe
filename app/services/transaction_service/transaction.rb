@@ -52,6 +52,7 @@ module TransactionService::Transaction
   # TODO Return type should be Result (wraps current return type)
   # Deprecated
   def query(transaction_id)
+    ActiveSupport::Deprecation.warn("TransactionService::Transaction.query: this is deprecated and will be removed in the near future.")
     tx = TxStore.get(transaction_id)
     to_tx_response(tx)
   end

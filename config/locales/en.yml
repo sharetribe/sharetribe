@@ -426,6 +426,7 @@ en:
       minimum_price_error_message: "The price cannot be lower than %{amount}."
       accept: Accept
       decline: Decline
+      quantity_label: "Quantity:"
       sum_label: "Subtotal:"
       service_fee_label: "%{service_name} fee:"
       you_will_get_label: "You will get:"
@@ -891,6 +892,7 @@ en:
       on_or_before: "must be on or before %{restriction}"
       after: "must be after %{restriction}"
       on_or_after: "must be on or after %{restriction}"
+      positive_number: "Insert a number."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
@@ -1412,6 +1414,8 @@ en:
       community_not_configured_for_payments: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Please %{contact_admin_link} for details."
       payment_settings_link: "payment settings"
       community_not_configured_for_payments_admin: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Go to %{payment_settings_link} to fill in the payment details."
+    quantity: "Quantity:"
+    quantity_placeholder: "Quantity"
     please_comment: Comment
     reply_link:
       listing_closed: "Listing is closed"
@@ -1454,6 +1458,13 @@ en:
       delivery: "Delivery method"
       shipping: "Shipping (+%{price})"
       pickup: Pickup
+    unit_types:
+      piece: piece
+      hour: hour
+      day: day
+      night: night
+      week: week
+      month: month
     verification_required:
       verification_required: "Verification required"
   listing_conversations:
@@ -1465,7 +1476,6 @@ en:
       you_will_be_charged: "You will be charged only if %{author} accepts the transaction. %{author} needs to accept the transaction within %{expiration_period} days. If %{author} declines or does not respond, no charge is made."
       day: day
       days: days
-      price_per_day: "Price per day: %{price}"
     transaction_agreement_checkbox:
       read_more: View.
   mapview:
@@ -1902,9 +1912,16 @@ en:
       other: "%{count} days"
   transactions:
     initiate:
+      booked_days: "Booked days:"
+      price_per_day: "Price per day:"
+      quantity: "Quantity:"
       subtotal: "Subtotal:"
       shipping-price: "Shipping:"
-      total: "Total:"
+    price_per_quantity: "Price per %{unit_type}:"
+    price: "Price:"
+    quantity: "Quantity: %{quantity}"
+    unit_price: "Unit price: %{unit_price}"
+    total: "Total:"
   unit:
     day: day
     days: days

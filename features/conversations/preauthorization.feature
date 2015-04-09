@@ -26,12 +26,38 @@ Feature: Preauthorized payment
      Then I should see payment details form for Braintree
 
      When I fill in my payment details for Braintree
-     Then I should see that I successfully paid 50
+     Then I should see that I successfully paid $50
       And I should see that the request is waiting for seller acceptance
 
      When I log in as "seller_jane"
       And I accepts the request for that listing
      Then I should see that the request is waiting for buyer confirmation
+
+     When I log in as "buyer_bob"
+      And I confirm the request for that listing
+     Then I should see that the request was confirmed
+
+  Scenario: User successfully buys 2 Surfboards using preauthorization
+    Given there is a listing with title "Surfboard" from "seller_jane" with category "Items" and with listing shape "Selling"
+      And the price of that listing is 50.0 USD per piece
+
+    Given I am logged in as "buyer_bob"
+
+    Given Braintree submit to settlement is mocked
+      And Braintree escrow release is mocked
+
+     When I buy 2 of those listings
+     Then I should see receipt info for unit_type piece with quantity 2 and subtotal of $100
+      And I should see payment details form for Braintree
+
+     When I fill in my payment details for Braintree
+     Then I should see that I successfully paid $100
+      And I should see that the request is waiting for seller acceptance
+
+     When I log in as "seller_jane"
+      And I accepts the request for that listing
+     Then I should see receipt info for unit_type piece with quantity 2 and subtotal of $100
+      And I should see that the request is waiting for buyer confirmation
 
      When I log in as "buyer_bob"
       And I confirm the request for that listing
@@ -47,7 +73,7 @@ Feature: Preauthorized payment
      Then I should see payment details form for Braintree
 
      When I fill in my payment details for Braintree
-     Then I should see that I successfully paid 50
+     Then I should see that I successfully paid $50
       And I should see that the request is waiting for seller acceptance
 
      When I log in as "seller_jane"
@@ -68,7 +94,7 @@ Feature: Preauthorized payment
      Then I should see payment details form for Braintree
 
      When I fill in my payment details for Braintree
-     Then I should see that I successfully paid 50
+     Then I should see that I successfully paid $50
       And I should see that the request is waiting for seller acceptance
 
      When the seller does not respond the request within 5 days

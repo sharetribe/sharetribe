@@ -27,4 +27,8 @@ module StringUtils
   def keywords(str, word_count=10, min_letter_count=3)
     strip_punctuation(first_words(strip_small_words(strip_nbsp(str), min_letter_count), word_count)).downcase.split(" ").join(", ")
   end
+
+  def is_numeric?(str)
+    !!str.match(/\A\d+\z/)
+  end
 end

@@ -120,11 +120,13 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   def render_paypal_form(preselected_action)
     transaction_conversation = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
-    transaction = TransactionService::Transaction.query(@listing_conversation.id)
+    result = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: @listing_conversation.id)
+    transaction = result[:data]
 
     render "accept", locals: {
       payment_gateway: :paypal,
       listing: @listing,
+      listing_quantity: transaction[:listing_quantity],
       booking: transaction[:booking],
       orderer: @listing_conversation.starter,
       sum: transaction[:item_total],
@@ -142,16 +144,20 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def render_braintree_form(preselected_action)
+    result = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: @listing_conversation.id)
+    transaction = result[:data]
+
     render action: :accept, locals: {
       payment_gateway: :braintree,
       listing: @listing,
-      booking: @listing_conversation.booking,
+      listing_quantity: transaction[:listing_quantity],
+      booking: transaction[:booking],
       orderer: @listing_conversation.starter,
-      sum: @listing_conversation.payment.total_sum,
-      fee: @listing_conversation.payment.total_commission,
+      sum: transaction[:item_total],
+      fee: transaction[:commission_total],
       shipping_price: nil,
       shipping_address: nil,
-      seller_gets: @listing_conversation.payment.seller_gets,
+      seller_gets: transaction[:checkout_total] - transaction[:commission_total],
       form: @listing_conversation,
       form_action: acceptance_preauthorized_person_message_path(
         person_id: @current_user.id,
