@@ -72,9 +72,9 @@ module ArrayUtils
   #
   def diff_by_key(old_array, new_array, key)
     operations = []
-    new_without_key = new_array.select { |new| new[key].nil? } # without key must be added
+    new_without_key, new_with_key = new_array.partition { |new| new[key].nil? }
     old_elems = old_array.sort_by { |old| old[key] }
-    new_elems = new_array.reject { |new| new[key].nil? }.sort_by { |new| new[key] }
+    new_elems = new_with_key.sort_by { |new| new[key] }
 
     # Traverse sorted old and new arrays
     until old_elems.empty? || new_elems.empty?
@@ -105,6 +105,8 @@ module ArrayUtils
     # See if there's still left something to process in old or new array
     old_elems.each { |old| operations << {action: :removed, value: old}}
     new_elems.each { |new| operations << {action: :added, value: new}}
+
+    # Element without key is always considered as new addition
     new_without_key.each { |new| operations << {action: :added, value: new}}
 
     operations
