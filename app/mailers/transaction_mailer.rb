@@ -84,6 +84,10 @@ class TransactionMailer < ActionMailer::Base
     service_fee = payment.total_commission
     you_get = payment.seller_gets
 
+    listing = payment.transaction.listing
+    unit_type = translate_quantity_unit(listing.unit_type)
+    duration = payment.transaction.booking.present? ? payment.transaction.booking.duration : nil
+
     premailer_mail(:to => payment.recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_payment.new_payment")) { |format|
@@ -91,6 +95,10 @@ class TransactionMailer < ActionMailer::Base
         render "braintree_payment_receipt_to_seller", locals: {
           conversation_url: person_transaction_url(payment.recipient, @url_params.merge({:id => payment.transaction.id.to_s})),
           listing_title: payment.transaction.listing.title,
+          price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
+          listing_price: humanized_money_with_symbol(payment.transaction.unit_price),
+          listing_quantity: payment.transaction.listing_quantity,
+          duration: duration,
           payment_total: humanized_money_with_symbol(payment.total_sum),
           payment_service_fee: humanized_money_with_symbol(-service_fee),
           payment_seller_gets: humanized_money_with_symbol(you_get),
