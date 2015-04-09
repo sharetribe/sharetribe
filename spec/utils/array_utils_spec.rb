@@ -63,33 +63,33 @@ describe ArrayUtils do
     it "shows added elements" do
       new = {value: "d"} # added items may not have ID
 
-      _begin = [new, xs[0], xs[1], xs[2]]
-      _mid = [xs[0], new, xs[1], xs[2]]
-      _end = [xs[0], xs[1], xs[2], new]
+      from_begin = [new, xs[0], xs[1], xs[2]]
+      from_mid = [xs[0], new, xs[1], xs[2]]
+      from_end = [xs[0], xs[1], xs[2], new]
 
-      [_begin, _mid, _end].each { |changed|
+      [from_begin, from_mid, from_end].each { |changed|
         expect(ArrayUtils.diff_by_key(xs, changed, :id)).to eq([{action: :added, value: {value: "d"}}])
       }
     end
 
     it "shows removed elements" do
-      _begin = [xs[1], xs[2]]
-      _mid = [xs[0], xs[2]]
-      _end = [xs[0], xs[1]]
+      from_begin = [xs[1], xs[2]]
+      from_mid = [xs[0], xs[2]]
+      from_end = [xs[0], xs[1]]
 
-      expect(ArrayUtils.diff_by_key(xs, _begin, :id)).to eq([{action: :removed, value: {id: 1, value: "a"}}])
-      expect(ArrayUtils.diff_by_key(xs, _mid, :id)).to eq([{action: :removed, value: {id: 2, value: "b"}}])
-      expect(ArrayUtils.diff_by_key(xs, _end, :id)).to eq([{action: :removed, value: {id: 3, value: "c"}}])
+      expect(ArrayUtils.diff_by_key(xs, from_begin, :id)).to eq([{action: :removed, value: {id: 1, value: "a"}}])
+      expect(ArrayUtils.diff_by_key(xs, from_mid, :id)).to eq([{action: :removed, value: {id: 2, value: "b"}}])
+      expect(ArrayUtils.diff_by_key(xs, from_end, :id)).to eq([{action: :removed, value: {id: 3, value: "c"}}])
     end
 
     it "shows changed elements" do
-      _begin = [{id: 1, value: "A"}, xs[1], xs[2]]
-      _mid = [xs[0], {id: 2, value: "B"}, xs[2]]
-      _end = [xs[0], xs[1], {id: 3, value: "C"}]
+      from_begin = [{id: 1, value: "A"}, xs[1], xs[2]]
+      from_mid = [xs[0], {id: 2, value: "B"}, xs[2]]
+      from_end = [xs[0], xs[1], {id: 3, value: "C"}]
 
-      expect(ArrayUtils.diff_by_key(xs, _begin, :id)).to eq([{action: :changed, value: {id: 1, value: "A"}}])
-      expect(ArrayUtils.diff_by_key(xs, _mid, :id)).to eq([{action: :changed, value: {id: 2, value: "B"}}])
-      expect(ArrayUtils.diff_by_key(xs, _end, :id)).to eq([{action: :changed, value: {id: 3, value: "C"}}])
+      expect(ArrayUtils.diff_by_key(xs, from_begin, :id)).to eq([{action: :changed, value: {id: 1, value: "A"}}])
+      expect(ArrayUtils.diff_by_key(xs, from_mid, :id)).to eq([{action: :changed, value: {id: 2, value: "B"}}])
+      expect(ArrayUtils.diff_by_key(xs, from_end, :id)).to eq([{action: :changed, value: {id: 3, value: "C"}}])
     end
 
     it "returns empty array if no changes" do
