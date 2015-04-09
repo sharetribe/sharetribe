@@ -55,12 +55,13 @@ module MarketplaceService::API
 
       locale = p[:marketplace_language].or_else("en")
       marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
+      payment_process = p[:payment_process].or_else(:none)
 
       community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
 
       Helper.create_community_customization!(community, marketplace_name, locale)
       Helper.create_category!("Default", community, locale)
-      shape = Helper.create_listing_shape!(community, p[:marketplace_type], :preauthorize)
+      shape = Helper.create_listing_shape!(community, p[:marketplace_type], payment_process)
 
       plan_level = p[:plan_level].or_else(CommunityPlan::FREE_PLAN)
       Helper.create_community_plan!(community, {plan_level: plan_level});

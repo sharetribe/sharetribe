@@ -21,6 +21,7 @@ class IntApi::MarketplacesController < ApplicationController
                    :marketplace_type,
                    :marketplace_country,
                    :marketplace_language)
+            .merge(payment_process: :preauthorize)
       )
 
     if marketplace

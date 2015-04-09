@@ -20,9 +20,11 @@ class CommunitiesController < ApplicationController
       form_hash = form.to_hash
       marketplace = MarketplaceService::API::Marketplaces.create(
         form_hash.slice(:marketplace_name,
-                           :marketplace_type,
-                           :marketplace_country,
-                           :marketplace_language).merge(plan_level: CommunityPlan::SCALE_PLAN)
+                        :marketplace_type,
+                        :marketplace_country,
+                        :marketplace_language)
+                 .merge(plan_level: CommunityPlan::SCALE_PLAN)
+                 .merge(payment_process: :none)
       )
 
       user = UserService::API::Users.create_user_with_membership({
