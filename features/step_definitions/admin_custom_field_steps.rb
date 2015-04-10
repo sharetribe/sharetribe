@@ -230,10 +230,11 @@ end
 
 Then /^options should be stored correctly$/ do
   @custom_field = CustomField.find(@custom_field.id)
-  @custom_field.options.size.should == 3
-  @custom_field.options[0].title.should == "House2"
-  @custom_field.options[1].title.should == "House3"
-  @custom_field.options[2].title.should == "House4"
+  options = @custom_field.options.sort_by{|o| o.sort_priority}
+  options.size.should == 3
+  options[0].title.should == "House2"
+  options[1].title.should == "House3"
+  options[2].title.should == "House4"
 end
 
 Then /^I should see "(.*?)" before "(.*?)"$/ do |arg1, arg2|
