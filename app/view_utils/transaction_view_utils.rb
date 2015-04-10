@@ -10,6 +10,20 @@ module TransactionViewUtils
     [:mood, one_of: [:positive, :negative, :neutral]]
   )
 
+  PriceBreakDownLocals = EntityUtils.define_builder(
+    [:listing_price, :money, :mandatory],
+    [:localized_unit_type, :string],
+    [:booking, :to_bool, default: false],
+    [:start_on, :date],
+    [:end_on, :date],
+    [:duration, :fixnum],
+    [:quantity, :fixnum],
+    [:subtotal, :money],
+    [:total, :money],
+    [:shipping_price, :money],
+    [:total_label, :string])
+
+
   module_function
 
   def merge_messages_and_transitions(messages, transitions)
@@ -140,5 +154,9 @@ module TransactionViewUtils
     else
       raise("Unknown transition to state: #{state}")
     end
+  end
+
+  def price_break_down_locals(opts)
+    PriceBreakDownLocals.call(opts)
   end
 end
