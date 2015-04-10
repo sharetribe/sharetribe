@@ -56,7 +56,7 @@ class OptionField < CustomField
     diff = ArrayUtils.diff_by_key(options_hash, attributes_hash, :id)
 
     Maybe(diff.select { |d| d[:action] == :added }.map { |added| added[:value] }).each { |added|
-      options.create!(added)
+      options.build(added)
     }
 
     Maybe(diff.select { |d| d[:action] == :removed }.map { |removed| removed[:value][:id] }).each { |removed_ids|
