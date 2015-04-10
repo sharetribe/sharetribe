@@ -32,7 +32,7 @@ module TransactionService::Store::Transaction
     [:listing_title, :string, :mandatory],
     [:listing_author_id, :string, :mandatory],
     [:unit_type, :to_symbol, one_of: [:piece, :hour, :day, :night, :week, :month, :custom, nil]],
-    [:unit_price, :money, :mandatory],
+    [:unit_price, :money, default: Money.new(0)],
     [:unit_tr_key, :string],
     [:shipping_price, :money],
     [:delivery_method, :to_symbol, :mandatory, one_of: [:none, :shipping, :pickup]],
