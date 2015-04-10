@@ -748,6 +748,8 @@ en:
       you_have_a_new_message: "A new message in %{service_name} from %{sender_name}"
     new_payment:
       new_payment: "You have received a new payment"
+      price_per_unit_type: "Price per %{unit_type}"
+      quantity: "Quantity:"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's fee:"
@@ -762,6 +764,10 @@ en:
       receipt_of_payment: "Receipt of payment"
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
       product: Product
+      price_per_unit_type: "Price per %{unit_type}"
+      duration: "Duration:"
+      quantity: "Quantity:"
+      subtotal: "Subtotal:"
       total: Total
       price: Price
       service_fee: "Service fee"

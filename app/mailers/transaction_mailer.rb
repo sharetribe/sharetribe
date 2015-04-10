@@ -12,6 +12,7 @@ class TransactionMailer < ActionMailer::Base
   layout 'email'
 
   include ApplicationHelper
+  include ListingsHelper
   include MoneyRails::ActionViewExtension # this is for humanized_money_with_symbol
 
   add_template_helper(EmailTemplateHelper)
@@ -83,13 +84,21 @@ class TransactionMailer < ActionMailer::Base
     service_fee = payment.total_commission
     you_get = payment.seller_gets
 
+    transaction = payment.transaction
+    unit_type = translate_quantity_unit(transaction.unit_type)
+    duration = payment.transaction.booking.present? ? payment.transaction.booking.duration : nil
+
     premailer_mail(:to => payment.recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_payment.new_payment")) { |format|
       format.html {
         render "braintree_payment_receipt_to_seller", locals: {
           conversation_url: person_transaction_url(payment.recipient, @url_params.merge({:id => payment.transaction.id.to_s})),
-          listing_title: payment.transaction.listing.title,
+          listing_title: payment.transaction.listing_title,
+          price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
+          listing_price: humanized_money_with_symbol(payment.transaction.unit_price),
+          listing_quantity: payment.transaction.listing_quantity,
+          duration: duration,
           payment_total: humanized_money_with_symbol(payment.total_sum),
           payment_service_fee: humanized_money_with_symbol(-service_fee),
           payment_seller_gets: humanized_money_with_symbol(you_get),
@@ -105,13 +114,20 @@ class TransactionMailer < ActionMailer::Base
   def braintree_receipt_to_payer(payment, community)
     prepare_template(community, payment.payer, "email_about_new_payments")
 
+    unit_type = translate_quantity_unit(payment.transaction.unit_type)
+    duration = payment.transaction.booking.present? ? payment.transaction.booking.duration : nil
+
     premailer_mail(:to => payment.payer.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
       format.html {
         render "payment_receipt_to_buyer", locals: {
           conversation_url: person_transaction_url(payment.payer, @url_params.merge({:id => payment.transaction.id.to_s})),
-          listing_title: payment.transaction.listing.title,
+          listing_title: payment.transaction.listing_title,
+          price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
+          listing_price: humanized_money_with_symbol(payment.transaction.unit_price),
+          listing_quantity: payment.transaction.listing_quantity,
+          duration: duration,
           payment_total: humanized_money_with_symbol(payment.total_sum),
           subtotal: humanized_money_with_symbol(payment.total_sum),
           shipping_total: nil,
@@ -138,6 +154,8 @@ class TransactionMailer < ActionMailer::Base
 
     you_get = payment_total - service_fee - gateway_fee
 
+    unit_type = translate_quantity_unit(transaction[:unit_type])
+
     premailer_mail(:to => seller_model.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_payment.new_payment")) do |format|
@@ -145,6 +163,10 @@ class TransactionMailer < ActionMailer::Base
         render "paypal_payment_receipt_to_seller", locals: {
           conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction[:id])),
           listing_title: transaction[:listing_title],
+          price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
+          listing_price: humanized_money_with_symbol(transaction[:listing_price]),
+          listing_quantity: transaction[:listing_quantity],
+          duration: transaction[:booking].present? ? transaction[:booking][:duration] : nil,
           subtotal: humanized_money_with_symbol(transaction[:item_total]),
           payment_total: humanized_money_with_symbol(payment_total),
           shipping_total: humanized_money_with_symbol(transaction[:shipping_price]),
@@ -166,6 +188,8 @@ class TransactionMailer < ActionMailer::Base
 
     prepare_template(community, buyer_model, "email_about_new_payments")
 
+    unit_type = translate_quantity_unit(transaction[:unit_type])
+
     premailer_mail(:to => buyer_model.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
@@ -173,6 +197,10 @@ class TransactionMailer < ActionMailer::Base
         render "payment_receipt_to_buyer", locals: {
           conversation_url: person_transaction_url(buyer_model, @url_params.merge({:id => transaction[:id]})),
           listing_title: transaction[:listing_title],
+          price_per_unit_title: t("emails.receipt_to_payer.price_per_unit_type", unit_type: unit_type),
+          listing_price: humanized_money_with_symbol(transaction[:listing_price]),
+          listing_quantity: transaction[:listing_quantity],
+          duration: transaction[:booking].present? ? transaction[:booking][:duration] : nil,
           subtotal: humanized_money_with_symbol(transaction[:item_total]),
           shipping_total: humanized_money_with_symbol(transaction[:shipping_price]),
           payment_total: humanized_money_with_symbol(transaction[:payment_total]),

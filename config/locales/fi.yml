@@ -748,6 +748,8 @@ fi:
       you_have_a_new_message: "Viesti %{service_name}-palvelun käyttäjältä %{sender_name}"
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
+      price_per_unit_type: "Hinta per %{unit_type}"
+      quantity: "Määrä:"
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
     paypal_new_payment:
       paypal_gateway_fee: "PayPalin käsittelymaksu:"
@@ -762,6 +764,10 @@ fi:
       receipt_of_payment: "Kuitti maksusta"
       you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
       product: Tuote
+      price_per_unit_type: "Hinta per %{unit_type}"
+      quantity: "Määrä:"
+      duration: "Kesto:"
+      subtotal: "Välisumma:"
       total: Yhteensä
       price: Hinta
       service_fee: Palvelumaksu
