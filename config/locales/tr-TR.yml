@@ -739,6 +739,8 @@ tr-TR:
       you_have_a_new_message: "%{service_name} altında %{sender_name}'den yeni bir mesaj var"
     new_payment:
       new_payment: "Yeni bir ödeme aldınız"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "%{listing_title} için %{payer_full_name} kişisinden %{payment_sum} tutarında ödeme aldınız. Faturanız burada."
     paypal_new_payment:
       paypal_gateway_fee: ~
@@ -753,6 +755,10 @@ tr-TR:
       receipt_of_payment: "Ödeme faturası"
       you_have_made_new_payment: "%{listing_title} için %{recipient_full_name} kişisine %{payment_sum} tutarında ödeme yaptınız. Faturanız burada."
       product: Ürün
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: Toplam
       price: Fiyat
       service_fee: "Hizmet bedeli"

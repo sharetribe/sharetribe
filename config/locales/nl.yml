@@ -422,6 +422,7 @@ nl:
       minimum_price_error_message: "De prijs kan niet lager zijn dan %{amount}."
       accept: Aanvaard
       decline: "Wijs af"
+      quantity_label: ~
       sum_label: "Subtotaal:"
       service_fee_label: "%{service_name} kost:"
       you_will_get_label: "Je krijgt:"
@@ -743,6 +744,8 @@ nl:
       you_have_a_new_message: "Je hebt een nieuw bericht in %{service_name} van %{sender_name}"
     new_payment:
       new_payment: "Je hebt een nieuwe betaling ontvangen"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Je bent <b> %{payment_sum}</b> betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Hier is het betalingsbewijs."
     paypal_new_payment:
       paypal_gateway_fee: "Kost PayPal:"
@@ -757,6 +760,10 @@ nl:
       receipt_of_payment: Betalingsbewijs.
       you_have_made_new_payment: "Je hebt <b>%{payment_sum}</b> betaald voor <b>%{listing_title}</b> aan %{recipient_full_name}. Hier is een betalingsbewijs."
       product: Product
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: Totaal
       price: Prijs
       service_fee: "Service toeslag"
@@ -887,6 +894,7 @@ nl:
       on_or_before: "moet zijn op of voor %{restriction}"
       after: "moet zijn na %{restriction}"
       on_or_after: "moet zijn op of na %{restriction}"
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."
@@ -1408,6 +1416,8 @@ nl:
       community_not_configured_for_payments: "%{service_name} is nog niet ingesteld voor betalingen, dus je kan nog geen nieuwe items posten. Contacteer aub %{contact_admin_link} voor details."
       payment_settings_link: "instellingen betalingen"
       community_not_configured_for_payments_admin: "%{service_name} is nog niet ingesteld voor betalingen, dus je kan nog geen nieuwe items posten. Ga naar %{payment_settings_link} om de betalingsgegevens in te brengen."
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: Reactie
     reply_link:
       listing_closed: "Item is gesloten"
@@ -1450,6 +1460,13 @@ nl:
       delivery: Levering
       shipping: "Transport (%{price})"
       pickup: "Ophalen (%{price})"
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: "Verificatie vereist"
   listing_conversations:
@@ -1461,7 +1478,6 @@ nl:
       you_will_be_charged: "Je bestelling zal pas afgerekend worden als %{author} de transactie aanvaardt. Dit moet binnen %{expiration_period} dagen gebeuren. Als %{author} de transactie afwijst of niet reageert, worden er geen kosten aangerekend."
       day: dag
       days: dagen
-      price_per_day: "Prijs per dag: %{price}"
     transaction_agreement_checkbox:
       read_more: Overzicht.
   mapview:
@@ -1898,9 +1914,16 @@ nl:
       other: "%{count} dagen"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: "Subtotaal:"
       shipping-price: "Transport:"
-      total: "Totaal:"
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: dag
     days: dagen

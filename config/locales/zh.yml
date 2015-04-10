@@ -739,6 +739,8 @@ zh:
       you_have_a_new_message: "在%{service_name}收到一条来自%{sender_name}的新消息"
     new_payment:
       new_payment: 你收到一笔新的付款
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "你已经为<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>给%{payer_full_name}。这是你的收据。"
     paypal_new_payment:
       paypal_gateway_fee: PayPal的费用：
@@ -753,6 +755,10 @@ zh:
       receipt_of_payment: 付款收据
       you_have_made_new_payment: "你已经为<b>%{listing_title}</b> 支付了 <b>%{payment_sum}</b> 给 %{recipient_full_name}。这是付款收据。"
       product: 产品
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: 总共
       price: 价格
       service_fee: 服务费

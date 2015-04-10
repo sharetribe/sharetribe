@@ -739,6 +739,8 @@ ja:
       you_have_a_new_message: "%{service_name}の%{sender_name}さんから新しいメッセージがあります"
     new_payment:
       new_payment: 新しいお支払いを受け取りました
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "%{payer_full_name}さんより<b>%{listing_title}</b>の件で、<b>%{payment_sum}</b>支払われました。こちらはその領収書です。"
     paypal_new_payment:
       paypal_gateway_fee: PayPalの手数料：
@@ -753,6 +755,10 @@ ja:
       receipt_of_payment: 領収書
       you_have_made_new_payment: "%{recipient_full_name}さんに<b>%{listing_title}</b>の件で、<b>%{payment_sum}</b>支払いました。こちらはその領収書です。"
       product: 商品・サービス名：
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: 合計
       price: 価格
       service_fee: ご利用料金

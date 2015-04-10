@@ -426,6 +426,7 @@ fr:
       minimum_price_error_message: "Le prix ne peut pas être plus bas que %{amount}."
       accept: Accepter
       decline: Refuser
+      quantity_label: ~
       sum_label: "Sous-total : "
       service_fee_label: "Commission de %{service_name} : "
       you_will_get_label: "Vous recevrez : "
@@ -747,6 +748,8 @@ fr:
       you_have_a_new_message: "Vous avez un nouveau message sur %{service_name} de la part de %{sender_name}"
     new_payment:
       new_payment: "Vous avez reçu un nouveau paiement"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."
     paypal_new_payment:
       paypal_gateway_fee: "Frais PayPal : "
@@ -761,6 +764,10 @@ fr:
       receipt_of_payment: "Reçu du paiement"
       you_have_made_new_payment: "Vous avez payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> à %{recipient_full_name}. Voici un reçu du paiement."
       product: Produit
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: Total
       price: Prix
       service_fee: Commission
@@ -891,6 +898,7 @@ fr:
       on_or_before: "doit être au ou avant %{restriction}"
       after: "doit être après %{restriction}"
       on_or_after: "doit être au ou après %{restriction}"
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."
@@ -1412,6 +1420,8 @@ fr:
       community_not_configured_for_payments: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas déposer d'annonce pour le moment. Veuillez %{contact_admin_link} pour en savoir plus."
       payment_settings_link: "paramètres de paiement"
       community_not_configured_for_payments_admin: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas déposer d'annonce pour le moment. Rendez-vous dans les %{payment_settings_link} pour y compléter les informations de paiements."
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: "Faire un commentaire"
     reply_link:
       listing_closed: "L'annonce est close"
@@ -1454,6 +1464,13 @@ fr:
       delivery: Livraison
       shipping: "Envoi (+%{price})"
       pickup: Retrait
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: "Vérification nécessaire"
   listing_conversations:
@@ -1465,7 +1482,6 @@ fr:
       you_will_be_charged: "Vous ne serez prélevé que si %{author} accepte la transaction. %{author} doit accepter la transaction sous %{expiration_period} jours. Si %{author} refuse ou ne répond pas, aucun prélèvement ne sera effectué."
       day: jour
       days: jours
-      price_per_day: "Prix par jour : %{price}"
     transaction_agreement_checkbox:
       read_more: Lire.
   mapview:
@@ -1902,9 +1918,16 @@ fr:
       other: "%{count} jours"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: "Sous-total : "
       shipping-price: "Frais de livraison : "
-      total: "Total : "
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: jour
     days: jours

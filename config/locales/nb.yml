@@ -750,6 +750,8 @@ nb:
       you_have_a_new_message: "Ny melding hos %{service_name} fra %{sender_name}"
     new_payment:
       new_payment: "Du har mottatt en ny betaling"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Du har fått betaling <b>%{payment_sum}</b>for<b>%{listing_title}</b>av%{payer_full_name}. Her er din kvittering."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-kostnad:"
@@ -764,6 +766,10 @@ nb:
       receipt_of_payment: "Kvittering av betaling"
       you_have_made_new_payment: "Du har betalt <b>%{payment_sum}</b>for<b>%{listing_title}</b>til %{recipient_full_name}. Her er kvitteringen."
       product: Produkt
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: Totalt
       price: Pris
       service_fee: Tjenestekostnad

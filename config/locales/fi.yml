@@ -765,8 +765,8 @@ fi:
       you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
       product: Tuote
       price_per_unit_type: "Hinta per %{unit_type}"
-      quantity: "Määrä:"
       duration: "Kesto:"
+      quantity: "Määrä:"
       subtotal: "Välisumma:"
       total: Yhteensä
       price: Hinta
@@ -1420,9 +1420,9 @@ fi:
       community_not_configured_for_payments: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja %{contact_admin_link}."
       payment_settings_link: "markkinapaikan maksuasetuksiin"
       community_not_configured_for_payments_admin: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja mene %{payment_settings_link} lisäämään maksutiedot."
-    please_comment: Kommentoi
     quantity: "Määrä:"
-    quantity_placeholder: "Määrä"
+    quantity_placeholder: Määrä
+    please_comment: Kommentoi
     reply_link:
       listing_closed: "Ilmoitus on suljettu"
     show:

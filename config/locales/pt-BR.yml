@@ -744,6 +744,8 @@ pt-BR:
       you_have_a_new_message: "Uma nova mensagem em %{service_name} de %{sender_name}"
     new_payment:
       new_payment: "Você recebeu um novo pagamento"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Você foi pago <b>%{payment_sum}</b> por <b>%{listing_title}</b> pelo %{payer_full_name}. Veja o recibo."
     paypal_new_payment:
       paypal_gateway_fee: "Taxa do PayPal:"
@@ -758,6 +760,10 @@ pt-BR:
       receipt_of_payment: "Recibo do pagamento"
       you_have_made_new_payment: "Você pagou <b>%{payment_sum}</b> por <b>%{listing_title}</b> à %{recipient_full_name}. Veja o recibo."
       product: Produto
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: Total
       price: Preço
       service_fee: "Despesas de serviço"

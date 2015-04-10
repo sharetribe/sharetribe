@@ -729,6 +729,8 @@ ca:
       you_have_a_new_message: "Tens un nou missatge a %{service_name}"
     new_payment:
       new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
@@ -743,6 +745,10 @@ ca:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
       product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: ~
       price: ~
       service_fee: ~

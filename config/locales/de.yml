@@ -744,6 +744,8 @@ de:
       you_have_a_new_message: "Du hast eine neue Nachricht von %{sender_name} auf %{service_name}"
     new_payment:
       new_payment: "Du hast eine neue Zahlung erhalten"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Du hast bezahlt %{payment_sum} für %{listing_title} an %{payer_full_name}. Das ist deine Rechnung."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's Gebühr:"
@@ -758,6 +760,10 @@ de:
       receipt_of_payment: Zahlungsbestätigung
       you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist ein Beleg deiner Zahlung."
       product: Produkt
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: Gesamtbetrag
       price: Preis
       service_fee: Servicegebühr

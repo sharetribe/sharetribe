@@ -748,6 +748,8 @@ sv:
       you_have_a_new_message: "Du har ett nytt meddelande i %{service_name} från %{sender_name}"
     new_payment:
       new_payment: "Du har fått en ny inbetalning"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
     paypal_new_payment:
       paypal_gateway_fee: "PayPals avgift:"
@@ -762,6 +764,10 @@ sv:
       receipt_of_payment: "Kvitto för betalning"
       you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{recipient_full_name}. Här är ett kvitto av betalningen."
       product: Produkt
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: Totalt
       price: Pris
       service_fee: Serviceavgift

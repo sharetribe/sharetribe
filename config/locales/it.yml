@@ -729,6 +729,8 @@ it:
       you_have_a_new_message: "Un nuovo messaggio in %{service_name} da %{sender_name}"
     new_payment:
       new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
@@ -743,6 +745,10 @@ it:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
       product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: ~
       price: Prezzo
       service_fee: ~

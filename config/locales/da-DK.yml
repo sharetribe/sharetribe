@@ -744,6 +744,8 @@ da-DK:
       you_have_a_new_message: "En ny besked i %{sender_name} fra %{service_name}"
     new_payment:
       new_payment: "Du har modtaget en ny betaling"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{payer_full_name}. Her er din kvittering."
     paypal_new_payment:
       paypal_gateway_fee: ~
@@ -758,6 +760,10 @@ da-DK:
       receipt_of_payment: "Kvittering for betaling"
       you_have_made_new_payment: "Du har betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> til %{recipient_full_name}. Her er din kvittering for betalingen."
       product: Produkt
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: Total
       price: Pris
       service_fee: "Service fee"

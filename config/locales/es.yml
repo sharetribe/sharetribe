@@ -407,6 +407,7 @@ es:
       minimum_price_error_message: ~
       accept: ~
       decline: ~
+      quantity_label: ~
       sum_label: ~
       service_fee_label: ~
       you_will_get_label: ~
@@ -733,6 +734,8 @@ es:
       you_have_a_new_message: "Tienes un nuevo mensaje en %{service_name} de %{sender_name}"
     new_payment:
       new_payment: "Ha recibido un nuevo pago"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Has sido pagado  <b> %{payment_sum}</b> por  <b>%{listing_title}</b> %{payer_full_name}. Aquí estatu comprobante."
     paypal_new_payment:
       paypal_gateway_fee: ~
@@ -747,6 +750,10 @@ es:
       receipt_of_payment: "Recibo del pago realizado."
       you_have_made_new_payment: "Le has pagado <b>%{payment_sum}</b> a  %{recipient_full_name}  por <b>%{listing_title}</b>. Aquí está el comprobante."
       product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: ~
       price: Precio
       service_fee: ~
@@ -879,6 +886,7 @@ es:
       on_or_before: ~
       after: ~
       on_or_after: ~
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} acordó en prestar %{listing_title} hacia %{requester_name} %{time_ago}."
@@ -1400,6 +1408,8 @@ es:
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: Comentario
     reply_link:
       listing_closed: "Listado cerrado"
@@ -1442,6 +1452,13 @@ es:
       delivery: ~
       shipping: ~
       pickup: ~
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1453,7 +1470,6 @@ es:
       you_will_be_charged: ~
       day: ~
       days: ~
-      price_per_day: ~
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1890,9 +1906,16 @@ es:
       other: "%{count} días"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: ~
       shipping-price: ~
-      total: ~
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: ~
     days: ~

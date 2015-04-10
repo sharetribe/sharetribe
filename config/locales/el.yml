@@ -407,6 +407,7 @@ el:
       minimum_price_error_message: "Η τιμή δεν μπορεί να είναι μικρότερη από %{amount}."
       accept: ~
       decline: ~
+      quantity_label: ~
       sum_label: ~
       service_fee_label: ~
       you_will_get_label: ~
@@ -728,6 +729,8 @@ el:
       you_have_a_new_message: "Έχετε ένα νέο μήνυμα στο %{service_name} από τον/την %{sender_name}"
     new_payment:
       new_payment: "Λάβατε μια νέα πληρωμή"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Πληρωθήκατε <b>%{payment_sum}</b> για το \"<b>%{listing_title}</b>\" από τον/την %{payer_full_name}. Ορίστε η απόδειξή σας."
     paypal_new_payment:
       paypal_gateway_fee: ~
@@ -742,6 +745,10 @@ el:
       receipt_of_payment: "Απόδειξη πληρωμής"
       you_have_made_new_payment: "Πληρώσατε <b>%{payment_sum}</b> για το <b>%{listing_title}</b> στον/στην %{recipient_full_name}. Ορίστε η απόδειξη πληρωμής."
       product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: Σύνολο
       price: Τιμή
       service_fee: ~
@@ -872,6 +879,7 @@ el:
       on_or_before: ~
       after: ~
       on_or_after: ~
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "Ο/Η %{offerer_name} συμφώνησε να δανείσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
@@ -1393,6 +1401,8 @@ el:
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: Σχολίασε
     reply_link:
       listing_closed: "Η καταχώρηση έχει απενεργοποιηθεί."
@@ -1435,6 +1445,13 @@ el:
       delivery: ~
       shipping: ~
       pickup: ~
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1446,7 +1463,6 @@ el:
       you_will_be_charged: ~
       day: ~
       days: ~
-      price_per_day: ~
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1883,9 +1899,16 @@ el:
       other: "%{count} μέρες"
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: ~
       shipping-price: ~
-      total: ~
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: ~
     days: ~

@@ -432,6 +432,7 @@ ru:
       minimum_price_error_message: "Цена не может быть ниже чем %{amount}."
       accept: Принять
       decline: Отклонить
+      quantity_label: ~
       sum_label: "Промежуточный итог:"
       service_fee_label: "%{service_name} комиссия:"
       you_will_get_label: "Вы получите:"
@@ -753,6 +754,8 @@ ru:
       you_have_a_new_message: "У вас новое сообщение в %{service_name} от %{sender_name}"
     new_payment:
       new_payment: "Вы получили новый платёж"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Вам оплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b> от %{payer_full_name}. Здесь ваша квитанция."
     paypal_new_payment:
       paypal_gateway_fee: "комиссия PayPal:"
@@ -767,6 +770,10 @@ ru:
       receipt_of_payment: "Квитанция об оплате"
       you_have_made_new_payment: "Вы оплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b> %{recipient_full_name}. Здесь ваша квитанция."
       product: Продукт
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: Всего
       price: Цена
       service_fee: "Комиссия сервиса"
@@ -897,6 +904,7 @@ ru:
       on_or_before: "Должно быть в или до %{restriction}"
       after: "Должно быть после %{restriction}"
       on_or_after: "Должно быть в или после %{restriction}"
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} согласился дать %{listing_title} %{requester_name} %{time_ago}."
@@ -1418,6 +1426,8 @@ ru:
       community_not_configured_for_payments: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые предложения сейчас. Свяжитесь с %{contact_admin_link} для уточнения деталей."
       payment_settings_link: "Настройки оплаты"
       community_not_configured_for_payments_admin: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые предложения сейчас. Перейдите на %{payment_settings_link} чтобы настроить платежные реквизиты."
+    quantity: ~
+    quantity_placeholder: ~
     please_comment: Комментарий
     reply_link:
       listing_closed: "Предложение закрыто"
@@ -1460,6 +1470,13 @@ ru:
       delivery: "Способ доставки"
       shipping: "Доставка (+%{price})"
       pickup: "Самостоятельное получение"
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: "Требуется подтверждение"
   listing_conversations:
@@ -1471,7 +1488,6 @@ ru:
       you_will_be_charged: "Сумма будет списана только если %{author} примет транзакцию. %{author} должен принять транзакцию в течении %{expiration_period} дней. Если %{author} отменит транзакцию или не ответит, списание не произойдет."
       day: день
       days: дней
-      price_per_day: "Цена за день: %{price}"
     transaction_agreement_checkbox:
       read_more: Вид.
   mapview:
@@ -1912,9 +1928,16 @@ ru:
       other: дня
   transactions:
     initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
       subtotal: "Предварительный итог:"
       shipping-price: "Доставка:"
-      total: "Итог:"
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: день
     days: дней

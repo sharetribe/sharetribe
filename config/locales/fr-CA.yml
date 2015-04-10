@@ -748,6 +748,8 @@ fr-CA:
       you_have_a_new_message: "Vous avez un nouveau message sur %{service_name} de la part de %{sender_name}"
     new_payment:
       new_payment: "Vous avez reçu un nouveau paiement"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."
     paypal_new_payment:
       paypal_gateway_fee: "Frais PayPal : "
@@ -762,6 +764,10 @@ fr-CA:
       receipt_of_payment: "Reçu du paiement"
       you_have_made_new_payment: "Vous avez payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> à %{recipient_full_name}. Voici un reçu du paiement."
       product: Produit
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: Total
       price: Prix
       service_fee: Commission
