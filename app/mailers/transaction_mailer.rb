@@ -84,8 +84,8 @@ class TransactionMailer < ActionMailer::Base
     service_fee = payment.total_commission
     you_get = payment.seller_gets
 
-    listing = payment.transaction.listing
-    unit_type = translate_quantity_unit(listing.unit_type)
+    transaction = payment.transaction
+    unit_type = translate_quantity_unit(transaction.unit_type)
     duration = payment.transaction.booking.present? ? payment.transaction.booking.duration : nil
 
     premailer_mail(:to => payment.recipient.confirmed_notification_emails_to,
@@ -94,7 +94,7 @@ class TransactionMailer < ActionMailer::Base
       format.html {
         render "braintree_payment_receipt_to_seller", locals: {
           conversation_url: person_transaction_url(payment.recipient, @url_params.merge({:id => payment.transaction.id.to_s})),
-          listing_title: payment.transaction.listing.title,
+          listing_title: payment.transaction.listing_title,
           price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
           listing_price: humanized_money_with_symbol(payment.transaction.unit_price),
           listing_quantity: payment.transaction.listing_quantity,
@@ -114,8 +114,7 @@ class TransactionMailer < ActionMailer::Base
   def braintree_receipt_to_payer(payment, community)
     prepare_template(community, payment.payer, "email_about_new_payments")
 
-    listing = payment.transaction.listing
-    unit_type = translate_quantity_unit(listing.unit_type)
+    unit_type = translate_quantity_unit(payment.transaction.unit_type)
     duration = payment.transaction.booking.present? ? payment.transaction.booking.duration : nil
 
     premailer_mail(:to => payment.payer.confirmed_notification_emails_to,
@@ -124,7 +123,7 @@ class TransactionMailer < ActionMailer::Base
       format.html {
         render "payment_receipt_to_buyer", locals: {
           conversation_url: person_transaction_url(payment.payer, @url_params.merge({:id => payment.transaction.id.to_s})),
-          listing_title: payment.transaction.listing.title,
+          listing_title: payment.transaction.listing_title,
           price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
           listing_price: humanized_money_with_symbol(payment.transaction.unit_price),
           listing_quantity: payment.transaction.listing_quantity,
