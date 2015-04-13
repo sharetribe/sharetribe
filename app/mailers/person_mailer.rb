@@ -331,25 +331,6 @@ class PersonMailer < ActionMailer::Base
      end
   end
 
-  # This is used by console script that creates a list of user accounts and sends an email to all
-  # Currently only in spanish, as not yet needed in other languages
-  def automatic_account_created(recipient, password)
-    @no_settings = true
-    @username = recipient.username
-    @given_name = recipient.given_name
-    @password = password
-    subject = "Tienes una cuenta creada para la comunidad Diseño UDD de Sharetribe"
-
-    if APP_CONFIG.mail_delivery_method == "postmark"
-      # Postmark doesn't support bulk emails, so use Sendmail for this
-      delivery_method = :sendmail
-    else
-      delivery_method = APP_CONFIG.mail_delivery_method.to_sym
-    end
-
-    premailer_mail(:to => recipient.confirmed_notification_emails_to, :subject => subject, :reply_to => "diego@sharetribe.com", :delivery_method => delivery_method)
-  end
-
   def welcome_email(person, community, regular_email=nil, test_email=false)
     @recipient = person
     set_locale @recipient.locale
