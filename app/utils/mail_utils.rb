@@ -12,8 +12,15 @@ module MailUtils
     if recipient
       @recipient = recipient
       @url_params[:locale] = @recipient.locale
-      set_locale @recipient.locale
     end
+  end
+
+  def with_setup(recipient_locale, community_id = nil, &block)
+    with_locale(mail_locale) {
+      with_community(community_id) {
+        block.call
+      }
+    }
   end
 
   def premailer(message)
@@ -22,6 +29,33 @@ module MailUtils
       message.html_part.body = Premailer.new(message.html_part.body.to_s, with_html_string: true).to_inline_css
     else
       message.body = Premailer.new(message.body.to_s, with_html_string: true).to_inline_css
+    end
+  end
+
+  # private
+
+  def with_locale(new_locale, &block)
+    old_locale = I18n.locale
+
+    if old_locale.to_sym != new_locale.to_sym
+      I18n.locale = new_locale
+      # TODO store_translations here
+      block.call
+      I18n.locale = old_locale
+    else
+      block.call
+    end
+  end
+
+  def with_community(new_community_id)
+    old_community_id = I18n::Backend::CommunityBackend.community_id
+
+    if old_community_id != new_community_id
+      I18n::Backend::CommunityBackend.community_id = new_community_id
+      block.call
+      I18n::Backend::CommunityBackend.community_id = old_community_id
+    else
+      block.call
     end
   end
 
