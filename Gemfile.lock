@@ -402,8 +402,6 @@ GEM
     ruby-prof (0.14.2)
     ruby-progressbar (1.4.2)
     rubyzip (1.1.7)
-    russian (0.6.0)
-      i18n (>= 0.5.0)
     sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -552,7 +550,6 @@ DEPENDENCIES
   rspec-rails (~> 2.99.0)
   rubocop
   ruby-prof
-  russian
   sass (~> 3.2.9)
   sass-rails
   selenium-webdriver (~> 2.43.0)
