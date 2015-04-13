@@ -15,9 +15,9 @@ module MailUtils
     end
   end
 
-  def with_setup(recipient_locale, community_id = nil, &block)
-    with_locale(mail_locale) {
-      with_community(community_id) {
+  def with_locale(recipient_locale, community_id = nil, &block)
+    set_locale(mail_locale) {
+      set_community(community_id) {
         block.call
       }
     }
@@ -34,7 +34,7 @@ module MailUtils
 
   # private
 
-  def with_locale(new_locale, &block)
+  def set_locale(new_locale, &block)
     old_locale = I18n.locale
 
     if old_locale.to_sym != new_locale.to_sym
@@ -47,13 +47,22 @@ module MailUtils
     end
   end
 
-  def with_community(new_community_id)
-    old_community_id = I18n::Backend::CommunityBackend.community_id
+  def set_community(new_community_id)
+    community_backend = I18n::Backend::CommunityBackend.instance
+    old_community_id = community_backend.community_id
 
     if old_community_id != new_community_id
-      I18n::Backend::CommunityBackend.community_id = new_community_id
+      community_backend.community_id = new_community_id
+      community_translations = TranslationService::API::Api.translations.get(community_id)[:data]
+      TranslationServiceHelper.community_translations_for_i18n_backend(community_translations).each { |locale, data|
+        # Store community translations to I18n backend.
+        #
+        # Since the data in data hash is already flatten, we don't want to
+        # escape the separators (. dots) in the key
+        community_backend.store_translations(locale, data, escape: false)
+      }
       block.call
-      I18n::Backend::CommunityBackend.community_id = old_community_id
+      community_backend.community_id = old_community_id
     else
       block.call
     end

@@ -73,7 +73,8 @@ class ApplicationController < ActionController::Base
     community_backend = I18n::Backend::CommunityBackend.instance
     m_community.map(&:id).each { |community_id|
       community_backend.set_community!(community_id)
-      fetch_community_translations(community_id).each { |locale, data|
+      community_translations = TranslationService::API::Api.translations.get(community_id)[:data]
+      TranslationServiceHelper.community_translations_for_i18n_backend(community_translations).each { |locale, data|
         # Store community translations to I18n backend.
         #
         # Since the data in data hash is already flatten, we don't want to
@@ -385,15 +386,5 @@ class ApplicationController < ActionController::Base
     if APP_CONFIG.always_use_ssl
       redirect_to("https://#{request.host_with_port}#{request.fullpath}") unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || request.fullpath == "/robots.txt"
     end
-  end
-
-  def fetch_community_translations(community_id)
-    translations = TranslationService::API::Api.translations.get(community_id)[:data]
-    locale_groups = translations.group_by { |tr| tr[:locale] }
-    locale_groups.map { |(locale, translations)|
-      [locale.to_sym, translations.inject({}) { |memo, tr|
-         memo.tap { |m| m[tr[:translation_key]] = tr[:translation] }
-       }]
-    }
   end
 end

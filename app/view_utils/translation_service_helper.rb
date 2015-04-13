@@ -2,6 +2,15 @@ module TranslationServiceHelper
 
   module_function
 
+  def community_translations_for_i18n_backend(translations)
+    locale_groups = translations.group_by { |tr| tr[:locale] }
+    locale_groups.map { |(locale, translations)|
+      [locale.to_sym, translations.inject({}) { |memo, tr|
+         memo.tap { |m| m[tr[:translation_key]] = tr[:translation] }
+       }]
+    }
+  end
+
   # In: [{translation_key: "foo", locale: "en", translation: "en foo"},
   #      {translation_key: "foo", locale: "fi", translation: "fi foo"},
   #      {translation_key: "bar", locale: "en", translation: "en bar"},
