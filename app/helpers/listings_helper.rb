@@ -126,10 +126,14 @@ module ListingsHelper
   end
 
   def shape_name(listing)
-    ts(listing.shape_name_tr_key, community: listing.communities.first)
+    # TODO Can we somehow remove this?
+    I18n::Backend::CommunityBackend.instance.set_community!(listing.communities.first.id)
+    t(listing.shape_name_tr_key)
   end
 
   def action_button_label(listing)
-    ts(listing.action_button_tr_key, community: listing.communities.first)
+    # TODO Can we somehow remove this?
+    I18n::Backend::CommunityBackend.instance.set_community!(listing.communities.first.id)
+    t(listing.action_button_tr_key)
   end
 end

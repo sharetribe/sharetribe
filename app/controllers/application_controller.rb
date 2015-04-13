@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
   def set_locale
     user_locale = Maybe(@current_user).locale.or_else(nil)
 
-    # We should remove this -- START
+    # We should fix this -- START
     #
     # There are a couple of controllers (amazon ses bounces, braintree webhooks) that
     # inherit application controller, even though they shouldn't. ApplicationController
@@ -68,7 +68,21 @@ class ApplicationController < ActionController::Base
     m_community = Maybe(@current_community)
     community_locales = m_community.locales.or_else([])
     community_default_locale = m_community.default_locale.or_else("en")
-    # We should remove this -- END
+
+    # Load translations from TranslationService
+    community_backend = I18n::Backend::CommunityBackend.instance
+    m_community.map(&:id).each { |community_id|
+      community_backend.set_community!(community_id)
+      fetch_community_translations(community_id).each { |locale, data|
+        # Store community translations to I18n backend.
+        #
+        # Since the data in data hash is already flatten, we don't want to
+        # escape the separators (. dots) in the key
+        community_backend.store_translations(locale, data, escape: false)
+      }
+    }
+
+    # We should fix this -- END
 
     locale = select_locale(user_locale, params[:locale], community_locales, community_default_locale)
 
@@ -373,11 +387,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def community_translations
-    @community_translations ||= TranslationService::API::Api.translations.get(@current_community.id)[:data]
-  end
-
-  def translate(key, opts = {})
-    TranslationServiceHelper.pick_translation(key, community_translations, @current_community.locales, I18n.locale, opts)
+  def fetch_community_translations(community_id)
+    translations = TranslationService::API::Api.translations.get(community_id)[:data]
+    locale_groups = translations.group_by { |tr| tr[:locale] }
+    locale_groups.map { |(locale, translations)|
+      [locale.to_sym, translations.inject({}) { |memo, tr|
+         memo.tap { |m| m[tr[:translation_key]] = tr[:translation] }
+       }]
+    }
   end
 end

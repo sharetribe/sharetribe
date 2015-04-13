@@ -28,7 +28,7 @@ module CategoryViewUtils
   #     "id" => "id"
   #   }
   # ]
-  def category_tree(categories: categories, shapes: shapes, locale:, all_locales:, translation_cache:)
+  def category_tree(categories: categories, shapes: shapes, locale:, all_locales:)
     categories.map { |c|
       {
         id: c[:id],
@@ -48,18 +48,13 @@ module CategoryViewUtils
 
   # private
 
-  def embed_shape(ids, shapes, locale, all_locales, translation_cache)
+  def embed_shape(ids, shapes)
     shapes.select { |s|
       ids.include? s[:id]
     }.map { |s|
       {
         id: s[:id],
-        label: TranslationServiceHelper.pick_translation(
-          s[:name_tr_key],
-          translation_cache,
-          all_locales,
-          locale
-        )
+        label: I18n.translate(s[:name_tr_key])
       }
     }
   end

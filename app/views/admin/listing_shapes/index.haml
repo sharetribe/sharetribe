@@ -18,7 +18,7 @@
         %tbody
           - listing_shapes.map do |shape|
             %tr
-              %td= ts(shape[:name_tr_key])
+              %td= t(shape[:name_tr_key])
               %td= "TODO"
               %td
                 = link_to edit_admin_listing_shape_path(shape[:id]) do
