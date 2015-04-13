@@ -51,7 +51,7 @@ module ListingViewUtils
     else
       case unit[:type]
       when :day
-        I18n.translate("listings.form.units.day")
+        I18n.translate("listings.unit_types.day")
       else
         "No translation for builtin unit type #{unit[:type].inspect}"
       end

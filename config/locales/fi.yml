@@ -1323,13 +1323,6 @@ fi:
         shipping: Postitus
         shipping_price: "Postituksen hinta"
         pickup: Nouto
-      units:
-        piece: "kappale"
-        hour: "tunti"
-        day: "päivä"
-        night: "yö"
-        week: "viikko"
-        month: "kuukausi"
       origin:
         location: Sijainti
         origin: Lähtöpaikka
@@ -1472,7 +1465,7 @@ fi:
       shipping: "Postikulut (+%{price})"
       pickup: Nouto
     unit_types:
-      piece: kpl
+      piece: kappale
       hour: tunti
       day: päivä
       night: yö
