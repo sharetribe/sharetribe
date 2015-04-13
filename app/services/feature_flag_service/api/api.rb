@@ -2,7 +2,8 @@ module FeatureFlagService::API
   class Api
 
     def self.features
-      @features ||= FeatureFlagService::API::Features.new
+      @features ||= FeatureFlagService::API::Features.new(
+        FeatureFlagService::Store::CachingFeatureFlag.new)
     end
 
   end
