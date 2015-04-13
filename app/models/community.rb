@@ -360,11 +360,6 @@ class Community < ActiveRecord::Base
     where(sql)
   end
 
-  def email_all_members(subject, mail_content, default_locale="en", verbose=false)
-    puts "Sending mail to all #{members.count} members in community: #{self.name(default_locale)}" if verbose
-    PersonMailer.deliver_open_content_messages(members.all, subject, mail_content, default_locale, verbose)
-  end
-
   def menu_link_attributes=(attributes)
     ids = []
 
