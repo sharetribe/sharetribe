@@ -374,14 +374,6 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  # Depricated. Use CreateMemberEmailBatchJob instead.
-  # A message from the community admin to all the community members
-  def self.community_member_emails(sender, community, email_subject, email_content, email_locale)
-    community.members.each do |recipient|
-      self.community_member_email_from_admin(sender, recipient, community, email_subject, email_content, email_locale)
-    end
-  end
-
   # A message from the community admin to a community member
   def self.community_member_email_from_admin(sender, recipient, community, email_subject, email_content, email_locale)
     if recipient.should_receive?("email_from_admins") && (email_locale.eql?("any") || recipient.locale.eql?(email_locale))
