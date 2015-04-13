@@ -12,9 +12,13 @@ module I18n
     # `instance` method returns the singleton instance
     #
     class CommunityBackend < KeyValue
+      include Fallbacks
+
       class << self
         attr_accessor(:translation_service_backend_instance)
       end
+
+      attr_accessor :community_id
 
       def store_translations(locale, data, options = {})
         return unless @community_id
@@ -25,11 +29,6 @@ module I18n
         return unless @community_id
         super(locale, "#{@community_id}.#{key}", scope, options)
       end
-
-      def set_community!(community_id)
-        @community_id = community_id
-      end
-
 
       def self.instance
         self.translation_service_backend_instance ||= CommunityBackend.new({})
@@ -47,4 +46,3 @@ module I18n
 end
 
 I18n.backend = I18n::Backend::Chain.new(I18n::Backend::CommunityBackend.instance, I18n.backend)
-

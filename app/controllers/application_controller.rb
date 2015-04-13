@@ -72,7 +72,7 @@ class ApplicationController < ActionController::Base
     # Load translations from TranslationService
     community_backend = I18n::Backend::CommunityBackend.instance
     m_community.map(&:id).each { |community_id|
-      community_backend.set_community!(community_id)
+      community_backend.community_id = community_id
       community_translations = TranslationService::API::Api.translations.get(community_id)[:data]
       TranslationServiceHelper.community_translations_for_i18n_backend(community_translations).each { |locale, data|
         # Store community translations to I18n backend.

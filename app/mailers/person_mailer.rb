@@ -4,7 +4,6 @@ include ApplicationHelper
 include PeopleHelper
 include ListingsHelper
 include TruncateHtmlHelper
-include TranslationHelper
 
 class PersonMailer < ActionMailer::Base
   include MailUtils
@@ -22,8 +21,8 @@ class PersonMailer < ActionMailer::Base
   def conversation_status_changed(transaction, community)
     @email_type =  (transaction.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
     recipient = transaction.other_party(transaction.listing.author)
-    set_up_urls(recipinet, community, @email_type)
-    with_setup(recipient.locale, community) do
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community) do
       @transaction = transaction
 
       if @transaction.payment_gateway == "braintree" ||  @transaction.payment_process == "postpay"
@@ -124,6 +123,7 @@ class PersonMailer < ActionMailer::Base
                      :subject => t("emails.escrow_canceled.subject")) do |format|
         format.html { render "escrow_canceled" }
       end
+    end
   end
 
   def escrow_canceled(conversation, community)

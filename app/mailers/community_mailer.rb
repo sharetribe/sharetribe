@@ -2,7 +2,6 @@ include ApplicationHelper
 include PeopleHelper
 include ListingsHelper
 include TruncateHtmlHelper
-include TranslationHelper
 
 class CommunityMailer < ActionMailer::Base
 
