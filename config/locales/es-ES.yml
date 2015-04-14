@@ -1479,7 +1479,7 @@ es-ES:
       by: "%{listing} por %{author}"
       payment: Pago
       exp: "Exp:"
-      you_will_be_charged: ~
+      you_will_be_charged: "Se te cobrará este valor únicamente si %{author} acepta la transacción. %{author} necesita aceptar la transacción en un período de %{expiration_period} días.  En caso de que %{author} rechace tu solicitud o no responda, no se hará ningún cobro."
       day: día
       days: días
     transaction_agreement_checkbox:
@@ -1569,8 +1569,8 @@ es-ES:
       paypal_not_enabled: "Los pagos a través de Paypal no están habilitados."
       billing_agreement_canceled: "El acuerdo de facturación ha sido cancelado"
       billing_agreement_not_accepted: "No has aceptado el acuerdo de facturación de Paypal"
-      billing_agreement_wrong_account: "Las cuentas de Paypal no coinciden. Por favor, usa la misma cuenta de Paypal con la que has conectado en el primer paso."
-      something_went_wrong: "Algo fue mal. Por favor, prueba de nuevo. Si el problema persiste, ponte en contacto con los administradores."
+      billing_agreement_wrong_account: "Las cuentas de Paypal no coinciden. Por favor, usa la misma cuenta de Paypal con la que te has conectado en el primer paso."
+      something_went_wrong: "Ocurrió algún error. Por favor, prueba de nuevo. Si el problema persiste, ponte en contacto con los administradores."
       account_not_verified: "No has verificado tu cuenta de PayPal. Necesitas ir a paypal.com y verificar tu cuenta antes de continuar."
       account_restricted: "Tu cuenta de Paypal está restringida y no se puede conectar. Por favor inicia sesión en paypal.com para más información de lo que esto significa o ponte en contacto con Atención al Cliente de Paypal para resolver este problema."
   paypal:
@@ -1578,7 +1578,7 @@ es-ES:
     checkout_with_paypal: "Pago con PayPal"
     cancel_succesful: "Pago en PayPal cancelado con éxito."
     transaction:
-      commission_payment_name: "Pago de comisión para %{listing_title}"
+      commission_payment_name: "Pago de comisión por %{listing_title}"
       commission_payment_description: "El marketplace %{service_name} cobró esta comisión por la transacción sobre %{listing_title}"
     wait_while_loading: "Por favor, espera."
     chatting_with_paypal: "Estamos hablando con PayPal."

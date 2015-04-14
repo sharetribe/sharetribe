@@ -460,8 +460,8 @@ hu:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: ~
-      favor_request_message_form_title: ~
+      favor_offer_message_form_title: "Segítséget kérek innen: %{person}"
+      favor_request_message_form_title: "Segítek neki: %{person}"
       housing_offer_message_form_title: ~
       housing_request_message_form_title: ~
       item_offer_lend_message_form_title: ~
@@ -481,7 +481,7 @@ hu:
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: ~
-      message: ~
+      message: Üzenet
       message_to: ~
       optional_message_to: ~
       rideshare_offer_message_form_title: ~
@@ -491,7 +491,7 @@ hu:
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: Cím
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -499,8 +499,8 @@ hu:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: "Választ küldök"
+      write_a_reply: "Választ írok"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -514,11 +514,11 @@ hu:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: "Visszajelzés elküldve"
+      feedback_skipped: "Visszajelzés küldést kihagyom"
+      give_feedback: "Visszajelzés küldése"
+      offer_accepted: Elfogadva
+      offer_rejected: Elutasítva
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -534,13 +534,13 @@ hu:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: Elfogadva
+      request_rejected: Elutasítva
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "Visszajelzés küldését kihagyom"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -556,8 +556,8 @@ hu:
           unknown_reason: ~
           verify: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
+      accept_offer: "Ajánlást elfogadom"
+      accept_request: "Kérést elfogadom"
       reject_offer: ~
       reject_request: ~
       accept_preauthorized_offer: ~
@@ -687,10 +687,10 @@ hu:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      check_your_settings: ~
-      hey: ~
-      kassi_team: ~
-      thanks: ~
+      check_your_settings: "Ellenőrizd a beállításaidat."
+      hey: "Szia %{name}!"
+      kassi_team: "Az %{service_name} csapat"
+      thanks: "Köszi,"
       want_to_control_emails: ~
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
@@ -704,10 +704,10 @@ hu:
       has_rejected_your_offer: ~
       has_rejected_your_request: ~
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: Elfogadva
+      your_offer_was_rejected: Elutasítva
+      your_request_was_accepted: Elfogadva
+      your_request_was_rejected: Elutasítva
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~

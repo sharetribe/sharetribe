@@ -2,54 +2,54 @@ hu:
   errors:
     messages:
       expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      not_found: "Nincs találat."
+      already_confirmed: "Jelentkez be."
+      not_locked: "Nem volt bezárva."
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: "Már bejelentkeztél."
+      unauthenticated: "A folytatáshoz be kell jelentkezned vagy iratkozz fel."
+      unconfirmed: "Előbb meg kell erősítened fiókodat."
+      locked: "A fiókod zárolva van."
+      invalid: "Helytelen email cím vagy jelszó."
+      invalid_token: "Érvénytelen azonosító."
+      timeout: "A munkamenet lejárt, kérjük jelentkezz be újra."
+      inactive: "A fiókodat még nem aktiváltad."
     passwords:
-      updated_not_active: ~
+      updated_not_active: "A jelszavadat sikeresen megváltoztattad."
       send_paranoid_instructions: ~
       send_instructions: ~
-      updated: ~
+      updated: "A jelszavad megváltozott."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Sikeresen bejelentkeztél."
+      signed_out: "Sikeresen kijelentkeztél."
     confirmations:
       send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_instructions: "Pár percen belül kapsz egy e-mailt, benne a megerősítéshez szükséges utasításokkal."
+      confirmed: "Fiókodat sikeresen megerősítetted."
     registrations:
-      signed_up_but_unconfirmed: ~
+      signed_up_but_unconfirmed: "A megerősítő linket elküldtük az e-mail címedre."
       signed_up_but_inactive: ~
       signed_up_but_locked: ~
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
+        inactive: Inaktív
+        unconfirmed: "Nem megerősített."
+        locked: Zárolt
       update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+      signed_up: "Helló! Sikeresen csatlakoztál!"
+      updated: "Fiókodat frissítettük."
+      destroyed: "Viszlát! A fiókodat töröltük. Reméljük hamarosan újra látunk."
     unlocks:
       send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_instructions: "Pár percen belül kapsz egy e-mailt, benne a feloldáshoz szükséges utasításokkal."
+      unlocked: "A munkamenet lejárt, kérjük jelentkezz be újra."
     omniauth_callbacks:
       success: ~
       failure: ~
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Megerősítési utasítások."
       reset_password_instructions:
         subject: ~
       unlock_instructions:
-        subject: ~
+        subject: "Feloldási utasítások."
