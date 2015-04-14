@@ -184,7 +184,7 @@ class ListingsController < ApplicationController
                        process: process)
 
       if allow_posting
-        unit_options = ListingViewUtils.unit_options(shape[:units], tr_opts)
+        unit_options = ListingViewUtils.unit_options(shape[:units])
 
         render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(
                  shape: shape,
@@ -271,7 +271,7 @@ class ListingsController < ApplicationController
 
     shape = get_shape(@listing.listing_shape_id)
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
-    unit_options = ListingViewUtils.unit_options(shape[:units], tr_opts, unit_from_listing(@listing))
+    unit_options = ListingViewUtils.unit_options(shape[:units], unit_from_listing(@listing))
 
     render locals: commission(@current_community, process).merge(
              shape: shape,

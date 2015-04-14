@@ -46,7 +46,7 @@
       - elsif listing_quantity > 1
         .conversation-per-unit-wrapper
           %span.conversation-per-unit-label
-            = t("transactions.price_per_quantity", unit_type: translate_quantity_unit(listing.unit_type))
+            = t("transactions.price_per_quantity", unit_type: ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key))
           %span.conversation-per-unit-value
             = humanized_money_with_symbol(listing.price)
         .conversation-quantity-wrapper

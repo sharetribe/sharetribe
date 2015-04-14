@@ -88,8 +88,8 @@ module ListingsHelper
   end
 
   def price_quantity_slash_unit(listing)
-    if listing.unit_type == :day
-      "/ " + t("unit.day")
+    if listing.unit_type.present?
+      "/ " + ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key)
     elsif listing.quantity.present?
       "/ #{listing.quantity}"
     else
@@ -98,30 +98,19 @@ module ListingsHelper
   end
 
   def price_quantity_per_unit(listing)
-    listing_unit_type_localized = translate_quantity_unit(listing.unit_type)
-    if [nil, :custom].include?(listing.unit_type)
-      ""
-    else
-      t("listings.show.price.per_quantity_unit", quantity_unit: listing_unit_type_localized)
-    end
-  end
+    quantity =
+      if listing.unit_type.present?
+        ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key)
+      elsif listing.quantity.present?
+        listing.quantity
+      else
+        nil
+      end
 
-  def translate_quantity_unit(unit_type)
-    case unit_type
-    when :piece
-      t("listings.unit_types.piece")
-    when :hour
-      t("listings.unit_types.hour")
-    when :day
-      t("listings.unit_types.day")
-    when :night
-      t("listings.unit_types.night")
-    when :week
-      t("listings.unit_types.week")
-    when :month
-      t("listings.unit_types.month")
+    if quantity
+      t("listings.show.price.per_quantity_unit", quantity_unit: quantity)
     else
-      :custom # TODO needs dynamic translations
+      ""
     end
   end
 

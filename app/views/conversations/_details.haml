@@ -27,7 +27,7 @@
           = "/ #{listing.quantity}"
 
         - elsif listing.unit_type.present?
-          = "/ #{translate_quantity_unit(listing.unit_type)}"
+          = "/ #{ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key)}"
 
         - if @current_community.vat
           %span.message-price-vat

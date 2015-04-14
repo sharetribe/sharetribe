@@ -10,14 +10,14 @@ module ListingViewUtils
   #   ['hour', {type: 'hour', quantity_selector: 'number'}, false]
   #   ['three hours', {type: 'custom', quantity_selector: 'number', translation_key: 'abcd-1231-12332-accc}, false]
   # ]
-  def unit_options(units, tr_opts, selected_unit = nil)
+  def unit_options(units, selected_unit = nil)
     units.map { |unit|
       value = encode_unit(unit)
       # is_selected = unit_equals?(unit, selected_unit)
       is_selected = unit == selected_unit
 
       {
-        display: translate_unit(unit, tr_opts),
+        display: translate_unit(unit[:type], unit[:translation_key]),
         value: value,
         selected: is_selected
       }
@@ -45,16 +45,24 @@ module ListingViewUtils
       })
   end
 
-  def translate_unit(unit, tr_opts)
-    if unit[:translation_key]
-      TranslationServiceHelper.pick(unit[:translation_key], tr_opts)
+  def translate_unit(type, tr_key)
+    case type
+    when :piece
+      I18n.translate("listings.unit_types.piece")
+    when :hour
+      I18n.translate("listings.unit_types.hour")
+    when :day
+      I18n.translate("listings.unit_types.day")
+    when :night
+      I18n.translate("listings.unit_types.night")
+    when :week
+      I18n.translate("listings.unit_types.week")
+    when :month
+      I18n.translate("listings.unit_types.month")
+    when :custom
+      I18n.translate(tr_key)
     else
-      case unit[:type]
-      when :day
-        I18n.translate("listings.unit_types.day")
-      else
-        "No translation for builtin unit type #{unit[:type].inspect}"
-      end
+      "No translation for unit type: #{type}, translation_key: #{tr_key}"
     end
   end
 end
