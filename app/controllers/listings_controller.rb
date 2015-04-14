@@ -230,9 +230,9 @@ class ListingsController < ApplicationController
     ))
 
     @listing.author = @current_user
-    @listing.custom_field_values = create_field_values(params[:custom_fields])
 
     if @listing.save
+      save_field_values!(@listing, params[:custom_fields])
       listing_image_ids = params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
       ListingImage.where(id: listing_image_ids, author_id: @current_user.id).update_all(listing_id: @listing.id)
 
@@ -279,8 +279,6 @@ class ListingsController < ApplicationController
       end
     end
 
-    @listing.custom_field_values = create_field_values(params[:custom_fields])
-
     params[:listing] = normalize_price_param(params[:listing])
 
     shape = get_shape(@listing.listing_shape_id)
@@ -297,6 +295,8 @@ class ListingsController < ApplicationController
       shape_name_tr_key: shape[:name_tr_key],
       action_button_tr_key: shape[:action_button_tr_key]
     ))
+
+    save_field_values!(@listing, params[:custom_fields])
 
     if update_successful
       @listing.location.update_attributes(params[:location]) if @listing.location
@@ -352,7 +352,7 @@ class ListingsController < ApplicationController
   end
 
   def ensure_current_user_is_listing_author(error_message)
-    @listing = Listing.find(params[:id])
+    @listing = Listing.includes(custom_field_values: :selected_options).find(params[:id])
     return if current_user?(@listing.author) || @current_user.has_admin_rights_in?(@current_community)
     flash[:error] = error_message
     redirect_to @listing and return
@@ -464,42 +464,58 @@ class ListingsController < ApplicationController
   end
 
   def custom_field_value_factory(custom_field_id, answer_value)
-    question = CustomField.find(custom_field_id)
+  end
 
-    answer = question.with_type do |question_type|
-      case question_type
-      when :dropdown
-        option_id = answer_value.to_i
-        answer = DropdownFieldValue.new
-        answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => answer_value)]
-        answer
-      when :text
-        answer = TextFieldValue.new
-        answer.text_value = answer_value
-        answer
-      when :numeric
-        answer = NumericFieldValue.new
-        answer.numeric_value = ParamsService.parse_float(answer_value)
-        answer
-      when :checkbox
-        answer = CheckboxFieldValue.new
-        answer.custom_field_option_selections = answer_value.map { |value| CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => value) }
-        answer
-      when :date_field
-        answer = DateFieldValue.new
-        answer.date_value = DateTime.new(answer_value["(1i)"].to_i,
-                                         answer_value["(2i)"].to_i,
-                                         answer_value["(3i)"].to_i)
-        answer
-      else
-        throw "Unimplemented custom field answer for question #{question_type}"
+  def save_field_values!(listing, custom_field_params)
+    custom_field_value_ids = listing.custom_field_values.map(&:id)
+    CustomFieldOptionSelection.where(custom_field_value_id: custom_field_value_ids).delete_all
+    CustomFieldValue.where(id: custom_field_value_ids).delete_all
+
+    custom_field_params.reject { |_, answer_value|
+      is_answer_value_blank(answer_value)
+    }.each { |custom_field_id, answer_value|
+
+      question = CustomField.find(custom_field_id)
+
+      answer = question.with_type do |question_type|
+        case question_type
+        when :dropdown
+          option_id = answer_value.to_i
+          answer = DropdownFieldValue.new
+          answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => answer_value)]
+          answer.save!
+          answer
+        when :text
+          answer = TextFieldValue.new
+          answer.text_value = answer_value
+          answer.save!
+          answer
+        when :numeric
+          answer = NumericFieldValue.new
+          answer.numeric_value = ParamsService.parse_float(answer_value)
+          answer.save!
+          answer
+        when :checkbox
+          # This still creates multiple MySQL queries
+          answer = CheckboxFieldValue.create!
+          CustomFieldOptionSelection.create!(answer_value.map { |value| {custom_field_value_id: answer.id, custom_field_option_id: value} })
+          answer
+        when :date_field
+          answer = DateFieldValue.new
+          answer.date_value = DateTime.new(answer_value["(1i)"].to_i,
+                                           answer_value["(2i)"].to_i,
+                                           answer_value["(3i)"].to_i)
+          answer.save!
+          answer
+        else
+          throw "Unimplemented custom field answer for question #{question_type}"
+        end
       end
-    end
 
-    answer.question = question
-    answer.save
-    logger.info "Errors: #{answer.errors.full_messages.inspect}"
-    return answer
+      answer.question = question
+      answer.listing_id = listing.id
+      answer.save
+    }
   end
 
   def create_field_values(custom_field_params)
