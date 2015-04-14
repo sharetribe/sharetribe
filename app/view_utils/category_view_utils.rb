@@ -33,13 +33,12 @@ module CategoryViewUtils
       {
         id: c[:id],
         label: pick_category_translation(c[:translations], locale, all_locales),
-        listing_shapes: embed_shape(c[:listing_shape_ids], shapes, locale, all_locales, translation_cache),
+        listing_shapes: embed_shape(c[:listing_shape_ids], shapes, locale, all_locales),
         subcategories: category_tree(
           categories: c[:children],
           shapes: shapes,
           locale: locale,
-          all_locales: all_locales,
-          translation_cache: translation_cache
+          all_locales: all_locales
         )
       }
     }
