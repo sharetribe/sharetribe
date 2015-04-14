@@ -13,7 +13,9 @@ class MercuryUpdateController < ApplicationController
     end
 
     if @community_customization
-      @community_customization.update_attributes(param_hash)
+      if !@community_customization.update_attributes(param_hash)
+        flash[:error] = I18n.t("mercury.content_too_long")
+      end
     else
       @current_community.community_customizations.create(param_hash.merge({:locale => I18n.locale}))
     end
