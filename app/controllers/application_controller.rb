@@ -68,11 +68,12 @@ class ApplicationController < ActionController::Base
     m_community = Maybe(@current_community)
     community_locales = m_community.locales.or_else([])
     community_default_locale = m_community.default_locale.or_else("en")
+    community_id = m_community[:id].or_else(nil)
+    community_backend = I18n::Backend::CommunityBackend.instance
 
     # Load translations from TranslationService
-    community_backend = I18n::Backend::CommunityBackend.instance
-    m_community.map(&:id).each { |community_id|
-      community_backend.community_id = community_id
+    if community_id
+      community_backend.set_community!(community_id)
       community_translations = TranslationService::API::Api.translations.get(community_id)[:data]
       TranslationServiceHelper.community_translations_for_i18n_backend(community_translations).each { |locale, data|
         # Store community translations to I18n backend.
@@ -81,7 +82,7 @@ class ApplicationController < ActionController::Base
         # escape the separators (. dots) in the key
         community_backend.store_translations(locale, data, escape: false)
       }
-    }
+    end
 
     # We should fix this -- END
 

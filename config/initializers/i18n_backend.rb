@@ -18,11 +18,21 @@ module I18n
         attr_accessor(:translation_service_backend_instance)
       end
 
-      attr_accessor :community_id
+      attr_reader :community_id
+
+      def set_community!(community_id, clear: true)
+        if community_id != @community_id
+          @community_id = community_id
+
+          # Clear store every time we switch community, this is not a cache
+          @store = {} if clear
+        end
+      end
 
       def store_translations(locale, data, options = {})
-        return unless @community_id
-        super(locale, wrap_community(data, @community_id), options)
+        raise ArgumentError.new("Set community via set_community! before storing translations.") unless @community_id
+
+        super(locale, {@community_id => data}, options)
       end
 
       def lookup(locale, key, scope = [], options = {})
@@ -34,13 +44,6 @@ module I18n
         self.translation_service_backend_instance ||= CommunityBackend.new({})
       end
 
-      private
-
-      def wrap_community(data, community_id)
-        hash = {}
-        hash[community_id] = data
-        return hash
-      end
     end
   end
 end

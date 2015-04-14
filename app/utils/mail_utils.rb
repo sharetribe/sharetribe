@@ -52,7 +52,7 @@ module MailUtils
     old_community_id = community_backend.community_id
 
     if old_community_id != new_community_id
-      community_backend.community_id = new_community_id
+      community_backend.set_community!(new_community_id, clear: false)
       community_translations = TranslationService::API::Api.translations.get(new_community_id)[:data]
       TranslationServiceHelper.community_translations_for_i18n_backend(community_translations).each { |locale, data|
         # Store community translations to I18n backend.
@@ -62,7 +62,7 @@ module MailUtils
         community_backend.store_translations(locale, data, escape: false)
       }
       block.call
-      community_backend.community_id = old_community_id
+      community_backend.set_community!(old_community_id, clear: false)
     else
       block.call
     end
