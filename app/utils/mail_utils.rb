@@ -12,8 +12,15 @@ module MailUtils
     if recipient
       @recipient = recipient
       @url_params[:locale] = @recipient.locale
-      set_locale @recipient.locale
     end
+  end
+
+  def with_locale(recipient_locale, community_id = nil, &block)
+    set_locale(recipient_locale) {
+      set_community(community_id) {
+        block.call
+      }
+    }
   end
 
   def premailer(message)
@@ -22,6 +29,47 @@ module MailUtils
       message.html_part.body = Premailer.new(message.html_part.body.to_s, with_html_string: true).to_inline_css
     else
       message.body = Premailer.new(message.body.to_s, with_html_string: true).to_inline_css
+    end
+  end
+
+  # private
+
+  def set_locale(new_locale, &block)
+    old_locale = I18n.locale
+
+    if old_locale.to_sym != new_locale.to_sym
+      I18n.locale = new_locale
+      begin
+        block.call
+      ensure
+        I18n.locale = old_locale
+      end
+    else
+      block.call
+    end
+  end
+
+  def set_community(new_community_id, &block)
+    community_backend = I18n::Backend::CommunityBackend.instance
+    old_community_id = community_backend.community_id
+
+    if old_community_id != new_community_id
+      community_backend.set_community!(new_community_id, clear: false)
+      community_translations = TranslationService::API::Api.translations.get(new_community_id)[:data]
+      TranslationServiceHelper.community_translations_for_i18n_backend(community_translations).each { |locale, data|
+        # Store community translations to I18n backend.
+        #
+        # Since the data in data hash is already flatten, we don't want to
+        # escape the separators (. dots) in the key
+        community_backend.store_translations(locale, data, escape: false)
+      }
+      begin
+        block.call
+      ensure
+        community_backend.set_community!(old_community_id, clear: false)
+      end
+    else
+      block.call
     end
   end
 

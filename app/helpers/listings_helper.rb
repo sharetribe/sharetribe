@@ -126,10 +126,10 @@ module ListingsHelper
   end
 
   def shape_name(listing)
-    ts(listing.shape_name_tr_key, community: listing.communities.first)
+    t(listing.shape_name_tr_key)
   end
 
   def action_button_label(listing)
-    ts(listing.action_button_tr_key, community: listing.communities.first)
+    t(listing.action_button_tr_key)
   end
 end

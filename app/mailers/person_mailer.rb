@@ -4,7 +4,6 @@ include ApplicationHelper
 include PeopleHelper
 include ListingsHelper
 include TruncateHtmlHelper
-include TranslationHelper
 
 class PersonMailer < ActionMailer::Base
   include MailUtils
@@ -21,85 +20,109 @@ class PersonMailer < ActionMailer::Base
 
   def conversation_status_changed(transaction, community)
     @email_type =  (transaction.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
-    set_up_urls(transaction.other_party(transaction.listing.author), community, @email_type)
-    @transaction = transaction
+    recipient = transaction.other_party(transaction.listing.author)
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community) do
+      @transaction = transaction
 
-    if @transaction.payment_gateway == "braintree" ||  @transaction.payment_process == "postpay"
-      # Payment url concerns only braintree and postpay, otherwise we show only the message thread
-      @payment_url = community.payment_gateway.new_payment_url(@recipient, @transaction, @recipient.locale, @url_params)
+      if @transaction.payment_gateway == "braintree" ||  @transaction.payment_process == "postpay"
+        # Payment url concerns only braintree and postpay, otherwise we show only the message thread
+        @payment_url = community.payment_gateway.new_payment_url(@recipient, @transaction, @recipient.locale, @url_params)
+      end
+
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.conversation_status_changed.your_request_was_#{transaction.status}"))
     end
-
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.conversation_status_changed.your_request_was_#{transaction.status}"))
   end
 
   def new_message_notification(message, community)
     @email_type =  "email_about_new_messages"
-    set_up_urls(message.conversation.other_party(message.sender), community, @email_type)
-    @message = message
-    sending_params = {:to => @recipient.confirmed_notification_emails_to,
-         :subject => t("emails.new_message.you_have_a_new_message", :sender_name => message.sender.name(community)),
-         :from => community_specific_sender(community)}
+    recipient = message.conversation.other_party(message.sender)
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      @message = message
+      sending_params = {:to => recipient.confirmed_notification_emails_to,
+                        :subject => t("emails.new_message.you_have_a_new_message", :sender_name => message.sender.name(community)),
+                        :from => community_specific_sender(community)}
 
-    premailer_mail(sending_params)
+      premailer_mail(sending_params)
+    end
   end
 
   def new_payment(payment, community)
     @email_type =  "email_about_new_payments"
     @payment = payment
-    set_up_urls(@payment.recipient, community, @email_type)
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.new_payment.new_payment"))
+    recipient = @payment.recipient
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.new_payment.new_payment"))
+    end
   end
 
   def receipt_to_payer(payment, community)
     @email_type =  "email_about_new_payments"
     @payment = payment
-    set_up_urls(@payment.payer, community, @email_type)
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.receipt_to_payer.receipt_of_payment"))
+    recipient = @payment.payer
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.receipt_to_payer.receipt_of_payment"))
+    end
   end
 
   def transaction_confirmed(conversation, community)
     @email_type =  "email_about_completed_transactions"
     @conversation = conversation
-    set_up_urls(@conversation.seller, community, @email_type)
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
+    recipient = conversation.seller
+    set_up_urls(conversation.seller, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
+    end
   end
 
   def transaction_automatically_confirmed(conversation, community)
     @email_type =  "email_about_completed_transactions"
     @conversation = conversation
-    set_up_urls(@conversation.buyer, community, @email_type)
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :template_path => 'person_mailer/automatic_confirmation',
-         :subject => t("emails.transaction_automatically_confirmed.subject"))
+    recipient = conversation.buyer
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :template_path => 'person_mailer/automatic_confirmation',
+                     :subject => t("emails.transaction_automatically_confirmed.subject"))
+    end
   end
 
   def booking_transaction_automatically_confirmed(transaction, community)
     @email_type = "email_about_completed_transactions"
     @transaction = transaction
-    set_up_urls(@transaction.buyer, community, @email_type)
-    mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :template_path => 'person_mailer/automatic_confirmation',
-         :subject => t("emails.booking_transaction_automatically_confirmed.subject"))
+    recipient = @transaction.buyer
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      mail(:to => @recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :template_path => 'person_mailer/automatic_confirmation',
+           :subject => t("emails.booking_transaction_automatically_confirmed.subject"))
+    end
   end
 
   def escrow_canceled_to(conversation, community, to)
     @email_type =  "email_about_canceled_escrow"
     @conversation = conversation
-    set_up_urls(@conversation.seller, community, @email_type)
-    premailer_mail(:to => to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.escrow_canceled.subject")) do |format|
-      format.html { render "escrow_canceled" }
+    recipient = conversation.seller
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      premailer_mail(:to => to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.escrow_canceled.subject")) do |format|
+        format.html { render "escrow_canceled" }
+      end
     end
   end
 
@@ -113,11 +136,14 @@ class PersonMailer < ActionMailer::Base
 
   def new_testimonial(testimonial, community)
     @email_type =  "email_about_new_received_testimonials"
-    set_up_urls(testimonial.receiver, community, @email_type)
-    @testimonial = testimonial
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name(community)))
+    recipient = testimonial.receiver
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      @testimonial = testimonial
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => testimonial.author.name(community)))
+    end
   end
 
   # Remind users of conversations that have not been accepted or rejected
@@ -126,67 +152,80 @@ class PersonMailer < ActionMailer::Base
   # but the actual recipient is always the listing author.
   def accept_reminder(conversation, not_really_a_recipient, community)
     @email_type = "email_about_accept_reminders"
-    set_up_urls(conversation.listing.author, community, @email_type)
-    @conversation = conversation
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.accept_reminder.remember_to_accept_request", :sender_name => @conversation.other_party(@recipient).name(community)))
+    recipient = conversation.listing.author
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      @conversation = conversation
+      premailer_mail(:to => @recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.accept_reminder.remember_to_accept_request", :sender_name => conversation.other_party(recipient).name(community)))
+    end
   end
 
   # Remind users to pay
   def payment_reminder(conversation, recipient, community)
     @email_type = "email_about_payment_reminders"
-    set_up_urls(conversation.payment.payer, community, @email_type)
-    @conversation = conversation
+    recipient = conversation.payment.payer
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      @conversation = conversation
 
-    @pay_url = payment_url(conversation, recipient, @url_params)
+      @pay_url = payment_url(conversation, recipient, @url_params)
 
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.payment_reminder.remember_to_pay", :listing_title => @conversation.listing.title))
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.payment_reminder.remember_to_pay", :listing_title => conversation.listing.title))
+    end
   end
 
   # Remind user to fill in payment details
   def payment_settings_reminder(listing, recipient, community)
     set_up_urls(recipient, community)
-    @listing = listing
-    @recipient = recipient
+    with_locale(recipient.locale, community.id) do
+      @listing = listing
+      @recipient = recipient
 
-    if community.payments_in_use?
-      @payment_settings_link = payment_settings_url(MarketplaceService::Community::Query.payment_type(community.id), recipient, @url_params)
-    end
+      if community.payments_in_use?
+        @payment_settings_link = payment_settings_url(MarketplaceService::Community::Query.payment_type(community.id), recipient, @url_params)
+      end
 
-    premailer_mail(:to => recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.payment_settings_reminder.remember_to_add_payment_details")) do |format|
-            format.html {render :locals => {:skip_unsubscribe_footer => true} }
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.payment_settings_reminder.remember_to_add_payment_details")) do |format|
+        format.html {render :locals => {:skip_unsubscribe_footer => true} }
+      end
     end
   end
 
   # Braintree account was approved (via Webhook)
   def braintree_account_approved(recipient, community)
     set_up_urls(recipient, community)
-    @recipient = recipient
+    with_locale(recipient.locale, community.id) do
+      @recipient = recipient
 
-    premailer_mail(:to => recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.braintree_account_approved.account_ready")) do |format|
-            format.html {render :locals => {:skip_unsubscribe_footer => true} }
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.braintree_account_approved.account_ready")) do |format|
+        format.html {render :locals => {:skip_unsubscribe_footer => true} }
+      end
     end
   end
 
   # Remind users of conversations that have not been accepted or rejected
   def confirm_reminder(conversation, recipient, community, days_to_cancel)
     @email_type = "email_about_confirm_reminders"
-    set_up_urls(conversation.buyer, community, @email_type)
-    @conversation = conversation
-    @days_to_cancel = days_to_cancel
-    escrow = community.payment_gateway && community.payment_gateway.hold_in_escrow
-    template = escrow ? "confirm_reminder_escrow" : "confirm_reminder"
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.confirm_reminder.remember_to_confirm_request")) do |format|
-      format.html { render template }
+    recipient = conversation.buyer
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      @conversation = conversation
+      @days_to_cancel = days_to_cancel
+      escrow = community.payment_gateway && community.payment_gateway.hold_in_escrow
+      template = escrow ? "confirm_reminder_escrow" : "confirm_reminder"
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.confirm_reminder.remember_to_confirm_request")) do |format|
+        format.html { render template }
+      end
     end
   end
 
@@ -194,75 +233,90 @@ class PersonMailer < ActionMailer::Base
   def testimonial_reminder(conversation, recipient, community)
     @email_type = "email_about_testimonial_reminders"
     set_up_urls(recipient, community, @email_type)
-    @conversation = conversation
-    @other_party = @conversation.other_party(@recipient)
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
+    with_locale(recipient.locale, community.id) do
+      @conversation = conversation
+      @other_party = @conversation.other_party(recipient)
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
+    end
   end
 
   def new_comment_to_own_listing_notification(comment, community)
     @email_type = "email_about_new_comments_to_own_listing"
-    set_up_urls(comment.listing.author, community, @email_type)
-    @comment = comment
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.new_comment.you_have_a_new_comment", :author => @comment.author.name(community)))
+    recipient = comment.listing.author
+    set_up_urls(recipient, community, @email_type)
+    with_locale(recipient.locale, community.id) do
+      @comment = comment
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.new_comment.you_have_a_new_comment", :author => comment.author.name(community)))
+    end
   end
 
   def new_comment_to_followed_listing_notification(comment, recipient, community)
     set_up_urls(recipient, community)
-    @comment = comment
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => @comment.author.name(community)))
+    with_locale(recipient.locale, community.id) do
+      @comment = comment
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => comment.author.name(community)))
+    end
   end
 
   def new_update_to_followed_listing_notification(listing, recipient, community)
     set_up_urls(recipient, community)
-    @listing = listing
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
+    with_locale(recipient.locale, community.id) do
+      @listing = listing
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
+    end
   end
 
   def new_listing_by_followed_person(listing, recipient, community)
     set_up_urls(recipient, community)
-    @listing = listing
-    @no_recipient_name = true
-    @author_name = listing.author.name(community)
-    @listing_url = listing_url(@url_params.merge({:id => @listing.id}))
-    @translate_scope = [ :emails, :new_listing_by_followed_person ]
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.new_listing_by_followed_person.subject",
-                       :author_name => @author_name,
-                       :community => community.full_name_with_separator(recipient.locale)))
+    with_locale(recipient.locale, community.id) do
+      @listing = listing
+      @no_recipient_name = true
+      @author_name = listing.author.name(community)
+      @listing_url = listing_url(@url_params.merge({:id => listing.id}))
+      @translate_scope = [ :emails, :new_listing_by_followed_person ]
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.new_listing_by_followed_person.subject",
+                                   :author_name => @author_name,
+                                   :community => community.full_name_with_separator(recipient.locale)))
+    end
   end
 
   def invitation_to_kassi(invitation)
     @invitation = invitation
-    I18n.locale = @invitation.inviter.locale
-    @invitation_code_required = @invitation.community.join_with_invite_only
-    set_up_urls(nil, @invitation.community)
-    @url_params[:locale] = @invitation.inviter.locale
-    subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name(@invitation.community), :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
-    premailer_mail(:to => @invitation.email,
-         :from => community_specific_sender(@invitation.community),
-         :subject => subject,
-         :reply_to => @invitation.inviter.confirmed_notification_email_to)
+    mail_locale = @invitation.inviter.locale
+    @invitation_code_required = invitation.community.join_with_invite_only
+    set_up_urls(nil, invitation.community)
+    @url_params[:locale] = mail_locale
+    with_locale(mail_locale, invitation.community.id) do
+      subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => invitation.inviter.name(invitation.community), :community => invitation.community.full_name_with_separator(invitation.inviter.locale))
+      premailer_mail(:to => invitation.email,
+                     :from => community_specific_sender(invitation.community),
+                     :subject => subject,
+                     :reply_to => invitation.inviter.confirmed_notification_email_to)
+    end
   end
 
   # A message from the community admin to a single community member
   def community_member_email(sender, recipient, email_subject, email_content, community)
     @email_type = "email_from_admins"
     set_up_urls(recipient, community, @email_type)
-    @email_content = email_content
-    @no_recipient_name = true
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => email_subject,
-         :reply_to => "\"#{sender.name(community)}\"<#{sender.confirmed_notification_email_to}>")
+    with_locale(recipient.locale, community.id) do
+      @email_content = email_content
+      @no_recipient_name = true
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => email_subject,
+                     :reply_to => "\"#{sender.name(community)}\"<#{sender.confirmed_notification_email_to}>")
+    end
   end
 
   # Used to send notification to Sharetribe admins when somebody
@@ -311,13 +365,14 @@ class PersonMailer < ActionMailer::Base
     @resource = email.person
     @confirmation_token = email.confirmation_token
     @host = community.full_domain
-    set_locale(email.person.locale)
-    email.update_attribute(:confirmation_sent_at, Time.now)
-    premailer_mail(:to => email.address,
-         :from => community_specific_sender(community),
-         :subject => t("devise.mailer.confirmation_instructions.subject"),
-         :template_path => 'devise/mailer',
-         :template_name => 'confirmation_instructions')
+    with_locale(email.person.locale, community) do
+      email.update_attribute(:confirmation_sent_at, Time.now)
+      premailer_mail(:to => email.address,
+                     :from => community_specific_sender(community),
+                     :subject => t("devise.mailer.confirmation_instructions.subject"),
+                     :template_path => 'devise/mailer',
+                     :template_name => 'confirmation_instructions')
+    end
   end
 
   def reset_password_instructions(person, email_address, community)
@@ -333,25 +388,29 @@ class PersonMailer < ActionMailer::Base
 
   def welcome_email(person, community, regular_email=nil, test_email=false)
     @recipient = person
-    set_locale @recipient.locale
-    @current_community = community
-    @regular_email = regular_email
-    @url_params = {}
-    @url_params[:host] = "#{@current_community.full_domain}"
-    @url_params[:locale] = @recipient.locale
-    @url_params[:ref] = "welcome_email"
-    @url_params.freeze # to avoid accidental modifications later
-    @test_email = test_email
+    recipient = person
+    with_locale(recipient.locale, community.id) do
 
-    if @recipient.has_admin_rights_in?(@current_community) && !@test_email
-      subject = t("emails.welcome_email.welcome_email_subject_for_marketplace_creator")
-    else
-      subject = t("emails.welcome_email.welcome_email_subject", :community => @current_community.full_name(@recipient.locale), :person => person.given_name_or_username)
-    end
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => subject) do |format|
-      format.html { render :layout => 'email_blank_layout' }
+      @current_community = community
+
+      @regular_email = regular_email
+      @url_params = {}
+      @url_params[:host] = "#{community.full_domain}"
+      @url_params[:locale] = recipient.locale
+      @url_params[:ref] = "welcome_email"
+      @url_params.freeze # to avoid accidental modifications later
+      @test_email = test_email
+
+      if @recipient.has_admin_rights_in?(community) && !@test_email
+        subject = t("emails.welcome_email.welcome_email_subject_for_marketplace_creator")
+      else
+        subject = t("emails.welcome_email.welcome_email_subject", :community => community.full_name(recipient.locale), :person => person.given_name_or_username)
+      end
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => subject) do |format|
+        format.html { render :layout => 'email_blank_layout' }
+      end
     end
   end
 

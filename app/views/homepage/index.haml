@@ -50,7 +50,7 @@
               .toggle-header-container
                 .toggle-header
                   - if selected_shape
-                    = ts(selected_shape[:name_tr_key]).mb_chars.capitalize.to_s
+                    = t(selected_shape[:name_tr_key]).mb_chars.capitalize.to_s
                   - else
                     = t("homepage.filters.all_listing_types")
 
@@ -60,7 +60,7 @@
               = link_to t("homepage.filters.all_listing_types"), params.merge({transaction_type: "all"})
               - shapes.each do |shape|
                 = link_to params.merge({transaction_type: shape[:name]}), class:  "toggle-menu-subitem" do
-                  = ts(shape[:name_tr_key]).mb_chars.capitalize.to_s
+                  = t(shape[:name_tr_key]).mb_chars.capitalize.to_s
 
         - if @show_categories
           .toggle-container.home-toolbar-toggle-container.hidden-tablet

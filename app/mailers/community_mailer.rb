@@ -2,7 +2,6 @@ include ApplicationHelper
 include PeopleHelper
 include ListingsHelper
 include TruncateHtmlHelper
-include TranslationHelper
 
 class CommunityMailer < ActionMailer::Base
 
@@ -44,36 +43,36 @@ class CommunityMailer < ActionMailer::Base
       return
     end
 
-    set_locale @recipient.locale
-    I18n.locale = @recipient.locale  #This was added so that listing share_types get correct translation
+    with_locale(recipient.locale, community.id) do
 
-    @time_since_last_update = t("timestamps.days_since",
-        :count => time_difference_in_days(@recipient.last_community_updates_at))
-    @url_params = {}
-    @url_params[:host] = "#{@community.full_domain}"
-    @url_params[:locale] = @recipient.locale
-    @url_params[:ref] = "weeklymail"
-    @url_params.freeze # to avoid accidental modifications later
+      @time_since_last_update = t("timestamps.days_since",
+                                  :count => time_difference_in_days(@recipient.last_community_updates_at))
+      @url_params = {}
+      @url_params[:host] = "#{@community.full_domain}"
+      @url_params[:locale] = @recipient.locale
+      @url_params[:ref] = "weeklymail"
+      @url_params.freeze # to avoid accidental modifications later
 
 
-    @show_listing_shape_label = shapes.get(community_id: community.id)[:data].length > 1
+      @show_listing_shape_label = shapes.get(community_id: community.id)[:data].length > 1
 
-    @title_link_text = t("emails.community_updates.title_link_text",
-          :community_name => @community.full_name(@recipient.locale))
-    subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)
+      @title_link_text = t("emails.community_updates.title_link_text",
+                           :community_name => @community.full_name(@recipient.locale))
+      subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)
 
-    if APP_CONFIG.mail_delivery_method == "postmark"
-      # Postmark doesn't support bulk emails, so use Sendmail for this
-      delivery_method = :sendmail
-    else
-      delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
-    end
+      if APP_CONFIG.mail_delivery_method == "postmark"
+        # Postmark doesn't support bulk emails, so use Sendmail for this
+        delivery_method = :sendmail
+      else
+        delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
+      end
 
-    premailer_mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => subject,
-         :delivery_method => delivery_method) do |format|
-      format.html { render :layout => 'email_blank_layout' }
+      premailer_mail(:to => @recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => subject,
+                     :delivery_method => delivery_method) do |format|
+        format.html { render :layout => 'email_blank_layout' }
+      end
     end
   end
 

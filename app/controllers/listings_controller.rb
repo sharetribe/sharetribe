@@ -193,8 +193,7 @@ class ListingsController < ApplicationController
         categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
         shapes: get_shapes,
         locale: I18n.locale,
-        all_locales: @current_community.locales,
-        translation_cache: community_translations
+        all_locales: @current_community.locales
       )
 
       render :new, locals: {
