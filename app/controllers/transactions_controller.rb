@@ -36,31 +36,6 @@ class TransactionsController < ApplicationController
 
     MarketplaceService::Transaction::Command.mark_as_seen_by_current(params[:id], @current_user.id)
 
-    price_break_down_locals =
-      if tx[:payment_process] == :none && tx[:listing_price].cents == 0
-        nil
-      else
-        total_label = (tx[:payment_process] != :preauthorize) ? t("transactions.price") : t("transactions.total")
-        unit_type = listing[:unit_type].present? ? translate_quantity_unit(tx[:unit_type]) : nil
-        quantity = tx[:listing_quantity]
-        show_subtotal = !!tx[:booking] || quantity.present? && quantity > 1 || tx[:shipping_price].present?
-        booking = !!tx[:booking]
-
-        TransactionViewUtils.price_break_down_locals({
-          listing_price: tx[:listing_price],
-          localized_unit_type: unit_type,
-          booking: booking,
-          start_on: booking ? tx[:booking][:start_on] : nil,
-          end_on: booking ? tx[:booking][:end_on] : nil,
-          duration: booking ? tx[:booking][:duration] : nil,
-          quantity: quantity,
-          subtotal: show_subtotal ? tx[:listing_price] * quantity : nil,
-          total: Maybe(tx[:payment_total]).or_else(tx[:checkout_total]),
-          shipping_price: tx[:shipping_price],
-          total_label: total_label
-        })
-      end
-
     render "transactions/show", locals: {
       messages: messages_and_actions.reverse,
       transaction: tx,
@@ -70,7 +45,7 @@ class TransactionsController < ApplicationController
       is_author: listing.author_id == @current_user.id,
       message_form: MessageForm.new({sender_id: @current_user.id, conversation_id: conversation[:id]}),
       message_form_action: person_message_messages_path(@current_user, :message_id => conversation[:id]),
-      price_break_down_locals: price_break_down_locals
+      price_break_down_locals: price_break_down_locals(tx)
     }
   end
 
@@ -98,5 +73,33 @@ class TransactionsController < ApplicationController
 
   def paypal_process
     PaypalService::API::Api.process
+  end
+
+  private
+
+  def price_break_down_locals(tx)
+    if tx[:payment_process] == :none && tx[:listing_price].cents == 0
+      nil
+    else
+      unit_type = tx[:unit_type].present? ? translate_quantity_unit(tx[:unit_type]) : nil
+      booking = !!tx[:booking]
+      quantity = tx[:listing_quantity]
+      show_subtotal = !!tx[:booking] || quantity.present? && quantity > 1 || tx[:shipping_price].present?
+      total_label = (tx[:payment_process] != :preauthorize) ? t("transactions.price") : t("transactions.total")
+
+      TransactionViewUtils.price_break_down_locals({
+        listing_price: tx[:listing_price],
+        localized_unit_type: unit_type,
+        booking: booking,
+        start_on: booking ? tx[:booking][:start_on] : nil,
+        end_on: booking ? tx[:booking][:end_on] : nil,
+        duration: booking ? tx[:booking][:duration] : nil,
+        quantity: quantity,
+        subtotal: show_subtotal ? tx[:listing_price] * quantity : nil,
+        total: Maybe(tx[:payment_total]).or_else(tx[:checkout_total]),
+        shipping_price: tx[:shipping_price],
+        total_label: total_label
+      })
+    end
   end
 end
