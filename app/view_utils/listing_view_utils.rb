@@ -13,7 +13,6 @@ module ListingViewUtils
   def unit_options(units, selected_unit = nil)
     units.map { |unit|
       value = encode_unit(unit)
-      # is_selected = unit_equals?(unit, selected_unit)
       is_selected = unit == selected_unit
 
       {
@@ -22,12 +21,6 @@ module ListingViewUtils
         selected: is_selected
       }
     }
-  end
-
-  def unit_equals?(a, b)
-    unit[:unit_type] == shape_unit[:unit_type] &&
-    unit[:quantity_selector] == shape_unit[:quantity_selector] &&
-    unit[:translation_key] == shape_unit[:translation_key]
   end
 
   def encode_unit(unit)
