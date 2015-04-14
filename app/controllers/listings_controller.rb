@@ -225,12 +225,11 @@ class ListingsController < ApplicationController
 
     @listing = Listing.new(
       create_listing_params(params[:listing]).merge(
-      listing_shape_id: shape[:id],
-      transaction_process_id: shape[:transaction_process_id],
-      shape_name_tr_key: shape[:name_tr_key],
-      action_button_tr_key: shape[:action_button_tr_key]
-    )
-      .merge(unit_to_listing_opts(m_unit)).except(:unit)
+        listing_shape_id: shape[:id],
+        transaction_process_id: shape[:transaction_process_id],
+        shape_name_tr_key: shape[:name_tr_key],
+        action_button_tr_key: shape[:action_button_tr_key]
+      ).merge(unit_to_listing_opts(m_unit)).except(:unit)
     )
 
     @listing.author = @current_user
@@ -301,13 +300,11 @@ class ListingsController < ApplicationController
 
     update_successful = @listing.update_fields(
       create_listing_params(params[:listing]).merge(
-      listing_shape_id: shape[:id],
-      transaction_process_id: shape[:transaction_process_id],
-      shape_name_tr_key: shape[:name_tr_key],
-      action_button_tr_key: shape[:action_button_tr_key]
-    )
-      .merge(unit_to_listing_opts(m_unit)).except(:unit)
-    )
+        listing_shape_id: shape[:id],
+        transaction_process_id: shape[:transaction_process_id],
+        shape_name_tr_key: shape[:name_tr_key],
+        action_button_tr_key: shape[:action_button_tr_key]
+      ).merge(unit_to_listing_opts(m_unit)).except(:unit))
 
     if update_successful
       @listing.location.update_attributes(params[:location]) if @listing.location
