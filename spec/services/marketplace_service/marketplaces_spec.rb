@@ -72,7 +72,14 @@ describe MarketplaceService::API::Marketplaces do
       community_hash = create(@community_params)
       c = Community.find(community_hash[:id])
       processes = TransactionService::API::Api.processes.get(community_id: c.id).data
-      expect(processes.any? { |p| p[:process] == :preauthorize })
+      expect(processes.any? { |p| p[:process] == :preauthorize }).to eq(true)
+    end
+
+    it "should create marketplace without payment process" do
+      community_hash = create(@community_params.merge(payment_process: :none))
+      c = Community.find(community_hash[:id])
+      processes = TransactionService::API::Api.processes.get(community_id: c.id).data
+      expect(processes.any? { |p| p[:process] == :none }).to eq(true)
     end
 
     it "should have community customizations" do

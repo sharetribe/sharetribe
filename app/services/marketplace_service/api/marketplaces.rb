@@ -55,7 +55,7 @@ module MarketplaceService::API
 
       locale = p[:marketplace_language].or_else("en")
       marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
-      payment_process = p[:payment_process].or_else(:none)
+      payment_process = p[:payment_process].or_else(:preauthorize)
 
       community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
 
