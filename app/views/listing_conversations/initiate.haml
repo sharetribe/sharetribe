@@ -25,14 +25,7 @@
           = t("listing_conversations.preauthorize.by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
 
       %li
-        - booking = preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
-        - start_on = booking ? preauthorize_form.start_on : nil
-        - end_on = booking ? preauthorize_form.end_on : nil
-        - duration = booking ? duration : nil
-        - quantity = local_assigns.has_key?(:quantity) ? quantity : nil
-        - localized_unit_type = listing[:unit_type].present? ? translate_quantity_unit(listing[:unit_type]) : nil
-        - shipping_price = Maybe(listing[:shipping_price]).or_else(nil)
-        = render partial: "transactions/price_break_down", locals: { booking: booking, start_on: start_on, end_on: end_on, duration: duration, listing: listing, listing_price: listing[:price], quantity: quantity, localized_unit_type: localized_unit_type, subtotal: subtotal, sum: sum, shipping_price: shipping_price }
+        = render partial: "transactions/price_break_down", locals: price_break_down_locals
 
   = form_for preauthorize_form,
     :url => form_action,
