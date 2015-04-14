@@ -418,8 +418,8 @@ class ListingsController < ApplicationController
 
   def unit_from_listing(listing)
     HashUtils.compact({
-      type: listing.unit_type.to_sym,
-      quantity_selector: listing.quantity_selector.to_sym,
+      type: Maybe(listing.unit_type).to_sym.or_else(nil),
+      quantity_selector: Maybe(listing.quantity_selector).to_sym.or_else(nil),
       translation_key: listing.unit_tr_key
     })
   end
