@@ -218,7 +218,7 @@ class ListingsController < ApplicationController
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
     m_unit = select_unit(params, shape)
 
-    if unit_required?(shape) && !unit_belongs_to_shape?(m_unit, shape)
+    if unit_required?(shape) && m_unit.is_none?
       flash[:error] = "Given unit doesn't belong to listing shape" # no need to translate, rare case
       redirect_to new_listing_path and return
     end
@@ -293,7 +293,7 @@ class ListingsController < ApplicationController
     shape = get_shape(@listing.listing_shape_id)
     m_unit = select_unit(params, shape)
 
-    if unit_required?(shape) && !unit_belongs_to_shape?(m_unit, shape)
+    if unit_required?(shape) && m_unit.is_none?
       flash[:error] = "Given unit doesn't belong to listing shape" # no need to translate, rare case
       redirect_to new_listing_path and return
     end
@@ -383,6 +383,8 @@ class ListingsController < ApplicationController
   def select_unit(params, shape)
     m_unit = Maybe(shape)[:units].map { |units|
       shape[:units].length == 1 ? shape[:units].first : parse_unit(params)
+    }.select { |unit|
+      unit_belongs_to_shape?(unit, shape)
     }
   end
 
@@ -396,8 +398,7 @@ class ListingsController < ApplicationController
     !shape[:units].empty?
   end
 
-  def unit_belongs_to_shape?(m_unit, shape)
-    unit = m_unit.get
+  def unit_belongs_to_shape?(unit, shape)
     shape[:units].any? { |shape_unit|
       unit == shape_unit
     }
