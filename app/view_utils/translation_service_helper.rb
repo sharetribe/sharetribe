@@ -1,11 +1,5 @@
 module TranslationServiceHelper
 
-  TranslationOpts = EntityUtils.define_builder(
-    [:locale, :to_string, :mandatory],
-    [:all_locales, :array, default: []],
-    [:cache, :array, :mandatory]
-  )
-
   module_function
 
   def community_translations_for_i18n_backend(translations)
