@@ -39,9 +39,11 @@ module MailUtils
 
     if old_locale.to_sym != new_locale.to_sym
       I18n.locale = new_locale
-      # TODO store_translations here
-      block.call
-      I18n.locale = old_locale
+      begin
+        block.call
+      ensure
+        I18n.locale = old_locale
+      end
     else
       block.call
     end
@@ -61,8 +63,11 @@ module MailUtils
         # escape the separators (. dots) in the key
         community_backend.store_translations(locale, data, escape: false)
       }
-      block.call
-      community_backend.set_community!(old_community_id, clear: false)
+      begin
+        block.call
+      ensure
+        community_backend.set_community!(old_community_id, clear: false)
+      end
     else
       block.call
     end
