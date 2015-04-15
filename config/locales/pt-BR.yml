@@ -1416,7 +1416,13 @@ pt-BR:
       community_not_configured_for_payments: "%{service_name} não foi configurado para os pagamentos, então você ainda não pode criar novos anúncios. Por favor, %{contact_admin_link} para mais detalhes."
       payment_settings_link: "configurações de pagamento"
       community_not_configured_for_payments_admin: "%{service_name} não foi configurado para receber os pagamentos, por isso você não pode criar novos anúncios. Ir para %{payment_settings_link} para preencher os detalhes de pagamento."
-    quantity: ~
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      custom: ~
     quantity_placeholder: ~
     please_comment: Comentar
     reply_link:

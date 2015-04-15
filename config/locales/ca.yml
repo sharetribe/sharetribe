@@ -1403,7 +1403,13 @@ ca:
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
-    quantity: ~
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      custom: ~
     quantity_placeholder: ~
     please_comment: Comentari
     reply_link:

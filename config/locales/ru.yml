@@ -1426,7 +1426,13 @@ ru:
       community_not_configured_for_payments: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые предложения сейчас. Свяжитесь с %{contact_admin_link} для уточнения деталей."
       payment_settings_link: "Настройки оплаты"
       community_not_configured_for_payments_admin: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые предложения сейчас. Перейдите на %{payment_settings_link} чтобы настроить платежные реквизиты."
-    quantity: ~
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      custom: ~
     quantity_placeholder: ~
     please_comment: Комментарий
     reply_link:

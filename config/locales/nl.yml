@@ -1416,7 +1416,13 @@ nl:
       community_not_configured_for_payments: "%{service_name} is nog niet ingesteld voor betalingen, dus je kan nog geen nieuwe items posten. Contacteer aub %{contact_admin_link} voor details."
       payment_settings_link: "instellingen betalingen"
       community_not_configured_for_payments_admin: "%{service_name} is nog niet ingesteld voor betalingen, dus je kan nog geen nieuwe items posten. Ga naar %{payment_settings_link} om de betalingsgegevens in te brengen."
-    quantity: ~
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      custom: ~
     quantity_placeholder: ~
     please_comment: Reactie
     reply_link:

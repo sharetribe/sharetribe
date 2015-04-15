@@ -1420,7 +1420,13 @@ es-ES:
       community_not_configured_for_payments: "%{service_name} no se ha configurado para los pagos, por lo que aún no puedes publicar nuevos anuncios. Por favor %{contact_admin_link} para más detalles."
       payment_settings_link: "Configuración de los pagos"
       community_not_configured_for_payments_admin: "%{service_name} no se ha configurado para los pagos, por lo que aún no puedes publicar nuevos anuncios. Ve a %{payment_settings_link} para rellenar los detalles del pago."
-    quantity: "Cantidad:"
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      custom: ~
     quantity_placeholder: Cantidad
     please_comment: Comentario
     reply_link:

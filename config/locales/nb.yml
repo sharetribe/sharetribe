@@ -1422,7 +1422,13 @@ nb:
       community_not_configured_for_payments: "%{service_name} har ikke blitt konfigurert for betalinger så du kan ikke opprette annonser enda. Vennligst %{contact_admin_link} for mer detaljer."
       payment_settings_link: "Innstillinger betaling"
       community_not_configured_for_payments_admin: "%{service_name} har ikke blitt konfigurert for betalinger så du kan ikke opprette annonser enda. Gå til %{payment_settings_link} for å fylle inn betalingsdetaljer."
-    quantity: ~
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      custom: ~
     quantity_placeholder: ~
     please_comment: Kommenter
     reply_link:

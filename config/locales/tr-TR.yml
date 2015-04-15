@@ -1411,7 +1411,13 @@ tr-TR:
       community_not_configured_for_payments: ~
       payment_settings_link: "ödeme ayarları"
       community_not_configured_for_payments_admin: ~
-    quantity: ~
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      custom: ~
     quantity_placeholder: ~
     please_comment: Yorum
     reply_link:
