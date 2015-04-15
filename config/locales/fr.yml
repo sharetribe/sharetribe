@@ -1421,12 +1421,12 @@ fr:
       payment_settings_link: "paramètres de paiement"
       community_not_configured_for_payments_admin: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas déposer d'annonce pour le moment. Rendez-vous dans les %{payment_settings_link} pour y compléter les informations de paiements."
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
+      hour: "Nombre d'heures : "
+      day: "Nombre de jours : "
+      night: "Nombre de nuits : "
+      week: "Nombre de semaines : "
+      month: "Nombre de mois : "
+      custom: "Quantité : "
     quantity_placeholder: Quantité
     please_comment: "Faire un commentaire"
     reply_link:
