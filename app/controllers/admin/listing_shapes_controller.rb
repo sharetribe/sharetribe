@@ -70,7 +70,18 @@ class Admin::ListingShapesController < ApplicationController
       params
       .slice(:name, :action_button_label)
       .merge(shipping_enabled: params[:shipping_enabled] == "true")
-      .merge(units: Maybe(params[:units]).or_else([]).map { |t, _| {type: t.to_sym} }))
+      .merge(units: Maybe(params[:units]).or_else([]).map { |t, _| parse_unit(t) }))
+  end
+
+  def parse_unit(type)
+    type_sym = type.to_sym
+    selector =
+      if type_sym == :day
+        :day
+      else
+        :number
+      end
+    {type: type_sym, quantity_selector: selector}
   end
 
   def to_form_data(shape, translations)
