@@ -39,15 +39,15 @@ Feature: Preauthorized payment
 
   Scenario: User successfully buys 2 Surfboards using preauthorization
     Given there is a listing with title "Surfboard" from "seller_jane" with category "Items" and with listing shape "Selling"
-      And the price of that listing is 50.0 USD per piece
+      And the price of that listing is 50.0 USD per hour
 
     Given I am logged in as "buyer_bob"
 
     Given Braintree submit to settlement is mocked
       And Braintree escrow release is mocked
 
-     When I buy 2 of those listings
-     Then I should see receipt info for unit_type piece with quantity 2 and subtotal of $100
+     When I buy 2 hours worth of those listings
+     Then I should see receipt info for unit_type hour with quantity 2 and subtotal of $100
       And I should see payment details form for Braintree
 
      When I fill in my payment details for Braintree
@@ -56,7 +56,7 @@ Feature: Preauthorized payment
 
      When I log in as "seller_jane"
       And I accepts the request for that listing
-     Then I should see receipt info for unit_type piece with quantity 2 and subtotal of $100
+     Then I should see receipt info for unit_type hour with quantity 2 and subtotal of $100
       And I should see that the request is waiting for buyer confirmation
 
      When I log in as "buyer_bob"
