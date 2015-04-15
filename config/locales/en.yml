@@ -1420,7 +1420,13 @@ en:
       community_not_configured_for_payments: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Please %{contact_admin_link} for details."
       payment_settings_link: "payment settings"
       community_not_configured_for_payments_admin: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Go to %{payment_settings_link} to fill in the payment details."
-    quantity: "Quantity:"
+    quantity:
+      hour: "Number of hours:"
+      day: "Number of days:"
+      night: "Number of nights:"
+      week: "Number of weeks:"
+      month: "Number of months:"
+      custom: "Quantity:"
     quantity_placeholder: Quantity
     please_comment: Comment
     reply_link:

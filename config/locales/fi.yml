@@ -1420,7 +1420,13 @@ fi:
       community_not_configured_for_payments: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja %{contact_admin_link}."
       payment_settings_link: "markkinapaikan maksuasetuksiin"
       community_not_configured_for_payments_admin: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja mene %{payment_settings_link} lisäämään maksutiedot."
-    quantity: "Määrä:"
+    quantity:
+      hour: "Tuntien määrä:"
+      day: "Päivien määrä:"
+      night: "Öiden määrä:"
+      week: "Viikkojen määrä:"
+      month: "Kuukausien määrä:"
+      custom: "Määrä:"
     quantity_placeholder: Määrä
     please_comment: Kommentoi
     reply_link:

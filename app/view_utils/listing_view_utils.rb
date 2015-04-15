@@ -40,8 +40,6 @@ module ListingViewUtils
 
   def translate_unit(type, tr_key)
     case type
-    when :piece
-      I18n.translate("listings.unit_types.piece")
     when :hour
       I18n.translate("listings.unit_types.hour")
     when :day
@@ -55,7 +53,26 @@ module ListingViewUtils
     when :custom
       I18n.translate(tr_key)
     else
-      "No translation for unit type: #{type}, translation_key: #{tr_key}"
+      raise ArgumentError.new("No translation for unit type: #{type}, translation_key: #{tr_key}")
+    end
+  end
+
+  def translate_quantity(type)
+    case type
+    when :hour
+      I18n.translate("listings.quantity.hour")
+    when :day
+      I18n.translate("listings.quantity.day")
+    when :night
+      I18n.translate("listings.quantity.night")
+    when :week
+      I18n.translate("listings.quantity.week")
+    when :month
+      I18n.translate("listings.quantity.month")
+    when :custom
+      I18n.translate("listings.quantity.custom")
+    else
+      raise ArgumentError.new("No translation for unit quantity: #{type}")
     end
   end
 end
