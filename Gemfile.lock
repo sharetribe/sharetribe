@@ -66,11 +66,16 @@ GEM
       nokogiri (< 1.6.0)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     braintree (2.30.0)
       builder (>= 2.0.0)
     builder (3.0.4)
+    callsite (0.0.11)
     capybara (2.2.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -246,6 +251,10 @@ GEM
     mercury-rails (0.9.0)
       coffee-rails
       railties (~> 3.2)
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     middleware (0.1.0)
     mime-types (1.25.1)
@@ -330,12 +339,16 @@ GEM
       pry (>= 0.9.11)
     pusher-client (0.4.0)
       websocket (~> 1.0.0)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rabl (0.7.9)
       activesupport (>= 2.3.14)
       multi_json (~> 1.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-livereload (0.3.15)
       rack
     rack-ssl (1.3.4)
@@ -488,6 +501,7 @@ DEPENDENCIES
   annotate
   asset_sync
   aws-sdk
+  better_errors
   braintree
   capybara
   coffee-rails (~> 3.2.2)
@@ -520,6 +534,7 @@ DEPENDENCIES
   mail_view (~> 1.0.3)
   memcachier
   mercury-rails
+  meta_request
   money-rails
   multi_json (~> 1.7.3)
   mysql2
@@ -537,6 +552,7 @@ DEPENDENCIES
   pry-nav
   pry-rails
   pry-stack_explorer
+  quiet_assets
   rabl
   rack-livereload
   rack-test
