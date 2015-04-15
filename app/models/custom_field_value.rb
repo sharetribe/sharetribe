@@ -28,4 +28,6 @@ class CustomFieldValue < ActiveRecord::Base
 
   default_scope includes(:question).order("custom_fields.sort_priority")
 
+  has_many :custom_field_option_selections, :foreign_key => "custom_field_value_id", :dependent => :destroy
+  has_many :selected_options, :through => :custom_field_option_selections, :source => :custom_field_option
 end
