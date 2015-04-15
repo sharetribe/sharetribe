@@ -233,9 +233,10 @@ class ListingsController < ApplicationController
     )
 
     @listing.author = @current_user
-    @listing.custom_field_values = create_field_values(params[:custom_fields])
 
     if @listing.save
+      upsert_field_values!(@listing, params[:custom_fields])
+
       listing_image_ids = params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
       ListingImage.where(id: listing_image_ids, author_id: @current_user.id).update_all(listing_id: @listing.id)
 
@@ -286,8 +287,6 @@ class ListingsController < ApplicationController
       end
     end
 
-    @listing.custom_field_values = create_field_values(params[:custom_fields])
-
     params[:listing] = normalize_price_param(params[:listing])
 
     shape = get_shape(@listing.listing_shape_id)
@@ -300,11 +299,13 @@ class ListingsController < ApplicationController
 
     update_successful = @listing.update_fields(
       create_listing_params(params[:listing]).merge(
-        listing_shape_id: shape[:id],
-        transaction_process_id: shape[:transaction_process_id],
-        shape_name_tr_key: shape[:name_tr_key],
-        action_button_tr_key: shape[:action_button_tr_key]
-      ).merge(unit_to_listing_opts(m_unit)).except(:unit))
+      listing_shape_id: shape[:id],
+      transaction_process_id: shape[:transaction_process_id],
+      shape_name_tr_key: shape[:name_tr_key],
+      action_button_tr_key: shape[:action_button_tr_key]
+    ).merge(unit_to_listing_opts(m_unit)).except(:unit))
+
+    upsert_field_values!(@listing, params[:custom_fields])
 
     if update_successful
       @listing.location.update_attributes(params[:location]) if @listing.location
@@ -513,7 +514,7 @@ class ListingsController < ApplicationController
     end
   end
 
-  def custom_field_value_factory(custom_field_id, answer_value)
+  def custom_field_value_factory(listing_id, custom_field_id, answer_value)
     question = CustomField.find(custom_field_id)
 
     answer = question.with_type do |question_type|
@@ -542,26 +543,34 @@ class ListingsController < ApplicationController
                                          answer_value["(3i)"].to_i)
         answer
       else
-        throw "Unimplemented custom field answer for question #{question_type}"
+        raise ArgumentError.new("Unimplemented custom field answer for question #{question_type}")
       end
     end
 
     answer.question = question
-    answer.save
-    logger.info "Errors: #{answer.errors.full_messages.inspect}"
+    answer.listing_id = listing_id
     return answer
   end
 
-  def create_field_values(custom_field_params)
+  # Note! Requires that parent listing is already saved to DB. We
+  # don't use association to link to listing but directly connect to
+  # listing_id.
+  def upsert_field_values!(listing, custom_field_params)
     custom_field_params ||= {}
 
-    mapped_values = custom_field_params.map do |custom_field_id, answer_value|
-      custom_field_value_factory(custom_field_id, answer_value) unless is_answer_value_blank(answer_value)
+    # Delete all existing
+    custom_field_value_ids = listing.custom_field_values.map(&:id)
+    CustomFieldOptionSelection.where(custom_field_value_id: custom_field_value_ids).delete_all
+    CustomFieldValue.where(id: custom_field_value_ids).delete_all
+
+    field_values = custom_field_params.map do |custom_field_id, answer_value|
+      custom_field_value_factory(listing.id, custom_field_id, answer_value) unless is_answer_value_blank(answer_value)
     end.compact
 
-    logger.info "Mapped values: #{mapped_values.inspect}"
-
-    return mapped_values
+    # Insert new custom fields in a single transaction
+    CustomFieldValue.transaction do
+      field_values.each(&:save!)
+    end
   end
 
   def is_answer_value_blank(value)
