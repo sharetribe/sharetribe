@@ -257,9 +257,9 @@ When(/^I (?:buy) that listing$/) do
   find(".book-button").click
 end
 
-When(/^I (?:buy) (\d+) of those listings$/) do |quantity|
+When(/^I (?:buy) (\d+) hours worth of those listings$/) do |hours|
   visit(path_to "the listing page")
-  fill_in('Quantity:', with: quantity)
+  fill_in('Number of hours:', with: hours)
   find(".book-button").click
 end
 

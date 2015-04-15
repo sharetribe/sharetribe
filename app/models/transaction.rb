@@ -214,4 +214,9 @@ class Transaction < ActiveRecord::Base
   def other_party(person)
     person == starter ? listing.author : starter
   end
+
+  def unit_type
+    Maybe(read_attribute(:unit_type)).to_sym.or_else(nil)
+  end
+
 end

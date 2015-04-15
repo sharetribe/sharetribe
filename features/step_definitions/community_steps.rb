@@ -200,7 +200,7 @@ Given /^community "(.*?)" has following listing shapes enabled:$/ do |community,
         action_button_tr_key: action_button_tr_key,
         transaction_process_id: process_id,
         basename: hash['en'],
-        units: [ {type: :piece, quantity_selector: :number} ]
+        units: [ {type: :hour, quantity_selector: :number} ]
       }
     )
   end
@@ -251,7 +251,7 @@ Given /^the community has listing shape Sell with name "(.*?)" and action button
       action_button_tr_key: action_button_tr_key,
       transaction_process_id: process_id,
       basename: name,
-      units: [ {type: :piece, quantity_selector: :number} ]
+      units: [ {type: :hour, quantity_selector: :number} ]
     }
   )
 
