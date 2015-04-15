@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   include ApplicationHelper
+  include FeatureFlagHelper
   include DefaultURLOptions
   protect_from_forgery
   layout 'application'
@@ -387,5 +388,9 @@ class ApplicationController < ActionController::Base
     if APP_CONFIG.always_use_ssl
       redirect_to("https://#{request.host_with_port}#{request.fullpath}") unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || request.fullpath == "/robots.txt"
     end
+  end
+
+  def feature_flags
+    @feature_flags ||= FeatureFlagService::API::Api.features.get(community_id: @current_community.id).maybe[:features].or_else(Set.new)
   end
 end
