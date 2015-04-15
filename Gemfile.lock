@@ -84,7 +84,7 @@ GEM
       xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
-    childprocess (0.5.5)
+    childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.2.6)
     climate_control (0.0.3)
@@ -174,7 +174,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     fb-channel-file (0.0.2)
       rails (>= 3.0)
-    ffi (1.9.6)
+    ffi (1.9.8)
     flying-sphinx (1.2.0)
       faraday (>= 0.9)
       multi_json (>= 1.3.0)
@@ -420,7 +420,7 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    selenium-webdriver (2.43.0)
+    selenium-webdriver (2.45.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
@@ -568,7 +568,7 @@ DEPENDENCIES
   ruby-prof
   sass (~> 3.2.9)
   sass-rails
-  selenium-webdriver (~> 2.43.0)
+  selenium-webdriver
   spreadsheet
   statesman (~> 0.5.0)
   stringex (~> 2.5.2)
