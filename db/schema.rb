@@ -415,10 +415,11 @@ ActiveRecord::Schema.define(:version => 20150413104519) do
   add_index "emails", ["person_id"], :name => "index_emails_on_person_id"
 
   create_table "feature_flags", :force => true do |t|
-    t.integer  "community_id",                    :null => false
-    t.boolean  "shape_ui",     :default => false, :null => false
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.integer  "community_id",                   :null => false
+    t.string   "feature",                        :null => false
+    t.boolean  "enabled",      :default => true, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "feature_flags", ["community_id"], :name => "index_feature_flags_on_community_id"

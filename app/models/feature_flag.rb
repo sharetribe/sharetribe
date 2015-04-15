@@ -4,7 +4,8 @@
 #
 #  id           :integer          not null, primary key
 #  community_id :integer          not null
-#  shape_ui     :boolean          default(FALSE), not null
+#  feature      :string(255)      not null
+#  enabled      :boolean          default(TRUE), not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
@@ -14,7 +15,7 @@
 #
 
 class FeatureFlag < ActiveRecord::Base
-  attr_accessible(:community_id, :shape_ui)
+  attr_accessible(:community_id, :feature, :enabled)
 
   validates_presence_of(:community_id)
 end
