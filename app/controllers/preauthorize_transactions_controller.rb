@@ -56,7 +56,7 @@ class PreauthorizeTransactionsController < ApplicationController
       booking:  false,
       quantity: quantity,
       listing_price: vprms[:listing][:price],
-      localized_unit_type: Maybe(vprms[:listing][:unit_type]).map { |u| translate_quantity_unit(u) }.or_else(nil),
+      localized_unit_type: translate_unit_from_listing(vprms[:listing]),
       subtotal: (quantity > 1 || vprms[:listing][:shipping_price].present?) ? vprms[:subtotal] : nil,
       total: vprms[:total_price],
       shipping_price: Maybe(vprms[:listing][:shipping_price]).or_else(nil)
@@ -165,7 +165,7 @@ class PreauthorizeTransactionsController < ApplicationController
       end_on:   booking_data[:end_on],
       duration: booking_data[:duration],
       listing_price: vprms[:listing][:price],
-      localized_unit_type: Maybe(vprms[:listing][:unit_type]).map { |u| translate_quantity_unit(u) }.or_else(nil),
+      localized_unit_type: translate_unit_from_listing(vprms[:listing]),
       subtotal: vprms[:subtotal],
       total: vprms[:total_price]
     })
@@ -270,7 +270,7 @@ class PreauthorizeTransactionsController < ApplicationController
       booking:  false,
       quantity: quantity,
       listing_price: vprms[:listing][:price],
-      localized_unit_type: Maybe(vprms[:listing][:unit_type]).map { |u| translate_quantity_unit(u) }.or_else(nil),
+      localized_unit_type: translate_unit_from_listing(vprms[:listing]),
       subtotal: (quantity > 1) ? vprms[:subtotal] : nil,
       total: vprms[:total_price]
     })
@@ -339,6 +339,13 @@ class PreauthorizeTransactionsController < ApplicationController
 
   private
 
+  def translate_unit_from_listing(listing)
+    Maybe(listing).select { |l|
+      l[:unit_type].present?
+    }.map { |l|
+      ListingViewUtils.translate_unit(l[:unit_type], l[:unit_tr_key])
+    }.or_else(nil)
+  end
 
   def view_params(listing_id: listing_id, quantity: 1, shipping_enabled: false)
     listing = ListingQuery.listing(listing_id)

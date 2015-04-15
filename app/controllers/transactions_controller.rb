@@ -1,5 +1,4 @@
 class TransactionsController < ApplicationController
-  include ListingsHelper
 
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
@@ -81,7 +80,7 @@ class TransactionsController < ApplicationController
     if tx[:payment_process] == :none && tx[:listing_price].cents == 0
       nil
     else
-      unit_type = tx[:unit_type].present? ? translate_quantity_unit(tx[:unit_type]) : nil
+      unit_type = tx[:unit_type].present? ? ListingViewUtils.translate_unit(tx[:unit_type], tx[:unit_tr_key]) : nil
       booking = !!tx[:booking]
       quantity = tx[:listing_quantity]
       show_subtotal = !!tx[:booking] || quantity.present? && quantity > 1 || tx[:shipping_price].present?

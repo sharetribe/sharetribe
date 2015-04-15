@@ -4,12 +4,28 @@
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
     = render partial: "listings/form/currency_selector", locals: {form: form}
 
-    - if Maybe(shape)[:units][0][:type].or_else(nil) == :day
-      .quantity-description= t(".per_day")
-
-    - elsif Maybe(shape)[:price_quantity_placeholder].or_else(false)
+    - if shape[:price_quantity_placeholder].present?
+      -#
+        Currently price quantity placeholder has higher priority than units.
+        This whole free text quantity thing will be removed soon
       .quantity-description= t(".per")
       = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{shape[:price_quantity_placeholder].to_s}")
+    - else
+      - if unit_options.empty?
+        -# No-op
+      - elsif unit_options.length == 1
+        - unit_option = unit_options.first
+        .quantity-description
+          = t(".per")
+          = unit_option[:display]
+        = hidden_field_tag("listing[unit]", unit_option[:value])
+      - else
+        .quantity-description
+          = t(".per")
+        %select{name: "listing[unit]"}
+          - unit_options.each do |unit_option|
+            %option{value: unit_option[:value], selected: unit_option[:selected]}
+              = unit_option[:display]
 
     %small
       - paypal_fee_info_link = "<a href=# id='paypal_fee_info_link'>#{t(".paypal_fee_info_link_text")}</a>"

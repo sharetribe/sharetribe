@@ -114,6 +114,7 @@ module EntityUtils
     default: -> (default, v) { v.nil? ? default : v },
     to_bool: -> (_, v) { !!v },
     to_symbol: -> (_, v) { v.to_sym unless v.nil? },
+    to_string: -> (_, v) { v.to_s unless v.nil? },
     str_to_time: -> (format, v) {
       if v.nil?
         nil

@@ -184,7 +184,11 @@ class ListingsController < ApplicationController
                        process: process)
 
       if allow_posting
-        render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(shape: shape)
+        unit_options = ListingViewUtils.unit_options(shape[:units])
+
+        render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(
+                 shape: shape,
+                 unit_options: unit_options)
       else
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
@@ -212,21 +216,21 @@ class ListingsController < ApplicationController
 
     params[:listing] = normalize_price_param(params[:listing])
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
-    m_unit = Maybe(shape[:units].first)
-    unit_type = m_unit[:type].or_else(nil)
-    quantity_selector = m_unit[:selector].or_else(nil)
-    unit_tr_key = Maybe(shape[:units].first)[:translation_key].or_else(nil)
+    m_unit = select_unit(params, shape)
+
+    if unit_required?(shape) && m_unit.is_none?
+      flash[:error] = "Given unit doesn't belong to listing shape" # no need to translate, rare case
+      redirect_to new_listing_path and return
+    end
 
     @listing = Listing.new(
       create_listing_params(params[:listing]).merge(
-      listing_shape_id: shape[:id],
-      unit_type: unit_type,
-      quantity_selector: quantity_selector,
-      unit_tr_key: unit_tr_key,
-      transaction_process_id: shape[:transaction_process_id],
-      shape_name_tr_key: shape[:name_tr_key],
-      action_button_tr_key: shape[:action_button_tr_key]
-    ))
+        listing_shape_id: shape[:id],
+        transaction_process_id: shape[:transaction_process_id],
+        shape_name_tr_key: shape[:name_tr_key],
+        action_button_tr_key: shape[:action_button_tr_key]
+      ).merge(unit_to_listing_opts(m_unit)).except(:unit)
+    )
 
     @listing.author = @current_user
     @listing.custom_field_values = create_field_values(params[:custom_fields])
@@ -266,8 +270,12 @@ class ListingsController < ApplicationController
 
     shape = get_shape(@listing.listing_shape_id)
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
+    unit_options = ListingViewUtils.unit_options(shape[:units], unit_from_listing(@listing))
 
-    render locals: commission(@current_community, process).merge(shape: shape)
+    render locals: commission(@current_community, process).merge(
+             shape: shape,
+             unit_options: unit_options
+           )
   end
 
   def update
@@ -283,19 +291,20 @@ class ListingsController < ApplicationController
     params[:listing] = normalize_price_param(params[:listing])
 
     shape = get_shape(@listing.listing_shape_id)
-    m_unit = Maybe(shape[:units].first)
-    unit_type = m_unit[:type].or_else(nil)
-    quantity_selector = m_unit[:selector].or_else(nil)
+    m_unit = select_unit(params, shape)
+
+    if unit_required?(shape) && m_unit.is_none?
+      flash[:error] = "Given unit doesn't belong to listing shape" # no need to translate, rare case
+      redirect_to new_listing_path and return
+    end
 
     update_successful = @listing.update_fields(
       create_listing_params(params[:listing]).merge(
-      listing_shape_id: shape[:id],
-      unit_type: unit_type,
-      quantity_selector: quantity_selector,
-      transaction_process_id: shape[:transaction_process_id],
-      shape_name_tr_key: shape[:name_tr_key],
-      action_button_tr_key: shape[:action_button_tr_key]
-    ))
+        listing_shape_id: shape[:id],
+        transaction_process_id: shape[:transaction_process_id],
+        shape_name_tr_key: shape[:name_tr_key],
+        action_button_tr_key: shape[:action_button_tr_key]
+      ).merge(unit_to_listing_opts(m_unit)).except(:unit))
 
     if update_successful
       @listing.location.update_attributes(params[:location]) if @listing.location
@@ -370,6 +379,48 @@ class ListingsController < ApplicationController
   end
 
   private
+
+  def select_unit(params, shape)
+    m_unit = Maybe(shape)[:units].map { |units|
+      shape[:units].length == 1 ? shape[:units].first : parse_unit(params)
+    }.select { |unit|
+      unit_belongs_to_shape?(unit, shape)
+    }
+  end
+
+  def parse_unit(params)
+    m_unit = Maybe(params)[:listing][:unit].map { |unit_param|
+      ListingViewUtils.decode_unit(unit_param)
+    }.or_else(nil)
+  end
+
+  def unit_required?(shape)
+    !shape[:units].empty?
+  end
+
+  def unit_belongs_to_shape?(unit, shape)
+    shape[:units].any? { |shape_unit|
+      unit == shape_unit
+    }
+  end
+
+  def unit_to_listing_opts(m_unit)
+    m_unit.map { |unit|
+      {
+        unit_type: unit[:type],
+        quantity_selector: unit[:quantity_selector],
+        unit_tr_key: unit[:translation_key]
+      }
+    }.or_else({})
+  end
+
+  def unit_from_listing(listing)
+    HashUtils.compact({
+      type: Maybe(listing.unit_type).to_sym.or_else(nil),
+      quantity_selector: Maybe(listing.quantity_selector).to_sym.or_else(nil),
+      translation_key: listing.unit_tr_key
+    })
+  end
 
   def build_title(params)
     category = Category.find_by_id(params["category"])
