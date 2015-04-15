@@ -95,7 +95,7 @@ class TransactionMailer < ActionMailer::Base
       you_get = payment.seller_gets
 
       transaction = payment.transaction
-      unit_type = ListingViewUtils.translate_unit(transaction.unit_type, transaction.unit_tr_key)
+      unit_type = Maybe(transaction).select { |t| t.unit_type.present? }.map { |t| ListingViewUtils.translate_unit(t.unit_type, t.unit_tr_key) }.or_else(nil)
       duration = payment.transaction.booking.present? ? payment.transaction.booking.duration : nil
 
       premailer_mail(:to => payment.recipient.confirmed_notification_emails_to,
@@ -127,7 +127,7 @@ class TransactionMailer < ActionMailer::Base
     prepare_template(community, recipient, "email_about_new_payments")
     with_locale(recipient.locale, community.id) do
 
-      unit_type = ListingViewUtils.translate_unit(payment.transaction.unit_type, payment.transaction.unit_tr_key)
+      unit_type = Maybe(payment.transaction).select { |t| t.unit_type.present? }.map { |t| ListingViewUtils.translate_unit(t.unit_type, t.unit_tr_key) }.or_else(nil)
       duration = payment.transaction.booking.present? ? payment.transaction.booking.duration : nil
 
       premailer_mail(:to => payment.payer.confirmed_notification_emails_to,
@@ -169,7 +169,7 @@ class TransactionMailer < ActionMailer::Base
 
       you_get = payment_total - service_fee - gateway_fee
 
-      unit_type = ListingViewUtils.translate_unit(transaction[:unit_type], transaction[:unit_tr_key])
+      unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)
 
       premailer_mail(:to => seller_model.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
@@ -205,7 +205,7 @@ class TransactionMailer < ActionMailer::Base
     prepare_template(community, buyer_model, "email_about_new_payments")
     with_locale(buyer_model.locale, community.id) do
 
-      unit_type = ListingViewUtils.translate_unit(transaction[:unit_type], transaction[:unit_tr_key])
+      unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)
 
       premailer_mail(:to => buyer_model.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
