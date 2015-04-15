@@ -1,6 +1,8 @@
 require 'will_paginate/array'
 
 class ApplicationController < ActionController::Base
+  class FeatureFlagNotEnabledError < StandardError; end
+
   module DefaultURLOptions
     # Adds locale to all links
     def default_url_options
@@ -392,5 +394,22 @@ class ApplicationController < ActionController::Base
 
   def feature_flags
     @feature_flags ||= FeatureFlagService::API::Api.features.get(community_id: @current_community.id).maybe[:features].or_else(Set.new)
+  end
+
+  def ensure_feature_enabled(feature_name)
+    raise FeatureFlagNotEnabledError unless feature_flags.include?(feature_name)
+  end
+
+  # Handy before_filter shorthand.
+  #
+  # Usage:
+  #
+  # class YourController < ApplicationController
+  #   ensure_feature_enabled, :shipping, only: [:new_shipping, edit_shipping]
+  #   ...
+  #  end
+  #
+  def self.ensure_feature_enabled(feature_name, options = {})
+    before_filter(options) { ensure_feature_enabled(feature_name) }
   end
 end
