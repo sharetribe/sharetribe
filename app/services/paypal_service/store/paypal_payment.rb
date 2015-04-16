@@ -10,10 +10,14 @@ module PaypalService::Store::PaypalPayment
     [:merchant_id, :mandatory, :string],
     [:payment_status, const_value: :pending],
     [:pending_reason, :string],
-    [:order_id, :mandatory, :string],
-    [:order_date, :mandatory, :time],
+    [:order_id, :string],
+    [:order_date, :time],
+    [:authorization_id, :string],
+    [:authorization_date, :time],
+    [:order_date, :time],
     [:currency, :mandatory, :string],
-    [:order_total_cents, :mandatory, :fixnum],
+    [:order_total_cents, :fixnum],
+    [:authorization_total_cents, :fixnum],
     [:commission_status, const_value: :not_charged])
 
   PaypalPayment = EntityUtils.define_builder(
@@ -24,9 +28,9 @@ module PaypalService::Store::PaypalPayment
     [:merchant_id, :mandatory, :string],
     [:payment_status, :mandatory, :symbol],
     [:pending_reason, :to_symbol],
-    [:order_id, :mandatory, :string],
-    [:order_date, :mandatory, :time],
-    [:order_total, :mandatory, :money],
+    [:order_id, :string],
+    [:order_date, :time],
+    [:order_total, :money],
     [:authorization_id, :string],
     [:authorization_date, :time],
     [:authorization_expires_date, :time],
@@ -135,8 +139,15 @@ module PaypalService::Store::PaypalPayment
 
   def initial(order)
     order_total = order[:order_total]
-    InitialPaymentData.call(
-      order.merge({order_total_cents: order_total.cents, currency: order_total.currency.iso_code}))
+    authorization_total = order[:authorization_total]
+    total =
+      if authorization_total
+        { authorization_total_cents: authorization_total.cents, currency: authorization_total.currency.iso_code }
+      else
+        { order_total_cents: order_total.cents, currency: order_total.currency.iso_code }
+      end
+
+    InitialPaymentData.call(order.merge(total))
   end
 
   def create_payment_update(update, current_state)

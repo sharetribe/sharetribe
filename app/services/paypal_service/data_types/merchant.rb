@@ -150,14 +150,15 @@ module PaypalService
 
       DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(
         [:success, const_value: true],
-        [:order_date, :mandatory, :utc_str_to_time],
+        [:order_date, :utc_str_to_time],
+        [:authorization_date, :utc_str_to_time],
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
 
         # Reponse will have either order or authorization details depending upon payment status
         [:order_id, :string],
         [:order_total, :money],
-        [:authorization, :string],
+        [:authorization_id, :string],
         [:authorization_total, :money])
 
 

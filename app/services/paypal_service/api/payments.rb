@@ -134,15 +134,20 @@ module PaypalService::API
 
       # The process either starts by creating a new payment...
       if (payment.nil?)
-        payment_res = create_payment(token)
-        if (payment_res[:success])
-          authorize_payment(community_id, payment_res[:data])
-        else
-          payment_res
-        end
-        # ... or continues from a previously created but not yet authorized payment
+        create_payment(token)
+          .and_then { |payment_entity|
+          if payment_entity[:pending_reason] != :authorization
+            authorize_payment(community_id, payment_entity)
+          else
+            Result::Success.new(payment_entity)
+          end
+        }
       else
-        authorize_payment(community_id, payment)
+        if payment[:pending_reason] != :authorization
+          authorize_payment(community_id, payment)
+        else
+          Result::Success.new(DataTypes.create_payment(payment))
+        end
       end
     end
 
@@ -301,6 +306,7 @@ module PaypalService::API
               finally: (method :handle_failed_create_payment).call(token)
             }
           ) do |payment_res|
+
             # Save payment
             payment = PaymentStore.create(
               token[:community_id],
@@ -373,8 +379,12 @@ module PaypalService::API
       with_success(community_id, transaction_id,
         MerchantData.create_do_void({
             receiver_username: m_acc[:payer_id],
-            # Always void the order, it automatically voids any authorization connected to the payment
-            transaction_id: payment[:order_id],
+
+            # Void order if it exists, it automatically voids any
+            # authorization connected to the payment but with auth
+            # flow we have no order so void the authorization
+            # directly.
+            transaction_id: payment[:order_id] ? payment[:order_id] : payment[:authorization_id],
             note: note
           }),
         error_policy: {
@@ -384,7 +394,7 @@ module PaypalService::API
         ) do |void_res|
         with_success(community_id, transaction_id, MerchantData.create_get_transaction_details({
               receiver_username: m_acc[:payer_id],
-              transaction_id: payment[:order_id],
+              transaction_id: payment[:order_id] ? payment[:order_id] : payment[:authorization_id],
             })) do |payment_res|
           payment = PaymentStore.update(
             data: payment_res,

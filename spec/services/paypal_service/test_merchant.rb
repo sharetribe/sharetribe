@@ -37,16 +37,38 @@ module PaypalService
     end
 
     def create_and_save_payment(token)
+      if token[:payment_action] == :order
+        create_and_save_order_payment(token)
+      else
+        create_and_save_auth_payment(token)
+      end
+    end
+
+    def create_and_save_order_payment(token)
       payment = {
         order_date: Time.now,
         payment_status: "pending",
-        pending_reason: token[:payment_action] == :order ? "order" : "authorization",
+        pending_reason: "order",
         order_id: SecureRandom.uuid,
         order_total: token[:order_total],
         receiver_id: token[:receiver_id]
       }
 
       @payments_by_order_id[payment[:order_id]] = payment
+      payment
+    end
+
+    def create_and_save_auth_payment(token)
+      payment = {
+        authorization_date: Time.now,
+        payment_status: "pending",
+        pending_reason: "authorization",
+        authorization_id: SecureRandom.uuid,
+        authorization_total: token[:order_total],
+        receiver_id: token[:receiver_id]
+      }
+
+      @payments_by_auth_id[payment[:authorization_id]] = payment
       payment
     end
 
@@ -63,6 +85,7 @@ module PaypalService
       payment = @payments_by_order_id[order_id]
       raise "No order with order id: #{order_id}" if payment.nil?
       raise "Cannot authorize more than order_total" if authorization_total.cents > payment[:order_total].cents
+      raise "Cannot authorize already authorized payment" if payment[:pending_reason] != "order"
 
       auth_id = SecureRandom.uuid
       auth_payment = payment.merge({
@@ -211,14 +234,7 @@ module PaypalService
 
             if (!token.nil?)
               payment = @fake_pal.create_and_save_payment(token)
-              DataTypes::Merchant.create_do_express_checkout_payment_response(
-                {
-                  order_date: payment[:order_date],
-                  payment_status: payment[:payment_status],
-                  pending_reason: payment[:pending_reason],
-                  order_id: payment[:order_id],
-                  order_total: payment[:order_total]
-                })
+              DataTypes::Merchant.create_do_express_checkout_payment_response(payment)
             else
               PaypalService::DataTypes::FailureResponse.call()
             end

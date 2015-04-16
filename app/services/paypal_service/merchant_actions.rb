@@ -307,7 +307,7 @@ module PaypalService
         output_transformer: -> (res, api) {
           payment_info = res.do_express_checkout_payment_response_details.payment_info[0]
 
-          if (payment_info.pending_reason = "order")
+          if (payment_info.pending_reason == "order")
             DataTypes::Merchant.create_do_express_checkout_payment_response(
               {
                 order_date: payment_info.payment_date.to_s,
@@ -319,7 +319,7 @@ module PaypalService
           else
             DataTypes::Merchant.create_do_express_checkout_payment_response(
               {
-                order_date: payment_info.payment_date.to_s,
+                authorization_date: payment_info.payment_date.to_s,
                 payment_status: payment_info.payment_status,
                 pending_reason: payment_info.pending_reason,
                 authorization_id: payment_info.transaction_id,
