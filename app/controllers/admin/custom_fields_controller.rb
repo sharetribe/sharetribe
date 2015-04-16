@@ -21,10 +21,10 @@ class Admin::CustomFieldsController < ApplicationController
 
     if params[:field_type] == "CheckboxField"
       @min_option_count = 1
-      @custom_field.options = [CustomFieldOption.new]
+      @custom_field.options = [CustomFieldOption.new(sort_priority: 1)]
     else
       @min_option_count = 2
-      @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
+      @custom_field.options = [CustomFieldOption.new(sort_priority: 1), CustomFieldOption.new(sort_priority: 2)]
     end
   end
 

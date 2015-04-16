@@ -268,10 +268,10 @@ Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in cate
     custom_field.category_custom_fields.build(:category => current_community.categories.first)
   end
 
-  custom_field.options << options.hashes.map do |hash|
+  custom_field.options << options.hashes.each_with_index.map do |hash, index|
     en = FactoryGirl.build(:custom_field_option_title, :value => hash['fi'], :locale => 'fi')
     fi = FactoryGirl.build(:custom_field_option_title, :value => hash['en'], :locale => 'en')
-    FactoryGirl.build(:custom_field_option, :titles => [en, fi])
+    FactoryGirl.build(:custom_field_option, :titles => [en, fi], sort_priority: index)
   end
 
   custom_field.save!
