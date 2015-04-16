@@ -792,6 +792,7 @@ ActiveRecord::Schema.define(:version => 20150420083201) do
     t.integer  "community_id",                       :null => false
     t.string   "token",                :limit => 64
     t.integer  "transaction_id"
+    t.string   "payment_action",       :limit => 32
     t.string   "merchant_id",                        :null => false
     t.string   "receiver_id",                        :null => false
     t.datetime "created_at"

@@ -38,6 +38,20 @@ describe PaypalService::API::Payments do
 
     @req_info = {
       transaction_id: @tx_id,
+      payment_action: :order,
+      item_name: "Item name",
+      item_quantity: 1,
+      item_total: Money.new(1200, "EUR"),
+      item_price: Money.new(1200, "EUR"),
+      merchant_id: @mid,
+      order_total: Money.new(1200, "EUR"),
+      success: "https://www.test.com/success",
+      cancel: "https://www.test.com/cancel"
+    }
+
+    @req_info_auth = {
+      transaction_id: @tx_id,
+      payment_action: :authorization,
       item_name: "Item name",
       item_quantity: 1,
       item_total: Money.new(1200, "EUR"),
@@ -64,6 +78,21 @@ describe PaypalService::API::Payments do
       expect(token[:community_id]).to eq @cid
       expect(token[:token]).to eq response[:data][:token]
       expect(token[:transaction_id]).to eq @req_info[:transaction_id]
+      expect(token[:payment_action]).to eq :order
+      expect(token[:merchant_id]).to eq @req_info[:merchant_id]
+      expect(token[:item_name]).to eq @req_info[:item_name]
+      expect(token[:item_quantity]).to eq @req_info[:item_quantity]
+      expect(token[:item_price]).to eq @req_info[:item_price]
+    end
+
+    it "saves token info, using payment_action :authorization" do
+      response = @payments.request(@cid, @req_info_auth)
+      token = PaypalService::Store::Token.get_for_transaction(@cid, @tx_id)
+
+      expect(token[:community_id]).to eq @cid
+      expect(token[:token]).to eq response[:data][:token]
+      expect(token[:transaction_id]).to eq @req_info[:transaction_id]
+      expect(token[:payment_action]).to eq :authorization
       expect(token[:merchant_id]).to eq @req_info[:merchant_id]
       expect(token[:item_name]).to eq @req_info[:item_name]
       expect(token[:item_quantity]).to eq @req_info[:item_quantity]

@@ -16,9 +16,10 @@ module PaypalService
       @billing_agreements_by_token = {}
     end
 
-    def save_token(req)
+    def save_token(req, payment_action)
       token = {
         token: SecureRandom.uuid,
+        payment_action: payment_action,
         item_name: req[:item_name],
         item_quantity: req[:item_quantity],
         item_price: req[:item_price],
@@ -39,7 +40,7 @@ module PaypalService
       payment = {
         order_date: Time.now,
         payment_status: "pending",
-        pending_reason: "order",
+        pending_reason: token[:payment_action] == :order ? "order" : "authorization",
         order_id: SecureRandom.uuid,
         order_total: token[:order_total],
         receiver_id: token[:receiver_id]
@@ -174,7 +175,23 @@ module PaypalService
           action_method_name: :wrap,
           output_transformer: -> (res, api) {
             req = res[:value]
-            token = @fake_pal.save_token(req)
+            token = @fake_pal.save_token(req, :order)
+
+            DataTypes::Merchant.create_set_express_checkout_order_response({
+                token: token[:token],
+                redirect_url: "https://paypaltest.com/#{token[:token]}",
+                receiver_username: api.config.subject || api.config.username
+              })
+          }
+        ),
+
+        set_express_checkout_authorization: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap,
+          output_transformer: -> (res, api) {
+            req = res[:value]
+            token = @fake_pal.save_token(req, :authorization)
 
             DataTypes::Merchant.create_set_express_checkout_order_response({
                 token: token[:token],
