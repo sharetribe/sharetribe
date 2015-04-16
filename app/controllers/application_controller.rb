@@ -397,26 +397,27 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_feature_flags
-    # Fetch from service and session
     flags_from_service = FeatureFlagService::API::Api.features.get(community_id: @current_community.id).maybe[:features].or_else(Set.new)
-    temp_flags_from_session = Maybe(session)[:feature_flags].or_else(Set.new)
 
-    # Fetch from params
-    temp_flags_from_params =
-      Maybe(@current_user)
-      .select { |user| user.is_admin? }
-      .flat_map { Maybe(params)[:enable_feature].map { |feature| [feature.to_sym].to_set } }
-      .or_else(Set.new)
+    is_admin = Maybe(@current_user).is_admin?.or_else(false)
+    temp_flags = ApplicationController.fetch_temp_flags(is_admin, params, session)
 
-    # Save updated temporary flags to session
-    temp_flags = temp_flags_from_session.union(temp_flags_from_params)
     session[:feature_flags] = temp_flags
 
-    # Return
     flags_from_service.union(temp_flags)
   end
 
   helper_method :fetch_feature_flags # Make this method available for FeatureFlagHelper
+
+  # Fetch temporary flags from params and session
+  def self.fetch_temp_flags(is_admin, params, session)
+    return Set.new unless is_admin
+
+    from_session = Maybe(session)[:feature_flags].or_else(Set.new)
+    from_params = Maybe(params)[:enable_feature].map { |feature| [feature.to_sym] }.to_set.or_else(Set.new)
+
+    from_session.union(from_params)
+  end
 
   def ensure_feature_enabled(feature_name)
     raise FeatureFlagNotEnabledError unless feature_flags.include?(feature_name)
