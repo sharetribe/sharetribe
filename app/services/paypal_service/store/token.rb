@@ -6,6 +6,7 @@ module PaypalService::Store::Token
       [:community_id, :mandatory, :fixnum],
       [:token, :string, :mandatory],
       [:transaction_id, :fixnum, :mandatory],
+      [:payment_action, default: :order, one_of: [:order, :authorization]],
       [:merchant_id, :string, :mandatory],
       [:receiver_id, :string, :mandatory],
       [:item_name, :string],

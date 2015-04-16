@@ -266,12 +266,11 @@ module PaypalService::API
 
           order_details = create_order_details(ec_details)
                           .merge({community_id: token[:community_id], transaction_id: token[:transaction_id]})
-          @events.send(:order_details,
-                       :success,
-                       order_details)
+          @events.send(:order_details, :success, order_details)
 
           with_success(token[:community_id], token[:transaction_id],
             MerchantData.create_do_express_checkout_payment({
+              payment_action: token[:payment_action],
               receiver_username: m_acc[:payer_id],
               token: token[:token],
               payer_id: ec_details[:payer_id],

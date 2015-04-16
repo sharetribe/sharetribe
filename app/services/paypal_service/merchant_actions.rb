@@ -6,7 +6,6 @@ module PaypalService
     # Convert between a Money instance and corresponding Paypal API presentation
     # pp API present amounts as hash-like objects, e.g. : { value: "17.12", currencyID: "EUR" }
 
-
     def from_money(m)
       { value: MoneyUtil.to_dot_separated_str(m), currencyID: m.currency.iso_code }
     end
@@ -15,12 +14,25 @@ module PaypalService
       pp_amount.value.to_money(pp_amount.currency_id) unless (pp_amount.nil? || pp_amount.value.nil?)
     end
 
+
     def hook_url(ipn_hook)
       ipn_hook[:url] unless ipn_hook.nil?
     end
 
     def append_useraction_commit(url_str)
       URLUtils.append_query_param(url_str, "useraction", "commit")
+    end
+
+
+    PAYMENT_ACTIONS = { sale: "Sale", order: "Order", authorization: "Authorization" }
+
+    def payment_action_str(payment_action_symbol)
+      str = PAYMENT_ACTIONS[payment_action_symbol]
+      if str.nil?
+        raise ArgumentError.new("Unsupported payment action: #{payment_action_symbol}")
+      end
+
+      str
     end
 
 
@@ -59,7 +71,7 @@ module PaypalService
               PaymentDetails: [{
                   OrderTotal: { value: "0.0" },
                   NotifyURL: hook_url(config[:ipn_hook]),
-                  PaymentAction: "Authorization"
+                  PaymentAction: PAYMENT_ACTIONS[:authorization],
                 }],
               BillingAgreementDetails: [{
                   BillingType: "ChannelInitiatedBilling",
@@ -95,7 +107,7 @@ module PaypalService
           {
             DoReferenceTransactionRequestDetails: {
               ReferenceID: req[:billing_agreement_id],
-              PaymentAction: "Sale",
+              PaymentAction: PAYMENT_ACTIONS[:sale],
               PaymentType: "InstantOnly",
               PaymentDetails: {
                 ButtonSource: config[:button_source],
@@ -162,6 +174,8 @@ module PaypalService
         }
       ),
 
+      # Deprecated - Order flow will be removed soon
+      #
       set_express_checkout_order: PaypalAction.def_action(
         input_transformer: -> (req, config) {
           req_details = {
@@ -180,7 +194,53 @@ module PaypalService
               NotifyURL: hook_url(config[:ipn_hook]),
               OrderTotal: from_money(req[:order_total]),
               ItemTotal: from_money(req[:item_price] * req[:item_quantity]),
-              PaymentAction: "Order",
+              PaymentAction: PAYMENT_ACTIONS[:order],
+              PaymentDetailsItem: [{
+                Name: req[:item_name],
+                Quantity: req[:item_quantity],
+                Amount: from_money(req[:item_price])
+              }]
+            }]
+          }
+
+          if(req[:shipping_total])
+             req_details[:PaymentDetails][0][:ShippingTotal] = from_money(req[:shipping_total])
+          end
+
+          { SetExpressCheckoutRequestDetails: req_details }
+        },
+        wrapper_method_name: :build_set_express_checkout,
+        action_method_name: :set_express_checkout,
+        output_transformer: -> (res, api) {
+          DataTypes::Merchant.create_set_express_checkout_order_response({
+            token: res.token,
+            redirect_url: append_useraction_commit(express_checkout_url(api, res.token)),
+            receiver_username: api.config.subject || api.config.username
+          })
+        }
+      ),
+      #
+      # /Deprecated
+
+      set_express_checkout_authorization: PaypalAction.def_action(
+        input_transformer: -> (req, config) {
+          req_details = {
+            cppcartbordercolor: "FFFFFF",
+            cpplogoimage: req[:merchant_brand_logo_url] || "",
+            ReturnURL: req[:success],
+            CancelURL: req[:cancel],
+            ReqConfirmShipping: 0,
+            NoShipping: req[:require_shipping_address] ? 0 : 1,
+            SolutionType: "Sole",
+            LandingPage: "Billing",
+            InvoiceID: req[:invnum],
+            AllowNote: 0,
+            MaxAmount: from_money(req[:order_total]),
+            PaymentDetails: [{
+              NotifyURL: hook_url(config[:ipn_hook]),
+              OrderTotal: from_money(req[:order_total]),
+              ItemTotal: from_money(req[:item_price] * req[:item_quantity]),
+              PaymentAction: PAYMENT_ACTIONS[:authorization],
               PaymentDetailsItem: [{
                 Name: req[:item_name],
                 Quantity: req[:item_quantity],
@@ -209,7 +269,7 @@ module PaypalService
       do_express_checkout_payment: PaypalAction.def_action(
         input_transformer: -> (req, config) {
           req_details = {
-            PaymentAction: "Order",
+            PaymentAction: payment_action_str(req[:payment_action]),
             Token: req[:token],
             PayerID: req[:payer_id],
             ButtonSource: config[:button_source],
@@ -246,14 +306,26 @@ module PaypalService
         action_method_name: :do_express_checkout_payment,
         output_transformer: -> (res, api) {
           payment_info = res.do_express_checkout_payment_response_details.payment_info[0]
-          DataTypes::Merchant.create_do_express_checkout_payment_response(
-            {
-              order_date: payment_info.payment_date.to_s,
-              payment_status: payment_info.payment_status,
-              pending_reason: payment_info.pending_reason,
-              order_id: payment_info.transaction_id,
-              order_total: to_money(payment_info.gross_amount)
-            })
+
+          if (payment_info.pending_reason = "order")
+            DataTypes::Merchant.create_do_express_checkout_payment_response(
+              {
+                order_date: payment_info.payment_date.to_s,
+                payment_status: payment_info.payment_status,
+                pending_reason: payment_info.pending_reason,
+                order_id: payment_info.transaction_id,
+                order_total: to_money(payment_info.gross_amount)
+              })
+          else
+            DataTypes::Merchant.create_do_express_checkout_payment_response(
+              {
+                order_date: payment_info.payment_date.to_s,
+                payment_status: payment_info.payment_status,
+                pending_reason: payment_info.pending_reason,
+                authorization_id: payment_info.transaction_id,
+                authorization_total: to_money(payment_info.gross_amount)
+              })
+          end
         }
       ),
 
