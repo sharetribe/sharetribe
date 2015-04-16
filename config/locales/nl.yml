@@ -162,7 +162,7 @@ nl:
         listing_preferences: "Voorkeuren lijst"
         transaction_preferences: "Voorkeuren transacties"
         show_listing_publishing_date: "Toon publicatie datum van de lijst op de lijst pagina"
-        show_category_in_listing_list: "Toon lijst type in lijst overzicht"
+        show_category_in_listing_list: "Toon advertentietype in lijst overzicht"
         hide_expiration_date: "Vereis niet dat lijsten een vervaldatum hebben"
         listing_comments_in_use: "Laat gebruikers toe commentaar te geven op lijsten (zichtbaar voor alle gebruikers)"
         email_preferences: "E-mail voorkeuren"
@@ -1037,7 +1037,7 @@ nl:
       map_button: Kaart
       grid_button: Raster
       list_button: Lijst
-      all_listing_types: "Alle lijst types"
+      all_listing_types: "Alle advertentietypes"
       all_categories: "Alle categorieën"
   infos:
     about:
@@ -1469,7 +1469,7 @@ nl:
     unit_types:
       piece: ~
       hour: ~
-      day: ~
+      day: dag
       night: ~
       week: ~
       month: ~
