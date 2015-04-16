@@ -9,7 +9,7 @@ module FeatureFlagHelper
   end
 
   def feature_flags
-    @feature_flags ||= FeatureFlagService::API::Api.features.get(community_id: @current_community.id).maybe[:features].or_else(Set.new)
+    @feature_flags ||= fetch_feature_flags # fetch_feature_flags is defined in ApplicationController
   end
 
 end
