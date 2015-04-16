@@ -115,4 +115,17 @@ describe ApplicationController do
     end
 
   end
+
+  describe "ApplicationController.fetch_temp_flags" do
+    let(:session) { {feature_flags: [:shipping].to_set} }
+    let(:params) { {enable_feature: "booking"} }
+
+    it "fetches temporary flags from session and params" do
+      expect(ApplicationController.fetch_temp_flags(true, params, session)).to eq [:shipping, :booking].to_set
+    end
+
+    it "returns empty set if not admin" do
+      expect(ApplicationController.fetch_temp_flags(false, params, session)).to eq [].to_set
+    end
+  end
 end

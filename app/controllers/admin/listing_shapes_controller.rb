@@ -1,7 +1,7 @@
 class Admin::ListingShapesController < ApplicationController
   before_filter :ensure_is_admin
 
-  before_filter :feature_flag
+  ensure_feature_enabled :shape_ui
 
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
 
@@ -56,12 +56,6 @@ class Admin::ListingShapesController < ApplicationController
 
 
   private
-
-
-  # TODO This will check based upon community if the controller is available
-  def feature_flag
-    return redirect_to edit_details_admin_community_path(@current_community)
-  end
 
   def edit_view_locals(shape, translations, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,

@@ -625,8 +625,7 @@ module ApplicationHelper
       }
     ]
 
-    # TODO Feature flag for inclusion based upon community
-    if false
+    with_feature(:shape_ui) do
       links << {
         :text => t("admin.listing_shapes.index.listing_shapes"),
         :icon_class => icon_class("form"),

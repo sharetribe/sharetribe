@@ -67,7 +67,7 @@ describe EntityUtils do
       .to raise_error
   end
 
-  it "#define builder :enumerable validator" do
+  it "#define_builder :enumerable validator" do
     Entity = EntityUtils.define_builder([:tags, :enumerable])
 
     expect{Entity.call({tags: [1, 2]})}
@@ -80,15 +80,28 @@ describe EntityUtils do
       .to raise_error
   end
 
-  it "define builder :str_to_time transformer" do
+  it "define_builder :str_to_time transformer" do
     expect(EntityUtils.define_builder([:time, str_to_time: "%H:%M:%S %b %e, %Y %Z"]).call({time: "23:01:12 Sep 30, 2014 PDT"}))
       .to eq({time: Time.strptime("23:01:12 Sep 30, 2014 PDT", "%H:%M:%S %b %e, %Y %Z") })
   end
 
-  it "define builder :utc_str_to_time transformer" do
+  it "define_builder :utc_str_to_time transformer" do
     timestamp = 1102856405 # 2004 12 12 13 00 05 UTC
 
     expect(EntityUtils.define_builder([:time, :utc_str_to_time]).call({time: "2004-12-12 13:00:05"}))
       .to eq({time: Time.at(timestamp) })
+  end
+
+  it "#define_builder :set validator" do
+    Entity = EntityUtils.define_builder([:tags, :set])
+
+    expect{Entity.call({tags: [1, 2]})}
+      .to raise_error
+
+    expect{Entity.call({tags: [1, 2].to_set})}
+      .to_not raise_error
+
+    expect{Entity.call({tags: nil})}
+      .to_not raise_error
   end
 end

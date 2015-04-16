@@ -1,6 +1,8 @@
 require 'will_paginate/array'
 
 class ApplicationController < ActionController::Base
+  class FeatureFlagNotEnabledError < StandardError; end
+
   module DefaultURLOptions
     # Adds locale to all links
     def default_url_options
@@ -9,6 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   include ApplicationHelper
+  include FeatureFlagHelper
   include DefaultURLOptions
   protect_from_forgery
   layout 'application'
@@ -387,5 +390,49 @@ class ApplicationController < ActionController::Base
     if APP_CONFIG.always_use_ssl
       redirect_to("https://#{request.host_with_port}#{request.fullpath}") unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || request.fullpath == "/robots.txt"
     end
+  end
+
+  def feature_flags
+    @feature_flags ||= fetch_feature_flags
+  end
+
+  def fetch_feature_flags
+    flags_from_service = FeatureFlagService::API::Api.features.get(community_id: @current_community.id).maybe[:features].or_else(Set.new)
+
+    is_admin = Maybe(@current_user).is_admin?.or_else(false)
+    temp_flags = ApplicationController.fetch_temp_flags(is_admin, params, session)
+
+    session[:feature_flags] = temp_flags
+
+    flags_from_service.union(temp_flags)
+  end
+
+  helper_method :fetch_feature_flags # Make this method available for FeatureFlagHelper
+
+  # Fetch temporary flags from params and session
+  def self.fetch_temp_flags(is_admin, params, session)
+    return Set.new unless is_admin
+
+    from_session = Maybe(session)[:feature_flags].or_else(Set.new)
+    from_params = Maybe(params)[:enable_feature].map { |feature| [feature.to_sym] }.to_set.or_else(Set.new)
+
+    from_session.union(from_params)
+  end
+
+  def ensure_feature_enabled(feature_name)
+    raise FeatureFlagNotEnabledError unless feature_flags.include?(feature_name)
+  end
+
+  # Handy before_filter shorthand.
+  #
+  # Usage:
+  #
+  # class YourController < ApplicationController
+  #   ensure_feature_enabled, :shipping, only: [:new_shipping, edit_shipping]
+  #   ...
+  #  end
+  #
+  def self.ensure_feature_enabled(feature_name, options = {})
+    before_filter(options) { ensure_feature_enabled(feature_name) }
   end
 end
