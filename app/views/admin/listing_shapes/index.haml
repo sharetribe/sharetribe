@@ -27,4 +27,8 @@
 
   .row
     .col-12
-      = link_to t(".create_a_new_listing_shape"), new_admin_listing_shape_path
+      = form_tag new_admin_listing_shape_path, method: :get do
+        .new-listing-shape-template-form-column
+          = t("admin.listing_shapes.index.add_new_shape")
+        .new-listing-shape-template-form-column
+          = select_tag :template, options_for_select([[t("admin.listing_shapes.index.select_template"), nil]].concat(templates.map { |tmpl| [tmpl[:label], tmpl[:key]]} )), onChange: "form.submit();"

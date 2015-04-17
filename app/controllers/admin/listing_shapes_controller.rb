@@ -21,6 +21,7 @@ class Admin::ListingShapesController < ApplicationController
     render("index",
            locals: {
              selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+             templates: templates,
              listing_shapes: all_shapes(@current_community.id)})
   end
 
@@ -64,6 +65,39 @@ class Admin::ListingShapesController < ApplicationController
 
 
   private
+
+  def templates
+    [
+      {
+        label: t("admin.listing_shapes.templates.selling_products"),
+        key: :selling_products
+      },
+      {
+        label: t("admin.listing_shapes.templates.renting_products"),
+        key: :renting_products
+      },
+      {
+        label: t("admin.listing_shapes.templates.offering_services"),
+        key: :offering_services
+      },
+      {
+        label: t("admin.listing_shapes.templates.giving_things_away"),
+        key: :giving_things_away
+      },
+      {
+        label: t("admin.listing_shapes.templates.requesting"),
+        key: :requesting
+      },
+      {
+        label: t("admin.listing_shapes.templates.announcement"),
+        key:  :announcement
+      },
+      {
+        label: t("admin.listing_shapes.templates.custom"),
+        key: :custom
+      }
+    ]
+  end
 
   def edit_view_locals(shape, translations, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
