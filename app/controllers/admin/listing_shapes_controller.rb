@@ -17,6 +17,7 @@ class Admin::ListingShapesController < ApplicationController
     validates :name, presence: true
     validates :action_button_label, presence: true
     validates :shipping_enabled, inclusion: { in: [true, false] }
+    # TODO Add validations
   }
 
   def index
@@ -122,6 +123,7 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def editable_fields(processes)
+    # TODO Read the processes and define which options are editable
     {
       shipping_enabled: true,
       price_enabled: true,
