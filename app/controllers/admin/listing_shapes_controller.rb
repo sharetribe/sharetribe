@@ -50,6 +50,44 @@ class Admin::ListingShapesController < ApplicationController
     render("edit", locals: edit_view_locals(shape, processes, available_locales()))
   end
 
+  def create
+    processes = TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+
+    shape_form = parse_params_to_form(params)
+
+    process_find_opts = {
+      process: shape_form.online_payments ? :preauthorize : :none,
+      author_is_seller: true # FIXME
+    }
+
+    process = processes.find { |p| p.slice(*process_find_opts.keys) == process_find_opts }.tap { |p|
+      raise ArgumentError.new("Can not find suitable transaction process for #{process_find_opts}") if p.nil?
+    }
+
+    unless shape_form.valid?
+      flash[:error] = shape_form.errors.full_messages.join(", ")
+      return render_edit(shape, @current_community.id, available_locales())
+    end
+
+    create_result =
+      create_translations(@current_community.id, shape_form)
+      .and_then { |translations|
+      name_tr_key, action_button_tr_key = translations.map { |t| t[:translation_key] }
+      name_translation = translations.first[:translations]
+      basename = name_translation.find { |t| t[:locale] == @current_community.default_locale } || name_translations.first
+      create_shape(@current_community.id, name_tr_key, action_button_tr_key, basename[:translation], process[:id], shape_form)
+    }
+
+    if create_result.success
+      flash[:message] = t("admin.listing_shapes.new.create_success")
+      redirect_to action: :index
+    else
+      flash[:error] = t("admin.listing_shapes.new.create_failure")
+      # TODO RENDER SOMETHING
+    end
+
+  end
+
   def update
     processes = TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
 
@@ -63,7 +101,7 @@ class Admin::ListingShapesController < ApplicationController
     end
 
     update_result =
-      update_translations(shape, shape_form)
+      update_translations(@current_community, shape_form)
       .and_then { update_shape(shape, shape_form) }
 
     if update_result[:success]
@@ -250,7 +288,16 @@ class Admin::ListingShapesController < ApplicationController
       shape[:name_tr_key] => shape_form.name,
       shape[:action_button_tr_key] => shape_form.action_button_label})
 
-    translations_api.translations.create(shape[:community_id], tr_groups)
+    translations_api.translations.create(community_id, tr_groups)
+  end
+
+  def create_translations(community_id, shape_form)
+    tr_groups = [
+      {translations: shape_form.name.map { |loc, t| {locale: loc, translation: t} }},
+      {translations: shape_form.action_button_label.map { |loc, t| {locale: loc, translation: t} }}
+    ]
+
+    translations_api.translations.create(community_id, tr_groups)
   end
 
   def translations_api
@@ -267,6 +314,21 @@ class Admin::ListingShapesController < ApplicationController
     listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id)
       .maybe()
       .or_else(nil)
+  end
+
+  def create_shape(community_id, name_tr_key, action_button_tr_key, basename, transaction_process_id, shape_form)
+    listing_api.shapes.create(
+      community_id: community_id,
+      opts: {
+        transaction_process_id: transaction_process_id,
+        name_tr_key: name_tr_key,
+        action_button_tr_key: action_button_tr_key,
+        shipping_enabled: shape_form.shipping_enabled,
+        price_enabled: shape_form.price_enabled,
+        units: shape_form.units,
+        basename: basename
+      }
+    )
   end
 
   def update_shape(shape, shape_form)
