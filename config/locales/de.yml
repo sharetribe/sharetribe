@@ -431,7 +431,7 @@ de:
       paypal_fee_info: "* Ohne <a id='%{fee_info_link_id}' href='#'>PayPal-Zahlungsbearbeitungsgebühr</a>"
       shipping_price_label: ~
     confirm:
-      confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem anderen Feedback geben."
+      confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem Anderen Feedback geben."
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
       cancel_payed_description: "Wenn deine Anfrage akzeptiert wurde, du aber noch einmal darüber nachdenken willst, kannst du deine Anfrage vor der Bezahlung immer noch ablehnen."
       canceling_payed_transaction: "Transaktion abbrechen"
@@ -467,8 +467,8 @@ de:
       accepted_offer: "Angebot akzeptieren"
       rejected_request: "Anfrage abgelehnt"
       rejected_offer: "Angebot ablehnen"
-      confirmed_request: "die Anfrage als erledigt markieren"
-      confirmed_offer: "das Angebot als erledigt markieren"
+      confirmed_request: "hat die Anfrage als erledigt markiert"
+      confirmed_offer: "hat das Angebot als erledigt markiert"
       canceled_request: "Anfrage abgebrochen"
       canceled_offer: "Angebot abgebrochen"
       paid: "bezahlt %{sum}"
@@ -511,7 +511,7 @@ de:
       about_listing: "In Bezug auf %{listing_title}"
       author_has_to_accept_request: "%{author_name} muss den Auftrag annehmen, bevor Sie zahlen können"
     show:
-      in_response_to_listing: "über die Einträge"
+      in_response_to_listing: "über den Eintrag"
       message_sent_by: "Nachricht gesendet von"
       message_sent_to: "Nachricht gesendet an"
       send_reply: "Nachricht senden"
@@ -532,8 +532,8 @@ de:
       feedback_given: "gegebenes Feedback"
       feedback_skipped: "übersprungene Feedbacks"
       give_feedback: "Feedback geben"
-      offer_accepted: "Angebot angenommen"
-      offer_rejected: "Angebot abgelehnt"
+      offer_accepted: "Anfrage akzeptiert"
+      offer_rejected: "Anfrage abgelehnt"
       offer_canceled: abgelehnt
       offer_confirmed: fertig
       offer_paid: "Zahlung erfolgreich"
@@ -1508,6 +1508,8 @@ de:
       search_verb: Suche
       you_have_something_others_do_not: "Hast du etwas anzubieten?"
     please_comment: Kommentar
+  mercury:
+    content_too_long: ~
   okl:
     member_id: "Mitglieds ID"
     member_id_or_email: "Mitglieds-ID oder E-Mail-Adresse"
