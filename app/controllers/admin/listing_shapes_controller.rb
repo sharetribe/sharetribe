@@ -18,14 +18,24 @@ class Admin::ListingShapesController < ApplicationController
   }
 
   def index
+    processes = TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+
     render("index",
            locals: {
              selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-             templates: templates,
+             templates: templates(processes),
              listing_shapes: all_shapes(@current_community.id)})
   end
 
   def new
+    processes = TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+
+    unless valid_template?(params[:template], processes)
+      flash[:error] = "Invalid template: #{params[:template]}"
+      return redirect_to action: :index
+    end
+
+    template = templates(processes).find { |tmpl| tmpl[:key] == params[:template].to_sym }
     shape = new_shape_template(@current_community.id)
     render("new", locals: new_view_locals(
              shape,
@@ -66,35 +76,97 @@ class Admin::ListingShapesController < ApplicationController
 
   private
 
-  def templates
+  def valid_template?(template_key, processes)
+    key = template_key.to_sym
+    templates(processes).any? { |tmpl| tmpl[:key] == key }
+  end
+
+  def templates(transaction_processes)
+    request_process_available = transaction_processes.any? { |tp| tp[:author_is_seller] == false }
+    preauthorize_process_available = transaction_processes.any? { |tp| tp[:process] == :preauthorize }
+
+    template_defaults.reject { |tmpl|
+      tmpl[:key] == :requesting && !request_process_available
+    }.map { |tmpl|
+      tmpl[:price_enabled]          = {default: tmpl[:price_enabled], can_change: true}
+      tmpl[:shipping_enabled]       = {default: tmpl[:shipping_enabled], can_change: preauthorize_process_available}
+      tmpl[:online_payment_enabled] = {default: tmpl[:online_payment_enabled], can_change: preauthorize_process_available}
+      tmpl[:author_is_seller]       = {default: tmpl[:author_is_seller], can_change: false}
+      tmpl
+    }
+  end
+
+  def template_defaults
     [
       {
         label: t("admin.listing_shapes.templates.selling_products"),
-        key: :selling_products
+        key: :selling_products,
+        name_tr_key: "",
+        button_tr_key: "",
+        price_enabled: true,
+        shipping_enabled: true,
+        online_payments: true,
+        author_is_seller: true,
       },
       {
         label: t("admin.listing_shapes.templates.renting_products"),
-        key: :renting_products
+        key: :renting_products,
+        name_tr_key: "",
+        button_tr_key: "",
+        price_enabled: true,
+        shipping_enabled: false,
+        online_payments: true,
+        author_is_seller: true,
       },
       {
         label: t("admin.listing_shapes.templates.offering_services"),
-        key: :offering_services
+        key: :offering_services,
+        name_tr_key: "",
+        button_tr_key: "",
+        price_enabled: true,
+        shipping_enabled: false,
+        online_payments: true,
+        author_is_seller: true,
       },
       {
         label: t("admin.listing_shapes.templates.giving_things_away"),
-        key: :giving_things_away
+        key: :giving_things_away,
+        name_tr_key: "",
+        button_tr_key: "",
+        price_enabled: false,
+        shipping_enabled: false,
+        online_payments: false,
+        author_is_seller: true,
       },
       {
         label: t("admin.listing_shapes.templates.requesting"),
-        key: :requesting
+        key: :requesting,
+        name_tr_key: "",
+        button_tr_key: "",
+        price_enabled: false,
+        shipping_enabled: false,
+        online_payments: false,
+        author_is_seller: false,
       },
       {
         label: t("admin.listing_shapes.templates.announcement"),
-        key:  :announcement
+        key:  :announcement,
+        name_tr_key: "",
+        button_tr_key: "",
+        price_enabled: false,
+        shipping_enabled: false,
+        online_payments: false,
+        author_is_seller: true,
       },
       {
         label: t("admin.listing_shapes.templates.custom"),
-        key: :custom
+        key: :custom,
+        name_tr_key: "",
+        button_tr_key: "",
+        price_enabled: false,
+        shipping_enabled: false,
+        online_payments: false,
+        author_is_seller: true,
       }
     ]
   end
