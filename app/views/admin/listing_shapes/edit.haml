@@ -10,7 +10,7 @@
   %h2= t(".edit_listing_shape", shape: t(shape[:name_tr_key]))
   = form_tag(admin_listing_shape_path(shape[:id]), method: :put, id: "listing_shape_form") do
 
-    = render partial: "shape_form_content", locals: { shape: shape, shape_form: shape_form, locale_name_mapping: locale_name_mapping }
+    = render partial: "shape_form_content", locals: { shape: shape, shape_form: shape_form, locale_name_mapping: locale_name_mapping, editable_fields: editable_fields }
 
     .row
       .col-12

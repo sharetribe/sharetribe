@@ -10,6 +10,8 @@ class Admin::ListingShapesController < ApplicationController
     :name,
     :action_button_label,
     :shipping_enabled,
+    :price_enabled,
+    :online_payments,
     :units,
   ).with_validations {
     validates :name, presence: true
@@ -36,17 +38,21 @@ class Admin::ListingShapesController < ApplicationController
     end
 
     template = templates(processes).find { |tmpl| tmpl[:key] == params[:template].to_sym }
-    render("new", locals: new_view_locals(template, available_locales()))
+    render("new", locals: new_view_locals(template, processes, available_locales()))
   end
 
   def edit
+    processes = TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+
     shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
 
-    render("edit", locals: edit_view_locals(shape, available_locales()))
+    render("edit", locals: edit_view_locals(shape, processes, available_locales()))
   end
 
   def update
+    processes = TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+
     shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
 
@@ -65,7 +71,7 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to admin_listing_shapes_path
     else
       flash[:error] = t("admin.listing_shapes.edit.update_failure")
-      render("edit", locals: edit_view_locals(shape, available_locales()))
+      render("edit", locals: edit_view_locals(shape, processes, available_locales()))
     end
   end
 
@@ -77,18 +83,20 @@ class Admin::ListingShapesController < ApplicationController
     templates(processes).any? { |tmpl| tmpl[:key] == key }
   end
 
+  def editable_fields(processes)
+    {
+      shipping_enabled: true,
+      price_enabled: true,
+      online_payments: true
+    }
+  end
+
   def templates(transaction_processes)
     request_process_available = transaction_processes.any? { |tp| tp[:author_is_seller] == false }
     preauthorize_process_available = transaction_processes.any? { |tp| tp[:process] == :preauthorize }
 
     template_defaults.reject { |tmpl|
       tmpl[:key] == :requesting && !request_process_available
-    }.map { |tmpl|
-      tmpl[:price_enabled]          = {default: tmpl[:price_enabled], can_change: true}
-      tmpl[:shipping_enabled]       = {default: tmpl[:shipping_enabled], can_change: preauthorize_process_available}
-      tmpl[:online_payment_enabled] = {default: tmpl[:online_payment_enabled], can_change: preauthorize_process_available}
-      tmpl[:author_is_seller]       = {default: tmpl[:author_is_seller], can_change: false}
-      tmpl
     }
   end
 
@@ -174,15 +182,17 @@ class Admin::ListingShapesController < ApplicationController
     ]
   end
 
-  def edit_view_locals(shape, available_locs)
+  def edit_view_locals(shape, processes, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+      editable_fields: editable_fields(processes),
       shape: shape,
       shape_form: to_form_data(shape, available_locs),
       locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h  }
   end
 
-  def new_view_locals(shape, available_locs)
+  def new_view_locals(shape, processes, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+      editable_fields: editable_fields(processes),
       shape: shape,
       shape_form: to_form_data(shape, available_locs),
       locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h }
@@ -194,6 +204,8 @@ class Admin::ListingShapesController < ApplicationController
       params
       .slice(:name, :action_button_label)
       .merge(shipping_enabled: params[:shipping_enabled] == "true")
+      .merge(price_enabled: params[:price_enabled] == "true")
+      .merge(online_payments: params[:online_payments] == "true")
       .merge(units: Maybe(params[:units]).or_else([]).map { |t, _| parse_unit(t) }))
   end
 
@@ -226,6 +238,8 @@ class Admin::ListingShapesController < ApplicationController
               .map { |unit| {type: unit[:type], enabled: true, label: translate(unit[:translation_key])} })
 
     ListingShapeForm.new(name: name_translations,
+                         price_enabled: shape[:price_enabled],
+                         online_payments: shape[:online_payments],
                          action_button_label: action_button_translations,
                          shipping_enabled: shape[:shipping_enabled],
                          units: units)
@@ -261,6 +275,7 @@ class Admin::ListingShapesController < ApplicationController
       listing_shape_id: shape[:id],
       opts: {
         shipping_enabled: shape_form.shipping_enabled,
+        price_enabled: shape_form.price_enabled,
         units: shape_form.units
       }
     )

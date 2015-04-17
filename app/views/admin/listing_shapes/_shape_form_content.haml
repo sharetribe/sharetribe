@@ -21,9 +21,24 @@
 .row
   .col-12
     = label_tag("shipping_title", t("admin.listing_shapes.shipping_title"), class: "input")
-    = check_box_tag(:shipping_enabled, "true", shape_form.shipping_enabled, class: "checkbox-row-checkbox")
-    = label_tag(:shipping_enabled, t("admin.listing_shapes.shipping_label"), class: "checkbox-row-label")
 
+- if editable_fields[:price_enabled]
+  .row
+    .col-12
+      = check_box_tag(:price_enabled, "true", shape_form.price_enabled, class: "checkbox-row-checkbox")
+      = label_tag(:price_enabled, t("admin.listing_shapes.price_label"), class: "checkbox-row-label")
+
+- if editable_fields[:online_payments]
+  .row
+    .col-12
+      = check_box_tag(:online_payments, "true", shape_form.online_payments, class: "checkbox-row-checkbox")
+      = label_tag(:online_payments, t("admin.listing_shapes.online_payments_label"), class: "checkbox-row-label")
+
+- if editable_fields[:shipping_enabled]
+  .row
+    .col-12
+      = check_box_tag(:shipping_enabled, "true", shape_form.shipping_enabled, class: "checkbox-row-checkbox")
+      = label_tag(:shipping_enabled, t("admin.listing_shapes.shipping_label"), class: "checkbox-row-label")
 
 .row
   .col-12
