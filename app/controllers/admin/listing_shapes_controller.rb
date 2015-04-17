@@ -114,7 +114,7 @@ class Admin::ListingShapesController < ApplicationController
         shipping_enabled: false,
         online_payments: true,
         author_is_seller: true,
-        units: []
+        units: [{type: :day}, {type: :week}, {type: :month}]
       },
       {
         label: t("admin.listing_shapes.templates.offering_services"),
@@ -125,7 +125,7 @@ class Admin::ListingShapesController < ApplicationController
         shipping_enabled: false,
         online_payments: true,
         author_is_seller: true,
-        units: []
+        units: [{type: :hour}]
       },
       {
         label: t("admin.listing_shapes.templates.giving_things_away"),
