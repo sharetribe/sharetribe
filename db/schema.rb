@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150413104519) do
+ActiveRecord::Schema.define(:version => 20150413134627) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -88,16 +88,6 @@ ActiveRecord::Schema.define(:version => 20150413104519) do
   end
 
   add_index "category_listing_shapes", ["category_id"], :name => "index_category_listing_shapes_on_category_id"
-
-  create_table "category_transaction_types", :force => true do |t|
-    t.integer  "category_id"
-    t.integer  "transaction_type_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
-
-  add_index "category_transaction_types", ["category_id"], :name => "index_category_transaction_types_on_category_id"
-  add_index "category_transaction_types", ["transaction_type_id"], :name => "index_category_transaction_types_on_transaction_type_id"
 
   create_table "category_translations", :force => true do |t|
     t.integer  "category_id"
@@ -496,7 +486,6 @@ ActiveRecord::Schema.define(:version => 20150413104519) do
     t.string   "name_tr_key",                               :null => false
     t.string   "action_button_tr_key",                      :null => false
     t.string   "price_quantity_placeholder"
-    t.integer  "transaction_type_id"
     t.integer  "sort_priority",              :default => 0, :null => false
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
@@ -504,20 +493,17 @@ ActiveRecord::Schema.define(:version => 20150413104519) do
 
   add_index "listing_shapes", ["community_id"], :name => "index_listing_shapes_on_community_id"
   add_index "listing_shapes", ["name"], :name => "index_listing_shapes_on_name"
-  add_index "listing_shapes", ["transaction_type_id"], :name => "index_listing_shapes_on_transaction_type_id"
 
   create_table "listing_units", :force => true do |t|
-    t.string   "unit_type",           :limit => 32, :null => false
-    t.string   "quantity_selector",   :limit => 32, :null => false
-    t.string   "translation_key",     :limit => 64
-    t.integer  "transaction_type_id"
+    t.string   "unit_type",         :limit => 32, :null => false
+    t.string   "quantity_selector", :limit => 32, :null => false
+    t.string   "translation_key",   :limit => 64
     t.integer  "listing_shape_id"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   add_index "listing_units", ["listing_shape_id"], :name => "index_listing_units_on_listing_shape_id"
-  add_index "listing_units", ["transaction_type_id"], :name => "index_listing_units_on_transaction_type_id"
 
   create_table "listings", :force => true do |t|
     t.string   "author_id"
@@ -545,7 +531,6 @@ ActiveRecord::Schema.define(:version => 20150413104519) do
     t.integer  "old_category_id"
     t.integer  "category_id"
     t.integer  "share_type_id"
-    t.integer  "transaction_type_id"
     t.integer  "listing_shape_id",                                                     :null => false
     t.integer  "transaction_process_id"
     t.string   "shape_name_tr_key"
@@ -568,7 +553,6 @@ ActiveRecord::Schema.define(:version => 20150413104519) do
   add_index "listings", ["old_category_id"], :name => "index_listings_on_category_id"
   add_index "listings", ["open"], :name => "index_listings_on_open"
   add_index "listings", ["share_type_id"], :name => "index_listings_on_share_type_id"
-  add_index "listings", ["transaction_type_id"], :name => "index_listings_on_transaction_type_id"
   add_index "listings", ["visibility"], :name => "index_listings_on_visibility"
 
   create_table "locations", :force => true do |t|
@@ -927,38 +911,6 @@ ActiveRecord::Schema.define(:version => 20150413104519) do
 
   add_index "transaction_transitions", ["sort_key", "transaction_id"], :name => "index_transaction_transitions_on_sort_key_and_conversation_id", :unique => true
   add_index "transaction_transitions", ["transaction_id"], :name => "index_transaction_transitions_on_conversation_id"
-
-  create_table "transaction_type_translations", :force => true do |t|
-    t.integer  "transaction_type_id"
-    t.string   "locale"
-    t.string   "name"
-    t.string   "action_button_label"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
-
-  add_index "transaction_type_translations", ["transaction_type_id", "locale"], :name => "locale_index"
-  add_index "transaction_type_translations", ["transaction_type_id"], :name => "index_transaction_type_translations_on_transaction_type_id"
-
-  create_table "transaction_types", :force => true do |t|
-    t.string   "type"
-    t.integer  "community_id"
-    t.integer  "transaction_process_id"
-    t.integer  "sort_priority"
-    t.boolean  "price_field"
-    t.boolean  "preauthorize_payment",       :default => false
-    t.string   "price_quantity_placeholder"
-    t.string   "price_per"
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
-    t.string   "url"
-    t.boolean  "shipping_enabled",           :default => false
-    t.string   "name_tr_key"
-    t.string   "action_button_tr_key"
-  end
-
-  add_index "transaction_types", ["community_id"], :name => "index_transaction_types_on_community_id"
-  add_index "transaction_types", ["url"], :name => "index_transaction_types_on_url"
 
   create_table "transactions", :force => true do |t|
     t.string   "starter_id",                                                          :null => false
