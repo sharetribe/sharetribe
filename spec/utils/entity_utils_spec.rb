@@ -54,6 +54,16 @@ describe EntityUtils do
         .to raise_error
   end
 
+  it "#define_builder returns result, if result: true and does not raise an error" do
+    Entity = EntityUtils.define_builder([:name, :string, :mandatory])
+
+    result = Entity.call({name: "First Last"}, result: true)
+    expect(result.success).to eq true
+
+    result = Entity.call({}, result: true)
+    expect(result.success).to eq false
+  end
+
   it "#define_builder :callable validator" do
     Entity = EntityUtils.define_builder([:say_so, :callable])
 

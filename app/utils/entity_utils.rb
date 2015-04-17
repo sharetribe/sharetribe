@@ -255,17 +255,29 @@ module EntityUtils
   def define_builder(*specs)
     fields = parse_specs(specs)
 
-    -> (opts = {}) do
-      raise(TypeError, "Expecting an input hash. You gave: #{opts}") unless opts.is_a? Hash
+    -> (data, opts = {}) do
+      opts = {
+        result: false
+      }.merge(opts)
 
-      result = transform_and_validate(fields, opts)
+      raise(TypeError, "Expecting an input hash. You gave: #{data}") unless data.is_a? Hash
 
-      unless (result[:errors].empty?)
-        loc = caller_locations(2, 1).first
-        raise(ArgumentError, "Error(s) in #{loc}: #{result[:errors]}")
+      result = transform_and_validate(fields, data)
+
+      if !result[:errors].empty?
+        if opts[:result]
+          Result::Error.new(result[:errors])
+        else
+          loc = caller_locations(2, 1).first
+          raise(ArgumentError, "Error(s) in #{loc}: #{result[:errors]}")
+        end
+      else
+        if opts[:result]
+          Result::Success.new(result[:value])
+        else
+          result[:value]
+        end
       end
-
-      result[:value]
     end
   end
 
