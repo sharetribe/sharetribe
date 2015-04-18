@@ -16,7 +16,11 @@ describe EntityUtils do
       [:name, :string, :mandatory],
       [:age, :optional, :fixnum, default: 8],
       [:sex, one_of: [:m, :f]],
-      [:favorite_even_number, validate_with: -> (v) { v.nil? || v.even? }],
+      [:favorite_even_number, validate_with: -> (v) {
+         unless v.nil? || v.even?
+           {code: :even, msg: "Value must be a even number. Was: #{v}"}
+         end
+       }],
       [:tag, :optional, transform_with: -> (v) { v.to_sym unless v.nil? }]
     )
 
@@ -158,6 +162,22 @@ describe EntityUtils do
     errors = Entity.call({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]}, result: true).data
 
     expect(errors.first[:field]).to eq("name[1].type")
+  end
+
+  it "#define_builder returns and error code and a message" do
+    Entity = EntityUtils.define_builder([:name, :string, :mandatory])
+
+    expect(Entity.call({}, result: true).data.first[:code]).to eq :mandatory
+
+    CustomValidatorEntity = EntityUtils.define_builder(
+      [:name, validate_with: ->(v) {
+         unless v == v.capitalize
+           {code: :capital_letter, msg: "Value must start with capital letter. Was: #{v}"}
+         end
+       }])
+
+    expect(CustomValidatorEntity.call({name: "first"}, result: true).data.first[:code]).to eq :capital_letter
+
   end
 
   it "#define_builder returns result, if result: true and does not raise an error" do

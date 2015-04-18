@@ -38,79 +38,77 @@ module EntityUtils
   VALIDATORS = {
     mandatory: -> (_, v, _) {
       if (v.to_s.empty?)
-        "Missing mandatory value."
+        {code: :mandatory, msg: "Missing mandatory value." }
       end
     },
     optional: -> (_, v, _) { nil },
     one_of: -> (allowed, v, _) {
       unless (allowed.include?(v))
-        "Value must be one of #{allowed}. Was: #{v}."
+        {code: :one_of, msg: "Value must be one of #{allowed}. Was: #{v}." }
       end
     },
     string: -> (_, v, _) {
       unless (v.nil? || v.is_a?(String))
-        "Value must be a String. Was: #{v} (#{v.class.name})."
+        {code: :string, msg: "Value must be a String. Was: #{v} (#{v.class.name})." }
       end
     },
     time: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Time))
-        "Value must be a Time. Was: #{v} (#{v.class.name})."
+        {code: :time, msg: "Value must be a Time. Was: #{v} (#{v.class.name})." }
       end
     },
     date: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Date))
-        "Value must be a Date. Was: #{v} (#{v.class.name})."
+        {code: :date, msg: "Value must be a Date. Was: #{v} (#{v.class.name})." }
       end
     },
     fixnum: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Fixnum))
-        "Value must be a Fixnum. Was: #{v} (#{v.class.name})."
+        {code: :fixnum, msg: "Value must be a Fixnum. Was: #{v} (#{v.class.name})." }
       end
     },
     symbol: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Symbol))
-        "Value must be a Symbol. Was: #{v} (#{v.class.name})."
+        {code: :symbol, msg: "Value must be a Symbol. Was: #{v} (#{v.class.name})." }
       end
     },
     hash: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Hash))
-        "Value must be a Hash. Was: #{v} (#{v.class.name})."
+        {code: :hash, msg: "Value must be a Hash. Was: #{v} (#{v.class.name})." }
       end
     },
     callable: -> (_, v, _) {
       unless (v.nil? || v.respond_to?(:call))
-        "Value must respond to :call, i.e. be a Method or a Proc (lambda, block, etc.)."
+        {code: :callable, msg: "Value must respond to :call, i.e. be a Method or a Proc (lambda, block, etc.)." }
       end
     },
     enumerable: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Enumerable))
-        "Value must be an Enumerable. Was: #{v}."
+        {code: :enumerable, msg: "Value must be an Enumerable. Was: #{v}." }
       end
     },
     array: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Array))
-        "Value must be an Array. Was: #{v}."
+        {code: :array, msg: "Value must be an Array. Was: #{v}." }
       end
     },
     set: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Set))
-        "Value must be a Set. Was: #{v} (#{v.class.name})."
+        {code: :set, msg: "Value must be a Set. Was: #{v} (#{v.class.name})." }
       end
     },
     money: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Money))
-        "Value must be a Money. Was: #{v}."
+        {code: :money, msg: "Value must be a Money. Was: #{v}." }
       end
     },
     bool: -> (_, v, _) {
       unless (v.nil? || v == true || v == false)
-        "Value must be boolean true or false. Was: #{v} (#{v.class.name})."
+        {code: :bool, msg: "Value must be boolean true or false. Was: #{v} (#{v.class.name})." }
       end
     },
     validate_with: -> (validator, v, _) {
-      unless (validator.call(v))
-        "Custom validation failed. Was: #{v}."
-      end
+      validator.call(v)
     }
   }
 
@@ -198,8 +196,8 @@ module EntityUtils
 
   def validate(validators, val, field)
     validators.reduce([]) do |res, validator|
-      err_msg = validator.call(val, field)
-      res.push({field: field.to_s, msg: err_msg}) unless err_msg.nil?
+      err = validator.call(val, field)
+      res.push({field: field.to_s, code: err[:code], msg: err[:msg]}) unless err.nil?
       res
     end
   end
