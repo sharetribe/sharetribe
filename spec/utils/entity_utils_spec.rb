@@ -95,6 +95,33 @@ describe EntityUtils do
 
   end
 
+  it "#define_builder returns error field path message for nested entities" do
+    Entity = EntityUtils.define_builder(
+      [:name, :mandatory, entity: [
+         [:first, :string, :mandatory],
+         [:middle, :string, default: "Middle"],
+         [:last, :string, :mandatory]
+       ]])
+
+    # Validators
+    errors = Entity.call({name: {first: 'First', middle: 'Middle'}}, result: true).data
+    expect(errors.first[:field]).to eq("name.last")
+  end
+
+  it "#define_builder returns error field path for nested entity collection" do
+
+    Entity = EntityUtils.define_builder(
+      [:name, :mandatory, collection: [
+         [:type, :mandatory, one_of: [:first, :middle, :last]],
+         [:value, :mandatory, :string],
+         [:calling_name, default: false]
+       ]])
+
+    errors = Entity.call({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]}, result: true).data
+
+    expect(errors.first[:field]).to eq("name[1].type")
+  end
+
   it "#define_builder returns result, if result: true and does not raise an error" do
     Entity = EntityUtils.define_builder([:name, :string, :mandatory])
 

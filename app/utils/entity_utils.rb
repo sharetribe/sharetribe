@@ -36,80 +36,80 @@ module EntityUtils
   end
 
   VALIDATORS = {
-    mandatory: -> (_, v, field) {
+    mandatory: -> (_, v, _) {
       if (v.to_s.empty?)
-        "#{field}: Missing mandatory value."
+        "Missing mandatory value."
       end
     },
-    optional: -> (_, v, field) { nil },
-    one_of: -> (allowed, v, field) {
+    optional: -> (_, v, _) { nil },
+    one_of: -> (allowed, v, _) {
       unless (allowed.include?(v))
-        "#{field}: Value must be one of #{allowed}. Was: #{v}."
+        "Value must be one of #{allowed}. Was: #{v}."
       end
     },
-    string: -> (_, v, field) {
+    string: -> (_, v, _) {
       unless (v.nil? || v.is_a?(String))
-        "#{field}: Value must be a String. Was: #{v} (#{v.class.name})."
+        "Value must be a String. Was: #{v} (#{v.class.name})."
       end
     },
-    time: -> (_, v, field) {
+    time: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Time))
-        "#{field}: Value must be a Time. Was: #{v} (#{v.class.name})."
+        "Value must be a Time. Was: #{v} (#{v.class.name})."
       end
     },
-    date: -> (_, v, field) {
+    date: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Date))
-        "#{field}: Value must be a Date. Was: #{v} (#{v.class.name})."
+        "Value must be a Date. Was: #{v} (#{v.class.name})."
       end
     },
-    fixnum: -> (_, v, field) {
+    fixnum: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Fixnum))
-        "#{field}: Value must be a Fixnum. Was: #{v} (#{v.class.name})."
+        "Value must be a Fixnum. Was: #{v} (#{v.class.name})."
       end
     },
-    symbol: -> (_, v, field) {
+    symbol: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Symbol))
-        "#{field}: Value must be a Symbol. Was: #{v} (#{v.class.name})."
+        "Value must be a Symbol. Was: #{v} (#{v.class.name})."
       end
     },
-    hash: -> (_, v, field) {
+    hash: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Hash))
-        "#{field}: Value must be a Hash. Was: #{v} (#{v.class.name})."
+        "Value must be a Hash. Was: #{v} (#{v.class.name})."
       end
     },
-    callable: -> (_, v, field) {
+    callable: -> (_, v, _) {
       unless (v.nil? || v.respond_to?(:call))
-        "#{field}: Value must respond to :call, i.e. be a Method or a Proc (lambda, block, etc.)."
+        "Value must respond to :call, i.e. be a Method or a Proc (lambda, block, etc.)."
       end
     },
-    enumerable: -> (_, v, field) {
+    enumerable: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Enumerable))
-        "#{field}: Value must be an Enumerable. Was: #{v}."
+        "Value must be an Enumerable. Was: #{v}."
       end
     },
-    array: -> (_, v, field) {
+    array: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Array))
-        "#{field}: Value must be an Array. Was: #{v}."
+        "Value must be an Array. Was: #{v}."
       end
     },
-    set: -> (_, v, field) {
+    set: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Set))
-        "#{field}: Value must be a Set. Was: #{v} (#{v.class.name})."
+        "Value must be a Set. Was: #{v} (#{v.class.name})."
       end
     },
-    money: -> (_, v, field) {
+    money: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Money))
-        "#{field}: Value must be a Money. Was: #{v}."
+        "Value must be a Money. Was: #{v}."
       end
     },
-    bool: -> (_, v, field) {
+    bool: -> (_, v, _) {
       unless (v.nil? || v == true || v == false)
-        "#{field}: Value must be boolean true or false. Was: #{v} (#{v.class.name})."
+        "Value must be boolean true or false. Was: #{v} (#{v.class.name})."
       end
     },
-    validate_with: -> (validator, v, field) {
+    validate_with: -> (validator, v, _) {
       unless (validator.call(v))
-        "#{field}: Custom validation failed. Was: #{v}."
+        "Custom validation failed. Was: #{v}."
       end
     }
   }
@@ -191,22 +191,31 @@ module EntityUtils
 
   def validate(validators, val, field)
     validators.reduce([]) do |res, validator|
-      err = validator.call(val, field)
-      res.push(err) unless err.nil?
+      err_msg = validator.call(val, field)
+      res.push({field: field.to_s, msg: err_msg}) unless err_msg.nil?
       res
     end
   end
 
   def validate_all(fields, input)
     fields.reduce([]) do |errs, (name, spec)|
-      errors = validate(spec[:validators], input[name], name)
+      errors = validate(spec[:validators], input[name], name).map { |err|
+        err[:field] = "#{name.to_s}"
+        err
+      }
 
       nested_errors =
         if spec[:collection].present?
-          # FIXME Flatmap is not the right thing to do
-          input[name].flat_map { |v| validate_all(spec[:collection], v) }
+          input[name].each_with_index.flat_map { |v, i|
+            validate_all(spec[:collection], v).map { |err|
+              err[:field] = "#{name.to_s}[#{i}].#{err[:field]}"
+              err
+            } }
         elsif spec[:entity].present?
-          validate_all(spec[:entity], input[name])
+          validate_all(spec[:entity], input[name]).map { |err|
+            err[:field] = "#{name.to_s}.#{err[:field]}"
+            err
+          }
         else
           []
         end
@@ -240,7 +249,10 @@ module EntityUtils
 
   def transform_and_validate(fields, input)
     output = transform_all(fields, input)
-    errors = validate_all(fields, output)
+    errors = validate_all(fields, output).map { |err|
+      err[:msg] = "#{err[:field]}: #{err[:msg]}"
+      err
+    }
 
     {value: output, errors: errors}
   end
@@ -302,11 +314,12 @@ module EntityUtils
       result = transform_and_validate(fields, data)
 
       if !result[:errors].empty?
+        msg = result[:errors].map { |error| error[:msg] }.join(", ")
         if opts[:result]
-          Result::Error.new(result[:errors])
+          Result::Error.new(msg, result[:errors])
         else
           loc = caller_locations(2, 1).first
-          raise(ArgumentError, "Error(s) in #{loc}: #{result[:errors]}")
+          raise(ArgumentError, "Error(s) in #{loc}: #{msg}")
         end
       else
         if opts[:result]
