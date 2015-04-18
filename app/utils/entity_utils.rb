@@ -174,9 +174,17 @@ module EntityUtils
       (parsed_spec[:transformers] || [])
       .map { |(name, param)| TRANSFORMERS[name].curry().call(param) }
     parsed_spec[:collection] =
-      parse_specs(opts[:collection] || [])
+      if opts[:collection].is_a? Proc
+        opts[:collection].call(nil, specs_only: true)
+      else
+        parse_specs(opts[:collection] || [])
+      end
     parsed_spec[:entity] =
-      parse_specs(opts[:entity] || [])
+      if opts[:entity].is_a? Proc
+        opts[:entity].call(nil, specs_only: true)
+      else
+        parse_specs(opts[:entity] || [])
+      end
 
     parsed_spec
   end
@@ -306,8 +314,11 @@ module EntityUtils
 
     -> (data, opts = {}) do
       opts = {
+        specs_only: false,
         result: false
       }.merge(opts)
+
+      return fields if opts[:specs_only]
 
       raise(TypeError, "Expecting an input hash. You gave: #{data}") unless data.is_a? Hash
 

@@ -74,6 +74,25 @@ describe EntityUtils do
 
   end
 
+  it "#define_builder can nest other builders" do
+    NameDetails = EntityUtils.define_builder(
+      [:first, :string, :mandatory],
+      [:middle, :string, default: "Middle"],
+      [:last, :string, :mandatory]
+    )
+
+    Entity = EntityUtils.define_builder(
+      [:name, :mandatory, entity: NameDetails]
+    )
+
+    # Validators
+    expect{Entity.call({name: {first: 'First', last: 'Last'}})}
+      .not_to raise_error
+
+    expect{Entity.call({name: {first: 'First', middle: 'Middle'}})}
+      .to raise_error
+  end
+
   it "#define_builder supports nested entity collections" do
     Entity = EntityUtils.define_builder(
       [:name, :mandatory, collection: [
@@ -92,6 +111,25 @@ describe EntityUtils do
     # Transformers
     expect(Entity.call({name: [{type: :first, value: 'First', calling_name: true}, {type: :last, value: 'Last'}]}))
       .to eq({name: [{type: :first, value: 'First', calling_name: true}, {type: :last, value: 'Last', calling_name: false}]})
+
+  end
+
+  it "#define_builder can nest other builders for collections" do
+    NameDetails = EntityUtils.define_builder(
+      [:type, :mandatory, one_of: [:first, :middle, :last]],
+      [:value, :mandatory, :string],
+      [:calling_name, default: false]
+    )
+
+    Entity = EntityUtils.define_builder(
+      [:name, :mandatory, collection: NameDetails])
+
+    # Validators
+    expect{Entity.call({name: [{type: :first, value: 'First'}, {type: :last, value: 'Last'}]})}
+      .not_to raise_error
+
+    expect{Entity.call({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]})}
+      .to raise_error
 
   end
 
