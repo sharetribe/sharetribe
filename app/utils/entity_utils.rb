@@ -145,7 +145,7 @@ module EntityUtils
     transform_with: -> (transformer, v) { transformer.call(v) }
   }
 
-  def validator_or_transformer(k)
+  def categorice_spec(k)
     if (VALIDATORS.keys.include?(k))
       :validators
     elsif (TRANSFORMERS.keys.include?(k))
@@ -165,7 +165,7 @@ module EntityUtils
     parsed_spec = s.zip([nil].cycle)
       .to_h
       .merge(opts)
-      .group_by { |(name, param)| validator_or_transformer(name) }
+      .group_by { |(name, param)| categorice_spec(name) }
 
     parsed_spec[:validators] =
       (parsed_spec[:validators] || [])
@@ -173,20 +173,19 @@ module EntityUtils
     parsed_spec[:transformers] =
       (parsed_spec[:transformers] || [])
       .map { |(name, param)| TRANSFORMERS[name].curry().call(param) }
-    parsed_spec[:collection] =
-      if opts[:collection].is_a? Proc
-        opts[:collection].call(nil, specs_only: true)
-      else
-        parse_specs(opts[:collection] || [])
-      end
-    parsed_spec[:entity] =
-      if opts[:entity].is_a? Proc
-        opts[:entity].call(nil, specs_only: true)
-      else
-        parse_specs(opts[:entity] || [])
-      end
+
+    parsed_spec[:collection] = parse_nested_specs(opts[:collection])
+    parsed_spec[:entity] = parse_nested_specs(opts[:entity])
 
     parsed_spec
+  end
+
+  def parse_nested_specs(specs)
+    if specs.is_a? Proc
+      specs.call(nil, specs_only: true)
+    else
+      parse_specs(specs || [])
+    end
   end
 
   def parse_specs(specs)
