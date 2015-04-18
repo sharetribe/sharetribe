@@ -254,10 +254,7 @@ module EntityUtils
 
   def transform_and_validate(fields, input)
     output = transform_all(fields, input)
-    errors = validate_all(fields, output).map { |err|
-      err[:msg] = "#{err[:field]}: #{err[:msg]}"
-      err
-    }
+    errors = validate_all(fields, output)
 
     {value: output, errors: errors}
   end
@@ -322,7 +319,10 @@ module EntityUtils
       result = transform_and_validate(fields, data)
 
       if !result[:errors].empty?
-        msg = result[:errors].map { |error| error[:msg] }.join(", ")
+        msg = result[:errors].map { |error|
+          "#{error[:field]}: #{error[:msg]}"
+        }.join(", ")
+
         if opts[:result]
           Result::Error.new(msg, result[:errors])
         else
