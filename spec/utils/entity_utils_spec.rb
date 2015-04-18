@@ -54,6 +54,47 @@ describe EntityUtils do
         .to raise_error
   end
 
+  it "#define_builder supports nested entities" do
+    Entity = EntityUtils.define_builder(
+      [:name, :mandatory, entity: [
+         [:first, :string, :mandatory],
+         [:middle, :string, default: "Middle"],
+         [:last, :string, :mandatory]
+       ]])
+
+    # Validators
+    expect{Entity.call({name: {first: 'First', last: 'Last'}})}
+      .not_to raise_error
+
+    expect{Entity.call({name: {first: 'First', middle: 'Middle'}})}
+      .to raise_error
+
+    # Transformers
+    expect(Entity.call({name: {first: 'First', last: 'Last'}})).to eq({name: {first: 'First', middle: 'Middle', last: 'Last'}})
+
+  end
+
+  it "#define_builder supports nested entity collections" do
+    Entity = EntityUtils.define_builder(
+      [:name, :mandatory, collection: [
+         [:type, :mandatory, one_of: [:first, :middle, :last]],
+         [:value, :mandatory, :string],
+         [:calling_name, default: false]
+       ]])
+
+    # Validators
+    expect{Entity.call({name: [{type: :first, value: 'First'}, {type: :last, value: 'Last'}]})}
+      .not_to raise_error
+
+    expect{Entity.call({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]})}
+      .to raise_error
+
+    # Transformers
+    expect(Entity.call({name: [{type: :first, value: 'First', calling_name: true}, {type: :last, value: 'Last'}]}))
+      .to eq({name: [{type: :first, value: 'First', calling_name: true}, {type: :last, value: 'Last', calling_name: false}]})
+
+  end
+
   it "#define_builder returns result, if result: true and does not raise an error" do
     Entity = EntityUtils.define_builder([:name, :string, :mandatory])
 

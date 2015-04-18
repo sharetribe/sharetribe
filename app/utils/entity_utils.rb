@@ -150,6 +150,10 @@ module EntityUtils
       :validators
     elsif (TRANSFORMERS.keys.include?(k))
       :transformers
+    elsif k == :collection
+      :collection
+    elsif k == :entity
+      :entity
     else
       raise(ArgumentError, "Illegal key #{k}. Not a known transformer or validator.")
     end
@@ -169,6 +173,10 @@ module EntityUtils
     parsed_spec[:transformers] =
       (parsed_spec[:transformers] || [])
       .map { |(name, param)| TRANSFORMERS[name].curry().call(param) }
+    parsed_spec[:collection] =
+      parse_specs(opts[:collection] || [])
+    parsed_spec[:entity] =
+      parse_specs(opts[:entity] || [])
 
     parsed_spec
   end
@@ -189,21 +197,50 @@ module EntityUtils
     end
   end
 
+  def validate_all(fields, input)
+    fields.reduce([]) do |errs, (name, spec)|
+      errors = validate(spec[:validators], input[name], name)
+
+      nested_errors =
+        if spec[:collection].present?
+          # FIXME Flatmap is not the right thing to do
+          input[name].flat_map { |v| validate_all(spec[:collection], v) }
+        elsif spec[:entity].present?
+          validate_all(spec[:entity], input[name])
+        else
+          []
+        end
+
+      errs.concat(errors).concat(nested_errors)
+    end
+  end
+
   def transform(transformers, val)
     transformers.reduce(val) do |v, transformer|
       transformer.call(v)
     end
   end
 
-  def transform_and_validate(fields, input)
-    output = fields.reduce({}) do |out, (name, spec)|
+  def transform_all(fields, input)
+    fields.reduce({}) do |out, (name, spec)|
       out[name] = transform(spec[:transformers], input[name])
+
+      out[name] =
+        if spec[:collection].present?
+          out[name].map { |v| transform_all(spec[:collection], v) }
+        elsif spec[:entity].present?
+          transform_all(spec[:entity], out[name])
+        else
+          out[name]
+        end
+
       out
     end
+  end
 
-    errors = fields.reduce([]) do |errs, (name, spec)|
-      errs.concat(validate(spec[:validators], output[name], name))
-    end
+  def transform_and_validate(fields, input)
+    output = transform_all(fields, input)
+    errors = validate_all(fields, output)
 
     {value: output, errors: errors}
   end
