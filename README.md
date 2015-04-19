@@ -33,7 +33,7 @@ Note: If you encounter problems with the installation, you can try asking for he
 * Install Sphinx. Version 2.1.4 has been used successfully, but probably also bit newer and older versions will work. See [Sphinx installation instructions](http://pat.github.com/ts/en/installing_sphinx.html) (no need to start it yet. You can try running `searchd` command, but it should fail at this point complaining about missing config)
 * Install [Imagemagick](http://www.imagemagick.org)
 * run `bundle install` in the project root directory (sharetribe) to install required gems
-* (In the following commands, leave out the `RAILS_ENV=production` part if you want to get Sharetribe running in development mode.) Load the database structure to your database: `rake RAILS_ENV=production db:schema:load`
+* (In the following commands, leave out the `RAILS_ENV=production` part if you want to get Sharetribe running in production mode.) Load the database structure to your database: `rake RAILS_ENV=production db:schema:load`
 * run sphinx index `rake RAILS_ENV=production ts:index`
 * start sphinx daemon `rake RAILS_ENV=production ts:start`
 * If you want to run Sharetribe in production mode (i.e. you are not developing the software) you'll need to precompile the assets. This puts the Javascript and CSS files in right places. Use command: `rake assets:precompile`
