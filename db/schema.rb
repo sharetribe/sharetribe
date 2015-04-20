@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150420072530) do
+ActiveRecord::Schema.define(:version => 20150420083201) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -327,6 +327,7 @@ ActiveRecord::Schema.define(:version => 20150420072530) do
     t.datetime "updated_at",             :null => false
   end
 
+  add_index "custom_field_option_selections", ["custom_field_option_id"], :name => "index_custom_field_option_selections_on_custom_field_option_id"
   add_index "custom_field_option_selections", ["custom_field_value_id"], :name => "index_selected_options_on_custom_field_value_id"
 
   create_table "custom_field_option_titles", :force => true do |t|
