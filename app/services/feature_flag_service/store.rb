@@ -8,7 +8,8 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     FLAGS = [
-      :shape_ui
+      :shape_ui,
+      :shipping_per
     ].to_set
 
     def known_flags; FLAGS.dup end

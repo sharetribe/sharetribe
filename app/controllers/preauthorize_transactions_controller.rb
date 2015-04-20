@@ -58,8 +58,8 @@ class PreauthorizeTransactionsController < ApplicationController
       listing_price: vprms[:listing][:price],
       localized_unit_type: translate_unit_from_listing(vprms[:listing]),
       subtotal: (quantity > 1 || vprms[:listing][:shipping_price].present?) ? vprms[:subtotal] : nil,
-      total: vprms[:total_price],
-      shipping_price: Maybe(vprms[:listing][:shipping_price]).or_else(nil)
+      shipping_price: delivery_method == :shipping ? vprms[:shipping_price] : nil,
+      total: vprms[:total_price]
     })
 
     render "listing_conversations/initiate", locals: {
@@ -96,6 +96,7 @@ class PreauthorizeTransactionsController < ApplicationController
     end
 
     quantity = valid_quantity(preauthorize_form.quantity)
+    shipping_price = shipping_price_total(@listing.shipping_price, @listing.shipping_price_additional, quantity)
 
     transaction_response = create_preauth_transaction(
       payment_type: :paypal,
@@ -105,7 +106,8 @@ class PreauthorizeTransactionsController < ApplicationController
       user: @current_user,
       content: preauthorize_form.content,
       use_async: request.xhr?,
-      delivery_method: delivery_method
+      delivery_method: delivery_method,
+      shipping_price: shipping_price
     )
 
     unless transaction_response[:success]
@@ -167,6 +169,7 @@ class PreauthorizeTransactionsController < ApplicationController
       listing_price: vprms[:listing][:price],
       localized_unit_type: translate_unit_from_listing(vprms[:listing]),
       subtotal: vprms[:subtotal],
+      shipping_price: delivery_method == :shipping ? vprms[:shipping_price] : nil,
       total: vprms[:total_price]
     })
 
@@ -226,6 +229,7 @@ class PreauthorizeTransactionsController < ApplicationController
       content: preauthorize_form.content,
       use_async: request.xhr?,
       delivery_method: delivery_method,
+      shipping_price: @listing.shipping_price,
       bt_payment_params: params[:braintree_payment],
       booking_fields: {
         start_on: preauthorize_form.start_on,
@@ -354,12 +358,14 @@ class PreauthorizeTransactionsController < ApplicationController
     action_button_label = translate(listing[:action_button_tr_key])
 
     subtotal = listing[:price] * quantity
-    total_price = shipping_enabled ? subtotal + listing[:shipping_price] : subtotal
+    shipping_price = shipping_price_total(listing[:shipping_price], listing[:shipping_price_additional], quantity)
+    total_price = shipping_enabled ? subtotal + shipping_price : subtotal
 
     { listing: listing,
       payment_type: payment_type,
       action_button_label: action_button_label,
       subtotal: subtotal,
+      shipping_price: shipping_price,
       total_price: total_price }
   end
 
@@ -511,7 +517,7 @@ class PreauthorizeTransactionsController < ApplicationController
     }
 
     if(opts[:delivery_method] == :shipping)
-      transaction[:shipping_price] = opts[:listing].shipping_price
+      transaction[:shipping_price] = opts[:shipping_price]
     end
 
     TransactionService::Transaction.create({
@@ -526,6 +532,18 @@ class PreauthorizeTransactionsController < ApplicationController
     person_display_entity = person_entity.merge(
       display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
     )
+  end
+
+  def shipping_price_total(shipping_price, shipping_price_additional, quantity)
+    Maybe(shipping_price)
+      .map { |price|
+        if shipping_price_additional.present? && quantity.present? && quantity > 1 && feature_enabled?(:shipping_per)
+          price + (shipping_price_additional * (quantity - 1))
+        else
+          price
+        end
+      }
+      .or_else(nil)
   end
 
 end
