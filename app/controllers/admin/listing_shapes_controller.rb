@@ -167,15 +167,6 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def to_form_data(shape, available_locs)
-    action_button_translations = available_locs.map { |(loc_name, loc_key)|
-      [loc_key, t(shape[:action_button_tr_key], locale: loc_key)]
-    }.to_h
-
-
-    name_translations = available_locs.map { |(loc_name, loc_key)|
-      [loc_key, t(shape[:name_tr_key], locale: loc_key)]
-    }.to_h
-
     shape_units = shape[:units].map { |t| t[:type] }.to_set
     units = ListingShapeHelper.predefined_unit_types
       .map { |t| {type: t, enabled: shape_units.include?(t), label: t("admin.listing_shapes.units.#{t}")} }
@@ -183,12 +174,19 @@ class Admin::ListingShapesController < ApplicationController
               .select { |unit| unit[:type] == :custom }
               .map { |unit| {type: unit[:type], enabled: true, label: translate(unit[:translation_key])} })
 
-    ListingShapeForm.new(name: name_translations,
+    ListingShapeForm.new(name: make_translations(shape[:name_tr_key], available_locs),
                          price_enabled: shape[:price_enabled],
                          online_payments: shape[:online_payments],
-                         action_button_label: action_button_translations,
+                         action_button_label: make_translations(shape[:action_button_tr_key], available_locs),
                          shipping_enabled: shape[:shipping_enabled],
                          units: units)
+  end
+
+  def make_translations(tr_key, locales)
+    locales.map { |(loc_name, loc_key)|
+      [loc_key, t(tr_key, locale: loc_key)]
+    }.to_h
+
   end
 
   def update_translations(community_id, shape, shape_form)
