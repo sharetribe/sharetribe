@@ -31,4 +31,4 @@
         .new-listing-shape-template-form-column
           = t("admin.listing_shapes.index.add_new_shape")
         .new-listing-shape-template-form-column
-          = select_tag :template, options_for_select([[t("admin.listing_shapes.index.select_template"), nil]].concat(templates.map { |tmpl| [tmpl[:label], tmpl[:key]]} )), onChange: "form.submit();"
+          = select_tag :template, options_for_select([[t("admin.listing_shapes.index.select_template"), nil]].concat(templates.map { |tmpl| [t(tmpl[:label]), tmpl[:key]]} )), onChange: "form.submit();"

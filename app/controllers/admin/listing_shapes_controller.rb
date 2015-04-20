@@ -21,29 +21,31 @@ class Admin::ListingShapesController < ApplicationController
   }
 
   def index
-    processes = TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+    templates = ListingShapeTemplates.new(get_processes(@current_community.id))
+    shapes = all_shapes(@current_community.id)
 
     render("index",
            locals: {
              selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-             templates: templates(processes),
+             templates: templates.all,
              listing_shapes: all_shapes(@current_community.id)})
   end
 
   def new
-    processes = TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+    processes = get_processes(@current_community.id)
+    templates = ListingShapeTemplates.new(processes)
 
-    unless valid_template?(params[:template], processes)
+    unless templates.available?(params[:template])
       flash[:error] = "Invalid template: #{params[:template]}"
       return redirect_to action: :index
     end
 
-    template = templates(processes).find { |tmpl| tmpl[:key] == params[:template].to_sym }
+    template = templates.find(params[:template])
     render("new", locals: new_view_locals(template, processes, available_locales()))
   end
 
   def edit
-    processes = TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+    processes = get_processes(@current_community.id)
 
     shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
@@ -52,7 +54,7 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def create
-    processes = TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+    processes = get_processes(@current_community.id)
 
     shape_form = parse_params_to_form(params)
 
@@ -90,7 +92,7 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def update
-    processes = TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+    processes = get_processes(@current_community.id)
 
     shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
@@ -102,7 +104,7 @@ class Admin::ListingShapesController < ApplicationController
     end
 
     update_result =
-      update_translations(@current_community, shape_form)
+      update_translations(@current_community.id, shape, shape_form)
       .and_then { update_shape(shape, shape_form) }
 
     if update_result[:success]
@@ -117,11 +119,6 @@ class Admin::ListingShapesController < ApplicationController
 
   private
 
-  def valid_template?(template_key, processes)
-    key = template_key.to_sym
-    templates(processes).any? { |tmpl| tmpl[:key] == key }
-  end
-
   def editable_fields(processes)
     # TODO Read the processes and define which options are editable
     {
@@ -129,97 +126,6 @@ class Admin::ListingShapesController < ApplicationController
       price_enabled: true,
       online_payments: true
     }
-  end
-
-  def templates(transaction_processes)
-    request_process_available = transaction_processes.any? { |tp| tp[:author_is_seller] == false }
-    preauthorize_process_available = transaction_processes.any? { |tp| tp[:process] == :preauthorize }
-
-    template_defaults.reject { |tmpl|
-      tmpl[:key] == :requesting && !request_process_available
-    }
-  end
-
-  def template_defaults
-    [
-      {
-        label: t("admin.listing_shapes.templates.selling_products"),
-        key: :selling_products,
-        name_tr_key: "admin.transaction_types.sell",
-        action_button_tr_key: "admin.transaction_types.default_action_button_labels.sell",
-        price_enabled: true,
-        shipping_enabled: true,
-        online_payments: true,
-        author_is_seller: true,
-        units: []
-      },
-      {
-        label: t("admin.listing_shapes.templates.renting_products"),
-        key: :renting_products,
-        name_tr_key: "admin.transaction_types.rent",
-        action_button_tr_key: "admin.transaction_types.default_action_button_labels.rent",
-        price_enabled: true,
-        shipping_enabled: false,
-        online_payments: true,
-        author_is_seller: true,
-        units: [{type: :day}, {type: :week}, {type: :month}]
-      },
-      {
-        label: t("admin.listing_shapes.templates.offering_services"),
-        key: :offering_services,
-        name_tr_key: "admin.transaction_types.service",
-        action_button_tr_key: "admin.transaction_types.default_action_button_labels.offer",
-        price_enabled: true,
-        shipping_enabled: false,
-        online_payments: true,
-        author_is_seller: true,
-        units: [{type: :hour}]
-      },
-      {
-        label: t("admin.listing_shapes.templates.giving_things_away"),
-        key: :giving_things_away,
-        name_tr_key: "admin.transaction_types.give",
-        action_button_tr_key: "admin.transaction_types.default_action_button_labels.offer",
-        price_enabled: false,
-        shipping_enabled: false,
-        online_payments: false,
-        author_is_seller: true,
-        units: []
-      },
-      {
-        label: t("admin.listing_shapes.templates.requesting"),
-        key: :requesting,
-        name_tr_key: "admin.transaction_types.request",
-        action_button_tr_key: "admin.transaction_types.default_action_button_labels.request",
-        price_enabled: false,
-        shipping_enabled: false,
-        online_payments: false,
-        author_is_seller: false,
-        units: []
-      },
-      {
-        label: t("admin.listing_shapes.templates.announcement"),
-        key:  :announcement,
-        name_tr_key: "admin.transaction_types.inquiry",
-        action_button_tr_key: "admin.transaction_types.default_action_button_labels.inquiry",
-        price_enabled: false,
-        shipping_enabled: false,
-        online_payments: false,
-        author_is_seller: true,
-        units: []
-      },
-      {
-        label: t("admin.listing_shapes.templates.custom"),
-        key: :custom,
-        name_tr_key: "admin.transaction_types.custom",
-        action_button_tr_key: "admin.transaction_types.default_action_button_labels.custom",
-        price_enabled: false,
-        shipping_enabled: false,
-        online_payments: false,
-        author_is_seller: true,
-        units: []
-      }
-    ]
   end
 
   def edit_view_locals(shape, processes, available_locs)
@@ -285,7 +191,7 @@ class Admin::ListingShapesController < ApplicationController
                          units: units)
   end
 
-  def update_translations(shape, shape_form)
+  def update_translations(community_id, shape, shape_form)
     tr_groups = TranslationServiceHelper.to_per_key_translations({
       shape[:name_tr_key] => shape_form.name,
       shape[:action_button_tr_key] => shape_form.action_button_label})
@@ -316,6 +222,10 @@ class Admin::ListingShapesController < ApplicationController
     listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id)
       .maybe()
       .or_else(nil)
+  end
+
+  def get_processes(community_id)
+    TransactionService::API::Api.processes.get(community_id: community_id)[:data]
   end
 
   def create_shape(community_id, name_tr_key, action_button_tr_key, basename, transaction_process_id, shape_form)
