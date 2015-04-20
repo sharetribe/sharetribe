@@ -9,6 +9,10 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
+# Indexes
+#
+#  index_community_plans_on_community_id  (community_id)
+#
 
 class CommunityPlan < ActiveRecord::Base
 
