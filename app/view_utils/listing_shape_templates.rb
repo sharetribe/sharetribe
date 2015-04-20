@@ -22,12 +22,23 @@ class ListingShapeTemplates
 
   def get_available(transaction_processes)
     defaults.reject { |tmpl|
-      tmpl[:key] == :requesting && !request_process_available
+      tmpl[:key] == :requesting && !request_process_available?
+    }.map { |tmpl|
+      if !preauthorize_process_available?
+        tmpl[:shipping_enabled] = false
+        tmpl[:online_payments] = false
+      end
+
+      tmpl
     }
   end
 
-  def request_process_available
+  def request_process_available?
     @request_process_available ||= @processes.any? { |tp| tp[:author_is_seller] == false }
+  end
+
+  def preauthorize_process_available?
+    @preauthorize_process_available = @processes.any? { |process| process[:process] == :preauthorize }
   end
 
   def defaults

@@ -13,10 +13,8 @@ class Admin::ListingShapesController < ApplicationController
     :price_enabled,
     :online_payments,
     :units,
+    :author_is_seller,
   ).with_validations {
-    validates :name, presence: true
-    validates :action_button_label, presence: true
-    validates :shipping_enabled, inclusion: { in: [true, false] }
     # TODO Add validations
   }
 
@@ -55,12 +53,19 @@ class Admin::ListingShapesController < ApplicationController
 
   def create
     processes = get_processes(@current_community.id)
+    templates = ListingShapeTemplates.new(processes)
 
-    shape_form = parse_params_to_form(params)
+    unless templates.available?(params[:template])
+      flash[:error] = "Invalid template: #{params[:template]}"
+      return redirect_to action: :index
+    end
+
+    template_defaults = templates.find(params[:template])
+    shape_form = parse_params_to_form(params, processes, template_defaults)
 
     process_find_opts = {
       process: shape_form.online_payments ? :preauthorize : :none,
-      author_is_seller: true # FIXME
+      author_is_seller: shape_form.author_is_seller
     }
 
     process = processes.find { |p| p.slice(*process_find_opts.keys) == process_find_opts }.tap { |p|
@@ -119,15 +124,6 @@ class Admin::ListingShapesController < ApplicationController
 
   private
 
-  def editable_fields(processes)
-    # TODO Read the processes and define which options are editable
-    {
-      shipping_enabled: true,
-      price_enabled: true,
-      online_payments: true
-    }
-  end
-
   def view_locals(shape, processes, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       editable_fields: editable_fields(processes),
@@ -136,15 +132,32 @@ class Admin::ListingShapesController < ApplicationController
       locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h }
   end
 
+  def editable_fields(processes)
+    preauthorize_available = processes.any? { |process| process[:process] == :preauthorize }
 
-  def parse_params_to_form(params)
-    ListingShapeForm.new(
-      params
-      .slice(:name, :action_button_label)
+    # If field is not in the list, it's editable by default
+    {
+      author_is_seller: false, # Can not be changed
+      shipping_enabled: preauthorize_available,
+      online_payments: preauthorize_available
+    }
+  end
+
+  def parse_params_to_form(params, processes, defaults = {})
+    editable = editable_fields(processes)
+    editable_params = params.reject { |key, _|
+      editable[key] == false
+    }
+
+    form_params = defaults
+      .merge(editable_params)
       .merge(shipping_enabled: params[:shipping_enabled] == "true")
       .merge(price_enabled: params[:price_enabled] == "true")
       .merge(online_payments: params[:online_payments] == "true")
-      .merge(units: Maybe(params[:units]).or_else([]).map { |t, _| parse_unit(t) }))
+      .merge(name: params[:name], action_button_label: params[:action_button_label])
+      .merge(units: Maybe(params[:units]).or_else([]).map { |t, _| parse_unit(t) })
+
+    ListingShapeForm.new(form_params)
   end
 
   def parse_unit(type)

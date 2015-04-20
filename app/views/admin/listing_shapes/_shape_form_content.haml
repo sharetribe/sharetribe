@@ -22,11 +22,10 @@
   .col-12
     = label_tag("shipping_title", t("admin.listing_shapes.shipping_title"), class: "input")
 
-- if editable_fields[:price_enabled]
-  .row
-    .col-12
-      = check_box_tag(:price_enabled, "true", shape_form.price_enabled, class: "checkbox-row-checkbox")
-      = label_tag(:price_enabled, t("admin.listing_shapes.price_label"), class: "checkbox-row-label")
+.row
+  .col-12
+    = check_box_tag(:price_enabled, "true", shape_form.price_enabled, class: "checkbox-row-checkbox")
+    = label_tag(:price_enabled, t("admin.listing_shapes.price_label"), class: "checkbox-row-label")
 
 - if editable_fields[:online_payments]
   .row
@@ -49,3 +48,5 @@
     .col-12
       = check_box_tag("units[#{unit[:type]}]", "true", unit[:enabled], class: "checkbox-row-checkbox")
       = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label")
+
+= hidden_field_tag("template", shape[:key])
