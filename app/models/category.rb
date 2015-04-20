@@ -13,8 +13,9 @@
 #
 # Indexes
 #
-#  index_categories_on_parent_id  (parent_id)
-#  index_categories_on_url        (url)
+#  index_categories_on_community_id  (community_id)
+#  index_categories_on_parent_id     (parent_id)
+#  index_categories_on_url           (url)
 #
 
 class Category < ActiveRecord::Base

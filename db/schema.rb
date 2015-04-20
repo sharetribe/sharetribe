@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150413134627) do
+ActiveRecord::Schema.define(:version => 20150420072530) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20150413134627) do
     t.string   "url"
   end
 
+  add_index "categories", ["community_id"], :name => "index_categories_on_community_id"
   add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
   add_index "categories", ["url"], :name => "index_categories_on_url"
 
@@ -273,6 +274,8 @@ ActiveRecord::Schema.define(:version => 20150413134627) do
     t.datetime "updated_at",                  :null => false
   end
 
+  add_index "community_plans", ["community_id"], :name => "index_community_plans_on_community_id"
+
   create_table "community_translations", :force => true do |t|
     t.integer  "community_id",                  :null => false
     t.string   "locale",          :limit => 16, :null => false
@@ -388,6 +391,7 @@ ActiveRecord::Schema.define(:version => 20150413134627) do
     t.string   "queue"
   end
 
+  add_index "delayed_jobs", ["locked_at", "created_at"], :name => "index_delayed_jobs_on_locked_created"
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "emails", :force => true do |t|
@@ -548,6 +552,7 @@ ActiveRecord::Schema.define(:version => 20150413134627) do
     t.integer  "shipping_price_cents"
   end
 
+  add_index "listings", ["category_id"], :name => "index_listings_on_new_category_id"
   add_index "listings", ["listing_shape_id"], :name => "index_listings_on_listing_shape_id"
   add_index "listings", ["listing_type_old"], :name => "index_listings_on_listing_type"
   add_index "listings", ["old_category_id"], :name => "index_listings_on_category_id"
@@ -587,6 +592,8 @@ ActiveRecord::Schema.define(:version => 20150413134627) do
     t.datetime "updated_at",                   :null => false
     t.integer  "sort_priority", :default => 0
   end
+
+  add_index "menu_links", ["community_id", "sort_priority"], :name => "index_menu_links_on_community_and_sort"
 
   create_table "mercury_images", :force => true do |t|
     t.string   "image_file_name"
@@ -839,6 +846,7 @@ ActiveRecord::Schema.define(:version => 20150413134627) do
     t.boolean  "deleted",                                          :default => false
   end
 
+  add_index "people", ["authentication_token"], :name => "index_people_on_authentication_token"
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
   add_index "people", ["facebook_id"], :name => "index_people_on_facebook_id", :unique => true
   add_index "people", ["id"], :name => "index_people_on_id"
@@ -899,6 +907,8 @@ ActiveRecord::Schema.define(:version => 20150413134627) do
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
   end
+
+  add_index "transaction_processes", ["community_id"], :name => "index_transaction_process_on_community_id"
 
   create_table "transaction_transitions", :force => true do |t|
     t.string   "to_state"

@@ -43,6 +43,7 @@
 #
 # Indexes
 #
+#  index_people_on_authentication_token  (authentication_token)
 #  index_people_on_email                 (email) UNIQUE
 #  index_people_on_facebook_id           (facebook_id) UNIQUE
 #  index_people_on_id                    (id)
