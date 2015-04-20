@@ -41,7 +41,7 @@ class Admin::ListingShapesController < ApplicationController
     end
 
     template = templates.find(params[:template])
-    render("new", locals: new_view_locals(template, processes, available_locales()))
+    render("new", locals: view_locals(template, processes, available_locales()))
   end
 
   def edit
@@ -50,7 +50,7 @@ class Admin::ListingShapesController < ApplicationController
     shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
 
-    render("edit", locals: edit_view_locals(shape, processes, available_locales()))
+    render("edit", locals: view_locals(shape, processes, available_locales()))
   end
 
   def create
@@ -128,15 +128,7 @@ class Admin::ListingShapesController < ApplicationController
     }
   end
 
-  def edit_view_locals(shape, processes, available_locs)
-    { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      editable_fields: editable_fields(processes),
-      shape: shape,
-      shape_form: to_form_data(shape, available_locs),
-      locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h  }
-  end
-
-  def new_view_locals(shape, processes, available_locs)
+  def view_locals(shape, processes, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       editable_fields: editable_fields(processes),
       shape: shape,
