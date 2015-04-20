@@ -1576,6 +1576,36 @@ $noscript-height: lines(4);
   padding-left: lines(1);
 }
 
+.shipping-price-container {
+  display: table;
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+
+.delivery-row {
+  display: table-row;
+}
+
+.delivery-label-cont {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.delivery-input-cont {
+  display: table-cell;
+  width: em(155);
+}
+
+input[type=text].delivery-price-field {
+  float: right;
+  width: em(100);
+}
+
+.delivery-currency {
+  float: right;
+  line-height: 42px; /*input height is 42px*/
+}
+
 /*
   -----------
   Inbox

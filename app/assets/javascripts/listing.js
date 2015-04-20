@@ -45,7 +45,7 @@ window.ST = window.ST || {};
       shippingPriceElements.each(function(index, shippingPriceElement) {
         var shippingPrice = $(shippingPriceElement).data('shipping-price');
         var perAdditional = $(shippingPriceElement).data('per-additional');
-        var hasPoint = shippingPrice.indexOf(',') >= 0
+        var hasPoint = shippingPrice.indexOf(',') >= 0;
 
         if(hasPoint) {
           shippingPrice = shippingPrice.split(',').join('.');
@@ -57,7 +57,7 @@ window.ST = window.ST || {};
           newShippingPrice += parseFloat(perAdditional) * ( parseInt(quantityInput.val()) - 1 );
         }
 
-        shippingPriceString = hasPoint ? newShippingPrice.toFixed(2).toString().split('.').join(',') : newShippingPrice.toFixed(2);
+        var shippingPriceString = hasPoint ? newShippingPrice.toFixed(2).toString().split('.').join(',') : newShippingPrice.toFixed(2);
         $(shippingPriceElement).text(shippingPriceString);
       });
     };

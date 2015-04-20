@@ -578,7 +578,7 @@ function initialize_new_listing_form(
 
   var togglePrice = function(){
     if($shipping_checkbox.is(":checked")) {
-      $shipping_price_container.show();
+      $shipping_price_container.css('display', 'table');
     } else {
       $shipping_price_container.hide();
     }
@@ -617,7 +617,9 @@ function initialize_new_listing_form(
       } else if ($(element).hasClass("delivery-method-checkbox")) {
         error.insertAfter($(".delivery-options-container"));
       } else if (element.attr("name") == "listing[shipping_price]") {
-        error.insertAfter($(".shipping-price-container"));
+        error.insertAfter($(".shipping-price-default"));
+      } else if (element.attr("name") == "listing[shipping_price_additional]") {
+        error.insertAfter($(".shipping-price-additional"));
       } else {
         error.insertAfter(element);
       }
@@ -628,6 +630,7 @@ function initialize_new_listing_form(
       "listing[origin]": {address_validator: true},
       "listing[price]": {required: pr, money: true, minimum_price_required: [minimum_price, subunit_to_unit]},
       "listing[shipping_price]": {money: true},
+      "listing[shipping_price_additional]": {money: true},
       "listing[valid_until(1i)]": { min_date: true, max_date: true }
     }),
     messages: {
