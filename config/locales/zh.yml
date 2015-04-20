@@ -20,7 +20,7 @@ zh:
           no_parent: 无上级分类
         category_transaction_types:
           transaction_types: 交易的类型
-          transaction_types_description: 交易类型决定了类别中信息允许存在何种交易。比如，是否只能卖，或者租以及免费赠送是否允许。
+          transaction_types_description: 交易类型决定了在该类别中的信息允许存在何种交易。比如，是否只能卖，或者租以及是否允许免费赠送。
         buttons:
           save: 保存
           cancel: 取消
@@ -29,11 +29,11 @@ zh:
         remove_category_name: "移除分类“%{category_name}”"
         warning_remove_effects: "警告！移除分类“%{category_name}”将会有以下影响："
         warning_listing_will_be_moved:
-          other: "这个类别中有%{count}个自定义字段。它将被移到选中的类别中。"
+          other: "这个类别中有%{count}条信息。它将被移到选中的类别中。"
         warning_custom_field_will_be_moved:
           other: "这个类别中有%{count}个自定义字段。它将被移到选中的类别中。"
         warning_subcategory_will_be_removed:
-          other: "在类别中有%{count}个子类别。它将被删除。"
+          other: "在该类别中有%{count}个子类别。它将被删除。"
         warning_with_subcategories_listing_will_be_moved:
           other: "在这个分类和子分类中有%{count}个信息。它们将被移到选中的分类中。"
         warning_with_subcategories_custom_field_will_be_moved:
@@ -50,7 +50,7 @@ zh:
         community_name: 集市名称
         edit_community_name_description: 你的集市名称。它将在邮件和其他不同地方显示给用户。
         community_slogan: 集市标语
-        edit_community_slogan_description: "这将显示在集市主页给所有未登录用户。%{see_how_it_looks_like}"
+        edit_community_slogan_description: "这将显示在未登录用户的集市主页。%{see_how_it_looks_like}"
         community_description: 集市描述
         edit_community_description_description: "这将显示在未登录用户的集市主页。%{see_how_it_looks_like}"
         community_search_placeholder: 搜索提示
@@ -60,7 +60,7 @@ zh:
         update_information: 保存设置
         invite_people: 邀请新用户
         edit_signup_info: 注册信息
-        edit_signup_info_description: 这段信息文字将显示在用户的注册页面。在那儿你可以提供用户注册说明，在哪儿得到邀请的信息等。默认那里没有任何说明。
+        edit_signup_info_description: 这段信息文字将显示在用户的注册页面。在那儿你可以提供用户注册说明，比如：在哪儿得到邀请的信息等。默认那里没有任何说明。
         edit_info: 编辑信息
         see_how_it_looks_like: 预览
         verification_to_post_listings_info_content: 未验证用户的信息文本
@@ -85,10 +85,10 @@ zh:
         community_custom_color1: 主要颜色
         community_custom_color2: 第二颜色
         logo_instructions_text_with_dimensions: "封面图片尺寸必须是%{width}x%{height}像素。它将显示给使用大屏幕的用户。"
-        logo_icon_instructions_text_with_dimensions: "当人们在Facebook分享你的站点，当他们在移动设备上查看你的站点或者当他们在移动设备的主屏幕收藏你的站点时，这个方形的标识将被显示。它的尺寸必须（至少）是%{width}x%{height}像素。"
-        cover_photo_visibility: 封面照片将在主页显示给未登录用户。
+        logo_icon_instructions_text_with_dimensions: "当人们在Facebook分享你的站点，当他们在移动设备上查看你的站点或者当他们在移动设备的主屏幕收藏你的站点时，这个方形的图标将被显示。它的尺寸必须（至少）是%{width}x%{height}像素。"
+        cover_photo_visibility: 封面照片将显示在未登录用户的首页
         cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。%{see_how_it_looks_like}"
-        small_cover_photo_visibility: 小的封面照片将显示在未登录用户主页的所有页面。
+        small_cover_photo_visibility: 小的封面照片将显示在除未登录用户首页的所有页面。
         small_cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。"
         main_content_width: "在选择封面照片时注意页面主要内容最多是%{main_width}像素宽。记得检查你的封面照片在较小屏幕上看上去如何（比如使用较窄的浏览器窗口）。"
         custom_color1_instructions_text: "你可以通过输入十六进制色彩值改变用户接口的主体颜色。<a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>可以帮助你选择颜色并且复制色彩代码。"
@@ -588,8 +588,8 @@ zh:
       address_locality: 城市
       address_region: 州
       date_of_birth: 生日
-      ssn: 社会保障号
-      routing_number: 银行代号
+      ssn: SSN
+      routing_number: 路由号码
       account_number: 账户号码
       save: 保存
     show:
@@ -603,8 +603,8 @@ zh:
       address_locality: 城市
       address_region: 州
       date_of_birth: 出生日期
-      ssn: 社会保障号
-      routing_number: 银行代号
+      ssn: SSN
+      routing_number: 路由号码
       account_number: 账号
   braintree_payments:
     edit:
@@ -646,7 +646,7 @@ zh:
       show_thread: 显示对话
     braintree_account_approved:
       account_ready: 你已经可以接收付款了
-      message: "你的付款信息以及被确认，你现在已经可以接受%{service_name}的付款了。"
+      message: "你的付款信息已经被确认，你现在已经可以在%{service_name}接收付款了。"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "你还没有确认或者取消请求%{request_link}。如果请求已经完成，你应该确认。之后你可以评论给%{other_party_given_name}。"
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "你还没有确认或者取消请求%{request_link}。只有在以下情况发生时我们才会把钱转给%{other_party_given_name}：a) 你标记请求为完成 b) 从你付款起的%{days_to_automatic_confirmation}天后。在标记请求完成后，你可以给%{other_party_given_name}评论。"
@@ -663,8 +663,8 @@ zh:
       cancel_it_link_text: 取消
     payment_settings_reminder:
       remember_to_add_payment_details: 记得添加你的付款明细以接收付款。
-      you_have_added_listing_with_payment: "你添加了一个需要付款的信息%{listing_link}。然而，你还没有添加付款详情。为了接受付款你必须添加你的付款信息。"
-      please_go_to_payment_settings: "请点击%{payment_settings_link}并填入付款信息。"
+      you_have_added_listing_with_payment: "你添加了一个需要付款的信息%{listing_link}。然而，你还没有添加你的付款详情。为了接受付款你必须添加你的付款信息。"
+      please_go_to_payment_settings: "请点击进入%{payment_settings_link}并填入付款信息。"
       payment_settings_link: 付款设置
     transaction_confirmed:
       here_is_a_message_from: "这里有一条%{other_party_given_name}发送的消息："
@@ -749,7 +749,7 @@ zh:
       product: 产品：
       price_payer_paid: "%{payer_full_name}支付价格："
       service_fee: "%{service_name}服务费："
-      you_will_get: 总数：
+      you_will_get: 总共：
       money_will_be_transferred: "以下两种情况发生时，钱将被转到你的帐号中：a）%{payer_name}标记请求为完成 或者b）%{payer_name}完成支付的%{automatic_confirmation_days}天后。"
     receipt_to_payer:
       receipt_of_payment: 付款收据

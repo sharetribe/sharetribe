@@ -422,7 +422,7 @@ nb:
       minimum_price_error_message: "Prisen kan ikke være lavere enn%{amount}"
       accept: Godta
       decline: Avslå
-      quantity_label: ~
+      quantity_label: "Antall:"
       sum_label: "Delsum:"
       service_fee_label: "%{service_name}-kostnad:"
       you_will_get_label: "Du vil motta:"
@@ -750,8 +750,8 @@ nb:
       you_have_a_new_message: "Ny melding hos %{service_name} fra %{sender_name}"
     new_payment:
       new_payment: "Du har mottatt en ny betaling"
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "Pris per %{unit_type}"
+      quantity: "Antall:"
       you_have_received_new_payment: "Du har fått betaling <b>%{payment_sum}</b>for<b>%{listing_title}</b>av%{payer_full_name}. Her er din kvittering."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-kostnad:"
@@ -766,10 +766,10 @@ nb:
       receipt_of_payment: "Kvittering av betaling"
       you_have_made_new_payment: "Du har betalt <b>%{payment_sum}</b>for<b>%{listing_title}</b>til %{recipient_full_name}. Her er kvitteringen."
       product: Produkt
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Pris per %{unit_type}"
+      duration: "Varighet:"
+      quantity: "Antall:"
+      subtotal: "Subtotal:"
       total: Totalt
       price: Pris
       service_fee: Tjenestekostnad
@@ -900,7 +900,7 @@ nb:
       on_or_before: "må være på eller før %{restriction}"
       after: "må være etter %{restriction}"
       on_or_after: "må være på eller etter %{restriction}"
-      positive_number: ~
+      positive_number: "Skriv inn et tall."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aksepterte å låne %{listing_title} til %{requester_name} %{time_ago}."
@@ -1423,13 +1423,13 @@ nb:
       payment_settings_link: "Innstillinger betaling"
       community_not_configured_for_payments_admin: "%{service_name} har ikke blitt konfigurert for betalinger så du kan ikke opprette annonser enda. Gå til %{payment_settings_link} for å fylle inn betalingsdetaljer."
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: "Antall timer:"
+      day: "Antall dager:"
+      night: "Antall netter:"
+      week: "Antall uker:"
+      month: "Antall måneder:"
+      custom: "Antall:"
+    quantity_placeholder: Antall
     please_comment: Kommenter
     reply_link:
       listing_closed: "Annonse er utgått"
@@ -1473,12 +1473,12 @@ nb:
       shipping: "Frakt (+%{price})"
       pickup: Henting
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: stykk
+      hour: time
+      day: dag
+      night: natt
+      week: uke
+      month: måned
     verification_required:
       verification_required: "Verifisering påkrevd"
   listing_conversations:
@@ -1515,7 +1515,7 @@ nb:
       you_have_something_others_do_not: "Har du noe å tilby?"
     please_comment: Kommenter
   mercury:
-    content_too_long: ~
+    content_too_long: "Innholdet er for langt."
   okl:
     member_id: "Bruker id"
     member_id_or_email: "bruker id eller e-post"
@@ -1807,7 +1807,7 @@ nb:
       visible_to_registered_users: "(synlig for brukere som er inn logget)"
       default_in_listing: "(bare brukt som standard ved oprettelse av ny annonse)"
       invisible: "(vises ikke til andre brukere)"
-      image_is_processing: ~
+      image_is_processing: "Ditt profilbilde er behandles nå. Vennligst last siden på nytt om et lite øyeblikk."
     save_information: "Lagre informasjon"
   shipping_address:
     shipping_address: Leveringsadresse
@@ -1928,16 +1928,16 @@ nb:
       other: "%{count}dager"
   transactions:
     initiate:
-      booked_days: ~
-      price_per_day: ~
-      quantity: ~
+      booked_days: "Dager booket:"
+      price_per_day: "Pris per dag:"
+      quantity: "Antall:"
       subtotal: "Delsum:"
       shipping-price: "Frakt:"
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "Pris per %{unit_type}:"
+    price: "Pris:"
+    quantity: "Antall: %{quantity}"
+    unit_price: "Stykk pris: %{unit_price}"
+    total: "Totalt:"
   unit:
     day: dag
     days: dager

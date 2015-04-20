@@ -240,7 +240,7 @@ ja:
           canceled: キャンセル済
           initiated: PayPalの支払いを待っています
           pending_ext: PayPalの支払いを待っています
-        not_available: ~
+        not_available: ご利用できません
       braintree_payment_gateway:
         braintree_payment_gateway: "API 設定"
         environment: 環境
@@ -395,9 +395,13 @@ ja:
     removed_user: ユーザは削除されました
     paypal_fee_info:
       title: PayPal手数料
-      body_text: ~
-      body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      body_text: |-
+          PayPalは各お支払いごとに、ご利用手数料を請求します。この手数料は合計料金（送料を含む）の５－２％になり、これは支払い者の住む地域や、サイト内の月額の総売り上げによります。通常、国内の利用者に対しては低めの手数料に設定されています。
+          %{link_to_paypal}から、具体的な手数料についてご確認いただけます。各お支払い後お支払い手数料が記載された領収書が発行されます。
+      body_with_shipping_text: |-
+          PayPalは各お支払いごとに、ご利用手数料を請求します。この手数料は合計料金（送料を含む）の５－２％になり、これは支払い者の住む地域や、サイト内の月額の総売り上げによります。通常、国内の利用者に対しては低めの手数料に設定されています。
+          %{link_to_paypal}から、具体的な手数料についてご確認いただけます。各お支払い後お支払い手数料が記載された領収書が発行されます。
+      link_to_paypal_text: こちら
   conversations:
     accept:
       details: ご注文の詳細
@@ -417,7 +421,7 @@ ja:
       minimum_price_error_message: "価格は%{amount}より低く設定できません。"
       accept: 受諾する
       decline: 辞退する
-      quantity_label: ~
+      quantity_label: 数量：
       sum_label: 合計：
       service_fee_label: "%{service_name}のご利用手数料："
       you_will_get_label: 受け取り額：
@@ -739,8 +743,8 @@ ja:
       you_have_a_new_message: "%{service_name}の%{sender_name}さんから新しいメッセージがあります"
     new_payment:
       new_payment: 新しいお支払いを受け取りました
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "%{unit_type}ごとの料金"
+      quantity: 数量：
       you_have_received_new_payment: "%{payer_full_name}さんより<b>%{listing_title}</b>の件で、<b>%{payment_sum}</b>支払われました。こちらはその領収書です。"
     paypal_new_payment:
       paypal_gateway_fee: PayPalの手数料：
@@ -755,10 +759,10 @@ ja:
       receipt_of_payment: 領収書
       you_have_made_new_payment: "%{recipient_full_name}さんに<b>%{listing_title}</b>の件で、<b>%{payment_sum}</b>支払いました。こちらはその領収書です。"
       product: 商品・サービス名：
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "%{unit_type}あたりの料金"
+      duration: 期間：
+      quantity: 数量：
+      subtotal: 小計：
       total: 合計
       price: 価格
       service_fee: ご利用料金
@@ -889,7 +893,7 @@ ja:
       on_or_before: "%{restriction}以前でなければなりません"
       after: "%{restriction}より後でなければなりません"
       on_or_after: "%{restriction}以後でなければなりません"
-      positive_number: ~
+      positive_number: 数字を入力。
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{time_ago}に%{offerer_name}さんは%{requester_name}さんに%{listing_title}を貸すことに同意しました。"
@@ -1305,9 +1309,9 @@ ja:
         time: 時間、日、ヶ月
         long_time: 週、ヶ月、...
         after_service_fee_you_will_get: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。"
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}は料金から控除されます。"
+        after_service_fee_you_will_get_paypal_text: "%{service_name}のご利用手数料 %{sum_with_currency}と%{paypal_fee_info_link}が料金より控除されます。"
+        paypal_fee_info_link_text: PayPalのお支払い手数料
         after_service_fee_you_will_get_vat: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。（消費税 0%）"
         price_excludes_vat: 価格は外税です。
         delivery: 発送
@@ -1412,13 +1416,13 @@ ja:
       payment_settings_link: お支払い設定
       community_not_configured_for_payments_admin: "%{service_name}はお支払いを確定できませんでしたので、まだ新しいリストを掲載が出来ていません。%{payment_settings_link}で、お支払いの詳細について記入してください。"
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: 時間数：
+      day: 日数：
+      night: 宿泊日数：
+      week: 週間：
+      month: 月間：
+      custom: 数量：
+    quantity_placeholder: 数量
     please_comment: コメント
     reply_link:
       listing_closed: リストはクローズになりました
@@ -1462,12 +1466,12 @@ ja:
       shipping: "送料（%{price}）"
       pickup: "引き取り（%{price}）"
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: 枚数
+      hour: 時間
+      day: 日
+      night: 夜
+      week: 週
+      month: 月
     verification_required:
       verification_required: 認証が必要です
   listing_conversations:
@@ -1504,7 +1508,7 @@ ja:
       you_have_something_others_do_not: 何かオファーするものがありますか。
     please_comment: コメント
   mercury:
-    content_too_long: ~
+    content_too_long: 入力内容が長すぎます。
   okl:
     member_id: メンバーID
     member_id_or_email: ユーザ名もしくはメールアドレス
@@ -1551,10 +1555,10 @@ ja:
       upgrade_paypal_account: ここであなたのアカウントをアップグレードしてください。
       connect_paypal_account: PayPalアカウントに接続する
       paypal_account_billing_agreement: "%{service_name}の利用料金支払いの許可を承諾してください"
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
-      paypal_info_link_text: ~
+      paypal_account_billing_agreement_info_both: "%{service_name}内で売り上げ後: 送料を除いた%{commission_from_seller}のご利用手数料が、最低でも%{minimum_commission}があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
+      paypal_account_billing_agreement_info_fixed: "%{service_name}内で売り上げ後、最低でも%{minimum_commission}があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
+      paypal_account_billing_agreement_info_relative: "%{service_name}内で売り上げ後、送料を除いた合計金額の%{commission_from_seller}の手数料があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
+      paypal_info_link_text: PayPalのご利用手数料
       billing_agreement_description: "%{service_name}の利用料金支払いの許可を承諾してください"
       billing_agreement: 許可してください
       permissions_not_granted: PayPalアカウントに接続する許可を取得出来ませんでした。
@@ -1795,7 +1799,7 @@ ja:
       visible_to_registered_users: （ログイン済みユーザに表示）
       default_in_listing: （これは新規リストを作成時用の初期設定です）
       invisible: （他のユーザに表示していません）
-      image_is_processing: ~
+      image_is_processing: あなたのプロフィール用写真を準備中です。しばらくしてからページをリロードしてください。
     save_information: 情報を保存する
   shipping_address:
     shipping_address: 送り先
@@ -1915,16 +1919,16 @@ ja:
       other: "%{count}日"
   transactions:
     initiate:
-      booked_days: ~
-      price_per_day: ~
-      quantity: ~
+      booked_days: 予約日数
+      price_per_day: 日割り料金
+      quantity: 数量：
       subtotal: 合計金額：
       shipping-price: 送料：
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "%{unit_type}ごとの料金："
+    price: 料金：
+    quantity: "数量： %{quantity}"
+    unit_price: "単体価格： %{unit_price}"
+    total: 合計金額：
   unit:
     day: 日
     days: 日
