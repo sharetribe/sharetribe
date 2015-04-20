@@ -206,7 +206,7 @@ class Person < ActiveRecord::Base
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
 
-      matched = where(conditions).where(["lower(username) = :value", { :value => login.downcase }]).first
+      matched = where(conditions).where(username: login.downcase).first
 
       if matched
         return matched
