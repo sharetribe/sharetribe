@@ -202,27 +202,22 @@ module EntityUtils
     end
   end
 
-  def validate_all(fields, input)
+  def validate_all(fields, input, parent_field = nil)
     fields.reduce([]) do |errs, (name, spec)|
       errors = validate(spec[:validators], input[name], name).map { |err|
-        err[:field] = "#{name.to_s}"
+        err[:field] = parent_field ? "#{parent_field}.#{name.to_s}" : name.to_s
         err
       }
 
       nested_errors =
         if spec[:collection].present?
           input[name].each_with_index.reduce([]) { |errors, (v, i)|
-            collection_errors = validate_all(spec[:collection], v).map { |err|
-              err[:field] = "#{name.to_s}[#{i}].#{err[:field]}"
-              err
-            }
+            parent_field = "#{name.to_s}[#{i}]"
+            collection_errors = validate_all(spec[:collection], v, parent_field)
             errors.concat(collection_errors)
           }
         elsif spec[:entity].present?
-          validate_all(spec[:entity], input[name]).map { |err|
-            err[:field] = "#{name.to_s}.#{err[:field]}"
-            err
-          }
+          validate_all(spec[:entity], input[name], name.to_s)
         else
           []
         end
