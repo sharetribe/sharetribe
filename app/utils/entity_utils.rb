@@ -179,8 +179,8 @@ module EntityUtils
   end
 
   def parse_nested_specs(specs)
-    if specs.is_a? Proc
-      specs.call(nil, specs_only: true)
+    if specs.is_a? EntityBuilder
+      specs.specs
     else
       parse_specs(specs || [])
     end
@@ -305,39 +305,62 @@ module EntityUtils
   #
   # See rspec tests for more examples and output
   def define_builder(*specs)
-    fields = parse_specs(specs)
+    EntityBuilder.new(parse_specs(specs))
+  end
 
-    -> (data, opts = {}) do
-      opts = {
-        specs_only: false,
-        result: false
-      }.merge(opts)
+  class EntityBuilder
+    attr_reader :specs
 
-      return fields if opts[:specs_only]
+    def initialize(specs)
+      @specs = specs
+    end
 
-      raise(TypeError, "Expecting an input hash. You gave: #{data}") unless data.is_a? Hash
-
-      result = transform_and_validate(fields, data)
-
-      if !result[:errors].empty?
-        msg = result[:errors].map { |error|
-          "#{error[:field]}: #{error[:msg]}"
-        }.join(", ")
-
-        if opts[:result]
-          Result::Error.new(msg, result[:errors])
-        else
-          loc = caller_locations(2, 1).first
-          raise(ArgumentError, "Error(s) in #{loc}: #{msg}")
-        end
-      else
-        if opts[:result]
-          Result::Success.new(result[:value])
-        else
+    def build(data)
+      with_result(
+        specs: @specs,
+        data: data,
+        on_success: ->(result) {
           result[:value]
-        end
+        },
+        on_failure: ->(result) {
+          loc = caller_locations(2, 1).first
+          raise(ArgumentError, "Error(s) in #{loc}: #{error_msg(result)}")
+        })
+    end
+
+    alias_method :call, :build
+
+    def validate(data)
+      with_result(
+        specs: @specs,
+        data: data,
+        on_success: ->(result) {
+          Result::Success.new(result[:value])
+        },
+        on_failure: ->(result) {
+          Result::Error.new(error_msg(result), result[:errors])
+        })
+    end
+
+    private
+
+    def error_msg(result)
+      result[:errors].map { |error|
+        "#{error[:field]}: #{error[:msg]}"
+      }.join(", ")
+    end
+
+    def with_result(specs:, data:, on_success:, on_failure:)
+      raise(TypeError, "Expecting an input hash. You gave: #{data}") unless data.is_a? Hash
+      result = EntityUtils.transform_and_validate(specs, data)
+
+      if result[:errors].empty?
+        on_success.call(result)
+      else
+        on_failure.call(result)
       end
     end
+
   end
 
 end

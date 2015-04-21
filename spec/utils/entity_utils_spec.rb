@@ -146,7 +146,7 @@ describe EntityUtils do
        ]])
 
     # Validators
-    errors = entity.call({name: {first: 'First', middle: 'Middle'}}, result: true).data
+    errors = entity.validate({name: {first: 'First', middle: 'Middle'}}).data
     expect(errors.first[:field]).to eq("name.last")
   end
 
@@ -159,7 +159,7 @@ describe EntityUtils do
          [:calling_name, default: false]
        ]])
 
-    errors = entity.call({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]}, result: true).data
+    errors = entity.validate({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]}).data
 
     expect(errors.first[:field]).to eq("name[1].type")
   end
@@ -167,7 +167,7 @@ describe EntityUtils do
   it "#define_builder returns and error code and a message" do
     entity = EntityUtils.define_builder([:name, :string, :mandatory])
 
-    expect(entity.call({}, result: true).data.first[:code]).to eq :mandatory
+    expect(entity.validate({}).data.first[:code]).to eq :mandatory
 
     CustomValidatorEntity = EntityUtils.define_builder(
       [:name, validate_with: ->(v) {
@@ -176,17 +176,17 @@ describe EntityUtils do
          end
        }])
 
-    expect(CustomValidatorEntity.call({name: "first"}, result: true).data.first[:code]).to eq :capital_letter
+    expect(CustomValidatorEntity.validate({name: "first"}).data.first[:code]).to eq :capital_letter
 
   end
 
   it "#define_builder returns result, if result: true and does not raise an error" do
     entity = EntityUtils.define_builder([:name, :string, :mandatory])
 
-    result = entity.call({name: "First Last"}, result: true)
+    result = entity.validate({name: "First Last"})
     expect(result.success).to eq true
 
-    result = entity.call({}, result: true)
+    result = entity.validate({})
     expect(result.success).to eq false
   end
 
@@ -240,7 +240,6 @@ describe EntityUtils do
     expect{entity.call({tags: nil})}
       .to_not raise_error
   end
-
 
   it "#define_builder is fast" do
     if false # You can enable this test to measure the performance
