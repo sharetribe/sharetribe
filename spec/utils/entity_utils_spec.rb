@@ -27,10 +27,10 @@ describe EntityUtils do
 
     # Transforming
 
-    expect(person_entity.call({name: "First Last", sex: :m}))
+    expect(person_entity[{name: "First Last", sex: :m}])
       .to eq({type: :person, name: "First Last", age: 8, sex: :m, favorite_even_number: nil, tag: nil})
 
-    expect(person_entity.call({name: "First Last", sex: :m, age: 5}))
+    expect(person_entity[{name: "First Last", sex: :m, age: 5}])
       .to eq({type: :person, name: "First Last", age: 5, sex: :m, favorite_even_number: nil, tag: nil})
 
     expect(person_entity.call({name: "First Last", sex: :m, age: 5, tag: "hippy"}))
@@ -42,10 +42,10 @@ describe EntityUtils do
 
     # Validating
 
-    expect{person_entity.call({name: nil, sex: :m})}
+    expect{person_entity[{name: nil, sex: :m}]}
         .to raise_error
 
-    expect{person_entity.call({name: 12, sex: :m})}
+    expect{person_entity[{name: 12, sex: :m}]}
         .to raise_error
 
     expect{person_entity.call({name: "First Last", sex: :in_between})}
@@ -242,7 +242,8 @@ describe EntityUtils do
   end
 
   it "#define_builder is fast" do
-    if false # You can enable this test to measure the performance
+    enable_test = false
+    if enable_test # You can enable this test to measure the performance
 
       name_details_entity = EntityUtils.define_builder(
         [:first, :string, :mandatory],

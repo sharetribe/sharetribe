@@ -329,6 +329,7 @@ module EntityUtils
     end
 
     alias_method :call, :build
+    alias_method :[], :build
 
     def validate(data)
       with_result(
