@@ -1,3 +1,4 @@
+# rubocop:disable ClassLength
 class ListingsController < ApplicationController
   class ListingDeleted < StandardError; end
 
@@ -140,7 +141,7 @@ class ListingsController < ApplicationController
       booking: @listing.unit_type == :day
     )
 
-    delivery_opts = delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.currency)
+    delivery_opts = delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.shipping_price_additional, @listing.currency)
 
     render locals: {
              form_path: form_path,
@@ -188,7 +189,8 @@ class ListingsController < ApplicationController
 
         render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(
                  shape: shape,
-                 unit_options: unit_options)
+                 unit_options: unit_options,
+                 shipping_price_additional: feature_enabled?(:shipping_per) ? 0 : nil)
       else
         render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
       end
@@ -272,10 +274,19 @@ class ListingsController < ApplicationController
     shape = get_shape(@listing.listing_shape_id)
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
     unit_options = ListingViewUtils.unit_options(shape[:units], unit_from_listing(@listing))
+    shipping_price_additional =
+      if @listing.shipping_price_additional
+        @listing.shipping_price_additional.to_s
+      elsif @listing.shipping_price
+        @listing.shipping_price.to_s
+      else
+        0
+      end
 
     render locals: commission(@current_community, process).merge(
              shape: shape,
-             unit_options: unit_options
+             unit_options: unit_options,
+             shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil
            )
   end
 
@@ -656,9 +667,9 @@ class ListingsController < ApplicationController
     end
   end
 
-  def delivery_config(require_shipping_address, pickup_enabled, shipping_price, currency)
-    shipping = { name: :shipping, price: shipping_price, default: true }
-    pickup = { name: :pickup, price: Money.new(0, currency), default: false }
+  def delivery_config(require_shipping_address, pickup_enabled, shipping_price, shipping_price_additional, currency)
+    shipping = delivery_price_hash(:shipping, shipping_price, shipping_price_additional)
+    pickup = delivery_price_hash(:pickup, Money.new(0, currency), shipping_price_additional)
 
     case [require_shipping_address, pickup_enabled]
     when matches([true, true])
@@ -734,5 +745,14 @@ class ListingsController < ApplicationController
     else
       raise ArgumentError.new(shape_res.error_msg) unless shape_res.success
     end
+  end
+
+  def delivery_price_hash(delivery_type, price, shipping_price_additional)
+      { name: delivery_type,
+        price: price,
+        shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil,
+        price_info: ListingViewUtils.shipping_info(delivery_type, price, feature_enabled?(:shipping_per) ? shipping_price_additional : nil),
+        default: true
+      }
   end
 end

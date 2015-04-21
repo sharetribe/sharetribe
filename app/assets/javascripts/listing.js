@@ -37,4 +37,33 @@ window.ST = window.ST || {};
     });
   };
 
+  module.initializeShippingPriceTotal = function(quantityInputSelector, shippingPriceSelector){
+    var quantityInput = $(quantityInputSelector);
+    var shippingPriceElements = $(shippingPriceSelector);
+
+    var updateShippingPrice = function() {
+      shippingPriceElements.each(function(index, shippingPriceElement) {
+        var shippingPrice = $(shippingPriceElement).data('shipping-price');
+        var perAdditional = $(shippingPriceElement).data('per-additional');
+        var hasPoint = shippingPrice.indexOf(',') >= 0;
+
+        if(hasPoint) {
+          shippingPrice = shippingPrice.split(',').join('.');
+          perAdditional = perAdditional.split(',').join('.');
+        }
+
+        var newShippingPrice = parseFloat(shippingPrice);
+        if(perAdditional != null) {
+          newShippingPrice += parseFloat(perAdditional) * ( parseInt(quantityInput.val()) - 1 );
+        }
+
+        var shippingPriceString = hasPoint ? newShippingPrice.toFixed(2).toString().split('.').join(',') : newShippingPrice.toFixed(2);
+        $(shippingPriceElement).text(shippingPriceString);
+      });
+    };
+
+    quantityInput.on("keyup", updateShippingPrice);
+    updateShippingPrice();
+  };
+
 })(window.ST);

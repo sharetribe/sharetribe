@@ -1552,28 +1552,58 @@ $noscript-height: lines(4);
 }
 
 .shipping-options-label {
-    font-weight: normal;
-    display: inline;
-    margin-right: lines(0.5);
+  font-weight: normal;
+  display: inline;
+  margin-right: lines(0.5);
 }
 
 .delivery-row-low {
-    position: relative;
-    padding-top: em(9);
-    padding-bottom: em(9);
+  position: relative;
+  padding-top: em(9);
+  padding-bottom: em(9);
 }
 
 .delivery-row-tall {
-    position: relative;
+  position: relative;
 }
 
 .delivery-checkbox {
-    position: absolute;
-    top: em(9);
+  position: absolute;
+  top: em(9);
 }
 
 .delivery-left-field {
-    padding-left: lines(1);
+  padding-left: lines(1);
+}
+
+.shipping-price-container {
+  display: table;
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+
+.delivery-row {
+  display: table-row;
+}
+
+.delivery-label-cont {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.delivery-input-cont {
+  display: table-cell;
+  width: em(155);
+}
+
+input[type=text].delivery-price-field {
+  float: right;
+  width: em(100);
+}
+
+.delivery-currency {
+  float: right;
+  line-height: 42px; /*input height is 42px*/
 }
 
 /*

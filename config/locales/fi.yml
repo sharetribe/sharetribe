@@ -1322,6 +1322,7 @@ fi:
         delivery: Kuljetus
         shipping: Postitus
         shipping_price: "Postituksen hinta"
+        shipping-price-additional: "Lisätuotteiden osalta:"
         pickup: Nouto
       origin:
         location: Sijainti
@@ -1469,7 +1470,10 @@ fi:
         per_day: "per päivä"
       delivery: Kuljetus
       shipping: "Postikulut (+%{price})"
+      shipping_no_price: "Postikulut"
+      shipping_price_additional: "Postikulut (+%{price}, lisätuotteet: +%{shipping_price_additional})"
       pickup: Nouto
+      pickup_no_price: Nouto
     unit_types:
       piece: kappale
       hour: tunti

@@ -1322,6 +1322,7 @@ en:
         delivery: "Delivery method"
         shipping: Shipping
         shipping_price: "Shipping fee"
+        shipping_price_additional: "Additional items"
         pickup: Pickup
       origin:
         location: Location
@@ -1469,7 +1470,10 @@ en:
         per_day: "per day"
       delivery: "Delivery method"
       shipping: "Shipping (+%{price})"
+      shipping_no_price: "Shipping"
+      shipping_price_additional: "Shipping (+%{price}, additional items: +%{shipping_price_additional})"
       pickup: Pickup
+      pickup_no_price: Pickup
     unit_types:
       piece: piece
       hour: hour
