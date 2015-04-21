@@ -43,8 +43,8 @@ module ListingShapeProcessViewUtils
   def uneditable_fields(process_info)
     {
       author_is_seller: true, # can not edit
-      shipping_enabled: process_info[:preauthorize_available],
-      online_payments: process_info[:preauthorize_available]
+      shipping_enabled: !process_info[:preauthorize_available],
+      online_payments: !process_info[:preauthorize_available]
     }
   end
 
