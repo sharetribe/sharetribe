@@ -19,56 +19,58 @@ class Admin::ListingShapesController < ApplicationController
   }
 
   def index
-    templates = ListingShapeTemplates.new(get_processes(@current_community.id))
+    process_info = get_process_info(@current_community.id)
+    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
     shapes = all_shapes(@current_community.id)
 
     render("index",
            locals: {
              selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-             templates: templates.all,
+             templates: templates,
              listing_shapes: all_shapes(@current_community.id)})
   end
 
   def new
-    processes = get_processes(@current_community.id)
-    templates = ListingShapeTemplates.new(processes)
+    process_info = get_process_info(@current_community.id)
+    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
+    template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_info)
 
-    unless templates.available?(params[:template])
+    unless template
       flash[:error] = "Invalid template: #{params[:template]}"
       return redirect_to action: :index
     end
 
-    template = templates.find(params[:template])
-    render("new", locals: view_locals(template, processes, available_locales()))
+    render("new", locals: view_locals(template, process_info, available_locales()))
   end
 
   def edit
     processes = get_processes(@current_community.id)
+    process_info = ListingShapeProcessViewUtils.process_info(processes)
 
     shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
 
-    render("edit", locals: view_locals(shape, processes, available_locales()))
+    render("edit", locals: view_locals(shape, process_info, available_locales()))
   end
 
   def create
-    processes = get_processes(@current_community.id)
-    templates = ListingShapeTemplates.new(processes)
+    process_info = get_process_info(@current_community.id)
+    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
+    template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_info)
 
-    unless templates.available?(params[:template])
+    unless template
       flash[:error] = "Invalid template: #{params[:template]}"
       return redirect_to action: :index
     end
 
-    template_defaults = templates.find(params[:template])
-    shape_form = parse_params_to_form(params, processes, template_defaults)
+    shape_form = parse_params_to_form(HashUtils.symbolize_keys(params), process_info, template)
 
     process_find_opts = {
       process: shape_form.online_payments ? :preauthorize : :none,
       author_is_seller: shape_form.author_is_seller
     }
 
-    process = processes.find { |p| p.slice(*process_find_opts.keys) == process_find_opts }.tap { |p|
+    process = get_processes(@current_community.id).find { |p| p.slice(*process_find_opts.keys) == process_find_opts }.tap { |p|
       raise ArgumentError.new("Can not find suitable transaction process for #{process_find_opts}") if p.nil?
     }
 
@@ -97,12 +99,12 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def update
-    processes = get_processes(@current_community.id)
+    process_info = get_process_info(@current_community.id)
 
     shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
 
-    shape_form = parse_params_to_form(params)
+    shape_form = parse_params_to_form(HashUtils.symbolize_keys(params), process_info)
     unless shape_form.valid?
       flash[:error] = shape_form.errors.full_messages.join(", ")
       return render_edit(shape, @current_community.id, available_locales())
@@ -121,12 +123,11 @@ class Admin::ListingShapesController < ApplicationController
     end
   end
 
-
   private
 
-  def view_locals(shape, processes, available_locs)
+  def view_locals(shape, process_info, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      editable_fields: editable_fields(processes),
+      uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_info),
       shape: shape,
       shape_form: to_form_data(shape, available_locs),
       locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h }
@@ -143,21 +144,17 @@ class Admin::ListingShapesController < ApplicationController
     }
   end
 
-  def parse_params_to_form(params, processes, defaults = {})
-    editable = editable_fields(processes)
-    editable_params = params.reject { |key, _|
-      editable[key] == false
-    }
-
-    form_params = defaults
-      .merge(editable_params)
+  def parse_params_to_form(params, process_info, defaults = {})
+    form_params = params
       .merge(shipping_enabled: params[:shipping_enabled] == "true")
       .merge(price_enabled: params[:price_enabled] == "true")
       .merge(online_payments: params[:online_payments] == "true")
       .merge(name: params[:name], action_button_label: params[:action_button_label])
       .merge(units: Maybe(params[:units]).or_else([]).map { |t, _| parse_unit(t) })
 
-    ListingShapeForm.new(form_params)
+    processed_params = ListingShapeProcessViewUtils.process_shape(form_params, process_info, defaults)
+
+    ListingShapeForm.new(processed_params)
   end
 
   def parse_unit(type)
@@ -225,6 +222,10 @@ class Admin::ListingShapesController < ApplicationController
     listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id)
       .maybe()
       .or_else(nil)
+  end
+
+  def get_process_info(community_id)
+    ListingShapeProcessViewUtils.process_info(get_processes(community_id))
   end
 
   def get_processes(community_id)
