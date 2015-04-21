@@ -4,14 +4,14 @@ module ListingShapeProcessViewUtils
 
   def available_templates(templates, process_info)
     templates.reject { |tmpl|
-      tmpl[:key] == :requesting && !process_info[:request_available]
+      tmpl[:template] == :requesting && !process_info[:request_available]
     }.map { |tmpl|
       process_template(tmpl, process_info)
     }
   end
 
   def find_template(key, templates, process_info)
-    available_templates(templates, process_info).find { |tmpl| tmpl[:key] == key.to_sym }
+    available_templates(templates, process_info).find { |tmpl| tmpl[:template] == key.to_sym }
   end
 
   def process_shape(shape, process_info, template = {})
@@ -35,7 +35,7 @@ module ListingShapeProcessViewUtils
   end
 
   def map_process_required_values(shape, process_info)
-    shape[:shipping_enabed] = false unless process_info[:preauthorize_available]
+    shape[:shipping_enabled] = false unless process_info[:preauthorize_available]
     shape[:online_payments] = false unless process_info[:preauthorize_available]
     shape
   end

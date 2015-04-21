@@ -6,7 +6,7 @@ module ListingShapeTemplates
     [
       {
         label: "admin.listing_shapes.templates.selling_products",
-        key: :selling_products,
+        template: :selling_products,
         name_tr_key: "admin.transaction_types.sell",
         action_button_tr_key: "admin.transaction_types.default_action_button_labels.sell",
         price_enabled: true,
@@ -17,7 +17,7 @@ module ListingShapeTemplates
       },
       {
         label: "admin.listing_shapes.templates.renting_products",
-        key: :renting_products,
+        template: :renting_products,
         name_tr_key: "admin.transaction_types.rent",
         action_button_tr_key: "admin.transaction_types.default_action_button_labels.rent",
         price_enabled: true,
@@ -28,7 +28,7 @@ module ListingShapeTemplates
       },
       {
         label: "admin.listing_shapes.templates.offering_services",
-        key: :offering_services,
+        template: :offering_services,
         name_tr_key: "admin.transaction_types.service",
         action_button_tr_key: "admin.transaction_types.default_action_button_labels.offer",
         price_enabled: true,
@@ -39,7 +39,7 @@ module ListingShapeTemplates
       },
       {
         label: "admin.listing_shapes.templates.giving_things_away",
-        key: :giving_things_away,
+        template: :giving_things_away,
         name_tr_key: "admin.transaction_types.give",
         action_button_tr_key: "admin.transaction_types.default_action_button_labels.offer",
         price_enabled: false,
@@ -50,7 +50,7 @@ module ListingShapeTemplates
       },
       {
         label: "admin.listing_shapes.templates.requesting",
-        key: :requesting,
+        template: :requesting,
         name_tr_key: "admin.transaction_types.request",
         action_button_tr_key: "admin.transaction_types.default_action_button_labels.request",
         price_enabled: false,
@@ -61,7 +61,7 @@ module ListingShapeTemplates
       },
       {
         label: "admin.listing_shapes.templates.announcement",
-        key:  :announcement,
+        template:  :announcement,
         name_tr_key: "admin.transaction_types.inquiry",
         action_button_tr_key: "admin.transaction_types.default_action_button_labels.inquiry",
         price_enabled: false,
@@ -72,7 +72,7 @@ module ListingShapeTemplates
       },
       {
         label: "admin.listing_shapes.templates.custom",
-        key: :custom,
+        template: :custom,
         name_tr_key: "admin.transaction_types.custom",
         action_button_tr_key: "admin.transaction_types.default_action_button_labels.custom",
         price_enabled: false,
