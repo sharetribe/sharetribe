@@ -40,7 +40,7 @@ class Admin::ListingShapesController < ApplicationController
 
   def index
     process_info = get_process_info(@current_community.id)
-    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info).map { |tmpl| tmpl[:shape] }
+    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
 
     render("index",
            locals: {
@@ -61,7 +61,7 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to action: :index
     end
 
-    render("new", locals: view_locals(shape, process, process_info, available_locales()))
+    render("new", locals: view_locals(shape, process, template[:template], process_info, available_locales()))
   end
 
   def edit
@@ -72,7 +72,7 @@ class Admin::ListingShapesController < ApplicationController
 
     return redirect_to error_not_found_path if shape.nil?
 
-    render("edit", locals: view_locals(shape, process, process_info, available_locales()))
+    render("edit", locals: view_locals(shape, process, nil, process_info, available_locales()))
   end
 
   def create
@@ -144,7 +144,7 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to admin_listing_shapes_path
     else
       flash[:error] = t("admin.listing_shapes.edit.update_failure")
-      render("edit", locals: edit_view_locals(shape, process, process_info, available_locales()))
+      render("edit", locals: view_locals(shape, process, nil, process_info, available_locales()))
     end
   end
 
@@ -152,15 +152,15 @@ class Admin::ListingShapesController < ApplicationController
 
   # shape_form -> [shape, process]
   def to_shape(shape_form)
-
   end
 
   # [shape, process] -> shape_form
-  def to_shape_form(shape, process, available_locs)
+  def to_shape_form(shape, process, template, available_locs)
     shape[:name] = make_translations(shape[:name_tr_key], available_locs)
     shape[:action_button_label] = make_translations(shape[:action_button_tr_key], available_locs)
     shape[:units] = expand_units(shape[:units])
-    shape[:online_payments] = process[:process] == :preauthorize
+    shape[:online_payments] = process[:process] == :preauthorize if process[:process]
+    shape[:template] = template
 
     ListingShapeFormEntity.call(shape)
   end
@@ -189,12 +189,12 @@ class Admin::ListingShapesController < ApplicationController
     }
   end
 
-  def view_locals(shape, process, process_info, available_locs)
+  def view_locals(shape, process, template_name, process_info, available_locs)
     { name_tr_key: shape[:name_tr_key],
       id: shape[:id],
       selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_info),
-      shape: to_shape_form(shape, process, available_locs),
+      shape: to_shape_form(shape, process, template_name, available_locs),
       locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h }
   end
 
