@@ -18,6 +18,36 @@ class Admin::ListingShapesController < ApplicationController
     # TODO Add validations
   }
 
+  # true -> true # idempotent
+  # false -> false # idempotent
+  # nil -> false
+  # anything else -> true
+  CHECKBOX = -> (value) {
+    if value == true || value == false
+      value
+    else
+      !value.nil?
+    end
+  }
+
+  Translation = EntityUtils.define_builder(
+    [:locale, :to_symbol, :mandatory],
+    [:value, :string, :mandatory]
+  )
+
+  Unit = EntityUtils.define_builder(
+    # TODO
+  )
+
+  ListingShapeFormEntity = EntityUtils.define_builder(
+    [:name, collection: Translation],
+    [:action_button_label, collection: Translation],
+    [:shipping_enabled, transform_with: CHECKBOX],
+    [:price_enabled, transform_with: CHECKBOX],
+    [:online_payments, transform_with: CHECKBOX],
+    [:units, collection: Unit]
+  )
+
   def index
     process_info = get_process_info(@current_community.id)
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
@@ -125,23 +155,11 @@ class Admin::ListingShapesController < ApplicationController
 
   private
 
-  def view_locals(shape, process_info, available_locs)
+  def view_locals(shape_or_template, process_info, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_info),
-      shape: shape,
-      shape_form: to_form_data(shape, available_locs),
+      shape: ListingShapeFormEntity.call(shape_or_template),
       locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h }
-  end
-
-  def editable_fields(processes)
-    preauthorize_available = processes.any? { |process| process[:process] == :preauthorize }
-
-    # If field is not in the list, it's editable by default
-    {
-      author_is_seller: false, # Can not be changed
-      shipping_enabled: preauthorize_available,
-      online_payments: preauthorize_available
-    }
   end
 
   def parse_params_to_form(params, process_info, defaults = {})
