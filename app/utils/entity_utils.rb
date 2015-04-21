@@ -143,7 +143,7 @@ module EntityUtils
     transform_with: -> (transformer, v) { transformer.call(v) }
   }
 
-  def categorice_spec(k)
+  def spec_category(k)
     if (VALIDATORS.keys.include?(k))
       :validators
     elsif (TRANSFORMERS.keys.include?(k))
@@ -163,7 +163,7 @@ module EntityUtils
     parsed_spec = s.zip([nil].cycle)
       .to_h
       .merge(opts)
-      .group_by { |(name, param)| categorice_spec(name) }
+      .group_by { |(name, param)| spec_category(name) }
 
     parsed_spec[:validators] =
       (parsed_spec[:validators] || [])
