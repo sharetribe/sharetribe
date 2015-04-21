@@ -2,81 +2,217 @@ require 'spec_helper'
 
 describe EntityUtils do
   it "#define_entity" do
-    Person = EntityUtils.define_entity(:name, :age)
+    person_entity = EntityUtils.define_entity(:name, :age)
 
-    expect(Person[{name: "Peter", age: 31, likes_icecream: true}])
+    expect(person_entity[{name: "Peter", age: 31, likes_icecream: true}])
       .to eq({name: "Peter", age: 31})
-    expect(Person[{name: "Peter"}])
+    expect(person_entity[{name: "Peter"}])
       .to eq({name: "Peter", age: nil})
   end
 
   it "#define_builder" do
-    Person = EntityUtils.define_builder(
+    person_entity = EntityUtils.define_builder(
       [:type, const_value: :person],
       [:name, :string, :mandatory],
       [:age, :optional, :fixnum, default: 8],
       [:sex, one_of: [:m, :f]],
-      [:favorite_even_number, validate_with: -> (v) { v.nil? || v.even? }],
+      [:favorite_even_number, validate_with: -> (v) {
+         unless v.nil? || v.even?
+           {code: :even, msg: "Value must be a even number. Was: #{v}"}
+         end
+       }],
       [:tag, :optional, transform_with: -> (v) { v.to_sym unless v.nil? }]
     )
 
 
     # Transforming
 
-    expect(Person.call({name: "First Last", sex: :m}))
+    expect(person_entity[{name: "First Last", sex: :m}])
       .to eq({type: :person, name: "First Last", age: 8, sex: :m, favorite_even_number: nil, tag: nil})
 
-    expect(Person.call({name: "First Last", sex: :m, age: 5}))
+    expect(person_entity[{name: "First Last", sex: :m, age: 5}])
       .to eq({type: :person, name: "First Last", age: 5, sex: :m, favorite_even_number: nil, tag: nil})
 
-    expect(Person.call({name: "First Last", sex: :m, age: 5, tag: "hippy"}))
+    expect(person_entity.call({name: "First Last", sex: :m, age: 5, tag: "hippy"}))
       .to eq({type: :person, name: "First Last", age: 5, sex: :m, favorite_even_number: nil, tag: :hippy})
 
-    expect(Person.call({name: "First Last", sex: :m, age: 5, favorite_even_number: 4}))
+    expect(person_entity.call({name: "First Last", sex: :m, age: 5, favorite_even_number: 4}))
       .to eq({type: :person, name: "First Last", age: 5, sex: :m, favorite_even_number: 4, tag: nil})
 
 
     # Validating
 
-    expect{Person.call({name: nil, sex: :m})}
+    expect{person_entity[{name: nil, sex: :m}]}
         .to raise_error
 
-    expect{Person.call({name: 12, sex: :m})}
+    expect{person_entity[{name: 12, sex: :m}]}
         .to raise_error
 
-    expect{Person.call({name: "First Last", sex: :in_between})}
+    expect{person_entity.call({name: "First Last", sex: :in_between})}
         .to raise_error
 
-    expect{Person.call({name: "First Last", sex: :f, age: "12"})}
+    expect{person_entity.call({name: "First Last", sex: :f, age: "12"})}
         .to raise_error
 
-    expect{Person.call({name: "First Last", sex: :f, favorite_even_number: 3})}
+    expect{person_entity.call({name: "First Last", sex: :f, favorite_even_number: 3})}
         .to raise_error
   end
 
+  it "#define_builder supports nested entities" do
+    entity = EntityUtils.define_builder(
+      [:name, :mandatory, entity: [
+         [:first, :string, :mandatory],
+         [:middle, :string, default: "Middle"],
+         [:last, :string, :mandatory]
+       ]])
+
+    # Validators
+    expect{entity.call({name: {first: 'First', last: 'Last'}})}
+      .not_to raise_error
+
+    expect{entity.call({name: {first: 'First', middle: 'Middle'}})}
+      .to raise_error
+
+    # Transformers
+    expect(entity.call({name: {first: 'First', last: 'Last'}})).to eq({name: {first: 'First', middle: 'Middle', last: 'Last'}})
+
+  end
+
+  it "#define_builder can nest other builders" do
+    name_details_entity = EntityUtils.define_builder(
+      [:first, :string, :mandatory],
+      [:middle, :string, default: "Middle"],
+      [:last, :string, :mandatory]
+    )
+
+    entity = EntityUtils.define_builder(
+      [:name, :mandatory, entity: name_details_entity]
+    )
+
+    # Validators
+    expect{entity.call({name: {first: 'First', last: 'Last'}})}
+      .not_to raise_error
+
+    expect{entity.call({name: {first: 'First', middle: 'Middle'}})}
+      .to raise_error
+  end
+
+  it "#define_builder supports nested entity collections" do
+    entity = EntityUtils.define_builder(
+      [:name, :mandatory, collection: [
+         [:type, :mandatory, one_of: [:first, :middle, :last]],
+         [:value, :mandatory, :string],
+         [:calling_name, default: false]
+       ]])
+
+    # Validators
+    expect{entity.call({name: [{type: :first, value: 'First'}, {type: :last, value: 'Last'}]})}
+      .not_to raise_error
+
+    expect{entity.call({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]})}
+      .to raise_error
+
+    # Transformers
+    expect(entity.call({name: [{type: :first, value: 'First', calling_name: true}, {type: :last, value: 'Last'}]}))
+      .to eq({name: [{type: :first, value: 'First', calling_name: true}, {type: :last, value: 'Last', calling_name: false}]})
+
+  end
+
+  it "#define_builder can nest other builders for collections" do
+    name_details_entity = EntityUtils.define_builder(
+      [:type, :mandatory, one_of: [:first, :middle, :last]],
+      [:value, :mandatory, :string],
+      [:calling_name, default: false]
+    )
+
+    entity = EntityUtils.define_builder(
+      [:name, :mandatory, collection: name_details_entity])
+
+    # Validators
+    expect{entity.call({name: [{type: :first, value: 'First'}, {type: :last, value: 'Last'}]})}
+      .not_to raise_error
+
+    expect{entity.call({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]})}
+      .to raise_error
+
+  end
+
+  it "#define_builder returns error field path message for nested entities" do
+    entity = EntityUtils.define_builder(
+      [:name, :mandatory, entity: [
+         [:first, :string, :mandatory],
+         [:middle, :string, default: "Middle"],
+         [:last, :string, :mandatory]
+       ]])
+
+    # Validators
+    errors = entity.validate({name: {first: 'First', middle: 'Middle'}}).data
+    expect(errors.first[:field]).to eq("name.last")
+  end
+
+  it "#define_builder returns error field path for nested entity collection" do
+
+    entity = EntityUtils.define_builder(
+      [:name, :mandatory, collection: [
+         [:type, :mandatory, one_of: [:first, :middle, :last]],
+         [:value, :mandatory, :string],
+         [:calling_name, default: false]
+       ]])
+
+    errors = entity.validate({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]}).data
+
+    expect(errors.first[:field]).to eq("name[1].type")
+  end
+
+  it "#define_builder returns and error code and a message" do
+    entity = EntityUtils.define_builder([:name, :string, :mandatory])
+
+    expect(entity.validate({}).data.first[:code]).to eq :mandatory
+
+    CustomValidatorEntity = EntityUtils.define_builder(
+      [:name, validate_with: ->(v) {
+         unless v == v.capitalize
+           {code: :capital_letter, msg: "Value must start with capital letter. Was: #{v}"}
+         end
+       }])
+
+    expect(CustomValidatorEntity.validate({name: "first"}).data.first[:code]).to eq :capital_letter
+
+  end
+
+  it "#define_builder returns result, if result: true and does not raise an error" do
+    entity = EntityUtils.define_builder([:name, :string, :mandatory])
+
+    result = entity.validate({name: "First Last"})
+    expect(result.success).to eq true
+
+    result = entity.validate({})
+    expect(result.success).to eq false
+  end
+
   it "#define_builder :callable validator" do
-    Entity = EntityUtils.define_builder([:say_so, :callable])
+    entity = EntityUtils.define_builder([:say_so, :callable])
 
-    expect{Entity.call({say_so: -> () { "Yes, that's the way it is." }})}
+    expect{entity.call({say_so: -> () { "Yes, that's the way it is." }})}
       .to_not raise_error
 
-    expect{Entity.call({say_so: nil})}
+    expect{entity.call({say_so: nil})}
       .to_not raise_error
 
-    expect{Entity.call({say_so: "It ain't so"})}
+    expect{entity.call({say_so: "It ain't so"})}
       .to raise_error
   end
 
   it "#define_builder :enumerable validator" do
-    Entity = EntityUtils.define_builder([:tags, :enumerable])
+    entity = EntityUtils.define_builder([:tags, :enumerable])
 
-    expect{Entity.call({tags: [1, 2]})}
+    expect{entity.call({tags: [1, 2]})}
       .to_not raise_error
 
-    expect{Entity.call({tags: nil})}
+    expect{entity.call({tags: nil})}
       .to_not raise_error
 
-    expect{Entity.call({tags: 2})}
+    expect{entity.call({tags: 2})}
       .to raise_error
   end
 
@@ -93,15 +229,46 @@ describe EntityUtils do
   end
 
   it "#define_builder :set validator" do
-    Entity = EntityUtils.define_builder([:tags, :set])
+    entity = EntityUtils.define_builder([:tags, :set])
 
-    expect{Entity.call({tags: [1, 2]})}
+    expect{entity.call({tags: [1, 2]})}
       .to raise_error
 
-    expect{Entity.call({tags: [1, 2].to_set})}
+    expect{entity.call({tags: [1, 2].to_set})}
       .to_not raise_error
 
-    expect{Entity.call({tags: nil})}
+    expect{entity.call({tags: nil})}
       .to_not raise_error
+  end
+
+  it "#define_builder is fast" do
+    enable_test = false
+    if enable_test # You can enable this test to measure the performance
+
+      name_details_entity = EntityUtils.define_builder(
+        [:first, :string, :mandatory],
+        [:middle, :string, default: "Middle"],
+        [:last, :string, :mandatory]
+      )
+
+      entity = EntityUtils.define_builder(
+        [:name, :mandatory, entity: name_details_entity]
+      )
+      bm = 1000 * Benchmark.realtime {
+        1000.times {
+          entity.call(
+            {
+              name: {
+                first: "John",
+                last: "Doe"
+              }
+            }
+          )
+        }
+      }
+
+      expect(bm).to be < 0
+
+    end
   end
 end

@@ -36,81 +36,79 @@ module EntityUtils
   end
 
   VALIDATORS = {
-    mandatory: -> (_, v, field) {
+    mandatory: -> (_, v, _) {
       if (v.to_s.empty?)
-        "#{field}: Missing mandatory value."
+        {code: :mandatory, msg: "Missing mandatory value." }
       end
     },
-    optional: -> (_, v, field) { nil },
-    one_of: -> (allowed, v, field) {
+    optional: -> (_, v, _) { nil },
+    one_of: -> (allowed, v, _) {
       unless (allowed.include?(v))
-        "#{field}: Value must be one of #{allowed}. Was: #{v}."
+        {code: :one_of, msg: "Value must be one of #{allowed}. Was: #{v}." }
       end
     },
-    string: -> (_, v, field) {
+    string: -> (_, v, _) {
       unless (v.nil? || v.is_a?(String))
-        "#{field}: Value must be a String. Was: #{v} (#{v.class.name})."
+        {code: :string, msg: "Value must be a String. Was: #{v} (#{v.class.name})." }
       end
     },
-    time: -> (_, v, field) {
+    time: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Time))
-        "#{field}: Value must be a Time. Was: #{v} (#{v.class.name})."
+        {code: :time, msg: "Value must be a Time. Was: #{v} (#{v.class.name})." }
       end
     },
-    date: -> (_, v, field) {
+    date: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Date))
-        "#{field}: Value must be a Date. Was: #{v} (#{v.class.name})."
+        {code: :date, msg: "Value must be a Date. Was: #{v} (#{v.class.name})." }
       end
     },
-    fixnum: -> (_, v, field) {
+    fixnum: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Fixnum))
-        "#{field}: Value must be a Fixnum. Was: #{v} (#{v.class.name})."
+        {code: :fixnum, msg: "Value must be a Fixnum. Was: #{v} (#{v.class.name})." }
       end
     },
-    symbol: -> (_, v, field) {
+    symbol: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Symbol))
-        "#{field}: Value must be a Symbol. Was: #{v} (#{v.class.name})."
+        {code: :symbol, msg: "Value must be a Symbol. Was: #{v} (#{v.class.name})." }
       end
     },
-    hash: -> (_, v, field) {
+    hash: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Hash))
-        "#{field}: Value must be a Hash. Was: #{v} (#{v.class.name})."
+        {code: :hash, msg: "Value must be a Hash. Was: #{v} (#{v.class.name})." }
       end
     },
-    callable: -> (_, v, field) {
+    callable: -> (_, v, _) {
       unless (v.nil? || v.respond_to?(:call))
-        "#{field}: Value must respond to :call, i.e. be a Method or a Proc (lambda, block, etc.)."
+        {code: :callable, msg: "Value must respond to :call, i.e. be a Method or a Proc (lambda, block, etc.)." }
       end
     },
-    enumerable: -> (_, v, field) {
+    enumerable: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Enumerable))
-        "#{field}: Value must be an Enumerable. Was: #{v}."
+        {code: :enumerable, msg: "Value must be an Enumerable. Was: #{v}." }
       end
     },
-    array: -> (_, v, field) {
+    array: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Array))
-        "#{field}: Value must be an Array. Was: #{v}."
+        {code: :array, msg: "Value must be an Array. Was: #{v}." }
       end
     },
-    set: -> (_, v, field) {
+    set: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Set))
-        "#{field}: Value must be a Set. Was: #{v} (#{v.class.name})."
+        {code: :set, msg: "Value must be a Set. Was: #{v} (#{v.class.name})." }
       end
     },
-    money: -> (_, v, field) {
+    money: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Money))
-        "#{field}: Value must be a Money. Was: #{v}."
+        {code: :money, msg: "Value must be a Money. Was: #{v}." }
       end
     },
-    bool: -> (_, v, field) {
+    bool: -> (_, v, _) {
       unless (v.nil? || v == true || v == false)
-        "#{field}: Value must be boolean true or false. Was: #{v} (#{v.class.name})."
+        {code: :bool, msg: "Value must be boolean true or false. Was: #{v} (#{v.class.name})." }
       end
     },
-    validate_with: -> (validator, v, field) {
-      unless (validator.call(v))
-        "#{field}: Custom validation failed. Was: #{v}."
-      end
+    validate_with: -> (validator, v, _) {
+      validator.call(v)
     }
   }
 
@@ -145,11 +143,15 @@ module EntityUtils
     transform_with: -> (transformer, v) { transformer.call(v) }
   }
 
-  def validator_or_transformer(k)
+  def spec_category(k)
     if (VALIDATORS.keys.include?(k))
       :validators
     elsif (TRANSFORMERS.keys.include?(k))
       :transformers
+    elsif k == :collection
+      :collection
+    elsif k == :entity
+      :entity
     else
       raise(ArgumentError, "Illegal key #{k}. Not a known transformer or validator.")
     end
@@ -161,7 +163,7 @@ module EntityUtils
     parsed_spec = s.zip([nil].cycle)
       .to_h
       .merge(opts)
-      .group_by { |(name, param)| validator_or_transformer(name) }
+      .group_by { |(name, param)| spec_category(name) }
 
     parsed_spec[:validators] =
       (parsed_spec[:validators] || [])
@@ -170,7 +172,18 @@ module EntityUtils
       (parsed_spec[:transformers] || [])
       .map { |(name, param)| TRANSFORMERS[name].curry().call(param) }
 
+    parsed_spec[:collection] = parse_nested_specs(opts[:collection])
+    parsed_spec[:entity] = parse_nested_specs(opts[:entity])
+
     parsed_spec
+  end
+
+  def parse_nested_specs(specs)
+    if specs.is_a? EntityBuilder
+      specs.specs
+    else
+      parse_specs(specs || [])
+    end
   end
 
   def parse_specs(specs)
@@ -181,11 +194,39 @@ module EntityUtils
     end
   end
 
-  def validate(validators, val, field)
+  def validate(validators, val, field, parent_field = nil)
     validators.reduce([]) do |res, validator|
       err = validator.call(val, field)
-      res.push(err) unless err.nil?
+
+      res.push(
+        {
+          field: parent_field ? "#{parent_field}.#{field.to_s}" : field.to_s,
+          code: err[:code],
+          msg: err[:msg]
+        }
+      ) unless err.nil?
+
       res
+    end
+  end
+
+  def validate_all(fields, input, parent_field = nil)
+    fields.reduce([]) do |errs, (name, spec)|
+      errors = validate(spec[:validators], input[name], name, parent_field)
+
+      nested_errors =
+        if spec[:collection].present?
+          input[name].each_with_index.reduce([]) { |errors, (v, i)|
+            collection_errors = validate_all(spec[:collection], v, "#{name.to_s}[#{i}]")
+            errors.concat(collection_errors)
+          }
+        elsif spec[:entity].present?
+          validate_all(spec[:entity], input[name], name.to_s)
+        else
+          []
+        end
+
+      errs.concat(errors).concat(nested_errors)
     end
   end
 
@@ -195,15 +236,26 @@ module EntityUtils
     end
   end
 
-  def transform_and_validate(fields, input)
-    output = fields.reduce({}) do |out, (name, spec)|
+  def transform_all(fields, input)
+    fields.reduce({}) do |out, (name, spec)|
       out[name] = transform(spec[:transformers], input[name])
+
+      out[name] =
+        if spec[:collection].present?
+          out[name].map { |v| transform_all(spec[:collection], v) }
+        elsif spec[:entity].present?
+          transform_all(spec[:entity], out[name])
+        else
+          out[name]
+        end
+
       out
     end
+  end
 
-    errors = fields.reduce([]) do |errs, (name, spec)|
-      errs.concat(validate(spec[:validators], output[name], name))
-    end
+  def transform_and_validate(fields, input)
+    output = transform_all(fields, input)
+    errors = validate_all(fields, output)
 
     {value: output, errors: errors}
   end
@@ -253,20 +305,63 @@ module EntityUtils
   #
   # See rspec tests for more examples and output
   def define_builder(*specs)
-    fields = parse_specs(specs)
+    EntityBuilder.new(parse_specs(specs))
+  end
 
-    -> (opts = {}) do
-      raise(TypeError, "Expecting an input hash. You gave: #{opts}") unless opts.is_a? Hash
+  class EntityBuilder
+    attr_reader :specs
 
-      result = transform_and_validate(fields, opts)
-
-      unless (result[:errors].empty?)
-        loc = caller_locations(2, 1).first
-        raise(ArgumentError, "Error(s) in #{loc}: #{result[:errors]}")
-      end
-
-      result[:value]
+    def initialize(specs)
+      @specs = specs
     end
+
+    def build(data)
+      with_result(
+        specs: @specs,
+        data: data,
+        on_success: ->(result) {
+          result[:value]
+        },
+        on_failure: ->(result) {
+          loc = caller_locations(2, 1).first
+          raise(ArgumentError, "Error(s) in #{loc}: #{error_msg(result)}")
+        })
+    end
+
+    alias_method :call, :build
+    alias_method :[], :build
+
+    def validate(data)
+      with_result(
+        specs: @specs,
+        data: data,
+        on_success: ->(result) {
+          Result::Success.new(result[:value])
+        },
+        on_failure: ->(result) {
+          Result::Error.new(error_msg(result), result[:errors])
+        })
+    end
+
+    private
+
+    def error_msg(result)
+      result[:errors].map { |error|
+        "#{error[:field]}: #{error[:msg]}"
+      }.join(", ")
+    end
+
+    def with_result(specs:, data:, on_success:, on_failure:)
+      raise(TypeError, "Expecting an input hash. You gave: #{data}") unless data.is_a? Hash
+      result = EntityUtils.transform_and_validate(specs, data)
+
+      if result[:errors].empty?
+        on_success.call(result)
+      else
+        on_failure.call(result)
+      end
+    end
+
   end
 
 end
