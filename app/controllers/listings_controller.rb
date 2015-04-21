@@ -1,3 +1,4 @@
+# rubocop:disable ClassLength
 class ListingsController < ApplicationController
   class ListingDeleted < StandardError; end
 
