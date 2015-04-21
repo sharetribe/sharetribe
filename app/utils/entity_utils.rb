@@ -194,26 +194,30 @@ module EntityUtils
     end
   end
 
-  def validate(validators, val, field)
+  def validate(validators, val, field, parent_field = nil)
     validators.reduce([]) do |res, validator|
       err = validator.call(val, field)
-      res.push({field: field.to_s, code: err[:code], msg: err[:msg]}) unless err.nil?
+
+      res.push(
+        {
+          field: parent_field ? "#{parent_field}.#{field.to_s}" : field.to_s,
+          code: err[:code],
+          msg: err[:msg]
+        }
+      ) unless err.nil?
+
       res
     end
   end
 
   def validate_all(fields, input, parent_field = nil)
     fields.reduce([]) do |errs, (name, spec)|
-      errors = validate(spec[:validators], input[name], name).map { |err|
-        err[:field] = parent_field ? "#{parent_field}.#{name.to_s}" : name.to_s
-        err
-      }
+      errors = validate(spec[:validators], input[name], name, parent_field)
 
       nested_errors =
         if spec[:collection].present?
           input[name].each_with_index.reduce([]) { |errors, (v, i)|
-            parent_field = "#{name.to_s}[#{i}]"
-            collection_errors = validate_all(spec[:collection], v, parent_field)
+            collection_errors = validate_all(spec[:collection], v, "#{name.to_s}[#{i}]")
             errors.concat(collection_errors)
           }
         elsif spec[:entity].present?
