@@ -211,11 +211,13 @@ module EntityUtils
 
       nested_errors =
         if spec[:collection].present?
-          input[name].each_with_index.flat_map { |v, i|
-            validate_all(spec[:collection], v).map { |err|
+          input[name].each_with_index.reduce([]) { |errors, (v, i)|
+            collection_errors = validate_all(spec[:collection], v).map { |err|
               err[:field] = "#{name.to_s}[#{i}].#{err[:field]}"
               err
-            } }
+            }
+            errors.concat(collection_errors)
+          }
         elsif spec[:entity].present?
           validate_all(spec[:entity], input[name]).map { |err|
             err[:field] = "#{name.to_s}.#{err[:field]}"
