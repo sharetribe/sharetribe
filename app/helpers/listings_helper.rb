@@ -24,7 +24,13 @@ module ListingsHelper
   end
 
   def listed_listing_title(listing)
-    shape_name(listing) + ": #{listing.title}"
+    listing_shape_name = shape_name(listing)
+    # TODO remove this hotfix when we have admin ui for translations
+    if listing_shape_name.include?("translation missing")
+      listing.title
+    else
+      "#{listing_shape_name}: #{listing.title}"
+    end
   end
 
   def localized_category_label(category)
