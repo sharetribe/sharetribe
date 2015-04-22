@@ -50,37 +50,43 @@ module PaypalService::API
     end
 
     def do_request(community_id, create_payment, m_acc)
-        request = MerchantData.create_set_express_checkout_order(
-          create_payment.merge({
-              receiver_username: m_acc[:payer_id],
-              invnum: Invnum.create(community_id, create_payment[:transaction_id], :payment)}))
-
-        with_success(community_id, create_payment[:transaction_id],
-          request,
-          error_policy: {
-            codes_to_retry: ["10001", "x-timeout", "x-servererror"],
-            try_max: 3
-          }
-        ) do |response|
-          TokenStore.create({
-            community_id: community_id,
-            token: response[:token],
-            transaction_id: create_payment[:transaction_id],
-            merchant_id: m_acc[:person_id],
-            receiver_id: m_acc[:payer_id],
-            item_name: create_payment[:item_name],
-            item_quantity: create_payment[:item_quantity],
-            item_price: create_payment[:item_price] || create_payment[:order_total],
-            shipping_total: create_payment[:shipping_total],
-            express_checkout_url: response[:redirect_url]
-          })
-
-          Result::Success.new(
-            DataTypes.create_payment_request({
-                transaction_id: create_payment[:transaction_id],
-                token: response[:token],
-                redirect_url: response[:redirect_url]}))
+      create_payment_data = create_payment.merge(
+        { receiver_username: m_acc[:payer_id],
+          invnum: Invnum.create(community_id, create_payment[:transaction_id], :payment)})
+      request =
+        if (create_payment[:payment_action] == :order)
+          MerchantData.create_set_express_checkout_order(create_payment_data)
+        else
+          MerchantData.create_set_express_checkout_authorization(create_payment_data)
         end
+
+      with_success(community_id, create_payment[:transaction_id],
+        request,
+        error_policy: {
+          codes_to_retry: ["10001", "x-timeout", "x-servererror"],
+          try_max: 3
+        }
+      ) do |response|
+        TokenStore.create({
+          community_id: community_id,
+          token: response[:token],
+          transaction_id: create_payment[:transaction_id],
+          payment_action: create_payment[:payment_action],
+          merchant_id: m_acc[:person_id],
+          receiver_id: m_acc[:payer_id],
+          item_name: create_payment[:item_name],
+          item_quantity: create_payment[:item_quantity],
+          item_price: create_payment[:item_price] || create_payment[:order_total],
+          shipping_total: create_payment[:shipping_total],
+          express_checkout_url: response[:redirect_url]
+        })
+
+        Result::Success.new(
+          DataTypes.create_payment_request({
+              transaction_id: create_payment[:transaction_id],
+              token: response[:token],
+              redirect_url: response[:redirect_url]}))
+      end
     end
 
     def get_request_token(community_id, token)
@@ -128,15 +134,20 @@ module PaypalService::API
 
       # The process either starts by creating a new payment...
       if (payment.nil?)
-        payment_res = create_payment(token)
-        if (payment_res[:success])
-          authorize_payment(community_id, payment_res[:data])
-        else
-          payment_res
-        end
-        # ... or continues from a previously created but not yet authorized payment
+        create_payment(token)
+          .and_then { |payment_entity|
+          if payment_entity[:pending_reason] != :authorization
+            authorize_payment(community_id, payment_entity)
+          else
+            Result::Success.new(payment_entity)
+          end
+        }
       else
-        authorize_payment(community_id, payment)
+        if payment[:pending_reason] != :authorization
+          authorize_payment(community_id, payment)
+        else
+          Result::Success.new(DataTypes.create_payment(payment))
+        end
       end
     end
 
@@ -266,12 +277,11 @@ module PaypalService::API
 
           order_details = create_order_details(ec_details)
                           .merge({community_id: token[:community_id], transaction_id: token[:transaction_id]})
-          @events.send(:order_details,
-                       :success,
-                       order_details)
+          @events.send(:order_details, :success, order_details)
 
           with_success(token[:community_id], token[:transaction_id],
             MerchantData.create_do_express_checkout_payment({
+              payment_action: token[:payment_action],
               receiver_username: m_acc[:payer_id],
               token: token[:token],
               payer_id: ec_details[:payer_id],
@@ -296,6 +306,7 @@ module PaypalService::API
               finally: (method :handle_failed_create_payment).call(token)
             }
           ) do |payment_res|
+
             # Save payment
             payment = PaymentStore.create(
               token[:community_id],
@@ -368,8 +379,12 @@ module PaypalService::API
       with_success(community_id, transaction_id,
         MerchantData.create_do_void({
             receiver_username: m_acc[:payer_id],
-            # Always void the order, it automatically voids any authorization connected to the payment
-            transaction_id: payment[:order_id],
+
+            # Void order if it exists, it automatically voids any
+            # authorization connected to the payment but with auth
+            # flow we have no order so void the authorization
+            # directly.
+            transaction_id: payment[:order_id] ? payment[:order_id] : payment[:authorization_id],
             note: note
           }),
         error_policy: {
@@ -379,7 +394,7 @@ module PaypalService::API
         ) do |void_res|
         with_success(community_id, transaction_id, MerchantData.create_get_transaction_details({
               receiver_username: m_acc[:payer_id],
-              transaction_id: payment[:order_id],
+              transaction_id: payment[:order_id] ? payment[:order_id] : payment[:authorization_id],
             })) do |payment_res|
           payment = PaymentStore.update(
             data: payment_res,

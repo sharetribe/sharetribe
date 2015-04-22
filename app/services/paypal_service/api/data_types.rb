@@ -2,6 +2,7 @@ module PaypalService::API::DataTypes
 
   CreatePaymentRequest = EntityUtils.define_builder(
     [:transaction_id, :mandatory, :fixnum],
+    [:payment_action, default: :order, one_of: [:order, :authorization]],
     [:item_name, :string],
     [:item_quantity, :fixnum, default: 1],
     [:item_price, :money],
@@ -30,9 +31,9 @@ module PaypalService::API::DataTypes
     [:merchant_id, :mandatory, :string],
     [:payment_status, one_of: [:pending, :completed, :refunded, :voided]],
     [:pending_reason, transform_with: -> (v) { (v.is_a? String) ? v.downcase.gsub("-", "").to_sym : v }],
-    [:order_id, :mandatory, :string],
-    [:order_date, :mandatory, :time],
-    [:order_total, :mandatory, :money],
+    [:order_id, :string],
+    [:order_date, :time],
+    [:order_total, :money],
     [:authorization_id, :string],
     [:authorization_date, :time],
     [:authorization_expires_date, :time],

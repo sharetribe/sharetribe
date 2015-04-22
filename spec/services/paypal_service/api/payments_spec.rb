@@ -38,6 +38,20 @@ describe PaypalService::API::Payments do
 
     @req_info = {
       transaction_id: @tx_id,
+      payment_action: :order,
+      item_name: "Item name",
+      item_quantity: 1,
+      item_total: Money.new(1200, "EUR"),
+      item_price: Money.new(1200, "EUR"),
+      merchant_id: @mid,
+      order_total: Money.new(1200, "EUR"),
+      success: "https://www.test.com/success",
+      cancel: "https://www.test.com/cancel"
+    }
+
+    @req_info_auth = {
+      transaction_id: @tx_id,
+      payment_action: :authorization,
       item_name: "Item name",
       item_quantity: 1,
       item_total: Money.new(1200, "EUR"),
@@ -64,6 +78,21 @@ describe PaypalService::API::Payments do
       expect(token[:community_id]).to eq @cid
       expect(token[:token]).to eq response[:data][:token]
       expect(token[:transaction_id]).to eq @req_info[:transaction_id]
+      expect(token[:payment_action]).to eq :order
+      expect(token[:merchant_id]).to eq @req_info[:merchant_id]
+      expect(token[:item_name]).to eq @req_info[:item_name]
+      expect(token[:item_quantity]).to eq @req_info[:item_quantity]
+      expect(token[:item_price]).to eq @req_info[:item_price]
+    end
+
+    it "saves token info, using payment_action :authorization" do
+      response = @payments.request(@cid, @req_info_auth)
+      token = PaypalService::Store::Token.get_for_transaction(@cid, @tx_id)
+
+      expect(token[:community_id]).to eq @cid
+      expect(token[:token]).to eq response[:data][:token]
+      expect(token[:transaction_id]).to eq @req_info[:transaction_id]
+      expect(token[:payment_action]).to eq :authorization
       expect(token[:merchant_id]).to eq @req_info[:merchant_id]
       expect(token[:item_name]).to eq @req_info[:item_name]
       expect(token[:item_quantity]).to eq @req_info[:item_quantity]
@@ -135,6 +164,22 @@ describe PaypalService::API::Payments do
       expect(payment_res[:data][:authorization_total]).to eq(@req_info[:order_total])
     end
 
+    it "creates authorized new payment and saves it, payment_action :authorization" do
+      token = @payments.request(@cid, @req_info_auth)[:data]
+
+      payment_res = @payments.create(@cid, token[:token])
+
+      payment = PaymentStore.get(@cid, @tx_id)
+      expect(payment_res.success).to eq(true)
+      expect(payment).not_to be_nil
+      expect(payment_res[:data][:payment_status]).to eq(:pending)
+      expect(payment_res[:data][:pending_reason]).to eq(:authorization)
+      expect(payment_res[:data][:order_id]).to eq(nil)
+      expect(payment_res[:data][:order_total]).to eq(nil)
+      expect(payment_res[:data][:authorization_id]).not_to be_nil
+      expect(payment_res[:data][:authorization_total]).to eq(@req_info_auth[:order_total])
+    end
+
     it "triggers payment_created event followed by payment_updated" do
       token = @payments.request(@cid, @req_info)[:data]
       payment_res = @payments.create(@cid, token[:token])
@@ -143,6 +188,15 @@ describe PaypalService::API::Payments do
       expect(@events.received_events[:payment_created].length).to eq(1)
       expect(@events.received_events[:payment_updated].length).to eq(1)
       expect(@events.received_events[:payment_updated].first).to eq([:success, payment_res[:data]])
+    end
+
+    it "triggers payment_created event only, payment_action :authorization" do
+      token = @payments.request(@cid, @req_info_auth)[:data]
+      payment_res = @payments.create(@cid, token[:token])
+
+      expect(@events.received_events[:payment_created].length).to eq(1)
+      expect(@events.received_events[:payment_updated].length).to eq(0)
+      expect(@events.received_events[:payment_created].first).to eq([:success, payment_res[:data]])
     end
 
     it "triggers order_details event with shipping info" do
@@ -252,7 +306,7 @@ describe PaypalService::API::Payments do
   context "#full_capture" do
     before(:each) do
       @payment_total = Money.new(1200, "EUR")
-      token = @payments.request(@cid, @req_info)[:data]
+      token = @payments.request(@cid, @req_info_auth)[:data]
       @payments.create(@cid, token[:token])[:data]
       @events.clear
     end
