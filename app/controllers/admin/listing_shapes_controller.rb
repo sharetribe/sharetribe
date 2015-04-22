@@ -88,27 +88,13 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to action: :index
     end
 
-    processed_form = parse_and_process_form(params, processes, shape, process)
+    processed_form_res = parse_and_process_form(params, processes, shape, process)
 
-    unless processed_form.success
-      flash[:error] = processed_form.error_msg
+    unless processed_form_res.success
+      flash[:error] = processed_form_res.error_msg
     end
 
-    processed_data = processed_form.data
-    shape_form = processed_data[:shape_form]
-    transaction_process_id = processed_data[:transaction_process_id]
-
-    new_shape = TranslationServiceHelper.form_values_to_tr_keys!(
-      target: shape_form,
-      form: shape_form,
-      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
-      community_id: @current_community.id,
-      override: true
-    ).merge(
-      basename: shape_form[:name][@current_community.default_locale],
-      transaction_process_id: transaction_process_id,
-      units: shape_form[:units].map { |u| add_quantity_selector(u) }
-    )
+    new_shape = form_to_shape!(processed_form_res.data, @current_community.id, @current_community.default_locale)
 
     create_result = create_shape(@current_community.id, new_shape)
 
@@ -129,26 +115,14 @@ class Admin::ListingShapesController < ApplicationController
     process = processes.find { |p| p[:id] == shape[:transaction_process_id] }
     return redirect_to error_not_found_path if shape.nil?
 
-    processed_form = parse_and_process_form(params, processes, shape, process)
+    processed_form_res = parse_and_process_form(params, processes, shape, process)
 
-    unless processed_form.success
-      flash[:error] = shape_result.error_msg
+    unless processed_form_res.success
+      flash[:error] = process_form_res.error_msg
       return render_edit(shape, @current_community.id, available_locales())
     end
 
-    processed_data = processed_form.data
-    shape_form = processed_data[:shape_form]
-    transaction_process_id = processed_data[:transaction_process_id]
-
-    updated_shape = TranslationServiceHelper.form_values_to_tr_keys!(
-      target: shape,
-      form: shape_form,
-      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
-      community_id: @current_community.id
-    ).merge(
-      transaction_process_id: transaction_process_id,
-      units: shape_form[:units].map { |u| add_quantity_selector(u) }
-    )
+    updated_shape = form_to_shape!(processed_form_res.data, @current_community.id, @current_community.default_locale, shape)
 
     update_result = update_shape(@current_community.id, params[:id], updated_shape)
 
@@ -163,8 +137,19 @@ class Admin::ListingShapesController < ApplicationController
 
   private
 
-  # shape_form -> [shape, process]
-  def to_shape(shape_form)
+  def form_to_shape!(form, community_id, default_locale, target = nil)
+    entity_target = target || form
+    TranslationServiceHelper.form_values_to_tr_keys!(
+      target: entity_target,
+      form: form,
+      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
+      community_id: community_id,
+      override: target.nil?
+    ).merge(
+      transaction_process_id: form[:transaction_process_id],
+      basename: form[:name][default_locale],
+      units: form[:units].map { |u| add_quantity_selector(u) }
+    )
   end
 
   # [shape, process] -> shape_form
@@ -190,7 +175,7 @@ class Admin::ListingShapesController < ApplicationController
         shape_form = ListingShapeProcessViewUtils.process_shape(shape_form, process_info, shape_defaults)
         transaction_process_id = select_process(shape_form, processes, process_defaults)
 
-        Result::Success.new(shape_form: shape_form, transaction_process_id: transaction_process_id)
+        Result::Success.new(shape_form.merge(transaction_process_id: transaction_process_id))
       }
   end
 
@@ -218,10 +203,8 @@ class Admin::ListingShapesController < ApplicationController
 
   def parse_params(params)
     form_params = HashUtils.symbolize_keys(params)
-
     form_params[:units] = parse_units(form_params[:units])
-
-    form_params = ListingShapeFormEntity.validate(form_params)
+    ListingShapeFormEntity.validate(form_params)
   end
 
   # Take units from shape and add predefined units
