@@ -88,19 +88,7 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to action: :index
     end
 
-    processed_form_res = parse_form(params)
-      .and_then { |shape_form|
-        shape_form = ListingShapeProcessViewUtils.process_shape(shape_form, process_info, shape)
-        transaction_process_id = select_process(shape_form, processes, process_requirements)
-
-        Result::Success.new(shape_form.merge(transaction_process_id: transaction_process_id))
-      }
-
-    unless processed_form_res.success
-      flash[:error] = processed_form_res.error_msg
-    end
-
-    new_shape = form_to_shape!(processed_form_res.data, @current_community.id, @current_community.default_locale)
+    new_shape = form_to_shape!(params, process_info, processes, process_requirements, @current_community.id, @current_community.default_locale, shape, true)
 
     create_result = create_shape(@current_community.id, new_shape)
 
@@ -121,20 +109,7 @@ class Admin::ListingShapesController < ApplicationController
     process_requirements = processes.find { |p| p[:id] == shape[:transaction_process_id] }
     return redirect_to error_not_found_path if shape.nil?
 
-    processed_form_res = parse_form(params)
-      .and_then { |shape_form|
-        shape_form = ListingShapeProcessViewUtils.process_shape(shape_form, process_info, shape)
-        transaction_process_id = select_process(shape_form, processes, process_requirements)
-
-        Result::Success.new(shape_form.merge(transaction_process_id: transaction_process_id))
-      }
-
-    unless processed_form_res.success
-      flash[:error] = process_form_res.error_msg
-      return render_edit(shape, @current_community.id, available_locales())
-    end
-
-    updated_shape = form_to_shape!(processed_form_res.data, @current_community.id, @current_community.default_locale, shape)
+    updated_shape = form_to_shape!(params, process_info, processes, process_requirements, @current_community.id, @current_community.default_locale, shape)
 
     update_result = update_shape(@current_community.id, params[:id], updated_shape)
 
@@ -149,10 +124,17 @@ class Admin::ListingShapesController < ApplicationController
 
   private
 
-  def form_to_shape!(form, community_id, default_locale, target = nil)
-    entity_target = target || form
+  def form_to_shape!(form_params, process_info, processes, process_requirements, community_id, default_locale, target, override = false)
+    form_res = parse_form(form_params).and_then { |shape_form|
+      shape_form = ListingShapeProcessViewUtils.process_shape(shape_form, process_info, target)
+      transaction_process_id = select_process(shape_form, processes, process_requirements)
+
+      Result::Success.new(shape_form.merge(transaction_process_id: transaction_process_id))
+    }
+    form = form_res.data
+
     TranslationServiceHelper.form_values_to_tr_keys!(
-      target: entity_target,
+      target: target,
       form: form,
       tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
       community_id: community_id,
