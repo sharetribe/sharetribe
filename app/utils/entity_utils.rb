@@ -323,7 +323,7 @@ module EntityUtils
           result[:value]
         },
         on_failure: ->(result) {
-          loc = caller_locations(2, 1).first
+          loc = caller_locations(4, 1).first
           raise(ArgumentError, "Error(s) in #{loc}: #{error_msg(result)}")
         })
     end
