@@ -216,7 +216,7 @@ class ListingsController < ApplicationController
       params[:listing].delete("origin_loc_attributes")
     end
 
-    params[:listing] = normalize_price_param(params[:listing])
+    params[:listing] = normalize_price_params(params[:listing])
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
     m_unit = select_unit(params, shape)
 
@@ -298,7 +298,7 @@ class ListingsController < ApplicationController
       end
     end
 
-    params[:listing] = normalize_price_param(params[:listing])
+    params[:listing] = normalize_price_params(params[:listing])
 
     shape = get_shape(@listing.listing_shape_id)
     m_unit = select_unit(params, shape)
@@ -608,11 +608,19 @@ class ListingsController < ApplicationController
     end.compact
   end
 
-  def normalize_price_param(listing_params)
-    if listing_params[:price] then
-      listing_params.except(:price).merge(price_cents: MoneyUtil.parse_str_to_subunits(listing_params[:price], listing_params[:currency]))
-    else
-      listing_params
+  def normalize_price_params(listing_params)
+    currency = listing_params[:currency]
+    listing_params.inject({}) do |hash, (k, v)|
+      case k
+      when "price"
+        hash.merge(:price_cents =>  MoneyUtil.parse_str_to_subunits(v, currency))
+      when "shipping_price"
+        hash.merge(:shipping_price_cents =>  MoneyUtil.parse_str_to_subunits(v, currency))
+      when "shipping_price_additional"
+        hash.merge(:shipping_price_additional_cents =>  MoneyUtil.parse_str_to_subunits(v, currency))
+      else
+        hash.merge( k.to_sym => v )
+      end
     end
   end
 
