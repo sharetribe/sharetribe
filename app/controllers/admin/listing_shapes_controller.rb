@@ -91,21 +91,22 @@ class Admin::ListingShapesController < ApplicationController
     processed_form = parse_and_process_form(params, processes, template, process)
 
     unless processed_form.success
-      flash[:error] = shape_result.error_msg
-      return render_edit(shape, @current_community.id, available_locales())
+      flash[:error] = processed_form.error_msg
     end
 
     processed_data = processed_form.data
     shape_form = processed_data[:shape_form]
     transaction_process_id = processed_data[:transaction_process_id]
 
-    create_result = create_translations(@current_community.id, shape_form).and_then { |translations|
-      name_tr_key, action_button_tr_key = translations.map { |t| t[:translation_key] }
-      name_translation = translations.first[:translations]
-      basename = name_translation.find { |t| t[:locale] == @current_community.default_locale } || name_translations.first
+    shape = shape_form.merge(
+      name_tr_key: TranslationServiceHelper.hashes_to_tr_key!(shape_form[:name], @current_community.id),
+      action_button_tr_key: TranslationServiceHelper.hashes_to_tr_key!(shape_form[:action_button_label], @current_community.id),
+      basename: pick_translation(shape_form[:name], @current_community.default_locale)[:translation],
+      transaction_process_id: transaction_process_id,
+      units: shape_form[:units].map { |u| add_quantity_selector(u) }
+    )
 
-      create_shape(@current_community.id, name_tr_key, action_button_tr_key, basename[:translation], transaction_process_id, shape_form)
-    }
+    create_result = create_shape(@current_community.id, shape)
 
     if create_result.success
       flash[:message] = t("admin.listing_shapes.new.create_success")
@@ -135,9 +136,14 @@ class Admin::ListingShapesController < ApplicationController
     shape_form = processed_data[:shape_form]
     transaction_process_id = processed_data[:transaction_process_id]
 
-    update_result = update_translations(@current_community.id, shape, shape_form).and_then {
-      update_shape(@current_community.id, params[:id], transaction_process_id, shape_form)
-    }
+    updated_shape = shape_form.merge(
+      name_tr_key: TranslationServiceHelper.hashes_to_tr_key!(shape_form[:name], @current_community.id, shape[:name_tr_key]),
+      action_button_tr_key: TranslationServiceHelper.hashes_to_tr_key!(shape_form[:action_button_label], @current_community.id, shape[:name_tr_key]),
+      transaction_process_id: transaction_process_id,
+      units: shape_form[:units].map { |u| add_quantity_selector(u) }
+    )
+
+    update_result = update_shape(@current_community.id, params[:id], updated_shape)
 
     if update_result[:success]
       flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate(shape[:name_tr_key]))
@@ -150,14 +156,19 @@ class Admin::ListingShapesController < ApplicationController
 
   private
 
+  def pick_translation(translations, locale)
+    translations.find { |t| t[:locale] == locale } || name_translations.first
+  end
+
   # shape_form -> [shape, process]
   def to_shape(shape_form)
   end
 
   # [shape, process] -> shape_form
   def to_shape_form(shape, process, template, available_locs)
-    shape[:name] = make_translations(shape[:name_tr_key], available_locs)
-    shape[:action_button_label] = make_translations(shape[:action_button_tr_key], available_locs)
+    locales = available_locs.map { |name, locale| locale }
+    shape[:name] = TranslationServiceHelper.tr_key_to_hashes(shape[:name_tr_key], locales)
+    shape[:action_button_label] = TranslationServiceHelper.tr_key_to_hashes(shape[:action_button_tr_key], locales)
     shape[:units] = expand_units(shape[:units])
     shape[:online_payments] = process[:process] == :preauthorize if process[:process]
     shape[:template] = template
@@ -200,13 +211,8 @@ class Admin::ListingShapesController < ApplicationController
 
   def parse_params(params)
     form_params = HashUtils.symbolize_keys(params)
-    form_params[:name] = params[:name].map { |locale, translation|
-      {locale: locale, translation: translation}
-    }
-
-    form_params[:action_button_label] = form_params[:action_button_label].map { |locale, translation|
-      {locale: locale, translation: translation}
-    }
+    form_params[:name] = TranslationServiceHelper.form_values_to_hashes(params[:name])
+    form_params[:action_button_label] = TranslationServiceHelper.form_values_to_hashes(params[:action_button_label])
 
     form_params[:units] = parse_units(form_params[:units])
 
@@ -282,31 +288,18 @@ class Admin::ListingShapesController < ApplicationController
     TransactionService::API::Api.processes.get(community_id: community_id)[:data]
   end
 
-  def create_shape(community_id, name_tr_key, action_button_tr_key, basename, transaction_process_id, shape)
+  def create_shape(community_id, shape)
     listing_api.shapes.create(
       community_id: community_id,
-      opts: {
-        transaction_process_id: transaction_process_id,
-        name_tr_key: name_tr_key,
-        action_button_tr_key: action_button_tr_key,
-        shipping_enabled: shape[:shipping_enabled],
-        price_enabled: shape[:price_enabled],
-        units: shape[:units].map { |u| add_quantity_selector(u) },
-        basename: basename
-      }
+      opts: shape
     )
   end
 
-  def update_shape(community_id, listing_shape_id, transaction_process_id, shape)
+  def update_shape(community_id, listing_shape_id, shape)
     listing_api.shapes.update(
       community_id: community_id,
       listing_shape_id: listing_shape_id,
-      opts: {
-        transaction_process_id: transaction_process_id,
-        shipping_enabled: shape[:shipping_enabled],
-        price_enabled: shape[:price_enabled],
-        units: shape[:units].map { |u| add_quantity_selector(u) }
-      }
+      opts: shape
     )
   end
 

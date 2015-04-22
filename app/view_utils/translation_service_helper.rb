@@ -24,4 +24,55 @@ module TranslationServiceHelper
           t.present? ? { locale: loc, translation: t } : nil
         }.compact }}
   end
+
+  # Transform pipe:
+  #
+  # tr_key_to_hash
+  #   -> View constructs the form from the hash
+  #     -> from_to_hash
+  #       -> hash_to_tr_key!
+
+  # In:
+  #   tr_key: 1234-aabb-ccdd,
+  #
+  # Out:
+  #   [
+  #     {locale: "en", translation: "Buy"},
+  #     {locale: "fi", translation: "Myy"},
+  #   ]
+  #
+  def tr_key_to_hashes(tr_key, locales)
+    locales.map { |locale|
+      {locale: locale, translation: I18n.translate(tr_key, locale: locale)}
+    }
+  end
+
+  # In:
+  #   { en: "Buy", fi: "Myy" }
+  #
+  # Out:
+  #   [
+  #     {locale: "en", translation: "Buy"},
+  #     {locale: "fi", translation: "Myy"}
+  #   ]
+  def form_values_to_hashes(form)
+    form.map { |locale, translation|
+      {locale: locale, translation: translation}
+    }
+  end
+
+  # In:
+  #   [
+  #     {locale: "en", translation: "Buy"},
+  #     {locale: "fi", translation: "Myy"},
+  #   ]
+  #
+  # Out: <tr_key>
+  #
+  def hashes_to_tr_key!(hash, community_id, tr_key = nil)
+    TranslationService::API::Api.translations.create(
+     community_id,
+     [ { translations: hash} ]
+    ).data.first[:translation_key]
+  end
 end
