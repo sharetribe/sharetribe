@@ -1,24 +1,22 @@
 .translation-wrapper
   .input-header= t("admin.listing_shapes.listing_shape_name")
   = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.listing_shape_name_desc")}
-  - shape[:name].map do |name|
+  - shape[:name].map do |(loc, translation)|
     .row
       .name-locale-label.col-2
-        - loc = name[:locale]
         = label_tag "name[#{loc}]", locale_name_mapping[loc]
       .name-locale-text_field.col-10
-        = text_field_tag("name[#{loc}]", name[:translation], class: "required")
+        = text_field_tag("name[#{loc}]", translation, class: "required")
 
 .translation-wrapper
   .input-header= t("admin.listing_shapes.action_button_label")
   = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.action_button_label_desc")}
-  - shape[:action_button_label].map do |label|
+  - shape[:action_button_label].map do |loc, translation|
     .row
       .name-locale-label.col-2
-        - loc = label[:locale]
         = label_tag "action_button_label[#{loc}]", locale_name_mapping[loc]
       .name-locale-text_field.col-10
-        = text_field_tag("action_button_label[#{loc}]", label[:translation], class: "required")
+        = text_field_tag("action_button_label[#{loc}]", translation, class: "required")
 
 .row
   .col-12

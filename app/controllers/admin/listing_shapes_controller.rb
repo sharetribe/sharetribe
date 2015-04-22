@@ -17,11 +17,6 @@ class Admin::ListingShapesController < ApplicationController
     end
   }
 
-  Translation = EntityUtils.define_builder(
-    [:locale, :string, :mandatory],
-    [:translation, :string, :mandatory]
-  )
-
   Unit = EntityUtils.define_builder(
     [:type, :symbol, :mandatory],
     [:enabled, :bool, :mandatory],
@@ -29,14 +24,19 @@ class Admin::ListingShapesController < ApplicationController
   )
 
   ListingShapeFormEntity = EntityUtils.define_builder(
-    [:name, collection: Translation],
-    [:action_button_label, collection: Translation],
+    [:name, :hash, :mandatory],
+    [:action_button_label, :hash, :mandatory],
     [:shipping_enabled, transform_with: CHECKBOX],
     [:price_enabled, transform_with: CHECKBOX],
     [:online_payments, transform_with: CHECKBOX],
     [:units, collection: Unit],
     [:template, :to_symbol]
   )
+
+  TR_KEY_PROP_FORM_NAME_MAP = {
+    name_tr_key: :name,
+    action_button_tr_key: :action_button_label
+  }
 
   def index
     process_info = get_process_info(@current_community.id)
@@ -88,7 +88,7 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to action: :index
     end
 
-    processed_form = parse_and_process_form(params, processes, template, process)
+    processed_form = parse_and_process_form(params, processes, shape, process)
 
     unless processed_form.success
       flash[:error] = processed_form.error_msg
@@ -98,15 +98,19 @@ class Admin::ListingShapesController < ApplicationController
     shape_form = processed_data[:shape_form]
     transaction_process_id = processed_data[:transaction_process_id]
 
-    shape = shape_form.merge(
-      name_tr_key: TranslationServiceHelper.hashes_to_tr_key!(shape_form[:name], @current_community.id),
-      action_button_tr_key: TranslationServiceHelper.hashes_to_tr_key!(shape_form[:action_button_label], @current_community.id),
-      basename: pick_translation(shape_form[:name], @current_community.default_locale)[:translation],
+    new_shape = TranslationServiceHelper.form_values_to_tr_keys!(
+      target: shape_form,
+      form: shape_form,
+      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
+      community_id: @current_community.id,
+      override: true
+    ).merge(
+      basename: shape_form[:name][@current_community.default_locale],
       transaction_process_id: transaction_process_id,
       units: shape_form[:units].map { |u| add_quantity_selector(u) }
     )
 
-    create_result = create_shape(@current_community.id, shape)
+    create_result = create_shape(@current_community.id, new_shape)
 
     if create_result.success
       flash[:message] = t("admin.listing_shapes.new.create_success")
@@ -136,9 +140,12 @@ class Admin::ListingShapesController < ApplicationController
     shape_form = processed_data[:shape_form]
     transaction_process_id = processed_data[:transaction_process_id]
 
-    updated_shape = shape_form.merge(
-      name_tr_key: TranslationServiceHelper.hashes_to_tr_key!(shape_form[:name], @current_community.id, shape[:name_tr_key]),
-      action_button_tr_key: TranslationServiceHelper.hashes_to_tr_key!(shape_form[:action_button_label], @current_community.id, shape[:name_tr_key]),
+    updated_shape = TranslationServiceHelper.form_values_to_tr_keys!(
+      target: shape,
+      form: shape_form,
+      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
+      community_id: @current_community.id
+    ).merge(
       transaction_process_id: transaction_process_id,
       units: shape_form[:units].map { |u| add_quantity_selector(u) }
     )
@@ -156,10 +163,6 @@ class Admin::ListingShapesController < ApplicationController
 
   private
 
-  def pick_translation(translations, locale)
-    translations.find { |t| t[:locale] == locale } || name_translations.first
-  end
-
   # shape_form -> [shape, process]
   def to_shape(shape_form)
   end
@@ -167,8 +170,12 @@ class Admin::ListingShapesController < ApplicationController
   # [shape, process] -> shape_form
   def to_shape_form(shape, process, template, available_locs)
     locales = available_locs.map { |name, locale| locale }
-    shape[:name] = TranslationServiceHelper.tr_key_to_hashes(shape[:name_tr_key], locales)
-    shape[:action_button_label] = TranslationServiceHelper.tr_key_to_hashes(shape[:action_button_tr_key], locales)
+
+    shape = TranslationServiceHelper.tr_keys_to_form_values(
+      entity: shape,
+      locales: locales,
+      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
+
     shape[:units] = expand_units(shape[:units])
     shape[:online_payments] = process[:process] == :preauthorize if process[:process]
     shape[:template] = template
@@ -211,8 +218,6 @@ class Admin::ListingShapesController < ApplicationController
 
   def parse_params(params)
     form_params = HashUtils.symbolize_keys(params)
-    form_params[:name] = TranslationServiceHelper.form_values_to_hashes(params[:name])
-    form_params[:action_button_label] = TranslationServiceHelper.form_values_to_hashes(params[:action_button_label])
 
     form_params[:units] = parse_units(form_params[:units])
 
@@ -232,36 +237,6 @@ class Admin::ListingShapesController < ApplicationController
 
   def parse_units(selected_units)
     (selected_units || []).map { |type, _| {type: type.to_sym, enabled: true}}
-  end
-
-  def make_translations(tr_key, locales)
-    locales.map { |(loc_name, loc_key)|
-      {locale: loc_key, translation: t(tr_key, locale: loc_key)}
-    }
-
-  end
-
-  def update_translations(community_id, shape, shape_form)
-    tr_groups = [
-      {
-        translation_key: shape[:name_tr_key],
-        translations: shape_form[:name]
-      }, {
-        translation_key: shape[:action_button_tr_key],
-        translations: shape_form[:action_button_label]
-      }
-    ]
-
-    translations_api.translations.create(community_id, tr_groups)
-  end
-
-  def create_translations(community_id, shape)
-    tr_groups = [
-      {translations: shape[:name]},
-      {translations: shape[:action_button_label]}
-    ]
-
-    translations_api.translations.create(community_id, tr_groups)
   end
 
   def translations_api
