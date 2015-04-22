@@ -19,7 +19,7 @@ class Admin::ListingShapesController < ApplicationController
 
   Translation = EntityUtils.define_builder(
     [:locale, :string, :mandatory],
-    [:value, :string, :mandatory]
+    [:translation, :string, :mandatory]
   )
 
   Unit = EntityUtils.define_builder(
@@ -201,11 +201,11 @@ class Admin::ListingShapesController < ApplicationController
   def parse_params(params)
     form_params = HashUtils.symbolize_keys(params)
     form_params[:name] = params[:name].map { |locale, translation|
-      {locale: locale, value: translation}
+      {locale: locale, translation: translation}
     }
 
     form_params[:action_button_label] = form_params[:action_button_label].map { |locale, translation|
-      {locale: locale, value: translation}
+      {locale: locale, translation: translation}
     }
 
     form_params[:units] = parse_units(form_params[:units])
@@ -230,23 +230,29 @@ class Admin::ListingShapesController < ApplicationController
 
   def make_translations(tr_key, locales)
     locales.map { |(loc_name, loc_key)|
-      {locale: loc_key, value: t(tr_key, locale: loc_key)}
+      {locale: loc_key, translation: t(tr_key, locale: loc_key)}
     }
 
   end
 
   def update_translations(community_id, shape, shape_form)
-    tr_groups = TranslationServiceHelper.to_per_key_translations({
-      shape[:name_tr_key] => shape_form[:name],
-      shape[:action_button_tr_key] => shape_form[:action_button_label]})
+    tr_groups = [
+      {
+        translation_key: shape[:name_tr_key],
+        translations: shape_form[:name]
+      }, {
+        translation_key: shape[:action_button_tr_key],
+        translations: shape_form[:action_button_label]
+      }
+    ]
 
     translations_api.translations.create(community_id, tr_groups)
   end
 
   def create_translations(community_id, shape)
     tr_groups = [
-      {translations: shape[:name].map { |t| {locale: t[:locale], translation: t[:value]} }},
-      {translations: shape[:action_button_label].map { |t| {locale: t[:locale], translation: t[:value]} }}
+      {translations: shape[:name]},
+      {translations: shape[:action_button_label]}
     ]
 
     translations_api.translations.create(community_id, tr_groups)
