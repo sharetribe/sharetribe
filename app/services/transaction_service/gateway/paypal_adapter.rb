@@ -17,6 +17,7 @@ module TransactionService::Gateway
       create_payment_info = DataTypes.create_create_payment_request(
         {
          transaction_id: tx[:id],
+         payment_action: :authorization,
          item_name: tx[:listing_title],
          item_quantity: tx[:listing_quantity],
          item_price: tx[:unit_price],
