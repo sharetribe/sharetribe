@@ -31,5 +31,5 @@
               - if (opts[:name] == :shipping)
                 - price_tag = "<span class=\"delivery-price-value\" data-shipping-price=\"#{opts[:price]}\" data-per-additional=\"#{opts[:shipping_price_additional]}\">#{humanized_money(opts[:price])}</span>"
                 - symbol = opts[:price].currency.symbol
-                - price_tag_with_currency = opts[:price].currency.symbol_first ? "(+#{currency_symbol}#{price_tag})" : "(+#{price_tag} #{currency_symbol})"
+                - price_tag_with_currency = opts[:price].currency.symbol_first ? "(+#{symbol}#{price_tag})" : "(+#{price_tag} #{symbol})"
                 = price_tag_with_currency.html_safe
