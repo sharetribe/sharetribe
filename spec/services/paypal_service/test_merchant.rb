@@ -341,7 +341,7 @@ module PaypalService
           wrapper_method_name: :do_nothing,
           action_method_name: :wrap,
           output_transformer: -> (res, api) {
-            token = @fake_pal.save_token({})
+            token = @fake_pal.save_token({}, :authorization)
 
             DataTypes::Merchant.create_setup_billing_agreement_response(
               {
