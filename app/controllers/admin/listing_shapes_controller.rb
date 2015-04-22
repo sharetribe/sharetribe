@@ -81,14 +81,20 @@ class Admin::ListingShapesController < ApplicationController
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
     template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_info)
     shape = template[:shape]
-    process = template[:process]
+    process_requirements = template[:process]
 
     unless template
       flash[:error] = "Invalid template: #{params[:template]}"
       return redirect_to action: :index
     end
 
-    processed_form_res = parse_and_process_form(params, processes, shape, process)
+    processed_form_res = parse_form(params)
+      .and_then { |shape_form|
+        shape_form = ListingShapeProcessViewUtils.process_shape(shape_form, process_info, shape)
+        transaction_process_id = select_process(shape_form, processes, process_requirements)
+
+        Result::Success.new(shape_form.merge(transaction_process_id: transaction_process_id))
+      }
 
     unless processed_form_res.success
       flash[:error] = processed_form_res.error_msg
@@ -112,10 +118,16 @@ class Admin::ListingShapesController < ApplicationController
     processes = get_processes(@current_community.id)
     process_info = ListingShapeProcessViewUtils.process_info(processes)
     shape = get_shape(@current_community.id, params[:id])
-    process = processes.find { |p| p[:id] == shape[:transaction_process_id] }
+    process_requirements = processes.find { |p| p[:id] == shape[:transaction_process_id] }
     return redirect_to error_not_found_path if shape.nil?
 
-    processed_form_res = parse_and_process_form(params, processes, shape, process)
+    processed_form_res = parse_form(params)
+      .and_then { |shape_form|
+        shape_form = ListingShapeProcessViewUtils.process_shape(shape_form, process_info, shape)
+        transaction_process_id = select_process(shape_form, processes, process_requirements)
+
+        Result::Success.new(shape_form.merge(transaction_process_id: transaction_process_id))
+      }
 
     unless processed_form_res.success
       flash[:error] = process_form_res.error_msg
@@ -168,17 +180,6 @@ class Admin::ListingShapesController < ApplicationController
     ListingShapeFormEntity.call(shape)
   end
 
-  def parse_and_process_form(params, processes, shape_defaults, process_defaults)
-    parse_params(params)
-      .and_then { |shape_form|
-        process_info = ListingShapeProcessViewUtils.process_info(processes)
-        shape_form = ListingShapeProcessViewUtils.process_shape(shape_form, process_info, shape_defaults)
-        transaction_process_id = select_process(shape_form, processes, process_defaults)
-
-        Result::Success.new(shape_form.merge(transaction_process_id: transaction_process_id))
-      }
-  end
-
   def select_process(shape, processes, process_defaults)
     process_find_opts = {
       process: shape[:online_payments] ? :preauthorize : :none,
@@ -201,7 +202,7 @@ class Admin::ListingShapesController < ApplicationController
       locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h }
   end
 
-  def parse_params(params)
+  def parse_form(params)
     form_params = HashUtils.symbolize_keys(params)
     form_params[:units] = parse_units(form_params[:units])
     ListingShapeFormEntity.validate(form_params)
