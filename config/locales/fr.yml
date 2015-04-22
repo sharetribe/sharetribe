@@ -1322,6 +1322,7 @@ fr:
         delivery: Livraison
         shipping: Envoi
         shipping_price: "Frais de livraison"
+        shipping_price_additional: "Eléments supplémentaires"
         pickup: Retrait
       origin:
         location: Lieu
@@ -1469,7 +1470,10 @@ fr:
         per_day: "par jour"
       delivery: Livraison
       shipping: "Envoi (+%{price})"
+      shipping_no_price: Livraison
+      shipping_price_additional: "Livraison (+%{price}, éléments supplémentaires: +%{shipping_price_additional})"
       pickup: Retrait
+      pickup_no_price: Retrait
     unit_types:
       piece: unité
       hour: heure
@@ -1512,6 +1516,8 @@ fr:
       search_verb: Chercher
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
     please_comment: Commentaire
+  mercury:
+    content_too_long: "Le contenu ajouté est trop long."
   okl:
     member_id: "Member id"
     member_id_or_email: "Identifiant ou email"

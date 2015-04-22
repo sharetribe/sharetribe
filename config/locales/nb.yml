@@ -672,8 +672,8 @@ nb:
       cancel_it_link_text: "Avbryt den"
     payment_settings_reminder:
       remember_to_add_payment_details: "Husk å legge til dine betalings detaljer slik at du kan motta betaling."
-      you_have_added_listing_with_payment: "Du har lagt til en annonse %{listing_link}med betaling. Du har ikke lagt til dine betalings detaljer. For å motta betaling må du legge til din betalingsinformasjon."
-      please_go_to_payment_settings: "Vennligst gå til %{payment_settings_link}og fyll in nødvendig betalingsinformasjon."
+      you_have_added_listing_with_payment: "Du har lagt til annonsen %{listing_link} med betaling. Du har ikke enda lagt til dine betalingsdetaljer. For å kunne motta betaling må du legge til din betalingsinformasjon."
+      please_go_to_payment_settings: "Vennligst gå til %{payment_settings_link} og fyll inn nødvendig betalingsinformasjon."
       payment_settings_link: "Innstillinger betaling"
     transaction_confirmed:
       here_is_a_message_from: "Her er en melding fra %{other_party_given_name}:"
@@ -790,7 +790,7 @@ nb:
       title_link_text: "%{community_name}"
       intro_paragraph: "Her er noe av det som har skjedd på %{community_link} iløpet av den siste%{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Post en ny listing!"
+      post_a_new_listing: "Lag ny annonse!"
       reduce_email_footer_text: "For mange e-poster?%{settings_link} eller %{unsubscribe_link}."
       settings_link_text: "Rediger dine e-post innstillinger her"
       unsubscribe_link_text: avmeld
@@ -818,7 +818,7 @@ nb:
       click_here_to_reply: "klikk her for å svare på forespørselen"
     welcome_email:
       welcome_email_subject: "Velkommen til %{service_name}!"
-      welcome_to_marketplace: "Velkommen til %{service_name}! Glad for å ha deg ombord."
+      welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for å ha deg med."
       love_marketplace_crew: "Hilsen,<br /><i>%{service_name}-teamet</i>"
       p_s_did_you_know: "PS. Vil du lage din egen markedsplass akkurat slik som %{service_name}? Det er enkelt og du trenger ikke å kunne programmering. %{click_here_link} for å funne ut mer!"
       click_here_link_text: "Klikk her"
@@ -992,7 +992,7 @@ nb:
       is: er
       are: er
       what_do_you_need: "Hva ser du etter?"
-      post_new_listing: "Post en ny listing"
+      post_new_listing: "Lag ny annonse"
       are_offering: tilbud
       add_news_item: "Legg til ny ting"
       lend_rent_help_carpool: "Selg, lån, hjelp, del kjøretur"
@@ -1042,7 +1042,7 @@ nb:
       list: "Vis liste"
       map_button: Kart
       grid_button: Rutenett
-      list_button: liste
+      list_button: Liste
       all_listing_types: "Vis alle typer listinger"
       all_categories: "Alle kategorier"
   infos:
@@ -1230,7 +1230,7 @@ nb:
       email_deleted: "E-post fjernet"
       payment_details_add_successful: "Betalings detaljer lagt til"
       payment_details_add_error: "Kunne ikke legge til betalings detaljer"
-      listing_author_payment_details_missing: "Annonse eier har ikke lagt til betalingsinformasjon og kan derfor ikke motta betaling akkurat nå. Vennligst kontakt annonse eier."
+      listing_author_payment_details_missing: "Annonseeier har ikke lagt til betalingsinformasjon og kan derfor ikke motta betaling akkurat nå. Vennligst kontakt annonse eier."
       stylesheet_needs_recompiling: "Side genereres på nytt. Vennligst last siden på nytt etter en liten stund."
     settings:
       account: Konto
@@ -1324,6 +1324,7 @@ nb:
         delivery: Leveringsmetode
         shipping: Frakt
         shipping_price: Fraktkostnad
+        shipping_price_additional: Tilleggsprodukter
         pickup: Henting
       origin:
         location: Sted
@@ -1471,7 +1472,10 @@ nb:
         per_day: "per dag"
       delivery: Leveringsmetode
       shipping: "Frakt (+%{price})"
+      shipping_no_price: Frakt
+      shipping_price_additional: "Frakt (+%{price}, tilleggsprodukter: +%{shipping_price_additional})"
       pickup: Henting
+      pickup_no_price: Henting
     unit_types:
       piece: stykk
       hour: time
@@ -1629,7 +1633,7 @@ nb:
       visible_to_everybody: "synlig for alle"
       create_account_with_facebook: "Logg inn med Facebook"
       OR: ELLER
-      signup_with_email: "Registrer deg med E-post"
+      signup_with_email: "Registrer deg med e-post"
     not_member:
       explanation_text: "Du besøker for øyebliket %{community}. Du forøkte å vise profilen til en bruker som tilhører en annen markedsplass. Du kan ikke vise denne personens profil på %{community}."
       read_more_about_kassi_communities: "Les mer om Sharetribe markedsplasser"

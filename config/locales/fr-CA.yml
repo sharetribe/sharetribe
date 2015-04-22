@@ -1322,6 +1322,7 @@ fr-CA:
         delivery: Livraison
         shipping: Envoi
         shipping_price: "Frais de livraison"
+        shipping_price_additional: ~
         pickup: Retrait
       origin:
         location: Lieu
@@ -1469,7 +1470,10 @@ fr-CA:
         per_day: "par jour"
       delivery: Livraison
       shipping: "Envoi (+%{price})"
+      shipping_no_price: ~
+      shipping_price_additional: ~
       pickup: Retrait
+      pickup_no_price: ~
     unit_types:
       piece: ~
       hour: ~

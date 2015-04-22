@@ -1318,6 +1318,7 @@ da-DK:
         delivery: ~
         shipping: ~
         shipping_price: ~
+        shipping_price_additional: ~
         pickup: ~
       origin:
         location: Sted
@@ -1465,7 +1466,10 @@ da-DK:
         per_day: "pr. dag"
       delivery: ~
       shipping: ~
+      shipping_no_price: ~
+      shipping_price_additional: ~
       pickup: ~
+      pickup_no_price: ~
     unit_types:
       piece: ~
       hour: ~

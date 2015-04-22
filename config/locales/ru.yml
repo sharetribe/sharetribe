@@ -1328,6 +1328,7 @@ ru:
         delivery: "Способ доставки"
         shipping: Доставка
         shipping_price: "Стоимость доставки"
+        shipping_price_additional: ~
         pickup: "Самостоятельное получение"
       origin:
         location: Местоположение
@@ -1475,7 +1476,10 @@ ru:
         per_day: "в день"
       delivery: "Способ доставки"
       shipping: "Доставка (+%{price})"
+      shipping_no_price: ~
+      shipping_price_additional: ~
       pickup: "Самостоятельное получение"
+      pickup_no_price: ~
     unit_types:
       piece: ~
       hour: ~
@@ -1518,6 +1522,8 @@ ru:
       search_verb: Поиск
       you_have_something_others_do_not: "Можете предложить что-нибудь?"
     please_comment: Комментарий
+  mercury:
+    content_too_long: ~
   okl:
     member_id: Идентификатор
     member_id_or_email: "ID пользователя или электронная почта"

@@ -1313,6 +1313,7 @@ zh:
         delivery: 配送方式
         shipping: 配送
         shipping_price: 运费
+        shipping_price_additional: ~
         pickup: 上门自提
       origin:
         location: 地点
@@ -1460,7 +1461,10 @@ zh:
         per_day: 每天
       delivery: 配送方式
       shipping: "运费(+%{price})"
+      shipping_no_price: ~
+      shipping_price_additional: ~
       pickup: 自取
+      pickup_no_price: ~
     unit_types:
       piece: ~
       hour: ~

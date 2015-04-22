@@ -1318,6 +1318,7 @@ de:
         delivery: Lieferart
         shipping: Versand
         shipping_price: Versandkostenpauschale
+        shipping_price_additional: ~
         pickup: Abholung
       origin:
         location: Standort
@@ -1465,7 +1466,10 @@ de:
         per_day: "pro Tag"
       delivery: ~
       shipping: ~
+      shipping_no_price: ~
+      shipping_price_additional: ~
       pickup: ~
+      pickup_no_price: ~
     unit_types:
       piece: ~
       hour: ~

@@ -334,8 +334,8 @@ es-ES:
       minimum_transaction_fee_label: "Fee mínimo por transacción"
       save_settings: "Guardar configuración"
       note_about_transaction_fee: "Nota: la comisión por transacción incluye las tasas de PayPal que dependen de tu moneda y del volumen de ventas del vendedor. Por esta razón, la comisión siempre es al menos %{min_paypal_commission}. Cuando se carga la comisión al vendedor, Paypal cobra su comisión primero y el resto del dinero se moverá a tu cuenta de PayPal."
-      minimum_listing_price_below_tx_fee: "tiene que ser al menos igual al fee mínimo por transacción %{minimum_transaction_fee}"
-      minimum_listing_price_below_min: "debe ser superior a la comisión mínima %{minimum_commission}"
+      minimum_listing_price_below_tx_fee: "Tiene que ser al menos igual al fee mínimo por transacción %{minimum_transaction_fee}"
+      minimum_listing_price_below_min: "Debe ser superior a la comisión mínima %{minimum_commission}"
     transaction_types:
       sell: Venta
       rent: Alquilando
@@ -746,8 +746,8 @@ es-ES:
       you_have_a_new_message: "Tienes un nuevo mensaje de %{sender_name} en %{service_name}"
     new_payment:
       new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "Precio por %{unit_type}"
+      quantity: "Cantidad:"
       you_have_received_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: "Tarifa de PayPal:"
@@ -762,10 +762,10 @@ es-ES:
       receipt_of_payment: "Recibo del pago."
       you_have_made_new_payment: "Has pagado <b>%{payment_sum}</b> por <b>%{listing_title}</b> a %{recipient_full_name}. Aquí está el recibo del pago."
       product: "Producto:"
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Precio por %{unit_type}"
+      duration: "Duración:"
+      quantity: "Cantidad:"
+      subtotal: "Subtotal:"
       total: Total
       price: Precio
       service_fee: "Gastos del servicio"
@@ -1315,14 +1315,15 @@ es-ES:
         long_time: ~
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} será deducido del precio."
-        after_service_fee_you_will_get_paypal_text: "la comisión de servicio de %{service_name}, el %{sum_with_currency} y la comisión %{paypal_fee_info_link} serán deducidos del precio."
+        after_service_fee_you_will_get_paypal_text: "La comisión de servicio de %{service_name}, el %{sum_with_currency} y la comisión %{paypal_fee_info_link} serán deducidos del precio."
         paypal_fee_info_link_text: "Comisión de procesamiento de pago de PayPal"
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "El precio no incluye IVA."
-        delivery: ~
+        delivery: "Método de envío"
         shipping: Envío
-        shipping_price: ~
-        pickup: Recogida
+        shipping_price: "Gastos de envío"
+        shipping_price_additional: "Productos adicionales"
+        pickup: Recoger
       origin:
         location: "Ubicación (Calle, Código postal, Ciudad...)"
         origin: Origen
@@ -1421,12 +1422,12 @@ es-ES:
       payment_settings_link: "Configuración de los pagos"
       community_not_configured_for_payments_admin: "%{service_name} no se ha configurado para los pagos, por lo que aún no puedes publicar nuevos anuncios. Ve a %{payment_settings_link} para rellenar los detalles del pago."
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
+      hour: "Número de horas:"
+      day: "Número de días:"
+      night: "Número de noches:"
+      week: "Número de semanas:"
+      month: "Número de meses:"
+      custom: "Cantidad:"
     quantity_placeholder: Cantidad
     please_comment: Comentario
     reply_link:
@@ -1467,9 +1468,12 @@ es-ES:
       price:
         per_quantity_unit: "por %{quantity_unit}"
         per_day: "por día"
-      delivery: ~
+      delivery: "Método de envío"
       shipping: ~
-      pickup: ~
+      shipping_no_price: Envío
+      shipping_price_additional: "Envío (+%{price}, productos adicionales: +%{shipping_price_additional})"
+      pickup: Recoger
+      pickup_no_price: Recoger
     unit_types:
       piece: pieza
       hour: hora
@@ -1512,6 +1516,8 @@ es-ES:
       search_verb: Buscar
       you_have_something_others_do_not: "Tienes algo que quieres ofertar?"
     please_comment: Comentario
+  mercury:
+    content_too_long: "El contenido ingresado era muy largo."
   okl:
     member_id: "Número de identificación"
     member_id_or_email: "Identificación de usuario o email"

@@ -1318,6 +1318,7 @@ nl:
         delivery: ~
         shipping: ~
         shipping_price: ~
+        shipping_price_additional: ~
         pickup: ~
       origin:
         location: Locatie
@@ -1465,7 +1466,10 @@ nl:
         per_day: "per dag"
       delivery: Levering
       shipping: "Transport (%{price})"
+      shipping_no_price: ~
+      shipping_price_additional: ~
       pickup: "Ophalen (%{price})"
+      pickup_no_price: ~
     unit_types:
       piece: ~
       hour: ~
@@ -1508,6 +1512,8 @@ nl:
       search_verb: Zoek
       you_have_something_others_do_not: "Heb je iets aan te bieden?"
     please_comment: Reactie
+  mercury:
+    content_too_long: ~
   okl:
     member_id: Lidmaatschapsnummer
     member_id_or_email: "Lid ID of e-mail"

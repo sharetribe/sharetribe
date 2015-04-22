@@ -3,7 +3,7 @@ es-ES:
     messages:
       expired: "ha caducado, por favor pide uno nuevo"
       not_found: "no encontrado"
-      already_confirmed: "ya ha sido confirmada"
+      already_confirmed: "Ya ha sido confirmada, por favor intente acceder"
       not_locked: "no está bloqueada"
       not_saved:
         one: "1 error evitó guardar este %{resource}:"
@@ -19,7 +19,7 @@ es-ES:
       timeout: "Tu sesión ha expirado, por favor accede de nuevo para continuar."
       inactive: "Tu cuenta no ha sido activada."
     passwords:
-      updated_not_active: ~
+      updated_not_active: "Tu contraseña ha sido cambiada exitosamente."
       send_paranoid_instructions: "Si tu email ya existe en nuestra base de datos, recibirás un enlace para recuperar tu contraseña en tu correo"
       send_instructions: "Recibirás un email con instrucciones para cambiar tu contraseña en poco minutos."
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
@@ -31,14 +31,14 @@ es-ES:
       send_instructions: "Recibirás un email con instrucciones para confirmar tu cuenta en poco minutos."
       confirmed: "Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Un mensaje con un enlace de confirmación ha sido enviado a tu correo electrónico. Por favor abre el enlace para activar tu cuenta."
+      signed_up_but_inactive: "Te has registrado exitosamente. Sin embargo, no puedes iniciar sesión porque tu cuenta todavía no ha sido activada."
+      signed_up_but_locked: "Te has registrado exitosamente. Sin embargo, no puedes iniciar sesión porque tu cuenta está bloqueada."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
+        inactive: inactivo
+        unconfirmed: "sin confirmar"
+        locked: bloqueado
+      update_needs_confirmation: "Tu cuenta fue actualizada con éxito, pero tenemos que verificar la nueva dirección de correo electrónico. Por favor revisa tu correo electrónico y haz click en el enlace de confirmación para verificar tu nuevo correo electrónico."
       signed_up: "¡Bienvenido! Te has registrado correctamente."
       updated: "Has actualizado tu cuenta correctamente."
       destroyed: "!Adiós! Tu cuenta ha sido cancelada. Esperamos verte pronto."
@@ -47,8 +47,8 @@ es-ES:
       send_instructions: "Recibirás un email con instrucciones para desbloquear tu cuenta en pocos minutos."
       unlocked: "Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Correctamente autorizado desde la cuenta %{kind}."
+      failure: "No pudo ser autorizado desde %{kind} porque \"%{reason}\""
     mailer:
       confirmation_instructions:
         subject: "Instrucciones de confirmación"

@@ -1303,6 +1303,7 @@ el:
         delivery: ~
         shipping: ~
         shipping_price: ~
+        shipping_price_additional: ~
         pickup: ~
       origin:
         location: Τοποθεσία
@@ -1450,7 +1451,10 @@ el:
         per_day: ~
       delivery: ~
       shipping: ~
+      shipping_no_price: ~
+      shipping_price_additional: ~
       pickup: ~
+      pickup_no_price: ~
     unit_types:
       piece: ~
       hour: ~
@@ -1493,6 +1497,8 @@ el:
       search_verb: Ψάξε
       you_have_something_others_do_not: "Έχεις κάτι να προσφέρεις;"
     please_comment: Σχολίασε
+  mercury:
+    content_too_long: ~
   okl:
     member_id: ~
     member_id_or_email: "ID μέλους ή email"

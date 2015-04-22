@@ -1324,6 +1324,7 @@ sv:
         delivery: Leveransmetod
         shipping: Frakt
         shipping_price: Fraktkostnad
+        shipping_price_additional: ~
         pickup: Hämtas
       origin:
         location: Plats
@@ -1471,7 +1472,10 @@ sv:
         per_day: "per dag"
       delivery: Leveransmetod
       shipping: "Frakt (+%{price})"
+      shipping_no_price: ~
+      shipping_price_additional: ~
       pickup: Hämtas
+      pickup_no_price: ~
     unit_types:
       piece: ~
       hour: ~

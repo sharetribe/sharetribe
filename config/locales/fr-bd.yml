@@ -1303,6 +1303,7 @@ fr-bd:
         delivery: ~
         shipping: ~
         shipping_price: ~
+        shipping_price_additional: ~
         pickup: ~
       origin:
         location: ~
@@ -1450,7 +1451,10 @@ fr-bd:
         per_day: ~
       delivery: ~
       shipping: ~
+      shipping_no_price: ~
+      shipping_price_additional: ~
       pickup: ~
+      pickup_no_price: ~
     unit_types:
       piece: ~
       hour: ~

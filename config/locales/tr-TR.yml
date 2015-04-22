@@ -1313,6 +1313,7 @@ tr-TR:
         delivery: ~
         shipping: ~
         shipping_price: ~
+        shipping_price_additional: ~
         pickup: ~
       origin:
         location: Konum
@@ -1460,7 +1461,10 @@ tr-TR:
         per_day: günde
       delivery: ~
       shipping: ~
+      shipping_no_price: ~
+      shipping_price_additional: ~
       pickup: ~
+      pickup_no_price: ~
     unit_types:
       piece: ~
       hour: ~

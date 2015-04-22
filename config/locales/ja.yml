@@ -1317,6 +1317,7 @@ ja:
         delivery: 発送
         shipping: 送料
         shipping_price: 送料
+        shipping_price_additional: 追加の注文
         pickup: 引き取り
       origin:
         location: 場所
@@ -1464,7 +1465,10 @@ ja:
         per_day: 1日あたり
       delivery: 発送
       shipping: "送料（%{price}）"
+      shipping_no_price: 送料
+      shipping_price_additional: "送料 (+%{price}, 追加の注文: +%{shipping_price_additional})"
       pickup: "引き取り（%{price}）"
+      pickup_no_price: 選んだもの
     unit_types:
       piece: 枚数
       hour: 時間
