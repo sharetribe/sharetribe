@@ -40,8 +40,12 @@ module PaypalService
           order_details: -> (flow, details) {
             TransactionService::PaypalEvents.update_transaction_details(flow, details)
           },
-          payment_created: [],
-          payment_updated: -> (flow, payment) { TransactionService::PaypalEvents.payment_updated(flow, payment) }
+          payment_created: -> (flow, payment) {
+            TransactionService::PaypalEvents.payment_updated(flow, payment)
+          },
+          payment_updated: -> (flow, payment) {
+            TransactionService::PaypalEvents.payment_updated(flow, payment)
+          }
       })
 
       PaypalService::API::Payments.new(events, PaypalService::MerchantInjector.build_paypal_merchant)
