@@ -94,14 +94,19 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def edit
-    processes = get_processes(@current_community.id)
-    process_info = ListingShapeProcessViewUtils.process_info(processes)
-    shape = get_shape(@current_community.id, params[:id])
-    process = processes.find { |p| p[:id] == shape[:transaction_process_id] }
+    process_summary = ListingShapeProcessViewUtils.process_info(processes)
 
-    return redirect_to error_not_found_path if shape.nil?
+    extended_shape_res = ExtendedShapeService.get(
+      community_id: @current_community.id,
+      listing_shape_id: params[:id],
+      locales: available_locales.map { |_, locale| locale }
+    )
 
-    render("edit", locals: view_locals(shape, process, nil, process_info, available_locales()))
+    extended_shape = extended_shape_res.data
+
+    return redirect_to error_not_found_path if extended_shape.nil?
+
+    render("edit", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
   end
 
   def create
@@ -204,6 +209,24 @@ class Admin::ListingShapesController < ApplicationController
     }
   end
 
+  def extended_to_form(extended_shape)
+    Form.call(
+      ExtendedShape.call(extended_shape).merge(
+        units: expand_units(extended_shape[:units]),
+        online_payments: extended_shape[:transaction_process][:process] == :preauthorize
+    ))
+  end
+
+  def extended_view_locals(extended_shape, process_summary, available_locs)
+    { name_tr_key: extended_shape[:name_tr_key],
+      id: extended_shape[:id],
+      selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+      uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_summary),
+      shape: extended_to_form(extended_shape),
+      locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
+    }
+  end
+
   def view_locals(shape, process, template_name, process_info, available_locs)
     { name_tr_key: shape[:name_tr_key],
       id: shape[:id],
@@ -287,8 +310,20 @@ class Admin::ListingShapesController < ApplicationController
   module ExtendedShapeService
     module_function
 
-    def get(community_id:, listing_shape_id:)
-      raise NotImplementedError.new("ExtendedShapeService not implemented")
+    def get(community_id:, listing_shape_id:, locales:)
+      extended_shape = listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).and_then { |shape|
+        res = transaction_api.processes.get(community_id: community_id, process_id: shape[:transaction_process_id])
+        merge_result(res) { |process|
+          shape.merge(transaction_process: process)
+        }
+      }.and_then { |shape|
+        shape_with_translations = TranslationServiceHelper.tr_keys_to_form_values(
+          entity: shape,
+          locales: locales,
+          tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
+
+        Result::Success.new(ExtendedShape.call(shape_with_translations))
+      }
     end
 
     def create(community_id:, opts:)
@@ -297,6 +332,22 @@ class Admin::ListingShapesController < ApplicationController
 
     def update(community_id:, listing_shape_id:, opts:)
       raise NotImplementedError.new("ExtendedShapeService not implemented")
+    end
+
+    # private
+
+    def merge_result(result, &block)
+      result.and_then { |result_data|
+        Result::Success.new(block.call(result_data))
+      }
+    end
+
+    def transaction_api
+      TransactionService::API::Api
+    end
+
+    def listing_api
+      ListingService::API::Api
     end
 
   end
