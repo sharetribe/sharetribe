@@ -32,7 +32,7 @@
   = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
     %h2= t("common.paypal_fee_info.title")
     - text_with_line_breaks_html_safe do
-      = t("common.paypal_fee_info.body").html_safe
+      = t("common.paypal_fee_info.body_text").html_safe
 
   - content_for :extra_javascript do
     :javascript
