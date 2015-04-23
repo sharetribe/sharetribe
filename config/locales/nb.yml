@@ -419,7 +419,7 @@ nb:
       price_to_pay: "Total pris"
       you_need_to_fill_payout_details_before_accepting: "Du må fylle ut utbetalings detaljer før du kan akseptere forespørselen og motta betaling. Gå til %{payment_settings_link} for å fylle ut."
       payment_settings_link: "Innstillinger betaling"
-      minimum_price_error_message: "Prisen kan ikke være lavere enn%{amount}"
+      minimum_price_error_message: "Prisen kan ikke være lavere enn %{amount}"
       accept: Godta
       decline: Avslå
       quantity_label: "Antall:"
@@ -633,7 +633,7 @@ nb:
       contact_page_link: Tilbakemelding
     new:
       welcome_fb_user: "Velkommen til %{service_name},%{name}"
-      fb_join_accept_terms: "Ett steg til for å bli medlem av%{service_name}: Du må akseptere bruker vilkår."
+      fb_join_accept_terms: "Ett steg til for å bli medlem av %{service_name}: Du må akseptere bruker vilkår."
       join_community: "Bli medlem av %{service_name}"
       you_can_join: "Du kan bli medlem av %{service_name} ved å akseptere vilkår for bruk og klikke på 'Bli medlem %{service_name}' under."
       you_can_join_email_confirmation: "For å bli medlem av %{service_name} trenger du en gyldig epost som ender med %{email_ending}. Du kan bli medlem ved å fylle inn din epost, akseptere vilkår for bruk og klikke på  'Bli medlem %{service_name}'under, og bekrefte din epost."
@@ -655,19 +655,19 @@ nb:
       account_ready: "Du kan nå motta betaling"
       message: "Dine betalingsdetaljer er nå bekreftet og du er nå klar til å motta betalinger på %{service_name}"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel%{request_link}. Dersom forespørsel er gjennomført, må du bekrefte dette. Du kan nå gi tilbakemelding til%{other_party_given_name}"
+      you_have_not_yet_confirmed_or_canceled_request: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel%{request_link}. Dersom forespørsel er gjennomført, må du bekrefte dette. Du kan nå gi tilbakemelding til %{other_party_given_name}"
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel%{request_link}.Vi overfører pengen til%{other_party_given_name} kun når a)du har merket forespørsel som gjennomført eller b)%{days_to_automatic_confirmation}dager siden du betalte. Etter at du har merket forespørsel som gjennomført kan du gi tilbakemelding til %{other_party_given_name}"
       remember_to_confirm_request: "Husk å godta eller avslå en forespørsel"
       if_will_not_happen_you_should_cancel: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du %{cancel_it_link}. Dette varsler admin som kontakter deg for refund."
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: |-
-          Dersom du tror denne forespørselen ikke kommer til å bli gjennomført for den ene eller andre årsak, har du %{days_to_cancel}dager til å %{cancel_it_link}
+          Dersom du tror denne forespørselen ikke kommer til å bli gjennomført for den ene eller andre årsak, har du %{days_to_cancel} dager til å %{cancel_it_link}
           Administrator vil få melding og du blir kontaktet slik at du får refundert pengene.
       cancel_it_link_text: "Avbryt den"
-      automatic_confirmation: "Dersom du ikke bekrefter eller avbryter forespørselen innen %{days_to_automatic_confirmation}dager etter forespørselen ble akseptert, blir den automatisk merket som gjennomført."
+      automatic_confirmation: "Dersom du ikke bekrefter eller avbryter forespørselen innen %{days_to_automatic_confirmation} dager etter forespørselen ble akseptert, blir den automatisk merket som gjennomført."
     payment_reminder:
       remember_to_pay: "Husk å betale for%{listing_title}"
-      you_have_not_yet_paid: "Du har fremdeles ikke betalt for %{listing_title}som %{other_party_name}har bekreftet å tilby deg."
+      you_have_not_yet_paid: "Du har fremdeles ikke betalt for %{listing_title} som %{other_party_name} har bekreftet å tilby deg."
       if_will_not_happen_you_should_cancel: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du du %{cancel_it_link}."
       cancel_it_link_text: "Avbryt den"
     payment_settings_reminder:
@@ -685,7 +685,7 @@ nb:
       give_feedback_to: "Gi tilbakemelding til%{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: "Forespørsel er automatisk merket som gjennomført-husk å gi tilbakemelding"
-      we_have_marked_request_as_confirmed: "Vi har merket forespørselen vedrørende %{request}som fullført. Forespørselen ble automatisk fullført fordi %{days_passed}dager er passert siden forespørselen ble akseptert."
+      we_have_marked_request_as_confirmed: "Vi har merket forespørselen vedrørende %{request} som fullført. Forespørselen ble automatisk fullført fordi %{days_passed} dager er passert siden forespørselen ble akseptert."
     booking_transaction_automatically_confirmed:
       subject: "Forespørsel er automatisk merket som gjennomført-husk å gi tilbakemelding"
       we_have_marked_request_as_confirmed: "Vi har markert forespørselen om '%{request}' som fullført. Forespørselen ble automatisk fullført fordi en dag har gått siden booking-perioden ble avsluttet."
@@ -731,7 +731,7 @@ nb:
       your_request_was_rejected: "Din forespørsel ble avslått"
       you_can_now_pay_to: "Du kan nå betale forespurte beløp til%{payment_receiver}"
       pay_now: "Betal nå"
-      remember_to_confirm: "Når en forespørsel er gjennomført, husk å merke den som gjennomført. Dersom en forespørsel ikke er gjennomført har du %{days_to_automatic_confirmation}dager på å avbryte den. Om ikke blir den automatisk merket som gjennomført."
+      remember_to_confirm: "Når en forespørsel er gjennomført, husk å merke den som gjennomført. Dersom en forespørsel ikke er gjennomført har du %{days_to_automatic_confirmation} dager på å avbryte den. Om ikke blir den automatisk merket som gjennomført."
     invitation_to_kassi:
       hi: Hei!
       you_have_been_invited_to_kassi: "%{inviter} har invitert deg til %{service_name}."
@@ -752,7 +752,7 @@ nb:
       new_payment: "Du har mottatt en ny betaling"
       price_per_unit_type: "Pris per %{unit_type}"
       quantity: "Antall:"
-      you_have_received_new_payment: "Du har fått betaling <b>%{payment_sum}</b>for<b>%{listing_title}</b>av%{payer_full_name}. Her er din kvittering."
+      you_have_received_new_payment: "Du har fått betaling <b>%{payment_sum}</b>for<b>%{listing_title}</b>av %{payer_full_name}. Her er din kvittering."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-kostnad:"
       shipping_total: "Frakt:"
@@ -761,7 +761,7 @@ nb:
       price_payer_paid: "Pris%{payer_full_name}betalt:"
       service_fee: "%{service_name}tjenestekostnad:"
       you_will_get: "Totalt:"
-      money_will_be_transferred: "Pengene overføres til din konto nå a)%{payer_name}har huket av forespørselen som utført eller b)%{automatic_confirmation_days}dager er gått siden %{payer_name}betalte."
+      money_will_be_transferred: "Pengene overføres til din konto nå a)%{payer_name} har huket av forespørselen som utført eller b)%{automatic_confirmation_days} dager er gått siden %{payer_name} betalte."
     receipt_to_payer:
       receipt_of_payment: "Kvittering av betaling"
       you_have_made_new_payment: "Du har betalt <b>%{payment_sum}</b>for<b>%{listing_title}</b>til %{recipient_full_name}. Her er kvitteringen."
@@ -773,7 +773,7 @@ nb:
       total: Totalt
       price: Pris
       service_fee: Tjenestekostnad
-      money_will_be_transferred: "Pengene blir overført til %{recipient_name} når a) du har huket av for at forespørselen er utført eller b)%{automatic_confirmation_days}dager har gått fra du betalte."
+      money_will_be_transferred: "Pengene blir overført til %{recipient_name} når a) du har huket av for at forespørselen er utført eller b)%{automatic_confirmation_days} dager har gått fra du betalte."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har gitt deg tilbakemeldinge hos %{service_name}"
       you_can_give_feedback_to: "Du har ikke gitt tilbakemelding til %{name} enda."
@@ -788,7 +788,7 @@ nb:
       added_listing: "%{name_link} la til en annonse:"
       update_mail_title: "%{title_link} oppdatering"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Her er noe av det som har skjedd på %{community_link} iløpet av den siste%{time_since_last_update}."
+      intro_paragraph: "Her er noe av det som har skjedd på %{community_link} iløpet av den siste %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Lag ny annonse!"
       reduce_email_footer_text: "For mange e-poster?%{settings_link} eller %{unsubscribe_link}."
@@ -809,7 +809,7 @@ nb:
     transaction_preauthorized:
       subject: "%{requester}har etterspurt og betalt for%{listing_title}"
       transaction_requested_by_user: "%{requester}har etterspurt og betalt for%{listing_title}"
-      you_have_days_to_accept: "Du må akseptere eller avvise forespørselen innen%{payment_expires_in_days} dager. Dersom du ikke aksepterer innen tidsrammen, blir forespørselen automatisk avvist og du vil ikke få betalt."
+      you_have_days_to_accept: "Du må akseptere eller avvise forespørselen innen %{payment_expires_in_days} dager. Dersom du ikke aksepterer innen tidsrammen, blir forespørselen automatisk avvist og du vil ikke få betalt."
       click_here_to_reply: "klikk her for å svare på forespørselen"
     transaction_preauthorized_reminder:
       subject: "Husk å akseptere forespørselen fra %{requester}vedrørende%{listing_title}"
@@ -1118,7 +1118,7 @@ nb:
       settings: Innstillinger
       sign_up: "Registrér deg"
     notifications:
-      listing_could_not_be_saved: "Annonsen kunne ikke lagres. Vennligst prøv igjen. Om problemet fortsette, vennligst%{contact_admin_link}"
+      listing_could_not_be_saved: "Annonsen kunne ikke lagres. Vennligst prøv igjen. Om problemet fortsette, vennligst %{contact_admin_link}"
       contact_admin_link_text: "Kontakt administrator"
       test_welcome_email_delivered_to: "En test e-post ble sendt til %{email}"
       something_went_wrong: "Noe gikk galt"
@@ -1488,10 +1488,10 @@ nb:
   listing_conversations:
     preauthorize:
       details: Detaljer
-      by: "%{listing}av%{author}"
+      by: "%{listing} av %{author}"
       payment: Betaling
       exp: "Utløpsdato:"
-      you_will_be_charged: "Du blir belastet kun dersom %{author}aksepterer transaksjonen.%{author}må akseptere transaksjonen innen%{expiration_period}dager. Om%{author}avviser eller ikke svarer, forekommer ingen kostnad."
+      you_will_be_charged: "Du blir belastet kun dersom %{author} aksepterer transaksjonen.%{author} må akseptere transaksjonen innen %{expiration_period} dager. Hvis %{author} avviser eller ikke svarer, forekommer ingen kostnad."
       day: dag
       days: dager
     transaction_agreement_checkbox:
@@ -1565,7 +1565,7 @@ nb:
       create_paypal_account: "klikk her"
       upgrade_paypal_account: "logg inn på din PayPal-konto"
       connect_paypal_account: "Koble til PayPal-konto"
-      paypal_account_billing_agreement: "Tillat %{service_name}å ta et transaksjonsgebyr"
+      paypal_account_billing_agreement: "Tillat %{service_name} å ta et transaksjonsgebyr"
       paypal_account_billing_agreement_info_both: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt, minimumkostnad %{minimum_commission}) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad på %{minimum_commission} bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."

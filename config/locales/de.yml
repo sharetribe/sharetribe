@@ -232,8 +232,8 @@ de:
           sum: Summe
           started: Gestartet
           last_activity: "Letzte Aktivität"
-          initiated_by: ~
-          other_party: ~
+          initiated_by: Initiator
+          other_party: "Anderer Beteiligter"
         status:
           free: ~
           pending: Ausstehend
@@ -245,7 +245,7 @@ de:
           canceled: Storniert
           initiated: ~
           pending_ext: ~
-        not_available: ~
+        not_available: "nicht verfügbar"
       braintree_payment_gateway:
         braintree_payment_gateway: "Braintree Payment API keys"
         environment: Umgebung
@@ -402,7 +402,7 @@ de:
       title: PayPal-Zahlungsbearbeitungsgebühr
       body_text: ~
       body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: hier
   conversations:
     accept:
       details: Buchungsdetails
@@ -422,14 +422,14 @@ de:
       minimum_price_error_message: "Der Preis kann nicht niedriger sein als %{amount}."
       accept: Akzeptieren
       decline: Ablehnen
-      quantity_label: ~
+      quantity_label: "Anzahl:"
       sum_label: "Zwischensumme:"
       service_fee_label: "%{service_name} Servicegebühr:"
       you_will_get_label: "Du wirst erhalten:"
       total_label: "Summe:"
       total_value: "%{seller_gets}*"
       paypal_fee_info: "* Ohne <a id='%{fee_info_link_id}' href='#'>PayPal-Zahlungsbearbeitungsgebühr</a>"
-      shipping_price_label: ~
+      shipping_price_label: "Versand:"
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem Anderen Feedback geben."
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
@@ -684,9 +684,9 @@ de:
       we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu '%{request}' als abgeschlossen markiert. Der Auftrag wurde automatisch geschlossen, weil %{days_passed} Tage vergangen sind, seit der Antrag angenommen wurde."
     booking_transaction_automatically_confirmed:
       subject: "Angebot automatisch abgeschlossen - bitte denk daran, Feedback zu geben"
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu %{request} als abgeschlossen markiert. Der Antrag wurde automatisch beendet, weil ein Tag ist vergangen, seitdem die  Buchungsperiode beendet ist."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
+      giving_feedback_is_good_idea: "Du kannst nun %{other_party_given_name} ein Feedback geben. Feedback geben ist immer eine gute Idee. Wenn alles gut gegangen ist, solltest Du andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn ein Problem aufgetreten ist, ist es gut, das ebenfalls zu erwähnen."
       give_feedback_to: "Bitte gib %{other_party_given_name} ein Feedback"
       show_thread: "Unterhaltung anzeigen"
     escrow_canceled:
@@ -744,8 +744,8 @@ de:
       you_have_a_new_message: "Du hast eine neue Nachricht von %{sender_name} auf %{service_name}"
     new_payment:
       new_payment: "Du hast eine neue Zahlung erhalten"
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "Preis pro %{unit_type}"
+      quantity: "Anzahl:"
       you_have_received_new_payment: "Du hast bezahlt %{payment_sum} für %{listing_title} an %{payer_full_name}. Das ist deine Rechnung."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's Gebühr:"
@@ -760,14 +760,14 @@ de:
       receipt_of_payment: Zahlungsbestätigung
       you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist ein Beleg deiner Zahlung."
       product: Produkt
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Preis pro %{unit_type}"
+      duration: "Dauer:"
+      quantity: "Anzahl:"
+      subtotal: "Zwischensumme:"
       total: Gesamtbetrag
       price: Preis
       service_fee: Servicegebühr
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) Du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit Du bezahlt hast."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} hat dir ein Feedback auf %{service_name} hinterlassen"
       you_can_give_feedback_to: "Du hast noch kein Feedback für %{name} hinterlassen."
@@ -806,8 +806,8 @@ de:
       you_have_days_to_accept: ~
       click_here_to_reply: "Klicke hier um auf das Angebot zu antworten"
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
+      subject: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren."
+      remember_to_accept: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren. %{requester} hat bereits für das Angebot gezahlt. Du musst die Anfrage akzeptieren um die Zahlung zu erhalten."
       one_day_left: "Wenn du das Angebot nicht innerhalb eines Tages akzeptierst, wird das Angebot automatisch abgelehnt, und Du erhälst keine Zahlung."
       click_here_to_reply: "Klicke hier um auf das Angebot zu antworten"
     welcome_email:
@@ -829,7 +829,7 @@ de:
       we_will_guide_you_along_the_way: "Wir werden dich den Weg entlang führen."
       are_you_new_to_online_marketplaces: ~
       have_questions: "Hast du Fragen?"
-      our_happiness_team_is_here_to_help: ~
+      our_happiness_team_is_here_to_help: "Unser Team ist da um dich glücklich zu machen! Entweder du findest hier Hilfe %{knowledge_base_link} oder wende Dich an den Support %{admin_panel_link}."
       love: "Herzliche Grüße,"
       sharetribe_crew: "Das Sharetribe Team"
       knowledge_base_link_text: "Besuche unsere Knowledge Base"
@@ -866,14 +866,14 @@ de:
     error_404_title: "Seite nicht gefunden"
     error_410:
       page_removed: "Seite entfernt"
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
+      page_you_requested_has_been_removed: "Die von Dir angeforderte Seite wurde entfernt."
+      page_removed_reason: "Es gibt einige mögliche Gründe dafür. Zum Beispiel könnte ein Benutzer sein Konto gelöscht haben oder das Angebot wurde möglicherweise entfernt."
     error_410_title: "Seite entfernt"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      temporary_unavailable: "Marktplatz vorübergehend nicht verfügbar"
+      unable_to_process: "Der Service konnte die Anfrage nicht sofort verarbeiten. Bitte versuche es in wenigen Augenblicken wieder."
+      we_hate_this: "Wir hassen, wenn das passiert! Wir wurden über die Situation informiert und arbeiten an der Behebung."
+      refer_to_error_id: "Wenn Du mit dem Support zu diesem Thema in Kontakt treten möchtest, füge bitte die Fehler ID %{error_id} in Ihre Nachricht ein."
     error_500_title: "Laden der Seite fehlgeschlagen!"
     error_description: Fehlerbeschreibung
     no_javascript:
@@ -894,7 +894,7 @@ de:
       on_or_before: "muss genau oder vor %{restriction} sein"
       after: "muss nach %{restriction} sein"
       on_or_after: "muss genau oder nach %{restriction} sein"
-      positive_number: ~
+      positive_number: "Bitte eine Zahl eingeben."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} hat zugestimmt %{listing_title} an %{requester_name}% zu verleihen vor {time_ago}."
@@ -1312,13 +1312,13 @@ de:
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr, wirst du %{sum_with_currency} erhalten"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wird vom Preis abgezogen."
         after_service_fee_you_will_get_paypal_text: "%{service_name} Gebühr %{sum_with_currency} und %{paypal_fee_info_link} wird vom Preis abgezogen."
-        paypal_fee_info_link_text: ~
+        paypal_fee_info_link_text: PayPal-Zahlungsbearbeitungsgebühr
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."
         delivery: Lieferart
         shipping: Versand
         shipping_price: Versandkostenpauschale
-        shipping_price_additional: ~
+        shipping_price_additional: "Weitere Artikel"
         pickup: Abholung
       origin:
         location: Standort
@@ -1418,13 +1418,13 @@ de:
       payment_settings_link: Zahlungseinstellungen
       community_not_configured_for_payments_admin: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst Du keine Angebote veröffentlichen. Gehe zu %{payment_settings_link} um die Zahlungsangaben einzutragen."
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: "Anzahl Stunden:"
+      day: "Anzahl Tage:"
+      night: "Anzahl Nächte:"
+      week: "Anzahl Wochen:"
+      month: "Anzahl Monate:"
+      custom: "Anzahl:"
+    quantity_placeholder: Anzahl
     please_comment: Kommentar
     reply_link:
       listing_closed: "Eintrag abgeschlossen"
@@ -1464,19 +1464,19 @@ de:
       price:
         per_quantity_unit: "pro %{quantity_unit}"
         per_day: "pro Tag"
-      delivery: ~
-      shipping: ~
-      shipping_no_price: ~
-      shipping_price_additional: ~
-      pickup: ~
-      pickup_no_price: ~
+      delivery: Lieferart
+      shipping: "Versand (+%{price})"
+      shipping_no_price: Versand
+      shipping_price_additional: "Versand (%{price}, weitere Artikel: + %{shipping_price_additional})"
+      pickup: Abholung
+      pickup_no_price: Abholung
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: Stück
+      hour: Stunde
+      day: Tag
+      night: Nacht
+      week: Woche
+      month: Monat
     verification_required:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
@@ -1513,7 +1513,7 @@ de:
       you_have_something_others_do_not: "Hast du etwas anzubieten?"
     please_comment: Kommentar
   mercury:
-    content_too_long: ~
+    content_too_long: "Eingefügter Inhalt war zu lang."
   okl:
     member_id: "Mitglieds ID"
     member_id_or_email: "Mitglieds-ID oder E-Mail-Adresse"
@@ -1563,7 +1563,7 @@ de:
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
-      paypal_info_link_text: ~
+      paypal_info_link_text: "PayPal's payment processing fee"
       billing_agreement_description: "Gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr zu berechnen."
       billing_agreement: "Erteile die Erlaubnis"
       permissions_not_granted: "Berechtigungen mit PayPal-Konto zu verbinden werden nicht gewährt."
@@ -1805,10 +1805,10 @@ de:
       visible_to_registered_users: "(sichtbar für angemeldete Benutzer)"
       default_in_listing: "(wird nur beim Erstellen eines neuen Eintrags als Standardeinstellung benutzt)"
       invisible: "(wird anderen Benutzern nicht angezeigt)"
-      image_is_processing: ~
+      image_is_processing: "Dein Profilbild wird verarbeitet. Bitte lade die Seite nach einer Weile neu."
     save_information: "Informationen speichern"
   shipping_address:
-    shipping_address: ~
+    shipping_address: Lieferadresse
   tag_cloud:
     tag_used:
       with_tag: "Mit Tag"
@@ -1926,16 +1926,16 @@ de:
       other: "%{count} Tage"
   transactions:
     initiate:
-      booked_days: ~
-      price_per_day: ~
-      quantity: ~
-      subtotal: ~
-      shipping-price: ~
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+      booked_days: "Gebuchte Tage:"
+      price_per_day: "Preis pro Tag:"
+      quantity: "Anzahl:"
+      subtotal: "Zwischensumme:"
+      shipping-price: "Versandkosten:"
+    price_per_quantity: "Preis pro %{unit_type}"
+    price: "Preis:"
+    quantity: "Anzahl: %{quantity}"
+    unit_price: "Preis pro Einheit: %{unit_price}"
+    total: "Summe:"
   unit:
     day: Tag
     days: Tage

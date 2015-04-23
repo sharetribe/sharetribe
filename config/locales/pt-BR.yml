@@ -245,7 +245,7 @@ pt-BR:
           canceled: Cancelado
           initiated: "Aguardando pagamento PayPal"
           pending_ext: "Aguardando pagamento PayPal"
-        not_available: ~
+        not_available: Indisponível
       braintree_payment_gateway:
         braintree_payment_gateway: "Chaves API de Pagamento Braintree"
         environment: Ambiente
@@ -310,7 +310,7 @@ pt-BR:
         email_language: "Idioma do e-mail dos destinatários"
         any_language: "Qualquer idioma"
         send_email: "Enviar o e-mail"
-        message_will_be_sent_only_to_people_with_this_language: ~
+        message_will_be_sent_only_to_people_with_this_language: "Nota: o e-mail será enviado apenas aos usuários que utilizam a %{service_name} no idioma que você escolheu."
         email_sent: "E-mail enviado."
     left_hand_navigation:
       general: Geral
@@ -422,7 +422,7 @@ pt-BR:
       minimum_price_error_message: "O preço não pode ser inferior %{amount}"
       accept: Aceitar
       decline: Recusar
-      quantity_label: ~
+      quantity_label: "Quantidade:"
       sum_label: "Subtotal:"
       service_fee_label: "taxa de %{service_name}:"
       you_will_get_label: "Você receberá:"
@@ -744,8 +744,8 @@ pt-BR:
       you_have_a_new_message: "Uma nova mensagem em %{service_name} de %{sender_name}"
     new_payment:
       new_payment: "Você recebeu um novo pagamento"
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "Preço por %{unit_type}"
+      quantity: "Quantidade:"
       you_have_received_new_payment: "Você foi pago <b>%{payment_sum}</b> por <b>%{listing_title}</b> pelo %{payer_full_name}. Veja o recibo."
     paypal_new_payment:
       paypal_gateway_fee: "Taxa do PayPal:"
@@ -760,10 +760,10 @@ pt-BR:
       receipt_of_payment: "Recibo do pagamento"
       you_have_made_new_payment: "Você pagou <b>%{payment_sum}</b> por <b>%{listing_title}</b> à %{recipient_full_name}. Veja o recibo."
       product: Produto
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Preço por %{unit_type}"
+      duration: "Duração:"
+      quantity: "Quantidade:"
+      subtotal: "Subtotal:"
       total: Total
       price: Preço
       service_fee: "Despesas de serviço"
@@ -782,7 +782,7 @@ pt-BR:
       added_listing: "%{name_link} adicionou um anúncio:"
       update_mail_title: "Atualidades da tribo %{title_link}"
       title_link_text: "%{community_name}"
-      intro_paragraph: ~
+      intro_paragraph: "Aqui se encontram algumas coisas que aconteceram na %{community_link} desde %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Postar um novo anúncio!"
       reduce_email_footer_text: "E-mails demais ? %{settings_link} ou %{unsubscribe_link}"
@@ -894,7 +894,7 @@ pt-BR:
       on_or_before: "deve ser igual ou anterior %{restriction}"
       after: "deve ser depois %{restriction}"
       on_or_after: "deve ser igual ou depois %{restriction}"
-      positive_number: ~
+      positive_number: "Insira um número."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceitou emprestar %{listing_title} à %{requester_name} %{time_ago}"
@@ -1309,16 +1309,16 @@ pt-BR:
         mass: "unidade, kg, l, m²..."
         time: "hora, dia, mês, ..."
         long_time: "semana, mês, ..."
-        after_service_fee_you_will_get: ~
-        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get: "Depois do processamento das taxas da %{service_name}, você receberá %{sum_with_currency}"
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} irá deduzir do preço."
         after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: "Processando o pagamento da taxa do PayPal"
-        after_service_fee_you_will_get_vat: ~
+        after_service_fee_you_will_get_vat: "Depois do processamento das taxas da %{service_name}, você receberá aproximadamente %{sum_with_currency} (VAT 0%)"
         price_excludes_vat: "O preço não inclui VAT."
         delivery: "Método de entrega"
         shipping: Envio
         shipping_price: "Taxa de envio"
-        shipping_price_additional: ~
+        shipping_price_additional: "Itens adicionais"
         pickup: Pegar
       origin:
         location: Local
@@ -1418,13 +1418,13 @@ pt-BR:
       payment_settings_link: "configurações de pagamento"
       community_not_configured_for_payments_admin: "%{service_name} não foi configurado para receber os pagamentos, por isso você não pode criar novos anúncios. Ir para %{payment_settings_link} para preencher os detalhes de pagamento."
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: "Número de horas:"
+      day: "Número de dias:"
+      night: "Número de noites:"
+      week: "Número de semanas:"
+      month: "Número de meses:"
+      custom: "Quantidade:"
+    quantity_placeholder: Quantidade
     please_comment: Comentar
     reply_link:
       listing_closed: "Anúncio está encerrado."
@@ -1466,17 +1466,17 @@ pt-BR:
         per_day: "por dia"
       delivery: Entrega
       shipping: "Envio %{price}"
-      shipping_no_price: ~
-      shipping_price_additional: ~
+      shipping_no_price: Envio
+      shipping_price_additional: "Envio (+ %{price}, itens adicionais: + %{shipping_price_additional})"
       pickup: "Pechincha %{price}"
       pickup_no_price: ~
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: pedaço
+      hour: hora
+      day: dia
+      night: noite
+      week: semana
+      month: mês
     verification_required:
       verification_required: "Verificação necessária"
   listing_conversations:
@@ -1607,7 +1607,7 @@ pt-BR:
       email: "Endereço de e-mail"
       email_is_in_use: "O e-mail já está em uso."
       email_is_in_use_or_not_allowed: "Esse endereço eletrônico não foi aceito pela tribo ou já está sendo utilizado. Por favor utilize um endereço associado à tribo (ver instruções abaixo). Se você não conseguir se conectar entre em contato conosco."
-      email_not_allowed: ~
+      email_not_allowed: "Esse e-mail não foi aceito pela %{service_name}. Por favor, utilize um e-mail válido. Se você não conseguir se conectar, entre em contato conosco."
       email_restriction_instructions:
         one: "Essa tribo é reservada à %{community_name}. Para entrar, você deve ter um e-mail do tipo %{allowed_emails}."
         other: "Essa tribo é reservada à %{community_name}. Para entrar, você deve ter um e-mail autorizado."
@@ -1742,7 +1742,7 @@ pt-BR:
       new_email: "Novo endereço de e-mail"
       delete_all_memberships: "Se você excluir sua conta, não será capaz de usá-la mais nos seguintes mercados virtuais: %{marketplaces}"
       delete_personal_information: "Se você excluir sua conta, suas informações pessoais (nome, número de telefone, endereço, e-mail, foto do perfil, etc.) serão excluídas permanentemente e não poderão ser recuperadas. Todos os anúncios que você criou serão removidos. Você não será capaz de reativar a sua conta."
-      delete_information_others_involved: "Informações onde outros membros estão envolvidos (conversas com outras pessoas, transações que você fez, comentários que você tenha dado aos outros, etc) não serão removidas quando você excluir sua conta. No entanto, seu nome não será mais exibido próximo a essas informações."
+      delete_information_others_involved: "Informações onde outros membros estão envolvidos (conversas com outras pessoas, transações que você fez, comentários que você tenha feito aos outros, etc) não serão removidas quando você excluir sua conta. No entanto, seu nome não será mais exibido junto a essas informações."
       unfinished_transactions: "Sua conta não pode ser excluída porque você tem transações em andamento. Por favor, conclua todas as transações antes de excluir a sua conta."
       new_password: "Nova senha"
       save: Salvar
@@ -1773,7 +1773,7 @@ pt-BR:
       email_about_new_messages: "...alguém me enviar uma mensagem"
       email_about_new_received_testimonials: "...alguém me enviar 'feedback'"
       email_about_testimonial_reminders: "...esquecer de enviar 'feedback' sobre um evento"
-      email_daily_community_updates: "Receber um email <b>diário</b> se houver novos anúncios"
+      email_daily_community_updates: "Receber um e-mail <b>diário</b> se houver novos anúncios"
       email_weekly_community_updates: "Receber um e-mail <b>semanal</b> se houver novos anúncios"
       do_not_email_community_updates: "Não receber e-mails"
       email_when_conversation_accepted: "...alguém aceitar a minha oferta ou solicitação"
@@ -1807,7 +1807,7 @@ pt-BR:
       visible_to_registered_users: "(visível para os usuários que tenham logado)"
       default_in_listing: "(usado apenas como um padrão ao criar um novo anúncio)"
       invisible: "(não será mostrado a outros usuários)"
-      image_is_processing: ~
+      image_is_processing: "Seu imagem de perfil está sendo preparada. Por favor, atualize a página daqui a pouco."
     save_information: "Salvar informações"
   shipping_address:
     shipping_address: "Endereço para envio"
@@ -1928,16 +1928,16 @@ pt-BR:
       other: "%{count} dias"
   transactions:
     initiate:
-      booked_days: ~
-      price_per_day: ~
-      quantity: ~
+      booked_days: "Dias reservados:"
+      price_per_day: "Preço por dia:"
+      quantity: "Quantidade:"
       subtotal: "Sub-total:"
       shipping-price: "Envio:"
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "Preço por %{unit_type}:"
+    price: "Preço:"
+    quantity: "Quantidade: %{quantity}"
+    unit_price: "Preço unitário: %{unit_price}"
+    total: "Total:"
   unit:
     day: dia
     days: dias

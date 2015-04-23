@@ -432,7 +432,7 @@ ru:
       minimum_price_error_message: "Цена не может быть ниже чем %{amount}."
       accept: Принять
       decline: Отклонить
-      quantity_label: ~
+      quantity_label: "Количество:"
       sum_label: "Промежуточный итог:"
       service_fee_label: "%{service_name} комиссия:"
       you_will_get_label: "Вы получите:"
@@ -754,8 +754,8 @@ ru:
       you_have_a_new_message: "У вас новое сообщение в %{service_name} от %{sender_name}"
     new_payment:
       new_payment: "Вы получили новый платёж"
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "Цена за %{unit_type}"
+      quantity: "Количество:"
       you_have_received_new_payment: "Вам оплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b> от %{payer_full_name}. Здесь ваша квитанция."
     paypal_new_payment:
       paypal_gateway_fee: "комиссия PayPal:"
@@ -770,10 +770,10 @@ ru:
       receipt_of_payment: "Квитанция об оплате"
       you_have_made_new_payment: "Вы оплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b> %{recipient_full_name}. Здесь ваша квитанция."
       product: Продукт
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Цена за %{unit_type}"
+      duration: "Продолжительность:"
+      quantity: "Количество:"
+      subtotal: "Сумма:"
       total: Всего
       price: Цена
       service_fee: "Комиссия сервиса"
@@ -904,7 +904,7 @@ ru:
       on_or_before: "Должно быть в или до %{restriction}"
       after: "Должно быть после %{restriction}"
       on_or_after: "Должно быть в или после %{restriction}"
-      positive_number: ~
+      positive_number: "Укажите цифру"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} согласился дать %{listing_title} %{requester_name} %{time_ago}."
@@ -1328,7 +1328,7 @@ ru:
         delivery: "Способ доставки"
         shipping: Доставка
         shipping_price: "Стоимость доставки"
-        shipping_price_additional: ~
+        shipping_price_additional: Дополнительно
         pickup: "Самостоятельное получение"
       origin:
         location: Местоположение
@@ -1428,13 +1428,13 @@ ru:
       payment_settings_link: "Настройки оплаты"
       community_not_configured_for_payments_admin: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые предложения сейчас. Перейдите на %{payment_settings_link} чтобы настроить платежные реквизиты."
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: "Количество часов:"
+      day: "Количество дней:"
+      night: "Количество недель:"
+      week: "Количество недель:"
+      month: "Количество месяцев:"
+      custom: "Количество:"
+    quantity_placeholder: Количество
     please_comment: Комментарий
     reply_link:
       listing_closed: "Предложение закрыто"
@@ -1476,17 +1476,17 @@ ru:
         per_day: "в день"
       delivery: "Способ доставки"
       shipping: "Доставка (+%{price})"
-      shipping_no_price: ~
-      shipping_price_additional: ~
+      shipping_no_price: Доставка
+      shipping_price_additional: "Доставка (+%{price}, дополнительно: +%{shipping_price_additional}"
       pickup: "Самостоятельное получение"
-      pickup_no_price: ~
+      pickup_no_price: "Самостоятельное получение"
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: шт.
+      hour: час
+      day: день
+      night: ночь
+      week: неделя
+      month: месяц
     verification_required:
       verification_required: "Требуется подтверждение"
   listing_conversations:
@@ -1523,7 +1523,7 @@ ru:
       you_have_something_others_do_not: "Можете предложить что-нибудь?"
     please_comment: Комментарий
   mercury:
-    content_too_long: ~
+    content_too_long: "Вставленный текст слишком длинный."
   okl:
     member_id: Идентификатор
     member_id_or_email: "ID пользователя или электронная почта"
@@ -1817,7 +1817,7 @@ ru:
       visible_to_registered_users: "(видимо только для зарегистрированных пользователей)"
       default_in_listing: "(используется по умолчанию при создании нового предложения))"
       invisible: "(не видно другим участникам)"
-      image_is_processing: ~
+      image_is_processing: "Изображение вашего профиля обрабатывается. Пожалуйста, перезагрузите страницу."
     save_information: Сохранить
   shipping_address:
     shipping_address: "Адрес доставки"
@@ -1940,16 +1940,16 @@ ru:
       other: дня
   transactions:
     initiate:
-      booked_days: ~
-      price_per_day: ~
-      quantity: ~
+      booked_days: "Забронировано дней:"
+      price_per_day: "Цена за день:"
+      quantity: "Количество:"
       subtotal: "Предварительный итог:"
       shipping-price: "Доставка:"
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "Цена за %{unit_type}:"
+    price: "Цена:"
+    quantity: "Количество: %{quantity}"
+    unit_price: "Цена единицы: %{unit_price}"
+    total: "Всего:"
   unit:
     day: день
     days: дней
