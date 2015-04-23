@@ -17,13 +17,42 @@ class Admin::ListingShapesController < ApplicationController
     end
   }
 
+  FORM_TRANSLATION = ->(h) {
+    unless h.all? { |(k, v)| k.is_a?(String) && v.is_a?(String) }
+      {code: :form_translation_hash_format, msg: "Value must be a hash of { locale => translations }" }
+    end
+  }
+
   Unit = EntityUtils.define_builder(
     [:type, :symbol, :mandatory],
     [:enabled, :bool, :mandatory],
     [:label, :string, :optional]
   )
 
-  ListingShapeFormEntity = EntityUtils.define_builder(
+  TransactionProcess = EntityUtils.define_builder(
+    [:id, :fixnum],
+    [:community_id, :fixnum],
+    [:author_is_seller, :to_bool, :mandatory],
+    [:process, :to_symbol, one_of: [:none, :preauthorize, :postpay]])
+
+  ExtendedShape = EntityUtils.define_builder(
+    [:id, :fixnum],
+    [:community_id, :fixnum, :mandatory],
+
+    [:name_tr_key, :string, :mandatory],
+    [:name, :mandatory, validate_with: FORM_TRANSLATION],
+    [:action_button_tr_key, :string, :mandatory],
+    [:action_button_label, :mandatory, validate_with: FORM_TRANSLATION],
+
+    [:shipping_enabled, :bool, :mandatory],
+    [:price_enabled, :bool, :mandatory],
+    [:transaction_process_id, :fixnum, :mandatory],
+    [:transaction_process, entity: TransactionProcess],
+    [:units, :array, :mandatory],
+    [:sort_priority, :fixnum, default: 0]
+  )
+
+  Form = EntityUtils.define_builder(
     [:name, :hash, :mandatory],
     [:action_button_label, :hash, :mandatory],
     [:shipping_enabled, transform_with: CHECKBOX],
@@ -159,7 +188,7 @@ class Admin::ListingShapesController < ApplicationController
     shape[:online_payments] = process[:process] == :preauthorize if process[:process]
     shape[:template] = template
 
-    ListingShapeFormEntity.call(shape)
+    Form.call(shape)
   end
 
   def select_process(shape, processes, process_defaults)
@@ -187,7 +216,7 @@ class Admin::ListingShapesController < ApplicationController
   def parse_form(params)
     form_params = HashUtils.symbolize_keys(params)
     form_params[:units] = parse_units(form_params[:units])
-    ListingShapeFormEntity.validate(form_params)
+    Form.validate(form_params)
   end
 
   # Take units from shape and add predefined units
@@ -248,8 +277,27 @@ class Admin::ListingShapesController < ApplicationController
     unit.merge(quantity_selector: unit[:type] == :day ? :day : :number)
   end
 
-
   def listing_api
     ListingService::API::Api
+  end
+
+  # A helper module that let's you reload listing shapes by community id or
+  # community id and listing shape id, and gets back the shape with translations
+  # and process information included
+  module ExtendedShapeService
+    module_function
+
+    def get(community_id:, listing_shape_id:)
+      raise NotImplementedError.new("ExtendedShapeService not implemented")
+    end
+
+    def create(community_id:, opts:)
+      raise NotImplementedError.new("ExtendedShapeService not implemented")
+    end
+
+    def update(community_id:, listing_shape_id:, opts:)
+      raise NotImplementedError.new("ExtendedShapeService not implemented")
+    end
+
   end
 end
