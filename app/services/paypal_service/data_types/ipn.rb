@@ -30,7 +30,7 @@ module PaypalService
         [:type, const_value: :authorization_created],
         [:authorization_date, :mandatory, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
         [:authorization_expires_date, :mandatory, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
-        [:order_id, :string, :mandatory],
+        [:order_id, :string],
         [:authorization_id, :string, :mandatory],
         [:payer_email, :string],
         [:payer_id, :string, :mandatory],
@@ -39,7 +39,7 @@ module PaypalService
         [:payment_status, :string, :mandatory],
         [:pending_reason, :string],
         [:receipt_id, :string],
-        [:order_total, :money, :mandatory],
+        [:order_total, :money],
         [:authorization_total, :money, :mandatory]
       )
 
@@ -250,7 +250,7 @@ module PaypalService
 
         create_authorization_created(
           p.merge({
-              order_total: to_money(p[:mc_gross], p[:mc_currency]),
+              order_total: p[:order_id].nil? ? nil : to_money(p[:mc_gross], p[:mc_currency]),
               authorization_total: to_money(p[:auth_amount], p[:mc_currency])}))
       end
       private_class_method :to_authorization_created
