@@ -6,6 +6,7 @@ describe ListingService::API::Categories do
     category_opts = {
       parent_id: parent_id,
       sort_priority: sort_priority,
+      basename: name,
       translations: [{name: name, locale: "en"}]
     }
 
@@ -98,6 +99,7 @@ describe ListingService::API::Categories do
 
       create_opts = {
         sort_priority: 1,
+        basename: "City Bikes",
         translations: [{ locale: "en", name: "City Bikes" }]
       }
       res = listing_api.categories.create(community_id: community_id, opts: create_opts)
