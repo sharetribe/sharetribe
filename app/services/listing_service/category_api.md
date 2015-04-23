@@ -50,3 +50,14 @@ Response:
 , translations: [ { locale: "en", name: "Mountain Bikes" } ]
 }
 ```
+
+## POST /:community_id
+
+Response:
+
+```ruby
+{ parent_id: 123 # optional
+, sort_priority: 10
+, translations: [ { locale: "en", name: "Bikes" } ]
+}
+```

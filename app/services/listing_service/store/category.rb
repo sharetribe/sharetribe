@@ -2,6 +2,14 @@ module ListingService::Store::Category
 
   CategoryModel = ::Category
 
+  NewCategory = EntityUtils.define_builder(
+    [:community_id, :fixnum, :mandatory],
+    [:parent_id, :fixnum],
+    [:sort_priority, :fixnum, default: 0],
+    [:translations, :array, :mandatory],
+    [:basename, :string, :mandatory]
+  )
+
   Category = EntityUtils.define_builder(
     [:id, :fixnum, :mandatory],
     [:community_id, :fixnum, :mandatory],
@@ -23,6 +31,15 @@ module ListingService::Store::Category
   def get_all(community_id: community_id)
     models = CategoryModel.where(community_id: community_id, parent_id: nil).order(:sort_priority)
     models.map { |model| from_model(model) }
+  end
+
+  def create(community_id:, opts:)
+    category = NewCategory.call(opts.merge(community_id: community_id))
+    category_model = CategoryModel.new(category.except(:translations))
+    category_model.translations.build(category[:translations])
+    category_model.save!
+
+    from_model(category_model)
   end
 
   # private

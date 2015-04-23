@@ -25,8 +25,11 @@ class Category < ActiveRecord::Base
     :translations,
     :translation_attributes,
     :sort_priority,
-    :url
+    :url,
+    :basename
   )
+
+  attr_accessor :basename
 
   has_many :subcategories, :class_name => "Category", :foreign_key => "parent_id", :dependent => :destroy, :order => "sort_priority"
   # children is a more generic alias for sub categories, used in classification.rb
@@ -62,7 +65,7 @@ class Category < ActiveRecord::Base
   end
 
   def url_source
-    Maybe(default_translation_without_cache).name.or_else("category")
+    basename || Maybe(default_translation_without_cache).name.or_else("category")
   end
 
   def default_translation_without_cache
