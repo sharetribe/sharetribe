@@ -7,16 +7,22 @@ describe PeopleController do
   end
 
   describe "#check_email_availability" do
+    before(:each) do
+      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
+    end
+
     it "should return available if email not in use" do
-      @request.host = "test.lvh.me"
       get :check_email_availability,  {:person => {:email => "totally_random_email_not_in_use@example.com"}, :format => :json}
       response.body.should == "true"
     end
   end
 
   describe "#check_email_availability" do
+    before(:each) do
+      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
+    end
+
     it "should return unavailable if email is in use" do
-      @request.host = "test.lvh.me"
       person = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "test@example.com")])
 
       get :check_email_availability,  {:person => {:email_attributes => {:address => "test@example.com"} }, :format => :json}
@@ -28,8 +34,6 @@ describe PeopleController do
     end
 
     it "should return NOT available for user's own adress" do
-      @request.host = "test.lvh.me"
-
       person = FactoryGirl.create(:person)
       sign_in person
 
@@ -41,9 +45,11 @@ describe PeopleController do
   end
 
   describe "#check_email_availability_and_validity" do
-    it "should return available for user's own adress" do
-      @request.host = "test.lvh.me"
+    before(:each) do
+      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
+    end
 
+    it "should return available for user's own adress" do
       person = FactoryGirl.create(:person)
       sign_in person
 
@@ -87,7 +93,7 @@ describe PeopleController do
   describe "#create" do
 
     it "creates a person" do
-      @request.host = "test.lvh.me"
+      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
       person_count = Person.count
       username = generate_random_username
       post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
