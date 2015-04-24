@@ -151,7 +151,7 @@ module ListingService::Store::Shape
       hash[:units] = shape_model.listing_units.map { |unit_model|
         to_unit(from_unit_model_attributes(EntityUtils.model_to_hash(unit_model)))
       }
-      hash[:category_ids] = shape_model.categories.map { |category| category.id }
+      hash[:category_ids] = shape_model.categories.pluck(:id)
 
       Shape.call(hash)
     }.or_else(nil)
