@@ -5,6 +5,17 @@ describe ListingService::API::Shapes do
 
   let(:listings_api) { ListingService::API::Api }
   let(:community_id) { 333 }
+  let!(:category_ids) {
+    translations = [{locale: :en, name: "Test category"}]
+    (0..2).map {
+      listings_api.categories.create(
+        community_id: 333, opts: {
+          translations: translations,
+          basename: "Test category"
+        }).data[:id]
+    }
+
+  }
   let(:transaction_process_id) { 555 }
   let(:name_tr_key) { "listing_shape.name.123.translation" }
   let(:action_button_tr_key) { "listing_shape.action_button.123.translation" }
@@ -56,6 +67,7 @@ describe ListingService::API::Shapes do
         expect(shape[:name_tr_key]).to eql(name_tr_key)
         expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
         expect(shape[:price_quantity_placeholder]).to eql(:time)
+        expect(shape[:category_ids]).to eq category_ids
         expect(shape[:name]).to eql("selling")
 
         units = shape[:units]

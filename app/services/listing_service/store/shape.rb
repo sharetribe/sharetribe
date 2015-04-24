@@ -1,6 +1,8 @@
 module ListingService::Store::Shape
 
   ListingUnitModel = ::ListingUnit
+  CategoryModel = ::Category
+  CategoryListingShapeModel = ::CategoryListingShape
 
   NewShape = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
@@ -26,6 +28,7 @@ module ListingService::Store::Shape
     [:shipping_enabled, :bool, :mandatory],
     [:name, :string, :mandatory],
     [:sort_priority, :fixnum, default: 0],
+    [:category_ids, :array],
     [:price_quantity_placeholder, :to_symbol, one_of: [nil, :mass, :time, :long_time]] # TODO TEMP
   )
 
@@ -86,6 +89,8 @@ module ListingService::Store::Shape
         shape_model.listing_units.create!(to_unit_model_attributes(unit))
       }
 
+      assign_to_categories!(community_id, shape_model.id)
+
       from_model(shape_model)
     end
   end
@@ -117,6 +122,15 @@ module ListingService::Store::Shape
 
   # private
 
+  # Note: If this method is needed in Category Store, then consider separating this code to
+  # own store, CategoryListingShapeStore
+  def assign_to_categories!(community_id, shape_id)
+    categories = CategoryModel.where(community_id: community_id)
+    categories.pluck(:id).each { |category_id|
+      CategoryListingShapeModel.create!(category_id: category_id, listing_shape_id: shape_id)
+    }
+  end
+
   def to_unit(hash)
     type = Maybe(hash)[:type].to_sym.or_else(nil)
 
@@ -137,6 +151,7 @@ module ListingService::Store::Shape
       hash[:units] = shape_model.listing_units.map { |unit_model|
         to_unit(from_unit_model_attributes(EntityUtils.model_to_hash(unit_model)))
       }
+      hash[:category_ids] = shape_model.categories.pluck(:id)
 
       Shape.call(hash)
     }.or_else(nil)

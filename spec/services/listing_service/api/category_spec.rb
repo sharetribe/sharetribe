@@ -3,22 +3,26 @@ require 'spec_helper'
 describe ListingService::API::Categories do
 
   def create_category!(parent_id: nil, sort_priority: 0, name:, listing_shape_ids: [])
-    # Create category
-    c = Category.new()
-    c.community_id = community_id
-    c.parent_id = parent_id
-    c.sort_priority = sort_priority
-    c.translations.build(name: name, locale: "en")
-    c.save!
+    category_opts = {
+      parent_id: parent_id,
+      sort_priority: sort_priority,
+      basename: name,
+      translations: [{name: name, locale: "en"}]
+    }
+
+    res = listing_api.categories.create(community_id: community_id, opts: category_opts)
+    cat_id = res.data[:id]
 
     # Create association
     listing_shape_ids.each { |lsid|
-      CategoryListingShape.create!(category_id: c.id, listing_shape_id: lsid)
+      # FIXME Do not use Models to initialize test data for API tests!
+      CategoryListingShape.create!(category_id: cat_id, listing_shape_id: lsid)
     }
 
-    c.id
+    cat_id
   end
 
+  # FIXME Do not use Models to initialize test data for API tests!
   let(:community) { FactoryGirl.create(:community) }
   let(:community_id) { community.id }
 
@@ -28,10 +32,6 @@ describe ListingService::API::Categories do
   # -- mountain bikes
   # -- city bikes
   # - cars
-  #
-  # FIXME Do not use Models to initialize test data for API tests!
-  #
-  # Currently the Category API does not contain the update or create methods, so we need to use Models.
   #
   let(:cars_id) { create_category!(sort_priority: 10, name: "Cars", listing_shape_ids: [1]) }
   let(:bikes_id) { create_category!(sort_priority: 0, name: "Bikes") }
@@ -91,6 +91,22 @@ describe ListingService::API::Categories do
         expect(res.success).to eq true
         expect(res.data).to eq expected_tree
       end
+    end
+  end
+
+  describe "#create" do
+    it "creates a category" do
+
+      create_opts = {
+        sort_priority: 1,
+        basename: "City Bikes",
+        translations: [{ locale: "en", name: "City Bikes" }]
+      }
+      res = listing_api.categories.create(community_id: community_id, opts: create_opts)
+
+      expect(res.success).to eq true
+      expect(res.data[:id]).to be_a Fixnum
+
     end
   end
 end
