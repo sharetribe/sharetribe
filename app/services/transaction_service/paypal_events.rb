@@ -122,7 +122,7 @@ module TransactionService::PaypalEvents
   end
 
   def delete_transaction(cid:, tx_id:)
-    tx = TransactionModel.where(community_id: cid, id: tx_id).first
+    tx = TransactionModel.where(community_id: cid, id: tx_id, current_state: "initiated").first
 
     if tx
       tx.conversation.destroy
