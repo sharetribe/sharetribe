@@ -73,6 +73,8 @@ describe EntityUtils do
     expect{entity.call({name: {first: 'First', middle: 'Middle'}})}
       .to raise_error
 
+    expect{entity.call({})}.to raise_error
+
     expect{entity.call({name: "expecting entity here"})}
       .to raise_error("Value for entity 'name' must be a Hash. Was: expecting entity here (String)")
 
@@ -89,8 +91,17 @@ describe EntityUtils do
          [:last, :string, default: "Last"]
        ]])
 
-    expect(entity.call({})).to eq({name: {}})
+    expect(entity.call({})).to eq({name: nil})
     expect(entity.call({name: {}})).to eq({name: {first: "First", middle: nil, last: "Last"}})
+
+    default = EntityUtils.define_builder(
+      [:name, default: {}, entity: [
+         [:first, :string, default: "First"],
+         [:middle, :string],
+         [:last, :string, default: "Last"]
+       ]])
+
+    expect(default.call({})).to eq({name: {first: "First", middle: nil, last: "Last"}})
   end
 
   it "#define_builder can nest other builders" do
@@ -127,6 +138,8 @@ describe EntityUtils do
     expect{entity.call({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]})}
       .to raise_error
 
+    expect{entity.call({})}.to raise_error
+
     expect{entity.call({name: "expecting collection here"})}
       .to raise_error("Value for collection 'name' must be an Array. Was: expecting collection here (String)")
 
@@ -144,9 +157,18 @@ describe EntityUtils do
          [:last, :string, default: "Last"]
        ]])
 
-    expect(entity.call({})).to eq({name: []})
+    expect(entity.call({})).to eq({name: nil})
     expect(entity.call({name: []})).to eq({name: []})
     expect(entity.call({name: [{middle: "Middle"}]})).to eq({name: [{first: "First", middle: "Middle", last: "Last"}]})
+
+    default = EntityUtils.define_builder(
+      [:name, default: [], collection: [
+         [:first, :string, default: "First"],
+         [:middle, :string],
+         [:last, :string, default: "Last"]
+       ]])
+
+    expect(default.call({})).to eq({name: []})
   end
 
   it "#define_builder can nest other builders for collections" do

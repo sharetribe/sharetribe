@@ -215,7 +215,7 @@ module EntityUtils
       errors = validate(spec[:validators], input[name], name, parent_field)
 
       nested_errors =
-        if spec[:collection].present?
+        if spec[:collection].present? && input[name]
           input[name].each_with_index.reduce([]) { |errors, (v, i)|
             collection_errors = validate_all(spec[:collection], v, "#{name.to_s}[#{i}]")
             errors.concat(collection_errors)
@@ -246,16 +246,12 @@ module EntityUtils
             raise "Value for collection '#{name}' must be an Array. Was: #{out[name]} (#{out[name].class.name})" unless out[name].is_a? Array
 
             out[name].map { |v| transform_all(spec[:collection], v) }
-          else
-            []
           end
         elsif spec[:entity].present?
           if out[name]
             raise "Value for entity '#{name}' must be a Hash. Was: #{out[name]} (#{out[name].class.name})" unless out[name].is_a? Hash
 
             transform_all(spec[:entity], out[name])
-          else
-            {}
           end
         else
           out[name]
