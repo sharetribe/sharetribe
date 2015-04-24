@@ -76,7 +76,7 @@ describe EntityUtils do
     expect{entity.call({})}.to raise_error
 
     expect{entity.call({name: "expecting entity here"})}
-      .to raise_error("Value for entity 'name' must be a Hash. Was: expecting entity here (String)")
+      .to raise_error(ArgumentError, "Value for entity 'name' must be a Hash. Was: expecting entity here (String)")
 
     # Transformers
     expect(entity.call({name: {first: 'First', last: 'Last'}})).to eq({name: {first: 'First', middle: 'Middle', last: 'Last'}})
@@ -141,7 +141,7 @@ describe EntityUtils do
     expect{entity.call({})}.to raise_error
 
     expect{entity.call({name: "expecting collection here"})}
-      .to raise_error("Value for collection 'name' must be an Array. Was: expecting collection here (String)")
+      .to raise_error(ArgumentError, "Value for collection 'name' must be an Array. Was: expecting collection here (String)")
 
     # Transformers
     expect(entity.call({name: [{type: :first, value: 'First', calling_name: true}, {type: :last, value: 'Last'}]}))
