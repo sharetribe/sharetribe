@@ -37,7 +37,7 @@ class Admin::ListingShapesController < ApplicationController
 
   ExtendedShape = EntityUtils.define_builder(
     [:id, :fixnum],
-    [:community_id, :fixnum, :mandatory],
+    [:community_id, :fixnum],
 
     [:name_tr_key, :string, :mandatory],
     [:name, :mandatory, validate_with: FORM_TRANSLATION],
@@ -46,10 +46,11 @@ class Admin::ListingShapesController < ApplicationController
 
     [:shipping_enabled, :bool, :mandatory],
     [:price_enabled, :bool, :mandatory],
-    [:transaction_process_id, :fixnum, :mandatory],
+    [:transaction_process_id, :fixnum],
     [:transaction_process, :hash], # FIXME Use nested Entity TransactionProcess, but there's a bug: crashes if nill
     [:units, :mandatory, collection: Unit],
-    [:sort_priority, :fixnum, default: 0]
+    [:sort_priority, :fixnum, default: 0],
+    [:basename, :string]
   )
 
   FormUnit = EntityUtils.define_builder(
@@ -116,21 +117,28 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def create
-    processes = get_processes(@current_community.id)
     process_info = ListingShapeProcessViewUtils.process_info(processes)
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
     template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_info)
-    shape = template[:shape]
+    shape_template = template[:shape]
     process_requirements = template[:process]
 
-    unless template
+    unless shape_template
       flash[:error] = "Invalid template: #{params[:template]}"
       return redirect_to action: :index
     end
 
-    new_shape = form_to_shape!(params, process_info, processes, process_requirements, @current_community.id, @current_community.default_locale, shape, true)
+    # TODO Change the form of the template to include process
+    shape_template[:transaction_process] = template[:process]
 
-    create_result = create_shape(@current_community.id, new_shape)
+    shape_template = TranslationServiceHelper.tr_keys_to_form_values(
+      entity: shape_template,
+      locales: available_locales.map { |_, locale| locale },
+      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
+
+    extended_shape = form_to_extended(params, shape_template, @current_community.default_locale)
+
+    create_result = ExtendedShapeService.create(community_id: @current_community.id, opts: extended_shape)
 
     if create_result.success
       flash[:message] = t("admin.listing_shapes.new.create_success")
@@ -151,7 +159,7 @@ class Admin::ListingShapesController < ApplicationController
 
     return redirect_to error_not_found_path if shape.nil?
 
-    extended_shape = form_to_extended(params, old_extended_shape.data)
+    extended_shape = form_to_extended(params, old_extended_shape.data, @current_community.default_locale)
 
     # TODO Sanitize
 
@@ -173,6 +181,7 @@ class Admin::ListingShapesController < ApplicationController
   private
 
   def form_to_shape!(form_params, process_info, processes, process_requirements, community_id, default_locale, target, override = false)
+    raise ArgumentError.new("Not used anymore")
     form_res = parse_form(form_params).and_then { |shape_form|
       shape_form = ListingShapeProcessViewUtils.process_shape(shape_form, process_info, target)
       transaction_process_id = select_process(shape_form, processes, process_requirements)
@@ -210,20 +219,9 @@ class Admin::ListingShapesController < ApplicationController
     Form.call(shape)
   end
 
-  def select_process(shape, processes, process_defaults)
-    process_find_opts = {
-      process: shape[:online_payments] ? :preauthorize : :none,
-      author_is_seller: process_defaults[:author_is_seller]
-    }
+  def extended_to_form(shape)
+    extended_shape = ExtendedShape.call(shape)
 
-    Maybe(processes.find { |p|
-      p.slice(*process_find_opts.keys) == process_find_opts
-    })[:id].or_else(nil).tap { |p|
-      raise ArgumentError.new("Can not find suitable transaction process for #{process_find_opts}") if p.nil?
-    }
-  end
-
-  def extended_to_form(extended_shape)
     Form.call(
       ExtendedShape.call(extended_shape).merge(
         units: expand_units(extended_shape[:units]),
@@ -231,15 +229,20 @@ class Admin::ListingShapesController < ApplicationController
     ))
   end
 
-  def form_to_extended(params, extended_shape)
-    form = Form.call(HashUtils.symbolize_keys(params).merge(
+  def form_to_extended(params, shape_or_template, default_locale)
+    form_params = HashUtils.symbolize_keys(params)
+    form = Form.call(form_params.merge(
       units: parse_units(params[:units])
     ))
 
     # TODO This doesn't feel right
+    binding.pry
+    form[:transaction_process] = { process: form[:online_payments] ? :preauthorize : :none }
     form[:units] = form[:units].map { |u| add_quantity_selector(u) }
+    form[:basename] = form[:name][default_locale]
 
-    ExtendedShape.call(merge_form_and_shape(form, extended_shape))
+    binding.pry
+    ExtendedShape.call(merge_form_and_shape(form, shape_or_template))
   end
 
   def merge_form_and_shape(form, extended_shape)
@@ -359,27 +362,44 @@ class Admin::ListingShapesController < ApplicationController
       extended_shape = ExtendedShape.call(opts)
       processes = transaction_api.processes.get(community_id: community_id).data
 
-      extended_shape.merge(
+      with_process = extended_shape.merge(
         transaction_process_id: select_process(extended_shape, processes))
 
       # TODO Transaction
-      extended_shape_w_translations = TranslationServiceHelper.form_values_to_tr_keys!(
-        target: extended_shape,
-        form: extended_shape,
+      with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
+        target: with_process,
+        form: with_process,
         tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
         community_id: community_id,
       )
 
-      binding.pry
       listing_api.shapes.update(
         community_id: community_id,
         listing_shape_id: listing_shape_id,
-        opts: extended_shape_w_translations
+        opts: with_translations
       )
     end
 
-    def create(community_id:, listing_shape_id:, opts:)
-      raise NotImplementedError.new("ExtendedShapeService not implemented")
+    def create(community_id:, opts:)
+      extended_shape = ExtendedShape.call(opts)
+      processes = transaction_api.processes.get(community_id: community_id).data
+
+      with_process = extended_shape.merge(
+        transaction_process_id: select_process(extended_shape, processes))
+
+      # TODO Transaction
+      with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
+        target: with_process,
+        form: with_process,
+        tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
+        community_id: community_id,
+        override: true
+      )
+
+      listing_api.shapes.create(
+        community_id: community_id,
+        opts: with_translations
+      )
     end
 
     # private
