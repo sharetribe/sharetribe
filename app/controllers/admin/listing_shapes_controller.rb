@@ -50,7 +50,8 @@ class Admin::ListingShapesController < ApplicationController
     [:transaction_process, :hash], # FIXME Use nested Entity TransactionProcess, but there's a bug: crashes if nill
     [:units, :mandatory, collection: Unit],
     [:sort_priority, :fixnum, default: 0],
-    [:basename, :string]
+    [:basename, :string],
+    [:template, :to_symbol]
   )
 
   FormUnit = EntityUtils.define_builder(
@@ -75,8 +76,8 @@ class Admin::ListingShapesController < ApplicationController
   }
 
   def index
-    process_info = get_process_info(@current_community.id)
-    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
+    process_summary = get_process_info(@current_community.id)
+    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
 
     render("index",
            locals: {
@@ -86,18 +87,24 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def new
-    process_info = get_process_info(@current_community.id)
-    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
-    template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_info)
-    shape = template[:shape]
-    process = shape[:transaction_process]
+    process_summary = get_process_info(@current_community.id)
+    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
+    template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
+    shape_template = template[:shape]
 
-    unless template
+    unless shape_template
       flash[:error] = "Invalid template: #{params[:template]}"
       return redirect_to action: :index
     end
 
-    render("new", locals: view_locals(shape, process, template[:template], process_info, available_locales()))
+    shape_template = TranslationServiceHelper.tr_keys_to_form_values(
+      entity: shape_template,
+      locales: available_locales.map { |_, locale| locale },
+      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
+
+    extended_shape_template = ExtendedShape.call(shape_template)
+
+    render("new", locals: extended_view_locals(shape_template, process_summary, available_locales()))
   end
 
   def edit

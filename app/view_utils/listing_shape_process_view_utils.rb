@@ -4,14 +4,14 @@ module ListingShapeProcessViewUtils
 
   def available_templates(templates, process_info)
     templates.reject { |tmpl|
-      tmpl[:template] == :requesting && !process_info[:request_available]
+      tmpl[:shape][:template] == :requesting && !process_info[:request_available]
     }.map { |tmpl|
       process_template(tmpl, process_info)
     }
   end
 
   def find_template(key, templates, process_info)
-    available_templates(templates, process_info).find { |tmpl| tmpl[:template] == key.to_sym }
+    available_templates(templates, process_info).find { |tmpl| tmpl[:shape][:template] == key.to_sym }
   end
 
   def process_shape(shape, process_info, template = {})

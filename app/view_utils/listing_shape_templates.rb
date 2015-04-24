@@ -5,7 +5,6 @@ module ListingShapeTemplates
   def all
     [
       {
-        template: :selling_products,
         label: "admin.listing_shapes.templates.selling_products",
         shape:
           {
@@ -15,11 +14,11 @@ module ListingShapeTemplates
             shipping_enabled: true,
             online_payments: true,
             transaction_process: { author_is_seller: true },
+            template: :selling_products,
             units: []
           }
       },
       {
-        template: :renting_products,
         label: "admin.listing_shapes.templates.renting_products",
         shape:
           {
@@ -29,11 +28,11 @@ module ListingShapeTemplates
             shipping_enabled: false,
             online_payments: true,
             transaction_process: { author_is_seller: true },
-            units: [{type: :day}, {type: :week}, {type: :month}]
+            template: :renting_products,
+            units: [{type: :day, quantity_selector: :day}, {type: :week, quantity_selector: :number}, {type: :month, quantity_selector: :number}]
           }
       },
       {
-        template: :offering_services,
         label: "admin.listing_shapes.templates.offering_services",
         shape:
           {
@@ -43,11 +42,11 @@ module ListingShapeTemplates
             shipping_enabled: false,
             online_payments: true,
             transaction_process: { author_is_seller: true },
-            units: [{type: :hour}]
+            template: :offering_services,
+            units: [{type: :hour, quantity_selector: :number}]
           }
       },
       {
-        template: :giving_things_away,
         label: "admin.listing_shapes.templates.giving_things_away",
         shape:
           {
@@ -57,11 +56,11 @@ module ListingShapeTemplates
             shipping_enabled: false,
             online_payments: false,
             transaction_process: { author_is_seller: true },
+            template: :giving_things_away,
             units: []
           }
       },
       {
-        template: :requesting,
         label: "admin.listing_shapes.templates.requesting",
         shape:
           {
@@ -71,11 +70,11 @@ module ListingShapeTemplates
             shipping_enabled: false,
             online_payments: false,
             transaction_process: { author_is_seller: false },
+            template: :requesting,
             units: []
           }
       },
       {
-        template:  :announcement,
         label: "admin.listing_shapes.templates.announcement",
         shape:
           {
@@ -85,11 +84,11 @@ module ListingShapeTemplates
             shipping_enabled: false,
             online_payments: false,
             transaction_process: { author_is_seller: true },
+            template:  :announcement,
             units: []
           }
       },
       {
-        template: :custom,
         label: "admin.listing_shapes.templates.custom",
         shape:
           {
@@ -99,6 +98,7 @@ module ListingShapeTemplates
             shipping_enabled: false,
             online_payments: false,
             transaction_process: { author_is_seller: true },
+            template: :custom,
             units: []
           }
       }
