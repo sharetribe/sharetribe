@@ -90,7 +90,7 @@ class Admin::ListingShapesController < ApplicationController
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
     template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_info)
     shape = template[:shape]
-    process = template[:process]
+    process = shape[:transaction_process]
 
     unless template
       flash[:error] = "Invalid template: #{params[:template]}"
@@ -117,19 +117,15 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def create
-    process_info = ListingShapeProcessViewUtils.process_info(processes)
+    process_info = get_process_info(@current_community.id)
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
     template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_info)
     shape_template = template[:shape]
-    process_requirements = template[:process]
 
     unless shape_template
       flash[:error] = "Invalid template: #{params[:template]}"
       return redirect_to action: :index
     end
-
-    # TODO Change the form of the template to include process
-    shape_template[:transaction_process] = template[:process]
 
     shape_template = TranslationServiceHelper.tr_keys_to_form_values(
       entity: shape_template,
@@ -157,7 +153,7 @@ class Admin::ListingShapesController < ApplicationController
       locales: available_locales.map { |_, locale| locale }
     )
 
-    return redirect_to error_not_found_path if shape.nil?
+    return redirect_to error_not_found_path if old_extended_shape.nil?
 
     extended_shape = form_to_extended(params, old_extended_shape.data, @current_community.default_locale)
 
@@ -236,12 +232,10 @@ class Admin::ListingShapesController < ApplicationController
     ))
 
     # TODO This doesn't feel right
-    binding.pry
     form[:transaction_process] = { process: form[:online_payments] ? :preauthorize : :none }
     form[:units] = form[:units].map { |u| add_quantity_selector(u) }
     form[:basename] = form[:name][default_locale]
 
-    binding.pry
     ExtendedShape.call(merge_form_and_shape(form, shape_or_template))
   end
 

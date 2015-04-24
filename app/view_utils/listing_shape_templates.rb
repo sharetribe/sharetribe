@@ -7,7 +7,6 @@ module ListingShapeTemplates
       {
         template: :selling_products,
         label: "admin.listing_shapes.templates.selling_products",
-        process: { author_is_seller: true },
         shape:
           {
             name_tr_key: "admin.transaction_types.sell",
@@ -15,13 +14,13 @@ module ListingShapeTemplates
             price_enabled: true,
             shipping_enabled: true,
             online_payments: true,
+            transaction_process: { author_is_seller: true },
             units: []
           }
       },
       {
         template: :renting_products,
         label: "admin.listing_shapes.templates.renting_products",
-        process: { author_is_seller: true },
         shape:
           {
             name_tr_key: "admin.transaction_types.rent",
@@ -29,13 +28,13 @@ module ListingShapeTemplates
             price_enabled: true,
             shipping_enabled: false,
             online_payments: true,
+            transaction_process: { author_is_seller: true },
             units: [{type: :day}, {type: :week}, {type: :month}]
           }
       },
       {
         template: :offering_services,
         label: "admin.listing_shapes.templates.offering_services",
-        process: { author_is_seller: true },
         shape:
           {
             name_tr_key: "admin.transaction_types.service",
@@ -43,13 +42,13 @@ module ListingShapeTemplates
             price_enabled: true,
             shipping_enabled: false,
             online_payments: true,
+            transaction_process: { author_is_seller: true },
             units: [{type: :hour}]
           }
       },
       {
         template: :giving_things_away,
         label: "admin.listing_shapes.templates.giving_things_away",
-        process: { author_is_seller: true },
         shape:
           {
             name_tr_key: "admin.transaction_types.give",
@@ -57,13 +56,13 @@ module ListingShapeTemplates
             price_enabled: false,
             shipping_enabled: false,
             online_payments: false,
+            transaction_process: { author_is_seller: true },
             units: []
           }
       },
       {
         template: :requesting,
         label: "admin.listing_shapes.templates.requesting",
-        process: { author_is_seller: false },
         shape:
           {
             name_tr_key: "admin.transaction_types.request",
@@ -71,13 +70,13 @@ module ListingShapeTemplates
             price_enabled: false,
             shipping_enabled: false,
             online_payments: false,
+            transaction_process: { author_is_seller: false },
             units: []
           }
       },
       {
         template:  :announcement,
         label: "admin.listing_shapes.templates.announcement",
-        process: { author_is_seller: true },
         shape:
           {
             name_tr_key: "admin.transaction_types.inquiry",
@@ -85,13 +84,13 @@ module ListingShapeTemplates
             price_enabled: false,
             shipping_enabled: false,
             online_payments: false,
+            transaction_process: { author_is_seller: true },
             units: []
           }
       },
       {
         template: :custom,
         label: "admin.listing_shapes.templates.custom",
-        procees: { author_is_seller: true },
         shape:
           {
             name_tr_key: "admin.transaction_types.custom",
@@ -99,6 +98,7 @@ module ListingShapeTemplates
             price_enabled: false,
             shipping_enabled: false,
             online_payments: false,
+            transaction_process: { author_is_seller: true },
             units: []
           }
       }
