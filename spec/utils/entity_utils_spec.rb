@@ -127,10 +127,26 @@ describe EntityUtils do
     expect{entity.call({name: [{type: :first, value: 'First'}, {type: :second_middle, value: 'Second Middle'}]})}
       .to raise_error
 
+    expect{entity.call({name: "expecting collection here"})}
+      .to raise_error("Value for collection 'name' must be an Array. Was: expecting collection here (String)")
+
     # Transformers
     expect(entity.call({name: [{type: :first, value: 'First', calling_name: true}, {type: :last, value: 'Last'}]}))
       .to eq({name: [{type: :first, value: 'First', calling_name: true}, {type: :last, value: 'Last', calling_name: false}]})
 
+  end
+
+  it "#define_builder handles empty nested collection" do
+    entity = EntityUtils.define_builder(
+      [:name, collection: [
+         [:first, :string, default: "First"],
+         [:middle, :string],
+         [:last, :string, default: "Last"]
+       ]])
+
+    expect(entity.call({})).to eq({name: []})
+    expect(entity.call({name: []})).to eq({name: []})
+    expect(entity.call({name: [{middle: "Middle"}]})).to eq({name: [{first: "First", middle: "Middle", last: "Last"}]})
   end
 
   it "#define_builder can nest other builders for collections" do
