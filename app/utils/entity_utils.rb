@@ -220,7 +220,7 @@ module EntityUtils
             collection_errors = validate_all(spec[:collection], v, "#{name.to_s}[#{i}]")
             errors.concat(collection_errors)
           }
-        elsif spec[:entity].present?
+        elsif spec[:entity].present? && input[name]
           validate_all(spec[:entity], input[name], name.to_s)
         else
           []
@@ -244,7 +244,13 @@ module EntityUtils
         if spec[:collection].present?
           out[name].map { |v| transform_all(spec[:collection], v) }
         elsif spec[:entity].present?
-          transform_all(spec[:entity], out[name])
+          if out[name]
+            raise "Value for entity '#{name}' must be a Hash. Was: #{out[name]} (#{out[name].class.name})" unless out[name].is_a? Hash
+
+            transform_all(spec[:entity], out[name])
+          else
+            {}
+          end
         else
           out[name]
         end

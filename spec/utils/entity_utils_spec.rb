@@ -73,9 +73,24 @@ describe EntityUtils do
     expect{entity.call({name: {first: 'First', middle: 'Middle'}})}
       .to raise_error
 
+    expect{entity.call({name: "expecting entity here"})}
+      .to raise_error("Value for entity 'name' must be a Hash. Was: expecting entity here (String)")
+
     # Transformers
     expect(entity.call({name: {first: 'First', last: 'Last'}})).to eq({name: {first: 'First', middle: 'Middle', last: 'Last'}})
 
+  end
+
+  it "#define_builder handles empty nested entities" do
+    entity = EntityUtils.define_builder(
+      [:name, entity: [
+         [:first, :string, default: "First"],
+         [:middle, :string],
+         [:last, :string, default: "Last"]
+       ]])
+
+    expect(entity.call({})).to eq({name: {}})
+    expect(entity.call({name: {}})).to eq({name: {first: "First", middle: nil, last: "Last"}})
   end
 
   it "#define_builder can nest other builders" do
