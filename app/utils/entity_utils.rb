@@ -242,17 +242,13 @@ module EntityUtils
 
       out[name] =
         if spec[:collection].present?
-          if out[name]
-            raise "Value for collection '#{name}' must be an Array. Was: #{out[name]} (#{out[name].class.name})" unless out[name].is_a? Array
+          raise "Value for collection '#{name}' must be an Array. Was: #{out[name]} (#{out[name].class.name})" unless out[name].is_a? Array
 
-            out[name].map { |v| transform_all(spec[:collection], v) }
-          end
-        elsif spec[:entity].present?
-          if out[name]
-            raise "Value for entity '#{name}' must be a Hash. Was: #{out[name]} (#{out[name].class.name})" unless out[name].is_a? Hash
+          out[name].map { |v| transform_all(spec[:collection], v) }
+        elsif spec[:entity].present? && out[name]
+          raise "Value for entity '#{name}' must be a Hash. Was: #{out[name]} (#{out[name].class.name})" unless out[name].is_a? Hash
 
-            transform_all(spec[:entity], out[name])
-          end
+          transform_all(spec[:entity], out[name])
         else
           out[name]
         end
