@@ -234,6 +234,13 @@ describe PaypalService::API::Payments do
       expect(PaypalToken.count).to eq 0
     end
 
+    it "deletes request token when payment created" do
+      token = @payments.request(@cid, @req_info_auth)[:data]
+      @payments.create(@cid, token[:token])
+
+      expect(PaypalToken.count).to eq 0
+    end
+
     it "returns failure and fires no events when called with non-existent token" do
       res = @payments.create(@cid, "not_a_real_token")
 

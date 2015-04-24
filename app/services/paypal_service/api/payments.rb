@@ -130,26 +130,32 @@ module PaypalService::API
     end
 
     def do_create(community_id, token)
-      payment = @lookup.get_payment_by_token(token)
+      existing_payment = @lookup.get_payment_by_token(token)
 
-      # The process either starts by creating a new payment...
-      if (payment.nil?)
-        create_payment(token)
-          .and_then { |payment_entity|
-          if payment_entity[:pending_reason] != :authorization
-            authorize_payment(community_id, payment_entity)
-          else
-            Result::Success.new(payment_entity)
-          end
-        }
-      else
-        if payment[:pending_reason] != :authorization
-          authorize_payment(community_id, payment)
+      response =
+        if existing_payment.nil?
+          create_payment(token)
+            .and_then { |payment_entity| ensure_payment_authorized(community_id, payment_entity) }
         else
-          Result::Success.new(DataTypes.create_payment(payment))
+          ensure_payment_authorized(community_id, existing_payment)
         end
+
+      if response.success
+        # Delete the token, we have now completed the payment request
+        TokenStore.delete(community_id, response[:data][:transaction_id])
+      end
+
+      response
+    end
+
+    def ensure_payment_authorized(community_id, payment_entity)
+      if payment_entity[:pending_reason] != :authorization
+        authorize_payment(community_id, payment_entity)
+      else
+        Result::Success.new(payment_entity)
       end
     end
+
 
     ## POST /payments/:community_id/:transaction_id/full_capture
     def full_capture(community_id, transaction_id, info, async: false)
@@ -359,9 +365,6 @@ module PaypalService::API
           }
         ) do |auth_res|
 
-          # Delete the token, we have now completed the payment request
-          TokenStore.delete(community_id, payment[:transaction_id])
-
           # Save authorization data to payment
           payment = PaymentStore.update(data: auth_res, community_id: community_id , transaction_id: payment[:transaction_id])
           payment_entity = DataTypes.create_payment(payment)
@@ -428,6 +431,14 @@ module PaypalService::API
         data =
           if err_response[:error_code] == "10486"
             {redirect_url: token[:express_checkout_url]}
+          elsif err_response[:error_code] == "10485" # Payment not authorized
+            # Do not cancel token yet if user is in the middle of
+            # authentication. This happens when you pay with paypal
+            # account after you have logged in but haven't yet pressed
+            # the Pay-button in PayPal UI. Retry tokens logic might
+            # try completing the payment in this phase and we don't
+            # want that to trigger token cancellation.
+            nil
           else
             request_cancel(cid, token[:token])
             nil
