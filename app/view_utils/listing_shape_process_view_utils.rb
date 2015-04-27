@@ -42,8 +42,47 @@ module ListingShapeProcessViewUtils
     processes.reduce({}) { |info, process|
       info[:request_available] = true if process[:author_is_seller] == false
       info[:preauthorize_available] = true if process[:process] == :preauthorize
+      info[:postpay_available] = true if process[:process] == :postpay
+      info[:none_available] = true if process[:process] == :none
       info
     }
+  end
+
+  module ProcessSelector
+    module_function
+
+    def process_from_form(online_payments, shape_or_template, processes)
+      current_process_id = Maybe(shape_or_template)[:transaction_process_id]
+
+      fulfills_requirements =
+        if online_payments
+          online_payment_processes = [:preauthorize, :postpay]
+          processes.select { |p|
+            p[:author_is_seller] == true && online_payment_processes.include?(p[:process])
+          }
+        else
+          author_is_seller = Maybe(shape_or_template)[:transaction_process][:author_is_seller].or_else(true)
+          processes.select { |p|
+            p[:author_is_seller] == author_is_seller && p[:process] == :none
+          }
+        end
+
+      if fulfills_requirements.empty?
+        raise ArgumentError.new("Can not find suitable process, online_payments: #{online_payments}")
+      else
+        # Prefer existing process
+          Maybe(shape_or_template)[:transaction_process_id].map { |current_process_id|
+            fulfills_requirements.find { |p| p[:id] == current_process_id }
+          }.or_else(fulfills_requirements.first)
+      end
+    end
+
+    def find_process(process_requirements)
+      process_find_opts = process_requirements.slice(:author_is_seller, :process)
+      process = processes.find { |p|
+        p.slice(*process_find_opts.keys) == process_find_opts
+      }
+    end
   end
 
   module ShapeSanitizer

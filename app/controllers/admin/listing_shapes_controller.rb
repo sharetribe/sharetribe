@@ -138,7 +138,7 @@ class Admin::ListingShapesController < ApplicationController
       locales: available_locales.map { |_, locale| locale },
       tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
 
-    extended_shape = form_to_extended(params, shape_template, @current_community.default_locale)
+    extended_shape = form_to_extended(params, shape_template, processes, @current_community.default_locale)
 
     sanitized_shape = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, process_summary)
 
@@ -169,7 +169,7 @@ class Admin::ListingShapesController < ApplicationController
 
     sanitized_old_shape = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(old_extended_shape.data, process_summary)
 
-    extended_shape = form_to_extended(params, sanitized_old_shape, @current_community.default_locale)
+    extended_shape = form_to_extended(params, sanitized_old_shape, processes, @current_community.default_locale)
 
     sanitized_shape = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, process_summary)
 
@@ -222,14 +222,14 @@ class Admin::ListingShapesController < ApplicationController
     end
   end
 
-  def form_to_extended(params, shape_or_template, default_locale)
+  def form_to_extended(params, shape_or_template, processes, default_locale)
     form_params = HashUtils.symbolize_keys(params)
     form = Form.call(form_params.merge(
       units: parse_units(params[:units])
     ))
 
     # TODO This doesn't feel right
-    form[:transaction_process] = { process: form[:online_payments] ? :preauthorize : :none }
+    form[:transaction_process] = ListingShapeProcessViewUtils::ProcessSelector.process_from_form(form[:online_payments], shape_or_template, processes)
     form[:units] = form[:units].map { |u| add_quantity_selector(u) }
     form[:basename] = form[:name][default_locale]
 
@@ -317,7 +317,9 @@ class Admin::ListingShapesController < ApplicationController
       extended_shape = ExtendedShape.call(opts)
 
       with_process = extended_shape.merge(
-        transaction_process_id: select_process(extended_shape, @processes))
+        transaction_process_id: extended_shape[:transaction_process][:id])
+
+      raise ArgumentError.new("No transaction process id available") unless with_process[:transaction_process_id].is_a? Fixnum
 
       # TODO Transaction
       with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
@@ -338,7 +340,9 @@ class Admin::ListingShapesController < ApplicationController
       extended_shape = ExtendedShape.call(opts)
 
       with_process = extended_shape.merge(
-        transaction_process_id: select_process(extended_shape, @processes))
+        transaction_process_id: extended_shape[:transaction_process][:id])
+
+      raise ArgumentError.new("No transaction process id available") unless with_process[:transaction_process_id].is_a? Fixnum
 
       # TODO Transaction
       with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
