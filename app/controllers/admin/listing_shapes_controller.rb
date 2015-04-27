@@ -255,6 +255,30 @@ class Admin::ListingShapesController < ApplicationController
     ListingService::API::Api
   end
 
+  def self.sanitize_shape(shape, process_summary)
+    # Price must be enabled if online payments is enabled
+    price_enabled_if_online_payments = ->() {
+      case [shape[:price_enabled], shape[:transaction_process][:process]]
+      when matches([true, :preauthorize]), matches([true, :postpay])
+        nil
+      else
+        "Price must be enabled if online payments is in use"
+      end
+    }
+
+    # Online payments must be enabled if shipping is enabled
+
+    # Price must be enabled if any unit is enabled
+
+    # Price must be disabled if author_is_seller is false
+
+    # Can not have online payments if suitable process is not available
+
+    # Author must be seller if online payments is enabled
+  end
+
+
+
   # A helper module that let's you reload listing shapes by community id or
   # community id and listing shape id, and gets back the shape with translations
   # and process information included
