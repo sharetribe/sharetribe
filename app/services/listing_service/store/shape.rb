@@ -151,7 +151,9 @@ module ListingService::Store::Shape
       hash[:units] = shape_model.listing_units.map { |unit_model|
         to_unit(from_unit_model_attributes(EntityUtils.model_to_hash(unit_model)))
       }
-      hash[:category_ids] = shape_model.categories.pluck(:id)
+
+      # Categories are eager loaded in find_shape_models to make this efficient
+      hash[:category_ids] = shape_model.categories.map(&:id)
 
       Shape.call(hash)
     }.or_else(nil)
@@ -176,7 +178,10 @@ module ListingService::Store::Shape
   end
 
   def find_shape_models(community_id:)
-    ListingShape.where(community_id: community_id).order(:sort_priority)
+    ListingShape.where(community_id: community_id)
+      .includes(:listing_units)
+      .eager_load(:categories)
+      .order("listing_shapes.sort_priority")
   end
 
   def uniq_name(name_source, community_id)
