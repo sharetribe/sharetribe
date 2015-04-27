@@ -5,8 +5,6 @@ module ListingShapeProcessViewUtils
   def available_templates(templates, process_info)
     templates.reject { |tmpl|
       tmpl[:shape][:template] == :requesting && !process_info[:request_available]
-    }.map { |tmpl|
-      process_template(tmpl, process_info)
     }
   end
 
@@ -14,36 +12,29 @@ module ListingShapeProcessViewUtils
     available_templates(templates, process_info).find { |tmpl| tmpl[:shape][:template] == key.to_sym }
   end
 
-  def process_shape(shape, process_info, template = {})
-    template.merge(
-      map_process_required_values(
-        reject_uneditable_fields(shape, process_info),
-        process_info
-      )
-    )
-  end
+  def uneditable_fields(process, process_info)
+    author_is_seller = process[:author_is_seller]
+    shipping_uneditable =
+      if !author_is_seller
+        true
+      elsif !process_info[:preauthorize_available]
+        true
+      else
+        false
+      end
 
-  def process_template(template, process_info)
-    process_shape({}, process_info, template)
-  end
+    online_payments_uneditable =
+      if author_is_seller == false
+        true
+      elsif !(process_info[:preauthorize_available] || process_info[:postpay_available])
+        true
+      else
+        false
+      end
 
-  def reject_uneditable_fields(shape, process_info)
-    uneditable = uneditable_fields(process_info)
-    shape = shape.reject { |k, _|
-      uneditable[k]
-    }
-  end
-
-  def map_process_required_values(shape, process_info)
-    shape[:shipping_enabled] = false unless process_info[:preauthorize_available]
-    shape[:online_payments] = false unless process_info[:preauthorize_available] || process_info[:postpay_available]
-    shape
-  end
-
-  def uneditable_fields(process_info)
     {
-      shipping_enabled: !process_info[:preauthorize_available],
-      online_payments: !(process_info[:preauthorize_available] || process_info[:postpay_available])
+      shipping_enabled: shipping_uneditable,
+      online_payments: online_payments_uneditable
     }
   end
 
@@ -135,7 +126,7 @@ module ListingShapeProcessViewUtils
         PRICE_ENABLED_IF_ONLINE_PAYMENTS,
         PREAUTHORIZE_IF_SHIPPING,
         PRICE_ENABLED_IF_UNITS,
-        PRICE_DISABLED_IF_AUTHOR_IS_NOT_SELLER,
+        # PRICE_DISABLED_IF_AUTHOR_IS_NOT_SELLER,
         PROCESS_MUST_BE_NONE_IF_AUTHOR_IS_NOT_SELLER
       ]
 

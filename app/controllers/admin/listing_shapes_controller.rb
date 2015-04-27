@@ -244,7 +244,7 @@ class Admin::ListingShapesController < ApplicationController
     { name_tr_key: extended_shape[:name_tr_key],
       id: extended_shape[:id],
       selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_summary),
+      uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(extended_shape[:transaction_process], process_summary),
       shape: extended_to_form(extended_shape, process_summary),
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
