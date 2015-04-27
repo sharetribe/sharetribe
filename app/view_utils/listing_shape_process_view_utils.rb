@@ -36,15 +36,14 @@ module ListingShapeProcessViewUtils
 
   def map_process_required_values(shape, process_info)
     shape[:shipping_enabled] = false unless process_info[:preauthorize_available]
-    shape[:online_payments] = false unless process_info[:preauthorize_available]
+    shape[:online_payments] = false unless process_info[:preauthorize_available] || process_info[:postpay_available]
     shape
   end
 
   def uneditable_fields(process_info)
     {
-      author_is_seller: true, # can not edit
       shipping_enabled: !process_info[:preauthorize_available],
-      online_payments: !process_info[:preauthorize_available]
+      online_payments: !(process_info[:preauthorize_available] || process_info[:postpay_available])
     }
   end
 
@@ -73,9 +72,9 @@ module ListingShapeProcessViewUtils
 
     PRICE_ENABLED_IF_ONLINE_PAYMENTS = ->(shape, process_summary) {
       case [shape[:price_enabled], shape[:transaction_process][:process]]
-      when matches([false, :none])
-        Result::Success.new(shape)
       when matches([true, :preauthorize]), matches([true, :postpay])
+        Result::Success.new(shape)
+      when matches([__, :none])
         Result::Success.new(shape)
       else
         Result::Error.new("Price must be enabled if online payments is in use", code: "price_enabled_if_payments")
@@ -124,7 +123,7 @@ module ListingShapeProcessViewUtils
 
     module_function
 
-    def sanitize(shape, process_summary, validators = [])
+    def sanitize(shape, process_summary, validators = nil)
       validators ||= [
         PROCESS_AVAILABLE,
         PRICE_ENABLED_IF_ONLINE_PAYMENTS,

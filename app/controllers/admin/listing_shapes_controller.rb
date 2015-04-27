@@ -136,14 +136,16 @@ class Admin::ListingShapesController < ApplicationController
 
     extended_shape = form_to_extended(params, shape_template, @current_community.default_locale)
 
-    create_result = ExtendedShapeService.new(processes).create(community_id: @current_community.id, opts: extended_shape)
+    create_result = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, processes).and_then { |extended_shape|
+      ExtendedShapeService.new(processes).create(community_id: @current_community.id, opts: extended_shape)
+    }
 
     if create_result.success
-      flash[:message] = t("admin.listing_shapes.new.create_success")
+      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: translate_extended_shape(extended_shape))
       redirect_to action: :index
     else
-      flash[:error] = t("admin.listing_shapes.new.create_failure")
-      # TODO RENDER SOMETHING
+      flash[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
+      render("new", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
     end
 
   end
@@ -161,24 +163,29 @@ class Admin::ListingShapesController < ApplicationController
 
     extended_shape = form_to_extended(params, old_extended_shape.data, @current_community.default_locale)
 
-    # TODO Sanitize
-
-    update_result = extended_shape_service.update(
-      community_id: @current_community.id,
-      listing_shape_id: extended_shape[:id],
-      opts: extended_shape)
+    update_result = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, processes).and_then { |extended_shape|
+      extended_shape_service.update(
+        community_id: @current_community.id,
+        listing_shape_id: extended_shape[:id],
+        opts: extended_shape)
+    }
 
     if update_result.success
-      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate(extended_shape[:name_tr_key])) # TODO Shows previous translation
+      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate_extended_shape(extended_shape))
       return redirect_to admin_listing_shapes_path
     else
-      flash[:error] = t("admin.listing_shapes.edit.update_failure")
-      raise NotImplementedError.new("Render something here!")
-      # TODO Render something here!
+      flash[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
+      render("edit", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
     end
   end
 
   private
+
+  def translate_extended_shape(shape)
+    shape[:name].find { |(locale, translation)|
+      locale.to_s == I18n.locale.to_s
+    }.second
+  end
 
   def extended_to_form(shape)
     extended_shape = ExtendedShape.call(shape)
@@ -254,30 +261,6 @@ class Admin::ListingShapesController < ApplicationController
   def listing_api
     ListingService::API::Api
   end
-
-  def self.sanitize_shape(shape, process_summary)
-    # Price must be enabled if online payments is enabled
-    price_enabled_if_online_payments = ->() {
-      case [shape[:price_enabled], shape[:transaction_process][:process]]
-      when matches([true, :preauthorize]), matches([true, :postpay])
-        nil
-      else
-        "Price must be enabled if online payments is in use"
-      end
-    }
-
-    # Online payments must be enabled if shipping is enabled
-
-    # Price must be enabled if any unit is enabled
-
-    # Price must be disabled if author_is_seller is false
-
-    # Can not have online payments if suitable process is not available
-
-    # Author must be seller if online payments is enabled
-  end
-
-
 
   # A helper module that let's you reload listing shapes by community id or
   # community id and listing shape id, and gets back the shape with translations
