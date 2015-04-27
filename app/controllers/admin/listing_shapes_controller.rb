@@ -76,7 +76,6 @@ class Admin::ListingShapesController < ApplicationController
   }
 
   def index
-    process_summary = get_process_info(@current_community.id)
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
 
     render("index",
@@ -87,7 +86,6 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def new
-    process_summary = get_process_info(@current_community.id)
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
     template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
     shape_template = template[:shape]
@@ -108,9 +106,7 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def edit
-    process_summary = get_process_info(@current_community.id)
-
-    extended_shape_res = ExtendedShapeService.get(
+    extended_shape_res = ExtendedShapeService.new(processes).get(
       community_id: @current_community.id,
       listing_shape_id: params[:id],
       locales: available_locales.map { |_, locale| locale }
@@ -124,9 +120,8 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def create
-    process_info = get_process_info(@current_community.id)
-    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_info)
-    template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_info)
+    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
+    template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
     shape_template = template[:shape]
 
     unless shape_template
@@ -141,7 +136,7 @@ class Admin::ListingShapesController < ApplicationController
 
     extended_shape = form_to_extended(params, shape_template, @current_community.default_locale)
 
-    create_result = ExtendedShapeService.create(community_id: @current_community.id, opts: extended_shape)
+    create_result = ExtendedShapeService.new(processes).create(community_id: @current_community.id, opts: extended_shape)
 
     if create_result.success
       flash[:message] = t("admin.listing_shapes.new.create_success")
@@ -154,7 +149,9 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def update
-    old_extended_shape = ExtendedShapeService.get(
+    extended_shape_service = ExtendedShapeService.new(processes)
+
+    old_extended_shape = extended_shape_service.get(
       community_id: @current_community.id,
       listing_shape_id: params[:id],
       locales: available_locales.map { |_, locale| locale }
@@ -166,7 +163,7 @@ class Admin::ListingShapesController < ApplicationController
 
     # TODO Sanitize
 
-    update_result = ExtendedShapeService.update(
+    update_result = extended_shape_service.update(
       community_id: @current_community.id,
       listing_shape_id: extended_shape[:id],
       opts: extended_shape)
@@ -242,12 +239,12 @@ class Admin::ListingShapesController < ApplicationController
       .or_else([])
   end
 
-  def get_process_info(community_id)
-    ListingShapeProcessViewUtils.process_info(get_processes(community_id))
+  def process_summary
+    @process_summary ||= ListingShapeProcessViewUtils.process_info(processes)
   end
 
-  def get_processes(community_id)
-    TransactionService::API::Api.processes.get(community_id: community_id)[:data]
+  def processes
+    @processes ||= TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
   end
 
   def add_quantity_selector(unit)
@@ -261,18 +258,22 @@ class Admin::ListingShapesController < ApplicationController
   # A helper module that let's you reload listing shapes by community id or
   # community id and listing shape id, and gets back the shape with translations
   # and process information included
-  module ExtendedShapeService
-    module_function
+  class ExtendedShapeService
+
+    def initialize(processes)
+      @processes = processes
+    end
 
     def get(community_id:, listing_shape_id:, locales:)
       extended_shape = listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).and_then { |shape|
-        res = transaction_api.processes.get(community_id: community_id, process_id: shape[:transaction_process_id])
-        merge_result(res) { |process|
-          shape.merge(transaction_process: process)
-        }
-      }.and_then { |shape|
+        process = @processes.find { |p| p[:id] == shape[:transaction_process_id] }
+
+        raise ArgumentError.new("Can not find process with id: #{shape[:transaction_process_id]}") if process.nil?
+
+        shape_with_process = shape.merge(transaction_process: process)
+
         shape_with_translations = TranslationServiceHelper.tr_keys_to_form_values(
-          entity: shape,
+          entity: shape_with_process,
           locales: locales,
           tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
 
@@ -282,10 +283,9 @@ class Admin::ListingShapesController < ApplicationController
 
     def update(community_id:, listing_shape_id:, opts:)
       extended_shape = ExtendedShape.call(opts)
-      processes = transaction_api.processes.get(community_id: community_id).data
 
       with_process = extended_shape.merge(
-        transaction_process_id: select_process(extended_shape, processes))
+        transaction_process_id: select_process(extended_shape, @processes))
 
       # TODO Transaction
       with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
@@ -304,10 +304,9 @@ class Admin::ListingShapesController < ApplicationController
 
     def create(community_id:, opts:)
       extended_shape = ExtendedShape.call(opts)
-      processes = transaction_api.processes.get(community_id: community_id).data
 
       with_process = extended_shape.merge(
-        transaction_process_id: select_process(extended_shape, processes))
+        transaction_process_id: select_process(extended_shape, @processes))
 
       # TODO Transaction
       with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
@@ -324,17 +323,7 @@ class Admin::ListingShapesController < ApplicationController
       )
     end
 
-    # private
-
-    def merge_result(result, &block)
-      result.and_then { |result_data|
-        Result::Success.new(block.call(result_data))
-      }
-    end
-
-    def transaction_api
-      TransactionService::API::Api
-    end
+    private
 
     def listing_api
       ListingService::API::Api
