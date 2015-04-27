@@ -3,12 +3,12 @@ require 'spec_helper'
 describe ListingShapeProcessViewUtils::ShapeSanitizer do
 
     def expect_success(shape, process_summary)
-      res = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(shape, process_summary, @validators)
+      res = ListingShapeProcessViewUtils::ShapeSanitizer.validate(shape, process_summary, @validators)
       expect(res.success).to eq true
     end
 
     def expect_error(shape, process_summary, error_code)
-      res = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(shape, process_summary, @validators)
+      res = ListingShapeProcessViewUtils::ShapeSanitizer.validate(shape, process_summary, @validators)
       expect(res.success).to eq false
       expect(res.data[:code]).to eq error_code
     end
@@ -17,7 +17,7 @@ describe ListingShapeProcessViewUtils::ShapeSanitizer do
       @validators = validators
     end
 
-    describe "#sanitize" do
+    describe "#validate" do
       Sanitizer = ListingShapeProcessViewUtils::ShapeSanitizer # easier to reference the validators
 
       it "price must be enabled if online payments is in use" do
@@ -25,7 +25,7 @@ describe ListingShapeProcessViewUtils::ShapeSanitizer do
 
         # none
         expect_success({ price_enabled: false , transaction_process: {process: :none}}, [])
-        expect_error({ price_enabled: true , transaction_process: {process: :none}}, [], "price_enabled_if_payments")
+        expect_success({ price_enabled: true , transaction_process: {process: :none}}, [])
 
         # preauth
         expect_success({ price_enabled: true , transaction_process: {process: :preauthorize}}, [])

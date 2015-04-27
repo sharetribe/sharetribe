@@ -46,6 +46,8 @@ class Admin::ListingShapesController < ApplicationController
 
     [:shipping_enabled, :bool, :mandatory],
     [:price_enabled, :bool, :mandatory],
+
+    [:online_payments, :to_bool],
     [:transaction_process_id, :fixnum],
     [:transaction_process, :hash], # FIXME Use nested Entity TransactionProcess, but there's a bug: crashes if nill
     [:units, :mandatory, collection: Unit],
@@ -88,7 +90,7 @@ class Admin::ListingShapesController < ApplicationController
   def new
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
     template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
-    shape_template = template[:shape]
+    shape_template = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(template[:shape], process_summary)
 
     unless shape_template
       flash[:error] = "Invalid template: #{params[:template]}"
@@ -116,13 +118,15 @@ class Admin::ListingShapesController < ApplicationController
 
     return redirect_to error_not_found_path if extended_shape.nil?
 
-    render("edit", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
+    sanitized_shape = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, process_summary)
+
+    render("edit", locals: extended_view_locals(sanitized_shape, process_summary, available_locales()))
   end
 
   def create
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
     template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
-    shape_template = template[:shape]
+    shape_template = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(template[:shape], process_summary)
 
     unless shape_template
       flash[:error] = "Invalid template: #{params[:template]}"
@@ -136,16 +140,18 @@ class Admin::ListingShapesController < ApplicationController
 
     extended_shape = form_to_extended(params, shape_template, @current_community.default_locale)
 
-    create_result = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, processes).and_then { |extended_shape|
+    sanitized_shape = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, process_summary)
+
+    create_result = ListingShapeProcessViewUtils::ShapeSanitizer.validate(sanitized_shape, processes).and_then { |extended_shape|
       ExtendedShapeService.new(processes).create(community_id: @current_community.id, opts: extended_shape)
     }
 
     if create_result.success
-      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: translate_extended_shape(extended_shape))
+      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: translate_extended_shape(sanitized_shape))
       redirect_to action: :index
     else
       flash[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
-      render("new", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
+      render("new", locals: extended_view_locals(sanitized_shape, process_summary, available_locales()))
     end
 
   end
@@ -159,11 +165,15 @@ class Admin::ListingShapesController < ApplicationController
       locales: available_locales.map { |_, locale| locale }
     )
 
-    return redirect_to error_not_found_path if old_extended_shape.nil?
+    return redirect_to error_not_found_path unless old_extended_shape.success
 
-    extended_shape = form_to_extended(params, old_extended_shape.data, @current_community.default_locale)
+    sanitized_old_shape = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(old_extended_shape.data, process_summary)
 
-    update_result = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, processes).and_then { |extended_shape|
+    extended_shape = form_to_extended(params, sanitized_old_shape, @current_community.default_locale)
+
+    sanitized_shape = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, process_summary)
+
+    update_result = ListingShapeProcessViewUtils::ShapeSanitizer.validate(sanitized_shape, processes).and_then { |extended_shape|
       extended_shape_service.update(
         community_id: @current_community.id,
         listing_shape_id: extended_shape[:id],
@@ -171,11 +181,11 @@ class Admin::ListingShapesController < ApplicationController
     }
 
     if update_result.success
-      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate_extended_shape(extended_shape))
+      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate_extended_shape(sanitized_shape))
       return redirect_to admin_listing_shapes_path
     else
       flash[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
-      render("edit", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
+      render("edit", locals: extended_view_locals(sanitized_shape, process_summary, available_locales()))
     end
   end
 
@@ -187,14 +197,29 @@ class Admin::ListingShapesController < ApplicationController
     }.second
   end
 
-  def extended_to_form(shape)
+  def extended_to_form(shape, process_summary)
     extended_shape = ExtendedShape.call(shape)
 
     Form.call(
       ExtendedShape.call(extended_shape).merge(
         units: expand_units(extended_shape[:units]),
-        online_payments: extended_shape[:transaction_process][:process] == :preauthorize
+        online_payments: process_to_online_payments(shape, process_summary)
     ))
+  end
+
+  def process_to_online_payments(shape, process_summary)
+    online_payments_available = process_summary[:preauthorize_available] || process_summary[:postpay_available]
+
+    if online_payments_available
+      existing_process = Maybe(shape)[:transaction_process][:process].or_else(nil)
+
+      from_template = shape[:online_payments]
+      from_process = existing_process == :preauthorize || existing_process == :postpay
+
+      from_process || from_template
+    else
+      false
+    end
   end
 
   def form_to_extended(params, shape_or_template, default_locale)
@@ -220,7 +245,7 @@ class Admin::ListingShapesController < ApplicationController
       id: extended_shape[:id],
       selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_summary),
-      shape: extended_to_form(extended_shape),
+      shape: extended_to_form(extended_shape, process_summary),
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
   end

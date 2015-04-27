@@ -123,7 +123,13 @@ module ListingShapeProcessViewUtils
 
     module_function
 
-    def sanitize(shape, process_summary, validators = nil)
+    def sanitize(shape, process_summary)
+      shape.merge(
+        shipping_enabled: process_summary[:preauthorize_available] ? shape[:shipping_enabled] : false,
+      )
+    end
+
+    def validate(shape, process_summary, validators = nil)
       validators ||= [
         PROCESS_AVAILABLE,
         PRICE_ENABLED_IF_ONLINE_PAYMENTS,
