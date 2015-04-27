@@ -183,45 +183,6 @@ class Admin::ListingShapesController < ApplicationController
 
   private
 
-  def form_to_shape!(form_params, process_info, processes, process_requirements, community_id, default_locale, target, override = false)
-    raise ArgumentError.new("Not used anymore")
-    form_res = parse_form(form_params).and_then { |shape_form|
-      shape_form = ListingShapeProcessViewUtils.process_shape(shape_form, process_info, target)
-      transaction_process_id = select_process(shape_form, processes, process_requirements)
-
-      Result::Success.new(shape_form.merge(transaction_process_id: transaction_process_id))
-    }
-    form = form_res.data
-
-    TranslationServiceHelper.form_values_to_tr_keys!(
-      target: target,
-      form: form,
-      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
-      community_id: community_id,
-      override: target.nil?
-    ).merge(
-      transaction_process_id: form[:transaction_process_id],
-      basename: form[:name][default_locale],
-      units: form[:units].map { |u| add_quantity_selector(u) }
-    )
-  end
-
-  # [shape, process] -> shape_form
-  def to_shape_form(shape, process, template, available_locs)
-    locales = available_locs.map { |name, locale| locale }
-
-    shape = TranslationServiceHelper.tr_keys_to_form_values(
-      entity: shape,
-      locales: locales,
-      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
-
-    shape[:units] = expand_units(shape[:units])
-    shape[:online_payments] = process[:process] == :preauthorize if process[:process]
-    shape[:template] = template
-
-    Form.call(shape)
-  end
-
   def extended_to_form(shape)
     extended_shape = ExtendedShape.call(shape)
 
@@ -260,21 +221,6 @@ class Admin::ListingShapesController < ApplicationController
     }
   end
 
-  def view_locals(shape, process, template_name, process_info, available_locs)
-    { name_tr_key: shape[:name_tr_key],
-      id: shape[:id],
-      selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_info),
-      shape: to_shape_form(shape, process, template_name, available_locs),
-      locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h }
-  end
-
-  def parse_form(params)
-    form_params = HashUtils.symbolize_keys(params)
-    form_params[:units] = parse_units(form_params[:units])
-    Form.validate(form_params)
-  end
-
   # Take units from shape and add predefined units
   def expand_units(shape_units)
     shape_units_set = shape_units.map { |t| t[:type] }.to_set
@@ -290,20 +236,10 @@ class Admin::ListingShapesController < ApplicationController
     (selected_units || []).map { |type, _| {type: type.to_sym, enabled: true}}
   end
 
-  def translations_api
-    TranslationService::API::Api
-  end
-
   def all_shapes(community_id)
     listing_api.shapes.get(community_id: community_id)
       .maybe()
       .or_else([])
-  end
-
-  def get_shape(community_id, listing_shape_id)
-    listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id)
-      .maybe()
-      .or_else(nil)
   end
 
   def get_process_info(community_id)
@@ -312,21 +248,6 @@ class Admin::ListingShapesController < ApplicationController
 
   def get_processes(community_id)
     TransactionService::API::Api.processes.get(community_id: community_id)[:data]
-  end
-
-  def create_shape(community_id, shape)
-    listing_api.shapes.create(
-      community_id: community_id,
-      opts: shape
-    )
-  end
-
-  def update_shape(community_id, listing_shape_id, shape)
-    listing_api.shapes.update(
-      community_id: community_id,
-      listing_shape_id: listing_shape_id,
-      opts: shape
-    )
   end
 
   def add_quantity_selector(unit)
