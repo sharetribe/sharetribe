@@ -78,12 +78,14 @@ class Admin::ListingShapesController < ApplicationController
   }
 
   def index
+    category_count = @current_community.categories.count
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
 
     render("index",
            locals: {
              selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
              templates: templates,
+             category_count: category_count,
              listing_shapes: all_shapes(@current_community.id)})
   end
 

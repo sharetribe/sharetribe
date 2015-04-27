@@ -6,6 +6,8 @@ en:
         description: "Order types determine what kind of orders are enabled in your marketplace. For instance, you can define whether you allow your sellers to define a shipping fee, or whether your providers can sell items or rent them per day or per hour. You can add multiple different order types and tie them to different listing categories. One category could also have multiple order types (for instance, you could enable both sales and rentals of cars in the same marketplace.)"
         add_new_shape: "Add new order type: "
         select_template: "Select template..."
+        all_categories: "All categories"
+        no_categories: "No categories"
         header:
           listing_shape_name: "Order type name"
           listing_shape_categories: "Order type categories"
