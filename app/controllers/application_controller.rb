@@ -206,28 +206,17 @@ class ApplicationController < ActionController::Base
   # 3. Otherwise nil
   #
   def self.default_community_fetch_strategy(domain)
-    # Find by domain
-    by_domain = Community.find_by_domain(domain)
+    raise ArgumentError("Domain cannot be nil.") if domain.nil?
 
-    if by_domain.present?
-      return by_domain
-    end
-
-    # Find by username
     app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
     ident = domain.chomp(".#{app_domain}")
-    by_ident = Community.where(ident: ident).first
 
-    if by_ident.present?
-      return by_ident
-    end
+    community = Community.where("domain = ? OR ident = ?", domain, ident).first
+
+    return community if community.present?
 
     # If only one, use it
-    count = Community.count
-
-    if count == 1
-      return Community.first
-    end
+    return Community.first if Community.count == 1
 
     # Not found, return nil
     nil
