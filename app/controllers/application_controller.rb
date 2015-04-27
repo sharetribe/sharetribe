@@ -222,15 +222,13 @@ class ApplicationController < ActionController::Base
     nil
   end
 
-  # Before filter to check if current user is the member of this community
-  # and if so, find the membership
   def fetch_community_membership
     if @current_user
-      if @current_user.communities.include?(@current_community)
-        @current_community_membership = CommunityMembership.find_by_person_id_and_community_id_and_status(@current_user.id, @current_community.id, "accepted")
-        unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
-          Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
-        end
+      @current_community_membership = CommunityMembership.where(person_id: @current_user.id, community_id: @current_community.id, status: "accepted").first
+
+      last_page_load_date = Maybe(@current_community_membership).last_page_load_date.or_else(nil)
+      unless date_equals?(last_page_load_date, Date.today)
+        Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
       end
     end
   end
@@ -303,6 +301,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def date_equals?(date, comp)
+    date && date.to_date.eql?(comp)
+  end
 
   def session_unauthorized
     # For some reason, ASI session is no longer valid => log the user out
