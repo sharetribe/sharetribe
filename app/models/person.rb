@@ -682,8 +682,7 @@ class Person < ActiveRecord::Base
     conversation.requires_payment?(community) && conversation.status.eql?("accepted") && id.eql?(conversation.buyer.id)
   end
 
-  def pending_email_confirmation_to_join?(community)
-    membership = community_memberships.where(:community_id => community.id).first
+  def pending_email_confirmation_to_join?(membership)
     if membership
       return (membership.status == "pending_email_confirmation")
     else
