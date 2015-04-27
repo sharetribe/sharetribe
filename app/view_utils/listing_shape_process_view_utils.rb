@@ -58,6 +58,19 @@ module ListingShapeProcessViewUtils
 
   module ShapeSanitizer
 
+    PROCESS_AVAILABLE = ->(shape, processes) {
+      process_find_opts = shape[:transaction_process].slice(:author_is_seller, :process)
+      process = processes.find { |p|
+        p.slice(*process_find_opts.keys) == process_find_opts
+      }
+
+      if process
+        Result::Success.new(shape)
+      else
+        Result::Error.new("Suitable transaction process not available", code: "suitable_process_not_available")
+      end
+    }
+
     PRICE_ENABLED_IF_ONLINE_PAYMENTS = ->(shape, process_summary) {
       case [shape[:price_enabled], shape[:transaction_process][:process]]
       when matches([false, :none])
@@ -113,6 +126,7 @@ module ListingShapeProcessViewUtils
 
     def sanitize(shape, process_summary, validators = [])
       validators ||= [
+        PROCESS_AVAILABLE,
         PRICE_ENABLED_IF_ONLINE_PAYMENTS,
         PREAUTHORIZE_IF_SHIPPING,
         PRICE_ENABLED_IF_UNITS,
@@ -124,18 +138,5 @@ module ListingShapeProcessViewUtils
         res.and_then { |shape| validator.call(shape, process_summary) }
       }
     end
-
-  end
-
-  def sanitize_shape(shape, processes)
-    # Price must be enabled if online payments is enabled
-    price_enabled_if_online_payments = ->() {
-      case [shape[:price_enabled], shape[:transaction_process][:process]]
-      when matches([true, :preauthorize]), matches([true, :postpay])
-        nil
-      else
-        "Price must be enabled if online payments is in use"
-      end
-    }
   end
 end
