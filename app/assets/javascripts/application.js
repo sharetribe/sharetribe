@@ -52,6 +52,7 @@
 //= require admin/manage_members
 //= require admin/menu_links
 //= require admin/community_customizations
+//= require admin/listing_shapes
 //= require payment_math
 //= require dropdown
 //= require jquery.nouislider
