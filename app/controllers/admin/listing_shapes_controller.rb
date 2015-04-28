@@ -7,60 +7,8 @@ class Admin::ListingShapesController < ApplicationController
 
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
 
-  # true -> true # idempotent
-  # false -> false # idempotent
-  # nil -> false
-  # anything else -> true
-  CHECKBOX = -> (value) {
-    if value == true || value == false
-      value
-    else
-      !value.nil?
-    end
-  }
-
-  FORM_TRANSLATION = ->(h) {
-    unless h.all? { |(k, v)| k.is_a?(String) && v.is_a?(String) }
-      {code: :form_translation_hash_format, msg: "Value must be a hash of { locale => translations }" }
-    end
-  }
-
-  Unit = EntityUtils.define_builder(
-    [:type, :symbol, :mandatory]
-  )
-
-  # Shape describes the data in Templates list.
-  # Also, ShapeService.get returns Shape
-  # Shape can be used to construct a Form
-  Shape = EntityUtils.define_builder(
-    [:label, :string, :optional], # Only for predefined templates
-    [:template, :symbol, :optional], # Only for predefined templates
-    [:name_tr_key, :string, :mandatory],
-    [:action_button_tr_key, :string, :mandatory],
-    [:price_enabled, :bool, :mandatory],
-    [:shipping_enabled, :bool, :mandatory],
-    [:online_payments, :bool, :mandatory],
-    [:units, collection: Unit]
-  )
-
-  FormUnit = EntityUtils.define_builder(
-    [:type, :symbol, :mandatory],
-    [:enabled, :bool, :mandatory],
-    [:label, :string, :optional]
-  )
-
-  # Form can be passed to view to render the form.
-  # Also, form can be constructed from the params.
-  # Form can be passed to ShapeService and it will handle saving it
-  Form = EntityUtils.define_builder(
-    [:name, :hash, :mandatory],
-    [:action_button_label, :hash, :mandatory],
-    [:shipping_enabled, transform_with: CHECKBOX],
-    [:price_enabled, transform_with: CHECKBOX],
-    [:online_payments, transform_with: CHECKBOX],
-    [:units, default: [], collection: FormUnit],
-    [:template, :to_symbol]
-  )
+  Form = ListingShapeDataTypes::Form
+  Shape = ListingShapeDataTypes::Shape
 
   TR_KEY_PROP_FORM_NAME_MAP = {
     name_tr_key: :name,
@@ -110,7 +58,12 @@ class Admin::ListingShapesController < ApplicationController
     params_form = filter_uneditable_fields(params_to_form(params), process_summary)
 
     create_result = validate_form(params_form).and_then { |form|
-      ShapeService.new(processes).create(community_id: @current_community.id, default_locale: @current_community.default_locale, opts: form)
+      ShapeService.new(processes).create(
+        community_id: @current_community.id,
+        default_locale: @current_community.default_locale,
+        tr_map: TR_KEY_PROP_FORM_NAME_MAP,
+        opts: form
+      )
     }
 
     if create_result.success
@@ -127,7 +80,12 @@ class Admin::ListingShapesController < ApplicationController
     params_form = filter_uneditable_fields(params_to_form(params), process_summary)
 
     update_result = validate_form(params_form).and_then { |form|
-      ShapeService.new(processes).update(community_id: @current_community.id, listing_shape_id: params[:id], opts: form)
+      ShapeService.new(processes).update(
+        community_id: @current_community.id,
+        listing_shape_id: params[:id],
+        tr_map: TR_KEY_PROP_FORM_NAME_MAP,
+        opts: form
+      )
     }
 
     if update_result.success
@@ -254,104 +212,6 @@ class Admin::ListingShapesController < ApplicationController
 
   def processes
     @processes ||= TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
-  end
-
-  # A helper module that let's you reload listing shapes by community id or
-  # community id and listing shape id, and gets back the shape with translations
-  # and process information included
-  class ShapeService
-
-    def initialize(processes)
-      @processes = processes
-    end
-
-    def get(community_id:, listing_shape_id:, locales:)
-      extended_shape = listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).and_then { |shape|
-        process = @processes.find { |p| p[:id] == shape[:transaction_process_id] }
-
-        raise ArgumentError.new("Can not find process with id: #{shape[:transaction_process_id]}") if process.nil?
-
-        shape_with_process = shape.merge(online_payments: process[:process] == :preauthorize) # TODO More sophisticated?
-
-        Result::Success.new(Shape.call(shape_with_process))
-      }
-    end
-
-    def update(community_id:, listing_shape_id:, opts:)
-      form_opts = Form.call(opts)
-
-      with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
-        target: form_opts,
-        form: form_opts,
-        tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
-        community_id: community_id,
-        override: false
-      )
-
-      with_units = with_translations.merge(
-        units: with_translations[:units].map { |u| add_quantity_selector(u) }
-      )
-
-      with_process = with_units.merge(
-        transaction_process_id: select_process(with_units[:online_payments], @processes))
-
-      listing_api.shapes.update(
-        community_id: community_id,
-        listing_shape_id: listing_shape_id,
-        opts: with_process
-      )
-    end
-
-    def create(community_id:, default_locale:, opts:)
-      form_opts = Form.call(opts)
-
-      with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
-        target: form_opts,
-        form: form_opts,
-        tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
-        community_id: community_id,
-        override: true
-      )
-
-      with_basename = with_translations.merge(
-        basename: with_translations[:name][default_locale]
-      )
-
-      with_units = with_basename.merge(
-        units: with_basename[:units].map { |u| add_quantity_selector(u) }
-      )
-
-      with_process = with_units.merge(
-        transaction_process_id: select_process(with_units[:online_payments], @processes))
-
-      listing_api.shapes.create(
-        community_id: community_id,
-        opts: with_process
-      )
-    end
-
-    private
-
-    def listing_api
-      ListingService::API::Api
-    end
-
-    def add_quantity_selector(unit)
-      unit.merge(quantity_selector: unit[:type] == :day ? :day : :number)
-    end
-
-    def select_process(online_payments, processes)
-      # TODO Maybe more sophisticated version
-      author_is_seller = true
-      process = online_payments ? :preauthorize : :none
-
-      selected = processes.find { |p| p[:author_is_seller] == author_is_seller && p[:process] == process }
-
-      raise ArugmentError.new("Can not find suitable process") if selected.nil?
-
-      selected[:id]
-    end
-
   end
 
   def ensure_no_braintree
