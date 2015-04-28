@@ -76,9 +76,9 @@ class Admin::ListingShapesController < ApplicationController
     [:template, :symbol, :optional], # Only for predefined templates
     [:name_tr_key, :string, :mandatory],
     [:action_button_tr_key, :string, :mandatory],
-    [:price_enabled, :boolean, :mandatory],
-    [:shipping_enabled, :boolean, :mandatory],
-    [:online_payments, :boolean, :mandatory],
+    [:price_enabled, :bool, :mandatory],
+    [:shipping_enabled, :bool, :mandatory],
+    [:online_payments, :bool, :mandatory],
     [:units, collection: FormTemplateUnit]
   )
 
@@ -196,14 +196,16 @@ class Admin::ListingShapesController < ApplicationController
   private
 
   def template_to_form(template, locales)
+    template = FormTemplate.call(template)
+
     template_with_translations = TranslationServiceHelper.tr_keys_to_form_values(
       entity: template,
       locales: locales,
       tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
 
-    template_with_translations.merge(
+    Form.call(template_with_translations.merge(
       units: expand_units(template_with_translations[:units]),
-    )
+    ))
   end
 
   def params_to_form(params)
