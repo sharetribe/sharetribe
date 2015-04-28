@@ -30,7 +30,7 @@ class Admin::ListingShapesController < ApplicationController
   )
 
   # FormTemplate describes the data in Templates list.
-  # Also, ExtendedShapeService.get returns FormTemplate
+  # Also, ShapeService.get returns FormTemplate
   # FormTemplate can be used to construct a Form
   FormTemplate = EntityUtils.define_builder(
     [:label, :string, :optional], # Only for predefined templates
@@ -51,7 +51,7 @@ class Admin::ListingShapesController < ApplicationController
 
   # Form can be passed to view to render the form.
   # Also, form can be constructed from the params.
-  # Form can be passed to ExtendedShapeService and it will handle saving it
+  # Form can be passed to ShapeService and it will handle saving it
   Form = EntityUtils.define_builder(
     [:name, :hash, :mandatory],
     [:action_button_label, :hash, :mandatory],
@@ -93,25 +93,24 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def edit
-    shape_form_res = ExtendedShapeService.new(processes).get(
+    shape_form_res = ShapeService.new(processes).get(
       community_id: @current_community.id,
       listing_shape_id: params[:id],
       locales: available_locales.map { |_, locale| locale }
     )
 
-    # TODO FormTemplate datatype
-    form = shape_form_res.data
+    form = template_to_form(shape_form_res.data, available_locales.map(&:second))
 
     return redirect_to error_not_found_path if form.nil?
 
-    render("edit", locals: edit_view_locals(params[:id], form[:name_tr_key], template_to_form(form, available_locales.map(&:second)), process_summary, available_locales()))
+    render("edit", locals: edit_view_locals(params[:id], form[:name_tr_key], form, process_summary, available_locales()))
   end
 
   def create
     params_form = filter_uneditable_fields(params_to_form(params), process_summary)
 
     create_result = validate_form(params_form).and_then { |form|
-      ExtendedShapeService.new(processes).create(community_id: @current_community.id, default_locale: @current_community.default_locale, opts: form)
+      ShapeService.new(processes).create(community_id: @current_community.id, default_locale: @current_community.default_locale, opts: form)
     }
 
     if create_result.success
@@ -128,7 +127,7 @@ class Admin::ListingShapesController < ApplicationController
     params_form = filter_uneditable_fields(params_to_form(params), process_summary)
 
     update_result = validate_form(params_form).and_then { |form|
-      ExtendedShapeService.new(processes).update(community_id: @current_community.id, listing_shape_id: params[:id], opts: form)
+      ShapeService.new(processes).update(community_id: @current_community.id, listing_shape_id: params[:id], opts: form)
     }
 
     if update_result.success
@@ -261,7 +260,7 @@ class Admin::ListingShapesController < ApplicationController
   # A helper module that let's you reload listing shapes by community id or
   # community id and listing shape id, and gets back the shape with translations
   # and process information included
-  class ExtendedShapeService
+  class ShapeService
 
     def initialize(processes)
       @processes = processes
