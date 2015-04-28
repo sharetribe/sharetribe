@@ -12,38 +12,16 @@ module ListingShapeProcessViewUtils
     available_templates(templates, process_info).find { |tmpl| tmpl[:shape][:template] == key.to_sym }
   end
 
-  def uneditable_fields(process, process_info)
-    author_is_seller = process[:author_is_seller]
-    shipping_uneditable =
-      if !author_is_seller
-        true
-      elsif !process_info[:preauthorize_available]
-        true
-      else
-        false
-      end
-
-    online_payments_uneditable =
-      if author_is_seller == false
-        true
-      elsif !(process_info[:preauthorize_available] || process_info[:postpay_available])
-        true
-      else
-        false
-      end
-
+  def uneditable_fields(process_info)
     {
-      shipping_enabled: shipping_uneditable,
-      online_payments: online_payments_uneditable
+      shipping_enabled: !process_info[:preauthorize_available],
+      online_payments: !process_info[:preauthorize_available]
     }
   end
 
   def process_info(processes)
     processes.reduce({}) { |info, process|
-      info[:request_available] = true if process[:author_is_seller] == false
       info[:preauthorize_available] = true if process[:process] == :preauthorize
-      info[:postpay_available] = true if process[:process] == :postpay
-      info[:none_available] = true if process[:process] == :none
       info
     }
   end
@@ -52,35 +30,15 @@ module ListingShapeProcessViewUtils
     module_function
 
     def process_from_form(online_payments, shape_or_template, processes)
-      current_process_id = Maybe(shape_or_template)[:transaction_process_id]
-
-      fulfills_requirements =
+      process =
         if online_payments
-          online_payment_processes = [:preauthorize, :postpay]
-          processes.select { |p|
-            p[:author_is_seller] == true && online_payment_processes.include?(p[:process])
-          }
+          processes.find { |p| p[:process] == :preauthorize }
         else
-          author_is_seller = Maybe(shape_or_template)[:transaction_process][:author_is_seller].or_else(true)
-          processes.select { |p|
-            p[:author_is_seller] == author_is_seller && p[:process] == :none
-          }
+          processes.find { |p| p[:process] == :none }
         end
 
-      if fulfills_requirements.empty?
-        raise ArgumentError.new("Can not find suitable process, online_payments: #{online_payments}")
-      else
-        # Prefer existing process
-          Maybe(shape_or_template)[:transaction_process_id].map { |current_process_id|
-            fulfills_requirements.find { |p| p[:id] == current_process_id }
-          }.or_else(fulfills_requirements.first)
-      end
-    end
-
-    def find_process(process_requirements)
-      process_find_opts = process_requirements.slice(:author_is_seller, :process)
-      process = processes.find { |p|
-        p.slice(*process_find_opts.keys) == process_find_opts
+      process.tap { |p|
+        raise ArgumentError.new("Can not find suitable process, online_payments: #{online_payments}") if p.nil?
       }
     end
   end
@@ -102,7 +60,7 @@ module ListingShapeProcessViewUtils
 
     PRICE_ENABLED_IF_ONLINE_PAYMENTS = ->(shape, process_summary) {
       case [shape[:price_enabled], shape[:transaction_process][:process]]
-      when matches([true, :preauthorize]), matches([true, :postpay])
+      when matches([true, :preauthorize])
         Result::Success.new(shape)
       when matches([__, :none])
         Result::Success.new(shape)

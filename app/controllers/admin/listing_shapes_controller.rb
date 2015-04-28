@@ -3,6 +3,8 @@ class Admin::ListingShapesController < ApplicationController
 
   ensure_feature_enabled :shape_ui
 
+  before_filter :ensure_no_braintree
+
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
 
   # true -> true # idempotent
@@ -27,7 +29,7 @@ class Admin::ListingShapesController < ApplicationController
     [:id, :fixnum],
     [:community_id, :fixnum],
     [:author_is_seller, :to_bool, :mandatory],
-    [:process, :to_symbol, one_of: [:none, :preauthorize, :postpay]])
+    [:process, :to_symbol, one_of: [:none, :preauthorize]])
 
   Unit = EntityUtils.define_builder(
     [:type, :to_symbol, one_of: [:custom, :piece, :hour, :day, :night, :week, :month]],
@@ -210,13 +212,13 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def process_to_online_payments(shape, process_summary)
-    online_payments_available = process_summary[:preauthorize_available] || process_summary[:postpay_available]
+    online_payments_available = process_summary[:preauthorize_available]
 
     if online_payments_available
       existing_process = Maybe(shape)[:transaction_process][:process].or_else(nil)
 
       from_template = shape[:online_payments]
-      from_process = existing_process == :preauthorize || existing_process == :postpay
+      from_process = existing_process == :preauthorize
 
       from_process || from_template
     else
@@ -245,7 +247,7 @@ class Admin::ListingShapesController < ApplicationController
     { name_tr_key: extended_shape[:name_tr_key],
       id: extended_shape[:id],
       selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(extended_shape[:transaction_process], process_summary),
+      uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_summary),
       shape: extended_to_form(extended_shape, process_summary),
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
@@ -377,5 +379,12 @@ class Admin::ListingShapesController < ApplicationController
       }
     end
 
+  end
+
+  def ensure_no_braintree
+    if BraintreePaymentGateway.exists?(community_id: @current_community.id)
+      flash[:error] = "Not available for Braintree"
+      redirect_to edit_details_admin_community_path(@current_community.id)
+    end
   end
 end
