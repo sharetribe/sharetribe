@@ -64,6 +64,27 @@ class Admin::ListingShapesController < ApplicationController
     [:label, :string, :optional]
   )
 
+  FormTemplateUnit = EntityUtils.define_builder(
+    [:type, :symbol, :mandatory]
+  )
+
+  # FormTemplate describes the data in Templates list.
+  # Also, ExtendedShapeService.get returns FormTemplate
+  # FormTemplate can be used to construct a Form
+  FormTemplate = EntityUtils.define_builder(
+    [:label, :string, :optional], # Only for predefined templates
+    [:template, :symbol, :optional], # Only for predefined templates
+    [:name_tr_key, :string, :mandatory],
+    [:action_button_tr_key, :string, :mandatory],
+    [:price_enabled, :boolean, :mandatory],
+    [:shipping_enabled, :boolean, :mandatory],
+    [:online_payments, :boolean, :mandatory],
+    [:units, collection: FormTemplateUnit]
+  )
+
+  # Form can be passed to view to render the form.
+  # Also, form can be constructed from the params.
+  # Form can be passed to ExtendedShapeService and it will handle saving it
   Form = EntityUtils.define_builder(
     [:name, :hash, :mandatory],
     [:action_button_label, :hash, :mandatory],
