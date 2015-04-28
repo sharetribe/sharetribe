@@ -3,4 +3,4 @@
     .locale-selection__language
       %label
         = check_box_tag "enabled_locales[]", locale[:locale_key], locale[:enabled]
-        = locale[:locale_name]
+        = t("admin.communities.available_languages.#{locale[:locale_key]}")
