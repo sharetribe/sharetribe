@@ -26,23 +26,6 @@ module ListingShapeProcessViewUtils
     }
   end
 
-  module ProcessSelector
-    module_function
-
-    def process_from_form(online_payments, processes)
-      process =
-        if online_payments
-          processes.find { |p| p[:process] == :preauthorize }
-        else
-          processes.find { |p| p[:process] == :none }
-        end
-
-      process.tap { |p|
-        raise ArgumentError.new("Can not find suitable process, online_payments: #{online_payments}") if p.nil?
-      }
-    end
-  end
-
   module ShapeSanitizer
 
     PROCESS_AVAILABLE = ->(shape, processes) {
