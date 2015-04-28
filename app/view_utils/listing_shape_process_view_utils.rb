@@ -4,12 +4,12 @@ module ListingShapeProcessViewUtils
 
   def available_templates(templates, process_info)
     templates.reject { |tmpl|
-      tmpl[:shape][:template] == :requesting && !process_info[:request_available]
+      tmpl[:template] == :requesting && !process_info[:request_available]
     }
   end
 
   def find_template(key, templates, process_info)
-    available_templates(templates, process_info).find { |tmpl| tmpl[:shape][:template] == key.to_sym }
+    available_templates(templates, process_info).find { |tmpl| tmpl[:template] == key.to_sym }
   end
 
   def uneditable_fields(process_info)

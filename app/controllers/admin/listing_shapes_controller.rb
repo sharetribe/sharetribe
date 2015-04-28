@@ -94,7 +94,7 @@ class Admin::ListingShapesController < ApplicationController
   def new
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
     template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
-    shape_template = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(template[:shape], process_summary)
+    shape_template = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(template, process_summary)
 
     unless shape_template
       flash[:error] = "Invalid template: #{params[:template]}"
@@ -130,7 +130,7 @@ class Admin::ListingShapesController < ApplicationController
   def create
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
     template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
-    shape_template = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(template[:shape], process_summary)
+    shape_template = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(template, process_summary)
 
     unless shape_template
       flash[:error] = "Invalid template: #{params[:template]}"
