@@ -4,6 +4,7 @@
 class ShapeService
   Form = ListingShapeDataTypes::Form
   Shape = ListingShapeDataTypes::Shape
+  TR_MAP = ListingShapeDataTypes::TR_KEY_PROP_FORM_NAME_MAP
 
   def initialize(processes)
     @processes = processes
@@ -21,13 +22,13 @@ class ShapeService
     }
   end
 
-  def update(community_id:, listing_shape_id:, tr_map:, opts:)
+  def update(community_id:, listing_shape_id:, opts:)
     form_opts = Form.call(opts)
 
     with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
       target: form_opts,
       form: form_opts,
-      tr_key_prop_form_name_map: tr_map,
+      tr_key_prop_form_name_map: TR_MAP,
       community_id: community_id,
       override: false
     )
@@ -46,13 +47,13 @@ class ShapeService
     )
   end
 
-  def create(community_id:, default_locale:, tr_map:, opts:)
+  def create(community_id:, default_locale:, opts:)
     form_opts = Form.call(opts)
 
     with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
       target: form_opts,
       form: form_opts,
-      tr_key_prop_form_name_map: tr_map,
+      tr_key_prop_form_name_map: TR_MAP,
       community_id: community_id,
       override: true
     )

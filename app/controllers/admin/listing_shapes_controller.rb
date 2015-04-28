@@ -9,11 +9,7 @@ class Admin::ListingShapesController < ApplicationController
 
   Form = ListingShapeDataTypes::Form
   Shape = ListingShapeDataTypes::Shape
-
-  TR_KEY_PROP_FORM_NAME_MAP = {
-    name_tr_key: :name,
-    action_button_tr_key: :action_button_label
-  }
+  TR_MAP = ListingShapeDataTypes::TR_KEY_PROP_FORM_NAME_MAP
 
   def index
     category_count = @current_community.categories.count
@@ -61,7 +57,6 @@ class Admin::ListingShapesController < ApplicationController
       ShapeService.new(processes).create(
         community_id: @current_community.id,
         default_locale: @current_community.default_locale,
-        tr_map: TR_KEY_PROP_FORM_NAME_MAP,
         opts: form
       )
     }
@@ -83,7 +78,6 @@ class Admin::ListingShapesController < ApplicationController
       ShapeService.new(processes).update(
         community_id: @current_community.id,
         listing_shape_id: params[:id],
-        tr_map: TR_KEY_PROP_FORM_NAME_MAP,
         opts: form
       )
     }
@@ -100,10 +94,7 @@ class Admin::ListingShapesController < ApplicationController
   private
 
   def filter_uneditable_fields(form, process_summary)
-    form = Form.call(form)
-
     uneditable_keys = uneditable_fields(process_summary).select { |_, uneditable| uneditable }.keys
-
     form.except(*uneditable_keys)
   end
 
@@ -112,6 +103,41 @@ class Admin::ListingShapesController < ApplicationController
       shipping_enabled: !process_summary[:preauthorize_available],
       online_payments: !process_summary[:preauthorize_available]
     }
+  end
+
+  def new_view_locals(form, process_summary, available_locs)
+    { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+      uneditable_fields: uneditable_fields(process_summary),
+      shape: form,
+      locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
+    }
+  end
+
+  def edit_view_locals(id, name_tr_key, form, process_summary, available_locs)
+    { name_tr_key: name_tr_key,
+      id: id,
+      selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+      uneditable_fields: uneditable_fields(process_summary),
+      shape: form,
+      locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
+    }
+  end
+
+  def all_shapes(community_id)
+    ListingService::API::Api.shapes.get(community_id: community_id)
+      .maybe()
+      .or_else([])
+  end
+
+  def process_summary
+    @process_summary ||= processes.reduce({}) { |info, process|
+      info[:preauthorize_available] = true if process[:process] == :preauthorize
+      info
+    }
+  end
+
+  def processes
+    @processes ||= TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
   end
 
   def validate_form(form)
@@ -144,7 +170,7 @@ class Admin::ListingShapesController < ApplicationController
     template_with_translations = TranslationServiceHelper.tr_keys_to_form_values(
       entity: template,
       locales: locales,
-      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
+      tr_key_prop_form_name_map: TR_MAP)
 
     Form.call(template_with_translations.merge(
       units: expand_units(template_with_translations[:units]),
@@ -164,30 +190,12 @@ class Admin::ListingShapesController < ApplicationController
     }.second
   end
 
-  def new_view_locals(form, process_summary, available_locs)
-    { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      uneditable_fields: uneditable_fields(process_summary),
-      shape: form,
-      locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
-    }
-  end
-
-  def edit_view_locals(id, name_tr_key, form, process_summary, available_locs)
-    { name_tr_key: name_tr_key,
-      id: id,
-      selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      uneditable_fields: uneditable_fields(process_summary),
-      shape: form,
-      locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
-    }
-  end
-
   # Take units from shape and add predefined units
   def expand_units(shape_units)
     shape_units_set = shape_units.map { |t| t[:type] }.to_set
 
     ListingShapeHelper.predefined_unit_types
-      .map { |t| {type: t, enabled: shape_units_set.include?(t), label: t("admin.listing_shapes.units.#{t}")} }
+      .map { |t| {type: t, enabled: shape_units_set.include?(t), label: I18n.t("admin.listing_shapes.units.#{t}")} }
       .concat(shape_units
               .select { |unit| unit[:type] == :custom }
               .map { |unit| {type: unit[:type], enabled: true, label: translate(unit[:translation_key])} }) # TODO Change translate
@@ -195,23 +203,6 @@ class Admin::ListingShapesController < ApplicationController
 
   def parse_units(selected_units)
     (selected_units || []).map { |type, _| {type: type.to_sym, enabled: true}}
-  end
-
-  def all_shapes(community_id)
-    ListingService::API::Api.shapes.get(community_id: community_id)
-      .maybe()
-      .or_else([])
-  end
-
-  def process_summary
-    @process_summary ||= processes.reduce({}) { |info, process|
-      info[:preauthorize_available] = true if process[:process] == :preauthorize
-      info
-    }
-  end
-
-  def processes
-    @processes ||= TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
   end
 
   def ensure_no_braintree

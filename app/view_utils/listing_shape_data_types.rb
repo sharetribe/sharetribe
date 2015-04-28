@@ -54,4 +54,9 @@ module ListingShapeDataTypes
     [:units, default: [], collection: FormUnit],
     [:template, :to_symbol]
   )
+
+  TR_KEY_PROP_FORM_NAME_MAP = {
+    name_tr_key: :name,
+    action_button_tr_key: :action_button_label
+  }
 end
