@@ -1,6 +1,15 @@
-.locale-selection
-  - all_locales.each do |locale|
-    .locale-selection__language
-      %label
-        = check_box_tag "enabled_locales[]", locale[:locale_key], locale[:enabled]
-        = t("admin.communities.available_languages.#{locale[:locale_key]}")
+- content_for :javascript do
+  $('#locale-selection').selectize({plugins: ['remove_button'], items: ['en']});
+%div.locale-selection.clearfix
+  .input-header
+    Enabled languages
+  .info-text-container
+    .info-text-icon
+      %i.icon-info-sign
+    .info-text-content
+      Languages to be used nönönö
+  .row.col-10
+    %select{multiple: true, name: "enabled_locales[]", id: "locale-selection"}
+      - all_locales.each do |locale|
+        %option{value: locale[:locale_key]}
+          = t("admin.communities.available_languages.#{locale[:locale_key]}")
