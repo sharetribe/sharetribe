@@ -206,42 +206,29 @@ class ApplicationController < ActionController::Base
   # 3. Otherwise nil
   #
   def self.default_community_fetch_strategy(domain)
-    # Find by domain
-    by_domain = Community.find_by_domain(domain)
+    raise ArgumentError("Domain cannot be nil.") if domain.nil?
 
-    if by_domain.present?
-      return by_domain
-    end
+    community = Community.where(domain: domain).first
+    return community if community.present?
 
-    # Find by username
     app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
     ident = domain.chomp(".#{app_domain}")
-    by_ident = Community.where(ident: ident).first
-
-    if by_ident.present?
-      return by_ident
-    end
+    community = Community.where(ident: ident).first
+    return community if community.present?
 
     # If only one, use it
-    count = Community.count
-
-    if count == 1
-      return Community.first
-    end
+    return Community.first if Community.count == 1
 
     # Not found, return nil
     nil
   end
 
-  # Before filter to check if current user is the member of this community
-  # and if so, find the membership
   def fetch_community_membership
     if @current_user
-      if @current_user.communities.include?(@current_community)
-        @current_community_membership = CommunityMembership.find_by_person_id_and_community_id_and_status(@current_user.id, @current_community.id, "accepted")
-        unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
-          Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
-        end
+      @current_community_membership = CommunityMembership.where(person_id: @current_user.id, community_id: @current_community.id, status: "accepted").first
+
+      if (@current_community_membership && !date_equals?(@current_community_membership.last_page_load_date, Date.today))
+        Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
       end
     end
   end
@@ -275,7 +262,7 @@ class ApplicationController < ActionController::Base
   def check_email_confirmation
     # If confirmation is required, but not done, redirect to confirmation pending announcement page
     # (but allow confirmation to come through)
-    if @current_community && @current_user && @current_user.pending_email_confirmation_to_join?(@current_community)
+    if @current_community && @current_user && @current_user.pending_email_confirmation_to_join?(@current_community_membership)
       flash[:warning] = t("layouts.notifications.you_need_to_confirm_your_account_first")
       redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
     end
@@ -314,6 +301,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def date_equals?(date, comp)
+    date && date.to_date.eql?(comp)
+  end
 
   def session_unauthorized
     # For some reason, ASI session is no longer valid => log the user out
