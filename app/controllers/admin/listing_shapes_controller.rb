@@ -120,31 +120,18 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def create
-    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
-    shape_template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
+    params_form = params_to_form(params)
 
-    unless shape_template
-      flash[:error] = "Invalid template: #{params[:template]}"
-      return redirect_to action: :index
-    end
+    # TODO Sanitize
 
-    shape_template = TranslationServiceHelper.tr_keys_to_form_values(
-      entity: shape_template,
-      locales: available_locales.map { |_, locale| locale },
-      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
-
-    extended_shape = form_to_extended(params, shape_template, processes, @current_community.default_locale)
-
-    create_result = ListingShapeProcessViewUtils::ShapeSanitizer.validate(extended_shape, processes).and_then { |extended_shape|
-      ExtendedShapeService.new(processes).create(community_id: @current_community.id, opts: extended_shape)
-    }
+    create_result = ExtendedShapeService.new(processes).create(community_id: @current_community.id, default_locale: @current_community.default_locale, opts: params_form)
 
     if create_result.success
-      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: translate_extended_shape(extended_shape))
+      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: translate_extended_shape(params_form))
       redirect_to action: :index
     else
       flash[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
-      render("new", locals: new_view_locals(extended_shape, process_summary, available_locales()))
+      render("new", locals: new_view_locals(params_form, process_summary, available_locales()))
     end
 
   end
@@ -189,6 +176,13 @@ class Admin::ListingShapesController < ApplicationController
     template_with_translations.merge(
       units: expand_units(template_with_translations[:units]),
     )
+  end
+
+  def params_to_form(params)
+    form_params = HashUtils.symbolize_keys(params)
+    Form.call(form_params.merge(
+      units: parse_units(form_params[:units])
+    ))
   end
 
   def translate_extended_shape(shape)
@@ -344,26 +338,31 @@ class Admin::ListingShapesController < ApplicationController
       )
     end
 
-    def create(community_id:, opts:)
-      extended_shape = ExtendedShape.call(opts)
+    def create(community_id:, default_locale:, opts:)
+      form_opts = Form.call(opts)
 
-      with_process = extended_shape.merge(
-        transaction_process_id: extended_shape[:transaction_process][:id])
-
-      raise ArgumentError.new("No transaction process id available") unless with_process[:transaction_process_id].is_a? Fixnum
-
-      # TODO Transaction
       with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
-        target: with_process,
-        form: with_process,
+        target: form_opts,
+        form: form_opts,
         tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
         community_id: community_id,
         override: true
       )
 
+      with_basename = with_translations.merge(
+        basename: with_translations[:name][default_locale]
+      )
+
+      with_units = with_basename.merge(
+        units: with_translations[:units].map { |u| add_quantity_selector(u) }
+      )
+
+      with_process = with_units.merge(
+        transaction_process_id: select_process(with_units[:online_payments], @processes))
+
       listing_api.shapes.create(
         community_id: community_id,
-        opts: with_translations
+        opts: with_process
       )
     end
 
@@ -373,15 +372,20 @@ class Admin::ListingShapesController < ApplicationController
       ListingService::API::Api
     end
 
-    def select_process(extended_shape, processes)
-      process_find_opts = extended_shape[:transaction_process].slice(:author_is_seller, :process)
+    def add_quantity_selector(unit)
+      unit.merge(quantity_selector: unit[:type] == :day ? :day : :number)
+    end
 
-      Maybe(
-        processes.find { |p|
-          p.slice(*process_find_opts.keys) == process_find_opts
-        })[:id].or_else(nil).tap { |p|
-          raise ArgumentError.new("Can not find suitable transaction process for #{process_find_opts}") if p.nil?
-      }
+    def select_process(online_payments, processes)
+      # TODO Maybe more sophisticated version
+      author_is_seller = true
+      process = online_payments ? :preauthorize : :none
+
+      selected = processes.find { |p| p[:author_is_seller] == author_is_seller && p[:process] == process }
+
+      raise ArugmentError.new("Can not find suitable process") if selected.nil?
+
+      selected[:id]
     end
 
   end
