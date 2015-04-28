@@ -25,14 +25,14 @@ class Admin::ListingShapesController < ApplicationController
     end
   }
 
-  FormTemplateUnit = EntityUtils.define_builder(
+  Unit = EntityUtils.define_builder(
     [:type, :symbol, :mandatory]
   )
 
-  # FormTemplate describes the data in Templates list.
-  # Also, ShapeService.get returns FormTemplate
-  # FormTemplate can be used to construct a Form
-  FormTemplate = EntityUtils.define_builder(
+  # Shape describes the data in Templates list.
+  # Also, ShapeService.get returns Shape
+  # Shape can be used to construct a Form
+  Shape = EntityUtils.define_builder(
     [:label, :string, :optional], # Only for predefined templates
     [:template, :symbol, :optional], # Only for predefined templates
     [:name_tr_key, :string, :mandatory],
@@ -40,7 +40,7 @@ class Admin::ListingShapesController < ApplicationController
     [:price_enabled, :bool, :mandatory],
     [:shipping_enabled, :bool, :mandatory],
     [:online_payments, :bool, :mandatory],
-    [:units, collection: FormTemplateUnit]
+    [:units, collection: Unit]
   )
 
   FormUnit = EntityUtils.define_builder(
@@ -80,30 +80,30 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def new
-    shape_template = ListingShapeTemplates.new(process_summary).find(params[:template])
+    template = ListingShapeTemplates.new(process_summary).find(params[:template])
 
-    unless shape_template
+    unless template
       flash[:error] = "Invalid template: #{params[:template]}"
       return redirect_to action: :index
     end
 
-    form = template_to_form(shape_template, available_locales.map(&:second))
+    form = shape_to_form(template, available_locales.map(&:second))
 
     render("new", locals: new_view_locals(form, process_summary, available_locales()))
   end
 
   def edit
-    shape_form_res = ShapeService.new(processes).get(
+    shape = ShapeService.new(processes).get(
       community_id: @current_community.id,
       listing_shape_id: params[:id],
       locales: available_locales.map { |_, locale| locale }
-    )
+    ).data
 
-    form = template_to_form(shape_form_res.data, available_locales.map(&:second))
+    form = shape_to_form(shape, available_locales.map(&:second))
 
     return redirect_to error_not_found_path if form.nil?
 
-    render("edit", locals: edit_view_locals(params[:id], form[:name_tr_key], form, process_summary, available_locales()))
+    render("edit", locals: edit_view_locals(params[:id], shape[:name_tr_key], form, process_summary, available_locales()))
   end
 
   def create
@@ -135,8 +135,7 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to admin_listing_shapes_path
     else
       flash[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
-      # TODO FIX?
-      render("edit", locals: edit_view_locals(params[:id], form[:name_tr_key], template_to_form(form, available_locales.map(&:second)), process_summary, available_locales()))
+      render("edit", locals: edit_view_locals(params[:id], form[:name_tr_key], form, process_summary, available_locales()))
     end
   end
 
@@ -181,8 +180,8 @@ class Admin::ListingShapesController < ApplicationController
     end
   end
 
-  def template_to_form(template, locales)
-    template = FormTemplate.call(template)
+  def shape_to_form(template, locales)
+    template = Shape.call(template)
 
     template_with_translations = TranslationServiceHelper.tr_keys_to_form_values(
       entity: template,
@@ -274,7 +273,7 @@ class Admin::ListingShapesController < ApplicationController
 
         shape_with_process = shape.merge(online_payments: process[:process] == :preauthorize) # TODO More sophisticated?
 
-        Result::Success.new(shape_with_process)
+        Result::Success.new(Shape.call(shape_with_process))
       }
     end
 
