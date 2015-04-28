@@ -16,15 +16,6 @@ module CommunitiesHelper
     @current_user.emails.select{|e| e.confirmed_at.present?}.include?(session[:email])
   end
 
-  def community_locale_selection_locals
-    {
-      available_locales: [ # apparently the variable name shadows something
-        {language_key: "EN", name: "English", enabled: true},
-        {language_key: "FI", name: "Finnish", enabled: true},
-        {language_key: "SE", name: "Swedish"}
-      ]
-    }
-  end
 
   def community_name_locals
     translations = find_community_customizations(:name)

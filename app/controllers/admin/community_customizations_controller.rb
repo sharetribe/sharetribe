@@ -5,6 +5,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
     @selected_left_navi_link = "tribe_details"
     # @community_customization is fetched in application_controller
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)
+    @all_locales = MarketplaceService::API::Marketplaces.all_locales
 
     @show_transaction_agreement = TransactionService::API::Api.processes.get(community_id: @current_community.id)
       .maybe

@@ -78,6 +78,15 @@ module MarketplaceService::API
       true
     end
 
+    def all_locales
+      Kassi::Application.config.WELL_TRANSLATED_LOCALES.map{ |(k,v)|
+        {
+          locale_key: v,
+          locale_name: k
+        }
+      }
+    end
+
     # Create a Marketplace hash from Community model
     def from_model(community)
       hash = HashUtils.compact(
