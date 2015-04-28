@@ -53,7 +53,7 @@ describe ListingService::API::Shapes do
 
         listing_shape_id = create_shape_res.data[:id]
 
-        res = listings_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id)
+        res = listings_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id, include_categories: true)
 
         expect(res.success).to eql(true)
 

@@ -55,19 +55,19 @@ module ListingService::Store::Shape
 
   module_function
 
-  def get(community_id:, listing_shape_id: nil)
+  def get(community_id:, listing_shape_id: nil, include_categories: )
     shape_model = find_shape_model(
       community_id: community_id,
       listing_shape_id: listing_shape_id)
 
-    from_model(shape_model)
+    from_model(shape_model, include_categories)
   end
 
-  def get_all(community_id:)
+  def get_all(community_id:, include_categories:)
     shape_models = find_shape_models(community_id: community_id)
 
     shape_models.map { |shape_model|
-      from_model(shape_model)
+      from_model(shape_model, include_categories)
     }
   end
 
@@ -91,7 +91,7 @@ module ListingService::Store::Shape
 
       assign_to_categories!(community_id, shape_model.id)
 
-      from_model(shape_model)
+      from_model(shape_model, true)
     end
   end
 
@@ -117,7 +117,7 @@ module ListingService::Store::Shape
       shape_model.update_attributes!(HashUtils.compact(update_shape).except(:units))
     end
 
-    from_model(shape_model)
+    from_model(shape_model, true)
   end
 
   # private
@@ -144,7 +144,7 @@ module ListingService::Store::Shape
     end
   end
 
-  def from_model(shape_model)
+  def from_model(shape_model, include_categories)
     Maybe(shape_model).map { |m|
       hash = EntityUtils.model_to_hash(m)
 
@@ -152,8 +152,9 @@ module ListingService::Store::Shape
         to_unit(from_unit_model_attributes(EntityUtils.model_to_hash(unit_model)))
       }
 
-      # Categories are eager loaded in find_shape_models to make this efficient
-      hash[:category_ids] = shape_model.categories.map(&:id)
+      if include_categories
+        hash[:category_ids] = shape_model.categories.pluck(:id)
+      end
 
       Shape.call(hash)
     }.or_else(nil)
@@ -180,7 +181,6 @@ module ListingService::Store::Shape
   def find_shape_models(community_id:)
     ListingShape.where(community_id: community_id)
       .includes(:listing_units)
-      .eager_load(:categories)
       .order("listing_shapes.sort_priority")
   end
 

@@ -3,11 +3,12 @@ module ListingService::API
 
   class Shapes
 
-    def get(community_id:, listing_shape_id: nil)
+    def get(community_id:, listing_shape_id: nil, include_categories: false)
       if listing_shape_id
         find_opts = {
           community_id: community_id,
-          listing_shape_id: listing_shape_id
+          listing_shape_id: listing_shape_id,
+          include_categories: include_categories
         }
 
         Maybe(ShapeStore.get(find_opts)).map { |shape|
@@ -16,7 +17,7 @@ module ListingService::API
           Result::Error.new("Can not find listing shape for #{find_opts}")
         }
       else
-        Result::Success.new(ShapeStore.get_all(community_id: community_id))
+        Result::Success.new(ShapeStore.get_all(community_id: community_id, include_categories: include_categories))
       end
 
     end
