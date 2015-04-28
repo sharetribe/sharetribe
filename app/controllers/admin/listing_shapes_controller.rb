@@ -133,7 +133,7 @@ class Admin::ListingShapesController < ApplicationController
       locales: available_locales.map { |_, locale| locale }
     )
 
-    shape_form_res = ExtendedShapeService.new(processes).get_form(
+    shape_form_res = ExtendedShapeService.new(processes).get(
       community_id: @current_community.id,
       listing_shape_id: params[:id],
       locales: available_locales.map { |_, locale| locale }
@@ -165,31 +165,18 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def update
-    extended_shape_service = ExtendedShapeService.new(processes)
+    params_form = params_to_form(params)
+    # TODO Sanitize
 
-    old_extended_shape = extended_shape_service.get(
-      community_id: @current_community.id,
-      listing_shape_id: params[:id],
-      locales: available_locales.map { |_, locale| locale }
-    )
-
-    return redirect_to error_not_found_path unless old_extended_shape.success
-
-    extended_shape = form_to_extended(params, old_extended_shape.data, processes, @current_community.default_locale)
-
-    update_result = ListingShapeProcessViewUtils::ShapeSanitizer.validate(extended_shape, processes).and_then { |extended_shape|
-      extended_shape_service.update(
-        community_id: @current_community.id,
-        listing_shape_id: extended_shape[:id],
-        opts: extended_shape)
-    }
+    update_result = ExtendedShapeService.new(processes).update(community_id: @current_community.id, listing_shape_id: params[:id], opts: params_form)
 
     if update_result.success
-      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate_extended_shape(extended_shape))
+      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate_extended_shape(params_form))
       return redirect_to admin_listing_shapes_path
     else
       flash[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
-      render("edit", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
+      # TODO FIX?
+      render("edit", locals: edit_view_locals(params[:id], form[:name_tr_key], template_to_form(form, available_locales.map(&:second)), process_summary, available_locales()))
     end
   end
 
@@ -343,24 +330,6 @@ class Admin::ListingShapesController < ApplicationController
 
         raise ArgumentError.new("Can not find process with id: #{shape[:transaction_process_id]}") if process.nil?
 
-        shape_with_process = shape.merge(transaction_process: process)
-
-        shape_with_translations = TranslationServiceHelper.tr_keys_to_form_values(
-          entity: shape_with_process,
-          locales: locales,
-          tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
-
-        Result::Success.new(ExtendedShape.call(shape_with_translations))
-      }
-    end
-
-
-    def get_form(community_id:, listing_shape_id:, locales:)
-      extended_shape = listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).and_then { |shape|
-        process = @processes.find { |p| p[:id] == shape[:transaction_process_id] }
-
-        raise ArgumentError.new("Can not find process with id: #{shape[:transaction_process_id]}") if process.nil?
-
         shape_with_process = shape.merge(online_payments: process[:process] == :preauthorize) # TODO More sophisticated?
 
         Result::Success.new(shape_with_process)
@@ -368,25 +337,27 @@ class Admin::ListingShapesController < ApplicationController
     end
 
     def update(community_id:, listing_shape_id:, opts:)
-      extended_shape = ExtendedShape.call(opts)
+      form_opts = Form.call(opts)
 
-      with_process = extended_shape.merge(
-        transaction_process_id: extended_shape[:transaction_process][:id])
-
-      raise ArgumentError.new("No transaction process id available") unless with_process[:transaction_process_id].is_a? Fixnum
-
-      # TODO Transaction
       with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
-        target: with_process,
-        form: with_process,
+        target: form_opts,
+        form: form_opts,
         tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP,
         community_id: community_id,
+        override: false
       )
+
+      with_units = with_translations.merge(
+        units: with_translations[:units].map { |u| add_quantity_selector(u) }
+      )
+
+      with_process = with_units.merge(
+        transaction_process_id: select_process(with_units[:online_payments], @processes))
 
       listing_api.shapes.update(
         community_id: community_id,
         listing_shape_id: listing_shape_id,
-        opts: with_translations
+        opts: with_process
       )
     end
 
@@ -406,7 +377,7 @@ class Admin::ListingShapesController < ApplicationController
       )
 
       with_units = with_basename.merge(
-        units: with_translations[:units].map { |u| add_quantity_selector(u) }
+        units: with_basename[:units].map { |u| add_quantity_selector(u) }
       )
 
       with_process = with_units.merge(
