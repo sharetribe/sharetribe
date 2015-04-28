@@ -13,6 +13,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
   end
 
   def update_details
+    enabled_locales = params[:enabled_locales]
     updates_successful = @current_community.locales.map do |locale|
       permitted_params = [
         :name,

@@ -70,6 +70,14 @@ module MarketplaceService::API
       return from_model(community)
     end
 
+    def enable_locale(community, locale)
+      binding.pry
+    end
+
+    def disable_locale(community, locale)
+      true
+    end
+
     # Create a Marketplace hash from Community model
     def from_model(community)
       hash = HashUtils.compact(

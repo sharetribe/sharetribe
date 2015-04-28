@@ -1,0 +1,6 @@
+.locale-selection
+  - available_locales.each do |locale|
+    .locale-selection__language
+      %label
+        = check_box_tag "enabled_locales[]", locale[:language_key], locale[:enabled]
+        = locale[:name]
