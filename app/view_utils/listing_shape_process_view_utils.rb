@@ -111,10 +111,8 @@ module ListingShapeProcessViewUtils
 
     module_function
 
-    def sanitize(shape, process_summary)
-      shape.merge(
-        shipping_enabled: process_summary[:preauthorize_available] ? shape[:shipping_enabled] : false,
-      )
+    def sanitize(*)
+      raise NotImplementedError.new("Sanitize is not implemented")
     end
 
     def validate(shape, process_summary, validators = nil)

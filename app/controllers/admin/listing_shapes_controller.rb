@@ -93,8 +93,7 @@ class Admin::ListingShapesController < ApplicationController
 
   def new
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
-    template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
-    shape_template = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(template, process_summary)
+    shape_template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
 
     unless shape_template
       flash[:error] = "Invalid template: #{params[:template]}"
@@ -122,15 +121,12 @@ class Admin::ListingShapesController < ApplicationController
 
     return redirect_to error_not_found_path if extended_shape.nil?
 
-    sanitized_shape = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, process_summary)
-
-    render("edit", locals: extended_view_locals(sanitized_shape, process_summary, available_locales()))
+    render("edit", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
   end
 
   def create
     templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
-    template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
-    shape_template = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(template, process_summary)
+    shape_template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
 
     unless shape_template
       flash[:error] = "Invalid template: #{params[:template]}"
@@ -144,18 +140,16 @@ class Admin::ListingShapesController < ApplicationController
 
     extended_shape = form_to_extended(params, shape_template, processes, @current_community.default_locale)
 
-    sanitized_shape = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, process_summary)
-
-    create_result = ListingShapeProcessViewUtils::ShapeSanitizer.validate(sanitized_shape, processes).and_then { |extended_shape|
+    create_result = ListingShapeProcessViewUtils::ShapeSanitizer.validate(extended_shape, processes).and_then { |extended_shape|
       ExtendedShapeService.new(processes).create(community_id: @current_community.id, opts: extended_shape)
     }
 
     if create_result.success
-      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: translate_extended_shape(sanitized_shape))
+      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: translate_extended_shape(extended_shape))
       redirect_to action: :index
     else
       flash[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
-      render("new", locals: extended_view_locals(sanitized_shape, process_summary, available_locales()))
+      render("new", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
     end
 
   end
@@ -171,13 +165,9 @@ class Admin::ListingShapesController < ApplicationController
 
     return redirect_to error_not_found_path unless old_extended_shape.success
 
-    sanitized_old_shape = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(old_extended_shape.data, process_summary)
+    extended_shape = form_to_extended(params, old_extended_shape.data, processes, @current_community.default_locale)
 
-    extended_shape = form_to_extended(params, sanitized_old_shape, processes, @current_community.default_locale)
-
-    sanitized_shape = ListingShapeProcessViewUtils::ShapeSanitizer.sanitize(extended_shape, process_summary)
-
-    update_result = ListingShapeProcessViewUtils::ShapeSanitizer.validate(sanitized_shape, processes).and_then { |extended_shape|
+    update_result = ListingShapeProcessViewUtils::ShapeSanitizer.validate(extended_shape, processes).and_then { |extended_shape|
       extended_shape_service.update(
         community_id: @current_community.id,
         listing_shape_id: extended_shape[:id],
@@ -185,11 +175,11 @@ class Admin::ListingShapesController < ApplicationController
     }
 
     if update_result.success
-      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate_extended_shape(sanitized_shape))
+      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate_extended_shape(extended_shape))
       return redirect_to admin_listing_shapes_path
     else
       flash[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
-      render("edit", locals: extended_view_locals(sanitized_shape, process_summary, available_locales()))
+      render("edit", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
     end
   end
 
