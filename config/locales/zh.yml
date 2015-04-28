@@ -35,7 +35,7 @@ zh:
         warning_subcategory_will_be_removed:
           other: "在该类别中有%{count}个子类别。它将被删除。"
         warning_with_subcategories_listing_will_be_moved:
-          other: "在这个分类和子分类中有%{count}个信息。它们将被移到选中的分类中。"
+          other: "在这个分类和子分类中有%{count}条信息。它们将被移到选中的分类中。"
         warning_with_subcategories_custom_field_will_be_moved:
           other: "在这个分类和子分类中有%{count}个自定义字段。它们将被移到选中的分类中。"
         select_new_category: 为上面将要移动的项目选择一个新的类别
@@ -164,7 +164,7 @@ zh:
         automatic_newsletters: 自动发送每日/每周新闻邮件给所有用户（除非用户选择不接收）
         email_admins_about_new_members: 当新用户注册时给管理员发送一封电子邮件
         google_analytics_key: "Google Analytics跟踪ID"
-        twitter_handle: 推特句柄（使用在信息页面的推特按钮）
+        twitter_handle: "Twitter handle（使用在信息页面的推特按钮）"
         update_settings: 保存设置
         automatically_confirmed: "交易在付款%{days_dropdown}天后将被自动标记为已完成。如果使用第三方支付系统，现在钱将被打入第三方系统。"
         automatically_confirmed_no_escrow: "在付款后%{days_dropdown}天内交易将被自动标记为完成。"
@@ -417,7 +417,7 @@ zh:
       minimum_price_error_message: "价格不能低于%{amount}。"
       accept: 接受
       decline: 拒绝
-      quantity_label: ~
+      quantity_label: "数量:"
       sum_label: 小计
       service_fee_label: "%{service_name}费："
       you_will_get_label: 你将得到：
@@ -622,7 +622,7 @@ zh:
   community_memberships:
     access_denied:
       access_denied: 访问被拒绝
-      you_are_banned_in_this_community: "管理员阻止你访问%{service_name}。如果你想联系管理员，可以发送信息%{link_to_contact_page}。"
+      you_are_banned_in_this_community: "管理员阻止你访问%{service_name}。如果你想联系管理员，可以点击 %{link_to_contact_page}。"
       contact_page_link: 用户反馈
     new:
       welcome_fb_user: "%{name}，欢迎使用%{service_name}！"
@@ -739,8 +739,8 @@ zh:
       you_have_a_new_message: "在%{service_name}收到一条来自%{sender_name}的新消息"
     new_payment:
       new_payment: 你收到一笔新的付款
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "每%{unit_type}的价格"
+      quantity: "数量:"
       you_have_received_new_payment: "你已经为<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>给%{payer_full_name}。这是你的收据。"
     paypal_new_payment:
       paypal_gateway_fee: PayPal的费用：
@@ -755,10 +755,10 @@ zh:
       receipt_of_payment: 付款收据
       you_have_made_new_payment: "你已经为<b>%{listing_title}</b> 支付了 <b>%{payment_sum}</b> 给 %{recipient_full_name}。这是付款收据。"
       product: 产品
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "每%{unit_type}的价格"
+      duration: "持续时间:"
+      quantity: "数量:"
+      subtotal: 小计
       total: 总共
       price: 价格
       service_fee: 服务费
@@ -889,7 +889,7 @@ zh:
       on_or_before: "必须在%{restriction}时或之前"
       after: "必须在%{restriction}之后"
       on_or_after: "必须在%{restriction}时或之后"
-      positive_number: ~
+      positive_number: 填入一个数字
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} 同意将 %{listing_title} 借给 %{requester_name} %{time_ago}."
@@ -1219,7 +1219,7 @@ zh:
       email_deleted: 邮件已删除
       payment_details_add_successful: 成功添加支付信息
       payment_details_add_error: 无法添加支付信息
-      listing_author_payment_details_missing: 该信息作者没有添加他们的付款明细因此当前不能接受付款。请联系作者。
+      listing_author_payment_details_missing: 请点击下面的‘联系’按钮联系卖家。他们需要更新付款信息来接收付款。
       stylesheet_needs_recompiling: 样式表正在重新编译。请过一会重新加载页面。
     settings:
       account: 帐号
@@ -1313,7 +1313,7 @@ zh:
         delivery: 配送方式
         shipping: 配送
         shipping_price: 运费
-        shipping_price_additional: ~
+        shipping_price_additional: 附加的物品
         pickup: 上门自提
       origin:
         location: 地点
@@ -1413,13 +1413,13 @@ zh:
       payment_settings_link: 付款设置
       community_not_configured_for_payments_admin: "%{service_name}没有配置支付方式，所以你不能发布新的信息。点击%{payment_settings_link}填写详细付款信息。"
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: "小时数:"
+      day: "天数:"
+      night: "夜晚数量:"
+      week: "周数:"
+      month: "月数:"
+      custom: "数量:"
+    quantity_placeholder: 数量
     please_comment: 评论
     reply_link:
       listing_closed: 发布的信息已关闭
@@ -1461,17 +1461,17 @@ zh:
         per_day: 每天
       delivery: 配送方式
       shipping: "运费(+%{price})"
-      shipping_no_price: ~
-      shipping_price_additional: ~
+      shipping_no_price: 运费
+      shipping_price_additional: "运费(+%{price}, 附件的费用: +%{shipping_price_additional})"
       pickup: 自取
-      pickup_no_price: ~
+      pickup_no_price: 自提
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: 个
+      hour: 小时
+      day: 天
+      night: 晚
+      week: 周
+      month: 月
     verification_required:
       verification_required: 要求验证
   listing_conversations:
@@ -1508,7 +1508,7 @@ zh:
       you_have_something_others_do_not: 想卖点什么？
     please_comment: 评论
   mercury:
-    content_too_long: ~
+    content_too_long: 内容太长了。
   okl:
     member_id: "会员号\n"
     member_id_or_email: 会员ID或者邮箱地址
@@ -1571,7 +1571,7 @@ zh:
       account_not_verified: 你还没有验证你的PayPal帐号。要继续请先登录paypal.com并确认你的帐号。
       account_restricted: 你的PayPal帐号受限制且不能被连接。请登录paypal.com以了解更多或联系PayPal客户服务解决这个问题。
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: 进行支付
     checkout_with_paypal: 用PayPal结帐
     cancel_succesful: PayPal付款成功取消
     transaction:
@@ -1799,7 +1799,7 @@ zh:
       visible_to_registered_users: （对已登录用户可见）
       default_in_listing: （只有在发布新信息时作为默认值使用）
       invisible: （不显示给其他用户）
-      image_is_processing: ~
+      image_is_processing: 你的个人头像图片正在准备。请过一会重新刷新页面。
     save_information: 保存信息
   shipping_address:
     shipping_address: 送货地址
@@ -1919,16 +1919,16 @@ zh:
       other: "%{count}天"
   transactions:
     initiate:
-      booked_days: ~
-      price_per_day: ~
-      quantity: ~
+      booked_days: "预订的天数:"
+      price_per_day: "每天的价格:"
+      quantity: "数量:"
       subtotal: "小结:"
       shipping-price: "运费:"
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "每%{unit_type}:"
+    price: "价格:"
+    quantity: "数量:%{quantity}"
+    unit_price: "单位价格: %{unit_price}"
+    total: "总共:"
   unit:
     day: 日
     days: 天
@@ -1949,5 +1949,5 @@ zh:
       single_page_html:
         zero: "没有找到%{model}"
         other: "显示 <b>所有&nbsp;%{count}个</b> %{model}"
-      multi_page: "显示 %{model} %{from} - %{to} of %{count} 的总数"
-      multi_page_html: "显示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> 的总数"
+      multi_page: "显示 %{model} %{from} - %{to} 总共 %{count} 个"
+      multi_page_html: "显示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> 总共 <b>%{count}</b> 个"

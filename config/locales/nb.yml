@@ -63,7 +63,7 @@ nb:
         private_community_homepage_content: "Privat markedsplassinhold"
         edit_private_community_homepage_content_description: "Dette innholdet vises til brukere som ikke er logget inn på forsiden av private markedsplasser. Her kan du beskrive markedsplassen og hvordan bli medlem. Du kan også legge til bilder, videoer og HTML-innhold her. %{see_how_it_looks_like}."
         update_information: "Lagre innstillinger"
-        invite_people: "Inviter nye brukere"
+        invite_people: "Invitér nye brukere"
         edit_signup_info: Registreringsinformasjon
         edit_signup_info_description: "Dette er en info side som kan bli vist til brukere på signup siden. På den siden kan du gi brukerne instruksjoner for signup, informasjon som hvor få en invitasjon, etc. Som default er der ingen restriksjoner."
         edit_info: "Redigere informasjon"
@@ -84,11 +84,11 @@ nb:
         community_logo: Skrivebordslogo
         community_logo_icon: "Logo for sosiale nettverk og mindre skjermer."
         community_cover_photo: Forsidebilde
-        small_community_cover_photo: "Lite forside bilde"
+        small_community_cover_photo: "Lite forsidebilde"
         favicon: Favicon
         favicon_info_text: "Favicon vil erstatte Sharetribe standardlogo. Størrelsen bør være 32x32 piksler. Bilder som lastes opp blir endret i størrelse til disse målene."
-        community_custom_color1: "Hoved farge"
-        community_custom_color2: "Sekundær farge"
+        community_custom_color1: Hovedfarge
+        community_custom_color2: Andrefarge
         logo_instructions_text_with_dimensions: "Desktop logo størrelse skal være %{height}x%{width}px. Blir vist til brukere med større skjermer."
         logo_icon_instructions_text_with_dimensions: "Denne firkantede logoen blir vist når siden blir delt på Facebook, vist på moblie enheter og når de bokmerker siden på mobil. Dimensjonene bør (minst) være %{width}x%{height}px."
         cover_photo_visibility: "Forsidebildet vises på forsiden for brukere som ikke er logget inn."
@@ -97,7 +97,7 @@ nb:
         small_cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten."
         main_content_width: "Vær obs på at hovedinnholdet på siden er %{main_width} piksler bred på det meste når du velger forsidebilde. Husk også å sjekke hvordan forsidebildet ser ut på mindre skjermer (for eksempel ved å endre størrelsen på nettleservinduet)."
         custom_color1_instructions_text: "Du kan endre hovedfargen på brukergrensesnittet ved å skrive inn en hex-kode. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kan hjelpe deg med å finne en farge og kopiere koden hit."
-        custom_color2_instructions_text: "Du kan endre sekundærfargen til brukergrensesnittet ved å skrive inn en fargeverdi i hex kode."
+        custom_color2_instructions_text: "Du kan endre andrefargen til brukergrensesnittet ved å skrive inn en fargeverdi i hex kode."
         default_browse_view: Standardvisning
         default_browse_view_instructions_text: "Standardvisning er brukt på forsiden for å velge hvordan annonser vises som standard."
         grid: Rutenett
@@ -105,9 +105,9 @@ nb:
         map: Kart
         name_display_type: "Visningstype navn"
         name_display_type_instructions_text: "Velg hvordan navnet til hver bruker er vist på siden."
-        full_name: "Fullt navn(fornavn etternavn)"
-        first_name_with_initial: "Fornavn med initialer(Fornavn E)"
-        first_name_only: "Kun fornavn (fornavn)"
+        full_name: "Fullt navn (Fornavn Etternavn)"
+        first_name_with_initial: "Fornavn med initialer (Fornavn E)"
+        first_name_only: "Kun fornavn (Fornavn)"
         invalid_color_code: "Fargekode skal inneholde 6 tall eller bokstaver A-F, for eksempel D96E21"
         custom_head_script: "Custom script"
         custom_head_script_instructions_text: "This script is injected inside the <head> tag of every page and can be used to insert custom CSS, JavaScript or HTML. Please note that future changes to Sharetribe may render your script incompatible."
@@ -162,8 +162,8 @@ nb:
         listing_preferences: Annonseinnstillinger
         transaction_preferences: Transaksjonsinnstillinger
         show_listing_publishing_date: "Vis dato annonsen ble publisert"
-        show_category_in_listing_list: "Vis annonse type som liste visning"
-        hide_expiration_date: "Ikke krev at annonser har en utløps dato"
+        show_category_in_listing_list: "Vis annonsetype som listevisning"
+        hide_expiration_date: "Ikke krev at annonser har en utløpsdato"
         listing_comments_in_use: "Tillatt at brukere kan kommentere på annonser(synlig for alle brukere)"
         email_preferences: Epost-innstillinger
         automatic_newsletters: "Send automatisk daglig/ukentlig nyhetsbrev til alle brukere (om de ikke velger aktivt å ikke motta)"
@@ -264,7 +264,7 @@ nb:
         edit_price_field: "Rediger pris felt"
         show_price_filter_homepage: "Vis pris filter på hjemmeside"
         price_min: "Minimums pris"
-        price_max: "Maximums pris"
+        price_max: "Maksimum pris"
       edit_location:
         edit_location_field: "Endre stedsfelt"
         this_field_is_required: "Dette feltet er påkrevd"
@@ -395,7 +395,7 @@ nb:
       travel: Reise
       other: Annet
     username: Brukernavn
-    username_or_email: "e-post eller brukernavn"
+    username_or_email: "E-post eller brukernavn"
     what_is_this: "Hva er dette?"
     removed_user: "Fjernet bruker"
     paypal_fee_info:
@@ -438,7 +438,7 @@ nb:
       cancel_payed_description: "Dersom din forespørsel ble møtt, men du angrer deg, kan du fremdeles avbryte forespørsel før betaling."
       canceling_payed_transaction: "Avbryt transaksjon"
       confirm: "Merk som ferdig"
-      cancel: Uenighet
+      cancel: Tvist
       continue: Fortsette
       give_feedback_to: "Gi tilbakemelding til %{person_link}"
       do_not_give_feedback: "Hopp over tilbakemelding"
@@ -462,10 +462,10 @@ nb:
       canceled_request: "Forespørsel avbrutt."
       canceled_offer: "Tilbud avbrutt."
       message_from: "Melding fra %{person}"
-      about_listing: "Om annonse%{listing_title}"
+      about_listing: "Vedrørende annonse %{listing_title}"
       free_message: "Gratis melding"
     message:
-      accepted_request: "godtatt forespørselen"
+      accepted_request: "godtok forespørselen"
       accepted_offer: "Tilbud godtatt"
       rejected_request: "avslå forespørselen"
       rejected_offer: "avslå tilbudet"
@@ -473,7 +473,7 @@ nb:
       confirmed_offer: "merk tilbud som ferdig"
       canceled_request: "avslo forespørselen"
       canceled_offer: "avslo tilbudet"
-      paid: "betalte%{sum}"
+      paid: "betalte %{sum}"
     new:
       offer_message_form_title: "tilby%{listing}til%{person}"
       request_message_form_title: "forespør%{listing}fra%{person}"
@@ -513,14 +513,14 @@ nb:
       about_listing: "Om annonse%{listing_title}"
       author_has_to_accept_request: "%{author_name}må akseptere forespørselen før du kan betale"
     show:
-      in_response_to_listing: "Om annonse"
+      in_response_to_listing: "vedrørende annonse"
       message_sent_by: "Melding sendt av"
       message_sent_to: "Melding sendt til"
-      send_reply: "Send svar"
-      write_a_reply: "Skriv et svar:"
+      send_reply: "Send melding"
+      write_a_reply: "Skriv en melding:"
       conversation_about_listing: "Med %{person} om %{listing}"
       conversation_with_user: "Med %{person}"
-      conversation_with: "Samtale med%{person}"
+      conversation_with: "Samtale med %{person}"
       last_message_at: "(siste melding%{time})"
       price: "Pris: %{price}"
       sum: "Totalt:%{sum}"
@@ -549,7 +549,7 @@ nb:
           multicurrency: "Vi kunne ikke behandle PayPal-betalingen fordi din PayPal-konto er ikke satt opp for å motta betalinger i %{currency}. Gå til %{paypal_url} og logg inn for å manuelt akseptere eller avslå betalingen."
           verify: "Du kan ikke akseptere denne transaksjonen fordi din PayPal konto ikke er verifisert. Gå til %{paypal_url}for å verifisere."
           intl: "Vi kunne ikke behandle PayPal-betalingen fordi din PayPal-konto har ikke en uttaksmekanisme. Gå til %{paypal_url} og logg inn for å manuelt akseptere eller avslå betalingen."
-      waiting_for_current_user_to_deliver_listing: "Venter på at du skal levere%{listing_title}"
+      waiting_for_current_user_to_deliver_listing: "Venter på at du skal levere %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Venter på at%{listing_author_name} skal levere %{listing_title}"
       request_accepted: Godkjent
       request_rejected: Avslått
@@ -559,7 +559,7 @@ nb:
       request_preauthorized: "Betaling vellykket"
       skip_feedback: "Hopp over tilbakemelding"
       waiting_for_listing_author_to_accept_offer: "Venter på%{listing_author_name}for å akseptere tilbudet"
-      waiting_for_listing_author_to_accept_request: "Venter på %{listing_author_name}for å akseptere forespørsel"
+      waiting_for_listing_author_to_accept_request: "Venter på at %{listing_author_name} skal akseptere forespørselen"
       waiting_for_you_to_accept_request: "Venter på at du skal akseptere forespørsel"
       waiting_confirmation_from_requester: "Venter på %{requester_name}for å markere forespørsel som ferdig"
       waiting_confirmation_from_you: "Venter på at du skal merke forespørsel som gjennomført"
@@ -582,7 +582,7 @@ nb:
       reject_preauthorized_offer: "Ikke denne gang"
       reject_preauthorized_request: "Ikke denne gang"
       confirm: "Merk som ferdig"
-      cancel: Uenighet
+      cancel: Tvist
   braintree_accounts:
     new:
       add_payout_details: "Legg til dine utbetalings detaljer."
@@ -629,8 +629,8 @@ nb:
   community_memberships:
     access_denied:
       access_denied: "Tilgang avvist"
-      you_are_banned_in_this_community: "Administrator har hindret deg tilgang til %{service_name}. Dersom du ønsker å kontakte admin, gå til%{link_to_contact_page}"
-      contact_page_link: Tilbakemelding
+      you_are_banned_in_this_community: "Administrator har fjernet din tilgang til %{service_name}. Dersom du ønsker å kontakte tjenesten, gå til %{link_to_contact_page}"
+      contact_page_link: tilbakemelding
     new:
       welcome_fb_user: "Velkommen til %{service_name},%{name}"
       fb_join_accept_terms: "Ett steg til for å bli medlem av %{service_name}: Du må akseptere bruker vilkår."
@@ -652,65 +652,65 @@ nb:
       you_have_not_yet_accepted_or_rejected_request: "Du har enda ikke godtatt eller avslått forespørselen %{title} du mottok %{date}."
       show_thread: "Vis samtale"
     braintree_account_approved:
-      account_ready: "Du kan nå motta betaling"
+      account_ready: "Du kan nå motta betalinger"
       message: "Dine betalingsdetaljer er nå bekreftet og du er nå klar til å motta betalinger på %{service_name}"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel%{request_link}. Dersom forespørsel er gjennomført, må du bekrefte dette. Du kan nå gi tilbakemelding til %{other_party_given_name}"
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel%{request_link}.Vi overfører pengen til%{other_party_given_name} kun når a)du har merket forespørsel som gjennomført eller b)%{days_to_automatic_confirmation}dager siden du betalte. Etter at du har merket forespørsel som gjennomført kan du gi tilbakemelding til %{other_party_given_name}"
+      you_have_not_yet_confirmed_or_canceled_request: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel %{request_link}. Dersom forespørsel er gjennomført, må du bekrefte dette. Du kan nå gi tilbakemelding til %{other_party_given_name}"
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel %{request_link}. Vi overfører pengene til %{other_party_given_name} kun når du a) har merket forespørsel som gjennomført eller b) det har gått %{days_to_automatic_confirmation} dager siden du betalte. Etter at du har merket forespørsel som gjennomført kan du gi tilbakemelding til %{other_party_given_name}"
       remember_to_confirm_request: "Husk å godta eller avslå en forespørsel"
       if_will_not_happen_you_should_cancel: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du %{cancel_it_link}. Dette varsler admin som kontakter deg for refund."
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: |-
-          Dersom du tror denne forespørselen ikke kommer til å bli gjennomført for den ene eller andre årsak, har du %{days_to_cancel} dager til å %{cancel_it_link}
-          Administrator vil få melding og du blir kontaktet slik at du får refundert pengene.
+          Dersom du tror denne forespørselen ikke kommer til å bli gjennomført for den ene eller andre årsak, har du %{days_to_cancel} dager til å %{cancel_it_link}.
+          Vi vil få melding om dette og du blir kontaktet slik at du får refundert pengene.
       cancel_it_link_text: "Avbryt den"
       automatic_confirmation: "Dersom du ikke bekrefter eller avbryter forespørselen innen %{days_to_automatic_confirmation} dager etter forespørselen ble akseptert, blir den automatisk merket som gjennomført."
     payment_reminder:
-      remember_to_pay: "Husk å betale for%{listing_title}"
+      remember_to_pay: "Husk å betale for %{listing_title}"
       you_have_not_yet_paid: "Du har fremdeles ikke betalt for %{listing_title} som %{other_party_name} har bekreftet å tilby deg."
       if_will_not_happen_you_should_cancel: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du du %{cancel_it_link}."
-      cancel_it_link_text: "Avbryt den"
+      cancel_it_link_text: Avbryt
     payment_settings_reminder:
-      remember_to_add_payment_details: "Husk å legge til dine betalings detaljer slik at du kan motta betaling."
+      remember_to_add_payment_details: "Husk å legge til din betalingsinformasjon slik at du kan motta betalinger."
       you_have_added_listing_with_payment: "Du har lagt til annonsen %{listing_link} med betaling. Du har ikke enda lagt til dine betalingsdetaljer. For å kunne motta betaling må du legge til din betalingsinformasjon."
       please_go_to_payment_settings: "Vennligst gå til %{payment_settings_link} og fyll inn nødvendig betalingsinformasjon."
-      payment_settings_link: "Innstillinger betaling"
+      payment_settings_link: betalingsinnstillinger
     transaction_confirmed:
       here_is_a_message_from: "Her er en melding fra %{other_party_given_name}:"
       request_marked_as_confirmed: "Forespørsel gjennomført-husk å gi tilbakemelding"
       request_marked_as_canceled: "Forespørsel avbrutt."
-      has_marked_request_as_confirmed: "%{other_party_full_name}har merket forespørselen vedrørende %{request}som ferdig. Du kan nå gi tilbakemelding til %{other_party_given_name}"
+      has_marked_request_as_confirmed: "%{other_party_full_name} har merket forespørselen vedrørende %{request} som fullført. Du kan nå gi tilbakemelding til %{other_party_given_name}"
       has_marked_request_as_canceled: "%{other_party_full_name} har avbrutt forespørselen om '%{request}'. Du kan fremdeles gi tilbakemelding %{other_party_given_name}"
-      giving_feedback_is_good_idea: "Å gi tilbakemelding er alltid en god ide`. Dersom alt gikk fint, bør du la andre få vite at%{other_party_given_name}er til å stole på. Dersom det oppstod problemer er det fint å også nevne det."
-      give_feedback_to: "Gi tilbakemelding til%{other_party_given_name}"
+      giving_feedback_is_good_idea: "Å gi tilbakemelding er alltid en god idé. Dersom alt gikk fint, bør du la andre få vite at %{other_party_given_name} er til å stole på. Dersom det oppstod problemer er det fint å nevne det også."
+      give_feedback_to: "Gi tilbakemelding til %{other_party_given_name}"
     transaction_automatically_confirmed:
-      subject: "Forespørsel er automatisk merket som gjennomført-husk å gi tilbakemelding"
+      subject: "Forespørsel er automatisk merket som gjennomført - husk å gi tilbakemelding"
       we_have_marked_request_as_confirmed: "Vi har merket forespørselen vedrørende %{request} som fullført. Forespørselen ble automatisk fullført fordi %{days_passed} dager er passert siden forespørselen ble akseptert."
     booking_transaction_automatically_confirmed:
-      subject: "Forespørsel er automatisk merket som gjennomført-husk å gi tilbakemelding"
+      subject: "Forespørsel er automatisk merket som gjennomført - husk å gi tilbakemelding"
       we_have_marked_request_as_confirmed: "Vi har markert forespørselen om '%{request}' som fullført. Forespørselen ble automatisk fullført fordi en dag har gått siden booking-perioden ble avsluttet."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: |-
-          Du kan nå gi tilbakemelding til %{other_party_given_name}.Å gi tilbakemelding er alltid en god ide`. Dersom alt gikk fint, bør du la andre få vite
-          at%{other_party_given_name}er til å stole på. Dersom det oppstod problemer er det fint å også nevne det.
-      give_feedback_to: "Gi tilbakemelding til%{other_party_given_name}"
+          Du kan nå gi tilbakemelding til %{other_party_given_name}. Å gi tilbakemelding er alltid en god idé. Dersom alt gikk fint, bør du la andre få vite
+          at %{other_party_given_name}er til å stole på. Dersom det oppstod problemer er det fint at du også nevner det.
+      give_feedback_to: "Gi tilbakemelding til %{other_party_given_name}"
       show_thread: "Vis samtale"
     escrow_canceled:
       subject: "Betaling avvist"
-      has_marked_request_as_canceled: "%{other_party_full_name}har merket forespørselen vedrørende %{request} som avbrutt. Du vil ikke motta betaling for denne transaksjonen."
+      has_marked_request_as_canceled: "%{other_party_full_name} har merket forespørselen vedrørende %{request} som avbrutt. Du vil ikke motta betaling for denne transaksjonen."
       if_this_was_error: "Dersom du tror dette var en feil, %{please_contant_admin_link}"
-      please_contant_admin_link: "Vennligst kontakt administrator"
+      please_contant_admin_link: "vennligst kontakt oss"
     confirmation_instructions:
-      confirmation_instructions_signature: "Vennlig hilsen,<br/> %{service_name}-teamet"
+      confirmation_instructions_signature: "Vennlig hilsen,<br/> %{service_name}"
       welcome_to_kassi: "Velkommen til %{service_name}!"
       need_to_confirm: "Du må bekrefte din epost."
-      confirmation_link_text: "Bekreft min epost"
-      or_paste_link: "Alternativt kan du kopiere følgende link i nettleseren din:"
-      turning_on_confirmations_in_this_community: "Vi har begynt å bruke epost bekreftelse på markedsplass %{service_name}."
+      confirmation_link_text: "Bekreft min e-post"
+      or_paste_link: "Alternativt kan du kopiere lenken under til nettleseren din:"
+      turning_on_confirmations_in_this_community: "Vi har begynt å bruke e-postbekreftelse på markedsplass %{service_name}."
     common:
-      check_your_settings: "Sjekk innstillingene dine."
+      check_your_settings: "Sjekk innstillingene dine"
       hey: "Hei %{name},"
-      kassi_team: "%{service_name}-teamet"
+      kassi_team: "%{service_name}"
       thanks: "Takk,"
       want_to_control_emails: "Vil du kontrollere hvilke e-poster du mottar fra %{service_name}?"
       dont_want_to_receive_these_emails: "Ønsker du ikke å motta e-poster?"
@@ -718,7 +718,7 @@ nb:
       message_not_displaying_correctly: "Vises ikke denne e-post korrekt?"
       view_it_in_your_browser: "Se den i nettleseren din"
       or: eller
-      unsubscribe_from_these_emails: "meld deg av slike eposter"
+      unsubscribe_from_these_emails: "meld deg av slike e-poster"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har godtatt ditt tilbud %{listing}."
       has_accepted_your_request: "%{accepter} har godtatt din forespørsel %{listing}."
@@ -729,7 +729,7 @@ nb:
       your_offer_was_rejected: "Ditt tilbud ble avslått"
       your_request_was_accepted: "Din forespørsel ble godtatt"
       your_request_was_rejected: "Din forespørsel ble avslått"
-      you_can_now_pay_to: "Du kan nå betale forespurte beløp til%{payment_receiver}"
+      you_can_now_pay_to: "Du kan nå betale forespurte beløp til %{payment_receiver}"
       pay_now: "Betal nå"
       remember_to_confirm: "Når en forespørsel er gjennomført, husk å merke den som gjennomført. Dersom en forespørsel ikke er gjennomført har du %{days_to_automatic_confirmation} dager på å avbryte den. Om ikke blir den automatisk merket som gjennomført."
     invitation_to_kassi:
@@ -737,13 +737,13 @@ nb:
       you_have_been_invited_to_kassi: "%{inviter} har invitert deg til %{service_name}."
       here_is_a_message_from: "Her er en personlig melding fra %{inviter}:"
       join_now: "Bli medlem nå"
-      invitation_code: "Invitasjons kode:%{code}"
+      invitation_code: "Invitasjons kode: %{code}"
     new_comment:
-      has_commented_your_listing_in_kassi: "%{author}har commentary på din annonse%{listing}"
+      has_commented_your_listing_in_kassi: "%{author} har kommentert på din annonse %{listing}"
       view_comment: "Vis kommentar"
       you_have_a_new_comment: "%{author} har kommentert på din annonse hos %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} har commentary på en listing du følger på %{service_name}"
-      has_commented_listing_you_follow_in_kassi: "%{author}har kommentert på annonsen %{listing} du følger på%{service_name}"
+      has_commented_listing_you_follow_in_kassi: "%{author} har kommentert på annonsen '%{listing}' du følger på %{service_name}"
     new_message:
       view_message: "Vis melding"
       has_sent_you_a_message_in_kassi: "%{sender} har sendt deg en melding hos %{service_name}."
@@ -752,43 +752,43 @@ nb:
       new_payment: "Du har mottatt en ny betaling"
       price_per_unit_type: "Pris per %{unit_type}"
       quantity: "Antall:"
-      you_have_received_new_payment: "Du har fått betaling <b>%{payment_sum}</b>for<b>%{listing_title}</b>av %{payer_full_name}. Her er din kvittering."
+      you_have_received_new_payment: "Du har mottatt betaling <b>%{payment_sum}</b> for <b>%{listing_title}</b> av  %{payer_full_name}. Her er din kvittering."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-kostnad:"
       shipping_total: "Frakt:"
     braintree_new_payment:
       product: "Produkt:"
-      price_payer_paid: "Pris%{payer_full_name}betalt:"
-      service_fee: "%{service_name}tjenestekostnad:"
+      price_payer_paid: "Beløp %{payer_full_name} betalte:"
+      service_fee: "%{service_name}-tjenestekostnad:"
       you_will_get: "Totalt:"
-      money_will_be_transferred: "Pengene overføres til din konto nå a)%{payer_name} har huket av forespørselen som utført eller b)%{automatic_confirmation_days} dager er gått siden %{payer_name} betalte."
+      money_will_be_transferred: "Pengene overføres til din konto nå a) %{payer_name} har huket av forespørselen som utført eller b) %{automatic_confirmation_days} dager er gått siden %{payer_name} betalte."
     receipt_to_payer:
-      receipt_of_payment: "Kvittering av betaling"
-      you_have_made_new_payment: "Du har betalt <b>%{payment_sum}</b>for<b>%{listing_title}</b>til %{recipient_full_name}. Her er kvitteringen."
+      receipt_of_payment: "Kvittering for betaling"
+      you_have_made_new_payment: "Du har betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> til %{recipient_full_name}. Her er kvitteringen."
       product: Produkt
       price_per_unit_type: "Pris per %{unit_type}"
       duration: "Varighet:"
       quantity: "Antall:"
-      subtotal: "Subtotal:"
+      subtotal: "Delsum:"
       total: Totalt
       price: Pris
       service_fee: Tjenestekostnad
-      money_will_be_transferred: "Pengene blir overført til %{recipient_name} når a) du har huket av for at forespørselen er utført eller b)%{automatic_confirmation_days} dager har gått fra du betalte."
+      money_will_be_transferred: "Pengene blir overført til %{recipient_name} når a) du har huket av for at forespørselen er utført eller b) %{automatic_confirmation_days} dager har gått fra du betalte."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har gitt deg tilbakemeldinge hos %{service_name}"
       you_can_give_feedback_to: "Du har ikke gitt tilbakemelding til %{name} enda."
       view_feedback: "Vis tilbakemelding"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "En listing du følger er oppdatert"
-      has_updated_listing_you_follow_in_kassi: "%{author}har oppdatert annonsen%{listing}du følger på %{service_name}"
+      has_updated_listing_you_follow_in_kassi: "%{author} har oppdatert annonsen '%{listing}' du følger på %{service_name}."
       view_changes: "Vis endringer"
     community_updates:
       added_offer: "%{name_link} la til en listing:"
-      added_request: "%{name_link} la til en listing:"
+      added_request: "%{name_link} laget en ny annonse:"
       added_listing: "%{name_link} la til en annonse:"
       update_mail_title: "%{title_link} oppdatering"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Her er noe av det som har skjedd på %{community_link} iløpet av den siste %{time_since_last_update}."
+      intro_paragraph: "Her er noe av det som har skjedd på %{community_link} i løpet av de siste %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Lag ny annonse!"
       reduce_email_footer_text: "For mange e-poster?%{settings_link} eller %{unsubscribe_link}."
@@ -807,28 +807,28 @@ nb:
       remember_to_give_feedback_to: "Påminnelse: husk å gi tilbakemelding til %{name}"
       you_have_not_given_feedback_yet: "Du har enda ikke gitt tilbakemelding til %{name} om '%{event}'. Husk å gi tilbakemelding om hvordan %{given_name} utførte dette."
     transaction_preauthorized:
-      subject: "%{requester}har etterspurt og betalt for%{listing_title}"
-      transaction_requested_by_user: "%{requester}har etterspurt og betalt for%{listing_title}"
+      subject: "%{requester} har etterspurt og betalt for %{listing_title}"
+      transaction_requested_by_user: "%{requester} har etterspurt og betalt for %{listing_title}"
       you_have_days_to_accept: "Du må akseptere eller avvise forespørselen innen %{payment_expires_in_days} dager. Dersom du ikke aksepterer innen tidsrammen, blir forespørselen automatisk avvist og du vil ikke få betalt."
-      click_here_to_reply: "klikk her for å svare på forespørselen"
+      click_here_to_reply: "Klikk her for å svare på forespørselen"
     transaction_preauthorized_reminder:
-      subject: "Husk å akseptere forespørselen fra %{requester}vedrørende%{listing_title}"
-      remember_to_accept: "Husk å akseptere forespørselen fra %{requester}vedrørende %{listing_title}.%{requester}har allerede betalt. Du må akseptere forespørselen for å kunne motta betaling."
+      subject: "Husk å akseptere forespørselen fra %{requester} vedrørende %{listing_title}"
+      remember_to_accept: "Husk å akseptere forespørselen fra %{requester} vedrørende %{listing_title}. %{requester} har allerede betalt. Du må akseptere forespørselen for å kunne motta betaling."
       one_day_left: "Dersom du ikke aksepterer forespørselen innen èn dag blir den automatisk avvist og du blir ikke betalt."
-      click_here_to_reply: "klikk her for å svare på forespørselen"
+      click_here_to_reply: "Klikk her for å svare på forespørselen"
     welcome_email:
       welcome_email_subject: "Velkommen til %{service_name}!"
       welcome_to_marketplace: "Velkommen til %{service_name}! Vi er glade for å ha deg med."
-      love_marketplace_crew: "Hilsen,<br /><i>%{service_name}-teamet</i>"
+      love_marketplace_crew: "Hilsen,<br /><i>%{service_name}</i>"
       p_s_did_you_know: "PS. Vil du lage din egen markedsplass akkurat slik som %{service_name}? Det er enkelt og du trenger ikke å kunne programmering. %{click_here_link} for å funne ut mer!"
       click_here_link_text: "Klikk her"
-      welcome_email_footer_text: "Hvilke e-poster ønsker du å motta fra %{service_name}?%{settings_link}"
+      welcome_email_footer_text: "Ønsker du å endre hvilke e-poster du får fra %{service_name}? %{settings_link}"
       settings_link_text: "Sjekk innstillingene dine."
       welcome_email_subject_for_marketplace_creator: "Velkommen til Sharetribe"
       welcome_to_marketplace_creator: "Velkommen til Sharetribe, %{name}!"
       congrats_for_creating_your_marketplace: "Gratulerer med ny markedsplass! Det var enkelt, var det ikke?"
       here_is_your_account_information: "Her er din konto informasjon."
-      your_email_address: "Espot brukt til å logge inn:"
+      your_email_address: "E-posten du brukte til å logge inn:"
       your_marketplace_address: "Ditt domene:"
       your_marketplace_admin_area: Adminområde
       just_follow_details: "Følg disse lenkene og du vil få mer informasjon om hvordan tilpasse din markedsplass!"
@@ -842,9 +842,9 @@ nb:
       contact_support_link_text: "kontakt vår support"
       admin_panel_link_text: adminpanel
     new_listing_by_followed_person:
-      subject: "%{author_name}har lagt ut en ny annonse på %{service_name}"
-      has_posted_a_new_listing: "%{author_name}har lagt ut en ny annonse:"
-      you_are_receiving_this_because: "Du mottok denne varslingen fordi du følger%{author_name}"
+      subject: "%{author_name} har lagt ut en ny annonse på %{service_name}"
+      has_posted_a_new_listing: "%{author_name} har lagt ut en ny annonse:"
+      you_are_receiving_this_because: "Du mottok denne varslingen fordi du følger %{author_name}"
       view_listing: "Se annonse"
   error_messages:
     listings:
@@ -859,7 +859,7 @@ nb:
     transaction_agreement:
       required_error: "Du må godta avtalevilkår"
     paypal:
-      generic_error: "En feil oppstod i betalingsprosessen. Din PayPal betaling kunne ikke sluttføres."
+      generic_error: "En feil oppstod i betalingsprosessen. Din PayPal-betaling kunne ikke gjennomføres."
       cancel_error: "En feil oppstod ved kansrelering. Kunne ikke sluttføre kansrelering."
       accept_authorization_error: "En feil oppstod med PayPal-betalingen. Vennligst prøv igjen."
       reject_authorization_error: "En feil oppstod med PayPal-betaling. Vennlist prøv igjen."
@@ -927,8 +927,8 @@ nb:
       offer_partitive: tilbud
       request_partitive: forespørsel
   header:
-    about: Om
-    home: Hjem
+    about: "Om tjenesten"
+    home: Forside
     members: Medlemmer
     new_listing: "Ny annonse"
     mobile_version: Mobilversjon
@@ -938,7 +938,7 @@ nb:
     create_new_marketplace: "Lag en ny markedsplass"
     contact_us: "Kontakt oss"
     profile: Profil
-    invite: "Inviter nye brukere"
+    invite: "Invitér nye brukere"
     login: "Logg inn"
     signup: "Registrér deg"
     menu: Meny
@@ -977,11 +977,11 @@ nb:
     custom_filters:
       update_view: "oppdater visning"
       min: "Minimum:"
-      max: "Max:"
+      max: "Maks:"
     event_feed:
       latest_events: "Hva skjer"
     grid_item:
-      processing_uploaded_image: "(Behandler bildet…)"
+      processing_uploaded_image: "Behandler opplastet bilde…"
     index:
       no_listings_with_your_search_criteria: "Vi finner ingen resultater som matcher dine søke kriterier."
       no_listings_notification: "Ingen annonser. %{add_listing_link}"
@@ -1008,15 +1008,15 @@ nb:
       tell_it_here: "Fortell om det her!"
       welcome_to_new_kassi: "Velkommer til nye %{service_name}!"
       no_reviews: "Ingen tilbakemeldinger"
-      no_image: "Ikke bilde"
+      no_image: "Uten bilder"
       filter: Filter
       this_is_private_community: "Du må logge inn for å se dette innholdet."
     invitation_form:
-      invite_your_friends: "Inviter dine venner til %{service_name}!"
-      email: Epost(er)
+      invite_your_friends: "Invitér dine venner til %{service_name}!"
+      email: E-post(er)
       message: "En personlig melding"
       send_invitation: "Send invitasjon"
-      add_as_many_emails_as_you_want: "Legg til e-post adressene til dem du inviterer i feltet under. Dersom du inviterer flere, adskill dem med komma imellom."
+      add_as_many_emails_as_you_want: "Legg til e-postadressene til de du inviterer i feltet under. Dersom du inviterer flere, adskill dem med komma og mellomrom."
       invitation_emails_field_placeholder: "venn1@eksempel.no, venn2@eksempel.no,..."
       invitation_message_field_placeholder: "Jeg ble medlem av denne fantastiske markedsplassen. Det bør du også!"
       errors_in_emails: "Sjekk at e-posten du la til er gyldig. Dersom du la til flere, sørg for at de er adskilt med komma."
@@ -1051,7 +1051,7 @@ nb:
       default_about_text: "Denne markedsplassen er laget på Sharetribe-platformen. Med Sharetribe kan du enkelt lage din egen markedsplass. Det er gratis og tar kun noen minutter. %{click_here_link} for å lære mer!"
       click_here_link_text: "Klikk her"
     how_to_use:
-      default_title: "Hvordan det virker"
+      default_title: "Hvordan virker det"
       default_content: "Her kan du finne mer informasjon om hvordan %{marketplace_name} virker."
   layouts:
     admin:
@@ -1088,7 +1088,7 @@ nb:
       select_language: "Velg språk"
     infos:
       about: Om
-      how_to_use: "Hvordan det virker"
+      how_to_use: "Hvordan virker det"
       info_about_kassi: "Informasjon om %{service_name}"
       news: Nyheter
       register_details: Personvern
@@ -1149,7 +1149,7 @@ nb:
       account_creation_successful: "Velkommen til%{service_name}, %{person_name}"
       account_deleted: "Din konto er nå slettet."
       login_successful: "Velkommen, %{person_name}!"
-      logout_successful: "Du er nå logget ut av %{service_name}.Ser deg snart igjen!"
+      logout_successful: "Du er nå logget ut av %{service_name}. Velkommen tilbake!"
       news_item_created: "Artikkel opprettet"
       news_item_creation_failed: "Oppretting artikkel feilet"
       news_item_update_failed: "Artikkel oppdatering feielt"
@@ -1205,7 +1205,7 @@ nb:
       you_have_already_given_feedback_about_this_event: "Du har allerede gitt tilbakemelding"
       you_are_now_member: "Velkommen til %{service_name}!"
       you_are_already_member: "Du er allerede medlem av %{service_name}. Velkommen tilbake!"
-      you_must_log_in_to_create_new_listing: "Du må logge inn på %{service_name} for legge til en ny listing. Har du ikke konto kan du gjøre det her %{sign_up_link}"
+      you_must_log_in_to_create_new_listing: "Du må logge inn på %{service_name} for å lage en ny annonse. Har du ikke brukerkonto kan du %{sign_up_link}"
       additional_email_confirmed_dashboard: "Din e-post er nå bekreftet."
       you_must_log_in_to_give_feedback: "Du må logge inn for å gi tilbakemelding"
       you_must_log_in_to_invite_new_users: "Du må være innlogget for å invitere nye brukere til %{service_name}"
@@ -1234,8 +1234,8 @@ nb:
       stylesheet_needs_recompiling: "Side genereres på nytt. Vennligst last siden på nytt etter en liten stund."
     settings:
       account: Konto
-      notifications: Notifikasjoner
-      profile: "Profil informasjon"
+      notifications: Varslinger
+      profile: Brukerprofil
       settings: Innstillinger
       payments: Betalinger
   listings:
@@ -1303,7 +1303,7 @@ nb:
         loading_image: "Laster opp..."
         this_may_take_a_while: "(dette kan ta en stund)"
         percentage_loaded: "%{percentage}%"
-        uploading_failed: "Bilde opplasting feilet"
+        uploading_failed: "Bildeopplasting feilet"
         file_too_large: "Filen er for stor"
         accepted_formats: "Bilde-filen må enten være GIF, JPG or PNG."
       location:
@@ -1350,7 +1350,7 @@ nb:
         comma_separate: "(del opp med komma)"
         tags: Tags
       title:
-        listing_title: "Annonse tittel"
+        listing_title: Annonsetittel
       valid_until:
         valid_until: Utløpsdato
       valid_until_radio_buttons:
@@ -1410,10 +1410,10 @@ nb:
       booking_to: Til
       how_paypal_works: "Hvordan PayPal virker"
     new:
-      post_a_new_listing: "Post en ny annonse"
+      post_a_new_listing: "Opprett en ny annonse"
       listing: annonse
-      selected_category: "Kategori:%{category}"
-      selected_subcategory: "Under kategori:%{subcategory}"
+      selected_category: "Kategori: %{category}"
+      selected_subcategory: "Underkategori: %{subcategory}"
       selected_transaction_type: "Annonse type: %{transaction_type}"
       select_category: "Velg kategori"
       select_subcategory: "Velg underkategori"
@@ -1446,7 +1446,7 @@ nb:
       item_offer_trade: "Tilbud om bytte"
       item_request_trade: "Forespørsel om bytte"
       no_description: "Denne listingen har ingen beskrivelse"
-      no_image: "Ikke bilde"
+      no_image: "Uten bilder"
       no_reviews: "Ingen tilbakemeldinger mottatt"
       offer: Tilbud
       listing_created: Opprettet
@@ -1464,7 +1464,7 @@ nb:
       time: tid
       times: ganger
       times_viewed: vist
-      processing_uploaded_image: "(Behandler bildet…)"
+      processing_uploaded_image: "Behandler opplastet bilde…"
       price_excludes_vat: "(ikke inklusiv MVA)"
       listing_created_at: "Annonse opprettet"
       price:
@@ -1491,7 +1491,7 @@ nb:
       by: "%{listing} av %{author}"
       payment: Betaling
       exp: "Utløpsdato:"
-      you_will_be_charged: "Du blir belastet kun dersom %{author} aksepterer transaksjonen.%{author} må akseptere transaksjonen innen %{expiration_period} dager. Hvis %{author} avviser eller ikke svarer, forekommer ingen kostnad."
+      you_will_be_charged: "Du blir belastet kun dersom %{author} aksepterer transaksjonen. %{author} må akseptere transaksjonen innen %{expiration_period} dager. Hvis %{author} avviser eller ikke svarer, forekommer ingen kostnad."
       day: dag
       days: dager
     transaction_agreement_checkbox:
@@ -1538,7 +1538,7 @@ nb:
       price_for: "Pris for%{payer_given_name}"
       continue_to_pay: "Gå til betaling"
       invoice: Faktura
-      service_fee: "%{service_name}tjenestekostnad"
+      service_fee: "%{service_name}-tjenestekostnad"
       you_will_get: "Du vil motta:"
     braintree:
       terms:
@@ -1546,8 +1546,8 @@ nb:
         terms_link_text: "Braintree bruker vilkår"
   paypal_accounts:
     payout_info_title: Utbetalingsinformasjon
-    paypal_account_email_connected: "<del>Koble til PayPal-konto</del> Fullført!"
-    paypal_billing_agreement_made: "<del>Gi %{service_name} tillatelse til å ta betalt for sine tjenester</del> Fullført!"
+    paypal_account_email_connected: "1. <del>Koble til PayPal-konto</del> Fullført!"
+    paypal_billing_agreement_made: "2. <del>Tillat %{service_name} å ta betalt for sine tjenester</del> Fullført!"
     you_are_ready_to_accept_payments: "Du er klar til å motta betaling!"
     commission: "%{commission} %"
     connected_account: "PayPal-konto '%{email}' tilkoblet."
@@ -1555,17 +1555,17 @@ nb:
     missing: "Du har åpne annonser men har ikke koblet til en PayPal-konto så du vil ikke kunne motta betalinger. Vennligst koble til din PayPal-konto i dine %{settings_link}."
     from_your_payment_settings_link_text: betalingsinnstillinger
     new:
-      payout_info_you_need_to_connect: "For å motta betaling må du knytte din PayPal konto med %{service_name}"
+      payout_info_you_need_to_connect: "For å motta betaling må du knytte din PayPal-konto sammen med %{service_name}"
       payout_info_text: "Vennligst fullfør følgende steg for koble opp din konto."
       contact_admin_link_text: "kontakt administrator"
       admin_account_not_connected: "%{service_name}er ikke konfigurert for betaling, du kan derfor ikke knytte til din PayPal konto enda. Vennligst %{contact_admin_link} for detaljer."
       paypal_account_email: "Koble til din PayPal konto"
       paypal_account_email_placeholder: "Din PayPal e-post"
-      paypal_account_email_info_text: "Hvis du ikke har en PayPal-konto kan du raskt og enkelt %{create_paypal_account}. Hvis du får feilmelding ved tilkobling av kontoen må du oppgradere kontoen til en bedriftskonto. Dette gjøres ved noen ekstra klikk og koster ingenting. Hvis du er privatperson skriver du ditt fulle navn under \"bedriftsnavn\". For å oppgradere kontoen din finner du lenke her %{upgrade_paypal_account}."
-      create_paypal_account: "klikk her"
-      upgrade_paypal_account: "logg inn på din PayPal-konto"
-      connect_paypal_account: "Koble til PayPal-konto"
-      paypal_account_billing_agreement: "Tillat %{service_name} å ta et transaksjonsgebyr"
+      paypal_account_email_info_text: "Hvis du ikke har en PayPal-konto kan du raskt og enkelt opprette en konto ved å %{create_paypal_account}. Hvis du får feilmelding ved tilkobling av kontoen må du oppgradere kontoen til en bedriftskonto. Dette gjøres ved noen ekstra klikk og koster ingenting. Hvis du er privatperson skriver du ditt fulle navn under \"bedriftsnavn\". For å oppgradere kontoen din finner du klikker du her for å %{upgrade_paypal_account}."
+      create_paypal_account: "klikke her"
+      upgrade_paypal_account: "logge inn på din PayPal-konto"
+      connect_paypal_account: "1. Koble til PayPal-konto"
+      paypal_account_billing_agreement: "2. Tillat %{service_name} å ta et transaksjonsgebyr"
       paypal_account_billing_agreement_info_both: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt, minimumkostnad %{minimum_commission}) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad på %{minimum_commission} bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Etter at du gjør et salg på %{service_name} vil en tjenestekostnad (%{commission_from_seller} av totalsum, minus frakt) bli trukket fra din PayPal-konto. For å godta betalinger gjennom %{service_name} må du tillate tjenesten å ta betalt. Tjenestekostnaden inkluderer ikke %{paypal_info_link}."
@@ -1613,8 +1613,8 @@ nb:
       email_is_in_use_or_not_allowed: "Denne eposten er ikke godkjent eller allerede i bruk. Dersom du ikke får logget inn, kontakt oss."
       email_not_allowed: "Denne epost er ikke godkjent på %{service_name}. Vennligst bruk en epost adresse som er godkjent. Om du fremdeles opplever problemer, gi oss tilbakemelding."
       email_restriction_instructions:
-        one: " %{service_name} har restriksjoner. For å bli medlem trenger du en  '%{allowed_emails}' e-post addresse."
-        other: "%{service_name} har restriksjoner. Du trenger en e-post adresse som viser at du er godkjent for å bli medlem."
+        one: " %{service_name} har restriksjoner. For å bli medlem trenger du en  '%{allowed_emails}' e-postaddresse."
+        other: "%{service_name} har restriksjoner. Du trenger en e-postadresse som viser at du er godkjent for å bli medlem."
       enter_captcha: "Jeg er et menneske:"
       family_name: Etternavn
       given_name: Fornavn
@@ -1649,7 +1649,7 @@ nb:
     profile_listings:
       show_also_closed: "Vis også lukkede"
       show_only_open: "Vis kun åpne"
-      no_image: "Ikke bilde"
+      no_image: "Uten bilder"
     show:
       contact: "Kontakt %{person}"
       about_me: "Om meg:"
@@ -1706,7 +1706,7 @@ nb:
   sessions:
     new:
       create_new_account: "Opprett ny konto"
-      i_forgot_my_password: "Brukernavn eller passord glemt"
+      i_forgot_my_password: "Glemt brukernavn eller passord?"
       login: "Logg inn"
       login_to_kassi: "Logg inn på %{service_name}"
       connect_your_facebook_to_kassi: "Koble din Facebook-konto til %{service_name}"
@@ -1727,11 +1727,11 @@ nb:
     confirmation_pending:
       welcome_to_kassi: "Velkommen til %{service_name}!"
       check_your_email: "Sjekk din innboks"
-      resend_confirmation_instructions: "Send bekreftelses-instruksjoner på nytt"
+      resend_confirmation_instructions: "Send bekreftelse på nytt"
       your_current_email_is: "Din epost er %{email}."
       change_email: Endre
       confirm_your_email: "Vennligst bekreft din e-post"
-      account_confirmation_instructions: "Du vil snart motta en e-post med en link du må klikke på for å bekrefte din e-post. Når e-post er bekreftet kan du bli medlem av %{service_name}."
+      account_confirmation_instructions: "Du vil snart motta en e-post med en lenke for å bekrefte din e-post. Når du har bekreftet din e-post kan du begynne å bruke %{service_name}."
       account_confirmation_instructions_title_admin: "Velkommen til din markedsplass!"
       your_marketplace_has_now_been_created: "Din markedsplass er nå blitt laget. Det var enkelt, var det ikke? Kun noen få steg gjenstår før du kan bruke din side: du må bekrefte din epost-adresse."
       account_confirmation_instructions_admin: "Du vil snart motta en e-post med en link du må klikke på for å bekrefte din e-post. Når e-post er bekreftet kan du begynne å tilpasse markedsplassen din."
@@ -1767,27 +1767,27 @@ nb:
         status_confirmed: Bekreftet
         status_pending: Venter
     notifications:
-      email_from_admins: "Jeg ønsker å få oppdatering fra siden."
+      email_from_admins: "Jeg ønsker å få gjevnlige oppdatering fra siden"
       i_want_to_get_email_notification_when: "Jeg ønsker å motta en epost når..."
       newsletters: Nyhetsbrev
-      community_updates: "oppdater e-poster"
-      email_about_accept_reminders: "...Jeg har glemt å akseptere et tilbud eller forespørsel"
-      email_about_confirm_reminders: "...Jeg har glemt å bekrefte en forespørsel som fullført"
-      email_about_new_comments_to_own_listing: "...noen har kommentert på mitt tilbud eller forespørsel"
-      email_about_new_messages: "...noen sender meg en melding"
-      email_about_new_received_testimonials: "...noen gir meg tilbakemelding"
-      email_about_testimonial_reminders: "...jeg har glemt å gi tilbakemelding på en hendelse"
-      email_daily_community_updates: "Send meg en oppdatering på e-post<b>daglig</b> ved nye listinger"
-      email_weekly_community_updates: "Send meg en oppdatering på e-post<b>ukentlig</b> ved nye listinger"
-      do_not_email_community_updates: "Ikke send meg oppdaterings e-poster"
-      email_when_conversation_accepted: "...noen aksepterer mitt tilbud eller forespørsel"
-      email_when_conversation_rejected: "...noen avslår mitt tilbud eller forespørsel"
-      email_about_completed_transactions: "…noen markerer mitt tilbud eller forespørsel som fullført"
+      community_updates: "Oppdateringer på e-post"
+      email_about_accept_reminders: "…jeg har glemt å akseptere et tilbud eller en forespørsel"
+      email_about_confirm_reminders: "…jeg har glemt å bekrefte en forespørsel som fullført"
+      email_about_new_comments_to_own_listing: "…noen har kommentert på mitt tilbud eller forespørsel"
+      email_about_new_messages: "…noen sender meg en melding"
+      email_about_new_received_testimonials: "…noen gir meg en tilbakemelding"
+      email_about_testimonial_reminders: "…jeg har glemt å gi tilbakemelding på en hendelse"
+      email_daily_community_updates: "Send meg en oppdatering på e-post <b>daglig</b> med nye annonser"
+      email_weekly_community_updates: "Send meg en oppdatering på e-post <b>ukentlig</b> med nye annonser"
+      do_not_email_community_updates: "Ikke send meg oppdateringer på e-post"
+      email_when_conversation_accepted: "…noen aksepterer mitt tilbud eller forespørsel"
+      email_when_conversation_rejected: "…noen avslår mitt tilbud eller forespørsel"
+      email_about_completed_transactions: "...noen markerer mitt tilbud eller forespørsel som fullført"
       email_about_new_payments: "…jeg mottar en ny betaling"
-      email_about_payment_reminders: "...Jeg har glemt å betale"
-      email_about_new_listings_by_followed_people: "...noen jeg følger postet en ny annonse"
+      email_about_payment_reminders: "…jeg har glemt å betale"
+      email_about_new_listings_by_followed_people: "…noen jeg følger legger ut en ny annonse"
       unsubscribe_succesful: "avmelding utført"
-      unsubscribe_info_text: "Du får ikke lenger disse e-postene. Sjekk dine %{settings_link}for å velge hvilke e-poster du ønsker å motta fra %{service_name}, eller gå tilbake til %{homepage_link}."
+      unsubscribe_info_text: "Du vil ikke lenger motta slike e-poster. Sjekk dine %{settings_link} for å velge hvilke e-poster du ønsker å motta fra %{service_name}, eller gå tilbake til %{homepage_link}."
       settings_link: Innstillinger
       homepage_link: Forside
       unsubscribe_unsuccesful: "Feil ved avmelding"
@@ -1799,20 +1799,20 @@ nb:
       given_name: Fornavn
       first_name_with_initial: "(kun første bokstav vises andre brukere)"
       first_name_only: "(vises ikke til andre brukere)"
-      location_description: "Du kan enten legge til din eksakte lokasjon eller, for eksempel kun din postkode. Vennligst legg til minimum din postkode. Du kan også velge din lokasjon på kartet under."
+      location_description: "Du kan enten legge til din adresse eller ditt postnummer. Vi ber om at du ihvertfall legger til postnummer. Du kan også velge din lokasjon på kartet under."
       phone_number: Telefonnummer
       profile_picture: Profilbilde
       postal_code: Postnummer
       profile_page: "på din profil"
       profilemap: "Kart oversikt"
       street_address: Sted
-      these_fields_are_shown_in_your: "Denne informasjonen er synlig for alle %{service_name} brukere"
+      these_fields_are_shown_in_your: "Denne informasjonen er synlig for alle brukere på %{service_name}"
       visible_to_everybody: "Synlig for alle"
       visible_to_registered_users: "(synlig for brukere som er inn logget)"
-      default_in_listing: "(bare brukt som standard ved oprettelse av ny annonse)"
+      default_in_listing: "(brukes kun ved opprettelse av nye annonser)"
       invisible: "(vises ikke til andre brukere)"
       image_is_processing: "Ditt profilbilde er behandles nå. Vennligst last siden på nytt om et lite øyeblikk."
-    save_information: "Lagre informasjon"
+    save_information: "Lagre innstillinger"
   shipping_address:
     shipping_address: Leveringsadresse
   tag_cloud:
@@ -1851,7 +1851,7 @@ nb:
       negative: Negativ
       default_textual_feedback: "Alt gikk bra, takk!"
     testimonial:
-      about_listing: "Om annonse"
+      about_listing: "vedrørende annonse"
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
@@ -1908,7 +1908,7 @@ nb:
       december: Des
     today: Idag
     clear: Tøm
-    format: dd/mm/åååå
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%e %b %Y klokken %H:%M"

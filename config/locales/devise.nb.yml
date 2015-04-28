@@ -47,7 +47,7 @@ nb:
       send_instructions: "Du vil få en e-post med instruksjoner om hvordan du låser opp brukeren din om kort tid."
       unlocked: "Din bruker har nå blitt låst opp. Vennligst logg inn for å fortsette."
     omniauth_callbacks:
-      success: "Bekreftet fra %{kind} konto."
+      success: "Innlogget med %{kind}-konto."
       failure: "Kunne ikke bekrefte deg fra %{kind} fordi \"%{reason}\"."
     mailer:
       confirmation_instructions:
