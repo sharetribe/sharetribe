@@ -1,6 +1,27 @@
-module ListingShapeTemplates
+class ListingShapeTemplates
 
-  module_function
+  def initialize(process_summary)
+    @process_summary = process_summary
+  end
+
+  def label_key_list
+    available_templates.map { |tmpl|
+      [tmpl[:label], tmpl[:template]]
+    }
+  end
+
+  def find(key)
+    sym_key = key.to_sym
+    available_templates.find { |tmpl| tmpl[:template] == sym_key }
+  end
+
+  private
+
+  def available_templates
+    @available_templates ||= all.reject { |tmpl|
+      tmpl[:template] == :requesting && !@process_summary[:request_available]
+    }
+  end
 
   def all
     [

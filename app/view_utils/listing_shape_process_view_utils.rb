@@ -1,31 +1,5 @@
 module ListingShapeProcessViewUtils
 
-  module_function
-
-  def available_templates(templates, process_info)
-    templates.reject { |tmpl|
-      tmpl[:template] == :requesting && !process_info[:request_available]
-    }
-  end
-
-  def find_template(key, templates, process_info)
-    available_templates(templates, process_info).find { |tmpl| tmpl[:template] == key.to_sym }
-  end
-
-  def uneditable_fields(process_info)
-    {
-      shipping_enabled: !process_info[:preauthorize_available],
-      online_payments: !process_info[:preauthorize_available]
-    }
-  end
-
-  def process_info(processes)
-    processes.reduce({}) { |info, process|
-      info[:preauthorize_available] = true if process[:process] == :preauthorize
-      info
-    }
-  end
-
   module ShapeSanitizer
 
     PROCESS_AVAILABLE = ->(shape, processes) {

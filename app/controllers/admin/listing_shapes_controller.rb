@@ -69,19 +69,18 @@ class Admin::ListingShapesController < ApplicationController
 
   def index
     category_count = @current_community.categories.count
-    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
+    template_label_key_list = ListingShapeTemplates.new(process_summary).label_key_list
 
     render("index",
            locals: {
              selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-             templates: templates,
+             templates: template_label_key_list,
              category_count: category_count,
              listing_shapes: all_shapes(@current_community.id)})
   end
 
   def new
-    templates = ListingShapeProcessViewUtils.available_templates(ListingShapeTemplates.all, process_summary)
-    shape_template = ListingShapeProcessViewUtils.find_template(params[:template], templates, process_summary)
+    shape_template = ListingShapeTemplates.new(process_summary).find(params[:template])
 
     unless shape_template
       flash[:error] = "Invalid template: #{params[:template]}"
@@ -109,14 +108,14 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def create
-    params_form = params_to_form(params)
+    params_form = filter_uneditable_fields(params_to_form(params), process_summary)
 
-    # TODO Sanitize
-
-    create_result = ExtendedShapeService.new(processes).create(community_id: @current_community.id, default_locale: @current_community.default_locale, opts: params_form)
+    create_result = validate_form(params_form).and_then { |form|
+      ExtendedShapeService.new(processes).create(community_id: @current_community.id, default_locale: @current_community.default_locale, opts: form)
+    }
 
     if create_result.success
-      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: translate_extended_shape(params_form))
+      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: pick_translation(params_form[:name]))
       redirect_to action: :index
     else
       flash[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
@@ -126,13 +125,14 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def update
-    params_form = params_to_form(params)
-    # TODO Sanitize
+    params_form = filter_uneditable_fields(params_to_form(params), process_summary)
 
-    update_result = ExtendedShapeService.new(processes).update(community_id: @current_community.id, listing_shape_id: params[:id], opts: params_form)
+    update_result = validate_form(params_form).and_then { |form|
+      ExtendedShapeService.new(processes).update(community_id: @current_community.id, listing_shape_id: params[:id], opts: form)
+    }
 
     if update_result.success
-      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate_extended_shape(params_form))
+      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: pick_translation(params_form[:name]))
       return redirect_to admin_listing_shapes_path
     else
       flash[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
@@ -142,6 +142,45 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   private
+
+  def filter_uneditable_fields(form, process_summary)
+    form = Form.call(form)
+
+    uneditable_keys = uneditable_fields(process_summary).select { |_, uneditable| uneditable }.keys
+
+    form.except(*uneditable_keys)
+  end
+
+  def uneditable_fields(process_summary)
+    {
+      shipping_enabled: !process_summary[:preauthorize_available],
+      online_payments: !process_summary[:preauthorize_available]
+    }
+  end
+
+  def validate_form(form)
+    form = Form.call(form)
+
+    errors = []
+
+    if form[:shipping_enabled] && !form[:online_payments]
+      errors << "Shipping can not be enabled without online payments"
+    end
+
+    if form[:online_payments] && !form[:price_enabled]
+      errors << "Online payments can not be enabled without price"
+    end
+
+    if form[:units].present? && !form[:price_enabled]
+      errors << "Price units can not be used without price field"
+    end
+
+    if errors.empty?
+      Result::Success.new(form)
+    else
+      Result::Error.new(errors.join(", "))
+    end
+  end
 
   def template_to_form(template, locales)
     template = FormTemplate.call(template)
@@ -163,15 +202,15 @@ class Admin::ListingShapesController < ApplicationController
     ))
   end
 
-  def translate_extended_shape(shape)
-    shape[:name].find { |(locale, translation)|
+  def pick_translation(translations)
+    translations.find { |(locale, translation)|
       locale.to_s == I18n.locale.to_s
     }.second
   end
 
   def new_view_locals(form, process_summary, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_summary),
+      uneditable_fields: uneditable_fields(process_summary),
       shape: form,
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
@@ -181,7 +220,7 @@ class Admin::ListingShapesController < ApplicationController
     { name_tr_key: name_tr_key,
       id: id,
       selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_summary),
+      uneditable_fields: uneditable_fields(process_summary),
       shape: form,
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
@@ -209,7 +248,10 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def process_summary
-    @process_summary ||= ListingShapeProcessViewUtils.process_info(processes)
+    @process_summary ||= processes.reduce({}) { |info, process|
+      info[:preauthorize_available] = true if process[:process] == :preauthorize
+      info
+    }
   end
 
   def processes
