@@ -100,14 +100,9 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to action: :index
     end
 
-    shape_template = TranslationServiceHelper.tr_keys_to_form_values(
-      entity: shape_template,
-      locales: available_locales.map { |_, locale| locale },
-      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
+    form = template_to_form(shape_template, available_locales.map(&:second))
 
-    extended_shape_template = ExtendedShape.call(shape_template)
-
-    render("new", locals: extended_view_locals(shape_template, process_summary, available_locales()))
+    render("new", locals: new_view_locals(form, process_summary, available_locales()))
   end
 
   def edit
@@ -149,7 +144,7 @@ class Admin::ListingShapesController < ApplicationController
       redirect_to action: :index
     else
       flash[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
-      render("new", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
+      render("new", locals: new_view_locals(extended_shape, process_summary, available_locales()))
     end
 
   end
@@ -184,6 +179,17 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   private
+
+  def template_to_form(template, locales)
+    template_with_translations = TranslationServiceHelper.tr_keys_to_form_values(
+      entity: template,
+      locales: locales,
+      tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
+
+    template_with_translations.merge(
+      units: expand_units(template_with_translations[:units]),
+    )
+  end
 
   def translate_extended_shape(shape)
     shape[:name].find { |(locale, translation)|
@@ -231,6 +237,15 @@ class Admin::ListingShapesController < ApplicationController
 
   def merge_form_and_shape(form, extended_shape)
     extended_shape.deep_merge(form)
+  end
+
+  def new_view_locals(form, process_summary, available_locs)
+    { name_tr_key: form[:name_tr_key],
+      selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+      uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_summary),
+      shape: form,
+      locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
+    }
   end
 
   def extended_view_locals(extended_shape, process_summary, available_locs)
