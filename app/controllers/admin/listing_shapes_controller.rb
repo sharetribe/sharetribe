@@ -112,11 +112,18 @@ class Admin::ListingShapesController < ApplicationController
       locales: available_locales.map { |_, locale| locale }
     )
 
-    extended_shape = extended_shape_res.data
+    shape_form_res = ExtendedShapeService.new(processes).get_form(
+      community_id: @current_community.id,
+      listing_shape_id: params[:id],
+      locales: available_locales.map { |_, locale| locale }
+    )
 
-    return redirect_to error_not_found_path if extended_shape.nil?
+    # TODO FormTemplate datatype
+    form = shape_form_res.data
 
-    render("edit", locals: extended_view_locals(extended_shape, process_summary, available_locales()))
+    return redirect_to error_not_found_path if form.nil?
+
+    render("edit", locals: edit_view_locals(params[:id], form[:name_tr_key], template_to_form(form, available_locales.map(&:second)), process_summary, available_locales()))
   end
 
   def create
@@ -234,7 +241,16 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def new_view_locals(form, process_summary, available_locs)
-    { name_tr_key: form[:name_tr_key],
+    { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+      uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_summary),
+      shape: form,
+      locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
+    }
+  end
+
+  def edit_view_locals(id, name_tr_key, form, process_summary, available_locs)
+    { name_tr_key: name_tr_key,
+      id: id,
       selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       uneditable_fields: ListingShapeProcessViewUtils.uneditable_fields(process_summary),
       shape: form,
@@ -312,6 +328,19 @@ class Admin::ListingShapesController < ApplicationController
           tr_key_prop_form_name_map: TR_KEY_PROP_FORM_NAME_MAP)
 
         Result::Success.new(ExtendedShape.call(shape_with_translations))
+      }
+    end
+
+
+    def get_form(community_id:, listing_shape_id:, locales:)
+      extended_shape = listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).and_then { |shape|
+        process = @processes.find { |p| p[:id] == shape[:transaction_process_id] }
+
+        raise ArgumentError.new("Can not find process with id: #{shape[:transaction_process_id]}") if process.nil?
+
+        shape_with_process = shape.merge(online_payments: process[:process] == :preauthorize) # TODO More sophisticated?
+
+        Result::Success.new(shape_with_process)
       }
     end
 
