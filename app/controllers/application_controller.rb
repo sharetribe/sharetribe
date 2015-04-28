@@ -208,11 +208,12 @@ class ApplicationController < ActionController::Base
   def self.default_community_fetch_strategy(domain)
     raise ArgumentError("Domain cannot be nil.") if domain.nil?
 
+    community = Community.where(domain: domain).first
+    return community if community.present?
+
     app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
     ident = domain.chomp(".#{app_domain}")
-
-    community = Community.where("domain = ? OR ident = ?", domain, ident).first
-
+    community = Community.where(ident: ident).first
     return community if community.present?
 
     # If only one, use it
@@ -226,8 +227,7 @@ class ApplicationController < ActionController::Base
     if @current_user
       @current_community_membership = CommunityMembership.where(person_id: @current_user.id, community_id: @current_community.id, status: "accepted").first
 
-      last_page_load_date = Maybe(@current_community_membership).last_page_load_date.or_else(nil)
-      if (@current_community_membership && !date_equals?(last_page_load_date, Date.today))
+      if (@current_community_membership && !date_equals?(@current_community_membership.last_page_load_date, Date.today))
         Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
       end
     end
