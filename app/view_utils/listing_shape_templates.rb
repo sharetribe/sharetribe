@@ -13,7 +13,6 @@ module ListingShapeTemplates
             price_enabled: true,
             shipping_enabled: true,
             online_payments: true,
-            transaction_process: { author_is_seller: true },
             template: :selling_products,
             units: []
           }
@@ -27,7 +26,6 @@ module ListingShapeTemplates
             price_enabled: true,
             shipping_enabled: false,
             online_payments: true,
-            transaction_process: { author_is_seller: true },
             template: :renting_products,
             units: [{type: :day, quantity_selector: :day}, {type: :week, quantity_selector: :number}, {type: :month, quantity_selector: :number}]
           }
@@ -41,7 +39,6 @@ module ListingShapeTemplates
             price_enabled: true,
             shipping_enabled: false,
             online_payments: true,
-            transaction_process: { author_is_seller: true },
             template: :offering_services,
             units: [{type: :hour, quantity_selector: :number}]
           }
@@ -55,7 +52,6 @@ module ListingShapeTemplates
             price_enabled: false,
             shipping_enabled: false,
             online_payments: false,
-            transaction_process: { author_is_seller: true },
             template: :giving_things_away,
             units: []
           }
@@ -69,7 +65,6 @@ module ListingShapeTemplates
             price_enabled: false,
             shipping_enabled: false,
             online_payments: false,
-            transaction_process: { author_is_seller: false },
             template: :requesting,
             units: []
           }
@@ -83,7 +78,6 @@ module ListingShapeTemplates
             price_enabled: false,
             shipping_enabled: false,
             online_payments: false,
-            transaction_process: { author_is_seller: true },
             template:  :announcement,
             units: []
           }
@@ -97,7 +91,6 @@ module ListingShapeTemplates
             price_enabled: false,
             shipping_enabled: false,
             online_payments: false,
-            transaction_process: { author_is_seller: true },
             template: :custom,
             units: []
           }

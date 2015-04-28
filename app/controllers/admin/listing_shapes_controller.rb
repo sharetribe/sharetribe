@@ -232,7 +232,7 @@ class Admin::ListingShapesController < ApplicationController
       units: parse_units(params[:units])
     ))
 
-    form[:transaction_process] = ListingShapeProcessViewUtils::ProcessSelector.process_from_form(form[:online_payments], shape_or_template, processes)
+    form[:transaction_process] = ListingShapeProcessViewUtils::ProcessSelector.process_from_form(form[:online_payments], processes)
     form[:units] = form[:units].map { |u| add_quantity_selector(u) }
     form[:basename] = form[:name][default_locale]
 

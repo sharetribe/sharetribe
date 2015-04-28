@@ -29,7 +29,7 @@ module ListingShapeProcessViewUtils
   module ProcessSelector
     module_function
 
-    def process_from_form(online_payments, shape_or_template, processes)
+    def process_from_form(online_payments, processes)
       process =
         if online_payments
           processes.find { |p| p[:process] == :preauthorize }
