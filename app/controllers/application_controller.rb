@@ -227,7 +227,7 @@ class ApplicationController < ActionController::Base
       @current_community_membership = CommunityMembership.where(person_id: @current_user.id, community_id: @current_community.id, status: "accepted").first
 
       last_page_load_date = Maybe(@current_community_membership).last_page_load_date.or_else(nil)
-      unless date_equals?(last_page_load_date, Date.today)
+      if (@current_community_membership && !date_equals?(last_page_load_date, Date.today))
         Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
       end
     end
