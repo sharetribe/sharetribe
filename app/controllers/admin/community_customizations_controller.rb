@@ -5,12 +5,13 @@ class Admin::CommunityCustomizationsController < ApplicationController
     @selected_left_navi_link = "tribe_details"
     # @community_customization is fetched in application_controller
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)
-    @all_locales = MarketplaceService::API::Marketplaces.all_locales
-
+    all_locales = MarketplaceService::API::Marketplaces.all_locales
+    
     @show_transaction_agreement = TransactionService::API::Api.processes.get(community_id: @current_community.id)
       .maybe
       .map { |data| has_preauthorize_process?(data) }
       .or_else(nil).tap { |p| raise ArgumentError.new("Can not find transaction process: #{opts}") if p.nil? }
+    render locals: {all_locales: all_locales}
   end
 
   def update_details
