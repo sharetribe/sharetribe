@@ -28,10 +28,35 @@ class ShapeService
   end
 
   def update(community_id:, listing_shape_id:, opts:)
-    form_opts = Shape.call(opts)
+    shape = process_shape(community_id: community_id, opts: opts)
+
+    listing_api.shapes.update(
+      community_id: community_id,
+      listing_shape_id: listing_shape_id,
+      opts: shape
+    )
+  end
+
+  def create(community_id:, default_locale:, opts:)
+    shape = process_shape(community_id: community_id, opts: opts)
+
+    with_basename = shape.merge(
+      basename: shape[:name][default_locale]
+    )
+
+    listing_api.shapes.create(
+      community_id: community_id,
+      opts: with_basename
+    )
+  end
+
+  private
+
+  def process_shape(community_id:, opts:)
+    shape = Shape.call(opts)
 
     with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
-      entity: form_opts,
+      entity: shape,
       key_map: KEY_MAP,
       community_id: community_id
     )
@@ -43,40 +68,8 @@ class ShapeService
     with_process = with_units.merge(
       transaction_process_id: select_process(with_units[:online_payments], @processes))
 
-    listing_api.shapes.update(
-      community_id: community_id,
-      listing_shape_id: listing_shape_id,
-      opts: with_process
-    )
+    with_process
   end
-
-  def create(community_id:, default_locale:, opts:)
-    form_opts = Shape.call(opts)
-
-    with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
-      entity: form_opts,
-      key_map: KEY_MAP,
-      community_id: community_id
-    )
-
-    with_basename = with_translations.merge(
-      basename: with_translations[:name][default_locale]
-    )
-
-    with_units = with_basename.merge(
-      units: with_basename[:units].map { |u| add_quantity_selector(u) }
-    )
-
-    with_process = with_units.merge(
-      transaction_process_id: select_process(with_units[:online_payments], @processes))
-
-    listing_api.shapes.create(
-      community_id: community_id,
-      opts: with_process
-    )
-  end
-
-  private
 
   def listing_api
     ListingService::API::Api
