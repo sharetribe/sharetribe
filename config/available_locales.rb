@@ -25,6 +25,7 @@ module Sharetribe
     ["Turkish", "tr-TR"],
     ["日本語", "ja"],
     ["Norsk", "nb"],
+    ["Polski", "pl"],
 
     # Customization languages
     ["English", "en-rc"],

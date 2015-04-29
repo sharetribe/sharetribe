@@ -12,6 +12,7 @@ I18n.fallbacks.map('ca' => 'es-ES')
 I18n.fallbacks.map('zh' => 'en')
 I18n.fallbacks.map('it' => 'en')
 I18n.fallbacks.map('nb' => 'en')
+I18n.fallbacks.map('pl' => 'en')
 I18n.fallbacks.map('fr-CA' => 'fr')
 
 I18n.fallbacks.map('en-rc' => 'en')
