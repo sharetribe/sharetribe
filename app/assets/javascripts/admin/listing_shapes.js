@@ -71,24 +71,26 @@ window.ST.initializeListingShapeForm = function(formId) {
     }
   };
 
-  $('#price-enabled').change(function() {
+  $('.js-price-enabled').change(function() {
     priceChanged($(this));
   });
-  $('#online-payments').change(function() {
+  $('.js-online-payments').change(function() {
     onlinePaymentsChanged($(this));
   });
 
   var toggleOnlinePaymentEnabled = function(enabled) {
-    toggle($("#online-payments"), enabled);
+    toggle($(".js-online-payments"), enabled);
+    toggleLabel($(".js-online-payments-label"), enabled);
   };
 
   var toggleShippingEnabled = function(enabled) {
-    toggle($("#shipping-enabled"), enabled);
-
+    toggle($(".js-shipping-enabled"), enabled);
+    toggleLabel($(".js-shipping-enabled-label"), enabled);
   };
 
   var toggleUnitsEnabled = function(enabled) {
     toggle($(".js-unit-checkbox"), enabled);
+    toggleLabel($(".js-unit-label"), enabled);
   };
 
   var toggle = function(el, state) {
@@ -98,6 +100,10 @@ window.ST.initializeListingShapeForm = function(formId) {
       el.prop('disabled', true);
       el.prop('checked', false);
     }
+  };
+
+  var toggleLabel = function(el, state) {
+    el.toggleClass("listing-shape-label-disabled", !state);
   };
 
   // Run once on init

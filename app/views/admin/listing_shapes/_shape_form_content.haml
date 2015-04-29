@@ -24,20 +24,20 @@
 
 .row
   .col-12
-    = check_box_tag(:price_enabled, "true", shape[:price_enabled], class: "checkbox-row-checkbox", id: "price-enabled")
-    = label_tag(:price_enabled, t("admin.listing_shapes.price_label"), class: "checkbox-row-label")
+    = check_box_tag(:price_enabled, "true", shape[:price_enabled], class: "checkbox-row-checkbox js-price-enabled")
+    = label_tag(:price_enabled, t("admin.listing_shapes.price_label"), class: "checkbox-row-label js-price-enabled-label")
 
 - unless uneditable_fields[:online_payments]
   .row
     .col-12
-      = check_box_tag(:online_payments, "true", shape[:online_payments], class: "checkbox-row-checkbox", id: "online-payments")
-      = label_tag(:online_payments, t("admin.listing_shapes.online_payments_label"), class: "checkbox-row-label")
+      = check_box_tag(:online_payments, "true", shape[:online_payments], class: "checkbox-row-checkbox js-online-payments")
+      = label_tag(:online_payments, t("admin.listing_shapes.online_payments_label"), class: "checkbox-row-label js-online-payments-label")
 
 - unless uneditable_fields[:shipping_enabled]
   .row
     .col-12
-      = check_box_tag(:shipping_enabled, "true", shape[:shipping_enabled], class: "checkbox-row-checkbox", id: "shipping-enabled")
-      = label_tag(:shipping_enabled, t("admin.listing_shapes.shipping_label"), class: "checkbox-row-label")
+      = check_box_tag(:shipping_enabled, "true", shape[:shipping_enabled], class: "checkbox-row-checkbox js-shipping-enabled")
+      = label_tag(:shipping_enabled, t("admin.listing_shapes.shipping_label"), class: "checkbox-row-label js-shipping-enabled-label")
 
 .row
   .col-12
@@ -47,6 +47,6 @@
   .row
     .col-12
       = check_box_tag("units[#{unit[:type]}]", "true", unit[:enabled], class: "js-unit-checkbox checkbox-row-checkbox")
-      = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label")
+      = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label js-unit-label")
 
 = hidden_field_tag("template", shape[:template])
