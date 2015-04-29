@@ -19,3 +19,21 @@
 .admin-left-navi-link-group-last {
   margin-bottom: 50px; // To make space to the bottom of the page
 }
+
+// Matching Selectize widget to our look
+.locale-selection__input-widget.selectize-control {
+  .selectize-input {
+    border: 2px solid $border;
+    @include border-radius(em(5));
+    font-size: 16px;
+    min-height: 42px;
+    div.item {
+      padding-top: 4px;
+      padding-bottom: 4px;
+      a.remove {
+        padding-top: 4px;
+        font-size: 16px;
+      }
+    }
+  } 
+}
