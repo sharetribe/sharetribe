@@ -13,7 +13,7 @@ module ListingService::Store::Shape
     [:shipping_enabled, :bool, :mandatory],
     [:units, :array, default: []], # Mandatory only if price_enabled
     [:price_quantity_placeholder, one_of: [nil, :mass, :time, :long_time]], # TODO TEMP
-    [:sort_priority, :fixnum, default: 0],
+    [:sort_priority, :fixnum],
     [:basename, :string, :mandatory]
   )
 
@@ -78,13 +78,18 @@ module ListingService::Store::Shape
 
     units = shape[:units].map { |unit| to_unit(unit) }
 
-    name = uniq_name(shape[:basename], shape[:community_id])
+    shapes = find_shape_models(community_id: community_id)
+    name = uniq_name(shapes, shape[:basename], shape[:community_id])
     shape_with_name = shape.except(:basename).merge(name: name)
+
+    shape_with_sort = shape_with_name.merge(
+      sort_priority: shape_with_name[:sort_priority] || next_sort_priority(shapes)
+    )
 
     ActiveRecord::Base.transaction do
 
       # Save to ListingShape model
-      shape_model = ListingShape.create!(shape_with_name.except(:units))
+      shape_model = ListingShape.create!(shape_with_sort.except(:units))
 
       # Save units
       units.each { |unit|
@@ -186,13 +191,20 @@ module ListingService::Store::Shape
       .order("listing_shapes.sort_priority")
   end
 
-  def uniq_name(name_source, community_id)
+  def next_sort_priority(shapes)
+    max = shapes.map { |s| s[:sort_priority] }.max
+    if max
+      max + 1
+    else
+      0
+    end
+  end
+
+  def uniq_name(shapes, name_source, community_id)
     blacklist = ['new', 'all']
     source = name_source.to_url
     base_name = source.present? ? source : DEFAULT_BASENAME
     current_name = base_name
-
-    shapes = find_shape_models(community_id: community_id)
 
     i = 1
     while blacklist.include?(current_name) || shapes.find { |s| s[:name] == current_name }.present? do
