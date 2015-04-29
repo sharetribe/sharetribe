@@ -121,7 +121,7 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def all_shapes(community_id)
-    ListingService::API::Api.shapes.get(community_id: community_id)
+    ListingService::API::Api.shapes.get(community_id: community_id, include_categories: true)
       .maybe()
       .or_else([])
   end
