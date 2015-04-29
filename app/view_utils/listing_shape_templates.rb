@@ -22,7 +22,7 @@ class ListingShapeTemplates
     with_translations = TranslationServiceHelper.tr_keys_to_form_values(
       entity: template,
       locales: locales,
-      tr_key_prop_form_name_map: TR_MAP
+      key_map: TR_MAP
     )
 
     Form.call(with_translations)

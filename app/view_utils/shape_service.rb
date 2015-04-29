@@ -20,7 +20,7 @@ class ShapeService
       with_translations = TranslationServiceHelper.tr_keys_to_form_values(
         entity: shape_with_process,
         locales: locales,
-        tr_key_prop_form_name_map: TR_MAP
+        key_map: TR_MAP
       )
 
       Result::Success.new(Form.call(with_translations))
@@ -31,11 +31,9 @@ class ShapeService
     form_opts = Form.call(opts)
 
     with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
-      target: form_opts,
-      form: form_opts,
-      tr_key_prop_form_name_map: TR_MAP,
-      community_id: community_id,
-      override: false
+      entity: form_opts,
+      key_map: TR_MAP,
+      community_id: community_id
     )
 
     with_units = with_translations.merge(
@@ -56,11 +54,9 @@ class ShapeService
     form_opts = Form.call(opts)
 
     with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
-      target: form_opts,
-      form: form_opts,
-      tr_key_prop_form_name_map: TR_MAP,
-      community_id: community_id,
-      override: true
+      entity: form_opts,
+      key_map: TR_MAP,
+      community_id: community_id
     )
 
     with_basename = with_translations.merge(
