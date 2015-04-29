@@ -2,15 +2,16 @@
   %h1= t("layouts.admin.admin")
 
 - content_for :javascript do
-  $('#listing_shape_form').validate();
+  window.ST.initializeListingShapeForm('#listing_shape_form')
+
 
 = render partial: "admin/left_hand_navigation", locals: { links: admin_links_for(@current_community), selected_left_navi_link: selected_left_navi_link }
 
 .left-navi-section
-  %h2= t(".edit_listing_shape", shape: t(shape[:name_tr_key]))
-  = form_tag(admin_listing_shape_path(shape[:id]), method: :put, id: "listing_shape_form") do
+  %h2= t(".edit_listing_shape", shape: name)
+  = form_tag(admin_listing_shape_path(id), method: :put, id: "listing_shape_form") do
 
-    = render partial: "shape_form_content", locals: { shape: shape, shape_form: shape_form, locale_name_mapping: locale_name_mapping, editable_fields: editable_fields }
+    = render partial: "shape_form_content", locals: { shape: shape, locale_name_mapping: locale_name_mapping, uneditable_fields: uneditable_fields }
 
     .row
       .col-12
