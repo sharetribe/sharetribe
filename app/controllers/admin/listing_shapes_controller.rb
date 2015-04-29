@@ -25,7 +25,6 @@ class Admin::ListingShapesController < ApplicationController
     template = ListingShapeTemplates.new(process_summary).find(params[:template], available_locales.map(&:second))
 
     unless template
-      flash[:error] = "Invalid template: #{params[:template]}"
       return redirect_to action: :index
     end
 
