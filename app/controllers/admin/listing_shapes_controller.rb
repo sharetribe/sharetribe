@@ -3,257 +3,260 @@ class Admin::ListingShapesController < ApplicationController
 
   ensure_feature_enabled :shape_ui
 
+  before_filter :ensure_no_braintree_or_checkout
+
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
 
-  ListingShapeForm = FormUtils.define_form(
-    "ListingShapeForm",
-    :name,
-    :action_button_label,
-    :shipping_enabled,
-    :price_enabled,
-    :online_payments,
-    :units,
-  ).with_validations {
-    validates :name, presence: true
-    validates :action_button_label, presence: true
-    validates :shipping_enabled, inclusion: { in: [true, false] }
-    # TODO Add validations
-  }
+  Shape = ListingShapeDataTypes::Shape
 
   def index
-    templates = ListingShapeTemplates.new(get_processes(@current_community.id))
-    shapes = all_shapes(@current_community.id)
+    category_count = @current_community.categories.count
+    template_label_key_list = ListingShapeTemplates.new(process_summary).label_key_list
 
     render("index",
            locals: {
              selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-             templates: templates.all,
-             listing_shapes: all_shapes(@current_community.id)})
+             templates: template_label_key_list,
+             category_count: category_count,
+             listing_shapes: all_shapes(community_id: @current_community.id, include_categories: true)})
   end
 
   def new
-    processes = get_processes(@current_community.id)
-    templates = ListingShapeTemplates.new(processes)
+    template = ListingShapeTemplates.new(process_summary).find(params[:template], available_locales.map(&:second))
 
-    unless templates.available?(params[:template])
-      flash[:error] = "Invalid template: #{params[:template]}"
+    unless template
       return redirect_to action: :index
     end
 
-    template = templates.find(params[:template])
-    render("new", locals: new_view_locals(template, processes, available_locales()))
+    render_new_form(template, process_summary, available_locales())
   end
 
   def edit
-    processes = get_processes(@current_community.id)
+    shape = ShapeService.new(processes).get(
+      community_id: @current_community.id,
+      listing_shape_id: params[:id],
+      locales: available_locales.map { |_, locale| locale }
+    ).data
 
-    shape = get_shape(@current_community.id, params[:id])
     return redirect_to error_not_found_path if shape.nil?
 
-    render("edit", locals: edit_view_locals(shape, processes, available_locales()))
+    render_edit_form(params[:id], shape, process_summary, available_locales())
   end
 
   def create
-    processes = get_processes(@current_community.id)
+    shape = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
 
-    shape_form = parse_params_to_form(params)
-
-    process_find_opts = {
-      process: shape_form.online_payments ? :preauthorize : :none,
-      author_is_seller: true # FIXME
-    }
-
-    process = processes.find { |p| p.slice(*process_find_opts.keys) == process_find_opts }.tap { |p|
-      raise ArgumentError.new("Can not find suitable transaction process for #{process_find_opts}") if p.nil?
-    }
-
-    unless shape_form.valid?
-      flash[:error] = shape_form.errors.full_messages.join(", ")
-      return render_edit(shape, @current_community.id, available_locales())
-    end
-
-    create_result =
-      create_translations(@current_community.id, shape_form)
-      .and_then { |translations|
-      name_tr_key, action_button_tr_key = translations.map { |t| t[:translation_key] }
-      name_translation = translations.first[:translations]
-      basename = name_translation.find { |t| t[:locale] == @current_community.default_locale } || name_translations.first
-      create_shape(@current_community.id, name_tr_key, action_button_tr_key, basename[:translation], process[:id], shape_form)
+    create_result = validate_shape(shape).and_then { |shape|
+      ShapeService.new(processes).create(
+        community_id: @current_community.id,
+        default_locale: @current_community.default_locale,
+        opts: shape
+      )
     }
 
     if create_result.success
-      flash[:message] = t("admin.listing_shapes.new.create_success")
+      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: pick_translation(shape[:name]))
       redirect_to action: :index
     else
-      flash[:error] = t("admin.listing_shapes.new.create_failure")
-      # TODO RENDER SOMETHING
+      flash[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
+      render_new_form(shape, process_summary, available_locales())
     end
 
   end
 
   def update
-    processes = get_processes(@current_community.id)
+    shape = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
 
-    shape = get_shape(@current_community.id, params[:id])
-    return redirect_to error_not_found_path if shape.nil?
+    update_result = validate_shape(shape).and_then { |shape|
+      ShapeService.new(processes).update(
+        community_id: @current_community.id,
+        listing_shape_id: params[:id],
+        opts: shape
+      )
+    }
 
-    shape_form = parse_params_to_form(params)
-    unless shape_form.valid?
-      flash[:error] = shape_form.errors.full_messages.join(", ")
-      return render_edit(shape, @current_community.id, available_locales())
-    end
-
-    update_result =
-      update_translations(@current_community.id, shape, shape_form)
-      .and_then { update_shape(shape, shape_form) }
-
-    if update_result[:success]
-      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: translate(shape[:name_tr_key]))
+    if update_result.success
+      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: pick_translation(shape[:name]))
       return redirect_to admin_listing_shapes_path
     else
-      flash[:error] = t("admin.listing_shapes.edit.update_failure")
-      render("edit", locals: edit_view_locals(shape, processes, available_locales()))
+      flash[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
+      render_edit_form(params[:id], shape, process_summary, available_locales())
     end
   end
 
+  def order
+    ordered_ids = params[:order].map(&:to_i)
+
+    shapes = all_shapes(community_id: @current_community.id, include_categories: false)
+
+    old_shape_order_id_map = shapes.map { |s|
+      {
+        id: s[:id],
+        sort_priority: s[:sort_priority]
+      }
+    }
+
+    old_shape_order = old_shape_order_id_map.map { |s| s[:sort_priority] }
+
+    distinguisable_order = old_shape_order.reduce([old_shape_order.first]) { |memo, x|
+      last = memo.last
+      if x <= last
+        memo << last + 1
+      else
+        memo << x
+      end
+    }
+
+    new_shape_order_id_map = ordered_ids.zip(distinguisable_order).map { |id, sort|
+      {
+        id: id,
+        sort_priority: sort
+      }
+    }
+
+    diff = ArrayUtils.diff_by_key(old_shape_order_id_map, new_shape_order_id_map, :id)
+
+    diff.select { |d| d[:action] == :changed }.each { |d|
+      opts = { sort_priority: d[:value][:sort_priority]}
+      listing_api.shapes.update(community_id: @current_community.id, listing_shape_id: d[:value][:id], opts: opts)
+    }
+
+    render nothing: true, status: 200
+  end
 
   private
 
-  def editable_fields(processes)
-    # TODO Read the processes and define which options are editable
+  def filter_uneditable_fields(shape, process_summary)
+    uneditable_keys = uneditable_fields(process_summary).select { |_, uneditable| uneditable }.keys
+    shape.except(*uneditable_keys)
+  end
+
+  def uneditable_fields(process_summary)
     {
-      shipping_enabled: true,
-      price_enabled: true,
-      online_payments: true
+      shipping_enabled: !process_summary[:preauthorize_available],
+      online_payments: !process_summary[:preauthorize_available]
     }
   end
 
-  def edit_view_locals(shape, processes, available_locs)
-    { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      editable_fields: editable_fields(processes),
-      shape: shape,
-      shape_form: to_form_data(shape, available_locs),
-      locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h  }
+  def render_new_form(form, process_summary, available_locs)
+    locals = common_locals(form, process_summary, available_locs)
+    render("new", locals: locals)
   end
 
-  def new_view_locals(shape, processes, available_locs)
-    { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      editable_fields: editable_fields(processes),
-      shape: shape,
-      shape_form: to_form_data(shape, available_locs),
-      locale_name_mapping: available_locs.map { |name, l| [l, name]}.to_h }
-  end
-
-
-  def parse_params_to_form(params)
-    ListingShapeForm.new(
-      params
-      .slice(:name, :action_button_label)
-      .merge(shipping_enabled: params[:shipping_enabled] == "true")
-      .merge(price_enabled: params[:price_enabled] == "true")
-      .merge(online_payments: params[:online_payments] == "true")
-      .merge(units: Maybe(params[:units]).or_else([]).map { |t, _| parse_unit(t) }))
-  end
-
-  def parse_unit(type)
-    type_sym = type.to_sym
-    selector =
-      if type_sym == :day
-        :day
-      else
-        :number
-      end
-    {type: type_sym, quantity_selector: selector}
-  end
-
-  def to_form_data(shape, available_locs)
-    shape_units = shape[:units].map { |t| t[:type] }.to_set
-    units = ListingShapeHelper.predefined_unit_types
-      .map { |t| {type: t, enabled: shape_units.include?(t), label: t("admin.listing_shapes.units.#{t}")} }
-      .concat(shape[:units]
-              .select { |unit| unit[:type] == :custom }
-              .map { |unit| {type: unit[:type], enabled: true, label: translate(unit[:translation_key])} })
-
-    ListingShapeForm.new(name: make_translations(shape[:name_tr_key], available_locs),
-                         price_enabled: shape[:price_enabled],
-                         online_payments: shape[:online_payments],
-                         action_button_label: make_translations(shape[:action_button_tr_key], available_locs),
-                         shipping_enabled: shape[:shipping_enabled],
-                         units: units)
-  end
-
-  def make_translations(tr_key, locales)
-    locales.map { |(loc_name, loc_key)|
-      [loc_key, t(tr_key, locale: loc_key)]
-    }.to_h
-
-  end
-
-  def update_translations(community_id, shape, shape_form)
-    tr_groups = TranslationServiceHelper.to_per_key_translations({
-      shape[:name_tr_key] => shape_form.name,
-      shape[:action_button_tr_key] => shape_form.action_button_label})
-
-    translations_api.translations.create(community_id, tr_groups)
-  end
-
-  def create_translations(community_id, shape_form)
-    tr_groups = [
-      {translations: shape_form.name.map { |loc, t| {locale: loc, translation: t} }},
-      {translations: shape_form.action_button_label.map { |loc, t| {locale: loc, translation: t} }}
-    ]
-
-    translations_api.translations.create(community_id, tr_groups)
-  end
-
-  def translations_api
-    TranslationService::API::Api
-  end
-
-  def all_shapes(community_id)
-    listing_api.shapes.get(community_id: community_id)
-      .maybe()
-      .or_else([])
-  end
-
-  def get_shape(community_id, listing_shape_id)
-    listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id)
-      .maybe()
-      .or_else(nil)
-  end
-
-  def get_processes(community_id)
-    TransactionService::API::Api.processes.get(community_id: community_id)[:data]
-  end
-
-  def create_shape(community_id, name_tr_key, action_button_tr_key, basename, transaction_process_id, shape_form)
-    listing_api.shapes.create(
-      community_id: community_id,
-      opts: {
-        transaction_process_id: transaction_process_id,
-        name_tr_key: name_tr_key,
-        action_button_tr_key: action_button_tr_key,
-        shipping_enabled: shape_form.shipping_enabled,
-        price_enabled: shape_form.price_enabled,
-        units: shape_form.units,
-        basename: basename
-      }
+  def render_edit_form(id, form, process_summary, available_locs)
+    locals = common_locals(form, process_summary, available_locs).merge(
+      id: id,
+      name: pick_translation(form[:name])
     )
+    render("edit", locals: locals)
   end
 
-  def update_shape(shape, shape_form)
-    listing_api.shapes.update(
-      community_id: shape[:community_id],
-      listing_shape_id: shape[:id],
-      opts: {
-        shipping_enabled: shape_form.shipping_enabled,
-        price_enabled: shape_form.price_enabled,
-        units: shape_form.units
-      }
-    )
+  def common_locals(form, process_summary, available_locs)
+    { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+      uneditable_fields: uneditable_fields(process_summary),
+      shape: FormViewLayer.shape_to_locals(form),
+      locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
+    }
   end
 
   def listing_api
     ListingService::API::Api
+  end
+
+  def all_shapes(community_id:, include_categories:)
+    listing_api.shapes.get(community_id: community_id, include_categories: include_categories)
+      .maybe()
+      .or_else([])
+  end
+
+  def process_summary
+    @process_summary ||= processes.reduce({}) { |info, process|
+      info[:preauthorize_available] = true if process[:process] == :preauthorize
+      info
+    }
+  end
+
+  def processes
+    @processes ||= TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
+  end
+
+  def validate_shape(form)
+    form = Shape.call(form)
+
+    errors = []
+
+    if form[:shipping_enabled] && !form[:online_payments]
+      errors << "Shipping can not be enabled without online payments"
+    end
+
+    if form[:online_payments] && !form[:price_enabled]
+      errors << "Online payments can not be enabled without price"
+    end
+
+    if form[:units].present? && !form[:price_enabled]
+      errors << "Price units can not be used without price field"
+    end
+
+    if errors.empty?
+      Result::Success.new(form)
+    else
+      Result::Error.new(errors.join(", "))
+    end
+  end
+
+  def pick_translation(translations)
+    translations.find { |(locale, translation)|
+      locale.to_s == I18n.locale.to_s
+    }.second
+  end
+
+  def ensure_no_braintree_or_checkout
+    gw = PaymentGateway.where(community_id: @current_community.id).first
+    if gw
+      flash[:error] = "Not available for your payment gateway: #{gw.type}"
+      redirect_to edit_details_admin_community_path(@current_community.id)
+    end
+  end
+
+  # FormViewLayer provides helper functions to transform:
+  # - Shape hash to renderable format
+  # - params from form back to Shape
+  #
+  module FormViewLayer
+    module_function
+
+    def params_to_shape(params)
+      form_params = HashUtils.symbolize_keys(params)
+      with_units = form_params.merge(
+        units: parse_units(form_params[:units])
+      )
+
+      Shape.call(with_units)
+    end
+
+    def shape_to_locals(shape)
+      shape = Shape.call(shape)
+
+      shape.merge(
+        units: expand_units(shape[:units]),
+      )
+    end
+
+    # private
+
+    # Take units from shape and add predefined units
+    def expand_units(shape_units)
+      shape_units_set = shape_units.map { |t| t[:type] }.to_set
+
+      ListingShapeHelper.predefined_unit_types
+        .map { |t| {type: t, enabled: shape_units_set.include?(t), label: I18n.t("admin.listing_shapes.units.#{t}")} }
+        .concat(shape_units
+                 .select { |unit| unit[:type] == :custom }
+                 .map { |unit| {type: unit[:type], enabled: true, label: translate(unit[:translation_key])} }) # TODO Change translate
+    end
+
+    def parse_units(selected_units)
+      (selected_units || []).map { |type, _| {type: type.to_sym, enabled: true}}
+    end
   end
 end

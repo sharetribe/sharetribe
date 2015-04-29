@@ -1,6 +1,9 @@
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
 
+- content_for :javascript do
+  window.ST.initializeListingShapesOrder();
+
 = render partial: "admin/left_hand_navigation", locals: { links: admin_links_for(@current_community), selected_left_navi_link: selected_left_navi_link }
 
 .left-navi-section
@@ -10,20 +13,43 @@
       .p= t(".description")
 
   .row
-    .col-12
-      %table
-        %thead
-          %th= t(".header.listing_shape_name")
-          %th= t(".header.listing_shape_categories")
-        %tbody
-          - listing_shapes.map do |shape|
-            %tr
-              %td= t(shape[:name_tr_key])
-              %td= "TODO"
-              %td
-                = link_to edit_admin_listing_shape_path(shape[:id]) do
-                  = icon_tag("edit", ["icon-fix"])
-                = icon_tag("cross", ["icon-fix"])
+    .col-5
+      %strong
+        = t(".header.listing_shape_name")
+    .col-5
+      %strong
+        = t(".header.listing_shape_categories")
+    .col-2
+  - listing_shapes.map do |shape|
+    .row.js-listing-shape-row{data: {id: shape[:id]}}
+      .col-5
+        = t(shape[:name_tr_key])
+      .col-5
+        - if shape[:category_ids].size == 0
+          = t("admin.listing_shapes.index.no_categories")
+        - elsif shape[:category_ids].size == category_count
+          = t("admin.listing_shapes.index.all_categories")
+        - else
+          = "#{shape[:category_ids].size}/#{category_count}"
+      .col-2
+        = link_to edit_admin_listing_shape_path(shape[:id]) do
+          = icon_tag("edit", ["icon-fix"])
+        = link_to '#', :class => "js-listing-shape-action-up admin-sort-button", :tabindex => "-1" do
+          = icon_tag("directup", ["icon-fix"])
+        = link_to '#', :class => "js-listing-shape-action-down admin-sort-button", :tabindex => "-1" do
+          = icon_tag("directdown", ["icon-fix"])
+
+  #listing-shape-ajax-status
+    .ajax-notification.ajax-notice.listing-shape-ajax-status-message.js-listing-shape-ajax-saving
+      .ajax-icon{:class => icon_class("loading")}
+      .ajax-text
+        = t("admin.listing_shapes.index.order.saving_order")
+    .ajax-notification.ajax-success.listing-shape-ajax-status-message.js-listing-shape-ajax-success
+      .ajax-icon{:class => icon_class("check")}
+      .ajax-text
+        = t("admin.listing_shapes.index.order.save_order_successful")
+    .ajax-notification.ajax-error.listing-shape-ajax-status-message.js-listing-shape-ajax-error
+      = t("admin.listing_shapes.index.order.save_order_error")
 
   .row
     .col-12
@@ -31,4 +57,4 @@
         .new-listing-shape-template-form-column
           = t("admin.listing_shapes.index.add_new_shape")
         .new-listing-shape-template-form-column
-          = select_tag :template, options_for_select([[t("admin.listing_shapes.index.select_template"), nil]].concat(templates.map { |tmpl| [t(tmpl[:label]), tmpl[:key]]} )), onChange: "form.submit();"
+          = select_tag :template, options_for_select([[t("admin.listing_shapes.index.select_template"), nil]].concat(templates.map { |(label_tr_key, template_name)| [t(label_tr_key), template_name]})), onChange: "form.submit();"
