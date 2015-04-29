@@ -8,7 +8,6 @@ class Admin::ListingShapesController < ApplicationController
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
 
   Form = ListingShapeDataTypes::Form
-  Shape = ListingShapeDataTypes::Shape
   TR_MAP = ListingShapeDataTypes::TR_KEY_PROP_FORM_NAME_MAP
 
   def index
@@ -24,30 +23,26 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def new
-    template = ListingShapeTemplates.new(process_summary).find(params[:template])
+    template = ListingShapeTemplates.new(process_summary).find(params[:template], available_locales.map(&:second))
 
     unless template
       flash[:error] = "Invalid template: #{params[:template]}"
       return redirect_to action: :index
     end
 
-    form = shape_to_form(template, available_locales.map(&:second))
-
-    render("new", locals: new_view_locals(form, process_summary, available_locales()))
+    render("new", locals: new_view_locals(template, process_summary, available_locales()))
   end
 
   def edit
-    shape = ShapeService.new(processes).get(
+    form = ShapeService.new(processes).get(
       community_id: @current_community.id,
       listing_shape_id: params[:id],
       locales: available_locales.map { |_, locale| locale }
     ).data
 
-    form = shape_to_form(shape, available_locales.map(&:second))
-
     return redirect_to error_not_found_path if form.nil?
 
-    render("edit", locals: edit_view_locals(params[:id], shape[:name_tr_key], form, process_summary, available_locales()))
+    render("edit", locals: edit_view_locals(params[:id], pick_translation(form[:name]), form, process_summary, available_locales()))
   end
 
   def create
@@ -108,7 +103,7 @@ class Admin::ListingShapesController < ApplicationController
   def new_view_locals(form, process_summary, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       uneditable_fields: uneditable_fields(process_summary),
-      shape: form,
+      shape: expand_form_units(form),
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
   end
@@ -118,7 +113,7 @@ class Admin::ListingShapesController < ApplicationController
       id: id,
       selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       uneditable_fields: uneditable_fields(process_summary),
-      shape: form,
+      shape: expand_form_units(form),
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
   end
@@ -164,16 +159,9 @@ class Admin::ListingShapesController < ApplicationController
     end
   end
 
-  def shape_to_form(template, locales)
-    template = Shape.call(template)
-
-    template_with_translations = TranslationServiceHelper.tr_keys_to_form_values(
-      entity: template,
-      locales: locales,
-      tr_key_prop_form_name_map: TR_MAP)
-
-    Form.call(template_with_translations.merge(
-      units: expand_units(template_with_translations[:units]),
+  def expand_form_units(form)
+    Form.call(form.merge(
+      units: expand_units(form[:units]),
     ))
   end
 
@@ -181,7 +169,8 @@ class Admin::ListingShapesController < ApplicationController
     form_params = HashUtils.symbolize_keys(params)
     Form.call(form_params.merge(
       units: parse_units(form_params[:units])
-    ))
+             )).tap { |form|
+    }
   end
 
   def pick_translation(translations)

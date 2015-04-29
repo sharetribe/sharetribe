@@ -3,7 +3,6 @@
 # and process information included
 class ShapeService
   Form = ListingShapeDataTypes::Form
-  Shape = ListingShapeDataTypes::Shape
   TR_MAP = ListingShapeDataTypes::TR_KEY_PROP_FORM_NAME_MAP
 
   def initialize(processes)
@@ -18,7 +17,13 @@ class ShapeService
 
       shape_with_process = shape.merge(online_payments: process[:process] == :preauthorize) # TODO More sophisticated?
 
-      Result::Success.new(Shape.call(shape_with_process))
+      with_translations = TranslationServiceHelper.tr_keys_to_form_values(
+        entity: shape_with_process,
+        locales: locales,
+        tr_key_prop_form_name_map: TR_MAP
+      )
+
+      Result::Success.new(Form.call(with_translations))
     }
   end
 

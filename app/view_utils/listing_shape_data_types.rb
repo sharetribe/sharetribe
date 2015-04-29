@@ -18,27 +18,9 @@ module ListingShapeDataTypes
     end
   }
 
-  Unit = EntityUtils.define_builder(
-    [:type, :symbol, :mandatory]
-  )
-
-  # Shape describes the data in Templates list.
-  # Also, ShapeService.get returns Shape
-  # Shape can be used to construct a Form
-  Shape = EntityUtils.define_builder(
-    [:label, :string, :optional], # Only for predefined templates
-    [:template, :symbol, :optional], # Only for predefined templates
-    [:name_tr_key, :string, :mandatory],
-    [:action_button_tr_key, :string, :mandatory],
-    [:price_enabled, :bool, :mandatory],
-    [:shipping_enabled, :bool, :mandatory],
-    [:online_payments, :bool, :mandatory],
-    [:units, collection: Unit]
-  )
-
   FormUnit = EntityUtils.define_builder(
     [:type, :symbol, :mandatory],
-    [:enabled, :bool, :mandatory],
+    [:enabled, :bool, :optional],
     [:label, :string, :optional]
   )
 
@@ -46,8 +28,8 @@ module ListingShapeDataTypes
   # Also, form can be constructed from the params.
   # Form can be passed to ShapeService and it will handle saving it
   Form = EntityUtils.define_builder(
-    [:name, :hash, :mandatory],
-    [:action_button_label, :hash, :mandatory],
+    [:name, :hash, :mandatory, validate_with: FORM_TRANSLATION],
+    [:action_button_label, :hash, :mandatory, validate_with: FORM_TRANSLATION],
     [:shipping_enabled, transform_with: CHECKBOX],
     [:price_enabled, transform_with: CHECKBOX],
     [:online_payments, transform_with: CHECKBOX],

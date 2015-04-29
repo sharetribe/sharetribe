@@ -1,5 +1,8 @@
 class ListingShapeTemplates
 
+  Form = ListingShapeDataTypes::Form
+  TR_MAP = ListingShapeDataTypes::TR_KEY_PROP_FORM_NAME_MAP
+
   def initialize(process_summary)
     @process_summary = process_summary
   end
@@ -10,9 +13,19 @@ class ListingShapeTemplates
     }
   end
 
-  def find(key)
+  def find(key, locales)
     sym_key = key.to_sym
-    available_templates.find { |tmpl| tmpl[:template] == sym_key }
+    template = available_templates.find { |tmpl| tmpl[:template] == sym_key }
+
+    return if template.nil?
+
+    with_translations = TranslationServiceHelper.tr_keys_to_form_values(
+      entity: template,
+      locales: locales,
+      tr_key_prop_form_name_map: TR_MAP
+    )
+
+    Form.call(with_translations)
   end
 
   private
