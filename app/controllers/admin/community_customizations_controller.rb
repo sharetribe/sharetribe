@@ -6,12 +6,15 @@ class Admin::CommunityCustomizationsController < ApplicationController
     # @community_customization is fetched in application_controller
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)
     all_locales = MarketplaceService::API::Marketplaces.all_locales
-    
+    enabled_locale_keys = available_locales().map{ |locale| locale[1] }
+
     @show_transaction_agreement = TransactionService::API::Api.processes.get(community_id: @current_community.id)
       .maybe
       .map { |data| has_preauthorize_process?(data) }
       .or_else(nil).tap { |p| raise ArgumentError.new("Can not find transaction process: #{opts}") if p.nil? }
-    render locals: {all_locales: all_locales}
+    render locals: {
+      locale_selection_locals: { all_locales: all_locales, enabled_locale_keys: enabled_locale_keys }
+    }
   end
 
   def update_details

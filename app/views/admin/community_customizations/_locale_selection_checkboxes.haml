@@ -1,5 +1,5 @@
 - content_for :javascript do
-  $('#locale-selection').selectize({plugins: ['remove_button'], items: ['en']});
+  $('#locale-selection').selectize({plugins: ['remove_button'], items: #{enabled_locale_keys.to_json.html_safe}});
 %div.locale-selection
   .input-header
     Enabled languages
