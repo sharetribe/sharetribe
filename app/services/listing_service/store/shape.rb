@@ -53,6 +53,8 @@ module ListingService::Store::Shape
     [:quantity_selector, :to_symbol, one_of: ["".to_sym, :none, :number, :day]] # in the future include :hour, :week:, :night ,:month etc.
   )
 
+  DEFAULT_BASENAME = 'order_type'
+
   module_function
 
   def get(community_id:, listing_shape_id: nil, include_categories: )
@@ -186,8 +188,9 @@ module ListingService::Store::Shape
 
   def uniq_name(name_source, community_id)
     blacklist = ['new', 'all']
-    current_name = name_source.to_url
-    base_name = current_name
+    source = name_source.to_url
+    base_name = source.present? ? source : DEFAULT_BASENAME
+    current_name = base_name
 
     shapes = find_shape_models(community_id: community_id)
 

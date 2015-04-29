@@ -112,6 +112,15 @@ describe ListingService::API::Shapes do
       end
     end
 
+    it "uses default basename for url if the name results in emtpy string" do
+      create_shape_res = create_shape(
+        basename: "!!"
+      )
+      expect(create_shape_res.success).to eql(true)
+      shape = create_shape_res.data
+      expect(shape[:name]).to eql("order_type")
+    end
+
     context "failure" do
       it "validates custom unit" do
         expect { create_shape(
