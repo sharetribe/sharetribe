@@ -19,6 +19,23 @@ class Admin::CommunityCustomizationsController < ApplicationController
 
   def update_details
     enabled_locales = params[:enabled_locales]
+    all_locales = MarketplaceService::API::Marketplaces.all_locales
+    previously_enabled_locale_keys = available_locales().map{ |locale| locale[1] }
+    enabled_locales_valid = enabled_locales.map do |locale|
+      all_locales.include? locale
+    end
+    if enabled_locales_valid
+      locales_involved = (previously_enabled_locale_keys + enabled_locales).uniq
+      binding.pry
+      locales_involved.map do |locale|
+        if enabled_locales.include?(locale) && !previously_enabled_locale_keys.include?(locale)
+          MarketplaceService::API::Marketplaces.enable_locale(@current_community, locale)
+        elsif !enabled_locales.include?(locale) && previously_enabled_locale_keys.include?(locale)
+          MarketplaceService::API::Marketplaces.disable_locale(@current_community, locale)
+        end
+      end
+    end
+
     updates_successful = @current_community.locales.map do |locale|
       permitted_params = [
         :name,

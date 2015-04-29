@@ -75,7 +75,7 @@ module MarketplaceService::API
     end
 
     def disable_locale(community, locale)
-      true
+      binding.pry
     end
 
     def all_locales
