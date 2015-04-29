@@ -18,26 +18,22 @@ module ListingShapeDataTypes
     end
   }
 
-  FormUnit = EntityUtils.define_builder(
-    [:type, :symbol, :mandatory],
-    [:enabled, :bool, :optional],
-    [:label, :string, :optional]
+  Unit = EntityUtils.define_builder(
+    [:type, :symbol, :mandatory]
   )
 
-  # Form can be passed to view to render the form.
-  # Also, form can be constructed from the params.
-  # Form can be passed to ShapeService and it will handle saving it
-  Form = EntityUtils.define_builder(
+  # Shape datatype is ListingShapeController's internal representation of the listing shape.
+  Shape = EntityUtils.define_builder(
     [:name, :hash, :mandatory, validate_with: FORM_TRANSLATION],
     [:action_button_label, :hash, :mandatory, validate_with: FORM_TRANSLATION],
     [:shipping_enabled, transform_with: CHECKBOX],
     [:price_enabled, transform_with: CHECKBOX],
     [:online_payments, transform_with: CHECKBOX],
-    [:units, default: [], collection: FormUnit],
+    [:units, default: [], collection: Unit],
     [:template, :to_symbol]
   )
 
-  TR_KEY_PROP_FORM_NAME_MAP = {
+  KEY_MAP = {
     name_tr_key: :name,
     action_button_tr_key: :action_button_label
   }

@@ -2,8 +2,8 @@
 # community id and listing shape id, and gets back the shape with translations
 # and process information included
 class ShapeService
-  Form = ListingShapeDataTypes::Form
-  TR_MAP = ListingShapeDataTypes::TR_KEY_PROP_FORM_NAME_MAP
+  Shape = ListingShapeDataTypes::Shape
+  KEY_MAP = ListingShapeDataTypes::KEY_MAP
 
   def initialize(processes)
     @processes = processes
@@ -20,19 +20,19 @@ class ShapeService
       with_translations = TranslationServiceHelper.tr_keys_to_form_values(
         entity: shape_with_process,
         locales: locales,
-        key_map: TR_MAP
+        key_map: KEY_MAP
       )
 
-      Result::Success.new(Form.call(with_translations))
+      Result::Success.new(Shape.call(with_translations))
     }
   end
 
   def update(community_id:, listing_shape_id:, opts:)
-    form_opts = Form.call(opts)
+    form_opts = Shape.call(opts)
 
     with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
       entity: form_opts,
-      key_map: TR_MAP,
+      key_map: KEY_MAP,
       community_id: community_id
     )
 
@@ -51,11 +51,11 @@ class ShapeService
   end
 
   def create(community_id:, default_locale:, opts:)
-    form_opts = Form.call(opts)
+    form_opts = Shape.call(opts)
 
     with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
       entity: form_opts,
-      key_map: TR_MAP,
+      key_map: KEY_MAP,
       community_id: community_id
     )
 

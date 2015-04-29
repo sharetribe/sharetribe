@@ -1,7 +1,6 @@
 class ListingShapeTemplates
-
-  Form = ListingShapeDataTypes::Form
-  TR_MAP = ListingShapeDataTypes::TR_KEY_PROP_FORM_NAME_MAP
+  Shape = ListingShapeDataTypes::Shape
+  KEY_MAP = ListingShapeDataTypes::KEY_MAP
 
   def initialize(process_summary)
     @process_summary = process_summary
@@ -22,10 +21,10 @@ class ListingShapeTemplates
     with_translations = TranslationServiceHelper.tr_keys_to_form_values(
       entity: template,
       locales: locales,
-      key_map: TR_MAP
+      key_map: KEY_MAP
     )
 
-    Form.call(with_translations)
+    Shape.call(with_translations)
   end
 
   private

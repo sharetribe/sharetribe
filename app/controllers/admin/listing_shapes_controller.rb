@@ -7,8 +7,7 @@ class Admin::ListingShapesController < ApplicationController
 
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
 
-  Form = ListingShapeDataTypes::Form
-  TR_MAP = ListingShapeDataTypes::TR_KEY_PROP_FORM_NAME_MAP
+  Shape = ListingShapeDataTypes::Shape
 
   def index
     category_count = @current_community.categories.count
@@ -34,63 +33,63 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def edit
-    form = ShapeService.new(processes).get(
+    shape = ShapeService.new(processes).get(
       community_id: @current_community.id,
       listing_shape_id: params[:id],
       locales: available_locales.map { |_, locale| locale }
     ).data
 
-    return redirect_to error_not_found_path if form.nil?
+    return redirect_to error_not_found_path if shape.nil?
 
-    render_edit_form(params[:id], form, process_summary, available_locales())
+    render_edit_form(params[:id], shape, process_summary, available_locales())
   end
 
   def create
-    params_form = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
+    shape = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
 
-    create_result = validate_form(params_form).and_then { |form|
+    create_result = validate_shape(shape).and_then { |shape|
       ShapeService.new(processes).create(
         community_id: @current_community.id,
         default_locale: @current_community.default_locale,
-        opts: form
+        opts: shape
       )
     }
 
     if create_result.success
-      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: pick_translation(params_form[:name]))
+      flash[:notice] = t("admin.listing_shapes.new.create_success", shape: pick_translation(shape[:name]))
       redirect_to action: :index
     else
       flash[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
-      render_new_form(params_form, process_summary, available_locales())
+      render_new_form(shape, process_summary, available_locales())
     end
 
   end
 
   def update
-    params_form = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
+    shape = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
 
-    update_result = validate_form(params_form).and_then { |form|
+    update_result = validate_shape(shape).and_then { |shape|
       ShapeService.new(processes).update(
         community_id: @current_community.id,
         listing_shape_id: params[:id],
-        opts: form
+        opts: shape
       )
     }
 
     if update_result.success
-      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: pick_translation(params_form[:name]))
+      flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: pick_translation(shape[:name]))
       return redirect_to admin_listing_shapes_path
     else
       flash[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
-      render_edit_form(params[:id], params_form, process_summary, available_locales())
+      render_edit_form(params[:id], shape, process_summary, available_locales())
     end
   end
 
   private
 
-  def filter_uneditable_fields(form, process_summary)
+  def filter_uneditable_fields(shape, process_summary)
     uneditable_keys = uneditable_fields(process_summary).select { |_, uneditable| uneditable }.keys
-    form.except(*uneditable_keys)
+    shape.except(*uneditable_keys)
   end
 
   def uneditable_fields(process_summary)
@@ -138,8 +137,8 @@ class Admin::ListingShapesController < ApplicationController
     @processes ||= TransactionService::API::Api.processes.get(community_id: @current_community.id)[:data]
   end
 
-  def validate_form(form)
-    form = Form.call(form)
+  def validate_shape(form)
+    form = Shape.call(form)
 
     errors = []
 
@@ -168,14 +167,12 @@ class Admin::ListingShapesController < ApplicationController
     }.second
   end
 
-
   def ensure_no_braintree
     if BraintreePaymentGateway.exists?(community_id: @current_community.id)
       flash[:error] = "Not available for Braintree"
       redirect_to edit_details_admin_community_path(@current_community.id)
     end
   end
-
 
   # FormViewLayer provides helper functions to transform:
   # - Shape hash to renderable format
@@ -190,14 +187,14 @@ class Admin::ListingShapesController < ApplicationController
         units: parse_units(form_params[:units])
       )
 
-      Form.call(with_units)
+      Shape.call(with_units)
     end
 
-    def shape_to_locals(form)
-      form = Form.call(form)
+    def shape_to_locals(shape)
+      shape = Shape.call(shape)
 
-      form.merge(
-        units: expand_units(form[:units]),
+      shape.merge(
+        units: expand_units(shape[:units]),
       )
     end
 
