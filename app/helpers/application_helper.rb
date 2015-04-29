@@ -626,8 +626,9 @@ module ApplicationHelper
     ]
 
     with_feature(:shape_ui) do
-      # Disabled for Braintree
-      unless BraintreePaymentGateway.exists?(community_id: @current_community.id)
+      # Disabled for Braintree and Checkout
+      gw = PaymentGateway.where(community_id: @current_community.id).first
+      unless gw
         links << {
           :text => t("admin.listing_shapes.index.listing_shapes"),
           :icon_class => icon_class("form"),
