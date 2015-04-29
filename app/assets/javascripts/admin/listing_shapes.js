@@ -107,7 +107,7 @@ window.ST.initializeListingShapeForm = function(formId) {
   };
 
   // Run once on init
-  priceChanged($('#price-enabled'));
-  onlinePaymentsChanged($('#online-payments'));
+  priceChanged($('.js-price-enabled'));
+  onlinePaymentsChanged($('.js-online-payments'));
 
 };
