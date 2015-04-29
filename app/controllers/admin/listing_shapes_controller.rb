@@ -18,7 +18,7 @@ class Admin::ListingShapesController < ApplicationController
              selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
              templates: template_label_key_list,
              category_count: category_count,
-             listing_shapes: all_shapes(@current_community.id)})
+             listing_shapes: all_shapes(community_id: @current_community.id, include_categories: true)})
   end
 
   def new
@@ -85,6 +85,46 @@ class Admin::ListingShapesController < ApplicationController
     end
   end
 
+  def order
+    ordered_ids = params[:order].map(&:to_i)
+
+    shapes = all_shapes(community_id: @current_community.id, include_categories: false)
+
+    old_shape_order_id_map = shapes.map { |s|
+      {
+        id: s[:id],
+        sort_priority: s[:sort_priority]
+      }
+    }
+
+    old_shape_order = old_shape_order_id_map.map { |s| s[:sort_priority] }
+
+    distinguisable_order = old_shape_order.reduce([old_shape_order.first]) { |memo, x|
+      last = memo.last
+      if x <= last
+        memo << last + 1
+      else
+        memo << x
+      end
+    }
+
+    new_shape_order_id_map = ordered_ids.zip(distinguisable_order).map { |id, sort|
+      {
+        id: id,
+        sort_priority: sort
+      }
+    }
+
+    diff = ArrayUtils.diff_by_key(old_shape_order_id_map, new_shape_order_id_map, :id)
+
+    diff.select { |d| d[:action] == :changed }.each { |d|
+      opts = { sort_priority: d[:value][:sort_priority]}
+      listing_api.shapes.update(community_id: @current_community.id, listing_shape_id: d[:value][:id], opts: opts)
+    }
+
+    render nothing: true, status: 200
+  end
+
   private
 
   def filter_uneditable_fields(shape, process_summary)
@@ -120,8 +160,12 @@ class Admin::ListingShapesController < ApplicationController
     }
   end
 
-  def all_shapes(community_id)
-    ListingService::API::Api.shapes.get(community_id: community_id, include_categories: true)
+  def listing_api
+    ListingService::API::Api
+  end
+
+  def all_shapes(community_id:, include_categories:)
+    listing_api.shapes.get(community_id: community_id, include_categories: include_categories)
       .maybe()
       .or_else([])
   end

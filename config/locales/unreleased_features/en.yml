@@ -11,6 +11,10 @@ en:
         header:
           listing_shape_name: "Order type name"
           listing_shape_categories: "Order type categories"
+        order:
+          saving_order: "Saving order"
+          save_order_successful: "Successfully saved order"
+          save_order_error: "An error occured while saving order. Please refresh the page and try again."
       templates:
         selling_products: "Selling products"
         renting_products: "Renting products"
