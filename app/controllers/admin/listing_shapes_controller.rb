@@ -30,7 +30,7 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to action: :index
     end
 
-    render("new", locals: new_view_locals(template, process_summary, available_locales()))
+    render_new_form(template, process_summary, available_locales())
   end
 
   def edit
@@ -42,11 +42,11 @@ class Admin::ListingShapesController < ApplicationController
 
     return redirect_to error_not_found_path if form.nil?
 
-    render("edit", locals: edit_view_locals(params[:id], pick_translation(form[:name]), form, process_summary, available_locales()))
+    render_edit_form(params[:id], form, process_summary, available_locales())
   end
 
   def create
-    params_form = filter_uneditable_fields(params_to_form(params), process_summary)
+    params_form = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
 
     create_result = validate_form(params_form).and_then { |form|
       ShapeService.new(processes).create(
@@ -61,13 +61,13 @@ class Admin::ListingShapesController < ApplicationController
       redirect_to action: :index
     else
       flash[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
-      render("new", locals: new_view_locals(params_form, process_summary, available_locales()))
+      render_new_form(params_form, process_summary, available_locales())
     end
 
   end
 
   def update
-    params_form = filter_uneditable_fields(params_to_form(params), process_summary)
+    params_form = filter_uneditable_fields(FormViewLayer.params_to_shape(params), process_summary)
 
     update_result = validate_form(params_form).and_then { |form|
       ShapeService.new(processes).update(
@@ -82,7 +82,7 @@ class Admin::ListingShapesController < ApplicationController
       return redirect_to admin_listing_shapes_path
     else
       flash[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
-      render("edit", locals: edit_view_locals(params[:id], form[:name_tr_key], form, process_summary, available_locales()))
+      render_edit_form(params[:id], params_form, process_summary, available_locales())
     end
   end
 
@@ -100,20 +100,23 @@ class Admin::ListingShapesController < ApplicationController
     }
   end
 
-  def new_view_locals(form, process_summary, available_locs)
-    { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      uneditable_fields: uneditable_fields(process_summary),
-      shape: expand_form_units(form),
-      locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
-    }
+  def render_new_form(form, process_summary, available_locs)
+    locals = common_locals(form, process_summary, available_locs)
+    render("new", locals: locals)
   end
 
-  def edit_view_locals(id, name_tr_key, form, process_summary, available_locs)
-    { name_tr_key: name_tr_key,
+  def render_edit_form(id, form, process_summary, available_locs)
+    locals = common_locals(form, process_summary, available_locs).merge(
       id: id,
-      selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
+      name: pick_translation(form[:name])
+    )
+    render("edit", locals: locals)
+  end
+
+  def common_locals(form, process_summary, available_locs)
+    { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       uneditable_fields: uneditable_fields(process_summary),
-      shape: expand_form_units(form),
+      shape: FormViewLayer.shape_to_locals(form),
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
   end
@@ -159,45 +162,60 @@ class Admin::ListingShapesController < ApplicationController
     end
   end
 
-  def expand_form_units(form)
-    Form.call(form.merge(
-      units: expand_units(form[:units]),
-    ))
-  end
-
-  def params_to_form(params)
-    form_params = HashUtils.symbolize_keys(params)
-    Form.call(form_params.merge(
-      units: parse_units(form_params[:units])
-             )).tap { |form|
-    }
-  end
-
   def pick_translation(translations)
     translations.find { |(locale, translation)|
       locale.to_s == I18n.locale.to_s
     }.second
   end
 
-  # Take units from shape and add predefined units
-  def expand_units(shape_units)
-    shape_units_set = shape_units.map { |t| t[:type] }.to_set
-
-    ListingShapeHelper.predefined_unit_types
-      .map { |t| {type: t, enabled: shape_units_set.include?(t), label: I18n.t("admin.listing_shapes.units.#{t}")} }
-      .concat(shape_units
-              .select { |unit| unit[:type] == :custom }
-              .map { |unit| {type: unit[:type], enabled: true, label: translate(unit[:translation_key])} }) # TODO Change translate
-  end
-
-  def parse_units(selected_units)
-    (selected_units || []).map { |type, _| {type: type.to_sym, enabled: true}}
-  end
 
   def ensure_no_braintree
     if BraintreePaymentGateway.exists?(community_id: @current_community.id)
       flash[:error] = "Not available for Braintree"
       redirect_to edit_details_admin_community_path(@current_community.id)
+    end
+  end
+
+
+  # FormViewLayer provides helper functions to transform:
+  # - Shape hash to renderable format
+  # - params from form back to Shape
+  #
+  module FormViewLayer
+    module_function
+
+    def params_to_shape(params)
+      form_params = HashUtils.symbolize_keys(params)
+      with_units = form_params.merge(
+        units: parse_units(form_params[:units])
+      )
+
+      Form.call(with_units)
+    end
+
+    def shape_to_locals(form)
+      form = Form.call(form)
+
+      form.merge(
+        units: expand_units(form[:units]),
+      )
+    end
+
+    # private
+
+    # Take units from shape and add predefined units
+    def expand_units(shape_units)
+      shape_units_set = shape_units.map { |t| t[:type] }.to_set
+
+      ListingShapeHelper.predefined_unit_types
+        .map { |t| {type: t, enabled: shape_units_set.include?(t), label: I18n.t("admin.listing_shapes.units.#{t}")} }
+        .concat(shape_units
+                 .select { |unit| unit[:type] == :custom }
+                 .map { |unit| {type: unit[:type], enabled: true, label: translate(unit[:translation_key])} }) # TODO Change translate
+    end
+
+    def parse_units(selected_units)
+      (selected_units || []).map { |type, _| {type: type.to_sym, enabled: true}}
     end
   end
 end
