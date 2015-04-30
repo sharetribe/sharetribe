@@ -188,6 +188,7 @@ class ListingsController < ApplicationController
         unit_options = ListingViewUtils.unit_options(shape[:units])
 
         render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(
+                 run_js_immediately: true,
                  shape: shape,
                  unit_options: unit_options,
                  shipping_price_additional: feature_enabled?(:shipping_per) ? 0 : nil)

@@ -1,5 +1,3 @@
-= render :partial => "listings/form/javascripts", :locals => { listing_id: @listing.id.to_s, minimum_price_cents: minimum_price_cents, run_js_immediately: false, shape: shape }
-
 - content_for :title_header do
   %h1= t(".edit_listing")
 
@@ -9,18 +7,5 @@
 - @community_category = @current_community.categories
 
 #new_listing_form.edit-listing-form.centered-section
-  = form_for @listing, :html => {:multipart => true} do |form|
-    = render :partial => "listings/form/title", :locals => { :form => form }
-    = render :partial => "listings/form/price", :locals => { :form => form, :seller_commission_in_use => seller_commission_in_use, :payment_gateway => payment_gateway, :run_js_immediately => false, :minimum_commission => minimum_commission, commission_from_seller: commission_from_seller, shape: shape, unit_options: unit_options, shipping_price_additional: shipping_price_additional }
-    = render :partial => "listings/form/description", :locals => { :form => form }
-    = render :partial => "listings/form/custom_fields", :locals => { :form => form, :listing => @listing, :custom_fields => @custom_field_questions }
-    = render :partial => "listings/form/valid_until", :locals => { :form => form }
-    = render :partial => "listings/form/origin", :locals => { :form => form, :origin_loc => @listing.origin_loc }
-    = render :partial => "listings/form/googlemap", :locals => { :form => form, :run_js_immediately => false}
-    = render :partial => "listings/form/images", :locals => { :form => form, :run_js_immediately => false }
-    = render :partial => "listings/form/visibility", :locals => { :form => form }
-    = render :partial => "listings/form/privacy", :locals => { :form => form }
-    = render :partial => "listings/form/send_button", :locals => { :form => form }
 
-- ["help_valid_until"].each do |field|
-  = render :partial => "listings/help_texts", :locals => { :field => field }
+  = render partial: "listings/form/form_content", locals: local_assigns.merge(run_js_immediately: false)
