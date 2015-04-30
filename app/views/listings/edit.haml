@@ -4,7 +4,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      initialize_new_listing_form_selectors("#{I18n.locale}", #{category_tree.to_json}, #{listing_form_menu_titles().to_json});
+      window.ST.initialize_edit_listing_form_selectors("#{I18n.locale}", #{category_tree.to_json}, #{listing_form_menu_titles().to_json}, #{category_id.to_json}, #{subcategory_id.to_json}, #{shape[:id].to_json});
     });
 
 - content_for :extra_javascript do
@@ -18,19 +18,19 @@
       .selected-group{:name => "category"}
         - categories.each do |value|
           %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
-            .link-text= t(".selected_category", :category => value.display_name(I18n.locale))
+            .link-text= t("listings.new.selected_category", :category => value.display_name(I18n.locale))
 
     - if subcategories.size > 1
       .selected-group{:name => "subcategory"}
         - subcategories.each do |value|
           %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
-            .link-text= t(".selected_subcategory", :subcategory => value.display_name(I18n.locale))
+            .link-text= t("listings.new.selected_subcategory", :subcategory => value.display_name(I18n.locale))
 
     - if shapes.size > 1
       .selected-group{:name => "listing_shape"}
         - shapes.each do |value|
           %a.select.selected.hidden{:href => "#", :data => {:id => value[:id]}}
-            .link-text= t(".selected_transaction_type", :transaction_type => t(value[:name_tr_key]))
+            .link-text= t("listings.new.selected_transaction_type", :transaction_type => t(value[:name_tr_key]))
 
   %h2.listing-form-title{:id => "foo"}
 

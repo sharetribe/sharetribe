@@ -7,7 +7,6 @@ window.ST = window.ST || {};
     // Hide everything
     $('a.selected').addClass('hidden');
     $('a.option').addClass('hidden');
-    $('.form-fields').html("");
 
     // Display correct selected attributes
     $('.selected-group').each(function() {
@@ -16,156 +15,9 @@ window.ST = window.ST || {};
       }
     });
 
-    // Return subcategories for given category.
-    // Returns empty array if there are no subcategories.
-    function get_subcategories_for(category_id, category_array) {
-      return _.chain(category_array)
-        .filter(function(category) {
-          return category["id"] == category_id;
-        })
-        .filter(function(category) {
-          return category["subcategories"] != undefined;
-        })
-        .map(function(category) {
-          return category["subcategories"];
-        })
-        .flatten()
-        .value();
-    }
-
-    // Check if category has a certain subcategory
-    function has_subcategory(category_id, subcategory_id, attribute_array) {
-      var subcategories = get_subcategories_for(category_id, attribute_array);
-      return _.any(subcategories, function(subcategory) {
-        return subcategory['id'] == subcategory_id;
-      });
-    }
-
-    // Returns true if given attribute has been selected
-    function attribute_selected(attribute, selected_attributes) {
-      return (selected_attributes[attribute] != null);
-    }
-
-    // Returns the object that has the given id
-    // from an array of objects
-    function find_by_id(id, array) {
-      return _.find(array, function(item) {
-        return item.id === id;
-      });
-    }
-
-    // Return listing shapes of given category (expects
-    // that this category does not have subcategories)
-    function get_listing_shapes_for_category(category_id, category_array) {
-      var category = find_by_id(Number(category_id), category_array);
-      return category["listing_shapes"];
-    }
-
-    // Returns listing shape of given subcategory
-    function get_listing_shapes_for_subcategory(category_id, subcategory_id, category_array) {
-      var category = find_by_id(Number(category_id), category_array);
-      var subcategory = find_by_id(Number(subcategory_id), category["subcategories"]);
-      return subcategory["listing_shapes"];
-    }
-
-    // Return true if given menu should be displayed
-    function should_show_menu_for(attribute, selected_attributes, attribute_array) {
-      if (attribute_selected(attribute, selected_attributes)) {
-        return false;
-      } else if (attribute == "category") {
-        if (attribute_array.length < 2) {
-          // If there is exactly 1 category, it should be marked automatically as selected,
-          // without showing the form.
-          if (attribute_array.length == 1) {
-            selected_attributes["category"] = attribute_array[0]["id"];
-          }
-          return false;
-        } else {
-          return true;
-        }
-      } else if (attribute == "subcategory") {
-        if (should_show_menu_for("category", selected_attributes, attribute_array)) {
-          return false;
-        } else {
-          var subcategories = get_subcategories_for(selected_attributes["category"], attribute_array);
-          if (subcategories.length < 2) {
-            // If there is exactly 1 subcategory, it should be marked automatically as selected,
-            // without showing the form.
-            if (subcategories.length == 1) {
-              selected_attributes["subcategory"] = subcategories[0]["id"];
-            }
-            return false;
-          } else {
-            return true;
-          }
-        }
-      } else if (attribute == "listing_shape") {
-        if (should_show_menu_for("category", selected_attributes, attribute_array)) {
-          return false;
-        } else if (should_show_menu_for("subcategory", selected_attributes, attribute_array)) {
-          return false;
-        } else {
-          var listing_shapes;
-          if (attribute_selected("subcategory", selected_attributes)) {
-            listing_shapes = get_listing_shapes_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"], attribute_array);
-          } else {
-            listing_shapes = get_listing_shapes_for_category(selected_attributes["category"], attribute_array);
-          }
-          // If there is exactly 1 listing shape, it should be marked automatically as selected,
-          // without showing the form
-          if (listing_shapes.length === 1) {
-            selected_attributes["listing_shape"] = listing_shapes[0]["id"];
-          }
-          return (listing_shapes.length > 1);
-        }
-      }
-    }
-
-    // Ajax call to display listing form after categories and
-    // listing shape has been selected
-    function display_listing_form(selected_attributes, locale) {
-      $('.form-fields').removeClass('hidden');
-      var new_listing_path = '/' + locale + '/listings/new_form_content';
-      $.get(new_listing_path, selected_attributes, function(data) {
-        $('.form-fields').html(data);
-      });
-    }
-
-    // Check if selected category or subcategory has certain listing shape
-    function has_listing_shape(selected_attributes, listing_shape_id, attribute_array) {
-      // If subcategory is selected, loop through listing shapes of that subcategory
-      var listing_shapes;
-      if (attribute_selected("subcategory", selected_attributes)) {
-        listing_shapes = get_listing_shapes_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"],attribute_array);
-        // If there's no subcategory, it means this top level category has no subcategories.
-        // Thus, loop through listing_shapes of top level category.
-      } else {
-        listing_shapes = get_listing_shapes_for_category(selected_attributes["category"] ,attribute_array);
-      }
-      return _.any(listing_shapes, function(listing_shape) {
-        return listing_shape['id'] == listing_shape_id;
-      });
-    }
-
-    // Displays the given menu where category or listing shape can be selected
-    function display_option_group(group_type, selected_attributes, attribute_array) {
-      $('.option-group[name=' + group_type + ']').children().each(function() {
-        if (group_type == "category") {
-          $(this).removeClass('hidden');
-        } else if (group_type == "subcategory") {
-          if (has_subcategory(selected_attributes["category"], $(this).attr('data-id'), attribute_array)) {
-            $(this).removeClass('hidden');
-          }
-        } else if (group_type == "listing_shape") {
-          if (has_listing_shape(selected_attributes, $(this).attr('data-id'), attribute_array)) {
-            $(this).removeClass('hidden');
-          }
-        }
-      });
-    }
-
     // Display correct attribute menus and their titles
     var title = "";
+    var shouldLoadForm = false;
     if (should_show_menu_for("category", selected_attributes, attribute_array)) {
       title = listing_form_menu_titles["category"];
       display_option_group("category", selected_attributes, attribute_array);
@@ -176,9 +28,162 @@ window.ST = window.ST || {};
       title = listing_form_menu_titles["listing_shape"];
       display_option_group("listing_shape", selected_attributes, attribute_array);
     } else {
-      display_listing_form(selected_attributes, locale);
+      shouldLoadForm = true;
     }
     $('h2.listing-form-title').html(title);
+
+    return shouldLoadForm;
+  }
+
+
+
+  // Return subcategories for given category.
+  // Returns empty array if there are no subcategories.
+  function get_subcategories_for(category_id, category_array) {
+    return _.chain(category_array)
+      .filter(function(category) {
+        return category["id"] == category_id;
+      })
+      .filter(function(category) {
+        return category["subcategories"] != undefined;
+      })
+      .map(function(category) {
+        return category["subcategories"];
+      })
+      .flatten()
+      .value();
+  }
+
+  // Check if category has a certain subcategory
+  function has_subcategory(category_id, subcategory_id, attribute_array) {
+    var subcategories = get_subcategories_for(category_id, attribute_array);
+    return _.any(subcategories, function(subcategory) {
+      return subcategory['id'] == subcategory_id;
+    });
+  }
+
+  // Returns true if given attribute has been selected
+  function attribute_selected(attribute, selected_attributes) {
+    return (selected_attributes[attribute] != null);
+  }
+
+  // Returns the object that has the given id
+  // from an array of objects
+  function find_by_id(id, array) {
+    return _.find(array, function(item) {
+      return item.id === id;
+    });
+  }
+
+  // Return listing shapes of given category (expects
+  // that this category does not have subcategories)
+  function get_listing_shapes_for_category(category_id, category_array) {
+    var category = find_by_id(Number(category_id), category_array);
+    return category["listing_shapes"];
+  }
+
+  // Returns listing shape of given subcategory
+  function get_listing_shapes_for_subcategory(category_id, subcategory_id, category_array) {
+    var category = find_by_id(Number(category_id), category_array);
+    var subcategory = find_by_id(Number(subcategory_id), category["subcategories"]);
+    return subcategory["listing_shapes"];
+  }
+
+  // Return true if given menu should be displayed
+  function should_show_menu_for(attribute, selected_attributes, attribute_array) {
+    if (attribute_selected(attribute, selected_attributes)) {
+      return false;
+    } else if (attribute == "category") {
+      if (attribute_array.length < 2) {
+        // If there is exactly 1 category, it should be marked automatically as selected,
+        // without showing the form.
+        if (attribute_array.length == 1) {
+          selected_attributes["category"] = attribute_array[0]["id"];
+        }
+        return false;
+      } else {
+        return true;
+      }
+    } else if (attribute == "subcategory") {
+      if (should_show_menu_for("category", selected_attributes, attribute_array)) {
+        return false;
+      } else {
+        var subcategories = get_subcategories_for(selected_attributes["category"], attribute_array);
+        if (subcategories.length < 2) {
+          // If there is exactly 1 subcategory, it should be marked automatically as selected,
+          // without showing the form.
+          if (subcategories.length == 1) {
+            selected_attributes["subcategory"] = subcategories[0]["id"];
+          }
+          return false;
+        } else {
+          return true;
+        }
+      }
+    } else if (attribute == "listing_shape") {
+      if (should_show_menu_for("category", selected_attributes, attribute_array)) {
+        return false;
+      } else if (should_show_menu_for("subcategory", selected_attributes, attribute_array)) {
+        return false;
+      } else {
+        var listing_shapes;
+        if (attribute_selected("subcategory", selected_attributes)) {
+          listing_shapes = get_listing_shapes_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"], attribute_array);
+        } else {
+          listing_shapes = get_listing_shapes_for_category(selected_attributes["category"], attribute_array);
+        }
+        // If there is exactly 1 listing shape, it should be marked automatically as selected,
+        // without showing the form
+        if (listing_shapes.length === 1) {
+          selected_attributes["listing_shape"] = listing_shapes[0]["id"];
+        }
+        return (listing_shapes.length > 1);
+      }
+    }
+  }
+
+  // Ajax call to display listing form after categories and
+  // listing shape has been selected
+  function display_listing_form(selected_attributes, locale) {
+    $('.form-fields').removeClass('hidden');
+    // var new_listing_path = '/' + locale + '/listings/new_form_content';
+    var new_listing_path = '/' + locale + '/listings/edit_form_content?id=48';
+    $.get(new_listing_path, selected_attributes, function(data) {
+      $('.form-fields').html(data);
+    });
+  }
+
+  // Check if selected category or subcategory has certain listing shape
+  function has_listing_shape(selected_attributes, listing_shape_id, attribute_array) {
+    // If subcategory is selected, loop through listing shapes of that subcategory
+    var listing_shapes;
+    if (attribute_selected("subcategory", selected_attributes)) {
+      listing_shapes = get_listing_shapes_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"],attribute_array);
+      // If there's no subcategory, it means this top level category has no subcategories.
+      // Thus, loop through listing_shapes of top level category.
+    } else {
+      listing_shapes = get_listing_shapes_for_category(selected_attributes["category"] ,attribute_array);
+    }
+    return _.any(listing_shapes, function(listing_shape) {
+      return listing_shape['id'] == listing_shape_id;
+    });
+  }
+
+  // Displays the given menu where category or listing shape can be selected
+  function display_option_group(group_type, selected_attributes, attribute_array) {
+    $('.option-group[name=' + group_type + ']').children().each(function() {
+      if (group_type == "category") {
+        $(this).removeClass('hidden');
+      } else if (group_type == "subcategory") {
+        if (has_subcategory(selected_attributes["category"], $(this).attr('data-id'), attribute_array)) {
+          $(this).removeClass('hidden');
+        }
+      } else if (group_type == "listing_shape") {
+        if (has_listing_shape(selected_attributes, $(this).attr('data-id'), attribute_array)) {
+          $(this).removeClass('hidden');
+        }
+      }
+    });
   }
 
   // Called when a link is clicked in the listing form attribute menus
@@ -203,7 +208,12 @@ window.ST = window.ST || {};
     }
 
     // Update form view based on the selection that has been made
-    update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+    var shouldLoadForm = update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+
+    if(shouldLoadForm) {
+      $('.form-fields').html("");
+      display_listing_form(selected_attributes, locale);
+    }
   }
 
   // Initialize the listing type & category selection part of the form
@@ -212,7 +222,12 @@ window.ST = window.ST || {};
     var selected_attributes = {"category": null, "subcategory": null, "listing_shape": null};
 
     // Reset the view to initial state
-    update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+    var shouldLoadForm = update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+
+    if(shouldLoadForm) {
+      $('.form-fields').html("");
+      display_listing_form(selected_attributes, locale);
+    }
 
     // Listener for attribute menu clicks
     $('.new-listing-form').find('a.select').click(
@@ -220,6 +235,29 @@ window.ST = window.ST || {};
         select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
       }
     );
+  };
+
+  module.initialize_edit_listing_form_selectors = function(locale, attribute_array, listing_form_menu_titles, category, subcategory, listing_shape) {
+    var ordered_attributes = ["category", "subcategory", "listing_shape"];
+
+    // Selected values (string or null required)
+    category = category ? "" + category : null;
+    subcategory = subcategory ? "" + subcategory : null;
+    listing_shape = listing_shape ? "" + listing_shape : null;
+
+    var selected_attributes = {"category": category, "subcategory": subcategory, "listing_shape": listing_shape};
+
+    // Reset the view to initial state
+    update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+
+    // Listener for attribute menu clicks
+    $('.new-listing-form').find('a.select').click(
+      function() {
+        $('.form-fields').html(""); // TODO Maybe just hiding is enough
+        select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+      }
+    );
+
   };
 
   // Initialize the actual form fields

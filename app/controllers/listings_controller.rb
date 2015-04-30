@@ -274,12 +274,21 @@ class ListingsController < ApplicationController
       all_locales: @current_community.locales
     )
 
+    category_id, subcategory_id =
+      if @listing.category.parent_id
+        [@listing.category.parent_id, @listing.category.id]
+      else
+        [@listing.category.id, nil]
+      end
+
     render locals: commission(@current_community, process).merge(
              category_tree: category_tree,
              categories: @current_community.top_level_categories,
              subcategories: @current_community.subcategories,
              shapes: get_shapes,
              shape: shape,
+             category_id: category_id,
+             subcategory_id: subcategory_id,
              unit_options: unit_options,
              shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil
            )
@@ -307,7 +316,6 @@ class ListingsController < ApplicationController
 
     update_successful = @listing.update_fields(
       create_listing_params(params[:listing]).merge(
-      listing_shape_id: shape[:id],
       transaction_process_id: shape[:transaction_process_id],
       shape_name_tr_key: shape[:name_tr_key],
       action_button_tr_key: shape[:action_button_tr_key],
