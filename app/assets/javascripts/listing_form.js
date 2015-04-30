@@ -144,11 +144,20 @@ window.ST = window.ST || {};
 
   // Ajax call to display listing form after categories and
   // listing shape has been selected
-  function display_listing_form(selected_attributes, locale) {
+  function display_new_listing_form(selected_attributes, locale) {
     $('.form-fields').removeClass('hidden');
-    // var new_listing_path = '/' + locale + '/listings/new_form_content';
-    var new_listing_path = '/' + locale + '/listings/edit_form_content?id=48';
+    var new_listing_path = '/' + locale + '/listings/new_form_content';
     $.get(new_listing_path, selected_attributes, function(data) {
+      $('.form-fields').html(data);
+    });
+  }
+
+  function display_edit_listing_form(selected_attributes, locale, id) {
+    $('.form-fields').removeClass('hidden');
+    var edit_listing_path = '/' + locale + '/listings/edit_form_content';
+    var request_params = _.assign({}, selected_attributes, {id: id});
+    debugger;
+    $.get(edit_listing_path, request_params, function(data) {
       $('.form-fields').html(data);
     });
   }
@@ -210,10 +219,7 @@ window.ST = window.ST || {};
     // Update form view based on the selection that has been made
     var shouldLoadForm = update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
 
-    if(shouldLoadForm) {
-      $('.form-fields').html("");
-      display_listing_form(selected_attributes, locale);
-    }
+    return shouldLoadForm;
   }
 
   // Initialize the listing type & category selection part of the form
@@ -225,19 +231,22 @@ window.ST = window.ST || {};
     var shouldLoadForm = update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
 
     if(shouldLoadForm) {
-      $('.form-fields').html("");
-      display_listing_form(selected_attributes, locale);
+      display_new_listing_form(selected_attributes, locale);
     }
 
     // Listener for attribute menu clicks
     $('.new-listing-form').find('a.select').click(
       function() {
-        select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+        var shouldLoadForm = select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+
+        if(shouldLoadForm) {
+          display_new_listing_form(selected_attributes, locale);
+        }
       }
     );
   };
 
-  module.initialize_edit_listing_form_selectors = function(locale, attribute_array, listing_form_menu_titles, category, subcategory, listing_shape) {
+  module.initialize_edit_listing_form_selectors = function(locale, attribute_array, listing_form_menu_titles, category, subcategory, listing_shape, id) {
     var ordered_attributes = ["category", "subcategory", "listing_shape"];
 
     // Selected values (string or null required)
@@ -246,6 +255,7 @@ window.ST = window.ST || {};
     listing_shape = listing_shape ? "" + listing_shape : null;
 
     var selected_attributes = {"category": category, "subcategory": subcategory, "listing_shape": listing_shape};
+    var current_attributes = _.clone(selected_attributes);
 
     // Reset the view to initial state
     update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
@@ -253,8 +263,22 @@ window.ST = window.ST || {};
     // Listener for attribute menu clicks
     $('.new-listing-form').find('a.select').click(
       function() {
-        $('.form-fields').html(""); // TODO Maybe just hiding is enough
-        select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+        $('.form-fields').addClass('hidden');
+        var shouldLoadForm = select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+
+        if(shouldLoadForm) {
+
+          var loadNotNeeded = _.isEqual(selected_attributes, current_attributes);
+
+          current_attributes = _.clone(selected_attributes);
+
+          if(loadNotNeeded) {
+            $('.form-fields').removeClass('hidden');
+          } else {
+            $('.form-fields').html("");
+            display_edit_listing_form(selected_attributes, locale, id);
+          }
+        }
       }
     );
 
