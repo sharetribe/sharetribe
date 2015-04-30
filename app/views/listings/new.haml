@@ -1,7 +1,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      initialize_new_listing_form_selectors("#{I18n.locale}", #{category_tree.to_json}, #{listing_form_menu_titles().to_json});
+      window.ST.initialize_new_listing_form_selectors("#{I18n.locale}", #{category_tree.to_json}, #{listing_form_menu_titles().to_json});
     });
 
 - content_for :extra_javascript do
