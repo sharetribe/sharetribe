@@ -230,7 +230,8 @@ class ListingsController < ApplicationController
         listing_shape_id: shape[:id],
         transaction_process_id: shape[:transaction_process_id],
         shape_name_tr_key: shape[:name_tr_key],
-        action_button_tr_key: shape[:action_button_tr_key]
+        action_button_tr_key: shape[:action_button_tr_key],
+        current_community_id: @current_community.id,
       ).merge(unit_to_listing_opts(m_unit)).except(:unit)
     )
 
@@ -308,13 +309,17 @@ class ListingsController < ApplicationController
       redirect_to new_listing_path and return
     end
 
+    open_params = @listing.closed? ? {open: true} : {}
+
     update_successful = @listing.update_fields(
       create_listing_params(params[:listing]).merge(
       listing_shape_id: shape[:id],
       transaction_process_id: shape[:transaction_process_id],
       shape_name_tr_key: shape[:name_tr_key],
-      action_button_tr_key: shape[:action_button_tr_key]
-    ).merge(unit_to_listing_opts(m_unit)).except(:unit))
+      action_button_tr_key: shape[:action_button_tr_key],
+      current_community_id: @current_community.id,
+      last_modified: DateTime.now
+    ).merge(open_params).merge(unit_to_listing_opts(m_unit)).except(:unit))
 
     upsert_field_values!(@listing, params[:custom_fields])
 
