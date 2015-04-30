@@ -303,8 +303,7 @@ class ListingsController < ApplicationController
     end
 
     params[:listing] = normalize_price_params(params[:listing])
-
-    shape = get_shape(@listing.listing_shape_id)
+    shape = get_shape(params[:listing][:listing_shape_id])
     m_unit = select_unit(params, shape)
 
     if unit_required?(shape) && m_unit.is_none?
@@ -472,7 +471,11 @@ class ListingsController < ApplicationController
         quantity_selector: unit[:quantity_selector],
         unit_tr_key: unit[:translation_key]
       }
-    }.or_else({})
+    }.or_else({
+        unit_type: nil,
+        quantity_selector: nil,
+        unit_tr_key: nil
+    })
   end
 
   def unit_from_listing(listing)
