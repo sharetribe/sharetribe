@@ -2,8 +2,58 @@
   %h1= t(".edit_listing")
 
 - content_for :extra_javascript do
+  :javascript
+    $(document).ready(function() {
+      initialize_new_listing_form_selectors("#{I18n.locale}", #{category_tree.to_json}, #{listing_form_menu_titles().to_json});
+    });
+
+- content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
-#new_listing_form.edit-listing-form.centered-section
+#new_listing_form.new-listing-form.centered-section
 
-  = render partial: "listings/form/form_content", locals: local_assigns.merge(run_js_immediately: false)
+  #selected-groups
+
+    - if categories.size > 1
+      .selected-group{:name => "category"}
+        - categories.each do |value|
+          %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
+            .link-text= t(".selected_category", :category => value.display_name(I18n.locale))
+
+    - if subcategories.size > 1
+      .selected-group{:name => "subcategory"}
+        - subcategories.each do |value|
+          %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
+            .link-text= t(".selected_subcategory", :subcategory => value.display_name(I18n.locale))
+
+    - if shapes.size > 1
+      .selected-group{:name => "listing_shape"}
+        - shapes.each do |value|
+          %a.select.selected.hidden{:href => "#", :data => {:id => value[:id]}}
+            .link-text= t(".selected_transaction_type", :transaction_type => t(value[:name_tr_key]))
+
+  %h2.listing-form-title{:id => "foo"}
+
+  #option-groups
+
+    - if categories.size > 1
+      .option-group{:name => "category"}
+        - categories.each do |value|
+          %a.select.option.hidden{:href => "#", :data => {:id => value.id}}
+            .link-text= value.display_name(I18n.locale)
+
+    - if subcategories.size > 1
+      .option-group{:name => "subcategory"}
+        - subcategories.each do |value|
+          %a.select.option.hidden{:href => "#", :data => {:id => value.id}}
+            .link-text= value.display_name(I18n.locale)
+
+    - if shapes.size > 1
+      .option-group{:name => "listing_shape"}
+        - shapes.each do |value|
+          %a.select.option.hidden{:href => "#", :data => {:id => value[:id]}}
+            .link-text= t(value[:name_tr_key])
+
+  .form-fields
+
+    = render partial: "listings/form/form_content", locals: local_assigns.merge(run_js_immediately: false)

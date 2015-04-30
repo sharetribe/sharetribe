@@ -196,6 +196,7 @@ Kassi::Application.routes.draw do
       end
       collection do
         get :new_form_content
+        get :edit_form_content
         get :more_listings
         get :browse
         get :locations_json

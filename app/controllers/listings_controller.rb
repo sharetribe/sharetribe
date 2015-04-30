@@ -7,7 +7,7 @@ class ListingsController < ApplicationController
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:close, :update, :follow, :unfollow]
 
-  before_filter :only => [ :edit, :update, :close, :follow, :unfollow ] do |controller|
+  before_filter :only => [ :edit, :edit_form_content, :update, :close, :follow, :unfollow ] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
 
@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_close_a_listing")
   end
 
-  before_filter :only => [ :edit, :update ] do |controller|
+  before_filter :only => [ :edit, :edit_form_content, :update ] do |controller|
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
 
@@ -184,6 +184,16 @@ class ListingsController < ApplicationController
     form_content
   end
 
+  def edit_form_content
+    return redirect_to action: :edit unless request.xhr?
+
+    if !@listing.origin_loc
+        @listing.build_origin_loc(:location_type => "origin_loc")
+    end
+
+    form_content
+  end
+
   def create
     if params[:listing][:origin_loc_attributes][:address].empty? || params[:listing][:origin_loc_attributes][:address].blank?
       params[:listing].delete("origin_loc_attributes")
@@ -257,7 +267,18 @@ class ListingsController < ApplicationController
         0
       end
 
+    category_tree = CategoryViewUtils.category_tree(
+      categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
+      shapes: get_shapes,
+      locale: I18n.locale,
+      all_locales: @current_community.locales
+    )
+
     render locals: commission(@current_community, process).merge(
+             category_tree: category_tree,
+             categories: @current_community.top_level_categories,
+             subcategories: @current_community.subcategories,
+             shapes: get_shapes,
              shape: shape,
              unit_options: unit_options,
              shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil
@@ -390,6 +411,15 @@ class ListingsController < ApplicationController
                      payment_type: payment_type,
                      process: process)
 
+    shipping_price_additional =
+      if @listing.shipping_price_additional
+        @listing.shipping_price_additional.to_s
+      elsif @listing.shipping_price
+        @listing.shipping_price.to_s
+      else
+        0
+      end
+
     if allow_posting
       unit_options = ListingViewUtils.unit_options(shape[:units])
 
@@ -397,7 +427,7 @@ class ListingsController < ApplicationController
                run_js_immediately: true,
                shape: shape,
                unit_options: unit_options,
-               shipping_price_additional: feature_enabled?(:shipping_per) ? 0 : nil)
+               shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil)
     else
       render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
     end
