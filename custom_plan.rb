@@ -11,14 +11,15 @@ class CustomPlan < Zeus::Rails
   def test_environment
     super
 
-    # Populate db with default data
+    # Clean database
     require 'database_cleaner'
     DatabaseCleaner.clean_with(:truncation)
-    TestHelpers.load_default_test_data_to_db_before_suite
-    TestHelpers.load_default_test_data_to_db_before_test
   end
 
   def cucumber_environment
+    # Populate db with default data
+    TestHelpers.load_default_test_data_to_db_before_suite
+    TestHelpers.load_default_test_data_to_db_before_test
 
     # Ensure sphinx directories exist for the test environment
     ThinkingSphinx::Test.init
