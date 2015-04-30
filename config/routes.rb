@@ -195,6 +195,7 @@ Kassi::Application.routes.draw do
         delete :unfollow
       end
       collection do
+        get :new_form_content
         get :more_listings
         get :browse
         get :locations_json

@@ -548,7 +548,7 @@ function has_listing_shape(selected_attributes, listing_shape_id, attribute_arra
 // listing shape has been selected
 function display_listing_form(selected_attributes, locale) {
   $('.form-fields').removeClass('hidden');
-  var new_listing_path = '/' + locale + '/listings/new';
+  var new_listing_path = '/' + locale + '/listings/new_form_content';
   $.get(new_listing_path, selected_attributes, function(data) {
     $('.form-fields').html(data);
   });

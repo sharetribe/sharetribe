@@ -11,7 +11,7 @@ class ListingsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
 
-  before_filter :only => [ :new, :create ] do |controller|
+  before_filter :only => [ :new, :new_form_content, :create ] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_create_new_listing", :sign_up_link => view_context.link_to(t("layouts.notifications.create_one_here"), sign_up_path)).html_safe
   end
 
@@ -153,7 +153,24 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @selected_tribe_navi_tab = "new_listing"
+    category_tree = CategoryViewUtils.category_tree(
+      categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
+      shapes: get_shapes,
+      locale: I18n.locale,
+      all_locales: @current_community.locales
+    )
+
+    render :new, locals: {
+             categories: @current_community.top_level_categories,
+             subcategories: @current_community.subcategories,
+             shapes: get_shapes,
+             category_tree: category_tree
+           }
+  end
+
+  def new_form_content
+    return redirect_to action: :new unless request.xhr?
+
     @listing = Listing.new
 
     if (@current_user.location != nil)
@@ -164,52 +181,7 @@ class ListingsController < ApplicationController
       @listing.build_origin_loc(:location_type => "origin_loc")
     end
 
-    if request.xhr? # AJAX request to get the actual form contents
-      @listing.category = @current_community.categories.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
-      @custom_field_questions = @listing.category.custom_fields
-      @numeric_field_ids = numeric_field_ids(@custom_field_questions)
-
-      shape = get_shape(Maybe(params)[:listing_shape].to_i.or_else(nil))
-      process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
-
-      # PaymentRegistrationGuard needs this to be set before posting
-      @listing.transaction_process_id = shape[:transaction_process_id]
-      @listing.listing_shape_id = shape[:id]
-
-      payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
-      allow_posting, error_msg = payment_setup_status(
-                       community: @current_community,
-                       user: @current_user,
-                       listing: @listing,
-                       payment_type: payment_type,
-                       process: process)
-
-      if allow_posting
-        unit_options = ListingViewUtils.unit_options(shape[:units])
-
-        render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(
-                 run_js_immediately: true,
-                 shape: shape,
-                 unit_options: unit_options,
-                 shipping_price_additional: feature_enabled?(:shipping_per) ? 0 : nil)
-      else
-        render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
-      end
-    else
-      category_tree = CategoryViewUtils.category_tree(
-        categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
-        shapes: get_shapes,
-        locale: I18n.locale,
-        all_locales: @current_community.locales
-      )
-
-      render :new, locals: {
-               categories: @current_community.top_level_categories,
-               subcategories: @current_community.subcategories,
-               shapes: get_shapes,
-               category_tree: category_tree
-             }
-    end
+    form_content
   end
 
   def create
@@ -397,6 +369,39 @@ class ListingsController < ApplicationController
   end
 
   private
+
+  def form_content
+    @listing.category = @current_community.categories.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
+    @custom_field_questions = @listing.category.custom_fields
+    @numeric_field_ids = numeric_field_ids(@custom_field_questions)
+
+    shape = get_shape(Maybe(params)[:listing_shape].to_i.or_else(nil))
+    process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
+
+    # PaymentRegistrationGuard needs this to be set before posting
+    @listing.transaction_process_id = shape[:transaction_process_id]
+    @listing.listing_shape_id = shape[:id]
+
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    allow_posting, error_msg = payment_setup_status(
+                     community: @current_community,
+                     user: @current_user,
+                     listing: @listing,
+                     payment_type: payment_type,
+                     process: process)
+
+    if allow_posting
+      unit_options = ListingViewUtils.unit_options(shape[:units])
+
+      render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(
+               run_js_immediately: true,
+               shape: shape,
+               unit_options: unit_options,
+               shipping_price_additional: feature_enabled?(:shipping_per) ? 0 : nil)
+    else
+      render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
+    end
+  end
 
   def select_unit(params, shape)
     m_unit = Maybe(shape)[:units].map { |units|
