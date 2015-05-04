@@ -71,15 +71,26 @@ describe MarketplaceService::API::Marketplaces do
     it "should have preauthorize_payments enabled" do
       community_hash = create(@community_params)
       c = Community.find(community_hash[:id])
-      processes = TransactionService::API::Api.processes.get(community_id: c.id).data
-      expect(processes.any? { |p| p[:process] == :preauthorize }).to eq(true)
+      processes = TransactionService::API::Api.processes
+                  .get(community_id: c.id).data
+                  .map { |p| p.slice(:author_is_seller, :process) }
+
+      expect(processes.size).to eq 3
+      expect(processes.include?({ author_is_seller: true, process: :preauthorize})).to eq true
+      expect(processes.include?({ author_is_seller: false, process: :none})).to eq true
+      expect(processes.include?({ author_is_seller: true, process: :none})).to eq true
     end
 
     it "should create marketplace without payment process" do
       community_hash = create(@community_params.merge(payment_process: :none))
       c = Community.find(community_hash[:id])
-      processes = TransactionService::API::Api.processes.get(community_id: c.id).data
-      expect(processes.any? { |p| p[:process] == :none }).to eq(true)
+      processes = TransactionService::API::Api.processes
+                  .get(community_id: c.id).data
+                  .map { |p| p.slice(:author_is_seller, :process) }
+
+      expect(processes.size).to eq 2
+      expect(processes.include?({ author_is_seller: false, process: :none})).to eq true
+      expect(processes.include?({ author_is_seller: true, process: :none})).to eq true
     end
 
     it "should have community customizations" do

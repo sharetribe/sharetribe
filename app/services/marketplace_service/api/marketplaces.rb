@@ -61,6 +61,7 @@ module MarketplaceService::API
 
       Helper.create_community_customization!(community, marketplace_name, locale)
       Helper.create_category!("Default", community, locale)
+      processes = Helper.create_processes!(community.id, payment_process)
       shape = Helper.create_listing_shape!(community, p[:marketplace_type], payment_process)
 
       plan_level = p[:plan_level].or_else(CommunityPlan::FREE_PLAN)
@@ -101,6 +102,39 @@ module MarketplaceService::API
           name: marketplace_name,
           locale: locale,
           how_to_use_page_content: how_to_use_page_default_content(locale, marketplace_name)
+        }
+      end
+
+      def create_processes!(community_id, default_payment_process)
+        payment_process = default_payment_process.to_sym
+        unless [:none, :preauthorize].include?(payment_process)
+          raise ArgumentError.new("Unknown payment process: #{payment_process}")
+        end
+
+        [
+          {author_is_seller: true, process: :none},
+          {author_is_seller: false, process: :none},
+          {author_is_seller: true, process: payment_process}
+        ].to_set.map { |p|
+          get_or_create_transaction_process(
+            community_id: community_id,
+            process: p[:process],
+            author_is_seller: p[:author_is_seller])
+        }
+      end
+
+      def get_or_create_transaction_process(community_id:, process:, author_is_seller:)
+        TransactionService::API::Api.processes.get(community_id: community_id)
+          .maybe
+          .map { |processes|
+          processes.find { |p| p[:process] == process && p[:author_is_seller] == author_is_seller }
+        }
+          .or_else {
+          TransactionService::API::Api.processes.create(
+            community_id: community_id,
+            process: process,
+            author_is_seller: author_is_seller
+          ).data
         }
       end
 
