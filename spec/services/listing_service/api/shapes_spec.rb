@@ -29,7 +29,6 @@ describe ListingService::API::Shapes do
       name_tr_key: name_tr_key,
       action_button_tr_key: action_button_tr_key,
       price_quantity_placeholder: :time,
-      sort_priority: 0,
       basename: "Selling",
 
       units: [
@@ -119,6 +118,12 @@ describe ListingService::API::Shapes do
       expect(create_shape_res.success).to eql(true)
       shape = create_shape_res.data
       expect(shape[:name]).to eql("order_type")
+    end
+
+    it "creates meaningful default sort priorities" do
+      expect(create_shape().data[:sort_priority]).to eq 0
+      expect(create_shape().data[:sort_priority]).to eq 1
+      expect(create_shape().data[:sort_priority]).to eq 2
     end
 
     context "failure" do
