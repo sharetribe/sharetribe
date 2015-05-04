@@ -744,10 +744,12 @@ class ListingsController < ApplicationController
   end
 
   def create_listing_params(listing_params)
-    listing_params.except(:delivery_methods).tap do |l|
-      l[:require_shipping_address] = Maybe(listing_params[:delivery_methods]).map { |d| d.include?("shipping") }.or_else(false)
-      l[:pickup_enabled] = Maybe(listing_params[:delivery_methods]).map { |d| d.include?("pickup") }.or_else(false)
-    end
+    listing_params.except(:delivery_methods).merge(
+      require_shipping_address: Maybe(listing_params[:delivery_methods]).map { |d| d.include?("shipping") }.or_else(false),
+      pickup_enabled: Maybe(listing_params[:delivery_methods]).map { |d| d.include?("pickup") }.or_else(false),
+      price: listing_params[:price],
+      currency: listing_params[:currency]
+    )
   end
 
   def get_transaction_process(community_id:, transaction_process_id:)
