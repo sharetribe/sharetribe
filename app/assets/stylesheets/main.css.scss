@@ -1493,7 +1493,10 @@ $noscript-height: lines(4);
     @include border-radius(em(5));
     border: 2px solid $border;
     min-height: 42px;
-    &:hover { background: $highlight; }
+    &:hover {
+      background: $highlight;
+      cursor: pointer;
+    }
     margin-bottom: lines(0.25);
     .link-text {
       margin-left: em(15);

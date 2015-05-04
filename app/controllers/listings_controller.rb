@@ -747,7 +747,7 @@ class ListingsController < ApplicationController
     listing_params.except(:delivery_methods).merge(
       require_shipping_address: Maybe(listing_params[:delivery_methods]).map { |d| d.include?("shipping") }.or_else(false),
       pickup_enabled: Maybe(listing_params[:delivery_methods]).map { |d| d.include?("pickup") }.or_else(false),
-      price: listing_params[:price],
+      price_cents: listing_params[:price_cents],
       currency: listing_params[:currency]
     )
   end

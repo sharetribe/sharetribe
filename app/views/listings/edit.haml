@@ -17,19 +17,19 @@
     - if categories.size > 1
       .selected-group{:name => "category"}
         - categories.each do |value|
-          %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
+          %a.select.selected.hidden{:data => {:id => value.id}}
             .link-text= t("listings.new.selected_category", :category => value.display_name(I18n.locale))
 
     - if subcategories.size > 1
       .selected-group{:name => "subcategory"}
         - subcategories.each do |value|
-          %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
+          %a.select.selected.hidden{:data => {:id => value.id}}
             .link-text= t("listings.new.selected_subcategory", :subcategory => value.display_name(I18n.locale))
 
     - if shapes.size > 1
       .selected-group{:name => "listing_shape"}
         - shapes.each do |value|
-          %a.select.selected.hidden{:href => "#", :data => {:id => value[:id]}}
+          %a.select.selected.hidden{:data => {:id => value[:id]}}
             .link-text= t("listings.new.selected_transaction_type", :transaction_type => t(value[:name_tr_key]))
 
   %h2.listing-form-title{:id => "foo"}
@@ -39,19 +39,19 @@
     - if categories.size > 1
       .option-group{:name => "category"}
         - categories.each do |value|
-          %a.select.option.hidden{:href => "#", :data => {:id => value.id}}
+          %a.select.option.hidden{:data => {:id => value.id}}
             .link-text= value.display_name(I18n.locale)
 
     - if subcategories.size > 1
       .option-group{:name => "subcategory"}
         - subcategories.each do |value|
-          %a.select.option.hidden{:href => "#", :data => {:id => value.id}}
+          %a.select.option.hidden{:data => {:id => value.id}}
             .link-text= value.display_name(I18n.locale)
 
     - if shapes.size > 1
       .option-group{:name => "listing_shape"}
         - shapes.each do |value|
-          %a.select.option.hidden{:href => "#", :data => {:id => value[:id]}}
+          %a.select.option.hidden{:data => {:id => value[:id]}}
             .link-text= t(value[:name_tr_key])
 
   .form-fields
