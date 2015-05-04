@@ -153,7 +153,7 @@ nb:
       settings:
         settings: Innstillinger
         general: Generelt
-        users_can_review_each_other_after_transaction: "Brukere kan gi hverandre tilbakemelding etter transaksjonen"
+        users_can_review_each_other_after_transaction: "Brukere kan gi hverandre vurdering etter transaksjonen"
         access: Tilgang
         join_with_invite_only: "Brukere kan kun bli med i denne markedsplassen med en invitasjon fra en annen bruker"
         users_can_invite_new_users: "Alle brukere kan invitere nye brukere til denne markedsplassen"
@@ -431,17 +431,17 @@ nb:
       paypal_fee_info: "* ekskludert <a id='%{fee_info_link_id}' href='#'>PayPals transaksjonskostnad</a>"
       shipping_price_label: "Frakt:"
     confirm:
-      confirm_description: "Dersom din forespørsel er utført må du bekrefte den som utført. Du kan så gi tilbakemelding til den andre parten."
+      confirm_description: "Dersom din forespørsel er utført må du bekrefte den som utført. Du kan så gi vurdering av den andre parten."
       cancel_description: |-
           Dersom din forespørsel ikke ble møtt, kan du merke den som "ikke hendt".
-          Du kan likefullt gi tilbakemelding til den andre og beskrive hva som skjedde.
+          Du kan likevel gi vurdering av den andre og beskrive hva som skjedde.
       cancel_payed_description: "Dersom din forespørsel ble møtt, men du angrer deg, kan du fremdeles avbryte forespørsel før betaling."
       canceling_payed_transaction: "Avbryt transaksjon"
       confirm: "Merk som ferdig"
       cancel: Tvist
       continue: Fortsette
-      give_feedback_to: "Gi tilbakemelding til %{person_link}"
-      do_not_give_feedback: "Hopp over tilbakemelding"
+      give_feedback_to: "Gi vurdering av %{person_link}"
+      do_not_give_feedback: "Hopp over vurdering"
     details:
       day: dag
       days: dager
@@ -531,9 +531,9 @@ nb:
       payment_errored_starter: "Betaling feilet. Vennligst prøv igjen. Dersom problemet vedvarer, vennligst kontakt vår support."
       payment_errored_author: "Betaling feilet. Vennligst kontakt%{starter_name}og spør om å prøve betaling på nytt."
       cancel_payed_transaction: Avbryt
-      feedback_given: "Tilbakemelding gitt"
-      feedback_skipped: "Hoppet over tilbakemelding"
-      give_feedback: "Gi tilbakemelding"
+      feedback_given: "Vurdering gitt"
+      feedback_skipped: "Hoppet over vurdering"
+      give_feedback: "Gi vurdering"
       offer_accepted: Godkjent
       offer_rejected: Avslått
       offer_canceled: Avbrutt
@@ -557,7 +557,7 @@ nb:
       request_canceled: Avbrutt
       request_paid: "Betaling vellykket"
       request_preauthorized: "Betaling vellykket"
-      skip_feedback: "Hopp over tilbakemelding"
+      skip_feedback: "Hopp over vurdering"
       waiting_for_listing_author_to_accept_offer: "Venter på%{listing_author_name}for å akseptere tilbudet"
       waiting_for_listing_author_to_accept_request: "Venter på at %{listing_author_name} skal akseptere forespørselen"
       waiting_for_you_to_accept_request: "Venter på at du skal akseptere forespørsel"
@@ -565,7 +565,7 @@ nb:
       waiting_confirmation_from_you: "Venter på at du skal merke forespørsel som gjennomført"
       waiting_payment_from_requester: "Venter på betaling fra %{requester_name}"
       waiting_payment_from_you: "Venter på at du skal betale"
-      waiting_feedback_from_you: "Venter på at du skal gi tilbakemelding"
+      waiting_feedback_from_you: "Venter på at du skal gi vurdering"
       pending_external_inbox:
         paypal:
           multicurrency: "Venter på at du skal godkjenne PayPal betalingen"
@@ -630,7 +630,7 @@ nb:
     access_denied:
       access_denied: "Tilgang avvist"
       you_are_banned_in_this_community: "Administrator har fjernet din tilgang til %{service_name}. Dersom du ønsker å kontakte tjenesten, gå til %{link_to_contact_page}"
-      contact_page_link: tilbakemelding
+      contact_page_link: vurdering
     new:
       welcome_fb_user: "Velkommen til %{service_name},%{name}"
       fb_join_accept_terms: "Ett steg til for å bli medlem av %{service_name}: Du må akseptere bruker vilkår."
@@ -655,8 +655,8 @@ nb:
       account_ready: "Du kan nå motta betalinger"
       message: "Dine betalingsdetaljer er nå bekreftet og du er nå klar til å motta betalinger på %{service_name}"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel %{request_link}. Dersom forespørsel er gjennomført, må du bekrefte dette. Du kan nå gi tilbakemelding til %{other_party_given_name}"
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel %{request_link}. Vi overfører pengene til %{other_party_given_name} kun når du a) har merket forespørsel som gjennomført eller b) det har gått %{days_to_automatic_confirmation} dager siden du betalte. Etter at du har merket forespørsel som gjennomført kan du gi tilbakemelding til %{other_party_given_name}"
+      you_have_not_yet_confirmed_or_canceled_request: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel %{request_link}. Dersom forespørsel er gjennomført, må du bekrefte dette. Du kan nå gi vurdering av %{other_party_given_name}"
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Du har fremdeles ikke bekreftet eller avslått følgende forespørsel %{request_link}. Vi overfører pengene til %{other_party_given_name} kun når du a) har merket forespørsel som gjennomført eller b) det har gått %{days_to_automatic_confirmation} dager siden du betalte. Etter at du har merket forespørsel som gjennomført kan du gi vurdering av %{other_party_given_name}"
       remember_to_confirm_request: "Husk å godta eller avslå en forespørsel"
       if_will_not_happen_you_should_cancel: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: "Hvis du tror denne forespørselen ikke vil bli fullført av en eller annen grunn, kan du %{cancel_it_link}. Dette varsler admin som kontakter deg for refund."
@@ -677,23 +677,23 @@ nb:
       payment_settings_link: betalingsinnstillinger
     transaction_confirmed:
       here_is_a_message_from: "Her er en melding fra %{other_party_given_name}:"
-      request_marked_as_confirmed: "Forespørsel gjennomført-husk å gi tilbakemelding"
+      request_marked_as_confirmed: "Forespørsel gjennomført - husk å gi vurdering"
       request_marked_as_canceled: "Forespørsel avbrutt."
-      has_marked_request_as_confirmed: "%{other_party_full_name} har merket forespørselen vedrørende %{request} som fullført. Du kan nå gi tilbakemelding til %{other_party_given_name}"
-      has_marked_request_as_canceled: "%{other_party_full_name} har avbrutt forespørselen om '%{request}'. Du kan fremdeles gi tilbakemelding %{other_party_given_name}"
-      giving_feedback_is_good_idea: "Å gi tilbakemelding er alltid en god idé. Dersom alt gikk fint, bør du la andre få vite at %{other_party_given_name} er til å stole på. Dersom det oppstod problemer er det fint å nevne det også."
-      give_feedback_to: "Gi tilbakemelding til %{other_party_given_name}"
+      has_marked_request_as_confirmed: "%{other_party_full_name} har merket forespørselen vedrørende %{request} som fullført. Du kan nå gi vurdering av %{other_party_given_name}"
+      has_marked_request_as_canceled: "%{other_party_full_name} har avbrutt forespørselen om '%{request}'. Du kan fremdeles gi vurdering av %{other_party_given_name}"
+      giving_feedback_is_good_idea: "Å gi vurdering er alltid en god idé. Dersom alt gikk fint, bør du la andre få vite at %{other_party_given_name} er til å stole på. Dersom det oppstod problemer er det fint å nevne det også."
+      give_feedback_to: "Gi vurdering av %{other_party_given_name}"
     transaction_automatically_confirmed:
-      subject: "Forespørsel er automatisk merket som gjennomført - husk å gi tilbakemelding"
+      subject: "Forespørsel er automatisk merket som gjennomført - husk å gi vurdering"
       we_have_marked_request_as_confirmed: "Vi har merket forespørselen vedrørende %{request} som fullført. Forespørselen ble automatisk fullført fordi %{days_passed} dager er passert siden forespørselen ble akseptert."
     booking_transaction_automatically_confirmed:
-      subject: "Forespørsel er automatisk merket som gjennomført - husk å gi tilbakemelding"
+      subject: "Forespørsel er automatisk merket som gjennomført - husk å gi vurdering"
       we_have_marked_request_as_confirmed: "Vi har markert forespørselen om '%{request}' som fullført. Forespørselen ble automatisk fullført fordi en dag har gått siden booking-perioden ble avsluttet."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: |-
-          Du kan nå gi tilbakemelding til %{other_party_given_name}. Å gi tilbakemelding er alltid en god idé. Dersom alt gikk fint, bør du la andre få vite
-          at %{other_party_given_name}er til å stole på. Dersom det oppstod problemer er det fint at du også nevner det.
-      give_feedback_to: "Gi tilbakemelding til %{other_party_given_name}"
+          Du kan nå gi vurdering av %{other_party_given_name}. Å gi vurdering er alltid en god idé. Dersom alt gikk fint, bør du la andre få vite
+          at %{other_party_given_name} er til å stole på. Dersom det oppstod problemer er det fint at du også nevner det.
+      give_feedback_to: "Gi vurdering av %{other_party_given_name}"
       show_thread: "Vis samtale"
     escrow_canceled:
       subject: "Betaling avvist"
@@ -775,9 +775,9 @@ nb:
       service_fee: Tjenestekostnad
       money_will_be_transferred: "Pengene blir overført til %{recipient_name} når a) du har huket av for at forespørselen er utført eller b) %{automatic_confirmation_days} dager har gått fra du betalte."
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} har gitt deg tilbakemeldinge hos %{service_name}"
-      you_can_give_feedback_to: "Du har ikke gitt tilbakemelding til %{name} enda."
-      view_feedback: "Vis tilbakemelding"
+      has_given_you_feedback_in_kassi: "%{name} har gitt deg vurdering på %{service_name}"
+      you_can_give_feedback_to: "Du har ikke gitt vurdering til %{name} enda."
+      view_feedback: "Vis vurdering"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "En listing du følger er oppdatert"
       has_updated_listing_you_follow_in_kassi: "%{author} har oppdatert annonsen '%{listing}' du følger på %{service_name}."
@@ -803,9 +803,9 @@ nb:
       change_my_password: "Endre mitt passord"
       reset_password_instructions: "<p>Du har indikert at du har glemt enten ditt passord eller brukernavn på %{service_name} </p><p>Ditt brukernavn er : %{username}</p><p>Dersom du må resette ditt passord, klikk denne link:  %{password_reset_link}</p><br/><p>Dersom du ikke har etterspurt dette, vennligst se bortifra denne eposten. Ditt passord endres ikke om du ikke bruker linken over og lager et nytt.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Tilbakemeldinger er offentlig og synlig for alle brukere. Basert på tilbakemeldingene kan brukere vurdere om %{name} er en pålitelig person man vil assosiere seg med. Det er derfor alltid viktig å gi tilbakemeldinger og be om å få dette av den andre parten også. Du trenger også positive tilbakemeldinger for å oppnå de fleste titlene."
-      remember_to_give_feedback_to: "Påminnelse: husk å gi tilbakemelding til %{name}"
-      you_have_not_given_feedback_yet: "Du har enda ikke gitt tilbakemelding til %{name} om '%{event}'. Husk å gi tilbakemelding om hvordan %{given_name} utførte dette."
+      feedback_is_public_and_is_shown: "Vurderinger er offentlig og synlig for alle brukere. Basert på vurderingene kan brukere vurdere om %{name} er en pålitelig person man vil assosiere seg med. Det er derfor alltid viktig å gi vurderinger og be om å få dette av den andre parten også. Du trenger også positive vurderinger for å oppnå de fleste titlene."
+      remember_to_give_feedback_to: "Påminnelse: husk å gi vurdering til %{name}"
+      you_have_not_given_feedback_yet: "Du har enda ikke gitt vurdering til %{name} om '%{event}'. Husk å gi vurdering om hvordan %{given_name} utførte dette."
     transaction_preauthorized:
       subject: "%{requester} har etterspurt og betalt for %{listing_title}"
       transaction_requested_by_user: "%{requester} har etterspurt og betalt for %{listing_title}"
@@ -854,7 +854,7 @@ nb:
       price: "Pris må være et helt tall"
       minimum_price: "Minimums pris er %{minimum_price}%{currency}"
     testimonials:
-      you_must_explain_not_neutral_feedback: "Hvis du gir noe annet enn nøytral tilbakemelding må du forklare hvorfor."
+      you_must_explain_not_neutral_feedback: "Hvis du gir noe annet enn nøytral vurdering må du forklare hvorfor."
       you_must_select_a_grade: "Husk å fortelle om din opplevelse var positiv eller negativ."
     transaction_agreement:
       required_error: "Du må godta avtalevilkår"
@@ -886,7 +886,7 @@ nb:
       javascript_is_disabled_in_your_browser: "Javascript er deaktivert i din nettleser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} vil ikke fungere skikkelig uten javascript. Forsøk å aktivere javascript i nettleserens innstillinger og last siden på nytt."
       contact_us: "Kontakt oss"
-      send_feedback: "Send tilbakemelding"
+      send_feedback: "Gi vurdering"
       your_feedback_to_admins: "Din tilbakemelding til administratorene"
     send: Send
     your_email_address: "Din e-post"
@@ -1007,7 +1007,7 @@ nb:
       requesting: trenger
       tell_it_here: "Fortell om det her!"
       welcome_to_new_kassi: "Velkommer til nye %{service_name}!"
-      no_reviews: "Ingen tilbakemeldinger"
+      no_reviews: "Ingen vurderinger"
       no_image: "Uten bilder"
       filter: Filter
       this_is_private_community: "Du må logge inn for å se dette innholdet."
@@ -1021,8 +1021,8 @@ nb:
       invitation_message_field_placeholder: "Jeg ble medlem av denne fantastiske markedsplassen. Det bør du også!"
       errors_in_emails: "Sjekk at e-posten du la til er gyldig. Dersom du la til flere, sørg for at de er adskilt med komma."
     list_item:
-      review: tilbakemelding
-      reviews: tilbakemeldinger
+      review: vurdering
+      reviews: vurderinger
     news_item:
       show_less: "Vis færre"
       show_more: "Vis flere"
@@ -1066,7 +1066,7 @@ nb:
       feedback: "Hva vil du fortelle oss?"
       default_feedback: "Opplevde du problemer med %{service_name}? Har du forslag til forbedringer? Så du noe utenom det vanlige? Eller vil du bare slå av en prat? Gi oss en lyd!"
       feedback_forum: diskusjonsforum
-      feedback_handle: Tilbakemelding
+      feedback_handle: Vurdering
       give_feedback: "Kontakt oss"
       or_check_our: "…eller sjekk ut vår"
       send_feedback_to_admin: "Send tilbakemelding"
@@ -1137,10 +1137,10 @@ nb:
       email_not_found: "E-posten du oppga ble ikke funnet i %{service_name}-systemet."
       error_with_session: "Feil ved økt."
       feedback_considered_spam: "Tilbakemeldingen ble ikke lagret grunnet feil ved formatering. Prøv igjen eller se diskusjonsforum."
-      feedback_not_saved: "Tilbakemelding kunne i sendes."
+      feedback_not_saved: "Tilbakemeldingen kunne ikke sendes."
       feedback_saved: "Takk for tilbakemelding. Vi kommer tilbake til deg så fort vi kan."
-      feedback_sent_to: "Tilbakemelding sent til %{target_person}."
-      feedback_skipped: "Tilbakemelding hoppet over"
+      feedback_sent_to: "Vurdering sent til %{target_person}."
+      feedback_skipped: "Hoppet over vurdering"
       invitation_cannot_be_sent: "Invitasjon kunne ikke sendes"
       invitation_sent: "Invitasjon er sendt"
       inviting_new_users_is_not_allowed_in_this_community: "Invitere nye brukere er ikke lov."
@@ -1194,7 +1194,7 @@ nb:
       this_content_is_not_available_in_this_community: "Dette innholdet er ikke tilgjengelig."
       unknown_error: "Ukjent feil. Vennligst gå til kontakt oss og send oss en melding om hva som skjedde."
       update_error: "Feil ved oppdatering av din informasjon, vennligst prøv på nytt"
-      you_are_not_allowed_to_give_feedback_on_this_transaction: "Du har ikke tilgang til å gi tilbakemelding på denne hendelsen"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Du har ikke tilgang til å gi vurdering av denne hendelsen"
       you_are_not_authorized_to_do_this: "Du er ikke autorisert til å gjøre dette"
       you_are_not_authorized_to_view_this_content: "Du er ikke autorisert til dette innholdet"
       send_instructions: "Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt innen noen få minutter."
@@ -1202,12 +1202,12 @@ nb:
       you_cannot_reply_to_a_closed_request: "Du kan ikke svare til en avsluttet forespørsel"
       you_cannot_send_message_to_yourself: "Du kan ikke sende melding til deg selv"
       you_followed_listing: "Du følger nå denne listingen"
-      you_have_already_given_feedback_about_this_event: "Du har allerede gitt tilbakemelding"
+      you_have_already_given_feedback_about_this_event: "Du har allerede gitt en vurdering"
       you_are_now_member: "Velkommen til %{service_name}!"
       you_are_already_member: "Du er allerede medlem av %{service_name}. Velkommen tilbake!"
       you_must_log_in_to_create_new_listing: "Du må logge inn på %{service_name} for å lage en ny annonse. Har du ikke brukerkonto kan du %{sign_up_link}"
       additional_email_confirmed_dashboard: "Din e-post er nå bekreftet."
-      you_must_log_in_to_give_feedback: "Du må logge inn for å gi tilbakemelding"
+      you_must_log_in_to_give_feedback: "Du må logge inn for å gi vurdering"
       you_must_log_in_to_invite_new_users: "Du må være innlogget for å invitere nye brukere til %{service_name}"
       you_must_log_in_to_send_a_comment: "Du må logge inn for å legge igjen en kommentar"
       you_must_log_in_to_send_a_message: "Du må logge inn på %{service_name} for å sende melding til en annen bruker"
@@ -1447,11 +1447,11 @@ nb:
       item_request_trade: "Forespørsel om bytte"
       no_description: "Denne listingen har ingen beskrivelse"
       no_image: "Uten bilder"
-      no_reviews: "Ingen tilbakemeldinger mottatt"
+      no_reviews: "Ingen vurderinger mottatt"
       offer: Tilbud
       listing_created: Opprettet
       open_until: "Aktiv frem til %{date}"
-      feedback: Tilbakemelding
+      feedback: Vurdering
       qr_code: "QR kode"
       request: Forespørsel
       rideshare_offer: Samkjøringstilbud
@@ -1595,7 +1595,7 @@ nb:
       activate: Aktiver
       deactivate: Deaktiver
     help_texts:
-      feedback_description_title: Tilbakemelding
+      feedback_description_title: Vurdering
       help_captcha_title: "Er du et menneske?"
       help_invitation_code_title: "Du trenger en innvitasjon"
       terms_title: "%{service_name} vilkår"
@@ -1603,7 +1603,7 @@ nb:
       invite_only_help_text_title: "Kun inviterte"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Denne brukeren er ikke lenger aktiv på %{service_name}"
-      inactive_description: "Denne brukeren bruker ikke lenger  %{service_name}. Du kan ikke kontakte denne brukeren, gi tilbakemelding eller kommentere listinger."
+      inactive_description: "Denne brukeren bruker ikke lenger %{service_name}. Du kan ikke kontakte denne brukeren, gi vurdering eller kommentere annonser."
     new:
       captcha_incorrect: "reCAPTCHA-sjekk feilet. Vennligst skriv ordene fra bildet i feltet nedenfor."
       captcha_was_wrong: "Captcha-tekst var ikke riktig."
@@ -1642,7 +1642,7 @@ nb:
       as_expected: "Som forventet"
       exceeded_expectations: "Mye bedre enn forventet"
       grade: "karakter:"
-      and_gave_following_feedback: "og gav følgende tilbakemelding"
+      and_gave_following_feedback: "og gav følgende vurdering"
       less_than_expected: "Dårligere enn forventet"
       slightly_better_than_expected: "Noe bedre enn forventet"
       slightly_less_than_expected: "Noe dårligere enn forventet"
@@ -1664,24 +1664,24 @@ nb:
       hide_description: "Vis mindre"
       less_than_expected: "Dårligere enn forventet"
       phone_number: "Telefonnummer:"
-      show_all_feedback: "Vis alle tilbakemeldinger"
-      show_all_testimonials: "Vis alle tilbakemeldinger"
+      show_all_feedback: "Vis alle vurderinger"
+      show_all_testimonials: "Vis alle vurderinger"
       show_full_description: "Vis mer"
       slightly_better_than_expected: "Overgikk forventning"
       slightly_less_than_expected: "Dårligere enn forventet"
       what_are_these: "Hva er dette?"
-      review: "tilbakemelding mottatt"
-      reviews: "tilbakemeldinger mottatt"
+      review: "vurdering mottatt"
+      reviews: "vurderinger mottatt"
       listing: annonse
       listings: annonser
       open_listing: "aktiv annonse"
       open_listings: "aktive annonser"
       no_listings: "Ingen annonser"
       no_open_listings: "Ingen aktive annonser"
-      no_reviews: "Ingen tilbakemeldinger"
+      no_reviews: "Ingen vurderinger"
       show_all_listings: "Vis alle annonser"
       show_all_open_listings: "Vis alle åpne annonser"
-      show_all_reviews: "Vis alle tilbakemeldinger"
+      show_all_reviews: "Vis alle vurderinger"
     followed_people:
       you_follow_plural: "Du følger %{count} brukere"
       you_follow_singular: "Du følger %{count} bruker"
@@ -1746,7 +1746,7 @@ nb:
       new_email: "Ny epost"
       delete_all_memberships: "Hvis du fjerner din konto vil du ikke lenger kunne bruke den på følgende sider: %{marketplaces}."
       delete_personal_information: "Hvis du fjerner din konto vil dine personalia (navn, telefon, adresse, epost, profilbilde, etc) bli slettet og disse kan ikke gjenopprettes. Alle dine annonser vil bli fjernet og du vil ikke kunne gjenopprette din brukerkonto."
-      delete_information_others_involved: "Informasjon hvor andre brukere er involvert (samtaler med brukere, transaksjoner du har gjort, tilbakemeldinger du har gitt andre, etc) fjernes ikke når du sletter din konto. Navnet ditt vil derimot ikke lenger vises sammen med denne informasjonen."
+      delete_information_others_involved: "Informasjon hvor andre brukere er involvert (samtaler med brukere, transaksjoner du har gjort, vurderinger du har gitt andre, etc) fjernes ikke når du sletter din konto. Navnet ditt vil derimot ikke lenger vises sammen med denne informasjonen."
       unfinished_transactions: "Din konto kan ikke fjernes fordi du har pågående transaksjoner. Vennligst fullfør alle dine transaksjoner før du fjerner din konto."
       new_password: "Nytt passord"
       save: Lagre
@@ -1775,8 +1775,8 @@ nb:
       email_about_confirm_reminders: "…jeg har glemt å bekrefte en forespørsel som fullført"
       email_about_new_comments_to_own_listing: "…noen har kommentert på mitt tilbud eller forespørsel"
       email_about_new_messages: "…noen sender meg en melding"
-      email_about_new_received_testimonials: "…noen gir meg en tilbakemelding"
-      email_about_testimonial_reminders: "…jeg har glemt å gi tilbakemelding på en hendelse"
+      email_about_new_received_testimonials: "…noen gir meg en vurdering"
+      email_about_testimonial_reminders: "…jeg har glemt å gi vurdering av en hendelse"
       email_daily_community_updates: "Send meg en oppdatering på e-post <b>daglig</b> med nye annonser"
       email_weekly_community_updates: "Send meg en oppdatering på e-post <b>ukentlig</b> med nye annonser"
       do_not_email_community_updates: "Ikke send meg oppdateringer på e-post"
@@ -1791,7 +1791,7 @@ nb:
       settings_link: Innstillinger
       homepage_link: Forside
       unsubscribe_unsuccesful: "Feil ved avmelding"
-      unsuccessful_unsubscribe_info_text: "Årsaken kan være at avmeld linken er gammel eller på annet vis er ødelagt. Kontakt oss via tilbakemelding knappen til venstre og vi kan avmelde deg, eller logg inn å rediger dine e-post innstillinger."
+      unsuccessful_unsubscribe_info_text: "Årsaken kan være at avmeld-linken er gammel eller på annet vis er ødelagt. Kontakt oss via tilbakemelding-knappen til venstre og vi kan avmelde deg, eller logg inn å rediger dine e-postinnstillinger."
     profile:
       about_you: "Om deg"
       city: By
@@ -1832,21 +1832,21 @@ nb:
       you_need_to_accept_new_terms: "%{service_name} vilkår for bruk er endret. Vennligst aksepter nye bruker vilkår for å fortsette å bruke %{service_name}. De nye bruker vilkårene er for å etterse tjenesten etter forsknings prosjektet er ferdig."
   testimonials:
     index:
-      all_testimonials: "All tilbakemelding"
-      feedback_altogether: "All tilbakemelding: "
-      loading_more_testimonials: "Laster flere tilbakemeldinger"
-      no_testimonials: "Ingen tilbakemeldinger gitt."
+      all_testimonials: "Alle vurderinger"
+      feedback_altogether: "Totalvurdering: "
+      loading_more_testimonials: "Laster flere vurderinger"
+      no_testimonials: "Ingen vurderinger mottatt."
     new:
       as_expected: "Som forventet"
       exceeded_expectations: "Mye bedre enn forventet"
-      give_feedback_to: "Gi tilbakemelding til %{person}"
+      give_feedback_to: "Gi vurdering til %{person}"
       grade: "Hva er din helhetlige vurdering?"
       less_than_expected: "Dårligere enn forventet"
-      send_feedback: "Send tilbakemelding"
+      send_feedback: "Gi vurdering"
       slightly_better_than_expected: "Noe bedre enn forventet"
       slightly_less_than_expected: "Noe dårligere enn forventet"
       textual_feedback: "Hvordan gikk det?"
-      this_will_be_shown_in_profile: "Tilbakemeldingen vil være synlig for andre brukere på profilsiden til %{person}. Dette hjelper med å vurdere om %{person} er en tillitsfull person."
+      this_will_be_shown_in_profile: "Vurderingen vil være synlig for andre brukere på profilsiden til %{person}. Dette hjelper med å vurdere om %{person} er en tillitsfull person."
       positive: positiv
       negative: Negativ
       default_textual_feedback: "Alt gikk bra, takk!"

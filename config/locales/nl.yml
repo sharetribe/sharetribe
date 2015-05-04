@@ -429,7 +429,7 @@ nl:
       total_label: "Totaal:"
       total_value: "%{seller_gets}*"
       paypal_fee_info: ~
-      shipping_price_label: "Transport:"
+      shipping_price_label: "Verzenden:"
     confirm:
       confirm_description: "Het verzoek is voldaan en je zou het moeten markeren als afgehandeld. Daarna kan je feedback geven aan de andere partij."
       cancel_description: "Indien je verzoek niet wat uitgevoerd, kan je het markeren als 'niet uitgevoerd'. Je kan dan nog steeds feedback geven aan de andere partij en omschrijven wat er gebeurd is."
@@ -749,7 +749,7 @@ nl:
       you_have_received_new_payment: "Je bent <b> %{payment_sum}</b> betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Hier is het betalingsbewijs."
     paypal_new_payment:
       paypal_gateway_fee: "Kost PayPal:"
-      shipping_total: "Transport:"
+      shipping_total: "Verzenden:"
     braintree_new_payment:
       product: "Product:"
       price_payer_paid: "Prijs %{payer_full_name} betaald:"
@@ -1315,11 +1315,11 @@ nl:
         paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: "Na commissie voor %{service_name} en kosten voor de financiële transactie, zal je ongeveer %{sum_with_currency} ontvangen (BTW 0%)"
         price_excludes_vat: "De prijs is exclusief BTW."
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
+        delivery: Levering
+        shipping: Verzenden
+        shipping_price: Verzendkosten
         shipping_price_additional: ~
-        pickup: ~
+        pickup: Ophalen
       origin:
         location: Locatie
         origin: Oorsprong
@@ -1465,11 +1465,11 @@ nl:
         per_quantity_unit: "per %{quantity_unit}"
         per_day: "per dag"
       delivery: Levering
-      shipping: "Transport (%{price})"
-      shipping_no_price: ~
+      shipping: "Verzenden (%{price})"
+      shipping_no_price: Verzenden
       shipping_price_additional: ~
-      pickup: "Ophalen (%{price})"
-      pickup_no_price: ~
+      pickup: Ophalen
+      pickup_no_price: Ophalen
     unit_types:
       piece: ~
       hour: ~
@@ -1808,7 +1808,7 @@ nl:
       image_is_processing: ~
     save_information: "Informatie opslaan"
   shipping_address:
-    shipping_address: Afleveradres
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: "met tag"
@@ -1930,7 +1930,7 @@ nl:
       price_per_day: ~
       quantity: ~
       subtotal: "Subtotaal:"
-      shipping-price: "Transport:"
+      shipping-price: "Verzenden:"
     price_per_quantity: ~
     price: ~
     quantity: ~
