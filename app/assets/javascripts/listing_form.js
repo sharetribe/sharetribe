@@ -326,7 +326,12 @@ window.ST = window.ST || {};
     var current_attributes = _.clone(selected_attributes);
 
     // Reset the view to initial state
-    update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+    $('.form-fields').addClass('hidden');
+    var shouldShowForm = update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+
+    if(shouldShowForm) {
+      $('.form-fields').removeClass('hidden');
+    }
 
     var menuStateChanged = function(shouldLoadForm) {
       if(shouldLoadForm) {
