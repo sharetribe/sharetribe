@@ -27,6 +27,7 @@ module Sharetribe
     ["Norsk", "nb"],
     ["Polski", "pl"],
     ["ភាសាខ្មែ","km-KH"],
+    ["Bahasa Malaysia", "ms-MY"],
 
     # Customization languages
     ["English", "en-rc"],
