@@ -29,6 +29,10 @@ Given /^that listing is closed$/ do
   @listing.update_attribute(:open, false)
 end
 
+When(/^I select "(.*?)" from listing type menu$/) do |title|
+  first('.select', :text => title).click
+end
+
 Given(/^that listing has a numeric answer "(.*?)" for "(.*?)"$/) do |answer, custom_field|
   numeric_custom_field = find_numeric_custom_field_type_by_name(custom_field)
   FactoryGirl.create(:custom_numeric_field_value, listing: @listing, numeric_value: answer, question: numeric_custom_field)
@@ -97,9 +101,9 @@ When /^I create a new listing "(.*?)" with price(?: "([^"]*)")?$/ do |title, pri
   steps %Q{
     Given I am on the home page
     When I follow "new-listing-link"
-    And I follow "Items"
-    And I follow "Tools" within "#option-groups"
-    And I follow "Selling"
+    And I select "Items" from listing type menu
+    And I select "Tools" from listing type menu
+    And I select "Selling" from listing type menu
     And I fill in "listing_title" with "#{title}"
     And I fill in "listing_price" with "dsfsdf"
     And I press "Save listing"
@@ -265,17 +269,17 @@ end
 
 When(/^I select category "(.*?)"$/) do |category_name|
   page.should have_content("Select category")
-  click_link(category_name)
+  first(".select", text: category_name).click
 end
 
 When(/^I select subcategory "(.*?)"$/) do |subcategory_name|
   page.should have_content("Select subcategory")
-  click_link(subcategory_name)
+  first(".select", text: subcategory_name).click
 end
 
 When(/^I select listing shape "(.*?)"$/) do |listing_shape_name|
   page.should have_content("Select listing type")
-  click_link(listing_shape_name)
+  first(".select", text: listing_shape_name).click
 end
 
 Then(/^I should see the new listing form$/) do

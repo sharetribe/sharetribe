@@ -8,9 +8,9 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "Items"
-    And I follow "Tools" within "#option-groups"
-    And I follow "Requesting"
+    And I select "Items" from listing type menu
+    And I select "Tools" from listing type menu
+    And I select "Requesting" from listing type menu
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
     And I press "Save listing"
@@ -21,9 +21,9 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "Items"
-    And I follow "Tools" within "#option-groups"
-    And I follow "Lending"
+    And I select "Items" from listing type menu
+    And I select "Tools" from listing type menu
+    And I select "Lending" from listing type menu
     And I fill in "listing_title" with "My offer"
     And I fill in "listing_description" with "My description"
     And I press "Save listing"
@@ -34,8 +34,8 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "Services"
-    And I follow "Requesting"
+    And I select "Services" from listing type menu
+    And I select "Requesting" from listing type menu
     And I fill in "listing_title" with "Massage"
     And I fill in "listing_description" with "My description"
     And I press "Save listing"
@@ -54,9 +54,9 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "Items"
-    And I follow "Books"
-    And I follow "Requesting"
+    And I select "Items" from listing type menu
+    And I select "Books" from listing type menu
+    And I select "Requesting" from listing type menu
     And I set the expiration date to 7 months from now
     And I attach an image with invalid extension to "listing_image[image]"
     And I press "Save listing"
@@ -89,22 +89,22 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "Items"
+    And I select "Items" from listing type menu
     Then I should see "Category: Item"
-    When I follow "Tools" within "#option-groups"
+    And I select "Tools" from listing type menu
     Then I should see "Category: Item"
     And I should see "Subcategory: Tools"
-    When I follow "Requesting"
+    And I select "Requesting" from listing type menu
     Then I should see "Listing type: Requesting"
-    When I follow "Category: Item"
-    And I follow "Services"
+    And I select "Category: Item" from listing type menu
+    And I select "Services" from listing type menu
     Then I should see "Category: Services"
     And I should not see "Category: Item"
-    When I follow "Category: Services"
-    And I follow "Spaces"
+    And I select "Category: Services" from listing type menu
+    And I select "Spaces" from listing type menu
     Then I should see "Category: Spaces"
     And I should not see "Category: Services"
-    When I follow "Selling"
+    And I select "Selling" from listing type menu
     Then I should see "Category: Spaces"
     And I should see "Listing type: Selling"
     When I fill in "listing_title" with "My offer"
@@ -137,8 +137,8 @@ Feature: User creates a new listing
       | Delivery       | Kuljetus             |
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "Spaces"
-    And I follow "Selling"
+    And I select "Spaces" from listing type menu
+    And I select "Selling" from listing type menu
     Then I should see "House type"
     And I should see "Balcony type"
     And I should not see "Service type"
@@ -148,8 +148,8 @@ Feature: User creates a new listing
     When custom field "Balcony type" is not required
     And I am on the home page
     And I follow "new-listing-link"
-    And I follow "Spaces"
-    And I follow "Selling"
+    And I select "Spaces" from listing type menu
+    And I select "Selling" from listing type menu
     And I fill in "listing_title" with "My house"
     And I press "Save listing"
     Then I should see 1 validation errors
@@ -162,8 +162,8 @@ Feature: User creates a new listing
     Given I am logged in
     And there is a custom text field "Details" in community "test" in category "Spaces"
     When I follow "new-listing-link"
-    And I follow "Spaces"
-    And I follow "Selling"
+    And I select "Spaces" from listing type menu
+    And I select "Selling" from listing type menu
     And I fill in "listing_title" with "My house"
     And I fill in text field "Details" with "Test details"
     And I press "Save listing"
@@ -178,8 +178,8 @@ Feature: User creates a new listing
     Given I am logged in
     And there is a custom numeric field "Area" in that community in category "Spaces" with min value 100 and with max value 2000
     When I follow "new-listing-link"
-    And I follow "Spaces"
-    And I follow "Selling"
+    And I select "Spaces" from listing type menu
+    And I select "Selling" from listing type menu
     And I fill in "listing_title" with "My house"
     And I fill in custom numeric field "Area" with "9999"
     And I press "Save listing"
@@ -193,8 +193,8 @@ Scenario: User creates a new listing with date field
   Given I am logged in
   And there is a custom date field "building_date_test" in that community in category "Spaces"
   When I follow "new-listing-link"
-  And I follow "Spaces"
-  And I follow "Selling"
+  And I select "Spaces" from listing type menu
+  And I select "Selling" from listing type menu
   And I fill in "listing_title" with "My house"
   And I fill select custom date "building_date_test" with day="19", month="April" and year="2014"
   And I press "Save listing"
@@ -212,8 +212,8 @@ Scenario: User creates a new listing with date field
       | Sauna             |
       | Hot Tub           |
     When I follow "new-listing-link"
-    And I follow "Spaces"
-    And I follow "Selling"
+    And I select "Spaces" from listing type menu
+    And I select "Selling" from listing type menu
     And I fill in "listing_title" with "My house"
     When I check "Wireless Internet"
     And I check "Pool"
@@ -233,9 +233,9 @@ Scenario: User creates a new listing with date field
     And community "test" is private
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "Items"
-    And I follow "Tools" within "#option-groups"
-    And I follow "Requesting"
+    And I select "Items" from listing type menu
+    And I select "Tools" from listing type menu
+    And I select "Requesting" from listing type menu
     Then I should not see "Privacy*"
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
