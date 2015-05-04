@@ -1,6 +1,11 @@
 window.ST = window.ST || {};
 
 (function(module) {
+  /* global report_analytics_event */
+  /* global disable_and_submit */
+  /* global set_textarea_maxlength */
+  /* global auto_resize_text_areas */
+  /* jshint eqeqeq: false */ // Some parts of the code in this file actually compares number that is string to a number
 
   // Update the state of the new listing form based on current status
   function update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes) {
@@ -45,7 +50,7 @@ window.ST = window.ST || {};
         return category["id"] == category_id;
       })
       .filter(function(category) {
-        return category["subcategories"] != undefined;
+        return category["subcategories"] !== undefined;
       })
       .map(function(category) {
         return category["subcategories"];
@@ -156,7 +161,6 @@ window.ST = window.ST || {};
     $('.form-fields').removeClass('hidden');
     var edit_listing_path = '/' + locale + '/listings/edit_form_content';
     var request_params = _.assign({}, selected_attributes, {id: id});
-    debugger;
     $.get(edit_listing_path, request_params, function(data) {
       $('.form-fields').html(data);
     });
@@ -206,11 +210,11 @@ window.ST = window.ST || {};
       // Unselect also all sub-attributes if certain attribute is unselected
       // (for instance, unselect subcategory if category is unselected).
       var index_found = false;
-      for (i = 0; i < ordered_attributes.length; i++) {
+      for (var i = 0; i < ordered_attributes.length; i++) {
         if (ordered_attributes[i] == link.parent().attr('name')) {
           index_found = true;
         }
-        if (index_found == true) {
+        if (index_found === true) {
           selected_attributes[ordered_attributes[i]] = null;
         }
       }
@@ -380,6 +384,6 @@ window.ST = window.ST || {};
 
     set_textarea_maxlength();
     auto_resize_text_areas("listing_description_textarea");
-  }
+  };
 
 })(window.ST);
