@@ -70,12 +70,51 @@ module MarketplaceService::API
       return from_model(community)
     end
 
-    def enable_locale(community, locale)
-      binding.pry
+    def set_locales(community, locales)
+      default_locale = community.locales[0]
+      community_name = community.name(default_locale)
+      locales.each { |locale| Helper.first_or_create_community_customization!(community, community_name, locale) }
+
+      settings = community.settings || {}
+      settings["locales"] = locales
+      community.settings = settings
+      community.save!
+
+      ensure_translations(community, locales).map { |translations|
+        locale = translations[:locale]
+        translations[:translations].each{ |translation|
+          add_translation(community, locale, translation[:translation_key], translation[:translation])
+        }
+      }
+      Rails.cache.delete("/translation_service/community/#{community.id}")
     end
 
-    def disable_locale(community, locale)
-      binding.pry
+    def ensure_translations(community, locales)
+      locales.map { |locale|
+        translations_res = TranslationService::API::Api.translations.get(community.id, {locales: [locale]})
+        translations = translations_res["data"]
+        ensured_translations = translations.map { |translation|
+          key = translation[:translation_key]
+          translated_content = translation[:translation] || I18n.t(key)
+          {
+              translation_key: key,
+              translation: translated_content
+          }
+        }
+        {
+            locale: locale,
+            translations: ensured_translations
+        }
+      }
+    end
+
+    def add_translation(community, locale, key, translation)
+      translation_content = [{locale: locale, translation: translation}]
+      translation_opts = {
+          translation_key: key,
+          translations: translation_content
+      }
+      TranslationService::API::Api.translations.create(community.id, [translation_opts])
     end
 
     def all_locales
@@ -163,6 +202,10 @@ module MarketplaceService::API
 
       def create_community_customization!(community, marketplace_name, locale)
         community.community_customizations.create(customization_params(marketplace_name, locale))
+      end
+
+      def first_or_create_community_customization!(community, marketplace_name, locale)
+        community.community_customizations.first_or_create(customization_params(marketplace_name, locale))
       end
 
       def create_community_plan!(community, options={})

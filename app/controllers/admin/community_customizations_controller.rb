@@ -18,24 +18,6 @@ class Admin::CommunityCustomizationsController < ApplicationController
   end
 
   def update_details
-    enabled_locales = params[:enabled_locales]
-    all_locales = MarketplaceService::API::Marketplaces.all_locales
-    previously_enabled_locale_keys = available_locales().map{ |locale| locale[1] }
-    enabled_locales_valid = enabled_locales.map do |locale|
-      all_locales.include? locale
-    end
-    if enabled_locales_valid
-      locales_involved = (previously_enabled_locale_keys + enabled_locales).uniq
-      binding.pry
-      locales_involved.map do |locale|
-        if enabled_locales.include?(locale) && !previously_enabled_locale_keys.include?(locale)
-          MarketplaceService::API::Marketplaces.enable_locale(@current_community, locale)
-        elsif !enabled_locales.include?(locale) && previously_enabled_locale_keys.include?(locale)
-          MarketplaceService::API::Marketplaces.disable_locale(@current_community, locale)
-        end
-      end
-    end
-
     updates_successful = @current_community.locales.map do |locale|
       permitted_params = [
         :name,
@@ -46,10 +28,19 @@ class Admin::CommunityCustomizationsController < ApplicationController
         :transaction_agreement_content
       ]
       params.require(:community_customizations).require(locale).permit(*permitted_params)
-
       locale_params = params[:community_customizations][locale]
       customizations = find_or_initialize_customizations_for_locale(locale)
       customizations.update_attributes(locale_params)
+    end
+
+    enabled_locales = params[:enabled_locales]
+    all_locales = MarketplaceService::API::Marketplaces.all_locales
+    previously_enabled_locale_keys = available_locales().map{ |locale| locale[1] }
+    enabled_locales_valid = enabled_locales.map do |locale|
+      all_locales.include? locale
+    end
+    if enabled_locales_valid
+      MarketplaceService::API::Marketplaces.set_locales(@current_community, enabled_locales)
     end
 
     transaction_agreement_checked = Maybe(params)[:community][:transaction_agreement_checkbox].is_some?
