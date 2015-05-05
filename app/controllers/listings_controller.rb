@@ -309,11 +309,6 @@ class ListingsController < ApplicationController
     shape = get_shape(params[:listing][:listing_shape_id])
     m_unit = select_unit(params, shape)
 
-    if unit_required?(shape) && m_unit.is_none?
-      flash[:error] = "Given unit doesn't belong to listing shape" # no need to translate, rare case
-      redirect_to new_listing_path and return
-    end
-
     open_params = @listing.closed? ? {open: true} : {}
 
     listing_params = create_listing_params(params[:listing]).merge(
@@ -455,8 +450,6 @@ class ListingsController < ApplicationController
   def select_unit(params, shape)
     m_unit = Maybe(shape)[:units].map { |units|
       shape[:units].length == 1 ? shape[:units].first : parse_unit(params)
-    }.select { |unit|
-      unit_belongs_to_shape?(unit, shape)
     }
   end
 
@@ -464,16 +457,6 @@ class ListingsController < ApplicationController
     m_unit = Maybe(params)[:listing][:unit].map { |unit_param|
       ListingViewUtils.decode_unit(unit_param)
     }.or_else(nil)
-  end
-
-  def unit_required?(shape)
-    !shape[:units].empty?
-  end
-
-  def unit_belongs_to_shape?(unit, shape)
-    shape[:units].any? { |shape_unit|
-      unit == shape_unit
-    }
   end
 
   def unit_to_listing_opts(m_unit)
