@@ -5,15 +5,19 @@ describe Admin::CategoryService do
     @category2 = FactoryGirl.create(:category, :community => @community)
     @subcategory = FactoryGirl.create(:category)
     @subcategory.update_attribute(:parent_id, @category.id)
+    @subcategory2 = FactoryGirl.create(:category)
+    @subcategory2.update_attribute(:parent_id, @category.id)
 
     @custom_field = FactoryGirl.create(:custom_field, :categories => [@category])
-    @subcustom_field = FactoryGirl.create(:custom_field, :categories => [@subcategory])
+    @subcustom_field = FactoryGirl.create(:custom_field, :categories => [@subcategory, @subcategory2])
 
     @category.reload
     @subcategory.reload
+    @subcategory2.reload
 
     @category.custom_fields.count.should == 1
     @subcategory.custom_fields.count.should == 1
+    @subcategory2.custom_fields.count.should == 1
   end
 
   def include_by_id?(xs, model)
