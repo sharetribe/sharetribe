@@ -35,7 +35,6 @@ class Admin::CommunityCustomizationsController < ApplicationController
 
     enabled_locales = params[:enabled_locales]
     all_locales = MarketplaceService::API::Marketplaces.all_locales
-    previously_enabled_locale_keys = available_locales().map{ |locale| locale[1] }
     enabled_locales_valid = enabled_locales.map do |locale|
       all_locales.include? locale
     end
@@ -46,7 +45,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
     transaction_agreement_checked = Maybe(params)[:community][:transaction_agreement_checkbox].is_some?
     community_update_successful = @current_community.update_attributes(transaction_agreement_in_use: transaction_agreement_checked)
 
-    if updates_successful.all? && community_update_successful
+    if updates_successful.all? && community_update_successful && enabled_locales_valid.all?
       flash[:notice] = t("layouts.notifications.community_updated")
     else
       flash.now[:error] = t("layouts.notifications.community_update_failed")
