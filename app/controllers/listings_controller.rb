@@ -215,7 +215,7 @@ class ListingsController < ApplicationController
     validation_result = ListingFormViewUtils.validate(filtered_listing_params, shape)
 
     unless validation_result.success
-      flash[:error] = "Invalid listing params: #{validation_result.data.join(', ')}"
+      flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
       return redirect_to new_listing_path
     end
 
@@ -323,7 +323,7 @@ class ListingsController < ApplicationController
     validation_result = ListingFormViewUtils.validate(filtered_listing_params, shape)
 
     unless validation_result.success
-      flash[:error] = "Invalid listing params: #{validation_result.data.join(', ')}"
+      flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
       return redirect_to edit_listing_path
     end
 
