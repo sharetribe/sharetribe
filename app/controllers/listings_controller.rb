@@ -203,20 +203,23 @@ class ListingsController < ApplicationController
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
     m_unit = select_unit(params, shape)
 
-    if unit_required?(shape) && m_unit.is_none?
-      flash[:error] = "Given unit doesn't belong to listing shape" # no need to translate, rare case
-      redirect_to new_listing_path and return
-    end
-
-    @listing = Listing.new(
-      create_listing_params(params[:listing]).merge(
+    listing_params = create_listing_params(params[:listing]).merge(
         listing_shape_id: shape[:id],
         transaction_process_id: shape[:transaction_process_id],
         shape_name_tr_key: shape[:name_tr_key],
         action_button_tr_key: shape[:action_button_tr_key],
         current_community_id: @current_community.id,
-      ).merge(unit_to_listing_opts(m_unit)).except(:unit)
-    )
+    ).merge(unit_to_listing_opts(m_unit)).except(:unit)
+
+    filtered_listing_params = ListingFormViewUtils.filter(listing_params, shape)
+    validation_result = ListingFormViewUtils.validate(filtered_listing_params, shape)
+
+    unless validation_result.success
+      flash[:error] = "Invalid listing params: #{validation_result.data.join(', ')}"
+      return redirect_to new_listing_path
+    end
+
+    @listing = Listing.new(filtered_listing_params)
 
     @listing.author = @current_user
 
@@ -313,14 +316,23 @@ class ListingsController < ApplicationController
 
     open_params = @listing.closed? ? {open: true} : {}
 
-    update_successful = @listing.update_fields(
-      create_listing_params(params[:listing]).merge(
+    listing_params = create_listing_params(params[:listing]).merge(
       transaction_process_id: shape[:transaction_process_id],
       shape_name_tr_key: shape[:name_tr_key],
       action_button_tr_key: shape[:action_button_tr_key],
       current_community_id: @current_community.id,
       last_modified: DateTime.now
-    ).merge(open_params).merge(unit_to_listing_opts(m_unit)).except(:unit))
+    ).merge(open_params).merge(unit_to_listing_opts(m_unit)).except(:unit)
+
+    filtered_listing_params = ListingFormViewUtils.filter(listing_params, shape)
+    validation_result = ListingFormViewUtils.validate(filtered_listing_params, shape)
+
+    unless validation_result.success
+      flash[:error] = "Invalid listing params: #{validation_result.data.join(', ')}"
+      return redirect_to edit_listing_path
+    end
+
+    update_successful = @listing.update_fields(filtered_listing_params)
 
     upsert_field_values!(@listing, params[:custom_fields])
 
