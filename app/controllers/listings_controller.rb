@@ -743,7 +743,7 @@ class ListingsController < ApplicationController
       require_shipping_address: Maybe(listing_params[:delivery_methods]).map { |d| d.include?("shipping") }.or_else(false),
       pickup_enabled: Maybe(listing_params[:delivery_methods]).map { |d| d.include?("pickup") }.or_else(false),
       price_cents: listing_params[:price_cents],
-      shipping_price_cents: listing_params[:shipping_params_cents],
+      shipping_price_cents: listing_params[:shipping_price_cents],
       shipping_price_additional_cents: listing_params[:shipping_price_additional_cents],
       currency: listing_params[:currency]
     )
