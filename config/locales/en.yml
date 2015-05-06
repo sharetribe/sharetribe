@@ -1262,6 +1262,8 @@ en:
       show_in_updates_email_loading: Loading...
       show_in_updates_email_error: "Couldn't reach server. Try again after page refresh."
       show_in_updates_email_success: "This listing will be shown in the next automatic update email sent to the users"
+    error:
+      something_went_wrong: "Something went wrong, error code: %{error_code}"
     follow_links:
       follow: "Get emails about new comments"
       unfollow: "Don't get emails about new comments"

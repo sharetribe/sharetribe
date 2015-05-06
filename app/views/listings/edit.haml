@@ -1,30 +1,59 @@
-= render :partial => "listings/form/javascripts", :locals => { listing_id: @listing.id.to_s, minimum_price_cents: minimum_price_cents, run_js_immediately: false, shape: shape }
-
 - content_for :title_header do
   %h1= t(".edit_listing")
 
 - content_for :extra_javascript do
+  :javascript
+    $(document).ready(function() {
+      window.ST.initialize_edit_listing_form_selectors("#{I18n.locale}", #{category_tree.to_json}, #{listing_form_menu_titles().to_json}, #{category_id.to_json}, #{subcategory_id.to_json}, #{shape[:id].to_json}, #{@listing.id});
+    });
+
+- content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
-- @community_category = @current_community.categories
+#new_listing_form.new-listing-form.centered-section
 
-#new_listing_form.edit-listing-form.centered-section
-  = form_for @listing, :html => {:multipart => true} do |form|
-    = render :partial => "listings/form/title", :locals => { :form => form }
-    = render :partial => "listings/form/price", :locals => { :form => form, :seller_commission_in_use => seller_commission_in_use, :payment_gateway => payment_gateway, :run_js_immediately => false, :minimum_commission => minimum_commission, commission_from_seller: commission_from_seller, shape: shape, unit_options: unit_options, shipping_price_additional: shipping_price_additional }
-    = render :partial => "listings/form/description", :locals => { :form => form }
-    = render :partial => "listings/form/custom_fields", :locals => { :form => form, :listing => @listing, :custom_fields => @custom_field_questions }
-    = render :partial => "listings/form/valid_until", :locals => { :form => form }
-    = render :partial => "listings/form/origin", :locals => { :form => form, :origin_loc => @listing.origin_loc }
-    = render :partial => "listings/form/googlemap", :locals => { :form => form, :run_js_immediately => false}
-    = render :partial => "listings/form/images", :locals => { :form => form, :run_js_immediately => false }
-    - if @listing.closed?
-      = form.hidden_field :open, :value => true
-    = form.hidden_field :last_modified, :value => DateTime.now
-    = render :partial => "listings/form/visibility", :locals => { :form => form }
-    = render :partial => "listings/form/privacy", :locals => { :form => form }
-    = form.hidden_field :current_community_id, :value => @current_community.id
-    = render :partial => "listings/form/send_button", :locals => { :form => form }
+  #selected-groups
 
-- ["help_valid_until"].each do |field|
-  = render :partial => "listings/help_texts", :locals => { :field => field }
+    - if categories.size > 1
+      .selected-group{:name => "category"}
+        - categories.each do |value|
+          %a.select.selected.hidden{:data => {:id => value.id}}
+            .link-text= t("listings.new.selected_category", :category => value.display_name(I18n.locale))
+
+    - if subcategories.size > 1
+      .selected-group{:name => "subcategory"}
+        - subcategories.each do |value|
+          %a.select.selected.hidden{:data => {:id => value.id}}
+            .link-text= t("listings.new.selected_subcategory", :subcategory => value.display_name(I18n.locale))
+
+    - if shapes.size > 1
+      .selected-group{:name => "listing_shape"}
+        - shapes.each do |value|
+          %a.select.selected.hidden{:data => {:id => value[:id]}}
+            .link-text= t("listings.new.selected_transaction_type", :transaction_type => t(value[:name_tr_key]))
+
+  %h2.listing-form-title{:id => "foo"}
+
+  #option-groups
+
+    - if categories.size > 1
+      .option-group{:name => "category"}
+        - categories.each do |value|
+          %a.select.option.hidden{:data => {:id => value.id}}
+            .link-text= value.display_name(I18n.locale)
+
+    - if subcategories.size > 1
+      .option-group{:name => "subcategory"}
+        - subcategories.each do |value|
+          %a.select.option.hidden{:data => {:id => value.id}}
+            .link-text= value.display_name(I18n.locale)
+
+    - if shapes.size > 1
+      .option-group{:name => "listing_shape"}
+        - shapes.each do |value|
+          %a.select.option.hidden{:data => {:id => value[:id]}}
+            .link-text= t(value[:name_tr_key])
+
+  .form-fields
+
+    = render partial: "listings/form/form_content", locals: local_assigns.merge(run_js_immediately: false)

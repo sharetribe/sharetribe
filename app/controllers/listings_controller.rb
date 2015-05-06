@@ -7,11 +7,11 @@ class ListingsController < ApplicationController
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:close, :update, :follow, :unfollow]
 
-  before_filter :only => [ :edit, :update, :close, :follow, :unfollow ] do |controller|
+  before_filter :only => [ :edit, :edit_form_content, :update, :close, :follow, :unfollow ] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
 
-  before_filter :only => [ :new, :create ] do |controller|
+  before_filter :only => [ :new, :new_form_content, :create ] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_create_new_listing", :sign_up_link => view_context.link_to(t("layouts.notifications.create_one_here"), sign_up_path)).html_safe
   end
 
@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_close_a_listing")
   end
 
-  before_filter :only => [ :edit, :update ] do |controller|
+  before_filter :only => [ :edit, :edit_form_content, :update ] do |controller|
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
 
@@ -153,7 +153,24 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @selected_tribe_navi_tab = "new_listing"
+    category_tree = CategoryViewUtils.category_tree(
+      categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
+      shapes: get_shapes,
+      locale: I18n.locale,
+      all_locales: @current_community.locales
+    )
+
+    render :new, locals: {
+             categories: @current_community.top_level_categories,
+             subcategories: @current_community.subcategories,
+             shapes: get_shapes,
+             category_tree: category_tree
+           }
+  end
+
+  def new_form_content
+    return redirect_to action: :new unless request.xhr?
+
     @listing = Listing.new
 
     if (@current_user.location != nil)
@@ -164,51 +181,17 @@ class ListingsController < ApplicationController
       @listing.build_origin_loc(:location_type => "origin_loc")
     end
 
-    if request.xhr? # AJAX request to get the actual form contents
-      @listing.category = @current_community.categories.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
-      @custom_field_questions = @listing.category.custom_fields
-      @numeric_field_ids = numeric_field_ids(@custom_field_questions)
+    form_content
+  end
 
-      shape = get_shape(Maybe(params)[:listing_shape].to_i.or_else(nil))
-      process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
+  def edit_form_content
+    return redirect_to action: :edit unless request.xhr?
 
-      # PaymentRegistrationGuard needs this to be set before posting
-      @listing.transaction_process_id = shape[:transaction_process_id]
-      @listing.listing_shape_id = shape[:id]
-
-      payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
-      allow_posting, error_msg = payment_setup_status(
-                       community: @current_community,
-                       user: @current_user,
-                       listing: @listing,
-                       payment_type: payment_type,
-                       process: process)
-
-      if allow_posting
-        unit_options = ListingViewUtils.unit_options(shape[:units])
-
-        render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(
-                 shape: shape,
-                 unit_options: unit_options,
-                 shipping_price_additional: feature_enabled?(:shipping_per) ? 0 : nil)
-      else
-        render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
-      end
-    else
-      category_tree = CategoryViewUtils.category_tree(
-        categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
-        shapes: get_shapes,
-        locale: I18n.locale,
-        all_locales: @current_community.locales
-      )
-
-      render :new, locals: {
-               categories: @current_community.top_level_categories,
-               subcategories: @current_community.subcategories,
-               shapes: get_shapes,
-               category_tree: category_tree
-             }
+    if !@listing.origin_loc
+        @listing.build_origin_loc(:location_type => "origin_loc")
     end
+
+    form_content
   end
 
   def create
@@ -220,19 +203,23 @@ class ListingsController < ApplicationController
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
     m_unit = select_unit(params, shape)
 
-    if unit_required?(shape) && m_unit.is_none?
-      flash[:error] = "Given unit doesn't belong to listing shape" # no need to translate, rare case
-      redirect_to new_listing_path and return
-    end
-
-    @listing = Listing.new(
-      create_listing_params(params[:listing]).merge(
+    listing_params = create_listing_params(params[:listing]).merge(
         listing_shape_id: shape[:id],
         transaction_process_id: shape[:transaction_process_id],
         shape_name_tr_key: shape[:name_tr_key],
-        action_button_tr_key: shape[:action_button_tr_key]
-      ).merge(unit_to_listing_opts(m_unit)).except(:unit)
-    )
+        action_button_tr_key: shape[:action_button_tr_key],
+        current_community_id: @current_community.id,
+    ).merge(unit_to_listing_opts(m_unit)).except(:unit)
+
+    filtered_listing_params = ListingFormViewUtils.filter(listing_params, shape)
+    validation_result = ListingFormViewUtils.validate(filtered_listing_params, shape)
+
+    unless validation_result.success
+      flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
+      return redirect_to new_listing_path
+    end
+
+    @listing = Listing.new(filtered_listing_params)
 
     @listing.author = @current_user
 
@@ -283,8 +270,28 @@ class ListingsController < ApplicationController
         0
       end
 
+    category_tree = CategoryViewUtils.category_tree(
+      categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
+      shapes: get_shapes,
+      locale: I18n.locale,
+      all_locales: @current_community.locales
+    )
+
+    category_id, subcategory_id =
+      if @listing.category.parent_id
+        [@listing.category.parent_id, @listing.category.id]
+      else
+        [@listing.category.id, nil]
+      end
+
     render locals: commission(@current_community, process).merge(
+             category_tree: category_tree,
+             categories: @current_community.top_level_categories,
+             subcategories: @current_community.subcategories,
+             shapes: get_shapes,
              shape: shape,
+             category_id: category_id,
+             subcategory_id: subcategory_id,
              unit_options: unit_options,
              shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil
            )
@@ -299,22 +306,28 @@ class ListingsController < ApplicationController
     end
 
     params[:listing] = normalize_price_params(params[:listing])
-
-    shape = get_shape(@listing.listing_shape_id)
+    shape = get_shape(params[:listing][:listing_shape_id])
     m_unit = select_unit(params, shape)
 
-    if unit_required?(shape) && m_unit.is_none?
-      flash[:error] = "Given unit doesn't belong to listing shape" # no need to translate, rare case
-      redirect_to new_listing_path and return
-    end
+    open_params = @listing.closed? ? {open: true} : {}
 
-    update_successful = @listing.update_fields(
-      create_listing_params(params[:listing]).merge(
-      listing_shape_id: shape[:id],
+    listing_params = create_listing_params(params[:listing]).merge(
       transaction_process_id: shape[:transaction_process_id],
       shape_name_tr_key: shape[:name_tr_key],
-      action_button_tr_key: shape[:action_button_tr_key]
-    ).merge(unit_to_listing_opts(m_unit)).except(:unit))
+      action_button_tr_key: shape[:action_button_tr_key],
+      current_community_id: @current_community.id,
+      last_modified: DateTime.now
+    ).merge(open_params).merge(unit_to_listing_opts(m_unit)).except(:unit)
+
+    filtered_listing_params = ListingFormViewUtils.filter(listing_params, shape)
+    validation_result = ListingFormViewUtils.validate(filtered_listing_params, shape)
+
+    unless validation_result.success
+      flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
+      return redirect_to edit_listing_path
+    end
+
+    update_successful = @listing.update_fields(filtered_listing_params)
 
     upsert_field_values!(@listing, params[:custom_fields])
 
@@ -392,11 +405,51 @@ class ListingsController < ApplicationController
 
   private
 
+  def form_content
+    @listing.category = @current_community.categories.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
+    @custom_field_questions = @listing.category.custom_fields
+    @numeric_field_ids = numeric_field_ids(@custom_field_questions)
+
+    shape = get_shape(Maybe(params)[:listing_shape].to_i.or_else(nil))
+    process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
+
+    # PaymentRegistrationGuard needs this to be set before posting
+    @listing.transaction_process_id = shape[:transaction_process_id]
+    @listing.listing_shape_id = shape[:id]
+
+    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    allow_posting, error_msg = payment_setup_status(
+                     community: @current_community,
+                     user: @current_user,
+                     listing: @listing,
+                     payment_type: payment_type,
+                     process: process)
+
+    shipping_price_additional =
+      if @listing.shipping_price_additional
+        @listing.shipping_price_additional.to_s
+      elsif @listing.shipping_price
+        @listing.shipping_price.to_s
+      else
+        0
+      end
+
+    if allow_posting
+      unit_options = ListingViewUtils.unit_options(shape[:units])
+
+      render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(
+               run_js_immediately: true,
+               shape: shape,
+               unit_options: unit_options,
+               shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil)
+    else
+      render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
+    end
+  end
+
   def select_unit(params, shape)
     m_unit = Maybe(shape)[:units].map { |units|
       shape[:units].length == 1 ? shape[:units].first : parse_unit(params)
-    }.select { |unit|
-      unit_belongs_to_shape?(unit, shape)
     }
   end
 
@@ -406,16 +459,6 @@ class ListingsController < ApplicationController
     }.or_else(nil)
   end
 
-  def unit_required?(shape)
-    !shape[:units].empty?
-  end
-
-  def unit_belongs_to_shape?(unit, shape)
-    shape[:units].any? { |shape_unit|
-      unit == shape_unit
-    }
-  end
-
   def unit_to_listing_opts(m_unit)
     m_unit.map { |unit|
       {
@@ -423,7 +466,11 @@ class ListingsController < ApplicationController
         quantity_selector: unit[:quantity_selector],
         unit_tr_key: unit[:translation_key]
       }
-    }.or_else({})
+    }.or_else({
+        unit_type: nil,
+        quantity_selector: nil,
+        unit_tr_key: nil
+    })
   end
 
   def unit_from_listing(listing)
@@ -692,10 +739,14 @@ class ListingsController < ApplicationController
   end
 
   def create_listing_params(listing_params)
-    listing_params.except(:delivery_methods).tap do |l|
-      l[:require_shipping_address] = Maybe(listing_params[:delivery_methods]).map { |d| d.include?("shipping") }.or_else(false)
-      l[:pickup_enabled] = Maybe(listing_params[:delivery_methods]).map { |d| d.include?("pickup") }.or_else(false)
-    end
+    listing_params.except(:delivery_methods).merge(
+      require_shipping_address: Maybe(listing_params[:delivery_methods]).map { |d| d.include?("shipping") }.or_else(false),
+      pickup_enabled: Maybe(listing_params[:delivery_methods]).map { |d| d.include?("pickup") }.or_else(false),
+      price_cents: listing_params[:price_cents],
+      shipping_price_cents: listing_params[:shipping_params_cents],
+      shipping_price_additional_cents: listing_params[:shipping_price_additional_cents],
+      currency: listing_params[:currency]
+    )
   end
 
   def get_transaction_process(community_id:, transaction_process_id:)
