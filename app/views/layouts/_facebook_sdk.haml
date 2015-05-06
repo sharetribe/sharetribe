@@ -12,7 +12,8 @@ FB.init({
 appId      : '#{APP_CONFIG.fb_connect_id}',                        // App ID from the app dashboard
 channelUrl : '//#{@current_community ? @current_community.full_domain : "www." + APP_CONFIG.domain}/channel.html', // Channel file for x-domain comms
 status     : false,                                 // Check Facebook Login status
-xfbml      : true                                  // Look for social plugins on the page
+xfbml      : true,                                  // Look for social plugins on the page
+version    : 'v2.3'
 });
 // Additional initialization code such as adding Event Listeners goes here
 };
@@ -21,7 +22,7 @@ xfbml      : true                                  // Look for social plugins on
 var js, fjs = d.getElementsByTagName(s)[0];
 if (d.getElementById(id)) {return;}
 js = d.createElement(s); js.id = id;
-js.src = "//connect.facebook.net/#{loc}/all.js";
+js.src = "//connect.facebook.net/#{loc}/sdk.js";
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
