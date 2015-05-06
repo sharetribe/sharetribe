@@ -1258,6 +1258,8 @@ nl:
       show_in_updates_email_loading: Laden...
       show_in_updates_email_error: "Kan de server niet bereiken. Probeer opnieuw na herladen van de pagina."
       show_in_updates_email_success: "Dit item zal getoond worden in de volgende automatische update e-mail die naar gebruikers verstuurd wordt"
+    error:
+      something_went_wrong: ~
     follow_links:
       follow: "Ontvang e-mail wanneer er een reactie is geplaatst"
       unfollow: "Ontvang geen e-mails als er een reactie is geplaatst"
