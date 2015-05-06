@@ -20,7 +20,7 @@
 - if content_for?(:meta_description)
   - meta_description = "#{@current_community.name(I18n.locale)} - #{content_for(:meta_description)}"
 - else
-  - meta_description = "#{@current_community.name(I18n.locale)} - #{community_slogan}"
+  - meta_description = "#{@current_community.name(I18n.locale)} - #{community_slogan} - #{community_description(false)}"
 
 - if content_for?(:meta_image)
   - meta_image = content_for(:meta_image)
