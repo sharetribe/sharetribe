@@ -1275,6 +1275,8 @@ es-rc:
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
+    error:
+      something_went_wrong: ~
     follow_links:
       follow: ~
       unfollow: ~

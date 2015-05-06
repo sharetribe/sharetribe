@@ -804,7 +804,7 @@ nb:
       reset_password_instructions: "<p>Du har indikert at du har glemt enten ditt passord eller brukernavn på %{service_name} </p><p>Ditt brukernavn er : %{username}</p><p>Dersom du må resette ditt passord, klikk denne link:  %{password_reset_link}</p><br/><p>Dersom du ikke har etterspurt dette, vennligst se bortifra denne eposten. Ditt passord endres ikke om du ikke bruker linken over og lager et nytt.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Vurderinger er offentlig og synlig for alle brukere. Basert på vurderingene kan brukere vurdere om %{name} er en pålitelig person man vil assosiere seg med. Det er derfor alltid viktig å gi vurderinger og be om å få dette av den andre parten også. Du trenger også positive vurderinger for å oppnå de fleste titlene."
-      remember_to_give_feedback_to: "Påminnelse: husk å gi vurdering til %{name}"
+      remember_to_give_feedback_to: "Påminnelse: husk å gi vurdering av %{name}"
       you_have_not_given_feedback_yet: "Du har enda ikke gitt vurdering til %{name} om '%{event}'. Husk å gi vurdering om hvordan %{given_name} utførte dette."
     transaction_preauthorized:
       subject: "%{requester} har etterspurt og betalt for %{listing_title}"
@@ -886,7 +886,7 @@ nb:
       javascript_is_disabled_in_your_browser: "Javascript er deaktivert i din nettleser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} vil ikke fungere skikkelig uten javascript. Forsøk å aktivere javascript i nettleserens innstillinger og last siden på nytt."
       contact_us: "Kontakt oss"
-      send_feedback: "Gi vurdering"
+      send_feedback: "Send tilbakemelding"
       your_feedback_to_admins: "Din tilbakemelding til administratorene"
     send: Send
     your_email_address: "Din e-post"
@@ -1264,6 +1264,8 @@ nb:
       show_in_updates_email_loading: Laster…
       show_in_updates_email_error: "Kunne ikke nå server. Oppdater siden og prøv igjen."
       show_in_updates_email_success: "Denne annonsen vil bli vist i den neste automatiske e-post utsendelsen til brukere"
+    error:
+      something_went_wrong: ~
     follow_links:
       follow: "Motta epost ved kommentar"
       unfollow: "Ikke motta epost ved kommentar"
