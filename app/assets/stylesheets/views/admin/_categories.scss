@@ -17,18 +17,3 @@
 .listed-category-col {
   margin-bottom: 0;
 }
-
-.category-remove-warning-box {
-  $warning-color: #f2dede;
-  @include border-radius($default-border-radius);
-
-  background-color: $warning-color;
-  padding: lines(0.75) lines(0.8);
-  color: darken($warning-color, 50%);
-  margin-bottom: lines(0.5);
-}
-
-.category-remove-warning-box-icon {
-  width: 1.5em;
-  display: inline-block;
-}

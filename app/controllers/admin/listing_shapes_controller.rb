@@ -40,7 +40,9 @@ class Admin::ListingShapesController < ApplicationController
 
     return redirect_to error_not_found_path if shape.nil?
 
-    render_edit_form(params[:id], shape, process_summary, available_locales())
+    count = Listing.where(listing_shape_id: params[:id]).currently_open.count()
+
+    render_edit_form(params[:id], shape, count, process_summary, available_locales())
   end
 
   def create
@@ -124,6 +126,19 @@ class Admin::ListingShapesController < ApplicationController
     render nothing: true, status: 200
   end
 
+  def close_listings
+    shape_res = listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id])
+
+    if shape_res.success
+      Listing.where(listing_shape_id: params[:id]).update_all(open: false)
+      flash[:notice] = "Successfully closed listings"
+      return redirect_to action: :edit, id: params[:id]
+    else
+      flash[:error] = "Can not find listing shape with id #{params[:id]}"
+      return redirect_to action: :index
+    end
+  end
+
   private
 
   def filter_uneditable_fields(shape, process_summary)
@@ -139,22 +154,23 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def render_new_form(form, process_summary, available_locs)
-    locals = common_locals(form, process_summary, available_locs)
+    locals = common_locals(form, 0, process_summary, available_locs)
     render("new", locals: locals)
   end
 
-  def render_edit_form(id, form, process_summary, available_locs)
-    locals = common_locals(form, process_summary, available_locs).merge(
+  def render_edit_form(id, form, count, process_summary, available_locs)
+    locals = common_locals(form, count, process_summary, available_locs).merge(
       id: id,
       name: pick_translation(form[:name])
     )
     render("edit", locals: locals)
   end
 
-  def common_locals(form, process_summary, available_locs)
+  def common_locals(form, count, process_summary, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       uneditable_fields: uneditable_fields(process_summary),
       shape: FormViewLayer.shape_to_locals(form),
+      count: count,
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
   end

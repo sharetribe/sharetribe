@@ -3,3 +3,8 @@
 .listing-shape-label-disabled {
   color: $border;
 }
+
+.listing-shape-delete-button {
+  @include button($link);
+  margin: 0;
+}
