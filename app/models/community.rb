@@ -284,6 +284,10 @@ class Community < ActiveRecord::Base
     end
   end
 
+  def name_display_type
+    Maybe(read_attribute('name_display_type')).or_else('fullname');
+  end
+
   def full_name(locale)
     name(locale)
   end
