@@ -1265,7 +1265,7 @@ nb:
       show_in_updates_email_error: "Kunne ikke nå server. Oppdater siden og prøv igjen."
       show_in_updates_email_success: "Denne annonsen vil bli vist i den neste automatiske e-post utsendelsen til brukere"
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Noe gikk galt, feilkode: %{error_code}"
     follow_links:
       follow: "Motta epost ved kommentar"
       unfollow: "Ikke motta epost ved kommentar"
