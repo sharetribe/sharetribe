@@ -140,16 +140,16 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def destroy
-    shape_res = listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id])
-
-    if shape_res.success
+    result = listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id]).and_then { |_|
       Listing.where(listing_shape_id: params[:id]).update_all(open: false, listing_shape_id: nil)
-      ShapeService.new(processes).delete(
+      listing_api.shapes.delete(
         community_id: @current_community.id,
         listing_shape_id: params[:id]
       )
+    }
 
-      flash[:notice] = t("admin.listing_shapes.successfully_deleted", order_type: t(shape_res.data[:name_tr_key]))
+    if result.success
+      flash[:notice] = t("admin.listing_shapes.successfully_deleted", order_type: t(result.data[:name_tr_key]))
     else
       flash[:error] = "Can not find listing shape with id #{params[:id]}"
     end
