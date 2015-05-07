@@ -92,7 +92,7 @@ module MarketplaceService::API
     def ensure_translations(community, locales)
       locales.map { |locale|
         translations_res = TranslationService::API::Api.translations.get(community.id, {locales: [locale]})
-        translations = translations_res["data"]
+        translations = translations_res.data
         ensured_translations = translations.map { |translation|
           key = translation[:translation_key]
           translated_content = translation[:translation] || I18n.t(key)
@@ -205,7 +205,7 @@ module MarketplaceService::API
       end
 
       def first_or_create_community_customization!(community, marketplace_name, locale)
-        community.community_customizations.first_or_create(customization_params(marketplace_name, locale))
+        community.community_customizations.first_or_create!(customization_params(marketplace_name, locale))
       end
 
       def create_community_plan!(community, options={})

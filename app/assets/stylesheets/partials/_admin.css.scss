@@ -23,7 +23,7 @@
 // Matching Selectize widget to our look
 .locale-selection__input-widget.selectize-control {
   .selectize-input {
-    border: 2px solid $border;
+    border: em(2) solid $border;
     @include border-radius(em(5));
     font-size: 16px;
     min-height: 42px;

@@ -1,9 +1,5 @@
 - content_for :extra_javascript do
   :javascript
-    var languageKeys = _.map(#{all_locales.to_json}, function(locale) {
-      return "admin.communities.available_languages." + locale["locale_key"];
-    });
-    ST.loadTranslations(languageKeys);
     var selectize = $('#locale-selection').selectize({plugins: ['remove_button'], items: #{enabled_locale_keys.to_json.html_safe}})[0].selectize;
     selectize.on("change", function(value) {
       defaultLanguage = value ? selectize.options[value[0]].text.trim() : "None";
