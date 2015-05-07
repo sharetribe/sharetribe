@@ -4,6 +4,7 @@
     selectize.on("change", function(value) {
       defaultLanguage = value ? selectize.options[value[0]].text.trim() : "None";
       $(".selected-default-language-name").text(defaultLanguage);
+      $('#edit_community').valid();
     });
 %div.locale-selection
   .input-header
@@ -15,7 +16,7 @@
       %p
         = t("admin.communities.edit_details.enabled_languages_description")
   .row.col-10
-    %select.locale-selection__input-widget{ multiple: true, name: "enabled_locales[]", id: "locale-selection" }
+    %select.locale-selection__input-widget.required{ multiple: true, name: "enabled_locales[]", id: "locale-selection" }
       - all_locales.each do |locale|
         %option{ value: locale[:locale_key] }
           = t("admin.communities.available_languages.#{locale[:locale_key]}")
