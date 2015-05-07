@@ -210,7 +210,7 @@ class ListingsController < ApplicationController
     end
 
     listing_params = normalize_price_params(listing_params)
-    m_unit = select_unit(params, shape)
+    m_unit = select_unit(listing_params, shape)
 
     listing_params = create_listing_params(listing_params).merge(
         listing_shape_id: shape[:id],
