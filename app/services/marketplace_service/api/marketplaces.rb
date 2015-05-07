@@ -97,13 +97,13 @@ module MarketplaceService::API
           key = translation[:translation_key]
           translated_content = translation[:translation] || I18n.t(key)
           {
-              translation_key: key,
-              translation: translated_content
+            translation_key: key,
+            translation: translated_content
           }
         }
         {
-            locale: locale,
-            translations: ensured_translations
+          locale: locale,
+          translations: ensured_translations
         }
       }
     end
@@ -111,8 +111,8 @@ module MarketplaceService::API
     def add_translation(community, locale, key, translation)
       translation_content = [{locale: locale, translation: translation}]
       translation_opts = {
-          translation_key: key,
-          translations: translation_content
+        translation_key: key,
+        translations: translation_content
       }
       TranslationService::API::Api.translations.create(community.id, [translation_opts])
     end
