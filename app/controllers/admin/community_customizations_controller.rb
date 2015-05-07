@@ -46,7 +46,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
     if updates_successful.all? && community_update_successful && enabled_locales_valid
       flash[:notice] = t("layouts.notifications.community_updated")
     else
-      flash.now[:error] = t("layouts.notifications.community_update_failed")
+      flash[:error] = t("layouts.notifications.community_update_failed")
     end
 
     redirect_to edit_details_admin_community_path(@current_community)
