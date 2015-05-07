@@ -6,7 +6,7 @@ module ListingFormViewUtils
 
     filter_fields << :price unless shape[:price_enabled]
     filter_fields << :currency unless shape[:price_enabled]
-    filter_fields << :unit_type unless shape[:units].present?
+    filter_fields << :unit unless shape[:units].present?
     filter_fields << :shipping_price unless shape[:shipping_enabled]
     filter_fields << :shipping_price_additional unless shape[:shipping_enabled]
     filter_fields << :delivery_methods unless shape[:shipping_enabled]
@@ -19,8 +19,8 @@ module ListingFormViewUtils
 
     errors << :price_required if shape[:price_enabled] && params[:price].nil?
     errors << :currency_required if shape[:price_enabled] && params[:currency].blank?
-    errors << :unit_required if shape[:units].present? && params[:unit_type].blank?
-    errors << :unit_does_not_belong if shape[:units].present? && !shape[:units].include?({type: params[:unit_type], quantity_selector: params[:quantity_selector]})
+    errors << :unit_required if shape[:units].present? && params[:unit].blank?
+    errors << :unit_does_not_belong if shape[:units].present? && params[:unit].present? && !shape[:units].any? { |u| u[:type] == params[:unit].to_sym }
     errors << :delivery_method_required if shape[:shipping_enabled] && params[:delivery_methods].empty?
     errors << :unknown_delivery_method if shape[:shipping_enabled] && params[:delivery_methods].any? { |method| !["shipping", "pickup"].include?(method) }
 

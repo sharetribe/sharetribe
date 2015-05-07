@@ -451,14 +451,8 @@ class ListingsController < ApplicationController
 
   def select_unit(params, shape)
     m_unit = Maybe(shape)[:units].map { |units|
-      shape[:units].length == 1 ? shape[:units].first : parse_unit(params)
+      units.length == 1 ? units.first : units.find { |u| u[:type] == params[:unit].to_sym }
     }
-  end
-
-  def parse_unit(params)
-    m_unit = Maybe(listing_params)[:unit].map { |unit_param|
-      ListingViewUtils.decode_unit(unit_param)
-    }.or_else(nil)
   end
 
   def unit_to_listing_opts(m_unit)

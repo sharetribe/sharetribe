@@ -16,8 +16,8 @@ describe ListingFormViewUtils do
       expect_filter({currency: "EUR"}, {price_enabled: true}).to include(:currency)
       expect_filter({currency: "EUR"}, {price_enabled: false}).not_to include(:currency)
 
-      expect_filter({unit_type: :day}, {units: [{type: :day, quantity_selector: :number}]}).to include(:unit_type)
-      expect_filter({unit_type: :day}, {units: []}).not_to include(:unit_type)
+      expect_filter({unit: "day"}, {units: [{type: :day, quantity_selector: :number}]}).to include(:unit)
+      expect_filter({unit: "day"}, {units: []}).not_to include(:unit)
 
       expect_filter({delivery_methods: ["shipping"]}, {shipping_enabled: true}).to include(:delivery_methods)
       expect_filter({delivery_methods: ["shipping"]}, {shipping_enabled: false}).not_to include(:delivery_methods)
@@ -58,10 +58,9 @@ describe ListingFormViewUtils do
       expect_error({currency: "EUR"}, {price_enabled: true}, :price_required)
       expect_error({}, {price_enabled: true}, :price_required, :currency_required)
 
-      expect_valid({unit_type: :day, quantity_selector: :day}, {units: [{type: :day, quantity_selector: :day}]})
+      expect_valid({unit: "day"}, {units: [{type: :day, quantity_selector: :day}]})
       expect_valid({}, {units: []})
-      expect_error({unit_type: :night}, {units: [{type: :day, quantity_selector: :day}]}, :unit_does_not_belong)
-      expect_error({unit_type: :day, quantity_selector: :number}, {units: [{type: :day, quantity_selector: :day}]}, :unit_does_not_belong)
+      expect_error({unit: "night"}, {units: [{type: :day, quantity_selector: :day}]}, :unit_does_not_belong)
       expect_error({}, {units: [{type: :day, quantity_selector: :day}]}, :unit_required)
 
       expect_valid({delivery_methods: ["shipping", "pickup"]}, {shipping_enabled: true})
