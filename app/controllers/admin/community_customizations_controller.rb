@@ -34,7 +34,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
     end
 
     enabled_locales = params[:enabled_locales]
-    all_locales = MarketplaceService::API::Marketplaces.all_locales.to_set
+    all_locales = MarketplaceService::API::Marketplaces.all_locales.map{|l| l[:locale_key]}.to_set
     enabled_locales_valid = enabled_locales.size > 0 && enabled_locales.map{ |locale| all_locales.include? locale }.all?
     if enabled_locales_valid
       MarketplaceService::API::Marketplaces.set_locales(@current_community, enabled_locales)
