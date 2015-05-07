@@ -7,20 +7,20 @@
     });
 %div.locale-selection
   .input-header
-    Enabled languages
+    = t("admin.communities.edit_details.enabled_languages")
   .info-text-container
     .info-text-icon
       %i.icon-info-sign
     .info-text-content
       %p
-        Languages to be used nönönö
+        = t("admin.communities.edit_details.enabled_languages_description")
   .row.col-10
     %select.locale-selection__input-widget{ multiple: true, name: "enabled_locales[]", id: "locale-selection" }
       - all_locales.each do |locale|
         %option{ value: locale[:locale_key] }
           = t("admin.communities.available_languages.#{locale[:locale_key]}")
   %p#selected-default-language{ style: "clear: both;" }
-    Default language:
+    = t("admin.communities.edit_details.default_language") + ": "
     %span.selected-default-language-name
       = t("admin.communities.available_languages.#{enabled_locale_keys.first}")
 .clearfix{ style: "width: 100%;" }
