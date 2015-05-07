@@ -66,7 +66,7 @@ describe ListingService::API::Shapes do
         expect(shape[:name_tr_key]).to eql(name_tr_key)
         expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
         expect(shape[:price_quantity_placeholder]).to eql(:time)
-        expect(shape[:category_ids]).to eq category_ids
+        expect(shape[:category_ids].sort).to eq category_ids.sort
         expect(shape[:name]).to eql("selling")
 
         units = shape[:units]
