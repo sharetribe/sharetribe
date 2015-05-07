@@ -10,7 +10,7 @@ class ShapeService
   end
 
   def get(community_id:, listing_shape_id:, locales:)
-    extended_shape = listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).and_then { |shape|
+    listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).and_then { |shape|
       process = @processes.find { |p| p[:id] == shape[:transaction_process_id] }
 
       raise ArgumentError.new("Can not find process with id: #{shape[:transaction_process_id]}") if process.nil?
@@ -28,17 +28,21 @@ class ShapeService
   end
 
   def update(community_id:, listing_shape_id:, opts:)
-    shape = process_shape(community_id: community_id, opts: opts)
+    listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).and_then { |old_shape|
+      shape_opts = Shape.call(opts)
+      shape = process_shape(community_id: community_id, opts: shape_opts.merge(old_shape.slice(:name_tr_key, :action_button_tr_key)))
 
-    listing_api.shapes.update(
-      community_id: community_id,
-      listing_shape_id: listing_shape_id,
-      opts: shape
-    )
+      listing_api.shapes.update(
+        community_id: community_id,
+        listing_shape_id: listing_shape_id,
+        opts: shape
+      )
+    }
   end
 
   def create(community_id:, default_locale:, opts:)
-    shape = process_shape(community_id: community_id, opts: opts)
+    shape_opts = Shape.call(opts)
+    shape = process_shape(community_id: community_id, opts: shape_opts)
 
     with_basename = shape.merge(
       basename: shape[:name][default_locale]
@@ -53,10 +57,8 @@ class ShapeService
   private
 
   def process_shape(community_id:, opts:)
-    shape = Shape.call(opts)
-
     with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
-      entity: shape,
+      entity: opts,
       key_map: KEY_MAP,
       community_id: community_id
     )
