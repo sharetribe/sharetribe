@@ -69,3 +69,25 @@ Response:
   ]
 }
 ```
+
+## DELETE /:community_id/:listing_shape_id
+
+Request body: empty
+
+Response:
+
+```ruby
+{ id: 12345
+, community_id: 9876
+, price_enabled: true
+, transaction_process_id: 123
+, name_tr_key: TranslationKey.new("listing_shape.1234.123")
+, action_button_tr_key: TranslationKey.new("action_button.1234.123")
+, units:
+  [ { unit_type: :day }
+  , { unit_type: :custom
+    , label: TransactionKey.new("unit.1234.123")
+    }
+  ]
+}
+```
