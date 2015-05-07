@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Result do
+  let(:success) { Result::Success.new(1) }
+  let(:success_nil) { Result::Success.new(nil) }
+  let(:error) { Result::Error.new("some message", {some_data: true}) }
+
 
   def expect_success(result, expected_data)
     expect(result).to be_a(Result::Success)
@@ -14,9 +18,6 @@ describe Result do
   end
 
   describe Result::Success do
-
-    let(:success) { Result::Success.new(1) }
-    let(:success_nil) { Result::Success.new(nil) }
 
     describe "#and_then" do
 
@@ -42,6 +43,61 @@ describe Result do
       it "returns None if result data is a non-value" do
         expect(success_nil.maybe.or_else(0)).to eql(0)
       end
+    end
+  end
+
+  describe "#on_success" do
+    before(:each) {
+      @executed = false
+    }
+
+    it "executes on success" do
+      success.on_success { |data|
+        @executed = true
+        expect(data).to eq 1
+      }
+
+      expect(@executed).to eq true
+    end
+
+    it "does not execute on error" do
+      error.on_success { |data|
+        @executed = true
+      }
+      expect(@executed).to eq false
+    end
+
+    it "allows chaining by returning self" do
+      expect(success.on_success {}).to be_a Result::Success
+      expect(error.on_success {}).to be_a Result::Error
+    end
+  end
+
+  describe "#on_error" do
+    before(:each) {
+      @executed = false
+    }
+
+    it "executes on error" do
+      error.on_error { |error_msg, data|
+        @executed = true
+        expect(error_msg).to eq "some message"
+        expect(data).to eq({some_data: true})
+      }
+
+      expect(@executed).to eq true
+    end
+
+    it "does not execute on success" do
+      success.on_error { |error_msg, data|
+        @executed = true
+      }
+      expect(@executed).to eq false
+    end
+
+    it "allows chaining by returning self" do
+      expect(success.on_error {}).to be_a Result::Success
+      expect(error.on_error {}).to be_a Result::Error
     end
   end
 
