@@ -199,11 +199,20 @@ class ListingsController < ApplicationController
       params[:listing].delete("origin_loc_attributes")
     end
 
-    params[:listing] = normalize_price_params(params[:listing])
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
-    m_unit = select_unit(params, shape)
 
-    listing_params = create_listing_params(params[:listing]).merge(
+    listing_params = ListingFormViewUtils.filter(params[:listing], shape)
+    validation_result = ListingFormViewUtils.validate(listing_params, shape)
+
+    unless validation_result.success
+      flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
+      return redirect_to new_listing_path
+    end
+
+    listing_params = normalize_price_params(listing_params)
+    m_unit = select_unit(listing_params, shape)
+
+    listing_params = create_listing_params(listing_params).merge(
         listing_shape_id: shape[:id],
         transaction_process_id: shape[:transaction_process_id],
         shape_name_tr_key: shape[:name_tr_key],
@@ -211,15 +220,7 @@ class ListingsController < ApplicationController
         current_community_id: @current_community.id,
     ).merge(unit_to_listing_opts(m_unit)).except(:unit)
 
-    filtered_listing_params = ListingFormViewUtils.filter(listing_params, shape)
-    validation_result = ListingFormViewUtils.validate(filtered_listing_params, shape)
-
-    unless validation_result.success
-      flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
-      return redirect_to new_listing_path
-    end
-
-    @listing = Listing.new(filtered_listing_params)
+    @listing = Listing.new(listing_params)
 
     @listing.author = @current_user
 
@@ -305,13 +306,22 @@ class ListingsController < ApplicationController
       end
     end
 
-    params[:listing] = normalize_price_params(params[:listing])
     shape = get_shape(params[:listing][:listing_shape_id])
-    m_unit = select_unit(params, shape)
+
+    listing_params = ListingFormViewUtils.filter(params[:listing], shape)
+    validation_result = ListingFormViewUtils.validate(listing_params, shape)
+
+    unless validation_result.success
+      flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
+      return redirect_to edit_listing_path
+    end
+
+    listing_params = normalize_price_params(listing_params)
+    m_unit = select_unit(listing_params, shape)
 
     open_params = @listing.closed? ? {open: true} : {}
 
-    listing_params = create_listing_params(params[:listing]).merge(
+    listing_params = create_listing_params(listing_params).merge(
       transaction_process_id: shape[:transaction_process_id],
       shape_name_tr_key: shape[:name_tr_key],
       action_button_tr_key: shape[:action_button_tr_key],
@@ -319,15 +329,7 @@ class ListingsController < ApplicationController
       last_modified: DateTime.now
     ).merge(open_params).merge(unit_to_listing_opts(m_unit)).except(:unit)
 
-    filtered_listing_params = ListingFormViewUtils.filter(listing_params, shape)
-    validation_result = ListingFormViewUtils.validate(filtered_listing_params, shape)
-
-    unless validation_result.success
-      flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
-      return redirect_to edit_listing_path
-    end
-
-    update_successful = @listing.update_fields(filtered_listing_params)
+    update_successful = @listing.update_fields(listing_params)
 
     upsert_field_values!(@listing, params[:custom_fields])
 
@@ -449,14 +451,8 @@ class ListingsController < ApplicationController
 
   def select_unit(params, shape)
     m_unit = Maybe(shape)[:units].map { |units|
-      shape[:units].length == 1 ? shape[:units].first : parse_unit(params)
+      units.length == 1 ? units.first : units.find { |u| u[:type] == params[:unit].to_sym }
     }
-  end
-
-  def parse_unit(params)
-    m_unit = Maybe(params)[:listing][:unit].map { |unit_param|
-      ListingViewUtils.decode_unit(unit_param)
-    }.or_else(nil)
   end
 
   def unit_to_listing_opts(m_unit)
