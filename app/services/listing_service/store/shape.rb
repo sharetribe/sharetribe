@@ -136,7 +136,7 @@ module ListingService::Store::Shape
 
     shape_model.update_attributes(deleted: true)
 
-    deleted_shape = from_model(shape_model, true)
+    from_model(shape_model, true)
   end
 
   # private

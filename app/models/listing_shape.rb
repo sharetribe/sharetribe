@@ -19,8 +19,8 @@
 # Indexes
 #
 #  index_listing_shapes_on_community_id  (community_id)
-#  index_listing_shapes_on_deleted       (deleted)
 #  index_listing_shapes_on_name          (name)
+#  multicol_index                        (community_id,deleted,sort_priority)
 #
 
 class ListingShape < ActiveRecord::Base
