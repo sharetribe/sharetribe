@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150507082447) do
+ActiveRecord::Schema.define(:version => 20150507084754) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -539,7 +539,7 @@ ActiveRecord::Schema.define(:version => 20150507082447) do
     t.integer  "old_category_id"
     t.integer  "category_id"
     t.integer  "share_type_id"
-    t.integer  "listing_shape_id",                                                            :null => false
+    t.integer  "listing_shape_id"
     t.integer  "transaction_process_id"
     t.string   "shape_name_tr_key"
     t.string   "action_button_tr_key"

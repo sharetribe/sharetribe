@@ -259,17 +259,11 @@ class ListingsController < ApplicationController
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-    shape = get_shape(@listing.listing_shape_id)
-    process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
-    unit_options = ListingViewUtils.unit_options(shape[:units], unit_from_listing(@listing))
-    shipping_price_additional =
-      if @listing.shipping_price_additional
-        @listing.shipping_price_additional.to_s
-      elsif @listing.shipping_price
-        @listing.shipping_price.to_s
-      else
-        0
-      end
+    shape = select_shape(get_shapes, @listing.listing_shape_id)
+
+    if shape
+      @listing.listing_shape_id = shape[:id]
+    end
 
     category_tree = CategoryViewUtils.category_tree(
       categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
@@ -285,17 +279,16 @@ class ListingsController < ApplicationController
         [@listing.category.id, nil]
       end
 
-    render locals: commission(@current_community, process).merge(
+    render locals: {
              category_tree: category_tree,
              categories: @current_community.top_level_categories,
              subcategories: @current_community.subcategories,
              shapes: get_shapes,
-             shape: shape,
              category_id: category_id,
              subcategory_id: subcategory_id,
-             unit_options: unit_options,
-             shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil
-           )
+             shape_id: @listing.listing_shape_id,
+             form_content: form_locals(shape)
+           }
   end
 
   def update
@@ -406,6 +399,38 @@ class ListingsController < ApplicationController
   end
 
   private
+
+  def select_shape(shapes, id)
+    if shapes.size == 1
+      shapes.first
+    else
+      shapes.find { |shape| shape[:id] == id }
+    end
+  end
+
+  def form_locals(shape)
+    if shape
+      process = get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
+      unit_options = ListingViewUtils.unit_options(shape[:units], unit_from_listing(@listing))
+
+      shipping_price_additional =
+        if @listing.shipping_price_additional
+          @listing.shipping_price_additional.to_s
+        elsif @listing.shipping_price
+          @listing.shipping_price.to_s
+        else
+          0
+        end
+
+      commission(@current_community, process).merge({
+        shape: shape,
+        unit_options: unit_options,
+        shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil
+      })
+    else
+      nil
+    end
+  end
 
   def form_content
     @listing.category = @current_community.categories.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])

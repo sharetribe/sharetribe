@@ -4,7 +4,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      window.ST.initialize_edit_listing_form_selectors("#{I18n.locale}", #{category_tree.to_json}, #{listing_form_menu_titles().to_json}, #{category_id.to_json}, #{subcategory_id.to_json}, #{shape[:id].to_json}, #{@listing.id});
+      window.ST.initialize_edit_listing_form_selectors("#{I18n.locale}", #{category_tree.to_json}, #{listing_form_menu_titles().to_json}, #{category_id.to_json}, #{subcategory_id.to_json}, #{shape_id.to_json}, #{@listing.id});
     });
 
 - content_for :extra_javascript do
@@ -56,4 +56,6 @@
 
   .form-fields
 
-    = render partial: "listings/form/form_content", locals: local_assigns.merge(run_js_immediately: false)
+    - if form_content
+
+      = render partial: "listings/form/form_content", locals: form_content.merge(run_js_immediately: false)
