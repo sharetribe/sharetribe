@@ -131,7 +131,7 @@ class Admin::ListingShapesController < ApplicationController
 
     if shape_res.success
       Listing.where(listing_shape_id: params[:id]).update_all(open: false)
-      flash[:notice] = "Successfully closed listings"
+      flash[:notice] = t("admin.listing_shapes.successfully_closed")
       return redirect_to action: :edit, id: params[:id]
     else
       flash[:error] = "Can not find listing shape with id #{params[:id]}"
@@ -144,8 +144,12 @@ class Admin::ListingShapesController < ApplicationController
 
     if shape_res.success
       Listing.where(listing_shape_id: params[:id]).update_all(open: false, listing_shape_id: nil)
-      # TODO Delete listing shape
-      flash[:notice] = "Successfully deleted order type #{t(shape_res.data[:name_tr_key])}"
+      ShapeService.new(processes).delete(
+        community_id: @current_community.id,
+        listing_shape_id: params[:id]
+      )
+
+      flash[:notice] = t("admin.listing_shapes.successfully_deleted", order_type: t(shape_res.data[:name_tr_key]))
     else
       flash[:error] = "Can not find listing shape with id #{params[:id]}"
     end

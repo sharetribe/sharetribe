@@ -54,6 +54,13 @@ class ShapeService
     )
   end
 
+  def delete(community_id:, listing_shape_id:)
+    listing_api.shapes.delete(
+      community_id: community_id,
+      listing_shape_id: listing_shape_id
+    )
+  end
+
   private
 
   def process_shape(community_id:, opts:)
