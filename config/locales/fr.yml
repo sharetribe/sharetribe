@@ -518,8 +518,8 @@ fr:
       in_response_to_listing: "à propos de l'annonce"
       message_sent_by: "Message envoyé par"
       message_sent_to: "Message envoyé à"
-      send_reply: "Envoyer une réponse"
-      write_a_reply: "Écrire une réponse :"
+      send_reply: "Envoyer le message"
+      write_a_reply: "Écrire un message : "
       conversation_about_listing: "Discussion avec %{person} à propos de %{listing}"
       conversation_with_user: "Discussion avec %{person}"
       conversation_with: "Conversation avec %{person}"
@@ -1182,7 +1182,7 @@ fr:
       read_more: "Lire la suite !"
       registration_considered_spam: "L'inscription n'a pas fonctionné. Envoyez nous un feedback (en nous contactant via le menu en haut) en précisant le message \"email2 error\"."
       reply_cannot_be_empty: "Vous ne pouvez pas envoyer un message vide"
-      reply_sent: "Réponse envoyée avec succès"
+      reply_sent: "Message envoyé avec succès"
       request_accepted: "Demande acceptée"
       request_confirmed: "Demande réalisée"
       request_closed: "Demande fermée"
@@ -1263,7 +1263,7 @@ fr:
       show_in_updates_email_error: "Impossible de se connecter au serveur. Veuillez essayer de nouveau après avoir rafraîchi la page."
       show_in_updates_email_success: "Cette annonce sera diffusée dans le prochain email d'actualité, automatiquement envoyée aux utilisateurs"
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Quelque chose s'est mal passé, code d'erreur : %{error_code}"
     follow_links:
       follow: "Recevoir les nouveaux commentaires par email."
       unfollow: "Ne pas recevoir les nouveaux commentaires par email."
