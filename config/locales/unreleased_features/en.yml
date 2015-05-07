@@ -35,6 +35,8 @@ en:
         cancel: "Cancel"
         update_success: "Changes to order type '%{shape}' saved"
         update_failure: "Could not save changes. Error: %{error_msg}"
+        delete: "Delete order type"
+        confirm_delete: "There are %{count} listings with this order type. If you delete the order type, those listings will be closed. Are you sure you want to delete the order type?"
       listing_shape_name: "Name"
       listing_shape_name_desc: "This is the order type name identifying this order type in order type selection when user posts a new listing."
       action_button_label: "Checkout button label"

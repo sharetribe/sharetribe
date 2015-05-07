@@ -139,6 +139,20 @@ class Admin::ListingShapesController < ApplicationController
     end
   end
 
+  def destroy
+    shape_res = listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id])
+
+    if shape_res.success
+      Listing.where(listing_shape_id: params[:id]).update_all(open: false, listing_shape_id: nil)
+      # TODO Delete listing shape
+      flash[:notice] = "Successfully deleted order type #{t(shape_res.data[:name_tr_key])}"
+    else
+      flash[:error] = "Can not find listing shape with id #{params[:id]}"
+    end
+
+    redirect_to action: :index
+  end
+
   private
 
   def filter_uneditable_fields(shape, process_summary)

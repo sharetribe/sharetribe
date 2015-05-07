@@ -8,3 +8,15 @@
   @include button($link);
   margin: 0;
 }
+
+.listing-shape-delete-link {
+  display: inline-block;
+
+  // This should make the link aligned with the button
+  margin: lines(0.5) 0;
+  line-height: lines(1.5);
+}
+
+.listing-shape-delete-link-container {
+  float: right;
+}
