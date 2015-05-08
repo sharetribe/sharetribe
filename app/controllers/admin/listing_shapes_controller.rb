@@ -132,32 +132,30 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def close_listings
-    shape_res = listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id])
-
-    if shape_res.success
+    listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id]).and_then {
       listing_api.listings.update_all(community_id: nil, query: { listing_shape_id: params[:id] }, opts: { open: false })
+    }.on_success {
       flash[:notice] = t("admin.listing_shapes.successfully_closed")
       return redirect_to action: :edit, id: params[:id]
-    else
+    }.on_error {
       flash[:error] = "Can not find listing shape with id #{params[:id]}"
       return redirect_to action: :index
-    end
+    }
   end
 
   def destroy
-    result = listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id]).and_then { |_|
+    listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id]).and_then {
       listing_api.listings.update_all(community_id: nil, query: { listing_shape_id: params[:id] }, opts: { open: false, listing_shape_id: nil })
+    }.and_then {
       listing_api.shapes.delete(
         community_id: @current_community.id,
         listing_shape_id: params[:id]
       )
-    }
-
-    if result.success
-      flash[:notice] = t("admin.listing_shapes.successfully_deleted", order_type: t(result.data[:name_tr_key]))
-    else
+    }.on_success { |deleted_shape|
+      flash[:notice] = t("admin.listing_shapes.successfully_deleted", order_type: t(deleted_shape[:name_tr_key]))
+    }.on_error {
       flash[:error] = "Can not find listing shape with id #{params[:id]}"
-    end
+    }
 
     redirect_to action: :index
   end
