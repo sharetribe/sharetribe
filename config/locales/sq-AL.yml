@@ -303,6 +303,64 @@ sq-AL:
       configure: ~
       emails_title: ~
       support: ~
+    listing_shapes:
+      index:
+        listing_shapes: ~
+        description: ~
+        read_more_about_order_types: ~
+        add_new_shape: ~
+        select_template: ~
+        all_categories: ~
+        no_categories: ~
+        header:
+          listing_shape_name: ~
+          listing_shape_categories: ~
+        order:
+          saving_order: ~
+          save_order_successful: ~
+          save_order_error: ~
+      templates:
+        selling_products: ~
+        renting_products: ~
+        offering_services: ~
+        giving_things_away: ~
+        requesting: ~
+        announcement: ~
+        custom: ~
+      new:
+        create_listing_shape: ~
+        create: ~
+        cancel: ~
+        create_success: ~
+        create_failure: ~
+      edit:
+        edit_listing_shape: ~
+        update: ~
+        cancel: ~
+        update_success: ~
+        update_failure: ~
+        delete: ~
+        confirm_delete: ~
+      listing_shape_name: ~
+      action_button_label: ~
+      open_listings: ~
+      close_listings: ~
+      confirm_close_listings: ~
+      successfully_closed: ~
+      successfully_deleted: ~
+      pricing_and_checkout_title: ~
+      online_payments_label: ~
+      shipping_label: ~
+      price_label: ~
+      units_title: ~
+      units_desc: ~
+      units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~

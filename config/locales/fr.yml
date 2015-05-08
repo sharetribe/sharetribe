@@ -318,6 +318,64 @@ fr:
       configure: Configuration
       emails_title: Emails
       support: Support
+    listing_shapes:
+      index:
+        listing_shapes: ~
+        description: ~
+        read_more_about_order_types: ~
+        add_new_shape: ~
+        select_template: ~
+        all_categories: ~
+        no_categories: ~
+        header:
+          listing_shape_name: ~
+          listing_shape_categories: ~
+        order:
+          saving_order: ~
+          save_order_successful: ~
+          save_order_error: ~
+      templates:
+        selling_products: ~
+        renting_products: ~
+        offering_services: ~
+        giving_things_away: ~
+        requesting: ~
+        announcement: ~
+        custom: ~
+      new:
+        create_listing_shape: ~
+        create: ~
+        cancel: ~
+        create_success: ~
+        create_failure: ~
+      edit:
+        edit_listing_shape: ~
+        update: ~
+        cancel: ~
+        update_success: ~
+        update_failure: ~
+        delete: ~
+        confirm_delete: ~
+      listing_shape_name: ~
+      action_button_label: ~
+      open_listings: ~
+      close_listings: ~
+      confirm_close_listings: ~
+      successfully_closed: ~
+      successfully_deleted: ~
+      pricing_and_checkout_title: ~
+      online_payments_label: ~
+      shipping_label: ~
+      price_label: ~
+      units_title: ~
+      units_desc: ~
+      units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       preferences_updated: "Préférences de paiement mises à jour"
@@ -1546,7 +1604,7 @@ fr:
         terms_link_text: "Conditions d'utilisation de Braintree"
   paypal_accounts:
     payout_info_title: "Information de paiement"
-    paypal_account_email_connected: "<del>Connecter le compte PayPal</del> Connecté !"
+    paypal_account_email_connected: "<del>Connecter votre compte PayPal</del> Connecté !"
     paypal_billing_agreement_made: "<del>Autoriser %{service_name} à prélever des frais de service sur chaque transaction.</del> Autorisé !"
     you_are_ready_to_accept_payments: "Vous pouvez désormais recevoir des paiements !"
     commission: "%{commission} %"
@@ -1564,7 +1622,7 @@ fr:
       paypal_account_email_info_text: "Si vous n'avez pas de compte PayPal, vous pouvez en créer un en %{create_paypal_account}. Si vous obtenez un message d'erreur en connectant votre compte PayPal, vous devez le surclasser en un compte Business. Surclasser un compte est simple, rapide et ne vous coûte rien. Si vous êtes un particulier, vous devez simplement mettre votre nom et prénom dans le champ \"Nom de société\" lorsque PayPal vous le demande. Pour surclasser votre compte, %{upgrade_paypal_account} et cherche le lien de surclassement."
       create_paypal_account: "cliquant ici"
       upgrade_paypal_account: "connectez-vous à votre compte PayPal"
-      connect_paypal_account: "Connecter le compte PayPal"
+      connect_paypal_account: "Connecter votre compte PayPal"
       paypal_account_billing_agreement: "Autoriser %{service_name} à prélever des frais de service"
       paypal_account_billing_agreement_info_both: "Après avoir réalisé une vente sur %{service_name}, des frais (%{commission_from_seller} du montant total, hors frais de livraison, frais minimaux de %{minimum_commission}) seront prélevés sur votre compte PayPal. Pour accepter les paiements sur %{service_name}, vous devez l'autoriser à prélever ces frais. Ces frais n'incluent pas %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Après avoir réalisé une vente sur %{service_name}, des frais de %{minimum_commission} seront prélevés sur votre compte PayPal. Pour accepter les paiements sur %{service_name}, vous devez l'autoriser à prélever ces frais. Ces frais n'incluent pas %{paypal_info_link}."
