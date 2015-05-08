@@ -339,24 +339,24 @@ en:
         renting_products: "Renting products"
         offering_services: "Offering services"
         giving_things_away: "Giving things away"
-        requesting: "Requesting"
-        announcement: "Announcement"
-        custom: "Custom"
+        requesting: Requesting
+        announcement: Announcement
+        custom: Custom
       new:
         create_listing_shape: "Create order type"
-        create: "Create"
-        cancel: "Cancel"
+        create: Create
+        cancel: Cancel
         create_success: "New order type '%{shape}' created"
         create_failure: "Could not create new order type. Error: %{error_msg}"
       edit:
         edit_listing_shape: "Edit order type '%{shape}'"
-        update: "Save"
-        cancel: "Cancel"
+        update: Save
+        cancel: Cancel
         update_success: "Changes to order type '%{shape}' saved"
         update_failure: "Could not save changes. Error: %{error_msg}"
         delete: "Delete order type"
         confirm_delete: "There are %{count} listings with this order type. If you delete the order type, those listings will be closed. Are you sure you want to delete the order type?"
-      listing_shape_name: "Name"
+      listing_shape_name: Name
       action_button_label: "Checkout button label"
       open_listings: "There are %{count} open listings with this order type. If you change any of the settings below, those listings will retain the old settings. Those listings can be changed to the new settings by editing them manually. If you don't want to have any listings with the old settings visible on your site, you can close them by clicking the button below."
       close_listings: "Close %{count} listings"
