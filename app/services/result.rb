@@ -48,6 +48,16 @@ module Result
       end
     end
 
+    def on_success(&block)
+      block.call(data)
+      self
+    end
+
+    def on_error(&block)
+      # no-op
+      self
+    end
+
     # Success a -> Maybe a
     #
     # Usage example:
@@ -76,6 +86,16 @@ module Result
     # Error a -> Error a
     # No-op
     def and_then(&block)
+      self
+    end
+
+    def on_success(&block)
+      # no-op
+      self
+    end
+
+    def on_error(&block)
+      block.call(error_msg, data)
       self
     end
 
