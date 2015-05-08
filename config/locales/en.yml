@@ -318,6 +318,64 @@ en:
       configure: Configuration
       emails_title: Emails
       support: Support
+    listing_shapes:
+      index:
+        listing_shapes: "Order types"
+        description: "Order types determine how the order process works in your site. You can decide whether your users are renting or selling, or perhaps just posting announcements and communicating via free messages."
+        read_more_about_order_types: "Read more about order types"
+        add_new_shape: "Add new order type: "
+        select_template: "Select template..."
+        all_categories: "All categories"
+        no_categories: "No categories"
+        header:
+          listing_shape_name: "Order type name"
+          listing_shape_categories: "Order type categories"
+        order:
+          saving_order: "Saving order"
+          save_order_successful: "Successfully saved order"
+          save_order_error: "An error occured while saving order. Please refresh the page and try again."
+      templates:
+        selling_products: "Selling products"
+        renting_products: "Renting products"
+        offering_services: "Offering services"
+        giving_things_away: "Giving things away"
+        requesting: "Requesting"
+        announcement: "Announcement"
+        custom: "Custom"
+      new:
+        create_listing_shape: "Create order type"
+        create: "Create"
+        cancel: "Cancel"
+        create_success: "New order type '%{shape}' created"
+        create_failure: "Could not create new order type. Error: %{error_msg}"
+      edit:
+        edit_listing_shape: "Edit order type '%{shape}'"
+        update: "Save"
+        cancel: "Cancel"
+        update_success: "Changes to order type '%{shape}' saved"
+        update_failure: "Could not save changes. Error: %{error_msg}"
+        delete: "Delete order type"
+        confirm_delete: "There are %{count} listings with this order type. If you delete the order type, those listings will be closed. Are you sure you want to delete the order type?"
+      listing_shape_name: "Name"
+      action_button_label: "Checkout button label"
+      open_listings: "There are %{count} open listings with this order type. If you change any of the settings below, those listings will retain the old settings. Those listings can be changed to the new settings by editing them manually. If you don't want to have any listings with the old settings visible on your site, you can close them by clicking the button below."
+      close_listings: "Close %{count} listings"
+      confirm_close_listings: "Are you sure you want to close %{count} listings?"
+      successfully_closed: "Successfully closed listings"
+      successfully_deleted: "Successfully deleted order type '%{order_type}'"
+      pricing_and_checkout_title: "Pricing & checkout"
+      online_payments_label: "Use online payment system"
+      shipping_label: "Allow sellers to define a shipping fee"
+      price_label: "Display price field"
+      units_title: "Pricing units"
+      units_desc: "If you have enabled pricing units, the listing price is displayed as \"price per pricing unit\". An example: \"$39 per hour\"."
+      units:
+        piece: "Per piece"
+        hour: "Per hour"
+        day: "Per day"
+        night: "Per night"
+        week: "Per week"
+        month: "Per month"
     paypal_accounts:
       marketplace_paypal_integration: "Payment preferences"
       preferences_updated: "Payment preferences updated"
