@@ -9,33 +9,31 @@ module ListingService::Store::Listing
   module_function
 
   def count(community_id:, query:)
-    sql_query = where_community(community_id).where(query.except(:open))
-
-    sql_query =
-      if query[:open] == true
-        sql_query.currently_open
-      elsif query[:open] == false
-        raise NotImplementedError.new("Count of closed listings is not implemented")
-      else
-        sql_query
-      end
-
-    sql_query.count
+    where_models(community_id, query).count
   end
 
   def update_all(community_id: nil, query:, opts:)
-    if community_id != nil
-      raise NotImplementedError.new("Community id is ignored")
-    end
-
-    ListingModel.where(query).update_all(opts)
+    where_models(community_id, query).update_all(opts)
   end
 
   # private
 
-  def where_community(community_id)
-    ListingModel
-      .includes(:communities)
+  # Construct ActiveRecord query based on community_id and the
+  # query params
+  def where_models(community_id, query)
+    ar_query = ListingModel
+      .joins(:communities)
       .where(communities: {id: community_id})
+
+    ar_query =
+      if query[:open] == true
+        ar_query.currently_open
+      elsif query[:open] == false
+        raise NotImplementedError.new("Count of closed listings is not implemented")
+      else
+        ar_query
+      end
+
+    ar_query.where(query.except(:open))
   end
 end

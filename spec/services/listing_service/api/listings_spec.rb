@@ -5,18 +5,21 @@ describe ListingService::API::Listings do
   let(:listings_api) { ListingService::API::Api }
   let(:sell_id) { 111 }
   let(:rent_id) { 112 }
+  let(:c2_sell_id) { 212 }
   # TODO We should not use models directly like this
   let(:community) { FactoryGirl.create(:community) }
+  let(:community2) { FactoryGirl.create(:community) }
 
-  def create_listing(opts = {})
+  def create_listing(community, opts = {})
     # TODO We should not use models directly like this
     FactoryGirl.create(:listing, opts.merge(communities: [community]))
   end
 
   before(:each) do
-    2.times { create_listing(listing_shape_id: sell_id) }
-    1.times { create_listing(listing_shape_id: rent_id) }
-    1.times { create_listing(listing_shape_id: rent_id, open: false) }
+    2.times { create_listing(community, listing_shape_id: sell_id) }
+    1.times { create_listing(community, listing_shape_id: rent_id) }
+    1.times { create_listing(community, listing_shape_id: rent_id, open: false) }
+    2.times { create_listing(community2, listing_shape_id: c2_sell_id ) }
   end
 
   describe "#count" do
@@ -79,7 +82,7 @@ describe ListingService::API::Listings do
         expect(all_open_before).to eq 3
 
         listings_api.listings.update_all(
-          community_id: nil,
+          community_id: community.id,
           query: {listing_shape_id: sell_id},
           opts: {open: false})
 
@@ -87,6 +90,25 @@ describe ListingService::API::Listings do
           community_id: community.id, query: {open: true}).data
 
         expect(all_open_after).to eq 1
+      end
+
+      it "closes listings in specific community" do
+        count_before = listings_api.listings.count(community_id: community.id, query: { open: true }).data
+        count2_before = listings_api.listings.count(community_id: community2.id, query: { open: true }).data
+
+        expect(count_before).to eq 3
+        expect(count2_before).to eq 2
+
+        listings_api.listings.update_all(
+          community_id: community2.id,
+          query: {},
+          opts: {open: false})
+
+        count_after = listings_api.listings.count(community_id: community.id, query: { open: true }).data
+        count2_after = listings_api.listings.count(community_id: community2.id, query: { open: true }).data
+
+        expect(count_after).to eq 3
+        expect(count2_after).to eq 0
       end
     end
   end
