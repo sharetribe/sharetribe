@@ -40,7 +40,12 @@ class Admin::ListingShapesController < ApplicationController
 
     return redirect_to error_not_found_path if shape.nil?
 
-    count = Listing.where(listing_shape_id: params[:id]).currently_open.count()
+    count = listing_api.listings.count(
+      community_id: @current_community.id,
+      query: {
+        listing_shape_id: params[:id].to_i,
+        open: true
+      }).data
 
     render_edit_form(params[:id], shape, count, process_summary, available_locales())
   end
@@ -130,7 +135,7 @@ class Admin::ListingShapesController < ApplicationController
     shape_res = listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id])
 
     if shape_res.success
-      Listing.where(listing_shape_id: params[:id]).update_all(open: false)
+      listing_api.listings.update_all(community_id: nil, query: { listing_shape_id: params[:id] }, opts: { open: false })
       flash[:notice] = t("admin.listing_shapes.successfully_closed")
       return redirect_to action: :edit, id: params[:id]
     else
@@ -141,7 +146,7 @@ class Admin::ListingShapesController < ApplicationController
 
   def destroy
     result = listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id]).and_then { |_|
-      Listing.where(listing_shape_id: params[:id]).update_all(open: false, listing_shape_id: nil)
+      listing_api.listings.update_all(community_id: nil, query: { listing_shape_id: params[:id] }, opts: { open: false, listing_shape_id: nil })
       listing_api.shapes.delete(
         community_id: @current_community.id,
         listing_shape_id: params[:id]
