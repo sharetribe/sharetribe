@@ -15,9 +15,9 @@ module MailUtils
     end
   end
 
-  def with_locale(recipient_locale, community_id = nil, &block)
+  def with_locale(recipient_locale, community_locales, community_id = nil, &block)
     set_locale(recipient_locale) {
-      set_community(community_id) {
+      set_community(community_id, community_locales) {
         block.call
       }
     }
@@ -49,12 +49,12 @@ module MailUtils
     end
   end
 
-  def set_community(new_community_id, &block)
+  def set_community(new_community_id, community_locales, &block)
     community_backend = I18n::Backend::CommunityBackend.instance
     old_community_id = community_backend.community_id
 
     if old_community_id != new_community_id
-      community_backend.set_community!(new_community_id, clear: false)
+      community_backend.set_community!(new_community_id, community_locales, clear: false)
       community_translations = TranslationService::API::Api.translations.get(new_community_id)[:data]
       TranslationServiceHelper.community_translations_for_i18n_backend(community_translations).each { |locale, data|
         # Store community translations to I18n backend.
