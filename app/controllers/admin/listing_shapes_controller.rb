@@ -133,7 +133,7 @@ class Admin::ListingShapesController < ApplicationController
 
   def close_listings
     listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id]).and_then {
-      listing_api.listings.update_all(community_id: nil, query: { listing_shape_id: params[:id] }, opts: { open: false })
+      listing_api.listings.update_all(community_id: @current_community.id, query: { listing_shape_id: params[:id] }, opts: { open: false })
     }.on_success {
       flash[:notice] = t("admin.listing_shapes.successfully_closed")
       return redirect_to action: :edit, id: params[:id]
@@ -145,7 +145,7 @@ class Admin::ListingShapesController < ApplicationController
 
   def destroy
     listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id]).and_then {
-      listing_api.listings.update_all(community_id: nil, query: { listing_shape_id: params[:id] }, opts: { open: false, listing_shape_id: nil })
+      listing_api.listings.update_all(community_id: @current_community.id, query: { listing_shape_id: params[:id] }, opts: { open: false, listing_shape_id: nil })
     }.and_then {
       listing_api.shapes.delete(
         community_id: @current_community.id,
