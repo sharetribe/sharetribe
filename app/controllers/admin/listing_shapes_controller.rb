@@ -165,14 +165,14 @@ class Admin::ListingShapesController < ApplicationController
   private
 
   def filter_uneditable_fields(shape, process_summary)
-    uneditable_keys = uneditable_fields(process_summary).select { |_, uneditable| uneditable }.keys
+    uneditable_keys = uneditable_fields(process_summary, shape[:author_is_seller]).select { |_, uneditable| uneditable }.keys
     shape.except(*uneditable_keys)
   end
 
-  def uneditable_fields(process_summary)
+  def uneditable_fields(process_summary, author_is_seller)
     {
-      shipping_enabled: !process_summary[:preauthorize_available],
-      online_payments: !process_summary[:preauthorize_available]
+      shipping_enabled: !process_summary[:preauthorize_available] || !author_is_seller,
+      online_payments: !process_summary[:preauthorize_available] || !author_is_seller,
     }
   end
 
@@ -191,7 +191,7 @@ class Admin::ListingShapesController < ApplicationController
 
   def common_locals(form, count, process_summary, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
-      uneditable_fields: uneditable_fields(process_summary),
+      uneditable_fields: uneditable_fields(process_summary, form[:author_is_seller]),
       shape: FormViewLayer.shape_to_locals(form),
       count: count,
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
@@ -211,6 +211,7 @@ class Admin::ListingShapesController < ApplicationController
   def process_summary
     @process_summary ||= processes.reduce({}) { |info, process|
       info[:preauthorize_available] = true if process[:process] == :preauthorize
+      info[:request_available] = true if process[:author_is_seller] == false
       info
     }
   end
@@ -266,11 +267,12 @@ class Admin::ListingShapesController < ApplicationController
 
     def params_to_shape(params)
       form_params = HashUtils.symbolize_keys(params)
-      with_units = form_params.merge(
-        units: parse_units(form_params[:units])
+      parsed_params = form_params.merge(
+        units: parse_units(form_params[:units]),
+        author_is_seller: form_params[:author_is_seller] == "false" ? false : true # default true
       )
 
-      Shape.call(with_units)
+      Shape.call(parsed_params)
     end
 
     def shape_to_locals(shape)

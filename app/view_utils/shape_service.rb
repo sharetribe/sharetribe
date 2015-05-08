@@ -15,7 +15,7 @@ class ShapeService
 
       raise ArgumentError.new("Can not find process with id: #{shape[:transaction_process_id]}") if process.nil?
 
-      shape_with_process = shape.merge(online_payments: process[:process] == :preauthorize) # TODO More sophisticated?
+      shape_with_process = shape.merge(online_payments: process[:process] == :preauthorize, author_is_seller: process[:author_is_seller])
 
       with_translations = TranslationServiceHelper.tr_keys_to_form_values(
         entity: shape_with_process,
@@ -57,20 +57,13 @@ class ShapeService
   private
 
   def process_shape(community_id:, opts:)
-    with_translations = TranslationServiceHelper.form_values_to_tr_keys!(
+    TranslationServiceHelper.form_values_to_tr_keys!(
       entity: opts,
       key_map: KEY_MAP,
       community_id: community_id
-    )
-
-    with_units = with_translations.merge(
-      units: with_translations[:units].map { |u| add_quantity_selector(u) }
-    )
-
-    with_process = with_units.merge(
-      transaction_process_id: select_process(with_units[:online_payments], @processes))
-
-    with_process
+    ).merge(
+      units: opts[:units].map { |u| add_quantity_selector(u) },
+      transaction_process_id: select_process(opts[:online_payments], opts[:author_is_seller], @processes))
   end
 
   def listing_api
@@ -81,11 +74,8 @@ class ShapeService
     unit.merge(quantity_selector: unit[:type] == :day ? :day : :number)
   end
 
-  def select_process(online_payments, processes)
-    # TODO Maybe more sophisticated version
-    author_is_seller = true
+  def select_process(online_payments, author_is_seller, processes)
     process = online_payments ? :preauthorize : :none
-
     selected = processes.find { |p| p[:author_is_seller] == author_is_seller && p[:process] == process }
 
     raise ArugmentError.new("Can not find suitable process") if selected.nil?
