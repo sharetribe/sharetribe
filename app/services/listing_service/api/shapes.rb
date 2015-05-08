@@ -42,5 +42,18 @@ module ListingService::API
       }
     end
 
+    def delete(community_id:, listing_shape_id:)
+      find_opts = {
+        community_id: community_id,
+        listing_shape_id: listing_shape_id
+      }
+
+      Maybe(ShapeStore.delete(find_opts)).map { |shape|
+        Result::Success.new(shape)
+      }.or_else {
+        Result::Error.new("Can not find listing shape for #{find_opts}")
+      }
+    end
+
   end
 end

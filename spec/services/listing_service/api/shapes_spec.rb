@@ -235,4 +235,51 @@ describe ListingService::API::Shapes do
       end
     end
   end
+
+  describe "#delete" do
+    let(:id) { create_shape.data[:id] }
+
+    context "success" do
+      it "deletes the shape" do
+        first_get = listings_api.shapes.get(
+          community_id: community_id,
+          listing_shape_id: id)
+
+        expect(first_get.success).to eq true
+
+        delete_res = listings_api.shapes.delete(
+          community_id: community_id,
+          listing_shape_id: id)
+
+        expect(delete_res.success).to eq true
+        expect(delete_res.data[:id]).to eq id
+
+        second_get = listings_api.shapes.get(
+          community_id: community_id,
+          listing_shape_id: id)
+
+        expect(second_get.success).to eq false
+      end
+    end
+
+    context "failure" do
+      it "fails if shape doesn't exist" do
+        delete_res = listings_api.shapes.delete(
+          community_id: community_id,
+          listing_shape_id: 999)
+
+        expect(delete_res.success).to eq false
+      end
+
+      it "fails if shape doesn't exist in the community" do
+        delete_res = listings_api.shapes.delete(
+          community_id: 999,
+          listing_shape_id: id)
+
+        expect(delete_res.success).to eq false
+
+      end
+    end
+
+  end
 end

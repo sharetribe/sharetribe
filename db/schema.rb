@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150429155804) do
+ActiveRecord::Schema.define(:version => 20150507165715) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -484,19 +484,21 @@ ActiveRecord::Schema.define(:version => 20150429155804) do
   add_index "listing_images", ["listing_id"], :name => "index_listing_images_on_listing_id"
 
   create_table "listing_shapes", :force => true do |t|
-    t.integer  "community_id",                              :null => false
-    t.integer  "transaction_process_id",                    :null => false
-    t.boolean  "price_enabled",                             :null => false
-    t.boolean  "shipping_enabled",                          :null => false
-    t.string   "name",                                      :null => false
-    t.string   "name_tr_key",                               :null => false
-    t.string   "action_button_tr_key",                      :null => false
+    t.integer  "community_id",                                  :null => false
+    t.integer  "transaction_process_id",                        :null => false
+    t.boolean  "price_enabled",                                 :null => false
+    t.boolean  "shipping_enabled",                              :null => false
+    t.string   "name",                                          :null => false
+    t.string   "name_tr_key",                                   :null => false
+    t.string   "action_button_tr_key",                          :null => false
     t.string   "price_quantity_placeholder"
-    t.integer  "sort_priority",              :default => 0, :null => false
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.integer  "sort_priority",              :default => 0,     :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.boolean  "deleted",                    :default => false
   end
 
+  add_index "listing_shapes", ["community_id", "deleted", "sort_priority"], :name => "multicol_index"
   add_index "listing_shapes", ["community_id"], :name => "index_listing_shapes_on_community_id"
   add_index "listing_shapes", ["name"], :name => "index_listing_shapes_on_name"
 
@@ -537,7 +539,7 @@ ActiveRecord::Schema.define(:version => 20150429155804) do
     t.integer  "old_category_id"
     t.integer  "category_id"
     t.integer  "share_type_id"
-    t.integer  "listing_shape_id",                                                            :null => false
+    t.integer  "listing_shape_id"
     t.integer  "transaction_process_id"
     t.string   "shape_name_tr_key"
     t.string   "action_button_tr_key"

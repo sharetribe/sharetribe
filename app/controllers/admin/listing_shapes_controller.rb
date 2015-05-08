@@ -40,7 +40,14 @@ class Admin::ListingShapesController < ApplicationController
 
     return redirect_to error_not_found_path if shape.nil?
 
-    render_edit_form(params[:id], shape, process_summary, available_locales())
+    count = listing_api.listings.count(
+      community_id: @current_community.id,
+      query: {
+        listing_shape_id: params[:id].to_i,
+        open: true
+      }).data
+
+    render_edit_form(params[:id], shape, count, process_summary, available_locales())
   end
 
   def create
@@ -124,6 +131,35 @@ class Admin::ListingShapesController < ApplicationController
     render nothing: true, status: 200
   end
 
+  def close_listings
+    listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id]).and_then {
+      listing_api.listings.update_all(community_id: nil, query: { listing_shape_id: params[:id] }, opts: { open: false })
+    }.on_success {
+      flash[:notice] = t("admin.listing_shapes.successfully_closed")
+      return redirect_to action: :edit, id: params[:id]
+    }.on_error {
+      flash[:error] = "Can not find listing shape with id #{params[:id]}"
+      return redirect_to action: :index
+    }
+  end
+
+  def destroy
+    listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id]).and_then {
+      listing_api.listings.update_all(community_id: nil, query: { listing_shape_id: params[:id] }, opts: { open: false, listing_shape_id: nil })
+    }.and_then {
+      listing_api.shapes.delete(
+        community_id: @current_community.id,
+        listing_shape_id: params[:id]
+      )
+    }.on_success { |deleted_shape|
+      flash[:notice] = t("admin.listing_shapes.successfully_deleted", order_type: t(deleted_shape[:name_tr_key]))
+    }.on_error {
+      flash[:error] = "Can not find listing shape with id #{params[:id]}"
+    }
+
+    redirect_to action: :index
+  end
+
   private
 
   def filter_uneditable_fields(shape, process_summary)
@@ -139,22 +175,23 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def render_new_form(form, process_summary, available_locs)
-    locals = common_locals(form, process_summary, available_locs)
+    locals = common_locals(form, 0, process_summary, available_locs)
     render("new", locals: locals)
   end
 
-  def render_edit_form(id, form, process_summary, available_locs)
-    locals = common_locals(form, process_summary, available_locs).merge(
+  def render_edit_form(id, form, count, process_summary, available_locs)
+    locals = common_locals(form, count, process_summary, available_locs).merge(
       id: id,
       name: pick_translation(form[:name])
     )
     render("edit", locals: locals)
   end
 
-  def common_locals(form, process_summary, available_locs)
+  def common_locals(form, count, process_summary, available_locs)
     { selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
       uneditable_fields: uneditable_fields(process_summary),
       shape: FormViewLayer.shape_to_locals(form),
+      count: count,
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
     }
   end

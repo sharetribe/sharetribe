@@ -172,6 +172,9 @@ Kassi::Application.routes.draw do
         collection do
           post :order
         end
+        member do
+          get :close_listings
+        end
       end
     end
 

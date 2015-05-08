@@ -28,7 +28,7 @@
 #  old_category_id                 :integer
 #  category_id                     :integer
 #  share_type_id                   :integer
-#  listing_shape_id                :integer          not null
+#  listing_shape_id                :integer
 #  transaction_process_id          :integer
 #  shape_name_tr_key               :string(255)
 #  action_button_tr_key            :string(255)

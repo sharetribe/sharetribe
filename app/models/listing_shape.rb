@@ -14,11 +14,13 @@
 #  sort_priority              :integer          default(0), not null
 #  created_at                 :datetime         not null
 #  updated_at                 :datetime         not null
+#  deleted                    :boolean          default(FALSE)
 #
 # Indexes
 #
 #  index_listing_shapes_on_community_id  (community_id)
 #  index_listing_shapes_on_name          (name)
+#  multicol_index                        (community_id,deleted,sort_priority)
 #
 
 class ListingShape < ActiveRecord::Base
@@ -32,6 +34,7 @@ class ListingShape < ActiveRecord::Base
     :name_tr_key,
     :action_button_tr_key,
     :price_quantity_placeholder,
+    :deleted
   )
 
   has_and_belongs_to_many :categories, order: "sort_priority", join_table: "category_listing_shapes"

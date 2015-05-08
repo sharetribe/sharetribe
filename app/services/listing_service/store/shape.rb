@@ -127,6 +127,18 @@ module ListingService::Store::Shape
     from_model(shape_model, true)
   end
 
+  def delete(community_id:, listing_shape_id:)
+    shape_model = find_shape_model(
+      community_id: community_id,
+      listing_shape_id: listing_shape_id)
+
+    return nil if shape_model.nil?
+
+    shape_model.update_attributes(deleted: true)
+
+    from_model(shape_model, true)
+  end
+
   # private
 
   # Note: If this method is needed in Category Store, then consider separating this code to
@@ -186,7 +198,7 @@ module ListingService::Store::Shape
   end
 
   def find_shape_models(community_id:)
-    ListingShape.where(community_id: community_id)
+    ListingShape.where(community_id: community_id, deleted: false)
       .includes(:listing_units)
       .order("listing_shapes.sort_priority")
   end
