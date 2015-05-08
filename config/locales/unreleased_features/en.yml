@@ -3,7 +3,8 @@ en:
     listing_shapes:
       index:
         listing_shapes: "Order types"
-        description: "Order types determine what kind of orders are enabled in your marketplace. For instance, you can define whether you allow your sellers to define a shipping fee, or whether your providers can sell items or rent them per day or per hour. You can add multiple different order types and tie them to different listing categories. One category could also have multiple order types (for instance, you could enable both sales and rentals of cars in the same marketplace.)"
+        description: "Order types determine how the order process works in your site. You can decide whether your users are renting or selling, or perhaps just posting announcements and communicating via free messages."
+        read_more_about_order_types: "Read more about order types"
         add_new_shape: "Add new order type: "
         select_template: "Select template..."
         all_categories: "All categories"
@@ -38,9 +39,7 @@ en:
         delete: "Delete order type"
         confirm_delete: "There are %{count} listings with this order type. If you delete the order type, those listings will be closed. Are you sure you want to delete the order type?"
       listing_shape_name: "Name"
-      listing_shape_name_desc: "This is the order type name identifying this order type in order type selection when user posts a new listing."
       action_button_label: "Checkout button label"
-      action_button_label_desc: "This is the checkout button label shown on the listing page."
       open_listings: "There are %{count} open listings with this order type. If you change any of the settings below, those listings will retain the old settings. Those listings can be changed to the new settings by editing them manually. If you don't want to have any listings with the old settings visible on your site, you can close them by clicking the button below."
       close_listings: "Close %{count} listings"
       confirm_close_listings: "Are you sure you want to close %{count} listings?"
@@ -51,7 +50,7 @@ en:
       shipping_label: "Allow sellers to define a shipping fee"
       price_label: "Display price field"
       units_title: "Pricing units"
-      units_desc: "Listing price is always shown as \"price per pricing unit\". An example: \"$39 per hour\". An exception: \"per piece\" text will not be shown, so if you select \"per piece\", price will simply be shown as \"$39\"."
+      units_desc: "If you have enabled pricing units, the listing price is displayed as \"price per pricing unit\". An example: \"$39 per hour\"."
       units:
         piece: "Per piece"
         hour: "Per hour"

@@ -17,6 +17,8 @@ class Admin::ListingShapesController < ApplicationController
            locals: {
              selected_left_navi_link: LISTING_SHAPES_NAVI_LINK,
              templates: template_label_key_list,
+             display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
+             knowledge_base_url: APP_CONFIG.knowledge_base_url,
              category_count: category_count,
              listing_shapes: all_shapes(community_id: @current_community.id, include_categories: true)})
   end

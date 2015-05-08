@@ -1,24 +1,22 @@
 .row
   .col-12
     .input-header= t("admin.listing_shapes.listing_shape_name")
-    = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.listing_shape_name_desc")}
-    - shape[:name].map do |(loc, translation)|
-      .row
-        .name-locale-label.col-2
-          = label_tag "name[#{loc}]", locale_name_mapping[loc]
-        .name-locale-text_field.col-10
-          = text_field_tag("name[#{loc}]", translation, class: "required")
+- shape[:name].map do |(loc, translation)|
+  .row
+    .name-locale-label.col-2
+      = label_tag "name[#{loc}]", locale_name_mapping[loc]
+    .name-locale-text_field.col-10
+      = text_field_tag("name[#{loc}]", translation, class: "required")
 
 .row
   .col-12
     .input-header= t("admin.listing_shapes.action_button_label")
-    = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.action_button_label_desc")}
-    - shape[:action_button_label].map do |loc, translation|
-      .row
-        .name-locale-label.col-2
-          = label_tag "action_button_label[#{loc}]", locale_name_mapping[loc]
-        .name-locale-text_field.col-10
-          = text_field_tag("action_button_label[#{loc}]", translation, class: "required")
+- shape[:action_button_label].map do |loc, translation|
+  .row
+    .name-locale-label.col-2
+      = label_tag "action_button_label[#{loc}]", locale_name_mapping[loc]
+    .name-locale-text_field.col-10
+      = text_field_tag("action_button_label[#{loc}]", translation, class: "required")
 
 - if count > 0
   .row.without-margin
