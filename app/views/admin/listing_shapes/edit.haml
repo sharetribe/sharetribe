@@ -23,6 +23,18 @@
               = t(".cancel")
         .listing-shape-delete-link-container
           - confirm_opts = if count > 0 then {confirm: t('admin.listing_shapes.edit.confirm_delete', count: count)} else {} end
-          = link_to admin_listing_shape_path, {method: :delete, class: "listing-shape-delete-link"}.merge(confirm_opts) do
-            = icon_tag("cross", ["icon-fix"])
-            = t("admin.listing_shapes.edit.delete")
+
+          - if cant_delete
+            %a.listing-shape-delete-link.disabled
+              = icon_tag("cross", ["icon-fix"])
+              = t("admin.listing_shapes.edit.delete")
+          - else
+            = link_to admin_listing_shape_path, {method: :delete, class: "listing-shape-delete-link"}.merge(confirm_opts) do
+              = icon_tag("cross", ["icon-fix"])
+              = t("admin.listing_shapes.edit.delete")
+
+    - if cant_delete
+      .row
+        .col-12
+          = render partial: "layouts/info_text", locals: {text: cant_delete_reason}
+
