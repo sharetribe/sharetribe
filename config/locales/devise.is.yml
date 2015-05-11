@@ -1,28 +1,31 @@
 is:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "hefur runnið út, vinsamlegast óskaðu eftir nýjum"
+      not_found: "fannst ekki"
+      already_confirmed: "hefur verið staðfest nú þegar, prófaðu að skrá þig inn"
+      not_locked: ólæstur
+      not_saved:
+        one: "1 villa kom í veg fyrir að %{resource} var vistað"
+        other: "%{count} villur komu í veg fyrir að %{resource} voru vistuð"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: "Þú ert nú þegar skráð/ur inn."
+      unauthenticated: "Þú þarft að skrá þig inn eða stofna nýjan aðgang áður en þú getur haldið áfram."
+      unconfirmed: "Þú verður að staðfesta aðgang þinn til að halda áfram."
+      locked: "Aðgangur þinn er lokaður."
+      invalid: "Rangt netfang eða lykilorð."
+      invalid_token: "Ógildur staðfestingarlykill."
+      timeout: "Innskráning þín hefur runnið út á tíma. Vinsamlegast skráðu þig aftur inn til að geta haldið áfram."
+      inactive: "Aðgangurinn þinn hefur enn ekki verið gerður virkur."
     passwords:
       updated_not_active: ~
       send_paranoid_instructions: ~
       send_instructions: ~
       updated: ~
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Þú ert nú skráð/ur inn."
+      signed_out: "Þú hefur verið skráð/ur út."
     confirmations:
       send_paranoid_instructions: ~
       send_instructions: ~
