@@ -320,16 +320,16 @@ fr:
       support: Support
     listing_shapes:
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
+        listing_shapes: "Types de transaction"
+        description: "Les types de transaction déterminent comment le processus de transaction fonctionne sur votre site. Vous pouvez choisir de permettre à vos utilisateurs  de louer ou vendre, ou même de simplement publier des informations et de communiquer sans paiement."
+        read_more_about_order_types: "En apprendre plus sur les types de transaction"
+        add_new_shape: "Ajouter un nouveau type de transaction : "
         select_template: "Sélectionner un modèle..."
         all_categories: "Toutes les catégories"
         no_categories: "Aucune catégorie"
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Nom du type de transaction"
+          listing_shape_categories: "Catégories du type de transaction"
         order:
           saving_order: "Sauvegarder l'ordre"
           save_order_successful: "Ordre sauvegardé avec succès"
@@ -343,32 +343,32 @@ fr:
         announcement: Information
         custom: Personnalisé
       new:
-        create_listing_shape: ~
+        create_listing_shape: "Créer un type de transaction"
         create: Créer
         cancel: Annuler
-        create_success: ~
-        create_failure: ~
+        create_success: "Nouveau type de transaction '%{shape}' créé"
+        create_failure: "Impossible de créer un nouveau type de transaction. Erreur : %{error_msg}"
       edit:
-        edit_listing_shape: ~
+        edit_listing_shape: "Editer le type de transaction '%{shape}'"
         update: Sauvegarder
         cancel: Annuler
-        update_success: ~
+        update_success: "Changements du type de transaction '%{shape}' sauvegardés"
         update_failure: "Impossible de sauvegarder les modifications. Erreur : %{error_msg}"
-        delete: ~
-        confirm_delete: ~
+        delete: "Supprimer le type de transaction"
+        confirm_delete: "Il y a %{count} annonces utilisant ce type de transaction. Si vous supprimez ce type de transaction, ces annonces seront closes. Voulez-vous vraiment supprimer ce type de transaction ?"
       listing_shape_name: Nom
-      action_button_label: ~
-      open_listings: ~
-      close_listings: "Clôturer %{count} annonces"
-      confirm_close_listings: "Voulez-vous vraiment clôturer %{count} annonces ?"
-      successfully_closed: "Les annonces ont été clôturées avec succès"
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
-      units_title: ~
-      units_desc: ~
+      action_button_label: "Libellé du bouton de transaction"
+      open_listings: "Il y a %{count} annonces actives utilisant ce type de transaction. Si vous modifiez l'un des paramètres ci-dessous, ces annonces conserveront les anciens paramètres. Ces annonces peuvent être modifiées pour utiliser les nouveaux paramètres en les éditant manuellement. Si vous ne souhaitez pas avoir d'annonces visibles sur votre site utilisant les anciens paramètres, vous pouvez les clore en cliquant sur le bouton ci-dessous."
+      close_listings: "Clore %{count} annonces"
+      confirm_close_listings: "Voulez-vous vraiment clore %{count} annonces ?"
+      successfully_closed: "Les annonces ont été closes avec succès"
+      successfully_deleted: "Type de transaction '%{order_type}' supprimé avec succès"
+      pricing_and_checkout_title: "Prix et transaction"
+      online_payments_label: "Utiliser le système de paiement en ligne"
+      shipping_label: "Autoriser les vendeurs à définir des frais de livraison"
+      price_label: "Afficher le champ de prix"
+      units_title: "Unités de prix"
+      units_desc: "Si vous choisissez des unités de prix, le prix de l'annonce sera affiché avec le format \"prix par unité de prix\". Par exemple : \"39€ par heure\"."
       units:
         piece: "Par élément"
         hour: "Par heure"
@@ -929,7 +929,7 @@ fr:
     error_410:
       page_removed: "Page supprimée"
       page_you_requested_has_been_removed: "La page que vous cherchez a été supprimée"
-      page_removed_reason: "Il y a plusieurs raisons potentielles à cela. Par exemple, un utilisateur peut avoir supprimé son compte ou bien une annonce a pu être clôturée."
+      page_removed_reason: "Il y a plusieurs raisons potentielles à cela. Par exemple, un utilisateur peut avoir supprimé son compte ou bien une annonce a pu être close."
     error_410_title: "page supprimée"
     error_500:
       temporary_unavailable: "La place de marché est temporairement indisponible"
@@ -1041,7 +1041,7 @@ fr:
     index:
       no_listings_with_your_search_criteria: "Nous n'avons pas trouvé de résultats correspondants à votre requête."
       no_listings_notification: "Aucune annonce. %{add_listing_link}."
-      add_listing_link_text: "Ajouter une annonce"
+      add_listing_link_text: "Déposer une annonce"
       open_listing: "annonce en ligne"
       open_listings: "annonces en lignes"
       private_listing_notification_log_in: connecter
@@ -1213,7 +1213,7 @@ fr:
       news_item_deleted: "Article supprimé"
       offer_accepted: "Offre acceptée"
       offer_confirmed: "Offre confirmée"
-      offer_closed: "Offre fermée"
+      offer_closed: "Offre close"
       listing_created_successfully: "Annonce créée avec succès. %{new_listing_link}."
       offer_rejected: "Offre refusée"
       offer_canceled: "Offre annulée"
@@ -1243,7 +1243,7 @@ fr:
       reply_sent: "Message envoyé avec succès"
       request_accepted: "Demande acceptée"
       request_confirmed: "Demande réalisée"
-      request_closed: "Demande fermée"
+      request_closed: "Demande close"
       request_rejected: "Demande refusée"
       request_canceled: "Demande annulée"
       message_sent: "Message envoyé"
@@ -1254,8 +1254,8 @@ fr:
       you_are_not_authorized_to_do_this: "Vous n'êtes pas autorisé à faire ceci"
       you_are_not_authorized_to_view_this_content: "Vous n'êtes pas autorisé à voir ce contenu"
       send_instructions: "Vous allez recevoir un email vous expliquant comment ré-initialiser votre mot de passe dans quelques minutes."
-      you_cannot_reply_to_a_closed_offer: "Vous ne pouvez pas répondre à une offre fermée"
-      you_cannot_reply_to_a_closed_request: "Vous ne pouvez pas répondre à une demande fermée"
+      you_cannot_reply_to_a_closed_offer: "Vous ne pouvez pas répondre à une offre close"
+      you_cannot_reply_to_a_closed_request: "Vous ne pouvez pas répondre à une demande close"
       you_cannot_send_message_to_yourself: "Vous ne pouvez pas vous envoyer un message à vous-même"
       you_followed_listing: "Vous suivez désormais cette annonce"
       you_have_already_given_feedback_about_this_event: "Vous avez déjà donné un avis sur cet événement"

@@ -315,7 +315,7 @@ zh:
       support: 支持
     listing_shapes:
       index:
-        listing_shapes: ~
+        listing_shapes: 订单类型
         description: ~
         read_more_about_order_types: ~
         add_new_shape: ~
@@ -323,8 +323,8 @@ zh:
         all_categories: ~
         no_categories: ~
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: 订单类型名称
+          listing_shape_categories: 订单类型分类
         order:
           saving_order: ~
           save_order_successful: ~
@@ -344,9 +344,9 @@ zh:
         create_success: ~
         create_failure: ~
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
+        edit_listing_shape: "修改订单类型‘%{shape}’"
+        update: 保存
+        cancel: 取消
         update_success: ~
         update_failure: ~
         delete: ~

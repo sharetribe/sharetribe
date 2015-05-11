@@ -324,51 +324,51 @@ es-ES:
       index:
         listing_shapes: ~
         description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        read_more_about_order_types: "Leer más sobre tipos de pedidos"
+        add_new_shape: "Añadir un nuevo tipo de pedido: "
+        select_template: "Seleccionar plantilla..."
+        all_categories: "Todas las categorías"
+        no_categories: "Sin categorías"
         header:
           listing_shape_name: ~
           listing_shape_categories: ~
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Guardando pedido"
+          save_order_successful: "Pedido guardado correctamente"
+          save_order_error: "Un error ha ocurrido mientras se guardaba el pedido. Por favor refresque la página y vuelva a intentarlo"
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Productos en venta"
+        renting_products: "Productos en alquiler"
+        offering_services: "Oferta de servicios"
+        giving_things_away: "Productos regalados"
+        requesting: Solicitando
+        announcement: Anuncio
+        custom: "A medida"
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Crear tipo de pedido"
+        create: Crear
+        cancel: Cancelar
+        create_success: "Nuevo tipo de pedido '%{shape}' creado"
+        create_failure: "No se pudo crear un nuevo tipo de pedido. Error: %{error_msg}"
       edit:
         edit_listing_shape: ~
         update: ~
         cancel: ~
         update_success: ~
         update_failure: ~
-        delete: ~
-        confirm_delete: ~
+        delete: "Borrar tipo de pedido"
+        confirm_delete: "Hay %{count} anuncios para este tipo de pedido. Si borras el tipo de pedido, dichos anuncios serán borrados, ¿Estás seguro de que deseas borrar el tipo de pedido?"
       listing_shape_name: ~
       action_button_label: ~
-      open_listings: ~
-      close_listings: ~
-      confirm_close_listings: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
+      open_listings: "Hay %{count} anuncios abiertos con este tipo de pedido. Si cambias cualquier configuración de abajo, los anuncios mantendrán las antiguas configuraciones. La configuración de los anuncios puede ser cambiada con los nuevos parámetros editándolos manualmente. Si no quieres tener ningún anuncios con la antigua configuración visible en tu sitio Web, tu puedes cerrarlo pulsando el botón de abajo"
+      close_listings: "Cerrar %{count} anuncios"
+      confirm_close_listings: "¿Estás seguro de que quieres cerrar %{count} anuncios?"
+      successfully_closed: "Anuncios cerrados correctamente"
+      successfully_deleted: "Pedido tipo '%{order_type}' borrado correctamente"
+      pricing_and_checkout_title: "Precio & pago y envío"
+      online_payments_label: "Utilizar el sistema de pago Online"
       shipping_label: ~
-      price_label: ~
+      price_label: "Mostrar el campo de precio"
       units_title: ~
       units_desc: ~
       units:

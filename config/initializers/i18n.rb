@@ -16,6 +16,7 @@ I18n.fallbacks.map('pl' => 'en')
 I18n.fallbacks.map('fr-CA' => 'fr')
 I18n.fallbacks.map('km-KH' => 'en')
 I18n.fallbacks.map('ms-MY' => 'en')
+I18n.fallbacks.map('is' => 'en')
 
 
 I18n.fallbacks.map('en-rc' => 'en')
