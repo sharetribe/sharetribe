@@ -91,6 +91,7 @@ class CommunityMembershipsController < ApplicationController
       invitation.use_once! if invitation.present?
 
       Delayed::Job.enqueue(CommunityJoinedJob.new(@current_user.id, @current_community.id))
+      Delayed::Job.enqueue(SendWelcomeEmail.new(@current_user.id, @current_community.id), priority: 5)
       flash[:notice] = t("layouts.notifications.you_are_now_member")
       redirect_to root
     else
