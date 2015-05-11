@@ -30,7 +30,7 @@ module ListingShapeDataTypes
     [:price_enabled, transform_with: CHECKBOX],
     [:online_payments, transform_with: CHECKBOX],
     [:units, default: [], collection: Unit],
-    [:template, :to_symbol]
+    [:author_is_seller, :bool]
   )
 
   KEY_MAP = {

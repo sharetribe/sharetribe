@@ -45,6 +45,7 @@ class ListingShapeTemplates
         shipping_enabled: true,
         online_payments: true,
         template: :selling_products,
+        author_is_seller: true,
         units: []
       },
       {
@@ -55,6 +56,7 @@ class ListingShapeTemplates
         shipping_enabled: false,
         online_payments: true,
         template: :renting_products,
+        author_is_seller: true,
         units: [{type: :day, quantity_selector: :day}, {type: :week, quantity_selector: :number}, {type: :month, quantity_selector: :number}]
       },
       {
@@ -65,6 +67,7 @@ class ListingShapeTemplates
         shipping_enabled: false,
         online_payments: true,
         template: :offering_services,
+        author_is_seller: true,
         units: [{type: :hour, quantity_selector: :number}]
       },
       {
@@ -75,6 +78,7 @@ class ListingShapeTemplates
         shipping_enabled: false,
         online_payments: false,
         template: :giving_things_away,
+        author_is_seller: true,
         units: []
       },
       {
@@ -85,6 +89,7 @@ class ListingShapeTemplates
         shipping_enabled: false,
         online_payments: false,
         template: :requesting,
+        author_is_seller: false,
         units: []
       },
       {
@@ -95,6 +100,7 @@ class ListingShapeTemplates
         shipping_enabled: false,
         online_payments: false,
         template:  :announcement,
+        author_is_seller: true,
         units: []
       },
       {
@@ -105,6 +111,7 @@ class ListingShapeTemplates
         shipping_enabled: false,
         online_payments: false,
         template: :custom,
+        author_is_seller: true,
         units: []
       }
     ]
