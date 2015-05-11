@@ -205,13 +205,50 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def can_delete_shape?(current_shape_id, shapes)
+    listing_shapes_categories_map = shapes.map { |shape|
+      [shape[:id], shape[:category_ids]]
+    }
+
+    categories_listing_shapes_map = HashUtils.reverse_key_enum_hash(listing_shapes_categories_map)
+
+    only_one_in_category_ids = categories_listing_shapes_map.select { |category_id, shape_ids|
+      shape_ids.size == 1 && shape_ids.include?(current_shape_id)
+    }.keys
+
     if shapes.none? { |shape| shape[:id] == current_shape_id }
       Result::Error.new("Can't find order type with id: #{current_shape_id}")
     elsif shapes.length == 1
       Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_last"))
+    elsif !only_one_in_category_ids.empty?
+      categories = ListingService::API::Api.categories.get(community_id: @current_community).data
+      category_names = pick_category_names(categories, only_one_in_category_ids, I18n.locale)
+
+      Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_only_one_in_categories", categories: category_names.join(", ")))
     else
       Result::Success.new
     end
+  end
+
+  def pick_category_names(categories, ids, locale)
+    locale = locale.to_s
+
+    pick_categories(categories, ids)
+      .map { |c| c[:translations].find { |t| t[:locale] == locale } }
+      .map { |t| t[:name] }
+  end
+
+  def pick_categories(category_tree, ids)
+    category_tree.reduce([]) { |acc, category|
+      if ids.include?(category[:id])
+        acc << category
+      end
+
+      if category[:children].present?
+        acc.concat(pick_categories(category[:children], ids))
+      end
+
+      acc
+    }
   end
 
   def listing_api

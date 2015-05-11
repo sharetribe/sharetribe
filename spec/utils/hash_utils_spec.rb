@@ -41,4 +41,15 @@ describe HashUtils do
     expect(HashUtils.sub({first: "First", last: "Last", age: 55}, :first, :age, :sex))
       .to eq({first: "First", age: 55})
   end
+
+  it "#reverse_key_value_array" do
+    expect(HashUtils.reverse_key_value_array({a: [1, 2, 3], b: [2, 3, 4], c: [2]}))
+      .to eq(
+            {
+              1 => [:a].to_set,
+              2 => [:a, :b, :c].to_set,
+              3 => [:a, :b].to_set,
+              4 => [:b].to_set
+            })
+  end
 end
