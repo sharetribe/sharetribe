@@ -24,6 +24,8 @@
 
 - if content_for?(:meta_image)
   - meta_image = content_for(:meta_image)
+  - meta_image_width = content_for(:meta_image_width)
+  - meta_image_height = content_for(:meta_image_height)
 - else
   - if @current_community.logo?
     - meta_image = @current_community.logo.url(:original)
@@ -44,6 +46,9 @@
 %meta{ :property => "og:description", :content => strip_tags(meta_description).html_safe}
 %meta{ :name => "twitter:description", :content => strip_tags(meta_description).html_safe}
 %meta{ :property => "og:image", :content => meta_image}
+- if meta_image_width && meta_image_height
+  %meta{ :property => "og:image:width", :content => meta_image_width}
+  %meta{ :property => "og:image:height", :content => meta_image_height}
 %meta{ :name => "twitter:image", :content => meta_image}
 %link{:rel => "canonical", :href => full_url}
 
