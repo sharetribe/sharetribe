@@ -24,12 +24,12 @@ fr:
       send_instructions: "Vous allez recevoir les instructions de réinitialisation du mot de passe dans quelques instants"
       updated: "Votre mot de passe a été modifié avec succès, vous êtes maintenant connecté."
     sessions:
-      signed_in: Connecté.
-      signed_out: Déconnecté.
+      signed_in: "Connexion réussie."
+      signed_out: "Déconnexion réussie."
     confirmations:
       send_paranoid_instructions: "Si votre email existe bien dans notre base de données, vous recevrez dans quelques instants un email avec les instructions à suivre pour confirmer votre compte."
       send_instructions: "Vous allez recevoir les instructions nécessaires à la confirmation de votre compte dans quelques minutes"
-      confirmed: "Votre compte a été validé, vous êtes maintenant connecté"
+      confirmed: "Votre compte a bien été validé."
     registrations:
       signed_up_but_unconfirmed: "Un email contenant un lien de confirmation vient de vous être envoyé. Cliquez le pour activer votre compte."
       signed_up_but_inactive: "Vous êtes bien inscrit. Cependant, vous n'êtes pas connecté car votre compte n'est pas encore activé."
@@ -39,7 +39,7 @@ fr:
         unconfirmed: "non confirmé"
         locked: bloqué
       update_needs_confirmation: "Vous avez bien mis à jour votre compte mais nous devons valider votre nouvelle adresse email. Allez voir vos emails et cliquez sur le lien de validation pour la confirmer."
-      signed_up: "Bienvenu, vous êtes connecté"
+      signed_up: "Bienvenue ! Vous êtes désormais connecté."
       updated: "Votre compte a été modifié avec succès."
       destroyed: "Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt."
     unlocks:

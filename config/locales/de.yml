@@ -322,51 +322,51 @@ de:
       index:
         listing_shapes: ~
         description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        read_more_about_order_types: "Lies mehr über Auftragsarten"
+        add_new_shape: "Füge neue Auftragsart hinzu: "
+        select_template: "Template wählen ..."
+        all_categories: "Alle Kategorien"
+        no_categories: "Keine Kategorien"
         header:
           listing_shape_name: ~
           listing_shape_categories: ~
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: Speicherreihenfolge
+          save_order_successful: "Erfolgreich gespeicherte Bestellung"
+          save_order_error: "Beim Speichern der Bestellung ist ein Fehler aufgetreten. Bitte aktualisiere die Seite und versuche es erneut."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Verkauf von Produkten"
+        renting_products: "Vermietung von Produkten"
+        offering_services: "Angebot von Dienstleistungen"
+        giving_things_away: "Dinge weggeben"
+        requesting: Anfordern
+        announcement: Ankündigung
+        custom: Eigene
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Erstelle Auftragsart"
+        create: Anlegen
+        cancel: Abbrechen
+        create_success: "Neuer Auftragsart %{shape} erstellt"
+        create_failure: "Neue Auftragsart konnte nicht erstellt werden. Fehler: %{error_msg}"
       edit:
         edit_listing_shape: ~
         update: ~
         cancel: ~
         update_success: ~
         update_failure: ~
-        delete: ~
-        confirm_delete: ~
+        delete: "Auftragsart löschen"
+        confirm_delete: "Es gibt %{count} Inserate mit dieser Auftragsart. Wenn du diese Auftragsart löschst, werden diese Inserate geschlossen. Bist du sicher, dass Du die Auftragsart löschen möchtest?"
       listing_shape_name: ~
       action_button_label: ~
-      open_listings: ~
-      close_listings: ~
-      confirm_close_listings: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
+      open_listings: "Es gibt %{count} offene Angebote mit dieser Auftragsart. Wenn Du eine der folgenden Einstellungen änderst, werden diese Angebote die alten Einstellungen beibehalten. Diese Angebote können die neuen Einstellungen  durch manuelles editieren erhalten. Wenn Du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst du diese  schließen, indem Du auf den Button unterhalb klickst."
+      close_listings: "%{count} Angebote schließen"
+      confirm_close_listings: "Bist du sicher, dass Du %{count} Angebote schließen möchtest?"
+      successfully_closed: "Inserate erfolgreich geschlossen."
+      successfully_deleted: "Auftragsart '%{order_type}' erfolgreich gelöscht"
+      pricing_and_checkout_title: "Preise & Kasse"
+      online_payments_label: "Verwende Online-Zahlungssystem"
       shipping_label: ~
-      price_label: ~
+      price_label: "Preisfeld anzeigen"
       units_title: ~
       units_desc: ~
       units:

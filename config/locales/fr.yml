@@ -6,7 +6,7 @@ fr:
       index:
         listing_categories: "Catégories d'annonces"
         create_a_new_category: "+ Créer une nouvelle catégorie"
-        remove_category_confirmation: "Êtes-vous sûr(e) de vouloir supprimer la catégorie '%{category_name}' ?"
+        remove_category_confirmation: "Voulez-vous vraiment supprimer la catégorie '%{category_name}' ?"
         saving_order: "Sauvegarde de l'ordre des catégories"
         save_order_successful: "Ordre des catégories sauvegardé avec succès"
         save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre des catégories. Veuillez actualiser la page et essayer de nouveau."
@@ -187,7 +187,7 @@ fr:
         saving_user_status: Sauvegarde...
         save_user_status_successful: Sauvegardé
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
-        ban_user_confirmation: "Ceci supprime l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Êtes-vous sûr de vouloir faire cela ?"
+        ban_user_confirmation: "Ceci bannit l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Voulez-vous vraiment faire cela ?"
         ban_me_error: "Vous ne pouvez pas vous bannir vous-même."
       social_media:
         social_media: "Réseaux sociaux"
@@ -324,44 +324,44 @@ fr:
         description: ~
         read_more_about_order_types: ~
         add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        select_template: "Sélectionner un modèle..."
+        all_categories: "Toutes les catégories"
+        no_categories: "Aucune catégorie"
         header:
           listing_shape_name: ~
           listing_shape_categories: ~
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Sauvegarder l'ordre"
+          save_order_successful: "Ordre sauvegardé avec succès"
+          save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre. Veuillez actualiser la page et essayer de nouveau."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Vendre des produits"
+        renting_products: "Louer des produits"
+        offering_services: "Proposer des services"
+        giving_things_away: "Donner des choses"
+        requesting: Demander
+        announcement: Information
+        custom: Personnalisé
       new:
         create_listing_shape: ~
-        create: ~
-        cancel: ~
+        create: Créer
+        cancel: Annuler
         create_success: ~
         create_failure: ~
       edit:
         edit_listing_shape: ~
-        update: ~
-        cancel: ~
+        update: Sauvegarder
+        cancel: Annuler
         update_success: ~
-        update_failure: ~
+        update_failure: "Impossible de sauvegarder les modifications. Erreur : %{error_msg}"
         delete: ~
         confirm_delete: ~
-      listing_shape_name: ~
+      listing_shape_name: Nom
       action_button_label: ~
       open_listings: ~
-      close_listings: ~
-      confirm_close_listings: ~
-      successfully_closed: ~
+      close_listings: "Clôturer %{count} annonces"
+      confirm_close_listings: "Voulez-vous vraiment clôturer %{count} annonces ?"
+      successfully_closed: "Les annonces ont été clôturées avec succès"
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
@@ -370,12 +370,12 @@ fr:
       units_title: ~
       units_desc: ~
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: "Par élément"
+        hour: "Par heure"
+        day: "Par jour"
+        night: "Par nuit"
+        week: "Par semaine"
+        month: "Par mois"
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       preferences_updated: "Préférences de paiement mises à jour"
@@ -924,7 +924,7 @@ fr:
     error_404:
       if_you_believe: "Si vous pensez que l'adresse est correcte et qu'elle devrait fonctionner, veuillez nous aider à localiser l'erreur en indiquant notamment l'adresse ayant causé le problème et ce qui aurait dû s'afficher (utiliser formulaire ci-dessous)."
       page_can_not_be_found: "Page introuvable !"
-      page_you_requested_can_not_be_found: "L'adresse que vous demandez n'existe pas sur %{service_name}. Etes-vous sûr d'avoir saisi l'adresse correctement ?"
+      page_you_requested_can_not_be_found: "La page que vous avez demandé n'a pas pu être trouvée. Avez-vous saisi l'adresse correctement ?"
     error_404_title: "page introuvable"
     error_410:
       page_removed: "Page supprimée"
@@ -1799,7 +1799,7 @@ fr:
       confirm_new_password: "Confirmez votre nouveau mot de passe"
       delete_account: "Supprimer le compte"
       delete_account_button: "Supprimer définitivement mon compte"
-      delete_account_confirmation_popup: "Etes-vous bien sûr(e) de vouloir supprimer votre compte et de perdre toutes ses données ? La suppression d'un compte est irréversible."
+      delete_account_confirmation_popup: "Voulez-vous vraiment supprimer votre compte et en perdre toutes ses données ? La suppression d'un compte est irréversible."
       email_addresses: "Adresses email"
       new_email: "Nouvelle adresse email"
       delete_all_memberships: "Si vous supprimez votre compte, vous ne serez plus en mesure de l'utiliser dans les places de marché suivantes : %{marketplaces}."
