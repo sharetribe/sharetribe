@@ -52,6 +52,9 @@ fi:
         community_details: Perustiedot
         community_look_and_feel: Ulkoasu
         edit_community: Perustiedot
+        enabled_languages: "Käytettävissä olevat kielet"
+        enabled_languages_description: "Käyttäjän valittavissa olevat kielet. Listan ensimmäistä käytetään oletuskielenä."
+        default_language: "Oletuskieli"
         community_name: "Kauppapaikan nimi"
         edit_community_name_description: "Kauppapaikan nimi näytetään käyttäjille lähetettävissä sähköposteissa ja useissa muissa paikoissa."
         community_slogan: "Kauppapaikan slogan"
@@ -150,6 +153,23 @@ fi:
         view_users_link_text: "Tältä sivulta"
         view_transactions_link_text: täältä
         contact_support_link_text: "ota yhteys ylläpitoon"
+      available_languages:
+        en: englanti
+        fr: ranska
+        es-ES: espanja
+        pt-BR: portugali
+        nb: norja
+        sv: ruotsi
+        da-DK: tanska
+        fi: suomi
+        ru: venäjä
+        de: saksa
+        el: kreikka
+        nl: hollanti
+        tr-TR: turkki
+        zh: kiina
+        ja: japani
+        it: italia
       settings:
         settings: Yleisasetukset
         general: Yleiset

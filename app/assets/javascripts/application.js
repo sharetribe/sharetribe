@@ -22,6 +22,7 @@
 //= require jquery.fileupload-validate
 //= require jquery.fileupload-image
 
+//= require selectize-standalone.js
 //= require datepicker/bootstrap-datepicker.js
 
 // Allow IE8-9 to post cross domain XHR (required for image upload)

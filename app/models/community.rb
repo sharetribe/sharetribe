@@ -269,7 +269,12 @@ class Community < ActiveRecord::Base
       # However, currently that is likely to happend, because:
       # - User has one locale
       # - User can join to multiple communities, which may not have user's locale available
-      community_customizations.where(locale: default_locale).first
+      fallback_customisation = community_customizations.where(locale: default_locale).first
+      if !(fallback_customisation && fallback_customisation.name)
+        # Corner case: switching default language to a language without localisation.
+        fallback_customisation = community_customizations.where("name IS NOT NULL").order(:updated_at).last
+      end
+      fallback_customisation
     }
 
     if customization

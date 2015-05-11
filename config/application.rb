@@ -65,6 +65,9 @@ module Kassi
     # This is the list of all possible locales. Part of the translations may be unfinished.
     config.AVAILABLE_LOCALES = Sharetribe::AVAILABLE_LOCALES
 
+    # This is the list of locales translated to satisfactory extent.
+    config.WELL_TRANSLATED_LOCALES = Sharetribe::WELL_TRANSLATED_LOCALES
+
     I18n.enforce_available_locales = true
 
     # Settings in config/environments/* take precedence over those specified here.

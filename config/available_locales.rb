@@ -49,4 +49,22 @@ module Sharetribe
     ["English", "en-at"],
     ["French", "fr-at"],
   ]
+  WELL_TRANSLATED_LOCALES = [
+    ["English", "en"],
+    ["Français", "fr"],
+    ["Español", "es-ES"],
+    ["Português do Brasil", "pt-BR"],
+    ["Norsk Bokmål", "nb"],
+    ["Svenska", "sv"],
+    ["Dansk", "da-DK"],
+    ["Suomi", "fi"],
+    ["Pусский", "ru"],
+    ["Deutsch", "de"],
+    ["Ελληνικά", "el"],
+    ["Nederlands", "nl"],
+    ["Turkish", "tr-TR"],
+    ["中文", "zh"],
+    ["日本語", "ja"],
+    ["Italiano", "it"]
+  ]
 end

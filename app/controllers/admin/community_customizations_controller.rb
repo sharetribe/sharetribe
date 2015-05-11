@@ -5,11 +5,16 @@ class Admin::CommunityCustomizationsController < ApplicationController
     @selected_left_navi_link = "tribe_details"
     # @community_customization is fetched in application_controller
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)
+    all_locales = MarketplaceService::API::Marketplaces.all_locales
+    enabled_locale_keys = available_locales.map(&:second)
 
     @show_transaction_agreement = TransactionService::API::Api.processes.get(community_id: @current_community.id)
       .maybe
       .map { |data| has_preauthorize_process?(data) }
       .or_else(nil).tap { |p| raise ArgumentError.new("Can not find transaction process: #{opts}") if p.nil? }
+    render locals: {
+      locale_selection_locals: { all_locales: all_locales, enabled_locale_keys: enabled_locale_keys }
+    }
   end
 
   def update_details
@@ -23,19 +28,25 @@ class Admin::CommunityCustomizationsController < ApplicationController
         :transaction_agreement_content
       ]
       params.require(:community_customizations).require(locale).permit(*permitted_params)
-
       locale_params = params[:community_customizations][locale]
       customizations = find_or_initialize_customizations_for_locale(locale)
       customizations.update_attributes(locale_params)
     end
 
+    enabled_locales = params[:enabled_locales]
+    all_locales = MarketplaceService::API::Marketplaces.all_locales.map{|l| l[:locale_key]}.to_set
+    enabled_locales_valid = enabled_locales.present? && enabled_locales.map{ |locale| all_locales.include? locale }.all?
+    if enabled_locales_valid && feature_enabled?(:locale_admin)
+      MarketplaceService::API::Marketplaces.set_locales(@current_community, enabled_locales)
+    end
+
     transaction_agreement_checked = Maybe(params)[:community][:transaction_agreement_checkbox].is_some?
     community_update_successful = @current_community.update_attributes(transaction_agreement_in_use: transaction_agreement_checked)
 
-    if updates_successful.all? && community_update_successful
+    if updates_successful.all? && community_update_successful && (!feature_enabled?(:locale_admin) || enabled_locales_valid)
       flash[:notice] = t("layouts.notifications.community_updated")
     else
-      flash.now[:error] = t("layouts.notifications.community_update_failed")
+      flash[:error] = t("layouts.notifications.community_update_failed")
     end
 
     redirect_to edit_details_admin_community_path(@current_community)

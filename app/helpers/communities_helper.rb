@@ -16,6 +16,7 @@ module CommunitiesHelper
     @current_user.emails.select{|e| e.confirmed_at.present?}.include?(session[:email])
   end
 
+
   def community_name_locals
     translations = find_community_customizations(:name)
     {

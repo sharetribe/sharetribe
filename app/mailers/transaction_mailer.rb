@@ -31,7 +31,7 @@ class TransactionMailer < ActionMailer::Base
 
     # TODO Now that we have splitted "new message", we could be more specific here, and say that this message
     # is about a new transaction!
-    with_locale(recipient.locale, community.id) do
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       premailer_mail(
         mail_params(recipient, community, t("emails.new_message.you_have_a_new_message", :sender_name => sender_name))) do |format|
         format.html {
@@ -51,7 +51,7 @@ class TransactionMailer < ActionMailer::Base
 
     recipient = transaction.author
     set_up_urls(recipient, transaction.community)
-    with_locale(recipient.locale, transaction.community.id) do
+    with_locale(recipient.locale, transaction.community.locales.map(&:to_sym), transaction.community.id) do
 
       payment_type = MarketplaceService::Community::Query.payment_type(@community.id)
       gateway_expires = MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type)
@@ -76,7 +76,7 @@ class TransactionMailer < ActionMailer::Base
 
     recipient = transaction.author
     set_up_urls(recipient, transaction.community)
-    with_locale(recipient.locale, transaction.community.id) do
+    with_locale(recipient.locale, transaction.community.locales.map(&:to_sym), transaction.community.id) do
 
       premailer_mail(
         mail_params(
@@ -89,7 +89,7 @@ class TransactionMailer < ActionMailer::Base
   def braintree_new_payment(payment, community)
     recipient = payment.recipient
     prepare_template(community, payment.recipient, "email_about_new_payments")
-    with_locale(recipient.locale, community.id) do
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
 
       service_fee = payment.total_commission
       you_get = payment.seller_gets
@@ -125,7 +125,7 @@ class TransactionMailer < ActionMailer::Base
   def braintree_receipt_to_payer(payment, community)
     recipient = payment.payer
     prepare_template(community, recipient, "email_about_new_payments")
-    with_locale(recipient.locale, community.id) do
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
 
       unit_type = Maybe(payment.transaction).select { |t| t.unit_type.present? }.map { |t| ListingViewUtils.translate_unit(t.unit_type, t.unit_tr_key) }.or_else(nil)
       duration = payment.transaction.booking.present? ? payment.transaction.booking.duration : nil
@@ -165,7 +165,7 @@ class TransactionMailer < ActionMailer::Base
     gateway_fee = transaction[:payment_gateway_fee]
 
     prepare_template(community, seller_model, "email_about_new_payments")
-    with_locale(seller_model.locale, community.id) do
+    with_locale(seller_model.locale, community.locales.map(&:to_sym), community.id) do
 
       you_get = payment_total - service_fee - gateway_fee
 
@@ -203,7 +203,7 @@ class TransactionMailer < ActionMailer::Base
     community ||= Community.find(transaction[:community_id])
 
     prepare_template(community, buyer_model, "email_about_new_payments")
-    with_locale(buyer_model.locale, community.id) do
+    with_locale(buyer_model.locale, community.locales.map(&:to_sym), community.id) do
 
       unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)
 

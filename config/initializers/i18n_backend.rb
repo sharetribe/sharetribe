@@ -20,24 +20,40 @@ module I18n
 
       attr_reader :community_id
 
-      def set_community!(community_id, clear: true)
+      def set_community!(community_id, locales_in_use, clear: true)
         if community_id != @community_id
           @community_id = community_id
 
           # Clear store every time we switch community, this is not a cache
-          @store = {} if clear
+          if clear
+            @store = {}
+            @locales_in_use = {}
+            @locales_with_translations = {}
+            @locales_fallback_preference_order = {}
+          end
+          @locales_in_use = {} unless @locales_in_use
+          @locales_in_use[community_id] = locales_in_use
+          @locales_with_translations = {} unless @locales_with_translations
+          @locales_with_translations[community_id] = Set.new
+          @locales_fallback_preference_order = {} unless @locales_fallback_preference_order
+          @locales_fallback_preference_order.default = []
         end
       end
 
       def store_translations(locale, data, options = {})
         raise ArgumentError.new("Set community via set_community! before storing translations.") unless @community_id
-
+        @locales_with_translations[@community_id] << locale
+        @locales_fallback_preference_order[@community_id] = [@locales_in_use[@community_id], @locales_with_translations[@community_id].to_a].flatten.uniq
         super(locale, {@community_id => data}, options)
       end
 
       def lookup(locale, key, scope = [], options = {})
         return unless @community_id
-        super(locale, "#{@community_id}.#{key}", scope, options)
+        [locale].concat(@locales_fallback_preference_order[@community_id]).uniq.each { |l|
+          t = super(l, "#{@community_id}.#{key}", scope, options)
+          return t if t
+        }
+        nil
       end
 
       def self.instance

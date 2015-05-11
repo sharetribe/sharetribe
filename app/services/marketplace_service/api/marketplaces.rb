@@ -70,6 +70,26 @@ module MarketplaceService::API
       return from_model(community)
     end
 
+    def set_locales(community, locales)
+      default_locale = community.locales[0]
+      community_name = community.name(default_locale)
+      locales.each { |locale| Helper.first_or_create_community_customization!(community, community_name, locale) }
+
+      settings = community.settings || {}
+      settings["locales"] = locales
+      community.settings = settings
+      community.save!
+    end
+
+    def all_locales
+      Kassi::Application.config.WELL_TRANSLATED_LOCALES.map{ |(k,v)|
+        {
+          locale_key: v,
+          locale_name: k
+        }
+      }
+    end
+
     # Create a Marketplace hash from Community model
     def from_model(community)
       hash = HashUtils.compact(
@@ -146,6 +166,10 @@ module MarketplaceService::API
 
       def create_community_customization!(community, marketplace_name, locale)
         community.community_customizations.create(customization_params(marketplace_name, locale))
+      end
+
+      def first_or_create_community_customization!(community, marketplace_name, locale)
+        community.community_customizations.first_or_create!(customization_params(marketplace_name, locale))
       end
 
       def create_community_plan!(community, options={})

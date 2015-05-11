@@ -1,8 +1,7 @@
 window.ST = window.ST || {};
 
 (function(module) {
-
-  module.initializeTransactionAgreementFields = function() {
+  var initializeTransactionAgreementFields = function() {
     var checkbox = $('#community_transaction_agreement_checkbox');
     var modalFields = $('.transaction-agreement-modal');
     var checked = checkbox.is(':checked');
@@ -18,7 +17,23 @@ window.ST = window.ST || {};
         .toggleClass('required', this.checked)
         .toggleClass('disabled', !this.checked);
     });
+  };
 
-    $('#edit_community').validate();
+  var initializeCustomizationFormValidation = function () {
+    $("#edit_community").validate({
+      errorPlacement: function (error, element) {
+        if (element.hasClass("selectized")) {
+          element.parent().append(error);
+        }
+        else {
+          element.after(error);
+        }
+      }
+    });
+  };
+
+  module.initializeCommunityCustomizations = function () {
+    initializeTransactionAgreementFields();
+    initializeCustomizationFormValidation();
   };
 })(window.ST);
