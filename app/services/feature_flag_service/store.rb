@@ -9,7 +9,8 @@ module FeatureFlagService::Store
 
     FLAGS = [
       :shape_ui,
-      :shipping_per
+      :shipping_per,
+      :locale_admin
     ].to_set
 
     def known_flags; FLAGS.dup end
