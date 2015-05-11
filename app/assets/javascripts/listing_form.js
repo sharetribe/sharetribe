@@ -152,17 +152,17 @@ window.ST = window.ST || {};
   function display_new_listing_form(selected_attributes, locale) {
     var new_listing_path = '/' + locale + '/listings/new_form_content';
     $.get(new_listing_path, selected_attributes, function(data) {
-      $('.form-fields').html(data);
-      $('.form-fields').removeClass('hidden');
+      $('.js-form-fields').html(data);
+      $('.js-form-fields').removeClass('hidden');
     });
   }
 
   function display_edit_listing_form(selected_attributes, locale, id) {
-    $('.form-fields').removeClass('hidden');
     var edit_listing_path = '/' + locale + '/listings/edit_form_content';
     var request_params = _.assign({}, selected_attributes, {id: id});
     $.get(edit_listing_path, request_params, function(data) {
-      $('.form-fields').html(data);
+      $('.js-form-fields').html(data);
+      $('.js-form-fields').removeClass('hidden');
     });
   }
 
@@ -294,7 +294,7 @@ window.ST = window.ST || {};
     window.addEventListener('popstate', function(evt) {
       selected_attributes = evt.state || emptySelection;
 
-      $('.form-fields').addClass('hidden');
+      $('.js-form-fields').addClass('hidden');
       var shouldLoadForm = select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
 
       menuStateChanged(shouldLoadForm);
@@ -303,7 +303,7 @@ window.ST = window.ST || {};
     // Listener for attribute menu clicks
     $('.new-listing-form').find('a.select').click(
       function() {
-        $('.form-fields').addClass('hidden');
+        $('.js-form-fields').addClass('hidden');
         var shouldLoadForm = select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
 
         setPushState(selected_attributes);
@@ -326,11 +326,10 @@ window.ST = window.ST || {};
     var current_attributes = _.clone(selected_attributes);
 
     // Reset the view to initial state
-    $('.form-fields').addClass('hidden');
     var shouldShowForm = update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
 
     if(shouldShowForm) {
-      $('.form-fields').removeClass('hidden');
+      $('.js-form-fields').removeClass('hidden');
     }
 
     var menuStateChanged = function(shouldLoadForm) {
@@ -340,9 +339,9 @@ window.ST = window.ST || {};
         current_attributes = _.clone(selected_attributes);
 
         if(loadNotNeeded) {
-          $('.form-fields').removeClass('hidden');
+          $('.js-form-fields').removeClass('hidden');
         } else {
-          $('.form-fields').html("");
+          $('.js-form-fields').html("");
           display_edit_listing_form(selected_attributes, locale, id);
         }
       }
@@ -353,7 +352,7 @@ window.ST = window.ST || {};
     window.addEventListener('popstate', function(evt) {
       selected_attributes = evt.state || originalSelection;
 
-      $('.form-fields').addClass('hidden');
+      $('.js-form-fields').addClass('hidden');
       var shouldLoadForm = select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
 
       menuStateChanged(shouldLoadForm);
@@ -362,7 +361,7 @@ window.ST = window.ST || {};
     // Listener for attribute menu clicks
     $('.new-listing-form').find('a.select').click(
       function() {
-        $('.form-fields').addClass('hidden');
+        $('.js-form-fields').addClass('hidden');
         var shouldLoadForm = select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
 
         setPushState(selected_attributes);
