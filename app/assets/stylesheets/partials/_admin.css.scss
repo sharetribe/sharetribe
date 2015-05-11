@@ -37,3 +37,9 @@
     }
   } 
 }
+
+// Prevent the original select widget from blinking before the styled one is rendered
+select#locale-selection {
+  visibility: hidden;
+  height: 50px;
+}
