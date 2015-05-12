@@ -376,7 +376,7 @@ en:
         update_failure: "Could not save changes. Error: %{error_msg}"
         delete: "Delete order type"
         confirm_delete: "There are %{count} listings with this order type. If you delete the order type, those listings will be closed. Are you sure you want to delete the order type?"
-        can_not_delete_last: "You can't delete this order type because it's the only one type in your marketplace."
+        can_not_delete_last: "You can't delete this order type because it's the only type in your marketplace."
         can_not_delete_only_one_in_categories: "You can't delete this order type because in following categories this order type is the only one in use: %{categories}"
       listing_shape_name: Name
       action_button_label: "Checkout button label"

@@ -211,7 +211,7 @@ class Admin::ListingShapesController < ApplicationController
 
     categories_listing_shapes_map = HashUtils.reverse_key_enum_hash(listing_shapes_categories_map)
 
-    only_one_in_category_ids = categories_listing_shapes_map.select { |category_id, shape_ids|
+    last_in_category_ids = categories_listing_shapes_map.select { |category_id, shape_ids|
       shape_ids.size == 1 && shape_ids.include?(current_shape_id)
     }.keys
 
@@ -219,9 +219,9 @@ class Admin::ListingShapesController < ApplicationController
       Result::Error.new(t("admin.listing_shapes.can_not_find", id: current_shape_id))
     elsif shapes.length == 1
       Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_last"))
-    elsif !only_one_in_category_ids.empty?
+    elsif !last_in_category_ids.empty?
       categories = ListingService::API::Api.categories.get(community_id: @current_community).data
-      category_names = pick_category_names(categories, only_one_in_category_ids, I18n.locale)
+      category_names = pick_category_names(categories, last_in_category_ids, I18n.locale)
 
       Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_only_one_in_categories", categories: category_names.join(", ")))
     else
