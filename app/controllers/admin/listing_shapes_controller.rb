@@ -42,14 +42,7 @@ class Admin::ListingShapesController < ApplicationController
 
     return redirect_to error_not_found_path if shape.nil?
 
-    count = listing_api.listings.count(
-      community_id: @current_community.id,
-      query: {
-        listing_shape_id: params[:id].to_i,
-        open: true
-      }).data
-
-    render_edit_form(params[:id], shape, count, process_summary, available_locales())
+    render_edit_form(params[:id], shape, process_summary, available_locales())
   end
 
   def create
@@ -140,13 +133,13 @@ class Admin::ListingShapesController < ApplicationController
       flash[:notice] = t("admin.listing_shapes.successfully_closed")
       return redirect_to action: :edit, id: params[:id]
     }.on_error {
-      flash[:error] = "Can not find listing shape with id #{params[:id]}"
+      flash[:error] = t("admin.listing_shapes.can_not_find", id: params[:id])
       return redirect_to action: :index
     }
   end
 
   def destroy
-    listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id]).and_then {
+    can_delete_shape?(params[:id].to_i, all_shapes(community_id: @current_community.id, include_categories: true)).and_then {
       listing_api.listings.update_all(community_id: @current_community.id, query: { listing_shape_id: params[:id] }, opts: { open: false, listing_shape_id: nil })
     }.and_then {
       listing_api.shapes.delete(
@@ -155,8 +148,8 @@ class Admin::ListingShapesController < ApplicationController
       )
     }.on_success { |deleted_shape|
       flash[:notice] = t("admin.listing_shapes.successfully_deleted", order_type: t(deleted_shape[:name_tr_key]))
-    }.on_error {
-      flash[:error] = "Can not find listing shape with id #{params[:id]}"
+    }.on_error { |error_msg|
+      flash[:error] = "Can not delete order type, error: #{error_msg}"
     }
 
     redirect_to action: :index
@@ -181,10 +174,23 @@ class Admin::ListingShapesController < ApplicationController
     render("new", locals: locals)
   end
 
-  def render_edit_form(id, form, count, process_summary, available_locs)
+  def render_edit_form(id, form, process_summary, available_locs)
+    can_delete_res = can_delete_shape?(id.to_i, all_shapes(community_id: @current_community.id, include_categories: true))
+    cant_delete = !can_delete_res.success
+    cant_delete_reason = cant_delete ? can_delete_res.error_msg : nil
+
+    count = listing_api.listings.count(
+      community_id: @current_community.id,
+      query: {
+        listing_shape_id: id.to_i,
+        open: true
+      }).data
+
     locals = common_locals(form, count, process_summary, available_locs).merge(
       id: id,
-      name: pick_translation(form[:name])
+      name: pick_translation(form[:name]),
+      cant_delete: cant_delete,
+      cant_delete_reason: cant_delete_reason
     )
     render("edit", locals: locals)
   end
@@ -195,6 +201,53 @@ class Admin::ListingShapesController < ApplicationController
       shape: FormViewLayer.shape_to_locals(form),
       count: count,
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h
+    }
+  end
+
+  def can_delete_shape?(current_shape_id, shapes)
+    listing_shapes_categories_map = shapes.map { |shape|
+      [shape[:id], shape[:category_ids]]
+    }
+
+    categories_listing_shapes_map = HashUtils.reverse_key_enum_hash(listing_shapes_categories_map)
+
+    last_in_category_ids = categories_listing_shapes_map.select { |category_id, shape_ids|
+      shape_ids.size == 1 && shape_ids.include?(current_shape_id)
+    }.keys
+
+    if shapes.none? { |shape| shape[:id] == current_shape_id }
+      Result::Error.new(t("admin.listing_shapes.can_not_find", id: current_shape_id))
+    elsif shapes.length == 1
+      Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_last"))
+    elsif !last_in_category_ids.empty?
+      categories = ListingService::API::Api.categories.get(community_id: @current_community).data
+      category_names = pick_category_names(categories, last_in_category_ids, I18n.locale)
+
+      Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_only_one_in_categories", categories: category_names.join(", ")))
+    else
+      Result::Success.new
+    end
+  end
+
+  def pick_category_names(categories, ids, locale)
+    locale = locale.to_s
+
+    pick_categories(categories, ids)
+      .map { |c| c[:translations].find { |t| t[:locale] == locale } }
+      .map { |t| t[:name] }
+  end
+
+  def pick_categories(category_tree, ids)
+    category_tree.reduce([]) { |acc, category|
+      if ids.include?(category[:id])
+        acc << category
+      end
+
+      if category[:children].present?
+        acc.concat(pick_categories(category[:children], ids))
+      end
+
+      acc
     }
   end
 

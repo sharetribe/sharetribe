@@ -98,4 +98,17 @@ module HashUtils
       Hash[key, v]
     }.or_else({})
   end
+
+  # { 1: [15], 2: [15, 16] => { 15: [1, 2], 16: [2] }
+  #
+  # Please note, returns hash of Sets
+  #
+  def reverse_key_enum_hash(x)
+    x.reduce({}) { |acc, (key, value)|
+      value.each { |v|
+        acc[v] = (acc[v] || Set.new) << key
+      }
+      acc
+    }
+  end
 end
