@@ -376,8 +376,8 @@ fr:
         update_failure: "Impossible de sauvegarder les modifications. Erreur : %{error_msg}"
         delete: "Supprimer le type de transaction"
         confirm_delete: "Il y a %{count} annonces utilisant ce type de transaction. Si vous supprimez ce type de transaction, ces annonces seront closes. Voulez-vous vraiment supprimer ce type de transaction ?"
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
+        can_not_delete_last: "Vous ne pouvez pas supprimer ce type de transaction car c'est actuellement le seul dans votre place de marché."
+        can_not_delete_only_one_in_categories: "Vous ne pouvez pas supprimer ce type de transaction car il est le seul utilisé dans les catégories suivantes : %{categories}"
       listing_shape_name: Nom
       action_button_label: "Libellé du bouton de transaction"
       open_listings: "Il y a %{count} annonces actives utilisant ce type de transaction. Si vous modifiez l'un des paramètres ci-dessous, ces annonces conserveront les anciens paramètres. Ces annonces peuvent être modifiées pour utiliser les nouveaux paramètres en les éditant manuellement. Si vous ne souhaitez pas avoir d'annonces visibles sur votre site utilisant les anciens paramètres, vous pouvez les clore en cliquant sur le bouton ci-dessous."
@@ -398,7 +398,7 @@ fr:
         night: "Par nuit"
         week: "Par semaine"
         month: "Par mois"
-      can_not_find: ~
+      can_not_find: "Impossible de trouver le type de transaction avec l'id suivant : %{id}"
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       preferences_updated: "Préférences de paiement mises à jour"
