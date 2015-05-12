@@ -2,7 +2,10 @@
   initialize_admin_edit_tribe_look_and_feel_form("#{I18n.locale}", "#{@community.id}", "#{t('.invalid_color_code')}");
 
 - content_for :title_header do
-  %h1= t("layouts.admin.admin")
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.edit_details.community_look_and_feel")
 
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
