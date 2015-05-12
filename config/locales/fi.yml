@@ -377,6 +377,7 @@ fi:
         delete: ~
         confirm_delete: ~
         can_not_delete_last: "Et voi poistaa tätä tyyppiä, koska se on ainoa tyyppi markkinapaikassasi."
+        can_not_delete_only_one_in_category: "Et voi poistaa tätä tyyppiä, koska se on ainoa tyyppi kategorioille: %{categories}"
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
@@ -397,6 +398,7 @@ fi:
         night: ~
         week: ~
         month: ~
+      can_not_find: "Tyyppiä ID:llä %{id} ei löytynyt"
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"

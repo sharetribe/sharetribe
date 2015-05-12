@@ -133,7 +133,7 @@ class Admin::ListingShapesController < ApplicationController
       flash[:notice] = t("admin.listing_shapes.successfully_closed")
       return redirect_to action: :edit, id: params[:id]
     }.on_error {
-      flash[:error] = "Can not find listing shape with id #{params[:id]}"
+      flash[:error] = t("admin.listing_shapes.can_not_find", id: params[:id])
       return redirect_to action: :index
     }
   end
@@ -216,7 +216,7 @@ class Admin::ListingShapesController < ApplicationController
     }.keys
 
     if shapes.none? { |shape| shape[:id] == current_shape_id }
-      Result::Error.new("Can't find order type with id: #{current_shape_id}")
+      Result::Error.new(t("admin.listing_shapes.can_not_find", id: current_shape_id))
     elsif shapes.length == 1
       Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_last"))
     elsif !only_one_in_category_ids.empty?
