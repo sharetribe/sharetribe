@@ -11,7 +11,8 @@
   = link_to admin_category_path(category), remove_html_opts.merge(:method => :delete, :confirm => t("admin.categories.index.remove_category_confirmation", {category_name: category.display_name(I18n.locale)})) do
     = icon_tag("cross", ["icon-fix"])
 
-= link_to '#', :class => "category-action-up admin-sort-button", :tabindex => "-1" do
+- sort_disabled_class = category_count == 1 ? "disabled" : ""
+= link_to '#', :class => "category-action-up admin-sort-button #{sort_disabled_class}", :tabindex => "-1" do
   = icon_tag("directup", ["icon-fix"])
-= link_to '#', :class => "category-action-down admin-sort-button", :tabindex => "-1" do
+= link_to '#', :class => "category-action-down admin-sort-button #{sort_disabled_class}", :tabindex => "-1" do
   = icon_tag("directdown", ["icon-fix"])
