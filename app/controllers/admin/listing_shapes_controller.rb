@@ -324,7 +324,7 @@ class Admin::ListingShapesController < ApplicationController
     def params_to_shape(params)
       form_params = HashUtils.symbolize_keys(params)
       parsed_params = form_params.merge(
-        units: parse_units(form_params[:units]),
+        units: parse_predefined_units(form_params[:units]).concat(parse_custom_units(form_params[:custom_units])),
         author_is_seller: form_params[:author_is_seller] == "false" ? false : true # default true
       )
 
@@ -335,25 +335,39 @@ class Admin::ListingShapesController < ApplicationController
       shape = Shape.call(shape)
 
       shape.merge(
-        units: expand_units(shape[:units]),
+        predefined_units: expand_predefined_units(shape[:units]),
+        custom_units: expand_custom_units(shape[:units])
       )
     end
 
     # private
 
-    # Take units from shape and add predefined units
-    def expand_units(shape_units)
+    def expand_predefined_units(shape_units)
       shape_units_set = shape_units.map { |t| t[:type] }.to_set
 
       ListingShapeHelper.predefined_unit_types
         .map { |t| {type: t, enabled: shape_units_set.include?(t), label: I18n.t("admin.listing_shapes.units.#{t}")} }
-        .concat(shape_units
-                 .select { |unit| unit[:type] == :custom }
-                 .map { |unit| {type: unit[:type], enabled: true, label: translate(unit[:translation_key])} }) # TODO Change translate
     end
 
-    def parse_units(selected_units)
+    def expand_custom_units(shape_units)
+      shape_units
+        .select { |unit| unit[:type] == :custom }
+    end
+
+    def parse_predefined_units(selected_units)
       (selected_units || []).map { |type, _| {type: type.to_sym, enabled: true}}
+    end
+
+    def parse_custom_units(units)
+      (units || []).map { |key, unit|
+        is_existing_unit = key.start_with?("existing_")
+        if is_existing_unit # {existing_NAME_TR_KEY: SELECTOR_TR_KEY}
+          name_tr_key = key.split('_')[1]
+          selector_tr_key = unit
+          unit = {name_tr_key: name_tr_key, selector_tr_key: selector_tr_key}
+        end
+        unit.merge(type: :custom, enabled: true)
+      }
     end
   end
 
