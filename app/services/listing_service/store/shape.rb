@@ -129,10 +129,11 @@ module ListingService::Store::Shape
     from_model(shape_model, true)
   end
 
-  def delete(community_id:, listing_shape_id:)
+  def delete(community_id:, listing_shape_id: nil, name: nil)
     shape_model = find_shape_model(
       community_id: community_id,
-      listing_shape_id: listing_shape_id)
+      listing_shape_id: listing_shape_id,
+      name: name)
 
     return nil if shape_model.nil?
 

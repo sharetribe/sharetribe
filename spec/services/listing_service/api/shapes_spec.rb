@@ -261,6 +261,7 @@ describe ListingService::API::Shapes do
 
   describe "#delete" do
     let(:id) { create_shape.data[:id] }
+    let(:name) { create_shape.data[:name] }
 
     context "success" do
       it "deletes the shape" do
@@ -282,6 +283,28 @@ describe ListingService::API::Shapes do
           listing_shape_id: id)
 
         expect(second_get.success).to eq false
+      end
+
+      it "deletes by name" do
+        first_get = listings_api.shapes.get(
+          community_id: community_id,
+          name: name)
+
+        expect(first_get.success).to eq true
+
+        delete_res = listings_api.shapes.delete(
+          community_id: community_id,
+          name: name)
+
+        expect(delete_res.success).to eq true
+        expect(delete_res.data[:name]).to eq name
+
+        second_get = listings_api.shapes.get(
+          community_id: community_id,
+          name: name)
+
+        expect(second_get.success).to eq false
+
       end
     end
 
