@@ -145,8 +145,8 @@ class Community < ActiveRecord::Base
   VALID_BROWSE_TYPES = %{grid map list}
   validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES
 
-  VALID_NAME_DISPLAY_TYPES = %{first_name_only first_name_with_initial}
-  validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES, :allow_nil => true, :allow_blank => true
+  VALID_NAME_DISPLAY_TYPES = %{first_name_only first_name_with_initial full_name}
+  validates_inclusion_of :name_display_type, :in => VALID_NAME_DISPLAY_TYPES
 
   # The settings hash contains some community specific settings:
   # locales: which locales are in use, the first one is the default

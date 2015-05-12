@@ -238,7 +238,7 @@ class PersonMailer < ActionMailer::Base
       @other_party = @conversation.other_party(recipient)
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
-                     :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
+                     :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name(community)))
     end
   end
 
