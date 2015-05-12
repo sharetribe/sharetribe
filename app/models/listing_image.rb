@@ -45,7 +45,6 @@ class ListingImage < ActiveRecord::Base
 
 
   def get_dimensions_for_style(style)
-    binding.pry
     case style
     when :small_3x2
       {width: 240, height: 160}
