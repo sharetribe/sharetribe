@@ -10,6 +10,9 @@
 - content_for :meta_author, @listing.author.name(@current_community)
 - content_for :meta_description, StringUtils.first_words(@listing.description, 15)
 - content_for :meta_image, @listing.listing_images.first.image.url(:medium) if !@listing.listing_images.empty?
+- dimensions = @listing.listing_images.first.get_dimensions_for_style(:medium) if !@listing.listing_images.empty?
+- content_for :meta_image_width, dimensions[:width] if !@listing.listing_images.empty?
+- content_for :meta_image_height, dimensions[:height] if !@listing.listing_images.empty?
 - content_for :keywords, StringUtils.keywords(@listing.title)
 
 - content_for :title_header do
