@@ -36,7 +36,7 @@ class Admin::ListingShapesController < ApplicationController
   def edit
     shape = ShapeService.new(processes).get(
       community_id: @current_community.id,
-      listing_shape_id: params[:id],
+      name: params[:id],
       locales: available_locales.map { |_, locale| locale }
     ).data
 
@@ -72,7 +72,7 @@ class Admin::ListingShapesController < ApplicationController
     update_result = validate_shape(shape).and_then { |shape|
       ShapeService.new(processes).update(
         community_id: @current_community.id,
-        listing_shape_id: params[:id],
+        name: params[:id],
         opts: shape
       )
     }
@@ -127,24 +127,24 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def close_listings
-    listing_api.shapes.get(community_id: @current_community.id, listing_shape_id: params[:id]).and_then {
+    listing_api.shapes.get(community_id: @current_community.id, name: params[:name]).and_then {
       listing_api.listings.update_all(community_id: @current_community.id, query: { listing_shape_id: params[:id] }, opts: { open: false })
     }.on_success {
       flash[:notice] = t("admin.listing_shapes.successfully_closed")
       return redirect_to action: :edit, id: params[:id]
     }.on_error {
-      flash[:error] = t("admin.listing_shapes.can_not_find", id: params[:id])
+      flash[:error] = t("admin.listing_shapes.can_not_find_name", name: params[:name])
       return redirect_to action: :index
     }
   end
 
   def destroy
-    can_delete_shape?(params[:id].to_i, all_shapes(community_id: @current_community.id, include_categories: true)).and_then {
+    can_delete_shape?(params[:id], all_shapes(community_id: @current_community.id, include_categories: true)).and_then {
       listing_api.listings.update_all(community_id: @current_community.id, query: { listing_shape_id: params[:id] }, opts: { open: false, listing_shape_id: nil })
     }.and_then {
       listing_api.shapes.delete(
         community_id: @current_community.id,
-        listing_shape_id: params[:id]
+        name: params[:id]
       )
     }.on_success { |deleted_shape|
       flash[:notice] = t("admin.listing_shapes.successfully_deleted", order_type: t(deleted_shape[:name_tr_key]))
@@ -174,8 +174,9 @@ class Admin::ListingShapesController < ApplicationController
     render("new", locals: locals)
   end
 
-  def render_edit_form(id, form, process_summary, available_locs)
-    can_delete_res = can_delete_shape?(id.to_i, all_shapes(community_id: @current_community.id, include_categories: true))
+  def render_edit_form(url_name, form, process_summary, available_locs)
+    id = form[:id]
+    can_delete_res = can_delete_shape?(url_name, all_shapes(community_id: @current_community.id, include_categories: true))
     cant_delete = !can_delete_res.success
     cant_delete_reason = cant_delete ? can_delete_res.error_msg : nil
 
@@ -187,7 +188,7 @@ class Admin::ListingShapesController < ApplicationController
       }).data
 
     locals = common_locals(form, count, process_summary, available_locs).merge(
-      id: id,
+      url_name: url_name,
       name: pick_translation(form[:name]),
       cant_delete: cant_delete,
       cant_delete_reason: cant_delete_reason
@@ -204,19 +205,19 @@ class Admin::ListingShapesController < ApplicationController
     }
   end
 
-  def can_delete_shape?(current_shape_id, shapes)
+  def can_delete_shape?(current_shape_name, shapes)
     listing_shapes_categories_map = shapes.map { |shape|
-      [shape[:id], shape[:category_ids]]
+      [shape[:name], shape[:category_ids]]
     }
 
     categories_listing_shapes_map = HashUtils.transpose(listing_shapes_categories_map)
 
-    last_in_category_ids = categories_listing_shapes_map.select { |category_id, shape_ids|
-      shape_ids.size == 1 && shape_ids.include?(current_shape_id)
+    last_in_category_ids = categories_listing_shapes_map.select { |category_id, shape_names|
+      shape_names.size == 1 && shape_names.include?(current_shape_name)
     }.keys
 
-    if shapes.none? { |shape| shape[:id] == current_shape_id }
-      Result::Error.new(t("admin.listing_shapes.can_not_find", id: current_shape_id))
+    if shapes.none? { |shape| shape[:name] == current_shape_name }
+      Result::Error.new(t("admin.listing_shapes.can_not_find_name", name: current_shape_name))
     elsif shapes.length == 1
       Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_last"))
     elsif !last_in_category_ids.empty?

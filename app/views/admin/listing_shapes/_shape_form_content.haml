@@ -31,7 +31,7 @@
             = icon_tag("alert", ["icon-fix"])
           %span<
             = t("admin.listing_shapes.open_listings", count: count)
-        = link_to close_listings_admin_listing_shape_path(id: id), class: "listing-shape-delete-button", confirm: t("admin.listing_shapes.confirm_close_listings", count: count) do
+        = link_to close_listings_admin_listing_shape_path, class: "listing-shape-delete-button", confirm: t("admin.listing_shapes.confirm_close_listings", count: count) do
           .content
             = t("admin.listing_shapes.close_listings", count: count)
 

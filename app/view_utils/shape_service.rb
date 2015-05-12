@@ -9,8 +9,8 @@ class ShapeService
     @processes = processes
   end
 
-  def get(community_id:, listing_shape_id:, locales:)
-    listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).and_then { |shape|
+  def get(community_id:, name:, locales:)
+    listing_api.shapes.get(community_id: community_id, name: name).and_then { |shape|
       process = @processes.find { |p| p[:id] == shape[:transaction_process_id] }
 
       raise ArgumentError.new("Can not find process with id: #{shape[:transaction_process_id]}") if process.nil?
@@ -27,14 +27,14 @@ class ShapeService
     }
   end
 
-  def update(community_id:, listing_shape_id:, opts:)
-    listing_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id).and_then { |old_shape|
+  def update(community_id:, name:, opts:)
+    listing_api.shapes.get(community_id: community_id, name: name).and_then { |old_shape|
       shape_opts = Shape.call(opts)
       shape = process_shape(community_id: community_id, opts: shape_opts.merge(old_shape.slice(:name_tr_key, :action_button_tr_key)))
 
       listing_api.shapes.update(
         community_id: community_id,
-        listing_shape_id: listing_shape_id,
+        name: name,
         opts: shape
       )
     }
