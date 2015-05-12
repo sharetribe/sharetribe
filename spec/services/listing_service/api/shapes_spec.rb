@@ -148,6 +148,15 @@ describe ListingService::API::Shapes do
         expect(get_res.data.length).to eq(3)
       end
 
+      it "gets by name" do
+        shape = create_shape.data
+
+        get_res = listings_api.shapes.get(community_id: community_id, name: shape[:name])
+
+        expect(get_res.success).to eq(true)
+        expect(get_res.data[:id]).to eq(shape[:id])
+      end
+
       it "respects the sort priority" do
         [["sell", 10], ["rent", 0], ["request", 5]].each { |(name, prio)|
           create_shape(basename: name, sort_priority: prio)

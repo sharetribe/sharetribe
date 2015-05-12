@@ -3,11 +3,16 @@ module ListingService::API
 
   class Shapes
 
-    def get(community_id:, listing_shape_id: nil, include_categories: false)
-      if listing_shape_id
+    def get(community_id:, listing_shape_id: nil, name: nil, include_categories: false)
+      if listing_shape_id.present? && name.present?
+        return Result::Error.new("Can not have both listing shape id (#{listing_shape_id}) and name (#{name}) present.")
+      end
+
+      if listing_shape_id || name
         find_opts = {
           community_id: community_id,
           listing_shape_id: listing_shape_id,
+          name: name,
           include_categories: include_categories
         }
 
