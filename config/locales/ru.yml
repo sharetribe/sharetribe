@@ -62,6 +62,9 @@ ru:
         community_details: "Основные детали"
         community_look_and_feel: Дизайн
         edit_community: "Основные детали"
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
         community_name: "Название проекта"
         edit_community_name_description: "Название вашего проекта. Оно будет показано в emails и других местах."
         community_slogan: Девиз
@@ -160,6 +163,23 @@ ru:
         view_users_link_text: здесь
         view_transactions_link_text: здесь
         contact_support_link_text: "свяжитесь со службой поддержки"
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: Настройки
         general: Основные
@@ -366,6 +386,8 @@ ru:
         update_failure: ~
         delete: ~
         confirm_delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
@@ -386,6 +408,7 @@ ru:
         night: ~
         week: ~
         month: ~
+      can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: "Настройки платежей"
       preferences_updated: "Настройки платежей обновлены."
@@ -1074,7 +1097,6 @@ ru:
       filter: Фильтр
       this_is_private_community: "Вам нужно войти чтобы увидеть контент."
     invitation_form:
-      invite_your_friends: "Пригласите друзей в %{service_name}!"
       email: "Адрес(а) электронной почты"
       message: "Личное сообщение:"
       send_invitation: "Отправить приглашение"

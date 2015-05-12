@@ -47,6 +47,9 @@ tr-TR:
         community_details: "Temel detaylar"
         community_look_and_feel: Tasarım
         edit_community: "Temel detaylar"
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
         community_name: "Pazar adı"
         edit_community_name_description: "Pazarınızın adı. Bu ad kullanıcılara e-postalarda ve diğer bazı alanlarda gösterilecektir."
         community_slogan: "Pazar sloganı"
@@ -145,6 +148,23 @@ tr-TR:
         view_users_link_text: burada
         view_transactions_link_text: burada
         contact_support_link_text: ~
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: Ayarlar
         general: Genel
@@ -351,6 +371,8 @@ tr-TR:
         update_failure: ~
         delete: ~
         confirm_delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
@@ -371,6 +393,7 @@ tr-TR:
         night: ~
         week: ~
         month: ~
+      can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: "Ödeme tercihleri"
       preferences_updated: "Ödeme referansları güncellendi"
@@ -1059,7 +1082,6 @@ tr-TR:
       filter: Filtrele
       this_is_private_community: "Bu içeriği görüntüleyebilmek için kayıt olmanız gerekmektedir."
     invitation_form:
-      invite_your_friends: "Arkadaşlarınızı %{service_name}'e davet edin!"
       email: "E-posta adres(ler)i"
       message: "Kişisel bir mesaj"
       send_invitation: "Davetiye yolla"

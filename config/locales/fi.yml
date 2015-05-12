@@ -54,7 +54,7 @@ fi:
         edit_community: Perustiedot
         enabled_languages: "Käytettävissä olevat kielet"
         enabled_languages_description: "Käyttäjän valittavissa olevat kielet. Listan ensimmäistä käytetään oletuskielenä."
-        default_language: "Oletuskieli"
+        default_language: Oletuskieli
         community_name: "Kauppapaikan nimi"
         edit_community_name_description: "Kauppapaikan nimi näytetään käyttäjille lähetettävissä sähköposteissa ja useissa muissa paikoissa."
         community_slogan: "Kauppapaikan slogan"
@@ -377,7 +377,7 @@ fi:
         delete: ~
         confirm_delete: ~
         can_not_delete_last: "Et voi poistaa tätä tyyppiä, koska se on ainoa tyyppi markkinapaikassasi."
-        can_not_delete_only_one_in_category: "Et voi poistaa tätä tyyppiä, koska se on ainoa tyyppi kategorioille: %{categories}"
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~

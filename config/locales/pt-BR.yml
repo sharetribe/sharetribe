@@ -52,6 +52,9 @@ pt-BR:
         community_details: "Detalhes da comunidade"
         community_look_and_feel: "Editar visual"
         edit_community: "Editar detalhes da comunidade %{community_name}"
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
         community_name: "Nome do Mercado Virtual"
         edit_community_name_description: "O nome do seu mercado virtual. Será mostrado a usuários e em vários outros locais."
         community_slogan: "Slogan do Mercado Virtual"
@@ -150,6 +153,23 @@ pt-BR:
         view_users_link_text: aqui
         view_transactions_link_text: aqui
         contact_support_link_text: "entre em contato com o nosso suporte"
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: Opções
         general: Geral
@@ -356,6 +376,8 @@ pt-BR:
         update_failure: ~
         delete: ~
         confirm_delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
@@ -376,6 +398,7 @@ pt-BR:
         night: ~
         week: ~
         month: ~
+      can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: "Preferências de pagamento"
       preferences_updated: "Preferências de pagamento atualizadas."
@@ -1064,7 +1087,6 @@ pt-BR:
       filter: Filtro
       this_is_private_community: "Você precisa registrar-se antes de poder ver o conteúdo."
     invitation_form:
-      invite_your_friends: "Convide seus amigos para %{service_name}!"
       email: "Endereço de e-mail(s)"
       message: "Uma mensagem pessoal"
       send_invitation: "Enviar convite"

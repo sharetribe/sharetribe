@@ -47,6 +47,9 @@ zh:
         community_details: 基本信息
         community_look_and_feel: 设计
         edit_community: 基本信息
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
         community_name: 集市名称
         edit_community_name_description: 你的集市名称。它将在邮件和其他不同地方显示给用户。
         community_slogan: 集市标语
@@ -145,6 +148,23 @@ zh:
         view_users_link_text: 这里
         view_transactions_link_text: 这里
         contact_support_link_text: 联系我们的支持人员
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: 设置
         general: 常规
@@ -347,10 +367,12 @@ zh:
         edit_listing_shape: "修改订单类型‘%{shape}’"
         update: 保存
         cancel: 取消
-        update_success: ~
+        update_success: "订单类型‘%{shape}’的修改已保存"
         update_failure: ~
         delete: ~
         confirm_delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
@@ -371,6 +393,7 @@ zh:
         night: ~
         week: ~
         month: ~
+      can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
@@ -1059,7 +1082,6 @@ zh:
       filter: 过滤
       this_is_private_community: 查看内容前需要先登录。
     invitation_form:
-      invite_your_friends: "邀请你的朋友加入%{service_name}！"
       email: 电子邮件地址
       message: 一条私人消息
       send_invitation: 发送邀请

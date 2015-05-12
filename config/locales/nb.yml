@@ -52,6 +52,9 @@ nb:
         community_details: "Grunnleggende informasjon"
         community_look_and_feel: Design
         edit_community: "Grunnleggende informasjon"
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
         community_name: "Navn markedsplass"
         edit_community_name_description: "Navnet på din markedsplass er vist til brukere i epost og forskjellige andre steder."
         community_slogan: "slogan markedsplass"
@@ -150,6 +153,23 @@ nb:
         view_users_link_text: her
         view_transactions_link_text: her
         contact_support_link_text: "kontakt vår support"
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: Innstillinger
         general: Generelt
@@ -322,51 +342,53 @@ nb:
       index:
         listing_shapes: ~
         description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        read_more_about_order_types: "Les mer om transaksjonstyper"
+        add_new_shape: "Legg til ny type transaksjon: "
+        select_template: "Velg mal…"
+        all_categories: "Alle kategorier"
+        no_categories: "Ingen kategorier"
         header:
           listing_shape_name: ~
           listing_shape_categories: ~
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Rekkefølge på lagring"
+          save_order_successful: "Rekkefølge lagret"
+          save_order_error: "Feil ved lagring av rekkefølge. Vennligst last siden på nytt og prøv igjen."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Selger produkter"
+        renting_products: "Leier produkter"
+        offering_services: "Tilbyr tjenester"
+        giving_things_away: "Gir bort ting"
+        requesting: Forespør
+        announcement: Kunngjøring
+        custom: Tilpasset
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Opprett din type transaksjon"
+        create: Opprett
+        cancel: Avbryt
+        create_success: "Ny transaksjonstype '%{shape}' opprettet"
+        create_failure: "Kunne ikke opprette ny transaksjonstype. Feil: %{error_msg}"
       edit:
         edit_listing_shape: ~
         update: ~
         cancel: ~
         update_success: ~
         update_failure: ~
-        delete: ~
-        confirm_delete: ~
+        delete: "Fjern transaksjonstype"
+        confirm_delete: "Det er %{count} annonser med denne transaksjonstypen. Hvis du fjerner dette vil disse annonsene lukkes. Er du sikker på at du vil fjerne transaksjonstypen?"
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
-      open_listings: ~
-      close_listings: ~
-      confirm_close_listings: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
+      open_listings: "Det er %{count} åpne annonser med denne transaksjonstypen. Hvis du endrer noen av innstillingene nedenfor så vil aktive åpne annonser beholde sine tidligere innstillinger. Annonsene kan oppdateres til nye innstillinger ved å endre dem manuelt. Hvis du ikke vil ha åpne annonser med eldre innstillinger synlige på siden kan du klikke på knappen under."
+      close_listings: "Lukk %{count} annonser"
+      confirm_close_listings: "Er du sikker på at du vil lukke %{count} annonser?"
+      successfully_closed: "Annonser lukket"
+      successfully_deleted: "Fjernet transaksjonstype '%{order_type}'"
+      pricing_and_checkout_title: "Priser og betaling"
+      online_payments_label: "Bruk online betalingssystem"
       shipping_label: ~
-      price_label: ~
+      price_label: "Vis prisfelt"
       units_title: ~
       units_desc: ~
       units:
@@ -376,6 +398,7 @@ nb:
         night: ~
         week: ~
         month: ~
+      can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: Betalingsinnstillinger
       preferences_updated: "Betalingsinnstillinger oppdatert"
@@ -1070,7 +1093,6 @@ nb:
       filter: Filter
       this_is_private_community: "Du må logge inn for å se dette innholdet."
     invitation_form:
-      invite_your_friends: "Invitér dine venner til %{service_name}!"
       email: E-post(er)
       message: "En personlig melding"
       send_invitation: "Send invitasjon"

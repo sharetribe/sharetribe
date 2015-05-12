@@ -52,6 +52,9 @@ nl:
         community_details: "Basis details"
         community_look_and_feel: "Look & feel"
         edit_community: "Basis details"
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
         community_name: "Naam marktplaats"
         edit_community_name_description: "De naam van je marktplaats. Deze wordt getoond aan gebruikers in e-mails en op diverse andere plaatsen."
         community_slogan: "Slogan marktplaats"
@@ -150,6 +153,23 @@ nl:
         view_users_link_text: hier
         view_transactions_link_text: hier
         contact_support_link_text: "contacteer onze support"
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: Instellingen
         general: Algemeen
@@ -356,6 +376,8 @@ nl:
         update_failure: ~
         delete: ~
         confirm_delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
@@ -376,6 +398,7 @@ nl:
         night: ~
         week: ~
         month: ~
+      can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: "Voorkeuren betalingen"
       preferences_updated: "Voorkeuren betalingen bijgewerkt"
@@ -1064,7 +1087,6 @@ nl:
       filter: Filter
       this_is_private_community: "Je moet je aanmelden alvorens je de inhoud kan zien."
     invitation_form:
-      invite_your_friends: "Nodig je vrienden uit naar %{service_name}!"
       email: "E-mail adres"
       message: "Een persoonlijk bericht"
       send_invitation: "Verstuur uitnodiging"

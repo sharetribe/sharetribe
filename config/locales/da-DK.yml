@@ -52,6 +52,9 @@ da-DK:
         community_details: ~
         community_look_and_feel: ~
         edit_community: ~
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
         community_name: ~
         edit_community_name_description: ~
         community_slogan: ~
@@ -150,6 +153,23 @@ da-DK:
         view_users_link_text: her
         view_transactions_link_text: her
         contact_support_link_text: ~
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: Indstillinger
         general: Generelt
@@ -356,6 +376,8 @@ da-DK:
         update_failure: ~
         delete: ~
         confirm_delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
@@ -376,6 +398,7 @@ da-DK:
         night: ~
         week: ~
         month: ~
+      can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: Betalingsindstillinger
       preferences_updated: "Betalings indstillinger blev opdateret"
@@ -1064,7 +1087,6 @@ da-DK:
       filter: Filter
       this_is_private_community: "Du skal opret profil﻿ før du kan se dette indhold."
     invitation_form:
-      invite_your_friends: "Inviter dine venner til %{service_name}!"
       email: "E-mail-adresse (r)"
       message: "En personlig meddelelse"
       send_invitation: "Send en invitation"

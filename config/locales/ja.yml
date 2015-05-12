@@ -47,6 +47,9 @@ ja:
         community_details: 基本情報
         community_look_and_feel: デザイン
         edit_community: 基本情報
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
         community_name: マーケットプレイスの名前
         edit_community_name_description: これはユーザへのメールや色々な場所で表示されます。
         community_slogan: マーケットプレイスのスローガン
@@ -145,6 +148,23 @@ ja:
         view_users_link_text: こちら
         view_transactions_link_text: こちら
         contact_support_link_text: サポートにお問い合わせ
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: 設定
         general: 一般
@@ -351,6 +371,8 @@ ja:
         update_failure: ~
         delete: ~
         confirm_delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
@@ -371,6 +393,7 @@ ja:
         night: ~
         week: ~
         month: ~
+      can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: お支払い方法
       preferences_updated: お支払い情報は更新されました
@@ -1063,7 +1086,6 @@ ja:
       filter: フィルター
       this_is_private_community: コンテンツ閲覧には登録の必要があります。
     invitation_form:
-      invite_your_friends: "%{service_name}にお友達を招待する！"
       email: メールアドレス
       message: パーソナル･メッセージを書いて下さい
       send_invitation: 招待状を送る

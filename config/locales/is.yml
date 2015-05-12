@@ -37,6 +37,9 @@ is:
         community_details: ~
         community_look_and_feel: ~
         edit_community: ~
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
         community_name: ~
         edit_community_name_description: ~
         community_slogan: ~
@@ -135,6 +138,23 @@ is:
         view_users_link_text: ~
         view_transactions_link_text: ~
         contact_support_link_text: ~
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: ~
         general: ~
@@ -341,6 +361,8 @@ is:
         update_failure: ~
         delete: ~
         confirm_delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
@@ -361,6 +383,7 @@ is:
         night: ~
         week: ~
         month: ~
+      can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
@@ -397,22 +420,22 @@ is:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: "Hætta við"
+    fields_that_are_mandatory: "Reitir merktir með stjörnu (*) verður að fylla út."
+    or: eða
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
+      borrow: "fá lánað"
+      buy: kaupa
+      give_away: gefa
+      lend: "leigja út"
+      receive: ókeypis
+      rent: leigja
+      rent_out: "leigja út"
+      sell: selja
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -439,7 +462,7 @@ is:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: ~
+    what_is_this: "Hvað er þetta?"
     removed_user: ~
     paypal_fee_info:
       title: ~
@@ -488,11 +511,11 @@ is:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "Hleð inn fleiri skilaboð"
+      message_partitive: skilaboð
+      messages_partitive: skilaboð
+      no_received_messages: "Engin skilaboð"
+      no_sent_messages: "Engin send skilaboð"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -518,10 +541,10 @@ is:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: ~
-      favor_request_message_form_title: ~
-      housing_offer_message_form_title: ~
-      housing_request_message_form_title: ~
+      favor_offer_message_form_title: "Fáðu hjálp frá %{person}"
+      favor_request_message_form_title: "Bjóða %{person} hjálp"
+      housing_offer_message_form_title: "Bjóða %{person} pláss"
+      housing_request_message_form_title: "Óska eftir plássi frá %{person}"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -538,18 +561,18 @@ is:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: ~
-      message: ~
+      item_request_message_form_title: "Bjóða %{person} hlut"
+      message: Skilaboð
       message_to: ~
       optional_message_to: ~
-      rideshare_offer_message_form_title: ~
-      rideshare_request_message_form_title: ~
+      rideshare_offer_message_form_title: "Biðja %{person} um far"
+      rideshare_request_message_form_title: "Bjóða %{person} far"
       send_message: ~
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: Titill
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -557,8 +580,8 @@ is:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: Svara
+      write_a_reply: "Skrifa svar:"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -572,11 +595,11 @@ is:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: "Umsögn send"
+      feedback_skipped: "Umsögn sleppt"
+      give_feedback: "Gefa umsögn"
+      offer_accepted: Samþykkt
+      offer_rejected: Hafnað
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -592,13 +615,13 @@ is:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: Samþykkt
+      request_rejected: Hafnað
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "Sleppa umsögn"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -614,10 +637,10 @@ is:
           unknown_reason: ~
           verify: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "Tilboð samþykkt"
+      accept_request: "Beiðni þín var samþykkt"
+      reject_offer: "Ekki að þessu sinni"
+      reject_request: "Ekki að þessu sinni"
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -685,12 +708,12 @@ is:
       join_community_button: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "Muna að samþykkja eða hafna tilboði frá %{sender_name}"
+      remember_to_accept_request: "Muna að samþykkja eða hafna beiðni frá %{sender_name}"
+      you_can_accept_or_reject_offer_at: "Þú getur samþykkt eða hafnað tilboðinu í"
+      you_can_accept_or_reject_request_at: "Þú getur samþykkt eða hafnað beiðni í"
+      you_have_not_yet_accepted_or_rejected_offer: "Þú hefur enn ekki samþykkt eða hafnað tilboðinu %{title} sem þú fékkst þann %{date}"
+      you_have_not_yet_accepted_or_rejected_request: "Þú hefur enn ekki samþykkt eða hafnað beiðninni %{title} sem þú fékkst þann %{date}"
       show_thread: ~
     braintree_account_approved:
       account_ready: ~
@@ -745,11 +768,11 @@ is:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      check_your_settings: ~
-      hey: ~
-      kassi_team: ~
-      thanks: ~
-      want_to_control_emails: ~
+      check_your_settings: "Athugaðu stillingarnar þínar"
+      hey: "Hæ %{name}"
+      kassi_team: "%{service_name} teymið"
+      thanks: "Takk,"
+      want_to_control_emails: "Viltu stjórna því hvaða tölvupóst þú færð frá %{service_name}?"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -757,15 +780,15 @@ is:
       or: ~
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter} hefur samþykkt tilboð þitt: %{listing}."
+      has_accepted_your_request: "%{accepter} hefur samþykkt beiðnina þína: %{listing}."
+      has_rejected_your_offer: "%{accepter} hefur hafnað tilboði þínu: %{listing}."
+      has_rejected_your_request: "%{accepter} hefur hafnað beiðni þinni: %{listing}"
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "Tilboð þitt var samþykkt"
+      your_offer_was_rejected: "Tilboði þínu var hafnað"
+      your_request_was_accepted: "Beiðni þín var samþykkt"
+      your_request_was_rejected: "Beiðni þinni var hafnað"
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~
@@ -778,13 +801,13 @@ is:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "%{author} hefur sett inn athugasemd við auglýsinguna þína á %{service_name}"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} hefur sent þér skilaboð á %{service_name}"
+      you_have_a_new_message: "Ný skilaboð á %{service_name} frá %{sender_name}"
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -812,8 +835,8 @@ is:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name} hefur gefið þér umsögn á %{service_name}"
+      you_can_give_feedback_to: "Þú hefur enn ekki gefið %{name} umsögn."
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -840,9 +863,9 @@ is:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      feedback_is_public_and_is_shown: ~
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      feedback_is_public_and_is_shown: "Umsögn er opinber sem þýðir að allir aðrir notendur geta séð hana. Með umsögn geta aðrir notendur dæmt um það hvort %{name} er áreiðanleg manneskja og hvort þeir vilji eiga samskipti við hann/hana. Þess vegna er alltaf gott að muna að gefa umsögn og minna aðra á að gefa þér umsögn. Þú þarft jákvæða umsögn til að fá sem flest merki."
+      remember_to_give_feedback_to: "Áminning: mundu að gefa %{name} umsögn"
+      you_have_not_given_feedback_yet: "Þú hefur enn ekki gefið %{name} umsögn vegna '%{event}'. Mundu að gefa umsögn um það hvernig %{given_name} stóð sig."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -885,14 +908,14 @@ is:
       view_listing: ~
   error_messages:
     listings:
-      departure_time: ~
-      share_type: ~
-      valid_until: ~
+      departure_time: "Tíminn þarf að vera einhvers staðar á bilinu núna og næsta árið."
+      share_type: "Þú verður að velja eitthvað."
+      valid_until: "Þessi dagsetning þarf að vera einhvers staðar á bilinu núna og næstu 6 mánuði."
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "Ef þú vilt ekki gefa umsögn, útskýrðu af hverju."
+      you_must_select_a_grade: "Mundu að segja af hverju reynsla þín var jákvæð eða neikvæð."
     transaction_agreement:
       required_error: ~
     paypal:
@@ -901,12 +924,12 @@ is:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "Aftur á forsíðu"
     error_404:
-      if_you_believe: ~
-      page_can_not_be_found: ~
-      page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+      if_you_believe: "Ef þú heldur að vefslóðin sé rétt og ætti að virka, vinsamlegast hjálpaðu okkur að finna villuna með því að senda okkur hvaða slóð olli villunni og hvað ætti að sjást á síðunni."
+      page_can_not_be_found: "Síða fannst ekki!"
+      page_you_requested_can_not_be_found: "Síðan sem þú óskaðir eftir fannst ekki. Ertu viss um að þú slóst inn rétta vefslóð?"
+    error_404_title: "síða fannst ekki"
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -917,16 +940,16 @@ is:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
-    error_description: ~
+    error_500_title: "mistókst að hlaða síðu"
+    error_description: "Lýsing á villu"
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
-      kassi_does_not_currently_work_without_javascript: ~
+      javascript_is_disabled_in_your_browser: "Javascript er óvirkt í vafranum þínum"
+      kassi_does_not_currently_work_without_javascript: "%{service_name} virkar ekki almennilega án javascript. Reyndu að virkja javascript undir stillingum í vafranum þínum og endurhlaða svo þessa síðu."
       contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      send_feedback: "Sendu umsögn"
+      your_feedback_to_admins: "Þín umsögn til stjórnenda síðunnar"
+    send: Senda
+    your_email_address: "Netfangið þitt"
   errors:
     messages:
       invalid_date: ~
@@ -964,14 +987,14 @@ is:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
+    about: "Um okkur"
+    home: Heim
     members: ~
     new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
+    mobile_version: "Farsíma útgáfa"
+    offers: Tilboð
+    requests: Beiðnir
+    search_kassi: "Leita %{service_name}"
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
@@ -981,17 +1004,17 @@ is:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "Auk þess er <b>eitt annað tilboð</b>,"
+      additionally_one_private_request_exists: "Auk þess er <b>ein önnur beiðni</b>,"
+      additionally_some_private_offers_exist: "Auk þess eru <b>%{number_of_listings} önnur tilboð</b>,"
+      additionally_some_private_requests_exist: "Auk þess eru <b>%{number_of_listings} aðrar beiðnir</b>,"
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
+      add_first: "Bættu við!"
+      but_that_is_visible_only_to_registered_members: "en það er einungis sjáanlegt fyrir skráða meðlimi."
+      but_those_are_visible_only_to_registered_members: "en það er einungis sjáanlegt fyrir skráða meðlimi."
+      create_new_account_for_yourself: "Búðu til nýjan aðgang"
+      examples_of_what_you_could_offer_to_others: "Hvað hluti hefuru upp á að bjóða"
+      examples_of_what_you_could_request_to_others: "Hverju viltu óska eftir"
       favor_offer_list: ~
       favor_request_list: ~
       favors_to_offer: ~
@@ -1049,7 +1072,6 @@ is:
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      invite_your_friends: ~
       email: ~
       message: ~
       send_invitation: ~

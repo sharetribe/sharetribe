@@ -52,6 +52,9 @@ fr-CA:
         community_details: "Détails de base"
         community_look_and_feel: Design
         edit_community: "Détails de base"
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
         community_name: "Nom de la place de marché"
         edit_community_name_description: "Le nom de votre place de marché. Ceci est visible par les utilisateurs dans les emails et plusieurs autres endroits."
         community_slogan: "Slogan de la place de marché"
@@ -150,6 +153,23 @@ fr-CA:
         view_users_link_text: ici
         view_transactions_link_text: ici
         contact_support_link_text: "contacter notre support"
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: Paramètres
         general: Général
@@ -356,6 +376,8 @@ fr-CA:
         update_failure: ~
         delete: ~
         confirm_delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
@@ -376,6 +398,7 @@ fr-CA:
         night: ~
         week: ~
         month: ~
+      can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       preferences_updated: "Préférences de paiement mises à jour"
@@ -1068,7 +1091,6 @@ fr-CA:
       filter: Filtre
       this_is_private_community: "Vous devez vous connecter pour voir le contenu."
     invitation_form:
-      invite_your_friends: "Inviter vos amis sur %{service_name}"
       email: "Adresse(s) email"
       message: "Votre message"
       send_invitation: "Envoyer l' (les) invitation(s)"

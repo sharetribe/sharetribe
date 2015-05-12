@@ -37,6 +37,9 @@ en-bl:
         community_details: ~
         community_look_and_feel: ~
         edit_community: ~
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
         community_name: ~
         edit_community_name_description: ~
         community_slogan: ~
@@ -135,6 +138,23 @@ en-bl:
         view_users_link_text: ~
         view_transactions_link_text: ~
         contact_support_link_text: ~
+      available_languages:
+        en: ~
+        fr: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: ~
         general: ~
@@ -341,6 +361,8 @@ en-bl:
         update_failure: ~
         delete: ~
         confirm_delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
@@ -361,6 +383,7 @@ en-bl:
         night: ~
         week: ~
         month: ~
+      can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
@@ -1049,7 +1072,6 @@ en-bl:
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      invite_your_friends: ~
       email: ~
       message: ~
       send_invitation: ~
