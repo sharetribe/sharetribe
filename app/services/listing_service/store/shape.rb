@@ -103,10 +103,11 @@ module ListingService::Store::Shape
     end
   end
 
-  def update(community_id:, listing_shape_id: nil, opts:)
+  def update(community_id:, listing_shape_id: nil, name: nil, opts:)
     shape_model = find_shape_model(
       community_id: community_id,
-      listing_shape_id: listing_shape_id)
+      listing_shape_id: listing_shape_id,
+      name: name)
 
     return nil if shape_model.nil?
 

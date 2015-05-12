@@ -34,10 +34,19 @@ module ListingService::API
       ))
     end
 
-    def update(community_id:, listing_shape_id: nil, opts:)
+    def update(community_id:, listing_shape_id: nil, name: nil, opts:)
+      if listing_shape_id.present? && name.present?
+        return Result::Error.new("Can not have both listing shape id (#{listing_shape_id}) and name (#{name}) present.")
+      end
+
+      unless listing_shape_id.present? || name.present?
+        return Result::Error.new("Must have either id or name present.")
+      end
+
       find_opts = {
         community_id: community_id,
-        listing_shape_id: listing_shape_id
+        listing_shape_id: listing_shape_id,
+        name: name
       }
 
       Maybe(ShapeStore.update(find_opts.merge(opts: opts))).map { |shape|

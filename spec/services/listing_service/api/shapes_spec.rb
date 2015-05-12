@@ -230,6 +230,20 @@ describe ListingService::API::Shapes do
         expect(units[1][:type]).to eql(:custom)
         expect(units[1][:translation_key]).to eql('my.custom.units.translation')
       end
+
+      it "updates by name" do
+        shape = create_shape.data
+
+        expect(shape[:shipping_enabled]).to eql(true)
+
+        update_res = listings_api.shapes.update(
+          community_id: community_id,
+          name: shape[:name],
+          opts: { shipping_enabled: false })
+
+        expect(update_res.success).to eq(true)
+        expect(update_res.data[:shipping_enabled]).to eq(false)
+      end
     end
 
     context "failure" do
