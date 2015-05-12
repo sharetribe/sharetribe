@@ -25,7 +25,7 @@
             .content
               = t(".cancel")
         .listing-shape-delete-link-container
-          - confirm_opts = if count > 0 then {confirm: t('admin.listing_shapes.edit.confirm_delete', count: count)} else {} end
+          - confirm_opts = if count > 0 then {confirm: count == 1 ? t('admin.listing_shapes.edit.confirm_delete_singular', count: count) : t('admin.listing_shapes.edit.confirm_delete', count: count)} else {} end
 
           - if cant_delete
             %a.listing-shape-delete-link.disabled
@@ -40,4 +40,3 @@
       .row
         .col-12
           = render partial: "layouts/info_text", locals: {text: cant_delete_reason}
-
