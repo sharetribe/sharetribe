@@ -505,7 +505,8 @@ ActiveRecord::Schema.define(:version => 20150520131057) do
   create_table "listing_units", :force => true do |t|
     t.string   "unit_type",         :limit => 32, :null => false
     t.string   "quantity_selector", :limit => 32, :null => false
-    t.string   "translation_key",   :limit => 64
+    t.string   "name_tr_key",       :limit => 64
+    t.string   "selector_tr_key",   :limit => 64
     t.integer  "listing_shape_id"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false

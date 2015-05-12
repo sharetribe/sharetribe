@@ -33,7 +33,7 @@ describe ListingService::API::Shapes do
 
       units: [
         {type: :day, quantity_selector: :day},
-        {type: :custom, quantity_selector: :number, translation_key: 'my.custom.units.translation'}
+        {type: :custom, quantity_selector: :number, name_tr_key: 'my.custom.units.translation', selector_tr_key: 'my.custom.selector.translation'}
       ]
     }
 
@@ -75,39 +75,8 @@ describe ListingService::API::Shapes do
         expect(units[0][:quantity_selector]).to eql(:day)
         expect(units[1][:type]).to eql(:custom)
         expect(units[1][:quantity_selector]).to eql(:number)
-        expect(units[1][:translation_key]).to eql('my.custom.units.translation')
-      end
-
-      it "creates new listing shape with piece unit" do
-        create_shape_res = create_shape(
-          units: [
-            {type: :piece, quantity_selector: :number},
-            {type: :custom, quantity_selector: :number, translation_key: 'my.custom.units.translation'}
-          ]
-        )
-
-        expect(create_shape_res.success).to eql(true)
-
-        listing_shape_id = create_shape_res.data[:id]
-
-        res = listings_api.shapes.get(community_id: community_id, listing_shape_id: listing_shape_id)
-
-        expect(res.success).to eql(true)
-
-        shape = res.data
-
-        expect(shape[:community_id]).to eql(community_id)
-        expect(shape[:price_enabled]).to eql(true)
-        expect(shape[:shipping_enabled]).to eql(true)
-        expect(shape[:transaction_process_id]).to eql(transaction_process_id)
-        expect(shape[:name_tr_key]).to eql(name_tr_key)
-        expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
-
-        units = shape[:units]
-
-        expect(units[0][:type]).to eql(:piece)
-        expect(units[1][:type]).to eql(:custom)
-        expect(units[1][:translation_key]).to eql('my.custom.units.translation')
+        expect(units[1][:name_tr_key]).to eql('my.custom.units.translation')
+        expect(units[1][:selector_tr_key]).to eql('my.custom.selector.translation')
       end
     end
 
@@ -184,7 +153,7 @@ describe ListingService::API::Shapes do
             transaction_process_id: 987,
             units: [
               {type: :day, quantity_selector: :number},
-              {type: :custom, quantity_selector: :number, translation_key: 'my.custom.units.translation'}
+              {type: :custom, quantity_selector: :number, name_tr_key: 'my.custom.units.translation', selector_tr_key: 'my.custom.selector.translation'}
             ]})
 
         expect(update_res.success).to eql(true)
@@ -203,7 +172,8 @@ describe ListingService::API::Shapes do
         expect(units[0][:type]).to eql(:day)
         expect(units[0][:quantity_selector]).to eql(:number)
         expect(units[1][:type]).to eql(:custom)
-        expect(units[1][:translation_key]).to eql('my.custom.units.translation')
+        expect(units[1][:name_tr_key]).to eql('my.custom.units.translation')
+        expect(units[1][:selector_tr_key]).to eql('my.custom.selector.translation')
       end
 
       it "updates only one field" do
@@ -228,7 +198,8 @@ describe ListingService::API::Shapes do
 
         expect(units[0][:type]).to eql(:day)
         expect(units[1][:type]).to eql(:custom)
-        expect(units[1][:translation_key]).to eql('my.custom.units.translation')
+        expect(units[1][:name_tr_key]).to eql('my.custom.units.translation')
+        expect(units[1][:selector_tr_key]).to eql('my.custom.selector.translation')
       end
 
       it "updates by name" do
