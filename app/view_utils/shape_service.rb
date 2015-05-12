@@ -4,6 +4,7 @@
 class ShapeService
   Shape = ListingShapeDataTypes::Shape
   KEY_MAP = ListingShapeDataTypes::KEY_MAP
+  CUSTOM_UNIT_KEY_MAP = ListingShapeDataTypes::CUSTOM_UNIT_KEY_MAP
 
   def initialize(processes)
     @processes = processes
@@ -21,6 +22,12 @@ class ShapeService
         entity: shape_with_process,
         locales: locales,
         key_map: KEY_MAP
+      ).merge(
+        units: shape_with_process[:units].map{|u| TranslationServiceHelper.tr_keys_to_form_values(
+          entity: u,
+          locales: locales,
+          key_map: CUSTOM_UNIT_KEY_MAP
+        )}
       )
 
       Result::Success.new(Shape.call(with_translations))
@@ -62,12 +69,24 @@ class ShapeService
       key_map: KEY_MAP,
       community_id: community_id
     ).merge(
-      units: opts[:units].map { |u| add_quantity_selector(u) },
+      units: opts[:units].map { |u| add_quantity_selector(u) }.map { |u| add_custom_unit_translation(u, community_id) },
       transaction_process_id: select_process(opts[:online_payments], opts[:author_is_seller], @processes))
   end
 
   def listing_api
     ListingService::API::Api
+  end
+
+  def add_custom_unit_translation(unit, community_id)
+    if unit[:type] == :custom && !unit[:name_tr_key]
+      TranslationServiceHelper.form_values_to_tr_keys!(
+        entity: unit,
+        key_map: CUSTOM_UNIT_KEY_MAP,
+        community_id: community_id
+      )
+    else
+      unit
+    end
   end
 
   def add_quantity_selector(unit)

@@ -71,13 +71,6 @@ window.ST.initializeListingShapeForm = function(formId) {
     }
   };
 
-  $('.js-price-enabled').change(function() {
-    priceChanged($(this));
-  });
-  $('.js-online-payments').change(function() {
-    onlinePaymentsChanged($(this));
-  });
-
   var toggleOnlinePaymentEnabled = function(enabled) {
     toggle($(".js-online-payments"), enabled);
     toggleLabel($(".js-online-payments-label"), enabled);
@@ -93,6 +86,21 @@ window.ST.initializeListingShapeForm = function(formId) {
     toggleLabel($(".js-unit-label"), enabled);
   };
 
+  var addCustomUnitForm = function() {
+    $form = $(".js-listing-shape-add-custom-unit-form").last().clone();
+    $form.find('input').prop('disabled', false);
+    randomId = Math.floor(Math.random() * (Number.MAX_VALUE - 1)) + 1;
+
+    $form.find('input').each(function(i, elem){
+      $e = $(elem);
+      var originalName = $e.prop('name');
+      $e.prop('name', originalName.replace('RANDOM_ID', randomId));
+    });
+
+    $form.find('input');
+    $form.insertBefore($('.js-listing-shape-add-custom-unit-link')).show();
+  };
+
   var toggle = function(el, state) {
     if(state) {
       el.prop('disabled', false);
@@ -105,6 +113,16 @@ window.ST.initializeListingShapeForm = function(formId) {
   var toggleLabel = function(el, state) {
     el.toggleClass("listing-shape-label-disabled", !state);
   };
+
+  $('.js-price-enabled').change(function() {
+    priceChanged($(this));
+  });
+  $('.js-online-payments').change(function() {
+    onlinePaymentsChanged($(this));
+  });
+  $('.js-listing-shape-add-custom-unit-link').click(function() {
+    addCustomUnitForm();
+  });
 
   // Run once on init
   priceChanged($('.js-price-enabled'));

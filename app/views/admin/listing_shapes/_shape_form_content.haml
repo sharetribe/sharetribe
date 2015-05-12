@@ -60,10 +60,39 @@
   .col-12
     = label_tag("units_title", t("admin.listing_shapes.units_title"), class: "input")
     = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.units_desc")}
-- shape[:units].map do |unit|
+- shape[:predefined_units].map do |unit|
   .row
     .col-12
       = check_box_tag("units[#{unit[:type]}]", "true", unit[:enabled], class: "js-unit-checkbox checkbox-row-checkbox")
       = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label js-unit-label")
+
+- shape[:custom_units].each do |unit|
+  .row
+    .col-12
+      = unit[:name][@current_user.locale]
+      = hidden_field_tag("custom_units[existing_#{unit[:name_tr_key]}]", unit[:selector_tr_key])
+
+.row
+  .col-12.js-listing-shape-add-custom-unit-link
+    %a
+      = t("admin.listing_shapes.add_custom_unit")
+.row.col-12.listing-shape-add-custom-unit-form.js-listing-shape-add-custom-unit-form
+  = label_tag("custom_units_title", t("admin.listing_shapes.custom_unit_form.title"), class: "input")
+  .input-header= t("admin.listing_shapes.custom_unit_form.label_heading")
+  - @current_community.locales.each do |locale|
+    .row
+      .custom-unit-label.col-2
+        = label_tag("custom_units[new_RANDOM_ID][name][#{locale}]", t("admin.communities.available_languages.#{locale}"))
+      .custom-unit-label-text_field.col-10
+        = text_field_tag("custom_units[new_RANDOM_ID][name][#{locale}]", "", class: "required", disabled: true)
+  .input-header= t("admin.listing_shapes.custom_unit_form.selector_label_heading")
+  - @current_community.locales.each do |locale|
+    .row
+      .custom-unit-selector-label.col-2
+        = label_tag("custom_units[new_RANDOM_ID][selector][#{locale}]", t("admin.communities.available_languages.#{locale}"))
+      .custom-unit-selector-text_field.col-10
+        = text_field_tag("custom_units[new_RANDOM_ID][selector][#{locale}]", "", class: "required", disabled: true)
+
+
 
 = hidden_field_tag("author_is_seller", shape[:author_is_seller])
