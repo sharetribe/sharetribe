@@ -27,7 +27,15 @@ Kassi::Application.configure do
   # config.logger = SyslogLogger.new
 
   # Use a different cache store in production
-  config.cache_store = :dalli_store, { :namespace => "sharetribe-staging", :compress => true }
+  config.cache_store = :dalli_store, (ENV["MEMCACHIER_SERVERS"] || "").split(","), {
+    username: ENV["MEMCACHIER_USERNAME"],
+    password: ENV["MEMCACHIER_PASSWORD"],
+    failover:  true,
+    socket_timeout: 1.5,
+    socket_failure_delay:  0.2,
+    namespace: "sharetribe-staging",
+    compress: true
+  }
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
