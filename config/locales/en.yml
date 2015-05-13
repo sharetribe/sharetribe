@@ -406,7 +406,7 @@ en:
         night: "Per night"
         week: "Per week"
         month: "Per month"
-      can_not_find_name: "Can't find order type: %{name}"
+      can_not_find: "Can't find order type with id: %{id}"
     paypal_accounts:
       marketplace_paypal_integration: "Payment preferences"
       preferences_updated: "Payment preferences updated"
