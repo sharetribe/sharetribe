@@ -1023,17 +1023,17 @@ is:
       item_request_list: "verkfæri, íþróttadót, grímubúningar, útilegudót"
       items_to_offer: "Vörur til að leigja út: "
       items_to_request: "Vörur til að fá leigðar: "
-      log_in: ~
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      log_in: innskrá
+      no_offers_visible_unless_logged_in: "Engir hlutir, þjónusta eða önnur tilboð eru sýnileg fyrir aðra en notendur."
+      no_open_offers_currently: "Engin opin tilboð á hlutum, þjónustu eða öðru."
+      no_open_requests_currently: "Engar óskir eftir hlutum, þjónustu eða öðru."
+      no_requests_visible_unless_logged_in: "Engar óskir eftir hlutum, þjónustu eða öðru eru sýnileg fyrir aðra en notendur."
+      one_private_offer_exists: "Það er <b>eitt tilboð</b> nú þegar,"
+      one_private_request_exists: "Það er <b>ein beiðni</b> nú þegar,"
+      ride_offer: "Fara með börn annarra í tómstundirnar"
+      ride_request: "Far í vinnuna"
+      some_private_offers_exist: "Það eru <b>%{number_of_listings} tilboð</b> nú þegar,"
+      some_private_requests_exist: "Það eru <b>%{number_of_listings} beiðnir</b> nú þegar,"
     custom_filters:
       update_view: ~
       min: ~
@@ -1053,20 +1053,20 @@ is:
       are: ~
       what_do_you_need: ~
       post_new_listing: ~
-      are_offering: ~
+      are_offering: tilboð
       add_news_item: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
-      more_events: ~
-      news: ~
+      lend_rent_help_carpool: "Selja, lána, hjálpa, deila fari"
+      loading_more_content: Hleð...
+      more_events: "Fleiri hlutir..."
+      news: Fréttir
       no_news: ~
       more_news: ~
-      or: ~
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
+      or: og
+      or_see_what_the_others: "...eða sjá hvað aðrir"
+      recent_events: "Nýlegir hlutir"
+      requesting: þarf
+      tell_it_here: "Segðu frá því hérna!"
+      welcome_to_new_kassi: "Velkomin/nn á %{service_name}!"
       no_reviews: ~
       no_image: ~
       filter: ~
@@ -1091,7 +1091,7 @@ is:
       you_have_not_added_your_info: ~
       add_your_info_link: ~
     recent_listing:
-      please_offer: ~
+      please_offer: Tilboð
       comment: ~
       comments: ~
     filters:
@@ -1114,7 +1114,7 @@ is:
       default_content: ~
   layouts:
     admin:
-      admin: ~
+      admin: "%{service_name} Stjórnborð"
     no_tribe:
       inbox: ~
       settings: ~
@@ -1122,15 +1122,15 @@ is:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
-      default_feedback: ~
-      feedback_forum: ~
-      feedback_handle: ~
-      give_feedback: ~
-      or_check_our: ~
-      send_feedback_to_admin: ~
-      to_see_what_others_have_suggested: ~
-      your_email_address: ~
+      feedback: "Hvað liggur þér á hjarta?"
+      default_feedback: "Þurftiru að glíma við einhver vandamál með %{service_name}? Ertu með einhverjar ráðleggingar til að bæta þjónustuna? Tókstu eftir einhverju tortryggilegu efni? Eða ertu með eitthvað annað til að ræða? Láttu okkur vita!"
+      feedback_forum: "umsagnar forum"
+      feedback_handle: Umsögn
+      give_feedback: "Hafðu samband"
+      or_check_our: "...eða skoðaðu"
+      send_feedback_to_admin: "Gefðu þitt álit"
+      to_see_what_others_have_suggested: "til að sjá hvað aðrir hafa mælt með og kjósa hugmyndir þar."
+      your_email_address: "Þitt netfang (til að hafa samband)"
       connect: ~
       invite_your_friends: ~
       invite_your_neighbors: ~
@@ -1139,43 +1139,43 @@ is:
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
-      messages: ~
-      notifications: ~
-      received: ~
-      sent: ~
+      messages: Skilaboð
+      notifications: Tilkynningar
+      received: "Skilaboð móttekin"
+      sent: "Skilaboð send"
     global-header:
       select_language: ~
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
+      about: "Um okkur"
+      how_to_use: "Hvernig það virkar"
+      info_about_kassi: "Upplýsingar um %{service_name}"
       news: ~
-      register_details: ~
-      terms: ~
+      register_details: Öryggi
+      terms: Notendaskilmálar
     logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: Stjórnandi
+      go_to_your_profile_page: "Síðan mín"
+      hi: Hæ
+      login: Innskráning
+      logout: Útskráning
+      notifications: Tilkynningar
+      requests: Vinabeiðni
+      settings: Stillingar
+      sign_up: "Búa til aðgang"
     logged_in_messages_icon:
-      messages: ~
+      messages: Skilaboð
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: Tilkynningar
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
+      admin: Stjórnandi
+      go_to_your_profile_page: "Síðan mín"
+      hi: Hæ
+      login: Innskráning
+      logout: Útskráning
+      notifications: Tilkynningar
+      requests: Vinabeiðni
       settings: ~
-      sign_up: ~
+      sign_up: Nýskráning
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
@@ -1185,54 +1185,54 @@ is:
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
-      comment_sent: ~
+      comment_cannot_be_empty: "Athugasemd getur ekki verið skilin eftir auð"
+      comment_sent: "Athugasemd send"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       create_new_listing: ~
-      create_one_here: ~
+      create_one_here: "búðu til eina hérna"
       email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
+      email_not_found: "Netfangið sem þú gafst upp fannst ekki í gagnagrunni %{service_name}."
+      error_with_session: Villa.
+      feedback_considered_spam: "Umsögn var ekki vistuð vegna gruns um ruslpóst. Reyndu aftur eða breyttu sniðinu."
+      feedback_not_saved: "Umsögn var ekki send."
+      feedback_saved: "Takk kærlega fyrir umsögnina! Við munum svara þér eins fljótt og við getum."
+      feedback_sent_to: "Amusing send til %{target_person}."
+      feedback_skipped: "Umsögn sleppt"
       invitation_cannot_be_sent: ~
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
+      login_again: "Vinsamlegast, skráðu þig inn aftur."
+      login_failed: "Innskráning mistókst. Vinsamlegast skráðu inn réttar upplýsingar."
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
-      logout_successful: ~
+      login_successful: "Velkomin/nn %{person_name}!"
+      logout_successful: "Þú hefur skráð þig út af %{service_name}. Sjáumst bráðlega aftur!"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
       news_item_updated: ~
       news_item_deleted: ~
-      offer_accepted: ~
+      offer_accepted: "Tilboðið var samþykkt"
       offer_confirmed: ~
-      offer_closed: ~
+      offer_closed: "Tilboð hefur runnið út"
       listing_created_successfully: ~
-      offer_rejected: ~
+      offer_rejected: "Tilboð var hafnað"
       offer_canceled: ~
       listing_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
+      only_kassi_administrators_can_access_this_area: "Einungis stjórnendur %{service_name} hafa aðgang að þessu svæði"
+      only_listing_author_can_close_a_listing: "Notandi sem skráir auglýsingu er eini sem getur eytt henni"
+      only_listing_author_can_edit_a_listing: "Notandi sem skráir auglýsingu er eini sem getur breytt henni"
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
+      password_recovery_sent: "Leiðbeiningar til að breyta lykilorði hafa verið sendar á netfangið þitt."
       person_activated: ~
       person_deactivated: ~
-      person_updated_successfully: ~
+      person_updated_successfully: "Upplýsingar voru uppfærðar"
       poll_answered: ~
       poll_could_not_be_answered: ~
       poll_created: ~
@@ -1240,40 +1240,40 @@ is:
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~
-      read_more: ~
+      read_more: "Lestu meira!"
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
-      request_accepted: ~
+      reply_cannot_be_empty: "Þú getur ekki sent tóm skilaboð"
+      reply_sent: "Skilaboðum hefur verið svarað"
+      request_accepted: "Beiðni samþykkt"
       request_confirmed: ~
-      request_closed: ~
-      request_rejected: ~
+      request_closed: "Beiðni hefur verið lokað"
+      request_rejected: "Beiðni var hafnað"
       request_canceled: ~
       message_sent: ~
       this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
+      unknown_error: "Óvænt villa kom upp. Vinsamlegast hafðu samband og láttu okkur vita hvað gerðist."
+      update_error: "Villa kom upp, vinsamlegast reyndu aftur"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Þú hefur ekki heimild til að gefa þessa umsögn"
+      you_are_not_authorized_to_do_this: "Þú hefur ekki heimildir til að gera þetta"
+      you_are_not_authorized_to_view_this_content: "Þú hefur ekki heimild til að skoða þetta"
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
-      you_cannot_reply_to_a_closed_request: ~
+      you_cannot_reply_to_a_closed_offer: "Þú getur ekki svarað tilboðum sem hafa lokað"
+      you_cannot_reply_to_a_closed_request: "Þú getur ekki svarað beiðnum sem hafa lokað"
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_have_already_given_feedback_about_this_event: "Þú hefur gefið umsögn á þetta nú þegar"
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
+      you_must_log_in_to_give_feedback: "Þú verður að skrá þig inn til að gefa umsögn"
       you_must_log_in_to_invite_new_users: ~
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
-      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_send_a_comment: "Þú verður að skrá þig inn til að senda athugasemd"
+      you_must_log_in_to_send_a_message: "Þú verður að skrá þig inn á %{service_name} til að senda athugasemd á annan notanda."
+      you_must_log_in_to_view_this_content: "Þú verður að skrá þig inn til að sjá þetta"
       you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_view_your_inbox: "Þú verður að skrá þig inn á %{service_name} til að skoða pósthólfið þitt."
+      you_must_log_in_to_view_your_settings: "Þú verður að skrá þig inn á %{service_name} til að skoða stillingarnar þínar."
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
@@ -1292,10 +1292,10 @@ is:
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
+      account: Aðgangur
+      notifications: Tilkynningar
+      profile: "Síðan mín"
+      settings: Stillingar
       payments: ~
   listings:
     bubble_listing_not_visible:
@@ -1305,12 +1305,12 @@ is:
       send_private_message: ~
     comment_form:
       ask_a_question: ~
-      log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
+      log_in: innskráning
+      send_comment: "Senda athugasemd"
+      to_send_a_comment: "til að senda nýja athugasemd."
+      write_comment: "Skrifaðu nýja athugasemd:"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
+      you_must: "Þú verður"
       subscribe_to_comments: ~
     edit:
       edit_listing: ~
@@ -1333,14 +1333,14 @@ is:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: Klukkan
+        departure_time: Brottfarartími
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: "Nákvæm lýsing"
       destination:
-        destination: ~
+        destination: Áfangastaður
       form_content:
         favor: ~
         housing: ~

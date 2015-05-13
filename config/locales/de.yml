@@ -376,13 +376,17 @@ de:
         update_failure: ~
         delete: "Auftragsart löschen"
         confirm_delete: "Es gibt %{count} Inserate mit dieser Auftragsart. Wenn du diese Auftragsart löschst, werden diese Inserate geschlossen. Bist du sicher, dass Du die Auftragsart löschen möchtest?"
+        confirm_delete_singular: ~
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: "Es gibt %{count} offene Angebote mit dieser Auftragsart. Wenn Du eine der folgenden Einstellungen änderst, werden diese Angebote die alten Einstellungen beibehalten. Diese Angebote können die neuen Einstellungen  durch manuelles editieren erhalten. Wenn Du keine Einträge mit den alten Einstellungen auf der Website sichtbar haben möchtest, kannst du diese  schließen, indem Du auf den Button unterhalb klickst."
+      open_listings_singular: ~
       close_listings: "%{count} Angebote schließen"
+      close_listings_singular: ~
       confirm_close_listings: "Bist du sicher, dass Du %{count} Angebote schließen möchtest?"
+      confirm_close_listings_singular: ~
       successfully_closed: "Inserate erfolgreich geschlossen."
       successfully_deleted: "Auftragsart '%{order_type}' erfolgreich gelöscht"
       pricing_and_checkout_title: "Preise & Kasse"
