@@ -128,7 +128,6 @@ class Admin::ListingShapesController < ApplicationController
   end
 
   def close_listings
-    binding.pry
     listing_api.shapes.get(community_id: @current_community.id, name: params[:url_name]).and_then { |shape|
       listing_api.listings.update_all(community_id: @current_community.id, query: { listing_shape_id: shape[:id] }, opts: { open: false })
     }.on_success {
