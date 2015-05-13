@@ -148,6 +148,15 @@ describe ListingService::API::Shapes do
         expect(get_res.data.length).to eq(3)
       end
 
+      it "gets by name" do
+        shape = create_shape.data
+
+        get_res = listings_api.shapes.get(community_id: community_id, name: shape[:name])
+
+        expect(get_res.success).to eq(true)
+        expect(get_res.data[:id]).to eq(shape[:id])
+      end
+
       it "respects the sort priority" do
         [["sell", 10], ["rent", 0], ["request", 5]].each { |(name, prio)|
           create_shape(basename: name, sort_priority: prio)
@@ -221,6 +230,20 @@ describe ListingService::API::Shapes do
         expect(units[1][:type]).to eql(:custom)
         expect(units[1][:translation_key]).to eql('my.custom.units.translation')
       end
+
+      it "updates by name" do
+        shape = create_shape.data
+
+        expect(shape[:shipping_enabled]).to eql(true)
+
+        update_res = listings_api.shapes.update(
+          community_id: community_id,
+          name: shape[:name],
+          opts: { shipping_enabled: false })
+
+        expect(update_res.success).to eq(true)
+        expect(update_res.data[:shipping_enabled]).to eq(false)
+      end
     end
 
     context "failure" do
@@ -238,6 +261,7 @@ describe ListingService::API::Shapes do
 
   describe "#delete" do
     let(:id) { create_shape.data[:id] }
+    let(:name) { create_shape.data[:name] }
 
     context "success" do
       it "deletes the shape" do
@@ -259,6 +283,28 @@ describe ListingService::API::Shapes do
           listing_shape_id: id)
 
         expect(second_get.success).to eq false
+      end
+
+      it "deletes by name" do
+        first_get = listings_api.shapes.get(
+          community_id: community_id,
+          name: name)
+
+        expect(first_get.success).to eq true
+
+        delete_res = listings_api.shapes.delete(
+          community_id: community_id,
+          name: name)
+
+        expect(delete_res.success).to eq true
+        expect(delete_res.data[:name]).to eq name
+
+        second_get = listings_api.shapes.get(
+          community_id: community_id,
+          name: name)
+
+        expect(second_get.success).to eq false
+
       end
     end
 

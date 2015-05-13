@@ -40,7 +40,7 @@
         - else
           = "#{shape[:category_ids].size}/#{category_count}"
       .col-2
-        = link_to edit_admin_listing_shape_path(shape[:id]) do
+        = link_to edit_admin_listing_shape_path(shape[:name]) do
           = icon_tag("edit", ["icon-fix"])
         = link_to '#', :class => "js-listing-shape-action-up admin-sort-button #{sort_disabled_class}", :tabindex => "-1" do
           = icon_tag("directup", ["icon-fix"])

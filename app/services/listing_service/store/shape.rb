@@ -57,10 +57,11 @@ module ListingService::Store::Shape
 
   module_function
 
-  def get(community_id:, listing_shape_id: nil, include_categories: )
+  def get(community_id:, listing_shape_id: nil, name: nil, include_categories: )
     shape_model = find_shape_model(
       community_id: community_id,
-      listing_shape_id: listing_shape_id)
+      listing_shape_id: listing_shape_id,
+      name: name)
 
     from_model(shape_model, include_categories)
   end
@@ -102,10 +103,11 @@ module ListingService::Store::Shape
     end
   end
 
-  def update(community_id:, listing_shape_id: nil, opts:)
+  def update(community_id:, listing_shape_id: nil, name: nil, opts:)
     shape_model = find_shape_model(
       community_id: community_id,
-      listing_shape_id: listing_shape_id)
+      listing_shape_id: listing_shape_id,
+      name: name)
 
     return nil if shape_model.nil?
 
@@ -127,10 +129,11 @@ module ListingService::Store::Shape
     from_model(shape_model, true)
   end
 
-  def delete(community_id:, listing_shape_id:)
+  def delete(community_id:, listing_shape_id: nil, name: nil)
     shape_model = find_shape_model(
       community_id: community_id,
-      listing_shape_id: listing_shape_id)
+      listing_shape_id: listing_shape_id,
+      name: name)
 
     return nil if shape_model.nil?
 
@@ -193,8 +196,14 @@ module ListingService::Store::Shape
       }, hash)
   end
 
-  def find_shape_model(community_id:, listing_shape_id:)
-    find_shape_models(community_id: community_id).where(id: listing_shape_id).first
+  def find_shape_model(community_id:, listing_shape_id: nil, name: nil)
+    if listing_shape_id.present?
+      find_shape_models(community_id: community_id).where(id: listing_shape_id).first
+    elsif name.present?
+      find_shape_models(community_id: community_id).where(name: name).first
+    else
+      raise ArgumentError.new("Must have either name or listing shape id present")
+    end
   end
 
   def find_shape_models(community_id:)

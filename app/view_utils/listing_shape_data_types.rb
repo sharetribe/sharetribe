@@ -24,6 +24,7 @@ module ListingShapeDataTypes
 
   # Shape datatype is ListingShapeController's internal representation of the listing shape.
   Shape = EntityUtils.define_builder(
+    [:id, :fixnum],
     [:name, :hash, :mandatory, validate_with: FORM_TRANSLATION],
     [:action_button_label, :hash, :mandatory, validate_with: FORM_TRANSLATION],
     [:shipping_enabled, transform_with: CHECKBOX],

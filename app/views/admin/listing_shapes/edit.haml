@@ -12,9 +12,9 @@
 
 .left-navi-section
   %h2= t(".edit_listing_shape", shape: name)
-  = form_tag(admin_listing_shape_path(id), method: :put, id: "listing_shape_form") do
+  = form_tag(admin_listing_shape_path(url_name), method: :put, id: "listing_shape_form") do
 
-    = render partial: "shape_form_content", locals: { id: id, shape: shape, count: count, locale_name_mapping: locale_name_mapping, uneditable_fields: uneditable_fields }
+    = render partial: "shape_form_content", locals: { name: name, shape: shape, count: count, locale_name_mapping: locale_name_mapping, uneditable_fields: uneditable_fields }
 
     .row
       .col-12

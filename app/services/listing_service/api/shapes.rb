@@ -3,23 +3,25 @@ module ListingService::API
 
   class Shapes
 
-    def get(community_id:, listing_shape_id: nil, include_categories: false)
-      if listing_shape_id
-        find_opts = {
-          community_id: community_id,
-          listing_shape_id: listing_shape_id,
-          include_categories: include_categories
-        }
+    def get(community_id:, listing_shape_id: nil, name: nil, include_categories: false)
+      find_opts = {
+        community_id: community_id,
+        listing_shape_id: listing_shape_id,
+        name: name,
+        include_categories: include_categories
+      }
 
-        Maybe(ShapeStore.get(find_opts)).map { |shape|
-          Result::Success.new(shape)
-        }.or_else {
-          Result::Error.new("Can not find listing shape for #{find_opts}")
-        }
-      else
-        Result::Success.new(ShapeStore.get_all(community_id: community_id, include_categories: include_categories))
-      end
-
+      validate_find_opts(find_opts, unique_result_required: false).and_then { |find_opts|
+        if find_opts[:listing_shape_id] || find_opts[:name]
+          Maybe(ShapeStore.get(find_opts)).map { |shape|
+            Result::Success.new(shape)
+          }.or_else {
+            Result::Error.new("Can not find listing shape for #{find_opts}")
+          }
+        else
+          Result::Success.new(ShapeStore.get_all(community_id: community_id, include_categories: include_categories))
+        end
+      }
     end
 
     def create(community_id:, opts:)
@@ -29,30 +31,48 @@ module ListingService::API
       ))
     end
 
-    def update(community_id:, listing_shape_id: nil, opts:)
+    def update(community_id:, listing_shape_id: nil, name: nil, opts:)
       find_opts = {
         community_id: community_id,
-        listing_shape_id: listing_shape_id
+        listing_shape_id: listing_shape_id,
+        name: name
       }
 
-      Maybe(ShapeStore.update(find_opts.merge(opts: opts))).map { |shape|
-        Result::Success.new(shape)
-      }.or_else {
-        Result::Error.new("Can not find listing shape for #{find_opts}")
+      validate_find_opts(find_opts, unique_result_required: true).and_then { |find_opts|
+        Maybe(ShapeStore.update(find_opts.merge(opts: opts))).map { |shape|
+          Result::Success.new(shape)
+        }.or_else {
+          Result::Error.new("Can not find listing shape for #{find_opts}")
+        }
       }
     end
 
-    def delete(community_id:, listing_shape_id:)
+    def delete(community_id:, listing_shape_id: nil, name: nil)
       find_opts = {
         community_id: community_id,
-        listing_shape_id: listing_shape_id
+        listing_shape_id: listing_shape_id,
+        name: name
       }
 
-      Maybe(ShapeStore.delete(find_opts)).map { |shape|
-        Result::Success.new(shape)
-      }.or_else {
-        Result::Error.new("Can not find listing shape for #{find_opts}")
+      validate_find_opts(find_opts, unique_result_required: true).and_then { |find_opts|
+        Maybe(ShapeStore.delete(find_opts)).map { |shape|
+          Result::Success.new(shape)
+        }.or_else {
+          Result::Error.new("Can not find listing shape for #{find_opts}")
+        }
       }
+    end
+
+    private
+
+    def validate_find_opts(opts, unique_result_required:)
+      if opts[:listing_shape_id].present? && opts[:name].present?
+        return Result::Error.new("Can not have both listing shape id (#{opts[:listing_shape_id]}) and name (#{opts[:name]}) present.")
+      elsif unique_result_required && opts[:listing_shape_id].nil? && opts[:name].nil?
+        return Result::Error.new("Must have either id or name present.")
+      else
+        Result::Success.new(opts)
+      end
     end
 
   end
