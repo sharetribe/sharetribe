@@ -386,6 +386,7 @@ label.radiobutton {
   display: inline;
   color: $aside;
   @include small-type;
+  cursor: pointer;
 }
 
 button, .button {
