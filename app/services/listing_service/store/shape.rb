@@ -197,18 +197,13 @@ module ListingService::Store::Shape
   end
 
   def find_shape_model(community_id:, listing_shape_id: nil, name: nil)
-    q = find_shape_models(community_id: community_id)
-
-    q =
-      if listing_shape_id.present?
-        q.where(id: listing_shape_id)
-      elsif name.present?
-        q.where(name: name)
-      else
-        raise ArgumentError.new("Must have either name or listing shape id present")
-      end
-
-    q.first
+    if listing_shape_id.present?
+      find_shape_models(community_id: community_id).where(id: listing_shape_id).first
+    elsif name.present?
+      find_shape_models(community_id: community_id).where(name: name).first
+    else
+      raise ArgumentError.new("Must have either name or listing shape id present")
+    end
   end
 
   def find_shape_models(community_id:)
