@@ -361,13 +361,17 @@ km-KH:
         update_failure: ~
         delete: ~
         confirm_delete: ~
+        confirm_delete_singular: ~
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       action_button_label: ~
       open_listings: ~
+      open_listings_singular: ~
       close_listings: ~
+      close_listings_singular: ~
       confirm_close_listings: ~
+      confirm_close_listings_singular: ~
       successfully_closed: ~
       successfully_deleted: ~
       pricing_and_checkout_title: ~
