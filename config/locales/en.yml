@@ -381,12 +381,15 @@ en:
         can_not_delete_only_one_in_categories: "You can't delete this order type because in following categories this order type is the only one in use: %{categories}"
       listing_shape_name: Name
       action_button_label: "Checkout button label"
-      open_listings: "There are %{count} open listings with this order type. If you change any of the settings below, those listings will retain the old settings. Those listings can be changed to the new settings by editing them manually. If you don't want to have any listings with the old settings visible on your site, you can close them by clicking the button below."
-      open_listings_singular: "There is %{count} open listing with this order type. If you change any of the settings below, that listing will retain the old settings. The listing can be changed to the new settings by editing it manually. If you don't want to have the listing with the old settings visible on your site, you can close it by clicking the button below."
-      close_listings: "Close %{count} listings"
-      close_listings_singular: "Close %{count} listing"
-      confirm_close_listings: "Are you sure you want to close %{count} listings?"
-      confirm_close_listings_singular: "Are you sure you want to close %{count} listing?"
+      open_listings:
+        one: "There is %{count} open listing with this order type. If you change any of the settings below, that listing will retain the old settings. The listing can be changed to the new settings by editing it manually. If you don't want to have the listing with the old settings visible on your site, you can close it by clicking the button below."
+        other: "There are %{count} open listings with this order type. If you change any of the settings below, those listings will retain the old settings. Those listings can be changed to the new settings by editing them manually. If you don't want to have any listings with the old settings visible on your site, you can close them by clicking the button below."
+      close_listings:
+        one: "Close %{count} listing"
+        other: "Close %{count} listings"
+      confirm_close_listings:
+        one: "Are you sure you want to close %{count} listing?"
+        other: "Are you sure you want to close %{count} listings?"
       successfully_closed: "Successfully closed listings"
       successfully_deleted: "Successfully deleted order type '%{order_type}'"
       pricing_and_checkout_title: "Pricing & checkout"
