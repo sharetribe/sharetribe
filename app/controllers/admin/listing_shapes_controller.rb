@@ -209,7 +209,7 @@ class Admin::ListingShapesController < ApplicationController
       [shape[:id], shape[:category_ids]]
     }
 
-    categories_listing_shapes_map = HashUtils.reverse_key_enum_hash(listing_shapes_categories_map)
+    categories_listing_shapes_map = HashUtils.transpose(listing_shapes_categories_map)
 
     last_in_category_ids = categories_listing_shapes_map.select { |category_id, shape_ids|
       shape_ids.size == 1 && shape_ids.include?(current_shape_id)

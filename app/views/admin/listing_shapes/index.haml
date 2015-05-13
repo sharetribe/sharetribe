@@ -27,6 +27,7 @@
       %strong
         = t(".header.listing_shape_categories")
     .col-2
+  - sort_disabled_class = listing_shapes.size == 1 ? "disabled" : ""
   - listing_shapes.map do |shape|
     .row.js-listing-shape-row{data: {id: shape[:id]}}
       .col-5
@@ -41,9 +42,9 @@
       .col-2
         = link_to edit_admin_listing_shape_path(shape[:id]) do
           = icon_tag("edit", ["icon-fix"])
-        = link_to '#', :class => "js-listing-shape-action-up admin-sort-button", :tabindex => "-1" do
+        = link_to '#', :class => "js-listing-shape-action-up admin-sort-button #{sort_disabled_class}", :tabindex => "-1" do
           = icon_tag("directup", ["icon-fix"])
-        = link_to '#', :class => "js-listing-shape-action-down admin-sort-button", :tabindex => "-1" do
+        = link_to '#', :class => "js-listing-shape-action-down admin-sort-button #{sort_disabled_class}", :tabindex => "-1" do
           = icon_tag("directdown", ["icon-fix"])
 
   #listing-shape-ajax-status

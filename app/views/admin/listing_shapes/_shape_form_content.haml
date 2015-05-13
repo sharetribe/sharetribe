@@ -1,20 +1,24 @@
 .row
   .col-12
-    .input-header= t("admin.listing_shapes.listing_shape_name")
+    = label_tag("", t("admin.listing_shapes.listing_shape_name"), class: "input")
+
+- translation_label_class = locale_name_mapping.size > 1 ? "col-2" : "hidden"
+
 - shape[:name].map do |(loc, translation)|
   .row
-    .name-locale-label.col-2
-      = label_tag "name[#{loc}]", locale_name_mapping[loc]
+    .name-locale-label{class: translation_label_class}
+      = label_tag "name[#{loc}]", locale_name_mapping[loc], class: "listing-shape-locale-label"
     .name-locale-text_field.col-10
       = text_field_tag("name[#{loc}]", translation, class: "required")
 
 .row
   .col-12
-    .input-header= t("admin.listing_shapes.action_button_label")
+    = label_tag("", t("admin.listing_shapes.action_button_label"), class: "input")
+
 - shape[:action_button_label].map do |loc, translation|
   .row
-    .name-locale-label.col-2
-      = label_tag "action_button_label[#{loc}]", locale_name_mapping[loc]
+    .name-locale-label{class: translation_label_class}
+      = label_tag "action_button_label[#{loc}]", locale_name_mapping[loc], class: "listing-shape-locale-label"
     .name-locale-text_field.col-10
       = text_field_tag("action_button_label[#{loc}]", translation, class: "required")
 
@@ -26,10 +30,16 @@
           %span.alert-box-icon<>
             = icon_tag("alert", ["icon-fix"])
           %span<
-            = t("admin.listing_shapes.open_listings", count: count)
-        = link_to close_listings_admin_listing_shape_path(id: id), class: "listing-shape-delete-button", confirm: t("admin.listing_shapes.confirm_close_listings", count: count) do
+            - if count == 1
+              = t("admin.listing_shapes.open_listings_singular", count: count)
+            - else
+              = t("admin.listing_shapes.open_listings", count: count)
+        = link_to close_listings_admin_listing_shape_path(id: id), class: "listing-shape-delete-button", confirm: count == 1 ? t("admin.listing_shapes.confirm_close_listings_singular", count: count) : t("admin.listing_shapes.confirm_close_listings", count: count) do
           .content
-            = t("admin.listing_shapes.close_listings", count: count)
+            - if count == 1
+              = t("admin.listing_shapes.close_listings_singular", count: count)
+            - else
+              = t("admin.listing_shapes.close_listings", count: count)
 
 .row
   .col-12

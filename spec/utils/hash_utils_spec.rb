@@ -42,14 +42,22 @@ describe HashUtils do
       .to eq({first: "First", age: 55})
   end
 
-  it "#reverse_key_value_array" do
-    expect(HashUtils.reverse_key_value_array({a: [1, 2, 3], b: [2, 3, 4], c: [2]}))
-      .to eq(
-            {
-              1 => [:a].to_set,
-              2 => [:a, :b, :c].to_set,
-              3 => [:a, :b].to_set,
-              4 => [:b].to_set
-            })
+  describe "#transpose" do
+    let(:h) { {a: [1, 2, 3], b: [2, 3, 4], c: [2]} }
+
+    it "transposes hash keys and values" do
+      expect(HashUtils.transpose(h))
+        .to eq(
+              {
+                1 => [:a],
+                2 => [:a, :b, :c],
+                3 => [:a, :b],
+                4 => [:b]
+              })
+    end
+
+    it "transposing twice results original hash" do
+      expect(HashUtils.transpose(HashUtils.transpose(h))).to eq(h)
+    end
   end
 end
