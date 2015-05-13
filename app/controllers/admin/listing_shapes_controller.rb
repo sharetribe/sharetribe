@@ -360,5 +360,6 @@ class Admin::ListingShapesController < ApplicationController
   # The shape name is used as 'id'
   def set_url_name
     params[:url_name] = params[:id]
+    params.delete :id
   end
 end
