@@ -30,16 +30,10 @@
           %span.alert-box-icon<>
             = icon_tag("alert", ["icon-fix"])
           %span<
-            - if count == 1
-              = t("admin.listing_shapes.open_listings_singular", count: count)
-            - else
-              = t("admin.listing_shapes.open_listings", count: count)
-        = link_to close_listings_admin_listing_shape_path(id: id), class: "listing-shape-delete-button", confirm: count == 1 ? t("admin.listing_shapes.confirm_close_listings_singular", count: count) : t("admin.listing_shapes.confirm_close_listings", count: count) do
+            = t("admin.listing_shapes.open_listings", count: count)
+        = link_to close_listings_admin_listing_shape_path(id: id), class: "listing-shape-delete-button", confirm: t("admin.listing_shapes.confirm_close_listings", count: count) do
           .content
-            - if count == 1
-              = t("admin.listing_shapes.close_listings_singular", count: count)
-            - else
-              = t("admin.listing_shapes.close_listings", count: count)
+            = t("admin.listing_shapes.close_listings", count: count)
 
 .row
   .col-12
