@@ -87,12 +87,12 @@ window.ST.initializeListingShapeForm = function(formId) {
   };
 
   var addCustomUnitForm = function() {
-    $form = $(".js-listing-shape-add-custom-unit-form").last().clone();
+    var $form = $(".js-listing-shape-add-custom-unit-form").last().clone();
     $form.find('input').prop('disabled', false);
-    randomId = Math.floor(Math.random() * (Number.MAX_VALUE - 1)) + 1;
+    var randomId = Math.floor(Math.random() * (Number.MAX_VALUE - 1)) + 1;
 
     $form.find('input').each(function(i, elem){
-      $e = $(elem);
+      var $e = $(elem);
       var originalName = $e.prop('name');
       $e.prop('name', originalName.replace('RANDOM_ID', randomId));
     });
