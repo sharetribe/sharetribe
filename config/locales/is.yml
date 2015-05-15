@@ -1250,10 +1250,10 @@ is:
       unknown_error: "Óvænt villa kom upp. Vinsamlegast hafðu samband og láttu okkur vita hvað gerðist."
       update_error: "Villa kom upp, vinsamlegast reyndu aftur"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Þú hefur ekki heimild til að gefa þessa umsögn"
-      you_are_not_authorized_to_do_this: "Þú hefur ekki heimildir til að gera þetta"
+      you_are_not_authorized_to_do_this: "Þú hefur ekki heimild til að gera þetta"
       you_are_not_authorized_to_view_this_content: "Þú hefur ekki heimild til að skoða þetta"
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: "Þú getur ekki svarað tilboðum sem hafa lokað"
+      you_cannot_reply_to_a_closed_offer: "Þú getur ekki svarað auglýsingum sem hafa lokað"
       you_cannot_reply_to_a_closed_request: "Þú getur ekki svarað beiðnum sem hafa lokað"
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
@@ -1338,23 +1338,23 @@ is:
       destination:
         destination: Áfangastaður
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
+        favor: þjónusta
+        housing: pláss
+        item: hlutur
+        offer_something: "Bjóða upp á eitthvað"
+        request_something: "Óska eftir einhverju"
+        rideshare: far
         i_want_to_offer: ~
         i_want_to_request: ~
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_copy: "Áfangastaður á korti"
+        googlemap_description: "Sjá á korti"
+        googlemap_updatemap: "Uppfæra kort"
       images:
-        image: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        image: Mynd
+        no_file_selected: "Engin skrá valin"
+        remove_image: "Fjarlægja mynd"
+        select_file: "Velja mynd"
         removing: ~
         processing: ~
         loading_image: ~
@@ -1364,7 +1364,7 @@ is:
         file_too_large: ~
         accepted_formats: ~
       location:
-        location: ~
+        location: Staðsetning
       price:
         price: ~
         per: ~
@@ -1384,84 +1384,84 @@ is:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
-        origin: ~
+        location: Staðsetning
+        origin: Uppruni
       send_button:
         save_listing: ~
       share_type:
         select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
+        borrow: "Fá lánað"
+        buy: Kaupa
+        give_away: Gefa
+        lend: Lána
+        offer_type: "Tegund auglýsingu"
+        receive: Samþykkja
+        rent: Leigja
+        rent_out: "Leigja út"
+        request_type: "Tegund beiðni"
+        sell: Selja
         share_for_free: ~
         accept_for_free: ~
-        trade: ~
+        trade: Skipti
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(aðskilja með kommu)"
+        tags: Merkimiði
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: Gildistími
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: "Í augnablikinu"
       visibility:
         all_communities: ~
-        this_community: ~
-        visibility: ~
+        this_community: "Einungis meðlimir %{service_name}"
+        visibility: Sýnileiki
       privacy:
         privacy: ~
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "Tegund auglýsinga eða beiðni"
+      help_tags_title: Merkimiði
+      help_valid_until_title: Gildistími
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
+      all_categories: "Allir flokkar"
+      all_offer_types: "Allar tegundir auglýsinga"
+      all_request_types: "Allar tegundir beiðna"
+      category: Flokkur
+      did_not_found_what_you_were_looking_for: "Fannstu ekki það sem þig vantaði?"
+      favors: Þjónusta
+      housing: Pláss
+      items: Hlutir
+      list_view: "Sýna sem lista"
       listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
+      map_view: "Sýna á korti"
+      offer_something: "Láttu aðra vita!"
+      offer_type: "Tegund auglýsingu"
+      offers: Auglýsingar
+      request_something: "Óskaðu eftir einhverju!"
+      request_type: "Tegund beiðni"
+      requests: Beiðnir
+      rideshare: Far
+      search_verb: Leit
+      you_have_something_others_do_not: "Hvað hefuru upp á að bjóða?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
-      rideshares: ~
-      sells: ~
+      borrows: "Fá lánað"
+      buys: Kaupa
+      favors: Þjónusta
+      give_aways: Gefa
+      housings: Pláss
+      items: Hlutir
+      lends: Lána
+      receives: "Fá gefins"
+      rent_outs: "Leigja út"
+      rents: Leigja
+      rideshares: Far
+      sells: Selja
       share_for_frees: ~
       accept_for_frees: ~
-      trades: ~
+      trades: Skipti
     listing_actions:
       booking_from: ~
       booking_to: ~
@@ -1488,39 +1488,39 @@ is:
       month: ~
       custom: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: Athugasemd
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: "Almennar umræður"
       contact_by_phone: ~
       contact: ~
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: "Bjóða þjónustu"
+      favor_request: "Óska eftir þjónustu"
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
-      no_description: ~
+      no_description: "Engin lýsing"
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: Tilboð
       listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
-      rideshare_offer: ~
-      rideshare_request: ~
+      request: Beiðni
+      rideshare_offer: "Bjóða far"
+      rideshare_request: "Biðja um far"
       send_private_message: ~
-      share_types: ~
-      share_types_offer: ~
-      share_types_request: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
+      share_types: Tegund
+      share_types_offer: "Tegund auglýsingar"
+      share_types_request: "Tegund beiðni"
+      tags: Merkimiði
+      time: tími
+      times: tímar
+      times_viewed: Skoðað
       processing_uploaded_image: ~
       price_excludes_vat: ~
       listing_created_at: ~
@@ -1555,15 +1555,15 @@ is:
       read_more: ~
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
+      all_categories: "Allir flokkar"
+      all_offer_types: "Allar tegundir auglýsinga"
+      all_request_types: "Allar tegundir beiðna"
+      category: Flokkur
+      did_not_found_what_you_were_looking_for: "Fannstu ekki það sem þig vantaði?"
+      favors: Þjónusta
+      housing: Pláss
+      items: Hlutir
+      list_view: "Sýna sem lista"
       map_view: ~
       offer_something: ~
       offer_type: ~

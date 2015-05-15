@@ -52,9 +52,9 @@ da-DK:
         community_details: ~
         community_look_and_feel: ~
         edit_community: ~
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
+        enabled_languages: "Tilgængelige sprog"
+        enabled_languages_description: "Tilgængelige sprog for brugere. Det øverste anvendes som standard."
+        default_language: Standardsprog
         community_name: ~
         edit_community_name_description: ~
         community_slogan: ~
@@ -65,7 +65,7 @@ da-DK:
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: "Gen indstillinger"
+        update_information: "Gem instillinger"
         invite_people: ~
         edit_signup_info: "Oprettelses info"
         edit_signup_info_description: "Dette er en info text som vil blive vist på oprettelses siden. Her kan du give dine brugere en introduktion til oprettelsen, f.eks information til hvordan man kan få en invitation, osv. Som standard er der ingen instruktioner."
@@ -125,51 +125,51 @@ da-DK:
         getting_started: "Kom i gang guide"
         welcome_to_your_marketplace: "Velkommen til din markedsplads, %{name}!"
         intro: "Dette er en hurtig guide til hvordan du kommer i gang med din nye markedsplads."
-        live_site_link_text: ~
-        look_and_feel: ~
+        live_site_link_text: her
+        look_and_feel: "Før du offentliggør dit site, vil du sandsynligvis gerne tilrette dele af den. Eksempelvis at %{logo_link} og ændre forsidebillede og farver, så det matcher dit brand."
         logo_link_text: "tilføj et logo"
-        custom_domain: ~
-        categories_and_custom_fields: ~
+        custom_domain: "Du vil måske også ønske at tilføje en personlig webadresse (eksempel: www.yourmarketplace.com). Opsætningen kræver noget manuelt arbejde fra vores side, og vi skal også købe et SSL certifikat for domænet for at gøre din site sikker. Derfor er personlige webadresser ikke tilgængelige i gratis-versionen lige nu. Abonnerement på vores Pro plan eller højere er nødvendigt for en personlig webadresse. Hvis du gerne vil have en personlig webadresse, så %{contact_support_link}."
+        categories_and_custom_fields: "Det næste er at beslutte, hvilken slags indhold man kan poste på dit site. Du kan %{categories_link}, %{custom_fields_link} hvad de aktuelle søgeresultater indeholder, og beslutte %{filters_link} er i brug, når brugerne gennemgår søgeresultaterne."
         categories_link_text: "tilføj kategorier og underkategorier"
-        custom_fields_link_text: ~
-        filters_link_text: ~
-        payments: ~
+        custom_fields_link_text: "konfigurer form felterne"
+        filters_link_text: "hvilken slags filtre"
+        payments: "Hvis du ønsker brugerne skal være i stand til at betale for deres køb på din markedsplads, så du får en bid fra hver transaktion, skal du %{payments_link}."
         payments_link_text: "indstil betalingsmetode"
-        info_texts: ~
+        info_texts: "Glem ikke at tilrette info sider og andre tekster hvor du kan fortælle brugerne om din markedsplads. Gode steder at tjekke er din %{about_page_link}, dine %{terms_of_use_link} (du bør tilføje dine egne brugsvilkår her, enten ved at modificere den eksisterende skabelon, eller ved at oprette et helt nyt dokument), din %{privacy_policy_link}, og %{welcome_email_link} som sendes til alle nye brugere. Der er også en %{instruction_texts_link} du kan tilrette."
         about_page_link_text: "om-os side"
         terms_of_use_link_text: "terms of use"
         privacy_policy_link_text: Personoplysninger
         welcome_email_link_text: "velkommen email"
         instruction_texts_link_text: "anden instruktionstekst"
-        social_media: ~
+        social_media: "At anvende sociale medier er en god måde at opbygge dit community på. Du kan %{facebook_link} for at gøre det nemmere at logge ind på din markedsplads, og %{twitter_link} for at få viral opmærksomhed når brugere tweeter om produkter på din markedsplads."
         facebook_link_text: "tilknyt din Facebook app"
         twitter_link_text: "tilføj din Twitter konto"
-        analytics: ~
+        analytics: "Det er også en god ide at %{analytics_link}. På denne måde kan du let se hvad der sker på din markedsplads, hvor mange brugere du har o.s.v."
         analytics_link_text: "tilknyt din Google Analytics konto"
-        settings: ~
+        settings: "Der er en bunke andre indstillinger du kan fifle med. For eksempel kan du indstille at alle skal have en invitation fra andre brugere, for at kunne deltage og dermed gøre markedspladsen privat, så kun registrerede brugere kan se indholdet. %{settings_link}."
         settings_link_text: "Se indstillinger for din markedsplads her"
-        final_words: ~
+        final_words: "Det er det hele! Hvis alt er klart, kan du starte %{invite_link} til din markedsplads. Du kan se alle brugerne som er registreret %{view_users_link}, og alle deres gennemførte transaktioner %{view_transactions_link}. Du kan også let håndtere annoncer: Gå til annonce-siden og du vil se administrator links til redigering og lukning. Har du brug for hjælp, kan du %{contact_support_link} - vi er her for dig!"
         invite_link_text: "inviter brugere"
         view_users_link_text: her
         view_transactions_link_text: her
-        contact_support_link_text: ~
+        contact_support_link_text: "kontakt vores support"
       available_languages:
-        en: ~
-        fr: ~
-        es-ES: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
-        ru: ~
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        en: Engelsk
+        fr: Fransk
+        es-ES: Spansk
+        pt-BR: Portugisisk
+        nb: "Norsk Bokmål"
+        sv: Svensk
+        da-DK: Dansk
+        fi: Finsk
+        ru: Russisk
+        de: Tysk
+        el: Græsk
+        nl: Hollandsk
+        tr-TR: Tyrkisk
+        zh: Kinesisk
+        ja: Japansk
+        it: Italiensk
       settings:
         settings: Indstillinger
         general: Generelt
@@ -190,9 +190,9 @@ da-DK:
         email_admins_about_new_members: "Send email til administratoren når nye brugere er oprettet på siden"
         google_analytics_key: "Google Analytics Sporingskode (tracking ID)"
         twitter_handle: "Twitter brugernavn (bruges ved tweet knappen på annonce siderne)"
-        update_settings: "Gen indstillinger"
+        update_settings: "Gem indstillinger"
         automatically_confirmed: "Transaktioner vil automatisk blive markeret som godkendt %{days_dropdown} dage efter betaling er lavet. Betalingen vil blive frigivet til sælger herefter."
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "Transaktioner vil automatisk blive markeret som godkendt %{days_dropdown} dage efter betaling er foretaget"
         automatic_newsletter_frequency: "Send automatiske nyhedsbreve: %{frequency_dropdown}"
         newsletter_daily: Daligt
         newsletter_weekly: Ugenligt
@@ -208,19 +208,19 @@ da-DK:
         save_user_status_successful: Gemt
         save_user_status_error: "Der opstod en fejl da vi forsøgte at gemme dit valg. Venligst genindlæs siden og prøv igen."
         ban_user_confirmation: ~
-        ban_me_error: ~
+        ban_me_error: "Du kan ikke forbyde dig selv."
       social_media:
         social_media: Social
         twitter_handle: "Twitter konto"
         twitter_handle_info_text: "Bruger navn (@navn) til din Twitter konto for din markedsplads. (hvis du har en). Din konto vil blive nævn hvergang nogen klikker på tweet knappen på siden."
-        twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
+        twitter_handle_info_text_with_instructions: "Bruger navn (@navn) til din Twitter konto for din markedsplads. (hvis du har en). Din konto vil blive nævn hvergang nogen klikker på tweet knappen på siden. %{instructions_link}."
+        twitter_instructions_link_text: "Læs mere"
         twitter_handle_placeholder: "@brugernavn"
         invalid_twitter_handle: "Dit Twitter brugernavn kan max indeholde 15 tegn."
         facebook_connect: Facebook
         facebook_connect_info_text: "For at tilknytte Facebook login, skal du oprette en applikation til din markedsplads på <a href='https://developers.facebook.com/'>Facebook's developers dashboard</a>. Tilføj den generede id og secret key til din application her."
-        facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
+        facebook_connect_info_text_with_instructions: "For at tilknytte Facebook login, skal du oprette en applikation til din markedsplads på <a href='https://developers.facebook.com/'>Facebook's developers dashboard</a>. Tilføj den genererede id og secret key til din application her. %{instructions_link}"
+        facebook_instructions_link_text: "Se instruktioner for at konfigurere Facebook Connect."
         facebook_connect_id: "Facebook client id"
         invalid_facebook_connect_id: "Client id skal kun indeholde tal."
         facebook_connect_secret: "Facebook client secret"
@@ -230,8 +230,8 @@ da-DK:
         analytics: Analytics
         google_analytics_key: "Google Analytics Sporingskode (tracking ID)"
         google_analytics_key_info_text: "Tracking ID til din Google Analytics konto."
-        google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        google_analytics_key_info_text_with_instructions: "Tracking ID til din Google Analytics konto. %{instructions_link}."
+        google_analytics_instructions_link_text: "Læs mere om tilknytning af Google Analytics"
         save: Gem
       menu_links:
         menu_links: "Links i menuen"
@@ -265,7 +265,7 @@ da-DK:
           canceled: Annulleret
           initiated: "Venter på PayPal betalingen"
           pending_ext: "Venter på PayPal betalingen"
-        not_available: ~
+        not_available: "Ikke tilgængelig"
       braintree_payment_gateway:
         braintree_payment_gateway: "Braintree Payment API keys"
         environment: Environment
@@ -337,80 +337,92 @@ da-DK:
       users_and_transactions: "Brugere og transaktioner"
       configure: Konfiguration
       emails_title: Emails
-      support: ~
+      support: support
     listing_shapes:
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        listing_shapes: "Ordre typer"
+        description: "Ordre typer bestemmer hvordan ordreprocessen fungerer på dit site. Du kan beslutte om dine brugere lejer, sælger - eller måske blot poster opslag og kommunikerer via meddelelser."
+        read_more_about_order_types: "Læs mere om ordre typer"
+        add_new_shape: "Tilføj ny ordre type: "
+        select_template: "Vælg skabelon..."
+        all_categories: "Alle kategorier"
+        no_categories: "Ingen kategorier"
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Ordre type navn"
+          listing_shape_categories: "Ordre type kategori"
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Gem ordre"
+          save_order_successful: "Ordre gemt"
+          save_order_error: "Der opstod en fejl da vi forsøgte at gemme dit valg. Venligst genindlæs siden og prøv igen."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Sælg af varer"
+        renting_products: Leje
+        offering_services: "Services tilbydes"
+        giving_things_away: Bortgives
+        requesting: Søges
+        announcement: Meddelelser
+        custom: Frit
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Opret ordretype"
+        create: Opret
+        cancel: Annullér
+        create_success: "Ny ordre type '%{shape}' oprettet"
+        create_failure: "Kunne ikke oprette ny ordre type. Error: %{error_msg}"
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
-        update_success: ~
-        update_failure: ~
-        delete: ~
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
-      action_button_label: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
-      units_title: ~
-      units_desc: ~
+        edit_listing_shape: "Redigér ordre type '%{shape}'"
+        update: Gem
+        cancel: Annullér
+        update_success: "Ændringer til ordre type '%{shape}' gemt"
+        update_failure: "Kunne ikke gemme ændringer. Error: %{error_msg}"
+        delete: "Slet ordre type"
+        can_not_delete_last: "Du kan ikke slette denne ordre type, fordi det er den eneste type på din markedsplads."
+        can_not_delete_only_one_in_categories: "Du kan ikke slette denne ordre type i følgende kategorier, fordi dette er den eneste type i brug: %{categories}"
+        confirm_delete:
+          one: "Der er %{count} annonce indenfor denne ordre type. Hvis du sletter denne ordre type, vil annonce blive slettet. Er du sikker på du vil slette denne ordre type?"
+          other: "Der er %{count} annoncer indenfor denne ordre type. Hvis du sletter denne ordre type, vil annoncer blive slettet. Er du sikker på du vil slette denne ordre type?"
+      listing_shape_name: Navn
+      action_button_label: "Checkout knap label"
+      successfully_closed: "Annoncer lukkede"
+      successfully_deleted: "Ordre type '%{order_type}' slettet"
+      pricing_and_checkout_title: "Pris & checkout"
+      online_payments_label: "Brug online betalingssystem"
+      shipping_label: "Tillad sælgere at definere et forsendelsesgebyr"
+      price_label: "Vis pris felt"
+      units_title: "Pris enhed"
+      units_desc: "Hvis du har aktiveret pris enhed, vises annonceprisen som \"pris per pris enhed\". Eksempel: \"39 kr. pr. time\"."
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      can_not_find: ~
+        piece: "Pr. stk."
+        hour: "Pr. time"
+        day: "Pr. dag"
+        night: "Pr. nat"
+        week: "Pr. uge"
+        month: "Pr. måned"
+      can_not_find: "Kan ikke finde ordre type med id: %{id}"
+      open_listings:
+        one: "Der er %{count} åben annonce indenfor denne ordre type. Hvis du ændrer nogen af indstillingerne herunder, vil annoncen bibeholde de gamle indstillinger. Annoncen kan ændres til de nye indstillinger manuelt. Hvis du ikke vil have annoncen med de gamle indstillinger synlig på dit site, kan du lukke den ved at klikke på knappen herunder."
+        other: "Der er %{count} åbne annoncer indenfor denne ordre type. Hvis du ændrer nogen af indstillingerne herunder, vil annoncerne bibeholde de gamle indstillinger. Annoncerne kan ændres til de nye indstillinger manuelt. Hvis du ikke vil have annoncerne med de gamle indstillinger synlige på dit site, kan du lukke dem ved at klikke på knappen herunder."
+      close_listings:
+        one: "Close %{count} annonce"
+        other: "Close %{count} annoncer"
+      confirm_close_listings:
+        one: "Er du sikker på at du ønsker at lukke %{count} annonce?"
+        other: "Er du sikker på at du ønsker at lukke %{count} annoncer?"
     paypal_accounts:
       marketplace_paypal_integration: Betalingsindstillinger
       preferences_updated: "Betalings indstillinger blev opdateret"
       integration_info_text: "Betalingssystemet på %{service_name} kører gennem PayPal. Hvis du vil have mulighed for at tage imod betalinger på din markedsplads, skal du tilknytte din PayPal konto, og vælge en minimumspris pr. annonce og størrelsen på din service fee."
-      read_more_about_paypal: ~
+      read_more_about_paypal: "Læs mere om Sharetribe's betalingssystem"
       paypal_account_email: "1. Tilknyt din PayPal konto"
       paypal_account_email_completed: Gennemført!
       set_minimum_price_and_fee: "2. Vælg en minimumspris og service fee"
       set_minimum_price_and_fee_completed: Gennemført!
       minimum_listing_price_label: "Minimums pris:"
       transaction_fee_label: "Service fee:"
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: "Mindste transaktionsafgift:"
       save_settings: Gem
       note_about_transaction_fee: "Note: the transaction fee includes PayPal's fees that depend on your currency and the sales volume of the seller. For this reason, the fee is always at least %{min_paypal_commission}. When the fee is charged from the seller, PayPal will take its fees first, and the remainder will be moved to your PayPal account."
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "skal mindst være det samme som mindste transaktionsafgift %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "skal være større end mindste provision %{minimum_commission}."
     transaction_types:
       sell: Sælger
       rent: Udlejer
@@ -474,16 +486,16 @@ da-DK:
     username: Brugernavn
     username_or_email: "Email eller brugernavn"
     what_is_this: "Hvad er dette?"
-    removed_user: ~
+    removed_user: "Fjernet bruger"
     paypal_fee_info:
-      title: ~
-      body_text: ~
-      body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      title: "PayPal's ekspeditionsgebyr"
+      body_text: "PayPal opkræver et ekspeditionsgebyr fra alle betalinger. Dette gebyr udgør mellem 2% og 5% af den samlede salgspris, afhængigt af dit månedlige salgsomfang og købers beliggenhed (land). Generelt har indenlandske handler lavere gebyrer end internationale, og højere salgsomfang giver dig nedslag i gebyrer. Du kan se de eksakte gebyrsatser ved at logge på din PayPal konto på %{link_to_paypal}. Efter hvert salg modtager du en kvittering, hvoraf det eksakte gebyr fremgår."
+      body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr fra alle betalinger. Dette gebyr udgør mellem 2% og 5% af den samlede salgspris, afhængigt af dit månedlige salgsomfang og købers beliggenhed (land). Generelt har indenlandske handler lavere gebyrer end internationale, og højere salgsomfang giver dig nedslag i gebyrer. Du kan se de eksakte gebyrsatser ved at logge på din PayPal konto på %{link_to_paypal}. Efter hvert salg modtager du en kvittering, hvoraf det eksakte gebyr fremgår."
+      link_to_paypal_text: her
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: Ordredetaljer
+      order_by: "Ordre ved %{orderer_link}"
       respond_to_offer: "Svar på et tilbud"
       respond_to_request: "Svar på en ansøgning"
       accept_offer: "Accepter tilbud"
@@ -497,16 +509,16 @@ da-DK:
       you_need_to_fill_payout_details_before_accepting: "Du skal udfylde dine udbetalingsoplysninger, før du kan acceptere en betaling og modtage dine penge. Gå til %{payment_settings_link} og udfylde dine oplysninger."
       payment_settings_link: "betalings indstillinger"
       minimum_price_error_message: "Prisen kan ikke være lavere end %{amount}."
-      accept: ~
-      decline: ~
-      quantity_label: ~
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
-      paypal_fee_info: ~
-      shipping_price_label: ~
+      accept: Acceptér
+      decline: Afslå
+      quantity_label: "Mængde:"
+      sum_label: "Subtotal:"
+      service_fee_label: "%{service_name} gebyr:"
+      you_will_get_label: "Du vil få:"
+      total_label: "Total:"
+      total_value: "%{seller_gets}*"
+      paypal_fee_info: "* Exclusiv <a id='%{fee_info_link_id}' href='#'>PayPal's ekspeditionsgebyr</a>"
+      shipping_price_label: "Levering:"
     confirm:
       confirm_description: "Hvis din ansøgning er godkendt, bør du markerer den som en success. Så kan I give feedback til hinanden."
       cancel_description: "Hvis din ansøgning ikke er godkendt, kan du markere den som 'ikke godkendt'. Du kan stadig give feedback til den anden part."
@@ -821,12 +833,12 @@ da-DK:
       you_have_a_new_message: "En ny besked i %{sender_name} fra %{service_name}"
     new_payment:
       new_payment: "Du har modtaget en ny betaling"
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "Pris pr. %{unit_type}"
+      quantity: "Mængde:"
       you_have_received_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{payer_full_name}. Her er din kvittering."
     paypal_new_payment:
-      paypal_gateway_fee: ~
-      shipping_total: ~
+      paypal_gateway_fee: "PayPal's ekspeditionsgebyr:"
+      shipping_total: "Levering:"
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Pris %{payer_full_name} betalte:"
@@ -837,10 +849,10 @@ da-DK:
       receipt_of_payment: "Kvittering for betaling"
       you_have_made_new_payment: "Du har betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> til %{recipient_full_name}. Her er din kvittering for betalingen."
       product: Produkt
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Pris pr. %{unit_type}"
+      duration: "Varighed:"
+      quantity: "Mængde:"
+      subtotal: "Subtotal:"
       total: Total
       price: Pris
       service_fee: "Service fee"
@@ -905,13 +917,13 @@ da-DK:
       just_follow_details: "Du skal blot følge disse links for at få mere information til hvordan du starter med at bygge din egen markedsplads!"
       we_will_guide_you_along_the_way: "Vi guider dig hele vejen i mål."
       are_you_new_to_online_marketplaces: "Er vi din første markedsplads? Intet problem, vi er her for at hjælpe dig hele vejen i mål! Vi vil sende dig en serie emails som skal hjælpe dig gennem Sharetribe's funktioner og hjælpe dig med at bygge en succesfuld markedsplads. Vi sender din første email om et øjeblik."
-      have_questions: "Nogen spørgsmål?"
+      have_questions: "Har du spørgsmål?"
       our_happiness_team_is_here_to_help: "Vores tilfredshedsteam er her for din skyld. Enten %{knowledge_base_link} eller kontakt vores support."
       love: "Kærlig hilsen,"
       sharetribe_crew: "Holdet bag Sharetribe"
       knowledge_base_link_text: "tjek vores support side"
-      contact_support_link_text: ~
-      admin_panel_link_text: ~
+      contact_support_link_text: "kontakt vores support"
+      admin_panel_link_text: "administrator panel"
     new_listing_by_followed_person:
       subject: "%{author_name} har oprettet en ny annonce på %{service_name}"
       has_posted_a_new_listing: "%{author_name} har oprettet en ny annonce:"
@@ -942,15 +954,15 @@ da-DK:
       page_you_requested_can_not_be_found: "Den ønskede side kan ikke findes. Er du sikker på at du har stavet adressen korrekt?"
     error_404_title: "Siden blev ikke fundet"
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
-    error_410_title: ~
+      page_removed: "Side fjernet"
+      page_you_requested_has_been_removed: "Siden du søgte er blevet fjernet."
+      page_removed_reason: "Der er nogle få mulige årsager til dette. For eksempel at en bruger har lukket sin konto eller en annonce er blevet lukket."
+    error_410_title: "side fjernet"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      temporary_unavailable: "Markedspladsen er midlertidigt utilgængelig"
+      unable_to_process: "Denne service er ikke i stand til at håndtere din forespørgsel lige nu. Prøv venligst igen lidt senere."
+      we_hate_this: "Vi hader når det her sker! Vi er bekendt med det her og vi er i gang med at udbedre det."
+      refer_to_error_id: "Hvis du ønsker at kontakte vores support om dette emne, inkludére venligst en error ID \"%{error_id}\" i din meddelelse."
     error_500_title: "Side indlæsning mislykkedes!"
     error_description: Fejlbeskrivelse
     no_javascript:
@@ -971,7 +983,7 @@ da-DK:
       on_or_before: "skal være på eller før %{restriction}"
       after: "skal være efter %{restriction}"
       on_or_after: "skal være på eller efter %{restriction}"
-      positive_number: ~
+      positive_number: "Indsæt et tal."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} indvilligede i at udlåne %{listing_title} til %{requester_name}%{time_ago}"
@@ -1134,7 +1146,7 @@ da-DK:
       join_this_community: ~
       read_more: "Læs mere"
       feedback: "Skriv gerne til os:"
-      default_feedback: "Har du et spørgsmål, eller fundet fejl på %{service_name}? Har et forslag til forbedring af vores side? Bemærket noget mistænkeligt indhold? Eller vil du blot gerne i kontakt med os?"
+      default_feedback: "Har du spørgsmål, eller har fundet fejl på %{service_name}? Har du forslag til forbedring af vores side? Bemærket mistænkeligt indhold? Eller vil du blot gerne i kontakt med os? Skriv endelig!"
       feedback_forum: "fællesskabets diskussionsforum"
       feedback_handle: Feedback
       give_feedback: "Kontakt os"
@@ -1301,7 +1313,7 @@ da-DK:
       payment_details_add_successful: "Du har nu tilføjet dine betalingsoplysninger"
       payment_details_add_error: "Vi kunne ikke tilføje dine betalingsoplysninger"
       listing_author_payment_details_missing: "Annoncen er oprettet uden betalingsoplysninger så sælger kan ikke modtage penge pt. Kontakt venligt sælger for at få rettet dette."
-      stylesheet_needs_recompiling: ~
+      stylesheet_needs_recompiling: "Stylesheet er ved at blive genoversat. Genindlæs venligst siden om lidt."
     settings:
       account: Konto
       notifications: Notifikationer
@@ -1328,14 +1340,14 @@ da-DK:
     edit_links:
       close_listing: "Luk annoncen"
       edit_listing: "Ret annoncen"
-      reopen_listing: "Gen åben annocen"
+      reopen_listing: "Genåben annoncen"
       move_to_top: "Vis på forsiden"
       show_in_updates_email: "Vis i næste automatiske nyhedsbrev"
       show_in_updates_email_loading: Venter...
       show_in_updates_email_error: "Serveren kunne ikke findes. Prøv at genindlæse siden."
       show_in_updates_email_success: ~
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Noget gik galt, error code: %{error_code}"
     follow_links:
       follow: "Modtag e-mail om nye kommentarer"
       unfollow: "Afmeld e-mails om nye kommentarer"
@@ -1388,16 +1400,16 @@ da-DK:
         time: "time, dag, måned, ..."
         long_time: "uge, måned, ..."
         after_service_fee_you_will_get: "Efter %{service_name}'s service fee, vil du få %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vil blive fratrukket prisen."
+        after_service_fee_you_will_get_paypal_text: "%{service_name} gebyr (%{sum_with_currency}) og %{paypal_fee_info_link}  vil blive fratrukket prisen."
+        paypal_fee_info_link_text: "PayPal's ekspeditionsgebyr"
         after_service_fee_you_will_get_vat: "Efter %{service_name} service fee's vil du modtage: %{sum_with_currency}"
         price_excludes_vat: "Prisen er eksklusiv moms"
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        shipping_price_additional: ~
-        pickup: ~
+        delivery: Leveringsform
+        shipping: Forsendelse
+        shipping_price: "Forsendelses gebyr"
+        shipping_price_additional: "Yderligere emner"
+        pickup: Afhentning
       origin:
         location: Sted
         origin: Oprindelse
@@ -1491,18 +1503,18 @@ da-DK:
       select_subcategory: "Vælg underkategori"
       select_transaction_type: "Vælg annonce type"
       you_need_to_fill_payout_details_before_accepting: "Du skal udfylde dine betalingsoplysninger før du kan oprette en annonce. Gå til %{payment_settings_link} og udfyld dine detaljer."
-      contact_admin_link_text: ~
-      community_not_configured_for_payments: ~
+      contact_admin_link_text: "kontakt administrator"
+      community_not_configured_for_payments: "%{service_name} er ikke blevet konfigureret til betalinger, så du kan ikke oprette nye annoncer endnu. Venligst %{contact_admin_link} for yderligere info."
       payment_settings_link: "betalings indstillinger"
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name} er ikke blevet konfigureret til betalinger, så du kan ikke oprette nye annoncer endnu. Gå til %{payment_settings_link} for at udfylde betalingsoplysninger."
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: "Antal timer:"
+      day: "Antal dage:"
+      night: "Antal nætter:"
+      week: "Antal uger:"
+      month: "Antal måneder:"
+      custom: "Mængde:"
+    quantity_placeholder: Mængde
     please_comment: Kommentar
     reply_link:
       listing_closed: "Annoncen er lukket"
@@ -1542,19 +1554,19 @@ da-DK:
       price:
         per_quantity_unit: "pr. %{quantity_unit}"
         per_day: "pr. dag"
-      delivery: ~
-      shipping: ~
-      shipping_no_price: ~
-      shipping_price_additional: ~
-      pickup: ~
-      pickup_no_price: ~
+      delivery: Leveringsform
+      shipping: "Forsendelse (+%{price})"
+      shipping_no_price: Forsendelse
+      shipping_price_additional: "Forsendelse (+%{price}, yderligere emner: +%{shipping_price_additional})"
+      pickup: Afhentning
+      pickup_no_price: Afhentning
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: enhed
+      hour: time
+      day: dag
+      night: nat
+      week: uge
+      month: måned
     verification_required:
       verification_required: "Godkendelse påkrævet"
   listing_conversations:
@@ -1591,7 +1603,7 @@ da-DK:
       you_have_something_others_do_not: "Har du noget at tilbyde?"
     please_comment: Kommentér
   mercury:
-    content_too_long: ~
+    content_too_long: "Indsat indhold er for langt."
   okl:
     member_id: "Medlems ID"
     member_id_or_email: "Medlemsnummer eller email"
@@ -1623,13 +1635,13 @@ da-DK:
     you_are_ready_to_accept_payments: "Du er nu klar til at modtage betalinger!"
     commission: "%{commission}%"
     connected_account: "Din PayPal konto '%{email}' er nu tilknyttet."
-    change_account: ~
-    missing: ~
-    from_your_payment_settings_link_text: ~
+    change_account: "Ændre konto"
+    missing: "Du har åbne annoncer, men du har ikke tilknyttet din PayPal konto, så du er ikke i stand til at modtage betalinger. Tilknyt venligst din PayPal konto i din %{settings_link}."
+    from_your_payment_settings_link_text: betalingsindstillinger
     new:
       payout_info_you_need_to_connect: "For at acceptere betalinger skal du tilknytte din PayPal konto til %{service_name}."
       payout_info_text: "Udfør venligt disse to steps for at tilknyttet din konto."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "kontakt administrator"
       admin_account_not_connected: "Du kan på nuværende tidspunkt desværre ikke tilknytte din PayPal konto. Prøv igen senere."
       paypal_account_email: "1. Tilknyt din PayPal konto"
       paypal_account_email_placeholder: "Din PayPal email adresse"
@@ -1638,30 +1650,30 @@ da-DK:
       upgrade_paypal_account: "Opgrader din konto her."
       connect_paypal_account: "Tilknyt PayPal konto"
       paypal_account_billing_agreement: "2. Tillad %{service_name} at tage et service fee"
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
-      paypal_info_link_text: ~
+      paypal_account_billing_agreement_info_both: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger, minimumsgebyr %{minimum_commission}) blive trukket fra din PayPal konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr %{minimum_commission} af produktprisen blive trukket fra din PayPal konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger blive trukket fra din PayPal konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
+      paypal_info_link_text: "PayPal's ekspeditionsgebyr"
       billing_agreement_description: "Tillad %{service_name} at tage et service fee."
       billing_agreement: "Tillad adgang"
       permissions_not_granted: "Tilladelsen til at tilknyttet din PayPal konto mislykkedes."
       could_not_fetch_redirect_url: "Vi kunne ikke tilknytte din PayPal konto."
       paypal_not_enabled: "PayPal betalinger er ikke godkendt."
       billing_agreement_canceled: "Betalingsaftale er annulleret"
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
+      billing_agreement_not_accepted: "Du accepterede ikke betalingsaftalen hos PayPal."
+      billing_agreement_wrong_account: "PayPal konto matchede ikke. Anvend venligst den samme PayPal konto som du tilføjede i det første trin."
       something_went_wrong: "Noget gik galt. Prøv venligst igen. Hvis problemer fortsætter, så kontakt os gerne."
       account_not_verified: "Du har ikke godkendt din PayPal konto. Du skal gå til paypal.com og godkende din konto før du kan fortsætte."
-      account_restricted: ~
+      account_restricted: "Din PayPal konto er begrænset og kan ikke tilknyttes. Venligst log ind på paypal.com for at få yderligere information om, hvad det betyder, eller kontakt PayPal kundesupport for at få løst dette."
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: "Fortsæt til betaling"
     checkout_with_paypal: "Betal med PayPal"
     cancel_succesful: "PayPal betalingen blev annulleret med success."
     transaction:
       commission_payment_name: "Service fee for %{listing_title}"
       commission_payment_description: "Markedspladsen %{service_name} tog en service fee fra transaktionen på %{listing_title}"
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+    wait_while_loading: "Vent venligst."
+    chatting_with_paypal: "Vi chatter med PayPal."
   people:
     edit_links:
       activate: Aktiver
@@ -1816,14 +1828,14 @@ da-DK:
       delete_account_confirmation_popup: "Er du helt sikker på at du vil slette din konto og permanent slette alt data? Dit valg kan ikke fortrydes."
       email_addresses: "Email adresser"
       new_email: "Ny e-mailadresse:"
-      delete_all_memberships: ~
-      delete_personal_information: ~
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
+      delete_all_memberships: "Hvis du sletter din konto, vil du ikke være i stand til at bruge den på følgende markedspladser: %{marketplaces}."
+      delete_personal_information: "Hvis du sletter din konto, vil din personlige information (navn, telefonnummer, adresse, email, profilbillede o.s.v.) blive slettet permanent og kan ikke blive gendannet. Alle annoncer du har oprettet vil blive slettet. Du vil ikke kunne gendanne din konto."
+      delete_information_others_involved: "Information hvor andre medlemmer er involverede (samtaler med andre, foretagne transaktioner, anmeldelser o.s.v.) slettes ikke, når du sletter din konto. Men dit navn vil ikke længere blive vist ved siden af denne information."
+      unfinished_transactions: "Din konto kan ikke slettes fordi du har udestående transaktioner. Gennemfør venligst alle transaktioner før du sletter din konto."
       new_password: "Nyt kodeord"
       save: Gem
       these_fields_are_shown_only_to_you: "Brugernavn er vist i din profil, medmindre du har givet dit navn. Andre oplysninger vises kun til dig."
-      email_already_confirmed: ~
+      email_already_confirmed: "Din email adresse er allerede bekræftet."
       email:
         address_title: Adresse
         remove_title: Fjern
@@ -1883,10 +1895,10 @@ da-DK:
       visible_to_registered_users: "(synligt for brugere, der er logget ind)"
       default_in_listing: "(bruges kun som standard når du opretter nye annoncer)"
       invisible: "(vises ikke til andre brugere)"
-      image_is_processing: ~
+      image_is_processing: "Din profil er ved at blive forberedt. Opdatér venligst siden om et øjeblik."
     save_information: Gem
   shipping_address:
-    shipping_address: ~
+    shipping_address: Forsendelsesadresse
   tag_cloud:
     tag_used:
       with_tag: "Med tag"
@@ -2004,16 +2016,16 @@ da-DK:
       other: "%{count} dage"
   transactions:
     initiate:
-      booked_days: ~
-      price_per_day: ~
-      quantity: ~
-      subtotal: ~
-      shipping-price: ~
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+      booked_days: "Bookede dage:"
+      price_per_day: "Pris pr. dag:"
+      quantity: "Mængde:"
+      subtotal: "Subtotal:"
+      shipping-price: "Forsendelse:"
+    price_per_quantity: "Pris pr. %{unit_type}:"
+    price: "Pris:"
+    quantity: "Mængde: %{quantity}"
+    unit_price: "Enhedspris: %{unit_price}"
+    total: "Total:"
   unit:
     day: dag
     days: dage

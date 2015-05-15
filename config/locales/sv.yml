@@ -52,9 +52,9 @@ sv:
         community_details: "Grundläggande detaljer"
         community_look_and_feel: Design
         edit_community: "Grundläggande detaljer"
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
+        enabled_languages: "Aktiverade språk"
+        enabled_languages_description: "Tillgängliga språk för användarna. Det första används som standard."
+        default_language: Standardspråk
         community_name: Marknadsplatsnamn
         edit_community_name_description: "Namnet på din marknadsplats. Detta ser användarna i e-postmeddelanden och på många andra ställen."
         community_slogan: "Marknadsplats slogan"
@@ -154,22 +154,22 @@ sv:
         view_transactions_link_text: här
         contact_support_link_text: "kontakta vår support"
       available_languages:
-        en: ~
-        fr: ~
-        es-ES: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
-        ru: ~
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        en: Engelska
+        fr: Franska
+        es-ES: Spanska
+        pt-BR: Portugisiska
+        nb: Norska
+        sv: Svenska
+        da-DK: Danska
+        fi: Finska
+        ru: Ryska
+        de: Tyska
+        el: Grekiska
+        nl: Holländska
+        tr-TR: Turkiska
+        zh: Kinesiska
+        ja: Japanska
+        it: Italienska
       settings:
         settings: Inställningar
         general: Allmänt
@@ -375,8 +375,8 @@ sv:
         update_success: ~
         update_failure: ~
         delete: ~
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
+        can_not_delete_last: "Du kan inte ta bort denna typ eftersom det är den enda i din marknadsplats."
+        can_not_delete_only_one_in_categories: "Du kan inte ta bort denna ordertyp eftersom det är den enda ordertyp som används i följande kategori: %{categories}"
       listing_shape_name: ~
       action_button_label: ~
       successfully_closed: ~
@@ -394,7 +394,7 @@ sv:
         night: ~
         week: ~
         month: ~
-      can_not_find: ~
+      can_not_find: "Det går inte att hitta ordertyp med id: %{id}"
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"

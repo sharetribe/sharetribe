@@ -53,7 +53,7 @@ es-ES:
         community_look_and_feel: "Apariencia de la tribu"
         edit_community: "Editar detalles de la comunidad \"%{community_name}\""
         enabled_languages: "Idiomas activados"
-        enabled_languages_description: "El conjunto de idiomas disponibles para los usuarios. El primero se usa por defecto."
+        enabled_languages_description: "Conjunto de idiomas disponibles para los usuarios. El primero se usa por defecto."
         default_language: "Idioma predeterminado"
         community_name: "Nombre de la tribu:"
         edit_community_name_description: ~
@@ -377,18 +377,18 @@ es-ES:
         update_success: ~
         update_failure: ~
         delete: "Borrar tipo de pedido"
-        confirm_delete: "Hay %{count} anuncios para este tipo de pedido. Si borras el tipo de pedido, dichos anuncios serán borrados, ¿Estás seguro de que deseas borrar el tipo de pedido?"
-        confirm_delete_singular: ~
-        can_not_delete_last: "No puedes eliminar este tipo de orden porque es el único tipo de orden en tu marketplace."
-        can_not_delete_only_one_in_categories: "No puedes eliminar este tipo de orden porque en las categorías siguientes este tipo de orden es el único en uso: %{categories}"
+        confirm_delete:
+          other: "Hay %{count} anuncios para este tipo de pedido. Si borras el tipo de pedido, dichos anuncios serán borrados, ¿Estás seguro de que deseas borrar el tipo de pedido?"
+        can_not_delete_last: "No puedes eliminar este tipo de transacción porque es el único tipo de transacción que existe en tu marketplace."
+        can_not_delete_only_one_in_categories: "No puedes eliminar este tipo de transacción porque en las categorías solo se usa este tipo de transacción: %{categories}"
       listing_shape_name: ~
       action_button_label: ~
-      open_listings: "Hay %{count} anuncios abiertos con este tipo de pedido. Si cambias cualquier configuración de abajo, los anuncios mantendrán las antiguas configuraciones. La configuración de los anuncios puede ser cambiada con los nuevos parámetros editándolos manualmente. Si no quieres tener ningún anuncios con la antigua configuración visible en tu sitio Web, tu puedes cerrarlo pulsando el botón de abajo"
-      open_listings_singular: ~
-      close_listings: "Cerrar %{count} anuncios"
-      close_listings_singular: ~
-      confirm_close_listings: "¿Estás seguro de que quieres cerrar %{count} anuncios?"
-      confirm_close_listings_singular: ~
+      open_listings:
+        other: "Hay %{count} anuncios abiertos con este tipo de pedido. Si cambias cualquier configuración de abajo, los anuncios mantendrán las antiguas configuraciones. La configuración de los anuncios puede ser cambiada con los nuevos parámetros editándolos manualmente. Si no quieres tener ningún anuncios con la antigua configuración visible en tu sitio Web, tu puedes cerrarlo pulsando el botón de abajo"
+      close_listings:
+        other: "Cerrar %{count} anuncios"
+      confirm_close_listings:
+        other: "¿Estás seguro de que quieres cerrar %{count} anuncios?"
       successfully_closed: "Anuncios cerrados correctamente"
       successfully_deleted: "Pedido tipo '%{order_type}' borrado correctamente"
       pricing_and_checkout_title: "Precio & pago y envío"
@@ -404,7 +404,7 @@ es-ES:
         night: ~
         week: ~
         month: ~
-      can_not_find: "No se pudo encontrar el tipo de orden con id: %{id}"
+      can_not_find: "No se pudo encontrar el tipo de transacción con id: %{id}"
     paypal_accounts:
       marketplace_paypal_integration: "Preferencias de pago"
       preferences_updated: "Preferencias de pago actualizadas"
