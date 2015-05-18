@@ -380,9 +380,9 @@ nb:
         can_not_delete_last: "Du kan ikke fjerne denne transaksjonstypen fordi det er den eneste typen i din markedsplass."
         can_not_delete_only_one_in_categories: "Du kan ikke fjerne denne transaksjonstypen fordi det er eneste type for følgende kategorier i bruk: %{categories}"
       listing_shape_name: ~
-      listing_shape_name_placeholder: ~
+      listing_shape_name_placeholder: "F.eks. Selg"
       action_button_label: ~
-      action_button_placeholder: ~
+      action_button_placeholder: "F.eks. Kjøp"
       open_listings:
         other: "Det er %{count} åpne annonser med denne transaksjonstypen. Hvis du endrer noen av innstillingene nedenfor så vil aktive åpne annonser beholde sine tidligere innstillinger. Annonsene kan oppdateres til nye innstillinger ved å endre dem manuelt. Hvis du ikke vil ha åpne annonser med eldre innstillinger synlige på siden kan du klikke på knappen under."
       close_listings:

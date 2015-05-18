@@ -340,16 +340,16 @@ pt-BR:
       support: Suporte
     listing_shapes:
       index:
-        listing_shapes: ~
+        listing_shapes: "Ordenar tipos"
         description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
+        read_more_about_order_types: "Leia mais sobre os tipos de ordenação"
+        add_new_shape: "Adicione um novo tipo de ordenação: "
         select_template: ~
         all_categories: ~
         no_categories: ~
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Ordenar nomes"
+          listing_shape_categories: "Ordenar categorias"
         order:
           saving_order: ~
           save_order_successful: ~
@@ -369,33 +369,33 @@ pt-BR:
         create_success: ~
         create_failure: ~
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
+        edit_listing_shape: "Editar ordem '%{shape}'"
+        update: Salvar
+        cancel: Cancelar
         update_success: ~
-        update_failure: ~
+        update_failure: "Não foi possível salvar as alterações. Erro: %{error_msg}"
         delete: ~
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
+      listing_shape_name: Nome
       listing_shape_name_placeholder: ~
-      action_button_label: ~
+      action_button_label: "Etiqueta do botão checkout"
       action_button_placeholder: ~
       successfully_closed: ~
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
-      shipping_label: ~
+      shipping_label: "Permitir que vendedores definam uma taxa de envio"
       price_label: ~
-      units_title: ~
+      units_title: "Preço das unidades"
       units_desc: ~
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: "Por peça"
+        hour: "Por hora"
+        day: "Por dia"
+        night: "Por noite"
+        week: "Por semana"
+        month: "Por mês"
       can_not_find: ~
     paypal_accounts:
       marketplace_paypal_integration: "Preferências de pagamento"
@@ -1337,7 +1337,7 @@ pt-BR:
       show_in_updates_email_error: "Não foi possível acessar o servidor. Tente novamente depois de atualizar a página."
       show_in_updates_email_success: "Este anúncio será mostrado na próxima atualização automática de e-mail enviado aos usuários"
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Alguma coisa deu errado, código do erro: %{error_code}"
     follow_links:
       follow: "Obter e-mails sobre novos comentários"
       unfollow: "Não receber e-mails sobre novos comentários"
@@ -1549,7 +1549,7 @@ pt-BR:
       shipping_no_price: Envio
       shipping_price_additional: "Envio (+ %{price}, itens adicionais: + %{shipping_price_additional})"
       pickup: "Pechincha %{price}"
-      pickup_no_price: ~
+      pickup_no_price: Pegar
     unit_types:
       piece: pedaço
       hour: hora
