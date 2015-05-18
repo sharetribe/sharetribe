@@ -154,22 +154,11 @@ module TransactionTypeCreator
 
     raise ArgumentError.new("Could not create new shape: #{shape_opts}") unless shape_res.success
 
-    new_shape = shape_res.data
-
-    # Categories
-    community.categories.each do |category|
-      use_in_category(category, new_shape[:id])
-    end
-
-    new_shape
+    shape_res.data
   end
 
   def available_types
     TransactionTypeCreator::DEFAULTS.map { |type, _| type }
-  end
-
-  def use_in_category(category, listing_shape_id)
-    CategoryListingShape.create!(category_id: category.id, listing_shape_id: listing_shape_id)
   end
 
   def get_or_create_transaction_process(community_id:, process:, author_is_seller:)
