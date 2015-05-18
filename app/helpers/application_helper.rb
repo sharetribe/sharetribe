@@ -68,6 +68,7 @@ module ApplicationHelper
       "social_media" => "ss-share",
       "analytics" => "ss-analytics",
       "openbook" => "ss-openbook",
+      "order_types" => "ss-cart",
 
       # Default category & share type icons
       "offer" => "ss-share",
@@ -631,7 +632,7 @@ module ApplicationHelper
       unless gw
         links << {
           :text => t("admin.listing_shapes.index.listing_shapes"),
-          :icon_class => icon_class("form"),
+          :icon_class => icon_class("order_types"),
           :path => admin_listing_shapes_path,
           :name => "listing_shapes"
         }
