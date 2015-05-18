@@ -381,7 +381,9 @@ en:
         can_not_delete_last: "You can't delete this order type because it's the only type in your marketplace."
         can_not_delete_only_one_in_categories: "You can't delete this order type because in following categories this order type is the only one in use: %{categories}"
       listing_shape_name: Name
+      listing_shape_name_placeholder: "E.g. Sell"
       action_button_label: "Checkout button label"
+      action_button_placeholder: "E.g. Buy"
       open_listings:
         one: "There is %{count} open listing with this order type. If you change any of the settings below, that listing will retain the old settings. The listing can be changed to the new settings by editing it manually. If you don't want to have the listing with the old settings visible on your site, you can close it by clicking the button below."
         other: "There are %{count} open listings with this order type. If you change any of the settings below, those listings will retain the old settings. Those listings can be changed to the new settings by editing them manually. If you don't want to have any listings with the old settings visible on your site, you can close them by clicking the button below."
