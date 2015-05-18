@@ -8,7 +8,7 @@
 # Indexes
 #
 #  index_category_listing_shapes_on_category_id  (category_id)
-#  index_listing_shape_category_joins            (listing_shape_id,category_id)
+#  unique_listing_shape_category_joins           (listing_shape_id,category_id) UNIQUE
 #
 
 class CategoryListingShape < ActiveRecord::Base
