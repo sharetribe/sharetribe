@@ -382,7 +382,9 @@ es-ES:
         can_not_delete_last: "No puedes eliminar este tipo de transacción porque es el único tipo de transacción que existe en tu marketplace."
         can_not_delete_only_one_in_categories: "No puedes eliminar este tipo de transacción porque en las categorías solo se usa este tipo de transacción: %{categories}"
       listing_shape_name: ~
+      listing_shape_name_placeholder: ~
       action_button_label: ~
+      action_button_placeholder: ~
       open_listings:
         other: "Hay %{count} anuncios abiertos con este tipo de pedido. Si cambias cualquier configuración de abajo, los anuncios mantendrán las antiguas configuraciones. La configuración de los anuncios puede ser cambiada con los nuevos parámetros editándolos manualmente. Si no quieres tener ningún anuncios con la antigua configuración visible en tu sitio Web, tu puedes cerrarlo pulsando el botón de abajo"
       close_listings:
