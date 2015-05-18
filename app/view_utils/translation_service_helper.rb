@@ -79,9 +79,24 @@ module TranslationServiceHelper
   #     "fi": "Myy"
   #   }
   #
+  # If nil:
+  #
+  # In:
+  #   tr_key: nil
+  #
+  # Out:
+  #   {
+  #     "en": "",
+  #     "fi": ""
+  #   }
   def tr_key_to_form_value(tr_key, locales)
     locales.reduce({}) { |memo, locale|
-      memo[locale] = I18n.translate(tr_key, locale: locale)
+      if tr_key.nil?
+        memo[locale] = ""
+      else
+        memo[locale] = I18n.translate(tr_key, locale: locale)
+      end
+
       memo
     }
   end

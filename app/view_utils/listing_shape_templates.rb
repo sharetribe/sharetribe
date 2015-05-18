@@ -105,8 +105,8 @@ class ListingShapeTemplates
       },
       {
         label: "admin.listing_shapes.templates.custom",
-        name_tr_key: "admin.transaction_types.custom",
-        action_button_tr_key: "admin.transaction_types.default_action_button_labels.custom",
+        name_tr_key: nil,
+        action_button_tr_key: nil,
         price_enabled: false,
         shipping_enabled: false,
         online_payments: false,

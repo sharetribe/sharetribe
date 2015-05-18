@@ -9,7 +9,7 @@
     .name-locale-label{class: translation_label_class}
       = label_tag "name[#{loc}]", locale_name_mapping[loc], class: "listing-shape-locale-label"
     .name-locale-text_field.col-10
-      = text_field_tag("name[#{loc}]", translation, class: "required")
+      = text_field_tag("name[#{loc}]", translation, class: "required", placeholder: t("admin.listing_shapes.listing_shape_name_placeholder"))
 
 .row
   .col-12
@@ -20,7 +20,7 @@
     .name-locale-label{class: translation_label_class}
       = label_tag "action_button_label[#{loc}]", locale_name_mapping[loc], class: "listing-shape-locale-label"
     .name-locale-text_field.col-10
-      = text_field_tag("action_button_label[#{loc}]", translation, class: "required")
+      = text_field_tag("action_button_label[#{loc}]", translation, class: "required", placeholder: t("admin.listing_shapes.action_button_placeholder"))
 
 - if count > 0
   .row.without-margin
