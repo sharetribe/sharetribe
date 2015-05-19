@@ -340,28 +340,28 @@ pt-BR:
       support: Suporte
     listing_shapes:
       index:
-        listing_shapes: "Ordenar tipos"
+        listing_shapes: "Pedidos por tipos"
         description: ~
-        read_more_about_order_types: "Leia mais sobre os tipos de ordenação"
-        add_new_shape: "Adicione um novo tipo de ordenação: "
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        read_more_about_order_types: "Leia mais sobre os tipos de pedidos"
+        add_new_shape: "Adicione um novo tipo de pedido: "
+        select_template: "Selecionar modelo..."
+        all_categories: "Todas as categorias"
+        no_categories: "Sem categorias"
         header:
-          listing_shape_name: "Ordenar nomes"
-          listing_shape_categories: "Ordenar categorias"
+          listing_shape_name: "Pedidos por nomes"
+          listing_shape_categories: "Pedidos por categorias"
         order:
-          saving_order: ~
-          save_order_successful: ~
+          saving_order: "Salvando o pedido"
+          save_order_successful: "Pedido salvo com sucesso"
           save_order_error: ~
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Venda de produtos"
+        renting_products: "Aluguel de produtos"
+        offering_services: "Oferta de serviços"
+        giving_things_away: "Doar coisas"
+        requesting: Solicitando
+        announcement: Anúncio
+        custom: Personalizado
       new:
         create_listing_shape: ~
         create: ~
@@ -369,7 +369,7 @@ pt-BR:
         create_success: ~
         create_failure: ~
       edit:
-        edit_listing_shape: "Editar ordem '%{shape}'"
+        edit_listing_shape: "Editar pedidos por '%{shape}'"
         update: Salvar
         cancel: Cancelar
         update_success: ~

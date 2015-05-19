@@ -381,9 +381,9 @@ fr:
         can_not_delete_last: "Vous ne pouvez pas supprimer ce type de transaction car c'est actuellement le seul dans votre place de marché."
         can_not_delete_only_one_in_categories: "Vous ne pouvez pas supprimer ce type de transaction car il est le seul utilisé dans les catégories suivantes : %{categories}"
       listing_shape_name: Nom
-      listing_shape_name_placeholder: ~
+      listing_shape_name_placeholder: "Par ex. : Vendre"
       action_button_label: "Libellé du bouton de transaction"
-      action_button_placeholder: ~
+      action_button_placeholder: "Par ex. : Acheter"
       open_listings:
         one: "Il y a %{count} annonce active utilisant ce type de transaction. Si vous modifiez l'un des paramètres ci-dessous, cette annonce conservera les anciens paramètres. Cette annonce peut être modifiée pour utiliser les nouveaux paramètres en l'éditant manuellement. Si vous ne souhaitez pas avoir cette annonce utilisant les anciens paramètres visible sur votre site, vous pouvez la clore en cliquant sur le bouton ci-dessous."
         other: "Il y a %{count} annonces actives utilisant ce type de transaction. Si vous modifiez l'un des paramètres ci-dessous, ces annonces conserveront les anciens paramètres. Ces annonces peuvent être modifiées pour utiliser les nouveaux paramètres en les éditant manuellement. Si vous ne souhaitez pas avoir d'annonces utilisant les anciens paramètres visibles sur votre site, vous pouvez les clore en cliquant sur le bouton ci-dessous."
