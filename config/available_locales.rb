@@ -31,23 +31,9 @@ module Sharetribe
     ["íslenska", "is"],
 
     # Customization languages
-    ["English", "en-rc"],
-    ["Français", "fr-rc"],
-    ["Español", "es-rc"],
-    ["Deutsch", "de-rc"],
-    ["English UL", "en-ul"],
-    ["English SB", "en-sb"],
-    ["English", "en-bf"],
-    ["French", "fr-bd"],
-    ["English", "en-bd"],
-    ["English", "en-cf"],
-    ["English", "en-vg"],
-    ["English", "en-bl"],
-    ["Deutsch", "de-bl"],
-    ["English", "en-un"],
     ["English", "en-qr"],
     ["English", "en-at"],
-    ["French", "fr-at"],
+    ["French", "fr-at"]
   ]
   WELL_TRANSLATED_LOCALES = [
     ["English", "en"],
