@@ -29,11 +29,19 @@ describe ShapeService do
 
   end
 
-  it 'should generate translations' do
-    result = create_shape
-    binding.pry
-    expect(true).to be_truthy
-    # units.find(existing) : keyt on samat
-    # units.find(uus) : keyt on luotu, käännökset luotu
+  context "when processing a shape for creating" do
+    it 'missing translations for units are created' do
+      result = create_shape
+      units = result.data[:units]
+      units.each{|unit|
+        expect(unit).to include(:name_tr_key)
+        expect(unit).to include(:selector_tr_key)
+      }
+    end
+    it "existing translations are untouched" do
+      result = create_shape
+      units = result.data[:units]
+      expect(units.find{|unit| unit[:name_tr_key] == "FOO_KEY1" && unit[:selector_tr_key] == "BAR_KEY1"}).not_to be_empty
+    end
   end
 end
