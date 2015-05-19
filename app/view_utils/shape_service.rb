@@ -97,7 +97,7 @@ class ShapeService
     process = online_payments ? :preauthorize : :none
     selected = processes.find { |p| p[:author_is_seller] == author_is_seller && p[:process] == process }
 
-    raise ArugmentError.new("Can not find suitable process") if selected.nil?
+    raise ArgumentError.new("Can not find suitable process") if selected.nil?
 
     selected[:id]
   end
