@@ -68,6 +68,12 @@ module Kassi
     # This is the list of locales translated to satisfactory extent.
     config.WELL_TRANSLATED_LOCALES = Sharetribe::WELL_TRANSLATED_LOCALES
 
+    # Map of removed locales and their fallbacks
+    config.REMOVED_LOCALE_FALLBACKS = Sharetribe::REMOVED_LOCALE_FALLBACKS
+
+    # List of removed locales
+    config.REMOVED_LOCALES = Sharetribe::REMOVED_LOCALES
+
     I18n.enforce_available_locales = true
 
     # Settings in config/environments/* take precedence over those specified here.

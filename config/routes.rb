@@ -41,7 +41,9 @@ Kassi::Application.routes.draw do
     get "/check_email_availability" => "marketplaces#check_email_availability"
   end
 
-  locale_matcher = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
+  REMOVED_LOCALES = Rails.application.config.REMOVED_LOCALES.to_a
+
+  locale_matcher = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).concat(REMOVED_LOCALES).join("|"))
 
   # Inside this constraits are the routes that are used when request has subdomain other than www
   match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }

@@ -31,23 +31,9 @@ module Sharetribe
     ["íslenska", "is"],
 
     # Customization languages
-    ["English", "en-rc"],
-    ["Français", "fr-rc"],
-    ["Español", "es-rc"],
-    ["Deutsch", "de-rc"],
-    ["English UL", "en-ul"],
-    ["English SB", "en-sb"],
-    ["English", "en-bf"],
-    ["French", "fr-bd"],
-    ["English", "en-bd"],
-    ["English", "en-cf"],
-    ["English", "en-vg"],
-    ["English", "en-bl"],
-    ["Deutsch", "de-bl"],
-    ["English", "en-un"],
     ["English", "en-qr"],
     ["English", "en-at"],
-    ["French", "fr-at"],
+    ["French", "fr-at"]
   ]
   WELL_TRANSLATED_LOCALES = [
     ["English", "en"],
@@ -67,4 +53,24 @@ module Sharetribe
     ["日本語", "ja"],
     ["Italiano", "it"]
   ]
+
+  REMOVED_LOCALE_FALLBACKS = {
+    # removed 20.5.2015
+    "de-bl" => "de",
+    "de-rc" => "de",
+    "en-bd" => "en",
+    "en-bf" => "en",
+    "en-bl" => "en",
+    "en-cf" => "en",
+    "en-rc" => "en",
+    "en-sb" => "en",
+    "en-ul" => "en",
+    "en-un" => "en",
+    "en-vg" => "en",
+    "es-rc" => "es",
+    "fr-bd" => "fr",
+    "fr-rc" => "fr"
+  }
+
+  REMOVED_LOCALES = REMOVED_LOCALE_FALLBACKS.keys.to_set
 end
