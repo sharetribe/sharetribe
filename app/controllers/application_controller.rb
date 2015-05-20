@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
     :fetch_community,
     :redirect_to_marketplace_domain,
     :fetch_community_membership,
+    :redirect_removed_locale,
     :set_locale,
     :generate_event_id,
     :set_default_url_for_mailer,
@@ -42,6 +43,18 @@ class ApplicationController < ActionController::Base
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
 
   helper_method :root, :logged_in?, :current_user?
+
+  def redirect_removed_locale
+    if params[:locale] && Kassi::Application.config.REMOVED_LOCALES.include?(params[:locale])
+      fallback = Kassi::Application.config.REMOVED_LOCALE_FALLBACKS[params[:locale]]
+
+      if @current_community.default_locale == fallback
+        redirect_to url_for(params.except(:locale).merge(only_path: true)), :status => :moved_permanently
+      else
+        redirect_to url_for(params.merge(locale: fallback, only_path: true)), :status => :moved_permanently
+      end
+    end
+  end
 
   def select_locale(user_locale, locale_param, community_locales, community_default_locale)
 
