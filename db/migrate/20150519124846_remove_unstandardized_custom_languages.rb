@@ -1,6 +1,4 @@
-require File.expand_path('../../migrate_helpers/logging_helpers', __FILE__)
 class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
-  include LoggingHelper
 
   # Redefine all Active Record models, so that the migration doesn't depend on the version of code
   module MigrationModel
@@ -79,9 +77,7 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
   UNSTANDARD_LANGUAGES = LANGUAGE_MAP.keys.to_set
 
   def up
-    communities = communities_w_unstandard_locales
-
-    progress = ProgressReporter.new(communities.size)
+    communities = communities_w_unstandard_locales(UNSTANDARD_LANGUAGES)
 
     puts ""
     puts "-- Removing unstandard locales"
@@ -95,7 +91,6 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
 
           # Set up the fallback locale (if it's not already there)
           if !c.locales.include?(fallback)
-            binding.pry
             change_locale(community: c, from: unstandard_locale, to: fallback)
 
             replace_locale_settings(community: c, from: unstandard_locale, to: fallback)
@@ -104,10 +99,9 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
 
             remove_locale_settings(community: c, locale: unstandard_locale)
           end
-        end
 
-        print_dot
-        progress.next
+          puts "Changed locale from: #{unstandard_locale} to: #{fallback} for community: #{c.ident}"
+        end
       end
     end
   end
@@ -118,26 +112,29 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
 
   private
 
-  def communities_w_unstandard_locales
+  def communities_w_unstandard_locales(unstandard_locales)
     comms_w_unstandard_locale = []
 
     puts ""
     puts "-- Searching communities with unstandard locales"
     puts ""
 
-    progress = ProgressReporter.new(MigrationModel::Community.count, 200)
-
-    MigrationModel::Community.find_each do |c|
-      unstandard_locales = c.locales.to_set.intersection(UNSTANDARD_LANGUAGES)
+    where_unstandard_locales(MigrationModel::Community, unstandard_locales).each do |c|
+      unstandard_locales = c.locales.to_set.intersection(unstandard_locales)
       if !unstandard_locales.empty?
-        community_w_unstandard_locale << [c, unstandard_locales]
+        comms_w_unstandard_locale << [c, unstandard_locales]
       end
-
-      print_dot
-      progress.next
     end
 
     comms_w_unstandard_locale
+  end
+
+  def where_unstandard_locales(community_model, unstandard_locales)
+    query = unstandard_locales.map { |l|
+      "settings LIKE '%#{l}%'"
+    }.join(" OR ")
+
+    community_model.where(query)
   end
 
   def change_locale(community:, from:, to:)
