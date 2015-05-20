@@ -119,7 +119,7 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
   private
 
   def communities_w_unstandard_locales
-    community_w_unstandard_locale = []
+    comms_w_unstandard_locale = []
 
     puts ""
     puts "-- Searching communities with unstandard locales"
@@ -137,7 +137,7 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
       progress.next
     end
 
-    community_w_unstandard_locale
+    comms_w_unstandard_locale
   end
 
   def change_locale(community:, from:, to:)
