@@ -211,17 +211,17 @@ GEM
     haml (4.0.5)
       tilt
     hashie (2.0.5)
-    highline (1.6.21)
+    highline (1.7.2)
     hike (1.2.3)
     htmlentities (4.3.2)
     http_parser.rb (0.5.3)
     i18n (0.7.0)
-    i18n-tasks (0.6.2)
+    i18n-tasks (0.8.3)
       activesupport
       easy_translate (>= 0.5.0)
       erubis
       highline
-      slop (>= 3.5.0)
+      i18n
       term-ansicolor
       terminal-table
     innertube (1.1.0)
@@ -455,8 +455,8 @@ GEM
       middleware (>= 0.1.0)
       riddle (>= 1.5.11)
     thor (0.19.1)
-    thread (0.1.4)
-    thread_safe (0.3.4)
+    thread (0.2.0)
+    thread_safe (0.3.5)
     tilt (1.4.1)
     timecop (0.6.3)
     timeliness (0.3.7)
@@ -526,7 +526,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   haml
-  i18n-tasks (~> 0.6.2)
+  i18n-tasks (~> 0.8.3)
   jquery-rails (= 2.1.4)
   json (~> 1.8.0)
   kgio (~> 2.8.0)
