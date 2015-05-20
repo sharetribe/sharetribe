@@ -107,6 +107,7 @@ class ApplicationController < ActionController::Base
     raise ArgumentError.new("Locale #{locale} not available. Check your community settings") unless available_locales.collect { |l| l[1] }.include?(locale)
 
     I18n.locale = locale
+    @facebook_locale_code = I18nHelper.facebook_locale_code(Kassi::Application.config.AVAILABLE_LOCALES, locale)
 
     # Store to thread the service_name used by current community, so that it can be included in all translations
     ApplicationHelper.store_community_service_name_to_thread(service_name)
