@@ -120,9 +120,9 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
     puts ""
 
     where_unstandard_locales(MigrationModel::Community, unstandard_locales).each do |c|
-      unstandard_locales = c.locales.to_set.intersection(unstandard_locales)
-      if !unstandard_locales.empty?
-        comms_w_unstandard_locale << [c, unstandard_locales]
+      intersection = c.locales.to_set.intersection(unstandard_locales)
+      if !intersection.empty?
+        comms_w_unstandard_locale << [c, intersection]
       end
     end
 
