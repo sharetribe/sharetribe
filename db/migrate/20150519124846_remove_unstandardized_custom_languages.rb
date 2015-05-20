@@ -2,6 +2,63 @@ require File.expand_path('../../migrate_helpers/logging_helpers', __FILE__)
 class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
   include LoggingHelper
 
+  # Redefine all Active Record models, so that the migration doesn't depend on the version of code
+  module MigrationModel
+    class Community < ActiveRecord::Base
+      has_many :categories, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::Category"
+      has_many :community_customizations, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CommunityCustomization"
+      has_many :custom_fields, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomField"
+      has_many :menu_links, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::MenuLink"
+      serialize :settings, Hash
+
+      def locales
+        Maybe(settings)["locales"].or_else([])
+      end
+    end
+
+    class Category < ActiveRecord::Base
+      has_many :translations, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CategoryTranslation"
+    end
+
+    class CategoryTranslation < ActiveRecord::Base
+      belongs_to :category, touch: true, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::Category"
+    end
+
+    class CommunityCustomization < ActiveRecord::Base
+    end
+
+    class CustomField < ActiveRecord::Base
+      has_many :names, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomFieldName"
+      has_many :options, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomFieldOption"
+
+      # Ignore STI and 'type' column
+      self.inheritance_column = nil
+    end
+
+    class CustomFieldName < ActiveRecord::Base
+      belongs_to :custom_field, touch: true, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomField"
+    end
+
+    class CustomFieldOption < ActiveRecord::Base
+      has_many :titles, :foreign_key => "custom_field_option_id", class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomFieldOptionTitle"
+    end
+
+    class CustomFieldOptionTitle < ActiveRecord::Base
+      belongs_to :custom_field_option, touch: true, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomFieldOption"
+    end
+
+    class MenuLink < ActiveRecord::Base
+      has_many :translations, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::MenuLinkTranslation"
+    end
+
+    class MenuLinkTranslation < ActiveRecord::Base
+      belongs_to :menu_link, touch: true, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::MenuLink"
+    end
+
+    class CommunityTranslation < ActiveRecord::Base
+    end
+  end
+
   LANGUAGE_MAP = {
     "de-bl" => "de",
     "de-rc" => "de",
@@ -11,8 +68,8 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
     "en-cf" => "en",
     "en-rc" => "en",
     "en-sb" => "en",
-    "en-ul" => "sv",
-    "en-un" => "fr",
+    "en-ul" => "en",
+    "en-un" => "en",
     "en-vg" => "en",
     "es-rc" => "es",
     "fr-bd" => "fr",
@@ -36,16 +93,17 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
         all_unstandard_locales.each do |unstandard_locale|
           fallback = LANGUAGE_MAP[unstandard_locale]
 
-            # Set up the fallback locale (if it's not already there)
-            if !c.locales.include?(fallback)
-              change_locale(community: c, from: unstandard_locale, to: fallback)
+          # Set up the fallback locale (if it's not already there)
+          if !c.locales.include?(fallback)
+            binding.pry
+            change_locale(community: c, from: unstandard_locale, to: fallback)
 
-              replace_locale_settings(community: c, from: unstandard_locale, to: fallback)
-            else
-              puts "-- WARNING: Community #{c.ident} has unstandard locale #{unstandard_locale}, but it already has the fallback locale #{fallback}"
+            replace_locale_settings(community: c, from: unstandard_locale, to: fallback)
+          else
+            puts "-- WARNING: Community #{c.ident} has unstandard locale #{unstandard_locale}, but it already has the fallback locale #{fallback}"
 
-              remove_locale_settings(community: c, locale: unstandard_locale)
-            end
+            remove_locale_settings(community: c, locale: unstandard_locale)
+          end
         end
 
         print_dot
@@ -67,9 +125,9 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
     puts "-- Searching communities with unstandard locales"
     puts ""
 
-    progress = ProgressReporter.new(Community.count, 200)
+    progress = ProgressReporter.new(MigrationModel::Community.count, 200)
 
-    Community.find_each do |c|
+    MigrationModel::Community.find_each do |c|
       unstandard_locales = c.locales.to_set.intersection(UNSTANDARD_LANGUAGES)
       if !unstandard_locales.empty?
         community_w_unstandard_locale << [c, unstandard_locales]
@@ -95,7 +153,7 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
       change_model_locale(models, to)
     end
 
-    CommunityTranslation.where(community_id: community.id, locale: from).update_all(locale: to)
+    MigrationModel::CommunityTranslation.where(community_id: community.id, locale: from).update_all(locale: to)
     Rails.cache.delete("/translation_service/community/#{community.id}")
   end
 
