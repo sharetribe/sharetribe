@@ -48,47 +48,64 @@ module TransactionTypeCreator
   TRANSLATIONS = {
     "Give" => {
       label: "Give",
+      # i18n-tasks-use t("admin.transaction_types.give")
       translation_key: "admin.transaction_types.give",
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
     },
     "Inquiry" => {
       label: "Inquiry",
+      # i18n-tasks-use t("admin.transaction_types.inquiry")
       translation_key: "admin.transaction_types.inquiry",
+      # i18n-tasks-use t("admin.transaction_types.default_action_button_labels.inquiry")
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.inquiry",
     },
     "Lend" => {
       label: "Lend",
+      # i18n-tasks-use t("admin.transaction_types.lend")
       translation_key: "admin.transaction_types.lend",
+      # i18n-tasks-use t("admin.transaction_types.default_action_button_labels.offer")
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
     },
     "Rent" => {
       label: "Rent",
+      # i18n-tasks-use t("admin.transaction_types.rent")
       translation_key: "admin.transaction_types.rent",
+      # i18n-tasks-use t("admin.transaction_types.default_action_button_labels.rent")
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.rent",
     },
     "Request" => {
       label: "Request",
+      # i18n-tasks-use t("admin.transaction_types.request")
       translation_key: "admin.transaction_types.request",
+      # i18n-tasks-use t("admin.transaction_types.default_action_button_labels.request")
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.request",
     },
     "Sell" => {
       label: "Sell",
+      # i18n-tasks-use t("admin.transaction_types.sell")
       translation_key: "admin.transaction_types.sell",
+      # i18n-tasks-use t("admin.transaction_types.default_action_button_labels.sell")
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.sell",
     },
     "Service" => {
       label: "Service",
+      # i18n-tasks-use t("admin.transaction_types.service")
       translation_key: "admin.transaction_types.service",
+      # i18n-tasks-use t("admin.transaction_types.default_action_button_labels.offer")
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
     },
     "ShareForFree" => {
       label: "Share for free",
+      # i18n-tasks-use t("admin.transaction_types.share_for_free")
       translation_key: "admin.transaction_types.share_for_free",
+      # i18n-tasks-use t("admin.transaction_types.default_action_button_labels.offer")
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
     },
     "Swap" => {
       label: "Swap",
+      # i18n-tasks-use t("admin.transaction_types.swap")
       translation_key: "admin.transaction_types.swap",
+      # i18n-tasks-use t("admin.transaction_types.default_action_button_labels.offer")
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
     }
   }
