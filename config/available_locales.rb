@@ -31,9 +31,6 @@ module Sharetribe
     ["íslenska", "is"],
 
     # Customization languages
-    ["English", "en-qr"],
-    ["English", "en-at"],
-    ["French", "fr-at"]
   ]
   WELL_TRANSLATED_LOCALES = [
     ["English", "en"],
@@ -69,7 +66,12 @@ module Sharetribe
     "en-vg" => "en",
     "es-rc" => "es",
     "fr-bd" => "fr",
-    "fr-rc" => "fr"
+    "fr-rc" => "fr",
+
+    # removed 21.5.2015
+    "en-qr" => "en",
+    "en-at" => "en",
+    "fr-at" => "fr"
   }
 
   REMOVED_LOCALES = REMOVED_LOCALE_FALLBACKS.keys.to_set
