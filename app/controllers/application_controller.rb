@@ -48,12 +48,7 @@ class ApplicationController < ActionController::Base
   def redirect_removed_locale
     if params[:locale] && Kassi::Application.config.REMOVED_LOCALES.include?(params[:locale])
       fallback = Kassi::Application.config.REMOVED_LOCALE_FALLBACKS[params[:locale]]
-
-      if @current_community.default_locale == fallback
-        redirect_to url_for(params.except(:locale).merge(only_path: true)), :status => :moved_permanently
-      else
-        redirect_to url_for(params.merge(locale: fallback, only_path: true)), :status => :moved_permanently
-      end
+      redirect_to_locale(fallback, :moved_permanently)
     end
   end
 
@@ -61,14 +56,26 @@ class ApplicationController < ActionController::Base
 
     # Use user locale, if community supports it
     user = Maybe(user_locale).select { |locale| community_locales.include?(locale) }.or_else(nil)
+    return user if user.present?
+
+    # Use fallback of user locale, if community supports it
+    user_fallback = Maybe(user_locale)
+                    .flat_map { |locale| Maybe(Sharetribe::AVAILABLE_LOCALES.find { |(_, ident)| ident == locale }).map { |(_, _, _, _, fallback)| fallback } }
+                    .or_else(nil)
+    return user_fallback if user_fallback.present?
 
     # Use locale from URL param, if community supports it
     param = Maybe(locale_param).select { |locale| community_locales.include?(locale) }.or_else(nil)
+    return param if param.present?
 
-    # Use community detauls locale
-    community = community_default_locale
+    # Use fallback of param locale, if community supports it
+    param_fallback = Maybe(locale_param)
+                    .flat_map { |locale| Maybe(Sharetribe::AVAILABLE_LOCALES.find { |(_, ident)| ident == locale }).map { |(_, _, _, _, fallback)| fallback } }
+                    .or_else(nil)
+    return param_fallback if param_fallback.present?
 
-    user || param || community
+    # Use community default locale
+    return community_default_locale
   end
 
   def set_locale
