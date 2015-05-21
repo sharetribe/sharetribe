@@ -36,9 +36,8 @@ module Sharetribe
     ["ភាសាខ្មែ",               "km-KH", "km", "KH"], # Khmer (Cambodia)
     ["Bahasa Malaysia",     "ms-MY", "ms", "MY"], # Malay (Malaysia)
     ["íslenska",            "is",    "is", "IS"], # Icelandic (Iceland)
-
-    # Customization languages
   ]
+
   WELL_TRANSLATED_LOCALES = [
     ["English", "en"],
     ["Français", "fr"],
