@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
     :fetch_community_membership,
     :redirect_removed_locale,
     :set_locale,
+    :redirect_locale_param,
     :generate_event_id,
     :set_default_url_for_mailer,
     :fetch_chargebee_plan_data,
@@ -122,6 +123,22 @@ class ApplicationController < ActionController::Base
     Maybe(@current_community).each { |community|
       @community_customization = community.community_customizations.where(locale: locale).first
     }
+  end
+
+  # If URL contains locale parameter that doesn't match with the selected locale,
+  # redirect to the selected locale
+  def redirect_locale_param
+    needs_redirect = params[:locale].present? && params[:locale] != I18n.locale.to_s
+
+    redirect_to_locale(I18n.locale, :temporary_redirect) if needs_redirect
+  end
+
+  def redirect_to_locale(new_locale, status)
+    if @current_community.default_locale == new_locale.to_s
+      redirect_to url_for(params.except(:locale).merge(only_path: true)), :status => status
+    else
+      redirect_to url_for(params.merge(locale: new_locale, only_path: true)), :status => status
+    end
   end
 
   #Creates a URL for root path (i18n breaks root_path helper)
