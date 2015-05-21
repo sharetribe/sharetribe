@@ -1,39 +1,43 @@
+# coding: utf-8
 module Sharetribe
+
+  # Format: [name, identifier, language, region]
+  #
+  # language format: ISO 639-1, two letters, lowercase
+  # region format: ISO 3166, two letters, uppercase
+
   AVAILABLE_LOCALES = [
-    ["English", "en"],
-    ["English", "en-GB"],
-    ["English", "en-AU"],
-    ["Suomi", "fi"],
-    ["Pусский", "ru"],
-    ["Nederlands", "nl"],
-    ["Ελληνικά", "el"],
-    ["Kiswahili", "sw"],
-    ["Română", "ro"],
-    ["Français", "fr"],
-    ["Français", "fr-CA"],
-    ["中文", "zh"],
-    ["Español", "es"],
-    ["Español", "es-ES"],
-    ["Catalan", "ca"],
-    ["Tiếng Việt", "vi"],
-    ["Deutsch", "de"],
-    ["Svenska", "sv"],
-    ["Italiano", "it"],
-    ["Hrvatski", "hr"],
-    ["Português do Brasil", "pt-BR"],
-    ["Dansk", "da-DK"],
-    ["Turkish", "tr-TR"],
-    ["日本語", "ja"],
-    ["Norsk", "nb"],
-    ["Polski", "pl"],
-    ["ភាសាខ្មែ","km-KH"],
-    ["Bahasa Malaysia", "ms-MY"],
-    ["íslenska", "is"],
+    ["English",             "en",    "en", "US"], # English (United States)
+    ["English",             "en-GB", "en", "GB"], # English (United Kingdom)
+    ["English",             "en-AU", "en", "AU"], # English (Australia)
+    ["Suomi",               "fi",    "fi", "FI"], # Finnish (Finland)
+    ["Pусский",             "ru",    "ru", "RU"], # Russian (Russia)
+    ["Nederlands",          "nl",    "nl", "NL"], # Dutch (Netherlands)
+    ["Ελληνικά",            "el",    "el", "GR"], # Greek (Greece)
+    ["Kiswahili",           "sw",    "sw", "KE"], # Swahili (Kenya)
+    ["Română",              "ro",    "ro", "RO"], # Romanian (Romania)
+    ["Français",            "fr",    "fr", "FR"], # French (France)
+    ["Français",            "fr-CA", "fr", "CA"], # French (Canada)
+    ["中文",                "zh",    "zh", "CN"], # Chinese (China)
+    ["Español",             "es",    "es", "CL"], # Spanish (Chile)
+    ["Español",             "es-ES", "es", "ES"], # Spanish (Spain)
+    ["Catalan",             "ca",    "ca", "ES"], # Catalan (Spain)
+    ["Tiếng Việt",          "vi",    "vi", "VN"], # Vietnamese (Vietnam)
+    ["Deutsch",             "de",    "de", "DE"], # German (Germany)
+    ["Svenska",             "sv",    "sv", "SE"], # Swedish (Sweden)
+    ["Italiano",            "it",    "it", "IT"], # Italian (Italy)
+    ["Hrvatski",            "hr",    "hr", "HR"], # Croatian (Croatia)
+    ["Português do Brasil", "pt-BR", "pt", "BR"], # Portuguese (Brazil)
+    ["Dansk",               "da-DK", "da", "DK"], # Danish (Denmark)
+    ["Turkish",             "tr-TR", "tr", "TR"], # Turkish (Turkey)
+    ["日本語",               "ja",    "ja", "JP"], # Japanese (Japan)
+    ["Norsk",               "nb",    "nb", "NO"], # Norwegian Bokmål (Norway)
+    ["Polski",              "pl",    "pl", "PL"], # Polish (Poland)
+    ["ភាសាខ្មែ",               "km-KH", "km", "KH"], # Khmer (Cambodia)
+    ["Bahasa Malaysia",     "ms-MY", "ms", "MY"], # Malay (Malaysia)
+    ["íslenska",            "is",    "is", "IS"], # Icelandic (Iceland)
 
     # Customization languages
-    ["English", "en-qr"],
-    ["English", "en-at"],
-    ["French", "fr-at"]
   ]
   WELL_TRANSLATED_LOCALES = [
     ["English", "en"],
@@ -69,7 +73,12 @@ module Sharetribe
     "en-vg" => "en",
     "es-rc" => "es",
     "fr-bd" => "fr",
-    "fr-rc" => "fr"
+    "fr-rc" => "fr",
+
+    # removed 21.5.2015
+    "en-qr" => "en",
+    "en-at" => "en",
+    "fr-at" => "fr"
   }
 
   REMOVED_LOCALES = REMOVED_LOCALE_FALLBACKS.keys.to_set
