@@ -1,55 +1,57 @@
 id:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "masa berlaku telah berakhir, silakan minta yang baru"
+      not_found: "tidak ditemukan"
+      already_confirmed: "sudah terkonfirmasi, silakan login kembali"
+      not_locked: "tidak terkunci"
+      not_saved:
+        other: "%{count} error membuat %{resource} gagal untuk disimpan:"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: "Anda sudah login"
+      unauthenticated: "Anda harus login atau daftar sebelum melanjutkan."
+      unconfirmed: "Anda harus mengkonfirmasi akun Anda sebelum melanjutkan."
+      locked: "Akun Anda terkunci."
+      invalid: "Email atau Password yang Anda masukkan salah."
+      invalid_token: "Token tidak valid."
+      timeout: "Sesi Anda telah berakhir, silakan login lagi untuk melanjutkan."
+      inactive: "Akun Anda belum diaktifkan."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Password Anda berhasil diubah."
+      send_paranoid_instructions: "Jika email Anda ada pada data kami, Anda akan menerima email untuk mereset password Anda"
+      send_instructions: "Anda akan menerima email cara mereset password dalam beberapa saat."
+      updated: "Password Anda berhasil diubah. Sekarang Anda telah login."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Login sukses."
+      signed_out: "Logout sukses."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Jika email Anda ada pada data kami, Anda akan menerima email cara mengkonfirmasi akun Anda dalam beberapa saat."
+      send_instructions: "Anda akan menerima email untuk mengkonfirmasi akun Anda dalam beberapa saat."
+      confirmed: "Akun Anda telah berhasil dikonfirmasi."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Pesan dengan link konfirmasi telah dikirimkan ke email Anda. Silakan buka link tersebut untuk mengaktifkan akun Anda."
+      signed_up_but_inactive: "Anda telah terdaftar. Namun Anda belum dapat login karena akun Anda belum aktif."
+      signed_up_but_locked: "Anda telah terdaftar. Namun Anda tidak dapat login karena akun anda terkunci."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: "akun tidak aktif"
+        unconfirmed: "akun belum dikonfirmasi"
+        locked: "akun terkunci"
+      update_needs_confirmation: "Akun Anda berhasil diperbarui, namun Anda harus memverifikasi email baru Anda. Silakan cek email Anda dan buka link konfirmasi untuk memverifikasi email baru Anda."
+      signed_up: "Selamat Datang! Pendaftaran Anda berhasil."
+      updated: "Akun Anda berhasil diperbarui."
+      destroyed: "Selamat tinggal! Akun Anda berhasil dihapuskan. Kami berharap dapat melihat Anda lagi."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Jika akun Anda ada pada data kami, Anda akan menerima email cara membuka akun Anda dalam beberapa saat."
+      send_instructions: "Anda akan menerima email cara membuka akun Anda dalam beberapa menit."
+      unlocked: "Akun anda berhasil dibuka. Silakan login untuk melanjutkan."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Otorisasi Akun %{kind} berhasil."
+      failure: "Gagal otorisasi %{kind} karena \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Instruksi untuk konfirmasi"
       reset_password_instructions:
-        subject: ~
+        subject: "Instruksi untuk reset password"
       unlock_instructions:
-        subject: ~
+        subject: "Instruksi untuk membuka akun Anda"

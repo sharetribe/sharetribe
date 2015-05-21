@@ -418,22 +418,22 @@ id:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: cancel
+    fields_that_are_mandatory: "Kolom dengan tanda bintang (*) adalah wajib."
+    or: atau
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
+      borrow: meminjamkan
+      buy: membeli
+      give_away: memberikan
+      lend: pinjaman
+      receive: "mengambil gratis"
+      rent: menyewakan
+      rent_out: menyewakan
+      sell: menjual
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -460,7 +460,7 @@ id:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: ~
+    what_is_this: "Apa ini?"
     removed_user: ~
     paypal_fee_info:
       title: ~
@@ -509,11 +509,11 @@ id:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "Memuat pesan lebih"
+      message_partitive: pesan
+      messages_partitive: pesan
+      no_received_messages: "tidak ada pesan"
+      no_sent_messages: "tidak ada pesan dikirim"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -539,10 +539,10 @@ id:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: ~
-      favor_request_message_form_title: ~
-      housing_offer_message_form_title: ~
-      housing_request_message_form_title: ~
+      favor_offer_message_form_title: "Meminta bantuan dari %{person}"
+      favor_request_message_form_title: "Menawarkan bantuan untuk %{person}"
+      housing_offer_message_form_title: "Menawarkan tempat untuk %{person}"
+      housing_request_message_form_title: "Meminta tempat dari %{person}"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -559,18 +559,18 @@ id:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: ~
-      message: ~
+      item_request_message_form_title: "Menawarkan barang untuk %{person}"
+      message: Pesan
       message_to: ~
       optional_message_to: ~
-      rideshare_offer_message_form_title: ~
-      rideshare_request_message_form_title: ~
+      rideshare_offer_message_form_title: "Meminta tumpangan dari %{person}"
+      rideshare_request_message_form_title: "Menawarkan tumpangan untuk %{person}"
       send_message: ~
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: Judul
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -578,8 +578,8 @@ id:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: "Kirim balasan"
+      write_a_reply: "Tulisa balasan"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -593,11 +593,11 @@ id:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: "Feedback yang diberikan"
+      feedback_skipped: "Feedback yang dilewatkan"
+      give_feedback: "Beri feedback"
+      offer_accepted: Diterima
+      offer_rejected: Ditolak
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -613,13 +613,13 @@ id:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: Diterima
+      request_rejected: Ditolak
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "Lewati feedback"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -635,10 +635,10 @@ id:
           unknown_reason: ~
           verify: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "Terima penawaran"
+      accept_request: "Terima permintaan"
+      reject_offer: "Tidak untuk saat ini"
+      reject_request: "Tidak untuk saat ini"
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -706,12 +706,12 @@ id:
       join_community_button: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "Ingat untuk menerima atau menolak penawaran dari %{sender_name}"
+      remember_to_accept_request: "Ingat untuk menerima atau menolak permintaan dari %{sender_name}"
+      you_can_accept_or_reject_offer_at: "Anda dapat menerima atau menolak penawaran pada"
+      you_can_accept_or_reject_request_at: "Anda dapat menerima atau menolak permintaan pada"
+      you_have_not_yet_accepted_or_rejected_offer: "Anda belum menerima atau menolak penawaran %{title} yang Anda terima pada %{date}."
+      you_have_not_yet_accepted_or_rejected_request: "Anda belum menerima atau menolak permintaan %{title} yang Anda terima pada %{date}."
       show_thread: ~
     braintree_account_approved:
       account_ready: ~
@@ -766,11 +766,11 @@ id:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      check_your_settings: ~
-      hey: ~
-      kassi_team: ~
-      thanks: ~
-      want_to_control_emails: ~
+      check_your_settings: "Periksa setting Anda"
+      hey: "Halo %{name}!"
+      kassi_team: "Tim %{service_name}"
+      thanks: "Terima Kasih,"
+      want_to_control_emails: "Ingin mengontrol email yang Anda terima dari %{service_name}?"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -778,15 +778,15 @@ id:
       or: ~
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter} menerima penawaran Anda %{listing}."
+      has_accepted_your_request: "%{accepter} menerima permintaan Anda %{listing}."
+      has_rejected_your_offer: "%{accepter} menolak penawaran Anda %{listing}."
+      has_rejected_your_request: "%{accepter} menolak permintaan Anda %{listing}."
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "Penawaran Anda diterima"
+      your_offer_was_rejected: "Penawaran Anda ditolak"
+      your_request_was_accepted: "Permintaan Anda diterima"
+      your_request_was_rejected: "Permintaan Anda ditolak"
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~
@@ -799,13 +799,13 @@ id:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "%{author} memberikan komen pada list Anda pada %{service_name}"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} mengirimkan Anda pesan pada %{service_name}."
+      you_have_a_new_message: "Pesan baru pada %{service_name} dari %{sender_name}"
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -833,8 +833,8 @@ id:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name} memberikan Anda feedback pada %{service_name}"
+      you_can_give_feedback_to: "Anda belum memberikan feedback untuk %{name}."
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -862,8 +862,8 @@ id:
       reset_password_instructions: ~
     testimonial_reminder:
       feedback_is_public_and_is_shown: ~
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      remember_to_give_feedback_to: "Reminder: Ingat untuk memberikan feedback untuk %{name}"
+      you_have_not_given_feedback_yet: "Anda belum memberikan feedback untuk %{name} tentang  '%{event}'. Ingat untuk memberikan feedback bagaimana layanan %{given_name}."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -906,14 +906,14 @@ id:
       view_listing: ~
   error_messages:
     listings:
-      departure_time: ~
-      share_type: ~
-      valid_until: ~
+      departure_time: "Waktu keberangkatan harus antara waktu saat ini dan satu tahun dari sekarang."
+      share_type: "Anda harus memilih salah satu."
+      valid_until: "Tanggal harus antara waktu saat ini dan 6 bulan dari sekarang."
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "Jika Anda ingin memberikan feedback yang tidak netral (Positif atau Negatif), Anda harus memberikan penjelasan mengapa."
+      you_must_select_a_grade: "Ingat untuk berbagai baik pengalaman Anda positif maupun negatif."
     transaction_agreement:
       required_error: ~
     paypal:
@@ -922,12 +922,12 @@ id:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "Kembali ke halaman utama"
     error_404:
-      if_you_believe: ~
-      page_can_not_be_found: ~
-      page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+      if_you_believe: "If you believe that the address is correct and it should be working, please help us locate the error by letting us know what address caused the error and what should be seen on the page with the form below."
+      page_can_not_be_found: "Halaman tidak ditemukan!"
+      page_you_requested_can_not_be_found: "Halaman yang anda minta tidak ditemukan. Apakah Anda yakin telah menulis alamat yang benar?"
+    error_404_title: "Halaman tidak ditemukan"
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -938,16 +938,16 @@ id:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
-    error_description: ~
+    error_500_title: "Gagal memuat halaman"
+    error_description: "Deskripsi error"
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
+      javascript_is_disabled_in_your_browser: "Javascript dinonaktifkan di browser Anda"
       kassi_does_not_currently_work_without_javascript: ~
       contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      send_feedback: "Kirim feedback"
+      your_feedback_to_admins: "Feedback Anda untuk admin"
+    send: Kirim
+    your_email_address: "Alamat email Anda"
   errors:
     messages:
       invalid_date: ~
@@ -985,14 +985,14 @@ id:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
+    about: Tentang
+    home: Home
     members: ~
     new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
+    mobile_version: "Mobile version"
+    offers: Penawaran
+    requests: Permintaan
+    search_kassi: "Cari %{service_name}"
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
@@ -1002,36 +1002,36 @@ id:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "Selain itu  ada <b>satu tawaran lainnya</ b>,"
+      additionally_one_private_request_exists: "Selain itu  ada <b>satu permintaan lainnya</b>,"
+      additionally_some_private_offers_exist: "Selain itu ada <b>%{number_of_listings} penawaran lain</b>,"
+      additionally_some_private_requests_exist: "Selain itu ada <b>%{number_of_listings} permintaan lain</b>,"
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
+      add_first: "Tambahkan list!"
+      but_that_is_visible_only_to_registered_members: "namun hanya terlihat untuk member yang terdaftar."
+      but_those_are_visible_only_to_registered_members: "namun hanya terlihat untuk member yang terdaftar."
+      create_new_account_for_yourself: "Buat akun baru Anda"
+      examples_of_what_you_could_offer_to_others: "Apa yang Anda tawarkan kepada pengguna lain"
+      examples_of_what_you_could_request_to_others: "Apa yang Anda minta dari pengguna lain"
       favor_offer_list: ~
       favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
+      favors_to_offer: "Bantuan: "
+      favors_to_request: "Bantuan: "
       item_offer_list: ~
       item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
-      log_in: ~
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      items_to_offer: "Barang untuk dipinjam: "
+      items_to_request: "Barang untuk dipinjam: "
+      log_in: Login!
+      no_offers_visible_unless_logged_in: "Tidak ada penawaran barang, layanan atau tumpangan visibel oleh pengguna yang tidak login."
+      no_open_offers_currently: "Tidak ada penawaran barang, layanan atau tumpangan."
+      no_open_requests_currently: "Tidak ada permintaan barang, layanan atau tumpangan."
+      no_requests_visible_unless_logged_in: "Tidak ada permintaan barang, layanan atau tumpangan yang visibel oleh pengguna yang tidak login."
+      one_private_offer_exists: "Sudah ada <b> satu penawaran </ b>,"
+      one_private_request_exists: "Sudah ada <b>one permintaan</b>,"
+      ride_offer: "Mengambil anak-anak untuk hobi mereka"
+      ride_request: "Tumpangan ke kantor"
+      some_private_offers_exist: "Sudah ada <b>%{number_of_listings} penawaran</b>,"
+      some_private_requests_exist: "Sudah ada <b>%{number_of_listings} permintaan</b>,"
     custom_filters:
       update_view: ~
       min: ~
@@ -1051,15 +1051,15 @@ id:
       are: ~
       what_do_you_need: ~
       post_new_listing: ~
-      are_offering: ~
+      are_offering: penawaran
       add_news_item: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
+      lend_rent_help_carpool: "Jual, pinjam, bantu, berbagi tumpangan"
+      loading_more_content: "Memuat lebih banyak konten"
       more_events: ~
-      news: ~
+      news: Berita
       no_news: ~
       more_news: ~
-      or: ~
+      or: dan
       or_see_what_the_others: ~
       recent_events: ~
       requesting: ~
@@ -1128,7 +1128,7 @@ id:
       or_check_our: ~
       send_feedback_to_admin: ~
       to_see_what_others_have_suggested: ~
-      your_email_address: ~
+      your_email_address: "Alamat email (untuk menghubungi Anda)"
       connect: ~
       invite_your_friends: ~
       invite_your_neighbors: ~
@@ -1137,43 +1137,43 @@ id:
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
-      messages: ~
-      notifications: ~
-      received: ~
-      sent: ~
+      messages: Pesan
+      notifications: Notifikasi
+      received: Diterima
+      sent: Terkirim
     global-header:
       select_language: ~
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
+      about: Tentang
+      how_to_use: "Cara kerja"
+      info_about_kassi: "Informasi tentang%{service_name}"
       news: ~
-      register_details: ~
-      terms: ~
+      register_details: Privasi
+      terms: "Syarat Penggunaan"
     logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: Admin
+      go_to_your_profile_page: Profil
+      hi: Hai
+      login: Login
+      logout: Logout
+      notifications: Notifikasi
+      requests: "Permintaan pertemanan"
+      settings: Pengaturan
+      sign_up: "Buat akun"
     logged_in_messages_icon:
-      messages: ~
+      messages: Pesan
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: Notifikasi
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
+      admin: Admin
+      go_to_your_profile_page: Profil
+      hi: Hai
+      login: Login
+      logout: Logout
+      notifications: Notifikasi
+      requests: "Permintaan pertemanan"
       settings: ~
-      sign_up: ~
+      sign_up: Daftar
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
@@ -1183,54 +1183,54 @@ id:
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
-      comment_sent: ~
+      comment_cannot_be_empty: "Komen tidak boleh kosong"
+      comment_sent: "Komen terkirim"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       create_new_listing: ~
-      create_one_here: ~
+      create_one_here: "Tambah satu disini"
       email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
+      email_not_found: "Email yang Anda berikan tidak ditemukan pada data %{service_name}"
+      error_with_session: "Session error."
+      feedback_considered_spam: "Feedback tidak tersimpan, karena format tersebut. Coba lagi atau gunakan forum feedback."
+      feedback_not_saved: "Feedback tidak dapat dikirimkan."
+      feedback_saved: "Terima kasih banyak atas feedback Anda! Kami akan merespon sesegera mungkin."
+      feedback_sent_to: "Feedback dikirimkan kepada %{target_person}."
+      feedback_skipped: "Feedback dilewatkan."
       invitation_cannot_be_sent: ~
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
+      login_again: "Silakan login lagi."
+      login_failed: "Login gagal. Masukkan detil yang benar."
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
-      logout_successful: ~
+      login_successful: "Selamat Datang, %{person_name}!"
+      logout_successful: "Anda sudah logout dari %{service_name}. Sampai bertemu kembali!"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
       news_item_updated: ~
       news_item_deleted: ~
-      offer_accepted: ~
+      offer_accepted: "Penawaran diterima"
       offer_confirmed: ~
-      offer_closed: ~
+      offer_closed: "Penawaran ditutup"
       listing_created_successfully: ~
-      offer_rejected: ~
+      offer_rejected: "Penawaran ditolak"
       offer_canceled: ~
       listing_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
+      only_kassi_administrators_can_access_this_area: "Hanya admin %{service_name} yang dapat mengakses area ini"
+      only_listing_author_can_close_a_listing: "Hanya pembuat listing yang dapat menutup listing"
+      only_listing_author_can_edit_a_listing: "Hanya pembuat listing yang dapat mengedit listing"
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
+      password_recovery_sent: "Instruksi untuk merubah password telah dikirimkan ke email Anda."
       person_activated: ~
       person_deactivated: ~
-      person_updated_successfully: ~
+      person_updated_successfully: "Informasi telah diperbarui."
       poll_answered: ~
       poll_could_not_be_answered: ~
       poll_created: ~
@@ -1238,40 +1238,40 @@ id:
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~
-      read_more: ~
+      read_more: "Baca selengkapnya!"
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
-      request_accepted: ~
+      reply_cannot_be_empty: "Anda tidak dapat mengirimkan pesan kosong"
+      reply_sent: "Balasan sukses dikirimkan"
+      request_accepted: "Permintaan diterima"
       request_confirmed: ~
-      request_closed: ~
-      request_rejected: ~
+      request_closed: "Permintaan ditutup"
+      request_rejected: "Permintaan ditolak"
       request_canceled: ~
       message_sent: ~
       this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
+      unknown_error: "Error tidak diketahui. Gunakan link hubungi kami untuk mengirimkan kejadian detil."
+      update_error: "Error terjadi ketika berusaha mengupdate informasi Anda, coba lagi"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Anda tidak memiliki otorisasi untuk memberi feedback ini"
+      you_are_not_authorized_to_do_this: "Anda tidak memiliki otorisasi untuk melakukan ini"
+      you_are_not_authorized_to_view_this_content: "Anda tidak memiliki otorisasi untuk melihat konten ini"
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
-      you_cannot_reply_to_a_closed_request: ~
+      you_cannot_reply_to_a_closed_offer: "Anda tidak dapat membalas penawaran yang sudah ditutup"
+      you_cannot_reply_to_a_closed_request: "Anda tidak dapat membalas permintaan yang sudah ditutup"
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_have_already_given_feedback_about_this_event: "Anda sudah memberi feedback untuk ini"
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
+      you_must_log_in_to_give_feedback: "Anda harus login untuk memberi feedback"
       you_must_log_in_to_invite_new_users: ~
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
-      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_send_a_comment: "Anda harus login untuk mengirim komen baru"
+      you_must_log_in_to_send_a_message: "Anda harus login pada %{service_name} untuk mengirim pesan kepada pengguna lain"
+      you_must_log_in_to_view_this_content: "Anda harus login untuk melihat konten ini"
       you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_view_your_inbox: "Anda harus login pada %{service_name} untuk melihat kotak pesan Anda"
+      you_must_log_in_to_view_your_settings: "Anda harus login pada %{service_name} untuk melihat pengaturan Anda"
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
@@ -1290,10 +1290,10 @@ id:
       listing_author_payment_details_missing: ~
       stylesheet_needs_recompiling: ~
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
+      account: Akun
+      notifications: Notifikasi
+      profile: "Info profil"
+      settings: Pengaturan
       payments: ~
   listings:
     bubble_listing_not_visible:
@@ -1303,12 +1303,12 @@ id:
       send_private_message: ~
     comment_form:
       ask_a_question: ~
-      log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
+      log_in: Login
+      send_comment: "Kirim komen"
+      to_send_a_comment: "untuk mengirim komen baru."
+      write_comment: "Menulis komen baru:"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
+      you_must: "Anda harus"
       subscribe_to_comments: ~
     edit:
       edit_listing: ~
@@ -1331,32 +1331,32 @@ id:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: Pada
+        departure_time: "Waktu keberangkatan"
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: "Deskripsi detil"
       destination:
-        destination: ~
+        destination: Tujuan
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
+        favor: layanan
+        housing: tempat
+        item: barang
+        offer_something: "Menawarkan sesuatu"
+        request_something: "Meminta sesuatu"
+        rideshare: tumpangan
         i_want_to_offer: ~
         i_want_to_request: ~
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_copy: "Titik Akhir Dari Map"
+        googlemap_description: Mapview
+        googlemap_updatemap: "Update Map"
       images:
-        image: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        image: Gambar
+        no_file_selected: "Tidak ada file yang dipilih"
+        remove_image: "Hapus gambar"
+        select_file: "Pilih file"
         removing: ~
         processing: ~
         loading_image: ~
@@ -1366,7 +1366,7 @@ id:
         file_too_large: ~
         accepted_formats: ~
       location:
-        location: ~
+        location: Lokasi
       price:
         price: ~
         per: ~
@@ -1386,84 +1386,84 @@ id:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
-        origin: ~
+        location: Lokasi
+        origin: Asal
       send_button:
         save_listing: ~
       share_type:
         select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
+        borrow: Meminjamkan
+        buy: Membeli
+        give_away: Memberikan
+        lend: Pinjaman
+        offer_type: "Jenis penawaran"
+        receive: "Menerima gratis"
+        rent: Menyewakan
+        rent_out: Menyewakan
+        request_type: "Jenis permintaan"
+        sell: Menjual
         share_for_free: ~
         accept_for_free: ~
         trade: ~
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(pisahkan dengan tanda koma)"
+        tags: Tag
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: "Tanggal berakhir"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: "Untuk sementara"
       visibility:
         all_communities: ~
-        this_community: ~
-        visibility: ~
+        this_community: "Hanya member %{service_name}"
+        visibility: Visibility
       privacy:
         privacy: ~
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "Jenis penawaran atau permintaan"
+      help_tags_title: Tag
+      help_valid_until_title: "Tanggal berakhir"
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
+      all_categories: "Semua kategori"
+      all_offer_types: "Semua jenis permintaan"
+      all_request_types: "Semua jenis penawaran"
+      category: Kategori
+      did_not_found_what_you_were_looking_for: "Tidak menemukan yang Anda inginkan?"
+      favors: Layanan
+      housing: Tempat
+      items: Barang
+      list_view: "List view"
       listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
+      map_view: "Map view"
+      offer_something: "Sebarkan ke yang lain!"
+      offer_type: "Jenis penawaran"
+      offers: Penawaran
+      request_something: "Minta sesuatu!"
+      request_type: "Jenis permintaan"
+      requests: Permintaan
+      rideshare: Tumpangan
+      search_verb: Cari
+      you_have_something_others_do_not: "Punya sesuatu untuk ditawarkan?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
-      rideshares: ~
-      sells: ~
+      borrows: Meminjamkan
+      buys: Membeli
+      favors: Layanan
+      give_aways: "Memberikan gratis"
+      housings: Tempat
+      items: Barang
+      lends: Pinjaman
+      receives: "Mengambil gratis"
+      rent_outs: Menyewakan
+      rents: Menyewakan
+      rideshares: Tumpangan
+      sells: Menjual
       share_for_frees: ~
       accept_for_frees: ~
-      trades: ~
+      trades: Menukar
     listing_actions:
       booking_from: ~
       booking_to: ~
@@ -1490,29 +1490,29 @@ id:
       month: ~
       custom: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: Komentar
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: "Diskusi Umum"
       contact_by_phone: ~
       contact: ~
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: "Menawarkan layanan"
+      favor_request: "Permintaan layanan"
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
-      no_description: ~
+      no_description: "Listing ini tidak memiliki deskripsi"
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: Penawaran
       listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
+      request: Permintaan
       rideshare_offer: ~
       rideshare_request: ~
       send_private_message: ~

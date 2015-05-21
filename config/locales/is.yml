@@ -1396,7 +1396,7 @@ is:
         buy: Kaupa
         give_away: Gefa
         lend: Lána
-        offer_type: "Tegund auglýsingu"
+        offer_type: "Tegund auglýsingar"
         receive: Samþykkja
         rent: Leigja
         rent_out: "Leigja út"
@@ -1439,7 +1439,7 @@ is:
       listings: ~
       map_view: "Sýna á korti"
       offer_something: "Láttu aðra vita!"
-      offer_type: "Tegund auglýsingu"
+      offer_type: "Tegund auglýsingar"
       offers: Auglýsingar
       request_something: "Óskaðu eftir einhverju!"
       request_type: "Tegund beiðni"
@@ -1566,17 +1566,17 @@ is:
       housing: Pláss
       items: Hlutir
       list_view: "Sýna sem lista"
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      map_view: "Sýna á korti"
+      offer_something: "Láttu aðra vita!"
+      offer_type: "Tegund auglýsingar"
+      offers: Auglýsingar
+      request_something: "Óskaðu eftir einhverju!"
+      request_type: "Tegund beiðni"
+      requests: Beiðnir
+      rideshare: Far
+      search_verb: Leita
+      you_have_something_others_do_not: "Hvað hefuru upp á að bjóða?"
+    please_comment: Athugasemd
   mercury:
     content_too_long: ~
   okl:
@@ -1654,7 +1654,7 @@ is:
       activate: ~
       deactivate: ~
     help_texts:
-      feedback_description_title: ~
+      feedback_description_title: Umsögn
       help_captcha_title: ~
       help_invitation_code_title: ~
       terms_title: ~
