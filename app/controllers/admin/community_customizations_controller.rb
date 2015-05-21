@@ -12,7 +12,6 @@ class Admin::CommunityCustomizationsController < ApplicationController
     if custom_translation_in_use
       custom_locale_key = @current_community.locales.first
       custom_locale_name = Kassi::Application.config.AVAILABLE_LOCALES.select {|k, v| v == custom_locale_key}.map(&:first).first
-      binding.pry
       custom_locale = {key: custom_locale_key, name: custom_locale_name}
     end
 
