@@ -52,32 +52,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def select_locale(user_locale, locale_param, community_locales, community_default_locale)
-
-    # Use user locale, if community supports it
-    user = Maybe(user_locale).select { |locale| community_locales.include?(locale) }.or_else(nil)
-    return user if user.present?
-
-    # Use fallback of user locale, if community supports it
-    user_fallback = Maybe(user_locale)
-                    .flat_map { |locale| Maybe(Sharetribe::AVAILABLE_LOCALES.find { |(_, ident)| ident == locale }).map { |(_, _, _, _, fallback)| fallback } }
-                    .or_else(nil)
-    return user_fallback if user_fallback.present?
-
-    # Use locale from URL param, if community supports it
-    param = Maybe(locale_param).select { |locale| community_locales.include?(locale) }.or_else(nil)
-    return param if param.present?
-
-    # Use fallback of param locale, if community supports it
-    param_fallback = Maybe(locale_param)
-                    .flat_map { |locale| Maybe(Sharetribe::AVAILABLE_LOCALES.find { |(_, ident)| ident == locale }).map { |(_, _, _, _, fallback)| fallback } }
-                    .or_else(nil)
-    return param_fallback if param_fallback.present?
-
-    # Use community default locale
-    return community_default_locale
-  end
-
   def set_locale
     user_locale = Maybe(@current_user).locale.or_else(nil)
 
@@ -110,7 +84,13 @@ class ApplicationController < ActionController::Base
 
     # We should fix this -- END
 
-    locale = select_locale(user_locale, params[:locale], community_locales, community_default_locale)
+    locale = I18nHelper.select_locale(
+      user_locale: user_locale,
+      param_locale: params[:locale],
+      community_locales: community_locales,
+      community_default: community_default_locale,
+      all_locales: Kassi::Application.config.AVAILABLE_LOCALES
+    )
 
     raise ArgumentError.new("Locale #{locale} not available. Check your community settings") unless available_locales.collect { |l| l[1] }.include?(locale)
 
