@@ -8,7 +8,7 @@ module I18nHelper
     _, _, language, region = all_locales.find { |(_, ident)| ident == locale_code_string }
 
     if language.present? && region.present?
-      "#{language.downcase}-#{region.upcase}"
+      "#{language.downcase}_#{region.upcase}"
     else
       nil
     end
