@@ -5,15 +5,22 @@ class Admin::CommunityCustomizationsController < ApplicationController
     @selected_left_navi_link = "tribe_details"
     # @community_customization is fetched in application_controller
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)
-    all_locales = MarketplaceService::API::Marketplaces.all_locales
+    all_locales = MarketplaceService::API::Marketplaces.all_locales.map{|l| l[:locale_key]}
     enabled_locale_keys = available_locales.map(&:second)
+
+    custom_translation_in_use = !all_locales.include?(@current_community.locales.first)
+    if custom_translation_in_use
+      custom_locale_key = @current_community.locales.first
+      custom_locale_name = Kassi::Application.config.AVAILABLE_LOCALES.select {|k, v| v == custom_locale_key}.map(&:first).first
+      custom_locale = {key: custom_locale_key, name: custom_locale_name}
+    end
 
     @show_transaction_agreement = TransactionService::API::Api.processes.get(community_id: @current_community.id)
       .maybe
       .map { |data| has_preauthorize_process?(data) }
       .or_else(nil).tap { |p| raise ArgumentError.new("Can not find transaction process: #{opts}") if p.nil? }
     render locals: {
-      locale_selection_locals: { all_locales: all_locales, enabled_locale_keys: enabled_locale_keys }
+      locale_selection_locals: { all_locales: all_locales, enabled_locale_keys: enabled_locale_keys, custom_locale: custom_locale}
     }
   end
 
@@ -33,17 +40,12 @@ class Admin::CommunityCustomizationsController < ApplicationController
       customizations.update_attributes(locale_params)
     end
 
-    enabled_locales = params[:enabled_locales]
-    all_locales = MarketplaceService::API::Marketplaces.all_locales.map{|l| l[:locale_key]}.to_set
-    enabled_locales_valid = enabled_locales.present? && enabled_locales.map{ |locale| all_locales.include? locale }.all?
-    if enabled_locales_valid && feature_enabled?(:locale_admin)
-      MarketplaceService::API::Marketplaces.set_locales(@current_community, enabled_locales)
-    end
+    locales_ok = validate_and_set_locales(params)
 
     transaction_agreement_checked = Maybe(params)[:community][:transaction_agreement_checkbox].is_some?
     community_update_successful = @current_community.update_attributes(transaction_agreement_in_use: transaction_agreement_checked)
 
-    if updates_successful.all? && community_update_successful && (!feature_enabled?(:locale_admin) || enabled_locales_valid)
+    if updates_successful.all? && community_update_successful && locales_ok
       flash[:notice] = t("layouts.notifications.community_updated")
     else
       flash[:error] = t("layouts.notifications.community_update_failed")
@@ -53,6 +55,25 @@ class Admin::CommunityCustomizationsController < ApplicationController
   end
 
   private
+
+  def validate_and_set_locales(params)
+    if !feature_enabled?(:locale_admin)
+      true
+    else
+      enabled_locales = params[:enabled_locales] || []
+      custom_locale = params[:custom_locale]
+      all_locales = MarketplaceService::API::Marketplaces.all_locales.map{|l| l[:locale_key]}.to_set
+      enabled_locales_valid = enabled_locales.map{ |locale| all_locales.include? locale }.all?
+      if !enabled_locales_valid || (enabled_locales.blank? && custom_locale.blank?)
+        return false
+      else
+        new_locales = []
+        new_locales.push(custom_locale) if custom_locale.present?
+        new_locales.concat(enabled_locales)
+        MarketplaceService::API::Marketplaces.set_locales(@current_community, new_locales)
+      end
+    end
+  end
 
   def find_or_initialize_customizations(locales)
     locales.inject({}) do |customizations, locale|
