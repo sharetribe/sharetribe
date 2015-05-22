@@ -115,9 +115,9 @@ class ApplicationController < ActionController::Base
   # If URL contains locale parameter that doesn't match with the selected locale,
   # redirect to the selected locale
   def redirect_locale_param
-    needs_redirect = params[:locale].present? && params[:locale] != I18n.locale.to_s
+    param_locale_not_selected = params[:locale].present? && params[:locale] != I18n.locale.to_s
 
-    redirect_to_locale(I18n.locale, :temporary_redirect) if needs_redirect
+    redirect_to_locale(I18n.locale, :temporary_redirect) if param_locale_not_selected
   end
 
   def redirect_to_locale(new_locale, status)
