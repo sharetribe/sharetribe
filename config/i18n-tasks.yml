@@ -1,87 +1,101 @@
-# i18n-tasks finds and manages missing and unused translations ⚙ https://github.com/glebm/i18n-tasks
+# i18n-tasks finds and manages missing and unused translations: https://github.com/glebm/i18n-tasks
 
+# The "main" locale.
 base_locale: en
-## i18n-tasks detects locales automatically from the existing locale files
-## uncomment to set locales explicitly
-# locales: [en, es, fr]
+## All available locales are inferred from the data by default. Alternatively, specify them explicitly:
+locales: [en]
+## Reporting locale, default: en. Available: en, ru.
+# internal_locale: en
 
-# Read and write locale data
+# Read and write translations.
 data:
-  ## by default, translation data are read from the file system, or you can provide a custom data adapter
+  ## Translations are read from the file system. Supported format: YAML, JSON.
+  ## Provide a custom adapter:
   # adapter: I18n::Tasks::Data::FileSystem
 
-  # Locale files to read from
+  # Locale files or `File.find` patterns where translations are read from:
   read:
-    - config/locales/%{locale}.yml
-    # - config/locales/*.%{locale}.yml
+    ## Default:
+    # - config/locales/%{locale}.yml
+    ## More files:
     # - config/locales/**/*.%{locale}.yml
+    ## Another gem:
+    # - "<%= %x[bundle show vagrant].chomp %>/templates/locales/%{locale}.yml"
 
-  # key => file routes, matched top to bottom
+  # Locale files to write new keys to, based on a list of key pattern => file rules. Matched from top to bottom:
+  # `i18n-tasks normalize -p` will force move the keys according to these rules
   write:
-    ## E.g., write devise and simple form keys to their respective files
-    # - ['{devise, simple_form}.*', 'config/locales/\1.%{locale.yml}']
-    # Catch-all
-    - config/locales/%{locale}.yml
-    # `i18n-tasks normalize -p` will force move the keys according to these rules
+    ## For example, write devise and simple form keys to their respective files:
+    # - ['{devise, simple_form}.*', 'config/locales/\1.%{locale}.yml']
+    ## Catch-all default:
+    # - config/locales/%{locale}.yml
 
-  # YAML / JSON serializer options, passed to load / dump / parse / serialize
+  ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
+  # router: convervative_router
+
   yaml:
     write:
-      ## do not wrap lines at 80 characters (override default)
-      # line_width: -1
-  json:
-    write:
-      # pretty print JSON
-      indent: '  '
-      space: ' '
-      object_nl: "\n"
-      array_nl: "\n"
+      # do not wrap lines at 80 characters
+      line_width: -1
+
+  ## Pretty-print JSON:
+  # json:
+  #   write:
+  #     indent: '  '
+  #     space: ' '
+  #     object_nl: "\n"
+  #     array_nl: "\n"
 
 # Find translate calls
 search:
-  ## Default scanner finds t() and I18n.t() calls
-  # scanner: I18n::Tasks::Scanners::PatternWithScopeScanner
+  ## Paths or `File.find` patterns to search in:
+  # paths:
+  #  - app/
 
-  ## Paths to search in, passed to File.find
-  paths:
-    - app/
+  ## Root directories for relative keys resolution.
+  # relative_roots:
+  #   - app/views
+  #   - app/controllers
+  #   - app/helpers
+  #   - app/presenters
 
-  ## Root for resolving relative keys (default)
-  relative_roots:
-    - app/views
+  ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:
+  ##   %w(*.jpg *.png *.gif *.svg *.ico *.eot *.otf *.ttf *.woff *.woff2 *.pdf *.css *.sass *.scss *.less *.yml *.json)
+  exclude:
+    - app/assets/images
+    - app/assets/fonts
 
-  ## File.fnmatch patterns to exclude from search (default)
-  # exclude: ["*.jpg", "*.png", "*.gif", "*.svg", "*.ico", "*.eot", "*.ttf", "*.woff", "*.pdf"]
-
-  ## Or, File.fnmatch patterns to include
+  ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
+  ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
   # include: ["*.rb", "*.html.slim"]
 
-  ## Lines starting with # or / are ignored by default
-  # ignore_lines:
-  #  - "^\\s*[#/](?!\\si18n-tasks-use)"
+  ## Default scanner finds t() and I18n.t() calls.
+  # scanner: I18n::Tasks::Scanners::PatternWithScopeScanner
 
 ## Google Translate
 # translation:
 #   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
 #   api_key: "AbC-dEf5"
 
-## Consider these keys not missing
+## Do not consider these keys missing:
 # ignore_missing:
-#   - pagination.views.*
+# - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
+# - '{devise,simple_form}.*'
 
 ## Consider these keys used
 ignore_unused:
   - will_paginate.*
   - time.*
   - timestamps.*
+  - errors.messages.*
 
-## Exclude these keys from `i18n-tasks eq-base' report
+## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
 #   all:
 #     - common.ok
 #   fr,es:
 #     - common.brand
 
-## Exclude these keys from all of the reports
+## Ignore these keys completely:
 # ignore:
 #  - kaminari.*

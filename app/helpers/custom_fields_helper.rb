@@ -2,14 +2,14 @@ module CustomFieldsHelper
 
   def field_type_translation(type)
     tranlation_map = {
-      "DropdownField" => "admin.custom_fields.field_types.dropdown",
-      "TextField" => "admin.custom_fields.field_types.text",
-      "NumericField" => "admin.custom_fields.field_types.number",
-      "CheckboxField" => "admin.custom_fields.field_types.checkbox_group",
-      "DateField" => "admin.custom_fields.field_types.date"
+      "DropdownField" => t("admin.custom_fields.field_types.dropdown"),
+      "TextField" => t("admin.custom_fields.field_types.text"),
+      "NumericField" => t("admin.custom_fields.field_types.number"),
+      "CheckboxField" => t("admin.custom_fields.field_types.checkbox_group"),
+      "DateField" => t("admin.custom_fields.field_types.date")
     }
 
-    t(tranlation_map[type])
+    tranlation_map[type]
   end
 
   def custom_field_dropdown_options(options)

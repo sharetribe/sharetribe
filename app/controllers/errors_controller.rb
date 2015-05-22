@@ -33,6 +33,9 @@ class ErrorsController < ActionController::Base
       c.name(community_locale)
     }.or_else(nil)
 
+    # i18n-tasks-use t("error_pages.error_500_title")
+    # i18n-tasks-use t("error_pages.error_404_title")
+    # i18n-tasks-use t("error_pages.error_410_title")
     [community_name, t("error_pages.error_#{status}_title")].compact.join(' - ')
   end
 

@@ -101,7 +101,7 @@ group :development do
   gem 'guard-rspec',      require: false
   gem 'annotate'
   gem 'zeus', '0.15.1'
-  gem 'i18n-tasks', '~> 0.6.2'
+  gem 'i18n-tasks', '~> 0.8.3'
   gem 'quiet_assets'
   gem 'better_errors'
 end
