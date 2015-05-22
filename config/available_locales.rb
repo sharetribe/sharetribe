@@ -7,56 +7,42 @@ module Sharetribe
   # region format: ISO 3166, two letters, uppercase
   # fallbacks: should not include US English, which is a last default fallback for each language
 
-  AVAILABLE_LOCALES = [
-    ["English",             "en",    "en", "US", nil], # English (United States)
-    ["English",             "en-GB", "en", "GB", nil], # English (United Kingdom)
-    ["English",             "en-AU", "en", "AU", nil], # English (Australia)
-    ["Suomi",               "fi",    "fi", "FI", nil], # Finnish (Finland)
-    ["Pусский",             "ru",    "ru", "RU", nil], # Russian (Russia)
-    ["Nederlands",          "nl",    "nl", "NL", nil], # Dutch (Netherlands)
-    ["Ελληνικά",            "el",    "el", "GR", nil], # Greek (Greece)
-    ["Kiswahili",           "sw",    "sw", "KE", nil], # Swahili (Kenya)
-    ["Română",              "ro",    "ro", "RO", nil], # Romanian (Romania)
-    ["Français",            "fr",    "fr", "FR", nil], # French (France)
-    ["Français",            "fr-CA", "fr", "CA", "fr"], # French (Canada)
-    ["中文",                "zh",    "zh", "CN", nil], # Chinese (China)
-    ["Español",             "es",    "es", "CL", "es-ES"], # Spanish (Chile)
-    ["Español",             "es-ES", "es", "ES", nil], # Spanish (Spain)
-    ["Catalan",             "ca",    "ca", "ES", nil], # Catalan (Spain)
-    ["Tiếng Việt",          "vi",    "vi", "VN", nil], # Vietnamese (Vietnam)
-    ["Deutsch",             "de",    "de", "DE", nil], # German (Germany)
-    ["Svenska",             "sv",    "sv", "SE", nil], # Swedish (Sweden)
-    ["Italiano",            "it",    "it", "IT", nil], # Italian (Italy)
-    ["Hrvatski",            "hr",    "hr", "HR", nil], # Croatian (Croatia)
-    ["Português do Brasil", "pt-BR", "pt", "BR", nil], # Portuguese (Brazil)
-    ["Dansk",               "da-DK", "da", "DK", nil], # Danish (Denmark)
-    ["Turkish",             "tr-TR", "tr", "TR", nil], # Turkish (Turkey)
-    ["日本語",               "ja",    "ja", "JP", nil], # Japanese (Japan)
-    ["Norsk",               "nb",    "nb", "NO", nil], # Norwegian Bokmål (Norway)
-    ["Polski",              "pl",    "pl", "PL", nil], # Polish (Poland)
-    ["ភាសាខ្មែ",               "km-KH", "km", "KH", nil], # Khmer (Cambodia)
-    ["Bahasa Malaysia",     "ms-MY", "ms", "MY", nil], # Malay (Malaysia)
-    ["íslenska",            "is",    "is", "IS", nil], # Icelandic (Iceland)
+  SUPPORTED_LOCALES = [
+    {ident: "en", name: "English", language: "en", region: "US", fallback: nil}, # English (United States)
+    {ident: "fr", name: "Français", language: "fr", region: "FR", fallback: nil}, # French (France)
+    {ident: "es-ES", name: "Español", language: "es", region: "ES", fallback: nil}, # Spanish (Spain)
+    {ident: "pt-BR", name: "Português do Brasil", language: "pt", region: "BR", fallback: nil}, # Portuguese (Brazil)
+    {ident: "nb", name: "Norsk", language: "nb", region: "NO", fallback: nil}, # Norwegian Bokmål (Norway)
+    {ident: "sv", name: "Svenska", language: "sv", region: "SE", fallback: nil}, # Swedish (Sweden)
+    {ident: "da-DK", name: "Dansk", language: "da", region: "DK", fallback: nil}, # Danish (Denmark)
+    {ident: "fi", name: "Suomi", language: "fi", region: "FI", fallback: nil}, # Finnish (Finland)
+    {ident: "ru", name: "Pусский", language: "ru", region: "RU", fallback: nil}, # Russian (Russia)
+    {ident: "de", name: "Deutsch", language: "de", region: "DE", fallback: nil}, # German (Germany)
+    {ident: "el", name: "Ελληνικά", language: "el", region: "GR", fallback: nil}, # Greek (Greece)
+    {ident: "nl", name: "Nederlands", language: "nl", region: "NL", fallback: nil}, # Dutch (Netherlands)
+    {ident: "tr-TR", name: "Turkish", language: "tr", region: "TR", fallback: nil}, # Turkish (Turkey)
+    {ident: "zh", name: "中文", language: "zh", region: "CN", fallback: nil}, # Chinese (China)
+    {ident: "ja", name: "日本語", language: "ja", region: "JP", fallback: nil}, # Japanese (Japan)
+    {ident: "it", name: "Italiano", language: "it", region: "IT", fallback: nil}, # Italian (Italy)
   ]
 
-  WELL_TRANSLATED_LOCALES = [
-    ["English", "en"],
-    ["Français", "fr"],
-    ["Español", "es-ES"],
-    ["Português do Brasil", "pt-BR"],
-    ["Norsk Bokmål", "nb"],
-    ["Svenska", "sv"],
-    ["Dansk", "da-DK"],
-    ["Suomi", "fi"],
-    ["Pусский", "ru"],
-    ["Deutsch", "de"],
-    ["Ελληνικά", "el"],
-    ["Nederlands", "nl"],
-    ["Turkish", "tr-TR"],
-    ["中文", "zh"],
-    ["日本語", "ja"],
-    ["Italiano", "it"]
+  UNSUPPORTED_LOCALES = [
+    {ident: "en-GB", name: "English", language: "en", region: "GB", fallback: nil}, # English (United Kingdom)
+    {ident: "en-AU", name: "English", language: "en", region: "AU", fallback: nil}, # English (Australia)
+    {ident: "sw", name: "Kiswahili", language: "sw", region: "KE", fallback: nil}, # Swahili (Kenya)
+    {ident: "ro", name: "Română", language: "ro", region: "RO", fallback: nil}, # Romanian (Romania)
+    {ident: "fr-CA", name: "Français", language: "fr", region: "CA", fallback: "fr"}, # French (Canada)
+    {ident: "es", name: "Español", language: "es", region: "CL", fallback: "es-ES"}, # Spanish (Chile)
+    {ident: "ca", name: "Catalan", language: "ca", region: "ES", fallback: nil}, # Catalan (Spain)
+    {ident: "vi", name: "Tiếng Việt", language: "vi", region: "VN", fallback: nil}, # Vietnamese (Vietnam)
+    {ident: "hr", name: "Hrvatski", language: "hr", region: "HR", fallback: nil}, # Croatian (Croatia)
+    {ident: "pl", name: "Polski", language: "pl", region: "PL", fallback: nil}, # Polish (Poland)
+    {ident: "km-KH", name: "ភាសាខ្មែ", language: "km", region: "KH", fallback: nil}, # Khmer (Cambodia)
+    {ident: "ms-MY", name: "Bahasa Malaysia", language: "ms", region: "MY", fallback: nil}, # Malay (Malaysia)
+    {ident: "is", name: "íslenska", language: "is", region: "IS", fallback: nil}, # Icelandic (Iceland)
   ]
+
+  AVAILABLE_LOCALES = SUPPORTED_LOCALES.concat(UNSUPPORTED_LOCALES)
 
   REMOVED_LOCALE_FALLBACKS = {
     # removed 20.5.2015

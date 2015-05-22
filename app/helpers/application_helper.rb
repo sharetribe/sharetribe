@@ -371,21 +371,19 @@ module ApplicationHelper
   end
 
   def available_locales
-    if @current_community
-      # use the ordered list from community settings, but replace the short locales with ["English", "en"] like arrays from APP_CONFIG
-      return @current_community.locales.collect{|loc| Kassi::Application.config.AVAILABLE_LOCALES.select{|app_loc| app_loc[1] == loc }[0]}
-    else
-      return Kassi::Application.config.AVAILABLE_LOCALES
-    end
+    locales =
+      if @current_community
+        @current_community.locales
+          .map { |loc| Sharetribe::AVAILABLE_LOCALES.find { |app_loc| app_loc[:ident] == loc } }
+      else
+        Sharetribe::AVAILABLE_LOCALES
+      end
+
+    locales.map { |loc| [loc[:name], loc[:ident]] }
   end
 
   def get_full_locale_name(locale)
-    Kassi::Application.config.AVAILABLE_LOCALES.each do |l|
-      if l[1].to_s == locale.to_s
-        return l[0]
-      end
-    end
-    return locale # return the short string if no match found for longer name
+    Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] = locale.to_s })[:name].or_else(locale)
   end
 
   def self.send_error_notification(message, error_class="Special Error", parameters={})
