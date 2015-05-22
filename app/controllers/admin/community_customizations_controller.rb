@@ -82,7 +82,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
     all_locales = MarketplaceService::API::Marketplaces.all_locales.map{|l| l[:locale_key]}
     @current_community.locales.select { |locale| !all_locales.include?(locale) }
       .map { |unsupported_locale_key|
-        unsupported_locale_name = Kassi::Application.config.AVAILABLE_LOCALES.select { |k, v| v == unsupported_locale_key }.map(&:first).first
+        unsupported_locale_name = Sharetribe::AVAILABLE_LOCALES.select { |l| l[:ident] == unsupported_locale_key }.map { |l| l[:name] }.first
         {key: unsupported_locale_key, name: unsupported_locale_name}
       }
   end

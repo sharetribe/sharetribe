@@ -5,10 +5,10 @@ module I18nHelper
   def facebook_locale_code(all_locales, current_locale_code)
     locale_code_string = current_locale_code.to_s
 
-    _, _, language, region = all_locales.find { |(_, ident)| ident == locale_code_string }
+    locale = all_locales.find { |l| l[:ident] == locale_code_string }
 
-    if language.present? && region.present?
-      "#{language.downcase}_#{region.upcase}"
+    if locale && locale[:language].present? && locale[:region].present?
+      "#{locale[:language].downcase}_#{locale[:region].upcase}"
     else
       nil
     end
@@ -22,7 +22,7 @@ module I18nHelper
 
     # Use fallback of user locale, if community supports it
     locale_from_user_fallback = Maybe(user_locale)
-                                .flat_map { |locale| Maybe(all_locales.find { |(_, ident)| ident == locale }).map { |(_, _, _, _, fallback)| fallback } }
+                                .flat_map { |locale| Maybe(all_locales.find { |l| l[:ident] == locale }).map { |l| l[:fallback] } }
                                 .select { |locale| community_locales.include?(locale) }
                                 .or_else(nil)
     return locale_from_user_fallback if locale_from_user_fallback.present?
@@ -33,7 +33,7 @@ module I18nHelper
 
     # Use fallback of param locale, if community supports it
     locale_from_param_fallback = Maybe(param_locale)
-                                 .flat_map { |locale| Maybe(all_locales.find { |(_, ident)| ident == locale }).map { |(_, _, _, _, fallback)| fallback } }
+                                 .flat_map { |locale| Maybe(all_locales.find { |l| l[:ident] == locale }).map { |l| l[:fallback] } }
                                  .select { |locale| community_locales.include?(locale) }
                                  .or_else(nil)
     return locale_from_param_fallback if locale_from_param_fallback.present?
