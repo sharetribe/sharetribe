@@ -22,8 +22,9 @@ module I18nHelper
 
     # Use fallback of user locale, if community supports it
     locale_from_user_fallback = Maybe(user_locale)
-                    .flat_map { |locale| Maybe(all_locales.find { |(_, ident)| ident == locale }).map { |(_, _, _, _, fallback)| fallback } }
-                    .or_else(nil)
+                                .flat_map { |locale| Maybe(all_locales.find { |(_, ident)| ident == locale }).map { |(_, _, _, _, fallback)| fallback } }
+                                .select { |locale| community_locales.include?(locale) }
+                                .or_else(nil)
     return locale_from_user_fallback if locale_from_user_fallback.present?
 
     # Use locale from URL param, if community supports it
@@ -32,8 +33,9 @@ module I18nHelper
 
     # Use fallback of param locale, if community supports it
     locale_from_param_fallback = Maybe(param_locale)
-                    .flat_map { |locale| Maybe(all_locales.find { |(_, ident)| ident == locale }).map { |(_, _, _, _, fallback)| fallback } }
-                    .or_else(nil)
+                                 .flat_map { |locale| Maybe(all_locales.find { |(_, ident)| ident == locale }).map { |(_, _, _, _, fallback)| fallback } }
+                                 .select { |locale| community_locales.include?(locale) }
+                                 .or_else(nil)
     return locale_from_param_fallback if locale_from_param_fallback.present?
 
     # Use community default locale
