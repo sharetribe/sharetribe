@@ -5,7 +5,9 @@ class Admin::CommunityCustomizationsController < ApplicationController
     @selected_left_navi_link = "tribe_details"
     # @community_customization is fetched in application_controller
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)
-    all_locales = MarketplaceService::API::Marketplaces.all_locales
+    all_locales = MarketplaceService::API::Marketplaces.all_locales.map { |l|
+      {locale_key: l[:locale_key], translated_name: t("admin.communities.available_languages.#{l[:locale_key]}")}
+    }.sort_by { |l| l[:translated_name] }
     enabled_locale_keys = available_locales.map(&:second)
 
     @show_transaction_agreement = TransactionService::API::Api.processes.get(community_id: @current_community.id)
