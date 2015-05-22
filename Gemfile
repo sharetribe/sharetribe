@@ -90,6 +90,10 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+group :development, :staging do
+  gem 'meta_request'
+end
+
 group :development do
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
@@ -100,7 +104,6 @@ group :development do
   gem 'i18n-tasks', '~> 0.6.2'
   gem 'quiet_assets'
   gem 'better_errors'
-  gem 'meta_request'
 end
 
 group :test do
