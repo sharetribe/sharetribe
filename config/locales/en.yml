@@ -55,6 +55,7 @@ en:
         enabled_languages: "Enabled languages"
         enabled_languages_description: "The set of languages available for users. The first one is used as default."
         default_language: "Default language"
+        language_selection_disabled: "Language selection is disabled for your marketplace because you are using following unofficial languages: %{languages}. Please contact Sharetribe support if you want to modify your language settings."
         community_name: "Marketplace name"
         edit_community_name_description: "The name of your marketplace. This is shown to users in emails and various other places."
         community_slogan: "Marketplace slogan"
