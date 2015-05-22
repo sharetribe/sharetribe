@@ -35,11 +35,11 @@ $bottom-gutter: lines(0.5);
   }
 
   @include media(tablet) {
-    [class^=col]:first-child {
+    [class*=col-]:first-child {
       padding-left: 0;
     }
 
-    [class^=col]:last-child {
+    [class*=col-]:last-child {
       padding-right: 0;
     }
   }
