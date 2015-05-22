@@ -42,7 +42,7 @@ module Sharetribe
     {ident: "vi", name: "Tiếng Việt", language: "vi", region: "VN", fallback: nil}, # Vietnamese (Vietnam)
   ]
 
-  AVAILABLE_LOCALES = SUPPORTED_LOCALES.concat(UNSUPPORTED_LOCALES)
+  AVAILABLE_LOCALES = SUPPORTED_LOCALES + UNSUPPORTED_LOCALES
 
   REMOVED_LOCALE_FALLBACKS = {
     # removed 20.5.2015

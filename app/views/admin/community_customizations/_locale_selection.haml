@@ -17,7 +17,7 @@
         %select.locale-selection__input-widget.required{ multiple: true, name: "enabled_locales[]", id: "locale-selection" }
           - all_locales.each do |locale|
             %option{ value: locale[:locale_key] }
-              = t("admin.communities.available_languages.#{locale[:locale_key]}")
+              = locale[:translated_name]
         %p#selected-default-language{ style: "clear: both;" }
           = t("admin.communities.edit_details.default_language") + ": "
           %span.selected-default-language-name
