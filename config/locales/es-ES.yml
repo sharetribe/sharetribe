@@ -55,6 +55,7 @@ es-ES:
         enabled_languages: "Idiomas activados"
         enabled_languages_description: "Conjunto de idiomas disponibles para los usuarios. El primero se usa por defecto."
         default_language: "Idioma predeterminado"
+        language_selection_disabled: ~
         community_name: "Nombre de la tribu:"
         edit_community_name_description: ~
         community_slogan: "Eslogan de la tribu:"
@@ -618,9 +619,9 @@ es-ES:
       payment_errored_starter: "No se ha procesado el pago. Por favor, vuelve a intentarlo y si el problema continúa, contacta con nuestro equipo de soporte."
       payment_errored_author: "El pago ha fallado. Por favor, contacta a %{starter_name} y pídele que vuelva a intentarlo de nuevo."
       cancel_payed_transaction: ~
-      feedback_given: "Sugerencia dada"
-      feedback_skipped: "Sugerencia omitida"
-      give_feedback: "Haz una sugerencia"
+      feedback_given: "Feedback dado"
+      feedback_skipped: "Feedback omitido"
+      give_feedback: "Enviar feedback o comentarios"
       offer_accepted: Aceptada
       offer_rejected: Rechazada
       offer_canceled: ~
@@ -644,7 +645,7 @@ es-ES:
       request_canceled: ~
       request_paid: "Pago realizado con éxito"
       request_preauthorized: "Pago realizado con éxito"
-      skip_feedback: "Omitir sugerencia"
+      skip_feedback: "Omitir feedback"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: "Esperando que %{listing_author_name} acepte el pedido"
       waiting_for_you_to_accept_request: "Esperando a que aceptes la solicitud"
@@ -886,7 +887,7 @@ es-ES:
       change_my_password: "Cambiar mi contraseña"
       reset_password_instructions: "<p>Has indicado que has olvidado tu contraseña o tu nombre de usuario de %{service_name} .</p><p>Tu nombre de usuario es: %{username}</p><p>Si necesitas restablecer tu contraseña, haz click en el siguiente enlace: %{password_reset_link}</p><br/><p>Si no has solicitado este cambio, por favor ignora este e-mail. Tu contraseña no cambiará hasta que accedas al enlace que aparece más arriba arriba y crees una nueva.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Los comentarios son públicos y están a disposición de todos los usuarios. Basándose en los comentarios y sugerencias los usuarios pueden juzgar o decidir si %{name} es una persona confiable y con la cual desean interactuar. Entonces, siempre recuerda dar tu sugerencia o comentarios en los eventos, y también recuerda a los demás darte feedback a ti. Recuerda que también es necesario recibir comentarios positivos para obtener medallas."
+      feedback_is_public_and_is_shown: "Los comentarios son públicos y están a disposición de todos los usuarios. Basándose en los comentarios y sugerencias los usuarios pueden juzgar o decidir si %{name} es una persona confiable y con la cual desean interactuar. Entonces, siempre recuerda dar tu feedback o comentarios en los eventos, y también recuerda a los demás darte feedback a ti. Recuerda que también es necesario recibir comentarios positivos para obtener más medallas."
       remember_to_give_feedback_to: "Recordatorio: Recuerda hacer una sugerencia o comentarios a %{name}"
       you_have_not_given_feedback_yet: |-
           Aún no has enviado feedback a %{name} acerca del evento '%{event}'.
@@ -971,8 +972,8 @@ es-ES:
       javascript_is_disabled_in_your_browser: "Javascript está desactivado en tu buscador"
       kassi_does_not_currently_work_without_javascript: "Desafortunadamente, en la actualidad %{service_name} no funciona sin javascript. Intenta activar javascript en las preferencias de tu buscador y vuelve a cargar la página. Si deseas utilizar %{service_name} sin javascript, por favor envíanos una sugerencia utilizando el formulario que aparece a continuación."
       contact_us: contáctanos
-      send_feedback: "Enviar sugerencia"
-      your_feedback_to_admins: "Envía tu sugerencia al administrador"
+      send_feedback: "Enviar comentarios"
+      your_feedback_to_admins: "Envía tus comentarios al administrador"
     send: Enviar
     your_email_address: "Tu dirección email"
   errors:
@@ -1030,8 +1031,8 @@ es-ES:
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Adicionalmente hay <b>otra oferta</b>,"
-      additionally_one_private_request_exists: "Existe <b>otra solicitiud</b>,"
-      additionally_some_private_offers_exist: "Existen <b> otras %{number_of_listings} ofertas</b>,"
+      additionally_one_private_request_exists: "Adicionalmente existe <b>otra solicitiud</b>,"
+      additionally_some_private_offers_exist: "Adicionalmente existen <b> otras %{number_of_listings} ofertas</b>,"
       additionally_some_private_requests_exist: "Adicionalmente existen otras <b>%{number_of_listings} solicitudes</b>,"
     blank_slate:
       add_first: "Agregar uno!"
@@ -1210,7 +1211,7 @@ es-ES:
       community_update_failed: "Actualización fallida de la información de la tribu."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Cuenta creada correctamente. A continuación deberás confirmar tu dirección de correo electrónico."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Ahora eres parte de esta comunidad. A continuación necesitas confirmar tu dirección e-mail."
-      comment_cannot_be_empty: "el comentario no puede estar vacío."
+      comment_cannot_be_empty: "El comentario no puede estar vacío."
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto en el enlace. Intenta iniciar sesión o escríbenos si el problema persiste."
       additional_email_confirmed: ~
@@ -1221,7 +1222,7 @@ es-ES:
       email_not_found: "No se encontró la dirección de correo en la base de datos de %{service_name}."
       error_with_session: "Error con la sesión."
       feedback_considered_spam: "Sugerencia no enviada debido a su formato. Inténtalo de nuevo o utiliza el foro para sugerencias."
-      feedback_not_saved: "la sugerencia no puedo ser enviada."
+      feedback_not_saved: "La sugerencia no puedo ser enviada."
       feedback_saved: "¡Gracias por tus comentarios! Nos pondremos en contacto contigo lo antes posible."
       feedback_sent_to: "Comentario enviado a %{target_person}."
       feedback_skipped: "Sugerencia omitida"
@@ -1537,7 +1538,7 @@ es-ES:
       offer: Oferta
       listing_created: ~
       open_until: "Abierto hasta %{date}"
-      feedback: "Comentarios:"
+      feedback: Comentarios
       qr_code: "Código QR"
       request: Solicitud
       rideshare_offer: "Oferta de traslado compartido"

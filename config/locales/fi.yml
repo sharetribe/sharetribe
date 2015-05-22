@@ -55,6 +55,7 @@ fi:
         enabled_languages: "Käytettävissä olevat kielet"
         enabled_languages_description: "Käyttäjän valittavissa olevat kielet. Listan ensimmäistä käytetään oletuskielenä."
         default_language: Oletuskieli
+        language_selection_disabled: ~
         community_name: "Kauppapaikan nimi"
         edit_community_name_description: "Kauppapaikan nimi näytetään käyttäjille lähetettävissä sähköposteissa ja useissa muissa paikoissa."
         community_slogan: "Kauppapaikan slogan"

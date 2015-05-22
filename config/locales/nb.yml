@@ -55,6 +55,7 @@ nb:
         enabled_languages: "Aktiverte språk"
         enabled_languages_description: "Språk tilgjengelige for brukere. Det første brukes som standard."
         default_language: Standardspråk
+        language_selection_disabled: "Språkvalg er deaktivert på din markedsplass fordi du bruker følgende uoffisielle språk: %{languages}. Vennligst kontakt Sharetribe kundeservice hvis du vil endre dine språkvalg."
         community_name: "Navn markedsplass"
         edit_community_name_description: "Navnet på din markedsplass er vist til brukere i epost og forskjellige andre steder."
         community_slogan: "slogan markedsplass"
