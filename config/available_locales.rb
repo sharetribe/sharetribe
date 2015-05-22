@@ -1,41 +1,42 @@
 # coding: utf-8
 module Sharetribe
 
-  # Format: [name, identifier, language, region]
+  # Format: [name, identifier, language, region, fallback identifier]
   #
   # language format: ISO 639-1, two letters, lowercase
   # region format: ISO 3166, two letters, uppercase
+  # fallbacks: should not include US English, which is a last default fallback for each language
 
   AVAILABLE_LOCALES = [
-    ["English",             "en",    "en", "US"], # English (United States)
-    ["English",             "en-GB", "en", "GB"], # English (United Kingdom)
-    ["English",             "en-AU", "en", "AU"], # English (Australia)
-    ["Suomi",               "fi",    "fi", "FI"], # Finnish (Finland)
-    ["Pусский",             "ru",    "ru", "RU"], # Russian (Russia)
-    ["Nederlands",          "nl",    "nl", "NL"], # Dutch (Netherlands)
-    ["Ελληνικά",            "el",    "el", "GR"], # Greek (Greece)
-    ["Kiswahili",           "sw",    "sw", "KE"], # Swahili (Kenya)
-    ["Română",              "ro",    "ro", "RO"], # Romanian (Romania)
-    ["Français",            "fr",    "fr", "FR"], # French (France)
-    ["Français",            "fr-CA", "fr", "CA"], # French (Canada)
-    ["中文",                "zh",    "zh", "CN"], # Chinese (China)
-    ["Español",             "es",    "es", "CL"], # Spanish (Chile)
-    ["Español",             "es-ES", "es", "ES"], # Spanish (Spain)
-    ["Catalan",             "ca",    "ca", "ES"], # Catalan (Spain)
-    ["Tiếng Việt",          "vi",    "vi", "VN"], # Vietnamese (Vietnam)
-    ["Deutsch",             "de",    "de", "DE"], # German (Germany)
-    ["Svenska",             "sv",    "sv", "SE"], # Swedish (Sweden)
-    ["Italiano",            "it",    "it", "IT"], # Italian (Italy)
-    ["Hrvatski",            "hr",    "hr", "HR"], # Croatian (Croatia)
-    ["Português do Brasil", "pt-BR", "pt", "BR"], # Portuguese (Brazil)
-    ["Dansk",               "da-DK", "da", "DK"], # Danish (Denmark)
-    ["Turkish",             "tr-TR", "tr", "TR"], # Turkish (Turkey)
-    ["日本語",               "ja",    "ja", "JP"], # Japanese (Japan)
-    ["Norsk",               "nb",    "nb", "NO"], # Norwegian Bokmål (Norway)
-    ["Polski",              "pl",    "pl", "PL"], # Polish (Poland)
-    ["ភាសាខ្មែ",               "km-KH", "km", "KH"], # Khmer (Cambodia)
-    ["Bahasa Malaysia",     "ms-MY", "ms", "MY"], # Malay (Malaysia)
-    ["íslenska",            "is",    "is", "IS"], # Icelandic (Iceland)
+    ["English",             "en",    "en", "US", nil], # English (United States)
+    ["English",             "en-GB", "en", "GB", nil], # English (United Kingdom)
+    ["English",             "en-AU", "en", "AU", nil], # English (Australia)
+    ["Suomi",               "fi",    "fi", "FI", nil], # Finnish (Finland)
+    ["Pусский",             "ru",    "ru", "RU", nil], # Russian (Russia)
+    ["Nederlands",          "nl",    "nl", "NL", nil], # Dutch (Netherlands)
+    ["Ελληνικά",            "el",    "el", "GR", nil], # Greek (Greece)
+    ["Kiswahili",           "sw",    "sw", "KE", nil], # Swahili (Kenya)
+    ["Română",              "ro",    "ro", "RO", nil], # Romanian (Romania)
+    ["Français",            "fr",    "fr", "FR", nil], # French (France)
+    ["Français",            "fr-CA", "fr", "CA", "fr"], # French (Canada)
+    ["中文",                "zh",    "zh", "CN", nil], # Chinese (China)
+    ["Español",             "es",    "es", "CL", "es-ES"], # Spanish (Chile)
+    ["Español",             "es-ES", "es", "ES", nil], # Spanish (Spain)
+    ["Catalan",             "ca",    "ca", "ES", nil], # Catalan (Spain)
+    ["Tiếng Việt",          "vi",    "vi", "VN", nil], # Vietnamese (Vietnam)
+    ["Deutsch",             "de",    "de", "DE", nil], # German (Germany)
+    ["Svenska",             "sv",    "sv", "SE", nil], # Swedish (Sweden)
+    ["Italiano",            "it",    "it", "IT", nil], # Italian (Italy)
+    ["Hrvatski",            "hr",    "hr", "HR", nil], # Croatian (Croatia)
+    ["Português do Brasil", "pt-BR", "pt", "BR", nil], # Portuguese (Brazil)
+    ["Dansk",               "da-DK", "da", "DK", nil], # Danish (Denmark)
+    ["Turkish",             "tr-TR", "tr", "TR", nil], # Turkish (Turkey)
+    ["日本語",               "ja",    "ja", "JP", nil], # Japanese (Japan)
+    ["Norsk",               "nb",    "nb", "NO", nil], # Norwegian Bokmål (Norway)
+    ["Polski",              "pl",    "pl", "PL", nil], # Polish (Poland)
+    ["ភាសាខ្មែ",               "km-KH", "km", "KH", nil], # Khmer (Cambodia)
+    ["Bahasa Malaysia",     "ms-MY", "ms", "MY", nil], # Malay (Malaysia)
+    ["íslenska",            "is",    "is", "IS", nil], # Icelandic (Iceland)
   ]
 
   WELL_TRANSLATED_LOCALES = [

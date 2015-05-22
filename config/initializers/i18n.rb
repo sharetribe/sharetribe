@@ -1,40 +1,8 @@
 I18n.backend.class.send(:include, I18n::Backend::Fallbacks)
-I18n.fallbacks.map('fi' => 'en')
-I18n.fallbacks.map('ru' => 'en')
-I18n.fallbacks.map('nl' => 'en')
-I18n.fallbacks.map('sw' => 'en')
-I18n.fallbacks.map('el' => 'en')
-I18n.fallbacks.map('ro' => 'en')
-I18n.fallbacks.map('fr' => 'en')
-I18n.fallbacks.map('es' => 'en')
-I18n.fallbacks.map('es-ES' => 'es')
-I18n.fallbacks.map('ca' => 'es-ES')
-I18n.fallbacks.map('zh' => 'en')
-I18n.fallbacks.map('it' => 'en')
-I18n.fallbacks.map('nb' => 'en')
-I18n.fallbacks.map('pl' => 'en')
-I18n.fallbacks.map('fr-CA' => 'fr')
-I18n.fallbacks.map('km-KH' => 'en')
-I18n.fallbacks.map('ms-MY' => 'en')
-I18n.fallbacks.map('is' => 'en')
 
-
-I18n.fallbacks.map('en-rc' => 'en')
-I18n.fallbacks.map('es-rc' => 'es-ES')
-I18n.fallbacks.map('fr-rc' => 'fr')
-I18n.fallbacks.map('de-rc' => 'de')
-I18n.fallbacks.map('en-ul' => 'en')
-I18n.fallbacks.map('en-bf' => 'en')
-I18n.fallbacks.map('en-bd' => 'en')
-I18n.fallbacks.map('fr-bd' => 'fr')
-I18n.fallbacks.map('en-cf' => 'en')
-I18n.fallbacks.map('en-vg' => 'en')
-I18n.fallbacks.map('en-un' => 'en')
-I18n.fallbacks.map('en-bl' => 'en')
-I18n.fallbacks.map('de-bl' => 'de')
-I18n.fallbacks.map('en-qr' => 'en')
-I18n.fallbacks.map('en-at' => 'en')
-I18n.fallbacks.map('fr-at' => 'fr')
+Sharetribe::AVAILABLE_LOCALES
+  .select { |(_, _, _, _, fallback)| fallback.present? }
+  .each { |(_, identifier, _, _, fallback)| I18n.fallbacks.map(identifier => fallback) }
 
 module I18n
   def self.with_locale(locale, &block)

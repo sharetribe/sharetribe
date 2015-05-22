@@ -4,14 +4,16 @@ describe I18nHelper do
 
   describe "#facebook_locale_code" do
 
-    ALL_LOCALES = [
-      ["English US", "en", "en", "US"],
-      ["Finnish", "fi", "fi", "FI"],
-      ["Spanish", "es", "es", nil],
-    ]
+    let(:all_locales) {
+      [
+        ["English US", "en", "en", "US"],
+        ["Finnish", "fi", "fi", "FI"],
+        ["Spanish", "es", "es", nil],
+      ]
+    }
 
     def expect_fb_locale(current_locale)
-      expect(I18nHelper.facebook_locale_code(ALL_LOCALES, current_locale))
+      expect(I18nHelper.facebook_locale_code(all_locales, current_locale))
     end
 
     context "success" do
@@ -32,6 +34,73 @@ describe I18nHelper do
       it "returns nil if locale does not have both language and region set" do
         expect_fb_locale(:es).to eq(nil)
       end
+    end
+
+  end
+
+  describe "#select_locale" do
+
+    let(:all_locales) {
+      [
+        ["English", "en", "en", "US", nil],
+        ["Spanish", "es", "es", "CL", "es-ES"],
+        ["Spanish", "es-ES", "es", "ES", nil],
+        ["French", "fr", "fr", "FR", nil]
+      ]
+    }
+
+    def expect_locale(opts)
+      expect(I18nHelper.select_locale(opts))
+    end
+
+    it "uses user locale if available" do
+      expect_locale(
+        user_locale: "es",
+        param_locale: "en",
+        community_locales: ["fr", "en", "es"],
+        community_default: "fr",
+        all_locales: all_locales
+      ).to eq("es")
+    end
+
+    it "otherwise uses user locale fallback if available" do
+      expect_locale(
+        user_locale: "es",
+        param_locale: "en",
+        community_locales: ["fr", "en", "es-ES"],
+        community_default: "fr",
+        all_locales: all_locales
+      ).to eq("es-ES")
+    end
+
+    it "otherwise uses param locale if available" do
+      expect_locale(
+        user_locale: "en",
+        param_locale: "es",
+        community_locales: ["fr", "es"],
+        community_default: "fr",
+        all_locales: all_locales
+      ).to eq("es")
+    end
+
+    it "otherwise uses param locale fallback if available" do
+      expect_locale(
+        user_locale: "en",
+        param_locale: "es",
+        community_locales: ["fr", "es-ES"],
+        community_default: "fr",
+        all_locales: all_locales
+      ).to eq("es-ES")
+    end
+
+    it "otherwise uses community default" do
+      expect_locale(
+        user_locale: "en",
+        param_locale: "fi",
+        community_locales: ["fr", "es-ES"],
+        community_default: "fr",
+        all_locales: all_locales
+      ).to eq("fr")
     end
 
   end

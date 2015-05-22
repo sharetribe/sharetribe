@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
     :fetch_community_membership,
     :redirect_removed_locale,
     :set_locale,
+    :redirect_locale_param,
     :generate_event_id,
     :set_default_url_for_mailer,
     :fetch_chargebee_plan_data,
@@ -47,27 +48,8 @@ class ApplicationController < ActionController::Base
   def redirect_removed_locale
     if params[:locale] && Kassi::Application.config.REMOVED_LOCALES.include?(params[:locale])
       fallback = Kassi::Application.config.REMOVED_LOCALE_FALLBACKS[params[:locale]]
-
-      if @current_community.default_locale == fallback
-        redirect_to url_for(params.except(:locale).merge(only_path: true)), :status => :moved_permanently
-      else
-        redirect_to url_for(params.merge(locale: fallback, only_path: true)), :status => :moved_permanently
-      end
+      redirect_to_locale(fallback, :moved_permanently)
     end
-  end
-
-  def select_locale(user_locale, locale_param, community_locales, community_default_locale)
-
-    # Use user locale, if community supports it
-    user = Maybe(user_locale).select { |locale| community_locales.include?(locale) }.or_else(nil)
-
-    # Use locale from URL param, if community supports it
-    param = Maybe(locale_param).select { |locale| community_locales.include?(locale) }.or_else(nil)
-
-    # Use community detauls locale
-    community = community_default_locale
-
-    user || param || community
   end
 
   def set_locale
@@ -102,7 +84,13 @@ class ApplicationController < ActionController::Base
 
     # We should fix this -- END
 
-    locale = select_locale(user_locale, params[:locale], community_locales, community_default_locale)
+    locale = I18nHelper.select_locale(
+      user_locale: user_locale,
+      param_locale: params[:locale],
+      community_locales: community_locales,
+      community_default: community_default_locale,
+      all_locales: Kassi::Application.config.AVAILABLE_LOCALES
+    )
 
     raise ArgumentError.new("Locale #{locale} not available. Check your community settings") unless available_locales.collect { |l| l[1] }.include?(locale)
 
@@ -122,6 +110,22 @@ class ApplicationController < ActionController::Base
     Maybe(@current_community).each { |community|
       @community_customization = community.community_customizations.where(locale: locale).first
     }
+  end
+
+  # If URL contains locale parameter that doesn't match with the selected locale,
+  # redirect to the selected locale
+  def redirect_locale_param
+    param_locale_not_selected = params[:locale].present? && params[:locale] != I18n.locale.to_s
+
+    redirect_to_locale(I18n.locale, :temporary_redirect) if param_locale_not_selected
+  end
+
+  def redirect_to_locale(new_locale, status)
+    if @current_community.default_locale == new_locale.to_s
+      redirect_to url_for(params.except(:locale).merge(only_path: true)), :status => status
+    else
+      redirect_to url_for(params.merge(locale: new_locale, only_path: true)), :status => status
+    end
   end
 
   #Creates a URL for root path (i18n breaks root_path helper)
