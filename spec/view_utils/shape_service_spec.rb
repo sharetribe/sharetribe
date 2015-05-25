@@ -8,7 +8,7 @@ describe ShapeService do
   def create_shape(opts = {})
     defaults = {
       action_button_label: {"en" => "ACTION LABEL"},
-      name: {"en" => "ERIKOIS SHAPE"},
+      name: {"en" => "SPECIAL SHAPE"},
       author_is_seller: true,
       units: [
         {
