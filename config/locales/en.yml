@@ -419,6 +419,8 @@ en:
         title: "New pricing unit"
         label_heading: "Label"
         selector_label_heading: "Selector label"
+        label_placeholder: "eg. \"kg\", \"30 minutes\", \"person\", \"class\""
+        selector_placeholder: "eg. \"Number of people\", \"Amount in kg\""
     paypal_accounts:
       marketplace_paypal_integration: "Payment preferences"
       preferences_updated: "Payment preferences updated"
