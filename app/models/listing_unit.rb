@@ -26,6 +26,6 @@ class ListingUnit < ActiveRecord::Base
   )
 
   def self.columns
-    super.reject { |c| c.name == "transaction_type_id" }
+    super.reject { |c| c.name == "translation_key"}
   end
 end
