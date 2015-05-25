@@ -47,7 +47,7 @@
       If necessary, the buttons will overlap with the logo. Buttons should be on top, that's
       keep the logo here after buttons
     .header-left.header-logo-container
-      = link_to "/", :class => "header-logo", :id => "header-logo" do
+      = link_to @homepage_path, :class => "header-logo", :id => "header-logo" do
         %i.header-wide-logo.visible-tablet
           -# Logo is here, it's a CSS background
         %i.header-square-logo.hidden-tablet

@@ -30,7 +30,8 @@ class ApplicationController < ActionController::Base
     :fetch_chargebee_plan_data,
     :fetch_community_admin_status,
     :fetch_community_plan_expiration_status,
-    :warn_about_missing_payment_info
+    :warn_about_missing_payment_info,
+    :set_homepage_path
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
@@ -111,6 +112,34 @@ class ApplicationController < ActionController::Base
       @community_customization = community.community_customizations.where(locale: locale).first
     }
   end
+
+  def set_homepage_path
+    present = ->(x) { x.present? }
+
+    @homepage_path =
+      case [@current_community, @current_user, params[:locale]]
+      when matches([nil, __, __])
+        # FIXME We still have controllers that inherit application controller even though
+        # they do not have @current_community
+        #
+        # Return nil, do nothing, but don't break
+        nil
+
+      when matches([present, nil, present])
+        # We don't have @current_user.
+        # Take the locale from URL param, and keep it in the URL if the locale
+        # differs from community default
+        if params[:locale] != @current_community.default_locale.to_s
+          homepage_with_locale_path
+        else
+          homepage_without_locale_path(locale: nil)
+        end
+
+      else
+        homepage_without_locale_path(locale: nil)
+      end
+  end
+
 
   # If URL contains locale parameter that doesn't match with the selected locale,
   # redirect to the selected locale
