@@ -89,12 +89,12 @@ window.ST.initializeListingShapeForm = function(formId) {
   var addCustomUnitForm = function() {
     var $form = $(".js-listing-shape-add-custom-unit-form").last().clone();
     $form.find('input').prop('disabled', false);
-    var randomId = Math.floor(Math.random() * (Number.MAX_VALUE - 1)) + 1;
+    var uniqueId = _.uniqueId('unit-');
 
     $form.find('input').each(function(i, elem){
       var $e = $(elem);
       var originalName = $e.prop('name');
-      $e.prop('name', originalName.replace('RANDOM_ID', randomId));
+      $e.prop('name', originalName.replace('UNIQUE_ID', uniqueId));
     });
 
     $form.find('input');

@@ -82,16 +82,16 @@
   - @current_community.locales.each do |locale|
     .row
       .custom-unit-label.col-2
-        = label_tag("custom_units[new_RANDOM_ID][name][#{locale}]", t("admin.communities.available_languages.#{locale}"))
+        = label_tag("custom_units[new_UNIQUE_ID][name][#{locale}]", t("admin.communities.available_languages.#{locale}"))
       .custom-unit-label-text_field.col-10
-        = text_field_tag("custom_units[new_RANDOM_ID][name][#{locale}]", "", class: "required", disabled: true, placeholder: t('admin.listing_shapes.custom_unit_form.label_placeholder'))
+        = text_field_tag("custom_units[new_UNIQUE_ID][name][#{locale}]", "", class: "required", disabled: true, placeholder: t('admin.listing_shapes.custom_unit_form.label_placeholder'))
   .input-header= t("admin.listing_shapes.custom_unit_form.selector_label_heading")
   - @current_community.locales.each do |locale|
     .row
       .custom-unit-selector-label.col-2
-        = label_tag("custom_units[new_RANDOM_ID][selector][#{locale}]", t("admin.communities.available_languages.#{locale}"))
+        = label_tag("custom_units[new_UNIQUE_ID][selector][#{locale}]", t("admin.communities.available_languages.#{locale}"))
       .custom-unit-selector-text_field.col-10
-        = text_field_tag("custom_units[new_RANDOM_ID][selector][#{locale}]", "", class: "required", disabled: true, placeholder: t('admin.listing_shapes.custom_unit_form.selector_placeholder'))
+        = text_field_tag("custom_units[new_UNIQUE_ID][selector][#{locale}]", "", class: "required", disabled: true, placeholder: t('admin.listing_shapes.custom_unit_form.selector_placeholder'))
 
 
 
