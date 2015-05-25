@@ -6,9 +6,9 @@ describe I18nHelper do
 
     let(:all_locales) {
       [
-        ["English US", "en", "en", "US"],
-        ["Finnish", "fi", "fi", "FI"],
-        ["Spanish", "es", "es", nil],
+        {name: "English US", ident: "en", language: "en", region: "US"},
+        {name: "Finnish", ident: "fi", language: "fi", region: "FI"},
+        {name: "Spanish", ident: "es", language: "es", region: nil},
       ]
     }
 
@@ -42,10 +42,10 @@ describe I18nHelper do
 
     let(:all_locales) {
       [
-        ["English", "en", "en", "US", nil],
-        ["Spanish", "es", "es", "CL", "es-ES"],
-        ["Spanish", "es-ES", "es", "ES", nil],
-        ["French", "fr", "fr", "FR", nil]
+        {name: "English" , ident: "en" , language: "en" , region: "US" , fallback: nil },
+        {name: "Spanish" , ident: "es" , language: "es" , region: "CL" , fallback: "es-ES" },
+        {name: "Spanish" , ident: "es-ES" , language: "es" , region: "ES" , fallback: nil },
+        {name: "French" , ident: "fr" , language: "fr" , region: "FR" , fallback: nil }
       ]
     }
 

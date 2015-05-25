@@ -43,7 +43,7 @@ Kassi::Application.routes.draw do
 
   REMOVED_LOCALES = Rails.application.config.REMOVED_LOCALES.to_a
 
-  locale_matcher = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:second).concat(REMOVED_LOCALES).join("|"))
+  locale_matcher = Regexp.new(Sharetribe::AVAILABLE_LOCALES.map { |l| l[:ident] }.concat(REMOVED_LOCALES).join("|"))
 
   # Inside this constraits are the routes that are used when request has subdomain other than www
   match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }

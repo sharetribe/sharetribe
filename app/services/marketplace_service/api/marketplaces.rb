@@ -82,10 +82,10 @@ module MarketplaceService::API
     end
 
     def all_locales
-      Kassi::Application.config.WELL_TRANSLATED_LOCALES.map{ |(k,v)|
+      Sharetribe::SUPPORTED_LOCALES.map{ |l|
         {
-          locale_key: v,
-          locale_name: k
+          locale_key: l[:ident],
+          locale_name: l[:name]
         }
       }
     end

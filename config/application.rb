@@ -62,12 +62,6 @@ module Kassi
     # enable custom domain cookies rack middleware
     config.middleware.use "CustomDomainCookie", APP_CONFIG.domain
 
-    # This is the list of all possible locales. Part of the translations may be unfinished.
-    config.AVAILABLE_LOCALES = Sharetribe::AVAILABLE_LOCALES
-
-    # This is the list of locales translated to satisfactory extent.
-    config.WELL_TRANSLATED_LOCALES = Sharetribe::WELL_TRANSLATED_LOCALES
-
     # Map of removed locales and their fallbacks
     config.REMOVED_LOCALE_FALLBACKS = Sharetribe::REMOVED_LOCALE_FALLBACKS
 
