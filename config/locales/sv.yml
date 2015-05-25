@@ -371,14 +371,14 @@ sv:
         create_failure: ~
       edit:
         edit_listing_shape: ~
-        update: ~
-        cancel: ~
+        update: Spara
+        cancel: Avbryt
         update_success: ~
         update_failure: ~
         delete: ~
         can_not_delete_last: "Du kan inte ta bort denna typ eftersom det är den enda i din marknadsplats."
         can_not_delete_only_one_in_categories: "Du kan inte ta bort denna ordertyp eftersom det är den enda ordertyp som används i följande kategori: %{categories}"
-      listing_shape_name: ~
+      listing_shape_name: Namn
       listing_shape_name_placeholder: ~
       action_button_label: ~
       action_button_placeholder: ~
@@ -1089,7 +1089,7 @@ sv:
       welcome_to_new_kassi: "Välkommen till nya %{service_name}!"
       no_reviews: "Inga recensioner"
       no_image: "Ingen bild"
-      filter: Filter
+      filter: Filtrera
       this_is_private_community: "Du behöver registrera dig för att se detta innehåll."
     invitation_form:
       email: E-postadress(er)
