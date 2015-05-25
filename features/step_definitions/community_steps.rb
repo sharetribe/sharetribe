@@ -276,7 +276,7 @@ end
 
 Given /^that transaction belongs to category "(.*?)"$/ do |category_name|
   category = find_category_by_name(category_name)
-  CategoryListingShape.create!(category_id: category.id, listing_shape_id: @shape[:id])
+  CategoryListingShape.where(category_id: category.id, listing_shape_id: @shape[:id]).first_or_create!
   category.reload
 end
 
