@@ -766,7 +766,10 @@ class ListingsController < ApplicationController
       price_cents: listing_params[:price_cents],
       shipping_price_cents: listing_params[:shipping_price_cents],
       shipping_price_additional_cents: listing_params[:shipping_price_additional_cents],
-      currency: listing_params[:currency]
+      currency: listing_params[:currency],
+
+      # TODO Remove this when we remove price_quantity_placeholder
+      quantity: Maybe(listing_params)[:quantity].or_else(nil)
     )
   end
 
