@@ -156,11 +156,11 @@ pt-BR:
         contact_support_link_text: "entre em contato com o nosso suporte"
       available_languages:
         en: ~
-        en-AU: ~
-        en-GB: ~
+        en-AU: "Inglês (Austrália)"
+        en-GB: "Inglês (Reino Unido)"
         fr: ~
-        fr-CA: ~
-        es: ~
+        fr-CA: "Francês (Canadá)"
+        es: "Espanhol (Chile)"
         es-ES: ~
         pt-BR: ~
         nb: ~
@@ -368,28 +368,28 @@ pt-BR:
         announcement: Anúncio
         custom: Personalizado
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Criar pedido"
+        create: Criar
+        cancel: Cancelar
+        create_success: "Novo pedido '%{shape}' criado"
+        create_failure: "Não foi possível criar novo pedido. Erro: %{error_msg}"
       edit:
         edit_listing_shape: "Editar pedidos por '%{shape}'"
         update: Salvar
         cancel: Cancelar
-        update_success: ~
+        update_success: "Alterações no pedido '%{shape}' salvas"
         update_failure: "Não foi possível salvar as alterações. Erro: %{error_msg}"
-        delete: ~
+        delete: "Apagar pedido"
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
       listing_shape_name: Nome
       listing_shape_name_placeholder: ~
       action_button_label: "Etiqueta do botão checkout"
       action_button_placeholder: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
+      successfully_closed: "Anúncios encerrados com sucesso"
+      successfully_deleted: "Pedido '%{order_type}' encerrado com sucesso"
+      pricing_and_checkout_title: "Preços e planos"
+      online_payments_label: "Use o sistema de pagamento online"
       shipping_label: "Permitir que vendedores definam uma taxa de envio"
       price_label: ~
       units_title: "Preço das unidades"
@@ -402,6 +402,12 @@ pt-BR:
         week: "Por semana"
         month: "Por mês"
       can_not_find: ~
+      close_listings:
+        one: "Encerrar %{count} anúncio"
+        other: "Encerrar %{count} anúncios"
+      confirm_close_listings:
+        one: "Você está certo em querer encerrar este %{count} anúncio?"
+        other: "Você está certo em querer encerrar estes %{count} anúncios?"
     paypal_accounts:
       marketplace_paypal_integration: "Preferências de pagamento"
       preferences_updated: "Preferências de pagamento atualizadas."

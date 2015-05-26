@@ -55,7 +55,7 @@ sv:
         enabled_languages: "Aktiverade språk"
         enabled_languages_description: "Tillgängliga språk för användarna. Det första används som standard."
         default_language: Standardspråk
-        language_selection_disabled: ~
+        language_selection_disabled: "Språkval är inaktiverad för din marknadsplats eftersom du använder ett inofficiellt språk: %{languages}. Vänligen kontakta Sharetribesupporten om du vill ändra dina språkinställningar."
         community_name: Marknadsplatsnamn
         edit_community_name_description: "Namnet på din marknadsplats. Detta ser användarna i e-postmeddelanden och på många andra ställen."
         community_slogan: "Marknadsplats slogan"
@@ -156,11 +156,11 @@ sv:
         contact_support_link_text: "kontakta vår support"
       available_languages:
         en: Engelska
-        en-AU: ~
-        en-GB: ~
+        en-AU: "Engelska (Australien)"
+        en-GB: "Engelska (Storbritannien)"
         fr: Franska
-        fr-CA: ~
-        es: ~
+        fr-CA: "Franska (Kanada)"
+        es: "Spanska (Chile)"
         es-ES: Spanska
         pt-BR: Portugisiska
         nb: Norska
@@ -345,62 +345,74 @@ sv:
       support: Support
     listing_shapes:
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        listing_shapes: Ordertyper
+        description: "Ordertyper bestämmer hur orderprocessen fungerar på din sida. Du kan välja om dina användare ska hyra, sälja eller kanske bara skicka meddelanden och kommunicera via gratismeddelanden."
+        read_more_about_order_types: "Läs mer om ordertyper"
+        add_new_shape: "Lägg till ny ordertyp: "
+        select_template: "Välj mall..."
+        all_categories: "Alla kategorier"
+        no_categories: "Inga kategorier"
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Ordertyp namn"
+          listing_shape_categories: "Ordertyp kategorier"
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Sparar ordning"
+          save_order_successful: "Ordning sparad"
+          save_order_error: "Ett fel inträffade när fältordningen sparades. Ladda om sidan och försök igen."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Produkter att sälja"
+        renting_products: "Produkter att hyra"
+        offering_services: Tjänster
+        giving_things_away: "Ge bort saker"
+        requesting: Förfrågan
+        announcement: Meddelande
+        custom: Anpassad
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Skapa ordertyp"
+        create: Skapa
+        cancel: Avbryt
+        create_success: "Ny ordertyp %{shape} skapad"
+        create_failure: "Kunde inte skapa ny ordertyp. Fel: %{error_msg}"
       edit:
-        edit_listing_shape: ~
+        edit_listing_shape: "Ändra ordertyp %{shape}"
         update: Spara
         cancel: Avbryt
-        update_success: ~
-        update_failure: ~
-        delete: ~
+        update_success: "Ändringar till ordertyp %{shape} sparade"
+        update_failure: "Kunde inte spara ändringar. Fel: %{error_msg}"
+        delete: "Ta bort ordertyp"
+        confirm_delete:
+          one: "Det finns %{count} annons med denna ordertyp. Om du tar bort ordertypen så kommer annonsen att stängas. Är du säker på att du vill ta bort denna ordertyp?"
+          other: "Det finns %{count} annonser med denna ordertyp. Om du tar bort ordertypen så kommer annonsen att stängas. Är du säker på att du vill ta bort denna ordertyp?"
         can_not_delete_last: "Du kan inte ta bort denna typ eftersom det är den enda i din marknadsplats."
         can_not_delete_only_one_in_categories: "Du kan inte ta bort denna ordertyp eftersom det är den enda ordertyp som används i följande kategori: %{categories}"
       listing_shape_name: Namn
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
-      units_title: ~
-      units_desc: ~
+      listing_shape_name_placeholder: "T ex sälja"
+      action_button_label: "Kassan namn på knapp"
+      action_button_placeholder: "T ex köpa"
+      open_listings:
+        one: "Det finns %{count} öppen annons för denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonsen att ha de gamla inställningarna. Annonsen kan ändras till de nya inställningarna genom att ändra annonsen manuellt. Om du inte vill ha annonsen med de gamla inställningarna synliga på din sida så kan du stänga genom att klicka på knappen nedan."
+        other: "Det finns %{count} öppna annonser för denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonserna att ha de gamla inställningarna. Annonserna kan ändras till de nya inställningarna genom att ändra annonserna manuellt. Om du inte vill ha annonserna med de gamla inställningarna synliga på din sida så kan du stänga genom att klicka på knappen nedan."
+      close_listings:
+        one: "Stäng %{count} annons"
+        other: "Stäng %{count} annonser"
+      confirm_close_listings:
+        one: "Är du säker på att du vill stänga %{count} annons?"
+        other: "Är du säker på att du vill stänga %{count} annonser?"
+      successfully_closed: "Annonser stängda"
+      successfully_deleted: "Ordertyp %{order_type} borttagen"
+      pricing_and_checkout_title: "Priser och kassan"
+      online_payments_label: "Använd onlinebetalningssystem"
+      shipping_label: "Låt säljare att definiera en fraktavgift"
+      price_label: "Visa prisfält"
+      units_title: Prissättningsenhet
+      units_desc: "Om du har aktiverat prissättningsenhet så visas annonsens pris som \"pris per prisenhet\". Ett exempel: \"$39 per timme\"."
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: "Per styck"
+        hour: "Per timme"
+        day: "Per dag"
+        night: "Per natt"
+        week: "Per vecka"
+        month: "Per månad"
       can_not_find: "Det går inte att hitta ordertyp med id: %{id}"
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
@@ -510,7 +522,7 @@ sv:
       minimum_price_error_message: "Priset kan inte bli lägre än %{amount}."
       accept: Acceptera
       decline: Avböj
-      quantity_label: ~
+      quantity_label: "Antal:"
       sum_label: "Delsumma:"
       service_fee_label: "%{service_name} avgift:"
       you_will_get_label: "Du kommer att få:"
@@ -645,7 +657,7 @@ sv:
       request_preauthorized: "Betalning lyckad"
       skip_feedback: "Hoppa över feedback"
       waiting_for_listing_author_to_accept_offer: "Väntar på att %{listing_author_name} ska acceptera erbjudandet"
-      waiting_for_listing_author_to_accept_request: "Väntar på att %{listing_author_name} ska acceptera förfrågan"
+      waiting_for_listing_author_to_accept_request: "Väntar på att %{listing_author_name} ska acceptera förfrågan. Så snart %{listing_author_name} accepterar så kommer du att bli debiterad."
       waiting_for_you_to_accept_request: "Väntar på att du ska acceptera förfrågan"
       waiting_confirmation_from_requester: "Väntar på att %{requester_name} ska markera förfrågan klar"
       waiting_confirmation_from_you: "Väntar på att du ska markera förfrågan som klar"
@@ -832,8 +844,8 @@ sv:
       you_have_a_new_message: "Du har ett nytt meddelande i %{service_name} från %{sender_name}"
     new_payment:
       new_payment: "Du har fått en ny inbetalning"
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "Pris per %{unit_type}"
+      quantity: Antal
       you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
     paypal_new_payment:
       paypal_gateway_fee: "PayPals avgift:"
@@ -848,10 +860,10 @@ sv:
       receipt_of_payment: "Kvitto för betalning"
       you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{recipient_full_name}. Här är ett kvitto av betalningen."
       product: Produkt
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Pris per %{unit_type}"
+      duration: "Längd:"
+      quantity: "Antal:"
+      subtotal: "Delsumma:"
       total: Totalt
       price: Pris
       service_fee: Serviceavgift
@@ -984,7 +996,7 @@ sv:
       on_or_before: "måste vara exakt på eller före %{restriction}"
       after: "måste vara efter %{restriction}"
       on_or_after: "måste vara exakt på eller efter %{restriction}"
-      positive_number: ~
+      positive_number: "Lägg in ett nummer."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} gick med på att låna ut %{listing_title} till %{requester_name} %{time_ago}."
@@ -1313,7 +1325,7 @@ sv:
       email_deleted: "E-post borttaget"
       payment_details_add_successful: "Betalningsinformation tillagd"
       payment_details_add_error: "Det gick inte att lägga till betalningsdetaljer"
-      listing_author_payment_details_missing: "Ägaren av annonsen har inte lagt till betalningsdetaljer och kan därför inte ta emot betalning. Vänligen kontakta ägaren av annonsen."
+      listing_author_payment_details_missing: "Vänligen kontakta ägaren genom att klicka på \"Kontakt\" nedan. De måste uppdatera sina betalningsdetaljer för att kunna ta emot betalning."
       stylesheet_needs_recompiling: "Formatmallen kompilerar. Vänligen ladda om sidan efter ett tag."
     settings:
       account: Konto
@@ -1348,7 +1360,7 @@ sv:
       show_in_updates_email_error: "Det gick inte att nå servern. Försök igen efter att du laddat om sidan."
       show_in_updates_email_success: "Dessa annonser kommer att visas i nästa automatiska uppdateringsmail som skickas till användarna."
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Något gick fel, felmeddelande: %{error_code}"
     follow_links:
       follow: "Få e-post om nya kommentarer"
       unfollow: "Få inga meddelanden om nya kommentarer"
@@ -1509,13 +1521,13 @@ sv:
       payment_settings_link: betalningsinställningar
       community_not_configured_for_payments_admin: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Gå till %{payment_settings_link} för att fylla i betalningsdetaljer."
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: "Antal timmar:"
+      day: "Antal dagar:"
+      night: "Antal nätter:"
+      week: "Antal veckor:"
+      month: "Antal månader:"
+      custom: "Antal:"
+    quantity_placeholder: Antal
     please_comment: Kommentar
     reply_link:
       listing_closed: "Annonsen är stängd"
@@ -1562,12 +1574,12 @@ sv:
       pickup: Hämtas
       pickup_no_price: Hämtning
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: styck
+      hour: timme
+      day: dag
+      night: natt
+      week: vecka
+      month: månad
     verification_required:
       verification_required: "Verifiering krävs"
   listing_conversations:
@@ -2017,16 +2029,16 @@ sv:
       other: "%{count} dagarna"
   transactions:
     initiate:
-      booked_days: ~
-      price_per_day: ~
-      quantity: ~
+      booked_days: "Bokade dagar:"
+      price_per_day: "Pris per dag:"
+      quantity: "Antal:"
       subtotal: "Delsumma:"
       shipping-price: "Frakt:"
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "Pris per %{unit_type}:"
+    price: "Pris:"
+    quantity: "Antal: %{quantity}"
+    unit_price: "Styckpris: %{unit_price}"
+    total: "Totalt:"
   unit:
     day: dag
     days: dagar
