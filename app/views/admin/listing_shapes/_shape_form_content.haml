@@ -69,8 +69,8 @@
 - shape[:custom_units].each do |unit|
   .row
     .col-12
-      = check_box_tag("custom_units[existing_#{unit[:name_tr_key]}]", unit[:selector_tr_key], true, class: "checkbox-row-checkbox")
-      = label_tag("custom_units[existing_#{unit[:name_tr_key]}]", t('admin.listing_shapes.custom_unit_form.per')+' '+unit[:name][@current_user.locale], class: "checkbox-row-label")
+      = check_box_tag("custom_units[existing_#{unit[:name_tr_key]}]", unit[:selector_tr_key], true, class: "js-unit-checkbox checkbox-row-checkbox")
+      = label_tag("custom_units[existing_#{unit[:name_tr_key]}]", t('admin.listing_shapes.custom_unit_form.per')+' '+unit[:name][@current_user.locale], class: "js-unit-label checkbox-row-label")
 
 .row
   .col-12.js-listing-shape-add-custom-unit-link
