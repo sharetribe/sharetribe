@@ -24,3 +24,10 @@
 .listing-shape-locale-label {
   font-weight: normal;
 }
+
+.listing-shape-custom-unit-per {
+  text-align: right;
+  margin-top: em(10);
+  padding-right: 0;
+  color: $border;
+}
