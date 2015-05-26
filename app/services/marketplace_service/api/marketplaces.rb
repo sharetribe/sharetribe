@@ -169,7 +169,8 @@ module MarketplaceService::API
       end
 
       def first_or_create_community_customization!(community, marketplace_name, locale)
-        community.community_customizations.first_or_create!(customization_params(marketplace_name, locale))
+        existing_customization = community.community_customizations.where(locale: locale).first
+        community.community_customizations.create!(customization_params(marketplace_name, locale)) unless existing_customization
       end
 
       def create_community_plan!(community, options={})
