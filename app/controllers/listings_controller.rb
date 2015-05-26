@@ -218,6 +218,9 @@ class ListingsController < ApplicationController
         shape_name_tr_key: shape[:name_tr_key],
         action_button_tr_key: shape[:action_button_tr_key],
         current_community_id: @current_community.id,
+
+        # This can be moved when we remove price_quantity_placeholder
+        quantity: Maybe(shape)[:price_quantity_placeholder].map { |_| listing_params[:quantity] }.or_else(nil)
     ).merge(unit_to_listing_opts(m_unit)).except(:unit)
 
     @listing = Listing.new(listing_params)
@@ -319,7 +322,11 @@ class ListingsController < ApplicationController
       shape_name_tr_key: shape[:name_tr_key],
       action_button_tr_key: shape[:action_button_tr_key],
       current_community_id: @current_community.id,
-      last_modified: DateTime.now
+      last_modified: DateTime.now,
+
+      # This can be moved when we remove price_quantity_placeholder
+      quantity: Maybe(shape)[:price_quantity_placeholder].map { |_| listing_params[:quantity] }.or_else(nil)
+
     ).merge(open_params).merge(unit_to_listing_opts(m_unit)).except(:unit)
 
     update_successful = @listing.update_fields(listing_params)
