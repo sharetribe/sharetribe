@@ -14,7 +14,7 @@ module ListingViewUtils
   def unit_options(units, selected_unit = nil)
     units.map { |unit|
       {
-        display: translate_unit(unit[:type], unit[:translation_key]),
+        display: translate_unit(unit[:type], unit[:name_tr_key]),
         value: unit[:type],
         selected: unit == selected_unit
       }

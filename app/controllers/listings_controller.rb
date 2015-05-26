@@ -492,7 +492,7 @@ class ListingsController < ApplicationController
       {
         unit_type: unit[:type],
         quantity_selector: unit[:quantity_selector],
-        unit_tr_key: unit[:translation_key]
+        unit_tr_key: unit[:name_tr_key]
       }
     }.or_else({
         unit_type: nil,
