@@ -156,7 +156,11 @@ fr:
         contact_support_link_text: "contacter notre support"
       available_languages:
         en: Anglais
+        en-AU: ~
+        en-GB: ~
         fr: Français
+        fr-CA: ~
+        es: ~
         es-ES: Espagnol
         pt-BR: Portuguais
         nb: "Norvégien Bokmål"
@@ -650,10 +654,10 @@ fr:
       request_confirmed: Terminée
       request_canceled: Annulée
       request_paid: "Paiement réussi"
-      request_preauthorized: "Paiement réussi"
+      request_preauthorized: "Paiement autorisé"
       skip_feedback: "Ne pas donner d'avis"
       waiting_for_listing_author_to_accept_offer: "En attente d'acceptation de l'offre par %{listing_author_name}"
-      waiting_for_listing_author_to_accept_request: "En attente d'acceptation de la demande par %{listing_author_name}"
+      waiting_for_listing_author_to_accept_request: "En attente d'acceptation de la demande par %{listing_author_name}. Dès que %{listing_author_name} acceptera, le montant sera prélevé."
       waiting_for_you_to_accept_request: "En attente de votre acceptation de la demande"
       waiting_confirmation_from_requester: "En attente de %{requester_name} de la réalisation de la demande"
       waiting_confirmation_from_you: "En attente de votre confirmation de réalisation de la demande"
@@ -897,9 +901,9 @@ fr:
       remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis sur %{name}"
       you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
     transaction_preauthorized:
-      subject: "%{requester} a demandé et payé pour %{listing_title}"
-      transaction_requested_by_user: "%{requester} a demandé et payé pour \"%{listing_title}\""
-      you_have_days_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in_days} jours. Si vous n'acceptez pas durant ce délai, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
+      subject: "%{requester} a demandé et autorisé le paiement pour %{listing_title}"
+      transaction_requested_by_user: "%{requester} a demandé et autorisé le paiement pour \"%{listing_title}\""
+      you_have_days_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in_days} jours. Si vous acceptez durant ce délai, le paiement sera réalisé. Si vous n'acceptez pas, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
       subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"
