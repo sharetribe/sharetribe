@@ -69,8 +69,8 @@
 - shape[:custom_units].each do |unit|
   .row
     .col-12
-      = unit[:name][@current_user.locale]
-      = hidden_field_tag("custom_units[existing_#{unit[:name_tr_key]}]", unit[:selector_tr_key])
+      = check_box_tag("custom_units[existing_#{unit[:name_tr_key]}]", unit[:selector_tr_key], true, class: "checkbox-row-checkbox")
+      = label_tag("custom_units[existing_#{unit[:name_tr_key]}]", t("listings.form.price.per")+' '+unit[:name][@current_user.locale], class: "checkbox-row-label")
 
 .row
   .col-12.js-listing-shape-add-custom-unit-link
@@ -101,7 +101,5 @@
         = label_tag("custom_units[new_UNIQUE_ID][selector][#{locale}]", t("admin.communities.available_languages.#{locale}"), class: "listing-shape-locale-label")
       .custom-unit-selector-text_field.col-10
         = text_field_tag("custom_units[new_UNIQUE_ID][selector][#{locale}]", "", class: "required", disabled: true, placeholder: t('admin.listing_shapes.custom_unit_form.selector_placeholder'))
-
-
 
 = hidden_field_tag("author_is_seller", shape[:author_is_seller])
