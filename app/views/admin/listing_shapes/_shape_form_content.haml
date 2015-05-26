@@ -76,7 +76,8 @@
   .col-12.js-listing-shape-add-custom-unit-link
     %a
       = t("admin.listing_shapes.add_custom_unit")
-.listing-shape-add-custom-unit-form.js-listing-shape-add-custom-unit-form
+
+%script{type: "text/template", class: "template js-listing-shape-add-custom-unit-form"}
   .row
     .col-12
       = label_tag("custom_units_title", t("admin.listing_shapes.custom_unit_form.title"), class: "input")
@@ -86,20 +87,24 @@
       = label_tag("", t("admin.listing_shapes.custom_unit_form.label_heading"), class: "input")
 
   - @current_community.locales.each do |locale|
+    - input_id = "custom_units[${uniqueId}][name][#{locale}]"
     .row
       .custom-unit-label{class: translation_label_class}
-        = label_tag("custom_units[new_UNIQUE_ID][name][#{locale}]", t("admin.communities.available_languages.#{locale}"), class: "listing-shape-locale-label")
+        %label{class: "listing-shape-locale-label", for: input_id }
+          = t("admin.communities.available_languages.#{locale}")
       .custom-unit-label-text_field.col-10
-        = text_field_tag("custom_units[new_UNIQUE_ID][name][#{locale}]", "", class: "required", disabled: true, placeholder: t('admin.listing_shapes.custom_unit_form.label_placeholder'))
+        %input{type: :text, id: input_id, name: input_id, class: "required", placeholder: t('admin.listing_shapes.custom_unit_form.label_placeholder')}
   .row
     .col-12
       = label_tag("", t("admin.listing_shapes.custom_unit_form.selector_label_heading"), class: "input")
 
   - @current_community.locales.each do |locale|
+    - input_id = "custom_units[${uniqueId}][selector][#{locale}]"
     .row
       .custom-unit-selector-label{class: translation_label_class}
-        = label_tag("custom_units[new_UNIQUE_ID][selector][#{locale}]", t("admin.communities.available_languages.#{locale}"), class: "listing-shape-locale-label")
+        %label{class: "listing-shape-locale-label", for: input_id }
+          = t("admin.communities.available_languages.#{locale}")
       .custom-unit-selector-text_field.col-10
-        = text_field_tag("custom_units[new_UNIQUE_ID][selector][#{locale}]", "", class: "required", disabled: true, placeholder: t('admin.listing_shapes.custom_unit_form.selector_placeholder'))
+        %input{type: :text, id: input_id, name: input_id, class: "required", placeholder: t('admin.listing_shapes.custom_unit_form.selector_placeholder')}
 
 = hidden_field_tag("author_is_seller", shape[:author_is_seller])

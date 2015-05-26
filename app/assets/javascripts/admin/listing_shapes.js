@@ -86,18 +86,13 @@ window.ST.initializeListingShapeForm = function(formId) {
     toggleLabel($(".js-unit-label"), enabled);
   };
 
+  var customUnitTemplate = _.template($(".js-listing-shape-add-custom-unit-form").html());
+
   var addCustomUnitForm = function() {
-    var $form = $(".js-listing-shape-add-custom-unit-form").last().clone();
-    $form.find('input').prop('disabled', false);
-    var uniqueId = _.uniqueId('unit-');
+    var uniqueId = _.uniqueId('new_unit-');
 
-    $form.find('input').each(function(i, elem){
-      var $e = $(elem);
-      var originalName = $e.prop('name');
-      $e.prop('name', originalName.replace('UNIQUE_ID', uniqueId));
-    });
+    var $form = $(customUnitTemplate({uniqueId: uniqueId}));
 
-    $form.find('input');
     $form.insertBefore($('.js-listing-shape-add-custom-unit-link')).show();
   };
 
