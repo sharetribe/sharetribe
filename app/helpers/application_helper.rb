@@ -383,7 +383,7 @@ module ApplicationHelper
   end
 
   def get_full_locale_name(locale)
-    Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] = locale.to_s })[:name].or_else(locale)
+    Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == locale.to_s })[:name].or_else(locale)
   end
 
   def self.send_error_notification(message, error_class="Special Error", parameters={})
