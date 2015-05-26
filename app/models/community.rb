@@ -317,7 +317,7 @@ class Community < ActiveRecord::Base
       return settings["locales"]
     else
       # if locales not set, return the short locales from the default list
-      return Sharetribe::AVAILABLE_LOCALES.map { |l| l[:name] }
+      return Sharetribe::AVAILABLE_LOCALES.map { |l| l[:ident] }
     end
   end
 
