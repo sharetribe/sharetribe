@@ -25,6 +25,7 @@
 #  unit_price_cents                  :integer
 #  unit_price_currency               :string(8)
 #  unit_tr_key                       :string(64)
+#  unit_selector_tr_key              :string(64)
 #  payment_process                   :string(31)       default("none")
 #  delivery_method                   :string(31)       default("none")
 #  shipping_price_cents              :integer
@@ -56,6 +57,7 @@ class Transaction < ActiveRecord::Base
     :unit_type,
     :unit_price,
     :unit_tr_key,
+    :unit_selector_tr_key,
     :shipping_price,
     :delivery_method,
   )
