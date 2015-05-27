@@ -296,6 +296,10 @@ module ApplicationHelper
     return time
   end
 
+  def translate_time_to(unit, count)
+    t("timestamps.time_to.#{unit}", count: count)
+  end
+
   # used to escape strings to URL friendly format
   def self.escape_for_url(str)
      URI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]"))
