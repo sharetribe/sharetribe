@@ -5,14 +5,16 @@
 # - transaction status changes
 # - reminders
 #
+
+include ApplicationHelper
+include ListingsHelper
+
 class TransactionMailer < ActionMailer::Base
   include MailUtils
 
   default :from => APP_CONFIG.sharetribe_mail_from_address
   layout 'email'
 
-  include ApplicationHelper
-  include ListingsHelper
   include MoneyRails::ActionViewExtension # this is for humanized_money_with_symbol
 
   add_template_helper(EmailTemplateHelper)
