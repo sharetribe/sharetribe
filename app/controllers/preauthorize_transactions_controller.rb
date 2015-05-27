@@ -57,6 +57,7 @@ class PreauthorizeTransactionsController < ApplicationController
       quantity: quantity,
       listing_price: vprms[:listing][:price],
       localized_unit_type: translate_unit_from_listing(vprms[:listing]),
+      localized_selector_label: translate_selector_label_from_listing(vprms[:listing]),
       subtotal: (quantity > 1 || vprms[:listing][:shipping_price].present?) ? vprms[:subtotal] : nil,
       shipping_price: delivery_method == :shipping ? vprms[:shipping_price] : nil,
       total: vprms[:total_price]
@@ -168,6 +169,7 @@ class PreauthorizeTransactionsController < ApplicationController
       duration: booking_data[:duration],
       listing_price: vprms[:listing][:price],
       localized_unit_type: translate_unit_from_listing(vprms[:listing]),
+      localized_selector_label: translate_selector_label_from_listing(vprms[:listing]),
       subtotal: vprms[:subtotal],
       shipping_price: delivery_method == :shipping ? vprms[:shipping_price] : nil,
       total: vprms[:total_price]
@@ -275,6 +277,7 @@ class PreauthorizeTransactionsController < ApplicationController
       quantity: quantity,
       listing_price: vprms[:listing][:price],
       localized_unit_type: translate_unit_from_listing(vprms[:listing]),
+      localized_selector_label: translate_selector_label_from_listing(vprms[:listing]),
       subtotal: (quantity > 1) ? vprms[:subtotal] : nil,
       total: vprms[:total_price]
     })
@@ -348,6 +351,14 @@ class PreauthorizeTransactionsController < ApplicationController
       l[:unit_type].present?
     }.map { |l|
       ListingViewUtils.translate_unit(l[:unit_type], l[:unit_tr_key])
+    }.or_else(nil)
+  end
+
+  def translate_selector_label_from_listing(listing)
+    Maybe(listing).select { |l|
+      l[:unit_type].present?
+    }.map { |l|
+      ListingViewUtils.translate_quantity(l[:unit_type], l[:unit_selector_tr_key])
     }.or_else(nil)
   end
 
@@ -509,6 +520,7 @@ class PreauthorizeTransactionsController < ApplicationController
           unit_type: opts[:listing].unit_type,
           unit_price: opts[:listing].price,
           unit_tr_key: opts[:listing].unit_tr_key,
+          unit_selector_tr_key: opts[:listing].unit_selector_tr_key,
           content: opts[:content],
           payment_gateway: opts[:payment_type],
           payment_process: :preauthorize,
