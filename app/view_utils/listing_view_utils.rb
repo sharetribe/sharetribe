@@ -40,7 +40,7 @@ module ListingViewUtils
     end
   end
 
-  def translate_quantity(type)
+  def translate_quantity(type, tr_key = nil)
     case type
     when :hour
       I18n.translate("listings.quantity.hour")
@@ -53,7 +53,11 @@ module ListingViewUtils
     when :month
       I18n.translate("listings.quantity.month")
     when :custom
-      I18n.translate("listings.quantity.custom")
+      if (tr_key)
+        I18n.translate(tr_key)
+      else
+        I18n.translate("listings.quantity.custom")
+      end
     else
       raise ArgumentError.new("No translation for unit quantity: #{type}")
     end
