@@ -492,12 +492,14 @@ class ListingsController < ApplicationController
       {
         unit_type: unit[:type],
         quantity_selector: unit[:quantity_selector],
-        unit_tr_key: unit[:name_tr_key]
+        unit_tr_key: unit[:name_tr_key],
+        unit_selector_tr_key: unit[:selector_tr_key]
       }
     }.or_else({
         unit_type: nil,
         quantity_selector: nil,
-        unit_tr_key: nil
+        unit_tr_key: nil,
+        unit_selector_tr_key: nil
     })
   end
 
@@ -505,7 +507,9 @@ class ListingsController < ApplicationController
     HashUtils.compact({
       type: Maybe(listing.unit_type).to_sym.or_else(nil),
       quantity_selector: Maybe(listing.quantity_selector).to_sym.or_else(nil),
-      translation_key: listing.unit_tr_key
+      translation_key: listing.unit_tr_key,
+      unit_tr_key: listing.unit_tr_key,
+      unit_selector_tr_key: listing.unit_selector_tr_key
     })
   end
 

@@ -39,6 +39,7 @@
 #  unit_type                       :string(32)
 #  quantity_selector               :string(32)
 #  unit_tr_key                     :string(64)
+#  unit_selector_tr_key            :string(64)
 #  deleted                         :boolean          default(FALSE)
 #  require_shipping_address        :boolean          default(FALSE)
 #  pickup_enabled                  :boolean          default(FALSE)
