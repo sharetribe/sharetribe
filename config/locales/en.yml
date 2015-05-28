@@ -903,7 +903,7 @@ en:
     transaction_preauthorized:
       subject: "%{requester} has requested and authorized payment for %{listing_title}"
       transaction_requested_by_user: "%{requester} has requested and authorized payment for \"%{listing_title}\""
-      you_have_days_to_accept: "You need to accept or reject the request within %{payment_expires_in_days} days. If you accept within this timeframe, the payment will go through. If you don't accept, the request will be automatically rejected and you will not get paid."
+      you_have_time_to_accept: "You need to accept or reject the request within %{payment_expires_in}. If you accept within this timeframe, the payment will go through. If you don't accept, the request will be automatically rejected and you will not get paid."
       click_here_to_reply: "Click here to respond to the request"
     transaction_preauthorized_reminder:
       subject: "Remember to accept the request from %{requester} about listing %{listing_title}"
@@ -2025,6 +2025,19 @@ en:
     days_since:
       one: "%{count} day"
       other: "%{count} days"
+    time_to:
+      seconds:
+        one: "%{count} second"
+        other: "%{count} seconds"
+      minutes:
+        one: "%{count} minute"
+        other: "%{count} minutes"
+      hours:
+        one: "%{count} hour"
+        other: "%{count} hours"
+      days:
+        one: "%{count} day"
+        other: "%{count} days"
   transactions:
     initiate:
       booked_days: "Booked days:"

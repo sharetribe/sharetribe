@@ -2013,6 +2013,19 @@ fi:
     days_since:
       one: päivän
       other: "%{count} päivän"
+    time_to:
+      seconds:
+        one: "%{count} sekunnin"
+        other: "%{count} sekunnin"
+      minutes:
+        one: "%{count} minuutin"
+        other: "%{count} minuutin"
+      hours:
+        one: "%{count} tunnin"
+        other: "%{count} tunnin"
+      days:
+        one: "%{count} päivän"
+        other: "%{count} päivän"
   transactions:
     initiate:
       booked_days: "Valitut päivät:"
