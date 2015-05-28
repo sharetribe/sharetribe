@@ -45,6 +45,8 @@ module TimeUtils
 
     diff = (to_time - from_time).to_i
 
+    raise ArgumentError.new("to_time can not be less than from_time") if diff < 0
+
     multiplies.inject([:seconds, diff]) { |result, (unit, multiplier)|
       if diff >= multiplier
         {unit: unit, count: (diff / multiplier)}

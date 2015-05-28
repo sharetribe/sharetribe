@@ -58,8 +58,8 @@ class TransactionMailer < ActionMailer::Base
       payment_type = MarketplaceService::Community::Query.payment_type(@community.id)
       gateway_expires = MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type)
 
-      expires = Maybe(transaction).booking.end_on { |booking_end|
-          MarketplaceService::Transaction::Entity.preauth_expires_at(gateway_expires, booking_end)
+      expires = Maybe(transaction).booking.end_on.map { |booking_end|
+        MarketplaceService::Transaction::Entity.preauth_expires_at(gateway_expires.days.from_now, booking_end)
       }.or_else(gateway_expires.days.from_now)
 
       buffer = 1.minute # Add a small buffer (it might take a couple seconds until the email is sent)

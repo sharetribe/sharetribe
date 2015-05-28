@@ -65,7 +65,7 @@ module MarketplaceService
       # - max_date_at (max date, e.g. booking ending)
       def preauth_expires_at(gateway_expires_at, max_date_at=nil)
         [gateway_expires_at,
-         Maybe(max_date_at).map {|d| (d + 1.day).to_time}.or_else(nil)
+         Maybe(max_date_at).map {|d| (d + 1.day).to_time(:utc)}.or_else(nil)
         ].compact.min
       end
 
