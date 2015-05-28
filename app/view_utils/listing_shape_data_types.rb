@@ -22,6 +22,7 @@ module ListingShapeDataTypes
   Unit = EntityUtils.define_builder(
     [:type, :symbol, :mandatory],
     [:name, :hash, validate_with: FORM_TRANSLATION],
+    [:kind],
     [:selector, :hash, validate_with: FORM_TRANSLATION],
     [:name_tr_key, :string],
     [:selector_tr_key, :string]
