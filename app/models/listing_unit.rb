@@ -5,6 +5,7 @@
 #  id                :integer          not null, primary key
 #  unit_type         :string(32)       not null
 #  quantity_selector :string(32)       not null
+#  kind              :string(32)       not null
 #  name_tr_key       :string(64)
 #  selector_tr_key   :string(64)
 #  listing_shape_id  :integer
@@ -22,7 +23,8 @@ class ListingUnit < ActiveRecord::Base
     :unit_type,
     :name_tr_key,
     :selector_tr_key,
-    :quantity_selector
+    :quantity_selector,
+    :kind
   )
 
   def self.columns
