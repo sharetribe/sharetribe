@@ -32,8 +32,17 @@ describe ListingService::API::Shapes do
       basename: "Selling",
 
       units: [
-        {type: :day, quantity_selector: :day},
-        {type: :custom, quantity_selector: :number, name_tr_key: 'my.custom.units.translation', selector_tr_key: 'my.custom.selector.translation'}
+        {
+          type: :day,
+          quantity_selector: :day
+        },
+        {
+          type: :custom,
+          kind: :quantity,
+          quantity_selector: :number,
+          name_tr_key: 'my.custom.units.translation',
+          selector_tr_key: 'my.custom.selector.translation'
+        }
       ]
     }
 
@@ -45,7 +54,7 @@ describe ListingService::API::Shapes do
 
   describe "#create" do
     context "success" do
-      it "creates new listing shape with day unit" do
+      it "creates new listing shape with units" do
         create_shape_res = create_shape()
 
         expect(create_shape_res.success).to eql(true)
@@ -74,6 +83,7 @@ describe ListingService::API::Shapes do
         expect(units[0][:type]).to eql(:day)
         expect(units[0][:quantity_selector]).to eql(:day)
         expect(units[1][:type]).to eql(:custom)
+        expect(units[1][:kind]).to eql(:quantity)
         expect(units[1][:quantity_selector]).to eql(:number)
         expect(units[1][:name_tr_key]).to eql('my.custom.units.translation')
         expect(units[1][:selector_tr_key]).to eql('my.custom.selector.translation')
@@ -96,12 +106,24 @@ describe ListingService::API::Shapes do
     end
 
     context "failure" do
-      it "validates custom unit" do
-        expect { create_shape(
-          units: [
-            {type: :custom}
-          ]
-        ) }.to raise_error(ArgumentError)
+      let(:valid_unit) {
+        {
+          type: :custom,
+          quantity_selector: :number,
+          kind: :time,
+          name_tr_key: "name_tr",
+          selector_tr_key: "selector_tr"
+        }
+      }
+
+      it "passes for valid unit" do
+        expect { create_shape(units: [valid_unit])}.not_to raise_error
+      end
+
+      it "validates custom unit without mandatory fields" do
+        [:type, :quantity_selector, :kind, :name_tr_key, :selector_tr_key].each { |field|
+          expect { create_shape(units: [valid_unit.except(field)]) }.to raise_error(ArgumentError), "Expected error, field: #{field}"
+        }
       end
     end
   end
@@ -153,7 +175,7 @@ describe ListingService::API::Shapes do
             transaction_process_id: 987,
             units: [
               {type: :day, quantity_selector: :number},
-              {type: :custom, quantity_selector: :number, name_tr_key: 'my.custom.units.translation', selector_tr_key: 'my.custom.selector.translation'}
+              {type: :custom, kind: :time, quantity_selector: :number, name_tr_key: 'my.custom.units.translation', selector_tr_key: 'my.custom.selector.translation'}
             ]})
 
         expect(update_res.success).to eql(true)
