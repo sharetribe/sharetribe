@@ -109,4 +109,22 @@
       .custom-unit-selector-text_field.col-10
         %input{type: :text, id: input_id, name: input_id, class: "required", placeholder: t('admin.listing_shapes.custom_unit_form.selector_placeholder')}
 
+  .row
+    .col-12
+      = label_tag("", t("admin.listing_shapes.custom_unit_form.unit_type.heading"), class: "input")
+
+  - quantity_radio_id = "custom_units_${uniqueId}_type_quantity"
+  .row
+    .col-12
+      %input{type: :radio, id: quantity_radio_id, name: "custom_units[${uniqueId}][type]", value: "quantity"}
+      %label{class: "listing-shape-radio-label", for: quantity_radio_id}
+        = t("admin.listing_shapes.custom_unit_form.unit_type.quantity_label")
+
+  .row
+    .col-12
+      - time_radio_id = "custom_units_${uniqueId}_type_time"
+      %input{type: :radio, id: time_radio_id, name: "custom_units[${uniqueId}][type]", value: "time"}
+      %label{class: "listing-shape-radio-label", for: time_radio_id}
+        = t("admin.listing_shapes.custom_unit_form.unit_type.time_label")
+
 = hidden_field_tag("author_is_seller", shape[:author_is_seller])

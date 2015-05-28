@@ -422,6 +422,10 @@ en:
         label_placeholder: "eg. \"kg\", \"30 minutes\", \"person\", \"class\""
         selector_placeholder: "eg. \"Number of people\", \"Amount in kg\""
         per: "Per"
+        unit_type:
+          heading: "Unit type"
+          quantity_label: "Quantity (per piece, per kg, per person, per 2 hour tour...)"
+          time_label: "Time (per 30 minutes, per 2 weeks, per year...)"
     paypal_accounts:
       marketplace_paypal_integration: "Payment preferences"
       preferences_updated: "Payment preferences updated"
