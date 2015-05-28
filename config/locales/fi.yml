@@ -156,11 +156,11 @@ fi:
         contact_support_link_text: "ota yhteys ylläpitoon"
       available_languages:
         en: englanti
-        en-AU: englanti (Australia)
-        en-GB: englanti (Iso-Britannia)
+        en-AU: "englanti (Australia)"
+        en-GB: "englanti (Iso-Britannia)"
         fr: ranska
-        fr-CA: ranska (Kanada)
-        es: espanja (Chile)
+        fr-CA: "ranska (Kanada)"
+        es: "espanja (Chile)"
         es-ES: espanja
         pt-BR: portugali
         nb: norja
@@ -892,6 +892,7 @@ fi:
       subject: ~
       transaction_requested_by_user: ~
       you_have_days_to_accept: ~
+      you_have_time_to_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
       subject: ~

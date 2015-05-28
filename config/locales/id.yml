@@ -1518,16 +1518,16 @@ id:
       feedback: ~
       qr_code: ~
       request: Permintaan
-      rideshare_offer: ~
-      rideshare_request: ~
+      rideshare_offer: "Menawarkan Tumpangan"
+      rideshare_request: "Meminta Tumpangan"
       send_private_message: ~
-      share_types: ~
-      share_types_offer: ~
-      share_types_request: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
+      share_types: "Tipe Berbagi"
+      share_types_offer: "Jenis Penawaran"
+      share_types_request: "Jenis Permintaan"
+      tags: Tag
+      time: Waktu
+      times: Waktu
+      times_viewed: Dilihat
       processing_uploaded_image: ~
       price_excludes_vat: ~
       listing_created_at: ~
@@ -1562,26 +1562,26 @@ id:
       read_more: ~
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      all_categories: "Semua Kategori"
+      all_offer_types: "Semua Jenis Penawaran"
+      all_request_types: "Semua Jenis Permintaan"
+      category: Kategori
+      did_not_found_what_you_were_looking_for: "Tidak menemukan yang Anda inginkan?"
+      favors: Layanan
+      housing: Tempat
+      items: Item
+      list_view: "List view"
+      map_view: "Map view"
+      offer_something: "Sebarkan ke yang lain!"
+      offer_type: "Jenis penawaran"
+      offers: Penawaran
+      request_something: "Minta sesuatu!"
+      request_type: "Jenis permintaan"
+      requests: Permintaan
+      rideshare: Tumpangan
+      search_verb: Cari
+      you_have_something_others_do_not: "Punya sesuatu untuk ditawarkan?"
+    please_comment: Komentar
   mercury:
     content_too_long: ~
   okl:
@@ -1659,36 +1659,36 @@ id:
       activate: ~
       deactivate: ~
     help_texts:
-      feedback_description_title: ~
-      help_captcha_title: ~
+      feedback_description_title: Feedback
+      help_captcha_title: "Apakah Anda manusia?"
       help_invitation_code_title: ~
-      terms_title: ~
+      terms_title: "%{service_name} ketentuan penggunaan"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      captcha_incorrect: ~
-      captcha_was_wrong: ~
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
+      captcha_incorrect: "Pengecekan reCAPTCHA gagal. Silakan tulis kata dalam gambar di kolom dibawah"
+      captcha_was_wrong: "Captcha tidak sesuai."
+      create_new_account: "Buat akun"
+      email: "Alamat Email"
+      email_is_in_use: "Email yang Anda berikan sudah digunakan."
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
-      enter_captcha: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
+      enter_captcha: "Saya manusia:"
+      family_name: "Nama Belakang"
+      given_name: "Nama Depan"
+      i_accept_the: "Saya menyetujui"
       invalid_invitation_code: ~
       invitation_code: ~
-      not_required: ~
+      not_required: ", tidak dibutuhkan"
       organization_name: ~
-      password_again: ~
+      password_again: "Konfirmasi password"
       show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
+      sign_up: "Buat akun %{service_name} baru"
+      terms: "ketentuan penggunaan"
+      username_is_in_use: "Username sudah digunakan."
       username_is_invalid: ~
       visible_only_to_you: ~
       visible_to_everybody: ~

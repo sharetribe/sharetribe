@@ -156,11 +156,11 @@ es-ES:
         contact_support_link_text: "contacta con soporte"
       available_languages:
         en: Inglés
-        en-AU: ~
-        en-GB: ~
+        en-AU: "Inglés (Australia)"
+        en-GB: "Inglés (Reino Unido)"
         fr: Francés
-        fr-CA: ~
-        es: ~
+        fr-CA: "Francés (Canadá)"
+        es: "Español (Chile)"
         es-ES: Español
         pt-BR: Portugués
         nb: "Noruego Bokmål"
@@ -900,6 +900,7 @@ es-ES:
       subject: "%{requester} ha solicitado y pagado por %{listing_title}"
       transaction_requested_by_user: "%{requester} ha solicitado y pagado por \"%{listing_title}\""
       you_have_days_to_accept: "Debes aceptar o rechazar la solicitud en menos de %{payment_expires_in_days} días. Si no lo haces, la solicitud será rechazada automáticamente y no recibirás el pago."
+      you_have_time_to_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
       subject: "Recuerda aceptar la solicitud de %{requester} sobre el anuncio %{listing_title}"

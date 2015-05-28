@@ -52,9 +52,9 @@ pt-BR:
         community_details: "Detalhes da comunidade"
         community_look_and_feel: "Editar visual"
         edit_community: "Editar detalhes da comunidade %{community_name}"
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
+        enabled_languages: "Idiomas habilitados"
+        enabled_languages_description: "O conjunto de idiomas disponíveis para os usuários. O primeiro é utilizado como padrão."
+        default_language: "Idioma padrão"
         language_selection_disabled: ~
         community_name: "Nome do Mercado Virtual"
         edit_community_name_description: "O nome do seu mercado virtual. Será mostrado a usuários e em vários outros locais."
@@ -155,26 +155,26 @@ pt-BR:
         view_transactions_link_text: aqui
         contact_support_link_text: "entre em contato com o nosso suporte"
       available_languages:
-        en: ~
+        en: Inglês
         en-AU: "Inglês (Austrália)"
         en-GB: "Inglês (Reino Unido)"
-        fr: ~
+        fr: Francês
         fr-CA: "Francês (Canadá)"
         es: "Espanhol (Chile)"
-        es-ES: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
-        ru: ~
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        es-ES: Espanhol
+        pt-BR: Português
+        nb: Norueguês
+        sv: Sueco
+        da-DK: Dinamarquês
+        fi: Filandês
+        ru: Russo
+        de: Alemão
+        el: Grego
+        nl: Holandês
+        tr-TR: Turco
+        zh: Chinês
+        ja: Japonês
+        it: Italiano
       settings:
         settings: Opções
         general: Geral
@@ -386,12 +386,18 @@ pt-BR:
       listing_shape_name_placeholder: ~
       action_button_label: "Etiqueta do botão checkout"
       action_button_placeholder: ~
+      close_listings:
+        one: "Encerrar %{count} anúncio"
+        other: "Encerrar %{count} anúncios"
+      confirm_close_listings:
+        one: "Você está certo em querer encerrar este %{count} anúncio?"
+        other: "Você está certo em querer encerrar estes %{count} anúncios?"
       successfully_closed: "Anúncios encerrados com sucesso"
       successfully_deleted: "Pedido '%{order_type}' encerrado com sucesso"
       pricing_and_checkout_title: "Preços e planos"
       online_payments_label: "Use o sistema de pagamento online"
       shipping_label: "Permitir que vendedores definam uma taxa de envio"
-      price_label: ~
+      price_label: "Mostrar o campo de preço"
       units_title: "Preço das unidades"
       units_desc: ~
       units:
@@ -402,12 +408,6 @@ pt-BR:
         week: "Por semana"
         month: "Por mês"
       can_not_find: ~
-      close_listings:
-        one: "Encerrar %{count} anúncio"
-        other: "Encerrar %{count} anúncios"
-      confirm_close_listings:
-        one: "Você está certo em querer encerrar este %{count} anúncio?"
-        other: "Você está certo em querer encerrar estes %{count} anúncios?"
     paypal_accounts:
       marketplace_paypal_integration: "Preferências de pagamento"
       preferences_updated: "Preferências de pagamento atualizadas."
