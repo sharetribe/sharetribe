@@ -20,6 +20,7 @@ describe MoneyUtil do
     expect(MoneyUtil.parse_str_to_subunits("99,99", "EUR")).to eql(9999)
     expect(MoneyUtil.parse_str_to_subunits("99.99", "EUR")).to eql(9999)
     expect(MoneyUtil.parse_str_to_subunits("0.12", "EUR")).to eql(12)
+    expect(MoneyUtil.parse_str_to_subunits("2.32", "EUR")).to eql(232)
     expect(MoneyUtil.parse_str_to_subunits("0,12", "EUR")).to eql(12)
     expect(MoneyUtil.parse_str_to_subunits("10", "JPY")).to eql(10)
   end

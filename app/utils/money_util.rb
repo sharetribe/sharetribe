@@ -6,8 +6,12 @@ module MoneyUtil
   # Notice! The parsing strategy should follow the frontend validation strategy
   def parse_str_to_subunits(money_str, currency)
     # Current front-end validation: /^\d+((\.|\,)\d{0,2})?$/
-    (money_str.sub(",", ".").to_f * Money::Currency.new(currency).subunit_to_unit)
-      .to_i
+    int_part, fract_part = money_str.sub(",", ".").split(".").map(&:to_i)
+
+    int_part ||= 0
+    fract_part ||= 0
+
+    (int_part * Money::Currency.new(currency).subunit_to_unit) + fract_part
   end
 
   def parse_str_to_money(money_str, currency)
