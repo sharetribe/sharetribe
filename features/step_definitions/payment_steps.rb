@@ -288,7 +288,6 @@ end
 
 Then /^I should see receipt info for unit_type (.*?) with quantity (\d+) and subtotal of (.*?)$/ do |unit_type, quantity, subtotal|
   page.should have_content("Price per #{unit_type}")
-  page.should have_content("Quantity:")
   page.should have_content("Subtotal:")
   page.should have_content("Total:")
 
