@@ -38,31 +38,26 @@ window.ST = window.ST || {};
   };
 
   module.initializeShippingPriceTotal = function(quantityInputSelector, shippingPriceSelector){
-    var quantityInput = $(quantityInputSelector);
-    var shippingPriceElements = $(shippingPriceSelector);
+    var $quantityInput = $(quantityInputSelector);
+    var $shippingPriceElements = $(shippingPriceSelector);
 
     var updateShippingPrice = function() {
-      shippingPriceElements.each(function(index, shippingPriceElement) {
-        var shippingPrice = $(shippingPriceElement).data('shipping-price');
-        var perAdditional = $(shippingPriceElement).data('per-additional');
-        var hasPoint = shippingPrice.indexOf(',') >= 0;
+      $shippingPriceElements.each(function(index, shippingPriceElement) {
+        var $priceEl = $(shippingPriceElement);
+        var shippingPriceCents = $priceEl.data('shipping-price') || 0;
+        var perAdditionalCents = $priceEl.data('per-additional') || 0;
+        var quantity = parseInt($quantityInput.val() || 0);
+        var additionalCount = Math.max(0, quantity - 1);
 
-        if(hasPoint) {
-          shippingPrice = shippingPrice.split(',').join('.');
-          perAdditional = perAdditional.split(',').join('.');
-        }
+        // To avoid floating point issues, do calculations in cents
+        var newShippingPrice = shippingPriceCents + perAdditionalCents * additionalCount;
 
-        var newShippingPrice = parseFloat(shippingPrice);
-        if(perAdditional != null) {
-          newShippingPrice += parseFloat(perAdditional) * ( parseInt(quantityInput.val()) - 1 );
-        }
-
-        var shippingPriceString = hasPoint ? newShippingPrice.toFixed(2).toString().split('.').join(',') : newShippingPrice.toFixed(2);
-        $(shippingPriceElement).text(shippingPriceString);
+        $priceEl.text((newShippingPrice / 100).toFixed(2));
       });
     };
 
-    quantityInput.on("keyup", updateShippingPrice);
+    $quantityInput.on("keyup", updateShippingPrice);
+    $quantityInput.on("change", updateShippingPrice); // up and down arrows
     updateShippingPrice();
   };
 
