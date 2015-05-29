@@ -189,6 +189,7 @@ module EntityUtils
   def parse_specs(specs)
     specs.reduce({}) do |fs, full_field_spec|
       f_name, *spec = *full_field_spec
+      raise ArgumentError.new("Field key must be a Symbol, was: '#{f_name}' (#{f_name.class.name})") unless f_name.is_a? Symbol
       fs[f_name] = parse_spec(spec)
       fs
     end

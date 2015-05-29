@@ -171,6 +171,16 @@ describe EntityUtils do
     expect(default.call({})).to eq({name: []})
   end
 
+  it "#define_builder accepts only symbol keys" do
+    msg = ->(val, class_name) {
+      "Field key must be a Symbol, was: '#{val}' (#{class_name})"
+    }
+
+    expect { EntityUtils.define_builder([nil, :string, :mandatory]) }.to raise_error( msg.call("", "NilClass") )
+    expect { EntityUtils.define_builder(["key", :string, :mandatory]) }.to raise_error( msg.call("key", "String") )
+    expect { EntityUtils.define_builder([:key, :string, :mandatory]) }.not_to raise_error
+  end
+
   it "#define_builder can nest other builders for collections" do
     name_details_entity = EntityUtils.define_builder(
       [:type, :mandatory, one_of: [:first, :middle, :last]],
