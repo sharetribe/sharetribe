@@ -69,8 +69,8 @@
 - shape[:custom_units].each do |unit|
   .row
     .col-12
-      = check_box_tag("custom_units[existing_#{unit[:name_tr_key]}]", unit[:selector_tr_key], true, class: "js-unit-checkbox checkbox-row-checkbox")
-      = label_tag("custom_units[existing_#{unit[:name_tr_key]}]", t('admin.listing_shapes.custom_unit_form.per')+' '+unit[:name][@current_user.locale], class: "js-unit-label checkbox-row-label")
+      = check_box_tag("custom_units[existing][#{unit[:name_tr_key]}]", unit[:selector_tr_key], true, class: "js-unit-checkbox checkbox-row-checkbox")
+      = label_tag("custom_units[existing][#{unit[:name_tr_key]}]", t('admin.listing_shapes.custom_unit_form.per')+' '+unit[:name][@current_user.locale], class: "js-unit-label checkbox-row-label")
 
 .row
   .col-12.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link
@@ -87,7 +87,7 @@
       = label_tag("", t("admin.listing_shapes.custom_unit_form.label_heading"), class: "input")
 
   - @current_community.locales.each do |locale|
-    - input_id = "custom_units[${uniqueId}][name][#{locale}]"
+    - input_id = "custom_units[new][${uniqueId}][name][#{locale}]"
     .row
       .custom-unit-label{class: translation_label_class}
         %label{class: "listing-shape-locale-label", for: input_id }
@@ -101,7 +101,7 @@
       = label_tag("", t("admin.listing_shapes.custom_unit_form.selector_label_heading"), class: "input")
 
   - @current_community.locales.each do |locale|
-    - input_id = "custom_units[${uniqueId}][selector][#{locale}]"
+    - input_id = "custom_units[new][${uniqueId}][selector][#{locale}]"
     .row
       .custom-unit-selector-label{class: translation_label_class}
         %label{class: "listing-shape-locale-label", for: input_id }
@@ -116,14 +116,14 @@
   - quantity_radio_id = "custom_units_${uniqueId}_type_quantity"
   .row
     .col-12
-      %input{type: :radio, id: quantity_radio_id, name: "custom_units[${uniqueId}][kind]", value: "quantity"}
+      %input{type: :radio, id: quantity_radio_id, name: "custom_units[new][${uniqueId}][kind]", value: "quantity"}
       %label{class: "listing-shape-radio-label", for: quantity_radio_id}
         = t("admin.listing_shapes.custom_unit_form.unit_type.quantity_label")
 
   .row
     .col-12
       - time_radio_id = "custom_units_${uniqueId}_type_time"
-      %input{type: :radio, id: time_radio_id, name: "custom_units[${uniqueId}][kind]", value: "time"}
+      %input{type: :radio, id: time_radio_id, name: "custom_units[new][${uniqueId}][kind]", value: "time"}
       %label{class: "listing-shape-radio-label", for: time_radio_id}
         = t("admin.listing_shapes.custom_unit_form.unit_type.time_label")
 
