@@ -434,6 +434,9 @@ class ListingsController < ApplicationController
       commission(@current_community, process).merge({
         shape: shape,
         unit_options: unit_options,
+        shipping_price: Maybe(@listing).shipping_price.or_else(0).to_s,
+        shipping_enabled: @listing.require_shipping_address?,
+        pickup_enabled: @listing.pickup_enabled?,
         shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil
       })
     else
@@ -461,23 +464,10 @@ class ListingsController < ApplicationController
                      payment_type: payment_type,
                      process: process)
 
-    shipping_price_additional =
-      if @listing.shipping_price_additional
-        @listing.shipping_price_additional.to_s
-      elsif @listing.shipping_price
-        @listing.shipping_price.to_s
-      else
-        0
-      end
-
     if allow_posting
-      unit_options = ListingViewUtils.unit_options(shape[:units])
-
-      render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(
-               run_js_immediately: true,
-               shape: shape,
-               unit_options: unit_options,
-               shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil)
+      render :partial => "listings/form/form_content", locals: form_locals(shape).merge(
+               run_js_immediately: true
+             )
     else
       render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
     end
