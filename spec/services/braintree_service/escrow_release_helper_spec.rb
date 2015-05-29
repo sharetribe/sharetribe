@@ -24,27 +24,30 @@ describe BraintreeService::EscrowReleaseHelper do
         end
 
         before_batch = Time.new(2014, 3, 11, 20, 0, 0, 0)
-        Timecop.freeze(before_batch)
 
-        # Hold pending
-        BraintreeApi.stub(:find_transaction) { transaction_mock.new("hold_pending") }
-        BraintreeService::EscrowReleaseHelper.release_from_escrow(community, "123")
-        @api_calls.should == 0
+        Timecop.freeze(before_batch) {
+          # Hold pending
+          BraintreeApi.stub(:find_transaction) { transaction_mock.new("hold_pending") }
+          BraintreeService::EscrowReleaseHelper.release_from_escrow(community, "123")
+          @api_calls.should == 0
+        }
 
         # Time passes 24, but still hold bending
-        Timecop.freeze(24.hours.from_now)
-        successes, failures = Delayed::Worker.new.work_off
-        successes.should == 1
-        failures.should == 0
-        @api_calls.should == 0
+        Timecop.freeze(24.hours.since(before_batch)) {
+          successes, failures = Delayed::Worker.new.work_off
+          successes.should == 1
+          failures.should == 0
+          @api_calls.should == 0
+        }
 
         # Time passes another 24, status changed to "held"
-        Timecop.freeze(24.hours.from_now)
-        BraintreeApi.stub(:find_transaction) { transaction_mock.new("held") }
-        successes, failures = Delayed::Worker.new.work_off
-        successes.should == 1
-        failures.should == 0
-        @api_calls.should == 1
+        Timecop.freeze(48.hours.since(before_batch)) {
+          BraintreeApi.stub(:find_transaction) { transaction_mock.new("held") }
+          successes, failures = Delayed::Worker.new.work_off
+          successes.should == 1
+          failures.should == 0
+          @api_calls.should == 1
+        }
       end
     end
   end
