@@ -347,6 +347,14 @@ module EntityUtils
         })
     end
 
+    def serialize(hash)
+      build(hash).to_json
+    end
+
+    def deserialize(string)
+      build(HashUtils.symbolize_keys(JSON.parse(string)))
+    end
+
     private
 
     def error_msg(result)

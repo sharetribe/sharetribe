@@ -324,4 +324,53 @@ describe EntityUtils do
 
     end
   end
+
+  describe "#serializes" do
+    let(:name_details_entity) {
+      EntityUtils.define_builder(
+          [:first, :string, :mandatory],
+          [:middle, :string, default: "Middle"],
+          [:last, :string, :mandatory]
+        )
+    }
+
+    context "success" do
+      it "serializes to JSON" do
+        expect(name_details_entity.serialize(first: "John", last: "Doe")).to eq("{\"first\":\"John\",\"middle\":\"Middle\",\"last\":\"Doe\"}")
+      end
+    end
+
+    context "failure" do
+      it "validates the input and fails for invalid" do
+        expect { name_details_entity.serialize(first: "John") }.to raise_error(ArgumentError)
+      end
+    end
+
+    it "serializing and deserializing gives original value" do
+      original = name_details_entity.call({ first: "John", last: "Doe" })
+      expect(name_details_entity.deserialize(name_details_entity.serialize(original))).to eq original
+    end
+  end
+
+  describe "#deserializes" do
+    let(:name_details_entity) {
+      EntityUtils.define_builder(
+          [:first, :string, :mandatory],
+          [:middle, :string, default: "Middle"],
+          [:last, :string, :mandatory]
+        )
+    }
+
+    context "success" do
+      it "deserializes from JSON" do
+        expect(name_details_entity.deserialize("{\"first\":\"Jane\",\"last\":\"Doe\"}")).to eq({first: "Jane", middle: "Middle", last: "Doe"})
+      end
+    end
+
+    context "failure" do
+      it "validates the input and fails for invalid" do
+        expect { name_details_entity.deserialize("{\"first\":\"Jane\"}") }.to raise_error(ArgumentError)
+      end
+    end
+  end
 end
