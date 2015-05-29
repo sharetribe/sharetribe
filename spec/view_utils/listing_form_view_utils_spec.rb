@@ -31,21 +31,22 @@ describe ListingFormViewUtils do
   end
 
   describe "#validate" do
-    def validate(params, shape_opts)
+    def validate(params, shape_opts, unit)
       shape_defaults = {
         units: []
       }
-      ListingFormViewUtils.validate(params, shape_defaults.merge(shape_opts))
+      ListingFormViewUtils.validate(params, shape_defaults.merge(shape_opts), unit)
     end
 
-    def expect_valid(params, shape_opts)
-      expect(validate(params, shape_opts).success).to eq true
+    def expect_valid(params, shape_opts, unit = nil)
+      validate_res = validate(params, shape_opts, unit)
+      expect(validate_res.success).to eq(true), ->() {validate_res.data}
     end
 
-    def expect_error(params, shape_opts, *errors)
+    def expect_error(params, shape_opts, errors, unit = nil)
       raise ArgumentError.new("Expecting error codes array") if errors.empty?
 
-      res = validate(params, shape_opts)
+      res = validate(params, shape_opts, unit)
       expect(res.success).to eq false
       errors.each { |error_code|
         expect(res.data).to include(error_code)
@@ -54,18 +55,27 @@ describe ListingFormViewUtils do
 
     it "validates the params" do
       expect_valid({price: "50.00", currency: "EUR"}, {price_enabled: true})
-      expect_error({price: "50.00"}, {price_enabled: true}, :currency_required)
-      expect_error({currency: "EUR"}, {price_enabled: true}, :price_required)
-      expect_error({}, {price_enabled: true}, :price_required, :currency_required)
+      expect_error({price: "50.00"}, {price_enabled: true}, [:currency_required])
+      expect_error({currency: "EUR"}, {price_enabled: true}, [:price_required])
+      expect_error({}, {price_enabled: true}, [:price_required, :currency_required])
 
-      expect_valid({unit: "day"}, {units: [{type: :day, quantity_selector: :day}]})
+      expect_valid({}, {units: [{type: :day, quantity_selector: :day}]}, {type: :day, quantity_selector: :day})
       expect_valid({}, {units: []})
-      expect_error({unit: "night"}, {units: [{type: :day, quantity_selector: :day}]}, :unit_does_not_belong)
-      expect_error({}, {units: [{type: :day, quantity_selector: :day}]}, :unit_required)
+      expect_error({}, {units: [{type: :day, quantity_selector: :day}]}, [:unit_does_not_belong], {type: :night, quantity_selector: :day})
+      expect_error({}, {units: [{type: :day, quantity_selector: :day}]}, [:unit_required])
 
       expect_valid({delivery_methods: ["shipping", "pickup"]}, {shipping_enabled: true})
-      expect_error({delivery_methods: []}, {shipping_enabled: true}, :delivery_method_required)
-      expect_error({delivery_methods: ["homedelivery"]}, {shipping_enabled: true}, :unknown_delivery_method)
+      expect_error({delivery_methods: []}, {shipping_enabled: true}, [:delivery_method_required])
+      expect_error({delivery_methods: ["homedelivery"]}, {shipping_enabled: true}, [:unknown_delivery_method])
+    end
+
+    it "validates custom units" do
+      shape_units = [{:type=>:hour, :quantity_selector=>:number}, {:type=>:custom, :name_tr_key=>"foo", :selector_tr_key=>"bar", :quantity_selector=>:number}]
+      req_unit = {:type=>:custom,
+                  :name_tr_key=>"foo",
+                  :selector_tr_key=>"bar",
+                  :quantity_selector=>:number}
+      expect_valid({}, {units: shape_units}, req_unit)
     end
   end
 end
