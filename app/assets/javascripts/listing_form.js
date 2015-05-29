@@ -389,18 +389,34 @@ window.ST = window.ST || {};
     $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
     $('input.title_text_field:first').focus();
 
-    var $shipping_price_container = $('.shipping-price-container');
+    var $shipping_price_container = $('.js-shipping-price-container');
     var $shipping_checkbox = $('#shipping-checkbox');
     $shipping_checkbox.click(function() { togglePrice(); });
 
     var togglePrice = function(){
       if($shipping_checkbox.is(":checked")) {
-        $shipping_price_container.css('display', 'table');
+        $shipping_price_container.show();
       } else {
         $shipping_price_container.hide();
       }
     };
     togglePrice(); //initialize
+
+    var $unit = $(".js-listing-unit");
+    var $additionalShipping = $(".js-shipping-price-additional");
+
+    var toggleAdditional = function() {
+      var kind = $unit.find(":selected").data("kind");
+
+      if (kind === "quantity") {
+        $additionalShipping.css({display: "table"});
+      } else {
+        $additionalShipping.hide();
+      }
+    };
+
+    $unit.change(toggleAdditional);
+    toggleAdditional(); // init
 
     var form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
 
@@ -436,7 +452,7 @@ window.ST = window.ST || {};
         } else if (element.attr("name") == "listing[shipping_price]") {
           error.insertAfter($(".shipping-price-default"));
         } else if (element.attr("name") == "listing[shipping_price_additional]") {
-          error.insertAfter($(".shipping-price-additional"));
+          error.insertAfter($(".js-shipping-price-additional"));
         } else {
           error.insertAfter(element);
         }
