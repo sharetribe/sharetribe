@@ -66,11 +66,11 @@
       = check_box_tag("units[#{unit[:type]}]", "true", unit[:enabled], class: "js-unit-checkbox checkbox-row-checkbox")
       = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label js-unit-label")
 
-- shape[:custom_units].each do |unit|
+- shape[:custom_units].each_with_index do |unit, index|
   .row
     .col-12
-      = check_box_tag("custom_units[existing][#{unit[:name_tr_key]}]", unit[:selector_tr_key], true, class: "js-unit-checkbox checkbox-row-checkbox")
-      = label_tag("custom_units[existing][#{unit[:name_tr_key]}]", t('admin.listing_shapes.custom_unit_form.per')+' '+unit[:name][@current_user.locale], class: "js-unit-label checkbox-row-label")
+      = check_box_tag("custom_units[existing][#{index}]", unit[:value], true, class: "js-unit-checkbox checkbox-row-checkbox")
+      = label_tag("custom_units[existing][#{index}]", "#{t('admin.listing_shapes.custom_unit_form.per')} #{unit[:name][I18n.locale.to_s]}", class: "js-unit-label checkbox-row-label")
 
 .row
   .col-12.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link
@@ -123,7 +123,7 @@
   .row
     .col-12
       - time_radio_id = "custom_units_${uniqueId}_type_time"
-      %input{type: :radio, id: time_radio_id, name: "custom_units[new][${uniqueId}][kind]", value: "time"}
+      %input{type: :radio, id: time_radio_id, name: "custom_units[${uniqueId}][kind]", value: "time"}
       %label{class: "listing-shape-radio-label", for: time_radio_id}
         = t("admin.listing_shapes.custom_unit_form.unit_type.time_label")
 
