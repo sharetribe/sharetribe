@@ -202,7 +202,8 @@ class ListingsController < ApplicationController
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
 
     listing_params = ListingFormViewUtils.filter(params[:listing], shape)
-    validation_result = ListingFormViewUtils.validate(listing_params, shape)
+    listing_unit = ListingViewUtils.unit_from_json(params[:listing][:unit])
+    validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
 
     unless validation_result.success
       flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
@@ -210,7 +211,7 @@ class ListingsController < ApplicationController
     end
 
     listing_params = normalize_price_params(listing_params)
-    m_unit = select_unit(listing_params, shape)
+    m_unit = select_unit(listing_unit, shape)
 
     listing_params = create_listing_params(listing_params).merge(
         listing_shape_id: shape[:id],
@@ -305,7 +306,8 @@ class ListingsController < ApplicationController
     shape = get_shape(params[:listing][:listing_shape_id])
 
     listing_params = ListingFormViewUtils.filter(params[:listing], shape)
-    validation_result = ListingFormViewUtils.validate(listing_params, shape)
+    listing_unit = ListingViewUtils.unit_from_json(params[:listing][:unit])
+    validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
 
     unless validation_result.success
       flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
@@ -313,7 +315,7 @@ class ListingsController < ApplicationController
     end
 
     listing_params = normalize_price_params(listing_params)
-    m_unit = select_unit(listing_params, shape)
+    m_unit = select_unit(listing_unit, shape)
 
     open_params = @listing.closed? ? {open: true} : {}
 
@@ -481,9 +483,9 @@ class ListingsController < ApplicationController
     end
   end
 
-  def select_unit(params, shape)
+  def select_unit(listing_unit, shape)
     m_unit = Maybe(shape)[:units].map { |units|
-      units.length == 1 ? units.first : units.find { |u| u[:type] == params[:unit].to_sym }
+      units.length == 1 ? units.first : units.find { |u| u == listing_unit }
     }
   end
 
@@ -507,7 +509,6 @@ class ListingsController < ApplicationController
     HashUtils.compact({
       type: Maybe(listing.unit_type).to_sym.or_else(nil),
       quantity_selector: Maybe(listing.quantity_selector).to_sym.or_else(nil),
-      translation_key: listing.unit_tr_key,
       unit_tr_key: listing.unit_tr_key,
       unit_selector_tr_key: listing.unit_selector_tr_key
     })
