@@ -13,12 +13,14 @@ describe ShapeService do
       units: [
         {
           type: :custom,
+          kind: :time,
           enabled: true,
           name_tr_key: "FOO_KEY1",
           selector_tr_key: "BAR_KEY1"
         },
         {
           type: :custom,
+          kind: :quantity,
           enabled: true,
           name: {"en" => "Custom unit label"},
           selector: {"en" => "Custom unit selector"}
