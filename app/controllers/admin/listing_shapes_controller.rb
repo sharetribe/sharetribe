@@ -61,7 +61,7 @@ class Admin::ListingShapesController < ApplicationController
       flash[:notice] = t("admin.listing_shapes.new.create_success", shape: pick_translation(shape[:name]))
       redirect_to action: :index
     else
-      flash[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
+      flash.now[:error] = t("admin.listing_shapes.new.create_failure", error_msg: create_result.error_msg)
       render_new_form(shape, process_summary, available_locales())
     end
 
@@ -82,8 +82,8 @@ class Admin::ListingShapesController < ApplicationController
       flash[:notice] = t("admin.listing_shapes.edit.update_success", shape: pick_translation(shape[:name]))
       return redirect_to admin_listing_shapes_path
     else
-      flash[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
-      render_edit_form(params[:url_name], shape, process_summary, available_locales())
+      flash.now[:error] = t("admin.listing_shapes.edit.update_failure", error_msg: update_result.error_msg)
+      return render_edit_form(params[:url_name], shape, process_summary, available_locales())
     end
   end
 
@@ -289,7 +289,7 @@ class Admin::ListingShapesController < ApplicationController
       errors << "Online payments can not be enabled without price"
     end
 
-    if form[:units].present? && !form[:price_enabled]
+    if (form[:units].present? || form[:custom_units].present?) && !form[:price_enabled]
       errors << "Price units can not be used without price field"
     end
 
@@ -323,8 +323,13 @@ class Admin::ListingShapesController < ApplicationController
 
     def params_to_shape(params)
       form_params = HashUtils.symbolize_keys(params)
+
+      units = parse_predefined_units(form_params[:units])
+        .concat(parse_existing_custom_units(Maybe(form_params)[:custom_units][:existing].or_else([])))
+        .concat(parse_new_custom_units(Maybe(form_params)[:custom_units][:new].or_else([])))
+
       parsed_params = form_params.merge(
-        units: parse_predefined_units(form_params[:units]).concat(parse_custom_units(form_params[:custom_units])),
+        units: units,
         author_is_seller: form_params[:author_is_seller] == "false" ? false : true # default true
       )
 
@@ -336,7 +341,7 @@ class Admin::ListingShapesController < ApplicationController
 
       shape.merge(
         predefined_units: expand_predefined_units(shape[:units]),
-        custom_units: expand_custom_units(shape[:units])
+        custom_units: encode_custom_units(shape[:units].select { |unit| unit[:type] == :custom })
       )
     end
 
@@ -349,24 +354,30 @@ class Admin::ListingShapesController < ApplicationController
         .map { |t| {type: t, enabled: shape_units_set.include?(t), label: I18n.t("admin.listing_shapes.units.#{t}")} }
     end
 
-    def expand_custom_units(shape_units)
-      shape_units
-        .select { |unit| unit[:type] == :custom }
+    def encode_custom_units(custom_units)
+      custom_units.map { |u|
+        {
+          name: u[:name],
+          value: ListingShapeDataTypes::Unit.serialize(u.merge(kind: :quantity))
+        }
+      }
     end
 
     def parse_predefined_units(selected_units)
       (selected_units || []).map { |type, _| {type: type.to_sym, enabled: true}}
     end
 
-    def parse_custom_units(units)
-      new_units = (units[:new] || []).map(&:second)
-      existing_units = (units[:existing] || []).map { |key, unit|
-        selector_tr_key = unit
-        {name_tr_key: key, selector_tr_key: selector_tr_key}
+    def parse_existing_custom_units(existing_units)
+      existing_units.map { |_, unit|
+        ListingShapeDataTypes::Unit.deserialize(unit)
+          .merge({type: :custom, enabled: true})
       }
+    end
 
-      existing_units.concat(new_units).map { |unit|
-        unit.merge(type: :custom, enabled: true, kind: :time)
+    def parse_new_custom_units(new_units)
+      new_units.map(&:second).map { |u|
+        u.merge(type: :custom, enabled: true)
+          .except(:name_tr_key, :selector_tr_key)
       }
     end
   end
