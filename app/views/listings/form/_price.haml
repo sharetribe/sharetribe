@@ -22,9 +22,9 @@
       - else
         .quantity-description
           = t(".per")
-        %select{name: "listing[unit]"}
+        %select.js-listing-unit{name: "listing[unit]"}
           - unit_options.each do |unit_option|
-            %option{value: unit_option[:value], selected: unit_option[:selected]}
+            %option{value: unit_option[:value], selected: unit_option[:selected], data: { kind: unit_option[:kind] }}
               = unit_option[:display]
 
     %small
