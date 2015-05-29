@@ -359,14 +359,14 @@ class Admin::ListingShapesController < ApplicationController
     end
 
     def parse_custom_units(units)
-      (units || []).map { |key, unit|
-        is_existing_unit = key.start_with?("existing_")
-        if is_existing_unit # {existing_NAME_TR_KEY: SELECTOR_TR_KEY}
-          name_tr_key = key.split('_')[1]
-          selector_tr_key = unit
-          unit = {name_tr_key: name_tr_key, selector_tr_key: selector_tr_key}
-        end
-        unit.merge(type: :custom, enabled: true)
+      new_units = (units[:new] || []).map(&:second)
+      existing_units = (units[:existing] || []).map { |key, unit|
+        selector_tr_key = unit
+        {name_tr_key: key, selector_tr_key: selector_tr_key}
+      }
+
+      existing_units.concat(new_units).map { |unit|
+        unit.merge(type: :custom, enabled: true, kind: :time)
       }
     end
   end
