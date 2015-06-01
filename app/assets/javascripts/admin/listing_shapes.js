@@ -48,7 +48,15 @@ window.ST.initializeListingShapesOrder = function() {
 };
 
 window.ST.initializeListingShapeForm = function(formId) {
-  $(formId).validate();
+  $(formId).validate({
+    errorPlacement: function(error, element) {
+      if (element.hasClass("js-custom-unit-kind-radio")) {
+        error.appendTo($(".js-custom-unit-kind-container"));
+      } else {
+        error.insertAfter(element);
+      }
+    }
+  });
 
   var priceChanged = function(currentEl) {
     var enabled = currentEl.is(':checked');
