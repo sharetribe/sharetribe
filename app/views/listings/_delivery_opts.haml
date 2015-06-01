@@ -29,7 +29,7 @@
             = label_tag("delivery_#{opts[:name]}", class: "delivery-label shipping-options-label") do
               = t("listings.show.#{opts[:name]}_no_price")
               - if (opts[:name] == :shipping)
-                - price_tag = "<span class=\"delivery-price-value\" data-shipping-price=\"#{opts[:price].cents}\" data-per-additional=\"#{opts[:shipping_price_additional].cents}\">#{humanized_money(opts[:price])}</span>"
+                - price_tag = "<span class=\"delivery-price-value\" data-shipping-price=\"#{opts[:price].cents}\" data-per-additional=\"#{Maybe(opts)[:shipping_price_additional].cents.or_else(0)}\">#{humanized_money(opts[:price])}</span>"
                 - symbol = opts[:price].currency.symbol
                 - price_tag_with_currency = opts[:price].currency.symbol_first ? "(+#{symbol}#{price_tag})" : "(+#{price_tag} #{symbol})"
                 = price_tag_with_currency.html_safe
