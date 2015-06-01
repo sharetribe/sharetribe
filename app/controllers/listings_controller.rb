@@ -202,7 +202,7 @@ class ListingsController < ApplicationController
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
 
     listing_params = ListingFormViewUtils.filter(params[:listing], shape)
-    listing_unit = ListingViewUtils.unit_from_json(params[:listing][:unit])
+    listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
     validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
 
     unless validation_result.success
@@ -306,7 +306,7 @@ class ListingsController < ApplicationController
     shape = get_shape(params[:listing][:listing_shape_id])
 
     listing_params = ListingFormViewUtils.filter(params[:listing], shape)
-    listing_unit = ListingViewUtils.unit_from_json(params[:listing][:unit])
+    listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
     validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
 
     unless validation_result.success
