@@ -15,7 +15,7 @@ module ListingFormViewUtils
   end
 
   def filter_additional_shipping(params, unit)
-    if unit[:kind] != :quantity
+    if Maybe(unit)[:kind].or_else(nil) != :quantity
       params.except(:shipping_price_additional)
     else
       params
