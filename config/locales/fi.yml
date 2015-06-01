@@ -1811,7 +1811,7 @@ fi:
     confirmation_pending:
       welcome_to_kassi: "Tervetuloa %{service_name}-palveluun!"
       check_your_email: "Tarkista sähköpostilaatikkosi (tarvittaessa myös roskapostikansio)"
-      resend_confirmation_instructions: "Lähetä uusi varmistusähköposti"
+      resend_confirmation_instructions: "Lähetä uusi varmistussähköposti"
       your_current_email_is: "Nykyinen osoitteesi: <strong>%{email}</strong>"
       change_email: Vaihda?
       confirm_your_email: "Vahvista sähköpostiosoitteesi"
