@@ -893,7 +893,7 @@ pt-BR:
     transaction_preauthorized:
       subject: "%{requester} solicitou e pagou por %{listing_title}"
       transaction_requested_by_user: "%{requester} solicitou e pagou por \"%{listing_title}\""
-      you_have_days_to_accept: "Você precisa aceitar ou rejeitar o pedido no prazo de %{payment_expires_in_days} dias. Se você não aceitar dentro deste prazo, o pedido será rejeitado automaticamente e você não será pago."
+      you_have_time_to_accept: ~
       click_here_to_reply: "Clique aqui para responder ao pedido"
     transaction_preauthorized_reminder:
       subject: "Não esqueça de aceitar o pedido de %{requester} sobre o anúncio %{listing_title}"

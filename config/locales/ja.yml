@@ -886,7 +886,7 @@ ja:
     transaction_preauthorized:
       subject: "%{requester}さんは%{listing_title}に対してリクエストをし、お支払いが完了しました。"
       transaction_requested_by_user: "%{requester}さんは「%{listing_title}」に対してリクエストをし、お支払いが完了しました。"
-      you_have_days_to_accept: "あなたは%{payment_expires_in_days}日以内に、リクエストを受諾するか、却下する必要があります。もしその期限を過ぎた場合は、リクエストは自動的に却下され、お支払いはされませんのでご了承願います。"
+      you_have_time_to_accept: ~
       click_here_to_reply: リクエストに答えるにはこちらをクリックしてください
     transaction_preauthorized_reminder:
       subject: "%{listing_title}について%{requester}さんからのリクエストを承諾してください"

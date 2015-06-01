@@ -903,7 +903,7 @@ sv:
     transaction_preauthorized:
       subject: "%{requester} har efterfrågat och betalat för %{listing_title}"
       transaction_requested_by_user: "%{requester} har efterfrågat och betalat för \"%{listing_title}\""
-      you_have_days_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in_days} dagar. Om du inte accepterar detta inom tidsramen så kommer automatiskt förfrågan att avböjas och du kommer inte att få någon betalning."
+      you_have_time_to_accept: ~
       click_here_to_reply: "Klicka här för att svara på förfrågan"
     transaction_preauthorized_reminder:
       subject: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}"
@@ -2027,6 +2027,19 @@ sv:
     days_since:
       one: "%{count} dag"
       other: "%{count} dagarna"
+    time_to:
+      days:
+        one: "%{count} dag"
+        other: "%{count} dagar"
+      hours:
+        one: "%{count} timme"
+        other: "%{count} timmar"
+      minutes:
+        one: "%{count} minut"
+        other: "%{count} minuter"
+      seconds:
+        one: "%{count} sekund"
+        other: "%{count} sekunder"
   transactions:
     initiate:
       booked_days: "Bokade dagar:"

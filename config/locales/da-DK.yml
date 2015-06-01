@@ -899,7 +899,7 @@ da-DK:
     transaction_preauthorized:
       subject: "%{requester} har anmodet og betalt for %{listing_title}"
       transaction_requested_by_user: "%{requester} har anmodet og betalt for \"%{listing_title}\""
-      you_have_days_to_accept: "Du skal godkende eller afvise anmodningen inde %{payment_expires_in_days} dage. Hvis du ikke gør dette inden for tidsfristen, vil anmodningen automatisk blive afvist og du vil ikke modtage dine penge."
+      you_have_time_to_accept: ~
       click_here_to_reply: "Klik her for at sende dit svar"
     transaction_preauthorized_reminder:
       subject: "Husk at godkende ansøgningen fra %{requester} omhandlende annoncen %{listing_title}"

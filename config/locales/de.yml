@@ -895,7 +895,7 @@ de:
     transaction_preauthorized:
       subject: "%{requester} hat %{listing_title} angefragt und bezahlt"
       transaction_requested_by_user: "%{requester} hat \"%{listing_title}\" angefragt und bezahlt"
-      you_have_days_to_accept: ~
+      you_have_time_to_accept: ~
       click_here_to_reply: "Klicke hier um auf das Angebot zu antworten"
     transaction_preauthorized_reminder:
       subject: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren."
@@ -1792,7 +1792,7 @@ de:
       search_verb: Suche
   sessions:
     new:
-      create_new_account: "Ein neues Konto in %{service_name} erstellen"
+      create_new_account: "Ein neues Konto bei %{service_name} erstellen"
       i_forgot_my_password: "Benutzernamen oder Passwort vergessen?"
       login: Einloggen
       login_to_kassi: "Bei %{service_name} anmelden"
