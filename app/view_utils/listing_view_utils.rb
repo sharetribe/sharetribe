@@ -22,16 +22,12 @@ module ListingViewUtils
     units.map { |unit|
       {
         display: translate_unit(unit[:type], unit[:name_tr_key]),
-        value: unit.to_json,
+        value: Unit.serialize(unit),
         selected: selected_unit.present? &&
           unit[:name_tr_key] == selected_unit[:unit_tr_key] &&
           unit[:selector_tr_key] == selected_unit[:unit_selector_tr_key]
       }
     }
-  end
-
-  def unit_from_json(unit_str)
-    Unit.call(HashUtils.symbolize_keys(JSON.parse(unit_str)))
   end
 
   def translate_unit(type, tr_key)
