@@ -60,10 +60,72 @@
   .col-12
     = label_tag("units_title", t("admin.listing_shapes.units_title"), class: "input")
     = render partial: "layouts/info_text", locals: {text: t("admin.listing_shapes.units_desc")}
-- shape[:units].map do |unit|
+- shape[:predefined_units].map do |unit|
   .row
     .col-12
       = check_box_tag("units[#{unit[:type]}]", "true", unit[:enabled], class: "js-unit-checkbox checkbox-row-checkbox")
       = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label js-unit-label")
+
+- shape[:custom_units].each_with_index do |unit, index|
+  .row
+    .col-12
+      = check_box_tag("custom_units[existing][#{index}]", unit[:value], true, class: "js-unit-checkbox checkbox-row-checkbox")
+      = label_tag("custom_units[existing][#{index}]", "#{t('admin.listing_shapes.custom_unit_form.per')} #{unit[:name][I18n.locale.to_s]}", class: "js-unit-label checkbox-row-label")
+
+.row
+  .col-12.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link
+    %a
+      = t("admin.listing_shapes.add_custom_unit")
+
+%script{type: "text/template", class: "template js-listing-shape-add-custom-unit-form"}
+  .row
+    .col-12
+      = label_tag("custom_units_title", t("admin.listing_shapes.custom_unit_form.title"), class: "input")
+
+  .row
+    .col-12
+      = label_tag("", t("admin.listing_shapes.custom_unit_form.label_heading"), class: "input")
+
+  - @current_community.locales.each do |locale|
+    - input_id = "custom_units[new][${uniqueId}][name][#{locale}]"
+    .row
+      .custom-unit-label{class: translation_label_class}
+        %label{class: "listing-shape-locale-label", for: input_id }
+          = t("admin.communities.available_languages.#{locale}")
+      .listing-shape-custom-unit-per.col-1
+        = t('admin.listing_shapes.custom_unit_form.per')
+      .custom-unit-label-text_field.col-9
+        %input{type: :text, id: input_id, name: input_id, class: "required", placeholder: t('admin.listing_shapes.custom_unit_form.label_placeholder')}
+  .row
+    .col-12
+      = label_tag("", t("admin.listing_shapes.custom_unit_form.selector_label_heading"), class: "input")
+
+  - @current_community.locales.each do |locale|
+    - input_id = "custom_units[new][${uniqueId}][selector][#{locale}]"
+    .row
+      .custom-unit-selector-label{class: translation_label_class}
+        %label{class: "listing-shape-locale-label", for: input_id }
+          = t("admin.communities.available_languages.#{locale}")
+      .custom-unit-selector-text_field.col-10
+        %input{type: :text, id: input_id, name: input_id, class: "required", placeholder: t('admin.listing_shapes.custom_unit_form.selector_placeholder')}
+
+  .row
+    .col-12
+      = label_tag("", t("admin.listing_shapes.custom_unit_form.unit_type.heading"), class: "input")
+
+  .js-custom-unit-kind-container
+    .row
+      .col-12
+        - quantity_radio_id = "custom_units_${uniqueId}_type_quantity"
+        %input{type: :radio, id: quantity_radio_id, name: "custom_units[new][${uniqueId}][kind]", value: "quantity", class: "required js-custom-unit-kind-radio"}
+        %label{class: "listing-shape-radio-label", for: quantity_radio_id}
+          = t("admin.listing_shapes.custom_unit_form.unit_type.quantity_label")
+
+    .row
+      .col-12
+        - time_radio_id = "custom_units_${uniqueId}_type_time"
+        %input{type: :radio, id: time_radio_id, name: "custom_units[new][${uniqueId}][kind]", value: "time", class: "required js-custom-unit-kind-radio"}
+        %label{class: "listing-shape-radio-label", for: time_radio_id}
+          = t("admin.listing_shapes.custom_unit_form.unit_type.time_label")
 
 = hidden_field_tag("author_is_seller", shape[:author_is_seller])

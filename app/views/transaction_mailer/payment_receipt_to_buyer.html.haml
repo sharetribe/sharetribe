@@ -27,7 +27,7 @@
         - elsif listing_quantity > 1
           %tr
             %td{:width => "250"}
-              = t("emails.receipt_to_payer.quantity")
+              = quantity_selector_label || t("emails.receipt_to_payer.quantity")
             %td
               = listing_quantity
         %tr

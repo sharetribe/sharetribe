@@ -51,7 +51,7 @@
             = humanized_money_with_symbol(listing.price)
         .conversation-quantity-wrapper
           %span.conversation-quantity-label
-            = t("conversations.accept.quantity_label")
+            = ListingViewUtils.translate_quantity(listing.unit_type, listing.unit_selector_tr_key) || t("conversations.accept.quantity_label")
           %span.conversation-quantity-value
             = listing_quantity
 

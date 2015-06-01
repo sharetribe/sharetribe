@@ -4,6 +4,7 @@
 class ShapeService
   Shape = ListingShapeDataTypes::Shape
   KEY_MAP = ListingShapeDataTypes::KEY_MAP
+  CUSTOM_UNIT_KEY_MAP = ListingShapeDataTypes::CUSTOM_UNIT_KEY_MAP
 
   def initialize(processes)
     @processes = processes
@@ -21,6 +22,12 @@ class ShapeService
         entity: shape_with_process,
         locales: locales,
         key_map: KEY_MAP
+      ).merge(
+        units: shape_with_process[:units].map{|u| TranslationServiceHelper.tr_keys_to_form_values(
+          entity: u,
+          locales: locales,
+          key_map: CUSTOM_UNIT_KEY_MAP
+       )}
       )
 
       Result::Success.new(Shape.call(with_translations))
@@ -30,8 +37,9 @@ class ShapeService
   def update(community_id:, name:, opts:)
     listing_api.shapes.get(community_id: community_id, name: name).and_then { |old_shape|
       shape_opts = Shape.call(opts)
-      shape = process_shape(community_id: community_id, opts: shape_opts.merge(old_shape.slice(:name_tr_key, :action_button_tr_key)))
-
+      select_existing_units(old_shape, shape_opts)
+    }.and_then { |old_shape, new_shape_opts|
+      shape = process_shape(community_id: community_id, opts: new_shape_opts.merge(old_shape.slice(:name_tr_key, :action_button_tr_key)))
       listing_api.shapes.update(
         community_id: community_id,
         name: name,
@@ -62,12 +70,54 @@ class ShapeService
       key_map: KEY_MAP,
       community_id: community_id
     ).merge(
-      units: opts[:units].map { |u| add_quantity_selector(u) },
+      units: opts[:units].map { |u| add_quantity_selector(u) }.map { |u| add_custom_unit_translation(u, community_id) },
       transaction_process_id: select_process(opts[:online_payments], opts[:author_is_seller], @processes))
+  end
+
+  def select_existing_units(old_shape, new_shape)
+
+    unit_selections = new_shape[:units].map { |u|
+      if u[:name_tr_key] || u[:selector_tr_key]
+        # If either name or selector is found, then consider as existing unit
+
+        find_by_fields = [:name_tr_key, :selector_tr_key, :kind]
+        new_unit_field_values = u.slice(*find_by_fields)
+        selected_unit = old_shape[:units].find { |old_unit| old_unit.slice(*find_by_fields) == new_unit_field_values }
+
+        if selected_unit
+          [selected_unit]
+        else
+          [nil, "Couldn't find existing unit for #{new_unit_field_values}"]
+        end
+      else
+        # Return new units
+        [u]
+      end
+    }
+
+    errors = unit_selections.map(&:second).reject(&:nil?)
+
+    if errors.first
+      Result::Error.new(errors.first)
+    else
+      Result::Success.new([old_shape, new_shape.merge(units: unit_selections.map(&:first))])
+    end
   end
 
   def listing_api
     ListingService::API::Api
+  end
+
+  def add_custom_unit_translation(unit, community_id)
+    if unit[:type] == :custom && !unit[:name_tr_key]
+      TranslationServiceHelper.form_values_to_tr_keys!(
+        entity: unit,
+        key_map: CUSTOM_UNIT_KEY_MAP,
+        community_id: community_id
+      )
+    else
+      unit
+    end
   end
 
   def add_quantity_selector(unit)
@@ -78,7 +128,7 @@ class ShapeService
     process = online_payments ? :preauthorize : :none
     selected = processes.find { |p| p[:author_is_seller] == author_is_seller && p[:process] == process }
 
-    raise ArugmentError.new("Can not find suitable process") if selected.nil?
+    raise ArgumentError.new("Can not find suitable process") if selected.nil?
 
     selected[:id]
   end

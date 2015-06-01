@@ -5,7 +5,9 @@
 #  id                :integer          not null, primary key
 #  unit_type         :string(32)       not null
 #  quantity_selector :string(32)       not null
-#  translation_key   :string(64)
+#  kind              :string(32)       not null
+#  name_tr_key       :string(64)
+#  selector_tr_key   :string(64)
 #  listing_shape_id  :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
@@ -19,11 +21,13 @@ class ListingUnit < ActiveRecord::Base
   attr_accessible(
     :listing_shape_id,
     :unit_type,
-    :translation_key,
-    :quantity_selector
+    :name_tr_key,
+    :selector_tr_key,
+    :quantity_selector,
+    :kind
   )
 
   def self.columns
-    super.reject { |c| c.name == "transaction_type_id" }
+    super.reject { |c| c.name == "translation_key"}
   end
 end
