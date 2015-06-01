@@ -37,7 +37,7 @@ window.ST = window.ST || {};
     });
   };
 
-  module.initializeShippingPriceTotal = function(quantityInputSelector, shippingPriceSelector){
+  module.initializeShippingPriceTotal = function(quantityInputSelector, shippingPriceSelector, decimalMark){
     var $quantityInput = $(quantityInputSelector);
     var $shippingPriceElements = $(shippingPriceSelector);
 
@@ -51,13 +51,14 @@ window.ST = window.ST || {};
 
         // To avoid floating point issues, do calculations in cents
         var newShippingPrice = shippingPriceCents + perAdditionalCents * additionalCount;
+        var priceText = (newShippingPrice / 100).toFixed(2) + "";
+        var priceTextWithDecimalMark = priceText.replace(".", decimalMark);
 
-        $priceEl.text((newShippingPrice / 100).toFixed(2));
+        $priceEl.text(priceTextWithDecimalMark);
       });
     };
 
-    $quantityInput.on("keyup", updateShippingPrice);
-    $quantityInput.on("change", updateShippingPrice); // up and down arrows
+    $quantityInput.on("keyup change", updateShippingPrice); // change for up and down arrows
     updateShippingPrice();
   };
 
