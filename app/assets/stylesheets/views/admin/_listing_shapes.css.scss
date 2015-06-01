@@ -24,3 +24,20 @@
 .listing-shape-locale-label {
   font-weight: normal;
 }
+
+.listing-shape-custom-unit-per {
+  text-align: right;
+  margin-top: em(10);
+  padding-right: 0;
+  color: $border;
+}
+
+.listing-shape-add-custom-unit-link {
+  cursor: pointer;
+}
+
+.listing-shape-radio-label {
+  display: inline;
+  margin-left: lines(0.25);
+  font-weight: normal;
+}

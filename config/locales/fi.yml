@@ -402,6 +402,14 @@ fi:
         week: ~
         month: ~
       can_not_find: "Tyyppiä ID:llä %{id} ei löytynyt"
+      add_custom_unit: "+ Lisää uusi yksikkö…"
+      custom_unit_form:
+        title: "Uusi hinnoittelutyyppi"
+        label_heading: "Yksikkö"
+        selector_label_heading: "Suure"
+        label_placeholder: "esim. \"kg\", \"30 minuuttia\", \"henkilö\""
+        selector_placeholder: "esim. \"Henkilömäärä\", \"Paino kiloina\""
+        per: "Per"
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"

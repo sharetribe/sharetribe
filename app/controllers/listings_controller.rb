@@ -202,7 +202,8 @@ class ListingsController < ApplicationController
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
 
     listing_params = ListingFormViewUtils.filter(params[:listing], shape)
-    validation_result = ListingFormViewUtils.validate(listing_params, shape)
+    listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
+    validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
 
     unless validation_result.success
       flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
@@ -210,7 +211,7 @@ class ListingsController < ApplicationController
     end
 
     listing_params = normalize_price_params(listing_params)
-    m_unit = select_unit(listing_params, shape)
+    m_unit = select_unit(listing_unit, shape)
 
     listing_params = create_listing_params(listing_params).merge(
         listing_shape_id: shape[:id],
@@ -305,7 +306,8 @@ class ListingsController < ApplicationController
     shape = get_shape(params[:listing][:listing_shape_id])
 
     listing_params = ListingFormViewUtils.filter(params[:listing], shape)
-    validation_result = ListingFormViewUtils.validate(listing_params, shape)
+    listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
+    validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
 
     unless validation_result.success
       flash[:error] = t("listings.error.something_went_wrong", error_code: validation_result.data.join(', '))
@@ -313,7 +315,7 @@ class ListingsController < ApplicationController
     end
 
     listing_params = normalize_price_params(listing_params)
-    m_unit = select_unit(listing_params, shape)
+    m_unit = select_unit(listing_unit, shape)
 
     open_params = @listing.closed? ? {open: true} : {}
 
@@ -432,7 +434,11 @@ class ListingsController < ApplicationController
       commission(@current_community, process).merge({
         shape: shape,
         unit_options: unit_options,
-        shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil
+        shipping_price: Maybe(@listing).shipping_price.or_else(0).to_s,
+        shipping_enabled: @listing.require_shipping_address?,
+        pickup_enabled: @listing.pickup_enabled?,
+        shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil,
+        always_show_additional_shipping_price: shape[:units].length == 1 && shape[:units].first[:kind] == :quantity
       })
     else
       nil
@@ -459,31 +465,18 @@ class ListingsController < ApplicationController
                      payment_type: payment_type,
                      process: process)
 
-    shipping_price_additional =
-      if @listing.shipping_price_additional
-        @listing.shipping_price_additional.to_s
-      elsif @listing.shipping_price
-        @listing.shipping_price.to_s
-      else
-        0
-      end
-
     if allow_posting
-      unit_options = ListingViewUtils.unit_options(shape[:units])
-
-      render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(
-               run_js_immediately: true,
-               shape: shape,
-               unit_options: unit_options,
-               shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil)
+      render :partial => "listings/form/form_content", locals: form_locals(shape).merge(
+               run_js_immediately: true
+             )
     else
       render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
     end
   end
 
-  def select_unit(params, shape)
+  def select_unit(listing_unit, shape)
     m_unit = Maybe(shape)[:units].map { |units|
-      units.length == 1 ? units.first : units.find { |u| u[:type] == params[:unit].to_sym }
+      units.length == 1 ? units.first : units.find { |u| u == listing_unit }
     }
   end
 
@@ -492,12 +485,14 @@ class ListingsController < ApplicationController
       {
         unit_type: unit[:type],
         quantity_selector: unit[:quantity_selector],
-        unit_tr_key: unit[:translation_key]
+        unit_tr_key: unit[:name_tr_key],
+        unit_selector_tr_key: unit[:selector_tr_key]
       }
     }.or_else({
         unit_type: nil,
         quantity_selector: nil,
-        unit_tr_key: nil
+        unit_tr_key: nil,
+        unit_selector_tr_key: nil
     })
   end
 
@@ -505,7 +500,8 @@ class ListingsController < ApplicationController
     HashUtils.compact({
       type: Maybe(listing.unit_type).to_sym.or_else(nil),
       quantity_selector: Maybe(listing.quantity_selector).to_sym.or_else(nil),
-      translation_key: listing.unit_tr_key
+      unit_tr_key: listing.unit_tr_key,
+      unit_selector_tr_key: listing.unit_selector_tr_key
     })
   end
 

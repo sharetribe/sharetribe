@@ -81,6 +81,7 @@ class TransactionsController < ApplicationController
       nil
     else
       unit_type = tx[:unit_type].present? ? ListingViewUtils.translate_unit(tx[:unit_type], tx[:unit_tr_key]) : nil
+      localized_selector_label = tx[:unit_type].present? ? ListingViewUtils.translate_quantity(tx[:unit_type], tx[:unit_selector_tr_key]) : nil
       booking = !!tx[:booking]
       quantity = tx[:listing_quantity]
       show_subtotal = !!tx[:booking] || quantity.present? && quantity > 1 || tx[:shipping_price].present?
@@ -89,6 +90,7 @@ class TransactionsController < ApplicationController
       TransactionViewUtils.price_break_down_locals({
         listing_price: tx[:listing_price],
         localized_unit_type: unit_type,
+        localized_selector_label: localized_selector_label,
         booking: booking,
         start_on: booking ? tx[:booking][:start_on] : nil,
         end_on: booking ? tx[:booking][:end_on] : nil,
