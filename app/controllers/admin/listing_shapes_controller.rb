@@ -358,7 +358,7 @@ class Admin::ListingShapesController < ApplicationController
       custom_units.map { |u|
         {
           name: u[:name],
-          value: ListingShapeDataTypes::Unit.serialize(u.merge(kind: :quantity))
+          value: ListingShapeDataTypes::Unit.serialize(u)
         }
       }
     end

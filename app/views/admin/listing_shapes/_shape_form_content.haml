@@ -113,9 +113,9 @@
     .col-12
       = label_tag("", t("admin.listing_shapes.custom_unit_form.unit_type.heading"), class: "input")
 
-  - quantity_radio_id = "custom_units_${uniqueId}_type_quantity"
   .row
     .col-12
+      - quantity_radio_id = "custom_units_${uniqueId}_type_quantity"
       %input{type: :radio, id: quantity_radio_id, name: "custom_units[new][${uniqueId}][kind]", value: "quantity"}
       %label{class: "listing-shape-radio-label", for: quantity_radio_id}
         = t("admin.listing_shapes.custom_unit_form.unit_type.quantity_label")
@@ -123,7 +123,7 @@
   .row
     .col-12
       - time_radio_id = "custom_units_${uniqueId}_type_time"
-      %input{type: :radio, id: time_radio_id, name: "custom_units[${uniqueId}][kind]", value: "time"}
+      %input{type: :radio, id: time_radio_id, name: "custom_units[new][${uniqueId}][kind]", value: "time"}
       %label{class: "listing-shape-radio-label", for: time_radio_id}
         = t("admin.listing_shapes.custom_unit_form.unit_type.time_label")
 
