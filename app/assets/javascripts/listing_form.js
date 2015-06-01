@@ -403,20 +403,23 @@ window.ST = window.ST || {};
     togglePrice(); //initialize
 
     var $unit = $(".js-listing-unit");
-    var $additionalShipping = $(".js-shipping-price-additional");
 
-    var toggleAdditional = function() {
-      var kind = $unit.find(":selected").data("kind");
+    if ($unit.length) {
+      var $additionalShipping = $(".js-shipping-price-additional");
 
-      if (kind === "quantity") {
-        $additionalShipping.css({display: "table"});
-      } else {
-        $additionalShipping.hide();
-      }
-    };
+      var toggleAdditional = function() {
+        var kind = $unit.find(":selected").data("kind");
 
-    $unit.change(toggleAdditional);
-    toggleAdditional(); // init
+        if (kind === "quantity") {
+          $additionalShipping.css({display: "table"});
+        } else {
+          $additionalShipping.hide();
+        }
+      };
+
+      $unit.change(toggleAdditional);
+      toggleAdditional(); // init
+    }
 
     var form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
 

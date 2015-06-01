@@ -3,6 +3,7 @@ module ListingViewUtils
 
   Unit = EntityUtils.define_builder(
     [:type, :to_symbol, one_of: [:hour, :day, :night, :week, :month, :custom]],
+    [:kind, :to_symbol],
     [:name_tr_key, :string, :optional],
     [:kind, :mandatory, :to_symbol],
     [:selector_tr_key, :string, :optional],
