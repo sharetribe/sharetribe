@@ -437,7 +437,8 @@ class ListingsController < ApplicationController
         shipping_price: Maybe(@listing).shipping_price.or_else(0).to_s,
         shipping_enabled: @listing.require_shipping_address?,
         pickup_enabled: @listing.pickup_enabled?,
-        shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil
+        shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil,
+        always_show_additional_shipping_price: shape[:units].length == 1 && shape[:units].first[:kind] == :quantity
       })
     else
       nil
