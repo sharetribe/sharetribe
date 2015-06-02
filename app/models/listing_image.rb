@@ -23,7 +23,7 @@
 
 class ListingImage < ActiveRecord::Base
 
-  belongs_to :listing
+  belongs_to :listing, touch: true
   belongs_to :author, :class_name => "Person"
 
   # see paperclip (for image_processing column)
