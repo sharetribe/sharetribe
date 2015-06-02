@@ -101,7 +101,12 @@ window.ST.initializeListingShapeForm = function(formId) {
 
     var $form = $(customUnitTemplate({uniqueId: uniqueId}));
 
-    $form.insertBefore($('.js-listing-shape-add-custom-unit-link')).show();
+    $form.find('.js-listing-shape-close-custom-unit-form').click(closeCustomUnitForm);
+    $form.insertBefore($('.js-listing-shape-add-custom-unit-link').parent()).show();
+  };
+
+  var closeCustomUnitForm = function() {
+    this.parentElement.remove();
   };
 
   var toggle = function(el, state) {
@@ -126,6 +131,7 @@ window.ST.initializeListingShapeForm = function(formId) {
   $('.js-listing-shape-add-custom-unit-link').click(function() {
     addCustomUnitForm();
   });
+  $('.js-listing-shape-close-custom-unit-form').click(closeCustomUnitForm);
 
   // Run once on init
   priceChanged($('.js-price-enabled'));

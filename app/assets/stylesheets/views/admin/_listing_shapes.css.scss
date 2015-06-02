@@ -29,7 +29,7 @@
   text-align: right;
   margin-top: em(10);
   padding-right: 0;
-  color: $border;
+  color: darken($border, 15%);
 }
 
 .listing-shape-add-custom-unit-link {
@@ -40,4 +40,17 @@
   display: inline;
   margin-left: lines(0.25);
   font-weight: normal;
+}
+
+.listing-shape-add-custom-unit-form {
+  position: relative;
+  background-color: lighten($border, 15%);
+  margin-bottom: lines(0.5);
+  padding: em(6) em(18) lines(0.5);
+}
+
+.listing-shape-close-custom-unit-form {
+  position: absolute;
+  right: em(18);
+  top: em(18);
 }
