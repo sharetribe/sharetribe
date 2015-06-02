@@ -2,7 +2,7 @@ module HashUtils
   module_function
 
   def compact(h)
-    h.delete_if { |k, v| v.nil? }
+    h.reject { |k, v| v.nil? }
   end
 
   def camelize_keys(h, deep=true)

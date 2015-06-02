@@ -2,6 +2,19 @@ require 'spec_helper'
 
 describe HashUtils do
 
+  describe "#compact" do
+    it "returns hash without nils" do
+      expect(HashUtils.compact(a: nil, b: 2)).to eq(b: 2)
+    end
+
+    it "does not mutate the original hash" do
+      h = {a: nil, b: 2}
+      expect(HashUtils.compact(h)).to eq(b: 2)
+      expect(h).to eq(a: nil, b: 2)
+    end
+  end
+
+
   it "#map_keys" do
     h = {
       "a" => "a",
