@@ -1,11 +1,6 @@
 module ListingService::Store::Listing
   ListingModel = ::Listing
 
-  UpdateListing = EntityUtils.define_builder(
-    [:open, :bool],
-    [:listing_shape_id, :fixnum]
-  )
-
   module_function
 
   def count(community_id:, query:)
