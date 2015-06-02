@@ -110,11 +110,18 @@ module HashUtils
     }.map { |(k, v)| [k, v.to_a] }.to_h
   end
 
+  # { a: b: 1 } -> { :"a.b" => 1 }
   def flatten(h)
     # use helper lambda
     acc = ->(prefix, hash) {
       hash.inject({}) { |memo, (k, v)|
-        prefixed_key = prefix.nil? ? k : [prefix.to_s, k.to_s].join(".")
+        key_s = k.to_s
+
+        if !k.is_a?(Symbol) || key_s.include?(".")
+          raise ArgumentError.new("Key must be a String and must not contain dot (.). Was: '#{k.to_s}', (#{k.class.name})")
+        end
+
+        prefixed_key = prefix.nil? ? k : [prefix.to_s, key_s].join(".")
 
         if v.is_a? Hash
           memo.merge(acc.call(prefixed_key, v))
