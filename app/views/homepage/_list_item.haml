@@ -1,4 +1,4 @@
-- cache(listing) do
+- cache(["list_item", listing, listing.author, @current_community]) do
   .home-list-item
     - if listing.listing_images.size > 0
       = link_to listing, :class => "home-list-image-container-desktop" do
