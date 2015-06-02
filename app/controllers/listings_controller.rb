@@ -439,7 +439,7 @@ class ListingsController < ApplicationController
         shipping_price: Maybe(@listing).shipping_price.or_else(0).to_s,
         shipping_enabled: @listing.require_shipping_address?,
         pickup_enabled: @listing.pickup_enabled?,
-        shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil,
+        shipping_price_additional: shipping_price_additional,
         always_show_additional_shipping_price: shape[:units].length == 1 && shape[:units].first[:kind] == :quantity
       })
     else
@@ -835,8 +835,8 @@ class ListingsController < ApplicationController
   def delivery_price_hash(delivery_type, price, shipping_price_additional)
       { name: delivery_type,
         price: price,
-        shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil,
-        price_info: ListingViewUtils.shipping_info(delivery_type, price, feature_enabled?(:shipping_per) ? shipping_price_additional : nil),
+        shipping_price_additional: shipping_price_additional,
+        price_info: ListingViewUtils.shipping_info(delivery_type, price, shipping_price_additional),
         default: true
       }
   end
