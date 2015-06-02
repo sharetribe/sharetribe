@@ -8,7 +8,8 @@ module ListingService::Store::Listing
   end
 
   def update_all(community_id: nil, query:, opts:)
-    where_models(community_id, query).update_all(opts)
+    opts[:updated_at] = opts[:updated_at] || Time.now
+    where_models(community_id, query).update_all(SQLUtils.hash_to_query(listings: opts))
   end
 
   # private
