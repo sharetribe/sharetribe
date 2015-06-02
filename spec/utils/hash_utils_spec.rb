@@ -73,4 +73,22 @@ describe HashUtils do
       expect(HashUtils.transpose(HashUtils.transpose(h))).to eq(h)
     end
   end
+
+  describe "#flatten" do
+    it "makes deep structure flat" do
+      expect(HashUtils.flatten(
+        { a: { aa: { aaa: 1 },
+               bb: 2,
+               cc: { ccc: 3 }
+             }
+        }
+        )).to eq(
+             {
+              :"a.aa.aaa" => 1,
+              :"a.bb" => 2,
+              :"a.cc.ccc" => 3
+             }
+           )
+    end
+  end
 end

@@ -109,4 +109,21 @@ module HashUtils
       acc
     }.map { |(k, v)| [k, v.to_a] }.to_h
   end
+
+  def flatten(h)
+    # use helper lambda
+    acc = ->(prefix, hash) {
+      hash.inject({}) { |memo, (k, v)|
+        prefixed_key = prefix.nil? ? k : [prefix.to_s, k.to_s].join(".")
+
+        if v.is_a? Hash
+          memo.merge(acc.call(prefixed_key, v))
+        else
+          memo.merge(prefixed_key.to_sym => v)
+        end
+      }
+    }
+
+    acc.call(nil, h)
+  end
 end
