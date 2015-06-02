@@ -405,11 +405,15 @@ fi:
       add_custom_unit: "+ Lisää uusi yksikkö…"
       custom_unit_form:
         title: "Uusi hinnoittelutyyppi"
-        label_heading: "Yksikkö"
-        selector_label_heading: "Suure"
+        label_heading: Yksikkö
+        selector_label_heading: Suure
         label_placeholder: "esim. \"kg\", \"30 minuuttia\", \"henkilö\""
         selector_placeholder: "esim. \"Henkilömäärä\", \"Paino kiloina\""
-        per: "Per"
+        per: Per
+        unit_type:
+          heading: ~
+          quantity_label: ~
+          time_label: ~
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"
@@ -899,7 +903,6 @@ fi:
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
-      you_have_days_to_accept: ~
       you_have_time_to_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:

@@ -412,6 +412,18 @@ ru:
         week: ~
         month: ~
       can_not_find: ~
+      add_custom_unit: ~
+      custom_unit_form:
+        title: ~
+        label_heading: ~
+        selector_label_heading: ~
+        label_placeholder: ~
+        selector_placeholder: ~
+        per: ~
+        unit_type:
+          heading: ~
+          quantity_label: ~
+          time_label: ~
     paypal_accounts:
       marketplace_paypal_integration: "Настройки платежей"
       preferences_updated: "Настройки платежей обновлены."
@@ -897,7 +909,7 @@ ru:
     transaction_preauthorized:
       subject: "%{requester} запросил и оплатил за %{listing_title}"
       transaction_requested_by_user: "%{requester} запросил и оплатил за \"%{listing_title}\""
-      you_have_days_to_accept: "Вам нужно принять или отклонить запрос в течении %{payment_expires_in_days} дней. Если вы не примите в течение этого времени, запрос будет автоматически отклонен и вам не будет произведена оплата."
+      you_have_time_to_accept: ~
       click_here_to_reply: "Нажмите здесь чтобы ответить на запрос"
     transaction_preauthorized_reminder:
       subject: "Не забудьте принять запрос от %{requester} о предложении %{listing_title}"

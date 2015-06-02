@@ -414,6 +414,18 @@ fr:
         week: "Par semaine"
         month: "Par mois"
       can_not_find: "Impossible de trouver le type de transaction avec l'id suivant : %{id}"
+      add_custom_unit: "+ Ajouter une unité de prix personnalisée..."
+      custom_unit_form:
+        title: "Nouvelle unité de prix"
+        label_heading: Libellé
+        selector_label_heading: "Libellé du sélecteur"
+        label_placeholder: "Ex. : \"kg\", \"30 minutes\", \"personne\", \"leçon\""
+        selector_placeholder: "Ex. : \"Nombre de personnes\", \"Total en kg\""
+        per: Par
+        unit_type:
+          heading: "Type d'unité"
+          quantity_label: "Quantité (per élément, par kg, par personne, par visite de 2 heure...)"
+          time_label: "Temps (par 30 minutes, par 2 semaines, par année...)"
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       preferences_updated: "Préférences de paiement mises à jour"
@@ -903,7 +915,7 @@ fr:
     transaction_preauthorized:
       subject: "%{requester} a demandé et autorisé le paiement pour %{listing_title}"
       transaction_requested_by_user: "%{requester} a demandé et autorisé le paiement pour \"%{listing_title}\""
-      you_have_days_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in_days} jours. Si vous acceptez durant ce délai, le paiement sera réalisé. Si vous n'acceptez pas, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
+      you_have_time_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in}. Si vous acceptez durant ce délai, le paiement sera réalisé. Si vous n'acceptez pas, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
       subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"
@@ -2003,7 +2015,7 @@ fr:
       december: Déc
     today: Aujourd'hui
     clear: Effacer
-    format: dd/mm/yyyy
+    format: jj/mm/aaaa
   time:
     formats:
       short: "%e. %b %Y heure %H:%M"
@@ -2025,6 +2037,19 @@ fr:
     days_since:
       one: hier
       other: "%{count} jours"
+    time_to:
+      seconds:
+        one: "%{count} seconde"
+        other: "%{count} secondes"
+      minutes:
+        one: "%{count} minute"
+        other: "%{count} minutes"
+      hours:
+        one: "%{count} heure"
+        other: "%{count} heures"
+      days:
+        one: "%{count} jour"
+        other: "%{count} jours"
   transactions:
     initiate:
       booked_days: "Jours réservés : "

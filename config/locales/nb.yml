@@ -410,6 +410,18 @@ nb:
         week: ~
         month: ~
       can_not_find: "Kan ikke finne transaksjonstype med ID: %{id}"
+      add_custom_unit: "+ Legg til en spesiell prisenhet…"
+      custom_unit_form:
+        title: "Ny prisenhet"
+        label_heading: Etikett
+        selector_label_heading: Valgetikett
+        label_placeholder: "eks.: kg, 30 minutter, person, klasse"
+        selector_placeholder: "eks.: antall personer, mengde i kg"
+        per: Per
+        unit_type:
+          heading: "Type enhet"
+          quantity_label: "Antall (per stk, per kg, per person, per 2-timers tur…)"
+          time_label: "Tid (per 30 minutter, per 2 uker, per år…)"
     paypal_accounts:
       marketplace_paypal_integration: Betalingsinnstillinger
       preferences_updated: "Betalingsinnstillinger oppdatert"

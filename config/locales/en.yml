@@ -417,11 +417,11 @@ en:
       add_custom_unit: "+ Add a custom pricing unit…"
       custom_unit_form:
         title: "New pricing unit"
-        label_heading: "Label"
+        label_heading: Label
         selector_label_heading: "Selector label"
         label_placeholder: "eg. \"kg\", \"30 minutes\", \"person\", \"class\""
         selector_placeholder: "eg. \"Number of people\", \"Amount in kg\""
-        per: "Per"
+        per: Per
         unit_type:
           heading: "Unit type"
           quantity_label: "Quantity (per piece, per kg, per person, per 2 hour tour...)"

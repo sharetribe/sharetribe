@@ -402,6 +402,18 @@ nl:
         week: ~
         month: ~
       can_not_find: ~
+      add_custom_unit: ~
+      custom_unit_form:
+        title: ~
+        label_heading: ~
+        selector_label_heading: ~
+        label_placeholder: ~
+        selector_placeholder: ~
+        per: ~
+        unit_type:
+          heading: ~
+          quantity_label: ~
+          time_label: ~
     paypal_accounts:
       marketplace_paypal_integration: "Voorkeuren betalingen"
       preferences_updated: "Voorkeuren betalingen bijgewerkt"
@@ -887,7 +899,7 @@ nl:
     transaction_preauthorized:
       subject: "%{requester} heeft gevraagd en betaald voor %{listing_title}"
       transaction_requested_by_user: "%{requester} heeft gevraagd en betaald voor \"%{listing_title}\""
-      you_have_days_to_accept: "Je moet het verzoek aanvaarden of afwijzen binnen %{payment_expires_in_days} dagen. Als je binnen die tijdspanne niet aanvaardt zal het verzoek automatisch afgewezen worden en krijg je geen betaling."
+      you_have_time_to_accept: ~
       click_here_to_reply: "Klik hier om te antwoorden op he verzoek"
     transaction_preauthorized_reminder:
       subject: "Vergeet niet om het verzoek van %{requester} betreffende item %{listing_title} te aanvaarden"

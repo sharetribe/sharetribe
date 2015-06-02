@@ -414,6 +414,18 @@ sv:
         week: "Per vecka"
         month: "Per månad"
       can_not_find: "Det går inte att hitta ordertyp med id: %{id}"
+      add_custom_unit: ~
+      custom_unit_form:
+        title: ~
+        label_heading: ~
+        selector_label_heading: ~
+        label_placeholder: ~
+        selector_placeholder: ~
+        per: ~
+        unit_type:
+          heading: ~
+          quantity_label: ~
+          time_label: ~
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"
@@ -2028,18 +2040,18 @@ sv:
       one: "%{count} dag"
       other: "%{count} dagarna"
     time_to:
-      days:
-        one: "%{count} dag"
-        other: "%{count} dagar"
-      hours:
-        one: "%{count} timme"
-        other: "%{count} timmar"
-      minutes:
-        one: "%{count} minut"
-        other: "%{count} minuter"
       seconds:
         one: "%{count} sekund"
         other: "%{count} sekunder"
+      minutes:
+        one: "%{count} minut"
+        other: "%{count} minuter"
+      hours:
+        one: "%{count} timme"
+        other: "%{count} timmar"
+      days:
+        one: "%{count} dag"
+        other: "%{count} dagar"
   transactions:
     initiate:
       booked_days: "Bokade dagar:"
