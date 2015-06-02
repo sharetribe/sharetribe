@@ -93,10 +93,10 @@ describe HashUtils do
 
     it "throws if key is not symbol or if it contains a dot" do
       expect { HashUtils.flatten("string" => 1) }
-        .to raise_error(ArgumentError, "Key must be a String and must not contain dot (.). Was: 'string', (String)")
+        .to raise_error(ArgumentError, "Key must be a Symbol and must not contain dot (.). Was: 'string', (String)")
 
       expect { HashUtils.flatten(:"a.b" => 1) }
-        .to raise_error(ArgumentError, "Key must be a String and must not contain dot (.). Was: 'a.b', (Symbol)")
+        .to raise_error(ArgumentError, "Key must be a Symbol and must not contain dot (.). Was: 'a.b', (Symbol)")
     end
   end
 end

@@ -40,7 +40,7 @@ describe SQLUtils do
         b: { bb: "bb" }
       }
 
-      expect(SQLUtils.opts_to_query(opts)).to eq(["a = ?, b.bb = ?", "a", "bb"])
+      expect(SQLUtils.hash_to_query(opts)).to eq(["a = ?, b.bb = ?", "a", "bb"])
     end
   end
 end

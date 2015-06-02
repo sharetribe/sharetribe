@@ -118,7 +118,7 @@ module HashUtils
         key_s = k.to_s
 
         if !k.is_a?(Symbol) || key_s.include?(".")
-          raise ArgumentError.new("Key must be a String and must not contain dot (.). Was: '#{k.to_s}', (#{k.class.name})")
+          raise ArgumentError.new("Key must be a Symbol and must not contain dot (.). Was: '#{k.to_s}', (#{k.class.name})")
         end
 
         prefixed_key = prefix.nil? ? k : [prefix.to_s, key_s].join(".")
