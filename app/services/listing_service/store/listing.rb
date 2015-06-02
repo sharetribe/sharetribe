@@ -1,11 +1,6 @@
 module ListingService::Store::Listing
   ListingModel = ::Listing
 
-  UpdateListing = EntityUtils.define_builder(
-    [:open, :bool],
-    [:listing_shape_id, :fixnum]
-  )
-
   module_function
 
   def count(community_id:, query:)
@@ -13,7 +8,8 @@ module ListingService::Store::Listing
   end
 
   def update_all(community_id: nil, query:, opts:)
-    where_models(community_id, query).update_all(opts)
+    opts[:updated_at] = opts[:updated_at] || Time.now
+    where_models(community_id, query).update_all(SQLUtils.hash_to_query(listings: opts))
   end
 
   # private

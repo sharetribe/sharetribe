@@ -73,4 +73,30 @@ describe HashUtils do
       expect(HashUtils.transpose(HashUtils.transpose(h))).to eq(h)
     end
   end
+
+  describe "#flatten" do
+    it "makes deep structure flat" do
+      expect(HashUtils.flatten(
+        { a: { aa: { aaa: 1 },
+               bb: 2,
+               cc: { ccc: 3 }
+             }
+        }
+        )).to eq(
+             {
+              :"a.aa.aaa" => 1,
+              :"a.bb" => 2,
+              :"a.cc.ccc" => 3
+             }
+           )
+    end
+
+    it "throws if key is not symbol or if it contains a dot" do
+      expect { HashUtils.flatten("string" => 1) }
+        .to raise_error(ArgumentError, "Key must be a Symbol and must not contain dot (.). Was: 'string', (String)")
+
+      expect { HashUtils.flatten(:"a.b" => 1) }
+        .to raise_error(ArgumentError, "Key must be a Symbol and must not contain dot (.). Was: 'a.b', (Symbol)")
+    end
+  end
 end

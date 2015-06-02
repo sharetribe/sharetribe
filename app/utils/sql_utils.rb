@@ -33,4 +33,14 @@ module SQLUtils
     quote(sql_lambda, params) { |p| connection.quote(p) }
   end
 
+  def hash_to_query(opts)
+    string_parts, values = HashUtils.flatten(opts).reduce([[], []]) { |(string_parts, values), (column, value)|
+      string_parts << "#{column.to_s} = ?"
+      values << value
+      [string_parts, values]
+    }
+
+    [string_parts.join(", ")].concat(values)
+  end
+
 end
