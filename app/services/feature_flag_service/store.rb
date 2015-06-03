@@ -8,10 +8,16 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     FLAGS = [
-      :shape_ui
+
     ].to_set
 
-    def known_flags; FLAGS.dup end
+    def initialize(additional_flags:)
+      @additional_flags = additional_flags.to_set
+    end
+
+    def known_flags
+      FLAGS.dup.merge(@additional_flags)
+    end
 
     def get(community_id)
       Maybe(FeatureFlagModel.where(community_id: community_id))
@@ -20,14 +26,14 @@ module FeatureFlagService::Store
     end
 
     def enable(community_id, features)
-      flags_to_enable = FLAGS.intersection(features).map { |flag| [flag, true] }.to_h
+      flags_to_enable = known_flags.intersection(features).map { |flag| [flag, true] }.to_h
       update_flags!(community_id, flags_to_enable)
 
       get(community_id)
     end
 
     def disable(community_id, features)
-      flags_to_disable = FLAGS.intersection(features).map { |flag| [flag, false] }.to_h
+      flags_to_disable = known_flags.intersection(features).map { |flag| [flag, false] }.to_h
       update_flags!(community_id, flags_to_disable)
 
       get(community_id)
@@ -39,7 +45,7 @@ module FeatureFlagService::Store
     def from_models(community_id, feature_models)
       CommunityFlags.call(
         community_id: community_id,
-        features: feature_models.select { |m| FLAGS.include?(m.feature.to_sym) && m.enabled }
+        features: feature_models.select { |m| known_flags.include?(m.feature.to_sym) && m.enabled }
           .map { |m| m.feature.to_sym }
           .to_set)
     end
@@ -61,8 +67,8 @@ module FeatureFlagService::Store
 
   class CachingFeatureFlag
 
-    def initialize
-      @feature_flag_store = FeatureFlag.new
+    def initialize(additional_flags:)
+      @feature_flag_store = FeatureFlag.new(additional_flags: additional_flags)
     end
 
     def known_flags; @feature_flag_store.known_flags end
