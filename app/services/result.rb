@@ -106,4 +106,25 @@ module Result
 
   end
 
+  module_function
+
+  def all(*operations)
+    operations.inject(Result::Success.new([])) { |res, op|
+      if res.success
+        res_data = res.data
+        op_res = op.call(*res_data)
+
+        raise ArgumentError.new("Lambda must return Result") unless (res.is_a?(Result::Success) || res.is_a?(Result::Error))
+
+        if op_res.success
+          Result::Success.new(res_data.concat([op_res.data]))
+        else
+          op_res
+        end
+      else
+        res
+      end
+    }
+  end
+
 end
