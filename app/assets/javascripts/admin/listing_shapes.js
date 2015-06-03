@@ -94,6 +94,12 @@ window.ST.initializeListingShapeForm = function(formId) {
     toggleLabel($(".js-unit-label"), enabled);
   };
 
+  var removeCustomUnit = function() {
+    var index = $(this).data("customunitindex");
+    if (typeof index !== "undefined")
+      $('.js-custom-unit-'+index).remove();
+  };
+
   var customUnitTemplate = _.template($(".js-listing-shape-add-custom-unit-form").html());
 
   var addCustomUnitForm = function() {
@@ -132,6 +138,7 @@ window.ST.initializeListingShapeForm = function(formId) {
     addCustomUnitForm();
   });
   $('.js-listing-shape-close-custom-unit-form').click(closeCustomUnitForm);
+  $('.js-remove-custom-unit').click(removeCustomUnit);
 
   // Run once on init
   priceChanged($('.js-price-enabled'));

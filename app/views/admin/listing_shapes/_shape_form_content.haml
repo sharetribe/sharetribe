@@ -67,10 +67,11 @@
       = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label js-unit-label")
 
 - shape[:custom_units].each_with_index do |unit, index|
-  .row
+  .row{class: "js-custom-unit-#{index}"}
     .col-12
-      = check_box_tag("custom_units[existing][#{index}]", unit[:value], true, class: "js-unit-checkbox checkbox-row-checkbox")
+      = hidden_field_tag("custom_units[existing][#{index}]", unit[:value])
       = label_tag("custom_units[existing][#{index}]", "#{t('admin.listing_shapes.custom_unit_form.per')} #{unit[:name][I18n.locale.to_s]}", class: "js-unit-label checkbox-row-label")
+      = link_to_function(t("admin.listing_shapes.delete_custom_unit"), "", class: "js-remove-custom-unit", data: {customUnitIndex: index})
 
 .row
   .col-12.js-listing-shape-add-custom-unit-link.listing-shape-add-custom-unit-link
