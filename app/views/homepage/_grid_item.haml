@@ -1,11 +1,12 @@
-.home-fluid-thumbnail-grid-item
-  %div
-    -# Listing image
-    = render :partial => "layouts/grid_item_listing_image", :locals => {:listing => listing, :modifier_class => ""}
+- cache(["grid_item", listing, listing.author, @current_community, MoneyRails::Configuration.no_cents_if_whole]) do
+  .home-fluid-thumbnail-grid-item
+    %div
+      -# Listing image
+      = render :partial => "layouts/grid_item_listing_image", :locals => {:listing => listing, :modifier_class => ""}
 
-    -# Listing author details
-    .home-fluid-thumbnail-grid-author
-      .home-fluid-thumbnail-grid-author-avatar
-        = small_avatar_thumb(listing.author, :class => "home-fluid-thumbnail-grid-author-avatar-image")
-      = link_to(listing.author, :class => "home-fluid-thumbnail-grid-author-name") do
-        = listing.author.name(@current_community)
+      -# Listing author details
+      .home-fluid-thumbnail-grid-author
+        .home-fluid-thumbnail-grid-author-avatar
+          = small_avatar_thumb(listing.author, :class => "home-fluid-thumbnail-grid-author-avatar-image")
+        = link_to(listing.author, :class => "home-fluid-thumbnail-grid-author-name") do
+          = listing.author.name(@current_community)
