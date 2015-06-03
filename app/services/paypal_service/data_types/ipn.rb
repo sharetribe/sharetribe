@@ -248,7 +248,7 @@ module PaypalService
           },
           params)
 
-        p[:order_id] = p[:order_id].strip.empty? ? nil : p[:order_id]
+        p[:order_id] = Maybe(p)[:order_id].strip.or_else(nil)
 
         create_authorization_created(
           p.merge({
