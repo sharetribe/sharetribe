@@ -12,7 +12,6 @@ module ListingService::Store::Shape
     [:transaction_process_id, :fixnum, :mandatory],
     [:shipping_enabled, :bool, :mandatory],
     [:units, :array, default: []], # Mandatory only if price_enabled
-    [:price_quantity_placeholder, one_of: [nil, :mass, :time, :long_time]], # TODO TEMP
     [:sort_priority, :fixnum],
     [:basename, :string, :mandatory]
   )
@@ -95,7 +94,7 @@ module ListingService::Store::Shape
     ActiveRecord::Base.transaction do
 
       # Save to ListingShape model
-      shape_model = ListingShape.create!(shape_with_sort.except(:units))
+      shape_model = ListingShape.create!(shape_with_sort.except(:units).merge(price_quantity_placeholder: nil))
 
       # Save units
       units.each { |unit|
@@ -128,7 +127,7 @@ module ListingService::Store::Shape
       end
 
       # Save to ListingShape model
-      shape_model.update_attributes!(HashUtils.compact(update_shape).except(:units))
+      shape_model.update_attributes!(HashUtils.compact(update_shape).except(:units).merge(price_quantity_placeholder: nil))
     end
 
     from_model(shape_model, true)
