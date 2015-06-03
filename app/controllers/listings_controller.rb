@@ -203,6 +203,7 @@ class ListingsController < ApplicationController
 
     listing_params = ListingFormViewUtils.filter(params[:listing], shape)
     listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
+    listing_params = ListingFormViewUtils.filter_additional_shipping(listing_params, listing_unit)
     validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
 
     unless validation_result.success
@@ -307,6 +308,7 @@ class ListingsController < ApplicationController
 
     listing_params = ListingFormViewUtils.filter(params[:listing], shape)
     listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
+    listing_params = ListingFormViewUtils.filter_additional_shipping(listing_params, listing_unit)
     validation_result = ListingFormViewUtils.validate(listing_params, shape, listing_unit)
 
     unless validation_result.success
@@ -434,7 +436,11 @@ class ListingsController < ApplicationController
       commission(@current_community, process).merge({
         shape: shape,
         unit_options: unit_options,
-        shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil
+        shipping_price: Maybe(@listing).shipping_price.or_else(0).to_s,
+        shipping_enabled: @listing.require_shipping_address?,
+        pickup_enabled: @listing.pickup_enabled?,
+        shipping_price_additional: shipping_price_additional,
+        always_show_additional_shipping_price: shape[:units].length == 1 && shape[:units].first[:kind] == :quantity
       })
     else
       nil
@@ -461,23 +467,10 @@ class ListingsController < ApplicationController
                      payment_type: payment_type,
                      process: process)
 
-    shipping_price_additional =
-      if @listing.shipping_price_additional
-        @listing.shipping_price_additional.to_s
-      elsif @listing.shipping_price
-        @listing.shipping_price.to_s
-      else
-        0
-      end
-
     if allow_posting
-      unit_options = ListingViewUtils.unit_options(shape[:units])
-
-      render :partial => "listings/form/form_content", locals: commission(@current_community, process).merge(
-               run_js_immediately: true,
-               shape: shape,
-               unit_options: unit_options,
-               shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil)
+      render :partial => "listings/form/form_content", locals: form_locals(shape).merge(
+               run_js_immediately: true
+             )
     else
       render :partial => "listings/payout_registration_before_posting", locals: { error_msg: error_msg }
     end
@@ -757,7 +750,7 @@ class ListingsController < ApplicationController
 
   def delivery_config(require_shipping_address, pickup_enabled, shipping_price, shipping_price_additional, currency)
     shipping = delivery_price_hash(:shipping, shipping_price, shipping_price_additional)
-    pickup = delivery_price_hash(:pickup, Money.new(0, currency), shipping_price_additional)
+    pickup = delivery_price_hash(:pickup, Money.new(0, currency), Money.new(0, currency))
 
     case [require_shipping_address, pickup_enabled]
     when matches([true, true])
@@ -842,8 +835,8 @@ class ListingsController < ApplicationController
   def delivery_price_hash(delivery_type, price, shipping_price_additional)
       { name: delivery_type,
         price: price,
-        shipping_price_additional: feature_enabled?(:shipping_per) ? shipping_price_additional : nil,
-        price_info: ListingViewUtils.shipping_info(delivery_type, price, feature_enabled?(:shipping_per) ? shipping_price_additional : nil),
+        shipping_price_additional: shipping_price_additional,
+        price_info: ListingViewUtils.shipping_info(delivery_type, price, shipping_price_additional),
         default: true
       }
   end

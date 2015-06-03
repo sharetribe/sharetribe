@@ -24,6 +24,7 @@ module ListingViewUtils
       {
         display: translate_unit(unit[:type], unit[:name_tr_key]),
         value: Unit.serialize(unit),
+        kind: unit[:kind],
         selected: selected_unit.present? &&
           unit[:name_tr_key] == selected_unit[:unit_tr_key] &&
           unit[:selector_tr_key] == selected_unit[:unit_selector_tr_key]

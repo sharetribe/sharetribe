@@ -78,7 +78,7 @@
               $("#booking-dates").validate();
               window.ST.initializeQuantityValidation({validate: "positiveIntegers", input: "quantity", errorMessage: "#{t("errors.messages.positive_number")}" });
               if ("#{delivery_type}" == "shipping" && #{shipping_price_additional != nil}) {
-                window.ST.initializeShippingPriceTotal('#quantity', '.delivery-price-value');
+                window.ST.initializeShippingPriceTotal('#quantity', '.delivery-price-value', '#{Maybe(delivery_opts)[0][:price].currency.decimal_mark.or_else(".")}');
               }
 
           .quantity-wrapper.input-group.clearfix

@@ -14,6 +14,15 @@ module ListingFormViewUtils
     params.except(*filter_fields)
   end
 
+  def filter_additional_shipping(params, unit)
+    if Maybe(unit)[:kind].or_else(nil) != :quantity
+      params.except(:shipping_price_additional)
+    else
+      params
+    end
+
+  end
+
   def validate(params, shape, unit)
     errors = []
 

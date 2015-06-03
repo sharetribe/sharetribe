@@ -549,7 +549,7 @@ class PreauthorizeTransactionsController < ApplicationController
   def shipping_price_total(shipping_price, shipping_price_additional, quantity)
     Maybe(shipping_price)
       .map { |price|
-        if shipping_price_additional.present? && quantity.present? && quantity > 1 && feature_enabled?(:shipping_per)
+        if shipping_price_additional.present? && quantity.present? && quantity > 1
           price + (shipping_price_additional * (quantity - 1))
         else
           price
