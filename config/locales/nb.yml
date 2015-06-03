@@ -411,6 +411,7 @@ nb:
         month: ~
       can_not_find: "Kan ikke finne transaksjonstype med ID: %{id}"
       add_custom_unit: "+ Legg til en spesiell prisenhet…"
+      delete_custom_unit: ~
       custom_unit_form:
         title: "Ny prisenhet"
         label_heading: Etikett

@@ -403,6 +403,7 @@ nl:
         month: ~
       can_not_find: ~
       add_custom_unit: ~
+      delete_custom_unit: ~
       custom_unit_form:
         title: ~
         label_heading: ~
@@ -1300,6 +1301,7 @@ nl:
       you_must_log_in_to_invite_new_users: "Je moet ingelogd zijn om nieuwe gebruikers uit te nodigen naar %{service_name}"
       you_must_log_in_to_send_a_comment: "Je moet inloggen om een nieuwe reactie te versturen"
       you_must_log_in_to_send_a_message: "Je moet ingelogd zijn bij %{service_name} om een bericht te kunnen sturen naar een andere gebruiker."
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Je moet inloggen om deze inhoud te zien"
       you_must_log_in_to_view_this_page: "Je moet inloggen om deze pagina te kunnen bekijken"
       you_must_log_in_to_view_your_inbox: "Je moet ingelogd zijn bij %{service_name} om je inbox te kunnen zien."
@@ -1368,7 +1370,7 @@ nl:
       departure_time_radio_buttons:
         repeated: "Herhaald (voeg aantal keren en dagen toe in veld 'gedetailleerd omschrijving')"
       description:
-        detailed_description: "Meer details"
+        detailed_description: Omschrijving
       destination:
         destination: Bestemming
       form_content:
@@ -1441,7 +1443,7 @@ nl:
         comma_separate: "(gescheiden door een komma)"
         tags: Tags
       title:
-        listing_title: Omschrijving
+        listing_title: Titel
       valid_until:
         valid_until: "Geldig tot"
       valid_until_radio_buttons:
@@ -1573,7 +1575,7 @@ nl:
       day: dag
       night: ~
       week: ~
-      month: ~
+      month: maand
     verification_required:
       verification_required: "Verificatie vereist"
   listing_conversations:
@@ -1620,7 +1622,6 @@ nl:
       continue: Doorgaan
       payment_receiver: "Ontvanger betaling:"
       sum: "Som betaling:"
-      commission_will_be_added: "Een service kost van 10% zal toegevoegd worden."
     form:
       total: Totaal
       service_charge: "Service toeslag"

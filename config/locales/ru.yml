@@ -413,6 +413,7 @@ ru:
         month: ~
       can_not_find: ~
       add_custom_unit: ~
+      delete_custom_unit: ~
       custom_unit_form:
         title: ~
         label_heading: ~
@@ -1310,6 +1311,7 @@ ru:
       you_must_log_in_to_invite_new_users: "Для того, чтобы пригласить новых пользователей, вы должны войти в %{service_name}"
       you_must_log_in_to_send_a_comment: "Вы должны войти, чтобы оставить новый комментарий"
       you_must_log_in_to_send_a_message: "Для того, чтобы отправить сообщение пользователю, вы должны авторизоваться в %{service_name}"
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Для просмотра содержимого требуется авторизация"
       you_must_log_in_to_view_this_page: "Вам необходимо войти в систему для просмотра этой страницы"
       you_must_log_in_to_view_your_inbox: "Для того, чтобы просмотреть входящие сообщения, вы должны зайти в %{service_name}."
@@ -1630,7 +1632,6 @@ ru:
       continue: Продолжить
       payment_receiver: "Получатель платежа:"
       sum: "Сумма оплаты:"
-      commission_will_be_added: "Будет добавлена комиссия сервиса 10%."
     form:
       total: Итого
       service_charge: "Комиссия сервиса"

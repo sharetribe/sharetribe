@@ -403,6 +403,7 @@ fi:
         month: ~
       can_not_find: "Tyyppiä ID:llä %{id} ei löytynyt"
       add_custom_unit: "+ Lisää uusi yksikkö…"
+      delete_custom_unit: ~
       custom_unit_form:
         title: "Uusi hinnoittelutyyppi"
         label_heading: Yksikkö

@@ -162,7 +162,7 @@ fr:
         fr-CA: "Français (Canada)"
         es: "Espagnol (Chili)"
         es-ES: Espagnol
-        pt-BR: Portuguais
+        pt-BR: "Portuguais (Brésil)"
         nb: "Norvégien Bokmål"
         sv: Suédois
         da-DK: Danois
@@ -415,6 +415,7 @@ fr:
         month: "Par mois"
       can_not_find: "Impossible de trouver le type de transaction avec l'id suivant : %{id}"
       add_custom_unit: "+ Ajouter une unité de prix personnalisée..."
+      delete_custom_unit: supprimer
       custom_unit_form:
         title: "Nouvelle unité de prix"
         label_heading: Libellé
@@ -424,24 +425,24 @@ fr:
         per: Par
         unit_type:
           heading: "Type d'unité"
-          quantity_label: "Quantité (per élément, par kg, par personne, par visite de 2 heure...)"
+          quantity_label: "Quantité (par élément, par kg, par personne, par visite de 2 heures...)"
           time_label: "Temps (par 30 minutes, par 2 semaines, par année...)"
     paypal_accounts:
       marketplace_paypal_integration: "Paramètres de paiement"
       preferences_updated: "Préférences de paiement mises à jour"
-      integration_info_text: "Le système de paiement de Sharetribe est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimum pour les transactions ainsi que les frais de service que vous souhaitez prélever sur chaque transaction."
+      integration_info_text: "Le système de paiement de Sharetribe est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimal pour les transactions ainsi que les frais de service que vous souhaitez prélever sur chaque transaction."
       read_more_about_paypal: "En savoir plus sur le système de paiement avec Sharetribe."
       paypal_account_email: "1. Connecter votre compte PayPal"
       paypal_account_email_completed: "Terminé !"
       set_minimum_price_and_fee: "2. Définir un montant minimum et les frais de service"
       set_minimum_price_and_fee_completed: "Terminé !"
-      minimum_listing_price_label: "Montant minimum : "
+      minimum_listing_price_label: "Montant minimal de transaction : "
       transaction_fee_label: "Frais de service : "
       minimum_transaction_fee_label: "Frais minimaux de transaction : "
       save_settings: "Sauvegarder les paramètres"
       note_about_transaction_fee: "Note : les frais de service incluent les frais PayPal qui dépendent de la monnaie et du volume des ventes du vendeur. Pour cette raison, les frais de service sont d'au minimum %{min_paypal_commission}. Lorsque les frais de service sont facturés au vendeur, PayPal prélève d'abord ses frais puis le restant est viré sur votre propre compte PayPal."
-      minimum_listing_price_below_tx_fee: "doit être au moins égal aux frais minimaux de transaction %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: "doit être supérieur aux frais de service minimaux %{minimum_commission}."
+      minimum_listing_price_below_tx_fee: "Le montant minimal de transaction doit être au moins égal aux frais minimaux de transaction %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Le montant minimal de transaction doit être supérieur aux frais de service minimaux %{minimum_commission}."
     transaction_types:
       sell: Vente
       rent: Location
@@ -1316,6 +1317,7 @@ fr:
       you_must_log_in_to_invite_new_users: "Vous devez vous connecter pour pouvoir inviter de nouveaux utilisateurs sur %{service_name}"
       you_must_log_in_to_send_a_comment: "Vous devez vous connecter pour envoyer un nouveau commentaire"
       you_must_log_in_to_send_a_message: "Vous devez vous connecter à %{service_name} pour envoyer un message à un autre utilisateur."
+      you_must_log_in_to_do_a_transaction: "Vous devez vous connecter à %{service_name} pour réaliser une transaction."
       you_must_log_in_to_view_this_content: "Vous devez vous connecter pour voir ce contenu"
       you_must_log_in_to_view_this_page: "Connectez vous pour voir cette page"
       you_must_log_in_to_view_your_inbox: "Vous devez vous connecter à %{service_name} pour consulter votre boîte de réception."
@@ -1636,7 +1638,6 @@ fr:
       continue: Continuer
       payment_receiver: "Destinataire du paiement : "
       sum: "Montant total : "
-      commission_will_be_added: "Des frais de service de 10% seront ajoutés."
     form:
       total: Total
       service_charge: "Frais de service"

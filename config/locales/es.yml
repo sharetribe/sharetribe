@@ -388,6 +388,7 @@ es:
         month: ~
       can_not_find: ~
       add_custom_unit: ~
+      delete_custom_unit: ~
       custom_unit_form:
         title: ~
         label_heading: ~
@@ -1292,6 +1293,7 @@ es:
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a %{service_name}"
       you_must_log_in_to_send_a_comment: "Debes iniciar tu sesión para enviar un nuevo comentario"
       you_must_log_in_to_send_a_message: "Debes iniciar tu sesión en %{service_name} para enviar un mensaje a otro usuario"
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Debes iniciar tu sesión para ver este contenido"
       you_must_log_in_to_view_this_page: "Tienes que iniciar sesión para ver esta página"
       you_must_log_in_to_view_your_inbox: "Debes iniciar tu sesión en %{service_name} para revisar tu bandeja de entrada"
@@ -1612,7 +1614,6 @@ es:
       continue: Continuar
       payment_receiver: "Receptor del pago"
       sum: "Monto a pagar"
-      commission_will_be_added: "Un cargo del 10% será agregado."
     form:
       total: ~
       service_charge: ~

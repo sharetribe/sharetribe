@@ -388,6 +388,7 @@ el:
         month: ~
       can_not_find: ~
       add_custom_unit: ~
+      delete_custom_unit: ~
       custom_unit_form:
         title: ~
         label_heading: ~
@@ -1285,6 +1286,7 @@ el:
       you_must_log_in_to_invite_new_users: "Πρέπει να συνδεθείτε για να προσκαλέσετε χρήστες στο %{service_name}"
       you_must_log_in_to_send_a_comment: "Πρέπει να συνδεθείτε για να σχολιάσετε"
       you_must_log_in_to_send_a_message: "Πρέπει να συνδεθείτε στο %{service_name} για να στείλετε μήνυμα σε άλλο χρήστη."
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Πρέπει να συνδεθείτε για να δείτε αυτό το περιεχόμενο"
       you_must_log_in_to_view_this_page: "Πρέπει να συνδεθείτε για να δείτε αυτή τη σελίδα"
       you_must_log_in_to_view_your_inbox: "Πρέπει να συνδεθείτε στο %{service_name} για να δείτε τα εισερχόμενα σας."
@@ -1605,7 +1607,6 @@ el:
       continue: Συνέχεια
       payment_receiver: "Αποδέκτης πληρωμής:"
       sum: "Ποσό πληρωμής:"
-      commission_will_be_added: "Θα προστεθεί μια χρέωση 10% για την υπηρεσία."
     form:
       total: Σύνολο
       service_charge: "Χρέωση υπηρεσίας"
