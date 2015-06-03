@@ -1299,6 +1299,7 @@ ja:
       you_must_log_in_to_invite_new_users: "%{service_name}に新しいユーザを招待するにはログインしていなければなりません"
       you_must_log_in_to_send_a_comment: 新しいコメントを送信するにはログインしてください
       you_must_log_in_to_send_a_message: "他のユーザにメッセージを送信するには、%{service_name}にログインしてください。"
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: コンテンツを閲覧するにはログインしてください
       you_must_log_in_to_view_this_page: このページを閲覧するにはログインしていなければなりません
       you_must_log_in_to_view_your_inbox: "メール受信箱を閲覧するには、%{service_name}にログインしてください"
@@ -1619,7 +1620,6 @@ ja:
       continue: 続ける
       payment_receiver: お支払いを受け取る方：
       sum: お支払い金額：
-      commission_will_be_added: ご利用料金が10％加算されます。
     form:
       total: トータル
       service_charge: 手数料

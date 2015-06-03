@@ -1295,6 +1295,7 @@ tr-TR:
       you_must_log_in_to_invite_new_users: "Yeni kullanıcıları %{service_name}'e davet etmek için oturum açmalısınız"
       you_must_log_in_to_send_a_comment: "Yeni yorum göndermek için oturum açmanız gerekmektedir."
       you_must_log_in_to_send_a_message: "Başka bir kullanıcıya mesaj göndermek için %{service_name}'de oturum açmanız gerekmektedir."
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Bu içeriği görüntülemek için oturum açmanız gerekmektedir."
       you_must_log_in_to_view_this_page: "Bu sayfayı görüntülemek için oturum açmalısınız"
       you_must_log_in_to_view_your_inbox: "Gelen kutunuzu görmek için %{service_name}'de oturum açmanız gerekmektedir."
@@ -1615,7 +1616,6 @@ tr-TR:
       continue: "Devam et"
       payment_receiver: "Ödeme alıcısı:"
       sum: "Ödeme toplamı:"
-      commission_will_be_added: "10% hizmet bedeli eklenecektir."
     form:
       total: Toplam
       service_charge: "Hizmet bedeli"

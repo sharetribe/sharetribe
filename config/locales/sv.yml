@@ -1318,6 +1318,7 @@ sv:
       you_must_log_in_to_invite_new_users: "Du måste logga in för att bjuda in nya medlemmar till %{service_name}!"
       you_must_log_in_to_send_a_comment: "Du måste logga in för att skicka en ny kommentar"
       you_must_log_in_to_send_a_message: "Du måste logga in på %{service_name} för att skicka ett meddelande till en annan användare."
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Du måste logga in för att se detta innehåll"
       you_must_log_in_to_view_this_page: "Du måste logga in för att visa denna sida"
       you_must_log_in_to_view_your_inbox: "Du måste logga in på %{service_name} för att visa din inkorg."
@@ -1638,7 +1639,6 @@ sv:
       continue: Fortsätt
       payment_receiver: "Betalningsmottagare:"
       sum: "Betalningssumma:"
-      commission_will_be_added: "En serviceavgift på 10% tillkommer."
     form:
       total: Totalt
       service_charge: Serviceavgift

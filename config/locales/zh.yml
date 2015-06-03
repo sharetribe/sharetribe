@@ -1295,6 +1295,7 @@ zh:
       you_must_log_in_to_invite_new_users: "你必须先登录才能邀请新用户到%{service_name}"
       you_must_log_in_to_send_a_comment: 你必须登录才能发表评论
       you_must_log_in_to_send_a_message: "你必须先登录%{service_name}，然后才可以向其他用户发送消息。"
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: 你必须登录以查看内容
       you_must_log_in_to_view_this_page: 你必须登录才能查看此页面
       you_must_log_in_to_view_your_inbox: "你必须登录%{service_name}以查看你的收件箱。"
@@ -1615,7 +1616,6 @@ zh:
       continue: 继续
       payment_receiver: 付款接收方：
       sum: 付款总金额：
-      commission_will_be_added: 将被附加10%的服务费
     form:
       total: 总共
       service_charge: 服务收费

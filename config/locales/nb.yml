@@ -1314,6 +1314,7 @@ nb:
       you_must_log_in_to_invite_new_users: "Du må være innlogget for å invitere nye brukere til %{service_name}"
       you_must_log_in_to_send_a_comment: "Du må logge inn for å legge igjen en kommentar"
       you_must_log_in_to_send_a_message: "Du må logge inn på %{service_name} for å sende melding til en annen bruker"
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Du må være innlogget for å se dette innholdet"
       you_must_log_in_to_view_this_page: "Du må logge inn for å besøke denne siden"
       you_must_log_in_to_view_your_inbox: "Du må logge inn på  %{service_name} for å se din innboks."
@@ -1634,7 +1635,6 @@ nb:
       continue: Fortsett
       payment_receiver: "Betalings mottaker:"
       sum: "Sum betaling:"
-      commission_will_be_added: "En tjenestekostnad på 10% vil bli lagt til."
     form:
       total: Totalt
       service_charge: Tjenestekostnad

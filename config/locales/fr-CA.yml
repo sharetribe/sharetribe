@@ -1304,6 +1304,7 @@ fr-CA:
       you_must_log_in_to_invite_new_users: "Vous devez vous connecter pour pouvoir inviter de nouveaux utilisateurs sur %{service_name}"
       you_must_log_in_to_send_a_comment: "Vous devez vous connecter pour envoyer un nouveau commentaire"
       you_must_log_in_to_send_a_message: "Vous devez vous connecter à %{service_name} pour envoyer un message à un autre utilisateur."
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Vous devez vous connecter pour voir ce contenu"
       you_must_log_in_to_view_this_page: "Connectez vous pour voir cette page"
       you_must_log_in_to_view_your_inbox: "Vous devez vous connecter à %{service_name} pour consulter votre boîte de réception."
@@ -1624,7 +1625,6 @@ fr-CA:
       continue: Continuer
       payment_receiver: "Destinataire du paiement : "
       sum: "Montant total : "
-      commission_will_be_added: "Une commission de 10% sera ajoutée."
     form:
       total: Total
       service_charge: Commission

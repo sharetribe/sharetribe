@@ -1285,6 +1285,7 @@ is:
       you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: "Þú verður að skrá þig inn til að senda athugasemd"
       you_must_log_in_to_send_a_message: "Þú verður að skrá þig inn á %{service_name} til að senda athugasemd á annan notanda."
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Þú verður að skrá þig inn til að sjá þetta"
       you_must_log_in_to_view_this_page: ~
       you_must_log_in_to_view_your_inbox: "Þú verður að skrá þig inn á %{service_name} til að skoða pósthólfið þitt."
@@ -1605,7 +1606,6 @@ is:
       continue: ~
       payment_receiver: ~
       sum: ~
-      commission_will_be_added: ~
     form:
       total: ~
       service_charge: ~

@@ -1285,6 +1285,7 @@ id:
       you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: "Anda harus login untuk mengirim komen baru"
       you_must_log_in_to_send_a_message: "Anda harus login pada %{service_name} untuk mengirim pesan kepada pengguna lain"
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Anda harus login untuk melihat konten ini"
       you_must_log_in_to_view_this_page: ~
       you_must_log_in_to_view_your_inbox: "Anda harus login pada %{service_name} untuk melihat kotak pesan Anda"
@@ -1605,7 +1606,6 @@ id:
       continue: ~
       payment_receiver: ~
       sum: ~
-      commission_will_be_added: ~
     form:
       total: ~
       service_charge: ~

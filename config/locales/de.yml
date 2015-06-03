@@ -1308,6 +1308,7 @@ de:
       you_must_log_in_to_invite_new_users: "Du musst dich einloggen, um neue Benutzer zu %{service_name} einzuladen"
       you_must_log_in_to_send_a_comment: "Du musst dich einloggen, um einen neuen Kommentar abzugeben"
       you_must_log_in_to_send_a_message: "Du musst dich bei %{service_name} einloggen, um eine Nachricht an einen anderen Benutzer zu senden."
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Du musst dich einloggen, um diesen Inhalt sehen zu können"
       you_must_log_in_to_view_this_page: "Du musst dich einloggen, um diese Seite sehen zu können"
       you_must_log_in_to_view_your_inbox: "Du musst dich bei %{service_name} einloggen, um deinen Posteingang sehen zu können."
@@ -1628,7 +1629,6 @@ de:
       continue: Weiter
       payment_receiver: Zahlungsempfänger
       sum: Summe
-      commission_will_be_added: "Eine Servicegebühr von 10% wird hinzugefügt."
     form:
       total: Gesamtbetrag
       service_charge: Servicegebühr

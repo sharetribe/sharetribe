@@ -1306,6 +1306,7 @@ pt-BR:
       you_must_log_in_to_invite_new_users: "Você deve se conectar para convidar novos usuários a %{service_name}"
       you_must_log_in_to_send_a_comment: "Você deve conectar para enviar um novo comentário"
       you_must_log_in_to_send_a_message: "Você deve fazer se conectar em %{service_name} para enviar uma mensagem para outro usuário."
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Você deve se conectar para visualizar este conteúdo"
       you_must_log_in_to_view_this_page: "Você deve se conectar para ver esta página"
       you_must_log_in_to_view_your_inbox: "Você deve se conectar em %{service_name} para ver sua caixa de entrada."
@@ -1628,7 +1629,6 @@ pt-BR:
       continue: Continua
       payment_receiver: "Destinatário do pagamento :"
       sum: "Soma do pagamento:"
-      commission_will_be_added: "Serão adicionados 10% de despesas de serviço."
     form:
       total: Total
       service_charge: "taxa de serviço"

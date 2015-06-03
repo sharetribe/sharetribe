@@ -1312,6 +1312,7 @@ da-DK:
       you_must_log_in_to_invite_new_users: "Du skal logge ind for at invitere nye brugere til %{service_name}"
       you_must_log_in_to_send_a_comment: "Du skal logge ind for at sende en ny kommentar"
       you_must_log_in_to_send_a_message: "Du skal logge ind til %{service_name} for at sende en meddelelse til en anden bruger."
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Du skal logge ind for at se dette indhold"
       you_must_log_in_to_view_this_page: "Du skal logge ind for at se denne side"
       you_must_log_in_to_view_your_inbox: "Du skal logge ind på %{service_name} for at få vist din indbakke."
@@ -1632,7 +1633,6 @@ da-DK:
       continue: Fortsæt
       payment_receiver: "Betalingsmodtager:"
       sum: "Betalings sum:"
-      commission_will_be_added: "En service fee på 10% vil blive tilføjet."
     form:
       total: Total
       service_charge: "Service fee"
