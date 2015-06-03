@@ -342,31 +342,31 @@ zh:
       index:
         listing_shapes: 订单类型
         description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        read_more_about_order_types: 了解更多关于订单类型
+        add_new_shape: "添加新的订单类型： "
+        select_template: 选择样板...
+        all_categories: 全部分类
+        no_categories: 无分类
         header:
           listing_shape_name: 订单类型名称
           listing_shape_categories: 订单类型分类
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: 保存订单类型
+          save_order_successful: 成功保存订单类型
+          save_order_error: ""
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: 出售产品
+        renting_products: 出租产品
+        offering_services: 提供服务
+        giving_things_away: 免费赠送
+        requesting: 请求
+        announcement: 公告
+        custom: 自定义
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
+        create_listing_shape: 创建订单类型
+        create: 新建
+        cancel: 取消
+        create_success: "新的订单类型‘%{shape}’已创建"
         create_failure: ~
       edit:
         edit_listing_shape: "修改订单类型‘%{shape}’"
@@ -390,12 +390,12 @@ zh:
       units_title: ~
       units_desc: ~
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: 每个
+        hour: 每小时
+        day: 每天
+        night: 每晚
+        week: 每周
+        month: 每月
       can_not_find: ~
       add_custom_unit: ~
       custom_unit_form:
@@ -645,10 +645,10 @@ zh:
       request_confirmed: 已完成
       request_canceled: 已取消
       request_paid: 付款成功
-      request_preauthorized: 付款成功
+      request_preauthorized: 付款已授权
       skip_feedback: 跳过反馈
       waiting_for_listing_author_to_accept_offer: "正在等待%{listing_author_name}接受宝贝"
-      waiting_for_listing_author_to_accept_request: "正在等待%{listing_author_name}接受请求"
+      waiting_for_listing_author_to_accept_request: "正在等待%{listing_author_name}接受请求，当%{listing_author_name}接受后，你将会被扣款。"
       waiting_for_you_to_accept_request: 正在等待你接受请求
       waiting_confirmation_from_requester: "正在等待%{requester_name}标记请求为已完成"
       waiting_confirmation_from_you: 正在等待你标记请求完成
@@ -892,8 +892,8 @@ zh:
       remember_to_give_feedback_to: "提醒：记得给%{name} 评价"
       you_have_not_given_feedback_yet: "你尚未评价%{name} 参与的活动'%{event}'。记得评价%{given_name} 在活动中的表现。"
     transaction_preauthorized:
-      subject: "%{requester}要求并支付了%{listing_title}"
-      transaction_requested_by_user: "%{requester}要求并支付了%{listing_title}"
+      subject: "%{requester}已经请求并授权支付了%{listing_title}"
+      transaction_requested_by_user: "%{requester}已经请求并授权支付了%{listing_title}"
       you_have_time_to_accept: ~
       click_here_to_reply: 点击这里回应请求
     transaction_preauthorized_reminder:
@@ -1349,7 +1349,7 @@ zh:
       show_in_updates_email_error: 不能访问服务器。页面刷新后重试。
       show_in_updates_email_success: 这个发布的信息将被显示在下一封自动发送给用户的邮件中。
     error:
-      something_went_wrong: ~
+      something_went_wrong: "出错了，错误代码：%{error_code}"
     follow_links:
       follow: 接收关于新评论的邮件
       unfollow: 不再接收关于新评论的邮件
