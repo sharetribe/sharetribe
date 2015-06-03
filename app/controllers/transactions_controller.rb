@@ -10,6 +10,59 @@ class TransactionsController < ApplicationController
 
   MessageForm = Form::Message
 
+  def new
+    Result.all(
+      ->() {
+        binding.pry
+        listing_id = params[:listing_id]
+
+        if listing_id.nil?
+          Result::Error.new("No listing ID provided")
+        else
+          Result::Success.new(listing_id)
+        end
+      },
+      ->(listing_id) {
+        # TODO Do not use Models directly. The data should come from the APIs
+        Maybe(@current_community.listings.where(id: listing_id).first)
+          .map     { |listing_model| Result::Success.new(listing_model) }
+          .or_else { Result::Error.new("Can not find listing with id #{listing_id}") }
+      },
+      ->(_, listing_model) {
+        # TODO Do not use Models directly. The data should come from the APIs
+        Result::Success.new(listing_model.author)
+      },
+      ->(_, listing_model, _) {
+        TransactionService::API::Api.processes.get(community_id: @current_community.id, process_id: listing_model.transaction_process_id)
+      },
+      ->(_, _, _, _) {
+        Result::Success.new(MarketplaceService::Community::Query.payment_type(@current_community.id))
+      }
+    ).on_success { |(listing_id, listing_model, author_model, process, gateway)|
+      booking = listing_model.unit_type == :day
+
+      case [process[:process], gateway, booking]
+      when matches([:none])
+        # TODO render the form here
+        redirect_to reply_to_listing_path(listing_id: listing_model.id)
+      when matches([:preauthorize, __, true])
+        redirect_to book_path({listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on)))
+      when matches([:preauthorize, :paypal])
+        redirect_to initiate_order_path(listing_id: listing_model.id)
+      when matches([:preauthorize, :braintree])
+        redirect_to preauthorize_payment_path(:listing_id => listing_model.id)
+      when matches([:postpay])
+        redirect_to post_pay_listing_path(:listing_id => listing_model.id)
+      else
+        params = "listing_id: #{listing_id}, payment_gateway: #{gateway}, payment_process: #{process}, booking: #{booking}"
+        raise ArgumentError.new("Can not find new transaction path to #{params}")
+      end
+    }.on_error { |error_msg|
+      flash[:error] = "Could not start transaction, error message: #{error_msg}"
+      redirect_to root_path
+    }
+  end
+
   def show
     transaction_conversation = MarketplaceService::Transaction::Query.transaction_with_conversation(
       params[:id],

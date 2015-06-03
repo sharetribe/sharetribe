@@ -335,7 +335,7 @@ Kassi::Application.routes.draw do
             get :billing_agreement_cancel
           end
         end
-        resources :transactions, :only => [:show]
+        resources :transactions, only: [:show, :new]
         resource :checkout_account, only: [:new, :show, :create]
         resource :settings do
           member do

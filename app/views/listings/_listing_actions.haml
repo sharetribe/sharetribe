@@ -89,6 +89,8 @@
 
       = render partial: "delivery_opts", locals: { delivery_opts: delivery_opts, is_author: is_author }
 
+      = hidden_field_tag(:listing_id, @listing.id)
+
       %button.book-button
         .content
           = action_button_label(@listing)

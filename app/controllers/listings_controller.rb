@@ -128,24 +128,15 @@ class ListingsController < ApplicationController
     end
 
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
-
-    # TODO Change this so that the path is always the same, but the controller
-    # decides what to do. We don't want to make a API call to TransactionService
-    # just to show a listing details
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
-
-    form_path = select_new_transaction_path(
-      listing_id: @listing.id.to_s,
-      payment_gateway: payment_gateway,
-      payment_process: process,
-      booking: @listing.unit_type == :day
-    )
+    form_path = new_person_transaction_path(@current_user, listing_id: @listing.id)
 
     delivery_opts = delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.shipping_price_additional, @listing.currency)
 
     render locals: {
              form_path: form_path,
              payment_gateway: payment_gateway,
+             # TODO I guess we should not need to know the process in order to show the listing
              process: process,
              delivery_opts: delivery_opts,
              listing_unit_type: @listing.unit_type
@@ -727,24 +718,6 @@ class ListingsController < ApplicationController
       [can_post, error_msg]
     else
       [true, ""]
-    end
-  end
-
-  def select_new_transaction_path(listing_id:, payment_gateway:, payment_process:, booking:)
-    case [payment_process, payment_gateway, booking]
-    when matches([:none])
-      reply_to_listing_path(listing_id: listing_id)
-    when matches([:preauthorize, __, true])
-      book_path(listing_id: listing_id)
-    when matches([:preauthorize, :paypal])
-      initiate_order_path(listing_id: listing_id)
-    when matches([:preauthorize, :braintree])
-      preauthorize_payment_path(:listing_id => @listing.id.to_s)
-    when matches([:postpay])
-      post_pay_listing_path(:listing_id => @listing.id.to_s)
-    else
-      params = "listing_id: #{listing_id}, payment_gateway: #{payment_gateway}, payment_process: #{payment_process}, booking: #{booking}"
-      raise ArgumentError.new("Can not find new transaction path to #{params}")
     end
   end
 
