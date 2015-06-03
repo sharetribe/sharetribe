@@ -119,7 +119,7 @@ en:
         edit_text_instructions: "Instruction texts"
       edit_welcome_email:
         welcome_email_content: "Welcome email content"
-        welcome_email_content_description: "The message below will be sent to every new user when they join. You can customize the message to fit your marketplace. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."
+        welcome_email_content_description: "The message below will be sent to every new user when they join. You can customize the message to fit your marketplace. By clicking '%{send_test_message_link}' you can send a preview message to your email address, so you can see how it looks in an email client."
         edit_message: "Edit message"
         send_test_message: "Send test message"
       getting_started:
@@ -162,7 +162,7 @@ en:
         fr-CA: "French (Canada)"
         es: "Spanish (Chile)"
         es-ES: Spanish
-        pt-BR: Portuguese
+        pt-BR: "Portuguese (Brazil)"
         nb: "Norwegian Bokmål"
         sv: Swedish
         da-DK: Danish
@@ -1316,6 +1316,7 @@ en:
       you_must_log_in_to_invite_new_users: "You must sign in to invite new users to %{service_name}"
       you_must_log_in_to_send_a_comment: "You must sign in to send a new comment"
       you_must_log_in_to_send_a_message: "You must sign in to %{service_name} to send a message to another user."
+      you_must_log_in_to_do_a_transaction: "You must sign in to %{service_name} to do a transaction."
       you_must_log_in_to_view_this_content: "You must sign in to view this content"
       you_must_log_in_to_view_this_page: "You must sign in to view this page"
       you_must_log_in_to_view_your_inbox: "You must sign in to %{service_name} to view your inbox."
@@ -1636,7 +1637,6 @@ en:
       continue: Continue
       payment_receiver: "Payment receiver:"
       sum: "Payment sum:"
-      commission_will_be_added: "A service fee of 10% will be added."
     form:
       total: Total
       service_charge: "Service charge"
