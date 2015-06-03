@@ -43,8 +43,6 @@ class IntApi::MarketplacesController < ApplicationController
     auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
     url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])
 
-    FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:shape_ui])
-
     # TODO Add user to mailchimp list
 
     # TODO handle error cases with proper response
