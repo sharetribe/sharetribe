@@ -428,8 +428,8 @@ fi:
       minimum_transaction_fee_label: "Minimipalkkio:"
       save_settings: "Tallenna asetukset"
       note_about_transaction_fee: "Huom! Välityspalkkioon sisältyy PayPal-palvelun palvelumaksu, jonka suuruus riippuu valuutasta ja myyjän myyntimääristä. Tästä syystä välityspalkkio on vähintään %{min_paypal_commission}. PayPal-palvelun palvelumaksu vähennetään välityspalkkiosta automaattisesti, minkä jälkeen loppuosa välityspalkkiosta siirretään sinun PayPal-tilillesi."
-      minimum_listing_price_below_tx_fee: "tulee olla vähintään minimipalkkio %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: "tulee olla suurempi kuin %{minimum_commission}."
+      minimum_listing_price_below_tx_fee: "Maksutapahtuman minimikoon tulee olla vähintään minimipalkkio %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Maksutapahtuman minimikoon tulee olla suurempi kuin %{minimum_commission}."
     transaction_types:
       sell: Myydään
       rent: "Annetaan vuokralle"

@@ -440,8 +440,8 @@ en:
       minimum_transaction_fee_label: "Minimum transaction fee:"
       save_settings: "Save settings"
       note_about_transaction_fee: "Note: the transaction fee includes PayPal's fees that depend on your currency and the sales volume of the seller. For this reason, the fee is always at least %{min_paypal_commission}. When the fee is charged from the seller, PayPal will take its fees first, and the remainder will be moved to your PayPal account."
-      minimum_listing_price_below_tx_fee: "has to be at least the same as minimum transaction fee %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: "has to be greater than minimum commission %{minimum_commission}."
+      minimum_listing_price_below_tx_fee: "Minimum transaction size has to be at least the same as minimum transaction fee %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Minimum transaction size has to be greater than minimum commission %{minimum_commission}."
     transaction_types:
       sell: Selling
       rent: "Renting out"
