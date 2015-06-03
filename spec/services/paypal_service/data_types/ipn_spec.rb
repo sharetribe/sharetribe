@@ -636,4 +636,10 @@ describe PaypalService::DataTypes::IPN do
     end
   end
 
+  it "#from_params - auth_no_order" do
+    ipn_msg = PaypalService::DataTypes::IPN.from_params(auth_created_no_order)
+
+    expect(ipn_msg[:order_id]).to be_nil
+  end
+
 end

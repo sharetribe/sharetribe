@@ -248,6 +248,8 @@ module PaypalService
           },
           params)
 
+        p[:order_id] = p[:order_id].strip.empty? ? nil : p[:order_id]
+
         create_authorization_created(
           p.merge({
               order_total: p[:order_id].nil? ? nil : to_money(p[:mc_gross], p[:mc_currency]),
