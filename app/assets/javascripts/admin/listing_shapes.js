@@ -96,8 +96,9 @@ window.ST.initializeListingShapeForm = function(formId) {
 
   var removeCustomUnit = function() {
     var index = $(this).data("customunitindex");
-    if (typeof index !== "undefined")
-      $('.js-custom-unit-'+index).remove();
+    if (typeof index !== "undefined") {
+      $('.js-custom-unit-' + index).remove();
+    }
   };
 
   var customUnitTemplate = _.template($(".js-listing-shape-add-custom-unit-form").html());
