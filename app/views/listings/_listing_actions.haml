@@ -25,7 +25,7 @@
       - # Currently we show the selectors only for preauth process.
       - # However, there has been a plan to introduce these in other
       - # Processes (free) as well - rap1ds, 2.6.2015
-      - if process == :preauthorize
+      - if process != :postpay
         - if @listing.unit_type == :day
           - days = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
           - months = [:january, :february, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]

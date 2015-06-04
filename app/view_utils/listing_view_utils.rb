@@ -48,6 +48,9 @@ module ListingViewUtils
     end
   end
 
+  # FIXME I feel that this is not quite right.
+  # Instead of unit type, the first parameter should be selector type (number, day)
+  # and that should affect how we should the information
   def translate_quantity(type, tr_key = nil)
     case type
     when :hour
