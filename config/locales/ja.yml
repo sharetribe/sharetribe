@@ -129,6 +129,8 @@ ja:
         categories_link_text: カテゴリとサブカテゴリを追加する
         custom_fields_link_text: フォーム項目を設定
         filters_link_text: フィルターの種類
+        order_types: ~
+        order_types_link_text: ~
         payments: "あなたのマーケットプレイスからの購入のお支払いを可能にしたい場合は、各々の取引から手数料を請求できます。 %{payments_link} からどうぞ。"
         payments_link_text: お支払い方法の設定
         info_texts: "ユーザに促したいマーケットプレイスについての大事な情報をカスタマイズするのを忘れないでください。%{about_page_link}、%{terms_of_use_link} （こちらはあなたが作成した独自のものにしてください。あるいはテンプレートを編集しても構いません）、%{privacy_policy_link}、新規のユーザに送信する %{welcome_email_link} 。%{instruction_texts_link} も設定できます。"
@@ -347,6 +349,7 @@ ja:
         select_template: ~
         all_categories: ~
         no_categories: ~
+        category_count: ~
         header:
           listing_shape_name: ~
           listing_shape_categories: ~

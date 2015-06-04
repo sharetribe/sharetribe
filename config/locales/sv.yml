@@ -134,6 +134,8 @@ sv:
         categories_link_text: "lägg till kategorier och underkategorier"
         custom_fields_link_text: "konfigurera formulärfälten"
         filters_link_text: "vilken typ av filter"
+        order_types: ~
+        order_types_link_text: ~
         payments: "Om du vill att folk ska kunna betala för sina inköp via din marknadsplats, så att du kan ta ut en avgift för varje inköp, så ska du %{payments_link}."
         payments_link_text: "konfigurera betalningsmetod"
         info_texts: "Glöm inte att skräddarsy informationssidorna och annan text där du kan tala om för dina användare om din marknadsplats. Bra ställen att kolla in är din %{about_page_link}, din %{terms_of_use_link} (du borde lägga till dina egna användarvillkor här, antingen genom att ändra mallen eller skapa ett helt nytt dokument), dina %{privacy_policy_link}, och %{welcome_email_link} som skickas till alla nya användare. Det är också några %{instruction_texts_link} som du kan ändra."
@@ -352,6 +354,7 @@ sv:
         select_template: "Välj mall..."
         all_categories: "Alla kategorier"
         no_categories: "Inga kategorier"
+        category_count: ~
         header:
           listing_shape_name: "Ordertyp namn"
           listing_shape_categories: "Ordertyp kategorier"

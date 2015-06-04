@@ -134,6 +134,8 @@ pt-BR:
         categories_link_text: "adicionar categorias e subcategorias"
         custom_fields_link_text: "configurar os campos do formulário"
         filters_link_text: "que tipo de filtros"
+        order_types: ~
+        order_types_link_text: ~
         payments: "Se você quer que as pessoas sejam capazes de pagar suas compras através do seu mercado virtual, de modo que você possa cobrar uma taxa por cada transação, você deve %{payments_link}."
         payments_link_text: "configurar um método de pagamento"
         info_texts: "Não se esqueça de personalizar as páginas de informações e outros textos em que você possa informar a seus usuários sobre o seu mercado virtual. Bons lugares para verificar são a sua página %{about_page_link}, seus %{terms_of_use_link} (você deve adicionar seus próprios termos de uso aqui, seja modificando o modelo atual ou criando completamente um novo documento), sua %{privacy_policy_link}, e o  %{welcome_email_link} que é enviado para cada novo usuário. Há também alguns outros %{instruction_texts_link} que você pode configurar."
@@ -352,6 +354,7 @@ pt-BR:
         select_template: "Selecionar modelo..."
         all_categories: "Todas as categorias"
         no_categories: "Sem categorias"
+        category_count: ~
         header:
           listing_shape_name: "Pedidos por nomes"
           listing_shape_categories: "Pedidos por categorias"

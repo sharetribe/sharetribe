@@ -134,6 +134,8 @@ fr-CA:
         categories_link_text: "ajouter des catégories et sous-catégories"
         custom_fields_link_text: "configurer les champs d'annonces"
         filters_link_text: "quels types de filtres"
+        order_types: ~
+        order_types_link_text: ~
         payments: "Si vous souhaitez que les utilisateurs puissent régler leur achats au sein de la place de marché, pour que vous puissiez prélever une commission sur chaque transaction, vous devriez %{payments_link}."
         payments_link_text: "configurer une méthode de paiement"
         info_texts: "N'oubliez pas d'éditer les pages d'informations et divers textes où vous pouvez en dire plus à vos utilisateurs sur votre place de marché. Cela se passe sur votre %{about_page_link}, vos %{terms_of_use_link} (vous devriez y ajouter vos propres conditions d'utilisations soit en modifiant le modèle actuel soit en créant un nouveau texte), votre %{privacy_policy_link} et votre %{welcome_email_link} qui est envoyé à chaque nouvel utilisateur. Il y a également %{instruction_texts_link} que vous pouvez éditer."
@@ -352,6 +354,7 @@ fr-CA:
         select_template: ~
         all_categories: ~
         no_categories: ~
+        category_count: ~
         header:
           listing_shape_name: ~
           listing_shape_categories: ~

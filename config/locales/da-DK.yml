@@ -134,6 +134,8 @@ da-DK:
         categories_link_text: "tilføj kategorier og underkategorier"
         custom_fields_link_text: "konfigurer form felterne"
         filters_link_text: "hvilken slags filtre"
+        order_types: ~
+        order_types_link_text: ~
         payments: "Hvis du ønsker brugerne skal være i stand til at betale for deres køb på din markedsplads, så du får en bid fra hver transaktion, skal du %{payments_link}."
         payments_link_text: "indstil betalingsmetode"
         info_texts: "Glem ikke at tilrette info sider og andre tekster hvor du kan fortælle brugerne om din markedsplads. Gode steder at tjekke er din %{about_page_link}, dine %{terms_of_use_link} (du bør tilføje dine egne brugsvilkår her, enten ved at modificere den eksisterende skabelon, eller ved at oprette et helt nyt dokument), din %{privacy_policy_link}, og %{welcome_email_link} som sendes til alle nye brugere. Der er også en %{instruction_texts_link} du kan tilrette."
@@ -352,6 +354,7 @@ da-DK:
         select_template: "Vælg skabelon..."
         all_categories: "Alle kategorier"
         no_categories: "Ingen kategorier"
+        category_count: ~
         header:
           listing_shape_name: "Ordre type navn"
           listing_shape_categories: "Ordre type kategori"
