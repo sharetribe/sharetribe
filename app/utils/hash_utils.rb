@@ -63,6 +63,14 @@ module HashUtils
     end
   end
 
+  # Return true if given subset of fields in both hashes are equal
+  #
+  # Usage:
+  #  suq_eq({a: 1, b: 2, c: 3}, {a: 1, b: 2, c: 4}, :a, :b) => true
+  def sub_eq(a, b, *keys)
+    a.slice(*keys) == b.slice(*keys)
+  end
+
   #
   # deep_contains({a: 1}, {a: 1, b: 2}) => true
   # deep_contains({a: 2}, {a: 1, b: 2}) => false

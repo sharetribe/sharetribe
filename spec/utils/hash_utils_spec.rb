@@ -55,6 +55,11 @@ describe HashUtils do
       .to eq({first: "First", age: 55})
   end
 
+  it "#sub_eq" do
+    expect(HashUtils.sub_eq({a: 1, b: 2, c: 3}, {a: 1, b: 2, c: 4}, :a, :b)).to eq(true)
+    expect(HashUtils.sub_eq({a: 1, b: 2, c: 3}, {a: 3, b: 2, c: 4}, :a, :b)).to eq(false)
+  end
+
   describe "#transpose" do
     let(:h) { {a: [1, 2, 3], b: [2, 3, 4], c: [2]} }
 
