@@ -19,8 +19,8 @@ en:
           category_parent: "Parent category"
           no_parent: "No parent"
         category_transaction_types:
-          transaction_types: "Transaction types"
-          transaction_types_description: "Transaction types determine what kind of transactions are allowed with listings in this category. For example, is it only selling, or are renting and giving away for free also allowed."
+          transaction_types: "Order types"
+          transaction_types_description: "Order types determine what kind of order process is allowed with listings in this category. For example, is it only selling, or are renting and giving away for free also allowed."
         buttons:
           save: Save
           cancel: Cancel
@@ -134,6 +134,8 @@ en:
         categories_link_text: "add categories and subcategories"
         custom_fields_link_text: "configure form fields"
         filters_link_text: "what kind of filters"
+        order_types: "You can also configure how the order process works in your marketplace. Are your users selling, renting, or giving things away for free? Are they offering rentals hourly, daily or weekly? These things can be configured from the %{order_types_link}."
+        order_types_link_text: "order type view"
         payments: "If you want people to be able to pay for their purchases through your marketplace, so that you can charge a fee from each transaction, you should %{payments_link}."
         payments_link_text: "configure a payment method"
         info_texts: "Don't forget to customize info pages and other texts where you can tell your users about your marketplace. Good places to check are your %{about_page_link}, your %{terms_of_use_link} (you should add your own terms of use here, either by modifying the current template or creating a completely new document), your %{privacy_policy_link}, and the %{welcome_email_link} that is sent to each new user. There are also some %{instruction_texts_link} you can configure."
@@ -352,12 +354,13 @@ en:
         select_template: "Select template..."
         all_categories: "All categories"
         no_categories: "No categories"
+        category_count: "%{category_count} categories"
         header:
           listing_shape_name: "Order type name"
-          listing_shape_categories: "Order type categories"
+          listing_shape_categories: "Categories where it's used"
         order:
           saving_order: "Saving order"
-          save_order_successful: "Successfully saved order"
+          save_order_successful: "Successfully saved order type order"
           save_order_error: "An error occured while saving order. Please refresh the page and try again."
       templates:
         selling_products: "Selling products"
@@ -365,7 +368,7 @@ en:
         offering_services: "Offering services"
         giving_things_away: "Giving things away"
         requesting: Requesting
-        announcement: Announcement
+        announcement: Posting announcements
         custom: Custom
       new:
         create_listing_shape: "Create order type"
@@ -401,9 +404,9 @@ en:
       successfully_closed: "Successfully closed listings"
       successfully_deleted: "Successfully deleted order type '%{order_type}'"
       pricing_and_checkout_title: "Pricing & checkout"
-      online_payments_label: "Use online payment system"
+      online_payments_label: "Allow sellers to accept payments online"
       shipping_label: "Allow sellers to define a shipping fee"
-      price_label: "Display price field"
+      price_label: "Allow sellers to add a price to their listings"
       units_title: "Pricing units"
       units_desc: "If you have enabled pricing units, the listing price is displayed as \"price per pricing unit\". An example: \"$39 per hour\"."
       units:
@@ -451,7 +454,7 @@ en:
       swap: Swapping
       service: Offering
       request: Requesting
-      inquiry: Inquiry
+      inquiry: Announcement
       share_for_free: "Sharing for free"
       default_action_button_labels:
         sell: Buy
@@ -1551,7 +1554,7 @@ en:
       contact: Contact
       favor_offer: "Service offer"
       favor_request: "Service request"
-      inquiry: Inquiry
+      inquiry: Announcement
       item_offer_trade: "Swap offer"
       item_request_trade: "Swap request"
       no_description: "This listing doesn't have description"

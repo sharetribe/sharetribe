@@ -38,7 +38,7 @@
         - elsif shape[:category_ids].size == category_count
           = t("admin.listing_shapes.index.all_categories")
         - else
-          = "#{shape[:category_ids].size}/#{category_count}"
+          = t("admin.listing_shapes.index.category_count", :category_count => "#{shape[:category_ids].size}/#{category_count}")
       .col-2
         = link_to edit_admin_listing_shape_path(shape[:name]) do
           = icon_tag("edit", ["icon-fix"])
