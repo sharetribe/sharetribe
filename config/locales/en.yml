@@ -354,7 +354,7 @@ en:
         select_template: "Select template..."
         all_categories: "All categories"
         no_categories: "No categories"
-        category_count: "%{count} categories"
+        category_count: "%{category_count} categories"
         header:
           listing_shape_name: "Order type name"
           listing_shape_categories: "Categories where it's used"
@@ -454,7 +454,7 @@ en:
       swap: Swapping
       service: Offering
       request: Requesting
-      inquiry: Inquiry
+      inquiry: Announcement
       share_for_free: "Sharing for free"
       default_action_button_labels:
         sell: Buy
@@ -1554,7 +1554,7 @@ en:
       contact: Contact
       favor_offer: "Service offer"
       favor_request: "Service request"
-      inquiry: Inquiry
+      inquiry: Announcement
       item_offer_trade: "Swap offer"
       item_request_trade: "Swap request"
       no_description: "This listing doesn't have description"
