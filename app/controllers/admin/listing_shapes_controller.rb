@@ -1,8 +1,6 @@
 class Admin::ListingShapesController < ApplicationController
   before_filter :ensure_is_admin
 
-  ensure_feature_enabled :shape_ui
-
   before_filter :ensure_no_braintree_or_checkout
   before_filter :set_url_name
 

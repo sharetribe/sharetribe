@@ -628,17 +628,15 @@ module ApplicationHelper
       }
     ]
 
-    with_feature(:shape_ui) do
-      # Disabled for Braintree and Checkout
-      gw = PaymentGateway.where(community_id: @current_community.id).first
-      unless gw
-        links << {
-          :text => t("admin.listing_shapes.index.listing_shapes"),
-          :icon_class => icon_class("order_types"),
-          :path => admin_listing_shapes_path,
-          :name => "listing_shapes"
-        }
-      end
+    # Disabled for Braintree and Checkout
+    gw = PaymentGateway.where(community_id: @current_community.id).first
+    unless gw
+      links << {
+        :text => t("admin.listing_shapes.index.listing_shapes"),
+        :icon_class => icon_class("order_types"),
+        :path => admin_listing_shapes_path,
+        :name => "listing_shapes"
+      }
     end
 
     if PaypalHelper.paypal_active?(@current_community.id)
