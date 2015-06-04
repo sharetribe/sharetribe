@@ -114,7 +114,7 @@ module Result
         res_data = res.data
         op_res = op.call(*res_data)
 
-        raise ArgumentError.new("Lambda must return Result") unless (res.is_a?(Result::Success) || res.is_a?(Result::Error))
+        raise ArgumentError.new("Lambda must return Result") unless (op_res.is_a?(Result::Success) || op_res.is_a?(Result::Error))
 
         if op_res.success
           Result::Success.new(res_data.concat([op_res.data]))
