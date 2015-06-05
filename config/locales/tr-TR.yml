@@ -129,6 +129,8 @@ tr-TR:
         categories_link_text: "Kategori ve alt kategoriler"
         custom_fields_link_text: "form alanları"
         filters_link_text: filtreler
+        order_types: ~
+        order_types_link_text: ~
         payments: "Her işlemden ücret alabilmek için kişilerin satışlarını pazarınız üzerinden gerçekleştirmelerini istiyorsanız, %{payments_link} belirlemelisiniz."
         payments_link_text: "bir ödeme metodu"
         info_texts: "Kullanıcılarınıza pazarınızdan bahsedeceğiniz bilgi sayfası ve diğer metinleri düzenlemeyi unutmayın. Bakmanız gereken en önemli yerlerden bazıları %{about_page_link} sayfanız, %{terms_of_use_link} bağlantınız (burada var olan metni düzenleyerek ya da tamamen yeni bir belge oluşturarak kendi kullanım koşullarınızı eklemelisiniz), %{privacy_policy_link} bağlantınız ve her yeni üyeye gönderilen %{welcome_email_link}dır. Düzenleyebileceğiniz bazı %{instruction_texts_link} de mevcuttur."
@@ -347,6 +349,7 @@ tr-TR:
         select_template: ~
         all_categories: ~
         no_categories: ~
+        category_count: ~
         header:
           listing_shape_name: ~
           listing_shape_categories: ~

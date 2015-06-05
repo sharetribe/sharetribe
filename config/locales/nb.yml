@@ -134,8 +134,8 @@ nb:
         categories_link_text: "legge til kategorier og underkategorier"
         custom_fields_link_text: "tilpasse felter"
         filters_link_text: "hvilke type filter"
-        order_types: ~
-        order_types_link_text: ~
+        order_types: "Du kan også endre innstillingene for hvordan ordreprosessen fungerer i din markedsplass. Vil brukerne dine selge, leie ut eller gi bort ting gratis? Er det timebasert, daglig eller ukentlig? Disse tingene kan stilles inn fra %{order_types_link}."
+        order_types_link_text: ordretypevisning
         payments: "Hvis du vil at brukere skal kunne betale for transaksjonene gjennom din markedsplass slik at du kan ta en provisjonsbetaling må du %{payments_link}."
         payments_link_text: "sette opp en betalingsmetode"
         info_texts: "Ikke glem å tilpasse info-sider og andre tekster hvor du kan fortelle brukere om din markedsplass. Gode steder verdt å sjekke er din %{about_page_link}, din  %{terms_of_use_link} (du bør skrive dine egne bruksvilkår her, enten ved å tilpasse malen eller lage et nytt dokument), din %{privacy_policy_link}, og %{welcome_email_link} som sendes til hver nye bruker. Det er også noen %{instruction_texts_link} du kan tilpasse."
@@ -354,7 +354,7 @@ nb:
         select_template: "Velg mal…"
         all_categories: "Alle kategorier"
         no_categories: "Ingen kategorier"
-        category_count: ~
+        category_count: "%{category_count} kategorier"
         header:
           listing_shape_name: ~
           listing_shape_categories: ~
