@@ -14,26 +14,30 @@ class TransactionsController < ApplicationController
     [:listing_id, :fixnum, :to_integer, :mandatory],
     [:message, :string],
     [:quantity, :fixnum, :to_integer, default: 1],
+    [:start_on, transform_with: ->(v) { TransactionViewUtils.parse_booking_date(v) } ],
+    [:end_on, transform_with: ->(v) { TransactionViewUtils.parse_booking_date(v) } ]
   )
 
   def new
     fetch_data(params[:listing_id]).on_success { |(listing_id, listing_model, author_model, process, gateway)|
       booking = listing_model.unit_type == :day
 
+      transaction_params = params.slice(:start_on, :end_on, :quantity)
+
       case [process[:process], gateway, booking]
       when matches([:none])
-        render_free(listing_model: listing_model, author_model: author_model, community: @current_community, params: params)
+        render_free(listing_model: listing_model, author_model: author_model, community: @current_community, params: transaction_params)
       when matches([:preauthorize, __, true])
-        redirect_to book_path({listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on)))
+        redirect_to book_path({listing_id: listing_model.id}.merge(transaction_params))
       when matches([:preauthorize, :paypal])
-        redirect_to initiate_order_path(listing_id: listing_model.id)
+        redirect_to initiate_order_path({listing_id: listing_model.id}.merge(transaction_params))
       when matches([:preauthorize, :braintree])
         redirect_to preauthorize_payment_path(:listing_id => listing_model.id)
       when matches([:postpay])
         redirect_to post_pay_listing_path(:listing_id => listing_model.id)
       else
-        params = "listing_id: #{listing_id}, payment_gateway: #{gateway}, payment_process: #{process}, booking: #{booking}"
-        raise ArgumentError.new("Can not find new transaction path to #{params}")
+        opts = "listing_id: #{listing_id}, payment_gateway: #{gateway}, payment_process: #{process}, booking: #{booking}"
+        raise ArgumentError.new("Can not find new transaction path to #{opts}")
       end
     }.on_error { |error_msg|
       flash[:error] = "Could not start transaction, error message: #{error_msg}"
@@ -51,6 +55,10 @@ class TransactionsController < ApplicationController
         fetch_data(form[:listing_id])
       },
       ->(form, (listing_id, listing_model, author_model, process, gateway)) {
+        booking_fields = Maybe(form).slice(:start_on, :end_on).select { |form| form.all? }.or_else({})
+
+        quantity = Maybe(booking_fields).map { |b| DateUtils.duration_days(b[:start_on], b[:end_on]) }.or_else(form[:quantity])
+
         TransactionService::Transaction.create(
           {
             transaction: {
@@ -62,8 +70,9 @@ class TransactionsController < ApplicationController
               unit_type: listing_model.unit_type,
               unit_price: listing_model.price,
               unit_tr_key: listing_model.unit_tr_key,
-              listing_quantity: form[:quantity],
+              listing_quantity: quantity,
               content: form[:message],
+              booking_fields: booking_fields,
               payment_gateway: process[:process] == :none ? :none : gateway, # TODO This is a bit awkward
               payment_process: process[:process]}
           })
