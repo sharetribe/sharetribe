@@ -243,30 +243,31 @@ class TransactionsController < ApplicationController
     booking = !!(booking_start && booking_end)
     duration = booking ? DateUtils.duration_days(booking_start, booking_end) : nil
     quantity = Maybe(booking ? DateUtils.duration_days(booking_start, booking_end) : TransactionViewUtils.parse_quantity(params[:quantity])).or_else(1)
-    show_subtotal = booking || quantity > 1 # or shipping, but it's currently not available for free transactions
     total_label = t("transactions.price")
 
-    price_break_down = TransactionViewUtils.price_break_down_locals(
-      {
-        listing_price: listing_model.price,
-        localized_unit_type: unit_type,
-        localized_selector_label: localized_selector_label,
-        booking: booking,
-        start_on: booking_start,
-        end_on: booking_end,
-        duration: duration,
-        quantity: quantity,
-        subtotal: quantity != 1 ? listing_model.price * quantity : nil,
-        total: listing_model.price * quantity,
-        shipping_price: nil,
-        total_label: total_label
-      })
+    m_price_break_down = Maybe(listing_model).select { |listing_model| listing_model.price.present? }.map { |listing_model|
+      TransactionViewUtils.price_break_down_locals(
+        {
+          listing_price: listing_model.price,
+          localized_unit_type: unit_type,
+          localized_selector_label: localized_selector_label,
+          booking: booking,
+          start_on: booking_start,
+          end_on: booking_end,
+          duration: duration,
+          quantity: quantity,
+          subtotal: quantity != 1 ? listing_model.price * quantity : nil,
+          total: listing_model.price * quantity,
+          shipping_price: nil,
+          total_label: total_label
+        })
+    }
 
     render "transactions/new", locals: {
              listing: listing,
              author: author,
              action_button_label: t(listing_model.action_button_tr_key),
-             price_break_down: price_break_down,
+             m_price_break_down: m_price_break_down,
              booking_start: Maybe(booking_start).map { |d| TransactionViewUtils.stringify_booking_date(d) },
              booking_end: Maybe(booking_end).map { |d| TransactionViewUtils.stringify_booking_date(d) },
              quantity: quantity,

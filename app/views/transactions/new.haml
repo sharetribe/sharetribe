@@ -19,8 +19,9 @@
         %div
           = t("listing_conversations.preauthorize.by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
 
-      %li
-        = render partial: "transactions/price_break_down", locals: price_break_down
+      - m_price_break_down.each do |price_break_down|
+        %li
+          = render partial: "transactions/price_break_down", locals: price_break_down
 
   = form_tag(form_action, method: :post, id: "transaction-form") do
 
