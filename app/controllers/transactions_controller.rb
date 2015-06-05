@@ -1,11 +1,11 @@
 class TransactionsController < ApplicationController
 
-  before_filter do |controller|
+  before_filter only: [:show] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
 
-  before_filter :only => [ :index, :received ] do |controller|
-    controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
+  before_filter do |controller|
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_do_a_transaction")
   end
 
   MessageForm = Form::Message
@@ -14,34 +14,41 @@ class TransactionsController < ApplicationController
     [:listing_id, :fixnum, :to_integer, :mandatory],
     [:message, :string],
     [:quantity, :fixnum, :to_integer, default: 1],
-    [:start_on, transform_with: ->(v) { TransactionViewUtils.parse_booking_date(v) } ],
-    [:end_on, transform_with: ->(v) { TransactionViewUtils.parse_booking_date(v) } ]
+    [:start_on, transform_with: ->(v) { Maybe(v).map { |d| TransactionViewUtils.parse_booking_date(d) }.or_else(nil) } ],
+    [:end_on, transform_with: ->(v) { Maybe(v).map { |d| TransactionViewUtils.parse_booking_date(d) }.or_else(nil) } ]
   )
 
   def new
-    fetch_data(params[:listing_id]).on_success { |(listing_id, listing_model, author_model, process, gateway)|
+    Result.all(
+      ->() {
+        fetch_data(params[:listing_id])
+      },
+      ->((listing_id, listing_model)) {
+        ensure_can_start_transactions(listing_model: listing_model, current_user: @current_user, current_community: @current_community)
+      }
+    ).on_success { |((listing_id, listing_model, author_model, process, gateway))|
       booking = listing_model.unit_type == :day
 
-      transaction_params = params.slice(:start_on, :end_on, :quantity)
+      transaction_params = {listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on, :quantity))
 
       case [process[:process], gateway, booking]
       when matches([:none])
         render_free(listing_model: listing_model, author_model: author_model, community: @current_community, params: transaction_params)
       when matches([:preauthorize, __, true])
-        redirect_to book_path({listing_id: listing_model.id}.merge(transaction_params))
+        redirect_to book_path(transaction_params)
       when matches([:preauthorize, :paypal])
-        redirect_to initiate_order_path({listing_id: listing_model.id}.merge(transaction_params))
+        redirect_to initiate_order_path(transaction_params)
       when matches([:preauthorize, :braintree])
-        redirect_to preauthorize_payment_path(:listing_id => listing_model.id)
+        redirect_to preauthorize_payment_path(transaction_params)
       when matches([:postpay])
-        redirect_to post_pay_listing_path(:listing_id => listing_model.id)
+        redirect_to post_pay_listing_path(transaction_params)
       else
         opts = "listing_id: #{listing_id}, payment_gateway: #{gateway}, payment_process: #{process}, booking: #{booking}"
         raise ArgumentError.new("Can not find new transaction path to #{opts}")
       end
-    }.on_error { |error_msg|
-      flash[:error] = "Could not start transaction, error message: #{error_msg}"
-      redirect_to root_path
+    }.on_error { |error_msg, data|
+      flash[:error] = Maybe(data)[:error_tr_key].map { |tr_key| t(tr_key) }.or_else("Could not start a transaction, error message: #{error_msg}")
+      redirect_to (session[:return_to_content] || root)
     }
   end
 
@@ -54,8 +61,11 @@ class TransactionsController < ApplicationController
       ->(form) {
         fetch_data(form[:listing_id])
       },
-      ->(form, (listing_id, listing_model, author_model, process, gateway)) {
-        booking_fields = Maybe(form).slice(:start_on, :end_on).select { |form| form.all? }.or_else({})
+      ->(_, (listing_id, listing_model)) {
+        ensure_can_start_transactions(listing_model: listing_model, current_user: @current_user, current_community: @current_community)
+      },
+      ->(form, (listing_id, listing_model, author_model, process, gateway), _) {
+        booking_fields = Maybe(form).slice(:start_on, :end_on).select { |booking| booking.values.all? }.or_else({})
 
         quantity = Maybe(booking_fields).map { |b| DateUtils.duration_days(b[:start_on], b[:end_on]) }.or_else(form[:quantity])
 
@@ -77,25 +87,14 @@ class TransactionsController < ApplicationController
               payment_process: process[:process]}
           })
       }
-    ).on_success { |(_, (_, _, _, process), tx)|
-      # TODO Do I really have to do the state transition here?
-      # Shouldn't it be handled by the TransactionService
-      MarketplaceService::Transaction::Command.transition_to(tx[:transaction][:id], "free")
-
+    ).on_success { |(_, (_, _, _, process), _, tx)|
+      after_create_actions!(process: process, transaction: tx[:transaction], community_id: @current_community.id)
       flash[:notice] = after_create_flash(process: process) # add more params here when needed
       redirect_to after_create_redirect(process: process, starter_id: @current_user.id, transaction: tx[:transaction]) # add more params here when needed
     }.on_error { |error_msg|
-      binding.pry
+      flash[:error] = Maybe(data)[:error_tr_key].map { |tr_key| t(tr_key) }.or_else("Could not start a transaction, error message: #{error_msg}")
+      redirect_to (session[:return_to_content] || root)
     }
-  end
-
-  def after_create_flash(process:)
-    # TODO implement if needed
-    nil
-  end
-
-  def after_create_redirect(process:, starter_id:, transaction:)
-    person_transaction_path(person_id: starter_id, id: transaction[:id])
   end
 
   def show
@@ -164,6 +163,58 @@ class TransactionsController < ApplicationController
 
   private
 
+  def after_create_flash(process:)
+    case process[:process]
+    when :none
+      t("layouts.notifications.message_sent")
+    else
+      raise NotImplementedError.new("Not implemented for process #{process}")
+    end
+  end
+
+  def ensure_can_start_transactions(listing_model:, current_user:, current_community:)
+    error =
+      if listing_model.closed?
+        "layouts.notifications.you_cannot_reply_to_a_closed_offer"
+      elsif listing_model.author == current_user
+       "layouts.notifications.you_cannot_send_message_to_yourself"
+      elsif !listing_model.visible_to?(current_user, current_community)
+        "layouts.notifications.you_are_not_authorized_to_view_this_content"
+      else
+        nil
+      end
+
+    if error
+      Result::Error.new(error, {error_tr_key: error})
+    else
+      Result::Success.new
+    end
+  end
+
+  def after_create_redirect(process:, starter_id:, transaction:)
+    case process[:process]
+    when :none
+      person_transaction_path(person_id: starter_id, id: transaction[:id])
+    else
+      raise NotImplementedError.new("Not implemented for process #{process}")
+    end
+  end
+
+  def after_create_actions!(process:, transaction:, community_id:)
+    case process[:process]
+    when :none
+      # TODO Do I really have to do the state transition here?
+      # Shouldn't it be handled by the TransactionService
+      MarketplaceService::Transaction::Command.transition_to(transaction[:id], "free")
+
+      # TODO: remove references to transaction model
+      transaction = Transaction.find(transaction[:id])
+
+      Delayed::Job.enqueue(MessageSentJob.new(transaction.conversation.messages.last.id, community_id))
+    else
+      raise NotImplementedError.new("Not implemented for process #{process}")
+    end
+  end
   # Fetch all related data based on the listing_id
   #
   # Returns: Result::Success([listing_id, listing_model, author, process, gateway])
@@ -238,8 +289,8 @@ class TransactionsController < ApplicationController
 
     unit_type = listing_model.unit_type.present? ? ListingViewUtils.translate_unit(listing_model.unit_type, listing_model.unit_tr_key) : nil
     localized_selector_label = listing_model.unit_type.present? ? ListingViewUtils.translate_quantity(listing_model.unit_type, listing_model.unit_selector_tr_key) : nil
-    booking_start = TransactionViewUtils.parse_booking_date(params[:start_on])
-    booking_end = TransactionViewUtils.parse_booking_date(params[:end_on])
+    booking_start = Maybe(params)[:start_on].map { |d| TransactionViewUtils.parse_booking_date(d) }.or_else(nil)
+    booking_end = Maybe(params)[:end_on].map { |d| TransactionViewUtils.parse_booking_date(d) }.or_else(nil)
     booking = !!(booking_start && booking_end)
     duration = booking ? DateUtils.duration_days(booking_start, booking_end) : nil
     quantity = Maybe(booking ? DateUtils.duration_days(booking_start, booking_end) : TransactionViewUtils.parse_quantity(params[:quantity])).or_else(1)
@@ -268,8 +319,8 @@ class TransactionsController < ApplicationController
              author: author,
              action_button_label: t(listing_model.action_button_tr_key),
              m_price_break_down: m_price_break_down,
-             booking_start: Maybe(booking_start).map { |d| TransactionViewUtils.stringify_booking_date(d) },
-             booking_end: Maybe(booking_end).map { |d| TransactionViewUtils.stringify_booking_date(d) },
+             booking_start: booking_start,
+             booking_end: booking_end,
              quantity: quantity,
              form_action: person_transactions_path(person_id: @current_user, listing_id: listing_model.id)
            }

@@ -1,5 +1,6 @@
-- content_for :javascript do
-  initialize_send_message_form('#{I18n.locale}');
+- content_for :extra_javascript do
+  :javascript
+    ST.transaction.initializeFreeTransactionForm('#{I18n.locale}');
 
 - content_for :title_header do
   %h1
