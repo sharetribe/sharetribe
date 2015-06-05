@@ -65,6 +65,9 @@ Kassi::Application.routes.draw do
 
     match "/transactions/op_status/:process_token" => "transactions#op_status", :as => :transaction_op_status
 
+    # All new transactions (in the future)
+    match "/transactions/new" => "transactions#new", as: :new_transaction
+
     # preauthorize flow
     match "/listings/:listing_id/preauthorize" => "preauthorize_transactions#preauthorize", :as => :preauthorize_payment
     match "/listings/:listing_id/preauthorized" => "preauthorize_transactions#preauthorized", :as => :preauthorized_payment
@@ -78,7 +81,6 @@ Kassi::Application.routes.draw do
     match "/listings/:listing_id/create_transaction" => "post_pay_transactions#create", :as => :create_transaction, :method => :post
 
     # free flow
-    match "/listings/:listing_id/reply" => "free_transactions#new", :as => :reply_to_listing
     match "/listings/:listing_id/create_contact" => "free_transactions#create_contact", :as => :create_contact
     match "/listings/:listing_id/contact" => "free_transactions#contact", :as => :contact_to_listing
 

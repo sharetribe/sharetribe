@@ -129,7 +129,7 @@ class ListingsController < ApplicationController
 
     payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
-    form_path = new_person_transaction_path(@current_user, listing_id: @listing.id)
+    form_path = new_transaction_path(listing_id: @listing.id)
 
     delivery_opts = delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.shipping_price_additional, @listing.currency)
 

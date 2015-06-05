@@ -270,7 +270,7 @@ class TransactionsController < ApplicationController
              booking_start: Maybe(booking_start).map { |d| TransactionViewUtils.stringify_booking_date(d) },
              booking_end: Maybe(booking_end).map { |d| TransactionViewUtils.stringify_booking_date(d) },
              quantity: quantity,
-             form_action: person_transactions_path(listing_id: listing_model.id)
+             form_action: person_transactions_path(person_id: @current_user, listing_id: listing_model.id)
            }
   end
 end
