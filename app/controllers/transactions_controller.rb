@@ -56,15 +56,17 @@ class TransactionsController < ApplicationController
     Result.all(
       ->() {
         TransactionForm.validate(params)
-        # TODO Add validation, e.g. message is mandatory if free
       },
       ->(form) {
         fetch_data(form[:listing_id])
       },
-      ->(_, (listing_id, listing_model)) {
+      ->(form, (_, _, _, process)) {
+        validate_form(form, process)
+      },
+      ->(_, (listing_id, listing_model), _) {
         ensure_can_start_transactions(listing_model: listing_model, current_user: @current_user, current_community: @current_community)
       },
-      ->(form, (listing_id, listing_model, author_model, process, gateway), _) {
+      ->(form, (listing_id, listing_model, author_model, process, gateway), _, _) {
         booking_fields = Maybe(form).slice(:start_on, :end_on).select { |booking| booking.values.all? }.or_else({})
 
         quantity = Maybe(booking_fields).map { |b| DateUtils.duration_days(b[:start_on], b[:end_on]) }.or_else(form[:quantity])
@@ -87,11 +89,11 @@ class TransactionsController < ApplicationController
               payment_process: process[:process]}
           })
       }
-    ).on_success { |(_, (_, _, _, process), _, tx)|
+    ).on_success { |(_, (_, _, _, process), _, _, tx)|
       after_create_actions!(process: process, transaction: tx[:transaction], community_id: @current_community.id)
       flash[:notice] = after_create_flash(process: process) # add more params here when needed
       redirect_to after_create_redirect(process: process, starter_id: @current_user.id, transaction: tx[:transaction]) # add more params here when needed
-    }.on_error { |error_msg|
+    }.on_error { |error_msg, data|
       flash[:error] = Maybe(data)[:error_tr_key].map { |tr_key| t(tr_key) }.or_else("Could not start a transaction, error message: #{error_msg}")
       redirect_to (session[:return_to_content] || root)
     }
@@ -163,15 +165,6 @@ class TransactionsController < ApplicationController
 
   private
 
-  def after_create_flash(process:)
-    case process[:process]
-    when :none
-      t("layouts.notifications.message_sent")
-    else
-      raise NotImplementedError.new("Not implemented for process #{process}")
-    end
-  end
-
   def ensure_can_start_transactions(listing_model:, current_user:, current_community:)
     error =
       if listing_model.closed?
@@ -188,6 +181,15 @@ class TransactionsController < ApplicationController
       Result::Error.new(error, {error_tr_key: error})
     else
       Result::Success.new
+    end
+  end
+
+  def after_create_flash(process:)
+    case process[:process]
+    when :none
+      t("layouts.notifications.message_sent")
+    else
+      raise NotImplementedError.new("Not implemented for process #{process}")
     end
   end
 
@@ -245,6 +247,14 @@ class TransactionsController < ApplicationController
         Result::Success.new(MarketplaceService::Community::Query.payment_type(@current_community.id))
       },
     )
+  end
+
+  def validate_form(form_params, process)
+    if process[:process] == :none && form_params[:message].blank?
+      Result::Error.new("Message can not be empty")
+    else
+      Result::Success.new
+    end
   end
 
   def price_break_down_locals(tx)
