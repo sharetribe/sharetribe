@@ -836,7 +836,7 @@ de:
       remember_to_confirm: "Wenn der Auftrag erfüllt ist, denke daran, ihn als erledigt zu markieren. Wenn der Auftrag noch nicht erfüllt ist, hast Du %{days_to_automatic_confirmation} Tage, um ihn abzubrechen. Sonst wird er automatisch als abgeschlossen markiert werden."
     invitation_to_kassi:
       hi: Hallo!
-      you_have_been_invited_to_kassi: "%{inviter} hat dich dazu eingeladen den %{community} Webdienst zu benutzen."
+      you_have_been_invited_to_kassi: "%{inviter} hat dich dazu eingeladen %{community} zu benutzen."
       here_is_a_message_from: "Hier ist eine persönliche Nachricht von %{inviter}:"
       join_now: "Jetzt Mitglied werden"
       invitation_code: "Einladungscode %{code}"
@@ -1429,7 +1429,7 @@ de:
         shipping: Versand
         shipping_price: Versandkostenpauschale
         shipping_price_additional: "Weitere Artikel"
-        pickup: Abholung
+        pickup: Abholung/Übergabe
       origin:
         location: Standort
         origin: Herkunft
@@ -1578,8 +1578,8 @@ de:
       shipping: "Versand (+%{price})"
       shipping_no_price: Versand
       shipping_price_additional: "Versand (%{price}, weitere Artikel: + %{shipping_price_additional})"
-      pickup: Abholung
-      pickup_no_price: Abholung
+      pickup: Abholung/Übergabe
+      pickup_no_price: Abholung/Übergabe
     unit_types:
       piece: Stück
       hour: Stunde
@@ -1669,9 +1669,9 @@ de:
       upgrade_paypal_account: "Upgrade deinen PayPal Konto hier."
       connect_paypal_account: "Verbinde deinen PayPal Account"
       paypal_account_billing_agreement: "Erteile dem Webservice %{service_name} die Erlaubnis eine Transaktionsgebühr zu berechnen."
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
+      paypal_account_billing_agreement_info_both: "Nachdem Sie etwas auf %{service_name} verkauft haben, wird eine Servicegebühr (%{commission_from_seller} des Gesamtpreises, ohne Versandkosten, Mindestgebühr %{minimum_commission}) von Ihrem PayPal-Konto abgebucht. Um Zahlungen in %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Nachdem Sie etwas auf %{service_name} verkauft haben, wird eine Servicegebühr von %{minimum_commission} des Gesamtpreises von Ihrem PayPal-Konto abgebucht. Um Zahlungen in %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Nachdem Sie etwas auf %{service_name} verkauft haben, wird eine Servicegebühr (%{commission_from_seller} des Gesamtpreises, ohne Versandkosten) von Ihrem PayPal-Konto abgebucht. Um Zahlungen in %{service_name} zu akzeptieren, musst Du die Erlaubnis gewähren, diese Gebühr zu erheben. Die Gebühr umfasst nicht die %{paypal_info_link}"
       paypal_info_link_text: "PayPal's payment processing fee"
       billing_agreement_description: "Gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr zu berechnen."
       billing_agreement: "Erteile die Erlaubnis"

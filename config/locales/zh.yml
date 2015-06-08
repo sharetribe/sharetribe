@@ -19,8 +19,8 @@ zh:
           category_parent: 父分类
           no_parent: 无上级分类
         category_transaction_types:
-          transaction_types: 交易的类型
-          transaction_types_description: 交易类型决定了在该类别中的信息允许存在何种交易。比如，是否只能卖，或者租以及是否允许免费赠送。
+          transaction_types: 订单的类型
+          transaction_types_description: 订单类型决定了在该类别中的发布的信息的订购流程。比如，是否只能卖，或者出租以及允许免费赠送。
         buttons:
           save: 保存
           cancel: 取消
@@ -49,7 +49,7 @@ zh:
         edit_community: 基本信息
         enabled_languages: ~
         enabled_languages_description: ~
-        default_language: ~
+        default_language: 默认语言
         language_selection_disabled: ~
         community_name: 集市名称
         edit_community_name_description: 你的集市名称。它将在邮件和其他不同地方显示给用户。
@@ -152,26 +152,26 @@ zh:
         view_transactions_link_text: 这里
         contact_support_link_text: 联系我们的支持人员
       available_languages:
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        fr: ~
-        fr-CA: ~
-        es: ~
-        es-ES: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
-        ru: ~
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        en: 英文
+        en-AU: 英文(澳大利亚)
+        en-GB: 英文(英国)
+        fr: 法文
+        fr-CA: 法文(加拿大)
+        es: 西班牙文(智利)
+        es-ES: 西班牙文
+        pt-BR: 葡萄牙文（巴西）
+        nb: 挪威博克马尔文
+        sv: 瑞典语
+        da-DK: 丹麦语
+        fi: 芬兰文
+        ru: 俄语
+        de: 德语
+        el: 希腊文
+        nl: 荷兰文
+        tr-TR: 土耳其文
+        zh: 中文
+        ja: 日文
+        it: 意大利文
       settings:
         settings: 设置
         general: 常规
@@ -267,7 +267,7 @@ zh:
           canceled: 已取消
           initiated: 等待PayPal付款
           pending_ext: 等待PayPal付款
-        not_available: ~
+        not_available: 无
       braintree_payment_gateway:
         braintree_payment_gateway: Braintree支付API密钥
         environment: 环境
@@ -352,7 +352,7 @@ zh:
         category_count: ~
         header:
           listing_shape_name: 订单类型名称
-          listing_shape_categories: 订单类型分类
+          listing_shape_categories: 使用该订单类型的分类
         order:
           saving_order: 保存订单类型
           save_order_successful: 成功保存订单类型
@@ -363,7 +363,7 @@ zh:
         offering_services: 提供服务
         giving_things_away: 免费赠送
         requesting: 请求
-        announcement: 公告
+        announcement: 发布公告
         custom: 自定义
       new:
         create_listing_shape: 创建订单类型
@@ -376,19 +376,19 @@ zh:
         update: 保存
         cancel: 取消
         update_success: "订单类型‘%{shape}’的修改已保存"
-        update_failure: ~
+        update_failure: "不能保存修改。错误：%{error_msg}"
         delete: ~
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
+      listing_shape_name: 名称
       listing_shape_name_placeholder: ~
-      action_button_label: ~
+      action_button_label: 结账按钮标签
       action_button_placeholder: ~
       successfully_closed: ~
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
-      shipping_label: ~
+      shipping_label: 允许卖家定义运费
       price_label: ~
       units_title: ~
       units_desc: ~
@@ -427,8 +427,8 @@ zh:
       minimum_transaction_fee_label: 最低交易费用：
       save_settings: 保存设置
       note_about_transaction_fee: "注意：交易费用包括PayPal的费用都依赖于你的货币种类和卖家的销售量。因此，费用至少是%{min_paypal_commission}。当费用从卖家收取时，PayPal会先取费用，然后剩余的费用将被汇入你的PayPal帐号。"
-      minimum_listing_price_below_tx_fee: "至少必须等于最低交易费用%{minimum_transaction_fee}。"
-      minimum_listing_price_below_min: "必须高于最低佣金%{minimum_commission}。"
+      minimum_listing_price_below_tx_fee: "最少的交易额至少等于最低交易费用%{minimum_transaction_fee}。"
+      minimum_listing_price_below_min: "最少的交易额必须高于最低佣金%{minimum_commission}。"
     transaction_types:
       sell: 出售
       rent: 已出租
@@ -437,7 +437,7 @@ zh:
       swap: 交换
       service: 宝贝
       request: 请求
-      inquiry: 查询
+      inquiry: 公告
       share_for_free: 免费共享
       default_action_button_labels:
         sell: 购买
@@ -1407,9 +1407,9 @@ zh:
         time: 小时，天，月，……
         long_time: 周，月，……
         after_service_fee_you_will_get: "在%{service_name}和付款处理费之后你将得到%{sum_with_currency}"
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}会从价格中扣除"
+        after_service_fee_you_will_get_paypal_text: "%{service_name}费用（%{sum_with_currency}）和%{paypal_fee_info_link}会从价格中扣除"
+        paypal_fee_info_link_text: PayPal的支付处理费
         after_service_fee_you_will_get_vat: "在%{service_name}和付款处理费用之后你将得到大概%{sum_with_currency}（0%消费税）"
         price_excludes_vat: 价格不包含VAT。
         delivery: 配送方式
@@ -1533,7 +1533,7 @@ zh:
       contact: 联系
       favor_offer: 服务提供
       favor_request: 服务请求
-      inquiry: 查询
+      inquiry: 公告
       item_offer_trade: 交换宝贝
       item_request_trade: 交换请求信息
       no_description: 该发布的信息无描述
@@ -1657,9 +1657,9 @@ zh:
       connect_paypal_account: 连接PayPal帐号
       paypal_account_billing_agreement: "授权%{service_name}收取交易费"
       paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_fixed: "当你在%{service_name}完成的一个销售后，服务费%{minimum_commission}将从你的PayPal帐号中扣除。要在%{service_name}中接受付款，你必须允许收取此费用。该费用不包括%{paypal_info_link}"
       paypal_account_billing_agreement_info_relative: ~
-      paypal_info_link_text: ~
+      paypal_info_link_text: PayPal的支付处理费
       billing_agreement_description: "授权%{service_name}收取交易费。"
       billing_agreement: 授权
       permissions_not_granted: 没有授权连接PayPal帐号。

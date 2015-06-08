@@ -134,6 +134,8 @@ es-ES:
         categories_link_text: "añadir categorías y subcategorías"
         custom_fields_link_text: ~
         filters_link_text: "tipos de filtros"
+        order_types: "También puedes configurar cómo funciona el proceso de solicitud en tu marketplace. Tus usuarios están vendiendo, alquilando o regalando cosas gratis? Están ofreciendo alquileres por horas, por días o por semanas? Estos parámetros pueden configurarse en este enlace %{order_types_link}."
+        order_types_link_text: "Vista de tipos de solicitud"
         payments: ~
         payments_link_text: "configurar una forma de pago"
         info_texts: ~
@@ -354,6 +356,7 @@ es-ES:
         select_template: "Seleccionar plantilla..."
         all_categories: "Todas las categorías"
         no_categories: "Sin categorías"
+        category_count: "%{category_count} categorías"
         header:
           listing_shape_name: ~
           listing_shape_categories: ~
@@ -413,7 +416,7 @@ es-ES:
         month: ~
       can_not_find: "No se pudo encontrar el tipo de transacción con id: %{id}"
       add_custom_unit: "+ Añadir una unidad de precio personalizada..."
-      delete_custom_unit: ~
+      delete_custom_unit: Eliminar
       custom_unit_form:
         title: "Nueva unidad de precio"
         label_heading: Etiqueta
@@ -1313,7 +1316,7 @@ es-ES:
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a %{service_name}"
       you_must_log_in_to_send_a_comment: "Debes iniciar sesión para enviar un nuevo comentario"
       you_must_log_in_to_send_a_message: "Debes iniciar tu sesión en %{service_name} o crear una nueva cuenta gratuita para enviar un mensaje a otro usuario."
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "Debes iniciar sesión en %{service_name} para realizar una transacción."
       you_must_log_in_to_view_this_content: "Debes iniciar sesión para ver este contenido"
       you_must_log_in_to_view_this_page: "Tienes que iniciar sesión para ver esta página"
       you_must_log_in_to_view_your_inbox: "Debes iniciar sesión en %{service_name} para revisar tu bandeja de entrada."

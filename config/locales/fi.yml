@@ -6,10 +6,10 @@ fi:
       index:
         listing_categories: Ilmoituskategoriat
         create_a_new_category: "+ Uusi kategoria"
-        remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
+        remove_category_confirmation: "Haluatko varmasti poistaa kategorian '%{category_name}'?"
+        saving_order: "Tallennetaan kategorioiden järjestystä"
+        save_order_successful: "Kategorioiden järjestys tallennettu."
+        save_order_error: "Kategorioiden järjestyksen tallentamisessa tapahtui virhe. Päivitä sivu ja yritä uudelleen."
       new:
         new_listing_category: "Uusi ilmoituskategoria"
       form:
@@ -55,7 +55,7 @@ fi:
         enabled_languages: "Käytettävissä olevat kielet"
         enabled_languages_description: "Käyttäjän valittavissa olevat kielet. Listan ensimmäistä käytetään oletuskielenä."
         default_language: Oletuskieli
-        language_selection_disabled: ~
+        language_selection_disabled: "Kielen valinta ei ole käytössä sivustollasi, koska sinulla on käytössä seuraavat epäviralliset kielet: %{languages}. Ota yhteyttä Sharetriben ylläpitoon, jos haluat muuttaa kieliasetuksiasi."
         community_name: "Kauppapaikan nimi"
         edit_community_name_description: "Kauppapaikan nimi näytetään käyttäjille lähetettävissä sähköposteissa ja useissa muissa paikoissa."
         community_slogan: "Kauppapaikan slogan"
@@ -134,6 +134,8 @@ fi:
         categories_link_text: "ilmoituskategorioita ja niille alakategorioita"
         custom_fields_link_text: "muokata ilmoituskenttiä"
         filters_link_text: hakusuodattimien
+        order_types: "Voit myös vaikuttaa siihen, miten tilaaminen ja käyttäjien välinen viestintä tapahtuu sivustollasi. Myyvätkö käyttäjäsi tavaroita vai palveluita, vaiko kenties vuokraavat tiloja tai antavat tavaroita pois ilmaiseksi? Näitä asioita voit muokata %{order_types_link}."
+        order_types_link_text: tilaustavat-sivulla
         payments: "Jos haluat tarjota käyttäjillesi mahdollisuuden maksaa ostoksistaan suoraan markkinapaikkasi maksujärjestelmän kautta, jolloin voit itse ottaa provision kustakin myyntitapahtumasta, sinun on syytä %{payments_link}."
         payments_link_text: "muokata maksuasetuksiasi"
         info_texts: "Muista myös muokata infosivuja ja muita ohjetekstejä, joiden avulla voit antaa käyttäjillesi lisätietoa sivustosi toiminnasta. Tarkista esimerkiksi %{about_page_link}, %{terms_of_use_link} (sinun kannattaa määritellä itse - voit käyttää apuna valmista pohjaamme), %{privacy_policy_link} (tämäkin sinun on syytä määritellä itse - tälle sivulle voit laittaa esimerkiksi rekisteriselosteeseen vaadittavat tiedot), sekä %{welcome_email_link} joka lähetetään kaikille uusille käyttäjille. Muut ohjetekstit löydät %{instruction_texts_link}."
@@ -206,7 +208,7 @@ fi:
         email: Sähköposti
         name: Nimi
         join_date: Liittynyt
-        admin: ~
+        admin: Ylläpito
         posting_allowed: "Hyväksytty ilmoittaja"
         ban_user: Poista
         saving_user_status: Tallennetaan...
@@ -345,65 +347,66 @@ fi:
       support: Asiakastuki
     listing_shapes:
       index:
-        listing_shapes: ""
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
+        listing_shapes: Tilaustavat
+        description: "Tilaustavat määrittelevät, kuinka tilaaminen ja käyttäjien välinen viestintä toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties antaa tavaroita pois ilmaiseksi."
+        read_more_about_order_types: "Lue lisää tilaustavoista"
+        add_new_shape: "Lisää uusi tilaustapa: "
+        select_template: "Valitse malli..."
+        all_categories: "Kaikki kategoriat"
+        no_categories: "Ei kategorioita"
+        category_count: "%{category_count} kategoriaa"
         header:
-          listing_shape_name: ~
+          listing_shape_name: "Tilaustavan nimi"
           listing_shape_categories: ~
         order:
-          saving_order: ~
+          saving_order: "Tallennetaan tilaustapojen järjestystä"
           save_order_successful: ~
-          save_order_error: ~
+          save_order_error: "Järjestystä tallentaessa tapahtui virhe. Päivitä sivu ja yritä uudelleen."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
+        selling_products: "Myydään tuotteita"
+        renting_products: "Vuokrataan tuotteita"
+        offering_services: "Tarjotaan palveluita"
+        giving_things_away: "Annetaan ilmaiseksi"
+        requesting: Tarvitaan
         announcement: ~
-        custom: ~
+        custom: Muu
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Luo tilaustapa"
+        create: "Luo tilaustapa"
+        cancel: Peruuta
+        create_success: "Uusi tilaustapa '%{shape}' luotiin onnistuneesti"
+        create_failure: "Tilaustavan luonti ei onnistunut. Virhe: %{error_msg}"
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
-        update_success: ~
-        update_failure: ~
-        delete: ~
+        edit_listing_shape: "Muokkaa tilaustapaa '%{shape}'"
+        update: Tallenna
+        cancel: Peruuta
+        update_success: "Muutokset tilaustapaan '%{shape}' on tallennettu"
+        update_failure: "Tietojen tallentaminen ei onnistunut. Tapahtui virhe: %{error_msg}"
+        delete: "Poista tilaustapa"
         can_not_delete_last: "Et voi poistaa tätä tyyppiä, koska se on ainoa tyyppi markkinapaikassasi."
-        can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
+        can_not_delete_only_one_in_categories: "Et voi poistaa tätä tilaustapaa, koska seuraavissa ilmoituskategorioissa ei ole käytössä muita tilaustapoja: %{categories}"
+      listing_shape_name: "Tilaustavan nimi"
+      listing_shape_name_placeholder: "Esimerkiksi \"Myydään\""
+      action_button_label: "Tilausnapin teksti"
+      action_button_placeholder: "Esimerkiksi \"Osta\""
+      successfully_closed: "Ilmoitukset suljettu onnistuneesti"
+      successfully_deleted: "Tilaustapa '%{order_type}' poistettu onnistuneesti"
+      pricing_and_checkout_title: "Hinta ja tilaaminen"
       online_payments_label: ~
-      shipping_label: ~
+      shipping_label: "Salli myyjien määritellä toimitusmaksu"
       price_label: ~
-      units_title: ~
-      units_desc: ~
+      units_title: "Hinnan yksiköt"
+      units_desc: "Jos olet ottanut hinnan yksiköt käyttöön, ilmoitushinta näytetään muodossa \"hinta per yksikkö\". Esimerkki: \"39€ per tunti\"."
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: "Per kappale"
+        hour: "Per tunti"
+        day: "Per päivä"
+        night: "Per yö"
+        week: "Per viikko"
+        month: "Per kuukausi"
       can_not_find: "Tyyppiä ID:llä %{id} ei löytynyt"
       add_custom_unit: "+ Lisää uusi yksikkö…"
-      delete_custom_unit: ~
+      delete_custom_unit: Poista
       custom_unit_form:
         title: "Uusi hinnoittelutyyppi"
         label_heading: Yksikkö
@@ -412,9 +415,9 @@ fi:
         selector_placeholder: "esim. \"Henkilömäärä\", \"Paino kiloina\""
         per: Per
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: "Yksikön tyyppi"
+          quantity_label: "Kappalemäärä (per kpl, per kg, per henkilö, ...)"
+          time_label: "Aikayksikkö (per 30 minuuttia, per 2 viikkoa, per vuosi, ...)"
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"
@@ -561,8 +564,8 @@ fi:
       canceled_request: "Pyyntö peruutettu."
       canceled_offer: "Tarjous peruutettu."
       message_from: "Viesti käyttäjältä %{person}"
-      about_listing: ~
-      free_message: ~
+      about_listing: "Liittyy ilmoitukseen %{listing_title}"
+      free_message: "Vapaa viesti"
     message:
       accepted_request: "hyväksyi pyynnön"
       accepted_offer: "hyväksyi tarjouksen"
@@ -598,7 +601,7 @@ fi:
       housing_request_rent_message_form_title: "Anna vuokralle %{listing} käyttäjälle %{person}"
       item_request_message_form_title: "Tarjoa tavara käyttäjälle"
       message: Viesti
-      message_to: ~
+      message_to: "Viesti käyttäjälle %{author_name}"
       optional_message_to: "Valinnainen viesti käyttäjälle %{author_name}"
       rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
       rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
@@ -609,8 +612,8 @@ fi:
       you_will_get_notified: "Saat sähköpostiisi tiedon, kun %{person} vastaa sinulle."
       title: Otsikko
       send_message_to_user: "Lähetä viesti käyttäjälle %{person}"
-      about_listing: ~
-      author_has_to_accept_request: ~
+      about_listing: "Liittyy ilmoitukseen %{listing_title}"
+      author_has_to_accept_request: "Käyttäjän %{author_name} on hyväksyttävä tilaus ennen kuin voit maksaa"
     show:
       in_response_to_listing: "liittyen ilmoitukseen"
       message_sent_by: "Viestin lähetti"
@@ -639,7 +642,7 @@ fi:
       offer_confirmed: "Tarjous toteutunut"
       offer_paid: "Maksu suoritettu"
       offer_preauthorized: "Maksu suoritettu"
-      offer_waiting_for_payment: ~
+      offer_waiting_for_payment: "Odottaa että %{requester_name} suorittaa maksun"
       pay: "Suorita maksu"
       preauthorized: "Maksu suoritettu"
       paid: "Maksu suoritettu"
@@ -784,8 +787,8 @@ fi:
       subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
       we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska pyynnön hyväksymisestä on kulunut %{days_passed} päivää."
     booking_transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
+      we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska varausaika päättyi eilen."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
@@ -904,10 +907,10 @@ fi:
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
-      you_have_time_to_accept: ~
+      you_have_time_to_accept: "Sinun pitää hyväksyä tilaus viimeistään %{payment_expires_in}. Jos hyväksyt tilauksen ennen määräaikaa, maksu veloitetaan ostajalta. Muussa tapauksessa tilaus hylätään automaattisesti eikä maksua veloiteta."
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
-      subject: ~
+      subject: "Muista hyväksyä ilmoitukseen %{listing_title} liittyvä tilaus käyttäjältä %{requester}"
       remember_to_accept: ~
       one_day_left: ~
       click_here_to_reply: ~
@@ -1421,7 +1424,7 @@ fi:
         delivery: Kuljetus
         shipping: Postitus
         shipping_price: "Postituksen hinta"
-        shipping_price_additional: ~
+        shipping_price_additional: Lisätuotteet
         pickup: Nouto
       origin:
         location: Sijainti
@@ -1515,7 +1518,7 @@ fi:
       select_category: "Valitse ilmoituskategoria"
       select_subcategory: "Valitse alakategoria"
       select_transaction_type: "Valitse ilmoitustyyppi"
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "Sinun pitää täyttää maksutietosi ennen kuin voit hyväksyä pyynnön ja vastaanottaa maksun. Täytä maksutietosi %{payment_settings_link}."
       contact_admin_link_text: "lähetä viesti ylläpitäjälle"
       community_not_configured_for_payments: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja %{contact_admin_link}."
       payment_settings_link: "markkinapaikan maksuasetuksiin"
@@ -2003,7 +2006,7 @@ fi:
       november: mar
       december: jou
     today: tänään
-    clear: ~
+    clear: Tyhjennä
     format: dd.mm.yyyy
   time:
     formats:

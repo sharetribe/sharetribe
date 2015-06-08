@@ -134,6 +134,8 @@ nl:
         categories_link_text: "voeg categorieën en subcategorieën toe"
         custom_fields_link_text: "configureer velden formulier"
         filters_link_text: "welke soort filters"
+        order_types: ~
+        order_types_link_text: ~
         payments: "Als je wil dat mensen via je marktplaats kunnen betalen voor hun aankopen zodat je een commissie kan heffen op elke transactie, dan moet je %{payments_link}."
         payments_link_text: "configureer een betalingsmethode"
         info_texts: "Vergeet niet om de informatiepagina's en andere teksten aan te passen waar je je gebruikers over je marktplaats kan vertellen. Goede plaatsen om te bekijken zijn jouw %{about_page_link}, je %{terms_of_use_link} (je moet hier je eigen voorwaarden bepalen door de bestaande template aan te passen of door een volledig nieuw document te maken), je %{privacy_policy_link} en de %{welcome_email_link} die naar elke nieuwe gebruiker gestuurd wordt. Er zijn ook enkele %{instruction_texts_link} die aangepast kunnen worden."
@@ -352,6 +354,7 @@ nl:
         select_template: ~
         all_categories: ~
         no_categories: ~
+        category_count: ~
         header:
           listing_shape_name: ~
           listing_shape_categories: ~

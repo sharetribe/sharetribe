@@ -144,6 +144,8 @@ ru:
         categories_link_text: "добавьте категории и субкатегории"
         custom_fields_link_text: "Настроить поля формы"
         filters_link_text: "какой тип фильтров"
+        order_types: ~
+        order_types_link_text: ~
         payments: "Если вы хотите чтобы люди могли оплачивать покупки в вашем маркетплейс, что позволит вам получать комиссию с каждой транзакции, вам необходимо %{payments_link}."
         payments_link_text: "настройте метод оплаты"
         info_texts: "Не забудьте настроить информационную страницу и другие тексты где вы можете рассказать вашим пользователям о вашем маркетплейс.  Это %{about_page_link}, %{terms_of_use_link} (вы должны добавить ваши собственные условия использования сервиса здесь, либо модифицировать текущий шаблон либо создать новый документ), %{privacy_policy_link}, и %{welcome_email_link} - отправляется каждому новому пользователю. Также здесь %{instruction_texts_link} информация которую можно настроить."
@@ -362,6 +364,7 @@ ru:
         select_template: ~
         all_categories: ~
         no_categories: ~
+        category_count: ~
         header:
           listing_shape_name: ~
           listing_shape_categories: ~
