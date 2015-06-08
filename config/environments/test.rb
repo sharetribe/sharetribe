@@ -21,7 +21,7 @@ Kassi::Application.configure do
 
   # Disable request forgery protection in test environment
   config.action_controller.allow_forgery_protection    = true
-  
+
   config.action_controller.action_on_unpermitted_parameters = :raise
 
   # Tell Action Mailer not to deliver emails to the real world.

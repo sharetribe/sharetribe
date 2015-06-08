@@ -82,6 +82,8 @@ gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~>4.1.0'
 gem 'cache_digests'
 
+gem 'lograge'
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
 end

@@ -142,17 +142,6 @@ module Kassi
     end
     config.paperclip_defaults = paperclip_options
 
-    # If logger_type is set to something else than "normal" we'll use stdout here
-    # the reason for this type of check is that it works also in Heroku where those variables can't be read in slug compilation
-    if (Rails.env.production? || Rails.env.staging?) && APP_CONFIG.logger_type != "normal"
-      # Set the logger to STDOUT, based on tip at: http://blog.codeship.io/2012/05/06/Unicorn-on-Heroku.html
-      # For unicorn logging to work
-      # It looks stupid that this is not in production.rb, but according to that blog,
-      # it needs to be set here to work
-      config.logger = Logger.new(STDOUT)
-      config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
-    end
-
     config.to_prepare do
       Devise::Mailer.layout "email" # email.haml or email.erb
       Devise::Mailer.helper :email_template

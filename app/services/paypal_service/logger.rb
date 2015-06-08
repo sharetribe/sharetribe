@@ -2,29 +2,28 @@ module PaypalService
   class Logger
 
     def info(msg)
-      #TODO: Fix logging totally
-      Rails.logger.warn "[Paypal] #{msg}"
+      Rails.logger.info ({ paypal: msg }.to_json)
     end
 
     def warn(msg)
-      Rails.logger.warn "[Paypal] #{msg}"
+      Rails.logger.warn ({ paypal: msg }.to_json)
     end
 
     def error(msg)
-      Rails.logger.error "[Paypal] #{msg}"
+      Rails.logger.error ({ paypal: msg }.to_json)
     end
 
     def log_request_input(request, input)
-      info("paypal request: #{{method: request[:method] }.merge(Maybe(input).or_else({}))}")
+      info({type: :request, method: request[:method]}.merge(Maybe(input).or_else({})))
     end
 
     def log_response(resp)
-      info("paypal response: #{response_to_log_str(resp)}") unless resp.nil?
+      info({type: :response, content: response_to_log_str(resp)}) unless resp.nil?
     end
 
     def response_to_log_str(resp)
       if (resp.respond_to? :to_json)
-        resp.to_json
+        resp
       elsif (res.respond_to? :to_s)
         resp.to_s
       else
