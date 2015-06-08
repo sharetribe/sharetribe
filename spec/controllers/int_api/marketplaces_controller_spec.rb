@@ -34,7 +34,6 @@ describe IntApi::MarketplacesController do
       s = listings_api.shapes.get(community_id: c.id).data.first
       expect(s[:price_enabled]).to eql true
       expect(s[:units].empty?).to eql true
-      expect(s[:price_quantity_placeholder]).to eql nil
 
       payment_settings = TransactionService::API::Api.settings.get_active(community_id: c.id)
       expect(payment_settings[:data][:payment_gateway]).to eql :paypal
@@ -73,7 +72,6 @@ describe IntApi::MarketplacesController do
       s = listings_api.shapes.get(community_id: c.id).data.first
       expect(s[:price_enabled]).to eql true
       expect(s[:units].empty?).to eql true
-      expect(s[:price_quantity_placeholder]).to eql nil
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -108,7 +106,6 @@ describe IntApi::MarketplacesController do
       s = listings_api.shapes.get(community_id: c.id).data.first
       expect(s[:price_enabled]).to eql true
       expect(s[:units].empty?).to eql true
-      expect(s[:price_quantity_placeholder]).to eql nil
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -143,7 +140,6 @@ describe IntApi::MarketplacesController do
       s = listings_api.shapes.get(community_id: c.id).data.first
       expect(s[:price_enabled]).to eql true
       expect(s[:units].empty?).to eql true
-      expect(s[:price_quantity_placeholder]).to eql nil
 
       p = c.admins.first
       expect(p).to_not be_nil

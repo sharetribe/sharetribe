@@ -41,6 +41,6 @@ class ListingShape < ActiveRecord::Base
   has_many :listing_units
 
   def self.columns
-    super.reject { |c| c.name == "transaction_type_id" }
+    super.reject { |c| c.name == "transaction_type_id" || c.name == "price_quantity_placeholder" }
   end
 end

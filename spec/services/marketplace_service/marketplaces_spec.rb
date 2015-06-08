@@ -45,7 +45,6 @@ describe MarketplaceService::API::Marketplaces do
       s = listings_api.shapes.get(community_id: c.id).data.first
       expect(s[:units].empty?).to eql true
       expect(s[:price_enabled]).to eql true
-      expect(s[:price_quantity_placeholder]).to eql nil
       expect(s[:shipping_enabled]).to eql true
 
       community_hash = create(@community_params.merge({:marketplace_type => "rental"}))
@@ -53,7 +52,6 @@ describe MarketplaceService::API::Marketplaces do
       s = listings_api.shapes.get(community_id: c.id).data.first
       expect(s[:units][0][:type]).to eql :day
       expect(s[:price_enabled]).to eql true
-      expect(s[:price_quantity_placeholder]).to eql nil
       expect(s[:shipping_enabled]).to eql false
 
       community_hash = create(@community_params.merge({:marketplace_type => "service"}))
@@ -61,7 +59,6 @@ describe MarketplaceService::API::Marketplaces do
       s = listings_api.shapes.get(community_id: c.id).data.first
       expect(s[:units][0][:type]).to eql :day
       expect(s[:price_enabled]).to eql true
-      expect(s[:price_quantity_placeholder]).to eql nil
       expect(s[:shipping_enabled]).to eql false
 
       # check that category and shape are linked

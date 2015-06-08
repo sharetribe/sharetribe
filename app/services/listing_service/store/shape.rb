@@ -27,8 +27,7 @@ module ListingService::Store::Shape
     [:shipping_enabled, :bool, :mandatory],
     [:name, :string, :mandatory],
     [:sort_priority, :fixnum, default: 0],
-    [:category_ids, :array],
-    [:price_quantity_placeholder, :to_symbol, one_of: [nil, :mass, :time, :long_time]] # TODO TEMP
+    [:category_ids, :array]
   )
 
   UpdateShape = EntityUtils.define_builder(
@@ -94,7 +93,7 @@ module ListingService::Store::Shape
     ActiveRecord::Base.transaction do
 
       # Save to ListingShape model
-      shape_model = ListingShape.create!(shape_with_sort.except(:units).merge(price_quantity_placeholder: nil))
+      shape_model = ListingShape.create!(shape_with_sort.except(:units))
 
       # Save units
       units.each { |unit|
@@ -127,7 +126,7 @@ module ListingService::Store::Shape
       end
 
       # Save to ListingShape model
-      shape_model.update_attributes!(HashUtils.compact(update_shape).except(:units).merge(price_quantity_placeholder: nil))
+      shape_model.update_attributes!(HashUtils.compact(update_shape).except(:units))
     end
 
     from_model(shape_model, true)
