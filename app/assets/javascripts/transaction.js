@@ -1,6 +1,8 @@
 window.ST = window.ST || {};
 
-window.ST.transaction = (function(_) {
+window.ST.transaction = window.ST.transaction || {};
+
+(function(module, _) {
 
   function toOpResult(submitResponse) {
     if (submitResponse.op_status_url) {
@@ -104,10 +106,8 @@ window.ST.transaction = (function(_) {
 
   }
 
-  return {
-    initializePayPalBuyForm: initializePayPalBuyForm,
-    initializeCreatePaymentPoller: initializeCreatePaymentPoller,
-    initializeFreeTransactionForm: initializeFreeTransactionForm
-  };
+  module.initializePayPalBuyForm = initializePayPalBuyForm;
+  module.initializeCreatePaymentPoller = initializeCreatePaymentPoller;
+  module.initializeFreeTransactionForm = initializeFreeTransactionForm;
 
-})(_);
+})(window.ST.transaction, _);
