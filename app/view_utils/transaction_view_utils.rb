@@ -160,4 +160,22 @@ module TransactionViewUtils
   def price_break_down_locals(opts)
     PriceBreakDownLocals.call(opts)
   end
+
+  def parse_booking_date(str)
+    Date.parse(str) unless str.blank?
+  end
+
+  def stringify_booking_date(date)
+    date.iso8601
+  end
+
+  def parse_quantity(quantity)
+    Maybe(quantity)
+      .select { |q| StringUtils.is_numeric?(q) }
+      .map(&:to_i)
+      .select { |q| q > 0 }
+      .or_else(1)
+  end
+
+
 end

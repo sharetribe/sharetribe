@@ -52,7 +52,7 @@ Feature: Transaction process between two users
     # Starting the conversation
     When I follow "Hammer"
     And I press "Offer"
-    And I fill in "Message" with "I can lend this item"
+    And I fill in "message" with "I can lend this item"
     And I press "Send"
     And the system processes jobs
     And "kassi_testperson1@example.com" should receive an email
