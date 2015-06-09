@@ -234,7 +234,7 @@ class Admin::ListingShapesController < ApplicationController
     locale = locale.to_s
 
     pick_categories(categories, ids)
-      .map { |c| c[:translations].find { |t| t[:locale] == locale } }
+      .map { |c| Maybe(c[:translations].find { |t| t[:locale] == locale }).or_else(c[:translations].first) }
       .map { |t| t[:name] }
   end
 
