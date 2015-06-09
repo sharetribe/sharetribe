@@ -890,4 +890,11 @@ module ApplicationHelper
     end
   end
 
+  # FIXME, remove this.
+  #
+  # Temporary solution to turn off template caching
+  def no_cache(_, &block)
+    block.call
+  end
+
 end
