@@ -8,7 +8,7 @@ module TransactionService::Gateway
 
     def get_payment_details(tx:)
       { payment_total: nil,
-        total_price: tx[:unit_price],
+        total_price: tx[:unit_price] * tx[:listing_quantity],
         charged_commission: nil,
         payment_gateway_fee: nil }
     end
