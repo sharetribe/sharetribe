@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150528120717) do
+ActiveRecord::Schema.define(:version => 20150609084012) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -236,14 +236,14 @@ ActiveRecord::Schema.define(:version => 20150528120717) do
     t.datetime "updated_at",                                                     :null => false
     t.text     "blank_slate"
     t.text     "welcome_email_content"
-    t.text     "how_to_use_page_content"
-    t.text     "about_page_content"
+    t.text     "how_to_use_page_content",                    :limit => 16777215
+    t.text     "about_page_content",                         :limit => 16777215
     t.text     "terms_page_content",                         :limit => 16777215
-    t.text     "privacy_page_content"
+    t.text     "privacy_page_content",                       :limit => 16777215
     t.string   "storefront_label"
     t.text     "signup_info_content"
-    t.text     "private_community_homepage_content"
-    t.text     "verification_to_post_listings_info_content"
+    t.text     "private_community_homepage_content",         :limit => 16777215
+    t.text     "verification_to_post_listings_info_content", :limit => 16777215
     t.string   "search_placeholder"
     t.string   "transaction_agreement_label"
     t.text     "transaction_agreement_content",              :limit => 16777215
