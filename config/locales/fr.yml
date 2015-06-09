@@ -134,8 +134,8 @@ fr:
         categories_link_text: "ajouter des catégories et sous-catégories"
         custom_fields_link_text: "configurer les champs d'annonces"
         filters_link_text: "quels types de filtres"
-        order_types: ~
-        order_types_link_text: ~
+        order_types: "Vous pouvez également configurer comment le processus de transaction fonctionne dans votre place de marché. Est-ce que vos utilisateurs vont vendre, louer ou donner gratuitement ? Proposeront-ils des location à l'heure, à la journée ou à la semaine ? Tout cela peut être configuré depuis le %{order_types_link}."
+        order_types_link_text: "panneau des types de transaction"
         payments: "Si vous souhaitez que les utilisateurs puissent régler leurs achats au sein de la place de marché, pour que vous puissiez prélever des frais de service sur chaque transaction, vous devriez %{payments_link}."
         payments_link_text: "configurer une méthode de paiement"
         info_texts: "N'oubliez pas d'éditer les pages d'informations et divers textes où vous pouvez en dire plus à vos utilisateurs sur votre place de marché. Cela se passe sur votre %{about_page_link}, vos %{terms_of_use_link} (vous devriez y ajouter vos propres conditions d'utilisations soit en modifiant le modèle actuel soit en créant un nouveau texte), votre %{privacy_policy_link} et votre %{welcome_email_link} qui est envoyé à chaque nouvel utilisateur. Il y a également %{instruction_texts_link} que vous pouvez éditer."
@@ -354,13 +354,13 @@ fr:
         select_template: "Sélectionner un modèle..."
         all_categories: "Toutes les catégories"
         no_categories: "Aucune catégorie"
-        category_count: ~
+        category_count: "%{category_count} catégories"
         header:
           listing_shape_name: "Nom du type de transaction"
-          listing_shape_categories: "Catégories du type de transaction"
+          listing_shape_categories: "Catégories où cela est proposé"
         order:
           saving_order: "Sauvegarder l'ordre"
-          save_order_successful: "Ordre sauvegardé avec succès"
+          save_order_successful: "Ordre des types de transaction sauvegardé avec succès"
           save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre. Veuillez actualiser la page et essayer de nouveau."
       templates:
         selling_products: "Vendre des produits"
@@ -368,7 +368,7 @@ fr:
         offering_services: "Proposer des services"
         giving_things_away: "Donner des choses"
         requesting: Demander
-        announcement: Information
+        announcement: "Partager des informations"
         custom: Personnalisé
       new:
         create_listing_shape: "Créer un type de transaction"
@@ -404,9 +404,9 @@ fr:
       successfully_closed: "Les annonces ont été closes avec succès"
       successfully_deleted: "Type de transaction '%{order_type}' supprimé avec succès"
       pricing_and_checkout_title: "Prix et transaction"
-      online_payments_label: "Utiliser le système de paiement en ligne"
+      online_payments_label: "Autoriser les vendeurs à utiliser le système de paiement en ligne"
       shipping_label: "Autoriser les vendeurs à définir des frais de livraison"
-      price_label: "Afficher le champ de prix"
+      price_label: "Autoriser les vendeurs à définir un prix dans leurs annonces"
       units_title: "Unités de prix"
       units_desc: "Si vous choisissez des unités de prix, le prix de l'annonce sera affiché avec le format \"prix par unité de prix\". Par exemple : \"39€ par heure\"."
       units:
