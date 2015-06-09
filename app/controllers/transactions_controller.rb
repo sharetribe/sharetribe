@@ -29,7 +29,7 @@ class TransactionsController < ApplicationController
     ).on_success { |((listing_id, listing_model, author_model, process, gateway))|
       booking = listing_model.unit_type == :day
 
-      transaction_params = {listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on, :quantity))
+      transaction_params = HashUtils.symbolize_keys({listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on, :quantity)))
 
       case [process[:process], gateway, booking]
       when matches([:none])
