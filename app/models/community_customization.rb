@@ -12,14 +12,14 @@
 #  updated_at                                 :datetime         not null
 #  blank_slate                                :text
 #  welcome_email_content                      :text
-#  how_to_use_page_content                    :text
-#  about_page_content                         :text
+#  how_to_use_page_content                    :text(16777215)
+#  about_page_content                         :text(16777215)
 #  terms_page_content                         :text(16777215)
-#  privacy_page_content                       :text
+#  privacy_page_content                       :text(16777215)
 #  storefront_label                           :string(255)
 #  signup_info_content                        :text
-#  private_community_homepage_content         :text
-#  verification_to_post_listings_info_content :text
+#  private_community_homepage_content         :text(16777215)
+#  verification_to_post_listings_info_content :text(16777215)
 #  search_placeholder                         :string(255)
 #  transaction_agreement_label                :string(255)
 #  transaction_agreement_content              :text(16777215)
@@ -50,16 +50,19 @@ class CommunityCustomization < ActiveRecord::Base
     :transaction_agreement_label,
     :transaction_agreement_content
 
+  # Set sane limits for content length. These are either driven by
+  # column length in MySQL or, in case of :mediumtext type, set low
+  # enough to prevent excess storage usage.
   validates_length_of :blank_slate, maximum: 65535
   validates_length_of :welcome_email_content, maximum: 65535
-  validates_length_of :how_to_use_page_content, maximum: 65535
-  validates_length_of :about_page_content, maximum: 65535
-  validates_length_of :terms_page_content, maximum: 16777215
-  validates_length_of :privacy_page_content, maximum: 65535
+  validates_length_of :how_to_use_page_content, maximum: 262140
+  validates_length_of :about_page_content, maximum: 262140
+  validates_length_of :terms_page_content, maximum: 393210
+  validates_length_of :privacy_page_content, maximum: 262140
   validates_length_of :signup_info_content, maximum: 65535
-  validates_length_of :private_community_homepage_content, maximum: 65535
-  validates_length_of :verification_to_post_listings_info_content, maximum: 65535
-  validates_length_of :transaction_agreement_content, maximum: 16777215
+  validates_length_of :private_community_homepage_content, maximum: 262140
+  validates_length_of :verification_to_post_listings_info_content, maximum: 262140
+  validates_length_of :transaction_agreement_content, maximum: 262140
 
   belongs_to :community
 end
