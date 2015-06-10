@@ -4,7 +4,7 @@ zh:
       edit:
         edit_listing_category: "编辑分类“%{category}”"
       index:
-        listing_categories: 信息类别
+        listing_categories: 信息分类
         create_a_new_category: +添加一个新的分类
         remove_category_confirmation: "你确定要移除分类“%{category_name}”吗？"
         saving_order: 保存分类顺序
@@ -47,8 +47,8 @@ zh:
         community_details: 基本信息
         community_look_and_feel: 设计
         edit_community: 基本信息
-        enabled_languages: ~
-        enabled_languages_description: ~
+        enabled_languages: 启用的语言
+        enabled_languages_description: 这组语言可以给用户使用。默认使用第一个。
         default_language: 默认语言
         language_selection_disabled: ~
         community_name: 集市名称
@@ -130,7 +130,7 @@ zh:
         custom_fields_link_text: 配置表单字段
         filters_link_text: 何种类型的过滤器
         order_types: ~
-        order_types_link_text: ~
+        order_types_link_text: 订单类型视图
         payments: "如果你希望人们通过你的集市支付他们购买的东西，从而为每笔交易收取费用，你应该%{payments_link}。"
         payments_link_text: 配置支付方式
         info_texts: "不要忘了通过定制信息页面和其他文本来告诉你的用户关于你的集市。有一些不错的地方可以参考：你的%{about_page_link}，你的%{terms_of_use_link}（你应该增加你自己的条款，或者编辑当前模板，或者创建一个全新文档），你的%{privacy_policy_link}，以及发送给每个新用户的%{welcome_email_link}。这儿还有一些你可以配置的%{instruction_texts_link}。"
@@ -343,13 +343,13 @@ zh:
     listing_shapes:
       index:
         listing_shapes: 订单类型
-        description: ~
+        description: 订单类型决定了网站上订单如何处理。你可以决定用户可以出租或者出售，或者只是让用户发布一些公告然后通过免费的消息进行沟通。
         read_more_about_order_types: 了解更多关于订单类型
         add_new_shape: "添加新的订单类型： "
         select_template: 选择样板...
         all_categories: 全部分类
         no_categories: 无分类
-        category_count: ~
+        category_count: "%{category_count}分类"
         header:
           listing_shape_name: 订单类型名称
           listing_shape_categories: 使用该订单类型的分类
@@ -370,28 +370,30 @@ zh:
         create: 新建
         cancel: 取消
         create_success: "新的订单类型‘%{shape}’已创建"
-        create_failure: ~
+        create_failure: "不能创建新的订单类型。错误信息：%{error_msg}"
       edit:
         edit_listing_shape: "修改订单类型‘%{shape}’"
         update: 保存
         cancel: 取消
         update_success: "订单类型‘%{shape}’的修改已保存"
         update_failure: "不能保存修改。错误：%{error_msg}"
-        delete: ~
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
+        delete: 删除订单类型
+        can_not_delete_last: 因为这是唯一的一个订单类型，所以你不能删除这个订单类型。
+        can_not_delete_only_one_in_categories: "你不能删除这个订单类型，因为该订单类型是下面这些分类正在使用的唯一的订单类型：%{categories}"
+        confirm_delete:
+          other: "有%{count}条发布的信息正在使用这个订单类型。如果你删除这个订单类型，相关的发布的信息将被关闭。你确定你要删除这个订单类型吗？"
       listing_shape_name: 名称
-      listing_shape_name_placeholder: ~
+      listing_shape_name_placeholder: 例如：出售
       action_button_label: 结账按钮标签
-      action_button_placeholder: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
+      action_button_placeholder: 例如：购买
+      successfully_closed: 成功关闭发布的信息
+      successfully_deleted: "成功删除订单类型%{order_type}"
+      pricing_and_checkout_title: 价格和结算
+      online_payments_label: 允许卖家接受在线支付
       shipping_label: 允许卖家定义运费
-      price_label: ~
-      units_title: ~
-      units_desc: ~
+      price_label: 允许卖家给发布的信息添加价格
+      units_title: 价格单位
+      units_desc: 如果你打开了价格单位，宝贝的价格就会显示成：“每单位多少钱”。例如：“每小时$39”
       units:
         piece: 每个
         hour: 每小时
@@ -399,20 +401,24 @@ zh:
         night: 每晚
         week: 每周
         month: 每月
-      can_not_find: ~
-      add_custom_unit: ~
-      delete_custom_unit: ~
+      can_not_find: "找不到id是%{id}订单类型"
+      add_custom_unit: +添加一个自定义的价格单位
+      delete_custom_unit: 删除
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        title: 新建价格单位
+        label_heading: 标签
+        selector_label_heading: 选择器标签
+        label_placeholder: 例如：“kg”，“30分钟”，“人”，“课”
+        selector_placeholder: 例如：“人数”，“公斤数”
+        per: 每
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: 单位类型
+          quantity_label: "数量(每件，每公斤，每个人，每2小时..,)"
+          time_label: 时间(每30分钟，每2周，每年...)
+      close_listings:
+        other: "关闭%{count}条发布的信息"
+      confirm_close_listings:
+        other: "你确定你要关闭%{count}条发布的信息吗？"
     paypal_accounts:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
@@ -1299,7 +1305,7 @@ zh:
       you_must_log_in_to_invite_new_users: "你必须先登录才能邀请新用户到%{service_name}"
       you_must_log_in_to_send_a_comment: 你必须登录才能发表评论
       you_must_log_in_to_send_a_message: "你必须先登录%{service_name}，然后才可以向其他用户发送消息。"
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "你必须先登录%{service_name}才能进行交易。"
       you_must_log_in_to_view_this_content: 你必须登录以查看内容
       you_must_log_in_to_view_this_page: 你必须登录才能查看此页面
       you_must_log_in_to_view_your_inbox: "你必须登录%{service_name}以查看你的收件箱。"
@@ -2018,6 +2024,15 @@ zh:
     years_ago: "%{count} 年前"
     days_since:
       other: "%{count}天"
+    time_to:
+      seconds:
+        other: "%{count}秒"
+      minutes:
+        other: "%{count}分钟"
+      hours:
+        other: "%{count}小时"
+      days:
+        other: "%{count}天"
   transactions:
     initiate:
       booked_days: "预订的天数:"

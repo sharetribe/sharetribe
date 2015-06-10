@@ -395,10 +395,13 @@ es-ES:
       action_button_placeholder: "ej: Comprar"
       open_listings:
         other: "Hay %{count} anuncios abiertos con este tipo de pedido. Si cambias cualquier configuración de abajo, los anuncios mantendrán las antiguas configuraciones. La configuración de los anuncios puede ser cambiada con los nuevos parámetros editándolos manualmente. Si no quieres tener ningún anuncios con la antigua configuración visible en tu sitio Web, tu puedes cerrarlo pulsando el botón de abajo"
+        one: ~
       close_listings:
         other: "Cerrar %{count} anuncios"
+        one: ~
       confirm_close_listings:
         other: "¿Estás seguro de que quieres cerrar %{count} anuncios?"
+        one: ~
       successfully_closed: "Anuncios cerrados correctamente"
       successfully_deleted: "Pedido tipo '%{order_type}' borrado correctamente"
       pricing_and_checkout_title: "Precio & pago y envío"
