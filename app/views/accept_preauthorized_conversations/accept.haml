@@ -14,6 +14,10 @@
         btn.text('#{t("conversations.accept.decline")}');
       });
 
+      btn.click(function() {
+        disable_and_submit("#accept-reject-form", $("#accept-reject-form"), "false", '#{I18n.locale}');
+      })
+
       style_action_selectors();
     })();
 .conversation-status-form.centered-section
@@ -104,7 +108,7 @@
 
   = render partial: "transactions/shipping_address", locals: { shipping_address: shipping_address }
 
-  = form_for form, :url => form_action, :html => { :method => "put" } do |form|
+  = form_for form, :url => form_action, :html => { id: "accept-reject-form", :method => "put" } do |form|
 
     .conversation-action
       %label{:for => "action-accept", :class => "radio hidden"}
