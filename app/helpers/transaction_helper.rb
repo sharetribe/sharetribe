@@ -295,7 +295,7 @@ module TransactionHelper
         } },
         errored: ->() { {
           author: [
-            status_info(t("conversations.status.payment_errored_author", starter_name: conversation.starter.name), icon_classes: icon_for("errored"))
+            status_info(t("conversations.status.payment_errored_author", starter_name: conversation.starter.name(conversation.community)), icon_classes: icon_for("errored"))
           ],
           starter: [
             status_info(t("conversations.status.payment_errored_starter"), icon_classes: icon_for("errored"))
@@ -354,7 +354,7 @@ module TransactionHelper
       status_info(
         t("conversations.status.waiting_for_listing_author_to_deliver_listing",
           :listing_title => link_to(conversation.listing.title, conversation.listing),
-          :listing_author_name => link_to(conversation.author.name, conversation.author)
+          :listing_author_name => link_to(PersonViewUtils.person_display_name(conversation.author, conversation.community))
         ).html_safe,
         icon_classes: "ss-deliveryvan"
       )

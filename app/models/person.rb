@@ -288,6 +288,10 @@ class Person < ActiveRecord::Base
   # Deprecated: This is view logic (how to display name) and thus should not be in model layer
   # Consider using PersonViewUtils
   def name(community_or_display_type=nil)
+    # TODO Make `community_or_display_type` param mandatory.
+    # The custom error is here in order to get better error message while, but it can be removed in the future.
+    raise ArgumentError.new("Missing community or display type. Can not know how to format the name") if community_or_display_type.nil?
+
     return name_or_username(community_or_display_type)
   end
 
