@@ -9,6 +9,9 @@ module CacheHelper
   # used for things that are stored completely on Sharetribe db
   KASSI_DATA_CACHE_EXPIRE_TIME = 4.hours
 
+  # used to ensure "soft changes" e.g. translation updates propagate to cached fragments eventually
+  FRAGMENT_CACHE_EXPIRE_TIME = 4.hours
+
   def self.favors_last_changed
     Rails.cache.fetch("favors_last_changed", :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
   end
@@ -64,6 +67,10 @@ module CacheHelper
 
   # * people_last_changed (Time.now.to_i) tästä ei voi olla varmaa tietoa, joten oltava myös expire-aika
   # * groups_last_changed (Time.now.to_i) tästä ei voi olla varmaa tietoa, joten oltava myös expire-aika
+
+  def frontpage_fragment_cache(type, listing, &block)
+    cache([type, I18n.locale, listing, listing.author, @current_community, MoneyRails::Configuration.no_cents_if_whole], :expires_in => FRAGMENT_CACHE_EXPIRE_TIME, &block)
+  end
 
   private
 

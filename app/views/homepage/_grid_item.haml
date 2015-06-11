@@ -1,4 +1,4 @@
-- no_cache(["grid_item", listing, listing.author, @current_community, MoneyRails::Configuration.no_cents_if_whole]) do
+- frontpage_fragment_cache("grid_item", listing) do
   .home-fluid-thumbnail-grid-item
     %div
       -# Listing image
