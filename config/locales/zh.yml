@@ -50,7 +50,7 @@ zh:
         enabled_languages: 启用的语言
         enabled_languages_description: 这组语言可以给用户使用。默认使用第一个。
         default_language: 默认语言
-        language_selection_disabled: ~
+        language_selection_disabled: "语言的选择项无法启动，因为你正在使用下面这些非官方的语言：%{languages}。请联系Sharetribe的支持团队来修改你的语言设置。"
         community_name: 集市名称
         edit_community_name_description: 你的集市名称。它将在邮件和其他不同地方显示给用户。
         community_slogan: 集市标语
@@ -75,7 +75,7 @@ zh:
         transaction_agreement: 交易协定
         transaction_agreement_checkbox: 需要用户在交易前接受协定
         transaction_agreement_checkbox_header: 协定标签
-        transaction_agreement_checkbox_label_description: 该文本将被显示于结帐表单的检查框边上。洪湖需要勾选该框以继续交易。标签文字类似于“通过勾选该检查框我接受协议。“
+        transaction_agreement_checkbox_label_description: 该文本将被显示于结帐表单的检查框边上。用户需要勾选该框以继续交易。标签文字类似于“通过勾选该检查框表明我接受协议。“
         transaction_agreement_text_header: 协定文本
         transaction_agreement_description: "这是用户需要接受的实际协议的内容。该协议内容会在用户点击协议标签旁边的“%{read_more}”链接时展现。"
       edit_look_and_feel:
@@ -85,7 +85,7 @@ zh:
         community_cover_photo: 封面照片
         small_community_cover_photo: 小的封面照片
         favicon: 网站图标
-        favicon_info_text: Favicon将取代默认的Sharetribe标识。它的尺寸应该是32x32像素，上传的图片将被调整为这个像素。
+        favicon_info_text: Favicon将取代默认的Sharetribe标识。它的尺寸应该是32x32像素，上传的图片将被调整为这个大小。
         community_custom_color1: 主要颜色
         community_custom_color2: 第二颜色
         logo_instructions_text_with_dimensions: "封面图片尺寸必须是%{width}x%{height}像素。它将显示给使用大屏幕的用户。"
@@ -119,17 +119,17 @@ zh:
         send_test_message: 发送测试消息
       getting_started:
         getting_started: 获取入门指南
-        welcome_to_your_marketplace: "欢迎来到你的市场，%{name}！"
-        intro: "这是配置和管理你的市场站点的快速指南。你可以查看实时站点%{live_site_link}。"
+        welcome_to_your_marketplace: "欢迎来到你的集市，%{name}！"
+        intro: "这是配置和管理你的集市站点的快速指南。你可以查看实时站点%{live_site_link}。"
         live_site_link_text: 这里
         look_and_feel: "在你将你的站点公开发布前，你也许想再配置一些东西。比如，你可能想去%{logo_link}修改封面照片和颜色以配合你的品牌的外观和感受。"
         logo_link_text: 添加你的标志
-        custom_domain: "你也许还想增加一个定制的网页地址（比如www.yourmarketplace.com）。设置它需要我们做一些手动工作，同时我们也需要为域名购买SSL证书以保证你的站点安全。由于这些原因，定制的郁闷在免费试用期不可用，所以如果需要该域名，你要订阅我们的Pro计划或更高级别的计划。如果你想要定制域名，请%{contact_support_link}。"
+        custom_domain: "你也许还想增加一个定制的网页地址（比如www.yourmarketplace.com）。设置它需要我们做一些手动工作，同时我们也需要为域名购买SSL证书以保证你的站点安全。由于这些原因，定制域名在免费试用期不可用，所以如果需要该域名，你要订阅我们的Pro计划或更高级别的计划。如果你想要定制域名，请%{contact_support_link}。"
         categories_and_custom_fields: "接下来需要决定用户可以发布什么样的内容到你的站点。你可以%{categories_link}，通过%{custom_fields_link}定制实际列表表单包含的内容，并在用户浏览列表时决定%{filters_link}。"
         categories_link_text: 新增分类和子分类
         custom_fields_link_text: 配置表单字段
         filters_link_text: 何种类型的过滤器
-        order_types: ~
+        order_types: "你可以在你的市场中定义订单的处理流程。你的用户可以出售，出租或者免费提供？用户可以按小时，天或者周出租？这些都可以在%{order_types_link}里面配置。"
         order_types_link_text: 订单类型视图
         payments: "如果你希望人们通过你的集市支付他们购买的东西，从而为每笔交易收取费用，你应该%{payments_link}。"
         payments_link_text: 配置支付方式
@@ -139,14 +139,14 @@ zh:
         privacy_policy_link_text: 隐私策略
         welcome_email_link_text: 欢迎电子邮件
         instruction_texts_link_text: 其他的说明文本
-        social_media: "使用社交媒体是建立社区的好办法。你可以通过%{facebook_link}让人们更容易的登录你的市集，通过%{twitter_link}使得人们对你的集市产品发布推特时获得病毒式的可见性。"
+        social_media: "使用社交媒体是建立社区的好办法。你可以通过%{facebook_link}让人们更容易的登录你的市集，通过%{twitter_link}使得人们对你的集市产品发Twitter时获得病毒式的可见性。"
         facebook_link_text: 连接你的自定义Facebook应用
         twitter_link_text: 添加你的Twitter帐号
-        analytics: "访问%{analytics_link}是个好主意。方便你查看你的市场中发生的事情，比如你有多少访客等。"
+        analytics: "访问%{analytics_link}是个好主意。方便你查看你的集市中发生的事情，比如你有多少访客等。"
         analytics_link_text: "连接一个Google Analytics帐号"
-        settings: "有许多其他的设置你可以使用。比如你可以要求每个人加入你的集市钱必须从其他用户处获得邀请并且设置你的集市为私有，从而只有登录的用户才能看见内容。%{settings_link}"
+        settings: "有许多其他的设置你可以使用。比如你可以要求每个人加入你的集市前必须从其他用户处获得邀请并且设置你的集市为私有，从而只有登录的用户才能看见内容。%{settings_link}"
         settings_link_text: 在这里查看你的市场设置
-        final_words: "就是这些了！如果一切都准备好了，你可以开始在你的集市发送邀请%{invite_link}。你可以看到所有加入你的%{view_users_link}的用户，以及所有他们完成的交易%{view_transactions_link}。你还可以很容易的管理列表：去列表页面你将看到管理员链接以用于编辑和关闭。如果需要帮助，你可以点击%{contact_support_link} ——我们在这儿随时准备为你服务。"
+        final_words: "就是这些了！如果一切都准备好了，你可以开始在你的集市发送邀请%{invite_link}。你可以看到所有加入你的%{view_users_link}的用户，以及所有他们完成的交易%{view_transactions_link}。你还可以很容易的管理发布的信息：去信息展示页面你将看到管理员链接以用于编辑和关闭。如果需要帮助，你可以点击%{contact_support_link} ——我们在这儿随时准备为你服务。"
         invite_link_text: 邀请用户
         view_users_link_text: 这里
         view_transactions_link_text: 这里
@@ -191,7 +191,7 @@ zh:
         automatic_newsletters: 自动发送每日/每周新闻邮件给所有用户（除非用户选择不接收）
         email_admins_about_new_members: 当新用户注册时给管理员发送一封电子邮件
         google_analytics_key: "Google Analytics跟踪ID"
-        twitter_handle: "Twitter handle（使用在信息页面的推特按钮）"
+        twitter_handle: "Twitter handle（使用在信息页面的tweet按钮）"
         update_settings: 保存设置
         automatically_confirmed: "交易在付款%{days_dropdown}天后将被自动标记为已完成。如果使用第三方支付系统，现在钱将被打入第三方系统。"
         automatically_confirmed_no_escrow: "在付款后%{days_dropdown}天内交易将被自动标记为完成。"
@@ -213,24 +213,24 @@ zh:
         ban_me_error: 你不能禁止自己。
       social_media:
         social_media: 社交媒体
-        twitter_handle: 推特句柄
-        twitter_handle_info_text: 当人们使用信息页面上的推特按钮时，你的集市推特帐号的用户名（如果你有的话）将被提及。
-        twitter_handle_info_text_with_instructions: "当人们使用信息页面上的推特按钮时，你的集市推特帐号的用户名（如果你有的话）将被提及。%{instructions_link}"
-        twitter_instructions_link_text: 读取更多
+        twitter_handle: "Twitter handle"
+        twitter_handle_info_text: 当人们使用信息页面上的tweet按钮时，你的集市Twitter帐号的用户名（如果你有的话）将被提及。
+        twitter_handle_info_text_with_instructions: "当人们使用信息页面上的Tweet按钮时，你的集市Twitter帐号的用户名（如果你有的话）将被提及。%{instructions_link}"
+        twitter_instructions_link_text: 了解更多
         twitter_handle_placeholder: 用户名
-        invalid_twitter_handle: 推特句柄最多不能超过15个字母数字字符（字母A-Z和数字0-9）。
+        invalid_twitter_handle: "Twitter handle最多不能超过15个字母和数字（字母A-Z和数字0-9）。"
         facebook_connect: Facebook
-        facebook_connect_info_text: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者仪表盘</a>中为你的集市创建一个应用。在这里添加应用生成的ID和密钥。"
+        facebook_connect_info_text: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者Dashboard</a>中为你的集市创建一个应用。在这里添加应用生成的ID和密钥。"
         facebook_connect_info_text_with_instructions: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者仪表盘</a>中为你的集市创建一个应用。在这里添加应用生成的ID和密钥。%{instructions_link}"
         facebook_instructions_link_text: "关于如何配置Facebook Connect请参考说明。"
         facebook_connect_id: Facebook客户号
         invalid_facebook_connect_id: 客户号仅能包含数字。
-        facebook_connect_secret: Facebook客户秘密
+        facebook_connect_secret: Facebook客户端密钥
         invalid_facebook_connect_secret: 客户端密钥仅应包含数字和字母a到f。
         save: 保存设置
       analytics:
         analytics: 分析
-        google_analytics_key: "Google Analytics追踪号"
+        google_analytics_key: "Google Analytics Tracking ID"
         google_analytics_key_info_text: "追踪你的Google Analytics帐号。"
         google_analytics_key_info_text_with_instructions: "追踪你的Google Analytics帐号。%{instructions_link}。"
         google_analytics_instructions_link_text: "了解更多关于Google Analytics"
@@ -419,10 +419,12 @@ zh:
         other: "关闭%{count}条发布的信息"
       confirm_close_listings:
         other: "你确定你要关闭%{count}条发布的信息吗？"
+      open_listings:
+        other: "这个订单类型关联着%{count}个公开的信息。如果你修改下面任何的设置，相关的信息会保持旧的设置。你可以手动来修改这些信息为新的配置。如果你不想让这些使用旧的配置的信息显示在网站上，你可以点击下面的按钮关闭它。"
     paypal_accounts:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
-      integration_info_text: Sharetribe的支付系统由PayPal提供技术支持。如果你想使用你的用户名在你的集市上付款，你必须连接你的PayPal帐号及决定最小交易规模以及对每个交易收取的费用。
+      integration_info_text: Sharetribe的支付系统由PayPal提供支持。如果你想使用你的用户名在你的集市上付款，你必须连接你的PayPal帐号及决定最小交易规模以及对每个交易收取的费用。
       read_more_about_paypal: 了解更多关于Sharetribe的支付系统
       paypal_account_email: "1. 连接你的PayPal帐号"
       paypal_account_email_completed: 已完成！
@@ -498,11 +500,13 @@ zh:
     username: 用户名
     username_or_email: Email或用户名
     what_is_this: 这是什么？
-    removed_user: 用户已删除
+    removed_user: 已删除的用户
     paypal_fee_info:
       title: PayPal的支付处理费
-      body_text: ~
-      body_with_shipping_text: ~
+      body_text: "PayPal对每笔付款收取一笔处理费。该费用介于总销售费用的2%到5%之间，取决于你的月销售量和买家所在国家。总的说来，国内的购买比国际的购买的费用低，每月销售额高则可以获得费用折扣。你可以通过登录你的PayPal帐号访问%{link_to_paypal}来查看详细费用。在每次购买之后你将得到一据显示具体费用的收据。"
+      body_with_shipping_text: |-
+          PayPal对每笔付款收取一笔处理费。该费用介于总销售费用（包括运费）的2%到5%之间，取决于你的月销售量和买家所在国家。总的说来，国内的购买比国际的购买的费用低，每月销售额高则可以获得费用折扣。
+          你可以通过登录你的PayPal帐号访问%{link_to_paypal}来查看详细费用。在每次购买之后你将得到一据显示具体费用的收据。
       link_to_paypal_text: 这里
   conversations:
     accept:
@@ -782,12 +786,12 @@ zh:
       give_feedback_to: "给%{other_party_given_name}反馈"
     transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
-      we_have_marked_request_as_confirmed: "我们已经将关于“%{request}”的请求标记为完成。自动标记完成的原因是在请求被接受后已经过了%{days_passed}天。"
+      we_have_marked_request_as_confirmed: "我们已经将关于“%{request}”的请求标记为完成。自动标记完成是因为在请求被接受后已经过了%{days_passed}天。"
     booking_transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
       we_have_marked_request_as_confirmed: "我们已标记请求“%{request}”完成。该请求自动完成于预订期限结束后一天。"
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "你现在可以评价%{other_party_given_name}。给予评价这个好主意。如果一切顺利，你应该让其他人知道%{other_party_given_name}可以被信任。如果有任何问题，在评论中提到它们也是很好的。"
+      giving_feedback_is_good_idea: "你现在可以评价%{other_party_given_name}。给予评价总是一个好主意。如果一切顺利，你应该让其他人知道%{other_party_given_name}可以被信任。如果有任何问题，在评论中提到它们也是很好的。"
       give_feedback_to: "给予%{other_party_given_name}反馈"
       show_thread: 显示对话
     escrow_canceled:
@@ -904,11 +908,11 @@ zh:
     transaction_preauthorized:
       subject: "%{requester}已经请求并授权支付了%{listing_title}"
       transaction_requested_by_user: "%{requester}已经请求并授权支付了%{listing_title}"
-      you_have_time_to_accept: ~
+      you_have_time_to_accept: "你需要在%{payment_expires_in}天内接受或拒绝请求。如果在该期限内接受，你会收到付款。如果你在该期限内没有接受，请求将自动被拒绝，你将无法收到支付款项。"
       click_here_to_reply: 点击这里回应请求
     transaction_preauthorized_reminder:
       subject: "记得接受来自%{requester}的关于%{listing_title}的请求"
-      remember_to_accept: "记住接受来自%{requester}关于“%{listing_title}”信息的请求。%{requester}已经为该信息付款。你必须接受请求以接受付款。"
+      remember_to_accept: "记住接受来自%{requester}关于“%{listing_title}”信息的请求。%{requester}已经为该宝贝付款。你必须接受请求以接受付款。"
       one_day_left: 如果你不在一天内接受请求，该请求将被自动拒绝，你将无法收到支付款项。
       click_here_to_reply: 点击这里回应请求
     welcome_email:
@@ -926,7 +930,7 @@ zh:
       your_email_address: 你用来登录的电子邮件地址：
       your_marketplace_address: 你的市场地址：
       your_marketplace_admin_area: 你的市场管理区域：
-      just_follow_details: 点击下列链接你将获得如何开始搭建你的市场的详细信息！
+      just_follow_details: 点击下列链接你将获得如何开始搭建你的集市的详细信息！
       we_will_guide_you_along_the_way: 我们将引导你走下去。
       are_you_new_to_online_marketplaces: 需要协助你的集市？没关系，我们能帮助你！我们将发送给你一系列电邮帮助你最大化利用Sharetribe并且建造一个成功的集市生意。我们将很快发送给你第一部分的内容。
       have_questions: 有问题吗？
@@ -968,7 +972,7 @@ zh:
     error_410:
       page_removed: 页面已删除
       page_you_requested_has_been_removed: 你请求的页面已被删除。
-      page_removed_reason: 这种情况有几种可能的原因。比如，一个用户可能删除了他的帐号或者列表已被删除。
+      page_removed_reason: 这种情况有几种可能的原因。比如，一个用户可能删除了他的帐号或者发布的信息已被删除。
     error_410_title: 页面已删除
     error_500:
       temporary_unavailable: 市场暂时不可用
@@ -1642,8 +1646,8 @@ zh:
         terms_link_text: Braintree使用条款
   paypal_accounts:
     payout_info_title: 支付信息
-    paypal_account_email_connected: "<del>1. 连接PayPal 帐号</del> 完成！"
-    paypal_billing_agreement_made: "<del>2. 授权%{service_name}收取交易费</del> 完成！"
+    paypal_account_email_connected: "<del>连接PayPal 帐号</del> 完成！"
+    paypal_billing_agreement_made: "<del>授权%{service_name}收取交易费</del> 完成！"
     you_are_ready_to_accept_payments: 你已准备好接受付款！
     commission: "%{commission}%"
     connected_account: "PayPal帐号“%{email}”连接成功。"
@@ -1662,9 +1666,9 @@ zh:
       upgrade_paypal_account: 登录你的PayPal帐号
       connect_paypal_account: 连接PayPal帐号
       paypal_account_billing_agreement: "授权%{service_name}收取交易费"
-      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_both: "当你在%{service_name}完成一个销售后，服务费（%{commission_from_seller}的商品总价，不包括运费，最少的费用%{minimum_commission}）将从你的Paypal账号中扣除。要在%{service_name}中接受付款，你必须允许收取此费用。该费用不包括%{paypal_info_link}"
       paypal_account_billing_agreement_info_fixed: "当你在%{service_name}完成的一个销售后，服务费%{minimum_commission}将从你的PayPal帐号中扣除。要在%{service_name}中接受付款，你必须允许收取此费用。该费用不包括%{paypal_info_link}"
-      paypal_account_billing_agreement_info_relative: ~
+      paypal_account_billing_agreement_info_relative: "当你在%{service_name}完成一个销售后，服务费（%{commission_from_seller}的商品总价，不包括运费）将从你的Paypal账号中扣除。要在%{service_name}中接受付款，你必须允许收取此费用。该费用不包括%{paypal_info_link}"
       paypal_info_link_text: PayPal的支付处理费
       billing_agreement_description: "授权%{service_name}收取交易费。"
       billing_agreement: 授权
@@ -1674,7 +1678,7 @@ zh:
       billing_agreement_canceled: 账单协议已取消
       billing_agreement_not_accepted: 你没有在PayPal接受账单协议。
       billing_agreement_wrong_account: PayPal帐号不匹配。请使用与你在第一步连接的帐号相同的PayPal帐号。
-      something_went_wrong: 出错了。请再试一次。如果这个问题仍旧存在，请联系服务支持：
+      something_went_wrong: 出错了。请再试一次。如果这个问题仍旧存在，请联系网站管理员。
       account_not_verified: 你还没有验证你的PayPal帐号。要继续请先登录paypal.com并确认你的帐号。
       account_restricted: 你的PayPal帐号受限制且不能被连接。请登录paypal.com以了解更多或联系PayPal客户服务解决这个问题。
   paypal:
@@ -1685,7 +1689,7 @@ zh:
       commission_payment_name: "%{listing_title}的佣金支付"
       commission_payment_description: "市场%{service_name}对%{listing_title}收取交易佣金。"
     wait_while_loading: 请等待。
-    chatting_with_paypal: 我们正在与PayPal聊天。
+    chatting_with_paypal: 我们正在与PayPal通信。
   people:
     edit_links:
       activate: 激活
@@ -1829,7 +1833,7 @@ zh:
       account_confirmation_instructions: "你很快会收到一封邮件包含一个需要你点击确认刚才输入的邮件地址的链接。在确认邮件之后你就可以加入%{service_name}了。"
       account_confirmation_instructions_title_admin: 欢迎来到你的市场！
       your_marketplace_has_now_been_created: 你的集市站点已经创建。这很容易吧？接下来只要一个步骤你就可以访问你的站点了：你需要确认你的电邮地址。
-      account_confirmation_instructions_admin: 你很快会收到一封邮件要求你点击确认刚才输入的邮件地址。在确认邮件之后你就可以配置你的市场了。
+      account_confirmation_instructions_admin: 你很快会收到一封邮件要求你点击确认刚才输入的邮件地址。在确认邮件之后你就可以配置你的集市了。
   settings:
     account:
       change: 修改
@@ -1839,9 +1843,9 @@ zh:
       delete_account_confirmation_popup: 你确认要永久删除你的用户帐号及其相关数据？帐号删除无法恢复。
       email_addresses: 电子邮件地址
       new_email: 新Email地址
-      delete_all_memberships: "如果你删除你的帐号，你将不能在以下市场中使用它：%{marketplaces}"
-      delete_personal_information: 如果你删除你的帐号，你的个人信息（姓名，电话号码，地址，电邮，个人资料图片等等）都将被永久删除切不能回复。所有你创建的信息将被删除。你将不能重新激活你的帐号。
-      delete_information_others_involved: 涉及其他会员的信息（和其他人的对话，你完成的交易，你给其他人的评论等）在你删除你的帐号时是不能被删除的。然后，下次你的名字将不会出现在这些信息中。
+      delete_all_memberships: "如果你删除你的帐号，你将不能在以下集市中使用它：%{marketplaces}"
+      delete_personal_information: 如果你删除你的帐号，你的个人信息（姓名，电话号码，地址，电邮，个人资料图片等等）都将被永久删除且不能恢复。所有你创建的信息将被删除。你将不能重新激活你的帐号。
+      delete_information_others_involved: 涉及其他会员的信息（和其他人的对话，你完成的交易，你给其他人的评论等）在你删除你的帐号时是不能被删除的。不错，下次你的名字将不会出现在这些信息中。
       unfinished_transactions: 因为你有正在进行中的交易，所以你的帐号不能被删除。请在删除帐号前完成所有交易。
       new_password: 新密码
       save: 保存
