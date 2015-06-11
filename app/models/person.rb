@@ -287,7 +287,7 @@ class Person < ActiveRecord::Base
 
   # Deprecated: This is view logic (how to display name) and thus should not be in model layer
   # Consider using PersonViewUtils
-  def name(community_or_display_type=nil)
+  def name(community_or_display_type)
     return name_or_username(community_or_display_type)
   end
 

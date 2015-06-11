@@ -4,7 +4,7 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.escrow_canceled.has_marked_request_as_canceled", :other_party_full_name => @conversation.other_party(@recipient).name, :request => @conversation.listing.title)
+      = t("emails.escrow_canceled.has_marked_request_as_canceled", :other_party_full_name => @conversation.other_party(@recipient).name(@conversation.community), :request => @conversation.listing.title)
 
 %tr
   %td{:align => "left", :style => "padding-top: 15px;"}

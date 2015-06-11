@@ -119,9 +119,9 @@ class Checkout < PaymentGateway
     end
 
     api_params = {
-      "company" => person.name,
+      "company" => person.name('first_name_with_initial'),
       "vat_id"  => checkout_account_params.company_id_or_personal_id,
-      "name"    => person.name,
+      "name"    => person.name('first_name_with_initial'),
       "email"   => person.confirmed_notification_email_to,
       "gsm"     => checkout_account_params.phone_number,
       "type"    => type,

@@ -4,7 +4,7 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.transaction_confirmed.has_marked_request_as_#{@conversation.status}", :other_party_full_name => @conversation.other_party(@recipient).name, :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username, :request => @conversation.listing.title)
+      = t("emails.transaction_confirmed.has_marked_request_as_#{@conversation.status}", :other_party_full_name => @conversation.other_party(@recipient).name(@conversation.community), :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username, :request => @conversation.listing.title)
 
 %tr
   %td{:align => "left", :style => "padding-top: 15px;"}

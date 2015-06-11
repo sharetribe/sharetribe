@@ -69,7 +69,7 @@ class TransactionMailer < ActionMailer::Base
         mail_params(
           @recipient,
           @community,
-          t("emails.transaction_preauthorized.subject", requester: transaction.starter.name, listing_title: transaction.listing.title))) do |format|
+          t("emails.transaction_preauthorized.subject", requester: transaction.starter.name(@community), listing_title: transaction.listing.title))) do |format|
         format.html {
           render locals: {
                    payment_expires_in_unit: expires_in[:unit],
@@ -92,7 +92,7 @@ class TransactionMailer < ActionMailer::Base
         mail_params(
           @recipient,
           @community,
-          t("emails.transaction_preauthorized_reminder.subject", requester: transaction.starter.name, listing_title: transaction.listing.title)))
+          t("emails.transaction_preauthorized_reminder.subject", requester: transaction.starter.name(@community), listing_title: transaction.listing.title)))
     end
   end
 
