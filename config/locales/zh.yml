@@ -380,8 +380,6 @@ zh:
         delete: 删除订单类型
         can_not_delete_last: 因为这是唯一的一个订单类型，所以你不能删除这个订单类型。
         can_not_delete_only_one_in_categories: "你不能删除这个订单类型，因为该订单类型是下面这些分类正在使用的唯一的订单类型：%{categories}"
-        confirm_delete:
-          other: "有%{count}条发布的信息正在使用这个订单类型。如果你删除这个订单类型，相关的发布的信息将被关闭。你确定你要删除这个订单类型吗？"
       listing_shape_name: 名称
       listing_shape_name_placeholder: 例如：出售
       action_button_label: 结账按钮标签
@@ -415,12 +413,6 @@ zh:
           heading: 单位类型
           quantity_label: "数量(每件，每公斤，每个人，每2小时..,)"
           time_label: 时间(每30分钟，每2周，每年...)
-      close_listings:
-        other: "关闭%{count}条发布的信息"
-      confirm_close_listings:
-        other: "你确定你要关闭%{count}条发布的信息吗？"
-      open_listings:
-        other: "这个订单类型关联着%{count}个公开的信息。如果你修改下面任何的设置，相关的信息会保持旧的设置。你可以手动来修改这些信息为新的配置。如果你不想让这些使用旧的配置的信息显示在网站上，你可以点击下面的按钮关闭它。"
     paypal_accounts:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
@@ -1845,7 +1837,7 @@ zh:
       new_email: 新Email地址
       delete_all_memberships: "如果你删除你的帐号，你将不能在以下集市中使用它：%{marketplaces}"
       delete_personal_information: 如果你删除你的帐号，你的个人信息（姓名，电话号码，地址，电邮，个人资料图片等等）都将被永久删除且不能恢复。所有你创建的信息将被删除。你将不能重新激活你的帐号。
-      delete_information_others_involved: 涉及其他会员的信息（和其他人的对话，你完成的交易，你给其他人的评论等）在你删除你的帐号时是不能被删除的。不错，下次你的名字将不会出现在这些信息中。
+      delete_information_others_involved: 涉及其他会员的信息（和其他人的对话，你完成的交易，你给其他人的评论等）在你删除你的帐号时是不能被删除的。不过，之后你的名字将不会出现在这些信息中。
       unfinished_transactions: 因为你有正在进行中的交易，所以你的帐号不能被删除。请在删除帐号前完成所有交易。
       new_password: 新密码
       save: 保存

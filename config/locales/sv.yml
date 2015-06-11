@@ -383,24 +383,12 @@ sv:
         update_success: "Ändringar till ordertyp %{shape} sparade"
         update_failure: "Kunde inte spara ändringar. Fel: %{error_msg}"
         delete: "Ta bort ordertyp"
-        confirm_delete:
-          one: "Det finns %{count} annons med denna ordertyp. Om du tar bort ordertypen så kommer annonsen att stängas. Är du säker på att du vill ta bort denna ordertyp?"
-          other: "Det finns %{count} annonser med denna ordertyp. Om du tar bort ordertypen så kommer annonsen att stängas. Är du säker på att du vill ta bort denna ordertyp?"
         can_not_delete_last: "Du kan inte ta bort denna typ eftersom det är den enda i din marknadsplats."
         can_not_delete_only_one_in_categories: "Du kan inte ta bort denna ordertyp eftersom det är den enda ordertyp som används i följande kategori: %{categories}"
       listing_shape_name: Namn
       listing_shape_name_placeholder: "T ex sälja"
       action_button_label: "Kassan namn på knapp"
       action_button_placeholder: "T ex köpa"
-      open_listings:
-        one: "Det finns %{count} öppen annons för denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonsen att ha de gamla inställningarna. Annonsen kan ändras till de nya inställningarna genom att ändra annonsen manuellt. Om du inte vill ha annonsen med de gamla inställningarna synliga på din sida så kan du stänga genom att klicka på knappen nedan."
-        other: "Det finns %{count} öppna annonser för denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonserna att ha de gamla inställningarna. Annonserna kan ändras till de nya inställningarna genom att ändra annonserna manuellt. Om du inte vill ha annonserna med de gamla inställningarna synliga på din sida så kan du stänga genom att klicka på knappen nedan."
-      close_listings:
-        one: "Stäng %{count} annons"
-        other: "Stäng %{count} annonser"
-      confirm_close_listings:
-        one: "Är du säker på att du vill stänga %{count} annons?"
-        other: "Är du säker på att du vill stänga %{count} annonser?"
       successfully_closed: "Annonser stängda"
       successfully_deleted: "Ordertyp %{order_type} borttagen"
       pricing_and_checkout_title: "Priser och kassan"

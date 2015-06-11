@@ -389,12 +389,6 @@ pt-BR:
       listing_shape_name_placeholder: ~
       action_button_label: "Etiqueta do botão checkout"
       action_button_placeholder: ~
-      close_listings:
-        one: "Encerrar %{count} anúncio"
-        other: "Encerrar %{count} anúncios"
-      confirm_close_listings:
-        one: "Você está certo em querer encerrar este %{count} anúncio?"
-        other: "Você está certo em querer encerrar estes %{count} anúncios?"
       successfully_closed: "Anúncios encerrados com sucesso"
       successfully_deleted: "Pedido '%{order_type}' encerrado com sucesso"
       pricing_and_checkout_title: "Preços e planos"

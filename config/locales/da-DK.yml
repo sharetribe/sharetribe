@@ -383,24 +383,12 @@ da-DK:
         update_success: "Ændringer til ordre type '%{shape}' gemt"
         update_failure: "Kunne ikke gemme ændringer. Error: %{error_msg}"
         delete: "Slet ordre type"
-        confirm_delete:
-          one: "Der er %{count} annonce indenfor denne ordre type. Hvis du sletter denne ordre type, vil annonce blive slettet. Er du sikker på du vil slette denne ordre type?"
-          other: "Der er %{count} annoncer indenfor denne ordre type. Hvis du sletter denne ordre type, vil annoncer blive slettet. Er du sikker på du vil slette denne ordre type?"
         can_not_delete_last: "Du kan ikke slette denne ordre type, fordi det er den eneste type på din markedsplads."
         can_not_delete_only_one_in_categories: "Du kan ikke slette denne ordre type i følgende kategorier, fordi dette er den eneste type i brug: %{categories}"
       listing_shape_name: Navn
       listing_shape_name_placeholder: ~
       action_button_label: "Checkout knap label"
       action_button_placeholder: ~
-      open_listings:
-        one: "Der er %{count} åben annonce indenfor denne ordre type. Hvis du ændrer nogen af indstillingerne herunder, vil annoncen bibeholde de gamle indstillinger. Annoncen kan ændres til de nye indstillinger manuelt. Hvis du ikke vil have annoncen med de gamle indstillinger synlig på dit site, kan du lukke den ved at klikke på knappen herunder."
-        other: "Der er %{count} åbne annoncer indenfor denne ordre type. Hvis du ændrer nogen af indstillingerne herunder, vil annoncerne bibeholde de gamle indstillinger. Annoncerne kan ændres til de nye indstillinger manuelt. Hvis du ikke vil have annoncerne med de gamle indstillinger synlige på dit site, kan du lukke dem ved at klikke på knappen herunder."
-      close_listings:
-        one: "Close %{count} annonce"
-        other: "Close %{count} annoncer"
-      confirm_close_listings:
-        one: "Er du sikker på at du ønsker at lukke %{count} annonce?"
-        other: "Er du sikker på at du ønsker at lukke %{count} annoncer?"
       successfully_closed: "Annoncer lukkede"
       successfully_deleted: "Ordre type '%{order_type}' slettet"
       pricing_and_checkout_title: "Pris & checkout"
