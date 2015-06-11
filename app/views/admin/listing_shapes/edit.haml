@@ -25,7 +25,7 @@
             .content
               = t(".cancel")
         .listing-shape-delete-link-container
-          - confirm_opts = if count > 0 then {confirm: t('admin.listing_shapes.edit.confirm_delete', count: count)} else {} end
+          - confirm_opts = if count > 0 then {confirm: t('admin.listing_shapes.edit.confirm_delete_order_type', count: count)} else {} end
 
           - if cant_delete
             %a.listing-shape-delete-link.disabled
