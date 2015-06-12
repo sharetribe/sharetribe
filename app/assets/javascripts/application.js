@@ -54,6 +54,7 @@
 //= require admin/menu_links
 //= require admin/community_customizations
 //= require admin/listing_shapes
+//= require admin/settings.js
 //= require payment_math
 //= require dropdown
 //= require jquery.nouislider

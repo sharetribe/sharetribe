@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
     :check_auth_token,
     :fetch_logged_in_user,
     :fetch_community,
+    :redirect_deleted_marketplace,
     :redirect_to_marketplace_domain,
     :fetch_community_membership,
     :redirect_removed_locale,
@@ -229,6 +230,12 @@ class ApplicationController < ActionController::Base
     fetch_community_by_strategy {
       ApplicationController.default_community_fetch_strategy(request.host)
     }
+  end
+
+  def redirect_deleted_marketplace
+    if Maybe(@current_community).deleted?.or_else(false)
+      redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else(:community_not_found)
+    end
   end
 
   def redirect_to_marketplace_domain

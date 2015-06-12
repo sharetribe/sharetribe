@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150609084012) do
+ActiveRecord::Schema.define(:version => 20150612104320) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -213,6 +213,7 @@ ActiveRecord::Schema.define(:version => 20150609084012) do
     t.boolean  "cover_photo_processing"
     t.boolean  "small_cover_photo_processing"
     t.boolean  "favicon_processing"
+    t.boolean  "deleted"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
