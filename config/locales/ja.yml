@@ -11,13 +11,13 @@ ja:
         save_order_successful: 正常にカテゴリの順番を保存しました
         save_order_error: カテゴリの順番を保存する際にエラーが発生しました。ページを更新して再実行してください。
       new:
-        new_listing_category: 新しいカテゴリ
+        new_listing_category: 新しいカテゴリー
       form:
         category_name:
-          category_title: カテゴリ名
+          category_title: カテゴリー名
         category_parent:
           category_parent: 親カテゴリー
-          no_parent: 親カテゴリなし
+          no_parent: 親カテゴリーなし
         category_transaction_types:
           transaction_types: 課金タイプ
           transaction_types_description: カテゴリーの中のリストはどの課金タイプに該当するかを決めます。例えば、「売ります」だけにする場合、「貸します」と「あげます」「ご自由にどうぞ」にも適用する場合。
@@ -25,9 +25,9 @@ ja:
           save: 保存する
           cancel: キャンセル
       remove:
-        remove_category: カテゴリを削除する
+        remove_category: カテゴリーを削除する
         remove_category_name: "カテゴリ「%{category_name}」を削除する"
-        warning_remove_effects: "警告！カテゴリ「%{category_name}」削除にあたり下記の影響があります："
+        warning_remove_effects: "警告！カテゴリー「%{category_name}」削除にあたり下記の影響があります："
         warning_listing_will_be_moved:
           other: "%{count}個のリストが、そのカテゴリーにあります。選択れたカスタム項目の方へ移動します。"
         warning_custom_field_will_be_moved:
@@ -324,8 +324,8 @@ ja:
         date: 日付
     emails:
       new:
-        send_email_to_members: ユーザにメールを送信
-        send_email_to_members_title: ユーザに一斉メールを送信する
+        send_email_to_members: ユーザーにメールを送信
+        send_email_to_members_title: ユーザーに一斉メールを送信する
         email_subject: メール件名
         email_content: メール内容
         email_content_placeholder: ユーザ様に何をお伝えしたいですか。
@@ -490,7 +490,7 @@ ja:
       travel: 旅行
       other: その他
     username: ユーザ名
-    username_or_email: "メールアドレス or ユーザ名"
+    username_or_email: "メールアドレス or ユーザー名"
     what_is_this: これは何ですか。
     removed_user: ユーザは削除されました
     paypal_fee_info:
@@ -1136,7 +1136,7 @@ ja:
       grid_button: 画像
       list_button: リスト
       all_listing_types: 全てのリストの種類
-      all_categories: すべてのカテゴリ
+      all_categories: すべてのカテゴリー
   infos:
     about:
       default_about_text_title: Sharetribeとは何ですか。
@@ -1263,8 +1263,8 @@ ja:
       cannot_receive_payment: 何かのエラーによりお支払いを受領できませんでした。状況を明確にするため、サイト管理者にお問い合わせください。
       payment_waiting_for_later_accomplishment: お支払いが完了している場合は、メールで売り手側にお知らせし、メールであなた宛に領収書をお送りします。
       password_recovery_sent: パスワード再設定手続きメールを、あなたのメールアドレスに送信しました。
-      person_activated: ユーザになりました
-      person_deactivated: 無効なユーザになりました
+      person_activated: ユーザーになりました
+      person_deactivated: 無効なユーザーになりました
       person_updated_successfully: 情報を更新しました
       poll_answered: アンケートに回答しました
       poll_could_not_be_answered: アンケートに回答できませんでした
@@ -1463,10 +1463,10 @@ ja:
       help_tags_title: タグ
       help_valid_until_title: 有効期限
     index:
-      all_categories: すべてのカテゴリ
+      all_categories: すべてのカテゴリー
       all_offer_types: すべてのオファーの種類
       all_request_types: すべてのリクエストの種類
-      category: カテゴリ
+      category: カテゴリー
       did_not_found_what_you_were_looking_for: お探しのものが見つかりませんでしたか。
       favors: サービス
       housing: スペース
@@ -1507,8 +1507,8 @@ ja:
     new:
       post_a_new_listing: 新規リストを投稿！
       listing: リスト
-      selected_category: "カテゴリ： %{category}"
-      selected_subcategory: "サブカテゴリ： %{subcategory}"
+      selected_category: "カテゴリー： %{category}"
+      selected_subcategory: "サブカテゴリー： %{subcategory}"
       selected_transaction_type: "課金の種類： %{transaction_type}"
       select_category: カテゴリを選択
       select_subcategory: サブカテゴリーを選択
@@ -1593,10 +1593,10 @@ ja:
       read_more: 表示
   mapview:
     index:
-      all_categories: すべてのカテゴリ
+      all_categories: すべてのカテゴリー
       all_offer_types: すべてのオファーの種類
       all_request_types: すべてのリクエストの種類
-      category: カテゴリ
+      category: カテゴリー
       did_not_found_what_you_were_looking_for: お探しのものが見つかりませんでしたか。
       favors: サービスしてください
       housing: スペース提供します
@@ -1693,11 +1693,11 @@ ja:
       help_captcha_title: あなたは人間ですか。
       help_invitation_code_title: 参加には招待が必要です
       terms_title: "%{service_name}のご利用規約"
-      invite_only_help_text: 既存のユーザからの招待のみで新規メンバーを獲得したい場合はこちらのオプションをご利用ください。
+      invite_only_help_text: 既存のユーザーからの招待のみで新規メンバーを獲得したい場合はこちらのオプションをご利用ください。
       invite_only_help_text_title: 招待制になっております
     inactive_notification:
-      this_person_is_not_active_in_kassi: "今後もこのユーザは%{service_name}でアクティブではありません"
-      inactive_description: "このユーザは、%{service_name}の使用を停止しました。あなたはこのユーザと連絡をとることや、レビューやコメントを残すことが出来ません。"
+      this_person_is_not_active_in_kassi: "今後もこのユーザーは%{service_name}でアクティブではありません"
+      inactive_description: "このユーザーは、%{service_name}の使用を停止しました。あなたはこのユーザーと連絡をとることや、レビューやコメントを残すことが出来ません。"
     new:
       captcha_incorrect: キャプチャの確認が出来ませんでした。下記のボックス内の画像の文字を入力してください。
       captcha_was_wrong: キャプチャのテキストが正しくありませんでした。
@@ -1810,7 +1810,7 @@ ja:
       cancle_facebook_connect: "もしこのアカウントをリンクしたくない場合は、%{cancel_link}が出来ます。"
       facebook_cancel_link_text: キャンセル
       log_in_with_your_facebook_account: フェイスブックのアカウントでログインする
-      or_sign_up_with_your_username: "...それともユーザ名 or メールアドレス："
+      or_sign_up_with_your_username: "...それともユーザー名 or メールアドレス："
       we_will_not_post_without_asking_you: あなたに断りなくフェイスブックに投稿することは、決してありません。
     password_forgotten:
       email: メールアドレス
@@ -2040,7 +2040,7 @@ ja:
   will_paginate:
     models:
       person:
-        other: ユーザ
+        other: ユーザー
       listing_conversation:
         other: 課金処理
     previous_label: "&#8592; 前へ"

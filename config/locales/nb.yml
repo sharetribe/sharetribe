@@ -385,6 +385,9 @@ nb:
         delete: "Fjern transaksjonstype"
         can_not_delete_last: "Du kan ikke fjerne denne transaksjonstypen fordi det er den eneste typen i din markedsplass."
         can_not_delete_only_one_in_categories: "Du kan ikke fjerne denne transaksjonstypen fordi det er eneste type for følgende kategorier i bruk: %{categories}"
+        confirm_delete_order_type:
+          one: "Det er %{count} annonse med denne ordretypen. Hvis du seltter ordretypen vil disse annonsene stoppes. Er du sikker på at du vil fortsette?"
+          other: "Det er %{count} annonser med denne ordretypen. Hvis du seltter ordretypen vil disse annonsene stoppes. Er du sikker på at du vil fortsette?"
       listing_shape_name: ~
       listing_shape_name_placeholder: "F.eks. Selg"
       action_button_label: ~
@@ -418,6 +421,15 @@ nb:
           heading: "Type enhet"
           quantity_label: "Antall (per stk, per kg, per person, per 2-timers tur…)"
           time_label: "Tid (per 30 minutter, per 2 uker, per år…)"
+      open_listings_warning:
+        one: "Det er %{count} åpen annonse med denne ordretypen. Hvis du endrer noen av innstillingene under vil annonsen beholde de gamle innstillingene. Hvis du ikke vil at annonsen skal være synlig med gamle innstillinger kan du stoppe den ved å trykke på knappen under."
+        other: "Det er %{count} åpne annonser med denne ordretypen. Hvis du endrer noen av innstillingene under vil annonsene beholde de gamle innstillingene. Hvis du ikke vil at annonsene skal være synlig med gamle innstillinger kan du stoppe dem ved å trykke på knappen under."
+      close_listings_action:
+        one: "Stopp %{count} annonse"
+        other: "Stopp %{count} annonser"
+      confirm_close_listings_action:
+        one: "Er du sikker på at du vil lukke %{count} annonse?"
+        other: "Er du sikker på at du vil lukke %{count} annonser?"
     paypal_accounts:
       marketplace_paypal_integration: Betalingsinnstillinger
       preferences_updated: "Betalingsinnstillinger oppdatert"

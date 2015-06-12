@@ -129,7 +129,7 @@ zh:
         categories_link_text: 新增分类和子分类
         custom_fields_link_text: 配置表单字段
         filters_link_text: 何种类型的过滤器
-        order_types: "你可以在你的市场中定义订单的处理流程。你的用户可以出售，出租或者免费提供？用户可以按小时，天或者周出租？这些都可以在%{order_types_link}里面配置。"
+        order_types: "你可以在你的集市中定义订单的处理流程。你的用户可以出售，出租或者免费提供？用户可以按小时，天或者周出租？这些都可以在%{order_types_link}里面配置。"
         order_types_link_text: 订单类型视图
         payments: "如果你希望人们通过你的集市支付他们购买的东西，从而为每笔交易收取费用，你应该%{payments_link}。"
         payments_link_text: 配置支付方式
@@ -145,7 +145,7 @@ zh:
         analytics: "访问%{analytics_link}是个好主意。方便你查看你的集市中发生的事情，比如你有多少访客等。"
         analytics_link_text: "连接一个Google Analytics帐号"
         settings: "有许多其他的设置你可以使用。比如你可以要求每个人加入你的集市前必须从其他用户处获得邀请并且设置你的集市为私有，从而只有登录的用户才能看见内容。%{settings_link}"
-        settings_link_text: 在这里查看你的市场设置
+        settings_link_text: 在这里查看你的集市设置
         final_words: "就是这些了！如果一切都准备好了，你可以开始在你的集市发送邀请%{invite_link}。你可以看到所有加入你的%{view_users_link}的用户，以及所有他们完成的交易%{view_transactions_link}。你还可以很容易的管理发布的信息：去信息展示页面你将看到管理员链接以用于编辑和关闭。如果需要帮助，你可以点击%{contact_support_link} ——我们在这儿随时准备为你服务。"
         invite_link_text: 邀请用户
         view_users_link_text: 这里
@@ -221,7 +221,7 @@ zh:
         invalid_twitter_handle: "Twitter handle最多不能超过15个字母和数字（字母A-Z和数字0-9）。"
         facebook_connect: Facebook
         facebook_connect_info_text: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者Dashboard</a>中为你的集市创建一个应用。在这里添加应用生成的ID和密钥。"
-        facebook_connect_info_text_with_instructions: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者仪表盘</a>中为你的集市创建一个应用。在这里添加应用生成的ID和密钥。%{instructions_link}"
+        facebook_connect_info_text_with_instructions: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者Dashboard</a>中为你的集市创建一个应用。在这里添加应用生成的ID和密钥。%{instructions_link}"
         facebook_instructions_link_text: "关于如何配置Facebook Connect请参考说明。"
         facebook_connect_id: Facebook客户号
         invalid_facebook_connect_id: 客户号仅能包含数字。
@@ -232,7 +232,7 @@ zh:
         analytics: 分析
         google_analytics_key: "Google Analytics Tracking ID"
         google_analytics_key_info_text: "追踪你的Google Analytics帐号。"
-        google_analytics_key_info_text_with_instructions: "追踪你的Google Analytics帐号。%{instructions_link}。"
+        google_analytics_key_info_text_with_instructions: "你Google Analytics帐号的Tracking ID。%{instructions_link}。"
         google_analytics_instructions_link_text: "了解更多关于Google Analytics"
         save: 保存设置
       menu_links:
@@ -343,7 +343,7 @@ zh:
     listing_shapes:
       index:
         listing_shapes: 订单类型
-        description: 订单类型决定了网站上订单如何处理。你可以决定用户可以出租或者出售，或者只是让用户发布一些公告然后通过免费的消息进行沟通。
+        description: 订单类型决定了网站上订单如何处理。通过订单类型可以决定用户可以出租或者出售，或者只是让用户发布一些公告然后通过免费的消息进行沟通。
         read_more_about_order_types: 了解更多关于订单类型
         add_new_shape: "添加新的订单类型： "
         select_template: 选择样板...
@@ -380,6 +380,8 @@ zh:
         delete: 删除订单类型
         can_not_delete_last: 因为这是唯一的一个订单类型，所以你不能删除这个订单类型。
         can_not_delete_only_one_in_categories: "你不能删除这个订单类型，因为该订单类型是下面这些分类正在使用的唯一的订单类型：%{categories}"
+        confirm_delete_order_type:
+          other: "有%{count}个发布的信息跟这个订单类型相关联。如果你删除这个订单类型，这些发布的信息会被关闭。你确定要删除这个订单类型吗？"
       listing_shape_name: 名称
       listing_shape_name_placeholder: 例如：出售
       action_button_label: 结账按钮标签
@@ -413,6 +415,12 @@ zh:
           heading: 单位类型
           quantity_label: "数量(每件，每公斤，每个人，每2小时..,)"
           time_label: 时间(每30分钟，每2周，每年...)
+      close_listings_action:
+        other: "关闭%{count}个发布的信息"
+      confirm_close_listings_action:
+        other: "你确定要关闭%{count}个发布的信息吗？"
+      open_listings_warning:
+        other: "有%{count}个公开的已发布的信息与这个订单类型相关联。如果你修改下面的任何设置，那些已发布的信息会保留旧的设置。可以手工修改这些发布的信息到新的设置。如果你不希望这么保留旧的设置的发布的信息在网站上可见，你可以点击下面的按钮关闭它们。"
     paypal_accounts:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
@@ -794,7 +802,7 @@ zh:
     confirmation_instructions:
       confirmation_instructions_signature: "此致敬礼，<br/>%{service_name}团队"
       welcome_to_kassi: "欢迎来到%{service_name}！"
-      need_to_confirm: 你需要确认你的Email地址。
+      need_to_confirm: 请确认你的Email地址。
       confirmation_link_text: 确认我的电子邮件
       or_paste_link: 或者你可以复制以下链接到你浏览器的地址栏：
       turning_on_confirmations_in_this_community: "我们开始在%{service_name}中使用电子邮件确认。"
@@ -917,11 +925,11 @@ zh:
       settings_link_text: 查看你的设置
       welcome_email_subject_for_marketplace_creator: 欢迎来到Sharetribe
       welcome_to_marketplace_creator: "欢迎来到Sharetribe，%{name}！"
-      congrats_for_creating_your_marketplace: 恭喜成功创建你的市场！很容易，是不是？
+      congrats_for_creating_your_marketplace: 恭喜成功创建你的集市！很容易，是不是？
       here_is_your_account_information: 这是你的帐号信息。
       your_email_address: 你用来登录的电子邮件地址：
-      your_marketplace_address: 你的市场地址：
-      your_marketplace_admin_area: 你的市场管理区域：
+      your_marketplace_address: 你的集市地址：
+      your_marketplace_admin_area: 你的集市的管理后台：
       just_follow_details: 点击下列链接你将获得如何开始搭建你的集市的详细信息！
       we_will_guide_you_along_the_way: 我们将引导你走下去。
       are_you_new_to_online_marketplaces: 需要协助你的集市？没关系，我们能帮助你！我们将发送给你一系列电邮帮助你最大化利用Sharetribe并且建造一个成功的集市生意。我们将很快发送给你第一部分的内容。
@@ -967,7 +975,7 @@ zh:
       page_removed_reason: 这种情况有几种可能的原因。比如，一个用户可能删除了他的帐号或者发布的信息已被删除。
     error_410_title: 页面已删除
     error_500:
-      temporary_unavailable: 市场暂时不可用
+      temporary_unavailable: 集市暂时不可用
       unable_to_process: 服务当前无法处理你的请求。请过几分钟再试。
       we_hate_this: 我们很不高兴它的发生！我们已经收到通知并将尽快修复它。
       refer_to_error_id: "如果你想就此问题联系支持人员，请在消息中包含错误号“%{error_id}”。"
@@ -1026,7 +1034,7 @@ zh:
     offers: 宝贝
     requests: 请求
     search_kassi: "搜索%{service_name}"
-    create_new_marketplace: 创建一个新的市场
+    create_new_marketplace: 创建一个新的集市
     contact_us: 联系我们
     profile: 个人设置
     invite: 邀请新成员
@@ -1214,7 +1222,7 @@ zh:
       something_went_wrong: 出错了
       community_updated: 详情已更新。
       community_update_failed: 信息更新失败。
-      account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，你需要确认你的Email地址。
+      account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，请确认你的Email地址。
       community_joined_succesfully_you_still_need_to_confirm_your_email: "感谢加入%{service_name}。现在你需要确认你的电子邮件地址。"
       comment_cannot_be_empty: 评论不能为空
       comment_sent: 评论已发送
@@ -1672,14 +1680,14 @@ zh:
       billing_agreement_wrong_account: PayPal帐号不匹配。请使用与你在第一步连接的帐号相同的PayPal帐号。
       something_went_wrong: 出错了。请再试一次。如果这个问题仍旧存在，请联系网站管理员。
       account_not_verified: 你还没有验证你的PayPal帐号。要继续请先登录paypal.com并确认你的帐号。
-      account_restricted: 你的PayPal帐号受限制且不能被连接。请登录paypal.com以了解更多或联系PayPal客户服务解决这个问题。
+      account_restricted: 你的PayPal帐号受到限制且不能被连接。请登录paypal.com以了解更多或联系PayPal的客户服务解决这个问题。
   paypal:
     pay_with_paypal: 进行支付
     checkout_with_paypal: 用PayPal结帐
     cancel_succesful: PayPal付款成功取消
     transaction:
       commission_payment_name: "%{listing_title}的佣金支付"
-      commission_payment_description: "市场%{service_name}对%{listing_title}收取交易佣金。"
+      commission_payment_description: "集市%{service_name}对%{listing_title}收取交易佣金。"
     wait_while_loading: 请等待。
     chatting_with_paypal: 我们正在与PayPal通信。
   people:
@@ -1823,7 +1831,7 @@ zh:
       change_email: 改变
       confirm_your_email: 请确认你的电子邮件
       account_confirmation_instructions: "你很快会收到一封邮件包含一个需要你点击确认刚才输入的邮件地址的链接。在确认邮件之后你就可以加入%{service_name}了。"
-      account_confirmation_instructions_title_admin: 欢迎来到你的市场！
+      account_confirmation_instructions_title_admin: 欢迎来到你的集市！
       your_marketplace_has_now_been_created: 你的集市站点已经创建。这很容易吧？接下来只要一个步骤你就可以访问你的站点了：你需要确认你的电邮地址。
       account_confirmation_instructions_admin: 你很快会收到一封邮件要求你点击确认刚才输入的邮件地址。在确认邮件之后你就可以配置你的集市了。
   settings:

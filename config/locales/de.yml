@@ -545,7 +545,7 @@ de:
       days: Tage
       price_per_day: "Preis pro Tag: %{price}"
     index:
-      loading_more_messages: "weitere Nachrichten laden"
+      loading_more_messages: "Weitere Nachrichten laden"
       message_partitive: Nachricht
       messages_partitive: Nachrichten
       no_received_messages: "Keine Nachrichten empfangen"
@@ -730,11 +730,11 @@ de:
       you_are_banned_in_this_community: "Der Administrator dieser Community hat verhindert, dass du auf die Seite zugreifen kannst. Wenn du den Administrator kontaktieren möchtest, kannst du %{link_to_contact_page} senden."
       contact_page_link: Feedback
     new:
-      welcome_fb_user: "Willkommen %{service_name}, %{name}!"
+      welcome_fb_user: "Willkommen bei %{service_name}, %{name}!"
       fb_join_accept_terms: "Es gibt noch einen weiteren Schritt bevor du der Community beitreten kannst: Du musst den Nutzungsbedingungen zustimmen."
-      join_community: "'%{community}' Community beitreten"
-      you_can_join: "Du kannst dieser Community beitreten, indem du die Nutzungsbedingungen akzeptierst und unten auf 'Community beitreten' klickst."
-      you_can_join_email_confirmation: "Um diese Community beitreten zu können, benötigst du eine gültige E-Mail-Adresse, die auf %{email_ending} endet. Betreten kannst du, indem du deine E-Mail-Adresse einträgst, die Nutzungsbedingungen der Community akzeptierst, unten auf \"Community beitreten\" klickst und deine E-Mail-Adresse bestätigst."
+      join_community: "'%{service_name}' beitreten"
+      you_can_join: "Du kannst %{service_name} beitreten, indem Du die Nutzungsbedingungen akzeptierst und unten auf ''%{service_name}' beitreten' klickst."
+      you_can_join_email_confirmation: "Um %{service_name} beitreten zu können, benötigst du eine gültige E-Mail-Adresse, die auf %{email_ending} endet. Beitreten kannst Du, indem Du Deine E-Mail-Adresse einträgst, die Nutzungsbedingungen der Community akzeptierst, unten auf \"%{service_name} beitreten\" klickst und deine E-Mail-Adresse bestätigst."
       you_can_join_email_confirmation_multiple_addresses: "Um dieser Community beitreten zu können, benötigst du eine E-Mail-Adresse, die der Administrator dieser Seite zugelassen hat. Beitreten kannst du, indem du deine E-Mail-Adresse einträgst, die Nutzungsbedingungen der Community akzeptierst und unten auf \"Community beitreten\"  klickst."
       you_can_join_with_invite_only: "Du musst eine Einladung eines anderen Mitglieds besitzen, um dieser Community beitreten zu können. Falls du einen Einladungs-Code hast, kannst du der Community beitreten, indem du den Code unten in das Feld eingibst, die Nutzungsbedingungen akzeptierst und auf 'Community beitreten' klickst."
       if_want_to_view_content: "Wenn du den Inhalt dieser Community ansehen möchtest, ohne beitreten zu wollen, musst du dich"
@@ -1184,7 +1184,7 @@ de:
       how_to_use: "Wie es funktioniert"
       info_about_kassi: "Informationen über %{service_name}"
       news: News
-      register_details: Privatsphäre
+      register_details: "Impressum & Datenschutz"
       terms: Nutzungsbedingungen
     logged_in:
       admin: Administrator
@@ -1217,7 +1217,7 @@ de:
       something_went_wrong: "Da ist etwas schief gelaufen"
       community_updated: "Die Informationen wurden aktualisiert."
       community_update_failed: "Aktualisierung fehlgeschlagen"
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Konto erfolgreich erstellt. Als nächstes musst du deine E-Mail-Adresse bestätigen."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Konto erfolgreich erstellt. Als nächstes musst Du Deine E-Mail-Adresse bestätigen."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Du bist nun ein Mitglied dieser Community. Als nächstes musst du deine E-Mail-Adresse bestätigen."
       comment_cannot_be_empty: "Kommentar darf nicht leer sein."
       comment_sent: "Kommentar gesendet"
@@ -1297,7 +1297,7 @@ de:
       you_followed_listing: "Du folgst nun diesem Eintrag"
       you_have_already_given_feedback_about_this_event: "Du hast bereits Feedback zu dieser Transaktion gegeben."
       you_are_now_member: "Du bist soeben erfolgreich dieser Community beigetreten."
-      you_are_already_member: "Du bist bereits Mitglied dieser %{service_name} Community. Willkommen zurück!"
+      you_are_already_member: "Du bist bereits Mitglied von %{service_name}. Willkommen zurück!"
       you_must_log_in_to_create_new_listing: "Du musst dich bei %{service_name} einloggen, um einen neuen Eintrag zu erstellen. Wenn du keinen Account hast, kannst du %{sign_up_link}."
       additional_email_confirmed_dashboard: "Deine E-Mail ist nun bestätigt."
       you_must_log_in_to_give_feedback: "Du musst dich einloggen, um Feedback zu geben"
@@ -1724,7 +1724,7 @@ de:
       terms: Nutzungsbedingungen
       username_is_in_use: "Dieser Benutzername wird bereits verwendet."
       username_is_invalid: "Benutzername ist ungültig. Erlaubte Zeichen sind Buchstaben (keine Umlaute), Ziffern und Unterstriche."
-      visible_only_to_you: "nur für dich und den Admin der Community sichtbar"
+      visible_only_to_you: "nur für Dich und den Admin der Community sichtbar"
       visible_to_everybody: "für jeden sichtbar"
       create_account_with_facebook: "Lege ein Account mit Facebook an"
       OR: ODER
@@ -1732,7 +1732,7 @@ de:
     not_member:
       explanation_text: "Du befindest dich derzeit in der %{community} Community. Du hast versucht, das Profil eines Benutzers aus einer anderen Community anzuzeigen. Du kannst dieses Profil nicht durch deine %{community} Community einsehen."
       read_more_about_kassi_communities: "Lies mehr über Sharetribe-Communities"
-      this_user_does_not_belong_to_this_community: "Dieser Benutzer gehört nicht zu der %{community} Community"
+      this_user_does_not_belong_to_this_community: "Dieser Benutzer gehört nicht zu %{community}"
     profile_feedback:
       as_expected: "Wie erwartet"
       exceeded_expectations: "Viel besser als erwartet"
@@ -1748,7 +1748,7 @@ de:
     show:
       contact: "%{person} kontaktieren"
       about_me: "Über mich:"
-      add_description: "Erzähle etwas über dich"
+      add_description: "Erzähle etwas über Dich"
       add_location: "Standort hinzufügen"
       add_phone_number: "Telefonnummer hinzufügen"
       address: "Standort:"
@@ -1816,7 +1816,7 @@ de:
       we_will_not_post_without_asking_you: "Wir werden deine Nachrichten nie auf Facebook posten ohne vorher zu fragen."
     password_forgotten:
       email: E-Mail
-      password_recovery_instructions: "Gib deine E-Mail-Adresse ein, um deinen Benutzernamen zu erhalten sowie Anweisungen, wie du dein Passwort ändern kannst."
+      password_recovery_instructions: "Gib Deine E-Mail-Adresse ein, um Deinen Benutzernamen zu erhalten sowie Anweisungen, wie Du Dein Passwort ändern kannst."
       request_new_password: "Neues Passwort anfordern"
       change_your_password: "Ändere dein Passwort"
     confirmation_pending:
@@ -1827,7 +1827,7 @@ de:
       change_email: Ändern
       confirm_your_email: "Bestätige deine E-Mail"
       account_confirmation_instructions: "Du wirst in Kürze eine E-Mail mit einem Link erhalten, den du anklicken musst, um die eingegebene E-Mail-Adresse zu bestätigen. Nach der Bestätigung deiner E-Mail kannst du der Community beitreten."
-      account_confirmation_instructions_title_admin: "Willkommen in Deinem Marktplatz!"
+      account_confirmation_instructions_title_admin: "Willkommen auf Deinem Marktplatz!"
       your_marketplace_has_now_been_created: ~
       account_confirmation_instructions_admin: ~
   settings:
