@@ -203,6 +203,15 @@ nl:
         automatic_newsletter_frequency: "Zend automatische nieuwsbrief: %{frequency_dropdown}"
         newsletter_daily: Dagelijks
         newsletter_weekly: Wekelijks
+        delete_marketplace_title: ~
+        type_marketplace_domain: ~
+        type_marketplace_domain_placeholder: ~
+        once_you_delete: ~
+        are_you_sure: ~
+        i_understand_button: ~
+        last_community_updates: ~
+        you_will_be_redirected_to: ~
+        delete_this_marketplace: ~
       manage_members:
         manage_members: "Beheer gebruikers"
         email: E-mail
@@ -398,12 +407,12 @@ nl:
       units_title: ~
       units_desc: ~
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: "Per stuk"
+        hour: "Per uur"
+        day: "Per dag"
+        night: "Per nacht"
+        week: "Per week"
+        month: "Per maand"
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -522,7 +531,7 @@ nl:
       minimum_price_error_message: "De prijs kan niet lager zijn dan %{amount}."
       accept: Aanvaard
       decline: "Wijs af"
-      quantity_label: ~
+      quantity_label: "Aantal:"
       sum_label: "Subtotaal:"
       service_fee_label: "%{service_name} kost:"
       you_will_get_label: "Je krijgt:"
@@ -1526,7 +1535,7 @@ nl:
       week: ~
       month: ~
       custom: ~
-    quantity_placeholder: ~
+    quantity_placeholder: Aantal
     please_comment: Reactie
     reply_link:
       listing_closed: "Item is gesloten"
@@ -1573,11 +1582,11 @@ nl:
       pickup: Ophalen
       pickup_no_price: Ophalen
     unit_types:
-      piece: ~
-      hour: ~
+      piece: stuk
+      hour: uur
       day: dag
-      night: ~
-      week: ~
+      night: nacht
+      week: week
       month: maand
     verification_required:
       verification_required: "Verificatie vereist"
@@ -2028,15 +2037,15 @@ nl:
   transactions:
     initiate:
       booked_days: ~
-      price_per_day: ~
+      price_per_day: "Prijs per dag:"
       quantity: ~
       subtotal: "Subtotaal:"
       shipping-price: "Verzenden:"
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "Prijs per %{unit_type}:"
+    price: "Prijs:"
+    quantity: "Aantal: %{quantity}"
+    unit_price: "Prijs per stuk: %{unit_price}"
+    total: "Totaal:"
   unit:
     day: dag
     days: dagen

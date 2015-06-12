@@ -203,6 +203,15 @@ es-ES:
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
         newsletter_daily: Diariamente
         newsletter_weekly: Semanalmente
+        delete_marketplace_title: ~
+        type_marketplace_domain: ~
+        type_marketplace_domain_placeholder: ~
+        once_you_delete: ~
+        are_you_sure: ~
+        i_understand_button: ~
+        last_community_updates: ~
+        you_will_be_redirected_to: ~
+        delete_this_marketplace: ~
       manage_members:
         manage_members: "Gestionar usuarios"
         email: Email
@@ -385,23 +394,24 @@ es-ES:
         update_success: ~
         update_failure: ~
         delete: "Borrar tipo de pedido"
-        confirm_delete:
-          other: "Hay %{count} anuncios para este tipo de pedido. Si borras el tipo de pedido, dichos anuncios serán borrados, ¿Estás seguro de que deseas borrar el tipo de pedido?"
+        confirm_delete_order_type:
+          one: "Hay %{count} anuncio con este tipo de orden. Si eliminas el tipo de orden este anuncio se cerrará. Estás seguro de que quieres eliminar este tipo de orden?"
+          other: "Hay %{count} anuncios con este tipo de orden. Si eliminas el tipo de orden estos anuncios se cerrarán. Estás seguro de que quieres eliminar este tipo de orden?"
         can_not_delete_last: "No puedes eliminar este tipo de transacción porque es el único tipo de transacción que existe en tu marketplace."
         can_not_delete_only_one_in_categories: "No puedes eliminar este tipo de transacción porque en las categorías solo se usa este tipo de transacción: %{categories}"
       listing_shape_name: ~
       listing_shape_name_placeholder: "ej: Vender"
       action_button_label: ~
       action_button_placeholder: "ej: Comprar"
-      open_listings:
-        other: "Hay %{count} anuncios abiertos con este tipo de pedido. Si cambias cualquier configuración de abajo, los anuncios mantendrán las antiguas configuraciones. La configuración de los anuncios puede ser cambiada con los nuevos parámetros editándolos manualmente. Si no quieres tener ningún anuncios con la antigua configuración visible en tu sitio Web, tu puedes cerrarlo pulsando el botón de abajo"
-        one: ~
-      close_listings:
+      open_listings_warning:
+        one: "Hay %{count} anuncio abierto con este tipo de orden. Si cambias cualquiera de los ajustes de abajo, este anuncio no se actualizará y mantendrá los ajustes anteriores. Puedes actualizar los ajustes del anuncio editándolo manualmente.  En caso de que no quieras que este anuncio con los ajustes desactualizados sea visible en tu marketplace, puedes cerrarlo (desactivarlo) haciendo clic en el botón de abajo."
+        other: "Hay %{count} anuncios abiertos con este tipo de orden. Si cambias cualquiera de los ajustes de abajo, esos anuncios no se actualizarán y mantendrán los ajustes anteriores. Puedes actualizar los ajustes de los anuncios editándolos manualmente.  En caso de que no quieras que estos anuncios con los ajustes desactualizados sean visibles en tu marketplace, puedes cerrarlos (desactivarlos) haciendo clic en el botón de abajo."
+      close_listings_action:
+        one: "Cerrar %{count} anuncio"
         other: "Cerrar %{count} anuncios"
-        one: ~
-      confirm_close_listings:
-        other: "¿Estás seguro de que quieres cerrar %{count} anuncios?"
-        one: ~
+      confirm_close_listings_action:
+        one: "Estás seguro de que quieres cerrar %{count} anuncio?"
+        other: "Estás seguro de que quieres cerrar %{count} anuncios?"
       successfully_closed: "Anuncios cerrados correctamente"
       successfully_deleted: "Pedido tipo '%{order_type}' borrado correctamente"
       pricing_and_checkout_title: "Precio & pago y envío"
@@ -549,7 +559,7 @@ es-ES:
       cancel_payed_description: "Si tu solicitud fue aceptada pero estás teniendo dudas, todavía podrás cancelarla antes de que se complete el pago."
       canceling_payed_transaction: "Cancelar transacción"
       confirm: "Marcar como completada"
-      cancel: Disputa
+      cancel: Disputar
       continue: Continuar
       give_feedback_to: "Dar feedback o comentarios sobre %{person_link}"
       do_not_give_feedback: "Omitir feedback"
@@ -893,9 +903,9 @@ es-ES:
       added_offer: "%{name_link} añadir una oferta:"
       added_request: "%{name_link} añadir una solicitud:"
       added_listing: "%{name_link} ha añadido un anuncio:"
-      update_mail_title: "%{title_link} actualización de la comunidad"
+      update_mail_title: "Actualización de %{title_link}"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Aquí están algunos de los sucesos que han ocurrido en la %{community_link} durante el pasado %{time_since_last_update}."
+      intro_paragraph: "Aquí están algunas de las novedades que han ocurrido en %{community_link} durante los últimos %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Publica un nuevo anuncio"
       reduce_email_footer_text: "¿Demasiados email? %{settings_link} o %{unsubscribe_link}."
