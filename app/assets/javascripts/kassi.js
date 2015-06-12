@@ -135,8 +135,8 @@ function add_validator_methods() {
   $.validator.
     addMethod( "money",
       function(value, element, minimum_price) {
-        var regex  = /^\d+((\.|\,)\d{0,2})?$/;
-        return regex.test(value);
+        var regex = /^\d*((\.|\,)\d{1,2})?$/;
+        return value && regex.test(value);
       }
     );
 

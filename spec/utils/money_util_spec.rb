@@ -11,6 +11,12 @@ describe MoneyUtil do
       .to eql(Money.new(12, "USD"))
     expect(MoneyUtil.parse_str_to_money("0,12", "EUR"))
       .to eql(Money.new(12, "EUR"))
+    expect(MoneyUtil.parse_str_to_money("0,1", "EUR"))
+      .to eql(Money.new(10, "EUR"))
+    expect(MoneyUtil.parse_str_to_money("0,06", "EUR"))
+      .to eql(Money.new(6, "EUR"))
+    expect(MoneyUtil.parse_str_to_money(".05", "EUR"))
+      .to eql(Money.new(5, "EUR"))
   end
 
   it "#parse_str_to_subunits" do
@@ -22,6 +28,8 @@ describe MoneyUtil do
     expect(MoneyUtil.parse_str_to_subunits("0.12", "EUR")).to eql(12)
     expect(MoneyUtil.parse_str_to_subunits("2.32", "EUR")).to eql(232)
     expect(MoneyUtil.parse_str_to_subunits("0,12", "EUR")).to eql(12)
+    expect(MoneyUtil.parse_str_to_subunits("0,1", "EUR")).to eql(10)
+    expect(MoneyUtil.parse_str_to_subunits(".03", "EUR")).to eql(3)
     expect(MoneyUtil.parse_str_to_subunits("10", "JPY")).to eql(10)
   end
 
