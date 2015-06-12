@@ -82,7 +82,7 @@
 
   - content_for :extra_javascript do
     :javascript
-      window.ST.initializeDeleteMarketplace("kuha");
+      window.ST.initializeDeleteMarketplace('#{delete_confirmation}');
 
   - if can_delete_marketplace
     .row.without-margin
