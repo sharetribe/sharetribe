@@ -233,7 +233,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_deleted_marketplace
-    if @current_community.deleted?
+    if Maybe(@current_community).deleted?.or_else(false)
       redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else(:community_not_found)
     end
   end
