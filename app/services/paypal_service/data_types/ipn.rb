@@ -322,6 +322,8 @@ module PaypalService
           params
         )
 
+        p[:order_id] = Maybe(p)[:order_id].strip.or_else(nil)
+
         create_payment_voided(p)
       end
       private_class_method :to_payment_voided
@@ -390,6 +392,9 @@ module PaypalService
           },
           params
         )
+
+        p[:order_id] = Maybe(p)[:order_id].strip.or_else(nil)
+
         create_authorization_expired(p)
       end
       private_class_method :to_authorization_expired
