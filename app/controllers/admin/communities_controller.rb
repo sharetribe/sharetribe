@@ -105,10 +105,14 @@ class Admin::CommunitiesController < ApplicationController
 
   def settings
     @selected_left_navi_link = "admin_settings"
+
+    can_delete_marketplace = MarketplaceService::Community::Query.current_plan(@current_community.id).plan_level == CommunityPlan::FREE_PLAN
+
     render :settings, locals: {
              supports_escrow: escrow_payments?(@current_community),
              delete_redirect_url: delete_redirect_url(APP_CONFIG),
-             delete_confirmation: @current_community.ident
+             delete_confirmation: @current_community.ident,
+             can_delete_marketplace: can_delete_marketplace
            }
   end
 
