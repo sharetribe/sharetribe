@@ -105,7 +105,11 @@ class Admin::CommunitiesController < ApplicationController
 
   def settings
     @selected_left_navi_link = "admin_settings"
-    render :settings, locals: { supports_escrow: escrow_payments?(@current_community) }
+    render :settings, locals: {
+             supports_escrow: escrow_payments?(@current_community),
+             delete_redirect_url: delete_redirect_url(APP_CONFIG),
+             delete_confirmation: @current_community.ident
+           }
   end
 
   def update_look_and_feel
@@ -184,6 +188,18 @@ class Admin::CommunitiesController < ApplicationController
             :settings)
   end
 
+  def delete_marketplace
+    if params[:delete_confirmation] == @current_community.ident
+      @current_community.update_attributes(deleted: true)
+
+      redirect_to Maybe(delete_redirect_url(APP_CONFIG)).or_else(:community_not_found)
+    else
+      flash[:error] = "Could not delete marketplace. Confirmation domain didn't match."
+      redirect_to action: :settings
+    end
+
+  end
+
   private
 
   def regenerate_css?(params, community)
@@ -230,6 +246,10 @@ class Admin::CommunitiesController < ApplicationController
 
   def escrow_payments?(community)
     MarketplaceService::Community::Query.payment_type(community.id) == :braintree
+  end
+
+  def delete_redirect_url(configs)
+    Maybe(configs).community_not_found_redirect.or_else(nil)
   end
 
 end
