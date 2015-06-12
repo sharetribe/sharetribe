@@ -198,6 +198,15 @@ zh:
         automatic_newsletter_frequency: "自动发送新闻邮件：%{frequency_dropdown}"
         newsletter_daily: 每日
         newsletter_weekly: 每周
+        delete_marketplace_title: ~
+        type_marketplace_domain: ~
+        type_marketplace_domain_placeholder: ~
+        once_you_delete: ~
+        are_you_sure: ~
+        i_understand_button: ~
+        last_community_updates: ~
+        you_will_be_redirected_to: ~
+        delete_this_marketplace: ~
       manage_members:
         manage_members: 管理用户
         email: 电子邮件
@@ -378,14 +387,20 @@ zh:
         update_success: "订单类型‘%{shape}’的修改已保存"
         update_failure: "不能保存修改。错误：%{error_msg}"
         delete: 删除订单类型
-        can_not_delete_last: 因为这是唯一的一个订单类型，所以你不能删除这个订单类型。
-        can_not_delete_only_one_in_categories: "你不能删除这个订单类型，因为该订单类型是下面这些分类正在使用的唯一的订单类型：%{categories}"
         confirm_delete_order_type:
           other: "有%{count}个发布的信息跟这个订单类型相关联。如果你删除这个订单类型，这些发布的信息会被关闭。你确定要删除这个订单类型吗？"
+        can_not_delete_last: 因为这是唯一的一个订单类型，所以你不能删除这个订单类型。
+        can_not_delete_only_one_in_categories: "你不能删除这个订单类型，因为该订单类型是下面这些分类正在使用的唯一的订单类型：%{categories}"
       listing_shape_name: 名称
       listing_shape_name_placeholder: 例如：出售
       action_button_label: 结账按钮标签
       action_button_placeholder: 例如：购买
+      open_listings_warning:
+        other: "有%{count}个公开的已发布的信息与这个订单类型相关联。如果你修改下面的任何设置，那些已发布的信息会保留旧的设置。可以手工修改这些发布的信息到新的设置。如果你不希望这么保留旧的设置的发布的信息在网站上可见，你可以点击下面的按钮关闭它们。"
+      close_listings_action:
+        other: "关闭%{count}个发布的信息"
+      confirm_close_listings_action:
+        other: "你确定要关闭%{count}个发布的信息吗？"
       successfully_closed: 成功关闭发布的信息
       successfully_deleted: "成功删除订单类型%{order_type}"
       pricing_and_checkout_title: 价格和结算
@@ -415,12 +430,6 @@ zh:
           heading: 单位类型
           quantity_label: "数量(每件，每公斤，每个人，每2小时..,)"
           time_label: 时间(每30分钟，每2周，每年...)
-      close_listings_action:
-        other: "关闭%{count}个发布的信息"
-      confirm_close_listings_action:
-        other: "你确定要关闭%{count}个发布的信息吗？"
-      open_listings_warning:
-        other: "有%{count}个公开的已发布的信息与这个订单类型相关联。如果你修改下面的任何设置，那些已发布的信息会保留旧的设置。可以手工修改这些发布的信息到新的设置。如果你不希望这么保留旧的设置的发布的信息在网站上可见，你可以点击下面的按钮关闭它们。"
     paypal_accounts:
       marketplace_paypal_integration: 支付偏好
       preferences_updated: 支付偏好设置更新
