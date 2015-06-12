@@ -106,13 +106,11 @@ class Admin::CommunitiesController < ApplicationController
   def settings
     @selected_left_navi_link = "admin_settings"
 
-    can_delete_marketplace = MarketplaceService::Community::Query.current_plan(@current_community.id).plan_level == CommunityPlan::FREE_PLAN
-
     render :settings, locals: {
              supports_escrow: escrow_payments?(@current_community),
              delete_redirect_url: delete_redirect_url(APP_CONFIG),
              delete_confirmation: @current_community.ident,
-             can_delete_marketplace: can_delete_marketplace
+             can_delete_marketplace: can_delete_marketplace?(@current_community.id)
            }
   end
 
@@ -193,12 +191,12 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def delete_marketplace
-    if params[:delete_confirmation] == @current_community.ident
+    if can_delete_marketplace?(@current_community.id) && params[:delete_confirmation] == @current_community.ident
       @current_community.update_attributes(deleted: true)
 
       redirect_to Maybe(delete_redirect_url(APP_CONFIG)).or_else(:community_not_found)
     else
-      flash[:error] = "Could not delete marketplace. Confirmation domain didn't match."
+      flash[:error] = "Could not delete marketplace."
       redirect_to action: :settings
     end
 
@@ -254,6 +252,10 @@ class Admin::CommunitiesController < ApplicationController
 
   def delete_redirect_url(configs)
     Maybe(configs).community_not_found_redirect.or_else(nil)
+  end
+
+  def can_delete_marketplace?(community_id)
+    MarketplaceService::Community::Query.current_plan(community_id).plan_level == CommunityPlan::FREE_PLAN
   end
 
 end
