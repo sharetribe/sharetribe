@@ -93,7 +93,6 @@
 #  cover_photo_processing                     :boolean
 #  small_cover_photo_processing               :boolean
 #  favicon_processing                         :boolean
-#  deleted                                    :boolean
 #
 # Indexes
 #

@@ -132,7 +132,6 @@ Kassi::Application.routes.draw do
           get :menu_links
           put :menu_links, to: 'communities#update_menu_links'
           put :update_settings
-          delete :delete_marketplace
         end
         resources :transactions, controller: :community_transactions, only: :index
         resources :emails
