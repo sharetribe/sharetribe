@@ -1164,15 +1164,15 @@ ja:
     application:
       join_this_community: マーケットプレイスに参加する
       read_more: もっと読む
-      feedback: ご用件をどうぞ。
-      default_feedback: "サイトの向上のためのご提案がありますか。あやしい投稿や%{service_name}の問題を見つけてしまいましたか。あるいは私たちと何かを議論してみたいですか。お気軽にお知らせください！"
+      feedback: ご用件をどうぞ
+      default_feedback: "%{service_name}? のご利用に当たっての不明点、サービス改善のご提案、怪しい投稿の発見などに関しては、こちらからお気軽にお問い合わせください。もちろん、当社へのご意見も大歓迎です！"
       feedback_forum: レビューフォーラム
       feedback_handle: レビューを書く
       give_feedback: お問い合わせ
       or_check_our: "...それとも確認する"
       send_feedback_to_admin: 送信する
       to_see_what_others_have_suggested: 他のユーザがそのアイデアについて、何を提案や投票したかを見てみる。
-      your_email_address: （連絡可能な）あなたのメールアドレス
+      your_email_address: あなたのメールアドレス
       connect: 新規登録
       invite_your_friends: 友達を招待する！
       invite_your_neighbors: ご近所さんを招待する！
@@ -1425,7 +1425,7 @@ ja:
         paypal_fee_info_link_text: PayPalのお支払い手数料
         after_service_fee_you_will_get_vat: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。（消費税 0%）"
         price_excludes_vat: 価格は外税です。
-        delivery: 発送
+        delivery: 配送の方法
         shipping: 送料
         shipping_price: 送料
         shipping_price_additional: 追加の注文
@@ -1574,7 +1574,7 @@ ja:
       price:
         per_quantity_unit: "あたり： %{quantity_unit}"
         per_day: 1日あたり
-      delivery: 発送
+      delivery: 配送の方法
       shipping: "送料（%{price}）"
       shipping_no_price: 送料
       shipping_price_additional: "送料 (+%{price}, 追加の注文: +%{shipping_price_additional})"
