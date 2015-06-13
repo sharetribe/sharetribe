@@ -7,7 +7,7 @@ ThinkingSphinx::Index.define :listing, :with => :active_record, :delta => Thinki
   set_property :utf8? => true
 
   # limit to open listings
-  where "open = '1' AND deleted = '0' AND (valid_until IS NULL OR valid_until > now())"
+  where "listings.open = '1' AND listings.deleted = '0' AND (listings.valid_until IS NULL OR listings.valid_until > now())"
 
   # fields
   indexes title
