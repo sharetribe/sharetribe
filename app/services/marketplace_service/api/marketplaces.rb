@@ -197,13 +197,7 @@ module MarketplaceService::API
       end
 
       def available_ident_based_on(initial_ident)
-
-        if initial_ident.blank?
-          initial_ident = "trial_site"
-        end
-
-        current_ident = initial_ident.to_url
-        current_ident = current_ident[0..29] #truncate to 30 chars or less
+        current_ident = Maybe(initial_ident).to_url[0..29].or_else("trial_site") #truncate to 30 chars or less
 
         # use basedomain as basis on new variations if current domain is not available
         base_ident = current_ident
