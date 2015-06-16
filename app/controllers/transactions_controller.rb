@@ -109,7 +109,7 @@ class TransactionsController < ApplicationController
       community_id: @current_community.id)
 
     admin_transaction_conversation =
-      if is_admin && participant_transaction_conversation.nil?
+      if is_admin && feature_enabled?(:admin_conversations) && participant_transaction_conversation.nil?
         MarketplaceService::Transaction::Query.transaction_with_conversation(
           transaction_id: params[:id],
           community_id: @current_community.id)
