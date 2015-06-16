@@ -253,13 +253,20 @@ module MarketplaceService
           .or_else(nil)
       end
 
-      def transaction_with_conversation(transaction_id, person_id, community_id)
-        Maybe(TransactionModel.joins(:listing)
+      def transaction_with_conversation(transaction_id:, person_id: nil, community_id:)
+        rel = TransactionModel.joins(:listing)
           .where(id: transaction_id)
           .where(community_id: community_id)
           .includes(:booking)
-          .where("starter_id = ? OR listings.author_id = ?", person_id, person_id)
-          .first)
+
+        with_person =
+          if person_id
+            rel.where("starter_id = ? OR listings.author_id = ?", person_id, person_id)
+          else
+            rel
+          end
+
+        Maybe(with_person.first)
           .map { |tx_model| Entity.transaction_with_conversation(tx_model, community_id) }
           .or_else(nil)
       end
