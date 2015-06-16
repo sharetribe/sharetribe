@@ -6,11 +6,11 @@ module PaypalService
     end
 
     def warn(msg)
-      Rails.logger.warn ({ paypal: msg }.to_json)
+      Rails.logger.warn ({ paypal: { type: :warning, message: msg } }.to_json)
     end
 
     def error(msg)
-      Rails.logger.error ({ paypal: msg }.to_json)
+      Rails.logger.error ({ paypal: { type: :error, message: msg } }.to_json)
     end
 
     def log_request_input(request, input)
