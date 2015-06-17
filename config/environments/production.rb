@@ -44,9 +44,9 @@ Kassi::Application.configure do
 
   config.after_initialize do
     ActiveRecord::Base.logger = Rails.logger.clone
-    ActiveRecord::Base.logger.level = Logger::WARN
+    ActiveRecord::Base.logger.level = Logger::INFO
     ActionMailer::Base.logger = Rails.logger.clone
-    ActionMailer::Base.logger.level = Logger::WARN
+    ActionMailer::Base.logger.level = Logger::INFO
   end
 
   # Use a different cache store in production
