@@ -260,11 +260,14 @@ module MarketplaceService
           .includes(:booking)
 
         with_person = Maybe(person_id)
-          .map { |person_id| rel.where("starter_id = ? OR listings.author_id = ?", person_id, person_id) }
-          .or_else(rel)
+          .map { |person_id|
+            [rel.where("starter_id = ? OR listings.author_id = ?", person_id, person_id)] }
+          .or_else { [rel] }
+          .first
 
         Maybe(with_person.first)
-          .map { |tx_model| Entity.transaction_with_conversation(tx_model, community_id) }
+          .map { |tx_model|
+            Entity.transaction_with_conversation(tx_model, community_id) }
           .or_else(nil)
       end
 
