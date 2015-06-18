@@ -28,17 +28,15 @@ Kassi::Application.configure do
 
   # Lograge config, overrides default instrumentation for logging ActionController and ActionView logging
   config.lograge.enabled = true
-  config.lograge.custom_options = lambda do |event|
-    params = event.payload[:params].reject do |k|
-      ['controller', 'action'].include? k
-    end
+  config.lograge.custom_options = ->(event) {
+    params = event.payload[:params].except('controller', 'action')
 
     { params:  params,
       host: event.payload[:host],
       community_id: event.payload[:community_id],
       current_user_id: event.payload[:current_user_id],
       request_uuid: event.payload[:request_uuid] }
-  end
+  }
 
   config.lograge.formatter = Lograge::Formatters::Json.new
 
