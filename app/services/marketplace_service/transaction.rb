@@ -259,12 +259,9 @@ module MarketplaceService
           .where(community_id: community_id)
           .includes(:booking)
 
-        with_person =
-          if person_id
-            rel.where("starter_id = ? OR listings.author_id = ?", person_id, person_id)
-          else
-            rel
-          end
+        with_person = Maybe(person_id)
+          .map { |person_id| rel.where("starter_id = ? OR listings.author_id = ?", person_id, person_id) }
+          .or_else(rel)
 
         Maybe(with_person.first)
           .map { |tx_model| Entity.transaction_with_conversation(tx_model, community_id) }

@@ -100,28 +100,25 @@ class TransactionsController < ApplicationController
   end
 
   def show
-    is_admin = @current_user.has_admin_rights_in?(@current_community)
-    role = :participant
+    m_participant =
+      Maybe(
+        MarketplaceService::Transaction::Query.transaction_with_conversation(
+        transaction_id: params[:id],
+        person_id: @current_user.id,
+        community_id: @current_community.id))
+      .map { |tx_with_conv| [tx_with_conv, :participant] }
 
-    participant_transaction_conversation = MarketplaceService::Transaction::Query.transaction_with_conversation(
-      transaction_id: params[:id],
-      person_id: @current_user.id,
-      community_id: @current_community.id)
-
-    admin_transaction_conversation =
-      if is_admin && feature_enabled?(:admin_conversations) && participant_transaction_conversation.nil?
+    m_admin =
+      Maybe(@current_user.has_admin_rights_in?(@current_community) && feature_enabled?(:admin_conversations))
+      .select { |can_show| can_show }
+      .map {
         MarketplaceService::Transaction::Query.transaction_with_conversation(
           transaction_id: params[:id],
           community_id: @current_community.id)
-      else
-        nil
-      end
+      }
+      .map { |tx_with_conv| [tx_with_conv, :admin] }
 
-    if admin_transaction_conversation
-      role = :admin
-    end
-
-    transaction_conversation = participant_transaction_conversation || admin_transaction_conversation
+    transaction_conversation, role = m_participant.or_else { m_admin.or_else([]) }
 
     tx = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: params[:id])
          .maybe()
