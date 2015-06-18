@@ -8,7 +8,7 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     FLAGS = [
-
+      :admin_conversations
     ].to_set
 
     def initialize(additional_flags:)

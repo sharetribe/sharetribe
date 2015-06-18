@@ -100,10 +100,25 @@ class TransactionsController < ApplicationController
   end
 
   def show
-    transaction_conversation = MarketplaceService::Transaction::Query.transaction_with_conversation(
-      params[:id],
-      @current_user.id,
-      @current_community.id)
+    m_participant =
+      Maybe(
+        MarketplaceService::Transaction::Query.transaction_with_conversation(
+        transaction_id: params[:id],
+        person_id: @current_user.id,
+        community_id: @current_community.id))
+      .map { |tx_with_conv| [tx_with_conv, :participant] }
+
+    m_admin =
+      Maybe(@current_user.has_admin_rights_in?(@current_community) && feature_enabled?(:admin_conversations))
+      .select { |can_show| can_show }
+      .map {
+        MarketplaceService::Transaction::Query.transaction_with_conversation(
+          transaction_id: params[:id],
+          community_id: @current_community.id)
+      }
+      .map { |tx_with_conv| [tx_with_conv, :admin] }
+
+    transaction_conversation, role = m_participant.or_else { m_admin.or_else([]) }
 
     tx = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: params[:id])
          .maybe()
@@ -124,13 +139,21 @@ class TransactionsController < ApplicationController
 
     MarketplaceService::Transaction::Command.mark_as_seen_by_current(params[:id], @current_user.id)
 
+    is_author =
+      if role == :admin
+        true
+      else
+        listing.author_id == @current_user.id
+      end
+
     render "transactions/show", locals: {
       messages: messages_and_actions.reverse,
       transaction: tx,
       listing: listing,
       transaction_model: tx_model,
       conversation_other_party: person_entity_with_url(conversation[:other_person]),
-      is_author: listing.author_id == @current_user.id,
+      is_author: is_author,
+      role: role,
       message_form: MessageForm.new({sender_id: @current_user.id, conversation_id: conversation[:id]}),
       message_form_action: person_message_messages_path(@current_user, :message_id => conversation[:id]),
       price_break_down_locals: price_break_down_locals(tx)
