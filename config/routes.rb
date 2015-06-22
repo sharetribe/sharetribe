@@ -11,6 +11,10 @@ Kassi::Application.routes.draw do
 
   match "/robots.txt" => RobotsGenerator
 
+  # A route for DV test file
+  # A CA will check if there is a file in this route
+  get "/:dv_file" => "domain_validation#index", constraints: {dv_file: /.*\.txt/}
+
   match "/design" => "design#design"
 
   # config/routes.rb

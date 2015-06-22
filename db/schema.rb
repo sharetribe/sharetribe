@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150612104320) do
+ActiveRecord::Schema.define(:version => 20150622080657) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -130,27 +130,27 @@ ActiveRecord::Schema.define(:version => 20150612104320) do
     t.datetime "updated_at"
     t.text     "settings"
     t.string   "consent"
-    t.boolean  "transaction_agreement_in_use",               :default => false
-    t.boolean  "email_admins_about_new_members",             :default => false
-    t.boolean  "use_fb_like",                                :default => false
-    t.boolean  "real_name_required",                         :default => true
-    t.boolean  "feedback_to_admin",                          :default => true
-    t.boolean  "automatic_newsletters",                      :default => true
-    t.boolean  "join_with_invite_only",                      :default => false
-    t.boolean  "use_captcha",                                :default => false
+    t.boolean  "transaction_agreement_in_use",                             :default => false
+    t.boolean  "email_admins_about_new_members",                           :default => false
+    t.boolean  "use_fb_like",                                              :default => false
+    t.boolean  "real_name_required",                                       :default => true
+    t.boolean  "feedback_to_admin",                                        :default => true
+    t.boolean  "automatic_newsletters",                                    :default => true
+    t.boolean  "join_with_invite_only",                                    :default => false
+    t.boolean  "use_captcha",                                              :default => false
     t.text     "allowed_emails"
-    t.boolean  "users_can_invite_new_users",                 :default => true
-    t.boolean  "private",                                    :default => false
+    t.boolean  "users_can_invite_new_users",                               :default => true
+    t.boolean  "private",                                                  :default => false
     t.string   "label"
-    t.boolean  "show_date_in_listings_list",                 :default => false
-    t.boolean  "all_users_can_add_news",                     :default => true
-    t.boolean  "custom_frontpage_sidebar",                   :default => false
-    t.boolean  "event_feed_enabled",                         :default => true
+    t.boolean  "show_date_in_listings_list",                               :default => false
+    t.boolean  "all_users_can_add_news",                                   :default => true
+    t.boolean  "custom_frontpage_sidebar",                                 :default => false
+    t.boolean  "event_feed_enabled",                                       :default => true
     t.string   "slogan"
     t.text     "description"
-    t.string   "category",                                   :default => "other"
+    t.string   "category",                                                 :default => "other"
     t.string   "country"
-    t.integer  "members_count",                              :default => 0
+    t.integer  "members_count",                                            :default => 0
     t.integer  "user_limit"
     t.float    "monthly_price_in_euros"
     t.string   "logo_file_name"
@@ -168,51 +168,53 @@ ActiveRecord::Schema.define(:version => 20150612104320) do
     t.string   "custom_color1"
     t.string   "custom_color2"
     t.string   "stylesheet_url"
-    t.boolean  "stylesheet_needs_recompile",                 :default => false
-    t.string   "service_logo_style",                         :default => "full-logo"
+    t.boolean  "stylesheet_needs_recompile",                               :default => false
+    t.string   "service_logo_style",                                       :default => "full-logo"
     t.text     "available_currencies"
-    t.boolean  "facebook_connect_enabled",                   :default => true
-    t.boolean  "only_public_listings",                       :default => true
+    t.boolean  "facebook_connect_enabled",                                 :default => true
+    t.boolean  "only_public_listings",                                     :default => true
     t.string   "custom_email_from_address"
     t.integer  "vat"
     t.integer  "commission_from_seller"
     t.integer  "minimum_price_cents"
-    t.boolean  "testimonials_in_use",                        :default => true
-    t.boolean  "hide_expiration_date",                       :default => false
+    t.boolean  "testimonials_in_use",                                      :default => true
+    t.boolean  "hide_expiration_date",                                     :default => false
     t.string   "facebook_connect_id"
     t.string   "facebook_connect_secret"
     t.string   "google_analytics_key"
-    t.string   "name_display_type",                          :default => "first_name_with_initial"
+    t.string   "name_display_type",                                        :default => "first_name_with_initial"
     t.string   "twitter_handle"
-    t.boolean  "use_community_location_as_default",          :default => false
+    t.boolean  "use_community_location_as_default",                        :default => false
     t.string   "preproduction_stylesheet_url"
-    t.boolean  "show_category_in_listing_list",              :default => false
-    t.string   "default_browse_view",                        :default => "grid"
+    t.boolean  "show_category_in_listing_list",                            :default => false
+    t.string   "default_browse_view",                                      :default => "grid"
     t.string   "wide_logo_file_name"
     t.string   "wide_logo_content_type"
     t.integer  "wide_logo_file_size"
     t.datetime "wide_logo_updated_at"
     t.boolean  "only_organizations"
-    t.boolean  "listing_comments_in_use",                    :default => false
-    t.boolean  "show_listing_publishing_date",               :default => false
-    t.boolean  "require_verification_to_post_listings",      :default => false
-    t.boolean  "show_price_filter",                          :default => false
-    t.integer  "price_filter_min",                           :default => 0
-    t.integer  "price_filter_max",                           :default => 100000
-    t.integer  "automatic_confirmation_after_days",          :default => 14
+    t.boolean  "listing_comments_in_use",                                  :default => false
+    t.boolean  "show_listing_publishing_date",                             :default => false
+    t.boolean  "require_verification_to_post_listings",                    :default => false
+    t.boolean  "show_price_filter",                                        :default => false
+    t.integer  "price_filter_min",                                         :default => 0
+    t.integer  "price_filter_max",                                         :default => 100000
+    t.integer  "automatic_confirmation_after_days",                        :default => 14
     t.string   "favicon_file_name"
     t.string   "favicon_content_type"
     t.integer  "favicon_file_size"
     t.datetime "favicon_updated_at"
-    t.integer  "default_min_days_between_community_updates", :default => 7
-    t.boolean  "listing_location_required",                  :default => false
+    t.integer  "default_min_days_between_community_updates",               :default => 7
+    t.boolean  "listing_location_required",                                :default => false
     t.text     "custom_head_script"
-    t.boolean  "follow_in_use",                              :default => true,                      :null => false
+    t.boolean  "follow_in_use",                                            :default => true,                      :null => false
     t.boolean  "logo_processing"
     t.boolean  "wide_logo_processing"
     t.boolean  "cover_photo_processing"
     t.boolean  "small_cover_photo_processing"
     t.boolean  "favicon_processing"
+    t.string   "dv_test_file_name",                          :limit => 64
+    t.string   "dv_test_file",                               :limit => 64
     t.boolean  "deleted"
   end
 
