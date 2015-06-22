@@ -135,12 +135,12 @@ ja:
         payments_link_text: お支払い方法の設定
         info_texts: "ユーザに促したいマーケットプレイスについての大事な情報をカスタマイズするのを忘れないでください。%{about_page_link}、%{terms_of_use_link} （こちらはあなたが作成した独自のものにしてください。あるいはテンプレートを編集しても構いません）、%{privacy_policy_link}、新規のユーザに送信する %{welcome_email_link} 。%{instruction_texts_link} も設定できます。"
         about_page_link_text: ページについて
-        terms_of_use_link_text: ご利用規約
+        terms_of_use_link_text: 利用規約
         privacy_policy_link_text: プライバシーポリシー
         welcome_email_link_text: 新ユーザ案内メール
         instruction_texts_link_text: その他の説明文
         social_media: "ソーシャルメディアを使うことはコミュニティを確立するために、とても良いことです。%{facebook_link} から人がログインをより簡単にしてもらえたり、%{twitter_link} でマーケットプレイスの商品やサービスのことをツイートしてもらって、口コミや良いうわさはすばやく広がるでしょう。"
-        facebook_link_text: フェイスブックアプリと接続する
+        facebook_link_text: Facebookアプリと接続する
         twitter_link_text: Twitterのアカウントを追加する
         analytics: "%{analytics_link}して活用することは、良いアイデアです。これにより、何人の訪問者が来ているかなど情報をはじめとする、マーケットプレイスの動向が見えやすくなります。"
         analytics_link_text: "Google アナリティクスのアカウントに接続"
@@ -228,10 +228,10 @@ ja:
         twitter_instructions_link_text: 続きを読む
         twitter_handle_placeholder: Twitterのユーザー名
         invalid_twitter_handle: ツイッターのハンドルネームは、15文字以内のアルファベット（A-Zの半角文字と0-9の数字）が使用できます。
-        facebook_connect: フェイスブック
-        facebook_connect_info_text: "フェイスブックでログインを可能にするためには、<a href='https://developers.facebook.com/'>開発者のフェイスブックダッシュボード</a>の中のあなたのマーケットプレイスのアプリを立ち上げます。ここで生成IDとアプリのシークレットキーを追加してください。"
-        facebook_connect_info_text_with_instructions: "フェイスブックでログインを可能にするためには、<a href='https://developers.facebook.com/'>開発者のフェイスブックダッシュボード</a>の中のあなたのマーケットプレイスのアプリを立ち上げます。ここで生成IDとアプリのシークレットキーを追加してください。%{instructions_link}"
-        facebook_instructions_link_text: フェイスブックに接続するするための説明を見る。
+        facebook_connect: Facebook
+        facebook_connect_info_text: "Facebookでログインを可能にするためには、<a href='https://developers.facebook.com/'>開発者のFacebookダッシュボード</a>の中のあなたのマーケットプレイスのアプリを立ち上げます。ここで生成IDとアプリのシークレットキーを追加してください。"
+        facebook_connect_info_text_with_instructions: "Facebookでログインを可能にするためには、<a href='https://developers.facebook.com/'>開発者のFacebookダッシュボード</a>の中のあなたのマーケットプレイスのアプリを立ち上げます。ここで生成IDとアプリのシークレットキーを追加してください。%{instructions_link}"
+        facebook_instructions_link_text: Facebookに接続するするための説明を見る。
         facebook_connect_id: フェイスプックのユーザーID
         invalid_facebook_connect_id: ユーザーIDは数字のみで構成されています
         facebook_connect_secret: フェイスプックユーザーの秘密
@@ -500,7 +500,7 @@ ja:
       other: その他
     username: ユーザ名
     username_or_email: "メールアドレス or ユーザー名"
-    what_is_this: これは何ですか。
+    what_is_this: これは何ですか？
     removed_user: ユーザは削除されました
     paypal_fee_info:
       title: PayPal手数料
@@ -556,7 +556,7 @@ ja:
       loading_more_messages: メッセージを読み込んでいます
       message_partitive: メッセージ
       messages_partitive: メッセージ
-      no_received_messages: メッセージなし
+      no_received_messages: メッセージはありません。
       no_sent_messages: メッセージを送信しませんでした
     conversation:
       accepted_request: リクエストは受諾されました。
@@ -741,10 +741,10 @@ ja:
       welcome_fb_user: "%{service_name}へようこそ、%{name}さん！"
       fb_join_accept_terms: "%{service_name}に参加するまであと一歩です：ご利用規約をご確認の上、承諾してください。"
       join_community: "%{service_name}に参加する"
-      you_can_join: "%{service_name}のご利用規約に同意し、下の「%{service_name}に参加する」をクリックすると参加できます。"
-      you_can_join_email_confirmation: "%{service_name}に参加するには、%{email_ending}で終わる有効なメールアドレスが必要です。メールアドレスを記入し、ご利用規約に同意し「%{service_name}に参加」をクリックして、メール認証手続きを行ってご参加ください。"
-      you_can_join_email_confirmation_multiple_addresses: "%{service_name}は、メールアドレスの規制があります。参加するには、許可されたメールアドレスが必要です。メールアドレスを記入し、%{service_name}のご利用規約に同意し、「%{service_name}に参加」をクリックして、メール認証手続きを行ってご参加ください。"
-      you_can_join_with_invite_only: "他のメンバーから%{service_name}に参加するよう招待されています。もし招待コードをお持ちの場合は、下記の枠に招待コードを入力して、ご利用規約に同意し「%{service_name}に参加」をクリックしてください。"
+      you_can_join: "%{service_name}の利用規約に同意し、下の「%{service_name}に参加する」をクリックすると参加できます。"
+      you_can_join_email_confirmation: "%{service_name}に参加するには、%{email_ending}で終わる有効なメールアドレスが必要です。メールアドレスを記入し、利用規約に同意し「%{service_name}に参加」をクリックして、メール認証手続きを行ってご参加ください。"
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name}は、メールアドレスの規制があります。参加するには、許可されたメールアドレスが必要です。メールアドレスを記入し、%{service_name}の利用規約に同意し、「%{service_name}に参加」をクリックして、メール認証手続きを行ってご参加ください。"
+      you_can_join_with_invite_only: "他のメンバーから%{service_name}に参加するよう招待されています。もし招待コードをお持ちの場合は、下記の枠に招待コードを入力して、利用規約に同意し「%{service_name}に参加」をクリックしてください。"
       if_want_to_view_content: "サイトに参加せずに%{service_name}のメンバーページを見たいなら、あなたは"
       log_out: ログアウト
       join_community_button: "%{service_name}に参加する"
@@ -819,7 +819,7 @@ ja:
       edit_your_email_settings_here: ここからメール設定を編集
       message_not_displaying_correctly: このメールアドレスは正しく表示されていませんか。
       view_it_in_your_browser: あなたのブラウザで表示する
-      or: それとも
+      or: or
       unsubscribe_from_these_emails: これらのメールを購読解除する
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}さんはあなたの%{listing}のオファーを受け入れました"
@@ -892,7 +892,7 @@ ja:
       title_link_text: "%{community_name}"
       intro_paragraph: "こちらは%{time_since_last_update}間に、%{community_link}で更新された情報です。"
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: 新規リストを投稿！
+      post_a_new_listing: 投稿する！
       reduce_email_footer_text: "メールが多すぎますか。%{settings_link} or %{unsubscribe_link}"
       settings_link_text: ここからメール設定を編集
       unsubscribe_link_text: 購読を解除する
@@ -1094,7 +1094,7 @@ ja:
       is: は
       are: です
       what_do_you_need: 何をお探しですか？
-      post_new_listing: 新規リストを投稿！
+      post_new_listing: 投稿する
       are_offering: オファー
       add_news_item: 記事を追加する
       lend_rent_help_carpool: 売ります、無料で貸します、お手伝いします、ライドシェア
@@ -1152,7 +1152,7 @@ ja:
       default_about_text: "このマーケットプレイスは、Sharetribeプラットフォームのもとで動いております。あなた自身もSharetribeを使用して独自のマーケットプレイスを作成してみてはいかがですか。無料で数分で出来ます。%{click_here_link}から詳細を確認してください！"
       click_here_link_text: こちらをクリックしてください
     how_to_use:
-      default_title: サイトの仕組み
+      default_title: ご利用ガイド
       default_content: "ここで、%{marketplace_name}の概要を説明できます。"
   layouts:
     admin:
@@ -1165,7 +1165,7 @@ ja:
       join_this_community: マーケットプレイスに参加する
       read_more: もっと読む
       feedback: ご用件をどうぞ
-      default_feedback: "%{service_name}? のご利用に当たっての不明点、サービス改善のご提案、怪しい投稿の発見などに関しては、こちらからお気軽にお問い合わせください。もちろん、当社へのご意見も大歓迎です！"
+      default_feedback: "%{service_name} の利用に関するご質問、サービス改善のご提案、怪しい投稿のご報告は、こちらからお願いします。もちろん、当社へのご意見も大歓迎です！"
       feedback_forum: レビューフォーラム
       feedback_handle: レビューを書く
       give_feedback: お問い合わせ
@@ -1179,7 +1179,7 @@ ja:
       invite_your_friends_description: "%{service_name}にもっと人が集まれば、もっと便利になります。"
       invite_your_friends_invite_only_description: "%{service_name}に招待されない限り、参加できません。"
       join_without_facebook: "or 代わりに %{join_without_facebook_link}"
-      join_without_facebook_link: フェイスブックなしで登録する
+      join_without_facebook_link: Facebookなしで登録する
     conversations:
       messages: メッセージ
       notifications: メール通知
@@ -1189,11 +1189,11 @@ ja:
       select_language: 言語を選択
     infos:
       about: このサイトについて
-      how_to_use: サイトの仕組み
+      how_to_use: ご利用ガイド
       info_about_kassi: "%{service_name}について"
       news: ニュース
       register_details: プライバシー
-      terms: ご利用規約
+      terms: 利用規約
     logged_in:
       admin: サイト管理
       go_to_your_profile_page: プロフィール
@@ -1231,7 +1231,7 @@ ja:
       comment_sent: コメントを送信
       confirmation_link_is_wrong_or_used: 認証リンクがすでに使用されていたか、壊れていたようです。ログインを試してみて、問題が解決しない場合はサイト管理者にお問い合わせください。
       additional_email_confirmed: 入力したメールアドレスは承認されました。
-      could_not_get_email_from_facebook: フェイスブックからメールアドレスを取得出来ませんでした。メールアドレスなしでアカウント作成が出来ません
+      could_not_get_email_from_facebook: Facebookからメールアドレスを取得出来ませんでした。メールアドレスなしでアカウント作成が出来ません
       create_new_listing: もうひとつリストを作成する
       create_one_here: ここから作成
       email_confirmation_sent_to_new_address: 新しいメールアドレスへ認証メールを送りました。
@@ -1250,7 +1250,7 @@ ja:
       account_creation_successful: "%{person_name}さん、ようこそ%{service_name}へ！"
       account_deleted: あなたのアカウントは削除されました。
       login_successful: "ようこそ、%{person_name}さん！"
-      logout_successful: "%{service_name}からログアウトしました。またよろしくお願いします！"
+      logout_successful: "%{service_name}からログアウトしました。またのご利用をお待ちしております！"
       news_item_created: 記事が作成されました
       news_item_creation_failed: 記事作成失敗です
       news_item_update_failed: 記事の更新失敗です
@@ -1262,7 +1262,7 @@ ja:
       listing_created_successfully: "リストは掲載されました。%{new_listing_link}"
       offer_rejected: オファーは却下されました
       offer_canceled: オファーはキャンセルされました
-      listing_updated_successfully: リストは更新されました
+      listing_updated_successfully: 投稿は更新されました
       only_kassi_administrators_can_access_this_area: "こちらは%{service_name}の管理者だけがアクセス出来ます"
       only_listing_author_can_close_a_listing: リストの作成者のみがリストをクローズ出来ます
       only_listing_author_can_edit_a_listing: このリストの作成者のみがこのリストを編集出来ます
@@ -1311,7 +1311,7 @@ ja:
       you_must_log_in_to_give_feedback: レビューを書くにはログインをしてください
       you_must_log_in_to_invite_new_users: "%{service_name}に新しいユーザを招待するにはログインしていなければなりません"
       you_must_log_in_to_send_a_comment: 新しいコメントを送信するにはログインしてください
-      you_must_log_in_to_send_a_message: "他のユーザにメッセージを送信するには、%{service_name}にログインしてください。"
+      you_must_log_in_to_send_a_message: "他のユーザーにメッセージを送信するには、%{service_name}にログインしてください。"
       you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: コンテンツを閲覧するにはログインしてください
       you_must_log_in_to_view_this_page: このページを閲覧するにはログインしていなければなりません
@@ -1356,10 +1356,10 @@ ja:
       you_must: ログインしてください
       subscribe_to_comments: 新しいコメントや更新があるとき通知する
     edit:
-      edit_listing: リストを編集する
+      edit_listing: 投稿を編集する
     edit_links:
       close_listing: リストをクローズする
-      edit_listing: リストを編集する
+      edit_listing: 投稿を編集する
       reopen_listing: リストを再開する
       move_to_top: ホームページトップに移動する
       show_in_updates_email: このリストを次の自動メールで紹介
@@ -1434,7 +1434,7 @@ ja:
         location: 場所
         origin: 起点となる場所
       send_button:
-        save_listing: リストを保存する
+        save_listing: 投稿を保存する
       share_type:
         select: 選択
         borrow: 借りる
@@ -1456,7 +1456,7 @@ ja:
       title:
         listing_title: リストのタイトル
       valid_until:
-        valid_until: 有効期限
+        valid_until: 公開期間
       valid_until_radio_buttons:
         for_the_time_being: 当分の間
       visibility:
@@ -1470,7 +1470,7 @@ ja:
     help_texts:
       help_share_type_title: オファーやリクエストの種類
       help_tags_title: タグ
-      help_valid_until_title: 有効期限
+      help_valid_until_title: 公開期間
     index:
       all_categories: すべてのカテゴリー
       all_offer_types: すべてのオファーの種類
@@ -1514,14 +1514,14 @@ ja:
       booking_to: この日まで
       how_paypal_works: PayPalの仕組み
     new:
-      post_a_new_listing: 新規リストを投稿！
+      post_a_new_listing: 投稿する
       listing: リスト
       selected_category: "カテゴリー： %{category}"
       selected_subcategory: "サブカテゴリー： %{subcategory}"
-      selected_transaction_type: "課金の種類： %{transaction_type}"
+      selected_transaction_type: "取引の種類： %{transaction_type}"
       select_category: カテゴリを選択
       select_subcategory: サブカテゴリーを選択
-      select_transaction_type: 課金の種類を選択
+      select_transaction_type: 取引の種類を選択
       you_need_to_fill_payout_details_before_accepting: "リストを投稿する前に、お支払い情報の入力を完了している必要があります。%{payment_settings_link}で、情報入力をお願いします。"
       contact_admin_link_text: サイト管理者にお問い合わせください。
       community_not_configured_for_payments: "%{service_name}はお支払いを確定できませんでしたので、まだ新しいリストを掲載が出来ていません。%{contact_admin_link}から詳細についてお問い合わせください。"
@@ -1575,7 +1575,7 @@ ja:
         per_quantity_unit: "あたり： %{quantity_unit}"
         per_day: 1日あたり
       delivery: 配送の方法
-      shipping: "送料（%{price}）"
+      shipping: "発送（%{price}）"
       shipping_no_price: 送料
       shipping_price_additional: "送料 (+%{price}, 追加の注文: +%{shipping_price_additional})"
       pickup: "引き取り（%{price}）"
@@ -1658,7 +1658,7 @@ ja:
     missing: "公開されているリストがありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続手続きをお願いします。"
     from_your_payment_settings_link_text: お支払い設定
     new:
-      payout_info_you_need_to_connect: "ほかの利用者からお支払いを受け取るには、あなたのPayPalアカウントを%{service_name}に接続する必要があります。"
+      payout_info_you_need_to_connect: "購入者からのお支払いを受け取るには、あなたのPayPalアカウントを%{service_name}に接続する必要があります。"
       payout_info_text: あなたのアカウントを接続するために次の２つのステップを完了させてください。
       contact_admin_link_text: サイト管理者にお問い合わせください。
       admin_account_not_connected: "%{service_name}はお支払い設定がされていなかったため、あなたのPayPalアカウントまで到達できませんでした。%{contact_admin_link}に詳細を報告して問題を解決してください。"
@@ -1668,13 +1668,13 @@ ja:
       create_paypal_account: こちら
       upgrade_paypal_account: ここであなたのアカウントをアップグレードしてください。
       connect_paypal_account: PayPalアカウントに接続する
-      paypal_account_billing_agreement: "%{service_name}の利用料金支払いの許可を承諾してください"
+      paypal_account_billing_agreement: "%{service_name}に対する手数料の支払いを承諾してください"
       paypal_account_billing_agreement_info_both: "%{service_name}内で売り上げ後: 送料を除いた%{commission_from_seller}のご利用手数料が、最低でも%{minimum_commission}があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
       paypal_account_billing_agreement_info_fixed: "%{service_name}内で売り上げ後、最低でも%{minimum_commission}があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
       paypal_account_billing_agreement_info_relative: "%{service_name}内で売り上げ後、送料を除いた合計金額の%{commission_from_seller}の手数料があなたのPayPalの口座より、差し引かれます。%{service_name}内でのお支払いを受け入れるには、お支払い手数料の請求に同意する必要があります。なお、手数料は%{paypal_info_link}を含みません。"
       paypal_info_link_text: PayPalのご利用手数料
-      billing_agreement_description: "%{service_name}の利用料金支払いの許可を承諾してください"
-      billing_agreement: 許可してください
+      billing_agreement_description: "%{service_name}に対する手数料の支払いを承諾してください"
+      billing_agreement: 承諾する
       permissions_not_granted: PayPalアカウントに接続する許可を取得出来ませんでした。
       could_not_fetch_redirect_url: PayPalに接続しリダイレクトURLを取って来れませんでした。
       paypal_not_enabled: PayPalのお支払いはご利用できません。
@@ -1701,7 +1701,7 @@ ja:
       feedback_description_title: レビューを書く
       help_captcha_title: あなたは人間ですか。
       help_invitation_code_title: 参加には招待が必要です
-      terms_title: "%{service_name}のご利用規約"
+      terms_title: "%{service_name}の利用規約"
       invite_only_help_text: 既存のユーザーからの招待のみで新規メンバーを獲得したい場合はこちらのオプションをご利用ください。
       invite_only_help_text_title: 招待制になっております
     inactive_notification:
@@ -1720,20 +1720,20 @@ ja:
       enter_captcha: 私は人間です。
       family_name: 姓
       given_name: 名
-      i_accept_the: ご利用規約に同意します
+      i_accept_the: 利用規約に同意します
       invalid_invitation_code: その招待コードは無効です。
       invitation_code: 招待コード
       not_required: 、必要ありません
       organization_name: 組織名
-      password_again: パスワードを承認する
-      show_my_name_to_others: "%{service_name}内の他のユーザに私の本名を表示する"
-      sign_up: "%{service_name}で新規登録する"
-      terms: ご利用規約
+      password_again: パスワードを確認する
+      show_my_name_to_others: "%{service_name}内の他のユーザーに私の本名を表示する"
+      sign_up: "%{service_name}に新規登録する"
+      terms: 利用規約
       username_is_in_use: そのユーザ名はすでに使用されています。
       username_is_invalid: 無効なユーザ名です。文字と数字とアンダーバーが使用可能です。
       visible_only_to_you: あなただけに表示されるマーケットプレイスの管理ページ
       visible_to_everybody: 全員に表示
-      create_account_with_facebook: フェイスブックで登録する
+      create_account_with_facebook: "Facebook IDで会員登録"
       OR: それとも
       signup_with_email: メールアドレスで新規登録する
     not_member:
@@ -1808,19 +1808,19 @@ ja:
   sessions:
     new:
       create_new_account: 新規登録する
-      i_forgot_my_password: ユーザー名かパスワードを忘れました
+      i_forgot_my_password: "ユーザー名 or パスワードを忘れた場合はこちら"
       login: ログイン
       login_to_kassi: "%{service_name}にログイン"
-      connect_your_facebook_to_kassi: "あなたのフェイスブックアカウントを%{service_name}につなげる"
-      facebook_account: フェイスブックのアカウント
+      connect_your_facebook_to_kassi: "あなたのFacebookアカウントを%{service_name}につなげる"
+      facebook_account: Facebookのアカウント
       log_in_to_link_account: "もしすでに%{service_name}のアカウントをお持ちであれば、まずログインをしてからフェイスプックのアカウントをつないでください。"
       you_can_also_create_new_account: "まだ%{service_name}にアカウントをお持ちでなければ、こちらから%{accont_creation_link}フェイスプックのアカウントでログインしてください。"
       account_creation_link_text: ここをクリック
       cancle_facebook_connect: "もしこのアカウントをリンクしたくない場合は、%{cancel_link}が出来ます。"
       facebook_cancel_link_text: キャンセル
-      log_in_with_your_facebook_account: フェイスブックのアカウントでログインする
-      or_sign_up_with_your_username: "...それともユーザー名 or メールアドレス："
-      we_will_not_post_without_asking_you: あなたに断りなくフェイスブックに投稿することは、決してありません。
+      log_in_with_your_facebook_account: "Facebook IDでログイン"
+      or_sign_up_with_your_username: "または、ユーザー名 or メールアドレスで登録："
+      we_will_not_post_without_asking_you: あなたに断りなくFacebookに投稿することは、決してありません。
     password_forgotten:
       email: メールアドレス
       password_recovery_instructions: メールアドレスを入力して、パスワード再設定を行います。
@@ -1842,7 +1842,7 @@ ja:
       change: 変更
       confirm_new_password: パスワードを承認する
       delete_account: アカウントを削除する
-      delete_account_button: この登録永久に抹消してください
+      delete_account_button: アカウントを永久に抹消する
       delete_account_confirmation_popup: あたたのご登録を完全に抹消されたいとのことですが、お間違いございませんか。このお手続きの後で、もう一度元の状態に戻すことが出来なくなります。
       email_addresses: メールアドレス
       new_email: 新しいメールアドレス
@@ -1895,24 +1895,24 @@ ja:
       unsubscribe_unsuccesful: 購読解除中にエラー発生しました
       unsuccessful_unsubscribe_info_text: 購読解除のリンクが古いか壊れていた可能性があります。お問い合わせよりご連絡ください。サイト管理者に購読解除を代行を依頼するか、あるいはあなたのメール設定を今一度ご確認の上、変更してください。
     profile:
-      about_you: あなたについて
+      about_you: 自己紹介
       city: 市
       family_name: 姓
       given_name: 名
-      first_name_with_initial: （他のユーザには最初の一文字だけ表示しています）
-      first_name_only: （他のユーザに表示していません）
-      location_description: たとえば郵便番号だけなど大体の場所だけを掲載する方法もあります。いずれにしましても郵便番号は追加してください。また、地図で選択することも出来ます。
+      first_name_with_initial: （他のユーザーには最初の一文字だけ表示されます）
+      first_name_only: （他のユーザーには表示されません）
+      location_description: 詳細な住所を掲載したくない場合には、郵便番号だけを掲載することもできます。少なくとも郵便番号は記載をお願いします。また、地図から所在地を選択することもできます。
       phone_number: 電話番号
       profile_picture: プロフィール写真
       postal_code: 郵便番号
       profile_page: プロフィール情報を設定
       profilemap: 地図で見る
       street_address: 場所
-      these_fields_are_shown_in_your: "この情報は%{service_name}のユーザすべてに表示されます"
+      these_fields_are_shown_in_your: "この情報は、%{service_name}のすべてのユーザーに表示されます。"
       visible_to_everybody: 全員に表示
       visible_to_registered_users: （ログイン済みユーザに表示）
       default_in_listing: （これは新規リストを作成時用の初期設定です）
-      invisible: （他のユーザに表示していません）
+      invisible: （他のユーザーに表示されません）
       image_is_processing: あなたのプロフィール用写真を準備中です。しばらくしてからページをリロードしてください。
     save_information: 情報を保存する
   shipping_address:
@@ -1931,7 +1931,7 @@ ja:
       terms_have_changed: ご利用規約は変更されました
       you_can_view_the_new_terms: 新しい規約を見ることが出来ます
       you_need_to_accept: "%{service_name}へようこそ！今回は初めてのご利用のようですね。ご利用開始の前にまず承認"
-      you_need_to_accept_new_terms: "%{service_name}のご利用規約が変更されました。%{service_name}のご利用の継続には、これに承諾する必要があります。新しいご利用規約はサービスを良い状態に保つことを目的としております。"
+      you_need_to_accept_new_terms: "%{service_name}の利用規約が変更されました。%{service_name}のご利用の継続には、これに承諾する必要があります。新しい利用規約はサービスを良い状態に保つことを目的としております。"
   testimonials:
     index:
       all_testimonials: すべてのレビュー

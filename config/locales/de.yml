@@ -77,11 +77,11 @@ de:
         verification_to_post_listings_info_content_default: "Auf diesem Marktplatz ist es erforderlich, dass man sich vom Administrator verifizieren lässt, bevor man Einträge veröffentlichen darf. Du bist noch nicht verifiziert. Bitte %{contact_admin_link}, um dich verifizieren zu lassen."
         contact_admin_link_text: "Administrator kontaktieren"
         save: "Einstellungen speichern"
-        transaction_agreement: ~
+        transaction_agreement: Transaktionsvereinbarung
         transaction_agreement_checkbox: "Benutzer müssen die Nutzungsvereinbarungen vor der Transaktion akzeptieren"
         transaction_agreement_checkbox_header: "Nutzungsvereinbarung Label"
         transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
+        transaction_agreement_text_header: Nutzungsvereinbarung
         transaction_agreement_description: "Dies ist der Inhalt der eigentlichen Nutzungsvereinbarung, die der Anwender akzeptieren muss. Der Inhalt der Nutzungsvereinbarung wird angezeigt, wenn der Benutzer den %{read_more} Link neben dem Label der Nutzungsvereinbarung klickt."
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
@@ -90,7 +90,7 @@ de:
         community_cover_photo: Titelbild
         small_community_cover_photo: "Kleines Titelbild"
         favicon: Favicon
-        favicon_info_text: ~
+        favicon_info_text: "Das Favicon ersetzt das Standard Sharetribe Logo. Es sollte 32x32 Pixel groß sein. Hochgeladene Bilder werden auf diese Größe geändert."
         community_custom_color1: Hauptfarbe
         community_custom_color2: "Zweite Farbe"
         logo_instructions_text_with_dimensions: "Die Größe des Logos sollte %{width}x%{height}px betragen."
@@ -102,8 +102,8 @@ de:
         main_content_width: "Wenn du ein Titelfoto aussuchst, beachte bitte, dass die Breite des Inhalts auf der Startseite höchstens %{main_width} Pixel beträgt. Überprüfe außerdem, wie dein Titelfoto auf kleineren Bildschirmen aussieht (z.B wenn du einen schmaleren Browser benutzt)."
         custom_color1_instructions_text: "Du kannst die Hauptfarbe der Community ändern, indem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen. Kopiere den Code hier ein."
         custom_color2_instructions_text: "Du kannst die zweite Farbe dieser Benutzeroberfläche ändern, indem du einen Hex-Farbwert eingibst."
-        default_browse_view: Standard-Browser-Ansicht
-        default_browse_view_instructions_text: ~
+        default_browse_view: Standardansicht
+        default_browse_view_instructions_text: "Die Standardansicht legt fest, wie die Angebote auf der Webseite standardmäßig angezeigt werden."
         grid: Gitter
         list: Liste
         map: Karte
@@ -113,7 +113,7 @@ de:
         first_name_with_initial: "Vorname mit Initial (erster Buchstabe)"
         first_name_only: "Nur der Vorname"
         invalid_color_code: "Der Farben Code sollte 6 Ziffern oder Buchstaben A-F haben, zum Beispiel D96E21"
-        custom_head_script: ~
+        custom_head_script: "Angepasstes Skript"
         custom_head_script_instructions_text: ~
       edit_text_instructions:
         edit_text_instructions: Anleitungstexte
@@ -198,7 +198,7 @@ de:
         google_analytics_key: "Google Analytics Tracking ID (klassisches Konto)"
         twitter_handle: "Twittername (wird mit dem Tweet-Button im Listing verwendet)"
         update_settings: "Einstellungen speichern"
-        automatically_confirmed: ~
+        automatically_confirmed: "Die Transaktion wird %{days_dropdown} Tage nach Bezahlung automatisch als vollständig gekennzeichnet. Sollte Treuhand verwendet worden sein, wird dann das Geld an den Leistungserbringer freigegeben."
         automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: "Newsletter automatisch schicken: %{frequency_dropdown}"
         newsletter_daily: Täglich
@@ -228,7 +228,7 @@ de:
       social_media:
         social_media: "Social media"
         twitter_handle: Twittername
-        twitter_handle_info_text: ~
+        twitter_handle_info_text: "Der Twitter Nutzername Deines Marktplatzes (wenn Du einen hast). Er wird genannt, wenn jemand den Tweet Button in einem Angebot nutzt."
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: Weiterlesen
         twitter_handle_placeholder: Benutzername
@@ -279,8 +279,8 @@ de:
           paid: Bezahlt
           confirmed: Bestätigt
           canceled: Storniert
-          initiated: ~
-          pending_ext: ~
+          initiated: "Warten auf die Paypal Zahlung"
+          pending_ext: "Warten auf die Paypal Zahlung"
         not_available: "nicht verfügbar"
       braintree_payment_gateway:
         braintree_payment_gateway: "Braintree Payment API keys"
@@ -288,7 +288,7 @@ de:
         private_key: "Private Key"
         public_key: "Public Key"
         client_side_encryption_key: ~
-        merchant_id: ~
+        merchant_id: "Händler ID"
         master_merchant_id: ~
         commission_from_seller: "Provisionsprozentsatz vom Anbieter"
       paypal_account:
@@ -302,7 +302,7 @@ de:
         price_min: Mindestpreis
         price_max: Höchstpreis
       edit_location:
-        edit_location_field: ~
+        edit_location_field: "Standort bearbeiten"
         this_field_is_required: "Dieses Feld ist erforderlich"
       form:
         field_required:
@@ -310,7 +310,7 @@ de:
           this_field_is_required_checkbox: ~
       index:
         listing_fields: Filter
-        listing_fields_help: ~
+        listing_fields_help: "Hier kannst Du die Felder bearbeiten, die Nutzer ausfüllen müssen, wenn sie einen neuen Eintrag erstellen. Bitte beachte, dass einige Felder vorgegeben sind und nicht geändert werden können."
         add_new_field: "Neues Feld hinzufügen:"
         remove_field_confirmation: "Willst du das Feld '%{field_name}' wirklich entfernen?"
         cancel: Abbrechen
@@ -572,7 +572,7 @@ de:
       about_listing: "In Bezug auf %{listing_title}"
       free_message: "Kostenlose Nachricht"
     message:
-      accepted_request: "Anfrage akzeptieren"
+      accepted_request: "Anfrage wurde akzeptiert"
       accepted_offer: "Angebot akzeptieren"
       rejected_request: "Anfrage abgelehnt"
       rejected_offer: "Angebot ablehnen"
@@ -623,7 +623,7 @@ de:
       in_response_to_listing: "über den Eintrag"
       message_sent_by: "Nachricht gesendet von"
       message_sent_to: "Nachricht gesendet an"
-      send_reply: "Nachricht senden"
+      send_reply: "Antwort senden"
       write_a_reply: "Schreibe eine Nachricht:"
       conversation_about_listing: "Mit %{person} ein Gespräch geführt über %{listing}"
       conversation_with_user: "Gespräch mit  %{person}"
@@ -638,16 +638,16 @@ de:
       payment_errored_starter: "Zahlung nicht erfolgreich. Bitte versuche es erneut. Wenn das Problem weiter besteht, wende dich bitte an unseren Kundenservice."
       payment_errored_author: "Zahlung nicht erfolgreich. Bitte kontaktiere %{starter_name} und bitte ihn die Zahlung erneut zu versuchen."
       cancel_payed_transaction: Abbruch
-      feedback_given: "gegebenes Feedback"
-      feedback_skipped: "übersprungene Feedbacks"
-      give_feedback: "Feedback geben"
+      feedback_given: "Bewertung abgegeben"
+      feedback_skipped: "Keine Bewertung abgegeben"
+      give_feedback: "Bewertung abgeben"
       offer_accepted: "Anfrage akzeptiert"
       offer_rejected: "Anfrage abgelehnt"
       offer_canceled: abgelehnt
       offer_confirmed: fertig
       offer_paid: "Zahlung erfolgreich"
       offer_preauthorized: "Zahlung erfolgreich"
-      offer_waiting_for_payment: "Wartet darauf, dass %{requester_name} bezahlt"
+      offer_waiting_for_payment: "Warten, dass %{requester_name} bezahlt"
       pay: Zahlen
       preauthorized: "Zahlung erfolgreich"
       paid: "erfolgreiche Bezahlung"
@@ -656,29 +656,29 @@ de:
           multicurrency: "Wir konnten die PayPal-Zahlung nicht verarbeiten, weil Dein PayPal-Konto noch nicht eingerichtet ist, um Geld in %{currency} zu empfangen. Gehe zu %{paypal_url} und melde Dich in deinem Konto an, um die Zahlung manuell zu akzeptieren oder abzulehnen."
           verify: "Du kannst diese Transaktion nicht akzeptieren, weil Du Dein PayPal-Konto nicht verifiziert hast. Gehe zu %{paypal_url} um Dein Konto zu verifizieren."
           intl: "Wir konnten die PayPal-Zahlung nicht verarbeiten, weil Dein PayPal-Konto keinen Rückgabe Mechanismus hat.Gehe zu %{paypal_url} und melde Dich in deinem Konto an, um die Zahlung manuell zu akzeptieren oder abzulehnen."
-      waiting_for_current_user_to_deliver_listing: "Wartet darauf, dass du %{listing_title} lieferst"
-      waiting_for_listing_author_to_deliver_listing: "Wartet darauf, dass %{listing_author_name} %{listing_title} liefert"
+      waiting_for_current_user_to_deliver_listing: "Warten darauf, dass Du die Leistung %{listing_title} erbringst"
+      waiting_for_listing_author_to_deliver_listing: "Wurde die Leistung %{listing_title} von %{listing_author_name} erbracht?"
       request_accepted: "Anfrage akzeptiert"
       request_rejected: "Anfrage abgelehnt"
       request_confirmed: fertig
       request_canceled: abgelehnt
       request_paid: "Zahlung erfolgreich"
       request_preauthorized: "Zahlung erfolgreich"
-      skip_feedback: "Feedback überspringen"
+      skip_feedback: "Keine Bewertung geben"
       waiting_for_listing_author_to_accept_offer: "Warte bis %{listing_author_name} das Angebt annimmt"
-      waiting_for_listing_author_to_accept_request: "Warte bis %{listing_author_name} die Anfrage annimmt"
-      waiting_for_you_to_accept_request: "Wartet darauf, dass du das Angebot akzeptierst"
-      waiting_confirmation_from_requester: "Wartet bis %{requester_name} die Anfrage als erledigt markiert"
-      waiting_confirmation_from_you: "Wartet darauf, dass du den Vorgang als abgeschlossen markierst"
-      waiting_payment_from_requester: "Warte bis %{requester_name} bezahlt"
-      waiting_payment_from_you: "Wartet darauf, dass du zahlst"
-      waiting_feedback_from_you: "Wartet darauf, dass du Feedback gibst"
+      waiting_for_listing_author_to_accept_request: "Warten bis %{listing_author_name} die Anfrage annimmt. Sobald %{listing_author_name} akzeptiert hat, wird Dein Konto belastet."
+      waiting_for_you_to_accept_request: "Warten, dass Du die Anfrage akzeptierst"
+      waiting_confirmation_from_requester: "Warten bis %{requester_name} die Anfrage als erledigt markiert"
+      waiting_confirmation_from_you: "Warten darauf, dass Du den Vorgang als abgeschlossen markierst"
+      waiting_payment_from_requester: "Warten bis %{requester_name} bezahlt"
+      waiting_payment_from_you: "Warten auf Deine Zahlung"
+      waiting_feedback_from_you: "Warten darauf, dass Du Deine Bewertung abgibst"
       pending_external_inbox:
         paypal:
-          multicurrency: "Wartet darauf, dass du die PayPal-Zahlung akzeptierst"
-          intl: "Wartet darauf, dass du die PayPal-Zahlung akzeptierst"
+          multicurrency: "Warten darauf, dass Du die PayPal-Zahlung akzeptierst"
+          intl: "Warten darauf, dass Du die PayPal-Zahlung akzeptierst"
           unknown_reason: "Zahlung ausstehend. Melde dich in deinem PayPal-Konto an, um mehr Details zu sehen."
-          verify: "Wartet darauf, dass du dein PayPal Konto bestätigst"
+          verify: "Warten, dass Du Dein PayPal Konto bestätigst"
     status_link:
       accept_offer: "Angebot annehmen"
       accept_request: "Anfrage annehmen"
@@ -755,7 +755,7 @@ de:
       remember_to_accept_request: "Denke daran, die Anfrage von %{sender_name} anzunehmen oder sie abzulehnen"
       you_can_accept_or_reject_offer_at: "Du kannst das Angebot annehmen oder ablehnen unter"
       you_can_accept_or_reject_request_at: "Du kannst die Anfrage annehmen oder ablehnen unter"
-      you_have_not_yet_accepted_or_rejected_offer: "Du hast das Angebot %{title}, das du am %{date} erhalten hast, noch nicht akzeptiert oder abgelehnt."
+      you_have_not_yet_accepted_or_rejected_offer: "Du hast das Angebot %{title}, dass Du am %{date} erhalten hast, noch nicht akzeptiert oder abgelehnt."
       you_have_not_yet_accepted_or_rejected_request: "Du hast die Anfrage %{title}, die du am %{date} erhalten hast, noch nicht akzeptiert oder abgelehnt."
       show_thread: "Konversation anzeigen"
     braintree_account_approved:
@@ -772,7 +772,7 @@ de:
       automatic_confirmation: "Wenn du die Anfrage nicht innerhalb von %{days_to_automatic_confirmation} Tagen bestätigst oder ablehnst, nachdem die Anfrage akzeptiert wurde, werden wir sie automatisch als abgeschlossen markieren."
     payment_reminder:
       remember_to_pay: "Bezahle für %{listing_title}"
-      you_have_not_yet_paid: "Du hast noch nicht für %{listing_title} bezahlt, die %{other_party_name} hat dein Angebot akzeptiert."
+      you_have_not_yet_paid: "Du hast noch nicht für %{listing_title} bezahlt, %{other_party_name} hat dein Angebot akzeptiert."
       if_will_not_happen_you_should_cancel: "Wen du denkst, dass aus anderen Gründen die Anfrage noch nicht vollständig ist, kannst du auch %{cancel_it_link}."
       cancel_it_link_text: Abbrechen
     payment_settings_reminder:
@@ -796,7 +796,7 @@ de:
       we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu %{request} als abgeschlossen markiert. Der Antrag wurde automatisch beendet, weil ein Tag ist vergangen, seitdem die  Buchungsperiode beendet ist."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Du kannst nun %{other_party_given_name} ein Feedback geben. Feedback geben ist immer eine gute Idee. Wenn alles gut gegangen ist, solltest Du andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn ein Problem aufgetreten ist, ist es gut, das ebenfalls zu erwähnen."
-      give_feedback_to: "Bitte gib %{other_party_given_name} ein Feedback"
+      give_feedback_to: "Bitte bewerte %{other_party_given_name}"
       show_thread: "Unterhaltung anzeigen"
     escrow_canceled:
       subject: "Zahlungsprozess abgebrochen"
@@ -864,7 +864,7 @@ de:
       price_payer_paid: "Betrag bezahlt von %{payer_full_name}:"
       service_fee: "%{service_name} Servicegebühr:"
       you_will_get: "Du wirst erhalten:"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Das Geld wird auf Deinen Account überwiesen, wenn a) %{payer_name} die Anfrage als vollständig markiert hat oder b) automatisch %{automatic_confirmation_days} Tage nach der Bezahlung durch %{payer_name}."
     receipt_to_payer:
       receipt_of_payment: Zahlungsbestätigung
       you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist ein Beleg deiner Zahlung."
@@ -878,8 +878,8 @@ de:
       service_fee: Servicegebühr
       money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) Du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit Du bezahlt hast."
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} hat dir ein Feedback auf %{service_name} hinterlassen"
-      you_can_give_feedback_to: "Du hast noch kein Feedback für %{name} hinterlassen."
+      has_given_you_feedback_in_kassi: "%{name} hat Dich auf %{service_name} bewertet"
+      you_can_give_feedback_to: "Du hast %{name} noch nicht bewertet."
       view_feedback: "Feedback anzeigen"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Ein Eintrag, dem du folgst, wurde aktualisiert"
@@ -901,24 +901,24 @@ de:
       hi: "Hallo %{name}"
       newest_offers: "Was Leute derzeit anderen anbieten"
       newest_requests: "Was Leute derzeit benötigen"
-      text_version_text: "Könntest du etwas teilen, das andere möglicherweise brauchen? Oder benötigst du etwas, das andere vielleicht haben? Füge ein Angebot oder eine Anfrage hinzu oder sieh nach, was andere anbieten oder benötigen bei %{url}"
+      text_version_text: "Könntest Du etwas teilen, das andere möglicherweise brauchen? Oder benötigst Du etwas, das andere vielleicht haben? Füge ein Angebot oder eine Anfrage hinzu oder sieh nach, was andere anbieten oder benötigen bei %{url}"
     reset_password_instructions:
       change_my_password: "Mein Passwort ändern"
       reset_password_instructions: "<p>Du hast angegeben, dein Passwort oder den Benutzernamen im %{service_name} Dienst vergessen zu haben.</p><p>Dein Benutzername ist: %{username}</p><p>Um dein Passwort zurückzusetzen, klicke auf den folgenden Link: %{password_reset_link}</p><br/><p> Falls du das Zurücksetzen des Passworts nicht angefordert hast, ignoriere diese E-Mail. Dein Passwort wird nicht zurückgesetzt, solange du den oberen Link nicht anklickst und ein neues Passwort erstellst.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Feedback ist öffentlich und wird allen anderen Nutzern angezeigt. Basierend auf den Feedbacks können andere Nutzer beurteilen, ob %{name} eine vertrauenswürdige Person ist, mit der sie interagieren würden. Daher ist es immer gut, Feedbacks zu Transaktionen zu hinterlassen und die andere Partei daran zu erinnern, ein Feedback zurückzugeben. Außerdem benötigst du positives Feedback, um Abzeichen erlangen zu können."
-      remember_to_give_feedback_to: "Zur Erinnerung: Denke daran, %{name} ein Feedback zu geben"
+      feedback_is_public_and_is_shown: "Bewertungen sind öffentlich und werden allen anderen Nutzern angezeigt. Bewertungen helfen, ob %{name} vertrauenswürdig ist. Deshalb ist es immer gut, Transaktionen zu bewerten und auch den Anderen daran zu erinnern, ein Feedback zu geben. Außerdem benötigst Du positive Bewertungen, um Abzeichen erlangen zu können."
+      remember_to_give_feedback_to: "Zur Erinnerung: Denke daran, %{name} zu bewerten"
       you_have_not_given_feedback_yet: "Du hast %{name} noch kein Feedback zur Transaktion '%{event}' gegeben. Denke daran, ein Feedback darüber zu hinterlassen, wie %{given_name} die Transaktion durchgeführt hat."
     transaction_preauthorized:
       subject: "%{requester} hat %{listing_title} angefragt und bezahlt"
       transaction_requested_by_user: "%{requester} hat \"%{listing_title}\" angefragt und bezahlt"
       you_have_time_to_accept: ~
-      click_here_to_reply: "Klicke hier um auf das Angebot zu antworten"
+      click_here_to_reply: "Klicke hier um auf die Anfrage zu antworten"
     transaction_preauthorized_reminder:
       subject: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren."
       remember_to_accept: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren. %{requester} hat bereits für das Angebot gezahlt. Du musst die Anfrage akzeptieren um die Zahlung zu erhalten."
-      one_day_left: "Wenn du das Angebot nicht innerhalb eines Tages akzeptierst, wird das Angebot automatisch abgelehnt, und Du erhälst keine Zahlung."
-      click_here_to_reply: "Klicke hier um auf das Angebot zu antworten"
+      one_day_left: "Wenn du die Anfrage nicht innerhalb eines Tages akzeptierst, wird sie automatisch abgelehnt, und Du erhälst keine Zahlung."
+      click_here_to_reply: "Klicke hier um auf die Anfrage zu antworten"
     welcome_email:
       welcome_email_subject: "Willkommen bei %{service_name}"
       welcome_to_marketplace: "Willkommen bei %{service_name}! Schön, dass du dabei bist."
@@ -957,7 +957,7 @@ de:
       price: "Der Preis muss eine ganze Zahl sein"
       minimum_price: "Minimum Preis ist %{minimum_price} %{currency}"
     testimonials:
-      you_must_explain_not_neutral_feedback: "Falls du kein neutrales Feedback abgeben willst, must du erklären warum."
+      you_must_explain_not_neutral_feedback: "Falls du keine neutrale Bewertung abgeben willst, must du erklären warum."
       you_must_select_a_grade: "War deine Erfahrung positiv oder negativ?"
     transaction_agreement:
       required_error: "Du musst die Vereinbarung akzeptieren"
@@ -989,7 +989,7 @@ de:
       javascript_is_disabled_in_your_browser: "JavaScript ist in deinem Browser deaktiviert."
       kassi_does_not_currently_work_without_javascript: "Leider funktioniert %{service_name} derzeit nicht ohne javascript. Versuche javascript in deinen Browser-Einstellungen zu aktivieren und lade diese Seite dann noch einmal."
       contact_us: Kontakt
-      send_feedback: "Feedback senden"
+      send_feedback: "Bewertung senden"
       your_feedback_to_admins: "Dein Feedback an die Administratoren"
     send: Senden
     your_email_address: "Deine E-Mail-Adresse"
@@ -1066,7 +1066,7 @@ de:
       item_request_list: "Werkzeuge, Sportausrüstung, Kostüme, Camping-Ausrüstung"
       items_to_offer: "Artikel zum Verleihen: "
       items_to_request: "Artikel zum Ausleihen: "
-      log_in: Anmelden!
+      log_in: "Melde Dich an!"
       no_offers_visible_unless_logged_in: "Angebote zu Artikeln, Dienstleistungen oder MItfahrgelegenheiten sind für nicht-angemeldete Nutzer nicht sichtbar."
       no_open_offers_currently: "Keine Angebote zu Gegenständen, Dienstleistungen oder Mitfahrgelegenheiten vorhanden."
       no_open_requests_currently: "Keine Anfragen zu Gegenständen, Dienstleistungen oder Mitfahrgelegenheiten vorhanden."
@@ -1150,7 +1150,7 @@ de:
   infos:
     about:
       default_about_text_title: "Was ist Sharetribe?"
-      default_about_text: "Diese Website wurde mit Hilfe der Sharetribe-Plattform angelegt. Jeder kann mit Sharetribe seinen eigenen Community-Marktplatz erstellen. Möchtest du so eine Seite für deine Community erstellen? Es ist kostenlos und dauert nur eine Minute. Klicke hier, um mehr zu erfahren %{click_here_link}!"
+      default_about_text: "Diese Website wurde mit Hilfe der Sharetribe-Plattform angelegt. Jeder kann mit Sharetribe seinen eigenen Community-Marktplatz erstellen. Möchtest Du so eine Seite für Deine Community erstellen? Es ist kostenlos und dauert nur eine Minute. Klicke hier, um mehr zu erfahren %{click_here_link}!"
       click_here_link_text: "Hier klicken"
     how_to_use:
       default_title: "So funktioniert's"
@@ -1171,7 +1171,7 @@ de:
       feedback_handle: Feedback
       give_feedback: "Kontaktiere uns"
       or_check_our: "...oder überprüfe unser"
-      send_feedback_to_admin: "Feedback senden"
+      send_feedback_to_admin: "Bewertung senden"
       to_see_what_others_have_suggested: "um zu sehen, was andere Benutzer vorgeschlagen haben und um die für die Ideen zu stimmen."
       your_email_address: "Deine E-Mail-Adresse (um dich zu kontaktieren)"
       connect: "Jetzt registrieren"
@@ -1193,7 +1193,7 @@ de:
       how_to_use: "Wie es funktioniert"
       info_about_kassi: "Informationen über %{service_name}"
       news: News
-      register_details: Datenschutz
+      register_details: "Impressum & Datenschutz"
       terms: Nutzungsbedingungen
     logged_in:
       admin: Administrator
@@ -1230,7 +1230,7 @@ de:
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Du bist nun ein Mitglied dieser Community. Als nächstes musst du deine E-Mail-Adresse bestätigen."
       comment_cannot_be_empty: "Kommentar darf nicht leer sein."
       comment_sent: "Kommentar gesendet"
-      confirmation_link_is_wrong_or_used: "Der Bestätigungslink wurde bereits verwendet oder ist anderweitig defekt. Versuche, dich anzumelden oder sende ein Feedback, sofern das Problem weiterhin besteht."
+      confirmation_link_is_wrong_or_used: "Der Bestätigungslink wurde bereits verwendet oder ist anderweitig defekt. Versuche, Dich anzumelden oder sende ein Feedback, sofern das Problem weiterhin besteht."
       additional_email_confirmed: "Die eingegebene E-Mail-Adresse ist nun bestätigt."
       could_not_get_email_from_facebook: "Konnte keine E-Mail-Adresse von Facebook bekommen. Eine Accounterstellung ohne E-Mail-Adresse ist nicht möglich."
       create_new_listing: "Einen weiteren Eintrag erstellen"
@@ -1238,11 +1238,11 @@ de:
       email_confirmation_sent_to_new_address: "E-Mail-Bestätigung wird nun an die neue Adresse gesendet."
       email_not_found: "Die angegebene Email konnte in der Datenbank von %{service_name} nicht gefunden werden."
       error_with_session: "Fehler dieser Sitzung."
-      feedback_considered_spam: "Feedback wurde aufgrund seiner Formatierung nicht gespeichert. Versuche es erneut oder verwende das Feedback-Forum."
-      feedback_not_saved: "Feedback konnte nicht gesendet werden."
-      feedback_saved: "Danke für dein Feedback! Wir werden uns so bald wie möglich bei dir melden."
+      feedback_considered_spam: "Die Bewertung wurde aufgrund der Formatierung nicht gespeichert. Versuche es erneut oder verwende das Feedback-Forum."
+      feedback_not_saved: "Die Bewertung konnte nicht gesendet werden."
+      feedback_saved: "Danke für Dein Feedback! Wir werden uns so bald wie möglich bei Dir melden."
       feedback_sent_to: "Feedback an %{target_person} gesendet."
-      feedback_skipped: "Feedback übersprungen"
+      feedback_skipped: "Bewertung übersprungen"
       invitation_cannot_be_sent: "Einladung konnte nicht gesendet werden"
       invitation_sent: "Einladung erfolgreich gesendet"
       inviting_new_users_is_not_allowed_in_this_community: "Neue Benutzer zu dieser %{service_name} Community einzuladen, ist nicht gestattet"
@@ -1271,7 +1271,7 @@ de:
       payment_canceled: "Zahlung abgebrochen"
       error_in_payment: "Es gab Probleme mit der Zahlung. Wenn du die Zahlung noch nicht ausgeführt hast, versuche es bitte noch einmal. Falls die Zahlung ausgeführt wurde, kontaktiere uns bitte."
       cannot_receive_payment: "Aufgrund eines Fehlers kann die andere Partei keine Zahlung erhalten. Bitte kontaktiere den Administrator, um die Situation zu klären"
-      payment_waiting_for_later_accomplishment: "Wenn du bezahlt hast, informieren wir den Zahlungsempfänger und du erhältst einen Beleg via E-Mail"
+      payment_waiting_for_later_accomplishment: "Wenn Du bezahlt hast, informieren wir den Zahlungsempfänger und Du erhältst einen Beleg via E-Mail"
       password_recovery_sent: "Anweisungen zum Ändern deines Passworts wurden an deine E-Mail-Adresse gesendet."
       person_activated: "Benutzer aktiviert"
       person_deactivated: "Benutzer deaktiviert"
@@ -1333,7 +1333,7 @@ de:
       email_deleted: "E-Mail entfernt"
       payment_details_add_successful: "Zahlungsdetails erfolgreich hinzugefügt"
       payment_details_add_error: "Zahlungsdetails konnten nicht hinzugefügt werden"
-      listing_author_payment_details_missing: "Der Verfasser des Angebotes hat seine Zahlungsdaten nicht hinzugefügt, dadurch können im Moment keine Zahlungen empfangen werden. Bitte wenden Sie sich an den Verfasser."
+      listing_author_payment_details_missing: "Der Verfasser des Angebotes hat seine Zahlungsdaten nicht hinzugefügt, dadurch können im Moment keine Zahlungen empfangen werden. Bitte kontaktiere deswegen den Verfasser."
       stylesheet_needs_recompiling: "Die Stylesheets werden neu kompiliert. Bitte lade die Seite nach einer Weile neu."
     settings:
       account: Konto
@@ -1474,7 +1474,7 @@ de:
       help_valid_until_title: Ablaufdatum
     index:
       all_categories: "Alle Kategorien"
-      all_offer_types: "Alle Angebote"
+      all_offer_types: "Alle Angebotsarten"
       all_request_types: "Alle Anfragen"
       category: Kategorie
       did_not_found_what_you_were_looking_for: "Du hast nicht gefunden, wonach du suchst?"
@@ -1707,7 +1707,7 @@ de:
       invite_only_help_text_title: "Nur Stamm einladen"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Der Benutzer ist nicht mehr aktiv in %{service_name}"
-      inactive_description: "Der Benutzer hat aufgehört, %{service_name} zu verwenden. Du kannst diesen Benutzer weder kontaktieren, noch kannst du für ihn Feedback oder Kommentare hinterlassen."
+      inactive_description: "Der Benutzer hat aufgehört, %{service_name} zu verwenden. Du kannst diesen Benutzer weder kontaktieren, noch kannst Du ihn bewerten oder Kommentare hinterlassen."
     new:
       captcha_incorrect: "ReCAPTCHA-Überprüfung fehlgeschlagen. Bitte schreibe die Wörter aus dem Bild in das Feld unten."
       captcha_was_wrong: "Captcha-Text war falsch."
@@ -1768,8 +1768,8 @@ de:
       hide_description: "Weniger anzeigen"
       less_than_expected: "Schlechter als erwartet"
       phone_number: "Telefonnummer:"
-      show_all_feedback: "Alle Feedbacks anzeigen"
-      show_all_testimonials: "Alle Feedbacks anzeigen"
+      show_all_feedback: "Alle Bewertungen anzeigen"
+      show_all_testimonials: "Alle Bewertungen anzeigen"
       show_full_description: "Mehr anzeigen"
       slightly_better_than_expected: "Erwartungen übertroffen"
       slightly_less_than_expected: "Schlechter als erwartet"
@@ -1849,7 +1849,7 @@ de:
       email_addresses: E-Mail-Adressen
       new_email: "Neue E-Mail-Adresse"
       delete_all_memberships: "Wenn Du dein Konto löschst, wirst du nicht mehr in der Lage sein, es in den folgenden Marktplätzen zu verwenden: %{marketplaces}"
-      delete_personal_information: "Wenn Du Dein Konto löschst, werden Deine persönlichen Daten (Name, Telefonnummer, Adresse, E-Mail, Profilbild, etc.) endgültig gelöscht und können nicht wiederhergestellt werden. Alle Angebote die Du erstellt hast, werden entfernt. Du wirst nicht in der Lage sein, Dein Konto zu reaktivieren."
+      delete_personal_information: "Wenn Du Dein Konto löschst, werden Deine persönlichen Daten (Name, Telefonnummer, Adresse, E-Mail, Profilbild, etc.) endgültig gelöscht und können nicht wiederhergestellt werden. Alle Angebote, die Du erstellt hast, werden entfernt. Du wirst nicht in der Lage sein, Dein Konto zu reaktivieren."
       delete_information_others_involved: "Informationen, wo andere Mitglieder beteiligt sind (Unterhaltungen mit anderen Menschen, Transaktionen, die Du vorgenommen hast, Reviews die Du an andere gegeben haben, usw.) werden nicht entfernt, wenn Du Dein Konto löschst. Allerdings wird dein Name nicht mehr neben diesen Informationen angezeigt werden."
       unfinished_transactions: "Dein Konto kann nicht gelöscht werden, weil Du laufende Transaktionen hast. Bitte schließe alle Transaktionen vor dem Löschen Deines Kontos ab."
       new_password: "Neues Passwort"
@@ -1879,8 +1879,8 @@ de:
       email_about_confirm_reminders: "...ich vergessen habe, eine Anfrage als vollständig zu bestätigen"
       email_about_new_comments_to_own_listing: "...jemand mein Angebot oder meine Anfrage kommentiert"
       email_about_new_messages: "...mir jemand eine Nachricht sendet"
-      email_about_new_received_testimonials: "...mir jemand ein Feedback gibt"
-      email_about_testimonial_reminders: "...ich vergessen habe, jemandem zu einer Transaktion ein Feedback zu geben"
+      email_about_new_received_testimonials: "...mir jemand eine Bewertung gibt"
+      email_about_testimonial_reminders: "...ich vergessen habe, jemandem zu einer Transaktion eine Bewertung zu geben"
       email_daily_community_updates: "Schickt mir täglich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
       email_weekly_community_updates: "Schickt mir wöchentlich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
       do_not_email_community_updates: "Schickt mir keine Neuigkeiten per E-Mail"
@@ -1936,21 +1936,21 @@ de:
       you_need_to_accept_new_terms: "Die Nutzungsbedingungen von %{service_name} haben sich geändert. Du musst die neuen Nutzungsbedingungen akzeptieren, um %{service_name} weiter zu verwenden. Die neuen Nutzungsbedingungen sollen die Instandhaltung des Dienstes ermöglichen, nachdem das Forschungsprojekt beendet wurde."
   testimonials:
     index:
-      all_testimonials: "Alle Feedbacks"
-      feedback_altogether: "Feedbacks insgesamt: "
+      all_testimonials: "Alle Bewertungen"
+      feedback_altogether: "Bewertung insgesamt: "
       loading_more_testimonials: "Weitere Referenzen laden"
-      no_testimonials: "Keine erhaltene Feedbacks"
+      no_testimonials: "Keine erhaltenen Bewertungen."
     new:
       as_expected: "Wie erwartet"
       exceeded_expectations: "Viel besser als erwartet"
-      give_feedback_to: "Feedback geben an %{person}"
+      give_feedback_to: "Bewerte %{person}"
       grade: "Was ist dein allgemeines Gefühl?"
       less_than_expected: "Schlechter als erwartet"
-      send_feedback: "Feedback senden"
+      send_feedback: "Bewertung senden"
       slightly_better_than_expected: "Etwas besser als erwartet"
       slightly_less_than_expected: "Etwas schlechter als erwartet"
       textual_feedback: "Wie ist es gelaufen?"
-      this_will_be_shown_in_profile: "Das Feedback, das du abgibst, ist für andere Benutzer auf der Profilseite von %{person} sichtbar. Dies hilft anderen Mitgliedern des Stammes bei der Beurteilung, ob %{person} eine vertrauenswürdige Person ist."
+      this_will_be_shown_in_profile: "Die Bewertung, die Du abgibst, ist für andere Benutzer auf der Profilseite von %{person} sichtbar. Dies hilft anderen Mitgliedern bei der Beurteilung, ob %{person} vertrauenswürdig ist."
       positive: Positiv
       negative: Negativ
       default_textual_feedback: "Alles ist glatt gelaufen, vielen Dank!"

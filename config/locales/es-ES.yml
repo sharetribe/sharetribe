@@ -203,15 +203,15 @@ es-ES:
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
         newsletter_daily: Diariamente
         newsletter_weekly: Semanalmente
-        delete_marketplace_title: ~
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_marketplace_title: "Eliminar marketplace"
+        type_marketplace_domain: "Introduce el dominio de tu marketplace %{domain} en el siguiente campo de texto:"
+        type_marketplace_domain_placeholder: "Introduce aquí el dominio de tu marketplace"
+        once_you_delete: "Ten cuidado! una vez que elimines tu marketplace, ya no podrás volver a acceder a él."
+        are_you_sure: "Estás seguro?"
+        i_understand_button: "Entiendo y acepto que al hacer clic en este botón mi marketplace será eliminado"
+        last_community_updates: "Por favor ten presente que después de eliminado, tú y los usuarios de tu marketplace aún podrán recibir los últimos emails de actualización de tu marketplace."
+        you_will_be_redirected_to: "Después de que elimines tu marketplace serás redirigido a %{destination}. Ya no podrás volver a acceder a tu marketplace."
+        delete_this_marketplace: "Eliminar este marketplace"
       manage_members:
         manage_members: "Gestionar usuarios"
         email: Email
