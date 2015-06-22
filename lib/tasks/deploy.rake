@@ -21,8 +21,7 @@ task :deploy_to, [:destination] do |t, args|
   deploy(
     :destination => args[:destination],
     :migrations => env_to_bool('migrations', nil),
-    :css => env_to_bool('css', nil),
-    :clear_cache => env_to_bool('clear_cache', nil)
+    :css => env_to_bool('css', nil)
   )
 end
 
@@ -47,9 +46,8 @@ def deploy(params)
   puts "Deploying from: #{@branch}"
   puts "Deploying to:   #{@destination}"
   puts "Deploy options:"
-  puts "  css:         #{params[:css]}"
-  puts "  migrations:  #{params[:migrations]}"
-  puts "  clear cache: #{params[:clear_cache]}"
+  puts "  css:        #{params[:css]}"
+  puts "  migrations: #{params[:migrations]}"
 
   if @destination == "production"
     puts ""
@@ -86,8 +84,6 @@ def deploy(params)
   abort_if_css_modifications if params[:css].nil?
 
   deploy_to_server
-
-  clear_cache if params[:clear_cache]
 
   unless migrations.empty?
     run_migrations(migrations)
@@ -239,10 +235,4 @@ def parse_added_migration_files(new_files)
       description: parsed[2].humanize
     }
   }
-end
-
-def clear_cache
-  puts "Clearing Rails cache..."
-  heroku("run rails runner Rails.cache.clear --app #{@app}")
-  puts "Rails cache cleared"
 end
