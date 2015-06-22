@@ -21,6 +21,8 @@ class TransactionProcess < ActiveRecord::Base
     :author_is_seller
   )
 
+  has_many :listing_shapes
+
   def process
     read_attribute(:process).to_sym
   end
