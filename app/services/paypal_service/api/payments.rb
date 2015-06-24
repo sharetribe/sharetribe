@@ -208,9 +208,9 @@ module PaypalService::API
 
     ## GET /payments/:community_id/:transaction_id
     def get_payment(community_id, transaction_id)
-      @lookup.with_payment(community_id, transaction_id) do |payment, m_acc|
-        Result::Success.new(DataTypes.create_payment(payment))
-      end
+      Maybe(PaymentStore.get(community_id, transaction_id))
+        .map { |payment| Result::Success.new(DataTypes.create_payment(payment)) }
+        .or_else { Result::Error.new("No matching payment for community_id: #{community_id} and transaction_id: #{transaction_id}.")}
     end
 
     ## POST /payments/:community_id/:transaction_id/void
