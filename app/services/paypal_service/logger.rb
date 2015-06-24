@@ -1,36 +1,38 @@
 module PaypalService
   class Logger
 
-    def info(type, msg)
-      Rails.logger.info(to_json_log_entry({type: type, content: msg }))
+    def info(msg, type = :other)
+      Rails.logger.info(to_json_log_entry(type, msg, nil))
     end
 
-    def warn(msg)
-      Rails.logger.warn(to_json_log_entry({type: :warning, message: msg }))
+    def warn(msg, type = :other)
+      Rails.logger.warn(to_json_log_entry(type, msg, nil))
     end
 
-    def error(msg)
-      Rails.logger.error(to_json_log_entry({type: :error, message: msg }))
+    def error(msg, type = :other)
+      Rails.logger.error(to_json_log_entry(type, msg, nil))
     end
 
     def log_request_input(request, input)
-      info(:request, {method: request[:method]}.merge(Maybe(input).or_else({})))
+      Rails.logger.info(to_json_log_entry(:request,
+                                          nil,
+                                          {method: request[:method]}.merge(Maybe(input).or_else({}))))
     end
 
     def log_response(resp)
-      info(:response, resp ) unless resp.nil?
+      Rails.logger.info(to_json_log_entry(:response,
+                                          nil,
+                                          resp)) unless resp.nil?
     end
 
-    def to_json_log_entry(type:, message:, content:)
+    def to_json_log_entry(type, free, structured)
       {
-        paypal:
-          {
-            type: type,
-            message: message,
-            content: content
-          }
+        tag: :paypal,
+        type: type,
+        free: free,
+        structured: structured
       }.to_json
     end
-
   end
 end
+

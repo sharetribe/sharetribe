@@ -24,7 +24,9 @@ Kassi::Application.configure do
 
   # Basic log config, for calls to Rails.logger.<level> { <message> }
   config.logger = ::Logger.new(STDOUT)
-  config.logger.formatter = ->(severity, datetime, progname, msg) { "#{severity[0]} #{msg}\n" }
+  # Formats log entries into: LEVEL MESSAGE
+  # Heroku adds to this timestamp and worker/dyno id, so datetime can be stripped
+  config.logger.formatter = ->(severity, datetime, progname, msg) { "#{severity} #{msg}\n" }
 
   # Lograge config, overrides default instrumentation for logging ActionController and ActionView logging
   config.lograge.enabled = true
