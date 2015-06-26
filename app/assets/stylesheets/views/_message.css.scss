@@ -91,6 +91,11 @@ $message-time-margin: lines(0.25);
     border-width: lines(0.25);
   }
 
+  // for ellipsis. Class is used in emails - let's not use the same classes in emails in the future.
+  .truncated-link {
+    width: 100%;
+  }
+
   background: $highlight;
 }
 
