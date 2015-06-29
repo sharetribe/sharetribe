@@ -356,6 +356,16 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # Override basic instrumentation and provide additional info for lograge to consume
+  # These are further configured in environment configs
+  def append_info_to_payload(payload)
+    super
+    payload[:host] = request.host
+    payload[:community_id] = Maybe(@current_community).id.or_else("")
+    payload[:current_user_id] = Maybe(@current_user).id.or_else("")
+    payload[:request_uuid] = request.env["HTTP_X_REQUEST_ID"]
+  end
+
   def date_equals?(date, comp)
     date && date.to_date.eql?(comp)
   end

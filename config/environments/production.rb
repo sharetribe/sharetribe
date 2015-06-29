@@ -22,11 +22,32 @@ Kassi::Application.configure do
   # If you have no front-end server that supports something like X-Sendfile,
   # just comment this out and Rails will serve the files
 
-  # See everything in the log (default is :info)
-  # config.log_level = :debug
+  # Basic log config, for calls to Rails.logger.<level> { <message> }
+  config.logger = ::Logger.new(STDOUT)
+  # Formats log entries into: LEVEL MESSAGE
+  # Heroku adds to this timestamp and worker/dyno id, so datetime can be stripped
+  config.logger.formatter = ->(severity, datetime, progname, msg) { "#{severity} #{msg}\n" }
 
-  # Use a different logger for distributed setups
-  # config.logger = SyslogLogger.new
+  # Lograge config, overrides default instrumentation for logging ActionController and ActionView logging
+  config.lograge.enabled = true
+  config.lograge.custom_options = ->(event) {
+    params = event.payload[:params].except('controller', 'action')
+
+    { params:  params,
+      host: event.payload[:host],
+      community_id: event.payload[:community_id],
+      current_user_id: event.payload[:current_user_id],
+      request_uuid: event.payload[:request_uuid] }
+  }
+
+  config.lograge.formatter = Lograge::Formatters::Json.new
+
+  config.after_initialize do
+    ActiveRecord::Base.logger = Rails.logger.clone
+    ActiveRecord::Base.logger.level = Logger::INFO
+    ActionMailer::Base.logger = Rails.logger.clone
+    ActionMailer::Base.logger.level = Logger::INFO
+  end
 
   # Use a different cache store in production
   config.cache_store = :dalli_store, (ENV["MEMCACHIER_GREEN_SERVERS"] || "").split(","), {
