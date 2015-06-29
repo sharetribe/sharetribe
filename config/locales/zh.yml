@@ -926,8 +926,8 @@ zh:
       click_here_to_reply: 点击这里回应请求
     welcome_email:
       welcome_email_subject: "欢迎来到%{service_name}"
-      welcome_to_marketplace: "欢迎使用%{service_name}！很高兴你的加入。"
-      love_marketplace_crew: "爱你的，<br /><i>%{service_name} 工作人员</i>"
+      welcome_to_marketplace: "欢迎来到%{service_name}！恭喜你注册成功。"
+      love_marketplace_crew: "爱你的，<br /><i>%{service_name}团队</i>"
       p_s_did_you_know: "附言 你想创建像%{service_name}一样的自己的集市网站吗？很简单，不需要任何编程经验。点击%{click_here_link}查看更多！"
       click_here_link_text: 点击这里
       welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
@@ -1516,7 +1516,7 @@ zh:
       accept_for_frees: 免费接受
       trades: 交换
     listing_actions:
-      booking_from: 来自
+      booking_from: 从
       booking_to: 到
       how_paypal_works: PayPal如何工作
     new:
@@ -1733,7 +1733,7 @@ zh:
       organization_name: 组织名称
       password_again: 确认密码
       show_my_name_to_others: "对其他%{service_name}用户显示真实姓名"
-      sign_up: "在%{service_name}新建账户"
+      sign_up: "在%{service_name}注册"
       terms: 使用条款
       username_is_in_use: 此用户名已被使用。
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
@@ -1761,7 +1761,7 @@ zh:
     show:
       contact: "联系%{person}"
       about_me: 关于我：
-      add_description: 分享一些关于你自己的东西
+      add_description: 更新个人资料
       add_location: 添加地点
       add_phone_number: 添加手机号码
       address: 地点：
@@ -1911,10 +1911,10 @@ zh:
       phone_number: 电话号码
       profile_picture: 个人头像
       postal_code: 邮政编码
-      profile_page: 在你的个人信息页面
+      profile_page: 点击查看你的个人信息页面
       profilemap: 地图视图
       street_address: 地点
-      these_fields_are_shown_in_your: "此信息对所有%{service_name}用户可见"
+      these_fields_are_shown_in_your: "该信息对所有%{service_name}用户可见"
       visible_to_everybody: 对所有人可见
       visible_to_registered_users: （对已登录用户可见）
       default_in_listing: （只有在发布新信息时作为默认值使用）
