@@ -54,7 +54,6 @@ class Admin::CommunityTransactionsController < ApplicationController
 
     render("index",
       { locals: {
-        show_status_and_sum: @current_community.payments_in_use?,
         community: @current_community,
         conversations: conversations
       }}
