@@ -74,7 +74,7 @@ class Category < ActiveRecord::Base
 
   # TODO this should be done on service layer
   def uniq_url
-    current_url = url_source.to_url
+    current_url = Maybe(url_source).to_url.or_else("noname")
 
     if new_record? || url != current_url
       blacklist = ['new', 'all']
