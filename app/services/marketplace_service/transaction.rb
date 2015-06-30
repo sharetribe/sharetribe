@@ -89,23 +89,6 @@ module MarketplaceService
 
         payment_gateway = transaction_model.payment_gateway.to_sym
 
-        payment_total =
-          case payment_gateway
-          when :checkout, :braintree
-            # Use Maybe, since payment may not exists yet, if postpay flow
-            Maybe(transaction_model).payment.total_sum.or_else { nil }
-          when :paypal
-            paypal_payments = PaypalService::API::Api.payments
-            payment = paypal_payments.get_payment(transaction_model.community_id, transaction_model.id)
-
-            if payment[:success]
-              payment[:data][:authorization_total]
-            else
-              nil
-            end
-          end
-
-
         Transaction[EntityUtils.model_to_hash(transaction_model).merge({
           status: transaction_model.current_state,
           last_transition_at: Maybe(transaction_model.transaction_transitions.last).created_at.or_else(nil),
@@ -117,7 +100,7 @@ module MarketplaceService
           transitions: transaction_model.transaction_transitions.map { |transition|
             Transition[EntityUtils.model_to_hash(transition)]
           },
-          payment_total: payment_total,
+          payment_total: (transaction_model.listing_quantity * transaction_model.unit_price),
           booking: transaction_model.booking,
           __model: transaction_model
         })]
