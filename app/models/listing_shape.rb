@@ -2,19 +2,18 @@
 #
 # Table name: listing_shapes
 #
-#  id                         :integer          not null, primary key
-#  community_id               :integer          not null
-#  transaction_process_id     :integer          not null
-#  price_enabled              :boolean          not null
-#  shipping_enabled           :boolean          not null
-#  name                       :string(255)      not null
-#  name_tr_key                :string(255)      not null
-#  action_button_tr_key       :string(255)      not null
-#  price_quantity_placeholder :string(255)
-#  sort_priority              :integer          default(0), not null
-#  created_at                 :datetime         not null
-#  updated_at                 :datetime         not null
-#  deleted                    :boolean          default(FALSE)
+#  id                     :integer          not null, primary key
+#  community_id           :integer          not null
+#  transaction_process_id :integer          not null
+#  price_enabled          :boolean          not null
+#  shipping_enabled       :boolean          not null
+#  name                   :string(255)      not null
+#  name_tr_key            :string(255)      not null
+#  action_button_tr_key   :string(255)      not null
+#  sort_priority          :integer          default(0), not null
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  deleted                :boolean          default(FALSE)
 #
 # Indexes
 #
