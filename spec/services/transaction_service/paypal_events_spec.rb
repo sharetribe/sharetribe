@@ -118,7 +118,7 @@ describe TransactionService::PaypalEvents do
 
       # Both transactions are there but marked as deleted
       expect(TransactionModel.count).to eq(2)
-      expect(TransacctionModel.all.map(&:deleted)).to eq([true, true])
+      expect(TransactionModel.all.map(&:deleted)).to eq([true, true])
     end
 
     it "calling with token that doesn't match a transaction is a no-op" do
@@ -196,11 +196,9 @@ describe TransactionService::PaypalEvents do
       TransactionService::PaypalEvents.payment_updated(:success, @voided_payment_no_msg)
       TransactionService::PaypalEvents.payment_updated(:success, @voided_payment_with_msg)
 
-      # Both transactions are deleted
-      expect(TransactionModel.count).to eq(0)
-      # and so are the conversations
-      expect(Conversation.where(id: @conversation_no_msg).first).to be_nil
-      expect(Conversation.where(id: @conversation_with_msg).first).to be_nil
+      # Both transactions are there but marked as deleted
+      expect(TransactionModel.count).to eq(2)
+      expect(TransactionModel.all.map(&:deleted)).to eq([true, true])
     end
 
     it "is safe to call for non-existent transaction" do
