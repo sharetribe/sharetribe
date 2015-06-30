@@ -20,13 +20,14 @@ module ListingViewUtils
     units
       .map { |u| HashUtils.compact(u) }
       .map { |unit|
-      {
-        display: translate_unit(unit[:type], unit[:name_tr_key]),
-        value: Unit.serialize(unit),
-        kind: unit[:kind],
-        selected: selected_unit.present? && HashUtils.sub_eq(unit, selected_unit, :type, :name_tr_key, :selector_tr_key)
+        renamed = HashUtils.rename_keys({name_tr_key: :unit_tr_key, selector_tr_key: :unit_selector_tr_key}, unit)
+        {
+          display: translate_unit(unit[:type], unit[:name_tr_key]),
+          value: Unit.serialize(unit),
+          kind: unit[:kind],
+          selected: selected_unit.present? && HashUtils.sub_eq(renamed, selected_unit, :type, :name_tr_key, :selector_tr_key)
+        }
       }
-    }
   end
 
   def translate_unit(type, tr_key)
