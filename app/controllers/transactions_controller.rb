@@ -109,7 +109,7 @@ class TransactionsController < ApplicationController
       .map { |tx_with_conv| [tx_with_conv, :participant] }
 
     m_admin =
-      Maybe(@current_user.has_admin_rights_in?(@current_community) && feature_enabled?(:admin_conversations))
+      Maybe(@current_user.has_admin_rights_in?(@current_community))
       .select { |can_show| can_show }
       .map {
         MarketplaceService::Transaction::Query.transaction_with_conversation(
