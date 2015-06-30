@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150630082932) do
+ActiveRecord::Schema.define(:version => 20150630122552) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -964,8 +964,10 @@ ActiveRecord::Schema.define(:version => 20150630082932) do
     t.boolean  "deleted",                                         :default => false
   end
 
+  add_index "transactions", ["community_id", "deleted"], :name => "transactions_on_cid_and_deleted"
   add_index "transactions", ["community_id"], :name => "index_transactions_on_community_id"
   add_index "transactions", ["conversation_id"], :name => "index_transactions_on_conversation_id"
+  add_index "transactions", ["deleted"], :name => "index_transactions_on_deleted"
   add_index "transactions", ["last_transition_at"], :name => "index_transactions_on_last_transition_at"
   add_index "transactions", ["listing_id"], :name => "index_transactions_on_listing_id"
 

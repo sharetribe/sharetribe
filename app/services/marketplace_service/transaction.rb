@@ -213,15 +213,18 @@ module MarketplaceService
 
       def transition_to(transaction_id, new_status, metadata = nil)
         new_status = new_status.to_sym
-        transaction = TransactionModel.find(transaction_id)
-        old_status = transaction.current_state.to_sym if transaction.current_state.present?
 
-        transaction_entity = Entity.transaction(transaction)
-        payment_type = transaction.payment_gateway.to_sym
+        if Query.can_transition_to?(transaction_id, new_status)
+          transaction = TransactionModel.where(id: transaction_id, deleted: false).first
+          old_status = transaction.current_state.to_sym if transaction.current_state.present?
 
-        Events.handle_transition(transaction_entity, payment_type, old_status, new_status)
+          transaction_entity = Entity.transaction(transaction)
+          payment_type = transaction.payment_gateway.to_sym
 
-        Entity.transaction(save_transition(transaction, new_status, metadata))
+          Events.handle_transition(transaction_entity, payment_type, old_status, new_status)
+
+          Entity.transaction(save_transition(transaction, new_status, metadata))
+        end
       end
 
       def save_transition(transaction, new_status, metadata = nil)
@@ -255,7 +258,7 @@ module MarketplaceService
 
       def transaction_with_conversation(transaction_id:, person_id: nil, community_id:)
         rel = TransactionModel.joins(:listing)
-          .where(id: transaction_id)
+          .where(id: transaction_id, deleted: false)
           .where(community_id: community_id)
           .includes(:booking)
 
@@ -298,9 +301,11 @@ module MarketplaceService
       end
 
       def can_transition_to?(transaction_id, new_status)
-        transaction = TransactionModel.where(id: transaction_id, deleted: false)
-        state_machine = TransactionProcessStateMachine.new(transaction, transition_class: TransactionTransition)
-        state_machine.can_transition_to?(new_status)
+        transaction = TransactionModel.where(id: transaction_id, deleted: false).first
+        if transaction
+          state_machine = TransactionProcessStateMachine.new(transaction, transition_class: TransactionTransition)
+          state_machine.can_transition_to?(new_status)
+        end
       end
 
       # TODO Consider removing to inbox service, since this is more like inbox than transaction stuff.
