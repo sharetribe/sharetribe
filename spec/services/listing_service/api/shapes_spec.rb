@@ -28,7 +28,6 @@ describe ListingService::API::Shapes do
       transaction_process_id: transaction_process_id,
       name_tr_key: name_tr_key,
       action_button_tr_key: action_button_tr_key,
-      price_quantity_placeholder: :time,
       basename: "Selling",
 
       units: [
@@ -74,7 +73,6 @@ describe ListingService::API::Shapes do
         expect(shape[:transaction_process_id]).to eql(transaction_process_id)
         expect(shape[:name_tr_key]).to eql(name_tr_key)
         expect(shape[:action_button_tr_key]).to eql(action_button_tr_key)
-        expect(shape[:price_quantity_placeholder]).to eql(nil)
         expect(shape[:category_ids].sort).to eq category_ids.sort
         expect(shape[:name]).to eql("selling")
 
@@ -156,19 +154,6 @@ describe ListingService::API::Shapes do
         shape_names = listings_api.shapes.get(community_id: community_id).data.map { |s| [s[:name], s[:sort_priority]] }
         expect(shape_names).to eq [["rent", 0], ["request", 5], ["sell", 10]]
       end
-
-      # TODO This spec can be removed when we remove quantity placeholder
-      it "returns old quantity placeholder" do
-        id = create_shape[:data][:id]
-
-        # FIXME Do not use models directly
-        ListingShape.find(id).update_attributes(price_quantity_placeholder: "time")
-
-        get_res = listings_api.shapes.get(community_id: community_id, listing_shape_id: id)
-
-        expect(get_res.success).to eq(true)
-        expect(get_res.data[:price_quantity_placeholder]).to eq(:time)
-      end
     end
   end
 
@@ -249,30 +234,6 @@ describe ListingService::API::Shapes do
 
         expect(update_res.success).to eq(true)
         expect(update_res.data[:shipping_enabled]).to eq(false)
-      end
-
-      # TODO This test can be removed when we remove price_quantity_placeholder
-
-      it "sets price_quantity_placeholder to nil" do
-        shape = create_shape.data
-
-        # FIXME Do not use models directly
-        ListingShape.find(shape[:id]).update_attributes(price_quantity_placeholder: "time")
-
-        get_res = listings_api.shapes.get(community_id: community_id, listing_shape_id: shape[:id])
-
-        expect(get_res.success).to eq(true)
-        expect(get_res.data[:price_quantity_placeholder]).to eq(:time)
-
-        update_res = listings_api.shapes.update(
-          community_id: community_id,
-          listing_shape_id: shape[:id],
-          opts: { shipping_enabled: false })
-
-        expect(update_res.success).to eq(true)
-        expect(update_res.data[:shipping_enabled]).to eq(false)
-        expect(update_res.data[:price_quantity_placeholder]).to eq(nil)
-
       end
     end
 
