@@ -114,8 +114,8 @@ class Transaction < ActiveRecord::Base
     payment.payment_gateway ||= community.payment_gateway
     payment.transaction = self
     payment.status = "pending"
-    payment.payer = starter
-    payment.recipient = author
+    payment.payer = buyer
+    payment.recipient = seller
     payment.community = community
     payment
   end
@@ -152,16 +152,20 @@ class Transaction < ActiveRecord::Base
     testimonials.find { |testimonial| testimonial.author_id == starter.id }
   end
 
+  def author_is_seller
+    listing.listing_shape.transaction_process.author_is_seller
+  end
+
   # TODO This assumes that author is seller (which is true for all offers, sell, give, rent, etc.)
   # Change it so that it looks for TransactionProcess.author_is_seller
   def seller
-    author
+    author_is_seller ? author : starter
   end
 
   # TODO This assumes that author is seller (which is true for all offers, sell, give, rent, etc.)
   # Change it so that it looks for TransactionProcess.author_is_seller
   def buyer
-    starter
+    author_is_seller ? starter : author
   end
 
   def participations
@@ -169,11 +173,11 @@ class Transaction < ActiveRecord::Base
   end
 
   def payer
-    starter
+    buyer
   end
 
   def payment_receiver
-    author
+    seller
   end
 
   # If payment through Sharetribe is required to

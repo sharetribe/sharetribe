@@ -66,6 +66,8 @@ class Listing < ActiveRecord::Base
   include ApplicationHelper
   include ActionView::Helpers::TranslationHelper
   include Rails.application.routes.url_helpers
+  
+  belongs_to :listing_shape
 
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
 

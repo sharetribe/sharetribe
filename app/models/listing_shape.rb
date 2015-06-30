@@ -38,6 +38,8 @@ class ListingShape < ActiveRecord::Base
 
   has_and_belongs_to_many :categories, order: "sort_priority", join_table: "category_listing_shapes"
   has_many :listing_units
+  belongs_to :transaction_process
+  has_many :listings
 
   def self.columns
     super.reject { |c| c.name == "transaction_type_id" || c.name == "price_quantity_placeholder" }
