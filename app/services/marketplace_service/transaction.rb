@@ -248,7 +248,7 @@ module MarketplaceService
       module_function
 
       def transaction(transaction_id)
-        Maybe(TransactionModel.where(id: transaction_id).first)
+        Maybe(TransactionModel.where(id: transaction_id, deleted: false).first)
           .map { |m| Entity.transaction(m) }
           .or_else(nil)
       end
@@ -273,7 +273,7 @@ module MarketplaceService
 
       def transactions_for_community_sorted_by_column(community_id, sort_column, sort_direction, limit, offset)
         transactions = TransactionModel
-          .where(:community_id => community_id)
+          .where(community_id: community_id, deleted: false)
           .includes(:listing)
           .limit(limit)
           .offset(offset)
@@ -294,11 +294,11 @@ module MarketplaceService
       end
 
       def transactions_count_for_community(community_id)
-        TransactionModel.where(:community_id => community_id).count
+        TransactionModel.where(community_id: community_id, deleted: false).count
       end
 
       def can_transition_to?(transaction_id, new_status)
-        transaction = TransactionModel.find(transaction_id)
+        transaction = TransactionModel.where(id: transaction_id, deleted: false)
         state_machine = TransactionProcessStateMachine.new(transaction, transition_class: TransactionTransition)
         state_machine.can_transition_to?(new_status)
       end
@@ -311,7 +311,7 @@ module MarketplaceService
           # Get 'last_transition_at'
           # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
           LEFT JOIN conversations ON transactions.conversation_id = conversations.id
-          WHERE transactions.community_id = #{community_id}
+          WHERE transactions.community_id = #{community_id} AND transactions.deleted = 0
           ORDER BY
             GREATEST(COALESCE(transactions.last_transition_at, 0),
               COALESCE(conversations.last_message_at, 0)) #{sort_direction}
