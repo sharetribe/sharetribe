@@ -100,7 +100,7 @@ module MarketplaceService
           transitions: transaction_model.transaction_transitions.map { |transition|
             Transition[EntityUtils.model_to_hash(transition)]
           },
-          payment_total: (transaction_model.listing_quantity * transaction_model.unit_price),
+          payment_total: (transaction_model.listing_quantity * Maybe(transaction_model.unit_price).or_else(0)),
           booking: transaction_model.booking,
           __model: transaction_model
         })]
