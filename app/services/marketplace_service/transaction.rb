@@ -196,15 +196,18 @@ module MarketplaceService
 
       def transition_to(transaction_id, new_status, metadata = nil)
         new_status = new_status.to_sym
-        transaction = TransactionModel.find(transaction_id)
-        old_status = transaction.current_state.to_sym if transaction.current_state.present?
 
-        transaction_entity = Entity.transaction(transaction)
-        payment_type = transaction.payment_gateway.to_sym
+        if Query.can_transition_to?(transaction_id, new_status)
+          transaction = TransactionModel.where(id: transaction_id, deleted: false).first
+          old_status = transaction.current_state.to_sym if transaction.current_state.present?
 
-        Events.handle_transition(transaction_entity, payment_type, old_status, new_status)
+          transaction_entity = Entity.transaction(transaction)
+          payment_type = transaction.payment_gateway.to_sym
 
-        Entity.transaction(save_transition(transaction, new_status, metadata))
+          Events.handle_transition(transaction_entity, payment_type, old_status, new_status)
+
+          Entity.transaction(save_transition(transaction, new_status, metadata))
+        end
       end
 
       def save_transition(transaction, new_status, metadata = nil)
@@ -231,14 +234,14 @@ module MarketplaceService
       module_function
 
       def transaction(transaction_id)
-        Maybe(TransactionModel.where(id: transaction_id).first)
+        Maybe(TransactionModel.where(id: transaction_id, deleted: false).first)
           .map { |m| Entity.transaction(m) }
           .or_else(nil)
       end
 
       def transaction_with_conversation(transaction_id:, person_id: nil, community_id:)
         rel = TransactionModel.joins(:listing)
-          .where(id: transaction_id)
+          .where(id: transaction_id, deleted: false)
           .where(community_id: community_id)
           .includes(:booking)
 
@@ -256,7 +259,7 @@ module MarketplaceService
 
       def transactions_for_community_sorted_by_column(community_id, sort_column, sort_direction, limit, offset)
         transactions = TransactionModel
-          .where(:community_id => community_id)
+          .where(community_id: community_id, deleted: false)
           .includes(:listing)
           .limit(limit)
           .offset(offset)
@@ -277,13 +280,15 @@ module MarketplaceService
       end
 
       def transactions_count_for_community(community_id)
-        TransactionModel.where(:community_id => community_id).count
+        TransactionModel.where(community_id: community_id, deleted: false).count
       end
 
       def can_transition_to?(transaction_id, new_status)
-        transaction = TransactionModel.find(transaction_id)
-        state_machine = TransactionProcessStateMachine.new(transaction, transition_class: TransactionTransition)
-        state_machine.can_transition_to?(new_status)
+        transaction = TransactionModel.where(id: transaction_id, deleted: false).first
+        if transaction
+          state_machine = TransactionProcessStateMachine.new(transaction, transition_class: TransactionTransition)
+          state_machine.can_transition_to?(new_status)
+        end
       end
 
       # TODO Consider removing to inbox service, since this is more like inbox than transaction stuff.
@@ -294,7 +299,7 @@ module MarketplaceService
           # Get 'last_transition_at'
           # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
           LEFT JOIN conversations ON transactions.conversation_id = conversations.id
-          WHERE transactions.community_id = #{community_id}
+          WHERE transactions.community_id = #{community_id} AND transactions.deleted = 0
           ORDER BY
             GREATEST(COALESCE(transactions.last_transition_at, 0),
               COALESCE(conversations.last_message_at, 0)) #{sort_direction}
