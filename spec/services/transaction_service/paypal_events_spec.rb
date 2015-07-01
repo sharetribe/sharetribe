@@ -112,13 +112,15 @@ describe TransactionService::PaypalEvents do
 
 
   context "#request_cancelled" do
-    it "marks the transaction associated with the cancelled token as deleted" do
+    it "removes transaction associated with the cancelled token" do
       TransactionService::PaypalEvents.request_cancelled(:success, @token_no_msg)
       TransactionService::PaypalEvents.request_cancelled(:success, @token_with_msg)
 
-      # Both transactions are there but marked as deleted
-      expect(TransactionModel.count).to eq(2)
-      expect(TransactionModel.all.map(&:deleted)).to eq([true, true])
+      # Both transactions are deleted
+      expect(TransactionModel.count).to eq(0)
+      # and so are the conversations
+      expect(Conversation.where(id: @conversation_no_msg).first).to be_nil
+      expect(Conversation.where(id: @conversation_with_msg).first).to be_nil
     end
 
     it "calling with token that doesn't match a transaction is a no-op" do
@@ -196,9 +198,11 @@ describe TransactionService::PaypalEvents do
       TransactionService::PaypalEvents.payment_updated(:success, @voided_payment_no_msg)
       TransactionService::PaypalEvents.payment_updated(:success, @voided_payment_with_msg)
 
-      # Both transactions are there but marked as deleted
-      expect(TransactionModel.count).to eq(2)
-      expect(TransactionModel.all.map(&:deleted)).to eq([true, true])
+      # Both transactions are deleted
+      expect(TransactionModel.count).to eq(0)
+      # and so are the conversations
+      expect(Conversation.where(id: @conversation_no_msg).first).to be_nil
+      expect(Conversation.where(id: @conversation_with_msg).first).to be_nil
     end
 
     it "is safe to call for non-existent transaction" do

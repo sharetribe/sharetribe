@@ -251,11 +251,10 @@ module MarketplaceService
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
-          # Ignore initiated and deleted
+          # Ignore initiated
           AND (
             transactions.id IS NULL
-            OR (transactions.current_state != 'initiated'
-                AND transactions.deleted = 0)
+            OR transactions.current_state != 'initiated'
           )
 
           # This is a bit complicated logic that is now moved from app to SQL.
@@ -336,11 +335,10 @@ module MarketplaceService
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
-          # Ignore initiated and deleted
+          # Ignore initiated
           AND (
             transactions.id IS NULL
-            OR (transactions.current_state != 'initiated'
-                AND transactions.deleted = 0)
+            OR transactions.current_state != 'initiated'
           )
 
           # Order by 'last_activity_at', that is last message or last transition
@@ -362,12 +360,12 @@ module MarketplaceService
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
-          # Ignore initiated and deleted
+          # Ignore initiated
           AND (
             transactions.id IS NULL
-            OR (transactions.current_state != 'initiated'
-                AND transactions.deleted = 0)
+            OR transactions.current_state != 'initiated'
           )
+
         "
       }
     end

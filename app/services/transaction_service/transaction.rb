@@ -53,16 +53,13 @@ module TransactionService::Transaction
   # Deprecated
   def query(transaction_id)
     ActiveSupport::Deprecation.warn("TransactionService::Transaction.query: this is deprecated and will be removed in the near future.")
-
-    Maybe(TxStore.get(transaction_id))
-      .map { |tx| to_tx_response(tx) }
-      .or_else(nil)
+    tx = TxStore.get(transaction_id)
+    to_tx_response(tx)
   end
 
   def get(community_id:, transaction_id:)
-    Maybe(TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id))
-      .map { |tx|  Result::Success.new(to_tx_response(tx)) }
-      .or_else(Result::Error.new("No tx for community_id: #{community_id} and transaction_id: #{transaction_id}"))
+    tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
+    Result::Success.new(to_tx_response(tx))
   end
 
   def has_unfinished_transactions(person_id)

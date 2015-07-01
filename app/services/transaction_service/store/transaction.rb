@@ -66,10 +66,7 @@ module TransactionService::Store::Transaction
     [:duration, :fixnum, :mandatory])
 
 
-  # While initiated is technically not a finished state it also
-  # doesn't have any payment data to track against, so removing person
-  # is still safe.
-  FINISHED_TX_STATES = "'initiated', 'free', 'rejected', 'confirmed', 'canceled', 'errored'"
+  FINISHED_TX_STATES = "'free', 'rejected', 'confirmed', 'canceled', 'errored'"
 
   module_function
 
@@ -105,21 +102,18 @@ module TransactionService::Store::Transaction
   end
 
   def get(transaction_id)
-    Maybe(TransactionModel.where(id: transaction_id, deleted: false).first)
+    Maybe(TransactionModel.where(id: transaction_id).first)
       .map { |m| from_model(m) }
       .or_else(nil)
   end
 
   def get_in_community(community_id:, transaction_id:)
-    Maybe(TransactionModel.where(id: transaction_id, community_id: community_id, deleted: false).first)
+    Maybe(TransactionModel.where(id: transaction_id, community_id: community_id).first)
       .map { |m| from_model(m) }
       .or_else(nil)
   end
 
   def unfinished_tx_count(person_id)
-    # We include deleted transactions on purpose. They might be in a
-    # state where e.g. IPN message causes them to proceed so removing
-    # user data would be unwise.
     TransactionModel
       .where("starter_id = ? OR listing_author_id = ?", person_id, person_id)
       .where("current_state NOT IN (#{FINISHED_TX_STATES})")
@@ -131,13 +125,6 @@ module TransactionService::Store::Transaction
       .map { |m| ShippingAddressModel.where(transaction_id: m.id).first_or_create!(transaction_id: m.id) }
       .map { |a| a.update_attributes!(addr_fields(addr)) }
       .or_else { nil }
-  end
-
-  def delete(community_id:, transaction_id:)
-    Maybe(TransactionModel.where(id: transaction_id, community_id: community_id).first)
-      .each { |m| m.update_attribute(:deleted, true) }
-      .map { |m| from_model(m.reload) }
-      .or_else(nil)
   end
 
   ## Privates
