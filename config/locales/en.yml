@@ -557,7 +557,7 @@ en:
       shipping_price_label: "Shipping:"
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
-      cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
+      cancel_description: "If your request was not fulfilled, you can mark it as 'disputed'. You can still give feedback to the other party and describe what happened."
       cancel_payed_description: "If your request was accepted but you're having second thoughts, you can still cancel the request before the payment."
       canceling_payed_transaction: "Cancel transaction"
       confirm: "Mark completed"
