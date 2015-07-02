@@ -1,6 +1,5 @@
 module TransactionService::PaypalEvents
 
-  TransactionModel = ::Transaction
   TransactionStore = TransactionService::Store::Transaction
   module_function
 
@@ -122,11 +121,8 @@ module TransactionService::PaypalEvents
   end
 
   def delete_transaction(cid:, tx_id:)
-    tx = TransactionModel.where(community_id: cid, id: tx_id, current_state: "initiated").first
-
-    if tx
-      tx.conversation.destroy
-      tx.destroy
+    if TransactionStore.get_in_community(community_id: cid, transaction_id: tx_id)
+      TransactionStore.delete(community_id: cid, transaction_id: tx_id)
     end
   end
 

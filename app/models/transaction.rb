@@ -29,13 +29,16 @@
 #  payment_process                   :string(31)       default("none")
 #  delivery_method                   :string(31)       default("none")
 #  shipping_price_cents              :integer
+#  deleted                           :boolean          default(FALSE)
 #
 # Indexes
 #
 #  index_transactions_on_community_id        (community_id)
 #  index_transactions_on_conversation_id     (conversation_id)
+#  index_transactions_on_deleted             (deleted)
 #  index_transactions_on_last_transition_at  (last_transition_at)
 #  index_transactions_on_listing_id          (listing_id)
+#  transactions_on_cid_and_deleted           (community_id,deleted)
 #
 
 class Transaction < ActiveRecord::Base
@@ -59,7 +62,7 @@ class Transaction < ActiveRecord::Base
     :unit_tr_key,
     :unit_selector_tr_key,
     :shipping_price,
-    :delivery_method,
+    :delivery_method
   )
 
   attr_accessor :contract_agreed
