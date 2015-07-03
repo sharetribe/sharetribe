@@ -5,10 +5,12 @@
   - if unofficial_locales.blank?
     - content_for :extra_javascript do
       :javascript
+        ST.updateLocales(#{enabled_locale_keys.to_json.html_safe});
         var selectize = $('#locale-selection').selectize({plugins: ['remove_button'], items: #{enabled_locale_keys.to_json.html_safe}})[0].selectize;
         selectize.on("change", function(value) {
           defaultLanguage = value ? selectize.options[value[0]].text.trim() : "-";
           $(".selected-default-language-name").text(defaultLanguage);
+          ST.updateLocales(value);
           $('#edit_community').valid();
         });
     = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.enabled_languages_description") }
