@@ -150,7 +150,8 @@ module PaypalService::API
 
     def ensure_payment_authorized(community_id, payment_entity)
       if payment_entity[:pending_reason] == :"payment-review"
-        Result::Error.new("Cannot complete authorization because the payment is pending for manual review by PayPal.", {error_code: :"payment-review"})
+        Result::Error.new("Cannot complete authorization because the payment is pending for manual review by PayPal.",
+                          { error_code: :"payment-review", payment: payment_entity })
       elsif payment_entity[:pending_reason] != :authorization
         authorize_payment(community_id, payment_entity)
       else
