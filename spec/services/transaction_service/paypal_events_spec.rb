@@ -129,6 +129,30 @@ describe TransactionService::PaypalEvents do
     end
   end
 
+  context "#payment_updated - initiated => payment-review" do
+    before(:each) do
+      @payment_review_payment = PaymentStore.create(@cid, @transaction_with_msg.id, {
+          payer_id: "sduyfsudf",
+          receiver_id: "98ysdf98ysdf",
+          merchant_id: "asdfasdf",
+          pending_reason: "payment-review",
+          order_id: SecureRandom.uuid,
+          order_date: Time.now,
+          order_total: Money.new(22000, "EUR"),
+          authorization_id: SecureRandom.uuid,
+          authorization_date: Time.now,
+          authorization_total: Money.new(22000, "EUR"),
+        })
+    end
+
+    it "keeps transaction in initiated state" do
+      TransactionService::PaypalEvents.payment_updated(:success, @payment_review_payment)
+
+      tx = MarketplaceService::Transaction::Query.transaction(@transaction_with_msg.id)
+      expect(tx[:status]).to eq("initiated")
+    end
+  end
+
   context "#payment_updated - initiated => authorized" do
     before(:each) do
       @authorized_payment = PaymentStore.create(@cid, @transaction_with_msg.id, {

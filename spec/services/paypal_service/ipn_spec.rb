@@ -232,6 +232,17 @@ describe PaypalService::IPN do
       expect(@events.received_events[:payment_updated].length).to eq 1
     end
 
+    it "should handle authorization when payment in payment-review state" do
+      PaypalPayment.where(authorization_id: @authorization[:authorization_id])
+        .first
+        .update_attribute(:pending_reason, "payment-review")
+
+      @ipn_service.handle_msg(@auth_created_no_order_msg)
+      payment = PaypalPayment.where(authorization_id: @authorization[:authorization_id]).first
+      expect(payment.payment_status).to eql "pending"
+      expect(payment.pending_reason).to eql "authorization"
+    end
+
     it "should handle authorization without order" do
       @ipn_service.handle_msg(@auth_created_no_order_msg)
 
