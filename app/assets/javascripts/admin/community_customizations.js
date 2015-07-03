@@ -1,22 +1,9 @@
 window.ST = window.ST || {};
 
 (function(module) {
+
   var initializeTransactionAgreementFields = function() {
-    var checkbox = $('#community_transaction_agreement_checkbox');
-    var modalFields = $('.transaction-agreement-modal');
-    var checked = checkbox.is(':checked');
-
-    modalFields
-      .prop("disabled", !checked)
-      .toggleClass('required', checked)
-      .toggleClass('disabled', !checked);
-
-    checkbox.click(function() {
-      modalFields
-        .prop("disabled", !this.checked)
-        .toggleClass('required', this.checked)
-        .toggleClass('disabled', !this.checked);
-    });
+    $('#community_transaction_agreement_checkbox').click(updateFieldModality);
   };
 
   var initializeCustomizationFormValidation = function () {
@@ -30,6 +17,37 @@ window.ST = window.ST || {};
         }
       }
     });
+  };
+
+  var updateFieldStatus = function($field, enabled) {
+    $field
+      .prop('disabled', !enabled)
+      .toggleClass('disabled', !enabled)
+      .toggleClass('required', enabled);
+  };
+
+  var updateFieldModality = function() {
+    var txAgreementEnabled = $('#community_transaction_agreement_checkbox').is(':checked');
+    var modalFields = $('input.transaction-agreement-modal, textarea.transaction-agreement-modal');
+    
+    updateFieldStatus(modalFields, false);
+
+    if (txAgreementEnabled) {
+      modalFields.filter(function(){
+        return $(this).data("locale-enabled") === true;
+      }).each(function(index, field){
+        updateFieldStatus($(field), true);
+      });
+    }
+  };
+
+  module.updateLocales = function(locales) {
+    var modalFields = $('input.transaction-agreement-modal, textarea.transaction-agreement-modal');
+    modalFields.data("locale-enabled", false);
+    $(locales).each(function(index, locale){
+      modalFields.filter("[name*='["+locale+"]']").data("locale-enabled", true);
+    });
+    updateFieldModality();
   };
 
   module.initializeCommunityCustomizations = function () {
