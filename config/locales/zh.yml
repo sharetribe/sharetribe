@@ -546,7 +546,7 @@ zh:
       shipping_price_label: "运费:"
     confirm:
       confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
-      cancel_description: 如果你的请求没有完成，你可以标记它为“未发生”。你仍然可以评论给其他交易方描述发生的事情。
+      cancel_description: 如果你的请求没有完成，你可以标记它为“有争议的”。你仍然可以评论给其他交易方描述发生的事情。
       cancel_payed_description: 如果你的请求被接受但是你有其他的想法，你仍然可以在付款前取消请求。
       canceling_payed_transaction: 取消交易
       confirm: 标记为完成
@@ -1741,7 +1741,7 @@ zh:
       visible_to_everybody: 所有人可见
       create_account_with_facebook: 用Facebook帐号注册
       OR: 或
-      signup_with_email: 用邮件注册
+      signup_with_email: 使用你自己的邮箱注册
     not_member:
       explanation_text: "你正在浏览%{community} 社区。你试图查看另一个社区的用户资料。所以你不可以在%{community}社区查看这个用户的资料。"
       read_more_about_kassi_communities: 阅读更多关于这个网站
@@ -2068,8 +2068,8 @@ zh:
         other: 用戶
       listing_conversation:
         other: 交易
-    previous_label: "&#8592;上一个"
-    next_label: "下一个 &#8594;"
+    previous_label: "&#8592;上一页"
+    next_label: "下一页 &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
