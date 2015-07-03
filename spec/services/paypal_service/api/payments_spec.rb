@@ -180,6 +180,17 @@ describe PaypalService::API::Payments do
       expect(payment_res[:data][:authorization_total]).to eq(@req_info_auth[:order_total])
     end
 
+    it "returns error with parseable error_code when payment needs review" do
+      token = @payments.request(@cid, @req_info_auth.merge({item_name: "require-payment-review"}))[:data]
+
+      payment_res = @payments.create(@cid, token[:token])
+
+      payment = PaymentStore.get(@cid, @tx_id)
+      expect(payment_res.success).to eq(false)
+      expect(payment_res.data[:error_code]).to eq(:"payment-review")
+      expect(payment[:pending_reason]).to eq(:"payment-review")
+    end
+
     it "triggers payment_created event followed by payment_updated" do
       token = @payments.request(@cid, @req_info)[:data]
       payment_res = @payments.create(@cid, token[:token])

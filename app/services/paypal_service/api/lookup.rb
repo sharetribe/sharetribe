@@ -68,7 +68,7 @@ module PaypalService::API
       end
 
       if (!payment_in_accepted_state?(payment, accepted_states))
-        return log_and_return(Result::Error.new("Payment was not in accepted precondition state for the requested operation. Expected one of: #{accepted_states}, was: :#{payment[:payment_status]}, :#{payment[:pending_reason]}"))
+        return log_and_return(Result::Error.new("Payment was not in accepted precondition state for the requested operation. Expected one of: #{accepted_states}, was: :[#{payment[:payment_status]}, :#{payment[:pending_reason]}]"))
       end
 
       m_acc = AccountStore.get(person_id: payment[:merchant_id], community_id: cid, payer_id: payment[:receiver_id])

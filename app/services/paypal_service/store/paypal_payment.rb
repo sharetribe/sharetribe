@@ -205,6 +205,7 @@ module PaypalService::Store::PaypalPayment
 
   STATES = {
     order: [:pending, :order],
+    payment_review: [:pending, :"payment-review"],
     authorized: [:pending, :authorization],
     expired: [:expired, :none],
     pending_ext: [:pending, :ext],
@@ -213,15 +214,16 @@ module PaypalService::Store::PaypalPayment
     denied: [:denied, :none]
   }
 
-  INTERNAL_REASONS = [:none, :authorization, :order]
+  INTERNAL_REASONS = [:none, :authorization, :order, :"payment-review"]
 
   STATE_HIERARCHY = {
     order: 0,
-    authorized: 1,
-    expired: 2,
-    voided: 2,
-    pending_ext: 2,
-    completed: 3,
+    payment_review: 1,
+    authorized: 2,
+    expired: 3,
+    voided: 3,
+    pending_ext: 3,
+    completed: 4,
     denied: 4,
   }
 

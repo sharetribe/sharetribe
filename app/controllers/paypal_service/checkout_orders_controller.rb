@@ -53,6 +53,9 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     else
       if response_data[:paypal_error_code] == "10486"
         redirect_to response_data[:redirect_url]
+      elsif response_data[:error_code] == :"payment-review"
+        flash[:warning] = t("error_messages.paypal.pending_review_error")
+        redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       else
         flash[:error] = t("error_messages.paypal.generic_error")
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
