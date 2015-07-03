@@ -35,7 +35,7 @@ module TransactionService::Gateway
         async: prefer_async)
 
       if !result[:success]
-        return SyncCompletion.new(Result::Error.new(result[:error_msg]))
+        return SyncCompletion.new(result)
       end
 
       if prefer_async
