@@ -978,7 +978,7 @@ en:
     transaction_agreement:
       required_error: "You need to accept the agreement"
     paypal:
-      pending_review_error: "The payment was submitted but was flagged by PayPal for requiring a review. When the review is done the payment will be automatically marked as authorized."
+      pending_review_error: "The payment was submitted but was flagged by PayPal as 'requiring a review'. When the review is done, the payment will be automatically authorized."
       generic_error: "An error occured during the payment process. Could not finalize your PayPal payment."
       cancel_error: "An error occured during cancellation. Could not finalize cancel."
       accept_authorization_error: "An error occured while trying to accept preauthorized Paypal payment. Please, try again."
