@@ -962,6 +962,7 @@ pt-BR:
     transaction_agreement:
       required_error: "Você precisa aceitar o acordo"
     paypal:
+      pending_review_error: ~
       generic_error: "Ocorreu um erro durante o processo de pagamento. Não foi possível finalizar o seu pagamento PayPal."
       cancel_error: "Um erro ocorreu durante o cancelamento. Não foi possível finalizar."
       accept_authorization_error: "Ocorreu um erro durante a tentativa de aceitar pagamento pré-autorizado pelo Paypal. Por favor, tente novamente."

@@ -954,6 +954,7 @@ es:
     transaction_agreement:
       required_error: ~
     paypal:
+      pending_review_error: ~
       generic_error: ~
       cancel_error: ~
       accept_authorization_error: ~

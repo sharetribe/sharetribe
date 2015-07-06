@@ -185,7 +185,7 @@ zh:
         transaction_preferences: 交易偏好
         show_listing_publishing_date: 在列表页面的显示信息的发布日期
         show_category_in_listing_list: 在列表视图中显示信息类型
-        hide_expiration_date: 不要求发布的信息包含过期日期
+        hide_expiration_date: 不要求发布的信息设置过期日期
         listing_comments_in_use: 允许用户对信息发表评论（所有其他用户可见）
         email_preferences: 邮件发送偏好设置
         automatic_newsletters: 自动发送每日/每周新闻邮件给所有用户（除非用户选择不接收）
@@ -967,6 +967,7 @@ zh:
     transaction_agreement:
       required_error: 你需要接受协议
     paypal:
+      pending_review_error: 支付已经提交，但是被Paypal标记为‘需要检查’。当Paypal完成检查后，该支付将会被自动授权。
       generic_error: 付款过程中出现错误。无法完成你的PayPal付款。
       cancel_error: 取消时发生错误。不能完成取消操作。
       accept_authorization_error: 尝试接受预授权的PayPal付款时出错。请重试。
@@ -1171,7 +1172,7 @@ zh:
       join_this_community: 加入集市
       read_more: 读取更多
       feedback: 给我们提供反馈？
-      default_feedback: "你碰到任何关于%{service_name}的问题了吗？有什么提高服务质量的建议吗？注意到一些可疑的内容？或者你有些什么想与我们讨论吗？告诉我们！"
+      default_feedback: "你有任何关于%{service_name}的问题吗？有什么提高服务质量的建议吗？发现了一些可疑的内容？或者你有些想法与我们讨论？在这里告诉我们！"
       feedback_forum: 反馈论坛
       feedback_handle: 反馈
       give_feedback: 联系我们
@@ -1375,8 +1376,8 @@ zh:
     error:
       something_went_wrong: "出错了，错误代码：%{error_code}"
     follow_links:
-      follow: 接收关于新评论的邮件
-      unfollow: 不再接收关于新评论的邮件
+      follow: 接收关于新评论的电子邮件
+      unfollow: 不再接收关于新评论的电子邮件
     form:
       custom_field_partials:
         dropdown:

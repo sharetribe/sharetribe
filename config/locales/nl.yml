@@ -962,6 +962,7 @@ nl:
     transaction_agreement:
       required_error: "Je moet de overeenkomst accepteren"
     paypal:
+      pending_review_error: ~
       generic_error: "Er heeft zicht een fout voorgedaan tijdens de betaling. De PayPal betaling kon niet worden uitgevoerd."
       cancel_error: "Fout tijdens uitvoeren annulering. Annulering is niet afgehandeld."
       accept_authorization_error: "Preautorisatie krijgen van de PayPal betaling is mislukt. Probeer opnieuw a.u.b."

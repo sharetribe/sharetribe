@@ -978,6 +978,7 @@ es-ES:
     transaction_agreement:
       required_error: "Debes aceptar el acuerdo"
     paypal:
+      pending_review_error: ~
       generic_error: "Ha ocurrido un error durante el proceso de pago. No se pudo finalizar el pago a través de PayPal."
       cancel_error: "Ha ocurrido un error durante la cancelación. No se ha podido finalizar la cancelación"
       accept_authorization_error: "Ha ocurrido un error mientras intentábamos aceptar el pago preautorizado con PayPal. Por favor, inténtalo de nuevo."
@@ -1418,7 +1419,7 @@ es-ES:
         image: Imagen
         no_file_selected: "No hay archivos seleccionados"
         remove_image: "Quitar imagen"
-        select_file: "Eligir Archivo"
+        select_file: "Elegir Archivo"
         removing: Eliminando...
         processing: Procesando...
         loading_image: Cargando...
