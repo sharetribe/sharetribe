@@ -171,7 +171,7 @@ module PaypalService
                 checkout_status: "not_used_in_tests",
                 billing_agreement_accepted: !billing_agreement.nil?,
                 payer: token[:email],
-                payer_id: "payer_id",
+                payer_id: token[:item_name] != "payment-not-initiated" ? "payer_id" : nil,
                 order_total: token[:order_total]
               }
 
