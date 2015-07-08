@@ -482,4 +482,44 @@ describe PaypalService::API::Payments do
     end
   end
 
+  context "#retry_and_clean_tokens" do
+    it "retries payment and completes if payment now authorized" do
+      token = @payments.request(@cid, @req_info)[:data]
+
+      @payments.retry_and_clean_tokens(1.hour.ago)
+
+      payment = @payments.get_payment(@cid, @tx_id)[:data]
+      expect(payment[:payment_status]).to eq(:pending)
+      expect(payment[:pending_reason]).to eq(:authorization)
+      expect(TokenStore.get_all.count).to eq(0)
+    end
+
+    it "leaves token in place if op fails but clean time limit not reached" do
+      token = @payments.request(@cid, @req_info.merge({item_name: "payment-not-initiated"}))[:data]
+
+      @payments.retry_and_clean_tokens(1.hour.ago)
+
+      expect(@payments.get_payment(@cid, @tx_id)[:success]).to eq(false)
+      expect(TokenStore.get_all.count).to eq(1)
+    end
+
+    it "removes token if op fails and clean time limit reached" do
+      token = @payments.request(@cid, @req_info.merge({item_name: "payment-not-initiated"}))[:data]
+
+      @payments.retry_and_clean_tokens(1.hour.from_now)
+
+      expect(@payments.get_payment(@cid, @tx_id)[:success]).to eq(false)
+      expect(TokenStore.get_all.count).to eq(0)
+    end
+
+    it "doesn't remove token when op fails, clean time limit reached but payment in :payment-review state" do
+      token = @payments.request(@cid, @req_info_auth.merge({item_name: "require-payment-review"}))[:data]
+
+      @payments.retry_and_clean_tokens(1.hour.from_now)
+
+      expect(@payments.get_payment(@cid, @tx_id)[:data][:pending_reason]).to eq(:"payment-review")
+      expect(TokenStore.get_all.count).to eq(1)
+    end
+  end
+
 end

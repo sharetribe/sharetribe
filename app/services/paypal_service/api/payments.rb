@@ -253,7 +253,7 @@ module PaypalService::API
       TokenStore.get_all.each do |token|
         response = create(token.community_id, token.token)
 
-        if(!response[:success] && token.created_at < clean_time_limit)
+        if(!response[:success] && stop_retrying_token?(response, token.created_at, clean_time_limit))
           request_cancel(token.community_id, token.token)
         end
       end
@@ -265,6 +265,14 @@ module PaypalService::API
 
     # Reusable bits of the API operations
     #
+
+    def stop_retrying_token?(response, token_created_at, clean_time_limit)
+      if (token_created_at < clean_time_limit && (response[:data] == nil || response[:data][:error_code] != :"payment-review"))
+        true
+      else
+        false
+      end
+    end
 
     def create_payment(token)
       @lookup.with_merchant_account(token[:community_id], token) do |m_acc|
