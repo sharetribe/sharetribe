@@ -191,7 +191,7 @@ zh:
         automatic_newsletters: 自动发送每日/每周新闻邮件给所有用户（除非用户选择不接收）
         email_admins_about_new_members: 当新用户注册时给管理员发送一封电子邮件
         google_analytics_key: "Google Analytics跟踪ID"
-        twitter_handle: "Twitter handle（使用在信息页面的tweet按钮）"
+        twitter_handle: Twitter用户名（使用在信息页面的tweet按钮）
         update_settings: 保存设置
         automatically_confirmed: "交易在付款%{days_dropdown}天后将被自动标记为已完成。如果使用第三方支付系统，现在钱将被打入第三方系统。"
         automatically_confirmed_no_escrow: "在付款后%{days_dropdown}天内交易将被自动标记为完成。"
@@ -222,12 +222,12 @@ zh:
         ban_me_error: 你不能禁止自己。
       social_media:
         social_media: 社交媒体
-        twitter_handle: "Twitter handle"
+        twitter_handle: Twitter用户名
         twitter_handle_info_text: 当人们使用信息页面上的tweet按钮时，你的集市Twitter帐号的用户名（如果你有的话）将被提及。
         twitter_handle_info_text_with_instructions: "当人们使用信息页面上的Tweet按钮时，你的集市Twitter帐号的用户名（如果你有的话）将被提及。%{instructions_link}"
         twitter_instructions_link_text: 了解更多
         twitter_handle_placeholder: 用户名
-        invalid_twitter_handle: "Twitter handle最多不能超过15个字母和数字（字母A-Z和数字0-9）。"
+        invalid_twitter_handle: Twitter用户名最多不能超过15个字母和数字（字母A-Z和数字0-9）。
         facebook_connect: Facebook
         facebook_connect_info_text: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者Dashboard</a>中为你的集市创建一个应用。在这里添加应用生成的ID和密钥。"
         facebook_connect_info_text_with_instructions: "为了启用Facebook登录，在<a href='https://developers.facebook.com/'>Facebook开发者Dashboard</a>中为你的集市创建一个应用。在这里添加应用生成的ID和密钥。%{instructions_link}"
@@ -977,7 +977,7 @@ zh:
     error_404:
       if_you_believe: 如果你认为地址是正确并有效的。请完成下面的表格以便我们了解什么地址造成了错误。
       page_can_not_be_found: 页面没找到或不存在
-      page_you_requested_can_not_be_found: 你请求的页面不存在。你确定地址拼写正确？
+      page_you_requested_can_not_be_found: 你请求的页面不存在，你确定地址输入正确吗？
     error_404_title: 未找到页面
     error_410:
       page_removed: 页面已删除

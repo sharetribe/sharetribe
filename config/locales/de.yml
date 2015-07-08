@@ -858,7 +858,7 @@ de:
       you_have_received_new_payment: "Du hast bezahlt %{payment_sum} für %{listing_title} an %{payer_full_name}. Das ist deine Rechnung."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's Gebühr:"
-      shipping_total: ~
+      shipping_total: "Versand:"
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Betrag bezahlt von %{payer_full_name}:"
@@ -912,7 +912,7 @@ de:
     transaction_preauthorized:
       subject: "%{requester} hat %{listing_title} angefragt und bezahlt"
       transaction_requested_by_user: "%{requester} hat \"%{listing_title}\" angefragt und bezahlt"
-      you_have_time_to_accept: ~
+      you_have_time_to_accept: "Du musst die Anfrage innerhalb von %{payment_expires_in} akzeptieren oder ablehnen. Wenn Du innerhalb dieses Zeitrahmens akzeptierst, wird die Zahlung durchgehen. Wenn Du nicht zustimmst, wird die Anfrage automatisch abgelehnt, und Du wirst nicht bezahlt."
       click_here_to_reply: "Klicke hier um auf die Anfrage zu antworten"
     transaction_preauthorized_reminder:
       subject: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren."
@@ -962,7 +962,7 @@ de:
     transaction_agreement:
       required_error: "Du musst die Vereinbarung akzeptieren"
     paypal:
-      pending_review_error: ~
+      pending_review_error: "Die Zahlung wurde eingereicht, wurde aber von PayPal als \"erfordert Bewertung' gekennzeichnet. Wenn PayPal die Überprüfung abgeschlossen hat, wird die Zahlung automatisch genehmigt werden."
       generic_error: "Während des Zahlungsvorgangs ist ein Fehler aufgetreten. Die PayPal Zahlung konnte nicht abgeschlossen werden."
       cancel_error: "Während der Stornierung ist ein Fehler aufgetreten. Der Abbruch konnte nicht abgeschlossen werden."
       accept_authorization_error: "Bei dem Versuch, eine vorab autorisierte PayPal-Zahlung zu akzeptieren, ist ein Fehler aufgetreten. Bitte versuche es erneut."
@@ -1314,7 +1314,7 @@ de:
       you_must_log_in_to_invite_new_users: "Du musst dich einloggen, um neue Benutzer zu %{service_name} einzuladen"
       you_must_log_in_to_send_a_comment: "Du musst dich einloggen, um einen neuen Kommentar abzugeben"
       you_must_log_in_to_send_a_message: "Du musst dich bei %{service_name} einloggen, um eine Nachricht an einen anderen Benutzer zu senden."
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "Du musst Dich bei %{service_name} anmelden, um eine Transaktion durchzuführen."
       you_must_log_in_to_view_this_content: "Du musst dich einloggen, um diesen Inhalt sehen zu können"
       you_must_log_in_to_view_this_page: "Du musst dich einloggen, um diese Seite sehen zu können"
       you_must_log_in_to_view_your_inbox: "Du musst dich bei %{service_name} einloggen, um deinen Posteingang sehen zu können."
@@ -2035,6 +2035,19 @@ de:
     days_since:
       one: "%{count} Tag"
       other: "%{count} Tage"
+    time_to:
+      seconds:
+        one: "%{count} Sekunde"
+        other: "%{count} Sekunden"
+      minutes:
+        one: "%{count} Minute"
+        other: "%{count} Minuten"
+      hours:
+        one: "%{count} Stunde"
+        other: "%{count} Stunden"
+      days:
+        one: "%{count} Tag"
+        other: "%{count} Tage"
   transactions:
     initiate:
       booked_days: "Gebuchte Tage:"

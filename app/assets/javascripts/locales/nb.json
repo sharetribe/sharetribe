@@ -1,7 +1,7 @@
 {
   "please_wait": "Vennligst vent...",
   "validation_messages": {
-    "accept": "Bilde-filen må enten være GIF, JPG or PNG.",
+    "accept": "Bildet må enten være i GIF-, JPG- eller PNG-format.",
     "creditcard": "Vennligst angi et gyldig kortnummer.",
     "date": "Vennligst angi en gyldig dato.",
     "dateISO": "Vennligst angi en gyldig dato (ISO).",
@@ -20,9 +20,9 @@
     "url": "Vennligst legg inn en gyldig URL.",
     "address_validator": "Fant ikke stedet.",
     "money": "Du må oppgi et gyldig beløp.",
-    "min_bound": "Vennligst angi en verdi som er mindre enn høyesteverdi ({0})",
-    "max_bound": "Vennligst angi en verdi høyere enn minsteverdi ({0})",
-    "number_no_decimals": "Vennligst angi et helt tall",
-    "number_decimals": "Vennligst angi et gyldig tall med enten punktum (.) eller komma (,) for desimaler."
+    "min_bound": "Vennligst angi en verdi som er mindre enn maksimumsverdien ({0})",
+    "max_bound": "Vennligst angi en verdi som er høyere enn minsteverdien ({0})",
+    "number_no_decimals": "Vennligst angi et heltall",
+    "number_decimals": "Vennligst angi et gyldig tall enten med punktum (.) eller komma (,) som desimaltegn."
   }
 }
