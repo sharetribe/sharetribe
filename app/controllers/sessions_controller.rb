@@ -141,6 +141,7 @@ class SessionsController < ApplicationController
     request.env["omniauth.strategy"].options[:client_secret] = @current_community.facebook_connect_secret || APP_CONFIG.fb_connect_secret
     request.env["omniauth.strategy"].options[:iframe] = true
     request.env["omniauth.strategy"].options[:scope] = "email"
+    request.env["omniauth.strategy"].options[:info_fields] = "email"
 
     render :text => "Setup complete.", :status => 404 #This notifies the ominauth to continue
   end
