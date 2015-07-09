@@ -476,17 +476,17 @@ nb:
     default_community_slogan: Markedsplass
     default_community_description: "Dette er et nettsted for å selge, leie, bytte og dele produkter og tjenester med andre medlemmer av denne markedsplassen."
     cancel: Avbryt
-    fields_that_are_mandatory: "Felt merket med stjerne (*) er obligatorisk."
+    fields_that_are_mandatory: "Felt merket med stjerne (*) må fylles ut."
     or: eller
     password: Passord
     service_name: "%{service_name}"
     share_types:
       request: forespørsel
       offer: tilbud
-      borrow: bytting
+      borrow: lån
       buy: kjøp
       give_away: "gis bort"
-      lend: lån
+      lend: utlån
       receive: "tas i mot"
       rent: leie
       rent_out: utleie
@@ -652,9 +652,9 @@ nb:
       payment_errored_starter: "Betaling feilet. Vennligst prøv igjen. Dersom problemet vedvarer, vennligst kontakt vår support."
       payment_errored_author: "Betaling feilet. Vennligst kontakt%{starter_name}og spør om å prøve betaling på nytt."
       cancel_payed_transaction: Avbryt
-      feedback_given: "Vurdering gitt"
-      feedback_skipped: "Hoppet over vurdering"
-      give_feedback: "Gi vurdering"
+      feedback_given: "Tilbakemelding gitt"
+      feedback_skipped: "Hoppet over tilbakemelding"
+      give_feedback: "Gi tilbakemelding"
       offer_accepted: Godkjent
       offer_rejected: Avslått
       offer_canceled: Avbrutt
@@ -678,7 +678,7 @@ nb:
       request_canceled: Avbrutt
       request_paid: "Betaling vellykket"
       request_preauthorized: "Betaling vellykket"
-      skip_feedback: "Hopp over vurdering"
+      skip_feedback: "Hopp over tilbakemelding"
       waiting_for_listing_author_to_accept_offer: "Venter på%{listing_author_name}for å akseptere tilbudet"
       waiting_for_listing_author_to_accept_request: "Venter på at %{listing_author_name} skal akseptere forespørselen"
       waiting_for_you_to_accept_request: "Venter på at du skal akseptere forespørsel"
@@ -765,12 +765,12 @@ nb:
       join_community_button: "Bli medlem av %{service_name}"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "Husk å godta eller avslå tilbud fra %{sender_name}"
-      remember_to_accept_request: "Husk å godta eller avslå forespørsel fra %{sender_name}"
+      remember_to_accept_offer: "Husk å godta eller avslå tilbudet fra %{sender_name}"
+      remember_to_accept_request: "Husk å godta eller avslå forespørselen fra %{sender_name}"
       you_can_accept_or_reject_offer_at: "Du kan godta eller avslå tilbudet på"
       you_can_accept_or_reject_request_at: "Du kan godta eller avslå forespørselen på"
-      you_have_not_yet_accepted_or_rejected_offer: "Du har enda ikke godtatt eller avslått tilbudet %{title} du mottok %{date}."
-      you_have_not_yet_accepted_or_rejected_request: "Du har enda ikke godtatt eller avslått forespørselen %{title} du mottok %{date}."
+      you_have_not_yet_accepted_or_rejected_offer: "Du har ennå ikke godtatt eller avslått tilbudet %{title} du mottok %{date}."
+      you_have_not_yet_accepted_or_rejected_request: "Du har ennå ikke godtatt eller avslått forespørselen %{title} du mottok %{date}."
       show_thread: "Vis samtale"
     braintree_account_approved:
       account_ready: "Du kan nå motta betalinger"
@@ -831,7 +831,7 @@ nb:
     common:
       check_your_settings: "Sjekk innstillingene dine"
       hey: "Hei %{name},"
-      kassi_team: "%{service_name}"
+      kassi_team: "Vennlig hilsen %{service_name}"
       thanks: "Takk,"
       want_to_control_emails: "Vil du kontrollere hvilke e-poster du mottar fra %{service_name}?"
       dont_want_to_receive_these_emails: "Ønsker du ikke å motta e-poster?"
@@ -846,8 +846,8 @@ nb:
       has_rejected_your_offer: "%{accepter} har avslått ditt tilbud %{listing}."
       has_rejected_your_request: "%{accepter} har avslått din forespørsel %{listing}."
       view_thread: "Vis samtale"
-      your_offer_was_accepted: "Ditt tilbud ble godtatt"
-      your_offer_was_rejected: "Ditt tilbud ble avslått"
+      your_offer_was_accepted: "Tilbudet ditt ble godtatt"
+      your_offer_was_rejected: "Tilbudet ditt ble avslått"
       your_request_was_accepted: "Din forespørsel ble godtatt"
       your_request_was_rejected: "Din forespørsel ble avslått"
       you_can_now_pay_to: "Du kan nå betale forespurte beløp til %{payment_receiver}"
@@ -862,13 +862,13 @@ nb:
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} har kommentert på din annonse %{listing}"
       view_comment: "Vis kommentar"
-      you_have_a_new_comment: "%{author} har kommentert på din annonse hos %{service_name}"
+      you_have_a_new_comment: "%{author} har kommentert på din annonse på %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} har commentary på en listing du følger på %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} har kommentert på annonsen '%{listing}' du følger på %{service_name}"
     new_message:
       view_message: "Vis melding"
-      has_sent_you_a_message_in_kassi: "%{sender} har sendt deg en melding hos %{service_name}."
-      you_have_a_new_message: "Ny melding hos %{service_name} fra %{sender_name}"
+      has_sent_you_a_message_in_kassi: "%{sender} har sendt deg en melding på %{service_name}."
+      you_have_a_new_message: "Ny melding på %{service_name} fra %{sender_name}"
     new_payment:
       new_payment: "Du har mottatt en ny betaling"
       price_per_unit_type: "Pris per %{unit_type}"
@@ -896,8 +896,8 @@ nb:
       service_fee: Tjenestekostnad
       money_will_be_transferred: "Pengene blir overført til %{recipient_name} når a) du har huket av for at forespørselen er utført eller b) %{automatic_confirmation_days} dager har gått fra du betalte."
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} har gitt deg vurdering på %{service_name}"
-      you_can_give_feedback_to: "Du har ikke gitt vurdering til %{name} enda."
+      has_given_you_feedback_in_kassi: "%{name} har gitt deg tilbakemelding på %{service_name}"
+      you_can_give_feedback_to: "Du har ikke gitt tilbakemelding til %{name} ennå."
       view_feedback: "Vis vurdering"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "En listing du følger er oppdatert"
@@ -924,9 +924,9 @@ nb:
       change_my_password: "Endre mitt passord"
       reset_password_instructions: "<p>Du har indikert at du har glemt enten ditt passord eller brukernavn på %{service_name} </p><p>Ditt brukernavn er : %{username}</p><p>Dersom du må resette ditt passord, klikk denne link:  %{password_reset_link}</p><br/><p>Dersom du ikke har etterspurt dette, vennligst se bortifra denne eposten. Ditt passord endres ikke om du ikke bruker linken over og lager et nytt.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Vurderinger er offentlig og synlig for alle brukere. Basert på vurderingene kan brukere vurdere om %{name} er en pålitelig person man vil assosiere seg med. Det er derfor alltid viktig å gi vurderinger og be om å få dette av den andre parten også. Du trenger også positive vurderinger for å oppnå de fleste titlene."
-      remember_to_give_feedback_to: "Påminnelse: husk å gi vurdering av %{name}"
-      you_have_not_given_feedback_yet: "Du har enda ikke gitt vurdering til %{name} om '%{event}'. Husk å gi vurdering om hvordan %{given_name} utførte dette."
+      feedback_is_public_and_is_shown: "Tilbakemeldingene er offentlige og synlige for alle brukere. Basert på tilbakemeldingene kan andre brukere vurdere om %{name} er en pålitelig person man ønsker å assosiere seg med. Det er derfor alltid viktig å gi tilbakemeldinger og be om å få dette av den andre parten. Du trenger også positive vurderinger for å oppnå de fleste titlene."
+      remember_to_give_feedback_to: "Påminnelse: husk å gi tilbakemelding til %{name}"
+      you_have_not_given_feedback_yet: "Du har ennå ikke gitt tilbakemelding til %{name} om '%{event}'. Husk å gi tilbakemelding på hvordan %{given_name} oppførte seg."
     transaction_preauthorized:
       subject: "%{requester} har etterspurt og betalt for %{listing_title}"
       transaction_requested_by_user: "%{requester} har etterspurt og betalt for %{listing_title}"
@@ -975,7 +975,7 @@ nb:
       price: "Pris må være et helt tall"
       minimum_price: "Minimums pris er %{minimum_price}%{currency}"
     testimonials:
-      you_must_explain_not_neutral_feedback: "Hvis du gir noe annet enn nøytral vurdering må du forklare hvorfor."
+      you_must_explain_not_neutral_feedback: "Hvis du gir noe annet enn nøytral vurdering, må du forklare hvorfor."
       you_must_select_a_grade: "Husk å fortelle om din opplevelse var positiv eller negativ."
     transaction_agreement:
       required_error: "Du må godta avtalevilkår"
@@ -988,7 +988,7 @@ nb:
   error_pages:
     back_to_kassi_front_page: "Tilbake til forsiden"
     error_404:
-      if_you_believe: "Hvis du mener at adressen er riktig og burde virke ber vi deg hjelpe oss med å finne feilen ved å fortelle om hvilken adresse som forårsaket feilen og hva du skulle sett i feltet nedenfor."
+      if_you_believe: "Hvis du mener at adressen er riktig og burde virke, ber vi deg hjelpe oss med å finne feilen ved å fortelle om hvilken adresse som forårsaket feilen og hva du skulle sett i feltet nedenfor."
       page_can_not_be_found: "Side ikke funnet!"
       page_you_requested_can_not_be_found: "Finner ikke siden du ba om. Er du sikker på at adressen er riktig?"
     error_404_title: "side ikke funnet"
@@ -1066,32 +1066,32 @@ nb:
     menu: Meny
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "I tillegg er det <b>ett annet tilbud</b>,"
-      additionally_one_private_request_exists: "I tillegg er det <b>en annen forespørsel</b>,"
-      additionally_some_private_offers_exist: "I tilleg er det <b>%{number_of_listings} andre tilbud</b>,"
+      additionally_one_private_offer_exists: "I tillegg er det <b>et annet tilbud</b>,"
+      additionally_one_private_request_exists: "I tillegg er det <b>én annen forespørsel</b>,"
+      additionally_some_private_offers_exist: "I tillegg er det <b>%{number_of_listings} andre tilbud</b>,"
       additionally_some_private_requests_exist: "I tillegg er det <b>%{number_of_listings} andre forespørsler</b>,"
     blank_slate:
       add_first: "Legg til!"
-      but_that_is_visible_only_to_registered_members: "men det er bare synlig for andre registerte brukere."
-      but_those_are_visible_only_to_registered_members: "men de er bare synlige for andre registrerte brukere."
+      but_that_is_visible_only_to_registered_members: "men det er bare synlig for registrerte brukere."
+      but_those_are_visible_only_to_registered_members: "men de er bare synlige for registrerte brukere."
       create_new_account_for_yourself: "Opprett en ny konto"
       examples_of_what_you_could_offer_to_others: "Hva kan du tilby til andre"
       examples_of_what_you_could_request_to_others: "Hva kan du be om fra andre"
-      favor_offer_list: "datahjelp, fikse sykkel, sy klær, bake"
+      favor_offer_list: "datahjelp, reparere klær, baking, fikse sykkel"
       favor_request_list: "barnepass, pianotimer, lufte hunder, klippe plenen"
       favors_to_offer: "Hjelp: "
       favors_to_request: "Hjelp: "
       item_offer_list: "verktøy, sportsutstyr, kostymer, campingutstyr"
       item_request_list: "verktøy, sportsutstyr, kostymer, campingutstyr"
-      items_to_offer: "Ting å låne: "
+      items_to_offer: "Ting å låne ut: "
       items_to_request: "Ting å låne: "
       log_in: "logg inn!"
       no_offers_visible_unless_logged_in: "Ingen ting, tjenester eller samkjøringstilbud synlige for uregistrerte brukere."
-      no_open_offers_currently: "Ingen tilbud om ting, tjenester eller samkjørings."
+      no_open_offers_currently: "Ingen tilbud om ting, tjenester eller samkjøring."
       no_open_requests_currently: "Ingen forespørsler om ting, tjenester eller samkjøring."
       no_requests_visible_unless_logged_in: "Ingen forespørsler om ting, tjenester eller samkjøring synlig for uregisterte brukere."
       one_private_offer_exists: "Det er allerede <b>ett tilbud</b>,"
-      one_private_request_exists: "Det er allerede <b>en forespørsel</b>,"
+      one_private_request_exists: "Det er allerede <b>én forespørsel</b>,"
       ride_offer: "Kjør andres barn til deres aktiviteter"
       ride_request: "En tur til jobb"
       some_private_offers_exist: "Det er allerede <b>%{number_of_listings} tilbud</b>,"
@@ -1117,7 +1117,7 @@ nb:
       post_new_listing: "Lag ny annonse"
       are_offering: tilbud
       add_news_item: "Legg til ny ting"
-      lend_rent_help_carpool: "Selg, lån, hjelp, del kjøretur"
+      lend_rent_help_carpool: "Selg, lån, hjelp, samkjør"
       loading_more_content: "Laster mer innhold"
       more_events: "Flere hendelser…"
       news: Nyheter
@@ -1128,7 +1128,7 @@ nb:
       recent_events: "Siste hendelser"
       requesting: trenger
       tell_it_here: "Fortell om det her!"
-      welcome_to_new_kassi: "Velkommer til nye %{service_name}!"
+      welcome_to_new_kassi: "Velkommen til nye %{service_name}!"
       no_reviews: "Ingen vurderinger"
       no_image: "Uten bilder"
       filter: Filter
@@ -1176,7 +1176,7 @@ nb:
       default_content: "Her kan du finne mer informasjon om hvordan %{marketplace_name} virker."
   layouts:
     admin:
-      admin: "%{service_name} adminpanel"
+      admin: "%{service_name} administrasjonspanel"
     no_tribe:
       inbox: Innboks
       settings: Innstillinger
@@ -1187,12 +1187,12 @@ nb:
       feedback: "Hva vil du fortelle oss?"
       default_feedback: "Opplevde du problemer med %{service_name}? Har du forslag til forbedringer? Så du noe utenom det vanlige? Eller vil du bare slå av en prat? Gi oss en lyd!"
       feedback_forum: diskusjonsforum
-      feedback_handle: Vurdering
+      feedback_handle: Tilbakemelding
       give_feedback: "Kontakt oss"
       or_check_our: "…eller sjekk ut vår"
       send_feedback_to_admin: "Send tilbakemelding"
-      to_see_what_others_have_suggested: "for å se hva andre brukere har foreslått, eller stemme på ideer der."
-      your_email_address: "Din e-post (for å kontakte deg)"
+      to_see_what_others_have_suggested: "for å se hva andre brukere har foreslått, og stemme på ideene der."
+      your_email_address: "Din e-postadresse (for å kontakte deg)"
       connect: "Registrer deg"
       invite_your_friends: "Inviter venner!"
       invite_your_neighbors: "inviter naboer!"
@@ -1215,7 +1215,7 @@ nb:
       register_details: Personvern
       terms: "Betingelser for bruk"
     logged_in:
-      admin: Admin
+      admin: Administrator
       go_to_your_profile_page: Profil
       hi: Hei
       login: "Logg inn"
@@ -1223,13 +1223,13 @@ nb:
       notifications: Varsler
       requests: Venneforespørsler
       settings: Innstillinger
-      sign_up: "Opprett konto"
+      sign_up: "Opprett brukerkonto"
     logged_in_messages_icon:
       messages: Meldinger
     logged_in_notifications_icon:
       notifications: Varsler
     mobile_logged_in:
-      admin: Admin
+      admin: Administrator
       go_to_your_profile_page: Profil
       hi: Hei
       login: "Logg inn"
@@ -1237,7 +1237,7 @@ nb:
       notifications: Varsler
       requests: Venneforespørsler
       settings: Innstillinger
-      sign_up: "Registrér deg"
+      sign_up: "Registrer deg"
     notifications:
       listing_could_not_be_saved: "Annonsen kunne ikke lagres. Vennligst prøv igjen. Om problemet fortsette, vennligst %{contact_admin_link}"
       contact_admin_link_text: "Kontakt administrator"
@@ -1259,9 +1259,9 @@ nb:
       error_with_session: "Feil ved økt."
       feedback_considered_spam: "Tilbakemeldingen ble ikke lagret grunnet feil ved formatering. Prøv igjen eller se diskusjonsforum."
       feedback_not_saved: "Tilbakemeldingen kunne ikke sendes."
-      feedback_saved: "Takk for tilbakemelding. Vi kommer tilbake til deg så fort vi kan."
-      feedback_sent_to: "Vurdering sent til %{target_person}."
-      feedback_skipped: "Hoppet over vurdering"
+      feedback_saved: "Takk for din tilbakemelding. Vi kommer tilbake til deg så fort vi kan."
+      feedback_sent_to: "Tilbakemelding sent til %{target_person}."
+      feedback_skipped: "Hoppet over tilbakemelding"
       invitation_cannot_be_sent: "Invitasjon kunne ikke sendes"
       invitation_sent: "Invitasjon er sendt"
       inviting_new_users_is_not_allowed_in_this_community: "Invitere nye brukere er ikke lov."
@@ -1276,14 +1276,14 @@ nb:
       news_item_update_failed: "Artikkel oppdatering feielt"
       news_item_updated: "Artikkel oppdatert"
       news_item_deleted: "Artikkel fjernet"
-      offer_accepted: godtatt
+      offer_accepted: "Tilbud godtatt"
       offer_confirmed: "Tilbud godtatt"
-      offer_closed: Lukket
+      offer_closed: "Tilbud stengt"
       listing_created_successfully: "Annonse opprettet%{new_listing_link}"
-      offer_rejected: Avvist
+      offer_rejected: "Tilbud avvist"
       offer_canceled: "Tilbud avslått"
       listing_updated_successfully: "Annonse oppdatert"
-      only_kassi_administrators_can_access_this_area: "Kun %{service_name} administrator kan besøke dette området"
+      only_kassi_administrators_can_access_this_area: "Kun %{service_name} administratorer kan besøke dette området"
       only_listing_author_can_close_a_listing: "Kun annonsør kan stoppe en annonse"
       only_listing_author_can_edit_a_listing: "Kun annonsør kan endre en annonse"
       payment_successful: "Betaling vellykket"
@@ -1291,10 +1291,10 @@ nb:
       error_in_payment: "Betaling feilet. Dersom du ikke fullførte betalingen, prøv igjen. Dersom du gjorde det og den fremdeles feiler, kontakt oss."
       cannot_receive_payment: "Mottaker kan ikke motta betaling grunnet en feil. Vennligst kontakt administrator for klarhet i situasjonen"
       payment_waiting_for_later_accomplishment: "Når du har betalt, får selger beskjed og du mottar kvittering på e-post"
-      password_recovery_sent: "Instruksjoner for å endre ditt passord er blitt sent til din epost"
+      password_recovery_sent: "Instruksjoner for å endre ditt passord er blitt sent til din e-post."
       person_activated: "Bruker aktivert"
       person_deactivated: "Bruker deaktivert"
-      person_updated_successfully: "Informasjon er oppdatert"
+      person_updated_successfully: "Informasjonen er oppdatert"
       poll_answered: "Meningsmåling besvart"
       poll_could_not_be_answered: "Meningsmåling kunne ikke besvares"
       poll_created: "Meningsmåling opprettet"
@@ -1308,27 +1308,27 @@ nb:
       reply_sent: "Svar sendt"
       request_accepted: "Forespørsel godtatt"
       request_confirmed: "Forespørsel fullført"
-      request_closed: "Forespørsel lukket"
+      request_closed: "Forespørsel stengt"
       request_rejected: "Forespørsel avvist"
       request_canceled: "Forespørsel avbrutt."
       message_sent: "Melding sendt"
       this_content_is_not_available_in_this_community: "Dette innholdet er ikke tilgjengelig."
       unknown_error: "Ukjent feil. Vennligst gå til kontakt oss og send oss en melding om hva som skjedde."
       update_error: "Feil ved oppdatering av din informasjon, vennligst prøv på nytt"
-      you_are_not_allowed_to_give_feedback_on_this_transaction: "Du har ikke tilgang til å gi vurdering av denne hendelsen"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Du har ikke tilgang til å gi tilbakemelding på dette"
       you_are_not_authorized_to_do_this: "Du er ikke autorisert til å gjøre dette"
-      you_are_not_authorized_to_view_this_content: "Du er ikke autorisert til dette innholdet"
+      you_are_not_authorized_to_view_this_content: "Du er ikke autorisert til å se dette innholdet"
       send_instructions: "Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt innen noen få minutter."
-      you_cannot_reply_to_a_closed_offer: "Du kan ikke svare til et avsluttet tilbud"
-      you_cannot_reply_to_a_closed_request: "Du kan ikke svare til en avsluttet forespørsel"
+      you_cannot_reply_to_a_closed_offer: "Du kan ikke besvare et inaktivt tilbud"
+      you_cannot_reply_to_a_closed_request: "Du kan ikke besvare en inaktiv forespørsel"
       you_cannot_send_message_to_yourself: "Du kan ikke sende melding til deg selv"
       you_followed_listing: "Du følger nå denne listingen"
-      you_have_already_given_feedback_about_this_event: "Du har allerede gitt en vurdering"
+      you_have_already_given_feedback_about_this_event: "Du har allerede gitt en tilbakemelding på dette"
       you_are_now_member: "Velkommen til %{service_name}!"
       you_are_already_member: "Du er allerede medlem av %{service_name}. Velkommen tilbake!"
       you_must_log_in_to_create_new_listing: "Du må logge inn på %{service_name} for å lage en ny annonse. Har du ikke brukerkonto kan du %{sign_up_link}"
       additional_email_confirmed_dashboard: "Din e-post er nå bekreftet."
-      you_must_log_in_to_give_feedback: "Du må logge inn for å gi vurdering"
+      you_must_log_in_to_give_feedback: "Du må logge inn for å gi tilbakemelding"
       you_must_log_in_to_invite_new_users: "Du må være innlogget for å invitere nye brukere til %{service_name}"
       you_must_log_in_to_send_a_comment: "Du må logge inn for å legge igjen en kommentar"
       you_must_log_in_to_send_a_message: "Du må logge inn på %{service_name} for å sende melding til en annen bruker"
@@ -1355,9 +1355,9 @@ nb:
       listing_author_payment_details_missing: "Annonseeier har ikke lagt til betalingsinformasjon og kan derfor ikke motta betaling akkurat nå. Vennligst ta kontakt med annonseeier."
       stylesheet_needs_recompiling: "Side genereres på nytt. Vennligst last siden på nytt etter en liten stund."
     settings:
-      account: Konto
+      account: Brukerkonto
       notifications: Varslinger
-      profile: Brukerprofil
+      profile: Profil
       settings: Innstillinger
       payments: Betalinger
   listings:
@@ -1368,9 +1368,9 @@ nb:
       send_private_message: "Send privat melding til %{person}"
     comment_form:
       ask_a_question: "Kommenter på en listing eller etterpør flere detaljer. Alle brukere kan se din kommentar."
-      log_in: "Logg inn"
+      log_in: "logg inn"
       send_comment: "Send kommentar"
-      to_send_a_comment: "for å sende ny kommentar."
+      to_send_a_comment: "for å sende en ny kommentar."
       write_comment: "Skriv en ny kommentar:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Du kan ikke kommentere på denne annonsen da den er utgått."
       you_must: "Du må"
@@ -1415,7 +1415,7 @@ nb:
         i_want_to_request: "Jeg trenger..."
       googlemap:
         googlemap_copy: "Markeringer fra kart"
-        googlemap_description: "Kart oversikt"
+        googlemap_description: Kart
         googlemap_updatemap: "Oppdater kart"
       images:
         image: Bilde
@@ -1460,18 +1460,18 @@ nb:
         borrow: Låne
         buy: Kjøpe
         give_away: "Gis bort"
-        lend: låner
+        lend: Utlån
         offer_type: Tilbudstype
         receive: "Godtar gratis"
-        rent: Leier
-        rent_out: "Leier ut"
+        rent: Leie
+        rent_out: "Leie ut"
         request_type: "Type forespørsel"
-        sell: Selger
+        sell: Selge
         share_for_free: "dele gratis"
         accept_for_free: "Godtar gratis"
-        trade: Bytter
+        trade: Bytte
       tag_list:
-        comma_separate: "(del opp med komma)"
+        comma_separate: "(del med komma)"
         tags: Tags
       title:
         listing_title: Annonsetittel
@@ -1499,7 +1499,7 @@ nb:
       did_not_found_what_you_were_looking_for: "Fant du ikke det du trenger?"
       favors: Tjenester
       housing: Steder
-      items: objekter
+      items: Gjenstander
       list_view: Listevisning
       listings: Listinger
       map_view: "Vis kart"
@@ -1509,7 +1509,7 @@ nb:
       request_something: "Forespør noe!"
       request_type: "Type forespørsel"
       requests: Forespørsler
-      rideshare: Samkjøring
+      rideshare: Samkjøre
       search_verb: Søk
       you_have_something_others_do_not: "Har du noe å tilby?"
       feed_title: "%{listing_type} på %{service_name} %{optional_category}"
@@ -1519,16 +1519,16 @@ nb:
       favors: Tjenester
       give_aways: "Gis bort"
       housings: Steder
-      items: objekter
-      lends: lån
-      receives: "tas i mot"
-      rent_outs: utleie
-      rents: leie
-      rideshares: Samkjøring
-      sells: Selges
+      items: Objekter
+      lends: Utlån
+      receives: "Tas i mot"
+      rent_outs: Utleie
+      rents: Leie
+      rideshares: Samkjøre
+      sells: Selge
       share_for_frees: "dele gratis"
       accept_for_frees: "Godtar gratis"
-      trades: Bytter
+      trades: Bytte
     listing_actions:
       booking_from: Fra
       booking_to: Til
@@ -1561,7 +1561,7 @@ nb:
     show:
       add_your_phone_number: "Legg til ditt telefonnummer"
       add_profile_picture: "Legg til profil bilde"
-      comments: Offentlig
+      comments: "Offentlig diskusjon"
       contact_by_phone: "Kontakt med på telefon:"
       contact: Kontakt
       favor_offer: "Type tjeneste"
@@ -1569,7 +1569,7 @@ nb:
       inquiry: Forespørsel
       item_offer_trade: "Tilbud om bytte"
       item_request_trade: "Forespørsel om bytte"
-      no_description: "Denne listingen har ingen beskrivelse"
+      no_description: "Denne annonsen har ingen beskrivelse"
       no_image: "Uten bilder"
       no_reviews: "Ingen vurderinger mottatt"
       offer: Tilbud
@@ -1587,7 +1587,7 @@ nb:
       tags: Tags
       time: tid
       times: ganger
-      times_viewed: vist
+      times_viewed: Vist
       processing_uploaded_image: "Behandler opplastet bilde…"
       price_excludes_vat: "(ikke inklusiv MVA)"
       listing_created_at: "Annonse opprettet"
@@ -1638,7 +1638,7 @@ nb:
       request_something: "Forespør noe!"
       request_type: "Type forespørsel"
       requests: Forespørsler
-      rideshare: Samkjøring
+      rideshare: Samkjøre
       search_verb: Søk
       you_have_something_others_do_not: "Har du noe å tilby?"
     please_comment: Kommenter
@@ -1718,7 +1718,7 @@ nb:
       activate: Aktiver
       deactivate: Deaktiver
     help_texts:
-      feedback_description_title: Vurdering
+      feedback_description_title: Tilbakemelding
       help_captcha_title: "Er du et menneske?"
       help_invitation_code_title: "Du trenger en innvitasjon"
       terms_title: "%{service_name} vilkår"

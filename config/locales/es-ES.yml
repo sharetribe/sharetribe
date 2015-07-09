@@ -66,7 +66,7 @@ es-ES:
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: "Contenido de la página de inicio del marketplace privado"
         edit_private_community_homepage_content_description: "Este contenido se muestra en la página de inicio de los marketplaces privados a los usuarios que no se han registrado. Aquí puedes describir tu marketplace y el proceso para registrarse. También puedes añadir imágenes, videos y contenido HTML aquí. %{see_how_it_looks_like}."
-        update_information: "Actualizar información"
+        update_information: "Guardar configuración"
         invite_people: "Invita nuevos usuarios"
         edit_signup_info: "Información de registro"
         edit_signup_info_description: "Este es un texto informativo que puede mostrarse a los usuarios en la página de registro. aquí puedes darles instrucciones para iniciar sesión, información sobre cómo conseguir una invitación, etc. Por defecto estas instrucciones no se muestran."
@@ -76,7 +76,7 @@ es-ES:
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: "Antes de poder publicar un anuncio en %{service_name} necesitamos verificar tu cuenta. En breve tu cuenta estará disponible. Si lo deseas puedes %{contact_admin_link} para que verifiquemos tu cuenta antes si es urgente."
         contact_admin_link_text: "Contactar al administrador"
-        save: "Guardar opciones"
+        save: "Guardar configuración"
         transaction_agreement: "Acuerdo de transacción"
         transaction_agreement_checkbox: "Pedir a los usuarios que acepten el acuerdo antes de realizar una transacción."
         transaction_agreement_checkbox_header: "Aceptar acuerdo"
@@ -197,7 +197,7 @@ es-ES:
         email_admins_about_new_members: "Enviar un email al administrador cada vez que un nuevo usuario se registra."
         google_analytics_key: ~
         twitter_handle: "Publicar en Twitter (a través del botón \"twee\" en la página del anuncio)"
-        update_settings: ~
+        update_settings: "Guardar configuración"
         automatically_confirmed: ~
         automatically_confirmed_no_escrow: "La transacción se marcará automáticamente como completada %{days_dropdown} días después de que se realice el pago."
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
@@ -253,7 +253,7 @@ es-ES:
         save: "Guardar configuración"
       menu_links:
         menu_links: "Menú de enlaces"
-        save: ~
+        save: "Guardar configuración"
         add_menu_link: "Añadir nuevo enlace al menú"
         title_placeholder: "Título del enlace"
         url_placeholder: "http://ejemplo.com/es"
@@ -1097,14 +1097,14 @@ es-ES:
     custom_filters:
       update_view: Actualizar
       min: "Min:"
-      max: "Max:"
+      max: "Máx:"
     event_feed:
       latest_events: "Qué está pasando"
     grid_item:
       processing_uploaded_image: "(Procesando imagen...)"
     index:
       no_listings_with_your_search_criteria: "No encontramos resultados para tus criterios de búsqueda. Intenta de nuevo"
-      no_listings_notification: "Todavía no hay anuncios en ésta zona. Añade el tuyo aquí %{add_listing_link}."
+      no_listings_notification: "No anuncios. %{add_listing_link}."
       add_listing_link_text: "Añadir nuevo anuncio"
       open_listing: "publicación abierta"
       open_listings: "publicaciones abiertas"
@@ -1251,7 +1251,7 @@ es-ES:
       additional_email_confirmed: "El email que introdujiste ya está confirmado."
       could_not_get_email_from_facebook: "No pudimos acceder a tu dirección de email en Facebook. Sin una dirección de correo electrónico válida no podemos crearte una cuenta en nuestro servicio."
       create_new_listing: "Crear otro anuncio"
-      create_one_here: "Crea una aquí"
+      create_one_here: "crear una aquí"
       email_confirmation_sent_to_new_address: "El e-mail de confirmación ya fue enviado a la nueva dirección."
       email_not_found: "No se encontró la dirección de correo en la base de datos de %{service_name}."
       error_with_session: "Error con la sesión."
@@ -1324,7 +1324,7 @@ es-ES:
       you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
       you_are_now_member: "Bienvenido a %{service_name}!"
       you_are_already_member: "Ya eres miembro de la comunidad de %{service_name} . Bienvenido otra vez!"
-      you_must_log_in_to_create_new_listing: "Tienes que iniciar sesión en %{service_name} para crear un nuevo anuncio. Si no tienes una cuenta, puedes crear una gratis %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Tienes que iniciar sesión en %{service_name} para crear un nuevo anuncio. Si no tienes una cuenta, puedes %{sign_up_link}."
       additional_email_confirmed_dashboard: "Tu e-mail ahora está confirmado."
       you_must_log_in_to_give_feedback: "Debes iniciar sesión para dar una sugerencia"
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a %{service_name}"
@@ -1839,12 +1839,12 @@ es-ES:
       connect_your_facebook_to_kassi: "Conecta tu cuenta de Facebook a %{service_name}"
       facebook_account: "Cuenta de Facebook"
       log_in_to_link_account: "Si ya tienes una cuenta en %{service_name}, inicia sesión para vincularla con tu cuenta de Facebook."
-      you_can_also_create_new_account: "Si no tienes una cuenta en %{service_name}, todavía. Crea una con tu cuenta de Facebook %{accont_creation_link} ."
-      account_creation_link_text: "haz clic aquí"
+      you_can_also_create_new_account: "Si no tienes una cuenta en %{service_name}, %{accont_creation_link} para crear una con tu cuenta de Facebook."
+      account_creation_link_text: "clic aquí"
       cancle_facebook_connect: "Si no quieres vincular esta cuenta, puedes %{cancel_link}."
       facebook_cancel_link_text: cancelar
       log_in_with_your_facebook_account: "Inicia sesión con Facebook"
-      or_sign_up_with_your_username: "...o con tu usuario o email:"
+      or_sign_up_with_your_username: "...o con tu nombre de usuario o email:"
       we_will_not_post_without_asking_you: "Nunca publicaremos en Facebook sin preguntarte."
     password_forgotten:
       email: Email

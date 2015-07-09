@@ -28,23 +28,23 @@ de:
       signed_out: "Erfolgreich abgemeldet."
     confirmations:
       send_paranoid_instructions: "Wenn deine E-Mail-Adresse in unserer Datenbank existiert, wirst du in wenigen Minuten eine E-Mail mit Anweisungen zur Bestätigung deines Kontos erhalten."
-      send_instructions: "Du wirst in wenigen Minuten eine E-Mail mit Anweisungen zur Bestätigung deines Kontos erhalten."
+      send_instructions: "Du wirst in wenigen Minuten eine E-Mail mit Anweisungen zur Bestätigung Deines Kontos erhalten."
       confirmed: "Dein Konto wurde erfolgreich bestätigt."
     registrations:
       signed_up_but_unconfirmed: "Eine Nachricht mit einem Bestätigungslink wurde an deine E-Mail-Adresse gesendet. Bitte öffne den Link, um dein Konto zu aktivieren."
-      signed_up_but_inactive: "Du hast dich erfolgreich registriert. Allerdings kannst du dich noch nicht anmelden, da dein Konto noch nicht aktiviert ist."
-      signed_up_but_locked: "Du hasst dich erfolgreich registriert. Allerdings kannst du dich nicht anmelden, da dein Konto gesperrt ist."
+      signed_up_but_inactive: "Du hast Dich erfolgreich registriert. Allerdings kannst Du Dich noch nicht anmelden, da Dein Konto noch nicht aktiviert ist."
+      signed_up_but_locked: "Du hasst Dich erfolgreich registriert. Allerdings kannst Du Dich nicht anmelden, da Dein Konto gesperrt ist"
       reasons:
         inactive: inaktiv
         unconfirmed: unbestätigt
         locked: gesperrt
-      update_needs_confirmation: "Du hast dein Konto erfolgreich aktualisiert, jedoch müssen wir noch deine neue E-Mail-Adresse überprüfen. Bitte überprüfe deine E-Mails und klicke auf den Bestätigungs-Link, um deine neue E-Mail-Adresse zu bestätigen."
-      signed_up: "Herzlich Willkommen! Du hast dich erfolgreich angemeldet."
-      updated: "Du hast dein Konto erfolgreich aktualisiert."
+      update_needs_confirmation: "Du hast Dein Konto erfolgreich aktualisiert, jedoch müssen wir noch Deine neue E-Mail-Adresse überprüfen. Bitte überprüfe Deine E-Mails und klicke auf den Bestätigungs-Link, um Deine neue E-Mail-Adresse zu bestätigen."
+      signed_up: "Herzlich Willkommen! Du hast Dich erfolgreich angemeldet."
+      updated: "Du hast Dein Konto erfolgreich aktualisiert."
       destroyed: "Tschüss! Dein Konto wurde erfolgreich gelöscht. Wir hoffen, dich bald wiederzusehen."
     unlocks:
-      send_paranoid_instructions: "Falls dein Konto existiert, erhältst du in wenigen Minuten eine E-Mail mit Anweisungen zum Entsperren deines Kontos."
-      send_instructions: "In wenigen Minuten erhältst du eine E-Mail mit Anweisungen zum Entsperren deines Kontos."
+      send_paranoid_instructions: "Falls Dein Konto existiert, erhältst Du in wenigen Minuten eine E-Mail mit Anweisungen zum Entsperren Deines Kontos."
+      send_instructions: "In wenigen Minuten erhältst Du eine E-Mail mit Anweisungen zum Entsperren Deines Kontos."
       unlocked: "Dein Konto wurde erfolgreich entsperrt. Bitte melde dich an, um fortzufahren."
     omniauth_callbacks:
       success: "Erfolgreich von %{kind} Konto autorisiert."
