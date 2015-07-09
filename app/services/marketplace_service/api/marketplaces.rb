@@ -65,7 +65,8 @@ module MarketplaceService::API
       shape = Helper.create_listing_shape!(community, p[:marketplace_type], payment_process)
 
       plan_level = p[:plan_level].or_else(CommunityPlan::FREE_PLAN)
-      Helper.create_community_plan!(community, {plan_level: plan_level});
+      expires_at = p[:expires_at].or_else(DateTime.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days)
+      Helper.create_community_plan!(community, {plan_level: plan_level, expires_at: expires_at});
 
       return from_model(community)
     end
@@ -176,8 +177,8 @@ module MarketplaceService::API
       def create_community_plan!(community, options={})
         CommunityPlan.create({
           community_id: community.id,
-          plan_level:   Maybe(options[:plan_level]).or_else(0),
-          expires_at:   Maybe(options[:expires_at]).or_else(DateTime.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days)
+          plan_level: options[:plan_level],
+          expires_at: options[:expires_at] == :never ? nil : options[:expires_at]
         })
       end
 
