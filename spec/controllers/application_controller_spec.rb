@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe ApplicationController do
-  #before (:each) {set_subdomain}
-
   controller do
     # a mock method to be able to call index without route
     def index
@@ -101,7 +99,7 @@ describe ApplicationController do
     end
 
     it "gets the right community by subdomain" do
-      c1 = FactoryGirl.create(:community, :domain => "test23")
+      c1 = FactoryGirl.create(:community, :ident => "test23")
       c2 = FactoryGirl.create(:community, :domain => "test23.custom.org")
       request.host = "test23.lvh.me"
       get :index
@@ -110,11 +108,24 @@ describe ApplicationController do
 
     it "gets the right community by full domain even when matching subdomain exists" do
       c1 = FactoryGirl.create(:community, :domain => "market.custom.org")
-      c2 = FactoryGirl.create(:community, :domain => "market")
+      c2 = FactoryGirl.create(:community, :ident => "market")
       request.host = "market.custom.org"
       get :index
       assigns["current_community"].id.should == c1.id
     end
 
+  end
+
+  describe "ApplicationController.fetch_temp_flags" do
+    let(:session) { {feature_flags: [:shipping].to_set} }
+    let(:params) { {enable_feature: "booking"} }
+
+    it "fetches temporary flags from session and params" do
+      expect(ApplicationController.fetch_temp_flags(true, params, session)).to eq [:shipping, :booking].to_set
+    end
+
+    it "returns empty set if not admin" do
+      expect(ApplicationController.fetch_temp_flags(false, params, session)).to eq [].to_set
+    end
   end
 end

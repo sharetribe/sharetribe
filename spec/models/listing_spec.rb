@@ -2,46 +2,59 @@
 #
 # Table name: listings
 #
-#  id                  :integer          not null, primary key
-#  author_id           :string(255)
-#  category_old        :string(255)
-#  title               :string(255)
-#  times_viewed        :integer          default(0)
-#  language            :string(255)
-#  created_at          :datetime
-#  updates_email_at    :datetime
-#  updated_at          :datetime
-#  last_modified       :datetime
-#  sort_date           :datetime
-#  visibility          :string(255)      default("this_community")
-#  listing_type_old    :string(255)
-#  description         :text
-#  origin              :string(255)
-#  destination         :string(255)
-#  valid_until         :datetime
-#  delta               :boolean          default(TRUE), not null
-#  open                :boolean          default(TRUE)
-#  share_type_old      :string(255)
-#  privacy             :string(255)      default("private")
-#  comments_count      :integer          default(0)
-#  subcategory_old     :string(255)
-#  old_category_id     :integer
-#  category_id         :integer
-#  share_type_id       :integer
-#  transaction_type_id :integer
-#  organization_id     :integer
-#  price_cents         :integer
-#  currency            :string(255)
-#  quantity            :string(255)
+#  id                              :integer          not null, primary key
+#  author_id                       :string(255)
+#  category_old                    :string(255)
+#  title                           :string(255)
+#  times_viewed                    :integer          default(0)
+#  language                        :string(255)
+#  created_at                      :datetime
+#  updates_email_at                :datetime
+#  updated_at                      :datetime
+#  last_modified                   :datetime
+#  sort_date                       :datetime
+#  visibility                      :string(255)      default("this_community")
+#  listing_type_old                :string(255)
+#  description                     :text
+#  origin                          :string(255)
+#  destination                     :string(255)
+#  valid_until                     :datetime
+#  delta                           :boolean          default(TRUE), not null
+#  open                            :boolean          default(TRUE)
+#  share_type_old                  :string(255)
+#  privacy                         :string(255)      default("private")
+#  comments_count                  :integer          default(0)
+#  subcategory_old                 :string(255)
+#  old_category_id                 :integer
+#  category_id                     :integer
+#  share_type_id                   :integer
+#  listing_shape_id                :integer
+#  transaction_process_id          :integer
+#  shape_name_tr_key               :string(255)
+#  action_button_tr_key            :string(255)
+#  organization_id                 :integer
+#  price_cents                     :integer
+#  currency                        :string(255)
+#  quantity                        :string(255)
+#  unit_type                       :string(32)
+#  quantity_selector               :string(32)
+#  unit_tr_key                     :string(64)
+#  unit_selector_tr_key            :string(64)
+#  deleted                         :boolean          default(FALSE)
+#  require_shipping_address        :boolean          default(FALSE)
+#  pickup_enabled                  :boolean          default(FALSE)
+#  shipping_price_cents            :integer
+#  shipping_price_additional_cents :integer
 #
 # Indexes
 #
-#  index_listings_on_category_id          (old_category_id)
-#  index_listings_on_listing_type         (listing_type_old)
-#  index_listings_on_open                 (open)
-#  index_listings_on_share_type_id        (share_type_id)
-#  index_listings_on_transaction_type_id  (transaction_type_id)
-#  index_listings_on_visibility           (visibility)
+#  index_listings_on_category_id       (old_category_id)
+#  index_listings_on_listing_shape_id  (listing_shape_id)
+#  index_listings_on_listing_type      (listing_type_old)
+#  index_listings_on_new_category_id   (category_id)
+#  index_listings_on_open              (open)
+#  index_listings_on_share_type_id     (share_type_id)
+#  index_listings_on_visibility        (visibility)
 #
 
 require 'spec_helper'
@@ -49,7 +62,7 @@ require 'spec_helper'
 describe Listing do
 
   before(:each) do
-    @listing = FactoryGirl.build(:listing)
+    @listing = FactoryGirl.build(:listing, listing_shape_id: 123)
   end
 
   it "is valid with valid attributes" do
@@ -105,7 +118,7 @@ describe Listing do
     let(:community) { FactoryGirl.create(:community, private: true) }
     let(:community2) { FactoryGirl.create(:community) }
     let(:person) { FactoryGirl.create(:person, communities: [community, community2]) }
-    let(:listing) { FactoryGirl.create(:listing, communities: [community]) }
+    let(:listing) { FactoryGirl.create(:listing, communities: [community], listing_shape_id: 123) }
 
     it "is not visible, if the listing doesn't belong to the given community" do
       listing.visible_to?(person, community2).should be_falsey
@@ -145,10 +158,6 @@ describe Listing do
   end
 
   context "with listing type 'offer'" do
-
-    before(:each) do
-      @listing.transaction_type = FactoryGirl.create(:transaction_type_give)
-    end
 
     it "should be valid when there is no valid until" do
       @listing.valid_until = nil

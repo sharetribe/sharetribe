@@ -1,5 +1,5 @@
 @javascript
-Feature: New listing with transaction type that uses preauthorization
+Feature: New listing with listing shape that uses preauthorization
   In order to allow preauthorized payment for the listing
   As a seller
   I need to have active Braintree account before posting a listing
@@ -8,7 +8,7 @@ Feature: New listing with transaction type that uses preauthorization
     Given a logged in user "seller_jane"
 
     Given the community has payments in use via BraintreePaymentGateway with seller commission 10
-      And the community has transaction type Sell with name "Selling with preauthorization" and action button label "Buy"
+      And the community has listing shape Sell with name "Selling with preauthorization" and action button label "Buy"
       And that transaction uses payment preauthorization
       And that transaction belongs to category "Tools"
 
@@ -18,7 +18,7 @@ Feature: New listing with transaction type that uses preauthorization
 
     When I select category "Items"
       And I select subcategory "Tools"
-      And I select transaction type "Selling with preauthorization"
+      And I select listing shape "Selling with preauthorization"
 
     Then I should warning about missing payment details
 
@@ -28,6 +28,6 @@ Feature: New listing with transaction type that uses preauthorization
 
     When I select category "Items"
       And I select subcategory "Tools"
-      And I select transaction type "Selling with preauthorization"
+      And I select listing shape "Selling with preauthorization"
 
     Then I should see the new listing form

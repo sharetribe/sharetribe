@@ -6,10 +6,10 @@
           .col-12.listed-category-col
             = category.display_name(I18n.locale)
       .col-2.listed-category-col
-        = render :partial => "category_action_buttons", :locals => {:category => category}
+        = render :partial => "category_action_buttons", :locals => {category: category, category_count: category_count}
 
   - unless category.children.empty?
-    = render :partial => "listed_subcategory", :collection => category.children, :as => :subcategory
+    = render :partial => "listed_subcategory", :collection => category.children, :as => :subcategory, locals: {category_count: category.children.size}
 
   -#
     Make divider border between the elements without margins (only paddings)

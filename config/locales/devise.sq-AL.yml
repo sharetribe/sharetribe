@@ -1,0 +1,58 @@
+sq-AL:
+  errors:
+    messages:
+      expired: "ka mbaruar afati, ju lutem kërkoni një të ri"
+      not_found: "nuk u gjet"
+      already_confirmed: "është konfirmuar një herë, provoni të hyni në llogarinë tuaj"
+      not_locked: "nuk është bllokuar(kyçur)"
+      not_saved:
+        one: "1 error pengoi këtë %{resource} që të ruhej"
+        other: "%{count} gabime penguan këtë %{resource} që të ruhej"
+  devise:
+    failure:
+      already_authenticated: "Ju jeni i kyçur tashmë"
+      unauthenticated: "Ju duhet të kyçeni ose të regjistroheni përpara se të vazhdoni"
+      unconfirmed: "Duhet të konfirmoni llogarinë tuaj përpara se të mund të vazhdoni"
+      locked: "Llogaria juaj është bllokuar"
+      invalid: "Fjalkëlaimi ose E-mail nuk është i saktë"
+      invalid_token: "Token i autentikimit nuk është i saktë"
+      timeout: "Sessioni juaj ka mbaruar, ju lutem të hyni përsëri për të vazhduar."
+      inactive: "Llogaria juaj nuk është aktivizuar ende."
+    passwords:
+      updated_not_active: "Fjalëkalimi juaj u ndrrua me sukses."
+      send_paranoid_instructions: "Nëse email juaj ekziston ne databazën tonë juve do tju vij një link për të ndryshuar fjalëkalimin."
+      send_instructions: "Do tju vij një email me instruksionet qe përshkruajne se si të ndërroni fjalëkalimin pas disa minutash."
+      updated: "Fjalëkalimi juaj u ndrrua me sukses. Tashmë jeni i kyçur."
+    sessions:
+      signed_in: "Keni hyrë me sukses"
+      signed_out: "Keni dalë me sukses"
+    confirmations:
+      send_paranoid_instructions: "Nëse email juaj ekziston ne databazën tonë juve do tju vij një email me instruksionet se si të konfirmoni llogarine tuaj pas disa minutash."
+      send_instructions: "Juve do tju vij një email me instruksione se si të aktivizoni llogarinë tuaj."
+      confirmed: "Llogaria juaj u konfirmua me sukses."
+    registrations:
+      signed_up_but_unconfirmed: "Nje mesazh me link konfirmimi për llogarinë tuaj është dëguar ne adresën tuaj të email."
+      signed_up_but_inactive: "Ju jeni regjistruar me sukses. Sidoqoftë, ne nuk mund tju lejojme te kyçeni pasi nuk keni aktivizuar ende llogarinë tuaj."
+      signed_up_but_locked: "Jeni regjistruar me sukses. Sidoqoftë, ne nuk mundem të të kyçnim pasi llogaria juaj është bllokuar."
+      reasons:
+        inactive: ~
+        unconfirmed: ~
+        locked: ~
+      update_needs_confirmation: "Ju e përditësuat llogarinë tuaj me sukses."
+      signed_up: "Mirëseerdhet! Ju jeni regjistruar me sukses."
+      updated: "Llogaria juaj u pëditësua me sukses."
+      destroyed: "Mirëupafshim! Llogaria juaj u anullua me sukses. Shpresojmë të të shohim sërish së shpejti."
+    unlocks:
+      send_paranoid_instructions: "Nëse llogaria juaj ekziston, ju do të merrni nje email me instruksionet se si të zhbllokoni llogarinë tuaj pas disa minutash."
+      send_instructions: "Ju do të merrni një email me instruksione se si të zhbllokoni llogarinë tuaj pas disa minutash."
+      unlocked: "Llogaria juaj është zhbllokuar me sukses. Ju lutem të hyni për të vazhduar."
+    omniauth_callbacks:
+      success: "Autorizuar me sukses prej %{kind} llogarie"
+      failure: "Nuk mund tju autorizojme prej %{kind} për arsye \"%{reason}\"."
+    mailer:
+      confirmation_instructions:
+        subject: "Instruksionet për konfirmimin"
+      reset_password_instructions:
+        subject: ~
+      unlock_instructions:
+        subject: ~

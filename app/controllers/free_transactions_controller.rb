@@ -13,25 +13,11 @@ class FreeTransactionsController < ApplicationController
     .with_validations { validates_presence_of :content, :listing_id }
 
   def new
-    use_contact_view = @listing.status_after_reply == "free"
-    @listing_conversation = new_contact_form
-
-    if use_contact_view
-      render "listing_conversations/contact", locals: {
-        contact: false,
-        contact_form: @listing_conversation,
-        create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
-      }
-    end
+    render_contact_form
   end
 
   def contact
-    @listing_conversation = new_contact_form
-    render "listing_conversations/contact", locals: {
-      contact: true,
-      contact_form: @listing_conversation,
-      create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
-    }
+    render_contact_form
   end
 
   def create_contact
@@ -42,9 +28,14 @@ class FreeTransactionsController < ApplicationController
         {
           transaction: {
             community_id: @current_community.id,
-            listing_id: contact_form.listing_id,
+            listing_id: @listing.id,
+            listing_title: @listing.title,
             starter_id: @current_user.id,
             listing_author_id: @listing.author.id,
+            unit_type: @listing.unit_type,
+            unit_price: @listing.price,
+            unit_tr_key: @listing.unit_tr_key,
+            listing_quantity: 1,
             content: contact_form.content,
             payment_gateway: :none,
             payment_process: :none}
@@ -72,6 +63,14 @@ class FreeTransactionsController < ApplicationController
 
   private
 
+  def render_contact_form
+    @listing_conversation = new_contact_form
+    render "listing_conversations/contact", locals: {
+      contact_form: @listing_conversation,
+      create_contact: create_contact_path(:person_id => @current_user.id, :listing_id => @listing.id)
+    }
+  end
+
   def ensure_listing_author_is_not_current_user
     if @listing.author == @current_user
       flash[:error] = t("layouts.notifications.you_cannot_send_message_to_yourself")
@@ -89,7 +88,7 @@ class FreeTransactionsController < ApplicationController
 
   def ensure_listing_is_open
     if @listing.closed?
-      flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_#{@listing.direction}")
+      flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_offer")
       redirect_to (session[:return_to_content] || root)
     end
   end

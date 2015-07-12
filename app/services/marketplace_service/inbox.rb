@@ -84,7 +84,7 @@ module MarketplaceService
 
         [:listing_id, :fixnum, :mandatory],
         [:listing_title, :string, :mandatory],
-        [:transaction_type, :string, :mandatory],
+        [:listing_deleted, transform_with: @tiny_int_to_bool],
 
         [:last_transition_at, :time, :mandatory],
         [:last_transition_to_state, :string, :mandatory],
@@ -251,10 +251,11 @@ module MarketplaceService
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
-          # Ignore initiated
+          # Ignore initiated and deleted
           AND (
             transactions.id IS NULL
-            OR transactions.current_state != 'initiated'
+            OR (transactions.current_state != 'initiated'
+                AND transactions.deleted = 0)
           )
 
           # This is a bit complicated logic that is now moved from app to SQL.
@@ -298,14 +299,13 @@ module MarketplaceService
 
             listings.id                                       AS listing_id,
             listings.title                                    AS listing_title,
+            listings.deleted                                  AS listing_deleted,
 
             payments.id                                       AS payment_id,
 
             listings.author_id                                AS author_id,
             current_participation.person_id                   AS current_id,
             other_participation.person_id                     AS other_id,
-
-            transaction_types.type                            AS transaction_type,
 
             current_participation.is_read                     AS current_is_read,
             current_participation.is_starter                  AS current_is_starter,
@@ -327,7 +327,6 @@ module MarketplaceService
 
           LEFT JOIN transactions      ON transactions.conversation_id = conversations.id
           LEFT JOIN listings          ON transactions.listing_id = listings.id
-          LEFT JOIN transaction_types ON listings.transaction_type_id = transaction_types.id
           LEFT JOIN payments          ON payments.transaction_id = transactions.id
           LEFT JOIN testimonials      ON (testimonials.transaction_id = transactions.id AND testimonials.author_id = #{params[:person_id]})
           LEFT JOIN participations    AS current_participation ON (current_participation.conversation_id = conversations.id AND current_participation.person_id = #{params[:person_id]})
@@ -337,10 +336,11 @@ module MarketplaceService
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
-          # Ignore initiated
+          # Ignore initiated and deleted
           AND (
             transactions.id IS NULL
-            OR transactions.current_state != 'initiated'
+            OR (transactions.current_state != 'initiated'
+                AND transactions.deleted = 0)
           )
 
           # Order by 'last_activity_at', that is last message or last transition
@@ -362,12 +362,12 @@ module MarketplaceService
           WHERE conversations.community_id = #{params[:community_id]}
           AND conversations.id IN (#{params[:conversation_ids].join(',')})
 
-          # Ignore initiated
+          # Ignore initiated and deleted
           AND (
             transactions.id IS NULL
-            OR transactions.current_state != 'initiated'
+            OR (transactions.current_state != 'initiated'
+                AND transactions.deleted = 0)
           )
-
         "
       }
     end

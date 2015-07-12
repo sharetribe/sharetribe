@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.1.2'
 
-gem 'rails', '3.2.19'
+gem 'rails', '3.2.21'
 
 # To use debugger
 #gem 'ruby-debug'
@@ -52,7 +52,6 @@ gem 'delayed_job', "~>3.0.5"
 gem 'delayed_job_active_record'
 gem 'json', "~>1.8.0"
 gem 'multi_json', "~>1.7.3" # 1.8.0 caused "invalid byte sequence in UTF-8" at heroku
-gem 'russian'
 gem 'web_translate_it'
 gem 'postmark-rails' # could be removed as not currently used
 gem 'rails-i18n'
@@ -81,6 +80,9 @@ gem 'paypal-sdk-permissions',
   :ref    => 'c0240bee9f94fe6338d67b4f754e1a11ce81619a'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~>4.1.0'
+gem 'cache_digests'
+
+gem 'lograge'
 
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
@@ -91,6 +93,10 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+group :development, :staging do
+  gem 'meta_request'
+end
+
 group :development do
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
@@ -99,6 +105,8 @@ group :development do
   gem 'annotate'
   gem 'zeus', '0.15.1'
   gem 'i18n-tasks', '~> 0.6.2'
+  gem 'quiet_assets'
+  gem 'better_errors'
 end
 
 group :test do
@@ -106,7 +114,7 @@ group :test do
   gem 'capybara'
   gem 'cucumber-rails', :require => false
   gem 'cucumber'
-  gem 'selenium-webdriver', "~>2.43.0"
+  gem 'selenium-webdriver'
   gem 'launchy'
   gem 'ruby-prof'
   gem "pickle"

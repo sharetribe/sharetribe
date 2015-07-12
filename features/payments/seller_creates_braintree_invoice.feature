@@ -9,7 +9,7 @@ Feature: Seller creates an invoice with Braintree
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use via BraintreePaymentGateway with seller commission 10
-    And there is a listing with title "Power drill" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "Power drill" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And the price of that listing is 20.90 USD
     And there is a pending request "I request this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
@@ -45,7 +45,13 @@ Feature: Seller creates an invoice with Braintree
     When I fill in "listing_conversation_payment_attributes_sum" with "dsdfs"
     And I press "Send"
     Then I should see "You need to insert a valid monetary value."
-    When I fill in "listing_conversation_payment_attributes_sum" with "0,9"
+    When I fill in "listing_conversation_payment_attributes_sum" with "0,"
+    And I press "Send"
+    Then I should see "You need to insert a valid monetary value."
+    When I fill in "listing_conversation_payment_attributes_sum" with "0,231"
+    And I press "Send"
+    Then I should see "You need to insert a valid monetary value."
+    When I fill in "listing_conversation_payment_attributes_sum" with "0,21"
     And I press "Send"
     Then I should see "The price cannot be lower than"
     When I fill in "listing_conversation_payment_attributes_sum" with ""

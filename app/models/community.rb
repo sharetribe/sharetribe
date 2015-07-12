@@ -3,7 +3,7 @@
 # Table name: communities
 #
 #  id                                         :integer          not null, primary key
-#  name                                       :string(255)
+#  ident                                      :string(255)
 #  domain                                     :string(255)
 #  created_at                                 :datetime
 #  updated_at                                 :datetime
@@ -64,7 +64,6 @@
 #  name_display_type                          :string(255)      default("first_name_with_initial")
 #  twitter_handle                             :string(255)
 #  use_community_location_as_default          :boolean          default(FALSE)
-#  domain_alias                               :string(255)
 #  preproduction_stylesheet_url               :string(255)
 #  show_category_in_listing_list              :boolean          default(FALSE)
 #  default_browse_view                        :string(255)      default("grid")
@@ -80,7 +79,6 @@
 #  price_filter_min                           :integer          default(0)
 #  price_filter_max                           :integer          default(100000)
 #  automatic_confirmation_after_days          :integer          default(14)
-#  plan_level                                 :integer          default(0)
 #  favicon_file_name                          :string(255)
 #  favicon_content_type                       :string(255)
 #  favicon_file_size                          :integer
@@ -89,16 +87,19 @@
 #  listing_location_required                  :boolean          default(FALSE)
 #  custom_head_script                         :text
 #  follow_in_use                              :boolean          default(TRUE), not null
-#  paypal_enabled                             :boolean          default(FALSE), not null
 #  logo_processing                            :boolean
 #  wide_logo_processing                       :boolean
 #  cover_photo_processing                     :boolean
 #  small_cover_photo_processing               :boolean
 #  favicon_processing                         :boolean
+#  dv_test_file_name                          :string(64)
+#  dv_test_file                               :string(64)
+#  deleted                                    :boolean
 #
 # Indexes
 #
 #  index_communities_on_domain  (domain)
+#  index_communities_on_ident   (ident)
 #
 
 class Community < ActiveRecord::Base
@@ -109,7 +110,7 @@ class Community < ActiveRecord::Base
 
   has_many :community_memberships, :dependent => :destroy
   has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
-  has_many :admins, :through => :community_memberships, :conditions => ['community_memberships.admin = ?', true], :source => :person
+  has_many :admins, :through => :community_memberships, :conditions => ['community_memberships.admin = ? AND community_memberships.status <> ?', true, 'banned'], :source => :person
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
@@ -122,11 +123,10 @@ class Community < ActiveRecord::Base
   has_many :conversations
   has_many :transactions
   has_many :payments
-  has_many :statistics, :dependent => :destroy
-  has_many :transaction_types, :dependent => :destroy, :order => "sort_priority"
 
   has_and_belongs_to_many :listings
 
+  has_one :marketplace_settings, dependent: :destroy
   has_one :payment_gateway, :dependent => :destroy
   has_one :paypal_account # Admin paypal account
 
@@ -138,17 +138,9 @@ class Community < ActiveRecord::Base
 
   monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :default_currency
 
-  # Plan levels
-  FREE_PLAN = 0
-  STARTER_PLAN = 1
-  BASIC_PLAN = 2
-  GROWTH_PLAN = 3
-  SCALE_PLAN = 4
-
-  validates_length_of :name, :in => 2..50
-  validates_length_of :domain, :in => 2..50
-  validates_format_of :domain, :with => /\A[A-Z0-9_\-\.]*\z/i
-  validates_uniqueness_of :domain
+  validates_length_of :ident, :in => 2..50
+  validates_format_of :ident, :with => /\A[A-Z0-9_\-\.]*\z/i
+  validates_uniqueness_of :ident
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
   validates_format_of :custom_color1, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
   validates_format_of :custom_color2, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
@@ -156,8 +148,8 @@ class Community < ActiveRecord::Base
   VALID_BROWSE_TYPES = %{grid map list}
   validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES
 
-  VALID_NAME_DISPLAY_TYPES = %{first_name_only first_name_with_initial}
-  validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES, :allow_nil => true, :allow_blank => true
+  VALID_NAME_DISPLAY_TYPES = %{first_name_only first_name_with_initial full_name}
+  validates_inclusion_of :name_display_type, :in => VALID_NAME_DISPLAY_TYPES
 
   # The settings hash contains some community specific settings:
   # locales: which locales are in use, the first one is the default
@@ -274,17 +266,24 @@ class Community < ActiveRecord::Base
 
   attr_accessor :terms
 
-  def name(locale=nil)
-    if locale
-      if cc = community_customizations.find_by_locale(locale)
-        cc.name
-      else
-        community_customizations.find_by_locale(locales.first).name
+  def name(locale)
+    customization = Maybe(community_customizations.where(locale: locale).first).or_else {
+      # We should not end up in a situation where the given locale is not found.
+      # However, currently that is likely to happend, because:
+      # - User has one locale
+      # - User can join to multiple communities, which may not have user's locale available
+      fallback_customisation = community_customizations.where(locale: default_locale).first
+      if !(fallback_customisation && fallback_customisation.name)
+        # Corner case: switching default language to a language without localisation.
+        fallback_customisation = community_customizations.where("name IS NOT NULL").order(:updated_at).last
       end
+      fallback_customisation
+    }
+
+    if customization
+      customization.name
     else
-      # TODO: this is not required any more when we remove "name" column,
-      # from community, this should be removed after that.
-      read_attribute(:name)
+      raise ArgumentError.new("Can not find translation for marketplace name community_id: #{id}, locale: #{locale}")
     end
   end
 
@@ -321,7 +320,7 @@ class Community < ActiveRecord::Base
       return settings["locales"]
     else
       # if locales not set, return the short locales from the default list
-      return Kassi::Application.config.AVAILABLE_LOCALES.collect{|loc| loc[1]}
+      return Sharetribe::AVAILABLE_LOCALES.map { |l| l[:ident] }
     end
   end
 
@@ -369,11 +368,6 @@ class Community < ActiveRecord::Base
     where(sql)
   end
 
-  def email_all_members(subject, mail_content, default_locale="en", verbose=false)
-    puts "Sending mail to all #{members.count} members in community: #{self.name(default_locale)}" if verbose
-    PersonMailer.deliver_open_content_messages(members.all, subject, mail_content, default_locale, verbose)
-  end
-
   def menu_link_attributes=(attributes)
     ids = []
 
@@ -408,16 +402,16 @@ class Community < ActiveRecord::Base
 
   #returns full domain without protocol
   def full_domain(options= {})
-    # assume that if  port is used in domain config, it should
+    # assume that if port is used in domain config, it should
     # be added to the end of the full domain for links to work
     # This concerns usually mostly testing and development
     default_host, default_port = APP_CONFIG.domain.split(':')
     port_string = options[:port] || default_port
 
-    if self.domain =~ /\./ # custom domain
-      dom = "#{self.domain}#{port_string}"
+    if domain.present? # custom domain
+      dom = domain
     else # just a subdomain specified
-      dom = "#{self.domain}.#{default_host}"
+      dom = "#{self.ident}.#{default_host}"
       dom += ":#{port_string}" unless port_string.blank?
     end
 
@@ -477,20 +471,6 @@ class Community < ActiveRecord::Base
     where("allowed_emails LIKE ?", "%#{email_ending}%")
   end
 
-  # Find community by domain, which can be full domain or just subdomain
-  def self.find_by_domain(domain_string)
-    if domain_string =~ /\:/ #string includes port which should be removed
-      domain_string = domain_string.split(":").first
-    end
-
-    # search for exact match or then match by first part of domain string.
-    # first priority is the domain, then domain_alias
-    return Community.where(["domain = ?", domain_string]).first ||
-           Community.where(["domain = ?", domain_string.split(".").first]).first ||
-           Community.where(["domain_alias = ?", domain_string]).first ||
-           Community.where(["domain_alias = ?", domain_string.split(".").first]).first
-  end
-
   # Check if communities with this category are email restricted
   # TODO Is this still in use?
   def self.email_restricted?(community_category)
@@ -519,82 +499,6 @@ class Community < ActiveRecord::Base
     return false
   end
 
-  # Returns an array that contains the hierarchy of categories and transaction types
-  #
-  # An xample of a returned tree:
-  #
-  # [
-  #   {
-  #     "label" => "item",
-  #     "id" => id,
-  #     "subcategories" => [
-  #       {
-  #         "label" => "tools",
-  #         "id" => id,
-  #         "transaction_types" => [
-  #           {
-  #             "label" => "sell",
-  #             "id" => id
-  #           }
-  #         ]
-  #       }
-  #     ]
-  #   },
-  #   {
-  #     "label" => "services",
-  #     "id" => "id"
-  #   }
-  # ]
-  def category_tree(locale)
-    top_level_categories.inject([]) do |category_array, category|
-      category_array << hash_for_category(category, locale)
-    end
-  end
-
-  # Returns a hash for a single category
-  def hash_for_category(category, locale)
-    category_hash = {"id" => category.id, "label" => category.display_name(locale)}
-    if category.children.empty?
-      category_hash["transaction_types"] = category.transaction_types.inject([]) do |transaction_type_array, transaction_type|
-        transaction_type_array << {"id" => transaction_type.id, "label" => transaction_type.display_name(locale)}
-        transaction_type_array
-      end
-    else
-      category_hash["subcategories"] = category.children.inject([]) do |subcategory_array, subcategory|
-        subcategory_array << hash_for_category(subcategory, locale)
-        subcategory_array
-      end
-    end
-    category_hash
-  end
-
-  # available_categorization_values
-  # Returns a hash of lists of values for different categorization aspects in use in this community
-  # Used to simplify UI building
-  # Example hash:
-  # {
-  #   "listing_type" => ["offer", "request"],
-  #   "category" => ["item", "favor", "housing"],
-  #   "subcategory" => ["tools", "sports", "music", "books", "games", "furniture_assemble", "walking_dogs"],
-  #   "transaction_type" => ["lend", "sell", "rent_out", "give_away", "share_for_free", "borrow", "buy", "rent", "trade", "receive", "accept_for_free"]
-  # }
-  def available_categorization_values
-    values = {}
-    values["category"] = top_level_categories.collect(&:id)
-    values["subcategory"] = subcategories.collect(&:id)
-    values["transaction_type"] = transaction_types.collect(&:id)
-    return values
-  end
-
-  # same as available_categorization_values but returns the models instead of just values
-  def available_categorizations
-    values = {}
-    values["category"] = top_level_categories
-    values["subcategory"] = subcategories
-    values["transaction_type"] = transaction_types
-    return values
-  end
-
   def main_categories
     top_level_categories
   end
@@ -605,14 +509,18 @@ class Community < ActiveRecord::Base
 
   # is it possible to pay for this listing via the payment system
   def payment_possible_for?(listing)
-    listing.transaction_type.price_field? && payments_in_use?
+    listing.price && listing.price > 0 && payments_in_use?
   end
 
+  # Deprecated
+  #
+  # There is a method `payment_type` is community service. Use that instead.
   def payments_in_use?
-    # Deprecated
-    #
-    # There is a method `payment_type` is community service. Use that instead.
-    paypal_enabled? || (payment_gateway.present? && payment_gateway.configured?)
+    if MarketplaceService::Community::Query.payment_type(id) == :paypal
+      true
+    else
+      payment_gateway.present? && payment_gateway.configured?
+    end
   end
 
   # Testimonials can be used only if payments are used and `testimonials_in_use` value
@@ -641,10 +549,6 @@ class Community < ActiveRecord::Base
 
   def braintree_in_use?
     payment_gateway.present? && payment_gateway.type == "BraintreePaymentGateway"
-  end
-
-  def price_in_use?
-    transaction_types.any? { |tt| tt.price_field }
   end
 
   # Return either minimum price defined by this community or the absolute

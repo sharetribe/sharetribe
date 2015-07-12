@@ -20,10 +20,12 @@
 - if content_for?(:meta_description)
   - meta_description = "#{@current_community.name(I18n.locale)} - #{content_for(:meta_description)}"
 - else
-  - meta_description = "#{@current_community.name(I18n.locale)} - #{community_slogan}"
+  - meta_description = "#{@current_community.name(I18n.locale)} - #{community_slogan} - #{community_description(false)}"
 
 - if content_for?(:meta_image)
   - meta_image = content_for(:meta_image)
+  - meta_image_width = content_for(:meta_image_width)
+  - meta_image_height = content_for(:meta_image_height)
 - else
   - if @current_community.logo?
     - meta_image = @current_community.logo.url(:original)
@@ -36,7 +38,6 @@
 %meta{ :name => "author", :content=> meta_author }
 %meta{ :name => "keywords", :content => keywords }
 %meta{ :property => "og:url", :content => full_url}
-%meta{ :property => "og:locale", :content => "#{I18n.locale}" }
 %meta{ :name => "identifier-url", :content => "#{@current_community.full_domain(with_protocol: true)}"}
 %meta{ :name => "copyright", :content => "#{@current_community.name(I18n.locale)}"}
 %meta{ :name => "twitter:url", :content => full_url}
@@ -45,8 +46,13 @@
 %meta{ :property => "og:description", :content => strip_tags(meta_description).html_safe}
 %meta{ :name => "twitter:description", :content => strip_tags(meta_description).html_safe}
 %meta{ :property => "og:image", :content => meta_image}
+- if meta_image_width && meta_image_height
+  %meta{ :property => "og:image:width", :content => meta_image_width}
+  %meta{ :property => "og:image:height", :content => meta_image_height}
 %meta{ :name => "twitter:image", :content => meta_image}
 %link{:rel => "canonical", :href => full_url}
+- if @facebook_locale_code
+  %meta{ :property => "og:locale", :content => @facebook_locale_code}
 
 - if @current_community.twitter_handle.present?
   %meta{ :name => "twitter:site", :content => "@#{@current_community.twitter_handle}"}
@@ -74,7 +80,7 @@
 
 = csrf_meta_tag
 
-%link{:rel => "image_src", :href => image_path("sharetribe_icon.png")}
+%link{:rel => "image_src", :href => meta_image}
 
 %link{:rel => "shortcut icon", :href => @current_community.favicon }
 

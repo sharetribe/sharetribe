@@ -1,9 +1,3 @@
-# Adapted from https://gist.github.com/362873
-
-#Deploy and rollback on Heroku in staging and production
-#task :deploy_staging => ['deploy:set_staging_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
-#task :deploy_production => ['deploy:set_production_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
-
 ## generic deploy methods
 
 # Give an environment variable name and convert it to boolean.
@@ -27,16 +21,19 @@ task :deploy_to, [:destination] do |t, args|
   deploy(
     :destination => args[:destination],
     :migrations => env_to_bool('migrations', nil),
-    :css => env_to_bool('css', nil)
+    :css => env_to_bool('css', nil),
+    :clear_cache => env_to_bool('clear_cache', nil)
   )
 end
 
-task :deploy_without_migrations_to, [:destination] do |t, args|
-  deploy(:destination => args[:destination], :migrations => false, :css => env_to_bool('css', true))
-end
-
-task :deploy_with_migrations_to, [:destination] do |t, args|
-  deploy(:destination => args[:destination], :migrations => true, :css => env_to_bool('css', true))
+# Runs multiple up migrations.
+#
+# This task is mostly run in Heroku during the deploy. No need to run this locally.
+#
+# Usage: rake migrate_up[20150226124214, 20150226124215, 20150226124216]
+#
+task migrate_up: [:environment, "db:load_config"] do |_, args|
+  migrate_up(args.extras.map(&:to_i))
 end
 
 def deploy(params)
@@ -50,13 +47,16 @@ def deploy(params)
   puts "Deploying from: #{@branch}"
   puts "Deploying to:   #{@destination}"
   puts "Deploy options:"
-  puts "  css:        #{params[:css]}"
-  puts "  migrations: #{params[:migrations]} "
+  puts "  css:         #{params[:css]}"
+  puts "  migrations:  #{params[:migrations]}"
+  puts "  clear cache: #{params[:clear_cache]}"
 
-  puts ""
-  puts "Did you remember WTI pull? (y/n)"
-  response = STDIN.gets.strip
-  exit if response != 'y' && response != 'Y'
+  if @destination == "production"
+    puts ""
+    puts "Did you remember WTI pull? (y/n)"
+    response = STDIN.gets.strip
+    exit if response != 'y' && response != 'Y'
+  end
 
   if params[:migrations] == false
     puts ""
@@ -81,22 +81,21 @@ def deploy(params)
 
   set_app(@destination)
 
-  fetch_remote_heroku_branch if params[:migrations].nil? || params[:css].nil?
-  abort_if_pending_migrations if params[:migrations].nil?
+  fetch_remote_heroku_branch if params[:migrations] != false || params[:css].nil?
+  migrations = params[:migrations] == false ? [] : ask_all_migrations_to_run
   abort_if_css_modifications if params[:css].nil?
 
-  prepare_closed_source_branch
   deploy_to_server
 
-  if params[:migrations]
-    run_migrations
+  clear_cache if params[:clear_cache]
+
+  unless migrations.empty?
+    run_migrations(migrations)
     restart
   end
   if params[:css]
     generate_custom_css
   end
-
-  airbrake_trigger_deploy(@destination)
 end
 
 def set_app(destination)
@@ -104,28 +103,11 @@ def set_app(destination)
   puts "Destination Heroku app: #{@app}"
 end
 
-def airbrake_trigger_deploy(destination)
-  puts ""
-  puts "Triggering airbrake deploy..."
-  ENV['use_airbrake'] = "true"
-  ENV['TO'] = destination
-  Rake::Task['airbrake:deploy'].invoke
-  puts "Done."
-end
+def migrate_up(versions)
+  raise "Nothing to migrate" if versions.empty?
 
-def abort_if_pending_migrations
-  pending_heroku_migrations = pending_migrations_in_heroku?
-  pending_local_migrations = pending_local_migrations?
-
-  if pending_heroku_migrations || pending_local_migrations
-    puts ""
-    puts "Heroku has deployed migrations that are not yet run." if pending_heroku_migrations
-    puts "You are about to deploy migrations from a local branch." if pending_local_migrations
-    puts ""
-    puts "Run migrations with rake deploy_to[#{@destination}] migrations=true"
-    puts "If you know what you are doing, skip with migrations=false"
-    puts "Aborting deploy process."
-    exit
+  versions.each do |version|
+    ActiveRecord::Migrator.run(:up, ActiveRecord::Migrator.migrations_paths, version)
   end
 end
 
@@ -145,26 +127,6 @@ def local_css_modifications?
   !diff.empty?
 end
 
-def prepare_closed_source_branch
-  puts 'Copying closed source contents...'
-  puts `mkdir ../tmp-sharetribe` unless File.exists?("../tmp-sharetribe")
-  puts `mkdir ../tmp-sharetribe/webfonts` unless File.exists?("../tmp-sharetribe/webfonts")
-  puts `rm app/assets/webfonts/* `
-  puts `git checkout closed_source`
-  # Just in case, check that we really are in the right branch before reset --hard
-  if `git symbolic-ref HEAD`.match("refs/heads/closed_source")
-    puts `git reset --hard private/closed_source`
-    puts `git pull`
-    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
-    puts `git rebase #{@branch}`
-    puts `git checkout #{@branch}`
-    puts `mkdir app/assets/webfonts `
-    puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
-  else
-    puts "ERROR: Checkout for closed_source branch didn't work. Maybe you have uncommitted changes?"
-  end
-end
-
 # Fixes error: Your Ruby version is 1.9.3, but your Gemfile specified 2.1.1
 def heroku(cmd)
   Bundler.with_clean_env { system("heroku #{cmd}") }
@@ -175,13 +137,15 @@ def heroku_with_output(cmd)
 end
 
 def deploy_to_server
-  system("git push #{@destination} closed_source:master --force")
+  system("git push #{@destination} #{@branch}:master --force")
 
 end
 
-def run_migrations
+def run_migrations(versions)
+  versions_arg = versions.join(",")
+
   puts 'Running database migrations ...'
-  heroku("run rake db:migrate --app #{@app}")
+  heroku("run rake migrate_up[#{versions_arg}] --app #{@app}")
 end
 
 def restart
@@ -199,276 +163,86 @@ def fetch_remote_heroku_branch
   `git fetch #{@destination} master`
 end
 
-def pending_migrations_in_heroku?
+def ask_all_migrations_to_run
+  ask_local_migrations_to_run.concat(ask_heroku_migrations_to_run).sort
+end
+
+def ask_local_migrations_to_run
+  # List of files added to db/migrate dir
+  new_files = `git diff --name-only --diff-filter=A #{@destination}/master..#{@branch} db/migrate`
+  migrations = select_down_migrations(parse_added_migration_files(new_files))
+
+  if migrations.empty?
+    []
+  else
+    puts ""
+    puts "You are about to deploy #{migrations.length} new migrations:"
+    puts ""
+    ask_migrations_to_run(migrations)
+  end
+end
+
+# Returns an array of migration versions to run
+def ask_heroku_migrations_to_run
   puts "Checking for pending migrations in heroku ..."
   output = heroku_with_output("run rake db:migrate:status --app #{@app}")
+  migrations = select_down_migrations(parse_migration_status(output))
+
+  if migrations.empty?
+    []
+  else
+    puts ""
+    puts "There are #{migrations.length} migration in Heroku that have not been run:"
+    puts ""
+    ask_migrations_to_run(migrations)
+  end
+end
+
+def select_down_migrations(migrations)
+  migrations.select { |migration| migration[:status] == :down }
+end
+
+def ask_migrations_to_run(migrations)
+  migrations.select { |migration|
+      puts "Run migration #{migration[:version]} #{migration[:description]} (y/n)?"
+      response = STDIN.gets.strip
+      response == 'y' || response == 'Y'
+    }
+    .map { |migration| migration[:version] }
+end
+
+def parse_migration_status(output)
   arr = output.split("\n")
-  statuses = arr.drop(arr.find_index("-" * 50) + 1)
-    .map(&:strip)
-    .map { |str| str.split(" ").first }
-  statuses.include?("down")
+  arr.drop(arr.find_index("-" * 50) + 1).map { |line| parse_status_line(line, output) }
 end
 
-def pending_local_migrations?
-  diff = `git diff --shortstat #{@branch}..#{@destination}/master db/migrate`
-  !diff.empty?
+# Remove `output`. It's only for debugging
+def parse_status_line(line, output)
+  parsed = /^\s*(up|down)\s*(\d{14})\s*(.*)$/.match(line)
+  puts "[DEBUG] Regexp didn't match, line: #{line}, result: #{parsed}" if parsed.nil?
+  puts "[DEBUG] Output: #{output}" if parsed.nil?
+
+  {
+    status: parsed[1].to_sym,
+    version: parsed[2].to_i,
+    description: parsed[3]
+  }
 end
 
-## STAGING
+def parse_added_migration_files(new_files)
+  new_files.split("\n").map { |file|
+    parsed = /^db\/migrate\/(\d{14})_(.*).rb$/.match(file)
 
-task :deploy_staging_migrations_from_master => [
-  'deploy:set_staging_app',
-  'deploy:set_master_as_source_branch',
-  'i18n:write_error_pages',
-  'deploy:update_closed_source_folders',
-  'deploy_with_migrations'
-]
+    {
+      status: :down, # New local migration is always "down" in Heroku
+      version: parsed[1].to_i,
+      description: parsed[2].humanize
+    }
+  }
+end
 
-task :deploy_staging_migrations_from_develop => [
-  'deploy:set_staging_app',
-  'deploy:set_develop_as_source_branch',
-  'i18n:write_error_pages',
-  'deploy:update_closed_source_folders',
-  'deploy_with_migrations'
-]
-
-task :deploy_staging_without_migrations_from_develop => [
-  'deploy:set_staging_app',
-  'deploy:set_develop_as_source_branch',
-  'i18n:write_error_pages',
-  'deploy:update_closed_source_folders',
-  'deploy_without_migrations'
-]
-
-## PRODUCTION
-
-# this one deploy's the closed_source branch but doesn't update it
-task :deploy_production_migrations_from_closed_source => [
-  'deploy:set_production_app',
-  'deploy_with_migrations'
-]
-
-task :deploy_production_migrations_from_master => [
-  'deploy:set_production_app',
-  'deploy:set_master_as_source_branch',
-  'deploy:update_closed_source_folders',
-  'deploy_with_migrations'
-]
-
-task :deploy_production_without_migrations_from_master => [
-  'deploy:set_production_app',
-  'deploy:set_master_as_source_branch',
-  'deploy:update_closed_source_folders',
-  'deploy_without_migrations'
-]
-
-# this one deploy's the closed_source branch but doesn't update it
-task :deploy_production_without_migrations_from_closed_source => [
-  'deploy:set_production_app',
-  'deploy_without_migrations'
-]
-
-## PRE PRODUCTION
-
-# this one deploy's the closed_source branch but doesn't update it
-task :deploy_preproduction_migrations_from_closed_source => [
-  'deploy:set_preproduction_app',
-  'deploy_with_migrations'
-]
-
-task :deploy_preproduction_migrations_from_develop => [
-  'deploy:set_preproduction_app',
-  'deploy:set_develop_as_source_branch',
-  'deploy:update_closed_source_folders',
-  'deploy_with_migrations'
-]
-
-## TRANSLATION
-
-task :deploy_translation_migrations_from_develop => [
-  'deploy:set_translation_app',
-  'deploy:set_develop_as_source_branch',
-  'deploy:update_closed_source_folders',
-  'deploy:push',
-  'deploy:migrate',
-  'deploy:restart'
-]
-
-task :deploy_translation_without_migrations_from_develop => [
-  'deploy:set_translation_app',
-  'deploy:set_develop_as_source_branch',
-  'deploy:update_closed_source_folders',
-  'deploy:push'
-]
-
-## TESTING
-
-task :deploy_testing_migrations => [
-  'deploy:set_testing_app',
-  'i18n:write_error_pages',
-  'deploy:prepare_custom_branch_for_deploy',
-  'deploy_with_migrations'
-]
-
-task :deploy_testing_without_migrations => [
-  'deploy:set_testing_app',
-  'i18n:write_error_pages',
-  'deploy:prepare_custom_branch_for_deploy',
-  'deploy_without_migrations'
-]
-
-task :deploy_test_servers => [
-  'deploy_staging_migrations',
-  'deploy_translation_migrations'
-]
-
-task :deploy_with_migrations => [
-  'deploy:push',
-  'deploy:migrate',
-  'deploy:restart',
-  'deploy:generate_custom_css'
-]
-
-task :deploy_without_migrations => [
-  'deploy:push',
-  'deploy:generate_custom_css'
-]
-
-namespace :deploy do
-  PRODUCTION_APP = 'sharetribe-production'
-  PREPRODUCTION_APP = 'sharetribe-preproduction'
-  STAGING_APP = 'sharetribe-staging'
-  TRANSLATION_APP = "sharetribe-translation"
-  TESTING_APP = 'sharetribe-testing'
-
-  task :set_staging_app do
-    APP = STAGING_APP
-  end
-
-  task :set_testing_app do
-    APP = TESTING_APP
-  end
-
-  task :set_production_app do
-    APP = PRODUCTION_APP
-  end
-
-  task :set_preproduction_app do
-    APP = PREPRODUCTION_APP
-  end
-
-  task :set_translation_app do
-    APP = TRANSLATION_APP
-  end
-
-  task :set_develop_as_source_branch do
-    BRANCH = "develop"
-  end
-
-  task :set_master_as_source_branch do
-    BRANCH = "master"
-  end
-
-  task :update_closed_source_folders do
-    puts 'Copying closed source contents...'
-    puts `mkdir ../tmp-sharetribe` unless File.exists?("../tmp-sharetribe")
-    puts `mkdir ../tmp-sharetribe/webfonts` unless File.exists?("../tmp-sharetribe/webfonts")
-    puts `rm app/assets/webfonts/* `
-    puts `git checkout closed_source`
-    # Just in case, check that we really are in the right branch before reset --hard
-    if `git symbolic-ref HEAD`.match("refs/heads/closed_source")
-      puts `git reset --hard private/closed_source`
-      puts `git pull`
-      puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
-      puts `git rebase #{BRANCH}`
-      puts `git checkout #{BRANCH}`
-      puts `mkdir app/assets/webfonts `
-      puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
-    else
-      puts "ERROR: Checkout for closed_source branch didn't work. Maybe you have uncommitted changes?"
-    end
-  end
-
-  task :push do
-    puts 'Deploying site to Heroku ...'
-    if APP == PRODUCTION_APP
-      puts `git push production closed_source:master --force`
-    elsif APP == TRANSLATION_APP
-      puts `git push translation closed_source:master --force`
-    elsif APP == TESTING_APP
-      puts `git push testing closed_source:master --force`
-    elsif APP == PREPRODUCTION_APP
-      puts `git push preproduction closed_source:master --force`
-    else
-      puts `git push staging closed_source:master --force`
-    end
-  end
-
-  task :restart do
-    puts 'Restarting app servers ...'
-    heroku("restart --app #{APP}")
-  end
-
-  task :generate_custom_css => :environment do
-    puts 'Generating custom CSS for tribes who use it ...'
-    heroku("run rake sharetribe:generate_customization_stylesheets --app #{APP}")
-  end
-
-  task :tag do
-    release_name = "#{APP}_release-#{Time.now.utc.strftime("%Y%m%d%H%M%S")}"
-    puts "Tagging release as '#{release_name}'"
-    puts `git tag -a #{release_name} -m 'Tagged release'`
-    system("git push --tags git@heroku.com:#{APP}.git")
-  end
-
-  task :migrate do
-    puts 'Running database migrations ...'
-    heroku("run rake db:migrate --app #{APP}")
-  end
-
-  task :off do
-    puts 'Putting the app into maintenance mode ...'
-    puts `heroku maintenance:on --app #{APP}`
-  end
-
-  task :on do
-    puts 'Taking the app out of maintenance mode ...'
-    puts `heroku maintenance:off --app #{APP}`
-  end
-
-  task :push_previous do
-    prefix = "#{APP}_release-"
-    releases = `git tag`.split("\n").select { |t| t[0..prefix.length-1] == prefix }.sort
-    current_release = releases.last
-    previous_release = releases[-2] if releases.length >= 2
-    if previous_release
-      puts "Rolling back to '#{previous_release}' ..."
-
-      puts "Checking out '#{previous_release}' in a new branch on local git repo ..."
-      puts `git checkout #{previous_release}`
-      puts `git checkout -b #{previous_release}`
-
-      puts "Removing tagged version '#{previous_release}' (now transformed in branch) ..."
-      puts `git tag -d #{previous_release}`
-      puts `git push git@heroku.com:#{APP}.git :refs/tags/#{previous_release}`
-
-      puts "Pushing '#{previous_release}' to Heroku master ..."
-      puts `git push git@heroku.com:#{APP}.git +#{previous_release}:master --force`
-
-      puts "Deleting rollbacked release '#{current_release}' ..."
-      puts `git tag -d #{current_release}`
-      puts `git push git@heroku.com:#{APP}.git :refs/tags/#{current_release}`
-
-      puts "Retagging release '#{previous_release}' in case to repeat this process (other rollbacks)..."
-      puts `git tag -a #{previous_release} -m 'Tagged release'`
-      puts `git push --tags git@heroku.com:#{APP}.git`
-
-      puts "Turning local repo checked out on master ..."
-      puts `git checkout master`
-      puts 'All done!'
-    else
-      puts "No release tags found - can't roll back!"
-      puts releases
-    end
-  end
+def clear_cache
+  puts "Clearing Rails cache..."
+  heroku("run rails runner Rails.cache.clear --app #{@app}")
+  puts "Rails cache cleared"
 end

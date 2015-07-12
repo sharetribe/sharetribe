@@ -1,0 +1,58 @@
+ja:
+  errors:
+    messages:
+      expired: ご登録の有効期限は終了しましたので、再登録をお願いします。
+      not_found: ページが見つかりません
+      already_confirmed: 認証済みです。再度、ログインしてください。
+      not_locked: ロックされていません。
+      not_saved:
+        zero: "エラーは%{count}箇所でしたが、この%{resource}は保存されませんでした："
+        other: "%{count}箇所のエラーにより、この%{resource}は保存されませんでした："
+  devise:
+    failure:
+      already_authenticated: 既にログインしています。
+      unauthenticated: ご利用を続けるには、ログインか新規登録をする必要があります。
+      unconfirmed: ご利用を続けるには、あなたのアカウントを承認する必要があります。
+      locked: アカウントがロックされています。
+      invalid: メールアドレスまたはパスワードが正しくありません。
+      invalid_token: 無効な認証トークン（一時的なパスワード）です。
+      timeout: セッション切れになりました。ご利用を続けるにはもう一度ログインしてください。
+      inactive: アカウントはまだ承認されていません。
+    passwords:
+      updated_not_active: パスワードが正常に変更されました。
+      send_paranoid_instructions: あなたのメールアドレスがデータベースに存在する場合、パスワードリセットのためのリンクを記載したメールがまもなく届きます。
+      send_instructions: あなたのパスワードのリセット方法が記載されたメールが、まもなく届きます。
+      updated: パスワードが正常に変更されました。あなたは今ログイン済です。
+    sessions:
+      signed_in: 正常にログインしました。
+      signed_out: 正常にログアウトしました。
+    confirmations:
+      send_paranoid_instructions: あなたのメールアドレスがデータベースに存在する場合、メール認証手続き手順を記載したメールがまもなく届きます。
+      send_instructions: アカウント認証方法が記載されたメールが、まもなく届きます。
+      confirmed: アカウントの認証に成功しました。
+    registrations:
+      signed_up_but_unconfirmed: あなたのメールアドレスに認証リンクの記載されたメッセージが送信されています。あなたのアカウントを有効にするリンクを開いてください。
+      signed_up_but_inactive: ご登録手続きが完了しています。しかし、アカウントがまだ有効になっておりませんので、サインインが出来ませんでした。
+      signed_up_but_locked: ご登録手続きが完了しています。しかし、アカウントがロックされているため、ログインが出来ませんでした。
+      reasons:
+        inactive: 停止中
+        unconfirmed: 認証前
+        locked: アカウントがロックされています。
+      update_needs_confirmation: アカウントが正常に更新されました。ただしこのお手続きを完了するには、メールアドレスを、確認する必要があります。お届けしたメールを確認し、アカウントのご登録完了のための承認リンクをクリックしてください。
+      signed_up: "ようこそ ！正常にサインアップしました。"
+      updated: アカウントは正常に更新されました。
+      destroyed: アカウントが正常にキャンセルされました。またのご利用をお待ちしております。
+    unlocks:
+      send_paranoid_instructions: あなたのアカウントが存在する場合、ロックを解除する方法についての手順を記載したメールがまもなく届きます。
+      send_instructions: アカウントロック解除の手続きメールがまもなく届きます。
+      unlocked: あなたのアカウントが、正常にロック解除されました。続けるには、ログインしてください。
+    omniauth_callbacks:
+      success: "%{kind}のアカウントが正常に認可されました。"
+      failure: "「%{reason}」のため%{kind}のアカウントのご利用を許可することができませんでした。"
+    mailer:
+      confirmation_instructions:
+        subject: 認証手続き
+      reset_password_instructions:
+        subject: パスワード再設定手続き
+      unlock_instructions:
+        subject: ロック解除手続き

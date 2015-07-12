@@ -37,8 +37,6 @@
         = t('common.password') + ":"
       = password_field_tag "person[password]", nil, :class => :text_field
     .form_field_container
-      - if @current_community
-        = hidden_field_tag :community, @current_community.domain
       = submit_tag(t('.login'), :class => "send_button")
     .form_field_container
       .links

@@ -7,7 +7,10 @@
     )
 
 - content_for :title_header do
-  %h1= t("layouts.admin.admin")
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.paypal_account.paypal_admin_account")
 
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
@@ -16,6 +19,10 @@
 
   .row
     = t("admin.paypal_accounts.integration_info_text").html_safe
+
+  - if display_knowledge_base_articles
+    .row
+      = link_to t("admin.paypal_accounts.read_more_about_paypal"), "#{knowledge_base_url}/articles/501684"
 
   .row
 
@@ -27,23 +34,25 @@
         = t("admin.paypal_accounts.paypal_account_email_completed")
       .paypal-connected-email.paypal-account-connected
         = t("paypal_accounts.connected_account", :email => paypal_account_email)
+      .paypal-connected-change
+        = link_to t("paypal_accounts.change_account"), order_permission_action
   - else
 
     - content_for :extra_javascript do
       :javascript
         ST.initializePayPalAccountForm("paypal_account_form");
 
-    = form_for paypal_account_form, url: paypal_form_action, html: { id: "paypal_account_form"} do |form|
+    = form_for paypal_account_form, url: order_permission_action, method: "get", html: { id: "paypal_account_form"} do |form|
 
       - title = t("admin.paypal_accounts.paypal_account_email")
-      = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title, currency: currency}
+      = render :partial => "paypal_accounts/ask_paypal_permissions", locals: {form: form, title: title, currency: currency, create_url: create_url, upgrade_url: upgrade_url}
 
   = form_for paypal_prefs_form, url: paypal_prefs_form_action, html: { id: "paypal_preferences_form" } do |form|
 
     .row
       .col-12
         - if paypal_prefs_valid
-          %label.paypal-preferences-valid
+          %h3.paypal-preferences-valid
             %del= t("admin.paypal_accounts.set_minimum_price_and_fee")
             = t("admin.paypal_accounts.set_minimum_price_and_fee_completed")
         - else
@@ -51,7 +60,7 @@
 
     .row
       .col-6
-        = form.label :commission_from_seller, t("admin.paypal_accounts.minimum_listing_price_label"), class: "paypal-horizontal-input-label"
+        = form.label :minimum_listing_price, t("admin.paypal_accounts.minimum_listing_price_label"), class: "paypal-horizontal-input-label"
       .col-6
         = form.text_field :minimum_listing_price, class: "paypal-preferences-input"
         %label.paypal-horizontal-input-label-unit
@@ -65,13 +74,16 @@
         %label.paypal-horizontal-input-label-unit
           = "%"
 
+    .row
+      .col-6
+        = form.label :minimum_transaction_fee, t("admin.paypal_accounts.minimum_transaction_fee_label"), class: "paypal-horizontal-input-label"
+      .col-6
+        = form.text_field :minimum_transaction_fee, class: "paypal-preferences-input"
+        %label.paypal-horizontal-input-label-unit
+          = currency
 
     .row
       .col-12
         = form.button t("admin.paypal_accounts.save_settings")
-
-    .row
-      .col-12
-        = render partial: "layouts/info_text", locals: { text: t("admin.paypal_accounts.note_about_transaction_fee", min_paypal_commission: humanized_money_with_symbol(min_commission)) }
 
 

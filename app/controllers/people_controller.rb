@@ -1,4 +1,5 @@
 class PeopleController < Devise::RegistrationsController
+  class PersonDeleted < StandardError; end
 
   include PeopleHelper
 
@@ -9,7 +10,6 @@ class PeopleController < Devise::RegistrationsController
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
 
-  before_filter :person_belongs_to_current_community, :only => [:show]
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
 
   skip_filter :check_email_confirmation, :only => [ :update]
@@ -20,14 +20,11 @@ class PeopleController < Devise::RegistrationsController
 
   helper_method :show_closed?
 
-  def index
-    @selected_tribe_navi_tab = "members"
-    params[:page] = 1 unless request.xhr?
-    @people = @current_community.members.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
-    request.xhr? ? (render :partial => "additional_members") : (render :action => :index)
-  end
-
   def show
+    @person = Person.find(params[:person_id] || params[:id])
+    raise PersonDeleted if @person.deleted?
+    PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
+
     redirect_to root and return if @current_community.private? && !@current_user
     redirect_to url_for(params.merge(:locale => nil)) and return if params[:locale] # This is an important URL to keep pretty
     @selected_tribe_navi_tab = "members"
@@ -117,7 +114,7 @@ class PeopleController < Devise::RegistrationsController
 
       redirect_to root
     else
-      Email.send_confirmation(email, request.host_with_port, @current_community)
+      Email.send_confirmation(email, @current_community)
 
       flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending"
@@ -151,7 +148,7 @@ class PeopleController < Devise::RegistrationsController
     }
     @person = Person.create!(person_hash)
     # We trust that Facebook has already confirmed these and save the user few clicks
-    Email.create(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now)
+    Email.create!(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now)
 
     @person.set_default_preferences
 
@@ -197,7 +194,7 @@ class PeopleController < Devise::RegistrationsController
 
         if params[:person][:email_attributes] && params[:person][:email_attributes][:address]
           # A new email was added, send confirmation email to the latest address
-          Email.send_confirmation(@person.emails.last, request.host_with_port, @current_community)
+          Email.send_confirmation(@person.emails.last, @current_community)
         end
 
         flash[:notice] = t("layouts.notifications.person_updated_successfully")
@@ -218,13 +215,24 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def destroy
-    if @person && @current_user && @person == @current_user
-      sign_out @current_user
-      @current_user.destroy
-      report_analytics_event(['user', "deleted", "by user"]);
-      flash[:notice] = t("layouts.notifications.account_deleted")
+    has_unfinished = TransactionService::Transaction.has_unfinished_transactions(@current_user.id)
+    return redirect_to root if has_unfinished
+
+    communities = @current_user.community_memberships.map(&:community_id)
+
+    # Do all delete operations in transaction. Rollback if any of them fails
+    ActiveRecord::Base.transaction do
+      UserService::API::Users.delete_user(@current_user.id)
+      MarketplaceService::Listing::Command.delete_listings(@current_user.id)
+
+      communities.each { |community_id|
+        PaypalService::API::Api.accounts.delete(community_id: @current_community.id, person_id: @current_user.id)
+      }
     end
 
+    sign_out @current_user
+    report_analytics_event(['user', "deleted", "by user"]);
+    flash[:notice] = t("layouts.notifications.account_deleted")
     redirect_to root
   end
 

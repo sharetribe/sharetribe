@@ -3,7 +3,50 @@ module MarketplaceService::API
   module Marketplaces
     CommunityModel = ::Community
 
-    RESERVED_DOMAINS = %w(www home sharetribe login blog catch webhooks dashboard dashboardtranslate translate community wiki mail secure host feed feeds app beta-site)
+    RESERVED_DOMAINS = [
+      "www",
+      "home",
+      "sharetribe",
+      "login",
+      "blog",
+      "business",
+      "catch",
+      "webhooks",
+      "dashboard",
+      "dashboardtranslate",
+      "translate",
+      "community",
+      "wiki",
+      "mail",
+      "secure",
+      "host",
+      "feed",
+      "feeds",
+      "app",
+      "beta-site",
+      "marketplace",
+      "marketplaces",
+      "masters",
+      "marketplacemasters",
+      "insights",
+      "insight",
+      "tips",
+      "doc",
+      "docs",
+      "support",
+      "legal",
+      "org",
+      "net",
+      "web",
+      "intra",
+      "intranet",
+      "internal",
+      "webinar",
+      "local",
+      "proxy",
+      "preproduction",
+      "staging"
+    ]
 
     module_function
 
@@ -12,14 +55,40 @@ module MarketplaceService::API
 
       locale = p[:marketplace_language].or_else("en")
       marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
+      payment_process = p[:payment_process].or_else(:preauthorize)
 
-      community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale, p[:paypal_enabled].or_else(false)))
+      community = CommunityModel.create(Helper.community_params(p, marketplace_name, locale))
 
       Helper.create_community_customization!(community, marketplace_name, locale)
-      t = Helper.create_transaction_type!(community, p[:marketplace_type])
-      Helper.create_category!("Default", community, locale, t.id)
+      Helper.create_category!("Default", community, locale)
+      processes = Helper.create_processes!(community.id, payment_process)
+      shape = Helper.create_listing_shape!(community, p[:marketplace_type], payment_process)
+
+      plan_level = p[:plan_level].or_else(CommunityPlan::FREE_PLAN)
+      expires_at = p[:expires_at].or_else(DateTime.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days)
+      Helper.create_community_plan!(community, {plan_level: plan_level, expires_at: expires_at});
 
       return from_model(community)
+    end
+
+    def set_locales(community, locales)
+      default_locale = community.locales[0]
+      community_name = community.name(default_locale)
+      locales.each { |locale| Helper.first_or_create_community_customization!(community, community_name, locale) }
+
+      settings = community.settings || {}
+      settings["locales"] = locales
+      community.settings = settings
+      community.save!
+    end
+
+    def all_locales
+      Sharetribe::SUPPORTED_LOCALES.map{ |l|
+        {
+          locale_key: l[:ident],
+          locale_name: l[:name]
+        }
+      }
     end
 
     # Create a Marketplace hash from Community model
@@ -38,15 +107,14 @@ module MarketplaceService::API
 
       module_function
 
-      def community_params(params, marketplace_name, locale, paypal_enabled)
+      def community_params(params, marketplace_name, locale)
+        ident = available_ident_based_on(marketplace_name)
         {
           consent: "SHARETRIBE1.0",
-          domain: available_domain_based_on(params[:marketplace_name].get),
+          ident: ident,
           settings: {"locales" => [locale]},
-          name: marketplace_name,
           available_currencies: available_currencies_based_on(params[:marketplace_country].or_else("us")),
-          country: params[:marketplace_country].upcase.or_else(nil),
-          paypal_enabled: paypal_enabled
+          country: params[:marketplace_country].upcase.or_else(nil)
         }
       end
 
@@ -58,16 +126,63 @@ module MarketplaceService::API
         }
       end
 
-      def create_transaction_type!(community, marketplace_type)
-        transaction_type_name = transaction_type_name(marketplace_type)
-        TransactionTypeCreator.create(community, transaction_type_name)
+      def create_processes!(community_id, default_payment_process)
+        payment_process = default_payment_process.to_sym
+        unless [:none, :preauthorize].include?(payment_process)
+          raise ArgumentError.new("Unknown payment process: #{payment_process}")
+        end
+
+        [
+          {author_is_seller: true, process: :none},
+          {author_is_seller: false, process: :none},
+          {author_is_seller: true, process: payment_process}
+        ].to_set.map { |p|
+          get_or_create_transaction_process(
+            community_id: community_id,
+            process: p[:process],
+            author_is_seller: p[:author_is_seller])
+        }
+      end
+
+      def get_or_create_transaction_process(community_id:, process:, author_is_seller:)
+        TransactionService::API::Api.processes.get(community_id: community_id)
+          .maybe
+          .map { |processes|
+          processes.find { |p| p[:process] == process && p[:author_is_seller] == author_is_seller }
+        }
+          .or_else {
+          TransactionService::API::Api.processes.create(
+            community_id: community_id,
+            process: process,
+            author_is_seller: author_is_seller
+          ).data
+        }
+      end
+
+      def create_listing_shape!(community, marketplace_type, process)
+        listing_shape_template = select_listing_shape_template(marketplace_type)
+        enable_shipping = marketplace_type.or_else("product") == "product"
+        TransactionTypeCreator.create(community, listing_shape_template, process, enable_shipping)
       end
 
       def create_community_customization!(community, marketplace_name, locale)
         community.community_customizations.create(customization_params(marketplace_name, locale))
       end
 
-      def transaction_type_name(type)
+      def first_or_create_community_customization!(community, marketplace_name, locale)
+        existing_customization = community.community_customizations.where(locale: locale).first
+        community.community_customizations.create!(customization_params(marketplace_name, locale)) unless existing_customization
+      end
+
+      def create_community_plan!(community, options={})
+        CommunityPlan.create({
+          community_id: community.id,
+          plan_level: options[:plan_level],
+          expires_at: options[:expires_at] == :never ? nil : options[:expires_at]
+        })
+      end
+
+      def select_listing_shape_template(type)
        case type.or_else("product")
         when "rental"
           "Rent"
@@ -82,42 +197,29 @@ module MarketplaceService::API
         "<h1>#{I18n.t("infos.how_to_use.default_title", locale: locale)}</h1><div>#{I18n.t("infos.how_to_use.default_content", locale: locale, :marketplace_name => marketplace_name)}</div>"
       end
 
-      def available_domain_based_on(initial_domain)
-
-        if initial_domain.blank?
-          initial_domain = "trial_site"
-        end
-
-        current_domain = initial_domain.to_url
-        current_domain = current_domain[0..29] #truncate to 30 chars or less
+      def available_ident_based_on(initial_ident)
+        current_ident = Maybe(initial_ident).to_url[0..29].or_else("trial_site") #truncate to 30 chars or less
 
         # use basedomain as basis on new variations if current domain is not available
-        base_domain = current_domain
+        base_ident = current_ident
 
         i = 1
-        while CommunityModel.find_by_domain(current_domain) || RESERVED_DOMAINS.include?(current_domain) do
-          current_domain = "#{base_domain}#{i}"
+        while CommunityModel.exists?(ident: current_ident) || RESERVED_DOMAINS.include?(current_ident) do
+          current_ident = "#{base_ident}#{i}"
           i += 1
         end
 
-        return current_domain
+        return current_ident
       end
 
       def available_currencies_based_on(country_code)
         Maybe(MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[country_code.upcase]).or_else("USD")
       end
 
-      def create_category!(category_name, community, locale, transaction_type_id=nil)
-        category = Category.create!(:community_id => community.id, :url => category_name.downcase)
-        CategoryTranslation.create!(:category_id => category.id, :locale => locale, :name => category_name)
-
-        if transaction_type_id
-          CategoryTransactionType.create!(:category_id => category.id, :transaction_type_id => transaction_type_id)
-        end
+      def create_category!(category_name, community, locale)
+        translation = CategoryTranslation.new(:locale => locale, :name => category_name)
+        community.categories.create!(:url => category_name.downcase, translations: [translation])
       end
-
     end
-
   end
-
 end

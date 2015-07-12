@@ -1,5 +1,3 @@
-require 'routes/api_request'
-
 Kassi::Application.routes.draw do
 
   namespace :mercury do
@@ -12,6 +10,10 @@ Kassi::Application.routes.draw do
   # first created -> highest priority.
 
   match "/robots.txt" => RobotsGenerator
+
+  # A route for DV test file
+  # A CA will check if there is a file in this route
+  get "/:dv_file" => "domain_validation#index", constraints: {dv_file: /.*\.txt/}
 
   match "/design" => "design#design"
 
@@ -43,16 +45,19 @@ Kassi::Application.routes.draw do
     get "/check_email_availability" => "marketplaces#check_email_availability"
   end
 
-  locale_matcher = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
+  REMOVED_LOCALES = Rails.application.config.REMOVED_LOCALES.to_a
+
+  locale_matcher = Regexp.new(Sharetribe::AVAILABLE_LOCALES.map { |l| l[:ident] }.concat(REMOVED_LOCALES).join("|"))
 
   # Inside this constraits are the routes that are used when request has subdomain other than www
-  match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }
-  match '/' => 'homepage#index'
+  match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }, as: :homepage_with_locale
+  match '/' => 'homepage#index', as: :homepage_without_locale
   root :to => 'homepage#index'
 
   # error handling: 3$: http://blog.plataformatec.com.br/2012/01/my-five-favorite-hidden-features-in-rails-3-2/
   match '/500' => 'errors#server_error'
   match '/404' => 'errors#not_found', :as => :error_not_found
+  match '/410' => 'errors#gone', as: :error_gone
   match '/community_not_found' => 'errors#community_not_found', as: :community_not_found
 
   resources :communities, only: [:new, :create]
@@ -63,6 +68,9 @@ Kassi::Application.routes.draw do
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
 
     match "/transactions/op_status/:process_token" => "transactions#op_status", :as => :transaction_op_status
+
+    # All new transactions (in the future)
+    match "/transactions/new" => "transactions#new", as: :new_transaction
 
     # preauthorize flow
     match "/listings/:listing_id/preauthorize" => "preauthorize_transactions#preauthorize", :as => :preauthorize_payment
@@ -77,7 +85,6 @@ Kassi::Application.routes.draw do
     match "/listings/:listing_id/create_transaction" => "post_pay_transactions#create", :as => :create_transaction, :method => :post
 
     # free flow
-    match "/listings/:listing_id/reply" => "free_transactions#new", :as => :reply_to_listing
     match "/listings/:listing_id/create_contact" => "free_transactions#create_contact", :as => :create_contact
     match "/listings/:listing_id/contact" => "free_transactions#contact", :as => :contact_to_listing
 
@@ -95,12 +102,6 @@ Kassi::Application.routes.draw do
     match '/:person_id/settings/payments/paypal_account/new' => 'paypal_accounts#new', :as => :new_paypal_account_settings_payment
     match '/:person_id/settings/payments/paypal_account/show' => 'paypal_accounts#show', :as => :show_paypal_account_settings_payment
     match '/:person_id/settings/payments/paypal_account/create' => 'paypal_accounts#create', :as => :create_paypal_account_settings_payment
-
-    scope :module => "api", :constraints => ApiRequest do
-      resources :listings, :only => :index
-
-      match 'api_version' => "api#version_check"
-    end
 
     namespace :paypal_service do
       resources :checkout_orders do
@@ -135,6 +136,7 @@ Kassi::Application.routes.draw do
           get :menu_links
           put :menu_links, to: 'communities#update_menu_links'
           put :update_settings
+          delete :delete_marketplace
         end
         resources :transactions, controller: :community_transactions, only: :index
         resources :emails
@@ -151,7 +153,7 @@ Kassi::Application.routes.draw do
           member do
             get :index
             post :preferences_update
-            post :account_create
+            get :account_create
             get :permissions_verified
           end
         end
@@ -173,6 +175,14 @@ Kassi::Application.routes.draw do
         end
         collection do
           post :order
+        end
+      end
+      resources :listing_shapes do
+        collection do
+          post :order
+        end
+        member do
+          get :close_listings
         end
       end
     end
@@ -197,9 +207,10 @@ Kassi::Application.routes.draw do
         delete :unfollow
       end
       collection do
+        get :new_form_content
+        get :edit_form_content
         get :more_listings
         get :browse
-        get :random
         get :locations_json
         get :verification_required
       end
@@ -261,7 +272,6 @@ Kassi::Application.routes.draw do
       match "/signup" => "people#new", :as => :sign_up
       match '/people/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
 
-      resources :people, :only => :index
       resources :people, :path => "", :only => :show, :constraints => { :id => /[_a-z0-9]+/ }
 
       resources :people, :constraints => { :id => /[_a-z0-9]+/ } do
@@ -307,8 +317,7 @@ Kassi::Application.routes.draw do
             put :confirmation, to: 'confirm_conversations#confirmation' #TODO these should be under transaction
             get :accept_preauthorized, to: 'accept_preauthorized_conversations#accept'
             get :reject_preauthorized, to: 'accept_preauthorized_conversations#reject'
-            put :acceptance_preauthorized, to: 'accept_preauthorized_conversations#accepted', constraints: ParamsConstraints.new({listing_conversation: {status: "paid"}})
-            put :acceptance_preauthorized, to: 'accept_preauthorized_conversations#rejected', constraints: ParamsConstraints.new({listing_conversation: {status: "rejected"}})
+            put :acceptance_preauthorized, to: 'accept_preauthorized_conversations#accepted_or_rejected'
           end
           resources :messages
           resources :feedbacks, :controller => :testimonials do
@@ -323,18 +332,20 @@ Kassi::Application.routes.draw do
           end
           resources :braintree_payments
         end
-        resource :paypal_account, only: [:new, :show, :create] do
+        resource :paypal_account, only: [:new, :show] do
           member do
+            get :ask_order_permission
+            get :ask_billing_agreement
             get :permissions_verified
+            get :paypal_connect
             get :billing_agreement_success
             get :billing_agreement_cancel
           end
         end
-        resources :transactions, :only => [:show]
+        resources :transactions, only: [:show, :new, :create]
         resource :checkout_account, only: [:new, :show, :create]
         resource :settings do
           member do
-            get :profile
             get :account
             get :notifications
             get :payments
@@ -354,6 +365,8 @@ Kassi::Application.routes.draw do
     end # devise scope person
 
     match "/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
+
+    get '/:person_id/settings/profile', to: redirect("/%{person_id}/settings") #needed to keep old links working
 
   end # scope locale
 

@@ -31,10 +31,9 @@ class ConversationsController < ApplicationController
 
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: conversation_id})
 
-    other = conversation[:other_person]
-    conversation[:other_party] = person_entity_with_url(other)
+    conversation[:other_person] = person_entity_with_url(conversation[:other_person])
 
-    messages = TransactionViewUtils.conversation_messages(conversation[:messages])
+    messages = TransactionViewUtils.conversation_messages(conversation[:messages], @current_community.name_display_type)
 
     MarketplaceService::Conversation::Command.mark_as_read(conversation[:id], @current_user.id)
 
@@ -47,6 +46,9 @@ class ConversationsController < ApplicationController
   end
 
   def person_entity_with_url(person_entity)
-    person_entity.merge({url: person_path(id: person_entity[:username])})
+    person_entity.merge({
+                          url: person_path(id: person_entity[:username]),
+                          display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
+                        })
   end
 end

@@ -12,7 +12,7 @@ Feature: User gives feedback from transaction
     And the community has payments in use via BraintreePaymentGateway
     And Braintree escrow release is mocked
     And "kassi_testperson2" has an active Braintree account
-    And there is a listing with title "Skateboard" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "Skateboard" from "kassi_testperson2" with category "Items" and with listing shape "Selling"
     And the price of that listing is 20.00 USD
     And there is a pending request "I'd like to buy a skate" from "kassi_testperson1" about that listing
     And there is a payment for that request from "kassi_testperson1" with price "20"
@@ -56,7 +56,7 @@ Feature: User gives feedback from transaction
   @javascript
   Scenario: Try to give feedback without logging in
     When I go to the give feedback path of "kassi_testperson1"
-    Then I should see "You must log in to give feedback" within ".flash-notifications"
+    Then I should see "You must sign in to give feedback" within ".flash-notifications"
 
   @javascript
   Scenario: Try to give feedback on somebody else's transaction

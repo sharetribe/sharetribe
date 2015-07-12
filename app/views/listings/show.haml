@@ -7,9 +7,12 @@
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
 - content_for :title, raw(@listing.title)
-- content_for :meta_author, @listing.author.name
+- content_for :meta_author, @listing.author.name(@current_community)
 - content_for :meta_description, StringUtils.first_words(@listing.description, 15)
 - content_for :meta_image, @listing.listing_images.first.image.url(:medium) if !@listing.listing_images.empty?
+- dimensions = @listing.listing_images.first.get_dimensions_for_style(:medium) if !@listing.listing_images.empty?
+- content_for :meta_image_width, dimensions[:width].to_s if !@listing.listing_images.empty?
+- content_for :meta_image_height, dimensions[:height].to_s if !@listing.listing_images.empty?
 - content_for :keywords, StringUtils.keywords(@listing.title)
 
 - content_for :title_header do
@@ -126,7 +129,7 @@
     .row-with-divider
       .col-12
         #listing-message-links
-          = render :partial => "listing_actions", locals: { form_path: form_path, payment_gateway: payment_gateway }
+          = render :partial => "listing_actions", locals: { form_path: form_path, payment_gateway: payment_gateway, delivery_opts: delivery_opts, process: process, listing_unit_type: listing_unit_type }
 
     .row-with-divider
       .col-12
@@ -136,7 +139,7 @@
           .listing-author-details
             .listing-author-name
               = link_to @listing.author.name(@current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{@listing.author.name(@current_community)}"
-            - unless current_user?(@listing.author) || @listing.transaction_type.is_inquiry?
+            - if @listing.author != @current_user
               .listing-author-contact
                 %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
                   .content

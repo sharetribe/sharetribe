@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_send_person_message_form('#{I18n.locale}', 'free');
+  initialize_send_person_message_form('#{I18n.locale}');
 
 #new_message_form.centered-section
   %h2= t("conversations.new.send_message_to_user", :person => @recipient.given_name_or_username)

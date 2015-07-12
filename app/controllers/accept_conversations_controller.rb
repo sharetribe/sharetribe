@@ -17,14 +17,15 @@ class AcceptConversationsController < ApplicationController
   def accept
     prepare_accept_or_reject_form
     @action = "accept"
-    payment_settings_path = payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)
-    render(locals: {payment_settings_path: payment_settings_path, message_form: MessageForm.new})
+    path_to_payment_settings = payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)
+    render(locals: { path_to_payment_settings: path_to_payment_settings, message_form: MessageForm.new })
   end
 
   def reject
     prepare_accept_or_reject_form
     @action = "reject"
-    render(:accept, locals: {message_form: MessageForm.new})
+    path_to_payment_settings = payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)
+    render(:accept, locals: { path_to_payment_settings: path_to_payment_settings, message_form: MessageForm.new })
   end
 
   # Handles accept and reject forms
@@ -40,7 +41,7 @@ class AcceptConversationsController < ApplicationController
       MarketplaceService::Transaction::Command.transition_to(@listing_conversation.id, params[:listing_conversation][:status])
       MarketplaceService::Transaction::Command.mark_as_unseen_by_other(@listing_conversation.id, @current_user.id)
 
-      flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_#{params[:listing_conversation][:status]}")
+      flash[:notice] = t("layouts.notifications.request_#{params[:listing_conversation][:status]}")
       redirect_to person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
     else
       flash[:error] = t("layouts.notifications.something_went_wrong")

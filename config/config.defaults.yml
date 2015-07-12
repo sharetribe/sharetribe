@@ -27,10 +27,6 @@ default: &default_settings
   # If this is empty, will use the same domain for login
   login_domain:
 
-  # Sharetribe can allow accessing data from external applications by RESTful API
-  # You can enable the API by setting this value true
-  api_enabled: false
-
   # You can use Amazong S3 to store listing and profile images
   # If you leave following empty, the images will be stored in local file system
   # NOTE: in Heroku you can't store files in local system, so S3 should be used
@@ -56,6 +52,7 @@ default: &default_settings
   paypal_username: xxxxxxxxxxxxx
   paypal_password: xxxxxxxxxxxxx
   paypal_signature: xxxxxxxxxxxxx
+  paypal_partner_id: xxxxxxxxxxxxx # payerID for paypal platform owner account
   paypal_app_id: APP-80W284485P519543T # Global test id
   paypal_button_source: # Unique value given to you by your PayPal contact
 
@@ -122,6 +119,9 @@ default: &default_settings
   # The address where the notifications of feedbacks from Sharetribe UI are sent
   feedback_mailer_recipients:  'admins@example.com'
 
+  grid_listings_limit: 24
+  map_listings_limit: 150
+
   # Google Analytics can be used to track traffic on the site
   # If set to true you need to obtain your own API key for analytics
   # and enter it below
@@ -181,13 +181,15 @@ default: &default_settings
   # Currently only othe option is "ss-pika" (a proprietary icon set)
   icon_pack: "font-awesome"
 
+  # If icon_pack is set to "ss-pika", set the location for the icon pack
+  # This setting is irrelevant to Open Source developers, since ss icon pack
+  # is not included in the Open Source distribution
+  ss_pika_location: "ss-pika"
+  ss_social_location: "ss-social"
+
   # The default consent (terms of use) all the communities will use.
   # It's just a string that tells the version of the consent.
   consent: "SHARETRIBE1.0"
-
-  # If you need to turn off the service for a while (so that people can't modify data)
-  # you can show the maintenance page on every pageload by turning on the following
-  show_maintenance_page: false
 
   # If you want to run this server in a preproduction mode set this to true
   # I preproduction mode, e.g. alternative url is used for custom CSS files
@@ -218,8 +220,15 @@ default: &default_settings
   sales_email: hello@example.com
   support_email: support@example.com
 
-  # Knowledge base URL
+  # Knowledge base
   knowledge_base_url: http://www.example.com/knowledgebase
+  display_knowledge_base_articles: false
+
+  # UserVoice Widget
+  # If you want to display a UserVoice widget in the Admin control panel, enter
+  # the URL here. (looks like '//widget.uservoice.com/some_code_here.js')
+  # This is completely optional and probably not needed in most cases.
+  uservoice_widget_url:
 
 production: &production_settings
   <<: *default_settings

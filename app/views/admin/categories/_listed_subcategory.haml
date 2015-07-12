@@ -3,4 +3,4 @@
     .subcategory-label
       = subcategory.display_name(I18n.locale)
   .col-2.listed-category-col
-    = render :partial => "category_action_buttons", :locals => {:category => subcategory}
+    = render :partial => "category_action_buttons", :locals => {category: subcategory, category_count: category_count}

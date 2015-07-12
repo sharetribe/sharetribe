@@ -37,6 +37,10 @@ es:
         community_details: "Detalles de la tribu"
         community_look_and_feel: "Apariencia de la tribu"
         edit_community: "Editar detalles de la comunidad \"%{community_name}\""
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
+        language_selection_disabled: ~
         community_name: "Nombre de la tribu:"
         edit_community_name_description: ~
         community_slogan: "Eslogan de la tribu:"
@@ -111,11 +115,12 @@ es:
         look_and_feel: ~
         logo_link_text: ~
         custom_domain: ~
-        contact_team_link_text: ~
         categories_and_custom_fields: ~
         categories_link_text: ~
         custom_fields_link_text: ~
         filters_link_text: ~
+        order_types: ~
+        order_types_link_text: ~
         payments: ~
         payments_link_text: ~
         info_texts: ~
@@ -136,6 +141,27 @@ es:
         view_users_link_text: ~
         view_transactions_link_text: ~
         contact_support_link_text: ~
+      available_languages:
+        en: ~
+        en-AU: ~
+        en-GB: ~
+        fr: ~
+        fr-CA: ~
+        es: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
         settings: ~
         general: ~
@@ -158,9 +184,19 @@ es:
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
+        delete_marketplace_title: ~
+        type_marketplace_domain: ~
+        type_marketplace_domain_placeholder: ~
+        once_you_delete: ~
+        are_you_sure: ~
+        i_understand_button: ~
+        last_community_updates: ~
+        you_will_be_redirected_to: ~
+        delete_this_marketplace: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -173,14 +209,19 @@ es:
         save_user_status_successful: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
+        ban_me_error: ~
       social_media:
         social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: ~
         facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
         facebook_connect_id: ~
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
@@ -190,6 +231,8 @@ es:
         analytics: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -223,6 +266,7 @@ es:
           canceled: ~
           initiated: ~
           pending_ext: ~
+        not_available: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -295,18 +339,95 @@ es:
       configure: ~
       emails_title: ~
       support: ~
+    listing_shapes:
+      index:
+        listing_shapes: ~
+        description: ~
+        read_more_about_order_types: ~
+        add_new_shape: ~
+        select_template: ~
+        all_categories: ~
+        no_categories: ~
+        category_count: ~
+        header:
+          listing_shape_name: ~
+          listing_shape_categories: ~
+        order:
+          saving_order: ~
+          save_order_successful: ~
+          save_order_error: ~
+      templates:
+        selling_products: ~
+        renting_products: ~
+        offering_services: ~
+        giving_things_away: ~
+        requesting: ~
+        announcement: ~
+        custom: ~
+      new:
+        create_listing_shape: ~
+        create: ~
+        cancel: ~
+        create_success: ~
+        create_failure: ~
+      edit:
+        edit_listing_shape: ~
+        update: ~
+        cancel: ~
+        update_success: ~
+        update_failure: ~
+        delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
+      listing_shape_name: ~
+      listing_shape_name_placeholder: ~
+      action_button_label: ~
+      action_button_placeholder: ~
+      successfully_closed: ~
+      successfully_deleted: ~
+      pricing_and_checkout_title: ~
+      online_payments_label: ~
+      shipping_label: ~
+      price_label: ~
+      units_title: ~
+      units_desc: ~
+      units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+      can_not_find: ~
+      add_custom_unit: ~
+      delete_custom_unit: ~
+      custom_unit_form:
+        title: ~
+        label_heading: ~
+        selector_label_heading: ~
+        label_placeholder: ~
+        selector_placeholder: ~
+        per: ~
+        unit_type:
+          heading: ~
+          quantity_label: ~
+          time_label: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
       integration_info_text: ~
+      read_more_about_paypal: ~
       paypal_account_email: ~
       paypal_account_email_completed: ~
       set_minimum_price_and_fee: ~
       set_minimum_price_and_fee_completed: ~
       minimum_listing_price_label: ~
       transaction_fee_label: ~
+      minimum_transaction_fee_label: ~
       save_settings: ~
       note_about_transaction_fee: ~
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: Venta
       rent: Alquilando
@@ -370,8 +491,16 @@ es:
     username: "Nombre de usuario"
     username_or_email: "Usuario o email"
     what_is_this: "Qué es esto?"
+    removed_user: ~
+    paypal_fee_info:
+      title: ~
+      body_text: ~
+      body_with_shipping_text: ~
+      link_to_paypal_text: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: "Responder a una oferta"
       respond_to_request: "Responder a una solicitud"
       accept_offer: "Aceptar la oferta"
@@ -387,9 +516,14 @@ es:
       minimum_price_error_message: ~
       accept: ~
       decline: ~
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      quantity_label: ~
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
+      shipping_price_label: ~
     confirm:
       confirm_description: "Si tu pedido ha sido completado debes confirmar que esta hecho. Entonces puedes dar tu opinion a la otra parte."
       cancel_description: "Si tu pedido no ha sido completado, puedes marcar en \"no ha sucedido\". Aun puedes dar tu opinion a la otra parte y contar que sucedio."
@@ -678,8 +812,6 @@ es:
       view_it_in_your_browser: "Velo en tu buscador"
       or: o
       unsubscribe_from_these_emails: ~
-    community_starter_email:
-      subject: "Mira el nuevo Sharetribe - el límite de miembros ha sido quitado, busca & siente han sido modificados, y más"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha aceptado tu oferta considerando la solicitud %{listing}"
       has_accepted_your_request: "%{accepter} ha aceptado tu solicitud de la oferta %{listing}"
@@ -711,7 +843,12 @@ es:
       you_have_a_new_message: "Tienes un nuevo mensaje en %{service_name} de %{sender_name}"
     new_payment:
       new_payment: "Ha recibido un nuevo pago"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Has sido pagado  <b> %{payment_sum}</b> por  <b>%{listing_title}</b> %{payer_full_name}. Aquí estatu comprobante."
+    paypal_new_payment:
+      paypal_gateway_fee: ~
+      shipping_total: ~
     braintree_new_payment:
       product: ~
       price_payer_paid: "Precio que %{payer_full_name} pagó"
@@ -722,6 +859,10 @@ es:
       receipt_of_payment: "Recibo del pago realizado."
       you_have_made_new_payment: "Le has pagado <b>%{payment_sum}</b> a  %{recipient_full_name}  por <b>%{listing_title}</b>. Aquí está el comprobante."
       product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
       total: ~
       price: Precio
       service_fee: ~
@@ -763,7 +904,7 @@ es:
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
-      you_have_days_to_accept: ~
+      you_have_time_to_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
       subject: ~
@@ -813,6 +954,7 @@ es:
     transaction_agreement:
       required_error: ~
     paypal:
+      pending_review_error: ~
       generic_error: ~
       cancel_error: ~
       accept_authorization_error: ~
@@ -824,6 +966,11 @@ es:
       page_can_not_be_found: "No se ha podido encontrar la página!"
       page_you_requested_can_not_be_found: "La página solicitada no pudo encontrarse. ¿Estás seguro de que escribiste correctamente la dirección?"
     error_404_title: "Página no encontrada"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
     error_500:
       temporary_unavailable: ~
       unable_to_process: ~
@@ -849,6 +996,7 @@ es:
       on_or_before: ~
       after: ~
       on_or_after: ~
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} acordó en prestar %{listing_title} hacia %{requester_name} %{time_ago}."
@@ -960,8 +1108,6 @@ es:
       filter: Filtro
       this_is_private_community: ~
     invitation_form:
-      invite_your_friends: "Invita a tus amigos a %{service_name}!"
-      invite_your_neighbors: "Invita a tus vecinos a%{service_name}!"
       email: "Dirección de correo electrónico de tu amigo:"
       message: "Un mensaje personal:"
       send_invitation: "Enviar invitación"
@@ -1160,6 +1306,7 @@ es:
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a %{service_name}"
       you_must_log_in_to_send_a_comment: "Debes iniciar tu sesión para enviar un nuevo comentario"
       you_must_log_in_to_send_a_message: "Debes iniciar tu sesión en %{service_name} para enviar un mensaje a otro usuario"
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Debes iniciar tu sesión para ver este contenido"
       you_must_log_in_to_view_this_page: "Tienes que iniciar sesión para ver esta página"
       you_must_log_in_to_view_your_inbox: "Debes iniciar tu sesión en %{service_name} para revisar tu bandeja de entrada"
@@ -1213,6 +1360,8 @@ es:
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
+    error:
+      something_went_wrong: ~
     follow_links:
       follow: "Seguir este anuncio"
       unfollow: "Dejar de seguir este anuncio"
@@ -1265,8 +1414,16 @@ es:
         time: "hora, día, semana, ..."
         long_time: "semana, mes, ..."
         after_service_fee_you_will_get: ~
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "El precio no incluye IVA."
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        shipping_price_additional: ~
+        pickup: ~
       origin:
         location: Lugar
         origin: Origen
@@ -1360,7 +1517,18 @@ es:
       select_subcategory: ~
       select_transaction_type: "seleccionar tipo de listado"
       you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
       payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      custom: ~
+    quantity_placeholder: ~
     please_comment: Comentario
     reply_link:
       listing_closed: "Listado cerrado"
@@ -1400,6 +1568,19 @@ es:
       price:
         per_quantity_unit: ~
         per_day: ~
+      delivery: ~
+      shipping: ~
+      shipping_no_price: ~
+      shipping_price_additional: ~
+      pickup: ~
+      pickup_no_price: ~
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1411,7 +1592,6 @@ es:
       you_will_be_charged: ~
       day: ~
       days: ~
-      price_per_day: ~
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1436,6 +1616,8 @@ es:
       search_verb: Buscar
       you_have_something_others_do_not: "¿Tienes algo para ofrecer?"
     please_comment: Comentario
+  mercury:
+    content_too_long: ~
   okl:
     member_id: "Número de identificación"
     member_id_or_email: "Identificación de usuario o email"
@@ -1445,7 +1627,6 @@ es:
       continue: Continuar
       payment_receiver: "Receptor del pago"
       sum: "Monto a pagar"
-      commission_will_be_added: "Un cargo del 10% será agregado."
     form:
       total: ~
       service_charge: ~
@@ -1467,9 +1648,13 @@ es:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
+      contact_admin_link_text: ~
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
@@ -1478,7 +1663,10 @@ es:
       upgrade_paypal_account: ~
       connect_paypal_account: ~
       paypal_account_billing_agreement: ~
-      paypal_account_billing_agreement_info: ~
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_info_link_text: ~
       billing_agreement_description: ~
       billing_agreement: ~
       permissions_not_granted: ~
@@ -1489,23 +1677,17 @@ es:
       billing_agreement_wrong_account: ~
       something_went_wrong: ~
       account_not_verified: ~
+      account_restricted: ~
   paypal:
+    pay_with_paypal: ~
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
   people:
-    index:
-      loading_more_members: "Cargando más miembros"
-      meet_the_people: "Conoce a la gente"
-      you_are_the_only_member: "Eres el único miembre de la comunidad %{community_name}."
-      here_are_the_members: "Aquí están los %{count} miembros de la comunidad %{community_name}."
-      wanna_see_more_folks: "¿Quieres ver más gente aquí?"
-      invite_people_you_know: "Invita a tus conocidos!"
-      there_are_x_members: "Hay %{count} miembros en la comunidad %{community_name}."
-      to_see_the_list_log_in: "Para ver la lista completa de todos los miembros necesitas %{log_in_link}."
-      log_in_link: "inicia sesión"
     edit_links:
       activate: Activar
       deactivate: Desactivar
@@ -1514,8 +1696,6 @@ es:
       help_captcha_title: "¿Eres humano?"
       help_invitation_code_title: "Necesitas una invitación para unirte a"
       terms_title: "Términos de uso de %{service_name}"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p> TrustCloud es un servicio en línea que ayuda a medir la integridad de una persona a través de varios servicios que están en línea. Genera un TrustScore (de 1 a 1000) basado en la actividad de la persona en la web. Por ejemplo, el puntaje se incrementa al recibir una buena evaluación en eBay o al tener muchas conexiones en Facebook. Puedes hacer clic en cada tarjeta para más detalles.</p><p>TrustCloud es usado para dar más confianza de que la persona tras el perfil es real y no se esconde tras una identidad falsificada.</p><p> Si quieres, puedes solicitar tu propia TrustCard por medio de <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> con la misma dirección e-mail que registraste en %{service_name}. Esto es completamente opcional, pero te recomendamos pedir tu TrustCard, la que te ayudará a mejorar tu credibilidad y, probablemente, hará más fácil hacer tratos con los demás miembros de esta comunidad. </p><p>Las actividades en %{service_name} no afectan tu TrustScore, pero estamos planeando integrarlo en el futuro.</p>"
       invite_only_help_text: "Selecciona esta opción si quieres que los nuevos miembros sólo puedan unirse si son invitados por un miembro de esta tribu."
       invite_only_help_text_title: "Tribu sólo de invitaciones"
     inactive_notification:
@@ -1599,7 +1779,6 @@ es:
       show_all_listings: "Ver todos los anuncios"
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
       show_all_reviews: "Mostrar todos los feedbacks"
-      trustcloud: TrustCloud
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
@@ -1662,11 +1841,14 @@ es:
       delete_account_confirmation_popup: "¿Estás seguro de que quieres eliminar tu cuenta de usuario y perder todos los datos asociados a ella de forma permanente? Si lo haces, no podrás volver atrás."
       email_addresses: ~
       new_email: "Nieva Dirección de Correo Electrónico"
-      instructions_to_delete_account: "Si quieres eliminar tu cuenta, contáctanos usando el botón de feedback a la izquierda"
-      contact_admin: "por favor contacta a los administradores"
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
       new_password: "Nueva contraseña"
       save: Guardar
       these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas dado tu nombre. Cualquier otra información sólo está disponible para ti."
+      email_already_confirmed: ~
       email:
         address_title: ~
         remove_title: ~
@@ -1726,7 +1908,10 @@ es:
       visible_to_registered_users: "visible para los usuarios que han iniciado sesión"
       default_in_listing: ~
       invisible: ~
+      image_is_processing: ~
     save_information: "Guardar Información"
+  shipping_address:
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: "Con etiqueta"
@@ -1842,6 +2027,18 @@ es:
     days_since:
       one: "%{count} día"
       other: "%{count} días"
+  transactions:
+    initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
+      subtotal: ~
+      shipping-price: ~
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: ~
     days: ~

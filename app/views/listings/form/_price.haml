@@ -1,37 +1,41 @@
 .price-container
-  - if @listing.transaction_type.price_field?
-    = form.label :price, t(".price") + "*"
-    = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price_cents ? @listing.price_cents.to_f / 100.to_f : 0)
-    .currency-selector
-      - if @current_community.available_currencies
-        - currencies = @current_community.available_currencies.gsub(" ","").split(",")
-        - if currencies.size > 1
-          = form.select :currency, currencies, { :selected => (@listing.currency || currencies.first) }
-        - else
-          = Money.new(1, currencies[0]).symbol
-          = form.hidden_field :currency, :value => currencies[0]
-      - else
-        = form.select :currency, major_currencies(Money::Currency.table), { :selected => (@listing.currency || "EUR") }
+  - if shape[:price_enabled]
+    = form.label :price, t(".price")
+    = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
+    = render partial: "listings/form/currency_selector", locals: {form: form}
 
-    - if @listing.transaction_type.price_per
-      .quantity-description= t(".per_#{@listing.transaction_type.price_per}")
-
-    - elsif @listing.transaction_type.price_quantity_placeholder?
-      .quantity-description= t(".per")
-      = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{@listing.transaction_type.price_quantity_placeholder}")
+    - if unit_options.empty?
+      -# No-op
+    - elsif unit_options.length == 1
+      - unit_option = unit_options.first
+      .quantity-description
+        = t(".per")
+        = unit_option[:display]
+      = hidden_field_tag("listing[unit]", unit_option[:value])
+    - else
+      .quantity-description
+        = t(".per")
+      %select.js-listing-unit{name: "listing[unit]"}
+        - unit_options.each do |unit_option|
+          %option{value: unit_option[:value], selected: unit_option[:selected], data: { kind: unit_option[:kind] }}
+            = unit_option[:display]
 
     %small
+      - paypal_fee_info_link = "<a href=# id='paypal_fee_info_link'>#{t(".paypal_fee_info_link_text")}</a>"
       = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat
-      - if seller_commission_in_use
+      - if !seller_commission_in_use && payment_gateway == :paypal
+        = t(".no_service_fee_you_will_get_paypal_text", :paypal_fee_info_link => paypal_fee_info_link).html_safe
+      - elsif seller_commission_in_use
         - content_for :seller_commission_js do
           :javascript
             $(function() {
               updateSellerGetsValue(
                 "#listing_price",
-                "#you-will-get",
+                "#fee_display",
                 "#listing_currency",
-                #{Maybe(@current_community).commission_from_seller.or_else(0)},
-                #{minimum_commission});
+                #{commission_from_seller},
+                #{minimum_commission.format(decimal_mark: ".", symbol: false)},
+                #{payment_gateway == :paypal});
             });
         - if run_js_immediately
           = yield :seller_commission_js
@@ -39,7 +43,27 @@
           - content_for :extra_javascript do
             = yield :seller_commission_js
 
-        - if @current_community.vat
-          = t(".after_service_fee_you_will_get_vat", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
+        - if payment_gateway == :paypal
+          = t(".after_service_fee_you_will_get_paypal_text", :sum_with_currency => '<span id="fee_display"></span>', :paypal_fee_info_link => paypal_fee_info_link).html_safe
+        - elsif @current_community.vat
+          = t(".after_service_fee_you_will_get_vat", :sum_with_currency => '<span id="fee_display"></span>').html_safe
         - else
-          = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
+          = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="fee_display"></span>').html_safe
+
+- if payment_gateway == :paypal
+  = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
+    %h2= t("common.paypal_fee_info.title")
+    - text_with_line_breaks_html_safe do
+      - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), "https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside")
+      - if shape[:shipping_enabled]
+        = t("common.paypal_fee_info.body_with_shipping_text", link_to_paypal: link_to_paypal).html_safe
+      - else
+        = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
+
+  - if run_js_immediately
+    :javascript
+      $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
+  - else
+    - content_for :extra_javascript do
+      :javascript
+        $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });

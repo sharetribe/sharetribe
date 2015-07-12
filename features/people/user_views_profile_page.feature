@@ -10,13 +10,13 @@ Feature: User views profile page
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
-    And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
-    And there is a listing with title "Helsinki - Turku" from "kassi_testperson1" with category "Services" and with transaction type "Selling services"
-    And there is a listing with title "Housing" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling"
-    And there is a listing with title "bike" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
+    And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
+    And there is a listing with title "Helsinki - Turku" from "kassi_testperson1" with category "Services" and with listing shape "Selling services"
+    And there is a listing with title "Housing" from "kassi_testperson2" with category "Spaces" and with listing shape "Selling"
+    And there is a listing with title "bike" from "kassi_testperson1" with category "Items" and with listing shape "Requesting"
     And that listing is closed
-    And there is a listing with title "sewing" from "kassi_testperson1" with category "Services" and with transaction type "Selling services"
+    And there is a listing with title "sewing" from "kassi_testperson1" with category "Services" and with listing shape "Selling services"
     And that listing is closed
     And I am logged in as "kassi_testperson1"
     And I should not see "Feedback average:"
@@ -41,11 +41,11 @@ Feature: User views profile page
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
-    And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
-    And there is a listing with title "Helsinki - Turku" from "kassi_testperson1" with category "Services" and with transaction type "Selling services"
-    And there is a listing with title "Housing" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling"
-    And there is a listing with title "apartment" from "kassi_testperson1" with category "Spaces" and with transaction type "Requesting"
+    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
+    And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
+    And there is a listing with title "Helsinki - Turku" from "kassi_testperson1" with category "Services" and with listing shape "Selling services"
+    And there is a listing with title "Housing" from "kassi_testperson2" with category "Spaces" and with listing shape "Selling"
+    And there is a listing with title "apartment" from "kassi_testperson1" with category "Spaces" and with listing shape "Requesting"
     And that listing is closed
     And I am not logged in
     And I am on the home page
@@ -63,10 +63,10 @@ Feature: User views profile page
        | person |
        | kassi_testperson1 |
        | kassi_testperson2 |
-     And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+     And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
      And privacy of that listing is "private"
-     And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with transaction type "Selling services"
-     And there is a listing with title "apartment" from "kassi_testperson1" with category "Spaces" and with transaction type "Requesting"
+     And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with listing shape "Selling services"
+     And there is a listing with title "apartment" from "kassi_testperson1" with category "Spaces" and with listing shape "Requesting"
      And that listing is closed
      And I am on the home page
      And I should not see "car spare parts"
@@ -94,7 +94,7 @@ Feature: User views profile page
 
     When I go to the profile page of "kassi_testperson1"
     Then I should not see "Received feedback:"
-    And there is a listing with title "hammer" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "hammer" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And the price of that listing is 20.00 USD
     And there is a pending request "I offer this" from "kassi_testperson2" about that listing
     And the request is accepted
@@ -104,7 +104,7 @@ Feature: User views profile page
     And I should see "100%" within "#people-testimonials"
     And I should see "Test feedback" within "#people-testimonials"
 
-    When there is a listing with title "saw" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    When there is a listing with title "saw" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And the price of that listing is 20.00 USD
     And there is a pending request "I offer this" from "kassi_testperson3" about that listing
     And the price of that listing is 20.00 USD
@@ -113,7 +113,7 @@ Feature: User views profile page
     And I go to the profile page of "kassi_testperson1"
     Then I should see "50%" within "#people-testimonials"
 
-    When there is a listing with title "drill" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    When there is a listing with title "drill" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And the price of that listing is 20.00 USD
     And there is a pending request "I offer this" from "kassi_testperson2" about that listing
     And the request is accepted
@@ -121,7 +121,7 @@ Feature: User views profile page
     And I go to the profile page of "kassi_testperson1"
     Then I should see "67%" within "#people-testimonials"
 
-    When there is a listing with title "tool" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    When there is a listing with title "tool" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And the price of that listing is 20.00 USD
     And there is a pending request "I offer this" from "kassi_testperson3" about that listing
     And the request is accepted

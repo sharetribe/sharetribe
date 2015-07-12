@@ -15,7 +15,7 @@
     });
 
 - content_for :javascript do
-  initialize_send_message_form('#{I18n.locale}', null);
+  initialize_send_message_form('#{I18n.locale}');
 
 - content_for :title_header do
   %h1
@@ -24,7 +24,7 @@
 
 #new_message_form.centered-section
 
-  - author_link = link_to(author[:name], person_path(id: author[:username]))
+  - author_link = link_to(author[:display_name], person_path(id: author[:username]))
 
   .preauthorize-section
     %h2.preauthorize-details-title
@@ -35,23 +35,8 @@
         %div
           = t(".by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
 
-      -# TODO Fix this, no respond_to?
-      - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
-        %li
-          %div
-            = l preauthorize_form.start_on, format: :long_with_abbr_day_name
-            = "-"
-            = l preauthorize_form.end_on, format: :long_with_abbr_day_name
-            = "(#{pluralize(duration, t(".day"), t(".days"))})"
-
-        %li
-          %div
-            = t(".price_per_day", price: humanized_money_with_symbol(listing[:price]))
-
       %li
-        %div
-          %strong
-            = t("conversations.show.total", total: humanized_money_with_symbol(sum))
+        = render partial: "transactions/price_break_down", locals: price_break_down_locals
 
   = form_for preauthorize_form,
     :url => form_action,
@@ -71,7 +56,7 @@
 
     .preauthorize-section
       %h2
-        = t("conversations.new.optional_message_to", author_name: link_to(author[:name], person_path(id: author[:username]))).html_safe
+        = t("conversations.new.optional_message_to", author_name: link_to(author[:display_name], person_path(id: author[:username]))).html_safe
 
       .row
         .col-12
@@ -81,13 +66,15 @@
       - if @current_community.transaction_agreement_in_use
         = render :partial => "listing_conversations/transaction_agreement_checkbox", locals: { form: form }
 
+      - if local_assigns.has_key?(:quantity)
+        = form.hidden_field :quantity, value: quantity
+
       .row
         .col-12
           = form.button t("preauthorize_payments.edit.confirm_payment"), :class => "send_button"
 
       .row
         .col-12
-          - automatic_confirmation = @current_community.automatic_confirmation_after_days
           %p
             = t(".you_will_be_charged", author: author_link, expiration_period: expiration_period ).html_safe
 

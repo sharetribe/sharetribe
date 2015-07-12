@@ -7,10 +7,11 @@
 #  transaction_id             :integer          not null
 #  payer_id                   :string(64)       not null
 #  receiver_id                :string(64)       not null
-#  order_id                   :string(64)       not null
-#  order_date                 :datetime         not null
+#  merchant_id                :string(255)      not null
+#  order_id                   :string(64)
+#  order_date                 :datetime
 #  currency                   :string(8)        not null
-#  order_total_cents          :integer          not null
+#  order_total_cents          :integer
 #  authorization_id           :string(64)
 #  authorization_date         :datetime
 #  authorization_expires_date :datetime
@@ -44,6 +45,7 @@ class PaypalPayment < ActiveRecord::Base
     :transaction_id,
     :payer_id,
     :receiver_id,
+    :merchant_id,
     :order_id,
     :order_date,
     :currency,
@@ -70,14 +72,11 @@ class PaypalPayment < ActiveRecord::Base
     :transaction_id,
     :payer_id,
     :receiver_id,
-    :order_id,
-    :order_date,
     :currency,
-    :order_total_cents,
     :payment_status,
     :commission_status)
 
-  monetize :order_total_cents,          with_model_currency: :currency
+  monetize :order_total_cents,          with_model_currency: :currency, allow_nil: true
   monetize :authorization_total_cents,  with_model_currency: :currency, allow_nil: true
   monetize :payment_total_cents,        with_model_currency: :currency, allow_nil: true
   monetize :fee_total_cents,            with_model_currency: :currency, allow_nil: true

@@ -6,7 +6,7 @@
 #  starter_id                        :string(255)      not null
 #  listing_id                        :integer          not null
 #  conversation_id                   :integer
-#  automatic_confirmation_after_days :integer
+#  automatic_confirmation_after_days :integer          not null
 #  community_id                      :integer          not null
 #  created_at                        :datetime         not null
 #  updated_at                        :datetime         not null
@@ -19,14 +19,26 @@
 #  minimum_commission_currency       :string(255)
 #  payment_gateway                   :string(255)      default("none"), not null
 #  listing_quantity                  :integer          default(1)
+#  listing_author_id                 :string(255)
+#  listing_title                     :string(255)
+#  unit_type                         :string(32)
+#  unit_price_cents                  :integer
+#  unit_price_currency               :string(8)
+#  unit_tr_key                       :string(64)
+#  unit_selector_tr_key              :string(64)
 #  payment_process                   :string(31)       default("none")
+#  delivery_method                   :string(31)       default("none")
+#  shipping_price_cents              :integer
+#  deleted                           :boolean          default(FALSE)
 #
 # Indexes
 #
 #  index_transactions_on_community_id        (community_id)
 #  index_transactions_on_conversation_id     (conversation_id)
+#  index_transactions_on_deleted             (deleted)
 #  index_transactions_on_last_transition_at  (last_transition_at)
 #  index_transactions_on_listing_id          (listing_id)
+#  transactions_on_cid_and_deleted           (community_id,deleted)
 #
 
 class Transaction < ActiveRecord::Base
@@ -42,8 +54,16 @@ class Transaction < ActiveRecord::Base
     :payment_process,
     :commission_from_seller,
     :minimum_commission,
-    :listing_quantity
-    )
+    :listing_quantity,
+    :listing_title,
+    :listing_author_id,
+    :unit_type,
+    :unit_price,
+    :unit_tr_key,
+    :unit_selector_tr_key,
+    :shipping_price,
+    :delivery_method
+  )
 
   attr_accessor :contract_agreed
 
@@ -52,6 +72,7 @@ class Transaction < ActiveRecord::Base
   has_many :transaction_transitions, dependent: :destroy, foreign_key: :transaction_id
   has_one :payment, foreign_key: :transaction_id
   has_one :booking, :dependent => :destroy
+  has_one :shipping_address, dependent: :destroy
   belongs_to :starter, :class_name => "Person", :foreign_key => "starter_id"
   belongs_to :conversation
   has_many :testimonials
@@ -64,6 +85,8 @@ class Transaction < ActiveRecord::Base
   validates_presence_of :payment_gateway
 
   monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
+  monetize :unit_price_cents, with_model_currency: :unit_price_currency
+  monetize :shipping_price_cents, allow_nil: true, with_model_currency: :unit_price_currency
 
   scope :for_person, -> (person){
     joins(:listing)
@@ -101,17 +124,11 @@ class Transaction < ActiveRecord::Base
   end
 
   def initialize_braintree_payment!(payment, sum, currency)
-    sum_in_cents = sum.to_f*100
-    payment.sum = Money.new(sum_in_cents, currency)
+    payment.sum = MoneyUtil.parse_str_to_money(sum.to_s, currency)
   end
 
   def initialize_checkout_payment!(payment, rows)
     rows.each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
-  end
-
-  # If listing is an offer, return request, otherwise return offer
-  def discussion_type
-    listing.transaction_type.is_request? ? "offer" : "request"
   end
 
   def has_feedback_from?(person)
@@ -138,12 +155,16 @@ class Transaction < ActiveRecord::Base
     testimonials.find { |testimonial| testimonial.author_id == starter.id }
   end
 
-  def offerer
-    participations.find { |p| listing.offerer?(p) }
+  # TODO This assumes that author is seller (which is true for all offers, sell, give, rent, etc.)
+  # Change it so that it looks for TransactionProcess.author_is_seller
+  def seller
+    author
   end
 
-  def requester
-    participations.find { |p| listing.requester?(p) }
+  # TODO This assumes that author is seller (which is true for all offers, sell, give, rent, etc.)
+  # Change it so that it looks for TransactionProcess.author_is_seller
+  def buyer
+    starter
   end
 
   def participations
@@ -198,4 +219,9 @@ class Transaction < ActiveRecord::Base
   def other_party(person)
     person == starter ? listing.author : starter
   end
+
+  def unit_type
+    Maybe(read_attribute(:unit_type)).to_sym.or_else(nil)
+  end
+
 end

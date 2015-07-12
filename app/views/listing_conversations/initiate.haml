@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_send_message_form('#{I18n.locale}', null);
+  initialize_send_message_form('#{I18n.locale}');
   ST.transaction.initializePayPalBuyForm("transaction-form");
 
 - content_for :extra_javascript do
@@ -13,7 +13,7 @@
 
 #new_message_form.centered-section
 
-  - author_link = link_to(author[:name], person_path(id: author[:username]))
+  - author_link = link_to(author[:display_name], person_path(id: author[:username]))
 
   .preauthorize-section
     %h2.preauthorize-details-title
@@ -24,23 +24,8 @@
         %div
           = t("listing_conversations.preauthorize.by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
 
-      -# TODO Fix this, no respond_to?
-      - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
-        %li
-          %div
-            = l preauthorize_form.start_on, format: :long_with_abbr_day_name
-            = "-"
-            = l preauthorize_form.end_on, format: :long_with_abbr_day_name
-            = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
-
-        %li
-          %div
-            = t("listing_conversations.preauthorize.price_per_day", price: humanized_money_with_symbol(listing[:price]))
-
       %li
-        %div
-          %strong
-            = t("conversations.show.total", total: humanized_money_with_symbol(sum))
+        = render partial: "transactions/price_break_down", locals: price_break_down_locals
 
   = form_for preauthorize_form,
     :url => form_action,
@@ -54,7 +39,7 @@
 
     .preauthorize-section
       %h2
-        = t("conversations.new.optional_message_to", author_name: link_to(author[:name], person_path(id: author[:username]))).html_safe
+        = t("conversations.new.optional_message_to", author_name: author_link).html_safe
 
       .row
         .col-12
@@ -64,13 +49,22 @@
       - if @current_community.transaction_agreement_in_use
         = render :partial => "listing_conversations/transaction_agreement_checkbox", locals: { form: form }
 
+      - if local_assigns.has_key?(:quantity)
+        = form.hidden_field :quantity, value: quantity
+
+      - if delivery_method
+        = form.hidden_field :delivery_method, value: delivery_method
+
       .row
         .col-12.paypal-button-wrapper
-          = form.submit t("paypal.checkout_with_paypal"), type: :image, src: t("paypal.buy_now_with_paypal_button_url"), alt: t("paypal.checkout_with_paypal"), class: "checkout-with-paypal-button"
+          = form.button t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button"
 
       .row
         .col-12
-          - automatic_confirmation = @current_community.automatic_confirmation_after_days
+          = render :partial => "listing_conversations/paypal_payment_methods", locals: { country_code: @current_community.country }
+
+      .row
+        .col-12
           %p
             = t("listing_conversations.preauthorize.you_will_be_charged", author: author_link, expiration_period: expiration_period).html_safe
 

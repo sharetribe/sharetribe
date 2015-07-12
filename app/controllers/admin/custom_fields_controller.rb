@@ -7,6 +7,11 @@ class Admin::CustomFieldsController < ApplicationController
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
     @custom_fields = @current_community.custom_fields
+
+    shapes = listings_api.shapes.get(community_id: @community.id).data
+    price_in_use = shapes.any? { |s| s[:price_enabled] }
+
+    render locals: { show_price_filter: price_in_use }
   end
 
   def new
@@ -16,10 +21,10 @@ class Admin::CustomFieldsController < ApplicationController
 
     if params[:field_type] == "CheckboxField"
       @min_option_count = 1
-      @custom_field.options = [CustomFieldOption.new]
+      @custom_field.options = [CustomFieldOption.new(sort_priority: 1)]
     else
       @min_option_count = 2
-      @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
+      @custom_field.options = [CustomFieldOption.new(sort_priority: 1), CustomFieldOption.new(sort_priority: 2)]
     end
   end
 
@@ -86,8 +91,8 @@ class Admin::CustomFieldsController < ApplicationController
 
   def update_price
     # To cents
-    params[:community][:price_filter_min] = (params[:community][:price_filter_min].to_i * 100) if params[:community][:price_filter_min]
-    params[:community][:price_filter_max] = (params[:community][:price_filter_max].to_i * 100) if params[:community][:price_filter_max]
+    params[:community][:price_filter_min] = MoneyUtil.parse_str_to_money(params[:community][:price_filter_min], @current_community.default_currency).cents if params[:community][:price_filter_min]
+    params[:community][:price_filter_max] = MoneyUtil.parse_str_to_money(params[:community][:price_filter_max], @current_community.default_currency).cents if params[:community][:price_filter_max]
 
     success = @current_community.update_attributes(params[:community])
 
@@ -155,6 +160,10 @@ class Admin::CustomFieldsController < ApplicationController
 
   def field_type_is_valid
     redirect_to admin_custom_fields_path unless CustomField::VALID_TYPES.include?(params[:field_type])
+  end
+
+  def listings_api
+    ListingService::API::Api
   end
 
 end

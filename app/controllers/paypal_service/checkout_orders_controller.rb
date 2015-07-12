@@ -3,7 +3,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
   skip_filter :check_email_confirmation
 
   before_filter do
-    unless @current_community.paypal_enabled?
+    unless PaypalHelper.community_ready_for_payments?(@current_community.id)
       render :nothing => true, :status => 400 and return
     end
   end
@@ -53,6 +53,9 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     else
       if response_data[:paypal_error_code] == "10486"
         redirect_to response_data[:redirect_url]
+      elsif response_data[:error_code] == :"payment-review"
+        flash[:warning] = t("error_messages.paypal.pending_review_error")
+        redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       else
         flash[:error] = t("error_messages.paypal.generic_error")
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)

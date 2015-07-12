@@ -1,0 +1,55 @@
+pl:
+  errors:
+    messages:
+      expired: "wygasło/a, proszę wybrać nowy/ą"
+      not_found: "nie znaleziono"
+      already_confirmed: ~
+      not_locked: ~
+  devise:
+    failure:
+      already_authenticated: "Już jesteś zalogowany."
+      unauthenticated: "Aby kontynuować zaloguj się lub zarejestruj."
+      unconfirmed: "Musisz aktywować swoje konto."
+      locked: "Twoje konto jest zablokowane."
+      invalid: "Niewłaściwy email lub hasło."
+      invalid_token: "Nieprawidłowy token uwierzytelnienia."
+      timeout: "Sesja wygasła, aby kontynuować zaloguj się ponownie."
+      inactive: "Twoje konto nie zostało jeszcze aktywowane."
+    passwords:
+      updated_not_active: "Hasło zostało zmienione."
+      send_paranoid_instructions: "Jeśli Twój adres istnieje w naszej bazie danych, otrzymasz wiadomość zawierającą link do zresetowania hasła."
+      send_instructions: "W ciągu kilku minut otrzymasz email z instrukcjami jak zresetować hasło."
+      updated: "Hasło zostało zmienione. Zalogowano pomyślnie."
+    sessions:
+      signed_in: "Zalogowano pomyślnie."
+      signed_out: "Pomyślnie wylogowano."
+    confirmations:
+      send_paranoid_instructions: "Jeśli Twój adres istnieje w naszej bazie danych, w ciągu kilku minut otrzymasz wiadomość zawierającą instrukcje aktywacji konta."
+      send_instructions: "W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję aktywacji konta."
+      confirmed: "Konto zostało aktywowane."
+    registrations:
+      signed_up_but_unconfirmed: "Wiadomość z linkiem aktywacyjnym została wysłana na Twój adres email. Proszę kliknij na link w celu aktywowania swojego konta."
+      signed_up_but_inactive: ~
+      signed_up_but_locked: ~
+      reasons:
+        inactive: ~
+        unconfirmed: ~
+        locked: ~
+      update_needs_confirmation: ~
+      signed_up: "Witamy! Rejestracja pomyślna."
+      updated: ~
+      destroyed: ~
+    unlocks:
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      unlocked: ~
+    omniauth_callbacks:
+      success: ~
+      failure: ~
+    mailer:
+      confirmation_instructions:
+        subject: ~
+      reset_password_instructions:
+        subject: ~
+      unlock_instructions:
+        subject: ~

@@ -1,0 +1,42 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.listing_shapes.index.listing_shapes")
+
+- content_for :javascript do
+  window.ST.initializeListingShapeForm('#listing_shape_form')
+
+
+= render partial: "admin/left_hand_navigation", locals: { links: admin_links_for(@current_community), selected_left_navi_link: selected_left_navi_link }
+
+.left-navi-section
+  %h2= t(".edit_listing_shape", shape: name)
+  = form_tag(admin_listing_shape_path(url_name), method: :put, id: "listing_shape_form") do
+
+    = render partial: "shape_form_content", locals: { name: name, shape: shape, count: count, locale_name_mapping: locale_name_mapping, uneditable_fields: uneditable_fields }
+
+    .row
+      .col-12
+        .inline-button-container
+          = button_tag t(".update")
+        .inline-button-container
+          %a{href: admin_listing_shapes_path, class: "cancel-button"}
+            .content
+              = t(".cancel")
+        .listing-shape-delete-link-container
+          - confirm_opts = if count > 0 then {confirm: t('admin.listing_shapes.edit.confirm_delete_order_type', count: count)} else {} end
+
+          - if cant_delete
+            %a.listing-shape-delete-link.disabled
+              = icon_tag("cross", ["icon-fix"])
+              = t("admin.listing_shapes.edit.delete")
+          - else
+            = link_to admin_listing_shape_path, {method: :delete, class: "listing-shape-delete-link"}.merge(confirm_opts) do
+              = icon_tag("cross", ["icon-fix"])
+              = t("admin.listing_shapes.edit.delete")
+
+    - if cant_delete
+      .row
+        .col-12
+          = render partial: "layouts/info_text", locals: {text: cant_delete_reason}

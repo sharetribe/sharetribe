@@ -7,12 +7,17 @@ module PaypalService::Store::PaypalPayment
     [:transaction_id, :mandatory, :fixnum],
     [:payer_id, :mandatory, :string],
     [:receiver_id, :mandatory, :string],
+    [:merchant_id, :mandatory, :string],
     [:payment_status, const_value: :pending],
     [:pending_reason, :string],
-    [:order_id, :mandatory, :string],
-    [:order_date, :mandatory, :time],
+    [:order_id, :string],
+    [:order_date, :time],
+    [:authorization_id, :string],
+    [:authorization_date, :time],
+    [:order_date, :time],
     [:currency, :mandatory, :string],
-    [:order_total_cents, :mandatory, :fixnum],
+    [:order_total_cents, :fixnum],
+    [:authorization_total_cents, :fixnum],
     [:commission_status, const_value: :not_charged])
 
   PaypalPayment = EntityUtils.define_builder(
@@ -20,11 +25,12 @@ module PaypalService::Store::PaypalPayment
     [:transaction_id, :mandatory, :fixnum],
     [:payer_id, :mandatory, :string],
     [:receiver_id, :mandatory, :string],
+    [:merchant_id, :mandatory, :string],
     [:payment_status, :mandatory, :symbol],
     [:pending_reason, :to_symbol],
-    [:order_id, :mandatory, :string],
-    [:order_date, :mandatory, :time],
-    [:order_total, :mandatory, :money],
+    [:order_id, :string],
+    [:order_date, :time],
+    [:order_total, :money],
     [:authorization_id, :string],
     [:authorization_date, :time],
     [:authorization_expires_date, :time],
@@ -52,7 +58,6 @@ module PaypalService::Store::PaypalPayment
     :payment_date,
     :payment_total_cents,
     :fee_total_cents,
-    :pending_reason,
     :commission_payment_id,
     :commission_payment_date,
     :commission_total_cents,
@@ -62,21 +67,21 @@ module PaypalService::Store::PaypalPayment
 
   module_function
 
-  def update(community_id, transaction_id, order)
-    payment = PaypalPaymentModel.where(
-      community_id: community_id,
-      transaction_id: transaction_id
-      ).first
-    update_payment(payment, order)
-  end
+  # Arguments:
+  # Opts with mandatory key :data and optional keys :transaction_id, :community_id, :order_id, :authorization_id
+  # Optional keys identify paypal payment row
+  #
+  # Return updated data or if no change, return nil
+  def update(opts)
+    if(opts[:data].nil?)
+      raise ArgumentError.new("No data provided")
+    end
 
-  def ipn_update(ipn_entity)
-    payment = PaypalPaymentModel.where(
-      "authorization_id = ? or order_id = ?", ipn_entity[:authorization_id], ipn_entity[:order_id]).first
-
+    payment = find_payment(opts)
     old_data = from_model(payment)
-    new_data = update_payment(payment, ipn_entity)
-    new_data if old_data != new_data
+    new_data = update_payment!(payment, opts[:data])
+
+    new_data if data_changed?(old_data, new_data)
   end
 
   def create(community_id, transaction_id, order)
@@ -118,68 +123,79 @@ module PaypalService::Store::PaypalPayment
     PaypalPayment.call(hash)
   end
 
+  def find_payment(opts)
+    PaypalPaymentModel.where(
+      "(community_id = ? and transaction_id = ?) or authorization_id = ? or order_id = ?",
+      opts[:community_id],
+      opts[:transaction_id],
+      opts[:authorization_id],
+      opts[:order_id]
+    ).first
+  end
+
+  def data_changed?(old_data, new_data)
+    old_data != new_data
+  end
+
   def initial(order)
     order_total = order[:order_total]
-    InitialPaymentData.call(
-      order.merge({order_total_cents: order_total.cents, currency: order_total.currency.iso_code}))
+    authorization_total = order[:authorization_total]
+    total =
+      if authorization_total
+        { authorization_total_cents: authorization_total.cents, currency: authorization_total.currency.iso_code }
+      else
+        { order_total_cents: order_total.cents, currency: order_total.currency.iso_code }
+      end
+
+    InitialPaymentData.call(order.merge(total))
   end
 
-  def find_payment(payment_entity)
-    payment = if (payment_entity[:order_id])
-                PaypalPaymentModel.where(order_id: payment_entity[:order_id]).first
-              else
-                PaypalPaymentModel.where(authorization_id: payment_entity[:authorization_id]).first
-              end
-
-    if (payment && payment_entity[:receiver_id] == payment.receiver_id && payment_entity[:payer_id] == payment.payer_id)
-      return payment
-    end
-
-    return nil
-  end
-
-  def create_payment_update(order)
+  def create_payment_update(update, current_state)
     cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total, :commission_total, :commission_fee_total]
       .reduce({}) do |cent_totals, m_key|
-      m = order[m_key]
+      m = update[m_key]
       cent_totals["#{m_key}_cents".to_sym] = m.cents unless m.nil?
       cent_totals
     end
 
     payment_update = {}
-    payment_update[:payment_status] =
-      if (order[:payment_status].is_a? Symbol)
-        order[:payment_status]
-      else
-        order[:payment_status].downcase.to_sym
-      end
 
-    payment_update[:pending_reason] =
-      if (order[:pending_reason].nil?)
-        :none
-      elsif (order[:pending_reason].is_a? Symbol)
-        order[:pending_reason]
-      else
-        order[:pending_reason].downcase.gsub(/[-_]/, "").to_sym
-      end
+    new_status = transform_status(update[:payment_status]) if update[:payment_status]
+    new_pending_reason = transform_pending_reason(update[:pending_reason])
+    new_state = to_state(new_status, new_pending_reason) if new_status
 
-    payment_update[:commission_status] = order[:commission_status].downcase.to_sym if order[:commission_status]
-    payment_update = HashUtils.sub(order, *OPT_UPDATE_FIELDS).merge(cent_totals).merge(payment_update)
+    if(new_state && valid_transition?(current_state, new_state))
+      payment_update[:payment_status] = new_status
+      payment_update[:pending_reason] = new_pending_reason
+    end
+
+    payment_update[:commission_status] = transform_status(update[:commission_status]) if update[:commission_status]
+
+    payment_update = HashUtils.sub(update, *OPT_UPDATE_FIELDS).merge(cent_totals).merge(payment_update)
 
     return payment_update
   end
 
-  def update_payment(payment, data)
-    payment_update = create_payment_update(data)
+  def transform_status(status)
+    status.is_a?(Symbol) ? status : status.downcase.to_sym
+  end
+
+  def transform_pending_reason(reason)
+    if(reason.nil?)
+      :none
+    elsif(reason.is_a? Symbol)
+      reason
+    else
+      reason.downcase.gsub(/[-_]/, "").to_sym
+    end
+  end
+
+  def update_payment!(payment, data)
+    current_state = to_state(payment.payment_status.to_sym, payment.pending_reason.to_sym)
+    payment_update = create_payment_update(data, current_state)
 
     if payment.nil?
       raise ArgumentError.new("No matching payment to update.")
-    end
-
-    #update status and reason only on valid transition
-    unless(valid_transition?(payment, payment_update))
-      payment_update.delete(:payment_status)
-      payment_update.delete(:pending_reason)
     end
 
     payment.update_attributes!(payment_update)
@@ -189,29 +205,30 @@ module PaypalService::Store::PaypalPayment
 
   STATES = {
     order: [:pending, :order],
+    payment_review: [:pending, :"payment-review"],
     authorized: [:pending, :authorization],
+    expired: [:expired, :none],
     pending_ext: [:pending, :ext],
     completed: [:completed, :none],
     voided: [:voided, :none],
     denied: [:denied, :none]
   }
 
-  INTERNAL_REASONS = [:none, :authorization, :order]
+  INTERNAL_REASONS = [:none, :authorization, :order, :"payment-review"]
 
   STATE_HIERARCHY = {
     order: 0,
-    authorized: 1,
-    voided: 2,
-    pending_ext: 2,
-    completed: 3,
+    payment_review: 1,
+    authorized: 2,
+    expired: 3,
+    voided: 3,
+    pending_ext: 3,
+    completed: 4,
     denied: 4,
   }
 
-  def valid_transition?(payment, payment_update)
-    current_state = to_state(payment.payment_status.to_sym, payment.pending_reason.to_sym)
-    transition_state = to_state(payment_update[:payment_status], payment_update[:pending_reason])
-
-    STATE_HIERARCHY[current_state] < STATE_HIERARCHY[transition_state]
+  def valid_transition?(current_state, new_state)
+    STATE_HIERARCHY[current_state] < STATE_HIERARCHY[new_state]
   end
 
   def to_state(status, reason)

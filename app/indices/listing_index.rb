@@ -7,12 +7,11 @@ ThinkingSphinx::Index.define :listing, :with => :active_record, :delta => Thinki
   set_property :utf8? => true
 
   # limit to open listings
-  where "open = '1' AND (valid_until IS NULL OR valid_until > now())"
+  where "listings.open = '1' AND listings.deleted = '0' AND (listings.valid_until IS NULL OR listings.valid_until > now())"
 
   # fields
   indexes title
   indexes description
-  indexes category.translations.name, :as => :category
   indexes custom_field_values(:text_value), :as => :custom_text_fields
   indexes origin_loc.google_address
 
@@ -22,7 +21,7 @@ ThinkingSphinx::Index.define :listing, :with => :active_record, :delta => Thinki
   has created_at, updated_at
   has sort_date
   has category(:id), :as => :category_id
-  has transaction_type(:id), :as => :transaction_type_id
+  has listing_shape_id
   has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
   has communities(:id), :as => :community_ids
   has custom_dropdown_field_values.selected_options.id, :as => :custom_dropdown_field_options, :type => :integer, :multi => true

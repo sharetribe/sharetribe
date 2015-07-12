@@ -66,6 +66,8 @@ prefork = lambda {
     config.mock_with :rspec
     config.include Devise::TestHelpers, :type => :controller
     config.include SpecUtils
+
+    Timecop.safe_mode = true
   end
 
   def uploaded_file(filename, content_type)

@@ -1,0 +1,30 @@
+%div.locale-selection
+  .input-header
+    = t("admin.communities.edit_details.enabled_languages")
+
+  - if unofficial_locales.blank?
+    - content_for :extra_javascript do
+      :javascript
+        ST.updateLocales(#{enabled_locale_keys.to_json.html_safe});
+        var selectize = $('#locale-selection').selectize({plugins: ['remove_button'], items: #{enabled_locale_keys.to_json.html_safe}})[0].selectize;
+        selectize.on("change", function(value) {
+          defaultLanguage = value ? selectize.options[value[0]].text.trim() : "-";
+          $(".selected-default-language-name").text(defaultLanguage);
+          ST.updateLocales(value);
+          $('#edit_community').valid();
+        });
+    = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.enabled_languages_description") }
+    .row
+      .col-10
+        %select.locale-selection__input-widget.required{ multiple: true, name: "enabled_locales[]", id: "locale-selection" }
+          - all_locales.each do |locale|
+            %option{ value: locale[:locale_key] }
+              = locale[:translated_name]
+        %p#selected-default-language{ style: "clear: both;" }
+          = t("admin.communities.edit_details.default_language") + ": "
+          %span.selected-default-language-name
+            = t("admin.communities.available_languages.#{enabled_locale_keys.first}")
+  - else
+    .row
+      .col-10
+        = render :partial => "layouts/info_text", :locals => { :text => t('admin.communities.edit_details.language_selection_disabled', languages: unofficial_locales.map{|locale| locale[:name]}.join(', ') ) }

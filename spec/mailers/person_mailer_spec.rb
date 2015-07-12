@@ -23,7 +23,7 @@ describe PersonMailer do
     email = PersonMailer.new_message_notification(@message, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal @test_person2.confirmed_notification_email_addresses, email.to
-    assert_equal "A new message in Sharetribe from #{@message.sender.name}", email.subject
+    assert_equal "A new message in Sharetribe from #{@message.sender.name('first_name_with_initial')}", email.subject
   end
 
   it "should send email about a new comment to own listing" do
@@ -38,7 +38,7 @@ describe PersonMailer do
 
   it "should send email about listing with payment but without user's payment details" do
     community = FactoryGirl.create(:community)
-    listing = FactoryGirl.create(:listing)
+    listing = FactoryGirl.create(:listing, listing_shape_id: 123)
     recipient = listing.author
     email = PersonMailer.payment_settings_reminder(listing, recipient, community).deliver
 
@@ -50,7 +50,7 @@ describe PersonMailer do
   describe "status changed" do
 
     let(:author) { FactoryGirl.build(:person) }
-    let(:listing) { FactoryGirl.build(:listing, author: author) }
+    let(:listing) { FactoryGirl.build(:listing, author: author, listing_shape_id: 123) }
     let(:starter) { FactoryGirl.build(:person, given_name: "Teppo", family_name: "Testaaja") }
     let(:conversation) { FactoryGirl.build(:conversation) }
     let(:transaction) { FactoryGirl.create(:transaction, listing: listing, starter: starter, conversation: conversation) }
@@ -104,7 +104,10 @@ describe PersonMailer do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
 
     transition = FactoryGirl.build(:transaction_transition, to_state: "confirmed")
-    listing = FactoryGirl.build(:listing, author: @test_person)
+    listing = FactoryGirl.build(:listing,
+                                transaction_process_id: 123, # not needed, but mandatory
+                                listing_shape_id: 123, # not needed, but mandatory
+                                author: @test_person)
     transaction = FactoryGirl.create(:transaction, starter: @test_person2, listing: listing, transaction_transitions: [transition])
     testimonial = FactoryGirl.create(:testimonial, :grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :transaction => transaction)
 
@@ -117,7 +120,7 @@ describe PersonMailer do
   it "should remind about testimonial" do
     author = FactoryGirl.build(:person)
     starter = FactoryGirl.build(:person, given_name: "Teppo", family_name: "Testaaja")
-    listing = FactoryGirl.build(:listing, author: author)
+    listing = FactoryGirl.build(:listing, author: author, listing_shape_id: 123)
     # Create is needed here, not exactly sure why
     conversation = FactoryGirl.create(:transaction, starter: starter, listing: listing)
 
@@ -130,7 +133,7 @@ describe PersonMailer do
   it "should remind to accept or reject" do
     starter = FactoryGirl.build(:person, given_name: "Jack", family_name: "Dexter")
     author = FactoryGirl.build(:person)
-    listing = FactoryGirl.build(:listing, :author => author)
+    listing = FactoryGirl.build(:listing, :author => author, listing_shape_id: 123)
     conversation = FactoryGirl.create(:transaction, starter: starter, listing: listing)
 
     email = PersonMailer.accept_reminder(conversation, "this_can_be_anything", @community).deliver
@@ -162,7 +165,7 @@ describe PersonMailer do
     @community = FactoryGirl.create(:community, :email_admins_about_new_members => 1)
     m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id, :status => "accepted")
     m.update_attribute(:admin, true)
-    email = PersonMailer.new_member_notification(@test_person2, @community.domain, @test_person2.email).deliver
+    email = PersonMailer.new_member_notification(@test_person2, @community, @test_person2.email).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal @test_person.confirmed_notification_email_addresses, email.to
     assert_equal "New member in #{@community.full_name('en')}", email.subject
@@ -195,107 +198,10 @@ describe PersonMailer do
 
   end
 
-  describe "#deliver_open_content_messages" do
-
-    it "sends the mail to everyone on the list" do
-      message = <<-MESSAGE
-        New stuff in the service.
-
-        Go check it out at http://example.com!
-      MESSAGE
-
-      people = [@test_person, @test_person2]
-      PersonMailer.deliver_open_content_messages(people, "News", message)
-
-      ActionMailer::Base.deliveries.size.should == 2
-
-      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_truthy
-      include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_truthy
-      ActionMailer::Base.deliveries[0].subject.should == "News"
-      ActionMailer::Base.deliveries[1].subject.should == "News"
-      ActionMailer::Base.deliveries[0].body.include?("check it out").should be_truthy
-      ActionMailer::Base.deliveries[1].body.include?("http://example.com").should be_truthy
-    end
-
-    it "uses right recipient locale if content is an array" do
-      content = {
-        "en"=>{
-          "body"=>"We're doing new stuff\nCheck it out at...",
-          "subject"=>"changes coming"},
-        "fi"=>{
-          "body"=>"uutta tulossa\njepa.",
-          "subject"=>"uudistuksia"},
-      }
-
-      @test_person2.update_attribute(:locale, "fi")
-      @test_person3 = FactoryGirl.create(:person, :locale => "es")
-      people = [@test_person, @test_person2, @test_person3]
-
-      PersonMailer.deliver_open_content_messages(people, "SHOULD NOT BE SEEN", content, "en")
-
-      ActionMailer::Base.deliveries.size.should == 3
-      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_truthy
-      include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_truthy
-      include_all?(ActionMailer::Base.deliveries[2].to, @test_person3.confirmed_notification_email_addresses).should be_truthy
-      ActionMailer::Base.deliveries[0].subject.should == "changes coming"
-      ActionMailer::Base.deliveries[1].subject.should == "uudistuksia"
-      ActionMailer::Base.deliveries[2].subject.should == "changes coming"
-      ActionMailer::Base.deliveries[0].body.include?("Check it out").should be_truthy
-      ActionMailer::Base.deliveries[1].body.include?("uutta tulossa").should be_truthy
-      ActionMailer::Base.deliveries[2].body.include?("new stuff").should be_truthy
-
-    end
-
-    it "skips inactive users" do
-      message = "Just a short email"
-
-      @test_person2.update_attribute(:active, false)
-      people = [@test_person, @test_person2]
-      PersonMailer.deliver_open_content_messages(people, "News", message)
-
-      ActionMailer::Base.deliveries.size.should == 1
-
-      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_truthy
-      ActionMailer::Base.deliveries[0].subject.should == "News"
-      ActionMailer::Base.deliveries[0].body.include?("Just a short email").should be_truthy
-    end
-
-    it "falls back to spanish from catalonian locale" do
-       content = {
-          "en"=>{
-            "body"=>"We're doing new stuff\nCheck it out at...",
-            "subject"=>"changes coming"},
-          "es"=>{
-            "body"=>"nuevas cosas\nmuy buenas!",
-            "subject"=>"Ahorro ahora!"},
-        }
-
-        @test_person2.update_attribute(:locale, "ru")
-        @test_person2.update_attribute(:locale, "es")
-        @test_person3 = FactoryGirl.create(:person, :locale => "ca")
-        people = [@test_person, @test_person2, @test_person3]
-
-        PersonMailer.deliver_open_content_messages(people, "SHOULD NOT BE SEEN", content, "en")
-
-        ActionMailer::Base.deliveries.size.should == 3
-        include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_truthy
-        include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_truthy
-        include_all?(ActionMailer::Base.deliveries[2].to, @test_person3.confirmed_notification_email_addresses).should be_truthy
-        ActionMailer::Base.deliveries[0].subject.should == "changes coming"
-        ActionMailer::Base.deliveries[1].subject.should == "Ahorro ahora!"
-        ActionMailer::Base.deliveries[2].subject.should == "Ahorro ahora!"
-        ActionMailer::Base.deliveries[0].body.include?("Check it out").should be_truthy
-        ActionMailer::Base.deliveries[1].body.include?("nuevas cosas").should be_truthy
-        ActionMailer::Base.deliveries[2].body.include?("muy buenas").should be_truthy
-
-    end
-
-  end
-
   describe "#new_listing_by_followed_person" do
 
     before do
-      @listing = FactoryGirl.create(:listing)
+      @listing = FactoryGirl.create(:listing, listing_shape_id: 123)
       @recipient = FactoryGirl.create(:person)
       @community = @listing.communities.last
     end

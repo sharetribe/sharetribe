@@ -1,19 +1,36 @@
-Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with transaction type "([^"]*)")?$/ do |title, author, category_name, transaction_type|
+Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with listing shape "([^"]*)")?$/ do |title, author, category_name, shape_name|
   opts = Hash.new
   opts[:title] = title
   opts[:category] = find_category_by_name(category_name) if category_name
-  opts[:transaction_type] = find_transaction_type_by_name(transaction_type) if transaction_type
   opts[:author] = Person.find_by_username(author) if author
 
-  create_listing_to_current_community(opts)
+  shape =
+    if shape_name
+      find_shape(name: shape_name)
+    else
+      all_shapes.first
+    end
+
+  create_listing(shape: shape, opts: opts)
 end
 
-Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)$/ do |price, price_decimal, currency|
+Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)(?: per (.*?))?$/ do |price, price_decimal, currency, price_per|
+  unit_type = if ["piece", "hour", "day", "night", "week", "month"].include?(price_per)
+    price_per.to_sym
+  else
+    nil
+  end
+
   @listing.update_attribute(:price, Money.new(price.to_i * 100 + price_decimal.to_i, currency))
+  @listing.update_attribute(:unit_type, unit_type) unless unit_type.nil?
 end
 
 Given /^that listing is closed$/ do
   @listing.update_attribute(:open, false)
+end
+
+When(/^I select "(.*?)" from listing type menu$/) do |title|
+  first('.select', :text => title).click
 end
 
 Given(/^that listing has a numeric answer "(.*?)" for "(.*?)"$/) do |answer, custom_field|
@@ -48,12 +65,12 @@ Given /^privacy of that listing is "([^"]*)"$/ do |privacy|
   @listing.update_attribute(:privacy, privacy)
 end
 
-Given(/^that listing belongs to community "(.*?)"$/) do |domain|
-  @listing.communities = [Community.find_by_domain(domain)]
+Given(/^that listing belongs to community "(.*?)"$/) do |ident|
+  @listing.communities = [Community.where(ident: ident).first]
 end
 
-Given /^that listing is visible to members of community "([^"]*)"$/ do |domain|
-  @listing.communities << Community.find_by_domain(domain)
+Given /^that listing is visible to members of community "([^"]*)"$/ do |ident|
+  @listing.communities << Community.where(ident: ident).first
 end
 
 Given /^that listing has a description "(.*?)"$/ do |description|
@@ -84,9 +101,9 @@ When /^I create a new listing "(.*?)" with price(?: "([^"]*)")?$/ do |title, pri
   steps %Q{
     Given I am on the home page
     When I follow "new-listing-link"
-    And I follow "Items"
-    And I follow "Tools" within "#option-groups"
-    And I follow "Selling"
+    And I select "Items" from listing type menu
+    And I select "Tools" from listing type menu
+    And I select "Selling" from listing type menu
     And I fill in "listing_title" with "#{title}"
     And I fill in "listing_price" with "dsfsdf"
     And I press "Save listing"
@@ -120,15 +137,15 @@ When /^I choose to view only share type "(.*?)"$/ do |share_type_name|
   }
 end
 
-When /^I choose to view only transaction type "(.*?)"$/ do |transaction_type|
+When /^I choose to view only listing shape "(.*?)"$/ do |listing_shape|
   steps %Q{
     When I click "#home_toolbar-select-share-type"
-    And I follow "#{transaction_type}" within ".home-toolbar-share-type-menu"
+    And I follow "#{listing_shape}" within ".home-toolbar-share-type-menu"
   }
 end
 
-Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_domain, opts_table|
-  @community = Community.find_by_domain(community_domain)
+Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_ident, opts_table|
+  @community = Community.where(ident: community_ident).first
   @category = find_category_by_name(category_name)
   @custom_field = FactoryGirl.build(:custom_dropdown_field, :community => @community, :names => [CustomFieldName.create(:value => field_title, :locale => "en")])
   @custom_field.category_custom_fields << FactoryGirl.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
@@ -173,8 +190,8 @@ Given /^that listing has custom field "(.*?)" with value "(.*?)"$/ do |field_tit
   value.save!
 end
 
-Given /^listing comments are in use in community "(.*?)"$/ do |community_domain|
-  community = Community.find_by_domain(community_domain)
+Given /^listing comments are in use in community "(.*?)"$/ do |community_ident|
+  community = Community.where(ident: community_ident).first
   community.update_attribute(:listing_comments_in_use, true)
 end
 
@@ -244,19 +261,25 @@ When(/^I (?:buy) that listing$/) do
   find(".book-button").click
 end
 
+When(/^I (?:buy) (\d+) hours worth of those listings$/) do |hours|
+  visit(path_to "the listing page")
+  fill_in('Number of hours:', with: hours)
+  find(".book-button").click
+end
+
 When(/^I select category "(.*?)"$/) do |category_name|
   page.should have_content("Select category")
-  click_link(category_name)
+  first(".select", text: category_name).click
 end
 
 When(/^I select subcategory "(.*?)"$/) do |subcategory_name|
   page.should have_content("Select subcategory")
-  click_link(subcategory_name)
+  first(".select", text: subcategory_name).click
 end
 
-When(/^I select transaction type "(.*?)"$/) do |transaction_type_name|
+When(/^I select listing shape "(.*?)"$/) do |listing_shape_name|
   page.should have_content("Select listing type")
-  click_link(transaction_type_name)
+  first(".select", text: listing_shape_name).click
 end
 
 Then(/^I should see the new listing form$/) do

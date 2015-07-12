@@ -7,27 +7,21 @@ class HomepageController < ApplicationController
   VIEW_TYPES = ["grid", "list", "map"]
 
   def index
-    ## Support old /?map=true URL START
-    ## This can be removed after March 2014
-    if !params[:view] && params[:map] == "true" then
-      redirect_params = params.except(:map).merge({view: "map"})
-      redirect_to url_for(redirect_params), status: :moved_permanently
-    end
-    ## Support old /?map=true URL END
-
     @homepage = true
 
     @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
 
-    @categories = @current_community.categories
-    @main_categories = @current_community.main_categories
-    @transaction_types = @current_community.transaction_types
+    @categories = @current_community.categories.includes(:children)
+    @main_categories = @categories.select { |c| c.parent_id == nil }
+
+    all_shapes = shapes.get(community_id: @current_community.id)[:data]
 
     # This assumes that we don't never ever have communities with only 1 main share type and
     # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
-    @transaction_type_menu_enabled = @transaction_types.size > 1
-    @show_categories = @current_community.categories.size > 1
-    @show_custom_fields = @current_community.custom_fields.select { |field| field.can_filter? }.present?
+    listing_shape_menu_enabled = all_shapes.size > 1
+    @show_categories = @categories.size > 1
+    show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
+    @show_custom_fields = @current_community.custom_fields.any?(&:can_filter?) || show_price_filter
     @category_menu_enabled = @show_categories || @show_custom_fields
 
     @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_en_135x40.svg"
@@ -35,20 +29,40 @@ class HomepageController < ApplicationController
        @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg"
     end
 
-    listings_per_page = 24
+    listings_per_page = APP_CONFIG.grid_listings_limit
+
+    filter_params = {}
+
+    listing_shape_param = params[:transaction_type]
+
+    all_shapes = shapes.get(community_id: @current_community.id)[:data]
+    selected_shape = all_shapes.find { |s| s[:name] == listing_shape_param }
+
+    filter_params[:listing_shape] = Maybe(selected_shape)[:id].or_else(nil)
+
+    compact_filter_params = HashUtils.compact(filter_params)
 
     @listings = if @view_type == "map"
-      find_listings(params, 100)
+      find_listings(params, APP_CONFIG.map_listings_limit, compact_filter_params)
     else
-      find_listings(params, listings_per_page)
+      find_listings(params, listings_per_page, compact_filter_params)
     end
+
+    shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
     if request.xhr? # checks if AJAX request
       if @view_type == "grid" then
         render :partial => "grid_item", :collection => @listings, :as => :listing
       else
-        render :partial => "list_item", :collection => @listings, :as => :listing
+        render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map }
       end
+    else
+      render locals: {
+               shapes: all_shapes,
+               show_price_filter: show_price_filter,
+               selected_shape: selected_shape,
+               shape_name_map: shape_name_map,
+               listing_shape_menu_enabled: listing_shape_menu_enabled }
     end
   end
 
@@ -64,22 +78,10 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, listings_per_page)
-    # :share_type was renamed to :transaction_type
-    # Support both URLs for a while
-    # This can be removeds soon (June 2014)
-    params[:transaction_type] ||= params[:share_type]
-
-    filter_params = {}
-
+  def find_listings(params, listings_per_page, filter_params)
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
       filter_params[:category] = category.id
       @selected_category = category
-    end
-
-    Maybe(@current_community.transaction_types.find_by_url_or_id(params[:transaction_type])).each do |transaction_type|
-      filter_params[:transaction_type] = transaction_type.id
-      @selected_transaction_type = transaction_type
     end
 
     @listing_count = @current_community.listings.currently_open.count
@@ -88,19 +90,11 @@ class HomepageController < ApplicationController
     end
 
     filter_params[:search] = params[:q] if params[:q]
-    filter_params[:include] = [:listing_images, :author, :category, :transaction_type]
+    filter_params[:include] = [:listing_images, :author, :category]
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
     filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
 
-    filter_params[:price_cents] = if (params[:price_min] && params[:price_max])
-      min = params[:price_min].to_i * 100
-      max = params[:price_max].to_i * 100
-
-      # Search only if range is not from min boundary to max boundary
-      if min != @current_community.price_filter_min || max != @current_community.price_filter_max
-        filter_params[:price_cents] = (min..max)
-      end
-    end
+    filter_params[:price_cents] = filter_range(params[:price_min], params[:price_max])
 
     p = HomepageController.numeric_filter_params(params)
     p = HomepageController.parse_numeric_filter_params(p)
@@ -117,6 +111,19 @@ class HomepageController < ApplicationController
       Listing.none.paginate(:per_page => listings_per_page, :page => params[:page])
     else
       Listing.find_with(filter_params, @current_user, @current_community, listings_per_page, params[:page])
+    end
+  end
+
+  def filter_range(price_min, price_max)
+    if (price_min && price_max)
+      min = MoneyUtil.parse_str_to_money(price_min, @current_community.default_currency).cents
+      max = MoneyUtil.parse_str_to_money(price_max, @current_community.default_currency).cents
+
+      if ((@current_community.price_filter_min..@current_community.price_filter_max) != (min..max))
+        (min..max)
+      else
+        nil
+      end
     end
   end
 
@@ -171,5 +178,9 @@ class HomepageController < ApplicationController
 
   def self.checkbox_field_options_for_search(params)
     options_from_params(params, /^checkbox_filter_option/).flatten
+  end
+
+  def shapes
+    ListingService::API::Api.shapes
   end
 end

@@ -9,6 +9,7 @@
 #  payer_id     :string(255)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  active       :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -18,7 +19,7 @@
 #
 
 class PaypalAccount < ActiveRecord::Base
-  attr_accessible :email, :payer_id, :person_id, :community_id
+  attr_accessible :email, :payer_id, :person_id, :community_id, :active
 
   belongs_to :person
   belongs_to :community

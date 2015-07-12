@@ -1,2 +1,7 @@
-%s'a katılmak için davet edilmiş olmanız gerekmektedir. Eğer davet edildiyseniz davet kodunuzu lütfen aşağıdaki kutucuğa giriniz. 
-Davetiye kodları kullanarak tüm {service_name} kullanıcılarının güvenilir olduğundan emin olmaya çalışıyoruz.
+%p
+  %strong
+    = @current_community.full_name(I18n.locale)
+katılmak için bir üye tarafından davet edilmiş olmanız gerekmektedir. Lütfen davet kodunuzu aşağıya giriniz.
+
+%p
+Referans sistemi,  #{service_name}  sitesindeki üyelerin güvenilir olmaları ve dolayısıyla huzur içersinde alışveriş yapmanız için vardır.

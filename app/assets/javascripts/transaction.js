@@ -1,6 +1,8 @@
 window.ST = window.ST || {};
 
-ST.transaction = (function(_) {
+window.ST.transaction = window.ST.transaction || {};
+
+(function(module, _) {
 
   function toOpResult(submitResponse) {
     if (submitResponse.op_status_url) {
@@ -89,9 +91,23 @@ ST.transaction = (function(_) {
     ).onValue(function () { window.location = redirectUrl; });
   }
 
-  return {
-    initializePayPalBuyForm: initializePayPalBuyForm,
-    initializeCreatePaymentPoller: initializeCreatePaymentPoller
-  };
+  function initializeFreeTransactionForm(locale) {
+    window.auto_resize_text_areas("text_area");
+    $('textarea').focus();
+    var form_id = "#transaction-form";
+    $(form_id).validate({
+      rules: {
+        "message": {required: true}
+      },
+      submitHandler: function(form) {
+        window.disable_and_submit(form_id, form, "false", locale);
+      }
+  });
 
-})(_);
+  }
+
+  module.initializePayPalBuyForm = initializePayPalBuyForm;
+  module.initializeCreatePaymentPoller = initializeCreatePaymentPoller;
+  module.initializeFreeTransactionForm = initializeFreeTransactionForm;
+
+})(window.ST.transaction, _);

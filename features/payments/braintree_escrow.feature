@@ -11,7 +11,7 @@ Feature: User cancels escrow payment
     And community "test" has payments in use via BraintreePaymentGateway
     And "kassi_testperson1" does not have admin rights in community "test"
     And "manager" has admin rights in community "test"
-    And there is a listing with title "math book" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "math book" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And the price of that listing is 101.00 USD
     And there is a pending request "math book" from "kassi_testperson2" about that listing
     And the request is accepted

@@ -7,8 +7,8 @@ class ConfirmConversation
     @conversation = transaction.conversation
     @user = user
     @participation = @conversation.participations.find_by_person_id(user.id)
-    @offerer = transaction.offerer
-    @requester = transaction.requester
+    @offerer = transaction.seller
+    @requester = transaction.buyer
     @community = community
     @hold_in_escrow = Maybe(TransactionService::Transaction.query(transaction.id))
       .map {|transaction| transaction[:payment_gateway] == :braintree }

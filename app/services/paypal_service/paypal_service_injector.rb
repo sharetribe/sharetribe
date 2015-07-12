@@ -17,6 +17,10 @@ module PaypalService
       @process_api ||= PaypalService::API::Process.new
     end
 
+    def accounts_api
+      @accounts_api ||= build_paypal_accounts
+    end
+
     module_function
 
     def load_minimum_commissions
@@ -29,19 +33,29 @@ module PaypalService
     end
 
     def build_paypal_payments
-      print_event_dummy = -> (event, payload) {
-        puts "Event #{event} triggered with payload: #{payload}"
-      }
-
       events = Events.new({
           request_cancelled: -> (flow, token) {
             TransactionService::PaypalEvents.request_cancelled(flow, token)
           },
-          payment_created: [],
-          payment_updated: -> (flow, payment) { TransactionService::PaypalEvents.payment_updated(flow, payment) }
+          order_details: -> (flow, details) {
+            TransactionService::PaypalEvents.update_transaction_details(flow, details)
+          },
+          payment_created: -> (flow, payment) {
+            TransactionService::PaypalEvents.payment_updated(flow, payment)
+          },
+          payment_updated: -> (flow, payment) {
+            TransactionService::PaypalEvents.payment_updated(flow, payment)
+          }
       })
 
       PaypalService::API::Payments.new(events, PaypalService::MerchantInjector.build_paypal_merchant)
+    end
+
+    def build_paypal_accounts
+      PaypalService::API::Accounts.new(
+        PaypalService::PermissionsInjector.build_paypal_permissions,
+        PaypalService::MerchantInjector.build_paypal_merchant,
+        PaypalService::OnboardingInjector.build_paypal_onboarding)
     end
   end
 end

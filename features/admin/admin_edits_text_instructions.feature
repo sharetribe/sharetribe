@@ -48,6 +48,6 @@ Feature: Admin edits text instructions with WYWISYG editor
     Then I should see "Edit information"
     And I should see "Custom signup info"
     When I log out
-    And I follow "Log in"
+    And I follow "Sign in"
     And I follow "Create a new account"
     Then I should see "Custom signup info"

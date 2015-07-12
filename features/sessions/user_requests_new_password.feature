@@ -7,7 +7,7 @@ Feature: User requests new password
   Scenario: User requests new password successfully
     Given I am on the home page
     When I follow log in link
-    And I follow "Username or password forgotten"
+    And I follow "Forgot username or password"
     And I fill in "Email" with "kassi_testperson2@example.com"
     And I press "Request new password"
     Then I should see "Instructions to change your password were sent to your email." within ".flash-notifications"
@@ -17,7 +17,7 @@ Feature: User requests new password
   Scenario: User requests new password with email that doesn't exist
     Given I am on the home page
     When I follow log in link
-    And I follow "Username or password forgotten"
+    And I follow "Forgot username or password"
     And I fill in "Email" with "some random string"
     And I press "Request new password"
     Then I should see "The email you gave was not found from Sharetribe database." within ".flash-notifications"

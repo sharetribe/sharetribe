@@ -7,6 +7,7 @@ class Admin::CommunitiesController < ApplicationController
   def getting_started
     @selected_left_navi_link = "getting_started"
     @community = @current_community
+    render locals: {paypal_enabled: PaypalHelper.paypal_active?(@current_community.id)}
   end
 
   def edit_look_and_feel
@@ -34,11 +35,17 @@ class Admin::CommunitiesController < ApplicationController
   def social_media
     @selected_left_navi_link = "social_media"
     @community = @current_community
+    render "social_media", :locals => { 
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles, 
+      knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
   def analytics
     @selected_left_navi_link = "analytics"
     @community = @current_community
+    render "analytics", :locals => { 
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles, 
+      knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
   def menu_links
@@ -98,6 +105,13 @@ class Admin::CommunitiesController < ApplicationController
 
   def settings
     @selected_left_navi_link = "admin_settings"
+
+    render :settings, locals: {
+             supports_escrow: escrow_payments?(@current_community),
+             delete_redirect_url: delete_redirect_url(APP_CONFIG),
+             delete_confirmation: @current_community.ident,
+             can_delete_marketplace: can_delete_marketplace?(@current_community.id)
+           }
   end
 
   def update_look_and_feel
@@ -168,10 +182,24 @@ class Admin::CommunitiesController < ApplicationController
     permitted_params << :testimonials_in_use if @current_community.payment_gateway
     params.require(:community).permit(*permitted_params)
 
+    maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
+
     update(@current_community,
             params[:community],
             settings_admin_community_path(@current_community),
             :settings)
+  end
+
+  def delete_marketplace
+    if can_delete_marketplace?(@current_community.id) && params[:delete_confirmation] == @current_community.ident
+      @current_community.update_attributes(deleted: true)
+
+      redirect_to Maybe(delete_redirect_url(APP_CONFIG)).or_else(:community_not_found)
+    else
+      flash[:error] = "Could not delete marketplace."
+      redirect_to action: :settings
+    end
+
   end
 
   private
@@ -196,4 +224,38 @@ class Admin::CommunitiesController < ApplicationController
       render action
     end
   end
+
+  # TODO The home of this setting should be in payment settings but
+  # those are only used with paypal for now. During the transition
+  # period we simply mirror community setting to payment settings in
+  # case of paypal.
+  def maybe_update_payment_settings(community_id, automatic_confirmation_after_days)
+    return unless automatic_confirmation_after_days
+
+    p_set = Maybe(payment_settings_api.get(
+                   community_id: community_id,
+                   payment_gateway: :paypal,
+                   payment_process: :preauthorize))
+            .map {|res| res[:success] ? res[:data] : nil}
+            .or_else(nil)
+
+    payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i})) if p_set
+  end
+
+  def payment_settings_api
+    TransactionService::API::Api.settings
+  end
+
+  def escrow_payments?(community)
+    MarketplaceService::Community::Query.payment_type(community.id) == :braintree
+  end
+
+  def delete_redirect_url(configs)
+    Maybe(configs).community_not_found_redirect.or_else(nil)
+  end
+
+  def can_delete_marketplace?(community_id)
+    MarketplaceService::Community::Query.current_plan(community_id).plan_level == CommunityPlan::FREE_PLAN
+  end
+
 end

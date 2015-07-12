@@ -386,6 +386,7 @@ label.radiobutton {
   display: inline;
   color: $aside;
   @include small-type;
+  cursor: pointer;
 }
 
 button, .button {
@@ -572,7 +573,7 @@ label.error {
   -----------
 */
 
-.lightbox {
+.lightbox, .expiration-notice {
   display: none;
   position: relative;
   margin: lines(10) auto;
@@ -652,14 +653,158 @@ a.lightbox-x {
 
 /*
   ------------------------
+  Expiration
+  ------------------------
+*/
+
+.expiration-lightbox {
+  max-width: 675px;
+  width: 95%;
+}
+.expiration-content {
+  position: relative;
+  width: 100%;
+  background: $background;
+  @include border-radius(em(5));
+}
+.expiration-head-panel {
+  width: 90%;
+  margin: 0 auto 30px auto;
+}
+.expiration-title {
+  font-size: 38px;
+  line-height: 38px;
+  font-weight: normal;
+  text-align: center;
+  margin: 0px;
+  padding: 30px 0;
+}
+
+.expiration-subtitle {
+  font-size: 17px;
+  line-height: 30px;
+  font-weight: normal;
+  text-align: center;
+  margin: 0px;
+}
+
+.expiration-plans-panel {
+  background-color: $expiration-background;
+}
+.expiration-plans-wrapper {
+  margin: 0 auto;
+  padding: 30px 15px;
+}
+.expiration-plan-title {
+  font-size: 26px;
+  line-height: 30px;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+.expiration-plan-desc {
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+}
+.expiration-plan-select {
+  max-width: 400px;
+  margin: 30px auto 0 auto;
+  @include clearfix();
+}
+
+.expiration-plan-wrapper {
+  width: 185px;
+  margin: 10px auto;
+}
+.expiration-plan-wrapper-left {
+  @extend .expiration-plan-wrapper;
+  @include media(small-tablet) {
+    float: left;
+    margin: 0;
+  }
+}
+.expiration-plan-wrapper-right {
+  @extend .expiration-plan-wrapper;
+  @include media(small-tablet) {
+    float: right;
+    margin: 0;
+  }
+}
+.expiration-plan-monthly,
+.expiration-plan-biannual {
+  @include border-radius(em(5));
+  background-color: white;
+  color: black;
+  padding: 30px 0;
+  border: solid 1px #ccc;
+}
+.expiration-plan-biannual {
+  background-color: $sharetribe-color;
+  border: solid 1px $sharetribe-color;
+  color: white;
+}
+.expiration-subscribe-title {
+  text-align: center;
+  font-size: 21px;
+  line-height: 21px;
+}
+.expiration-subscribe-price-per {
+  display: block;
+  margin: 10px auto 0 auto;
+  width: 92px;
+}
+.expiration-subscribe-price {
+  text-align: center;
+  font-size: 46px;
+  line-height: 48px;
+}
+.expiration-subscribe-per {
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+}
+.plan-price-disclaimer-desc {
+  font-size: 13px;
+  color: #999;
+  margin-top: 10px;
+}
+.expiration-footer {
+  padding: 30px 10px;
+}
+.expiration-alternative-plans {
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+}
+
+
+/*
+  ------------------------
   Noscript
   ------------------------
 */
 
+$noscript-height: lines(4);
+
+.noscript-padding {
+  height: $noscript-height;
+}
+
 .noscript {
-  padding-top: lines(4);
-  max-width: lines(42);
-  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: lines(0.5) lines(0);
+  height: $noscript-height;
+  background: $error-red;
+  color: white;
+
+  .wrapper {
+    &, h2, p {
+      background: $error-red;
+      color: white;
+    }
+  }
 }
 
 /*
@@ -1349,7 +1494,10 @@ a.lightbox-x {
     @include border-radius(em(5));
     border: 2px solid $border;
     min-height: 42px;
-    &:hover { background: $highlight; }
+    &:hover {
+      background: $highlight;
+      cursor: pointer;
+    }
     margin-bottom: lines(0.25);
     .link-text {
       margin-left: em(15);
@@ -1397,6 +1545,69 @@ a.lightbox-x {
 .quantity-description {
   margin: 0 lines(0.25);
   display: inline;
+}
+
+.delivery-options-container{
+  margin-top: lines(0.5);
+}
+
+.delivery-title {
+  font-weight: 600;
+}
+
+.shipping-options-label {
+  font-weight: normal;
+  display: inline;
+  margin-right: lines(0.5);
+}
+
+.delivery-row-low {
+  position: relative;
+  padding-top: em(9);
+  padding-bottom: em(9);
+}
+
+.delivery-row-tall {
+  position: relative;
+}
+
+.delivery-checkbox {
+  position: absolute;
+  top: em(9);
+}
+
+.delivery-left-field {
+  padding-left: lines(1);
+}
+
+.shipping-price-container {
+  display: table;
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+
+.delivery-row {
+  display: table-row;
+}
+
+.delivery-label-cont {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.delivery-input-cont {
+  display: table-cell;
+  width: em(155);
+}
+
+input[type=text].delivery-price-field {
+  float: right;
+  width: em(100);
+}
+
+.delivery-currency {
+  float: right;
+  line-height: 42px; /*input height is 42px*/
 }
 
 /*
@@ -1462,6 +1673,107 @@ a.lightbox-x {
     padding: lines(0.25) 0;
   }
 
+  .conversation-totals {
+    background-color: $highlight;
+    padding: lines(0.5);
+    margin-bottom: lines(0.5);
+  }
+  .conversation-per-unit-wrapper,
+  .conversation-booking-wrapper,
+  .conversation-quantity-wrapper,
+  .conversation-sum-wrapper,
+  .conversation-service-fee-wrapper,
+  .conversation-total-wrapper,
+  .conversation-shipping-price-wrapper {
+    @include clearfix;
+  }
+  .conversation-per-unit-label,
+  .conversation-booking-label,
+  .conversation-quantity-label,
+  .conversation-sum-label,
+  .conversation-service-fee-label,
+  .conversation-total-label,
+  .conversation-shipping-price-label {
+    float: left;
+  }
+
+  .conversation-per-unit-value,
+  .conversation-booking-value,
+  .conversation-quantity-value,
+  .conversation-sum-value,
+  .conversation-service-fee-value,
+  .conversation-total-value,
+  .conversation-shipping-price-value {
+    float: right;
+    margin-right: lines(0.25);
+  }
+  .conversation-total-paypal-value {
+    float: right;
+  }
+  .conversation-total-wrapper {
+    font-weight: bold;
+  }
+}
+
+/*
+  ------------------------
+  Initiate Transaction
+  ------------------------
+*/
+
+.initiate-transaction-totals {
+    background-color: $highlight;
+    padding: lines(0.5);
+    margin-bottom: lines(0.5);
+}
+
+.initiate-transaction-per-unit-wrapper,
+.initiate-transaction-booking-wrapper,
+.initiate-transaction-quantity-wrapper,
+.initiate-transaction-sum-wrapper,
+.initiate-transaction-shipping-price-wrapper,
+.initiate-transaction-total-wrapper {
+    @include clearfix;
+}
+
+.initiate-transaction-per-unit-label,
+.initiate-transaction-booking-label,
+.initiate-transaction-quantity-label,
+.initiate-transaction-sum-label,
+.initiate-transaction-shipping-price-label,
+.initiate-transaction-total-label {
+    float: left;
+}
+
+.initiate-transaction-per-unit-value,
+.initiate-transaction-booking-value,
+.initiate-transaction-quantity-value,
+.initiate-transaction-sum-value,
+.initiate-transaction-shipping-price-value,
+.initiate-transaction-total-value {
+    float: right;
+    margin-right: lines(0.25);
+}
+
+.initiate-transaction-total-wrapper {
+    font-weight: bold;
+}
+
+/*
+  ------------------------
+  Shipping address
+  ------------------------
+*/
+
+.shipping-address-container {
+    background-color: $highlight;
+    padding: lines(0.5);
+    margin-bottom: lines(0.5);
+    margin-top: lines(0.5);
+}
+
+.shipping-address-name {
+    font-weight: bold;
 }
 
 /*
@@ -1655,114 +1967,6 @@ a.lightbox-x {
     }
 
   }
-
-}
-
-/*
-  -----------------
-  Community section
-  -----------------
-*/
-
-.members-intro {
-  padding: lines(0.5);
-  h1 {
-    margin-top: lines(0.5);
-  }
-
-  @include media(tablet) {
-    text-align: center;
-    padding: 0;
-
-    h1 {
-      margin-top: 0;
-    }
-
-    p {
-      margin: 0 auto lines(2) auto;
-      max-width: lines(22);
-    }
-
-  }
-}
-
-.members {
-  padding: 0 lines(0.5);
-
-  @include media(tablet) {
-    padding: lines(0);
-  }
-}
-
-.member {
-  position: relative;
-  border-top: 1px dotted $border;
-
-  h3 {
-    margin-top: lines(0.25);
-    margin-bottom: lines(0.25);
-  }
-
-  img {
-    width: 100%;
-    @include border-radius(em(5));
-  }
-
-  .member-image {
-    position: absolute;
-    top: em(10);
-    width: lines(3);
-  }
-
-  .member-details {
-    padding-left: lines(3.5);
-    padding-bottom: lines(0.5);
-    min-height: lines(3);
-  }
-
-  @include media(tablet) {
-    @include box-shadow(rgba(0,0,0,0.2) 0 0 em(8));
-    @include border-radius(em(5));
-    display: inline-block;
-    vertical-align: top;
-    width: em(179);
-    padding: em(10);
-    margin-right: lines(1);
-    margin-bottom: lines(1);
-    border-top: 0;
-
-    .member-image {
-      position: static;
-      top: auto;
-      width: 100%;
-    }
-
-    .member-details {
-      padding: 0;
-      min-height: auto;
-    }
-
-    &:nth-child(5n+5) {
-      margin-right: 0;
-    }
-
-  }
-
-}
-
-// Fix to make the paginated member list to be displayed correctly.
-// Pagination creates one extra element inside the member list,
-// so this needs to be taken into account.
-.paginated-member {
-  //width: lines(20);
-  @include media(tablet) {
-    &:nth-child(5n+5) {
-      margin-right: lines(1);
-    }
-    &:nth-child(5n+6) {
-      margin-right: 0;
-    }
-  }
 }
 
 /*
@@ -1799,6 +2003,30 @@ a.lightbox-x {
     padding-top: lines(0.25);
   }
 
+}
+
+.paypal-loading {
+  width: 360px;
+  height: 150px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin: -50px -170px;
+  text-align: center;
+}
+.paypal-loading-title {
+  font-size: 150%;
+  margin-bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.paypal-loading-desc {
+  width: 100%;
+  text-align: center;
+}
+.paypal-loading-spinner {
+  display: inline-block;
+  margin-top: 12px;
 }
 
 /*

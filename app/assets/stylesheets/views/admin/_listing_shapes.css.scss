@@ -1,0 +1,56 @@
+@import "mixins/all";
+
+.listing-shape-label-disabled {
+  color: $border;
+}
+
+.listing-shape-delete-button {
+  @include button($link);
+  margin: 0;
+}
+
+.listing-shape-delete-link {
+  display: inline-block;
+
+  // This should make the link aligned with the button
+  margin: lines(0.5) 0;
+  line-height: lines(1.5);
+}
+
+.listing-shape-delete-link-container {
+  float: right;
+}
+
+.listing-shape-locale-label {
+  font-weight: normal;
+}
+
+.listing-shape-custom-unit-per {
+  margin-top: em(10);
+  padding-right: 0;
+  color: darken($border, 15%);
+}
+
+.listing-shape-add-custom-unit-link {
+  cursor: pointer;
+}
+
+.listing-shape-radio-label {
+  display: inline;
+  margin-left: lines(0.25);
+  font-weight: normal;
+}
+
+.listing-shape-add-custom-unit-form {
+  position: relative;
+  background-color: lighten($border, 15%);
+  margin-bottom: lines(0.5);
+  padding: em(6) em(18) lines(0.5);
+}
+
+.listing-shape-close-custom-unit-form {
+  position: absolute;
+  right: em(18);
+  top: em(18);
+  cursor: pointer;
+}

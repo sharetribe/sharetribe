@@ -1,7 +1,6 @@
 module TransactionService::PaypalEvents
 
-  TransactionModel = ::Transaction
-
+  TransactionStore = TransactionService::Store::Transaction
   module_function
 
   # Public event API
@@ -28,6 +27,8 @@ module TransactionService::PaypalEvents
       when :preauthorized_to_voided
         preauthorized_to_rejected(tx) if(flow == :success)
         preauthorized_to_errored(tx) if(flow == :error)
+      when :preauthorized_to_expired
+        preauthorized_to_rejected(tx, payment[:payment_status])
       when :pending_ext_to_denied
         pending_ext_to_denied(tx, payment[:payment_status])
       else
@@ -36,7 +37,23 @@ module TransactionService::PaypalEvents
     end
   end
 
+  def update_transaction_details(flow, details)
+    community_id = details.delete(:community_id)
+    transaction_id = details.delete(:transaction_id)
+
+    if shipping_fields_present?(details)
+      TransactionStore.upsert_shipping_address(
+        community_id: community_id,
+        transaction_id: transaction_id,
+        addr: details)
+    end
+  end
+
   # Privates
+
+  def shipping_fields_present?(details)
+    details.except(:status).values.any?
+  end
 
   ## Mapping from payment transition to transaction transition
 
@@ -47,6 +64,7 @@ module TransactionService::PaypalEvents
     [:preauthorized_to_pending_ext, [:preauthorized, :pending]],
     [:pending_ext_to_paid,          [:pending_ext, :completed]],
     [:preauthorized_to_voided,      [:preauthorized, :voided]],
+    [:preauthorized_to_expired,     [:preauthorized, :expired]],
     [:pending_ext_to_denied,        [:pending_ext, :denied]]
   ]
 
@@ -68,8 +86,9 @@ module TransactionService::PaypalEvents
     MarketplaceService::Transaction::Command.transition_to(tx[:id], "errored")
   end
 
-  def preauthorized_to_rejected(tx)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected")
+  def preauthorized_to_rejected(tx, payment_status = nil)
+    metadata = payment_status ? { paypal_payment_status: payment_status } : nil
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected", metadata)
   end
 
   def pending_ext_to_denied(tx, payment_status)
@@ -81,8 +100,11 @@ module TransactionService::PaypalEvents
   end
 
   def preauthorized_to_paid(tx)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
+    # Commission charge is synchronous and must complete before we
+    # transition to paid so that we have the full payment info
+    # available at the time we send payment receipts.
     TransactionService::Transaction.charge_commission(tx[:id])
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
   end
 
   def preauthorized_to_pending_ext(tx, pending_reason)
@@ -99,11 +121,8 @@ module TransactionService::PaypalEvents
   end
 
   def delete_transaction(cid:, tx_id:)
-    tx = TransactionModel.where(community_id: cid, id: tx_id).first
-
-    if tx
-      tx.conversation.destroy
-      tx.destroy
+    if TransactionStore.get_in_community(community_id: cid, transaction_id: tx_id)
+      TransactionStore.delete(community_id: cid, transaction_id: tx_id)
     end
   end
 

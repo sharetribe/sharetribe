@@ -14,16 +14,16 @@ Feature: Custom field filters
       | glazed |
       | open   |
 
-    And there is a listing with title "Apartment" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling services"
+    And there is a listing with title "Apartment" from "kassi_testperson2" with category "Spaces" and with listing shape "Selling services"
     And that listing has custom field "House type" with value "condo"
     And that listing has custom field "Balcony type" with value "open"
-    And there is a listing with title "Country house" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling services"
+    And there is a listing with title "Country house" from "kassi_testperson2" with category "Spaces" and with listing shape "Selling services"
 		And that listing has custom field "House type" with value "house"
     And that listing has custom field "Balcony type" with value "glazed"
-    And there is a listing with title "Small house" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling services"
+    And there is a listing with title "Small house" from "kassi_testperson2" with category "Spaces" and with listing shape "Selling services"
 		And that listing has custom field "House type" with value "house"
     And that listing has custom field "Balcony type" with value "open"
-    And there is a listing with title "Tent" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling services"
+    And there is a listing with title "Tent" from "kassi_testperson2" with category "Spaces" and with listing shape "Selling services"
     
     And I am on the home page
     And the Listing indexes are processed
@@ -90,7 +90,7 @@ Feature: Custom field filters
 
 @javascript @sphinx @no-transaction
 Scenario: User combines custom filters with search and category
-	Given there is a listing with title "country and house music cd" from "kassi_testperson2" with category "Items" and with transaction type "Selling services"
+	Given there is a listing with title "country and house music cd" from "kassi_testperson2" with category "Items" and with listing shape "Selling services"
   And the Listing indexes are processed
   
   When I fill in "q" with "country"

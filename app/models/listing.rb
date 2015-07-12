@@ -3,46 +3,59 @@
 #
 # Table name: listings
 #
-#  id                  :integer          not null, primary key
-#  author_id           :string(255)
-#  category_old        :string(255)
-#  title               :string(255)
-#  times_viewed        :integer          default(0)
-#  language            :string(255)
-#  created_at          :datetime
-#  updates_email_at    :datetime
-#  updated_at          :datetime
-#  last_modified       :datetime
-#  sort_date           :datetime
-#  visibility          :string(255)      default("this_community")
-#  listing_type_old    :string(255)
-#  description         :text
-#  origin              :string(255)
-#  destination         :string(255)
-#  valid_until         :datetime
-#  delta               :boolean          default(TRUE), not null
-#  open                :boolean          default(TRUE)
-#  share_type_old      :string(255)
-#  privacy             :string(255)      default("private")
-#  comments_count      :integer          default(0)
-#  subcategory_old     :string(255)
-#  old_category_id     :integer
-#  category_id         :integer
-#  share_type_id       :integer
-#  transaction_type_id :integer
-#  organization_id     :integer
-#  price_cents         :integer
-#  currency            :string(255)
-#  quantity            :string(255)
+#  id                              :integer          not null, primary key
+#  author_id                       :string(255)
+#  category_old                    :string(255)
+#  title                           :string(255)
+#  times_viewed                    :integer          default(0)
+#  language                        :string(255)
+#  created_at                      :datetime
+#  updates_email_at                :datetime
+#  updated_at                      :datetime
+#  last_modified                   :datetime
+#  sort_date                       :datetime
+#  visibility                      :string(255)      default("this_community")
+#  listing_type_old                :string(255)
+#  description                     :text
+#  origin                          :string(255)
+#  destination                     :string(255)
+#  valid_until                     :datetime
+#  delta                           :boolean          default(TRUE), not null
+#  open                            :boolean          default(TRUE)
+#  share_type_old                  :string(255)
+#  privacy                         :string(255)      default("private")
+#  comments_count                  :integer          default(0)
+#  subcategory_old                 :string(255)
+#  old_category_id                 :integer
+#  category_id                     :integer
+#  share_type_id                   :integer
+#  listing_shape_id                :integer
+#  transaction_process_id          :integer
+#  shape_name_tr_key               :string(255)
+#  action_button_tr_key            :string(255)
+#  organization_id                 :integer
+#  price_cents                     :integer
+#  currency                        :string(255)
+#  quantity                        :string(255)
+#  unit_type                       :string(32)
+#  quantity_selector               :string(32)
+#  unit_tr_key                     :string(64)
+#  unit_selector_tr_key            :string(64)
+#  deleted                         :boolean          default(FALSE)
+#  require_shipping_address        :boolean          default(FALSE)
+#  pickup_enabled                  :boolean          default(FALSE)
+#  shipping_price_cents            :integer
+#  shipping_price_additional_cents :integer
 #
 # Indexes
 #
-#  index_listings_on_category_id          (old_category_id)
-#  index_listings_on_listing_type         (listing_type_old)
-#  index_listings_on_open                 (open)
-#  index_listings_on_share_type_id        (share_type_id)
-#  index_listings_on_transaction_type_id  (transaction_type_id)
-#  index_listings_on_visibility           (visibility)
+#  index_listings_on_category_id       (old_category_id)
+#  index_listings_on_listing_shape_id  (listing_shape_id)
+#  index_listings_on_listing_type      (listing_type_old)
+#  index_listings_on_new_category_id   (category_id)
+#  index_listings_on_open              (open)
+#  index_listings_on_share_type_id     (share_type_id)
+#  index_listings_on_visibility        (visibility)
 #
 
 class Listing < ActiveRecord::Base
@@ -73,12 +86,10 @@ class Listing < ActiveRecord::Base
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
 
   belongs_to :category
-  belongs_to :transaction_type
 
-  delegate :direction, to: :transaction_type
-  delegate :status_after_reply, to: :transaction_type
-
-  monetize :price_cents, :allow_nil => true
+  monetize :price_cents, :allow_nil => true, with_model_currency: :currency
+  monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
+  monetize :shipping_price_additional_cents, allow_nil: true, with_model_currency: :currency
 
   attr_accessor :current_community_id
 
@@ -121,7 +132,6 @@ class Listing < ActiveRecord::Base
   validates_length_of :description, :maximum => 5000, :allow_nil => true
   validates_inclusion_of :visibility, :in => VALID_VISIBILITIES
   validates_presence_of :category
-  validates_presence_of :transaction_type
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 7.months
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
 
@@ -187,11 +197,15 @@ class Listing < ActiveRecord::Base
     "#{id}-#{title.to_url}"
   end
 
+  def self.columns
+    super.reject { |c| c.name == "transaction_type_id" }
+  end
+
   def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)
     params ||= {}  # Set params to empty hash if it's nil
     joined_tables = []
 
-    params[:include] ||= [:listing_images, :category, :transaction_type]
+    params[:include] ||= [:listing_images, :category]
 
     params.reject!{ |key,value| (value == "all" || value == ["all"]) && key != "status"} # all means the fliter doesn't need to be included (except with "status")
 
@@ -213,20 +227,9 @@ class Listing < ActiveRecord::Base
       end
     end
 
-    # :share_type is deprecated, but we need to support it for the ATOM API
-    # Share type is overriden by transaction_type if it is present
-    if params[:share_type].present?
-      direction = params[:share_type]
-      params[:transaction_types] = {:id => current_community.transaction_types.select { |transaction_type| transaction_type.direction == direction }.collect(&:id) }
-    end
-
-    if params[:transaction_type].present?
+    if params[:listing_shape].present?
       # Sphinx expects integer
-      params[:transaction_types] = {:id => params[:transaction_type].to_i}
-    end
-
-    if params[:transaction_type].present? || params[:share_type].present?
-      joined_tables << :transaction_type
+      params[:listing_shapes] = {:id => params[:listing_shape].to_i}
     end
 
     # Two ways of finding, with or without sphinx
@@ -249,7 +252,7 @@ class Listing < ActiveRecord::Base
       with[:community_ids] = current_community.id
 
       with[:category_id] = params[:categories][:id] if params[:categories].present?
-      with[:transaction_type_id] = params[:transaction_types][:id] if params[:transaction_types].present?
+      with[:listing_shape_id] = params[:listing_shapes][:id] if params[:listing_shapes].present?
       with[:listing_id] = params[:listing_id] if params[:listing_id].present?
       with[:price_cents] = params[:price_cents] if params[:price_cents].present?
 
@@ -283,7 +286,6 @@ class Listing < ActiveRecord::Base
     else # No search query or filters used, no sphinx needed
       query = {}
       query[:categories] = params[:categories] if params[:categories]
-      # FIX THIS query[:transaction_types] = params[:transaction_types] if params[:transaction_types]
       query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
       query[:id] = params[:listing_id] if params[:listing_id].present?
       listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
@@ -297,17 +299,11 @@ class Listing < ActiveRecord::Base
   end
 
   def self.search_with_sphinx?(params)
-    params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_dropdown_field_options].present?  || params[:custom_checkbox_field_options].present? || params[:price_cents].present?
+    params[:search].present? || params[:listing_shapes].present? || params[:category].present? || params[:custom_dropdown_field_options].present?  || params[:custom_checkbox_field_options].present? || params[:price_cents].present?
   end
 
   def self.find_by_category_and_subcategory(category)
     Listing.where(:category_id => category.own_and_subcategory_ids)
-  end
-
-  # Listing type is not anymore stored separately, so we serach it by share_type top level parent
-  # And return a string here, as that's what expected in most existing cases (e.g. translation strings)
-  def listing_type
-    return transaction_type.direction
   end
 
   # Returns true if listing exists and valid_until is set
@@ -324,32 +320,10 @@ class Listing < ActiveRecord::Base
     !open? || (valid_until && valid_until < DateTime.now)
   end
 
-  def self.opposite_type(type)
-    type.eql?("offer") ? "request" : "offer"
-  end
-
-  # Returns true if the given person is offerer and false if requester
-  def offerer?(person)
-    (transaction_type.is_offer? && author.eql?(person)) || (transaction_type.is_request? && !author.eql?(person))
-  end
-
-  # Returns true if the given person is requester and false if offerer
-  def requester?(person)
-    (transaction_type.is_request? && author.eql?(person)) || (transaction_type.is_offer? && !author.eql?(person))
-  end
-
-  # If listing is an offer, a discussion about the listing
-  # should be request, and vice versa
-  def discussion_type
-    transaction_type.is_request? ? "offer" : "request"
-  end
-
   # This is used to provide clean JSON-strings for map view queries
   def as_json(options = {})
-
     # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
     hash = {
-      :listing_type => self.transaction_type.direction,
       :category => self.category.id,
       :id => self.id,
       :icon => icon_class(icon_name)
@@ -398,15 +372,16 @@ class Listing < ActiveRecord::Base
     price ? price.symbol : MoneyRails.default_currency.symbol
   end
 
-  def price_with_vat(vat)
-    price + (price * vat / 100)
-  end
-
   def answer_for(custom_field)
     custom_field_values.find { |value| value.custom_field_id == custom_field.id }
   end
 
   def payment_required_at?(community)
-    transaction_type.price_field? && community.payments_in_use?
+    price && price > 0 && community.payments_in_use?
   end
+
+  def unit_type
+    Maybe(read_attribute(:unit_type)).to_sym.or_else(nil)
+  end
+
 end

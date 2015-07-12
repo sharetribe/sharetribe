@@ -32,15 +32,18 @@
 #  image_content_type                 :string(255)
 #  image_file_size                    :integer
 #  image_updated_at                   :datetime
+#  image_processing                   :boolean
 #  facebook_id                        :string(255)
 #  authentication_token               :string(255)
 #  community_updates_last_sent_at     :datetime
 #  min_days_between_community_updates :integer          default(1)
 #  is_organization                    :boolean
 #  organization_name                  :string(255)
+#  deleted                            :boolean          default(FALSE)
 #
 # Indexes
 #
+#  index_people_on_authentication_token  (authentication_token)
 #  index_people_on_email                 (email) UNIQUE
 #  index_people_on_facebook_id           (facebook_id) UNIQUE
 #  index_people_on_id                    (id)
@@ -88,7 +91,7 @@ class Person < ActiveRecord::Base
 
   attr_protected :is_admin
 
-  has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
+  has_many :listings, :dependent => :destroy, :foreign_key => "author_id", :conditions => { :deleted => 0 }
   has_many :emails, :dependent => :destroy, :inverse_of => :person
 
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
@@ -172,6 +175,7 @@ class Person < ActiveRecord::Base
                       :thumb => "48x48#",
                       :original => "600x800>"},
                     :default_url => ActionController::Base.helpers.asset_path("/assets/profile_image/:style/missing.png", :digest => true)
+  process_in_background :image
 
   #validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 9.megabytes
@@ -202,7 +206,7 @@ class Person < ActiveRecord::Base
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
 
-      matched = where(conditions).where(["lower(username) = :value", { :value => login.downcase }]).first
+      matched = where(conditions).where(username: login.downcase).first
 
       if matched
         return matched
@@ -236,6 +240,8 @@ class Person < ActiveRecord::Base
      !Person.find_by_username(username).present? && !username.in?(USERNAME_BLACKLIST)
    end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def name_or_username(community_or_display_type=nil)
     if community_or_display_type.present? && community_or_display_type.class == Community
       display_type = community_or_display_type.name_display_type
@@ -262,10 +268,14 @@ class Person < ActiveRecord::Base
     end
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def full_name
     "#{given_name} #{family_name}"
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def first_name_with_initial
     if family_name
       initial = family_name[0,1]
@@ -275,10 +285,14 @@ class Person < ActiveRecord::Base
     "#{given_name} #{initial}"
   end
 
-  def name(community_or_display_type=nil)
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
+  def name(community_or_display_type)
     return name_or_username(community_or_display_type)
   end
 
+  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
+  # Consider using PersonViewUtils
   def given_name_or_username
     if is_organization
       # Quick and somewhat dirty solution. `given_name_or_username`
@@ -665,11 +679,10 @@ class Person < ActiveRecord::Base
   # Return true if this user should use a payment
   # system in this transaction
   def should_pay?(conversation, community)
-    conversation.requires_payment?(community) && conversation.status.eql?("accepted") && id.eql?(conversation.requester.id)
+    conversation.requires_payment?(community) && conversation.status.eql?("accepted") && id.eql?(conversation.buyer.id)
   end
 
-  def pending_email_confirmation_to_join?(community)
-    membership = community_memberships.where(:community_id => community.id).first
+  def pending_email_confirmation_to_join?(membership)
     if membership
       return (membership.status == "pending_email_confirmation")
     else
@@ -737,11 +750,6 @@ class Person < ActiveRecord::Base
         params.delete(field)
       end
     end
-  end
-
-  def self.email_all_users(subject, mail_content, default_locale="en", verbose=false, emails_to_skip=[])
-    puts "Sending mail to every #{Person.count} users in the service" if verbose
-    PersonMailer.deliver_open_content_messages(Person.all, subject, mail_content, default_locale, verbose, emails_to_skip)
   end
 
   def get_existing_value_or_ask(attribute, p1, p2)

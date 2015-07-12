@@ -34,7 +34,7 @@ module PaypalService::API::RequestWrapper
   end
 
   def log_and_return(cid, txid, request, err_response, data = {})
-    @logger.warn("PayPal operation #{request[:method]} failed. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
+    @logger.warn("PayPal operation #{request[:method]} failed. Community: #{cid}, transaction: #{txid}, error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}")
     Result::Error.new(
       "Failed response from Paypal. Error code: #{err_response[:error_code]}, msg: #{err_response[:error_msg]}",
       {

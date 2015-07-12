@@ -29,7 +29,9 @@ def create_transaction(community, listing, starter, message, payment_gateway = :
     community: community,
     starter: starter,
     conversation: build_conversation(community, listing, starter, message),
-    payment_gateway: payment_gateway
+    payment_gateway: payment_gateway,
+    payment_process: TransactionProcess.find(listing.transaction_process_id).process == :preauthorize ? :preauthorize : :postpay,
+    automatic_confirmation_after_days: community.automatic_confirmation_after_days
   )
 end
 
@@ -139,7 +141,7 @@ Then(/^I should see that the conversation is waiting for confirmation$/) do
 end
 
 Then(/^the requester of that conversation should receive an email with subject "([^"]*)"$/) do |subject|
-  recipient = @transaction.requester
+  recipient = @transaction.buyer
   email = recipient.confirmed_notification_email_addresses.first
 
   steps %Q{
@@ -148,7 +150,7 @@ Then(/^the requester of that conversation should receive an email with subject "
 end
 
 Then(/^the offerer of that conversation should receive an email with subject "([^"]*)"$/) do |subject|
-  recipient = @transaction.offerer
+  recipient = @transaction.seller
   email = recipient.confirmed_notification_email_addresses.first
 
   steps %Q{

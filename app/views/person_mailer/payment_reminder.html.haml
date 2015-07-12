@@ -5,7 +5,7 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.payment_reminder.you_have_not_yet_paid", :listing_title => @conversation.listing.title, :other_party_name => @conversation.other_party(@recipient).name)
+      = t("emails.payment_reminder.you_have_not_yet_paid", :listing_title => @conversation.listing.title, :other_party_name => @conversation.other_party(@recipient).name(@conversation.community))
 
 %tr
   %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 25px;"}

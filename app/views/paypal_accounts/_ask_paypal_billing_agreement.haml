@@ -3,13 +3,38 @@
     =t("paypal_accounts.paypal_account_email_connected").html_safe
   .paypal-connected-email.paypal-account-connected
     = t("paypal_accounts.connected_account", :email => paypal_account_email)
+  .paypal-connected-change
+    = link_to t("paypal_accounts.change_account"), change_url
 
+- if commission_type != :none
+  .row
+    = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement")
 
-.row
-  = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement")
+  .row
+    - paypal_info_link = "<a id='paypal_fee_info_link' href='#'>#{t("paypal_accounts.new.paypal_info_link_text")}</a>"
+    - if commission_type == :both
+      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info_both",
+      commission_from_seller: commission_from_seller,
+      minimum_commission: humanized_money_with_symbol(minimum_commission),
+      paypal_info_link: paypal_info_link).html_safe }
+    - elsif commission_type == :relative
+      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info_relative",
+      commission_from_seller: commission_from_seller,
+      paypal_info_link: paypal_info_link).html_safe }
+    - elsif commission_type == :fixed
+      = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info_fixed",
+      minimum_commission: humanized_money_with_symbol(minimum_commission),
+      paypal_info_link: paypal_info_link).html_safe }
 
-.row
-  = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info", commission: commission_from_seller, minimum_commission: humanized_money_with_symbol(minimum_commission))}
+  .row.send-button-wrapper
+    = form.button t("paypal_accounts.new.billing_agreement"), :class => "send_button"
 
-.row.send-button-wrapper
-  = form.button t("paypal_accounts.new.billing_agreement"), :class => "send_button"
+  = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
+    %h2= t("common.paypal_fee_info.title")
+    - text_with_line_breaks_html_safe do
+      - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), "https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside")
+      = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
+
+  - content_for :extra_javascript do
+    :javascript
+      $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });

@@ -162,7 +162,7 @@ When /^I add a new checkbox field Amenities with invalid data$/ do
 end
 
 Given /^there is a custom field "(.*?)" in community "(.*?)" for category "(.*?)"$/ do |name, community, category_name|
-  current_community = Community.find_by_domain(community)
+  current_community = Community.where(ident: community).first
   @custom_field = FactoryGirl.build(:custom_dropdown_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
@@ -172,7 +172,7 @@ Given /^there is a custom field "(.*?)" in community "(.*?)" for category "(.*?)
 end
 
 Given /^there is a numeric field "(.*?)" in community "(.*?)" for category "(.*?)" with min value "(.*?)" and max value "(.*?)"$/ do |name, community, category_name, min, max|
-  current_community = Community.find_by_domain(community)
+  current_community = Community.where(ident: community).first
   @custom_field = FactoryGirl.build(:custom_numeric_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
@@ -230,10 +230,11 @@ end
 
 Then /^options should be stored correctly$/ do
   @custom_field = CustomField.find(@custom_field.id)
-  @custom_field.options.size.should == 3
-  @custom_field.options[0].title.should == "House2"
-  @custom_field.options[1].title.should == "House3"
-  @custom_field.options[2].title.should == "House4"
+  options = @custom_field.options.sort_by{|o| o.sort_priority}
+  options.size.should == 3
+  options[0].title.should == "House2"
+  options[1].title.should == "House3"
+  options[2].title.should == "House4"
 end
 
 Then /^I should see "(.*?)" before "(.*?)"$/ do |arg1, arg2|
@@ -254,7 +255,7 @@ When /^I move custom field "(.*?)" up$/ do |custom_field|
 end
 
 Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")? with options:$/ do |name, community, category_name, options|
-  current_community = Community.find_by_domain(community)
+  current_community = Community.where(ident: community).first
   custom_field = FactoryGirl.build(:custom_dropdown_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")]
@@ -267,10 +268,10 @@ Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in cate
     custom_field.category_custom_fields.build(:category => current_community.categories.first)
   end
 
-  custom_field.options << options.hashes.map do |hash|
+  custom_field.options << options.hashes.each_with_index.map do |hash, index|
     en = FactoryGirl.build(:custom_field_option_title, :value => hash['fi'], :locale => 'fi')
     fi = FactoryGirl.build(:custom_field_option_title, :value => hash['en'], :locale => 'en')
-    FactoryGirl.build(:custom_field_option, :titles => [en, fi])
+    FactoryGirl.build(:custom_field_option, :titles => [en, fi], sort_priority: index)
   end
 
   custom_field.save!
@@ -280,7 +281,7 @@ Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in cate
 end
 
 Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")?$/ do |name, community, category_name|
-  current_community = Community.find_by_domain(community)
+  current_community = Community.where(ident: community).first
   custom_field = FactoryGirl.build(:custom_text_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")]

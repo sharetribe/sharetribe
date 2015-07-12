@@ -1,0 +1,53 @@
+.initiate-transaction-totals
+  - if booking
+    .initiate-transaction-per-unit-wrapper
+      %span.initiate-transaction-per-unit-label
+        = t("transactions.initiate.price_per_day")
+      %span.initiate-transaction-per-unit-value
+        = humanized_money_with_symbol(listing_price)
+
+    .initiate-transaction-booking-wrapper
+      %span.initiate-transaction-booking-label
+        = t("transactions.initiate.booked_days")
+      %span.initiate-transaction-booking-value
+        = l start_on, format: :long_with_abbr_day_name
+        = "-"
+        = l end_on, format: :long_with_abbr_day_name
+        = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+
+  - elsif quantity.present? && localized_unit_type.present?
+    .initiate-transaction-per-unit-wrapper
+      %span.initiate-transaction-per-unit-label
+        = t("transactions.price_per_quantity", unit_type: localized_unit_type)
+      %span.initiate-transaction-per-unit-value
+        = humanized_money_with_symbol(listing_price)
+    - if quantity > 1
+      .initiate-transaction-quantity-wrapper
+        %span.initiate-transaction-quantity-label
+          = localized_selector_label || t("transactions.initiate.quantity")
+        %span.initiate-transaction-quantity-value
+          = quantity
+
+  - if subtotal.present?
+    .initiate-transaction-sum-wrapper
+      %span.initiate-transaction-sum-label
+        = t("transactions.initiate.subtotal")
+      %span.initiate-transaction-sum-value
+        = humanized_money_with_symbol(subtotal)
+
+  - if shipping_price.present?
+    .initiate-transaction-shipping-price-wrapper
+      %span.initiate-transaction-shipping-price-label
+        = t("transactions.initiate.shipping-price")
+      %span.initiate-transaction-shipping-price-value
+        = humanized_money_with_symbol(shipping_price)
+
+  - if total.present?
+    .initiate-transaction-total-wrapper
+      %span.initiate-transaction-total-label
+        - if total_label.present?
+          = total_label
+        - else
+          = t("transactions.total")
+      %span.initiate-transaction-total-value
+        = humanized_money_with_symbol(total)

@@ -1,6 +1,6 @@
 class IntApi::MarketplacesController < ApplicationController
 
-  skip_filter :fetch_community
+  skip_filter :fetch_community, :redirect_to_marketplace_domain
 
   before_filter :set_access_control_headers
 
@@ -20,8 +20,17 @@ class IntApi::MarketplacesController < ApplicationController
       params.slice(:marketplace_name,
                    :marketplace_type,
                    :marketplace_country,
-                   :marketplace_language).merge(paypal_enabled: true)
+                   :marketplace_language)
+            .merge(payment_process: :preauthorize)
       )
+
+    if marketplace
+      TransactionService::API::Api.settings.provision(
+        community_id: marketplace[:id],
+        payment_gateway: :paypal,
+        payment_process: :preauthorize,
+        active: true)
+    end
 
     user = UserService::API::Users.create_user_with_membership({
         given_name: params[:admin_first_name],

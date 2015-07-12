@@ -23,7 +23,7 @@
 
 class ListingImage < ActiveRecord::Base
 
-  belongs_to :listing
+  belongs_to :listing, touch: true
   belongs_to :author, :class_name => "Person"
 
   # see paperclip (for image_processing column)
@@ -43,6 +43,23 @@ class ListingImage < ActiveRecord::Base
                                     :content_type => ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"], # the two last types are sent by IE.
                                     :unless => Proc.new {|model| model.image.nil? }
 
+
+  def get_dimensions_for_style(style)
+    case style
+    when :small_3x2
+      {width: 240, height: 160}
+    when :medium
+      {width: 360, height: 270}
+    when :thumb
+      {width: 120, height: 120}
+    when :email
+      {width: 150, height: 100}
+    when :original, :big
+      raise NotImplementedError.new("This feature is not implemented yet for style: #{style}")
+    else
+      raise ArgumentError.new("Unknown style: #{style}")
+    end
+  end
 
   def set_dimensions!
     # Silently return, if there's no `width` and `height`

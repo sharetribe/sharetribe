@@ -24,8 +24,8 @@ describe "CommunityMailer" do
           :title => "hammer",
           :created_at => 2.days.ago,
           :updates_email_at => 2.days.ago,
-          :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer",
-          :transaction_type => FactoryGirl.create(:transaction_type_sell))
+          :listing_shape_id => 123,
+          :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer")
       @l2.communities << @c1
 
       @email = CommunityMailer.community_updates(
@@ -41,7 +41,7 @@ describe "CommunityMailer" do
     end
 
     it "should have correct links" do
-      @email.should have_body_text(/.*<a href=\"http\:\/\/#{@c1.domain}\.#{APP_CONFIG.domain}\/#{@p1.locale}\/listings\/#{@l2.id}\?ref=weeklymail.*/)
+      @email.should have_body_text(/.*<a href=\"http\:\/\/#{@c1.full_domain}\/#{@p1.locale}\/listings\/#{@l2.id}\?ref=weeklymail.*/)
     end
 
     it "should include valid auth_token in links" do
@@ -70,16 +70,16 @@ describe "CommunityMailer" do
       @p2.communities << @c2
 
       @l1 = FactoryGirl.create(:listing,
-          :transaction_type => FactoryGirl.create(:transaction_type_request),
           :title => "bike",
           :description => "A very nice bike",
           :created_at => 3.hours.ago,
+          :listing_shape_id => 123,
           :author => @p1).communities = [@c1]
       @l2 = FactoryGirl.create(:listing,
-          :transaction_type => FactoryGirl.create(:transaction_type_request),
           :title => "motorbike",
           :description => "fast!",
           :created_at => 1.hours.ago,
+          :listing_shape_id => 123,
           :author => @p2).communities = [@c2]
 
       @p3 = FactoryGirl.create(:person)

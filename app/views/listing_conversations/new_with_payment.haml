@@ -1,11 +1,9 @@
 - content_for :javascript do
-  initialize_send_message_form('#{I18n.locale}', '#{Listing.opposite_type(listing.direction)}');
-
-- action_button_label = listing.transaction_type.action_button_label(I18n.locale)
+  initialize_send_message_form('#{I18n.locale}');
 
 - content_for :title_header do
   %h1
-    = action_button_label
+    = action_button_label(listing)
     = link_to(listing.title, listing)
 
 #new_message_form.centered-section
@@ -14,10 +12,10 @@
 
   = form_for contact_form, :url => contact_to_listing do |form|
 
-    = form.label :content, t("conversations.new.message_to", author_name: link_to(listing.author.name, listing.author)).html_safe
+    = form.label :content, t("conversations.new.message_to", author_name: link_to(listing.author.name(@current_community), listing.author)).html_safe
     = form.text_area :content, :class => "text_area"
     = form.hidden_field :sender_id, :value => @current_user.id
 
     = form.hidden_field :listing_id, :value => @listing.id
     = form.hidden_field :community_id, :value => @current_community.id
-    = form.button action_button_label, :class => "send_button"
+    = form.button action_button_label(listing), :class => "send_button"

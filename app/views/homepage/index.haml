@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_homepage(#{filters_in_use?});
+  initialize_homepage();
 
 - content_for :coverfade_class do
   = "without-text"
@@ -29,12 +29,12 @@
 
   .home-toolbar
 
-    - if @transaction_type_menu_enabled || @category_menu_enabled
+    - if listing_shape_menu_enabled || @category_menu_enabled
       .home-toolbar-show-filters-button-container
         .home-toolbar-show-filters-button#home-toolbar-show-filters
           = t(".filter")
 
-    .home-toolbar-button-group{:class => @transaction_type_menu_enabled || @category_menu_enabled ? "filters-enabled" : ""}
+    .home-toolbar-button-group{:class => listing_shape_menu_enabled || @category_menu_enabled ? "filters-enabled" : ""}
       - ["grid", "list", "map"].each do |view_type|
         - selected_class = @view_type == view_type ? "selected" : ""
         = link_to params.merge(view: view_type), :class => "home-toolbar-button-group-button #{selected_class}", :title => t("homepage.filters.#{view_type}_button") do
@@ -42,15 +42,15 @@
           %span.home-toolbar-button-text
             = t("homepage.filters.#{view_type}_button")
 
-    - if @transaction_type_menu_enabled || @category_menu_enabled
+    - if listing_shape_menu_enabled || @category_menu_enabled
       .home-toolbar-filters.home-toolbar-filters-mobile-hidden#home-toolbar-filters
-        - if @transaction_type_menu_enabled
+        - if listing_shape_menu_enabled
           .toggle-container.home-toolbar-toggle-container
             .toggle.with-borders#home_toolbar-select-share-type{data: {toggle: '.home-toolbar-share-type-menu'}}
               .toggle-header-container
                 .toggle-header
-                  - if @selected_transaction_type
-                    = @selected_transaction_type.display_name(I18n.locale).mb_chars.capitalize.to_s
+                  - if selected_shape
+                    = t(selected_shape[:name_tr_key])
                   - else
                     = t("homepage.filters.all_listing_types")
 
@@ -58,9 +58,9 @@
 
             .home-toolbar-share-type-menu.toggle-menu.hidden
               = link_to t("homepage.filters.all_listing_types"), params.merge({transaction_type: "all"})
-              - @transaction_types.each do |transaction_type|
-                = link_to params.merge({transaction_type: transaction_type}), :class => "toggle-menu-subitem" do
-                  = transaction_type.display_name(I18n.locale).mb_chars.capitalize.to_s
+              - shapes.each do |shape|
+                = link_to params.merge({transaction_type: shape[:name]}), class:  "toggle-menu-subitem" do
+                  = t(shape[:name_tr_key])
 
         - if @show_categories
           .toggle-container.home-toolbar-toggle-container.hidden-tablet
@@ -68,7 +68,7 @@
               .toggle-header-container
                 .toggle-header
                   - if @selected_category
-                    = @selected_category.display_name(I18n.locale).mb_chars.capitalize.to_s
+                    = @selected_category.display_name(I18n.locale)
                   - else
                     = t("homepage.filters.all_categories")
 
@@ -76,17 +76,17 @@
             #home-toolbar-categories-menu.toggle-menu
               = link_to t("homepage.filters.all_categories"), params.merge({category: "all"})
               - @main_categories.each do |category|
-                = link_to category.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: category})
+                = link_to category.display_name(I18n.locale), params.merge({category: category})
                 - if category.children
                   - category.children.each do |child|
                     - is_selected = @selected_category == child
-                    = link_to child.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: child}), :class => "toggle-menu-subitem"
+                    = link_to child.display_name(I18n.locale), params.merge({category: child}), :class => "toggle-menu-subitem"
 
         / Filters
         .hidden-tablet
           - # Filters will be relocated to #desktop-filters when in desktop
           #filters
-            = render :partial => "filters", :locals => { show_price_filter: @current_community.show_price_filter, show_custom_fields: @show_custom_fields }
+            = render :partial => "filters", :locals => { show_price_filter: show_price_filter, show_custom_fields: @show_custom_fields }
 
   .row
     - if @category_menu_enabled
@@ -102,7 +102,7 @@
                   - if show_subcategories
                     - category.children.each do |child|
                       - is_selected = @selected_category == child
-                      = link_to child.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: child}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>child.id}
+                      = link_to child.display_name(I18n.locale), params.merge({category: child}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>child.id}
 
         #desktop-filters
           - # Filters will be relocated here when in desktop
@@ -120,7 +120,7 @@
                 = render :partial => "grid_item", :collection => @listings, :as => :listing
           - else
             .home-listings
-              = render :partial => "list_item", :collection => @listings, :as => :listing
+              = render :partial => "list_item", :collection => @listings, :as => :listing, locals:{shape_name_map: shape_name_map}
           .home-loading-more
             = will_paginate(@listings)
             - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end

@@ -1,0 +1,2038 @@
+is:
+  admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
+    communities:
+      edit_details:
+        community_details: ~
+        community_look_and_feel: ~
+        edit_community: ~
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
+        language_selection_disabled: ~
+        community_name: ~
+        edit_community_name_description: ~
+        community_slogan: ~
+        edit_community_slogan_description: ~
+        community_description: ~
+        edit_community_description_description: ~
+        community_search_placeholder: ~
+        edit_community_search_placeholder_description: ~
+        private_community_homepage_content: ~
+        edit_private_community_homepage_content_description: ~
+        update_information: ~
+        invite_people: ~
+        edit_signup_info: ~
+        edit_signup_info_description: ~
+        edit_info: ~
+        see_how_it_looks_like: ~
+        verification_to_post_listings_info_content: ~
+        verification_to_post_listings_info_content_description: ~
+        verification_to_post_listings_info_content_default: ~
+        contact_admin_link_text: ~
+        save: ~
+        transaction_agreement: ~
+        transaction_agreement_checkbox: ~
+        transaction_agreement_checkbox_header: ~
+        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_text_header: ~
+        transaction_agreement_description: ~
+      edit_look_and_feel:
+        edit_community_look_and_feel: ~
+        community_logo: ~
+        community_logo_icon: ~
+        community_cover_photo: ~
+        small_community_cover_photo: ~
+        favicon: ~
+        favicon_info_text: ~
+        community_custom_color1: ~
+        community_custom_color2: ~
+        logo_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        cover_photo_visibility: ~
+        cover_photo_instructions_text_with_dimensions: ~
+        small_cover_photo_visibility: ~
+        small_cover_photo_instructions_text_with_dimensions: ~
+        main_content_width: ~
+        custom_color1_instructions_text: ~
+        custom_color2_instructions_text: ~
+        default_browse_view: ~
+        default_browse_view_instructions_text: ~
+        grid: ~
+        list: ~
+        map: ~
+        name_display_type: ~
+        name_display_type_instructions_text: ~
+        full_name: ~
+        first_name_with_initial: ~
+        first_name_only: ~
+        invalid_color_code: ~
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
+      edit_text_instructions:
+        edit_text_instructions: ~
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
+      getting_started:
+        getting_started: ~
+        welcome_to_your_marketplace: ~
+        intro: ~
+        live_site_link_text: ~
+        look_and_feel: ~
+        logo_link_text: ~
+        custom_domain: ~
+        categories_and_custom_fields: ~
+        categories_link_text: ~
+        custom_fields_link_text: ~
+        filters_link_text: ~
+        order_types: ~
+        order_types_link_text: ~
+        payments: ~
+        payments_link_text: ~
+        info_texts: ~
+        about_page_link_text: ~
+        terms_of_use_link_text: ~
+        privacy_policy_link_text: ~
+        welcome_email_link_text: ~
+        instruction_texts_link_text: ~
+        social_media: ~
+        facebook_link_text: ~
+        twitter_link_text: ~
+        analytics: ~
+        analytics_link_text: ~
+        settings: ~
+        settings_link_text: ~
+        final_words: ~
+        invite_link_text: ~
+        view_users_link_text: ~
+        view_transactions_link_text: ~
+        contact_support_link_text: ~
+      available_languages:
+        en: ~
+        en-AU: ~
+        en-GB: ~
+        fr: ~
+        fr-CA: ~
+        es: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
+      settings:
+        settings: ~
+        general: ~
+        users_can_review_each_other_after_transaction: ~
+        access: ~
+        join_with_invite_only: ~
+        users_can_invite_new_users: ~
+        private: ~
+        require_verification_to_post_listings: ~
+        listing_preferences: ~
+        transaction_preferences: ~
+        show_listing_publishing_date: ~
+        show_category_in_listing_list: ~
+        hide_expiration_date: ~
+        listing_comments_in_use: ~
+        email_preferences: ~
+        automatic_newsletters: ~
+        email_admins_about_new_members: ~
+        google_analytics_key: ~
+        twitter_handle: ~
+        update_settings: ~
+        automatically_confirmed: ~
+        automatically_confirmed_no_escrow: ~
+        automatic_newsletter_frequency: ~
+        newsletter_daily: ~
+        newsletter_weekly: ~
+        delete_marketplace_title: ~
+        type_marketplace_domain: ~
+        type_marketplace_domain_placeholder: ~
+        once_you_delete: ~
+        are_you_sure: ~
+        i_understand_button: ~
+        last_community_updates: ~
+        you_will_be_redirected_to: ~
+        delete_this_marketplace: ~
+      manage_members:
+        manage_members: ~
+        email: ~
+        name: ~
+        join_date: ~
+        admin: ~
+        posting_allowed: ~
+        ban_user: ~
+        saving_user_status: ~
+        save_user_status_successful: ~
+        save_user_status_error: ~
+        ban_user_confirmation: ~
+        ban_me_error: ~
+      social_media:
+        social_media: ~
+        twitter_handle: ~
+        twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
+        twitter_handle_placeholder: ~
+        invalid_twitter_handle: ~
+        facebook_connect: ~
+        facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
+        save: ~
+      menu_links:
+        menu_links: ~
+        save: ~
+        add_menu_link: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        title: ~
+        language: ~
+        url: ~
+        empty: ~
+      transactions:
+        transactions: ~
+        headers:
+          conversation: ~
+          listing: ~
+          status: ~
+          sum: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        status:
+          free: ~
+          pending: ~
+          preauthorized: ~
+          accepted: ~
+          rejected: ~
+          paid: ~
+          confirmed: ~
+          canceled: ~
+          initiated: ~
+          pending_ext: ~
+        not_available: ~
+      braintree_payment_gateway:
+        braintree_payment_gateway: ~
+        environment: ~
+        private_key: ~
+        public_key: ~
+        client_side_encryption_key: ~
+        merchant_id: ~
+        master_merchant_id: ~
+        commission_from_seller: ~
+      paypal_account:
+        paypal_admin_account: ~
+    custom_fields:
+      edit:
+        edit_listing_field: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
+      edit_location:
+        edit_location_field: ~
+        this_field_is_required: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+      index:
+        listing_fields: ~
+        listing_fields_help: ~
+        add_new_field: ~
+        remove_field_confirmation: ~
+        cancel: ~
+        save: ~
+        field_title: ~
+        field_type: ~
+        categories: ~
+        options: ~
+        add_option: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+        select_one: ~
+        continue: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+      new:
+        new_listing_field: ~
+      field_types:
+        text: ~
+        number: ~
+        dropdown: ~
+        checkbox_group: ~
+        date: ~
+    emails:
+      new:
+        send_email_to_members: ~
+        send_email_to_members_title: ~
+        email_subject: ~
+        email_content: ~
+        email_content_placeholder: ~
+        email_language: ~
+        any_language: ~
+        send_email: ~
+        message_will_be_sent_only_to_people_with_this_language: ~
+        email_sent: ~
+    left_hand_navigation:
+      general: ~
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
+      support: ~
+    listing_shapes:
+      index:
+        listing_shapes: ~
+        description: ~
+        read_more_about_order_types: ~
+        add_new_shape: ~
+        select_template: ~
+        all_categories: ~
+        no_categories: ~
+        category_count: ~
+        header:
+          listing_shape_name: ~
+          listing_shape_categories: ~
+        order:
+          saving_order: ~
+          save_order_successful: ~
+          save_order_error: ~
+      templates:
+        selling_products: ~
+        renting_products: ~
+        offering_services: ~
+        giving_things_away: ~
+        requesting: ~
+        announcement: ~
+        custom: ~
+      new:
+        create_listing_shape: ~
+        create: ~
+        cancel: ~
+        create_success: ~
+        create_failure: ~
+      edit:
+        edit_listing_shape: ~
+        update: ~
+        cancel: ~
+        update_success: ~
+        update_failure: ~
+        delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
+      listing_shape_name: ~
+      listing_shape_name_placeholder: ~
+      action_button_label: ~
+      action_button_placeholder: ~
+      successfully_closed: ~
+      successfully_deleted: ~
+      pricing_and_checkout_title: ~
+      online_payments_label: ~
+      shipping_label: ~
+      price_label: ~
+      units_title: ~
+      units_desc: ~
+      units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+      can_not_find: ~
+      add_custom_unit: ~
+      delete_custom_unit: ~
+      custom_unit_form:
+        title: ~
+        label_heading: ~
+        selector_label_heading: ~
+        label_placeholder: ~
+        selector_placeholder: ~
+        per: ~
+        unit_type:
+          heading: ~
+          quantity_label: ~
+          time_label: ~
+    paypal_accounts:
+      marketplace_paypal_integration: ~
+      preferences_updated: ~
+      integration_info_text: ~
+      read_more_about_paypal: ~
+      paypal_account_email: ~
+      paypal_account_email_completed: ~
+      set_minimum_price_and_fee: ~
+      set_minimum_price_and_fee_completed: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      minimum_transaction_fee_label: ~
+      save_settings: ~
+      note_about_transaction_fee: ~
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
+    transaction_types:
+      sell: ~
+      rent: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      request: ~
+      inquiry: ~
+      share_for_free: ~
+      default_action_button_labels:
+        sell: ~
+        rent: ~
+        request: ~
+        offer: ~
+        inquiry: ~
+  common:
+    edit_page: ~
+    default_community_slogan: ~
+    default_community_description: ~
+    cancel: "Hætta við"
+    fields_that_are_mandatory: "Reitir merktir með stjörnu (*) verður að fylla út."
+    or: eða
+    password: ~
+    service_name: ~
+    share_types:
+      request: ~
+      offer: ~
+      borrow: "fá lánað"
+      buy: kaupa
+      give_away: gefa
+      lend: "leigja út"
+      receive: ókeypis
+      rent: leigja
+      rent_out: "leigja út"
+      sell: selja
+      offer_to_swap: ~
+      request_to_swap: ~
+      share_for_free: ~
+      accept_for_free: ~
+    categories:
+      item: ~
+      favor: ~
+      rideshare: ~
+      housing: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
+    username: ~
+    username_or_email: ~
+    what_is_this: "Hvað er þetta?"
+    removed_user: ~
+    paypal_fee_info:
+      title: ~
+      body_text: ~
+      body_with_shipping_text: ~
+      link_to_paypal_text: ~
+  conversations:
+    accept:
+      details: ~
+      order_by: ~
+      respond_to_offer: ~
+      respond_to_request: ~
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+      close_listing: ~
+      update_later: ~
+      optional_message: ~
+      price_to_pay: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
+      minimum_price_error_message: ~
+      accept: ~
+      decline: ~
+      quantity_label: ~
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
+      shipping_price_label: ~
+    confirm:
+      confirm_description: ~
+      cancel_description: ~
+      cancel_payed_description: ~
+      canceling_payed_transaction: ~
+      confirm: ~
+      cancel: ~
+      continue: ~
+      give_feedback_to: ~
+      do_not_give_feedback: ~
+    details:
+      day: ~
+      days: ~
+      price_per_day: ~
+    index:
+      loading_more_messages: "Hleð inn fleiri skilaboð"
+      message_partitive: skilaboð
+      messages_partitive: skilaboð
+      no_received_messages: "Engin skilaboð"
+      no_sent_messages: "Engin send skilaboð"
+    conversation:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+      message_from: ~
+      about_listing: ~
+      free_message: ~
+    message:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+      paid: ~
+    new:
+      offer_message_form_title: ~
+      request_message_form_title: ~
+      favor_offer_message_form_title: "Fáðu hjálp frá %{person}"
+      favor_request_message_form_title: "Bjóða %{person} hjálp"
+      housing_offer_message_form_title: "Bjóða %{person} pláss"
+      housing_request_message_form_title: "Óska eftir plássi frá %{person}"
+      item_offer_lend_message_form_title: ~
+      item_offer_sell_message_form_title: ~
+      item_offer_give_away_message_form_title: ~
+      item_offer_trade_message_form_title: ~
+      item_offer_rent_out_message_form_title: ~
+      item_request_borrow_message_form_title: ~
+      item_request_buy_message_form_title: ~
+      item_request_take_for_free_message_form_title: ~
+      item_request_trade_message_form_title: ~
+      item_request_rent_message_form_title: ~
+      housing_offer_sell_message_form_title: ~
+      housing_offer_rent_out_message_form_title: ~
+      housing_offer_share_for_free_message_form_title: ~
+      housing_offer_accept_for_free_message_form_title: ~
+      housing_request_buy_message_form_title: ~
+      housing_request_rent_message_form_title: ~
+      item_request_message_form_title: "Bjóða %{person} hlut"
+      message: Skilaboð
+      message_to: ~
+      optional_message_to: ~
+      rideshare_offer_message_form_title: "Biðja %{person} um far"
+      rideshare_request_message_form_title: "Bjóða %{person} far"
+      send_message: ~
+      send: ~
+      this_message_is_private: ~
+      you_will_get_notified_of_acceptance: ~
+      you_will_get_notified: ~
+      title: Titill
+      send_message_to_user: ~
+      about_listing: ~
+      author_has_to_accept_request: ~
+    show:
+      in_response_to_listing: ~
+      message_sent_by: ~
+      message_sent_to: ~
+      send_reply: Svara
+      write_a_reply: "Skrifa svar:"
+      conversation_about_listing: ~
+      conversation_with_user: ~
+      conversation_with: ~
+      last_message_at: ~
+      price: ~
+      sum: ~
+      price_excludes_vat: ~
+      total: ~
+    status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
+      cancel_payed_transaction: ~
+      feedback_given: "Umsögn send"
+      feedback_skipped: "Umsögn sleppt"
+      give_feedback: "Gefa umsögn"
+      offer_accepted: Samþykkt
+      offer_rejected: Hafnað
+      offer_canceled: ~
+      offer_confirmed: ~
+      offer_paid: ~
+      offer_preauthorized: ~
+      offer_waiting_for_payment: ~
+      pay: ~
+      preauthorized: ~
+      paid: ~
+      pending_external:
+        paypal:
+          multicurrency: ~
+          verify: ~
+          intl: ~
+      waiting_for_current_user_to_deliver_listing: ~
+      waiting_for_listing_author_to_deliver_listing: ~
+      request_accepted: Samþykkt
+      request_rejected: Hafnað
+      request_confirmed: ~
+      request_canceled: ~
+      request_paid: ~
+      request_preauthorized: ~
+      skip_feedback: "Sleppa umsögn"
+      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_you_to_accept_request: ~
+      waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_you: ~
+      waiting_payment_from_requester: ~
+      waiting_payment_from_you: ~
+      waiting_feedback_from_you: ~
+      pending_external_inbox:
+        paypal:
+          multicurrency: ~
+          intl: ~
+          unknown_reason: ~
+          verify: ~
+    status_link:
+      accept_offer: "Tilboð samþykkt"
+      accept_request: "Beiðni þín var samþykkt"
+      reject_offer: "Ekki að þessu sinni"
+      reject_request: "Ekki að þessu sinni"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
+      confirm: ~
+      cancel: ~
+  braintree_accounts:
+    new:
+      add_payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+      save: ~
+    show:
+      payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+  braintree_payments:
+    edit:
+      new_credit_card_payment: ~
+      payment_receiver: ~
+      cardholder_name: ~
+      credit_card_number: ~
+      cvv: ~
+      credit_card_expiration_date: ~
+      confirm_payment: ~
+      exp: ~
+  preauthorize_payments:
+    edit:
+      confirm_payment: ~
+  community_memberships:
+    access_denied:
+      access_denied: ~
+      you_are_banned_in_this_community: ~
+      contact_page_link: ~
+    new:
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
+      join_community: ~
+      you_can_join: ~
+      you_can_join_email_confirmation: ~
+      you_can_join_email_confirmation_multiple_addresses: ~
+      you_can_join_with_invite_only: ~
+      if_want_to_view_content: ~
+      log_out: ~
+      join_community_button: ~
+  emails:
+    accept_reminder:
+      remember_to_accept_offer: "Muna að samþykkja eða hafna tilboði frá %{sender_name}"
+      remember_to_accept_request: "Muna að samþykkja eða hafna beiðni frá %{sender_name}"
+      you_can_accept_or_reject_offer_at: "Þú getur samþykkt eða hafnað tilboðinu í"
+      you_can_accept_or_reject_request_at: "Þú getur samþykkt eða hafnað beiðni í"
+      you_have_not_yet_accepted_or_rejected_offer: "Þú hefur enn ekki samþykkt eða hafnað tilboðinu %{title} sem þú fékkst þann %{date}"
+      you_have_not_yet_accepted_or_rejected_request: "Þú hefur enn ekki samþykkt eða hafnað beiðninni %{title} sem þú fékkst þann %{date}"
+      show_thread: ~
+    braintree_account_approved:
+      account_ready: ~
+      message: ~
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
+      remember_to_confirm_request: ~
+      if_will_not_happen_you_should_cancel: ~
+      if_will_not_happen_you_should_cancel_escrow: ~
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
+      cancel_it_link_text: ~
+      automatic_confirmation: ~
+    payment_reminder:
+      remember_to_pay: ~
+      you_have_not_yet_paid: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    payment_settings_reminder:
+      remember_to_add_payment_details: ~
+      you_have_added_listing_with_payment: ~
+      please_go_to_payment_settings: ~
+      payment_settings_link: ~
+    transaction_confirmed:
+      here_is_a_message_from: ~
+      request_marked_as_confirmed: ~
+      request_marked_as_canceled: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
+    transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+    booking_transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+    automatically_confirmed_footer:
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
+      show_thread: ~
+    escrow_canceled:
+      subject: ~
+      has_marked_request_as_canceled: ~
+      if_this_was_error: ~
+      please_contant_admin_link: ~
+    confirmation_instructions:
+      confirmation_instructions_signature: ~
+      welcome_to_kassi: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
+      turning_on_confirmations_in_this_community: ~
+    common:
+      check_your_settings: "Athugaðu stillingarnar þínar"
+      hey: "Hæ %{name}"
+      kassi_team: "%{service_name} teymið"
+      thanks: "Takk,"
+      want_to_control_emails: "Viltu stjórna því hvaða tölvupóst þú færð frá %{service_name}?"
+      dont_want_to_receive_these_emails: ~
+      edit_your_email_settings_here: ~
+      message_not_displaying_correctly: ~
+      view_it_in_your_browser: ~
+      or: ~
+      unsubscribe_from_these_emails: ~
+    conversation_status_changed:
+      has_accepted_your_offer: "%{accepter} hefur samþykkt tilboð þitt: %{listing}."
+      has_accepted_your_request: "%{accepter} hefur samþykkt beiðnina þína: %{listing}."
+      has_rejected_your_offer: "%{accepter} hefur hafnað tilboði þínu: %{listing}."
+      has_rejected_your_request: "%{accepter} hefur hafnað beiðni þinni: %{listing}"
+      view_thread: ~
+      your_offer_was_accepted: "Tilboð þitt var samþykkt"
+      your_offer_was_rejected: "Tilboði þínu var hafnað"
+      your_request_was_accepted: "Beiðni þín var samþykkt"
+      your_request_was_rejected: "Beiðni þinni var hafnað"
+      you_can_now_pay_to: ~
+      pay_now: ~
+      remember_to_confirm: ~
+    invitation_to_kassi:
+      hi: ~
+      you_have_been_invited_to_kassi: ~
+      here_is_a_message_from: ~
+      join_now: ~
+      invitation_code: ~
+    new_comment:
+      has_commented_your_listing_in_kassi: ~
+      view_comment: ~
+      you_have_a_new_comment: "%{author} hefur sett inn athugasemd við auglýsinguna þína á %{service_name}"
+      listing_you_follow_has_a_new_comment: ~
+      has_commented_listing_you_follow_in_kassi: ~
+    new_message:
+      view_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} hefur sent þér skilaboð á %{service_name}"
+      you_have_a_new_message: "Ný skilaboð á %{service_name} frá %{sender_name}"
+    new_payment:
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    paypal_new_payment:
+      paypal_gateway_fee: ~
+      shipping_total: ~
+    braintree_new_payment:
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      money_will_be_transferred: ~
+    receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      money_will_be_transferred: ~
+    new_testimonial:
+      has_given_you_feedback_in_kassi: "%{name} hefur gefið þér umsögn á %{service_name}"
+      you_can_give_feedback_to: "Þú hefur enn ekki gefið %{name} umsögn."
+      view_feedback: ~
+    new_update_to_listing:
+      listing_you_follow_has_been_updated: ~
+      has_updated_listing_you_follow_in_kassi: ~
+      view_changes: ~
+    community_updates:
+      added_offer: ~
+      added_request: ~
+      added_listing: ~
+      update_mail_title: ~
+      title_link_text: ~
+      intro_paragraph: ~
+      intro_paragraph_link_text: ~
+      post_a_new_listing: ~
+      reduce_email_footer_text: ~
+      settings_link_text: ~
+      unsubscribe_link_text: ~
+    newsletter:
+      hi: ~
+      newest_offers: ~
+      newest_requests: ~
+      text_version_text: ~
+    reset_password_instructions:
+      change_my_password: ~
+      reset_password_instructions: ~
+    testimonial_reminder:
+      feedback_is_public_and_is_shown: "Umsögn er opinber sem þýðir að allir aðrir notendur geta séð hana. Með umsögn geta aðrir notendur dæmt um það hvort %{name} er áreiðanleg manneskja og hvort þeir vilji eiga samskipti við hann/hana. Þess vegna er alltaf gott að muna að gefa umsögn og minna aðra á að gefa þér umsögn. Þú þarft jákvæða umsögn til að fá sem flest merki."
+      remember_to_give_feedback_to: "Áminning: mundu að gefa %{name} umsögn"
+      you_have_not_given_feedback_yet: "Þú hefur enn ekki gefið %{name} umsögn vegna '%{event}'. Mundu að gefa umsögn um það hvernig %{given_name} stóð sig."
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_time_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
+    welcome_email:
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
+      p_s_did_you_know: ~
+      click_here_link_text: ~
+      welcome_email_footer_text: ~
+      settings_link_text: ~
+      welcome_email_subject_for_marketplace_creator: ~
+      welcome_to_marketplace_creator: ~
+      congrats_for_creating_your_marketplace: ~
+      here_is_your_account_information: ~
+      your_email_address: ~
+      your_marketplace_address: ~
+      your_marketplace_admin_area: ~
+      just_follow_details: ~
+      we_will_guide_you_along_the_way: ~
+      are_you_new_to_online_marketplaces: ~
+      have_questions: ~
+      our_happiness_team_is_here_to_help: ~
+      love: ~
+      sharetribe_crew: ~
+      knowledge_base_link_text: ~
+      contact_support_link_text: ~
+      admin_panel_link_text: ~
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+  error_messages:
+    listings:
+      departure_time: "Tíminn þarf að vera einhvers staðar á bilinu núna og næsta árið."
+      share_type: "Þú verður að velja eitthvað."
+      valid_until: "Þessi dagsetning þarf að vera einhvers staðar á bilinu núna og næstu 6 mánuði."
+      price: ~
+      minimum_price: ~
+    testimonials:
+      you_must_explain_not_neutral_feedback: "Ef þú vilt ekki gefa umsögn, útskýrðu af hverju."
+      you_must_select_a_grade: "Mundu að segja af hverju reynsla þín var jákvæð eða neikvæð."
+    transaction_agreement:
+      required_error: ~
+    paypal:
+      pending_review_error: ~
+      generic_error: ~
+      cancel_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
+  error_pages:
+    back_to_kassi_front_page: "Aftur á forsíðu"
+    error_404:
+      if_you_believe: "Ef þú heldur að vefslóðin sé rétt og ætti að virka, vinsamlegast hjálpaðu okkur að finna villuna með því að senda okkur hvaða slóð olli villunni og hvað ætti að sjást á síðunni."
+      page_can_not_be_found: "Síða fannst ekki!"
+      page_you_requested_can_not_be_found: "Síðan sem þú óskaðir eftir fannst ekki. Ertu viss um að þú slóst inn rétta vefslóð?"
+    error_404_title: "síða fannst ekki"
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
+    error_500:
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
+    error_500_title: "mistókst að hlaða síðu"
+    error_description: "Lýsing á villu"
+    no_javascript:
+      javascript_is_disabled_in_your_browser: "Javascript er óvirkt í vafranum þínum"
+      kassi_does_not_currently_work_without_javascript: "%{service_name} virkar ekki almennilega án javascript. Reyndu að virkja javascript undir stillingum í vafranum þínum og endurhlaða svo þessa síðu."
+      contact_us: ~
+      send_feedback: "Sendu umsögn"
+      your_feedback_to_admins: "Þín umsögn til stjórnenda síðunnar"
+    send: Senda
+    your_email_address: "Netfangið þitt"
+  errors:
+    messages:
+      invalid_date: ~
+      invalid_time: ~
+      invalid_datetime: ~
+      is_at: ~
+      before: ~
+      on_or_before: ~
+      after: ~
+      on_or_after: ~
+      positive_number: ~
+  event_feed_events:
+    accept:
+      has_accepted_lend_item: ~
+      has_accepted_borrow_item: ~
+      has_accepted_rent_out_item: ~
+      has_accepted_rent_item: ~
+      has_accepted_give_away_item: ~
+      has_accepted_receive_item: ~
+      has_accepted_sell_item: ~
+      has_accepted_buy_item: ~
+      has_accepted_trade_item: ~
+      has_accepted_sell_housing: ~
+      has_accepted_buy_housing: ~
+      has_accepted_rent_out_housing: ~
+      has_accepted_rent_housing: ~
+      has_accepted_favor: ~
+      has_accepted_rideshare: ~
+    join:
+      joined_kassi: ~
+    login:
+      logged_in_to_kassi: ~
+    comment:
+      commented: ~
+      offer_partitive: ~
+      request_partitive: ~
+  header:
+    about: "Um okkur"
+    home: Heim
+    members: ~
+    new_listing: ~
+    mobile_version: "Farsíma útgáfa"
+    offers: Tilboð
+    requests: Beiðnir
+    search_kassi: "Leita %{service_name}"
+    create_new_marketplace: ~
+    contact_us: ~
+    profile: ~
+    invite: ~
+    login: ~
+    signup: ~
+    menu: ~
+  homepage:
+    additional_private_listings_slate:
+      additionally_one_private_offer_exists: "Auk þess er <b>eitt annað tilboð</b>,"
+      additionally_one_private_request_exists: "Auk þess er <b>ein önnur beiðni</b>,"
+      additionally_some_private_offers_exist: "Auk þess eru <b>%{number_of_listings} önnur tilboð</b>,"
+      additionally_some_private_requests_exist: "Auk þess eru <b>%{number_of_listings} aðrar beiðnir</b>,"
+    blank_slate:
+      add_first: "Bættu við!"
+      but_that_is_visible_only_to_registered_members: "en það er einungis sjáanlegt fyrir skráða meðlimi."
+      but_those_are_visible_only_to_registered_members: "en það er einungis sjáanlegt fyrir skráða meðlimi."
+      create_new_account_for_yourself: "Búðu til nýjan aðgang"
+      examples_of_what_you_could_offer_to_others: "Hvað hluti hefuru upp á að bjóða"
+      examples_of_what_you_could_request_to_others: "Hverju viltu óska eftir"
+      favor_offer_list: "tölvuaðstoð, fatabreytingar, bakstur, hjólaviðgerðir"
+      favor_request_list: "barnapössun, píanó tímar, út að labba með hundinn, slá garðinn"
+      favors_to_offer: "Hjálp: "
+      favors_to_request: "Hjálp: "
+      item_offer_list: "verkfæri, íþróttadót, grímubúningar, útilegudót"
+      item_request_list: "verkfæri, íþróttadót, grímubúningar, útilegudót"
+      items_to_offer: "Vörur til að leigja út: "
+      items_to_request: "Vörur til að fá leigðar: "
+      log_in: innskrá
+      no_offers_visible_unless_logged_in: "Engir hlutir, þjónusta eða önnur tilboð eru sýnileg fyrir aðra en notendur."
+      no_open_offers_currently: "Engin opin tilboð á hlutum, þjónustu eða öðru."
+      no_open_requests_currently: "Engar óskir eftir hlutum, þjónustu eða öðru."
+      no_requests_visible_unless_logged_in: "Engar óskir eftir hlutum, þjónustu eða öðru eru sýnileg fyrir aðra en notendur."
+      one_private_offer_exists: "Það er <b>eitt tilboð</b> nú þegar,"
+      one_private_request_exists: "Það er <b>ein beiðni</b> nú þegar,"
+      ride_offer: "Fara með börn annarra í tómstundirnar"
+      ride_request: "Far í vinnuna"
+      some_private_offers_exist: "Það eru <b>%{number_of_listings} tilboð</b> nú þegar,"
+      some_private_requests_exist: "Það eru <b>%{number_of_listings} beiðnir</b> nú þegar,"
+    custom_filters:
+      update_view: ~
+      min: ~
+      max: ~
+    event_feed:
+      latest_events: ~
+    grid_item:
+      processing_uploaded_image: ~
+    index:
+      no_listings_with_your_search_criteria: ~
+      no_listings_notification: ~
+      add_listing_link_text: ~
+      open_listing: ~
+      open_listings: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
+      what_do_you_need: ~
+      post_new_listing: ~
+      are_offering: tilboð
+      add_news_item: ~
+      lend_rent_help_carpool: "Selja, lána, hjálpa, deila fari"
+      loading_more_content: Hleð...
+      more_events: "Fleiri hlutir..."
+      news: Fréttir
+      no_news: ~
+      more_news: ~
+      or: og
+      or_see_what_the_others: "...eða sjá hvað aðrir"
+      recent_events: "Nýlegir hlutir"
+      requesting: þarf
+      tell_it_here: "Segðu frá því hérna!"
+      welcome_to_new_kassi: "Velkomin/nn á %{service_name}!"
+      no_reviews: ~
+      no_image: ~
+      filter: ~
+      this_is_private_community: ~
+    invitation_form:
+      email: ~
+      message: ~
+      send_invitation: ~
+      add_as_many_emails_as_you_want: ~
+      invitation_emails_field_placeholder: ~
+      invitation_message_field_placeholder: ~
+      errors_in_emails: ~
+    list_item:
+      review: ~
+      reviews: ~
+    news_item:
+      show_less: ~
+      show_more: ~
+    profile_info_empty_notification:
+      add_your_info: ~
+      add_a_profile_picture: ~
+      you_have_not_added_your_info: ~
+      add_your_info_link: ~
+    recent_listing:
+      please_offer: Tilboð
+      comment: ~
+      comments: ~
+    filters:
+      show: ~
+      search: ~
+      map: ~
+      list: ~
+      map_button: ~
+      grid_button: ~
+      list_button: ~
+      all_listing_types: ~
+      all_categories: ~
+  infos:
+    about:
+      default_about_text_title: ~
+      default_about_text: ~
+      click_here_link_text: ~
+    how_to_use:
+      default_title: ~
+      default_content: ~
+  layouts:
+    admin:
+      admin: "%{service_name} Stjórnborð"
+    no_tribe:
+      inbox: ~
+      settings: ~
+      feedback: ~
+    application:
+      join_this_community: ~
+      read_more: ~
+      feedback: "Hvað liggur þér á hjarta?"
+      default_feedback: "Þurftiru að glíma við einhver vandamál með %{service_name}? Ertu með einhverjar ráðleggingar til að bæta þjónustuna? Tókstu eftir einhverju tortryggilegu efni? Eða ertu með eitthvað annað til að ræða? Láttu okkur vita!"
+      feedback_forum: "umsagnar forum"
+      feedback_handle: Umsögn
+      give_feedback: "Hafðu samband"
+      or_check_our: "...eða skoðaðu"
+      send_feedback_to_admin: "Gefðu þitt álit"
+      to_see_what_others_have_suggested: "til að sjá hvað aðrir hafa mælt með og kjósa hugmyndir þar."
+      your_email_address: "Þitt netfang (til að hafa samband)"
+      connect: ~
+      invite_your_friends: ~
+      invite_your_neighbors: ~
+      invite_your_friends_description: ~
+      invite_your_friends_invite_only_description: ~
+      join_without_facebook: ~
+      join_without_facebook_link: ~
+    conversations:
+      messages: Skilaboð
+      notifications: Tilkynningar
+      received: "Skilaboð móttekin"
+      sent: "Skilaboð send"
+    global-header:
+      select_language: ~
+    infos:
+      about: "Um okkur"
+      how_to_use: "Hvernig það virkar"
+      info_about_kassi: "Upplýsingar um %{service_name}"
+      news: ~
+      register_details: Öryggi
+      terms: Notendaskilmálar
+    logged_in:
+      admin: Stjórnandi
+      go_to_your_profile_page: "Síðan mín"
+      hi: Hæ
+      login: Innskráning
+      logout: Útskráning
+      notifications: Tilkynningar
+      requests: Vinabeiðni
+      settings: Stillingar
+      sign_up: "Búa til aðgang"
+    logged_in_messages_icon:
+      messages: Skilaboð
+    logged_in_notifications_icon:
+      notifications: Tilkynningar
+    mobile_logged_in:
+      admin: Stjórnandi
+      go_to_your_profile_page: "Síðan mín"
+      hi: Hæ
+      login: Innskráning
+      logout: Útskráning
+      notifications: Tilkynningar
+      requests: Vinabeiðni
+      settings: ~
+      sign_up: Nýskráning
+    notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
+      test_welcome_email_delivered_to: ~
+      something_went_wrong: ~
+      community_updated: ~
+      community_update_failed: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      comment_cannot_be_empty: "Athugasemd getur ekki verið skilin eftir auð"
+      comment_sent: "Athugasemd send"
+      confirmation_link_is_wrong_or_used: ~
+      additional_email_confirmed: ~
+      could_not_get_email_from_facebook: ~
+      create_new_listing: ~
+      create_one_here: "búðu til eina hérna"
+      email_confirmation_sent_to_new_address: ~
+      email_not_found: "Netfangið sem þú gafst upp fannst ekki í gagnagrunni %{service_name}."
+      error_with_session: Villa.
+      feedback_considered_spam: "Umsögn var ekki vistuð vegna gruns um ruslpóst. Reyndu aftur eða breyttu sniðinu."
+      feedback_not_saved: "Umsögn var ekki send."
+      feedback_saved: "Takk kærlega fyrir umsögnina! Við munum svara þér eins fljótt og við getum."
+      feedback_sent_to: "Amusing send til %{target_person}."
+      feedback_skipped: "Umsögn sleppt"
+      invitation_cannot_be_sent: ~
+      invitation_sent: ~
+      inviting_new_users_is_not_allowed_in_this_community: ~
+      login_again: "Vinsamlegast, skráðu þig inn aftur."
+      login_failed: "Innskráning mistókst. Vinsamlegast skráðu inn réttar upplýsingar."
+      account_creation_successful: ~
+      account_deleted: ~
+      login_successful: "Velkomin/nn %{person_name}!"
+      logout_successful: "Þú hefur skráð þig út af %{service_name}. Sjáumst bráðlega aftur!"
+      news_item_created: ~
+      news_item_creation_failed: ~
+      news_item_update_failed: ~
+      news_item_updated: ~
+      news_item_deleted: ~
+      offer_accepted: "Tilboðið var samþykkt"
+      offer_confirmed: ~
+      offer_closed: "Tilboð hefur runnið út"
+      listing_created_successfully: ~
+      offer_rejected: "Tilboð var hafnað"
+      offer_canceled: ~
+      listing_updated_successfully: ~
+      only_kassi_administrators_can_access_this_area: "Einungis stjórnendur %{service_name} hafa aðgang að þessu svæði"
+      only_listing_author_can_close_a_listing: "Notandi sem skráir auglýsingu er eini sem getur eytt henni"
+      only_listing_author_can_edit_a_listing: "Notandi sem skráir auglýsingu er eini sem getur breytt henni"
+      payment_successful: ~
+      payment_canceled: ~
+      error_in_payment: ~
+      cannot_receive_payment: ~
+      payment_waiting_for_later_accomplishment: ~
+      password_recovery_sent: "Leiðbeiningar til að breyta lykilorði hafa verið sendar á netfangið þitt."
+      person_activated: ~
+      person_deactivated: ~
+      person_updated_successfully: "Upplýsingar voru uppfærðar"
+      poll_answered: ~
+      poll_could_not_be_answered: ~
+      poll_created: ~
+      poll_creation_failed: ~
+      poll_update_failed: ~
+      poll_updated: ~
+      poll_deleted: ~
+      read_more: "Lestu meira!"
+      registration_considered_spam: ~
+      reply_cannot_be_empty: "Þú getur ekki sent tóm skilaboð"
+      reply_sent: "Skilaboðum hefur verið svarað"
+      request_accepted: "Beiðni samþykkt"
+      request_confirmed: ~
+      request_closed: "Beiðni hefur verið lokað"
+      request_rejected: "Beiðni var hafnað"
+      request_canceled: ~
+      message_sent: ~
+      this_content_is_not_available_in_this_community: ~
+      unknown_error: "Óvænt villa kom upp. Vinsamlegast hafðu samband og láttu okkur vita hvað gerðist."
+      update_error: "Villa kom upp, vinsamlegast reyndu aftur"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Þú hefur ekki heimild til að gefa þessa umsögn"
+      you_are_not_authorized_to_do_this: "Þú hefur ekki heimild til að gera þetta"
+      you_are_not_authorized_to_view_this_content: "Þú hefur ekki heimild til að skoða þetta"
+      send_instructions: ~
+      you_cannot_reply_to_a_closed_offer: "Þú getur ekki svarað auglýsingum sem hafa lokað"
+      you_cannot_reply_to_a_closed_request: "Þú getur ekki svarað beiðnum sem hafa lokað"
+      you_cannot_send_message_to_yourself: ~
+      you_followed_listing: ~
+      you_have_already_given_feedback_about_this_event: "Þú hefur gefið umsögn á þetta nú þegar"
+      you_are_now_member: ~
+      you_are_already_member: ~
+      you_must_log_in_to_create_new_listing: ~
+      additional_email_confirmed_dashboard: ~
+      you_must_log_in_to_give_feedback: "Þú verður að skrá þig inn til að gefa umsögn"
+      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_send_a_comment: "Þú verður að skrá þig inn til að senda athugasemd"
+      you_must_log_in_to_send_a_message: "Þú verður að skrá þig inn á %{service_name} til að senda athugasemd á annan notanda."
+      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_view_this_content: "Þú verður að skrá þig inn til að sjá þetta"
+      you_must_log_in_to_view_this_page: ~
+      you_must_log_in_to_view_your_inbox: "Þú verður að skrá þig inn á %{service_name} til að skoða pósthólfið þitt."
+      you_must_log_in_to_view_your_settings: "Þú verður að skrá þig inn á %{service_name} til að skoða stillingarnar þínar."
+      you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
+      you_need_to_confirm_your_account_first: ~
+      you_must_fill_all_the_fields: ~
+      you_unfollowed_listing: ~
+      joining_community_failed: ~
+      can_not_login_with_private_user: ~
+      can_not_delete_email: ~
+      user_does_not_have_email_to_delete: ~
+      email_deleted: ~
+      payment_details_add_successful: ~
+      payment_details_add_error: ~
+      listing_author_payment_details_missing: ~
+      stylesheet_needs_recompiling: ~
+    settings:
+      account: Aðgangur
+      notifications: Tilkynningar
+      profile: "Síðan mín"
+      settings: Stillingar
+      payments: ~
+  listings:
+    bubble_listing_not_visible:
+      listing_not_visible: ~
+    comment:
+      wrote: ~
+      send_private_message: ~
+    comment_form:
+      ask_a_question: ~
+      log_in: innskráning
+      send_comment: "Senda athugasemd"
+      to_send_a_comment: "til að senda nýja athugasemd."
+      write_comment: "Skrifaðu nýja athugasemd:"
+      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_must: "Þú verður"
+      subscribe_to_comments: ~
+    edit:
+      edit_listing: ~
+    edit_links:
+      close_listing: ~
+      edit_listing: ~
+      reopen_listing: ~
+      move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
+    error:
+      something_went_wrong: ~
+    follow_links:
+      follow: ~
+      unfollow: ~
+    form:
+      custom_field_partials:
+        dropdown:
+          select_one___: ~
+      departure_time:
+        at: Klukkan
+        departure_time: Brottfarartími
+      departure_time_radio_buttons:
+        repeated: ~
+      description:
+        detailed_description: "Nákvæm lýsing"
+      destination:
+        destination: Áfangastaður
+      form_content:
+        favor: þjónusta
+        housing: pláss
+        item: hlutur
+        offer_something: "Bjóða upp á eitthvað"
+        request_something: "Óska eftir einhverju"
+        rideshare: far
+        i_want_to_offer: ~
+        i_want_to_request: ~
+      googlemap:
+        googlemap_copy: "Áfangastaður á korti"
+        googlemap_description: "Sjá á korti"
+        googlemap_updatemap: "Uppfæra kort"
+      images:
+        image: Mynd
+        no_file_selected: "Engin skrá valin"
+        remove_image: "Fjarlægja mynd"
+        select_file: "Velja mynd"
+        removing: ~
+        processing: ~
+        loading_image: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
+        file_too_large: ~
+        accepted_formats: ~
+      location:
+        location: Staðsetning
+      price:
+        price: ~
+        per: ~
+        per_day: ~
+        mass: ~
+        time: ~
+        long_time: ~
+        after_service_fee_you_will_get: ~
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        paypal_fee_info_link_text: ~
+        after_service_fee_you_will_get_vat: ~
+        price_excludes_vat: ~
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        shipping_price_additional: ~
+        pickup: ~
+      origin:
+        location: Staðsetning
+        origin: Uppruni
+      send_button:
+        save_listing: ~
+      share_type:
+        select: ~
+        borrow: "Fá lánað"
+        buy: Kaupa
+        give_away: Gefa
+        lend: Lána
+        offer_type: "Tegund auglýsingar"
+        receive: Samþykkja
+        rent: Leigja
+        rent_out: "Leigja út"
+        request_type: "Tegund beiðni"
+        sell: Selja
+        share_for_free: ~
+        accept_for_free: ~
+        trade: Skipti
+      tag_list:
+        comma_separate: "(aðskilja með kommu)"
+        tags: Merkimiði
+      title:
+        listing_title: ~
+      valid_until:
+        valid_until: Gildistími
+      valid_until_radio_buttons:
+        for_the_time_being: "Í augnablikinu"
+      visibility:
+        all_communities: ~
+        this_community: "Einungis meðlimir %{service_name}"
+        visibility: Sýnileiki
+      privacy:
+        privacy: ~
+        private: ~
+        public: ~
+    help_texts:
+      help_share_type_title: "Tegund auglýsinga eða beiðni"
+      help_tags_title: Merkimiði
+      help_valid_until_title: Gildistími
+    index:
+      all_categories: "Allir flokkar"
+      all_offer_types: "Allar tegundir auglýsinga"
+      all_request_types: "Allar tegundir beiðna"
+      category: Flokkur
+      did_not_found_what_you_were_looking_for: "Fannstu ekki það sem þig vantaði?"
+      favors: Þjónusta
+      housing: Pláss
+      items: Hlutir
+      list_view: "Sýna sem lista"
+      listings: ~
+      map_view: "Sýna á korti"
+      offer_something: "Láttu aðra vita!"
+      offer_type: "Tegund auglýsingar"
+      offers: Auglýsingar
+      request_something: "Óskaðu eftir einhverju!"
+      request_type: "Tegund beiðni"
+      requests: Beiðnir
+      rideshare: Far
+      search_verb: Leit
+      you_have_something_others_do_not: "Hvað hefuru upp á að bjóða?"
+      feed_title: ~
+    left_panel_link:
+      borrows: "Fá lánað"
+      buys: Kaupa
+      favors: Þjónusta
+      give_aways: Gefa
+      housings: Pláss
+      items: Hlutir
+      lends: Lána
+      receives: "Fá gefins"
+      rent_outs: "Leigja út"
+      rents: Leigja
+      rideshares: Far
+      sells: Selja
+      share_for_frees: ~
+      accept_for_frees: ~
+      trades: Skipti
+    listing_actions:
+      booking_from: ~
+      booking_to: ~
+      how_paypal_works: ~
+    new:
+      post_a_new_listing: ~
+      listing: ~
+      selected_category: ~
+      selected_subcategory: ~
+      selected_transaction_type: ~
+      select_category: ~
+      select_subcategory: ~
+      select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
+      payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      custom: ~
+    quantity_placeholder: ~
+    please_comment: Athugasemd
+    reply_link:
+      listing_closed: ~
+    show:
+      add_your_phone_number: ~
+      add_profile_picture: ~
+      comments: "Almennar umræður"
+      contact_by_phone: ~
+      contact: ~
+      favor_offer: "Bjóða þjónustu"
+      favor_request: "Óska eftir þjónustu"
+      inquiry: ~
+      item_offer_trade: ~
+      item_request_trade: ~
+      no_description: "Engin lýsing"
+      no_image: ~
+      no_reviews: ~
+      offer: Tilboð
+      listing_created: ~
+      open_until: ~
+      feedback: ~
+      qr_code: ~
+      request: Beiðni
+      rideshare_offer: "Bjóða far"
+      rideshare_request: "Biðja um far"
+      send_private_message: ~
+      share_types: Tegund
+      share_types_offer: "Tegund auglýsingar"
+      share_types_request: "Tegund beiðni"
+      tags: Merkimiði
+      time: tími
+      times: tímar
+      times_viewed: Skoðað
+      processing_uploaded_image: ~
+      price_excludes_vat: ~
+      listing_created_at: ~
+      price:
+        per_quantity_unit: ~
+        per_day: ~
+      delivery: ~
+      shipping: ~
+      shipping_no_price: ~
+      shipping_price_additional: ~
+      pickup: ~
+      pickup_no_price: ~
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+    verification_required:
+      verification_required: ~
+  listing_conversations:
+    preauthorize:
+      details: ~
+      by: ~
+      payment: ~
+      exp: ~
+      you_will_be_charged: ~
+      day: ~
+      days: ~
+    transaction_agreement_checkbox:
+      read_more: ~
+  mapview:
+    index:
+      all_categories: "Allir flokkar"
+      all_offer_types: "Allar tegundir auglýsinga"
+      all_request_types: "Allar tegundir beiðna"
+      category: Flokkur
+      did_not_found_what_you_were_looking_for: "Fannstu ekki það sem þig vantaði?"
+      favors: Þjónusta
+      housing: Pláss
+      items: Hlutir
+      list_view: "Sýna sem lista"
+      map_view: "Sýna á korti"
+      offer_something: "Láttu aðra vita!"
+      offer_type: "Tegund auglýsingar"
+      offers: Auglýsingar
+      request_something: "Óskaðu eftir einhverju!"
+      request_type: "Tegund beiðni"
+      requests: Beiðnir
+      rideshare: Far
+      search_verb: Leita
+      you_have_something_others_do_not: "Hvað hefuru upp á að bjóða?"
+    please_comment: Athugasemd
+  mercury:
+    content_too_long: ~
+  okl:
+    member_id: ~
+    member_id_or_email: ~
+  payments:
+    new:
+      new_payment: ~
+      continue: ~
+      payment_receiver: ~
+      sum: ~
+    form:
+      total: ~
+      service_charge: ~
+      product: ~
+      price: ~
+      price_for: ~
+      continue_to_pay: ~
+      invoice: ~
+      service_fee: ~
+      you_will_get: ~
+    braintree:
+      terms:
+        braintree_terms_also_included: ~
+        terms_link_text: ~
+  paypal_accounts:
+    payout_info_title: ~
+    paypal_account_email_connected: ~
+    paypal_billing_agreement_made: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    connected_account: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
+    new:
+      payout_info_you_need_to_connect: ~
+      payout_info_text: ~
+      contact_admin_link_text: ~
+      admin_account_not_connected: ~
+      paypal_account_email: ~
+      paypal_account_email_placeholder: ~
+      paypal_account_email_info_text: ~
+      create_paypal_account: ~
+      upgrade_paypal_account: ~
+      connect_paypal_account: ~
+      paypal_account_billing_agreement: ~
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_info_link_text: ~
+      billing_agreement_description: ~
+      billing_agreement: ~
+      permissions_not_granted: ~
+      could_not_fetch_redirect_url: ~
+      paypal_not_enabled: ~
+      billing_agreement_canceled: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
+      something_went_wrong: ~
+      account_not_verified: ~
+      account_restricted: ~
+  paypal:
+    pay_with_paypal: ~
+    checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
+  people:
+    edit_links:
+      activate: ~
+      deactivate: ~
+    help_texts:
+      feedback_description_title: Umsögn
+      help_captcha_title: ~
+      help_invitation_code_title: ~
+      terms_title: ~
+      invite_only_help_text: ~
+      invite_only_help_text_title: ~
+    inactive_notification:
+      this_person_is_not_active_in_kassi: ~
+      inactive_description: ~
+    new:
+      captcha_incorrect: ~
+      captcha_was_wrong: ~
+      create_new_account: ~
+      email: ~
+      email_is_in_use: ~
+      email_is_in_use_or_not_allowed: ~
+      email_not_allowed: ~
+      enter_captcha: ~
+      family_name: ~
+      given_name: ~
+      i_accept_the: ~
+      invalid_invitation_code: ~
+      invitation_code: ~
+      not_required: ~
+      organization_name: ~
+      password_again: ~
+      show_my_name_to_others: ~
+      sign_up: ~
+      terms: ~
+      username_is_in_use: ~
+      username_is_invalid: ~
+      visible_only_to_you: ~
+      visible_to_everybody: ~
+      create_account_with_facebook: ~
+      OR: ~
+      signup_with_email: ~
+    not_member:
+      explanation_text: ~
+      read_more_about_kassi_communities: ~
+      this_user_does_not_belong_to_this_community: ~
+    profile_feedback:
+      as_expected: ~
+      exceeded_expectations: ~
+      grade: ~
+      and_gave_following_feedback: ~
+      less_than_expected: ~
+      slightly_better_than_expected: ~
+      slightly_less_than_expected: ~
+    profile_listings:
+      show_also_closed: ~
+      show_only_open: ~
+      no_image: ~
+    show:
+      contact: ~
+      about_me: ~
+      add_description: ~
+      add_location: ~
+      add_phone_number: ~
+      address: ~
+      as_expected: ~
+      edit_profile_info: ~
+      exceeded_expectations: ~
+      positive: ~
+      hide_description: ~
+      less_than_expected: ~
+      phone_number: ~
+      show_all_feedback: ~
+      show_all_testimonials: ~
+      show_full_description: ~
+      slightly_better_than_expected: ~
+      slightly_less_than_expected: ~
+      what_are_these: ~
+      review: ~
+      reviews: ~
+      listing: ~
+      listings: ~
+      open_listing: ~
+      open_listings: ~
+      no_listings: ~
+      no_open_listings: ~
+      no_reviews: ~
+      show_all_listings: ~
+      show_all_open_listings: ~
+      show_all_reviews: ~
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
+  search:
+    show:
+      all_results: ~
+      loading_more_search_results: ~
+      offers: ~
+      requests: ~
+      search: ~
+      search_results: ~
+      search_returned_no_results: ~
+      search_verb: ~
+  sessions:
+    new:
+      create_new_account: ~
+      i_forgot_my_password: ~
+      login: ~
+      login_to_kassi: ~
+      connect_your_facebook_to_kassi: ~
+      facebook_account: ~
+      log_in_to_link_account: ~
+      you_can_also_create_new_account: ~
+      account_creation_link_text: ~
+      cancle_facebook_connect: ~
+      facebook_cancel_link_text: ~
+      log_in_with_your_facebook_account: ~
+      or_sign_up_with_your_username: ~
+      we_will_not_post_without_asking_you: ~
+    password_forgotten:
+      email: ~
+      password_recovery_instructions: ~
+      request_new_password: ~
+      change_your_password: ~
+    confirmation_pending:
+      welcome_to_kassi: ~
+      check_your_email: ~
+      resend_confirmation_instructions: ~
+      your_current_email_is: ~
+      change_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_title_admin: ~
+      your_marketplace_has_now_been_created: ~
+      account_confirmation_instructions_admin: ~
+  settings:
+    account:
+      change: ~
+      confirm_new_password: ~
+      delete_account: ~
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
+      email_addresses: ~
+      new_email: ~
+      delete_all_memberships: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
+      new_password: ~
+      save: ~
+      these_fields_are_shown_only_to_you: ~
+      email_already_confirmed: ~
+      email:
+        address_title: ~
+        remove_title: ~
+        remove_confirmation: ~
+        receive_notifications_title_desktop: ~
+        receive_notifications_title_mobile: ~
+        receive_notifications_new_title_mobile: ~
+        add_new_with_plus: ~
+        add_new_cancel: ~
+        confirmation_title_mobile: ~
+        confirmation_title_desktop: ~
+        confirmation_resend: ~
+        status_confirmed: ~
+        status_pending: ~
+    notifications:
+      email_from_admins: ~
+      i_want_to_get_email_notification_when: ~
+      newsletters: ~
+      community_updates: ~
+      email_about_accept_reminders: ~
+      email_about_confirm_reminders: ~
+      email_about_new_comments_to_own_listing: ~
+      email_about_new_messages: ~
+      email_about_new_received_testimonials: ~
+      email_about_testimonial_reminders: ~
+      email_daily_community_updates: ~
+      email_weekly_community_updates: ~
+      do_not_email_community_updates: ~
+      email_when_conversation_accepted: ~
+      email_when_conversation_rejected: ~
+      email_about_completed_transactions: ~
+      email_about_new_payments: ~
+      email_about_payment_reminders: ~
+      email_about_new_listings_by_followed_people: ~
+      unsubscribe_succesful: ~
+      unsubscribe_info_text: ~
+      settings_link: ~
+      homepage_link: ~
+      unsubscribe_unsuccesful: ~
+      unsuccessful_unsubscribe_info_text: ~
+    profile:
+      about_you: ~
+      city: ~
+      family_name: ~
+      given_name: ~
+      first_name_with_initial: ~
+      first_name_only: ~
+      location_description: ~
+      phone_number: ~
+      profile_picture: ~
+      postal_code: ~
+      profile_page: ~
+      profilemap: ~
+      street_address: ~
+      these_fields_are_shown_in_your: ~
+      visible_to_everybody: ~
+      visible_to_registered_users: ~
+      default_in_listing: ~
+      invisible: ~
+      image_is_processing: ~
+    save_information: ~
+  shipping_address:
+    shipping_address: ~
+  tag_cloud:
+    tag_used:
+      with_tag: ~
+      without_tag: ~
+  terms:
+    show:
+      accept_terms: ~
+      here: ~
+      i_accept_new_terms: ~
+      i_accept_terms: ~
+      terms: ~
+      terms_have_changed: ~
+      you_can_view_the_new_terms: ~
+      you_need_to_accept: ~
+      you_need_to_accept_new_terms: ~
+  testimonials:
+    index:
+      all_testimonials: ~
+      feedback_altogether: ~
+      loading_more_testimonials: ~
+      no_testimonials: ~
+    new:
+      as_expected: ~
+      exceeded_expectations: ~
+      give_feedback_to: ~
+      grade: ~
+      less_than_expected: ~
+      send_feedback: ~
+      slightly_better_than_expected: ~
+      slightly_less_than_expected: ~
+      textual_feedback: ~
+      this_will_be_shown_in_profile: ~
+      positive: ~
+      negative: ~
+      default_textual_feedback: ~
+    testimonial:
+      about_listing: ~
+  date:
+    formats:
+      long_with_abbr_day_name: ~
+  datepicker:
+    days:
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
+    days_short:
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
+    days_min:
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
+    months:
+      january: ~
+      february: ~
+      march: ~
+      april: ~
+      may: ~
+      june: ~
+      july: ~
+      august: ~
+      september: ~
+      october: ~
+      november: ~
+      december: ~
+    months_short:
+      january: ~
+      february: ~
+      march: ~
+      april: ~
+      may: ~
+      june: ~
+      july: ~
+      august: ~
+      september: ~
+      october: ~
+      november: ~
+      december: ~
+    today: ~
+    clear: ~
+    format: ~
+  time:
+    formats:
+      short: ~
+      shorter: ~
+      short_date: ~
+      sms: ~
+  timestamps:
+    day_ago: ~
+    days_ago: ~
+    hour_ago: ~
+    hours_ago: ~
+    minute_ago: ~
+    minutes_ago: ~
+    month_ago: ~
+    months_ago: ~
+    seconds_ago: ~
+    year_ago: ~
+    years_ago: ~
+  transactions:
+    initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
+      subtotal: ~
+      shipping-price: ~
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
+  unit:
+    day: ~
+    days: ~
+  will_paginate:
+    previous_label: ~
+    next_label: ~
+    page_gap: ~
+    page_entries_info:
+      multi_page: ~
+      multi_page_html: ~

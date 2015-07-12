@@ -13,6 +13,10 @@ window.ST.paymentMath = (function() {
     return parseFloat(value.replace(',', '.'));
   }
 
+  function parseSubunitFloatFromFieldValue(value, subunit_to_unit) {
+    return parseFloatFromFieldValue(value) * subunit_to_unit;
+  }
+
   function displayMoney(sum) {
     return typeof sum === "number" && !isNaN(sum) ? sum.toFixed(2) : "-";
   }
@@ -25,6 +29,7 @@ window.ST.paymentMath = (function() {
 
   return {
     parseFloatFromFieldValue: parseFloatFromFieldValue,
+    parseSubunitFloatFromFieldValue: parseSubunitFloatFromFieldValue,
     displayMoney: displayMoney,
     totalCommission: totalCommission
   };

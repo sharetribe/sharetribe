@@ -1,8 +1,9 @@
 class FollowedPeopleController < ApplicationController
 
-  before_filter :person_belongs_to_current_community
-
   def index
+    @person = Person.find(params[:person_id] || params[:id])
+    PersonViewUtils.ensure_person_belongs_to_community!(@person, @current_community)
+
     @followed_people = @person.followed_people
     respond_to do |format|
       format.js { render :partial => "people/followed_person", :collection => @followed_people, :as => :person }

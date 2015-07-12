@@ -3,21 +3,51 @@ require 'spec_helper'
 require_relative 'test_events'
 
 describe PaypalService::IPN do
+
+  AccountStore = PaypalService::Store::PaypalAccount
+
   before(:each) do
     @events = PaypalService::TestEvents.new
 
     @ipn_service = PaypalService::IPN.new(@events)
 
+    @billing_agreement_created = {
+      :type=>:billing_agreement_created,
+      :billing_agreement_id=>"B-80N6310848330024M",
+      :payer_id=>"P6S3ZMLQ25AYU",
+      :payer_email=>"dev+paypal_us@sharetribe.com",
+      :payer_status=>"verified"
+    }
+
+    @billing_agreement_cancelled = {
+      type: :billing_agreement_cancelled,
+      payer_email: "dev+paypal_us@sharetribe.com",
+      payer_id: "payer_id_1",
+      billing_agreement_id: "bagrid"
+    }
+
     @order = {
-      order_total: 100,
       community_id: 1,
       transaction_id: 1,
       payer_id: "7LFUVCDKGARH4",
       receiver_id: "URAPMR7WHFAWY",
+      merchant_id: "asdfasdf",
       pending_reason: "order",
       order_id: "O-2ES620817J8424036",
       order_date: Time.now,
       order_total: Money.new(1000, "GBP")
+    }
+
+    @authorization = {
+      community_id: 1,
+      transaction_id: 2,
+      payer_id: "7LFUVCDKGARH4",
+      receiver_id: "URAPMR7WHFAWY",
+      merchant_id: "asdfasdf",
+      pending_reason: "authorization",
+      authorization_id: "O-2ES620817J8424038",
+      authorzation_date: Time.now,
+      authorization_total: Money.new(1000, "GBP")
     }
 
     @auth_created_msg = {
@@ -35,6 +65,30 @@ describe PaypalService::IPN do
       receipt_id: "3609-0935-6989-4532",
       order_total: Money.new(120, "GBP"),
       authorization_total: Money.new(120, "GBP")
+    }
+
+    @auth_created_no_order_msg = {
+      type: :authorization_created,
+      authorization_date: "2014-10-01 09:04:07 +0300",
+      authorization_expires_date: "2014-10-04 09:50:00 +0300",
+      order_id: nil,
+      authorization_id: "O-2ES620817J8424038",
+      payer_email: "foobar@barfoo.com",
+      payer_id: "7LFUVCDKGARH4",
+      receiver_email: "dev+paypal-user1@sharetribe.com",
+      receiver_id: "URAPMR7WHFAWY",
+      payment_status: "Pending",
+      pending_reason: "authorization",
+      receipt_id: "3609-0935-6989-4532",
+      order_total: nil,
+      authorization_total: Money.new(120, "GBP")
+    }
+
+    @auth_expired_msg = {
+      type: :authorization_expired,
+      authorization_id: "0L584749FU2628910",
+      order_id: "O-2ES620817J8424036",
+      payment_status: "Expired"
     }
 
     @order_created_msg = {
@@ -104,6 +158,24 @@ describe PaypalService::IPN do
       fee_total: Money.new(4, "GBP")
     }
 
+    @commission_refunded_msg = {
+      type: :payment_refunded,
+      refunding_id: "7HX881531H984174B",
+      refunded_date: "2014-10-01 09:24:36 +0300",
+      payment_id: "5SB7123462UR2969339",
+      authorization_id: nil,
+      payer_email: "foobar@barfoo.com",
+      payer_id: "6M39X6RCYVUD6",
+      receiver_email: "dev+paypal-user1@sharetribe.com",
+      receiver_id: "URAPMR7WHFAWY",
+      payment_status: "Refunded",
+      pending_reason: :none,
+      receipt_id: nil,
+      authorization_total: nil,
+      payment_total: Money.new(120, "GBP"),
+      fee_total: Money.new(4, "GBP")
+    }
+
     @payment_denied_msg = {
       type: :payment_denied,
       payer_email: "payer@sharetribe.com",
@@ -116,10 +188,41 @@ describe PaypalService::IPN do
       pending_reason: :none
     }
 
+    @commission_paid_msg = {
+      type: :commission_paid,
+      commission_status: "Completed",
+      commission_payment_id: "5SB7123462UR2969339",
+      commission_total: Money.new(174, "GBP"),
+      commission_fee_total: Money.new(10, "GBP"),
+      invnum: "1-1-commission"
+    }
+
     @cid = 1
     @txid = 1
+    @txid_auth = 2
+    @mid = "merchant_id_1"
+    @payer_id = "payer_id_1"
+    @paypal_email = "merchant_1@test.com"
+    @paypal_email_admin = "admin_2@test.com"
+    @billing_agreement_id = "bagrid"
 
     PaypalService::Store::PaypalPayment.create(@cid, @txid, @order)
+    PaypalService::Store::PaypalPayment.create(@cid, @txid_auth, @authorization)
+
+    AccountStore.create(
+      opts:
+        {
+          active: true,
+          person_id: @mid,
+          community_id: @cid,
+          email: @paypal_email,
+          payer_id: @payer_id,
+          order_permission_paypal_username_to: @paypal_email_admin,
+          order_permission_request_token: "123456789",
+          billing_agreement_billing_agreement_id: @billing_agreement_id,
+          billing_agreement_request_token: "B-123456789",
+          billing_agreement_paypal_username_to: @paypal_email_admin
+        })
   end
 
   context "update payment" do
@@ -127,6 +230,25 @@ describe PaypalService::IPN do
       @ipn_service.handle_msg(@auth_created_msg)
       @ipn_service.handle_msg(@auth_created_msg)
       expect(@events.received_events[:payment_updated].length).to eq 1
+    end
+
+    it "should handle authorization when payment in payment-review state" do
+      PaypalPayment.where(authorization_id: @authorization[:authorization_id])
+        .first
+        .update_attribute(:pending_reason, "payment-review")
+
+      @ipn_service.handle_msg(@auth_created_no_order_msg)
+      payment = PaypalPayment.where(authorization_id: @authorization[:authorization_id]).first
+      expect(payment.payment_status).to eql "pending"
+      expect(payment.pending_reason).to eql "authorization"
+    end
+
+    it "should handle authorization without order" do
+      @ipn_service.handle_msg(@auth_created_no_order_msg)
+
+      payment = PaypalPayment.where(authorization_id: @authorization[:authorization_id]).first
+      expect(payment.payment_status).to eql "pending"
+      expect(payment.pending_reason).to eql "authorization"
     end
 
     it "shouldn't move backwards in state" do
@@ -165,6 +287,57 @@ describe PaypalService::IPN do
       payment = PaypalPayment.first
       expect(payment.pending_reason).to eql "none"
       expect(payment.payment_status).to eql "denied"
+    end
+
+    it "should handle commission" do
+      @ipn_service.handle_msg(@auth_created_msg)
+      @ipn_service.handle_msg(@payment_completed_msg)
+      @ipn_service.handle_msg(@commission_paid_msg)
+
+      payment = PaypalPayment.first
+      expect(payment.commission_total).to eql Money.new(174, "GBP")
+      expect(payment.commission_fee_total).to eql Money.new(10, "GBP")
+    end
+
+    it "should handle commission refunded" do
+      @ipn_service.handle_msg(@auth_created_msg)
+      @ipn_service.handle_msg(@payment_completed_msg)
+      @ipn_service.handle_msg(@commission_paid_msg)
+      @ipn_service.handle_msg(@commission_refunded_msg)
+
+      expect(PaypalRefund.count).to eql 1
+    end
+
+    it "should handle authorization expired" do
+      @ipn_service.handle_msg(@auth_created_msg)
+      @ipn_service.handle_msg(@auth_expired_msg)
+
+      payment = PaypalPayment.first
+      expect(payment.payment_status).to eql "expired"
+    end
+
+    it "should handle billing agreement created" do
+      expect(@ipn_service.handle_msg(@billing_agreement_created)).to eql true
+    end
+
+    it "should handle billing agreement cancelled" do
+      acc = AccountStore.get_active(
+        person_id: @mid,
+        community_id: @cid
+      )
+      expect(acc[:billing_agreement_state]).to eql(:verified)
+      expect(acc[:billing_agreement_billing_agreement_id]).to eql(@billing_agreement_id)
+
+      @ipn_service.handle_msg(@billing_agreement_cancelled)
+
+      acc2 = AccountStore.get_active(
+        person_id: @mid,
+        community_id: @cid
+      )
+      expect(acc2[:billing_agreement_state]).to eql(:not_verified)
+      expect(acc2[:billing_agreement_billing_agreement_id]).to be_nil
+
+      # expect(acc2[:billing_agreement_id]).to be_nil
     end
   end
 

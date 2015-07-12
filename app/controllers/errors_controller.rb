@@ -14,6 +14,10 @@ class ErrorsController < ActionController::Base
     render "status_404", status: 404, locals: { status: 404, title: title(404) }
   end
 
+  def gone
+    render "status_410", status: 410, locals: { status: 410, title: title(410) }
+  end
+
   def community_not_found
     render status: 404, locals: { status: 404, title: "Marketplace not found", host: request.host }
   end
@@ -21,17 +25,23 @@ class ErrorsController < ActionController::Base
   private
 
   def current_community
-    @current_community ||= Community.find_by_domain(request.host)
+    @current_community ||= ApplicationController.default_community_fetch_strategy(request.host)
   end
 
   def title(status)
-    community_name = Maybe(@current_community).name.or_else(nil)
+    community_name = Maybe(@current_community).map { |c|
+      c.name(community_locale)
+    }.or_else(nil)
 
     [community_name, t("error_pages.error_#{status}_title")].compact.join(' - ')
   end
 
+  def community_locale
+    Maybe(@current_community).default_locale.or_else(nil)
+  end
+
   def set_locale
-    I18n.locale = Maybe(@current_community).default_locale.or_else("en")
+    I18n.locale = community_locale || "en"
   end
 
   def exception

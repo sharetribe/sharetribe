@@ -32,15 +32,18 @@
 #  image_content_type                 :string(255)
 #  image_file_size                    :integer
 #  image_updated_at                   :datetime
+#  image_processing                   :boolean
 #  facebook_id                        :string(255)
 #  authentication_token               :string(255)
 #  community_updates_last_sent_at     :datetime
 #  min_days_between_community_updates :integer          default(1)
 #  is_organization                    :boolean
 #  organization_name                  :string(255)
+#  deleted                            :boolean          default(FALSE)
 #
 # Indexes
 #
+#  index_people_on_authentication_token  (authentication_token)
 #  index_people_on_email                 (email) UNIQUE
 #  index_people_on_facebook_id           (facebook_id) UNIQUE
 #  index_people_on_id                    (id)
@@ -110,8 +113,8 @@ describe Person do
       it "creates a new listing with the submitted attributes" do
         listing = FactoryGirl.create(:listing,
           :title => "Test",
-          :transaction_type => FactoryGirl.create(:transaction_type_sell),
-          :author => @test_person
+          :author => @test_person,
+          :listing_shape_id => 123
         )
         listing.title.should == "Test"
         @test_person.listings.last.should == listing
@@ -124,8 +127,8 @@ describe Person do
       end
 
       it "returns the name of the user" do
-        @test_person.name.should_not be_blank
-        @test_person.name.should == "Ripa R"
+        @test_person.name('first_name_with_initial').should_not be_blank
+        @test_person.name('first_name_with_initial').should == "Ripa R"
       end
 
       it "returns the given or the last name of the user" do

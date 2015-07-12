@@ -24,11 +24,13 @@ module ListingsHelper
   end
 
   def listed_listing_title(listing)
-    listing.transaction_type.display_name(I18n.locale) + ": #{listing.title}"
-  end
-
-  def transaction_type_url(listing, view)
-    root_path(:transaction_type => listing.transaction_type.id, :view => view)
+    listing_shape_name = shape_name(listing)
+    # TODO remove this hotfix when we have admin ui for translations
+    if listing_shape_name.include?("translation missing")
+      listing.title
+    else
+      "#{listing_shape_name}: #{listing.title}"
+    end
   end
 
   def localized_category_label(category)
@@ -36,21 +38,16 @@ module ListingsHelper
     return category.display_name(I18n.locale).capitalize
   end
 
-  def localized_transaction_type_label(transaction_type)
-    return nil if transaction_type.nil?
-    return transaction_type.display_name(I18n.locale).capitalize
-  end
-
   def localized_listing_type_label(listing_type_string)
     return nil if listing_type_string.nil?
     return t("listings.show.#{listing_type_string}", :default => listing_type_string.capitalize)
   end
 
-  def listing_form_menu_titles(community_attribute_values)
+  def listing_form_menu_titles()
     titles = {
       "category" => t("listings.new.select_category"),
       "subcategory" => t("listings.new.select_subcategory"),
-      "transaction_type" => t("listings.new.select_transaction_type")
+      "listing_shape" => t("listings.new.select_transaction_type")
     }
   end
 
@@ -97,8 +94,8 @@ module ListingsHelper
   end
 
   def price_quantity_slash_unit(listing)
-    if listing.transaction_type.price_per
-      "/ " + t("unit.#{listing.transaction_type.price_per}")
+    if listing.unit_type.present?
+      "/ " + ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key)
     elsif listing.quantity.present?
       "/ #{listing.quantity}"
     else
@@ -107,12 +104,27 @@ module ListingsHelper
   end
 
   def price_quantity_per_unit(listing)
-    if listing.transaction_type.price_per
-      t("listings.show.price.per_#{listing.transaction_type.price_per}")
-    elsif listing.quantity.present?
-      t("listings.show.price.per_quantity_unit", quantity_unit: listing.quantity)
+    quantity =
+      if listing.unit_type.present?
+        ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key)
+      elsif listing.quantity.present?
+        listing.quantity
+      else
+        nil
+      end
+
+    if quantity
+      t("listings.show.price.per_quantity_unit", quantity_unit: quantity)
     else
       ""
     end
+  end
+
+  def shape_name(listing)
+    t(listing.shape_name_tr_key)
+  end
+
+  def action_button_label(listing)
+    t(listing.action_button_tr_key)
   end
 end

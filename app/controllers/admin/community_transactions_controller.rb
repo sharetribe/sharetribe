@@ -27,23 +27,26 @@ class Admin::CommunityTransactionsController < ApplicationController
     conversations = conversations.map do |transaction|
       conversation = transaction[:conversation]
       # TODO Embed author and starter to the transaction entity
-      author = conversation[:other_person]
-      starter = conversation[:starter_person]
+      # author = conversation[:other_person]
+      author = Maybe(conversation[:other_person]).or_else({is_deleted: true})
+      starter = Maybe(conversation[:starter_person]).or_else({is_deleted: true})
 
       [author, starter].each { |p|
-        p[:url] = person_path(p[:username])
+        p[:url] = person_path(p[:username]) unless p[:username].nil?
+        p[:display_name] = PersonViewUtils.person_entity_display_name(p, "fullname")
       }
 
       if transaction[:listing].present?
         # This if was added to tolerate cases where listing has been deleted
         # due the author deleting his/her account completely
+        # UPDATE: December 2014, we did an update which keeps the listing row even if user is deleted.
+        # So, we do not need to tolerate this anymore. However, there are transactions with deleted
+        # listings in DB, so those have to be handled.
         transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
       end
 
       transaction.merge({author: author, starter: starter})
     end
-
-    conversations = conversations.reject { |c| c[:discussion_type] == :not_available }
 
     conversations = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
       pager.replace(conversations)
@@ -51,7 +54,6 @@ class Admin::CommunityTransactionsController < ApplicationController
 
     render("index",
       { locals: {
-        show_status_and_sum: @current_community.payments_in_use?,
         community: @current_community,
         conversations: conversations
       }}
