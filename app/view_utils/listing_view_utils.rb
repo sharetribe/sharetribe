@@ -25,7 +25,7 @@ module ListingViewUtils
           display: translate_unit(unit[:type], unit[:name_tr_key]),
           value: Unit.serialize(unit),
           kind: unit[:kind],
-          selected: selected_unit.present? && HashUtils.sub_eq(renamed, selected_unit, :type, :name_tr_key, :selector_tr_key)
+          selected: selected_unit.present? && HashUtils.sub_eq(renamed, selected_unit, :type, :unit_tr_key, :unit_selector_tr_key)
         }
       }
   end
