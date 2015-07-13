@@ -57,7 +57,7 @@ gem 'postmark-rails' # could be removed as not currently used
 gem 'rails-i18n'
 gem 'devise', "~>2.2.4"  #3.0rc requires bit bigger changes
 gem "devise-encryptable"
-gem "omniauth-facebook"
+gem "omniauth-facebook", "~> 2.0.1"
 gem 'spreadsheet'
 gem 'rabl'
 gem 'rake'
