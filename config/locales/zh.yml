@@ -181,10 +181,10 @@ zh:
         users_can_invite_new_users: 所有用户都可以邀请新用户来到这个集市
         private: 这个集市是私有的（只有注册用户可以看到内容）
         require_verification_to_post_listings: 只有经管理员验证的用户可以发布新的信息
-        listing_preferences: 列出偏好
+        listing_preferences: 信息展示页面偏好设置
         transaction_preferences: 交易偏好
-        show_listing_publishing_date: 在列表页面的显示信息的发布日期
-        show_category_in_listing_list: 在列表视图中显示信息类型
+        show_listing_publishing_date: 在信息战士页面的显示信息的发布日期
+        show_category_in_listing_list: 在信息展示页面中显示信息类型
         hide_expiration_date: 不要求发布的信息设置过期日期
         listing_comments_in_use: 允许用户对信息发表评论（所有其他用户可见）
         email_preferences: 邮件发送偏好设置
@@ -1240,7 +1240,7 @@ zh:
       additional_email_confirmed: 你输入的电子邮件已被确认。
       could_not_get_email_from_facebook: 不能从Facebook获取邮件地址，没有邮件地址则无法创建帐号。
       create_new_listing: 发布另一条消息
-      create_one_here: 在此创建
+      create_one_here: 创建新用户
       email_confirmation_sent_to_new_address: 电子邮件确认信已经送往你的新地址。
       email_not_found: "无法在%{service_name}中找到你所提供的邮箱地址。"
       error_with_session: 内容错误
@@ -1361,7 +1361,7 @@ zh:
       write_comment: 发表新的评论：
       you_cannot_send_a_new_comment_because_listing_is_closed: 你不能发表新的评论，因为这条信息已经关闭。
       you_must: 你必须
-      subscribe_to_comments: 若有新评论或更新，通知我
+      subscribe_to_comments: 若有新评论或更新，发邮件通知我
     edit:
       edit_listing: 编辑发布的信息
     edit_links:
@@ -1577,7 +1577,7 @@ zh:
       times_viewed: 浏览的次数
       processing_uploaded_image: （正在处理上传图片……）
       price_excludes_vat: （除去VAT）
-      listing_created_at: 信息已创建
+      listing_created_at: 发布时间
       price:
         per_quantity_unit: "每%{quantity_unit}"
         per_day: 每天
@@ -2022,7 +2022,7 @@ zh:
     formats:
       short: "%e %b %Y  %H:%M"
       shorter: "%e %b %H:%M"
-      short_date: "%e %b %Y"
+      short_date: "%Y年%b%e日"
       sms: "%e %b %H:%M"
   timestamps:
     day_ago: "%{count} 天前"

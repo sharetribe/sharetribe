@@ -356,8 +356,8 @@ nb:
       support: Support
     listing_shapes:
       index:
-        listing_shapes: ~
-        description: ~
+        listing_shapes: Annonsetype
+        description: "Annonsetypene bestemmer hvordan bestillingsprosessen fungerer på din markedsplass. Du kan velge om dine brukere skal kunne leie eller selge, eller kanskje bare legge ut annonser og kommunisere via meldinger."
         read_more_about_order_types: "Les mer om transaksjonstyper"
         add_new_shape: "Legg til ny type transaksjon: "
         select_template: "Velg mal…"
@@ -365,8 +365,8 @@ nb:
         no_categories: "Ingen kategorier"
         category_count: "%{category_count} kategorier"
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Navn på annonsetype"
+          listing_shape_categories: "Kategorier der det benyttes"
         order:
           saving_order: "Rekkefølge på lagring"
           save_order_successful: "Rekkefølge lagret"
@@ -386,20 +386,20 @@ nb:
         create_success: "Ny transaksjonstype '%{shape}' opprettet"
         create_failure: "Kunne ikke opprette ny transaksjonstype. Feil: %{error_msg}"
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
-        update_success: ~
-        update_failure: ~
+        edit_listing_shape: "Endre annonsetype '%{shape}'"
+        update: Lagre
+        cancel: Avbryt
+        update_success: "Endring i annonsetype '%{shape}' lagret"
+        update_failure: "Kunne ikke lagre endringene. Feil: %{error_msg}"
         delete: "Fjern transaksjonstype"
         confirm_delete_order_type:
           one: "Det er %{count} annonse med denne ordretypen. Hvis du seltter ordretypen vil disse annonsene stoppes. Er du sikker på at du vil fortsette?"
           other: "Det er %{count} annonser med denne ordretypen. Hvis du seltter ordretypen vil disse annonsene stoppes. Er du sikker på at du vil fortsette?"
         can_not_delete_last: "Du kan ikke fjerne denne transaksjonstypen fordi det er den eneste typen i din markedsplass."
         can_not_delete_only_one_in_categories: "Du kan ikke fjerne denne transaksjonstypen fordi det er eneste type for følgende kategorier i bruk: %{categories}"
-      listing_shape_name: ~
+      listing_shape_name: Navn
       listing_shape_name_placeholder: "F.eks. Selg"
-      action_button_label: ~
+      action_button_label: "Etikett på utsjekksknappen"
       action_button_placeholder: "F.eks. Kjøp"
       open_listings_warning:
         one: "Det er %{count} åpen annonse med denne ordretypen. Hvis du endrer noen av innstillingene under vil annonsen beholde de gamle innstillingene. Hvis du ikke vil at annonsen skal være synlig med gamle innstillinger kan du stoppe den ved å trykke på knappen under."
@@ -414,20 +414,20 @@ nb:
       successfully_deleted: "Fjernet transaksjonstype '%{order_type}'"
       pricing_and_checkout_title: "Priser og betaling"
       online_payments_label: "Bruk online betalingssystem"
-      shipping_label: ~
+      shipping_label: "Tillat selgere å definere en shippingavgift"
       price_label: "Vis prisfelt"
-      units_title: ~
-      units_desc: ~
+      units_title: Prisenheter
+      units_desc: "Hvis du har aktivert ulike prisenheter, vil annonseprisen vises som \"pris per enhet\", for eksempel \"39 kr per time\"."
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: "Per stk."
+        hour: "Per time"
+        day: "Per dag"
+        night: "Per natt"
+        week: "Per uke"
+        month: "Per måned"
       can_not_find: "Kan ikke finne transaksjonstype med ID: %{id}"
       add_custom_unit: "+ Legg til en spesiell prisenhet…"
-      delete_custom_unit: ~
+      delete_custom_unit: slette
       custom_unit_form:
         title: "Ny prisenhet"
         label_heading: Etikett
@@ -474,7 +474,7 @@ nb:
   common:
     edit_page: "Rediger side"
     default_community_slogan: Markedsplass
-    default_community_description: "Dette er et nettsted for å selge, leie, bytte og dele produkter og tjenester med andre medlemmer av denne markedsplassen."
+    default_community_description: "Dette er et nettsted for å selge, leie, bytte og dele produkter og tjenester med andre medlemmer av markedsplassen."
     cancel: Avbryt
     fields_that_are_mandatory: "Felt merket med stjerne (*) må fylles ut."
     or: eller
@@ -606,14 +606,14 @@ nb:
       item_offer_sell_message_form_title: "Kjøp%{listing} fra %{person}"
       item_offer_give_away_message_form_title: "Få %{listing} fra %{person}"
       item_offer_trade_message_form_title: "Bytt  %{listing} med %{person}"
-      item_offer_rent_out_message_form_title: "Leie %{listing} fra %{person}"
-      item_request_borrow_message_form_title: "Låne%{listing} til %{person}"
+      item_offer_rent_out_message_form_title: "Lei %{listing} fra %{person}"
+      item_request_borrow_message_form_title: "Lån %{listing} til %{person}"
       item_request_buy_message_form_title: "Selg%{listing} til %{person}"
       item_request_take_for_free_message_form_title: "Gi bort %{listing} til %{person}"
       item_request_trade_message_form_title: "Bytt%{listing} med %{person}"
       item_request_rent_message_form_title: "Lei ut %{listing} til %{person}"
       housing_offer_sell_message_form_title: "Kjøp  %{listing} fra %{person}"
-      housing_offer_rent_out_message_form_title: "Leie %{listing} fra %{person}"
+      housing_offer_rent_out_message_form_title: "Lei %{listing} fra %{person}"
       housing_offer_share_for_free_message_form_title: "Forespør %{listing} fra %{person}"
       housing_offer_accept_for_free_message_form_title: "Tilby%{listing} til %{person}"
       housing_request_buy_message_form_title: "Selg%{listing} til %{person}"
@@ -626,8 +626,8 @@ nb:
       rideshare_request_message_form_title: "Tilby en tur til %{person}"
       send_message: "Send melding"
       send: Send
-      this_message_is_private: "Denne meldingen er privat mellom deg og %{person}.%{person} får en epost vedrørende denne meldingen."
-      you_will_get_notified_of_acceptance: "Du vil motta en e-post når  %{person} aksepterer eller avslår din forespørsel."
+      this_message_is_private: "Denne meldingen er privat mellom deg og %{person}.%{person} vil motta en e-post vedrørende denne meldingen."
+      you_will_get_notified_of_acceptance: "Du vil motta en e-post når %{person} aksepterer eller avslår din forespørsel."
       you_will_get_notified: "Du vil motta en e-post når %{person} svarer deg."
       title: Emne
       send_message_to_user: "Send melding til %{person}"
@@ -756,12 +756,12 @@ nb:
       welcome_fb_user: "Velkommen til %{service_name},%{name}"
       fb_join_accept_terms: "Ett steg til for å bli medlem av %{service_name}: Du må akseptere bruker vilkår."
       join_community: "Bli medlem av %{service_name}"
-      you_can_join: "Du kan bli medlem av %{service_name} ved å akseptere vilkår for bruk og klikke på 'Bli medlem %{service_name}' under."
-      you_can_join_email_confirmation: "For å bli medlem av %{service_name} trenger du en gyldig epost som ender med %{email_ending}. Du kan bli medlem ved å fylle inn din epost, akseptere vilkår for bruk og klikke på  'Bli medlem %{service_name}'under, og bekrefte din epost."
-      you_can_join_email_confirmation_multiple_addresses: "%{service_name} har post restriksjoner. Du kan kun bli medlem dersom du har en godkjent epost. Du kan bli medlem ved å fylle inn din epost, akseptere vilkår for bruk av %{service_name} og klikke på 'Bli medlem %{service_name}'under."
+      you_can_join: "Du kan bli medlem av %{service_name} ved å akseptere vilkår for bruk og klikke på 'Bli medlem av %{service_name}' under."
+      you_can_join_email_confirmation: "For å bli medlem av %{service_name} trenger du en gyldig e-postadresse som ender med %{email_ending}. Du kan bli medlem ved å fylle inn din e-postadresse, akseptere vilkår for bruk og klikke på  'Bli medlem %{service_name}'under, samt bekrefte din epost."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name} har e-postrestriksjoner. Du kan kun bli medlem dersom du har en godkjent e-postadresse. Du kan bli medlem ved å fylle inn din e-postadresse, akseptere vilkår for bruk av %{service_name} og klikke på 'Bli medlem %{service_name}'under."
       you_can_join_with_invite_only: "Du må ha en invitasjon fra et annet medlem for å bli medlem av  %{service_name}. Dersom du har en invitasjonskode, kan du bli medlem ved å skrive inn koden i feltet under, akseptere vilkår for bruk og klikke på  'Bli medlem %{service_name}' under."
       if_want_to_view_content: "Dersom du ønsker å se innhold på %{service_name} uten å være medlem må du"
-      log_out: "Logg ut"
+      log_out: "logg ut"
       join_community_button: "Bli medlem av %{service_name}"
   emails:
     accept_reminder:
@@ -824,10 +824,10 @@ nb:
     confirmation_instructions:
       confirmation_instructions_signature: "Vennlig hilsen,<br/> %{service_name}"
       welcome_to_kassi: "Velkommen til %{service_name}!"
-      need_to_confirm: "Du må bekrefte din epost."
+      need_to_confirm: "Du må bekrefte din e-post."
       confirmation_link_text: "Bekreft min e-post"
       or_paste_link: "Alternativt kan du kopiere lenken under til nettleseren din:"
-      turning_on_confirmations_in_this_community: "Vi har begynt å bruke e-postbekreftelse på markedsplass %{service_name}."
+      turning_on_confirmations_in_this_community: "Vi benytter nå e-postbekreftelse på %{service_name}."
     common:
       check_your_settings: "Sjekk innstillingene dine"
       hey: "Hei %{name},"
@@ -863,7 +863,7 @@ nb:
       has_commented_your_listing_in_kassi: "%{author} har kommentert på din annonse %{listing}"
       view_comment: "Vis kommentar"
       you_have_a_new_comment: "%{author} har kommentert på din annonse på %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} har commentary på en listing du følger på %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} har kommentert på en annonse du følger på %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} har kommentert på annonsen '%{listing}' du følger på %{service_name}"
     new_message:
       view_message: "Vis melding"
@@ -900,7 +900,7 @@ nb:
       you_can_give_feedback_to: "Du har ikke gitt tilbakemelding til %{name} ennå."
       view_feedback: "Vis vurdering"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "En listing du følger er oppdatert"
+      listing_you_follow_has_been_updated: "En annonse du følger er oppdatert"
       has_updated_listing_you_follow_in_kassi: "%{author} har oppdatert annonsen '%{listing}' du følger på %{service_name}."
       view_changes: "Vis endringer"
     community_updates:
@@ -917,12 +917,12 @@ nb:
       unsubscribe_link_text: avmeld
     newsletter:
       hi: "Hei %{name},"
-      newest_offers: "Hva folk for øyeblikket tilbyr til andre"
+      newest_offers: "Hva folk for øyeblikket tilbyr"
       newest_requests: "Hva folk for øyeblikket trenger"
-      text_version_text: "Har du noe som andre kanskje trenger? Eller trenger du noe som kanskje noen andre har? Legg ut et tilbud eller forespørsel eller se hva andre tilbyr eller forespør på %{url}"
+      text_version_text: "Har du kanskje noe andre kan ha bruk for? Eller trenger du kanskje noe som andre har? Legg ut et tilbud eller forespørsel, eller se hva andre tilbyr og forespør på %{url}"
     reset_password_instructions:
       change_my_password: "Endre mitt passord"
-      reset_password_instructions: "<p>Du har indikert at du har glemt enten ditt passord eller brukernavn på %{service_name} </p><p>Ditt brukernavn er : %{username}</p><p>Dersom du må resette ditt passord, klikk denne link:  %{password_reset_link}</p><br/><p>Dersom du ikke har etterspurt dette, vennligst se bortifra denne eposten. Ditt passord endres ikke om du ikke bruker linken over og lager et nytt.</p>"
+      reset_password_instructions: "<p>Du har indikert at du har glemt ditt passord eller brukernavn på %{service_name} </p><p>Ditt brukernavn er : %{username}</p><p>Dersom du må tilbakestille ditt passord kan du klikke på denne linken:  %{password_reset_link}</p><br/><p>Vennligst se bort fra dette dersom du ikke har etterspurt tilbakestilling av ditt passord. Ditt passord endres ikke før du bruker linken over og lager et nytt.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Tilbakemeldingene er offentlige og synlige for alle brukere. Basert på tilbakemeldingene kan andre brukere vurdere om %{name} er en pålitelig person man ønsker å assosiere seg med. Det er derfor alltid viktig å gi tilbakemeldinger og be om å få dette av den andre parten. Du trenger også positive vurderinger for å oppnå de fleste titlene."
       remember_to_give_feedback_to: "Påminnelse: husk å gi tilbakemelding til %{name}"
@@ -1025,10 +1025,10 @@ nb:
       positive_number: "Skriv inn et tall."
   event_feed_events:
     accept:
-      has_accepted_lend_item: "%{offerer_name} aksepterte å låne %{listing_title} til %{requester_name} %{time_ago}."
-      has_accepted_borrow_item: "%{offerer_name} aksepterte å låne%{listing_title} til %{requester_name} %{time_ago}."
-      has_accepted_rent_out_item: "%{offerer_name} aksepterte å leie %{listing_title} til  %{requester_name} %{time_ago}."
-      has_accepted_rent_item: "%{offerer_name} aksepterte å leie %{listing_title} til  %{requester_name} %{time_ago}."
+      has_accepted_lend_item: "%{offerer_name} aksepterte å låne ut %{listing_title} til %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} aksepterte å låne ut %{listing_title} til %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} aksepterte å leie ut %{listing_title} til  %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} aksepterte å leie ut %{listing_title} til  %{requester_name} %{time_ago}."
       has_accepted_give_away_item: "%{offerer_name} aksepterte å gi bort %{listing_title} til %{requester_name} %{time_ago}."
       has_accepted_receive_item: "%{offerer_name} aksepterte å gi bort %{listing_title} til %{requester_name} %{time_ago}."
       has_accepted_sell_item: "%{offerer_name} aksepterte å selge %{listing_title} til  %{requester_name} %{time_ago}."
@@ -1036,8 +1036,8 @@ nb:
       has_accepted_trade_item: "%{offerer_name} aksepterte å bytte %{listing_title} med  %{requester_name} %{time_ago}."
       has_accepted_sell_housing: "%{offerer_name} aksepterte å selge %{listing_title} til %{requester_name} %{time_ago}."
       has_accepted_buy_housing: "%{offerer_name} aksepterte å selge %{listing_title} til %{requester_name} %{time_ago}."
-      has_accepted_rent_out_housing: "%{offerer_name} aksepterte å leie %{listing_title} til  %{requester_name} %{time_ago}."
-      has_accepted_rent_housing: "%{offerer_name} aksepterte å leie %{listing_title} til %{requester_name}%{time_ago}."
+      has_accepted_rent_out_housing: "%{offerer_name} aksepterte å leie ut %{listing_title} til  %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} aksepterte å leie ut %{listing_title} til %{requester_name}%{time_ago}."
       has_accepted_favor: "%{offerer_name} aksepterte å tilby %{listing_title} til %{requester_name}%{time_ago}"
       has_accepted_rideshare: "%{offerer_name} aksepterte å samkjøre %{listing_title} med  %{requester_name} %{time_ago}."
     join:
@@ -1045,7 +1045,7 @@ nb:
     login:
       logged_in_to_kassi: "%{name} logget inn på %{service_name} %{time_ago}."
     comment:
-      commented: "%{commenter_name} kommenterte på listing %{listing_title} %{time_ago}."
+      commented: "%{commenter_name} kommenterte på annonsen %{listing_title} %{time_ago}."
       offer_partitive: tilbud
       request_partitive: forespørsel
   header:
@@ -1116,7 +1116,7 @@ nb:
       what_do_you_need: "Hva ser du etter?"
       post_new_listing: "Lag ny annonse"
       are_offering: tilbud
-      add_news_item: "Legg til ny ting"
+      add_news_item: "Legg til en ny gjenstand"
       lend_rent_help_carpool: "Selg, lån, hjelp, samkjør"
       loading_more_content: "Laster mer innhold"
       more_events: "Flere hendelser…"
@@ -1134,7 +1134,7 @@ nb:
       filter: Filter
       this_is_private_community: "Du må logge inn for å se dette innholdet."
     invitation_form:
-      email: E-post(er)
+      email: E-postadresse(r)
       message: "En personlig melding"
       send_invitation: "Send invitasjon"
       add_as_many_emails_as_you_want: "Legg til e-postadressene til de du inviterer i feltet under. Dersom du inviterer flere, adskill dem med komma og mellomrom."
@@ -1148,13 +1148,13 @@ nb:
       show_less: "Vis færre"
       show_more: "Vis flere"
     profile_info_empty_notification:
-      add_your_info: "Legg til din kontakt informasjon"
-      add_a_profile_picture: "Legg til profil bilde"
-      you_have_not_added_your_info: "Du har ikke lagt til din kontakt informasjon. Vennligst gjør dette, slik at andre enklere kan komme i kontakt med deg. Også legg til et profil bilde slik at det er enklere for andre å stole på deg."
+      add_your_info: "Legg til din kontaktinformasjon"
+      add_a_profile_picture: "Legg til profilbilde"
+      you_have_not_added_your_info: "Du har ikke lagt til din kontaktinformasjon. Vennligst gjør dette slik at det blir enklere for andre å komme i kontakt med deg. Legg også til et profilbilde slik at det er enklere for andre å stole på deg."
       add_your_info_link: "Legg til din informasjon nå"
     recent_listing:
       please_offer: Tilbud
-      comment: kommenter
+      comment: kommentar
       comments: kommentarer
     filters:
       show: "Filter:"
@@ -1246,15 +1246,15 @@ nb:
       community_updated: "Detaljer oppdatert"
       community_update_failed: "Oppdatering detaljer feilet."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Registreringen av din konto var vellykket. Vennligst sjekk din e-post for å aktivere din konto."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "Takk for at du ble medlem av %{service_name}. Du må nå bekrefte din epost."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Takk for at du ble medlem av %{service_name}. Vennligst bekreft din e-postadresse."
       comment_cannot_be_empty: "Kommentar kan ikke være tom"
       comment_sent: "Kommentar sendt"
       confirmation_link_is_wrong_or_used: "Bekreftelseslenken er allerede brukt eller ikke riktig. Forsøk å logge inn, eller send oss tilbakemelding hvis det fortsatt er et problem."
-      additional_email_confirmed: "Eposten du har benyttet er ikke bekreftet."
+      additional_email_confirmed: "E-posten du benyttet er ikke bekreftet."
       could_not_get_email_from_facebook: "Kunne ikke hente e-post fra Facebook og kan ikke opprette konto uten e-post."
       create_new_listing: "Opprett en annen annonse"
       create_one_here: "opprett en her"
-      email_confirmation_sent_to_new_address: "Epost bekreftelse er nå sendt til ny adresse"
+      email_confirmation_sent_to_new_address: "E-postbekreftelse er nå sendt til den nye adressen."
       email_not_found: "E-posten du oppga ble ikke funnet i %{service_name}-systemet."
       error_with_session: "Feil ved økt."
       feedback_considered_spam: "Tilbakemeldingen ble ikke lagret grunnet feil ved formatering. Prøv igjen eller se diskusjonsforum."
@@ -1262,20 +1262,20 @@ nb:
       feedback_saved: "Takk for din tilbakemelding. Vi kommer tilbake til deg så fort vi kan."
       feedback_sent_to: "Tilbakemelding sent til %{target_person}."
       feedback_skipped: "Hoppet over tilbakemelding"
-      invitation_cannot_be_sent: "Invitasjon kunne ikke sendes"
-      invitation_sent: "Invitasjon er sendt"
-      inviting_new_users_is_not_allowed_in_this_community: "Invitere nye brukere er ikke lov."
+      invitation_cannot_be_sent: "Invitasjonen kunne ikke sendes"
+      invitation_sent: "Invitasjonen er sendt"
+      inviting_new_users_is_not_allowed_in_this_community: "Det er ikke lov å invitere nye brukere."
       login_again: "Vennligst logg inn igjen."
       login_failed: "Innlogging feilet. Vennligst prøv på nytt."
       account_creation_successful: "Velkommen til%{service_name}, %{person_name}"
       account_deleted: "Din konto er nå slettet."
       login_successful: "Velkommen, %{person_name}!"
       logout_successful: "Du er nå logget ut av %{service_name}. Velkommen tilbake!"
-      news_item_created: "Artikkel opprettet"
-      news_item_creation_failed: "Oppretting artikkel feilet"
-      news_item_update_failed: "Artikkel oppdatering feielt"
-      news_item_updated: "Artikkel oppdatert"
-      news_item_deleted: "Artikkel fjernet"
+      news_item_created: "Gjenstand opprettet"
+      news_item_creation_failed: "Oppretting av gjenstand feilet"
+      news_item_update_failed: "Oppdatering av gjenstand feilet"
+      news_item_updated: "Gjenstand oppdatert"
+      news_item_deleted: "Gjenstand fjernet"
       offer_accepted: "Tilbud godtatt"
       offer_confirmed: "Tilbud godtatt"
       offer_closed: "Tilbud stengt"
@@ -1295,15 +1295,15 @@ nb:
       person_activated: "Bruker aktivert"
       person_deactivated: "Bruker deaktivert"
       person_updated_successfully: "Informasjonen er oppdatert"
-      poll_answered: "Meningsmåling besvart"
-      poll_could_not_be_answered: "Meningsmåling kunne ikke besvares"
-      poll_created: "Meningsmåling opprettet"
-      poll_creation_failed: "Oppretting meningsmåling feilet"
-      poll_update_failed: "Oppdatering meningsmåling feilet"
-      poll_updated: "Meningsmåling oppdatert"
-      poll_deleted: "Meningsmåling fjernet"
+      poll_answered: "Spørreundersøkelse besvart"
+      poll_could_not_be_answered: "Spørreundersøkelse kunne ikke besvares"
+      poll_created: "Spørreundersøkelse opprettet"
+      poll_creation_failed: "Oppretting av spørreundersøkelse feilet"
+      poll_update_failed: "Oppdatering av spørreundersøkelse feilet"
+      poll_updated: "Spørreundersøkelse oppdatert"
+      poll_deleted: "Spørreundersøkelse fjernet"
       read_more: "Les mer!"
-      registration_considered_spam: "Registrering var ikke vellykket, vennligst send oss tilbakemelding fra toppmeny og nevn \"email2 error\"."
+      registration_considered_spam: "Registreringen var ikke vellykket. Vennligst send oss tilbakemelding fra toppmenyen og nevn \"email2 error\"."
       reply_cannot_be_empty: "Du kan ikke sende en tom melding"
       reply_sent: "Svar sendt"
       request_accepted: "Forespørsel godtatt"
@@ -1318,11 +1318,11 @@ nb:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Du har ikke tilgang til å gi tilbakemelding på dette"
       you_are_not_authorized_to_do_this: "Du er ikke autorisert til å gjøre dette"
       you_are_not_authorized_to_view_this_content: "Du er ikke autorisert til å se dette innholdet"
-      send_instructions: "Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt innen noen få minutter."
+      send_instructions: "Du vil om kort tid motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt."
       you_cannot_reply_to_a_closed_offer: "Du kan ikke besvare et inaktivt tilbud"
       you_cannot_reply_to_a_closed_request: "Du kan ikke besvare en inaktiv forespørsel"
       you_cannot_send_message_to_yourself: "Du kan ikke sende melding til deg selv"
-      you_followed_listing: "Du følger nå denne listingen"
+      you_followed_listing: "Du følger nå denne annonsen"
       you_have_already_given_feedback_about_this_event: "Du har allerede gitt en tilbakemelding på dette"
       you_are_now_member: "Velkommen til %{service_name}!"
       you_are_already_member: "Du er allerede medlem av %{service_name}. Velkommen tilbake!"
@@ -1332,19 +1332,19 @@ nb:
       you_must_log_in_to_invite_new_users: "Du må være innlogget for å invitere nye brukere til %{service_name}"
       you_must_log_in_to_send_a_comment: "Du må logge inn for å legge igjen en kommentar"
       you_must_log_in_to_send_a_message: "Du må logge inn på %{service_name} for å sende melding til en annen bruker"
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "Du må logge inn på %{service_name} for å gjennomføre transaksjonen."
       you_must_log_in_to_view_this_content: "Du må være innlogget for å se dette innholdet"
       you_must_log_in_to_view_this_page: "Du må logge inn for å besøke denne siden"
       you_must_log_in_to_view_your_inbox: "Du må logge inn på  %{service_name} for å se din innboks."
       you_must_log_in_to_view_your_settings: "Du må logge inn på %{service_name} for å se dine innstillinger."
-      you_must_log_in_to_add_news_item: "Du må logge inn på %{service_name} for å legge til ny artikkel."
+      you_must_log_in_to_add_news_item: "Du må logge inn på %{service_name} for å legge til en ny gjenstand."
       you_must_log_in_to_change_profile_settings: "Du må logge inn på %{service_name}for å redigere profil"
       you_must_log_in_to_change_payment_settings: "Du må logge inn på %{service_name}for å redigere betalings oppsett"
       you_must_log_in_to_accept_or_reject: "Du må logge på for å akseptere eller avvise transaksjonen"
       you_must_log_in_to_confirm_or_cancel: "Du må logge på for å avvise eller bekrefte transaksjonen"
-      you_need_to_confirm_your_account_first: "Du må bekrefte din epost."
+      you_need_to_confirm_your_account_first: "Du må bekrefte din e-post."
       you_must_fill_all_the_fields: "Du må fylle inn alle felter"
-      you_unfollowed_listing: "Du følger ikke lenger denne listingen"
+      you_unfollowed_listing: "Du følger ikke lenger denne annonsen"
       joining_community_failed: "Kunne ikke koble til"
       can_not_login_with_private_user: "Du kan ikke logge inn med din personlige konto. Logg inn med organisasjons konto eller opprett en ny konto."
       can_not_delete_email: "Du kan ikke fjerne e-post adressen"
@@ -1362,7 +1362,7 @@ nb:
       payments: Betalinger
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "Du har ikke tillatelse til å se denne listingen"
+      listing_not_visible: "Du har ikke tillatelse til å se denne annonsen."
     comment:
       wrote: skrev
       send_private_message: "Send privat melding til %{person}"
@@ -1374,7 +1374,7 @@ nb:
       write_comment: "Skriv en ny kommentar:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Du kan ikke kommentere på denne annonsen da den er utgått."
       you_must: "Du må"
-      subscribe_to_comments: "Varsle meg ved ny kommentar eller oppdatering"
+      subscribe_to_comments: "Varsle meg ved nye kommentarer eller oppdateringer"
     edit:
       edit_listing: "Rediger annonse"
     edit_links:
@@ -1389,8 +1389,8 @@ nb:
     error:
       something_went_wrong: "Noe gikk galt, feilkode: %{error_code}"
     follow_links:
-      follow: "Motta epost ved kommentar"
-      unfollow: "Ikke motta epost ved kommentar"
+      follow: "Motta e-post ved nye kommentarer"
+      unfollow: "Ikke motta e-post om nye kommentarer"
     form:
       custom_field_partials:
         dropdown:
@@ -1467,7 +1467,7 @@ nb:
         rent_out: "Leie ut"
         request_type: "Type forespørsel"
         sell: Selge
-        share_for_free: "dele gratis"
+        share_for_free: "Dele gratis"
         accept_for_free: "Godtar gratis"
         trade: Bytte
       tag_list:
@@ -1526,7 +1526,7 @@ nb:
       rents: Leie
       rideshares: Samkjøre
       sells: Selge
-      share_for_frees: "dele gratis"
+      share_for_frees: "Dele gratis"
       accept_for_frees: "Godtar gratis"
       trades: Bytte
     listing_actions:
@@ -1560,9 +1560,9 @@ nb:
       listing_closed: "Annonse er utgått"
     show:
       add_your_phone_number: "Legg til ditt telefonnummer"
-      add_profile_picture: "Legg til profil bilde"
+      add_profile_picture: "Legg til profilbilde"
       comments: "Offentlig diskusjon"
-      contact_by_phone: "Kontakt med på telefon:"
+      contact_by_phone: "Kontakt på telefon:"
       contact: Kontakt
       favor_offer: "Type tjeneste"
       favor_request: "Type forespørsel"
@@ -1575,8 +1575,8 @@ nb:
       offer: Tilbud
       listing_created: Opprettet
       open_until: "Aktiv frem til %{date}"
-      feedback: Vurdering
-      qr_code: "QR kode"
+      feedback: Tilbakemelding
+      qr_code: QR-kode
       request: Forespørsel
       rideshare_offer: Samkjøringstilbud
       rideshare_request: Samkjøringsforespørsel
@@ -1645,7 +1645,7 @@ nb:
   mercury:
     content_too_long: "Innholdet er for langt."
   okl:
-    member_id: "Bruker id"
+    member_id: Bruker-ID
     member_id_or_email: "bruker id eller e-post"
   payments:
     new:
@@ -1720,21 +1720,21 @@ nb:
     help_texts:
       feedback_description_title: Tilbakemelding
       help_captcha_title: "Er du et menneske?"
-      help_invitation_code_title: "Du trenger en innvitasjon"
+      help_invitation_code_title: "Du trenger en invitasjon for å bli med"
       terms_title: "%{service_name} vilkår"
       invite_only_help_text: "Velg dette alternativet dersom du ønsker at nye medlemmer kun kan bli medlem via invitasjon fra eksisterende medlemmer."
       invite_only_help_text_title: "Kun inviterte"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Denne brukeren er ikke lenger aktiv på %{service_name}"
-      inactive_description: "Denne brukeren bruker ikke lenger %{service_name}. Du kan ikke kontakte denne brukeren, gi vurdering eller kommentere annonser."
+      inactive_description: "Denne brukeren benytter ikke lenger %{service_name}. Du kan hverken kontakte brukeren, gi vurdering eller kommentere denne brukerens annonser."
     new:
-      captcha_incorrect: "reCAPTCHA-sjekk feilet. Vennligst skriv ordene fra bildet i feltet nedenfor."
+      captcha_incorrect: "reCAPTCHA-sjekk feilet. Vennligst skriv inn ordene du ser i bildet i feltet nedenfor."
       captcha_was_wrong: "Captcha-tekst var ikke riktig."
-      create_new_account: "Opprett konto"
+      create_new_account: "Opprett brukerkonto"
       email: E-post
-      email_is_in_use: "Eposten du oppgav er allerede i bruk."
-      email_is_in_use_or_not_allowed: "Denne eposten er ikke godkjent eller allerede i bruk. Dersom du ikke får logget inn, kontakt oss."
-      email_not_allowed: "Denne epost er ikke godkjent på %{service_name}. Vennligst bruk en epost adresse som er godkjent. Om du fremdeles opplever problemer, gi oss tilbakemelding."
+      email_is_in_use: "E-posten du oppga er allerede i bruk."
+      email_is_in_use_or_not_allowed: "Denne e-posten er ikke godkjent eller er allerede i bruk. Kontakt oss dersom du ikke får logget inn."
+      email_not_allowed: "Denne e-posten er ikke godkjent på %{service_name}. Vennligst bruk en e-postadresse som er godkjent. Om du fremdeles opplever problemer, gi oss tilbakemelding."
       email_restriction_instructions:
         one: " %{service_name} har restriksjoner. For å bli medlem trenger du en  '%{allowed_emails}' e-postaddresse."
         other: "%{service_name} har restriksjoner. Du trenger en e-postadresse som viser at du er godkjent for å bli medlem."
@@ -1742,30 +1742,30 @@ nb:
       family_name: Etternavn
       given_name: Fornavn
       i_accept_the: "Jeg aksepterer"
-      invalid_invitation_code: "Invitasjonskode er ikke gyldig"
+      invalid_invitation_code: "Invitasjonskode er ikke gyldig."
       invitation_code: Invitasjonskode
       not_required: ", ikke påkrevd"
       organization_name: "Navn på organisasjon"
       password_again: "Bekreft passord"
       show_my_name_to_others: "Vis mitt virkelige navn til andre brukere på %{service_name}"
-      sign_up: "Opprett ny  %{service_name} konto"
-      terms: "Vilkår for bruk"
+      sign_up: "Opprett ny  %{service_name} brukerkonto"
+      terms: "vilkår for bruk"
       username_is_in_use: "Brukernavnet er allerede i bruk."
-      username_is_invalid: "Brukernavnet er ugyldig. Gyldige tegn er bokstaver, tall og underscore."
-      visible_only_to_you: "synlig kun for deg og administrator av markedsplass"
+      username_is_invalid: "Brukernavnet er ugyldig. Gyldige tegn er bokstaver, tall og understrek."
+      visible_only_to_you: "synlig kun for deg og markedsplassens administrator"
       visible_to_everybody: "synlig for alle"
       create_account_with_facebook: "Logg inn med Facebook"
       OR: ELLER
       signup_with_email: "Registrer deg med e-post"
     not_member:
-      explanation_text: "Du besøker for øyebliket %{community}. Du forøkte å vise profilen til en bruker som tilhører en annen markedsplass. Du kan ikke vise denne personens profil på %{community}."
-      read_more_about_kassi_communities: "Les mer om Sharetribe markedsplasser"
+      explanation_text: "Du besøker for øyebliket %{community}. Du forsøkte å vise profilen til en bruker som tilhører en annen markedsplass. Du kan ikke vise denne personens profil på %{community}."
+      read_more_about_kassi_communities: "Les mer om Sharetribes markedsplasser"
       this_user_does_not_belong_to_this_community: "Denne brukeren er ikke medlem av %{community}."
     profile_feedback:
       as_expected: "Som forventet"
       exceeded_expectations: "Mye bedre enn forventet"
       grade: "karakter:"
-      and_gave_following_feedback: "og gav følgende vurdering"
+      and_gave_following_feedback: "og gav følgende tilbakemelding"
       less_than_expected: "Dårligere enn forventet"
       slightly_better_than_expected: "Noe bedre enn forventet"
       slightly_less_than_expected: "Noe dårligere enn forventet"
@@ -1782,7 +1782,7 @@ nb:
       address: "Sted:"
       as_expected: "Som forventet"
       edit_profile_info: "Rediger profil"
-      exceeded_expectations: "Overgikk forventning"
+      exceeded_expectations: "Overgikk forventningene"
       positive: positiv
       hide_description: "Vis mindre"
       less_than_expected: "Dårligere enn forventet"
@@ -1790,7 +1790,7 @@ nb:
       show_all_feedback: "Vis alle vurderinger"
       show_all_testimonials: "Vis alle vurderinger"
       show_full_description: "Vis mer"
-      slightly_better_than_expected: "Overgikk forventning"
+      slightly_better_than_expected: "Overgikk forventningene"
       slightly_less_than_expected: "Dårligere enn forventet"
       what_are_these: "Hva er dette?"
       review: "vurdering mottatt"
@@ -1828,33 +1828,33 @@ nb:
       search_verb: Søk
   sessions:
     new:
-      create_new_account: "Opprett ny konto"
-      i_forgot_my_password: "Glemt brukernavn eller passord?"
+      create_new_account: "Opprett ny brukerkonto"
+      i_forgot_my_password: "Glemt brukernavn eller passord"
       login: "Logg inn"
       login_to_kassi: "Logg inn på %{service_name}"
       connect_your_facebook_to_kassi: "Koble din Facebook-konto til %{service_name}"
-      facebook_account: "Facebook konto:"
-      log_in_to_link_account: "Dersom du allerede har en  %{service_name} konto, logg inn for å koble til din Facebook konto."
-      you_can_also_create_new_account: "Dersom du ikke har en  %{service_name}, %{accont_creation_link} for å opprette en med din Facebook logg inn."
-      account_creation_link_text: "Klikk her"
-      cancle_facebook_connect: "Hvis du ikke vil koble til din konto kan du %{cancel_link}"
-      facebook_cancel_link_text: Avbryt
+      facebook_account: "Facebook-konto:"
+      log_in_to_link_account: "Dersom du allerede har en %{service_name}-konto, logg inn for å koble til din Facebook-konto."
+      you_can_also_create_new_account: "Dersom du ikke har en brukerkonto på %{service_name}, %{accont_creation_link} for å opprette en med din Facebook-innlogging."
+      account_creation_link_text: "klikk her"
+      cancle_facebook_connect: "Hvis du ikke vil koble til din konto, kan du %{cancel_link}"
+      facebook_cancel_link_text: avbryt
       log_in_with_your_facebook_account: "Logg inn med Facebook"
-      or_sign_up_with_your_username: "...eller med ditt brukernavn eller e-post"
+      or_sign_up_with_your_username: "...eller med ditt brukernavn eller e-post:"
       we_will_not_post_without_asking_you: "Vi poster aldri på Facebook uten å spørre deg om det."
     password_forgotten:
-      email: Epost
+      email: E-post
       password_recovery_instructions: "Skriv inn din epost og du vil motta ditt brukernavn og instruksjoner for hvordan endre ditt passord."
-      request_new_password: "Forespør nytt passord"
+      request_new_password: "Be om nytt passord"
       change_your_password: "Endre ditt passord"
     confirmation_pending:
       welcome_to_kassi: "Velkommen til %{service_name}!"
       check_your_email: "Sjekk din innboks"
-      resend_confirmation_instructions: "Send bekreftelse på nytt"
-      your_current_email_is: "Din epost er %{email}."
+      resend_confirmation_instructions: "Send bekreftelsesinstruksjon på nytt"
+      your_current_email_is: "Din e-post er %{email}."
       change_email: Endre
       confirm_your_email: "Vennligst bekreft din e-post"
-      account_confirmation_instructions: "Du vil snart motta en e-post med en lenke for å bekrefte din e-post. Når du har bekreftet din e-post kan du begynne å bruke %{service_name}."
+      account_confirmation_instructions: "Du vil snart motta en e-post med en lenke for å bekrefte din e-post. Når du har bekreftet din e-post, kan du begynne å bruke %{service_name}."
       account_confirmation_instructions_title_admin: "Velkommen til din markedsplass!"
       your_marketplace_has_now_been_created: "Din markedsplass er nå blitt laget. Det var enkelt, var det ikke? Kun noen få steg gjenstår før du kan bruke din side: du må bekrefte din epost-adresse."
       account_confirmation_instructions_admin: "Du vil snart motta en e-post med en link du må klikke på for å bekrefte din e-post. Når e-post er bekreftet kan du begynne å tilpasse markedsplassen din."
@@ -1866,14 +1866,14 @@ nb:
       delete_account_button: "Slett min konto permanent"
       delete_account_confirmation_popup: "Er du helt sikker på at du ønsker å slette din bruker konto og miste all data knyttet til denne? Konto sletting kan ikke reverseres."
       email_addresses: E-postadresser
-      new_email: "Ny epost"
+      new_email: "Ny e-postadresse"
       delete_all_memberships: "Hvis du fjerner din konto vil du ikke lenger kunne bruke den på følgende sider: %{marketplaces}."
       delete_personal_information: "Hvis du fjerner din konto vil dine personalia (navn, telefon, adresse, epost, profilbilde, etc) bli slettet og disse kan ikke gjenopprettes. Alle dine annonser vil bli fjernet og du vil ikke kunne gjenopprette din brukerkonto."
       delete_information_others_involved: "Informasjon hvor andre brukere er involvert (samtaler med brukere, transaksjoner du har gjort, vurderinger du har gitt andre, etc) fjernes ikke når du sletter din konto. Navnet ditt vil derimot ikke lenger vises sammen med denne informasjonen."
       unfinished_transactions: "Din konto kan ikke fjernes fordi du har pågående transaksjoner. Vennligst fullfør alle dine transaksjoner før du fjerner din konto."
       new_password: "Nytt passord"
       save: Lagre
-      these_fields_are_shown_only_to_you: "Brukernavn er synlig på din profil foruten om du har oppgitt ditt navn. Annen informasjon er kun synlig for deg."
+      these_fields_are_shown_only_to_you: "Brukernavn er synlig på din profil hvis du ikke har oppgitt navn. Annen informasjon er kun synlig for deg."
       email_already_confirmed: "Din e-post er allerede bekreftet."
       email:
         address_title: Adresse
@@ -1891,15 +1891,15 @@ nb:
         status_pending: Venter
     notifications:
       email_from_admins: "Jeg ønsker å få gjevnlige oppdatering fra siden"
-      i_want_to_get_email_notification_when: "Jeg ønsker å motta en epost når..."
+      i_want_to_get_email_notification_when: "Jeg ønsker å motta en e-post når..."
       newsletters: Nyhetsbrev
       community_updates: "Oppdateringer på e-post"
       email_about_accept_reminders: "…jeg har glemt å akseptere et tilbud eller en forespørsel"
       email_about_confirm_reminders: "…jeg har glemt å bekrefte en forespørsel som fullført"
-      email_about_new_comments_to_own_listing: "…noen har kommentert på mitt tilbud eller forespørsel"
+      email_about_new_comments_to_own_listing: "…noen kommenterer på mitt tilbud eller forespørsel"
       email_about_new_messages: "…noen sender meg en melding"
       email_about_new_received_testimonials: "…noen gir meg en vurdering"
-      email_about_testimonial_reminders: "…jeg har glemt å gi vurdering av en hendelse"
+      email_about_testimonial_reminders: "…jeg har glemt å gi tilbakemelding på noe"
       email_daily_community_updates: "Send meg en oppdatering på e-post <b>daglig</b> med nye annonser"
       email_weekly_community_updates: "Send meg en oppdatering på e-post <b>ukentlig</b> med nye annonser"
       do_not_email_community_updates: "Ikke send meg oppdateringer på e-post"
@@ -1922,16 +1922,16 @@ nb:
       given_name: Fornavn
       first_name_with_initial: "(kun første bokstav vises andre brukere)"
       first_name_only: "(vises ikke til andre brukere)"
-      location_description: "Du kan enten legge til din adresse eller ditt postnummer. Vi ber om at du ihvertfall legger til postnummer. Du kan også velge din lokasjon på kartet under."
+      location_description: "Du kan legge til eksakt adresse eller kun postnummer. Du kan også velge din plassering på kartet under."
       phone_number: Telefonnummer
       profile_picture: Profilbilde
       postal_code: Postnummer
       profile_page: "på din profil"
-      profilemap: "Kart oversikt"
+      profilemap: "Vis kart"
       street_address: Sted
       these_fields_are_shown_in_your: "Denne informasjonen er synlig for alle brukere på %{service_name}"
-      visible_to_everybody: "Synlig for alle"
-      visible_to_registered_users: "(synlig for brukere som er inn logget)"
+      visible_to_everybody: "synlig for alle"
+      visible_to_registered_users: "(synlig for brukere som er innlogget)"
       default_in_listing: "(brukes kun ved opprettelse av nye annonser)"
       invisible: "(vises ikke til andre brukere)"
       image_is_processing: "Ditt profilbilde er behandles nå. Vennligst last siden på nytt om et lite øyeblikk."
@@ -1945,14 +1945,14 @@ nb:
   terms:
     show:
       accept_terms: "Aksepterer %{service_name} vilkår for bruk"
-      here: "klikk her"
-      i_accept_new_terms: "Jeg aksepterer nye vilkår"
-      i_accept_terms: "Jeg aksepterer vilkår"
+      here: "ved å klikke her"
+      i_accept_new_terms: "Jeg aksepterer de nye vilkårene"
+      i_accept_terms: "Jeg aksepterer vilkårene"
       terms: "%{service_name} vilkår for bruk"
       terms_have_changed: "Vilkår for bruk er endret"
-      you_can_view_the_new_terms: "du kan se nye vilkår for bruk her"
+      you_can_view_the_new_terms: "du kan se nye vilkår for bruk"
       you_need_to_accept: "Velkommen til  %{service_name}! Det kan se ut som dette er første gang du bruker denne tjenesten. Før du kan bruke tjenesten må du akseptere"
-      you_need_to_accept_new_terms: "%{service_name} vilkår for bruk er endret. Vennligst aksepter nye bruker vilkår for å fortsette å bruke %{service_name}. De nye bruker vilkårene er for å etterse tjenesten etter forsknings prosjektet er ferdig."
+      you_need_to_accept_new_terms: "%{service_name} vilkår for bruk er endret. Vennligst aksepter de nye brukervilkårene for å fortsette å bruke %{service_name}. De nye brukervilkårene er ment for å etterse tjenesten etter at prøveprosjektet er avsluttet."
   testimonials:
     index:
       all_testimonials: "Alle vurderinger"
@@ -1962,14 +1962,14 @@ nb:
     new:
       as_expected: "Som forventet"
       exceeded_expectations: "Mye bedre enn forventet"
-      give_feedback_to: "Gi vurdering til %{person}"
+      give_feedback_to: "Gi tilbakemelding til %{person}"
       grade: "Hva er din helhetlige vurdering?"
       less_than_expected: "Dårligere enn forventet"
-      send_feedback: "Gi vurdering"
+      send_feedback: "Send tilbakemelding"
       slightly_better_than_expected: "Noe bedre enn forventet"
       slightly_less_than_expected: "Noe dårligere enn forventet"
       textual_feedback: "Hvordan gikk det?"
-      this_will_be_shown_in_profile: "Vurderingen vil være synlig for andre brukere på profilsiden til %{person}. Dette hjelper med å vurdere om %{person} er en tillitsfull person."
+      this_will_be_shown_in_profile: "Tilbakemeldingen vil være synlig for andre brukere på profilen til %{person}. Dette gjør det enklere å vurdere om %{person} er en person å stole på."
       positive: positiv
       negative: Negativ
       default_textual_feedback: "Alt gikk bra, takk!"
