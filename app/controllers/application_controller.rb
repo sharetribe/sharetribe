@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   layout 'application'
 
   before_filter :force_ssl,
+    :redirect_to_marketplace_ident,
     :check_auth_token,
     :fetch_logged_in_user,
     :fetch_community,
@@ -251,6 +252,15 @@ class ApplicationController < ActionController::Base
 
   def needs_redirect?(host, domain)
     domain.present? && host != domain
+  end
+
+  def redirect_to_marketplace_ident
+    host = request.host
+    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
+    if host.end_with?(app_domain) && host.start_with?("www.")
+      ident_without_www = host.sub(/www\./, '').chomp(".#{app_domain}")
+      return redirect_to "#{request.protocol}#{ident_without_www}.#{APP_CONFIG.domain}", status: 301
+    end
   end
 
   # Fetch community
