@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
-  before_filter :force_ssl,
-    :redirect_to_marketplace_ident,
+  before_filter :redirect_to_marketplace_ident,
+    :force_ssl,
     :check_auth_token,
     :fetch_logged_in_user,
     :fetch_community,
@@ -453,7 +453,7 @@ class ApplicationController < ActionController::Base
   def force_ssl
     # If defined in the config, always redirect to https (unless already using https or coming through Sharetribe proxy)
     if APP_CONFIG.always_use_ssl
-      redirect_to("https://#{request.host_with_port}#{request.fullpath}") unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || request.fullpath == "/robots.txt"
+      redirect_to("https://#{request.host_with_port}#{request.fullpath}", status: 301) unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || request.fullpath == "/robots.txt"
     end
   end
 
