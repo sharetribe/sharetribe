@@ -1,7 +1,7 @@
 class BraintreeWebhooksController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
-  skip_filter :fetch_community, :redirect_to_marketplace_domain, :check_email_confirmation
+  skip_filter :fetch_community, :redirect_to_marketplace_ident, :redirect_to_marketplace_domain, :check_email_confirmation
 
   before_filter :fetch_community_by_params
 
