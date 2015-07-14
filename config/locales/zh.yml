@@ -125,7 +125,7 @@ zh:
         look_and_feel: "在你将你的站点公开发布前，你也许想再配置一些东西。比如，你可能想去%{logo_link}修改封面照片和颜色以配合你的品牌的外观和感受。"
         logo_link_text: 添加你的标志
         custom_domain: "你也许还想增加一个定制的网页地址（比如www.yourmarketplace.com）。设置它需要我们做一些手动工作，同时我们也需要为域名购买SSL证书以保证你的站点安全。由于这些原因，定制域名在免费试用期不可用，所以如果需要该域名，你要订阅我们的Pro计划或更高级别的计划。如果你想要定制域名，请%{contact_support_link}。"
-        categories_and_custom_fields: "接下来需要决定用户可以发布什么样的内容到你的站点。你可以%{categories_link}，通过%{custom_fields_link}定制实际列表表单包含的内容，并在用户浏览列表时决定%{filters_link}。"
+        categories_and_custom_fields: "接下来需要决定用户可以发布什么样的内容到你的站点。你可以%{categories_link}，通过%{custom_fields_link}定制实际列表表单包含的内容，并在用户浏览信息时决定%{filters_link}。"
         categories_link_text: 新增分类和子分类
         custom_fields_link_text: 配置表单字段
         filters_link_text: 何种类型的过滤器
@@ -887,8 +887,8 @@ zh:
       you_can_give_feedback_to: "你还没有给%{name}反馈"
       view_feedback: 查看反馈
     new_update_to_listing:
-      listing_you_follow_has_been_updated: 以下列表已更新
-      has_updated_listing_you_follow_in_kassi: "%{author}更新了你在%{service_name}中关注的列表“%{listing}”。"
+      listing_you_follow_has_been_updated: 以下发布的信息已更新
+      has_updated_listing_you_follow_in_kassi: "%{author}更新了你在%{service_name}中关注的信息“%{listing}”。"
       view_changes: 查看变更
     community_updates:
       added_offer: "%{name_link}新增了一条信息："
@@ -953,7 +953,7 @@ zh:
       subject: "%{author_name}在%{service_name}发布了一则新的信息"
       has_posted_a_new_listing: "%{author_name}发布了一则新的信息："
       you_are_receiving_this_because: "你收到这个通知是由于你关注了%{author_name}。"
-      view_listing: 查看列表
+      view_listing: 查看发布的信息
   error_messages:
     listings:
       departure_time: 出发时间必需是现在起一年之内。
@@ -1271,8 +1271,8 @@ zh:
       offer_canceled: 宝贝已取消
       listing_updated_successfully: 信息更新成功
       only_kassi_administrators_can_access_this_area: "只有%{service_name}管理员有权限进入此区域"
-      only_listing_author_can_close_a_listing: 仅作者可以关闭列表
-      only_listing_author_can_edit_a_listing: 仅作者可以编辑列表
+      only_listing_author_can_close_a_listing: 仅作者可以关闭发布的信息
+      only_listing_author_can_edit_a_listing: 仅作者可以编辑发布的信息
       payment_successful: 付款成功
       payment_canceled: 付款已取消
       error_in_payment: 付款错误。如果你还没有完成付款，请重试。如果已完成，请联系我们。
@@ -1529,7 +1529,7 @@ zh:
       select_category: 选择分类
       select_subcategory: 选择子分类
       select_transaction_type: 请选择类型
-      you_need_to_fill_payout_details_before_accepting: "在发布列表前你需要填写支出详情。点击%{payment_settings_link}来填写详情。"
+      you_need_to_fill_payout_details_before_accepting: "在发布信息前你需要填写支出详情。点击%{payment_settings_link}来填写详情。"
       contact_admin_link_text: 联系管理员
       community_not_configured_for_payments: "%{service_name}没有配置支付方式，所以你不能发布新的信息。详情请联系%{contact_admin_link}。"
       payment_settings_link: 付款设置
