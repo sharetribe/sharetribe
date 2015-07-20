@@ -55,7 +55,7 @@ da-DK:
         enabled_languages: "Tilgængelige sprog"
         enabled_languages_description: "Tilgængelige sprog for brugere. Det øverste anvendes som standard."
         default_language: Standardsprog
-        language_selection_disabled: ~
+        language_selection_disabled: "Valg af sprog er deaktiveret for din markedsplads fordi du bruger følgende uofficielle sprog: %{languages}. Kontakt venligst Sharetribe support, hvis du ønsker at ændre dine sprogindstillinger."
         community_name: "Navn på markedsplads"
         edit_community_name_description: "Navnet på din markedsplads. Dette vises til brugere i e-mails og flere andre steder."
         community_slogan: "Markedsplads' slogan"
@@ -68,14 +68,14 @@ da-DK:
         edit_private_community_homepage_content_description: ~
         update_information: "Gem instillinger"
         invite_people: "Inviter nye brugere"
-        edit_signup_info: Oprettelsesinformation
-        edit_signup_info_description: "Dette er en info text som vil blive vist på oprettelsessiden. Her kan du give dine brugere en introduktion til oprettelsen, f.eks information til hvordan man kan få en invitation, osv. Som standard er der ingen instruktioner."
-        edit_info: "Rediger informationer"
+        edit_signup_info: "Oprettelses information"
+        edit_signup_info_description: "Dette er en informations tekst der kan blive vist til brugere på tilmeldings siden. Der kan du give brugerne instruktioner for tilmelding, oplysninger som, hvor du kan få en invitation, mv. Som standard er der ingen instruktioner."
+        edit_info: "Rediger information"
         see_how_it_looks_like: "Se hvordan det ser ud"
         verification_to_post_listings_info_content: "Info tekst til besøgende som ikke er logget ind"
         verification_to_post_listings_info_content_description: "Du kræver på nuværende tidspunkt at brugere bliver godkendt manuelt af dig før de kan tilføje annoncer. Her kan du sætte standardteksten som bliver vist til ikke-godkendte brugere når de vil oprette en ny annonce."
         verification_to_post_listings_info_content_default: "%{service_name} kræver at brugere bliver godkendt maduelt af en administrator før de kan oprette annoncer. Du er endnu ikke blevet godkendt. %{contact_admin_link} for at blive godkendt."
-        contact_admin_link_text: "kontat administratoren"
+        contact_admin_link_text: "Kontakt administratoren"
         save: Gem
         transaction_agreement: "Transaktions aftale"
         transaction_agreement_checkbox: "Gør det til et krav at brugerne skal acceptere transaktionsaftalen før en transaktion"
@@ -116,7 +116,7 @@ da-DK:
         custom_head_script: "Brugerdefineret script"
         custom_head_script_instructions_text: "Dit script vil blive indsat i <head> tag på enhver side på din markedsplads. Du kan indsætte CSS, JavaScript eller HTML. Du skal være opmærksom på at fremtidige opdatering hos Sharetribe kan skabe problemer med dine egne scripts."
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: "Instruktion tekster"
       edit_welcome_email:
         welcome_email_content: "Velkomst email indhold"
         welcome_email_content_description: "Nedenstående besked vil blive sendt til alle nye brugere når de opretter sig. Du kan tilpasse beskeden så den passer til din markedsplads. Ved at klikke på  %{send_test_message_link} kan du sende en testbesked til din e-mailadresse, så du kan se hvordan e-mailen vil se ud."
@@ -134,8 +134,8 @@ da-DK:
         categories_link_text: "tilføj kategorier og underkategorier"
         custom_fields_link_text: "konfigurer form felterne"
         filters_link_text: "hvilken slags filtre"
-        order_types: ~
-        order_types_link_text: ~
+        order_types: "Du kan også konfigurere, hvordan ordre processen fungerer i din markedsplads. Er dine brugere sælger, leje eller give de ting væk gratis? Tilbyder de udlejning pr. time, dag eller uge. Disse ting kan konfigureres fra %{order_types_link}."
+        order_types_link_text: "ordretype visning"
         payments: "Hvis du ønsker brugerne skal være i stand til at betale for deres køb på din markedsplads, så du får en bid fra hver transaktion, skal du %{payments_link}."
         payments_link_text: "indstil betalingsmetode"
         info_texts: "Glem ikke at tilrette info sider og andre tekster hvor du kan fortælle brugerne om din markedsplads. Gode steder at tjekke er din %{about_page_link}, dine %{terms_of_use_link} (du bør tilføje dine egne brugsvilkår her, enten ved at modificere den eksisterende skabelon, eller ved at oprette et helt nyt dokument), din %{privacy_policy_link}, og %{welcome_email_link} som sendes til alle nye brugere. Der er også en %{instruction_texts_link} du kan tilrette."
@@ -158,11 +158,11 @@ da-DK:
         contact_support_link_text: "kontakt vores support"
       available_languages:
         en: Engelsk
-        en-AU: ~
-        en-GB: ~
+        en-AU: "Engelsk (Australien)"
+        en-GB: "Engelsk (Storbritannien)"
         fr: Fransk
-        fr-CA: ~
-        es: ~
+        fr-CA: "Fransk (Canada)"
+        es: "Spansk (Chile)"
         es-ES: Spansk
         pt-BR: Portugisisk
         nb: "Norsk Bokmål"
@@ -190,7 +190,7 @@ da-DK:
         transaction_preferences: "Transaktions indstillinger"
         show_listing_publishing_date: "Vis oprettelsesdato af annoncen på annonce siden"
         show_category_in_listing_list: "Vis annoncetype i liste visningen"
-        hide_expiration_date: "Påkræv ikke annoncen at have en udløbsdato"
+        hide_expiration_date: "Påkræv ikke, at annoncer skal have en udløbsdato"
         listing_comments_in_use: "Tillad brugere at tilføje kommentarer til annoncen (kan ses af alle brugere)"
         email_preferences: E-mailindstillinger
         automatic_newsletters: "Send automatiske daglige / ugentlige nyhedsbreve til alle brugere på siden (undtaget hvis de har afmeldt disse emails)"
@@ -203,15 +203,15 @@ da-DK:
         automatic_newsletter_frequency: "Send automatiske nyhedsbreve: %{frequency_dropdown}"
         newsletter_daily: Daligt
         newsletter_weekly: Ugenligt
-        delete_marketplace_title: ~
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_marketplace_title: "Slet markedsplads"
+        type_marketplace_domain: "Skriv dit markedsplads domæne (%{domain}) i tekstfeltet nedenfor:"
+        type_marketplace_domain_placeholder: "Skriv dit markedsplads domæne her"
+        once_you_delete: "Når du sletter markedspladsen, vil du ikke længere kunne få adgang til den. Vær forsigtig."
+        are_you_sure: "Er du sikker?"
+        i_understand_button: "Jeg forstår, at ved at klikke på denne knap, vil min markedsplads blive slettet"
+        last_community_updates: "Bemærk, at efter sletning, kan du og dine markedsplads brugere stadig modtage de sidste markedsplads opdaterings e-mails."
+        you_will_be_redirected_to: "Når du har slettet din markedsplads vil du blive omdirigeret til %{destination}. Du vil ikke kunne få adgang til din markedsplads længere."
+        delete_this_marketplace: "Slet denne markedsplads"
       manage_members:
         manage_members: "Administrer brugere"
         email: Email
@@ -363,7 +363,7 @@ da-DK:
         select_template: "Vælg skabelon..."
         all_categories: "Alle kategorier"
         no_categories: "Ingen kategorier"
-        category_count: ~
+        category_count: "%{category_count} kategorier"
         header:
           listing_shape_name: "Ordre type navn"
           listing_shape_categories: "Ordre type kategori"
@@ -394,18 +394,21 @@ da-DK:
         delete: "Slet ordre type"
         can_not_delete_last: "Du kan ikke slette denne ordre type, fordi det er den eneste type på din markedsplads."
         can_not_delete_only_one_in_categories: "Du kan ikke slette denne ordre type i følgende kategorier, fordi dette er den eneste type i brug: %{categories}"
+        confirm_delete_order_type:
+          one: "Der er %{count} annonce med denne ordretype. Hvis du sletter ordre typen, vil denne annonce blive lukket. Er du sikker på at du vil slette ordre typen?"
+          other: "Der er %{count} annoncer med denne ordretype. Hvis du sletter ordre typen, vil disse annoncer blive lukket. Er du sikker på at du vil slette ordre typen?"
       listing_shape_name: Navn
-      listing_shape_name_placeholder: ~
+      listing_shape_name_placeholder: "F.eks. Sælg"
       action_button_label: "Checkout knap label"
-      action_button_placeholder: ~
+      action_button_placeholder: "F.eks. Køb"
       successfully_closed: "Annoncer lukkede"
       successfully_deleted: "Ordre type '%{order_type}' slettet"
       pricing_and_checkout_title: "Pris & checkout"
       online_payments_label: "Brug online betalingssystem"
       shipping_label: "Tillad sælgere at definere et forsendelsesgebyr"
       price_label: "Vis pris felt"
-      units_title: "Pris enhed"
-      units_desc: "Hvis du har aktiveret pris enhed, vises annonceprisen som \"pris per pris enhed\". Eksempel: \"39 kr. pr. time\"."
+      units_title: Prisenhed
+      units_desc: "Hvis du har aktiveret prisenhed, vises annonceprisen som \"pris pr. prisenhed\". Eksempel: \"39 kr. pr. time\"."
       units:
         piece: "Pr. stk."
         hour: "Pr. time"
@@ -414,19 +417,28 @@ da-DK:
         week: "Pr. uge"
         month: "Pr. måned"
       can_not_find: "Kan ikke finde ordre type med id: %{id}"
-      add_custom_unit: ~
+      add_custom_unit: "+ Tilføj en brugerdefineret prisenhed..."
       delete_custom_unit: slet
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        title: "Ny prissætning enhed"
+        label_heading: Mærke
+        selector_label_heading: Mærkevælger
+        label_placeholder: "f.eks. \"kg\", \"30 minutter\", \"person\", \"klasse\""
+        selector_placeholder: "f.eks. \"Antal personer\", \"Antal i kg.\""
+        per: Pr.
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: Enhedstype
+          quantity_label: "Mængde (pr. styk, pr. kg, pr. person, pr. 2 timers rundvisning...)"
+          time_label: "Tid (pr. 30 minutter, pr. 2 uger, pr. år...)"
+      close_listings_action:
+        one: "Luk %{count} liste"
+        other: "Luk %{count} lister"
+      confirm_close_listings_action:
+        one: "Er du sikker på, at du vil lukke %{count} liste?"
+        other: "Er du sikker på, at du vil lukke %{count} lister?"
+      open_listings_warning:
+        one: "Der er %{count} åben annonce med denne ordretype. Hvis du ændrer nogen af indstillingerne nedenfor, vil den annonce beholde de gamle indstillinger. Annoncen kan ændres til de nye indstillinger ved at redigere den manuelt. Hvis du ikke ønsker at have den annonce med de gamle indstillinger synlige på dit websted, kan du lukke den ved at klikke på knappen nedenfor."
+        other: "Der er %{count} åbne annonce med denne ordretype. Hvis du ændrer nogen af indstillingerne nedenfor, vil disse annoncer beholde de gamle indstillinger. Annoncerne kan ændres til de nye indstillinger ved at redigere dem manuelt. Hvis du ikke ønsker at have disse annoncer med de gamle indstillinger synlige på dit websted, kan du lukke den ved at klikke på knappen nedenfor."
     paypal_accounts:
       marketplace_paypal_integration: Betalingsindstillinger
       preferences_updated: "Betalings indstillinger blev opdateret"
@@ -462,7 +474,7 @@ da-DK:
   common:
     edit_page: "Rediger side"
     default_community_slogan: "Fælleskabs markedsplads"
-    default_community_description: ~
+    default_community_description: "Dette er et sted, til at sælge, leje, bytte og dele varer og tjenesteydelser med de andre medlemmer af markedspladsen."
     cancel: Ryd
     fields_that_are_mandatory: "Felter markeret med stjerne (*) er obligatoriske."
     or: eller
@@ -727,7 +739,7 @@ da-DK:
       cardholder_name: "Kortholders navn"
       credit_card_number: "Kreditkort nummer"
       cvv: CVV
-      credit_card_expiration_date: Udløbsdato
+      credit_card_expiration_date: "Betalingskort udløbsdato"
       confirm_payment: "Bekræft betaling"
       exp: "Exp:"
   preauthorize_payments:
@@ -962,7 +974,7 @@ da-DK:
     transaction_agreement:
       required_error: "Du skal godkende kontrakten"
     paypal:
-      pending_review_error: "Betalingen er sendt, men PayPal har markeret den som 'behøver gennemgang'. Når gennemgangen har fundet sted, vil betalingen automatisk blive autoriseret."
+      pending_review_error: "Betalingen er sendt afsted, men PayPal har markeret den som 'behøver gennemgang'. Når gennemgangen har fundet sted, vil betalingen automatisk blive autoriseret."
       generic_error: "Der skete en teknisk fejl under betalingsprocessen."
       cancel_error: "Der skete en fejl. Vi kunne ikke annullere."
       accept_authorization_error: "Der skete en fejl da vi prøvede at gennemføre din PayPal betaling. Prøv venligst igen."
@@ -1067,7 +1079,7 @@ da-DK:
       item_request_list: "værktøj, sportsudstyr, kostumer, campingudstyr"
       items_to_offer: "Varer, til at låne: "
       items_to_request: "Varer, du kan låne: "
-      log_in: "Log på"
+      log_in: "Log ind!"
       no_offers_visible_unless_logged_in: "Ingen vare, service eller rideshare giver synlige for ikke-registrerede brugere."
       no_open_offers_currently: "Ingen post, service eller rideshare tilbyder åben."
       no_open_requests_currently: "Ingen åbne post, service eller rideshare anmodninger."
@@ -1114,7 +1126,7 @@ da-DK:
       no_reviews: "Ingen anmeldelser"
       no_image: "Intet billede"
       filter: Filter
-      this_is_private_community: "Du skal opret profil﻿ før du kan se dette indhold."
+      this_is_private_community: "Du skal en opret profil﻿ før du kan se dette indhold."
     invitation_form:
       email: "E-mail-adresse (r)"
       message: "En personlig meddelelse"
@@ -1150,7 +1162,7 @@ da-DK:
       all_categories: "Alle kategorier"
   infos:
     about:
-      default_about_text_title: "What er Sharetribe?"
+      default_about_text_title: "Hvad er Sharetribe?"
       default_about_text: "Denne markedsplads er drevet af Sharetribe's platform. Med Sharetribe kan du nemt oprette din egen markedsplads. Det er gratis og tager kun enkelte minutter at komme i gang. %{click_here_link} for at høre nærmere!"
       click_here_link_text: "Klik her"
     how_to_use:
@@ -1738,7 +1750,7 @@ da-DK:
       visible_to_everybody: "Synlig for alle"
       create_account_with_facebook: "Opret brugerprofil﻿med Facebook"
       OR: ELLER
-      signup_with_email: "Opret profil﻿ med din email adresse"
+      signup_with_email: "Opret profil﻿ med din e-mail adresse"
     not_member:
       explanation_text: "Du kigger i øjeblikket %{community}. Du har forsøgt at se profilen for en bruger, der er medlem af en anden markedsplads oprettet med Sharetribe platform. Du kan ikke få adgang til denne brugers profil i %{community}."
       read_more_about_kassi_communities: "Læs mere om Sharetribe markedspladser"
@@ -1954,7 +1966,7 @@ da-DK:
       this_will_be_shown_in_profile: ~
       positive: Positivt
       negative: Negativt
-      default_textual_feedback: "Success! Tusind tak."
+      default_textual_feedback: "Alt gik glat, mange tak!"
     testimonial:
       about_listing: "om annoncen"
   date:
@@ -2013,7 +2025,7 @@ da-DK:
       december: Dec
     today: "I Dag"
     clear: Nulstil
-    format: dd/mm/yyyy
+    format: dd/mm/åååå
   time:
     formats:
       short: "%e %b %Y på %H:%M"
@@ -2039,6 +2051,15 @@ da-DK:
       hours:
         one: "%{count} time"
         other: "%{count} timer"
+      seconds:
+        one: "%{count} sekund"
+        other: "%{count} sekunder"
+      minutes:
+        one: "%{count} minut"
+        other: "%{count} minutter"
+      days:
+        one: "%{count} dag"
+        other: "%{count} dage"
   transactions:
     initiate:
       booked_days: "Bookede dage:"

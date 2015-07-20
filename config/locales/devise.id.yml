@@ -3,28 +3,28 @@ id:
     messages:
       expired: "masa berlaku telah berakhir, silakan minta yang baru"
       not_found: "tidak ditemukan"
-      already_confirmed: "sudah terkonfirmasi, silakan login kembali"
-      not_locked: "tidak terkunci"
+      already_confirmed: "sudah terkonfirmasi, silakan masuk kembali"
+      not_locked: "tidak tertutup"
       not_saved:
         other: "%{count} error membuat %{resource} gagal untuk disimpan:"
   devise:
     failure:
-      already_authenticated: "Anda sudah login"
-      unauthenticated: "Anda harus login atau daftar sebelum melanjutkan."
+      already_authenticated: "Anda sudah masuk"
+      unauthenticated: "Anda harus masuk atau mendaftar sebelum melanjutkan."
       unconfirmed: "Anda harus mengkonfirmasi akun Anda sebelum melanjutkan."
-      locked: "Akun Anda terkunci."
-      invalid: "Email atau Password yang Anda masukkan salah."
-      invalid_token: "Token tidak valid."
-      timeout: "Sesi Anda telah berakhir, silakan login lagi untuk melanjutkan."
+      locked: "Akun anda terkunci / di blok."
+      invalid: "Email atau kata sandi yang Anda masukkan salah."
+      invalid_token: "Bukti autentikasi tidak benar"
+      timeout: "Sesi anda telah berakhir, silahkan masuk lagi untuk melanjutkan."
       inactive: "Akun Anda belum diaktifkan."
     passwords:
-      updated_not_active: "Password Anda berhasil diubah."
-      send_paranoid_instructions: "Jika email Anda ada pada data kami, Anda akan menerima email untuk mereset password Anda"
-      send_instructions: "Anda akan menerima email cara mereset password dalam beberapa saat."
-      updated: "Password Anda berhasil diubah. Sekarang Anda telah login."
+      updated_not_active: "Kata kunci Anda telah berhasil diubah. Anda sekarang sudah masuk."
+      send_paranoid_instructions: "Jika email Anda ada pada data kami, Anda akan menerima email untuk merubah kata sandi - password Anda"
+      send_instructions: "Anda akan menerima email cara membetulkan kata sandi - password dalam beberapa saat."
+      updated: "Kata kunci Anda telah berhasil diubah. Anda sekarang sudah masuk."
     sessions:
-      signed_in: "Login sukses."
-      signed_out: "Logout sukses."
+      signed_in: "Berhasil masuk."
+      signed_out: "Berhasil keluar."
     confirmations:
       send_paranoid_instructions: "Jika email Anda ada pada data kami, Anda akan menerima email cara mengkonfirmasi akun Anda dalam beberapa saat."
       send_instructions: "Anda akan menerima email untuk mengkonfirmasi akun Anda dalam beberapa saat."

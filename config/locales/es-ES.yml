@@ -61,9 +61,9 @@ es-ES:
         community_slogan: "Eslogan de la tribu:"
         edit_community_slogan_description: "Se muestra en la página de inicio del marketplace a usuarios que no hayan inicado sesión. %{see_how_it_looks_like}."
         community_description: "Descripción:"
-        edit_community_description_description: ~
+        edit_community_description_description: "Esto se muestra en la página de inicio del marketplace para los usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         community_search_placeholder: Ayuda
-        edit_community_search_placeholder_description: ~
+        edit_community_search_placeholder_description: "Esto se muestra en la página inicial del marketplace como texto de marcador en la barra de búsqueda. %{see_how_it_looks_like}."
         private_community_homepage_content: "Contenido de la página de inicio del marketplace privado"
         edit_private_community_homepage_content_description: "Este contenido se muestra en la página de inicio de los marketplaces privados a los usuarios que no se han registrado. Aquí puedes describir tu marketplace y el proceso para registrarse. También puedes añadir imágenes, videos y contenido HTML aquí. %{see_how_it_looks_like}."
         update_information: "Guardar configuración"
@@ -73,7 +73,7 @@ es-ES:
         edit_info: "Editar información"
         see_how_it_looks_like: "Ver cómo se ve"
         verification_to_post_listings_info_content: "Texto de información para usuarios no verificados"
-        verification_to_post_listings_info_content_description: ~
+        verification_to_post_listings_info_content_description: "Actualmente requieres que tus usuarios sean validados por tí antes de que puedan publicar sus anuncios. Aquí puedes poner el texto por defecto que se muestra a los usuarios que no han sido verificados cuando tratan de publicar un anuncio."
         verification_to_post_listings_info_content_default: "Antes de poder publicar un anuncio en %{service_name} necesitamos verificar tu cuenta. En breve tu cuenta estará disponible. Si lo deseas puedes %{contact_admin_link} para que verifiquemos tu cuenta antes si es urgente."
         contact_admin_link_text: "Contactar al administrador"
         save: "Guardar configuración"
@@ -94,7 +94,7 @@ es-ES:
         community_custom_color1: "Color principal"
         community_custom_color2: "Color secundario"
         logo_instructions_text_with_dimensions: "El logosímbolo en versión de escritorio debe tener una resolución de %{width}x%{height} píxeles. Se mostrará a los usuarios que tienen pantallas más grandes."
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "Este logosímbolo cuadrado se mostrará cuando las personas compartan tu sitio en Facebook, cuando vean tu sitio desde un dispositivo móvil o cuando guarden un acceso directo a tu sitio en sus dispositivos móviles. Las dimensiones deben ser (al menos) %{width}x%{height}px."
         cover_photo_visibility: "La imagen de cabecera se muestra en la home a usuarios que todavía no han iniciado sesión."
         cover_photo_instructions_text_with_dimensions: "La foto se redimensionará a un tamaño de %{width}x%{height}px y las imágenes más altas se cortarán en el medio. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "La imagen de cabecera pequeña se muestra en todas las páginas (excepto en la home) a todos los usuarios."
@@ -116,7 +116,7 @@ es-ES:
         custom_head_script: "Script personalizado"
         custom_head_script_instructions_text: "Éste script será añadido al <head> de cada página y se puede usar para añadir un CSS personalizado, JavaScript o HTML. Por favor, recuerda que futuras actualizaciones de Sharetribe pueden hacer que tu script deje de funcionar correctamente."
       edit_text_instructions:
-        edit_text_instructions: ~
+        edit_text_instructions: "Textos de instrucción"
       edit_welcome_email:
         welcome_email_content: "Contenido del email de bienvenida."
         welcome_email_content_description: "El mensaje de abajo se enviará a todos los usuarios nuevos cuando se registren. Puedes personalizar el mensaje para que se ajuste a tu marketplace.  Haciendo clic en '%{send_test_message_link}' podrás enviar un mensaje de prueba a tu correo electrónico, para que veas cómo se ve en la bandeja de entrada de un proveedor de correo."
@@ -125,20 +125,20 @@ es-ES:
       getting_started:
         getting_started: "Guía para comenzar"
         welcome_to_your_marketplace: "Bienvenido a tu marketplace, %{name}!"
-        intro: ~
+        intro: "Esta es una guía rápida para configurar y gestionar tu marketplace. Puedes ver el sitio en vivo %{live_site_link}."
         live_site_link_text: aquí
-        look_and_feel: ~
+        look_and_feel: "Antes de lanzar tu sitio al público, probablemente querrás configurar algunas cosas. Por ejemplo, tu logo (%{logo_link}) y cambiar la foto de portada y los colores para ajustarse a la identidad visual de tu marca."
         logo_link_text: "añadir logo"
-        custom_domain: ~
+        custom_domain: "También puedes agregar un dominio personalizado (por ejemplo: www.tumarketplace.com). Esta configuración requiere algunos ajustes manuales por nuestra parte, y también deberemos comprar un certificado SSL para el dominio para mantener tu sitio seguro. Por esta razón, los dominios personalizados no están disponibles en las pruebas gratis en este momento. Necesitarás actualizar a nuestro plan Pro o uno superior para tener un dominio personalizado.  Si quieres tener un dominio personalizado, por favor %{contact_support_link}."
         categories_and_custom_fields: "El siguiente paso es elegir qué tipo de contenido podrán publicar los usuarios de tu web. Puedes %{categories_link}, %{custom_fields_link} en los anuncios, y decidir qué %{filters_link} estarán disponibles durante una búsqueda."
         categories_link_text: "añadir categorías y subcategorías"
-        custom_fields_link_text: ~
+        custom_fields_link_text: "Configurar campos del formulario"
         filters_link_text: "tipos de filtros"
         order_types: "También puedes configurar cómo funciona el proceso de solicitud en tu marketplace. Tus usuarios están vendiendo, alquilando o regalando cosas gratis? Están ofreciendo alquileres por horas, por días o por semanas? Estos parámetros pueden configurarse en este enlace %{order_types_link}."
         order_types_link_text: "Vista de tipos de solicitud"
-        payments: ~
+        payments: "Si quieres que las personas puedan pagar por sus compras a través de tu marketplace, y poder cobrar una comisión de servicio por cada transacción, debes %{payments_link}."
         payments_link_text: "configurar una forma de pago"
-        info_texts: ~
+        info_texts: "No olvides personalizar las páginas de información y los demás textos en los que puedes hablarle a los usuarios acerca de tu marketplace.  Unos lugares ideales para empezar son tu %{about_page_link}, tu %{terms_of_use_link} (Debes ingresar tus propios términos de uso aquí, ya sea modificando el modelo actual o creando un documento nuevo que se ajuste a tus necesidades), tu %{privacy_policy_link}, y el %{welcome_email_link} que se envía a cada nuevo usuario.  También hay algunos %{instruction_texts_link} que puedes configurar."
         about_page_link_text: "sobre nosotros"
         terms_of_use_link_text: "términos y condiciones de uso"
         privacy_policy_link_text: "política de privacidad"
@@ -182,23 +182,23 @@ es-ES:
         general: General
         users_can_review_each_other_after_transaction: "Los usuarios pueden escribir valoraciones de cada uno cuando hayan realizado una transacción"
         access: Acceso
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
-        private: ~
+        join_with_invite_only: "Los usuarios sólo pueden unirse a este marketplace con una invitación de otro usuario."
+        users_can_invite_new_users: "Todos los usuarios pueden invitar nuevos usuarios a este marketplace."
+        private: "Este marketplace es privado (sólo los usuarios registrados pueden ver su contenido)."
         require_verification_to_post_listings: "Sólo los usuarios que han sido verificados por el administrador pueden publicar nuevos anuncios"
         listing_preferences: "Preferencias de los anuncios"
         transaction_preferences: "Preferencias de transacciones"
         show_listing_publishing_date: "Mostrar fecha de publicación del anuncio en la lista de resultados"
-        show_category_in_listing_list: ~
-        hide_expiration_date: ~
+        show_category_in_listing_list: "Mostrar el tipo de anuncio en la vista de listado"
+        hide_expiration_date: "No requerir que los anuncios tengan una fecha de expiración."
         listing_comments_in_use: "Todos los usuarios pueden publicar comentarios en los anuncios (visibles para el resto de los usuarios)"
         email_preferences: "Preferencias de correo"
         automatic_newsletters: "Enviar el newsletter diario/semanal a todos los usuarios (excepto si no han aceptado el envío de mensajes automáticos)"
         email_admins_about_new_members: "Enviar un email al administrador cada vez que un nuevo usuario se registra."
-        google_analytics_key: ~
+        google_analytics_key: "Tracking ID de Google Analytics"
         twitter_handle: "Publicar en Twitter (a través del botón \"twee\" en la página del anuncio)"
         update_settings: "Guardar configuración"
-        automatically_confirmed: ~
+        automatically_confirmed: "La transacción se marcará automáticamente como completada %{days_dropdown} días después de que el pago se realice. Si se utiliza el sistema de escrow, el dinero se liberará al proveedor en ese momento."
         automatically_confirmed_no_escrow: "La transacción se marcará automáticamente como completada %{days_dropdown} días después de que se realice el pago."
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
         newsletter_daily: Diariamente
@@ -223,7 +223,7 @@ es-ES:
         saving_user_status: Guardando...
         save_user_status_successful: Guardado
         save_user_status_error: "No se han guardado los cambios. Por favor, actualiza la página y vuelve a intentarlo."
-        ban_user_confirmation: ~
+        ban_user_confirmation: "Esto bloquea al usuario del marketplace y le impide volver a acceder con esta cuenta. Estás seguro de que quieres continuar?"
         ban_me_error: "No te puedes rechazar a ti mismo."
       social_media:
         social_media: "Social media"
@@ -273,7 +273,7 @@ es-ES:
           initiated_by: "Iniciada por"
           other_party: "Otra parte"
         status:
-          free: ~
+          free: Conversación
           pending: Pendiente
           preauthorized: Pre-autorizada
           accepted: Aceptada
@@ -353,7 +353,7 @@ es-ES:
     left_hand_navigation:
       general: General
       users_and_transactions: "Usuarios y transacciones"
-      configure: ~
+      configure: Configuración
       emails_title: Emails
       support: Soporte
     listing_shapes:
@@ -644,7 +644,7 @@ es-ES:
       conversation_with: "Conversación con %{person}"
       last_message_at: "(último mensaje %{time})"
       price: "Precio: %{price}"
-      sum: ~
+      sum: "Total: %{sum}"
       price_excludes_vat: "(Impuestos no incluídos)"
       total: "Total: %{total}"
     status:
@@ -750,7 +750,7 @@ es-ES:
   community_memberships:
     access_denied:
       access_denied: "Acceso denegado"
-      you_are_banned_in_this_community: ~
+      you_are_banned_in_this_community: "El administrador de %{service_name} te ha impedido la entrada al sitio. Si quieres contactar al administrador, puedes enviar %{link_to_contact_page}."
       contact_page_link: "Dar feedback"
     new:
       welcome_fb_user: "Bienvenido a %{service_name}, %{name}!"
@@ -929,12 +929,12 @@ es-ES:
       subject: "%{requester} ha solicitado y pagado por %{listing_title}"
       transaction_requested_by_user: "%{requester} ha solicitado y pagado por \"%{listing_title}\""
       you_have_time_to_accept: "Debes aceptar o rechazar la solicitud dentro de %{payment_expires_in}. Si aceptas dentro de este periodo, el pago será procesado. Si no aceptas, la solicitud se rechazará automáticamente y no recibirás el pago."
-      click_here_to_reply: ~
+      click_here_to_reply: "Haz clic aquí para responder a la solicitud"
     transaction_preauthorized_reminder:
       subject: "Recuerda aceptar la solicitud de %{requester} sobre el anuncio %{listing_title}"
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      remember_to_accept: "Recuerda aceptar la solicitud de %{requester} sobre tu anuncio \"%{listing_title}\". %{requester} ya ha pagado. Debes aceptar la solicitud para poder recibir el pago."
+      one_day_left: "Si no aceptas la solicitud en 1 día, la solicitud se rechazará automáticamente y no recibirás ningún pago."
+      click_here_to_reply: "Haz clic aquí para responder a la solicitud"
     welcome_email:
       welcome_email_subject: "Ya formas parte de %{service_name}"
       welcome_to_marketplace: "¡Bienvenido a %{service_name}! Nos encanta que estés con nosotros."
@@ -978,7 +978,7 @@ es-ES:
     transaction_agreement:
       required_error: "Debes aceptar el acuerdo"
     paypal:
-      pending_review_error: ~
+      pending_review_error: "El pago se realizó pero fue marcado por PayPal como 'pendiente de revisión'. Cuando PayPal complete esta revisión, el pago será autorizado automáticamente."
       generic_error: "Ha ocurrido un error durante el proceso de pago. No se pudo finalizar el pago a través de PayPal."
       cancel_error: "Ha ocurrido un error durante la cancelación. No se ha podido finalizar la cancelación"
       accept_authorization_error: "Ha ocurrido un error mientras intentábamos aceptar el pago preautorizado con PayPal. Por favor, inténtalo de nuevo."
@@ -1104,8 +1104,8 @@ es-ES:
       processing_uploaded_image: "(Procesando imagen...)"
     index:
       no_listings_with_your_search_criteria: "No encontramos resultados para tus criterios de búsqueda. Intenta de nuevo"
-      no_listings_notification: "No anuncios. %{add_listing_link}."
-      add_listing_link_text: "Añadir nuevo anuncio"
+      no_listings_notification: "No hay anuncios. %{add_listing_link}."
+      add_listing_link_text: "Publicar anuncio"
       open_listing: "publicación abierta"
       open_listings: "publicaciones abiertas"
       private_listing_notification_log_in: "inicia sesión"
@@ -1380,7 +1380,7 @@ es-ES:
       edit_listing: "Editar anuncio"
       reopen_listing: "Reactivar anuncio"
       move_to_top: "Mover a la parte superior de la página principal"
-      show_in_updates_email: ~
+      show_in_updates_email: "Mostrar en la próxima actualización automática de la comunidad."
       show_in_updates_email_loading: Cargando...
       show_in_updates_email_error: "No se ha podido conectar con el servidor. Por favor, actualiza la página y vuelve a intentarlo."
       show_in_updates_email_success: "Este producto será mostrado en la próxima actualización de envío de e-mails a los usuarios"
@@ -1441,7 +1441,7 @@ es-ES:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} será deducido del precio."
         after_service_fee_you_will_get_paypal_text: "La comisión de servicio de %{service_name}, el %{sum_with_currency} y la comisión %{paypal_fee_info_link} serán deducidos del precio."
         paypal_fee_info_link_text: "Comisión de procesamiento de pago de PayPal"
-        after_service_fee_you_will_get_vat: ~
+        after_service_fee_you_will_get_vat: "Después de las comisiones de %{service_name} y del procesador de pagos recibirás aproximadamente %{sum_with_currency} (IVA 0%)"
         price_excludes_vat: "El precio no incluye IVA."
         delivery: "Método de envío"
         shipping: Envío
@@ -1667,8 +1667,8 @@ es-ES:
         terms_link_text: "Términos de uso de Braintree"
   paypal_accounts:
     payout_info_title: "Información de pago"
-    paypal_account_email_connected: ~
-    paypal_billing_agreement_made: ~
+    paypal_account_email_connected: "<del>Conectar cuenta PayPal</del> Completado!"
+    paypal_billing_agreement_made: "<del>Otorgar permiso a %{service_name} para cobrar la comisión de servicio</del> Completado!"
     you_are_ready_to_accept_payments: "¡Estás listo para aceptar pagos!"
     commission: "%{commission} %"
     connected_account: "La cuenta de PayPal '%{email}' se ha conectado con éxito."
@@ -1682,7 +1682,7 @@ es-ES:
       admin_account_not_connected: "No puedes conectar tu cuenta de PayPal porque el administrador del marketplace no ha finalizado las configuraciones necesarias para usar PayPal."
       paypal_account_email: "Conecta tu cuenta de Paypal"
       paypal_account_email_placeholder: "Tu dirección de email en Paypal"
-      paypal_account_email_info_text: ~
+      paypal_account_email_info_text: "Si no tiene suna cuenta PayPal, puedes crear una yendo a %{create_paypal_account}. Si el sistema arroja un error al conectar tu cuenta, necesitas actualizar tu cuenta a una cuenta empresarial (business). Actualizar es fácil y rápido y no te costará nada.  Si eres una persona natural (un indviduo), deberás poner tu nombre y apellido en el campo del \"nombre de la empresa\" cuando PayPal te lo solicite.  Para actualizar tu cuenta, %{upgrade_paypal_account} y busca el enlace de actualización."
       create_paypal_account: aquí
       upgrade_paypal_account: "Actualiza tu cuenta aquí."
       connect_paypal_account: "Conecta tu cuenta de Paypal"

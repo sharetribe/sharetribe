@@ -613,7 +613,7 @@ de:
       send_message: "Nachricht senden"
       send: Senden
       this_message_is_private: "Dies ist eine private Nachricht zwischen dir und %{person}. %{person} wird per E-Mail über diese Nachricht benachrichtigt."
-      you_will_get_notified_of_acceptance: "Du erhältst eine E-Mail-Benachrichtigung, wenn %{person} deinen Vorschlag akzeptiert oder ablehnt."
+      you_will_get_notified_of_acceptance: "Du erhältst eine E-Mail-Benachrichtigung, wenn %{person} Deinen Vorschlag akzeptiert oder ablehnt."
       you_will_get_notified: "Du erhältst eine E-Mail-Benachrichtigung, wenn %{person} dir antwortet."
       title: Titel
       send_message_to_user: "Nachricht an %{person} senden"
@@ -1597,7 +1597,7 @@ de:
       by: "%{listing} von %{author}"
       payment: Zahlung
       exp: "Verwendbar Bis:"
-      you_will_be_charged: "Die Kosten werden nur in Rechnung gestellt, wenn %{author} die Transaktion annimmt. %{author} muss die Transaktion innerhalb von %{expiration_period} Tagen akzeptieren. Wenn %{author} ablehnt oder nicht antwortet, werden keine Gebühr erhoben."
+      you_will_be_charged: "Die Kosten werden nur in Rechnung gestellt, wenn %{author} die Transaktion annimmt. %{author} muss die Transaktion innerhalb von %{expiration_period} Tagen akzeptieren. Wenn %{author} ablehnt oder nicht antwortet, werden keine Gebühren erhoben."
       day: Tag
       days: Tage
     transaction_agreement_checkbox:
