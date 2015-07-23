@@ -33,5 +33,9 @@ class PersonMessagesController < ApplicationController
 
   def fetch_recipient
     @recipient = Person.find(params[:person_id])
+    if @current_user == @recipient
+      flash[:error] = t("layouts.notifications.you_cannot_send_message_to_yourself")
+      redirect_to root
+    end
   end
 end
