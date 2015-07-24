@@ -107,7 +107,7 @@
             = icon_tag("chat_bubble", ["icon-with_text"])
             .text-with-icon
               = t(".comments")
-              %span#comment_count= "(#{@listing.comments.count})"
+              %span#comment_count= "(#{@listing.comments_count})"
           #follow-links.follow-links
             = render :partial => "follow_links"
           #comment-list
