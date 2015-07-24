@@ -392,15 +392,24 @@ da-DK:
         update_success: "Ændringer til ordre type '%{shape}' gemt"
         update_failure: "Kunne ikke gemme ændringer. Error: %{error_msg}"
         delete: "Slet ordre type"
-        can_not_delete_last: "Du kan ikke slette denne ordre type, fordi det er den eneste type på din markedsplads."
-        can_not_delete_only_one_in_categories: "Du kan ikke slette denne ordre type i følgende kategorier, fordi dette er den eneste type i brug: %{categories}"
         confirm_delete_order_type:
           one: "Der er %{count} annonce med denne ordretype. Hvis du sletter ordre typen, vil denne annonce blive lukket. Er du sikker på at du vil slette ordre typen?"
           other: "Der er %{count} annoncer med denne ordretype. Hvis du sletter ordre typen, vil disse annoncer blive lukket. Er du sikker på at du vil slette ordre typen?"
+        can_not_delete_last: "Du kan ikke slette denne ordre type, fordi det er den eneste type på din markedsplads."
+        can_not_delete_only_one_in_categories: "Du kan ikke slette denne ordre type i følgende kategorier, fordi dette er den eneste type i brug: %{categories}"
       listing_shape_name: Navn
       listing_shape_name_placeholder: "F.eks. Sælg"
       action_button_label: "Checkout knap label"
       action_button_placeholder: "F.eks. Køb"
+      open_listings_warning:
+        one: "Der er %{count} åben annonce med denne ordretype. Hvis du ændrer nogen af indstillingerne nedenfor, vil den annonce beholde de gamle indstillinger. Annoncen kan ændres til de nye indstillinger ved at redigere den manuelt. Hvis du ikke ønsker at have den annonce med de gamle indstillinger synlige på dit websted, kan du lukke den ved at klikke på knappen nedenfor."
+        other: "Der er %{count} åbne annonce med denne ordretype. Hvis du ændrer nogen af indstillingerne nedenfor, vil disse annoncer beholde de gamle indstillinger. Annoncerne kan ændres til de nye indstillinger ved at redigere dem manuelt. Hvis du ikke ønsker at have disse annoncer med de gamle indstillinger synlige på dit websted, kan du lukke den ved at klikke på knappen nedenfor."
+      close_listings_action:
+        one: "Luk %{count} liste"
+        other: "Luk %{count} lister"
+      confirm_close_listings_action:
+        one: "Er du sikker på, at du vil lukke %{count} liste?"
+        other: "Er du sikker på, at du vil lukke %{count} lister?"
       successfully_closed: "Annoncer lukkede"
       successfully_deleted: "Ordre type '%{order_type}' slettet"
       pricing_and_checkout_title: "Pris & checkout"
@@ -430,15 +439,6 @@ da-DK:
           heading: Enhedstype
           quantity_label: "Mængde (pr. styk, pr. kg, pr. person, pr. 2 timers rundvisning...)"
           time_label: "Tid (pr. 30 minutter, pr. 2 uger, pr. år...)"
-      close_listings_action:
-        one: "Luk %{count} liste"
-        other: "Luk %{count} lister"
-      confirm_close_listings_action:
-        one: "Er du sikker på, at du vil lukke %{count} liste?"
-        other: "Er du sikker på, at du vil lukke %{count} lister?"
-      open_listings_warning:
-        one: "Der er %{count} åben annonce med denne ordretype. Hvis du ændrer nogen af indstillingerne nedenfor, vil den annonce beholde de gamle indstillinger. Annoncen kan ændres til de nye indstillinger ved at redigere den manuelt. Hvis du ikke ønsker at have den annonce med de gamle indstillinger synlige på dit websted, kan du lukke den ved at klikke på knappen nedenfor."
-        other: "Der er %{count} åbne annonce med denne ordretype. Hvis du ændrer nogen af indstillingerne nedenfor, vil disse annoncer beholde de gamle indstillinger. Annoncerne kan ændres til de nye indstillinger ved at redigere dem manuelt. Hvis du ikke ønsker at have disse annoncer med de gamle indstillinger synlige på dit websted, kan du lukke den ved at klikke på knappen nedenfor."
     paypal_accounts:
       marketplace_paypal_integration: Betalingsindstillinger
       preferences_updated: "Betalings indstillinger blev opdateret"
@@ -2048,15 +2048,15 @@ da-DK:
       one: "%{count} dag"
       other: "%{count} dage"
     time_to:
-      hours:
-        one: "%{count} time"
-        other: "%{count} timer"
       seconds:
         one: "%{count} sekund"
         other: "%{count} sekunder"
       minutes:
         one: "%{count} minut"
         other: "%{count} minutter"
+      hours:
+        one: "%{count} time"
+        other: "%{count} timer"
       days:
         one: "%{count} dag"
         other: "%{count} dage"

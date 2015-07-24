@@ -33,6 +33,7 @@ module Sharetribe
   UNSUPPORTED_LOCALES = [
     {ident: "ca", name: "Catalan", language: "ca", region: "ES", fallback: nil}, # Catalan (Spain)
     {ident: "hr", name: "Hrvatski", language: "hr", region: "HR", fallback: nil}, # Croatian (Croatia)
+    {ident: "id", name: "Bahasa Indonesia", language: "id", region: "ID", fallback: nil}, # Indonesian (Indonesia)
     {ident: "is", name: "íslenska", language: "is", region: "IS", fallback: nil}, # Icelandic (Iceland)
     {ident: "km-KH", name: "ភាសាខ្មែ", language: "km", region: "KH", fallback: nil}, # Khmer (Cambodia)
     {ident: "ms-MY", name: "Bahasa Malaysia", language: "ms", region: "MY", fallback: nil}, # Malay (Malaysia)
