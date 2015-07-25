@@ -18,6 +18,7 @@ Feature: User comments a listing
     And I fill in "comment_content" with "Test comment"
     And I press "Send comment"
     And I should see "Test comment" within "#comments"
+    And I should see "1" within "#comment_count"
     And the system processes jobs
     And I should not see "Follow this listing"
     And I should see "Don't get emails about new comments"
@@ -35,6 +36,7 @@ Feature: User comments a listing
     And I uncheck "comment_author_follow_status"
     And I press "Send comment"
     Then I should see "Get emails about new comments"
+    And I should see "2" within "#comment_count"
     And I should not see "Don't get emails about new comments"
     When I follow "Get emails about new comments"
     Then I should see "Don't get emails about new comments"
