@@ -214,7 +214,7 @@ Kassi::Application.routes.draw do
         get :locations_json
         get :verification_required
       end
-      resources :comments
+      resources :comments, :only => [:create, :destroy]
       resources :listing_images do
         collection do
           post :add_from_file
