@@ -32,6 +32,7 @@ module Sharetribe
 
   UNSUPPORTED_LOCALES = [
     {ident: "ca", name: "Catalan", language: "ca", region: "ES", fallback: nil}, # Catalan (Spain)
+    {ident: "et", name: "Eesti", language: "et", region: "EE", fallback: nil}, # Estonian (Estonia)
     {ident: "hr", name: "Hrvatski", language: "hr", region: "HR", fallback: nil}, # Croatian (Croatia)
     {ident: "id", name: "Bahasa Indonesia", language: "id", region: "ID", fallback: nil}, # Indonesian (Indonesia)
     {ident: "is", name: "íslenska", language: "is", region: "IS", fallback: nil}, # Icelandic (Iceland)
