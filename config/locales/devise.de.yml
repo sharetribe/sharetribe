@@ -3,7 +3,7 @@ de:
     messages:
       expired: "ist abgelaufen, bitte neu anfordern"
       not_found: "nicht gefunden"
-      already_confirmed: "wurde bereits bestätigt, bitte versuche, Dich anzumelden"
+      already_confirmed: "wurde bereits bestätigt, bitte versuche, dich anzumelden"
       not_locked: "war nicht gesperrt"
       not_saved:
         one: "Aufgrund eines Fehlers, konnte %{resource} nicht gespeichert zu werden:"
@@ -12,7 +12,7 @@ de:
     failure:
       already_authenticated: "Du bist bereits angemeldet."
       unauthenticated: "Du musst dich anmelden oder registrieren, um fortzufahren."
-      unconfirmed: "Du musst Dein Konto bestätigen, um fortzufahren."
+      unconfirmed: "Du musst dein Konto bestätigen, um fortzufahren."
       locked: "Dein Konto ist gesperrt."
       invalid: "Ungültige E-Mail-Adresse oder Passwort."
       invalid_token: "Ungültiger Authentifizierungs-Token."
@@ -20,15 +20,15 @@ de:
       inactive: "Dein Konto wurde noch nicht aktiviert."
     passwords:
       updated_not_active: "Dein Passwort wurde erfolgreich geändert."
-      send_paranoid_instructions: "Wenn Deine E-Mail-Adresse in unserer Datenbank existiert, wirst Du per E-Mail einen Link zur Wiederherstellung Deines Passwortes erhalten."
-      send_instructions: "Du erhältst in wenigen Minuten eine E-Mail mit Anweisungen zum Zurücksetzen Deines Passworts."
+      send_paranoid_instructions: "Wenn deine E-Mail-Adresse in unserer Datenbank existiert, wirst du per E-Mail einen Link zur Wiederherstellung deines Passwortes erhalten."
+      send_instructions: "Du erhältst in wenigen Minuten eine E-Mail mit Anweisungen zum Zurücksetzen deines Passworts."
       updated: "Dein Passwort wurde erfolgreich geändert. Du bist nun angemeldet."
     sessions:
       signed_in: "Erfolgreich angemeldet."
       signed_out: "Erfolgreich abgemeldet."
     confirmations:
       send_paranoid_instructions: "Wenn deine E-Mail-Adresse in unserer Datenbank existiert, wirst du in wenigen Minuten eine E-Mail mit Anweisungen zur Bestätigung deines Kontos erhalten."
-      send_instructions: "Du wirst in wenigen Minuten eine E-Mail mit Anweisungen zur Bestätigung Deines Kontos erhalten."
+      send_instructions: "Du wirst in wenigen Minuten eine E-Mail mit Anweisungen zur Bestätigung deines Kontos erhalten."
       confirmed: "Dein Konto wurde erfolgreich bestätigt."
     registrations:
       signed_up_but_unconfirmed: "Eine Nachricht mit einem Bestätigungslink wurde an deine E-Mail-Adresse gesendet. Bitte öffne den Link, um dein Konto zu aktivieren."

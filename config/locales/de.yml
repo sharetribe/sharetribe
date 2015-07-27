@@ -155,7 +155,7 @@ de:
         invite_link_text: ~
         view_users_link_text: hier
         view_transactions_link_text: hier
-        contact_support_link_text: ~
+        contact_support_link_text: "Kontaktiere unseren Support"
       available_languages:
         en: ~
         en-AU: ~
@@ -207,11 +207,11 @@ de:
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
         once_you_delete: ~
-        are_you_sure: ~
+        are_you_sure: "Bist du sicher?"
         i_understand_button: ~
         last_community_updates: ~
         you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_this_marketplace: "Diesen Marktplatz löschen"
       manage_members:
         manage_members: "Benutzer verwalten"
         email: E-Mail
@@ -387,8 +387,8 @@ de:
         create_failure: "Neue Auftragsart konnte nicht erstellt werden. Fehler: %{error_msg}"
       edit:
         edit_listing_shape: ~
-        update: ~
-        cancel: ~
+        update: Speichern
+        cancel: Abbrechen
         update_success: ~
         update_failure: ~
         delete: "Auftragsart löschen"
@@ -415,7 +415,7 @@ de:
         month: ~
       can_not_find: ~
       add_custom_unit: ~
-      delete_custom_unit: ~
+      delete_custom_unit: löschen
       custom_unit_form:
         title: ~
         label_heading: ~

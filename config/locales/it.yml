@@ -488,7 +488,7 @@ it:
       garden: ~
       travel: ~
       other: ~
-    username: ~
+    username: "Nome utente"
     username_or_email: "Email o username"
     what_is_this: "Cos'è questo?"
     removed_user: ~
@@ -1088,8 +1088,8 @@ it:
       loading_more_content: "Carica maggiori informazioni"
       more_events: "Più eventi..."
       news: News
-      no_news: ~
-      more_news: ~
+      no_news: "Nessuna news"
+      more_news: "Altre news"
       or: e
       or_see_what_the_others: "...o guarda cosa gli altri"
       recent_events: "Eventi recenti"
@@ -1112,12 +1112,12 @@ it:
       review: recensione
       reviews: recensioni
     news_item:
-      show_less: ~
-      show_more: ~
+      show_less: "Mostra di meno"
+      show_more: "Mostra di più"
     profile_info_empty_notification:
       add_your_info: "Aggiungi le tue informazioni per essere contattato"
       add_a_profile_picture: "Aggiungi una foto per il profilo"
-      you_have_not_added_your_info: ~
+      you_have_not_added_your_info: "Non hai aggiunto le tue informazioni di contatto. Per cortesia aggiungile, in modo che gli altri possano raggiungerti più facilmente. Aggiungi anche un'immagine per il profilo, perché gli altri avranno più fiducia."
       add_your_info_link: "Aggiungi le tue informazioni ora"
     recent_listing:
       please_offer: Offerta
@@ -1178,7 +1178,7 @@ it:
       about: Info
       how_to_use: FAQ
       info_about_kassi: "Informazioni su %{service_name}"
-      news: ~
+      news: News
       register_details: Privacy
       terms: "Termini di utilizzo"
     logged_in:
@@ -1217,7 +1217,7 @@ it:
       comment_cannot_be_empty: "Il campo commenti non può rimanere vuoto"
       comment_sent: "Commento inviato"
       confirmation_link_is_wrong_or_used: "Il link di conferma è già stato utilizzato o altrimenti è compromesso. Prova ad accedere nuovamente, o inviaci un'email se il problema persiste."
-      additional_email_confirmed: ~
+      additional_email_confirmed: "L'email specificata è ora confermata."
       could_not_get_email_from_facebook: ~
       create_new_listing: "Crea una nuova inserzione"
       create_one_here: "creane uno qui"
@@ -1229,8 +1229,8 @@ it:
       feedback_saved: "Grazie per il tuo feedback! Ti ricontatteremo appena possibile."
       feedback_sent_to: "Feedback inviato a %{target_person}."
       feedback_skipped: "Feedback saltato"
-      invitation_cannot_be_sent: ~
-      invitation_sent: ~
+      invitation_cannot_be_sent: "L'invito non può essere inviato"
+      invitation_sent: "Invito inviato con successo"
       inviting_new_users_is_not_allowed_in_this_community: ~
       login_again: "Effettua di nuovo l'accesso."
       login_failed: "Accesso non riuscito. Inserisci le credenziali corrette."
@@ -1239,8 +1239,8 @@ it:
       login_successful: "Benvenuto, %{person_name}!"
       logout_successful: "Sei uscito dal %{service_name}. A presto!"
       news_item_created: "Articolo creato"
-      news_item_creation_failed: ~
-      news_item_update_failed: ~
+      news_item_creation_failed: "Creazione dell'articolo fallita"
+      news_item_update_failed: "Aggiornamento dell'articolo fallito"
       news_item_updated: "Articolo aggiornato"
       news_item_deleted: "Articolo rimosso"
       offer_accepted: "Offerta accettata"
@@ -1270,7 +1270,7 @@ it:
       poll_updated: "Sondaggio aggiornato"
       poll_deleted: "Sondaggio rimosso"
       read_more: "Leggi di più!"
-      registration_considered_spam: ~
+      registration_considered_spam: "La registrazione non funziona, per cortesia invia un feedback dal menu principale e fai riferimento a \"email2 error\"."
       reply_cannot_be_empty: "Non puoi inviare un messaggio vuoto"
       reply_sent: "Risposta inviata con successo"
       request_accepted: "Richiesta accettata"
@@ -1612,7 +1612,7 @@ it:
   mercury:
     content_too_long: ~
   okl:
-    member_id: ~
+    member_id: "ID utente"
     member_id_or_email: ~
   payments:
     new:
@@ -1741,7 +1741,7 @@ it:
       contact: ~
       about_me: "Su di me:"
       add_description: "Racconta qualcosa di te"
-      add_location: ~
+      add_location: "Aggiungi una posizione"
       add_phone_number: "Aggiungi numero di telefono"
       address: "Luogo:"
       as_expected: "Come previsto"
@@ -1796,12 +1796,12 @@ it:
       i_forgot_my_password: "Username o password dimenticata"
       login: Accedi
       login_to_kassi: "Accedi al %{service_name}"
-      connect_your_facebook_to_kassi: ~
+      connect_your_facebook_to_kassi: "Collega il tuo account Facebook a %{service_name}"
       facebook_account: "Account Facebook:"
       log_in_to_link_account: ~
-      you_can_also_create_new_account: ~
+      you_can_also_create_new_account: "Se non hai un account in %{service_name}, %{accont_creation_link} per crearne uno con il tuo login Facebook."
       account_creation_link_text: "clicca qui"
-      cancle_facebook_connect: ~
+      cancle_facebook_connect: "Se non vuoi collegare questo account, puoi %{cancel_link}"
       facebook_cancel_link_text: annulla
       log_in_with_your_facebook_account: ~
       or_sign_up_with_your_username: "o con la tua username e password"
@@ -1856,7 +1856,7 @@ it:
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Voglio ricevere una notifica email quando..."
-      newsletters: ~
+      newsletters: Newsletter
       community_updates: ~
       email_about_accept_reminders: "...Ho dimenticato di accettare un'offerta o una richiesta"
       email_about_confirm_reminders: ~
@@ -1886,7 +1886,7 @@ it:
       given_name: Nome
       first_name_with_initial: ~
       first_name_only: ~
-      location_description: ~
+      location_description: "Puoi specificare la tua posizione esatta o, per esempio, solo il codice di avviamento postale. Per favore, aggiungi almeno il tuo CAP. Puoi anche selezionare una posizione dalla mappa sotto."
       phone_number: "Numero di telefono"
       profile_picture: "Foto per il profilo"
       postal_code: CAP
