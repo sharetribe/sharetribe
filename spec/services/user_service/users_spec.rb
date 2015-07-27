@@ -94,7 +94,7 @@ describe UserService::API::Users do
       expect(deleted_user.given_name).to be_nil
       expect(deleted_user.family_name).to be_nil
       expect(deleted_user.emails).to be_empty
-      expect(deleted_user.community_memberships).to be_empty
+      expect(deleted_user.community_memberships.map(&:status).all? { |status| status == "deleted_user" }).to eq(true)
       expect(deleted_user.braintree_account).to be_nil
       expect(deleted_user.checkout_account).to be_nil
       expect(deleted_user.auth_tokens).to be_empty

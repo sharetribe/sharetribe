@@ -22,7 +22,7 @@
 
 class CommunityMembership < ActiveRecord::Base
 
-  VALID_STATUSES = ["accepted", "pending_email_confirmation", "banned"]
+  VALID_STATUSES = ["accepted", "pending_email_confirmation", "banned", "deleted_user"]
 
   belongs_to :person
   belongs_to :community, :counter_cache => :members_count

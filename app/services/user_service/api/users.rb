@@ -64,6 +64,10 @@ module UserService::API
           phone_number: nil,
           description: nil,
           facebook_id: nil,
+          # To ensure user can not log in anymore we have to:
+          #
+          # 1. Delete the password (Devise rejects login attempts if the password is empty)
+          # 2. Remove the emails (So that use can not reset the password)
           encrypted_password: "",
           deleted: true # Flag deleted
         )
@@ -82,7 +86,7 @@ module UserService::API
         person.inverse_follower_relationships.destroy_all
 
         # Delete memberships
-        person.community_memberships.destroy_all
+        person.community_memberships.update_all(status: "deleted_user")
 
         # Delte auth tokens
         person.auth_tokens.destroy_all
