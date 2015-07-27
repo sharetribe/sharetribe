@@ -86,7 +86,7 @@ module UserService::API
         person.inverse_follower_relationships.destroy_all
 
         # Delete memberships
-        person.community_memberships.destroy_all
+        person.community_memberships.update_all(status: "deleted_user")
 
         # Delte auth tokens
         person.auth_tokens.destroy_all
