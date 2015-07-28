@@ -128,4 +128,30 @@ describe ApplicationController do
       expect(ApplicationController.fetch_temp_flags(false, params, session)).to eq [].to_set
     end
   end
+
+  describe "should force ssl for path" do
+
+    def expect_redirect(path, should_not_redirect)
+      expect(ApplicationController.should_not_redirect_path_to_https(path))
+        .to eq(should_not_redirect)
+    end
+
+    def should_redirect(path)
+      expect_redirect(path, false)
+    end
+
+    def should_not_redirect(path)
+      expect_redirect(path, true)
+    end
+
+    it "returns true if should redirect" do
+      should_not_redirect("/robots.txt")
+      should_not_redirect("/ABCDEF1234567890.txt")
+      should_redirect("/.txt")
+      should_redirect("/txt")
+      should_redirect("/ABCDEF1234567890")
+      should_redirect("/subfolder/ABCDEF1234567890.txt")
+      should_redirect("/ABCDEF1234567890.txt_backup")
+    end
+  end
 end
