@@ -47,17 +47,21 @@
   width: 100%;
   margin-bottom: lines(0.75);
 }
+.quantity-label-wrapper {
+  float: left;
+  width: 100%;
+}
 .quantity-label {
   float: left;
-  display: inline;
   width: auto;
   font-weight: bold;
-  line-height: lines(1.7);
-  margin: auto lines(0.4) auto 0;
+  padding: lines(0.35) lines(0.35) 0 0;
+  margin: auto em(100) auto 0;
 }
 .quantity-input {
-  display: block;
-  overflow-y: hidden;
+  margin-left: em(-100);
+  width: em(100);
+  float: left;
 }
 .quantity-input input{
   width: 100%;

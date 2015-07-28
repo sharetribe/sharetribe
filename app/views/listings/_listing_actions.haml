@@ -82,8 +82,9 @@
               }
 
           .quantity-wrapper.input-group.clearfix
-            %label.quantity-label{for: 'quantity'}
-              = ListingViewUtils.translate_quantity(@listing.unit_type, @listing.unit_selector_tr_key)
+            .quantity-label-wrapper
+              %label.quantity-label{for: 'quantity'}
+                = ListingViewUtils.translate_quantity(@listing.unit_type, @listing.unit_selector_tr_key)
             .quantity-input.input-sm.required
               %input#quantity{type: 'number', placeholder: t("listings.quantity_placeholder"), name: 'quantity', value: 1, min: 1, step: 1}
 
