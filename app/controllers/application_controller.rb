@@ -453,7 +453,7 @@ class ApplicationController < ActionController::Base
   def force_ssl
     # If defined in the config, always redirect to https (unless already using https or coming through Sharetribe proxy)
     if APP_CONFIG.always_use_ssl
-      redirect_to("https://#{request.host_with_port}#{request.fullpath}", status: 301) unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || request.fullpath == "/robots.txt"
+      redirect_to("https://#{request.host_with_port}#{request.fullpath}", status: 301) unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || ApplicationController.should_not_redirect_path_to_https(request.fullpath)
     end
   end
 
@@ -499,5 +499,23 @@ class ApplicationController < ActionController::Base
   #
   def self.ensure_feature_enabled(feature_name, options = {})
     before_filter(options) { ensure_feature_enabled(feature_name) }
+  end
+
+  # Returns `true` if the path is such that the app should NOT
+  # redirect to HTTPS.
+  #
+  # Paths that should not be redirected are for example robots.txt and
+  # domain validation files.
+  #
+  def self.should_not_redirect_path_to_https(fullpath)
+    dv_regexp = /^\/[a-zA-Z0-9]+\.txt$/
+
+    (
+      # robots.txt should not be redirected
+      fullpath == "/robots.txt" ||
+
+      # matches to Domain Validation file regex, should not redirect
+      dv_regexp.match(fullpath).nil? == false
+    )
   end
 end
