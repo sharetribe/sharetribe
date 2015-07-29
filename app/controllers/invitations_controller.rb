@@ -30,7 +30,7 @@ class InvitationsController < ApplicationController
     end
 
     if sending_problems
-      flash[:error] = t("layouts.notifications.invitation_could_not_be_sent")
+      flash[:error] = t("layouts.notifications.invitation_cannot_be_sent")
     else
       flash[:notice] = t("layouts.notifications.invitation_sent")
     end
