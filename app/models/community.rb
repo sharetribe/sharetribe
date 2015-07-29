@@ -5,6 +5,7 @@
 #  id                                         :integer          not null, primary key
 #  ident                                      :string(255)
 #  domain                                     :string(255)
+#  redirect_to_domain                         :boolean          default(FALSE), not null
 #  created_at                                 :datetime
 #  updated_at                                 :datetime
 #  settings                                   :text
