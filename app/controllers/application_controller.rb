@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
     :force_ssl,
     :check_auth_token,
     :fetch_logged_in_user,
+    :save_current_host_with_port,
     :fetch_community,
     :redirect_to_marketplace_domain,
     :fetch_community_membership,
@@ -222,11 +223,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Before filter to get the current community
-  def fetch_community
+  def save_current_host_with_port
     # store the host of the current request (as sometimes needed in views)
     @current_host_with_port = request.host_with_port
+  end
 
+  # Before filter to get the current community
+  def fetch_community
     fetch_community_by_strategy {
       ApplicationController.default_community_fetch_strategy(request.host)
     }
