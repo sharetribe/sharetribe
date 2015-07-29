@@ -204,10 +204,14 @@ class ApplicationController < ActionController::Base
     session[:return_to_content] = request.fullpath
   end
 
+  def save_current_host_with_port
+    # store the host of the current request (as sometimes needed in views)
+    @current_host_with_port = request.host_with_port
+  end
+
   # Before filter to get the current community
-  def fetch_community_by_strategy(&block)
-    # Pick the community according to the given strategy
-    @current_community = block.call
+  def fetch_community
+    @current_community = find_community(community_identifiers)
 
     unless @current_community
       # No community found with the strategy, so redirecting to redirect url, or error page.
@@ -221,18 +225,6 @@ class ApplicationController < ActionController::Base
         end
       }
     end
-  end
-
-  def save_current_host_with_port
-    # store the host of the current request (as sometimes needed in views)
-    @current_host_with_port = request.host_with_port
-  end
-
-  # Before filter to get the current community
-  def fetch_community
-    fetch_community_by_strategy {
-      ApplicationController.default_community_fetch_strategy(request.host)
-    }
   end
 
   def redirect_to_marketplace_domain
@@ -250,6 +242,22 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  # Returns a hash that contains identifiers which can be used to
+  # fetch the right community:
+  #
+  # {id: 123,
+  #  ident: "marketplace",
+  #  domain: "www.marketplace.com"
+  # }
+  #
+  # This method can and should be overriden by controllers that use other than default method
+  # to identify the community.
+  #
+  def community_identifiers
+    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
+    ApplicationController.parse_community_identifiers_from_host(request.host, app_domain)
+  end
+
   def request_hash
     @request_hash ||= {
       host: request.host,
@@ -257,6 +265,20 @@ class ApplicationController < ActionController::Base
       fullpath: request.fullpath,
       port_string: request.port_string
     }
+  end
+
+  def self.parse_community_identifiers_from_host(host, app_domain)
+    app_domain_regexp = Regexp.escape(app_domain)
+    ident_with_www = /^www\.(.+)\.#{app_domain}$/.match(host)
+    ident_without_www = /^(.+)\.#{app_domain}$/.match(host)
+
+    if ident_with_www
+      {ident: ident_with_www[1]}
+    elsif ident_without_www
+      {ident: ident_without_www[1]}
+    else
+      {domain: host}
+    end
   end
 
   def redirect_to_marketplace_ident
@@ -268,28 +290,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Fetch community
-  #
-  # 1. Try to find by domain
-  # 2. If there is only one community, use it
-  # 3. Otherwise nil
-  #
-  def self.default_community_fetch_strategy(domain)
-    raise ArgumentError("Domain cannot be nil.") if domain.nil?
+  def find_community(identifiers)
+    by_identifier = Community.find_by_identifier(identifiers)
 
-    community = Community.where(domain: domain).first
-    return community if community.present?
-
-    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
-    ident = domain.chomp(".#{app_domain}")
-    community = Community.where(ident: ident).first
-    return community if community.present?
-
-    # If only one, use it
-    return Community.first if Community.count == 1
-
-    # Not found, return nil
-    nil
+    if by_identifier
+      by_identifier
+    elsif Community.count == 1
+      Community.first
+    else
+      nil
+    end
   end
 
   def fetch_community_membership

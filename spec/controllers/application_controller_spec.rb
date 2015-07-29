@@ -154,4 +154,18 @@ describe ApplicationController do
       should_redirect("/ABCDEF1234567890.txt_backup")
     end
   end
+
+  describe "#parse_community_identifiers_from_request" do
+    it "parses ident from host" do
+      expect(ApplicationController.parse_community_identifiers_from_host("market.sharetribe.com", "sharetribe.com")).to eq({ident: "market"})
+    end
+
+    it "parses ident (with www) from host" do
+      expect(ApplicationController.parse_community_identifiers_from_host("www.market.sharetribe.com", "sharetribe.com")).to eq({ident: "market"})
+    end
+
+    it "parses domain from host" do
+      expect(ApplicationController.parse_community_identifiers_from_host("www.market.com", "sharetribe.com")).to eq({domain: "www.market.com"})
+    end
+  end
 end
