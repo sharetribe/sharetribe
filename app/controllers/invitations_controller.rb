@@ -9,12 +9,17 @@ class InvitationsController < ApplicationController
   def new
     @selected_tribe_navi_tab = "members"
     @invitation = Invitation.new
+    render locals: { invitation_limit: Invitation.invitation_limit }
   end
 
   def create
     invitation_emails = params[:invitation][:email].split(",")
-    sending_problems = nil
 
+    if invitation_emails.size >= Invitation.invitation_limit
+      return redirect_to new_invitation_path, flash: { error: t("layouts.notifications.invitation_limit_reached")}
+    end
+
+    sending_problems = nil
     invitation_emails.each do |email|
       invitation = Invitation.new(params[:invitation].merge!({:email => email.strip, :inviter => @current_user}))
       if invitation.save
