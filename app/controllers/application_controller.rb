@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
     :check_auth_token,
     :fetch_logged_in_user,
     :fetch_community,
-    :redirect_deleted_marketplace,
     :redirect_to_marketplace_domain,
     :fetch_community_membership,
     :redirect_removed_locale,
@@ -233,20 +232,15 @@ class ApplicationController < ActionController::Base
     }
   end
 
-  def redirect_deleted_marketplace
-    if Maybe(@current_community).deleted?.or_else(false)
-      redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else(:community_not_found)
-    end
-  end
-
   def redirect_to_marketplace_domain
     return unless @current_community
 
-    host = request.host
-    domain = @current_community.domain
-    redirect_to_domain = @current_community.redirect_to_domain
-
-    redirect_opts = request_hash.merge(community_domain: domain, redirect_to_domain: redirect_to_domain)
+    redirect_opts = request_hash.merge(
+      community_domain: @current_community.domain,
+      redirect_to_domain: @current_community.redirect_to_domain,
+      community_deleted: @current_community.deleted?,
+      community_not_found_url: Maybe(APP_CONFIG).community_not_found_redirect.or_else(:community_not_found)
+    )
 
     MarketplaceRedirectUtils.needs_redirect(redirect_opts) { |redirect_url, redirect_status|
       redirect_to(redirect_url, status: redirect_status)

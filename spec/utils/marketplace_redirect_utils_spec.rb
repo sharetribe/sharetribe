@@ -16,6 +16,8 @@ describe MarketplaceRedirectUtils do
         fullpath: "/listings",
         port_string: "",
         community_domain: "www.marketplace.com",
+        community_not_found_url: :not_found,
+        community_deleted: false,
         redirect_to_domain: true).to eq(nil)
     end
 
@@ -25,6 +27,8 @@ describe MarketplaceRedirectUtils do
         protocol: "https://",
         port_string: "",
         fullpath: "/listings",
+        community_not_found_url: :not_found,
+        community_deleted: false,
         redirect_to_domain: false).to eq(nil)
     end
 
@@ -35,6 +39,8 @@ describe MarketplaceRedirectUtils do
         fullpath: "/listings",
         port_string: "",
         redirect_to_domain: true,
+        community_not_found_url: :not_found,
+        community_deleted: false,
         community_domain: "www.marketplace.com").to eq(["https://www.marketplace.com/listings", :moved_permanently])
     end
 
@@ -45,6 +51,8 @@ describe MarketplaceRedirectUtils do
         fullpath: "/listings",
         port_string: "",
         redirect_to_domain: false,
+        community_not_found_url: :not_found,
+        community_deleted: false,
         community_domain: "www.marketplace.com").to eq(nil)
     end
 
@@ -55,7 +63,21 @@ describe MarketplaceRedirectUtils do
         fullpath: "/listings",
         port_string: ":3333",
         redirect_to_domain: true,
+        community_not_found_url: :not_found,
+        community_deleted: false,
         community_domain: "www.marketplace.com").to eq(["https://www.marketplace.com:3333/listings", :moved_permanently])
+    end
+
+    it "redirects deleted marketplaces" do
+      expect_redirect(
+        host: "marketplace.sharetribe.com",
+        protocol: "https://",
+        fullpath: "/listings",
+        port_string: "",
+        redirect_to_domain: true,
+        community_not_found_url: :not_found,
+        community_deleted: true,
+        community_domain: "www.marketplace.com").to eq([:not_found, :moved_permanently])
     end
   end
 end
