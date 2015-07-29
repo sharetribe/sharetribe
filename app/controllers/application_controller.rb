@@ -244,14 +244,22 @@ class ApplicationController < ActionController::Base
 
     host = request.host
     domain = @current_community.domain
+    redirect_to_domain = @current_community.redirect_to_domain
 
-    if needs_redirect?(host, domain)
-      redirect_to "#{request.protocol}#{domain}#{request.fullpath}", status: :moved_permanently
-    end
+    redirect_opts = request_hash.merge(community_domain: domain, redirect_to_domain: redirect_to_domain)
+
+    MarketplaceRedirectUtils.needs_redirect(redirect_opts) { |redirect_url, redirect_status|
+      redirect_to(redirect_url, status: redirect_status)
+    }
   end
 
-  def needs_redirect?(host, domain)
-    domain.present? && host != domain
+  def request_hash
+    @request_hash ||= {
+      host: request.host,
+      protocol: request.protocol,
+      fullpath: request.fullpath,
+      port_string: request.port_string
+    }
   end
 
   def redirect_to_marketplace_ident
