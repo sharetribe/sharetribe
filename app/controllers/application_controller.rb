@@ -212,28 +212,17 @@ class ApplicationController < ActionController::Base
   # Before filter to get the current community
   def fetch_community
     @current_community = find_community(community_identifiers)
-
-    unless @current_community
-      # No community found with the strategy, so redirecting to redirect url, or error page.
-      redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else {
-        no_communities = Community.count == 0
-
-        if no_communities
-          new_community_path
-        else
-          :community_not_found
-        end
-      }
-    end
   end
 
   def redirect_to_marketplace_domain
-    return unless @current_community
+    community = Maybe(@current_community)
 
     redirect_opts = request_hash.merge(
-      community_domain: @current_community.domain,
-      redirect_to_domain: @current_community.redirect_to_domain,
-      community_deleted: @current_community.deleted?,
+      no_communities: Community.count == 0,
+      found_community: community.is_some?,
+      community_domain: community.domain.or_else(nil),
+      redirect_to_domain: community.redirect_to_domain.or_else(nil),
+      community_deleted: community.deleted.or_else(nil),
       community_not_found_url: Maybe(APP_CONFIG).community_not_found_redirect.or_else(:community_not_found)
     )
 

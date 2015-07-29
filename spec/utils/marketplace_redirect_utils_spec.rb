@@ -18,6 +18,9 @@ describe MarketplaceRedirectUtils do
         community_domain: "www.marketplace.com",
         community_not_found_url: :not_found,
         community_deleted: false,
+        found_community: true,
+        no_communities: false,
+        new_community_path: :new_community,
         redirect_to_domain: true).to eq(nil)
     end
 
@@ -29,6 +32,9 @@ describe MarketplaceRedirectUtils do
         fullpath: "/listings",
         community_not_found_url: :not_found,
         community_deleted: false,
+        found_community: true,
+        no_communities: false,
+        new_community_path: :new_community,
         redirect_to_domain: false).to eq(nil)
     end
 
@@ -41,6 +47,9 @@ describe MarketplaceRedirectUtils do
         redirect_to_domain: true,
         community_not_found_url: :not_found,
         community_deleted: false,
+        found_community: true,
+        no_communities: false,
+        new_community_path: :new_community,
         community_domain: "www.marketplace.com").to eq(["https://www.marketplace.com/listings", :moved_permanently])
     end
 
@@ -53,6 +62,9 @@ describe MarketplaceRedirectUtils do
         redirect_to_domain: false,
         community_not_found_url: :not_found,
         community_deleted: false,
+        found_community: true,
+        no_communities: false,
+        new_community_path: :new_community,
         community_domain: "www.marketplace.com").to eq(nil)
     end
 
@@ -65,6 +77,9 @@ describe MarketplaceRedirectUtils do
         redirect_to_domain: true,
         community_not_found_url: :not_found,
         community_deleted: false,
+        found_community: true,
+        no_communities: false,
+        new_community_path: :new_community,
         community_domain: "www.marketplace.com").to eq(["https://www.marketplace.com:3333/listings", :moved_permanently])
     end
 
@@ -77,7 +92,55 @@ describe MarketplaceRedirectUtils do
         redirect_to_domain: true,
         community_not_found_url: :not_found,
         community_deleted: true,
+        found_community: true,
+        no_communities: false,
+        new_community_path: :new_community,
         community_domain: "www.marketplace.com").to eq([:not_found, :moved_permanently])
+    end
+
+    it "redirects deleted marketplaces" do
+      expect_redirect(
+        host: "marketplace.sharetribe.com",
+        protocol: "https://",
+        fullpath: "/listings",
+        port_string: "",
+        redirect_to_domain: true,
+        community_not_found_url: :not_found,
+        community_deleted: true,
+        found_community: true,
+        no_communities: false,
+        new_community_path: :new_community,
+        community_domain: "www.marketplace.com").to eq([:not_found, :moved_permanently])
+    end
+
+    it "redirects to community not found if community was not found and some communities do exist" do
+      expect_redirect(
+        host: "marketplace.sharetribe.com",
+        protocol: "https://",
+        fullpath: "/listings",
+        port_string: "",
+        redirect_to_domain: nil,
+        community_not_found_url: :not_found,
+        community_deleted: nil,
+        no_communities: false,
+        found_community: false,
+        new_community_path: :new_community,
+        community_domain: nil).to eq([:not_found, :found])
+    end
+
+    it "redirects to community not found if community was not found and some communities do exist" do
+      expect_redirect(
+        host: "marketplace.sharetribe.com",
+        protocol: "https://",
+        fullpath: "/listings",
+        port_string: "",
+        redirect_to_domain: nil,
+        community_not_found_url: :not_found,
+        community_deleted: nil,
+        no_communities: true,
+        found_community: false,
+        new_community_path: :new_community,
+        community_domain: nil).to eq([:new_community, :found])
     end
   end
 end
