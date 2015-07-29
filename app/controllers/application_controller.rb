@@ -244,8 +244,9 @@ class ApplicationController < ActionController::Base
 
     host = request.host
     domain = @current_community.domain
+    redirect_to_domain = @current_community.redirect_to_domain
 
-    redirect_opts = request_hash.slice(:host, :protocol, :fullpath).merge(community_domain: domain, domain_ready: domain.present?)
+    redirect_opts = request_hash.merge(community_domain: domain, redirect_to_domain: redirect_to_domain)
 
     MarketplaceRedirectUtils.needs_redirect(redirect_opts) { |redirect_url, redirect_status|
       redirect_to(redirect_url, status: redirect_status)
@@ -256,7 +257,8 @@ class ApplicationController < ActionController::Base
     @request_hash ||= {
       host: request.host,
       protocol: request.protocol,
-      fullpath: request.fullpath
+      fullpath: request.fullpath,
+      port_string: request.port_string
     }
   end
 

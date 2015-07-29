@@ -5,11 +5,13 @@ module MarketplaceRedirectUtils
   def needs_redirect(host:,
                      protocol:,
                      fullpath:,
-                     domain_ready:,
+                     port_string:,
+                     redirect_to_domain:,
                      community_domain: nil,
                      &block)
-    if community_domain.present? && domain_ready && host != community_domain
-      block.call("#{protocol}#{community_domain}#{fullpath}", :moved_permanently)
+
+    if community_domain.present? && redirect_to_domain && host != community_domain
+      block.call("#{protocol}#{community_domain}#{port_string}#{fullpath}", :moved_permanently)
     end
 
   end
