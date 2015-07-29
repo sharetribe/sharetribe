@@ -18,11 +18,11 @@ class ApplicationController < ActionController::Base
 
   before_filter :redirect_to_marketplace_ident,
     :force_ssl,
+    :fetch_community,
+    :redirect_to_marketplace_domain,
     :check_auth_token,
     :fetch_logged_in_user,
     :save_current_host_with_port,
-    :fetch_community,
-    :redirect_to_marketplace_domain,
     :fetch_community_membership,
     :redirect_removed_locale,
     :set_locale,
@@ -217,17 +217,24 @@ class ApplicationController < ActionController::Base
   def redirect_to_marketplace_domain
     community = Maybe(@current_community)
 
+    # if APP_CONFIG.always_use_ssl
+    #  redirect_to("https://#{request.host_with_port}#{request.fullpath}", status: 301) unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || ApplicationController.should_not_redirect_path_to_https(request.fullpath)
+    # end
+
     redirect_opts = request_hash.merge(
+      always_use_ssl: APP_CONFIG.always_use_ssl,
       no_communities: Community.count == 0,
       found_community: community.is_some?,
       community_domain: community.domain.or_else(nil),
       redirect_to_domain: community.redirect_to_domain.or_else(nil),
       community_deleted: community.deleted.or_else(nil),
-      community_not_found_url: Maybe(APP_CONFIG).community_not_found_redirect.or_else(:community_not_found)
+      community_not_found_url: Maybe(APP_CONFIG).community_not_found_redirect.map { |url| {url: url} }.or_else({route_name: :community_not_found})
     )
 
-    MarketplaceRedirectUtils.needs_redirect(redirect_opts) { |redirect_url, redirect_status|
-      redirect_to(redirect_url, status: redirect_status)
+    MarketplaceRedirectUtils.needs_redirect(redirect_opts) { |redirect_dest|
+      url = redirect_dest[:url] || send(redirect_dest[:route_name], protocol: redirect_dest[:protocol])
+
+      redirect_to(url, status: redirect_dest[:status])
     }
   end
 
@@ -252,7 +259,9 @@ class ApplicationController < ActionController::Base
       host: request.host,
       protocol: request.protocol,
       fullpath: request.fullpath,
-      port_string: request.port_string
+      port_string: request.port_string,
+      is_ssl: request.ssl?,
+      headers: request.headers
     }
   end
 
