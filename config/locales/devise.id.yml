@@ -12,27 +12,27 @@ id:
       already_authenticated: "Anda sudah masuk"
       unauthenticated: "Anda harus masuk atau mendaftar sebelum melanjutkan."
       unconfirmed: "Anda harus mengkonfirmasi akun Anda sebelum melanjutkan."
-      locked: "Akun anda terkunci / di blok."
-      invalid: "Email atau kata sandi yang Anda masukkan salah."
+      locked: "Akun Anda terkunci / di blok."
+      invalid: "Email atau kata sandi yang anda masukkan salah."
       invalid_token: "Bukti autentikasi tidak benar"
-      timeout: "Sesi anda telah berakhir, silahkan masuk lagi untuk melanjutkan."
+      timeout: "Sesi Anda telah berakhir, silahkan masuk lagi untuk melanjutkan."
       inactive: "Akun Anda belum diaktifkan."
     passwords:
       updated_not_active: "Kata kunci Anda telah berhasil diubah. Anda sekarang sudah masuk."
-      send_paranoid_instructions: "Jika email Anda ada pada data kami, Anda akan menerima email untuk merubah kata sandi - password Anda"
+      send_paranoid_instructions: "Jika email Anda ada pada database kami, Anda akan menerima email untuk merubah kata sandi - password Anda"
       send_instructions: "Anda akan menerima email cara membetulkan kata sandi - password dalam beberapa saat."
       updated: "Kata kunci Anda telah berhasil diubah. Anda sekarang sudah masuk."
     sessions:
       signed_in: "Berhasil masuk."
       signed_out: "Berhasil keluar."
     confirmations:
-      send_paranoid_instructions: "Jika email Anda ada pada data kami, Anda akan menerima email cara mengkonfirmasi akun Anda dalam beberapa saat."
-      send_instructions: "Anda akan menerima email untuk mengkonfirmasi akun Anda dalam beberapa saat."
+      send_paranoid_instructions: "Jika email Anda ada pada database kami, Anda akan menerima email cara mengkonfirmasi akun Anda dalam beberapa saat."
+      send_instructions: "Anda akan menerima email berisi instruksi bagaimana mengkonfirmasi akun Anda dalam beberapa menit."
       confirmed: "Akun Anda telah berhasil dikonfirmasi."
     registrations:
       signed_up_but_unconfirmed: "Pesan dengan link konfirmasi telah dikirimkan ke email Anda. Silakan buka link tersebut untuk mengaktifkan akun Anda."
-      signed_up_but_inactive: "Anda telah terdaftar. Namun Anda belum dapat login karena akun Anda belum aktif."
-      signed_up_but_locked: "Anda telah terdaftar. Namun Anda tidak dapat login karena akun anda terkunci."
+      signed_up_but_inactive: "Anda telah terdaftar. Namun Anda belum dapat masuk karena akun Anda belum aktif."
+      signed_up_but_locked: "Anda telah berhasil terdaftar. Namun Anda tidak dapat masuk karena akun Anda terkunci."
       reasons:
         inactive: "akun tidak aktif"
         unconfirmed: "akun belum dikonfirmasi"
@@ -42,7 +42,7 @@ id:
       updated: "Akun Anda berhasil diperbarui."
       destroyed: "Selamat tinggal! Akun Anda berhasil dihapuskan. Kami berharap dapat melihat Anda lagi."
     unlocks:
-      send_paranoid_instructions: "Jika akun Anda ada pada data kami, Anda akan menerima email cara membuka akun Anda dalam beberapa saat."
+      send_paranoid_instructions: "Jika akun Anda ada pada database kami, Anda akan menerima email cara membuka akun Anda dalam beberapa saat."
       send_instructions: "Anda akan menerima email cara membuka akun Anda dalam beberapa menit."
       unlocked: "Akun anda berhasil dibuka. Silakan login untuk melanjutkan."
     omniauth_callbacks:

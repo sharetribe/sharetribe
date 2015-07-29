@@ -1789,13 +1789,13 @@ id:
       search: ~
       search_results: ~
       search_returned_no_results: ~
-      search_verb: ~
+      search_verb: Cari
   sessions:
     new:
       create_new_account: ~
       i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
+      login: Masuk
+      login_to_kassi: "Anda harus masuk pada %{service_name} untuk melihat pengaturan Anda"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -1807,7 +1807,7 @@ id:
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
+      email: E-mail
       password_recovery_instructions: ~
       request_new_password: ~
       change_your_password: ~
@@ -1880,7 +1880,7 @@ id:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
+      about_you: "Tentang Kita"
       city: ~
       family_name: ~
       given_name: ~
