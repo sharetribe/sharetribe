@@ -15,7 +15,7 @@ class InvitationsController < ApplicationController
   def create
     invitation_emails = params[:invitation][:email].split(",")
 
-    if invitation_emails.size >= Invitation.invitation_limit
+    unless validate_daily_limit(@current_user.id, invitation_emails.size)
       return redirect_to new_invitation_path, flash: { error: t("layouts.notifications.invitation_limit_reached")}
     end
 
@@ -45,6 +45,14 @@ class InvitationsController < ApplicationController
       flash[:error] = t("layouts.notifications.inviting_new_users_is_not_allowed_in_this_community")
       redirect_to root and return
     end
+  end
+
+  def validate_daily_limit(inviter_id, number_of_emails)
+    (number_of_emails + daily_email_count(inviter_id)) < Invitation.invitation_limit
+  end
+
+  def daily_email_count(inviter_id)
+    Invitation.where(inviter_id: inviter_id, created_at: 1.day.ago..Time.now).count
   end
 
 end

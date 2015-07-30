@@ -1133,7 +1133,7 @@ en:
       this_is_private_community: "You need to sign up before you can view the content."
     invitation_form:
       email: "Email address(es)"
-      email_with_limit: "Email addresses (max. %{invitation_limit})"
+      email_with_limit: "Email addresses (max. %{invitation_limit} per day)"
       message: "A personal message"
       send_invitation: "Send invitation"
       add_email_addresses_description: "Add the email addresses of the people you are inviting to the field below. To add multiple email addresses, separate them with comma."
@@ -1264,7 +1264,7 @@ en:
       feedback_sent_to: "Feedback sent to %{target_person}."
       feedback_skipped: "Feedback skipped"
       invitation_cannot_be_sent: "Invitation could not be sent"
-      invitation_limit_reached: "You were trying to sent too many invitations"
+      invitation_limit_reached: "You were trying to send too many invitations. Daily limit reached."
       invitation_sent: "Invitation sent successfully"
       inviting_new_users_is_not_allowed_in_this_community: "Inviting new users is not allowed."
       login_again: "Please, sign in again."
