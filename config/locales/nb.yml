@@ -753,7 +753,7 @@ nb:
       you_are_banned_in_this_community: "Administrator har fjernet din tilgang til %{service_name}. Dersom du ønsker å kontakte tjenesten, gå til %{link_to_contact_page}"
       contact_page_link: vurdering
     new:
-      welcome_fb_user: "Velkommen til %{service_name},%{name}"
+      welcome_fb_user: "Velkommen til %{service_name}, %{name}!"
       fb_join_accept_terms: "Ett steg til for å bli medlem av %{service_name}: Du må akseptere bruker vilkår."
       join_community: "Bli medlem av %{service_name}"
       you_can_join: "Du kan bli medlem av %{service_name} ved å akseptere vilkår for bruk og klikke på 'Bli medlem av %{service_name}' under."
@@ -1137,7 +1137,7 @@ nb:
       email: E-postadresse(r)
       message: "En personlig melding"
       send_invitation: "Send invitasjon"
-      add_as_many_emails_as_you_want: "Legg til e-postadressene til de du inviterer i feltet under. Dersom du inviterer flere, adskill dem med komma og mellomrom."
+      add_email_addresses_description: "Legg til e-postadressene til de du inviterer i feltet under. Dersom du inviterer flere, adskill dem med komma og mellomrom."
       invitation_emails_field_placeholder: "venn1@eksempel.no, venn2@eksempel.no,..."
       invitation_message_field_placeholder: "Jeg ble medlem av denne fantastiske markedsplassen. Det bør du også!"
       errors_in_emails: "Sjekk at e-posten du la til er gyldig. Dersom du la til flere, sørg for at de er adskilt med komma."
@@ -1250,7 +1250,7 @@ nb:
       comment_cannot_be_empty: "Kommentar kan ikke være tom"
       comment_sent: "Kommentar sendt"
       confirmation_link_is_wrong_or_used: "Bekreftelseslenken er allerede brukt eller ikke riktig. Forsøk å logge inn, eller send oss tilbakemelding hvis det fortsatt er et problem."
-      additional_email_confirmed: "E-posten du benyttet er ikke bekreftet."
+      additional_email_confirmed: "E-posten du benyttet er bekreftet."
       could_not_get_email_from_facebook: "Kunne ikke hente e-post fra Facebook og kan ikke opprette konto uten e-post."
       create_new_listing: "Opprett en annen annonse"
       create_one_here: "opprett en her"
@@ -1267,7 +1267,7 @@ nb:
       inviting_new_users_is_not_allowed_in_this_community: "Det er ikke lov å invitere nye brukere."
       login_again: "Vennligst logg inn igjen."
       login_failed: "Innlogging feilet. Vennligst prøv på nytt."
-      account_creation_successful: "Velkommen til%{service_name}, %{person_name}"
+      account_creation_successful: "Velkommen til%{service_name}, %{person_name}!"
       account_deleted: "Din konto er nå slettet."
       login_successful: "Velkommen, %{person_name}!"
       logout_successful: "Du er nå logget ut av %{service_name}. Velkommen tilbake!"
