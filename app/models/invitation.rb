@@ -25,6 +25,7 @@
 class Invitation < ActiveRecord::Base
 
   #include ApplicationHelper
+  INVITATION_LIMIT = 20
 
   has_many :community_memberships #One invitation can result many users joining.
   belongs_to :community
@@ -66,5 +67,9 @@ class Invitation < ActiveRecord::Base
     return false if invitation.blank?
     invitation.use_once!
     return true
+  end
+
+  def self.invitation_limit
+    return INVITATION_LIMIT
   end
 end

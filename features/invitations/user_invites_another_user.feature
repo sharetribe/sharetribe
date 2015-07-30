@@ -2,10 +2,10 @@ Feature: User joins invite only community
   In order to get critical mass to Sharetribe
   As a user in a community
   I want to invite my friend in this Sharetribe community
-  
+
   Background:
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson2 |
       | kassi_testperson1 |
 
@@ -26,39 +26,38 @@ Feature: User joins invite only community
     Then I should not see "Invite your friends"
     When users can invite new users to join community "test"
     And I am on invitations page
-    Then I should see "Email address(es)"
+    Then I should see "Email addresses (max. 20)"
     And I fill in "invitation_email" with "test@example.com"
     And I fill in "invitation_message" with "test"
     And I press "Send invitation"
     Then I should see "Invitation sent successfully"
     When the system processes jobs
     And "test@example.com" should receive an email
-    
+
     When I fill in "invitation_email" with "test@example.com"
     And I press "Send invitation"
-    Then I should see "Invitation sent successfully" 
+    Then I should see "Invitation sent successfully"
     When the system processes jobs
     And "test@example.com" should receive 2 emails
-    
+
     When I fill in "invitation_email" with "test2@example.com, another.test@example.com,third.strange.guy@example.com"
     And I fill in "invitation_message" with "test"
     And I press "Send invitation"
-    Then I should see "Invitation sent successfully" 
-    
+    Then I should see "Invitation sent successfully"
+
     When the system processes jobs
     And "test2@example.com" should receive an email
     And "another.test@example.com" should receive an email
     And "third.strange.guy@example.com" should receive an email
-    
+
   @javascript
   Scenario: User tries to invite another user with invalid email address
     And I am logged in as "kassi_testperson1"
     And I am on invitations page
     And users can invite new users to join community "test"
     And I press "Send invitation"
-    Then I should see "This field is required." 
+    Then I should see "This field is required."
     When I fill in "invitation_email" with "test"
     And I press "Send invitation"
     Then I should see "Check that the email addresses you added are valid."
-  
-  
+

@@ -811,10 +811,18 @@ function initialize_homepage() {
   );
 }
 
-function initialize_invitation_form(locale, email_error_message) {
+function initialize_invitation_form(locale, email_error_message, invitation_limit) {
+  $.validator.addMethod(
+    "max_invitations",
+    function(value) {
+      return value.split(",").length < invitation_limit;
+    },
+    $.validator.format(email_error_message)
+  );
+
   $("#new_invitation").validate({
     rules: {
-      "invitation[email]": {required: true, email_list: true},
+      "invitation[email]": {required: true, email_list: true, max_invitations: true},
       "invitation[message]": {required: false, maxlength: 5000}
     },
     messages: {
