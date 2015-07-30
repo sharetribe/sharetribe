@@ -12,10 +12,10 @@ describe MarketplaceRedirectUtils do
     }
     default_community = {
       redirect_to_domain: true,
-      community_deleted: false,
-      community_domain: "www.marketplace.com",
+      deleted: false,
+      domain: "www.marketplace.com",
       domain_verification_file: nil,
-      community_ident: "marketplace",
+      ident: "marketplace",
     }
     default_paths = {
       community_not_found: {route_name: :not_found},
@@ -29,15 +29,16 @@ describe MarketplaceRedirectUtils do
       no_communities: false
     }
 
+    called = false
     result = MarketplaceRedirectUtils.needs_redirect(
       request: default_request.merge(request),
       community: community.nil? ? nil : default_community.merge(community),
       paths: default_paths.merge(paths),
       configs: default_configs.merge(configs),
       other: other
-    ) { |x| x }
+    ) { |x| called = true; x }
 
-    expect(result)
+    expect(called ? result : nil)
   end
 
   describe "#needs_redirect" do
@@ -50,7 +51,7 @@ describe MarketplaceRedirectUtils do
 
     it "does not redirect to full domain if full domain is not provided" do
       expect_redirect(community: {
-                        community_deleted: false,
+                        deleted: false,
                         redirect_to_domain: false,
                       }).to eq(nil)
     end
@@ -58,15 +59,15 @@ describe MarketplaceRedirectUtils do
     it "redirects to full domain, if marketplace is accessed with the subdomain (ident) and full domain is provided and redirect_to_domain is true" do
       expect_redirect(community: {
                         redirect_to_domain: true,
-                        community_deleted: false,
-                        community_domain: "www.marketplace.com",
+                        deleted: false,
+                        domain: "www.marketplace.com",
                       }).to eq(url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
 
     it "does not redirect if redirect_to_domain is false" do
       expect_redirect(community: {
-                        community_deleted: false,
-                        community_domain: "www.marketplace.com",
+                        deleted: false,
+                        domain: "www.marketplace.com",
                         redirect_to_domain: false,
                       }).to eq(nil)
     end
@@ -76,24 +77,24 @@ describe MarketplaceRedirectUtils do
                         port_string: ":3333",
                       },
                       community: {
-                        community_domain: "www.marketplace.com",
-                        community_deleted: false,
+                        domain: "www.marketplace.com",
+                        deleted: false,
                         redirect_to_domain: true,
                       }).to eq(url: "https://www.marketplace.com:3333/listings", status: :moved_permanently)
     end
 
     it "redirects deleted marketplaces" do
       expect_redirect(community: {
-                        community_domain: "www.marketplace.com",
-                        community_deleted: true,
+                        domain: "www.marketplace.com",
+                        deleted: true,
                         redirect_to_domain: true,
                       }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
     end
 
     it "redirects deleted marketplaces" do
       expect_redirect(community: {
-                        community_domain: "www.marketplace.com",
-                        community_deleted: true,
+                        domain: "www.marketplace.com",
+                        deleted: true,
                         redirect_to_domain: true,
                       }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
     end
@@ -114,8 +115,8 @@ describe MarketplaceRedirectUtils do
                         protocol: "http://",
                       },
                       community: {
-                        community_domain: "www.marketplace.com",
-                        community_deleted: false,
+                        domain: "www.marketplace.com",
+                        deleted: false,
                         redirect_to_domain: true,
                       }).to eq(url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
@@ -125,8 +126,8 @@ describe MarketplaceRedirectUtils do
                         protocol: "http://",
                       },
                       community: {
-                        community_domain: nil,
-                        community_deleted: false,
+                        domain: nil,
+                        deleted: false,
                         redirect_to_domain: false,
                       }).to eq(url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
     end
@@ -136,8 +137,8 @@ describe MarketplaceRedirectUtils do
                         protocol: "http://",
                       },
                       community: {
-                        community_domain: "www.marketplace.com",
-                        community_deleted: false,
+                        domain: "www.marketplace.com",
+                        deleted: false,
                         redirect_to_domain: true,
                       },
                       configs: {
@@ -206,8 +207,8 @@ describe MarketplaceRedirectUtils do
                         host: "www.marketplace.sharetribe.com",
                       },
                       community: {
-                        community_ident: "marketplace",
-                        community_domain: nil,
+                        ident: "marketplace",
+                        domain: nil,
                       },
                       configs: {
                         app_domain: "sharetribe.com"
@@ -220,8 +221,8 @@ describe MarketplaceRedirectUtils do
                         host: "www.marketplace.sharetribe.com",
                       },
                       community: {
-                        community_ident: "marketplace",
-                        community_domain: "www.marketplace.com",
+                        ident: "marketplace",
+                        domain: "www.marketplace.com",
                         redirect_to_domain: true
                       }
                      ).to eq(:url=>"https://www.marketplace.com/listings", :status=>:moved_permanently)

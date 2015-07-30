@@ -129,32 +129,6 @@ describe ApplicationController do
     end
   end
 
-  describe "should force ssl for path" do
-
-    def expect_redirect(path, should_not_redirect)
-      expect(ApplicationController.should_not_redirect_path_to_https(path))
-        .to eq(should_not_redirect)
-    end
-
-    def should_redirect(path)
-      expect_redirect(path, false)
-    end
-
-    def should_not_redirect(path)
-      expect_redirect(path, true)
-    end
-
-    it "returns true if should redirect" do
-      should_not_redirect("/robots.txt")
-      should_not_redirect("/ABCDEF1234567890.txt")
-      should_redirect("/.txt")
-      should_redirect("/txt")
-      should_redirect("/ABCDEF1234567890")
-      should_redirect("/subfolder/ABCDEF1234567890.txt")
-      should_redirect("/ABCDEF1234567890.txt_backup")
-    end
-  end
-
   describe "#parse_community_identifiers_from_request" do
     it "parses ident from host" do
       expect(ApplicationController.parse_community_identifiers_from_host("market.sharetribe.com", "sharetribe.com")).to eq({ident: "market"})

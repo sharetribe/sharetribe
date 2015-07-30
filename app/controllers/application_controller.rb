@@ -215,8 +215,9 @@ class ApplicationController < ActionController::Base
   def redirect_to_marketplace_domain
     community = Maybe(@current_community).map { |c|
       {
-        community_domain: c.domain,
-        community_deleted: c.deleted?,
+        ident: c.ident,
+        domain: c.domain,
+        deleted: c.deleted?,
         redirect_to_domain: c.redirect_to_domain?
       }
     }.or_else(nil)
@@ -504,23 +505,5 @@ class ApplicationController < ActionController::Base
   #
   def self.ensure_feature_enabled(feature_name, options = {})
     before_filter(options) { ensure_feature_enabled(feature_name) }
-  end
-
-  # Returns `true` if the path is such that the app should NOT
-  # redirect to HTTPS.
-  #
-  # Paths that should not be redirected are for example robots.txt and
-  # domain validation files.
-  #
-  def self.should_not_redirect_path_to_https(fullpath)
-    dv_regexp = /^\/[a-zA-Z0-9]+\.txt$/
-
-    (
-      # robots.txt should not be redirected
-      fullpath == "/robots.txt" ||
-
-      # matches to Domain Validation file regex, should not redirect
-      dv_regexp.match(fullpath).nil? == false
-    )
   end
 end
