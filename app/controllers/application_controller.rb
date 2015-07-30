@@ -209,7 +209,7 @@ class ApplicationController < ActionController::Base
 
   # Before filter to get the current community
   def fetch_community
-    @current_community = find_community(community_identifiers)
+    @current_community = ApplicationController.find_community(community_identifiers)
 
     # Save :found or :not_found to community status
     # This is needed because we need to distinguish to cases
@@ -304,7 +304,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def find_community(identifiers)
+  def self.find_community(identifiers)
     by_identifier = Community.find_by_identifier(identifiers)
 
     if by_identifier
