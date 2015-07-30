@@ -15,13 +15,15 @@ describe MarketplaceRedirectUtils do
       community_deleted: false,
       community_domain: "www.marketplace.com",
       domain_verification_file: nil,
+      community_ident: "marketplace",
     }
     default_paths = {
       community_not_found: {route_name: :not_found},
       new_community: {route_name: :new_community},
     }
     default_configs = {
-      always_use_ssl: true
+      always_use_ssl: true,
+      app_domain: "sharetribe.com"
     }
     default_other = {
       no_communities: false
@@ -197,6 +199,32 @@ describe MarketplaceRedirectUtils do
                         domain_verification_file: "1234567890ABCDEF.txt"
                       }
                       ).to eq(nil)
+    end
+
+    it "redirects to marketplace ident without www" do
+      expect_redirect(request: {
+                        host: "www.marketplace.sharetribe.com",
+                      },
+                      community: {
+                        community_ident: "marketplace",
+                        community_domain: nil,
+                      },
+                      configs: {
+                        app_domain: "sharetribe.com"
+                      }
+                     ).to eq(:url=>"https://marketplace.sharetribe.com/listings", :status=>:moved_permanently)
+    end
+
+    it "redirects to marketplace domain if available" do
+      expect_redirect(request: {
+                        host: "www.marketplace.sharetribe.com",
+                      },
+                      community: {
+                        community_ident: "marketplace",
+                        community_domain: "www.marketplace.com",
+                        redirect_to_domain: true
+                      }
+                     ).to eq(:url=>"https://www.marketplace.com/listings", :status=>:moved_permanently)
     end
   end
 end

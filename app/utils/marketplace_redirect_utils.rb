@@ -29,6 +29,8 @@ module MarketplaceRedirectUtils
       block.call(paths[:community_not_found].merge(status: (new_status || :moved_permanently), protocol: new_protocol_opt))
     elsif community[:community_domain].present? && community[:redirect_to_domain] && request[:host] != community[:community_domain]
       block.call({url: "#{new_protocol_url}#{community[:community_domain]}#{request[:port_string]}#{request[:fullpath]}", status: (new_status || :moved_permanently)})
+    elsif request[:host] == "www.#{community[:community_ident]}.#{configs[:app_domain]}"
+      block.call({url: "#{new_protocol_url}#{community[:community_ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: (new_status || :moved_permanently)})
     elsif protocol_needs_redirect
       block.call({url: "#{new_protocol_url}#{request[:host]}#{request[:port_string]}#{request[:fullpath]}", status: new_status})
     end
