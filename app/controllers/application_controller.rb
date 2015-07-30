@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :check_auth_token,
     :fetch_community,
-    :redirect_to_marketplace_domain,
+    :perform_redirect,
     :fetch_logged_in_user,
     :save_current_host_with_port,
     :fetch_community_membership,
@@ -210,9 +210,24 @@ class ApplicationController < ActionController::Base
   # Before filter to get the current community
   def fetch_community
     @current_community = find_community(community_identifiers)
+
+    # Save :found or :not_found to community status
+    # This is needed because we need to distinguish to cases
+    # where community is nil
+    #
+    # 1. Community is nil because it was not found
+    # 2. Community is nil beucase fetch_community filter was skipped
+    @community_search_status = @current_community ? :found : :not_found
   end
 
-  def redirect_to_marketplace_domain
+  def community_search_status
+    @community_search_status || :no_community
+  end
+
+  # Performs redirect to correct URL, if needed.
+  # Note: This filter is safe to run even if :fetch_community
+  # filter is skipped
+  def perform_redirect
     community = Maybe(@current_community).map { |c|
       {
         ident: c.ident,
@@ -233,9 +248,10 @@ class ApplicationController < ActionController::Base
 
     other = {
       no_communities: Community.count == 0,
+      community_status: community_search_status,
     }
 
-    MarketplaceRedirectUtils.needs_redirect(
+    MarketplaceRouter.needs_redirect(
       request: request_hash,
       community: community,
       paths: paths,

@@ -1,4 +1,4 @@
-module MarketplaceRedirectUtils
+module MarketplaceRouter
 
   module_function
 
@@ -38,12 +38,12 @@ module MarketplaceRedirectUtils
   #
   def redirect_target(request:, community:, paths:, configs:, other:, protocol:, protocol_needs_redirect:)
     target =
-      if community.nil? && other[:no_communities]
+      if other[:community_search_status] == :not_found && other[:no_communities]
         # Community not found, because there are no communities
         # -> Redirect to new community page
         paths[:new_community].merge(status: :found, protocol: protocol)
 
-      elsif community.nil? && !other[:no_communities]
+      elsif other[:community_search_status] == :not_found && !other[:no_communities]
         # Community not found
         # -> Redirect to not found
         paths[:community_not_found].merge(status: :found, protocol: protocol)

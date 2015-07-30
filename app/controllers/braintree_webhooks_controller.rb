@@ -1,7 +1,7 @@
 class BraintreeWebhooksController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
-  skip_filter :redirect_to_marketplace_ident, :redirect_to_marketplace_domain, :check_email_confirmation
+  skip_filter :check_email_confirmation
 
   before_filter do
     unless @current_community.braintree_in_use?

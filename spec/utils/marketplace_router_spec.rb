@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe MarketplaceRedirectUtils do
+describe MarketplaceRouter do
 
   def expect_redirect(request: {}, community: {}, paths: {}, other: {}, configs: {})
     default_request = {
@@ -26,11 +26,12 @@ describe MarketplaceRedirectUtils do
       app_domain: "sharetribe.com"
     }
     default_other = {
-      no_communities: false
+      no_communities: false,
+      community_search_status: :found,
     }
 
     called = false
-    result = MarketplaceRedirectUtils.needs_redirect(
+    result = MarketplaceRouter.needs_redirect(
       request: default_request.merge(request),
       community: community.nil? ? nil : default_community.merge(community),
       paths: default_paths.merge(paths),
@@ -100,12 +101,13 @@ describe MarketplaceRedirectUtils do
     end
 
     it "redirects to community not found if community was not found and some communities do exist" do
-      expect_redirect(community: nil).to eq(route_name: :not_found, status: :found, protocol: "https")
+      expect_redirect(community: nil, other: {community_search_status: :not_found}).to eq(route_name: :not_found, status: :found, protocol: "https")
     end
 
     it "redirects to community not found if community was not found and some communities do exist" do
       expect_redirect(community: nil,
                       other: {
+                        community_search_status: :not_found,
                         no_communities: true,
                       }).to eq(route_name: :new_community, status: :found, protocol: "https")
     end
@@ -147,7 +149,7 @@ describe MarketplaceRedirectUtils do
     end
 
     it "redirects with moved permanently if the protocol needs redirect even if it would otherwise used found status" do
-      expect_redirect(community: nil,
+      expect_redirect(other: {community_search_status: :not_found},
                       request: {
                         protocol: "http://",
                       }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
@@ -189,7 +191,7 @@ describe MarketplaceRedirectUtils do
                       community: {
                         domain_verification_file: "no-match-domain-verification-file.txt"
                       }
-                     ).to eq(:url=>"https://www.marketplace.com/1234567890ABCDEF.txt", :status=>:moved_permanently)
+                     ).to eq(url: "https://www.marketplace.com/1234567890ABCDEF.txt", status: :moved_permanently)
 
       expect_redirect(request: {
                         host: "www.marketplace.com",
@@ -213,7 +215,7 @@ describe MarketplaceRedirectUtils do
                       configs: {
                         app_domain: "sharetribe.com"
                       }
-                     ).to eq(:url=>"https://marketplace.sharetribe.com/listings", :status=>:moved_permanently)
+                     ).to eq(url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
     end
 
     it "redirects to marketplace domain if available" do
@@ -225,7 +227,7 @@ describe MarketplaceRedirectUtils do
                         domain: "www.marketplace.com",
                         redirect_to_domain: true
                       }
-                     ).to eq(:url=>"https://www.marketplace.com/listings", :status=>:moved_permanently)
+                     ).to eq(url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
   end
 end

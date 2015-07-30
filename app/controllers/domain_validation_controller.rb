@@ -1,6 +1,6 @@
 class DomainValidationController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token, :fetch_logged_in_user, :redirect_to_marketplace_ident, :redirect_to_marketplace_domain, :fetch_community_membership
+  skip_before_filter :verify_authenticity_token, :fetch_logged_in_user, :fetch_community_membership
   skip_filter :check_email_confirmation
 
   def index
