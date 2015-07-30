@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
   layout 'application'
 
   before_filter :redirect_to_marketplace_ident,
-    :force_ssl,
     :check_auth_token,
     :fetch_community,
     :redirect_to_marketplace_domain,
@@ -235,10 +234,6 @@ class ApplicationController < ActionController::Base
     other = {
       no_communities: Community.count == 0,
     }
-
-    # if APP_CONFIG.always_use_ssl
-    #  redirect_to("https://#{request.host_with_port}#{request.fullpath}", status: 301) unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || ApplicationController.should_not_redirect_path_to_https(request.fullpath)
-    # end
 
     MarketplaceRedirectUtils.needs_redirect(
       request: request_hash,
@@ -475,13 +470,6 @@ class ApplicationController < ActionController::Base
       redirect_to path_without_auth_token
     end
 
-  end
-
-  def force_ssl
-    # If defined in the config, always redirect to https (unless already using https or coming through Sharetribe proxy)
-    if APP_CONFIG.always_use_ssl
-      redirect_to("https://#{request.host_with_port}#{request.fullpath}", status: 301) unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || ApplicationController.should_not_redirect_path_to_https(request.fullpath)
-    end
   end
 
   def feature_flags

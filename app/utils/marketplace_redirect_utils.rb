@@ -9,8 +9,13 @@ module MarketplaceRedirectUtils
                      other:,
                      &block)
 
-    new_protocol_opt = configs[:always_use_ssl] ? "https" : (request[:protocol] == "http://" ? "http" : "https")
-    new_protocol_url = configs[:always_use_ssl] ? "https://" : (request[:protocol] == "http://" ? "http://" : "https://")
+    from_proxy = (request[:headers]["HTTP_VIA"] && request[:headers]["HTTP_VIA"].include?("sharetribe_proxy"))
+    robots = request[:fullpath] == "/robots.txt"
+    domain_verification = Maybe(community)[:domain_verification_file].map { |dv_file| request[:fullpath] == "/#{dv_file}" }.or_else(false)
+    should_use_ssl = configs[:always_use_ssl] && !from_proxy && !robots && !domain_verification
+
+    new_protocol_opt = should_use_ssl ? "https" : (request[:protocol] == "http://" ? "http" : "https")
+    new_protocol_url = should_use_ssl ? "https://" : request[:protocol]
     protocol_needs_redirect = request[:protocol] != new_protocol_url
     new_status = protocol_needs_redirect ? :moved_permanently : nil
 

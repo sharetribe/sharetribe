@@ -14,6 +14,7 @@ describe MarketplaceRedirectUtils do
       redirect_to_domain: true,
       community_deleted: false,
       community_domain: "www.marketplace.com",
+      domain_verification_file: nil,
     }
     default_paths = {
       community_not_found: {route_name: :not_found},
@@ -147,6 +148,55 @@ describe MarketplaceRedirectUtils do
                       request: {
                         protocol: "http://",
                       }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
+    end
+
+    it "doesn't redirect to https if the request comes from proxy, even if always_use_ssl is true" do
+      expect_redirect(request: {
+                        host: "www.marketplace.com",
+                        protocol: "http://",
+                        headers: {
+                          "HTTP_VIA" => "random_proxy"
+                        }
+                      }).to eq({url: "https://www.marketplace.com/listings", status: :moved_permanently})
+
+      expect_redirect(request: {
+                        host: "www.marketplace.com",
+                        protocol: "http://",
+                        headers: {
+                          "HTTP_VIA" => ["sharetribe_proxy"]
+                        }
+                      }).to eq(nil)
+    end
+
+    it "doesn't redirect robots.txt to https" do
+      expect_redirect(request: {
+                        host: "www.marketplace.com",
+                        protocol: "http://",
+                        fullpath: "/robots.txt",
+                        }
+                      ).to eq(nil)
+    end
+
+    it "doesn't redirect domain verification file" do
+      expect_redirect(request: {
+                        host: "www.marketplace.com",
+                        protocol: "http://",
+                        fullpath: "/1234567890ABCDEF.txt",
+                      },
+                      community: {
+                        domain_verification_file: "no-match-domain-verification-file.txt"
+                      }
+                     ).to eq(:url=>"https://www.marketplace.com/1234567890ABCDEF.txt", :status=>:moved_permanently)
+
+      expect_redirect(request: {
+                        host: "www.marketplace.com",
+                        protocol: "http://",
+                        fullpath: "/1234567890ABCDEF.txt",
+                      },
+                      community: {
+                        domain_verification_file: "1234567890ABCDEF.txt"
+                      }
+                      ).to eq(nil)
     end
   end
 end
