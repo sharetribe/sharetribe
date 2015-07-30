@@ -26,7 +26,7 @@ Feature: User joins invite only community
     Then I should not see "Invite your friends"
     When users can invite new users to join community "test"
     And I am on invitations page
-    Then I should see "Email addresses (max. 20)"
+    Then I should see "Email addresses (max."
     And I fill in "invitation_email" with "test@example.com"
     And I fill in "invitation_message" with "test"
     And I press "Send invitation"
