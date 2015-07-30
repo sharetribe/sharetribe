@@ -3,11 +3,8 @@ module MarketplaceRouter
   module_function
 
   def needs_redirect(request:, community:, paths:, configs:, other:, &block)
-
-    use_https = should_use_https?(request: request, community: community, configs: configs)
-
-    protocol = use_https ? "https" : (request[:protocol] == "http://" ? "http" : "https")
-    protocol_needs_redirect = request[:protocol] != "#{protocol}://"
+    new_protocol = protocol(request: request, community: community, configs: configs)
+    protocol_needs_redirect = request[:protocol] != "#{new_protocol}://"
 
     target = redirect_target(
       request: request,
@@ -15,7 +12,7 @@ module MarketplaceRouter
       paths: paths,
       configs: configs,
       other: other,
-      protocol: protocol,
+      protocol: new_protocol,
       protocol_needs_redirect: protocol_needs_redirect
     )
 
@@ -48,17 +45,17 @@ module MarketplaceRouter
         # -> Redirect to not found
         paths[:community_not_found].merge(status: :found, protocol: protocol)
 
-      elsif community[:deleted]
+      elsif community && community[:deleted]
         # Community deleted
         # -> Redirect to not found
         paths[:community_not_found].merge(status: :moved_permanently, protocol: protocol)
 
-      elsif community[:domain].present? && community[:redirect_to_domain] && request[:host] != community[:domain]
+      elsif community && community[:domain].present? && community[:redirect_to_domain] && request[:host] != community[:domain]
         # Community has domain ready, should use it
         # -> Redirect to community domain
         {url: "#{protocol}://#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
 
-      elsif request[:host] == "www.#{community[:ident]}.#{configs[:app_domain]}"
+      elsif community && request[:host] == "www.#{community[:ident]}.#{configs[:app_domain]}"
         # Accessed community with ident, including www
         # -> Redirect to ident without www
         {url: "#{protocol}://#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
@@ -76,6 +73,14 @@ module MarketplaceRouter
     Maybe(target)
       .map { |t| t.merge(status: protocol_needs_redirect ? :moved_permanently : t[:status]) }
       .or_else(nil)
+  end
+
+  def protocol(request:, community:, configs:)
+    if should_use_https?(request: request, community: community, configs: configs)
+      "https"
+    else
+      request[:protocol] == "http://" ? "http" : "https"
+    end
   end
 
   def should_use_https?(request:, configs:, community:)
