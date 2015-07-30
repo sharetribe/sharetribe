@@ -14,7 +14,7 @@
   - if has_admin_rights
     %p= t("homepage.invitation_form.add_lots_of_email_addresses", this_article_link: support_link).html_safe
   = form_for Invitation.new, :url => invitations_path do |f|
-    = f.label :email, t("homepage.invitation_form.email_with_limit", invitation_limit: invitation_limit)
+    = f.label :email, t("homepage.invitation_form.email")
     = f.text_area :email, :class => "text_field", :placeholder => t("homepage.invitation_form.invitation_emails_field_placeholder")
     = f.label :message, t("homepage.invitation_form.message")
     = f.text_area :message, :class => "invitation_message_text", :placeholder => t("homepage.invitation_form.invitation_message_field_placeholder")

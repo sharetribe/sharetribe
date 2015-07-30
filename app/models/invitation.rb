@@ -25,7 +25,7 @@
 class Invitation < ActiveRecord::Base
 
   #include ApplicationHelper
-  INVITATION_LIMIT = 20
+  INVITATION_LIMIT = 100
 
   has_many :community_memberships #One invitation can result many users joining.
   belongs_to :community
