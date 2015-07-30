@@ -11,7 +11,8 @@
 #invitation_form.centered-section
   - support_link = link_to(t("homepage.invitation_form.this_article_link"), "http://support.sharetribe.com/knowledgebase/articles/675040", target: "_blank")
   %p= t("homepage.invitation_form.add_email_addresses_description")
-  %p= t("homepage.invitation_form.add_lots_of_email_addresses", this_article_link: support_link).html_safe
+  - if has_admin_rights
+    %p= t("homepage.invitation_form.add_lots_of_email_addresses", this_article_link: support_link).html_safe
   = form_for Invitation.new, :url => invitations_path do |f|
     = f.label :email, t("homepage.invitation_form.email_with_limit", invitation_limit: invitation_limit)
     = f.text_area :email, :class => "text_field", :placeholder => t("homepage.invitation_form.invitation_emails_field_placeholder")

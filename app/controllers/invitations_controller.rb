@@ -9,7 +9,7 @@ class InvitationsController < ApplicationController
   def new
     @selected_tribe_navi_tab = "members"
     @invitation = Invitation.new
-    render locals: { invitation_limit: Invitation.invitation_limit }
+    render locals: { invitation_limit: Invitation.invitation_limit, has_admin_rights: @current_user.has_admin_rights_in?(@current_community) }
   end
 
   def create
