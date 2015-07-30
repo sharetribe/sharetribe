@@ -1135,9 +1135,12 @@ nb:
       this_is_private_community: "Du må logge inn for å se dette innholdet."
     invitation_form:
       email: E-postadresse(r)
+      email_with_limit: ~
       message: "En personlig melding"
       send_invitation: "Send invitasjon"
       add_email_addresses_description: "Legg til e-postadressene til de du inviterer i feltet under. Dersom du inviterer flere, adskill dem med komma og mellomrom."
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
       invitation_emails_field_placeholder: "venn1@eksempel.no, venn2@eksempel.no,..."
       invitation_message_field_placeholder: "Jeg ble medlem av denne fantastiske markedsplassen. Det bør du også!"
       errors_in_emails: "Sjekk at e-posten du la til er gyldig. Dersom du la til flere, sørg for at de er adskilt med komma."
@@ -1263,6 +1266,7 @@ nb:
       feedback_sent_to: "Tilbakemelding sent til %{target_person}."
       feedback_skipped: "Hoppet over tilbakemelding"
       invitation_cannot_be_sent: "Invitasjonen kunne ikke sendes"
+      invitation_limit_reached: ~
       invitation_sent: "Invitasjonen er sendt"
       inviting_new_users_is_not_allowed_in_this_community: "Det er ikke lov å invitere nye brukere."
       login_again: "Vennligst logg inn igjen."

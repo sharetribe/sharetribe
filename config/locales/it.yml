@@ -1102,9 +1102,12 @@ it:
       this_is_private_community: ~
     invitation_form:
       email: "Indirizzo/i email"
+      email_with_limit: ~
       message: "Un messaggio personale"
       send_invitation: "Invia un invito"
       add_email_addresses_description: ~
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
       invitation_emails_field_placeholder: "amico1@esempio.com, amico2@esempio.com, ..."
       invitation_message_field_placeholder: ~
       errors_in_emails: "Controlla che siano email alide, separate da virgola."
@@ -1230,6 +1233,7 @@ it:
       feedback_sent_to: "Feedback inviato a %{target_person}."
       feedback_skipped: "Feedback saltato"
       invitation_cannot_be_sent: "L'invito non può essere inviato"
+      invitation_limit_reached: ~
       invitation_sent: "Invito inviato con successo"
       inviting_new_users_is_not_allowed_in_this_community: ~
       login_again: "Effettua di nuovo l'accesso."

@@ -1105,6 +1105,8 @@ el:
       message: "Ένα προσωπικό μήνυμα"
       send_invitation: "Αποστολή πρόσκλησης"
       add_email_addresses_description: "Γράψτε τις ηλεκτρονικές διευθύνσεις των φίλων σας στην παρακάτω φόρμα. Αν γράψετε πάνω από μία, χωρίστε τες με κόμμα."
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "Γράφτηκα σε αυτή τη φανταστική κοινότητα. Έλα κι εσύ!"
       errors_in_emails: "Ελέγξτε ότι τα email που γράψατε είναι έγκυρα και ότι χωρίζονται μεταξύ τους με κόμμα."
@@ -1230,6 +1232,7 @@ el:
       feedback_sent_to: "Η κριτική δόθηκε στον/στην %{target_person}."
       feedback_skipped: "Η κριτική παραλείφθηκε"
       invitation_cannot_be_sent: "Η πρόσκληση δεν μπόρεσε να σταλεί"
+      invitation_limit_reached: ~
       invitation_sent: "Η πρόσκληση εστάλη επιτυχώς"
       inviting_new_users_is_not_allowed_in_this_community: "Σε αυτή την κοινότητα δεν επιτρέπεται να προσκαλέσεις άλλους χρήστες"
       login_again: "Παρακαλούμε, συνδεθείτε ξανά."

@@ -1132,6 +1132,8 @@ da-DK:
       message: "En personlig meddelelse"
       send_invitation: "Send en invitation"
       add_email_addresses_description: "Tilføj emailadresser på dem du ønsker at invitere i feltet nedenfor. Hvis du vil tilføje flere emailadresser, skal de adskilles med komma."
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
       invitation_emails_field_placeholder: "email1@example.com, email2@example.com, ..."
       invitation_message_field_placeholder: "Jeg har fundet noget jeg mener du også kan gøre brug af!"
       errors_in_emails: "Tjek at den email du har indtastet er korrekt. Hvis du har indtastet flere emails, så tjek om du har opdelt dem med komma."
@@ -1257,6 +1259,7 @@ da-DK:
       feedback_sent_to: "Feedback sendt til %{target_person}."
       feedback_skipped: "Feedback sprunget over"
       invitation_cannot_be_sent: "Invitation kunne ikke sendes"
+      invitation_limit_reached: ~
       invitation_sent: "Invitation sendt"
       inviting_new_users_is_not_allowed_in_this_community: "Det er ikke tilladt at invitere nye brugere."
       login_again: "Log venligst ind igen"

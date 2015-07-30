@@ -1121,9 +1121,12 @@ fi:
       this_is_private_community: "Sinun täytyy liittyä palveluun nähdäksesi sen sisällön."
     invitation_form:
       email: "Kutsuttavan sähköpostiosoite"
+      email_with_limit: ~
       message: "Viesti kutsuttavalle"
       send_invitation: "Lähetä kutsu"
       add_email_addresses_description: "Lisää kutsuttavien sähköpostiosoitteet alla olevaan kenttään. Jos lisäät enemmän kuin yhden osoitteen, erota osoitteet pilkulla."
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
       invitation_emails_field_placeholder: "kaveri1@esimerkki.fi, kaveri2@esimerkki.fi, ..."
       invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
       errors_in_emails: "Tarkista että antamasi osoitteet ovat toimivia sähköpostiosoitteita. Jos osoitteita on useampi, tarkista että ne on erotettu pilkulla."
@@ -1249,6 +1252,7 @@ fi:
       feedback_sent_to: "Palaute lähetetty käyttäjälle %{target_person}."
       feedback_skipped: "Palaute ohitettu"
       invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
+      invitation_limit_reached: ~
       invitation_sent: "Kutsu lähetetty"
       inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua."
       login_again: "Kirjaudu uudestaan."

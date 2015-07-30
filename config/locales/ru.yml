@@ -1127,9 +1127,12 @@ ru:
       this_is_private_community: "Вам нужно войти чтобы увидеть контент."
     invitation_form:
       email: "Адрес(а) электронной почты"
+      email_with_limit: ~
       message: "Личное сообщение:"
       send_invitation: "Отправить приглашение"
       add_email_addresses_description: "Введите в поле адреса электронной почты своих друзей. Если вы хотите пригласить нескольких друзей, разделите их адреса электронной почты с помощью запятой."
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "Я присоединился к этому замечательному проекту. Тебе тоже нужно!"
       errors_in_emails: "Проверьте правильность адресов электронной почты, разделённых запятой."
@@ -1255,6 +1258,7 @@ ru:
       feedback_sent_to: "Отзыв отправлен %{target_person}"
       feedback_skipped: "Отзыв отменён"
       invitation_cannot_be_sent: "Приглашение не может быть отправлено"
+      invitation_limit_reached: ~
       invitation_sent: "Приглашение успешно отправлено"
       inviting_new_users_is_not_allowed_in_this_community: "Приглашать новых пользователей не разрешено"
       login_again: "Попробуйте войти ещё раз."

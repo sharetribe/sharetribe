@@ -1116,9 +1116,12 @@ ja:
       this_is_private_community: コンテンツ閲覧には登録の必要があります。
     invitation_form:
       email: メールアドレス
+      email_with_limit: ~
       message: パーソナル･メッセージを書いて下さい
       send_invitation: 招待状を送る
       add_email_addresses_description: 下の欄に招待したい方のメールアドレスを追加してください。メールアドレスが複数ある場合は、コンマで区切ってください。
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "〇〇ちゃん、このマーケットプレイス知ってる？ とりあえず見てみてよ。"
       errors_in_emails: メール・アドレスが有効であることを確認してください。複数のアドレスを追加の場合は、半角コンマ、スペースなしで区切ってください。
@@ -1244,6 +1247,7 @@ ja:
       feedback_sent_to: "%{target_person}さんにレビューを送信しました。"
       feedback_skipped: レビューをスキップしました
       invitation_cannot_be_sent: 招待状は送られませんでした
+      invitation_limit_reached: ~
       invitation_sent: 招待状は正常に送信されました
       inviting_new_users_is_not_allowed_in_this_community: 新しいユーザを招待することは許可されていません。
       login_again: もう一度ログインしてください。

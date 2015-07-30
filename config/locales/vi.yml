@@ -1102,9 +1102,12 @@ vi:
       this_is_private_community: ~
     invitation_form:
       email: "Địa chỉ email bạn của bạn:"
+      email_with_limit: ~
       message: "Thông điệp cá nhân:"
       send_invitation: "Gửi lời mời"
-      add_as_many_emails_as_you_want: ~
+      add_email_addresses_description: ~
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
       errors_in_emails: ~
@@ -1230,6 +1233,7 @@ vi:
       feedback_sent_to: "Thông tin phản hồi đã gửi đến"
       feedback_skipped: "Thông tin phản hổi đã bị bỏ qua"
       invitation_cannot_be_sent: "Không thể gửi lời mời"
+      invitation_limit_reached: ~
       invitation_sent: "Lời mời đã gửi thành công"
       inviting_new_users_is_not_allowed_in_this_community: "Không được phép mời người dùng mới trong cộng đồng %{service_name}"
       login_again: "Vui lòng đăng nhập lại."

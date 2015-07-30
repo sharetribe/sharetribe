@@ -1123,9 +1123,12 @@ sv:
       this_is_private_community: "Du behöver registrera dig för att se detta innehåll."
     invitation_form:
       email: E-postadress(er)
+      email_with_limit: ~
       message: "Ett personligt meddelande"
       send_invitation: "Skicka inbjudan"
       add_email_addresses_description: "Lägg till de e-postadresser i fältet nedan till personer som du vill bjuda in. Om du lägger till flera e-postadresser, använd kommatecken för att separera dem."
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
       invitation_emails_field_placeholder: "kompis1@exempel.com, kompis2@exempel.com, ..."
       invitation_message_field_placeholder: "Jag gick med denna fantastiska marknadsplats. Det borde du också göra!"
       errors_in_emails: "Kontrollera att e-postadresserna som du la till är giltiga. Om du la till flera adresser, kontrollera så att de är separerade med kommatecken."
@@ -1251,6 +1254,7 @@ sv:
       feedback_sent_to: "Feedback skickades till %{target_person}."
       feedback_skipped: "Feedback skippades"
       invitation_cannot_be_sent: "Inbjudan kunde inte skickas"
+      invitation_limit_reached: ~
       invitation_sent: "Inbjudan skickades"
       inviting_new_users_is_not_allowed_in_this_community: "Bjuda in nya användare är inte tillåtet."
       login_again: "Var vänlig logga in igen."

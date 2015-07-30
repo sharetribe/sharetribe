@@ -1118,9 +1118,12 @@ tr-TR:
       this_is_private_community: "Bu içeriği görüntüleyebilmek için kayıt olmanız gerekmektedir."
     invitation_form:
       email: "E-posta adres(ler)i"
+      email_with_limit: ~
       message: "Kişisel bir mesaj"
       send_invitation: "Davetiye yolla"
-      add_as_many_emails_as_you_want: "Aşağıdaki alana davet etmek istediğiniz kişilerin e-posta adreslerini girin. Birden fazla adres ekleyecekseniz, adresleri virgül ile ayırın."
+      add_email_addresses_description: "Aşağıdaki alana davet etmek istediğiniz kişilerin e-posta adreslerini girin. Birden fazla adres ekleyecekseniz, adresleri virgül ile ayırın."
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "Harika bir pazar yerine katıldım. Sen de denemelisin!"
       errors_in_emails: "Eklediğiniz e-posta adreslerinin doğruluğunu kontrol edin. Birden fazla adres eklediyseniz, virgülle ayrıldıklarından emin olun."
@@ -1246,6 +1249,7 @@ tr-TR:
       feedback_sent_to: "Geri bildirim %{target_person} kişisine gönderildi."
       feedback_skipped: "Geri bildirim atlandı."
       invitation_cannot_be_sent: "Davetiye gönderilemedi"
+      invitation_limit_reached: ~
       invitation_sent: "Davet başarıyla gönderildi"
       inviting_new_users_is_not_allowed_in_this_community: "Yeni kullanıcı davet etmeye izin verilnenektedir."
       login_again: "Lütfen tekrar giriş yapın."
