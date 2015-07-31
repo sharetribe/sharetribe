@@ -229,5 +229,34 @@ describe MarketplaceRouter do
                       }
                      ).to eq(url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
+
+    it "redirects back to ident if domain is not in use" do
+      expect_redirect(request: {
+                        host: "www.marketplace.com",
+                      },
+                      community: {
+                        ident: "marketplace",
+                        domain: "www.marketplace.com",
+                        redirect_to_domain: false
+                      }
+                     ).to eq(url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
+    end
+
+    it "doesn't redirect domain validation back to ident" do
+
+      expect_redirect(request: {
+                        protocol: "http://",
+                        host: "www.marketplace.com",
+                        fullpath: "/1234567890ABCDEF.txt",
+                      },
+                      community: {
+                        ident: "marketplace",
+                        domain: "www.marketplace.com",
+                        redirect_to_domain: false,
+                        domain_verification_file: "1234567890ABCDEF.txt",
+                      }
+                     ).to eq(nil)
+
+    end
   end
 end
