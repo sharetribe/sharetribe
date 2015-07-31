@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150729062215) do
+ActiveRecord::Schema.define(:version => 20150731115742) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(:version => 20150729062215) do
   create_table "communities", :force => true do |t|
     t.string   "ident"
     t.string   "domain"
-    t.boolean  "redirect_to_domain",                                       :default => false,                     :null => false
+    t.boolean  "use_domain",                                               :default => false,                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "settings"
