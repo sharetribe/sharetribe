@@ -285,7 +285,6 @@ class ApplicationController < ActionController::Base
       protocol: request.protocol,
       fullpath: request.fullpath,
       port_string: request.port_string,
-      is_ssl: request.ssl?,
       headers: request.headers
     }
   end

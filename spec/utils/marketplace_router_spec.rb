@@ -36,7 +36,7 @@ describe MarketplaceRouter do
       community: community.nil? ? nil : default_community.merge(community),
       paths: default_paths.merge(paths),
       configs: default_configs.merge(configs),
-      other: other
+      other: default_other.merge(other)
     ) { |x| called = true; x }
 
     expect(called ? result : nil)

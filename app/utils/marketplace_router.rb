@@ -1,4 +1,65 @@
 module MarketplaceRouter
+  module DataTypes
+
+    Request = EntityUtils.define_builder(
+      [:host, :string, :mandatory],
+      [:protocol, :string, :mandatory],
+      [:fullpath, :string, :mandatory],
+      [:port_string, :string, :optional, default: ""],
+      [:headers, :hash, :mandatory]
+    )
+
+    Community = EntityUtils.define_builder(
+      [:redirect_to_domain, :bool, :mandatory],
+      [:deleted, :bool, :mandatory],
+      [:domain, :string, :optional],
+      [:domain_verification_file, :optional],
+      [:ident, :string, :mandatory]
+    )
+
+    Path = EntityUtils.define_builder(
+      [:url, :string, :optional],
+      [:route_name, :symbol, :optional]
+    )
+
+    Paths = EntityUtils.define_builder(
+      [:community_not_found, :mandatory, entity: Path],
+      [:new_community, :mandatory, entity: Path]
+    )
+
+    Configs = EntityUtils.define_builder(
+      [:always_use_ssl, :bool, :mandatory],
+      [:app_domain, :string, :mandatory]
+    )
+
+    Other = EntityUtils.define_builder(
+      [:no_communities, :bool, :mandatory],
+      [:community_search_status, one_of: [:found, :not_found, :skipped]]
+    )
+
+    # Target can be either URL or named route.
+    # If URL, protocol and route_name are not needed
+    # If named route, URL is not needed
+    # Status should be included always
+    Target = EntityUtils.define_builder(
+      # Url
+      [:url, :string, :optional],
+
+      # Named route
+      [:protocol, :string, :optional],
+      [:route_name, :symbol, :optional],
+
+      [:status, :symbol, :mandatory],
+    )
+
+    module_function
+
+    def create_request(opts); Request.call(opts) end
+    def create_community(opts); Community.call(opts) end
+    def create_paths(opts); Paths.call(opts) end
+    def create_configs(opts); Configs.call(opts) end
+    def create_other(opts); Other.call(opts) end
+  end
 
   module_function
 
@@ -7,12 +68,12 @@ module MarketplaceRouter
     protocol_needs_redirect = request[:protocol] != "#{new_protocol}://"
 
     target = redirect_target(
-      request: request,
-      community: community,
-      paths: paths,
-      configs: configs,
-      other: other,
-      protocol: new_protocol,
+      request:                 DataTypes.create_request(request),
+      community:               Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil),
+      paths:                   DataTypes.create_paths(paths),
+      configs:                 DataTypes.create_configs(configs),
+      other:                   DataTypes.create_other(other),
+      protocol:                new_protocol,
       protocol_needs_redirect: protocol_needs_redirect
     )
 
@@ -72,6 +133,7 @@ module MarketplaceRouter
     # If protocol redirect is needed, the status is always :moved_permanently
     Maybe(target)
       .map { |t| t.merge(status: protocol_needs_redirect ? :moved_permanently : t[:status]) }
+      .map { |t| HashUtils.compact(DataTypes::Target.call(t)) }
       .or_else(nil)
   end
 
