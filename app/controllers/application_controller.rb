@@ -243,7 +243,7 @@ class ApplicationController < ActionController::Base
     }
 
     configs = {
-      always_use_ssl: APP_CONFIG.always_use_ssl,
+      always_use_ssl: Maybe(APP_CONFIG).always_use_ssl.map { |v| v == true || v.to_s.downcase == "true" }.or_else(false), # value can be string if it comes from ENV
       app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
     }
 
