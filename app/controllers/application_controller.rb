@@ -243,12 +243,13 @@ class ApplicationController < ActionController::Base
     }
 
     configs = {
-      always_use_ssl: APP_CONFIG.always_use_ssl
+      always_use_ssl: APP_CONFIG.always_use_ssl,
+      app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
     }
 
     other = {
       no_communities: Community.count == 0,
-      community_status: community_search_status,
+      community_search_status: community_search_status,
     }
 
     MarketplaceRouter.needs_redirect(
