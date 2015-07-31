@@ -221,7 +221,7 @@ class ApplicationController < ActionController::Base
   end
 
   def community_search_status
-    @community_search_status || :no_community
+    @community_search_status || :skipped
   end
 
   # Performs redirect to correct URL, if needed.
