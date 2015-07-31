@@ -11,7 +11,7 @@ describe MarketplaceRouter do
       headers: {}
     }
     default_community = {
-      redirect_to_domain: true,
+      use_domain: true,
       deleted: false,
       domain: "www.marketplace.com",
       domain_verification_file: nil,
@@ -53,23 +53,23 @@ describe MarketplaceRouter do
     it "does not redirect to full domain if full domain is not provided" do
       expect_redirect(community: {
                         deleted: false,
-                        redirect_to_domain: false,
+                        use_domain: false,
                       }).to eq(nil)
     end
 
-    it "redirects to full domain, if marketplace is accessed with the subdomain (ident) and full domain is provided and redirect_to_domain is true" do
+    it "redirects to full domain, if marketplace is accessed with the subdomain (ident) and full domain is provided and use_domain is true" do
       expect_redirect(community: {
-                        redirect_to_domain: true,
+                        use_domain: true,
                         deleted: false,
                         domain: "www.marketplace.com",
                       }).to eq(url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
 
-    it "does not redirect if redirect_to_domain is false" do
+    it "does not redirect if use_domain is false" do
       expect_redirect(community: {
                         deleted: false,
                         domain: "www.marketplace.com",
-                        redirect_to_domain: false,
+                        use_domain: false,
                       }).to eq(nil)
     end
 
@@ -80,7 +80,7 @@ describe MarketplaceRouter do
                       community: {
                         domain: "www.marketplace.com",
                         deleted: false,
-                        redirect_to_domain: true,
+                        use_domain: true,
                       }).to eq(url: "https://www.marketplace.com:3333/listings", status: :moved_permanently)
     end
 
@@ -88,7 +88,7 @@ describe MarketplaceRouter do
       expect_redirect(community: {
                         domain: "www.marketplace.com",
                         deleted: true,
-                        redirect_to_domain: true,
+                        use_domain: true,
                       }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
     end
 
@@ -96,7 +96,7 @@ describe MarketplaceRouter do
       expect_redirect(community: {
                         domain: "www.marketplace.com",
                         deleted: true,
-                        redirect_to_domain: true,
+                        use_domain: true,
                       }).to eq(route_name: :not_found, status: :moved_permanently, protocol: "https")
     end
 
@@ -119,7 +119,7 @@ describe MarketplaceRouter do
                       community: {
                         domain: "www.marketplace.com",
                         deleted: false,
-                        redirect_to_domain: true,
+                        use_domain: true,
                       }).to eq(url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
 
@@ -130,7 +130,7 @@ describe MarketplaceRouter do
                       community: {
                         domain: nil,
                         deleted: false,
-                        redirect_to_domain: false,
+                        use_domain: false,
                       }).to eq(url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
     end
 
@@ -141,7 +141,7 @@ describe MarketplaceRouter do
                       community: {
                         domain: "www.marketplace.com",
                         deleted: false,
-                        redirect_to_domain: true,
+                        use_domain: true,
                       },
                       configs: {
                         always_use_ssl: false,
@@ -225,7 +225,7 @@ describe MarketplaceRouter do
                       community: {
                         ident: "marketplace",
                         domain: "www.marketplace.com",
-                        redirect_to_domain: true
+                        use_domain: true
                       }
                      ).to eq(url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
@@ -237,7 +237,7 @@ describe MarketplaceRouter do
                       community: {
                         ident: "marketplace",
                         domain: "www.marketplace.com",
-                        redirect_to_domain: false
+                        use_domain: false
                       }
                      ).to eq(url: "https://marketplace.sharetribe.com/listings", status: :moved_permanently)
     end
@@ -252,7 +252,7 @@ describe MarketplaceRouter do
                       community: {
                         ident: "marketplace",
                         domain: "www.marketplace.com",
-                        redirect_to_domain: false,
+                        use_domain: false,
                         domain_verification_file: "1234567890ABCDEF.txt",
                       }
                      ).to eq(nil)

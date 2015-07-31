@@ -4,7 +4,7 @@ describe "legacy URL redirection" do
 
   before(:each) do
     @person = FactoryGirl.create(:person)
-    @community = FactoryGirl.create(:community, :domain => "market.custom.org", redirect_to_domain: true)
+    @community = FactoryGirl.create(:community, :domain => "market.custom.org", use_domain: true)
   end
 
   it "redirects /people/:id to /:username" do

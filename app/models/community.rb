@@ -267,6 +267,10 @@ class Community < ActiveRecord::Base
 
   attr_accessor :terms
 
+  def self.columns
+    super.reject { |c| c.name == "redirect_to_domain" }
+  end
+
   def name(locale)
     customization = Maybe(community_customizations.where(locale: locale).first).or_else {
       # We should not end up in a situation where the given locale is not found.

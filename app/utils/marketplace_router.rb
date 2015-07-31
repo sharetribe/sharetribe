@@ -10,7 +10,7 @@ module MarketplaceRouter
     )
 
     Community = EntityUtils.define_builder(
-      [:redirect_to_domain, :bool, :mandatory],
+      [:use_domain, :bool, :mandatory],
       [:deleted, :bool, :mandatory],
       [:domain, :string, :optional],
       [:domain_verification_file, :optional],
@@ -113,12 +113,12 @@ module MarketplaceRouter
         # -> Redirect to not found
         paths[:community_not_found].merge(status: :moved_permanently, protocol: protocol)
 
-      elsif community && community[:domain].present? && community[:redirect_to_domain] && request[:host] != community[:domain]
+      elsif community && community[:domain].present? && community[:use_domain] && request[:host] != community[:domain]
         # Community has domain ready, should use it
         # -> Redirect to community domain
         {url: "#{protocol}://#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
 
-      elsif community && community[:domain].present? && !community[:redirect_to_domain] && request[:host] == community[:domain] && !is_domain_verification
+      elsif community && community[:domain].present? && !community[:use_domain] && request[:host] == community[:domain] && !is_domain_verification
         {url: "#{protocol}://#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
 
       elsif community && request[:host] == "www.#{community[:ident]}.#{configs[:app_domain]}"
