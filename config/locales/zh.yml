@@ -183,8 +183,8 @@ zh:
         require_verification_to_post_listings: 只有经管理员验证的用户可以发布新的信息
         listing_preferences: 信息展示页面偏好设置
         transaction_preferences: 交易偏好
-        show_listing_publishing_date: 在信息战士页面的显示信息的发布日期
-        show_category_in_listing_list: 在信息展示页面中显示信息类型
+        show_listing_publishing_date: 在信息展示页面的显示信息的发布日期
+        show_category_in_listing_list: 在信息列表视图中显示信息类型
         hide_expiration_date: 不要求发布的信息设置过期日期
         listing_comments_in_use: 允许用户对信息发表评论（所有其他用户可见）
         email_preferences: 邮件发送偏好设置
@@ -1125,8 +1125,8 @@ zh:
       message: 一条私人消息
       send_invitation: 发送邀请
       add_email_addresses_description: 添加你要邀请的人的邮件地址到下面的输入框。如果你添加多个电子邮件地址，用逗号分隔。
-      add_lots_of_email_addresses: ~
-      this_article_link: ~
+      add_lots_of_email_addresses: "如果你想要发送大量的邀请，你应该使用邮件工具。查看%{this_article_link}可能会找到适合的邮件服务资源。"
+      this_article_link: 这篇文章
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: 我加入了这个很棒的集市。你也应该加入！
       errors_in_emails: 检查你新添的电邮地址是否有效。如果你添加了多个地址，确保用逗号分隔。
@@ -1252,7 +1252,7 @@ zh:
       feedback_sent_to: "发送评价给%{target_person}"
       feedback_skipped: 跳过评价
       invitation_cannot_be_sent: 邀请未被发出
-      invitation_limit_reached: ~
+      invitation_limit_reached: 你发送太多的邀请。已达到每日上限。
       invitation_sent: 邀请成功发出
       inviting_new_users_is_not_allowed_in_this_community: 不允许邀请新用户。
       login_again: 请重新登录。
