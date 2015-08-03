@@ -69,7 +69,7 @@ da-DK:
         update_information: "Gem instillinger"
         invite_people: "Inviter nye brugere"
         edit_signup_info: "Oprettelses information"
-        edit_signup_info_description: "Dette er en informations tekst der kan blive vist til brugere på tilmeldings siden. Der kan du give brugerne instruktioner for tilmelding, oplysninger som, hvor du kan få en invitation, mv. Som standard er der ingen instruktioner."
+        edit_signup_info_description: "Dette er en instruktions tekst der kan blive vist til brugere på tilmeldings-siden. Her kan du give brugerne instruktioner for tilmelding, oplysninger som, hvor man kan få en invitation, mv. Som standard er der ingen instruktioner."
         edit_info: "Rediger information"
         see_how_it_looks_like: "Se hvordan det ser ud"
         verification_to_post_listings_info_content: "Info tekst til besøgende som ikke er logget ind"
@@ -1079,7 +1079,7 @@ da-DK:
       item_request_list: "værktøj, sportsudstyr, kostumer, campingudstyr"
       items_to_offer: "Varer, til at låne: "
       items_to_request: "Varer, du kan låne: "
-      log_in: "Log ind!"
+      log_in: "log ind!"
       no_offers_visible_unless_logged_in: "Ingen vare, service eller rideshare giver synlige for ikke-registrerede brugere."
       no_open_offers_currently: "Ingen post, service eller rideshare tilbyder åben."
       no_open_requests_currently: "Ingen åbne post, service eller rideshare anmodninger."
@@ -1132,8 +1132,8 @@ da-DK:
       message: "En personlig meddelelse"
       send_invitation: "Send en invitation"
       add_email_addresses_description: "Tilføj emailadresser på dem du ønsker at invitere i feltet nedenfor. Hvis du vil tilføje flere emailadresser, skal de adskilles med komma."
-      add_lots_of_email_addresses: ~
-      this_article_link: ~
+      add_lots_of_email_addresses: "Hvis du planlægger at sende mange invitationer, skal du bruge et e-mail værktøj. Tjek %{this_article_link} for at finde informationer omkring egnede e-mail tjenester."
+      this_article_link: "denne artikel"
       invitation_emails_field_placeholder: "email1@example.com, email2@example.com, ..."
       invitation_message_field_placeholder: "Jeg har fundet noget jeg mener du også kan gøre brug af!"
       errors_in_emails: "Tjek at den email du har indtastet er korrekt. Hvis du har indtastet flere emails, så tjek om du har opdelt dem med komma."
@@ -1259,7 +1259,7 @@ da-DK:
       feedback_sent_to: "Feedback sendt til %{target_person}."
       feedback_skipped: "Feedback sprunget over"
       invitation_cannot_be_sent: "Invitation kunne ikke sendes"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Du prøvede at sende invitationer, men har sendt for mange. Den daglige grænse er nået."
       invitation_sent: "Invitation sendt"
       inviting_new_users_is_not_allowed_in_this_community: "Det er ikke tilladt at invitere nye brugere."
       login_again: "Log venligst ind igen"
@@ -1509,7 +1509,7 @@ da-DK:
       rideshare: "Tur deling"
       search_verb: Søg
       you_have_something_others_do_not: "Har du noget at tilbyde?"
-      feed_title: ~
+      feed_title: "%{listing_type} i %{service_name} %{optional_category}"
     left_panel_link:
       borrows: lån
       buys: køb
@@ -1863,7 +1863,7 @@ da-DK:
       delete_account_button: "Slet min konto permanent"
       delete_account_confirmation_popup: "Er du helt sikker på at du vil slette din konto og permanent slette alt data? Dit valg kan ikke fortrydes."
       email_addresses: E-mailadresser
-      new_email: "Ny e-mailadresse"
+      new_email: "Ny e-mail adresse"
       delete_all_memberships: "Hvis du sletter din konto, vil du ikke være i stand til at bruge den på følgende markedspladser: %{marketplaces}."
       delete_personal_information: "Hvis du sletter din konto, vil din personlige information (navn, telefonnummer, adresse, email, profilbillede o.s.v.) blive slettet permanent og kan ikke blive gendannet. Alle annoncer du har oprettet vil blive slettet. Du vil ikke kunne gendanne din konto."
       delete_information_others_involved: "Information hvor andre medlemmer er involverede (samtaler med andre, foretagne transaktioner, anmeldelser o.s.v.) slettes ikke, når du sletter din konto. Men dit navn vil ikke længere blive vist ved siden af denne information."

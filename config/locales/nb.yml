@@ -754,7 +754,7 @@ nb:
       contact_page_link: vurdering
     new:
       welcome_fb_user: "Velkommen til %{service_name}, %{name}!"
-      fb_join_accept_terms: "Ett steg til for å bli medlem av %{service_name}: Du må akseptere bruker vilkår."
+      fb_join_accept_terms: "Det er et steg igjen for å bli medlem av %{service_name}: du må bekrefte vilkårene for bruk."
       join_community: "Bli medlem av %{service_name}"
       you_can_join: "Du kan bli medlem av %{service_name} ved å akseptere vilkår for bruk og klikke på 'Bli medlem av %{service_name}' under."
       you_can_join_email_confirmation: "For å bli medlem av %{service_name} trenger du en gyldig e-postadresse som ender med %{email_ending}. Du kan bli medlem ved å fylle inn din e-postadresse, akseptere vilkår for bruk og klikke på  'Bli medlem %{service_name}'under, samt bekrefte din epost."
@@ -1135,7 +1135,6 @@ nb:
       this_is_private_community: "Du må logge inn for å se dette innholdet."
     invitation_form:
       email: E-postadresse(r)
-      email_with_limit: ~
       message: "En personlig melding"
       send_invitation: "Send invitasjon"
       add_email_addresses_description: "Legg til e-postadressene til de du inviterer i feltet under. Dersom du inviterer flere, adskill dem med komma og mellomrom."
