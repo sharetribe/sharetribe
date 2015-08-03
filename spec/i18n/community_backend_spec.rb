@@ -63,4 +63,35 @@ describe I18n::Backend::CommunityBackend do
     expect(I18n.translate("poo", locale: :en)).to start_with("translation missing")
   end
 
+  it "returns previous community and locales" do
+    all_locales = [:fi, :en]
+    expect(I18n.backend.set_community!(1, all_locales)).to eq(community_id: nil, locales_in_use: nil)
+    expect(I18n.backend.set_community!(2, [:zh])).to eq(community_id: 1, locales_in_use: all_locales)
+  end
+
+  it "doesn't change community if new community_id equals old community_id and clear: false" do
+    all_locales = [:fi, :en]
+    I18n.backend.set_community!(1, all_locales)
+    I18n.backend.store_translations(:fi, {foo: "baari"})
+
+    expect(I18n.translate("foo", locale: :fi)).to eq "baari"
+
+    I18n.backend.set_community!(1, all_locales, clear: false)
+
+    expect(I18n.translate("foo", locale: :fi)).to eq "baari"
+  end
+
+  it "changes community if new community_id equals old community_id and clear: true" do
+    all_locales = [:fi, :en]
+    I18n.backend.set_community!(1, all_locales)
+    I18n.backend.store_translations(:fi, {foo: "baari"})
+
+    expect(I18n.translate("foo", locale: :fi)).to eq "baari"
+
+    I18n.backend.set_community!(1, all_locales)
+
+    expect(I18n.translate("foo", locale: :fi)).to start_with("translation missing")
+
+  end
+
 end

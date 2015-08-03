@@ -21,7 +21,12 @@ module I18n
       attr_reader :community_id
 
       def set_community!(community_id, locales_in_use, clear: true)
-        if community_id != @community_id
+        old_values = {
+          community_id: @community_id,
+          locales_in_use: Maybe(@locales_in_use)[@community_id].or_else(nil)
+        }
+
+        if clear || community_id != @community_id
           @community_id = community_id
 
           # Clear store every time we switch community, this is not a cache
@@ -38,6 +43,8 @@ module I18n
           @locales_fallback_preference_order = {} unless @locales_fallback_preference_order
           @locales_fallback_preference_order.default = []
         end
+
+        old_values
       end
 
       def store_translations(locale, data, options = {})
