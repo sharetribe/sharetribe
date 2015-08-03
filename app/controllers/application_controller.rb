@@ -233,7 +233,7 @@ class ApplicationController < ActionController::Base
         ident: c.ident,
         domain: c.domain,
         deleted: c.deleted?,
-        redirect_to_domain: c.redirect_to_domain?
+        use_domain: c.use_domain?
       }
     }.or_else(nil)
 

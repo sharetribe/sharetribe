@@ -5,7 +5,7 @@
 #  id                                         :integer          not null, primary key
 #  ident                                      :string(255)
 #  domain                                     :string(255)
-#  redirect_to_domain                         :boolean          default(FALSE), not null
+#  use_domain                                 :boolean          default(FALSE), not null
 #  created_at                                 :datetime
 #  updated_at                                 :datetime
 #  settings                                   :text
@@ -266,6 +266,10 @@ class Community < ActiveRecord::Base
   validates_format_of :facebook_connect_secret, with: /\A[a-f0-9]{32}\z/, allow_nil: true
 
   attr_accessor :terms
+
+  def self.columns
+    super.reject { |c| c.name == "redirect_to_domain" }
+  end
 
   def name(locale)
     customization = Maybe(community_customizations.where(locale: locale).first).or_else {

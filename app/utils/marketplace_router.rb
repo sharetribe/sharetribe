@@ -3,14 +3,14 @@ module MarketplaceRouter
 
     Request = EntityUtils.define_builder(
       [:host, :string, :mandatory],
-      [:protocol, :string, :mandatory],
+      [:protocol, :string, one_of: ["http://", "https://"]],
       [:fullpath, :string, :mandatory],
       [:port_string, :string, :optional, default: ""],
       [:headers, :hash, :mandatory]
     )
 
     Community = EntityUtils.define_builder(
-      [:redirect_to_domain, :bool, :mandatory],
+      [:use_domain, :bool, :mandatory],
       [:deleted, :bool, :mandatory],
       [:domain, :string, :optional],
       [:domain_verification_file, :optional],
@@ -64,7 +64,8 @@ module MarketplaceRouter
   module_function
 
   def needs_redirect(request:, community:, paths:, configs:, other:, &block)
-    new_protocol = protocol(request: request, community: community, configs: configs)
+    is_domain_verification = Maybe(community)[:domain_verification_file].map { |dv_file| request[:fullpath] == "/#{dv_file}" }.or_else(false)
+    new_protocol = protocol(request: request, community: community, configs: configs, is_domain_verification: is_domain_verification)
     protocol_needs_redirect = request[:protocol] != "#{new_protocol}://"
 
     target = redirect_target(
@@ -74,7 +75,8 @@ module MarketplaceRouter
       configs:                 DataTypes.create_configs(configs),
       other:                   DataTypes.create_other(other),
       protocol:                new_protocol,
-      protocol_needs_redirect: protocol_needs_redirect
+      protocol_needs_redirect: protocol_needs_redirect,
+      is_domain_verification:  is_domain_verification,
     )
 
     block.call(target) if target
@@ -94,7 +96,8 @@ module MarketplaceRouter
   #
   # { route_name: :new_community, status: :moved_permanently, protocol: "http"}
   #
-  def redirect_target(request:, community:, paths:, configs:, other:, protocol:, protocol_needs_redirect:)
+  # rubocop:disable ParameterLists
+  def redirect_target(request:, community:, paths:, configs:, other:, protocol:, protocol_needs_redirect:, is_domain_verification:)
     target =
       if other[:community_search_status] == :not_found && other[:no_communities]
         # Community not found, because there are no communities
@@ -111,10 +114,13 @@ module MarketplaceRouter
         # -> Redirect to not found
         paths[:community_not_found].merge(status: :moved_permanently, protocol: protocol)
 
-      elsif community && community[:domain].present? && community[:redirect_to_domain] && request[:host] != community[:domain]
+      elsif community && community[:domain].present? && community[:use_domain] && request[:host] != community[:domain]
         # Community has domain ready, should use it
         # -> Redirect to community domain
         {url: "#{protocol}://#{community[:domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
+
+      elsif community && community[:domain].present? && !community[:use_domain] && request[:host] == community[:domain] && !is_domain_verification
+        {url: "#{protocol}://#{community[:ident]}.#{configs[:app_domain]}#{request[:port_string]}#{request[:fullpath]}", status: :moved_permanently}
 
       elsif community && request[:host] == "www.#{community[:ident]}.#{configs[:app_domain]}"
         # Accessed community with ident, including www
@@ -136,21 +142,21 @@ module MarketplaceRouter
       .map { |t| HashUtils.compact(DataTypes::Target.call(t)) }
       .or_else(nil)
   end
+  # rubocop:enable ParameterLists
 
-  def protocol(request:, community:, configs:)
-    if should_use_https?(request: request, community: community, configs: configs)
+  def protocol(request:, community:, configs:, is_domain_verification:)
+    if should_use_https?(request: request, community: community, configs: configs, is_domain_verification: is_domain_verification)
       "https"
     else
       request[:protocol] == "http://" ? "http" : "https"
     end
   end
 
-  def should_use_https?(request:, configs:, community:)
+  def should_use_https?(request:, configs:, community:, is_domain_verification:)
     from_proxy = (request[:headers]["HTTP_VIA"] && request[:headers]["HTTP_VIA"].include?("sharetribe_proxy"))
     robots = request[:fullpath] == "/robots.txt"
-    domain_verification = Maybe(community)[:domain_verification_file].map { |dv_file| request[:fullpath] == "/#{dv_file}" }.or_else(false)
 
-    configs[:always_use_ssl] && !from_proxy && !robots && !domain_verification
+    configs[:always_use_ssl] && !from_proxy && !robots && !is_domain_verification
   end
 
 end
