@@ -46,6 +46,8 @@ class ErrorsController < ActionController::Base
   end
 
   def set_locale
+    # TODO We should set also the community here and allow I18n
+    # backend to work even if community is not set
     I18n.locale = community_locale || "en"
   end
 
