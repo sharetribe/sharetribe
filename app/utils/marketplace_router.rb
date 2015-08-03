@@ -96,6 +96,7 @@ module MarketplaceRouter
   #
   # { route_name: :new_community, status: :moved_permanently, protocol: "http"}
   #
+  # rubocop:disable ParameterLists
   def redirect_target(request:, community:, paths:, configs:, other:, protocol:, protocol_needs_redirect:, is_domain_verification:)
     target =
       if other[:community_search_status] == :not_found && other[:no_communities]
@@ -141,6 +142,7 @@ module MarketplaceRouter
       .map { |t| HashUtils.compact(DataTypes::Target.call(t)) }
       .or_else(nil)
   end
+  # rubocop:enable ParameterLists
 
   def protocol(request:, community:, configs:, is_domain_verification:)
     if should_use_https?(request: request, community: community, configs: configs, is_domain_verification: is_domain_verification)
