@@ -16,13 +16,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
-  before_filter :redirect_to_marketplace_ident,
-    :force_ssl,
-    :check_auth_token,
-    :fetch_logged_in_user,
+  before_filter :check_auth_token,
     :fetch_community,
-    :redirect_deleted_marketplace,
-    :redirect_to_marketplace_domain,
+    :perform_redirect,
+    :fetch_logged_in_user,
+    :save_current_host_with_port,
     :fetch_community_membership,
     :redirect_removed_locale,
     :set_locale,
@@ -204,53 +202,82 @@ class ApplicationController < ActionController::Base
     session[:return_to_content] = request.fullpath
   end
 
-  # Before filter to get the current community
-  def fetch_community_by_strategy(&block)
-    # Pick the community according to the given strategy
-    @current_community = block.call
-
-    unless @current_community
-      # No community found with the strategy, so redirecting to redirect url, or error page.
-      redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else {
-        no_communities = Community.count == 0
-
-        if no_communities
-          new_community_path
-        else
-          :community_not_found
-        end
-      }
-    end
+  def save_current_host_with_port
+    # store the host of the current request (as sometimes needed in views)
+    @current_host_with_port = request.host_with_port
   end
 
   # Before filter to get the current community
   def fetch_community
-    # store the host of the current request (as sometimes needed in views)
-    @current_host_with_port = request.host_with_port
+    @current_community = ApplicationController.find_community(community_identifiers)
 
-    fetch_community_by_strategy {
-      ApplicationController.default_community_fetch_strategy(request.host)
+    # Save :found or :not_found to community status
+    # This is needed because we need to distinguish to cases
+    # where community is nil
+    #
+    # 1. Community is nil because it was not found
+    # 2. Community is nil beucase fetch_community filter was skipped
+    @community_search_status = @current_community ? :found : :not_found
+  end
+
+  def community_search_status
+    @community_search_status || :skipped
+  end
+
+  # Performs redirect to correct URL, if needed.
+  # Note: This filter is safe to run even if :fetch_community
+  # filter is skipped
+  def perform_redirect
+    community = Maybe(@current_community).map { |c|
+      {
+        ident: c.ident,
+        domain: c.domain,
+        deleted: c.deleted?,
+        redirect_to_domain: c.redirect_to_domain?
+      }
+    }.or_else(nil)
+
+    paths = {
+      community_not_found: Maybe(APP_CONFIG).community_not_found_redirect.map { |url| {url: url} }.or_else({route_name: :community_not_found_path}),
+      new_community: {route_name: :new_community_path}
+    }
+
+    configs = {
+      always_use_ssl: Maybe(APP_CONFIG).always_use_ssl.map { |v| v == true || v.to_s.downcase == "true" }.or_else(false), # value can be string if it comes from ENV
+      app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
+    }
+
+    other = {
+      no_communities: Community.count == 0,
+      community_search_status: community_search_status,
+    }
+
+    MarketplaceRouter.needs_redirect(
+      request: request_hash,
+      community: community,
+      paths: paths,
+      configs: configs,
+      other: other) { |redirect_dest|
+      url = redirect_dest[:url] || send(redirect_dest[:route_name], protocol: redirect_dest[:protocol])
+
+      redirect_to(url, status: redirect_dest[:status])
     }
   end
 
-  def redirect_deleted_marketplace
-    if Maybe(@current_community).deleted?.or_else(false)
-      redirect_to Maybe(APP_CONFIG).community_not_found_redirect.or_else(:community_not_found)
-    end
-  end
-
-  def redirect_to_marketplace_domain
-    return unless @current_community
-
-    host = request.host
-    domain = @current_community.domain
-    redirect_to_domain = @current_community.redirect_to_domain
-
-    redirect_opts = request_hash.merge(community_domain: domain, redirect_to_domain: redirect_to_domain)
-
-    MarketplaceRedirectUtils.needs_redirect(redirect_opts) { |redirect_url, redirect_status|
-      redirect_to(redirect_url, status: redirect_status)
-    }
+  # Returns a hash that contains identifiers which can be used to
+  # fetch the right community:
+  #
+  # {id: 123,
+  #  ident: "marketplace",
+  #  domain: "www.marketplace.com"
+  # }
+  #
+  # This method can and should be overriden by controllers that use other than default method
+  # to identify the community.
+  #
+  def community_identifiers
+    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
+    ApplicationController.parse_community_identifiers_from_host(request.host, app_domain)
   end
 
   def request_hash
@@ -258,41 +285,35 @@ class ApplicationController < ActionController::Base
       host: request.host,
       protocol: request.protocol,
       fullpath: request.fullpath,
-      port_string: request.port_string
+      port_string: request.port_string,
+      headers: request.headers
     }
   end
 
-  def redirect_to_marketplace_ident
-    host = request.host
-    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
-    if host.end_with?(app_domain) && host.start_with?("www.")
-      ident_without_www = host.sub(/www\./, '').chomp(".#{app_domain}")
-      return redirect_to "#{request.protocol}#{ident_without_www}.#{APP_CONFIG.domain}", status: 301
+  def self.parse_community_identifiers_from_host(host, app_domain)
+    app_domain_regexp = Regexp.escape(app_domain)
+    ident_with_www = /^www\.(.+)\.#{app_domain}$/.match(host)
+    ident_without_www = /^(.+)\.#{app_domain}$/.match(host)
+
+    if ident_with_www
+      {ident: ident_with_www[1]}
+    elsif ident_without_www
+      {ident: ident_without_www[1]}
+    else
+      {domain: host}
     end
   end
 
-  # Fetch community
-  #
-  # 1. Try to find by domain
-  # 2. If there is only one community, use it
-  # 3. Otherwise nil
-  #
-  def self.default_community_fetch_strategy(domain)
-    raise ArgumentError("Domain cannot be nil.") if domain.nil?
+  def self.find_community(identifiers)
+    by_identifier = Community.find_by_identifier(identifiers)
 
-    community = Community.where(domain: domain).first
-    return community if community.present?
-
-    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
-    ident = domain.chomp(".#{app_domain}")
-    community = Community.where(ident: ident).first
-    return community if community.present?
-
-    # If only one, use it
-    return Community.first if Community.count == 1
-
-    # Not found, return nil
-    nil
+    if by_identifier
+      by_identifier
+    elsif Community.count == 1
+      Community.first
+    else
+      nil
+    end
   end
 
   def fetch_community_membership
@@ -458,13 +479,6 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def force_ssl
-    # If defined in the config, always redirect to https (unless already using https or coming through Sharetribe proxy)
-    if APP_CONFIG.always_use_ssl
-      redirect_to("https://#{request.host_with_port}#{request.fullpath}", status: 301) unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || ApplicationController.should_not_redirect_path_to_https(request.fullpath)
-    end
-  end
-
   def feature_flags
     @feature_flags ||= fetch_feature_flags
   end
@@ -507,23 +521,5 @@ class ApplicationController < ActionController::Base
   #
   def self.ensure_feature_enabled(feature_name, options = {})
     before_filter(options) { ensure_feature_enabled(feature_name) }
-  end
-
-  # Returns `true` if the path is such that the app should NOT
-  # redirect to HTTPS.
-  #
-  # Paths that should not be redirected are for example robots.txt and
-  # domain validation files.
-  #
-  def self.should_not_redirect_path_to_https(fullpath)
-    dv_regexp = /^\/[a-zA-Z0-9]+\.txt$/
-
-    (
-      # robots.txt should not be redirected
-      fullpath == "/robots.txt" ||
-
-      # matches to Domain Validation file regex, should not redirect
-      dv_regexp.match(fullpath).nil? == false
-    )
   end
 end

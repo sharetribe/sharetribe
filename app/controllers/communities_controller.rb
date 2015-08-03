@@ -1,6 +1,5 @@
 class CommunitiesController < ApplicationController
   skip_filter :fetch_community,
-              :redirect_to_marketplace_domain,
               :cannot_access_without_joining
 
   before_filter :ensure_no_communities

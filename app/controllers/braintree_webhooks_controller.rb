@@ -1,9 +1,7 @@
 class BraintreeWebhooksController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
-  skip_filter :fetch_community, :redirect_to_marketplace_ident, :redirect_to_marketplace_domain, :check_email_confirmation
-
-  before_filter :fetch_community_by_params
+  skip_filter :check_email_confirmation
 
   before_filter do
     unless @current_community.braintree_in_use?
@@ -78,14 +76,9 @@ class BraintreeWebhooksController < ApplicationController
     render :nothing => true
   end
 
-  private
-
-  # Instead of fetching community by host (http://community.sharetribe.com),
-  # this filter fetched community by `community_id` parameter
-  # (http://sharetribe.com?community_id=id)
-  def fetch_community_by_params
-    fetch_community_by_strategy {
-      Community.find_by_id(params[:community_id])
-    }
+  # This method overrides the default behaviour defined in ApplicationController
+  # Instead of taking the ident/domain from the URL host part, take it from the community_id parameter
+  def community_identifiers
+    {id: params[:community_id]}
   end
 end
