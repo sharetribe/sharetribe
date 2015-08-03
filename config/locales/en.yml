@@ -978,6 +978,7 @@ en:
     transaction_agreement:
       required_error: "You need to accept the agreement"
     paypal:
+      buyer_cannot_pay_error: "The payment has been declined by PayPal. Please contact their Customer Service for more information: %{customer_service_link}"
       pending_review_error: "The payment was submitted but was flagged by PayPal as 'requiring a review'. When PayPal completes the review, the payment will be automatically authorized."
       generic_error: "An error occured during the payment process. Could not finalize your PayPal payment."
       cancel_error: "An error occured during cancellation. Could not finalize cancel."
