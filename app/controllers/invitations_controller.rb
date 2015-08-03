@@ -9,13 +9,14 @@ class InvitationsController < ApplicationController
   def new
     @selected_tribe_navi_tab = "members"
     @invitation = Invitation.new
-    render locals: { invitation_limit: Invitation.invitation_limit, has_admin_rights: @current_user.has_admin_rights_in?(@current_community) }
+    invitation_limit = @current_community.join_with_invite_only ? Invitation.invite_only_invitation_limit : Invitation.invitation_limit
+    render locals: { invitation_limit: invitation_limit, has_admin_rights: @current_user.has_admin_rights_in?(@current_community) }
   end
 
   def create
     invitation_emails = params[:invitation][:email].split(",")
 
-    unless validate_daily_limit(@current_user.id, invitation_emails.size)
+    unless validate_daily_limit(@current_user.id, invitation_emails.size, @current_community)
       return redirect_to new_invitation_path, flash: { error: t("layouts.notifications.invitation_limit_reached")}
     end
 
@@ -47,8 +48,9 @@ class InvitationsController < ApplicationController
     end
   end
 
-  def validate_daily_limit(inviter_id, number_of_emails)
-    (number_of_emails + daily_email_count(inviter_id)) < Invitation.invitation_limit
+  def validate_daily_limit(inviter_id, number_of_emails, community)
+    email_count = (number_of_emails + daily_email_count(inviter_id))
+    email_count < Invitation.invitation_limit || (community.join_with_invite_only && email_count < Invitation.invite_only_invitation_limit)
   end
 
   def daily_email_count(inviter_id)
