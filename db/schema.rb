@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150731115742) do
+ActiveRecord::Schema.define(:version => 20150804114651) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -280,6 +280,14 @@ ActiveRecord::Schema.define(:version => 20150731115742) do
   end
 
   add_index "community_plans", ["community_id"], :name => "index_community_plans_on_community_id"
+
+  create_table "community_sender_emails", :force => true do |t|
+    t.integer  "community_id", :null => false
+    t.string   "name",         :null => false
+    t.string   "email",        :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "community_translations", :force => true do |t|
     t.integer  "community_id",                  :null => false
