@@ -442,13 +442,17 @@ module PaypalService::API
         data =
           if err_response[:error_code] == "10486"
             {redirect_url: token[:express_checkout_url]}
-          elsif err_response[:error_code] == "10485" # Payment not authorized
-            # Do not cancel token yet if user is in the middle of
-            # authentication. This happens when you pay with paypal
-            # account after you have logged in but haven't yet pressed
-            # the Pay-button in PayPal UI. Retry tokens logic might
-            # try completing the payment in this phase and we don't
-            # want that to trigger token cancellation.
+          elsif ["10485", "13116"].include?(err_response[:error_code])
+            # 10485 = Payment not authorized, meaning user logged in
+            # at PayPal but didn't press Pay yet.
+            #
+            # 13116 = Payment in progress, we already made an API call
+            # to complete the authorization.
+            #
+            # Do not cancel token yet if the user is in the middle of
+            # authenticating / paying. Retry tokens logic might try
+            # completing the payment in this phase and we don't want
+            # that to trigger token cancellation.
             nil
           else
             request_cancel(cid, token[:token])
