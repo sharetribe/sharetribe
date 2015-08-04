@@ -233,7 +233,8 @@ class ApplicationController < ActionController::Base
         ident: c.ident,
         domain: c.domain,
         deleted: c.deleted?,
-        use_domain: c.use_domain?
+        use_domain: c.use_domain?,
+        domain_verification_file: c.dv_test_file_name
       }
     }.or_else(nil)
 
