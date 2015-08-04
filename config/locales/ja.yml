@@ -961,6 +961,7 @@ ja:
     transaction_agreement:
       required_error: 同意する必要があります
     paypal:
+      buyer_cannot_pay_error: ~
       pending_review_error: ~
       generic_error: お支払い手続き中にエラーが発生しました。PayPalのお支払いが完了できませんでした。
       cancel_error: キャンセル手続き中にエラーが発生しました。キャンセルが完了できませんでした。

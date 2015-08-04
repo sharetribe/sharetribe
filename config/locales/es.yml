@@ -954,6 +954,7 @@ es:
     transaction_agreement:
       required_error: ~
     paypal:
+      buyer_cannot_pay_error: ~
       pending_review_error: ~
       generic_error: ~
       cancel_error: ~
@@ -1109,7 +1110,6 @@ es:
       this_is_private_community: ~
     invitation_form:
       email: "Dirección de correo electrónico de tu amigo:"
-      email_with_limit: ~
       message: "Un mensaje personal:"
       send_invitation: "Enviar invitación"
       add_email_addresses_description: "Añade el/los email/s de tu/s amigo/s en el campo más abajo. Si quieres añadir más de una dirección email, sepáralas con una coma."

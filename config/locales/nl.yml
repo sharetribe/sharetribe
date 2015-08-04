@@ -962,6 +962,7 @@ nl:
     transaction_agreement:
       required_error: "Je moet de overeenkomst accepteren"
     paypal:
+      buyer_cannot_pay_error: ~
       pending_review_error: ~
       generic_error: "Er heeft zicht een fout voorgedaan tijdens de betaling. De PayPal betaling kon niet worden uitgevoerd."
       cancel_error: "Fout tijdens uitvoeren annulering. Annulering is niet afgehandeld."
@@ -1117,7 +1118,6 @@ nl:
       this_is_private_community: "U moet zich aanmelden voordat u de inhoud kunt zien."
     invitation_form:
       email: "E-mail adres"
-      email_with_limit: ~
       message: "Een persoonlijk bericht"
       send_invitation: "Verstuur uitnodiging"
       add_email_addresses_description: "Voeg hieronder e-mail adressen toe van de mensen die je wil uitnodigen. Als je verschillende adressen wil toevoegen, scheid deze dan met een komma."

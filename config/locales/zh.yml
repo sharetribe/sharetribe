@@ -967,6 +967,7 @@ zh:
     transaction_agreement:
       required_error: 你需要接受协议
     paypal:
+      buyer_cannot_pay_error: ~
       pending_review_error: 支付已经提交，但是被Paypal标记为‘需要检查’。当Paypal完成检查后，该支付将会被自动授权。
       generic_error: 付款过程中出现错误。无法完成你的PayPal付款。
       cancel_error: 取消时发生错误。不能完成取消操作。

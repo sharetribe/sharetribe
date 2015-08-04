@@ -972,6 +972,7 @@ ru:
     transaction_agreement:
       required_error: "Вам необходимо принять соглашение."
     paypal:
+      buyer_cannot_pay_error: ~
       pending_review_error: ~
       generic_error: "В процессе платежа произошла ошибка. Платеж не был завершен."
       cancel_error: "В процессе отмены произошла ошибка. Не смогли завершить отмену."
@@ -1127,7 +1128,6 @@ ru:
       this_is_private_community: "Вам нужно войти чтобы увидеть контент."
     invitation_form:
       email: "Адрес(а) электронной почты"
-      email_with_limit: ~
       message: "Личное сообщение:"
       send_invitation: "Отправить приглашение"
       add_email_addresses_description: "Введите в поле адреса электронной почты своих друзей. Если вы хотите пригласить нескольких друзей, разделите их адреса электронной почты с помощью запятой."

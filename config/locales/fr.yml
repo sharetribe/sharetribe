@@ -978,6 +978,7 @@ fr:
     transaction_agreement:
       required_error: "Vous devez accepter l'accord"
     paypal:
+      buyer_cannot_pay_error: ~
       pending_review_error: "Le paiement a été soumis mais a été marqué par PayPal comme 'nécessitant une validation'. Quand cette validation sera confirmée par PayPal, le paiement sera automatiquement autorisé."
       generic_error: "Une erreur s'est produite durant le processus de paiement. Le paiement PayPal n'a pas pu être réalisé."
       cancel_error: "Une erreur s'est produite durant l'annulation. Celle-ci n'a pas pu être réalisée."
@@ -1133,7 +1134,6 @@ fr:
       this_is_private_community: "Vous devez vous connecter pour voir le contenu."
     invitation_form:
       email: "Adresse(s) email"
-      email_with_limit: "Adresses email (max. %{invitation_limit})"
       message: "Votre message"
       send_invitation: "Envoyer les invitations"
       add_email_addresses_description: "Ajoutez ci-dessous les adresses email des gens que vous souhaitez inviter. Pour ajouter plusieurs adresses, séparez les par une virgule."
@@ -1264,7 +1264,7 @@ fr:
       feedback_sent_to: "Avis envoyé à %{target_person}."
       feedback_skipped: "Pas d'avis donné"
       invitation_cannot_be_sent: "L' (les) invitation(s) n'a (n'ont) pas pu être envoyée(s)"
-      invitation_limit_reached: "Vous avez essayé d'envoyer trop d'invitations"
+      invitation_limit_reached: "Vous avez essayé d'envoyer trop d'invitations. La limite journalière a été atteinte."
       invitation_sent: "L' (les) invitation(s) a (ont) été envoyée(s)"
       inviting_new_users_is_not_allowed_in_this_community: "Inviter de nouveaux utilisateurs n'est pas autorisé."
       login_again: "Merci de vous reconnecter."

@@ -963,6 +963,7 @@ tr-TR:
     transaction_agreement:
       required_error: "Sözleşmeyi kabul etmelisiniz"
     paypal:
+      buyer_cannot_pay_error: ~
       pending_review_error: ~
       generic_error: "Ödeme sırasında bir hata meydana geldi. PayPal ödemesi tamamlanamadı."
       cancel_error: "İptal sırasında bir hata meydana geldi. İptal işlemi tamamlanamadı."

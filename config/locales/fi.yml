@@ -966,6 +966,7 @@ fi:
     transaction_agreement:
       required_error: "Sinun pitää hyväksyä ehdot"
     paypal:
+      buyer_cannot_pay_error: ~
       pending_review_error: "Maksu on vastaanotettu mutta PayPal merkitsi sen katselmoitavaksi. Kun PayPal on suorittanut katselmoinnin tehdään katevaraus automaattisesti."
       generic_error: "Maksuprosessin yhteydessä tapahtui virhe. PayPal-maksu ei onnistunut."
       cancel_error: "Maksun perumisen yhteydessä tapahtui virhe."
@@ -1121,7 +1122,6 @@ fi:
       this_is_private_community: "Sinun täytyy liittyä palveluun nähdäksesi sen sisällön."
     invitation_form:
       email: "Kutsuttavan sähköpostiosoite"
-      email_with_limit: ~
       message: "Viesti kutsuttavalle"
       send_invitation: "Lähetä kutsu"
       add_email_addresses_description: "Lisää kutsuttavien sähköpostiosoitteet alla olevaan kenttään. Jos lisäät enemmän kuin yhden osoitteen, erota osoitteet pilkulla."

@@ -978,6 +978,7 @@ es-ES:
     transaction_agreement:
       required_error: "Debes aceptar el acuerdo"
     paypal:
+      buyer_cannot_pay_error: ~
       pending_review_error: "El pago se realizó pero fue marcado por PayPal como 'pendiente de revisión'. Cuando PayPal complete esta revisión, el pago será autorizado automáticamente."
       generic_error: "Ha ocurrido un error durante el proceso de pago. No se pudo finalizar el pago a través de PayPal."
       cancel_error: "Ha ocurrido un error durante la cancelación. No se ha podido finalizar la cancelación"
@@ -1133,7 +1134,6 @@ es-ES:
       this_is_private_community: "Debes crear una cuenta para poder ver todo el contenido."
     invitation_form:
       email: "Dirección de correo electrónico de tu amigo:"
-      email_with_limit: ~
       message: "Un mensaje personal:"
       send_invitation: "Enviar invitación"
       add_email_addresses_description: "Añade el/los email/s de tu/s amigo/s en el campo más abajo. Si quieres añadir más de una dirección email, sepáralas con una coma."

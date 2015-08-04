@@ -947,6 +947,7 @@ lv:
     transaction_agreement:
       required_error: ~
     paypal:
+      buyer_cannot_pay_error: ~
       pending_review_error: ~
       generic_error: ~
       cancel_error: ~
