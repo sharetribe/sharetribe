@@ -448,14 +448,14 @@ id:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: cancel
+    cancel: Batal
     fields_that_are_mandatory: "Kolom dengan tanda bintang (*) adalah wajib."
     or: atau
     password: ~
     service_name: ~
     share_types:
-      request: ~
-      offer: ~
+      request: Permintaan
+      offer: penawaran
       borrow: meminjamkan
       buy: membeli
       give_away: memberikan
@@ -464,10 +464,10 @@ id:
       rent: menyewakan
       rent_out: menyewakan
       sell: menjual
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
+      offer_to_swap: Menukar
+      request_to_swap: Menukar
+      share_for_free: "Membagi dengan gratis"
+      accept_for_free: "menggunakan dengan gratis"
     categories:
       item: ~
       favor: ~
@@ -488,10 +488,10 @@ id:
       garden: ~
       travel: ~
       other: ~
-    username: ~
-    username_or_email: ~
+    username: "Nama Pengguna"
+    username_or_email: "E-mail atau nama pengguna"
     what_is_this: "Apa ini?"
-    removed_user: ~
+    removed_user: "Pengguna dihapus"
     paypal_fee_info:
       title: ~
       body_text: ~
@@ -609,7 +609,7 @@ id:
       message_sent_by: ~
       message_sent_to: ~
       send_reply: "Kirim balasan"
-      write_a_reply: "Tulisa balasan"
+      write_a_reply: "Tulis balasan"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -623,9 +623,9 @@ id:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: "Feedback yang diberikan"
-      feedback_skipped: "Feedback yang dilewatkan"
-      give_feedback: "Beri feedback"
+      feedback_given: "Masukkan yang diberikan"
+      feedback_skipped: "Masukkan yang dilewatkan"
+      give_feedback: "Berikan masukkan"
       offer_accepted: Diterima
       offer_rejected: Ditolak
       offer_canceled: ~
@@ -649,7 +649,7 @@ id:
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: "Lewati feedback"
+      skip_feedback: "Lewati masukkan"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -1017,10 +1017,10 @@ id:
       request_partitive: ~
   header:
     about: Tentang
-    home: Home
+    home: Beranda
     members: ~
     new_listing: ~
-    mobile_version: "Mobile version"
+    mobile_version: "Versi Mobile"
     offers: Penawaran
     requests: Permintaan
     search_kassi: "Cari %{service_name}"
@@ -1064,11 +1064,11 @@ id:
       some_private_offers_exist: "Sudah ada <b>%{number_of_listings} penawaran</b>,"
       some_private_requests_exist: "Sudah ada <b>%{number_of_listings} permintaan</b>,"
     custom_filters:
-      update_view: ~
-      min: ~
-      max: ~
+      update_view: ""
+      min: ""
+      max: ""
     event_feed:
-      latest_events: ~
+      latest_events: "yang terbaru"
     grid_item:
       processing_uploaded_image: ~
     index:
@@ -1126,14 +1126,14 @@ id:
       comment: ~
       comments: ~
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
-      map_button: ~
+      show: Menyaring
+      search: Cari
+      map: "Tampilkan Peta"
+      list: "Tampilkan Semua"
+      map_button: Peta
       grid_button: ~
-      list_button: ~
-      all_listing_types: ~
+      list_button: Daftar
+      all_listing_types: "Semua Jenis"
       all_categories: "Semua Kategori"
   infos:
     about:
@@ -1186,11 +1186,11 @@ id:
     logged_in:
       admin: Admin
       go_to_your_profile_page: Profil
-      hi: Hai
-      login: Login
-      logout: Logout
+      hi: Halo
+      login: Masuk
+      logout: Keluar
       notifications: Notifikasi
-      requests: "Permintaan pertemanan"
+      requests: "Permintaan untuk berteman"
       settings: Pengaturan
       sign_up: "Buat akun"
     logged_in_messages_icon:
@@ -1200,13 +1200,13 @@ id:
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Profil
-      hi: Hai
-      login: Login
-      logout: Logout
+      hi: Halo
+      login: Masuk
+      logout: Keluar
       notifications: Notifikasi
-      requests: "Permintaan pertemanan"
+      requests: "Permintaan untuk berteman"
       settings: ~
-      sign_up: Daftar
+      sign_up: Mendaftar
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
@@ -1216,8 +1216,8 @@ id:
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: "Komen tidak boleh kosong"
-      comment_sent: "Komen terkirim"
+      comment_cannot_be_empty: "Komentar tidak boleh kosong"
+      comment_sent: "Komentar terkirim"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
@@ -1235,8 +1235,8 @@ id:
       invitation_limit_reached: ~
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: "Silakan login lagi."
-      login_failed: "Login gagal. Masukkan detil yang benar."
+      login_again: "Silakan masuk lagi."
+      login_failed: "Masuk gagal. Masukkan detil yang benar."
       account_creation_successful: ~
       account_deleted: ~
       login_successful: "Selamat Datang, %{person_name}!"
@@ -1600,8 +1600,8 @@ id:
       favors: Layanan
       housing: Tempat
       items: Item
-      list_view: "List view"
-      map_view: "Map view"
+      list_view: "Tampilan gambar"
+      map_view: "Gambar Peta"
       offer_something: "Sebarkan ke yang lain!"
       offer_type: "Jenis penawaran"
       offers: Penawaran
@@ -1689,7 +1689,7 @@ id:
       deactivate: ~
     help_texts:
       feedback_description_title: Feedback
-      help_captcha_title: "Apakah Anda manusia?"
+      help_captcha_title: "Apakah Anda orang?"
       help_invitation_code_title: ~
       terms_title: "%{service_name} ketentuan penggunaan"
       invite_only_help_text: ~
