@@ -413,7 +413,7 @@ class Community < ActiveRecord::Base
     default_host, default_port = APP_CONFIG.domain.split(':')
     port_string = options[:port] || default_port
 
-    if domain.present? # custom domain
+    if domain.present? && use_domain? # custom domain
       dom = domain
     else # just a subdomain specified
       dom = "#{self.ident}.#{default_host}"
