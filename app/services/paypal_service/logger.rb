@@ -14,23 +14,29 @@ module PaypalService
     end
 
     def log_request_input(request, input)
+      request_id = SecureRandom.uuid
       Rails.logger.info(to_json_log_entry(:request,
                                           nil,
-                                          {method: request[:method]}.merge(Maybe(input).or_else({}))))
+                                          {method: request[:method]}.merge(Maybe(input).or_else({})),
+                                          request_id))
+
+      request_id
     end
 
-    def log_response(resp)
+    def log_response(resp, request_id)
       Rails.logger.info(to_json_log_entry(:response,
                                           nil,
-                                          resp)) unless resp.nil?
+                                          resp,
+                                          request_id)) unless resp.nil?
     end
 
-    def to_json_log_entry(type, free, structured)
+    def to_json_log_entry(type, free, structured, request_id = nil)
       {
         tag: :paypal,
         type: type,
         free: free,
-        structured: structured
+        structured: structured,
+        request_id: request_id,
       }.to_json
     end
   end

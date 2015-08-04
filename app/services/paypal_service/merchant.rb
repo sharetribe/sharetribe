@@ -51,13 +51,13 @@ module PaypalService
       output_transformer = action_def[:output_transformer]
 
       input = input_transformer.call(request, config)
-      @logger.log_request_input(request, input)
+      request_id = @logger.log_request_input(request, input)
       wrapped = wrapper_method.call(input)
 
       begin
         response = action_method.call(wrapped)
 
-        @logger.log_response(response)
+        @logger.log_response(response, request_id)
         if (response.success?)
           output_transformer.call(response, api)
         else
