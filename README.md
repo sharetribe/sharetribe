@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/sharetribe/sharetribe.svg?branch=master)](https://travis-ci.org/sharetribe/sharetribe) [![Dependency Status](https://gemnasium.com/sharetribe/sharetribe.png)](https://gemnasium.com/sharetribe/sharetribe) [![Code Climate](https://codeclimate.com/github/sharetribe/sharetribe.png)](https://codeclimate.com/github/sharetribe/sharetribe) [![Coverage Status](https://coveralls.io/repos/sharetribe/sharetribe/badge.png)](https://coveralls.io/r/sharetribe/sharetribe)
 
-Sharetribe is an open source platform that can be used to create your own peer-to-peer marketplace.
+Sharetribe is an open source platform to create your own peer-to-peer marketplace.
 
-Would you like to set up your marketplace in a minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
+Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
 Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 
@@ -26,7 +26,7 @@ Before you get started, the following needs to be installed:
 2. Go to the sharetribe project root directory
 3. Create a database.yml file by copying the example database configuration: `cp config/database.example.yml config/database.yml`
 4. Create the required databases with [these commands](https://gist.github.com/804314). If you're not planning on developing Sharetribe, you only need the sharetribe_production database.
-5. Add your database configuration details to to `config/database.yml`
+5. Add your database configuration details to `config/database.yml`
   * You will probably only need to fill in the password for the database(s)
 6. Install Sphinx. Version 2.1.4 has been used successfully, but newer versions should work as well. See the [Sphinx installation instructions](http://pat.github.com/ts/en/installing_sphinx.html). No need to start Sphinx yet, but you can try running the `searchd` command to see if the installation was successful. Starting it should fail at this point due to a missing configuration file.
 7. Install [Imagemagick](http://www.imagemagick.org): `brew install imagemagick`
@@ -156,7 +156,7 @@ If you are planning to use Docker for development, here are some tips and tricks
 ### Advanced settings
 
 * Default configuration settings are in `config/config.default.yml`. If you need to change these, we recommend creating a `config/config.yml` file to override these values. You can also set configuration values to environment variables.
-* It's not recommended to server static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false`.
+* It's not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false`.
 
 ## Payments
 
@@ -174,7 +174,7 @@ Would you like to make Sharetribe better? [Here's a basic guide](CONTRIBUTING.md
 
 ## Translation
 
-We use WebTranslateIt (WTI) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please ask for an invitation to WTI. To get an invite, send an email to info@sharetribe.com and mention that you would like to become a translator.
+We use WebTranslateIt (WTI) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please ask for a WTI invitation. To get an invite, send an email to info@sharetribe.com and mention that you would like to become a translator.
 
 ## Known issues
 
