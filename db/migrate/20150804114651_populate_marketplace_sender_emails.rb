@@ -30,6 +30,12 @@ class PopulateMarketplaceSenderEmails < ActiveRecord::Migration
   end
 
   def down
+    execute("
+      UPDATE communities
+      LEFT JOIN marketplace_sender_emails ON (communities.id = marketplace_sender_emails.community_id)
+      SET communities.custom_email_from_address = CONCAT('\"', marketplace_sender_emails.name, '\" <', marketplace_sender_emails.email, '>')
+      WHERE marketplace_sender_emails.id IS NOT NULL
+")
     execute("DELETE FROM marketplace_sender_emails")
   end
 end
