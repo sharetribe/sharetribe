@@ -1677,7 +1677,7 @@ en:
     commission: "%{commission} %"
     connected_account: "PayPal account '%{email}' connected successfully."
     change_account: "Change account"
-    missing: "You have open listings, but you haven't connected your PayPal account, so you're not able to receive payments. Please connect your PayPal account in your %{settings_link}."
+    missing: "You have open listings but your Paypal account is not set up to receive payments. Connect your Paypal account and grant %{service_name} permission to charge a transacrtion fee from your %{settings_link}."
     from_your_payment_settings_link_text: "payment settings"
     new:
       payout_info_you_need_to_connect: "To accept payments you need to connect your PayPal account with %{service_name}."
