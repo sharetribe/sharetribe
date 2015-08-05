@@ -980,7 +980,7 @@ nb:
     transaction_agreement:
       required_error: "Du må godta avtalevilkår"
     paypal:
-      buyer_cannot_pay_error: ~
+      buyer_cannot_pay_error: "Betalingen ble avslått av PayPal. Vennligst kontakt PayPal Kundeservice for mer informasjon: %{customer_service_link}"
       pending_review_error: "Betalingen ble sendt men ble flagget av PayPal som \"må sjekkes\". Når PayPal får sjekket betalingen vil den automatisk bli godkjent."
       generic_error: "En feil oppstod i betalingsprosessen. Din PayPal-betaling kunne ikke gjennomføres."
       cancel_error: "En feil oppstod ved kansrelering. Kunne ikke sluttføre kansrelering."

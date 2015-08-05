@@ -446,13 +446,13 @@ id:
         inquiry: ~
   common:
     edit_page: ~
-    default_community_slogan: ~
+    default_community_slogan: "Pasar Komunitas"
     default_community_description: ~
     cancel: Batal
     fields_that_are_mandatory: "Kolom dengan tanda bintang (*) adalah wajib."
     or: atau
-    password: ~
-    service_name: ~
+    password: "Kata Sandi"
+    service_name: ""
     share_types:
       request: Permintaan
       offer: penawaran
@@ -469,20 +469,20 @@ id:
       share_for_free: "Membagi dengan gratis"
       accept_for_free: "menggunakan dengan gratis"
     categories:
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
+      item: Barang
+      favor: Pelayanan
+      rideshare: Tumpangan
+      housing: Tempat
+      tools: Alat
+      sports: Olahraga
+      music: Musik
+      books: "Buku-buku dan majalah"
       games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
+      furniture: Perabotan
+      outdoors: "Berkemah & mainan di luar rumah"
+      food: "Makanan & Dapur"
       electronics: ~
-      pets: ~
+      pets: "Hewan peliharaan & Hewan yang lain"
       film: ~
       clothes: ~
       garden: ~
@@ -1019,19 +1019,19 @@ id:
   header:
     about: Tentang
     home: Beranda
-    members: ~
-    new_listing: ~
+    members: Komunitas
+    new_listing: "Daftar baru"
     mobile_version: "Versi Mobile"
     offers: Penawaran
     requests: Permintaan
     search_kassi: "Cari %{service_name}"
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
-    invite: ~
-    login: ~
-    signup: ~
-    menu: ~
+    create_new_marketplace: "Membuat pasar komunitas yang baru"
+    contact_us: "Hubungi Kami"
+    profile: Profil
+    invite: "Mengundang anggota baru"
+    login: Masuk
+    signup: Daftar
+    menu: "Laman Utama"
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Selain itu  ada <b>satu tawaran lainnya</ b>,"

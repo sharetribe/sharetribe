@@ -974,7 +974,7 @@ da-DK:
     transaction_agreement:
       required_error: "Du skal godkende kontrakten"
     paypal:
-      buyer_cannot_pay_error: ~
+      buyer_cannot_pay_error: "Betalingen er blevet afvist af PayPal. Kontakt venligst deres Kundeservice for yderligere information: %{customer_service_link}"
       pending_review_error: "Betalingen er sendt afsted, men PayPal har markeret den som 'behøver gennemgang'. Når gennemgangen har fundet sted, vil betalingen automatisk blive autoriseret."
       generic_error: "Der skete en teknisk fejl under betalingsprocessen."
       cancel_error: "Der skete en fejl. Vi kunne ikke annullere."
