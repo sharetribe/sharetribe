@@ -320,9 +320,6 @@ Given(/^this community does not send automatic newsletters$/) do
   @current_community.update_attribute(:automatic_newsletters, false)
 end
 
-Given(/^community emails are sent from name "(.*?)" and address "(.*?)"$/) do |name, address|
-  MarketplaceSenderEmail.where(community_id: @current_community.id).first_or_create do |sender|
-    sender.name = name
-    sender.email = address
-  end
+Given(/^community emails are sent from name "(.*?)" and address "(.*?)"$/) do |name, email|
+  EmailService::API::Api.addresses.create(community_id: @current_community.id, opts: {name: name, email: email})
 end

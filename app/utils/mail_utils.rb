@@ -74,11 +74,7 @@ module MailUtils
   module_function
 
   def community_specific_sender(community)
-    Maybe(community).id.map { |cid|
-      # TODO Use API
-      MarketplaceSenderEmail.where(community_id: cid).first
-    }.map { |sender|
-      "\"#{sender.name}\" <#{sender.email}>"
-    }.or_else(APP_CONFIG.sharetribe_mail_from_address)
+    cid = Maybe(community).id.or_else(nil)
+    EmailService::API::Api.addresses.get_sender(community_id: cid).data
   end
 end
