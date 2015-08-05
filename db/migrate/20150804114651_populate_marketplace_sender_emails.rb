@@ -4,8 +4,8 @@ class PopulateMarketplaceSenderEmails < ActiveRecord::Migration
   end
 
   def up
-    regexp_w_quotes = /^"(.+)" <(.+)>$/
-    regexp_wo_quotes = /^(.+) <(.+)>$/
+    regexp_w_quotes = /^"(.+)"\s*<(.+)>$/
+    regexp_wo_quotes = /^(.+)\s*<(.+)>$/
     select_query = "SELECT id, custom_email_from_address, created_at, updated_at FROM communities WHERE custom_email_from_address IS NOT NULL"
 
     sql_values = execute(select_query).map { |(cid, custom_email_from_address, created_at, updated_at)|
