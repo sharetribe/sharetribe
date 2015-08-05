@@ -61,10 +61,15 @@ GEM
       activemodel
       fog
     ast (2.0.0)
-    aws-sdk (1.15.0)
+    aws-sdk (2.1.12)
+      aws-sdk-resources (= 2.1.12)
+    aws-sdk-core (2.1.12)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.1.12)
+      aws-sdk-core (= 2.1.12)
+    aws-sdk-v1 (1.64.0)
       json (~> 1.4)
-      nokogiri (< 1.6.0)
-      uuidtools (~> 2.1)
+      nokogiri (>= 1.4.4)
     bcrypt-ruby (3.1.2)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -228,6 +233,8 @@ GEM
       term-ansicolor
       terminal-table
     innertube (1.1.0)
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
     joiner (0.2.0)
       activerecord (>= 3.1.0, < 4.1.0)
     journey (1.0.4)
@@ -479,7 +486,6 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    uuidtools (2.1.4)
     validates_timeliness (3.0.14)
       timeliness (~> 0.3.6)
     warden (1.2.3)
@@ -504,7 +510,8 @@ DEPENDENCIES
   airbrake (~> 4.1.0)
   annotate
   asset_sync
-  aws-sdk
+  aws-sdk (~> 2)
+  aws-sdk-v1
   better_errors
   braintree
   cache_digests
