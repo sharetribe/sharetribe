@@ -74,10 +74,11 @@ module MailUtils
   module_function
 
   def community_specific_sender(community)
-    if community && community.custom_email_from_address
-      community.custom_email_from_address
-    else
-      APP_CONFIG.sharetribe_mail_from_address
-    end
+    Maybe(community).id.map { |cid|
+      # TODO Use API
+      MarketplaceSenderEmail.where(community_id: cid).first
+    }.map { |sender|
+      "\"#{sender.name}\" <#{sender.email}>"
+    }.or_else(APP_CONFIG.sharetribe_mail_from_address)
   end
 end
