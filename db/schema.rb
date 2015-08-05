@@ -596,6 +596,8 @@ ActiveRecord::Schema.define(:version => 20150804114651) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "marketplace_sender_emails", ["community_id"], :name => "index_marketplace_sender_emails_on_community_id"
+
   create_table "menu_link_translations", :force => true do |t|
     t.integer  "menu_link_id"
     t.string   "locale"

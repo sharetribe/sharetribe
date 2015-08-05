@@ -9,6 +9,10 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
+# Indexes
+#
+#  index_marketplace_sender_emails_on_community_id  (community_id)
+#
 
 class MarketplaceSenderEmail < ActiveRecord::Base
   # TODO Implementation

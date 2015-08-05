@@ -7,6 +7,8 @@ class AddMarketplaceSenderEmailsTable < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :marketplace_sender_emails, :community_id
   end
 
   def down
