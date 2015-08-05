@@ -281,14 +281,6 @@ ActiveRecord::Schema.define(:version => 20150804114651) do
 
   add_index "community_plans", ["community_id"], :name => "index_community_plans_on_community_id"
 
-  create_table "community_sender_emails", :force => true do |t|
-    t.integer  "community_id", :null => false
-    t.string   "name",         :null => false
-    t.string   "email",        :null => false
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "community_translations", :force => true do |t|
     t.integer  "community_id",                  :null => false
     t.string   "locale",          :limit => 16, :null => false
@@ -595,6 +587,14 @@ ActiveRecord::Schema.define(:version => 20150804114651) do
   add_index "locations", ["community_id"], :name => "index_locations_on_community_id"
   add_index "locations", ["listing_id"], :name => "index_locations_on_listing_id"
   add_index "locations", ["person_id"], :name => "index_locations_on_person_id"
+
+  create_table "marketplace_sender_emails", :force => true do |t|
+    t.integer  "community_id", :null => false
+    t.string   "name",         :null => false
+    t.string   "email",        :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "menu_link_translations", :force => true do |t|
     t.integer  "menu_link_id"

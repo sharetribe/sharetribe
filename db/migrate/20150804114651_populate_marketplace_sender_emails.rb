@@ -1,4 +1,4 @@
-class PopulateCommunitySenderEmails < ActiveRecord::Migration
+class PopulateMarketplaceSenderEmails < ActiveRecord::Migration
 
   class Community < ActiveRecord::Base
   end
@@ -22,7 +22,7 @@ class PopulateCommunitySenderEmails < ActiveRecord::Migration
     }
 
     if sql_values.present?
-      execute("INSERT INTO community_sender_emails (community_id, name, email, created_at, updated_at) VALUES #{sql_values.join(', ')}")
+      execute("INSERT INTO marketplace_sender_emails (community_id, name, email, created_at, updated_at) VALUES #{sql_values.join(', ')}")
     else
       puts "Nothing to do"
     end
@@ -30,6 +30,6 @@ class PopulateCommunitySenderEmails < ActiveRecord::Migration
   end
 
   def down
-    execute("DELETE FROM community_sender_emails")
+    execute("DELETE FROM marketplace_sender_emails")
   end
 end

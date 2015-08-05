@@ -1,6 +1,6 @@
-class AddCommunitySenderEmailsTable < ActiveRecord::Migration
+class AddMarketplaceSenderEmailsTable < ActiveRecord::Migration
   def up
-    create_table :community_sender_emails do |t|
+    create_table :marketplace_sender_emails do |t|
       t.integer :community_id, null: false
       t.string :name, null: false
       t.string :email, null: false
@@ -10,6 +10,6 @@ class AddCommunitySenderEmailsTable < ActiveRecord::Migration
   end
 
   def down
-    drop_table :community_sender_emails
+    drop_table :marketplace_sender_emails
   end
 end
