@@ -32,10 +32,12 @@ class Admin::CommunitiesController < ApplicationController
     }
 
     sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data[:formatted]
+    user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data.first
 
     render "edit_welcome_email", locals: {
              support_email: APP_CONFIG.support_email,
              sender_address: sender_address,
+             user_defined_address: user_defined_address
            }
   end
 
