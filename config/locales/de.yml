@@ -855,7 +855,7 @@ de:
       new_payment: "Du hast eine neue Zahlung erhalten"
       price_per_unit_type: "Preis pro %{unit_type}"
       quantity: "Anzahl:"
-      you_have_received_new_payment: "Du hast bezahlt %{payment_sum} für %{listing_title} an %{payer_full_name}. Das ist deine Rechnung."
+      you_have_received_new_payment: "Du hast eine Zahlung in Höhe von %{payment_sum} für %{listing_title} durch %{payer_full_name} erhalten. Hier ist Deine Quittung."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's Gebühr:"
       shipping_total: "Versand:"
@@ -867,7 +867,7 @@ de:
       money_will_be_transferred: "Das Geld wird auf Deinen Account überwiesen, wenn a) %{payer_name} die Anfrage als vollständig markiert hat oder b) automatisch %{automatic_confirmation_days} Tage nach der Bezahlung durch %{payer_name}."
     receipt_to_payer:
       receipt_of_payment: Zahlungsbestätigung
-      you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist ein Beleg deiner Zahlung."
+      you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist ein Beleg Deiner Zahlung."
       product: Produkt
       price_per_unit_type: "Preis pro %{unit_type}"
       duration: "Dauer:"
@@ -1276,7 +1276,7 @@ de:
       payment_canceled: "Zahlung abgebrochen"
       error_in_payment: "Es gab Probleme mit der Zahlung. Wenn du die Zahlung noch nicht ausgeführt hast, versuche es bitte noch einmal. Falls die Zahlung ausgeführt wurde, kontaktiere uns bitte."
       cannot_receive_payment: "Aufgrund eines Fehlers kann die andere Partei keine Zahlung erhalten. Bitte kontaktiere den Administrator, um die Situation zu klären"
-      payment_waiting_for_later_accomplishment: "Wenn Du bezahlt hast, informieren wir den Zahlungsempfänger, und du erhältst einen Beleg via E-Mail"
+      payment_waiting_for_later_accomplishment: "Wenn Du bezahlt hast, informieren wir den Zahlungsempfänger, und Du erhältst einen Beleg via E-Mail"
       password_recovery_sent: "Anweisungen zum Ändern deines Passworts wurden an deine E-Mail-Adresse gesendet."
       person_activated: "Benutzer aktiviert"
       person_deactivated: "Benutzer deaktiviert"
