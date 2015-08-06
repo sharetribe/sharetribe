@@ -21,6 +21,8 @@ Before you get started, the following needs to be installed:
   * A database. Only MySQL has been tested, so we give no guarantees that other databases (e.g. PostgreSQL) work. You can install MySQL Community Server two ways:
     1. If you are on a Mac, use homebrew: `brew install mysql` (*highly* recommended). Also consider installing the [MySQL Preference Pane](https://dev.mysql.com/doc/refman/5.1/en/osx-installation-prefpane.html) to control MySQL startup and shutdown. It is packaged with the MySQL downloadable installer, but can be easily installed as a stand-alone.
     2. Download a [MySQL installer from here](http://dev.mysql.com/downloads/mysql/)
+  * [Sphinx](http://pat.github.com/ts/en/installing_sphinx.html). Version 2.1.4 has been used successfully, but newer versions should work as well.
+  * [Imagemagick](http://www.imagemagick.org). If you're using OS X and have Homebrew installed, install it with `brew install imagemagick`
 
 1. Get the code. Cloning this git repo is probably easiest way: `git clone git://github.com/sharetribe/sharetribe.git`
 1. Go to the sharetribe project root directory
@@ -28,8 +30,6 @@ Before you get started, the following needs to be installed:
 1. Create the required databases with [these commands](https://gist.github.com/804314). If you're not planning on developing Sharetribe, you only need the sharetribe_production database.
 1. Add your database configuration details to `config/database.yml`
   * You will probably only need to fill in the password for the database(s)
-1. Install Sphinx. Version 2.1.4 has been used successfully, but newer versions should work as well. See the [Sphinx installation instructions](http://pat.github.com/ts/en/installing_sphinx.html). No need to start Sphinx yet, but you can try running the `searchd` command to see if the installation was successful. Starting it should fail at this point due to a missing configuration file.
-1. Install [Imagemagick](http://www.imagemagick.org): `brew install imagemagick`
 1. Run `bundle install` in the project root directory to install the required gems
 1. Initialize your database: `bundle exec rake db:schema:load`
 1. Run Sphinx index: `bundle exec rake ts:index`
@@ -52,7 +52,7 @@ Congratulations! Sharetribe should now be up and running. Open a browser and go 
 
 ### Setting up Sharetribe for production
 
-Steps 1-8 from above need to be done before performing these steps.
+Steps 1-6 from above need to be done before performing these steps.
 
 1. Initialize your database: `bundle exec rake RAILS_ENV=production db:schema:load`
 1. Run Sphinx index: `bundle exec rake RAILS_ENV=production ts:index`
