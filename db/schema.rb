@@ -590,7 +590,7 @@ ActiveRecord::Schema.define(:version => 20150804114651) do
 
   create_table "marketplace_sender_emails", :force => true do |t|
     t.integer  "community_id", :null => false
-    t.string   "name",         :null => false
+    t.string   "name"
     t.string   "email",        :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
