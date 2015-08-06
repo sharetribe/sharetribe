@@ -2,7 +2,7 @@ class AddMarketplaceSenderEmailsTable < ActiveRecord::Migration
   def up
     create_table :marketplace_sender_emails do |t|
       t.integer :community_id, null: false
-      t.string :name, null: false
+      t.string :name
       t.string :email, null: false
 
       t.timestamps
