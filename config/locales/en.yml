@@ -117,6 +117,12 @@ en:
         custom_head_script_instructions_text: "This script is injected inside the <head> tag of every page and can be used to insert custom CSS, JavaScript or HTML. Please note that future changes to Sharetribe may render your script incompatible."
       edit_text_instructions:
         edit_text_instructions: "Instruction texts"
+      outgoing_email:
+        title: "Outgoing email address"
+        info: "This name and address is used for emails sent from your marketplace to members."
+        sender_address: "Sender address: %{sender_address}"
+        need_to_change: "If you need to change the email address, please %{contact_support_link}."
+        contact_support_link_text: "contact our support"
       edit_welcome_email:
         welcome_email_content: "Welcome email content"
         welcome_email_content_description: "The message below will be sent to every new user when they join. You can customize the message to fit your marketplace. By clicking '%{send_test_message_link}' you can send a preview message to your email address, so you can see how it looks in an email client."

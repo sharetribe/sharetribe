@@ -30,21 +30,28 @@ class Admin::CommunitiesController < ApplicationController
       :ref => "welcome_email",
       :locale => @current_user.locale
     }
+
+    sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data[:formatted]
+
+    render "edit_welcome_email", locals: {
+             support_email: APP_CONFIG.support_email,
+             sender_address: sender_address,
+           }
   end
 
   def social_media
     @selected_left_navi_link = "social_media"
     @community = @current_community
-    render "social_media", :locals => { 
-      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles, 
+    render "social_media", :locals => {
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
   def analytics
     @selected_left_navi_link = "analytics"
     @community = @current_community
-    render "analytics", :locals => { 
-      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles, 
+    render "analytics", :locals => {
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 

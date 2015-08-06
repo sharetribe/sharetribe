@@ -7,6 +7,20 @@
     = t("admin.left_hand_navigation.emails_title")
 
 .left-navi-section
+
+  - if feature_enabled?(:sender_address)
+    .row
+      .col-12
+        - contact_support_link = link_to t("admin.communities.outgoing_email.contact_support_link_text"), "mailto:#{support_email}", "data-uv-trigger" => "contact"
+
+        %h2= t("admin.communities.outgoing_email.title")
+
+        %p= t("admin.communities.outgoing_email.info")
+
+        %p= t("admin.communities.outgoing_email.sender_address", sender_address: sender_address)
+
+        %p= t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
+
   %h2= t(".welcome_email_content", :community_name => @community.name(I18n.locale))
   %p= t(".welcome_email_content_description", :send_test_message_link => t(".send_test_message"))
   %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_path }}
