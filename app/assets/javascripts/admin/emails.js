@@ -26,7 +26,7 @@ window.ST = window.ST || {};
     }
   };
 
-  module.initializeSenderEmailForm = function() {
+  module.initializeSenderEmailForm = function(userEmail, statusCheckUrl) {
     var $previewContainer = $(".js-sender-address-preview-container");
     var $preview = $(".js-sender-address-preview-values");
     var nameStream = toTextStream(".js-sender-name-input");
@@ -51,6 +51,17 @@ window.ST = window.ST || {};
     nameEmailStream.onValue(function(values) {
       $preview.text(formatSender(values));
     });
+
+    if (userEmail) {
+      $.ajax({
+        dataType: "json",
+        url: statusCheckUrl,
+        data: userEmail,
+        success: function(data) {
+          debugger;
+        }
+      });
+    }
   };
 
 })(window.ST);

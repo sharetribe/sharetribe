@@ -36,6 +36,7 @@ class Admin::CommunitiesController < ApplicationController
     user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data.first
 
     render "edit_welcome_email", locals: {
+             status_check_url: check_email_status_admin_community_path,
              support_email: APP_CONFIG.support_email,
              sender_address: sender_address,
              user_defined_address: user_defined_address,
@@ -50,6 +51,13 @@ class Admin::CommunitiesController < ApplicationController
 
     flash[:notice] = t("admin.communities.outgoing_email.successfully_saved")
     redirect_to action: :edit_welcome_email
+  end
+
+  def check_email_status
+    email = params[:email]
+    sleep(2)
+
+    render json: {vefication_status: true}
   end
 
   def social_media

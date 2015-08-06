@@ -3,7 +3,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      window.ST.initializeSenderEmailForm();
+      window.ST.initializeSenderEmailForm(#{user_defined_address.to_json}, "#{status_check_url}");
     });
 
 - content_for :title_header do
@@ -32,6 +32,17 @@
             = t("admin.communities.outgoing_email.sender_address", sender_address: sender_address)
 
     - unless user_defined_address.nil?
+      - content_for(:verification_status) do
+        - case user_defined_address[:verification_status]
+        - when :verified
+          %span.status-verified
+            = t("admin.communities.outgoing_email.status_verified");
+        - else
+          = t("admin.communities.outgoing_email.status_unknown");
+
+      .row
+        .col-12
+          = t("admin.communities.outgoing_email.status", status: content_for(:verification_status)).html_safe
       .row
         .col-12
           = t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
