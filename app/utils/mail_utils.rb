@@ -74,10 +74,7 @@ module MailUtils
   module_function
 
   def community_specific_sender(community)
-    if community && community.custom_email_from_address
-      community.custom_email_from_address
-    else
-      APP_CONFIG.sharetribe_mail_from_address
-    end
+    cid = Maybe(community).id.or_else(nil)
+    EmailService::API::Api.addresses.get_sender(community_id: cid).data[:formatted]
   end
 end

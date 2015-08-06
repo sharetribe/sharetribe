@@ -53,7 +53,6 @@
 #  available_currencies                       :text
 #  facebook_connect_enabled                   :boolean          default(TRUE)
 #  only_public_listings                       :boolean          default(TRUE)
-#  custom_email_from_address                  :string(255)
 #  vat                                        :integer
 #  commission_from_seller                     :integer
 #  minimum_price_cents                        :integer
@@ -268,7 +267,7 @@ class Community < ActiveRecord::Base
   attr_accessor :terms
 
   def self.columns
-    super.reject { |c| c.name == "redirect_to_domain" }
+    super.reject { |c| ["redirect_to_domain", "custom_email_from_address"].include?(c.name) }
   end
 
   def name(locale)
