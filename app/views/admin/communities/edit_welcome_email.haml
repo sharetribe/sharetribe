@@ -1,5 +1,11 @@
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
+- content_for :extra_javascript do
+  :javascript
+    $(document).ready(function() {
+      window.ST.initializeSenderEmailForm();
+    });
+
 - content_for :title_header do
   %h1
     = t("layouts.admin.admin")
@@ -17,12 +23,34 @@
 
         %p= t("admin.communities.outgoing_email.info")
 
-        - if user_defined_address.nil?
-          %p= t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address)
-        - else
-          %p= t("admin.communities.outgoing_email.sender_address", sender_address: sender_address)
-
+      - if user_defined_address.nil?
+        %p= t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address)
+      - else
+        %p= t("admin.communities.outgoing_email.sender_address", sender_address: sender_address)
         %p= t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
+
+    - if user_defined_address.nil?
+      .row
+        .col-12
+          %h3= t("admin.communities.outgoing_email.set_sender_address")
+
+      = form_tag(post_sender_address_url, method: :post, class: "js-sender-email-form") do
+        .row
+          .col-6
+            %label= t("admin.communities.outgoing_email.sender_name_label")
+            %input.js-sender-name-input{name: "name", type: :text, placeholder: t("admin.communities.outgoing_email.sender_name_placeholder")}
+          .col-6
+            %label= t("admin.communities.outgoing_email.sender_email_label")
+            %input.js-sender-email-input{name: "email", type: :text, placeholder: t("admin.communities.outgoing_email.sender_email_placeholder")}
+
+        .row.js-sender-address-preview-container
+          .col-12
+            .sender-address-preview
+              = t("admin.communities.outgoing_email.this_is_how_it_will_look")
+              %span.js-sender-address-preview-values
+        .row
+          %button= t("admin.communities.outgoing_email.send_verification_button")
+
 
   %h2= t(".welcome_email_content", :community_name => @community.name(I18n.locale))
   %p= t(".welcome_email_content_description", :send_test_message_link => t(".send_test_message"))

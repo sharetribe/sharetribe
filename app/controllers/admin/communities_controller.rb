@@ -37,8 +37,18 @@ class Admin::CommunitiesController < ApplicationController
     render "edit_welcome_email", locals: {
              support_email: APP_CONFIG.support_email,
              sender_address: sender_address,
-             user_defined_address: user_defined_address
+             user_defined_address: user_defined_address,
+             post_sender_address_url: create_sender_address_admin_community_path,
            }
+  end
+
+  def create_sender_address
+    # TODO validate email
+
+    EmailService::API::Api.addresses.create(community_id: @current_community.id, opts: {name: params[:name], email: params[:email]})
+
+    flash[:notice] = t("admin.communities.outgoing_email.successfully_saved")
+    redirect_to action: :edit_welcome_email
   end
 
   def social_media

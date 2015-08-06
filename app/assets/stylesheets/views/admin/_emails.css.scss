@@ -1,0 +1,11 @@
+@import "mixins/all";
+
+.sender-address-preview {
+  background-color: $highlight;
+  padding: 10px 20px;
+}
+
+.welcome-email-editor-background {
+  background-color: $highlight;
+  padding: 20px;
+}
