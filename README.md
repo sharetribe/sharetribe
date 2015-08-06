@@ -27,7 +27,7 @@ Before you get started, the following needs to be installed:
 1. Get the code. Cloning this git repo is probably easiest way: `git clone git://github.com/sharetribe/sharetribe.git`
 1. Go to the sharetribe project root directory
 1. Create a database.yml file by copying the example database configuration: `cp config/database.example.yml config/database.yml`
-1. Create the required databases with [these commands](https://gist.github.com/804314). If you're not planning on developing Sharetribe, you only need the sharetribe_production database.
+1. Create the required databases with [these commands](https://gist.github.com/804314)
 1. Add your database configuration details to `config/database.yml`
   * You will probably only need to fill in the password for the database(s)
 1. Run `bundle install` in the project root directory to install the required gems
