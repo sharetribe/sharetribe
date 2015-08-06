@@ -17,6 +17,10 @@ module EmailService::API
       Result::Success.new(formatted: sender)
     end
 
+    def get_user_defined(community_id:)
+      Result::Success.new(AddressStore.get_all(community_id: community_id).map { |address| with_smtp_format(address) })
+    end
+
     # TODO get_user_defined
 
     def create(community_id:, opts:)

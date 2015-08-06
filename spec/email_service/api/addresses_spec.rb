@@ -52,4 +52,31 @@ describe EmailService::API::Addresses do
       end
     end
   end
+
+  describe "#get_user_defined" do
+    it "gets user defined emails" do
+      emails_api.addresses.create(
+        community_id: 123, opts: {
+          name: "Email Sender Name",
+          email: "hello@mymarketplace.invalid"
+        })
+
+      res = emails_api.addresses.get_user_defined(community_id: 123)
+
+      expect(res.success).to eq(true)
+      expect(res.data).to eq([{
+                            community_id: 123,
+                            name: "Email Sender Name",
+                            email: "hello@mymarketplace.invalid",
+                            verification_status: :verified,
+                            formatted: "\"Email Sender Name\" <hello@mymarketplace.invalid>"}])
+    end
+
+    it "returns empty if none found" do
+      res = emails_api.addresses.get_user_defined(community_id: 123)
+
+      expect(res.success).to eq(true)
+      expect(res.data).to eq([])
+    end
+  end
 end
