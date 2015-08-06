@@ -29,8 +29,7 @@
   - if paypal_account_email.present?
     .row.paypal-connected-email-row
       %h3.paypal-account-connected
-        %del
-          = t("admin.paypal_accounts.paypal_account_email")
+        %del= t("admin.paypal_accounts.paypal_account_email")
         = t("admin.paypal_accounts.paypal_account_email_completed")
       .paypal-connected-email.paypal-account-connected
         = t("paypal_accounts.connected_account", :email => paypal_account_email)
@@ -85,5 +84,3 @@
     .row
       .col-12
         = form.button t("admin.paypal_accounts.save_settings")
-
-
