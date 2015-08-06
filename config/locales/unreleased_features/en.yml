@@ -5,7 +5,7 @@ en:
         title: "Outgoing email address"
         info: "This name and address is used for emails sent from your marketplace to members."
         sender_address: "Sender address: %{sender_address}"
-        sender_address_default: "Sender address: Not set (using default address %{sender_address})"
+        sender_address_default: "Sender address: not set (using default address %{sender_address})"
         need_to_change: "If you need to change the email address, please %{contact_support_link}."
         contact_support_link_text: "contact our support"
         set_sender_address: "Set sender address"
