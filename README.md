@@ -2,57 +2,78 @@
 
 [![Build Status](https://travis-ci.org/sharetribe/sharetribe.svg?branch=master)](https://travis-ci.org/sharetribe/sharetribe) [![Dependency Status](https://gemnasium.com/sharetribe/sharetribe.png)](https://gemnasium.com/sharetribe/sharetribe) [![Code Climate](https://codeclimate.com/github/sharetribe/sharetribe.png)](https://codeclimate.com/github/sharetribe/sharetribe) [![Coverage Status](https://coveralls.io/repos/sharetribe/sharetribe/badge.png)](https://coveralls.io/r/sharetribe/sharetribe)
 
-Sharetribe is an open source platform you can use to create your own peer-to-peer marketplace.
+Sharetribe is an open source platform to create your own peer-to-peer marketplace.
 
-Would you like to set up your marketplace in a minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
+Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
 Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 
 
 ## Installation
 
-Note: If you encounter problems with the installation, you can try asking for help from the developer community in our [developer chatroom](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main). When you join, please use threads. Instructions for this and other chat related things can be found at [chat instructions](https://www.flowdock.com/help/chat).
+Note: If you encounter problems with the installation, ask for help from the developer community in our [developer chatroom](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main). When you join, please use threads. Instructions for this and other chat-related things can be found at [Flowdock's chat instructions](https://www.flowdock.com/help/chat).
 
-* Before you get started, you need to have or install the following:
-  * Ruby (we use currently version 2.1.2 and don't guarantee everything working with others. If you need multiple versions of Ruby, [RVM](https://rvm.io//) can help.)
+Before you get started, the following needs to be installed:
+  * Ruby. Version 2.1.2 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) is recommended.
   * [RubyGems](http://rubygems.org/)
-  * Bundler `gem install bundler`
+  * Bundler: `gem install bundler`
   * [Git](http://help.github.com/git-installation-redirect)
-* Get the code (git clone is probably easiest way: `git clone git://github.com/sharetribe/sharetribe.git`)
-* Go to the root folder of Sharetribe
-* Copy the example database configuration file as database.yml, which will be used to read the database information: `cp config/database.example.yml config/database.yml`
-* You need to have a database available for Sharetribe and a DB user account that has access to it. We have only used MySQL, so we give no guarantees of things working with others (e.g. PostgreSQL). (If you are going to do development you should have separate databases for development and testing also).
-  * If you are new to MySQL:
-  * You can install MySQL Community Server two ways:
-      1. If you are on a Mac, use homebrew: `$ brew install mysql` (*highly* recommended)
-      2. Download a [MySQL installer from here](http://dev.mysql.com/downloads/mysql/)
-    * If you are using Mac OS X, consider installing `MySQL.prefPane` as a server startup/shutdown tool. It is packaged with the MySQL downloadable installer, but can be easily installed as a stand-alone.
-  * [These commands](https://gist.github.com/804314) can help you in creating a user and databases.
-* Edit details according to your database to `config/database.yml` (if you are not going to develop Sharetribe, it's enough to fill in the production database)
-  * Probably you only need to change the passwords to the same that you used when creating the databases.
-* Install Sphinx. Version 2.1.4 has been used successfully, but probably also bit newer and older versions will work. See [Sphinx installation instructions](http://pat.github.com/ts/en/installing_sphinx.html) (no need to start it yet. You can try running `searchd` command, but it should fail at this point complaining about missing config)
-* Install [Imagemagick](http://www.imagemagick.org)
-* run `bundle install` in the project root directory (sharetribe) to install required gems
-* (In the following commands, leave out the `RAILS_ENV=production` part if you want to get Sharetribe running in development mode.) Load the database structure to your database: `rake RAILS_ENV=production db:schema:load`
-* run sphinx index `rake RAILS_ENV=production ts:index`
-* start sphinx daemon `rake RAILS_ENV=production ts:start`
-* If you want to run Sharetribe in production mode (i.e. you are not developing the software) you'll need to precompile the assets. This puts the Javascript and CSS files in right places. Use command: `rake assets:precompile`
-* If you want to enable Sharetribe to send email locally (in the development environment), you might want to change the email settings in the config file. There is an example of configuring settings using a gmail account, but you can also use any other SMTP server. If you do not touch the settings, the development version works otherwise normally but might crash in instances where it tries to send email (like when sending a message to another user).
-* Invoke the delayed job worker on your local machine: `rake RAILS_ENV=production jobs:work`. You should see "Starting job worker" and then the process stays open. The worker processes tasks that are done in the background, like processing images and sending email notifications. To exit the worker, press ctrl+c.
-* Start the server. The simplest way is to use command `rails server` which will start it on Webrick, which is good option for development use.
-  * To start the server in production environment, use command `rails server -e production`
+  * A database. Only MySQL has been tested, so we give no guarantees that other databases (e.g. PostgreSQL) work. You can install MySQL Community Server two ways:
+    1. If you are on a Mac, use homebrew: `brew install mysql` (*highly* recommended). Also consider installing the [MySQL Preference Pane](https://dev.mysql.com/doc/refman/5.1/en/osx-installation-prefpane.html) to control MySQL startup and shutdown. It is packaged with the MySQL downloadable installer, but can be easily installed as a stand-alone.
+    2. Download a [MySQL installer from here](http://dev.mysql.com/downloads/mysql/)
+  * [Sphinx](http://pat.github.com/ts/en/installing_sphinx.html). Version 2.1.4 has been used successfully, but newer versions should work as well.
+  * [Imagemagick](http://www.imagemagick.org). If you're using OS X and have Homebrew installed, install it with `brew install imagemagick`
+
+1. Get the code. Cloning this git repo is probably easiest way: `git clone git://github.com/sharetribe/sharetribe.git`
+1. Go to the sharetribe project root directory
+1. Create a database.yml file by copying the example database configuration: `cp config/database.example.yml config/database.yml`
+1. Create the required databases with [these commands](https://gist.github.com/804314)
+1. Add your database configuration details to `config/database.yml`
+  * You will probably only need to fill in the password for the database(s)
+1. Run `bundle install` in the project root directory to install the required gems
+1. Initialize your database: `bundle exec rake db:schema:load`
+1. Run Sphinx index: `bundle exec rake ts:index`
+1. Stat the Sphinx daemon: `bundle exec rake ts:start`
+1. Install and run [Mailcatcher](http://mailcatcher.me) to receive sent emails locally:
+    1. `gem install mailcatcher`
+    1. `mailcatcher`
+    1. Create a `config/config.yml` file and add the following lines to it:
+      ```yml
+      mail_delivery_method: smtp
+      smtp_email_address: "localhost"
+      smtp_email_port: 1025
+      ```
+    1. Open `http://localhost:1080` in your browser
+1. Invoke the delayed job worker: `bundle exec rake jobs:work`
+1. In a new console, open the project root folder and start the server. The simplest way is to use the included Webrick server: `bundle exec rails server`
+
+Congratulations! Sharetribe should now be up and running. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
 
+### Setting up Sharetribe for production
 
-* Open browser and go to the server URL (e.g. lvh.me:3000). Fill in the form to create a new marketplace and admin use
+Steps 1-6 from above need to be done before performing these steps.
 
-Congrats! You should be now able to access your marketplace and modify it from the admin area.
+1. Initialize your database: `bundle exec rake RAILS_ENV=production db:schema:load`
+1. Run Sphinx index: `bundle exec rake RAILS_ENV=production ts:index`
+1. Start the Sphinx daemon: `bundle exec rake RAILS_ENV=production ts:start`
+1. Precompile the assets: `bundle exec rake assets:precompile`
+1. Invoke the delayed job worker: `bundle exec rake RAILS_ENV=production jobs:work`
+1. In a new console, open the project root folder and start the server: `bundle exec rails server -e production`
+
+It is not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false` in `config/config.yml`.
+
+
+### Advanced settings
+
+Default configuration settings are stored in `config/config.default.yml`. If you need to change these, we recommend creating a `config/config.yml` file to override these values. You can also set configuration values to environment variables.
+
 
 ### Experimental: Docker container installation
 
 #### Prerequisite
 
-Prerequisite: You have to have _docker_ and _fig_ installed. If you are on a non-linux OS, you need to have _vagrant_. If you can successfully run `docker info`, then you should be ok to go.
+Prerequisite: Docker and Fig need to be installed. If you are on a non-linux OS, you also need to have Vagrant. If you can successfully run `docker info`, you should be good to go.
 
 ```bash
 brew cask install virtualbox
@@ -72,7 +93,7 @@ docker info                                   # this should run ok now
 
 #### Sharetribe installation
 
-1. Modify `config/database.yml`. The easiest way is to use `database.docker.yml`
+1. Modify `config/database.yml`. The easiest way is to use the provided `database.docker.yml`
 
   `cp config/database.docker.yml config/database.yml`
 
@@ -84,17 +105,17 @@ docker info                                   # this should run ok now
 
   `fig up web`
 
-1. Set docker.lvh.me to point to docker IP
+1. Set docker.lvh.me to point to the docker IP
 
   Modify your `/etc/hosts` file. If you're in Linux, point 127.0.0.1 to docker.lvh.me. If you are on OSX (or Windows), point 192.168.33.10 to docker.lvh.me
 
-1. All done! Open your browser and URL http://docker.lvh.me:3000 and create a new marketplace with name `docker`
+1. All done! Open http://docker.lvh.me:3000 in your browser and create a new marketplace with the name `docker`
 
-#### Development tips and tricks
+#### Docker development tips and tricks
 
-If you are planning to use Docker for development, here are some tips and tricks to make development workflow smoother.
+If you are planning to use Docker for development, here are some tips and tricks to make the development workflow smoother.
 
-1. Add `figrun` function to your zsh/bash config.
+1. Add the `figrun` function to your zsh/bash config.
 
   Here is an example for ZSH:
 
@@ -112,7 +133,7 @@ If you are planning to use Docker for development, here are some tips and tricks
   figrun rake routes
   ```
 
-1. Use Zeus
+2. Use Zeus
 
   First, add `figzeus` helper function to your zsh/bash config.
 
@@ -140,20 +161,15 @@ If you are planning to use Docker for development, here are some tips and tricks
   figzeus s
   ```
 
-### Advanced settings
-
-* Default configurations are in `config/config.default.yml`. If you need to change these configs, it's recommended to create a file `config/config.yml`. The configurations in user-specific configuration file will override the default configurations. You can also set configurations to environment variables.
-* It's not recommended to server static assets from Rails server in production. Instead, you should serve assets from Amazon S3 or use Apache/Nginx server in from. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false`
-
 ## Payments
 
-Sharetribe's open source version supports payments using [Braintree Marketplace](https://www.braintreepayments.com/features/marketplace). To enable payments with Braintree you need to have a legal business in The United States. You can sign up for Braintree [here](https://signups.braintreepayments.com/). Then you need to create a new row to the payment gateways table with your Braintree merchant_id, master_merchant_id, public_key, private_key and client_side_encryption_key.
+Sharetribe's open source version supports payments using [Braintree Marketplace](https://www.braintreepayments.com/features/marketplace). To enable payments with Braintree, you need to have a legal business in the United States. You can sign up for Braintree [here](https://signups.braintreepayments.com/). Once that's done, create a new row in the payment gateways table with your Braintree merchant_id, master_merchant_id, public_key, private_key and client_side_encryption_key.
 
-Right now PayPal payments are only available in marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com), because they require special permissions from PayPal. We hope to bring support for PayPal payments also to the open source version of Sharetribe in the future.
+PayPal payments are only available on marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com) due to special permissions needed from PayPal. We hope to add support for PayPal payments to the open source version of Sharetribe in the future.
 
 ## Updating
 
-See [release notes](RELEASE_NOTES.md) for information about what has changed and if special tasks are needed to update.
+See [release notes](RELEASE_NOTES.md) for information about what has changed and if actions are needed to upgrade.
 
 ## Contributing
 
@@ -161,11 +177,11 @@ Would you like to make Sharetribe better? [Here's a basic guide](CONTRIBUTING.md
 
 ## Translation
 
-We use a tool called WebTranslateIt (WTI) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please use WTI for that. You need an invite to use WTI. To get an invite, email info@sharetribe.com and mention that you would like to become a translator.
+We use WebTranslateIt (WTI) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please ask for a WTI invitation. To get an invite, send an email to info@sharetribe.com and mention that you would like to become a translator.
 
 ## Known issues
 
-See http://github.com/sharetribe/sharetribe/issues and please report any issues you find.
+Browse open issues and submit new ones at http://github.com/sharetribe/sharetribe/issues.
 
 ## Developer docs
 
@@ -176,4 +192,4 @@ See http://github.com/sharetribe/sharetribe/issues and please report any issues 
 
 ## MIT License
 
-Sharetribe is open source under MIT license. See [LICENSE](LICENSE) file for details.
+Sharetribe is open source under the MIT license. See [LICENSE](LICENSE) for details.
