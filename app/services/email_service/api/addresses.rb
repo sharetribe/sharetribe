@@ -11,21 +11,24 @@ module EmailService::API
       sender = Maybe(community_id).map {
         AddressStore.get(community_id: community_id)
       }.map { |address|
-        to_smtp_format(name: address[:name], email: address[:email])
-      }.or_else(@default_sender)
+        {
+          formatted: to_format(name: address[:name], email: address[:email], quotes: false),
+          smtp_formatted: to_format(name: address[:name], email: address[:email], quotes: true)
+        }
+      }.or_else(formatted: @default_sender, smtp_formatted: @default_sender)
 
-      Result::Success.new(formatted: sender)
+      Result::Success.new(sender)
     end
 
     def get_user_defined(community_id:)
-      Result::Success.new(AddressStore.get_all(community_id: community_id).map { |address| with_smtp_format(address) })
+      Result::Success.new(AddressStore.get_all(community_id: community_id).map { |address| with_formatted(address) })
     end
 
     # TODO get_user_defined
 
     def create(community_id:, opts:)
       Result::Success.new(
-        with_smtp_format(
+        with_formatted(
           AddressStore.create(
           community_id: community_id,
           opts: opts)))
@@ -33,15 +36,25 @@ module EmailService::API
 
     private
 
-    def with_smtp_format(address)
-      address.merge(formatted: to_smtp_format(name: address[:name], email: address[:email]))
+    def with_formatted(address)
+      address.merge(
+        formatted: to_format(name: address[:name], email: address[:email], quotes: false),
+        smtp_formatted: to_format(name: address[:name], email: address[:email], quotes: true))
     end
 
-    def to_smtp_format(name: nil, email:)
+    def to_format(name: nil, email:, quotes:)
       if name.present?
-        "\"#{name}\" <#{email}>"
+        "#{quote(name, quotes)} <#{email}>"
       else
         email
+      end
+    end
+
+    def quote(str, quotes)
+      if quotes
+        "\"#{str}\""
+      else
+        str
       end
     end
   end
