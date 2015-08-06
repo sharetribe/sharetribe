@@ -15,7 +15,7 @@ class PopulateMarketplaceSenderEmails < ActiveRecord::Migration
       match = match_w_quotes || match_wo_quotes
 
       if match
-        "(#{cid}, '#{match[1]}', '#{match[2]}', '#{created_at}', '#{updated_at}')"
+        "(#{cid}, #{connection.quote(match[1])}, #{connection.quote(match[2])}, '#{created_at}', '#{updated_at}')"
       else
         raise ArgumentError.new("Couldn't parse email: #{custom_email_from_address}, community id: #{cid}")
       end
