@@ -23,43 +23,51 @@ Before you get started, the following needs to be installed:
     2. Download a [MySQL installer from here](http://dev.mysql.com/downloads/mysql/)
 
 1. Get the code. Cloning this git repo is probably easiest way: `git clone git://github.com/sharetribe/sharetribe.git`
-2. Go to the sharetribe project root directory
-3. Create a database.yml file by copying the example database configuration: `cp config/database.example.yml config/database.yml`
-4. Create the required databases with [these commands](https://gist.github.com/804314). If you're not planning on developing Sharetribe, you only need the sharetribe_production database.
-5. Add your database configuration details to `config/database.yml`
+1. Go to the sharetribe project root directory
+1. Create a database.yml file by copying the example database configuration: `cp config/database.example.yml config/database.yml`
+1. Create the required databases with [these commands](https://gist.github.com/804314). If you're not planning on developing Sharetribe, you only need the sharetribe_production database.
+1. Add your database configuration details to `config/database.yml`
   * You will probably only need to fill in the password for the database(s)
-6. Install Sphinx. Version 2.1.4 has been used successfully, but newer versions should work as well. See the [Sphinx installation instructions](http://pat.github.com/ts/en/installing_sphinx.html). No need to start Sphinx yet, but you can try running the `searchd` command to see if the installation was successful. Starting it should fail at this point due to a missing configuration file.
-7. Install [Imagemagick](http://www.imagemagick.org): `brew install imagemagick`
-8. Run `bundle install` in the project root directory to install the required gems
+1. Install Sphinx. Version 2.1.4 has been used successfully, but newer versions should work as well. See the [Sphinx installation instructions](http://pat.github.com/ts/en/installing_sphinx.html). No need to start Sphinx yet, but you can try running the `searchd` command to see if the installation was successful. Starting it should fail at this point due to a missing configuration file.
+1. Install [Imagemagick](http://www.imagemagick.org): `brew install imagemagick`
+1. Run `bundle install` in the project root directory to install the required gems
+1. Initialize your database: `bundle exec rake db:schema:load`
+1. Run Sphinx index: `bundle exec rake ts:index`
+1. Stat the Sphinx daemon: `bundle exec rake ts:start`
+1. Install and run [Mailcatcher](http://mailcatcher.me) to receive sent emails locally:
+    1. `gem install mailcatcher`
+    1. `mailcatcher`
+    1. Create a `config/config.yml` file and add the following lines to it:
+      ```yml
+      mail_delivery_method: smtp
+      smtp_email_address: "localhost"
+      smtp_email_port: 1025
+      ```
+    1. Open `http://localhost:1080` in your browser
+1. Invoke the delayed job worker: `bundle exec rake jobs:work`
+1. In a new console, open the project root folder and start the server. The simplest way is to use the included Webrick server: `bundle exec rails server`
 
-10. _If you are only running Sharetribe in production:_
-  1. Initialize your database: `bundle exec rake RAILS_ENV=production db:schema:load`
-  2. Run Sphinx index: `bundle exec rake RAILS_ENV=production ts:index`
-  3. Start the Sphinx daemon: `bundle exec rake RAILS_ENV=production ts:start`
-  4. Precompile the assets: `bundle exec rake assets:precompile`
-  5. Invoke the delayed job worker: `bundle exec rake RAILS_ENV=production jobs:work`
-  6. In a new console, open the project root folder and start the server: `bundle exec rails server -e production`
+Congratulations! Sharetribe should now be up and running. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
-  _If you plan on developing Sharetribe:_
-  1. Initialize your database: `bundle exec rake db:schema:load`
-  2. Run Sphinx index: `bundle exec rake ts:index`
-  3. Stat the Sphinx daemon: `bundle exec rake ts:start`
-  4. Install and run [Mailcatcher](http://mailcatcher.me) to receive sent emails locally:
-      1. `gem install mailcatcher`
-      2. `mailcatcher`
-      3. Create a `config/config.yml` file and add the following lines:
-        ```yml
-        mail_delivery_method: smtp
-        smtp_email_address: "localhost"
-        smtp_email_port: 1025
-        ```
-      4. Open `http://localhost:1080` in your browser
-  5. Invoke the delayed job worker: `bundle exec rake jobs:work`
-  6. In a new console, open the project root folder and start the server. The simplest way is to use the included Webrick server: `bundle exec rails server`
 
-Sharetribe should now be up and running. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user.
+### Setting up Sharetribe for production
 
-Congratulations! You should be now able to access your marketplace and modify it from the admin area.
+Steps 1-8 from above need to be done before performing these steps.
+
+1. Initialize your database: `bundle exec rake RAILS_ENV=production db:schema:load`
+1. Run Sphinx index: `bundle exec rake RAILS_ENV=production ts:index`
+1. Start the Sphinx daemon: `bundle exec rake RAILS_ENV=production ts:start`
+1. Precompile the assets: `bundle exec rake assets:precompile`
+1. Invoke the delayed job worker: `bundle exec rake RAILS_ENV=production jobs:work`
+1. In a new console, open the project root folder and start the server: `bundle exec rails server -e production`
+
+It is not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false` in `config/config.yml`.
+
+
+### Advanced settings
+
+Default configuration settings are stored in `config/config.default.yml`. If you need to change these, we recommend creating a `config/config.yml` file to override these values. You can also set configuration values to environment variables.
+
 
 ### Experimental: Docker container installation
 
@@ -152,11 +160,6 @@ If you are planning to use Docker for development, here are some tips and tricks
   ```zsh
   figzeus s
   ```
-
-### Advanced settings
-
-* Default configuration settings are in `config/config.default.yml`. If you need to change these, we recommend creating a `config/config.yml` file to override these values. You can also set configuration values to environment variables.
-* It's not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false`.
 
 ## Payments
 
