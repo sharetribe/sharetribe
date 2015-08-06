@@ -50,6 +50,19 @@ Before you get started, the following needs to be installed:
 Congratulations! Sharetribe should now be up and running. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
 
+### Running tests
+
+Tests are handled by [RSpec](http://rspec.info/) for unit tests and [Cucumber](https://cucumber.io/) for acceptance tests.
+
+1. Navigate to the root directory of the sharetribe project
+1. Initialize your test database: `bundle exec rake test:prepare`. This needs to be rerun whenever you make changes to your database schema.
+1. If Zeus isn't running, start it with `zeus start`
+1. To run unit tests, open another terminal and run `zeus rspec spec`
+1. To run acceptance tests, open another terminal and run `zeus cucumber`. Note that running acceptance tests is slow and may take a long time to complete.
+
+To automatically run unit tests when code is changed, start [Guard](https://github.com/guard/guard): `bundle exec guard`
+
+
 ### Setting up Sharetribe for production
 
 Steps 1-6 from above need to be done before performing these steps.
