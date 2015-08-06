@@ -163,6 +163,23 @@ describe Result do
 
     let(:error) { Result::Error.new(:error, 1) }
 
+    describe "#new" do
+
+      it "puts given error_msg and data in place" do
+        e = Result::Error.new("msg", {foo: :bar})
+        expect(e.error_msg).to eq("msg")
+        expect(e.data).to eq({foo: :bar})
+      end
+
+      it "when error_msg is a StandardError extract message and sets exception as data" do
+        ex = StandardError.new("error message")
+        e = Result::Error.new(ex)
+
+        expect(e.error_msg).to eq(ex.message)
+        expect(e.data).to eq(ex)
+      end
+    end
+
     describe "#and_then" do
 
       it "is a no-op" do
