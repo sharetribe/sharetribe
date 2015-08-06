@@ -14,7 +14,7 @@ module EmailService::API
         to_smtp_format(name: address[:name], email: address[:email])
       }.or_else(@default_sender)
 
-      Result::Success.new(sender)
+      Result::Success.new(formatted: sender)
     end
 
     # TODO get_user_defined
@@ -30,7 +30,7 @@ module EmailService::API
     private
 
     def with_smtp_format(address)
-      address.merge(smtp_format: to_smtp_format(name: address[:name], email: address[:email]))
+      address.merge(formatted: to_smtp_format(name: address[:name], email: address[:email]))
     end
 
     def to_smtp_format(name: nil, email:)

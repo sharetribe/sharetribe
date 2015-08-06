@@ -1,6 +1,6 @@
 require_relative '../api'
 
-describe EmailService::API::Addresses, focus: true do
+describe EmailService::API::Addresses do
 
   let(:emails_api) { EmailService::API::Api }
 
@@ -17,7 +17,7 @@ describe EmailService::API::Addresses, focus: true do
         res = emails_api.addresses.get_sender(community_id: 123)
 
         expect(res.success).to eq(true)
-        expect(res.data).to eq("\"Email Sender Name\" <hello@mymarketplace.invalid>")
+        expect(res.data).to eq(formatted: "\"Email Sender Name\" <hello@mymarketplace.invalid>")
       end
 
       it "allows nil name" do
@@ -29,7 +29,7 @@ describe EmailService::API::Addresses, focus: true do
         res = emails_api.addresses.get_sender(community_id: 123)
 
         expect(res.success).to eq(true)
-        expect(res.data).to eq("hello@mymarketplace.invalid")
+        expect(res.data).to eq(formatted: "hello@mymarketplace.invalid")
 
       end
 
@@ -41,14 +41,14 @@ describe EmailService::API::Addresses, focus: true do
         res = emails_api.addresses.get_sender(community_id: 999)
 
         expect(res.success).to eq(true)
-        expect(res.data).to eq("Default Sender Name <default_sender@example.com.invalid>")
+        expect(res.data).to eq(formatted: "Default Sender Name <default_sender@example.com.invalid>")
       end
 
       it "returns default address if community id is nil" do
         res = emails_api.addresses.get_sender(community_id: nil)
 
         expect(res.success).to eq(true)
-        expect(res.data).to eq("Default Sender Name <default_sender@example.com.invalid>")
+        expect(res.data).to eq(formatted: "Default Sender Name <default_sender@example.com.invalid>")
       end
     end
   end
