@@ -978,7 +978,7 @@ fr:
     transaction_agreement:
       required_error: "Vous devez accepter l'accord"
     paypal:
-      buyer_cannot_pay_error: ~
+      buyer_cannot_pay_error: "Le paiement a été refusé par PayPal. Veuillez contacter leur support client pour obtenir plus d'informations : %{customer_service_link}"
       pending_review_error: "Le paiement a été soumis mais a été marqué par PayPal comme 'nécessitant une validation'. Quand cette validation sera confirmée par PayPal, le paiement sera automatiquement autorisé."
       generic_error: "Une erreur s'est produite durant le processus de paiement. Le paiement PayPal n'a pas pu être réalisé."
       cancel_error: "Une erreur s'est produite durant l'annulation. Celle-ci n'a pas pu être réalisée."
@@ -1677,7 +1677,7 @@ fr:
     commission: "%{commission} %"
     connected_account: "Le compte PayPal '%{email}' est désormais connecté."
     change_account: "Changer de compte"
-    missing: "Vous avez des annonces actives mais n'avez pas encore connecté votre compte PayPal, vous ne pouvez donc pas recevoir de paiements. Veuillez connecter votre compte PayPal dans vos %{settings_link}."
+    missing: "Vous avez des annonces actives mais votre compte PayPal n'est pas encore configuré pour recevoir des paiements. Veuillez connecter votre compte PayPal depuis vos %{settings_link} et y autoriser %{service_name} à prélever une commission."
     from_your_payment_settings_link_text: "paramètres de paiement"
     new:
       payout_info_you_need_to_connect: "Pour accepter les paiements vous devez connecter votre compte PayPal à %{service_name}"

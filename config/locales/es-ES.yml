@@ -978,7 +978,7 @@ es-ES:
     transaction_agreement:
       required_error: "Debes aceptar el acuerdo"
     paypal:
-      buyer_cannot_pay_error: ~
+      buyer_cannot_pay_error: "El pago fue rechazado por PayPal. Por favor contacta al servicio al cliente de PayPal para más información: %{customer_service_link}"
       pending_review_error: "El pago se realizó pero fue marcado por PayPal como 'pendiente de revisión'. Cuando PayPal complete esta revisión, el pago será autorizado automáticamente."
       generic_error: "Ha ocurrido un error durante el proceso de pago. No se pudo finalizar el pago a través de PayPal."
       cancel_error: "Ha ocurrido un error durante la cancelación. No se ha podido finalizar la cancelación"
@@ -1137,8 +1137,8 @@ es-ES:
       message: "Un mensaje personal:"
       send_invitation: "Enviar invitación"
       add_email_addresses_description: "Añade el/los email/s de tu/s amigo/s en el campo más abajo. Si quieres añadir más de una dirección email, sepáralas con una coma."
-      add_lots_of_email_addresses: ~
-      this_article_link: ~
+      add_lots_of_email_addresses: "Si planeas enviar muchas invitaciones, deberías considerar utilizar una herramienta de envíos (emailing). Lee %{this_article_link} para encontrar recursos sobre servicios de emailing que se adapten a tus necesidades."
+      this_article_link: "este artículo"
       invitation_emails_field_placeholder: "amigo1@ejemplo.com, amigo2@ejemplo.com, ..."
       invitation_message_field_placeholder: "Me uní a este fantástico servicio. Deberías hacer lo mismo!"
       errors_in_emails: "Revisa que sean emails válidos, separados por una coma."
@@ -1264,7 +1264,7 @@ es-ES:
       feedback_sent_to: "Comentario enviado a %{target_person}."
       feedback_skipped: "Sugerencia omitida"
       invitation_cannot_be_sent: "No se pudo enviar la invitación"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Trataste de enviar muchas invitaciones. Has alcanzado el límite diario."
       invitation_sent: "Invitación enviada satisfactoriamente"
       inviting_new_users_is_not_allowed_in_this_community: "Invitar a nuevos usuarios no está permitido en ésta comunidad de %{service_name}"
       login_again: "Por favor, vuelve a iniciar sesión"
