@@ -21,7 +21,7 @@ Before you get started, the following needs to be installed:
   * A database. Only MySQL has been tested, so we give no guarantees that other databases (e.g. PostgreSQL) work. You can install MySQL Community Server two ways:
     1. If you are on a Mac, use homebrew: `brew install mysql` (*highly* recommended). Also consider installing the [MySQL Preference Pane](https://dev.mysql.com/doc/refman/5.1/en/osx-installation-prefpane.html) to control MySQL startup and shutdown. It is packaged with the MySQL downloadable installer, but can be easily installed as a stand-alone.
     2. Download a [MySQL installer from here](http://dev.mysql.com/downloads/mysql/)
-  * [Sphinx](http://pat.github.com/ts/en/installing_sphinx.html). Version 2.1.4 has been used successfully, but newer versions should work as well.
+  * [Sphinx](http://pat.github.com/ts/en/installing_sphinx.html). Version 2.1.4 has been used successfully, but newer versions should work as well. Make sure to enable MySQL support. If you're using OS X and have Homebrew installed, install it with `brew install sphinx --with-mysql`
   * [Imagemagick](http://www.imagemagick.org). If you're using OS X and have Homebrew installed, install it with `brew install imagemagick`
 
 1. Get the code. Cloning this git repo is probably easiest way: `git clone git://github.com/sharetribe/sharetribe.git`
