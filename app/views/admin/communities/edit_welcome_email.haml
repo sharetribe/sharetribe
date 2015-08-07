@@ -35,6 +35,8 @@
       - content_for(:verification_status) do
         %span.status-verified.js-status-verified.hidden
           = t("admin.communities.outgoing_email.status_verified");
+        %span.status-requested.js-status-requested.hidden
+          = t("admin.communities.outgoing_email.status_requested");
         %span.status-error.js-status-error.hidden
           = t("admin.communities.outgoing_email.status_error");
         %span.status-loading.js-status-loading

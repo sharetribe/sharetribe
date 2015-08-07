@@ -36,14 +36,17 @@ module EmailService::API
       Result::Success.new(AddressStore.get_all(community_id: community_id).map { |address| with_formats(address) })
     end
 
-    # TODO get_user_defined
-
     def create(community_id:, address:)
       Result::Success.new(
         with_formats(
           AddressStore.create(
           community_id: community_id,
           address: address)))
+    end
+
+    def enque_status_sync
+      # TODO Implement this
+      MarketplaceSenderEmail.update_all(updated_at: 1.second.from_now)
     end
 
     private

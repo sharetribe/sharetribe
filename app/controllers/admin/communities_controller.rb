@@ -36,7 +36,7 @@ class Admin::CommunitiesController < ApplicationController
     user_defined_address = EmailService::API::Api.addresses.get_all_user_defined(community_id: @current_community.id).data.first
 
     Maybe(user_defined_address)[:verification_status].reject { |status| status == :verified }.each {
-      # Ask API to sync it's status
+      EmailService::API::Api.addresses.enque_status_sync
     }
 
     render "edit_welcome_email", locals: {

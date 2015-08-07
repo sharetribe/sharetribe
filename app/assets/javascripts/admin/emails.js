@@ -59,7 +59,7 @@ window.ST = window.ST || {};
             data: { email: userEmail.email }
           },
           function(pollingResult) {
-            return pollingResult.lastVerifiedAt !== userEmail.lastVerifiedAt;
+            return pollingResult.updatedAt !== userEmail.updatedAt;
           },
           {
             timeout: 10000
