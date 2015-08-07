@@ -1,7 +1,7 @@
 module EmailService::SES
   class Client
 
-    def initialize(region:)
+    def initialize(region:, stubs: nil)
       if region.blank?
         raise ArgumentError.new("Missing mandatory value for region parameter.")
       end
@@ -9,7 +9,11 @@ module EmailService::SES
       # The SDK v2 automatically gets the AWS_ACCESS_KEY and
       # AWS_SECRET_ACCESS_KEY from the environment. We only need to
       # supply region here.
-      @ses = Aws::SES::Client.new(region: region)
+      if stubs.blank?
+        @ses = Aws::SES::Client.new(region: region)
+      else
+        @ses = Aws::SES::Client.new(region: region, stub_responses: stubs)
+      end
     end
 
     def list_verified_addresses
@@ -20,7 +24,7 @@ module EmailService::SES
         else
           Result::Error.new(response.error)
         end
-      rescue Seahorse::Client::NetworkingError => e
+      rescue StandardError => e
         Result::Error.new(e)
       end
     end
@@ -39,7 +43,7 @@ module EmailService::SES
         else
           Result::Error.new(response.error)
         end
-      rescue Seahorse::Client::NetworkingError => e
+      rescue StandardError => e
         Result::Error.new(e)
       end
     end
