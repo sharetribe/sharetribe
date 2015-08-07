@@ -3,6 +3,7 @@ class Admin::CommunitiesController < ApplicationController
 
   before_filter :ensure_is_admin
   before_filter :ensure_is_superadmin, :only => [:payment_gateways, :update_payment_gateway, :create_payment_gateway]
+  ensure_feature_enabled :sender_address, only: [:create_sender_address]
 
   def getting_started
     @selected_left_navi_link = "getting_started"
