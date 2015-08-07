@@ -33,7 +33,11 @@ class Admin::CommunitiesController < ApplicationController
     }
 
     sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data[:display_format]
-    user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data.first
+    user_defined_address = EmailService::API::Api.addresses.get_all_user_defined(community_id: @current_community.id).data.first
+
+    Maybe(user_defined_address)[:verification_status].reject { |status| status == :verified }.each {
+      # Ask API to sync it's status
+    }
 
     render "edit_welcome_email", locals: {
              status_check_url: check_email_status_admin_community_path,
@@ -55,9 +59,12 @@ class Admin::CommunitiesController < ApplicationController
 
   def check_email_status
     email = params[:email]
-    sleep(2)
 
-    render json: {vefication_status: true}
+    EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id, email: email).on_success { |address|
+      render json: HashUtils.camelize_keys(address)
+    }.on_error { |error_msg|
+      render json: {error: error_msg }, status: 500
+    }
   end
 
   def social_media

@@ -53,14 +53,31 @@ window.ST = window.ST || {};
     });
 
     if (userEmail) {
-      $.ajax({
-        dataType: "json",
-        url: statusCheckUrl,
-        data: userEmail,
-        success: function(data) {
-          debugger;
-        }
-      });
+      if (userEmail.verificationStatus == "requested") {
+        var pollingStream = ST.utils.baconStreamFromAjaxPolling(
+          { url: statusCheckUrl,
+            data: { email: userEmail.email }
+          },
+          function(pollingResult) {
+            return pollingResult.lastVerifiedAt != userEmail.lastVerifiedAt;
+          },
+          {
+            timeout: 10000
+          }
+        );
+
+        pollingStream.onValue(function(result) {
+          $(".js-status-loading").hide();
+          $(".js-status-" + result.verificationStatus).show();
+        });
+        pollingStream.onError(function() {
+          $(".js-status-loading").hide();
+          $(".js-status-error").show();
+        });
+      } else {
+        $(".js-status-loading").hide();
+        $(".js-status-" + userEmail.verificationStatus).show();
+      }
     }
   };
 

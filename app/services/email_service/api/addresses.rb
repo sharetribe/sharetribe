@@ -9,7 +9,7 @@ module EmailService::API
 
     def get_sender(community_id:)
       sender = Maybe(community_id).map {
-        AddressStore.get(community_id: community_id)
+        AddressStore.get_all(community_id: community_id).first
       }.map { |address|
         {
           display_format: to_format(name: address[:name], email: address[:email], quotes: false),
@@ -20,7 +20,19 @@ module EmailService::API
       Result::Success.new(sender)
     end
 
-    def get_user_defined(community_id:)
+    def get_user_defined(community_id:, email:)
+      find_opts = {community_id: community_id, email: email}
+
+      return Result::Error.new("Illegal arguments: #{find_opts}") if community_id.nil? || email.nil?
+
+      Maybe(AddressStore.get(find_opts)).map { |address|
+        Result::Success.new(address)
+      }.or_else {
+        Result::Error.new("Can not find: #{find_opts}")
+      }
+    end
+
+    def get_all_user_defined(community_id:)
       Result::Success.new(AddressStore.get_all(community_id: community_id).map { |address| with_formats(address) })
     end
 

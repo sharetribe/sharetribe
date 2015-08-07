@@ -3,7 +3,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      window.ST.initializeSenderEmailForm(#{user_defined_address.to_json}, "#{status_check_url}");
+      window.ST.initializeSenderEmailForm(#{HashUtils.camelize_keys(user_defined_address).to_json}, "#{status_check_url}");
     });
 
 - content_for :title_header do
@@ -33,12 +33,12 @@
 
     - unless user_defined_address.nil?
       - content_for(:verification_status) do
-        - case user_defined_address[:verification_status]
-        - when :verified
-          %span.status-verified
-            = t("admin.communities.outgoing_email.status_verified");
-        - else
-          = t("admin.communities.outgoing_email.status_unknown");
+        %span.status-verified.js-status-verified.hidden
+          = t("admin.communities.outgoing_email.status_verified");
+        %span.status-error.js-status-error.hidden
+          = t("admin.communities.outgoing_email.status_error");
+        %span.status-loading.js-status-loading
+          = image_tag("ajax-loader-grey.gif", class: "sender-address-status-loading-spinner")
 
       .row
         .col-12

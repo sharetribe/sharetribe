@@ -106,7 +106,10 @@ ST.utils = (function(_) {
     };
   }
 
-  function baconStreamFromAjaxPolling(ajaxOpts, predicate) {
+  function baconStreamFromAjaxPolling(ajaxOpts, predicate, pollerOpts) {
+    pollerOpts = _.defaults(pollerOpts || {}, {timeout: 0});
+    var startPolling = Date.now();
+
     return Bacon.fromBinder(function(sink) {
       function poll() {
         var ajax = Bacon.once(ajaxOpts).ajax();
@@ -116,7 +119,13 @@ ST.utils = (function(_) {
         });
 
         ajax.filter(not(predicate)).onValue(function() {
-          _.delay(poll, 1000);
+          var loadingHasTaken = Date.now() - startPolling;
+
+          if(pollerOpts.timeout && loadingHasTaken > pollerOpts.timeout) {
+            sink([new Bacon.Error("timeout"), new Bacon.End()]);
+          } else {
+            _.delay(poll, 1000);
+          }
         });
 
         ajax.onError(function(e) {
