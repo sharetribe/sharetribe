@@ -24,5 +24,25 @@ module EmailService::SES
         Result::Error.new(e)
       end
     end
+
+    # Request verification for the given email address. If called
+    # twice with the same address resends the verification email.
+    def verify_address(email: )
+      if email.blank?
+        raise ArgumentError.new("Missing mandatory value for email parameter.")
+      end
+
+      begin
+        response = @ses.verify_email_identity(email_address: email)
+        if response.successful?
+          Result::Success.new()
+        else
+          Result::Error.new(response.error)
+        end
+      rescue Seahorse::Client::NetworkingError => e
+        Result::Error.new(e)
+      end
+    end
+
   end
 end
