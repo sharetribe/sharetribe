@@ -79,8 +79,15 @@ module Result
 
     def initialize(error_msg, data = nil)
       self.success = false
-      self.error_msg = error_msg
-      self.data = data
+
+      if (error_msg.is_a? StandardError)
+        ex = error_msg
+        self.error_msg = ex.message
+        self.data = ex
+      else
+        self.error_msg = error_msg
+        self.data = data
+      end
     end
 
     # Error a -> Error a
