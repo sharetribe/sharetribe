@@ -5,7 +5,7 @@ module EmailService::Store::Address
     [:name, :string, :optional],
     [:email, :string, :mandatory],
     [:verification_status, :to_symbol, one_of: [:none, :requested, :verified, :expired]],
-    [:updated_at, :time, :mandatory]
+    [:updated_at, :time, :optional] # Optional, no need to pass it when creating
 
     # TODO
     # [:verification_requested_at, :time, :optional],
@@ -33,7 +33,7 @@ module EmailService::Store::Address
                                      # verified. This will be changed
                                      # soon.
     ))
-    from_model(MarketplaceSenderEmail.create!(address))
+    from_model(MarketplaceSenderEmail.create!(HashUtils.compact(address)))
   end
 
   def from_model(model)
