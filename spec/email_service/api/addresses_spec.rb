@@ -18,8 +18,8 @@ describe EmailService::API::Addresses do
 
         expect(res.success).to eq(true)
         expect(res.data).to eq(
-                              formatted: "Email Sender Name <hello@mymarketplace.invalid>",
-                              smtp_formatted: "\"Email Sender Name\" <hello@mymarketplace.invalid>")
+                              display_format: "Email Sender Name <hello@mymarketplace.invalid>",
+                              smtp_format: "\"Email Sender Name\" <hello@mymarketplace.invalid>")
       end
 
       it "allows nil name" do
@@ -32,8 +32,8 @@ describe EmailService::API::Addresses do
 
         expect(res.success).to eq(true)
         expect(res.data).to eq(
-                              formatted: "hello@mymarketplace.invalid",
-                              smtp_formatted: "hello@mymarketplace.invalid")
+                              display_format: "hello@mymarketplace.invalid",
+                              smtp_format: "hello@mymarketplace.invalid")
 
       end
 
@@ -46,8 +46,8 @@ describe EmailService::API::Addresses do
 
         expect(res.success).to eq(true)
         expect(res.data).to eq(
-                              formatted: "Default Sender Name <default_sender@example.com.invalid>",
-                              smtp_formatted: "Default Sender Name <default_sender@example.com.invalid>")
+                              display_format: "Default Sender Name <default_sender@example.com.invalid>",
+                              smtp_format: "Default Sender Name <default_sender@example.com.invalid>")
       end
 
       it "returns default address if community id is nil" do
@@ -55,8 +55,8 @@ describe EmailService::API::Addresses do
 
         expect(res.success).to eq(true)
         expect(res.data).to eq(
-                              formatted: "Default Sender Name <default_sender@example.com.invalid>",
-                              smtp_formatted: "Default Sender Name <default_sender@example.com.invalid>")
+                              display_format: "Default Sender Name <default_sender@example.com.invalid>",
+                              smtp_format: "Default Sender Name <default_sender@example.com.invalid>")
       end
     end
   end
@@ -77,8 +77,8 @@ describe EmailService::API::Addresses do
                             name: "Email Sender Name",
                             email: "hello@mymarketplace.invalid",
                             verification_status: :verified,
-                            formatted: "Email Sender Name <hello@mymarketplace.invalid>",
-                            smtp_formatted: "\"Email Sender Name\" <hello@mymarketplace.invalid>"}])
+                            display_format: "Email Sender Name <hello@mymarketplace.invalid>",
+                            smtp_format: "\"Email Sender Name\" <hello@mymarketplace.invalid>"}])
     end
 
     it "returns empty if none found" do
