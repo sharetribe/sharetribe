@@ -23,11 +23,18 @@
 
         %p= t("admin.communities.outgoing_email.info")
 
-      - if user_defined_address.nil?
-        %p= t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address)
-      - else
-        %p= t("admin.communities.outgoing_email.sender_address", sender_address: sender_address)
-        %p= t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
+    .row
+      .col-12
+        .sender-address-preview
+          - if user_defined_address.nil?
+            = t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address)
+          - else
+            = t("admin.communities.outgoing_email.sender_address", sender_address: sender_address)
+
+    - unless user_defined_address.nil?
+      .row
+        .col-12
+          = t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
 
     - if user_defined_address.nil?
       .row
@@ -37,13 +44,13 @@
       = form_tag(post_sender_address_url, method: :post, class: "js-sender-email-form") do
         .row
           .col-6
-            %label= t("admin.communities.outgoing_email.sender_name_label")
+            %label.sender-address-label= t("admin.communities.outgoing_email.sender_name_label")
             %input.js-sender-name-input{name: "name", type: :text, placeholder: t("admin.communities.outgoing_email.sender_name_placeholder")}
           .col-6
-            %label= t("admin.communities.outgoing_email.sender_email_label")
+            %label.sender-address-label= t("admin.communities.outgoing_email.sender_email_label")
             %input.js-sender-email-input{name: "email", type: :text, placeholder: t("admin.communities.outgoing_email.sender_email_placeholder")}
 
-        .row.js-sender-address-preview-container
+        .row.js-sender-address-preview-container.sender-address-preview-container.hidden
           .col-12
             .sender-address-preview
               = t("admin.communities.outgoing_email.this_is_how_it_will_look")

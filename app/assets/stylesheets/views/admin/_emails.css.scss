@@ -1,8 +1,17 @@
 @import "mixins/all";
 
+.sender-address-preview-container {
+  margin-top: lines(0.75);
+  margin-bottom: lines(1.0);
+}
+
 .sender-address-preview {
   background-color: $highlight;
   padding: 10px 20px;
+}
+
+.sender-address-label {
+  margin-top: 0;
 }
 
 .welcome-email-editor-background {

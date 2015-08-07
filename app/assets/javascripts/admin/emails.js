@@ -13,8 +13,7 @@ window.ST = window.ST || {};
     return $(selector)
       .asEventStream("keydown blur input change click")
       .debounce(0) // This is needed because the "keydown" event is fired before the e.target.value has the new value
-      .map(function(e) { return e.target.value; })
-      .skipDuplicates();
+      .map(function(e) { return e.target.value; });
   };
 
   var formatSender = function(values) {
@@ -28,27 +27,26 @@ window.ST = window.ST || {};
   };
 
   module.initializeSenderEmailForm = function() {
+    var $previewContainer = $(".js-sender-address-preview-container");
     var $preview = $(".js-sender-address-preview-values");
     var nameStream = toTextStream(".js-sender-name-input");
     var emailStream = toTextStream(".js-sender-email-input");
+    var validEmailStream = emailStream.map(function(v) { return $form.valid() ? v : ""; });
 
-    nameStream.log("Name stream value: ");
-    emailStream.log("Email stream value: ");
+    nameStream.log("Name stream");
 
-    var nameEmailStream = Bacon.combineTemplate({
-      name: nameStream.toProperty(""),
-      email: emailStream.toProperty("")
-    }).changes();
+    var nameEmailStream = Bacon
+          .combineTemplate({
+            name: nameStream.toProperty(""),
+            email: validEmailStream.toProperty("")
+          })
+          .filter(function(v) { return !!v.email; })
+          .skipDuplicates(_.isEqual)
+          .changes();
 
     nameEmailStream.onValue(function(values) {
-      var text = "";
-      if($form.valid()) {
-        text = formatSender(values);
-      } else {
-        text = "-";
-      }
-
-      $preview.text(text);
+      $previewContainer.show();
+      $preview.text(formatSender(values));
     });
 
     nameEmailStream.log("Name and email: ");
