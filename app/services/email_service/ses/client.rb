@@ -1,18 +1,20 @@
 module EmailService::SES
+  module DataTypes
+    Config = EntityUtils.define_builder(
+      [:region, :mandatory, :string],
+      [:access_key_id, :mandatory, :string],
+      [:secret_access_key, :mandatory, :string])
+  end
+
   class Client
 
-    def initialize(region:, stubs: nil)
-      if region.blank?
-        raise ArgumentError.new("Missing mandatory value for region parameter.")
-      end
+    def initialize(config:, stubs: nil)
+      config = DataTypes::Config.build(config)
 
-      # The SDK v2 automatically gets the AWS_ACCESS_KEY and
-      # AWS_SECRET_ACCESS_KEY from the environment. We only need to
-      # supply region here.
       if stubs.blank?
-        @ses = Aws::SES::Client.new(region: region)
+        @ses = Aws::SES::Client.new(config)
       else
-        @ses = Aws::SES::Client.new(region: region, stub_responses: stubs)
+        @ses = Aws::SES::Client.new(config.merge(stub_responses: stubs))
       end
     end
 
