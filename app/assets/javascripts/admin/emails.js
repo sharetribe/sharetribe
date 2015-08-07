@@ -53,13 +53,13 @@ window.ST = window.ST || {};
     });
 
     if (userEmail) {
-      if (userEmail.verificationStatus == "requested") {
+      if (userEmail.verificationStatus === "requested") {
         var pollingStream = ST.utils.baconStreamFromAjaxPolling(
           { url: statusCheckUrl,
             data: { email: userEmail.email }
           },
           function(pollingResult) {
-            return pollingResult.lastVerifiedAt != userEmail.lastVerifiedAt;
+            return pollingResult.lastVerifiedAt !== userEmail.lastVerifiedAt;
           },
           {
             timeout: 10000

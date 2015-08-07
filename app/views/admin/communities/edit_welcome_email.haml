@@ -3,7 +3,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      window.ST.initializeSenderEmailForm(#{HashUtils.camelize_keys(user_defined_address).to_json}, "#{status_check_url}");
+      window.ST.initializeSenderEmailForm(#{Maybe(user_defined_address).map { |a| HashUtils.camelize_keys(a) }.or_else(nil).to_json}, "#{status_check_url}");
     });
 
 - content_for :title_header do
