@@ -32,7 +32,7 @@ class Admin::CommunitiesController < ApplicationController
       :locale => @current_user.locale
     }
 
-    sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data[:formatted]
+    sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data[:display_format]
     user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data.first
 
     render "edit_welcome_email", locals: {
