@@ -516,7 +516,7 @@ class ApplicationController < ActionController::Base
   # Usage:
   #
   # class YourController < ApplicationController
-  #   ensure_feature_enabled, :shipping, only: [:new_shipping, edit_shipping]
+  #   ensure_feature_enabled :shipping, only: [:new_shipping, :edit_shipping]
   #   ...
   #  end
   #

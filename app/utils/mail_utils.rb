@@ -75,6 +75,6 @@ module MailUtils
 
   def community_specific_sender(community)
     cid = Maybe(community).id.or_else(nil)
-    EmailService::API::Api.addresses.get_sender(community_id: cid).data[:formatted]
+    EmailService::API::Api.addresses.get_sender(community_id: cid).data[:smtp_format]
   end
 end

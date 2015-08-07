@@ -9,7 +9,7 @@ describe EmailService::API::Addresses do
 
       it "gets sender address by community id" do
         emails_api.addresses.create(
-          community_id: 123, opts: {
+          community_id: 123, address: {
             name: "Email Sender Name",
             email: "hello@mymarketplace.invalid"
           })
@@ -17,19 +17,23 @@ describe EmailService::API::Addresses do
         res = emails_api.addresses.get_sender(community_id: 123)
 
         expect(res.success).to eq(true)
-        expect(res.data).to eq(formatted: "\"Email Sender Name\" <hello@mymarketplace.invalid>")
+        expect(res.data).to eq(
+                              display_format: "Email Sender Name <hello@mymarketplace.invalid>",
+                              smtp_format: "\"Email Sender Name\" <hello@mymarketplace.invalid>")
       end
 
       it "allows nil name" do
         emails_api.addresses.create(
-          community_id: 123, opts: {
+          community_id: 123, address: {
             email: "hello@mymarketplace.invalid"
           })
 
         res = emails_api.addresses.get_sender(community_id: 123)
 
         expect(res.success).to eq(true)
-        expect(res.data).to eq(formatted: "hello@mymarketplace.invalid")
+        expect(res.data).to eq(
+                              display_format: "hello@mymarketplace.invalid",
+                              smtp_format: "hello@mymarketplace.invalid")
 
       end
 
@@ -41,15 +45,47 @@ describe EmailService::API::Addresses do
         res = emails_api.addresses.get_sender(community_id: 999)
 
         expect(res.success).to eq(true)
-        expect(res.data).to eq(formatted: "Default Sender Name <default_sender@example.com.invalid>")
+        expect(res.data).to eq(
+                              display_format: "Default Sender Name <default_sender@example.com.invalid>",
+                              smtp_format: "Default Sender Name <default_sender@example.com.invalid>")
       end
 
       it "returns default address if community id is nil" do
         res = emails_api.addresses.get_sender(community_id: nil)
 
         expect(res.success).to eq(true)
-        expect(res.data).to eq(formatted: "Default Sender Name <default_sender@example.com.invalid>")
+        expect(res.data).to eq(
+                              display_format: "Default Sender Name <default_sender@example.com.invalid>",
+                              smtp_format: "Default Sender Name <default_sender@example.com.invalid>")
       end
+    end
+  end
+
+  describe "#get_user_defined" do
+    it "gets user defined emails" do
+      emails_api.addresses.create(
+        community_id: 123, address: {
+          name: "Email Sender Name",
+          email: "hello@mymarketplace.invalid"
+        })
+
+      res = emails_api.addresses.get_user_defined(community_id: 123)
+
+      expect(res.success).to eq(true)
+      expect(res.data).to eq([{
+                            community_id: 123,
+                            name: "Email Sender Name",
+                            email: "hello@mymarketplace.invalid",
+                            verification_status: :verified,
+                            display_format: "Email Sender Name <hello@mymarketplace.invalid>",
+                            smtp_format: "\"Email Sender Name\" <hello@mymarketplace.invalid>"}])
+    end
+
+    it "returns empty if none found" do
+      res = emails_api.addresses.get_user_defined(community_id: 123)
+
+      expect(res.success).to eq(true)
+      expect(res.data).to eq([])
     end
   end
 end

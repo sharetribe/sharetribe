@@ -1,1 +1,18 @@
 en:
+  admin:
+    communities:
+      outgoing_email:
+        title: "Outgoing email address"
+        info: "This name and address is used for emails sent from your marketplace to members."
+        sender_address: "Sender address: %{sender_address}"
+        sender_address_default: "Sender address: not set (using default address %{sender_address})"
+        need_to_change: "If you need to change the email address, please %{contact_support_link}."
+        contact_support_link_text: "contact our support"
+        set_sender_address: "Set sender address"
+        sender_name_label: "Name"
+        sender_name_placeholder: "Your marketplace name"
+        sender_email_label: "Email address"
+        sender_email_placeholder: "your-marketplace@example.com"
+        this_is_how_it_will_look: "This is how it will look:"
+        send_verification_button: "Send verification email"
+        successfully_saved: "Sender email saved successfully. The verification email will be sent soon."

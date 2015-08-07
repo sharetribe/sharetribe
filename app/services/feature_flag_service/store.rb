@@ -8,7 +8,7 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     FLAGS = [
-
+      :sender_address
     ].to_set
 
     def initialize(additional_flags:)

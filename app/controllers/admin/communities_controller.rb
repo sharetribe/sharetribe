@@ -3,6 +3,7 @@ class Admin::CommunitiesController < ApplicationController
 
   before_filter :ensure_is_admin
   before_filter :ensure_is_superadmin, :only => [:payment_gateways, :update_payment_gateway, :create_payment_gateway]
+  ensure_feature_enabled :sender_address, only: [:create_sender_address]
 
   def getting_started
     @selected_left_navi_link = "getting_started"
@@ -30,21 +31,40 @@ class Admin::CommunitiesController < ApplicationController
       :ref => "welcome_email",
       :locale => @current_user.locale
     }
+
+    sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data[:display_format]
+    user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data.first
+
+    render "edit_welcome_email", locals: {
+             support_email: APP_CONFIG.support_email,
+             sender_address: sender_address,
+             user_defined_address: user_defined_address,
+             post_sender_address_url: create_sender_address_admin_community_path,
+           }
+  end
+
+  def create_sender_address
+    # TODO validate email
+
+    EmailService::API::Api.addresses.create(community_id: @current_community.id, address: {name: params[:name], email: params[:email]})
+
+    flash[:notice] = t("admin.communities.outgoing_email.successfully_saved")
+    redirect_to action: :edit_welcome_email
   end
 
   def social_media
     @selected_left_navi_link = "social_media"
     @community = @current_community
-    render "social_media", :locals => { 
-      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles, 
+    render "social_media", :locals => {
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
   def analytics
     @selected_left_navi_link = "analytics"
     @community = @current_community
-    render "analytics", :locals => { 
-      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles, 
+    render "analytics", :locals => {
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
   end
 
