@@ -31,21 +31,24 @@ window.ST = window.ST || {};
     var $preview = $(".js-sender-address-preview-values");
     var nameStream = toTextStream(".js-sender-name-input");
     var emailStream = toTextStream(".js-sender-email-input");
-    var validEmailStream = emailStream.map(function(v) { return $form.valid() ? v : ""; });
-
-    nameStream.log("Name stream");
+    var validEmailOrEmptyStream = emailStream.map(function(v) {
+      return $form.valid() ? v : "";
+    });
 
     var nameEmailStream = Bacon
           .combineTemplate({
             name: nameStream.toProperty(""),
-            email: validEmailStream.toProperty("")
+            email: validEmailOrEmptyStream.toProperty("")
           })
-          .filter(function(v) { return !!v.email; })
           .skipDuplicates(_.isEqual)
           .changes();
 
-    nameEmailStream.onValue(function(values) {
+    var validEmailStream = emailStream.filter(function() { return $form.valid(); });
+    validEmailStream.take(1).onValue(function() {
       $previewContainer.show();
+    });
+
+    nameEmailStream.onValue(function(values) {
       $preview.text(formatSender(values));
     });
 
