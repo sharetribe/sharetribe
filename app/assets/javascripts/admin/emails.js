@@ -51,8 +51,6 @@ window.ST = window.ST || {};
     nameEmailStream.onValue(function(values) {
       $preview.text(formatSender(values));
     });
-
-    nameEmailStream.log("Name and email: ");
   };
 
 })(window.ST);
