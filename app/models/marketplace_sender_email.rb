@@ -2,13 +2,14 @@
 #
 # Table name: marketplace_sender_emails
 #
-#  id                  :integer          not null, primary key
-#  community_id        :integer          not null
-#  name                :string(255)
-#  email               :string(255)      not null
-#  verification_status :string(32)       not null
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
+#  id                        :integer          not null, primary key
+#  community_id              :integer          not null
+#  name                      :string(255)
+#  email                     :string(255)      not null
+#  verification_status       :string(32)       not null
+#  verification_requested_at :datetime
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
 #
 # Indexes
 #

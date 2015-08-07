@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150806114717) do
+ActiveRecord::Schema.define(:version => 20150807141947) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -589,12 +589,13 @@ ActiveRecord::Schema.define(:version => 20150806114717) do
   add_index "locations", ["person_id"], :name => "index_locations_on_person_id"
 
   create_table "marketplace_sender_emails", :force => true do |t|
-    t.integer  "community_id",                      :null => false
+    t.integer  "community_id",                            :null => false
     t.string   "name"
-    t.string   "email",                             :null => false
-    t.string   "verification_status", :limit => 32, :null => false
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.string   "email",                                   :null => false
+    t.string   "verification_status",       :limit => 32, :null => false
+    t.datetime "verification_requested_at"
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
   end
 
   add_index "marketplace_sender_emails", ["community_id"], :name => "index_marketplace_sender_emails_on_community_id"

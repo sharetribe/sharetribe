@@ -12,11 +12,8 @@ module EmailService::Store::Address
     [:name, :string, :optional],
     [:email, :string, :mandatory],
     [:verification_status, :to_symbol, one_of: [:none, :requested, :verified, :expired]],
-    [:updated_at, :time, :optional] # Optional, no need to pass it when creating
-
-    # TODO
-    # [:verification_requested_at, :time, :optional],
-
+    [:verification_requested_at, :time, :optional],
+    [:updated_at, :time, :mandatory]
   )
 
   module_function
