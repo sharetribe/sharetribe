@@ -2,7 +2,7 @@ window.ST = window.ST || {};
 
 (function(module) {
 
-  $form = $(".js-sender-email-form");
+  var $form = $(".js-sender-email-form");
   $form.validate({
     rules: {
       "email": {required: true, email: true}
