@@ -23,9 +23,9 @@ module EmailService::Store::Address
     }
   end
 
-  def create(community_id:, opts:)
+  def create(community_id:, address:)
     address = Address.call(
-      opts.merge(
+      address.merge(
       community_id: community_id,
       verification_status: :verified # TODO At this point we expect
                                      # that all saved emails are

@@ -26,12 +26,12 @@ module EmailService::API
 
     # TODO get_user_defined
 
-    def create(community_id:, opts:)
+    def create(community_id:, address:)
       Result::Success.new(
         with_formats(
           AddressStore.create(
           community_id: community_id,
-          opts: opts)))
+          address: address)))
     end
 
     private

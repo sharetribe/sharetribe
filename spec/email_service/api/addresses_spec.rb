@@ -9,7 +9,7 @@ describe EmailService::API::Addresses do
 
       it "gets sender address by community id" do
         emails_api.addresses.create(
-          community_id: 123, opts: {
+          community_id: 123, address: {
             name: "Email Sender Name",
             email: "hello@mymarketplace.invalid"
           })
@@ -24,7 +24,7 @@ describe EmailService::API::Addresses do
 
       it "allows nil name" do
         emails_api.addresses.create(
-          community_id: 123, opts: {
+          community_id: 123, address: {
             email: "hello@mymarketplace.invalid"
           })
 
@@ -64,7 +64,7 @@ describe EmailService::API::Addresses do
   describe "#get_user_defined" do
     it "gets user defined emails" do
       emails_api.addresses.create(
-        community_id: 123, opts: {
+        community_id: 123, address: {
           name: "Email Sender Name",
           email: "hello@mymarketplace.invalid"
         })

@@ -46,7 +46,7 @@ class Admin::CommunitiesController < ApplicationController
   def create_sender_address
     # TODO validate email
 
-    EmailService::API::Api.addresses.create(community_id: @current_community.id, opts: {name: params[:name], email: params[:email]})
+    EmailService::API::Api.addresses.create(community_id: @current_community.id, address: {name: params[:name], email: params[:email]})
 
     flash[:notice] = t("admin.communities.outgoing_email.successfully_saved")
     redirect_to action: :edit_welcome_email

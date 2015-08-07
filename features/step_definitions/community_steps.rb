@@ -321,5 +321,5 @@ Given(/^this community does not send automatic newsletters$/) do
 end
 
 Given(/^community emails are sent from name "(.*?)" and address "(.*?)"$/) do |name, email|
-  EmailService::API::Api.addresses.create(community_id: @current_community.id, opts: {name: name, email: email})
+  EmailService::API::Api.addresses.create(community_id: @current_community.id, address: {name: name, email: email})
 end
