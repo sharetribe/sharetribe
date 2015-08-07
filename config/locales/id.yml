@@ -1031,7 +1031,7 @@ id:
     invite: "Mengundang anggota baru"
     login: Masuk
     signup: Daftar
-    menu: "Laman Utama"
+    menu: "Tampilkan Menu"
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Selain itu  ada <b>satu tawaran lainnya</ b>,"
@@ -1081,31 +1081,31 @@ id:
       private_listing_notification_log_in: ~
       is: ~
       are: ~
-      what_do_you_need: ~
-      post_new_listing: ~
+      what_do_you_need: "Apa yang Anda cari?"
+      post_new_listing: "Membuat iklan terbaru"
       are_offering: penawaran
-      add_news_item: ~
+      add_news_item: "Tambahkan artikel"
       lend_rent_help_carpool: "Jual, pinjam, bantu, berbagi tumpangan"
       loading_more_content: "Memuat lebih banyak konten"
-      more_events: ~
+      more_events: "Aktivitas yang lain"
       news: Berita
-      no_news: ~
-      more_news: ~
+      no_news: "Tidak ada berita"
+      more_news: "Berita yang lain"
       or: dan
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
+      or_see_what_the_others: "atau melihat tampilan dari yang lain"
+      recent_events: "Aktivitas yang terbaru"
+      requesting: Dibutuhkan
+      tell_it_here: "Beritahu disini!"
+      welcome_to_new_kassi: ""
       no_reviews: ~
       no_image: ~
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      email: ~
-      message: ~
-      send_invitation: ~
-      add_email_addresses_description: ~
+      email: "Alamat Email"
+      message: "Pesan Pribadi"
+      send_invitation: "Kirim undangan"
+      add_email_addresses_description: ""
       add_lots_of_email_addresses: ~
       this_article_link: ~
       invitation_emails_field_placeholder: ~
@@ -1115,17 +1115,17 @@ id:
       review: ~
       reviews: ~
     news_item:
-      show_less: ~
-      show_more: ~
+      show_less: "Penampilan dikurangi"
+      show_more: "Tampilkan lebih banyak"
     profile_info_empty_notification:
-      add_your_info: ~
-      add_a_profile_picture: ~
-      you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      add_your_info: "Tulis kontak info Anda"
+      add_a_profile_picture: "Masukkan gambar profil Anda"
+      you_have_not_added_your_info: "Anda belum menulis kontak informasi Anda. Silahkan ditulis, jadi orang lain bisa dengan mudah menghubungkan Anda. Juga jangan lupa untuk memasukkan profil gambar Anda jadi membuat orang lain lebih mempercayai akun Anda."
+      add_your_info_link: "Tulis info Anda sekarang"
     recent_listing:
-      please_offer: ~
-      comment: ~
-      comments: ~
+      please_offer: Penawaran
+      comment: Komentar
+      comments: Komentar-komentar
     filters:
       show: Menyaring
       search: Cari

@@ -967,7 +967,7 @@ zh:
     transaction_agreement:
       required_error: 你需要接受协议
     paypal:
-      buyer_cannot_pay_error: ~
+      buyer_cannot_pay_error: " 该支付被Paypal拒绝。请联系他们的客服获得更多信息：%{customer_service_link}"
       pending_review_error: 支付已经提交，但是被Paypal标记为‘需要检查’。当Paypal完成检查后，该支付将会被自动授权。
       generic_error: 付款过程中出现错误。无法完成你的PayPal付款。
       cancel_error: 取消时发生错误。不能完成取消操作。
@@ -1666,7 +1666,7 @@ zh:
     commission: "%{commission}%"
     connected_account: "PayPal帐号“%{email}”连接成功。"
     change_account: 更改帐户
-    missing: "你有开放的信息，但是并没有连接到你的PayPal帐号，所以你将不能接受付款。请在你的%{settings_link}中连接你的PayPal帐号。"
+    missing: "你有开放的信息，但是并没有连接到你的PayPal帐号来接受付款。通过你的%{settings_link}连接你的Paypal账号并且授予%{service_name}权限来收取交易费。"
     from_your_payment_settings_link_text: 付款设置
     new:
       payout_info_you_need_to_connect: "要接受付款你需要连接你的PayPal帐号和%{service_name}。"
