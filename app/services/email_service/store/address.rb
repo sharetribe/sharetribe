@@ -49,7 +49,7 @@ module EmailService::Store::Address
   end
 
   def create(community_id:, address:)
-    address = Address.call(
+    address = NewAddress.call(
       address.merge(
       community_id: community_id)
     )
