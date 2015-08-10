@@ -18,15 +18,22 @@ module EmailService::Store::Address
     from_model(MarketplaceSenderEmail.where(community_id: community_id, email: email).first)
   end
 
-  def get_all(community_id:, verification_status: nil)
-    find_opts = HashUtils.compact(
-      community_id: community_id,
-      verification_status: verification_status
-    )
+  def get_latest_verified(community_id:)
+    from_model(
+      MarketplaceSenderEmail
+      .where(community_id: community_id, verification_status: :verified)
+      .order('created_at DESC')
+      .limit(1)
+      .first)
+  end
 
-    MarketplaceSenderEmail.where(find_opts).map { |m|
-      from_model(m)
-    }
+  def get_latest(community_id:)
+    from_model(
+      MarketplaceSenderEmail
+      .where(community_id: community_id)
+      .order('created_at DESC')
+      .limit(1)
+      .first)
   end
 
   def create(community_id:, address:)

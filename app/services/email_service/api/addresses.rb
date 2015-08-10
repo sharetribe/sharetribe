@@ -9,7 +9,7 @@ module EmailService::API
 
     def get_sender(community_id:)
       sender = Maybe(community_id).map {
-        AddressStore.get_all(community_id: community_id, verification_status: :verified).first
+        AddressStore.get_latest_verified(community_id: community_id)
       }.map { |address|
         {
           type: :user_defined,
@@ -25,21 +25,13 @@ module EmailService::API
       Result::Success.new(sender)
     end
 
-    def get_user_defined(community_id:, email:)
-      find_opts = {community_id: community_id, email: email}
-
-      return Result::Error.new("Illegal arguments: #{find_opts}") if community_id.nil? || email.nil?
-
-      Maybe(AddressStore.get(find_opts)).map { |address|
+    def get_user_defined(community_id:)
+      Maybe(AddressStore.get_latest(community_id: community_id)).map { |address|
         Result::Success.new(
           with_formats(address))
       }.or_else {
-        Result::Error.new("Can not find: #{find_opts}")
+        Result::Error.new("Can not find for community_id: #{community_id}")
       }
-    end
-
-    def get_all_user_defined(community_id:)
-      Result::Success.new(AddressStore.get_all(community_id: community_id).map { |address| with_formats(address) })
     end
 
     def create(community_id:, address:)

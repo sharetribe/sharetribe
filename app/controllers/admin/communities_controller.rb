@@ -33,7 +33,7 @@ class Admin::CommunitiesController < ApplicationController
     }
 
     sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data
-    user_defined_address = EmailService::API::Api.addresses.get_all_user_defined(community_id: @current_community.id).data.first
+    user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data
 
     Maybe(user_defined_address)[:verification_status].reject { |status| status == :verified }.each {
       EmailService::API::Api.addresses.enque_status_sync
@@ -66,7 +66,7 @@ class Admin::CommunitiesController < ApplicationController
   def check_email_status
     email = params[:email]
 
-    EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id, email: email).on_success { |address|
+    EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).on_success { |address|
       render json: HashUtils.camelize_keys(address)
     }.on_error { |error_msg|
       render json: {error: error_msg }, status: 500

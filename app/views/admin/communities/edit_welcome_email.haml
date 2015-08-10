@@ -45,7 +45,7 @@
                 - else
                   = t("admin.communities.outgoing_email.sender_address", sender_address: user_defined_address[:display_format])
               %span.js-sender-address-preview-new.hidden
-                = t("admin.communities.outgoing_email.sender_address", sender_address: sender_address[:display_format])
+                = t("admin.communities.outgoing_email.sender_address", sender_address: user_defined_address[:display_format])
 
         - content_for(:verification_status) do
           %span.status-verified.js-status-verified.hidden
