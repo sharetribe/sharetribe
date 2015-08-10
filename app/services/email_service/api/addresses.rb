@@ -9,29 +9,41 @@ module EmailService::API
 
     def get_sender(community_id:)
       sender = Maybe(community_id).map {
-        AddressStore.get(community_id: community_id)
+        AddressStore.get_latest_verified(community_id: community_id)
       }.map { |address|
         {
+          type: :user_defined,
           display_format: to_format(name: address[:name], email: address[:email], quotes: false),
           smtp_format: to_format(name: address[:name], email: address[:email], quotes: true)
         }
-      }.or_else(display_format: @default_sender, smtp_format: @default_sender)
+      }.or_else(
+        type: :default,
+        display_format: @default_sender,
+        smtp_format: @default_sender
+      )
 
       Result::Success.new(sender)
     end
 
     def get_user_defined(community_id:)
-      Result::Success.new(AddressStore.get_all(community_id: community_id).map { |address| with_formats(address) })
+      Maybe(AddressStore.get_latest(community_id: community_id)).map { |address|
+        Result::Success.new(
+          with_formats(address))
+      }.or_else {
+        Result::Error.new("Can not find for community_id: #{community_id}")
+      }
     end
-
-    # TODO get_user_defined
 
     def create(community_id:, address:)
       Result::Success.new(
         with_formats(
           AddressStore.create(
           community_id: community_id,
-          address: address)))
+          address: {verification_status: :none}.merge(address))))
+    end
+
+    def enque_status_sync
+      # TODO Implement this
     end
 
     private

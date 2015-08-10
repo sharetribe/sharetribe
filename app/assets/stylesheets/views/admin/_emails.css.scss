@@ -14,7 +14,27 @@
   margin-top: 0;
 }
 
+.sender-address-status-loading-spinner {
+  height: 20px;
+  vertical-align: text-bottom;
+  margin-left: lines(0.25);
+}
+
 .welcome-email-editor-background {
   background-color: $highlight;
   padding: 20px;
+}
+
+.status-verified {
+  font-weight: bold;
+  color: $green;
+}
+
+.status-requested {
+  font-weight: bold;
+  color: #FF0000;
+}
+
+.status-error {
+    font-weight: bold;
 }

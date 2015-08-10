@@ -3,7 +3,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      window.ST.initializeSenderEmailForm();
+      window.ST.initializeSenderEmailForm(#{Maybe(user_defined_address).map { |a| HashUtils.camelize_keys(a) }.or_else(nil).to_json}, "#{status_check_url}");
     });
 
 - content_for :title_header do
@@ -23,15 +23,59 @@
 
         %p= t("admin.communities.outgoing_email.info")
 
-    .row
-      .col-12
-        .sender-address-preview
-          - if user_defined_address.nil?
-            = t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address)
-          - else
-            = t("admin.communities.outgoing_email.sender_address", sender_address: sender_address)
+    - if user_defined_address.nil?
+      .row
+        .col-12
+          .sender-address-preview
+            %span
+              = t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address[:display_format])
 
-    - unless user_defined_address.nil?
+    - elsif user_defined_address && user_defined_address[:verification_status] != :verified
+      .row.js-status-loading
+        .col-12
+          = image_tag("ajax-loader-grey.gif", class: "sender-address-status-loading-spinner")
+
+      .js-loaded-sender-address-status.hidden
+        .row
+          .col-12
+            .sender-address-preview
+              %span.js-sender-address-preview-current.hidden
+                - if sender_address[:type] == :default
+                  = t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address[:display_format])
+                - else
+                  = t("admin.communities.outgoing_email.sender_address", sender_address: user_defined_address[:display_format])
+              %span.js-sender-address-preview-new.hidden
+                = t("admin.communities.outgoing_email.sender_address", sender_address: user_defined_address[:display_format])
+
+        - content_for(:verification_status) do
+          %span.status-verified.js-status-verified.hidden
+            = t("admin.communities.outgoing_email.status_verified");
+          %span.status-requested.js-status-requested.hidden
+            = t("admin.communities.outgoing_email.status_requested", email: user_defined_address[:email]);
+          %span.status-error.js-status-error.hidden
+            = t("admin.communities.outgoing_email.status_error");
+
+        .row
+          .col-12
+            = t("admin.communities.outgoing_email.status", status: content_for(:verification_status)).html_safe
+
+        .row.js-if-you-needs-to-change.hidden
+          .col-12
+            = t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
+
+    - else
+      .row
+        .col-12
+          .sender-address-preview
+            %span
+              = t("admin.communities.outgoing_email.sender_address", sender_address: sender_address[:display_format])
+      .row
+        .col-12
+          - content_for(:status_verified) do
+            %span.status-verified.js-status-verified
+              = t("admin.communities.outgoing_email.status_verified");
+          = t("admin.communities.outgoing_email.status", status: content_for(:status_verified)).html_safe
+
       .row
         .col-12
           = t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe

@@ -32,10 +32,15 @@ class Admin::CommunitiesController < ApplicationController
       :locale => @current_user.locale
     }
 
-    sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data[:display_format]
-    user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data.first
+    sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data
+    user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data
+
+    Maybe(user_defined_address)[:verification_status].reject { |status| status == :verified }.each {
+      EmailService::API::Api.addresses.enque_status_sync
+    }
 
     render "edit_welcome_email", locals: {
+             status_check_url: check_email_status_admin_community_path,
              support_email: APP_CONFIG.support_email,
              sender_address: sender_address,
              user_defined_address: user_defined_address,
@@ -46,10 +51,26 @@ class Admin::CommunitiesController < ApplicationController
   def create_sender_address
     # TODO validate email
 
-    EmailService::API::Api.addresses.create(community_id: @current_community.id, address: {name: params[:name], email: params[:email]})
+    EmailService::API::Api.addresses.create(
+      community_id: @current_community.id,
+      address: {
+        name: params[:name],
+        email: params[:email],
+        verification_status: :verified # TODO Remove this. At this point we expect that all addresses are verified when they are added
+      })
 
     flash[:notice] = t("admin.communities.outgoing_email.successfully_saved")
     redirect_to action: :edit_welcome_email
+  end
+
+  def check_email_status
+    email = params[:email]
+
+    EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).on_success { |address|
+      render json: HashUtils.camelize_keys(address)
+    }.on_error { |error_msg|
+      render json: {error: error_msg }, status: 500
+    }
   end
 
   def social_media

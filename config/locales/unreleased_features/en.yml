@@ -16,3 +16,7 @@ en:
         this_is_how_it_will_look: "This is how it will look:"
         send_verification_button: "Send verification email"
         successfully_saved: "Sender email saved successfully. The verification email will be sent soon."
+        status: "Status: %{status}"
+        status_verified: "Verified - in use"
+        status_error: "An error occured. Please refresh the page."
+        status_requested: "Unverified - verification email sent to %{email}"

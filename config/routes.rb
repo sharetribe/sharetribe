@@ -124,6 +124,7 @@ Kassi::Application.routes.draw do
           put :edit_look_and_feel, to: 'communities#update_look_and_feel'
           get :edit_welcome_email
           post :create_sender_address
+          get :check_email_status
           get :edit_text_instructions
           get :test_welcome_email
           get :settings
