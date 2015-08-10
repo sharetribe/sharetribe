@@ -12,7 +12,8 @@ describe EmailService::API::Addresses do
         emails_api.addresses.create(
           community_id: 123, address: {
             name: "Email Sender Name",
-            email: "hello@mymarketplace.invalid"
+            email: "hello@mymarketplace.invalid",
+            verification_status: :verified
           })
 
         res = emails_api.addresses.get_sender(community_id: 123)
@@ -27,7 +28,8 @@ describe EmailService::API::Addresses do
       it "allows nil name" do
         emails_api.addresses.create(
           community_id: 123, address: {
-            email: "hello@mymarketplace.invalid"
+            email: "hello@mymarketplace.invalid",
+            verification_status: :verified
           })
 
         res = emails_api.addresses.get_sender(community_id: 123)
@@ -52,7 +54,7 @@ describe EmailService::API::Addresses do
             verification_status: :requested,
           })
 
-        res = emails_api.addresses.get_sender(community_id: 999)
+        res = emails_api.addresses.get_sender(community_id: 123)
 
         expect(res.success).to eq(true)
         expect(res.data).to eq(
@@ -91,6 +93,7 @@ describe EmailService::API::Addresses do
           community_id: 123, address: {
             name: "Email Sender Name",
             email: "hello@mymarketplace.invalid",
+            verification_status: :verified,
             updated_at: now,
           })
 
@@ -129,6 +132,7 @@ describe EmailService::API::Addresses do
         community_id: 123, address: {
           name: "Email Sender Name",
           email: "hello@mymarketplace.invalid",
+          verification_status: :verified,
           updated_at: now
         })
 

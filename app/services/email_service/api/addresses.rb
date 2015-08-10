@@ -9,7 +9,7 @@ module EmailService::API
 
     def get_sender(community_id:)
       sender = Maybe(community_id).map {
-        AddressStore.get_all(community_id: community_id).first
+        AddressStore.get_all(community_id: community_id, verification_status: :verified).first
       }.map { |address|
         {
           type: :user_defined,
@@ -47,12 +47,13 @@ module EmailService::API
         with_formats(
           AddressStore.create(
           community_id: community_id,
-          address: address)))
+          address: {verification_status: :none}.merge(address))))
     end
 
     def enque_status_sync
       # TODO Implement this
       MarketplaceSenderEmail.update_all(updated_at: 1.second.from_now)
+      # MarketplaceSenderEmail.update_all(verification_status: :verified)
     end
 
     private

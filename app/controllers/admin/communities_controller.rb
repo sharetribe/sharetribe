@@ -32,7 +32,7 @@ class Admin::CommunitiesController < ApplicationController
       :locale => @current_user.locale
     }
 
-    sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data[:display_format]
+    sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data
     user_defined_address = EmailService::API::Api.addresses.get_all_user_defined(community_id: @current_community.id).data.first
 
     Maybe(user_defined_address)[:verification_status].reject { |status| status == :verified }.each {
@@ -51,7 +51,13 @@ class Admin::CommunitiesController < ApplicationController
   def create_sender_address
     # TODO validate email
 
-    EmailService::API::Api.addresses.create(community_id: @current_community.id, address: {name: params[:name], email: params[:email]})
+    EmailService::API::Api.addresses.create(
+      community_id: @current_community.id,
+      address: {
+        name: params[:name],
+        email: params[:email],
+        verification_status: :verified # TODO Remove this. At this point we expect that all addresses are verified when they are added
+      })
 
     flash[:notice] = t("admin.communities.outgoing_email.successfully_saved")
     redirect_to action: :edit_welcome_email

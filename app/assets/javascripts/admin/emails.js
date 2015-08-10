@@ -52,32 +52,35 @@ window.ST = window.ST || {};
       $preview.text(formatSender(values));
     });
 
-    if (userEmail) {
-      if (userEmail.verificationStatus === "requested") {
-        var pollingStream = ST.utils.baconStreamFromAjaxPolling(
-          { url: statusCheckUrl,
-            data: { email: userEmail.email }
-          },
-          function(pollingResult) {
-            return pollingResult.updatedAt !== userEmail.updatedAt;
-          },
-          {
-            timeout: 10000
-          }
-        );
+    if (userEmail && userEmail.verificationStatus === "requested") {
+      var pollingStream = ST.utils.baconStreamFromAjaxPolling(
+        { url: statusCheckUrl,
+          data: { email: userEmail.email }
+        },
+        function(pollingResult) {
+          return pollingResult.updatedAt !== userEmail.updatedAt;
+        },
+        {
+          timeout: 10000
+        }
+      );
 
-        pollingStream.onValue(function(result) {
-          $(".js-status-loading").hide();
-          $(".js-status-" + result.verificationStatus).show();
-        });
-        pollingStream.onError(function() {
-          $(".js-status-loading").hide();
-          $(".js-status-error").show();
-        });
-      } else {
+      pollingStream.onValue(function(result) {
         $(".js-status-loading").hide();
-        $(".js-status-" + userEmail.verificationStatus).show();
-      }
+        $(".js-loaded-sender-address-status").show();
+        $(".js-status-" + result.verificationStatus).show();
+
+        if(result.verificationStatus == "verified") {
+          $(".js-sender-address-preview-new").show();
+          $(".js-if-you-need-to-change").show();
+        } else {
+          $(".js-sender-address-preview-current").show();
+        }
+      });
+      pollingStream.onError(function() {
+        $(".js-status-loading").hide();
+        $(".js-status-error").show();
+      });
     }
   };
 

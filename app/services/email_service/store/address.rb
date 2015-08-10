@@ -18,8 +18,13 @@ module EmailService::Store::Address
     from_model(MarketplaceSenderEmail.where(community_id: community_id, email: email).first)
   end
 
-  def get_all(community_id:)
-    MarketplaceSenderEmail.where(community_id: community_id).map { |m|
+  def get_all(community_id:, verification_status: nil)
+    find_opts = HashUtils.compact(
+      community_id: community_id,
+      verification_status: verification_status
+    )
+
+    MarketplaceSenderEmail.where(find_opts).map { |m|
       from_model(m)
     }
   end
@@ -27,12 +32,8 @@ module EmailService::Store::Address
   def create(community_id:, address:)
     address = Address.call(
       address.merge(
-      community_id: community_id,
-      verification_status: :verified # TODO At this point we expect
-                                     # that all saved emails are
-                                     # verified. This will be changed
-                                     # soon.
-    ))
+      community_id: community_id)
+    )
     from_model(MarketplaceSenderEmail.create!(HashUtils.compact(address)))
   end
 
