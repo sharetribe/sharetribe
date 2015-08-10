@@ -3,7 +3,7 @@ require_relative '../api'
 describe EmailService::API::Addresses do
 
   let(:emails_api) { EmailService::API::Api }
-  let(:now) { Time.new(2015, 8, 7) }
+  let(:now) { Time.zone.local(2015, 8, 7) }
 
   describe "#get_sender" do
     context "user defined sender address" do
@@ -19,6 +19,7 @@ describe EmailService::API::Addresses do
 
         expect(res.success).to eq(true)
         expect(res.data).to eq(
+                              type: :user_defined,
                               display_format: "Email Sender Name <hello@mymarketplace.invalid>",
                               smtp_format: "\"Email Sender Name\" <hello@mymarketplace.invalid>")
       end
@@ -33,6 +34,7 @@ describe EmailService::API::Addresses do
 
         expect(res.success).to eq(true)
         expect(res.data).to eq(
+                              type: :user_defined,
                               display_format: "hello@mymarketplace.invalid",
                               smtp_format: "hello@mymarketplace.invalid")
 
@@ -54,6 +56,7 @@ describe EmailService::API::Addresses do
 
         expect(res.success).to eq(true)
         expect(res.data).to eq(
+                              type: :default,
                               display_format: "Default Sender Name <default_sender@example.com.invalid>",
                               smtp_format: "Default Sender Name <default_sender@example.com.invalid>")
       end
@@ -63,6 +66,7 @@ describe EmailService::API::Addresses do
 
         expect(res.success).to eq(true)
         expect(res.data).to eq(
+                              type: :default,
                               display_format: "Default Sender Name <default_sender@example.com.invalid>",
                               smtp_format: "Default Sender Name <default_sender@example.com.invalid>")
       end
@@ -72,6 +76,7 @@ describe EmailService::API::Addresses do
 
         expect(res.success).to eq(true)
         expect(res.data).to eq(
+                              type: :default,
                               display_format: "Default Sender Name <default_sender@example.com.invalid>",
                               smtp_format: "Default Sender Name <default_sender@example.com.invalid>")
       end
@@ -85,11 +90,20 @@ describe EmailService::API::Addresses do
         emails_api.addresses.create(
           community_id: 123, address: {
             name: "Email Sender Name",
-            email: "hello@mymarketplace.invalid"
+            email: "hello@mymarketplace.invalid",
+            updated_at: now,
           })
 
         res3 = emails_api.addresses.get_user_defined(community_id: 123, email: "hello@mymarketplace.invalid")
         expect(res3.success).to eq(true)
+        expect(res3.data).to eq({
+                            community_id: 123,
+                            name: "Email Sender Name",
+                            email: "hello@mymarketplace.invalid",
+                            updated_at: now,
+                            verification_status: :verified,
+                            display_format: "Email Sender Name <hello@mymarketplace.invalid>",
+                            smtp_format: "\"Email Sender Name\" <hello@mymarketplace.invalid>"})
       end
     end
 

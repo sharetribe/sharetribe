@@ -12,10 +12,15 @@ module EmailService::API
         AddressStore.get_all(community_id: community_id).first
       }.map { |address|
         {
+          type: :user_defined,
           display_format: to_format(name: address[:name], email: address[:email], quotes: false),
           smtp_format: to_format(name: address[:name], email: address[:email], quotes: true)
         }
-      }.or_else(display_format: @default_sender, smtp_format: @default_sender)
+      }.or_else(
+        type: :default,
+        display_format: @default_sender,
+        smtp_format: @default_sender
+      )
 
       Result::Success.new(sender)
     end
@@ -26,7 +31,8 @@ module EmailService::API
       return Result::Error.new("Illegal arguments: #{find_opts}") if community_id.nil? || email.nil?
 
       Maybe(AddressStore.get(find_opts)).map { |address|
-        Result::Success.new(address)
+        Result::Success.new(
+          with_formats(address))
       }.or_else {
         Result::Error.new("Can not find: #{find_opts}")
       }
