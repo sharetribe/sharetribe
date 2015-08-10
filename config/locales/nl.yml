@@ -581,6 +581,7 @@ nl:
       canceled_request: "heeft het verzoek geannuleerd"
       canceled_offer: "heeft het voorstel geannuleerd"
       paid: "betaald %{sum}"
+      payment_preauthorized: ~
     new:
       offer_message_form_title: "Stel %{listing} voor aan %{person}"
       request_message_form_title: "Verzoek %{listing} van %{person}"

@@ -591,6 +591,7 @@ ru:
       canceled_request: "отменный запрос"
       canceled_offer: "отмененное предложение"
       paid: "оплачено %{sum}"
+      payment_preauthorized: ~
     new:
       offer_message_form_title: "Предложить %{listing} для %{person}"
       request_message_form_title: "Запросить %{listing} у %{person}"

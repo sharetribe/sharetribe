@@ -566,6 +566,7 @@ el:
       canceled_request: "ακύρωση το αίτημα"
       canceled_offer: "ακύρωσε την προσφορά"
       paid: "πλήρωσε %{sum}"
+      payment_preauthorized: ~
     new:
       offer_message_form_title: "Πρόσφερε %{listing} στον/στην %{person}"
       request_message_form_title: "Ζήτα %{listing} από τον/την %{person}"

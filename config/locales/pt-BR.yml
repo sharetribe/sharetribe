@@ -581,6 +581,7 @@ pt-BR:
       canceled_request: "cancelou o pedido"
       canceled_offer: "cancelou a oferta"
       paid: "pago %{sum}"
+      payment_preauthorized: ~
     new:
       offer_message_form_title: "Oferta %{listing} para %{person}"
       request_message_form_title: "Pedido %{listing} de %{person}"

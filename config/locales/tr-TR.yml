@@ -582,6 +582,7 @@ tr-TR:
       canceled_request: "talebi iptal etti"
       canceled_offer: "teklifi iptal etti"
       paid: "%{sum} ödedi"
+      payment_preauthorized: ~
     new:
       offer_message_form_title: "%{listing} ürününü %{person} kullanıcısına öner"
       request_message_form_title: "%{listing} ürününü %{person} kullanıcısından talep et"

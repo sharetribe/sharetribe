@@ -585,6 +585,7 @@ fi:
       canceled_request: "peruutti pyynnön"
       canceled_offer: "peruutti tarjouksen"
       paid: "maksoi %{sum}"
+      payment_preauthorized: ~
     new:
       offer_message_form_title: "Tarjoa %{listing} käyttäjälle %{person}"
       request_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"

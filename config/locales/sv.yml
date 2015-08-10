@@ -585,6 +585,7 @@ sv:
       canceled_request: "avbröt förfrågan"
       canceled_offer: "avbröt erbjudandet"
       paid: "Betalt %{sum}"
+      payment_preauthorized: ~
     new:
       offer_message_form_title: "Erbjud %{listing} till %{person}"
       request_message_form_title: "Förfrågan %{listing} från %{person}"

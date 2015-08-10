@@ -566,6 +566,7 @@ es:
       canceled_request: "Solicitud cancelada"
       canceled_offer: "cancelar la oferta"
       paid: "%{sum} pagado"
+      payment_preauthorized: ~
     new:
       offer_message_form_title: "Ofertar %{listing} a %{person}"
       request_message_form_title: "La solicitud %{listing} de %{person}"
