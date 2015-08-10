@@ -6,8 +6,9 @@ module EmailService::SES::Synchronize
 
   module_function
 
-  def run_synchronization!(ses_client)
-    ses_client.list_verified_addresses.on_success { |vaddrs|
+  def run_batch_synchronization!(ses_client:)
+    ses_client.list_verified_addresses.on_success do |vaddrs|
+      vaddrs = vaddrs.to_set
       offset = 0
       addresses = AddressStore.load_all(limit: BATCH_SIZE, offset: offset)
 
@@ -17,6 +18,15 @@ module EmailService::SES::Synchronize
         offset += BATCH_SIZE
         addresses = AddressStore.load_all(limit: BATCH_SIZE, offset: offset)
       end
+    end
+  end
+
+  def run_single_synchronization!(community_id:, id:, ses_client:)
+    ses_client.list_verified_addresses.on_success { |vaddrs|
+      update_statuses(
+        build_sync_updates(
+          [AddressStore.get(community_id: community_id, id: id)],
+          vaddrs))
     }
   end
 

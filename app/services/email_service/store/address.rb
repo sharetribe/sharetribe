@@ -28,6 +28,10 @@ module EmailService::Store::Address
       .first)
   end
 
+  def get(community_id:, id:)
+    from_model(MarketplaceSenderEmail.where(community_id: community_id, id: id).first)
+  end
+
   def get_latest(community_id:)
     from_model(
       MarketplaceSenderEmail

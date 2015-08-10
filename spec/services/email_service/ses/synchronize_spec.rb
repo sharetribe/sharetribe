@@ -91,7 +91,7 @@ describe EmailService::SES::Synchronize do
     end
   end
 
-  describe "#run_synchronization" do
+  describe "#run_batch_synchronization" do
     it "syncs db contents with SES data" do
       now = Time.now()
       Timecop.freeze(now) do
@@ -108,7 +108,7 @@ describe EmailService::SES::Synchronize do
 
 
         Timecop.travel(now + 5.seconds) do
-          Synchronize.run_synchronization!(ses_client)
+          Synchronize.run_batch_synchronization!(ses_client: ses_client)
 
           verified_addresses = MarketplaceSenderEmail.where(verification_status: "verified").pluck(:id)
           pending_addresses = MarketplaceSenderEmail.where(verification_status: "requested").pluck(:id)
@@ -116,6 +116,39 @@ describe EmailService::SES::Synchronize do
           expect(pending_addresses.to_set).to eq(ids(addresses[Synchronize::BATCH_SIZE / 2...Synchronize::BATCH_SIZE + 10]).to_set)
 
           expect(MarketplaceSenderEmail.pluck(:updated_at).all? { |updated_at| updated_at > orig_updated_at_max})
+            .to eq(true)
+        end
+      end
+    end
+  end
+
+  describe "#run_single_synchronization!" do
+    it "syncs single address with SES data" do
+      now = Time.now()
+      Timecop.freeze(now) do
+
+        addresses = 10.times.map { gen_address(:new_pending) }
+        verified_addresses = emails(addresses[0...5])
+
+        store_addresses(addresses)
+
+        stubs = {list_verified_email_addresses: {verified_email_addresses: verified_addresses}}
+        ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key"},
+                                                   stubs: {list_verified_email_addresses: {verified_email_addresses: verified_addresses}})
+
+
+        Timecop.travel(now + 5.seconds) do
+          Synchronize.run_single_synchronization!(
+            community_id: addresses[0][:community_id],
+            id: addresses[0][:id],
+            ses_client: ses_client)
+
+          verified_addresses = MarketplaceSenderEmail.where(verification_status: "verified").pluck(:id)
+          pending_addresses = MarketplaceSenderEmail.where(verification_status: "requested").pluck(:id)
+          expect(verified_addresses.to_set).to eq([addresses[0][:id]].to_set)
+          expect(pending_addresses.to_set).to eq(ids(addresses[1...10]).to_set)
+
+          expect(MarketplaceSenderEmail.where(id: addresses[0][:id]).pluck(:updated_at).first > now)
             .to eq(true)
         end
       end
