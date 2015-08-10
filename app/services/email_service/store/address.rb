@@ -56,6 +56,14 @@ module EmailService::Store::Address
     from_model(MarketplaceSenderEmail.create!(HashUtils.compact(address)))
   end
 
+  def set_verification_requested(community_id: community_id, id: id)
+    Maybe(MarketplaceSenderEmail.where(community_id: community_id, id: id).first)
+      .update_attributes(
+        verification_requested_at: Time.now,
+        verification_status: :requested)
+      .or_else(nil)
+  end
+
   def set_verification_status(ids: ids, status: status)
     if ids.present?
       MarketplaceSenderEmail.where(id: ids)

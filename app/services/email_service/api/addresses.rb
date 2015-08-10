@@ -1,10 +1,12 @@
 module EmailService::API
   AddressStore = EmailService::Store::Address
+  Synchronize = EmailService::SES::Synchronize
 
   class Addresses
 
-    def initialize(default_sender:)
+    def initialize(default_sender:, ses_client: nil)
       @default_sender = default_sender
+      @ses_client = ses_client
     end
 
     def get_sender(community_id:)
@@ -35,15 +37,38 @@ module EmailService::API
     end
 
     def create(community_id:, address:)
-      Result::Success.new(
-        with_formats(
-          AddressStore.create(
-          community_id: community_id,
-          address: {verification_status: :none}.merge(address))))
+      create_in_status = @ses_client ? :none : :verified
+
+      address = with_formats(
+        AddressStore.create(
+        community_id: community_id,
+        address: address.merge(verification_status: create_in_status)))
+
+      if @ses_client
+        enque_verification_request(community_id: address[:community_id], id: address[:id])
+      end
+
+      Result::Success.new(address)
     end
 
-    def enque_status_sync
-      # TODO Implement this
+    def enque_verification_request(community_id:, id:)
+      if @ses_client
+        Maybe(AddressStore.get(community_id: community_id, id: id))
+          .each do |address|
+          @ses_client.verify_address(email: address[:email]).on_success do
+            AddressStore.set_verification_requested(community_id: community_id, id: id)
+          end
+        end
+      end
+    end
+
+    def enque_status_sync(community_id:, id:)
+      if @ses_client
+        Synchronize.run_single_synchronization!(
+          community_id: community_id,
+          id: id,
+          ses_client: @ses_client)
+      end
     end
 
     private

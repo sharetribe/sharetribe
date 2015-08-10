@@ -35,8 +35,12 @@ class Admin::CommunitiesController < ApplicationController
     sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data
     user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data
 
-    Maybe(user_defined_address)[:verification_status].reject { |status| status == :verified }.each {
-      EmailService::API::Api.addresses.enque_status_sync
+    Maybe(user_defined_address)
+      .reject { |address| address[:verification_status] == :verified }
+      .each { |address|
+      EmailService::API::Api.addresses.enque_status_sync(
+        community_id: address[:community_id],
+        id: address[:id])
     }
 
     render "edit_welcome_email", locals: {
@@ -55,8 +59,7 @@ class Admin::CommunitiesController < ApplicationController
       community_id: @current_community.id,
       address: {
         name: params[:name],
-        email: params[:email],
-        verification_status: :verified # TODO Remove this. At this point we expect that all addresses are verified when they are added
+        email: params[:email]
       })
 
     flash[:notice] = t("admin.communities.outgoing_email.successfully_saved")
