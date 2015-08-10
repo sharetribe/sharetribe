@@ -4,7 +4,7 @@ describe TimeUtils do
 
   describe "#time_to" do
     it "returns the biggest unit and count" do
-      now = Time.new(2015, 05, 29, 15, 13, 30, "+03:00")
+      now = Time.new(2015, 05, 29, 15, 13, 30).in_time_zone("EET")
       expect(TimeUtils.time_to(15.seconds.since(now), now)).to eq({unit: :seconds, count: 15})
       expect(TimeUtils.time_to(59.seconds.since(now), now)).to eq({unit: :seconds, count: 59})
       expect(TimeUtils.time_to(60.seconds.since(now), now)).to eq({unit: :minutes, count: 1})
