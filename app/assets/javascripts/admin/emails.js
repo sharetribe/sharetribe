@@ -79,7 +79,9 @@ window.ST = window.ST || {};
       });
       pollingStream.onError(function() {
         $(".js-status-loading").hide();
+        $(".js-loaded-sender-address-status").show();
         $(".js-status-error").show();
+        $(".js-sender-address-preview-current").show();
       });
     }
   };
