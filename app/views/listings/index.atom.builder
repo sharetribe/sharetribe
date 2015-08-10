@@ -43,7 +43,7 @@ atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss'
 
 
 
-      entry.st :comment_count, listing.comments.count
+      entry.st :comment_count, listing.comments_count
       entry.st :visibility, listing.visibility
     end
   end
