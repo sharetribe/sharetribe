@@ -19,6 +19,6 @@ en:
         status: "Status: %{status}"
         status_verified: "Verified - in use"
         status_error: "An error occured. Please refresh the page."
-        status_requested: "Unverified - verification email sent to %{email}"
+        status_requested: "Unverified - verification email sent to %{email} %{time_ago}. %{resend_link}"
         status_expired: "Verification of %{email} expires. %{resend_link}"
         resend_link: "Resend"
