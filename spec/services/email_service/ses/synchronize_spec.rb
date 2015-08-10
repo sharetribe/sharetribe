@@ -45,6 +45,15 @@ describe EmailService::SES::Synchronize do
     addresses.map { |a| a[:email] }
   end
 
+  def store_addresses(addresses)
+    addresses.map { |addr|
+      m = MarketplaceSenderEmail.new(addr)
+      m.id = addr[:id]
+      m.save!
+      m.reload
+    }
+  end
+
   describe "#build_sync_updates" do
     it "marks verified requested as verified" do
       addresses = 10.times.map { gen_address(:new_pending) }
@@ -80,6 +89,37 @@ describe EmailService::SES::Synchronize do
                 expired: []})
 
     end
-
   end
+
+  describe "#run_synchronization" do
+    it "syncs db contents with SES data" do
+      now = Time.now()
+      Timecop.freeze(now) do
+
+        addresses = (Synchronize::BATCH_SIZE + 10).times.map { gen_address(:new_pending) }
+        verified_addresses = emails(addresses[0...Synchronize::BATCH_SIZE / 2])
+
+        original_addresses = store_addresses(addresses)
+        orig_updated_at_max = original_addresses.reduce(DateTime.new(0)) { |max, a| a[:updated_at] > max ? a[:updated_at]  : max }
+
+        stubs = {list_verified_email_addresses: {verified_email_addresses: verified_addresses}}
+        ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key"},
+                                                   stubs: {list_verified_email_addresses: {verified_email_addresses: verified_addresses}})
+
+
+        Timecop.travel(now + 5.seconds) do
+          Synchronize.run_synchronization!(ses_client)
+
+          verified_addresses = MarketplaceSenderEmail.where(verification_status: "verified").pluck(:id)
+          pending_addresses = MarketplaceSenderEmail.where(verification_status: "requested").pluck(:id)
+          expect(verified_addresses.to_set).to eq(ids(addresses[0...Synchronize::BATCH_SIZE / 2]).to_set)
+          expect(pending_addresses.to_set).to eq(ids(addresses[Synchronize::BATCH_SIZE / 2...Synchronize::BATCH_SIZE + 10]).to_set)
+
+          expect(MarketplaceSenderEmail.pluck(:updated_at).all? { |updated_at| updated_at > orig_updated_at_max})
+            .to eq(true)
+        end
+      end
+    end
+  end
+
 end

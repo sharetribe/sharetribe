@@ -1,6 +1,24 @@
 module EmailService::SES::Synchronize
 
+  AddressStore = EmailService::Store::Address
+
+  BATCH_SIZE = 1000
+
   module_function
+
+  def run_synchronization!(ses_client)
+    ses_client.list_verified_addresses.on_success { |vaddrs|
+      offset = 0
+      addresses = AddressStore.load_all(limit: BATCH_SIZE, offset: offset)
+
+      while addresses.present?
+        update_statuses(build_sync_updates(addresses, vaddrs))
+
+        offset += BATCH_SIZE
+        addresses = AddressStore.load_all(limit: BATCH_SIZE, offset: offset)
+      end
+    }
+  end
 
   def build_sync_updates(addresses, verified_addresses)
     vaddrs = verified_addresses.to_set
@@ -15,6 +33,15 @@ module EmailService::SES::Synchronize
 
 
   ## Privates
+
+  def update_statuses(updates)
+    [:verified, :expired, :none].each do |status|
+      AddressStore.set_verification_status(ids: updates[status], status: status)
+    end
+
+    AddressStore.touch(ids: updates[:touch])
+  end
+
 
   AWS_EXPIRATION_HOURS = 24
 

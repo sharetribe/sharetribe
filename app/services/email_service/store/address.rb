@@ -8,6 +8,7 @@ module EmailService::Store::Address
   )
 
   Address = EntityUtils.define_builder(
+    [:id, :fixnum, :mandatory],
     [:community_id, :fixnum, :mandatory],
     [:name, :string, :optional],
     [:email, :string, :mandatory],
@@ -36,6 +37,13 @@ module EmailService::Store::Address
       .first)
   end
 
+  def load_all(limit: limit, offset: offset)
+    MarketplaceSenderEmail
+      .limit(limit)
+      .offset(offset)
+      .map { |m| from_model(m) }
+  end
+
   def create(community_id:, address:)
     address = Address.call(
       address.merge(
@@ -43,6 +51,22 @@ module EmailService::Store::Address
     )
     from_model(MarketplaceSenderEmail.create!(HashUtils.compact(address)))
   end
+
+  def set_verification_status(ids: ids, status: status)
+    if ids.present?
+      MarketplaceSenderEmail.where(id: ids)
+        .update_all(verification_status: status, updated_at: Time.now)
+    end
+  end
+
+  def touch(ids: ids)
+    if ids.present?
+      MarketplaceSenderEmail.where(id: ids)
+        .update_all(updated_at: Time.now)
+    end
+  end
+
+  ## Privates
 
   def from_model(model)
     Maybe(model).map { |m|
