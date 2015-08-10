@@ -52,7 +52,7 @@ window.ST = window.ST || {};
       $preview.text(formatSender(values));
     });
 
-    if (userEmail && userEmail.verificationStatus === "requested") {
+    if (userEmail && userEmail.verificationStatus !== "verified") {
       var pollingStream = ST.utils.baconStreamFromAjaxPolling(
         { url: statusCheckUrl,
           data: { email: userEmail.email }
