@@ -52,8 +52,6 @@ module EmailService::API
 
     def enque_status_sync
       # TODO Implement this
-      MarketplaceSenderEmail.update_all(updated_at: 1.second.from_now)
-      # MarketplaceSenderEmail.update_all(verification_status: :verified)
     end
 
     private
