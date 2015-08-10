@@ -255,6 +255,10 @@ Then /^I should see that I successfully paid (.*?)$/ do |amount|
   page.should have_content("paid #{amount}")
 end
 
+Then /^I should see that I successfully authorized payment (.*?)$/ do |amount|
+  page.should have_content("Payment authorized: #{amount}")
+end
+
 Then /^"(.*?)" should receive email about payment$/ do |receiver|
   email = Person.find_by_username(receiver).confirmed_notification_emails.first.address
   steps %Q{
