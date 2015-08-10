@@ -59,7 +59,7 @@
           .col-12
             = t("admin.communities.outgoing_email.status", status: content_for(:verification_status)).html_safe
 
-        .row.js-if-you-needs-to-change
+        .row.js-if-you-needs-to-change.hidden
           .col-12
             = t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
 
