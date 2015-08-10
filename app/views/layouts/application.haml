@@ -54,6 +54,8 @@
 
   -# Most of the JavaScript should be for performance reasons at the end of the body
 
+  = content_for(:location_search)
+
   -# load Facebook SDK for the whole page
   = render :partial => "layouts/facebook_sdk"
 

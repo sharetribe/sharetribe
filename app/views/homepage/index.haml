@@ -14,10 +14,16 @@
           .content
             = t("layouts.application.connect")
       - else
-        = render :partial => "search_bar"
+        - if(feature_enabled?(:location_search))
+          = render :partial => "location_bar"
+        - else
+          = render :partial => "search_bar"
   - with_small_cover_photo do
     .browse-view-search-form
-      = render :partial => "search_bar"
+      - if(feature_enabled?(:location_search))
+        = render :partial => "location_bar"
+      - else
+        = render :partial => "search_bar"
 
 - if @current_community.private? && show_big_cover_photo?
   - if @community_customization && @community_customization.private_community_homepage_content
