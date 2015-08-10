@@ -45,6 +45,7 @@ class Admin::CommunitiesController < ApplicationController
 
     render "edit_welcome_email", locals: {
              status_check_url: check_email_status_admin_community_path,
+             resend_url: resend_verification_email_admin_community_path,
              support_email: APP_CONFIG.support_email,
              sender_address: sender_address,
              user_defined_address: user_defined_address,
@@ -67,13 +68,16 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def check_email_status
-    email = params[:email]
-
     EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).on_success { |address|
       render json: HashUtils.camelize_keys(address)
     }.on_error { |error_msg|
       render json: {error: error_msg }, status: 500
     }
+  end
+
+  def resend_verification_email
+    # TODO Implement resend
+    redirect_to action: :edit_welcome_email
   end
 
   def social_media
