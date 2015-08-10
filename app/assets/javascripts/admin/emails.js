@@ -70,7 +70,7 @@ window.ST = window.ST || {};
         $(".js-loaded-sender-address-status").show();
         $(".js-status-" + result.verificationStatus).show();
 
-        if(result.verificationStatus == "verified") {
+        if(result.verificationStatus === "verified") {
           $(".js-sender-address-preview-new").show();
           $(".js-if-you-need-to-change").show();
         } else {
