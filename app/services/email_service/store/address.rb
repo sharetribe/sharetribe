@@ -14,10 +14,6 @@ module EmailService::Store::Address
 
   module_function
 
-  def get(community_id:, email:)
-    from_model(MarketplaceSenderEmail.where(community_id: community_id, email: email).first)
-  end
-
   def get_latest_verified(community_id:)
     from_model(
       MarketplaceSenderEmail
