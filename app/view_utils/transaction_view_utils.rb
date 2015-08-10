@@ -139,7 +139,7 @@ module TransactionViewUtils
 
     message = case state
     when "preauthorized"
-      t("conversations.message.paid", sum: humanized_money_with_symbol(payment_sum))
+      t("conversations.message.payment_preauthorized", sum: humanized_money_with_symbol(payment_sum))
     when "accepted"
       t("conversations.message.accepted_request")
     when "rejected"

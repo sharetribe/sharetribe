@@ -26,7 +26,7 @@ Feature: Preauthorized payment
      Then I should see payment details form for Braintree
 
      When I fill in my payment details for Braintree
-     Then I should see that I successfully paid $50
+     Then I should see that I successfully authorized payment $50
       And I should see that the request is waiting for seller acceptance
 
      When I log in as "seller_jane"
@@ -51,7 +51,7 @@ Feature: Preauthorized payment
       And I should see payment details form for Braintree
 
      When I fill in my payment details for Braintree
-     Then I should see that I successfully paid $100
+     Then I should see that I successfully authorized payment $100
       And I should see that the request is waiting for seller acceptance
 
      When I log in as "seller_jane"
@@ -73,7 +73,7 @@ Feature: Preauthorized payment
      Then I should see payment details form for Braintree
 
      When I fill in my payment details for Braintree
-     Then I should see that I successfully paid $50
+     Then I should see that I successfully authorized payment $50
       And I should see that the request is waiting for seller acceptance
 
      When I log in as "seller_jane"
@@ -94,7 +94,7 @@ Feature: Preauthorized payment
      Then I should see payment details form for Braintree
 
      When I fill in my payment details for Braintree
-     Then I should see that I successfully paid $50
+     Then I should see that I successfully authorized payment $50
       And I should see that the request is waiting for seller acceptance
 
      When the seller does not respond the request within 5 days
