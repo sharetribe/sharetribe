@@ -117,55 +117,58 @@ describe EmailService::API::Addresses do
 
     context "success" do
       it "returns unique user defined address by community id and email" do
-        emails_api.addresses.create(
-          community_id: 123, address: {
-            name: "Email Sender Name",
-            email: "hello@mymarketplace.invalid",
-            verification_status: :verified,
-            updated_at: now,
-          })
-
-        res = emails_api.addresses.get_user_defined(community_id: 123)
-        expect(res.success).to eq(true)
-        expect(res.data).to eq({
-                            community_id: 123,
-                            name: "Email Sender Name",
-                            email: "hello@mymarketplace.invalid",
-                            updated_at: now,
-                            verification_status: :verified,
-                            display_format: "Email Sender Name <hello@mymarketplace.invalid>",
-                            smtp_format: "\"Email Sender Name\" <hello@mymarketplace.invalid>"})
-      end
-
-      it "returns always the latest email" do
-        emails_api.addresses.create(
-          community_id: 123, address: {
-            name: "Email Sender Name",
-            email: "hello@mymarketplace.invalid",
-            verification_status: :verified,
-            updated_at: now,
-          })
-
-        Timecop.travel(1.second.from_now) do
-
+        now = Time.zone.local(2015, 8, 10)
+        Timecop.freeze(now) do
           emails_api.addresses.create(
             community_id: 123, address: {
-              name: "Email 2 Sender Name",
-              email: "hello2@mymarketplace.invalid",
-              verification_status: :verified,
-              updated_at: now,
+              name: "Email Sender Name",
+              email: "hello@mymarketplace.invalid",
+              verification_status: :verified
             })
 
           res = emails_api.addresses.get_user_defined(community_id: 123)
           expect(res.success).to eq(true)
           expect(res.data).to eq({
                                    community_id: 123,
-                                   name: "Email 2 Sender Name",
-                                   email: "hello2@mymarketplace.invalid",
+                                   name: "Email Sender Name",
+                                   email: "hello@mymarketplace.invalid",
                                    updated_at: now,
                                    verification_status: :verified,
-                                   display_format: "Email 2 Sender Name <hello2@mymarketplace.invalid>",
-                                   smtp_format: "\"Email 2 Sender Name\" <hello2@mymarketplace.invalid>"})
+                                   display_format: "Email Sender Name <hello@mymarketplace.invalid>",
+                                   smtp_format: "\"Email Sender Name\" <hello@mymarketplace.invalid>"})
+        end
+      end
+
+      it "returns always the latest email" do
+        now = Time.zone.local(2015, 8, 10)
+        Timecop.freeze(now) do
+          emails_api.addresses.create(
+            community_id: 123, address: {
+              name: "Email Sender Name",
+              email: "hello@mymarketplace.invalid",
+              verification_status: :verified,
+            })
+
+          Timecop.travel(now + 1.second) do
+
+            emails_api.addresses.create(
+              community_id: 123, address: {
+                name: "Email 2 Sender Name",
+                email: "hello2@mymarketplace.invalid",
+                verification_status: :verified,
+              })
+
+            res = emails_api.addresses.get_user_defined(community_id: 123)
+            expect(res.success).to eq(true)
+            expect(res.data).to eq({
+                                     community_id: 123,
+                                     name: "Email 2 Sender Name",
+                                     email: "hello2@mymarketplace.invalid",
+                                     updated_at: now + 1.second,
+                                     verification_status: :verified,
+                                     display_format: "Email 2 Sender Name <hello2@mymarketplace.invalid>",
+                                     smtp_format: "\"Email 2 Sender Name\" <hello2@mymarketplace.invalid>"})
+          end
         end
 
       end

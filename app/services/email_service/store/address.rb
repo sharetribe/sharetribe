@@ -1,5 +1,12 @@
 module EmailService::Store::Address
 
+  NewAddress = EntityUtils.define_builder(
+    [:community_id, :fixnum, :mandatory],
+    [:name, :string, :optional],
+    [:email, :string, :mandatory],
+    [:verification_status, :to_symbol, one_of: [:none, :requested, :verified, :expired]]
+  )
+
   Address = EntityUtils.define_builder(
     [:community_id, :fixnum, :mandatory],
     [:name, :string, :optional],
