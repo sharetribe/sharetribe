@@ -64,7 +64,7 @@ module MarketplaceService::API
       processes = Helper.create_processes!(community.id, payment_process)
       shape = Helper.create_listing_shape!(community, p[:marketplace_type], payment_process)
 
-      plan_level = p[:plan_level].or_else(0)
+      plan_level = p[:plan_level].or_else(PlanService::Levels::FREE)
       expires_at = p[:expires_at].or_else(Time.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days)
       PlanService::API::Api.plans.create(community_id: community.id, plan: { plan_level: plan_level, expires_at: expires_at })
 
