@@ -1,4 +1,4 @@
-describe PlanService::API::Plans, focus: true do
+describe PlanService::API::Plans do
 
   let(:plans_api) { PlanService::API::Api }
 

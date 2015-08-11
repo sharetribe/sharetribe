@@ -376,7 +376,7 @@ class ApplicationController < ActionController::Base
 
   def fetch_community_plan_expiration_status
     Maybe(@current_community).id.each { |community_id|
-      @is_community_plan_expired = PlanService::API::Api.plans.expired?(community_id: community_id).data
+      @is_community_plan_expired = PlanService::API::Api.plans.get_current(community_id: community_id).data[:expired]
     }
   end
 
