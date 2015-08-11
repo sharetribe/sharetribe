@@ -15,10 +15,7 @@
 #
 
 class CommunityPlan < ActiveRecord::Base
-
   attr_accessible :community_id,
     :plan_level,
     :expires_at
-
-  belongs_to :community
 end
