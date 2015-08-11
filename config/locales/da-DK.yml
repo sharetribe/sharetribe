@@ -593,7 +593,7 @@ da-DK:
       canceled_request: "afvis anmodningen"
       canceled_offer: "afvis tilbudet"
       paid: "betalt %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Betaling godkendt: %{sum}"
     new:
       offer_message_form_title: "Tilbyd %{listing} til %{person}"
       request_message_form_title: "Ansøg %{listing} fra %{person}"

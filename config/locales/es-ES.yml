@@ -147,11 +147,13 @@ es-ES:
         social_media: "Es recomendable utilizar Social media para hacer crecer tu comunidad. Puedes %{facebook_link} para hacer más fácil que los usuarios se registren en tu marketplace y además puedes %{twitter_link} para conseguir que tu contenido tenga un mayor alcance."
         facebook_link_text: "integrar tu propia Facebook app"
         twitter_link_text: "añadir tu cuenta de Twitter"
-        analytics: ~
+        analytics: "También es una buena idea %{analytics_link}. De esta manera, podrás ver lo que pasa en tu marketplace, cuántos visitantes tienes, y demás"
         analytics_link_text: "conectar tu cuenta de Google Analytics"
-        settings: ~
-        settings_link_text: ~
-        final_words: ~
+        settings: "Hay otras opciones de configuración que puedes utilizar. Por ejemplo, puedes requerir que todos los usuarios sean invitados por otros usuarios antes de que puedan unirse a tu marketplace; o puedes hacerlo privado, para que únicamente los usuarios que hayan iniciado sesión puedan ver el contenido. %{settings_link}."
+        settings_link_text: "Ver la configuración de tu Marketplace aquí"
+        final_words: |-
+            Eso es todo! Si ya tienes todo listo, puedes empezar %{invite_link} a tu marketplace. Puedes ver todos los usuarios que se han registrado %{view_users_link}, y todas las transacciones que han completado %{view_transactions_link}. También podrás gestionar las publicaciones fácilmente: simplemente ve a la página de la publicación y allí verás los links de administrador de 'editar' y 'cerrar'. 
+            Si necesitas ayuda, puedes %{contact_support_link} - Estamos aquí para ayudarte!
         invite_link_text: "invitar a otros usuarios"
         view_users_link_text: aquí
         view_transactions_link_text: aquí
@@ -358,7 +360,7 @@ es-ES:
       support: Soporte
     listing_shapes:
       index:
-        listing_shapes: ~
+        listing_shapes: "Tipos de Orden"
         description: ~
         read_more_about_order_types: "Leer más sobre tipos de pedidos"
         add_new_shape: "Añadir un nuevo tipo de pedido: "
@@ -389,8 +391,8 @@ es-ES:
         create_failure: "No se pudo crear un nuevo tipo de pedido. Error: %{error_msg}"
       edit:
         edit_listing_shape: ~
-        update: ~
-        cancel: ~
+        update: Guardar
+        cancel: Cancelar
         update_success: ~
         update_failure: ~
         delete: "Borrar tipo de pedido"
@@ -399,9 +401,9 @@ es-ES:
           other: "Hay %{count} anuncios con este tipo de orden. Si eliminas el tipo de orden estos anuncios se cerrarán. Estás seguro de que quieres eliminar este tipo de orden?"
         can_not_delete_last: "No puedes eliminar este tipo de transacción porque es el único tipo de transacción que existe en tu marketplace."
         can_not_delete_only_one_in_categories: "No puedes eliminar este tipo de transacción porque en las categorías solo se usa este tipo de transacción: %{categories}"
-      listing_shape_name: ~
+      listing_shape_name: Nombre
       listing_shape_name_placeholder: "ej: Vender"
-      action_button_label: ~
+      action_button_label: "Etiqueta del botón de checkout"
       action_button_placeholder: "ej: Comprar"
       open_listings_warning:
         one: "Hay %{count} anuncio abierto con este tipo de orden. Si cambias cualquiera de los ajustes de abajo, este anuncio no se actualizará y mantendrá los ajustes anteriores. Puedes actualizar los ajustes del anuncio editándolo manualmente.  En caso de que no quieras que este anuncio con los ajustes desactualizados sea visible en tu marketplace, puedes cerrarlo (desactivarlo) haciendo clic en el botón de abajo."
@@ -416,17 +418,17 @@ es-ES:
       successfully_deleted: "Pedido tipo '%{order_type}' borrado correctamente"
       pricing_and_checkout_title: "Precio & pago y envío"
       online_payments_label: "Utilizar el sistema de pago Online"
-      shipping_label: ~
+      shipping_label: "Permitir que los vendedores establezcan un costo de envío"
       price_label: "Mostrar el campo de precio"
-      units_title: ~
+      units_title: "Unidades de precio"
       units_desc: ~
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: "Por pieza"
+        hour: "Por hora"
+        day: "Por día"
+        night: "Por noche"
+        week: "Por semana"
+        month: "Por mes"
       can_not_find: "No se pudo encontrar el tipo de transacción con id: %{id}"
       add_custom_unit: "+ Añadir una unidad de precio personalizada..."
       delete_custom_unit: Eliminar
@@ -595,7 +597,7 @@ es-ES:
       canceled_request: "canceló la solicitud"
       canceled_offer: "canceló la oferta"
       paid: "pagó %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Pago autorizado: %{sum}"
     new:
       offer_message_form_title: "Ofrecer %{listing} a %{person}"
       request_message_form_title: "Solicitar %{listing} a %{person}"
@@ -953,9 +955,9 @@ es-ES:
       your_marketplace_admin_area: "El área de administración de tu marketplace"
       just_follow_details: "Sólo necesitas seguir los enlaces siguientes para obtener más información sobre cómo empezar a construir tu marketplace."
       we_will_guide_you_along_the_way: "Te guiaremos a lo largo del proceso."
-      are_you_new_to_online_marketplaces: ~
+      are_you_new_to_online_marketplaces: "Necesitas asistencia con tu marketplace? No te preocupes! Estamos aquí para ayudarte!  Te enviaremos una serie de emails que te ayudarán a sacarle el mayor provecho a Sharetribe y a construir un negocio exitoso con tu marketplace.  Muy pronto te enviaremos la 'Parte 1'."
       have_questions: "¿Tienes alguna pregunta?"
-      our_happiness_team_is_here_to_help: ~
+      our_happiness_team_is_here_to_help: "Nuestro 'equipo de la felicidad' está aquí para tí! Puedes %{knowledge_base_link} o contactar a nuestro equipo de soporte a través de %{admin_panel_link}."
       love: "Love,"
       sharetribe_crew: "El equipo de Sharetribe."
       knowledge_base_link_text: "revisa nuestros recursos"
@@ -1175,7 +1177,7 @@ es-ES:
       click_here_link_text: "Clic aquí"
     how_to_use:
       default_title: "Cómo funciona"
-      default_content: ~
+      default_content: "Aquí puedes encontrar información sobre cómo funciona %{marketplace_name}."
   layouts:
     admin:
       admin: "Panel de administración de %{service_name}"
@@ -1598,7 +1600,7 @@ es-ES:
         per_quantity_unit: "por %{quantity_unit}"
         per_day: "por día"
       delivery: "Método de envío"
-      shipping: ~
+      shipping: "Envío (+%{price})"
       shipping_no_price: Envío
       shipping_price_additional: "Envío (+%{price}, productos adicionales: +%{shipping_price_additional})"
       pickup: Recoger
