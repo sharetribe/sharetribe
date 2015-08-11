@@ -585,7 +585,7 @@ fi:
       canceled_request: "peruutti pyynnön"
       canceled_offer: "peruutti tarjouksen"
       paid: "maksoi %{sum}"
-      payment_preauthorized: "Maksu suoritettu: %{sum}"
+      payment_preauthorized: "Katevaraus tehty: %{sum}"
     new:
       offer_message_form_title: "Tarjoa %{listing} käyttäjälle %{person}"
       request_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
@@ -668,7 +668,7 @@ fi:
       request_confirmed: "Pyyntö toteutunut"
       request_canceled: "Pyyntö peruutettu"
       request_paid: "Maksu suoritettu"
-      request_preauthorized: "Maksu suoritettu"
+      request_preauthorized: "Katevaraus tehty"
       skip_feedback: "Ohita palaute"
       waiting_for_listing_author_to_accept_offer: "Odottaa että %{listing_author_name} hyväksyy tarjouksen"
       waiting_for_listing_author_to_accept_request: "Odottaa että %{listing_author_name} hyväksyy pyynnön"
