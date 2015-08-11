@@ -1147,7 +1147,7 @@ id:
       default_content: ~
   layouts:
     admin:
-      admin: ~
+      admin: "%{service_name} admin panel"
     no_tribe:
       inbox: ~
       settings: ~
@@ -1156,12 +1156,14 @@ id:
       join_this_community: ~
       read_more: ~
       feedback: "Apa yang Anda mau kabari kami?"
-      default_feedback: ~
+      default_feedback: |-
+          Apakah Anda mengalami masalah dengan %{service_name}? 
+          Memiliki saran untuk meningkatkan pelayanan? Melihat beberapa konten yang mencurigakan atau mengkwatirkan? Atau hanya memiliki sesuatu yang Anda ingin diskusikan dengan kami? Beritahu kami!
       feedback_forum: feedback_forum
       feedback_handle: "Saran atau masukan"
       give_feedback: "Hubungi Kami"
       or_check_our: ~
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Kirim Masukkan"
       to_see_what_others_have_suggested: ~
       your_email_address: "Alamat email (untuk menghubungi Anda)"
       connect: ~
@@ -1208,7 +1210,7 @@ id:
       notifications: Notifikasi
       requests: "Permintaan untuk berteman"
       settings: ~
-      sign_up: Mendaftar
+      sign_up: Daftar
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
@@ -1946,61 +1948,61 @@ id:
       about_listing: ~
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %d %b %Y %H.%M.%S %z"
   datepicker:
     days:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Minggu
+      monday: Senin
+      tuesday: Selasa
+      wednesday: Rabu
+      thursday: Kamis
+      friday: Jumat
+      saturday: Sabtu
     days_short:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Min
+      monday: Sen
+      tuesday: Sel
+      wednesday: Rabu
+      thursday: Kam
+      friday: Jum
+      saturday: Sab
     days_min:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: Min
+      monday: Sen
+      tuesday: Sel
+      wednesday: Rabu
+      thursday: Kam
+      friday: Jum
+      saturday: Sab
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: Januari
+      february: Februari
+      march: Maret
+      april: April
+      may: Mei
+      june: Juni
+      july: Juli
+      august: Agustus
+      september: September
+      october: Oktober
+      november: November
+      december: Desember
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
-    today: ~
-    clear: ~
-    format: ~
+      january: Jan
+      february: Feb
+      march: Mar
+      april: Apr
+      may: Mei
+      june: Jun
+      july: Jul
+      august: Agu
+      september: Sep
+      october: Okt
+      november: Nov
+      december: Des
+    today: "hari ini"
+    clear: hapus
+    format: dd/mm/yyyy
   time:
     formats:
       short: ~

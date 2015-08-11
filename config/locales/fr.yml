@@ -597,7 +597,7 @@ fr:
       canceled_request: "a annulé la demande"
       canceled_offer: "a annulé l'offre"
       paid: "a payé %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Paiement autorisé : %{sum}"
     new:
       offer_message_form_title: "Proposer %{listing} à %{person}"
       request_message_form_title: "Demander %{listing} à %{person}"

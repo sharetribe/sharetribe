@@ -1429,7 +1429,7 @@ pt-BR:
         after_service_fee_you_will_get: "Depois do processamento das taxas da %{service_name}, você receberá %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} irá deduzir do preço."
         after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: "Processando o pagamento da taxa do PayPal"
+        paypal_fee_info_link_text: "processando o pagamento da taxa do PayPal"
         after_service_fee_you_will_get_vat: "Depois do processamento das taxas da %{service_name}, você receberá aproximadamente %{sum_with_currency} (VAT 0%)"
         price_excludes_vat: "O preço não inclui VAT."
         delivery: "Método de entrega"
@@ -1681,7 +1681,7 @@ pt-BR:
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
-      paypal_info_link_text: "Processando o pagamento da taxa do PayPal"
+      paypal_info_link_text: "rocessando o pagamento da taxa do PayPal"
       billing_agreement_description: "Conceder permissão a %{service_name} para cobrar uma taxa de transação."
       billing_agreement: "Conceder permissão"
       permissions_not_granted: "Permissões para conectar com a conta PayPal não são concedidas."
