@@ -8,7 +8,7 @@ $("#comment-list").append("<%= escape_javascript(render(:partial => 'listings/co
 $("#comment<%= @comment.id.to_s %>").effect("highlight", {}, 2000);
 
 /* Update comment count */
-$("#comment_count").html("(<%= @comment.listing.comments.count %>)");
+$("#comment_count").html("(<%= @comment.listing.comments_count %>)");
 
 /* Reset the message form */
 $("#new_comment")[0].reset();
