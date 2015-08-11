@@ -1,3 +1,5 @@
+require_relative "api.rb"
+
 describe EmailService::API::Addresses do
 
   AddressStore = EmailService::Store::Address
@@ -8,7 +10,30 @@ describe EmailService::API::Addresses do
       ses_client: nil)
   end
 
+  let(:ses_client) do
+    EmailService::SES::Client.new(
+      config: {
+        region: "fake-region",
+        access_key_id: "access_key",
+        secret_access_key: "secret_access_key"},
+      stubs: true)
+  end
+
+  let(:addresses_with_ses) do
+    EmailService::API::Addresses.new(
+      default_sender: "Default Sender Name <default_sender@example.com.invalid>",
+      ses_client: ses_client)
+  end
+
   let(:now) { Time.zone.local(2015, 8, 7) }
+
+  before(:each) do
+    SyncDelayedJobObserver.reset!
+  end
+
+  after(:each) do
+    SyncDelayedJobObserver.reset!
+  end
 
   describe "#get_sender" do
     context "user defined sender address" do
@@ -183,6 +208,139 @@ describe EmailService::API::Addresses do
       it "returns error if none found" do
         res = addresses_wo_ses.get_user_defined(community_id: 999)
         expect(res.success).to eq(false)
+      end
+    end
+  end
+
+  describe "#create" do
+    context "no ses client configured" do
+      it "Creates addresses in :verified status" do
+        created = addresses_wo_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@mymarketplace.invalid"
+          }).data
+
+        expect(created[:verification_status]).to eq(:verified)
+      end
+    end
+
+    context "ses client configured" do
+
+      it "Creates addresses in :none status" do
+        created = addresses_with_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@mymarketplace.invalid"
+          }).data
+
+        expect(created[:verification_status]).to eq(:none)
+      end
+
+      it "enqueues a verification request" do
+        SyncDelayedJobObserver.enable!
+        Timecop.freeze(now) do
+
+          addresses_with_ses.create(
+            community_id: 123, address: {
+              name: "Email 2 Sender Name",
+              email: "hello2@mymarketplace.invalid"
+            })
+
+          address = addresses_with_ses.get_user_defined(community_id: 123).data
+          expect(address[:verification_status]).to eq(:requested)
+          expect(address[:verification_requested_at]).to eq(now)
+        end
+
+      end
+
+    end
+  end
+
+  describe "#enqueue_status_sync" do
+    it "enqueues a status sync for the given address" do
+      SyncDelayedJobObserver.enable!
+      Timecop.freeze(now) do
+
+        created = addresses_with_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@mymarketplace.invalid"
+          }).data
+
+        Timecop.travel(now + 2.seconds) do
+          addresses_with_ses.enqueue_status_sync(
+            community_id: created[:community_id],
+            id: created[:id])
+
+          address = addresses_with_ses.get_user_defined(community_id: created[:community_id]).data
+          expect(address[:updated_at]).to eq(now + 2.seconds)
+        end
+      end
+    end
+
+    it "does nothing if no ses client defined" do
+      SyncDelayedJobObserver.enable!
+      Timecop.freeze(now) do
+
+        created = addresses_wo_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@mymarketplace.invalid"
+          }).data
+
+        Timecop.travel(now + 2.seconds) do
+          addresses_wo_ses.enqueue_status_sync(
+            community_id: created[:community_id],
+            id: created[:id])
+
+          address = addresses_wo_ses.get_user_defined(community_id: created[:community_id]).data
+          expect(address[:updated_at]).to eq(now)
+        end
+      end
+    end
+  end
+
+  describe "#enqueue verification request" do
+    it "enqueues a fresh verification request for the given address" do
+      SyncDelayedJobObserver.enable!
+      Timecop.freeze(now) do
+
+        created = addresses_with_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@mymarketplace.invalid"
+          }).data
+
+        Timecop.travel(now + 4.seconds) do
+          addresses_with_ses.enqueue_verification_request(
+            community_id: created[:community_id],
+            id: created[:id])
+
+          address = addresses_with_ses.get_user_defined(community_id: created[:community_id]).data
+          expect(address[:verification_requested_at]).to eq(now + 4.seconds)
+        end
+      end
+    end
+
+    it "does nothing when no ses client defined" do
+      SyncDelayedJobObserver.enable!
+      Timecop.freeze(now) do
+
+        created = addresses_wo_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@mymarketplace.invalid"
+          }).data
+
+        Timecop.travel(now + 4.seconds) do
+          addresses_wo_ses.enqueue_verification_request(
+            community_id: created[:community_id],
+            id: created[:id])
+
+          address = addresses_wo_ses.get_user_defined(community_id: created[:community_id]).data
+          expect(address[:verification_requested_at]).to eq(nil)
+        end
       end
     end
   end

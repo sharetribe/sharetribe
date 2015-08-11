@@ -25,7 +25,7 @@ module EmailService::SES::Synchronize
     ses_client.list_verified_addresses.on_success { |vaddrs|
       update_statuses(
         build_sync_updates(
-          [AddressStore.get(community_id: community_id, id: id)],
+          [AddressStore.get(community_id: community_id, id: id)].compact,
           vaddrs))
     }
   end

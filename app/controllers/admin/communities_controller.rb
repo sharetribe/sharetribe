@@ -38,7 +38,7 @@ class Admin::CommunitiesController < ApplicationController
     Maybe(user_defined_address)
       .reject { |address| address[:verification_status] == :verified }
       .each { |address|
-      EmailService::API::Api.addresses.enque_status_sync(
+      EmailService::API::Api.addresses.enqueue_status_sync(
         community_id: address[:community_id],
         id: address[:id])
     }

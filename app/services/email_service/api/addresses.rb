@@ -45,29 +45,23 @@ module EmailService::API
         address: address.merge(verification_status: create_in_status)))
 
       if @ses_client
-        enque_verification_request(community_id: address[:community_id], id: address[:id])
+        enqueue_verification_request(community_id: address[:community_id], id: address[:id])
       end
 
       Result::Success.new(address)
     end
 
-    def enque_verification_request(community_id:, id:)
+    def enqueue_verification_request(community_id:, id:)
       if @ses_client
-        Maybe(AddressStore.get(community_id: community_id, id: id))
-          .each do |address|
-          @ses_client.verify_address(email: address[:email]).on_success do
-            AddressStore.set_verification_requested(community_id: community_id, id: id)
-          end
-        end
+        Delayed::Job.enqueue(
+          EmailService::Jobs::RequestEmailVerification.new(community_id, id))
       end
     end
 
-    def enque_status_sync(community_id:, id:)
+    def enqueue_status_sync(community_id:, id:)
       if @ses_client
-        Synchronize.run_single_synchronization!(
-          community_id: community_id,
-          id: id,
-          ses_client: @ses_client)
+        Delayed::Job.enqueue(
+          EmailService::Jobs::SingleSync.new(community_id, id))
       end
     end
 

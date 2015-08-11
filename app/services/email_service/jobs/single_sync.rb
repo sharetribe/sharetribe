@@ -1,0 +1,25 @@
+module EmailService::Jobs
+  class SingleSync < Struct.new(:community_id, :id)
+
+    AddressStore = EmailService::Store::Address
+    Synchronize = EmailService::SES::Synchronize
+
+    include DelayedAirbrakeNotification
+
+    def perform
+      if ses_client
+        Synchronize.run_single_synchronization!(
+          community_id: community_id,
+          id: id,
+          ses_client: ses_client)
+      end
+    end
+
+
+    private
+
+    def ses_client
+      EmailService::API::Api.ses_client
+    end
+  end
+end
