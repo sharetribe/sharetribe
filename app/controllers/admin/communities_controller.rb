@@ -45,7 +45,7 @@ class Admin::CommunitiesController < ApplicationController
 
     render "edit_welcome_email", locals: {
              status_check_url: check_email_status_admin_community_path,
-             resend_url: resend_verification_email_admin_community_path(address_id: user_defined_address[:id]),
+             resend_url: Maybe(user_defined_address).map { |address| resend_verification_email_admin_community_path(address_id: address[:id]) }.or_else(nil),
              support_email: APP_CONFIG.support_email,
              sender_address: sender_address,
              user_defined_address: user_defined_address,
@@ -76,7 +76,7 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def resend_verification_email
-    EmailService::API::Api.addresses.enque_verification_request(community_id: @current_community.id, id: params[:address_id])
+    EmailService::API::Api.addresses.enqueue_verification_request(community_id: @current_community.id, id: params[:address_id])
 
     redirect_to action: :edit_welcome_email
   end
