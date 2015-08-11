@@ -4,10 +4,11 @@ class CommentsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_comment")
   end
 
-  before_filter :ensure_authorized_to_comment
+  before_filter :ensure_authorized_to_comment, only: [:create]
 
   def create
     if @comment.save
+      @comment.reload
       Delayed::Job.enqueue(CommentCreatedJob.new(@comment.id, @current_community.id))
     else
       flash[:error] = t("layouts.notifications.comment_cannot_be_empty")
@@ -15,6 +16,20 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to listing_path(params[:comment][:listing_id]) }
       format.js { render :layout => false }
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    if current_user?(@comment.author) || @current_user.has_admin_rights_in?(@current_community)
+      @comment.destroy
+      respond_to do |format|
+        format.html { redirect_to listing_path(params[:listing_id]) }
+        format.js { render :layout => false }
+      end
+    else
+      flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
+      redirect_to listing_path(params[:listing_id])
     end
   end
 
