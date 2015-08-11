@@ -341,4 +341,63 @@ describe EmailService::API::Addresses do
       end
     end
   end
+
+  describe "#enqueue_batch_sync" do
+    it "enqueues a batch sync" do
+      SyncDelayedJobObserver.enable!
+      Timecop.freeze(now) do
+
+        addresses_with_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@mymarketplace.invalid"
+          })
+        addresses_with_ses.create(
+          community_id: 321, address: {
+            name: "Email 3 Sender Name",
+            email: "hello3@mymarketplace.invalid"
+          })
+
+        Timecop.travel(now + 3.seconds) do
+          addresses_with_ses.enqueue_batch_sync()
+
+          addresses = [addresses_with_ses.get_user_defined(community_id: 123).data,
+                       addresses_with_ses.get_user_defined(community_id: 321).data]
+
+          addresses.each do |address|
+            expect(address[:updated_at]).to eq(now + 3.seconds)
+          end
+        end
+      end
+    end
+
+    it "does nothing when no ses client defined" do
+      SyncDelayedJobObserver.enable!
+      Timecop.freeze(now) do
+
+        addresses_wo_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@mymarketplace.invalid"
+          })
+        addresses_wo_ses.create(
+          community_id: 321, address: {
+            name: "Email 3 Sender Name",
+            email: "hello3@mymarketplace.invalid"
+          })
+
+        Timecop.travel(now + 3.seconds) do
+          addresses_wo_ses.enqueue_batch_sync()
+
+          addresses = [addresses_wo_ses.get_user_defined(community_id: 123).data,
+                       addresses_wo_ses.get_user_defined(community_id: 321).data]
+
+          addresses.each do |address|
+            expect(address[:updated_at]).to eq(now)
+          end
+        end
+      end
+
+    end
+  end
 end

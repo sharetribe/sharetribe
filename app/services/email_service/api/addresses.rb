@@ -65,6 +65,12 @@ module EmailService::API
       end
     end
 
+    def enqueue_batch_sync
+      if @ses_client
+        Delayed::Job.enqueue(EmailService::Jobs::BatchSync.new)
+      end
+    end
+
     private
 
     def with_formats(address)
