@@ -9,7 +9,7 @@ describe PlanService::API::Plans do
 
         plans_api.plans.create(
           community_id: 123, plan: {
-            plan_level: 4,
+            plan_level: PlanService::Levels::SCALE,
             expires_at: expires_at,
           })
 
@@ -20,36 +20,14 @@ describe PlanService::API::Plans do
                               community_id: 123,
                               plan_level: 4,
                               expires_at: expires_at,
-                              plan_name: :scale,
                               expired: false
-                            )
-      end
-
-      it "creates a new plan by plan name" do
-        expires_at = 1.month.from_now.change(usec: 0)
-
-        plans_api.plans.create(
-          community_id: 123, plan: {
-            plan_name: :scale,
-            expires_at: expires_at,
-          })
-
-        res = plans_api.plans.get_current(community_id: 123)
-
-        expect(res.success).to eq(true)
-        expect(res.data).to eq(
-                              community_id: 123,
-                              plan_level: 4,
-                              plan_name: :scale,
-                              expires_at: expires_at,
-                              expired: false,
                             )
       end
 
       it "creates a new plan that never expires" do
         plans_api.plans.create(
           community_id: 123, plan: {
-            plan_level: 4
+            plan_level: PlanService::Levels::PRO
           })
 
         res = plans_api.plans.get_current(community_id: 123)
@@ -57,8 +35,7 @@ describe PlanService::API::Plans do
         expect(res.success).to eq(true)
         expect(res.data).to eq(
                               community_id: 123,
-                              plan_level: 4,
-                              plan_name: :scale,
+                              plan_level: 2,
                               expires_at: nil,
                               expired: false,
                             )
