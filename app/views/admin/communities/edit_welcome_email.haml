@@ -23,14 +23,23 @@
 
         %p= t("admin.communities.outgoing_email.info")
 
+    - content_for(:sender_address_preview) do
+      - if sender_address[:type] == :default
+        = t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address[:display_format])
+      - else
+        = t("admin.communities.outgoing_email.sender_address", sender_address: sender_address[:display_format])
+
+    - content_for(:resend_link) do
+      = link_to(t("admin.communities.outgoing_email.resend_link"), resend_url, method: :post)
+
     - if user_defined_address.nil?
       .row
         .col-12
           .sender-address-preview
             %span
-              = t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address[:display_format])
+              = content_for(:sender_address_preview)
 
-    - elsif user_defined_address && user_defined_address[:verification_status] != :verified
+    - elsif [:none, :requested].include?(user_defined_address[:verification_status])
       .row.js-status-loading
         .col-12
           = image_tag("ajax-loader-grey.gif", class: "sender-address-status-loading-spinner")
@@ -40,10 +49,7 @@
           .col-12
             .sender-address-preview
               %span.js-sender-address-preview-current.hidden
-                - if sender_address[:type] == :default
-                  = t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address[:display_format])
-                - else
-                  = t("admin.communities.outgoing_email.sender_address", sender_address: user_defined_address[:display_format])
+                = content_for(:sender_address_preview)
               %span.js-sender-address-preview-new.hidden
                 = t("admin.communities.outgoing_email.sender_address", sender_address: user_defined_address[:display_format])
 
@@ -51,9 +57,11 @@
           %span.status-verified.js-status-verified.hidden
             = t("admin.communities.outgoing_email.status_verified");
           %span.status-requested.js-status-requested.hidden
-            = t("admin.communities.outgoing_email.status_requested", email: user_defined_address[:email]);
+            = t("admin.communities.outgoing_email.status_requested", email: user_defined_address[:email], resend_link: content_for(:resend_link), time_ago: time_ago(user_defined_address[:verification_requested_at])).html_safe
           %span.status-error.js-status-error.hidden
             = t("admin.communities.outgoing_email.status_error");
+          %span.status-expired.js-status-expired.hidden
+            = t("admin.communities.outgoing_email.status_expired", email: user_defined_address[:email], resend_link: content_for(:resend_link)).html_safe
 
         .row
           .col-12
@@ -63,16 +71,30 @@
           .col-12
             = t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
 
-    - else
+    - elsif user_defined_address[:verification_status] == :expired
       .row
         .col-12
           .sender-address-preview
             %span
-              = t("admin.communities.outgoing_email.sender_address", sender_address: sender_address[:display_format])
+              = content_for(:sender_address_preview)
+      .row
+        .col-12
+          - content_for(:status_expired) do
+            %span.status-expired
+              = t("admin.communities.outgoing_email.status_expired", email: user_defined_address[:email], resend_link: content_for(:resend_link)).html_safe
+          = t("admin.communities.outgoing_email.status", status: content_for(:status_expired)).html_safe
+
+    - else
+      -# Verified!
+      .row
+        .col-12
+          .sender-address-preview
+            %span
+              = content_for(:sender_address_preview)
       .row
         .col-12
           - content_for(:status_verified) do
-            %span.status-verified.js-status-verified
+            %span.status-verified
               = t("admin.communities.outgoing_email.status_verified");
           = t("admin.communities.outgoing_email.status", status: content_for(:status_verified)).html_safe
 
