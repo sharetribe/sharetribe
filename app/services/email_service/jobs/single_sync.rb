@@ -7,12 +7,10 @@ module EmailService::Jobs
     include DelayedAirbrakeNotification
 
     def perform
-      if ses_client
-        Synchronize.run_single_synchronization!(
-          community_id: community_id,
-          id: id,
-          ses_client: ses_client)
-      end
+      Synchronize.run_single_synchronization!(
+        community_id: community_id,
+        id: id,
+        ses_client: ses_client)
     end
 
 

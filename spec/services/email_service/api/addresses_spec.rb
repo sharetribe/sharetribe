@@ -84,7 +84,6 @@ describe EmailService::API::Addresses do
         addresses_wo_ses.create(
           community_id: 123, address: {
             email: "hello@mymarketplace.invalid",
-            verification_status: :verified
           })
 
         res = addresses_wo_ses.get_sender(community_id: 123)
@@ -101,24 +100,6 @@ describe EmailService::API::Addresses do
 
     context "default sender address" do
 
-      it "returns default address if verified user defined address is not found" do
-        AddressStore.create(
-          community_id: 123,
-          address: {
-            name: "Email Sender Name",
-            email: "hello@mymarketplace.invalid",
-            verification_status: :requested,
-          })
-
-        res = addresses_wo_ses.get_sender(community_id: 123)
-
-        expect(res.success).to eq(true)
-        expect(res.data)
-          .to eq(type: :default,
-                 display_format: "Default Sender Name <default_sender@example.com.invalid>",
-                 smtp_format: "Default Sender Name <default_sender@example.com.invalid>")
-      end
-
       it "returns default address user defined address is not set" do
         res = addresses_wo_ses.get_sender(community_id: 999)
 
@@ -131,6 +112,24 @@ describe EmailService::API::Addresses do
 
       it "returns default address if community id is nil" do
         res = addresses_wo_ses.get_sender(community_id: nil)
+
+        expect(res.success).to eq(true)
+        expect(res.data)
+          .to eq(type: :default,
+                 display_format: "Default Sender Name <default_sender@example.com.invalid>",
+                 smtp_format: "Default Sender Name <default_sender@example.com.invalid>")
+      end
+
+      it "returns default address when user defined not yet verified" do
+        SyncDelayedJobObserver.enable!
+
+        created = addresses_with_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@mymarketplace.invalid"
+          })
+
+        res = addresses_with_ses.get_sender(community_id: 123)
 
         expect(res.success).to eq(true)
         expect(res.data)
@@ -199,9 +198,7 @@ describe EmailService::API::Addresses do
                                    display_format: "Email 2 Sender Name <hello2@mymarketplace.invalid>",
                                    smtp_format: "\"Email 2 Sender Name\" <hello2@mymarketplace.invalid>"})
         end
-
       end
-
     end
 
     context "error" do

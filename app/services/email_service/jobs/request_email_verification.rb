@@ -6,12 +6,10 @@ module EmailService::Jobs
     include DelayedAirbrakeNotification
 
     def perform
-      if ses_client
-        Maybe(AddressStore.get(community_id: community_id, id: id))
-          .each do |address|
-          ses_client.verify_address(email: address[:email]).on_success do
-            AddressStore.set_verification_requested(community_id: community_id, id: id)
-          end
+      Maybe(AddressStore.get(community_id: community_id, id: id))
+        .each do |address|
+        ses_client.verify_address(email: address[:email]).on_success do
+          AddressStore.set_verification_requested(community_id: community_id, id: id)
         end
       end
     end
