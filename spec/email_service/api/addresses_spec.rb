@@ -119,21 +119,23 @@ describe EmailService::API::Addresses do
       it "returns unique user defined address by community id and email" do
         now = Time.zone.local(2015, 8, 10)
         Timecop.freeze(now) do
-          emails_api.addresses.create(
+          created = emails_api.addresses.create(
             community_id: 123, address: {
               name: "Email Sender Name",
               email: "hello@mymarketplace.invalid",
               verification_status: :verified
-            })
+            }).data
 
           res = emails_api.addresses.get_user_defined(community_id: 123)
           expect(res.success).to eq(true)
           expect(res.data).to eq({
+                                   id: created[:id],
                                    community_id: 123,
                                    name: "Email Sender Name",
                                    email: "hello@mymarketplace.invalid",
-                                   updated_at: now,
+                                   updated_at: created[:updated_at],
                                    verification_status: :verified,
+                                   verification_requested_at: nil,
                                    display_format: "Email Sender Name <hello@mymarketplace.invalid>",
                                    smtp_format: "\"Email Sender Name\" <hello@mymarketplace.invalid>"})
         end
@@ -148,27 +150,29 @@ describe EmailService::API::Addresses do
               email: "hello@mymarketplace.invalid",
               verification_status: :verified,
             })
+        end
 
-          Timecop.travel(now + 1.second) do
+        Timecop.freeze(now + 1.second) do
 
-            emails_api.addresses.create(
-              community_id: 123, address: {
-                name: "Email 2 Sender Name",
-                email: "hello2@mymarketplace.invalid",
-                verification_status: :verified,
-              })
+          created = emails_api.addresses.create(
+            community_id: 123, address: {
+              name: "Email 2 Sender Name",
+              email: "hello2@mymarketplace.invalid",
+              verification_status: :verified,
+            }).data
 
-            res = emails_api.addresses.get_user_defined(community_id: 123)
-            expect(res.success).to eq(true)
-            expect(res.data).to eq({
-                                     community_id: 123,
-                                     name: "Email 2 Sender Name",
-                                     email: "hello2@mymarketplace.invalid",
-                                     updated_at: now + 1.second,
-                                     verification_status: :verified,
-                                     display_format: "Email 2 Sender Name <hello2@mymarketplace.invalid>",
-                                     smtp_format: "\"Email 2 Sender Name\" <hello2@mymarketplace.invalid>"})
-          end
+          res = emails_api.addresses.get_user_defined(community_id: 123)
+          expect(res.success).to eq(true)
+          expect(res.data).to eq({
+                                   id: created[:id],
+                                   community_id: 123,
+                                   name: "Email 2 Sender Name",
+                                   email: "hello2@mymarketplace.invalid",
+                                   verification_status: :verified,
+                                   verification_requested_at: nil,
+                                   updated_at: created[:updated_at],
+                                   display_format: "Email 2 Sender Name <hello2@mymarketplace.invalid>",
+                                   smtp_format: "\"Email 2 Sender Name\" <hello2@mymarketplace.invalid>"})
         end
 
       end
