@@ -14,5 +14,16 @@ module PlanService::API
         Result::Error.new("Can not find plan for community id: #{community_id}")
       }
     end
+
+    def expired?(community_id:)
+      Maybe(PlanStore.get_current(community_id: community_id)).map { |plan|
+        Result::Success.new(
+          Maybe(plan[:expires_at]).map { |expires_at|
+            expires_at < Time.now }
+          .or_else(false))
+      }.or_else {
+        Result::Error.new("Can not find plan for community id: #{community_id}")
+      }
+    end
   end
 end

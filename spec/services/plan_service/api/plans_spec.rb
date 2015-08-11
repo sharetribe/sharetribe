@@ -45,4 +45,48 @@ describe PlanService::API::Plans do
       end
     end
   end
+
+  describe "#expired?" do
+    context "success" do
+      it "returns false if plan never expires" do
+        plans_api.plans.create(
+          community_id: 111, plan: {
+            plan_level: 5,
+            expires_at: nil, # plan never expires
+          })
+
+        res = plans_api.plans.expired?(community_id: 111).data
+        expect(res).to eq(false)
+      end
+
+      it "returns false if plan has not yet expired" do
+        plans_api.plans.create(
+          community_id: 111, plan: {
+            plan_level: 5,
+            expires_at: 1.month.from_now,
+          })
+
+        res = plans_api.plans.expired?(community_id: 111).data
+        expect(res).to eq(false)
+      end
+
+      it "returns true if plan has expired" do
+        plans_api.plans.create(
+          community_id: 111, plan: {
+            plan_level: 5,
+            expires_at: 1.month.ago,
+          })
+
+        res = plans_api.plans.expired?(community_id: 111).data
+        expect(res).to eq(true)
+      end
+    end
+
+    context "error" do
+      it "returns error if plan can not be found" do
+        res = plans_api.plans.get_current(community_id: 123)
+        expect(res.success).to eq(false)
+      end
+    end
+  end
 end
