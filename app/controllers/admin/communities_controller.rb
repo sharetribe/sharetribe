@@ -304,7 +304,7 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def can_delete_marketplace?(community_id)
-    MarketplaceService::Community::Query.current_plan(community_id).plan_level == CommunityPlan::FREE_PLAN
+    PlanService::API::Api.plans.get_current(community_id: community_id).data[:plan_level] == CommunityPlan::FREE_PLAN
   end
 
 end

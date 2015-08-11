@@ -36,13 +36,6 @@ module MarketplaceService
           .or_else(nil)
       end
 
-      def current_plan(community_id)
-        CommunityPlan
-          .where(:community_id => community_id)
-          .order("created_at DESC")
-          .first
-      end
-
       # Privates
       #
 
