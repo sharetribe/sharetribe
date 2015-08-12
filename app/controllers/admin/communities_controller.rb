@@ -321,13 +321,11 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def can_delete_marketplace?(community_id)
-    PlanService::API::Api.plans.get_current(community_id: community_id).data[:plan_level] == PlanService::Levels::FREE
+    PlanService::API::Api.plans.get_current(community_id: community_id).data[:plan_level] == PlanUtils::FREE
   end
 
   def can_set_sender_address(plan)
-    Maybe(plan).map { |p|
-      p[:expired] == false && p[:plan_level] > 0
-    }.or_else(false)
+    PlanUtils.valid_plan_at_least?(plan, PlanUtils::PRO)
   end
 
   def ensure_white_label_plan
