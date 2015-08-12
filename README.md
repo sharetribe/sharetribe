@@ -50,7 +50,6 @@ Before you get started, the following needs to be installed:
 
 Congratulations! Sharetribe should now be up and running. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
-
 ### Running tests
 
 Tests are handled by [RSpec](http://rspec.info/) for unit tests and [Cucumber](https://cucumber.io/) for acceptance tests.
@@ -62,7 +61,6 @@ Tests are handled by [RSpec](http://rspec.info/) for unit tests and [Cucumber](h
 1. To run acceptance tests, open another terminal and run `zeus cucumber`. Note that running acceptance tests is slow and may take a long time to complete.
 
 To automatically run unit tests when code is changed, start [Guard](https://github.com/guard/guard): `bundle exec guard`
-
 
 ### Setting up Sharetribe for production
 
@@ -77,7 +75,6 @@ Steps 1-6 from above need to be done before performing these steps.
 
 It is not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false` in `config/config.yml`.
 
-
 ### Advanced settings
 
 Default configuration settings are stored in `config/config.default.yml`. If you need to change these, we recommend creating a `config/config.yml` file to override these values. You can also set configuration values to environment variables.
@@ -89,28 +86,34 @@ Sharetribe's open source version supports payments using [Braintree Marketplace]
 
 PayPal payments are only available on marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com) due to special permissions needed from PayPal. We hope to add support for PayPal payments to the open source version of Sharetribe in the future.
 
+
 ## Updating
 
 See [release notes](RELEASE_NOTES.md) for information about what has changed and if actions are needed to upgrade.
+
 
 ## Contributing
 
 Would you like to make Sharetribe better? [Here's a basic guide](CONTRIBUTING.md).
 
+
 ## Translation
 
 We use WebTranslateIt (WTI) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please ask for a WTI invitation. To get an invite, send an email to info@sharetribe.com and mention that you would like to become a translator.
+
 
 ## Known issues
 
 Browse open issues and submit new ones at http://github.com/sharetribe/sharetribe/issues.
 
-## Developer docs
+
+## Developer documentation
 
 * [Testing](docs/testing.md)
 * [SCSS coding guidelines](docs/scss-coding-guidelines.md)
 * [Delayed job priorities](docs/delayed-job-priorities.md)
 * [Cucumber testing Do's and Don'ts](docs/cucumber-do-dont.md)
+
 
 ## MIT License
 
