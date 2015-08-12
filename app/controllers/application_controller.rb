@@ -375,7 +375,9 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_community_plan_expiration_status
-    @is_community_plan_expired = MarketplaceService::Community::Query.is_plan_expired(@current_community)
+    Maybe(@current_community).id.each { |community_id|
+      @current_plan = PlanService::API::Api.plans.get_current(community_id: community_id).data
+    }
   end
 
   def fetch_chargebee_plan_data

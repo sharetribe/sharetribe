@@ -21,6 +21,14 @@ describe MarketplaceService::API::Marketplaces do
       expect(c[:country]).to eql "ES"
     end
 
+    it "creates a marketplace with free plan" do
+      c = create(@community_params)
+
+      plan = PlanService::API::Api.plans.get_current(community_id: c[:id]).data
+
+      expect(plan[:plan_level]).to eq(0)
+    end
+
     it "should find a free domain, if intitial domain is taken" do
       FactoryGirl.create(:community, :ident => "common")
 
