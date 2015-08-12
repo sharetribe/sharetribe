@@ -75,6 +75,7 @@ window.ST = window.ST || {};
           $(".js-if-you-need-to-change").show();
         } else {
           $(".js-sender-address-preview-current").show();
+          $(".js-verification-email-from").show();
         }
       });
       pollingStream.onError(function() {
