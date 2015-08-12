@@ -23,6 +23,9 @@
 
         %p= t("admin.communities.outgoing_email.info")
 
+        %p
+          = link_to(t("admin.communities.outgoing_email.read_more"), "{knowledge_base_url}/articles/686493")
+
     - content_for(:sender_address_preview) do
       - if sender_address[:type] == :default
         = t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address[:display_format])
