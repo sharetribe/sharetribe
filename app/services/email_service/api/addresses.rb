@@ -37,6 +37,10 @@ module EmailService::API
     end
 
     def create(community_id:, address:)
+      unless valid_email?(address[:email])
+        return Result::Error.new("Incorrect email format: '#{address[:email]}'")
+      end
+
       create_in_status = @ses_client ? :none : :verified
 
       address = with_formats(
@@ -92,6 +96,18 @@ module EmailService::API
         "\"#{str}\""
       else
         str
+      end
+    end
+
+    def valid_email?(email)
+      if email
+        email_regexp =
+          /\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]+\z/i # This is the same
+                                                            # regexp that is used
+                                                            # in Email model
+        email_regexp.match(email).present?
+      else
+        false
       end
     end
   end

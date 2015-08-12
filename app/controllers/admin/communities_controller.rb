@@ -54,17 +54,25 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def create_sender_address
-    # TODO validate email
-
-    EmailService::API::Api.addresses.create(
+    res = EmailService::API::Api.addresses.create(
       community_id: @current_community.id,
       address: {
         name: params[:name],
         email: params[:email]
       })
 
-    flash[:notice] = t("admin.communities.outgoing_email.successfully_saved")
-    redirect_to action: :edit_welcome_email
+    if res.success
+      flash[:notice] =
+        t("admin.communities.outgoing_email.successfully_saved")
+
+      redirect_to action: :edit_welcome_email
+    else
+      flash[:error] =
+        "An error occured while saving address: #{res.error_msg}" # Shouldn't come here.
+                                                                  # No need to translate.
+      redirect_to action: :edit_welcome_email
+    end
+
   end
 
   def check_email_status
