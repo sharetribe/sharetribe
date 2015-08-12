@@ -23,6 +23,9 @@
 
         %p= t("admin.communities.outgoing_email.info")
 
+        %p
+          = link_to(t("admin.communities.outgoing_email.read_more"), "{knowledge_base_url}/articles/686493")
+
     - content_for(:sender_address_preview) do
       - if sender_address[:type] == :default
         = t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address[:display_format])
@@ -57,7 +60,9 @@
           %span.status-verified.js-status-verified.hidden
             = t("admin.communities.outgoing_email.status_verified");
           %span.status-requested.js-status-requested.hidden
-            = t("admin.communities.outgoing_email.status_requested", email: user_defined_address[:email], resend_link: content_for(:resend_link), time_ago: time_ago(user_defined_address[:verification_requested_at])).html_safe
+            - content_for(:time_ago_placeholder) do
+              %span.js-sender-address-verification-sent-time-ago<>
+            = t("admin.communities.outgoing_email.status_requested", email: user_defined_address[:email], resend_link: content_for(:resend_link), time_ago: content_for(:time_ago_placeholder)).html_safe
           %span.status-error.js-status-error.hidden
             = t("admin.communities.outgoing_email.status_error");
           %span.status-expired.js-status-expired.hidden
@@ -66,6 +71,12 @@
         .row
           .col-12
             = t("admin.communities.outgoing_email.status", status: content_for(:verification_status)).html_safe
+
+        .row.js-verification-email-from.hidden
+          .col
+            %span.sender-address-verification-from
+              = t("admin.communities.outgoing_email.verification_sent_from", verification_sender_name: "Amazon Web Services")
+            = t("admin.communities.outgoing_email.follow_the_instructions")
 
         .row.js-if-you-needs-to-change.hidden
           .col-12
@@ -137,7 +148,6 @@
               %span.js-sender-address-preview-values
         .row
           %button{disabled: disabled_attr, class: disabled_class}= t("admin.communities.outgoing_email.send_verification_button")
-
 
   %h2= t(".welcome_email_content", :community_name => @community.name(I18n.locale))
   %p= t(".welcome_email_content_description", :send_test_message_link => t(".send_test_message"))
