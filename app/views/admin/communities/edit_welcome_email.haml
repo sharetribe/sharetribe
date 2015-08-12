@@ -62,7 +62,7 @@
           %span.status-requested.js-status-requested.hidden
             - content_for(:time_ago_placeholder) do
               %span.js-sender-address-verification-sent-time-ago<>
-            = t("admin.communities.outgoing_email.status_requested_time_ago", email: user_defined_address[:email], resend_link: content_for(:resend_link), time_ago: content_for(:time_ago_placeholder)).html_safe
+            = t("admin.communities.outgoing_email.status_requested", email: user_defined_address[:email], resend_link: content_for(:resend_link), time_ago: content_for(:time_ago_placeholder)).html_safe
           %span.status-error.js-status-error.hidden
             = t("admin.communities.outgoing_email.status_error");
           %span.status-expired.js-status-expired.hidden
