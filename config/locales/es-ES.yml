@@ -394,7 +394,7 @@ es-ES:
         update: Guardar
         cancel: Cancelar
         update_success: ~
-        update_failure: ~
+        update_failure: "No se pudieron guardar los cambios. Error: %{error_msg}"
         delete: "Borrar tipo de pedido"
         confirm_delete_order_type:
           one: "Hay %{count} anuncio con este tipo de orden. Si eliminas el tipo de orden este anuncio se cerrará. Estás seguro de que quieres eliminar este tipo de orden?"
@@ -421,7 +421,7 @@ es-ES:
       shipping_label: "Permitir que los vendedores establezcan un costo de envío"
       price_label: "Mostrar el campo de precio"
       units_title: "Unidades de precio"
-      units_desc: ~
+      units_desc: "Si habilita las unidades de precio, el precio del anuncio se mostrará como \"precio por unidad de precio\". Por ejemplo: \"$39 por hora\"."
       units:
         piece: "Por pieza"
         hour: "Por hora"
