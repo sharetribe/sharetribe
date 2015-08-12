@@ -36,5 +36,21 @@
 }
 
 .status-error {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+input {
+  &.sender-address-disabled {
+    &, &:hover {
+      background-color: $highlight;
+    }
+  }
+}
+
+button {
+  &.sender-address-disabled {
+    &, &:hover {
+      background-color: $border;
+    }
+  }
 }

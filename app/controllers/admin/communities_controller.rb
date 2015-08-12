@@ -3,6 +3,7 @@ class Admin::CommunitiesController < ApplicationController
 
   before_filter :ensure_is_admin
   before_filter :ensure_is_superadmin, :only => [:payment_gateways, :update_payment_gateway, :create_payment_gateway]
+  before_filter :ensure_white_label_plan, only: [:create_sender_address]
   ensure_feature_enabled :sender_address, only: [:create_sender_address]
 
   def getting_started
@@ -50,6 +51,8 @@ class Admin::CommunitiesController < ApplicationController
              sender_address: sender_address,
              user_defined_address: user_defined_address,
              post_sender_address_url: create_sender_address_admin_community_path,
+             can_set_sender_address: can_set_sender_address(@current_plan),
+             knowledge_base_url: APP_CONFIG.knowledge_base_url,
            }
   end
 
@@ -318,7 +321,26 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def can_delete_marketplace?(community_id)
-    PlanService::API::Api.plans.get_current(community_id: community_id).data[:plan_level] == PlanService::Levels::FREE
+    PlanService::API::Api.plans.get_current(community_id: community_id).data[:plan_level] == PlanUtils::FREE
+  end
+
+  def can_set_sender_address(plan)
+    PlanUtils.valid_plan_at_least?(plan, PlanUtils::PRO)
+  end
+
+  def ensure_white_label_plan
+    unless can_set_sender_address(@current_plan)
+      flash[:error] = "Not available for your plan" # User shouldn't
+                                                    # normally come
+                                                    # here because
+                                                    # access is
+                                                    # restricted in
+                                                    # front-end. Thus,
+                                                    # no need to
+                                                    # translate.
+
+      redirect_to action: :edit_welcome_email
+    end
   end
 
 end

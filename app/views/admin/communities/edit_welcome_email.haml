@@ -107,14 +107,28 @@
         .col-12
           %h3= t("admin.communities.outgoing_email.set_sender_address")
 
+      - unless can_set_sender_address
+        .row
+          .col-12
+
+            .alert-box-warning
+              %p
+                %span.alert-box-icon<>
+                  = icon_tag("alert", ["icon-fix"])
+                %span<
+                  = t("admin.communities.outgoing_email.only_white_label_offer", upgrade_pro_plan_link: link_to(t("admin.communities.outgoing_email.upgrade_pro_plan_link"), "#{knowledge_base_url}/articles/463242")).html_safe
+
+      - disabled_attr = can_set_sender_address ? nil : :disabled
+      - disabled_class = can_set_sender_address ? "" : "sender-address-disabled"
+
       = form_tag(post_sender_address_url, method: :post, class: "js-sender-email-form") do
         .row
           .col-6
             %label.sender-address-label= t("admin.communities.outgoing_email.sender_name_label")
-            %input.js-sender-name-input{name: "name", type: :text, placeholder: t("admin.communities.outgoing_email.sender_name_placeholder")}
+            %input.js-sender-name-input{name: "name", type: :text, placeholder: t("admin.communities.outgoing_email.sender_name_placeholder"), disabled: disabled_attr, class: disabled_class}
           .col-6
             %label.sender-address-label= t("admin.communities.outgoing_email.sender_email_label")
-            %input.js-sender-email-input{name: "email", type: :text, placeholder: t("admin.communities.outgoing_email.sender_email_placeholder")}
+            %input.js-sender-email-input{name: "email", type: :text, placeholder: t("admin.communities.outgoing_email.sender_email_placeholder"), disabled: disabled_attr, class: disabled_class}
 
         .row.js-sender-address-preview-container.sender-address-preview-container.hidden
           .col-12
@@ -122,7 +136,7 @@
               = t("admin.communities.outgoing_email.this_is_how_it_will_look")
               %span.js-sender-address-preview-values
         .row
-          %button= t("admin.communities.outgoing_email.send_verification_button")
+          %button{disabled: disabled_attr, class: disabled_class}= t("admin.communities.outgoing_email.send_verification_button")
 
 
   %h2= t(".welcome_email_content", :community_name => @community.name(I18n.locale))

@@ -22,7 +22,7 @@ class CommunitiesController < ApplicationController
                         :marketplace_type,
                         :marketplace_country,
                         :marketplace_language)
-        .merge(plan_level: PlanService::Levels::SCALE,
+        .merge(plan_level: PlanUtils::SCALE,
                expires_at: nil,
                payment_process: :none)
       )
