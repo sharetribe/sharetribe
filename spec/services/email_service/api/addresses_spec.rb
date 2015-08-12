@@ -15,7 +15,8 @@ describe EmailService::API::Addresses do
       config: {
         region: "fake-region",
         access_key_id: "access_key",
-        secret_access_key: "secret_access_key"},
+        secret_access_key: "secret_access_key",
+        sns_topic: "fake-sns-topic-arn"},
       stubs: true)
   end
 
