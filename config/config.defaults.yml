@@ -45,8 +45,13 @@ default: &default_settings
   # and subscribe an url (https://yourdomain.com/bounces?sns_notification_token=[this_token])
   sns_notification_token:
 
-  # Region for the Amazon Simple Email Service, SES. Leave blank if SES not used
+  # Region for the Amazon Simple Email Service, SES. Leave blank if
+  # SES not used
   aws_ses_region:
+  # Verified email addresses created in SES are subscribed to send
+  # complaints and bounces to this SNS topic. Leave blank is SES not
+  # used.
+  aws_ses_sns_topic:
 
   # after preauthorization there is 5 day period before expiration
   braintree_expiration_period: 5

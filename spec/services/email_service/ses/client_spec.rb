@@ -8,13 +8,15 @@ describe EmailService::SES::Client do
       expect { EmailService::SES::Client.new(config: {access_key_id: "access_key", secret_access_key: "secret_access_key"}) }
         .to raise_error(ArgumentError)
       expect { EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key"}) }
+        .to raise_error
+      expect { EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key", sns_topic: "fake-sns-topic-arn"}) }
         .to_not raise_error
     end
 
     it "supports fake responses with stubbing" do
       stubs = {
         list_verified_email_addresses: {verified_email_addresses: ["foo@bar.com", "bar@foo.com"]}}
-      ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key"},
+      ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key", sns_topic: "fake-sns-topic-arn"},
                                                  stubs: stubs)
 
       expect(ses_client.list_verified_addresses()[:data])
@@ -27,7 +29,7 @@ describe EmailService::SES::Client do
       stubs = {
         list_verified_email_addresses: "Error",
         verify_email_identity: "Error"}
-      ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key"},
+      ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key", sns_topic: "fake-sns-topic-arn"},
                                                  stubs: stubs)
 
       expect(ses_client.list_verified_addresses().success).to eq(false)

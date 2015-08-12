@@ -21,7 +21,8 @@ module EmailService::EmailServiceInjector
       EmailService::SES::Client.new(
         config: { region: APP_CONFIG.aws_ses_region,
                   access_key_id: APP_CONFIG.aws_access_key_id,
-                  secret_access_key: APP_CONFIG.aws_secret_access_key})
+                  secret_access_key: APP_CONFIG.aws_secret_access_key,
+                  sns_topic: APP_CONFIG.aws_ses_sns_topic})
     else
       nil
     end

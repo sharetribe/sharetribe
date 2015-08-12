@@ -103,7 +103,7 @@ describe EmailService::SES::Synchronize do
         orig_updated_at_max = original_addresses.reduce(DateTime.new(0)) { |max, a| a[:updated_at] > max ? a[:updated_at]  : max }
 
         stubs = {list_verified_email_addresses: {verified_email_addresses: verified_addresses}}
-        ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key"},
+        ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key", sns_topic: "fake-sns-topic-arn"},
                                                    stubs: {list_verified_email_addresses: {verified_email_addresses: verified_addresses}})
 
 
@@ -133,7 +133,7 @@ describe EmailService::SES::Synchronize do
         store_addresses(addresses)
 
         stubs = {list_verified_email_addresses: {verified_email_addresses: verified_addresses}}
-        ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key"},
+        ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key", sns_topic: "fake-sns-topic-arn"},
                                                    stubs: {list_verified_email_addresses: {verified_email_addresses: verified_addresses}})
 
 
