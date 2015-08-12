@@ -86,7 +86,7 @@ class Admin::CommunitiesController < ApplicationController
 
   def check_email_status
     EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).on_success { |address|
-      render json: HashUtils.camelize_keys(address)
+      render json: HashUtils.camelize_keys(address.merge(translated_verification_sent_time_ago: time_ago(address[:verification_requested_at])))
     }.on_error { |error_msg|
       render json: {error: error_msg }, status: 500
     }

@@ -74,6 +74,9 @@ window.ST = window.ST || {};
           $(".js-sender-address-preview-new").show();
           $(".js-if-you-need-to-change").show();
         } else {
+          $(".js-sender-address-verification-sent-time-ago")
+            .text(result.translatedVerificationSentTimeAgo)
+            .show();
           $(".js-sender-address-preview-current").show();
           $(".js-verification-email-from").show();
         }
