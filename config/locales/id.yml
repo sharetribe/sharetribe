@@ -723,11 +723,11 @@ id:
     access_denied:
       access_denied: ~
       you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      contact_page_link: Saran
     new:
-      welcome_fb_user: ~
+      welcome_fb_user: "Selamat datang di  %{service_name}, %{name}!"
       fb_join_accept_terms: ~
-      join_community: ~
+      join_community: "Bergabung %{service_name}"
       you_can_join: ~
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
@@ -1162,9 +1162,9 @@ id:
       feedback_forum: feedback_forum
       feedback_handle: "Saran atau masukan"
       give_feedback: "Hubungi Kami"
-      or_check_our: ~
+      or_check_our: "atau silahkan periksa"
       send_feedback_to_admin: "Kirim Masukkan"
-      to_see_what_others_have_suggested: ~
+      to_see_what_others_have_suggested: "untuk melihat apa yang disarankan pengguna yang lain, dan memilih ide-ide di sana."
       your_email_address: "Alamat email (untuk menghubungi Anda)"
       connect: ~
       invite_your_friends: ~
@@ -1184,7 +1184,7 @@ id:
       about: Tentang
       how_to_use: "Cara kerja"
       info_about_kassi: "Informasi tentang%{service_name}"
-      news: ~
+      news: Berita
       register_details: Privasi
       terms: "Syarat Penggunaan"
     logged_in:
@@ -1209,7 +1209,7 @@ id:
       logout: Keluar
       notifications: Notifikasi
       requests: "Permintaan untuk berteman"
-      settings: ~
+      settings: Pengaturan
       sign_up: Daftar
     notifications:
       listing_could_not_be_saved: ~
@@ -1218,11 +1218,11 @@ id:
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Akun Anda telah dibuat berhasil. Sekarang Anda perlu mengkonfirmasi alamat email Anda."
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: "Komentar tidak boleh kosong"
       comment_sent: "Komentar terkirim"
-      confirmation_link_is_wrong_or_used: ~
+      confirmation_link_is_wrong_or_used: "Link konfirmasi sudah digunakan atau rusak. Coba masuk kembali, atau tolong kirim pesan atau masukkan jika masalah terus berlanjut."
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       create_new_listing: ~
@@ -1235,21 +1235,21 @@ id:
       feedback_saved: "Terima kasih banyak atas feedback Anda! Kami akan merespon sesegera mungkin."
       feedback_sent_to: "Feedback dikirimkan kepada %{target_person}."
       feedback_skipped: "Feedback dilewatkan."
-      invitation_cannot_be_sent: ~
+      invitation_cannot_be_sent: "Undangan tidak dapat dikirim"
       invitation_limit_reached: ~
-      invitation_sent: ~
-      inviting_new_users_is_not_allowed_in_this_community: ~
+      invitation_sent: "Undangan berhasil dikirim"
+      inviting_new_users_is_not_allowed_in_this_community: "Mengundang pengguna baru tidak diperbolehkan."
       login_again: "Silakan masuk lagi."
       login_failed: "Masuk gagal. Masukkan detil yang benar."
       account_creation_successful: ~
       account_deleted: ~
       login_successful: "Selamat Datang, %{person_name}!"
       logout_successful: "Anda sudah logout dari %{service_name}. Sampai bertemu kembali!"
-      news_item_created: ~
-      news_item_creation_failed: ~
-      news_item_update_failed: ~
-      news_item_updated: ~
-      news_item_deleted: ~
+      news_item_created: "Artikel dibuat"
+      news_item_creation_failed: "Pembuatan artikel gagal"
+      news_item_update_failed: "Pembaharuan artikel gagal"
+      news_item_updated: "Artikel diperbaharui"
+      news_item_deleted: "Artikel dihapus"
       offer_accepted: "Penawaran diterima"
       offer_confirmed: ~
       offer_closed: "Penawaran ditutup"
@@ -1266,10 +1266,10 @@ id:
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Instruksi untuk merubah password telah dikirimkan ke email Anda."
-      person_activated: ~
-      person_deactivated: ~
+      person_activated: "Pengguna diaktifkan"
+      person_deactivated: "Pengguna dinonaktifkan"
       person_updated_successfully: "Informasi telah diperbarui."
-      poll_answered: ~
+      poll_answered: "Jumlah suara sudah dijawab"
       poll_could_not_be_answered: ~
       poll_created: ~
       poll_creation_failed: ~
@@ -1277,7 +1277,7 @@ id:
       poll_updated: ~
       poll_deleted: ~
       read_more: "Baca selengkapnya!"
-      registration_considered_spam: ~
+      registration_considered_spam: "Pendaftaran tidak bekerja, silakan kirim masukkan atau pesan dari menu header dan menyebutkan \"email2 error\"."
       reply_cannot_be_empty: "Anda tidak dapat mengirimkan pesan kosong"
       reply_sent: "Balasan sukses dikirimkan"
       request_accepted: "Permintaan diterima"
@@ -1286,7 +1286,7 @@ id:
       request_rejected: "Permintaan ditolak"
       request_canceled: ~
       message_sent: ~
-      this_content_is_not_available_in_this_community: ~
+      this_content_is_not_available_in_this_community: "Konten ini tidak tersedia"
       unknown_error: "Error tidak diketahui. Gunakan link hubungi kami untuk mengirimkan kejadian detil."
       update_error: "Error terjadi ketika berusaha mengupdate informasi Anda, coba lagi"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Anda tidak memiliki otorisasi untuk memberi feedback ini"
@@ -1303,7 +1303,7 @@ id:
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: "Anda harus login untuk memberi feedback"
-      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_invite_new_users: "Anda harus masuk untuk mengundang pengguna baru untuk  %{service_name}"
       you_must_log_in_to_send_a_comment: "Anda harus login untuk mengirim komen baru"
       you_must_log_in_to_send_a_message: "Anda harus login pada %{service_name} untuk mengirim pesan kepada pengguna lain"
       you_must_log_in_to_do_a_transaction: ~
@@ -1316,9 +1316,9 @@ id:
       you_must_log_in_to_change_payment_settings: ~
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
-      you_need_to_confirm_your_account_first: ~
+      you_need_to_confirm_your_account_first: "Anda perlu mengkonfirmasi email Anda"
       you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: ~
+      you_unfollowed_listing: "Anda tidak lagi mengikuti daftar ini"
       joining_community_failed: ~
       can_not_login_with_private_user: ~
       can_not_delete_email: ~

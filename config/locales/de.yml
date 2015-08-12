@@ -581,7 +581,7 @@ de:
       canceled_request: "Anfrage abgebrochen"
       canceled_offer: "Angebot abgebrochen"
       paid: "bezahlt %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Zahlung wurde autorisiert: %{sum}"
     new:
       offer_message_form_title: "Angebot %{listing} an %{person}"
       request_message_form_title: "Anfrage %{listing} von %{person}"

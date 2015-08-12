@@ -595,7 +595,7 @@ nb:
       canceled_request: "avslo forespørselen"
       canceled_offer: "avslo tilbudet"
       paid: "betalte %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Autorisert betaling: %{sum}"
     new:
       offer_message_form_title: "tilby%{listing}til%{person}"
       request_message_form_title: "forespør%{listing}fra%{person}"
