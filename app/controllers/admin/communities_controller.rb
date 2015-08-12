@@ -67,9 +67,15 @@ class Admin::CommunitiesController < ApplicationController
 
       redirect_to action: :edit_welcome_email
     else
-      flash[:error] =
-        "An error occured while saving address: #{res.error_msg}" # Shouldn't come here.
-                                                                  # No need to translate.
+      error_message =
+        case Maybe(res.data)[:error_code]
+        when Some(:invalid_email)
+          t("admin.communities.outgoing_email.invalid_email_error", email: res.data[:email])
+        else
+          t("admin.communities.outgoing_email.unknown_error")
+        end
+
+      flash[:error] = error_message
       redirect_to action: :edit_welcome_email
     end
 

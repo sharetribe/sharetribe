@@ -22,3 +22,5 @@ en:
         status_requested: "Unverified - verification email sent to %{email} %{time_ago}. %{resend_link}"
         status_expired: "Verification of %{email} expires. %{resend_link}"
         resend_link: "Resend"
+        invalid_email_error: "Invalid email format for '%{email}'"
+        unknown_error: "Something went wrong"

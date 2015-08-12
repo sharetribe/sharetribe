@@ -270,6 +270,7 @@ describe EmailService::API::Addresses do
 
         expect(res_invalid.success).to eq(false)
         expect(res_invalid.error_msg).to eq("Incorrect email format: 'invalid_email'")
+        expect(res_invalid.data).to eq(error_code: :invalid_email, email: "invalid_email")
     end
   end
 

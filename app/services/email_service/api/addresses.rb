@@ -38,7 +38,7 @@ module EmailService::API
 
     def create(community_id:, address:)
       unless valid_email?(address[:email])
-        return Result::Error.new("Incorrect email format: '#{address[:email]}'")
+        return Result::Error.new("Incorrect email format: '#{address[:email]}'", error_code: :invalid_email, email: address[:email])
       end
 
       create_in_status = @ses_client ? :none : :verified
