@@ -54,17 +54,31 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def create_sender_address
-    # TODO validate email
-
-    EmailService::API::Api.addresses.create(
+    res = EmailService::API::Api.addresses.create(
       community_id: @current_community.id,
       address: {
         name: params[:name],
         email: params[:email]
       })
 
-    flash[:notice] = t("admin.communities.outgoing_email.successfully_saved")
-    redirect_to action: :edit_welcome_email
+    if res.success
+      flash[:notice] =
+        t("admin.communities.outgoing_email.successfully_saved")
+
+      redirect_to action: :edit_welcome_email
+    else
+      error_message =
+        case Maybe(res.data)[:error_code]
+        when Some(:invalid_email)
+          t("admin.communities.outgoing_email.invalid_email_error", email: res.data[:email])
+        else
+          t("admin.communities.outgoing_email.unknown_error")
+        end
+
+      flash[:error] = error_message
+      redirect_to action: :edit_welcome_email
+    end
+
   end
 
   def check_email_status

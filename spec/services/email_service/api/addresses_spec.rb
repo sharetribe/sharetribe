@@ -252,6 +252,26 @@ describe EmailService::API::Addresses do
       end
 
     end
+
+    it "returns error result if email is malformatted" do
+        res_valid = addresses_wo_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "valid_email@example.com"
+          })
+
+        expect(res_valid.success).to eq(true)
+
+        res_invalid = addresses_wo_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "invalid_email"
+          })
+
+        expect(res_invalid.success).to eq(false)
+        expect(res_invalid.error_msg).to eq("Incorrect email format: 'invalid_email'")
+        expect(res_invalid.data).to eq(error_code: :invalid_email, email: "invalid_email")
+    end
   end
 
   describe "#enqueue_status_sync" do
