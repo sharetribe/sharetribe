@@ -83,11 +83,15 @@ It is not recommended to serve static assets from a Rails server in production. 
 Default configuration settings are stored in `config/config.default.yml`. If you need to change these, we recommend creating a `config/config.yml` file to override these values. You can also set configuration values to environment variables.
 
 
-### Experimental: Docker container installation
+### Experimental: Docker container installation (Optional)
+
+> Docker allows you to package an application with all of its dependencies into a standardized unit for software development.
+
+This is taken from [Docker's own explanation](https://www.docker.com/whatisdocker) of what Docker is. If you want to set up Sharetribe as a Docker package, follow the instructions below. **Note that this setup method is not currently supported and the instructions are most likely outdated.**
 
 #### Prerequisite
 
-Prerequisite: Docker and Fig need to be installed. If you are on a non-linux OS, you also need to have Vagrant. If you can successfully run `docker info`, you should be good to go.
+Docker and Fig need to be installed. If you are on a non-Linux OS, you also need to have Vagrant. If you can successfully run `docker info`, you should be good to go.
 
 ```bash
 brew cask install virtualbox
