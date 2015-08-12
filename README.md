@@ -39,9 +39,10 @@ Before you get started, the following needs to be installed:
     1. `mailcatcher`
     1. Create a `config/config.yml` file and add the following lines to it:
       ```yml
-      mail_delivery_method: smtp
-      smtp_email_address: "localhost"
-      smtp_email_port: 1025
+      development:
+        mail_delivery_method: smtp
+        smtp_email_address: "localhost"
+        smtp_email_port: 1025
       ```
     1. Open `http://localhost:1080` in your browser
 1. Invoke the delayed job worker: `bundle exec rake jobs:work`
