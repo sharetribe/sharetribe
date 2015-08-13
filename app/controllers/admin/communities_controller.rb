@@ -68,6 +68,8 @@ class Admin::CommunitiesController < ApplicationController
         case Maybe(res.data)[:error_code]
         when Some(:invalid_email)
           t("admin.communities.outgoing_email.invalid_email_error", email: res.data[:email])
+        when Some(:invalid_domain)
+          t("admin.communities.outgoing_email.invalid_email_domain", email: res.data[:email], domain: res.data[:domain])
         else
           t("admin.communities.outgoing_email.unknown_error")
         end

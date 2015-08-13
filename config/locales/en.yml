@@ -146,6 +146,7 @@ en:
         status_resent: "Verification email resent to %{email}. %{resend_link}"
         resend_link: "Resend"
         invalid_email_error: "Invalid email format for '%{email}'"
+        invalid_email_domain: "The email '%{email}' is using a disallowed email provider '%{domain}'. Read knowledge base article for more information."
         unknown_error: "Something went wrong"
         only_white_label_offer: "This feature is part of the Sharetribe white-label offer. To enable this feature you should %{upgrade_pro_plan_link}."
         upgrade_pro_plan_link: "upgrade to our Pro plan or higher"

@@ -37,9 +37,13 @@ module EmailService::API
     end
 
     def create(community_id:, address:)
-      unless valid_email?(address[:email])
+      valid_email_format?(address[:email]).on_error {
         return Result::Error.new("Incorrect email format: '#{address[:email]}'", error_code: :invalid_email, email: address[:email])
-      end
+      }
+
+      valid_email_domain?(address[:email]).on_error { |error_msg, data|
+        return Result::Error.new("Disallowed email provider: '#{address[:domain]}'", error_code: :invalid_domain, email: address[:email], domain: data[:domain])
+      }
 
       create_in_status = @ses_client ? :none : :verified
 
@@ -106,15 +110,25 @@ module EmailService::API
       end
     end
 
-    def valid_email?(email)
+    def valid_email_format?(email)
       if email
         email_regexp =
           /\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]+\z/i # This is the same
                                                             # regexp that is used
                                                             # in Email model
-        email_regexp.match(email).present?
+        email_regexp.match(email).present? ? Result::Success.new() : Result::Error.new("invalid email format")
       else
-        false
+        Result::Error.new()
+      end
+    end
+
+    def valid_email_domain?(email)
+      if @ses_client
+        fulldomain = email.split("@").second
+
+        fulldomain.include?("yahoo.") ? Result::Error.new("disallowed domain", domain: fulldomain) : Result::Success.new()
+      else
+        Result::Success.new()
       end
     end
   end
