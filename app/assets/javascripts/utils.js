@@ -210,7 +210,8 @@ ST.utils = (function(_) {
     filenameToURLSafe: filenameToURLSafe,
     pad: pad,
     toISODate: toISODate,
-    showError: showError
+    showError: showError,
+    not: not
   };
 
 })(_);

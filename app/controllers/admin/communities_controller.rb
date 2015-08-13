@@ -36,13 +36,7 @@ class Admin::CommunitiesController < ApplicationController
     sender_address = EmailService::API::Api.addresses.get_sender(community_id: @current_community.id).data
     user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data
 
-    Maybe(user_defined_address)
-      .reject { |address| address[:verification_status] == :verified }
-      .each { |address|
-      EmailService::API::Api.addresses.enqueue_status_sync(
-        community_id: address[:community_id],
-        id: address[:id])
-    }
+    enqueue_status_sync!(user_defined_address)
 
     render "edit_welcome_email", locals: {
              status_check_url: check_email_status_admin_community_path,
@@ -85,17 +79,25 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def check_email_status
-    EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).on_success { |address|
+    res = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id)
+
+    if res.success
+      address = res.data
+
+      if params[:sync]
+        enqueue_status_sync!(address)
+      end
+
       render json: HashUtils.camelize_keys(address.merge(translated_verification_sent_time_ago: time_ago(address[:verification_requested_at])))
-    }.on_error { |error_msg|
-      render json: {error: error_msg }, status: 500
-    }
+    else
+      render json: {error: res.error_msg }, status: 500
+    end
+
   end
 
   def resend_verification_email
     EmailService::API::Api.addresses.enqueue_verification_request(community_id: @current_community.id, id: params[:address_id])
-
-    redirect_to action: :edit_welcome_email
+    render json: {}, status: 200
   end
 
   def social_media
@@ -269,6 +271,16 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   private
+
+  def enqueue_status_sync!(address)
+    Maybe(address)
+      .reject { |addr| addr[:verification_status] == :verified }
+      .each { |addr|
+      EmailService::API::Api.addresses.enqueue_status_sync(
+        community_id: addr[:community_id],
+        id: addr[:id])
+    }
+  end
 
   def regenerate_css?(params, community)
     params[:community][:custom_color1] != community.custom_color1 ||
