@@ -4,13 +4,6 @@ window.ST = window.ST || {};
 
   var TIMEOUT = 20000;
 
-  var $form = $(".js-sender-email-form");
-  $form.validate({
-    rules: {
-      "email": {required: true, email: true}
-    }
-  });
-
   var toTextStream = function(selector) {
     return $(selector)
       .asEventStream("keydown blur input change click")
@@ -29,67 +22,78 @@ window.ST = window.ST || {};
   };
 
   module.initializeSenderEmailForm = function(userEmail, statusCheckUrl) {
-    var $previewContainer = $(".js-sender-address-preview-container");
-    var $preview = $(".js-sender-address-preview-values");
-    var nameStream = toTextStream(".js-sender-name-input");
-    var emailStream = toTextStream(".js-sender-email-input");
-    var validEmailOrEmptyStream = emailStream.map(function(v) {
-      return $form.valid() ? v : "";
+    var $form = $(".js-sender-email-form");
+    $form.validate({
+      rules: {
+        "email": {required: true, email: true}
+      }
     });
 
-    var nameEmailStream = Bacon
-          .combineTemplate({
-            name: nameStream.toProperty(""),
-            email: validEmailOrEmptyStream.toProperty("")
-          })
-          .skipDuplicates(_.isEqual)
-          .changes();
+    var checkStatus = function() {
+      var $previewContainer = $(".js-sender-address-preview-container");
+      var $preview = $(".js-sender-address-preview-values");
+      var nameStream = toTextStream(".js-sender-name-input");
+      var emailStream = toTextStream(".js-sender-email-input");
+      var validEmailOrEmptyStream = emailStream.map(function(v) {
+        return $form.valid() ? v : "";
+      });
 
-    var validEmailStream = emailStream.filter(function() { return $form.valid(); });
-    validEmailStream.take(1).onValue(function() {
-      $previewContainer.show();
-    });
+      var nameEmailStream = Bacon
+            .combineTemplate({
+              name: nameStream.toProperty(""),
+              email: validEmailOrEmptyStream.toProperty("")
+            })
+            .skipDuplicates(_.isEqual)
+            .changes();
 
-    nameEmailStream.onValue(function(values) {
-      $preview.text(formatSender(values));
-    });
+      var validEmailStream = emailStream.filter(function() { return $form.valid(); });
+      validEmailStream.take(1).onValue(function() {
+        $previewContainer.show();
+      });
 
-    if (userEmail && (userEmail.verificationStatus === "none" || userEmail.verificationStatus === "requested")) {
-      var pollingStream = ST.utils.baconStreamFromAjaxPolling(
-        { url: statusCheckUrl,
-          data: { email: userEmail.email }
-        },
-        function(pollingResult) {
-          return pollingResult.updatedAt !== userEmail.updatedAt;
-        },
-        {
-          timeout: TIMEOUT
-        }
-      );
+      nameEmailStream.onValue(function(values) {
+        $preview.text(formatSender(values));
+      });
 
-      pollingStream.onValue(function(result) {
-        $(".js-status-loading").hide();
-        $(".js-loaded-sender-address-status").show();
-        $(".js-status-" + result.verificationStatus).show();
+      if (userEmail && (userEmail.verificationStatus === "none" || userEmail.verificationStatus === "requested")) {
+        var pollingStream = ST.utils.baconStreamFromAjaxPolling(
+          { url: statusCheckUrl,
+            data: { email: userEmail.email }
+          },
+          function(pollingResult) {
+            return pollingResult.updatedAt !== userEmail.updatedAt;
+          },
+          {
+            timeout: TIMEOUT
+          }
+        );
 
-        if(result.verificationStatus === "verified") {
-          $(".js-sender-address-preview-new").show();
-          $(".js-if-you-need-to-change").show();
-        } else {
-          $(".js-sender-address-verification-sent-time-ago")
-            .text(result.translatedVerificationSentTimeAgo)
-            .show();
+        pollingStream.onValue(function(result) {
+          $(".js-status-loading").hide();
+          $(".js-loaded-sender-address-status").show();
+          $(".js-status-" + result.verificationStatus).show();
+
+          if(result.verificationStatus === "verified") {
+            $(".js-sender-address-preview-new").show();
+            $(".js-if-you-need-to-change").show();
+          } else {
+            $(".js-sender-address-verification-sent-time-ago")
+              .text(result.translatedVerificationSentTimeAgo)
+              .show();
+            $(".js-sender-address-preview-current").show();
+            $(".js-verification-email-from").show();
+          }
+        });
+        pollingStream.onError(function() {
+          $(".js-status-loading").hide();
+          $(".js-loaded-sender-address-status").show();
+          $(".js-status-error").show();
           $(".js-sender-address-preview-current").show();
-          $(".js-verification-email-from").show();
-        }
-      });
-      pollingStream.onError(function() {
-        $(".js-status-loading").hide();
-        $(".js-loaded-sender-address-status").show();
-        $(".js-status-error").show();
-        $(".js-sender-address-preview-current").show();
-      });
-    }
+        });
+      }
+    };
+
+    checkStatus();
   };
 
 })(window.ST);
