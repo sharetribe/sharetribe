@@ -13,8 +13,15 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def accept
-    payment_type = TransactionService::API::Api.transactions.query(params[:id])[:payment_gateway]
+    tx_id = params[:id]
+    tx = TransactionService::API::Api.transactions.query(tx_id)
 
+    if tx[:current_state] != :preauthorized
+      redirect_to person_transaction_path(person_id: @current_user.id, id: tx_id)
+      return
+    end
+
+    payment_type = tx[:payment_gateway]
     case payment_type
     when :braintree
       render_braintree_form("accept")
@@ -26,8 +33,15 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def reject
-    payment_type = TransactionService::API::Api.transactions.query(params[:id])[:payment_gateway]
+    tx_id = params[:id]
+    tx = TransactionService::API::Api.transactions.query(tx_id)
 
+    if tx[:current_state] != :preauthorized
+      redirect_to person_transaction_path(person_id: @current_user.id, id: tx_id)
+      return
+    end
+
+    payment_type = tx[:payment_gateway]
     case payment_type
     when :braintree
       render_braintree_form("reject")
@@ -39,21 +53,28 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def accepted_or_rejected
+    tx_id = params[:id]
     message = params[:listing_conversation][:message_attributes][:content]
-    sender_id = @current_user.id
     status = params[:listing_conversation][:status].to_sym
+    sender_id = @current_user.id
 
-    res = accept_or_reject_tx(@current_community.id, @listing_conversation.id, status, message, sender_id)
+    tx = TransactionService::API::Api.transactions.query(tx_id)
+
+    if tx[:current_state] != :preauthorized
+      redirect_to person_transaction_path(person_id: @current_user.id, id: tx_id)
+      return
+    end
+
+    res = accept_or_reject_tx(@current_community.id, tx_id, status, message, sender_id)
 
     if res[:success]
-      flash[:notice] = success_msg(@listing_conversation, res[:flow])
-      redirect_to person_transaction_path(person_id: sender_id, id: @listing_conversation.id)
+      flash[:notice] = success_msg(res[:flow])
+      redirect_to person_transaction_path(person_id: sender_id, id: tx_id)
     else
       flash[:error] = error_msg(res[:flow])
-      redirect_to accept_preauthorized_person_message_path(person_id: sender_id , id: @listing_conversation.id)
+      redirect_to accept_preauthorized_person_message_path(person_id: sender_id , id: tx_id)
     end
   end
-
 
   private
 
@@ -87,7 +108,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       .or_else({flow: :reject, success: false})
   end
 
-  def success_msg(listing_conversation, flow)
+  def success_msg(flow)
     if flow == :accept
       t("layouts.notifications.request_accepted")
     elsif flow == :reject
