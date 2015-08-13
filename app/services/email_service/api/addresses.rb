@@ -97,7 +97,10 @@ module EmailService::API
 
     def quote(str, quotes)
       if quotes
-        "\"#{str}\""
+        # Use inspect to add quotes.
+        # Accoring to Ruby docs, inspect:
+        # "Returns a printable version of str, surrounded by quote marks, with special characters escaped"
+        str.inspect
       else
         str
       end
