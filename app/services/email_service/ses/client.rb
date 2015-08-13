@@ -88,6 +88,28 @@ module EmailService::SES
       end
     end
 
+    def disable_email_forwarding(email:)
+      if email.blank?
+        raise ArgumentError.new("Missing mandatory value for email parameter.")
+      end
+
+      method_params = {identity: email, forwarding_enabled: false}
+
+      log_request_response(:set_identity_feedback_forwarding_enabled, method_params) do
+        begin
+          response = @ses.set_identity_feedback_forwarding_enabled(method_params)
+          if response.successful?
+            Result::Success.new()
+          else
+            Result::Error.new(response.error)
+          end
+        rescue StandardError => e
+          Result::Error.new(e)
+        end
+      end
+
+    end
+
 
     private
 
