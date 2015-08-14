@@ -45,7 +45,8 @@ module MarketplaceService::API
       "local",
       "proxy",
       "preproduction",
-      "staging"
+      "staging",
+      "demo"
     ]
 
     module_function
