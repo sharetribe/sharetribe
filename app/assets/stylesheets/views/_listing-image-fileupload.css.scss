@@ -74,7 +74,6 @@ $listing-image-cellpadding: lines(0.5);
 
 .fileupload-text-container {
   @include fileupload-thumbnail(3);
-  outline: 1px solid red;
   text-align: center;
 
   color: darken(#EEE, 33%);
