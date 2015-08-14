@@ -128,19 +128,40 @@ window.ST = window.ST || {};
     var showEmailState = function(emailState) {
       $(".js-status-loading").hide();
       $(".js-loaded-sender-address-status").show();
-      $(".js-status-" + emailState.verificationStatus).show();
 
-      if(emailState.verificationStatus === "verified") {
-        $(".js-sender-address-preview-new").show();
-        $(".js-if-you-need-to-change").show();
-      } else {
-        $(".js-sender-address-verification-sent-time-ago")
-          .text(emailState.translatedVerificationSentTimeAgo)
-          .show();
-        $(".js-sender-address-preview-current").show();
-        $(".js-verification-email-from").show();
-        initializeResendHandler(emailState);
-      }
+      $(".js-sender-address-verification-sent-time-ago")
+        .text(emailState.translatedVerificationSentTimeAgo)
+        .show();
+
+      initializeResendHandler(emailState);
+
+      var elements = {
+        "verified": [
+          ".js-status-verified",
+          ".js-sender-address-preview-new",
+          ".js-if-you-need-to-change",
+        ],
+        "requested": [
+          ".js-status-requested",
+          ".js-sender-address-verification-sent-time-ago",
+          ".js-sender-address-preview-current",
+          ".js-verification-email-from",
+        ],
+
+        "expired": [
+          ".js-status-expired",
+          ".js-sender-address-preview-current",
+        ],
+        "resent": [
+          ".js-status-resent",
+          ".js-sender-address-preview-current",
+          ".js-verification-email-from",
+        ]
+      };
+
+      (elements[emailState.verificationStatus] || []).forEach(function(el) {
+        $(el).show();
+      });
     };
 
     var showErrorState = function() {
