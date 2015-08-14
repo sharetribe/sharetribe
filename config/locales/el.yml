@@ -107,6 +107,35 @@ el:
         welcome_email_content_description: "Αυτό είναι το μήνυμα ηλεκτρονικού ταχυδρομείου που στέλνεται σε κάθε νέο μέλος όταν εγγράφεται. Μπορείτε να το τροποποιήσετε για να ταιριάζει στην κοινότητα. Αν θέλετε να δείτε πως φαίνεται στους χρήστες, πατήστε \"%{send_test_message_link}\" για να σταλεί ένα μήνυμα στη δική σας διεύθυνση."
         edit_message: "Επεξεργασία μηνύματος"
         send_test_message: "Αποστολή δοκιμαστικού μηνύματος"
+      outgoing_email:
+        title: ~
+        info: ~
+        read_more: ~
+        sender_address: ~
+        sender_address_default: ~
+        need_to_change: ~
+        contact_support_link_text: ~
+        set_sender_address: ~
+        sender_name_label: ~
+        sender_name_placeholder: ~
+        sender_email_label: ~
+        sender_email_placeholder: ~
+        this_is_how_it_will_look: ~
+        send_verification_button: ~
+        successfully_saved: ~
+        status: ~
+        status_verified: ~
+        status_error: ~
+        status_requested: ~
+        status_expired: ~
+        status_resent: ~
+        resend_link: ~
+        invalid_email_error: ~
+        unknown_error: ~
+        only_white_label_offer: ~
+        upgrade_pro_plan_link: ~
+        verification_sent_from: ~
+        follow_the_instructions: ~
       getting_started:
         getting_started: ~
         welcome_to_your_marketplace: ~

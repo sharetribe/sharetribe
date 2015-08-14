@@ -143,6 +143,7 @@ nb:
         status_error: "En feil oppstod. Vennligst last siden på nytt."
         status_requested: "Ubekreftet - bekreftelses-epost ble sendt til %{email} %{time_ago}. %{resend_link}"
         status_expired: "Bekreftelse for %{email} har utgått. %{resend_link}"
+        status_resent: ~
         resend_link: "Send på nytt"
         invalid_email_error: "Ugyldig epostformat for '%{email}'"
         unknown_error: "Noe gikk galt"

@@ -143,6 +143,7 @@ da-DK:
         status_error: "En fejl opstod. Opdater venligst siden."
         status_requested: "Ikke bekræftet - bekræftelsesmail sendt til %{email} %{time_ago}. %{resend_link}"
         status_expired: "Bekræftelse af %{email} er udløbet. %{resend_link}"
+        status_resent: ~
         resend_link: Gensend
         invalid_email_error: "Ugyldig e-mail format for '%{email}'"
         unknown_error: "Noget gik galt"

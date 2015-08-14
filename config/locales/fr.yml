@@ -9,7 +9,7 @@ fr:
         remove_category_confirmation: "Voulez-vous vraiment supprimer la catégorie '%{category_name}' ?"
         saving_order: "Sauvegarde de l'ordre des catégories"
         save_order_successful: "Ordre des catégories sauvegardé avec succès"
-        save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre des catégories. Veuillez actualiser la page et essayer de nouveau."
+        save_order_error: "Une erreur s'est produite lors de la sauvegarde de l'ordre des catégories. Veuillez actualiser la page et essayer de nouveau."
       new:
         new_listing_category: "Nouvelle catégorie d'annonces"
       form:
@@ -122,6 +122,35 @@ fr:
         welcome_email_content_description: "Le message ci-dessous sera envoyé à chaque nouvel utilisateur lors de leur inscription. Vous pouvez le modifier pour l'adapter à votre place de marché. En cliquant sur '%{send_test_message_link}' vous pouvez pré-visualiser le message en l'envoyant à votre adresse personnelle pour voir à quoi cela ressemblera exactement."
         edit_message: "Modifier le message"
         send_test_message: "Envoyer un message de test"
+      outgoing_email:
+        title: "Adresse email sortante"
+        info: "Ce nom et cette adresse sont utilisés pour les emails envoyés depuis votre place de marché à vos utilisateurs."
+        read_more: "En savoir plus sur l'adresse email sortante"
+        sender_address: "Adresse de l'expéditeur : %{sender_address}"
+        sender_address_default: "Adresse de l'expéditeur : non configurée (utilisation de l'adresse par défaut %{sender_address})"
+        need_to_change: "Si vous souhaitez changer l'adresse email, veuillez %{contact_support_link}."
+        contact_support_link_text: "contacter notre support"
+        set_sender_address: "Définir l'adresse d'expéditeur"
+        sender_name_label: Nom
+        sender_name_placeholder: "Nom de l'expéditeur"
+        sender_email_label: "Adresse email"
+        sender_email_placeholder: expediteur@exemple.fr
+        this_is_how_it_will_look: "Voici un aperçu du résultat : "
+        send_verification_button: "Envoyer l'email de vérification"
+        successfully_saved: "Adresse de l'expéditeur sauvegardée avec succès. L'email de vérification va être envoyé très prochainement."
+        status: "État : %{status}"
+        status_verified: "Vérifiée - en cours d'utilisation"
+        status_error: "Une erreur s'est produite. Veuillez actualiser la page et essayer de nouveau."
+        status_requested: "Non vérifiée - email de vérification envoyé à %{email} %{time_ago}. %{resend_link}"
+        status_expired: "Vérification de %{email} expirée. %{resend_link}"
+        status_resent: "Email de vérification renvoyé à %{email}. %{resend_link}"
+        resend_link: Renvoyer
+        invalid_email_error: "Format de l'email invalide pour '%{email}'"
+        unknown_error: "Quelque chose s'est mal passé."
+        only_white_label_offer: "Cette fonctionnalité faire partie de l'offre marque blanche de Sharetribe. Pour activer cette fonctionnalité vous devriez %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "passer à notre offre Pro ou supérieure"
+        verification_sent_from: "L'email de vérification a été envoyé par %{verification_sender_name}."
+        follow_the_instructions: "Veuillez suivre les instructions dans cet email pour vérifier votre adresse."
       getting_started:
         getting_started: "Guide de démarrage"
         welcome_to_your_marketplace: "Bienvenue dans votre place de marché, %{name} !"
@@ -322,7 +351,7 @@ fr:
         add_option: "+ Ajouter une option"
         saving_order: "Sauvegarder l'ordre des champs"
         save_order_successful: "Sauvegarde de l'ordre des champs réussie"
-        save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre des champs. Rafraîchissez la page et essayez de nouveau."
+        save_order_error: "Une erreur s'est produite lors de la sauvegarde de l'ordre des champs. Rafraîchissez la page et essayez de nouveau."
         select_one: "Sélectionner le type du champ..."
         continue: Continuer
         minimum_value: Minimum
@@ -370,7 +399,7 @@ fr:
         order:
           saving_order: "Sauvegarder l'ordre"
           save_order_successful: "Ordre des types de transaction sauvegardé avec succès"
-          save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre. Veuillez actualiser la page et essayer de nouveau."
+          save_order_error: "Une erreur s'est produite  lors de la sauvegarde de l'ordre. Veuillez actualiser la page et essayer de nouveau."
       templates:
         selling_products: "Vendre des produits"
         renting_products: "Louer des produits"
