@@ -47,6 +47,7 @@ window.ST = window.ST || {};
         $(".js-status-requested"),
         $(".js-status-error"),
         $(".js-status-expired"),
+        $(".js-status-resent"),
         $(".js-sender-address-preview-new"),
         $(".js-if-you-need-to-change"),
         $(".js-sender-address-verification-sent-time-ago"),
