@@ -174,7 +174,6 @@ ActiveRecord::Schema.define(:version => 20150807141947) do
     t.text     "available_currencies"
     t.boolean  "facebook_connect_enabled",                                 :default => true
     t.boolean  "only_public_listings",                                     :default => true
-    t.string   "custom_email_from_address"
     t.integer  "vat"
     t.integer  "commission_from_seller"
     t.integer  "minimum_price_cents"
