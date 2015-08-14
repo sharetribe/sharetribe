@@ -122,6 +122,34 @@ nb:
         welcome_email_content_description: "Meldingen nedenfor blir sendt ut til alle nye brukere når de registrerer seg. Du kan tilpasse meldingen slik at den passer din markedsplass. Ved å trykke på '%{send_test_message_link}' kan du forhåndsvise meldingen ved å sende en test til din egen epost."
         edit_message: "Rediger melding"
         send_test_message: "Send test melding"
+      outgoing_email:
+        title: "Utgående epostadresse"
+        info: "Dette navnet og adressen brukes for eposter som sendes fra denne markedsplassen til sine medlemmer."
+        read_more: "Les mer om utgående epostadresse"
+        sender_address: "Avsender: %{sender_address}"
+        sender_address_default: "Avsender: ikke satt (bruker standardadresse %{sender_address}9"
+        need_to_change: "Hvis du ønsker å endre epostadressen vennligst %{contact_support_link}"
+        contact_support_link_text: "kontakt vår support"
+        set_sender_address: "Sett avsender"
+        sender_name_label: Navn
+        sender_name_placeholder: Avsendernavn
+        sender_email_label: Epostadresse
+        sender_email_placeholder: din-markedplass@eksempel.no
+        this_is_how_it_will_look: "Slik vil det se ut:"
+        send_verification_button: "Send bekreftelses-epost"
+        successfully_saved: "Avsender lagret. Bekreftelses-epost vil bli sendt snart."
+        status: "Status: %{status}"
+        status_verified: "Bekreftet - i bruk"
+        status_error: "En feil oppstod. Vennligst last siden på nytt."
+        status_requested: "Ubekreftet - bekreftelses-epost ble sendt til %{email} %{time_ago}. %{resend_link}"
+        status_expired: "Bekreftelse for %{email} har utgått. %{resend_link}"
+        resend_link: "Send på nytt"
+        invalid_email_error: "Ugyldig epostformat for '%{email}'"
+        unknown_error: "Noe gikk galt"
+        only_white_label_offer: "Denne funksjonen er en del av Sharetribe white-label. For å aktivere dette må du %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "oppgradere til vår Pro-pakke eller høyere nivå."
+        verification_sent_from: "Bekreftelses-eposten ble sendt fra %{verification_sender_name}."
+        follow_the_instructions: "Følg instruksjonen i eposten for å bekrefte din adresse."
       getting_started:
         getting_started: "Kom i gang"
         welcome_to_your_marketplace: "Velkommen til din markedsplass, %{name}!"

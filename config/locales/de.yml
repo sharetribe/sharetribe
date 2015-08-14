@@ -122,6 +122,34 @@ de:
         welcome_email_content_description: "Die folgende Nachricht wird zur Begrüßung an jedes neue Mitglied gesendet. Du kannst die Nachricht so bearbeiten, dass sie zu deiner Community passt. Indem du auf '%{send_test_message_link}' klickst, kannst du sehen, wie sie in einem E-Mail-Client aussieht."
         edit_message: "Nachricht bearbeiten"
         send_test_message: "Test-Nachricht senden"
+      outgoing_email:
+        title: ~
+        info: ~
+        read_more: ~
+        sender_address: ~
+        sender_address_default: ~
+        need_to_change: ~
+        contact_support_link_text: ~
+        set_sender_address: ~
+        sender_name_label: ~
+        sender_name_placeholder: ~
+        sender_email_label: ~
+        sender_email_placeholder: ~
+        this_is_how_it_will_look: ~
+        send_verification_button: ~
+        successfully_saved: ~
+        status: ~
+        status_verified: ~
+        status_error: ~
+        status_requested: ~
+        status_expired: ~
+        resend_link: ~
+        invalid_email_error: ~
+        unknown_error: ~
+        only_white_label_offer: ~
+        upgrade_pro_plan_link: ~
+        verification_sent_from: ~
+        follow_the_instructions: ~
       getting_started:
         getting_started: Kurzanleitung
         welcome_to_your_marketplace: "Willkommen auf deinem Marktplatz, %{name}!"

@@ -117,6 +117,34 @@ zh:
         welcome_email_content_description: "下面的消息将在新用户加入时被发送给每个用户。你可以定制此消息以适应你的集市。通过点击“%{send_test_message_link}”你可以发送一条预览信息到你的电子邮件地址，你可以看看它在邮件客户端中的将如何被显示。"
         edit_message: 编辑消息
         send_test_message: 发送测试消息
+      outgoing_email:
+        title: ~
+        info: ~
+        read_more: ~
+        sender_address: ~
+        sender_address_default: ~
+        need_to_change: ~
+        contact_support_link_text: ~
+        set_sender_address: ~
+        sender_name_label: ~
+        sender_name_placeholder: ~
+        sender_email_label: ~
+        sender_email_placeholder: ~
+        this_is_how_it_will_look: ~
+        send_verification_button: ~
+        successfully_saved: ~
+        status: ~
+        status_verified: ~
+        status_error: ~
+        status_requested: ~
+        status_expired: ~
+        resend_link: ~
+        invalid_email_error: ~
+        unknown_error: ~
+        only_white_label_offer: ~
+        upgrade_pro_plan_link: ~
+        verification_sent_from: ~
+        follow_the_instructions: ~
       getting_started:
         getting_started: 获取入门指南
         welcome_to_your_marketplace: "欢迎来到你的集市，%{name}！"
