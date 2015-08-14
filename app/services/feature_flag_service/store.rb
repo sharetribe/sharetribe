@@ -8,7 +8,6 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     FLAGS = [
-      :sender_address,
       :location_search
     ].to_set
 
