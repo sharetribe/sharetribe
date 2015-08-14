@@ -65,7 +65,9 @@ module EmailService::API
     def enqueue_status_sync(community_id:, id:)
       if @ses_client
         Delayed::Job.enqueue(
-          EmailService::Jobs::SingleSync.new(community_id, id))
+          EmailService::Jobs::SingleSync.new(community_id, id),
+          priority: 0
+        )
       end
     end
 

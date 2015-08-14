@@ -2,6 +2,8 @@ window.ST = window.ST || {};
 
 (function(module) {
 
+  var TIMEOUT = 20000;
+
   var $form = $(".js-sender-email-form");
   $form.validate({
     rules: {
@@ -61,7 +63,7 @@ window.ST = window.ST || {};
           return pollingResult.updatedAt !== userEmail.updatedAt;
         },
         {
-          timeout: 10000
+          timeout: TIMEOUT
         }
       );
 
