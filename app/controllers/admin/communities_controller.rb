@@ -69,7 +69,8 @@ class Admin::CommunitiesController < ApplicationController
         when Some(:invalid_email)
           t("admin.communities.outgoing_email.invalid_email_error", email: res.data[:email])
         when Some(:invalid_domain)
-          t("admin.communities.outgoing_email.invalid_email_domain", email: res.data[:email], domain: res.data[:domain])
+          kb_link = view_context.link_to(t("admin.communities.outgoing_email.invalid_email_domain_read_more_link"), "#{APP_CONFIG.knowledge_base_url}/articles/686493", class: "flash-error-link")
+          t("admin.communities.outgoing_email.invalid_email_domain", email: res.data[:email], domain: res.data[:domain], invalid_email_domain_read_more_link: kb_link).html_safe
         else
           t("admin.communities.outgoing_email.unknown_error")
         end
