@@ -58,7 +58,9 @@ module EmailService::API
     def enqueue_verification_request(community_id:, id:)
       if @ses_client
         Delayed::Job.enqueue(
-          EmailService::Jobs::RequestEmailVerification.new(community_id, id))
+          EmailService::Jobs::RequestEmailVerification.new(community_id, id),
+          priority: 2
+        )
       end
     end
 
