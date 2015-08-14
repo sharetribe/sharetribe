@@ -283,7 +283,66 @@ describe EmailService::API::Addresses do
           expect(address[:verification_status]).to eq(:requested)
           expect(address[:verification_requested_at]).to eq(now)
         end
+      end
 
+      it "fails for disallowed email providers" do
+        res = addresses_with_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@yahoo.com"
+          })
+
+        expect(res.success).to eq(false)
+        expect(res.data[:error_code]).to eq(:invalid_domain)
+        expect(res.data[:domain]).to eq("yahoo.com")
+
+        res2 = addresses_with_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@subdomain.yahoo.com"
+          })
+
+        expect(res2.success).to eq(false)
+        expect(res2.data[:error_code]).to eq(:invalid_domain)
+        expect(res2.data[:domain]).to eq("subdomain.yahoo.com")
+
+        res3 = addresses_with_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@subdomain.yahoo.co.uk"
+          })
+
+        expect(res3.success).to eq(false)
+        expect(res3.data[:error_code]).to eq(:invalid_domain)
+        expect(res3.data[:domain]).to eq("subdomain.yahoo.co.uk")
+
+        res4 = addresses_with_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@subdomain.yahoo.whatever"
+          })
+
+        expect(res4.success).to eq(false)
+        expect(res4.data[:error_code]).to eq(:invalid_domain)
+        expect(res4.data[:domain]).to eq("subdomain.yahoo.whatever")
+
+
+        res5 = addresses_with_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "hello2@yahoo.mymarketplace.com"
+          })
+
+        # Note: This should fail!
+        #
+        # However, parsing the host is not that easy, due to the fact
+        # that there are top-level domains like co.uk.
+        # If this becames a problem, consider adding a gem, e.g.
+        # https://github.com/pauldix/domainatrix
+        # or https://github.com/weppos/publicsuffix-ruby
+        expect(res5.success).to eq(false)
+        expect(res5.data[:error_code]).to eq(:invalid_domain)
+        expect(res5.data[:domain]).to eq("yahoo.mymarketplace.com")
       end
 
     end
