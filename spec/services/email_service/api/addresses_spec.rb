@@ -97,6 +97,40 @@ describe EmailService::API::Addresses do
 
       end
 
+      it "returns SMTP formatted address, with quotes and special characters properly escaped" do
+        # User input: Hello
+        # Expected print output: "Hello" <hello@mymarketplace.invalid>
+        expect(addresses_wo_ses.create(
+          community_id: 1, address: {
+            name: "Hello",
+            email: "hello@mymarketplace.invalid",
+          }).data[:smtp_format]).to eq("\"Hello\" <hello@mymarketplace.invalid>")
+
+        # User input: Hello "Hello" Hello
+        # Expected print output: "Hello \"Hello\" Hello" <hello@mymarketplace.invalid>
+        expect(addresses_wo_ses.create(
+          community_id: 1, address: {
+            name: "Hello \"Hello\" Hello",
+            email: "hello@mymarketplace.invalid",
+          }).data[:smtp_format]).to eq("\"Hello \\\"Hello\\\" Hello\" <hello@mymarketplace.invalid>")
+
+        # User input: Hello \"Hello\" Hello
+        # Expected print output: "Hello \\\"Hello\\\" Hello" <hello@mymarketplace.invalid>
+        expect(addresses_wo_ses.create(
+          community_id: 1, address: {
+            name: "Hello \\\"Hello\\\" Hello",
+            email: "hello@mymarketplace.invalid",
+          }).data[:smtp_format]).to eq("\"Hello \\\\\\\"Hello\\\\\\\" Hello\" <hello@mymarketplace.invalid>")
+
+        # User input: Hello \\"Hello\\" Hello
+        # Expected print output: "Hello \\\\\"Hello\\\\\" Hello" <hello@mymarketplace.invalid>
+        expect(addresses_wo_ses.create(
+          community_id: 1, address: {
+            name: "Hello \\\\\"Hello\\\\\" Hello",
+            email: "hello@mymarketplace.invalid",
+          }).data[:smtp_format]).to eq("\"Hello \\\\\\\\\\\"Hello\\\\\\\\\\\" Hello\" <hello@mymarketplace.invalid>")
+      end
+
     end
 
     context "default sender address" do
