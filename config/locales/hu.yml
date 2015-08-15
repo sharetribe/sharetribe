@@ -1842,7 +1842,7 @@ hu:
       we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: ~
-      password_recovery_instructions: ~
+      password_recovery_instructions: "Add meg az email címedet, hogy ki tudjuk küldeni számodra az új jelszót."
       request_new_password: "Új jelszó kérése"
       change_your_password: ~
     confirmation_pending:
@@ -1890,13 +1890,13 @@ hu:
     notifications:
       email_from_admins: "Hozzájárulok, hogy üzeneteket kapjak a rendszertől."
       i_want_to_get_email_notification_when: "A következő esetekben szeretnék emailt kapni..."
-      newsletters: "hírlevelek"
-      community_updates: "oldallal kapcsolatos hírek"
+      newsletters: "Hírlevelek"
+      community_updates: "Oldallal kapcsolatos hírek"
       email_about_accept_reminders: "...elfelejtettem válaszolni egy ajánlatra"
       email_about_confirm_reminders: "...elfelejtettem jóváhagyni egy ajánlatot"
-      email_about_new_comments_to_own_listing: "a hirdetésemre új hozzászólás érkezett"
-      email_about_new_messages: "új üzenetet kaptam"
-      email_about_new_received_testimonials: "új visszajelzést kaptam"
+      email_about_new_comments_to_own_listing: "A hirdetésemre új hozzászólás érkezett"
+      email_about_new_messages: "Új üzenetet kaptam"
+      email_about_new_received_testimonials: "Új visszajelzést kaptam"
       email_about_testimonial_reminders: "...elfelejtettem visszajelzést küldeni"
       email_daily_community_updates: "Új hirdetésekről naponta"
       email_weekly_community_updates: "Új hirdetésekről hetente"
@@ -1933,7 +1933,7 @@ hu:
       default_in_listing: "(alapértelmezett, új hirdetéskor)"
       invisible: "(nem látják más felhasználók)"
       image_is_processing: "A profilképed feldolgozás alatt."
-    save_information: "információk mentése"
+    save_information: "Információk mentése"
   shipping_address:
     shipping_address: "Szállítási cím"
   tag_cloud:
