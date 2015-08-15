@@ -1,7 +1,7 @@
 class PostPayTransactionsController < ApplicationController
 
   before_filter do |controller|
-   controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
+   controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_do_a_transaction")
   end
 
   before_filter :fetch_listing_from_params
@@ -30,9 +30,14 @@ class PostPayTransactionsController < ApplicationController
       transaction_response = TransactionService::Transaction.create({
           transaction: {
             community_id: @current_community.id,
-            listing_id: contact_form.listing_id,
+            listing_id: @listing.id,
+            listing_title: @listing.title,
             starter_id: @current_user.id,
             listing_author_id: @listing.author.id,
+            unit_type: @listing.unit_type,
+            unit_price: @listing.price,
+            unit_tr_key: @listing.unit_tr_key,
+            listing_quantity: 1,
             content: contact_form.content,
             payment_gateway: @current_community.payment_gateway.gateway_type,
             payment_process: :postpay,
@@ -45,7 +50,6 @@ class PostPayTransactionsController < ApplicationController
       end
 
       transaction_id = transaction_response[:data][:transaction][:id]
-      MarketplaceService::Transaction::Command.transition_to(transaction_id, "pending")
 
       flash[:notice] = t("layouts.notifications.message_sent")
       Delayed::Job.enqueue(TransactionCreatedJob.new(transaction_id, @current_community.id))
@@ -84,7 +88,7 @@ class PostPayTransactionsController < ApplicationController
 
   def ensure_listing_is_open
     if @listing.closed?
-      flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_#{@listing.direction}")
+      flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_offer")
       redirect_to (session[:return_to_content] || root)
     end
   end

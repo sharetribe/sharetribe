@@ -61,16 +61,29 @@ GEM
       activemodel
       fog
     ast (2.0.0)
-    aws-sdk (1.15.0)
+    aws-sdk (2.1.12)
+      aws-sdk-resources (= 2.1.12)
+    aws-sdk-core (2.1.12)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.1.12)
+      aws-sdk-core (= 2.1.12)
+    aws-sdk-v1 (1.64.0)
       json (~> 1.4)
-      nokogiri (< 1.6.0)
-      uuidtools (~> 2.1)
+      nokogiri (>= 1.4.4)
     bcrypt-ruby (3.1.2)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     braintree (2.30.0)
       builder (>= 2.0.0)
     builder (3.0.4)
+    cache_digests (0.3.1)
+      actionpack (>= 3.2)
+      thread_safe
+    callsite (0.0.11)
     capybara (2.2.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -79,7 +92,7 @@ GEM
       xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
-    childprocess (0.5.5)
+    childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.2.6)
     climate_control (0.0.3)
@@ -169,7 +182,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     fb-channel-file (0.0.2)
       rails (>= 3.0)
-    ffi (1.9.6)
+    ffi (1.9.8)
     flying-sphinx (1.2.0)
       faraday (>= 0.9)
       multi_json (>= 1.3.0)
@@ -205,12 +218,12 @@ GEM
       rspec (>= 2.14, < 4.0)
     haml (4.0.5)
       tilt
-    hashie (2.0.5)
+    hashie (3.4.2)
     highline (1.6.21)
     hike (1.2.3)
     htmlentities (4.3.2)
     http_parser.rb (0.5.3)
-    i18n (0.6.11)
+    i18n (0.7.0)
     i18n-tasks (0.6.2)
       activesupport
       easy_translate (>= 0.5.0)
@@ -220,6 +233,8 @@ GEM
       term-ansicolor
       terminal-table
     innertube (1.1.0)
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
     joiner (0.2.0)
       activerecord (>= 3.1.0, < 4.1.0)
     journey (1.0.4)
@@ -227,8 +242,7 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
-    jwt (0.1.11)
-      multi_json (>= 1.5)
+    jwt (1.5.1)
     kgio (2.8.1)
     launchy (2.1.2)
       addressable (~> 2.3)
@@ -236,6 +250,10 @@ GEM
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    lograge (0.3.2)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
     lumberjack (1.0.9)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -246,14 +264,21 @@ GEM
     mercury-rails (0.9.0)
       coffee-rails
       railties (~> 3.2)
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     middleware (0.1.0)
     mime-types (1.25.1)
-    money (5.1.1)
-      i18n (~> 0.6.0)
-    money-rails (0.8.1)
+    monetize (1.1.0)
+      money (~> 6.5.0)
+    money (6.5.1)
+      i18n (>= 0.6.4, <= 0.7.0)
+    money-rails (1.3.0)
       activesupport (>= 3.0)
-      money (~> 5.1.0)
+      monetize (~> 1.1.0)
+      money (~> 6.5.0)
       railties (>= 3.0)
     multi_json (1.7.9)
     multi_test (0.1.1)
@@ -265,21 +290,19 @@ GEM
     net-ssh (2.6.2)
     newrelic_rpm (3.9.1.236)
     nokogiri (1.5.11)
-    oauth2 (0.9.3)
+    oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
-      jwt (~> 0.1.8)
+      jwt (~> 1.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (~> 1.2)
-    omniauth (1.2.1)
-      hashie (>= 1.2, < 3)
+    omniauth (1.2.2)
+      hashie (>= 1.2, < 4)
       rack (~> 1.0)
-    omniauth-facebook (1.6.0)
-      omniauth-oauth2 (~> 1.1)
-    omniauth-oauth2 (1.1.2)
-      faraday (>= 0.8, < 0.10)
-      multi_json (~> 1.3)
-      oauth2 (~> 0.9.3)
+    omniauth-facebook (2.0.1)
+      omniauth-oauth2 (~> 1.2)
+    omniauth-oauth2 (1.3.1)
+      oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.4.0)
     paperclip (3.5.1)
@@ -327,12 +350,16 @@ GEM
       pry (>= 0.9.11)
     pusher-client (0.4.0)
       websocket (~> 1.0.0)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rabl (0.7.9)
       activesupport (>= 2.3.14)
       multi_json (~> 1.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-livereload (0.3.15)
       rack
     rack-ssl (1.3.4)
@@ -399,14 +426,12 @@ GEM
     ruby-prof (0.14.2)
     ruby-progressbar (1.4.2)
     rubyzip (1.1.7)
-    russian (0.6.0)
-      i18n (>= 0.5.0)
     sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    selenium-webdriver (2.43.0)
+    selenium-webdriver (2.45.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
@@ -433,7 +458,7 @@ GEM
     term-ansicolor (1.3.0)
       tins (~> 1.0)
     terminal-table (1.4.5)
-    thinking-sphinx (3.1.1)
+    thinking-sphinx (3.1.3)
       activerecord (>= 3.1.0)
       builder (>= 2.1.2)
       innertube (>= 1.0.2)
@@ -453,7 +478,7 @@ GEM
       polyglot (>= 0.3.1)
     trollop (2.0)
     truncate_html (0.9.1)
-    tzinfo (0.3.42)
+    tzinfo (0.3.43)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
@@ -461,7 +486,6 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    uuidtools (2.1.4)
     validates_timeliness (3.0.14)
       timeliness (~> 0.3.6)
     warden (1.2.3)
@@ -486,8 +510,11 @@ DEPENDENCIES
   airbrake (~> 4.1.0)
   annotate
   asset_sync
-  aws-sdk
+  aws-sdk (~> 2)
+  aws-sdk-v1
+  better_errors
   braintree
+  cache_digests
   capybara
   coffee-rails (~> 3.2.2)
   compass-rails
@@ -516,14 +543,16 @@ DEPENDENCIES
   json (~> 1.8.0)
   kgio (~> 2.8.0)
   launchy
+  lograge
   mail_view (~> 1.0.3)
   memcachier
   mercury-rails
+  meta_request
   money-rails
   multi_json (~> 1.7.3)
   mysql2
   newrelic_rpm (~> 3.9.1.236)
-  omniauth-facebook
+  omniauth-facebook (~> 2.0.1)
   paperclip
   parallel_tests
   paypal-sdk-merchant (~> 1.116.0)
@@ -536,6 +565,7 @@ DEPENDENCIES
   pry-nav
   pry-rails
   pry-stack_explorer
+  quiet_assets
   rabl
   rack-livereload
   rack-test
@@ -549,10 +579,9 @@ DEPENDENCIES
   rspec-rails (~> 2.99.0)
   rubocop
   ruby-prof
-  russian
   sass (~> 3.2.9)
   sass-rails
-  selenium-webdriver (~> 2.43.0)
+  selenium-webdriver
   spreadsheet
   statesman (~> 0.5.0)
   stringex (~> 2.5.2)

@@ -13,12 +13,23 @@
 #
 # Indexes
 #
-#  index_categories_on_parent_id  (parent_id)
-#  index_categories_on_url        (url)
+#  index_categories_on_community_id  (community_id)
+#  index_categories_on_parent_id     (parent_id)
+#  index_categories_on_url           (url)
 #
 
 class Category < ActiveRecord::Base
-  attr_accessible :community_id, :parent_id, :translation_attributes, :transaction_type_attributes, :sort_priority, :url
+  attr_accessible(
+    :community_id,
+    :parent_id,
+    :translations,
+    :translation_attributes,
+    :sort_priority,
+    :url,
+    :basename
+  )
+
+  attr_accessor :basename
 
   has_many :subcategories, :class_name => "Category", :foreign_key => "parent_id", :dependent => :destroy, :order => "sort_priority"
   # children is a more generic alias for sub categories, used in classification.rb
@@ -27,17 +38,16 @@ class Category < ActiveRecord::Base
   has_many :listings
   has_many :translations, :class_name => "CategoryTranslation", :dependent => :destroy
 
+  has_and_belongs_to_many :listing_shapes, order: "sort_priority", join_table: "category_listing_shapes"
+
   has_many :category_custom_fields, :dependent => :destroy
   has_many :custom_fields, :through => :category_custom_fields, :order => "sort_priority"
 
-  has_many :category_transaction_types, :dependent => :destroy
-  has_many :transaction_types, :through => :category_transaction_types
-
   belongs_to :community
 
+  before_save :uniq_url
   before_destroy :can_destroy?
 
-  acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
 
   def translation_attributes=(attributes)
     build_attrs = attributes.map { |locale, values| { locale: locale, values: values } }
@@ -55,16 +65,30 @@ class Category < ActiveRecord::Base
   end
 
   def url_source
-    Maybe(default_translation_without_cache).name.or_else("category")
+    basename || Maybe(default_translation_without_cache).name.or_else("category")
   end
 
   def default_translation_without_cache
     (translations.find { |translation| translation.locale == community.default_locale } || translations.first)
   end
 
-  def transaction_type_attributes=(attributes)
-    transaction_types.clear
-    attributes.each { |transaction_type| category_transaction_types.build(transaction_type) }
+  # TODO this should be done on service layer
+  def uniq_url
+    current_url = Maybe(url_source).to_url.or_else("noname")
+
+    if new_record? || url != current_url
+      blacklist = ['new', 'all']
+      base_url = current_url
+      categories = Category.where(community_id: community_id)
+
+      i = 1
+      while blacklist.include?(current_url) || categories.find { |c| c.url == current_url && c.id != id }.present? do
+        current_url = "#{base_url}#{i}"
+        i += 1
+      end
+      self.url = current_url
+    end
+
   end
 
   def display_name(locale)

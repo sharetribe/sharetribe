@@ -26,8 +26,8 @@ module PaypalService
         username: config.paypal_username,
         password: config.paypal_password,
         signature: config.paypal_signature,
-        app_id: config.paypal_app_id
-      })
+        app_id: config.paypal_app_id,
+        partner_id: config.paypal_partner_id})
     end
   end
 end

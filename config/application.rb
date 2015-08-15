@@ -31,6 +31,7 @@ module Kassi
     config.autoload_paths += Dir[Rails.root.join('app', 'utils')]
     config.autoload_paths += Dir[Rails.root.join('app', 'view_utils')]
     config.autoload_paths += Dir[Rails.root.join('app', 'forms')]
+
     # Enable the asset pipeline
     config.assets.enabled = true
 
@@ -61,8 +62,11 @@ module Kassi
     # enable custom domain cookies rack middleware
     config.middleware.use "CustomDomainCookie", APP_CONFIG.domain
 
-    # This is the list of all possible locales. Part of the translations may be unfinished.
-    config.AVAILABLE_LOCALES = Sharetribe::AVAILABLE_LOCALES
+    # Map of removed locales and their fallbacks
+    config.REMOVED_LOCALE_FALLBACKS = Sharetribe::REMOVED_LOCALE_FALLBACKS
+
+    # List of removed locales
+    config.REMOVED_LOCALES = Sharetribe::REMOVED_LOCALES
 
     I18n.enforce_available_locales = true
 
@@ -107,6 +111,7 @@ module Kassi
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :password2, :account_number, :routing_number, :address_street_address,
+                                 :image, :wide_logo, :logo, :cover_photo, :small_cover_photo, :favicon,
                                  :"date_of_birth(3i)", :"date_of_birth(2i)", :"date_of_birth(1i)"]
 
     # ActiveRecord should be in UTC timezone.
@@ -138,17 +143,6 @@ module Kassi
     end
     config.paperclip_defaults = paperclip_options
 
-    # If logger_type is set to something else than "normal" we'll use stdout here
-    # the reason for this type of check is that it works also in Heroku where those variables can't be read in slug compilation
-    if (Rails.env.production? || Rails.env.staging?) && APP_CONFIG.logger_type != "normal"
-      # Set the logger to STDOUT, based on tip at: http://blog.codeship.io/2012/05/06/Unicorn-on-Heroku.html
-      # For unicorn logging to work
-      # It looks stupid that this is not in production.rb, but according to that blog,
-      # it needs to be set here to work
-      config.logger = Logger.new(STDOUT)
-      config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
-    end
-
     config.to_prepare do
       Devise::Mailer.layout "email" # email.haml or email.erb
       Devise::Mailer.helper :email_template
@@ -157,6 +151,7 @@ module Kassi
     # Map custom errors to error pages
     config.action_dispatch.rescue_responses["PeopleController::PersonDeleted"] = :gone
     config.action_dispatch.rescue_responses["ListingsController::ListingDeleted"] = :gone
+    config.action_dispatch.rescue_responses["ApplicationController::FeatureFlagNotEnabledError"] = :not_found
 
     config.exceptions_app = self.routes
   end

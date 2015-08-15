@@ -1,0 +1,11 @@
+- fields = [:name, :phone, :street1, :street2, :postal_code, :city, :state_or_province, :country]
+
+- if shipping_address && shipping_address.slice(*fields).values.any?
+  .shipping-address-container
+    %h2= t("shipping_address.shipping_address")
+    - fields.map do |field|
+      - if shipping_address[field].present?
+        - if shipping_address[field] == :name
+          .shipping-address-name= shipping_address[field]
+        - else
+          .shipping-address-row= shipping_address[field]

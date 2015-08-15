@@ -22,12 +22,13 @@
 //= require jquery.fileupload-validate
 //= require jquery.fileupload-image
 
+//= require selectize-standalone.js
 //= require datepicker/bootstrap-datepicker.js
 
 // Allow IE8-9 to post cross domain XHR (required for image upload)
 //= require jquery.iframe-transport.js
 
-//= require fastclick.min
+//= require fastclick
 
 // Responsive helpers
 // https://github.com/edenspiekermann/minwidth-relocate
@@ -52,6 +53,9 @@
 //= require admin/manage_members
 //= require admin/menu_links
 //= require admin/community_customizations
+//= require admin/listing_shapes
+//= require admin/settings.js
+//= require admin/emails.js
 //= require payment_math
 //= require dropdown
 //= require jquery.nouislider
@@ -66,4 +70,5 @@
 //= require follow
 //= require paypal_account_settings
 //= require transaction
+//= require listing_form
 //= require_self

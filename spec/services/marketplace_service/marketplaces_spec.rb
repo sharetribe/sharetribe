@@ -2,6 +2,8 @@ describe MarketplaceService::API::Marketplaces do
   include MarketplaceService::API::Marketplaces
 
   describe "#create" do
+    let(:listings_api) { ListingService::API::Api }
+
     before (:each) do
       @community_params = {
         :marketplace_name => "LocalFoodGarden",
@@ -14,16 +16,24 @@ describe MarketplaceService::API::Marketplaces do
     it "should create a marketplace" do
       c = create(@community_params)
 
-      expect(c[:domain]).to eql "localfoodgarden"
+      expect(c[:ident]).to eql "localfoodgarden"
       expect(c[:locales].first).to eql "es"
       expect(c[:country]).to eql "ES"
     end
 
+    it "creates a marketplace with free plan" do
+      c = create(@community_params)
+
+      plan = PlanService::API::Api.plans.get_current(community_id: c[:id]).data
+
+      expect(plan[:plan_level]).to eq(0)
+    end
+
     it "should find a free domain, if intitial domain is taken" do
-      FactoryGirl.create(:community, :domain => "common")
+      FactoryGirl.create(:community, :ident => "common")
 
       c = create(@community_params.merge!({:marketplace_name => "Common"}))
-      expect(c[:domain]). to eql "common1"
+      expect(c[:ident]). to eql "common1"
     end
 
     it "should set correct currency based on contry selection" do
@@ -37,32 +47,56 @@ describe MarketplaceService::API::Marketplaces do
       expect(c[:available_currencies]).to eql "GBP"
     end
 
-    it "should set correct transaction_type and category" do
+    it "should set correct listing shape and category" do
       community_hash = create(@community_params)
       c = Community.find(community_hash[:id])
-      expect(c.transaction_types.first.class).to eql Sell
+      s = listings_api.shapes.get(community_id: c.id).data.first
+      expect(s[:units].empty?).to eql true
+      expect(s[:price_enabled]).to eql true
+      expect(s[:shipping_enabled]).to eql true
 
       community_hash = create(@community_params.merge({:marketplace_type => "rental"}))
       c = Community.find(community_hash[:id])
-      expect(c.transaction_types.first.class).to eql Rent
-      expect(c.transaction_types.first.price_per).to eql "day"
-      expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
+      s = listings_api.shapes.get(community_id: c.id).data.first
+      expect(s[:units][0][:type]).to eql :day
+      expect(s[:price_enabled]).to eql true
+      expect(s[:shipping_enabled]).to eql false
 
       community_hash = create(@community_params.merge({:marketplace_type => "service"}))
       c = Community.find(community_hash[:id])
-      expect(c.transaction_types.first.class).to eql Service
-      expect(c.transaction_types.first.price_per).to eql "day"
-      expect(c.transaction_types.first.price_quantity_placeholder).to eql nil
+      s = listings_api.shapes.get(community_id: c.id).data.first
+      expect(s[:units][0][:type]).to eql :day
+      expect(s[:price_enabled]).to eql true
+      expect(s[:shipping_enabled]).to eql false
 
-      # check that category and transaction type are linked
-      expect(c.transaction_types.first.categories.first).to eql c.categories.first
+      # check that category and shape are linked
+      expect(CategoryListingShape.where(listing_shape_id: s[:id]).count).to eq(1)
+      expect(CategoryListingShape.where(listing_shape_id: s[:id]).first.category).to eql c.categories.first
     end
 
     it "should have preauthorize_payments enabled" do
       community_hash = create(@community_params)
       c = Community.find(community_hash[:id])
+      processes = TransactionService::API::Api.processes
+                  .get(community_id: c.id).data
+                  .map { |p| p.slice(:author_is_seller, :process) }
 
-      expect(c.transaction_types.pluck(:preauthorize_payment).all?).to be true
+      expect(processes.size).to eq 3
+      expect(processes.include?({ author_is_seller: true, process: :preauthorize})).to eq true
+      expect(processes.include?({ author_is_seller: false, process: :none})).to eq true
+      expect(processes.include?({ author_is_seller: true, process: :none})).to eq true
+    end
+
+    it "should create marketplace without payment process" do
+      community_hash = create(@community_params.merge(payment_process: :none))
+      c = Community.find(community_hash[:id])
+      processes = TransactionService::API::Api.processes
+                  .get(community_id: c.id).data
+                  .map { |p| p.slice(:author_is_seller, :process) }
+
+      expect(processes.size).to eq 2
+      expect(processes.include?({ author_is_seller: false, process: :none})).to eq true
+      expect(processes.include?({ author_is_seller: true, process: :none})).to eq true
     end
 
     it "should have community customizations" do

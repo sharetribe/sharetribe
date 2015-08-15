@@ -8,66 +8,23 @@ module MarketplaceService
         [:title, :mandatory, :string],
         [:author_id, :mandatory, :string],
         [:price, :optional, :money],
+        [:require_shipping_address, :optional, :to_bool],
+        [:pickup_enabled, :optional, :to_bool],
+        [:shipping_price, :optional, :money],
+        [:shipping_price_additional, :optional, :money],
         [:quantity, :optional, :string],
-        [:transaction_type_id, :mandatory, :fixnum],
+        [:transaction_process_id, :mandatory, :fixnum],
+        [:unit_type, :optional, :to_symbol],
+        [:unit_tr_key, :optional, :string],
+        [:unit_selector_tr_key, :optional, :string],
+        [:action_button_tr_key, :string],
         [:deleted, :to_bool]
       )
 
-      TransactionType = EntityUtils.define_builder(
-        [:id, :mandatory, :fixnum],
-        [:type, :mandatory, :string],
-        [:price_per, :optional, :string],
-        [:price_field, :optional, :to_bool],
-        [:preauthorize_payment, :optional, :to_bool],
-        [:url, :optional, :to_bool],
-        [:action_button_label_translations, :optional])
-
       module_function
 
-      def transaction_direction(transaction_type)
-        direction_map = {
-          ["Give", "Lend", "Rent", "Sell", "Service", "ShareForFree", "Swap", "Offer"] => "offer",
-          ["Request"] => "request",
-          ["Inquiry"] => "inquiry"
-        }
-
-        _, direction = direction_map.find { |(transaction_types, direction)| transaction_types.include? transaction_type }
-
-        if direction.nil?
-          raise("Unknown listing type: #{transaction_type}")
-        else
-          direction
-        end
-      end
-
-      def discussion_type(transaction_type)
-        case transaction_direction(transaction_type)
-        when "request"
-          "offer"
-        when "offer"
-          "request"
-        else
-          raise("No discussion type for transaction type: #{transaction_type}")
-        end
-      end
-
       def listing(listing_model)
-        Listing.call(EntityUtils.model_to_hash(listing_model).merge(price: listing_model.price))
-      end
-
-      def transaction_type(transaction_type_model)
-        translations = transaction_type_model.translations
-          .map { |translation|
-            {
-              locale: translation.locale,
-              action_button_label: translation.action_button_label
-            }
-          }
-
-        TransactionType.call(EntityUtils
-          .model_to_hash(transaction_type_model)
-          .merge(action_button_label_translations: translations)
-        )
+        Listing.call(EntityUtils.model_to_hash(listing_model).merge({price: listing_model.price, shipping_price: listing_model.shipping_price, shipping_price_additional: listing_model.shipping_price_additional}))
       end
 
       def send_payment_settings_reminder?(listing_id, community_id)
@@ -82,8 +39,17 @@ module MarketplaceService
           }
         }
 
+        opts = {
+          community_id: community_id,
+          process_id: listing.transaction_process_id
+        }
+
+        process = TransactionService::API::Api.processes.get(opts).maybe[:process].or_else(nil)
+
+        raise ArgumentError.new("Can not find transaction process: #{opts}") if process.nil?
+
         payment_type &&
-        listing.transaction_type.is_offer? &&
+        (process == :preauthorize || process == :postpay) &&
         !TransactionService::Transaction.can_start_transaction(query_info).data[:result]
       end
     end
@@ -118,21 +84,6 @@ module MarketplaceService
       def listing(listing_id)
         listing_model = ListingModel.find(listing_id)
         MarketplaceService::Listing::Entity.listing(listing_model)
-      end
-
-      def listing_with_transaction_type(listing_id)
-        listing_model = ListingModel.find(listing_id)
-        listing = MarketplaceService::Listing::Entity.listing(listing_model)
-        listing.delete(:transaction_type_id)
-        listing.merge(transaction_type: MarketplaceService::Listing::Entity.transaction_type(listing_model.transaction_type))
-      end
-
-      def open_listings_for(community_id, person_id)
-        ListingModel.includes(:communities).where(
-          "communities.id" => community_id,
-          "author_id" => person_id,
-          :open => true)
-          .map { |l| MarketplaceService::Listing::Entity.listing(l) }
       end
     end
   end

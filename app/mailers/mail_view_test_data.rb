@@ -106,7 +106,8 @@ module MailViewTestData
       listing: listing,
       conversation: conversation,
       payment_gateway: :paypal,
-      current_state: :paid
+      current_state: :paid,
+      shipping_price_cents: 100
       )
   end
 

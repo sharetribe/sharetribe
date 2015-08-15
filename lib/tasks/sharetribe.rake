@@ -49,7 +49,7 @@ namespace :sharetribe do
       community_sheet = spreadsheet.worksheet "Community"
       community_domain = community_sheet.row(1)[1]
 
-      c = Community.find_by_domain(community_domain)
+      c = Community.where(ident: community_domain).first
       c.destroy if c
 
       user_sheet = spreadsheet.worksheet "Users"
@@ -72,7 +72,7 @@ namespace :sharetribe do
       community_sheet = spreadsheet.worksheet "Community"
       community_domain = community_sheet.row(1)[1]
 
-      c = Community.find_by_domain(community_domain)
+      c = Community.where(ident: community_domain).first
 
       c.community_memberships.destroy_all
 
@@ -294,5 +294,10 @@ namespace :sharetribe do
   desc "Retries set express checkouts"
   task :retry_and_clean_paypal_tokens => :environment do
     Delayed::Job.enqueue(PaypalService::Jobs::RetryAndCleanTokens.new(1.hour.ago))
+  end
+
+  desc "Synchnorizes verified email address states from SES to local DB"
+  task :synchronize_verified_with_ses => :environment do
+    EmailService::API::Api.addresses.enqueue_batch_sync()
   end
 end

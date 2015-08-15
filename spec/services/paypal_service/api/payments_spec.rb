@@ -38,8 +38,23 @@ describe PaypalService::API::Payments do
 
     @req_info = {
       transaction_id: @tx_id,
+      payment_action: :order,
       item_name: "Item name",
       item_quantity: 1,
+      item_total: Money.new(1200, "EUR"),
+      item_price: Money.new(1200, "EUR"),
+      merchant_id: @mid,
+      order_total: Money.new(1200, "EUR"),
+      success: "https://www.test.com/success",
+      cancel: "https://www.test.com/cancel"
+    }
+
+    @req_info_auth = {
+      transaction_id: @tx_id,
+      payment_action: :authorization,
+      item_name: "Item name",
+      item_quantity: 1,
+      item_total: Money.new(1200, "EUR"),
       item_price: Money.new(1200, "EUR"),
       merchant_id: @mid,
       order_total: Money.new(1200, "EUR"),
@@ -63,6 +78,21 @@ describe PaypalService::API::Payments do
       expect(token[:community_id]).to eq @cid
       expect(token[:token]).to eq response[:data][:token]
       expect(token[:transaction_id]).to eq @req_info[:transaction_id]
+      expect(token[:payment_action]).to eq :order
+      expect(token[:merchant_id]).to eq @req_info[:merchant_id]
+      expect(token[:item_name]).to eq @req_info[:item_name]
+      expect(token[:item_quantity]).to eq @req_info[:item_quantity]
+      expect(token[:item_price]).to eq @req_info[:item_price]
+    end
+
+    it "saves token info, using payment_action :authorization" do
+      response = @payments.request(@cid, @req_info_auth)
+      token = PaypalService::Store::Token.get_for_transaction(@cid, @tx_id)
+
+      expect(token[:community_id]).to eq @cid
+      expect(token[:token]).to eq response[:data][:token]
+      expect(token[:transaction_id]).to eq @req_info[:transaction_id]
+      expect(token[:payment_action]).to eq :authorization
       expect(token[:merchant_id]).to eq @req_info[:merchant_id]
       expect(token[:item_name]).to eq @req_info[:item_name]
       expect(token[:item_quantity]).to eq @req_info[:item_quantity]
@@ -134,6 +164,33 @@ describe PaypalService::API::Payments do
       expect(payment_res[:data][:authorization_total]).to eq(@req_info[:order_total])
     end
 
+    it "creates authorized new payment and saves it, payment_action :authorization" do
+      token = @payments.request(@cid, @req_info_auth)[:data]
+
+      payment_res = @payments.create(@cid, token[:token])
+
+      payment = PaymentStore.get(@cid, @tx_id)
+      expect(payment_res.success).to eq(true)
+      expect(payment).not_to be_nil
+      expect(payment_res[:data][:payment_status]).to eq(:pending)
+      expect(payment_res[:data][:pending_reason]).to eq(:authorization)
+      expect(payment_res[:data][:order_id]).to eq(nil)
+      expect(payment_res[:data][:order_total]).to eq(nil)
+      expect(payment_res[:data][:authorization_id]).not_to be_nil
+      expect(payment_res[:data][:authorization_total]).to eq(@req_info_auth[:order_total])
+    end
+
+    it "returns error with parseable error_code when payment needs review" do
+      token = @payments.request(@cid, @req_info_auth.merge({item_name: "require-payment-review"}))[:data]
+
+      payment_res = @payments.create(@cid, token[:token])
+
+      payment = PaymentStore.get(@cid, @tx_id)
+      expect(payment_res.success).to eq(false)
+      expect(payment_res.data[:error_code]).to eq(:"payment-review")
+      expect(payment[:pending_reason]).to eq(:"payment-review")
+    end
+
     it "triggers payment_created event followed by payment_updated" do
       token = @payments.request(@cid, @req_info)[:data]
       payment_res = @payments.create(@cid, token[:token])
@@ -142,6 +199,35 @@ describe PaypalService::API::Payments do
       expect(@events.received_events[:payment_created].length).to eq(1)
       expect(@events.received_events[:payment_updated].length).to eq(1)
       expect(@events.received_events[:payment_updated].first).to eq([:success, payment_res[:data]])
+    end
+
+    it "triggers payment_created event only, payment_action :authorization" do
+      token = @payments.request(@cid, @req_info_auth)[:data]
+      payment_res = @payments.create(@cid, token[:token])
+
+      expect(@events.received_events[:payment_created].length).to eq(1)
+      expect(@events.received_events[:payment_updated].length).to eq(0)
+      expect(@events.received_events[:payment_created].first).to eq([:success, payment_res[:data]])
+    end
+
+    it "triggers order_details event with shipping info" do
+      token = @payments.request(@cid, @req_info.merge(require_shipping_address: true))[:data]
+      payment_res = @payments.create(@cid, token[:token])
+      order_details = {
+        status: "Confirmed",
+        city: "city",
+        country: "country",
+        country_code: "CC",
+        name: "name",
+        phone: "123456",
+        postal_code: "WX1GQ",
+        state_or_province: "state",
+        street1: "street1",
+        street2: "street2"
+      }
+
+      expect(@events.received_events[:order_details].length).to eq(1)
+      expect(@events.received_events[:order_details].first.second).to include(order_details)
     end
 
     it "will retry at least 3 times" do
@@ -154,6 +240,13 @@ describe PaypalService::API::Payments do
 
     it "deletes request token when payment created" do
       token = @payments.request(@cid, @req_info)[:data]
+      @payments.create(@cid, token[:token])
+
+      expect(PaypalToken.count).to eq 0
+    end
+
+    it "deletes request token when payment created" do
+      token = @payments.request(@cid, @req_info_auth)[:data]
       @payments.create(@cid, token[:token])
 
       expect(PaypalToken.count).to eq 0
@@ -231,7 +324,7 @@ describe PaypalService::API::Payments do
   context "#full_capture" do
     before(:each) do
       @payment_total = Money.new(1200, "EUR")
-      token = @payments.request(@cid, @req_info)[:data]
+      token = @payments.request(@cid, @req_info_auth)[:data]
       @payments.create(@cid, token[:token])[:data]
       @events.clear
     end
@@ -386,6 +479,46 @@ describe PaypalService::API::Payments do
 
       payment_res = @payments.full_capture(@cid, @tx_id, { payment_total: Money.new(1200, "EUR") })
       expect(@payments.get_payment(@cid, @tx_id)[:data]).to eq(payment_res[:data])
+    end
+  end
+
+  context "#retry_and_clean_tokens" do
+    it "retries payment and completes if payment now authorized" do
+      token = @payments.request(@cid, @req_info)[:data]
+
+      @payments.retry_and_clean_tokens(1.hour.ago)
+
+      payment = @payments.get_payment(@cid, @tx_id)[:data]
+      expect(payment[:payment_status]).to eq(:pending)
+      expect(payment[:pending_reason]).to eq(:authorization)
+      expect(TokenStore.get_all.count).to eq(0)
+    end
+
+    it "leaves token in place if op fails but clean time limit not reached" do
+      token = @payments.request(@cid, @req_info.merge({item_name: "payment-not-initiated"}))[:data]
+
+      @payments.retry_and_clean_tokens(1.hour.ago)
+
+      expect(@payments.get_payment(@cid, @tx_id)[:success]).to eq(false)
+      expect(TokenStore.get_all.count).to eq(1)
+    end
+
+    it "removes token if op fails and clean time limit reached" do
+      token = @payments.request(@cid, @req_info.merge({item_name: "payment-not-initiated"}))[:data]
+
+      @payments.retry_and_clean_tokens(1.hour.from_now)
+
+      expect(@payments.get_payment(@cid, @tx_id)[:success]).to eq(false)
+      expect(TokenStore.get_all.count).to eq(0)
+    end
+
+    it "doesn't remove token when op fails, clean time limit reached but payment in :payment-review state" do
+      token = @payments.request(@cid, @req_info_auth.merge({item_name: "require-payment-review"}))[:data]
+
+      @payments.retry_and_clean_tokens(1.hour.from_now)
+
+      expect(@payments.get_payment(@cid, @tx_id)[:data][:pending_reason]).to eq(:"payment-review")
+      expect(TokenStore.get_all.count).to eq(1)
     end
   end
 

@@ -47,7 +47,7 @@ describe PersonViewUtils do
       last_name: "Doe",
       organization_name: "John D Inc.",
       username: "johnd",
-      name_display_type: "fullname",
+      name_display_type: "full_name",
       is_organization: false,
       is_deleted: false,
       deleted_user_text: "Deleted user")).to eql("John Doe")
@@ -74,7 +74,7 @@ describe PersonViewUtils do
   end
 
   it "#person_entity_display_name" do
-    expect(PersonViewUtils.person_entity_display_name(nil, "fullname"))
+    expect(PersonViewUtils.person_entity_display_name(nil, "full_name"))
       .to eql(I18n.translate("common.removed_user"))
   end
 

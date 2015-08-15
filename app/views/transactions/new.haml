@@ -1,0 +1,45 @@
+- content_for :extra_javascript do
+  :javascript
+    ST.transaction.initializeFreeTransactionForm('#{I18n.locale}');
+
+- content_for :title_header do
+  %h1
+    = action_button_label
+    = link_to(listing[:title], listing_path(listing[:id]))
+
+#new_message_form.centered-section
+
+  - author_link = link_to(author[:display_name], person_path(id: author[:username]))
+
+  .preauthorize-section
+    %h2.preauthorize-details-title
+      = t("listing_conversations.preauthorize.details")
+
+    %ul.no-bullets
+      %li
+        %div
+          = t("listing_conversations.preauthorize.by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
+
+      - m_price_break_down.each do |price_break_down|
+        %li
+          = render partial: "transactions/price_break_down", locals: price_break_down
+
+  = form_tag(form_action, method: :post, id: "transaction-form") do
+
+    = hidden_field_tag(:start_on, booking_start)
+    = hidden_field_tag(:end_on, booking_end)
+
+
+    .preauthorize-section
+      %h2
+        = t("conversations.new.send_message_to_user", person: author_link).html_safe
+      .row
+        .col-12
+          = text_area_tag(:message, nil, :class => "text_area")
+
+      - if quantity
+        = hidden_field_tag(:quantity, quantity)
+
+      .row
+        .col-12
+          = button_tag t("conversations.new.send_message"), :class => "send_button"

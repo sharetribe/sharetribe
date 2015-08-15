@@ -18,33 +18,37 @@ module PaypalHelper
   # Check that both the community is fully configured with an active
   # :paypal payment gateway and that the given user has connected his
   # paypal account.
-  def user_and_community_ready_for_payments?(user_id, community_id)
-    PaypalHelper.account_prepared_for_user?(user_id, community_id) &&
+  def user_and_community_ready_for_payments?(person_id, community_id)
+    PaypalHelper.account_prepared_for_user?(person_id, community_id) &&
       PaypalHelper.community_ready_for_payments?(community_id)
   end
 
   # Check that the user has connected his paypal account for the
   # community
-  def account_prepared_for_user?(user_id, community_id)
-    m_account = accounts_api.get(
+  def account_prepared_for_user?(person_id, community_id)
+    payment_settings =
+      TransactionService::API::Api.settings.get(
       community_id: community_id,
-      person_id: user_id
-    ).maybe
+      payment_gateway: :paypal,
+      payment_process: :preauthorize)
+      .maybe
 
-    account_prepared?(m_account)
+    account_prepared?(community_id: community_id, person_id: person_id, settings: payment_settings)
   end
 
   def account_prepared_for_community?(community_id)
-    m_account = accounts_api.get(
-      community_id: community_id
-    ).maybe
-
-    account_prepared?(m_account)
+    account_prepared?(community_id: community_id)
   end
 
-  def account_prepared?(m_account)
-    m_account[:state].or_else(:not_verified) == :verified
+
+  # Private
+  def account_prepared?(community_id:, person_id: nil, settings: Maybe(nil))
+    acc_state = accounts_api.get(community_id: community_id, person_id: person_id).maybe()[:state].or_else(:not_connected)
+    commission_type = settings[:commission_type].or_else(nil)
+
+    acc_state == :verified || (acc_state == :connected && commission_type == :none)
   end
+  private_class_method :account_prepared?
 
   # Check that the currently active payment gateway (there can be only
   # one active at any time) for the community is :paypal. This doesn't
@@ -81,7 +85,27 @@ module PaypalHelper
   def open_listings_with_missing_payment_info?(user_id, community_id)
     paypal_active?(community_id) &&
     !user_and_community_ready_for_payments?(user_id, community_id) &&
-    !MarketplaceService::Listing::Query.open_listings_for(community_id, user_id).empty?
+    open_listings_with_payment_process?(community_id, user_id)
+  end
+
+  def open_listings_with_payment_process?(community_id, user_id)
+    processes = TransactionService::API::Api.processes.get(community_id: community_id)[:data]
+    payment_process_ids = processes.reject { |p| p[:process] == :none }.map { |p| p[:id] }
+
+    if payment_process_ids.empty?
+      false
+    else
+      listing_count = Listing
+                      .includes(:communities)
+                      .where(
+                        communities: { id: community_id },
+                        author_id: user_id,
+                        open: true,
+                        transaction_process_id: payment_process_ids)
+                      .count
+
+      listing_count > 0
+    end
   end
 
   def accounts_api

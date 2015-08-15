@@ -15,14 +15,14 @@ Feature: Search
       | 3 people          |
     And this community has price filter enabled with min value 0 and max value 1000
 
-    And there is a listing with title "old sofa for sale" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "old sofa for sale" with category "Items" and with listing shape "Selling"
     And that listing has a description "I'm selling my wonderlful pink sofa!"
     And that listing has a numeric answer "100" for "Weight (kg)"
     And that listing has a checkbox answer "3 people" for "Amenities"
     And that listing has a checkbox answer "Indoors" for "Amenities"
     And the price of that listing is 200.00 USD
 
-    And there is a listing with title "light-weigth plastic outdoor sofa" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "light-weigth plastic outdoor sofa" with category "Items" and with listing shape "Selling"
     And that listing has a description "Very light weight sofa for outdoor use"
     And that listing has a numeric answer "20" for "Weight (kg)"
     And that listing has a checkbox answer "3 people" for "Amenities"

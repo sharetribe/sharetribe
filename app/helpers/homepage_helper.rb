@@ -1,10 +1,4 @@
 module HomepageHelper
-  def filters_in_use?
-    params[:q].present? ||
-    (params[:category].present? && params[:category] != "all") ||
-    (params[:transaction_type].present? && params[:transaction_type] != "all")
-  end
-
   def show_subcategory_list(category, current_category_id)
     category.id == current_category_id || category.children.any? do |child_category|
       child_category.id == current_category_id

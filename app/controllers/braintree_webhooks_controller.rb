@@ -1,13 +1,11 @@
 class BraintreeWebhooksController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
-  skip_filter :fetch_community, :check_email_confirmation
-
-  before_filter :fetch_community_by_params
+  skip_filter :check_email_confirmation
 
   before_filter do
     unless @current_community.braintree_in_use?
-      BTLog.error("Received webhook notification even though '#{@current_community.domain}' does not have Braintree in use")
+      BTLog.error("Received webhook notification even though '#{@current_community.ident}' does not have Braintree in use")
       render :nothing => true, :status => 400 and return
     end
   end
@@ -78,14 +76,9 @@ class BraintreeWebhooksController < ApplicationController
     render :nothing => true
   end
 
-  private
-
-  # Instead of fetching community by host (http://community.sharetribe.com),
-  # this filter fetched community by `community_id` parameter
-  # (http://sharetribe.com?community_id=id)
-  def fetch_community_by_params
-    fetch_community_by_strategy {
-      Community.find_by_id(params[:community_id])
-    }
+  # This method overrides the default behaviour defined in ApplicationController
+  # Instead of taking the ident/domain from the URL host part, take it from the community_id parameter
+  def community_identifiers
+    {id: params[:community_id]}
   end
 end

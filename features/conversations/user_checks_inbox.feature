@@ -12,7 +12,7 @@ Feature: User checks inbox
       | kassi_testperson3 |
 
   Scenario: Viewing messages
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
@@ -20,7 +20,7 @@ Feature: User checks inbox
     And I should see "Test message" within "#conversations"
 
   Scenario: Viewing a single conversation
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
@@ -28,7 +28,7 @@ Feature: User checks inbox
     Then I should see "Inbox | Conversation with Kassi T" within "h1"
 
   Scenario: Viewing received messages when there are multiple messages from different senders
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
     And I am logged in as "kassi_testperson1"
     Then I should see that there are no new messages
 
@@ -44,11 +44,11 @@ Feature: User checks inbox
     When I refresh the page
     Then I should see that there is 1 new message
 
-    Given there is a listing with title "Apartment" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling"
+    Given there is a listing with title "Apartment" from "kassi_testperson2" with category "Spaces" and with listing shape "Selling"
     And there is a message "Test1" from "kassi_testperson3" about that listing
-    And there is a listing with title "Hammer" from "kassi_testperson2" with category "Items" and with transaction type "Lending"
+    And there is a listing with title "Hammer" from "kassi_testperson2" with category "Items" and with listing shape "Lending"
     And there is a message "Test2" from "kassi_testperson1" about that listing
-    And there is a listing with title "Helsinki - Turku" from "kassi_testperson2" with category "Services" and with transaction type "Selling services"
+    And there is a listing with title "Helsinki - Turku" from "kassi_testperson2" with category "Services" and with listing shape "Selling services"
     And there is a message "Test3" from "kassi_testperson1" about that listing
     When I refresh the page
     Then I should see that there is 1 new message
@@ -71,15 +71,15 @@ Feature: User checks inbox
     And I should see that there is 1 new message
 
   Scenario: Viewing sent messages when there are multiple messages from different senders
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
     And there is a message "Reply to massage" from "kassi_testperson2" about that listing
     And there is a message "Another test" from "kassi_testperson3" about that listing
     And there is a reply "Ok" to that message by "kassi_testperson1"
-    And there is a listing with title "Apartment" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling"
+    And there is a listing with title "Apartment" from "kassi_testperson2" with category "Spaces" and with listing shape "Selling"
     And there is a message "Test1" from "kassi_testperson3" about that listing
-    And there is a listing with title "Hammer" from "kassi_testperson2" with category "Items" and with transaction type "Lending"
+    And there is a listing with title "Hammer" from "kassi_testperson2" with category "Items" and with listing shape "Lending"
     And there is a message "Test2" from "kassi_testperson1" about that listing
-    And there is a listing with title "Helsinki - Turku" from "kassi_testperson2" with category "Services" and with transaction type "Selling services"
+    And there is a listing with title "Helsinki - Turku" from "kassi_testperson2" with category "Services" and with listing shape "Selling services"
     And there is a message "Test3" from "kassi_testperson1" about that listing
     And there is a reply "Fine" to that message by "kassi_testperson2"
     And I am logged in as "kassi_testperson1"

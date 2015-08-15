@@ -6,6 +6,9 @@ require 'spec_helper'
 class TransactionMailer; end
 
 describe IntApi::MarketplacesController do
+
+  let(:listings_api) { ListingService::API::Api }
+
   describe "#create" do
     it "should create a marketplace and an admin user" do
       post :create, {admin_email: "eddie.admin@example.com",
@@ -22,13 +25,15 @@ describe IntApi::MarketplacesController do
       r = JSON.parse(response.body)
       expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
 
-      c = Community.find_by_name("ImaginationTraders")
+      c = Community.where(ident: "imaginationtraders").first
       expect(c).to_not be_nil
       expect(c.country).to eql "FI"
       expect(c.locales.first).to eql "fi"
-      expect(c.name).to eql "ImaginationTraders"
-      expect(c.domain).to eql "imaginationtraders"
-      expect(c.transaction_types.first.class).to eql Sell
+      expect(c.name("fi")).to eql "ImaginationTraders"
+      expect(c.ident).to eql "imaginationtraders"
+      s = listings_api.shapes.get(community_id: c.id).data.first
+      expect(s[:price_enabled]).to eql true
+      expect(s[:units].empty?).to eql true
 
       payment_settings = TransactionService::API::Api.settings.get_active(community_id: c.id)
       expect(payment_settings[:data][:payment_gateway]).to eql :paypal
@@ -58,13 +63,15 @@ describe IntApi::MarketplacesController do
       r = JSON.parse(response.body)
       expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
 
-      c = Community.find_by_name("ImaginationTraders")
+      c = Community.where(ident: "imaginationtraders").first
       expect(c).to_not be_nil
       expect(c.country).to eql "FI"
       expect(c.locales.first).to eql "fi"
-      expect(c.name).to eql "ImaginationTraders"
-      expect(c.domain).to eql "imaginationtraders"
-      expect(c.transaction_types.first.class).to eql Sell
+      expect(c.name("fi")).to eql "ImaginationTraders"
+      expect(c.ident).to eql "imaginationtraders"
+      s = listings_api.shapes.get(community_id: c.id).data.first
+      expect(s[:price_enabled]).to eql true
+      expect(s[:units].empty?).to eql true
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -90,13 +97,15 @@ describe IntApi::MarketplacesController do
       r = JSON.parse(response.body)
       expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
 
-      c = Community.find_by_name("ImaginationTraders")
+      c = Community.where(ident: "imaginationtraders").first
       expect(c).to_not be_nil
       expect(c.country).to eql "FI"
       expect(c.locales.first).to eql "fi"
-      expect(c.name).to eql "ImaginationTraders"
-      expect(c.domain).to eql "imaginationtraders"
-      expect(c.transaction_types.first.class).to eql Sell
+      expect(c.name("fi")).to eql "ImaginationTraders"
+      expect(c.ident).to eql "imaginationtraders"
+      s = listings_api.shapes.get(community_id: c.id).data.first
+      expect(s[:price_enabled]).to eql true
+      expect(s[:units].empty?).to eql true
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -122,13 +131,15 @@ describe IntApi::MarketplacesController do
       r = JSON.parse(response.body)
       expect(r["marketplace_url"]).to eql "http://imaginationtraders.#{APP_CONFIG.domain}?auth=#{AuthToken.last.token}"
 
-      c = Community.find_by_name("ImaginationTraders")
+      c = Community.where(ident: "imaginationtraders").first
       expect(c).to_not be_nil
       expect(c.country).to eql "FI"
       expect(c.locales.first).to eql "fi"
-      expect(c.name).to eql "ImaginationTraders"
-      expect(c.domain).to eql "imaginationtraders"
-      expect(c.transaction_types.first.class).to eql Sell
+      expect(c.name("fi")).to eql "ImaginationTraders"
+      expect(c.ident).to eql "imaginationtraders"
+      s = listings_api.shapes.get(community_id: c.id).data.first
+      expect(s[:price_enabled]).to eql true
+      expect(s[:units].empty?).to eql true
 
       p = c.admins.first
       expect(p).to_not be_nil

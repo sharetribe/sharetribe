@@ -135,8 +135,8 @@ function add_validator_methods() {
   $.validator.
     addMethod( "money",
       function(value, element, minimum_price) {
-        var regex  = /^\d+((\.|\,)\d{0,2})?$/;
-        return regex.test(value);
+        var regex = /^\d*((\.|\,)\d{1,2})?$/;
+        return value && regex.test(value);
       }
     );
 
@@ -333,303 +333,7 @@ function initialize_braintree_account_form(locale) {
   });
 }
 
-// Initialize the listing type & category selection part of the form
-function initialize_new_listing_form_selectors(locale, attribute_array, listing_form_menu_titles) {
-  var ordered_attributes = ["category", "subcategory", "transaction_type"];
-  var selected_attributes = {"category": null, "subcategory": null, "transaction_type": null};
-
-  // Reset the view to initial state
-  update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
-
-  // Listener for attribute menu clicks
-  $('.new-listing-form').find('a.select').click(
-    function() {
-      select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
-    }
-  );
-
-}
-
-// Called when a link is clicked in the listing form attribute menus
-function select_listing_form_menu_link(link, locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes) {
-
-  // Update selected attributes based on the selection that has been made
-  if (link.hasClass('option')) {
-    selected_attributes[link.parent().attr('name')] = link.attr('data-id');
-  } else {
-    selected_attributes[link.parent().attr('name')] = null;
-    // Unselect also all sub-attributes if certain attribute is unselected
-    // (for instance, unselect subcategory if category is unselected).
-    index_found = false;
-    for (i = 0; i < ordered_attributes.length; i++) {
-      if (ordered_attributes[i] == link.parent().attr('name')) {
-        index_found = true;
-      }
-      if (index_found == true) {
-        selected_attributes[ordered_attributes[i]] = null;
-      }
-    }
-  }
-
-  // Update form view based on the selection that has been made
-  update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
-}
-
-// Update the state of the new listing form based on current status
-function update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes) {
-  // Hide everything
-  $('a.selected').addClass('hidden');
-  $('a.option').addClass('hidden');
-  $('.form-fields').html("");
-
-  // Display correct selected attributes
-  $('.selected-group').each(function() {
-    if (selected_attributes[$(this).attr('name')] != null) {
-      $(this).find('a.selected[data-id=' + selected_attributes[$(this).attr('name')] + ']').removeClass('hidden');
-    }
-  });
-
-  // Display correct attribute menus and their titles
-  var title = "";
-  if (should_show_menu_for("category", selected_attributes, attribute_array)) {
-    title = listing_form_menu_titles["category"];
-    display_option_group("category", selected_attributes, attribute_array);
-  } else if (should_show_menu_for("subcategory", selected_attributes, attribute_array)) {
-    title = listing_form_menu_titles["subcategory"];
-    display_option_group("subcategory", selected_attributes, attribute_array);
-  } else if (should_show_menu_for("transaction_type", selected_attributes, attribute_array)) {
-    title = listing_form_menu_titles["transaction_type"];
-    display_option_group("transaction_type", selected_attributes, attribute_array);
-  } else {
-    display_listing_form(selected_attributes, locale);
-  }
-  $('h2.listing-form-title').html(title);
-}
-
-// Return true if given menu should be displayed
-function should_show_menu_for(attribute, selected_attributes, attribute_array) {
-  if (attribute_selected(attribute, selected_attributes)) {
-    return false;
-  } else if (attribute == "category") {
-    if (attribute_array.length < 2) {
-      // If there is exactly 1 category, it should be marked automatically as selected,
-        // without showing the form.
-      if (attribute_array.length == 1) {
-        selected_attributes["category"] = attribute_array[0]["id"];
-      }
-      return false;
-    } else {
-      return true;
-    }
-  } else if (attribute == "subcategory") {
-    if (should_show_menu_for("category", selected_attributes, attribute_array)) {
-      return false;
-    } else {
-      var subcategories = get_subcategories_for(selected_attributes["category"], attribute_array);
-      if (subcategories.length < 2) {
-        // If there is exactly 1 subcategory, it should be marked automatically as selected,
-        // without showing the form.
-        if (subcategories.length == 1) {
-          selected_attributes["subcategory"] = subcategories[0]["id"];
-        }
-        return false;
-      } else {
-        return true;
-      }
-    }
-  } else if (attribute == "transaction_type") {
-    if (should_show_menu_for("category", selected_attributes, attribute_array)) {
-      return false;
-    } else if (should_show_menu_for("subcategory", selected_attributes, attribute_array)) {
-      return false;
-    } else {
-      if (attribute_selected("subcategory", selected_attributes)) {
-        transaction_types = get_transaction_types_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"], attribute_array);
-      } else {
-        transaction_types = get_transaction_types_for_category(selected_attributes["category"], attribute_array);
-      }
-      // If there is exactly 1 transaction type, it should be marked automatically as selected,
-      // without showing the form
-      if (transaction_types.length === 1) {
-        selected_attributes["transaction_type"] = transaction_types[0]["id"];
-      }
-      return (transaction_types.length > 1);
-    }
-  }
-}
-
-// Returns true if given attribute has been selected
-function attribute_selected(attribute, selected_attributes) {
-  return (selected_attributes[attribute] != null);
-}
-
-// Return subcategories for given category.
-// Returns empty array if there are no subcategories.
-function get_subcategories_for(category_id, category_array) {
-  return _.chain(category_array)
-    .filter(function(category) {
-      return category["id"] == category_id
-    })
-    .filter(function(category) {
-      return category["subcategories"] != undefined
-    })
-    .map(function(category) {
-      return category["subcategories"];
-    })
-    .flatten()
-    .value();
-}
-
-// Return transaction types of given category (expects
-// that this category does not have subcategories)
-function get_transaction_types_for_category(category_id, category_array) {
-  var category = find_by_id(Number(category_id), category_array);
-  return category["transaction_types"];
-}
-
-// Returns transaction types of given subcategory
-function get_transaction_types_for_subcategory(category_id, subcategory_id, category_array) {
-  var category = find_by_id(Number(category_id), category_array);
-  var subcategory = find_by_id(Number(subcategory_id), category["subcategories"]);
-  return subcategory["transaction_types"];
-}
-
-// Returns the object that has the given id
-// from an array of objects
-function find_by_id(id, array) {
-  return _.find(array, function(item) {
-    return item.id === id;
-  });
-}
-
-// Displays the given menu where category or transaction type can be selected
-function display_option_group(group_type, selected_attributes, attribute_array) {
-  $('.option-group[name=' + group_type + ']').children().each(function() {
-    if (group_type == "category") {
-      $(this).removeClass('hidden');
-    } else if (group_type == "subcategory") {
-      if (has_subcategory(selected_attributes["category"], $(this).attr('data-id'), attribute_array)) {
-        $(this).removeClass('hidden');
-      }
-    } else if (group_type == "transaction_type") {
-      if (has_transaction_type(selected_attributes, $(this).attr('data-id'), attribute_array)) {
-        $(this).removeClass('hidden');
-      }
-    }
-  });
-}
-
-// Check if category has a certain subcategory
-function has_subcategory(category_id, subcategory_id, attribute_array) {
-  var subcategories = get_subcategories_for(category_id, attribute_array);
-  return _.any(subcategories, function(subcategory) {
-    return subcategory['id'] == subcategory_id;
-  });
-}
-
-// Check if selected category or subcategory has certain transaction type
-function has_transaction_type(selected_attributes, transaction_type_id, attribute_array) {
-  // If subcategory is selected, loop through transaction types of that subcategory
-  if (attribute_selected("subcategory", selected_attributes)) {
-    var transaction_types = get_transaction_types_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"],attribute_array);
-  // If there's no subcategory, it means this top level category has no subcategories.
-  // Thus, loop through transaction_types of top level category.
-  } else {
-    var transaction_types = get_transaction_types_for_category(selected_attributes["category"] ,attribute_array);
-  }
-  return _.any(transaction_types, function(transaction_type) {
-    return transaction_type['id'] == transaction_type_id;
-  });
-}
-
-// Ajax call to display listing form after categories and
-// transaction type have been selected
-function display_listing_form(selected_attributes, locale) {
-  $('.form-fields').removeClass('hidden');
-  var new_listing_path = '/' + locale + '/listings/new';
-  $.get(new_listing_path, selected_attributes, function(data) {
-    $('.form-fields').html(data);
-  });
-}
-
-// Initialize the actual form fields
-function initialize_new_listing_form(
-  fileDefaultText,
-  fileBtnText,
-  locale,
-  share_type_message,
-  date_message,
-  listing_id,
-  price_required,
-  price_message,
-  minimum_price,
-  subunit_to_unit,
-  minimum_price_message,
-  numeric_field_names) {
-
-  $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
-  $('input.title_text_field:first').focus();
-
-  form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
-
-  // Is price required?
-  var pr = null;
-  if (price_required == "true") {
-    pr = true;
-  } else {
-    pr = false;
-  }
-
-  var numericRules = numeric_field_names.reduce(function(rules, name) {
-    var el = ST.utils.findElementByName(name);
-    var min = el.data("min");
-    var max = el.data("max");
-
-    rules[name] = {number_min: min, number_max: max};
-
-    return rules;
-  }, {});
-
-  ST.listingForm = $(form_id).validate({
-    errorPlacement: function(error, element) {
-      if (element.attr("name") == "listing[valid_until(1i)]") {
-        error.appendTo(element.parent());
-      } else if (element.attr("name") == "listing[price]") {
-        error.appendTo(element.parent());
-      } else if ($(element).hasClass("custom_field_checkbox")) {
-        var container = $(element).closest(".checkbox-group-container");
-        error.insertAfter(container);
-      } else {
-        error.insertAfter(element);
-      }
-    },
-    debug: false,
-    rules: _.extend(numericRules, {
-      "listing[title]": {required: true, maxlength: 60},
-      "listing[origin]": {address_validator: true},
-      "listing[price]": {required: pr, money: true, minimum_price_required: [minimum_price, subunit_to_unit]},
-      "listing[valid_until(1i)]": { min_date: true, max_date: true }
-    }),
-    messages: {
-      "listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
-      "listing[price]": { minimum_price_required: minimum_price_message },
-    },
-    // Run validations only when submitting the form.
-    onkeyup: false,
-    onclick: false,
-    onfocusout: false,
-    onsubmit: true,
-    submitHandler: function(form) {
-      report_analytics_event(["listing", "created"]);
-      disable_and_submit(form_id, form, "false", locale);
-    }
-  });
-
-  set_textarea_maxlength();
-  auto_resize_text_areas("listing_description_textarea");
-}
-
-function initialize_send_message_form(locale, message_type) {
+function initialize_send_message_form(locale) {
   auto_resize_text_areas("text_area");
   $('textarea').focus();
   var form_id = "#new_listing_conversation";
@@ -640,12 +344,12 @@ function initialize_send_message_form(locale, message_type) {
     },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
-      report_analytics_event(["message", "sent", message_type]);
+      report_analytics_event(["message", "sent"]);
     }
   });
 }
 
-function initialize_send_person_message_form(locale, message_type) {
+function initialize_send_person_message_form(locale) {
   auto_resize_text_areas("text_area");
   $('textarea').focus();
   var form_id = "#new_conversation";
@@ -655,7 +359,7 @@ function initialize_send_person_message_form(locale, message_type) {
     },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
-      report_analytics_event(["message", "sent", message_type]);
+      report_analytics_event(["message", "sent"]);
     }
   });
 }
@@ -722,17 +426,28 @@ function initialize_accept_transaction_form(
   }
 }
 
-function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencySelector, communityCommissionPercentage, minCommission) {
-  $display = $(youWillGetSelector);
+function updateSellerGetsValue(priceInputSelector, displayTargetSelector, currencySelector, communityCommissionPercentage, minCommission, showReversed) {
+  // true == Show the fee instead of what's left after the fee
+  showReversed = showReversed || false;
+
+  $display = $(displayTargetSelector);
   $input = $(priceInputSelector);
   $currency = $(currencySelector);
 
   function updateYouWillGet() {
     var sum = ST.paymentMath.parseFloatFromFieldValue($input.val());
-    var sellerGets = sum - ST.paymentMath.totalCommission(sum, communityCommissionPercentage, minCommission);
-    var currency = $currency.val();
-    sellerGets = sellerGets < 0 ? 0 : sellerGets;
-    $display.text([ST.paymentMath.displayMoney(sellerGets), currency].join(" "));
+
+    var displaySum;
+    if (showReversed) {
+      displaySum = ST.paymentMath.totalCommission(sum, communityCommissionPercentage, minCommission);
+    } else {
+      displaySum = sum - ST.paymentMath.totalCommission(sum, communityCommissionPercentage, minCommission);
+    }
+
+    $display.text(
+      [ST.paymentMath.displayMoney(Math.max(0, displaySum)),
+       $currency.val()]
+        .join(" "));
   }
 
   $input.keyup(updateYouWillGet);
@@ -1077,7 +792,7 @@ function initialize_profile_view(profile_id) {
   $('#trustcloud_description_link').click(function() { $('#trustcloud_description').lightbox_me({centered: true}); });
 }
 
-function initialize_homepage(filters_in_use) {
+function initialize_homepage() {
   // make map/list button change the value in the filter form and submit the form
   // in order to keep all filter values combinable and remembered
   $('.map-button').click(
@@ -1096,10 +811,18 @@ function initialize_homepage(filters_in_use) {
   );
 }
 
-function initialize_invitation_form(locale, email_error_message) {
+function initialize_invitation_form(locale, email_error_message, invitation_limit) {
+  $.validator.addMethod(
+    "max_invitations",
+    function(value) {
+      return value.split(",").length < invitation_limit;
+    },
+    $.validator.format(email_error_message)
+  );
+
   $("#new_invitation").validate({
     rules: {
-      "invitation[email]": {required: true, email_list: true},
+      "invitation[email]": {required: true, email_list: true, max_invitations: true},
       "invitation[message]": {required: false, maxlength: 5000}
     },
     messages: {
@@ -1257,10 +980,10 @@ function initialize_admin_category_form_view(locale, form_id) {
   translate_validation_messages(locale);
 
   var $form = $(form_id);
-  var TRANSACTION_TYPE_CHECKBOX_NAME = "category[transaction_type_attributes][][transaction_type_id]";
+  var LISTING_SHAPE_CHECKBOX_NAME = "category[listing_shapes][][listing_shape_id]";
 
   var rules = {}
-  rules[TRANSACTION_TYPE_CHECKBOX_NAME] = {
+  rules[LISTING_SHAPE_CHECKBOX_NAME] = {
     required: true
   };
 
@@ -1268,8 +991,8 @@ function initialize_admin_category_form_view(locale, form_id) {
     rules: rules,
     errorPlacement: function(error, element) {
       // Custom placement for checkbox group
-      if (element.attr("name") === TRANSACTION_TYPE_CHECKBOX_NAME) {
-        var container = $("#category-transaction-types-container")
+      if (element.attr("name") === LISTING_SHAPE_CHECKBOX_NAME) {
+        var container = $("#category-listing-shapes-container");
         error.insertAfter(container);
       } else {
         error.insertAfter(element);

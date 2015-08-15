@@ -1,11 +1,12 @@
-# encoding: UTF-8
+# encoding: utf-8
 # == Schema Information
 #
 # Table name: communities
 #
 #  id                                         :integer          not null, primary key
-#  name                                       :string(255)
+#  ident                                      :string(255)
 #  domain                                     :string(255)
+#  use_domain                                 :boolean          default(FALSE), not null
 #  created_at                                 :datetime
 #  updated_at                                 :datetime
 #  settings                                   :text
@@ -53,7 +54,6 @@
 #  available_currencies                       :text
 #  facebook_connect_enabled                   :boolean          default(TRUE)
 #  only_public_listings                       :boolean          default(TRUE)
-#  custom_email_from_address                  :string(255)
 #  vat                                        :integer
 #  commission_from_seller                     :integer
 #  minimum_price_cents                        :integer
@@ -65,7 +65,6 @@
 #  name_display_type                          :string(255)      default("first_name_with_initial")
 #  twitter_handle                             :string(255)
 #  use_community_location_as_default          :boolean          default(FALSE)
-#  domain_alias                               :string(255)
 #  preproduction_stylesheet_url               :string(255)
 #  show_category_in_listing_list              :boolean          default(FALSE)
 #  default_browse_view                        :string(255)      default("grid")
@@ -94,10 +93,14 @@
 #  cover_photo_processing                     :boolean
 #  small_cover_photo_processing               :boolean
 #  favicon_processing                         :boolean
+#  dv_test_file_name                          :string(64)
+#  dv_test_file                               :string(64)
+#  deleted                                    :boolean
 #
 # Indexes
 #
 #  index_communities_on_domain  (domain)
+#  index_communities_on_ident   (ident)
 #
 
 require 'spec_helper'
@@ -112,25 +115,16 @@ describe Community do
     @community.should be_valid
   end
 
-  it "is not valid without proper name" do
-    @community.name = nil
-    @community.should_not be_valid
-    @community.name = "a"
-    @community.should_not be_valid
-    @community.name = "a" * 51
-    @community.should_not be_valid
-  end
-
-  it "is not valid without proper domain" do
-    @community.domain = "test_community-9"
+  it "is not valid without proper ident" do
+    @community.ident = "test_community-9"
     @community.should be_valid
-    @community.domain = nil
+    @community.ident = nil
     @community.should_not be_valid
-    @community.domain = "a"
+    @community.ident = "a"
     @community.should_not be_valid
-    @community.domain = "a" * 51
+    @community.ident = "a" * 51
     @community.should_not be_valid
-    @community.domain = "´?€"
+    @community.ident = "´?€"
     @community.should_not be_valid
   end
 
@@ -152,6 +146,7 @@ describe Community do
       FactoryGirl.create(:listing,
         :created_at => created_at.days.ago,
         :updates_email_at => updates_email_at.days.ago,
+        :listing_shape_id => 123,
         :communities => [@community])
     end
 

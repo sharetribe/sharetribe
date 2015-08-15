@@ -1,5 +1,8 @@
 - content_for :title_header do
-  %h1= t("layouts.admin.admin")
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.transactions.transactions")
 
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
@@ -12,9 +15,8 @@
     %thead
       %tr
         %th= render partial: "layouts/sort_link", locals: { column: "listing", direction: sort_link_direction("listing"), title: t("admin.communities.transactions.headers.listing") }
-        - if show_status_and_sum
-          %th=t("admin.communities.transactions.headers.status")
-          %th=t("admin.communities.transactions.headers.sum")
+        %th=t("admin.communities.transactions.headers.status")
+        %th=t("admin.communities.transactions.headers.sum")
         %th= render partial: "layouts/sort_link", locals: { column: "started", direction: sort_link_direction("started"), title: t("admin.communities.transactions.headers.started") }
         %th= render partial: "layouts/sort_link", locals: { column: "last_activity", direction: sort_link_direction("last_activity"), title: t("admin.communities.transactions.headers.last_activity") }
         %th=t("admin.communities.transactions.headers.initiated_by")
@@ -23,10 +25,12 @@
     %tbody
       - conversations.each do |conversation|
         %tr
-          %td=Maybe(conversation[:listing]).map { |listing| link_to_unless(listing[:deleted], listing[:title], conversation[:listing_url]) }.or_else("")
-          - if show_status_and_sum
-            %td=t("admin.communities.transactions.status.#{conversation[:status]}")
-            %td=conversation[:payment_total] ? humanized_money_with_symbol(conversation[:payment_total]) : ""
+          - listing_title = conversation[:listing_title] || t("admin.communities.transactions.not_available")
+          %td=Maybe(conversation[:listing]).map { |listing| link_to_unless(listing[:deleted], listing_title, conversation[:listing_url]) }.or_else(listing_title)
+          %td
+            = link_to person_transaction_path(person_id: @current_user.id, id: conversation[:id]) do
+              = t("admin.communities.transactions.status.#{conversation[:status]}")
+          %td=conversation[:payment_total] ? humanized_money_with_symbol(conversation[:payment_total]) : ""
           %td=l(conversation[:created_at], format: :short_date)
           - last_activity_at = 0
           - if conversation[:conversation][:last_message_at].nil?

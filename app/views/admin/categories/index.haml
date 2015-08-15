@@ -13,7 +13,7 @@
   .row
     .col-12
       #categories-list
-        = render :partial => "listed_top_level_category", :collection => @categories, :as => :category
+        = render :partial => "listed_top_level_category", :collection => @categories, :as => :category, locals: {category_count: @categories.size}
 
   #category-ajax-status
     .ajax-notification.ajax-notice.category-ajax-status-message#category-ajax-saving

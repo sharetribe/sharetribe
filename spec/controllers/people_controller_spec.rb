@@ -7,16 +7,22 @@ describe PeopleController do
   end
 
   describe "#check_email_availability" do
+    before(:each) do
+      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
+    end
+
     it "should return available if email not in use" do
-      @request.host = "test.lvh.me"
       get :check_email_availability,  {:person => {:email => "totally_random_email_not_in_use@example.com"}, :format => :json}
       response.body.should == "true"
     end
   end
 
   describe "#check_email_availability" do
+    before(:each) do
+      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
+    end
+
     it "should return unavailable if email is in use" do
-      @request.host = "test.lvh.me"
       person = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "test@example.com")])
 
       get :check_email_availability,  {:person => {:email_attributes => {:address => "test@example.com"} }, :format => :json}
@@ -28,8 +34,6 @@ describe PeopleController do
     end
 
     it "should return NOT available for user's own adress" do
-      @request.host = "test.lvh.me"
-
       person = FactoryGirl.create(:person)
       sign_in person
 
@@ -41,9 +45,11 @@ describe PeopleController do
   end
 
   describe "#check_email_availability_and_validity" do
-    it "should return available for user's own adress" do
-      @request.host = "test.lvh.me"
+    before(:each) do
+      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
+    end
 
+    it "should return available for user's own adress" do
       person = FactoryGirl.create(:person)
       sign_in person
 
@@ -58,7 +64,7 @@ describe PeopleController do
 
       # one reason for this is that people can't use one email to create many accounts in email restricted community
       community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
-      @request.host = "#{community.domain}.lvh.me"
+      @request.host = "#{community.ident}.lvh.me"
       member = FactoryGirl.build(:person, :emails => [ FactoryGirl.build(:email, :address => "one@examplecompany.co")])
       member.communities.push community
       member.save
@@ -75,7 +81,7 @@ describe PeopleController do
       #request.env['warden'].stub(:authenticate!).and_throw(:warden)
       controller.unstub :current_person
 
-      post :create, {:person => {:username => generate_random_username, :password => "test", :email => "one@examplecompany.co", :given_name => "The user who", :family_name => "tries to use taken email"}, :community => community.domain}
+      post :create, {:person => {:username => generate_random_username, :password => "test", :email => "one@examplecompany.co", :given_name => "The user who", :family_name => "tries to use taken email"}}
 
       Person.find_by_family_name("tries to use taken email").should be_nil
       Person.count.should == person_count
@@ -87,7 +93,7 @@ describe PeopleController do
   describe "#create" do
 
     it "creates a person" do
-      @request.host = "test.lvh.me"
+      @request.host = "#{FactoryGirl.create(:community).ident}.lvh.me"
       person_count = Person.count
       username = generate_random_username
       post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
@@ -100,9 +106,9 @@ describe PeopleController do
       username = generate_random_username
       community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
       community.save
-      @request.host = "#{community.domain}.lvh.me"
+      @request.host = "#{community.ident}.lvh.me"
 
-      post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => community.domain}
+      post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}}
 
       Person.find_by_username(username).should be_nil
       flash[:error].to_s.should include("This email is not allowed")
@@ -112,7 +118,7 @@ describe PeopleController do
   describe "#destroy" do
     before(:each) do
       @community = FactoryGirl.create(:community)
-      @request.host = "#{@community.domain}.lvh.me"
+      @request.host = "#{@community.ident}.lvh.me"
       @person = FactoryGirl.create(:person)
       @community.members << @person
       @id = @person.id

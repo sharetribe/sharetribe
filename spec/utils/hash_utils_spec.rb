@@ -2,6 +2,19 @@ require 'spec_helper'
 
 describe HashUtils do
 
+  describe "#compact" do
+    it "returns hash without nils" do
+      expect(HashUtils.compact(a: nil, b: 2)).to eq(b: 2)
+    end
+
+    it "does not mutate the original hash" do
+      h = {a: nil, b: 2}
+      expect(HashUtils.compact(h)).to eq(b: 2)
+      expect(h).to eq(a: nil, b: 2)
+    end
+  end
+
+
   it "#map_keys" do
     h = {
       "a" => "a",
@@ -40,5 +53,55 @@ describe HashUtils do
   it "#sub" do
     expect(HashUtils.sub({first: "First", last: "Last", age: 55}, :first, :age, :sex))
       .to eq({first: "First", age: 55})
+  end
+
+  it "#sub_eq" do
+    expect(HashUtils.sub_eq({a: 1, b: 2, c: 3}, {a: 1, b: 2, c: 4}, :a, :b)).to eq(true)
+    expect(HashUtils.sub_eq({a: 1, b: 2, c: 3}, {a: 3, b: 2, c: 4}, :a, :b)).to eq(false)
+  end
+
+  describe "#transpose" do
+    let(:h) { {a: [1, 2, 3], b: [2, 3, 4], c: [2]} }
+
+    it "transposes hash keys and values" do
+      expect(HashUtils.transpose(h))
+        .to eq(
+              {
+                1 => [:a],
+                2 => [:a, :b, :c],
+                3 => [:a, :b],
+                4 => [:b]
+              })
+    end
+
+    it "transposing twice results original hash" do
+      expect(HashUtils.transpose(HashUtils.transpose(h))).to eq(h)
+    end
+  end
+
+  describe "#flatten" do
+    it "makes deep structure flat" do
+      expect(HashUtils.flatten(
+        { a: { aa: { aaa: 1 },
+               bb: 2,
+               cc: { ccc: 3 }
+             }
+        }
+        )).to eq(
+             {
+              :"a.aa.aaa" => 1,
+              :"a.bb" => 2,
+              :"a.cc.ccc" => 3
+             }
+           )
+    end
+
+    it "throws if key is not symbol or if it contains a dot" do
+      expect { HashUtils.flatten("string" => 1) }
+        .to raise_error(ArgumentError, "Key must be a Symbol and must not contain dot (.). Was: 'string', (String)")
+
+      expect { HashUtils.flatten(:"a.b" => 1) }
+        .to raise_error(ArgumentError, "Key must be a Symbol and must not contain dot (.). Was: 'a.b', (Symbol)")
+    end
   end
 end

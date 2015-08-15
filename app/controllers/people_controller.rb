@@ -114,7 +114,7 @@ class PeopleController < Devise::RegistrationsController
 
       redirect_to root
     else
-      Email.send_confirmation(email, request.host_with_port, @current_community)
+      Email.send_confirmation(email, @current_community)
 
       flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending"
@@ -148,7 +148,7 @@ class PeopleController < Devise::RegistrationsController
     }
     @person = Person.create!(person_hash)
     # We trust that Facebook has already confirmed these and save the user few clicks
-    Email.create(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now)
+    Email.create!(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now)
 
     @person.set_default_preferences
 
@@ -194,7 +194,7 @@ class PeopleController < Devise::RegistrationsController
 
         if params[:person][:email_attributes] && params[:person][:email_attributes][:address]
           # A new email was added, send confirmation email to the latest address
-          Email.send_confirmation(@person.emails.last, request.host_with_port, @current_community)
+          Email.send_confirmation(@person.emails.last, @current_community)
         end
 
         flash[:notice] = t("layouts.notifications.person_updated_successfully")

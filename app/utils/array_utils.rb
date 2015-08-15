@@ -46,4 +46,69 @@ module ArrayUtils
   def trim(xs)
     xs.drop_while { |x| x.blank? }.reverse.drop_while { |x| x.blank? }.reverse
   end
+
+  def inner_join(a, b, &block)
+    a.reduce([]) { |joins, a_elem|
+      bs_found = b.select { |b_elem| block ? block.call(a_elem, b_elem) : a_elem == b_elem }
+      if bs_found.empty?
+        joins
+      else
+        joins.concat([[a_elem].concat(bs_found)])
+      end
+    }
+  end
+
+  # ArrayUtils.diff_by_key(
+  # [{id: 1, value: :a}, {id: 2, value: :b}],
+  # [{id: 2, value: :d}, {id: 3, value: :c}])
+  # =>
+  # [
+  #   {action: :removed, value: {id: 1, value: :a}},
+  #   {action: :changed, value: {id: 2, value: :d}},
+  #   {action: :added, value {id: 3, value: :d}}
+  # ]
+  #
+  # Element without key is always considered as new addition
+  #
+  def diff_by_key(old_array, new_array, key)
+    operations = []
+    new_without_key, new_with_key = new_array.partition { |new| new[key].nil? }
+    old_elems = old_array.sort_by { |old| old[key] }
+    new_elems = new_with_key.sort_by { |new| new[key] }
+
+    # Traverse sorted old and new arrays
+    until old_elems.empty? || new_elems.empty?
+      old = old_elems.first
+      new = new_elems.first
+
+      case old[key] <=> new[key]
+      when -1
+        # remove
+        operations << {action: :removed, value: old}
+        old_elems.shift
+      when 0
+        if old == new
+          # no change
+        else
+          # update
+          operations << {action: :changed, value: new}
+        end
+        old_elems.shift
+        new_elems.shift
+      when 1
+        # add
+        operations << {action: :added, value: new}
+        new_elems.shift
+      end
+    end
+
+    # See if there's still left something to process in old or new array
+    old_elems.each { |old| operations << {action: :removed, value: old}}
+    new_elems.each { |new| operations << {action: :added, value: new}}
+
+    # Element without key is always considered as new addition
+    new_without_key.each { |new| operations << {action: :added, value: new}}
+
+    operations
+  end
 end

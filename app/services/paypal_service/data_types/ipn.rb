@@ -30,7 +30,7 @@ module PaypalService
         [:type, const_value: :authorization_created],
         [:authorization_date, :mandatory, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
         [:authorization_expires_date, :mandatory, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
-        [:order_id, :string, :mandatory],
+        [:order_id, :string],
         [:authorization_id, :string, :mandatory],
         [:payer_email, :string],
         [:payer_id, :string, :mandatory],
@@ -39,7 +39,7 @@ module PaypalService
         [:payment_status, :string, :mandatory],
         [:pending_reason, :string],
         [:receipt_id, :string],
-        [:order_total, :money, :mandatory],
+        [:order_total, :money],
         [:authorization_total, :money, :mandatory]
       )
 
@@ -248,9 +248,11 @@ module PaypalService
           },
           params)
 
+        p[:order_id] = Maybe(p)[:order_id].strip.or_else(nil)
+
         create_authorization_created(
           p.merge({
-              order_total: to_money(p[:mc_gross], p[:mc_currency]),
+              order_total: p[:order_id].nil? ? nil : to_money(p[:mc_gross], p[:mc_currency]),
               authorization_total: to_money(p[:auth_amount], p[:mc_currency])}))
       end
       private_class_method :to_authorization_created
@@ -264,7 +266,7 @@ module PaypalService
           },
           params)
 
-        p[:fee_total] = p[:mc_fee] ? to_money(p[:mc_fee], p[:mc_currency]) : nil
+        p[:fee_total] = p[:mc_fee] ? to_money(p[:mc_fee], p[:mc_currency]) : to_money(0, p[:mc_currency])
         p[:authorization_total] = p[:auth_amount] ? to_money(p[:auth_amount], p[:mc_currency]) : nil
 
         create_payment_completed(
@@ -286,10 +288,11 @@ module PaypalService
 
         with_auth_total = p[:auth_amount] ? p.merge({ authorization_total: to_money(p[:auth_amount], p[:mc_currency]) }) : p
 
+        mc_fee = p[:mc_fee] ? p[:mc_fee] : 0
         create_payment_refunded(
           with_auth_total.merge({
               payment_total: to_money(p[:mc_gross], p[:mc_currency]),
-              fee_total: to_money(p[:mc_fee], p[:mc_currency])}))
+              fee_total: to_money(mc_fee, p[:mc_currency])}))
       end
       private_class_method :to_payment_refunded
 
@@ -319,6 +322,8 @@ module PaypalService
           },
           params
         )
+
+        p[:order_id] = Maybe(p)[:order_id].strip.or_else(nil)
 
         create_payment_voided(p)
       end
@@ -360,10 +365,11 @@ module PaypalService
           params
         )
 
+        mc_fee = params[:mc_fee] ? params[:mc_fee] : 0
         create_commission_paid(
           p.merge({
             commission_total: to_money(params[:mc_gross], params[:mc_currency]),
-            commission_fee_total: to_money(params[:mc_fee], params[:mc_currency])
+            commission_fee_total: to_money(mc_fee, params[:mc_currency])
           }))
       end
       private_class_method :to_commission_paid
@@ -388,6 +394,9 @@ module PaypalService
           },
           params
         )
+
+        p[:order_id] = Maybe(p)[:order_id].strip.or_else(nil)
+
         create_authorization_expired(p)
       end
       private_class_method :to_authorization_expired

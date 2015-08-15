@@ -191,20 +191,20 @@ end
 
 Given /^user "([^"]*)" is member of community "([^"]*)"$/ do |username, community|
   user = Person.find_by_username(username)
-  community = Community.find_by_domain(community)
+  community = Community.where(ident: community).first
   cm = CommunityMembership.find_by_person_id_and_community_id(user.id, community.id)
   CommunityMembership.create(:person_id => user.id, :community_id => community.id) unless cm
 end
 
 Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, community|
   user = Person.find_by_username(username)
-  community = Community.find_by_domain(community)
+  community = Community.where(ident: community).first
   CommunityMembership.find_by_person_id_and_community_id(user.id, community.id).update_attribute(:admin, true)
 end
 
 Given /^"([^"]*)" does not have admin rights in community "([^"]*)"$/ do |username, community|
   user = Person.find_by_username(username)
-  community = Community.find_by_domain(community)
+  community = Community.where(ident: community).first
   CommunityMembership.find_by_person_id_and_community_id(user.id, community.id).update_attribute(:admin, false)
 end
 

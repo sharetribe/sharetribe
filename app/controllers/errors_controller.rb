@@ -25,17 +25,30 @@ class ErrorsController < ActionController::Base
   private
 
   def current_community
-    @current_community ||= Community.find_by_domain(request.host)
+    @current_community ||= ApplicationController.find_community(community_identifiers)
+  end
+
+  def community_identifiers
+    app_domain = URLUtils.strip_port_from_host(APP_CONFIG.domain)
+    ApplicationController.parse_community_identifiers_from_host(request.host, app_domain)
   end
 
   def title(status)
-    community_name = Maybe(@current_community).name.or_else(nil)
+    community_name = Maybe(@current_community).map { |c|
+      c.name(community_locale)
+    }.or_else(nil)
 
     [community_name, t("error_pages.error_#{status}_title")].compact.join(' - ')
   end
 
+  def community_locale
+    Maybe(@current_community).default_locale.or_else(nil)
+  end
+
   def set_locale
-    I18n.locale = Maybe(@current_community).default_locale.or_else("en")
+    # TODO We should set also the community here and allow I18n
+    # backend to work even if community is not set
+    I18n.locale = community_locale || "en"
   end
 
   def exception

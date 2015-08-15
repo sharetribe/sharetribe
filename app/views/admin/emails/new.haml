@@ -2,7 +2,10 @@
   initialize_email_members_form("#{I18n.locale}");
 
 - content_for :title_header do
-  %h1= t("layouts.admin.admin")
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.emails.new.send_email_to_members")
 
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 

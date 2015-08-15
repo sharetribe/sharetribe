@@ -47,7 +47,7 @@ module NavigationHelpers
     when /^the registration page with invitation code "(.*)"$/i
       "/en/signup?code=#{$1}"
     when /^the admin view of community "(.*)"$/i
-      edit_details_admin_community_path(:id => Community.find_by_domain($1).id, :locale => "en")
+      edit_details_admin_community_path(:id => Community.where(ident: $1).first.id, :locale => "en")
     when /the infos page/
       about_infos_path(:locale => "en")
     when /the terms page/

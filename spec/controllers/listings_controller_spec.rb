@@ -11,6 +11,36 @@ describe ListingsController do
     Rails.cache.clear
   end
 
+  def create_shape(community_id, type, process_id, translations = [], categories = [])
+    listings_api = ListingService::API::Api
+
+    defaults = TransactionTypeCreator::DEFAULTS[type]
+
+    # Save name to TranslationService
+    translations_with_default = translations.concat([{ locale: "en", name: type }])
+    name_group = {
+      translations: translations_with_default.map { |translation|
+          { locale: translation[:locale],
+            translation: translation[:name]
+          }
+        }
+      }
+    created_translations = TranslationService::API::Api.translations.create(community_id, [name_group])
+    name_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }.first
+
+    opts = defaults.merge(
+      {
+        shipping_enabled: false,
+        transaction_process_id: process_id,
+        name_tr_key: name_tr_key,
+        action_button_tr_key: 'something.here',
+        translations: translations_with_default,
+        basename: Maybe(translations).first[:name].or_else(type)
+      })
+
+    listings_api.shapes.create(community_id: community_id, opts: opts).data
+  end
+
   before(:each) do
     Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
 
@@ -22,30 +52,98 @@ describe ListingsController do
     @p1.communities << @c1
     @p1.ensure_authentication_token!
 
-    @category_item = FactoryGirl.create(:category, :community => @c1)
+    @category_item      = FactoryGirl.create(:category, :community => @c1)
     @category_item.translations << FactoryGirl.create(:category_translation, :name => "Tavarat", :locale => "fi", :category => @category_item)
-    @category_favor = FactoryGirl.create(:category, :community => @c1)
+    @category_favor     = FactoryGirl.create(:category, :community => @c1)
     @category_rideshare = FactoryGirl.create(:category, :community => @c1)
     @category_furniture = FactoryGirl.create(:category, :community => @c1)
 
-    @transaction_type_request = FactoryGirl.create(:transaction_type_request)
-    @transaction_type_sell = FactoryGirl.create(:transaction_type_sell, :categories => [@category_item, @category_furniture], :community => @c1)
-    @transaction_type_sell_c2 = FactoryGirl.create(:transaction_type_sell, :community => @c2)
-    @transaction_type_request_c2 = FactoryGirl.create(:transaction_type_request, :community => @c2)
-    @transaction_type_sell.translations << FactoryGirl.create(:transaction_type_translation, :name => "Myydään", :locale => "fi", :transaction_type => @transaction_type_sell)
-    @transaction_type_service_offer = FactoryGirl.create(:transaction_type_service, :categories => [@category_favor], :community => @c1)
+    c1_request_process = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: false)
+    c1_offer_process   = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: true)
+    c2_request_process = TransactionProcess.create(community_id: @c2.id, process: :none, author_is_seller: false)
+    c2_offer_process   = TransactionProcess.create(community_id: @c2.id, process: :none, author_is_seller: true)
 
-    @l1 = FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :sort_date => 3.days.ago, :author => @p1, :privacy => "public")
+    request_shape    = create_shape(@c1.id, "Request", c1_request_process.id)
+    sell_shape       = create_shape(@c1.id, "Sell",    c1_offer_process.id, [{locale: "fi", name: "Myydään"}], [@category_item, @category_furniture])
+    sell_c2_shape    = create_shape(@c2.id, "Sell",    c2_offer_process.id)
+    request_c2_shape = create_shape(@c2.id, "Request", c2_request_process.id)
+    service_shape    = create_shape(@c1.id, "Service", c1_request_process.id)
+
+    # This is needed in the spec, thus save it in instance variable
+    @sell_shape = sell_shape
+
+    @l1 = FactoryGirl.create(
+      :listing,
+      :transaction_process_id => request_shape[:transaction_process_id],
+      :listing_shape_id => request_shape[:id],
+      :shape_name_tr_key => request_shape[:name_tr_key],
+      :action_button_tr_key => request_shape[:action_button_tr_key],
+      :title => "bike",
+      :description => "A very nice bike",
+      :created_at => 3.days.ago,
+      :sort_date => 3.days.ago,
+      :author => @p1,
+      :privacy => "public"
+    )
     @l1.communities = [@c1]
-    FactoryGirl.create(:listing, :title => "hammer", :category => @category_item, :created_at => 2.days.ago, :sort_date => 2.days.ago, :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", :transaction_type => @transaction_type_sell, :privacy => "public").communities = [@c1]
-    FactoryGirl.create(:listing, :transaction_type => @transaction_type_request_c2, :title => "help me", :created_at => 12.days.ago, :sort_date => 12.days.ago, :privacy => "public").communities = [@c2]
-    FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway", :privacy => "public").communities = [@c1]
-    @l4 = FactoryGirl.create(:listing, :title => "car", :created_at => 2.months.ago, :sort_date => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :transaction_type => @transaction_type_request, :privacy => "public")
+
+    FactoryGirl.create(
+      :listing,
+      :title => "hammer",
+      :category => @category_item,
+      :created_at => 2.days.ago,
+      :sort_date => 2.days.ago,
+      :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer",
+      :transaction_process_id => sell_shape[:transaction_process_id],
+      :listing_shape_id => sell_shape[:id],
+      :shape_name_tr_key => sell_shape[:name_tr_key],
+      :action_button_tr_key => sell_shape[:action_button_tr_key],
+      :privacy => "public"
+    ).communities = [@c1]
+
+    FactoryGirl.create(
+      :listing,
+      :transaction_process_id => request_c2_shape[:transaction_process_id],
+      :listing_shape_id => request_c2_shape[:id],
+      :shape_name_tr_key => request_c2_shape[:name_tr_key],
+      :action_button_tr_key => request_c2_shape[:action_button_tr_key],
+      :title => "help me",
+      :created_at => 12.days.ago,
+      :sort_date => 12.days.ago,
+      :privacy => "public"
+    ).communities = [@c2]
+
+    FactoryGirl.create(
+      :listing,
+      :transaction_process_id => request_shape[:transaction_process_id],
+      :listing_shape_id => request_shape[:id],
+      :shape_name_tr_key => request_shape[:name_tr_key],
+      :action_button_tr_key => request_shape[:action_button_tr_key],
+      :title => "old junk",
+      :open => false,
+      :description => "This should be closed already,
+ but nice stuff anyway",
+      :privacy => "public"
+    ).communities = [@c1]
+
+    @l4 = FactoryGirl.create(
+      :listing,
+      :title => "car",
+      :created_at => 2.months.ago,
+      :sort_date => 2.months.ago,
+      :description => "I needed a car earlier,
+ but now this listing is no more open",
+      :transaction_process_id => request_shape[:transaction_process_id],
+      :listing_shape_id => request_shape[:id],
+      :shape_name_tr_key => request_shape[:name_tr_key],
+      :action_button_tr_key => request_shape[:action_button_tr_key],
+      :privacy => "public"
+    )
     @l4.communities = [@c1]
     @l4.save!
     @l4.update_attribute(:valid_until, 2.days.ago)
 
-    set_subdomain(@c1.domain)
+    @request.host = "#{@c1.ident}.lvh.me"
   end
 
   describe "ATOM feed" do
@@ -76,7 +174,7 @@ describe ListingsController do
       doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"
       doc.at("feed/entry/listing_type").attribute("term").value.should == "offer"
       doc.at("feed/entry/listing_type").attribute("label").value.should == "Tarjous"
-      doc.at("feed/entry/share_type").attribute("term").value.should == "#{@transaction_type_sell.id}"
+      doc.at("feed/entry/share_type").attribute("term").value.should == "#{@sell_shape[:id]}"
       doc.at("feed/entry/share_type").attribute("label").value.should == "Myydään"
     end
 

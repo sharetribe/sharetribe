@@ -5,7 +5,7 @@ el:
         edit_listing_category: ~
       index:
         listing_categories: ~
-        create_a_new_category: ~
+        create_a_new_category: "+ Δημιουργήστε νέα κατηγορία"
         remove_category_confirmation: ~
         saving_order: ~
         save_order_successful: ~
@@ -14,7 +14,7 @@ el:
         new_listing_category: ~
       form:
         category_name:
-          category_title: ~
+          category_title: "Τίτλος κατηγορίας"
         category_parent:
           category_parent: ~
           no_parent: ~
@@ -37,6 +37,10 @@ el:
         community_details: "Βασικά στοιχεία"
         community_look_and_feel: Εμφάνιση
         edit_community: "Επεξεργασία των στοιχείων της κοινότητας %{community_name}"
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
+        language_selection_disabled: ~
         community_name: Όνομα
         edit_community_name_description: ~
         community_slogan: Slogan
@@ -51,12 +55,12 @@ el:
         invite_people: "Καλέστε κόσμο σε αυτή την κοινότητα"
         edit_signup_info: "Πληροφορίες εγγραφής"
         edit_signup_info_description: "Αυτό είναι ένα ενημερωτικό κείμενο που εμφανίζεται στους χρήστες στη σελίδα εγγραφής. Μέσω αυτού μπορείτε να δώσετε οδηγίες για την εγγγραφή, πληροφορίες για το που μπορούν να βρουν ένα κωδικό πρόσκλησης στην κοινότητα κ.α. Αρχικά δεν εμφανίζονται καθόλου οδηγίες μπορείτε όμως να προσθέσετε μερικές κάνοντας κλικ στον παρακάτω σύνδεσμο."
-        edit_info: ~
+        edit_info: "Επεξεργασία πληροφοριών"
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
+        contact_admin_link_text: "Επικοινωνήστε με τον διαχειριστή"
         save: ~
         transaction_agreement: ~
         transaction_agreement_checkbox: ~
@@ -103,6 +107,35 @@ el:
         welcome_email_content_description: "Αυτό είναι το μήνυμα ηλεκτρονικού ταχυδρομείου που στέλνεται σε κάθε νέο μέλος όταν εγγράφεται. Μπορείτε να το τροποποιήσετε για να ταιριάζει στην κοινότητα. Αν θέλετε να δείτε πως φαίνεται στους χρήστες, πατήστε \"%{send_test_message_link}\" για να σταλεί ένα μήνυμα στη δική σας διεύθυνση."
         edit_message: "Επεξεργασία μηνύματος"
         send_test_message: "Αποστολή δοκιμαστικού μηνύματος"
+      outgoing_email:
+        title: ~
+        info: ~
+        read_more: ~
+        sender_address: ~
+        sender_address_default: ~
+        need_to_change: ~
+        contact_support_link_text: ~
+        set_sender_address: ~
+        sender_name_label: ~
+        sender_name_placeholder: ~
+        sender_email_label: ~
+        sender_email_placeholder: ~
+        this_is_how_it_will_look: ~
+        send_verification_button: ~
+        successfully_saved: ~
+        status: ~
+        status_verified: ~
+        status_error: ~
+        status_requested: ~
+        status_expired: ~
+        status_resent: ~
+        resend_link: ~
+        invalid_email_error: ~
+        unknown_error: ~
+        only_white_label_offer: ~
+        upgrade_pro_plan_link: ~
+        verification_sent_from: ~
+        follow_the_instructions: ~
       getting_started:
         getting_started: ~
         welcome_to_your_marketplace: ~
@@ -111,11 +144,12 @@ el:
         look_and_feel: ~
         logo_link_text: ~
         custom_domain: ~
-        contact_team_link_text: ~
         categories_and_custom_fields: ~
         categories_link_text: ~
         custom_fields_link_text: ~
         filters_link_text: ~
+        order_types: ~
+        order_types_link_text: ~
         payments: ~
         payments_link_text: ~
         info_texts: ~
@@ -136,11 +170,32 @@ el:
         view_users_link_text: ~
         view_transactions_link_text: ~
         contact_support_link_text: ~
+      available_languages:
+        en: ~
+        en-AU: ~
+        en-GB: ~
+        fr: ~
+        fr-CA: ~
+        es: ~
+        es-ES: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
       settings:
-        settings: ~
-        general: ~
-        users_can_review_each_other_after_transaction: ~
-        access: ~
+        settings: Ρυθμίσεις
+        general: Γενικά
+        users_can_review_each_other_after_transaction: "Οι χρήστες μπορούν να αφήνουν κριτική ο ένας στον αλλόν μετά απο την συναλλαγή"
+        access: Πρόσβαση
         join_with_invite_only: ~
         users_can_invite_new_users: ~
         private: ~
@@ -162,10 +217,19 @@ el:
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
+        delete_marketplace_title: ~
+        type_marketplace_domain: ~
+        type_marketplace_domain_placeholder: ~
+        once_you_delete: ~
+        are_you_sure: ~
+        i_understand_button: ~
+        last_community_updates: ~
+        you_will_be_redirected_to: ~
+        delete_this_marketplace: ~
       manage_members:
         manage_members: ~
         email: ~
-        name: ~
+        name: Όνομα
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -231,6 +295,7 @@ el:
           canceled: ~
           initiated: ~
           pending_ext: ~
+        not_available: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -262,8 +327,8 @@ el:
         listing_fields_help: ~
         add_new_field: ~
         remove_field_confirmation: ~
-        cancel: ~
-        save: ~
+        cancel: Άκυρο
+        save: Αποθήκευση
         field_title: ~
         field_type: ~
         categories: ~
@@ -273,7 +338,7 @@ el:
         save_order_successful: ~
         save_order_error: ~
         select_one: ~
-        continue: ~
+        continue: Συνέχεια
         minimum_value: ~
         maximum_value: ~
         allow_decimals: ~
@@ -303,6 +368,79 @@ el:
       configure: ~
       emails_title: ~
       support: ~
+    listing_shapes:
+      index:
+        listing_shapes: ~
+        description: ~
+        read_more_about_order_types: ~
+        add_new_shape: ~
+        select_template: ~
+        all_categories: ~
+        no_categories: ~
+        category_count: ~
+        header:
+          listing_shape_name: ~
+          listing_shape_categories: ~
+        order:
+          saving_order: ~
+          save_order_successful: ~
+          save_order_error: ~
+      templates:
+        selling_products: ~
+        renting_products: ~
+        offering_services: ~
+        giving_things_away: ~
+        requesting: ~
+        announcement: ~
+        custom: ~
+      new:
+        create_listing_shape: ~
+        create: ~
+        cancel: ~
+        create_success: ~
+        create_failure: ~
+      edit:
+        edit_listing_shape: ~
+        update: ~
+        cancel: ~
+        update_success: ~
+        update_failure: ~
+        delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
+      listing_shape_name: ~
+      listing_shape_name_placeholder: ~
+      action_button_label: ~
+      action_button_placeholder: ~
+      successfully_closed: ~
+      successfully_deleted: ~
+      pricing_and_checkout_title: ~
+      online_payments_label: ~
+      shipping_label: ~
+      price_label: ~
+      units_title: ~
+      units_desc: ~
+      units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+      can_not_find: ~
+      add_custom_unit: ~
+      delete_custom_unit: ~
+      custom_unit_form:
+        title: ~
+        label_heading: ~
+        selector_label_heading: ~
+        label_placeholder: ~
+        selector_placeholder: ~
+        per: ~
+        unit_type:
+          heading: ~
+          quantity_label: ~
+          time_label: ~
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
@@ -314,8 +452,11 @@ el:
       set_minimum_price_and_fee_completed: ~
       minimum_listing_price_label: ~
       transaction_fee_label: ~
+      minimum_transaction_fee_label: ~
       save_settings: ~
       note_about_transaction_fee: ~
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
     transaction_types:
       sell: πώληση
       rent: ενοικίαση
@@ -380,8 +521,15 @@ el:
     username_or_email: "Ηλεκτρονική διεύθυνση ή όνομα χρήστη"
     what_is_this: "Τι είναι αυτό;"
     removed_user: ~
+    paypal_fee_info:
+      title: ~
+      body_text: ~
+      body_with_shipping_text: ~
+      link_to_paypal_text: ~
   conversations:
     accept:
+      details: ~
+      order_by: ~
       respond_to_offer: "Απαντήστε σε μια προσφορά"
       respond_to_request: "Απαντήστε σε ένα αίτημα"
       accept_offer: "Αποδεχτείτε την προσφορά"
@@ -397,9 +545,14 @@ el:
       minimum_price_error_message: "Η τιμή δεν μπορεί να είναι μικρότερη από %{amount}."
       accept: ~
       decline: ~
-      sum: ~
-      service_fee: ~
-      you_will_get: ~
+      quantity_label: ~
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      paypal_fee_info: ~
+      shipping_price_label: ~
     confirm:
       confirm_description: "Αν το αίτημά σας έχει εκπληρωθεί θα πρέπει να το επιβεβαιώσετε ως ολοκληρωμένο. Τότε μόνο μπορείτε να γράψετε κριτική για το άλλο μέλος της συναλλαγής."
       cancel_description: "Αν το αίτημά σας δεν εκπληρώθηκε τότε μπορείτε να δηλώσετε ότι δεν πραγματοποιήθηκε η συναλλαγή. Μπορείτε και πάλι να γράψετε κριτική για το άλλο μέλος και να περιγράψετε τι συνέβη."
@@ -442,6 +595,7 @@ el:
       canceled_request: "ακύρωση το αίτημα"
       canceled_offer: "ακύρωσε την προσφορά"
       paid: "πλήρωσε %{sum}"
+      payment_preauthorized: ~
     new:
       offer_message_form_title: "Πρόσφερε %{listing} στον/στην %{person}"
       request_message_form_title: "Ζήτα %{listing} από τον/την %{person}"
@@ -589,7 +743,7 @@ el:
       credit_card_number: "Αριθμός πιστωτικής κάρτας"
       cvv: CVV
       credit_card_expiration_date: "Ημερομηνία λήξης πιστωτικής κάρτας"
-      confirm_payment: ~
+      confirm_payment: "Επιβεβαίωση πληρωμής"
       exp: ~
   preauthorize_payments:
     edit:
@@ -683,8 +837,6 @@ el:
       view_it_in_your_browser: "Δείτε το στο φυλλομετρητή σας."
       or: ή
       unsubscribe_from_these_emails: "απεγγραφείτε από αυτά τα μηνύματα"
-    community_starter_email:
-      subject: "Δείτε το νέο Sharetribe - Χωρίς όριο μελών, με εμφάνιση που μπορείτε να τροποποιήσετε στα μέτρα σας και πολλά άλλα"
     conversation_status_changed:
       has_accepted_your_offer: "Ο/Η %{accepter} δέχτηκε την προσφορά σας για την καταχώρηση \"%{listing}\""
       has_accepted_your_request: "Ο/Η %{accepter} δέχτηκε το αίτημά σας για την καταχώρηση \"%{listing}\""
@@ -716,9 +868,14 @@ el:
       you_have_a_new_message: "Έχετε ένα νέο μήνυμα στο %{service_name} από τον/την %{sender_name}"
     new_payment:
       new_payment: "Λάβατε μια νέα πληρωμή"
+      price_per_unit_type: ~
+      quantity: ~
       you_have_received_new_payment: "Πληρωθήκατε <b>%{payment_sum}</b> για το \"<b>%{listing_title}</b>\" από τον/την %{payer_full_name}. Ορίστε η απόδειξή σας."
+    paypal_new_payment:
+      paypal_gateway_fee: ~
+      shipping_total: ~
     braintree_new_payment:
-      product: ~
+      product: "Προϊόν:"
       price_payer_paid: ~
       service_fee: ~
       you_will_get: ~
@@ -727,8 +884,12 @@ el:
       receipt_of_payment: "Απόδειξη πληρωμής"
       you_have_made_new_payment: "Πληρώσατε <b>%{payment_sum}</b> για το <b>%{listing_title}</b> στον/στην %{recipient_full_name}. Ορίστε η απόδειξη πληρωμής."
       product: ~
-      total: ~
-      price: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: Σύνολο
+      price: Τιμή
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
@@ -766,7 +927,7 @@ el:
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
-      you_have_days_to_accept: ~
+      you_have_time_to_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
       subject: ~
@@ -816,6 +977,8 @@ el:
     transaction_agreement:
       required_error: ~
     paypal:
+      buyer_cannot_pay_error: ~
+      pending_review_error: ~
       generic_error: ~
       cancel_error: ~
       accept_authorization_error: ~
@@ -857,6 +1020,7 @@ el:
       on_or_before: ~
       after: ~
       on_or_after: ~
+      positive_number: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "Ο/Η %{offerer_name} συμφώνησε να δανείσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
@@ -966,14 +1130,14 @@ el:
       no_reviews: "Δεν υπάρχουν κριτικές"
       no_image: "Δεν επιλέχθηκε εικόνα"
       filter: Φίλτρο
-      this_is_private_community: ~
+      this_is_private_community: "Θα πρέπει να εγγραφείτε για να δείτε το περιεχόμενο"
     invitation_form:
-      invite_your_friends: "Προσκαλέστε τους φίλους σας στο %{service_name}!"
-      invite_your_neighbors: "Προσκαλέστε τους γείτονές σας στο %{service_name}!"
       email: "Ηλεκτρονικές διευθύνσεις"
       message: "Ένα προσωπικό μήνυμα"
       send_invitation: "Αποστολή πρόσκλησης"
-      add_as_many_emails_as_you_want: "Γράψτε τις ηλεκτρονικές διευθύνσεις των φίλων σας στην παρακάτω φόρμα. Αν γράψετε πάνω από μία, χωρίστε τες με κόμμα."
+      add_email_addresses_description: "Γράψτε τις ηλεκτρονικές διευθύνσεις των φίλων σας στην παρακάτω φόρμα. Αν γράψετε πάνω από μία, χωρίστε τες με κόμμα."
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "Γράφτηκα σε αυτή τη φανταστική κοινότητα. Έλα κι εσύ!"
       errors_in_emails: "Ελέγξτε ότι τα email που γράψατε είναι έγκυρα και ότι χωρίζονται μεταξύ τους με κόμμα."
@@ -1099,6 +1263,7 @@ el:
       feedback_sent_to: "Η κριτική δόθηκε στον/στην %{target_person}."
       feedback_skipped: "Η κριτική παραλείφθηκε"
       invitation_cannot_be_sent: "Η πρόσκληση δεν μπόρεσε να σταλεί"
+      invitation_limit_reached: ~
       invitation_sent: "Η πρόσκληση εστάλη επιτυχώς"
       inviting_new_users_is_not_allowed_in_this_community: "Σε αυτή την κοινότητα δεν επιτρέπεται να προσκαλέσεις άλλους χρήστες"
       login_again: "Παρακαλούμε, συνδεθείτε ξανά."
@@ -1168,6 +1333,7 @@ el:
       you_must_log_in_to_invite_new_users: "Πρέπει να συνδεθείτε για να προσκαλέσετε χρήστες στο %{service_name}"
       you_must_log_in_to_send_a_comment: "Πρέπει να συνδεθείτε για να σχολιάσετε"
       you_must_log_in_to_send_a_message: "Πρέπει να συνδεθείτε στο %{service_name} για να στείλετε μήνυμα σε άλλο χρήστη."
+      you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "Πρέπει να συνδεθείτε για να δείτε αυτό το περιεχόμενο"
       you_must_log_in_to_view_this_page: "Πρέπει να συνδεθείτε για να δείτε αυτή τη σελίδα"
       you_must_log_in_to_view_your_inbox: "Πρέπει να συνδεθείτε στο %{service_name} για να δείτε τα εισερχόμενα σας."
@@ -1221,13 +1387,15 @@ el:
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
+    error:
+      something_went_wrong: ~
     follow_links:
       follow: "Να ειδοποιούμαι για νέα σχόλια"
       unfollow: "Παύση ειδοποιήσεων για νέα σχόλια"
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: "Επιλέξτε ένα..."
       departure_time:
         at: Στις
         departure_time: Αναχώρηση
@@ -1273,8 +1441,16 @@ el:
         time: "ώρα, ημέρα, εβδομάδα, ..."
         long_time: "εβδομάδα, μήνα, ..."
         after_service_fee_you_will_get: ~
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        paypal_fee_info_link_text: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Η τιμή δεν συμπεριλαμβάνει το ΦΠΑ."
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        shipping_price_additional: ~
+        pickup: ~
       origin:
         location: Τοποθεσία
         origin: Αφετηρία
@@ -1372,6 +1548,14 @@ el:
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      custom: ~
+    quantity_placeholder: ~
     please_comment: Σχολίασε
     reply_link:
       listing_closed: "Η καταχώρηση έχει απενεργοποιηθεί."
@@ -1411,6 +1595,19 @@ el:
       price:
         per_quantity_unit: ~
         per_day: ~
+      delivery: ~
+      shipping: ~
+      shipping_no_price: ~
+      shipping_price_additional: ~
+      pickup: ~
+      pickup_no_price: ~
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1422,7 +1619,6 @@ el:
       you_will_be_charged: ~
       day: ~
       days: ~
-      price_per_day: ~
     transaction_agreement_checkbox:
       read_more: ~
   mapview:
@@ -1447,6 +1643,8 @@ el:
       search_verb: Ψάξε
       you_have_something_others_do_not: "Έχεις κάτι να προσφέρεις;"
     please_comment: Σχολίασε
+  mercury:
+    content_too_long: ~
   okl:
     member_id: ~
     member_id_or_email: "ID μέλους ή email"
@@ -1456,7 +1654,6 @@ el:
       continue: Συνέχεια
       payment_receiver: "Αποδέκτης πληρωμής:"
       sum: "Ποσό πληρωμής:"
-      commission_will_be_added: "Θα προστεθεί μια χρέωση 10% για την υπηρεσία."
     form:
       total: Σύνολο
       service_charge: "Χρέωση υπηρεσίας"
@@ -1478,6 +1675,7 @@ el:
     you_are_ready_to_accept_payments: ~
     commission: ~
     connected_account: ~
+    change_account: ~
     missing: ~
     from_your_payment_settings_link_text: ~
     new:
@@ -1492,7 +1690,10 @@ el:
       upgrade_paypal_account: ~
       connect_paypal_account: ~
       paypal_account_billing_agreement: ~
-      paypal_account_billing_agreement_info: ~
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_info_link_text: ~
       billing_agreement_description: ~
       billing_agreement: ~
       permissions_not_granted: ~
@@ -1505,6 +1706,7 @@ el:
       account_not_verified: ~
       account_restricted: ~
   paypal:
+    pay_with_paypal: ~
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
@@ -1521,8 +1723,6 @@ el:
       help_captcha_title: "Είσαι όντως άνθρωπος;"
       help_invitation_code_title: "Χρειάζεσαι πρόσκληση για να συμμετέχεις."
       terms_title: "Όροι χρήσης του %{service_name}"
-      trustcloud_description_title: TrustCloud
-      trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this community.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
       invite_only_help_text: "Επιλέξτε αν θέλετε νέα μέλη να συμμετέχουν σε αυτό το sharetribe μόνο εάν έχουν λάβει πρόσκληση από άλλα μέλη."
       invite_only_help_text_title: "Συμμετοχή μόνο με πρόσκληση"
     inactive_notification:
@@ -1606,7 +1806,6 @@ el:
       show_all_listings: "Εμφάνιση όλων των καταχωρήσεων"
       show_all_open_listings: "Εμφάνισε όλες τις ενεργές καταχωρήσεις"
       show_all_reviews: "Εμφάνισε όλες τις κριτικές"
-      trustcloud: TrustCard
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
@@ -1736,7 +1935,10 @@ el:
       visible_to_registered_users: "(ορατό σε συνδεδεμένους χρήστες)"
       default_in_listing: ~
       invisible: ~
+      image_is_processing: ~
     save_information: Αποθήκευση
+  shipping_address:
+    shipping_address: ~
   tag_cloud:
     tag_used:
       with_tag: "Με ετικέτα"
@@ -1852,6 +2054,18 @@ el:
     days_since:
       one: "%{count} μέρα"
       other: "%{count} μέρες"
+  transactions:
+    initiate:
+      booked_days: ~
+      price_per_day: ~
+      quantity: ~
+      subtotal: ~
+      shipping-price: ~
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
   unit:
     day: ~
     days: ~

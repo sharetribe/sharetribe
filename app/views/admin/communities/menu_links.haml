@@ -2,7 +2,10 @@
   ST.menuLinkOptionOrder = ST.createMenuLinksOrder(".menu-link-container");
 
 - content_for :title_header do
-  %h1= t("layouts.admin.admin")
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.menu_links.menu_links")
 
 - show_locales = available_locales.size > 1
 

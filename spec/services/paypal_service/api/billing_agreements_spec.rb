@@ -86,6 +86,7 @@ describe PaypalService::API::BillingAgreements do
       item_quantity: 1,
       item_price: Money.new(1200, "EUR"),
       merchant_id: seller_person_id,
+      item_total: Money.new(1200, "EUR"),
       order_total: Money.new(1200, "EUR"),
       success: "https://www.test.com/success",
       cancel: "https://www.test.com/cancel"
@@ -145,22 +146,18 @@ describe PaypalService::API::BillingAgreements do
       expect(payment_res[:data][:commission_status]).to eq(:seller_is_admin)
     end
 
-    it "marks the commission to not applicable when commission smaller than minimum" do
+    it "marks the commission errored if payment failed" do
       do_payment!(@person_id)
-      @payments.full_capture(@cid, @tx_id, { payment_total: Money.new(2, "EUR") })
+      @payments.full_capture(@cid, @tx_id, { payment_total: @payment_total })
 
-      commission_info = {
-        transaction_id: @tx_id,
-        commission_to_admin: Money.new(47, "EUR"),
-        minimum_commission: Money.new(50, "EUR"),
-        payment_name: "commission payment",
-        payment_desc: "commission payment desc"
-      }
+      @api_builder.will_fail(5, "10069")
+      payment_res = @billing_agreements.charge_commission(@cid, @person_id, @commission_info)
 
-      payment_res = @billing_agreements.charge_commission(@cid, @person_id, commission_info)
+      expect(payment_res[:success]).to eq(false)
 
-      expect(payment_res[:success]).to eq(true)
-      expect(payment_res[:data][:commission_status]).to eq(:below_minimum)
+      payment = @payments.get_payment(@cid, @tx_id)
+
+      expect(payment[:data][:commission_status]).to eq(:errored)
     end
 
     it "supports async running" do

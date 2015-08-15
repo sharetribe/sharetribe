@@ -20,7 +20,7 @@ Given /^there are following Braintree accounts:$/ do |bt_accounts|
   # Create new accounts
   bt_accounts.hashes.each do |hash|
     person = Person.find_by_username(hash[:person])
-    community = Community.find_by_domain(hash[:community])
+    community = Community.where(ident: hash[:community]).first
     attributes_to_update = hash.except('person', 'community')
     @account = create_braintree_account(person, community, attributes_to_update)
   end
@@ -55,7 +55,7 @@ Then /^"(.*?)" should have required Checkout payment details saved to my account
 end
 
 When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
-  community = Community.find_by_name("test") # Hard-coded default test community
+  community = Community.where(ident: "test").first # Hard-coded default test community
   signature, payload = BraintreeApi.webhook_testing_sample_notification(
     community, kind, id
   )
@@ -66,7 +66,7 @@ end
 
 When /^Braintree webhook "(.*?)" with username "(.*?)" is triggered$/ do |kind, username|
   person = Person.find_by_username(username)
-  community = Community.find_by_name("test") # Hard-coded default test community
+  community = Community.where(ident: "test").first # Hard-coded default test community
   signature, payload = BraintreeApi.webhook_testing_sample_notification(
     community, kind, person.id
   )
@@ -97,7 +97,8 @@ Given /^Braintree escrow release is mocked$/ do
 end
 
 Given /^Braintree void transaction is mocked$/ do
-  BraintreeApi.should_receive(:void_transaction).at_least(1).times.and_return(true)
+  BraintreeApi.should_receive(:void_transaction).at_least(1).times
+    .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
 Given /^Braintree merchant creation is mocked$/ do
@@ -142,7 +143,7 @@ When /^I cancel the transaction$/ do
     Given I am on the messages page
     Then I should see "Waiting for you to mark the request completed"
     When I click ".conversation-title-link"
-    And I follow "Did not happen"
+    And I follow "Dispute"
   }
 end
 
@@ -250,11 +251,12 @@ Then /^I should be see that the payment was successful$/ do
   }
 end
 
-Then /^I should see that I successfully paid (\d+)$/ do |amount|
-  steps %Q{
-    Then I should see "paid"
-    Then I should see "#{amount}"
-  }
+Then /^I should see that I successfully paid (.*?)$/ do |amount|
+  page.should have_content("paid #{amount}")
+end
+
+Then /^I should see that I successfully authorized payment (.*?)$/ do |amount|
+  page.should have_content("Payment authorized: #{amount}")
 end
 
 Then /^"(.*?)" should receive email about payment$/ do |receiver|
@@ -287,3 +289,13 @@ Then /^I should receive an email about missing payment details$/ do
     And I should see "However, you haven't yet added your payment details. In order to receive the payment you have to add your payment information." in the email body
   }
 end
+
+Then /^I should see receipt info for unit_type (.*?) with quantity (\d+) and subtotal of (.*?)$/ do |unit_type, quantity, subtotal|
+  page.should have_content("Price per #{unit_type}")
+  page.should have_content("Subtotal:")
+  page.should have_content("Total:")
+
+  expect(find(".initiate-transaction-quantity-value")).to have_content(quantity)
+  expect(find(".initiate-transaction-sum-value")).to have_content(subtotal)
+end
+

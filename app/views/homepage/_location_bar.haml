@@ -1,0 +1,30 @@
+-content_for(:location_search) do
+  - if feature_enabled?(:location_search)
+    %script{src: "https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"}
+
+- content_for :extra_javascript do
+  :javascript
+
+    function initialize() {
+      var input = document.getElementById('q');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+
+      google.maps.event.addListener(autocomplete, 'place_changed', function(event){
+        var place = autocomplete.getPlace();
+        if(place != null && place.name != "") {
+          console.log('name:', place.name, '\naddress: ', place.formatted_address, '\ncoordinates: ', place.geometry.location.toUrlValue());
+          document.getElementById('lc').value = place.geometry.location.toUrlValue();
+        }
+        document.getElementById('homepage-filters').submit();
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+.search-form-input.search-form-text-field.location-search-wrapper
+  = text_field_tag "q", params[:q], :placeholder => (@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")
+  = hidden_field_tag 'lc', params[:lc]
+.search-form-input
+  %button.action-button#search-button{type: 'submit'}
+    = icon_tag("globelocation", ["icon-part"])

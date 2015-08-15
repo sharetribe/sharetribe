@@ -2,11 +2,13 @@
 
 %body
 
-  = render :partial => "layouts/noscript"
+  %noscript
+    .noscript-padding
+      -# Noscript content will be positioned here
 
   = render :partial => 'layouts/global-header'
 
-  - if @is_current_community_admin && @is_community_plan_expired
+  - if @is_current_community_admin && PlanUtils.expired?(@current_plan)
     = render partial: "layouts/expiration_notice"
 
   - content_for(:page_content) do
@@ -50,8 +52,9 @@
 
   = render :partial => "layouts/google_analytics_script"
 
-  -#
-    Most of the JavaScript should be for performance reasons at the end of the body
+  -# Most of the JavaScript should be for performance reasons at the end of the body
+
+  = content_for(:location_search)
 
   -# load Facebook SDK for the whole page
   = render :partial => "layouts/facebook_sdk"
@@ -80,4 +83,4 @@
   :javascript
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
-
+  = render :partial => "layouts/noscript"

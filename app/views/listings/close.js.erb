@@ -1,5 +1,5 @@
 /* Update single listing page links */
-$("#listing-message-links").html("<%= escape_javascript(render(:partial => 'listings/listing_actions', locals: { form_path: nil, payment_gateway: payment_gateway })) %>");
+$("#listing-message-links").html("<%= escape_javascript(render(:partial => 'listings/listing_actions', locals: { form_path: nil, payment_gateway: payment_gateway, process: process})) %>");
 
 /* Highlight action */
 $("#listing-message-links").effect("highlight", {}, 2000);

@@ -9,20 +9,13 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
+# Indexes
+#
+#  index_community_plans_on_community_id  (community_id)
+#
 
 class CommunityPlan < ActiveRecord::Base
-
   attr_accessible :community_id,
     :plan_level,
     :expires_at
-
-  belongs_to :community
-
-  # Plan levels
-  FREE_PLAN = 0
-  STARTER_PLAN = 1
-  BASIC_PLAN = 2
-  GROWTH_PLAN = 3
-  SCALE_PLAN = 4
-
 end

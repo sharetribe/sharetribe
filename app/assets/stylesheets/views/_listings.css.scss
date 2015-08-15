@@ -42,6 +42,34 @@
   color: $aside;
 }
 
+// Listing quantity input
+.quantity-wrapper {
+  width: 100%;
+  margin-bottom: lines(0.75);
+}
+.quantity-label-wrapper {
+  float: left;
+  width: 100%;
+}
+.quantity-label {
+  float: left;
+  width: auto;
+  font-weight: bold;
+  padding: lines(0.35) lines(0.35) 0 0;
+  margin: auto em(100) auto 0;
+}
+.quantity-input {
+  margin-left: em(-100);
+  width: em(100);
+  float: left;
+}
+.quantity-input input{
+  width: 100%;
+}
+.quantity-input input:focus {
+  outline-width: 0;
+}
+
 // Listing author
 $listing-author-avatar-width: 108;
 $listing-author-avatar-height: 108;
@@ -129,6 +157,17 @@ $listing-author-avatar-height: 108;
 
 .listing-view-admin-links {
   margin: lines(0.5) 0; // Some top & bottom margin to give links some space
+}
+
+// Delivery options
+.delivery-title {
+  margin-bottom: 0;
+}
+
+.delivery-label {
+  display: inline;
+  width: auto;
+  margin-left: lines(0.2);
 }
 
 // Transaction action button

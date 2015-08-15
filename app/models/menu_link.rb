@@ -8,6 +8,10 @@
 #  updated_at    :datetime         not null
 #  sort_priority :integer          default(0)
 #
+# Indexes
+#
+#  index_menu_links_on_community_and_sort  (community_id,sort_priority)
+#
 
 class MenuLink < ActiveRecord::Base
   has_many :translations, :class_name => "MenuLinkTranslation", :dependent => :destroy

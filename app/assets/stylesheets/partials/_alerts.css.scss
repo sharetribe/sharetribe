@@ -1,0 +1,29 @@
+@import "mixins/all";
+
+$danger-bg-color: #f2dede;
+$danger-text-color: darken($danger-bg-color, 50%);
+$warning-bg-color: #fcf8e3;
+$warning-text-color: #8a6d3b;
+
+.alert-box-icon {
+  width: 1.5em;
+  display: inline-block;
+}
+
+.alert-box-danger {
+  @include border-radius($default-border-radius);
+
+  background-color: $danger-bg-color;
+  padding: lines(0.75) lines(0.8);
+  color: $danger-text-color;
+  margin-bottom: lines(0.5);
+}
+
+.alert-box-warning {
+  @include border-radius($default-border-radius);
+
+  background-color: $warning-bg-color;
+  padding: lines(0.75) lines(0.8);
+  color: $warning-text-color;
+  margin-bottom: lines(0.5);
+}

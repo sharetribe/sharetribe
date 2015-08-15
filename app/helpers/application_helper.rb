@@ -12,6 +12,7 @@ module ApplicationHelper
       "grid" => "ss-thumbnails",
       "new_listing" => "ss-addfile",
       "search"  => "ss-search",
+      "globelocation" => "ss-globelocation",
       "list" => "ss-list",
       "home" => "ss-home",
       "community" =>"ss-usergroup",
@@ -68,6 +69,7 @@ module ApplicationHelper
       "social_media" => "ss-share",
       "analytics" => "ss-analytics",
       "openbook" => "ss-openbook",
+      "order_types" => "ss-cart",
 
       # Default category & share type icons
       "offer" => "ss-share",
@@ -160,6 +162,7 @@ module ApplicationHelper
       "new_listing" => "icon-plus-sign-alt",
 
       "search"  => "icon-search",
+      "globelocation" => "icon-globe",
       "list" => "icon-reorder",
 
       "home" => "icon-home",
@@ -295,6 +298,10 @@ module ApplicationHelper
     return time
   end
 
+  def translate_time_to(unit, count)
+    t("timestamps.time_to.#{unit}", count: count)
+  end
+
   # used to escape strings to URL friendly format
   def self.escape_for_url(str)
      URI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]"))
@@ -370,21 +377,19 @@ module ApplicationHelper
   end
 
   def available_locales
-    if @current_community
-      # use the ordered list from community settings, but replace the short locales with ["English", "en"] like arrays from APP_CONFIG
-      return @current_community.locales.collect{|loc| Kassi::Application.config.AVAILABLE_LOCALES.select{|app_loc| app_loc[1] == loc }[0]}
-    else
-      return Kassi::Application.config.AVAILABLE_LOCALES
-    end
+    locales =
+      if @current_community
+        @current_community.locales
+          .map { |loc| Sharetribe::AVAILABLE_LOCALES.find { |app_loc| app_loc[:ident] == loc } }
+      else
+        Sharetribe::AVAILABLE_LOCALES
+      end
+
+    locales.map { |loc| [loc[:name], loc[:ident]] }
   end
 
   def get_full_locale_name(locale)
-    Kassi::Application.config.AVAILABLE_LOCALES.each do |l|
-      if l[1].to_s == locale.to_s
-        return l[0]
-      end
-    end
-    return locale # return the short string if no match found for longer name
+    Maybe(Sharetribe::AVAILABLE_LOCALES.find { |l| l[:ident] == locale.to_s })[:name].or_else(locale)
   end
 
   def self.send_error_notification(message, error_class="Special Error", parameters={})
@@ -552,6 +557,7 @@ module ApplicationHelper
     }
   end
 
+  # rubocop:disable all
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
@@ -624,6 +630,17 @@ module ApplicationHelper
       }
     ]
 
+    # Disabled for Braintree and Checkout
+    gw = PaymentGateway.where(community_id: @current_community.id).first
+    unless gw
+      links << {
+        :text => t("admin.listing_shapes.index.listing_shapes"),
+        :icon_class => icon_class("order_types"),
+        :path => admin_listing_shapes_path,
+        :name => "listing_shapes"
+      }
+    end
+
     if PaypalHelper.paypal_active?(@current_community.id)
       links << {
         :text => t("admin.communities.paypal_account.paypal_admin_account"),
@@ -677,6 +694,7 @@ module ApplicationHelper
 
     links
   end
+  # rubocop:enable all
 
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil)
@@ -685,7 +703,7 @@ module ApplicationHelper
         :id => "settings-tab-profile",
         :text => t("layouts.settings.profile"),
         :icon_class => icon_class("profile"),
-        :path => profile_person_settings_path(person),
+        :path => person_settings_path(person),
         :name => "profile"
       },
       {
@@ -859,11 +877,6 @@ module ApplicationHelper
     @homepage && (!@current_user || params[:big_cover_photo])
   end
 
-  def sum_with_currency(sum, currency)
-    curr = Money::Currency.new(currency || "EUR")
-    humanized_money_with_symbol(Money.new(sum * curr.subunit_to_unit, (currency || "EUR")))
-  end
-
   def sort_link_direction(column)
     params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
   end
@@ -878,5 +891,4 @@ module ApplicationHelper
       content_for :extra_javascript do js end
     end
   end
-
 end

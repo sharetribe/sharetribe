@@ -49,6 +49,7 @@ module PaypalService
         [:receiver_username, :optional, :string],
         [:token, :mandatory, :string])
 
+
       GetExpressCheckoutDetailsResponse = EntityUtils.define_builder(
         [:success, const_value: true],
         [:token, :mandatory, :string],
@@ -56,18 +57,35 @@ module PaypalService
         [:billing_agreement_accepted],
         [:payer, :string],
         [:payer_id, :string],
-        [:order_total, :money])
+        [:order_total, :money],
+        [:shipping_address_status, :string],
+        [:shipping_address_city, :string],
+        [:shipping_address_country, :string],
+        [:shipping_address_country_code, :string],
+        [:shipping_address_name, :string],
+        [:shipping_address_phone, :string],
+        [:shipping_address_postal_code, :string],
+        [:shipping_address_state_or_province, :string],
+        [:shipping_address_street1, :string],
+        [:shipping_address_street2, :string])
 
+      # Deprecated - Order flow will be removed soon
+      #
       SetExpressCheckoutOrder = EntityUtils.define_builder(
         [:method, const_value: :set_express_checkout_order],
         [:item_name, :mandatory, :string],
         [:item_quantity, :fixnum, default: 1],
 
-        # If not specified, defaults to order_total. If specifed, quantity * item_price must match order_total
-        [:item_price, :optional, :money],
+        [:require_shipping_address, :to_bool],
+        [:item_price, :mandatory, :money],
+
+        # If specified, require_shipping_address must be true
+        [:shipping_total, :optional],
+
+        # Must match item_price * item_quantity + shipping_total
+        [:order_total, :mandatory, :money],
 
         [:receiver_username, :mandatory, :string],
-        [:order_total, :mandatory, :money],
         [:success, :mandatory, :string],
         [:cancel, :mandatory, :string],
         [:invnum, :mandatory, :string],
@@ -78,9 +96,39 @@ module PaypalService
         [:token, :mandatory, :string],
         [:redirect_url, :mandatory, :string],
         [:receiver_username, :mandatory, :string])
+      #
+      # /Deprecated
 
+      SetExpressCheckoutAuthorization = EntityUtils.define_builder(
+        [:method, const_value: :set_express_checkout_authorization],
+        [:item_name, :mandatory, :string],
+        [:item_quantity, :fixnum, default: 1],
+
+        [:require_shipping_address, :to_bool],
+        [:item_price, :mandatory, :money],
+
+        # If specified, require_shipping_address must be true
+        [:shipping_total, :optional],
+
+        # Must match item_price * item_quantity + shipping_total
+        [:order_total, :mandatory, :money],
+
+        [:receiver_username, :mandatory, :string],
+        [:success, :mandatory, :string],
+        [:cancel, :mandatory, :string],
+        [:invnum, :mandatory, :string],
+        [:merchant_brand_logo_url, :optional, :string])
+
+      SetExpressCheckoutAuthorizationResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:token, :mandatory, :string],
+        [:redirect_url, :mandatory, :string],
+        [:receiver_username, :mandatory, :string])
+
+      # Should contain the same fields as in set express checkout order / authorization
       DoExpressCheckoutPayment = EntityUtils.define_builder(
         [:method, const_value: :do_express_checkout_payment],
+        [:payment_action, :mandatory, one_of: [:order, :authorization]], # We don't support sale flow
         [:receiver_username, :mandatory, :string],
         [:token, :mandatory, :string],
         [:payer_id, :mandatory, :string],
@@ -88,16 +136,34 @@ module PaypalService
         [:item_name, :mandatory, :string],
         [:item_quantity, :mandatory, :fixnum],
         [:item_price, :mandatory, :money],
-        [:invnum, :mandatory, :string])
+        [:shipping_total, :money],
+        [:invnum, :mandatory, :string],
+        [:shipping_address_city, :string],
+        [:shipping_address_country, :string],
+        [:shipping_address_country_code, :string],
+        [:shipping_address_name, :string],
+        [:shipping_address_phone, :string],
+        [:shipping_address_postal_code, :string],
+        [:shipping_address_state_or_province, :string],
+        [:shipping_address_street1, :string],
+        [:shipping_address_street2, :string])
 
       DoExpressCheckoutPaymentResponse = EntityUtils.define_builder(
         [:success, const_value: true],
-        [:order_date, :mandatory, :utc_str_to_time],
+        [:order_date, :utc_str_to_time],
+        [:authorization_date, :utc_str_to_time],
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
-        [:order_id, :mandatory, :string],
-        [:order_total, :mandatory, :money])
 
+        # Reponse will have either order or authorization details depending upon payment status
+        [:order_id, :string],
+        [:order_total, :money],
+        [:authorization_id, :string],
+        [:authorization_total, :money])
+
+
+      # Deprecated - Order flow will be removed soon
+      #
       DoAuthorization = EntityUtils.define_builder(
         [:method, const_value: :do_authorization],
         [:receiver_username, :mandatory, :string],
@@ -113,6 +179,8 @@ module PaypalService
         [:authorization_total, :mandatory, :money],
         [:authorization_date, :utc_str_to_time],
         [:msg_sub_id, :string])
+      #
+      # /Deprecated
 
       DoFullCapture = EntityUtils.define_builder(
         [:method, const_value: :do_capture],
@@ -187,6 +255,9 @@ module PaypalService
 
       def create_set_express_checkout_order(opts); SetExpressCheckoutOrder.call(opts) end
       def create_set_express_checkout_order_response(opts); SetExpressCheckoutOrderResponse.call(opts) end
+
+      def create_set_express_checkout_authorization(opts); SetExpressCheckoutAuthorization.call(opts) end
+      def create_set_express_checkout_authorization_response(opts); SetExpressCheckoutAuthorizationResponse.call(opts) end
 
       def create_do_express_checkout_payment(opts); DoExpressCheckoutPayment.call(opts) end
       def create_do_express_checkout_payment_response(opts); DoExpressCheckoutPaymentResponse.call(opts) end

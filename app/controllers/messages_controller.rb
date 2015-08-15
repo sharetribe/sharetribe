@@ -11,6 +11,11 @@ class MessagesController < ApplicationController
   end
 
   def create
+    unless is_participant?(@current_user, params[:message][:conversation_id])
+      flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
+      return redirect_to root
+    end
+
     @message = Message.new(params[:message])
     if @message.save
       Delayed::Job.enqueue(MessageSentJob.new(@message.id, @current_community.id))
@@ -33,6 +38,10 @@ class MessagesController < ApplicationController
     person_display_entity = person_entity.merge(
       display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
     )
+  end
+
+  def is_participant?(person, conversation_id)
+    Conversation.find(conversation_id).participant?(person)
   end
 
 end

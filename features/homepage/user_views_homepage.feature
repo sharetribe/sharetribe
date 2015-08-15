@@ -8,10 +8,10 @@ Feature: User views homepage
     Given there are following users:
       | person |
       | kassi_testperson1 |
-    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
-    And there is a listing with title "bike" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
+    And there is a listing with title "bike" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And that listing is closed
-    And there is a listing with title "saw" from "kassi_testperson2" with category "Items" and with transaction type "Requesting"
+    And there is a listing with title "saw" from "kassi_testperson2" with category "Items" and with listing shape "Requesting"
     And privacy of that listing is "private"
     When I am on the homepage
     Then I should see "car spare parts"
@@ -28,7 +28,7 @@ Feature: User views homepage
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "massage" from "kassi_testperson2" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "massage" from "kassi_testperson2" with category "Services" and with listing shape "Requesting"
     And I am logged in as "kassi_testperson1"
     When I am on the homepage
     Then I should see "massage"
@@ -39,10 +39,10 @@ Feature: User views homepage
     Given there are following users:
       | person |
       | kassi_testperson1 |
-    And there is a listing with title "car spare parts" from "kassi_testperson2" with category "Items" and with transaction type "Requesting"
+    And there is a listing with title "car spare parts" from "kassi_testperson2" with category "Items" and with listing shape "Requesting"
     And privacy of that listing is "private"
-    And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
-    And there is a listing with title "place to live" from "kassi_testperson1" with category "Spaces" and with transaction type "Requesting"
+    And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
+    And there is a listing with title "place to live" from "kassi_testperson1" with category "Spaces" and with listing shape "Requesting"
     And visibility of that listing is "all_communities"
     And privacy of that listing is "private"
     And I am on the home page page
@@ -61,13 +61,13 @@ Feature: User views homepage
        | person |
        | kassi_testperson1 |
        | kassi_testperson2 |
-    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with listing shape "Requesting"
     And privacy of that listing is "private"
     And that listing belongs to community "test"
-    And there is a listing with title "massage" from "kassi_testperson2" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "massage" from "kassi_testperson2" with category "Services" and with listing shape "Requesting"
     And visibility of that listing is "all_communities"
     And that listing belongs to community "test"
-    And there is a listing with title "saw" from "kassi_testperson2" with category "Items" and with transaction type "Requesting"
+    And there is a listing with title "saw" from "kassi_testperson2" with category "Items" and with listing shape "Requesting"
     And visibility of that listing is "all_communities"
     And privacy of that listing is "private"
     And that listing belongs to community "test"
@@ -88,9 +88,9 @@ Feature: User views homepage
        | kassi_testperson1 |
     When I am on the homepage
     When I log in as "kassi_testperson2"
-    When there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+    When there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with listing shape "Requesting"
     And I am on the homepage
-    When there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    When there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And I am on the homepage
     Then I should not see "No open item, service or rideshare requests."
     And I should not see "No open item, service or rideshare offers."
@@ -100,14 +100,14 @@ Feature: User views homepage
     Given there are following users:
       | person |
       | kassi_testperson1 |
-    And there is a listing with title "car spare parts" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "car spare parts" from "kassi_testperson2" with category "Items" and with listing shape "Selling"
     And privacy of that listing is "private"
-    And there is a listing with title "place to live" with category "Spaces" and with transaction type "Requesting"
+    And there is a listing with title "place to live" with category "Spaces" and with listing shape "Requesting"
     And privacy of that listing is "private"
     And I am on the home page page
     And I should not see "car spare parts"
     And I should not see "place to live"
-    When there is a listing with title "bike parts" from "kassi_testperson2" with category "Items" and with transaction type "Requesting"
+    When there is a listing with title "bike parts" from "kassi_testperson2" with category "Items" and with listing shape "Requesting"
     And privacy of that listing is "private"
     And I am on the homepage
     Then I should not see "bike parts"
@@ -145,7 +145,7 @@ Feature: User views homepage
     Given there are following users:
       | person |
       | kassi_testperson1 |
-    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And community "test" is private
     When I am on the home page
     Then I should not see "car spare parts"

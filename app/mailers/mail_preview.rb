@@ -37,6 +37,7 @@ class MailPreview < MailView
         listing_id: paypal_transaction.listing.id,
         listing_title: paypal_transaction.listing.title,
         listing_price: paypal_transaction.listing.price,
+        shipping_price: paypal_transaction.shipping_price,
         listing_author_id: paypal_transaction.listing.author.id,
         listing_quantity: 1,
         last_transition_at: Time.now,
@@ -47,9 +48,8 @@ class MailPreview < MailView
     seller_model = paypal_transaction.listing.author
     buyer_model = paypal_transaction.starter
     community = paypal_transaction.community
-    service_fee = Money.new(500, "USD")
 
-    TransactionMailer.paypal_receipt_to_payer(transaction, service_fee, seller_model, buyer_model, community)
+    TransactionMailer.paypal_receipt_to_payer(transaction, seller_model, buyer_model, community)
   end
 
   def paypal_new_payment
@@ -62,19 +62,21 @@ class MailPreview < MailView
         listing_id: paypal_transaction.listing.id,
         listing_title: paypal_transaction.listing.title,
         listing_price: paypal_transaction.listing.price,
+        shipping_price: paypal_transaction.shipping_price,
         listing_author_id: paypal_transaction.listing.author.id,
         listing_quantity: 1,
         last_transition_at: Time.now,
         current_state: :paid,
-        payment_total: Money.new(2000, "USD")
+        payment_total: Money.new(2000, "USD"),
+        charged_commission: Money.new(200, "USD"),
+        payment_gateway_fee: Money.new(85, "USD")
       })
 
     seller_model = paypal_transaction.listing.author
     buyer_model = paypal_transaction.starter
     community = paypal_transaction.community
-    service_fee = Money.new(500, "USD")
 
-    TransactionMailer.paypal_new_payment(transaction, service_fee, seller_model, buyer_model, community)
+    TransactionMailer.paypal_new_payment(transaction, seller_model, buyer_model, community)
   end
 
   def escrow_canceled
@@ -84,12 +86,12 @@ class MailPreview < MailView
   def confirm_reminder
     # Show different template if hold_in_escrow is true
     conversation.community.payment_gateway = nil
-    PersonMailer.confirm_reminder(conversation, conversation.requester, conversation.community, 4)
+    PersonMailer.confirm_reminder(conversation, conversation.buyer, conversation.community, 4)
   end
 
   def confirm_reminder_escrow
     # Show different template if hold_in_escrow is true
-    PersonMailer.confirm_reminder(conversation, conversation.requester, conversation.community, 5)
+    PersonMailer.confirm_reminder(conversation, conversation.buyer, conversation.community, 5)
   end
 
   def admin_escrow_canceled

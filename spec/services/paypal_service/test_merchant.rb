@@ -16,14 +16,16 @@ module PaypalService
       @billing_agreements_by_token = {}
     end
 
-    def save_token(req)
+    def save_token(req, payment_action)
       token = {
         token: SecureRandom.uuid,
+        payment_action: payment_action,
         item_name: req[:item_name],
         item_quantity: req[:item_quantity],
         item_price: req[:item_price],
         order_total: req[:order_total],
-        receiver_id: req[:receiver_username]
+        receiver_id: req[:receiver_username],
+        no_shipping: req[:require_shipping_address] ? 0 : 1
       }
 
       @tokens[token[:token]] = token
@@ -35,6 +37,14 @@ module PaypalService
     end
 
     def create_and_save_payment(token)
+      if token[:payment_action] == :order
+        create_and_save_order_payment(token)
+      else
+        create_and_save_auth_payment(token)
+      end
+    end
+
+    def create_and_save_order_payment(token)
       payment = {
         order_date: Time.now,
         payment_status: "pending",
@@ -45,6 +55,23 @@ module PaypalService
       }
 
       @payments_by_order_id[payment[:order_id]] = payment
+      payment
+    end
+
+    def create_and_save_auth_payment(token)
+      # Allows test calls to inject payment-review response status
+      require_payment_review = token[:item_name] == "require-payment-review"
+
+      payment = {
+        authorization_date: Time.now,
+        payment_status: "pending",
+        pending_reason: require_payment_review ? "payment-review" : "authorization",
+        authorization_id: SecureRandom.uuid,
+        authorization_total: token[:order_total],
+        receiver_id: token[:receiver_id]
+      }
+
+      @payments_by_auth_id[payment[:authorization_id]] = payment
       payment
     end
 
@@ -61,6 +88,7 @@ module PaypalService
       payment = @payments_by_order_id[order_id]
       raise "No order with order id: #{order_id}" if payment.nil?
       raise "Cannot authorize more than order_total" if authorization_total.cents > payment[:order_total].cents
+      raise "Cannot authorize already authorized payment" if payment[:pending_reason] != "order"
 
       auth_id = SecureRandom.uuid
       auth_payment = payment.merge({
@@ -138,15 +166,29 @@ module PaypalService
             billing_agreement = @fake_pal.get_billing_agreement(token)
 
             if (!token.nil?)
-              DataTypes::Merchant.create_get_express_checkout_details_response(
-                {
-                  token: token[:token],
-                  checkout_status: "not_used_in_tests",
-                  billing_agreement_accepted: !billing_agreement.nil?,
-                  payer: token[:email],
-                  payer_id: "payer_id",
-                  order_total: token[:order_total]
-                })
+              response = {
+                token: token[:token],
+                checkout_status: "not_used_in_tests",
+                billing_agreement_accepted: !billing_agreement.nil?,
+                payer: token[:email],
+                payer_id: token[:item_name] != "payment-not-initiated" ? "payer_id" : nil,
+                order_total: token[:order_total]
+              }
+
+              if(token[:no_shipping] == 0)
+                response[:shipping_address_status] = "Confirmed"
+                response[:shipping_address_city] = "city"
+                response[:shipping_address_country] = "country"
+                response[:shipping_address_country_code] = "CC"
+                response[:shipping_address_name] = "name"
+                response[:shipping_address_phone] = "123456"
+                response[:shipping_address_postal_code] = "WX1GQ"
+                response[:shipping_address_state_or_province] = "state"
+                response[:shipping_address_street1] = "street1"
+                response[:shipping_address_street2] = "street2"
+              end
+
+              DataTypes::Merchant.create_get_express_checkout_details_response(response)
             else
               PaypalService::DataTypes::FailureResponse.call()
             end
@@ -159,7 +201,23 @@ module PaypalService
           action_method_name: :wrap,
           output_transformer: -> (res, api) {
             req = res[:value]
-            token = @fake_pal.save_token(req)
+            token = @fake_pal.save_token(req, :order)
+
+            DataTypes::Merchant.create_set_express_checkout_order_response({
+                token: token[:token],
+                redirect_url: "https://paypaltest.com/#{token[:token]}",
+                receiver_username: api.config.subject || api.config.username
+              })
+          }
+        ),
+
+        set_express_checkout_authorization: PaypalAction.def_action(
+          input_transformer: identity,
+          wrapper_method_name: :do_nothing,
+          action_method_name: :wrap,
+          output_transformer: -> (res, api) {
+            req = res[:value]
+            token = @fake_pal.save_token(req, :authorization)
 
             DataTypes::Merchant.create_set_express_checkout_order_response({
                 token: token[:token],
@@ -179,14 +237,7 @@ module PaypalService
 
             if (!token.nil?)
               payment = @fake_pal.create_and_save_payment(token)
-              DataTypes::Merchant.create_do_express_checkout_payment_response(
-                {
-                  order_date: payment[:order_date],
-                  payment_status: payment[:payment_status],
-                  pending_reason: payment[:pending_reason],
-                  order_id: payment[:order_id],
-                  order_total: payment[:order_total]
-                })
+              DataTypes::Merchant.create_do_express_checkout_payment_response(payment)
             else
               PaypalService::DataTypes::FailureResponse.call()
             end
@@ -293,7 +344,7 @@ module PaypalService
           wrapper_method_name: :do_nothing,
           action_method_name: :wrap,
           output_transformer: -> (res, api) {
-            token = @fake_pal.save_token({})
+            token = @fake_pal.save_token({}, :authorization)
 
             DataTypes::Merchant.create_setup_billing_agreement_response(
               {

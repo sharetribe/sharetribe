@@ -89,7 +89,7 @@ ClassAndModuleChildren:
 # Offense count: 24
 # Configuration parameters: CountComments.
 ClassLength:
-  Max: 589
+  Max: 600
 
 # Offense count: 12
 # Cop supports --auto-correct.
@@ -557,11 +557,6 @@ Void:
 # Cop supports --auto-correct.
 WhileUntilDo:
   Enabled: false
-
-# Offense count: 113
-# Cop supports --auto-correct.
-WordArray:
-  MinSize: 37
 
 Delegate:
   Enabled: false

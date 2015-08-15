@@ -31,8 +31,6 @@
     %label{:for => "password"}
       = t('common.password') + ":"
     = password_field_tag "person[password]", nil, :class => :text_field, :id => :main_person_password
-    - if @current_community
-      = hidden_field_tag :community, @current_community.domain
     = button_tag(t('.login'), :class => "send_button", :id => :main_log_in_button)
     .links
       - unless @facebook_merge

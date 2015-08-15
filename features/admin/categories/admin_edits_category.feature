@@ -1,16 +1,16 @@
 Feature: Admin edits a category
 
-  Background: 
+  Background:
     Given I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights in community "test"
-    And community "test" has following transaction types enabled:
-      | transaction_type  | en                | fi             |
+    And community "test" has following listing shapes enabled:
+      | listing_shape     | en                | fi             |
       | Sell              | Selling           | Myydään        |
       | Give              | Giving away       | Annetaan       |
       | Lend              | Lending           | Lainataan      |
     And community "test" has following category structure:
       | category_type  | en                | fi             |
-      | main           | Goodies           | Tavarat        |   
+      | main           | Goodies           | Tavarat        |
       | sub            | Tools             | Työkalut       |
       | sub            | Books             | Kirjat         |
       | main           | Services          | Palvelut       |
@@ -38,25 +38,25 @@ Feature: Admin edits a category
     Then I should not see "Parent category"
 
   @javascript
-  Scenario: Admin changes category transaction types
-    When I change transaction types of category "Furniture" to following:
-      | transaction_type  |
-      | Selling           | 
-      | Lending           | 
-    Then category "Furniture" should have the following transaction types:
-      | transaction_type  |
-      | Selling           | 
-      | Lending           | 
-    When I change transaction types of category "Furniture" to following:
-      | transaction_type  |
-      | Lending           | 
-    Then category "Furniture" should have the following transaction types:
-      | transaction_type  |
-      | Lending           | 
+  Scenario: Admin changes category listing shapes
+    When I change listing shapes of category "Furniture" to following:
+      | listing_shape     |
+      | Selling           |
+      | Lending           |
+    Then category "Furniture" should have the following listing shapes:
+      | listing_shape     |
+      | Selling           |
+      | Lending           |
+    When I change listing shapes of category "Furniture" to following:
+      | listing_shape     |
+      | Lending           |
+    Then category "Furniture" should have the following listing shapes:
+      | listing_shape     |
+      | Lending           |
 
   @javascript
-  Scenario: Admin tries to remove all transaction types
-    When I try to remove all transaction types from category "Furniture"
+  Scenario: Admin tries to remove all listing shapes
+    When I try to remove all listing shapes from category "Furniture"
     Then I should see 1 validation errors
 
   @javascript

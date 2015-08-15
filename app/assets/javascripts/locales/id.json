@@ -1,0 +1,28 @@
+{
+  "please_wait": "Silakan menunggu...",
+  "validation_messages": {
+    "accept": "File gambar harus dalam format GIF, JPG or PNG.",
+    "creditcard": "Masukkan nomor kartu kredit yang benar.",
+    "date": "Masukkan tanggal yang benar.",
+    "dateISO": "Masukkan tanggal yang benar (ISO).",
+    "digits": "Masukkan hanya nomor digit.",
+    "email": "Masukkan alamat email yang benar.",
+    "equalTo": "Masukkan kembali isi yang sama.",
+    "max": "Masukkan nilai kurang dari atau sama dengan {0}.",
+    "maxlength": "Masukkan tidak lebih dari {0} karakter.",
+    "min": "Masukkan nilai lebih dari atau sama dengan {0}.",
+    "minlength": "Masukkan sedikitnya {0} karakter.",
+    "number": "Masukkan nomor yang benar.",
+    "range": "Masukkan nilai antara {0} dan {1}.",
+    "rangelength": "Masukkan nilai antara {0} dan {1} karakter.",
+    "remote": "Perbaiki kolom ini.",
+    "required": "Wajib diisi.",
+    "url": "Masukkan URL yang valid",
+    "address_validator": "Lokasi tidak ditemukan.",
+    "money": "Anda harus memasukkan jumlah yang sesuai.",
+    "min_bound": "Masukkan nilai kurang dari nilai maksimum ({0})",
+    "max_bound": "Masukkan nilai lebih dari nilai minimum ({0}).",
+    "number_no_decimals": "Masukkan keseluruhan nomor.",
+    "number_decimals": "Masukkan nomor yang sesuai dengan tanda titik (.) atau koma (,) sebagai pemisah desimal"
+  }
+}

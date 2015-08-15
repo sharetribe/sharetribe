@@ -1,8 +1,11 @@
 - content_for :javascript do
-  ST.initializeTransactionAgreementFields();
+  ST.initializeCommunityCustomizations();
 
 - content_for :title_header do
-  %h1= t("layouts.admin.admin")
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.edit_details.community_details")
 
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
@@ -10,6 +13,7 @@
   %h2= t("admin.communities.edit_details.edit_community", :community_name => @current_community.name(I18n.locale))
   = form_tag update_details_admin_community_path(@current_community), method: :put, id: "edit_community" do |form|
 
+    = render partial: "locale_selection",    locals: locale_selection_locals
     = render partial: "locale_input_fields", locals: community_name_locals
     = render partial: "locale_input_fields", locals: community_slogan_locals
     = render partial: "locale_input_fields", locals: community_description_locals

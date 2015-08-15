@@ -18,7 +18,6 @@
 
     = render :partial => "layouts/info_text", :locals => { :text => t(".listing_fields_help")}
 
-    - show_price_filter = Maybe(@current_community).price_in_use?.or_else(false)
     - show_custom_fields = !@custom_fields.empty?
 
   #custom-fields-list

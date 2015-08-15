@@ -3,7 +3,7 @@
 module TestHelpers
   module CategoriesHelper
 
-    DEFAULT_TRANSACTION_TYPES_FOR_TESTS = {
+    DEFAULT_LISTING_SHAPE_TEMPLATES_FOR_TESTS = {
       Sell: {
         en: {
           name: "Selling", action_button_label: "Buy this item"
@@ -26,7 +26,7 @@ module TestHelpers
       },
       Service: {
         en: {
-          name: "Selling services", action_button_label: ""
+          name: "Selling services", action_button_label: "Offer"
         }
       }
     }
@@ -42,25 +42,75 @@ module TestHelpers
       "housing"
     ]
 
-    def self.load_test_categories_and_transaction_types_to_db(community)
-      TestHelpers::CategoriesHelper.load_categories_and_transaction_types_to_db(community, DEFAULT_TRANSACTION_TYPES_FOR_TESTS, DEFAULT_CATEGORIES_FOR_TESTS)
+    def self.load_test_categories_and_listing_shapes_to_db(community)
+      TestHelpers::CategoriesHelper.load_categories_and_listing_shapes_to_db(community, DEFAULT_LISTING_SHAPE_TEMPLATES_FOR_TESTS, DEFAULT_CATEGORIES_FOR_TESTS)
     end
 
-    def self.load_categories_and_transaction_types_to_db(community, transaction_types, categories)
-      # Load transaction types
-      transaction_types.each do |type, translations|
+    def self.load_categories_and_listing_shapes_to_db(community, listing_shape_templates, categories)
+      processes = [:none, :preauthorize, :postpay].inject({}) { |memo, process|
+        memo.tap { |m|
+          process_res = TransactionService::API::Api.processes.create(
+            community_id: community.id,
+            process: process,
+            author_is_seller: true
+          )
 
-        transaction_type = Object.const_get(type.to_s).create!(:type => type, :community_id => community.id)
-        community.locales.each do |locale|
+          memo[process] = process_res.data[:id]
+        }
+      }
+
+      # Load listing shapes
+      listing_shape_templates.each do |type, translations|
+        defaults = TransactionTypeCreator::DEFAULTS[type.to_s]
+
+        name_group = {
+          translations: community.locales.map do |locale|
+            translation = translations[locale.to_sym]
+            {locale: locale, translation: translation[:name]} unless translation.blank?
+          end.compact
+        }
+        ab_group = {
+          translations: community.locales.map do |locale|
+            translation = translations[locale.to_sym]
+            {locale: locale, translation: translation[:action_button_label]} unless translation.blank?
+          end.compact
+        }
+        created_translations = TranslationService::API::Api.translations.create(community.id, [name_group, ab_group])
+        name_tr_key, action_button_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }
+
+        translations = community.locales.map do |locale|
           translation = translations[locale.to_sym]
 
-          if translation then
-            tt_name = translation[:name]
-            tt_action = translation[:action_button_label]
-            transaction_type.translations.create!(:locale => locale, :name => tt_name, :action_button_label => tt_action)
+          if translation
+            {
+              locale: locale,
+              name: translation[:name],
+              action_button_label: translation[:action_button_label]
+            }
           end
-        end
+        end.compact
+
+        basename = translations.find{ |t| t[:locale] == community.default_locale }[:name]
+
+        shape_opts = defaults.merge(
+          transaction_process_id: processes[:none],
+          translations: translations,
+          name_tr_key: name_tr_key,
+          action_button_tr_key: action_button_tr_key,
+          shipping_enabled: false,
+          basename: basename
+        )
+
+        shape_res = ListingService::API::Api.shapes.create(
+          community_id: community.id,
+          opts: shape_opts
+        )
+
+        raise ArgumentError.new("Could not create new shape: #{shape_opts}") unless shape_res.success
       end
+
+      # Community has now new listing shapes, so we must reload it
+      community.reload
 
       # Load categories
       categories.each do |c|
@@ -68,23 +118,26 @@ module TestHelpers
         # Categories that do not have subcategories
         if c.is_a?(String)
           category = Category.create!(:community_id => community.id)
-          TestHelpers::CategoriesHelper.add_transaction_types_and_translations_to_category(category, c)
+          TestHelpers::CategoriesHelper.add_listing_shapes_and_translations_to_category(category, c)
 
         # Categories that have subcategories
         elsif c.is_a?(Hash)
           top_level_category = Category.create!(:community_id => community.id)
-          TestHelpers::CategoriesHelper.add_transaction_types_and_translations_to_category(top_level_category, c.keys.first)
+          TestHelpers::CategoriesHelper.add_listing_shapes_and_translations_to_category(top_level_category, c.keys.first)
           c.values.first.each do |sg|
             subcategory = Category.create!(:community_id => community.id, :parent_id => top_level_category.id)
-            TestHelpers::CategoriesHelper.add_transaction_types_and_translations_to_category(subcategory, sg)
+            TestHelpers::CategoriesHelper.add_listing_shapes_and_translations_to_category(subcategory, sg)
           end
         end
 
       end
     end
 
-    def self.add_transaction_types_and_translations_to_category(category, category_name)
-      category.community.transaction_types.each { |tt| category.transaction_types << tt }
+    def self.add_listing_shapes_and_translations_to_category(category, category_name)
+      ListingService::API::Api.shapes.get(community_id: category.community.id)[:data].each do |s|
+        CategoryListingShape.create!(category_id: category.id, listing_shape_id: s[:id])
+      end
+
       category.community.locales.each do |locale|
         cat_name = I18n.t!(category_name, :locale => locale, :scope => ["common", "categories"], :raise => true)
         category.translations.create!(:locale => locale, :name => cat_name)
@@ -110,11 +163,6 @@ module TestHelpers
     return random_username
   end
 
-  def set_subdomain(subdomain = "test")
-    subdomain += "." unless subdomain.blank?
-    @request.host = "#{subdomain}.lvh.me"
-  end
-
   def sign_in_for_spec(person)
     # For some reason only sign_in (Devise) doesn't work so 2 next lines to fix that
     #sign_in person
@@ -135,12 +183,6 @@ module TestHelpers
   end
 
   module_function :find_category_by_name
-
-  def find_transaction_type_by_name(transaction_type_name)
-    TransactionType.all.select do |transaction_type|
-      transaction_type.display_name("en") == transaction_type_name
-    end.first
-  end
 
   def find_numeric_custom_field_type_by_name(name)
     NumericField.all.select do |numeric_custom_field|
@@ -170,18 +212,20 @@ module TestHelpers
 
   # This is loaded only once before running the whole test set
   def load_default_test_data_to_db_before_suite
-    community1 = FactoryGirl.create(:community, :domain => "test", :name => "Test", :consent => "test_consent0.1", :settings => {"locales" => ["en", "fi"]}, :real_name_required => true)
-    community2 = FactoryGirl.create(:community, :domain => "test2", :name => "Test2", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true, :allowed_emails => "@example.com")
-    community3 = FactoryGirl.create(:community, :domain => "test3", :name => "Test3", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true)
+    community1 = FactoryGirl.create(:community, :ident => "test", :consent => "test_consent0.1", :settings => {"locales" => ["en", "fi"]}, :real_name_required => true)
+    community1.community_customizations.create(name: "Sharetribe", locale: "fi")
+    community2 = FactoryGirl.create(:community, :ident => "test2", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true, :allowed_emails => "@example.com")
+    community3 = FactoryGirl.create(:community, :ident => "test3", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true)
 
-    [community1, community2, community3].each { |c| TestHelpers::CategoriesHelper.load_test_categories_and_transaction_types_to_db(c) }
+    [community1, community2, community3].each { |c| TestHelpers::CategoriesHelper.load_test_categories_and_listing_shapes_to_db(c) }
   end
+  module_function :load_default_test_data_to_db_before_suite
 
   # This is loaded before each test
   def load_default_test_data_to_db_before_test
-    community1 = Community.find_by_domain("test")
-    community2 = Community.find_by_domain("test2")
-    community3 = Community.find_by_domain("test3")
+    community1 = Community.where(ident: "test").first
+    community2 = Community.where(ident: "test2").first
+    community3 = Community.where(ident: "test3").first
 
     person1 = FactoryGirl.create(:person, :username => "kassi_testperson1", :is_admin => 0, "locale" => "en", :encrypted_password => "64ae669314a3fb4b514fa5607ef28d3e1c1937a486e3f04f758270913de4faf5", :password_salt => "vGpGrfvaOhp3", :given_name => "Kassi", :family_name => "Testperson1", :phone_number => "0000-123456", :created_at => "2012-05-04 18:17:04")
     person2 = FactoryGirl.create(:person, :username => "kassi_testperson2", :is_admin => false, :locale => "en", :encrypted_password => "72bf5831e031cbcf2e226847677fccd6d8ec6fe0673549a60abb5fd05f726462", :password_salt => "zXklAGLwt7Cu", :given_name => "Kassi", :family_name => "Testperson2", :created_at => "2012-05-04 18:17:04")
@@ -219,5 +263,6 @@ module TestHelpers
     :send_notifications => true,
     :confirmed_at => "2012-05-04 18:17:04")
   end
+  module_function :load_default_test_data_to_db_before_test
 
 end

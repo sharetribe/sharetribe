@@ -219,20 +219,20 @@ module TransactionHelper
         } },
         accepted: ->() { {
           both: [
-            status_info(t("conversations.status.#{conversation.discussion_type}_accepted"), icon_classes: icon_for("accepted")),
+            status_info(t("conversations.status.request_accepted"), icon_classes: icon_for("accepted")),
             accepted_status(conversation)
           ]
         } },
         paid: ->() { {
           both: [
-            status_info(t("conversations.status.#{conversation.discussion_type}_paid"), icon_classes: icon_for("paid")),
+            status_info(t("conversations.status.request_paid"), icon_classes: icon_for("paid")),
             delivery_status(conversation),
             paid_status(conversation, @current_community.testimonials_in_use)
           ]
         } },
         preauthorized: ->() { {
           both: [
-            status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),
+            status_info(t("conversations.status.request_preauthorized"), icon_classes: icon_for("preauthorized")),
             preauthorized_status(conversation)
           ]
         } },
@@ -250,7 +250,7 @@ module TransactionHelper
                 status_info(t("conversations.status.pending_external.paypal.multicurrency", currency: paypal_payment[:payment_total].currency, paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))
               ],
               starter: [
-                status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),
+                status_info(t("conversations.status.request_preauthorized"), icon_classes: icon_for("preauthorized")),
                 preauthorized_status(conversation)
               ]
             }
@@ -260,7 +260,7 @@ module TransactionHelper
                 status_info(t("conversations.status.pending_external.paypal.intl", paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))
               ],
               starter: [
-                status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),
+                status_info(t("conversations.status.request_preauthorized"), icon_classes: icon_for("preauthorized")),
                 preauthorized_status(conversation)
               ]
             }
@@ -270,7 +270,7 @@ module TransactionHelper
                 status_info(t("conversations.status.pending_external.paypal.verify", paypal_url: link_to("https://www.paypal.com", "https://www.paypal.com")).html_safe, icon_classes: icon_for("pending_ext"))
               ],
               starter: [
-                status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized")),
+                status_info(t("conversations.status.request_preauthorized"), icon_classes: icon_for("preauthorized")),
                 preauthorized_status(conversation)
               ]
             }
@@ -278,24 +278,24 @@ module TransactionHelper
         },
         confirmed: ->() { {
           both: [
-            status_info(t("conversations.status.#{conversation.discussion_type}_confirmed"), icon_classes: icon_for("confirmed")),
+            status_info(t("conversations.status.request_confirmed"), icon_classes: icon_for("confirmed")),
             feedback_status(conversation, @current_community.testimonials_in_use)
           ]
         } },
         canceled: ->() { {
           both: [
-            status_info(t("conversations.status.#{conversation.discussion_type}_canceled"), icon_classes: icon_for("canceled")),
+            status_info(t("conversations.status.request_canceled"), icon_classes: icon_for("canceled")),
             feedback_status(conversation, @current_community.testimonials_in_use)
           ]
         } },
         rejected: ->() { {
           both: [
-            status_info(t("conversations.status.#{conversation.discussion_type}_rejected"), icon_classes: icon_for(conversation.status))
+            status_info(t("conversations.status.request_rejected"), icon_classes: icon_for(conversation.status))
           ]
         } },
         errored: ->() { {
           author: [
-            status_info(t("conversations.status.payment_errored_author", starter_name: conversation.starter.name), icon_classes: icon_for("errored"))
+            status_info(t("conversations.status.payment_errored_author", starter_name: conversation.starter.name(conversation.community)), icon_classes: icon_for("errored"))
           ],
           starter: [
             status_info(t("conversations.status.payment_errored_starter"), icon_classes: icon_for("errored"))
@@ -325,7 +325,7 @@ module TransactionHelper
   end
 
   def accepted_status(conversation)
-    if conversation.listing.offerer?(@current_user)
+    if conversation.seller == @current_user
       waiting_for_buyer_to_pay(conversation)
     else
       waiting_for_current_user_to_pay(conversation)
@@ -335,7 +335,7 @@ module TransactionHelper
   def paid_status(conversation, show_testimonial_status)
     return nil unless show_testimonial_status
 
-    if conversation.listing.offerer?(@current_user)
+    if conversation.seller == @current_user
       waiting_for_buyer_to_confirm(conversation)
     else
       waiting_for_current_user_to_confirm(conversation)
@@ -354,18 +354,18 @@ module TransactionHelper
       status_info(
         t("conversations.status.waiting_for_listing_author_to_deliver_listing",
           :listing_title => link_to(conversation.listing.title, conversation.listing),
-          :listing_author_name => link_to(conversation.author.name, conversation.author)
+          :listing_author_name => link_to(PersonViewUtils.person_display_name(conversation.author, conversation.community))
         ).html_safe,
         icon_classes: "ss-deliveryvan"
       )
     end
   end
 
-  def preauthorized_status(conversation)
-    if current_user?(conversation.listing.author)
-      waiting_for_current_user_to_accept_preauthorized(conversation)
+  def preauthorized_status(transaction)
+    if current_user?(transaction.listing.author)
+      waiting_for_current_user_to_accept_preauthorized(transaction)
     else
-      waiting_for_author_to_accept_preauthorized(conversation)
+      waiting_for_author_to_accept_preauthorized(transaction)
     end
   end
 
@@ -432,19 +432,19 @@ module TransactionHelper
     ])
   end
 
-  def waiting_for_current_user_to_accept_preauthorized(conversation)
+  def waiting_for_current_user_to_accept_preauthorized(transaction)
     status_links([
       {
-        link_href: accept_preauthorized_person_message_path(@current_user, :id => conversation.id),
+        link_href: accept_preauthorized_person_message_path(@current_user, :id => transaction.id),
         link_classes: "accept_preauthorized",
         link_icon_with_text_classes: icon_for("accept_preauthorized"),
-        link_text_with_icon: link_text_with_icon(conversation, "accept_preauthorized")
+        link_text_with_icon: link_text_with_icon(transaction, "accept_preauthorized")
       },
       {
-        link_href: reject_preauthorized_person_message_path(@current_user, :id => conversation.id),
+        link_href: reject_preauthorized_person_message_path(@current_user, :id => transaction.id),
         link_classes: "reject_preauthorized",
         link_icon_with_text_classes: icon_for("reject_preauthorized"),
-        link_text_with_icon: link_text_with_icon(conversation, "reject_preauthorized")
+        link_text_with_icon: link_text_with_icon(transaction, "reject_preauthorized")
       }
     ]);
   end
@@ -475,7 +475,7 @@ module TransactionHelper
 
   def link_text_with_icon(conversation, status_link_name)
     if ["accept", "reject", "accept_preauthorized", "reject_preauthorized"].include?(status_link_name)
-      t("conversations.status_link.#{status_link_name}_#{conversation.discussion_type}")
+      t("conversations.status_link.#{status_link_name}_request")
     else
       t("conversations.status_link.#{status_link_name}")
     end
@@ -486,7 +486,7 @@ module TransactionHelper
     other_party_link = link_to(other_party.given_name_or_username, other_party)
 
     link = t(
-      "conversations.status.waiting_for_listing_author_to_accept_#{conversation.discussion_type}",
+      "conversations.status.waiting_for_listing_author_to_accept_request",
       :listing_author_name => other_party_link
     ).html_safe
 
@@ -494,7 +494,7 @@ module TransactionHelper
   end
 
   def waiting_for_buyer_to_pay(conversation)
-    link = t("conversations.status.waiting_payment_from_requester", :requester_name => link_to(conversation.requester.given_name_or_username, conversation.requester)).html_safe
+    link = t("conversations.status.waiting_payment_from_requester", :requester_name => link_to(conversation.buyer.given_name_or_username, conversation.buyer)).html_safe
     status_info(link, icon_classes: 'ss-clock')
   end
 
@@ -509,11 +509,11 @@ module TransactionHelper
     status_info(link, icon_classes: 'ss-clock')
   end
 
-  def waiting_for_author_to_accept_preauthorized(conversation)
-    text = t("conversations.status.waiting_for_listing_author_to_accept_#{conversation.discussion_type}",
+  def waiting_for_author_to_accept_preauthorized(transaction)
+    text = t("conversations.status.waiting_for_listing_author_to_accept_request",
       :listing_author_name => link_to(
-        conversation.other_party(@current_user).given_name_or_username,
-        conversation.other_party(@current_user)
+        transaction.author.given_name_or_username,
+        transaction.author
       )
     ).html_safe
 

@@ -1,0 +1,58 @@
+is:
+  errors:
+    messages:
+      expired: "hefur runnið út, vinsamlegast óskaðu eftir nýjum"
+      not_found: "fannst ekki"
+      already_confirmed: "hefur verið staðfest nú þegar, prófaðu að skrá þig inn"
+      not_locked: ólæstur
+      not_saved:
+        one: "Villa kom í veg fyrir að %{resource} var vistað"
+        other: "%{count} villur komu í veg fyrir að %{resource} voru vistuð"
+  devise:
+    failure:
+      already_authenticated: "Þú ert nú þegar skráð/ur inn."
+      unauthenticated: "Þú þarft að skrá þig inn eða stofna nýjan aðgang áður en þú getur haldið áfram."
+      unconfirmed: "Þú verður að staðfesta aðgang þinn til að halda áfram."
+      locked: "Aðgangur þinn er lokaður."
+      invalid: "Rangt netfang eða lykilorð."
+      invalid_token: "Ógildur staðfestingarlykill."
+      timeout: "Innskráning þín hefur runnið út á tíma. Vinsamlegast skráðu þig aftur inn til að geta haldið áfram."
+      inactive: "Aðgangurinn þinn hefur enn ekki verið gerður virkur."
+    passwords:
+      updated_not_active: "Lykilorði þínu hefur hér með verið breytt."
+      send_paranoid_instructions: "Ef netfang þitt hefur nú þegar verið skráð, munt þú fá senda vefslóð til endurheimta lykilorð þitt"
+      send_instructions: "Þú munt fá sendan tölvupóst innan fárra mínútna með leiðbeiningum um hvernig skal endurstilla lykilorðið þitt."
+      updated: "Lykilorði þínu hefur hér með verið breytt. Þú ert nú skráð/ur inn."
+    sessions:
+      signed_in: "Þú ert nú skráð/ur inn."
+      signed_out: "Þú hefur verið skráð/ur út."
+    confirmations:
+      send_paranoid_instructions: "Ef netfang þitt hefur nú þegar verið skráð, munt þú fá sendan tölvupóst innan fárra mínútna með leiðbeiningum um hvernig þú staðfestir aðganginn þinn."
+      send_instructions: "Þú munt fá sendan tölvupóst innan fárra mínútna með leiðbeiningum um hvernig þú staðfestir aðganginn þinn."
+      confirmed: "Aðgangur þinn hefur nú verið staðfestur."
+    registrations:
+      signed_up_but_unconfirmed: "Staðfesting hefur verið send á netfang þitt. Vinsamlegast smelltu á slóðina til að virkja aðganginn þinn."
+      signed_up_but_inactive: "Þú hefur hér með stofnað aðgang. Samt sem áður náðum við ekki að skrá þig inn þar sem aðgangur þinn hefur ekki enn verið virkjaður."
+      signed_up_but_locked: "Þú hefur hér með stofnað aðgang. Samt sem áður náðum við ekki að skrá þig inn þar sem aðgangur þinn er læstur."
+      reasons:
+        inactive: óvirkur
+        unconfirmed: óstaðfestur
+        locked: lokaður
+      update_needs_confirmation: "Þú hefur nú uppfært aðgang þinn en við þurfum að staðfesta nýja netfangið þitt. Vinsamlegast athugaðu tölvupóstinn þinn og smelltu á vefslóðina því til staðfestingar."
+      signed_up: "Velkomin/nn! Skráning þín hefur tekist."
+      updated: "Þú hefur nú uppfært aðgang þinn."
+      destroyed: "Bæ! Aðgangur þinn hefur hér með verið afturkallaður. Við vonumst til þess að sjá þig brátt aftur."
+    unlocks:
+      send_paranoid_instructions: "Ef þú hefur áður átt aðgang munt þú fá tölvupóst innan fárra mínútna með leiðbeiningum um hvernig skal opna aðganginn."
+      send_instructions: "Þú munt fá sendan tölvupóst innan fárra mínútna með leiðbeiningum um hvernig skal opna aðganginn."
+      unlocked: "Aðgangur þinn hefur verið opnaður. Vinsamlegast skráðu þig inn til að geta haldið áfram."
+    omniauth_callbacks:
+      success: "%{kind} aðgangsheimild tókst."
+      failure: "%{kind} aðgangsheimild tókst ekki vegna þess að %{reason}."
+    mailer:
+      confirmation_instructions:
+        subject: "Leiðbeiningar um staðfestingu"
+      reset_password_instructions:
+        subject: "Leiðbeiningar um endurstillingu lykilorðs"
+      unlock_instructions:
+        subject: "Leiðbeiningar um opnun aðgangs"

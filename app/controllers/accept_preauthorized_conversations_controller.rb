@@ -13,91 +13,114 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def accept
-    payment_type = TransactionService::API::Api.transactions.query(params[:id])[:payment_gateway]
+    tx_id = params[:id]
+    tx = TransactionService::API::Api.transactions.query(tx_id)
 
+    if tx[:current_state] != :preauthorized
+      redirect_to person_transaction_path(person_id: @current_user.id, id: tx_id)
+      return
+    end
+
+    payment_type = tx[:payment_gateway]
     case payment_type
     when :braintree
       render_braintree_form("accept")
     when :paypal
       render_paypal_form("accept")
     else
-      raise "Unknown payment type: #{payment_type}"
+      raise ArgumentError.new("Unknown payment type: #{payment_type}")
     end
   end
 
   def reject
-    payment_type = TransactionService::API::Api.transactions.query(params[:id])[:payment_gateway]
+    tx_id = params[:id]
+    tx = TransactionService::API::Api.transactions.query(tx_id)
 
+    if tx[:current_state] != :preauthorized
+      redirect_to person_transaction_path(person_id: @current_user.id, id: tx_id)
+      return
+    end
+
+    payment_type = tx[:payment_gateway]
     case payment_type
     when :braintree
       render_braintree_form("reject")
     when :paypal
       render_paypal_form("reject")
     else
-      raise "Unknown payment type: #{payment_type}"
+      raise ArgumentError.new("Unknown payment type: #{payment_type}")
     end
   end
 
-  def accepted
+  def accepted_or_rejected
+    tx_id = params[:id]
     message = params[:listing_conversation][:message_attributes][:content]
+    status = params[:listing_conversation][:status].to_sym
     sender_id = @current_user.id
-    status = params[:listing_conversation][:status]
 
-    with_updated_listing_status(@listing_conversation, status, sender_id) do |lc|
-      with_optional_message(lc, message, sender_id) do |lc|
-        MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
-        flash[:notice] = t("layouts.notifications.#{lc.discussion_type}_accepted")
-        redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
-      end
+    tx = TransactionService::API::Api.transactions.query(tx_id)
+
+    if tx[:current_state] != :preauthorized
+      redirect_to person_transaction_path(person_id: @current_user.id, id: tx_id)
+      return
     end
 
-  end
+    res = accept_or_reject_tx(@current_community.id, tx_id, status, message, sender_id)
 
-  def rejected
-    message = params[:listing_conversation][:message_attributes][:content]
-    sender_id = @current_user.id
-    status = params[:listing_conversation][:status]
-
-    with_updated_listing_status(@listing_conversation, status, sender_id) do |lc|
-      with_optional_message(lc, message, sender_id) do |lc|
-        MarketplaceService::Transaction::Command.mark_as_unseen_by_other(lc.id, sender_id)
-        flash[:notice] = t("layouts.notifications.#{lc.discussion_type}_rejected")
-        redirect_to person_transaction_path(person_id: sender_id, id: lc.id)
-      end
+    if res[:success]
+      flash[:notice] = success_msg(res[:flow])
+      redirect_to person_transaction_path(person_id: sender_id, id: tx_id)
+    else
+      flash[:error] = error_msg(res[:flow])
+      redirect_to accept_preauthorized_person_message_path(person_id: sender_id , id: tx_id)
     end
   end
 
   private
 
-  def with_optional_message(listing_conversation, message, sender_id, &block)
-    if(message)
-      listing_conversation.conversation.messages.create({
-          content: message,
-          sender_id: sender_id
-        })
+  def accept_or_reject_tx(community_id, tx_id, status, message, sender_id)
+    if (status == :paid)
+      accept_tx(community_id, tx_id, message, sender_id)
+    elsif (status == :rejected)
+      reject_tx(community_id, tx_id, message, sender_id)
+    else
+      {flow: :unknown, success: false}
     end
-
-    block.call(listing_conversation)
   end
 
-  def with_updated_listing_status(listing_conversation, status, sender_id, &block)
-    response =
-      if(status == "paid")
-        TransactionService::Transaction.complete_preauthorization(listing_conversation.id)
-      elsif(status == "rejected")
-        TransactionService::Transaction.reject(@current_community.id, listing_conversation.id)
-      end
+  def accept_tx(community_id, tx_id, message, sender_id)
+    TransactionService::Transaction.complete_preauthorization(community_id: community_id,
+                                                              transaction_id: tx_id,
+                                                              message: message,
+                                                              sender_id: sender_id)
+      .maybe()
+      .map { |_| {flow: :accept, success: true}}
+      .or_else({flow: :accept, success: false})
+  end
 
-    if(response[:success])
-      block.call(listing_conversation.reload)
-    else
-      if (status == "paid")
-        flash[:error] = t("error_messages.paypal.accept_authorization_error")
-      else
-        flash[:error] = t("error_messages.paypal.reject_authorization_error")
-      end
+  def reject_tx(community_id, tx_id, message, sender_id)
+    TransactionService::Transaction.reject(community_id: community_id,
+                                           transaction_id: tx_id,
+                                           message: message,
+                                           sender_id: sender_id)
+      .maybe()
+      .map { |_| {flow: :reject, success: true}}
+      .or_else({flow: :reject, success: false})
+  end
 
-      redirect_to accept_preauthorized_person_message_path(person_id: sender_id , id: listing_conversation.id)
+  def success_msg(flow)
+    if flow == :accept
+      t("layouts.notifications.request_accepted")
+    elsif flow == :reject
+      t("layouts.notifications.request_rejected")
+    end
+  end
+
+  def error_msg(flow)
+    if flow == :accept
+      t("error_messages.paypal.accept_authorization_error")
+    elsif flow == :reject
+      t("error_messages.paypal.reject_authorization_error")
     end
   end
 
@@ -118,12 +141,19 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   def render_paypal_form(preselected_action)
     transaction_conversation = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
-    transaction = TransactionService::Transaction.query(@listing_conversation.id)
+    result = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: @listing_conversation.id)
+    transaction = result[:data]
 
     render "accept", locals: {
-      discussion_type: transaction_conversation[:discussion_type],
-      sum: transaction[:checkout_total],
+      payment_gateway: :paypal,
+      listing: @listing,
+      listing_quantity: transaction[:listing_quantity],
+      booking: transaction[:booking],
+      orderer: @listing_conversation.starter,
+      sum: transaction[:item_total],
       fee: transaction[:commission_total],
+      shipping_price: transaction[:shipping_price],
+      shipping_address: transaction[:shipping_address],
       seller_gets: transaction[:checkout_total] - transaction[:commission_total],
       form: @listing_conversation, # TODO FIX ME, DONT USE MODEL
       form_action: acceptance_preauthorized_person_message_path(
@@ -135,11 +165,20 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def render_braintree_form(preselected_action)
+    result = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: @listing_conversation.id)
+    transaction = result[:data]
+
     render action: :accept, locals: {
-      discussion_type: @listing_conversation.discussion_type,
-      sum: @listing_conversation.payment.total_sum,
-      fee: @listing_conversation.payment.total_commission,
-      seller_gets: @listing_conversation.payment.seller_gets,
+      payment_gateway: :braintree,
+      listing: @listing,
+      listing_quantity: transaction[:listing_quantity],
+      booking: transaction[:booking],
+      orderer: @listing_conversation.starter,
+      sum: transaction[:item_total],
+      fee: transaction[:commission_total],
+      shipping_price: nil,
+      shipping_address: nil,
+      seller_gets: transaction[:checkout_total] - transaction[:commission_total],
       form: @listing_conversation,
       form_action: acceptance_preauthorized_person_message_path(
         person_id: @current_user.id,

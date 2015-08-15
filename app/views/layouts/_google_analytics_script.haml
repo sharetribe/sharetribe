@@ -20,7 +20,7 @@
     = "_gaq.push(['b._setAccount', '#{@current_community.google_analytics_key}']);"
     = "_gaq.push(['b._setDomainName', '.#{request.domain}']);"
     = "_gaq.push(['b._addIgnoredOrganic', '#{@current_community.name(I18n.locale).gsub("'","")}']);"
-    = "_gaq.push(['b._addIgnoredOrganic', '#{@current_community.domain}']);"
+    = "_gaq.push(['b._addIgnoredOrganic', '#{@current_community.domain || @current_community.ident}']);"
     _gaq.push(
     ['b._setAllowLinker', true],
     ['b._trackPageview'],

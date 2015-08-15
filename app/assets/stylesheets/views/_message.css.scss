@@ -11,7 +11,9 @@ $message-time-margin: lines(0.25);
     margin-right: $avatar-size + lines(0.5);
   }
 }
-
+.page-content .message-price-break-down {
+  margin-bottom: 0;
+}
 .message-sum, .message-price {
   @include big-type;
   padding-top: lines(0.5);
@@ -87,6 +89,11 @@ $message-time-margin: lines(0.25);
     position: absolute;
     pointer-events: none;
     border-width: lines(0.25);
+  }
+
+  // for ellipsis. Class is used in emails - let's not use the same classes in emails in the future.
+  .truncated-link {
+    width: 100%;
   }
 
   background: $highlight;

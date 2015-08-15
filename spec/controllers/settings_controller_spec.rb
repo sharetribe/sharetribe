@@ -4,7 +4,7 @@ describe SettingsController do
 
   before(:each) do
     @community = FactoryGirl.create(:community)
-    @request.host = "#{@community.domain}.lvh.me"
+    @request.host = "#{@community.ident}.lvh.me"
     @person = FactoryGirl.create(:person)
 
     FactoryGirl.create(:community_membership, :person => @person, :community => @community)

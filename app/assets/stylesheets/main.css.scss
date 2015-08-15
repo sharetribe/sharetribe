@@ -386,6 +386,7 @@ label.radiobutton {
   display: inline;
   color: $aside;
   @include small-type;
+  cursor: pointer;
 }
 
 button, .button {
@@ -783,10 +784,27 @@ a.lightbox-x {
   ------------------------
 */
 
+$noscript-height: lines(4);
+
+.noscript-padding {
+  height: $noscript-height;
+}
+
 .noscript {
-  padding-top: lines(4);
-  max-width: lines(42);
-  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: lines(0.5) lines(0);
+  height: $noscript-height;
+  background: $error-red;
+  color: white;
+
+  .wrapper {
+    &, h2, p {
+      background: $error-red;
+      color: white;
+    }
+  }
 }
 
 /*
@@ -1476,7 +1494,10 @@ a.lightbox-x {
     @include border-radius(em(5));
     border: 2px solid $border;
     min-height: 42px;
-    &:hover { background: $highlight; }
+    &:hover {
+      background: $highlight;
+      cursor: pointer;
+    }
     margin-bottom: lines(0.25);
     .link-text {
       margin-left: em(15);
@@ -1524,6 +1545,69 @@ a.lightbox-x {
 .quantity-description {
   margin: 0 lines(0.25);
   display: inline;
+}
+
+.delivery-options-container{
+  margin-top: lines(0.5);
+}
+
+.delivery-title {
+  font-weight: 600;
+}
+
+.shipping-options-label {
+  font-weight: normal;
+  display: inline;
+  margin-right: lines(0.5);
+}
+
+.delivery-row-low {
+  position: relative;
+  padding-top: em(9);
+  padding-bottom: em(9);
+}
+
+.delivery-row-tall {
+  position: relative;
+}
+
+.delivery-checkbox {
+  position: absolute;
+  top: em(9);
+}
+
+.delivery-left-field {
+  padding-left: lines(1);
+}
+
+.shipping-price-container {
+  display: table;
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+
+.delivery-row {
+  display: table-row;
+}
+
+.delivery-label-cont {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.delivery-input-cont {
+  display: table-cell;
+  width: em(155);
+}
+
+input[type=text].delivery-price-field {
+  float: right;
+  width: em(100);
+}
+
+.delivery-currency {
+  float: right;
+  line-height: 42px; /*input height is 42px*/
 }
 
 /*
@@ -1589,6 +1673,107 @@ a.lightbox-x {
     padding: lines(0.25) 0;
   }
 
+  .conversation-totals {
+    background-color: $highlight;
+    padding: lines(0.5);
+    margin-bottom: lines(0.5);
+  }
+  .conversation-per-unit-wrapper,
+  .conversation-booking-wrapper,
+  .conversation-quantity-wrapper,
+  .conversation-sum-wrapper,
+  .conversation-service-fee-wrapper,
+  .conversation-total-wrapper,
+  .conversation-shipping-price-wrapper {
+    @include clearfix;
+  }
+  .conversation-per-unit-label,
+  .conversation-booking-label,
+  .conversation-quantity-label,
+  .conversation-sum-label,
+  .conversation-service-fee-label,
+  .conversation-total-label,
+  .conversation-shipping-price-label {
+    float: left;
+  }
+
+  .conversation-per-unit-value,
+  .conversation-booking-value,
+  .conversation-quantity-value,
+  .conversation-sum-value,
+  .conversation-service-fee-value,
+  .conversation-total-value,
+  .conversation-shipping-price-value {
+    float: right;
+    margin-right: lines(0.25);
+  }
+  .conversation-total-paypal-value {
+    float: right;
+  }
+  .conversation-total-wrapper {
+    font-weight: bold;
+  }
+}
+
+/*
+  ------------------------
+  Initiate Transaction
+  ------------------------
+*/
+
+.initiate-transaction-totals {
+    background-color: $highlight;
+    padding: lines(0.5);
+    margin-bottom: lines(0.5);
+}
+
+.initiate-transaction-per-unit-wrapper,
+.initiate-transaction-booking-wrapper,
+.initiate-transaction-quantity-wrapper,
+.initiate-transaction-sum-wrapper,
+.initiate-transaction-shipping-price-wrapper,
+.initiate-transaction-total-wrapper {
+    @include clearfix;
+}
+
+.initiate-transaction-per-unit-label,
+.initiate-transaction-booking-label,
+.initiate-transaction-quantity-label,
+.initiate-transaction-sum-label,
+.initiate-transaction-shipping-price-label,
+.initiate-transaction-total-label {
+    float: left;
+}
+
+.initiate-transaction-per-unit-value,
+.initiate-transaction-booking-value,
+.initiate-transaction-quantity-value,
+.initiate-transaction-sum-value,
+.initiate-transaction-shipping-price-value,
+.initiate-transaction-total-value {
+    float: right;
+    margin-right: lines(0.25);
+}
+
+.initiate-transaction-total-wrapper {
+    font-weight: bold;
+}
+
+/*
+  ------------------------
+  Shipping address
+  ------------------------
+*/
+
+.shipping-address-container {
+    background-color: $highlight;
+    padding: lines(0.5);
+    margin-bottom: lines(0.5);
+    margin-top: lines(0.5);
+}
+
+.shipping-address-name {
+    font-weight: bold;
 }
 
 /*
@@ -2192,9 +2377,4 @@ figure.fluidratio {
       line-height: em(15);
     }
   }
-}
-
-.welcome-email-editor-background {
-  background-color: $highlight;
-  padding: 20px;
 }

@@ -21,13 +21,45 @@ Kassi::Application.configure do
   # just comment this out and Rails will serve the files
 
   # See everything in the log (default is :info)
-  config.log_level = :debug
+  config.log_level = ENV["LOG_LEVEL"] || :info
 
-  # Use a different logger for distributed setups
-  # config.logger = SyslogLogger.new
+  # Basic log config, for calls to Rails.logger.<level> { <message> }
+  config.logger = ::Logger.new(STDOUT)
+  # Formats log entries into: LEVEL MESSAGE
+  # Heroku adds to this timestamp and worker/dyno id, so datetime can be stripped
+  config.logger.formatter = ->(severity, datetime, progname, msg) { "#{severity} #{msg}\n" }
+
+  # Lograge config, overrides default instrumentation for logging ActionController and ActionView logging
+  config.lograge.enabled = true
+  config.lograge.custom_options = ->(event) {
+    params = event.payload[:params].except('controller', 'action')
+
+    { params:  params,
+      host: event.payload[:host],
+      community_id: event.payload[:community_id],
+      current_user_id: event.payload[:current_user_id],
+      request_uuid: event.payload[:request_uuid] }
+  }
+
+  config.lograge.formatter = Lograge::Formatters::Json.new
+
+  config.after_initialize do
+    ActiveRecord::Base.logger = Rails.logger.clone
+    ActiveRecord::Base.logger.level = Logger::INFO
+    ActionMailer::Base.logger = Rails.logger.clone
+    ActionMailer::Base.logger.level = Logger::INFO
+  end
 
   # Use a different cache store in production
-  config.cache_store = :dalli_store, { :namespace => "sharetribe-staging", :compress => true }
+  config.cache_store = :dalli_store, (ENV["MEMCACHIER_SERVERS"] || "").split(","), {
+    username: ENV["MEMCACHIER_USERNAME"],
+    password: ENV["MEMCACHIER_PASSWORD"],
+    failover:  true,
+    socket_timeout: 1.5,
+    socket_failure_delay:  0.2,
+    namespace: "sharetribe-staging",
+    compress: true
+  }
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this

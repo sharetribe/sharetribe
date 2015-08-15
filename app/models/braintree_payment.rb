@@ -26,7 +26,7 @@
 class BraintreePayment < Payment
   attr_accessible :braintree_transaction_id, :currency, :sum
 
-  monetize :sum_cents, :allow_nil => true
+  monetize :sum_cents, allow_nil: true, with_model_currency: :currency
 
   def sum_exists?
     !sum_cents.nil?

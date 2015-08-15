@@ -1,0 +1,28 @@
+{
+  "please_wait": "Veuillez patienter...",
+  "validation_messages": {
+    "accept": "L'image doit être dans un fomat GIF, JPG ou PNG.",
+    "creditcard": "Veuillez saisir un numéro de carte bleue valide.",
+    "date": "Veuillez saisir une date valide.",
+    "dateISO": "Veuillez saisir une date valide (ISO).",
+    "digits": "Veuillez saisir uniquement les chiffres.",
+    "email": "Veuillez saisir une adresse email valide.",
+    "equalTo": "Veuillez saisir la même valeur à nouveau.",
+    "max": "Veuillez saisir une valeur inférieure ou égale à {0}.",
+    "maxlength": "Veuillez ne pas saisir plus de {0} caractères.",
+    "min": "Veuillez saisir une valeur supérieure ou égale à {0}.",
+    "minlength": "Veuillez saisir au moins {0} caractères.",
+    "number": "Veuillez saisir un chiffre valide.",
+    "range": "Veuillez saisir une valeur entre {0} et {1}.",
+    "rangelength": "Veuillez saisir une valeur longue de {0} à {1} caractères.",
+    "remote": "Veuillez corriger ce champ.",
+    "required": "Ce champ est obligatoire.",
+    "url": "Veuillez saisir une URL valide.",
+    "address_validator": "L'adresse n'a pas été trouvée.",
+    "money": "Vous devez insérer un montant correct.",
+    "min_bound": "Veuillez saisir une valeur inférieure à la valeur maximale ({0})",
+    "max_bound": "Veuillez saisir une valeur supérieure à la valeur minimale ({0})",
+    "number_no_decimals": "Veuillez saisir un nombre entier",
+    "number_decimals": "Veuillez saisir un nombre avec un point (.) ou une virgule (,) comme séparateur décimal"
+  }
+}

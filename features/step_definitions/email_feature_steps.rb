@@ -2,7 +2,7 @@
 # The file naming is troublesome, since email_steps.rb was already reserved.
 
 Given(/^I have received a weekly updates email$/) do
-  create_listing_to_current_community()
+  create_listing(shape: all_shapes.first)
   CommunityMailer.deliver_community_updates
   email_count.should == 1
 end
@@ -17,7 +17,7 @@ Then(/^I should see that I have successfully unsubscribed$/) do
 end
 
 Then(/^I should not receive weekly updates email anymore$/) do
-  create_listing_to_current_community()
+  create_listing(shape: all_shapes.first)
   CommunityMailer.deliver_community_updates
   email_count.should == 1
 end

@@ -1,0 +1,32 @@
+- if shape[:shipping_enabled]
+  .delivery-options-container
+    = field_set_tag t("listings.form.price.delivery"), class: "delivery-title" do
+      .delivery-row-low
+        .delivery-checkbox
+          = check_box_tag "listing[delivery_methods][]", "shipping", shipping_enabled, id: "shipping-checkbox", class: "delivery-method-checkbox required"
+        .delivery-left-field
+          = label_tag "shipping-checkbox", t("listings.form.price.shipping"), class: "shipping-options-label"
+      .js-shipping-price-container
+        .delivery-row-tall
+          .delivery-left-field.shipping-price-container.shipping-price-default
+            .delivery-row
+              .delivery-label-cont
+                = form.label :shipping_price, t("listings.form.price.shipping_price"), class: "shipping-options-label"
+              .delivery-input-cont
+                .delivery-currency
+                  = render partial: "listings/form/currency_selector", locals: {form: form}
+                = form.text_field :shipping_price, class: "price-field delivery-price-field", maxlength: 10, placeholder: 0, value: shipping_price
+          .delivery-row-tall
+            .delivery-left-field.shipping-price-container.js-shipping-price-additional{class: always_show_additional_shipping_price ? "" : "hidden"}
+              .delivery-row
+                .delivery-label-cont
+                  = form.label :shipping_price_additional, t("listings.form.price.shipping_price_additional"), class: "shipping-options-label"
+                .delivery-input-cont
+                  .delivery-currency
+                    = render partial: "listings/form/currency_selector", locals: {form: form}
+                  = form.text_field :shipping_price_additional, class: "price-field delivery-price-field", maxlength: 10, placeholder: 0, value: shipping_price_additional
+      .delivery-row-low
+        .delivery-checkbox
+          = check_box_tag "listing[delivery_methods][]", "pickup", pickup_enabled, id: "pickup-checkbox", class: "delivery-method-checkbox required"
+        .delivery-left-field
+          = label_tag "pickup-checkbox", t("listings.form.price.pickup"), class: "shipping-options-label"

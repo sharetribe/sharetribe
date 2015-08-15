@@ -51,13 +51,13 @@ module PaypalService
       output_transformer = action_def[:output_transformer]
 
       input = input_transformer.call(request, config)
-      @logger.log_request_input(request, input)
+      request_id = @logger.log_request_input(request, input)
       wrapped = wrapper_method.call(input)
 
       begin
         response = action_method.call(wrapped)
 
-        @logger.log_response(response)
+        @logger.log_response(response, request_id)
         if (response.success?)
           output_transformer.call(response, api)
         else
@@ -87,8 +87,8 @@ module PaypalService
     def create_failure_response(res)
       if (res.errors.length > 0)
         DataTypes.create_failure_response({
-          error_code: res.errors[0].error_code,
-          error_msg: res.errors[0].long_message
+          error_code: res.errors[0].error_code.to_s,
+          error_msg: res.errors[0].long_message.to_s
         })
       else
         DataTypes.create_failure_response({})

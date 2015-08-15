@@ -12,11 +12,15 @@ describe TransactionService::PaypalEvents do
     transaction = TransactionModel.new(
       community_id: opts[:community_id],
       listing_id: opts[:listing_id],
+      listing_title: opts[:listing_title],
+      listing_author_id: opts[:listing_author_id],
       starter_id: opts[:starter_id],
+      unit_price: opts[:unit_price],
       listing_quantity: Maybe(opts)[:listing_quantity].or_else(1),
       payment_gateway: opts[:payment_gateway],
       payment_process: opts[:payment_process],
       commission_from_seller: Maybe(opts[:commission_from_seller]).or_else(0),
+      automatic_confirmation_after_days: 14,
       minimum_commission: opts[:minimum_commission])
 
     conversation = transaction.build_conversation(
@@ -46,7 +50,10 @@ describe TransactionService::PaypalEvents do
   before(:each) do
     @cid = 3
     @payer = FactoryGirl.create(:payer)
-    @listing = FactoryGirl.create(:listing, price: Money.new(45000, "EUR"))
+    @listing = FactoryGirl.create(:listing,
+                                  price: Money.new(45000, "EUR"),
+                                  listing_shape_id: 123, # This is not used, but needed because the Entity value is mandatory
+                                  transaction_process_id: 123) # This is not used, but needed because the Entity value is mandatory
 
     @paypal_account = PaypalAccountModel.create(person_id: @listing.author, community_id: @cid, email: "author@sharetribe.com", payer_id: "abcdabcd")
 
@@ -57,7 +64,7 @@ describe TransactionService::PaypalEvents do
       starter_id: @payer.id,
       listing_id: @listing.id,
       listing_title: @listing.title,
-      listing_price: @listing.price,
+      unit_price: @listing.price,
       listing_author_id: @listing.author_id,
       listing_quantity: 1,
       automatic_confirmation_after_days: 3,
@@ -105,15 +112,13 @@ describe TransactionService::PaypalEvents do
 
 
   context "#request_cancelled" do
-    it "removes transaction associated with the cancelled token" do
+    it "marks the transaction associated with the cancelled token as deleted" do
       TransactionService::PaypalEvents.request_cancelled(:success, @token_no_msg)
       TransactionService::PaypalEvents.request_cancelled(:success, @token_with_msg)
 
-      # Both transactions are deleted
-      expect(TransactionModel.count).to eq(0)
-      # and so are the conversations
-      expect(Conversation.where(id: @conversation_no_msg).first).to be_nil
-      expect(Conversation.where(id: @conversation_with_msg).first).to be_nil
+      # Both transactions are there but marked as deleted
+      expect(TransactionModel.count).to eq(2)
+      expect(TransactionModel.all.map(&:deleted)).to eq([true, true])
     end
 
     it "calling with token that doesn't match a transaction is a no-op" do
@@ -121,6 +126,30 @@ describe TransactionService::PaypalEvents do
       TransactionService::PaypalEvents.request_cancelled(:success, already_removed)
 
       expect(Transaction.count).to eq(2)
+    end
+  end
+
+  context "#payment_updated - initiated => payment-review" do
+    before(:each) do
+      @payment_review_payment = PaymentStore.create(@cid, @transaction_with_msg.id, {
+          payer_id: "sduyfsudf",
+          receiver_id: "98ysdf98ysdf",
+          merchant_id: "asdfasdf",
+          pending_reason: "payment-review",
+          order_id: SecureRandom.uuid,
+          order_date: Time.now,
+          order_total: Money.new(22000, "EUR"),
+          authorization_id: SecureRandom.uuid,
+          authorization_date: Time.now,
+          authorization_total: Money.new(22000, "EUR"),
+        })
+    end
+
+    it "keeps transaction in initiated state" do
+      TransactionService::PaypalEvents.payment_updated(:success, @payment_review_payment)
+
+      tx = MarketplaceService::Transaction::Query.transaction(@transaction_with_msg.id)
+      expect(tx[:status]).to eq("initiated")
     end
   end
 
@@ -191,11 +220,9 @@ describe TransactionService::PaypalEvents do
       TransactionService::PaypalEvents.payment_updated(:success, @voided_payment_no_msg)
       TransactionService::PaypalEvents.payment_updated(:success, @voided_payment_with_msg)
 
-      # Both transactions are deleted
-      expect(TransactionModel.count).to eq(0)
-      # and so are the conversations
-      expect(Conversation.where(id: @conversation_no_msg).first).to be_nil
-      expect(Conversation.where(id: @conversation_with_msg).first).to be_nil
+      # Both transactions are there but marked as deleted
+      expect(TransactionModel.count).to eq(2)
+      expect(TransactionModel.all.map(&:deleted)).to eq([true, true])
     end
 
     it "is safe to call for non-existent transaction" do
@@ -203,6 +230,47 @@ describe TransactionService::PaypalEvents do
       TransactionService::PaypalEvents.payment_updated(:success, no_matching_tx)
 
       expect(Transaction.count).to eq(2)
+    end
+  end
+
+  context "#update_transaction_details" do
+    before(:each) do
+      @order_details = {
+        status: "Confirmed",
+        city: "city",
+        country: "country",
+        country_code: "CC",
+        name: "name",
+        phone: "123456",
+        postal_code: "WX1GQ",
+        state_or_province: "state",
+        street1: "street1",
+        street2: "street2"
+      }
+
+    end
+
+    it "saves address details" do
+      TransactionService::PaypalEvents.update_transaction_details(:success,
+        @order_details.merge(transaction_id: @transaction_with_msg.id, community_id: @cid))
+
+      expect(
+        EntityUtils.model_to_hash(Transaction.find(@transaction_with_msg.id).shipping_address)
+      ).to include(@order_details)
+    end
+
+    it "doesn't record shipping address with no fields" do
+      TransactionService::PaypalEvents.update_transaction_details(:success,
+        {}.merge(transaction_id: @transaction_with_msg.id, community_id: @cid))
+
+      expect(Transaction.find(@transaction_with_msg.id).shipping_address).to be nil
+    end
+
+    it "doesn't record shipping address with only status field" do
+      TransactionService::PaypalEvents.update_transaction_details(:success,
+        {status: "None"}.merge(transaction_id: @transaction_with_msg.id, community_id: @cid))
+
+      expect(Transaction.find(@transaction_with_msg.id).shipping_address).to be nil
     end
   end
 

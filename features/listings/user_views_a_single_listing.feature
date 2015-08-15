@@ -10,7 +10,7 @@ Feature: User views a single listing
       | kassi_testperson1 |
       | kassi_testperson2 |
     And the community has payments in use via BraintreePaymentGateway
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
 
   @only_without_asi
   Scenario: User views a listing that he is allowed to see

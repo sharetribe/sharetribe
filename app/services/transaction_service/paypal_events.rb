@@ -1,7 +1,6 @@
 module TransactionService::PaypalEvents
 
-  TransactionModel = ::Transaction
-
+  TransactionStore = TransactionService::Store::Transaction
   module_function
 
   # Public event API
@@ -38,7 +37,23 @@ module TransactionService::PaypalEvents
     end
   end
 
+  def update_transaction_details(flow, details)
+    community_id = details.delete(:community_id)
+    transaction_id = details.delete(:transaction_id)
+
+    if shipping_fields_present?(details)
+      TransactionStore.upsert_shipping_address(
+        community_id: community_id,
+        transaction_id: transaction_id,
+        addr: details)
+    end
+  end
+
   # Privates
+
+  def shipping_fields_present?(details)
+    details.except(:status).values.any?
+  end
 
   ## Mapping from payment transition to transaction transition
 
@@ -85,8 +100,11 @@ module TransactionService::PaypalEvents
   end
 
   def preauthorized_to_paid(tx)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
+    # Commission charge is synchronous and must complete before we
+    # transition to paid so that we have the full payment info
+    # available at the time we send payment receipts.
     TransactionService::Transaction.charge_commission(tx[:id])
+    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
   end
 
   def preauthorized_to_pending_ext(tx, pending_reason)
@@ -103,11 +121,8 @@ module TransactionService::PaypalEvents
   end
 
   def delete_transaction(cid:, tx_id:)
-    tx = TransactionModel.where(community_id: cid, id: tx_id).first
-
-    if tx
-      tx.conversation.destroy
-      tx.destroy
+    if TransactionStore.get_in_community(community_id: cid, transaction_id: tx_id)
+      TransactionStore.delete(community_id: cid, transaction_id: tx_id)
     end
   end
 

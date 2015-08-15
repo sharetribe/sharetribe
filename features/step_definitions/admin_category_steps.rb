@@ -29,14 +29,6 @@ module AdminCategorySteps
       memo
     end
   end
-
-  def find_transaction_type_by_name(transaction_type_name)
-    TransactionType.all.inject("") do |memo, tt|
-      memo = tt if tt.display_name("en").eql?(transaction_type_name) && tt.community_id == @current_community.id
-      memo
-    end
-  end
-
 end
 
 World(AdminCategorySteps)
@@ -67,13 +59,13 @@ When /^I add a new category "(.*?)" with invalid data$/ do |category_name|
   steps %Q{
     When I follow "+ Create a new category"
     And I fill in "category[translation_attributes][en][name]" with "#{category_name}"
-    And I deselect all transaction types
+    And I deselect all listing shapes
     And I press submit
   }
 end
 
-When /^I deselect all transaction types$/ do
-  page.all(:css, ".category-transaction-type-checkbox").each do |checkbox|
+When /^I deselect all listing shapes$/ do
+  page.all(:css, ".category-listing-shape-checkbox").each do |checkbox|
     checkbox.set(false)
   end
 end
@@ -113,8 +105,8 @@ When /^I confirm category removal$/ do
   }
 end
 
-Given /^"(.*?)" is the only top level category in community "(.*?)"$/ do |category_name, community|
-  community = Community.find_by_name(community)
+Given /^"(.*?)" is the only top level category in community "(.*?)"$/ do |category_name, ident|
+  community = Community.where(ident: ident).first
   category = find_category_by_name(category_name)
   community.main_categories.each do |community_category|
     if !community_category.eql? category then community_category.destroy end
@@ -199,25 +191,33 @@ When(/^I try to edit category "(.*?)"$/) do |category_name|
   }
 end
 
-Given(/^category "(.*?)" should have the following transaction types:$/) do |category_name, transaction_types|
+Given(/^category "(.*?)" should have the following listing shapes:$/) do |category_name, listing_shapes|
   category = find_category_by_name(category_name)
-  tt_array = transaction_types.hashes.inject([]) do |memo, hash|
-    memo << hash['transaction_type']
+  listing_shapes = listing_shapes.hashes.inject([]) do |memo, hash|
+    memo << hash['listing_shape']
     memo
   end
-  category_tt_array = category.transaction_types.collect { |tt| tt.display_name("en") }
-  tt_array.uniq.sort.should == category_tt_array.uniq.sort
+
+  shapes = CategoryListingShape.where(category_id: category.id).map { |associations|
+    ListingService::API::Api.shapes.get(community_id: category.community_id, listing_shape_id: associations.listing_shape_id)[:data]
+  }.map { |s|
+    TranslationService::API::Api.translations.get(category.community_id, translation_keys: [s[:name_tr_key]], locales: ["en"])[:data]
+  }.flat_map { |tr|
+    tr.map { |tr_hash| tr_hash[:translation] }
+  }
+
+  listing_shapes.uniq.sort.should == shapes.uniq.sort
 end
 
-When(/^I change transaction types of category "(.*?)" to following:$/) do |category_name, new_transaction_types|
+When(/^I change listing shapes of category "(.*?)" to following:$/) do |category_name, new_listing_shapes|
   category = find_category_by_name(category_name)
   steps %Q{
     When I follow "edit_category_#{category.id}"
-    And I deselect all transaction types
+    And I deselect all listing shapes
   }
-  new_transaction_types.hashes.each do |hash|
+  new_listing_shapes.hashes.each do |hash|
     steps %Q{
-      And I toggle transaction type "#{hash['transaction_type']}"
+      And I toggle listing shape "#{hash['listing_shape']}"
     }
   end
   steps %Q{
@@ -225,16 +225,16 @@ When(/^I change transaction types of category "(.*?)" to following:$/) do |categ
   }
 end
 
-When /^I toggle transaction type "(.*?)"$/ do |transaction_type_name|
-  transaction_type = find_transaction_type_by_name(transaction_type_name)
-  find(:css, "#transaction_type_checkbox_#{transaction_type.id}").click
+When /^I toggle listing shape "(.*?)"$/ do |listing_shape_name|
+  shape = find_shape(name: listing_shape_name)
+  find(:css, "#listing_shape_checkbox_#{shape[:id]}").click
 end
 
-When /^I try to remove all transaction types from category "(.*?)"$/ do |category_name|
+When /^I try to remove all listing shapes from category "(.*?)"$/ do |category_name|
   category = find_category_by_name(category_name)
   steps %Q{
     When I follow "edit_category_#{category.id}"
-    And I deselect all transaction types
+    And I deselect all listing shapes
     And I press submit
   }
 end

@@ -9,24 +9,17 @@ class SettingsController < ApplicationController
   end
 
   def show
+    flash.now[:notice] = t("settings.profile.image_is_processing") if @current_user.image.processing?
     @selected_left_navi_link = "profile"
-    add_location_to_person
-    render :action => :profile
-  end
-
-  def profile
-    @selected_left_navi_link = "profile"
-    # This is needed if person doesn't yet have a location
-    # Build a new one based on old street address or then empty one.
     add_location_to_person
   end
 
   def account
     @selected_left_navi_link = "account"
     @person.emails.build
-    marketplaces = @person.community_memberships.map do |membership|
-      membership.community.name(I18n.locale)
-    end
+    marketplaces = @person.community_memberships
+                   .map { |m| Maybe(m.community).name(I18n.locale).or_else(nil) }
+                   .compact
     has_unfinished = TransactionService::Transaction.has_unfinished_transactions(@current_user.id)
 
     render locals: {marketplaces: marketplaces, has_unfinished: has_unfinished}

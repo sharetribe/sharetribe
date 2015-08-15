@@ -11,14 +11,15 @@ Feature: User edits his own listing
     Given there are following users:
       | person |
       | kassi_testperson1 |
-    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Tools" and with listing shape "Requesting"
     And I am logged in as "kassi_testperson2"
     And I follow "Hammer"
     When I log out
     And I log in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Edit listing"
-    And the "listing_title" field should contain "Hammer"
+    Then I should see "Listing title*"
+    When the "listing_title" field should contain "Hammer"
     And the "description" field should contain "test"
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
@@ -38,14 +39,15 @@ Feature: User edits his own listing
     Given there are following users:
       | person |
       | kassi_testperson1 |
-    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Tools" and with listing shape "Requesting"
     And I am logged in as "kassi_testperson2"
     And I follow "Hammer"
     When I log out
     And I log in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Edit listing"
-    And the "listing_title" field should contain "Hammer"
+    Then I should see "Listing title*"
+    When the "listing_title" field should contain "Hammer"
     And the "description" field should contain "test"
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
@@ -58,11 +60,12 @@ Feature: User edits his own listing
     Given there are following users:
       | person |
       | kassi_testperson1 |
-    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Tools" and with listing shape "Requesting"
     And I am logged in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Edit listing" within "#listing-message-links"
-    And I fill in "listing_title" with ""
+    Then I should see "Listing title*"
+    When I fill in "listing_title" with ""
     And I set the expiration date to 7 months from now
     And I press "Save listing"
     Then I should see "This field is required."
@@ -74,7 +77,7 @@ Feature: User edits his own listing
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Tools" and with listing shape "Requesting"
     And I am logged in as "kassi_testperson2"
     When I go to the edit listing page
     Then I should see "Only listing author can edit a listing"
@@ -85,12 +88,13 @@ Feature: User edits his own listing
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Tools" and with listing shape "Requesting"
     And I am logged in as "kassi_testperson2"
     And "kassi_testperson2" is superadmin
     When I follow "Hammer"
     And I follow "Edit listing"
-    And I fill in "listing_title" with "Sledgehammer"
+    Then I should see "Listing title*"
+    When I fill in "listing_title" with "Sledgehammer"
     And I press "Save listing"
     Then I should see "Sledgehammer" within "#listing-title"
     And I should see "Listing updated successfully"
@@ -101,12 +105,13 @@ Feature: User edits his own listing
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Tools" and with listing shape "Requesting"
     And I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights in community "Test"
     When I follow "Hammer"
     And I follow "Edit listing"
-    And I fill in "listing_title" with "Sledgehammer"
+    Then I should see "Listing title*"
+    When I fill in "listing_title" with "Sledgehammer"
     And I press "Save listing"
     Then I should see "Sledgehammer" within "#listing-title"
     And I should see "Listing updated successfully"

@@ -14,33 +14,114 @@
         btn.text('#{t("conversations.accept.decline")}');
       });
 
+      btn.click(function() {
+        disable_and_submit("#accept-reject-form", $("#accept-reject-form"), "false", '#{I18n.locale}');
+      })
+
       style_action_selectors();
     })();
 .conversation-status-form.centered-section
-  %h2= t("conversations.accept.respond_to_#{discussion_type}")
+  %h2= t("conversations.accept.details")
 
-  %p
-    = t("conversations.accept.sum", :sum => humanized_money_with_symbol(sum))
-  %p
-    = t("conversations.accept.service_fee", :service_fee => humanized_money_with_symbol(fee))
-  %p
-    %strong
-      = t("conversations.accept.you_will_get", :seller_gets => humanized_money_with_symbol(seller_gets))
+  %h3= link_to_unless listing.deleted?, listing.title, listing
 
-  = form_for form, :url => form_action, :html => { :method => "put" } do |form|
+  - if orderer
+    %p= t("conversations.accept.order_by",
+          orderer_link: link_to_unless(orderer.deleted?, PersonViewUtils.person_display_name(orderer, @current_community), orderer)).html_safe
+
+  .conversation-price-info
+    .conversation-totals
+      - if booking
+        .conversation-per-unit-wrapper
+          %span.conversation-per-unit-label
+            = t("transactions.initiate.price_per_day")
+          %span.conversation-per-unit-value
+            = humanized_money_with_symbol(listing.price)
+
+        .conversation-booking-wrapper
+          %span.conversation-booking-label
+            = t("transactions.initiate.booked_days")
+          %span.conversation-booking-value
+            = l booking[:start_on], format: :long_with_abbr_day_name
+            = "-"
+            = l booking[:end_on], format: :long_with_abbr_day_name
+            = "(#{pluralize(booking[:duration], t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+
+      - elsif listing_quantity > 1
+        .conversation-per-unit-wrapper
+          %span.conversation-per-unit-label
+            = t("transactions.price_per_quantity", unit_type: ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key))
+          %span.conversation-per-unit-value
+            = humanized_money_with_symbol(listing.price)
+        .conversation-quantity-wrapper
+          %span.conversation-quantity-label
+            = ListingViewUtils.translate_quantity(listing.unit_type, listing.unit_selector_tr_key) || t("conversations.accept.quantity_label")
+          %span.conversation-quantity-value
+            = listing_quantity
+
+      .conversation-sum-wrapper
+        %span.conversation-sum-label
+          = t("conversations.accept.sum_label")
+        %span.conversation-sum-value
+          = humanized_money_with_symbol(sum)
+      .conversation-service-fee-wrapper
+        %span.conversation-service-fee-label
+          = t("conversations.accept.service_fee_label")
+        %span.conversation-service-fee-value
+          = "-#{humanized_money_with_symbol(fee)}"
+
+      - if shipping_price
+        .conversation-shipping-price-wrapper
+          %span.conversation-shipping-price-label
+            = t("conversations.accept.shipping_price_label")
+          %span.conversation-shipping-price-value
+            = humanized_money_with_symbol(shipping_price)
+
+      - if payment_gateway == :paypal
+        .conversation-total-wrapper
+          %span.conversation-total-label
+            = t("conversations.accept.total_label")
+          %span.conversation-total-paypal-value
+            = t("conversations.accept.total_value", seller_gets: humanized_money_with_symbol(seller_gets))
+
+      - else
+        .conversation-total-wrapper
+          %span.conversation-total-label
+            = t("conversations.accept.you_will_get_label")
+          %span.conversation-total-value
+            = humanized_money_with_symbol(seller_gets)
+
+    - if payment_gateway == :paypal
+      %p
+        = t("conversations.accept.paypal_fee_info", fee_info_link_id: "paypal_fee_info_link").html_safe
+
+      = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
+        %h2= t("common.paypal_fee_info.title")
+        - text_with_line_breaks_html_safe do
+          - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), "https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside")
+          = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
+
+      - content_for :extra_javascript do
+        :javascript
+          $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
+
+
+  = render partial: "transactions/shipping_address", locals: { shipping_address: shipping_address }
+
+  = form_for form, :url => form_action, :html => { id: "accept-reject-form", :method => "put" } do |form|
 
     .conversation-action
       %label{:for => "action-accept", :class => "radio hidden"}
         = radio_button_tag "listing_conversation[status]", "paid", preselected_action.eql?("accept"), :id => "accept-link"
       %a.conversation-action{:id => "accept", :name => "accept-link", :class => (preselected_action.eql?("accept") ? "accept" : "")}
         .link-icon{:class => icon_for("accepted")}
-        .link-text{:id => "accept-action-link"}= t("conversations.accept.accept_#{discussion_type}")
+        .link-text{:id => "accept-action-link"}= t("conversations.accept.accept_request")
 
       %label{:for => "action-reject", :class => "radio hidden"}
         = radio_button_tag "listing_conversation[status]", "rejected", preselected_action.eql?("reject"), :id => "reject-link"
       %a.conversation-action{:id => "reject", :name => "reject-link", :class => (preselected_action.eql?("reject") ? "reject" : "")}
         .link-icon{:class => icon_for("rejected")}
-        .link-text{:id => "reject-action-link"}= t("conversations.accept.reject_#{discussion_type}")
+        .link-text{:id => "reject-action-link"}= t("conversations.accept.reject_request")
 
     %div
       = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|

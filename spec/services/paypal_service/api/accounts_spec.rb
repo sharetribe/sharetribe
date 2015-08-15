@@ -5,7 +5,7 @@ describe PaypalService::API::Accounts do
   APIDataTypes = PaypalService::API::DataTypes
 
   ## API Operations (with default test data)
-  def request_personal_account(email:nil, payer_id:nil)
+  def request_personal_account(email: nil, payer_id: nil, flow: :old)
     email ||= @email
     payer_id ||= @payer_id
 
@@ -18,10 +18,11 @@ describe PaypalService::API::Accounts do
         # That way we can inject them to our fake PayPal
         callback_url: "http://test.com/request?email=#{email}&payer_id=#{payer_id}",
         country: @country
-      }))
+      }),
+      flow: flow)
   end
 
-  def request_community_account(email:nil, payer_id:nil)
+  def request_community_account(email: nil, payer_id: nil, flow: :old)
     email ||= @email
     payer_id ||= @payer_id
 
@@ -33,7 +34,8 @@ describe PaypalService::API::Accounts do
         # That way we can inject them to our fake PayPal
         callback_url: "http://test.com/request?email=#{email}&payer_id=#{payer_id}",
         country: @country
-      }))
+      }),
+      flow: flow)
   end
 
   def create_personal_account(request_response)
@@ -45,7 +47,28 @@ describe PaypalService::API::Accounts do
       order_permission_request_token: token,
       body: {
         order_permission_verification_code: "xxxxyyyyzzzz"
-      })
+      },
+      flow: :old)
+  end
+
+  def create_personal_account_new_flow(response_payer_id: nil, request:)
+    payer_id = response_payer_id || @payer_id
+
+    @accounts.create(
+      community_id: @cid,
+      person_id: @mid,
+      order_permission_request_token: nil,
+      body: { onboarding_params:
+                {"merchantId"=> request[:data][:onboarding_params][:merchantId],
+                 "merchantIdInPayPal"=> payer_id,
+                 "permissionsGranted"=> "true",
+                 "accountStatus"=> "BUSINESS_ACCOUNT",
+                 "consentStatus"=> "false",
+                 "productIntentID"=> "addipmt",
+                 "isEmailConfirmed"=> "false",
+                 "returnMessage"=> "To start accepting payments, please log in to PayPal and finish signing up.",
+                }},
+      flow: :new)
   end
 
   def create_community_account(request_response)
@@ -56,7 +79,27 @@ describe PaypalService::API::Accounts do
       order_permission_request_token: token,
       body: {
         order_permission_verification_code: "xxxxyyyyzzzz"
-      })
+      },
+      flow: :old)
+  end
+
+  def create_community_account_new_flow(response_payer_id: nil, request:)
+    payer_id = response_payer_id || @payer_id
+
+    @accounts.create(
+      community_id: @cid,
+      order_permission_request_token: nil,
+      body: { onboarding_params:
+                {"merchantId"=> request[:data][:onboarding_params][:merchantId],
+                 "merchantIdInPayPal"=> payer_id,
+                 "permissionsGranted"=> "true",
+                 "accountStatus"=> "BUSINESS_ACCOUNT",
+                 "consentStatus"=> "false",
+                 "productIntentID"=> "addipmt",
+                 "isEmailConfirmed"=> "false",
+                 "returnMessage"=> "To start accepting payments, please log in to PayPal and finish signing up.",
+                }},
+      flow: :new)
   end
 
   def request_billing_agreement
@@ -212,6 +255,17 @@ describe PaypalService::API::Accounts do
         expect_token(token)
       }
     end
+
+    it "creates pending personal account, new flow" do
+      response = request_personal_account(flow: :new)
+      expect(response[:success]).to eq true
+    end
+
+    it "creates pending community account, new flow" do
+      response = request_community_account(flow: :new)
+      expect(response[:success]).to eq true
+    end
+
   end
 
   describe "#create" do
@@ -223,7 +277,7 @@ describe PaypalService::API::Accounts do
 
         with_personal_account { |data|
           expect(data[:active]).to eq true
-          expect(data[:state]).to eq :not_verified
+          expect(data[:state]).to eq :connected
           expect(data[:email]).to eq @email
           expect(data[:payer_id]).to eq @payer_id
           expect(data[:order_permission_state]).to eq :verified
@@ -231,13 +285,61 @@ describe PaypalService::API::Accounts do
         }
       end
 
-      it "replaces old account with new one" do
+      it "creates personal account with permissions, new flow" do
+        res = request_personal_account(flow: :new)
+        response = create_personal_account_new_flow(request: res)
+
+        expect(response[:success]).to eq true
+
+        with_personal_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :connected
+          expect(data[:email]).to eq nil
+          expect(data[:payer_id]).to eq @payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+      end
+
+      it "replaces old unverified account" do
+        res = request_personal_account
+        expect_no_personal_account
+        res2 = request_personal_account(email: @new_email, payer_id: @new_payer_id)
+        create_personal_account(res2)
+
+        with_personal_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :connected
+          expect(data[:email]).to eq @new_email
+          expect(data[:payer_id]).to eq @new_payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+
+      end
+
+      it "replaces old unverified account, new flow" do
+        res = request_personal_account(flow: :new)
+        expect_no_personal_account
+        res2 = request_personal_account(flow: :new)
+        create_personal_account_new_flow(request: res2, response_payer_id: @new_payer_id)
+
+        with_personal_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :connected
+          expect(data[:payer_id]).to eq @new_payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+      end
+
+      it "replaces old verified account with new one" do
         res = request_personal_account
         create_personal_account(res)
 
         with_personal_account { |data|
           expect(data[:active]).to eq true
-          expect(data[:state]).to eq :not_verified
+          expect(data[:state]).to eq :connected
           expect(data[:email]).to eq @email
           expect(data[:payer_id]).to eq @payer_id
           expect(data[:order_permission_state]).to eq :verified
@@ -249,7 +351,7 @@ describe PaypalService::API::Accounts do
         # Returns old account as long as the new account does not have permissions verified
         with_personal_account { |data|
           expect(data[:active]).to eq true
-          expect(data[:state]).to eq :not_verified
+          expect(data[:state]).to eq :connected
           expect(data[:email]).to eq @email
           expect(data[:payer_id]).to eq @payer_id
           expect(data[:order_permission_state]).to eq :verified
@@ -260,8 +362,45 @@ describe PaypalService::API::Accounts do
 
         with_personal_account { |data|
           expect(data[:active]).to eq true
-          expect(data[:state]).to eq :not_verified
+          expect(data[:state]).to eq :connected
           expect(data[:email]).to eq @new_email
+          expect(data[:payer_id]).to eq @new_payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+      end
+
+      it "replaces old verified account with new one, new flow" do
+        res = request_personal_account(flow: :new)
+        create_personal_account_new_flow(request: res)
+
+        with_personal_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :connected
+          expect(data[:email]).to eq nil
+          expect(data[:payer_id]).to eq @payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+
+        res = request_personal_account(flow: :new)
+
+        # Returns old account as long as the new account does not have permissions verified
+        with_personal_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :connected
+          expect(data[:email]).to eq nil
+          expect(data[:payer_id]).to eq @payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+
+        create_personal_account_new_flow(request: res, response_payer_id: @new_payer_id)
+
+        with_personal_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :connected
+          expect(data[:email]).to eq nil
           expect(data[:payer_id]).to eq @new_payer_id
           expect(data[:order_permission_state]).to eq :verified
           expect(data[:billing_agreement_state]).to eq :not_verified
@@ -291,7 +430,7 @@ describe PaypalService::API::Accounts do
 
         with_personal_account { |data|
           expect(data[:active]).to eq true
-          expect(data[:state]).to eq :not_verified
+          expect(data[:state]).to eq :connected
           expect(data[:email]).to eq @new_email
           expect(data[:payer_id]).to eq @new_payer_id
           expect(data[:order_permission_state]).to eq :verified
@@ -311,6 +450,50 @@ describe PaypalService::API::Accounts do
           expect(data[:billing_agreement_state]).to eq :verified
         }
       end
+
+      it "uses existing account if it's reconnected, new flow" do
+        # Account A
+        res = request_personal_account(flow: :new)
+        create_personal_account_new_flow(request: res, response_payer_id: @payer_id)
+        res = request_billing_agreement
+        _, token = parse_redirect_url_from_response(res)
+        create_billing_agreement(token)
+
+        with_personal_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :verified
+          expect(data[:email]).to eq nil
+          expect(data[:payer_id]).to eq @payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :verified
+        }
+
+        # Account B
+        res = request_personal_account(flow: :new)
+        create_personal_account_new_flow(request: res, response_payer_id: @new_payer_id)
+
+        with_personal_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :connected
+          expect(data[:email]).to eq nil
+          expect(data[:payer_id]).to eq @new_payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+
+        # Reactivate Account A
+        res = request_personal_account(flow: :new)
+        create_personal_account_new_flow(request: res, response_payer_id: @payer_id)
+
+        with_personal_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :verified
+          expect(data[:email]).to eq nil
+          expect(data[:payer_id]).to eq @payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :verified
+        }
+      end
     end
 
     context "community account" do
@@ -322,6 +505,20 @@ describe PaypalService::API::Accounts do
           expect(data[:active]).to eq true
           expect(data[:state]).to eq :verified
           expect(data[:email]).to eq @email
+          expect(data[:payer_id]).to eq @payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+      end
+
+      it "creates community account with permissions, new flow" do
+        res = request_community_account(flow: :new)
+        create_community_account_new_flow(request: res)
+
+        with_community_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :verified
+          expect(data[:email]).to eq nil
           expect(data[:payer_id]).to eq @payer_id
           expect(data[:order_permission_state]).to eq :verified
           expect(data[:billing_agreement_state]).to eq :not_verified
@@ -364,6 +561,43 @@ describe PaypalService::API::Accounts do
           expect(data[:billing_agreement_state]).to eq :not_verified
         }
       end
+
+      it "replaces old account with new one, new flow" do
+        res = request_community_account(flow: :new)
+        create_community_account_new_flow(request: res, response_payer_id: @payer_id)
+
+        with_community_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :verified
+          expect(data[:email]).to eq nil
+          expect(data[:payer_id]).to eq @payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+
+        res = request_community_account(flow: :new)
+
+        # Returns old account as long as the new account does not have permissions verified
+        with_community_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :verified
+          expect(data[:email]).to eq nil
+          expect(data[:payer_id]).to eq @payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+
+        create_community_account_new_flow(request: res, response_payer_id: @new_payer_id)
+
+        with_community_account { |data|
+          expect(data[:active]).to eq true
+          expect(data[:state]).to eq :verified
+          expect(data[:email]).to eq nil
+          expect(data[:payer_id]).to eq @new_payer_id
+          expect(data[:order_permission_state]).to eq :verified
+          expect(data[:billing_agreement_state]).to eq :not_verified
+        }
+      end
     end
   end
 
@@ -391,7 +625,7 @@ describe PaypalService::API::Accounts do
 
       with_personal_account { |data|
         expect(data[:active]).to eq true
-        expect(data[:state]).to eq :not_verified
+        expect(data[:state]).to eq :not_connected
         expect(data[:email]).to eq @email
         expect(data[:payer_id]).to eq @payer_id
         expect(data[:order_permission_state]).to eq :verified

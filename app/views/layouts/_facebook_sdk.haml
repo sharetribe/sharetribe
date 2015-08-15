@@ -2,17 +2,22 @@
   - when :en then "en_US"
   - when :ca then "ca_ES"
   - when :"es-ES" then "es_ES"
-  - else "#{I18n.locale}_#{I18n.locale.to_s.upcase}"
+  - when :"zh" then "zh_CN"
+  - when :"ja" then "ja_JP"
+  - when :"sv" then "sv_SE"
+  - when :"da-DK" then "da_DK"
+  - else "#{I18n.locale.to_s.split("-").first}_#{I18n.locale.to_s.split("-").first.upcase}"
 
 <div id="fb-root"></div>
 <script>
 window.fbAsyncInit = function() {
 // init the FB JS SDK
 FB.init({
-appId      : '#{APP_CONFIG.fb_connect_id}',                        // App ID from the app dashboard
+appId      : '#{Maybe(@current_community).facebook_connect_id.or_else(APP_CONFIG.fb_connect_id)}', // Community App ID if availble or else the one from the app dashboard
 channelUrl : '//#{@current_community ? @current_community.full_domain : "www." + APP_CONFIG.domain}/channel.html', // Channel file for x-domain comms
 status     : false,                                 // Check Facebook Login status
-xfbml      : true                                  // Look for social plugins on the page
+xfbml      : true,                                  // Look for social plugins on the page
+version    : 'v2.3'
 });
 // Additional initialization code such as adding Event Listeners goes here
 };
@@ -21,7 +26,7 @@ xfbml      : true                                  // Look for social plugins on
 var js, fjs = d.getElementsByTagName(s)[0];
 if (d.getElementById(id)) {return;}
 js = d.createElement(s); js.id = id;
-js.src = "//connect.facebook.net/#{loc}/all.js";
+js.src = "//connect.facebook.net/#{loc}/sdk.js";
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>

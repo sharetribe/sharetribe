@@ -32,4 +32,15 @@ describe SQLUtils do
 
     expect(SQLUtils.quote(sql, ids: [1, 2, 6]) { |v| v += 1 }).to eql("SELECT * FROM people WHERE id in (2,3,7)")
   end
+
+  describe "#hash_to_query" do
+    it "transforms nested hash to SQL query array" do
+      opts = {
+        a: "a",
+        b: { bb: "bb" }
+      }
+
+      expect(SQLUtils.hash_to_query(opts)).to eq(["a = ?, b.bb = ?", "a", "bb"])
+    end
+  end
 end

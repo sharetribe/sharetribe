@@ -65,7 +65,7 @@ FactoryGirl.define do
     "kassi_tester#{n}@example.com"
   end
 
-  sequence :domain do |n|
+  sequence :ident do |n|
     "sharetribe-testcommunity-#{n}"
   end
 
@@ -102,12 +102,12 @@ FactoryGirl.define do
     description("test")
     build_association(:author)
     category { TestHelpers::find_or_build_category("item") }
-    build_association(:transaction_type_sell, as: :transaction_type)
     valid_until 3.months.from_now
     times_viewed 0
     visibility "this_community"
     privacy "public"
-
+    listing_shape_id 123
+    price Money.new(20, "USD")
     has_many :communities do |listing|
       FactoryGirl.build(:community)
     end
@@ -115,8 +115,14 @@ FactoryGirl.define do
 
   factory :transaction do
     build_association(:person, as: :starter)
-    build_association(:listing)
     build_association(:community)
+    build_association(:listing)
+    listing_title { listing.title }
+    listing_author_id { listing.author.id }
+    unit_price { listing.price }
+    commission_from_seller 0
+    automatic_confirmation_after_days 14
+    listing_quantity 1
   end
 
   factory :conversation do
@@ -173,8 +179,7 @@ FactoryGirl.define do
   end
 
   factory :community do
-    name { generate(:domain) }
-    domain
+    ident
     slogan "Test slogan"
     description "Test description"
     category "other"
@@ -227,26 +232,6 @@ FactoryGirl.define do
   factory :category_translation do
     name "test category"
     locale "en"
-  end
-
-  factory :transaction_type_translation do
-    name "Selling"
-    locale "en"
-    build_association(:transaction_type)
-  end
-
-  factory :transaction_type do
-    build_association(:community)
-
-    ['Sell', 'Give', 'Lend', 'Rent', 'Request', 'Service'].each do |type|
-      factory_name = "transaction_type_#{type.downcase}"
-      factory factory_name.to_sym, class: type do
-        type type
-        has_many :translations do |transaction_type|
-          FactoryGirl.build(:transaction_type_translation, :name => type, :transaction_type => transaction_type)
-        end
-      end
-    end
   end
 
   factory :custom_field, aliases: [:question] do
