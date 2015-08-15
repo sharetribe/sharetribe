@@ -2,22 +2,22 @@ en:
   admin:
     categories:
       edit:
-        edit_listing_category: "Edit category '%{category}'"
+        edit_listing_category: "Kategória szerkesztése '%{category}'"
       index:
-        listing_categories: "Listing categories"
-        create_a_new_category: "+ Create a new category"
-        remove_category_confirmation: "Are you sure you want to remove category '%{category_name}'?"
-        saving_order: "Saving category order"
-        save_order_successful: "Successfully saved category order"
-        save_order_error: "An error occured while saving category order. Please refresh the page and try again."
+        listing_categories: "Kategóriák felsorolása"
+        create_a_new_category: "+ Új kategória létrehozása"
+        remove_category_confirmation: "Biztos vagy benne, hogy törölni akarod a kategóriát '%{category_name}'?"
+        saving_order: "Kategória rendezés mentése"
+        save_order_successful: "Sikeresen elmentve a kategória rendezés"
+        save_order_error: "Hiba történt a kategória rendezés mentése közben. Kérlek frissítsd az oldalt és próbáld újra."
       new:
-        new_listing_category: "New listing category"
+        new_listing_category: "Új kategória"
       form:
         category_name:
-          category_title: "Category title"
+          category_title: "Kategória neve"
         category_parent:
-          category_parent: "Parent category"
-          no_parent: "No parent"
+          category_parent: "Szülő kategória"
+          no_parent: "Nincs szülő kategória"
         category_transaction_types:
           transaction_types: "Order types"
           transaction_types_description: "Order types determine what kind of order process is allowed with listings in this category. For example, is it only selling, or are renting and giving away for free also allowed."
@@ -25,8 +25,8 @@ en:
           save: Save
           cancel: Cancel
       remove:
-        remove_category: "Remove category"
-        remove_category_name: "Remove category '%{category_name}'"
+        remove_category: "Kategória törlése"
+        remove_category_name: "Kategória törlése '%{category_name}'"
         warning_remove_effects: "Warning! Removing category '%{category_name}' will have the following effects:"
         warning_listing_will_be_moved:
           one: "There is %{count} listing in the category. It will be moved to the selected category."
