@@ -191,6 +191,7 @@ hu:
         zh: ~
         ja: ~
         it: ~
+        hu: Magyar
       settings:
         settings: ~
         general: ~
@@ -984,7 +985,7 @@ hu:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "Vissza a kezdőoldalra"
     error_404:
       if_you_believe: ~
       page_can_not_be_found: ~
@@ -996,9 +997,9 @@ hu:
       page_removed_reason: ~
     error_410_title: ~
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
+      temporary_unavailable: "Átmenetileg az oldal nem elérhető!"
+      unable_to_process: "Jelenleg nem tudjuk kiszolgálni a kérésedet, mert a szolgáltatás nem elérhető. Kérünk, próbálkozz később!"
+      we_hate_this: "Megkaptuk a hibajelentést, dolgozunk a javításon."
       refer_to_error_id: ~
     error_500_title: ~
     error_description: ~
@@ -1422,7 +1423,7 @@ hu:
         image: ~
         no_file_selected: ~
         remove_image: ~
-        select_file: ~
+        select_file: "Fájl kiválasztása"
         removing: ~
         processing: "Feldolgozás alatt..."
         loading_image: ~
@@ -1434,7 +1435,7 @@ hu:
       location:
         location: ~
       price:
-        price: ~
+        price: "Ár"
         per: ~
         per_day: ~
         mass: ~
@@ -1540,7 +1541,7 @@ hu:
       selected_category: ~
       selected_subcategory: ~
       selected_transaction_type: ~
-      select_category: ~
+      select_category: "Kategória kiválasztása"
       select_subcategory: ~
       select_transaction_type: ~
       you_need_to_fill_payout_details_before_accepting: ~
