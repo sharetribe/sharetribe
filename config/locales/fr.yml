@@ -146,6 +146,8 @@ fr:
         status_resent: "Email de vérification renvoyé à %{email}. %{resend_link}"
         resend_link: Renvoyer
         invalid_email_error: "Format de l'email invalide pour '%{email}'"
+        invalid_email_domain: "L'adresse email '%{email}' utilise le fournisseur '%{domain}' non supporté. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Lisez l'article dans la base de connaissances pour en savoir plus."
         unknown_error: "Quelque chose s'est mal passé."
         only_white_label_offer: "Cette fonctionnalité faire partie de l'offre marque blanche de Sharetribe. Pour activer cette fonctionnalité vous devriez %{upgrade_pro_plan_link}."
         upgrade_pro_plan_link: "passer à notre offre Pro ou supérieure"
