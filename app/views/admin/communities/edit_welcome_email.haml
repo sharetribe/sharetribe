@@ -14,129 +14,128 @@
 
 .left-navi-section
 
-  - if feature_enabled?(:sender_address)
+  .row
+    .col-12
+      - contact_support_link = link_to t("admin.communities.outgoing_email.contact_support_link_text"), "mailto:#{support_email}", "data-uv-trigger" => "contact"
+
+      %h2= t("admin.communities.outgoing_email.title")
+
+      %p= t("admin.communities.outgoing_email.info")
+
+      %p
+        = link_to(t("admin.communities.outgoing_email.read_more"), "#{knowledge_base_url}/articles/686493")
+
+  - content_for(:sender_address_preview) do
+    - if sender_address[:type] == :default
+      = t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address[:display_format])
+    - else
+      = t("admin.communities.outgoing_email.sender_address", sender_address: sender_address[:display_format])
+
+  - content_for(:resend_link) do
+    = link_to(t("admin.communities.outgoing_email.resend_link"), nil, class: "js-sender-address-resend-verification")
+
+  - if user_defined_address.nil?
     .row
       .col-12
-        - contact_support_link = link_to t("admin.communities.outgoing_email.contact_support_link_text"), "mailto:#{support_email}", "data-uv-trigger" => "contact"
+        .sender-address-preview
+          %span
+            = content_for(:sender_address_preview)
 
-        %h2= t("admin.communities.outgoing_email.title")
+  - elsif [:none, :requested, :expired].include?(user_defined_address[:verification_status])
+    .row.js-status-loading
+      .col-12
+        = image_tag("ajax-loader-grey.gif", class: "sender-address-status-loading-spinner")
 
-        %p= t("admin.communities.outgoing_email.info")
-
-        %p
-          = link_to(t("admin.communities.outgoing_email.read_more"), "#{knowledge_base_url}/articles/686493")
-
-    - content_for(:sender_address_preview) do
-      - if sender_address[:type] == :default
-        = t("admin.communities.outgoing_email.sender_address_default", sender_address: sender_address[:display_format])
-      - else
-        = t("admin.communities.outgoing_email.sender_address", sender_address: sender_address[:display_format])
-
-    - content_for(:resend_link) do
-      = link_to(t("admin.communities.outgoing_email.resend_link"), nil, class: "js-sender-address-resend-verification")
-
-    - if user_defined_address.nil?
+    .js-loaded-sender-address-status.hidden
       .row
         .col-12
           .sender-address-preview
-            %span
+            %span.js-sender-address-preview-current.hidden
               = content_for(:sender_address_preview)
+            %span.js-sender-address-preview-new.hidden
+              = t("admin.communities.outgoing_email.sender_address", sender_address: user_defined_address[:display_format])
 
-    - elsif [:none, :requested, :expired].include?(user_defined_address[:verification_status])
-      .row.js-status-loading
-        .col-12
-          = image_tag("ajax-loader-grey.gif", class: "sender-address-status-loading-spinner")
-
-      .js-loaded-sender-address-status.hidden
-        .row
-          .col-12
-            .sender-address-preview
-              %span.js-sender-address-preview-current.hidden
-                = content_for(:sender_address_preview)
-              %span.js-sender-address-preview-new.hidden
-                = t("admin.communities.outgoing_email.sender_address", sender_address: user_defined_address[:display_format])
-
-        - content_for(:verification_status) do
-          %span.status-verified.js-status-verified.hidden
-            = t("admin.communities.outgoing_email.status_verified")
-          %span.status-resent.js-status-resent.hidden
-            = t("admin.communities.outgoing_email.status_resent", email: user_defined_address[:email], resend_link: content_for(:resend_link)).html_safe
-          %span.status-requested.js-status-requested.hidden
-            - content_for(:time_ago_placeholder) do
-              %span.js-sender-address-verification-sent-time-ago<>
-            = t("admin.communities.outgoing_email.status_requested", email: user_defined_address[:email], resend_link: content_for(:resend_link), time_ago: content_for(:time_ago_placeholder)).html_safe
-          %span.status-error.js-status-error.hidden
-            = t("admin.communities.outgoing_email.status_error")
-          %span.status-expired.js-status-expired.hidden
-            = t("admin.communities.outgoing_email.status_expired", email: user_defined_address[:email], resend_link: content_for(:resend_link)).html_safe
-
-        .row
-          .col-12
-            = t("admin.communities.outgoing_email.status", status: content_for(:verification_status)).html_safe
-
-        .row.js-verification-email-from.hidden
-          .col
-            %span.sender-address-verification-from
-              = t("admin.communities.outgoing_email.verification_sent_from", verification_sender_name: "Amazon Web Services")
-            = t("admin.communities.outgoing_email.follow_the_instructions")
-
-        .row.js-if-you-need-to-change.hidden
-          .col-12
-            = t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
-
-    - else
-      -# Verified!
-      .row
-        .col-12
-          .sender-address-preview
-            %span
-              = content_for(:sender_address_preview)
-      .row
-        .col-12
-          - content_for(:status_verified) do
-            %span.status-verified
-              = t("admin.communities.outgoing_email.status_verified");
-          = t("admin.communities.outgoing_email.status", status: content_for(:status_verified)).html_safe
+      - content_for(:verification_status) do
+        %span.status-verified.js-status-verified.hidden
+          = t("admin.communities.outgoing_email.status_verified")
+        %span.status-resent.js-status-resent.hidden
+          = t("admin.communities.outgoing_email.status_resent", email: user_defined_address[:email], resend_link: content_for(:resend_link)).html_safe
+        %span.status-requested.js-status-requested.hidden
+          - content_for(:time_ago_placeholder) do
+            %span.js-sender-address-verification-sent-time-ago<>
+          = t("admin.communities.outgoing_email.status_requested", email: user_defined_address[:email], resend_link: content_for(:resend_link), time_ago: content_for(:time_ago_placeholder)).html_safe
+        %span.status-error.js-status-error.hidden
+          = t("admin.communities.outgoing_email.status_error")
+        %span.status-expired.js-status-expired.hidden
+          = t("admin.communities.outgoing_email.status_expired", email: user_defined_address[:email], resend_link: content_for(:resend_link)).html_safe
 
       .row
+        .col-12
+          = t("admin.communities.outgoing_email.status", status: content_for(:verification_status)).html_safe
+
+      .row.js-verification-email-from.hidden
+        .col
+          %span.sender-address-verification-from
+            = t("admin.communities.outgoing_email.verification_sent_from", verification_sender_name: "Amazon Web Services")
+          = t("admin.communities.outgoing_email.follow_the_instructions")
+
+      .row.js-if-you-need-to-change.hidden
         .col-12
           = t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
 
-    - if user_defined_address.nil?
+  - else
+    -# Verified!
+    .row
+      .col-12
+        .sender-address-preview
+          %span
+            = content_for(:sender_address_preview)
+    .row
+      .col-12
+        - content_for(:status_verified) do
+          %span.status-verified
+            = t("admin.communities.outgoing_email.status_verified");
+        = t("admin.communities.outgoing_email.status", status: content_for(:status_verified)).html_safe
+
+    .row
+      .col-12
+        = t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
+
+  - if user_defined_address.nil?
+    .row
+      .col-12
+        %h3= t("admin.communities.outgoing_email.set_sender_address")
+
+    - unless can_set_sender_address
       .row
         .col-12
-          %h3= t("admin.communities.outgoing_email.set_sender_address")
 
-      - unless can_set_sender_address
-        .row
-          .col-12
+          .alert-box-warning
+            %p
+              %span.alert-box-icon<>
+                = icon_tag("alert", ["icon-fix"])
+              %span<
+                = t("admin.communities.outgoing_email.only_white_label_offer", upgrade_pro_plan_link: link_to(t("admin.communities.outgoing_email.upgrade_pro_plan_link"), "#{knowledge_base_url}/articles/463242")).html_safe
 
-            .alert-box-warning
-              %p
-                %span.alert-box-icon<>
-                  = icon_tag("alert", ["icon-fix"])
-                %span<
-                  = t("admin.communities.outgoing_email.only_white_label_offer", upgrade_pro_plan_link: link_to(t("admin.communities.outgoing_email.upgrade_pro_plan_link"), "#{knowledge_base_url}/articles/463242")).html_safe
+    - disabled_attr = can_set_sender_address ? nil : :disabled
+    - disabled_class = can_set_sender_address ? "" : "sender-address-disabled"
 
-      - disabled_attr = can_set_sender_address ? nil : :disabled
-      - disabled_class = can_set_sender_address ? "" : "sender-address-disabled"
+    = form_tag(post_sender_address_url, method: :post, class: "js-sender-email-form") do
+      .row
+        .col-6
+          %label.sender-address-label= t("admin.communities.outgoing_email.sender_name_label")
+          %input.js-sender-name-input{name: "name", type: :text, placeholder: t("admin.communities.outgoing_email.sender_name_placeholder"), disabled: disabled_attr, class: disabled_class}
+        .col-6
+          %label.sender-address-label= t("admin.communities.outgoing_email.sender_email_label")
+          %input.js-sender-email-input{name: "email", type: :text, placeholder: t("admin.communities.outgoing_email.sender_email_placeholder"), disabled: disabled_attr, class: disabled_class}
 
-      = form_tag(post_sender_address_url, method: :post, class: "js-sender-email-form") do
-        .row
-          .col-6
-            %label.sender-address-label= t("admin.communities.outgoing_email.sender_name_label")
-            %input.js-sender-name-input{name: "name", type: :text, placeholder: t("admin.communities.outgoing_email.sender_name_placeholder"), disabled: disabled_attr, class: disabled_class}
-          .col-6
-            %label.sender-address-label= t("admin.communities.outgoing_email.sender_email_label")
-            %input.js-sender-email-input{name: "email", type: :text, placeholder: t("admin.communities.outgoing_email.sender_email_placeholder"), disabled: disabled_attr, class: disabled_class}
-
-        .row.js-sender-address-preview-container.sender-address-preview-container.hidden
-          .col-12
-            .sender-address-preview
-              = t("admin.communities.outgoing_email.this_is_how_it_will_look")
-              %span.js-sender-address-preview-values
-        .row
-          %button{disabled: disabled_attr, class: disabled_class}= t("admin.communities.outgoing_email.send_verification_button")
+      .row.js-sender-address-preview-container.sender-address-preview-container.hidden
+        .col-12
+          .sender-address-preview
+            = t("admin.communities.outgoing_email.this_is_how_it_will_look")
+            %span.js-sender-address-preview-values
+      .row
+        %button{disabled: disabled_attr, class: disabled_class}= t("admin.communities.outgoing_email.send_verification_button")
 
   %h2= t(".welcome_email_content", :community_name => @community.name(I18n.locale))
   %p= t(".welcome_email_content_description", :send_test_message_link => t(".send_test_message"))
