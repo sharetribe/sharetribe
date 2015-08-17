@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_update_account_info_form("#{I18n.locale}","#{t(".change")}","#{t("common.cancel")}","#{t("people.new.email_is_in_use")}", "You must pick at least one email address for receiving notifications. If you don't want to receive any emails from Sharetribe, check your email notification settings.");
+  initialize_update_account_info_form("#{I18n.locale}","#{t(".change")}","#{t("common.cancel")}","#{t("people.new.email_is_in_use")}", "#{t("people.new.notification_is_mandatory", service_name: service_name)}");
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.settings")
