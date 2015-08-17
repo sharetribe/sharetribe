@@ -146,6 +146,8 @@ pt-BR:
         status_resent: ~
         resend_link: ~
         invalid_email_error: ~
+        invalid_email_domain: ~
+        invalid_email_domain_read_more_link: ~
         unknown_error: ~
         only_white_label_offer: ~
         upgrade_pro_plan_link: ~
@@ -537,9 +539,13 @@ pt-BR:
     what_is_this: "O que é isso?"
     removed_user: "Usuário removido"
     paypal_fee_info:
-      title: "Processamento da taxa de pagamento do PayPal"
-      body_text: ~
-      body_with_shipping_text: ~
+      title: "Taxa de processamento do pagamento do PayPal"
+      body_text: |-
+          O PayPal cobra uma taxa de processamento de cada pagamento. Esta taxa varia entre 2% e 5% do preço total da venda, dependendo do seu volume de vendas mensal e do país de residência do comprador. Em geral, as compras locais tem taxas mais baixas do que as internacionais, e um alto volume de vendas mensais dão descontos na taxa. 
+          Você pode ver as taxas exatas, fazendo login em sua conta do PayPal clicando %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
+      body_with_shipping_text: |-
+          O PayPal cobra uma taxa de processamento de cada pagamento. Esta taxa varia entre 2% e 5% do preço total da venda (incluindo frete), dependendo do seu volume de vendas mensal e do país de residência do comprador. Em geral, as compras locais tem taxas mais baixas do que as internacionais, e um alto volume de vendas mensais dão descontos na taxa. 
+          Você pode ver as taxas exatas, fazendo login em sua conta do PayPal clicando %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
       link_to_paypal_text: aqui
   conversations:
     accept:
@@ -1457,8 +1463,8 @@ pt-BR:
         long_time: "semana, mês, ..."
         after_service_fee_you_will_get: "Depois do processamento das taxas da %{service_name}, você receberá %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} irá deduzir do preço."
-        after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: "processando o pagamento da taxa do PayPal"
+        after_service_fee_you_will_get_paypal_text: "%{service_name} taxa (%{sum_with_currency}) and %{paypal_fee_info_link} será deduzida do preço."
+        paypal_fee_info_link_text: "taxa de processamento do pagamento do PayPal"
         after_service_fee_you_will_get_vat: "Depois do processamento das taxas da %{service_name}, você receberá aproximadamente %{sum_with_currency} (VAT 0%)"
         price_excludes_vat: "O preço não inclui VAT."
         delivery: "Método de entrega"

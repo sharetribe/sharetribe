@@ -14,7 +14,7 @@ da-DK:
       unauthenticated: "Du skal logge ind eller oprette en konto for at fortsætte."
       unconfirmed: "Du skal bekræfte din konto for at fortsætte."
       locked: "Din konto er låst."
-      invalid: "Forkert e-mail eller kodeord."
+      invalid: "Forkert e-mail eller adgangskode."
       invalid_token: "Ugyldig token."
       timeout: "Du har været inaktiv for længe. Log ind for at fortsætte."
       inactive: "Din konto er endnu ikke aktiveret."
@@ -53,6 +53,6 @@ da-DK:
       confirmation_instructions:
         subject: Bekræftelsesinstruktioner
       reset_password_instructions:
-        subject: "Instruktioner til nulstilling af kodeord"
+        subject: "Instruktioner til nulstilling af adgangskode"
       unlock_instructions:
         subject: "Aktiver instruktioner"

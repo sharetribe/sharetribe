@@ -143,9 +143,11 @@ da-DK:
         status_error: "En fejl opstod. Opdater venligst siden."
         status_requested: "Ikke bekræftet - bekræftelsesmail sendt til %{email} %{time_ago}. %{resend_link}"
         status_expired: "Bekræftelse af %{email} er udløbet. %{resend_link}"
-        status_resent: ~
+        status_resent: "Bekræftelsesmail er gensendt til %{email}. %{resend_link}"
         resend_link: Gensend
         invalid_email_error: "Ugyldig e-mail format for '%{email}'"
+        invalid_email_domain: "E-mail-adressen '%{email}' bruger en ikke-understøttet udbyder: '%{domain}'. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Læs vidensbaseartiklen for yderligere information."
         unknown_error: "Noget gik galt"
         only_white_label_offer: "Denne funktion er en del af Sharetribe white-label tilbud. For at aktivere denne funktion, skal du %{upgrade_pro_plan_link}"
         upgrade_pro_plan_link: "opgradere til vores Pro plan eller højere"
@@ -319,7 +321,7 @@ da-DK:
         client_side_encryption_key: "Client-Side Encryption (CSE) Key"
         merchant_id: "Sælgers ID"
         master_merchant_id: "Mastersælgers ID"
-        commission_from_seller: "Service fee fra sælger"
+        commission_from_seller: "Servicegebyr fra sælger"
       paypal_account:
         paypal_admin_account: Betalinger
     custom_fields:
@@ -471,14 +473,14 @@ da-DK:
     paypal_accounts:
       marketplace_paypal_integration: Betalingsindstillinger
       preferences_updated: "Betalings indstillinger blev opdateret"
-      integration_info_text: "Betalingssystemet på %{service_name} kører gennem PayPal. Hvis du vil have mulighed for at tage imod betalinger på din markedsplads, skal du tilknytte din PayPal konto, og vælge en minimumspris pr. annonce og størrelsen på din service fee."
+      integration_info_text: "Betalingssystemet på %{service_name} kører gennem PayPal. Hvis du vil have mulighed for at tage imod betalinger på din markedsplads, skal du tilknytte din PayPal-konto, og vælge en minimumspris pr. annonce og størrelsen på dit servicegebyr."
       read_more_about_paypal: "Læs mere om Sharetribe's betalingssystem"
-      paypal_account_email: "1. Tilknyt din PayPal konto"
+      paypal_account_email: "1. Tilknyt din PayPal-konto"
       paypal_account_email_completed: Gennemført!
-      set_minimum_price_and_fee: "2. Vælg en minimumspris og service fee"
+      set_minimum_price_and_fee: "2. Vælg en minimumspris og servicegebyr"
       set_minimum_price_and_fee_completed: Gennemført!
       minimum_listing_price_label: "Minimums pris:"
-      transaction_fee_label: "Service fee:"
+      transaction_fee_label: "Servicegebyr:"
       minimum_transaction_fee_label: "Mindste transaktionsafgift:"
       save_settings: Gem
       note_about_transaction_fee: "Note: the transaction fee includes PayPal's fees that depend on your currency and the sales volume of the seller. For this reason, the fee is always at least %{min_paypal_commission}. When the fee is charged from the seller, PayPal will take its fees first, and the remainder will be moved to your PayPal account."
@@ -507,7 +509,7 @@ da-DK:
     cancel: Ryd
     fields_that_are_mandatory: "Felter markeret med stjerne (*) er obligatoriske."
     or: eller
-    password: Kodeord
+    password: Adgangskode
     service_name: "%{service_name}"
     share_types:
       request: anmod
@@ -550,8 +552,8 @@ da-DK:
     removed_user: "Fjernet bruger"
     paypal_fee_info:
       title: "PayPal's ekspeditionsgebyr"
-      body_text: "PayPal opkræver et ekspeditionsgebyr fra alle betalinger. Dette gebyr udgør mellem 2% og 5% af den samlede salgspris, afhængigt af dit månedlige salgsomfang og købers beliggenhed (land). Generelt har indenlandske handler lavere gebyrer end internationale, og højere salgsomfang giver dig nedslag i gebyrer. Du kan se de eksakte gebyrsatser ved at logge på din PayPal konto på %{link_to_paypal}. Efter hvert salg modtager du en kvittering, hvoraf det eksakte gebyr fremgår."
-      body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr fra alle betalinger. Dette gebyr udgør mellem 2% og 5% af den samlede salgspris, afhængigt af dit månedlige salgsomfang og købers beliggenhed (land). Generelt har indenlandske handler lavere gebyrer end internationale, og højere salgsomfang giver dig nedslag i gebyrer. Du kan se de eksakte gebyrsatser ved at logge på din PayPal konto på %{link_to_paypal}. Efter hvert salg modtager du en kvittering, hvoraf det eksakte gebyr fremgår."
+      body_text: "PayPal opkræver et ekspeditionsgebyr fra alle betalinger. Dette gebyr udgør mellem 2% og 5% af den samlede salgspris, afhængigt af dit månedlige salgsomfang og købers beliggenhed (land). Generelt har indenlandske handler lavere gebyrer end internationale, og højere salgsomfang giver dig nedslag i gebyrer. Du kan se de eksakte gebyrsatser ved at logge på din PayPal-konto på %{link_to_paypal}. Efter hvert salg modtager du en kvittering, hvoraf det eksakte gebyr fremgår."
+      body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr fra alle betalinger. Dette gebyr udgør mellem 2% og 5% af den samlede salgspris, afhængigt af dit månedlige salgsomfang og købers beliggenhed (land). Generelt har indenlandske handler lavere gebyrer end internationale, og højere salgsomfang giver dig nedslag i gebyrer. Du kan se de eksakte gebyrsatser ved at logge på din PayPal-konto på %{link_to_paypal}. Efter hvert salg modtager du en kvittering, hvoraf det eksakte gebyr fremgår."
       link_to_paypal_text: her
   conversations:
     accept:
@@ -695,9 +697,9 @@ da-DK:
       paid: "Betaling godkendt"
       pending_external:
         paypal:
-          multicurrency: "Vi kunne ikke godkende din betaling, da din PayPal konto ikke kan modtage vores valuta: %{currency}. Besøg %{paypal_url} og log ind på din konto for manuelt at godkende eller afvise din betaling."
-          verify: "Du kan ikke modtage transaktioner da du ikke har bekræftet din PayPal konto. Gå til %{paypal_url} for at bekræfte din konto."
-          intl: "Vi kunne ikke modtage din betaling via PayPal da din PayPal konto ikke tilader os at hæve penge fra dit betalingskort. Gå til %{paypal_url} og log ind på din konto for manuelt at acceptere eller afvise betalingen."
+          multicurrency: "Vi kunne ikke godkende din betaling, da din PayPal-konto ikke kan modtage vores valuta: %{currency}. Besøg %{paypal_url} og log ind på din konto for manuelt at godkende eller afvise din betaling."
+          verify: "Du kan ikke acceptere denne transaktion, da du ikke har bekræftet din PayPal-konto. Gå til %{paypal_url} for at bekræfte din konto."
+          intl: "Vi kunne ikke modtage din betaling via PayPal da din PayPal-konto ikke tillader os at hæve penge fra dit betalingskort. Gå til %{paypal_url} og log ind på din konto for manuelt at acceptere eller afvise betalingen."
       waiting_for_current_user_to_deliver_listing: "Venter på din levering af %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Venter på at %{listing_author_name} leverer %{listing_title}"
       request_accepted: accepteret
@@ -719,8 +721,8 @@ da-DK:
         paypal:
           multicurrency: "Venter på at du godkender PayPal betalingen."
           intl: "Venter på at du godkender PayPal betalingen."
-          unknown_reason: "Din betaling er undervejs. Log ind på din PayPal konto for at se flere detaljer."
-          verify: "Venter på at du bekræfter din PayPal konto"
+          unknown_reason: "Din betaling er undervejs. Log ind på din PayPal-konto for at se flere detaljer."
+          verify: "Venter på at du bekræfter din PayPal-konto"
     status_link:
       accept_offer: "Accepter tilbud"
       accept_request: "Accepter forespørgsel"
@@ -904,7 +906,7 @@ da-DK:
     braintree_new_payment:
       product: "Produkt:"
       price_payer_paid: "Pris %{payer_full_name} betalte:"
-      service_fee: "%{service_name} service fee:"
+      service_fee: "%{service_name} servicegebyr:"
       you_will_get: "Du vil få:"
       money_will_be_transferred: "Pengene vil blive overført til din konto når a) %{payer_name} har markeret handlen som gennemført eller b) %{automatic_confirmation_days} dage er gået siden %{payer_name} betalte."
     receipt_to_payer:
@@ -917,7 +919,7 @@ da-DK:
       subtotal: "Subtotal:"
       total: Total
       price: Pris
-      service_fee: "Service fee"
+      service_fee: Servicegebyr
       money_will_be_transferred: "Pengene vil blive overført til %{recipient_name} når a) du har markeret handlen som gennemført eller b) %{automatic_confirmation_days} dage er gået siden du betalte."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har givet dig feedback i %{service_name}"
@@ -946,7 +948,7 @@ da-DK:
       text_version_text: "Har du noget du kunne dele med andre, som måske ville have brug for det? Eller har du brug for noget andre muligvis har? Tilføj et tilbud eller en forespørgsel, eller tjek alt hvad andre tilbyder lige nu på %{url}"
     reset_password_instructions:
       change_my_password: "Skift min adgangskode"
-      reset_password_instructions: "<p> Du har angivet, at du har glemt enten dit kodeord eller brugernavn i %{service_name} tjeneste </ p> <p> Dit brugernavn er:. %{username} </ p> <p> Hvis du har brug for at nulstille dit kodeord, klik på følgende link: %{password_reset_link} </ p> <br/> <p> Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail. Din adgangskode vil ikke ændre sig, før du får adgang til linket ovenfor og oprette en ny. </ P>"
+      reset_password_instructions: "<p> Du har angivet, at du har glemt enten din adgangskode eller dit brugernavn på %{service_name}.</ p> <p> Dit brugernavn er: %{username} </ p> <p> Hvis du har brug for at nulstille din adgangskode, klik på følgende link: %{password_reset_link} </ p> <br/> <p> Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail. Din adgangskode vil ikke ændre sig, medmindre du går ind på linket ovenfor og opretter en ny. </ P>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Feedback er offentlig og er vist at alle de andre brugere. Ud fra den feedback de andre brugere kan bedømme, hvorvidt %{name} er en troværdig person, og nogen, de ønsker at interagere med. Således er det godt at altid huske at give feedback på begivenheder og også minde den anden part til at give feedback til dig. Du skal også positiv feedback for at opnå de fleste af badges."
       remember_to_give_feedback_to: "Påmindelse: Husk at give feedback til %{name}"
@@ -1280,13 +1282,13 @@ da-DK:
       additional_email_confirmed: "Din indtastede email er nu godkendt."
       could_not_get_email_from_facebook: "Vi kunne ikke få din email fra Facebook og vi kan ikke oprette en konto uden din email."
       create_new_listing: "Opret endnu en annonce"
-      create_one_here: "lav en her"
+      create_one_here: "lave en her"
       email_confirmation_sent_to_new_address: "E-mail bekræftelse er nu sendt til den nye adresse."
       email_not_found: "Den e-mail du gav blev ikke fundet fra %{service_name} database."
       error_with_session: "Fejl ved session."
       feedback_considered_spam: "Feedback gemmes ikke, på grund af sin formatering. Prøv igen, eller bruge feedback forum."
       feedback_not_saved: "Feedback kunne ikke sendes."
-      feedback_saved: "Tak en masse for din tilbagemelding! Vi vil komme tilbage til dig så hurtigt som muligt."
+      feedback_saved: "Tak for din henvendelse! Vi vil vende tilbage til dig så hurtigt som muligt."
       feedback_sent_to: "Feedback sendt til %{target_person}."
       feedback_skipped: "Feedback sprunget over"
       invitation_cannot_be_sent: "Invitation kunne ikke sendes"
@@ -1354,12 +1356,12 @@ da-DK:
       you_have_already_given_feedback_about_this_event: "Du har allerede givet feedback om denne begivenhed"
       you_are_now_member: "Velkommen til %{service_name}!"
       you_are_already_member: "Du er allerede medlem af %{service_name}. Velkommen tilbage!"
-      you_must_log_in_to_create_new_listing: "Du skal logge ind %{service_name} for at oprette en annonce. Hvis du ikke har en konto kan du %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Du skal logge ind på %{service_name} for at oprette en annonce. Hvis du ikke har en konto kan du %{sign_up_link}."
       additional_email_confirmed_dashboard: "Din email er nu godkendt."
       you_must_log_in_to_give_feedback: "Du skal logge ind for at give feedback"
       you_must_log_in_to_invite_new_users: "Du skal logge ind for at invitere nye brugere til %{service_name}"
       you_must_log_in_to_send_a_comment: "Du skal logge ind for at sende en ny kommentar"
-      you_must_log_in_to_send_a_message: "Du skal logge ind til %{service_name} for at sende en meddelelse til en anden bruger."
+      you_must_log_in_to_send_a_message: "Du skal logge ind på %{service_name} for at sende en meddelelse til en anden bruger."
       you_must_log_in_to_do_a_transaction: "Du er nødt til at logge ind på %{service_name} for at gennemføre en transaktion."
       you_must_log_in_to_view_this_content: "Du skal logge ind for at se dette indhold"
       you_must_log_in_to_view_this_page: "Du skal logge ind for at se denne side"
@@ -1471,7 +1473,7 @@ da-DK:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vil blive fratrukket prisen."
         after_service_fee_you_will_get_paypal_text: "%{service_name} gebyr (%{sum_with_currency}) og %{paypal_fee_info_link}  vil blive fratrukket prisen."
         paypal_fee_info_link_text: "PayPal's ekspeditionsgebyr"
-        after_service_fee_you_will_get_vat: "Efter %{service_name} service fee's vil du modtage: %{sum_with_currency}"
+        after_service_fee_you_will_get_vat: "Efter %{service_name} servicegebyr vil du modtage: %{sum_with_currency}"
         price_excludes_vat: "Prisen er eksklusiv moms"
         delivery: Leveringsform
         shipping: Forsendelse
@@ -1689,7 +1691,7 @@ da-DK:
       price_for: "Pris: %{payer_given_name}"
       continue_to_pay: "Fortsæt til betaling"
       invoice: Faktura
-      service_fee: "%{service_name} service fee:"
+      service_fee: "%{service_name} servicegebyr:"
       you_will_get: "Du vil få:"
     braintree:
       terms:
@@ -1697,48 +1699,48 @@ da-DK:
         terms_link_text: "Braintrees vilkår og betingelser"
   paypal_accounts:
     payout_info_title: Betalingsoplysninger
-    paypal_account_email_connected: "<del>1. Tilknyt din PayPal konto</del> Godkendt!"
-    paypal_billing_agreement_made: "<del>2. Tillad %{service_name} at tage et service fee</del> Godkendt!"
+    paypal_account_email_connected: "<del>1. Tilknyt din PayPal-konto</del> Godkendt!"
+    paypal_billing_agreement_made: "<del>2. Tillad %{service_name} at tage et servicegebyr</del> Godkendt!"
     you_are_ready_to_accept_payments: "Du er nu klar til at modtage betalinger!"
     commission: "%{commission}%"
-    connected_account: "Din PayPal konto '%{email}' er nu tilknyttet."
+    connected_account: "Din PayPal-konto '%{email}' er nu tilknyttet."
     change_account: "Ændre konto"
-    missing: "Du har åbne annoncer, men du har ikke tilknyttet din PayPal konto, så du er ikke i stand til at modtage betalinger. Tilknyt venligst din PayPal konto i din %{settings_link}."
+    missing: "Du har åbne annoncer, men du har ikke tilknyttet din PayPal-konto, så du er ikke i stand til at modtage betalinger. Tilknyt venligst din PayPal-konto i din %{settings_link}."
     from_your_payment_settings_link_text: betalingsindstillinger
     new:
-      payout_info_you_need_to_connect: "For at acceptere betalinger skal du tilknytte din PayPal konto til %{service_name}."
+      payout_info_you_need_to_connect: "For at acceptere betalinger skal du tilknytte din PayPal-konto til %{service_name}."
       payout_info_text: "Udfør venligt disse to steps for at tilknyttet din konto."
       contact_admin_link_text: "kontakt administrator"
-      admin_account_not_connected: "Du kan på nuværende tidspunkt desværre ikke tilknytte din PayPal konto. Prøv igen senere."
-      paypal_account_email: "1. Tilknyt din PayPal konto"
+      admin_account_not_connected: "%{service_name} er endnu ikke sat op til at håndtere betaling, så du kan ikke tilslutte din PayPal-konto endnu.  %{contact_admin_link} for mere information."
+      paypal_account_email: "1. Tilknyt din PayPal-konto"
       paypal_account_email_placeholder: "Din PayPal email adresse"
       paypal_account_email_info_text: "Hvis du ikke har en paypalkonto kan du nemt oprette en  %{create_paypal_account}. Hvis du får en en bedsked om fejl, når du tilslutter din PayPal-konto, er du nødt til at opgradere til en PayPal-premier-konto (for privatpersoner) eller business konto (for virksomheder) for at acceptere betalinger. Hvis du kun har en PayPal privat konto, kan du opgradere din konto, %{upgrade_paypal_account} og find opgraderingslinket."
       create_paypal_account: her
       upgrade_paypal_account: "Opgrader din konto her."
-      connect_paypal_account: "Tilknyt PayPal konto"
-      paypal_account_billing_agreement: "2. Tillad %{service_name} at tage et service fee"
-      paypal_account_billing_agreement_info_both: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger, minimumsgebyr %{minimum_commission}) blive trukket fra din PayPal konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
-      paypal_account_billing_agreement_info_fixed: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr %{minimum_commission} af produktprisen blive trukket fra din PayPal konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
-      paypal_account_billing_agreement_info_relative: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger blive trukket fra din PayPal konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
+      connect_paypal_account: "Tilknyt PayPal-konto"
+      paypal_account_billing_agreement: "2. Tillad %{service_name} at tage et servicegebyr"
+      paypal_account_billing_agreement_info_both: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger, minimumsgebyr %{minimum_commission}) blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr %{minimum_commission} af produktprisen blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Efter du har gennemført et salg på %{service_name} vil et servicegebyr (%{commission_from_seller} af produktprisen, undtaget leveringsomkostninger blive trukket fra din PayPal-konto. For at acceptere betalinger på %{service_name}, skal du give tilladelse til at dette gebyr må trækkes. Dette gebyr omfatter ikke %{paypal_info_link}."
       paypal_info_link_text: "PayPal's ekspeditionsgebyr"
-      billing_agreement_description: "Tillad %{service_name} at tage et service fee."
+      billing_agreement_description: "Tillad %{service_name} at tage et servicegebyr."
       billing_agreement: "Tillad adgang"
-      permissions_not_granted: "Tilladelsen til at tilknyttet din PayPal konto mislykkedes."
-      could_not_fetch_redirect_url: "Vi kunne ikke tilknytte din PayPal konto."
+      permissions_not_granted: "Tilladelsen til at tilknytte din PayPal-konto mislykkedes."
+      could_not_fetch_redirect_url: "Vi kunne ikke tilknytte din PayPal-konto."
       paypal_not_enabled: "PayPal betalinger er ikke godkendt."
       billing_agreement_canceled: "Betalingsaftale er annulleret"
       billing_agreement_not_accepted: "Du accepterede ikke betalingsaftalen hos PayPal."
-      billing_agreement_wrong_account: "PayPal-konto matchede ikke. Anvend venligst den samme PayPal konto som du tilføjede i det første trin."
+      billing_agreement_wrong_account: "PayPal-konto matchede ikke. Anvend venligst den samme PayPal-konto som du tilføjede i det første trin."
       something_went_wrong: "Noget gik galt. Prøv venligst igen. Hvis problemer fortsætter, så kontakt os gerne."
-      account_not_verified: "Du har ikke godkendt din PayPal konto. Du skal gå til paypal.com og godkende din konto før du kan fortsætte."
-      account_restricted: "Din PayPal konto er begrænset og kan ikke tilknyttes. Venligst log ind på paypal.com for at få yderligere information om, hvad det betyder, eller kontakt PayPal kundesupport for at få løst dette."
+      account_not_verified: "Du har ikke bekræftet din PayPal-konto. Du skal gå til paypal.com og bekræfte din konto før du kan fortsætte."
+      account_restricted: "Din PayPal-konto er begrænset og kan ikke tilknyttes. Venligst log ind på paypal.com for at få yderligere information om, hvad det betyder, eller kontakt PayPal kundesupport for at få løst dette."
   paypal:
     pay_with_paypal: "Fortsæt til betaling"
     checkout_with_paypal: "Betal med PayPal"
     cancel_succesful: "PayPal betalingen blev annulleret med success."
     transaction:
-      commission_payment_name: "Service fee for %{listing_title}"
-      commission_payment_description: "Markedspladsen %{service_name} tog en service fee fra transaktionen på %{listing_title}"
+      commission_payment_name: "Servicegebyr for %{listing_title}"
+      commission_payment_description: "Markedspladsen %{service_name} tog et servicegebyr fra transaktionen på %{listing_title}"
     wait_while_loading: "Vent venligst."
     chatting_with_paypal: "Vi chatter med PayPal."
   people:
@@ -1774,7 +1776,7 @@ da-DK:
       invitation_code: Invitationskode
       not_required: ", ikke nødvendig."
       organization_name: Firmanavn
-      password_again: "Bekræft kodeord"
+      password_again: "Bekræft adgangskode"
       show_my_name_to_others: "Vis mit rigtige navn til andre %{service_name} brugere"
       sign_up: "Opret ny %{service_name} konto"
       terms: Brugsvilkår
@@ -1857,7 +1859,7 @@ da-DK:
   sessions:
     new:
       create_new_account: "Har du ikke en konto? Opret en her"
-      i_forgot_my_password: "Har du glemt dit Brugernavn eller password?"
+      i_forgot_my_password: "Har du glemt dit brugernavn eller adgangskode?"
       login: "Log på"
       login_to_kassi: "Log ind på %{service_name}"
       connect_your_facebook_to_kassi: "Tilknyt din Facebook konto til %{service_name}"
@@ -1872,7 +1874,7 @@ da-DK:
       we_will_not_post_without_asking_you: "Vi vil aldrig poste på din Facebookvæg uden din tilladelse."
     password_forgotten:
       email: Mail
-      password_recovery_instructions: "Give your email address and you receive your username and instructions on how to change your password."
+      password_recovery_instructions: "Skriv din e-mailadresse for at modtage dit brugernavn og nulstille din adgangskode."
       request_new_password: "Anmod om en ny adgangskode"
       change_your_password: "Skift din adgangskode"
     confirmation_pending:
@@ -1899,7 +1901,7 @@ da-DK:
       delete_personal_information: "Hvis du sletter din konto, vil din personlige information (navn, telefonnummer, adresse, email, profilbillede o.s.v.) blive slettet permanent og kan ikke blive gendannet. Alle annoncer du har oprettet vil blive slettet. Du vil ikke kunne gendanne din konto."
       delete_information_others_involved: "Information hvor andre medlemmer er involverede (samtaler med andre, foretagne transaktioner, anmeldelser o.s.v.) slettes ikke, når du sletter din konto. Men dit navn vil ikke længere blive vist ved siden af denne information."
       unfinished_transactions: "Din konto kan ikke slettes fordi du har udestående transaktioner. Gennemfør venligst alle transaktioner før du sletter din konto."
-      new_password: "Nyt kodeord"
+      new_password: "Ny adgangskode"
       save: Gem
       these_fields_are_shown_only_to_you: "Brugernavn er vist i din profil, medmindre du har givet dit navn. Andre oplysninger vises kun til dig."
       email_already_confirmed: "Din email adresse er allerede bekræftet."

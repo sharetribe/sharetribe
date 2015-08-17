@@ -143,9 +143,11 @@ nb:
         status_error: "En feil oppstod. Vennligst last siden på nytt."
         status_requested: "Ubekreftet - bekreftelses-epost ble sendt til %{email} %{time_ago}. %{resend_link}"
         status_expired: "Bekreftelse for %{email} har utgått. %{resend_link}"
-        status_resent: ~
+        status_resent: "Bekreftelses-epost sendt på nytt til %{email}. %{resend_link}"
         resend_link: "Send på nytt"
         invalid_email_error: "Ugyldig epostformat for '%{email}'"
+        invalid_email_domain: "Epostadressen '%{email}' bruker en epostleverandør vi ikke støtter: '%{domain}'. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Les mer i denne artikkelen."
         unknown_error: "Noe gikk galt"
         only_white_label_offer: "Denne funksjonen er en del av Sharetribe white-label. For å aktivere dette må du %{upgrade_pro_plan_link}."
         upgrade_pro_plan_link: "oppgradere til vår Pro-pakke eller høyere nivå."
