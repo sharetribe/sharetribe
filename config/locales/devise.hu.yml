@@ -44,8 +44,8 @@ hu:
       send_instructions: "Pár percen belül kapsz egy e-mailt, benne a feloldáshoz szükséges utasításokkal."
       unlocked: "A munkamenet lejárt, kérjük jelentkezz be újra."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Sikeresen bejelentkeztél a %{kind} segítségével."
+      failure: "A bejelentkezés sikertelen a %{kind} segítségével \"%{reason}\"." 
     mailer:
       confirmation_instructions:
         subject: "Megerősítési utasítások."
