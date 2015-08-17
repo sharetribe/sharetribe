@@ -101,6 +101,7 @@ Would you like to make Sharetribe better? [Here's a basic guide](CONTRIBUTING.md
 
 We use WebTranslateIt (WTI) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please ask for a WTI invitation. To get an invite, send an email to info@sharetribe.com and mention that you would like to become a translator.
 
+All language additions and modifications (except for English) should be done through the WTI tool. We do not accept Pull Requests that add or modify languages (expect English) straight to the repository.
 
 ## Known issues
 
