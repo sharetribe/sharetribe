@@ -73,7 +73,9 @@ Steps 1-6 from above need to be done before performing these steps.
 1. Invoke the delayed job worker: `bundle exec rake RAILS_ENV=production jobs:work`
 1. In a new console, open the project root folder and start the server: `bundle exec rails server -e production`
 
-It is not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false` in `config/config.yml`.
+It is not recommended to use the built-in WEBrick server (which was started in the last step above) for production due to performance reasons. A dedicated HTTP server such as [unicorn](http://unicorn.bogomips.org/) is recommended.
+
+It is also not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false` in `config/config.yml`.
 
 ### Advanced settings
 
@@ -94,7 +96,7 @@ See [release notes](RELEASE_NOTES.md) for information about what has changed and
 
 ## Contributing
 
-Would you like to make Sharetribe better? [Here's a basic guide](CONTRIBUTING.md).
+Would you like to make Sharetribe better? [Follow these steps](CONTRIBUTING.md).
 
 
 ## Translation
