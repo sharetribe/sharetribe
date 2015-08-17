@@ -5,8 +5,9 @@ module Sharetribe
   #
   # language format: ISO 639-1, two letters, lowercase
   # region format: ISO 3166, two letters, uppercase
-  # fallbacks: should not include US English, which is a last default fallback for each language
+  # fallbacks: should not include US English, which is the last default fallback for each language
 
+  # List of locales that are completely or almost completely translated
   SUPPORTED_LOCALES = [
     {ident: "da-DK", name: "Dansk", language: "da", region: "DK", fallback: nil}, # Danish (Denmark)
     {ident: "de", name: "Deutsch", language: "de", region: "DE", fallback: nil}, # German (Germany)
@@ -30,6 +31,7 @@ module Sharetribe
     {ident: "zh", name: "中文", language: "zh", region: "CN", fallback: nil}, # Chinese (China)
   ]
 
+  # List of locales that are incomplete
   UNSUPPORTED_LOCALES = [
     {ident: "ca", name: "Catalan", language: "ca", region: "ES", fallback: nil}, # Catalan (Spain)
     {ident: "et", name: "Eesti", language: "et", region: "EE", fallback: nil}, # Estonian (Estonia)
@@ -42,6 +44,7 @@ module Sharetribe
     {ident: "ro", name: "Română", language: "ro", region: "RO", fallback: nil}, # Romanian (Romania)
     {ident: "sw", name: "Kiswahili", language: "sw", region: "KE", fallback: nil}, # Swahili (Kenya)
     {ident: "vi", name: "Tiếng Việt", language: "vi", region: "VN", fallback: nil}, # Vietnamese (Vietnam)
+    {ident: "hu", name: "Magyar", language: "hu", region: "HU", fallback: nil}, # Hungarian
   ]
 
   AVAILABLE_LOCALES = SUPPORTED_LOCALES + UNSUPPORTED_LOCALES
