@@ -486,6 +486,8 @@ DEPENDENCIES
   dynamic_form (~> 1.1.4)
   email_spec (~> 1.6.0)
   factory_girl_rails (~> 4.4.1)
+  faraday (~> 0.9.1)
+  fb-channel-file
   flying-sphinx (~> 1.2.0)
   guard-livereload (~> 1.4.0)
   guard-rspec (~> 4.3.1)
