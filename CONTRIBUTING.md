@@ -3,6 +3,10 @@
 
 First of all, thank you so much! We greatly appreciate all contributions. However, before you spend time working on Sharetribe, please read over our guidelines:
 
+## Issue reports
+
+Please use [ISSUE_TEMPLATE.md](https://raw.githubusercontent.com/sharetribe/sharetribe/master/ISSUE_TEMPLATE.md) for the issue report.
+
 ## Bug fixes
 
 1. Fix the issue in a branch of your own fork of [Sharetribe](https://github.com/sharetribe/sharetribe).
