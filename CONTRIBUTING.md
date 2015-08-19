@@ -1,11 +1,10 @@
 # Contributing to Sharetribe
 
-
 First of all, thank you so much! We greatly appreciate all contributions. However, before you spend time working on Sharetribe, please read over our guidelines:
 
-## Issue reports
+## Reporting issues
 
-Please use [ISSUE_TEMPLATE.md](https://raw.githubusercontent.com/sharetribe/sharetribe/master/ISSUE_TEMPLATE.md) for the issue report.
+Use the [ISSUE_TEMPLATE.md](https://raw.githubusercontent.com/sharetribe/sharetribe/master/ISSUE_TEMPLATE.md) to report issues.  Here's an example issue: [raw](https://raw.githubusercontent.com/sharetribe/sharetribe/master/ISSUE_EXAMPLE.md) / [formatted](https://github.com/sharetribe/sharetribe/blob/master/ISSUE_EXAMPLE.md)
 
 ## Bug fixes
 

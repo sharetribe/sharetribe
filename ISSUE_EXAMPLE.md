@@ -5,15 +5,15 @@
 
 ##### Environment:
 
-MacOSX
+Mac OS X 10.10.3
 
 ##### Server mode:
 
-development
+Development
 
 ##### Description:
 
-Test suite fails when running with Zeus for the first time.
+Test suite fails when running Sharetribe with Zeus for the first time.
 
 ##### Steps To Reproduce:
 
@@ -23,13 +23,13 @@ Test suite fails when running with Zeus for the first time.
 
 ##### Expected Result:
 
-All tests are passing.
+All tests pass.
 
 ##### Actual Result:
 
-2 tests are failing due to "Email in invalid error"
+2 tests fail due to "Email in invalid error"
 
-The failinig tests are:
+The failing tests are:
 
 ```
 ./spec/controllers/admin/communities_controller_spec.rb:12 # Admin::CommunitiesController#update_integrations should allow changing twitter_handle
