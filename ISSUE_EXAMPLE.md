@@ -13,7 +13,7 @@ Development
 
 ##### Description:
 
-Test suite fails when running Sharetribe with Zeus for the first time.
+Test suite fails when running them with Zeus for the first time.
 
 ##### Steps To Reproduce:
 
