@@ -6,6 +6,12 @@ class HomepageController < ApplicationController
   APP_DEFAULT_VIEW_TYPE = "grid"
   VIEW_TYPES = ["grid", "list", "map"]
 
+  ListingItem = Struct.new(:id, :title, :author, :description, :listing_images, :price, :unit_tr_key, :unit_type, :quantity, :shape_name_tr_key, :listing_shape_id, :icon_name)
+  Author = Struct.new(:id, :username, :first_name, :last_name, :avatar, :is_deleted, :num_of_reviews)
+  Price = Struct.new(:price_cents, :currency)
+  ListingImage = Struct.new(:thumb, :small_3x2)
+
+
   def index
     @homepage = true
 
@@ -105,7 +111,17 @@ class HomepageController < ApplicationController
     if numeric_search_needed && filter_params[:listing_id].empty?
       Listing.none.paginate(:per_page => listings_per_page, :page => params[:page])
     else
-      Listing.find_with(filter_params, @current_user, @current_community, listings_per_page, params[:page])
+      listings = Listing.find_with(filter_params, @current_user, @current_community, listings_per_page, params[:page]).map { |e|
+        price = Money.new(e.price_cents, e.currency)
+        author_img = ListingImage.new(e.author.image(:thumb))
+        author = Author.new(e.author_id, e.author.username, e.author.given_name, e.author.family_name, author_img, e.author.deleted?, e.author.received_testimonials.size)
+        listingItem = ListingItem.new(e.id, e.title, author, e.description,
+          e.listing_images.map{|li| ListingImage.new(li.image.url(:thumb), li.image.url(:small_3x2))}, price,
+          e.unit_tr_key, e.unit_type, e.quantity, e.shape_name_tr_key, e.listing_shape_id, e.icon_name)
+      }
+      WillPaginate::Collection.create(params[:page] || 1, listings_per_page, listings.count) do |pager|
+        pager.replace(listings)
+      end
     end
   end
 
