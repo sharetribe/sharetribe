@@ -37,7 +37,7 @@ module EntityUtils
 
   VALIDATORS = {
     mandatory: -> (_, v, _) {
-      if (v.to_s.empty?)
+      if (v.nil? || (v.is_a?(String) && v == ""))
         {code: :mandatory, msg: "Missing mandatory value." }
       end
     },
