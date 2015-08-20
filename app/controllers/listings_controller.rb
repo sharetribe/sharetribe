@@ -101,7 +101,13 @@ class ListingsController < ApplicationController
   # Used to show multiple listings in one bubble
   def listing_bubble_multiple
     ids = numbers_str_to_array(params[:ids])
-    @listings = Listing.visible_to(@current_user, @current_community, ids).order("id DESC")
+
+    if @current_user || !@current_community.private?
+      @listings = @current_community.listings.where(listings: {id: ids}).order("listings.created_at DESC")
+    else
+      @listings = []
+    end
+
     if @listings.size > 0
       render :partial => "homepage/listing_bubble_multiple"
     else

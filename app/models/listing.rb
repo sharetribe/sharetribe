@@ -145,16 +145,6 @@ class Listing < ActiveRecord::Base
     end
   end
 
-  # Filter out listings that current user cannot see
-  def self.visible_to(current_user, current_community, ids=nil)
-    id_list = ids ? ids : current_community.listings.pluck(:id)
-    if current_user && current_user.member_of?(current_community)
-      where("listings.id IN (?)", id_list)
-    else
-      where("listings.privacy = 'public' AND listings.id IN (?)", id_list)
-    end
-  end
-
   def self.currently_open(status="open")
     status = "open" if status.blank?
     case status
@@ -287,7 +277,7 @@ class Listing < ActiveRecord::Base
       query[:categories] = params[:categories] if params[:categories]
       query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
       query[:id] = params[:listing_id] if params[:listing_id].present?
-      listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
+      listings = current_community.listings.joins(joined_tables).where(query).currently_open(params[:status]).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings
   end
