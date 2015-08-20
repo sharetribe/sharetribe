@@ -123,36 +123,36 @@ de:
         edit_message: "Nachricht bearbeiten"
         send_test_message: "Test-Nachricht senden"
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
-        successfully_saved: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
-        invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
-        unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        title: "Absender Email Adresse"
+        info: "Diese Absender Informationen werden für die Emails verwendet, die Dein Marktplatz an die Mitglieder verschickt."
+        read_more: "Lese mehr über die Absender Email Adresse"
+        sender_address: "Absender Adresse: %{sender_address}"
+        sender_address_default: "Absender Adresse: nicht festgelegt (verwendet wird die Standard Email %{sender_address})"
+        need_to_change: "Wenn Du die Email Adresse ändern möchtest, kontaktiere bitte %{contact_support_link}."
+        contact_support_link_text: "Kontaktiere unseren Support"
+        set_sender_address: "Lege eine Absender Adresse fest"
+        sender_name_label: Name
+        sender_name_placeholder: Absender
+        sender_email_label: "Email Adresse"
+        sender_email_placeholder: absender-email@beispiel.de
+        this_is_how_it_will_look: "So wird es aussehen:"
+        send_verification_button: "Sende Verifizierungsmail"
+        successfully_saved: "Absender Adresse erfolgreich gespeichert. Die Verifizierungsmail wird demnächst verschickt."
+        status: "Status: %{status}"
+        status_verified: "Verifiziert - In Verwendung"
+        status_error: "Ein Fehler ist aufgetreten. Bitte lade die Seite neu."
+        status_requested: "Nicht verifiziert - Verifizierungsmail wurde an %{email} geschickt (%{time_ago}). %{resend_link}"
+        status_expired: "Verifizierung von %{email} ist abgelaufen. %{resend_link}"
+        status_resent: "Verifizierungsmail erneut gesendet an %{email}. %{resend_link}"
+        resend_link: "Erneut senden"
+        invalid_email_error: "Ungültiges Email Format für '%{email}'"
+        invalid_email_domain: "Die \"%{email}\" Email Adresse nutzt einen nicht unterstützten Email Provider: \"%{domain}\". %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Lies den Artikel in der Wissensdatenbank für mehr Informationen."
+        unknown_error: "Da ist etwas schief gelaufen"
+        only_white_label_offer: "Diese Funktion ist Teil des Sharetribe White-Label Angebotes. Um sie zu nutzen, solltest Du %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "Erweitere auf unseren Pro Plan oder höher"
+        verification_sent_from: "Die Verifizierungsmail wurde gesendet von %{verification_sender_name}."
+        follow_the_instructions: "Bitte folge den Anweisungen in der Email, um Deine Adresse zu verifizieren."
       getting_started:
         getting_started: Kurzanleitung
         welcome_to_your_marketplace: "Willkommen auf deinem Marktplatz, %{name}!"
@@ -588,7 +588,7 @@ de:
       loading_more_messages: "Weitere Nachrichten laden"
       message_partitive: Nachricht
       messages_partitive: Nachrichten
-      no_received_messages: "Keine Nachrichten empfangen"
+      no_received_messages: "Keine Nachrichten"
       no_sent_messages: "Keine gesendeten Nachrichten"
     conversation:
       accepted_request: "Anfrage akzeptiert"
@@ -1101,10 +1101,10 @@ de:
       items_to_offer: "Artikel zum Verleihen: "
       items_to_request: "Artikel zum Ausleihen: "
       log_in: "Melde Dich an!"
-      no_offers_visible_unless_logged_in: "Angebote zu Artikeln, Dienstleistungen oder MItfahrgelegenheiten sind für nicht-angemeldete Nutzer nicht sichtbar."
+      no_offers_visible_unless_logged_in: "Kein Eintrag, Angebote sind für nur für angemeldete Nutzer sichtbar."
       no_open_offers_currently: "Keine Angebote zu Gegenständen, Dienstleistungen oder Mitfahrgelegenheiten vorhanden."
       no_open_requests_currently: "Keine Anfragen zu Gegenständen, Dienstleistungen oder Mitfahrgelegenheiten vorhanden."
-      no_requests_visible_unless_logged_in: "Anfragen zu Artikeln, Dienstleistungen oder Mitfahrgelegenheiten sind für nicht-angemeldete Nutzer nicht sichtbar."
+      no_requests_visible_unless_logged_in: "Kein Eintrag, Angebote sind für nur für angemeldete Nutzer sichtbar."
       one_private_offer_exists: "Es gibt bereits <b>ein Angebot</b>,"
       one_private_request_exists: "Es gibt bereits <b>eine Anfrage</b>,"
       ride_offer: "Kinder anderer zu ihren Freizeitaktivitäten fahren"
@@ -1282,8 +1282,8 @@ de:
       invitation_cannot_be_sent: "Einladung konnte nicht gesendet werden"
       invitation_limit_reached: "Du hast zu viele Einladungen verschickt. Das Tageslimit ist erreicht."
       invitation_sent: "Einladung erfolgreich gesendet"
-      inviting_new_users_is_not_allowed_in_this_community: "Neue Benutzer zu dieser %{service_name} Community einzuladen, ist nicht gestattet"
-      login_again: "Bitte melden Sie sich erneut an."
+      inviting_new_users_is_not_allowed_in_this_community: "Neue Benutzer einzuladen, ist nicht gestattet."
+      login_again: "Bitte melde Dich erneut an."
       login_failed: "Anmeldung fehlgeschlagen. Bitte gib korrekte Anmeldedaten ein."
       account_creation_successful: "Willkommen bei %{service_name}, %{person_name}!"
       account_deleted: "Dein Konto wurde nun gelöscht."
@@ -1330,7 +1330,7 @@ de:
       request_rejected: "Anfrage abgelehnt"
       request_canceled: "Anfrage abgebrochen"
       message_sent: "Nachricht gesendet"
-      this_content_is_not_available_in_this_community: "Dieser Inhalt ist in dieser Community nicht verfügbar."
+      this_content_is_not_available_in_this_community: "Dieser Inhalt ist nicht verfügbar."
       unknown_error: "Unbekannter Fehler. Bitte benutze den Kontakt-Link, um uns über Details zum Vorfall zu informieren."
       update_error: "Ein Fehler ist beim Aktualisieren deiner Informationen aufgetreten. Bitte versuche es erneut."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Du bist nicht berechtigt, Feedback zu dieser Transaktion zu geben"
@@ -1499,7 +1499,7 @@ de:
         for_the_time_being: Vorläufig
       visibility:
         all_communities: "Alle meine %{service_name} Communitys"
-        this_community: "Nur Mitglieder dieser Community"
+        this_community: "Nur Mitglieder von %{service_name}"
         visibility: Sichtbarkeit
       privacy:
         privacy: Datenschutz
@@ -1751,7 +1751,7 @@ de:
       create_new_account: "Konto erstellen"
       email: E-Mail-Adresse
       email_is_in_use: "Die angegebene E-Mail-Adresse wird bereits genutzt."
-      email_is_in_use_or_not_allowed: "Diese E-Mail-Adresse ist für diese Community nicht gültig oder sie wird bereits verwendet. Bitte verwende die Adresse, die mit dieser Community verbunden ist (siehe Anleitung oben). Wenn du dann immer noch keinen Zugang haben solltest, sende uns dein Feedback."
+      email_is_in_use_or_not_allowed: "Diese E-Mail-Adresse ist nicht erlaubt oder bereits in Verwendung. Wenn Du Dich nicht einloggen kannst, kontaktiere uns bitte."
       email_not_allowed: "Diese E-Mail-Adresse ist für diese Community nicht gültig. Bitte verwende die Adresse, die mit dieser Community verbunden ist. Wenn du dann immer noch keinen Zugang haben solltest, sende uns dein Feedback."
       email_restriction_instructions:
         one: "Diese Community ist nur für %{community_name}. Um beitreten zu können, brauchst du eine '%{allowed_emails}' E-Mail-Adresse. "
@@ -1763,6 +1763,7 @@ de:
       invalid_invitation_code: "Der Einladungs-Code ist ungültig."
       invitation_code: Einladungscode
       not_required: ", nicht erforderlich"
+      notification_is_mandatory: "Du musst wenigstens eine Email Adresse wählen, um Mitteilungen erhalten zu können. Wenn Du keine Emails von %{service_name} erhalten möchtest, kannst Du dies in den Einstellungen unter Benachrichtigungen anpassen."
       organization_name: "Name der Organisation"
       password_again: "Passwort bestätigen"
       show_my_name_to_others: "Anderen %{service_name} Benutzern meinen richtigen Namen anzeigen"
@@ -1776,7 +1777,7 @@ de:
       OR: ODER
       signup_with_email: "Registriere dich mit deiner E-Mail-Adresse"
     not_member:
-      explanation_text: "Du befindest dich derzeit in der %{community} Community. Du hast versucht, das Profil eines Benutzers aus einer anderen Community anzuzeigen. Du kannst dieses Profil nicht durch deine %{community} Community einsehen."
+      explanation_text: "Du befindest dich derzeit bei %{community}. Du hast versucht, das Profil eines Benutzers aus einer anderen Community anzuzeigen. Du kannst dieses Profil nicht über %{community} direkt einsehen."
       read_more_about_kassi_communities: "Lies mehr über Sharetribe-Communities"
       this_user_does_not_belong_to_this_community: "Dieser Benutzer gehört nicht zu %{community}"
     profile_feedback:

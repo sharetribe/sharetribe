@@ -131,10 +131,10 @@ en:
         need_to_change: "If you need to change the email address, please %{contact_support_link}."
         contact_support_link_text: "contact our support"
         set_sender_address: "Set sender address"
-        sender_name_label: "Name"
+        sender_name_label: Name
         sender_name_placeholder: "Sender name"
         sender_email_label: "Email address"
-        sender_email_placeholder: "sender-email@example.com"
+        sender_email_placeholder: sender-email@example.com
         this_is_how_it_will_look: "This is how it will look:"
         send_verification_button: "Send verification email"
         successfully_saved: "Sender address saved successfully. The verification email will be sent soon."
@@ -144,7 +144,7 @@ en:
         status_requested: "Unverified - verification email sent to %{email} %{time_ago}. %{resend_link}"
         status_expired: "Verification of %{email} expired. %{resend_link}"
         status_resent: "Verification email resent to %{email}. %{resend_link}"
-        resend_link: "Resend"
+        resend_link: Resend
         invalid_email_error: "Invalid email format for '%{email}'"
         invalid_email_domain: "The '%{email}' email address is using an unsupported email provider: '%{domain}'. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Read the knowledge base article for more information."

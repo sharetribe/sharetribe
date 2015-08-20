@@ -124,8 +124,8 @@ nb:
         send_test_message: "Send test melding"
       outgoing_email:
         title: "Utgående epostadresse"
-        info: "Dette navnet og adressen brukes for eposter som sendes fra denne markedsplassen til sine medlemmer."
-        read_more: "Les mer om utgående epostadresse"
+        info: "Dette navnet og adressen brukes for eposter som sendes fra din markedsplass til medlemmene."
+        read_more: "Les mer om utgående epostadresse."
         sender_address: "Avsender: %{sender_address}"
         sender_address_default: "Avsender: ikke satt (bruker standardadresse %{sender_address}9"
         need_to_change: "Hvis du ønsker å endre epostadressen vennligst %{contact_support_link}"
@@ -1781,6 +1781,7 @@ nb:
       invalid_invitation_code: "Invitasjonskode er ikke gyldig."
       invitation_code: Invitasjonskode
       not_required: ", ikke påkrevd"
+      notification_is_mandatory: "Du må velge minst en epostadresse for å motta varslinger. Hvis du ikke ønsker å motta eposter fra %{service_name}, se dine innstillinger for epostvarslinger."
       organization_name: "Navn på organisasjon"
       password_again: "Bekreft passord"
       show_my_name_to_others: "Vis mitt virkelige navn til andre brukere på %{service_name}"

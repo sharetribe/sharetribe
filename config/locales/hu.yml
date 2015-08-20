@@ -89,9 +89,9 @@ hu:
         custom_color2_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
-        grid: ~
-        list: ~
-        map: ~
+        grid: "Magazin nézet"
+        list: "Lista nézet"
+        map: "Térkép nézet"
         name_display_type: ~
         name_display_type_instructions_text: ~
         full_name: ~
@@ -474,31 +474,31 @@ hu:
         rent: ~
         request: ~
         offer: ~
-        inquiry: ~
+        inquiry: Kapcsolatfelvétel
   common:
-    edit_page: ~
-    default_community_slogan: ~
+    edit_page: "Oldal szerkesztése"
+    default_community_slogan: "Közösség piactér"
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
-    password: ~
+    cancel: Mégse
+    fields_that_are_mandatory: "Kötelező mezők (*)"
+    or: vagy
+    password: Jelszó
     service_name: ~
     share_types:
-      request: ~
-      offer: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
+      request: Kérés
+      offer: Ajánlat
+      borrow: Kölcsönvétel
+      buy: Vétel
+      give_away: Ajándékozás
+      lend: Kölcsönadás
+      receive: Fogadás
+      rent: Kölcsönzés
+      rent_out: Kölcsönözés
+      sell: Eladás
+      offer_to_swap: Csereajánlat
+      request_to_swap: "Csereajánlat kérés"
+      share_for_free: "Ingyenes kölcsönadás"
+      accept_for_free: "Ingyenes kölcsönvétel"
     categories:
       item: ~
       favor: ~
@@ -519,10 +519,10 @@ hu:
       garden: ~
       travel: ~
       other: ~
-    username: ~
-    username_or_email: ~
-    what_is_this: ~
-    removed_user: ~
+    username: Felhasználónév
+    username_or_email: "Felhasználónév vagy email"
+    what_is_this: "Mi ez?"
+    removed_user: "Törölt felhasználó"
     paypal_fee_info:
       title: ~
       body_text: ~
@@ -570,11 +570,11 @@ hu:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "Több üzenet betöltése"
+      message_partitive: Üzenet
+      messages_partitive: Üzenetek
+      no_received_messages: "Nincs üzeneted"
+      no_sent_messages: "Nincs elküldött üzenet"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -585,8 +585,8 @@ hu:
       canceled_request: ~
       canceled_offer: ~
       message_from: ~
-      about_listing: ~
-      free_message: ~
+      about_listing: "A következő hirdetéssel kapcsolatban: %{listing_title}"
+      free_message: Kapcsolatfelvétel
     message:
       accepted_request: ~
       accepted_offer: ~
@@ -633,8 +633,8 @@ hu:
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
       title: Cím
-      send_message_to_user: ~
-      about_listing: ~
+      send_message_to_user: "Üzenet küldése %{person} felhasználónak"
+      about_listing: "A következő hirdetéssel kapcsolatban: %{listing_title}"
       author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
@@ -643,8 +643,8 @@ hu:
       send_reply: "Választ küldök"
       write_a_reply: "Választ írok"
       conversation_about_listing: ~
-      conversation_with_user: ~
-      conversation_with: ~
+      conversation_with_user: "%{person} felhasználóval"
+      conversation_with: "Üzenetváltás %{person} felhasználóval"
       last_message_at: ~
       price: ~
       sum: ~
@@ -764,7 +764,7 @@ hu:
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
       if_want_to_view_content: ~
-      log_out: ~
+      log_out: Kijelentkezés
       join_community_button: ~
   emails:
     accept_reminder:
@@ -821,11 +821,11 @@ hu:
       if_this_was_error: ~
       please_contant_admin_link: ~
     confirmation_instructions:
-      confirmation_instructions_signature: ~
-      welcome_to_kassi: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
-      or_paste_link: ~
+      confirmation_instructions_signature: "Üdvözlettel,<br/>A %{service_name} csapata"
+      welcome_to_kassi: "Üdvözlünk a %{service_name}-n!"
+      need_to_confirm: "Aktiválnod kell a fiókodat e-mailben."
+      confirmation_link_text: "Email aktíválása"
+      or_paste_link: "Az aktiválás az alábbi URL-cím böngészőbe másolásával is hozzáférhető:"
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: "Ellenőrizd a beállításaidat."
@@ -969,7 +969,7 @@ hu:
   error_messages:
     listings:
       departure_time: ~
-      share_type: ~
+      share_type: "Ki kell választani egyet."
       valid_until: ~
       price: ~
       minimum_price: ~
@@ -986,12 +986,12 @@ hu:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "Vissza a kezdőoldalra"
     error_404:
       if_you_believe: ~
-      page_can_not_be_found: ~
+      page_can_not_be_found: "Az oldal nem található!"
       page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+    error_404_title: "Nincs ilyen oldal"
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -1002,7 +1002,7 @@ hu:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
+    error_500_title: "Az oldal betöltése nem sikerült"
     error_description: ~
     no_javascript:
       javascript_is_disabled_in_your_browser: ~
@@ -1049,13 +1049,13 @@ hu:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
+    about: Rólunk
+    home: Főoldal
     members: ~
     new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
+    mobile_version: "Mobil verzió"
+    offers: Ajánlatok
+    requests: Kérések
     search_kassi: ~
     create_new_marketplace: ~
     contact_us: ~
@@ -1118,7 +1118,7 @@ hu:
       are_offering: ~
       add_news_item: ~
       lend_rent_help_carpool: ~
-      loading_more_content: ~
+      loading_more_content: "További tartalom betöltése"
       more_events: ~
       news: ~
       no_news: ~
@@ -1370,14 +1370,14 @@ hu:
       wrote: ~
       send_private_message: ~
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "Írj hozzászólást vagy vedd fel a kapcsolatot az eladóval, ha kérdésed van. Hozzászólásódát valamennyi felhasználó olvashatja."
       log_in: ~
-      send_comment: ~
+      send_comment: "Hozzászólás küldése"
       to_send_a_comment: ~
       write_comment: ~
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: ~
-      subscribe_to_comments: ~
+      subscribe_to_comments: "Értesítsen engem új hozzászólás vagy frissítés esetén"
     edit:
       edit_listing: ~
     edit_links:
@@ -1386,14 +1386,14 @@ hu:
       reopen_listing: ~
       move_to_top: ~
       show_in_updates_email: ~
-      show_in_updates_email_loading: ~
+      show_in_updates_email_loading: Töltés...
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
     error:
       something_went_wrong: ~
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "E-mail értesítést kérek új hozzászólás esetén"
+      unfollow: "Nem kérek e-mail értesítést új hozzászólás esetén"
     form:
       custom_field_partials:
         dropdown:
@@ -1427,10 +1427,10 @@ hu:
         select_file: ~
         removing: ~
         processing: ~
-        loading_image: ~
+        loading_image: Töltés...
         this_may_take_a_while: ~
         percentage_loaded: ~
-        uploading_failed: ~
+        uploading_failed: "A kép feltöltése sikertelen"
         file_too_large: ~
         accepted_formats: ~
       location:
@@ -1564,7 +1564,7 @@ hu:
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: "Nyilvános beszélgetés"
       contact_by_phone: ~
       contact: ~
       favor_offer: ~
@@ -1593,7 +1593,7 @@ hu:
       times_viewed: ~
       processing_uploaded_image: ~
       price_excludes_vat: ~
-      listing_created_at: ~
+      listing_created_at: "Hirdetés létrehozva"
       price:
         per_quantity_unit: ~
         per_day: ~
@@ -1714,7 +1714,7 @@ hu:
     transaction:
       commission_payment_name: ~
       commission_payment_description: ~
-    wait_while_loading: ~
+    wait_while_loading: "Kérem várjon."
     chatting_with_paypal: ~
   people:
     edit_links:
@@ -1745,6 +1745,7 @@ hu:
       invalid_invitation_code: ~
       invitation_code: ~
       not_required: ~
+      notification_is_mandatory: ~
       organization_name: ~
       password_again: ~
       show_my_name_to_others: ~
