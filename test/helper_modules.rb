@@ -227,8 +227,28 @@ module TestHelpers
     community2 = Community.where(ident: "test2").first
     community3 = Community.where(ident: "test3").first
 
-    person1 = FactoryGirl.create(:person, :username => "kassi_testperson1", :is_admin => 0, "locale" => "en", :encrypted_password => "64ae669314a3fb4b514fa5607ef28d3e1c1937a486e3f04f758270913de4faf5", :password_salt => "vGpGrfvaOhp3", :given_name => "Kassi", :family_name => "Testperson1", :phone_number => "0000-123456", :created_at => "2012-05-04 18:17:04")
-    person2 = FactoryGirl.create(:person, :username => "kassi_testperson2", :is_admin => false, :locale => "en", :encrypted_password => "72bf5831e031cbcf2e226847677fccd6d8ec6fe0673549a60abb5fd05f726462", :password_salt => "zXklAGLwt7Cu", :given_name => "Kassi", :family_name => "Testperson2", :created_at => "2012-05-04 18:17:04")
+    person1 = FactoryGirl.create(:person,
+                                 username: "kassi_testperson1",
+                                 emails: [ FactoryGirl.build(:email, :address => "kassi_testperson3@example.com") ],
+                                 is_admin: 0,
+                                 locale: "en",
+                                 encrypted_password: "64ae669314a3fb4b514fa5607ef28d3e1c1937a486e3f04f758270913de4faf5",
+                                 password_salt: "vGpGrfvaOhp3",
+                                 given_name: "Kassi",
+                                 family_name: "Testperson1",
+                                 phone_number: "0000-123456",
+                                 created_at: "2012-05-04 18:17:04")
+
+    person2 = FactoryGirl.create(:person,
+                                 username: "kassi_testperson2",
+                                 emails: [ FactoryGirl.build(:email, :address => "kassi_testperson4@example.com") ],
+                                 is_admin: false,
+                                 locale: "en",
+                                 encrypted_password: "72bf5831e031cbcf2e226847677fccd6d8ec6fe0673549a60abb5fd05f726462",
+                                 password_salt: "zXklAGLwt7Cu",
+                                 given_name: "Kassi",
+                                 family_name: "Testperson2",
+                                 created_at: "2012-05-04 18:17:04")
 
     FactoryGirl.create(:community_membership, :person => person1,
                         :community => community1,
