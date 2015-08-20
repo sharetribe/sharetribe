@@ -319,10 +319,10 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  # Used to send notification to Sharetribe admins when somebody
-  # gives feedback on Sharetribe
+  # Used to send notification to marketplace admins when somebody
+  # gives feedback on marketplace throught the contact us button in menu
   def new_feedback(feedback, community)
-    subject = "New feedback from #{community.name(community.default_locale)} from user #{Maybe(feedback).author.name(community).or_else(nil)}"
+    subject = t("feedback.feedback_subject", service_name: service_name)
 
     premailer_mail(
       :to => mail_feedback_to(community, APP_CONFIG.feedback_mailer_recipients),
@@ -331,7 +331,7 @@ class PersonMailer < ActionMailer::Base
       :reply_to => feedback.email) do |format|
         format.html {
           render locals: {
-                   author_name_and_email: feedback.author_name_and_email,
+                   author_name_and_email: feedback_author_name_and_email(feedback.author, feedback.email, community),
                    community_name: community.name(I18n.locale),
                    content: feedback.content
                  }
@@ -438,5 +438,19 @@ class PersonMailer < ActionMailer::Base
     else
       new_person_message_payment_url(recipient, url_params.merge({:message_id => conversation.id}))
     end
+  end
+
+  private
+
+  def feedback_author_name_and_email(author, email, community)
+    present = ->(x) {x.present?}
+      case [author, email]
+      when matches([present, present])
+        "#{PersonViewUtils.person_display_name(author, community)} (#{email})"
+      when matches([nil, present])
+        "#{t("feedback.unlogged_user")} (#{email})"
+      else
+        "#{t("feedback.anonymous_user")}"
+      end
   end
 end

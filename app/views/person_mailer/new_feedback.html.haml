@@ -1,6 +1,6 @@
 %tr
   %td{:align => "left", :style => "padding-top: 15px;"}
     %font{body_font}
-      = "#{author_name_and_email} has sent the following feedback from #{community_name}:"
+      = t("feedback.feedback_body", author_name_and_email: author_name_and_email, service_name: service_name)
 
 = render :partial => "quote", :locals => { :quote => content }

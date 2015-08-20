@@ -21,16 +21,4 @@ class Feedback < ActiveRecord::Base
 
   attr_accessor :title
 
-  # Format author name & email correctly
-  def author_name_and_email
-    email_in_brackets = email.present? ? "(#{email})" : "No email provided"
-    if author
-      "#{author.name('first_name_with_initial')} #{email_in_brackets}"
-    elsif !email.blank?
-      "Unlogged user #{email_in_brackets}"
-    else
-      "Anonymous user"
-    end
-  end
-
 end

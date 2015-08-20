@@ -778,6 +778,11 @@ en:
       credit_card_expiration_date: "Credit card expiration date"
       confirm_payment: "Confirm payment"
       exp: "Exp:"
+  feedback:
+    feedback_subject: "New feedback from %{service_name}"
+    feedback_body: "%{author_name_and_email} has sent the following feedback from %{service_name}"
+    unlogged_user: "Unlogged user"
+    anonymous_user: "Anonymous user"
   preauthorize_payments:
     edit:
       confirm_payment: "Confirm payment"
