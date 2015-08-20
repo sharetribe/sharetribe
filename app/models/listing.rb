@@ -104,7 +104,6 @@ class Listing < ActiveRecord::Base
   scope :none, where('1 = 0')
 
   VALID_VISIBILITIES = ["this_community", "all_communities"]
-  VALID_PRIVACY_OPTIONS = ["private", "public"]
 
   before_validation :set_valid_until_time
   before_save :set_community_visibilities

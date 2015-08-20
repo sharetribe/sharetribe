@@ -19,10 +19,6 @@ module ListingsHelper
     "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
 
-  def privacy_array
-    Listing::VALID_PRIVACY_OPTIONS.collect { |option| [t("listings.form.#{option}"), option] }
-  end
-
   def listed_listing_title(listing)
     listing_shape_name = shape_name(listing)
     # TODO remove this hotfix when we have admin ui for translations
