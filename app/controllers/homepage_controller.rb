@@ -92,7 +92,6 @@ class HomepageController < ApplicationController
     end
 
     filter_params[:search] = params[:q] if params[:q]
-    filter_params[:include] = [:listing_images, :author, :category]
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
     filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
 
@@ -112,13 +111,32 @@ class HomepageController < ApplicationController
     if numeric_search_needed && filter_params[:listing_id].empty?
       Listing.none.paginate(:per_page => listings_per_page, :page => params[:page])
     else
-      listings = Listing.find_with(filter_params, @current_user, @current_community, listings_per_page, params[:page]).map { |e|
-        price = Money.new(e.price_cents, e.currency)
-        author_img = ListingImage.new(e.author.image(:thumb))
-        author = Author.new(e.author_id, e.author.username, e.author.given_name, e.author.family_name, author_img, e.author.deleted?, e.author.received_testimonials.size)
-        listingItem = ListingItem.new(e.id, e.title, author, e.description,
-          e.listing_images.map{|li| ListingImage.new(li.image.url(:thumb), li.image.url(:small_3x2))}, price,
-          e.unit_tr_key, e.unit_type, e.quantity, e.shape_name_tr_key, e.listing_shape_id, e.icon_name)
+      listings = Listing.find_with(filter_params, @current_user, @current_community, listings_per_page, params[:page]).map { |l|
+        ListingItem.new(
+          l[:id],
+          l[:title],
+          Author.new(
+            l[:author][:id],
+            l[:author][:username],
+            l[:author][:first_name],
+            l[:author][:last_name],
+            ListingImage.new(
+              l[:author][:avatar][:thumb]
+            ),
+            l[:author][:is_deleted],
+            l[:author][:num_of_reviews],
+          ),
+          l[:description],
+          l[:listing_images].map { |li|
+            ListingImage.new(li[:thumb], li[:small_3x2]) },
+          l[:price],
+          l[:unit_tr_key],
+          l[:unit_type],
+          l[:quantity],
+          l[:shape_name_tr_key],
+          l[:listing_shape_id],
+          l[:icon_name]
+        )
       }
       WillPaginate::Collection.create(params[:page] || 1, listings_per_page, listings.count) do |pager|
         pager.replace(listings)
@@ -137,6 +155,11 @@ class HomepageController < ApplicationController
         nil
       end
     end
+  end
+
+  def to_struct(struct_class, hash)
+    args = struct_class.members.map { |k| hash[k] }
+    struct_class.new(*args)
   end
 
   # Return all params starting with `numeric_filter_`

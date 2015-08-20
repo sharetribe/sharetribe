@@ -61,9 +61,6 @@
 
 class Listing < ActiveRecord::Base
 
-  # http://pat.github.io/thinking-sphinx/advanced_config.html
-  SPHINX_MAX_MATCHES = 1000
-
   include ApplicationHelper
   include ActionView::Helpers::TranslationHelper
   include Rails.application.routes.url_helpers
@@ -161,8 +158,6 @@ class Listing < ActiveRecord::Base
     params ||= {}  # Set params to empty hash if it's nil
     joined_tables = []
 
-    params[:include] ||= [:listing_images, :category]
-
     params.reject!{ |key,value| (value == "all" || value == ["all"]) && key != "status"} # all means the fliter doesn't need to be included (except with "status")
 
     # If no Share Type specified, use listing_type param if that is specified.
@@ -191,16 +186,7 @@ class Listing < ActiveRecord::Base
     # Two ways of finding, with or without sphinx
     if search_with_sphinx?(params)
 
-      # sort by time by default
-      params[:sort] ||= 'sort_date DESC'
-
       with = {}
-      # Currently forced to only open at listing_index.rb
-      # if params[:status] == "open" || params[:status].nil?
-      #   with[:open] = true
-      # elsif params[:status] == "closed"
-      #   with[:open] = false
-      # end
 
       with[:community_id] = current_community.id
 
@@ -221,34 +207,15 @@ class Listing < ActiveRecord::Base
 
       page = page ? page.to_i : 1
 
-      listings = if search_out_of_bounds?(per_page, page)
-        Listing.none.paginate(:per_page => per_page, :page => page)
-      else
-        Listing.search(
-          Riddle::Query.escape(params[:search]),
-          :include => params[:include],
-          :page => page,
-          :per_page => per_page,
-          :star => true,
-          :with => with,
-          :with_all => with_all,
-          :order => params[:sort]
-        )
-      end
+      ListingService::API::Api.listings.search(community_id: current_community.id, search: {}).data
 
     else # No search query or filters used, no sphinx needed
       query = {}
       query[:categories] = params[:categories] if params[:categories]
       query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
       query[:id] = params[:listing_id] if params[:listing_id].present?
-      listings = current_community.listings.joins(joined_tables).where(query).currently_open(params[:status]).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
+      current_community.listings.joins(joined_tables).where(query).currently_open(params[:status]).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
     end
-    return listings
-  end
-
-  def self.search_out_of_bounds?(per_page, page)
-    pages = (SPHINX_MAX_MATCHES.to_f / per_page.to_f)
-    page > pages.ceil
   end
 
   def self.search_with_sphinx?(params)

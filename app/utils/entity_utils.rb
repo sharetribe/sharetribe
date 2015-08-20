@@ -107,6 +107,26 @@ module EntityUtils
         {code: :bool, msg: "Value must be boolean true or false. Was: #{v} (#{v.class.name})." }
       end
     },
+    gt: -> (limit, v, _) {
+      unless (v.nil? || v > limit)
+        {code: :gt, msg: "Value must be greater than #{limit}. Was: #{v} (#{v.class.name})."}
+      end
+    },
+    gte: -> (limit, v, _) {
+      unless (v.nil? || v >= limit)
+        {code: :gte, msg: "Value must be greater than or equal to #{limit}. Was: #{v} (#{v.class.name})." }
+      end
+    },
+    lt: -> (limit, v, _) {
+      unless (v.nil? || v < limit)
+        {code: :lt, msg: "Value must be less than #{limit}. Was: #{v} (#{v.class.name})." }
+      end
+    },
+    lte: -> (limit, v, _) {
+      unless (v.nil? || v <= limit)
+        {code: :lte, msg: "Value must be less than or equal to #{limit}. Was: #{v} (#{v.class.name})." }
+      end
+    },
     validate_with: -> (validator, v, _) {
       validator.call(v)
     }

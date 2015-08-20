@@ -304,6 +304,52 @@ describe EntityUtils do
       .to_not raise_error
   end
 
+  it "#define_builder gt validator" do
+    entity = EntityUtils.define_builder([:num, gt: 0])
+
+    expect(entity.validate({num: -1}).success).to eq false
+    expect(entity.validate({num: -1}).data.first[:code]).to eq :gt
+
+    expect(entity.validate({num: 0}).success).to eq false
+    expect(entity.validate({num: 0}).data.first[:code]).to eq :gt
+
+    expect(entity.validate({num: 1}).success).to eq true
+  end
+
+  it "#define_builder gte validator" do
+    entity = EntityUtils.define_builder([:num, gte: 0])
+
+    expect(entity.validate({num: -1}).success).to eq false
+    expect(entity.validate({num: -1}).data.first[:code]).to eq :gte
+
+    expect(entity.validate({num: 0}).success).to eq true
+
+    expect(entity.validate({num: 1}).success).to eq true
+  end
+
+  it "#define_builder lt validator" do
+    entity = EntityUtils.define_builder([:num, lt: 0])
+
+    expect(entity.validate({num: -1}).success).to eq true
+
+    expect(entity.validate({num: 0}).success).to eq false
+    expect(entity.validate({num: 0}).data.first[:code]).to eq :lt
+
+    expect(entity.validate({num: 1}).success).to eq false
+    expect(entity.validate({num: 1}).data.first[:code]).to eq :lt
+  end
+
+  it "#define_builder lte validator" do
+    entity = EntityUtils.define_builder([:num, lte: 0])
+
+    expect(entity.validate({num: -1}).success).to eq true
+
+    expect(entity.validate({num: 0}).success).to eq true
+
+    expect(entity.validate({num: 1}).success).to eq false
+    expect(entity.validate({num: 1}).data.first[:code]).to eq :lte
+  end
+
   it "#define_builder is fast" do
     enable_test = false
     if enable_test # You can enable this test to measure the performance
