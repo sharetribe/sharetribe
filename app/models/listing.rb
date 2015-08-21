@@ -161,10 +161,6 @@ class Listing < ActiveRecord::Base
     ListingVisibilityGuard.new(self, current_community, current_user).visible?
   end
 
-  def public?
-    self.privacy.eql?("public")
-  end
-
   # sets the time to midnight
   def set_valid_until_time
     if valid_until
