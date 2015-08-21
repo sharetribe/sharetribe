@@ -31,7 +31,7 @@ class ListingVisibilityGuard
   end
 
   def listing_belongs_to_community?
-    @community && @listing.communities.include?(@community)
+    @community && @listing.community_id == @community.id
   end
 
   def user_logged_in?

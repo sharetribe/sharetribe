@@ -11,7 +11,7 @@ module ListingHelpers
       listing_shape_id: shape[:id]
     }
 
-    listing_opts = shape_opts.merge(opts).merge(communities: [community], community_id: community.id)
+    listing_opts = shape_opts.merge(opts).merge(community_id: community.id)
 
     @listing = FactoryGirl.create(:listing, listing_opts)
   end

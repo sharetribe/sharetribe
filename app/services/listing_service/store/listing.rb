@@ -18,8 +18,7 @@ module ListingService::Store::Listing
   # query params
   def where_models(community_id, query)
     ar_query = ListingModel
-      .joins(:communities)
-      .where(communities: {id: community_id})
+      .where(community_id: community_id)
 
     ar_query =
       if query[:open] == true

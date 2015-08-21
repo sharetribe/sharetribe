@@ -83,7 +83,6 @@ class Listing < ActiveRecord::Base
   has_one :destination_loc, :class_name => "Location", :conditions => ['location_type = ?', 'destination_loc'], :dependent => :destroy
   accepts_nested_attributes_for :origin_loc, :destination_loc
 
-  has_and_belongs_to_many :communities
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
 
   belongs_to :category
@@ -104,7 +103,6 @@ class Listing < ActiveRecord::Base
   VALID_VISIBILITIES = ["this_community", "all_communities"]
 
   before_validation :set_valid_until_time
-  before_save :set_community_visibilities
 
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..60, :allow_nil => false
@@ -131,17 +129,6 @@ class Listing < ActiveRecord::Base
   validates_presence_of :category
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 7.months
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
-
-  def set_community_visibilities
-    if current_community_id
-      communities.clear
-      if visibility.eql?("this_community")
-        communities << Community.find(current_community_id)
-      else
-        author.communities.each { |c| communities << c }
-      end
-    end
-  end
 
   def self.currently_open(status="open")
     status = "open" if status.blank?

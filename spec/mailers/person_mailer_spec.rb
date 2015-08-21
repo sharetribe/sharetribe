@@ -201,9 +201,9 @@ describe PersonMailer do
   describe "#new_listing_by_followed_person" do
 
     before do
-      @listing = FactoryGirl.create(:listing, listing_shape_id: 123)
+      @community = FactoryGirl.create(:community)
+      @listing = FactoryGirl.create(:listing, listing_shape_id: 123, community_id: @community.id)
       @recipient = FactoryGirl.create(:person)
-      @community = @listing.communities.last
     end
 
     it "should notify of a new listing" do

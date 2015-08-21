@@ -108,9 +108,6 @@ FactoryGirl.define do
     privacy "public"
     listing_shape_id 123
     price Money.new(20, "USD")
-    has_many :communities do |listing|
-      FactoryGirl.build(:community)
-    end
   end
 
   factory :transaction do

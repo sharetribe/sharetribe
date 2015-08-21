@@ -66,13 +66,11 @@ Given /^privacy of that listing is "([^"]*)"$/ do |privacy|
 end
 
 Given(/^that listing belongs to community "(.*?)"$/) do |ident|
-  @listing.communities = [Community.where(ident: ident).first]
   @listing.community_id = Community.where(ident: ident).first.id
   @listing.save!
 end
 
 Given /^that listing is visible to members of community "([^"]*)"$/ do |ident|
-  @listing.communities << Community.where(ident: ident).first
   @listing.community_id = Community.where(ident: ident).first.id
   @listing.save!
 end

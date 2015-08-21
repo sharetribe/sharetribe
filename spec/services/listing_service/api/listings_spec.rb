@@ -12,7 +12,7 @@ describe ListingService::API::Listings do
 
   def create_listing(community, opts = {})
     # TODO We should not use models directly like this
-    FactoryGirl.create(:listing, opts.merge(communities: [community]))
+    FactoryGirl.create(:listing, opts.merge(community_id: community.id))
   end
 
   before(:each) do
