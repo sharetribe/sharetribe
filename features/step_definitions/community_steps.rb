@@ -150,6 +150,11 @@ Given /^community "(.*?)" is private$/ do |community_ident|
   Community.where(ident: community_ident).first.update_attributes({:private => true})
 end
 
+Given /^this community is private$/ do
+  @current_community.private = true
+  @current_community.save!
+end
+
 Given /^community "(.*?)" has following category structure:$/ do |community, categories|
   current_community = Community.where(ident: community).first
   old_category_ids = current_community.categories.collect(&:id)
