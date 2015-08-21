@@ -196,10 +196,6 @@ class ListingsController < ApplicationController
       params[:listing].delete("origin_loc_attributes")
     end
 
-    # TODO REMOVE ME!
-    params[:listing][:privacy] = @current_community.private? ? "private" : "public"
-    # TODO REMOVE ME!
-
     shape = get_shape(Maybe(params)[:listing][:listing_shape_id].to_i.or_else(nil))
 
     listing_params = ListingFormViewUtils.filter(params[:listing], shape)
@@ -301,10 +297,6 @@ class ListingsController < ApplicationController
         @listing.origin_loc.delete
       end
     end
-
-    # TODO REMOVE ME!
-    params[:listing][:privacy] = @current_community.private? ? "private" : "public"
-    # TODO REMOVE ME!
 
     shape = get_shape(params[:listing][:listing_shape_id])
 
