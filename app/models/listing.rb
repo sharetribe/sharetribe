@@ -93,9 +93,6 @@ class Listing < ActiveRecord::Base
 
   attr_accessor :current_community_id
 
-  scope :public, :conditions  => "privacy = 'public'"
-  scope :private, :conditions  => "privacy = 'private'"
-
   # Create an "empty" relationship. This is needed in search when we want to stop the search chain (NumericFields)
   # and just return empty result.
   #
