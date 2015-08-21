@@ -85,9 +85,6 @@ class HomepageController < ApplicationController
     end
 
     @listing_count = @current_community.listings.currently_open.count
-    unless @current_user
-      @private_listing_count = Listing.currently_open.private_to_community(@current_community).count
-    end
 
     filter_params[:search] = params[:q] if params[:q]
     filter_params[:include] = [:listing_images, :author, :category]

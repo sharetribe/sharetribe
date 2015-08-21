@@ -165,15 +165,6 @@ class Listing < ActiveRecord::Base
     self.privacy.eql?("public")
   end
 
-  # Get only listings that are restricted only to the members of the current
-  # community (or to many communities including current)
-  def self.private_to_community(community)
-    where("
-      listings.privacy = 'private'
-      AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{community.id}')
-    ")
-  end
-
   # sets the time to midnight
   def set_valid_until_time
     if valid_until
