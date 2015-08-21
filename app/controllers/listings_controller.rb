@@ -212,6 +212,7 @@ class ListingsController < ApplicationController
     m_unit = select_unit(listing_unit, shape)
 
     listing_params = create_listing_params(listing_params).merge(
+        community_id: @current_community.id,
         listing_shape_id: shape[:id],
         transaction_process_id: shape[:transaction_process_id],
         shape_name_tr_key: shape[:name_tr_key],
