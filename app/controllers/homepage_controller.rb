@@ -84,8 +84,6 @@ class HomepageController < ApplicationController
       @selected_category = category
     end
 
-    @listing_count = @current_community.listings.currently_open.count
-
     filter_params[:search] = params[:q] if params[:q]
     filter_params[:include] = [:listing_images, :author, :category]
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
