@@ -218,9 +218,6 @@ class Listing < ActiveRecord::Base
       #   with[:open] = false
       # end
 
-      unless current_user && current_user.communities.include?(current_community)
-        with[:visible_to_everybody] = true
-      end
       with[:community_ids] = current_community.id
 
       with[:category_id] = params[:categories][:id] if params[:categories].present?
