@@ -129,21 +129,12 @@ describe Listing do
 
     it "is visible, if user is not logged in and the listing and community are public" do
       community.update_attribute(:private, false)
-      listing.update_attribute(:privacy, "public")
 
       listing.visible_to?(nil, community).should be_truthy
     end
 
-    it "is not visible, if user is not logged in but the listing is private" do
-      community.update_attribute(:private, false)
-      listing.update_attribute(:privacy, "private")
-
-      listing.visible_to?(nil, community).should be_falsey
-    end
-
     it "is not visible, if user is not logged in but the community is private" do
       community.update_attribute(:private, true)
-      listing.update_attribute(:privacy, "public")
 
       listing.visible_to?(nil, community).should be_falsey
     end

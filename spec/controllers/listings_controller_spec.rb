@@ -83,7 +83,6 @@ describe ListingsController do
       :created_at => 3.days.ago,
       :sort_date => 3.days.ago,
       :author => @p1,
-      :privacy => "public"
     )
     @l1.communities = [@c1]
 
@@ -98,7 +97,6 @@ describe ListingsController do
       :listing_shape_id => sell_shape[:id],
       :shape_name_tr_key => sell_shape[:name_tr_key],
       :action_button_tr_key => sell_shape[:action_button_tr_key],
-      :privacy => "public"
     ).communities = [@c1]
 
     FactoryGirl.create(
@@ -110,7 +108,6 @@ describe ListingsController do
       :title => "help me",
       :created_at => 12.days.ago,
       :sort_date => 12.days.ago,
-      :privacy => "public"
     ).communities = [@c2]
 
     FactoryGirl.create(
@@ -123,7 +120,6 @@ describe ListingsController do
       :open => false,
       :description => "This should be closed already,
  but nice stuff anyway",
-      :privacy => "public"
     ).communities = [@c1]
 
     @l4 = FactoryGirl.create(
@@ -137,7 +133,6 @@ describe ListingsController do
       :listing_shape_id => request_shape[:id],
       :shape_name_tr_key => request_shape[:name_tr_key],
       :action_button_tr_key => request_shape[:action_button_tr_key],
-      :privacy => "public"
     )
     @l4.communities = [@c1]
     @l4.save!

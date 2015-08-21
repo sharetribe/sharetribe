@@ -170,7 +170,7 @@ class Listing < ActiveRecord::Base
   end
 
   def self.columns
-    super.reject { |c| c.name == "transaction_type_id" || c.name == "privacy" }
+    super.reject { |c| c.name == "transaction_type_id" }
   end
 
   def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)
