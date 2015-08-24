@@ -2,6 +2,11 @@
 class ListingsController < ApplicationController
   class ListingDeleted < StandardError; end
 
+  # TODO Remove me soon
+  # Gives us access to communities_listings join table
+  class CommunitiesListing < ActiveRecord::Base; end
+  # TODO Remove me soon
+
   include PeopleHelper
 
   # Skip auth token check as current jQuery doesn't provide it automatically
@@ -225,6 +230,9 @@ class ListingsController < ApplicationController
     @listing.author = @current_user
 
     if @listing.save
+      # TODO Remove this soon
+      CommunitiesListing.create!(community_id: @current_community.id, listing_id: @listing.id)
+
       upsert_field_values!(@listing, params[:custom_fields])
 
       listing_image_ids = params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
