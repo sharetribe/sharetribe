@@ -14,7 +14,6 @@
 #  updated_at                      :datetime
 #  last_modified                   :datetime
 #  sort_date                       :datetime
-#  visibility                      :string(255)      default("this_community")
 #  listing_type_old                :string(255)
 #  description                     :text
 #  origin                          :string(255)

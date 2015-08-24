@@ -15,7 +15,6 @@
 #  updated_at                      :datetime
 #  last_modified                   :datetime
 #  sort_date                       :datetime
-#  visibility                      :string(255)      default("this_community")
 #  listing_type_old                :string(255)
 #  description                     :text
 #  origin                          :string(255)
@@ -98,8 +97,6 @@ class Listing < ActiveRecord::Base
   # http://stackoverflow.com/questions/4877931/how-to-return-an-empty-activerecord-relation
   scope :none, where('1 = 0')
 
-  VALID_VISIBILITIES = ["this_community", "all_communities"]
-
   before_validation :set_valid_until_time
 
   validates_presence_of :author_id
@@ -123,7 +120,6 @@ class Listing < ActiveRecord::Base
     self.description = description.gsub("\r\n","\n") if self.description
   end
   validates_length_of :description, :maximum => 5000, :allow_nil => true
-  validates_inclusion_of :visibility, :in => VALID_VISIBILITIES
   validates_presence_of :category
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 7.months
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
@@ -157,7 +153,7 @@ class Listing < ActiveRecord::Base
   end
 
   def self.columns
-    super.reject { |c| c.name == "transaction_type_id" }
+    super.reject { |c| c.name == "transaction_type_id" || c.name == "visibility"}
   end
 
   def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)

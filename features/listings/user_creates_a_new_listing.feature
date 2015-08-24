@@ -71,7 +71,6 @@ Feature: User creates a new listing
       | person |
       | kassi_testperson3 |
     And there is a listing with title "Hammer" from "kassi_testperson3" with category "Items" and with listing shape "Requesting"
-    And visibility of that listing is "all_communities"
     And I am on the homepage
     Then I should see "Hammer"
     When I move to community "test2"

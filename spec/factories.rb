@@ -104,7 +104,6 @@ FactoryGirl.define do
     category { TestHelpers::find_or_build_category("item") }
     valid_until 3.months.from_now
     times_viewed 0
-    visibility "this_community"
     privacy "public"
     listing_shape_id 123
     price Money.new(20, "USD")

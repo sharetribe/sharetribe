@@ -57,10 +57,6 @@ When(/^I set search range for numeric filter "(.*?)" between "(.*?)" and "(.*?)"
   }
 end
 
-Given /^visibility of that listing is "([^"]*)"$/ do |visibility|
-  @listing.update_attribute(:visibility, visibility)
-end
-
 Given /^privacy of that listing is "([^"]*)"$/ do |privacy|
   @listing.update_attribute(:privacy, privacy)
 end
