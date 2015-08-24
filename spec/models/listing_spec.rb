@@ -3,6 +3,7 @@
 # Table name: listings
 #
 #  id                              :integer          not null, primary key
+#  community_id                    :integer
 #  author_id                       :string(255)
 #  category_old                    :string(255)
 #  title                           :string(255)
@@ -48,6 +49,7 @@
 # Indexes
 #
 #  index_listings_on_category_id       (old_category_id)
+#  index_listings_on_community_id      (community_id)
 #  index_listings_on_listing_shape_id  (listing_shape_id)
 #  index_listings_on_listing_type      (listing_type_old)
 #  index_listings_on_new_category_id   (category_id)
