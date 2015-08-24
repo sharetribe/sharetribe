@@ -2085,8 +2085,8 @@ pt-BR:
       other: "%{count} dias"
     time_to:
       days:
-        other: "%{count} dias"
         one: "%{count} dia"
+        other: "%{count} dias"
   transactions:
     initiate:
       booked_days: "Dias reservados:"

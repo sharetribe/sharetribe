@@ -423,15 +423,24 @@ sv:
         update_success: "Ändringar till ordertyp %{shape} sparade"
         update_failure: "Kunde inte spara ändringar. Fel: %{error_msg}"
         delete: "Ta bort ordertyp"
-        can_not_delete_last: "Du kan inte ta bort denna typ eftersom det är den enda i din marknadsplats."
-        can_not_delete_only_one_in_categories: "Du kan inte ta bort denna ordertyp eftersom det är den enda ordertyp som används i följande kategori: %{categories}"
         confirm_delete_order_type:
           one: "Det är %{count} annons med denna ordertyp. Om du tar bort ordertypen så kommer annonsen att stängas. Är du säker på att du vill ta bort ordertypen?"
           other: "Det är %{count} annonser med denna ordertyp. Om du tar bort ordertypen så kommer annonserna att stängas. Är du säker på att du vill ta bort ordertypen?"
+        can_not_delete_last: "Du kan inte ta bort denna typ eftersom det är den enda i din marknadsplats."
+        can_not_delete_only_one_in_categories: "Du kan inte ta bort denna ordertyp eftersom det är den enda ordertyp som används i följande kategori: %{categories}"
       listing_shape_name: Namn
       listing_shape_name_placeholder: "T ex sälja"
       action_button_label: "Kassan namn på knapp"
       action_button_placeholder: "T ex köpa"
+      open_listings_warning:
+        one: "Det finns %{count} öppnad annons med denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonsen att ha dom gamla inställningarna. Annonsen kan ändras till de nya inställningarna genom att ändra den manuellt. Om du inte vill ha annonsen med de gamla inställningarna synliga på din sida så kan du välja att stänga den genom att klicka på knappen nedan."
+        other: "Det finns %{count} öppnade annonser med denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonserna att ha dom gamla inställningarna. Annonserna kan ändras till de nya inställningarna genom att ändra dessa manuellt. Om du inte vill ha annonserna med de gamla inställningarna synliga på din sida så kan du välja att stänga dem genom att klicka på knappen nedan."
+      close_listings_action:
+        one: "Stäng %{count} annons"
+        other: "Stäng %{count} annonser"
+      confirm_close_listings_action:
+        one: "Är du säker på att du vill stänga %{count} annonsen?"
+        other: "Är du säker på att du vill stänga %{count} annonserna?"
       successfully_closed: "Annonser stängda"
       successfully_deleted: "Ordertyp %{order_type} borttagen"
       pricing_and_checkout_title: "Priser och kassan"
@@ -461,15 +470,6 @@ sv:
           heading: Enhetstyp
           quantity_label: "Kvantitet (per styck, per kg, per person, per 2 timmar...)"
           time_label: "Tid (per 30 minuter, per 2 veckor, per år...)"
-      close_listings_action:
-        one: "Stäng %{count} annons"
-        other: "Stäng %{count} annonser"
-      confirm_close_listings_action:
-        one: "Är du säker på att du vill stänga %{count} annonsen?"
-        other: "Är du säker på att du vill stänga %{count} annonserna?"
-      open_listings_warning:
-        one: "Det finns %{count} öppnad annons med denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonsen att ha dom gamla inställningarna. Annonsen kan ändras till de nya inställningarna genom att ändra den manuellt. Om du inte vill ha annonsen med de gamla inställningarna synliga på din sida så kan du välja att stänga den genom att klicka på knappen nedan."
-        other: "Det finns %{count} öppnade annonser med denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonserna att ha dom gamla inställningarna. Annonserna kan ändras till de nya inställningarna genom att ändra dessa manuellt. Om du inte vill ha annonserna med de gamla inställningarna synliga på din sida så kan du välja att stänga dem genom att klicka på knappen nedan."
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"
