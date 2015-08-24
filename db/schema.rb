@@ -564,6 +564,7 @@ ActiveRecord::Schema.define(:version => 20150821131616) do
   end
 
   add_index "listings", ["category_id"], :name => "index_listings_on_new_category_id"
+  add_index "listings", ["community_id"], :name => "index_listings_on_community_id"
   add_index "listings", ["listing_shape_id"], :name => "index_listings_on_listing_shape_id"
   add_index "listings", ["listing_type_old"], :name => "index_listings_on_listing_type"
   add_index "listings", ["old_category_id"], :name => "index_listings_on_category_id"

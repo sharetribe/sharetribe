@@ -50,6 +50,7 @@
 # Indexes
 #
 #  index_listings_on_category_id       (old_category_id)
+#  index_listings_on_community_id      (community_id)
 #  index_listings_on_listing_shape_id  (listing_shape_id)
 #  index_listings_on_listing_type      (listing_type_old)
 #  index_listings_on_new_category_id   (category_id)
