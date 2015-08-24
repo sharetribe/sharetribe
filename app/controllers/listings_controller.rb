@@ -222,7 +222,6 @@ class ListingsController < ApplicationController
         transaction_process_id: shape[:transaction_process_id],
         shape_name_tr_key: shape[:name_tr_key],
         action_button_tr_key: shape[:action_button_tr_key],
-        current_community_id: @current_community.id
     ).merge(unit_to_listing_opts(m_unit)).except(:unit)
 
     @listing = Listing.new(listing_params)
@@ -330,7 +329,6 @@ class ListingsController < ApplicationController
       transaction_process_id: shape[:transaction_process_id],
       shape_name_tr_key: shape[:name_tr_key],
       action_button_tr_key: shape[:action_button_tr_key],
-      current_community_id: @current_community.id,
       last_modified: DateTime.now
     ).merge(open_params).merge(unit_to_listing_opts(m_unit)).except(:unit)
 

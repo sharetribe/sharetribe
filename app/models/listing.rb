@@ -91,8 +91,6 @@ class Listing < ActiveRecord::Base
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
   monetize :shipping_price_additional_cents, allow_nil: true, with_model_currency: :currency
 
-  attr_accessor :current_community_id
-
   # Create an "empty" relationship. This is needed in search when we want to stop the search chain (NumericFields)
   # and just return empty result.
   #
