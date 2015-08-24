@@ -14,9 +14,6 @@
 
     .fluid-thumbnail-grid-image-overlay{:class => "#{modifier_class}"}
     .fluid-thumbnail-grid-image-title{:class => "#{modifier_class}"}
-      - with_first_listing_image_processing(listing) do
-        = t(".processing_uploaded_image")
-        %br/
       = listing.title
 
     .fluid-thumbnail-grid-image-price-container{:class => "#{modifier_class}"}
