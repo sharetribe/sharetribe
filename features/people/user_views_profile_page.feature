@@ -58,31 +58,6 @@ Feature: User views profile page
     And I should see "massage"
 
   @javascript
-  Scenario: User views a profile page with listings with visibility settings
-     Given there are following users:
-       | person |
-       | kassi_testperson1 |
-       | kassi_testperson2 |
-     And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
-     And privacy of that listing is "private"
-     And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with listing shape "Selling services"
-     And there is a listing with title "apartment" from "kassi_testperson1" with category "Spaces" and with listing shape "Requesting"
-     And that listing is closed
-     And I am on the home page
-     And I should not see "car spare parts"
-     When I follow "massage"
-     And I follow "listing-author-link"
-     And I should not see "car spare parts"
-     And I should see "massage"
-     When I log in as "kassi_testperson1"
-     And I follow "listing-author-link"
-     Then I should see "car spare parts"
-     And I should see "massage"
-     And I should not see "apartment"
-     When I follow "Show also closed"
-     Then I should see "apartment"
-
-  @javascript
   Scenario: User views feedback in a profile page
     Given there are following users:
        | person |

@@ -101,7 +101,13 @@ class ListingsController < ApplicationController
   # Used to show multiple listings in one bubble
   def listing_bubble_multiple
     ids = numbers_str_to_array(params[:ids])
-    @listings = Listing.visible_to(@current_user, @current_community, ids).order("id DESC")
+
+    if @current_user || !@current_community.private?
+      @listings = @current_community.listings.where(listings: {id: ids}).order("listings.created_at DESC")
+    else
+      @listings = []
+    end
+
     if @listings.size > 0
       render :partial => "homepage/listing_bubble_multiple"
     else
@@ -549,17 +555,15 @@ class ListingsController < ApplicationController
 
   # Ensure that only users with appropriate visibility settings can view the listing
   def ensure_authorized_to_view
-    @listing = Listing.find(params[:id])
+    # If listing is not found (in this community) the find method
+    # will throw ActiveRecord::NotFound exception, which is handled
+    # correctly in production environment (404 page)
+    @listing = @current_community.listings.find(params[:id])
 
     raise ListingDeleted if @listing.deleted?
 
     unless @listing.visible_to?(@current_user, @current_community) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
-      if @listing.public?
-        # This situation occurs when the user tries to access a listing
-        # via a different community url.
-        flash[:error] = t("layouts.notifications.this_content_is_not_available_in_this_community")
-        redirect_to root and return
-      elsif @current_user
+      if @current_user
         flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
         redirect_to root and return
       else

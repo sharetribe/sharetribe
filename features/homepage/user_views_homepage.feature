@@ -12,15 +12,10 @@ Feature: User views homepage
     And there is a listing with title "bike" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And that listing is closed
     And there is a listing with title "saw" from "kassi_testperson2" with category "Items" and with listing shape "Requesting"
-    And privacy of that listing is "private"
     When I am on the homepage
     Then I should see "car spare parts"
     And I should not see "bike"
-    And I should not see "saw"
-    When I log in as "kassi_testperson1"
-    Then I should see "saw"
-    And I should see "car spare parts"
-    And I should not see "bike"
+    And I should see "saw"
 
   @javascript
   Scenario: Latest requests on the homepage
@@ -35,53 +30,6 @@ Feature: User views homepage
     And I should not see "offer item"
 
   @javascript
-  Scenario: User browses homepage with requests with visibility settings
-    Given there are following users:
-      | person |
-      | kassi_testperson1 |
-    And there is a listing with title "car spare parts" from "kassi_testperson2" with category "Items" and with listing shape "Requesting"
-    And privacy of that listing is "private"
-    And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
-    And there is a listing with title "place to live" from "kassi_testperson1" with category "Spaces" and with listing shape "Requesting"
-    And visibility of that listing is "all_communities"
-    And privacy of that listing is "private"
-    And I am on the home page page
-    And I should not see "car spare parts"
-    And I should see "massage"
-    And I should not see "place to live"
-    When I log in as "kassi_testperson1"
-    Then I should see "car spare parts"
-    And I should see "massage"
-    And I should see "place to live"
-
-  @javascript
-  @subdomain2
-  Scenario: User browses homepage in a different subdomain
-    Given there are following users:
-       | person |
-       | kassi_testperson1 |
-       | kassi_testperson2 |
-    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with listing shape "Requesting"
-    And privacy of that listing is "private"
-    And that listing belongs to community "test"
-    And there is a listing with title "massage" from "kassi_testperson2" with category "Services" and with listing shape "Requesting"
-    And visibility of that listing is "all_communities"
-    And that listing belongs to community "test"
-    And there is a listing with title "saw" from "kassi_testperson2" with category "Items" and with listing shape "Requesting"
-    And visibility of that listing is "all_communities"
-    And privacy of that listing is "private"
-    And that listing belongs to community "test"
-    And that listing is visible to members of community "test2"
-    When I am on the homepage
-    Then I should not see "car spare parts"
-    And I should not see "massage"
-    And I should not see "saw"
-    When I log in as "kassi_testperson2"
-    Then I should not see "car spare parts"
-    And I should not see "massage"
-    And I should see "saw"
-
-  @javascript
   Scenario: User browses homepage when there is no content
     Given there are following users:
        | person |
@@ -94,23 +42,6 @@ Feature: User views homepage
     And I am on the homepage
     Then I should not see "No open item, service or rideshare requests."
     And I should not see "No open item, service or rideshare offers."
-
-  @javascript
-  Scenario: User browses homepage when there are only private listings. He should see blank slates
-    Given there are following users:
-      | person |
-      | kassi_testperson1 |
-    And there is a listing with title "car spare parts" from "kassi_testperson2" with category "Items" and with listing shape "Selling"
-    And privacy of that listing is "private"
-    And there is a listing with title "place to live" with category "Spaces" and with listing shape "Requesting"
-    And privacy of that listing is "private"
-    And I am on the home page page
-    And I should not see "car spare parts"
-    And I should not see "place to live"
-    When there is a listing with title "bike parts" from "kassi_testperson2" with category "Items" and with listing shape "Requesting"
-    And privacy of that listing is "private"
-    And I am on the homepage
-    Then I should not see "bike parts"
 
   @pending
   Scenario: Latest transactions on the homepage

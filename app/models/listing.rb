@@ -23,7 +23,6 @@
 #  delta                           :boolean          default(TRUE), not null
 #  open                            :boolean          default(TRUE)
 #  share_type_old                  :string(255)
-#  privacy                         :string(255)      default("private")
 #  comments_count                  :integer          default(0)
 #  subcategory_old                 :string(255)
 #  old_category_id                 :integer
@@ -93,9 +92,6 @@ class Listing < ActiveRecord::Base
 
   attr_accessor :current_community_id
 
-  scope :public, :conditions  => "privacy = 'public'"
-  scope :private, :conditions  => "privacy = 'private'"
-
   # Create an "empty" relationship. This is needed in search when we want to stop the search chain (NumericFields)
   # and just return empty result.
   #
@@ -104,7 +100,6 @@ class Listing < ActiveRecord::Base
   scope :none, where('1 = 0')
 
   VALID_VISIBILITIES = ["this_community", "all_communities"]
-  VALID_PRIVACY_OPTIONS = ["private", "public"]
 
   before_validation :set_valid_until_time
   before_save :set_community_visibilities
@@ -146,16 +141,6 @@ class Listing < ActiveRecord::Base
     end
   end
 
-  # Filter out listings that current user cannot see
-  def self.visible_to(current_user, current_community, ids=nil)
-    id_list = ids ? ids : current_community.listings.pluck(:id)
-    if current_user && current_user.member_of?(current_community)
-      where("listings.id IN (?)", id_list)
-    else
-      where("listings.privacy = 'public' AND listings.id IN (?)", id_list)
-    end
-  end
-
   def self.currently_open(status="open")
     status = "open" if status.blank?
     case status
@@ -170,19 +155,6 @@ class Listing < ActiveRecord::Base
 
   def visible_to?(current_user, current_community)
     ListingVisibilityGuard.new(self, current_community, current_user).visible?
-  end
-
-  def public?
-    self.privacy.eql?("public")
-  end
-
-  # Get only listings that are restricted only to the members of the current
-  # community (or to many communities including current)
-  def self.private_to_community(community)
-    where("
-      listings.privacy = 'private'
-      AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{community.id}')
-    ")
   end
 
   # sets the time to midnight
@@ -246,9 +218,6 @@ class Listing < ActiveRecord::Base
       #   with[:open] = false
       # end
 
-      unless current_user && current_user.communities.include?(current_community)
-        with[:visible_to_everybody] = true
-      end
       with[:community_ids] = current_community.id
 
       with[:category_id] = params[:categories][:id] if params[:categories].present?
@@ -288,7 +257,7 @@ class Listing < ActiveRecord::Base
       query[:categories] = params[:categories] if params[:categories]
       query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
       query[:id] = params[:listing_id] if params[:listing_id].present?
-      listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
+      listings = current_community.listings.joins(joined_tables).where(query).currently_open(params[:status]).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings
   end

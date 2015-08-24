@@ -22,7 +22,6 @@ ThinkingSphinx::Index.define :listing, :with => :active_record, :delta => Thinki
   has sort_date
   has category(:id), :as => :category_id
   has listing_shape_id
-  has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
   has communities(:id), :as => :community_ids
   has custom_dropdown_field_values.selected_options.id, :as => :custom_dropdown_field_options, :type => :integer, :multi => true
   has custom_checkbox_field_values.selected_options.id, :as => :custom_checkbox_field_options, :type => :integer, :multi => true

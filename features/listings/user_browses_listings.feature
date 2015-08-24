@@ -102,28 +102,3 @@ Feature: User browses listings
     And I should not see "saw"
     And I should not see "axe"
     And I should not see "toolbox"
-
-  @javascript @sphinx @no-transaction
-  Scenario: User browses requests with visibility settings
-    Given there are following users:
-      | person |
-      | kassi_testperson1 |
-    And there is a listing with title "car spare parts" from "kassi_testperson2" with category "Items" and with listing shape "Requesting"
-    And privacy of that listing is "private"
-    And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
-    And there is a listing with title "apartment" with category "Spaces" and with listing shape "Requesting"
-    And visibility of that listing is "this_community"
-    And privacy of that listing is "private"
-    And that listing is closed
-    And the Listing indexes are processed
-
-    When I am on the home page
-    When I choose to view only listing shape "Request"
-    Then I should not see "car spare parts"
-    And I should see "massage"
-    And I should not see "apartment"
-    When I log in as "kassi_testperson1"
-    When I choose to view only listing shape "Request"
-    Then I should see "car spare parts"
-    And I should see "massage"
-    And I should not see "apartment"
