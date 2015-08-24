@@ -747,6 +747,11 @@ hy-AM:
       credit_card_expiration_date: ~
       confirm_payment: ~
       exp: ~
+  feedback:
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   preauthorize_payments:
     edit:
       confirm_payment: ~

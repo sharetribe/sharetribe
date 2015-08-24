@@ -747,6 +747,11 @@ hu:
       credit_card_expiration_date: ~
       confirm_payment: ~
       exp: ~
+  feedback:
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   preauthorize_payments:
     edit:
       confirm_payment: ~
@@ -1005,13 +1010,13 @@ hu:
     error_500_title: "Az oldal betöltése nem sikerült"
     error_description: ~
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
+      javascript_is_disabled_in_your_browser: "A JavaScript ki van kapcsolva a böngésződben"
       kassi_does_not_currently_work_without_javascript: ~
       contact_us: ~
-      send_feedback: ~
+      send_feedback: "Visszajelzés küldése"
       your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+    send: Küldés
+    your_email_address: "Az e-mail címed"
   errors:
     messages:
       invalid_date: ~
@@ -1134,9 +1139,9 @@ hu:
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      email: ~
-      message: ~
-      send_invitation: ~
+      email: "E-mail cím(ek)"
+      message: "Személyes üzenet"
+      send_invitation: "Meghívó küldése"
       add_email_addresses_description: ~
       add_lots_of_email_addresses: ~
       this_article_link: ~

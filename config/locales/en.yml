@@ -1522,6 +1522,10 @@ en:
         all_communities: "All my Sharetribe marketplaces"
         this_community: "Only members of %{service_name}"
         visibility: Visibility
+      privacy:
+        privacy: Privacy
+        private: "Private (only signed-in users can see)"
+        public: "Public (visible to non-signed-in users)"
     help_texts:
       help_share_type_title: "Type of the offer or request"
       help_tags_title: Tags

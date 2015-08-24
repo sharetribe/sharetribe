@@ -774,6 +774,11 @@ da-DK:
       credit_card_expiration_date: "Betalingskort udløbsdato"
       confirm_payment: "Bekræft betaling"
       exp: "Exp:"
+  feedback:
+    feedback_subject: "Ny feedback fra %{service_name}"
+    feedback_body: "%{author_name_and_email} har sendt følgende feedback fra %{service_name}"
+    unlogged_user: "ikke ind-logget bruger"
+    anonymous_user: "Anonym bruger"
   preauthorize_payments:
     edit:
       confirm_payment: "Bekræft betaling"

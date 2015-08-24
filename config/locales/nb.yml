@@ -776,6 +776,11 @@ nb:
       credit_card_expiration_date: Utløpsdato
       confirm_payment: "Bekreft betaling"
       exp: "Utløpsdato:"
+  feedback:
+    feedback_subject: "Ny tilbakemelding fra %{service_name}"
+    feedback_body: "%{author_name_and_email} har sendt følgende tilbakemelding fra %{service_name}"
+    unlogged_user: "Ulogget bruker"
+    anonymous_user: "Anonym bruker"
   preauthorize_payments:
     edit:
       confirm_payment: "Bekreft betaling"

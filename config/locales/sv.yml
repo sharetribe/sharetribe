@@ -123,36 +123,36 @@ sv:
         edit_message: "Redigera meddelande"
         send_test_message: "Skicka testmeddelande"
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
-        successfully_saved: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
-        invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
-        unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        title: "Utgående e-postadress"
+        info: "Detta namn och adress används för e-post som skickas från din marknadsplats till dina medlemmar."
+        read_more: "Läs mer om utgående e-postadress"
+        sender_address: "Avsändaradress: %{sender_address}"
+        sender_address_default: "Avsändaradress: inte inställd (använd standardadress %{sender_address})"
+        need_to_change: "Om du behöver ändra e-postadressen vänligen %{contact_support_link}."
+        contact_support_link_text: "kontakta vår support"
+        set_sender_address: "Ställ in avsändaradress"
+        sender_name_label: Namn
+        sender_name_placeholder: Avsändarnamn
+        sender_email_label: E-postadress
+        sender_email_placeholder: dinmail@exempel.com
+        this_is_how_it_will_look: "Så här kommer det se ut:"
+        send_verification_button: "Skicka verifikationsmail"
+        successfully_saved: "Avsändaradress sparades korrekt. Verifikationsmailet kommer att skickas snart."
+        status: "Status: %{status}"
+        status_verified: "Verifierad - används"
+        status_error: "Ett fel inträffade. Vänligen ladda om sidan."
+        status_requested: "Overifierad - verifikationsmail skickades till %{email}%{time_ago}.%{resend_link}"
+        status_expired: "Verifikation på %{email} har gått ut. %{resend_link}"
+        status_resent: "Verifikationsmail skickades till %{email}.%{resend_link}"
+        resend_link: "Skicka igen"
+        invalid_email_error: "Felaktig e-postformat för %{email}"
+        invalid_email_domain: "E-postadressen %{email} använder en otillåten e-postleverantör: %{domain}. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Vänligen läs kunskapsbasartikeln för mer information."
+        unknown_error: "Någonting gick fel"
+        only_white_label_offer: "Denna funktion är en del av Sharetribe white-label. För att aktivera denna funktion så behöver du %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "uppgradera till Pro planen eller högre"
+        verification_sent_from: "Verifikationsmailet skickades från %{verification_sender_name}."
+        follow_the_instructions: "Vänligen följ instruktionerna i mailet för att verifiera din adress."
       getting_started:
         getting_started: Kom-igång-guide
         welcome_to_your_marketplace: "Välkommen till din marknadsplats, %{name}!"
@@ -165,8 +165,8 @@ sv:
         categories_link_text: "lägg till kategorier och underkategorier"
         custom_fields_link_text: "konfigurera formulärfälten"
         filters_link_text: "vilken typ av filter"
-        order_types: ~
-        order_types_link_text: ~
+        order_types: "Du kan också ställa in hur orderprocessen fungerar på din marknadsplats. Säljer, hyr, eller ger dina användare bort saker gratis? Erbjuder de hyror per timme, dag eller vecka? Dessa saker kan konfigureras från %{order_types_link}."
+        order_types_link_text: "ordertyp vy"
         payments: "Om du vill att folk ska kunna betala för sina inköp via din marknadsplats, så att du kan ta ut en avgift för varje inköp, så ska du %{payments_link}."
         payments_link_text: "konfigurera betalningsmetod"
         info_texts: "Glöm inte att skräddarsy informationssidorna och annan text där du kan tala om för dina användare om din marknadsplats. Bra ställen att kolla in är din %{about_page_link}, din %{terms_of_use_link} (du borde lägga till dina egna användarvillkor här, antingen genom att ändra mallen eller skapa ett helt nytt dokument), dina %{privacy_policy_link}, och %{welcome_email_link} som skickas till alla nya användare. Det är också några %{instruction_texts_link} som du kan ändra."
@@ -195,7 +195,7 @@ sv:
         fr-CA: "Franska (Kanada)"
         es: "Spanska (Chile)"
         es-ES: Spanska
-        pt-BR: Portugisiska
+        pt-BR: "Brasiliansk portugisiska"
         nb: Norska
         sv: Svenska
         da-DK: Danska
@@ -234,15 +234,15 @@ sv:
         automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
         newsletter_daily: Dagligen
         newsletter_weekly: Veckovis
-        delete_marketplace_title: ~
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_marketplace_title: "Ta bort marknadsplatsen"
+        type_marketplace_domain: "Skriv in din marknadsplats domän %{domain} i textrutan nedan:"
+        type_marketplace_domain_placeholder: "Skriv in din marknadsplats domän här"
+        once_you_delete: "När du tar bort din marknadsplats så kommer du inte att kunna komma åt den längre. Var försiktig!"
+        are_you_sure: "Är du säker?"
+        i_understand_button: "Jag förstår att min marknatsplats kommer att tas bort när jag klickar på denna knapp"
+        last_community_updates: "Vänligen notera att efter borttagning så kan du och dina marknadsplatsanvändare fortfarande få de sista uppdateringsmailen från din marknadsplats."
+        you_will_be_redirected_to: "Efter att du har tagit bort din marknadsplats så kommer du skickas vidare till %{destination}. Du kommer inte att kunna komma in på din marknadsplats längre."
+        delete_this_marketplace: "Ta bort denna marknadsplats"
       manage_members:
         manage_members: "Hantera användare"
         email: E-post
@@ -394,10 +394,10 @@ sv:
         select_template: "Välj mall..."
         all_categories: "Alla kategorier"
         no_categories: "Inga kategorier"
-        category_count: ~
+        category_count: "%{category_count} kategorier"
         header:
           listing_shape_name: "Ordertyp namn"
-          listing_shape_categories: "Ordertyp kategorier"
+          listing_shape_categories: "Kategorier där det används"
         order:
           saving_order: "Sparar ordning"
           save_order_successful: "Ordning sparad"
@@ -408,7 +408,7 @@ sv:
         offering_services: Tjänster
         giving_things_away: "Ge bort saker"
         requesting: Förfrågan
-        announcement: Meddelande
+        announcement: Inläggsmeddelande
         custom: Anpassad
       new:
         create_listing_shape: "Skapa ordertyp"
@@ -425,6 +425,9 @@ sv:
         delete: "Ta bort ordertyp"
         can_not_delete_last: "Du kan inte ta bort denna typ eftersom det är den enda i din marknadsplats."
         can_not_delete_only_one_in_categories: "Du kan inte ta bort denna ordertyp eftersom det är den enda ordertyp som används i följande kategori: %{categories}"
+        confirm_delete_order_type:
+          one: "Det är %{count} annons med denna ordertyp. Om du tar bort ordertypen så kommer annonsen att stängas. Är du säker på att du vill ta bort ordertypen?"
+          other: "Det är %{count} annonser med denna ordertyp. Om du tar bort ordertypen så kommer annonserna att stängas. Är du säker på att du vill ta bort ordertypen?"
       listing_shape_name: Namn
       listing_shape_name_placeholder: "T ex sälja"
       action_button_label: "Kassan namn på knapp"
@@ -432,9 +435,9 @@ sv:
       successfully_closed: "Annonser stängda"
       successfully_deleted: "Ordertyp %{order_type} borttagen"
       pricing_and_checkout_title: "Priser och kassan"
-      online_payments_label: "Använd onlinebetalningssystem"
+      online_payments_label: "Tillåt att säljare använder onlinebetalningssystem"
       shipping_label: "Låt säljare att definiera en fraktavgift"
-      price_label: "Visa prisfält"
+      price_label: "Tillåt säljare att lägga till ett pris till deras annonser"
       units_title: Prissättningsenhet
       units_desc: "Om du har aktiverat prissättningsenhet så visas annonsens pris som \"pris per prisenhet\". Ett exempel: \"$39 per timme\"."
       units:
@@ -445,19 +448,28 @@ sv:
         week: "Per vecka"
         month: "Per månad"
       can_not_find: "Det går inte att hitta ordertyp med id: %{id}"
-      add_custom_unit: ~
-      delete_custom_unit: ~
+      add_custom_unit: "+ Lägg till en anpassningsbar prisenhet..."
+      delete_custom_unit: "ta bort"
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        title: "Ny prisenhet"
+        label_heading: Etikett
+        selector_label_heading: "Välj etikett"
+        label_placeholder: "ex. \"kg\", \"30 minuter\", \"person\", \"klass\""
+        selector_placeholder: "ex. \"Antal personer\", \"Summa i kg\""
+        per: per
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: Enhetstyp
+          quantity_label: "Kvantitet (per styck, per kg, per person, per 2 timmar...)"
+          time_label: "Tid (per 30 minuter, per 2 veckor, per år...)"
+      close_listings_action:
+        one: "Stäng %{count} annons"
+        other: "Stäng %{count} annonser"
+      confirm_close_listings_action:
+        one: "Är du säker på att du vill stänga %{count} annonsen?"
+        other: "Är du säker på att du vill stänga %{count} annonserna?"
+      open_listings_warning:
+        one: "Det finns %{count} öppnad annons med denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonsen att ha dom gamla inställningarna. Annonsen kan ändras till de nya inställningarna genom att ändra den manuellt. Om du inte vill ha annonsen med de gamla inställningarna synliga på din sida så kan du välja att stänga den genom att klicka på knappen nedan."
+        other: "Det finns %{count} öppnade annonser med denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonserna att ha dom gamla inställningarna. Annonserna kan ändras till de nya inställningarna genom att ändra dessa manuellt. Om du inte vill ha annonserna med de gamla inställningarna synliga på din sida så kan du välja att stänga dem genom att klicka på knappen nedan."
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"
@@ -472,8 +484,8 @@ sv:
       minimum_transaction_fee_label: "Lägsta transaktionskostnad:"
       save_settings: "Spara inställningar"
       note_about_transaction_fee: "Notera: i transaktionsavgiften ingår PayPals avgifter som beror på din valuta och försäljningsvolymen på säljaren. Av denna anledning är avgiften alltid minst %{min_paypal_commission}. När avgiften tas ut från säljaren, kommer PayPal att ta sina arvoden först, och resten kommer att flyttas till ditt PayPal-konto."
-      minimum_listing_price_below_tx_fee: "måste vara minst samma som minsta transaktionskostnad %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: "måste vara större än minsta provision %{minimum_commission}."
+      minimum_listing_price_below_tx_fee: "Minsta transaktionsstorlek måste minst vara samma som minsta transaktionsavgift %{minimum_transaction_fee}"
+      minimum_listing_price_below_min: "Minsta transaktionsstorlek måste vara större än minsta provision %{minimum_commission}."
     transaction_types:
       sell: Säljer
       rent: "Hyr ut"
@@ -482,7 +494,7 @@ sv:
       swap: Byta
       service: Erbjudande
       request: Förfrågan
-      inquiry: Förfrågan
+      inquiry: Meddelande
       share_for_free: Dela
       default_action_button_labels:
         sell: Köp
@@ -616,7 +628,7 @@ sv:
       canceled_request: "avbröt förfrågan"
       canceled_offer: "avbröt erbjudandet"
       paid: "Betalt %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Betalning godkänd: %{sum}"
     new:
       offer_message_form_title: "Erbjud %{listing} till %{person}"
       request_message_form_title: "Förfrågan %{listing} från %{person}"
@@ -766,6 +778,11 @@ sv:
       credit_card_expiration_date: "Kreditkortets utgångsdatum"
       confirm_payment: "Bekräfta betalning"
       exp: "Exp:"
+  feedback:
+    feedback_subject: "Ny feedback från %{service_name}"
+    feedback_body: "%{author_name_and_email} har skickat följande feedback från %{service_name}"
+    unlogged_user: "Ej inloggad användare"
+    anonymous_user: "Anonym användare"
   preauthorize_payments:
     edit:
       confirm_payment: "Bekräfta betalning"
@@ -948,7 +965,7 @@ sv:
     transaction_preauthorized:
       subject: "%{requester} har efterfrågat och betalat för %{listing_title}"
       transaction_requested_by_user: "%{requester} har efterfrågat och betalat för \"%{listing_title}\""
-      you_have_time_to_accept: ~
+      you_have_time_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in} dagar. Om du inte accepterar detta inom tidsramen så kommer automatiskt förfrågan att avböjas och du kommer inte att få någon betalning."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
     transaction_preauthorized_reminder:
       subject: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}"
@@ -1000,8 +1017,8 @@ sv:
     transaction_agreement:
       required_error: "Du behöver acceptera avtalet"
     paypal:
-      buyer_cannot_pay_error: ~
-      pending_review_error: ~
+      buyer_cannot_pay_error: "Betalningen har avslagits av PayPal. Vänligen kontakta deras kundtjänst för mer information: %{customer_service_link}"
+      pending_review_error: "Betalningen gick iväg men flaggas av PayPal som \"kräver en översyn\". När PayPal avslutar översynen kommer betalningen bli godkänd."
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din PayPal betalning."
       cancel_error: "Ett fel inträffade. Det gick ej att slutföra."
       accept_authorization_error: "Ett fel uppstod vid försök att acceptera PayPal betalningen. Försök igen."
@@ -1159,8 +1176,8 @@ sv:
       message: "Ett personligt meddelande"
       send_invitation: "Skicka inbjudan"
       add_email_addresses_description: "Lägg till de e-postadresser i fältet nedan till personer som du vill bjuda in. Om du lägger till flera e-postadresser, använd kommatecken för att separera dem."
-      add_lots_of_email_addresses: ~
-      this_article_link: ~
+      add_lots_of_email_addresses: "Om du planerar att skicka många inbjudningar, så rekommenderar vi att du använder e-postverktyget. Kolla in %{this_article_link} för att hitta lämpliga e-posttjänster."
+      this_article_link: "denna artikel"
       invitation_emails_field_placeholder: "kompis1@exempel.com, kompis2@exempel.com, ..."
       invitation_message_field_placeholder: "Jag gick med denna fantastiska marknadsplats. Det borde du också göra!"
       errors_in_emails: "Kontrollera att e-postadresserna som du la till är giltiga. Om du la till flera adresser, kontrollera så att de är separerade med kommatecken."
@@ -1286,7 +1303,7 @@ sv:
       feedback_sent_to: "Feedback skickades till %{target_person}."
       feedback_skipped: "Feedback skippades"
       invitation_cannot_be_sent: "Inbjudan kunde inte skickas"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Du försökte skicka för många inbjudningar. Dagliga gränsen är nådd."
       invitation_sent: "Inbjudan skickades"
       inviting_new_users_is_not_allowed_in_this_community: "Bjuda in nya användare är inte tillåtet."
       login_again: "Var vänlig logga in igen."
@@ -1356,7 +1373,7 @@ sv:
       you_must_log_in_to_invite_new_users: "Du måste logga in för att bjuda in nya medlemmar till %{service_name}!"
       you_must_log_in_to_send_a_comment: "Du måste logga in för att skicka en ny kommentar"
       you_must_log_in_to_send_a_message: "Du måste logga in på %{service_name} för att skicka ett meddelande till en annan användare."
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "Du måste logga in på %{service_name} för att göra en transaktion."
       you_must_log_in_to_view_this_content: "Du måste logga in för att se detta innehåll"
       you_must_log_in_to_view_this_page: "Du måste logga in för att visa denna sida"
       you_must_log_in_to_view_your_inbox: "Du måste logga in på %{service_name} för att visa din inkorg."
@@ -1590,7 +1607,7 @@ sv:
       contact: Kontakta
       favor_offer: "Tjänst som erbjuds"
       favor_request: "Tjänst som önskas"
-      inquiry: Förfrågan
+      inquiry: Meddelande
       item_offer_trade: "Byt erbjudande"
       item_request_trade: "Byt förfrågan"
       no_description: "Denna annons har ingen beskrivning"
@@ -1699,7 +1716,7 @@ sv:
     commission: "%{commission} %"
     connected_account: "PayPal konto %{email} kopplades korrekt."
     change_account: "Byt konto"
-    missing: "Du har öppna annonser, men du har inte kopplat ditt PayPalkonto så att du kan inte ta emot betalningar. Vänligen koppla ditt PayPalkonto i dina %{settings_link}."
+    missing: "Du har öppna annonser, men ditt PayPal-konto är inte inställt för att ta emot betalningar. Koppla ditt PayPal-konto och ge %{service_name} tillåtelse at ta en transaktionsavgift från din %{settings_link}."
     from_your_payment_settings_link_text: betalningsinställningar
     new:
       payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal-konto med %{service_name}."
@@ -1769,7 +1786,7 @@ sv:
       invalid_invitation_code: "Inbjudningskoden är inte korrekt."
       invitation_code: Inbjudningskod
       not_required: ", krävs inte"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Du måste välja minst en e-postadress för att få notifieringar. Om du inte vill få några e-postmeddelanden från %{service_name}, vänligen kolla dina e-postnotifikationsinställningar."
       organization_name: Organisationsnamn
       password_again: "Bekräfta lösenord"
       show_my_name_to_others: "Visa mitt riktiga namn till andra %{service_name} användare"

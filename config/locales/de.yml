@@ -762,6 +762,11 @@ de:
       credit_card_expiration_date: "Ablaufdatum der Kreditkarte"
       confirm_payment: "Zahlung bestätigen"
       exp: ~
+  feedback:
+    feedback_subject: "Neue Bewertung von %{service_name}"
+    feedback_body: "%{author_name_and_email} hat Dir die folgende Bewertung auf %{service_name} gesendet"
+    unlogged_user: "Nicht angemeldeter Nutzer"
+    anonymous_user: "Anonymer Benutzer"
   preauthorize_payments:
     edit:
       confirm_payment: "Zahlung bestätigen"

@@ -766,6 +766,11 @@ fr-CA:
       credit_card_expiration_date: "Date d'expiration"
       confirm_payment: "Confirmer le paiement"
       exp: "Exp :"
+  feedback:
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   preauthorize_payments:
     edit:
       confirm_payment: "Confirmer le paiement"
