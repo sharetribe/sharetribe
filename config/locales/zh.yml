@@ -118,36 +118,36 @@ zh:
         edit_message: 编辑消息
         send_test_message: 发送测试消息
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
-        successfully_saved: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
-        invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
-        unknown_error: ~
-        only_white_label_offer: ~
-        upgrade_pro_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        title: 发送邮件地址
+        info: 名称和地址是用于从你的集市发送邮件给用户。
+        read_more: 了解更多关于发邮件给用户
+        sender_address: "发送者邮件地址：%{sender_address}"
+        sender_address_default: "发送者邮件地址：没有设置（使用默认地址%{sender_address}）"
+        need_to_change: "如果你需要修改邮箱地址，请%{contact_support_link}"
+        contact_support_link_text: 联系我们的支持人员
+        set_sender_address: 设置发送者邮件地址
+        sender_name_label: 名称
+        sender_name_placeholder: 发送者名称
+        sender_email_label: 电子邮件地址
+        sender_email_placeholder: sender-email@example.com
+        this_is_how_it_will_look: 这就是它会看上去的样子：
+        send_verification_button: 发送验证邮件
+        successfully_saved: 发送者的邮件地址保存成功。验证邮件将很快被送出。
+        status: "状态：%{status}"
+        status_verified: "已验证 - 在使用"
+        status_error: 出错了。请刷新这个页面。
+        status_requested: "未验证的 - 验证邮件已于%{time_ago}发送到%{email}。%{resend_link}"
+        status_expired: "邮箱%{email}验证过期了。%{resend_link}"
+        status_resent: "验证邮件重新发送到%{email}。%{resend_link}"
+        resend_link: 重新发送
+        invalid_email_error: "邮件地址%{email}格式不正确"
+        invalid_email_domain: "邮件地址%{email}来自不被支持的邮件提供商：‘%{domain}’。%{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: 通过读知识库的文章获得更多信息
+        unknown_error: 出错了
+        only_white_label_offer: "这个功能属于Sharetribe的自由品牌功能。要想启用该功能，你应该%{upgrade_pro_plan_link}"
+        upgrade_pro_plan_link: 升级到我们的专业版或者更高
+        verification_sent_from: "验证邮件已经从%{verification_sender_name}发出"
+        follow_the_instructions: 请跟随邮件中的说明来验证你的邮箱地址。
       getting_started:
         getting_started: 获取入门指南
         welcome_to_your_marketplace: "欢迎来到你的集市，%{name}！"
@@ -617,7 +617,7 @@ zh:
       canceled_request: 已取消请求
       canceled_offer: 已取消宝贝
       paid: "支付了%{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "授权支付:%{sum}"
     new:
       offer_message_form_title: "为%{person}提供%{listing}"
       request_message_form_title: "从%{person}请求%{listing}"
@@ -768,10 +768,10 @@ zh:
       confirm_payment: 确认支付
       exp: 过期：
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "来自%{service_name}的新反馈"
+    feedback_body: "%{author_name_and_email}已经从%{service_name}发送了下面的反馈。"
+    unlogged_user: 未登录的用户
+    anonymous_user: 匿名用户
   preauthorize_payments:
     edit:
       confirm_payment: 确认支付
@@ -965,8 +965,6 @@ zh:
       welcome_email_subject: "欢迎来到%{service_name}"
       welcome_to_marketplace: "欢迎来到%{service_name}！恭喜你注册成功。"
       love_marketplace_crew: "爱你的，<br /><i>%{service_name}团队</i>"
-      p_s_did_you_know: "附言 你想创建像%{service_name}一样的自己的集市网站吗？很简单，不需要任何编程经验。点击%{click_here_link}查看更多！"
-      click_here_link_text: 点击这里
       welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
       settings_link_text: 查看你的设置
       welcome_email_subject_for_marketplace_creator: 欢迎来到Sharetribe
@@ -1772,7 +1770,7 @@ zh:
       invalid_invitation_code: 邀请码无效。
       invitation_code: 邀请码
       not_required: ，不是必须的
-      notification_is_mandatory: ~
+      notification_is_mandatory: "你必须挑选至少一个邮件地址用于接收通知。如果你不想收到来自%{service_name}的邮件，在你的邮件通知设置中修改。"
       organization_name: 组织名称
       password_again: 确认密码
       show_my_name_to_others: "对其他%{service_name}用户显示真实姓名"
