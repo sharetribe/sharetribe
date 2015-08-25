@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150825120916) do
+ActiveRecord::Schema.define(:version => 20150825121715) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -518,7 +518,7 @@ ActiveRecord::Schema.define(:version => 20150825120916) do
   add_index "listing_units", ["listing_shape_id"], :name => "index_listing_units_on_listing_shape_id"
 
   create_table "listings", :force => true do |t|
-    t.integer  "community_id",                                                                :null => false
+    t.integer  "community_id",                                                         :null => false
     t.string   "author_id"
     t.string   "category_old"
     t.string   "title"
@@ -529,7 +529,6 @@ ActiveRecord::Schema.define(:version => 20150825120916) do
     t.datetime "updated_at"
     t.datetime "last_modified"
     t.datetime "sort_date"
-    t.string   "visibility",                                    :default => "this_community"
     t.string   "listing_type_old"
     t.text     "description"
     t.string   "origin"
@@ -570,7 +569,6 @@ ActiveRecord::Schema.define(:version => 20150825120916) do
   add_index "listings", ["old_category_id"], :name => "index_listings_on_category_id"
   add_index "listings", ["open"], :name => "index_listings_on_open"
   add_index "listings", ["share_type_id"], :name => "index_listings_on_share_type_id"
-  add_index "listings", ["visibility"], :name => "index_listings_on_visibility"
 
   create_table "locations", :force => true do |t|
     t.float    "latitude"

@@ -54,7 +54,6 @@
 #  index_listings_on_new_category_id   (category_id)
 #  index_listings_on_open              (open)
 #  index_listings_on_share_type_id     (share_type_id)
-#  index_listings_on_visibility        (visibility)
 #
 
 require 'spec_helper'
