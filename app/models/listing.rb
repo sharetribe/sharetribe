@@ -220,7 +220,7 @@ class Listing < ActiveRecord::Base
       #   with[:open] = false
       # end
 
-      with[:community_ids] = current_community.id
+      with[:community_id] = current_community.id
 
       with[:category_id] = params[:categories][:id] if params[:categories].present?
       with[:listing_shape_id] = params[:listing_shapes][:id] if params[:listing_shapes].present?

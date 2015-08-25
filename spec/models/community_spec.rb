@@ -147,6 +147,7 @@ describe Community do
         :created_at => created_at.days.ago,
         :updates_email_at => updates_email_at.days.ago,
         :listing_shape_id => 123,
+        :community_id => @community.id,
         :communities => [@community])
     end
 
