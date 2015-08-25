@@ -322,7 +322,7 @@ class PersonMailer < ActionMailer::Base
   # Used to send notification to marketplace admins when somebody
   # gives feedback on marketplace throught the contact us button in menu
   def new_feedback(feedback, community)
-    subject = t("feedback.feedback_subject", service_name: service_name)
+    subject = t("feedback.feedback_subject", service_name: community.name(I18n.locale))
 
     premailer_mail(
       :to => mail_feedback_to(community, APP_CONFIG.feedback_mailer_recipients),
