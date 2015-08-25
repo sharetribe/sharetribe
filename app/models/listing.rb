@@ -15,7 +15,6 @@
 #  updated_at                      :datetime
 #  last_modified                   :datetime
 #  sort_date                       :datetime
-#  visibility                      :string(255)      default("this_community")
 #  listing_type_old                :string(255)
 #  description                     :text
 #  origin                          :string(255)
@@ -83,7 +82,6 @@ class Listing < ActiveRecord::Base
   has_one :destination_loc, :class_name => "Location", :conditions => ['location_type = ?', 'destination_loc'], :dependent => :destroy
   accepts_nested_attributes_for :origin_loc, :destination_loc
 
-  has_and_belongs_to_many :communities
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
 
   belongs_to :category
@@ -92,8 +90,6 @@ class Listing < ActiveRecord::Base
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
   monetize :shipping_price_additional_cents, allow_nil: true, with_model_currency: :currency
 
-  attr_accessor :current_community_id
-
   # Create an "empty" relationship. This is needed in search when we want to stop the search chain (NumericFields)
   # and just return empty result.
   #
@@ -101,10 +97,7 @@ class Listing < ActiveRecord::Base
   # http://stackoverflow.com/questions/4877931/how-to-return-an-empty-activerecord-relation
   scope :none, where('1 = 0')
 
-  VALID_VISIBILITIES = ["this_community", "all_communities"]
-
   before_validation :set_valid_until_time
-  before_save :set_community_visibilities
 
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..60, :allow_nil => false
@@ -127,21 +120,9 @@ class Listing < ActiveRecord::Base
     self.description = description.gsub("\r\n","\n") if self.description
   end
   validates_length_of :description, :maximum => 5000, :allow_nil => true
-  validates_inclusion_of :visibility, :in => VALID_VISIBILITIES
   validates_presence_of :category
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 7.months
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
-
-  def set_community_visibilities
-    if current_community_id
-      communities.clear
-      if visibility.eql?("this_community")
-        communities << Community.find(current_community_id)
-      else
-        author.communities.each { |c| communities << c }
-      end
-    end
-  end
 
   def self.currently_open(status="open")
     status = "open" if status.blank?
@@ -172,7 +153,7 @@ class Listing < ActiveRecord::Base
   end
 
   def self.columns
-    super.reject { |c| c.name == "transaction_type_id" }
+    super.reject { |c| c.name == "transaction_type_id" || c.name == "visibility"}
   end
 
   def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)

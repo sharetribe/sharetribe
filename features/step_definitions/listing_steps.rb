@@ -57,22 +57,16 @@ When(/^I set search range for numeric filter "(.*?)" between "(.*?)" and "(.*?)"
   }
 end
 
-Given /^visibility of that listing is "([^"]*)"$/ do |visibility|
-  @listing.update_attribute(:visibility, visibility)
-end
-
 Given /^privacy of that listing is "([^"]*)"$/ do |privacy|
   @listing.update_attribute(:privacy, privacy)
 end
 
 Given(/^that listing belongs to community "(.*?)"$/) do |ident|
-  @listing.communities = [Community.where(ident: ident).first]
   @listing.community_id = Community.where(ident: ident).first.id
   @listing.save!
 end
 
 Given /^that listing is visible to members of community "([^"]*)"$/ do |ident|
-  @listing.communities << Community.where(ident: ident).first
   @listing.community_id = Community.where(ident: ident).first.id
   @listing.save!
 end

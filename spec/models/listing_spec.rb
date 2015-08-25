@@ -14,7 +14,6 @@
 #  updated_at                      :datetime
 #  last_modified                   :datetime
 #  sort_date                       :datetime
-#  visibility                      :string(255)      default("this_community")
 #  listing_type_old                :string(255)
 #  description                     :text
 #  origin                          :string(255)
@@ -119,7 +118,7 @@ describe Listing do
     let(:community) { FactoryGirl.create(:community, private: true) }
     let(:community2) { FactoryGirl.create(:community) }
     let(:person) { FactoryGirl.create(:person, communities: [community, community2]) }
-    let(:listing) { FactoryGirl.create(:listing, communities: [community], community_id: community.id, listing_shape_id: 123) }
+    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
 
     it "is not visible, if the listing doesn't belong to the given community" do
       listing.visible_to?(person, community2).should be_falsey

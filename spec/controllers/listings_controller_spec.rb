@@ -85,7 +85,6 @@ describe ListingsController do
       :author => @p1,
       :community_id => @c1.id,
     )
-    @l1.communities = [@c1]
 
     FactoryGirl.create(
       :listing,
@@ -99,7 +98,7 @@ describe ListingsController do
       :shape_name_tr_key => sell_shape[:name_tr_key],
       :action_button_tr_key => sell_shape[:action_button_tr_key],
       :community_id => @c1.id,
-    ).communities = [@c1]
+    )
 
     FactoryGirl.create(
       :listing,
@@ -111,7 +110,7 @@ describe ListingsController do
       :created_at => 12.days.ago,
       :sort_date => 12.days.ago,
       :community_id => @c2.id,
-    ).communities = [@c2]
+    )
 
     FactoryGirl.create(
       :listing,
@@ -124,7 +123,7 @@ describe ListingsController do
       :description => "This should be closed already,
  but nice stuff anyway",
       :community_id => @c1.id,
-    ).communities = [@c1]
+    )
 
     @l4 = FactoryGirl.create(
       :listing,
@@ -139,7 +138,6 @@ describe ListingsController do
       :action_button_tr_key => request_shape[:action_button_tr_key],
       :community_id => @c1.id,
     )
-    @l4.communities = [@c1]
     @l4.save!
     @l4.update_attribute(:valid_until, 2.days.ago)
 
