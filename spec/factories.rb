@@ -98,6 +98,7 @@ FactoryGirl.define do
   end
 
   factory :listing do
+    community_id 999
     title "Sledgehammer"
     description("test")
     build_association(:author)

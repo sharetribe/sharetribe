@@ -4,7 +4,7 @@
 # Table name: listings
 #
 #  id                              :integer          not null, primary key
-#  community_id                    :integer
+#  community_id                    :integer          not null
 #  author_id                       :string(255)
 #  category_old                    :string(255)
 #  title                           :string(255)
