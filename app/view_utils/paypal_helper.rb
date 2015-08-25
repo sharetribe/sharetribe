@@ -96,9 +96,8 @@ module PaypalHelper
       false
     else
       listing_count = Listing
-                      .includes(:communities)
                       .where(
-                        communities: { id: community_id },
+                        community_id: community_id,
                         author_id: user_id,
                         open: true,
                         transaction_process_id: payment_process_ids)
