@@ -25,6 +25,7 @@ describe "CommunityMailer" do
           :created_at => 2.days.ago,
           :updates_email_at => 2.days.ago,
           :listing_shape_id => 123,
+          :community_id => @c1.id,
           :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer")
       @l2.communities << @c1
 
@@ -74,12 +75,14 @@ describe "CommunityMailer" do
           :description => "A very nice bike",
           :created_at => 3.hours.ago,
           :listing_shape_id => 123,
+          :community_id => @c1.id,
           :author => @p1).communities = [@c1]
       @l2 = FactoryGirl.create(:listing,
           :title => "motorbike",
           :description => "fast!",
           :created_at => 1.hours.ago,
           :listing_shape_id => 123,
+          :community_id => @c2.id,
           :author => @p2).communities = [@c2]
 
       @p3 = FactoryGirl.create(:person)
