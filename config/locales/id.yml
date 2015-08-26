@@ -1487,10 +1487,6 @@ id:
         valid_until: "Tanggal berakhir"
       valid_until_radio_buttons:
         for_the_time_being: "Untuk sementara"
-      visibility:
-        all_communities: ~
-        this_community: "Hanya member %{service_name}"
-        visibility: Visibility
       privacy:
         privacy: ~
         private: ~

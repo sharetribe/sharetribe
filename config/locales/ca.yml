@@ -1487,10 +1487,6 @@ ca:
         valid_until: "Data de caducitat"
       valid_until_radio_buttons:
         for_the_time_being: "De moment"
-      visibility:
-        all_communities: ~
-        this_community: "Tan sols membres de %{community}"
-        visibility: Visibilitat
       privacy:
         privacy: ~
         private: ~

@@ -483,7 +483,7 @@ hu:
     fields_that_are_mandatory: "Kötelező mezők (*)"
     or: vagy
     password: Jelszó
-    service_name: ~
+    service_name: "Szolgáltatás neve %{service_name}"
     share_types:
       request: Kérés
       offer: Ajánlat
@@ -842,7 +842,7 @@ hu:
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
-      or: ~
+      or: vagy
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: ~
@@ -1485,10 +1485,6 @@ hu:
         valid_until: ~
       valid_until_radio_buttons:
         for_the_time_being: ~
-      visibility:
-        all_communities: ~
-        this_community: ~
-        visibility: ~
       privacy:
         privacy: ~
         private: ~
