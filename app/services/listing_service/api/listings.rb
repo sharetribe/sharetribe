@@ -41,7 +41,7 @@ module ListingService::API
     [:unit_type], # TODO Symbol or string?
     [:quantity, :string], # This is outdated
     [:shape_name_tr_key, :string], # TODO is this mandatory?
-    [:listing_shape_id, :fixnum, :mandatory],
+    [:listing_shape_id, :fixnum, :optional], # This can be nil, if the listing shape was deleted
     [:icon_name, :string], # TODO What's this?
   )
 

@@ -207,19 +207,11 @@ class Listing < ActiveRecord::Base
 
       page = page ? page.to_i : 1
 
+
       ListingService::API::Api.listings.search(community_id: current_community.id, search: {}).data
-
     else # No search query or filters used, no sphinx needed
-      query = {}
-      query[:categories] = params[:categories] if params[:categories]
-      query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
-      query[:id] = params[:listing_id] if params[:listing_id].present?
-      current_community.listings.joins(joined_tables).where(query).currently_open(params[:status]).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
+      ListingService::API::Api.listings.search(community_id: current_community.id, search: {}).data
     end
-  end
-
-  def self.search_with_sphinx?(params)
-    params[:search].present? || params[:listing_shapes].present? || params[:category].present? || params[:custom_dropdown_field_options].present?  || params[:custom_checkbox_field_options].present? || params[:price_cents].present?
   end
 
   def self.find_by_category_and_subcategory(category)
