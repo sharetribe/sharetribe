@@ -89,6 +89,42 @@ module HashUtils
     end
   end
 
+  # Takes array of hashes (tree structure) and returns a
+  # branch where the predicate returns true
+  #
+  # Usage
+  #
+  # hashes = [
+  #   {id: 1, value: "a"},
+  #   {id: 2, value: "b", children: [
+  #       {id: 3, value: "c"}
+  #     ]
+  #   }
+  # ]
+  #
+  # deep_find(hashes, :children) { |h| h[:id] == 1 } #=> {id: 1, value: "a"}
+  # deep_find(hashes, :children) { |h| h[:id] == 2 } #=> {id: 2, value: "b", children: [ {id: 3, value: "c"} ] }
+  # deep_find(hashes, :children) { |h| h[:id] == 3 } #=> {id: 3, value: "c"}
+  #
+  def deep_find(hashes, key_for_children, &predicate)
+    acc = ->(xs) {
+      first, *rest = *xs
+      if first.nil?
+        nil
+      elsif predicate.call(first)
+        first
+      else
+        Maybe(first)[:children].map { |c|
+          acc.call(c)
+        }.or_else {
+          acc.call(rest)
+        }
+      end
+    }
+
+    acc.call(hashes)
+  end
+
   # p = Person.new({name: "Foo", email: "foo@example.com"})
   # object_to_hash(p) => {name: "Foo" , email: "foo@example.com"}
   def object_to_hash(object)

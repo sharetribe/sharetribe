@@ -40,7 +40,7 @@ describe ListingService::API::Categories do
 
   let(:listing_api) { ListingService::API::Api }
 
-  describe "#get" do
+  describe "#get_all" do
     context "success" do
       it "gets the category tree" do
         expected_tree = [
@@ -86,10 +86,80 @@ describe ListingService::API::Categories do
           }
         ]
 
-        res = listing_api.categories.get(community_id: community_id)
+        res = listing_api.categories.get_all(community_id: community_id)
 
         expect(res.success).to eq true
         expect(res.data).to eq expected_tree
+      end
+    end
+  end
+
+  describe "#get" do
+    context "successs" do
+      it "gets top-level category by id" do
+        expected_tree =
+          {
+            id: bikes_id,
+            community_id: community_id,
+            parent_id: nil,
+            sort_priority: 0,
+            name: "bikes",
+            listing_shape_ids: [],
+            translations: [{ locale: "en", name: "Bikes" }],
+            children: [
+              {
+                id: mountain_bikes_id,
+                community_id: community_id,
+                parent_id: bikes_id,
+                sort_priority: 1,
+                name: "mountain-bikes",
+                listing_shape_ids: [1, 2],
+                translations: [{ locale: "en", name: "Mountain Bikes" }],
+                children: []
+              },
+              {
+                id: city_bikes_id,
+                community_id: community_id,
+                parent_id: bikes_id,
+                sort_priority: 2,
+                name: "city-bikes",
+                listing_shape_ids: [2, 3],
+                translations: [{ locale: "en", name: "City Bikes" }],
+                children: []
+              }
+            ]
+          }
+
+        res = listing_api.categories.get(community_id: community_id, category_id: bikes_id)
+
+        expect(res.success).to eq true
+        expect(res.data).to eq expected_tree
+      end
+
+      it "gets child category by id" do
+        expected_tree =
+          {
+            id: mountain_bikes_id,
+            community_id: community_id,
+            parent_id: bikes_id,
+            sort_priority: 1,
+            name: "mountain-bikes",
+            listing_shape_ids: [1, 2],
+            translations: [{ locale: "en", name: "Mountain Bikes" }],
+            children: []
+          }
+
+        res = listing_api.categories.get(community_id: community_id, category_id: mountain_bikes_id)
+
+        expect(res.success).to eq true
+        expect(res.data).to eq expected_tree
+      end
+    end
+
+    context "error" do
+      it "returns error if category can not be found" do
+        res = listing_api.categories.get(community_id: community_id, category_id: 999)
+        expect(res.success).to eq false
       end
     end
   end

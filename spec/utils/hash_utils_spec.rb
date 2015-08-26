@@ -79,6 +79,49 @@ describe HashUtils do
     end
   end
 
+  describe "#deep_find" do
+    let(:tree) {
+      [
+        {
+          id: 1,
+          value: "a",
+          children: [
+            {
+              id: 2,
+              value: "b",
+              children: [
+                {
+                  id: 3,
+                  value: "c",
+                  children: []
+                },
+                {
+                  id: 4,
+                  value: "d",
+                  children: []
+                },
+                {
+                  id: 5,
+                  value: "e",
+                  children: []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+
+    it "finds from tree structure" do
+      expect(HashUtils.deep_find([], :children) { |h| h[:id] == 1 }).to eq(nil)
+      expect(HashUtils.deep_find(tree, :children) { |h| h[:id] == 2 }).to eq(tree[0][:children][0])
+      expect(HashUtils.deep_find(tree, :children) { |h| h[:id] == 3 }).to eq(tree[0][:children][0][:children][0])
+      expect(HashUtils.deep_find(tree, :children) { |h| h[:id] == 4 }).to eq(tree[0][:children][0][:children][1])
+      expect(HashUtils.deep_find(tree, :children) { |h| h[:id] == 5 }).to eq(tree[0][:children][0][:children][2])
+      expect(HashUtils.deep_find(tree, :children) { |h| h[:id] == 6 }).to eq(nil)
+    end
+  end
+
   describe "#flatten" do
     it "makes deep structure flat" do
       expect(HashUtils.flatten(

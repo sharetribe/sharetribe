@@ -151,7 +151,7 @@ class ListingsController < ApplicationController
 
   def new
     category_tree = CategoryViewUtils.category_tree(
-      categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
+      categories: ListingService::API::Api.categories.get_all(community_id: @current_community.id)[:data],
       shapes: get_shapes,
       locale: I18n.locale,
       all_locales: @current_community.locales
@@ -267,7 +267,7 @@ class ListingsController < ApplicationController
     end
 
     category_tree = CategoryViewUtils.category_tree(
-      categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
+      categories: ListingService::API::Api.categories.get_all(community_id: @current_community.id)[:data],
       shapes: get_shapes,
       locale: I18n.locale,
       all_locales: @current_community.locales
