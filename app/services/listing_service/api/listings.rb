@@ -52,10 +52,18 @@ module ListingService::API
 
     def search(community_id:, search: {})
       SearchParams.validate(search).and_then { |s|
+        categories = Maybe(s)[:category_id].map { |cat_id|
+          ListingService::API::Api.categories.get(community_id: community_id, category_id: cat_id).data
+        }.map { |category_tree|
+          HashUtils.deep_pluck([category_tree], :children, :id)
+        }.or_else(nil)
+
         Result::Success.new(
           search_engine.search(
           community_id: community_id,
-          search: s
+          search: s.merge(
+            categories: categories
+          )
         ).map { |search_res|
           Listing.call(search_res)
         })

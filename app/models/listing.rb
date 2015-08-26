@@ -183,35 +183,30 @@ class Listing < ActiveRecord::Base
       params[:listing_shapes] = {:id => params[:listing_shape].to_i}
     end
 
-    # Two ways of finding, with or without sphinx
-    if search_with_sphinx?(params)
+    with = {}
 
-      with = {}
+    # with[:category_id] = params[:categories][:id] if params[:categories].present?
+    with[:listing_shape_id] = params[:listing_shapes][:id] if params[:listing_shapes].present?
+    with[:listing_id] = params[:listing_id] if params[:listing_id].present?
+    with[:price_cents] = params[:price_cents] if params[:price_cents].present?
 
-      with[:community_id] = current_community.id
+    params[:custom_dropdown_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
 
-      with[:category_id] = params[:categories][:id] if params[:categories].present?
-      with[:listing_shape_id] = params[:listing_shapes][:id] if params[:listing_shapes].present?
-      with[:listing_id] = params[:listing_id] if params[:listing_id].present?
-      with[:price_cents] = params[:price_cents] if params[:price_cents].present?
+    with_all = {:custom_dropdown_field_options => params[:custom_dropdown_field_options]}
 
-      params[:custom_dropdown_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
+    params[:custom_checkbox_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
 
-      with_all = {:custom_dropdown_field_options => params[:custom_dropdown_field_options]}
+    with_all[:custom_checkbox_field_options] = params[:custom_checkbox_field_options]
 
-      params[:custom_checkbox_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
+    params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil
 
-      with_all[:custom_checkbox_field_options] = params[:custom_checkbox_field_options]
+    page = page ? page.to_i : 1
 
-      params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil
+    search = {
+      category_id: params[:category]
+    }
 
-      page = page ? page.to_i : 1
-
-
-      ListingService::API::Api.listings.search(community_id: current_community.id, search: {}).data
-    else # No search query or filters used, no sphinx needed
-      ListingService::API::Api.listings.search(community_id: current_community.id, search: {}).data
-    end
+    ListingService::API::Api.listings.search(community_id: current_community.id, search: search).data
   end
 
   def self.find_by_category_and_subcategory(category)

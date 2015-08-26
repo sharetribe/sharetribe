@@ -20,7 +20,8 @@ module ListingService::Search
             .paginate(per_page: search[:per_page], page: search[:page])
         else
           with = {
-            community_id: community_id
+            community_id: community_id,
+            category_id: search[:categories] # array of accepted ids
           }
 
           with_all = {
@@ -36,8 +37,7 @@ module ListingService::Search
             with: with,
             with_all: with_all,
             order: 'sort_date DESC'
-          ).map { |l|
-          }
+          )
         end
 
       result.map { |l| to_hash(l) }
@@ -80,7 +80,7 @@ module ListingService::Search
     def search_with_sphinx?(search)
       search[:search].present? ||
         search[:listing_shapes].present? ||
-        search[:category].present? ||
+        search[:categories].present? ||
         search[:custom_dropdown_field_options].present? ||
         search[:custom_checkbox_field_options].present? ||
         search[:price_cents].present?
