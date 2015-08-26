@@ -4,7 +4,7 @@
 # Table name: listings
 #
 #  id                              :integer          not null, primary key
-#  community_id                    :integer
+#  community_id                    :integer          not null
 #  author_id                       :string(255)
 #  category_old                    :string(255)
 #  title                           :string(255)
@@ -55,7 +55,6 @@
 #  index_listings_on_new_category_id   (category_id)
 #  index_listings_on_open              (open)
 #  index_listings_on_share_type_id     (share_type_id)
-#  index_listings_on_visibility        (visibility)
 #
 
 class Listing < ActiveRecord::Base
