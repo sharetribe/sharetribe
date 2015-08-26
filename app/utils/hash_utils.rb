@@ -49,6 +49,23 @@ module HashUtils
     }.flatten.compact
   end
 
+  # Select values by given keys from array of hashes which form a tree structure.
+  # Usage:
+  #
+  #
+  # data = [{id: 1, children: [
+  #            {id: 2, children: [
+  #               {id: 3}]}]},
+  #         {id: 4}
+  #        ]
+  #
+  # deep_pluck(data, :children, :id)) #=> [1, 2, 3, 4]
+  #
+  def deep_pluck(array_of_hashes, key_for_children, *keys)
+    array_of_hashes.map { |h|
+      keys.map { |key| h[key] }.concat(deep_pluck(h[key_for_children] || [], key_for_children, *keys))
+    }.flatten
+  end
 
   # Select a subset of the hash h using given set of keys.
   # Only include keys that are present in h.

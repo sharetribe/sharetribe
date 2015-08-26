@@ -50,6 +50,17 @@ describe HashUtils do
     expect(HashUtils.pluck(data, :name, :age)).to eq(["John", 15, "Joe"])
   end
 
+  it "#deep_pluck" do
+    data = [{id: 1, children: [
+               {id: 2, children: [
+                  {id: 3}]}]},
+            {id: 4}
+           ]
+
+    expect(HashUtils.deep_pluck(data, :children, :id)).to eq([1, 2, 3, 4])
+    expect(HashUtils.deep_pluck([], :children, :id)).to eq([])
+  end
+
   it "#sub" do
     expect(HashUtils.sub({first: "First", last: "Last", age: 55}, :first, :age, :sex))
       .to eq({first: "First", age: 55})
