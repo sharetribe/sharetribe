@@ -766,6 +766,11 @@ fi:
       credit_card_expiration_date: ~
       confirm_payment: ~
       exp: ~
+  feedback:
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   preauthorize_payments:
     edit:
       confirm_payment: "Vahvista maksu"
@@ -959,8 +964,6 @@ fi:
       welcome_email_subject: "Tervetuloa %{community}-palveluun"
       welcome_to_marketplace: "Tervetuloa %{service_name}-palvelun jäseneksi! Mukavaa kun liityit."
       love_marketplace_crew: "Terveisin,<br /><i>%{service_name}-tiimi</i>"
-      p_s_did_you_know: "P.S. Haluaisitko perustaa itse vastaavanlaisen markkinapaikkasivuston kuin %{service_name}? Se on helppoa eikä sinulta vaadita lainkaan ohjelmointiosaamista. %{click_here_link} kuullaksesi lisää!"
-      click_here_link_text: "Klikkaa tästä"
       welcome_email_footer_text: "Millaisia sähköpostiviestejä haluat saada %{service_name}-palvelusta? %{settings_link}"
       settings_link_text: "Tarkista sähköpostiasetuksesi"
       welcome_email_subject_for_marketplace_creator: "Tervetuloa Sharetribeen"
@@ -1501,10 +1504,6 @@ fi:
         valid_until: "Ilmoitus voimassa"
       valid_until_radio_buttons:
         for_the_time_being: Toistaiseksi
-      visibility:
-        all_communities: "Kaikille Sharetribe-kauppapaikoilleni"
-        this_community: "Vain tämän sivuston jäsenille"
-        visibility: Näkyvyys
       privacy:
         privacy: Yksityisyys
         private: "Yksityinen (näkyy vain kirjautuneille)"
@@ -1700,7 +1699,7 @@ fi:
     missing: "Sinulla on avoimia ilmoituksia, mutta et ole yhdistänyt PayPal-tiliäsi, joten et pysty ottamaan maksuja vastaan. Yhdistä PayPal-tilisi %{settings_link}."
     from_your_payment_settings_link_text: maksuasetuksistasi
     new:
-      payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täyttyy yhdistää PayPal-tilisi %{service_name}-palveluun."
+      payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täytyy yhdistää PayPal-tilisi %{service_name}-palveluun."
       payout_info_text: ~
       contact_admin_link_text: "lähetä viesti ylläpitäjälle"
       admin_account_not_connected: "Et voi yhdistää PayPal-tiliäsi palveluun, koska %{service_name} ylläpitäjä ei ole suorittanut PayPal-asennusta loppuun."
@@ -1767,6 +1766,7 @@ fi:
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"
+      notification_is_mandatory: ~
       organization_name: "Organisaation virallinen nimi"
       password_again: "Salasana uudelleen"
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
