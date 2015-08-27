@@ -5,14 +5,14 @@ atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss'
   feed.logo "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"
 
   listings.each do |listing|
-    feed.entry(nil, id: listing[:id], published: listing[:created_at], updated_at: listing[:updated_at], url: listing_url(listing[:id], host: @current_community.full_domain(port: ''))) do |entry|
+    feed.entry(nil, id: listing[:id], published: listing[:created_at], updated_at: listing[:updated_at], url: listing_url(listing[:url], host: @current_community.full_domain(port: ''))) do |entry|
       entry.title format_listing_title(listing[:shape_name_tr_key], listing[:title])
       entry_content = add_links_and_br_tags(html_escape(listing[:description]))
       unless listing[:listing_images].empty?
 
         img_url = ensure_full_image_url(listing[:listing_images].first[:medium])
 
-        entry_content +=  "<br />\n" + link_to(image_tag(img_url), listing_url(listing[:id], host: @current_community.full_domain(port: '')))
+        entry_content +=  "<br />\n" + link_to(image_tag(img_url), listing_url(listing[:url], host: @current_community.full_domain(port: '')))
       end
 
       entry.content :type => 'html' do |content|

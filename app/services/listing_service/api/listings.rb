@@ -44,6 +44,7 @@ module ListingService::API
 
   Listing = EntityUtils.define_builder(
     [:id, :fixnum, :mandatory],
+    [:url, :string, :mandatory],
     [:title, :string, :mandatory],
     [:description, :string],
     [:category_id, :fixnum, :mandatory],
@@ -80,7 +81,7 @@ module ListingService::API
             categories: categories
           )
         ).map { |search_res|
-          Listing.call(search_res)
+          Listing.call(search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}"))
         }
       )
     end
