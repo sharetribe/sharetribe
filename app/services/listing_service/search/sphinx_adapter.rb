@@ -5,7 +5,7 @@ module ListingService::Search
     # http://pat.github.io/thinking-sphinx/advanced_config.html
     SPHINX_MAX_MATCHES = 1000
 
-    INCLUDED_MODELS = [:listing_images, :author, :category]
+    INCLUDED_MODELS = [:listing_images, :category, {author: :received_testimonials}, :location]
 
     def search(community_id:, search:)
       result =
@@ -95,11 +95,11 @@ module ListingService::Search
     end
 
     def search_with_sphinx?(search)
-      search[:search].present? ||
+      search[:keywords].present? ||
         search[:listing_shape_id].present? ||
         search[:categories].present? ||
-        search[:checkboxes].present? ||
-        search[:dropdowns].present? ||
+        search[:checkboxes][:values].present? ||
+        search[:dropdowns][:values].present? ||
         search[:price_cents].present?
     end
 
