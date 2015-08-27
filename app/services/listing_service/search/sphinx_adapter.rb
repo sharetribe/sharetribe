@@ -28,7 +28,8 @@ module ListingService::Search
             })
 
           with_all = {
-
+            custom_dropdown_field_options: selection_groups(search[:dropdowns]),
+            custom_checkbox_field_options: selection_groups(search[:checkboxes])
           }
 
           Listing.search(
@@ -84,9 +85,17 @@ module ListingService::Search
       search[:search].present? ||
         search[:listing_shape_id].present? ||
         search[:categories].present? ||
-        search[:custom_dropdown_field_options].present? ||
-        search[:custom_checkbox_field_options].present? ||
+        search[:checkboxes].present? ||
+        search[:dropdowns].present? ||
         search[:price_cents].present?
+    end
+
+    def selection_groups(groups)
+      if groups[:search_type] == :and
+        groups[:values].flatten
+      else
+        groups[:values]
+      end
     end
   end
 end

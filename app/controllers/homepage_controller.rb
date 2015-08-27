@@ -212,7 +212,7 @@ class HomepageController < ApplicationController
   end
 
   def self.checkbox_field_options_for_search(params)
-    options_from_params(params, /^checkbox_filter_option/).flatten
+    options_from_params(params, /^checkbox_filter_option/)
   end
 
   def shapes

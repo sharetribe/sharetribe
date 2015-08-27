@@ -163,8 +163,8 @@ class Listing < ActiveRecord::Base
     # If no Share Type specified, use listing_type param if that is specified.
     # :listing_type and :share_type are deprecated and they should not be used.
     # However, API may use them still
-    params[:share_type] ||= params[:listing_type]
-    params.delete(:listing_type) # In any case listing_type is not a search param used any more
+    # params[:share_type] ||= params[:listing_type]
+    # params.delete(:listing_type) # In any case listing_type is not a search param used any more
 
     # params[:search] ||= params[:q] # Read search query also from q param
 
@@ -183,30 +183,42 @@ class Listing < ActiveRecord::Base
     #   params[:listing_shapes] = {:id => params[:listing_shape].to_i}
     # end
 
-    with = {}
+    # with = {}
 
     # with[:category_id] = params[:categories][:id] if params[:categories].present?
     # with[:listing_shape_id] = params[:listing_shapes][:id] if params[:listing_shapes].present?
     # THIS IS NOT USED with[:listing_id] = params[:listing_id] if params[:listing_id].present?
     # with[:price_cents] = params[:price_cents] if params[:price_cents].present?
 
-    params[:custom_dropdown_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
+    # params[:custom_dropdown_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
 
-    with_all = {:custom_dropdown_field_options => params[:custom_dropdown_field_options]}
+    # with_all = {:custom_dropdown_field_options => params[:custom_dropdown_field_options]}
 
-    params[:custom_checkbox_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
+    # params[:custom_checkbox_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
 
-    with_all[:custom_checkbox_field_options] = params[:custom_checkbox_field_options]
+    # with_all[:custom_checkbox_field_options] = params[:custom_checkbox_field_options]
 
     # params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil
 
     page = page ? page.to_i : 1
 
+    checkboxes = {
+      search_type: :and,
+      values: params[:custom_checkbox_field_options] || []
+    }
+
+    dropdowns = {
+      search_type: :or,
+      values: params[:custom_dropdown_field_options] || []
+    }
+
     search = {
       category_id: params[:category],
       listing_shape_id: Maybe(params)[:listing_shapes][:id].or_else(nil),
       price_cents: params[:price_cents],
-      keywords: params[:search]
+      keywords: params[:search],
+      checkboxes: checkboxes,
+      dropdowns: dropdowns
     }
 
     ListingService::API::Api.listings.search(community_id: current_community.id, search: search).data

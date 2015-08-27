@@ -6,13 +6,20 @@ module ListingService::API
     [:open, :bool]
   )
 
+  SelectionGroups = EntityUtils.define_builder(
+    [:values, :array, :mandatory],
+    [:search_type, one_of: [:and, :or]],
+  )
+
   SearchParams = EntityUtils.define_builder(
     [:page, :fixnum, gte: 1, default: 1],
     [:per_page, :fixnum, gte: 1, default: 100],
     [:keywords, :string, :optional],
     [:category_id, :fixnum, :optional],
     [:listing_shape_id, :fixnum, :optional],
-    [:price_cents, :range, :optional]
+    [:price_cents, :range, :optional],
+    [:checkboxes, entity: SelectionGroups],
+    [:dropdowns, entity: SelectionGroups],
   )
 
   ListingImage = EntityUtils.define_builder(
