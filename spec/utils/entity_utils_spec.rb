@@ -279,6 +279,22 @@ describe EntityUtils do
       .to raise_error
   end
 
+  fit "#define builder :range validator" do
+    entity = EntityUtils.define_builder([:price, :range])
+
+    expect(entity.validate({price: nil}).success).to eq(true)
+    expect(entity.validate({price: (1..2)}).success).to eq(true)
+
+    expect(entity.validate({price: [1, 2]}).success).to eq(false)
+    expect(entity.validate({price: [1, 2]}).data.first[:code]).to eq(:range)
+
+    expect(entity.validate({price: {a: 1}}).success).to eq(false)
+    expect(entity.validate({price: {a: 1}}).data.first[:code]).to eq(:range)
+
+    expect(entity.validate({price: 1}).success).to eq(false)
+    expect(entity.validate({price: 1}).data.first[:code]).to eq(:range)
+  end
+
   it "define_builder :str_to_time transformer" do
     expect(EntityUtils.define_builder([:time, str_to_time: "%H:%M:%S %b %e, %Y %Z"]).call({time: "23:01:12 Sep 30, 2014 PDT"}))
       .to eq({time: Time.strptime("23:01:12 Sep 30, 2014 PDT", "%H:%M:%S %b %e, %Y %Z") })

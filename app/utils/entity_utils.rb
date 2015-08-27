@@ -97,6 +97,11 @@ module EntityUtils
         {code: :set, msg: "Value must be a Set. Was: #{v} (#{v.class.name})." }
       end
     },
+    range: -> (_, v, _) {
+      unless (v.nil? || v.is_a?(Range))
+        {code: :range, msg: "Value must be a Range. Was: #{v} (#{v.class.name})"}
+      end
+    },
     money: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Money))
         {code: :money, msg: "Value must be a Money. Was: #{v}." }
