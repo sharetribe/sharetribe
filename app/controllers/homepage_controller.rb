@@ -35,8 +35,6 @@ class HomepageController < ApplicationController
        @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg"
     end
 
-    listings_per_page = APP_CONFIG.grid_listings_limit
-
     filter_params = {}
 
     listing_shape_param = params[:transaction_type]
@@ -48,28 +46,45 @@ class HomepageController < ApplicationController
 
     compact_filter_params = HashUtils.compact(filter_params)
 
-    @listings = if @view_type == "map"
-      find_listings(params, APP_CONFIG.map_listings_limit, compact_filter_params)
-    else
-      find_listings(params, listings_per_page, compact_filter_params)
-    end
+    per_page = @view_type == "map" ? APP_CONFIG.map_listings_limit : APP_CONFIG.grid_listings_limit
+
+    search_result = find_listings(params, per_page, compact_filter_params)
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
     if request.xhr? # checks if AJAX request
-      if @view_type == "grid" then
-        render :partial => "grid_item", :collection => @listings, :as => :listing
-      else
-        render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use }
-      end
+      search_result.on_success { |listings|
+        @listings = listings # TODO Remove
+
+        if @view_type == "grid" then
+          render :partial => "grid_item", :collection => @listings, :as => :listing
+        else
+          render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use }
+        end
+      }.on_error {
+        render nothing: true, status: 500
+      }
     else
-      render locals: {
-               shapes: all_shapes,
-               show_price_filter: show_price_filter,
-               selected_shape: selected_shape,
-               shape_name_map: shape_name_map,
-               testimonials_in_use: @current_community.testimonials_in_use,
-               listing_shape_menu_enabled: listing_shape_menu_enabled }
+      search_result.on_success { |listings|
+        @listings = listings
+        render locals: {
+                 shapes: all_shapes,
+                 show_price_filter: show_price_filter,
+                 selected_shape: selected_shape,
+                 shape_name_map: shape_name_map,
+                 testimonials_in_use: @current_community.testimonials_in_use,
+                 listing_shape_menu_enabled: listing_shape_menu_enabled }
+      }.on_error { |e|
+        flash[:error] = "An error occured. Please translate me!"
+        @listings = Listing.none.paginate(:per_page => 1, :page => 1)
+        render status: 500, locals: {
+                 shapes: all_shapes,
+                 show_price_filter: show_price_filter,
+                 selected_shape: selected_shape,
+                 shape_name_map: shape_name_map,
+                 testimonials_in_use: @current_community.testimonials_in_use,
+                 listing_shape_menu_enabled: listing_shape_menu_enabled }
+      }
     end
   end
 
@@ -108,39 +123,70 @@ class HomepageController < ApplicationController
       NumericFieldValue.search_many(numeric_search_params).collect(&:listing_id)
     end
 
+    filter_params = filter_params.reject {
+      |_, value| (value == "all" || value == ["all"])
+    } # all means the filter doesn't need to be included
+
     if numeric_search_needed && filter_params[:listing_id].empty?
       Listing.none.paginate(:per_page => listings_per_page, :page => params[:page])
     else
-      listings = Listing.find_with(filter_params, @current_user, @current_community, listings_per_page, params[:page]).map { |l|
-        ListingItem.new(
-          l[:id],
-          l[:title],
-          Author.new(
-            l[:author][:id],
-            l[:author][:username],
-            l[:author][:first_name],
-            l[:author][:last_name],
-            ListingImage.new(
-              l[:author][:avatar][:thumb]
-            ),
-            l[:author][:is_deleted],
-            l[:author][:num_of_reviews],
-          ),
-          l[:description],
-          l[:listing_images].map { |li|
-            ListingImage.new(li[:thumb], li[:small_3x2]) },
-          l[:price],
-          l[:unit_tr_key],
-          l[:unit_type],
-          l[:quantity],
-          l[:shape_name_tr_key],
-          l[:listing_shape_id],
-          l[:icon_name]
-        )
+
+      checkboxes = {
+        search_type: :and,
+        values: filter_params[:custom_checkbox_field_options] || []
       }
-      WillPaginate::Collection.create(params[:page] || 1, listings_per_page, listings.count) do |pager|
-        pager.replace(listings)
-      end
+
+      dropdowns = {
+        search_type: :or,
+        values: filter_params[:custom_dropdown_field_options] || []
+      }
+      search = {
+        # Add listing_id
+        category_id: filter_params[:category],
+        listing_shape_id: Maybe(filter_params)[:listing_shapes][:id].or_else(nil),
+        price_cents: filter_params[:price_cents],
+        keywords: filter_params[:search],
+        checkboxes: checkboxes,
+        dropdowns: dropdowns,
+        per_page: listings_per_page,
+        page: params[:page] || 1,
+      }
+
+      ListingService::API::Api.listings.search(community_id: @current_community.id, search: search).and_then { |res|
+        listings = res.map { |l|
+          ListingItem.new(
+            l[:id],
+            l[:title],
+            Author.new(
+              l[:author][:id],
+              l[:author][:username],
+              l[:author][:first_name],
+              l[:author][:last_name],
+              ListingImage.new(
+                l[:author][:avatar][:thumb]
+              ),
+              l[:author][:is_deleted],
+              l[:author][:num_of_reviews],
+            ),
+            l[:description],
+            l[:listing_images].map { |li|
+              ListingImage.new(li[:thumb], li[:small_3x2]) },
+            l[:price],
+            l[:unit_tr_key],
+            l[:unit_type],
+            l[:quantity],
+            l[:shape_name_tr_key],
+            l[:listing_shape_id],
+            l[:icon_name]
+          )
+        }
+
+        paginated = WillPaginate::Collection.create(params[:page] || 1, listings_per_page, listings.count) do |pager|
+          pager.replace(listings)
+        end
+
+        Result::Success.new(paginated)
+      }
     end
   end
 

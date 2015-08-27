@@ -65,10 +65,18 @@ class ListingsController < ApplicationController
             }.map { |shape| shape[:id] }
           }
         end
+        search_res = @current_community.private ? Result::Success.new([]) : ListingService::API::Api.listings.search(
+                     community_id: @current_community.id,
+                     search: {
+                       listing_shapes: params[:listing_shapes],
+                       page: page,
+                       per_page: per_page
+                     })
 
-        listings = @current_community.private ? [] : Listing.find_with(params, @current_user, @current_community, per_page, page)
+        listings = search_res.data
+
         title = build_title(params)
-        updated = listings.first.present? ? listings.first.updated_at : Time.now
+        updated = listings.first.present? ? listings.first[:updated_at] : Time.now
 
         render layout: false,
                locals: { listings: listings,

@@ -54,6 +54,13 @@ module ListingService::Search
         id: l.id,
         title: l.title,
         description: l.description,
+        updated_at: l.updated_at,
+        created_at: l.created_at,
+        category_id: l.category_id,
+        latitude: Maybe(l.location).latitude.or_else(nil),
+        longitude: Maybe(l.location).longitude.or_else(nil),
+        address: Maybe(l.location).address.or_else(nil),
+        comment_count: l.comments_count,
         author: {
           id: l.author_id,
           username: l.author.username,
@@ -65,7 +72,13 @@ module ListingService::Search
           is_deleted: l.author.deleted?,
           num_of_reviews: l.author.received_testimonials.size
         },
-        listing_images: l.listing_images.map { |li| { thumb: li.image.url(:thumb), small_3x2: li.image.url(:small_3x2)} },
+        listing_images: l.listing_images.map { |li|
+          {
+            thumb: li.image.url(:thumb),
+            small_3x2: li.image.url(:small_3x2),
+            medium: li.image.url(:medium)
+          }
+        },
         price: l.price,
         unit_tr_key: l.unit_tr_key,
         unit_type: l.unit_type,

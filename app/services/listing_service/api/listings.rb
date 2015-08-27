@@ -12,8 +12,8 @@ module ListingService::API
   )
 
   SearchParams = EntityUtils.define_builder(
-    [:page, :fixnum, gte: 1, default: 1],
-    [:per_page, :fixnum, gte: 1, default: 100],
+    [:page, :to_integer, default: 1, gte: 1],
+    [:per_page, :to_integer, :mandatory, gte: 1],
     [:keywords, :string, :optional],
     [:category_id, :fixnum, :optional],
     [:listing_shape_id, :fixnum, :optional],
@@ -22,9 +22,14 @@ module ListingService::API
     [:dropdowns, entity: SelectionGroups],
   )
 
+  AvatarImage = EntityUtils.define_builder(
+    [:thumb, :string],
+  )
+
   ListingImage = EntityUtils.define_builder(
     [:thumb, :string],
-    [:small_3x2, :string]
+    [:small_3x2, :string],
+    [:medium, :string],
   )
 
   Author = EntityUtils.define_builder(
@@ -32,7 +37,7 @@ module ListingService::API
     [:username, :string, :mandatory],
     [:first_name, :string, :mandatory],
     [:last_name, :string, :mandatory],
-    [:avatar, entity: ListingImage],
+    [:avatar, entity: AvatarImage],
     [:is_deleted, :bool, default: false],
     [:num_of_reviews, :fixnum, default: 0]
   )
@@ -41,8 +46,15 @@ module ListingService::API
     [:id, :fixnum, :mandatory],
     [:title, :string, :mandatory],
     [:description, :string],
+    [:category_id, :fixnum, :mandatory],
     [:author, :mandatory, entity: Author],
     [:listing_images, collection: ListingImage],
+    [:updated_at, :time, :mandatory],
+    [:created_at, :time, :mandatory],
+    [:latitude],
+    [:longitude],
+    [:address, :string],
+    [:comment_count, :fixnum, :optional],
     [:price, :money],
     [:unit_tr_key, :string], # TODO is this mandatory?
     [:unit_type], # TODO Symbol or string?
@@ -58,21 +70,19 @@ module ListingService::API
   class Listings
 
     def search(community_id:, search: {})
-      SearchParams.validate(search).and_then { |s|
-        categories = search_category_ids(community_id: community_id, category_id: s[:category_id])
+      s = SearchParams.call(search)
+      categories = search_category_ids(community_id: community_id, category_id: s[:category_id])
 
-        Result::Success.new(
-          search_engine.search(
+      Result::Success.new(
+        search_engine.search(
           community_id: community_id,
           search: s.merge(
             categories: categories
           )
         ).map { |search_res|
           Listing.call(search_res)
-        })
-      }.on_error { |e|
-        Result::Error.new(e)
-      }
+        }
+      )
     end
 
     def count(community_id:, query: {})
