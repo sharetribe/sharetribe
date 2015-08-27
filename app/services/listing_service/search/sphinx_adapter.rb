@@ -19,12 +19,13 @@ module ListingService::Search
             .order("listings.sort_date DESC")
             .paginate(per_page: search[:per_page], page: search[:page])
         else
-          with = HashUtils.compact({
-            community_id: community_id,
-            category_id: search[:categories], # array of accepted ids
-            listing_shape_id: search[:listing_shape_id],
-            price_cents: search[:price_cents],
-          })
+          with = HashUtils.compact(
+            {
+              community_id: community_id,
+              category_id: search[:categories], # array of accepted ids
+              listing_shape_id: search[:listing_shape_id],
+              price_cents: search[:price_cents],
+            })
 
           with_all = {
 

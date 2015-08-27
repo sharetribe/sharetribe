@@ -166,22 +166,22 @@ class Listing < ActiveRecord::Base
     params[:share_type] ||= params[:listing_type]
     params.delete(:listing_type) # In any case listing_type is not a search param used any more
 
-    params[:search] ||= params[:q] # Read search query also from q param
+    # params[:search] ||= params[:q] # Read search query also from q param
 
-    if params[:category].present?
-      category = Category.find_by_id(params[:category])
-      if category
-        params[:categories] = {:id => category.with_all_children.collect(&:id)}
-        joined_tables << :category
-      else
-        # ignore the category attribute if it's not found
-      end
-    end
+    # if params[:category].present?
+    #   category = Category.find_by_id(params[:category])
+    #   if category
+    #     params[:categories] = {:id => category.with_all_children.collect(&:id)}
+    #     joined_tables << :category
+    #   else
+    #     # ignore the category attribute if it's not found
+    #   end
+    # end
 
-    if params[:listing_shape].present?
-      # Sphinx expects integer
-      params[:listing_shapes] = {:id => params[:listing_shape].to_i}
-    end
+    # if params[:listing_shape].present?
+    #   # Sphinx expects integer
+    #   params[:listing_shapes] = {:id => params[:listing_shape].to_i}
+    # end
 
     with = {}
 
@@ -198,7 +198,7 @@ class Listing < ActiveRecord::Base
 
     with_all[:custom_checkbox_field_options] = params[:custom_checkbox_field_options]
 
-    params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil
+    # params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil
 
     page = page ? page.to_i : 1
 
@@ -206,6 +206,7 @@ class Listing < ActiveRecord::Base
       category_id: params[:category],
       listing_shape_id: Maybe(params)[:listing_shapes][:id].or_else(nil),
       price_cents: params[:price_cents],
+      keywords: params[:search]
     }
 
     ListingService::API::Api.listings.search(community_id: current_community.id, search: search).data
