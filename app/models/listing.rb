@@ -186,7 +186,7 @@ class Listing < ActiveRecord::Base
     with = {}
 
     # with[:category_id] = params[:categories][:id] if params[:categories].present?
-    with[:listing_shape_id] = params[:listing_shapes][:id] if params[:listing_shapes].present?
+    # with[:listing_shape_id] = params[:listing_shapes][:id] if params[:listing_shapes].present?
     with[:listing_id] = params[:listing_id] if params[:listing_id].present?
     with[:price_cents] = params[:price_cents] if params[:price_cents].present?
 
@@ -203,7 +203,8 @@ class Listing < ActiveRecord::Base
     page = page ? page.to_i : 1
 
     search = {
-      category_id: params[:category]
+      category_id: params[:category],
+      listing_shape_id: Maybe(params)[:listing_shapes][:id].or_else(nil)
     }
 
     ListingService::API::Api.listings.search(community_id: current_community.id, search: search).data

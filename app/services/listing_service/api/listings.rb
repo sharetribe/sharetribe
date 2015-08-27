@@ -52,11 +52,7 @@ module ListingService::API
 
     def search(community_id:, search: {})
       SearchParams.validate(search).and_then { |s|
-        categories = Maybe(s)[:category_id].map { |cat_id|
-          ListingService::API::Api.categories.get(community_id: community_id, category_id: cat_id).data
-        }.map { |category_tree|
-          HashUtils.deep_pluck([category_tree], :children, :id)
-        }.or_else(nil)
+        categories = search_category_ids(community_id: community_id, category_id: s[:category_id])
 
         Result::Success.new(
           search_engine.search(
@@ -92,6 +88,15 @@ module ListingService::API
     end
 
     private
+
+    # Takes category id, and returns a list of ids of current and child categories
+    def search_category_ids(community_id:, category_id:)
+      Maybe(category_id).map { |cat_id|
+        ListingService::API::Api.categories.get(community_id: community_id, category_id: cat_id).data
+      }.map { |category_tree|
+        HashUtils.deep_pluck([category_tree], :children, :id)
+      }.or_else(nil)
+    end
 
     def search_engine
       case ENGINE
