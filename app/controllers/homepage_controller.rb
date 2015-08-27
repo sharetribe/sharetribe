@@ -6,11 +6,39 @@ class HomepageController < ApplicationController
   APP_DEFAULT_VIEW_TYPE = "grid"
   VIEW_TYPES = ["grid", "list", "map"]
 
-  ListingItem = Struct.new(:id, :title, :author, :description, :listing_images, :price, :unit_tr_key, :unit_type, :quantity, :shape_name_tr_key, :listing_shape_id, :icon_name)
-  Author = Struct.new(:id, :username, :first_name, :last_name, :avatar, :is_deleted, :num_of_reviews)
-  Price = Struct.new(:price_cents, :currency)
-  ListingImage = Struct.new(:thumb, :small_3x2)
+  ListingItem = Struct.new(
+    :id,
+    :title,
+    :category_id,
+    :latitude,
+    :longitude,
+    :author,
+    :description,
+    :listing_images,
+    :price,
+    :unit_tr_key,
+    :unit_type,
+    :quantity,
+    :shape_name_tr_key,
+    :listing_shape_id,
+    :icon_name)
 
+  Author = Struct.new(
+    :id,
+    :username,
+    :first_name,
+    :last_name,
+    :avatar,
+    :is_deleted,
+    :num_of_reviews)
+
+  Price = Struct.new(
+    :price_cents,
+    :currency)
+
+  ListingImage = Struct.new(
+    :thumb,
+    :small_3x2)
 
   def index
     @homepage = true
@@ -157,6 +185,9 @@ class HomepageController < ApplicationController
           ListingItem.new(
             l[:id],
             l[:title],
+            l[:category_id],
+            l[:latitude],
+            l[:longitude],
             Author.new(
               l[:author][:id],
               l[:author][:username],

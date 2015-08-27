@@ -172,21 +172,6 @@ class Listing < ActiveRecord::Base
     !open? || (valid_until && valid_until < DateTime.now)
   end
 
-  # This is used to provide clean JSON-strings for map view queries
-  def as_json(options = {})
-    # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
-    hash = {
-      :category => self.category.id,
-      :id => self.id,
-      :icon => icon_class(icon_name)
-    }
-    if self.origin_loc
-      hash.merge!({:latitude => self.origin_loc.latitude,
-                  :longitude => self.origin_loc.longitude})
-    end
-    return hash
-  end
-
   # Send notifications to the users following this listing
   # when the listing is updated (update=true) or a
   # new comment to the listing is created.
