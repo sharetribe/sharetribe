@@ -12,7 +12,7 @@ module ListingService::API
     [:keywords, :string, :optional],
     [:category_id, :fixnum, :optional],
     [:listing_shape_id, :fixnum, :optional],
-    # TODO [:price_cents]
+    [:price_cents, :range, :optional]
   )
 
   ListingImage = EntityUtils.define_builder(

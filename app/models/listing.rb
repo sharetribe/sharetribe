@@ -187,8 +187,8 @@ class Listing < ActiveRecord::Base
 
     # with[:category_id] = params[:categories][:id] if params[:categories].present?
     # with[:listing_shape_id] = params[:listing_shapes][:id] if params[:listing_shapes].present?
-    with[:listing_id] = params[:listing_id] if params[:listing_id].present?
-    with[:price_cents] = params[:price_cents] if params[:price_cents].present?
+    # THIS IS NOT USED with[:listing_id] = params[:listing_id] if params[:listing_id].present?
+    # with[:price_cents] = params[:price_cents] if params[:price_cents].present?
 
     params[:custom_dropdown_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
 
@@ -204,7 +204,8 @@ class Listing < ActiveRecord::Base
 
     search = {
       category_id: params[:category],
-      listing_shape_id: Maybe(params)[:listing_shapes][:id].or_else(nil)
+      listing_shape_id: Maybe(params)[:listing_shapes][:id].or_else(nil),
+      price_cents: params[:price_cents],
     }
 
     ListingService::API::Api.listings.search(community_id: current_community.id, search: search).data

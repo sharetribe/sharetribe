@@ -23,6 +23,7 @@ module ListingService::Search
             community_id: community_id,
             category_id: search[:categories], # array of accepted ids
             listing_shape_id: search[:listing_shape_id],
+            price_cents: search[:price_cents],
           })
 
           with_all = {
