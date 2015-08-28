@@ -73,12 +73,14 @@ module ListingService::Search
           is_deleted: l.author.deleted?,
           num_of_reviews: l.author.received_testimonials.size
         },
-        listing_images: l.listing_images.map { |li|
-          {
-            thumb: li.image.url(:thumb),
-            small_3x2: li.image.url(:small_3x2),
-            medium: li.image.url(:medium)
-          }
+        listing_images: l.listing_images
+          .select { |li| li.image_ready? } # Filter images that are not processed
+          .map { |li|
+            {
+              thumb: li.image.url(:thumb),
+              small_3x2: li.image.url(:small_3x2),
+              medium: li.image.url(:medium)
+            }
         },
         price: l.price,
         unit_tr_key: l.unit_tr_key,
