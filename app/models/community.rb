@@ -267,7 +267,7 @@ class Community < ActiveRecord::Base
   attr_accessor :terms
 
   def self.columns
-    super.reject { |c| ["redirect_to_domain", "custom_email_from_address"].include?(c.name) }
+    super.reject { |c| ["only_public_listings"].include?(c.name) }
   end
 
   def name(locale)
