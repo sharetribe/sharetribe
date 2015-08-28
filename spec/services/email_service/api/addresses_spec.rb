@@ -255,6 +255,16 @@ describe EmailService::API::Addresses do
 
         expect(created[:verification_status]).to eq(:verified)
       end
+
+      it "Lower-cases the email address" do
+        created = addresses_wo_ses.create(
+          community_id: 123, address: {
+            name: "Email 2 Sender Name",
+            email: "Hello.World@mymarketplace.invalid"
+          }).data
+
+        expect(created[:email]).to eq("hello.world@mymarketplace.invalid")
+      end
     end
 
     context "ses client configured" do

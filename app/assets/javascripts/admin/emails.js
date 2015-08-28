@@ -15,9 +15,9 @@ window.ST = window.ST || {};
     if(!values.email) {
       return "-";
     } else if(values.name) {
-      return values.name + ' <' + values.email + '>';
+      return values.name + ' <' + values.email.toLowerCase() + '>';
     } else {
-      return values.email;
+      return values.email.toLowerCase();
     }
   };
 
