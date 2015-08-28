@@ -20,6 +20,7 @@ module ListingService::API
     [:price_cents, :range, :optional],
     [:checkboxes, entity: SelectionGroups],
     [:dropdowns, entity: SelectionGroups],
+    [:listing_ids, :array] # TODO Remove. This is only needed for numeric search (which should be behing the API)
   )
 
   AvatarImage = EntityUtils.define_builder(

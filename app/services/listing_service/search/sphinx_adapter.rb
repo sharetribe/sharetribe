@@ -25,6 +25,7 @@ module ListingService::Search
               category_id: search[:categories], # array of accepted ids
               listing_shape_id: search[:listing_shape_id],
               price_cents: search[:price_cents],
+              listing_id: search[:listing_ids],
             })
 
           with_all = {
@@ -100,6 +101,7 @@ module ListingService::Search
         search[:categories].present? ||
         search[:checkboxes][:values].present? ||
         search[:dropdowns][:values].present? ||
+        search[:listing_ids].present? ||
         search[:price_cents].present?
     end
 

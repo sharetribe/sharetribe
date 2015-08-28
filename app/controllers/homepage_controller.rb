@@ -147,7 +147,7 @@ class HomepageController < ApplicationController
 
     numeric_search_needed = !numeric_search_params.empty?
 
-    filter_params[:listing_id] = if numeric_search_needed
+    filter_params[:listing_ids] = if numeric_search_needed
       NumericFieldValue.search_many(numeric_search_params).collect(&:listing_id)
     end
 
@@ -155,10 +155,9 @@ class HomepageController < ApplicationController
       |_, value| (value == "all" || value == ["all"])
     } # all means the filter doesn't need to be included
 
-    if numeric_search_needed && filter_params[:listing_id].empty?
+    if numeric_search_needed && filter_params[:listing_ids].empty?
       Listing.none.paginate(:per_page => listings_per_page, :page => params[:page])
     else
-
       checkboxes = {
         search_type: :and,
         values: filter_params[:custom_checkbox_field_options] || []
@@ -178,6 +177,7 @@ class HomepageController < ApplicationController
         dropdowns: dropdowns,
         per_page: listings_per_page,
         page: params[:page] || 1,
+        listing_ids: filter_params[:listing_ids]
       }
 
       ListingService::API::Api.listings.search(community_id: @current_community.id, search: search).and_then { |res|
