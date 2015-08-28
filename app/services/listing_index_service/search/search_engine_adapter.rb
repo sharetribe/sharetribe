@@ -1,4 +1,4 @@
-module ListingService::Search
+module ListingIndexService::Search
 
   class SearchEngineAdapter
 

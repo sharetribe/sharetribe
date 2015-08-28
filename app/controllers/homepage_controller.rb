@@ -180,7 +180,7 @@ class HomepageController < ApplicationController
         listing_ids: filter_params[:listing_ids]
       }
 
-      ListingService::API::Api.listings.search(community_id: @current_community.id, search: search).and_then { |res|
+      ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search).and_then { |res|
         listings = res.map { |l|
           ListingItem.new(
             l[:id],
