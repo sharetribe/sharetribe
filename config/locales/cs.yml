@@ -1077,7 +1077,7 @@ cs:
       add_first: ~
       but_that_is_visible_only_to_registered_members: ~
       but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
+      create_new_account_for_yourself: "Vytvořit nový účet"
       examples_of_what_you_could_offer_to_others: ~
       examples_of_what_you_could_request_to_others: ~
       favor_offer_list: ~
@@ -1110,20 +1110,20 @@ cs:
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
-      add_listing_link_text: ~
+      add_listing_link_text: "Přidat nový inzerát"
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: ~
       is: ~
       are: ~
       what_do_you_need: ~
-      post_new_listing: ~
+      post_new_listing: "Přidat nový inzerát"
       are_offering: ~
       add_news_item: ~
       lend_rent_help_carpool: ~
       loading_more_content: ~
       more_events: ~
-      news: ~
+      news: Novinky
       no_news: ~
       more_news: ~
       or: ~
@@ -1154,23 +1154,23 @@ cs:
       show_more: ~
     profile_info_empty_notification:
       add_your_info: ~
-      add_a_profile_picture: ~
+      add_a_profile_picture: "Přidat profilovou fotku"
       you_have_not_added_your_info: ~
       add_your_info_link: ~
     recent_listing:
       please_offer: ~
-      comment: ~
-      comments: ~
+      comment: komentář
+      comments: komentáře
     filters:
-      show: ~
-      search: ~
+      show: Filtrovat
+      search: Hledat
       map: ~
       list: ~
-      map_button: ~
-      grid_button: ~
-      list_button: ~
+      map_button: Mapa
+      grid_button: Mřížka
+      list_button: Seznam
       all_listing_types: ~
-      all_categories: ~
+      all_categories: "Všechny kategorie"
   infos:
     about:
       default_about_text_title: ~

@@ -146,6 +146,8 @@ nl:
         status_resent: ~
         resend_link: ~
         invalid_email_error: ~
+        invalid_email_domain: ~
+        invalid_email_domain_read_more_link: ~
         unknown_error: ~
         only_white_label_offer: ~
         upgrade_pro_plan_link: ~
@@ -760,6 +762,11 @@ nl:
       credit_card_expiration_date: "Creditcard vervaldatum"
       confirm_payment: "Bevestig betaling"
       exp: "Exp:"
+  feedback:
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   preauthorize_payments:
     edit:
       confirm_payment: "Bevestig betaling"
@@ -953,8 +960,6 @@ nl:
       welcome_email_subject: "Welkom bij %{service_name}"
       welcome_to_marketplace: "Welkom, bij %{service_name}! We zijn blij dat je er bent."
       love_marketplace_crew: "Groeten,<br /><i>%{service_name} team</i>"
-      p_s_did_you_know: "p.s.: Zou je graag je eigen marktplaats maken zoals %{service_name}? Het is simpel en vraag geen programmatie kennis. %{click_here_link} om er meer over te weten te komen!"
-      click_here_link_text: "Klik hier"
       welcome_email_footer_text: "Welk soort berichten zou u van %{service_name} willen ontvangen?%{settings_link}"
       settings_link_text: "Kijk je instellingen na"
       welcome_email_subject_for_marketplace_creator: "Welkom bij Sharetribe"
@@ -1495,10 +1500,6 @@ nl:
         valid_until: "Geldig tot"
       valid_until_radio_buttons:
         for_the_time_being: Voorlopig
-      visibility:
-        all_communities: "Al mijn Sharetribe marktplaatsen"
-        this_community: "Alleen %{community} leden"
-        visibility: Zichtbaarheid
       privacy:
         privacy: Privacy
         private: "Privé (enkel ingelogde gebruikers kunnen zien)"
@@ -1761,6 +1762,7 @@ nl:
       invalid_invitation_code: "Deze invitatie code is niet geldig."
       invitation_code: "Invitatie code"
       not_required: ", niet vereist"
+      notification_is_mandatory: ~
       organization_name: "Naam organisatie"
       password_again: "Bevestig wachtwoord"
       show_my_name_to_others: "Toon mijn echte naam aan andere %{service_name} gebruikers"

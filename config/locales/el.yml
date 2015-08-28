@@ -131,6 +131,8 @@ el:
         status_resent: ~
         resend_link: ~
         invalid_email_error: ~
+        invalid_email_domain: ~
+        invalid_email_domain_read_more_link: ~
         unknown_error: ~
         only_white_label_offer: ~
         upgrade_pro_plan_link: ~
@@ -745,6 +747,11 @@ el:
       credit_card_expiration_date: "Ημερομηνία λήξης πιστωτικής κάρτας"
       confirm_payment: "Επιβεβαίωση πληρωμής"
       exp: ~
+  feedback:
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   preauthorize_payments:
     edit:
       confirm_payment: ~
@@ -938,8 +945,6 @@ el:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      p_s_did_you_know: "Υ.Γ.: Ξέρετε ότι μπορείτε να δημιουργήσετε δωρεάν μια αγορά όπως αυτή για οποιαδήποτε άλλη κοινότητα επιθυμείτε; %{click_here_link} για να μάθετε περισσότερα!"
-      click_here_link_text: "Πατήστε εδώ"
       welcome_email_footer_text: "Θέλετε να ελέγξετε τι μηνύματα θα λαμβάνετε από το %{service_name}; %{settings_link}"
       settings_link_text: "Δείτε τις ρυθμίσεις σας"
       welcome_email_subject_for_marketplace_creator: ~
@@ -1480,10 +1485,6 @@ el:
         valid_until: "Ημερομηνία λήξης"
       valid_until_radio_buttons:
         for_the_time_being: "Επ' αόριστον"
-      visibility:
-        all_communities: "Σε όλες τις κοινότητες %{service_name} που συμμετέχω"
-        this_community: "Μόνο σε αυτή την κοινότητα"
-        visibility: Ορατό
       privacy:
         privacy: Ιδιωτικότητα
         private: "Ιδιωτικό (ορατό μόνο σε συνδεδεμένους χρήστες)"
@@ -1746,6 +1747,7 @@ el:
       invalid_invitation_code: "Ο κωδικός της πρόσκλησης δεν είναι έγκυρος."
       invitation_code: "Κωδικός πρόσκλησης"
       not_required: ", δεν απαιτείται"
+      notification_is_mandatory: ~
       organization_name: ~
       password_again: Επιβεβαίωση
       show_my_name_to_others: "Να εμφανίζεται το πραγματικό μου όνομα στους άλλους χρήστες του %{service_name}"

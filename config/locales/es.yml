@@ -747,6 +747,11 @@ es:
       credit_card_expiration_date: ~
       confirm_payment: ~
       exp: ~
+  feedback:
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   preauthorize_payments:
     edit:
       confirm_payment: ~
@@ -947,8 +952,6 @@ es:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      p_s_did_you_know: "P.D. ¿Sabías que puedes crear un mercado como este para cualquier comunidad a la que perteneces, completamente gratis? %{click_here_link} para saber más!"
-      click_here_link_text: "Haz clic aquí"
       welcome_email_footer_text: "¿Qué tipo de emails desea recibir de %{service_name}? %{settings_link}"
       settings_link_text: "Revisa tu configuración"
       welcome_email_subject_for_marketplace_creator: ~
@@ -1489,10 +1492,6 @@ es:
         valid_until: "Fecha de caducidad"
       valid_until_radio_buttons:
         for_the_time_being: "Por el momento"
-      visibility:
-        all_communities: "Todas mis comunidades %{service_name}"
-        this_community: "Sólo miembros de %{community}"
-        visibility: Visibilidad
       privacy:
         privacy: Privacidad
         private: "Privado (sólo usuarios registrados pueden verlo)"
@@ -1755,6 +1754,7 @@ es:
       invalid_invitation_code: "El código de invitación no es válido."
       invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
+      notification_is_mandatory: ~
       organization_name: ~
       password_again: "Confirma la contraseña:"
       show_my_name_to_others: "Mostrar mi nombre real a otros usuarios de %{service_name}"

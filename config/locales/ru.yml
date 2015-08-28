@@ -772,6 +772,11 @@ ru:
       credit_card_expiration_date: "Дата окончания действия карты"
       confirm_payment: "Подтверждение оплаты"
       exp: "Exp:"
+  feedback:
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
   preauthorize_payments:
     edit:
       confirm_payment: "Подтверждение оплаты"
@@ -965,8 +970,6 @@ ru:
       welcome_email_subject: "Добро пожаловать в %{service_name}"
       welcome_to_marketplace: "Добро пожаловать в %{service_name}! Рады видеть вас с нами!"
       love_marketplace_crew: "С уважением, команда <br /><i>%{service_name}</i>"
-      p_s_did_you_know: "P.S. Знаете ли вы, что можно бесплатно создать отдельный сайт как %{service_name}? Чтобы узнать больше, %{click_here_link}!"
-      click_here_link_text: "Нажмите здесь"
       welcome_email_footer_text: "Какие типы сообщение вы хотите получать от %{service_name}? %{settings_link}"
       settings_link_text: "Проверьте настройки"
       welcome_email_subject_for_marketplace_creator: "Добро пожаловать на Sharetribe"
@@ -1507,10 +1510,6 @@ ru:
         valid_until: "Дата окончания"
       valid_until_radio_buttons:
         for_the_time_being: Неопределённая
-      visibility:
-        all_communities: "Все мои сообщества в Sharetribe"
-        this_community: "Только участники %{service_name}"
-        visibility: Видимость
       privacy:
         privacy: Конфиденциальность
         private: "Приватно (только для авторизованных пользователей)"
@@ -1775,6 +1774,7 @@ ru:
       invalid_invitation_code: "Код приглашения недействителен."
       invitation_code: "Код приглашения:"
       not_required: ", не обязательно"
+      notification_is_mandatory: ~
       organization_name: "Название организации"
       password_again: "Подтвердить пароль:"
       show_my_name_to_others: "Показывать моё настоящее имя другим пользователям %{service_name}"
@@ -2061,7 +2061,7 @@ ru:
       december: Дек
     today: Сегодня
     clear: Очистить
-    format: мм/дд/гггг
+    format: mm/dd/yyyy
   time:
     formats:
       short: "%e %b %Y в %H:%M"

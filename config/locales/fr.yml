@@ -778,6 +778,11 @@ fr:
       credit_card_expiration_date: "Date d'expiration"
       confirm_payment: "Confirmer le paiement"
       exp: "Exp :"
+  feedback:
+    feedback_subject: "Nouveau contact pour %{service_name}"
+    feedback_body: "%{author_name_and_email} a envoyé le message suivant à propos de %{service_name}"
+    unlogged_user: "Utilisateur non connecté"
+    anonymous_user: "Utilisateur anonyme"
   preauthorize_payments:
     edit:
       confirm_payment: "Confirmer le paiement"
@@ -971,8 +976,6 @@ fr:
       welcome_email_subject: "Bienvenue sur %{service_name}"
       welcome_to_marketplace: "Bienvenue sur %{service_name} ! Ravi que vous nous ayez rejoint."
       love_marketplace_crew: "Love,<br /><i>L'équipe de %{service_name}</i>"
-      p_s_did_you_know: "PS : souhaitez-vous créer votre propre place de marché comme %{service_name} ? C'est simple et ne demande pas de compétences techniques. %{click_here_link} pour en savoir plus !"
-      click_here_link_text: "Cliquez ici"
       welcome_email_footer_text: "Quels types d'emails souhaitez vous recevoir de la part de %{service_name} ? %{settings_link}"
       settings_link_text: "Vérifiez vos paramètres"
       welcome_email_subject_for_marketplace_creator: "Bienvenue sur Sharetribe"
@@ -1513,10 +1516,6 @@ fr:
         valid_until: "Date d'expiration"
       valid_until_radio_buttons:
         for_the_time_being: "Pas de date d'expiration"
-      visibility:
-        all_communities: "Toutes mes places de marché Sharetribe"
-        this_community: "Seuls les membres de %{service_name}"
-        visibility: Visibilité
       privacy:
         privacy: Visibilité
         private: "Privée (visible uniquement par les utilisateurs connectés)"
@@ -1779,6 +1778,7 @@ fr:
       invalid_invitation_code: "Le code d'invitation n'est pas valide."
       invitation_code: "Code d'invitation"
       not_required: ", pas demandé"
+      notification_is_mandatory: "Vous devez choisir au moins une adresse email pour recevoir les notifications. Si vous ne souhaitez pas recevoir d'emails de %{service_name}, vérifiez vos paramètres de notifications."
       organization_name: "Nom de l'organisation"
       password_again: "Confirmer le mot de passe"
       show_my_name_to_others: "Montrer mon nom complet aux autres utilisateurs de %{service_name}"
