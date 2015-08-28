@@ -170,7 +170,7 @@ class HomepageController < ApplicationController
       search = {
         # Add listing_id
         category_id: filter_params[:category],
-        listing_shape_id: Maybe(filter_params)[:listing_shapes][:id].or_else(nil),
+        listing_shape_id: Maybe(filter_params)[:listing_shape].or_else(nil),
         price_cents: filter_params[:price_cents],
         keywords: filter_params[:search],
         checkboxes: checkboxes,
