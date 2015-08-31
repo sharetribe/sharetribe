@@ -145,80 +145,70 @@ class HomepageController < ApplicationController
     p = HomepageController.group_to_ranges(p)
     numeric_search_params = HomepageController.filter_unnecessary(p, @current_community.custom_numeric_fields)
 
-    numeric_search_needed = !numeric_search_params.empty?
-
-    filter_params[:listing_ids] = if numeric_search_needed
-      NumericFieldValue.search_many(numeric_search_params).collect(&:listing_id)
-    end
-
     filter_params = filter_params.reject {
       |_, value| (value == "all" || value == ["all"])
     } # all means the filter doesn't need to be included
 
-    if numeric_search_needed && filter_params[:listing_ids].empty?
-      Listing.none.paginate(:per_page => listings_per_page, :page => params[:page])
-    else
-      checkboxes = {
-        search_type: :and,
-        values: filter_params[:custom_checkbox_field_options] || []
-      }
+    checkboxes = {
+      search_type: :and,
+      values: filter_params[:custom_checkbox_field_options] || []
+    }
 
-      dropdowns = {
-        search_type: :or,
-        values: filter_params[:custom_dropdown_field_options] || []
-      }
-      search = {
-        # Add listing_id
-        category_id: filter_params[:category],
-        listing_shape_id: Maybe(filter_params)[:listing_shape].or_else(nil),
-        price_cents: filter_params[:price_cents],
-        keywords: filter_params[:search],
-        checkboxes: checkboxes,
-        dropdowns: dropdowns,
-        per_page: listings_per_page,
-        page: params[:page] || 1,
-        listing_ids: filter_params[:listing_ids]
-      }
+    dropdowns = {
+      search_type: :or,
+      values: filter_params[:custom_dropdown_field_options] || []
+    }
+    search = {
+      # Add listing_id
+      category_id: filter_params[:category],
+      listing_shape_id: Maybe(filter_params)[:listing_shape].or_else(nil),
+      price_cents: filter_params[:price_cents],
+      keywords: filter_params[:search],
+      checkboxes: checkboxes,
+      dropdowns: dropdowns,
+      numbers: numeric_search_params,
+      per_page: listings_per_page,
+      page: params[:page] || 1,
+    }
 
-      ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search).and_then { |res|
-        listings = res.map { |l|
-          ListingItem.new(
-            l[:id],
-            l[:title],
-            l[:category_id],
-            l[:latitude],
-            l[:longitude],
-            Author.new(
-              l[:author][:id],
-              l[:author][:username],
-              l[:author][:first_name],
-              l[:author][:last_name],
-              ListingImage.new(
-                l[:author][:avatar][:thumb]
-              ),
-              l[:author][:is_deleted],
-              l[:author][:num_of_reviews],
+    ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search).and_then { |res|
+      listings = res.map { |l|
+        ListingItem.new(
+          l[:id],
+          l[:title],
+          l[:category_id],
+          l[:latitude],
+          l[:longitude],
+          Author.new(
+            l[:author][:id],
+            l[:author][:username],
+            l[:author][:first_name],
+            l[:author][:last_name],
+            ListingImage.new(
+              l[:author][:avatar][:thumb]
             ),
-            l[:description],
-            l[:listing_images].map { |li|
-              ListingImage.new(li[:thumb], li[:small_3x2]) },
-            l[:price],
-            l[:unit_tr_key],
-            l[:unit_type],
-            l[:quantity],
-            l[:shape_name_tr_key],
-            l[:listing_shape_id],
-            l[:icon_name]
-          )
-        }
-
-        paginated = WillPaginate::Collection.create(params[:page] || 1, listings_per_page, listings.count) do |pager|
-          pager.replace(listings)
-        end
-
-        Result::Success.new(paginated)
+            l[:author][:is_deleted],
+            l[:author][:num_of_reviews],
+          ),
+          l[:description],
+          l[:listing_images].map { |li|
+            ListingImage.new(li[:thumb], li[:small_3x2]) },
+          l[:price],
+          l[:unit_tr_key],
+          l[:unit_type],
+          l[:quantity],
+          l[:shape_name_tr_key],
+          l[:listing_shape_id],
+          l[:icon_name]
+        )
       }
-    end
+
+      paginated = WillPaginate::Collection.create(params[:page] || 1, listings_per_page, listings.count) do |pager|
+        pager.replace(listings)
+      end
+
+      Result::Success.new(paginated)
+    }
   end
 
   def filter_range(price_min, price_max)
@@ -262,8 +252,8 @@ class HomepageController < ApplicationController
         boundaries = values.inject(:merge)
 
         {
-          custom_field_id: key,
-          numeric_value: (boundaries[:min].to_f..boundaries[:max].to_f)
+          id: key,
+          range: (boundaries[:min].to_f..boundaries[:max].to_f)
         }
       end
   end
@@ -271,8 +261,8 @@ class HomepageController < ApplicationController
   # Filter search params if their values equal min/max
   def self.filter_unnecessary(search_params, numeric_fields)
     search_params.reject do |search_param|
-      numeric_field = numeric_fields.find(search_param[:custom_field_id])
-      search_param == { custom_field_id: numeric_field.id, numeric_value: (numeric_field.min..numeric_field.max) }
+      numeric_field = numeric_fields.find(search_param[:id])
+      search_param == { id: numeric_field.id, range: (numeric_field.min..numeric_field.max) }
     end
   end
 

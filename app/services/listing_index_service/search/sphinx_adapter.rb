@@ -9,46 +9,76 @@ module ListingIndexService::Search
 
     def search(community_id:, search:)
       result =
-        if search_out_of_bounds?(search[:per_page], search[:page])
-          []
-        elsif !search_with_sphinx?(search)
-          Listing
-            .where(community_id: community_id)
-            .includes(INCLUDED_MODELS)
-            .currently_open("open")
-            .order("listings.sort_date DESC")
-            .paginate(per_page: search[:per_page], page: search[:page])
+        if needs_search?(search)
+          if search_out_of_bounds?(search[:per_page], search[:page])
+            []
+          else
+            search_with_sphinx(community_id: community_id, search: search)
+          end
         else
-          with = HashUtils.compact(
-            {
-              community_id: community_id,
-              category_id: search[:categories], # array of accepted ids
-              listing_shape_id: search[:listing_shape_id],
-              price_cents: search[:price_cents],
-              listing_id: search[:listing_ids],
-            })
-
-          with_all = {
-            custom_dropdown_field_options: selection_groups(search[:dropdowns]),
-            custom_checkbox_field_options: selection_groups(search[:checkboxes])
-          }
-
-          Listing.search(
-            Riddle::Query.escape(search[:keywords] || ""),
-            include: INCLUDED_MODELS,
-            page: search[:page],
-            per_page: search[:per_page],
-            star: true,
-            with: with,
-            with_all: with_all,
-            order: 'sort_date DESC'
-          )
+          fetch_from_db(community_id: community_id, search: search)
         end
 
       result.map { |l| to_hash(l) }
     end
 
     private
+
+    def fetch_from_db(community_id:, search:)
+      Listing
+        .where(community_id: community_id)
+        .includes(INCLUDED_MODELS)
+        .currently_open("open")
+        .order("listings.sort_date DESC")
+        .paginate(per_page: search[:per_page], page: search[:page])
+    end
+
+    def search_with_sphinx(community_id:, search:)
+      perform_numeric_search = search[:numbers].present?
+
+      numeric_search_match_listing_ids =
+        if search[:numbers].present?
+          numeric_search_params = search[:numbers].map { |n|
+            { custom_field_id: n[:id], numeric_value: n[:range] }
+          }
+          NumericFieldValue.search_many(numeric_search_params).collect(&:listing_id)
+        else
+          []
+        end
+
+      if perform_numeric_search && numeric_search_match_listing_ids.empty?
+        # No matches found with the numeric search
+        # Do a short circuit and return emtpy paginated collection of listings
+        []
+      else
+
+        with = HashUtils.compact(
+          {
+            community_id: community_id,
+            category_id: search[:categories], # array of accepted ids
+            listing_shape_id: search[:listing_shape_id],
+            price_cents: search[:price_cents],
+            listing_id: numeric_search_match_listing_ids,
+          })
+
+        with_all = {
+          custom_dropdown_field_options: selection_groups(search[:dropdowns]),
+          custom_checkbox_field_options: selection_groups(search[:checkboxes])
+        }
+
+        Listing.search(
+          Riddle::Query.escape(search[:keywords] || ""),
+          include: INCLUDED_MODELS,
+          page: search[:page],
+          per_page: search[:per_page],
+          star: true,
+          with: with,
+          with_all: with_all,
+          order: 'sort_date DESC'
+        )
+      end
+
+    end
 
     def to_hash(l)
       {
@@ -97,13 +127,13 @@ module ListingIndexService::Search
       page > pages.ceil
     end
 
-    def search_with_sphinx?(search)
+    def needs_search?(search)
       search[:keywords].present? ||
         search[:listing_shape_id].present? ||
         search[:categories].present? ||
         search[:checkboxes][:values].present? ||
         search[:dropdowns][:values].present? ||
-        search[:listing_ids].present? ||
+        search[:numbers].present? ||
         search[:price_cents].present?
     end
 

@@ -5,6 +5,11 @@ module ListingIndexService::API
     [:search_type, one_of: [:and, :or]],
   )
 
+  NumericFilter = EntityUtils.define_builder(
+    [:id, :fixnum, :mandatory],
+    [:range, :range, :mandatory],
+  )
+
   SearchParams = EntityUtils.define_builder(
     [:page, :to_integer, default: 1, gte: 1],
     [:per_page, :to_integer, :mandatory, gte: 1],
@@ -14,6 +19,7 @@ module ListingIndexService::API
     [:price_cents, :range, :optional],
     [:checkboxes, entity: SelectionGroups],
     [:dropdowns, entity: SelectionGroups],
+    [:numbers, collection: NumericFilter],
     [:listing_ids, :array] # TODO Remove. This is only needed for numeric search (which should be behing the API)
   )
 
