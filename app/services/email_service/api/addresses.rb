@@ -37,26 +37,29 @@ module EmailService::API
     end
 
     def create(community_id:, address:)
-      valid_email_format?(address[:email]).on_error {
-        return Result::Error.new("Incorrect email format: '#{address[:email]}'", error_code: :invalid_email, email: address[:email])
+      lowercase_email = Maybe(address)[:email].downcase.or_else(nil)
+
+      valid_email_format?(lowercase_email).on_error {
+        return Result::Error.new("Incorrect email format: '#{lowercase_email}'", error_code: :invalid_email, email: lowercase_email)
       }
 
-      valid_email_domain?(address[:email]).on_error { |error_msg, data|
-        return Result::Error.new("Disallowed email provider: '#{address[:domain]}'", error_code: :invalid_domain, email: address[:email], domain: data[:domain])
+      valid_email_domain?(lowercase_email).on_error { |error_msg, data|
+        return Result::Error.new("Disallowed email provider: '#{address[:domain]}'", error_code: :invalid_domain, email: lowercase_email, domain: data[:domain])
       }
 
       create_in_status = @ses_client ? :none : :verified
 
-      address = with_formats(
-        AddressStore.create(
+      created_address = AddressStore.create(
         community_id: community_id,
-        address: address.merge(verification_status: create_in_status)))
+        address: address.merge(
+          verification_status: create_in_status,
+          email: lowercase_email))
 
       if @ses_client
-        enqueue_verification_request(community_id: address[:community_id], id: address[:id])
+        enqueue_verification_request(community_id: created_address[:community_id], id: created_address[:id])
       end
 
-      Result::Success.new(address)
+      Result::Success.new(with_formats(created_address))
     end
 
     def enqueue_verification_request(community_id:, id:)
@@ -118,7 +121,7 @@ module EmailService::API
                                                             # in Email model
         email_regexp.match(email).present? ? Result::Success.new() : Result::Error.new("invalid email format")
       else
-        Result::Error.new()
+        Result::Error.new("No email address")
       end
     end
 
