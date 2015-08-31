@@ -53,7 +53,6 @@
 #  service_logo_style                         :string(255)      default("full-logo")
 #  available_currencies                       :text
 #  facebook_connect_enabled                   :boolean          default(TRUE)
-#  only_public_listings                       :boolean          default(TRUE)
 #  vat                                        :integer
 #  commission_from_seller                     :integer
 #  minimum_price_cents                        :integer
