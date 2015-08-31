@@ -38,12 +38,14 @@ Before you get started, the following needs to be installed:
     1. `gem install mailcatcher`
     1. `mailcatcher`
     1. Create a `config/config.yml` file and add the following lines to it:
-      ```yml
-      development:
-        mail_delivery_method: smtp
-        smtp_email_address: "localhost"
-        smtp_email_port: 1025
-      ```
+
+        ```yml
+        development:
+          mail_delivery_method: smtp
+          smtp_email_address: "localhost"
+          smtp_email_port: 1025
+        ```
+
     1. Open `http://localhost:1080` in your browser
 1. Invoke the delayed job worker: `bundle exec rake jobs:work`
 1. In a new console, open the project root folder and start the server. The simplest way is to use the included Webrick server: `bundle exec rails server`
