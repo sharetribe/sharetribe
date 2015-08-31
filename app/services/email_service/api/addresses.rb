@@ -47,16 +47,16 @@ module EmailService::API
 
       create_in_status = @ses_client ? :none : :verified
 
-      address = with_formats(
+      created_address = with_formats(
         AddressStore.create(
         community_id: community_id,
         address: address.merge(verification_status: create_in_status)))
 
       if @ses_client
-        enqueue_verification_request(community_id: address[:community_id], id: address[:id])
+        enqueue_verification_request(community_id: created_address[:community_id], id: created_address[:id])
       end
 
-      Result::Success.new(address)
+      Result::Success.new(created_address)
     end
 
     def enqueue_verification_request(community_id:, id:)
