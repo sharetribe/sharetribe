@@ -118,7 +118,7 @@ module EmailService::API
                                                             # in Email model
         email_regexp.match(email).present? ? Result::Success.new() : Result::Error.new("invalid email format")
       else
-        Result::Error.new()
+        Result::Error.new("No email address")
       end
     end
 
