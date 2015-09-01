@@ -88,7 +88,7 @@ module ListingIndexService::Search
     end
 
     def to_hash(l, include)
-      listing = {
+      {
         id: l.id,
         title: l.title,
         description: l.description,
@@ -102,24 +102,28 @@ module ListingIndexService::Search
         quantity: l.quantity,
         shape_name_tr_key: l.shape_name_tr_key,
         listing_shape_id: l.listing_shape_id
-      }
+      }.merge(location_hash(l, include))
+        .merge(author_hash(l, include))
+        .merge(listing_images_hash(l, include))
+    end
 
-      location =
-        if include.include?(:location)
-          m_location = Maybe(l.location)
-          {
-            latitude: m_location.latitude.or_else(nil),
-            longitude: m_location.longitude.or_else(nil),
-            address: m_location.address.or_else(nil),
-          }
-        else
-          {}
-        end
+    def location_hash(l, include)
+      if include.include?(:location)
+        m_location = Maybe(l.location)
+        {
+          latitude: m_location.latitude.or_else(nil),
+          longitude: m_location.longitude.or_else(nil),
+          address: m_location.address.or_else(nil),
+        }
+      else
+        {}
+      end
+    end
 
-      author =
+    def author_hash(l, include)
         if include.include?(:num_of_reviews) || include.include?(:author)
-          author =
-            {
+          {
+            author: {
               id: l.author_id,
               username: l.author.username,
               first_name: l.author.given_name,
@@ -128,21 +132,23 @@ module ListingIndexService::Search
                 thumb: l.author.image(:thumb)
               },
               is_deleted: l.author.deleted?,
-            }
-
-          num_of_reviews =
-            if include.include?(:num_of_reviews)
-              {num_of_reviews: l.author.received_testimonials.size}
-            else
-              {}
-            end
-
-          {author: author.merge(num_of_reviews) }
+            }.merge(num_of_reviews_hash(l, include))
+          }
         else
           {}
         end
+    end
 
-      listing_images =
+    def num_of_reviews_hash(l, include)
+      if include.include?(:num_of_reviews)
+        {num_of_reviews: l.author.received_testimonials.size}
+      else
+        {}
+      end
+
+    end
+
+    def listing_images_hash(l, include)
         if include.include?(:listing_images)
           {
             listing_images: Maybe(l.listing_images.first)
@@ -158,11 +164,6 @@ module ListingIndexService::Search
         else
           {}
         end
-
-      listing
-        .merge(location)
-        .merge(author)
-        .merge(listing_images)
     end
 
     def search_out_of_bounds?(per_page, page)
