@@ -9,7 +9,7 @@ tr-TR:
         other: "%{count} hata %{resource}'un kaydedilmesini engelledi. "
   devise:
     failure:
-      already_authenticated: "Hesabınıza girmişsiniz."
+      already_authenticated: "Zaten giriş yapmışsınız."
       unauthenticated: "Devam etmeden önce bir hesap açtırmalı veya hesabınıza giriş yapmalısınız."
       unconfirmed: "Devam etmeden önce hesabınızı doğrulamalısınız."
       locked: "Hesabınız kilitlenmiştir."
