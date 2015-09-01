@@ -59,6 +59,61 @@ describe PaypalService::DataTypes::IPN do
     "ipn_track_id"=>"d9520dcb18f6"
   }
 
+  payment_review = {
+    mc_gross: "15410.35",
+    invoice: "3876-81783-payment",
+    auth_exp: "11:20:48 Sep 28, 2015 PDT",
+    protection_eligibility: "Ineligible",
+    address_status: "confirmed",
+    item_number1: "",
+    payer_id: "MGGGS735KYJBJ",
+    tax: "0.00",
+    address_street: "14027 caminito vistana",
+    payment_date: "11:20:48 Aug 29, 2015 PDT",
+    payment_status: "Pending",
+    charset: "windows-1252",
+    address_zip: "92130",
+    mc_shipping: "59.95",
+    mc_handling: "0.00",
+    first_name: "James",
+    transaction_entity: "auth",
+    address_country_code: "US",
+    address_name: "James parker",
+    notify_version: "3.8",
+    custom: "",
+    payer_status: "unverified",
+    address_country: "United States",
+    num_cart_items: "1",
+    mc_handling1: "0.00",
+    address_city: "san diego",
+    verify_sign: "AZM038rWDSJ1dQw5ivqZtXm6LwBAAH5-bdfWUdc.afN69knyHl1DzW.n",
+    payer_email: "jparkerc@aol.com",
+    mc_shipping1: "0.00",
+    tax1: "0.00",
+    parent_txn_id: "",
+    txn_id: "1LK038829V247181R",
+    payment_type: "instant",
+    remaining_settle: "10",
+    auth_id: "1LK038829V247181R",
+    last_name: "parker",
+    address_state: "CA",
+    item_name1: "TIGER TURF Diamond Pro 80 oz. BEST PRODUCT",
+    receiver_email: "projectnewgreen@gmail.com",
+    auth_amount: "15410.35",
+    quantity1: "4160",
+    receiver_id: "QL2DC7NDULU9U",
+    pending_reason: "paymentreview",
+    txn_type: "cart",
+    mc_gross_1: "15350.40",
+    mc_currency: "USD",
+    residence_country: "US",
+    receipt_id: "1546-0244-6643-5772",
+    transaction_subject: "",
+    payment_gross: "15410.35",
+    auth_status: "Pending",
+    ipn_track_id: "73c905ac220b8"
+  }
+
   auth_created = {
     "mc_gross"=>"1.20",
     "auth_exp"=>"23:50:00 Oct 03, 2014 PDT",
@@ -713,6 +768,7 @@ describe PaypalService::DataTypes::IPN do
       [billing_agreement_created, :billing_agreement_created],
       [payment_refunded, :payment_refunded],
       [order_created, :order_created],
+      [payment_review, :payment_review],
       [auth_created, :authorization_created],
       [auth_created_no_order, :authorization_created],
       [payment_completed, :payment_completed],
@@ -748,5 +804,11 @@ describe PaypalService::DataTypes::IPN do
     ipn_msg = PaypalService::DataTypes::IPN.from_params(authorization_expired_no_order)
 
     expect(ipn_msg[:order_id]).to be_nil
+  end
+
+  it "#from_params - normalizes pending reason status for payment-review" do
+    ipn_msg = PaypalService::DataTypes::IPN.from_params(payment_review)
+
+    expect(ipn_msg[:pending_reason]).to eq("payment-review")
   end
 end
