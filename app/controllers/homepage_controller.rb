@@ -54,7 +54,7 @@ class HomepageController < ApplicationController
       if @view_type == "grid" then
         render :partial => "grid_item", :collection => @listings, :as => :listing
       else
-        render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map }
+        render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use }
       end
     else
       render locals: {
@@ -62,6 +62,7 @@ class HomepageController < ApplicationController
                show_price_filter: show_price_filter,
                selected_shape: selected_shape,
                shape_name_map: shape_name_map,
+               testimonials_in_use: @current_community.testimonials_in_use,
                listing_shape_menu_enabled: listing_shape_menu_enabled }
     end
   end
