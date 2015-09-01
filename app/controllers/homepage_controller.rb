@@ -142,7 +142,7 @@ class HomepageController < ApplicationController
 
   def find_listings(params, listings_per_page, filter_params, include)
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
-      filter_params[:category] = category.id
+      filter_params[:categories] = category.own_and_subcategory_ids
       @selected_category = category
     end
 
@@ -172,7 +172,7 @@ class HomepageController < ApplicationController
     }
     search = {
       # Add listing_id
-      category_id: filter_params[:category],
+      categories: filter_params[:categories],
       listing_shape_id: Maybe(filter_params)[:listing_shape].or_else(nil),
       price_cents: filter_params[:price_cents],
       keywords: filter_params[:search],

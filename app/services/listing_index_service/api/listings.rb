@@ -14,7 +14,7 @@ module ListingIndexService::API
     [:page, :to_integer, default: 1, gte: 1],
     [:per_page, :to_integer, :mandatory, gte: 1],
     [:keywords, :string, :optional],
-    [:category_id, :fixnum, :optional],
+    [:categories, :array, :optional],
     [:listing_shape_id, :fixnum, :optional],
     [:price_cents, :range, :optional],
     [:checkboxes, entity: SelectionGroups],
@@ -79,14 +79,11 @@ module ListingIndexService::API
       end
 
       s = SearchParams.call(search)
-      categories = search_category_ids(community_id: community_id, category_id: s[:category_id])
 
       Result::Success.new(
         search_engine.search(
           community_id: community_id,
-          search: s.merge(
-            categories: categories
-          ),
+          search: s,
           include: include
         ).map { |search_res|
           Listing.call(search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}"))
@@ -95,15 +92,6 @@ module ListingIndexService::API
     end
 
     private
-
-    # Takes category id, and returns a list of ids of current and child categories
-    def search_category_ids(community_id:, category_id:)
-      Maybe(category_id).map { |cat_id|
-        ListingService::API::Api.categories.get(community_id: community_id, category_id: cat_id).data
-      }.map { |category_tree|
-        HashUtils.deep_pluck([category_tree], :children, :id)
-      }.or_else(nil)
-    end
 
     def search_engine
       case ENGINE
