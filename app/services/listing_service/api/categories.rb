@@ -9,9 +9,7 @@ module ListingService::API
     end
 
     def get(community_id:, category_id:)
-      res = HashUtils.deep_find(CategoryStore.get_all(community_id: community_id), :children) { |cat|
-        cat[:id] == category_id
-      }
+      res = CategoryStore.get(community_id: community_id, category_id: category_id)
 
       if res.nil?
         Result::Error.new("Can not find category for community_id: #{community_id}, category_id: #{category_id}")

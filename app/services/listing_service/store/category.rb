@@ -28,9 +28,15 @@ module ListingService::Store::Category
 
   module_function
 
-  def get_all(community_id: community_id)
+  def get_all(community_id:)
     models = CategoryModel.where(community_id: community_id, parent_id: nil).order(:sort_priority)
     models.map { |model| from_model(model) }
+  end
+
+  def get(community_id:, category_id:)
+    models = CategoryModel.where(community_id: community_id, parent_id: nil).order(:sort_priority)
+    entities = models.map { |model| from_model(model) }
+    HashUtils.deep_find(entities, :children) { |cat| cat[:id] == category_id }
   end
 
   def create(community_id:, opts:)
