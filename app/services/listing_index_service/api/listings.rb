@@ -49,7 +49,7 @@ module ListingIndexService::API
     [:title, :string, :mandatory],
     [:description, :string],
     [:category_id, :fixnum, :mandatory],
-    [:author, :mandatory, entity: Author],
+    [:author, entity: Author],
     [:listing_images, collection: ListingImage],
     [:updated_at, :time, :mandatory],
     [:created_at, :time, :mandatory],
@@ -63,15 +63,21 @@ module ListingIndexService::API
     [:quantity, :string], # This is outdated
     [:shape_name_tr_key, :string], # TODO is this mandatory?
     [:listing_shape_id, :fixnum, :optional], # This can be nil, if the listing shape was deleted
-    [:icon_name, :string], # TODO What's this?
   )
+
+  RELATED_RESOURCES = [:listing_images, :author, :num_of_reviews, :location].to_set
 
   # TODO Maybe conf+injector?
   ENGINE = :sphinx
 
   class Listings
 
-    def search(community_id:, search: {})
+    def search(community_id:, search:, include: [])
+
+      unless include.to_set <= RELATED_RESOURCES
+        return Result::Error.new("Unknown included resources: #{(include.to_set - RELATED_RESOURCES).to_a}")
+      end
+
       s = SearchParams.call(search)
       categories = search_category_ids(community_id: community_id, category_id: s[:category_id])
 
@@ -80,7 +86,8 @@ module ListingIndexService::API
           community_id: community_id,
           search: s.merge(
             categories: categories
-          )
+          ),
+          include: include
         ).map { |search_res|
           Listing.call(search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}"))
         }

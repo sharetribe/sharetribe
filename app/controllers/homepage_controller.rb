@@ -76,7 +76,19 @@ class HomepageController < ApplicationController
 
     per_page = @view_type == "map" ? APP_CONFIG.map_listings_limit : APP_CONFIG.grid_listings_limit
 
-    search_result = find_listings(params, per_page, compact_filter_params)
+    include =
+      case @view_type
+      when "grid"
+        [:author, :listing_images]
+      when "list"
+        [:author, :listing_images, :num_of_reviews]
+      when "map"
+        [:location]
+      else
+        raise ArgumentError.new("Unknown view_type #{@view_type}")
+      end
+
+    search_result = find_listings(params, per_page, compact_filter_params, include.to_set)
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
@@ -128,7 +140,7 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, listings_per_page, filter_params)
+  def find_listings(params, listings_per_page, filter_params, include)
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
       filter_params[:category] = category.id
       @selected_category = category
@@ -171,28 +183,42 @@ class HomepageController < ApplicationController
       page: params[:page] || 1,
     }
 
-    ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search).and_then { |res|
+    ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, include: include).and_then { |res|
       listings = res.map { |l|
+        author =
+          if include.include?(:author)
+            Author.new(
+              l[:author][:id],
+              l[:author][:username],
+              l[:author][:first_name],
+              l[:author][:last_name],
+              ListingImage.new(
+                l[:author][:avatar][:thumb]
+              ),
+              l[:author][:is_deleted],
+              l[:author][:num_of_reviews]
+            )
+          else
+            nil
+          end
+
+        listing_images =
+          if include.include?(:listing_images)
+            l[:listing_images].map { |li|
+              ListingImage.new(li[:thumb], li[:small_3x2]) }
+          else
+            []
+          end
+
         ListingItem.new(
           l[:id],
           l[:title],
           l[:category_id],
           l[:latitude],
           l[:longitude],
-          Author.new(
-            l[:author][:id],
-            l[:author][:username],
-            l[:author][:first_name],
-            l[:author][:last_name],
-            ListingImage.new(
-              l[:author][:avatar][:thumb]
-            ),
-            l[:author][:is_deleted],
-            l[:author][:num_of_reviews],
-          ),
+          author,
           l[:description],
-          l[:listing_images].map { |li|
-            ListingImage.new(li[:thumb], li[:small_3x2]) },
+          listing_images,
           l[:price],
           l[:unit_tr_key],
           l[:unit_type],
