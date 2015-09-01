@@ -569,8 +569,12 @@ function addListingMarkers(listings, community_location_lat, community_location_
             infowindow.setMaxHeight(150);
             infowindow.setMinHeight(150);
             infowindow.open(map,marker);
-            $.get('/' + locale + '/listing_bubble/' + entry["id"], function(data) {
-              $('#map_bubble').html(data);
+            $.ajax({
+              url: '/' + locale + '/listing_bubble/' + entry.id,
+              dataType: "html",
+              success: function(data) {
+                $('#map_bubble').html(data);
+              }
             });
           }
         });
