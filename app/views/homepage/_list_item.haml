@@ -39,7 +39,7 @@
       .home-list-author-details
         = link_to listing.author :class => "home-list-author-name" do
           = listing.author.name(@current_community)
-        - if @current_community.testimonials_in_use
+        - if testimonials_in_use
           .home-list-author-reviews
             - if listing.author.received_testimonials.size > 0
               = icon_tag("testimonial")
