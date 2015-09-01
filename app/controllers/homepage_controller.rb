@@ -250,11 +250,6 @@ class HomepageController < ApplicationController
     end
   end
 
-  def to_struct(struct_class, hash)
-    args = struct_class.members.map { |k| hash[k] }
-    struct_class.new(*args)
-  end
-
   # Return all params starting with `numeric_filter_`
   def self.numeric_filter_params(all_params)
     all_params.select { |key, value| key.start_with?("nf_") }
