@@ -71,7 +71,8 @@ class ListingsController < ApplicationController
                        listing_shapes: params[:listing_shapes],
                        page: page,
                        per_page: per_page
-                     })
+                     },
+                     include: [:listing_images, :author, :location])
 
         listings = search_res.data
 
