@@ -455,6 +455,7 @@ class Community < ActiveRecord::Base
         listings
           .currently_open
           .where("updates_email_at > ? AND updates_email_at = created_at", latest)
+          .order("updates_email_at DESC")
           .limit(additional_listings)
           .to_a
       else
