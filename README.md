@@ -26,7 +26,7 @@ Before you get started, the following needs to be installed:
   * [**Sphinx**](http://pat.github.com/ts/en/installing_sphinx.html). Version 2.1.4 has been used successfully, but newer versions should work as well. Make sure to enable MySQL support. If you're using OS X and have Homebrew installed, install it with `brew install sphinx --with-mysql`
   * [**Imagemagick**](http://www.imagemagick.org). If you're using OS X and have Homebrew installed, install it with `brew install imagemagick`
 
-### Steps
+### Setting up the development environment
 
 1. Get the code. Cloning this git repo is probably easiest way:
 
@@ -145,7 +145,7 @@ To automatically run unit tests when code is changed, start [Guard](https://gith
 
 ### Setting up Sharetribe for production
 
-Steps 1-6 from above need to be done before performing these steps.
+Before starting these steps, perform [steps 1-6 from above](#setting-up-the-development-environment).
 
 1. Initialize your database:
 
@@ -184,13 +184,21 @@ Steps 1-6 from above need to be done before performing these steps.
   ```
 
 
-It is not recommended to use the built-in WEBrick server (which was started in the last step above) for production due to performance reasons. A dedicated HTTP server such as [unicorn](http://unicorn.bogomips.org/) is recommended.
+The built-in WEBrick server (which was started in the last step above) should not be used in production due to performance reasons. A dedicated HTTP server such as [unicorn](http://unicorn.bogomips.org/) is recommended.
 
 It is also not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false` in `config/config.yml`.
 
 ### Advanced settings
 
 Default configuration settings are stored in `config/config.default.yml`. If you need to change these, we recommend creating a `config/config.yml` file to override these values. You can also set configuration values to environment variables.
+
+### Unofficial installation instructions
+
+Use these instructions to set up and deploy Sharetribe for production in different environments. They have been put together by the developer community, and are not officially maintained by the Sharetribe core team. The instructions might be somewhat out of date.
+
+If you have installation instructions that you would like to share, don't hesitate to [contact the team](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main).
+
+- [Deploying Sharetribe to Heroku](https://gist.github.com/svallory/d08e9baa88e18d691605) by [svallory](https://github.com/svallory)
 
 
 ## Payments
