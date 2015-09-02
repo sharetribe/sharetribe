@@ -145,7 +145,7 @@ To automatically run unit tests when code is changed, start [Guard](https://gith
 
 ### Setting up Sharetribe for production
 
-Before starting these steps, perform steps 1-6 from above.
+Before starting these steps, perform [steps 1-6 from above](#setting-up-the-development-environment).
 
 1. Initialize your database:
 
