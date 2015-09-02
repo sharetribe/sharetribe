@@ -192,6 +192,14 @@ It is also not recommended to serve static assets from a Rails server in product
 
 Default configuration settings are stored in `config/config.default.yml`. If you need to change these, we recommend creating a `config/config.yml` file to override these values. You can also set configuration values to environment variables.
 
+### Unofficial installation instructions
+
+Below are instructions on how to set up and deploy Sharetribe for production in different environments. They have been put together by the developer community, and are not officially maintained by the Sharetribe core team. The instructions might be somewhat out of date.
+
+If you have installation instructions that you would like to share, don't hesitate to [contact the team](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main).
+
+- [Deploying Sharetribe to Heroku](https://gist.github.com/svallory/d08e9baa88e18d691605) by [svallory](https://github.com/svallory)
+
 
 ## Payments
 
