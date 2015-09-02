@@ -269,7 +269,7 @@ module PaypalService
 
         create_payment_review(
           p.merge({
-              authorization_total: to_money(p[:mc_gross_1], p[:mc_currency]),
+              authorization_total: to_money(p[:mc_gross], p[:mc_currency]),
               pending_reason: "payment-review"})) # Normalize the pending reason, it comes as either "paymentreview" or "payment-review"
 
       end
