@@ -26,6 +26,21 @@ module PaypalService
         [:order_total, :money, :mandatory]
       )
 
+      PaymentReview = EntityUtils.define_builder(
+        [:type, const_value: :payment_review],
+        [:authorization_date, :mandatory, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
+        [:authorization_expires_date, :mandatory, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
+        [:authorization_id, :string, :mandatory],
+        [:payer_email, :string],
+        [:payer_id, :string, :mandatory],
+        [:receiver_email, :string, :mandatory],
+        [:receiver_id, :string, :mandatory],
+        [:payment_status, :string, :mandatory],
+        [:pending_reason, :string],
+        [:receipt_id, :string],
+        [:authorization_total, :money, :mandatory]
+      )
+
       AuthorizationCreated = EntityUtils.define_builder(
         [:type, const_value: :authorization_created],
         [:authorization_date, :mandatory, str_to_time: "%H:%M:%S %b %e, %Y %Z"],
@@ -146,6 +161,7 @@ module PaypalService
       module_function
 
       def create_order_created(opts); OrderCreated.call(opts) end
+      def create_payment_review(opts); PaymentReview.call(opts) end
       def create_authorization_created(opts); AuthorizationCreated.call(opts) end
       def create_authorization_expired(opts); AuthorizationExpired.call(opts) end
       def create_payment_completed(opts); PaymentCompleted.call(opts) end
@@ -164,6 +180,8 @@ module PaypalService
         case type
         when :order_created
           to_order_created(p)
+        when :payment_review
+          to_payment_review(p)
         when :authorization_created
           to_authorization_created(p)
         when :authorization_expired
@@ -202,6 +220,8 @@ module PaypalService
           return :billing_agreement_created
         elsif status == "pending" && reason == "order"
           return :order_created
+        elsif status == "pending" && (reason == "paymentreview" || reason == "payment-review")
+          return :payment_review
         elsif status == "pending" && reason == "authorization"
           return :authorization_created
         elsif status == "expired"
@@ -237,6 +257,22 @@ module PaypalService
         create_order_created(p.merge({order_total: to_money(p[:mc_gross], p[:mc_currency])}))
       end
       private_class_method :to_order_created
+
+      def to_payment_review(params)
+        p = HashUtils.rename_keys(
+          {
+            txn_id: :authorization_id,
+            payment_date: :authorization_date,
+            auth_exp: :authorization_expires_date
+          },
+          params)
+
+        create_payment_review(
+          p.merge({
+              authorization_total: to_money(p[:mc_gross], p[:mc_currency]),
+              pending_reason: "payment-review"})) # Normalize the pending reason, it comes as either "paymentreview" or "payment-review"
+
+      end
 
       def to_authorization_created(params)
         p = HashUtils.rename_keys(

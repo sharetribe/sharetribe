@@ -185,8 +185,10 @@ module PaypalService::Store::PaypalPayment
       :none
     elsif(reason.is_a? Symbol)
       reason
+    elsif(reason == "payment-review") # Canonical version of payment-review status is with dash
+      reason.downcase.to_sym
     else
-      reason.downcase.gsub(/[-_]/, "").to_sym
+      reason.downcase.gsub(/[-_]/, "").to_sym # Normalize dashes and underscores away
     end
   end
 
