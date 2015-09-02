@@ -84,6 +84,21 @@ describe PaypalService::IPN do
       authorization_total: Money.new(120, "GBP")
     }
 
+    @payment_review_no_order_msg = {
+      type: :payment_review,
+      authorization_date: "2014-10-01 09:04:07 +0300",
+      authorization_expires_date: "2014-10-04 09:50:00 +0300",
+      authorization_id: "O-2ES620817J8424038",
+      payer_email: "foobar@barfoo.com",
+      payer_id: "7LFUVCDKGARH4",
+      receiver_email: "dev+paypal-user1@sharetribe.com",
+      receiver_id: "URAPMR7WHFAWY",
+      payment_status: "Pending",
+      pending_reason: "payment-review",
+      receipt_id: "3609-0935-6989-4532",
+      authorization_total: Money.new(120, "GBP")
+    }
+
     @auth_expired_msg = {
       type: :authorization_expired,
       authorization_id: "0L584749FU2628910",
@@ -232,6 +247,17 @@ describe PaypalService::IPN do
       expect(@events.received_events[:payment_updated].length).to eq 1
     end
 
+    it "should keep payment in payment-review when payment-review ipn msg received" do
+      PaypalPayment.where(authorization_id: @authorization[:authorization_id])
+        .first
+        .update_attribute(:pending_reason, "payment-review")
+
+      @ipn_service.handle_msg(@payment_review_no_order_msg)
+      payment = PaypalPayment.where(authorization_id: @authorization[:authorization_id]).first
+      expect(payment.payment_status).to eql "pending"
+      expect(payment.pending_reason).to eql "payment-review"
+    end
+
     it "should handle authorization when payment in payment-review state" do
       PaypalPayment.where(authorization_id: @authorization[:authorization_id])
         .first
@@ -245,6 +271,15 @@ describe PaypalService::IPN do
 
     it "should handle authorization without order" do
       @ipn_service.handle_msg(@auth_created_no_order_msg)
+
+      payment = PaypalPayment.where(authorization_id: @authorization[:authorization_id]).first
+      expect(payment.payment_status).to eql "pending"
+      expect(payment.pending_reason).to eql "authorization"
+    end
+
+    it "should not move authorized payment to payment-review is ipns arrive out of order" do
+      @ipn_service.handle_msg(@auth_created_no_order_msg)
+      @ipn_service.handle_msg(@payment_review_no_order_msg)
 
       payment = PaypalPayment.where(authorization_id: @authorization[:authorization_id]).first
       expect(payment.payment_status).to eql "pending"
@@ -267,7 +302,7 @@ describe PaypalService::IPN do
 
     it "should keep the fee_total even if ipn completed does not have it" do
       @ipn_service.handle_msg(@auth_created_msg)
-      #at this point, our own service would complete payment and get fee in response
+      # at this point, our own service would complete payment and get fee in response
       PaypalPayment.first.update_attribute(:fee_total, Money.new(100, "GBP"))
       @ipn_service.handle_msg(@payment_completed_msg)
       expect(PaypalPayment.first.fee_total)
@@ -336,8 +371,6 @@ describe PaypalService::IPN do
       )
       expect(acc2[:billing_agreement_state]).to eql(:not_verified)
       expect(acc2[:billing_agreement_billing_agreement_id]).to be_nil
-
-      # expect(acc2[:billing_agreement_id]).to be_nil
     end
   end
 
