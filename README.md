@@ -194,7 +194,7 @@ Default configuration settings are stored in `config/config.default.yml`. If you
 
 ### Unofficial installation instructions
 
-Below are instructions on how to set up and deploy Sharetribe for production in different environments. They have been put together by the developer community, and are not officially maintained by the Sharetribe core team. The instructions might be somewhat out of date.
+Use these instructions to set up and deploy Sharetribe for production in different environments. They have been put together by the developer community, and are not officially maintained by the Sharetribe core team. The instructions might be somewhat out of date.
 
 If you have installation instructions that you would like to share, don't hesitate to [contact the team](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main).
 
