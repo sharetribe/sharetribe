@@ -26,7 +26,7 @@ Before you get started, the following needs to be installed:
   * [**Sphinx**](http://pat.github.com/ts/en/installing_sphinx.html). Version 2.1.4 has been used successfully, but newer versions should work as well. Make sure to enable MySQL support. If you're using OS X and have Homebrew installed, install it with `brew install sphinx --with-mysql`
   * [**Imagemagick**](http://www.imagemagick.org). If you're using OS X and have Homebrew installed, install it with `brew install imagemagick`
 
-### Steps
+### Setting up the development environment
 
 1. Get the code. Cloning this git repo is probably easiest way:
 
@@ -145,7 +145,7 @@ To automatically run unit tests when code is changed, start [Guard](https://gith
 
 ### Setting up Sharetribe for production
 
-Steps 1-6 from above need to be done before performing these steps.
+Before starting these steps, perform steps 1-6 from above.
 
 1. Initialize your database:
 
@@ -184,7 +184,7 @@ Steps 1-6 from above need to be done before performing these steps.
   ```
 
 
-It is not recommended to use the built-in WEBrick server (which was started in the last step above) for production due to performance reasons. A dedicated HTTP server such as [unicorn](http://unicorn.bogomips.org/) is recommended.
+The built-in WEBrick server (which was started in the last step above) should not be used in production due to performance reasons. A dedicated HTTP server such as [unicorn](http://unicorn.bogomips.org/) is recommended.
 
 It is also not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false` in `config/config.yml`.
 
