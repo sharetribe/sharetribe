@@ -48,13 +48,15 @@
 #
 # Indexes
 #
+#  homepage_query                      (community_id,open,sort_date)
+#  homepage_query_valid_until          (community_id,open,valid_until,sort_date)
 #  index_listings_on_category_id       (old_category_id)
 #  index_listings_on_community_id      (community_id)
 #  index_listings_on_listing_shape_id  (listing_shape_id)
-#  index_listings_on_listing_type      (listing_type_old)
 #  index_listings_on_new_category_id   (category_id)
 #  index_listings_on_open              (open)
-#  index_listings_on_share_type_id     (share_type_id)
+#  person_listings                     (community_id,author_id)
+#  updates_email_listings              (community_id,open,updates_email_at)
 #
 
 class Listing < ActiveRecord::Base
