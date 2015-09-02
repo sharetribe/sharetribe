@@ -4,9 +4,17 @@ module ListingIndexService::DataTypes
     [:search_type, one_of: [:and, :or]],
   )
 
-  NumericFilter = EntityUtils.define_builder(
+  NumericRange = EntityUtils.define_builder(
+    [:type, const_value: :numeric_range],
     [:id, :fixnum, :mandatory],
-    [:range, :range, :mandatory],
+    [:value, :range, :mandatory],
+  )
+
+  SelectionGroup = EntityUtils.define_builder(
+    [:type, const_value: :selection_group],
+    [:id, :fixnum, :mandatory],
+    [:value, :array, :mandatory],
+    [:operator, one_of: [:and, :or]]
   )
 
   SearchParams = EntityUtils.define_builder(
@@ -16,9 +24,7 @@ module ListingIndexService::DataTypes
     [:categories, :array, :optional],
     [:listing_shape_id, :fixnum, :optional],
     [:price_cents, :range, :optional],
-    [:checkboxes, entity: SelectionGroups],
-    [:dropdowns, entity: SelectionGroups],
-    [:numbers, collection: NumericFilter],
+    [:fields, :array, default: []]
   )
 
   AvatarImage = EntityUtils.define_builder(
@@ -62,4 +68,27 @@ module ListingIndexService::DataTypes
     [:shape_name_tr_key, :string], # TODO is this mandatory?
     [:listing_shape_id, :fixnum, :optional], # This can be nil, if the listing shape was deleted
   )
+
+  module_function
+
+  def create_search_params(h)
+    fields = parse_fields(h[:fields])
+
+    SearchParams.call(
+      h.merge(fields: fields)
+    )
+  end
+
+  def parse_fields(fields)
+    (fields || []).map { |f|
+      case f[:type]
+      when :numeric_range
+        NumericRange.call(f)
+      when :selection_group
+        SelectionGroup.call(f)
+      else
+        ArgumentError.new("Unknown field type: #{f[:type]}")
+      end
+    }
+  end
 end

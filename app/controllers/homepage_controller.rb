@@ -161,24 +161,17 @@ class HomepageController < ApplicationController
       |_, value| (value == "all" || value == ["all"])
     } # all means the filter doesn't need to be included
 
-    checkboxes = {
-      search_type: :and,
-      values: filter_params[:custom_checkbox_field_options] || []
-    }
+    checkboxes = filter_params[:custom_checkbox_field_options].map { |checkbox_field| checkbox_field.merge(type: :selection_group, operator: :and) }
+    dropdowns = filter_params[:custom_dropdown_field_options].map { |dropdown_field| dropdown_field.merge(type: :selection_group, operator: :or) }
+    numbers = numeric_search_params.map { |numeric| numeric.merge(type: :numeric_range) }
 
-    dropdowns = {
-      search_type: :or,
-      values: filter_params[:custom_dropdown_field_options] || []
-    }
     search = {
       # Add listing_id
       categories: filter_params[:categories],
       listing_shape_id: Maybe(filter_params)[:listing_shape].or_else(nil),
       price_cents: filter_params[:price_cents],
       keywords: filter_params[:search],
-      checkboxes: checkboxes,
-      dropdowns: dropdowns,
-      numbers: numeric_search_params,
+      fields: checkboxes.concat(dropdowns).concat(numbers),
       per_page: listings_per_page,
       page: params[:page] || 1,
     }
@@ -274,7 +267,7 @@ class HomepageController < ApplicationController
 
         {
           id: key,
-          range: (boundaries[:min].to_f..boundaries[:max].to_f)
+          value: (boundaries[:min].to_f..boundaries[:max].to_f)
         }
       end
   end
@@ -283,7 +276,7 @@ class HomepageController < ApplicationController
   def self.filter_unnecessary(search_params, numeric_fields)
     search_params.reject do |search_param|
       numeric_field = numeric_fields.find(search_param[:id])
-      search_param == { id: numeric_field.id, range: (numeric_field.min..numeric_field.max) }
+      search_param == { id: numeric_field.id, value: (numeric_field.min..numeric_field.max) }
     end
   end
 
@@ -292,7 +285,7 @@ class HomepageController < ApplicationController
 
     array_for_search = CustomFieldOption.find(option_ids)
       .group_by { |option| option.custom_field_id }
-      .map { |key, selected_options| selected_options.collect(&:id) }
+      .map { |key, selected_options| {id: key, value: selected_options.collect(&:id) } }
   end
 
   def self.dropdown_field_options_for_search(params)

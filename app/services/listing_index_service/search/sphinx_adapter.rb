@@ -41,12 +41,13 @@ module ListingIndexService::Search
     end
 
     def search_with_sphinx(community_id:, search:, included_models:)
-      perform_numeric_search = search[:numbers].present?
+      numeric_search_fields = search[:fields].select { |f| f[:type] == :numeric_range }
+      perform_numeric_search = numeric_search_fields.present?
 
       numeric_search_match_listing_ids =
-        if search[:numbers].present?
-          numeric_search_params = search[:numbers].map { |n|
-            { custom_field_id: n[:id], numeric_value: n[:range] }
+        if numeric_search_fields.present?
+          numeric_search_params = numeric_search_fields.map { |n|
+            { custom_field_id: n[:id], numeric_value: n[:value] }
           }
           NumericFieldValue.search_many(numeric_search_params).collect(&:listing_id)
         else
@@ -68,9 +69,12 @@ module ListingIndexService::Search
             listing_id: numeric_search_match_listing_ids,
           })
 
+        selection_groups = search[:fields].select { |v| v[:type] == :selection_group }
+        grouped_by_operator = selection_groups.group_by { |v| v[:operator] }
+
         with_all = {
-          custom_dropdown_field_options: selection_groups(search[:dropdowns]),
-          custom_checkbox_field_options: selection_groups(search[:checkboxes])
+          custom_dropdown_field_options: (grouped_by_operator[:or] || []).map { |v| v[:value] },
+          custom_checkbox_field_options: (grouped_by_operator[:and] || []).flat_map { |v| v[:value] },
         }
 
         Listing.search(
@@ -175,9 +179,7 @@ module ListingIndexService::Search
       search[:keywords].present? ||
         search[:listing_shape_id].present? ||
         search[:categories].present? ||
-        (search[:checkboxes] && search[:checkboxes][:values].present?) ||
-        (search[:dropdowns] && search[:dropdowns][:values].present?) ||
-        search[:numbers].present? ||
+        search[:fields].present? ||
         search[:price_cents].present?
     end
 
