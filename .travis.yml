@@ -1,3 +1,6 @@
+branches:
+  only:
+    - master
 bundler_args: --without development --path=~/.bundle
 language: ruby
 sudo: false
