@@ -179,7 +179,7 @@ de:
         facebook_link_text: ~
         twitter_link_text: "füge deinen Twitter-Account hinzu"
         analytics: ~
-        analytics_link_text: ~
+        analytics_link_text: "Verknüpfe einen Google Analytics Account"
         settings: ~
         settings_link_text: "Hier siehst du deine Marktplatz-Einstellungen"
         final_words: ~
@@ -571,7 +571,7 @@ de:
       paypal_fee_info: "* Ohne <a id='%{fee_info_link_id}' href='#'>PayPal-Zahlungsbearbeitungsgebühr</a>"
       shipping_price_label: "Versand:"
     confirm:
-      confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem Anderen Feedback geben."
+      confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du den Anderen bewerten."
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
       cancel_payed_description: "Wenn deine Anfrage akzeptiert wurde, du aber noch einmal darüber nachdenken willst, kannst du deine Anfrage vor der Bezahlung immer noch ablehnen."
       canceling_payed_transaction: "Transaktion abbrechen"
@@ -656,7 +656,7 @@ de:
       message_sent_by: "Nachricht gesendet von"
       message_sent_to: "Nachricht gesendet an"
       send_reply: "Antwort senden"
-      write_a_reply: "Schreibe eine Nachricht:"
+      write_a_reply: "Schreibe eine Antwort:"
       conversation_about_listing: "Mit %{person} ein Gespräch geführt über %{listing}"
       conversation_with_user: "Gespräch mit  %{person}"
       conversation_with: "Unterhaltung mit %{person}"
@@ -781,7 +781,7 @@ de:
       join_community: "'%{service_name}' beitreten"
       you_can_join: "Du kannst %{service_name} beitreten, indem du die Nutzungsbedingungen akzeptierst und unten auf ''%{service_name}' beitreten' klickst."
       you_can_join_email_confirmation: "Um %{service_name} beitreten zu können, benötigst du eine gültige E-Mail-Adresse, die auf %{email_ending} endet. Beitreten kannst Du, indem Du Deine E-Mail-Adresse einträgst, die Nutzungsbedingungen der Community akzeptierst, unten auf \"%{service_name} beitreten\" klickst und deine E-Mail-Adresse bestätigst."
-      you_can_join_email_confirmation_multiple_addresses: "Um dieser Community beitreten zu können, benötigst du eine E-Mail-Adresse, die der Administrator dieser Seite zugelassen hat. Beitreten kannst du, indem du deine E-Mail-Adresse einträgst, die Nutzungsbedingungen der Community akzeptierst und unten auf \"Community beitreten\"  klickst."
+      you_can_join_email_confirmation_multiple_addresses: "Um %{service_name} beitreten zu können, benötigst Du eine bestätigte E-Mail-Adresse. Beitreten kannst Du, indem Du Deine E-Mail-Adresse einträgst, die Nutzungsbedingungen von %{service_name} akzeptierst und unten auf \"%{service_name} beitreten\"  klickst."
       you_can_join_with_invite_only: "Du musst eine Einladung eines anderen Mitglieds besitzen, um dieser Community beitreten zu können. Falls du einen Einladungs-Code hast, kannst du der Community beitreten, indem du den Code unten in das Feld eingibst, die Nutzungsbedingungen akzeptierst und auf 'Community beitreten' klickst."
       if_want_to_view_content: "Wenn du den Inhalt dieser Community ansehen möchtest, ohne beitreten zu wollen, musst du dich"
       log_out: abmelden
@@ -809,7 +809,7 @@ de:
       automatic_confirmation: "Wenn du die Anfrage nicht innerhalb von %{days_to_automatic_confirmation} Tagen bestätigst oder ablehnst, nachdem die Anfrage akzeptiert wurde, werden wir sie automatisch als abgeschlossen markieren."
     payment_reminder:
       remember_to_pay: "Bezahle für %{listing_title}"
-      you_have_not_yet_paid: "Du hast noch nicht für %{listing_title} bezahlt, %{other_party_name} hat dein Angebot akzeptiert."
+      you_have_not_yet_paid: "Du hast noch nicht für %{listing_title} bezahlt, %{other_party_name} hat Dein Angebot akzeptiert."
       if_will_not_happen_you_should_cancel: "Wen du denkst, dass aus anderen Gründen die Anfrage noch nicht vollständig ist, kannst du auch %{cancel_it_link}."
       cancel_it_link_text: Abbrechen
     payment_settings_reminder:
@@ -943,7 +943,7 @@ de:
       change_my_password: "Mein Passwort ändern"
       reset_password_instructions: "<p>Du hast angegeben, dein Passwort oder den Benutzernamen im %{service_name} Dienst vergessen zu haben.</p><p>Dein Benutzername ist: %{username}</p><p>Um dein Passwort zurückzusetzen, klicke auf den folgenden Link: %{password_reset_link}</p><br/><p> Falls du das Zurücksetzen des Passworts nicht angefordert hast, ignoriere diese E-Mail. Dein Passwort wird nicht zurückgesetzt, solange du den oberen Link nicht anklickst und ein neues Passwort erstellst.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Bewertungen sind öffentlich und werden allen anderen Nutzern angezeigt. Bewertungen helfen, ob %{name} vertrauenswürdig ist. Deshalb ist es immer gut, Transaktionen zu bewerten und auch den Anderen daran zu erinnern, ein Feedback zu geben. Außerdem benötigst Du positive Bewertungen, um Abzeichen erlangen zu können."
+      feedback_is_public_and_is_shown: "Bewertungen sind öffentlich und werden allen anderen Nutzern angezeigt. Bewertungen helfen zu zeigen, ob %{name} vertrauenswürdig ist. Deshalb ist es immer gut, Transaktionen zu bewerten und auch den Anderen daran zu erinnern, ein Feedback zu geben. Außerdem benötigst Du positive Bewertungen, um Abzeichen erlangen zu können."
       remember_to_give_feedback_to: "Zur Erinnerung: Denke daran, %{name} zu bewerten"
       you_have_not_given_feedback_yet: "Du hast %{name} noch kein Feedback zur Transaktion '%{event}' gegeben. Denke daran, ein Feedback darüber zu hinterlassen, wie %{given_name} die Transaktion durchgeführt hat."
     transaction_preauthorized:
@@ -1026,7 +1026,7 @@ de:
       javascript_is_disabled_in_your_browser: "JavaScript ist in deinem Browser deaktiviert."
       kassi_does_not_currently_work_without_javascript: "Leider funktioniert %{service_name} derzeit nicht ohne javascript. Versuche javascript in deinen Browser-Einstellungen zu aktivieren und lade diese Seite dann noch einmal."
       contact_us: Kontakt
-      send_feedback: Senden
+      send_feedback: "Bewertung senden"
       your_feedback_to_admins: "Dein Feedback an die Administratoren"
     send: Senden
     your_email_address: "Deine E-Mail-Adresse"
