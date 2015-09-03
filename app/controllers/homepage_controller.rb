@@ -179,7 +179,7 @@ class HomepageController < ApplicationController
     }
 
     ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, includes: includes).and_then { |res|
-      listings = res.map { |l|
+      listings = res[:listings].map { |l|
         author =
           if includes.include?(:author)
             Author.new(
@@ -226,7 +226,7 @@ class HomepageController < ApplicationController
         )
       }
 
-      paginated = WillPaginate::Collection.create(params[:page] || 1, listings_per_page, listings.count) do |pager|
+      paginated = WillPaginate::Collection.create(params[:page] || 1, listings_per_page, res[:count]) do |pager|
         pager.replace(listings)
       end
 

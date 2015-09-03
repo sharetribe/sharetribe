@@ -74,7 +74,7 @@ class ListingsController < ApplicationController
                      },
                      includes: [:listing_images, :author, :location])
 
-        listings = search_res.data
+        listings = search_res.data[:listings]
 
         title = build_title(params)
         updated = listings.first.present? ? listings.first[:updated_at] : Time.now
