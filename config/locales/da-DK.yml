@@ -775,9 +775,9 @@ da-DK:
       confirm_payment: "Bekræft betaling"
       exp: "Exp:"
   feedback:
-    feedback_subject: "Ny feedback fra %{service_name}"
+    feedback_subject: "Ny feedback sendt fra %{service_name}"
     feedback_body: "%{author_name_and_email} har sendt følgende feedback fra %{service_name}"
-    unlogged_user: "ikke ind-logget bruger"
+    unlogged_user: "Bruger, der ikke er logget ind"
     anonymous_user: "Anonym bruger"
   preauthorize_payments:
     edit:
@@ -855,9 +855,9 @@ da-DK:
     confirmation_instructions:
       confirmation_instructions_signature: "Venlig hilsen,<br/> %{service_name} Holdet"
       welcome_to_kassi: "Velkommen til %{service_name}!"
-      need_to_confirm: "Du er nødt til at bekræfte din e-mailadresse."
-      confirmation_link_text: "Bekræft min mail"
-      or_paste_link: "Alternativt kan du kopirer nedenstående link og åbne det i adressefeltet i browseren:"
+      need_to_confirm: "Du bedes venligst bekræfte din e-mailadresse."
+      confirmation_link_text: "Bekræft min e-mail"
+      or_paste_link: "Alternativt kan du kopiere nedenstående link og åbne det i din browsers adressefelt:"
       turning_on_confirmations_in_this_community: "Vi er begyndt at bruge e-mail bekræftelser i denne %{service_name} markedsplads."
     common:
       check_your_settings: "Tjek dine indstillinger"
@@ -1375,7 +1375,7 @@ da-DK:
       you_must_log_in_to_change_payment_settings: "Du skal logge ind på %{service_name} for at ændre dine betalingsoplysninger"
       you_must_log_in_to_accept_or_reject: "Du skal være logget ind for at godkende eller afvise handlen"
       you_must_log_in_to_confirm_or_cancel: "Du skal være logget ind for at annullere eller godkende handlen"
-      you_need_to_confirm_your_account_first: "Du er nødt til at bekræfte din e-mailadresse."
+      you_need_to_confirm_your_account_first: "Du bedes venligst bekræfte din e-mailadresse."
       you_must_fill_all_the_fields: "Du skal udfylde alle felter"
       you_unfollowed_listing: "Du abonnerer ikke længere på denne liste"
       joining_community_failed: "Tilmelding mislykkedes"
