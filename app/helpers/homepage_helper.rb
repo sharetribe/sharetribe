@@ -7,7 +7,16 @@ module HomepageHelper
 
   def with_first_listing_image(listing, &block)
     if listing.listing_images.size > 0
-      block.call(listing.listing_images.first)
+      first_image = listing.listing_images.first
+
+      is_ready =
+        if first_image.respond_to?(:image_ready?)
+          first_image.image_ready?
+        else
+          true
+        end
+
+      block.call(first_image) if is_ready
     end
   end
 
