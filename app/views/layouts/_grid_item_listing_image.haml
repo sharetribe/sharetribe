@@ -9,8 +9,8 @@
 
 = link_to(listing_path(listing.id), :class => "#{modifier_class} fluid-thumbnail-grid-image-item-link") do
   .fluid-thumbnail-grid-image-image-container{:class => "#{modifier_class}"}
-    - with_first_listing_image(listing) do |first_image|
-      = image_tag first_image[:small_3x2], {:alt => listed_listing_title(listing), :class => "#{modifier_class} fluid-thumbnail-grid-image-image"}
+    - with_first_listing_image(listing) do |first_image_url|
+      = image_tag first_image_url, {:alt => listed_listing_title(listing), :class => "#{modifier_class} fluid-thumbnail-grid-image-image"}
 
     .fluid-thumbnail-grid-image-overlay{:class => "#{modifier_class}"}
     .fluid-thumbnail-grid-image-title{:class => "#{modifier_class}"}

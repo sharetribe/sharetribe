@@ -5,8 +5,7 @@ module ListingIndexService::API
   # TODO Maybe conf+injector?
   ENGINE = :sphinx
 
-  SearchParams = ListingIndexService::DataTypes::SearchParams
-  Listing = ListingIndexService::DataTypes::Listing
+  ListingIndexResult = ListingIndexService::DataTypes::ListingIndexResult
 
   class Listings
 
@@ -18,14 +17,18 @@ module ListingIndexService::API
 
       s = ListingIndexService::DataTypes.create_search_params(search)
 
+      search_result = search_engine.search(
+        community_id: community_id,
+        search: s,
+        includes: includes
+      )
+
       Result::Success.new(
-        search_engine.search(
-          community_id: community_id,
-          search: s,
-          includes: includes
-        ).map { |search_res|
-          Listing.call(search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}"))
-        }
+        ListingIndexResult.call(
+        count: search_result[:count],
+        listings: search_result[:listings].map { |search_res|
+          search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}")
+        })
       )
     end
 

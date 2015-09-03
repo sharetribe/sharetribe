@@ -66,6 +66,11 @@ module ListingIndexService::DataTypes
     [:listing_shape_id, :fixnum, :optional], # This can be nil, if the listing shape was deleted
   )
 
+  ListingIndexResult = EntityUtils.define_builder(
+    [:count, :fixnum, :mandatory],
+    [:listings, collection: Listing]
+  )
+
   module_function
 
   def create_search_params(h)

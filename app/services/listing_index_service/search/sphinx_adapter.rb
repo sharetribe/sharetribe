@@ -18,7 +18,7 @@ module ListingIndexService::Search
       result =
         if needs_search?(search)
           if search_out_of_bounds?(search[:per_page], search[:page])
-            []
+            {count: 0, listings: []}
           else
             search_with_sphinx(community_id: community_id, search: search, included_models: included_models)
           end
@@ -26,18 +26,20 @@ module ListingIndexService::Search
           fetch_from_db(community_id: community_id, search: search, included_models: included_models)
         end
 
-      result.map { |l| to_hash(l, includes) }
+      {count: result[:count], listings: result[:listings].map { |l| to_hash(l, includes) } }
     end
 
     private
 
     def fetch_from_db(community_id:, search:, included_models:)
-      Listing
+      models = Listing
         .where(community_id: community_id)
         .includes(included_models)
         .currently_open("open")
         .order("listings.sort_date DESC")
         .paginate(per_page: search[:per_page], page: search[:page])
+
+      {count: models.total_entries, listings: models}
     end
 
     def search_with_sphinx(community_id:, search:, included_models:)
@@ -57,7 +59,7 @@ module ListingIndexService::Search
       if perform_numeric_search && numeric_search_match_listing_ids.empty?
         # No matches found with the numeric search
         # Do a short circuit and return emtpy paginated collection of listings
-        []
+        {count: 0, listings: []}
       else
 
         with = HashUtils.compact(
@@ -77,9 +79,11 @@ module ListingIndexService::Search
           custom_checkbox_field_options: (grouped_by_operator[:and] || []).flat_map { |v| v[:value] },
         }
 
-        Listing.search(
+        models = Listing.search(
           Riddle::Query.escape(search[:keywords] || ""),
-          include: included_models,
+          sql: {
+            include: included_models
+          },
           page: search[:page],
           per_page: search[:per_page],
           star: true,
@@ -87,6 +91,8 @@ module ListingIndexService::Search
           with_all: with_all,
           order: 'sort_date DESC'
         )
+
+        {count: models.total_entries, listings: models}
       end
 
     end

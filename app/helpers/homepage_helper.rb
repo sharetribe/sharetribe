@@ -9,14 +9,18 @@ module HomepageHelper
     if listing.listing_images.size > 0
       first_image = listing.listing_images.first
 
-      is_ready =
+      url =
         if first_image.respond_to?(:image_ready?)
-          first_image.image_ready?
+          if first_image.image_ready?
+            first_image.image.url(:small_3x2)
+          else
+            nil
+          end
         else
-          true
+          first_image[:small_3x2]
         end
 
-      block.call(first_image) if is_ready
+      block.call(url) if url
     end
   end
 
