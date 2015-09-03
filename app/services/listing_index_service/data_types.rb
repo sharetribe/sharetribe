@@ -35,8 +35,8 @@ module ListingIndexService::DataTypes
   Author = EntityUtils.define_builder(
     [:id, :string, :mandatory],
     [:username, :string, :mandatory],
-    [:first_name, :string, :mandatory],
-    [:last_name, :string, :mandatory],
+    [:first_name, :string, :optional], # For organization, first_name is optional
+    [:last_name, :string, :optional], # For organization, last_name is optional
     [:avatar, entity: AvatarImage],
     [:is_deleted, :bool, default: false],
     [:num_of_reviews, :fixnum, default: 0]
