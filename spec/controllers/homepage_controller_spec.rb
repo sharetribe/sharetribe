@@ -39,7 +39,10 @@ describe HomepageController do
         "filter_options_#{@custom_field_option4.id}" => @custom_field_option4.id
       })
 
-      array.should == [[@custom_field_option1.id, @custom_field_option2.id],[@custom_field_option3.id, @custom_field_option4.id]]
+      array.should == [
+        {id: @custom_field1.id, value: [@custom_field_option1.id, @custom_field_option2.id]},
+        {id: @custom_field2.id, value: [@custom_field_option3.id, @custom_field_option4.id]},
+      ]
     end
 
   end
