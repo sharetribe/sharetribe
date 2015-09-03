@@ -12,8 +12,8 @@ module ListingIndexService::Search
       location: :location
     }
 
-    def search(community_id:, search:, include:)
-      included_models = include.map { |m| INCLUDE_MAP[m] }
+    def search(community_id:, search:, includes:)
+      included_models = includes.map { |m| INCLUDE_MAP[m] }
 
       result =
         if needs_search?(search)
@@ -26,7 +26,7 @@ module ListingIndexService::Search
           fetch_from_db(community_id: community_id, search: search, included_models: included_models)
         end
 
-      result.map { |l| to_hash(l, include) }
+      result.map { |l| to_hash(l, includes) }
     end
 
     private
@@ -91,7 +91,7 @@ module ListingIndexService::Search
 
     end
 
-    def to_hash(l, include)
+    def to_hash(l, includes)
       {
         id: l.id,
         title: l.title,
@@ -106,13 +106,13 @@ module ListingIndexService::Search
         quantity: l.quantity,
         shape_name_tr_key: l.shape_name_tr_key,
         listing_shape_id: l.listing_shape_id
-      }.merge(location_hash(l, include))
-        .merge(author_hash(l, include))
-        .merge(listing_images_hash(l, include))
+      }.merge(location_hash(l, includes))
+        .merge(author_hash(l, includes))
+        .merge(listing_images_hash(l, includes))
     end
 
-    def location_hash(l, include)
-      if include.include?(:location)
+    def location_hash(l, includes)
+      if includes.include?(:location)
         m_location = Maybe(l.location)
         {
           latitude: m_location.latitude.or_else(nil),
@@ -124,8 +124,8 @@ module ListingIndexService::Search
       end
     end
 
-    def author_hash(l, include)
-        if include.include?(:num_of_reviews) || include.include?(:author)
+    def author_hash(l, includes)
+        if includes.include?(:num_of_reviews) || includes.include?(:author)
           {
             author: {
               id: l.author_id,
@@ -136,15 +136,15 @@ module ListingIndexService::Search
                 thumb: l.author.image(:thumb)
               },
               is_deleted: l.author.deleted?,
-            }.merge(num_of_reviews_hash(l, include))
+            }.merge(num_of_reviews_hash(l, includes))
           }
         else
           {}
         end
     end
 
-    def num_of_reviews_hash(l, include)
-      if include.include?(:num_of_reviews)
+    def num_of_reviews_hash(l, includes)
+      if includes.include?(:num_of_reviews)
         {num_of_reviews: l.author.received_testimonials.size}
       else
         {}
@@ -152,8 +152,8 @@ module ListingIndexService::Search
 
     end
 
-    def listing_images_hash(l, include)
-        if include.include?(:listing_images)
+    def listing_images_hash(l, includes)
+        if includes.include?(:listing_images)
           {
             listing_images: Maybe(l.listing_images.first)
               .select { |li| li.image_ready? } # Filter images that are not processed

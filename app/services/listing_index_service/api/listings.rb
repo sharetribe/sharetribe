@@ -10,10 +10,10 @@ module ListingIndexService::API
 
   class Listings
 
-    def search(community_id:, search:, include: [])
+    def search(community_id:, search:, includes: [])
 
-      unless include.to_set <= RELATED_RESOURCES
-        return Result::Error.new("Unknown included resources: #{(include.to_set - RELATED_RESOURCES).to_a}")
+      unless includes.to_set <= RELATED_RESOURCES
+        return Result::Error.new("Unknown included resources: #{(includes.to_set - RELATED_RESOURCES).to_a}")
       end
 
       s = ListingIndexService::DataTypes.create_search_params(search)
@@ -22,7 +22,7 @@ module ListingIndexService::API
         search_engine.search(
           community_id: community_id,
           search: s,
-          include: include
+          includes: includes
         ).map { |search_res|
           Listing.call(search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}"))
         }

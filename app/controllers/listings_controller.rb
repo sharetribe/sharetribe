@@ -72,7 +72,7 @@ class ListingsController < ApplicationController
                        page: page,
                        per_page: per_page
                      },
-                     include: [:listing_images, :author, :location])
+                     includes: [:listing_images, :author, :location])
 
         listings = search_res.data
 

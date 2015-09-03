@@ -76,7 +76,7 @@ class HomepageController < ApplicationController
 
     per_page = @view_type == "map" ? APP_CONFIG.map_listings_limit : APP_CONFIG.grid_listings_limit
 
-    include =
+    includes =
       case @view_type
       when "grid"
         [:author, :listing_images]
@@ -88,7 +88,7 @@ class HomepageController < ApplicationController
         raise ArgumentError.new("Unknown view_type #{@view_type}")
       end
 
-    search_result = find_listings(params, per_page, compact_filter_params, include.to_set)
+    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set)
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
@@ -140,7 +140,7 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, listings_per_page, filter_params, include)
+  def find_listings(params, listings_per_page, filter_params, includes)
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
       filter_params[:categories] = category.own_and_subcategory_ids
       @selected_category = category
@@ -176,10 +176,10 @@ class HomepageController < ApplicationController
       page: params[:page] || 1,
     }
 
-    ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, include: include).and_then { |res|
+    ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, includes: includes).and_then { |res|
       listings = res.map { |l|
         author =
-          if include.include?(:author)
+          if includes.include?(:author)
             Author.new(
               l[:author][:id],
               l[:author][:username],
@@ -196,7 +196,7 @@ class HomepageController < ApplicationController
           end
 
         listing_images =
-          if include.include?(:listing_images)
+          if includes.include?(:listing_images)
             l[:listing_images].map { |li|
               ListingImage.new(li[:thumb], li[:small_3x2]) }
           else
