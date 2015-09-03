@@ -50,10 +50,10 @@ module PersonViewUtils
       display_name(
         first_name: person_entity[:first_name],
         last_name: person_entity[:last_name],
-        organization_name: nil,
+        organization_name: person_entity[:organization_name],
         username: person_entity[:username],
         name_display_type: name_display_type,
-        is_organization: false,
+        is_organization: person_entity[:is_organization],
         is_deleted: person_entity[:is_deleted],
         deleted_user_text: I18n.translate("common.removed_user")
       )
