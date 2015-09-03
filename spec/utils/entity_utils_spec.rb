@@ -279,7 +279,7 @@ describe EntityUtils do
       .to raise_error
   end
 
-  fit "#define builder :range validator" do
+  it "#define builder :range validator" do
     entity = EntityUtils.define_builder([:price, :range])
 
     expect(entity.validate({price: nil}).success).to eq(true)
