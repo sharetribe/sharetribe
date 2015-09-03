@@ -279,6 +279,22 @@ describe EntityUtils do
       .to raise_error
   end
 
+  it "#define builder :range validator" do
+    entity = EntityUtils.define_builder([:price, :range])
+
+    expect(entity.validate({price: nil}).success).to eq(true)
+    expect(entity.validate({price: (1..2)}).success).to eq(true)
+
+    expect(entity.validate({price: [1, 2]}).success).to eq(false)
+    expect(entity.validate({price: [1, 2]}).data.first[:code]).to eq(:range)
+
+    expect(entity.validate({price: {a: 1}}).success).to eq(false)
+    expect(entity.validate({price: {a: 1}}).data.first[:code]).to eq(:range)
+
+    expect(entity.validate({price: 1}).success).to eq(false)
+    expect(entity.validate({price: 1}).data.first[:code]).to eq(:range)
+  end
+
   it "define_builder :str_to_time transformer" do
     expect(EntityUtils.define_builder([:time, str_to_time: "%H:%M:%S %b %e, %Y %Z"]).call({time: "23:01:12 Sep 30, 2014 PDT"}))
       .to eq({time: Time.strptime("23:01:12 Sep 30, 2014 PDT", "%H:%M:%S %b %e, %Y %Z") })
@@ -302,6 +318,52 @@ describe EntityUtils do
 
     expect{entity.call({tags: nil})}
       .to_not raise_error
+  end
+
+  it "#define_builder gt validator" do
+    entity = EntityUtils.define_builder([:num, gt: 0])
+
+    expect(entity.validate({num: -1}).success).to eq false
+    expect(entity.validate({num: -1}).data.first[:code]).to eq :gt
+
+    expect(entity.validate({num: 0}).success).to eq false
+    expect(entity.validate({num: 0}).data.first[:code]).to eq :gt
+
+    expect(entity.validate({num: 1}).success).to eq true
+  end
+
+  it "#define_builder gte validator" do
+    entity = EntityUtils.define_builder([:num, gte: 0])
+
+    expect(entity.validate({num: -1}).success).to eq false
+    expect(entity.validate({num: -1}).data.first[:code]).to eq :gte
+
+    expect(entity.validate({num: 0}).success).to eq true
+
+    expect(entity.validate({num: 1}).success).to eq true
+  end
+
+  it "#define_builder lt validator" do
+    entity = EntityUtils.define_builder([:num, lt: 0])
+
+    expect(entity.validate({num: -1}).success).to eq true
+
+    expect(entity.validate({num: 0}).success).to eq false
+    expect(entity.validate({num: 0}).data.first[:code]).to eq :lt
+
+    expect(entity.validate({num: 1}).success).to eq false
+    expect(entity.validate({num: 1}).data.first[:code]).to eq :lt
+  end
+
+  it "#define_builder lte validator" do
+    entity = EntityUtils.define_builder([:num, lte: 0])
+
+    expect(entity.validate({num: -1}).success).to eq true
+
+    expect(entity.validate({num: 0}).success).to eq true
+
+    expect(entity.validate({num: 1}).success).to eq false
+    expect(entity.validate({num: 1}).data.first[:code]).to eq :lte
   end
 
   it "#define_builder is fast" do

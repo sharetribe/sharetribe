@@ -61,9 +61,6 @@
 
 class Listing < ActiveRecord::Base
 
-  # http://pat.github.io/thinking-sphinx/advanced_config.html
-  SPHINX_MAX_MATCHES = 1000
-
   include ApplicationHelper
   include ActionView::Helpers::TranslationHelper
   include Rails.application.routes.url_helpers
@@ -157,104 +154,6 @@ class Listing < ActiveRecord::Base
     super.reject { |c| c.name == "transaction_type_id" || c.name == "visibility"}
   end
 
-  def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)
-    params ||= {}  # Set params to empty hash if it's nil
-    joined_tables = []
-
-    params[:include] ||= [:listing_images, :category]
-
-    params.reject!{ |key,value| (value == "all" || value == ["all"]) && key != "status"} # all means the fliter doesn't need to be included (except with "status")
-
-    # If no Share Type specified, use listing_type param if that is specified.
-    # :listing_type and :share_type are deprecated and they should not be used.
-    # However, API may use them still
-    params[:share_type] ||= params[:listing_type]
-    params.delete(:listing_type) # In any case listing_type is not a search param used any more
-
-    params[:search] ||= params[:q] # Read search query also from q param
-
-    if params[:category].present?
-      category = Category.find_by_id(params[:category])
-      if category
-        params[:categories] = {:id => category.with_all_children.collect(&:id)}
-        joined_tables << :category
-      else
-        # ignore the category attribute if it's not found
-      end
-    end
-
-    if params[:listing_shape].present?
-      # Sphinx expects integer
-      params[:listing_shapes] = {:id => params[:listing_shape].to_i}
-    end
-
-    # Two ways of finding, with or without sphinx
-    if search_with_sphinx?(params)
-
-      # sort by time by default
-      params[:sort] ||= 'sort_date DESC'
-
-      with = {}
-      # Currently forced to only open at listing_index.rb
-      # if params[:status] == "open" || params[:status].nil?
-      #   with[:open] = true
-      # elsif params[:status] == "closed"
-      #   with[:open] = false
-      # end
-
-      with[:community_id] = current_community.id
-
-      with[:category_id] = params[:categories][:id] if params[:categories].present?
-      with[:listing_shape_id] = params[:listing_shapes][:id] if params[:listing_shapes].present?
-      with[:listing_id] = params[:listing_id] if params[:listing_id].present?
-      with[:price_cents] = params[:price_cents] if params[:price_cents].present?
-
-      params[:custom_dropdown_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
-
-      with_all = {:custom_dropdown_field_options => params[:custom_dropdown_field_options]}
-
-      params[:custom_checkbox_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
-
-      with_all[:custom_checkbox_field_options] = params[:custom_checkbox_field_options]
-
-      params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil
-
-      page = page ? page.to_i : 1
-
-      listings = if search_out_of_bounds?(per_page, page)
-        Listing.none.paginate(:per_page => per_page, :page => page)
-      else
-        Listing.search(
-          Riddle::Query.escape(params[:search]),
-          :include => params[:include],
-          :page => page,
-          :per_page => per_page,
-          :star => true,
-          :with => with,
-          :with_all => with_all,
-          :order => params[:sort]
-        )
-      end
-
-    else # No search query or filters used, no sphinx needed
-      query = {}
-      query[:categories] = params[:categories] if params[:categories]
-      query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
-      query[:id] = params[:listing_id] if params[:listing_id].present?
-      listings = current_community.listings.joins(joined_tables).where(query).currently_open(params[:status]).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
-    end
-    return listings
-  end
-
-  def self.search_out_of_bounds?(per_page, page)
-    pages = (SPHINX_MAX_MATCHES.to_f / per_page.to_f)
-    page > pages.ceil
-  end
-
-  def self.search_with_sphinx?(params)
-    params[:search].present? || params[:listing_shapes].present? || params[:category].present? || params[:custom_dropdown_field_options].present?  || params[:custom_checkbox_field_options].present? || params[:price_cents].present?
-  end
-
   def self.find_by_category_and_subcategory(category)
     Listing.where(:category_id => category.own_and_subcategory_ids)
   end
@@ -271,21 +170,6 @@ class Listing < ActiveRecord::Base
 
   def closed?
     !open? || (valid_until && valid_until < DateTime.now)
-  end
-
-  # This is used to provide clean JSON-strings for map view queries
-  def as_json(options = {})
-    # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
-    hash = {
-      :category => self.category.id,
-      :id => self.id,
-      :icon => icon_class(icon_name)
-    }
-    if self.origin_loc
-      hash.merge!({:latitude => self.origin_loc.latitude,
-                  :longitude => self.origin_loc.longitude})
-    end
-    return hash
   end
 
   # Send notifications to the users following this listing

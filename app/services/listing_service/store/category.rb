@@ -28,7 +28,7 @@ module ListingService::Store::Category
 
   module_function
 
-  def get_all(community_id: community_id)
+  def get_all(community_id:)
     models = CategoryModel.where(community_id: community_id, parent_id: nil).order(:sort_priority)
     models.map { |model| from_model(model) }
   end

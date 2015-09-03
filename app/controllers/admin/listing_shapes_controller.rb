@@ -221,7 +221,7 @@ class Admin::ListingShapesController < ApplicationController
     elsif shapes.length == 1
       Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_last"))
     elsif !last_in_category_ids.empty?
-      categories = ListingService::API::Api.categories.get(community_id: @current_community).data
+      categories = ListingService::API::Api.categories.get_all(community_id: @current_community).data
       category_names = pick_category_names(categories, last_in_category_ids, I18n.locale)
 
       Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_only_one_in_categories", categories: category_names.join(", ")))

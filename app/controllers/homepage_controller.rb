@@ -6,6 +6,40 @@ class HomepageController < ApplicationController
   APP_DEFAULT_VIEW_TYPE = "grid"
   VIEW_TYPES = ["grid", "list", "map"]
 
+  ListingItem = Struct.new(
+    :id,
+    :title,
+    :category_id,
+    :latitude,
+    :longitude,
+    :author,
+    :description,
+    :listing_images,
+    :price,
+    :unit_tr_key,
+    :unit_type,
+    :quantity,
+    :shape_name_tr_key,
+    :listing_shape_id,
+    :icon_name)
+
+  Author = Struct.new(
+    :id,
+    :username,
+    :first_name,
+    :last_name,
+    :avatar,
+    :is_deleted,
+    :num_of_reviews)
+
+  Price = Struct.new(
+    :price_cents,
+    :currency)
+
+  ListingImage = Struct.new(
+    :thumb,
+    :small_3x2)
+
   def index
     @homepage = true
 
@@ -29,8 +63,6 @@ class HomepageController < ApplicationController
        @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg"
     end
 
-    listings_per_page = APP_CONFIG.grid_listings_limit
-
     filter_params = {}
 
     listing_shape_param = params[:transaction_type]
@@ -42,28 +74,57 @@ class HomepageController < ApplicationController
 
     compact_filter_params = HashUtils.compact(filter_params)
 
-    @listings = if @view_type == "map"
-      find_listings(params, APP_CONFIG.map_listings_limit, compact_filter_params)
-    else
-      find_listings(params, listings_per_page, compact_filter_params)
-    end
+    per_page = @view_type == "map" ? APP_CONFIG.map_listings_limit : APP_CONFIG.grid_listings_limit
+
+    includes =
+      case @view_type
+      when "grid"
+        [:author, :listing_images]
+      when "list"
+        [:author, :listing_images, :num_of_reviews]
+      when "map"
+        [:location]
+      else
+        raise ArgumentError.new("Unknown view_type #{@view_type}")
+      end
+
+    search_result = find_listings(params, per_page, compact_filter_params, includes.to_set)
 
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
     if request.xhr? # checks if AJAX request
-      if @view_type == "grid" then
-        render :partial => "grid_item", :collection => @listings, :as => :listing
-      else
-        render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use }
-      end
+      search_result.on_success { |listings|
+        @listings = listings # TODO Remove
+
+        if @view_type == "grid" then
+          render :partial => "grid_item", :collection => @listings, :as => :listing
+        else
+          render :partial => "list_item", :collection => @listings, :as => :listing, locals: { shape_name_map: shape_name_map, testimonials_in_use: @current_community.testimonials_in_use }
+        end
+      }.on_error {
+        render nothing: true, status: 500
+      }
     else
-      render locals: {
-               shapes: all_shapes,
-               show_price_filter: show_price_filter,
-               selected_shape: selected_shape,
-               shape_name_map: shape_name_map,
-               testimonials_in_use: @current_community.testimonials_in_use,
-               listing_shape_menu_enabled: listing_shape_menu_enabled }
+      search_result.on_success { |listings|
+        @listings = listings
+        render locals: {
+                 shapes: all_shapes,
+                 show_price_filter: show_price_filter,
+                 selected_shape: selected_shape,
+                 shape_name_map: shape_name_map,
+                 testimonials_in_use: @current_community.testimonials_in_use,
+                 listing_shape_menu_enabled: listing_shape_menu_enabled }
+      }.on_error { |e|
+        flash[:error] = t("layouts.notifications.something_went_wrong")
+        @listings = Listing.none.paginate(:per_page => 1, :page => 1)
+        render status: 500, locals: {
+                 shapes: all_shapes,
+                 show_price_filter: show_price_filter,
+                 selected_shape: selected_shape,
+                 shape_name_map: shape_name_map,
+                 testimonials_in_use: @current_community.testimonials_in_use,
+                 listing_shape_menu_enabled: listing_shape_menu_enabled }
+      }
     end
   end
 
@@ -79,14 +140,13 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, listings_per_page, filter_params)
+  def find_listings(params, listings_per_page, filter_params, includes)
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
-      filter_params[:category] = category.id
+      filter_params[:categories] = category.own_and_subcategory_ids
       @selected_category = category
     end
 
     filter_params[:search] = params[:q] if params[:q]
-    filter_params[:include] = [:listing_images, :author, :category]
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
     filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
 
@@ -97,17 +157,77 @@ class HomepageController < ApplicationController
     p = HomepageController.group_to_ranges(p)
     numeric_search_params = HomepageController.filter_unnecessary(p, @current_community.custom_numeric_fields)
 
-    numeric_search_needed = !numeric_search_params.empty?
+    filter_params = filter_params.reject {
+      |_, value| (value == "all" || value == ["all"])
+    } # all means the filter doesn't need to be included
 
-    filter_params[:listing_id] = if numeric_search_needed
-      NumericFieldValue.search_many(numeric_search_params).collect(&:listing_id)
-    end
+    checkboxes = filter_params[:custom_checkbox_field_options].map { |checkbox_field| checkbox_field.merge(type: :selection_group, operator: :and) }
+    dropdowns = filter_params[:custom_dropdown_field_options].map { |dropdown_field| dropdown_field.merge(type: :selection_group, operator: :or) }
+    numbers = numeric_search_params.map { |numeric| numeric.merge(type: :numeric_range) }
 
-    if numeric_search_needed && filter_params[:listing_id].empty?
-      Listing.none.paginate(:per_page => listings_per_page, :page => params[:page])
-    else
-      Listing.find_with(filter_params, @current_user, @current_community, listings_per_page, params[:page])
-    end
+    search = {
+      # Add listing_id
+      categories: filter_params[:categories],
+      listing_shape_id: Maybe(filter_params)[:listing_shape].or_else(nil),
+      price_cents: filter_params[:price_cents],
+      keywords: filter_params[:search],
+      fields: checkboxes.concat(dropdowns).concat(numbers),
+      per_page: listings_per_page,
+      page: params[:page] || 1,
+    }
+
+    ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, includes: includes).and_then { |res|
+      listings = res.map { |l|
+        author =
+          if includes.include?(:author)
+            Author.new(
+              l[:author][:id],
+              l[:author][:username],
+              l[:author][:first_name],
+              l[:author][:last_name],
+              ListingImage.new(
+                l[:author][:avatar][:thumb]
+              ),
+              l[:author][:is_deleted],
+              l[:author][:num_of_reviews]
+            )
+          else
+            nil
+          end
+
+        listing_images =
+          if includes.include?(:listing_images)
+            l[:listing_images].map { |li|
+              ListingImage.new(li[:thumb], li[:small_3x2]) }
+          else
+            []
+          end
+
+        ListingItem.new(
+          l[:id],
+          l[:title],
+          l[:category_id],
+          l[:latitude],
+          l[:longitude],
+          author,
+          l[:description],
+          listing_images,
+          l[:price],
+          l[:unit_tr_key],
+          l[:unit_type],
+          l[:quantity],
+          l[:shape_name_tr_key],
+          l[:listing_shape_id],
+          l[:icon_name]
+        )
+      }
+
+      paginated = WillPaginate::Collection.create(params[:page] || 1, listings_per_page, listings.count) do |pager|
+        pager.replace(listings)
+      end
+
+      Result::Success.new(paginated)
+    }
   end
 
   def filter_range(price_min, price_max)
@@ -146,8 +266,8 @@ class HomepageController < ApplicationController
         boundaries = values.inject(:merge)
 
         {
-          custom_field_id: key,
-          numeric_value: (boundaries[:min].to_f..boundaries[:max].to_f)
+          id: key,
+          value: (boundaries[:min].to_f..boundaries[:max].to_f)
         }
       end
   end
@@ -155,8 +275,8 @@ class HomepageController < ApplicationController
   # Filter search params if their values equal min/max
   def self.filter_unnecessary(search_params, numeric_fields)
     search_params.reject do |search_param|
-      numeric_field = numeric_fields.find(search_param[:custom_field_id])
-      search_param == { custom_field_id: numeric_field.id, numeric_value: (numeric_field.min..numeric_field.max) }
+      numeric_field = numeric_fields.find(search_param[:id])
+      search_param == { id: numeric_field.id, value: (numeric_field.min..numeric_field.max) }
     end
   end
 
@@ -165,7 +285,7 @@ class HomepageController < ApplicationController
 
     array_for_search = CustomFieldOption.find(option_ids)
       .group_by { |option| option.custom_field_id }
-      .map { |key, selected_options| selected_options.collect(&:id) }
+      .map { |key, selected_options| {id: key, value: selected_options.collect(&:id) } }
   end
 
   def self.dropdown_field_options_for_search(params)
@@ -173,7 +293,7 @@ class HomepageController < ApplicationController
   end
 
   def self.checkbox_field_options_for_search(params)
-    options_from_params(params, /^checkbox_filter_option/).flatten
+    options_from_params(params, /^checkbox_filter_option/)
   end
 
   def shapes

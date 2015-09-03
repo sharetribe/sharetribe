@@ -20,18 +20,30 @@ module ListingsHelper
   end
 
   def listed_listing_title(listing)
-    listing_shape_name = shape_name(listing)
+    format_listing_title(listing.shape_name_tr_key, listing.title)
+  end
+
+  def format_listing_title(shape_tr_key, listing_title)
+    listing_shape_name = t(shape_tr_key)
     # TODO remove this hotfix when we have admin ui for translations
     if listing_shape_name.include?("translation missing")
-      listing.title
+      listing_title
     else
-      "#{listing_shape_name}: #{listing.title}"
+      "#{listing_shape_name}: #{listing_title}"
     end
   end
 
   def localized_category_label(category)
     return nil if category.nil?
     return category.display_name(I18n.locale).capitalize
+  end
+
+  def localized_category_from_id(category_id)
+    Maybe(category_id).map { |cat_id|
+      Category.where(id: cat_id).first
+    }.map { |category|
+      category.display_name(I18n.locale).capitalize
+    }.or_else(nil)
   end
 
   def localized_listing_type_label(listing_type_string)

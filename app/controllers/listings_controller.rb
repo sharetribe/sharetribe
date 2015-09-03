@@ -65,10 +65,19 @@ class ListingsController < ApplicationController
             }.map { |shape| shape[:id] }
           }
         end
+        search_res = @current_community.private ? Result::Success.new([]) : ListingIndexService::API::Api.listings.search(
+                     community_id: @current_community.id,
+                     search: {
+                       listing_shapes: params[:listing_shapes],
+                       page: page,
+                       per_page: per_page
+                     },
+                     includes: [:listing_images, :author, :location])
 
-        listings = @current_community.private ? [] : Listing.find_with(params, @current_user, @current_community, per_page, page)
+        listings = search_res.data
+
         title = build_title(params)
-        updated = listings.first.present? ? listings.first.updated_at : Time.now
+        updated = listings.first.present? ? listings.first[:updated_at] : Time.now
 
         render layout: false,
                locals: { listings: listings,
@@ -151,7 +160,7 @@ class ListingsController < ApplicationController
 
   def new
     category_tree = CategoryViewUtils.category_tree(
-      categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
+      categories: ListingService::API::Api.categories.get_all(community_id: @current_community.id)[:data],
       shapes: get_shapes,
       locale: I18n.locale,
       all_locales: @current_community.locales
@@ -267,7 +276,7 @@ class ListingsController < ApplicationController
     end
 
     category_tree = CategoryViewUtils.category_tree(
-      categories: ListingService::API::Api.categories.get(community_id: @current_community.id)[:data],
+      categories: ListingService::API::Api.categories.get_all(community_id: @current_community.id)[:data],
       shapes: get_shapes,
       locale: I18n.locale,
       all_locales: @current_community.locales

@@ -26,5 +26,6 @@ module ListingService::API
         Result::Error.new("Can not find listings #{find_opts}")
       }
     end
+
   end
 end

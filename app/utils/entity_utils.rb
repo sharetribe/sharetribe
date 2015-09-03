@@ -97,6 +97,11 @@ module EntityUtils
         {code: :set, msg: "Value must be a Set. Was: #{v} (#{v.class.name})." }
       end
     },
+    range: -> (_, v, _) {
+      unless (v.nil? || v.is_a?(Range))
+        {code: :range, msg: "Value must be a Range. Was: #{v} (#{v.class.name})"}
+      end
+    },
     money: -> (_, v, _) {
       unless (v.nil? || v.is_a?(Money))
         {code: :money, msg: "Value must be a Money. Was: #{v}." }
@@ -105,6 +110,26 @@ module EntityUtils
     bool: -> (_, v, _) {
       unless (v.nil? || v == true || v == false)
         {code: :bool, msg: "Value must be boolean true or false. Was: #{v} (#{v.class.name})." }
+      end
+    },
+    gt: -> (limit, v, _) {
+      unless (v.nil? || v > limit)
+        {code: :gt, msg: "Value must be greater than #{limit}. Was: #{v} (#{v.class.name})."}
+      end
+    },
+    gte: -> (limit, v, _) {
+      unless (v.nil? || v >= limit)
+        {code: :gte, msg: "Value must be greater than or equal to #{limit}. Was: #{v} (#{v.class.name})." }
+      end
+    },
+    lt: -> (limit, v, _) {
+      unless (v.nil? || v < limit)
+        {code: :lt, msg: "Value must be less than #{limit}. Was: #{v} (#{v.class.name})." }
+      end
+    },
+    lte: -> (limit, v, _) {
+      unless (v.nil? || v <= limit)
+        {code: :lte, msg: "Value must be less than or equal to #{limit}. Was: #{v} (#{v.class.name})." }
       end
     },
     validate_with: -> (validator, v, _) {
