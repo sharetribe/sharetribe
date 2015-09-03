@@ -65,7 +65,7 @@ class ListingsController < ApplicationController
             }.map { |shape| shape[:id] }
           }
         end
-        search_res = @current_community.private ? Result::Success.new([]) : ListingIndexService::API::Api.listings.search(
+        search_res = @current_community.private ? Result::Success.new({count: 0, listings: []}) : ListingIndexService::API::Api.listings.search(
                      community_id: @current_community.id,
                      search: {
                        listing_shapes: params[:listing_shapes],
