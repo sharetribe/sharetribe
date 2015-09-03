@@ -126,9 +126,6 @@ class ListingsController < ApplicationController
 
   def show
     @selected_tribe_navi_tab = "home"
-    unless current_user?(@listing.author)
-      @listing.increment!(:times_viewed)
-    end
 
     @current_image = if params[:image]
       @listing.image_by_id(params[:image])
