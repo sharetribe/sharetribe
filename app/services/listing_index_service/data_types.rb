@@ -1,9 +1,4 @@
 module ListingIndexService::DataTypes
-  SelectionGroups = EntityUtils.define_builder(
-    [:values, :array, :mandatory],
-    [:search_type, one_of: [:and, :or]],
-  )
-
   NumericRange = EntityUtils.define_builder(
     [:type, const_value: :numeric_range],
     [:id, :fixnum, :mandatory],
