@@ -50,17 +50,6 @@ describe HashUtils do
     expect(HashUtils.pluck(data, :name, :age)).to eq(["John", 15, "Joe"])
   end
 
-  it "#deep_pluck" do
-    data = [{id: 1, children: [
-               {id: 2, children: [
-                  {id: 3}]}]},
-            {id: 4}
-           ]
-
-    expect(HashUtils.deep_pluck(data, :children, :id)).to eq([1, 2, 3, 4])
-    expect(HashUtils.deep_pluck([], :children, :id)).to eq([])
-  end
-
   it "#sub" do
     expect(HashUtils.sub({first: "First", last: "Last", age: 55}, :first, :age, :sex))
       .to eq({first: "First", age: 55})
@@ -87,49 +76,6 @@ describe HashUtils do
 
     it "transposing twice results original hash" do
       expect(HashUtils.transpose(HashUtils.transpose(h))).to eq(h)
-    end
-  end
-
-  describe "#deep_find" do
-    let(:tree) {
-      [
-        {
-          id: 1,
-          value: "a",
-          children: [
-            {
-              id: 2,
-              value: "b",
-              children: [
-                {
-                  id: 3,
-                  value: "c",
-                  children: []
-                },
-                {
-                  id: 4,
-                  value: "d",
-                  children: []
-                },
-                {
-                  id: 5,
-                  value: "e",
-                  children: []
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-
-    it "finds from tree structure" do
-      expect(HashUtils.deep_find([], :children) { |h| h[:id] == 1 }).to eq(nil)
-      expect(HashUtils.deep_find(tree, :children) { |h| h[:id] == 2 }).to eq(tree[0][:children][0])
-      expect(HashUtils.deep_find(tree, :children) { |h| h[:id] == 3 }).to eq(tree[0][:children][0][:children][0])
-      expect(HashUtils.deep_find(tree, :children) { |h| h[:id] == 4 }).to eq(tree[0][:children][0][:children][1])
-      expect(HashUtils.deep_find(tree, :children) { |h| h[:id] == 5 }).to eq(tree[0][:children][0][:children][2])
-      expect(HashUtils.deep_find(tree, :children) { |h| h[:id] == 6 }).to eq(nil)
     end
   end
 

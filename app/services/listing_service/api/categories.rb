@@ -8,16 +8,6 @@ module ListingService::API
       )
     end
 
-    def get(community_id:, category_id:)
-      res = CategoryStore.get(community_id: community_id, category_id: category_id)
-
-      if res.nil?
-        Result::Error.new("Can not find category for community_id: #{community_id}, category_id: #{category_id}")
-      else
-        Result::Success.new(res)
-      end
-    end
-
     def create(community_id:, opts:)
       Result::Success.new(
         CategoryStore.create(community_id: community_id, opts: opts)
