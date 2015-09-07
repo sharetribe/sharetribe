@@ -142,7 +142,6 @@ To automatically run unit tests when code is changed, start [Guard](https://gith
   bundle exec guard
   ```
 
-
 ### Setting up Sharetribe for production
 
 Before starting these steps, perform [steps 1-6 from above](#setting-up-the-development-environment).
@@ -187,6 +186,12 @@ Before starting these steps, perform [steps 1-6 from above](#setting-up-the-deve
 The built-in WEBrick server (which was started in the last step above) should not be used in production due to performance reasons. A dedicated HTTP server such as [unicorn](http://unicorn.bogomips.org/) is recommended.
 
 It is also not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false` in `config/config.yml`.
+
+#### Setting your domain
+
+1. In your database, change the value of the `domain` column in the `communities` table to match the hostname of your domain. For example, if the URL for your marketplace is http://mymarketplace.myhosting.com, then the domain is `mymarketplace.myhosting.com`.
+
+1. Change the value of the `use_domain` column to `true` (or `1`) in the `communities` table.
 
 ### Advanced settings
 
