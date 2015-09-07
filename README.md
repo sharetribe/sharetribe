@@ -189,9 +189,9 @@ It is also not recommended to serve static assets from a Rails server in product
 
 #### Setting your domain
 
-1. In your database, change the `domain` column in the `communities` table to match the hostname of your domain. For example, if the URL for your marketplace is http://mymarketplace.myhosting.com, then the domain is `mymarketplace.myhosting.com`.
+1. In your database, change the value of the `domain` column in the `communities` table to match the hostname of your domain. For example, if the URL for your marketplace is http://mymarketplace.myhosting.com, then the domain is `mymarketplace.myhosting.com`.
 
-1. Change the `use_domain` column to `true` in the `communities` table.
+1. Change the value of the `use_domain` column to `true` (or `1`) in the `communities` table.
 
 ### Advanced settings
 
