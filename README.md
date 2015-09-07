@@ -188,6 +188,12 @@ The built-in WEBrick server (which was started in the last step above) should no
 
 It is also not recommended to serve static assets from a Rails server in production. Instead, you should serve assets from Amazon S3 or use an Apache/Nginx server. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false` in `config/config.yml`.
 
+If you want to use a custom domain, follow these steps:
+
+1. Change the `domain` column in `communities` table to match the hostname of your domain. (e.g. if the URL for your domain is http://mymarketplace.myhosting.com, then the hostname is mymarketplace.myhosting.com)
+
+1. Change the `use_domain` column to `true`
+
 ### Advanced settings
 
 Default configuration settings are stored in `config/config.default.yml`. If you need to change these, we recommend creating a `config/config.yml` file to override these values. You can also set configuration values to environment variables.
