@@ -74,7 +74,7 @@ nb:
         see_how_it_looks_like: "Se hvordan det ser ut"
         verification_to_post_listings_info_content: "Infotekst til uverifiserte brukere"
         verification_to_post_listings_info_content_description: "For øyeblikket må brukerne dine bli verifisert av deg manuelt før de kan legge ut annonser. Her kan du velge standardmelding som uverifiserte brukere får se når de forsøker å opprette annonse."
-        verification_to_post_listings_info_content_default: "%{service_name}krever at brukere manuelt godkjennes før de kan legge ut annonser. Du er forelpig ikke godkljent. Vennligst kontakt %{contact_admin_link} for å bli godkjent."
+        verification_to_post_listings_info_content_default: "%{service_name} krever at brukere manuelt godkjennes før de kan legge ut annonser. Du er foreløpig ikke godkjent. Vennligst %{contact_admin_link} for å bli godkjent."
         contact_admin_link_text: "Kontakt admin"
         save: "Lagre innstillinger"
         transaction_agreement: Transaksjonsavtale
@@ -1133,7 +1133,7 @@ nb:
       some_private_offers_exist: "Det er allerede <b>%{number_of_listings} tilbud</b>,"
       some_private_requests_exist: "Det er allerede <b>%{number_of_listings} forespørsler</b>,"
     custom_filters:
-      update_view: "oppdater visning"
+      update_view: "Oppdater visning"
       min: "Minimum:"
       max: "Maks:"
     event_feed:

@@ -1701,7 +1701,7 @@ de:
       admin_account_not_connected: "%{service_name} ist nicht für Zahlungen konfiguriert, deswegen kannst Du Dein PayPal-Konto nicht verbinden. Bitte %{contact_admin_link} für Einzelheiten."
       paypal_account_email: "Verbinde dein PayPal Konto"
       paypal_account_email_placeholder: "Deine PayPal E-Mail Adresse"
-      paypal_account_email_info_text: "Wenn du kein PayPal-Konto hast, kannst du eins über %{create_paypal_account} erstellen. Wenn du eine Fehlermeldung erhälst, wenn Du dein PayPal-Konto verknüpfst, musst du auf ein Geschäftskonto  upgraden. Ein Upgrade ist schnell und einfach und kostet dich nichts. Wenn Du eine Privatperson bist, solltest du deinen Vor- und Nachnamen ins Feld \"Firma\" eintragen, wenn PayPal danach fragt. Den Link für ein Upgrade deine Kontos findest du hier %{upgrade_paypal_account}."
+      paypal_account_email_info_text: "Wenn du kein PayPal-Konto hast, kannst du %{create_paypal_account} eines erstellen. Sofern du eine Fehlermeldung erhältst, wenn du dein PayPal-Konto verknüpfst, musst du auf ein Geschäftskonto upgraden. Ein Upgrade ist schnell und einfach und kostet dich nichts. Wenn Du eine Privatperson bist, solltest du deinen Vor- und Nachnamen ins Feld \"Firma\" eintragen, wenn PayPal danach fragt. Den Link für ein Upgrade deine Kontos findest du hier %{upgrade_paypal_account}."
       create_paypal_account: hier
       upgrade_paypal_account: "Upgrade deinen PayPal Konto hier."
       connect_paypal_account: "Verbinde deinen PayPal Account"
