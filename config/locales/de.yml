@@ -764,7 +764,7 @@ de:
       exp: ~
   feedback:
     feedback_subject: "Neue Bewertung von %{service_name}"
-    feedback_body: "%{author_name_and_email} hat Dir die folgende Bewertung auf %{service_name} gesendet"
+    feedback_body: "%{author_name_and_email} hat Dir die folgende Nachricht auf %{service_name} gesendet"
     unlogged_user: "Nicht angemeldeter Nutzer"
     anonymous_user: "Anonymer Benutzer"
   preauthorize_payments:
@@ -843,9 +843,9 @@ de:
     confirmation_instructions:
       confirmation_instructions_signature: "Liebe Grüße, <br/> das %{service_name} Team"
       welcome_to_kassi: "Willkommen bei %{service_name},"
-      need_to_confirm: "Du musst deine E-Mail-Adresse bestätigen."
+      need_to_confirm: "Du musst Deine E-Mail-Adresse bestätigen."
       confirmation_link_text: "Meine E-Mail-Adresse bestätigen"
-      or_paste_link: "Alternativ kannst du den folgenden Link in die Adresszeile deines Browsers kopieren:"
+      or_paste_link: "Alternativ kannst Du den folgenden Link in die Adresszeile deines Browsers kopieren:"
       turning_on_confirmations_in_this_community: "Wir beginnen mit der Verwendung von E-Mail-Bestätigungen in dieser %{service_name} Community."
     common:
       check_your_settings: "Überprüfe deine Einstellungen"

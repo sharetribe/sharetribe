@@ -498,7 +498,7 @@ zh-TW:
     default_community_slogan: 集市
     default_community_description: 这是一个出售、出租、交换和共享商品与服务给其他成员的集市。
     cancel: 取消
-    fields_that_are_mandatory: 标有星号（*）的为必填项。
+    fields_that_are_mandatory: 標有星號（*）的為必填項。
     or: 或
     password: 密码
     service_name: "%{service_name}"
@@ -506,10 +506,10 @@ zh-TW:
       request: 请求
       offer: 宝贝
       borrow: 借入
-      buy: 购买
-      give_away: 赠送
+      buy: 購買
+      give_away: 贈送
       lend: 出借
-      receive: 免费
+      receive: 免費
       rent: 出租
       rent_out: 出租
       sell: 出售中
@@ -539,7 +539,7 @@ zh-TW:
       other: 其他
     username: 用户名
     username_or_email: Email或用户名
-    what_is_this: 这是什么？
+    what_is_this: 這是什麼？
     removed_user: 已删除的用户
     paypal_fee_info:
       title: PayPal的支付处理费
@@ -590,11 +590,11 @@ zh-TW:
       days: 天
       price_per_day: "每天：%{price}"
     index:
-      loading_more_messages: 载入更多消息
+      loading_more_messages: 載入更多消息
       message_partitive: 消息
       messages_partitive: 消息
-      no_received_messages: 没有新消息
-      no_sent_messages: 没有已发送消息
+      no_received_messages: 沒有新消息
+      no_sent_messages: 沒有已發送消息
     conversation:
       accepted_request: 请求已接受。
       accepted_offer: 宝贝已接受。
@@ -621,8 +621,8 @@ zh-TW:
     new:
       offer_message_form_title: "为%{person}提供%{listing}"
       request_message_form_title: "从%{person}请求%{listing}"
-      favor_offer_message_form_title: "向%{person}请求帮助"
-      favor_request_message_form_title: "向%{person}提供帮助"
+      favor_offer_message_form_title: "向%{person}請求協助"
+      favor_request_message_form_title: "向%{person}提供幫助"
       housing_offer_message_form_title: "向%{person}提供住处"
       housing_request_message_form_title: "向%{person}请求住处"
       item_offer_lend_message_form_title: "从%{person}借入%{listing}"
