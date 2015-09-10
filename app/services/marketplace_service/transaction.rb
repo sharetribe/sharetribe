@@ -100,7 +100,7 @@ module MarketplaceService
           transitions: transaction_model.transaction_transitions.map { |transition|
             Transition[EntityUtils.model_to_hash(transition)]
           },
-          payment_total: (transaction_model.listing_quantity * Maybe(transaction_model.unit_price).or_else(0)),
+          payment_total: calculate_total(transaction_model),
           booking: transaction_model.booking,
           __model: transaction_model
         })]
@@ -121,6 +121,16 @@ module MarketplaceService
         transition = Entity::Transition[EntityUtils.model_to_hash(transition_model)]
         transition[:metadata] = HashUtils.symbolize_keys(transition[:metadata]) if transition[:metadata].present?
         transition
+      end
+
+      def calculate_total(transaction_model)
+        m_transaction = Maybe(transaction_model)
+
+        unit_price       = m_transaction.unit_price.or_else(0)
+        quantity         = m_transaction.listing_quantity.or_else(1)
+        shipping_price   = m_transaction.shipping_price.or_else(0)
+
+        (unit_price * quantity) + shipping_price
       end
     end
 
