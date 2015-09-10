@@ -230,7 +230,7 @@ See [release notes](RELEASE_NOTES.md) for information about what has changed and
 
 ## Technical roadmap
 
-For a better high-level understanding of what the Sharetribe core team is working on currently and what it plans on working next, read our [technical roadmap](TECHNICAL_ROADMAP.md).
+For a better high-level understanding of what the Sharetribe core team is working on currently and what it plans to work on next, read the [technical roadmap](TECHNICAL_ROADMAP.md).
 
 
 ## Contributing
