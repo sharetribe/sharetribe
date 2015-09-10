@@ -8,6 +8,16 @@ Would you like to set up your marketplace in one minute without touching code? [
 
 Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 
+### Contents
+- [Installation](#installation)
+- [Payments](#payments)
+- [Updating](#payments)
+- [Technical roadmap](#technical-roadmap)
+- [Contributing](#contributing)
+- [Translation](#translation)
+- [Known issues](#known-issues)
+- [Developer documentation](#developer-documentation)
+- [License](#mit-license)
 
 ## Installation
 
