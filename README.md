@@ -8,6 +8,16 @@ Would you like to set up your marketplace in one minute without touching code? [
 
 Want to get in touch? Email [info@sharetribe.com](mailto:info@sharetribe.com)
 
+### Contents
+- [Installation](#installation)
+- [Payments](#payments)
+- [Updating](#payments)
+- [Technical roadmap](#technical-roadmap)
+- [Contributing](#contributing)
+- [Translation](#translation)
+- [Known issues](#known-issues)
+- [Developer documentation](#developer-documentation)
+- [License](#mit-license)
 
 ## Installation
 
@@ -218,6 +228,11 @@ PayPal payments are only available on marketplaces hosted at [Sharetribe.com](ht
 See [release notes](RELEASE_NOTES.md) for information about what has changed and if actions are needed to upgrade.
 
 
+## Technical roadmap
+
+For a better high-level understanding of what the Sharetribe core team is working on currently and what it plans to work on next, read the [technical roadmap](TECHNICAL_ROADMAP.md).
+
+
 ## Contributing
 
 Would you like to make Sharetribe better? [Follow these steps](CONTRIBUTING.md).
@@ -241,6 +256,7 @@ Browse open issues and submit new ones at http://github.com/sharetribe/sharetrib
 * [SCSS coding guidelines](docs/scss-coding-guidelines.md)
 * [Delayed job priorities](docs/delayed-job-priorities.md)
 * [Cucumber testing Do's and Don'ts](docs/cucumber-do-dont.md)
+* [Technical roadmap](TECHNICAL_ROADMAP.md)
 
 
 ## MIT License
