@@ -115,6 +115,14 @@ Before you get started, the following needs to be installed:
 
 Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
+### Database migrations
+
+To update your local database schema to the newest version, run database migrations with:
+
+  ```bash
+  bundle exec rake db:migrate
+  ```
+
 ### Running tests
 
 Tests are handled by [RSpec](http://rspec.info/) for unit tests and [Cucumber](https://cucumber.io/) for acceptance tests.
