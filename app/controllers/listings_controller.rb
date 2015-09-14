@@ -571,7 +571,11 @@ class ListingsController < ApplicationController
 
     unless @listing.visible_to?(@current_user, @current_community) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
       if @current_user
-        flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
+        if @listing.closed?
+          flash[:error] = t("layouts.notifications.listing_closed")
+        else
+          flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
+        end
         redirect_to root and return
       else
         session[:return_to] = request.fullpath
