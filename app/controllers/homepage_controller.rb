@@ -8,6 +8,7 @@ class HomepageController < ApplicationController
 
   ListingItem = Struct.new(
     :id,
+    :url,
     :title,
     :category_id,
     :latitude,
@@ -209,6 +210,7 @@ class HomepageController < ApplicationController
 
         ListingItem.new(
           l[:id],
+          l[:url],
           l[:title],
           l[:category_id],
           l[:latitude],
