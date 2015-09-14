@@ -26,11 +26,11 @@
 
     .row
       %h2.people-header
-        - if @listings.count > 0
+        - if listings.total_entries > 0
           - if current_user?(@person) && params[:show_closed]
-            = pluralize(@listings.count, t(".listing"), t(".listings"))
+            = pluralize(listings.total_entries, t(".listing"), t(".listings"))
           - else
-            = pluralize(@listings.count, t(".open_listing"), t(".open_listings"))
+            = pluralize(listings.total_entries, t(".open_listing"), t(".open_listings"))
         - else
           - if current_user?(@person) && params[:show_closed]
             = t(".no_listings")
@@ -45,11 +45,11 @@
 
     #profile-listings-list
       - limit = 6
-      = render :partial => 'listings/profile_listings', :locals => {:person => @person, :limit => limit}
+      = render :partial => 'listings/profile_listings', :locals => {person: @person, limit: limit, listings: listings}
 
     - if @current_community.follow_in_use?
       = render :partial => "followed_people", :locals => { :person => @person, :limit => 6 }
-      
+
     - if @current_community.testimonials_in_use
       #people-testimonials.listing-main
         .row

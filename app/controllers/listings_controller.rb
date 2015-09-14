@@ -42,7 +42,26 @@ class ListingsController < ApplicationController
 
           # Returns the listings for one person formatted for profile page view
           per_page = params[:per_page] || 200 # the point is to show all here by default
-          render :partial => "listings/profile_listings", :locals => {:person => @person, :limit => per_page}
+          includes = [:author, :listing_images]
+          include_closed = @person == @current_user
+          search = {
+            author_id: @person.id,
+            include_closed: include_closed,
+            page: 1,
+            per_page: per_page
+          }
+
+          listings = ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, includes: includes).and_then { |res|
+            Result::Success.new(
+              ListingIndexViewUtils.to_struct(
+              result: res,
+              includes: includes,
+              page: search[:page],
+              per_page: search[:per_page]
+            ))
+          }.data
+
+          render :partial => "listings/profile_listings", :locals => {person: @person, limit: per_page, listings: listings}
         else
           redirect_to root
         end

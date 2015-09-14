@@ -3,16 +3,6 @@ require 'base64'
 
 module PeopleHelper
 
-  def persons_listings(person, per_page=6, page=1)
-    listings_rel = @current_community.listings.where(author_id: person.id).order("created_at DESC").paginate(:per_page => per_page, :page => page)
-
-    if current_user?(person) && params[:show_closed]
-      listings_rel
-    else
-      listings_rel.currently_open
-    end
-  end
-
   def grade_image_class(grade)
     "feedback_average_image_#{grade_number(grade).to_s}"
   end
