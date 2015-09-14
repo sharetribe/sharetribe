@@ -16,7 +16,7 @@ module ListingIndexService::Search
       included_models = includes.map { |m| INCLUDE_MAP[m] }
 
       if needs_db_query?(search) && needs_search?(search)
-        raise ArgumentError.new("Both DB query and search engine would be needed to full fill the search")
+        raise ArgumentError.new("Both DB query and search engine would be needed to fulfill the search")
       end
 
       result =
