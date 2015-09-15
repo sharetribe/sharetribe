@@ -85,7 +85,6 @@ module ListingIndexService::Search
             listing_shape_id: search[:listing_shape_id],
             price_cents: search[:price_cents],
             listing_id: numeric_search_match_listing_ids,
-            author_id: search[:author_id]
           })
 
         selection_groups = search[:fields].select { |v| v[:type] == :selection_group }
