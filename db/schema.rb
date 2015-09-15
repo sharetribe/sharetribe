@@ -525,7 +525,7 @@ ActiveRecord::Schema.define(:version => 20150902103231) do
     t.string   "origin"
     t.string   "destination"
     t.datetime "valid_until"
-    t.boolean  "delta",                                         :default => true,             :null => false
+    t.boolean  "delta",                                         :default => true,      :null => false
     t.boolean  "open",                                          :default => true
     t.string   "share_type_old"
     t.string   "privacy",                                       :default => "private"
