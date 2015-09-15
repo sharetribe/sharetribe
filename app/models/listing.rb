@@ -23,6 +23,7 @@
 #  delta                           :boolean          default(TRUE), not null
 #  open                            :boolean          default(TRUE)
 #  share_type_old                  :string(255)
+#  privacy                         :string(255)      default("private")
 #  comments_count                  :integer          default(0)
 #  subcategory_old                 :string(255)
 #  old_category_id                 :integer
