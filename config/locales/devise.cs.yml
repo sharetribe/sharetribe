@@ -29,27 +29,27 @@ cs:
       confirmed: "Váš účet byl uspěšně potvrzen. Nyní jste přihlášeni."
     registrations:
       signed_up_but_unconfirmed: "Na vaši emailovou adresu byl odeslán email s potvrzujícím odkazem. K aktivování vašeho účtu je potřeba tento odkaz otevřít."
-      signed_up_but_inactive: "Úspěšně jste se zaregistrovali. Ale před dalším pokračováním je potřeba váš účet nejprve aktivovat."
-      signed_up_but_locked: ~
+      signed_up_but_inactive: "Registrace proběhla úspěšně. Před dalším pokračováním je ale potřeba váš účet nejprve aktivovat."
+      signed_up_but_locked: "Registrace proběhla úspěšně. Nemohli jsme vás ale přihlásit do systému, váš účet je uzamčen."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
+        inactive: neaktivity
+        unconfirmed: neaktivování
+        locked: uzamčení
+      update_needs_confirmation: "Aktualizace účtu proběhla úspěšně, ale potřebujeme ověřit Vaši emailovou adresu. Zkontrolujte, prosím, Vaši emailovou schránku a klikněte na potvrzovací odkaz."
       signed_up: "Vítejte! Úspěšně jste se přihlásili."
-      updated: ~
-      destroyed: ~
+      updated: "Aktualizace účtu proběhla úspěšně."
+      destroyed: "Váš účet byl úspěšně smazán."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Pokud je Váš email skutečný, tak během několika minut obdržíte instrukce k odemčení účtu."
+      send_instructions: "Během několika minut obdržíte email s instrukcemi k odemknutí vašeho účtu."
+      unlocked: "Váš účet byl úspěšně odblokován. Pro pokračování se přihlaste."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Úspěšné potvrzení účtu %{kind}."
+      failure: "Nebylo možné ověřit účet %{kind} z důvodu %{reason}."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Aktivační instrukce"
       reset_password_instructions:
-        subject: ~
+        subject: "Instrukce ke změně hesla"
       unlock_instructions:
         subject: ~

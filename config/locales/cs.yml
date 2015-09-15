@@ -571,10 +571,10 @@ cs:
       price_per_day: ~
     index:
       loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      message_partitive: zpráva
+      messages_partitive: zprávy
+      no_received_messages: "Žádné zprávy"
+      no_sent_messages: "Žádné odeslané zprávy"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -601,9 +601,9 @@ cs:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: ~
-      favor_request_message_form_title: ~
-      housing_offer_message_form_title: ~
+      favor_offer_message_form_title: "Požádejte o pomoc uživatele %{person}"
+      favor_request_message_form_title: "Nabídněte pomoc uživateli %{person}"
+      housing_offer_message_form_title: "Nabídněte pomoc uživateli %{person}"
       housing_request_message_form_title: ~
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
@@ -622,7 +622,7 @@ cs:
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: ~
-      message: ~
+      message: Zpráva
       message_to: ~
       optional_message_to: ~
       rideshare_offer_message_form_title: ~
@@ -632,7 +632,7 @@ cs:
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: Nadpis
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -640,7 +640,7 @@ cs:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
+      send_reply: "Poslat odpověď"
       write_a_reply: ~
       conversation_about_listing: ~
       conversation_with_user: ~
@@ -657,9 +657,9 @@ cs:
       cancel_payed_transaction: ~
       feedback_given: ~
       feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      give_feedback: "Podělte se o svoji zkušenost"
+      offer_accepted: Přijato
+      offer_rejected: Odmítnuto
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -675,8 +675,8 @@ cs:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: Přijato
+      request_rejected: Odmítnuto
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
@@ -1324,6 +1324,7 @@ cs:
       you_are_not_allowed_to_give_feedback_on_this_transaction: ~
       you_are_not_authorized_to_do_this: ~
       you_are_not_authorized_to_view_this_content: ~
+      listing_closed: ~
       send_instructions: ~
       you_cannot_reply_to_a_closed_offer: ~
       you_cannot_reply_to_a_closed_request: ~
