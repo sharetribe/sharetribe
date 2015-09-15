@@ -15,6 +15,10 @@ module ListingIndexService::Search
     def search(community_id:, search:, includes:)
       included_models = includes.map { |m| INCLUDE_MAP[m] }
 
+      if needs_db_query?(search) && needs_search?(search)
+        raise ArgumentError.new("Both DB query and search engine would be needed to fulfill the search")
+      end
+
       result =
         if needs_search?(search)
           if search_out_of_bounds?(search[:per_page], search[:page])
@@ -32,14 +36,26 @@ module ListingIndexService::Search
     private
 
     def fetch_from_db(community_id:, search:, included_models:)
-      models = Listing
-        .where(community_id: community_id)
+      where_opts = HashUtils.compact(
+        {
+          community_id: community_id,
+          author_id: search[:author_id]
+        })
+
+      query = Listing
+        .where(where_opts)
         .includes(included_models)
-        .currently_open("open")
         .order("listings.sort_date DESC")
         .paginate(per_page: search[:per_page], page: search[:page])
 
-      {count: models.total_entries, listings: models}
+      with_open =
+        if search[:include_closed]
+          query
+        else
+          query.currently_open
+        end
+
+      {count: with_open.total_entries, listings: with_open}
     end
 
     def search_with_sphinx(community_id:, search:, included_models:)
@@ -183,12 +199,17 @@ module ListingIndexService::Search
       page > pages.ceil
     end
 
+    def needs_db_query?(search)
+      search[:author_id].present? || search[:include_closed] == true
+    end
+
     def needs_search?(search)
-      search[:keywords].present? ||
-        search[:listing_shape_id].present? ||
-        search[:categories].present? ||
-        search[:fields].present? ||
-        search[:price_cents].present?
+      [
+        :keywords,
+        :listing_shape_id,
+        :categories, :fields,
+        :price_cents
+      ].any? { |field| search[field].present? }
     end
 
     def selection_groups(groups)

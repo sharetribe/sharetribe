@@ -6,42 +6,6 @@ class HomepageController < ApplicationController
   APP_DEFAULT_VIEW_TYPE = "grid"
   VIEW_TYPES = ["grid", "list", "map"]
 
-  ListingItem = Struct.new(
-    :id,
-    :title,
-    :category_id,
-    :latitude,
-    :longitude,
-    :author,
-    :description,
-    :listing_images,
-    :price,
-    :unit_tr_key,
-    :unit_type,
-    :quantity,
-    :shape_name_tr_key,
-    :listing_shape_id,
-    :icon_name)
-
-  Author = Struct.new(
-    :id,
-    :username,
-    :first_name,
-    :last_name,
-    :organization_name,
-    :is_organization,
-    :avatar,
-    :is_deleted,
-    :num_of_reviews)
-
-  Price = Struct.new(
-    :price_cents,
-    :currency)
-
-  ListingImage = Struct.new(
-    :thumb,
-    :small_3x2)
-
   def index
     @homepage = true
 
@@ -179,58 +143,13 @@ class HomepageController < ApplicationController
     }
 
     ListingIndexService::API::Api.listings.search(community_id: @current_community.id, search: search, includes: includes).and_then { |res|
-      listings = res[:listings].map { |l|
-        author =
-          if includes.include?(:author)
-            Author.new(
-              l[:author][:id],
-              l[:author][:username],
-              l[:author][:first_name],
-              l[:author][:last_name],
-              l[:author][:organization_name],
-              l[:author][:is_organization],
-              ListingImage.new(
-                l[:author][:avatar][:thumb]
-              ),
-              l[:author][:is_deleted],
-              l[:author][:num_of_reviews]
-            )
-          else
-            nil
-          end
-
-        listing_images =
-          if includes.include?(:listing_images)
-            l[:listing_images].map { |li|
-              ListingImage.new(li[:thumb], li[:small_3x2]) }
-          else
-            []
-          end
-
-        ListingItem.new(
-          l[:id],
-          l[:title],
-          l[:category_id],
-          l[:latitude],
-          l[:longitude],
-          author,
-          l[:description],
-          listing_images,
-          l[:price],
-          l[:unit_tr_key],
-          l[:unit_type],
-          l[:quantity],
-          l[:shape_name_tr_key],
-          l[:listing_shape_id],
-          l[:icon_name]
-        )
-      }
-
-      paginated = WillPaginate::Collection.create(params[:page] || 1, listings_per_page, res[:count]) do |pager|
-        pager.replace(listings)
-      end
-
-      Result::Success.new(paginated)
+      Result::Success.new(
+        ListingIndexViewUtils.to_struct(
+        result: res,
+        includes: includes,
+        page: search[:page],
+        per_page: search[:per_page]
+      ))
     }
   end
 

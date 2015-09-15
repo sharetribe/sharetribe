@@ -19,7 +19,9 @@ module ListingIndexService::DataTypes
     [:categories, :array, :optional],
     [:listing_shape_id, :fixnum, :optional],
     [:price_cents, :range, :optional],
-    [:fields, :array, default: []]
+    [:fields, :array, default: []],
+    [:author_id, :string],
+    [:include_closed, :to_bool, default: false]
   )
 
   AvatarImage = EntityUtils.define_builder(
