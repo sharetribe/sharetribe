@@ -601,7 +601,7 @@ hu:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: "Segítséget kérek innen: %{person}"
+      favor_offer_message_form_title: "Segítséget kérek tőle: %{person}"
       favor_request_message_form_title: "Segítek neki: %{person}"
       housing_offer_message_form_title: ~
       housing_request_message_form_title: ~
@@ -850,8 +850,8 @@ hu:
       has_rejected_your_offer: ~
       has_rejected_your_request: ~
       view_thread: ~
-      your_offer_was_accepted: Elfogadva
-      your_offer_was_rejected: Elutasítva
+      your_offer_was_accepted: "Ajánlat elfogadva"
+      your_offer_was_rejected: "Ajánlat elutasítva"
       your_request_was_accepted: Elfogadva
       your_request_was_rejected: Elutasítva
       you_can_now_pay_to: ~

@@ -621,7 +621,7 @@ cs:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: ~
+      item_request_message_form_title: "Nabídněte předmět uživateli %{person}."
       message: Zpráva
       message_to: ~
       optional_message_to: ~
@@ -836,7 +836,7 @@ cs:
       check_your_settings: ~
       hey: ~
       kassi_team: ~
-      thanks: ~
+      thanks: "Díky,"
       want_to_control_emails: ~
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
@@ -845,15 +845,15 @@ cs:
       or: ~
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter} přijal/a Vaši nabídku %{listing}."
+      has_accepted_your_request: "%{accepter} přijal/a Vaši žádost %{listing}."
+      has_rejected_your_offer: "%{accepter} odmítl/a Vaši nabídku %{listing}."
+      has_rejected_your_request: "%{accepter} odmítl/a Vaši žádost %{listing}."
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "Vaše nabídka byla přijata."
+      your_offer_was_rejected: "Vaše nabídka byla odmítnuta."
+      your_request_was_accepted: "Vaše žádost byla přijata."
+      your_request_was_rejected: "Vaše žádost byla odmítnuta."
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~
@@ -866,13 +866,13 @@ cs:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "%{author} okomentoval/a Vaše zboží na tržišti %{service_name}."
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} Vám poslal/a zprávu na třžišti %{service_name}."
+      you_have_a_new_message: "Máte novou zprávu na tržišti %{service_name} od %{sender_name}."
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -900,8 +900,8 @@ cs:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name} Vás ohodnotil na tržišti %{service_name}."
+      you_can_give_feedback_to: "Stále jste neohodnotil/a uživatele %{name}."
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -928,9 +928,9 @@ cs:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      feedback_is_public_and_is_shown: ~
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      feedback_is_public_and_is_shown: "Hodnocení je veřejné a vidí ho všichni uživatelé. Na základě hodnocení se mohou ostatní uživatelé rozhodnout, zda je %{name} důvěryhodný/á. Z toho důvodu je dobré hodnotit a připomínat ostatním, aby hodnotili vás. Kladné hodnocení Vám také zaručí většinu uživatelských odznaků."
+      remember_to_give_feedback_to: "Připomínka: nezapomeňte ohodnotit uživatele %{name}."
+      you_have_not_given_feedback_yet: "Stále jste neohodnotil/a %{name} ohledně %{event}. Nezapomeňte vyjádřit svoji spokojenost s %{given_name}."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -972,7 +972,7 @@ cs:
   error_messages:
     listings:
       departure_time: ~
-      share_type: ~
+      share_type: "Musíte zvolit právě jednu variantu."
       valid_until: ~
       price: ~
       minimum_price: ~
@@ -1069,107 +1069,107 @@ cs:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "Je zde <b>ještě jedna nabídka</b>,"
+      additionally_one_private_request_exists: "Jde zde <b>ještě jedna žádost</b>,"
+      additionally_some_private_offers_exist: "Je zde ještě <b>%{number_of_listings} inzerátů</b>,"
+      additionally_some_private_requests_exist: "Je zde ještě <b>%{number_of_listings} žádostí</b>,"
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
+      add_first: "Přidejte jeden!"
+      but_that_is_visible_only_to_registered_members: "ale to mohou vidět pouze registrovaní členové."
+      but_those_are_visible_only_to_registered_members: "ale to mohou vidět pouze registrovaní členové."
       create_new_account_for_yourself: "Vytvořit nový účet"
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
-      favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
-      item_offer_list: ~
-      item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
-      log_in: ~
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      examples_of_what_you_could_offer_to_others: "Co můžete nabídnout ostatním"
+      examples_of_what_you_could_request_to_others: "O co můžete požádat ostatní"
+      favor_offer_list: "pomoc s IT, oprava šatů, pečení, oprava kol"
+      favor_request_list: "hlídání dětí, hodiny klavíru, venčení psů, sekání trávy"
+      favors_to_offer: "Pomoc: "
+      favors_to_request: "Pomoc: "
+      item_offer_list: "nářadí, sportovní vybavení, kostýmy, výbava pro stanování"
+      item_request_list: "nářadí, sportovní vybavení, kostýmy, výbava pro stanování"
+      items_to_offer: "Věci na půjčení: "
+      items_to_request: "Věci, které si chcete půjčit: "
+      log_in: "Přihlásit se"
+      no_offers_visible_unless_logged_in: "Nepřihlášení uživatelé nevidí zboží a služby"
+      no_open_offers_currently: "Žádné otevřené položky."
+      no_open_requests_currently: "Žádné otevřené položky."
+      no_requests_visible_unless_logged_in: "Žádné otevřené položky viditelné nepřihlášeným uživatelům."
+      one_private_offer_exists: "Již existuje <b>jedna nabídka</b>,"
+      one_private_request_exists: "Již existuje <b>jedna žádost</b>,"
+      ride_offer: "Vezměte děti ostatních na kroužky"
+      ride_request: "Spolujízda do práce"
+      some_private_offers_exist: "Existujících inzerátů: <b>%{number_of_listings}</b>"
+      some_private_requests_exist: "Existujících žádostí: <b>%{number_of_listings}</b>,"
     custom_filters:
-      update_view: ~
-      min: ~
-      max: ~
+      update_view: Aktualizovat
+      min: "Min:"
+      max: "Max:"
     event_feed:
-      latest_events: ~
+      latest_events: "Co se děje"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Obrázek se nahrává)"
     index:
-      no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
+      no_listings_with_your_search_criteria: "Hledanému výrazu neodpovídají žádné záznamy."
+      no_listings_notification: "Žádné inzeráty. %{add_listing_link}"
       add_listing_link_text: "Přidat nový inzerát"
-      open_listing: ~
-      open_listings: ~
-      private_listing_notification_log_in: ~
-      is: ~
-      are: ~
-      what_do_you_need: ~
+      open_listing: "Napsat inzerát"
+      open_listings: "Otevřít inzeráty"
+      private_listing_notification_log_in: "Přihlásit se"
+      is: je
+      are: jsou
+      what_do_you_need: "Co hledáte?"
       post_new_listing: "Přidat nový inzerát"
-      are_offering: ~
-      add_news_item: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
-      more_events: ~
+      are_offering: nabídka
+      add_news_item: "Přidat článek"
+      lend_rent_help_carpool: "Zapůjčit, půjčit ostatním, pomoci, spolujízda"
+      loading_more_content: "Nahrává se obsah"
+      more_events: "Více událostí..."
       news: Novinky
-      no_news: ~
-      more_news: ~
-      or: ~
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
-      no_reviews: ~
-      no_image: ~
-      filter: ~
-      this_is_private_community: ~
+      no_news: "Žádné novinky"
+      more_news: "Více novinek"
+      or: a
+      or_see_what_the_others: "...nebo se koukněte, co ostatní"
+      recent_events: "Nedávné události"
+      requesting: potřeba
+      tell_it_here: "Podělte se zde!"
+      welcome_to_new_kassi: "Vítejte na online tržišti %{service_name}!"
+      no_reviews: "Žádná hodnocení"
+      no_image: "Žádný obrázek"
+      filter: Filtr
+      this_is_private_community: "Obsah je viditelný až po přihlášení."
     invitation_form:
-      email: ~
-      message: ~
-      send_invitation: ~
-      add_email_addresses_description: ~
-      add_lots_of_email_addresses: ~
-      this_article_link: ~
-      invitation_emails_field_placeholder: ~
-      invitation_message_field_placeholder: ~
-      errors_in_emails: ~
+      email: "Emailová adresa (i více najednou)"
+      message: "Soukromá zpráva"
+      send_invitation: "Poslat pozvánku"
+      add_email_addresses_description: "Do políčka dole napište emailové adresy lidí, které chcete pozvat. Pokud přidáte více adres najednou, oddělte je čárkou."
+      add_lots_of_email_addresses: "Pokud si přejete poslat hodně pozvánek najednou, použijte speciální emailovací nástroj. V tomto %{this_article_link} se dozvíte více o vhodných nástrojích."
+      this_article_link: článku
+      invitation_emails_field_placeholder: "kamarad1@priklad.cz, kamarad2@priklad2.cz,..."
+      invitation_message_field_placeholder: "Začal jsem používat online bazar. Přidáš se?"
+      errors_in_emails: "Zkontrolujte, zda Vámi přidané emailové adresy jsou platné. V případě, že jste přidal/a více adres, ujistěte se, že jsou oddělené čárkou."
     list_item:
-      review: ~
-      reviews: ~
+      review: Hodnocení
+      reviews: Hodnocení
     news_item:
-      show_less: ~
-      show_more: ~
+      show_less: "Zobrazit více"
+      show_more: "Zobrazit méně"
     profile_info_empty_notification:
-      add_your_info: ~
+      add_your_info: "Přidat osobní údaje"
       add_a_profile_picture: "Přidat profilovou fotku"
-      you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      you_have_not_added_your_info: "Ještě jste nepřidal/a svoje kontaktní údaje. Doplňte je, prosím, aby Vás ostatní mohli snadno kontaktovat."
+      add_your_info_link: "Nyní přidejte svoje údaje"
     recent_listing:
-      please_offer: ~
+      please_offer: Nabídka
       comment: komentář
       comments: komentáře
     filters:
       show: Filtrovat
       search: Hledat
-      map: ~
-      list: ~
+      map: "Ukázat mapu"
+      list: "Ukázat seznam"
       map_button: Mapa
       grid_button: Mřížka
       list_button: Seznam
-      all_listing_types: ~
+      all_listing_types: "Všechny typy inzerátů"
       all_categories: "Všechny kategorie"
   infos:
     about:
@@ -1614,15 +1614,15 @@ cs:
       verification_required: ~
   listing_conversations:
     preauthorize:
-      details: ~
-      by: ~
-      payment: ~
-      exp: ~
-      you_will_be_charged: ~
-      day: ~
-      days: ~
+      details: Detaily
+      by: "%{listing} od %{author}"
+      payment: Platba
+      exp: "Vypršení platnosti:"
+      you_will_be_charged: "Platba Vám bude naúčtována, pouze když %{author} přijme podmínky transakce. %{author} musí tyto podmínky přijmout do %{expiration_period} dní. Pokud tak %{author} neučiní či podmínky odmítne, tak platba neproběhne."
+      day: den
+      days: dní
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Zobrazit.
   mapview:
     index:
       all_categories: ~
