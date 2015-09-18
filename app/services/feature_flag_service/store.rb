@@ -8,7 +8,8 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     FLAGS = [
-      :location_search
+      :location_search,
+      :how_paypal_works_text_link
     ].to_set
 
     def initialize(additional_flags:)
