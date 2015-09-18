@@ -1,6 +1,22 @@
 - how_paypal_works_link = "https://www.paypal.com/webapps/mpp/paypal-popup"
-%a#how-paypal-works-popup-link{title: t("listings.listing_actions.how_paypal_works"), href: how_paypal_works_link}
+
+- content_for(:paypal_credit_card_icons) do
   = image_tag "https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png", style: "max-width: 100%"
+
+
+- if feature_enabled?(:how_paypal_works_text_link)
+  = content_for(:paypal_credit_card_icons)
+
+%a#how-paypal-works-popup-link{title: t("listings.listing_actions.how_paypal_works"), href: how_paypal_works_link}
+
+  - if feature_enabled?(:how_paypal_works_text_link)
+    %br/
+    %span.listings-how-paypal-works-link
+      = t("listings.listing_actions.learn_more_how_paypal_works")
+
+  - else
+    = content_for(:paypal_credit_card_icons)
+
   - content_for :extra_javascript do
     :javascript
       $("#how-paypal-works-popup-link").click(function() {
