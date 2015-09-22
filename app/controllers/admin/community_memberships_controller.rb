@@ -71,7 +71,7 @@ class Admin::CommunityMembershipsController < ApplicationController
         email_address
         email_address_confirmed
         email_from_admins_allowed
-        number_of_listings
+        number_of_total_listings
       }
       memberships.each do |membership|
         user = membership.person
