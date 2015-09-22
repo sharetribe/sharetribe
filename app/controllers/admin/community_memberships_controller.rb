@@ -4,15 +4,16 @@ class Admin::CommunityMembershipsController < ApplicationController
   def index
     @selected_left_navi_link = "manage_members"
     @community = @current_community
-    @memberships = CommunityMembership.where(:community_id => @current_community.id, :status => "accepted")
-                                       .includes(:person => :emails)
-                                       .paginate(:page => params[:page], :per_page => 50)
-                                       .order("#{sort_column} #{sort_direction}")
 
     respond_to do |format|
-      format.html
+      format.html do
+        @memberships = CommunityMembership.where(:community_id => @current_community.id, :status => "accepted")
+                                           .includes(:person => :emails)
+                                           .paginate(:page => params[:page], :per_page => 50)
+                                           .order("#{sort_column} #{sort_direction}")
+      end
       format.csv do
-        all_memberships = CommunityMembership.where(:community_id => @community.id)
+        @memberships = CommunityMembership.where(:community_id => @community.id)
                                               .includes(:person => :emails)
                                               .order("created_at ASC")
         marketplace_name = if @community.use_domain
@@ -20,7 +21,7 @@ class Admin::CommunityMembershipsController < ApplicationController
         else
           @community.ident
         end
-        send_data generate_csv_for(all_memberships), filename: "#{marketplace_name}-users-#{Date.today}.csv"
+        send_data generate_csv, filename: "#{marketplace_name}-users-#{Date.today}.csv"
       end
     end
   end
@@ -59,7 +60,9 @@ class Admin::CommunityMembershipsController < ApplicationController
     render nothing: true, status: 200
   end
 
-  def generate_csv_for(memberships)
+  private
+
+  def generate_csv
     CSV.generate(headers: true) do |csv|
       # first line is column names
       csv << %w{
@@ -73,14 +76,14 @@ class Admin::CommunityMembershipsController < ApplicationController
         email_from_admins_allowed
         number_of_total_listings
       }
-      memberships.each do |membership|
+      @memberships.each do |membership|
         user = membership.person
         search = {
           author_id: user.id,
           include_closed: true,
           per_page: 9999 # FIXME
         }
-        listings = ListingIndexService::API::Api.listings.search(community_id: membership.community.id, search: search, includes: [])
+        listings = ListingIndexService::API::Api.listings.search(community_id: @community.id, search: search, includes: [])
         user_data = [
           user.given_name,
           user.family_name,
@@ -96,8 +99,6 @@ class Admin::CommunityMembershipsController < ApplicationController
       end
     end
   end
-
-  private
 
   def removes_itself?(ids, current_admin_user, community)
     ids ||= []
