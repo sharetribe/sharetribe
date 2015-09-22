@@ -20,7 +20,7 @@ class Admin::CommunityMembershipsController < ApplicationController
         else
           @community.ident
         end
-        send_data self.class.generate_csv_for(all_memberships), filename: "#{marketplace_name}-users-#{Date.today}.csv"
+        send_data generate_csv_for(all_memberships), filename: "#{marketplace_name}-users-#{Date.today}.csv"
       end
     end
   end
@@ -59,7 +59,7 @@ class Admin::CommunityMembershipsController < ApplicationController
     render nothing: true, status: 200
   end
 
-  def self.generate_csv_for(memberships)
+  def generate_csv_for(memberships)
     CSV.generate(headers: true) do |csv|
       # first line is column names
       csv << %w{
