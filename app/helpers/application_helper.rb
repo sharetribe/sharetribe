@@ -70,6 +70,7 @@ module ApplicationHelper
       "analytics" => "ss-analytics",
       "openbook" => "ss-openbook",
       "order_types" => "ss-cart",
+      "download" => "ss-download",
 
       # Default category & share type icons
       "offer" => "ss-share",
@@ -185,6 +186,7 @@ module ApplicationHelper
       "settings" => " icon-cog",
       "facebook" => "icon-facebook",
       "invite" => "icon-users",
+      "download" => "icon-download",
 
       "information" => "icon-info-sign",
       "alert" => "icon-warning-sign",

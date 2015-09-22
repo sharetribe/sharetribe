@@ -1,3 +1,5 @@
+require 'csv'
+
 class Admin::CommunityMembershipsController < ApplicationController
   before_filter :ensure_is_admin
 
@@ -8,6 +10,21 @@ class Admin::CommunityMembershipsController < ApplicationController
                                        .includes(:person => :emails)
                                        .paginate(:page => params[:page], :per_page => 50)
                                        .order("#{sort_column} #{sort_direction}")
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        all_memberships = CommunityMembership.where(:community_id => @community.id)
+                                              .includes(:person => :emails)
+                                              .order("created_at ASC")
+        marketplace_name = if @community.use_domain
+          @community.domain
+        else
+          @community.ident
+        end
+        send_data self.class.generate_csv_for(all_memberships), filename: "#{marketplace_name}-users-#{Date.today}.csv"
+      end
+    end
   end
 
   def ban
@@ -42,6 +59,44 @@ class Admin::CommunityMembershipsController < ApplicationController
     @current_community.community_memberships.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
 
     render nothing: true, status: 200
+  end
+
+  def self.generate_csv_for(memberships)
+    CSV.generate(headers: true) do |csv|
+      # first line is column names
+      csv << %w{
+        first_name
+        last_name
+        username
+        joined
+        status
+        email_address
+        email_address_confirmed
+        email_from_admins_allowed
+        number_of_listings
+      }
+      memberships.each do |membership|
+        user = membership.person
+        search = {
+          author_id: user.id,
+          include_closed: true,
+          per_page: 9999 # FIXME
+        }
+        listings = ListingIndexService::API::Api.listings.search(community_id: membership.community.id, search: search, includes: [])
+        user_data = [
+          user.given_name,
+          user.family_name,
+          user.username,
+          membership.created_at,
+          membership.status,
+          user.preferences["email_from_admins"],
+          listings.data[:count]
+        ]
+        user.emails.each do |email|
+          csv << user_data.insert(5, email.address, !!email.confirmed_at)
+        end
+      end
+    end
   end
 
   private
