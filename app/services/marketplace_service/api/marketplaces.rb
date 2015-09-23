@@ -46,7 +46,13 @@ module MarketplaceService::API
       "proxy",
       "preproduction",
       "staging",
-      "demo"
+      "demo",
+      "plan",
+      "plans",
+      "customer",
+      "customers",
+      "subscription",
+      "subscriptions"
     ]
 
     module_function
