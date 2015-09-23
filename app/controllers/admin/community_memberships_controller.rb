@@ -69,16 +69,21 @@ class Admin::CommunityMembershipsController < ApplicationController
   def generate_csv_for(memberships)
     CSV.generate(headers: true) do |csv|
       # first line is column names
-      csv << %w{
+      header_row = %w{
         first_name
         last_name
         username
-        joined
-        status
         email_address
         email_address_confirmed
+        joined_at
+        status
+        is_admin
         email_from_admins_allowed
       }
+      community_requires_verification_to_post =
+        memberships.first && memberships.first.community.require_verification_to_post_listings
+      header_row.push("can_post_listings") if community_requires_verification_to_post
+      csv << header_row
       memberships.each do |membership|
         user = membership.person
         user_data = [
@@ -87,10 +92,12 @@ class Admin::CommunityMembershipsController < ApplicationController
           user.username,
           membership.created_at,
           membership.status,
+          membership.admin,
           user.preferences["email_from_admins"]
         ]
+        user_data.push(membership.can_post_listings) if community_requires_verification_to_post
         user.emails.each do |email|
-          csv << user_data.insert(5, email.address, !!email.confirmed_at)
+          csv << user_data.insert(3, email.address, !!email.confirmed_at)
         end
       end
     end
