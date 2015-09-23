@@ -65,13 +65,15 @@ class Admin::CommunityTransactionsController < ApplicationController
           }
         })
       end
-      format.csv do
-        marketplace_name = if @current_community.use_domain
-          @current_community.domain
-        else
-          @current_community.ident
+      with_feature(:export_as_csv) do
+        format.csv do
+          marketplace_name = if @current_community.use_domain
+            @current_community.domain
+          else
+            @current_community.ident
+          end
+          send_data generate_csv_for(conversations), filename: "#{marketplace_name}-transactions-#{Date.today}.csv"
         end
-        send_data generate_csv_for(conversations), filename: "#{marketplace_name}-transactions-#{Date.today}.csv"
       end
     end
   end
@@ -79,7 +81,18 @@ class Admin::CommunityTransactionsController < ApplicationController
   def generate_csv_for(conversations)
     CSV.generate(headers: true) do |csv|
       # first line is column names
-      csv << %w{transaction_id listing_id listing_name status sum commission started last_activity starter_username other_party_username}
+      csv << %w{
+        transaction_id
+        listing_id
+        listing_name
+        status
+        sum
+        commission
+        started_at
+        last_activity_at
+        starter_username
+        other_party_username
+      }
       conversations.each do |conversation|
         csv << [
           conversation[:id],

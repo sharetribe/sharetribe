@@ -14,16 +14,18 @@ class Admin::CommunityMembershipsController < ApplicationController
                                            .paginate(:page => params[:page], :per_page => 50)
                                            .order("#{sort_column} #{sort_direction}")
       end
-      format.csv do
-        @memberships = CommunityMembership.where(:community_id => @community.id)
-                                              .includes(:person => :emails)
-                                              .order("created_at ASC")
-        marketplace_name = if @community.use_domain
-          @community.domain
-        else
-          @community.ident
+      with_feature(:export_as_csv) do
+        format.csv do
+          all_memberships = CommunityMembership.where(:community_id => @community.id)
+                                                .includes(:person => :emails)
+                                                .order("created_at ASC")
+          marketplace_name = if @community.use_domain
+            @community.domain
+          else
+            @community.ident
+          end
+          send_data generate_csv_for(all_memberships), filename: "#{marketplace_name}-users-#{Date.today}.csv"
         end
-        send_data generate_csv, filename: "#{marketplace_name}-users-#{Date.today}.csv"
       end
     end
   end
@@ -64,7 +66,7 @@ class Admin::CommunityMembershipsController < ApplicationController
 
   private
 
-  def generate_csv
+  def generate_csv_for(memberships)
     CSV.generate(headers: true) do |csv|
       # first line is column names
       csv << %w{
@@ -78,7 +80,7 @@ class Admin::CommunityMembershipsController < ApplicationController
         email_from_admins_allowed
         number_of_total_listings
       }
-      @memberships.each do |membership|
+      memberships.each do |membership|
         user = membership.person
         search = {
           author_id: user.id,

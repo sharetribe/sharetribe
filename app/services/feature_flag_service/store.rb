@@ -8,7 +8,8 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     FLAGS = [
-      :location_search
+      :location_search,
+      :export_as_csv
     ].to_set
 
     def initialize(additional_flags:)
