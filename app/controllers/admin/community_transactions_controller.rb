@@ -1,3 +1,5 @@
+require 'csv'
+
 class Admin::CommunityTransactionsController < ApplicationController
   TransactionQuery = MarketplaceService::Transaction::Query
   before_filter :ensure_is_admin
