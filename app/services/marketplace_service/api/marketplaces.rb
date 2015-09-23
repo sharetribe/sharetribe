@@ -52,7 +52,9 @@ module MarketplaceService::API
       "customer",
       "customers",
       "subscription",
-      "subscriptions"
+      "subscriptions",
+      "client",
+      "clients"
     ]
 
     module_function
