@@ -47,6 +47,8 @@ class Admin::CommunityTransactionsController < ApplicationController
         transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
       end
 
+      transaction[:last_activity_at] = last_activity_for(transaction)
+
       transaction.merge({author: author, starter: starter})
     end
 
@@ -87,13 +89,15 @@ class Admin::CommunityTransactionsController < ApplicationController
           conversation[:payment_total],
           conversation[:commission_from_seller],
           conversation[:created_at],
-          last_activity_for(conversation),
+          conversation[:last_activity_at],
           conversation[:starter][:username],
           conversation[:author][:username]
         ]
       end
     end
   end
+
+  private
 
   def last_activity_for(conversation)
     last_activity_at = 0
@@ -106,10 +110,6 @@ class Admin::CommunityTransactionsController < ApplicationController
     end
     last_activity_at
   end
-
-  helper_method :last_activity_for
-
-  private
 
   def simple_sort_column(sort_column)
     case sort_column
