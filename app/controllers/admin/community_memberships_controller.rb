@@ -78,24 +78,16 @@ class Admin::CommunityMembershipsController < ApplicationController
         email_address
         email_address_confirmed
         email_from_admins_allowed
-        number_of_total_listings
       }
       memberships.each do |membership|
         user = membership.person
-        search = {
-          author_id: user.id,
-          include_closed: true,
-          per_page: 9999 # FIXME
-        }
-        listings = ListingIndexService::API::Api.listings.search(community_id: @community.id, search: search, includes: [])
         user_data = [
           user.given_name,
           user.family_name,
           user.username,
           membership.created_at,
           membership.status,
-          user.preferences["email_from_admins"],
-          listings.data[:count]
+          user.preferences["email_from_admins"]
         ]
         user.emails.each do |email|
           csv << user_data.insert(5, email.address, !!email.confirmed_at)
