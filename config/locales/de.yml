@@ -763,7 +763,7 @@ de:
       confirm_payment: "Zahlung bestätigen"
       exp: ~
   feedback:
-    feedback_subject: "Neue Bewertung von %{service_name}"
+    feedback_subject: "Neue Nachricht von %{service_name}"
     feedback_body: "%{author_name_and_email} hat Dir die folgende Nachricht auf %{service_name} gesendet"
     unlogged_user: "Nicht angemeldeter Nutzer"
     anonymous_user: "Anonymer Benutzer"
@@ -814,7 +814,7 @@ de:
       cancel_it_link_text: Abbrechen
     payment_settings_reminder:
       remember_to_add_payment_details: "Denke daran, deine Zahlungsdetails hinzuzufügen, um Zahlungen erhalten zu können"
-      you_have_added_listing_with_payment: "Du hast unter %{listing_link} einen Eintrag mit Bezahlung hinzugefügt. Leider hast du noch keine Zahlungsinformationen hinzugefügt. Um Zahlungen erhalten zu können, musst du deine Zahlungsinformationen hinzufügen."
+      you_have_added_listing_with_payment: "Du hast unter %{listing_link} einen Eintrag mit Bezahlung hinzugefügt. Leider hast Du noch keine Zahlungsinformationen angegeben. Um Zahlungen erhalten zu können, musst Du Deine Zahlungsinformationen hinterlegen."
       please_go_to_payment_settings: "Bitte geh zu %{payment_settings_link} und fülle die erforderlichen Zahlungsinformationen aus."
       payment_settings_link: Zahlungseinstellungen
     transaction_confirmed:
@@ -887,7 +887,7 @@ de:
     new_message:
       view_message: "Nachricht ansehen"
       has_sent_you_a_message_in_kassi: "%{sender} hat dir eine Nachricht auf %{service_name} gesendet."
-      you_have_a_new_message: "Du hast eine neue Nachricht von %{sender_name} auf %{service_name}"
+      you_have_a_new_message: "Du hast eine neue Nachricht von %{sender_name} von %{service_name}"
     new_payment:
       new_payment: "Du hast eine neue Zahlung erhalten"
       price_per_unit_type: "Preis pro %{unit_type}"
