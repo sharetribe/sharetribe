@@ -306,7 +306,7 @@ class Admin::ListingShapesController < ApplicationController
 
   def ensure_no_braintree_or_checkout
     gw = PaymentGateway.where(community_id: @current_community.id).first
-    if !@current_user.is_admin && gw
+    if !@current_user.is_admin? && gw
       flash[:error] = "Not available for your payment gateway: #{gw.type}"
       redirect_to edit_details_admin_community_path(@current_community.id)
     end
