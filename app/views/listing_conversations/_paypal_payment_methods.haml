@@ -1,8 +1,6 @@
-- how_paypal_works_link = "https://www.paypal.com/webapps/mpp/paypal-popup"
-
 = image_tag "https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png", style: "max-width: 100%"
 %br/
-%a#how-paypal-works-popup-link{title: t("listings.listing_actions.how_paypal_works"), href: how_paypal_works_link}
+%a#how-paypal-works-popup-link{title: t("listings.listing_actions.how_paypal_works"), href: t("paypal.how_paypal_works_link")}
   %span.listings-how-paypal-works-link
     = t("listings.listing_actions.payment_help")
 
@@ -10,7 +8,7 @@
   :javascript
     $("#how-paypal-works-popup-link").click(function() {
       window.open(
-        '#{how_paypal_works_link}',
+        '#{t("paypal.how_paypal_works_link")}',
         'WIPaypal',
         'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'
       );
