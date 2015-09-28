@@ -107,7 +107,7 @@
     - if payment_gateway == :paypal && process != :none
       .row
         .col-12
-          = render :partial => "listing_conversations/paypal_payment_methods", locals: { country_code: @current_community.country }
+          = render :partial => "listing_conversations/paypal_payment_methods", locals: { country_code: country_code }
 
   - if is_authorized
     .listing-view-admin-links
