@@ -1,4 +1,12 @@
 module PaypalHelper
+
+  # List all the contries that have the popup URL available
+  SHOW_POPUP_COUNTRIES = ["us", "de"].to_set
+
+  # List all the countries that should use the home URL, because popup is not available
+  # (and default English popup is not good)
+  SHOW_HOMEPAGE_COUNTRIES = ["br"]
+
   TxApi = TransactionService::API::Api
 
   module_function
@@ -40,6 +48,16 @@ module PaypalHelper
     account_prepared?(community_id: community_id)
   end
 
+  def popup_link(country_code)
+    if SHOW_POPUP_COUNTRIES.include?(country_code)
+      "https://www.paypal.com/#{country_code}/webapps/mpp/paypal-popup"
+    elsif SHOW_HOMEPAGE_COUNTRIES.include?(country_code)
+      "https://www.paypal.com/#{country_code}/webapps/mpp/home"
+    else
+      # Default popup
+      "https://www.paypal.com/webapps/mpp/paypal-popup"
+    end
+  end
 
   # Private
   def account_prepared?(community_id:, person_id: nil, settings: Maybe(nil))
