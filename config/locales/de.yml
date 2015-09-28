@@ -130,7 +130,7 @@ de:
         sender_address_default: "Absender Adresse: nicht festgelegt (verwendet wird die Standard Email %{sender_address})"
         need_to_change: "Wenn Du die Email Adresse ändern möchtest, kontaktiere bitte %{contact_support_link}."
         contact_support_link_text: "Kontaktiere unseren Support"
-        set_sender_address: "Lege eine Absender Adresse fest"
+        set_sender_address: "Lege eine absender adresse fest"
         sender_name_label: Name
         sender_name_placeholder: Absender
         sender_email_label: "Email Adresse"
@@ -1105,8 +1105,8 @@ de:
       items_to_request: "Artikel zum Ausleihen: "
       log_in: "Melde Dich an!"
       no_offers_visible_unless_logged_in: "Kein Eintrag, Angebote sind für nur für angemeldete Nutzer sichtbar."
-      no_open_offers_currently: "Keine Angebote zu Gegenständen, Dienstleistungen oder Mitfahrgelegenheiten vorhanden."
-      no_open_requests_currently: "Keine Anfragen zu Gegenständen, Dienstleistungen oder Mitfahrgelegenheiten vorhanden."
+      no_open_offers_currently: "Keine angebote zu gegenständen, dienstleistungen oder mitfahrgelegenheiten vorhanden."
+      no_open_requests_currently: "Keine anfragen zu gegenständen, dienstleistungen oder mitfahrgelegenheiten vorhanden."
       no_requests_visible_unless_logged_in: "Kein Eintrag, Angebote sind für nur für angemeldete Nutzer sichtbar."
       one_private_offer_exists: "Es gibt bereits <b>ein Angebot</b>,"
       one_private_request_exists: "Es gibt bereits <b>eine Anfrage</b>,"
@@ -1374,7 +1374,7 @@ de:
       email_deleted: "E-Mail entfernt"
       payment_details_add_successful: "Zahlungsdetails erfolgreich hinzugefügt"
       payment_details_add_error: "Zahlungsdetails konnten nicht hinzugefügt werden"
-      listing_author_payment_details_missing: "Der Verfasser des Angebotes hat seine Zahlungsdaten nicht hinzugefügt, dadurch können im Moment keine Zahlungen empfangen werden. Bitte kontaktiere deswegen den Verfasser."
+      listing_author_payment_details_missing: "Leider kann dieser Anbieter keine Zahlungen empfangen, da er seine Zahlungsdaten noch angeben muss. Bitte kontaktiere ihn über das Kontakt Feld unten."
       stylesheet_needs_recompiling: "Die Stylesheets werden neu kompiliert. Bitte lade die Seite nach einer Weile neu."
     settings:
       account: Konto
@@ -1774,7 +1774,7 @@ de:
       username_is_invalid: "Der Benutzername ist ungültig. Erlaubte Zeichen sind Buchstaben (keine Umlaute), Ziffern und Unterstriche."
       visible_only_to_you: "nur für dich und den Admin der Community sichtbar"
       visible_to_everybody: "für jeden sichtbar"
-      create_account_with_facebook: "Lege ein Account mit Facebook an"
+      create_account_with_facebook: "Lege einen ccount mit Facebook an"
       OR: ODER
       signup_with_email: "Registriere dich mit deiner E-Mail-Adresse"
     not_member:
@@ -1860,7 +1860,7 @@ de:
       cancle_facebook_connect: "Wenn du dieses Konto nicht verbinden willst, kannst du %{cancel_link}."
       facebook_cancel_link_text: abbrechen
       log_in_with_your_facebook_account: "Melde dich mit deinem Facebook-Konto an"
-      or_sign_up_with_your_username: "...oder mit deinem Benutzernamen oder dem Passwort:"
+      or_sign_up_with_your_username: "...oder mit deinem benutzernamen und passwort:"
       we_will_not_post_without_asking_you: "Wir werden deine Nachrichten nie auf Facebook posten ohne vorher zu fragen."
     password_forgotten:
       email: E-Mail
