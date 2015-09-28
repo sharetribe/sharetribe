@@ -64,7 +64,7 @@ class Admin::PaypalPreferencesController < ApplicationController
         min_commission_percentage: MIN_COMMISSION_PERCENTAGE,
         max_commission_percentage: MAX_COMMISSION_PERCENTAGE,
         currency: currency,
-        create_url: "https://www.paypal.com/#{community_country_code}/signup",
+        create_url: "https://www.paypal.com/#{community_country_code}/signup/account",
         upgrade_url: "https://www.paypal.com/#{community_country_code}/upgrade",
         display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
         knowledge_base_url: APP_CONFIG.knowledge_base_url
