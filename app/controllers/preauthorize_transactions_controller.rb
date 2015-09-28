@@ -165,6 +165,8 @@ class PreauthorizeTransactionsController < ApplicationController
         raise ArgumentError.new("Unknown payment type #{vprms[:payment_type]} for booking")
       end
 
+    community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
+
     price_break_down_locals = TransactionViewUtils.price_break_down_locals({
       booking:  true,
       start_on: booking_data[:start_on],
@@ -182,7 +184,8 @@ class PreauthorizeTransactionsController < ApplicationController
       preauthorize_form: PreauthorizeBookingForm.new({
           start_on: booking_data[:start_on],
           end_on: booking_data[:end_on]
-        }),
+      }),
+      country_code: community_country_code,
       listing: vprms[:listing],
       delivery_method: delivery_method,
       subtotal: vprms[:subtotal],
