@@ -5,6 +5,7 @@ describe Admin::CommunityMembershipsController do
     @community = FactoryGirl.create(:community)
     @request.host = "#{@community.ident}.lvh.me"
     @person = create_admin_for(@community)
+    @other_email = FactoryGirl.create(:email, person: @person)
     sign_in_for_spec(@person)
 
     FeatureFlagService::API::Api.features.enable(community_id: @community.id, features: [:export_as_csv])
@@ -19,11 +20,19 @@ describe Admin::CommunityMembershipsController do
     it "returns CSV with actual data" do
       get :index, {format: :csv}
       response_arr = CSV.parse(response.body)
+      response_arr.count.should == 3
       user = Hash[*response_arr[0].zip(response_arr[1]).flatten]
+      user2 = Hash[*response_arr[0].zip(response_arr[2]).flatten]
 
       user["first_name"].should == @person.given_name
       user["last_name"].should == @person.family_name
       user["email_address"].should == @person.emails.first.address
+      user["status"].should == "accepted"
+
+      user2["first_name"].should == @person.given_name
+      user2["last_name"].should == @person.family_name
+      user2["email_address"].should == @other_email.address
+      user2["status"].should == "accepted"
     end
   end
 end

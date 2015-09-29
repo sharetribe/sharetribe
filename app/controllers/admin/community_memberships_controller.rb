@@ -98,7 +98,7 @@ class Admin::CommunityMembershipsController < ApplicationController
           ]
           user_data.push(membership.can_post_listings) if community_requires_verification_to_post
           user.emails.each do |email|
-            csv << user_data.insert(3, email.address, !!email.confirmed_at)
+            csv << user_data.clone.insert(3, email.address, !!email.confirmed_at)
           end
         end
       end
