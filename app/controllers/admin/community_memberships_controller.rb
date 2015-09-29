@@ -86,18 +86,20 @@ class Admin::CommunityMembershipsController < ApplicationController
       csv << header_row
       memberships.each do |membership|
         user = membership.person
-        user_data = [
-          user.given_name,
-          user.family_name,
-          user.username,
-          membership.created_at,
-          membership.status,
-          membership.admin,
-          user.preferences["email_from_admins"]
-        ]
-        user_data.push(membership.can_post_listings) if community_requires_verification_to_post
-        user.emails.each do |email|
-          csv << user_data.insert(3, email.address, !!email.confirmed_at)
+        unless user.blank?
+          user_data = [
+            user.given_name,
+            user.family_name,
+            user.username,
+            membership.created_at,
+            membership.status,
+            membership.admin,
+            user.preferences["email_from_admins"]
+          ]
+          user_data.push(membership.can_post_listings) if community_requires_verification_to_post
+          user.emails.each do |email|
+            csv << user_data.insert(3, email.address, !!email.confirmed_at)
+          end
         end
       end
     end

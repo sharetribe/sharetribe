@@ -94,6 +94,8 @@ class Admin::CommunityTransactionsController < ApplicationController
         other_party_username
       }
       conversations.each do |conversation|
+        starter_username = conversation[:starter] ? conversation[:starter][:username] : "DELETED"
+        other_party_username = conversation[:author] ? conversation[:author][:username] : "DELETED"
         csv << [
           conversation[:id],
           conversation[:listing][:id],
@@ -103,8 +105,8 @@ class Admin::CommunityTransactionsController < ApplicationController
           conversation[:commission_from_seller],
           conversation[:created_at],
           conversation[:last_activity_at],
-          conversation[:starter][:username],
-          conversation[:author][:username]
+          starter_username,
+          other_party_username
         ]
       end
     end
